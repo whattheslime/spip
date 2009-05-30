@@ -1,0 +1,34 @@
+[(#REM)
+
+	Les notes
+
+	Quelques soucis avec les modeles
+
+]
+
+
+[(#REM)
+	Ce bloc est en premier, et contient des notes separees par un MODELE;
+	il ne doit pas "sauter" de compteur_notes (nb2-2)
+]
+[(#EVAL{"chr(91).chr(91).'note1'.chr(93).chr(93).'<img1>'.chr(91).chr(91).'note2'.chr(93).chr(93)"}|propre|match{'nb.-1'}|?{#SET{err1,'Le compteur_notes a change a cause du modele'#NOTES}})]
+
+
+[(#REM)
+	Ce bloc teste le bug introduit en
+	http://trac.rezo.net/trac/spip/changeset/8847
+	et corrige en
+	http://trac.rezo.net/trac/spip/changeset/8872
+]
+[(#EVAL{"chr(91).chr(91).'Ma note'.chr(93).chr(93)"}|propre|?)]
+[(#INCLURE{fond=#DOSSIER_SQUELETTE/inclus_rien})]
+[(#NOTES|match{Ma note}|?{'',#SET{err2,'Une note mangee par #INCLURE'}})]
+
+
+#GET{err1}
+
+#GET{err2}
+
+
+[(#GET{err1}|?{'',[(#GET{err2}|?{'',OK})]})]
+

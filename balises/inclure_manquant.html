@@ -1,0 +1,10 @@
+[(#REM)
+
+	INCLURE un fichier non existant
+
+]
+filtre:fin_inclure_manquant
+#SET{toto,'toto9876543210'}
+[(#GET{toto}|concat{'.html'}|find_in_path|?{le fichier [(#GET{toto})] ne doit pas exister})]
+<INCLURE{fond=#GET{toto}}{env}>
+

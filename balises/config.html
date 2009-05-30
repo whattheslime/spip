@@ -1,0 +1,56 @@
+[(#REM)
+
+	la balise CONFIG sert a récupérer des valeurs de spip_meta
+
+]
+[(#SET{err,''}|test_meta)]
+
+[(#CONFIG{pasla}|=={''}|?{'',' '})
+#SET{err,1}
+!=&#35;CONFIG{pasla}==#CONFIG{pasla}<br />]
+
+[(#CONFIG{pasla,defaut}|=={defaut}|?{'',' '})
+#SET{err,1}
+defaut!=&#35;CONFIG{pasla,defaut}==#CONFIG{pasla,defaut}<br />]
+
+[(#CONFIG{chaine}|=={une chaine}|?{'',' '})
+#SET{err,1}
+une chaine!=&#35;CONFIG{chaine}==#CONFIG{chaine}<br />]
+
+[(#CONFIG{chaine,defaut}|=={une chaine}|?{'',' '})
+#SET{err,1}
+une chaine!=&#35;CONFIG{chaine,defaut}==#CONFIG{chaine,defaut}<br />]
+
+[(#CONFIG{zero}|=={0}|?{'',' '})
+#SET{err,1}
+0!=&#35;CONFIG{zero}==#CONFIG{zero}<br />]
+
+[(#CONFIG{zero,defaut}|=={0}|?{'',' '})
+#SET{err,1}
+0!=&#35;CONFIG{zero,defaut}==#CONFIG{zero,defaut}<br />]
+
+[(#CONFIG{zeroc}|=={'0'}|?{'',' '})
+#SET{err,1}
+0!=&#35;CONFIG{zeroc}==#CONFIG{zeroc}<br />]
+
+[(#CONFIG{zeroc,defaut}|=={'0'}|?{'',' '})
+#SET{err,1}
+0!=&#35;CONFIG{zeroc,defaut}==#CONFIG{zeroc,defaut}<br />]
+
+[(#CONFIG{assoc,'',''}|=={#ARRAY{one,element 1,two,element 2}}|?{'',' '})
+#SET{err,1}
+array('one'=>'element 1','two'=>'element 2')!=&#35;CONFIG{assoc}==[(#CONFIG{assoc}|var_export{1})]<br />]
+
+[(#CONFIG{assoc,defaut,''}|=={#ARRAY{one,element 1,two,element 2}}|?{'',' '})
+#SET{err,1}
+array('one'=>'element 1','two'=>'element 2')!=&#35;CONFIG{assoc,defaut}==[(#CONFIG{assoc,defaut}|var_export{1})]<br />]
+
+[(#CONFIG{serie}|=={a:2:{s:3:"one";s:9:"element 1";s:3:"two";s:9:"element 2";}}|?{'',' '})
+#SET{err,1}
+a:2:{s:3:"one";s:9:"element 1";s:3:"two";s:9:"element 2";}!=&#35;CONFIG{serie}==#CONFIG{serie}<br />]
+
+[(#CONFIG{serie,defaut}|=={a:2:{s:3:"one";s:9:"element 1";s:3:"two";s:9:"element 2";}}|?{'',' '})
+#SET{err,1}
+a:2:{s:3:"one";s:9:"element 1";s:3:"two";s:9:"element 2";}!=&#35;CONFIG{serie,defaut}==#CONFIG{serie,defaut}<br />]
+
+[(#GET{err}|?{ERREUR,OK})]

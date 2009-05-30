@@ -1,0 +1,36 @@
+[(#REM)
+
+		tester # NOTES  et ses particularismes
+
+
+]
+[(#REM) une note appelee explicitement ]
+[(#EVAL{'"a".chr(91).chr(91)."<b>c".chr(93).chr(93)'}|propre|?)]
+[(#NOTES|supprimer_tags|match{^.b. c$}|?{'',#SET{err,'erreur note &lt;b>'}})]
+
+[(#REM) une note appelee explicitement <a>]
+[(#EVAL{'"eh".chr(91).chr(91)."<a>oh".chr(93).chr(93)'}|propre|?)]
+[(#NOTES|PtoBR|match{^.<a.*>a</a>.\s+oh$}|?{'',#SET{err,'erreur note &lt;a>'}})]
+
+[(#REM) une note appelee explicitement <a> avec un lien dedans]
+[(#EVAL{'"ki".chr(91).chr(91)."<a><a href=\"#test\">uh</a>".chr(93).chr(93)'}|propre|?)]
+[(#NOTES|PtoBR|match{^.<a.*>a</a>.\s}|?{'',#SET{err,'erreur note &lt;a&gt; avec lien'}})]
+
+[(#REM) une note appelee explicitement vide ]
+[(#EVAL{'"a".chr(91).chr(91)."<>d".chr(93).chr(93)'}|propre|?)]
+[(#NOTES|supprimer_tags|match{^d$}|?{'',#SET{err,'erreur note &lt;d>'}})]
+
+[(#REM) une note appelee explicitement avec une espace au debut ]
+[(#EVAL{'"a".chr(91).chr(91)." <e>f".chr(93).chr(93)'}|propre|?)]
+[(#NOTES|supprimer_tags|match{^.e. f$}|?{'',#SET{err,'erreur note &lt;e>'}})]
+
+[(#REM) une note appelee avec une construction html equilibree ]
+[(#EVAL{'"g".chr(91).chr(91)." <b>h</b>".chr(93).chr(93)'}|propre|?)]
+[(#NOTES|supprimer_tags|match{^.1. +h$}|?{'',#SET{err,'erreur note &lt;g>'}})]
+
+[(#REM) une note appelee avec un caractere sensible ]
+[(#EVAL{'"j".chr(91).chr(91)." <*>k".chr(93).chr(93)'}|propre|?)]
+[(#NOTES|PtoBR|match{^.<a.*>\*</a>.\s+k$}|?{'',#SET{err,'erreur note &lt;j>'}})]
+
+
+[(#GET{err}|sinon{OK})]

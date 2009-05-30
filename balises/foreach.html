@@ -1,0 +1,40 @@
+[(#REM)
+
+    Foreach verification de ce que dit http://www.spip-contrib.net/Balise-FOREACH
+    
+
+]
+
+[(#SET{err,''})]
+
+[(#CONFIG|?{'',' '}) 
+#SET{err,1}
+&#35;CONFIG n'existe pas
+<br />]
+
+[(#FOREACH{CONFIG}|?{'',' '})
+#SET{err,1}
+&#35;CONFIG n'est pas retourné via le modele foreach.html
+<br />]
+
+
+[(#FOREACH{CONFIG,''}|?{'',' '})
+#SET{err,1}
+&#35;FOREACH{CONFIG,''} n'est pas traité par modeles/foreach.html
+<br />]
+
+
+
+[(#FOREACH{CONFIG,foreach_ul_li}|?{'',' '})
+#SET{err,1}
+&#35;FOREACH{CONFIG,foreach_ul_li} n'est pas traité par modeles/foreach_ul_li.html
+<br />]
+
+[(#CONFIG{plugin}|unserialize|count|>{1}|oui)
+	[(#FOREACH{CONFIG,'',plugin}|?{'',' '})
+	#SET{err,1}
+	&#35;FOREACH{CONFIG,'',index_table} n'est pas retourné via le modele foreach.html
+	<br />]
+]
+
+[(#GET{err}|?{ERREUR,OK})]

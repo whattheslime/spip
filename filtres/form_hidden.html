@@ -1,0 +1,36 @@
+#SET{t,t#EVAL{chr(91).chr(93)}}
+
+
+[(#REM)
+
+	Verifier que parametre_url fonctionne
+
+]
+[(#VAL{x}|parametre_url{y,1}|=={'x?y=1'}|?{'', erreur parametre url 1})]
+[(#VAL{x}|parametre_url{y,1}|parametre_url{y,2}|=={'x?y=2'}|?{'',
+erreur parametre url 2<br />})]
+
+
+[(#VAL{x}|parametre_url{#GET{t},1}|parametre_url{#GET{t},2}|=={
+#VAL{x}|concat{'?'}|concat{#GET{t}}|concat{'=1&amp;'}|concat{#GET{t}}|concat{'=2'}
+}|?{'',
+erreur parametre url tableau<br />})]
+
+
+[(#REM)
+
+	Verifie que form_hidden n'ajoute pas des valeurs pour rien
+
+]
+
+[(#VAL{x}|parametre_url{toto,1}|parametre_url{toto,%!}|concat{&amp;toto=3=2}|form_hidden|extraire_balises{input}|count|=={1}|?{'',
+bug compte d'input<br />})]
+
+[(#VAL{x}|parametre_url{toto,3=2}|concat{&amp;toto=p}|form_hidden|extraire_balise{input}|extraire_attribut{value}|=={'3=2'}|?{'',
+bug value<br />})]
+
+[(#REM) si var est un tableau, il faut conserver tous les input ]
+[(#VAL{x}|parametre_url{#GET{t},1}|parametre_url{#GET{t},%!}|concat{&amp;#GET{t}}|concat{=3=2}|form_hidden|extraire_balises{input}|count|=={3}|?{'',
+bug tableau<br />})]
+
+OK

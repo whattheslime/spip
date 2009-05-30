@@ -1,0 +1,10 @@
+[(#REM)
+
+	LESAUTEURS doit afficher quelque chose :-)
+
+]
+<BOUCLE_a(ARTICLES){id_auteur>0}{0,1}>
+	[(#LESAUTEURS|?{OK,'#LESAUTEURS a echoue'})]
+</BOUCLE_a>
+Ce test ne fonctionne que s'il existe un article ayant un auteur !
+<//B_a>

@@ -1,0 +1,44 @@
+[(#REM)
+
+	On va tester le rendu des documents joints
+
+]
+
+
+
+[(#REM)
+	D'abord une image uploadee en vignette, et sans titre
+	On teste le rendu de son src, width, height
+]
+<BOUCLE_d(DOCUMENTS){mode=image}{titre=''}{descriptif=''}{0,1}>
+[(#SET{img,[(#REM|sinon{<img#ID_DOCUMENT>}|propre)]})]
+[(#SET{doc,[(#REM|sinon{<doc#ID_DOCUMENT>}|propre)]})]
+[(#SET{emb,[(#REM|sinon{<emb#ID_DOCUMENT>}|propre)]})]
+
+[(#GET{img}|extraire_balise{img}|extraire_attribut{src}|quote_amp|=={#URL_DOCUMENT}|?{
+	#SET{ok1,1}
+	,' '})
+	&lt;img#ID_DOCUMENT&gt; src pas bon: &quot;#URL_DOCUMENT&quot; != &quot;[(#GET{img}|extraire_balise{img}|extraire_attribut{src})]&quot;
+]
+[(#GET{doc}|extraire_balise{img}|extraire_attribut{src}|quote_amp|=={#URL_DOCUMENT}|?{
+	#SET{ok2,1}
+	,' '})
+	&lt;doc#ID_DOCUMENT&gt; src pas bon: &quot;#URL_DOCUMENT&quot; != &quot;[(#GET{doc}|extraire_balise{img}|extraire_attribut{src})]&quot;
+]
+[(#GET{emb}|extraire_balise{img}|extraire_attribut{src}|quote_amp|=={#URL_DOCUMENT}|?{
+	#SET{ok3,1}
+	,' '})
+	&lt;emb#ID_DOCUMENT&gt; src pas bon: &quot;#URL_DOCUMENT&quot; != &quot;[(#GET{emb}|extraire_balise{img}|extraire_attribut{src})]&quot;
+]
+
+
+</BOUCLE_d>
+
+NA Ce test exige une image chargee en mode "image" et n'ayant ni titre ni descriptif
+
+<//B_d>
+
+
+
+
+[(#GET{ok1}|?{#GET{ok2}}|?{#GET{ok3}}|?{OK})]

@@ -1,0 +1,25 @@
+#CACHE{0}
+
+[(#REM)
+
+	test 1 : un article non traduit est bien {origine_traduction}
+
+]
+<BOUCLE_ori(ARTICLES){origine_traduction}{id_trad=0}{0,1}> </BOUCLE_ori>
+ erreur boucle origine
+<//B_ori>
+
+[(#REM)
+
+	test 2 : un article traduit n'a qu'une traduction qui est {origine_traduction}
+
+]
+<BOUCLE_ori2(ARTICLES){id_trad>0}{origine_traduction}>
+<BOUCLE_casse(ARTICLES){traduction}{origine_traduction}{!id_article}>
+	boum !  #ID_ARTICLE ne devrait pas etre origine
+</BOUCLE_casse>
+</BOUCLE_ori2>
+NA ce test exige d'avoir au moins un article traduit
+<//B_ori2>
+
+OK

@@ -1,0 +1,26 @@
+[(#REM)
+
+	Teste la balise INTRODUCTION
+	notamment avec son
+		define('_INTRODUCTION_SUITE', '___SUITE');
+
+
+	Note: ces tests ne sont pas vraiment fiables, ils peuvent echouer parce que
+	la base de donnees ne contient pas de texte correspondant a ce qu'il faut.
+
+]
+
+[(#REM) un article de redirection n'a pas d'introduction]
+<BOUCLE_b(ARTICLES){chapo=='^='}{descriptif=''}{0,1}>
+[(#INTRODUCTION)erreur sur l'article de redirection #ID_ARTICLE]
+</BOUCLE_b>
+NA necessite article de redirection
+<//B_b>
+
+[(#REM) une introduction normale doit finir par _INTRODUCTION_SUITE]
+<BOUCLE_a(ARTICLES){chapo=='.{100}'}{texte>''}{descriptif=''}{chapo!=='^='}{0,1}>
+[(#INTRODUCTION|match{___SUITE$}|?{OK,#INTRODUCTION})]
+</BOUCLE_a>
+NA necessite un article avec un texte long et pas de descriptif
+<//B_a>
+

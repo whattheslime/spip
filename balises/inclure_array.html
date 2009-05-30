@@ -1,0 +1,20 @@
+[(#REM)
+
+	la balise INCLURE avec un tableau en argument
+
+]
+#SET{test1,(#INCLURE{fond=#DOSSIER_SQUELETTE/inclus_article}{zero=1})}
+#SET{test1,#GET{test1}|concat{(#INCLURE{fond=#DOSSIER_SQUELETTE/inclus_rien})}}
+#SET{test1,#GET{test1}|concat{(#INCLURE{fond=#DOSSIER_SQUELETTE/inclus_article}{zero=1})}}
+#SET{fonds,#ARRAY{0,#DOSSIER_SQUELETTE/inclus_article,1,#DOSSIER_SQUELETTE/inclus_rien,2,#DOSSIER_SQUELETTE/inclus_article}}
+#SET{test2,(#INCLURE{fond=#GET{fonds}}{zero=1})}
+[(#GET{test1}|=={#GET{test2}}|?{OK,#GET{test1}!=#GET{test2}})]
+<?php ob_start();
+?><INCLURE{fond=#GET{fonds}}{zero=1}><?php 
+$texte = ob_get_contents();
+ob_end_clean();
+$attendu = '[(#GET{test1}|texte_script)]';
+if ($texte!==$attendu) {
+	echo "Erreur sur &lt;INCLURE&gt; avec un tableau pour fond : $texte ; attendu : $attendu";
+}
+?>

@@ -1,0 +1,16 @@
+[(#REM)
+
+Le filtre |abs_url doit modifier les liens a@href et img@src
+a l'interieur d'un texte, et modifier les simples chaines de caracteres
+quand elles proviennent de # URL_ARTICLE, mais pas ailleurs (# TITRE par ex)
+
+]
+<BOUCLE_a(ARTICLES){texte=='<(a|img) '}{0,1}>[
+(#URL_ARTICLE|abs_url|=={#URL_ARTICLE}|?{#VAL{'erreur sur #URL_ARTICLE 1 :'}|concat{#URL_ARTICLE|abs_url,'=',#URL_ARTICLE}})][
+(#URL_ARTICLE|abs_url|=={#URL_SITE_SPIP/#URL_ARTICLE}|?{'',#VAL{'erreur sur #URL_ARTICLE 2 :'}|concat{#URL_ARTICLE|abs_url{},'!=',#URL_SITE_SPIP/tests/#URL_ARTICLE}})
+][(#TITRE|abs_url|=={#TITRE}|?{'','erreur sur #TITRE'})
+][(#TITRE|abs_url|=={#TEXTE}|?{'erreur sur #TEXTE'})]</BOUCLE_a>
+
+OK
+
+<//B_a>

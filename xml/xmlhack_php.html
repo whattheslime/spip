@@ -1,0 +1,14 @@
+[(#REM)
+
+	le hack xml repere dans le squelette la sequence "< ?xml"
+	et evite de l'executer en php
+
+]
+
+#CACHE{0}<!--
+filtre:spip_xml_parse
+filtre:reset
+filtre:reset
+-->
+<?xml version="1.0"[ encoding="(#CHARSET)"]?>
+<tag><?php echo 'OK'; ?></tag>

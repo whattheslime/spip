@@ -1,0 +1,33 @@
+[(#REM)
+
+	Un test pour le critere {branche}
+	
+	verifie :
+	- une rubrique est dans sa branche
+	- sa fille est dans sa branche
+	- elle n'est pas dans la branche de sa fille
+
+]
+<BOUCLE_a(RUBRIQUES){id_parent>0}>
+<BOUCLE_b(RUBRIQUES){id_rubrique=#ID_PARENT}>
+
+<BOUCLE_d(RUBRIQUES){branche}{id_rubrique}>
+</BOUCLE_d>
+#_b:ID_RUBRIQUE devrait etre dans sa propre branche<br />
+<//B_d>
+
+<BOUCLE_c(RUBRIQUES){branche}{id_rubrique=#_a:ID_RUBRIQUE}>
+</BOUCLE_c>
+#_a:ID_RUBRIQUE devrait etre dans la branche de #_b:ID_RUBRIQUE<br />
+<//B_c>
+
+</BOUCLE_b>
+
+<BOUCLE_e(RUBRIQUES){branche}{id_rubrique=#ID_PARENT}>
+#ID_RUBRIQUE ne devrait pas etre dans la branche de sa fille ! <br />
+</BOUCLE_e>
+
+</BOUCLE_a>
+
+OK
+

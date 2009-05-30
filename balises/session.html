@@ -1,0 +1,17 @@
+[(#REM)
+	Teste que la balise #SESSION correspond bien a l'auteur connecte
+	(Comme on est appelle avec var_mode:recalcul ce test est un peu nul...)
+]
+
+<?php
+	include_spip('inc/texte');
+	$auteur_session = $GLOBALS['auteur_session'];
+	if (intval($auteur_session['id_auteur'])
+		!= intval('#SESSION{id_auteur}')
+	OR interdire_scripts($auteur_session['nom'])
+		!= '[(#SESSION{nom}|texte_script)]'
+	)
+		die ('oups session');
+	else
+		echo "OK";
+?>

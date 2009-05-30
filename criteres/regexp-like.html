@@ -1,0 +1,79 @@
+#CACHE{0}
+[(#REM)
+
+	Cette page teste le fonctionnement du critere {LIKE}
+	on selectionne d'abord un article, puis on regarde si
+
+	on reussit a le selectionner avec {titre LIKE a%}
+	ou a est son initiale (test b)
+	et l'inverse (test c)
+
+	idem pour regexp
+
+]
+
+
+<BOUCLE_a(ARTICLES){titre>=A}{titre<=Z}{0,1}>
+
+[(#SET{t,[(#TITRE|couper{1})]})]
+
+
+[(#REM) ------------- tests de LIKE ---------------- ]
+
+[(#REM)
+
+	Cette boucle doit donner l'article
+
+]<BOUCLE_b(ARTICLES){titre like (#GET{t}|concat{%})}{id_article}>
+	#SET{testb,ok}
+</BOUCLE_b>
+	echec de {titre like #GET{t}%}
+<//B_b>
+
+[(#REM)
+
+	Cette boucle doit echouer
+
+]<BOUCLE_c(ARTICLES){titre !like (#GET{t}|concat{%})}{id_article}>
+
+</BOUCLE_c>
+	echec de {titre !like #GET{t}%}
+</B_c>
+	#SET{testc,ok}
+<//B_c>
+
+
+[(#REM) ------------- tests de REGEXP ---------------- ]
+[(#REM)
+
+	Cette boucle doit donner l'article
+
+]<BOUCLE_d(ARTICLES){titre == ^#GET{t}}{id_article}>
+	#SET{testd,ok}
+</BOUCLE_d>
+	echec de {titre ==^#GET{t}}
+<//B_d>
+
+[(#REM)
+
+	Cette boucle doit echouer
+
+]<BOUCLE_e(ARTICLES){titre !==^#GET{t}}{id_article}>
+
+</BOUCLE_e>
+	echec de {titre !== ^#GET{t}}
+</B_e>
+	#SET{teste,ok}
+<//B_e>
+
+
+</BOUCLE_a>
+
+[(#REM) ------------- validation des resultats ---------------- ]
+
+[(#GET{testb}|?{#GET{testc}}|?{#GET{testd}}|?{#GET{teste}}|?{OK})]
+</B_a>
+
+	Ce test exige un article ayant un titre qui commence par une lettre A-Z
+
+<//B_a>
