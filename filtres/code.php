@@ -4,6 +4,7 @@
 	require '../test.inc';
 
 	include_spip('inc/texte');
+	lang_select('fr');
 
 	$texte = '
 Le r&#233;sultat se pr&#233;sente sous la forme suivante :
