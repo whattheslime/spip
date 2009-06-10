@@ -77,6 +77,15 @@ array('preg_match',',<thead>\s*<tr[^>]*>(:?<th[^>]*>.*</th>){5}\s*</tr>\s*</thea
 | {{Montelimar}} | 20,15 | 26,43 | 70,21 | 16,82 |
 | {{Bourg-de-Peage}} | 13,22 | 30 | 50 | 14,67 |'
 );
+$essais['fusion par |<|'] = array(
+array('preg_match', ',colspan=.*colspan=,is',true),
+'| {{Bourg-de-Peage}} | 1-2 |<|3-4|<|'
+);
+$essais['fusion |<| avec raccourci de liens'] = array(
+array('preg_match', ',colspan=.*href=[^>;]*>,is',true),
+'|autre test avec fusion dans tous les sens|<|
+|test1 |[mon beau lien->http://foo.fr]|'
+);
 
 
 	// hop ! on y va
@@ -90,3 +99,4 @@ array('preg_match',',<thead>\s*<tr[^>]*>(:?<th[^>]*>.*</th>){5}\s*</tr>\s*</thea
 	}
 
 ?>
+
