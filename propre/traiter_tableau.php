@@ -81,9 +81,9 @@ $essais['fusion par |<|'] = array(
 array('preg_match', ',colspan=.*colspan=,is',true),
 '| {{Bourg-de-Peage}} | 1-2 |<|3-4|<|'
 );
-$essais['fusion |<| avec raccourci de liens'] = array(
-array('preg_match', ',colspan=.*href=[^>;]*>,is',true),
-'|autre test avec fusion dans tous les sens|<|
+$essais['fusion |<| avec conservation d\'URL dans un raccourci de liens'] = array(
+array('preg_match', ',colspan=.*->,is',true),
+'|test avec fusion dans tous les sens|<|
 |test1 |[mon beau lien->http://foo.fr]|'
 );
 
