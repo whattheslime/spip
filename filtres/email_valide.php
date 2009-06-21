@@ -82,7 +82,8 @@
 	$emails_non_valides_mais_valides = array(
 						'utilisateur@domaine.f',
 						'utilisateur@domaine.frfrfrfrfrfr',
-						'd@d'
+						'd@d',
+						'&&?julien@domaine.fr'
 					);	
 	echo '<ul style="font-weight:bold;">';
 	foreach($emails_non_valides_mais_valides as $tests => $email)
