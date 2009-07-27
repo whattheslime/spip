@@ -7,7 +7,7 @@ quand elles proviennent de # URL_ARTICLE, mais pas ailleurs (# TITRE par ex)
 ]
 <BOUCLE_a(ARTICLES){texte=='<(a|img) '}{0,1}>[
 (#URL_ARTICLE|abs_url|=={#URL_ARTICLE}|?{#VAL{'erreur sur #URL_ARTICLE 1 :'}|concat{#URL_ARTICLE|abs_url,'=',#URL_ARTICLE}})][
-(#URL_ARTICLE|abs_url|=={#URL_SITE_SPIP/#URL_ARTICLE}|?{'',#VAL{'erreur sur #URL_ARTICLE 2 :'}|concat{#URL_ARTICLE|abs_url{},'!=',#URL_SITE_SPIP/tests/#URL_ARTICLE}})
+(#URL_ARTICLE|abs_url|=={#URL_SITE_SPIP|concat{/}|suivre_lien{#URL_ARTICLE}}|?{'',#VAL{'erreur sur #URL_ARTICLE 2 :'}|concat{#URL_ARTICLE|abs_url{},'!=',#URL_SITE_SPIP|concat{/}|concat{#URL_ARTICLE}}})
 ][(#TITRE|abs_url|=={#TITRE}|?{'','erreur sur #TITRE'})
 ][(#TITRE|abs_url|=={#TEXTE}|?{'erreur sur #TEXTE'})]</BOUCLE_a>
 
