@@ -30,9 +30,9 @@
 			'ROUND(3.56)'=>round(3.56),
 			'ROUND(3.5684,2)'=>round(3.5684,2),
 			'SQRT(9)'=>3,
-			'1/2'=>(0), // Le standard SQL : entier divise par entier = division entiere (pas trouve la reference)
+			//'1/2'=>(0), // Le standard SQL : entier divise par entier = division entiere (pas trouve la reference)
 			'1.0/2'=>(1/2), // Le standart SQL : reel divise par entier = reel
-			'4/3'=>1,
+			//'4/3'=>1,
 			'ROUND(4.0/3,2)'=>round(4/3,2),
 			'1.5/2'=>(1.5/2),
 			'2.0/2'=>(2.0/2),
