@@ -11,7 +11,13 @@
 	Ce bloc est en premier, et contient des notes separees par un MODELE;
 	il ne doit pas "sauter" de compteur_notes (nb2-2)
 ]
-[(#EVAL{"chr(91).chr(91).'note1'.chr(93).chr(93).'<img1>'.chr(91).chr(91).'note2'.chr(93).chr(93)"}|propre|match{'nb.-1'}|?{#SET{err1,'Le compteur_notes a change a cause du modele'#NOTES}})]
+#SET{texte1,#EVAL{"chr(91).chr(91).'note1'.chr(93).chr(93).' '.chr(91).chr(91).'note2'.chr(93).chr(93)"}|propre}
+#SET{notes1,#NOTES}
+#SET{texte2,#EVAL{"chr(91).chr(91).'note1'.chr(93).chr(93).'<img1>'.chr(91).chr(91).'note2'.chr(93).chr(93)"}|propre}
+#SET{notes2,#NOTES}
+[(#GET{notes1}|=={#GET{notes2}}|non|?{#SET{err1,
+#VAL{'Le compteur_notes a change a cause du modele:'}|concat{#GET{notes1},'vs',#GET{notes2}}
+}})]
 
 
 [(#REM)
