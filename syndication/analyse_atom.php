@@ -56,6 +56,7 @@ dans les items
 	if ($rss[0]['enclosures'] != '<a rel="enclosure" href="http://localhost/spip/IMG/txt/test-3.txt" type="text/plain" title="272">test-3.txt</a>')
 		$err[] = "erreur d'enclosure item 0 sur test-atom1-1.xml";
 
+	// verfier les tags
 	if (!$rss[0]['tags'][0]
 	OR (extraire_attribut($rss[0]['tags'][0], 'href') != 'http://localhost/spip/rub1')
 	OR (extraire_attribut($rss[0]['tags'][0], 'rel') != "directory")
