@@ -5,7 +5,7 @@
 
 	include_spip('inc/texte');
 
-$marque = '<span class="base64" title=\'QQ==\' ></span>';
+$marque = '<span class="base64" title="QQ=="></span>';
 
 $essais['simple imbriqué'] = array(
 'avant 1' . $marque . 'apres 1</code>apres 2',  
