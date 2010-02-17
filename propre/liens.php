@@ -1,8 +1,8 @@
 <?php
 
+	define('_ESPACE_PRIVE',1); // pour tester le modele inexistant, qui sera sinon ignore
 	$test = 'liens';
 	require '../test.inc';
-
 	include_spip('inc/texte');
 	include_spip('inc/lang');
 
@@ -95,8 +95,7 @@
 	!== $a =extraire_attribut(extraire_balise(propre($p10), 'a'), 'href'))
 		$err[] = $a.': erreur sur le lien '.$p10;
 
-	if ("<p><flv|url=http://rezo.net/></p>"
-	!== $a = propre($p11))
+	if (!in_array($a = propre($p11),array("<p><flv|url=http://rezo.net/></p>","<pre>&lt;flv|url=http://rezo.net/&gt;</pre>")))
 		$err[] = $a.': erreur sur le modele '.$p11;
 
 
