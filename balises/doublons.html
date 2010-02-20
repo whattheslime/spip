@@ -9,6 +9,7 @@
 	// (changera si la gestion des doublons evolue)
 
 ]
+<BOUCLE_t(ARTICLES) />[(#TOTAL_BOUCLE|<{2}|?{NA})]<//B_t>
 
 <BOUCLE_a(ARTICLES){par hasard}{0,2}{doublons test}>
 	#SET{d,#GET{d}|concat{','}|concat{#ID_ARTICLE}}
