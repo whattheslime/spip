@@ -62,7 +62,10 @@ function tester_fun($fun, &$essais, $opts = array())
 		if (is_array($ess[0]) && function_exists($ess[0][0]) && isset($ess[0][1]) && isset($ess[0][2]))
 			$ok = ($ess[0][0]($ess[0][1],$res)==$ess[0][2]);
 		else
-			$ok = ($res === $ess[0]);
+			$ok =
+			  ( (is_array($res) AND is_array($ess[0]))?
+				  (!count(array_diff($res,$ess[0]))AND!count(array_diff($ess[0],$res)))
+				  :($res === $ess[0]) );
 
 		if (!$ok) {
 			$erritem = $bef . (is_numeric($titre) ?
