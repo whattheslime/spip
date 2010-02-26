@@ -37,13 +37,6 @@
     1 => 'zzhkezhkf',
     2 => 'identite',
   ),
-  2 => 
-  array (
-    0 => NULL,
-    1 => 
-    array (
-    ),
-  ),
   3 => 
   array (
     0 => 'identite',
