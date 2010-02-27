@@ -65,7 +65,8 @@ function tester_fun($fun, &$essais, $opts = array())
 			$ok =
 			  ( (is_array($res) AND is_array($ess[0]))?
 				  (!count(array_diff($res,$ess[0]))AND!count(array_diff($ess[0],$res)))
-				  :($res === $ess[0]) );
+				  :
+						( is_double($res)?(($res-$ess[0])<1e-10*abs($res)):$res === $ess[0]) );
 
 		if (!$ok) {
 			$erritem = $bef . (is_numeric($titre) ?
