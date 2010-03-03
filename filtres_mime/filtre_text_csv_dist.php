@@ -9,7 +9,7 @@
 
 	$test = 'filtre_text_csv_dist';
 	require '../test.inc';
-	find_in_path("inc/filtres.php",'',true);
+	find_in_path("inc/filtres_mime.php",'',true);
 
 	//
 	// hop ! on y va

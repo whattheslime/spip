@@ -28,7 +28,7 @@
 		$essais = array (
   0 => 
   array (
-    0 => 'filtre_identite',
+    0 => NULL,
     1 => 'identite',
   ),
   1 => 
@@ -45,8 +45,8 @@
   ),
   4 => 
   array (
-    0 => 'filtre_text_txt_dist',
-    1 => 'text_txt',
+    0 => 'filtre_text_dist',
+    1 => 'text',
   ),
   5 => 
   array (

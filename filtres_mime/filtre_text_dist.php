@@ -9,12 +9,12 @@
 
 	$test = 'filtre_text_txt_dist';
 	require '../test.inc';
-	find_in_path("inc/filtres.php",'',true);
+	find_in_path("inc/filtres_mime.php",'',true);
 
 	//
 	// hop ! on y va
 	//
-	$err = tester_fun('filtre_text_txt_dist', essais_filtre_text_txt_dist());
+	$err = tester_fun('filtre_text_dist', essais_filtre_text_txt_dist());
 	
 	// si le tableau $err est pas vide ca va pas
 	if ($err) {
@@ -24,7 +24,7 @@
 	echo "OK";
 	
 
-																															function essais_filtre_text_txt_dist(){
+	function essais_filtre_text_txt_dist(){
 		$essais = array (
   0 => 
   array (
