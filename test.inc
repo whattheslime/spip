@@ -55,7 +55,7 @@ function tester_fun($fun, &$essais, $opts = array())
 			case 5:	$res = $fun($ess[1], $ess[2], $ess[3], $ess[4]); break;
 			default:
 				$copy = $ess;
-				array_pop($copy);
+				array_shift($copy);
 				$res = call_user_func_array($fun, $copy);
 		}
 		$ok = false;
