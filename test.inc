@@ -17,7 +17,9 @@ chdir(_SPIP_TEST_CHDIR);
 require dirname(_SPIP_TEST_INC) . '/ecrire/inc_version.php';
 
 // vous devez theoriquement definir $test avant d'inclure ce script
-spip_log('test ' . $test);
+#spip_log('test ' . $test,'testrunner');
+$GLOBALS['taille_des_logs'] = 1024;
+$GLOBALS['compteur_essai'] = 0;
 
 // pas admin ? passe ton chemin (ce script est un vilain trou de securite)
 if ($auteur_session['statut'] != '0minirezo'   and ( $_SERVER["REMOTE_ADDR"]!='127.0.0.1') )
@@ -68,6 +70,7 @@ function tester_fun($fun, &$essais, $opts = array())
 				  :
 						( is_double($res)?(($res-$ess[0])<1e-10*abs($res)):$res === $ess[0]) );
 
+		spip_log('test ' . $GLOBALS['test']." : Essai ".$GLOBALS['compteur_essai']++.($ok?" ok":" ECHEC"),'testrunner');
 		if (!$ok) {
 			$erritem = $bef . (is_numeric($titre) ?
 				"test $titre" : htmlspecialchars($titre)) . $mid .
