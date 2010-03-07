@@ -7,9 +7,13 @@
 [(#REM) une note simple ]
 #SET{appelnote,#EVAL{'"<p>a&nbsp;".chr(91)."<a href=".chr(39)."#nb1".chr(39)." class=".chr(39)."spip_note".chr(39)." rel=".chr(39)."footnote".chr(39)." title=".chr(39)."b".chr(39)." id=".chr(39)."nh1".chr(39).">1</a>".chr(93)."</p>"'}}
 #SET{lanote,#EVAL{'"<p>".chr(91)."<a href=".chr(39)."#nh1".chr(39)." id=".chr(39)."nb1".chr(39)." class=".chr(39)."spip_note".chr(39)." title=".chr(39)._T("info_notes")." 1".chr(39)." rev=".chr(39)."footnote".chr(39).">1</a>".chr(93)." b</p>"'}}
-[(#EVAL{'"a".chr(91).chr(91)."b".chr(93).chr(93)'}|propre|=={#GET{appelnote}}|?{'',#SET{err,'erreur appel note simple'}})]
+#SET{test1,#EVAL{'"a".chr(91).chr(91)."b".chr(93).chr(93)'}|propre}
+[(#GET{test1}|=={#GET{appelnote}}|?{'',#SET{err,'erreur appel note simple'}})]
 #SET{notes,#NOTES}
 [(#GET{notes}|=={#GET{lanote}}|?{'',#SET{err,#VAL{'erreur note simple :'}|concat{#GET{notes},'vs',#GET{lanote}}}})]
+#SET{test2,#EVAL{'"a".chr(91).chr(91)."b".chr(93).chr(93)'}|propre}
+#SET{notes2,#NOTES}
+[(#GET{test1}|=={#GET{test2}}|?{#SET{err,'Le compteur de note n\'a pas ete incremente'}})]
 
 [(#REM) une note appelee explicitement ]
 [(#EVAL{'"a".chr(91).chr(91)."<b>c".chr(93).chr(93)'}|propre|?)]
