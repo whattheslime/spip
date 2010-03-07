@@ -3,6 +3,12 @@
 		tester # NOTES  et ses particularismes
 
 
+		Il manque le test sur un < INCLURE > a cache plus court qui est calcule alors que l'appelant ne l'est pas
+		cas qui foire jusqu'a ce jour (7/02/2010) car lorsque seul l'incure dynamique est calcule, le marqueur de note
+		est a zero.
+		Solution possible	a creuser : appeler en fin de calcul un filtre qui genere le php (en debut de skel)
+		qui restaure l'etat de la pile des notes : ainsi lors de l'evaluation dynamique, les notes sont synchro
+
 ]
 [(#REM) une note simple ]
 #SET{appelnote,#EVAL{'"<p>a&nbsp;".chr(91)."<a href=".chr(39)."#nb1".chr(39)." class=".chr(39)."spip_note".chr(39)." rel=".chr(39)."footnote".chr(39)." title=".chr(39)."b".chr(39)." id=".chr(39)."nh1".chr(39).">1</a>".chr(93)."</p>"'}}
