@@ -16,28 +16,24 @@
 [(#REM) une deuxieme note simple qui doit etre numerotee differement de la premiere deja affichee]
 #SET{test2,#EVAL{'"a".chr(91).chr(91)."b".chr(93).chr(93)'}|propre}
 #SET{notes2,#NOTES}
-[(#GET{test1}|=={#GET{test2}}|?{#SET{err,'Le compteur de note n&quot;a pas ete incremente au meme niveau'}})]
+[(#GET{test1}|=={#GET{test2}}|?{#SET{err,'Le compteur de note n&#39;a pas ete incremente au meme niveau'}})]
 
 [(#REM) une note simple affichee dans une inclusion qui doit etre numerotee differement des deux premieres]
 #SET{notes3,#INCLURE{fond=note_inclue_affichee}}
-[(#GET{notes3}|=={#GET{notes}}|?{#SET{err,'Le compteur de note n&quot;a pas ete incremente dans l&quot;inclusion'}})]
-[(#GET{notes3}|=={#GET{notes2}}|?{#SET{err,'Le compteur de note n&quot;a pas ete incremente dans l&quot;inclusion2'}})]
+[(#GET{notes3}|=={#GET{notes}}|?{#SET{err,'Le compteur de note n&#39;a pas ete incremente dans l&#39;inclusion'}})]
+[(#GET{notes3}|=={#GET{notes2}}|?{#SET{err,'Le compteur de note n&#39;a pas ete incremente dans l&#39;inclusion2'}})]
 
 [(#REM) verifier que la note simple apres inclusion est bien numerotee encore differemment]
 #SET{test4,#EVAL{'"a".chr(91).chr(91)."b".chr(93).chr(93)'}|propre}
 #SET{notes4,#NOTES}
-[(#GET{notes4}|=={#GET{notes}}|?{#SET{err,'Le compteur de note n&quot;a pas ete incremente apres l&quot;inclusion'}})]
-[(#GET{notes4}|=={#GET{notes2}}|?{#SET{err,'Le compteur de note n&quot;a pas ete incremente apres l&quot;inclusion2'}})]
-[(#GET{notes4}|=={#GET{notes3}}|?{#SET{err,'Le compteur de note n&quot;a pas ete incremente apres l&quot;inclusion3'}})]
+[(#GET{notes4}|=={#GET{notes}}|?{#SET{err,'Le compteur de note n&#39;a pas ete incremente apres l&#39;inclusion'}})]
+[(#GET{notes4}|=={#GET{notes2}}|?{#SET{err,'Le compteur de note n&#39;a pas ete incremente apres l&#39;inclusion2'}})]
+[(#GET{notes4}|=={#GET{notes3}}|?{#SET{err,'Le compteur de note n&#39;a pas ete incremente apres l&#39;inclusion3'}})]
 
-[(#REM) une note simple ajoutee dans une inclusion mais non affichee qui doit etre recuperee a ce niveau pour affichage ]
-[(#INCLURE{fond=note_inclue_affichee}|vide)]
+[(#REM) une note simple ajoutee dans une inclusion mais non affichee qui doit etre purgee avant retour ici ]
+[(#INCLURE{fond=note_inclue_nonaffichee}|vide)]
 #SET{notes5,#NOTES}
-[(#GET{notes5}|non)#SET{err,'La note inclue a ete perdue'}]
-[(#GET{notes5}|=={#GET{notes}}|?{#SET{err,'Le compteur de note n&quot;a pas ete incremente dans l&quot;inclusion3'}})]
-[(#GET{notes5}|=={#GET{notes2}}|?{#SET{err,'Le compteur de note n&quot;a pas ete incremente dans l&quot;inclusion4'}})]
-[(#GET{notes5}|=={#GET{notes3}}|?{#SET{err,'Le compteur de note n&quot;a pas ete incremente dans l&quot;inclusion5'}})]
-[(#GET{notes5}|=={#GET{notes4}}|?{#SET{err,'Le compteur de note n&quot;a pas ete incremente dans l&quot;inclusion6'}})]
+[(#GET{notes5}|oui)#SET{err,'La note inclue n&#39;a pas ete purgee'}]
 
 
 [(#REM) une note appelee explicitement ]
