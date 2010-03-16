@@ -8,8 +8,16 @@
  */
 
 	$test = 'propre';
-	require '../test.inc';
+	$remonte = "../";
+	while (!is_dir($remonte."ecrire"))
+		$remonte = "../$remonte";
+	require $remonte.'tests/test.inc';
 	find_in_path("inc/texte.php",'',true);
+
+	// initialiser les plugins qui changent les intertitre (Z), et les restaurer juste apres
+	$mem = array($GLOBALS['debut_intertitre'],$GLOBALS['spip_raccourcis_typo']);
+	propre('rien du tout');
+	list($GLOBALS['debut_intertitre'],$GLOBALS['spip_raccourcis_typo']) = $mem;
 
 	//
 	// hop ! on y va
@@ -24,7 +32,7 @@
 	echo "OK";
 	
 
-													function essais_propre(){
+	function essais_propre(){
 		$essais = array (
   0 => 
   array (
