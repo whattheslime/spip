@@ -24,10 +24,10 @@ function balise_FORMULAIRE_TEST_PHRASEUR_stat($args, $context_compil) {
 	// exemple dans un squelette article.html : [(#FORMULAIRE_FORUM{#SELF})]
 
 	// recuperer les donnees du forum auquel on repond.
-	list ($idr) = $args;
+	list ($idr, $url) = $args;
 
 	return
-		array($idr);
+		array($idr, $url);
 }
 
 function balise_FORMULAIRE_TEST_PHRASEUR_dyn($id_rubrique,$url) {
