@@ -28,11 +28,15 @@
 
 	$page = trim($page);
 
-	// comme flag_preserver est on, les warning de compilation
-	// ne s'affichent pas tout seuls
-	if (count($tableau_des_erreurs))
-		echo affiche_erreurs_page($tableau_des_erreurs);
-
 	echo $page;
+
+	// Tester si on est admin et il y a des choses supplementaires a dire
+	// type tableau pour y mettre des choses au besoin.
+	$debug = ((_request('var_mode') == 'debug') OR $tableau_des_temps) ? array(1) : array();
+	if ($debug) {
+		$var_mode_affiche = _request('var_mode_affiche');
+		$GLOBALS['debug_objets'][$var_mode_affiche][$var_mode_objet . 'tout'] = ($var_mode_affiche== 'validation' ? $page['texte'] :"");
+		echo erreur_squelette(false);
+	}
 
 ?>
