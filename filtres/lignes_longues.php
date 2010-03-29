@@ -328,86 +328,86 @@
   ),
   50 => 
   array (
-    0 => 'U n   t        e       x t        e        a   v e       c   d e       s   e       n  t        i t        &e       a   c  u  t        e       ;s   &a   m p ;&l t        ;&g t        ;&q u  o t        ;',
-    1 => 'Un texte avec des entit&eacute;s &amp;&lt;&gt;&quot;',
+    0 => 'U n   t    e     x t    e      a v e     c  d e     s   e     n  t    i t    és   &&lt;&gt;&quot;',
+    1 => 'Un texte avec des entit&eacute;s &&lt;&gt;&quot;',
     2 => 1,
   ),
   51 => 
   array (
-    0 => 'Un  te  xt e  av ec  de s en ti t&ea cu te  ;s &am p;&lt ;&gt ;&qu ot ;',
-    1 => 'Un texte avec des entit&eacute;s &amp;&lt;&gt;&quot;',
+    0 => 'Un  te xt e  av ec  de s en ti tés &&lt;&gt;&quot;',
+    1 => 'Un texte avec des entit&eacute;s &&lt;&gt;&quot;',
     2 => 2,
   ),
   52 => 
   array (
-    0 => 'Un tex te ave c des  ent it&eac ute ;s &amp ;&lt;&gt;&quo t;',
-    1 => 'Un texte avec des entit&eacute;s &amp;&lt;&gt;&quot;',
+    0 => 'Un tex te ave c des  ent ités &&lt;&gt;&quot;',
+    1 => 'Un texte avec des entit&eacute;s &&lt;&gt;&quot;',
     2 => 3,
   ),
   53 => 
   array (
-    0 => 'Un text e avec  des enti t&eacu te;s &amp;&lt;&gt;&quot ;',
-    1 => 'Un texte avec des entit&eacute;s &amp;&lt;&gt;&quot;',
+    0 => 'Un text e avec  des enti tés &&lt;&gt;&quot;',
+    1 => 'Un texte avec des entit&eacute;s &&lt;&gt;&quot;',
     2 => 4,
   ),
   54 => 
   array (
-    0 => 'Un texte  avec des entit &eacut e;s &amp;&lt;&gt;&quot;',
-    1 => 'Un texte avec des entit&eacute;s &amp;&lt;&gt;&quot;',
+    0 => 'Un texte  avec des entit és &&lt;&gt;&quot;',
+    1 => 'Un texte avec des entit&eacute;s &&lt;&gt;&quot;',
     2 => 5,
   ),
   55 => 
   array (
-    0 => 'Un texte avec des entit&eacute ;s &amp;&lt;&gt;&quot;',
-    1 => 'Un texte avec des entit&eacute;s &amp;&lt;&gt;&quot;',
+    0 => 'Un texte avec des entités &&lt;&gt;&quot;',
+    1 => 'Un texte avec des entit&eacute;s &&lt;&gt;&quot;',
     2 => 6,
   ),
   56 => 
   array (
-    0 => 'Un texte avec des entit&eacute;s &amp;&lt;&gt;&quot;',
-    1 => 'Un texte avec des entit&eacute;s &amp;&lt;&gt;&quot;',
+    0 => 'Un texte avec des entités &&lt;&gt;&quot;',
+    1 => 'Un texte avec des entit&eacute;s &&lt;&gt;&quot;',
     2 => 7,
   ),
   57 => 
   array (
-    0 => 'Un texte avec des entit&eacute;s &amp;&lt;&gt;&quot;',
-    1 => 'Un texte avec des entit&eacute;s &amp;&lt;&gt;&quot;',
+    0 => 'Un texte avec des entités &&lt;&gt;&quot;',
+    1 => 'Un texte avec des entit&eacute;s &&lt;&gt;&quot;',
     2 => 10,
   ),
   58 => 
   array (
-    0 => 'Un texte avec des entit&eacute;s &amp;&lt;&gt;&quot;',
-    1 => 'Un texte avec des entit&eacute;s &amp;&lt;&gt;&quot;',
+    0 => 'Un texte avec des entités &&lt;&gt;&quot;',
+    1 => 'Un texte avec des entit&eacute;s &&lt;&gt;&quot;',
     2 => 20,
   ),
   59 => 
   array (
-    0 => 'Un texte avec des entit&eacute;s &amp;&lt;&gt;&quot;',
-    1 => 'Un texte avec des entit&eacute;s &amp;&lt;&gt;&quot;',
+    0 => 'Un texte avec des entités &&lt;&gt;&quot;',
+    1 => 'Un texte avec des entit&eacute;s &&lt;&gt;&quot;',
     2 => 30,
   ),
   60 => 
   array (
-    0 => 'Un texte avec des entit&eacute;s &amp;&lt;&gt;&quot;',
-    1 => 'Un texte avec des entit&eacute;s &amp;&lt;&gt;&quot;',
+    0 => 'Un texte avec des entités &&lt;&gt;&quot;',
+    1 => 'Un texte avec des entit&eacute;s &&lt;&gt;&quot;',
     2 => 50,
   ),
   61 => 
   array (
-    0 => 'Un texte avec des entit&eacute;s &amp;&lt;&gt;&quot;',
-    1 => 'Un texte avec des entit&eacute;s &amp;&lt;&gt;&quot;',
+    0 => 'Un texte avec des entités &&lt;&gt;&quot;',
+    1 => 'Un texte avec des entit&eacute;s &&lt;&gt;&quot;',
     2 => 100,
   ),
   62 => 
   array (
-    0 => 'Un texte avec des entit&eacute;s &amp;&lt;&gt;&quot;',
-    1 => 'Un texte avec des entit&eacute;s &amp;&lt;&gt;&quot;',
+    0 => 'Un texte avec des entités &&lt;&gt;&quot;',
+    1 => 'Un texte avec des entit&eacute;s &&lt;&gt;&quot;',
     2 => 1000,
   ),
   63 => 
   array (
-    0 => 'Un texte avec des entit&eacute;s &amp;&lt;&gt;&quot;',
-    1 => 'Un texte avec des entit&eacute;s &amp;&lt;&gt;&quot;',
+    0 => 'Un texte avec des entités &&lt;&gt;&quot;',
+    1 => 'Un texte avec des entit&eacute;s &&lt;&gt;&quot;',
     2 => 10000,
   ),
   64 => 
@@ -698,9 +698,697 @@
     1 => 'Un modele <modeleinexistant|lien=[->http://www.spip.net]>',
     2 => 10000,
   ),
+  112 => 
+  array (
+    0 => 'ne coupe pas mon espace insécable ci-après &nbsp;',
+    1 => 'ne coupe pas mon espace insécable ci-après &nbsp;',
+    2 => 0,
+  ),
+  113 => 
+  array (
+    0 => 'ne coupe pas mon espace insécable ci-après &nbsp;',
+    1 => 'ne coupe pas mon espace insécable ci-après &nbsp;',
+    2 => -1,
+  ),
+  114 => 
+  array (
+    0 => 'n   e      c    o  u p    e      p    a    s     m o  n    e     s    p    a    c    e      i  n   s    éc    a    b l e      c    i  -a    p    r ès      ',
+    1 => 'ne coupe pas mon espace insécable ci-après &nbsp;',
+    2 => 1,
+  ),
+  115 => 
+  array (
+    0 => 'ne  co up e pa  s mo n es pa  ce  in séca bl e ci -ap rès  ',
+    1 => 'ne coupe pas mon espace insécable ci-après &nbsp;',
+    2 => 2,
+  ),
+  116 => 
+  array (
+    0 => 'ne cou pe pas  mon  esp ace  ins écab le ci-apr ès  ',
+    1 => 'ne coupe pas mon espace insécable ci-après &nbsp;',
+    2 => 3,
+  ),
+  117 => 
+  array (
+    0 => 'ne coup e pas mon espa ce insécabl e ci-après  ',
+    1 => 'ne coupe pas mon espace insécable ci-après &nbsp;',
+    2 => 4,
+  ),
+  118 => 
+  array (
+    0 => 'ne coupe  pas mon espac e insécable  ci-après  ',
+    1 => 'ne coupe pas mon espace insécable ci-après &nbsp;',
+    2 => 5,
+  ),
+  119 => 
+  array (
+    0 => 'ne coupe pas mon espace  insécable ci-après  ',
+    1 => 'ne coupe pas mon espace insécable ci-après &nbsp;',
+    2 => 6,
+  ),
+  120 => 
+  array (
+    0 => 'ne coupe pas mon espace insécable ci-après  ',
+    1 => 'ne coupe pas mon espace insécable ci-après &nbsp;',
+    2 => 7,
+  ),
+  121 => 
+  array (
+    0 => 'ne coupe pas mon espace insécable ci-après  ',
+    1 => 'ne coupe pas mon espace insécable ci-après &nbsp;',
+    2 => 10,
+  ),
+  122 => 
+  array (
+    0 => 'ne coupe pas mon espace insécable ci-après  ',
+    1 => 'ne coupe pas mon espace insécable ci-après &nbsp;',
+    2 => 20,
+  ),
+  123 => 
+  array (
+    0 => 'ne coupe pas mon espace insécable ci-après  ',
+    1 => 'ne coupe pas mon espace insécable ci-après &nbsp;',
+    2 => 30,
+  ),
+  124 => 
+  array (
+    0 => 'ne coupe pas mon espace insécable ci-après  ',
+    1 => 'ne coupe pas mon espace insécable ci-après &nbsp;',
+    2 => 50,
+  ),
+  125 => 
+  array (
+    0 => 'ne coupe pas mon espace insécable ci-après  ',
+    1 => 'ne coupe pas mon espace insécable ci-après &nbsp;',
+    2 => 100,
+  ),
+  126 => 
+  array (
+    0 => 'ne coupe pas mon espace insécable ci-après  ',
+    1 => 'ne coupe pas mon espace insécable ci-après &nbsp;',
+    2 => 1000,
+  ),
+  127 => 
+  array (
+    0 => 'ne coupe pas mon espace insécable ci-après  ',
+    1 => 'ne coupe pas mon espace insécable ci-après &nbsp;',
+    2 => 10000,
+  ),
+  128 => 
+  array (
+    0 => 'U n   t    e     x t    e      a v e     c  d e     s   e     n  t    i t    és   &amp;&lt;&gt;&quot;',
+    1 => 'Un texte avec des entit&eacute;s &amp;&lt;&gt;&quot;',
+    2 => 1,
+  ),
+  129 => 
+  array (
+    0 => 'Un  te xt e  av ec  de s en ti tés &amp;&lt;&gt;&quot;',
+    1 => 'Un texte avec des entit&eacute;s &amp;&lt;&gt;&quot;',
+    2 => 2,
+  ),
+  130 => 
+  array (
+    0 => 'Un tex te ave c des  ent ités &amp;&lt;&gt;&quot;',
+    1 => 'Un texte avec des entit&eacute;s &amp;&lt;&gt;&quot;',
+    2 => 3,
+  ),
+  131 => 
+  array (
+    0 => 'Un text e avec  des enti tés &amp;&lt;&gt;&quot;',
+    1 => 'Un texte avec des entit&eacute;s &amp;&lt;&gt;&quot;',
+    2 => 4,
+  ),
+  132 => 
+  array (
+    0 => 'Un texte  avec des entit és &amp;&lt;&gt;&quot;',
+    1 => 'Un texte avec des entit&eacute;s &amp;&lt;&gt;&quot;',
+    2 => 5,
+  ),
+  133 => 
+  array (
+    0 => 'Un texte avec des entités &amp;&lt;&gt;&quot;',
+    1 => 'Un texte avec des entit&eacute;s &amp;&lt;&gt;&quot;',
+    2 => 6,
+  ),
+  134 => 
+  array (
+    0 => 'Un texte avec des entités &amp;&lt;&gt;&quot;',
+    1 => 'Un texte avec des entit&eacute;s &amp;&lt;&gt;&quot;',
+    2 => 7,
+  ),
+  135 => 
+  array (
+    0 => 'Un texte avec des entités &amp;&lt;&gt;&quot;',
+    1 => 'Un texte avec des entit&eacute;s &amp;&lt;&gt;&quot;',
+    2 => 10,
+  ),
+  136 => 
+  array (
+    0 => 'Un texte avec des entités &amp;&lt;&gt;&quot;',
+    1 => 'Un texte avec des entit&eacute;s &amp;&lt;&gt;&quot;',
+    2 => 20,
+  ),
+  137 => 
+  array (
+    0 => 'Un texte avec des entités &amp;&lt;&gt;&quot;',
+    1 => 'Un texte avec des entit&eacute;s &amp;&lt;&gt;&quot;',
+    2 => 30,
+  ),
+  138 => 
+  array (
+    0 => 'Un texte avec des entités &amp;&lt;&gt;&quot;',
+    1 => 'Un texte avec des entit&eacute;s &amp;&lt;&gt;&quot;',
+    2 => 50,
+  ),
+  139 => 
+  array (
+    0 => 'Un texte avec des entités &amp;&lt;&gt;&quot;',
+    1 => 'Un texte avec des entit&eacute;s &amp;&lt;&gt;&quot;',
+    2 => 100,
+  ),
+  140 => 
+  array (
+    0 => 'Un texte avec des entités &amp;&lt;&gt;&quot;',
+    1 => 'Un texte avec des entit&eacute;s &amp;&lt;&gt;&quot;',
+    2 => 1000,
+  ),
+  141 => 
+  array (
+    0 => 'Un texte avec des entités &amp;&lt;&gt;&quot;',
+    1 => 'Un texte avec des entit&eacute;s &amp;&lt;&gt;&quot;',
+    2 => 10000,
+  ),
+  142 => 
+  array (
+    0 => 'Un texte avec des entit&amp;eacute;s echap&amp;eacute; &amp;amp;&amp;lt;&amp;gt;&amp;quot;',
+    1 => 'Un texte avec des entit&amp;eacute;s echap&amp;eacute; &amp;amp;&amp;lt;&amp;gt;&amp;quot;',
+    2 => 0,
+  ),
+  143 => 
+  array (
+    0 => 'Un texte avec des entit&amp;eacute;s echap&amp;eacute; &amp;amp;&amp;lt;&amp;gt;&amp;quot;',
+    1 => 'Un texte avec des entit&amp;eacute;s echap&amp;eacute; &amp;amp;&amp;lt;&amp;gt;&amp;quot;',
+    2 => -1,
+  ),
+  144 => 
+  array (
+    0 => 'U n   t         e          x t         e           a     v e          c     d e          s   e          n  t         i t         &amp;e          a     c    u   t         e          ;s   e          c    h a     p  &amp;e          a     c    u   t         e          ; &amp;a     m p  ;&amp;l t         ;&amp;g t         ;&amp;q u   o t         ;',
+    1 => 'Un texte avec des entit&amp;eacute;s echap&amp;eacute; &amp;amp;&amp;lt;&amp;gt;&amp;quot;',
+    2 => 1,
+  ),
+  145 => 
+  array (
+    0 => 'Un  te   xt e  av ec   de s en ti t&amp;ea  cu  te   ;s ec  ha p&amp;ea  cu  te   ; &amp;am p;&amp;lt ;&amp;gt ;&amp;qu ot ;',
+    1 => 'Un texte avec des entit&amp;eacute;s echap&amp;eacute; &amp;amp;&amp;lt;&amp;gt;&amp;quot;',
+    2 => 2,
+  ),
+  146 => 
+  array (
+    0 => 'Un tex te ave c des  ent it&amp;eac  ute  ;s ech ap&amp;eac  ute  ; &amp;amp ;&amp;lt;&amp;gt;&amp;quo t;',
+    1 => 'Un texte avec des entit&amp;eacute;s echap&amp;eacute; &amp;amp;&amp;lt;&amp;gt;&amp;quot;',
+    2 => 3,
+  ),
+  147 => 
+  array (
+    0 => 'Un text e avec  des enti t&amp;eacu  te;s echa p&amp;eacu  te; &amp;amp;&amp;lt;&amp;gt;&amp;quot ;',
+    1 => 'Un texte avec des entit&amp;eacute;s echap&amp;eacute; &amp;amp;&amp;lt;&amp;gt;&amp;quot;',
+    2 => 4,
+  ),
+  148 => 
+  array (
+    0 => 'Un texte  avec des entit &amp;eacut  e;s echap &amp;eacut  e; &amp;amp;&amp;lt;&amp;gt;&amp;quot;',
+    1 => 'Un texte avec des entit&amp;eacute;s echap&amp;eacute; &amp;amp;&amp;lt;&amp;gt;&amp;quot;',
+    2 => 5,
+  ),
+  149 => 
+  array (
+    0 => 'Un texte avec des entit&amp;eacute  ;s echap&amp;eacute  ; &amp;amp;&amp;lt;&amp;gt;&amp;quot;',
+    1 => 'Un texte avec des entit&amp;eacute;s echap&amp;eacute; &amp;amp;&amp;lt;&amp;gt;&amp;quot;',
+    2 => 6,
+  ),
+  150 => 
+  array (
+    0 => 'Un texte avec des entit&amp;eacute;s echap&amp;eacute; &amp;amp;&amp;lt;&amp;gt;&amp;quot;',
+    1 => 'Un texte avec des entit&amp;eacute;s echap&amp;eacute; &amp;amp;&amp;lt;&amp;gt;&amp;quot;',
+    2 => 7,
+  ),
+  151 => 
+  array (
+    0 => 'Un texte avec des entit&amp;eacute;s echap&amp;eacute; &amp;amp;&amp;lt;&amp;gt;&amp;quot;',
+    1 => 'Un texte avec des entit&amp;eacute;s echap&amp;eacute; &amp;amp;&amp;lt;&amp;gt;&amp;quot;',
+    2 => 10,
+  ),
+  152 => 
+  array (
+    0 => 'Un texte avec des entit&amp;eacute;s echap&amp;eacute; &amp;amp;&amp;lt;&amp;gt;&amp;quot;',
+    1 => 'Un texte avec des entit&amp;eacute;s echap&amp;eacute; &amp;amp;&amp;lt;&amp;gt;&amp;quot;',
+    2 => 20,
+  ),
+  153 => 
+  array (
+    0 => 'Un texte avec des entit&amp;eacute;s echap&amp;eacute; &amp;amp;&amp;lt;&amp;gt;&amp;quot;',
+    1 => 'Un texte avec des entit&amp;eacute;s echap&amp;eacute; &amp;amp;&amp;lt;&amp;gt;&amp;quot;',
+    2 => 30,
+  ),
+  154 => 
+  array (
+    0 => 'Un texte avec des entit&amp;eacute;s echap&amp;eacute; &amp;amp;&amp;lt;&amp;gt;&amp;quot;',
+    1 => 'Un texte avec des entit&amp;eacute;s echap&amp;eacute; &amp;amp;&amp;lt;&amp;gt;&amp;quot;',
+    2 => 50,
+  ),
+  155 => 
+  array (
+    0 => 'Un texte avec des entit&amp;eacute;s echap&amp;eacute; &amp;amp;&amp;lt;&amp;gt;&amp;quot;',
+    1 => 'Un texte avec des entit&amp;eacute;s echap&amp;eacute; &amp;amp;&amp;lt;&amp;gt;&amp;quot;',
+    2 => 100,
+  ),
+  156 => 
+  array (
+    0 => 'Un texte avec des entit&amp;eacute;s echap&amp;eacute; &amp;amp;&amp;lt;&amp;gt;&amp;quot;',
+    1 => 'Un texte avec des entit&amp;eacute;s echap&amp;eacute; &amp;amp;&amp;lt;&amp;gt;&amp;quot;',
+    2 => 1000,
+  ),
+  157 => 
+  array (
+    0 => 'Un texte avec des entit&amp;eacute;s echap&amp;eacute; &amp;amp;&amp;lt;&amp;gt;&amp;quot;',
+    1 => 'Un texte avec des entit&amp;eacute;s echap&amp;eacute; &amp;amp;&amp;lt;&amp;gt;&amp;quot;',
+    2 => 10000,
+  ),
+  158 => 
+  array (
+    0 => 'Un texte avec des entit&#233;s num&#233;riques &#38;&#60;&#62;&quot;',
+    1 => 'Un texte avec des entit&#233;s num&#233;riques &#38;&#60;&#62;&quot;',
+    2 => 0,
+  ),
+  159 => 
+  array (
+    0 => 'Un texte avec des entit&#233;s num&#233;riques &#38;&#60;&#62;&quot;',
+    1 => 'Un texte avec des entit&#233;s num&#233;riques &#38;&#60;&#62;&quot;',
+    2 => -1,
+  ),
+  160 => 
+  array (
+    0 => 'U n    t    e      x t    e       a v e      c  d e      s    e      n   t    i  t    és    n   u  m ér i  q u  e      s    &#38;&#60;&#62;&quot;',
+    1 => 'Un texte avec des entit&#233;s num&#233;riques &#38;&#60;&#62;&quot;',
+    2 => 1,
+  ),
+  161 => 
+  array (
+    0 => 'Un  te xt e  av ec  de s en ti tés nu méri qu es  &#38;&#60;&#62;&quot;',
+    1 => 'Un texte avec des entit&#233;s num&#233;riques &#38;&#60;&#62;&quot;',
+    2 => 2,
+  ),
+  162 => 
+  array (
+    0 => 'Un tex te ave c des  ent ités num ériq ues  &#38;&#60;&#62;&quot;',
+    1 => 'Un texte avec des entit&#233;s num&#233;riques &#38;&#60;&#62;&quot;',
+    2 => 3,
+  ),
+  163 => 
+  array (
+    0 => 'Un text e avec  des enti tés numériqu es &#38;&#60;&#62;&quot;',
+    1 => 'Un texte avec des entit&#233;s num&#233;riques &#38;&#60;&#62;&quot;',
+    2 => 4,
+  ),
+  164 => 
+  array (
+    0 => 'Un texte  avec des entit és numérique s &#38;&#60;&#62;&quot;',
+    1 => 'Un texte avec des entit&#233;s num&#233;riques &#38;&#60;&#62;&quot;',
+    2 => 5,
+  ),
+  165 => 
+  array (
+    0 => 'Un texte avec des entités numériques  &#38;&#60;&#62;&quot;',
+    1 => 'Un texte avec des entit&#233;s num&#233;riques &#38;&#60;&#62;&quot;',
+    2 => 6,
+  ),
+  166 => 
+  array (
+    0 => 'Un texte avec des entités numériques &#38;&#60;&#62;&quot;',
+    1 => 'Un texte avec des entit&#233;s num&#233;riques &#38;&#60;&#62;&quot;',
+    2 => 7,
+  ),
+  167 => 
+  array (
+    0 => 'Un texte avec des entités numériques &#38;&#60;&#62;&quot;',
+    1 => 'Un texte avec des entit&#233;s num&#233;riques &#38;&#60;&#62;&quot;',
+    2 => 10,
+  ),
+  168 => 
+  array (
+    0 => 'Un texte avec des entités numériques &#38;&#60;&#62;&quot;',
+    1 => 'Un texte avec des entit&#233;s num&#233;riques &#38;&#60;&#62;&quot;',
+    2 => 20,
+  ),
+  169 => 
+  array (
+    0 => 'Un texte avec des entités numériques &#38;&#60;&#62;&quot;',
+    1 => 'Un texte avec des entit&#233;s num&#233;riques &#38;&#60;&#62;&quot;',
+    2 => 30,
+  ),
+  170 => 
+  array (
+    0 => 'Un texte avec des entités numériques &#38;&#60;&#62;&quot;',
+    1 => 'Un texte avec des entit&#233;s num&#233;riques &#38;&#60;&#62;&quot;',
+    2 => 50,
+  ),
+  171 => 
+  array (
+    0 => 'Un texte avec des entités numériques &#38;&#60;&#62;&quot;',
+    1 => 'Un texte avec des entit&#233;s num&#233;riques &#38;&#60;&#62;&quot;',
+    2 => 100,
+  ),
+  172 => 
+  array (
+    0 => 'Un texte avec des entités numériques &#38;&#60;&#62;&quot;',
+    1 => 'Un texte avec des entit&#233;s num&#233;riques &#38;&#60;&#62;&quot;',
+    2 => 1000,
+  ),
+  173 => 
+  array (
+    0 => 'Un texte avec des entités numériques &#38;&#60;&#62;&quot;',
+    1 => 'Un texte avec des entit&#233;s num&#233;riques &#38;&#60;&#62;&quot;',
+    2 => 10000,
+  ),
+  174 => 
+  array (
+    0 => 'Un texte avec des entit&amp;#233;s num&amp;#233;riques echap&amp;#233;es &amp;#38;&amp;#60;&amp;#62;&amp;quot;',
+    1 => 'Un texte avec des entit&amp;#233;s num&amp;#233;riques echap&amp;#233;es &amp;#38;&amp;#60;&amp;#62;&amp;quot;',
+    2 => 0,
+  ),
+  175 => 
+  array (
+    0 => 'Un texte avec des entit&amp;#233;s num&amp;#233;riques echap&amp;#233;es &amp;#38;&amp;#60;&amp;#62;&amp;quot;',
+    1 => 'Un texte avec des entit&amp;#233;s num&amp;#233;riques echap&amp;#233;es &amp;#38;&amp;#60;&amp;#62;&amp;quot;',
+    2 => -1,
+  ),
+  176 => 
+  array (
+    0 => 'U n    t     e        x t     e         a  v e        c   d e        s     e        n   t     i  t     &amp;#233;s     n   u   m &amp;#233;r i  q  u   e        s     e        c  h a  p &amp;#233;e        s     &amp;#38;&amp;#60;&amp;#62;&amp;q  u   o t     ;',
+    1 => 'Un texte avec des entit&amp;#233;s num&amp;#233;riques echap&amp;#233;es &amp;#38;&amp;#60;&amp;#62;&amp;quot;',
+    2 => 1,
+  ),
+  177 => 
+  array (
+    0 => 'Un  te xt e  av ec   de s en ti t&amp;#233;s nu m&amp;#233;ri qu  es   ec  ha p&amp;#233;es   &amp;#38;&amp;#60;&amp;#62;&amp;qu  ot ;',
+    1 => 'Un texte avec des entit&amp;#233;s num&amp;#233;riques echap&amp;#233;es &amp;#38;&amp;#60;&amp;#62;&amp;quot;',
+    2 => 2,
+  ),
+  178 => 
+  array (
+    0 => 'Un tex te ave c des  ent it&amp;#233;s num &amp;#233;riq ues  ech ap&amp;#233;es &amp;#38;&amp;#60;&amp;#62;&amp;quo t;',
+    1 => 'Un texte avec des entit&amp;#233;s num&amp;#233;riques echap&amp;#233;es &amp;#38;&amp;#60;&amp;#62;&amp;quot;',
+    2 => 3,
+  ),
+  179 => 
+  array (
+    0 => 'Un text e avec  des enti t&amp;#233;s num&amp;#233;riqu es echa p&amp;#233;es &amp;#38;&amp;#60;&amp;#62;&amp;quot ;',
+    1 => 'Un texte avec des entit&amp;#233;s num&amp;#233;riques echap&amp;#233;es &amp;#38;&amp;#60;&amp;#62;&amp;quot;',
+    2 => 4,
+  ),
+  180 => 
+  array (
+    0 => 'Un texte  avec des entit &amp;#233;s num&amp;#233;rique s echap &amp;#233;es &amp;#38;&amp;#60;&amp;#62;&amp;quot;',
+    1 => 'Un texte avec des entit&amp;#233;s num&amp;#233;riques echap&amp;#233;es &amp;#38;&amp;#60;&amp;#62;&amp;quot;',
+    2 => 5,
+  ),
+  181 => 
+  array (
+    0 => 'Un texte avec des entit&amp;#233;s num&amp;#233;riques  echap&amp;#233;es &amp;#38;&amp;#60;&amp;#62;&amp;quot;',
+    1 => 'Un texte avec des entit&amp;#233;s num&amp;#233;riques echap&amp;#233;es &amp;#38;&amp;#60;&amp;#62;&amp;quot;',
+    2 => 6,
+  ),
+  182 => 
+  array (
+    0 => 'Un texte avec des entit&amp;#233;s num&amp;#233;riques echap&amp;#233;es &amp;#38;&amp;#60;&amp;#62;&amp;quot;',
+    1 => 'Un texte avec des entit&amp;#233;s num&amp;#233;riques echap&amp;#233;es &amp;#38;&amp;#60;&amp;#62;&amp;quot;',
+    2 => 7,
+  ),
+  183 => 
+  array (
+    0 => 'Un texte avec des entit&amp;#233;s num&amp;#233;riques echap&amp;#233;es &amp;#38;&amp;#60;&amp;#62;&amp;quot;',
+    1 => 'Un texte avec des entit&amp;#233;s num&amp;#233;riques echap&amp;#233;es &amp;#38;&amp;#60;&amp;#62;&amp;quot;',
+    2 => 10,
+  ),
+  184 => 
+  array (
+    0 => 'Un texte avec des entit&amp;#233;s num&amp;#233;riques echap&amp;#233;es &amp;#38;&amp;#60;&amp;#62;&amp;quot;',
+    1 => 'Un texte avec des entit&amp;#233;s num&amp;#233;riques echap&amp;#233;es &amp;#38;&amp;#60;&amp;#62;&amp;quot;',
+    2 => 20,
+  ),
+  185 => 
+  array (
+    0 => 'Un texte avec des entit&amp;#233;s num&amp;#233;riques echap&amp;#233;es &amp;#38;&amp;#60;&amp;#62;&amp;quot;',
+    1 => 'Un texte avec des entit&amp;#233;s num&amp;#233;riques echap&amp;#233;es &amp;#38;&amp;#60;&amp;#62;&amp;quot;',
+    2 => 30,
+  ),
+  186 => 
+  array (
+    0 => 'Un texte avec des entit&amp;#233;s num&amp;#233;riques echap&amp;#233;es &amp;#38;&amp;#60;&amp;#62;&amp;quot;',
+    1 => 'Un texte avec des entit&amp;#233;s num&amp;#233;riques echap&amp;#233;es &amp;#38;&amp;#60;&amp;#62;&amp;quot;',
+    2 => 50,
+  ),
+  187 => 
+  array (
+    0 => 'Un texte avec des entit&amp;#233;s num&amp;#233;riques echap&amp;#233;es &amp;#38;&amp;#60;&amp;#62;&amp;quot;',
+    1 => 'Un texte avec des entit&amp;#233;s num&amp;#233;riques echap&amp;#233;es &amp;#38;&amp;#60;&amp;#62;&amp;quot;',
+    2 => 100,
+  ),
+  188 => 
+  array (
+    0 => 'Un texte avec des entit&amp;#233;s num&amp;#233;riques echap&amp;#233;es &amp;#38;&amp;#60;&amp;#62;&amp;quot;',
+    1 => 'Un texte avec des entit&amp;#233;s num&amp;#233;riques echap&amp;#233;es &amp;#38;&amp;#60;&amp;#62;&amp;quot;',
+    2 => 1000,
+  ),
+  189 => 
+  array (
+    0 => 'Un texte avec des entit&amp;#233;s num&amp;#233;riques echap&amp;#233;es &amp;#38;&amp;#60;&amp;#62;&amp;quot;',
+    1 => 'Un texte avec des entit&amp;#233;s num&amp;#233;riques echap&amp;#233;es &amp;#38;&amp;#60;&amp;#62;&amp;quot;',
+    2 => 10000,
+  ),
+  190 => 
+  array (
+    0 => 'Un texte avec des retour
+a la ligne et meme des
+
+paragraphes',
+    1 => 'Un texte avec des retour
+a la ligne et meme des
+
+paragraphes',
+    2 => 0,
+  ),
+  191 => 
+  array (
+    0 => 'Un texte avec des retour
+a la ligne et meme des
+
+paragraphes',
+    1 => 'Un texte avec des retour
+a la ligne et meme des
+
+paragraphes',
+    2 => -1,
+  ),
+  192 => 
+  array (
+    0 => 'U n   t    e           x t    e            a      v e           c  d  e           s    r    e           t    o u r    
+a       l  a       l  i g  n  e            e           t     m  e           m  e            d  e           s   
+
+p  a      r    a      g  r    a      p  h e           s   ',
+    1 => 'Un texte avec des retour
+a la ligne et meme des
+
+paragraphes',
+    2 => 1,
+  ),
+  193 => 
+  array (
+    0 => 'Un  te xt e  av ec  de  s re to ur 
+a la  li gn e et  me  me   de  s
+
+pa ra gr a phe s',
+    1 => 'Un texte avec des retour
+a la ligne et meme des
+
+paragraphes',
+    2 => 2,
+  ),
+  194 => 
+  array (
+    0 => 'Un tex te ave c des   ret our 
+a la lig ne et mem e des  
+
+par agr aph es',
+    1 => 'Un texte avec des retour
+a la ligne et meme des
+
+paragraphes',
+    2 => 3,
+  ),
+  195 => 
+  array (
+    0 => 'Un text e avec  des reto ur
+a la lign e et meme  des
+
+para grap hes',
+    1 => 'Un texte avec des retour
+a la ligne et meme des
+
+paragraphes',
+    2 => 4,
+  ),
+  196 => 
+  array (
+    0 => 'Un texte  avec des retou r
+a la ligne  et meme des
+
+parag raphe s',
+    1 => 'Un texte avec des retour
+a la ligne et meme des
+
+paragraphes',
+    2 => 5,
+  ),
+  197 => 
+  array (
+    0 => 'Un texte avec des retour 
+a la ligne et meme des
+
+paragr aphes',
+    1 => 'Un texte avec des retour
+a la ligne et meme des
+
+paragraphes',
+    2 => 6,
+  ),
+  198 => 
+  array (
+    0 => 'Un texte avec des retour
+a la ligne et meme des
+
+paragra phes',
+    1 => 'Un texte avec des retour
+a la ligne et meme des
+
+paragraphes',
+    2 => 7,
+  ),
+  199 => 
+  array (
+    0 => 'Un texte avec des retour
+a la ligne et meme des
+
+paragraphe s',
+    1 => 'Un texte avec des retour
+a la ligne et meme des
+
+paragraphes',
+    2 => 10,
+  ),
+  200 => 
+  array (
+    0 => 'Un texte avec des retour
+a la ligne et meme des
+
+paragraphes',
+    1 => 'Un texte avec des retour
+a la ligne et meme des
+
+paragraphes',
+    2 => 20,
+  ),
+  201 => 
+  array (
+    0 => 'Un texte avec des retour
+a la ligne et meme des
+
+paragraphes',
+    1 => 'Un texte avec des retour
+a la ligne et meme des
+
+paragraphes',
+    2 => 30,
+  ),
+  202 => 
+  array (
+    0 => 'Un texte avec des retour
+a la ligne et meme des
+
+paragraphes',
+    1 => 'Un texte avec des retour
+a la ligne et meme des
+
+paragraphes',
+    2 => 50,
+  ),
+  203 => 
+  array (
+    0 => 'Un texte avec des retour
+a la ligne et meme des
+
+paragraphes',
+    1 => 'Un texte avec des retour
+a la ligne et meme des
+
+paragraphes',
+    2 => 100,
+  ),
+  204 => 
+  array (
+    0 => 'Un texte avec des retour
+a la ligne et meme des
+
+paragraphes',
+    1 => 'Un texte avec des retour
+a la ligne et meme des
+
+paragraphes',
+    2 => 1000,
+  ),
+  205 => 
+  array (
+    0 => 'Un texte avec des retour
+a la ligne et meme des
+
+paragraphes',
+    1 => 'Un texte avec des retour
+a la ligne et meme des
+
+paragraphes',
+    2 => 10000,
+  ),
 );
 		return $essais;
 	}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
