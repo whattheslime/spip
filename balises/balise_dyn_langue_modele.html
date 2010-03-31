@@ -1,0 +1,16 @@
+[(#REM)
+
+  Squelette
+  (c) 2009 xxx
+  Distribue sous licence GPL
+
+]
+[(#REM) Ici on est dans la #LANG fixee dans le fichier _fonctions]
+<BOUCLE_art(ARTICLES){lang!=#LANG}{0,1}>
+[(#REM) Ici on est dans une autre langue : celle de l'article
+On appelle le formulaire via un modele pour verifier que la langue correspond a sa globale spip_lang
+]
+[(#VAL{'<formulaire|test_dyn_lang|t='}|concat{#LANG,'>'}|propre)]
+</BOUCLE_art>
+N/A : Impossible de trouver un article dans une autre langue que #LANG
+<//B_art>
