@@ -280,37 +280,37 @@
   ),
   42 => 
   array (
-    0 => 'Un texte avec des  <a href="http://spip.net"> liens </a>  [Article 1->art1] [spip->http://www.spip.net] http://www.spip.net',
+    0 => 'Un texte avec des <a href="http://spip.net">liens</a> [Article 1->art1] [spip->http://www.spip.net] http://www.spip.net',
     1 => 'Un texte avec des <a href="http://spip.net">liens</a> [Article 1->art1] [spip->http://www.spip.net] http://www.spip.net',
     2 => 20,
   ),
   43 => 
   array (
-    0 => 'Un texte avec des  <a href="http://spip.net"> liens </a>  [Article 1->art1] [spip->http://www.spip.net] http://www.spip.net',
+    0 => 'Un texte avec des <a href="http://spip.net">liens</a> [Article 1->art1] [spip->http://www.spip.net] http://www.spip.net',
     1 => 'Un texte avec des <a href="http://spip.net">liens</a> [Article 1->art1] [spip->http://www.spip.net] http://www.spip.net',
     2 => 30,
   ),
   44 => 
   array (
-    0 => 'Un texte avec des  <a href="http://spip.net"> liens </a>  [Article 1->art1] [spip->http://www.spip.net] http://www.spip.net',
+    0 => 'Un texte avec des <a href="http://spip.net">liens</a> [Article 1->art1] [spip->http://www.spip.net] http://www.spip.net',
     1 => 'Un texte avec des <a href="http://spip.net">liens</a> [Article 1->art1] [spip->http://www.spip.net] http://www.spip.net',
     2 => 50,
   ),
   45 => 
   array (
-    0 => 'Un texte avec des  <a href="http://spip.net"> liens </a>  [Article 1->art1] [spip->http://www.spip.net] http://www.spip.net',
+    0 => 'Un texte avec des <a href="http://spip.net">liens</a> [Article 1->art1] [spip->http://www.spip.net] http://www.spip.net',
     1 => 'Un texte avec des <a href="http://spip.net">liens</a> [Article 1->art1] [spip->http://www.spip.net] http://www.spip.net',
     2 => 100,
   ),
   46 => 
   array (
-    0 => 'Un texte avec des  <a href="http://spip.net"> liens </a>  [Article 1->art1] [spip->http://www.spip.net] http://www.spip.net',
+    0 => 'Un texte avec des <a href="http://spip.net">liens</a> [Article 1->art1] [spip->http://www.spip.net] http://www.spip.net',
     1 => 'Un texte avec des <a href="http://spip.net">liens</a> [Article 1->art1] [spip->http://www.spip.net] http://www.spip.net',
     2 => 1000,
   ),
   47 => 
   array (
-    0 => 'Un texte avec des  <a href="http://spip.net"> liens </a>  [Article 1->art1] [spip->http://www.spip.net] http://www.spip.net',
+    0 => 'Un texte avec des <a href="http://spip.net">liens</a> [Article 1->art1] [spip->http://www.spip.net] http://www.spip.net',
     1 => 'Un texte avec des <a href="http://spip.net">liens</a> [Article 1->art1] [spip->http://www.spip.net] http://www.spip.net',
     2 => 10000,
   ),
@@ -364,49 +364,49 @@
   ),
   56 => 
   array (
-    0 => 'Un texte avec des entités &&lt;&gt;&quot;',
+    0 => 'Un texte avec des entit&eacute;s &&lt;&gt;&quot;',
     1 => 'Un texte avec des entit&eacute;s &&lt;&gt;&quot;',
     2 => 7,
   ),
   57 => 
   array (
-    0 => 'Un texte avec des entités &&lt;&gt;&quot;',
+    0 => 'Un texte avec des entit&eacute;s &&lt;&gt;&quot;',
     1 => 'Un texte avec des entit&eacute;s &&lt;&gt;&quot;',
     2 => 10,
   ),
   58 => 
   array (
-    0 => 'Un texte avec des entités &&lt;&gt;&quot;',
+    0 => 'Un texte avec des entit&eacute;s &&lt;&gt;&quot;',
     1 => 'Un texte avec des entit&eacute;s &&lt;&gt;&quot;',
     2 => 20,
   ),
   59 => 
   array (
-    0 => 'Un texte avec des entités &&lt;&gt;&quot;',
+    0 => 'Un texte avec des entit&eacute;s &&lt;&gt;&quot;',
     1 => 'Un texte avec des entit&eacute;s &&lt;&gt;&quot;',
     2 => 30,
   ),
   60 => 
   array (
-    0 => 'Un texte avec des entités &&lt;&gt;&quot;',
+    0 => 'Un texte avec des entit&eacute;s &&lt;&gt;&quot;',
     1 => 'Un texte avec des entit&eacute;s &&lt;&gt;&quot;',
     2 => 50,
   ),
   61 => 
   array (
-    0 => 'Un texte avec des entités &&lt;&gt;&quot;',
+    0 => 'Un texte avec des entit&eacute;s &&lt;&gt;&quot;',
     1 => 'Un texte avec des entit&eacute;s &&lt;&gt;&quot;',
     2 => 100,
   ),
   62 => 
   array (
-    0 => 'Un texte avec des entités &&lt;&gt;&quot;',
+    0 => 'Un texte avec des entit&eacute;s &&lt;&gt;&quot;',
     1 => 'Un texte avec des entit&eacute;s &&lt;&gt;&quot;',
     2 => 1000,
   ),
   63 => 
   array (
-    0 => 'Un texte avec des entités &&lt;&gt;&quot;',
+    0 => 'Un texte avec des entit&eacute;s &&lt;&gt;&quot;',
     1 => 'Un texte avec des entit&eacute;s &&lt;&gt;&quot;',
     2 => 10000,
   ),
@@ -568,37 +568,37 @@
   ),
   90 => 
   array (
-    0 => '{{{Des raccourcis}}} {italique} {{gras}}  <code> du code </code> ',
+    0 => '{{{Des raccourcis}}} {italique} {{gras}} <code>du code</code>',
     1 => '{{{Des raccourcis}}} {italique} {{gras}} <code>du code</code>',
     2 => 20,
   ),
   91 => 
   array (
-    0 => '{{{Des raccourcis}}} {italique} {{gras}}  <code> du code </code> ',
+    0 => '{{{Des raccourcis}}} {italique} {{gras}} <code>du code</code>',
     1 => '{{{Des raccourcis}}} {italique} {{gras}} <code>du code</code>',
     2 => 30,
   ),
   92 => 
   array (
-    0 => '{{{Des raccourcis}}} {italique} {{gras}}  <code> du code </code> ',
+    0 => '{{{Des raccourcis}}} {italique} {{gras}} <code>du code</code>',
     1 => '{{{Des raccourcis}}} {italique} {{gras}} <code>du code</code>',
     2 => 50,
   ),
   93 => 
   array (
-    0 => '{{{Des raccourcis}}} {italique} {{gras}}  <code> du code </code> ',
+    0 => '{{{Des raccourcis}}} {italique} {{gras}} <code>du code</code>',
     1 => '{{{Des raccourcis}}} {italique} {{gras}} <code>du code</code>',
     2 => 100,
   ),
   94 => 
   array (
-    0 => '{{{Des raccourcis}}} {italique} {{gras}}  <code> du code </code> ',
+    0 => '{{{Des raccourcis}}} {italique} {{gras}} <code>du code</code>',
     1 => '{{{Des raccourcis}}} {italique} {{gras}} <code>du code</code>',
     2 => 1000,
   ),
   95 => 
   array (
-    0 => '{{{Des raccourcis}}} {italique} {{gras}}  <code> du code </code> ',
+    0 => '{{{Des raccourcis}}} {italique} {{gras}} <code>du code</code>',
     1 => '{{{Des raccourcis}}} {italique} {{gras}} <code>du code</code>',
     2 => 10000,
   ),
@@ -664,37 +664,37 @@
   ),
   106 => 
   array (
-    0 => 'Un modele  <modeleinexistant|lien=[-> http://www.spip.net]>',
+    0 => 'Un modele <modeleinexistant|lien=[->http://www.spip.net]>',
     1 => 'Un modele <modeleinexistant|lien=[->http://www.spip.net]>',
     2 => 20,
   ),
   107 => 
   array (
-    0 => 'Un modele  <modeleinexistant|lien=[-> http://www.spip.net]>',
+    0 => 'Un modele <modeleinexistant|lien=[->http://www.spip.net]>',
     1 => 'Un modele <modeleinexistant|lien=[->http://www.spip.net]>',
     2 => 30,
   ),
   108 => 
   array (
-    0 => 'Un modele  <modeleinexistant|lien=[-> http://www.spip.net]>',
+    0 => 'Un modele <modeleinexistant|lien=[->http://www.spip.net]>',
     1 => 'Un modele <modeleinexistant|lien=[->http://www.spip.net]>',
     2 => 50,
   ),
   109 => 
   array (
-    0 => 'Un modele  <modeleinexistant|lien=[-> http://www.spip.net]>',
+    0 => 'Un modele <modeleinexistant|lien=[->http://www.spip.net]>',
     1 => 'Un modele <modeleinexistant|lien=[->http://www.spip.net]>',
     2 => 100,
   ),
   110 => 
   array (
-    0 => 'Un modele  <modeleinexistant|lien=[-> http://www.spip.net]>',
+    0 => 'Un modele <modeleinexistant|lien=[->http://www.spip.net]>',
     1 => 'Un modele <modeleinexistant|lien=[->http://www.spip.net]>',
     2 => 1000,
   ),
   111 => 
   array (
-    0 => 'Un modele  <modeleinexistant|lien=[-> http://www.spip.net]>',
+    0 => 'Un modele <modeleinexistant|lien=[->http://www.spip.net]>',
     1 => 'Un modele <modeleinexistant|lien=[->http://www.spip.net]>',
     2 => 10000,
   ),
@@ -712,85 +712,85 @@
   ),
   114 => 
   array (
-    0 => 'n   e      c    o  u p    e      p    a    s     m o  n    e     s    p    a    c    e      i  n   s    éc    a    b l e      c    i  -a    p    r ès      ',
+    0 => 'n   e      c    o  u p    e      p    a    s     m o  n    e     s    p    a    c    e      i  n   s    éc    a    b l e      c    i  -a    p    r ès     &nbsp;',
     1 => 'ne coupe pas mon espace insécable ci-après &nbsp;',
     2 => 1,
   ),
   115 => 
   array (
-    0 => 'ne  co up e pa  s mo n es pa  ce  in séca bl e ci -ap rès  ',
+    0 => 'ne  co up e pa  s mo n es pa  ce  in séca bl e ci -ap rès &nbsp;',
     1 => 'ne coupe pas mon espace insécable ci-après &nbsp;',
     2 => 2,
   ),
   116 => 
   array (
-    0 => 'ne cou pe pas  mon  esp ace  ins écab le ci-apr ès  ',
+    0 => 'ne cou pe pas  mon  esp ace  ins écab le ci-apr ès &nbsp;',
     1 => 'ne coupe pas mon espace insécable ci-après &nbsp;',
     2 => 3,
   ),
   117 => 
   array (
-    0 => 'ne coup e pas mon espa ce insécabl e ci-après  ',
+    0 => 'ne coup e pas mon espa ce insécabl e ci-après &nbsp;',
     1 => 'ne coupe pas mon espace insécable ci-après &nbsp;',
     2 => 4,
   ),
   118 => 
   array (
-    0 => 'ne coupe  pas mon espac e insécable  ci-après  ',
+    0 => 'ne coupe  pas mon espac e insécable  ci-après &nbsp;',
     1 => 'ne coupe pas mon espace insécable ci-après &nbsp;',
     2 => 5,
   ),
   119 => 
   array (
-    0 => 'ne coupe pas mon espace  insécable ci-après  ',
+    0 => 'ne coupe pas mon espace  insécable ci-après &nbsp;',
     1 => 'ne coupe pas mon espace insécable ci-après &nbsp;',
     2 => 6,
   ),
   120 => 
   array (
-    0 => 'ne coupe pas mon espace insécable ci-après  ',
+    0 => 'ne coupe pas mon espace insécable ci-après &nbsp;',
     1 => 'ne coupe pas mon espace insécable ci-après &nbsp;',
     2 => 7,
   ),
   121 => 
   array (
-    0 => 'ne coupe pas mon espace insécable ci-après  ',
+    0 => 'ne coupe pas mon espace insécable ci-après &nbsp;',
     1 => 'ne coupe pas mon espace insécable ci-après &nbsp;',
     2 => 10,
   ),
   122 => 
   array (
-    0 => 'ne coupe pas mon espace insécable ci-après  ',
+    0 => 'ne coupe pas mon espace insécable ci-après &nbsp;',
     1 => 'ne coupe pas mon espace insécable ci-après &nbsp;',
     2 => 20,
   ),
   123 => 
   array (
-    0 => 'ne coupe pas mon espace insécable ci-après  ',
+    0 => 'ne coupe pas mon espace insécable ci-après &nbsp;',
     1 => 'ne coupe pas mon espace insécable ci-après &nbsp;',
     2 => 30,
   ),
   124 => 
   array (
-    0 => 'ne coupe pas mon espace insécable ci-après  ',
+    0 => 'ne coupe pas mon espace insécable ci-après &nbsp;',
     1 => 'ne coupe pas mon espace insécable ci-après &nbsp;',
     2 => 50,
   ),
   125 => 
   array (
-    0 => 'ne coupe pas mon espace insécable ci-après  ',
+    0 => 'ne coupe pas mon espace insécable ci-après &nbsp;',
     1 => 'ne coupe pas mon espace insécable ci-après &nbsp;',
     2 => 100,
   ),
   126 => 
   array (
-    0 => 'ne coupe pas mon espace insécable ci-après  ',
+    0 => 'ne coupe pas mon espace insécable ci-après &nbsp;',
     1 => 'ne coupe pas mon espace insécable ci-après &nbsp;',
     2 => 1000,
   ),
   127 => 
   array (
-    0 => 'ne coupe pas mon espace insécable ci-après  ',
+    0 => 'ne coupe pas mon espace insécable ci-après &nbsp;',
     1 => 'ne coupe pas mon espace insécable ci-après &nbsp;',
     2 => 10000,
   ),
@@ -832,49 +832,49 @@
   ),
   134 => 
   array (
-    0 => 'Un texte avec des entités &amp;&lt;&gt;&quot;',
+    0 => 'Un texte avec des entit&eacute;s &amp;&lt;&gt;&quot;',
     1 => 'Un texte avec des entit&eacute;s &amp;&lt;&gt;&quot;',
     2 => 7,
   ),
   135 => 
   array (
-    0 => 'Un texte avec des entités &amp;&lt;&gt;&quot;',
+    0 => 'Un texte avec des entit&eacute;s &amp;&lt;&gt;&quot;',
     1 => 'Un texte avec des entit&eacute;s &amp;&lt;&gt;&quot;',
     2 => 10,
   ),
   136 => 
   array (
-    0 => 'Un texte avec des entités &amp;&lt;&gt;&quot;',
+    0 => 'Un texte avec des entit&eacute;s &amp;&lt;&gt;&quot;',
     1 => 'Un texte avec des entit&eacute;s &amp;&lt;&gt;&quot;',
     2 => 20,
   ),
   137 => 
   array (
-    0 => 'Un texte avec des entités &amp;&lt;&gt;&quot;',
+    0 => 'Un texte avec des entit&eacute;s &amp;&lt;&gt;&quot;',
     1 => 'Un texte avec des entit&eacute;s &amp;&lt;&gt;&quot;',
     2 => 30,
   ),
   138 => 
   array (
-    0 => 'Un texte avec des entités &amp;&lt;&gt;&quot;',
+    0 => 'Un texte avec des entit&eacute;s &amp;&lt;&gt;&quot;',
     1 => 'Un texte avec des entit&eacute;s &amp;&lt;&gt;&quot;',
     2 => 50,
   ),
   139 => 
   array (
-    0 => 'Un texte avec des entités &amp;&lt;&gt;&quot;',
+    0 => 'Un texte avec des entit&eacute;s &amp;&lt;&gt;&quot;',
     1 => 'Un texte avec des entit&eacute;s &amp;&lt;&gt;&quot;',
     2 => 100,
   ),
   140 => 
   array (
-    0 => 'Un texte avec des entités &amp;&lt;&gt;&quot;',
+    0 => 'Un texte avec des entit&eacute;s &amp;&lt;&gt;&quot;',
     1 => 'Un texte avec des entit&eacute;s &amp;&lt;&gt;&quot;',
     2 => 1000,
   ),
   141 => 
   array (
-    0 => 'Un texte avec des entités &amp;&lt;&gt;&quot;',
+    0 => 'Un texte avec des entit&eacute;s &amp;&lt;&gt;&quot;',
     1 => 'Un texte avec des entit&eacute;s &amp;&lt;&gt;&quot;',
     2 => 10000,
   ),
@@ -1024,49 +1024,49 @@
   ),
   166 => 
   array (
-    0 => 'Un texte avec des entités numériques &#38;&#60;&#62;&quot;',
+    0 => 'Un texte avec des entit&#233;s num&#233;riques &#38;&#60;&#62;&quot;',
     1 => 'Un texte avec des entit&#233;s num&#233;riques &#38;&#60;&#62;&quot;',
     2 => 7,
   ),
   167 => 
   array (
-    0 => 'Un texte avec des entités numériques &#38;&#60;&#62;&quot;',
+    0 => 'Un texte avec des entit&#233;s num&#233;riques &#38;&#60;&#62;&quot;',
     1 => 'Un texte avec des entit&#233;s num&#233;riques &#38;&#60;&#62;&quot;',
     2 => 10,
   ),
   168 => 
   array (
-    0 => 'Un texte avec des entités numériques &#38;&#60;&#62;&quot;',
+    0 => 'Un texte avec des entit&#233;s num&#233;riques &#38;&#60;&#62;&quot;',
     1 => 'Un texte avec des entit&#233;s num&#233;riques &#38;&#60;&#62;&quot;',
     2 => 20,
   ),
   169 => 
   array (
-    0 => 'Un texte avec des entités numériques &#38;&#60;&#62;&quot;',
+    0 => 'Un texte avec des entit&#233;s num&#233;riques &#38;&#60;&#62;&quot;',
     1 => 'Un texte avec des entit&#233;s num&#233;riques &#38;&#60;&#62;&quot;',
     2 => 30,
   ),
   170 => 
   array (
-    0 => 'Un texte avec des entités numériques &#38;&#60;&#62;&quot;',
+    0 => 'Un texte avec des entit&#233;s num&#233;riques &#38;&#60;&#62;&quot;',
     1 => 'Un texte avec des entit&#233;s num&#233;riques &#38;&#60;&#62;&quot;',
     2 => 50,
   ),
   171 => 
   array (
-    0 => 'Un texte avec des entités numériques &#38;&#60;&#62;&quot;',
+    0 => 'Un texte avec des entit&#233;s num&#233;riques &#38;&#60;&#62;&quot;',
     1 => 'Un texte avec des entit&#233;s num&#233;riques &#38;&#60;&#62;&quot;',
     2 => 100,
   ),
   172 => 
   array (
-    0 => 'Un texte avec des entités numériques &#38;&#60;&#62;&quot;',
+    0 => 'Un texte avec des entit&#233;s num&#233;riques &#38;&#60;&#62;&quot;',
     1 => 'Un texte avec des entit&#233;s num&#233;riques &#38;&#60;&#62;&quot;',
     2 => 1000,
   ),
   173 => 
   array (
-    0 => 'Un texte avec des entités numériques &#38;&#60;&#62;&quot;',
+    0 => 'Un texte avec des entit&#233;s num&#233;riques &#38;&#60;&#62;&quot;',
     1 => 'Un texte avec des entit&#233;s num&#233;riques &#38;&#60;&#62;&quot;',
     2 => 10000,
   ),
@@ -1358,9 +1358,31 @@ a la ligne et meme des
 paragraphes',
     2 => 10000,
   ),
+  206 => 
+  array (
+    0 => 'Respecte mon point d\'interrogation&nbsp;!',
+    1 => 'Respecte mon point d\'interrogation&nbsp;!',
+  ),
 );
 		return $essais;
 	}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
