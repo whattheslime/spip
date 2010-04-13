@@ -2,17 +2,17 @@
 
 	require '../test.inc';
 	include 'inc-sql_datas.inc';
-	
+
 	include_spip('base/abstract_sql');
 
 
 	/*
 	 * Selections mathematiques
 	 */
-	function test_func_mathematiques() {	
+	function test_func_mathematiques() {
 		$err = $essais = array();
 
-		// 
+		//
 		foreach (array(
 			'COUNT'=>3,
 			'SUM'=>9000,
@@ -21,10 +21,10 @@
 				$nb = sql_getfetsel("$func(un_int) AS nb", array("spip_test_tintin"));
 				if ($nb != $attendu) {
 					$err[] = "Selection $func en echec : attendu : $attendu, recu : $nb";
-				}				
+				}
 		}
 
-		// 
+		//
 		foreach (array(
 			'EXP(0)'=>exp(0),
 			'ROUND(3.56)'=>round(3.56),
@@ -45,20 +45,20 @@
 					$err[] = "Selection $func en echec : attendu : $attendu, recu : $nb";
 				}
 		}
-								
+
 		// affichage
 		if ($err) {
 			return '<b>Selections multi tables</b><dl><dd>' . join('</dd><dd>', $err) . '</dd></dl>';
-		}			
+		}
 	}
 
 	/*
 	 * Selections mathematiques
 	 */
-	function test_func_strings() {	
+	function test_func_strings() {
 		$err = $essais = array();
 
-		// 
+		//
 		foreach (array(
 			'CONCAT('.sql_quote("cou").','.sql_quote("cou").')'=>"coucou",
 			'CONCAT('.sql_quote("cou,").','.sql_quote("cou").')'=>"cou,cou",
@@ -68,14 +68,39 @@
 					$err[] = "Selection $func en echec : attendu : $attendu, recu : $nb";
 				}
 		}
-								
+
 		// affichage
 		if ($err) {
 			return '<b>Selections strings</b><dl><dd>' . join('</dd><dd>', $err) . '</dd></dl>';
-		}			
+		}
 	}
-	
-			
+
+	/*
+	 * retours des fonctions d'erreurs lors d'une requete
+	 */
+	function test_func_error() {
+		$err = array();
+
+		// requete sans erreur
+		sql_select("*","spip_test_tintin");
+		if (sql_error() != '')
+			$err[] = "sql_error() non vide lors d'une requete sans erreur";
+		if (sql_errno != 0)
+			$err[] = "sql_errno() ne retourne pas 0 lors d'une requete sans erreur";
+
+		// requete en erreur
+		sql_select("*","spip_test_toto");
+		if (sql_error() == '')
+			$err[] = "sql_error() vide lors d'une requete en erreur";
+		if (sql_errno == 0)
+			$err[] = "sql_errno() retourne 0 lors d'une requete en erreur";
+
+		// affichage
+		if ($err)
+			return '<b>Retours fonctions d\'erreur</b><dl><dd>' . join('</dd><dd>', $err) . '</dd></dl>';
+	}
+
+
 	$err = "";
 	// supprimer les eventuelles tables
 	$err .= test_drop_table();
@@ -87,15 +112,17 @@
 	$err .= test_func_mathematiques();
 	// test de fonctions string
 	$err .= test_func_strings();
-		
+	// test des fonctions d'erreur
+	$err .= test_func_error();
+
 	// supprimer les tables
-	
+
 	$err .= test_drop_table();
-	
+
 	// affichage
 	if ($err) {
 		die ($err);
-	}		
+	}
 	echo "OK";
 
 ?>
