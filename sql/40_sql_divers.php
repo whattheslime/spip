@@ -85,14 +85,14 @@
 		sql_select("*","spip_test_tintin");
 		if (sql_error() != '')
 			$err[] = "sql_error() non vide lors d'une requete sans erreur";
-		if (sql_errno != 0)
+		if (sql_errno() != 0)
 			$err[] = "sql_errno() ne retourne pas 0 lors d'une requete sans erreur";
 
 		// requete en erreur
 		sql_select("*","spip_test_toto");
 		if (sql_error() == '')
 			$err[] = "sql_error() vide lors d'une requete en erreur";
-		if (sql_errno == 0)
+		if (sql_errno() == 0)
 			$err[] = "sql_errno() retourne 0 lors d'une requete en erreur";
 
 		// affichage
