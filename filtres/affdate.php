@@ -8,7 +8,7 @@
 	$lang = $GLOBALS['spip_lang'];
 
 	$GLOBALS['spip_lang'] = 'ca';
-	$essais["nc-01-2010"] = array('janvier 2010', "2010-01-00 01:00:00");
+	$essais["nc-01-2010"] = array('gener de 2010', "2010-01-00 01:00:00");
 	$essais["nc-nc-2010"] = array('2010', "2010-00-00 01:00:00");
 	$err[$GLOBALS['spip_lang']] = tester_fun('affdate', $essais);
 
