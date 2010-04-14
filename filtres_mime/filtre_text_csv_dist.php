@@ -29,7 +29,7 @@
   0 => 
   array (
     0 => '<table class="spip">
-<thead><tr class=\'row_first\'><th scope=\'col\'><strong>A</strong></th><th scope=\'col\'><strong>B</strong></th><th scope=\'col\'><strong>C</strong></th><th scope=\'col\'><strong>D</strong></th><th scope=\'col\'><strong>E</strong></th><th scope=\'col\'><strong>F</strong></th></tr></thead>
+<thead><tr class=\'row_first\'><th scope=\'col\'>A</th><th scope=\'col\'>B</th><th scope=\'col\'>C</th><th scope=\'col\'>D</th><th scope=\'col\'>E</th><th scope=\'col\'>F</th></tr></thead>
 <tbody>
 <tr class=\'row_even\'>
 <td>un</td>
@@ -62,7 +62,7 @@ dans chaque;case;et aussi une;case;avec;des
   1 => 
   array (
     0 => '<table class="spip">
-<thead><tr class=\'row_first\'><th scope=\'col\'><strong>A</strong></th><th scope=\'col\'><strong>B</strong></th><th scope=\'col\'><strong>C</strong></th><th scope=\'col\'><strong>D</strong></th><th scope=\'col\'><strong>E</strong></th><th scope=\'col\'><strong>F</strong></th></tr></thead>
+<thead><tr class=\'row_first\'><th scope=\'col\'>A</th><th scope=\'col\'>B</th><th scope=\'col\'>C</th><th scope=\'col\'>D</th><th scope=\'col\'>E</th><th scope=\'col\'>F</th></tr></thead>
 <tbody>
 <tr class=\'row_even\'>
 <td>un</td>
@@ -95,7 +95,7 @@ guillemets;est-ce;que;ça;marche ?;',
   2 => 
   array (
     0 => '<table class="spip">
-<thead><tr class=\'row_first\'><th scope=\'col\'><strong>A</strong></th><th scope=\'col\'><strong>B</strong></th><th scope=\'col\'><strong>C</strong></th><th scope=\'col\'><strong>D</strong></th><th scope=\'col\'><strong>E</strong></th><th scope=\'col\'><strong>F</strong></th></tr></thead>
+<thead><tr class=\'row_first\'><th scope=\'col\'>A</th><th scope=\'col\'>B</th><th scope=\'col\'>C</th><th scope=\'col\'>D</th><th scope=\'col\'>E</th><th scope=\'col\'>F</th></tr></thead>
 <tbody>
 <tr class=\'row_even\'>
 <td>un</td>
