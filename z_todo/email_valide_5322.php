@@ -13,7 +13,7 @@
 	include_spip('inc/filtres');
 
 	$err = false;
-	$nb_positifs = 0;
+	$nb_positifs = $faux_positifs = $faux_negatifs = 0;
 
 	function unitTest ($email, $expected, $source = '', $comment = '') {
 		$diagnosis	= email_valide($email);
@@ -25,6 +25,11 @@
 		if ($valid !== $expected) {
 			$GLOBALS['err'] = true;
 			$class = 'erreur';
+			if ($valid) {
+				$GLOBALS['faux_positifs']++;
+			} else {
+				$GLOBALS['faux_negatifs']++;
+			}
 		} else {
 		    $GLOBALS['nb_positifs']++;
 		}
@@ -84,7 +89,7 @@
 	if ($GLOBALS['err']) { 
 		echo $style;
 		echo $entete;
-		echo "<p><strong>Taux de succ&egrave;s</strong> : ".(intval(100 * $nb_positifs / $testList->length))." %</p>";
+		echo "<p><strong>Taux de succ&egrave;s</strong> : ".(intval(100 * $nb_positifs / $testList->length))." % ( $faux_positifs faux positifs et $faux_negatifs faux negatifs )</p>";
 		echo ("<dl>\n".implode("\n", $tests)."</dl>");
 	} else
 		echo "OK";
