@@ -13,6 +13,7 @@
 		$remonte = "../$remonte";
 	require $remonte.'tests/test.inc';
 	find_in_path("inc/texte.php",'',true);
+	$GLOBALS['meta']['type_urls'] = $type_urls = "page";
 
 	// initialiser les plugins qui changent les intertitre (Z), et les restaurer juste apres
 	$mem = array($GLOBALS['debut_intertitre'],$GLOBALS['spip_raccourcis_typo']);
