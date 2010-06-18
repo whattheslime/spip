@@ -73,7 +73,7 @@
   ),
   7 => 
   array (
-    0 => '<p><img src="squelettes-dist/puce.gif" width="8" height="11" class="puce" alt="-" />&nbsp;propre</p>',
+    0 => '<p><img src="extensions/dist_2007/puce.gif" width="8" height="11" class="puce" alt="-" />&nbsp;propre</p>',
     1 => '- propre',
   ),
 );
