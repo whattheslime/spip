@@ -84,13 +84,13 @@
   ),
   9 => 
   array (
-    0 => 'Un texte sans entites &amp;<>"&#8217;',
+    0 => 'Un texte sans entites &amp;&lt;>"&#8217;',
     1 => 'Un texte sans entites &<>"\'',
     2 => true,
   ),
   10 => 
   array (
-    0 => 'Un texte sans entites &amp;<>"&#8217;',
+    0 => 'Un texte sans entites &amp;&lt;>"&#8217;',
     1 => 'Un texte sans entites &<>"\'',
     2 => false,
   ),
