@@ -232,49 +232,49 @@
   ),
   34 => 
   array (
-    0 => 'U n     t          e        x t          e         a  v e        c   d e        s       <a href="http://spip.net"> l  i     e        n    s      </a>  [A r  t          i     c  l  e         1   ->a  r  t          1   ] [s     p        i     p        ->h  t          t          p        :/    /    w      w      w      .    s     p        i     p        .    n    e        t          ] h  t          t          p        :/    /    w      w      w      .    s     p        i     p        .    n    e        t          ',
+    0 => 'U n     t          e        x t          e         a  v e        c   d e        s      <a href="http://spip.net">l  i     e        n    s     </a> [A r  t          i     c  l  e         1   ->a  r  t          1   ] [s     p        i     p        ->h  t          t          p        :/    /    w      w      w      .    s     p        i     p        .    n    e        t          ] h  t          t          p        :/    /    w      w      w      .    s     p        i     p        .    n    e        t          ',
     1 => 'Un texte avec des <a href="http://spip.net">liens</a> [Article 1->art1] [spip->http://www.spip.net] http://www.spip.net',
     2 => 1,
   ),
   35 => 
   array (
-    0 => 'Un  te xt e  av ec  de s  <a href="http://spip.net"> li en s </a>  [Ar ti cl e 1->ar t1 ] [sp   ip   ->ht  tp  ://  ww  w.  sp   ip   .n  et  ] ht  tp  ://  ww  w.  sp   ip   .n  et  ',
+    0 => 'Un  te xt e  av ec  de s <a href="http://spip.net">li en s</a> [Ar ti cl e 1->ar t1 ] [sp   ip   ->ht  tp  ://  ww  w.  sp   ip   .n  et  ] ht  tp  ://  ww  w.  sp   ip   .n  et  ',
     1 => 'Un texte avec des <a href="http://spip.net">liens</a> [Article 1->art1] [spip->http://www.spip.net] http://www.spip.net',
     2 => 2,
   ),
   36 => 
   array (
-    0 => 'Un tex te ave c des   <a href="http://spip.net"> lie ns </a>  [Art icl e 1->art 1] [spi   p->htt  p://w  ww.  spi   p.n  et] htt  p://w  ww.  spi   p.n  et',
+    0 => 'Un tex te ave c des  <a href="http://spip.net">lie ns</a> [Art icl e 1->art 1] [spi   p->htt  p://w  ww.  spi   p.n  et] htt  p://w  ww.  spi   p.n  et',
     1 => 'Un texte avec des <a href="http://spip.net">liens</a> [Article 1->art1] [spip->http://www.spip.net] http://www.spip.net',
     2 => 3,
   ),
   37 => 
   array (
-    0 => 'Un text e avec  des  <a href="http://spip.net"> lien s </a>  [Arti cle 1->art1 ] [spip ->http  ://ww  w.sp  ip .net] http  ://ww  w.sp  ip .net',
+    0 => 'Un text e avec  des <a href="http://spip.net">lien s</a> [Arti cle 1->art1 ] [spip ->http  ://ww  w.sp  ip .net] http  ://ww  w.sp  ip .net',
     1 => 'Un texte avec des <a href="http://spip.net">liens</a> [Article 1->art1] [spip->http://www.spip.net] http://www.spip.net',
     2 => 4,
   ),
   38 => 
   array (
-    0 => 'Un texte  avec des  <a href="http://spip.net"> liens  </a>  [Artic le 1->art1] [spip->http://www  .spip  .net] http://www  .spip  .net',
+    0 => 'Un texte  avec des <a href="http://spip.net">liens </a> [Artic le 1->art1] [spip->http://www  .spip  .net] http://www  .spip  .net',
     1 => 'Un texte avec des <a href="http://spip.net">liens</a> [Article 1->art1] [spip->http://www.spip.net] http://www.spip.net',
     2 => 5,
   ),
   39 => 
   array (
-    0 => 'Un texte avec des  <a href="http://spip.net"> liens </a>  [Articl e 1->art1] [spip->http://www.  spip.n  et] http://www.  spip.n  et',
+    0 => 'Un texte avec des <a href="http://spip.net">liens</a> [Articl e 1->art1] [spip->http://www.  spip.n  et] http://www.  spip.n  et',
     1 => 'Un texte avec des <a href="http://spip.net">liens</a> [Article 1->art1] [spip->http://www.spip.net] http://www.spip.net',
     2 => 6,
   ),
   40 => 
   array (
-    0 => 'Un texte avec des  <a href="http://spip.net"> liens </a>  [Article  1->art1] [spip->http://www.s  pip.net  ] http://www.s  pip.net  ',
+    0 => 'Un texte avec des <a href="http://spip.net">liens</a> [Article  1->art1] [spip->http://www.s  pip.net  ] http://www.s  pip.net  ',
     1 => 'Un texte avec des <a href="http://spip.net">liens</a> [Article 1->art1] [spip->http://www.spip.net] http://www.spip.net',
     2 => 7,
   ),
   41 => 
   array (
-    0 => 'Un texte avec des  <a href="http://spip.net"> liens </a>  [Article 1->art1] [spip->http://www.spip  .net] http://www.spip  .net',
+    0 => 'Un texte avec des <a href="http://spip.net">liens</a> [Article 1->art1] [spip->http://www.spip  .net] http://www.spip  .net',
     1 => 'Un texte avec des <a href="http://spip.net">liens</a> [Article 1->art1] [spip->http://www.spip.net] http://www.spip.net',
     2 => 10,
   ),
@@ -520,49 +520,49 @@
   ),
   82 => 
   array (
-    0 => '{{{D e   s    r   a   c    c    o  u   r   c    i   s   }}} {i   t a   l i   q u   e   } {{g r   a   s   }}  <code> d  u    c    o  d  e    </code> ',
+    0 => '{{{D e   s    r   a   c    c    o  u   r   c    i   s   }}} {i   t a   l i   q u   e   } {{g r   a   s   }} <code>d  u    c    o  d  e   </code>',
     1 => '{{{Des raccourcis}}} {italique} {{gras}} <code>du code</code>',
     2 => 1,
   ),
   83 => 
   array (
-    0 => '{{{De s ra cc ou rc is }}} {it al iq ue } {{gr a s}}  <code> du  co de  </code> ',
+    0 => '{{{De s ra cc ou rc is }}} {it al iq ue } {{gr a s}} <code>du  co de </code>',
     1 => '{{{Des raccourcis}}} {italique} {{gras}} <code>du code</code>',
     2 => 2,
   ),
   84 => 
   array (
-    0 => '{{{Des  rac cou rci s}}} {ita liq ue} {{gra s}}  <code> du cod e </code> ',
+    0 => '{{{Des  rac cou rci s}}} {ita liq ue} {{gra s}} <code>du cod e</code>',
     1 => '{{{Des raccourcis}}} {italique} {{gras}} <code>du code</code>',
     2 => 3,
   ),
   85 => 
   array (
-    0 => '{{{Des racc ourc is}}} {ital ique } {{gras }}  <code> du code  </code> ',
+    0 => '{{{Des racc ourc is}}} {ital ique } {{gras }} <code>du code </code>',
     1 => '{{{Des raccourcis}}} {italique} {{gras}} <code>du code</code>',
     2 => 4,
   ),
   86 => 
   array (
-    0 => '{{{Des racco urcis }}} {itali que} {{gras}}  <code> du code </code> ',
+    0 => '{{{Des racco urcis }}} {itali que} {{gras}} <code>du code</code>',
     1 => '{{{Des raccourcis}}} {italique} {{gras}} <code>du code</code>',
     2 => 5,
   ),
   87 => 
   array (
-    0 => '{{{Des raccou rcis}}} {italiq ue} {{gras}}  <code> du code </code> ',
+    0 => '{{{Des raccou rcis}}} {italiq ue} {{gras}} <code>du code</code>',
     1 => '{{{Des raccourcis}}} {italique} {{gras}} <code>du code</code>',
     2 => 6,
   ),
   88 => 
   array (
-    0 => '{{{Des raccour cis}}} {italiqu e} {{gras}}  <code> du code </code> ',
+    0 => '{{{Des raccour cis}}} {italiqu e} {{gras}} <code>du code</code>',
     1 => '{{{Des raccourcis}}} {italique} {{gras}} <code>du code</code>',
     2 => 7,
   ),
   89 => 
   array (
-    0 => '{{{Des raccourcis }}} {italique} {{gras}}  <code> du code </code> ',
+    0 => '{{{Des raccourcis }}} {italique} {{gras}} <code>du code</code>',
     1 => '{{{Des raccourcis}}} {italique} {{gras}} <code>du code</code>',
     2 => 10,
   ),
@@ -616,49 +616,49 @@
   ),
   98 => 
   array (
-    0 => 'U n   m o d e   l e     <modeleinexistant|lien=[-> h t   t   p   :/  /  w   w   w   .  s p   i p   .  n  e   t   ]>',
+    0 => 'U n   m o d e   l e    <modeleinexistant|lien=[->h t   t   p   :/  /  w   w   w   .  s p   i p   .  n  e   t   ]>',
     1 => 'Un modele <modeleinexistant|lien=[->http://www.spip.net]>',
     2 => 1,
   ),
   99 => 
   array (
-    0 => 'Un  mo de le   <modeleinexistant|lien=[-> ht tp :// ww w. sp ip .n et ]>',
+    0 => 'Un  mo de le  <modeleinexistant|lien=[->ht tp :// ww w. sp ip .n et ]>',
     1 => 'Un modele <modeleinexistant|lien=[->http://www.spip.net]>',
     2 => 2,
   ),
   100 => 
   array (
-    0 => 'Un mod ele   <modeleinexistant|lien=[-> htt p://w ww. spi p.n et]>',
+    0 => 'Un mod ele  <modeleinexistant|lien=[->htt p://w ww. spi p.n et]>',
     1 => 'Un modele <modeleinexistant|lien=[->http://www.spip.net]>',
     2 => 3,
   ),
   101 => 
   array (
-    0 => 'Un mode le  <modeleinexistant|lien=[-> http ://ww w.sp ip.n et]>',
+    0 => 'Un mode le <modeleinexistant|lien=[->http ://ww w.sp ip.n et]>',
     1 => 'Un modele <modeleinexistant|lien=[->http://www.spip.net]>',
     2 => 4,
   ),
   102 => 
   array (
-    0 => 'Un model e  <modeleinexistant|lien=[-> http://www .spip .net]>',
+    0 => 'Un model e <modeleinexistant|lien=[->http://www .spip .net]>',
     1 => 'Un modele <modeleinexistant|lien=[->http://www.spip.net]>',
     2 => 5,
   ),
   103 => 
   array (
-    0 => 'Un modele   <modeleinexistant|lien=[-> http://www. spip.n et]>',
+    0 => 'Un modele  <modeleinexistant|lien=[->http://www. spip.n et]>',
     1 => 'Un modele <modeleinexistant|lien=[->http://www.spip.net]>',
     2 => 6,
   ),
   104 => 
   array (
-    0 => 'Un modele  <modeleinexistant|lien=[-> http://www.s pip.net ]>',
+    0 => 'Un modele <modeleinexistant|lien=[->http://www.s pip.net ]>',
     1 => 'Un modele <modeleinexistant|lien=[->http://www.spip.net]>',
     2 => 7,
   ),
   105 => 
   array (
-    0 => 'Un modele  <modeleinexistant|lien=[-> http://www.spip .net]>',
+    0 => 'Un modele <modeleinexistant|lien=[->http://www.spip .net]>',
     1 => 'Un modele <modeleinexistant|lien=[->http://www.spip.net]>',
     2 => 10,
   ),
@@ -1366,6 +1366,8 @@ paragraphes',
 );
 		return $essais;
 	}
+
+
 
 
 
