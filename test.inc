@@ -36,7 +36,7 @@ function tester_fun($fun, &$essais, $opts = array())
 {
 // options
 	foreach (array(
-		'out' => '<dt>@</dt><dd>@</dd>'
+		'out' => '<dt>@</dt><dd><tt>@</tt></dd>'
 	) as $opt => $def) {
 		$$opt = isset($opts[$opt]) ? $opts[$opt] : $def;
 	}
@@ -74,13 +74,15 @@ function tester_fun($fun, &$essais, $opts = array())
 		if (!$ok) {
 			$erritem = $bef . (is_numeric($titre) ?
 				"test $titre" : htmlspecialchars($titre)) . $mid .
-				 htmlspecialchars(var_export($res, true)) . " !== $fun(";
+				 "$fun(";
 			$erritem_args = array();
 			for ($iarg = 1; $iarg < count($ess); ++$iarg) {
 				$erritem_args[] = htmlspecialchars(var_export($ess[$iarg], true));
 			}
-			$err[] = $erritem . join($erritem_args,', ') . ') // attendu:' .
-				htmlspecialchars(var_export($ess[0], true)) . $end . "\n";
+			$err[] = $erritem . join($erritem_args,', ') . ')'
+				. '<br />// resultat:' . htmlspecialchars(var_export($res, true))
+				. '<br />// attendu :' . htmlspecialchars(var_export($ess[0], true))
+				. $end . "\n";
 		}
 	}
 	return $err;
