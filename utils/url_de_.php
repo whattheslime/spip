@@ -101,9 +101,18 @@
     3 => '/sousrep/url/arbo/page.html',
     4 => 4,
   ),
+  9 => 
+  array (
+    0 => 'http:///',
+    1 => 'http',
+    2 => '',
+    3 => '',
+    4 => 0,
+  ),
 );
 		return $essais;
 	}
+
 
 
 
