@@ -34,19 +34,10 @@ if ($auteur_session['statut'] != '0minirezo'   and ( $_SERVER["REMOTE_ADDR"]!='1
 */
 function tester_fun($fun, &$essais, $opts = array())
 {
-// options
-	foreach (array(
-		'out' => '<dt>@</dt><dd><tt>@</tt></dd>'
-	) as $opt => $def) {
-		$$opt = isset($opts[$opt]) ? $opts[$opt] : $def;
-	}
-// l'enrobage de sortie
-	list($bef, $mid, $end) = explode('@', $out);
-
-// pas d'erreur au depart
+	// pas d'erreur au depart
 	$err = array();
 
-// let's go !
+	// let's go !
 	foreach ($essais as $titre => $ess) {
 		switch (count($ess)) {
 			case 0:	$res = null; break;
@@ -72,20 +63,43 @@ function tester_fun($fun, &$essais, $opts = array())
 
 		spip_log('test ' . $GLOBALS['test']." : Essai ".$GLOBALS['compteur_essai']++.($ok?" ok":" ECHEC"),'testrunner');
 		if (!$ok) {
-			$erritem = $bef . (is_numeric($titre) ?
-				"test $titre" : htmlspecialchars($titre)) . $mid .
-				 "$fun(";
 			$erritem_args = array();
 			for ($iarg = 1; $iarg < count($ess); ++$iarg) {
 				$erritem_args[] = htmlspecialchars(var_export($ess[$iarg], true));
 			}
-			$err[] = $erritem . join($erritem_args,', ') . ')'
-				. '<br />// resultat:' . htmlspecialchars(var_export($res, true))
-				. '<br />// attendu :' . htmlspecialchars(var_export($ess[0], true))
-				. $end . "\n";
+			$err[] = display_error(
+			  $titre,
+				"$fun(". join($erritem_args,', ') . ")",
+				$res,
+				$ess[0],
+				$opts
+			);
 		}
 	}
 	return $err;
+}
+
+function display_error($titre,$call,$result,$expected,$opts=array()){
+	static $bef,$mid,$end;
+	if (!isset($bef)){
+		// options
+		foreach (array(
+			'out' => '<dt>@</dt><dd><tt>@</tt></dd>'
+		) as $opt => $def) {
+			$$opt = isset($opts[$opt]) ? $opts[$opt] : $def;
+		}
+		// l'enrobage de sortie
+		list($bef, $mid, $end) = explode('@', $out);
+	}
+	
+	return 
+	  $bef 
+	  . (is_numeric($titre) ? "test $titre" : htmlspecialchars($titre))
+	  . $mid
+	  . $call
+		. '<br />// resultat:' . htmlspecialchars(var_export($result, true))
+		. '<br />// attendu :' . htmlspecialchars(var_export($expected, true))
+	  . $end . "\n";
 }
 
 // pour essayer de calculer/montrer le temps qu'on y met
