@@ -53,4 +53,102 @@ a:2:{s:3:"one";s:9:"element 1";s:3:"two";s:9:"element 2";}!=&#35;CONFIG{serie}==
 #SET{err,1}
 a:2:{s:3:"one";s:9:"element 1";s:3:"two";s:9:"element 2";}!=&#35;CONFIG{serie,defaut}==#CONFIG{serie,defaut}<br />]
 
+[(#CONFIG{/meta/pasla}|=={''}|non)
+#SET{err,1}
+!=&#35;CONFIG{pasla}==#CONFIG{pasla}<br />]
+
+[(#CONFIG{/meta/pasla,defaut}|=={defaut}|non)
+#SET{err,1}
+defaut!=&#35;CONFIG{pasla,defaut}==#CONFIG{pasla,defaut}<br />]
+
+[(#CONFIG{/meta/chaine}|=={une chaine}|non)
+#SET{err,1}
+une chaine!=&#35;CONFIG{chaine}==#CONFIG{chaine}<br />]
+
+[(#CONFIG{/meta/chaine,defaut}|=={une chaine}|non)
+#SET{err,1}
+une chaine!=&#35;CONFIG{chaine,defaut}==#CONFIG{chaine,defaut}<br />]
+
+[(#CONFIG{/meta/zero}|=={0}|non)
+#SET{err,1}
+0!=&#35;CONFIG{zero}==#CONFIG{zero}<br />]
+
+[(#CONFIG{/meta/zero,defaut}|=={0}|non)
+#SET{err,1}
+0!=&#35;CONFIG{zero,defaut}==#CONFIG{zero,defaut}<br />]
+
+[(#CONFIG{/meta/zeroc}|=={'0'}|non)
+#SET{err,1}
+0!=&#35;CONFIG{zeroc}==#CONFIG{zeroc}<br />]
+
+[(#CONFIG{/meta/zeroc,defaut}|=={'0'}|non)
+#SET{err,1}
+0!=&#35;CONFIG{zeroc,defaut}==#CONFIG{zeroc,defaut}<br />]
+
+[(#CONFIG{/meta/assoc,'',''}|=={#ARRAY{one,element 1,two,element 2}}|non)
+#SET{err,1}
+array('one'=>'element 1','two'=>'element 2')!=&#35;CONFIG{assoc}==[(#CONFIG{assoc}|var_export{1})]<br />]
+
+[(#CONFIG{/meta/assoc,defaut,''}|=={#ARRAY{one,element 1,two,element 2}}|non)
+#SET{err,1}
+array('one'=>'element 1','two'=>'element 2')!=&#35;CONFIG{assoc,defaut}==[(#CONFIG{assoc,defaut}|var_export{1})]<br />]
+
+[(#CONFIG{/meta/serie}|=={a:2:{s:3:"one";s:9:"element 1";s:3:"two";s:9:"element 2";}}|non)
+#SET{err,1}
+a:2:{s:3:"one";s:9:"element 1";s:3:"two";s:9:"element 2";}!=&#35;CONFIG{serie}==#CONFIG{serie}<br />]
+
+[(#CONFIG{/meta/serie,defaut}|=={a:2:{s:3:"one";s:9:"element 1";s:3:"two";s:9:"element 2";}}|non)
+#SET{err,1}
+a:2:{s:3:"one";s:9:"element 1";s:3:"two";s:9:"element 2";}!=&#35;CONFIG{serie,defaut}==#CONFIG{serie,defaut}<br />]
+
+
+[(#CONFIG{/toto/tpasla}|=={''}|non)
+#SET{err,1}
+!=&#35;CONFIG{pasla}==#CONFIG{pasla}<br />]
+
+[(#CONFIG{/toto/tpasla,defaut}|=={defaut}|non)
+#SET{err,1}
+defaut!=&#35;CONFIG{pasla,defaut}==#CONFIG{pasla,defaut}<br />]
+
+[(#CONFIG{/toto/tchaine}|=={une chaine}|non)
+#SET{err,1}
+une chaine!=&#35;CONFIG{chaine}==#CONFIG{chaine}<br />]
+
+[(#CONFIG{/toto/tchaine,defaut}|=={une chaine}|non)
+#SET{err,1}
+une chaine!=&#35;CONFIG{chaine,defaut}==#CONFIG{chaine,defaut}<br />]
+
+[(#CONFIG{/toto/tzero}|=={0}|non)
+#SET{err,1}
+0!=&#35;CONFIG{zero}==#CONFIG{zero}<br />]
+
+[(#CONFIG{/toto/tzero,defaut}|=={0}|non)
+#SET{err,1}
+0!=&#35;CONFIG{zero,defaut}==#CONFIG{zero,defaut}<br />]
+
+[(#CONFIG{/toto/tzeroc}|=={'0'}|non)
+#SET{err,1}
+0!=&#35;CONFIG{zeroc}==#CONFIG{zeroc}<br />]
+
+[(#CONFIG{/toto/tzeroc,defaut}|=={'0'}|non)
+#SET{err,1}
+0!=&#35;CONFIG{zeroc,defaut}==#CONFIG{zeroc,defaut}<br />]
+
+[(#CONFIG{/toto/tassoc,'',''}|=={#ARRAY{one,element 1,two,element 2}}|non)
+#SET{err,1}
+array('one'=>'element 1','two'=>'element 2')!=&#35;CONFIG{assoc}==[(#CONFIG{assoc}|var_export{1})]<br />]
+
+[(#CONFIG{/toto/tassoc,defaut,''}|=={#ARRAY{one,element 1,two,element 2}}|non)
+#SET{err,1}
+array('one'=>'element 1','two'=>'element 2')!=&#35;CONFIG{assoc,defaut}==[(#CONFIG{assoc,defaut}|var_export{1})]<br />]
+
+[(#CONFIG{/toto/tserie}|=={a:2:{s:3:"one";s:9:"element 1";s:3:"two";s:9:"element 2";}}|non)
+#SET{err,1}
+a:2:{s:3:"one";s:9:"element 1";s:3:"two";s:9:"element 2";}!=&#35;CONFIG{serie}==#CONFIG{serie}<br />]
+
+[(#CONFIG{/toto/tserie,defaut}|=={a:2:{s:3:"one";s:9:"element 1";s:3:"two";s:9:"element 2";}}|non)
+#SET{err,1}
+a:2:{s:3:"one";s:9:"element 1";s:3:"two";s:9:"element 2";}!=&#35;CONFIG{serie,defaut}==#CONFIG{serie,defaut}<br />]
+
+
 [(#GET{err}|?{ERREUR,OK})]

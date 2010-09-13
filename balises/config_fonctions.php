@@ -10,5 +10,14 @@ $GLOBALS['meta'] = array(
 	'assoc' => $assoc,
 	'serie' => serialize($assoc)
 );
+
+$GLOBALS['toto'] = array(
+	'tzero' => 0,
+	'tzeroc' => '0',
+	'tchaine' => 'une chaine',
+	'tassoc' => $assoc,
+	'tserie' => serialize($assoc)
+);
+
 }
 ?>
