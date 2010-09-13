@@ -108,7 +108,7 @@
 	$essais[] = array(true, 'test_cfg_chaine');		
 	$essais[] = array(true, 'test_cfg_assoc');
 	$essais[] = array(true, 'test_cfg_serie');
-	$essais[] = array(false, 'test_cfg_dummy');
+	$essais[] = array(true, 'test_cfg_dummy');
 
 	$err = tester_fun('effacer_config', $essais);
 	

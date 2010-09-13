@@ -129,7 +129,7 @@
 	$essais[] = array(true, 'metapack::test_cfg_chemin/casier/truc'); // supprimer chemin/casier
 
 	// on essaye d'effacer une meta qui n'existe pas
-	$essais[] = array(false, 'metapack::test_cfg_dummy/casier/truc');
+	$essais[] = array(true, 'metapack::test_cfg_dummy/casier/truc');
 
 	$err = tester_fun('effacer_config', $essais);
 	
