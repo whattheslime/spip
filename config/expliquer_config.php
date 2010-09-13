@@ -1,7 +1,7 @@
 <?php
 
 	// nom du test
-	$test = 'explique_config';
+	$test = 'expliquer_config';
 
 	// recherche test.inc qui nous ouvre au monde spip
 	$deep = 1;
@@ -16,7 +16,7 @@
 
 	include_spip('inc/config');
 
-### explique_config ###
+### expliquer_config ###
 
 
 	$essais[] = array(array('meta',null,array()), '');
@@ -34,11 +34,11 @@
 	$essais[] = array(array('toto','casier',array('sous')), '/toto/casier/sous');
 	$essais[] = array(array('toto','casier',array('sous','plus','bas','encore')), '/toto/casier/sous/plus/bas/encore');
 
-	$err = tester_fun('explique_config', $essais);
+	$err = tester_fun('expliquer_config', $essais);
 	
 	// si le tableau $err est pas vide ca va pas
 	if ($err) {
-		die ('<b>explique_config</b><dl>' . join('', $err) . '</dl>');
+		die ('<b>expliquer_config</b><dl>' . join('', $err) . '</dl>');
 	}
 
 	echo "OK";
