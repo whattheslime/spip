@@ -16,10 +16,15 @@
 
 	include_spip('inc/config');
 
+### verifier que la table spip_toto n'existe pas deja ! ###
+
+	$trouver_table = charger_fonction('trouver_table','base');
+	if (isset($GLOBALS['toto']) OR $trouver_table('spip_toto'))
+		die('<b>Une table spip_toto existe deja !</b>');
+
 ### lire_config meta ###
 
 	$meta = $GLOBALS['meta'];
-	$toto = $GLOBALS['toto'];
 	
 	// les bases de test
 	$assoc = array('one' => 'element 1', 'two' => 'element 2');
@@ -50,7 +55,7 @@
 
 	// retablissement des metas
 	$GLOBALS['meta']=$meta;
-	$GLOBALS['toto']=$toto;
+	unset($GLOBALS['toto']);
 	
 	// si le tableau $err est pas vide ca va pas
 	if ($err) {
@@ -136,6 +141,10 @@
 	if ($err) {
 		die ('<b>relecture effacer_config meta</b><dl>' . join('', $err) . '</dl>');
 	}
+
+## verifier que la table spip_toto a bien ete supprimee par le dernier effacement
+	if (isset($GLOBALS['toto']) OR $trouver_table('spip_toto'))
+		die('<b>La table spip_toto n\'a pas ete supprimee par le dernier effacement de config !</b>');
 
 	
 	echo "OK";
