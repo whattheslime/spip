@@ -92,6 +92,9 @@
 	if ($err) {
 		die ('<b>ecrire_config meta</b><dl>' . join('', $err) . '</dl>');
 	}
+
+	if (!isset($GLOBALS['toto']) OR !$trouver_table('spip_toto'))
+		die('<b>La table spip_toto n\'a pas ete cree !</b>');
 	
 ### re lire_config meta ###
 
