@@ -33,6 +33,7 @@
 		'serie' => serialize($assoc)
 	);
 
+	$essais[] = array($GLOBALS['meta'], '');
 	$essais[] = array(0, 'zero');
 	$essais[] = array('0', 'zeroc');
 	$essais[] = array('une chaine', 'chaine');
@@ -107,6 +108,7 @@
 	$essais[] = array(true, 'test_cfg_chaine');		
 	$essais[] = array(true, 'test_cfg_assoc');
 	$essais[] = array(true, 'test_cfg_serie');
+	$essais[] = array(false, 'test_cfg_dummy');
 
 	$err = tester_fun('effacer_config', $essais);
 	
@@ -124,6 +126,7 @@
 	$essais[] = array(null, 'test_cfg_chaine');		
 	$essais[] = array(null, 'test_cfg_assoc');
 	$essais[] = array(null, 'test_cfg_serie');
+	$essais[] = array(null, 'test_cfg_dummy');
 
 	$err = tester_fun('lire_config', $essais);
 	
