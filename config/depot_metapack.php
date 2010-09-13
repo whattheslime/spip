@@ -38,6 +38,9 @@
 		'serie' => serialize(serialize($assoc))
 	);
 
+	// tout
+	$essais[] = array($GLOBALS['meta'], 'metapack::');
+	$essais[] = array(serialize($GLOBALS['meta']), 'metapack::','',false);
 	// racine
 	$essais[] = array(0, 'metapack::zero');
 	$essais[] = array('0', 'metapack::zeroc');
@@ -125,6 +128,9 @@
 	$essais[] = array(true, 'metapack::test_cfg_chemin/casier/two'); 
 	$essais[] = array(true, 'metapack::test_cfg_chemin/casier/truc'); // supprimer chemin/casier
 
+	// on essaye d'effacer une meta qui n'existe pas
+	$essais[] = array(false, 'metapack::test_cfg_dummy/casier/truc');
+
 	$err = tester_fun('effacer_config', $essais);
 	
 	// si le tableau $err est pas vide ca va pas
@@ -142,6 +148,7 @@
 	$essais[] = array(null, 'metapack::test_cfg_assoc');
 	$essais[] = array(null, 'metapack::test_cfg_serie');
 	$essais[] = array(null, 'metapack::test_cfg_chemin');
+	$essais[] = array(null, 'metapack::test_cfg_dummy');
 
 	$err = tester_fun('lire_config', $essais);
 	
