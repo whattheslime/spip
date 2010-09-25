@@ -154,7 +154,22 @@
     0 => 'signature',
     1 => 'id_signature',
   ),
-
+  array (
+    0 => 'site',
+    1 => 'racine-site',
+  ),
+  array (
+    0 => 'mot',
+    1 => 'mot-cle',
+  ),
+  array (
+    0 => 'truc_pas_connu',
+    1 => 'truc_pas_connu',
+  ),
+  array (
+    0 => 'truc_pas_connu',
+    1 => 'truc_pas_connus',
+  ),
 );
 		return $essais;
 	}
