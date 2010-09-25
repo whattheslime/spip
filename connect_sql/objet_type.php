@@ -170,6 +170,21 @@
     0 => 'truc_pas_connu',
     1 => 'truc_pas_connus',
   ),
+array('article','articles'),
+array('auteur','auteurs'),
+array('breve','breves'),
+array('document','documents'),
+array('forum','forums'),
+array('forum','forum'),
+array('groupe_mots','groupes_mots'),
+array('message','messages'),
+array('mot','mots'),
+array('petition','petitions'),
+array('rubrique','rubriques'),
+array('signature','signatures'),
+array('site','syndic'),
+array('syndic_article','syndic_articles'),
+array('types_document','types_documents'),
 );
 		return $essais;
 	}
