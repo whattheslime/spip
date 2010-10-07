@@ -40,16 +40,16 @@
 	$essais = array();
 	$GLOBALS['filtrer_javascript'] = -1;
 	$essais[] =
-	 array("<code>&lt;script type='text/javascript' src='toto.js'&gt;&lt;/script&gt;</code>","<script type='text/javascript' src='toto.js'></script>");
+	 array("<code class=\"echappe-js\">&lt;script type='text/javascript' src='toto.js'&gt;&lt;/script&gt;</code>","<script type='text/javascript' src='toto.js'></script>");
 	 
 	$essais[] =
-	 array("<code>&lt;script type='text/javascript' src='spip.php?page=toto'&gt;&lt;/script&gt;</code>","<script type='text/javascript' src='spip.php?page=toto'></script>");
+	 array("<code class=\"echappe-js\">&lt;script type='text/javascript' src='spip.php?page=toto'&gt;&lt;/script&gt;</code>","<script type='text/javascript' src='spip.php?page=toto'></script>");
 
 	$essais[] =
-	 array("<code>&lt;script type='text/javascript'&gt;var php=5;&lt;/script&gt;</code>","<script type='text/javascript'>var php=5;</script>");
+	 array("<code class=\"echappe-js\">&lt;script type='text/javascript'&gt;var php=5;&lt;/script&gt;</code>","<script type='text/javascript'>var php=5;</script>");
 	 
 	$essais[] =
-	 array("<code>&lt;script language='javascript' src='spip.php?page=toto'&gt;&lt;/script&gt;</code>","<script language='javascript' src='spip.php?page=toto'></script>");
+	 array("<code class=\"echappe-js\">&lt;script language='javascript' src='spip.php?page=toto'&gt;&lt;/script&gt;</code>","<script language='javascript' src='spip.php?page=toto'></script>");
 	 
  	$essais[] =
 	 array("&lt;script language='php'>die();</script>","<script language='php'>die();</script>");
