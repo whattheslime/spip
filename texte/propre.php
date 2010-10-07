@@ -47,7 +47,7 @@
   ),
   2 => 
   array (
-    0 => '<p>Un texte avec des <a href="http://spip.net">liens</a> <a href=\'spip.php?article1\' class=\'spip_in\'>Article 1</a> <a href=\'http://www.spip.net\' class=\'spip_out\' rel=\'external\'>spip</a> <a href=\'http://www.spip.net\' class=\'spip_out\' rel=\'nofollow external\'>http://www.spip.net</a></p>',
+    0 => '<p>Un texte avec des <a href="http://spip.net">liens</a> <a href="spip.php?article1" class=\'spip_in\'>Article 1</a> <a href="http://www.spip.net" class=\'spip_out\' rel=\'external\'>spip</a> <a href="http://www.spip.net" class=\'spip_url spip_out\' rel=\'nofollow external\'>http://www.spip.net</a></p>',
     1 => 'Un texte avec des <a href="http://spip.net">liens</a> [Article 1->art1] [spip->http://www.spip.net] http://www.spip.net',
   ),
   3 => 
