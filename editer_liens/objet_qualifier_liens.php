@@ -7,7 +7,7 @@
  * le
  */
 
-	$test = 'objet_qualifier';
+	$test = 'objet_qualifier_liens';
 	require '../test.inc';
 	find_in_path("action/editer_liens.php",'',true);
 
@@ -17,7 +17,7 @@
 	//
 	// hop ! on y va
 	//
-	$err = tester_fun('objet_qualifier', essais_objet_qualifier());
+	$err = tester_fun('objet_qualifier_liens', essais_objet_qualifier_liens());
 
 	// nettoyer
 	objet_dissocier(array('auteur'=>1), array('zorglub'=>'*'));
@@ -30,7 +30,7 @@
 	echo "OK";
 
 
-	function essais_objet_qualifier(){
+	function essais_objet_objet_qualifier_liens(){
 		$essais = array (
   array (
     0 => false,
