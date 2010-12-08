@@ -1,6 +1,6 @@
 <?php
-
-	chdir('..');
+	$dir = $_GET['dir'] ? $_GET['dir'] : '..';
+	chdir($dir);
 	require 'ecrire/inc_version.php';
 
 	// pas admin ? passe ton chemin (ce script est un vilain trou de securite)
