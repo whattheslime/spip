@@ -1,5 +1,5 @@
 <?php
-	$dir = $_GET['dir'] ? $_GET['dir'] : '..';
+	$dir = (isset($_GET['dir']) AND ($_GET['dir'])) ? $_GET['dir'] : '..';
 	chdir($dir);
 	require 'ecrire/inc_version.php';
 
