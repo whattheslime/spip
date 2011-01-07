@@ -17,7 +17,11 @@
 	//
 	// hop ! on y va
 	//
-	$err = tester_fun('balise_img', essais_balise_img());
+  if (!function_exists($f='balise_img')){
+	  find_in_path("inc/filtres.php",'',true);
+    $f = chercher_filtre($f);
+  }
+	$err = tester_fun($f, essais_balise_img());
 	
 	// si le tableau $err est pas vide ca va pas
 	if ($err) {
