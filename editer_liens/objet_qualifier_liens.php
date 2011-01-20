@@ -30,7 +30,7 @@
 	echo "OK";
 
 
-	function essais_objet_objet_qualifier_liens(){
+	function essais_objet_qualifier_liens(){
 		$essais = array (
   array (
     0 => false,
