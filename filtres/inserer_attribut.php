@@ -175,7 +175,7 @@
   ),
   16 => 
   array (
-    0 => '<a href=\'http://www.spip.net\' title=\'Un texte sans entites &#38;&lt;&gt;&quot;&#39;\'>SPIP</a>',
+    0 => '<a href=\'http://www.spip.net\' title=\'Un texte sans entites &#38;&lt;&gt;&quot;&#039;\'>SPIP</a>',
     1 => '<a href=\'http://www.spip.net\'>SPIP</a>',
     2 => 'title',
     3 => 'Un texte sans entites &<>"\'',
@@ -184,7 +184,7 @@
   ),
   17 => 
   array (
-    0 => '<a href=\'http://www.spip.net\' title=\'Un texte sans entites &#38;&lt;&gt;&quot;&#39;\'>SPIP</a>',
+    0 => '<a href=\'http://www.spip.net\' title=\'Un texte sans entites &#38;&lt;&gt;&quot;&#039;\'>SPIP</a>',
     1 => '<a href=\'http://www.spip.net\'>SPIP</a>',
     2 => 'title',
     3 => 'Un texte sans entites &<>"\'',
@@ -193,7 +193,7 @@
   ),
   18 => 
   array (
-    0 => '<a href=\'http://www.spip.net\' title=\'Un texte sans entites &<>"&#39;\'>SPIP</a>',
+    0 => '<a href=\'http://www.spip.net\' title=\'Un texte sans entites &<>"&#039;\'>SPIP</a>',
     1 => '<a href=\'http://www.spip.net\'>SPIP</a>',
     2 => 'title',
     3 => 'Un texte sans entites &<>"\'',
@@ -202,7 +202,7 @@
   ),
   19 => 
   array (
-    0 => '<a href=\'http://www.spip.net\' title=\'Un texte sans entites &<>"&#39;\'>SPIP</a>',
+    0 => '<a href=\'http://www.spip.net\' title=\'Un texte sans entites &<>"&#039;\'>SPIP</a>',
     1 => '<a href=\'http://www.spip.net\'>SPIP</a>',
     2 => 'title',
     3 => 'Un texte sans entites &<>"\'',
@@ -483,7 +483,7 @@ paragraphes',
   ),
   48 => 
   array (
-    0 => '<a href=\'http://www.spip.net\' title=\'Un texte sans entites &#38;&lt;&gt;&quot;&#39;\'>SPIP</a>',
+    0 => '<a href=\'http://www.spip.net\' title=\'Un texte sans entites &#38;&lt;&gt;&quot;&#039;\'>SPIP</a>',
     1 => '<a href=\'http://www.spip.net\' title=\'Simplement\'>SPIP</a>',
     2 => 'title',
     3 => 'Un texte sans entites &<>"\'',
@@ -492,7 +492,7 @@ paragraphes',
   ),
   49 => 
   array (
-    0 => '<a href=\'http://www.spip.net\' title=\'Un texte sans entites &#38;&lt;&gt;&quot;&#39;\'>SPIP</a>',
+    0 => '<a href=\'http://www.spip.net\' title=\'Un texte sans entites &#38;&lt;&gt;&quot;&#039;\'>SPIP</a>',
     1 => '<a href=\'http://www.spip.net\' title=\'Simplement\'>SPIP</a>',
     2 => 'title',
     3 => 'Un texte sans entites &<>"\'',
@@ -501,7 +501,7 @@ paragraphes',
   ),
   50 => 
   array (
-    0 => '<a href=\'http://www.spip.net\' title=\'Un texte sans entites &<>"&#39;\'>SPIP</a>',
+    0 => '<a href=\'http://www.spip.net\' title=\'Un texte sans entites &<>"&#039;\'>SPIP</a>',
     1 => '<a href=\'http://www.spip.net\' title=\'Simplement\'>SPIP</a>',
     2 => 'title',
     3 => 'Un texte sans entites &<>"\'',
@@ -510,7 +510,7 @@ paragraphes',
   ),
   51 => 
   array (
-    0 => '<a href=\'http://www.spip.net\' title=\'Un texte sans entites &<>"&#39;\'>SPIP</a>',
+    0 => '<a href=\'http://www.spip.net\' title=\'Un texte sans entites &<>"&#039;\'>SPIP</a>',
     1 => '<a href=\'http://www.spip.net\' title=\'Simplement\'>SPIP</a>',
     2 => 'title',
     3 => 'Un texte sans entites &<>"\'',
@@ -791,7 +791,7 @@ paragraphes',
   ),
   80 => 
   array (
-    0 => '<a href=\'http://www.spip.net\'><img src=\'http://www.spip.net/squelettes/img/spip.png\' alt=\'Un texte sans entites &#38;&lt;&gt;&quot;&#39;\' /></a>',
+    0 => '<a href=\'http://www.spip.net\'><img src=\'http://www.spip.net/squelettes/img/spip.png\' alt=\'Un texte sans entites &#38;&lt;&gt;&quot;&#039;\' /></a>',
     1 => '<a href=\'http://www.spip.net\'><img src=\'http://www.spip.net/squelettes/img/spip.png\' /></a>',
     2 => 'alt',
     3 => 'Un texte sans entites &<>"\'',
@@ -800,7 +800,7 @@ paragraphes',
   ),
   81 => 
   array (
-    0 => '<a href=\'http://www.spip.net\'><img src=\'http://www.spip.net/squelettes/img/spip.png\' alt=\'Un texte sans entites &#38;&lt;&gt;&quot;&#39;\' /></a>',
+    0 => '<a href=\'http://www.spip.net\'><img src=\'http://www.spip.net/squelettes/img/spip.png\' alt=\'Un texte sans entites &#38;&lt;&gt;&quot;&#039;\' /></a>',
     1 => '<a href=\'http://www.spip.net\'><img src=\'http://www.spip.net/squelettes/img/spip.png\' /></a>',
     2 => 'alt',
     3 => 'Un texte sans entites &<>"\'',
@@ -809,7 +809,7 @@ paragraphes',
   ),
   82 => 
   array (
-    0 => '<a href=\'http://www.spip.net\'><img src=\'http://www.spip.net/squelettes/img/spip.png\' alt=\'Un texte sans entites &<>"&#39;\' /></a>',
+    0 => '<a href=\'http://www.spip.net\'><img src=\'http://www.spip.net/squelettes/img/spip.png\' alt=\'Un texte sans entites &<>"&#039;\' /></a>',
     1 => '<a href=\'http://www.spip.net\'><img src=\'http://www.spip.net/squelettes/img/spip.png\' /></a>',
     2 => 'alt',
     3 => 'Un texte sans entites &<>"\'',
@@ -818,7 +818,7 @@ paragraphes',
   ),
   83 => 
   array (
-    0 => '<a href=\'http://www.spip.net\'><img src=\'http://www.spip.net/squelettes/img/spip.png\' alt=\'Un texte sans entites &<>"&#39;\' /></a>',
+    0 => '<a href=\'http://www.spip.net\'><img src=\'http://www.spip.net/squelettes/img/spip.png\' alt=\'Un texte sans entites &<>"&#039;\' /></a>',
     1 => '<a href=\'http://www.spip.net\'><img src=\'http://www.spip.net/squelettes/img/spip.png\' /></a>',
     2 => 'alt',
     3 => 'Un texte sans entites &<>"\'',
@@ -1099,7 +1099,7 @@ paragraphes',
   ),
   112 => 
   array (
-    0 => '<a href=\'http://www.spip.net\'><img src=\'http://www.spip.net/squelettes/img/spip.png\' alt=\'Un texte sans entites &#38;&lt;&gt;&quot;&#39;\' /></a>',
+    0 => '<a href=\'http://www.spip.net\'><img src=\'http://www.spip.net/squelettes/img/spip.png\' alt=\'Un texte sans entites &#38;&lt;&gt;&quot;&#039;\' /></a>',
     1 => '<a href=\'http://www.spip.net\'><img src=\'http://www.spip.net/squelettes/img/spip.png\' alt=\'SPIP\' /></a>',
     2 => 'alt',
     3 => 'Un texte sans entites &<>"\'',
@@ -1108,7 +1108,7 @@ paragraphes',
   ),
   113 => 
   array (
-    0 => '<a href=\'http://www.spip.net\'><img src=\'http://www.spip.net/squelettes/img/spip.png\' alt=\'Un texte sans entites &#38;&lt;&gt;&quot;&#39;\' /></a>',
+    0 => '<a href=\'http://www.spip.net\'><img src=\'http://www.spip.net/squelettes/img/spip.png\' alt=\'Un texte sans entites &#38;&lt;&gt;&quot;&#039;\' /></a>',
     1 => '<a href=\'http://www.spip.net\'><img src=\'http://www.spip.net/squelettes/img/spip.png\' alt=\'SPIP\' /></a>',
     2 => 'alt',
     3 => 'Un texte sans entites &<>"\'',
@@ -1117,7 +1117,7 @@ paragraphes',
   ),
   114 => 
   array (
-    0 => '<a href=\'http://www.spip.net\'><img src=\'http://www.spip.net/squelettes/img/spip.png\' alt=\'Un texte sans entites &<>"&#39;\' /></a>',
+    0 => '<a href=\'http://www.spip.net\'><img src=\'http://www.spip.net/squelettes/img/spip.png\' alt=\'Un texte sans entites &<>"&#039;\' /></a>',
     1 => '<a href=\'http://www.spip.net\'><img src=\'http://www.spip.net/squelettes/img/spip.png\' alt=\'SPIP\' /></a>',
     2 => 'alt',
     3 => 'Un texte sans entites &<>"\'',
@@ -1126,7 +1126,7 @@ paragraphes',
   ),
   115 => 
   array (
-    0 => '<a href=\'http://www.spip.net\'><img src=\'http://www.spip.net/squelettes/img/spip.png\' alt=\'Un texte sans entites &<>"&#39;\' /></a>',
+    0 => '<a href=\'http://www.spip.net\'><img src=\'http://www.spip.net/squelettes/img/spip.png\' alt=\'Un texte sans entites &<>"&#039;\' /></a>',
     1 => '<a href=\'http://www.spip.net\'><img src=\'http://www.spip.net/squelettes/img/spip.png\' alt=\'SPIP\' /></a>',
     2 => 'alt',
     3 => 'Un texte sans entites &<>"\'',
