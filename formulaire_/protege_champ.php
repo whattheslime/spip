@@ -76,7 +76,7 @@
   ),
   9 => 
   array (
-    0 => 'Un texte sans entites &amp;&lt;&gt;&quot;&#39;',
+    0 => 'Un texte sans entites &amp;&lt;&gt;&quot;&#039;',
     1 => 'Un texte sans entites &<>"\'',
   ),
   10 => 
@@ -117,7 +117,7 @@ paragraphes',
       1 => '0',
       2 => 'Un texte avec des &lt;a href=&quot;http://spip.net&quot;&gt;liens&lt;/a&gt; [Article 1-&gt;art1] [spip-&gt;http://www.spip.net] http://www.spip.net',
       3 => 'Un texte avec des entit&amp;eacute;s &amp;&amp;lt;&amp;gt;&amp;quot;',
-      4 => 'Un texte sans entites &amp;&lt;&gt;&quot;&#39;',
+      4 => 'Un texte sans entites &amp;&lt;&gt;&quot;&#039;',
       5 => '{{{Des raccourcis}}} {italique} {{gras}} &lt;code&gt;du code&lt;/code&gt;',
       6 => 'Un modele &lt;modeleinexistant|lien=[-&gt;http://www.spip.net]&gt;',
       7 => 'Un texte avec des retour
@@ -196,7 +196,7 @@ paragraphes',
   ),
   17 => 
   array (
-    0 => '',
+    0 => NULL,
     1 => NULL,
   ),
 );
