@@ -48,7 +48,7 @@
   ),
   4 => 
   array (
-    0 => 'Un texte sans entites &amp;&lt;&gt;&quot;\'',
+    0 => 'Un texte sans entites &amp;&lt;&gt;&quot;&#039;',
     1 => 'Un texte sans entites &<>"\'',
   ),
   5 => 
