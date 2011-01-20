@@ -28,7 +28,7 @@
 		$essais = array (
   0 => 
   array (
-    0 => '&lt;&gt;&quot;\'&amp;',
+    0 => '&lt;&gt;&quot;&#039;&amp;',
     1 => '<>"\'&',
     2 => 'entites_html',
   ),
