@@ -14,7 +14,7 @@
 
 	$val = '"&\'';
 	$tag = inserer_attribut("<img width=10>", 'src', $val);
-	$essais[] = array('"&#38;\'', $tag, 'src');
+	$essais[] = array('"&#38;&#039;', $tag, 'src');
 	$essais[] = array("10", $tag, 'width');
 
 	// Dans les crayons on s'etait fait avoir par un titre
