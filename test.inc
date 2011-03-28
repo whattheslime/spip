@@ -84,7 +84,7 @@ function display_error($titre,$call,$result,$expected,$opts=array()){
 	if (!isset($bef)){
 		// options
 		foreach (array(
-			'out' => '<dt>@</dt><dd><tt>@</tt></dd>'
+			'out' => '<dt>@</dt><dd><pre>@</pre></dd>'
 		) as $opt => $def) {
 			$$opt = isset($opts[$opt]) ? $opts[$opt] : $def;
 		}
@@ -97,8 +97,8 @@ function display_error($titre,$call,$result,$expected,$opts=array()){
 	  . (is_numeric($titre) ? "test $titre" : htmlspecialchars($titre))
 	  . $mid
 	  . $call
-		. '<br />// resultat:' . htmlspecialchars(var_export($result, true))
-		. '<br />// attendu :' . htmlspecialchars(var_export($expected, true))
+		. "<br />\n".'// resultat:' . htmlspecialchars(var_export($result, true))
+		. "<br />\n".'// attendu :' . htmlspecialchars(var_export($expected, true))
 	  . $end . "\n";
 }
 
