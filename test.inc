@@ -84,7 +84,7 @@ function display_error($titre,$call,$result,$expected,$opts=array()){
 	if (!isset($bef)){
 		// options
 		foreach (array(
-			'out' => '<dt>@</dt><dd><pre>@</pre></dd>'
+			'out' => '<dt>@</dt><dd>@</dd>'
 		) as $opt => $def) {
 			$$opt = isset($opts[$opt]) ? $opts[$opt] : $def;
 		}
@@ -96,10 +96,10 @@ function display_error($titre,$call,$result,$expected,$opts=array()){
 	  $bef 
 	  . (is_numeric($titre) ? "test $titre" : htmlspecialchars($titre))
 	  . $mid
-	  . $call
-		. "<br />\n".'// resultat:' . htmlspecialchars(var_export($result, true))
-		. "<br />\n".'// attendu :' . htmlspecialchars(var_export($expected, true))
-	  . $end . "\n";
+	  . "<pre>$call</pre>"
+		. '<pre>// resultat:' . htmlspecialchars(var_export($result, true))."</pre>"
+		. '<pre>// attendu :' . htmlspecialchars(var_export($expected, true))."</pre>"
+	  . $end;
 }
 
 // pour essayer de calculer/montrer le temps qu'on y met
