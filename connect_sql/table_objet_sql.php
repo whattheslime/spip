@@ -175,7 +175,6 @@ array('spip_syndic','syndic'),
 array('spip_syndic','site'),
 array('spip_syndic_articles','syndic_article'),
 array('spip_types_documents','type_document'),
-array('spip_types_documents','extension'),
 );
 		return $essais;
 	}

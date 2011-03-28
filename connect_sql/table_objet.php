@@ -174,7 +174,6 @@ array('syndic','syndic'),
 array('syndic','site'),
 array('syndic_articles','syndic_article'),
 array('types_documents','type_document'),
-array('types_documents','extension'),
 );
 		return $essais;
 	}

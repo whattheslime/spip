@@ -127,15 +127,15 @@
     1 => 'syndic_article',
   ),
   array (
-    0 => 'id_article',
+    0 => 'id_petition',
     1 => 'petitions',
   ),
   array (
-    0 => 'id_article',
+    0 => 'id_petition',
     1 => 'petition',
   ),
   array (
-    0 => 'id_article',
+    0 => 'id_petition',
     1 => 'spip_petitions',
   ),
   array (
@@ -168,14 +168,13 @@ array('id_groupe','groupes_mots'),
 array('id_groupe','groupe'),
 array('id_message','message'),
 array('id_mot','mot'),
-array('id_article','petition'),
+array('id_petition','petition'),
 array('id_rubrique','rubrique'),
 array('id_signature','signature'),
 array('id_syndic','syndic'),
 array('id_syndic','site'),
 array('id_syndic_article','syndic_article'),
 array('extension','type_document'),
-array('extension','extension'),
 );
 		return $essais;
 	}
