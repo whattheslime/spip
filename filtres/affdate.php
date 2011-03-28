@@ -44,7 +44,7 @@
 	$err[$GLOBALS['spip_lang']] = tester_fun('affdate', $essais);
 
 	$GLOBALS['spip_lang'] = 'pl';
-	$essais["nc-01-2010"] = array('Stycze&#324; 2010', "2010-01-00 01:00:00");
+	$essais["nc-01-2010"] = array('Styczeń 2010', "2010-01-00 01:00:00");
 	$essais["nc-nc-2010"] = array('2010', "2010-00-00 01:00:00");
 	$err[$GLOBALS['spip_lang']] = tester_fun('affdate', $essais);
 
