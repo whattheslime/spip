@@ -27,7 +27,6 @@ array('syndic','syndic'),
 array('syndic','site'),
 array('syndic_articles','syndic_article'),
 array('types_documents','type_document'),
-array('types_documents','extension'),
 );
 
 $essais['table_objet_sql'] = array(
@@ -52,7 +51,6 @@ array('spip_syndic','syndic'),
 array('spip_syndic','site'),
 array('spip_syndic_articles','syndic_article'),
 array('spip_types_documents','type_document'),
-array('spip_types_documents','extension'),
 );
 
 $essais['id_table_objet'] = array(
@@ -70,14 +68,13 @@ array('id_groupe','groupes_mots'),
 array('id_groupe','groupe'),
 array('id_message','message'),
 array('id_mot','mot'),
-array('id_article','petition'),
+array('id_petition','petition'),
 array('id_rubrique','rubrique'),
 array('id_signature','signature'),
 array('id_syndic','syndic'),
 array('id_syndic','site'),
 array('id_syndic_article','syndic_article'),
 array('extension','type_document'),
-array('extension','extension'),
 );
 
 
