@@ -44,7 +44,7 @@ $essais['tirets2'] = array(
 );
 // ligne horizontale
 $essais['lignehorizontale'] = array(
-	"\n<hr class=\"spip\" />\n",
+	"<hr class=\"spip\" />",
 	"\n----\n"
 );
 
