@@ -35,17 +35,17 @@
 		$essais = array (
   0 => 
   array (
-    0 => '<img src=\'http://www.spip.net/squelettes/img/spip.png\' width=\'403\' height=\'137\' alt=\'\' />',
+    0 => '<img src=\'http://www.spip.net/squelettes/img/spip.png\' alt=\'\' width=\'403\' height=\'137\' />',
     1 => 'http://www.spip.net/squelettes/img/spip.png',
   ),
   1 => 
   array (
-    0 => '<img src=\'prive/images/logo_spip.jpg\' width=\'105\' height=\'92\' alt=\'\' />',
+    0 => '<img src=\'prive/images/logo_spip.jpg\' alt=\'\' width=\'105\' height=\'92\' />',
     1 => 'prive/images/logo_spip.jpg',
   ),
   2 => 
   array (
-    0 => '<img src=\'prive/images/logo-spip.gif\' width=\'267\' height=\'170\' alt=\'\' />',
+    0 => '<img src=\'prive/images/logo-spip.gif\' alt=\'\' width=\'267\' height=\'170\' />',
     1 => 'prive/images/logo-spip.gif',
   ),
   3 => 
@@ -55,12 +55,12 @@
   ),
   4 => 
   array (
-    0 => '<img src=\'prive/images/searching.gif\' width=\'16\' height=\'16\' alt=\'\' />',
+    0 => '<img src=\'prive/images/searching.gif\' alt=\'\' width=\'16\' height=\'16\' />',
     1 => 'prive/images/searching.gif',
   ),
   6 => 
   array (
-    0 => '<img src=\'prive/images/searching.gif\' width=\'16\' height=\'16\' alt=\'attendez\' class=\'loading\' />',
+    0 => '<img src=\'prive/images/searching.gif\' alt=\'attendez\' class=\'loading\' width=\'16\' height=\'16\' />',
     1 => 'prive/images/searching.gif',
     2 => 'attendez',
     3 => 'loading',
