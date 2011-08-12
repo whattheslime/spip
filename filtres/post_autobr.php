@@ -67,8 +67,8 @@ _ ',
   3 => 
   array (
     0 => '<modele123|param1=un appel de modèle
-_   |param2=avec retour à la ligne
-_   ne doit pas être modifié>',
+  |param2=avec retour à la ligne
+  ne doit pas être modifié>',
     1 => '<modele123|param1=un appel de modèle
   |param2=avec retour à la ligne
   ne doit pas être modifié>',
