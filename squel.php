@@ -5,6 +5,7 @@
 	$fond = preg_replace(',\.html$,', '', $_GET['test']);
 	require 'test.inc';
 	$debug = (_request('var_mode') == 'debug');
+	define('_INTERDIRE_COMPRESSION_HTML',true);
 
 	$flag_preserver = true;
 
