@@ -10,28 +10,58 @@ array(
 	'http://host/', 'http://tata/', 'http://tata/'
 ),
 array(
+	'//host/', 'http://tata/', 'http://tata/'
+),
+array(
+	'http://host/', '//tata/', '//tata/'
+),
+array(
 	'http://host/', '/tata/', 'http://host/tata/'
+),
+array(
+	'//host/', '/tata/', '//host/tata/'
 ),
 array(
 	'http://host/', '#tata', 'http://host/#tata'
 ),
 array(
+	'//host/', '#tata', '//host/#tata'
+),
+array(
 	'http://host/', '', 'http://host/'
+),
+array(
+	'//host/', '', '//host/'
 ),
 array(
 	'http://host/', 'tata', 'http://host/tata'
 ),
 array(
+	'//host/', 'tata', '//host/tata'
+),
+array(
 	'http://host/', '?par=value', 'http://host/?par=value'
+),
+array(
+	'//host/', '?par=value', '//host/?par=value'
 ),
 array(
 	'http://host/', 'tata?par=value', 'http://host/tata?par=value'
 ),
 array(
+	'//host/', 'tata?par=value', '//host/tata?par=value'
+),
+array(
 	'http://host/', 'tata#ancre', 'http://host/tata#ancre'
 ),
 array(
+	'//host/', 'tata#ancre', '//host/tata#ancre'
+),
+array(
 	'http://host/', 'tata?par=value#ancre', 'http://host/tata?par=value#ancre'
+),
+array(
+	'//host/', 'tata?par=value#ancre', '//host/tata?par=value#ancre'
 ),
 
 
@@ -40,28 +70,58 @@ array(
 	'http://host/page', 'http://tata/', 'http://tata/'
 ),
 array(
+	'//host/page', 'http://tata/', 'http://tata/'
+),
+array(
+	'http://host/page', '//tata/', '//tata/'
+),
+array(
 	'http://host/page', '/tata/', 'http://host/tata/'
+),
+array(
+	'//host/page', '/tata/', '//host/tata/'
 ),
 array(
 	'http://host/page', '#tata', 'http://host/page#tata'
 ),
 array(
+	'//host/page', '#tata', '//host/page#tata'
+),
+array(
 	'http://host/page', '', 'http://host/page'
+),
+array(
+	'//host/page', '', '//host/page'
 ),
 array(
 	'http://host/page', 'tata', 'http://host/tata'
 ),
 array(
+	'//host/page', 'tata', '//host/tata'
+),
+array(
 	'http://host/page', '?par=value', 'http://host/?par=value'
+),
+array(
+	'//host/page', '?par=value', '//host/?par=value'
 ),
 array(
 	'http://host/page', 'tata?par=value', 'http://host/tata?par=value'
 ),
 array(
+	'//host/page', 'tata?par=value', '//host/tata?par=value'
+),
+array(
 	'http://host/page', 'tata#ancre', 'http://host/tata#ancre'
 ),
 array(
+	'//host/page', 'tata#ancre', '//host/tata#ancre'
+),
+array(
 	'http://host/page', 'tata?par=value#ancre', 'http://host/tata?par=value#ancre'
+),
+array(
+	'//host/page', 'tata?par=value#ancre', '//host/tata?par=value#ancre'
 ),
 
 
@@ -69,28 +129,58 @@ array(
 	'http://host/rep/page', 'http://tata/', 'http://tata/'
 ),
 array(
+	'//host/rep/page', 'http://tata/', 'http://tata/'
+),
+array(
+	'http://host/rep/page', '//tata/', '//tata/'
+),
+array(
 	'http://host/rep/page', '/tata/', 'http://host/tata/'
+),
+array(
+	'//host/rep/page', '/tata/', '//host/tata/'
 ),
 array(
 	'http://host/rep/page', '#tata', 'http://host/rep/page#tata'
 ),
 array(
+	'//host/rep/page', '#tata', '//host/rep/page#tata'
+),
+array(
 	'http://host/rep/page', '', 'http://host/rep/page'
+),
+array(
+	'//host/rep/page', '', '//host/rep/page'
 ),
 array(
 	'http://host/rep/page', 'tata', 'http://host/rep/tata'
 ),
 array(
+	'//host/rep/page', 'tata', '//host/rep/tata'
+),
+array(
 	'http://host/rep/page', '?par=value', 'http://host/rep/?par=value'
+),
+array(
+	'//host/rep/page', '?par=value', '//host/rep/?par=value'
 ),
 array(
 	'http://host/rep/page', 'tata?par=value', 'http://host/rep/tata?par=value'
 ),
 array(
+	'//host/rep/page', 'tata?par=value', '//host/rep/tata?par=value'
+),
+array(
 	'http://host/rep/page', 'tata#ancre', 'http://host/rep/tata#ancre'
 ),
 array(
+	'//host/rep/page', 'tata#ancre', '//host/rep/tata#ancre'
+),
+array(
 	'http://host/rep/page', 'tata?par=value#ancre', 'http://host/rep/tata?par=value#ancre'
+),
+array(
+	'//host/rep/page', 'tata?par=value#ancre', '//host/rep/tata?par=value#ancre'
 ),
 
 
