@@ -34,8 +34,16 @@
 
 		// regarder tous les tests
 		$tests = preg_files($base .= '/', '/\w+/.*\.(php|html)$');
+
+		// utiliser le parametre $_GET['fichier'] pour limiter les tests a un seul fichier
+		if (isset($_GET['fichier']) AND $_GET['fichier'] != '' AND preg_match('[^\d\w-.]', $_GET['fichier']) != 1)
+			$fic = $_GET['fichier'];
+			
 		
-		foreach ($tests as $test) { 
+		foreach ($tests as $test) {
+			if (isset($fic) AND $fic != '' AND substr_count($test, $fic) == 0)
+				continue;
+
 			if (strlen($t=_request('rech')) && (strpos($test, $t)===false))
 		 		continue;
 		
