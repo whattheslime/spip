@@ -144,7 +144,7 @@ sleep(1); // sinon le timestamp ne change pas !
 		foreach (array('fr'=>'Un debut de chaine : Vinasse, et [la fin]','en'=>'Un debut de chaine : Vinassy, et [la fin]','de'=>'Un debut de chaine : Vinasse, et [la fin]',) as $lg=>$res) {
 			$multi = sql_getfetsel(sql_multi("alcool",$lg),"spip_test_haddock","id_haddock=".sql_quote(4));
 			if (!($multi == ($res))) {
-				$err[] = "sql_multi $lg mal rendu : retour : ".htmlentities(utf8_decode($multi)).", attendu : ".htmlentities(utf8_decode($res));
+				$err[] = "sql_multi [$lg] mal rendu : retour : ".htmlentities(utf8_decode($multi)).", attendu : ".htmlentities(utf8_decode($res));
 			}
 		}
 
