@@ -104,9 +104,194 @@
     1 => '/ecrire/?exec=exec&id_obj=id_obj&no_val',
     2 => 'toto',
   ),
+  10 => 
+  array (
+    0 => '/ecrire/?exec=exec&amp;id_obj=id_obj&amp;no_val&amp;id1=valeur&amp;id2=valeur&amp;id3=valeur',
+    1 => '/ecrire/?exec=exec&id_obj=id_obj&no_val',
+    2 => 'id1|id2|id3',
+    3 => 'valeur',
+  ),
+  11 => 
+  array (
+    0 => '/ecrire/?exec=exec&amp;id_obj=valeur&amp;no_val&amp;id2=valeur&amp;id3=valeur',
+    1 => '/ecrire/?exec=exec&id_obj=id_obj&no_val',
+    2 => 'id_obj|id2|id3',
+    3 => 'valeur',
+  ),
+  12 => 
+  array (
+    0 => '/ecrire/?exec=exec&amp;id_obj=id_obj&amp;no_val=valeur&amp;id1=valeur&amp;id3=valeur',
+    1 => '/ecrire/?exec=exec&id_obj=id_obj&no_val',
+    2 => 'id1|no_val|id3',
+    3 => 'valeur',
+  ),
+  13 => 
+  array (
+    0 => NULL,
+    1 => '/ecrire/?exec=exec&id_obj=id_objv&no_val',
+    2 => 'id_obj|no_val',
+  ),
+  14 => 
+  array (
+    0 => '/ecrire/?exec=exec&amp;id_obj=id_obj&amp;no_val',
+    1 => '/ecrire/?exec=exec&id_obj=id_obj&no_val',
+    2 => 'tab',
+    3 => 
+    array (
+    ),
+  ),
+  15 => 
+  array (
+    0 => '/ecrire/?exec=exec&amp;id_obj=id_obj&amp;no_val&amp;tab[]=0&amp;tab[]=-1&amp;tab[]=1&amp;tab[]=2&amp;tab[]=3&amp;tab[]=4&amp;tab[]=5&amp;tab[]=6&amp;tab[]=7&amp;tab[]=10&amp;tab[]=20&amp;tab[]=30&amp;tab[]=50&amp;tab[]=100&amp;tab[]=1000&amp;tab[]=10000',
+    1 => '/ecrire/?exec=exec&id_obj=id_obj&no_val',
+    2 => 'tab',
+    3 => 
+    array (
+      0 => 0,
+      1 => -1,
+      2 => 1,
+      3 => 2,
+      4 => 3,
+      5 => 4,
+      6 => 5,
+      7 => 6,
+      8 => 7,
+      9 => 10,
+      10 => 20,
+      11 => 30,
+      12 => 50,
+      13 => 100,
+      14 => 1000,
+      15 => 10000,
+    ),
+  ),
+  16 => 
+  array (
+    0 => '/ecrire/?exec=exec&amp;id_obj=id_obj&amp;no_val&amp;tab[]=1&amp;tab[]=',
+    1 => '/ecrire/?exec=exec&id_obj=id_obj&no_val',
+    2 => 'tab',
+    3 => 
+    array (
+      0 => true,
+      1 => false,
+    ),
+  ),
+  17 => 
+  array (
+    0 => '/ecrire/?exec=exec&amp;id_obj=id_obj&amp;no_val&amp;tab[]=Array&amp;tab[]=Array&amp;tab[]=Array&amp;tab[]=Array',
+    1 => '/ecrire/?exec=exec&id_obj=id_obj&no_val',
+    2 => 'tab',
+    3 => 
+    array (
+      0 => 
+      array (
+      ),
+      1 => 
+      array (
+        0 => '',
+        1 => '0',
+        2 => 'Un texte avec des <a href="http://spip.net">liens</a> [Article 1->art1] [spip->http://www.spip.net] http://www.spip.net',
+        3 => 'Un texte avec des entit&eacute;s &amp;&lt;&gt;&quot;',
+        4 => 'Un texte avec des entit&amp;eacute;s echap&amp;eacute; &amp;amp;&amp;lt;&amp;gt;&amp;quot;',
+        5 => 'Un texte avec des entit&#233;s num&#233;riques &#38;&#60;&#62;&quot;',
+        6 => 'Un texte avec des entit&amp;#233;s num&amp;#233;riques echap&amp;#233;es &amp;#38;&amp;#60;&amp;#62;&amp;quot;',
+        7 => 'Un texte sans entites &<>"\'',
+        8 => '{{{Des raccourcis}}} {italique} {{gras}} <code>du code</code>',
+        9 => 'Un modele <modeleinexistant|lien=[->http://www.spip.net]>',
+        10 => 'Un texte avec des retour
+a la ligne et meme des
+
+paragraphes',
+      ),
+      2 => 
+      array (
+        0 => 0,
+        1 => -1,
+        2 => 1,
+        3 => 2,
+        4 => 3,
+        5 => 4,
+        6 => 5,
+        7 => 6,
+        8 => 7,
+        9 => 10,
+        10 => 20,
+        11 => 30,
+        12 => 50,
+        13 => 100,
+        14 => 1000,
+        15 => 10000,
+      ),
+      3 => 
+      array (
+        0 => true,
+        1 => false,
+      ),
+    ),
+  ),
+  18 => 
+  array (
+    0 => '/ecrire/?exec=exec&amp;id_obj=id_obj&amp;no_val',
+    1 => '/ecrire/?exec=exec&id_obj=id_obj&no_val',
+    2 => 'tab[]',
+    3 => 
+    array (
+    ),
+  ),
+  19 => 
+  array (
+    0 => '/ecrire/?exec=exec&amp;id_obj=id_obj&amp;no_val&amp;tab[]=0&amp;tab[]=-1&amp;tab[]=1&amp;tab[]=2&amp;tab[]=3&amp;tab[]=4&amp;tab[]=5&amp;tab[]=6&amp;tab[]=7&amp;tab[]=10&amp;tab[]=20&amp;tab[]=30&amp;tab[]=50&amp;tab[]=100&amp;tab[]=1000&amp;tab[]=10000',
+    1 => '/ecrire/?exec=exec&id_obj=id_obj&no_val',
+    2 => 'tab[]',
+    3 => 
+    array (
+      0 => 0,
+      1 => -1,
+      2 => 1,
+      3 => 2,
+      4 => 3,
+      5 => 4,
+      6 => 5,
+      7 => 6,
+      8 => 7,
+      9 => 10,
+      10 => 20,
+      11 => 30,
+      12 => 50,
+      13 => 100,
+      14 => 1000,
+      15 => 10000,
+    ),
+  ),
+  20 => 
+  array (
+    0 => '/ecrire/?exec=exec&amp;id_obj=id_obj&amp;no_val&amp;tab[]=1&amp;tab[]=',
+    1 => '/ecrire/?exec=exec&id_obj=id_obj&no_val',
+    2 => 'tab[]',
+    3 => 
+    array (
+      0 => true,
+      1 => false,
+    ),
+  ),
 );
 		return $essais;
 	}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
