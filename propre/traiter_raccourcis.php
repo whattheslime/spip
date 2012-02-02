@@ -10,7 +10,7 @@
 
 // trois tests un peu identiques sur <br />...
 $essais['div'] = array(
-	'<div>titi<br />toto</div><br />tata',  
+	"<div>titi<br />toto</div>\n<p><br />tata</p>\n",
 	'<div>titi<br />toto</div><br />tata'
 );
 $essais['span'] = array(
@@ -18,7 +18,7 @@ $essais['span'] = array(
 	'<span>titi<br />toto</span><br />tata'
 );
 $essais['table'] = array(
-	'<table><tr><td>titi<br />toto</td></tr></table><br />tata',  
+	"<table><tr><td>titi<br />toto</td></tr></table>\n<p><br />tata</p>\n",
 	'<table><tr><td>titi<br />toto</td></tr></table><br />tata'
 );
 
