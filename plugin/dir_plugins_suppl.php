@@ -47,7 +47,7 @@ function essais_dir_plugins_suppl() {
 			}
 			else
 				$Ta_effacer[] = _DIR_RACINE.$rep_sup.'toto';
-			if (!@copy(_DIR_EXTENSIONS.'dump/paquet.xml', _DIR_RACINE.$rep_sup.'toto/paquet.xml')) {
+			if (!@copy(_DIR_PLUGINS_DIST.'dump/paquet.xml', _DIR_RACINE.$rep_sup.'toto/paquet.xml')) {
 				nettoyage_plugins_suppl($Ta_effacer);
 				return 'NA probleme de droits d\ecriture 2, impossible de creer un fichier dans "'._DIR_RACINE.$rep_sup.'toto" necessaire pour ce test';
 			}
@@ -84,7 +84,7 @@ function essais_dir_plugins_suppl() {
 				}
 				else
 					$Ta_effacer[] = _DIR_RACINE.$rep_sup.'toto';
-				if (!@copy(_DIR_EXTENSIONS.'dump/paquet.xml', _DIR_RACINE.$rep_sup.'toto/paquet.xml')) {
+				if (!@copy(_DIR_PLUGINS_DIST.'dump/paquet.xml', _DIR_RACINE.$rep_sup.'toto/paquet.xml')) {
 					nettoyage_plugins_suppl($Ta_effacer);
 					return 'NA probleme de droits d\ecriture 4, impossible de creer un fichier dans "'._DIR_RACINE.$rep_sup.'toto" necessaire pour ce test';
 				}
@@ -115,7 +115,7 @@ function essais_dir_plugins_suppl() {
 			$Ta_effacer[] = $rep_non_suppl;
 	}
 	if (!file_exists($rep_non_suppl.'/paquet.xml')) {
-		if (!@copy(_DIR_EXTENSIONS.'dump/paquet.xml', $rep_non_suppl.'/paquet.xml')) {
+		if (!@copy(_DIR_PLUGINS_DIST.'dump/paquet.xml', $rep_non_suppl.'/paquet.xml')) {
 			nettoyage_plugins_suppl($Ta_effacer);
 			return 'NA probleme de droits d\ecriture 6, impossible de creer un fichier dans "'.$rep_non_suppl.'" necessaire pour ce test';
 		}
