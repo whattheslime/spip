@@ -33,43 +33,49 @@
 		$essais = array (
   0 => 
   array (
-    0 => '<input name="id_rubrique" value="12" type="hidden" />
-<input name="page" value="rubrique" type="hidden" />',
+    0 => '<input name="id_rubrique" value="12" type="hidden"
+/><input name="page" value="rubrique" type="hidden"
+/>',
     1 => './?rubrique12',
   ),
   1 => 
   array (
-    0 => '<input name="calendrier" value="1" type="hidden" />
-<input name="id_rubrique" value="12" type="hidden" />
-<input name="page" value="rubrique" type="hidden" />',
+    0 => '<input name="calendrier" value="1" type="hidden"
+/><input name="id_rubrique" value="12" type="hidden"
+/><input name="page" value="rubrique" type="hidden"
+/>',
     1 => './?rubrique12&calendrier=1',
   ),
   2 => 
   array (
-    0 => '<input name="id_rubrique" value="12" type="hidden" />
-<input name="page" value="rubrique" type="hidden" />',
+    0 => '<input name="id_rubrique" value="12" type="hidden"
+/><input name="page" value="rubrique" type="hidden"
+/>',
     1 => './rubrique12.html',
   ),
   3 => 
   array (
-    0 => '<input name="calendrier" value="1" type="hidden" />
-<input name="id_rubrique" value="12" type="hidden" />
-<input name="page" value="rubrique" type="hidden" />',
+    0 => '<input name="calendrier" value="1" type="hidden"
+/><input name="id_rubrique" value="12" type="hidden"
+/><input name="page" value="rubrique" type="hidden"
+/>',
     1 => './rubrique12.html?calendrier=1',
   ),
   4 => 
   array (
-    0 => '<input name="calendrier" value="1" type="hidden" />
-<input name="id_rubrique" value="12" type="hidden" />
-<input name="page" value="rubrique" type="hidden" />',
+    0 => '<input name="calendrier" value="1" type="hidden"
+/><input name="id_rubrique" value="12" type="hidden"
+/><input name="page" value="rubrique" type="hidden"
+/>',
     1 => './?rubrique12&amp;calendrier=1',
   ),
   5 => 
   array (
-    0 => '<input name="calendrier" value="1" type="hidden" />
-<input name="toto" value="2" type="hidden" />
-<input name="id_rubrique" value="12" type="hidden" />
-<input name="page" value="rubrique" type="hidden" />',
+    0 => '<input name="calendrier" value="1" type="hidden"
+/><input name="toto" value="2" type="hidden"
+/><input name="id_rubrique" value="12" type="hidden"
+/><input name="page" value="rubrique" type="hidden"
+/>',
     1 => './rubrique12.html?calendrier=1&amp;toto=2',
   ),
 );
