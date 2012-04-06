@@ -95,7 +95,7 @@
 	!== $a =extraire_attribut(extraire_balise(propre($p10), 'a'), 'href'))
 		$err[] = $a.': erreur sur le lien '.$p10;
 
-	if (!in_array($a = propre($p11),array("<p><flv|url=http://rezo.net/></p>","<pre>&lt;flv|url=http://rezo.net/&gt;</pre>")))
+	if (!in_array($a = propre($p11),array("<p><flv|url=http://rezo.net/></p>","<p><tt>&lt;flv|url=http://rezo.net/&gt;</tt></p>","<pre>&lt;flv|url=http://rezo.net/&gt;</pre>")))
 		$err[] = $a.': erreur sur le modele '.$p11;
 
 

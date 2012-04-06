@@ -108,13 +108,13 @@
   ),
   13 => 
   array (
-    0 => 'Un modele http://www.spip.net]>',
+    0 => 'Un modele <tt>&lt;modeleinexistant|lien=[-&gt;</tt>http://www.spip.net]>',
     1 => 'Un modele <modeleinexistant|lien=[->http://www.spip.net]>',
     2 => true,
   ),
   14 => 
   array (
-    0 => 'Un modele http://www.spip.net]>',
+    0 => 'Un modele <tt>&lt;modeleinexistant|lien=[-&gt;</tt>http://www.spip.net]>',
     1 => 'Un modele <modeleinexistant|lien=[->http://www.spip.net]>',
     2 => false,
   ),
