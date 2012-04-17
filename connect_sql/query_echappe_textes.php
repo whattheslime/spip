@@ -51,6 +51,14 @@
     0 => array('%1$s', array ("\"guillemets doubles \x2@##@\x2\x3@##@\x3 echappements\"")),
     1 => "\"guillemets doubles \'\\\" avec deux echappements\"",
   ),
+  array (
+    0 => array('%1$s', array ("")),
+    1 => "'guillemet double \" dans guillemets simples'",
+  ),
+  array (
+    0 => array('%1$s', array ("")),
+    1 => "\"guillemet simple ' dans guillemets doubles\"",
+  ),
 
   // sortie de sqlitemanager firefox
   // (description de table suite a import d'une table au format xml/phpmyadmin v5)
