@@ -23,7 +23,7 @@ $GLOBALS['taille_des_logs'] = 1024;
 $GLOBALS['compteur_essai'] = 0;
 
 // pas admin ? passe ton chemin (ce script est un vilain trou de securite)
-if ($auteur_session['statut'] != '0minirezo'   and ( $_SERVER["REMOTE_ADDR"]!='127.0.0.1') )
+if ($visiteur_session['statut'] != '0minirezo'   and ( $_SERVER["REMOTE_ADDR"]!='127.0.0.1') )
 	die('pas admin !');
 /***
 * fonction pas obligatoire a utiliser mais qui simplifie la vie du testeur
@@ -33,7 +33,7 @@ if ($auteur_session['statut'] != '0minirezo'   and ( $_SERVER["REMOTE_ADDR"]!='1
 *  si pas d'index, "test {numero}" sera utilise
 * retourne un tableau de textes d'erreur dont le but est d'etre vide :)
 */
-function tester_fun($fun, &$essais, $opts = array())
+function tester_fun($fun, $essais, $opts = array())
 {
 	// pas d'erreur au depart
 	$err = array();

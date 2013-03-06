@@ -4,7 +4,7 @@
 	require 'ecrire/inc_version.php';
 
 	// pas admin ? passe ton chemin (ce script est un vilain trou de securite)
-	if ( ($auteur_session['statut'] != '0minirezo') and ( $_SERVER["REMOTE_ADDR"]!='127.0.0.1'))
+	if ( ($visiteur_session['statut'] != '0minirezo') and ( $_SERVER["REMOTE_ADDR"]!='127.0.0.1'))
 		die('pas admin !');
 
 	// supprimer le vieux logs de tests
