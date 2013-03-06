@@ -34,7 +34,7 @@
 
 	// Tester si on est admin et il y a des choses supplementaires a dire
 	// type tableau pour y mettre des choses au besoin.
-	$debug = ($debug OR $tableau_des_temps) ? array(1) : array();
+	$debug = ($debug OR (isset($tableau_des_temps) AND $tableau_des_temps)) ? array(1) : array();
 	if ($debug) {
 		$var_mode_affiche = _request('var_mode_affiche');
 		$GLOBALS['debug_objets'][$var_mode_affiche][$var_mode_objet . 'tout'] = ($var_mode_affiche== 'validation' ? $page['texte'] :"");

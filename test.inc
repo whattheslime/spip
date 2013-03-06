@@ -15,7 +15,17 @@ define('_SPIP_TEST_INC', dirname(__FILE__));
 @define('_SPIP_TEST_CHDIR', dirname(_SPIP_TEST_INC));
 chdir(_SPIP_TEST_CHDIR);
 require dirname(_SPIP_TEST_INC) . '/ecrire/inc_version.php';
-define('_VAR_MODE', 'recalcul');
+
+if (!defined('_VAR_MODE')) {
+	define('_VAR_MODE', 'recalcul');
+}
+
+// pour notice sur recuperer_fond()
+if (!isset($GLOBALS['spip_lang'])) {
+	include_spip('inc/lang');
+	utiliser_langue_visiteur();
+}
+
 
 // vous devez theoriquement definir $test avant d'inclure ce script
 #spip_log('test ' . $test,'testrunner');
@@ -53,14 +63,18 @@ function tester_fun($fun, $essais, $opts = array())
 				$res = call_user_func_array($fun, $copy);
 		}
 		$ok = false;
-		if (is_array($ess[0]) && function_exists($ess[0][0]) && isset($ess[0][1]) && isset($ess[0][2]))
+		#var_dump($res);
+		if (is_array($ess) and is_array($ess[0]) and isset($ess[0][0])
+		  && function_exists($ess[0][0]) && isset($ess[0][1]) && isset($ess[0][2])) {
 			$ok = ($ess[0][0]($ess[0][1],$res)==$ess[0][2]);
-		else
+		} else {
 			$ok =
 			  ( (is_array($res) AND is_array($ess[0]))?
-				  (!count(array_diff($res,$ess[0]))AND!count(array_diff($ess[0],$res)))
+				  (!count(array_diff_assoc_recursive($res,$ess[0]))
+				    AND !count(array_diff_assoc_recursive($ess[0],$res)))
 				  :
 						( is_double($res)?(($res-$ess[0])<1e-10*abs($res)):$res === $ess[0]) );
+		}
 
 		spip_log('test ' . $GLOBALS['test']." : Essai ".$GLOBALS['compteur_essai']++.($ok?" ok":" ECHEC"),'testrunner');
 		if (!$ok) {
@@ -108,4 +122,39 @@ register_shutdown_function('afficher_timer', time() + microtime());
 
 function afficher_timer($depart) {
 	echo sprintf(" %.2fs", time() + microtime() - $depart);
+}
+
+
+if (!function_exists('array_diff_assoc_recursive')) {
+// http://www.php.net/manual/fr/function.array-diff-assoc.php#73972
+function array_diff_assoc_recursive($array1, $array2)
+{
+    foreach($array1 as $key => $value)
+    {
+        if(is_array($value))
+        {
+              if(!isset($array2[$key]))
+              {
+                  $difference[$key] = $value;
+              }
+              elseif(!is_array($array2[$key]))
+              {
+                  $difference[$key] = $value;
+              }
+              else
+              {
+                  $new_diff = array_diff_assoc_recursive($value, $array2[$key]);
+                  if ($new_diff !== array())
+                  {
+                        $difference[$key] = $new_diff;
+                  }
+              }
+          }
+          elseif(!isset($array2[$key]) || $array2[$key] != $value)
+          {
+              $difference[$key] = $value;
+          }
+    }
+    return !isset($difference) ? array() : $difference;
+}
 }
