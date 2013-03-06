@@ -20,6 +20,7 @@
 
 
 	$essais[] = array(array('meta',null,array()), '');
+	$essais[] = array(array('meta','0',array()), '0');
 	$essais[] = array(array('meta','casier',array()), 'casier');
 	$essais[] = array(array('meta','casier',array('sous')), 'casier/sous');
 	$essais[] = array(array('meta','casier',array('sous','plus','bas','encore')), 'casier/sous/plus/bas/encore');
