@@ -68,12 +68,7 @@ function tester_fun($fun, $essais, $opts = array())
 		  && function_exists($ess[0][0]) && isset($ess[0][1]) && isset($ess[0][2])) {
 			$ok = ($ess[0][0]($ess[0][1],$res)==$ess[0][2]);
 		} else {
-			$ok =
-			  ( (is_array($res) AND is_array($ess[0]))?
-				  (!count(array_diff_assoc_recursive($res,$ess[0]))
-				    AND !count(array_diff_assoc_recursive($ess[0],$res)))
-				  :
-						( is_double($res)?(($res-$ess[0])<1e-10*abs($res)):$res === $ess[0]) );
+			$ok = test_equality($res,$ess[0]);
 		}
 
 		spip_log('test ' . $GLOBALS['test']." : Essai ".$GLOBALS['compteur_essai']++.($ok?" ok":" ECHEC"),'testrunner');
@@ -125,36 +120,43 @@ function afficher_timer($depart) {
 }
 
 
-if (!function_exists('array_diff_assoc_recursive')) {
+if (!function_exists('array_diff_assoc_recursive')){
 // http://www.php.net/manual/fr/function.array-diff-assoc.php#73972
-function array_diff_assoc_recursive($array1, $array2)
-{
-    foreach($array1 as $key => $value)
-    {
-        if(is_array($value))
-        {
-           if(!isset($array2[$key]))
-              {
-                  $difference[$key] = $value;
-              }
-              elseif(!is_array($array2[$key]))
-              {
-                  $difference[$key] = $value;
-              }
-              else
-              {
-                  $new_diff = array_diff_assoc_recursive($value, $array2[$key]);
-                  if ($new_diff !== array())
-                  {
-                        $difference[$key] = $new_diff;
-                  }
-              }
-       }
-       elseif(!array_key_exists($key, $array2) || $array2[$key] != $value)
-       {
-              $difference[$key] = $value;
-       }
-    }
-    return !isset($difference) ? array() : $difference;
+	function array_diff_assoc_recursive($array1, $array2){
+		foreach ($array1 as $key => $value){
+			if (is_array($value)){
+				if (!isset($array2[$key])){
+					$difference[$key] = $value;
+				} elseif (!is_array($array2[$key])) {
+					$difference[$key] = $value;
+				} else {
+					$new_diff = array_diff_assoc_recursive($value, $array2[$key]);
+					if ($new_diff!==array()){
+						$difference[$key] = $new_diff;
+					}
+				}
+			}
+			elseif (!array_key_exists($key, $array2) OR !test_equality($array2[$key],$value)) {
+				$difference[$key] = $value;
+			}
+		}
+		return !isset($difference) ? array() : $difference;
+	}
 }
+
+function test_equality($val1,$val2){
+	if (is_array($val1) AND is_array($val2)){
+		return (
+			    !count(array_diff_assoc_recursive($val1,$val2))
+		  AND !count(array_diff_assoc_recursive($val2,$val1))
+		);
+	}
+	elseif (is_array($val1) OR is_array($val2)){
+		return false;
+	}
+	elseif (is_double($val1) OR is_double($val2)){
+		return abs($val1-$val2)<=1e-10*abs($val1);
+	}
+	else
+		return $val1===$val2;
 }
