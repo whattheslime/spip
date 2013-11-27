@@ -36,27 +36,27 @@
     1 => "\"guillemets doubles 1/2\",\"guillemets doubles 2/2\"",
   ),
   array (
-    0 => array('%1$s', array ("'guillemets simples \x2@##@\x2\x3@##@\x3 echappements'")),
+    0 => array('%1$s', array ("'guillemets simples \x2@##@\x2 avec un echappement'")),
     1 => "'guillemets simples \' avec un echappement'",
   ),
   array (
-    0 => array('%1$s', array ("\"guillemets doubles \x2@##@\x2\x3@##@\x3 echappements\"")),
+    0 => array('%1$s', array ("\"guillemets doubles \x3@##@\x3 avec un echappement\"")),
     1 => "\"guillemets doubles \\\" avec un echappement\"",
   ),
   array (
-    0 => array('%1$s', array ("'guillemets simples \x2@##@\x2\x3@##@\x3 echappements'")),
+    0 => array('%1$s', array ("'guillemets simples \x2@##@\x2\x3@##@\x3 avec deux echappements'")),
     1 => "'guillemets simples \'\\\" avec deux echappements'",
   ),
   array (
-    0 => array('%1$s', array ("\"guillemets doubles \x2@##@\x2\x3@##@\x3 echappements\"")),
+    0 => array('%1$s', array ("\"guillemets doubles \x2@##@\x2\x3@##@\x3 avec deux echappements\"")),
     1 => "\"guillemets doubles \'\\\" avec deux echappements\"",
   ),
   array (
-    0 => array('%1$s', array ("")),
+    0 => array('%1$s', array ("'guillemet double \" dans guillemets simples'")),
     1 => "'guillemet double \" dans guillemets simples'",
   ),
   array (
-    0 => array('%1$s', array ("")),
+    0 => array('%1$s', array ("\"guillemet simple ' dans guillemets doubles\"")),
     1 => "\"guillemet simple ' dans guillemets doubles\"",
   ),
 
