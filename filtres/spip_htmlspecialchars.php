@@ -19,6 +19,7 @@
 		find_in_path("inc/filtres.php",'',true);
 		$f = chercher_filtre($f);
 	}
+	if (!$f) die ("pas trouve la fonction $test");
 
 	//
 	// hop ! on y va
