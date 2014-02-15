@@ -13,8 +13,8 @@
 
 	$essais["lien public"] =
 	 array("bla bla <a href='".generer_url_public('toto','truc=machin&chose=bidule',false,false)."'>lien public</a>",
-	 "bla bla <a href='"._DIR_RACINE.generer_url_public('toto','truc=machin&chose=bidule',false,true)."'>lien public</a>");
-	 
+	 "bla bla <a href='".generer_url_public('toto','truc=machin&chose=bidule',false,true)."'>lien public</a>");
+
 	$essais["mailto"] =
 	 array("bla bla <a href='mailto:toto'>email</a>",
 	 "bla bla <a href='mailto:toto'>email</a>");
