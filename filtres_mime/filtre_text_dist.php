@@ -38,17 +38,17 @@
   ),
   3 => 
   array (
-    0 => '<pre>Un texte avec des &lt;a href="http://spip.net"&gt;liens&lt;/a&gt; [Article 1->art1] [spip->http://www.spip.net] http://www.spip.net</pre>',
+    0 => '<pre>Un texte avec des &lt;a href="http://spip.net"&gt;liens&lt;/a&gt; [Article 1-&gt;art1] [spip-&gt;http://www.spip.net] http://www.spip.net</pre>',
     1 => 'Un texte avec des <a href="http://spip.net">liens</a> [Article 1->art1] [spip->http://www.spip.net] http://www.spip.net',
   ),
   4 => 
   array (
-    0 => '<pre>Un texte avec des entit&eacute;s &amp;&lt;&gt;&quot;</pre>',
+    0 => '<pre>Un texte avec des entit&amp;eacute;s &amp;amp;&amp;lt;&amp;gt;&amp;quot;</pre>',
     1 => 'Un texte avec des entit&eacute;s &amp;&lt;&gt;&quot;',
   ),
   5 => 
   array (
-    0 => '<pre>Un texte sans entites &&lt;&gt;"\'</pre>',
+    0 => '<pre>Un texte sans entites &amp;&lt;&gt;"\'</pre>',
     1 => 'Un texte sans entites &<>"\'',
   ),
   6 => 
@@ -58,7 +58,7 @@
   ),
   7 => 
   array (
-    0 => '<pre>Un modele &lt;modeleinexistant|lien=[-&gt;http://www.spip.net]></pre>',
+    0 => '<pre>Un modele &lt;modeleinexistant|lien=[-&gt;http://www.spip.net]&gt;</pre>',
     1 => 'Un modele <modeleinexistant|lien=[->http://www.spip.net]>',
   ),
   8 => 
