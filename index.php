@@ -51,17 +51,21 @@
 		 		continue;
 		
 		    //ignorer le contenu du jeu de squelettes dédié aux tests
-		    if (stristr($test,'squelettes'))
+		    if (stristr($test,'squelettes/'))
 		        continue;
-				
+		    //ignorer le contenu des donnees de test
+		    if (stristr($test,'data/'))
+		        continue;
+
 		    //ignorer les fichiers lanceurs pour simpleTests aux tests
 		    if (stristr($test,'lanceur_spip.php'))
 		        continue;
 		    if (stristr($test,'all_tests.php'))
 		        continue;
 		
-			if (substr(basename($test),0,7) != 'inclus_' &&
-				substr(basename($test),-14) != '_fonctions.php'){
+			if (strncmp(basename($test),'inclus_',7)!==0
+				AND substr(basename($test),-14) != '_fonctions.php'
+			  AND (strncmp(basename($test),'NA_',3)!==0 OR _request('var_mode')=='dev')){
 				if (preg_match(',\.php$,', $test))
 					$url = '../'.$test.'?mode=test_general';
 				else
