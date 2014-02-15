@@ -91,25 +91,47 @@ function tester_fun($fun, $essais, $opts = array())
 
 function display_error($titre,$call,$result,$expected,$opts=array()){
 	static $bef,$mid,$end;
+	static $style;
 	if (!isset($bef)){
 		// options
 		foreach (array(
-			'out' => '<dt>@</dt><dd>@</dd>'
+			'out' => '<dt>@</dt><dd class="ei">@</dd>'
 		) as $opt => $def) {
 			$$opt = isset($opts[$opt]) ? $opts[$opt] : $def;
 		}
 		// l'enrobage de sortie
 		list($bef, $mid, $end) = explode('@', $out);
 	}
+
+	if (is_null($style)){
+		$style = "<style>.ei del {background: none repeat scroll 0 0 #FFDDDD;color: #FF0000;text-decoration: none;}
+	.ei ins {background: none repeat scroll 0 0 #DDFFDD;color: #008000;text-decoration: none;}
+	.ei pre {word-wrap: break-word}
+	.ei table {border-collapse: collapse;border:1px solid #BBB;}
+	.ei td,.ei th{border-collapse: collapse;border:1px solid #BBB;padding:5px;text-align: left}
+	.ei dt {font-weight: bold;font-size: 1.2em;}
+	.ei dd {margin-bottom: 1em;}
+	</style>";
+		if (!class_exists("FineDiff"))
+			include_once _SPIP_TEST_INC.'/finediff.php';
+	}
+	else
+		$style="";
+
+	$diff = new FineDiff(var_export($expected, true), var_export($result, true));
 	
 	return 
-	  $bef 
+		$style
+		. $bef
 	  . (is_numeric($titre) ? "test $titre" : htmlspecialchars($titre))
 	  . $mid
 	  . "<pre>$call</pre>"
-		. '<pre>// resultat:' . htmlspecialchars(var_export($result, true))."</pre>"
-		. '<pre>// attendu :' . htmlspecialchars(var_export($expected, true))."</pre>"
-	  . $end;
+	  . "<table style='width:100%;'><tr><th>diff</th><th>attendu</th><th>resultat</th></tr><tr>"
+	  . "<td><pre>".$diff->renderDiffToHTML()."</pre></td>"
+	  . '<td><pre>' . htmlspecialchars(var_export($expected, true))."</pre></td>"
+		. '<td><pre>' . htmlspecialchars(var_export($result, true))."</pre></td>"
+	  . "</tr></table>"
+	  . $end ."\n";
 }
 
 // pour essayer de calculer/montrer le temps qu'on y met
