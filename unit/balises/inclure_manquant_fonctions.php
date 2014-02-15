@@ -1,7 +1,11 @@
 <?php
-
 	function fin_inclure_manquant() {
-		if (!$GLOBALS['tableau_des_erreurs'] 
+
+
+var_dump(erreur_squelette(false));
+return "mince";
+
+		if (!(isset($GLOBALS['tableau_des_erreurs']) AND $GLOBALS['tableau_des_erreurs'])
 			AND !(_request('var_mode') == 'debug' AND erreur_squelette(false)))
 			return "pas d'erreur declenchee";
 

@@ -12,6 +12,7 @@
 	$verrou_absent = spip_nfslock_test('un autre',$verrou);
 	
 	$deverrouille = spip_nfsunlock('monfichier',$verrou);
+	$birth = false;
 	$verrou_absent2 = spip_nfslock_test('monfichier',$birth);
 	
 	if ($verrou AND $verrou_ok AND !$verrou_absent AND $deverrouille AND !$verrou_absent2){
