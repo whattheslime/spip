@@ -105,13 +105,13 @@ function display_error($titre,$call,$result,$expected,$opts=array()){
 
 	if (is_null($style)){
 		$style = "<style>.ei del {background: none repeat scroll 0 0 #FFDDDD;color: #FF0000;text-decoration: none;}
-	.ei ins {background: none repeat scroll 0 0 #DDFFDD;color: #008000;text-decoration: none;}
-	.ei pre {word-wrap: break-word}
-	.ei table {border-collapse: collapse;border:1px solid #BBB;}
-	.ei td,.ei th{border-collapse: collapse;border:1px solid #BBB;padding:5px;text-align: left}
-	.ei dt {font-weight: bold;font-size: 1.2em;}
-	.ei dd {margin-bottom: 1em;}
-	</style>";
+.ei ins {background: none repeat scroll 0 0 #DDFFDD;color: #008000;text-decoration: none;}
+.ei pre {word-wrap: break-word}
+.ei table {border-collapse: collapse;border:1px solid #BBB;}
+.ei td,.ei th{border-collapse: collapse;border:1px solid #BBB;padding:5px;text-align: left}
+.ei dt {font-weight: bold;font-size: 1.2em;}
+.ei dd {margin-bottom: 1em;}
+</style>";
 		if (!class_exists("FineDiff"))
 			include_once _SPIP_TEST_INC.'/finediff.php';
 	}
