@@ -6,6 +6,8 @@
 	- une rubrique est dans sa branche
 	- sa fille est dans sa branche
 	- elle n'est pas dans la branche de sa fille
+  - que la boucle documents compile sans erreur
+	- que la boucle articles compile sans erreur
 
 ]
 <BOUCLE_a(RUBRIQUES){id_parent>0}>
@@ -29,5 +31,8 @@
 
 </BOUCLE_a>
 
+<BOUCLE_docs(DOCUMENTS){branche}{0,1}> </BOUCLE_docs>
+
+<BOUCLE_art(ARTICLES){branche}{0,1}> </BOUCLE_art>
 OK
 
