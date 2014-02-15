@@ -1,5 +1,5 @@
 <?php
 
-define('_DIR_SIMPLE_TEST',_DIR_PLUGIN_SIMPLETEST);
+define('_DIR_SIMPLE_TEST', _DIR_PLUGIN_SIMPLETEST);
 
 ?>

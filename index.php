@@ -71,9 +71,10 @@
 					$url = '../'.$test.'?mode=test_general';
 				else
 					$url = "squel.php?test=$test&amp;var_mode=recalcul";
-		
+
 				$joli = basename($test);
 				$dirTests = false;
+				$section_svn = "";
 				if ($base == 'tests/') {
 					$dirTests = true;
 					$section = basename(dirname($test));
