@@ -53,6 +53,8 @@
 		    //ignorer le contenu du jeu de squelettes dédié aux tests
 		    if (stristr($test,'squelettes/'))
 		        continue;
+				if (stristr($test,'simpletest/'))
+		        continue;
 		    //ignorer le contenu des donnees de test
 		    if (stristr($test,'data/'))
 		        continue;

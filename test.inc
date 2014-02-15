@@ -20,6 +20,10 @@ if (!defined('_VAR_MODE')) {
 	define('_VAR_MODE', 'recalcul');
 }
 
+// activer simpletest
+_chemin(basename(_SPIP_TEST_INC)."/simpletest/");
+include_spip("simpletest_options");
+
 // pour notice sur recuperer_fond()
 if (!isset($GLOBALS['spip_lang'])) {
 	include_spip('inc/lang');
@@ -33,7 +37,8 @@ $GLOBALS['taille_des_logs'] = 1024;
 $GLOBALS['compteur_essai'] = 0;
 
 // pas admin ? passe ton chemin (ce script est un vilain trou de securite)
-if ($visiteur_session['statut'] != '0minirezo'   and ( $_SERVER["REMOTE_ADDR"]!='127.0.0.1') )
+if ($GLOBALS['visiteur_session']['statut'] != '0minirezo'
+	AND !in_array($_SERVER["REMOTE_ADDR"], array('127.0.0.1', '127.0.1.1', '::1')) )
 	die('pas admin !');
 /***
 * fonction pas obligatoire a utiliser mais qui simplifie la vie du testeur
@@ -138,7 +143,8 @@ function display_error($titre,$call,$result,$expected,$opts=array()){
 register_shutdown_function('afficher_timer', time() + microtime());
 
 function afficher_timer($depart) {
-	echo sprintf(" %.2fs", time() + microtime() - $depart);
+	if (!defined('_NO_TIMER'))
+		echo sprintf(" %.2fs", time() + microtime() - $depart);
 }
 
 
