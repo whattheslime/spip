@@ -11,7 +11,7 @@
 	spip_unlink(_DIR_TMP."testrunner.log");
 
 	// chercher les bases de tests
-	$bases = array('tests');
+	$bases = array('tests/unit');
 	foreach (creer_chemin() as $d) {
 		if ($d && @is_dir("${d}tests"))
 			$bases[] = "${d}tests";
@@ -53,8 +53,7 @@
 		    //ignorer le contenu du jeu de squelettes dédié aux tests
 		    if (stristr($test,'squelettes/'))
 		        continue;
-				if (stristr($test,'simpletest/'))
-		        continue;
+
 		    //ignorer le contenu des donnees de test
 		    if (stristr($test,'data/'))
 		        continue;
