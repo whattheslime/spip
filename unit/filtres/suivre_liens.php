@@ -312,7 +312,7 @@ array(
 	//
 	// hop ! on y va
 	//
-
+	$err = 0;
 	foreach ($tests as $c => $u)
 		if (($s=suivre_lien($u[0],$u[1])) !== $u[2]) {
 			echo "test $c: suivre_lien("
