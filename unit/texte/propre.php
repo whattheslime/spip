@@ -16,7 +16,10 @@
 	$GLOBALS['meta']['type_urls'] = $type_urls = "page";
 
 	// initialiser les plugins qui changent les intertitre (Z), et les restaurer juste apres
-	$mem = array($GLOBALS['debut_intertitre'],$GLOBALS['spip_raccourcis_typo']);
+	$mem = array(
+		isset($GLOBALS['debut_intertitre']) ? $GLOBALS['debut_intertitre'] : null,
+		isset($GLOBALS['spip_raccourcis_typo']) ? $GLOBALS['spip_raccourcis_typo'] : null
+	);
 	propre('rien du tout');
 	list($GLOBALS['debut_intertitre'],$GLOBALS['spip_raccourcis_typo']) = $mem;
 
