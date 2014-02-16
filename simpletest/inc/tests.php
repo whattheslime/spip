@@ -6,7 +6,8 @@ include_spip('inc/autoriser');
 if (!autoriser('configurer')) 
 	die('Administrateur requis !');
 
-if ($GLOBALS['visiteur_session']['statut'] != '0minirezo'
+if (isset($GLOBALS['visiteur_session']['statut'])
+	AND $GLOBALS['visiteur_session']['statut'] != '0minirezo'
 	AND !in_array($_SERVER["REMOTE_ADDR"], array('127.0.0.1', '127.0.1.1', '::1')) )
 	die('Admin local requis pour executer les tests ! : '.$_SERVER["REMOTE_ADDR"]);
 
@@ -27,27 +28,30 @@ define('_NO_TIMER',true);
 class SpipTest extends UnitTestCase {  
 	var $options_recuperer_code = array();
 	var $adresse_dernier_fichier_pour_code = '';
-	
-	function SpipTest($name = false) {
+
+	function __construct($name = false) {
 		chdir(_CHDIR);
-	    if (!$name) {
-            $name = get_class($this);
-        }
-        $this->UnitTestCase($name);
+		if (!$name) {
+			$name = get_class($this);
+		}
+		parent::__construct($name);
 		// creer un repertoire pour les tests
 		// sert a la compilation
 		include_spip('inc/flock');
 		sous_repertoire(_DIR_CACHE, 'simpleTests');
-		define('_DIR_CODE',_DIR_CACHE . 'simpleTests/');
-    }
-	
+
+		defined('_DIR_CODE') || define('_DIR_CODE', _DIR_CACHE . 'simpleTests/');
+	}
+
+
 	/**
 	 * Retourne l'adresse du site SPIP
 	 */
-	function me(){
-		return $GLOBALS['meta']['url_site_spip'];
+	public static function me(){
+		return $GLOBALS['meta']['adresse_site'];
 	}
-	
+
+
 	/**
 	 * Retourne une url pour tester une noisette
 	 * 
@@ -65,7 +69,8 @@ class SpipTest extends UnitTestCase {
 		}
 		return $appel;
 	}
-	
+
+
 	/**
 	 * Retourne une url pour tester une code
 	 * 
@@ -81,7 +86,8 @@ class SpipTest extends UnitTestCase {
 		$infos = $this->recuperer_infos_code($code, $contexte, $options, $connect);
 		return $this->generer_url_test($infos['fond']);
 	}
-	
+
+
 	/**
 	 * Determine si une chaine est de type NA (non applicable)
 	 * @param string $chaine 	Chaine a tester
@@ -90,7 +96,8 @@ class SpipTest extends UnitTestCase {
 	function isNa($chaine) {
 		return substr(strtolower(trim($chaine)),0,2)=='na';
 	}
-	
+
+
 	/**
 	 * Cree une exception si l'on est de type NA
 	 * Retourne true si exception, false sinon.
@@ -104,8 +111,9 @@ class SpipTest extends UnitTestCase {
 			return true;
 		}
 		return false;
-	}	
-	
+	}
+
+
 	/**
 	 * Assertion qui verifie si le retour est la chaine 'ok' (casse indifferente)
 	 * 
@@ -114,16 +122,17 @@ class SpipTest extends UnitTestCase {
 	 *  
 	 */
 	function assertOk($value, $message = "%s") {
-        $dumper = &new SimpleDumper();
-        $message = sprintf(
-                $message,
-                '[' . $dumper->describeValue($value) . '] should be string \'ok\'');
+		$dumper = new SimpleDumper();
+		$message = sprintf(
+				$message,
+				'[' . $dumper->describeValue($value) . '] should be string \'ok\'');
 		if ($this->exceptionSiNa($value)) {
 			return false;
 		}
-        return $this->assertTrue((strtolower($value)=='ok'), $message);
+		return $this->assertTrue((strtolower($value)=='ok'), $message);
 	}
-	
+
+
 	/**
 	 * Assertion qui verifie que le retour n'est pas la chaine 'ok' (casse indifferente)
 	 * 
@@ -132,13 +141,14 @@ class SpipTest extends UnitTestCase {
 	 * 
 	 */
 	function assertNotOk($value, $message = "%s") {
-        $dumper = &new SimpleDumper();
-        $message = sprintf(
-                $message,
-                '[' . $dumper->describeValue($value) . '] shouldn\'t be string \'ok\'');
-        return $this->assertFalse((strtolower($value)=='ok'), $message);
+		$dumper = new SimpleDumper();
+		$message = sprintf(
+				$message,
+				'[' . $dumper->describeValue($value) . '] shouldn\'t be string \'ok\'');
+		return $this->assertFalse((strtolower($value)=='ok'), $message);
 	}
-	
+
+
 	/**
 	 * Assertion qui verifie si le retour ne vaut pas 'ok' (casse indifferente)
 	 * la fonction appelle recuperer_code avec les arguments.
@@ -160,8 +170,8 @@ class SpipTest extends UnitTestCase {
 	function assertNotOkCode($code, $contexte=array(), $options = array(), $connect='', $message = "%s") {
 		return $this->assertNotOk($this->recuperer_code($code, $contexte, $options, $connect), $message);
 	}
-	
-	
+
+
 	/**
 	 * Assertion qui verifie si le retour vaut 'ok' (casse indifferente)
 	 * la fonction appelle recuperer_code avec les arguments.
@@ -183,7 +193,8 @@ class SpipTest extends UnitTestCase {
 	function assertOkCode($code, $contexte=array(), $options = array(), $connect='', $message = "%s") {
 		return $this->assertOk($this->recuperer_code($code, $contexte, $options, $connect), $message);
 	}
-	
+
+
 	/**
 	 * Assertion qui verifie si le retour vaut $value 
 	 * la fonction appelle recuperer_code avec les arguments.
@@ -206,8 +217,8 @@ class SpipTest extends UnitTestCase {
 	function assertEqualCode($value, $code, $contexte=array(), $options = array(), $connect='', $message = "%s") {
 		return $this->assertEqual($value, $this->recuperer_code($code, $contexte, $options, $connect), $message);
 	}
-	
-	
+
+
 	/**
 	 * Assertion qui verifie si le retour ne vaut pas $value 
 	 * la fonction appelle recuperer_code avec les arguments.
@@ -230,7 +241,7 @@ class SpipTest extends UnitTestCase {
 	function assertNotEqualCode($value, $code, $contexte=array(), $options = array(), $connect='', $message = "%s") {
 		return $this->assertNotEqual($value, $this->recuperer_code($code, $contexte, $options, $connect), $message);
 	}
-	
+
 	/**
 	 * Assertion qui verifie si le retour verifie le pattern $pattern 
 	 * la fonction appelle recuperer_code avec les arguments.
@@ -253,8 +264,8 @@ class SpipTest extends UnitTestCase {
 	function assertPatternCode($pattern, $code, $contexte=array(), $options = array(), $connect='', $message = "%s") {
 		return $this->assertPattern($pattern, $this->recuperer_code($code, $contexte, $options, $connect), $message);
 	}
-	
-			
+
+
 	/**
 	 * recupere le resultat du calcul d'une compilation de code de squelette
 	 * $coucou = $this->recuperer_code('[(#AUTORISER{ok}|oui)coucou]');
@@ -273,10 +284,10 @@ class SpipTest extends UnitTestCase {
 			$code = $opt['avant_code'] . $code;
 		if (isset($opt['apres_code']))
 			$code .= $opt['apres_code'];
-		
+
 		$fond = _DIR_CODE . md5($code.serialize($opt));
 		$this->ecrire_fichier($fond . '.html', $code);
-		
+
 		if (isset($opt['fonctions']) and $opt['fonctions']) {
 			// un fichier unique pour ces fonctions
 			$func = _DIR_CODE . "func_" . md5($opt['fonctions']) . ".php";
@@ -288,8 +299,8 @@ class SpipTest extends UnitTestCase {
 		$fond = str_replace('../', '', $fond); // pas de ../ si dans ecrire !
 		return recuperer_fond($fond, $contexte, $options, $connect);
 	}
-	
-	
+
+
 	/**
 	 * Appele recuperer_fond avec l'option raw pour obtenir un tableau d'informations
 	 * que l'on complete avec le nom du fond et les erreurs de compilations generees
@@ -309,9 +320,8 @@ class SpipTest extends UnitTestCase {
 		$infos['erreurs'] = $this->get_compilation_errors();
 		return $infos;
 	}
-	
-	
-	
+
+
 	/**
 	 * S'utilise avec recuperer_code() :
 	 * 
@@ -341,7 +351,7 @@ class SpipTest extends UnitTestCase {
 		$GLOBALS['tableau_des_erreurs'] = array();
 		return $erreurs;
 	}
-	
+
 	/**
 	 * Raz les erreurs de compilation
 	 * @return null
@@ -350,7 +360,7 @@ class SpipTest extends UnitTestCase {
 		// les erreurs s'ecrivent dans une jolie globale
 		$GLOBALS['tableau_des_erreurs'] = array();
 	}
-	
+
 	/**
 	 * Retourne "<?php $code ?>"
 	 * @param string $code	Code php
@@ -359,7 +369,7 @@ class SpipTest extends UnitTestCase {
 	function php($code){
 		return "<"."?php\n" . $code . "\n?".">";
 	}
-	
+
 	/**
 	 * Ecrire un fichier a l'endroit indique
 	 * Si le fichier existe, il n'est pas recree
@@ -375,7 +385,6 @@ class SpipTest extends UnitTestCase {
 			ecrire_fichier($adresse, $contenu);
 		}
 	}
-	
 }
 
 
@@ -386,10 +395,10 @@ class SpipTest extends UnitTestCase {
  * 
  */
 class SpipNaException extends Exception { 
-  // chaîne personnalisé représentant l'objet
-  public function __toString() {
-    return "{$this->message}\n";
-  }		
+	// chaîne personnalisé représentant l'objet
+	public function __toString() {
+		return "{$this->message}\n";
+	}
 }
 
 /**
@@ -399,10 +408,10 @@ class SpipNaException extends Exception {
  * 
  */
 class SpipTestException extends Exception { 
-  // chaîne personnalisé représentant l'objet
-  public function __toString() {
-    return "{$this->message}\n";
-  }		
+	// chaîne personnalisé représentant l'objet
+	public function __toString() {
+		return "{$this->message}\n";
+	}
 }
 
 
@@ -414,9 +423,9 @@ class SpipTestException extends Exception {
 class SpipTestSuite extends TestSuite {
 	function SpipTestSuite($name = false){
 		chdir(_CHDIR);
-	    if (!$name) {
-            $name = get_class($this);
-        }
+		if (!$name) {
+			$name = get_class($this);
+		}
 		$this->TestSuite($name);
 	}
 	
@@ -456,13 +465,13 @@ class SpipTestSuite extends TestSuite {
  */
 class SpipHtmlReporter extends HtmlReporter {
 	var $_na;
-	
-	function SpipHtmlReporter($charset='UTF-8') {
+
+	function __construct($charset='UTF-8') {
 		chdir(_CHDIR);
-        $this->HtmlReporter($charset);	
+		parent::__construct($charset);
 		$this->_na = 0;
 	}
-	
+
 	/** 
 	 * retourne un code css de deco
 	 * 
@@ -472,54 +481,54 @@ class SpipHtmlReporter extends HtmlReporter {
 		return $css . "\n.na{background-color: inherit; color: #fa0;}"
 					. "\n.complements{background-color: inherit; color: #999;}";
 	}
-	
-    /**
-     *    Paints the top of the web page setting the
-     *    title to the name of the starting test.
-     *    @param string $test_name      Name class of test.
-     *    @access public
-     */
-    function paintHeader($test_name) {
+
+	/**
+	 *    Paints the top of the web page setting the
+	 *    title to the name of the starting test.
+	 *    @param string $test_name      Name class of test.
+	 *    @access public
+	 */
+	function paintHeader($test_name) {
 		chdir(_CHDIR); // va savoir Charles... des fois il le perd en route ?
 		include_spip('inc/filtres_mini');
-        $this->sendNoCacheHeaders();
-        print "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.01 Transitional//EN\" \"http://www.w3.org/TR/html4/loose.dtd\">";
-        print "<html>\n<head>\n<title>$test_name</title>\n";
-        print "<meta http-equiv=\"Content-Type\" content=\"text/html; charset=" .
-                $this->_character_set . "\">\n";
-        print "<style type=\"text/css\">\n";
-        print $this->_getCss() . "\n";
-        print "</style>\n";
+		$this->sendNoCacheHeaders();
+		print "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.01 Transitional//EN\" \"http://www.w3.org/TR/html4/loose.dtd\">";
+		print "<html>\n<head>\n<title>$test_name</title>\n";
+		print "<meta http-equiv=\"Content-Type\" content=\"text/html; charset=" .
+				$this->_character_set . "\">\n";
+		print "<style type=\"text/css\">\n";
+		print $this->_getCss() . "\n";
+		print "</style>\n";
 		print "<link rel='stylesheet' href='" . url_absolue(find_in_path('css/tests.css')) . "' type='text/css' />";
-        print "</head>\n<body>\n";
-		
+		print "</head>\n<body>\n";
+
 		print "<h1>Tests SPIP " . $this->version_spip() . "</h1>\n";
-        print "<h2>$test_name</h2>\n";
-        flush();	
+		print "<h2>$test_name</h2>\n";
+		flush();
 	}
-	
-    /**
-     *    Paints the end of the test with a summary of
-     *    the passes and failures.
-     *    @param string $test_name        Name class of test.
-     *    @access public
-     */
-    function paintFooter($test_name) {
-        $colour = ($this->getFailCount() + $this->getExceptionCount() > 0 ? "red" : ($this->getNaCount()>0 ? "#ffaa00" : "green"));
-		
-        print "<div style=\"";
-        print "padding: 8px; margin-top: 1em; background-color: $colour; color: white;";
-        print "\">";
-        print $this->getTestCaseProgress() . "/" . $this->getTestCaseCount();
-        print " test complete:\n";
-        print "<strong>" . $this->getPassCount() . "</strong> passes, ";
-        print "<strong>" . $this->getFailCount() . "</strong> fails, ";
-        print "<strong>" . $this->getExceptionCount() . "</strong> exceptions and ";
-        print "<strong>" . $this->getNaCount() . "</strong> non applicable.";
-        print "</div>\n";
-        print "</body>\n</html>\n";
-    }
-	
+
+	/**
+	 *    Paints the end of the test with a summary of
+	 *    the passes and failures.
+	 *    @param string $test_name        Name class of test.
+	 *    @access public
+	 */
+	function paintFooter($test_name) {
+		$colour = ($this->getFailCount() + $this->getExceptionCount() > 0 ? "red" : ($this->getNaCount()>0 ? "#ffaa00" : "green"));
+
+		print "<div style=\"";
+		print "padding: 8px; margin-top: 1em; background-color: $colour; color: white;";
+		print "\">";
+		print $this->getTestCaseProgress() . "/" . $this->getTestCaseCount();
+		print " test complete:\n";
+		print "<strong>" . $this->getPassCount() . "</strong> passes, ";
+		print "<strong>" . $this->getFailCount() . "</strong> fails, ";
+		print "<strong>" . $this->getExceptionCount() . "</strong> exceptions and ";
+		print "<strong>" . $this->getNaCount() . "</strong> non applicable.";
+		print "</div>\n";
+		print "</body>\n</html>\n";
+	}
+
 	/** 
 	 * retourne le nombre de tests non applicables
 	 * @return int	Nombre de tests non applicables
@@ -527,13 +536,13 @@ class SpipHtmlReporter extends HtmlReporter {
 	function getNaCount(){
 		return $this->_na;
 	}
-	
-    /**
-     *    Paints a PHP exception.
-     *    @param Exception $exception        Exception to display.
-     *    @access public
-     */
-    function paintException($exception) {
+
+	/**
+	 *    Paints a PHP exception.
+	 *    @param Exception $exception        Exception to display.
+	 *    @access public
+	 */
+	function paintException($exception) {
 		switch(get_class($exception)) {
 			case 'SpipNaException':
 				$this->paintNA($exception);
@@ -545,14 +554,14 @@ class SpipHtmlReporter extends HtmlReporter {
 				parent::paintException($exception);
 				break;
 		}
-    }
-	
+	}
+
 	/**
 	 * Paints a Non Applicable Test
 	 * 
-     * @param Exception $exception    The actual exception thrown.
-     * @access public
-     */
+	 * @param Exception $exception    The actual exception thrown.
+	 * @access public
+	 */
 	function paintNa($exception) {
 		$this->_na++;
 		
@@ -563,13 +572,13 @@ class SpipHtmlReporter extends HtmlReporter {
 		$message = $exception->getMessage();
 		print " -&gt; <strong>" . $this->_htmlEntities($message) . "</strong><br />\n";				
 	}
-	
+
 	/**
 	 * Paints a Spip Test Exception
 	 * 
-     * @param Exception $exception    The actual exception thrown.
-     * @access public
-     */
+	 * @param Exception $exception    The actual exception thrown.
+	 * @access public
+	 */
 	function paintTestException($exception) {
 		$this->_exceptions++;
 		
@@ -578,30 +587,30 @@ class SpipHtmlReporter extends HtmlReporter {
 		array_shift($breadcrumb);
 		print implode(" -&gt; ", $breadcrumb);
 		$message = $exception->getMessage();
-		print " -&gt; <strong>" . $this->_htmlEntities($message) . "</strong><br />\n";				
+		print " -&gt; <strong>" . $this->_htmlEntities($message) . "</strong><br />\n";
 	}
-	
-	
+
+
 	function paintGroupStart($test_name, $size){
 		$test_name = str_replace(realpath(SpipTest::me()).'/','',$test_name);
 		parent::paintGroupStart($test_name, $size);
 		#echo "<ul><li><h3>$test_name</h3>\n";
 	}
-/*	
+/*
 	function paintGroupEnd($test_name){
 		parent::paintGroupEnd($test_name);
 		echo "</li></ul>\n";
 	}
-	
+
 	function paintCaseStart($test_name) {
 		parent::paintCaseStart($test_name);
 		echo "<ul><h3>$test_name</h3>\n";
-    }
+	}
 	function paintCaseEnd($test_name) {
 		parent::paintCaseEnd($test_name);
 		echo "</ul>\n";
-    }
-	
+	}
+
 	function paintMethodStart($test_name) {
 		parent::paintMethodStart($test_name);
 		echo "<li>$test_name</li>\n";
@@ -609,8 +618,8 @@ class SpipHtmlReporter extends HtmlReporter {
 	function paintMethodEnd($test_name) {
 		parent::paintMethodEnd($test_name);
 		parent::paintFooter($test_name);
-    }	
-*/		
+	}
+*/
 	/**
 	 * Donne le nom de la version SPIP en cours
 	 */
@@ -634,55 +643,54 @@ class SpipHtmlReporter extends HtmlReporter {
  * et ajouter des fonctions specifiques a SPIP
  */
 class SpipMiniHtmlReporter extends SpipHtmlReporter {
-	function SpipMiniHtmlReporter($charset='UTF-8') {
-		chdir(_CHDIR);
-        $this->SpipHtmlReporter($charset);
-	}
-	
 
-    /**
-     *    Paints the top of the web page setting the
-     *    title to the name of the starting test.
-     *    @param string $test_name      Name class of test.
-     *    @access public
-     */
-    function paintHeader($test_name) {
-		include_spip('inc/filtres_mini');
-        $this->sendNoCacheHeaders();
-        flush();	
+	function __construct($charset='UTF-8') {
+		chdir(_CHDIR);
+		parent::__construct($charset);
 	}
-	
-	
-   /**
-     *    Paints the end of the test with a summary of
-     *    the passes and failures.
-     *    @param string $test_name        Name class of test.
-     *    @access public
-     */
-    function paintFooter($test_name) {
-        if ($this->getFailCount() + $this->getExceptionCount() == 0) {
+
+
+	/**
+	 *    Paints the top of the web page setting the
+	 *    title to the name of the starting test.
+	 *    @param string $test_name      Name class of test.
+	 *    @access public
+	 */
+	function paintHeader($test_name) {
+		include_spip('inc/filtres_mini');
+		$this->sendNoCacheHeaders();
+		flush();
+	}
+
+	/**
+	 *    Paints the end of the test with a summary of
+	 *    the passes and failures.
+	 *    @param string $test_name        Name class of test.
+	 *    @access public
+	 */
+	function paintFooter($test_name) {
+		if ($this->getFailCount() + $this->getExceptionCount() == 0) {
 			if ($this->getNaCount()) {
-	            print "OK <em>(".$this->getPassCount().")</em> but some NA <em>(".$this->getNaCount().")</em>\n";
+				print "OK <em>(".$this->getPassCount().")</em> but some NA <em>(".$this->getNaCount().")</em>\n";
 			} else {
 				print "OK <em>(".$this->getPassCount().")</em>\n";
 			}
-        } else {
-            print "BOUM !!!\n";
+		} else {
+			print "BOUM !!!\n";
 			print "<span class='complements'>- Passes: " . $this->getPassCount() .
 					", Failures: " . $this->getFailCount() .
 					", Exceptions: " . $this->getExceptionCount() .
 					", Non Applicable: " . $this->getNaCount() . "</span>\n";
-        }
-    }
-	
-	
+		}
+	}
+
+
 	/**
 	 * Donne le nom de la version SPIP en cours
 	 */
 	function version_spip() {
 		return SpipHtmlReporter::version_spip();
 	}
-	
 }
 
 /**
@@ -691,34 +699,35 @@ class SpipMiniHtmlReporter extends SpipHtmlReporter {
  * et ajouter des fonctions specifiques a SPIP
  */
 class SpipTextReporter extends TextReporter {
-	function SpipTextReporter() {
+
+	function __construct() {
 		chdir(_CHDIR);
-        $this->TextReporter();	
+		parent::__construct();
 	}
-	
-   /**
-     *    Paints the end of the test with a summary of
-     *    the passes and failures.
-     *    @param string $test_name        Name class of test.
-     *    @access public
-     */
-    function paintFooter($test_name) {
-        if ($this->getFailCount() + $this->getExceptionCount() == 0) {
+
+	/**
+	 *    Paints the end of the test with a summary of
+	 *    the passes and failures.
+	 *    @param string $test_name        Name class of test.
+	 *    @access public
+	 */
+	function paintFooter($test_name) {
+		if ($this->getFailCount() + $this->getExceptionCount() == 0) {
 			if ($this->getNaCount()) {
-	            print "OK ($this->getPassCount()) but some NA ($this->getNaCount())\n";
+				print "OK ($this->getPassCount()) but some NA ($this->getNaCount())\n";
 			} else {
 				print "OK ($this->getPassCount())\n";
 			}
-        } else {
-            print "FAILURES!!!\n";
+		} else {
+			print "FAILURES!!!\n";
 			print "Test cases run: " . $this->getTestCaseProgress() .
 					"/" . $this->getTestCaseCount() .
 					", Passes: " . $this->getPassCount() .
 					", Failures: " . $this->getFailCount() .
 					", Exceptions: " . $this->getExceptionCount() .
 					", Non Applicable: " . $this->getNaCount() . "\n";
-        }
-    }
+		}
+	}
 }
 
 

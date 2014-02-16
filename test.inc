@@ -16,6 +16,7 @@ define('_SPIP_TEST_INC', dirname(__FILE__));
 chdir(_SPIP_TEST_CHDIR);
 require dirname(_SPIP_TEST_INC) . '/ecrire/inc_version.php';
 
+
 if (!defined('_VAR_MODE')) {
 	define('_VAR_MODE', 'recalcul');
 }
@@ -37,9 +38,11 @@ $GLOBALS['taille_des_logs'] = 1024;
 $GLOBALS['compteur_essai'] = 0;
 
 // pas admin ? passe ton chemin (ce script est un vilain trou de securite)
-if ($GLOBALS['visiteur_session']['statut'] != '0minirezo'
+if (isset($GLOBALS['visiteur_session']['statut'])
+	AND $GLOBALS['visiteur_session']['statut'] != '0minirezo'
 	AND !in_array($_SERVER["REMOTE_ADDR"], array('127.0.0.1', '127.0.1.1', '::1')) )
 	die('pas admin !');
+
 /***
 * fonction pas obligatoire a utiliser mais qui simplifie la vie du testeur
 * $fun: le nom de la fonction a tester
