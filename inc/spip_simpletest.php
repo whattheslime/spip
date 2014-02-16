@@ -347,8 +347,9 @@ class SpipTest extends UnitTestCase {
 	 * @return array 	Erreurs de compilations
 	 */
 	function get_compilation_errors(){
-		$erreurs = $GLOBALS['tableau_des_erreurs'];
-		$GLOBALS['tableau_des_erreurs'] = array();
+		$debusquer = charger_fonction('debusquer', 'public');
+		$erreurs = $debusquer('', '', array('erreurs' => 'get'));
+		$debusquer('', '', array('erreurs' => 'reset'));
 		return $erreurs;
 	}
 
@@ -381,7 +382,7 @@ class SpipTest extends UnitTestCase {
 	 */
 	function ecrire_fichier($adresse, $contenu){
 		if (!file_exists($adresse)
-		OR  $GLOBALS['var_mode']=='recalcul') {
+		OR (isset($GLOBALS['var_mode']) AND $GLOBALS['var_mode']=='recalcul')) {
 			ecrire_fichier($adresse, $contenu);
 		}
 	}
@@ -500,7 +501,7 @@ class SpipHtmlReporter extends HtmlReporter {
 		print "<style type=\"text/css\">\n";
 		print $this->getCss() . "\n";
 		print "</style>\n";
-		print "<link rel='stylesheet' href='" . url_absolue(find_in_path('tests.css')) . "' type='text/css' />";
+		print "<link rel='stylesheet' href='" . SpipTest::me() . "/tests/tests.css' type='text/css' />";
 		print "</head>\n<body>\n";
 
 		print "<h1>Tests SPIP " . $this->version_spip() . "</h1>\n";

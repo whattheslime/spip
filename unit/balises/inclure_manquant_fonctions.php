@@ -1,11 +1,10 @@
 <?php
 	function fin_inclure_manquant() {
 
+		$debusquer = charger_fonction('debusquer', 'public');
+		$erreurs = $debusquer('', '', array('erreurs' => 'get'));
 
-var_dump(erreur_squelette(false));
-return "mince";
-
-		if (!(isset($GLOBALS['tableau_des_erreurs']) AND $GLOBALS['tableau_des_erreurs'])
+		if (!$erreurs
 			AND !(_request('var_mode') == 'debug' AND erreur_squelette(false)))
 			return "pas d'erreur declenchee";
 

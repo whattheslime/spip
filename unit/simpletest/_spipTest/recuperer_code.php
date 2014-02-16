@@ -4,7 +4,7 @@ require_once('lanceur_spip.php');
 class Test_SpipTestRecupererCode extends SpipTest{
 
 	function testRecupererFond(){
-		$this->assertEqual('Hello World', recuperer_fond('tests/core/inc/inclus_hello_world'));
+		$this->assertEqual('Hello World', recuperer_fond('unit/simpletest/core/inc/inclus_hello_world'));
 	}
 	function testRecupererCode(){
 		$this->assertEqualCode('Hello World','Hello World');
@@ -26,10 +26,10 @@ class Test_SpipTestRecupererCode extends SpipTest{
 		// pas de trace de l'ajout precedent (' So Smile' en plus)
 		$this->options_recuperer_code();
 		$this->assertEqualCode('Hello Kitty','Hello Kitty');
-		
+
 		// pas de fichier de fonctions
 		$this->assertOkCode("[(#SQUELETTE|replace{'.html','_fonctions.php'}|find_in_path|non)ok]");
-		
+
 		// fichier de fonction
 		$this->options_recuperer_code(array(
 			'fonctions'=>"
@@ -41,20 +41,20 @@ class Test_SpipTestRecupererCode extends SpipTest{
 		
 		// pas de fichier de fonctions
 		$this->options_recuperer_code();
-		$this->assertOkCode("[(#SQUELETTE|replace{'.html','_fonctions.php'}|find_in_path|non)ok]");		
+		$this->assertOkCode("[(#SQUELETTE|replace{'.html','_fonctions.php'}|find_in_path|non)ok]");
 	}
-	
+
 	function testRecupererCodeAvantApres(){
 		$this->options_recuperer_code(array(
 			'avant_code'=>'Nice ',
 			'apres_code'=>' So Beautiful',
 		));
-		$this->assertEqualCode('Nice Hello World So Beautiful', 'Hello World');		
+		$this->assertEqualCode('Nice Hello World So Beautiful', 'Hello World');
 	}
 }
 
 class Test_SpipTestRecupererInfosCode extends SpipTest{
-	
+
 	function testPresenceInfosFond(){
 		$infos = $this->recuperer_infos_code('#SELF');
 		$this->assertTrue(is_array($infos));
@@ -69,6 +69,6 @@ class Test_SpipTestRecupererInfosCode extends SpipTest{
 	function testPresenceInfosErreurCompilationAbsentsDansNouvelleDemandeCorrecte(){
 		$infos = $this->recuperer_infos_code('#CACHE{0}Aucun Probleme ici');
 		$this->assertFalse(count($infos['erreurs']));
-	}	
+	}
 }
 ?>
