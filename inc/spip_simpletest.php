@@ -566,13 +566,13 @@ class SpipHtmlReporter extends HtmlReporter {
 	 */
 	function paintNa($exception) {
 		$this->_na++;
-		
+
 		print "<span class=\"na\">Non applicable</span>: ";
 		$breadcrumb = $this->getTestList();
 		array_shift($breadcrumb);
 		print implode(" -&gt; ", $breadcrumb);
 		$message = $exception->getMessage();
-		print " -&gt; <strong>" . $this->_htmlEntities($message) . "</strong><br />\n";
+		print " -&gt; <strong>" . $this->htmlEntities($message) . "</strong><br />\n";
 	}
 
 	/**
@@ -582,14 +582,15 @@ class SpipHtmlReporter extends HtmlReporter {
 	 * @access public
 	 */
 	function paintTestException($exception) {
-		$this->_exceptions++;
-		
+
+		parent::paintException($exception);
+
 		print "<span class=\"fail\">Exception</span>: ";
 		$breadcrumb = $this->getTestList();
 		array_shift($breadcrumb);
 		print implode(" -&gt; ", $breadcrumb);
 		$message = $exception->getMessage();
-		print " -&gt; <strong>" . $this->_htmlEntities($message) . "</strong><br />\n";
+		print " -&gt; <strong>" . $this->htmlEntities($message) . "</strong><br />\n";
 	}
 
 
