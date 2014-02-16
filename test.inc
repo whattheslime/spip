@@ -22,8 +22,7 @@ if (!defined('_VAR_MODE')) {
 }
 
 // activer simpletest
-_chemin(basename(_SPIP_TEST_INC)."/simpletest/");
-
+_chemin(basename(_SPIP_TEST_INC));
 
 // pour notice sur recuperer_fond()
 if (!isset($GLOBALS['spip_lang'])) {

@@ -1,0 +1,12 @@
+<?php
+/*
+ * Fichier appelé par les tests simpletest sur des squelettes.
+ */
+$test = _request('test');
+if ((substr($test,0,6)!='tests/') AND (false===strpos($test, _DIR_CACHE))) {
+	include_spip('inc/minipres');
+	echo minipres("Hop la ! on ne passe pas avec : '$test'");
+	die();
+}
+?>
+<INCLURE{fond=#ENV{test}, env} />

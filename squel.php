@@ -12,8 +12,8 @@
 	// recuperer le produit
 	//ob_start();
 
-    global $dossier_squelettes;
-    $dossier_squelettes = 'tests/squelettes';
+	global $dossier_squelettes;
+	$dossier_squelettes = 'tests/squelettes';
 
 	$contenu = recuperer_fond($fond);
 	

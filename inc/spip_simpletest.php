@@ -1,6 +1,5 @@
 <?php
 
-
 include_spip('simpletest/autorun');
 include_spip('inc/autoriser');
 
@@ -57,7 +56,6 @@ class SpipTest extends UnitTestCase {
 	/**
 	 * Retourne une url pour tester une noisette
 	 * 
-	 * 
 	 * @param string $noisette : noisette a tester
 	 * @param array $params : tableau de params a transmettre
 	 */
@@ -74,7 +72,7 @@ class SpipTest extends UnitTestCase {
 
 
 	/**
-	 * Retourne une url pour tester une code
+	 * Retourne une url pour tester un code
 	 * 
 	 * Voir la fonction recuperer_fond pour les parametres
 	 * @param string $code : code du squelette
