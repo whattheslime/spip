@@ -7,11 +7,12 @@ if (!autoriser('configurer')) {
 	die('Administrateur requis !');
 } 
 
-if (isset($GLOBALS['visiteur_session']['statut'])
-	AND $GLOBALS['visiteur_session']['statut'] != '0minirezo'
-	AND !in_array($_SERVER["REMOTE_ADDR"], array('127.0.0.1', '127.0.1.1', '::1')) )
-	die('Admin local requis pour executer les tests ! : '.$_SERVER["REMOTE_ADDR"]);
-
+// pas admin ? passe ton chemin (ce script est un vilain trou de securite)
+if ((!isset($GLOBALS['visiteur_session']['statut'])
+	OR $GLOBALS['visiteur_session']['statut'] != '0minirezo')
+	AND !in_array($_SERVER["REMOTE_ADDR"], array('127.0.0.1', '127.0.1.1', '::1')) ) {
+	die('Administrateur local requis !');
+}
 /*
  * il faut remettre le chdir pour les fonctions de spip
  * comme find_in_path() ou include_spip()
@@ -60,12 +61,18 @@ class SpipTest extends UnitTestCase {
 	 * @param array $params : tableau de params a transmettre
 	 */
 	function generer_url_test($noisette, $params=array(), $var_mode_auto=true){
-		$appel = parametre_url(generer_url_public('simpletests'),'test',$noisette,'&');
+
+		$appel = SpipTest::me() . "/tests/index.php";
+		$appel = parametre_url($appel, 'simpletest', true, '&');
+		$appel = parametre_url($appel, 'test', $noisette, '&');
 		foreach ($params as $p=>$v)
 			$appel =  parametre_url($appel,$p,$v,'&');
 		if ($var_mode_auto) {
-			if ($mode = $GLOBALS['var_mode'] AND in_array($mode, array('calcul','recalcul')))
-				$appel =  parametre_url($appel,'var_mode',$mode,'&');
+			if (isset($GLOBALS['var_mode'])
+				AND $mode = $GLOBALS['var_mode']
+				AND in_array($mode, array('calcul','recalcul'))) {
+					$appel =  parametre_url($appel,'var_mode',$mode,'&');
+			}
 		}
 		return $appel;
 	}
@@ -295,7 +302,7 @@ class SpipTest extends UnitTestCase {
 			// une inclusion unique de ces fichiers
 			$this->ecrire_fichier($fond.'_fonctions.php', $this->php("include_once('$func');"));
 		}
-		
+
 		$fond = str_replace('../', '', $fond); // pas de ../ si dans ecrire !
 		return recuperer_fond($fond, $contexte, $options, $connect);
 	}

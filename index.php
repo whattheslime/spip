@@ -3,9 +3,28 @@
 	chdir($dir);
 	require 'ecrire/inc_version.php';
 
+	// Exécution uniquement sur localhost
+	if (!in_array($_SERVER["REMOTE_ADDR"], array('127.0.0.1', '127.0.1.1', '::1'))) {
+		die('Connexion locale requise !');
+	}
+
+	// certains tests de simpletest sont réalisés non connectés
+	// on se limite à certains squelettes tout de même !
+	if (_request('simpletest')) {
+		$test = _request('test');
+		if ((substr($test, 0, 6) != 'tests/')
+			AND (substr($test, 0, 6) != 'unit/')
+			AND (false === strpos($test, _DIR_CACHE))) {
+				die("Squelette de test hors d'un répertoire autorisé");
+		}
+		include_spip('inc/lang');
+		return recuperer_fond($test, $_GET);
+	}
+
 	// pas admin ? passe ton chemin (ce script est un vilain trou de securite)
-	if ( ($visiteur_session['statut'] != '0minirezo') and ( $_SERVER["REMOTE_ADDR"]!='127.0.0.1'))
-		die('pas admin !');
+	if ($visiteur_session['statut'] != '0minirezo') {
+		die('Administrateur requis !');
+	}
 
 	// supprimer le vieux logs de tests
 	spip_unlink(_DIR_TMP."testrunner.log");

@@ -37,10 +37,11 @@ $GLOBALS['taille_des_logs'] = 1024;
 $GLOBALS['compteur_essai'] = 0;
 
 // pas admin ? passe ton chemin (ce script est un vilain trou de securite)
-if (isset($GLOBALS['visiteur_session']['statut'])
-	AND $GLOBALS['visiteur_session']['statut'] != '0minirezo'
-	AND !in_array($_SERVER["REMOTE_ADDR"], array('127.0.0.1', '127.0.1.1', '::1')) )
-	die('pas admin !');
+if ((!isset($GLOBALS['visiteur_session']['statut'])
+	OR $GLOBALS['visiteur_session']['statut'] != '0minirezo')
+	AND !in_array($_SERVER["REMOTE_ADDR"], array('127.0.0.1', '127.0.1.1', '::1')) ) {
+	die('Administrateur local requis !');
+}
 
 /***
 * fonction pas obligatoire a utiliser mais qui simplifie la vie du testeur

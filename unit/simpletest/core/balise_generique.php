@@ -1,14 +1,14 @@
 <?php
 require_once('lanceur_spip.php');
 
-	
+
 class Test_balise_generique extends SpipTest{
-	
+
 	function testBaliseInexistante(){
 		$this->assertEqualCode('','#JENEXISTEPAS');
 		$this->assertEqualCode('','[(#JENEXISTEPAS)]');
 		$this->assertEqualCode('','[avant(#JENEXISTEPAS)apres]');
-		
+
 		// ceux-ci sont plus etonnant mais c'est ce qui se passe effectivement
 		$this->assertEqualCode('{rien}','#JENEXISTEPAS{rien}');
 		$this->assertEqualCode('{rien}','[(#JENEXISTEPAS{rien})]');
@@ -19,7 +19,7 @@ class Test_balise_generique extends SpipTest{
 		$this->options_recuperer_code(array(
 			'fonctions' => '
 					function balise_JEXISTE_dist($p){
-						$p->code = "ok";
+						$p->code = "\'ok\'";
 						return $p;
 					}',
 		));
@@ -31,7 +31,7 @@ class Test_balise_generique extends SpipTest{
 		$this->assertEqualCode('avant apres','[avant(#JEXISTE|oui)apres]');
 		$this->assertEqualCode('','[avant(#JEXISTE|non)apres]');
 	}	
-	function testBaliseDeclareeEtParams(){	
+	function testBaliseDeclareeEtParams(){
 		$this->assertOkCode('#JEXISTE{param}');
 		$this->assertOkCode('#JEXISTE{param,param}');
 		$this->assertOkCode('#JEXISTE{#SELF,#SQUELETTE}');
@@ -62,7 +62,7 @@ class Test_balise_generique extends SpipTest{
 		$this->options_recuperer_code(array(
 			'fonctions' => '
 					function balise_REXISTE_dist($p){
-						$p->code = "oups";
+						$p->code = "\'oups\'";
 						return $p;
 					}
 					function balise_REXISTE($p){
@@ -70,7 +70,7 @@ class Test_balise_generique extends SpipTest{
 							$p1 = "\'\'";
 						$p->code = "affiche_rexiste($p1)";
 						return $p;
-					}					
+					}
 					function affiche_rexiste($p1){
 						return $p1;
 					}
@@ -81,7 +81,7 @@ class Test_balise_generique extends SpipTest{
 		
 		// vider les options
 		$this->options_recuperer_code();
-	}	
+	}
 }
 
 
