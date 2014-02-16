@@ -1,5 +1,8 @@
 <?php
 
+	// nom du test
+	$test = 'sql/sql_insert_select';
+
 	$remonte = "../";
 	while (!is_dir($remonte."ecrire"))
 		$remonte = "../$remonte";

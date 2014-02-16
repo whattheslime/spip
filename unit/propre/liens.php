@@ -29,6 +29,7 @@
 	$p10 = 'un superbe https://www.monsite.tld, pas mal';
 	$p11 = '<flv|url=http://rezo.net/>';
 
+	$err = array();
 
 	if (extraire_attribut(propre($p0), 'hreflang') !== $t['lang'])
 		$err[] = "hreflang automatique errone dans $p0 : ".PtoBR(propre($p0));
@@ -77,9 +78,9 @@
 		$err[] = "multi abime dans $p6";
 
 	# (('<multi>[fr]X[en]Y</multi>')); => pre_typo
-
+	$balises_p7 = extraire_balises(propre($p7), 'a');
 	if ('http://www.monsite.tld'
-	!== $a = extraire_attribut(array_pop(extraire_balises(propre($p7), 'a')), 'href'))
+	!== $a = extraire_attribut(array_pop($balises_p7), 'href'))
 		$err[] = $a.': erreur sur le lien '.$p7;
 
 	if ('http://www.monsite.tld'

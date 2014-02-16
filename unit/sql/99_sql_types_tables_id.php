@@ -1,5 +1,8 @@
 <?php
 
+	// nom du test
+	$test = 'sql/sql_types_tables_id';
+
 	$remonte = "../";
 	while (!is_dir($remonte."ecrire"))
 		$remonte = "../$remonte";

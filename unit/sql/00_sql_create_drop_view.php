@@ -1,5 +1,8 @@
 <?php
 
+	// nom du test
+	$test = 'sql/sql_create_drop_view';
+
 	$remonte = "../";
 	while (!is_dir($remonte."ecrire"))
 		$remonte = "../$remonte";
@@ -33,12 +36,12 @@
 			$essais["Compter field $t"] = array(count($d['desc']['field']),$desc['field']);
 			$essais["Compter key $t"] = array($d['desc']['nb_key_attendues'],$desc['key']);
 		}
-		$err = tester_fun('count', $essais);	
+		$err = tester_fun('count', $essais);
 		if ($err) {
 			return '<b>Lecture des structures de table en echec</b><dl>' . join('', $err) . '</dl>';
-		}	
+		}
 	}
-	
+
 	$err = "";
 	// supprimer les eventuelles tables
 	$err .= test_drop_table();

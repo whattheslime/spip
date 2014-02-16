@@ -3,6 +3,8 @@
 	et on veut qu'il soit pris par {doublons}
 	cf. http://trac.rezo.net/trac/spip/ticket/779
 ]
+#SET{ida,''}
+#SET{idd,''}
 <BOUCLE_r(ARTICLES){texte==[[][[].*<doc[0-9]+>.*[]][]]}{statut==.}{0,1}>
 	#SET{ida,#ID_ARTICLE}
 	#SET{idd,#TEXTE*|replace{^.*\x5b\x5b.*<doc}|replace{>.*$}|intval}

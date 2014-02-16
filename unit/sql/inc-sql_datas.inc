@@ -162,6 +162,7 @@ function test_sql_datas(){
 function test_drop_table(){
 	$tables = test_sql_datas();
 	$essais = array();
+	$err = array();
 	foreach ($tables as $t=>$v){
 		$essais["Suppression table $t si existe"] = array(true, $t, true); // reponse, arguments
 	}
@@ -177,6 +178,7 @@ function test_drop_table(){
 function test_create_table(){
 	$tables = test_sql_datas();
 	$essais = array();
+	$err = array();
 	foreach ($tables as $t=>$v){
 		if (!sql_create($t, $v['desc']['field'], $v['desc']['key']))
 			$err[] = "sql_create $t en echec"; // reponse, arguments
