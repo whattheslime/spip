@@ -1,10 +1,12 @@
 <?php
 
+
 include_spip('simpletest/autorun');
 include_spip('inc/autoriser');
 
-if (!autoriser('configurer')) 
+if (!autoriser('configurer')) {
 	die('Administrateur requis !');
+} 
 
 if (isset($GLOBALS['visiteur_session']['statut'])
 	AND $GLOBALS['visiteur_session']['statut'] != '0minirezo'
@@ -467,7 +469,7 @@ class SpipHtmlReporter extends HtmlReporter {
 	private $_na;
 	private $character_set;
 
-	function __construct($charset='UTF-8') {
+	public function __construct($charset='UTF-8') {
 		chdir(_CHDIR);
 		parent::__construct($charset);
 		$this->_na = 0;
@@ -477,8 +479,8 @@ class SpipHtmlReporter extends HtmlReporter {
 	 * retourne un code css de deco
 	 * 
 	 */
-	function _getCss() {
-		$css = parent::_getCss();
+	protected function getCss() {
+		$css = parent::getCss();
 		return $css . "\n.na{background-color: inherit; color: #fa0;}"
 					. "\n.complements{background-color: inherit; color: #999;}";
 	}
@@ -498,7 +500,7 @@ class SpipHtmlReporter extends HtmlReporter {
 		print "<meta http-equiv=\"Content-Type\" content=\"text/html; charset=" .
 				$this->character_set . "\">\n";
 		print "<style type=\"text/css\">\n";
-		print $this->_getCss() . "\n";
+		print $this->getCss() . "\n";
 		print "</style>\n";
 		print "<link rel='stylesheet' href='" . url_absolue(find_in_path('tests.css')) . "' type='text/css' />";
 		print "</head>\n<body>\n";
@@ -571,7 +573,7 @@ class SpipHtmlReporter extends HtmlReporter {
 		array_shift($breadcrumb);
 		print implode(" -&gt; ", $breadcrumb);
 		$message = $exception->getMessage();
-		print " -&gt; <strong>" . $this->_htmlEntities($message) . "</strong><br />\n";				
+		print " -&gt; <strong>" . $this->_htmlEntities($message) . "</strong><br />\n";
 	}
 
 	/**
@@ -629,7 +631,7 @@ class SpipHtmlReporter extends HtmlReporter {
 		$version = $GLOBALS['spip_version_affichee'];
 		if ($svn_revision = version_svn_courante(_DIR_RACINE)) {
 			$version .= ' ' . (($svn_revision < 0) ? 'SVN ':'')
-			. "[<a href='http://trac.rezo.net/trac/spip/changeset/"
+			. "[<a href='http://core.spip.org/projects/spip/repository/revisions/"
 			. abs($svn_revision) . "' onclick=\"window.open(this.href); return false;\">"
 			. abs($svn_revision) . "</a>]";
 		}
@@ -792,7 +794,7 @@ class SqueletteTest{
 			<body class="page_test">
 			' . $this->body . '
 			</body>
-			</html>		
+			</html>
 		';
 		return $code;
 	}

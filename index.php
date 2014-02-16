@@ -41,29 +41,29 @@
 		// utiliser le parametre $_GET['fichier'] pour limiter les tests a un seul fichier
 		if (isset($_GET['fichier']) AND $_GET['fichier'] != '' AND preg_match('[^\d\w-.]', $_GET['fichier']) != 1)
 			$fic = $_GET['fichier'];
-			
-		
+
+
 		foreach ($tests as $test) {
 			if (isset($fic) AND $fic != '' AND substr_count($test, $fic) == 0)
 				continue;
 
 			if (strlen($t=_request('rech')) && (strpos($test, $t)===false))
 		 		continue;
-		
-		    //ignorer le contenu du jeu de squelettes dédié aux tests
-		    if (stristr($test,'squelettes/'))
-		        continue;
 
-		    //ignorer le contenu des donnees de test
-		    if (stristr($test,'data/'))
-		        continue;
+			//ignorer le contenu du jeu de squelettes dédié aux tests
+			if (stristr($test,'squelettes/'))
+				continue;
 
-		    //ignorer les fichiers lanceurs pour simpleTests aux tests
-		    if (stristr($test,'lanceur_spip.php'))
-		        continue;
-		    if (stristr($test,'all_tests.php'))
-		        continue;
-		
+			//ignorer le contenu des donnees de test
+			if (stristr($test,'data/'))
+				continue;
+
+			//ignorer les fichiers lanceurs pour simpleTests aux tests
+			if (stristr($test,'lanceur_spip.php'))
+				continue;
+			if (stristr($test,'all_tests.php'))
+				continue;
+
 			if (strncmp(basename($test),'inclus_',7)!==0
 				AND substr(basename($test),-14) != '_fonctions.php'
 			  AND (strncmp(basename($test),'NA_',3)!==0 OR _request('var_mode')=='dev')){
@@ -98,7 +98,7 @@
 			}
 		}
 	}
-	
+
 	echo "</dl>\n";
 
 	echo "<div id='count'>";
@@ -116,7 +116,7 @@ function version_spip() {
 	$version = $GLOBALS['spip_version_affichee'];
 	if ($svn_revision = version_svn_courante(_DIR_RACINE))
 		$version .= ' ' . (($svn_revision < 0) ? 'SVN ':'')
-		. "[<a href='http://trac.rezo.net/trac/spip/changeset/"
+		. "[<a href='http://core.spip.org/projects/spip/repository/revisions/"
 		. abs($svn_revision) . "' onclick=\"window.open(this.href); return false;\">"
 		. abs($svn_revision) . "</a>]";
 

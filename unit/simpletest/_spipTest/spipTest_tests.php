@@ -1,6 +1,7 @@
 <?php
 require_once('lanceur_spip.php');
 
+
 class Test_SpipTest extends SpipTest{
 
 	function testAssertOk(){
