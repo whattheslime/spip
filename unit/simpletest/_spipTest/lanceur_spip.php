@@ -10,6 +10,7 @@
  */
 $version_lanceur = '1.0.0';
 
+
 $remonte = "../";
 while (!is_dir($remonte."ecrire"))
 	$remonte = "../$remonte";
@@ -23,4 +24,4 @@ include_spip('inc/tests');
 if (!class_exists('SpipTestSuite')) {
 	die("<strong>Echec :</strong> le plugin pour les tests unitaires avec SimpleTest ne semble pas actif.");
 }
-?>
+
