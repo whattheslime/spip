@@ -8,8 +8,8 @@ class Test_balise_session extends SpipTest{
 
 	function test_visiteur_session(){
 		// loggue, c'est le nom id_auteur
-		$code = "#CACHE{0}".$this->php("echo \$GLOBALS['visiteur_session']['id_auteur'];");
-		$code2 = "#SESSION{id_auteur}";
+		$code = "#CACHE{0}".$this->php("echo isset(\$GLOBALS['visiteur_session']['id_auteur']) ? \$GLOBALS['visiteur_session']['id_auteur'] : 'non' ;");
+		$code2 = "[(#SESSION{id_auteur}|?{#SESSION{id_auteur},non})]";
 		$val = $this->recuperer_code($code);
 		$this->assertEqualCode($val, $code2);
 
@@ -31,12 +31,12 @@ class Test_balise_session extends SpipTest{
 
 class Test_balise_session_set extends SpipTest{
 	function testSessionSet(){
-		$set = "#CACHE{0}#SESSION_SET{bonbon,caramel}";
-		$get = "#CACHE{0}#SESSION{bonbon}";
+		$set = "#CACHE{0}#SESSION_SET{bonbon,caramel}--";
+		$get = "#CACHE{0}[(#SESSION{bonbon})]--";
 		$diversion = "Page de publicite...";
 
 		$this->recuperer_code($set);
-		$this->assertEqualCode('caramel', $this->recuperer_code($get));
+		$this->assertEqualCode('caramel--', $this->recuperer_code($get));
 
 		// deux fois pour verifier qu'un nouveau visiteur ne
 		// recupere pas les infos de session d'un autre
@@ -45,21 +45,20 @@ class Test_balise_session_set extends SpipTest{
 
 			// nouveau visiteur : pas de session
 			$browser->get($this->urlTestCode($get));
-			$this->assertEqual('', $browser->getContent());
-
+			$this->assertEqual('--', $browser->getContent());
 			// on cree la session bonbon
 			$browser->get($this->urlTestCode($set));
 
 			// elle s'affiche
 			$browser->get($this->urlTestCode($get));
-			$this->assertEqual('caramel', $browser->getContent());
+			$this->assertEqual('caramel--', $browser->getContent());
 
 			// on va sur une autre page
 			$browser->get($this->urlTestCode($diversion));
 
 			// on verifie que la session est encore la
 			$browser->get($this->urlTestCode($get));
-			$this->assertEqual('caramel', $browser->getContent());
+			$this->assertEqual('caramel--', $browser->getContent());
 		}
 	}
 }
