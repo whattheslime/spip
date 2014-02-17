@@ -4,7 +4,7 @@ require_once('lanceur_spip.php');
 class Test_SpipTestRecupererCode extends SpipTest{
 
 	function testRecupererFond(){
-		$this->assertEqual('Hello World', recuperer_fond('unit/simpletest/core/inc/inclus_hello_world'));
+		$this->assertEqual('Hello World', recuperer_fond('tests/unit/simpletest/core/inc/inclus_hello_world'));
 	}
 	function testRecupererCode(){
 		$this->assertEqualCode('Hello World','Hello World');

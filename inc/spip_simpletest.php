@@ -1,6 +1,6 @@
 <?php
 
-include_spip('simpletest/autorun');
+include_spip('tests/simpletest/autorun');
 include_spip('inc/autoriser');
 
 if (!autoriser('configurer')) {

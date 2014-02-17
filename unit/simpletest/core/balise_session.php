@@ -1,7 +1,7 @@
 <?php
 require_once('lanceur_spip.php');
-include_spip('simpletest/browser');
-include_spip('simpletest/web_tester');
+include_spip('tests/simpletest/browser');
+include_spip('tests/simpletest/web_tester');
 include_spip('inc/texte');
 
 class Test_balise_session extends SpipTest{

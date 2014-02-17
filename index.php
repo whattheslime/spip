@@ -17,8 +17,13 @@
 			AND (false === strpos($test, _DIR_CACHE))) {
 				die("Squelette de test hors d'un répertoire autorisé");
 		}
-		include_spip('inc/lang');
-		return recuperer_fond($test, $_GET);
+		$fond = $test; // squelette désiré
+		// pas de boutons d'admin
+		set_request('fond', null);
+		set_request('test', null);
+		set_request('simpletest', null);
+		include _DIR_RESTREINT_ABS.'public.php';
+		die();
 	}
 
 	// pas admin ? passe ton chemin (ce script est un vilain trou de securite)

@@ -21,8 +21,6 @@ if (!defined('_VAR_MODE')) {
 	define('_VAR_MODE', 'recalcul');
 }
 
-// activer simpletest
-_chemin(basename(_SPIP_TEST_INC));
 
 // pour notice sur recuperer_fond()
 if (!isset($GLOBALS['spip_lang'])) {
@@ -43,7 +41,21 @@ if ((!isset($GLOBALS['visiteur_session']['statut'])
 	die('Administrateur local requis !');
 }
 
-/***
+/**
+ * Fonction pour démarrer les tests simpletest.
+**/
+function demarrer_simpletest() {
+	if (!defined('_ECRIRE_INC_VERSION')) {
+		die("<strong>Echec :</strong> SPIP ne peut pas etre demarre automatiquement pour le test.<br />
+			Vous utilisez certainement un lien symbolique dans votre repertoire plugins.");
+	}
+	include_spip('tests/inc/spip_simpletest');
+	if (!class_exists('SpipTestSuite')) {
+		die("<strong>Echec :</strong> le plugin pour les tests unitaires avec SimpleTest ne semble pas actif.");
+	}
+}
+
+/**
 * fonction pas obligatoire a utiliser mais qui simplifie la vie du testeur
 * $fun: le nom de la fonction a tester
 * $essais: un tableau d'items array(résultat, arg1, arg2 ...) a tester

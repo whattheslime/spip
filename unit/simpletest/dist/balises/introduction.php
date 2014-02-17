@@ -6,7 +6,7 @@ class Test_filtre_introduction extends SpipTest{
 	
 	// initialisation
 	function Test_filtre_introduction() {
-		$this->SpipTest();
+		parent::__construct();
 		include_spip('inc/filtres');
 		include_spip('public/composer');
 		$this->func = chercher_filtre('introduction');
@@ -16,7 +16,7 @@ class Test_filtre_introduction extends SpipTest{
 	function testPresenceFiltre(){
 		if (!$this->func) {
 			throw new SpipTestException('Il faut le fichu filtre "introduction" !!');
-		}		
+		}
 	}
 	
 	// la description seule ressort avec propre() sans passer par couper()
@@ -24,21 +24,31 @@ class Test_filtre_introduction extends SpipTest{
 	// du texte, meme si le texte est plus petit
 	function testDescriptifRetourneSiPresent(){
 		if (!$f = $this->func) return;
-		$this->assertEqual(propre('description petite'), $f('description petite','description plus longue',100,''));
+		$this->assertEqual(
+			propre('description petite'),
+			$f('description petite','description plus longue',100,''));
 	}
 	// couper en plus...
 	function testTexteNonCoupeSiPetit(){
 		if (!$f = $this->func) return;
-		$this->assertEqual(couper(propre('description plus longue'),100), $f('','description plus longue',100,''));
+		$this->assertEqual(
+			paragrapher(couper(propre('description plus longue'),100), true),
+			$f('','description plus longue',100,''));
 	}
 	function testTexteCoupe(){
 		if (!$f = $this->func) return;
-		$this->assertEqual(couper(propre('description plus longue'),10), $f('','description plus longue',10,''));
-		$this->assertNotEqual(couper(propre('description plus longue'),20), $f('','description plus longue',10,''));
+		$this->assertEqual(
+			paragrapher(couper(propre('description plus longue'),10), true),
+			$f('','description plus longue',10,''));
+		$this->assertNotEqual(
+			paragrapher(couper(propre('description plus longue'),20), true),
+			$f('','description plus longue',10,''));
 	}
 	function testTexteAvecBaliseIntro(){
 		if (!$f = $this->func) return;
-		$this->assertEqual(couper(propre('plus'),100), $f('','description <intro>plus</intro> longue',100,''));
+		$this->assertEqual(
+			paragrapher(couper(propre('plus'),100), true),
+			$f('','description <intro>plus</intro> longue',100,''));
 	}
 }
 
