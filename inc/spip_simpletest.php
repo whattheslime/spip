@@ -3,16 +3,15 @@
 include_spip('tests/simpletest/autorun');
 include_spip('inc/autoriser');
 
-if (!autoriser('configurer')) {
-	die('Administrateur requis !');
-} 
 
-// pas admin ? passe ton chemin (ce script est un vilain trou de securite)
-if ((!isset($GLOBALS['visiteur_session']['statut'])
-	OR $GLOBALS['visiteur_session']['statut'] != '0minirezo')
-	AND !in_array($_SERVER["REMOTE_ADDR"], array('127.0.0.1', '127.0.1.1', '::1')) ) {
-	die('Administrateur local requis !');
+// Exécution soit sur localhost, soit administrateur
+if (!(
+	in_array($_SERVER["REMOTE_ADDR"], array('127.0.0.1', '127.0.1.1', '::1'))
+	OR (isset($visiteur_session['statut']) AND ($visiteur_session['statut'] == '0minirezo'))
+)) {
+	die('Connexion locale ou administrateur requis !');
 }
+
 /*
  * il faut remettre le chdir pour les fonctions de spip
  * comme find_in_path() ou include_spip()
