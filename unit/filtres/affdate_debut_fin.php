@@ -51,7 +51,7 @@
   ),
   2 => 
   array (
-    0 => 'Dimanche 1er juillet 2001 12h34-13h34',
+    0 => 'Dimanche 1er juillet 2001 de 12h34 à 13h34',
     1 => '2001-07-01 12:34:00',
     2 => '2001-07-01 13:34:00',
     3 => true,
@@ -65,7 +65,7 @@
   ),
   4 => 
   array (
-    0 => 'Du 1er juillet 12h34 au 2 juillet 2001',
+    0 => 'Du 1er juillet à 12h34 au 2 juillet 2001 à 12h34',
     1 => '2001-07-01 12:34:00',
     2 => '2001-07-02 12:34:00',
     3 => true,
@@ -79,7 +79,7 @@
   ),
   6 => 
   array (
-    0 => 'Du 1er juillet 12h34 au 2 juillet 2001 13h34',
+    0 => 'Du 1er juillet à 12h34 au 2 juillet 2001 à 13h34',
     1 => '2001-07-01 12:34:00',
     2 => '2001-07-02 13:34:00',
     3 => true,
@@ -93,7 +93,7 @@
   ),
   8 => 
   array (
-    0 => 'Du 1er juillet 12h34 au 1er août 2001 12h34',
+    0 => 'Du 1er juillet à 12h34 au 1er août 2001 à 12h34',
     1 => '2001-07-01 12:34:00',
     2 => '2001-08-01 12:34:00',
     3 => true,
@@ -107,7 +107,7 @@
   ),
   10 => 
   array (
-    0 => 'Du 1er juillet 2001 (12h34) au 1er juillet 2011 (12h34)',
+    0 => 'Du 1er juillet 2001 à 12h34 au 1er juillet 2011 à 12h34',
     1 => '2001-07-01 12:34:00',
     2 => '2011-07-01 12:34:00',
     3 => true,
@@ -137,7 +137,7 @@
   ),
   14 => 
   array (
-    0 => 'Dim. 1er juillet 2001 12h34-13h34',
+    0 => 'Dim. 1er juillet 2001 de 12h34 à 13h34',
     1 => '2001-07-01 12:34:00',
     2 => '2001-07-01 13:34:00',
     3 => true,
@@ -153,7 +153,7 @@
   ),
   16 => 
   array (
-    0 => 'Du 1er juillet 12h34 au 2 juillet 2001',
+    0 => 'Du 1er juillet à 12h34 au 2 juillet 2001 à 12h34',
     1 => '2001-07-01 12:34:00',
     2 => '2001-07-02 12:34:00',
     3 => true,
@@ -169,7 +169,7 @@
   ),
   18 => 
   array (
-    0 => 'Du 1er juillet 12h34 au 1er août 2001 12h34',
+    0 => 'Du 1er juillet à 12h34 au 1er août 2001 à 12h34',
     1 => '2001-07-01 12:34:00',
     2 => '2001-08-01 12:34:00',
     3 => true,
@@ -185,7 +185,7 @@
   ),
   20 => 
   array (
-    0 => 'Du 1er juillet 2001 (12h34) au 1er juillet 2011 (12h34)',
+    0 => 'Du 1er juillet 2001 à 12h34 au 1er juillet 2011 à 12h34',
     1 => '2001-07-01 12:34:00',
     2 => '2011-07-01 12:34:00',
     3 => true,
@@ -217,7 +217,7 @@
   ),
   24 => 
   array (
-    0 => '<abbr class=\'dtstart\' title=\'2001-07-01T10:34:00Z\'>Dimanche 1er juillet 2001 12h34</abbr>-<abbr class=\'dtend\' title=\'2001-07-01T11:34:00Z\'>13h34</abbr>',
+    0 => '<abbr class=\'dtstart\' title=\'2001-07-01T10:34:00Z\'>Dimanche 1er juillet 2001 de 12h34</abbr> à <abbr class=\'dtend\' title=\'2001-07-01T11:34:00Z\'>13h34</abbr>',
     1 => '2001-07-01 12:34:00',
     2 => '2001-07-01 13:34:00',
     3 => true,
@@ -233,7 +233,7 @@
   ),
   26 => 
   array (
-    0 => 'Du <abbr class=\'dtstart\' title=\'2001-07-01T10:34:00Z\'>1er juillet 12h34</abbr> au <abbr class=\'dtend\' title=\'2001-07-02T10:34:00Z\'>2 juillet 2001</abbr>',
+    0 => 'Du <abbr class=\'dtstart\' title=\'2001-07-01T10:34:00Z\'>1er juillet à 12h34</abbr> au <abbr class=\'dtend\' title=\'2001-07-02T10:34:00Z\'>2 juillet 2001 à 12h34</abbr>',
     1 => '2001-07-01 12:34:00',
     2 => '2001-07-02 12:34:00',
     3 => true,
@@ -249,7 +249,7 @@
   ),
   28 => 
   array (
-    0 => 'Du <abbr class=\'dtstart\' title=\'2001-07-01T10:34:00Z\'>1er juillet 12h34</abbr> au <abbr class=\'dtend\' title=\'2001-08-01T10:34:00Z\'>1er août 2001 12h34</abbr>',
+    0 => 'Du <abbr class=\'dtstart\' title=\'2001-07-01T10:34:00Z\'>1er juillet à 12h34</abbr> au <abbr class=\'dtend\' title=\'2001-08-01T10:34:00Z\'>1er août 2001 à 12h34</abbr>',
     1 => '2001-07-01 12:34:00',
     2 => '2001-08-01 12:34:00',
     3 => true,
@@ -265,7 +265,7 @@
   ),
   30 => 
   array (
-    0 => 'Du <abbr class=\'dtstart\' title=\'2001-07-01T10:34:00Z\'>1er juillet 2001 (12h34)</abbr> au <abbr class=\'dtend\' title=\'2011-07-01T10:34:00Z\'>1er juillet 2011 (12h34)</abbr>',
+    0 => 'Du <abbr class=\'dtstart\' title=\'2001-07-01T10:34:00Z\'>1er juillet 2001 à 12h34</abbr> au <abbr class=\'dtend\' title=\'2011-07-01T10:34:00Z\'>1er juillet 2011 à 12h34</abbr>',
     1 => '2001-07-01 12:34:00',
     2 => '2011-07-01 12:34:00',
     3 => true,
