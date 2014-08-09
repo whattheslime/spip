@@ -60,12 +60,12 @@ function essais_chevron_ouvrant(){
 	  ),
 	4 =>
 	  array (
-	    0 => '<p><i>0 &lt; a &lt; 1</i> et <i>a &gt; 5</i></p>',
+	    0 => '<p><i>0 &lt; a &lt; 1</i> et <i>a > 5</i></p>',
 	    1 => '{0 < a < 1} et {a > 5}',
 	  ),
 	5 =>
 	  array (
-	    0 => '<p><i>0 &lt; a &lt; 1.0</i> et <i>a &lt; 5</i></p>',
+	    0 => '<p><i>0 &lt; a &lt; 1.0</i> et <i>a > 5</i></p>',
 	    1 => '{0 < a < 1.0} et {a > 5}',
 	  ),
 
