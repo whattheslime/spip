@@ -60,7 +60,7 @@
   ),
   4 => 
   array (
-    0 => '<p>Un texte sans entites &amp;<>"&#8217;</p>',
+    0 => '<p>Un texte sans entites &amp;&lt;>"&#8217;</p>',
     1 => 'Un texte sans entites &<>"\'',
   ),
   5 => 
