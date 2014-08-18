@@ -14,12 +14,14 @@ define('_SPIP_TEST_INC', dirname(__FILE__));
 // si rien defini on va dans le public
 @define('_SPIP_TEST_CHDIR', dirname(_SPIP_TEST_INC));
 chdir(_SPIP_TEST_CHDIR);
+
+// pas de _VAR_MODE=recalcul par defaut, ca masque les eventuels problemes de cache
+// cf
+#if (!defined('_VAR_MODE')) {
+#	define('_VAR_MODE', 'recalcul');
+#}
+
 require dirname(_SPIP_TEST_INC) . '/ecrire/inc_version.php';
-
-
-if (!defined('_VAR_MODE')) {
-	define('_VAR_MODE', 'recalcul');
-}
 
 
 // pour notice sur recuperer_fond()
