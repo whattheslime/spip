@@ -57,11 +57,11 @@ $essais['lignehorizontale'] = array(
 $err = tester_fun('traiter_raccourcis', $essais);
 
 
-if (!preg_match($c = ",<p\b.*?>titi</p>\n\n<p\b.*?>toto</p>,",
+if (!preg_match($c = ",<p\b.*?>titi</p>\n<p\b.*?>toto</p>,",
 $b = propre( $a = "titi\n\ntoto")))
 	$err[] = htmlentities ("$a -- $b -- $c");
 
-if (!preg_match(",<p\b.*?>titi</p>\n\n<p\b.*?>toto<br /></p>,",
+if (!preg_match(",<p\b.*?>titi</p>\n<p\b.*?>toto<br /></p>,",
 propre("titi\n\n<br />toto<br />")))
 	$err[] = 'erreur 2';
 
