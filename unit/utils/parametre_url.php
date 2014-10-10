@@ -274,6 +274,20 @@ paragraphes',
       1 => false,
     ),
   ),
+	21 =>
+	array(
+		0 => 'http://domaine/spip.php?t[]=0&amp;t[]=2',
+		1 => 'http://domaine/spip.php?t[]=1',
+		2 => 't',
+		3 => array(0,2)
+	),
+	22 =>
+	array(
+		0 => 'http://domaine/spip.php?t[]=0&amp;t[]=2',
+		1 => 'http://domaine/spip.php?t[]=1',
+		2 => 't[]',
+		3 => array(0,2)
+	)
 );
 		return $essais;
 	}
