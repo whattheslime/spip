@@ -287,48 +287,19 @@ paragraphes',
 		1 => 'http://domaine/spip.php?t[]=1',
 		2 => 't[]',
 		3 => array(0,2)
-	)
+	),
+	23 =>
+	array(
+		0 => array('1','2'),
+		1 => 'http://domaine/spip.php?t[]=1&t[]=2',
+		2 => 't',
+	),
+	24 =>
+	array(
+		0 => array('1','2'),
+		1 => 'http://domaine/spip.php?t[]=1&t[]=2',
+		2 => 't[]',
+	),
 );
 		return $essais;
 	}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-?>
