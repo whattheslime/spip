@@ -26,19 +26,25 @@
 		// supprimer une colonne
 		sql_alter("TABLE $table DROP COLUMN un_bigint");
 		$desc = sql_showtable($table);
-		if (isset($desc['field']['un_bigint']))
+		if (!$desc)
+			$err[] = "sql_alter rate DROP COLUMN (plus de table ou sql_showtable en erreur?)";
+		elseif (isset($desc['field']['un_bigint']))
 			$err[] = "sql_alter rate DROP COLUMN";
 
 		// supprimer une colonne (sans COLUMN)
 		sql_alter("TABLE $table DROP un_smallint");
 		$desc = sql_showtable($table);
-		if (isset($desc['field']['un_smallint']))
+		if (!$desc)
+			$err[] = "sql_alter rate DROP sans COLUMN (plus de table ou sql_showtable en erreur?)";
+		elseif (isset($desc['field']['un_smallint']))
 			$err[] = "sql_alter rate DROP sans COLUMN";
 
 		// renommer une colonne
 		sql_alter("TABLE $table CHANGE un_varchar deux_varchars VARCHAR(30) NOT NULL DEFAULT ''");
 		$desc = sql_showtable($table);
-		if ((isset($desc['field']['un_varchar']) OR !isset($desc['field']['deux_varchars'])))
+		if (!$desc)
+			$err[] = "sql_alter rate CHANGE (plus de table ou sql_showtable en erreur?)";
+		elseif ((isset($desc['field']['un_varchar']) OR !isset($desc['field']['deux_varchars'])))
 			$err[] = "sql_alter rate CHANGE";
 
 		// changer le type d'une colonne
@@ -52,13 +58,17 @@
 		// ajouter des colonnes
 		sql_alter("TABLE $table ADD COLUMN houba BIGINT(21) NOT NULL DEFAULT '0'");
 		$desc = sql_showtable($table);
-		if (!$s=$desc['field']['houba'])
+		if (!$desc)
+			$err[] = "sql_alter rate ADD COLUMN houba (plus de table ou sql_showtable en erreur?)";
+		elseif (!$s=$desc['field']['houba'])
 			$err[] = "sql_alter rate ADD COLUMN houba : $s";
 			
 		// ajouter des colonnes avec "AFTER"
 		sql_alter("TABLE $table ADD COLUMN hop BIGINT(21) NOT NULL DEFAULT '0' AFTER id_tintin");
 		$desc = sql_showtable($table);
-		if (!$s=$desc['field']['hop'])
+		if (!$desc)
+			$err[] = "sql_alter rate ADD COLUMN hop AFTER (plus de table ou sql_showtable en erreur?)";
+		elseif (!$s=$desc['field']['hop'])
 			$err[] = "sql_alter rate ADD COLUMN hop AFTER ... : $s";					
 				
 		// affichage
@@ -99,31 +109,41 @@
 		// supprimer un index
 		sql_alter("TABLE $table DROP INDEX sons");
 		$desc = sql_showtable($table);
-		if (isset($desc['key']['KEY sons']))
+		if (!$desc)
+			$err[] = "sql_alter rate DROP INDEX sons (plus de table ou sql_showtable en erreur?)";
+		elseif (isset($desc['key']['KEY sons']))
 			$err[] = "sql_alter rate DROP INDEX sons";
 
 		// ajouter un index simple
 		sql_alter("TABLE $table ADD INDEX (wouaf)");
 		$desc = sql_showtable($table);
-		if (!isset($desc['key']['KEY wouaf']))
+		if (!$desc)
+			$err[] = "sql_alter rate ADD INDEX (wouaf) (plus de table ou sql_showtable en erreur?)";
+		elseif (!isset($desc['key']['KEY wouaf']))
 			$err[] = "sql_alter rate ADD INDEX (wouaf)";
 
 		// ajouter un index nomme
 		sql_alter("TABLE $table ADD INDEX pluie (grrrr)");
 		$desc = sql_showtable($table);
-		if (!isset($desc['key']['KEY pluie']))
+		if (!$desc)
+			$err[] = "sql_alter rate ADD INDEX pluie (grrrr) (plus de table ou sql_showtable en erreur?)";
+		elseif (!isset($desc['key']['KEY pluie']))
 			$err[] = "sql_alter rate ADD INDEX pluie (grrrr)";
 
 		// supprimer un index
 		sql_alter("TABLE $table DROP INDEX pluie");
 		$desc = sql_showtable($table);
-		if (isset($desc['key']['KEY pluie']))
+		if (!$desc)
+			$err[] = "sql_alter rate DROP INDEX pluie (plus de table ou sql_showtable en erreur?)";
+		elseif (isset($desc['key']['KEY pluie']))
 			$err[] = "sql_alter rate DROP INDEX pluie";
 
 		// ajouter un index nomme double
 		sql_alter("TABLE $table ADD INDEX dring (grrrr, wouaf)");
 		$desc = sql_showtable($table);
-		if (!isset($desc['key']['KEY dring']))
+		if (!$desc)
+			$err[] = "sql_alter rate ADD INDEX dring (grrrr, wouaf) (plus de table ou sql_showtable en erreur?)";
+		elseif (!isset($desc['key']['KEY dring']))
 			$err[] = "sql_alter rate ADD INDEX dring (grrrr, wouaf)";
 
 		// affichage
@@ -151,13 +171,18 @@
 		$desc = sql_showtable($table);
 		sql_alter("TABLE $table DROP PRIMARY KEY");
 		$desc = sql_showtable($table);
-		if (isset($desc['key']['PRIMARY KEY']))
+		if (!$desc)
+			$err[] = "sql_alter rate DROP PRIMARY KEY (plus de table ou sql_showtable en erreur?)";
+		elseif (isset($desc['key']['PRIMARY KEY']))
 			$err[] = "sql_alter rate DROP PRIMARY KEY";
 
 		// ajouter une primary
+		$desc = sql_showtable($table);
 		sql_alter("TABLE $table ADD PRIMARY KEY (deux, trois)");
 		$desc = sql_showtable($table);
-		if (!isset($desc['key']['PRIMARY KEY']))
+		if (!$desc)
+			$err[] = "sql_alter rate ADD PRIMARY KEY (plus de table)";
+		elseif (!isset($desc['key']['PRIMARY KEY']))
 			$err[] = "sql_alter rate ADD PRIMARY KEY (deux, trois)";
 
 		// affichage
@@ -176,7 +201,9 @@
 		// supprimer des colonnes
 		sql_alter("TABLE $table DROP INDEX dring, DROP COLUMN wouaf, DROP COLUMN grrrr");
 		$desc = sql_showtable($table);
-		if (
+		if (!$desc)
+			$err[] = "sql_alter rate DROP INDEX dring, DROP COLUMN wouaf, DROP COLUMN grrrr (plus de table ou sql_showtable en erreur?)";
+		elseif (
 			isset($desc['field']['waouf'])
 		 OR isset($desc['field']['grrrr'])
 		 OR isset($desc['key']['KEY dring'])
@@ -186,7 +213,9 @@
 		// ajouter des colonnes
 		sql_alter("TABLE $table ADD COLUMN a INT, ADD COLUMN b INT, ADD COLUMN c INT, ADD INDEX abc (a,b,c)");
 		$desc = sql_showtable($table);
-		if (
+		if (!$desc)
+			$err[] = "sql_alter rate ADD COLUMN a INT, ADD COLUMN b INT, ADD COLUMN c INT, ADD INDEX abc (a,b,c) (plus de table ou sql_showtable en erreur?)";
+		elseif (
 			!$desc['field']['a'] 
 		 OR !$desc['field']['b']
 		 OR !$desc['field']['c']
