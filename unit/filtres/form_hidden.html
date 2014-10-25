@@ -11,7 +11,7 @@
 erreur parametre url 2<br />})]
 
 
-[(#VAL{x}|parametre_url{#GET{t},1}|parametre_url{#GET{t},2}|=={
+[(#VAL{x}|parametre_url{#GET{t},#LISTE{1,2}}|=={
 #VAL{x}|concat{'?'}|concat{#GET{t}}|concat{'=1&amp;'}|concat{#GET{t}}|concat{'=2'}
 }|?{'',
 erreur parametre url tableau<br />})]
@@ -30,7 +30,7 @@ bug compte d'input<br />})]
 bug value<br />})]
 
 [(#REM) si var est un tableau, il faut conserver tous les input ]
-[(#VAL{x}|parametre_url{#GET{t},1}|parametre_url{#GET{t},%!}|concat{&amp;#GET{t}}|concat{=3=2}|form_hidden|extraire_balises{input}|count|=={3}|?{'',
+[(#VAL{x}|parametre_url{#GET{t},#LISTE{1,%!}}|concat{&amp;#GET{t}}|concat{=3=2}|form_hidden|extraire_balises{input}|count|=={3}|?{'',
 bug tableau<br />})]
 
 OK
