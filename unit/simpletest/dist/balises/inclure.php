@@ -103,6 +103,7 @@ class Test_inclure_inline extends SpipTest{
 			$browser->get($f=$this->urlTestCode($code));
 			# $this->dump($f);
 			$this->assertEqual($browser->getResponseCode(), 200);
+			# var_dump($browser->getContent());
 			$this->assertOk($browser->getContent());
 
 			// loggue admin, on doit voir une erreur ...

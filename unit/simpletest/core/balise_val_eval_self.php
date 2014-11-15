@@ -18,7 +18,7 @@ class Test_balise_eval extends SpipTest{
 	
 	function testBaliseEval(){
 		$this->assertEqualCode('','#EVAL{\'\'}');
-		$this->assertEqualCode('ok','#EVAL{"ok"}');
+		$this->assertEqualCode('ok','#EVAL{"\'ok\'"}');
 	 	$this->assertEqualCode('1','#EVAL{1}');
 		$this->assertEqualCode(_DIR_CACHE,'#EVAL{_DIR_CACHE}');
 		$this->assertEqualCode(20,'#EVAL{3*5+5}');
