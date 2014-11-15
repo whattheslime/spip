@@ -1,13 +1,14 @@
 <?php
 require_once('lanceur_spip.php');
 include_spip('public/composer');
+include_spip('inc/notes');
 		
 class Test_balise_notes extends SpipTest{
 
 	function viderNotes(){
 		// attention a cette globale qui pourrait changer dans le temps
-		$GLOBALS["marqueur_notes"] = 0;
-		$GLOBALS["notes_vues"] = array();
+		$notes = charger_fonction('notes', 'inc');
+		$notes('', 'reset_all');
 	}
 	
 	function testNoteSeule(){
@@ -62,8 +63,8 @@ class Test_balise_notes extends SpipTest{
 		
 		$this->assertPattern('/#nb1/', $texte);
 		$this->assertPattern('/#nb2/', $texte);
-		$this->assertPattern('/#nb1-1/', $texte2);
-		$this->assertPattern('/#nb1-2/', $texte2);		
+		$this->assertPattern('/#nb2-1/', $texte2);
+		$this->assertPattern('/#nb2-2/', $texte2);
 		
 		$this->assertPattern('/Note en bas de page/', $note);
 		$this->assertPattern('/Seconde note en bas de page/', $note);

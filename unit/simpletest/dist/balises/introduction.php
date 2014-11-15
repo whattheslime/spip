@@ -54,32 +54,21 @@ class Test_filtre_introduction extends SpipTest{
 
 
 class Test_balise_introduction extends SpipTest{
-	
-	function testArticleDeRedirectionNeDoitPasAvoirDIntro(){
-		$code = "
-			[(#REM) un article de redirection n'a pas d'introduction]
-			<BOUCLE_b(ARTICLES){chapo=='^='}{descriptif=''}{0,1}>
-			[(#INTRODUCTION|?{erreur sur l'article de redirection #ID_ARTICLE,ok})]
-			</BOUCLE_b>
-			NA necessite un article de redirection sans descriptif
-			<//B_b>		
-		";
-		$this->assertOkCode($code);
-	}
+
 	function testCoupeIntroduction(){
 		# include_spip('public/composer');
 		@define('_INTRODUCTION_SUITE', '&nbsp;(...)');
 		$suite = _INTRODUCTION_SUITE;
 		$code = "
 			[(#REM) une introduction normale doit finir par _INTRODUCTION_SUITE]
-			<BOUCLE_a(ARTICLES){chapo=='.{100}'}{texte>''}{descriptif=''}{chapo!=='^='}{0,1}>
+			<BOUCLE_a(ARTICLES){chapo=='.{100}'}{texte>''}{descriptif=''}{0,1}>
 			[(#INTRODUCTION)]
 			</BOUCLE_a>
 			NA necessite un article avec un texte long et pas de descriptif
 			<//B_a>
 		";
 		if (!$this->exceptionSiNa($res = $this->recuperer_code($code))) {
-			$this->assertPattern("/".preg_quote($suite)."$/", $res);
+			$this->assertPattern("#".preg_quote($suite . '</p>')."$#", $res);
 		}
 	}
 }
