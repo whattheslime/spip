@@ -5,12 +5,20 @@
 
 ]
 
-<BOUCLE_a(RUBRIQUES){tout}{0,50}>
-<BOUCLE_secteur(HIERARCHIE){0,1}>[(#ID_RUBRIQUE|=={#_a:ID_SECTEUR}|?{'',
+<BOUCLE_a(RUBRIQUES){0,50}>
+<BOUCLE_a_secteur(HIERARCHIE){0,1}>[(#ID_RUBRIQUE|=={#_a:ID_SECTEUR}|?{'',
 	erreur secteur: attendu #_a:ID_SECTEUR ; resultat #ID_RUBRIQUE<br />})]
-</BOUCLE_secteur>
-<BOUCLE_parent(HIERARCHIE){n-1,1}>[(#ID_RUBRIQUE|=={#_a:ID_PARENT}|?{'',
+</BOUCLE_a_secteur>
+<BOUCLE_a_parent(HIERARCHIE){n-1,1}>[(#ID_RUBRIQUE|=={#_a:ID_PARENT}|?{'',
 	erreur parent: attendu #_a:ID_PARENT ; resultat #ID_RUBRIQUE<br />})]
-</BOUCLE_parent>
+</BOUCLE_a_parent>
 </BOUCLE_a>
+<BOUCLE_b(RUBRIQUES){tout}{0,50}>
+<BOUCLE_b_secteur(HIERARCHIE){statut==.*}{0,1}>[(#ID_RUBRIQUE|=={#_b:ID_SECTEUR}|?{'',
+	erreur secteur: attendu #_b:ID_SECTEUR ; resultat #ID_RUBRIQUE<br />})]
+</BOUCLE_b_secteur>
+<BOUCLE_b_parent(HIERARCHIE){statut==.*}{n-1,1}>[(#ID_RUBRIQUE|=={#_b:ID_PARENT}|?{'',
+	erreur parent: attendu #_b:ID_PARENT ; resultat #ID_RUBRIQUE<br />})]
+</BOUCLE_b_parent>
+</BOUCLE_b>
 OK
