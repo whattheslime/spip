@@ -11,10 +11,14 @@
 
 	$s = spip_query("SELECT * FROM spip_articles WHERE statut='publie' AND lang>'' LIMIT 0,1");
 	$t = sql_fetch($s);
-	if ($t['lang'] == 'eo')
-		lang_select('fa');
-	else
-		lang_select('eo');
+
+	// on se met dans une autre langue que celle de l'article
+	$la_langue = 'eo';
+	if ($t['lang'] == 'eo') {
+		$la_langue = 'fa';
+	} 
+	lang_select($la_langue);
+
 	$p0 = '[->'.$t['id_article'].']';
 
 	$p1 = '[bla {blabla}->url]'; // blabla ne peut pas etre un hreflang
@@ -74,7 +78,7 @@
 		$err[] = "title errone dans $p5";
 	if (supprimer_tags(propre($p5)) !== 'bla')
 		$err[] = "texte du lien abime dans $p5";
-	if (supprimer_tags(propre($p6)) !== 'Y')
+	if (supprimer_tags(propre($p6)) !== ($la_langue == 'eo' ? 'Y' : 'Z'))
 		$err[] = "multi abime dans $p6";
 
 	# (('<multi>[fr]X[en]Y</multi>')); => pre_typo
