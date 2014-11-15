@@ -361,11 +361,11 @@ class SpipTest extends UnitTestCase {
 
 	/**
 	 * Raz les erreurs de compilation
-	 * @return null
+	 * @return void
 	 */
 	function init_compilation_errors(){
-		// les erreurs s'ecrivent dans une jolie globale
-		$GLOBALS['tableau_des_erreurs'] = array();
+		$debusquer = charger_fonction('debusquer', 'public');
+		$debusquer('', '', array('erreurs' => 'reset'));
 	}
 
 	/**
