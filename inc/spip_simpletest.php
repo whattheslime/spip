@@ -316,7 +316,7 @@ class SpipTest extends UnitTestCase {
 		// vider les erreurs
 		$this->init_compilation_errors();
 		$infos = $this->recuperer_code($code, $contexte, $options, $connect);
-		
+
 		// ca ne devrait pas arriver
 		if (!is_array($infos)) return $infos;
 		
@@ -324,6 +324,7 @@ class SpipTest extends UnitTestCase {
 		$path = pathinfo($infos['source']);
 		$infos['fond'] = $path['dirname'].'/'.$path['filename']; // = $fond;
 		$infos['erreurs'] = $this->get_compilation_errors();
+
 		return $infos;
 	}
 

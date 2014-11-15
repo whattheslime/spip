@@ -1,5 +1,7 @@
 <?php
+
 require_once('lanceur_spip.php');
+
 
 class Test_SpipTestRecupererCode extends SpipTest{
 

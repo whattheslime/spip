@@ -95,7 +95,7 @@ class Test_inclure_inline extends SpipTest{
 
 		foreach(array(
 			'<INCLURE{fond=carabistouille/de/tripoli/absente}/>ok',
-			'#CACHE{0}[(#INCLURE{fond=carabistouille/de/montignac/absente}|non)ok]',
+			'#CACHE{0}[(#INCLURE{fond=carabistouille/de/montignac/absente}|non)ok]', // doit retourner ' ok'
 		) as $code) {
 			// non loggue, on ne doit pas voir d'erreur...
 			$browser = new SimpleBrowser();
@@ -104,7 +104,7 @@ class Test_inclure_inline extends SpipTest{
 			# $this->dump($f);
 			$this->assertEqual($browser->getResponseCode(), 200);
 			# var_dump($browser->getContent());
-			$this->assertOk($browser->getContent());
+			$this->assertOk( trim($browser->getContent()) );
 
 			// loggue admin, on doit voir une erreur ...
 			# todo
