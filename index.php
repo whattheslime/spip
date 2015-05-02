@@ -3,12 +3,11 @@
 	chdir($dir);
 	require 'ecrire/inc_version.php';
 
-	// Exécution soit sur localhost, soit administrateur
-	if (!(
-		in_array($_SERVER["REMOTE_ADDR"], array('127.0.0.1', '127.0.1.1', '::1'))
-		OR (isset($visiteur_session['statut']) AND ($visiteur_session['statut'] == '0minirezo'))
-	)) {
-		die('Connexion locale ou administrateur requis !');
+	// pas admin ? passe ton chemin (ce script est un vilain trou de securite)
+	if ((!isset($GLOBALS['visiteur_session']['statut'])
+	     OR $GLOBALS['visiteur_session']['statut'] != '0minirezo')
+	     AND !in_array($_SERVER["REMOTE_ADDR"], array('127.0.0.1', '127.0.1.1', '::1')) ) {
+		die('Administrateur local requis !');
 	}
 
 	// certains tests de simpletest sont réalisés non connectés
