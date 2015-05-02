@@ -11,9 +11,9 @@
 ]
 
 [(#REM) une introduction normale doit finir par _INTRODUCTION_SUITE]
-<BOUCLE_a(ARTICLES){chapo=='.{100}'}{texte>''}{descriptif=''}{virtuel==''}{0,1}>
+<BOUCLE_a(ARTICLES){chapo=='.{100}'}{texte>''}{descriptif=''}{virtuel=''}{0,1}>
 [(#INTRODUCTION|match{___SUITE</p>$}|?{OK,#INTRODUCTION})]
 </BOUCLE_a>
-NA necessite un article avec un texte long et pas de descriptif
+NA necessite un article avec du texte, un chapo long et pas de descriptif
 <//B_a>
 
