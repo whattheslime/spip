@@ -3,13 +3,6 @@
 	chdir($dir);
 	require 'ecrire/inc_version.php';
 
-	// pas admin ? passe ton chemin (ce script est un vilain trou de securite)
-	if ((!isset($GLOBALS['visiteur_session']['statut'])
-	     OR $GLOBALS['visiteur_session']['statut'] != '0minirezo')
-	     AND !in_array($_SERVER["REMOTE_ADDR"], array('127.0.0.1', '127.0.1.1', '::1')) ) {
-		die('Administrateur local requis !');
-	}
-
 	// certains tests de simpletest sont réalisés non connectés
 	// on se limite à certains squelettes tout de même !
 	if (_request('simpletest')) {
@@ -28,6 +21,13 @@
 		die();
 	}
 
+
+	// pas admin ? passe ton chemin (ce script est un vilain trou de securite)
+	if ((!isset($GLOBALS['visiteur_session']['statut'])
+	     OR $GLOBALS['visiteur_session']['statut'] != '0minirezo')
+	     AND !in_array($_SERVER["REMOTE_ADDR"], array('127.0.0.1', '127.0.1.1', '::1')) ) {
+		die('Administrateur local requis !');
+	}
 
 	// supprimer le vieux logs de tests
 	spip_unlink(_DIR_TMP."testrunner.log");
