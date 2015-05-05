@@ -6,7 +6,7 @@
 	// certains tests de simpletest sont réalisés non connectés
 	// on se limite à certains squelettes tout de même !
 	if (_request('simpletest')) {
-		$test = _request('test');
+		$test = str_replace('..','',_request('test'));
 		if ((substr($test, 0, 6) != 'tests/')
 			AND (substr($test, 0, 6) != 'unit/')
 			AND (false === strpos($test, _DIR_CACHE))) {
