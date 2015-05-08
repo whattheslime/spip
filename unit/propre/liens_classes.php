@@ -1,5 +1,6 @@
 <?php
 
+	$err = array();
 	$test = 'liens_classes';
 	$remonte = "../";
 	while (!is_dir($remonte."ecrire"))
@@ -41,7 +42,7 @@
 		$err[] = "Classe $c errone dans $p0 : ".PtoBR(propre($p0));
 
 	// si le tableau $err est pas vide ca va pas
-	if ($err) {
+	if (count($err)) {
 		echo ('<dl><dt>' . join('</dt><dt>', $err) . '</dt></dl>');
 	} else {
 		echo "OK";
