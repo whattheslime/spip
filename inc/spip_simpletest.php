@@ -379,18 +379,18 @@ class SpipTest extends UnitTestCase {
 
 	/**
 	 * Ecrire un fichier a l'endroit indique
-	 * Si le fichier existe, il n'est pas recree
-	 * sauf en cas de var_mode=recalcul
+	 *
+	 * Le réécrit systématiquement.
 	 * 
 	 * @param string $adresse	Adresse du fichier a ecrire
 	 * @param string $contenu	Contenu du fichier
 	 * @return null
 	 */
 	function ecrire_fichier($adresse, $contenu){
-		if (!file_exists($adresse)
-		OR (isset($GLOBALS['var_mode']) AND $GLOBALS['var_mode']=='recalcul')) {
-			ecrire_fichier($adresse, $contenu);
+		if (file_exists($adresse)) {
+			supprimer_fichier($adresse);
 		}
+		ecrire_fichier($adresse, $contenu);
 	}
 }
 

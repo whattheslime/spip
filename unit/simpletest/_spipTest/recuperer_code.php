@@ -11,7 +11,7 @@ class Test_SpipTestRecupererCode extends SpipTest{
 	function testRecupererCode(){
 		$this->assertEqualCode('Hello World','Hello World');
 	}
-	function testRecupererCodeAvecFonctionEtApreCode(){
+	function testRecupererCodeAvecFonctionEtApresCode(){
 		$this->options_recuperer_code(array(
 			'fonctions'=>"
 						function so_smile(){
