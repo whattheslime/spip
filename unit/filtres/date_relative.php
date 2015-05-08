@@ -7,6 +7,9 @@
  * le 2010-03-14 22:18
  */
 
+	// Pour que le tests soit independant de la timezone du serveur
+	ini_set('date.timezone','Europe/Paris');
+
 	$test = 'date_relative';
 	$remonte = "../";
 	while (!is_dir($remonte."ecrire"))

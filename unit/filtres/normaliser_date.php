@@ -7,6 +7,9 @@
  * le 
  */
 
+	// Pour que le tests soit independant de la timezone du serveur
+	ini_set('date.timezone','Europe/Paris');
+
 	$test = 'normaliser_date';
 	$remonte = "../";
 	while (!is_dir($remonte."ecrire"))

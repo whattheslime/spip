@@ -7,6 +7,9 @@
  * le 2011-07-27 15:46
  */
 
+	// Pour que le tests soit independant de la timezone du serveur
+	ini_set('date.timezone','Europe/Paris');
+
 	$test = 'affdate_debut_fin';
 	$remonte = "../";
 	while (!is_dir($remonte."ecrire"))
