@@ -43,6 +43,11 @@ if ((!isset($GLOBALS['visiteur_session']['statut'])
 	die('Administrateur local requis !');
 }
 
+// afficher toutes les erreurs
+@ini_set('display_errors', 'On');
+@error_reporting(E_ALL);
+
+
 /**
  * Fonction pour démarrer les tests simpletest.
 **/
