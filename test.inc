@@ -92,7 +92,7 @@ function tester_fun($fun, $essais, $opts = array())
 		$ok = false;
 		#var_dump($res);
 		if (is_array($ess) and is_array($ess[0]) and isset($ess[0][0])
-		  && function_exists($ess[0][0]) && isset($ess[0][1]) && isset($ess[0][2])) {
+			&& is_string($ess[0][0]) && function_exists($ess[0][0]) && isset($ess[0][1]) && isset($ess[0][2])) {
 			$ok = ($ess[0][0]($ess[0][1],$res)==$ess[0][2]);
 		} else {
 			$ok = test_equality($res,$ess[0]);
