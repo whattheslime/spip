@@ -64,7 +64,7 @@ class Test_balise_introduction extends SpipTest{
 			<BOUCLE_a(ARTICLES){chapo=='.{100}'}{texte>''}{descriptif=''}{0,1}>
 			[(#INTRODUCTION)]
 			</BOUCLE_a>
-			NA necessite un article avec un texte long et pas de descriptif
+			NA necessite un article avec du texte, un chapo long (plus de 1000 caracteres) et pas de descriptif
 			<//B_a>
 		";
 		if (!$this->exceptionSiNa($res = $this->recuperer_code($code))) {
