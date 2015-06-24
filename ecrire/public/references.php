@@ -384,15 +384,6 @@ function applique_filtres($p) {
 	else
 		$code = $p->code;
 
-	// Appliquer les filtres perso
-	if ($p->param)
-		$code = compose_filtres($p, $code);
-
-	// S'il y a un lien avec la session, ajouter un code qui levera
-	// un drapeau dans la structure d'invalidation $Cache
-	if (isset($p->descr['session']))
-		$code = "invalideur_session(\$Cache, $code)";
-
 	// Securite
 	if ($p->interdire_scripts
 	AND $p->etoile != '**') {
@@ -403,6 +394,16 @@ function applique_filtres($p) {
 		  $code = "sinon(interdire_scripts($r[1]),'$code')";
 		}
 	}
+
+	// Appliquer les filtres
+	if ($p->param)
+		$code = compose_filtres($p, $code);
+
+	// S'il y a un lien avec la session, ajouter un code qui levera
+	// un drapeau dans la structure d'invalidation $Cache
+	if (isset($p->descr['session']))
+		$code = "invalideur_session(\$Cache, $code)";
+
 	return $code;
 }
 
