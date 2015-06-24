@@ -27,7 +27,7 @@ function filtre_multipart_dist($t) {return '';}
 function filtre_text_dist($t) {
 	static $t1 = array('&', '<', '>');
 	static $t2 = array('&amp;', '&lt;', '&gt;');
-	return '<pre>' . str_replace($t1, $t2, $t) . '</pre>';
+	return !$t ? $t : ('<pre>' . str_replace($t1, $t2, $t) . '</pre>');
 }
 
 // http://doc.spip.org/@filtre_text_csv_dist
