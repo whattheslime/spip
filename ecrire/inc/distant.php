@@ -16,7 +16,7 @@ if (!defined('_INC_DISTANT_VERSION_HTTP')) define('_INC_DISTANT_VERSION_HTTP', "
 if (!defined('_INC_DISTANT_CONTENT_ENCODING')) define('_INC_DISTANT_CONTENT_ENCODING', "gzip");
 if (!defined('_INC_DISTANT_USER_AGENT')) define('_INC_DISTANT_USER_AGENT', 'SPIP-' . $GLOBALS['spip_version_affichee'] . " (" . $GLOBALS['home_server'] . ")");
 
-define('_REGEXP_COPIE_LOCALE', ',' . 
+if (!defined('_REGEXP_COPIE_LOCALE')) define('_REGEXP_COPIE_LOCALE', ',' . 
        preg_replace('@^https?:@', 'https?:', $GLOBALS['meta']['adresse_site'])
        . "/?spip.php[?]action=acceder_document.*file=(.*)$,");
 
@@ -45,8 +45,9 @@ function copie_locale($source, $mode='auto') {
 
 	// si c'est la protection de soi-meme, retourner le path
 	if ($mode !== 'force' AND preg_match(_REGEXP_COPIE_LOCALE, $source, $local)) {
-		$source = substr(_DIR_IMG,strlen(_DIR_RACINE)) . urldecode($local[1]);
-		return @file_exists($source) ? $source : false;
+        $source = urldecode($local[1]);
+		$local = substr(_DIR_IMG,strlen(_DIR_RACINE))  . $source;
+		return (@file_exists($local) OR @file_exists(_DIR_IMG . $source )) ? $local : false;
 	}
 	$local = fichier_copie_locale($source);
 	$localrac = _DIR_RACINE.$local;
@@ -58,12 +59,13 @@ function copie_locale($source, $mode='auto') {
 	// si $local = '' c'est un fichier refuse par fichier_copie_locale(),
 	// par exemple un fichier qui ne figure pas dans nos documents ;
 	// dans ce cas on n'essaie pas de le telecharger pour ensuite echouer
+
 	if (!$local) return false;
 
 	// sinon voir si on doit/peut le telecharger
 	if ($local==$source OR !preg_match(',^\w+://,', $source))
 		return $local;
-	
+
 	if ($mode=='modif' OR !$t){
 		// passer par un fichier temporaire unique pour gerer les echecs en cours de recuperation
 		// et des eventuelles recuperations concurantes
