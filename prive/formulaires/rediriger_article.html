@@ -14,7 +14,7 @@
 				<span class='erreur_message'>(#GET{erreurs})</span>
 				]<p class="explication"><:texte_reference_mais_redirige:></p>
 				<input type="text" class="text" name="#GET{name}" id="#GET{name}-#ENV{id}" value="#ENV{#GET{name},'http://'}"
-				onkeypress="jQuery(this).parents('ul').siblings('.boutons:hidden').show('fast');"/>
+				onfocus="jQuery(this).parents('.editer-groupe').siblings('.boutons:hidden').show('fast');"/>
 				
 			</div>
 		</div>
