@@ -189,18 +189,19 @@ function formulaires_declarer_bases_traiter_dist(){
 	else
 		$port = '';
 
-	$adresse_db = addcslashes($adresse_db,"'\\");
-	$port = addcslashes($port,"'\\");
-	$login_db = addcslashes(_DECLARER_login_db,"'\\");
-	$pass_db = addcslashes(_DECLARER_pass_db,"'\\");
-	$sup_db = addcslashes(_DECLARER_choix_db,"'\\");
 	$server_db = addcslashes(_DECLARER_serveur_db,"'\\");
 
 	$conn = install_mode_appel($server_db)
-	. "spip_connect_db("
-	. "'$adresse_db','$port','$login_db',"
-	. "'$pass_db','$sup_db'"
-	. ",'$server_db', '');\n";
+	. install_connexion(
+			$adresse_db,
+			$port,
+			_DECLARER_login_db,
+			_DECLARER_pass_db,
+			_DECLARER_choix_db,
+			_DECLARER_serveur_db,
+			'',
+			'',
+			'');
 
 	install_fichier_connexion(_DIR_CONNECT . _DECLARER_nom_connect . '.php', $conn);
 	return array('message_ok'=>_T('install_connect_ok',array('connect' => "<strong>"._DECLARER_nom_connect."</strong>")));
