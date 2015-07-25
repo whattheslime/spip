@@ -639,7 +639,7 @@ jQuery.spip.ajaxReload = function(blocfrag, options){
 	if (!ajax_env || ajax_env==undefined) return;
 	var href = options.href || blocfrag.attr('data-url') || blocfrag.attr('data-origin');
 	if (href && typeof href != undefined){
-		options == options || {};
+		options = options || {};
 		var callback=options.callback || null;
 		var history=options.history || false;
 		var args = options.args || {};
