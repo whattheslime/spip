@@ -251,8 +251,16 @@ function formulaires_dater_traiter_dist($objet, $id_objet, $retour='', $options=
 				$set['date_redac'] = sql_format_date($d[0], $d[1], $d[2], $h[0], $h[1]);
 			}
 		}
+
+		$publie_avant = objet_test_si_publie($objet,$id_objet);
 		include_spip('action/editer_objet');
 		objet_modifier($objet, $id_objet, $set);
+		$publie_apres = objet_test_si_publie($objet,$id_objet);
+		if ($publie_avant !== $publie_apres){
+			// on refuse ajax pour forcer le rechargement de la page ici
+			// on refera traiter une 2eme fois, mais c'est sans consequence
+			refuser_traiter_formulaire_ajax();
+		}
 	}
 
 	if ($retour)
