@@ -928,8 +928,8 @@ function parametre_url(url,c,v,sep,force_vide){
 		if (p>0) a=url.substring(0,p);
 		args = url.substring(p+1).split('&');
 	}
-        else
-            a=url;
+	else
+		a=url;
 	var regexp = new RegExp('^(' + c.replace('[]','\\[\\]') + '\\[?\\]?)(=.*)?$');
 	var ajouts = [];
 	var u = (typeof(v)!=='object')?encodeURIComponent(v):v;
