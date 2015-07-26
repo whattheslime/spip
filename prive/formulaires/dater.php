@@ -100,6 +100,12 @@ function formulaires_dater_charger_dist($objet, $id_objet, $retour='', $options=
 	$valeurs['_label_date'] = (($statut == 'publie')? _T('texte_date_publication_objet'): _T('texte_date_creation_objet'));
 	$valeurs['_saisie_en_cours'] = (_request('date_jour')!==null);
 
+	// cas ou l'on ne peut pas dater mais on peut modifier la date de redac anterieure
+	// https://core.spip.net/issues/3494
+	$valeurs['_editer_date'] = $valeurs['editable'];
+	if ($valeurs['_editer_date_anterieure'] AND !$valeurs['editable']){
+		$valeurs['editable'] = autoriser('modifier',$objet,$id_objet);
+	}
 	return $valeurs;
 }
 
@@ -175,14 +181,19 @@ function formulaires_dater_traiter_dist($objet, $id_objet, $retour=''){
 
 		$set = array();
 
-		if (!$d = dater_recuperer_date_saisie(_request('date_jour')))
-			$d = array(date('Y'),date('m'),date('d'));
-		if (!$h = dater_recuperer_heure_saisie(_request('date_heure')))
-			$h = array(0,0);
+		$charger = charger_fonction("charger","formulaires/dater/");
+		$v = $charger($objet, $id_objet, $retour, $options);
 
-		$set[$champ_date] = sql_format_date($d[0], $d[1], $d[2], $h[0], $h[1]);
+		if ($v['_editer_date']){
+			if (!$d = dater_recuperer_date_saisie(_request('date_jour')))
+				$d = array(date('Y'),date('m'),date('d'));
+			if (!$h = dater_recuperer_heure_saisie(_request('date_heure')))
+				$h = array(0,0);
 
-		if (isset($desc['field']['date_redac'])){
+			$set[$champ_date] = sql_format_date($d[0], $d[1], $d[2], $h[0], $h[1]);
+		}
+
+		if (isset($desc['field']['date_redac']) AND $v['_editer_date_anterieure']){
 			if (!_request('date_redac_jour') OR _request('sans_redac'))
 				$set['date_redac'] = sql_format_date(0,0,0,0,0,0);
 			else {
@@ -193,8 +204,18 @@ function formulaires_dater_traiter_dist($objet, $id_objet, $retour=''){
 				$set['date_redac'] = sql_format_date($d[0], $d[1], $d[2], $h[0], $h[1]);
 			}
 		}
-		include_spip('action/editer_objet');
-		objet_modifier($objet, $id_objet, $set);
+
+		if (count($set)){
+			$publie_avant = objet_test_si_publie($objet,$id_objet);
+			include_spip('action/editer_objet');
+			objet_modifier($objet, $id_objet, $set);
+			$publie_apres = objet_test_si_publie($objet,$id_objet);
+			if ($publie_avant !== $publie_apres){
+				// on refuse ajax pour forcer le rechargement de la page ici
+				// on refera traiter une 2eme fois, mais c'est sans consequence
+				refuser_traiter_formulaire_ajax();
+			}
+		}
 	}
 
 	if ($retour)
