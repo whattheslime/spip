@@ -32,6 +32,8 @@
 
 	// attribut autodefini
 	$essais['attribut autodefini'] = array('checked', '<input checked />', 'checked');
+	$essais['attribut autodefini 2'] = array('checked', '<input checked/>', 'checked');
+	$essais['attribut autodefini 3'] = array('checked', '<input checked>', 'checked');
 
 	// inserer un attribut deja existant
 	$balise = inserer_attribut('<img src="a" width=12>', 'src', 'b');
