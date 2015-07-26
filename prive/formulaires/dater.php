@@ -121,7 +121,7 @@ function formulaires_dater_charger_dist($objet, $id_objet, $retour='', $options=
 	else
 		$valeurs['_editer_date_anterieure'] = ($objet=='article' AND ($GLOBALS['meta']["articles_redac"] != 'non' OR $possedeDateRedac));
 	$valeurs['_label_date'] = (($statut == 'publie')? _T('texte_date_publication_objet'): _T('texte_date_creation_objet'));
-	$valeurs['_saisie_en_cours'] = (_request('date_jour')!==null);
+	$valeurs['_saisie_en_cours'] = (_request('_saisie_en_cours')!==null OR _request('date_jour')!==null);
 
 	// cas ou l'on ne peut pas dater mais on peut modifier la date de redac anterieure
 	// https://core.spip.net/issues/3494
@@ -195,6 +195,12 @@ function formulaires_dater_identifier_dist($objet, $id_objet, $retour='', $optio
  */
 function formulaires_dater_verifier_dist($objet, $id_objet, $retour='', $options=array()){
 	$erreurs = array();
+
+	// ouvrir le formulaire en edition ?
+	if (_request('_saisie_en_cours')){
+		$erreurs['message_erreur'] = '';
+		return $erreurs;
+	}
 
 	foreach(array('date','date_redac') as $k){
 		if ($v=_request($k."_jour") AND !dater_recuperer_date_saisie($v, $k))
