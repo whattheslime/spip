@@ -205,6 +205,7 @@ function AjaxSqueezeNode(trig, target, f, event) {
 			"url":trig,
 			"complete": function(r,s) {
 				AjaxRet(r,s,target, callback);
+				jQuery(target).endLoading();
 			}
 		});
 		return res;
