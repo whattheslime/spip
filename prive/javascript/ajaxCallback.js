@@ -211,10 +211,10 @@ jQuery.fn.formulaire_setARIA = function(){
 jQuery.fn.formulaire_dyn_ajax = function(target) {
 	if (this.length)
 		jQuery.spip.initReaderBuffer();
-  return this.each(function() {
-	  var scrollwhensubmit = !jQuery(this).is('.noscroll');
+	return this.each(function() {
+		var scrollwhensubmit = !jQuery(this).is('.noscroll');
 		var cible = target || this;
-	  jQuery(cible).formulaire_setARIA();
+		jQuery(cible).formulaire_setARIA();
 		jQuery('form:not(.noajax):not(.bouton_action_post)', this).each(function(){
 		var leform = this;
 		var leclk,leclk_x,leclk_y;
@@ -230,13 +230,13 @@ jQuery.fn.formulaire_dyn_ajax = function(target) {
 			beforeSubmit: function(){
 				// memoriser le bouton clique, en cas de repost non ajax
 				leclk = leform.clk;
-        if (leclk) {
-            var n = leclk.name;
-            if (n && !leclk.disabled && leclk.type == "image") {
-							leclk_x = leform.clk_x;
-							leclk_y = leform.clk_y;
-            }
-        }
+				if (leclk) {
+					var n = leclk.name;
+					if (n && !leclk.disabled && leclk.type == "image") {
+						leclk_x = leform.clk_x;
+						leclk_y = leform.clk_y;
+					}
+				}
 				jQuery(cible).wrap('<div />');
 				cible = jQuery(cible).parent();
 				jQuery(cible).closest('.ariaformprop').animateLoading();
@@ -253,8 +253,8 @@ jQuery.fn.formulaire_dyn_ajax = function(target) {
 					// les reinjecter dans le dom sous forme de input hidden
 					// pour que le serveur les recoive
 					if (leclk){
-            			var n = leclk.name;
-           				if (n && !leclk.disabled) {
+						var n = leclk.name;
+						if (n && !leclk.disabled) {
 							jQuery(leform).prepend("<input type='hidden' name='"+n+"' value='"+leclk.value+"' />");
 							if (leclk.type == "image") {
 								jQuery(leform).prepend("<input type='hidden' name='"+n+".x' value='"+leform.clk_x+"' />");
@@ -335,8 +335,7 @@ jQuery.fn.formulaire_dyn_ajax = function(target) {
 		})
 		// previent qu'on n'ajaxera pas deux fois le meme formulaire en cas de ajaxload
 		// mais le marquer comme ayant l'ajax au cas ou on reinjecte du contenu ajax dedans
-		.addClass('noajax hasajax')
-		;
+		.addClass('noajax hasajax');
 		});
   });
 }
@@ -692,26 +691,26 @@ jQuery.fn.ajaxbloc = function() {
 	if (ajaxbloc_selecteur==undefined)
 		ajaxbloc_selecteur = '.pagination a,a.ajax';
 
-  return this.each(function() {
-	  // traiter les enfants d'abord :
-	  // un lien ajax provoque le rechargement
-	  // du plus petit bloc ajax le contenant
-	  jQuery('div.ajaxbloc',this).ajaxbloc();
+	return this.each(function() {
+		// traiter les enfants d'abord :
+		// un lien ajax provoque le rechargement
+		// du plus petit bloc ajax le contenant
+		jQuery('div.ajaxbloc',this).ajaxbloc();
 		var blocfrag = jQuery(this);
 
 		var ajax_env = blocfrag.attr('data-ajax-env');
 		if (!ajax_env || ajax_env==undefined) return;
 
-	  blocfrag.not('.bind-ajaxReload').bind('ajaxReload',function(event, options){
-		  if (jQuery.spip.ajaxReload(blocfrag,options))
+		blocfrag.not('.bind-ajaxReload').bind('ajaxReload',function(event, options){
+			if (jQuery.spip.ajaxReload(blocfrag,options))
 				// don't trig reload of parent blocks
 				event.stopPropagation();
-	  }).addClass('bind-ajaxReload')
-		  .attr('aria-live','polite').attr('aria-atomic','true');
+		}).addClass('bind-ajaxReload')
+			.attr('aria-live','polite').attr('aria-atomic','true');
 
 		// dans un formulaire, le screen reader relit tout a chaque saisie d'un caractere si on est en aria-live
-	  // mettre un aria-live="off" sur les forms inclus dans ce bloc aria-live="polite"
-	  jQuery('form',this).not('[aria-live]').attr('aria-live','off');
+		// mettre un aria-live="off" sur les forms inclus dans ce bloc aria-live="polite"
+		jQuery('form',this).not('[aria-live]').attr('aria-live','off');
 
 		jQuery(ajaxbloc_selecteur,this).not('.noajax,.bind-ajax')
 			.click(function(){return jQuery.spip.ajaxClick(blocfrag,this.href,{force:jQuery(this).is('.nocache'),history:!(jQuery(this).is('.nohistory')||jQuery(this).closest('.box_modalbox').length)});})
@@ -743,8 +742,7 @@ jQuery.fn.ajaxbloc = function() {
 				}/*,
 				iframe: jQuery.browser.msie*/
 			})
-			.addClass('bind-ajax') // previent qu'on n'ajaxera pas deux fois le meme formulaire en cas de ajaxload
-			;
+			.addClass('bind-ajax'); // previent qu'on n'ajaxera pas deux fois le meme formulaire en cas de ajaxload
 		});
   });
 };
@@ -909,7 +907,7 @@ function parametre_url(url,c,v,sep,force_vide){
 	if (typeof(url) == 'undefined'){
 		url = '';
 	}
-	
+
 	var p;
 	// lever l'#ancre
 	var ancre='';
