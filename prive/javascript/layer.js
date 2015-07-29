@@ -68,13 +68,19 @@ function aff_selection_titre(titre, id, idom, nid)
  * @param event
  */
 function aff_selection_provisoire(id, racine, url, col, sens,informer,event) {
-	charger_id_url(url.href,
+	if(url.href == 'javascript:void(0)'){
+		slide_horizontal(racine + '_principal', ((col-1)*150), sens);
+		aff_selection (id, racine + "_selection", informer);
+	}
+	else{
+		charger_id_url(url.href,
 			racine + '_col_' + (col+1),
 			function() {
 				slide_horizontal(racine + '_principal', ((col-1)*150), sens);
 				aff_selection (id, racine + "_selection", informer);
 			},
 			event);
+	}
 	// empecher le chargement non Ajax
 	return false;
 }
