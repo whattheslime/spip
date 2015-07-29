@@ -21,7 +21,6 @@ if (!defined('_ECRIRE_INC_VERSION')) return;
 include_spip('inc/actions');
 include_spip('inc/editer');
 
-
 /**
  * Chargement du formulaire d'édition d'article
  *
@@ -77,7 +76,6 @@ function formulaires_editer_article_identifier_dist($id_article='new', $id_rubri
 	return serialize(array(intval($id_article),$lier_trad));
 }
 
-
 /**
  * Choix par défaut des options de présentation
  *
@@ -86,8 +84,7 @@ function formulaires_editer_article_identifier_dist($id_article='new', $id_rubri
  * return array
  *     Configuration pour le formulaire
  */
-function articles_edit_config($row)
-{
+function articles_edit_config($row){
 	global $spip_lang;
 
 	$config = $GLOBALS['meta'];
