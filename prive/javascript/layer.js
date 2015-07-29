@@ -67,17 +67,16 @@ function aff_selection_titre(titre, id, idom, nid)
  * @param informer
  * @param event
  */
-function aff_selection_provisoire(id, racine, url, col, sens,informer,event)
-{
-    charger_id_url(url.href,
-		   racine + '_col_' + (col+1),
-		   function() {
-		     slide_horizontal(racine + '_principal', ((col-1)*150), sens);
-		     aff_selection (id, racine + "_selection", informer);
-		   },
-		   event);
-  // empecher le chargement non Ajax
-  return false;
+function aff_selection_provisoire(id, racine, url, col, sens,informer,event) {
+	charger_id_url(url.href,
+			racine + '_col_' + (col+1),
+			function() {
+				slide_horizontal(racine + '_principal', ((col-1)*150), sens);
+				aff_selection (id, racine + "_selection", informer);
+			},
+			event);
+	// empecher le chargement non Ajax
+	return false;
 }
 
 /**
@@ -99,20 +98,20 @@ function onkey_rechercher(valeur, rac, url, img, nid, init) {
 		init = jQuery("#"+init).get(0);
 		if (init && init.href) { charger_node_url(init.href, Field);}
 	} else {	
-	  charger_node_url(url+valeur,
-			 Field,
-			 function () {
-			   	var n = Field.childNodes.length - 1;
+		charger_node_url(url+valeur,
+			Field,
+			function () {
+				var n = Field.childNodes.length - 1;
 				// Safari = 0  & Firefox  = 1 !
 				// et gare aux negatifs en cas d'abort
 				if ((n == 1)) {
-				  noeud = Field.childNodes[n].firstChild;
-				  if (noeud.title)
-				    // cas de la rubrique, pas des auteurs
-					  aff_selection_titre(noeud.firstChild.nodeValue, noeud.title, rac, nid);
+					noeud = Field.childNodes[n].firstChild;
+					if (noeud.title)
+						// cas de la rubrique, pas des auteurs
+						aff_selection_titre(noeud.firstChild.nodeValue, noeud.title, rac, nid);
 				}
-			   },
-			   img);
+			},
+			img);
 	}
 	return false;
 }
@@ -168,9 +167,7 @@ function verifForm(racine) {
 // Son premier argument est deja le noeud du DOM
 // et son resultat booleen est inverse ce qui lui permet de retourner 
 // le gestionnaire Ajax comme valeur non fausse
-
-function AjaxSqueezeNode(trig, target, f, event)
-{
+function AjaxSqueezeNode(trig, target, f, event) {
 	var i, callback;
 
 	// retour std si pas precise: affecter ce noeud avec ce retour
@@ -205,9 +202,8 @@ function AjaxSqueezeNode(trig, target, f, event)
 			}
 		});
 		return res;
-		
 	}
-	
+
 	if(valid) {
 		//open a blank window
 		var doc = window.open("","valider").document;
@@ -255,8 +251,7 @@ function AjaxRet(res,status, target, callback) {
 // (utile surtout a la frappe interactive au clavier)
 // De plus, la fonction optionnelle n'a pas besoin de greffer la reponse.
 
-function charger_id_url(myUrl, myField, jjscript, event) 
-{
+function charger_id_url(myUrl, myField, jjscript, event) {
 	var Field = jQuery("#"+myField);
 	if (!Field.length) return true;
 
@@ -270,9 +265,7 @@ function charger_id_url(myUrl, myField, jjscript, event)
 }
 
 // La suite
-
-function charger_node_url(myUrl, Field, jjscript, img, event) 
-{
+function charger_node_url(myUrl, Field, jjscript, img, event) {
 	// disponible en cache ?
 	if (url_chargee[myUrl]) {
 			var el = jQuery(Field).html(url_chargee[myUrl])[0];
@@ -291,21 +284,20 @@ function charger_node_url(myUrl, Field, jjscript, img, event)
 					url_chargee[myUrl] = r;
 					retour_id_url(Field, jjscript);
 					slide_horizontal($(Field).children().attr("id")+'_principal', $(Field).width() , $(Field).css("text-align"));
-						    },
+				},
 				event);
 		return false;
 	}
 }
 
-function retour_id_url(Field, jjscript)
-{
+function retour_id_url(Field, jjscript) {
 	jQuery(Field).css({'visibility':'visible','display':'block'});
 	if (jjscript) jjscript();
 }
 
 function charger_node_url_si_vide(url, noeud, gifanime, jjscript,event) {
 
-	if  (noeud.style.display !='none') {
+	if (noeud.style.display !='none') {
 		noeud.style.display='none';}
 	else {
 		if (noeud.innerHTML != "") {
@@ -315,7 +307,7 @@ function charger_node_url_si_vide(url, noeud, gifanime, jjscript,event) {
 			charger_node_url(url, noeud,'',gifanime,event);
 		}
 	}
-  return false;
+	return false;
 }
 
 // Lancer verifForm
