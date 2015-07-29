@@ -53,6 +53,7 @@ function aff_selection_titre(titre, id, idom, nid)
 	p.find('#'+nid).attr('value',id).trigger('change'); // declencher le onchange
 	p.find("#"+idom).hide('fast');
 	if (p.is('.submit_plongeur')) p.get(p.length-1).submit();
+	else p.find("#"+idom).prev('div').find('a').eq(0).focus();
 }
 
 
