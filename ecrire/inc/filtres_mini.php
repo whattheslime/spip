@@ -108,7 +108,8 @@ function liens_absolus($texte, $base='') {
 				if (strlen($href)>0) {
 					$abs = url_absolue($href, $base);
 					if ($href != $abs and !preg_match('/^#/',$href)) {
-						$texte = inserer_attribut($texte, $attr, $abs);
+						$texte_lien = inserer_attribut($lien[0], $attr, $abs);
+						$texte = str_replace($lien[0],$texte_lien,$texte);
 					}
 				}
 			}
