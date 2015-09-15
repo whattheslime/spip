@@ -39,16 +39,19 @@ function inc_formater_auteur_dist($id_auteur, $row=NULL) {
 
 	$vals = array();
 	$statut = $row['statut'];
-	$href = generer_url_ecrire("auteurs","statut=$statut");
-	$vals[] = "<a href='$href'>" . bonhomme_statut($row) . '</a>';
+    if ($statut) {
+        $href = generer_url_ecrire("auteurs","statut=$statut");
+        $statut = "<a href='$href'>" . bonhomme_statut($row) . '</a>';
+    }
+	$vals[] = $statut;
 
 	if (($id_auteur == $connect_id_auteur) OR $row['parti'])
 		$vals[]= '&nbsp;';
 	else	$vals[]= formater_auteur_mail($row, $id_auteur);
 
 	if (!$nom = typo($row['nom']))
-		$nom = "<span style='color: red'>" . _T('texte_vide') . '</span>';
-
+		$nom = "<span style='color: red'>$id_auteur</span>";
+    
 	$vals[] = "<a href='"
 	. generer_url_ecrire('auteur_infos', "id_auteur=$id_auteur")
 	. "'"
