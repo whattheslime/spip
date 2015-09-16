@@ -65,7 +65,7 @@ afficher la selection dans un ul class item_picked
 
 [(#ENV{sortable,'non'}|=={oui}|oui)
 <script type='text/javascript'>
-jQuery.getScript('[(#CHEMIN{formulaires/selecteur/jquery-ui-1.8.custom.js}|timestamp)]',function(){
+jQuery.getScript('[(#PRODUIRE{fond=formulaires/selecteur/jquery.selecteur.js}|timestamp)]',function(){
 	jQuery(function() {jQuery("ul.item_picked").sortable(); });
 });
 </script>
