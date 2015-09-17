@@ -54,6 +54,7 @@ if (!defined('CHARSET_JOINT')) define('CHARSET_JOINT', 'iso-8859-1');
 // http://doc.spip.org/@contenu_document
 function contenu_document($arg, $charset='')
 {
+	include_spip('inc/distant');
 	if (is_numeric($arg)) {
 		$r = sql_fetsel("fichier,distant", "spip_documents", "id_document=".sql_quote($arg));
 		if (!$r) return '';
