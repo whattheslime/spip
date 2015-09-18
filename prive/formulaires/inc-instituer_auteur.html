@@ -21,7 +21,7 @@
 <div class="rubriques_restreintes[(#STATUT|in_array{#GET{statuts_auteurs}}|non)none-js]">
 	[(#SET{label,<:info_restreindre_rubrique:>})]
 	<B_restreint>
-			<p><:info_admin_gere_rubriques:></p>
+			<p><:info_auteur_gere_rubriques:></p>
 			<ul id='liste_rubriques_restreintes' class="item_picked">
 				<BOUCLE_restreint(RUBRIQUES){id_auteur}{statut==.*}{si #ENV{statut}|in_array{#GET{statuts_auteurs}}}>
 					<li class="rubrique"><input type='checkbox' class="checkbox" name='restreintes[]' checked="checked" value='#ID_RUBRIQUE' />
