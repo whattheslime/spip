@@ -19,7 +19,7 @@
 				[(#ENV{_langue}|ou{#ENV{_traduire}}|oui)
 					<span class="toggle_box_link"[(#ENV{_saisie_en_cours}|oui)style="display:none;"]>&#91;<a href="#"
 						onclick="var f=jQuery(this).parents('form').eq(0);
-							f.find('.editer .input').show('fast');
+							f.find('.editer-groupe .input').removeClass('none-js').show('fast');
 							f.find('span.toggle_box_link[(#ENV{_langue}|oui),span.affiche]').hide('fast');
 							f.find('.boutons,.new_trad,.editer_id_trad').show('fast');
 							f.find('#changer_lang').eq(0).focus();return false;"
@@ -29,6 +29,7 @@
 					<select name="changer_lang" id="changer_lang">(#INCLURE{fond=formulaires/inc-options-langues,name=changer_lang,default=#ENV**{_langue},herit=#ENV**{langue_parent}})</select>
 					</span>]]]
 			</div>
+
 			[(#ENV{_traduire}|oui)
 				[(#ENV{_lister_id_trad}|oui)
 				<div class="fieldset voir_traductions">
