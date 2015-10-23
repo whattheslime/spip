@@ -28,13 +28,13 @@ function inc_lien_dist($lien, $texte='', $class='', $title='', $hlang='', $rel='
 	// - [{en}->art2] => traduction anglaise de l'article 2, sinon art 2
 	// - [{}->art2] => traduction en langue courante de l'art 2, sinon art 2
 	if ($hlang
-	AND $match = typer_raccourci($lien)) { 
-		@list($type,,$id,,$args,,$ancre) = $match; 
-		if ($id_trad = sql_getfetsel('id_trad', 'spip_articles', "id_article=$id")
+	AND ($m = typer_raccourci($lien))
+    AND ($m[0] == 'article')) {
+		if ($id_trad = sql_getfetsel('id_trad', 'spip_articles', "id_article=" . $m[2])
 		AND $id_dest = sql_getfetsel('id_article', 'spip_articles',
 			"id_trad=$id_trad  AND statut<>'refuse' AND lang=" . sql_quote($hlang))
 		)
-			$lien = "$type$id_dest";
+			$lien = "art$id_dest";
 		else
 			$hlang = '';
 	}
@@ -78,8 +78,10 @@ function inc_lien_dist($lien, $texte='', $class='', $title='', $hlang='', $rel='
 	AND false === strpos("$lien/", url_de_base()))
 		$rel = trim("$rel external");
 	if ($rel) $rel = " rel='$rel'";
+	$h = str_replace('"', '&quot;', $lien);
+	$class = !$class ? '' : " class='$class'";
 
-	$lien = "<a href=\"".str_replace('"', '&quot;', $lien)."\" class='$class'$lang$title$rel$mime>$texte</a>";
+	$lien = "<a href=\"$h\"$class$lang$title$rel$mime>$texte</a>";
 
 	# ceci s'execute heureusement avant les tableaux et leur "|".
 	# Attention, le texte initial est deja echappe mais pas forcement
