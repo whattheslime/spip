@@ -446,6 +446,7 @@ function calculer_boucle_nonrec($id_boucle, &$boucles, $trace) {
 		// afin que le corps de boucle affecte la globale directement
 		$init_lang = "lang_select(\$GLOBALS['spip_lang']);\n\t";
 		$fin_lang = "lang_select();\n\t";
+		$fin_lang_select_public = "\n\t\tlang_select();";
 
 		$corps .= 
 			"\n\t\tlang_select_public("
@@ -459,6 +460,7 @@ function calculer_boucle_nonrec($id_boucle, &$boucles, $trace) {
 	else {
 		$init_lang = '';
 		$fin_lang = '';
+		$fin_lang_select_public = '';
 		// sortir les appels au traducteur (invariants de boucle)
 		if (strpos($return, '?php') === false
 		AND preg_match_all("/\W(_T[(]'[^']*'[)])/", $return, $r)) {
@@ -502,6 +504,9 @@ function calculer_boucle_nonrec($id_boucle, &$boucles, $trace) {
 		$corps = "\n\t\t\$Numrows['$id_boucle']['compteur_boucle']++;"
 		. $boucle->partie 
 		. $corps;
+
+	// depiler la lang de la boucle si besoin
+	$corps .= $fin_lang_select_public;
 
 	// si le corps est une constante, ne pas appeler le serveur N fois!
 
