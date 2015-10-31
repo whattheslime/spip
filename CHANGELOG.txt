@@ -1,3 +1,51 @@
+
+SPIP-Core spip-3.0.20 -> spip-3.0.21  31 octobre 2015
+-------------------------------------------------------------
+
+r22267 | cedric    |  (mer. 24 juin 2015) | Quand la source image est dans IMG/ et contient une query-string complexe et que le fichier existe sans la query-string, on l'ignore. Repare le traitement des images qui ont une URL restreinte basee sur la query-string+htaccess
+r22282 | fil       |  (lun. 29 juin 2015) | report de #22281 (https://core.spip.net/issues/3456)
+r22315 | cedric    |  (lun. 20 juil. 2015) | Reparer la desinstallation des plugins dans _DIR_PLUGINS_SUPPL
+r22326 | cedric    |  (ven. 24 juil. 2015) | Report de r22325 : Fix #3504 : purge des autosave cvt en session
+r22327 | cedric    |  (ven. 24 juil. 2015) | Report de r21817 : 0 est une valeur acceptable pour un champ obligatoire (Frederic, Pierretux)
+r22342 | cedric    |  (sam. 25 juil. 2015) | Fix #3510 : parametre_url sur les arguments de type tableau. On backporte la version du trunk 3.1 sur laquelle le bug a ete corrige
+r22344 | cedric    |  (dim. 26 juil. 2015) | Report de r22343 : Fix #3494 : quand la date de redaction anterieure est utilisee, il faut pouvoir l'editer sur un article en cours de redaction, comme avant, mais sans permettre l'edition de la date.On robustifie traiter() en verifiant le droit a edition qui a ete calcule dans charger() avant de prendre en compte les request, ce qui evite tout risque de manipulation du form et d'injection d'input en html+ Report de r22338 au passage
+r22362 | kent1     |  (mar. 28 juil. 2015) | Récupérer le title et le hreflang du lien entourant un modèle cf #3516
+r22384 | kent1     |  (mer. 12 août 2015) | Gros bug sur r22282 (cf #3456)Le passage en liens absolus se faisait uniquement sur le premier href ou src, remplaçant le premier href ou src par le dernier href / src présent dans le texte...On ne remplaçait plus lien par lien
+r22392 | erational |  (mar. 25 août 2015) | report de c22360
+r22393 | erational |  (mar. 25 août 2015) | arménien en code HTML
+r22402 | rasta     |  (jeu. 03 sept. 2015) | RAH. On corrige enfin ce fichu gros bug du compilateur qui faisait qu'on ne pouvait pas avoir un critère conditionnel ET plusieurs arguments.Ça marchait pour les critères sans arguments ou avec un seul argument.La raison ? Non-factorisation et doublonnage de code : actuellement, les critères mêmes persos (pas juste les trucs SQL) qui ont 0 ou 1 arguments, ne passent PAS par le même code que ceux avec 2 ou plus. Alors qu'ensuite le traitement et la regex associée sont quasiment les mêmes… mais pas tout à fait, puisque dans le cas 2 ou plus ça ne cherchait pas le "?".Pour l'instant on corrige juste le bug, mais il faudrait nettoyer le code et factoriser pour ne plus générer d'erreur de ce genre…Au passage, pour SPIP 3.0, on backport la correction du "_" manquant qui faisait, là aussi qu'avec 2 arguments ou plus, on avait pas le droit d'avoir des critères avec_plusieurs_mots, alors qu'on peut avec 0 ou 1 argument. Même raison : code fait deux fois différemment, dont la regex.
+r22434 | erational |  (ven. 16 oct. 2015) | pas d'accent sur Kreyòl (Peyi Dayiti)
+r22436 | cedric    |  (lun. 19 oct. 2015) | On ajoute l'heure de publication au survol de la date, cela est utile pour faire de la programmation intensive d'article a l'avance
+r22442 | cedric    |  (mar. 27 oct. 2015) | Report de r22441 : r17234 a introduit un include_spip() au debut de base/connect_sql.php, ce qui etait une erreur car ce fichier est inclus par inc_version avant toute initialisation du core et chargement des caches.Du coup chaque hit provoquait une invalidation du chemin car find_in_path appele trop tot croyait que son find etait nouveau, donc le hit se finissait par une ecriture du fichier tmp/cache/chemin.txt.Comme ce fichier peut etre assez gros (>100ko) et ecrit en posant un verrou, cela impactait la performance par un debit d'ecriture sur le disque et des possibles attentes entre hit concourants.Bug repere par nicod en 3.0 et confirme par RealET en 3.1
+r22444 | cedric    |  (mar. 27 oct. 2015) | Report de r22443 : Complement a r22441 : ne pas lever le flag en cas de find_in_path appele trop tot si le fichier n'est pas trouve
+r22449 | cedric    |  (jeu. 29 oct. 2015) | Report de r22427 : #3371 Les squelettes de l'espace prive recoivent un flag espace_prive=1 a toute fin utile
+r22450 | cedric    |  (jeu. 29 oct. 2015) | Report de r22428 : Fix #3371 : dans la fonction typo, si un flag espace_prive=1 est present dans le env, on echappe tout html suspect, ie qui ne passe pas a travers safehtml sans censure. Pour limiter l'impact perfo on conditionne l'echappement a la presence des caracteres < et = dans le texte, c'est a dire une balise avec un attribut, ce qui ne traitera donc quasiment aucun contenu par defaut, sauf quelques rares <span lang='en'> ou autre curiosite de ce type
+r22451 | cedric    |  (jeu. 29 oct. 2015) | Report de r22429 : oups oubli dans r22428 : cas de typo appele en php depuis l'espace prive
+r22452 | b_b       |  (jeu. 29 oct. 2015) | report de r22346Fix #3430 : les boucles avec langue utilisaient lang_select_public() qui changeait sauvagement la langue en debut de boucle, sans la restaurer en fin de boucle, provoquant des bugs de contexteOn modifie la compulation des boucles : lang_select_public() appelle toujours lang_select(...) avec eventuellement la langue inchangee, et la boucle finit par un lang_select() qui depile et restaure la langue pour l'iteration suivante.
+
+SPIP-plugins-dist spip-3.0.20 -> spip-3.0.21  31 octobre 2015
+-------------------------------------------------------------
+
+r91143 | kent1     |  (mar. 28 juil. 2015) | Récupérer le title et le hreflang du lien entourant un modèle cf #3516
+r91205 | cedric    |  (jeu. 30 juil. 2015) | bug lors d'une erreur a la creation d'un mot (confirmation sur un doublon par exexemple)
+r91206 | cedric    |  (jeu. 30 juil. 2015) | complement a r91205
+r91209 | cy_altern |  (jeu. 30 juil. 2015) | report de 91148 (acces de google bot aux js et css)
+r91271 | cedric    |  (mer. 05 août 2015) | On ne verifie et alerte sur le doublon de titre de mot cle uniquement si c'est un nouveau mot cle ou si on retitre un mot cle existant, sinon c'est penible
+r91274 | cedric    |  (mer. 05 août 2015) | ne pas syndiquer un site en refuse
+r91290 | real3t    |  (ven. 07 août 2015) | Mise à jour pour la reconnaissance des moteurs de recherche. Reportable en 2.1.
+r91384 | real3t    |  (dim. 16 août 2015) | Un paramètre de plus reconnu pour Google
+r91608 | kent1     |  (jeu. 03 sept. 2015) | Report de la fonctionnalité de z91607"Faire prendre en compte à la prévisu l'hypothétique dir="ltr" ou dir="rtl" sur le textarea"
+r91797 | marcimat  |  (sam. 12 sept. 2015) | Report de r91796 :  Le pipeline "afficher_contenu_objet" n'était pas appelé pour l'affichage des groupes de mots sur la page exec=mots.
+r92079 | chankalan |  (mar. 29 sept. 2015) | pour affichage des colonnes des visites, report de http://zone.spip.org/trac/spip-zone/changeset/91091/  et http://zone.spip.org/trac/spip-zone/changeset/91404/
+r92236 | cedric    |  (sam. 10 oct. 2015) | Report de r92235 : soyons un peu moins bisounours : les diff necessitent aussi un interdire_scripts comme tous les contenus affiches dans l'espace prive
+r92513 | b_b       |  (jeu. 29 oct. 2015) | Report de r92512 : éviter d'afficher le script d'autosave dans la prévisu d'un forum quand le site est en mode parano avec $filtrer_javascript = -1;Ref ​https://core.spip.net/issues/3413 merci Équipement
+r92523 | b_b       |  (jeu. 29 oct. 2015) | report de r92522 : éviter une erreur PHP Strict Standards: Only variables should be passed by reference (Eric Camus)Ref ​https://core.spip.net/issues/3373
+r92525 | b_b       |  (jeu. 29 oct. 2015) | version 0.80.27 : report de r92524fix installation d'un plugin qui nécessite un plugin du core sur un site neuf, ​https://core.spip.net/issues/3572À la fin de svp_ajouter_depot(), utiliser svp_actualiser_paquets_locaux(true) qui, comme son nom l'indique, actualise les paquets locaux puis supprime les paquets locaux avec l'option true.Merci marcimat :)
+r92568 | real3t    |  (sam. 31 oct. 2015) | Et report en 3.0
+r92576 | real3t    |  (sam. 31 oct. 2015) | Sur une suggestion de Franck, intégration de Haosou dont parle cet article.
+r92578 | Francky   |  (sam. 31 oct. 2015) | Il semble que sogou soit un moteur en chinehttp://www.journaldunet.com/solutions/expert/59882/haosoule-moteur-de-recherche-qui-pourrait-changer-le-monde-du-seo-chinois.shtml
+r92580 | Francky   |  (sam. 31 oct. 2015) | Rangement alphabétique
+
 SPIP-Core spip-3.0.19 -> spip-3.0.20  23 juin 2015
 -------------------------------------------------------------
 r22106 | ben       |  (sam. 09 mai 2015) | 3.0.20 dev
