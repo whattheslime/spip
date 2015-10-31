@@ -583,7 +583,6 @@ prive/squelettes/inclure/head.html -text
 prive/squelettes/inclure/menu-navigation_fonctions.php -text
 prive/squelettes/inclure/pied.html -text
 prive/squelettes/inclure/pied_fonctions.php -text
-prive/squelettes/inclure/plan-articles.html -text
 prive/squelettes/inclure/plan-rubriques.html -text
 prive/squelettes/navigation/accueil.html -text
 prive/squelettes/navigation/admin_tech.html -text
