@@ -122,6 +122,9 @@ RewriteRule ^favicon[.]ico$      spip.php?page=favicon.ico [QSA,L]
 RewriteRule ^sitemap[.]xml$      spip.php?page=sitemap.xml [QSA,L]
 ##
 
+# Favicon pour itrucs
+# Si vous avez le plugin filtres_images et qu'une méthode de retouche a été configurée, vous pouvez décommenter la ligne ci-dessous.
+#RewriteRule ^apple-touch-icon(-(\d+x\d+))?(-precomposed)?[.]png$	spip.php?page=apple-touch-icon.png&size=$2 [QSA,L]
 
 # expirer les images (pour contourner gros bug MSIE sur le cache)
 # note : a decommenter si vous voulez tester
