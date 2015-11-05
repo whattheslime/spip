@@ -112,28 +112,29 @@ $GLOBALS['spip_mysql_functions_1'] = array(
 'utf-8'=>array('charset'=>'utf8','collation'=>'utf8_general_ci'))
 		);
 
-// http://doc.spip.org/@spip_mysql_set_charset
+
 /**
- * @param $charset
- * @param string $serveur
- * @param bool $requeter
- * @param bool $requeter
- * @return resource
+ * Définit un charset pour la connexion avec Mysql
+ * 
+ * @param string $charset Charset à appliquer
+ * @param string $serveur Nom de la connexion
+ * @param bool $requeter  inutilisé
+ * @return resource       Ressource de résultats pour fetch()
  */
-function spip_mysql_set_charset($charset, $serveur='',$requeter=true,$requeter=true){
+function spip_mysql_set_charset($charset, $serveur='',$requeter=true){
 	$connexion = &$GLOBALS['connexions'][$serveur ? strtolower($serveur) : 0];
 	spip_log("changement de charset sql : "."SET NAMES "._q($charset), _LOG_DEBUG);
 	return mysql_query($connexion['last'] = "SET NAMES "._q($charset));
 }
 
-// http://doc.spip.org/@spip_mysql_get_charset
-/**
 
- * @param array $charset
- * @param string $serveur
- * @param bool $requeter
- * @return array
- *
+/**
+ * Teste si le charset indiqué est disponible sur le serveur SQL
+ * 
+ * @param array|string $charset Nom du charset à tester.
+ * @param string $serveur       Nom de la connexion
+ * @param bool $requeter        inutilisé
+ * @return array                Description du charset (son nom est dans 'charset')
  */
 function spip_mysql_get_charset($charset=array(), $serveur='',$requeter=true){
 	$connexion = &$GLOBALS['connexions'][$serveur ? strtolower($serveur) : 0];
