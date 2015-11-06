@@ -32,7 +32,7 @@ function formulaires_configurer_preferences_charger_dist(){
 	// travailler sur des meta fraiches
 	include_spip('inc/meta');
 	lire_metas();
-	
+
 	$valeurs = array();
 	$valeurs['display_navigation'] = isset($GLOBALS['visiteur_session']['prefs']['display_navigation'])?$GLOBALS['visiteur_session']['prefs']['display_navigation']:'navigation_avec_icones';
 	$valeurs['display_outils'] = isset($GLOBALS['visiteur_session']['prefs']['display_outils'])?$GLOBALS['visiteur_session']['prefs']['display_outils']:'oui';
@@ -63,6 +63,13 @@ function formulaires_configurer_preferences_charger_dist(){
 **/
 function formulaires_configurer_preferences_traiter_dist(){
 
+	// si le menudev change, on recharge toute la page…
+	if (!isset($GLOBALS['visiteur_session']['prefs']['activer_menudev'])
+		OR ($GLOBALS['visiteur_session']['prefs']['activer_menudev'] != _request('activer_menudev')))
+	{
+		refuser_traiter_formulaire_ajax();
+	}
+
 	if ($couleur = _request('couleur')) {
 		$GLOBALS['visiteur_session']['prefs']['couleur'] = $couleur;
 	}
@@ -84,8 +91,10 @@ function formulaires_configurer_preferences_traiter_dist(){
 		include_spip('action/editer_auteur');
 		$c = array('prefs' => serialize($GLOBALS['visiteur_session']['prefs']));
 
-		if (_request('imessage'))
+		if (_request('imessage')) {
 			$c['imessage'] = _request('imessage');
+		}
+
 		auteur_modifier($GLOBALS['visiteur_session']['id_auteur'], $c);
 	}
 
