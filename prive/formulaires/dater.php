@@ -35,7 +35,7 @@ if (!defined('_ECRIRE_INC_VERSION')) return;
  * @return array
  *     Environnement du formulaire
 **/
-function formulaires_dater_charger_dist($objet, $id_objet, $retour='', $options=array()){
+function formulaires_dater_charger_dist($objet, $id_objet, $retour = '', $options = array()){
 
 	$objet = objet_type($objet);
 	if (!$objet OR !intval($id_objet))
@@ -146,7 +146,7 @@ function formulaires_dater_charger_dist($objet, $id_objet, $retour='', $options=
  * @return string
  *     Date formatée tel que `02/10/2012`
 **/
-function dater_formater_saisie_jour($jour,$mois,$annee,$sep="/"){
+function dater_formater_saisie_jour($jour, $mois, $annee, $sep = "/"){
 	$annee = str_pad($annee,4,'0',STR_PAD_LEFT);
 	if (intval($jour)){
 		$jour = str_pad($jour,2,'0',STR_PAD_LEFT);
@@ -175,7 +175,7 @@ function dater_formater_saisie_jour($jour,$mois,$annee,$sep="/"){
  * @return string
  *     Hash du formulaire
 **/
-function formulaires_dater_identifier_dist($objet, $id_objet, $retour='', $options=array()){
+function formulaires_dater_identifier_dist($objet, $id_objet, $retour = '', $options = array()){
 	return serialize(array($objet, $id_objet));
 }
 
@@ -193,7 +193,7 @@ function formulaires_dater_identifier_dist($objet, $id_objet, $retour='', $optio
  * @return Array
  *     Tableau des erreurs
  */
-function formulaires_dater_verifier_dist($objet, $id_objet, $retour='', $options=array()){
+function formulaires_dater_verifier_dist($objet, $id_objet, $retour = '', $options = array()){
 	$erreurs = array();
 
 	// ouvrir le formulaire en edition ?
@@ -229,7 +229,7 @@ function formulaires_dater_verifier_dist($objet, $id_objet, $retour='', $options
  * @return Array
  *     Retours des traitements
  */
-function formulaires_dater_traiter_dist($objet, $id_objet, $retour='', $options=array()){
+function formulaires_dater_traiter_dist($objet, $id_objet, $retour = '', $options = array()){
 	$res = array('editable'=>' ');
 
 	if (_request('changer')){
@@ -299,7 +299,7 @@ function formulaires_dater_traiter_dist($objet, $id_objet, $retour='', $options=
  * @param string $quoi
  * @return array
  */
-function dater_recuperer_date_saisie($post, $quoi="date") {
+function dater_recuperer_date_saisie($post, $quoi = "date") {
 	if (!preg_match('#^(?:(?:([0-9]{1,2})[/-])?([0-9]{1,2})[/-])?([0-9]{4}|[0-9]{1,2})#', $post, $regs))
 		return '';
 	if ($quoi=="date_redac") {

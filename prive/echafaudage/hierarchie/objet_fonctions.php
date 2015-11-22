@@ -20,7 +20,7 @@ if (!defined('_ECRIRE_INC_VERSION')) return;
  * @param string $statut
  * @return bool
  */
-function deplacement_restreint($objet,$statut) {
+function deplacement_restreint($objet, $statut) {
 
 	switch ($objet) {
 		case 'rubrique':

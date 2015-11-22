@@ -12,7 +12,7 @@
 
 if (!defined('_ECRIRE_INC_VERSION')) return;
 
-function formulaires_rediriger_article_charger_dist($id_article,$retour=''){
+function formulaires_rediriger_article_charger_dist($id_article, $retour = ''){
 
 	include_spip('inc/autoriser');
 	if (!autoriser('modifier', 'article', $id_article))
@@ -38,7 +38,7 @@ function formulaires_rediriger_article_charger_dist($id_article,$retour=''){
 	return $valeurs;
 }
 
-function formulaires_rediriger_article_verifier_dist($id_article,$retour=''){
+function formulaires_rediriger_article_verifier_dist($id_article, $retour = ''){
 	$erreurs = array();
 
 	if(($redirection = _request('redirection')) == $id_article || $redirection == 'art'.$id_article)
@@ -47,7 +47,7 @@ function formulaires_rediriger_article_verifier_dist($id_article,$retour=''){
 	return $erreurs;
 }
 
-function formulaires_rediriger_article_traiter_dist($id_article,$retour=''){
+function formulaires_rediriger_article_traiter_dist($id_article, $retour = ''){
 
 	$url = preg_replace(",^\s*https?://$,i", "", rtrim(_request('redirection')));
 	if ($url) $url = corriger_caracteres($url);

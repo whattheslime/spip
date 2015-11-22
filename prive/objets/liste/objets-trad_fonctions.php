@@ -12,7 +12,7 @@
 
 if (!defined('_ECRIRE_INC_VERSION')) return;
 
-function lister_traductions($id_trad,$objet){
+function lister_traductions($id_trad, $objet){
 	$table_objet_sql = table_objet_sql($objet);
 	$primary = id_table_objet($objet);
 

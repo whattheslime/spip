@@ -55,7 +55,7 @@ define('_EXTRAIRE_SAISIES',
 
 // determiner la liste des noms des saisies d'un formulaire
 // (a refaire avec SAX)
-function formulaires_configurer_metas_recense($form, $opt='')
+function formulaires_configurer_metas_recense($form, $opt = '')
 {
 	if (!$opt) $opt = PREG_SET_ORDER;
 	$f = file_get_contents($form);

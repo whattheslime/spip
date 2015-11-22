@@ -43,7 +43,7 @@ include_spip('inc/editer');
  * @return array
  *     Environnement du formulaire
 **/
-function formulaires_editer_article_charger_dist($id_article='new', $id_rubrique=0, $retour='', $lier_trad=0, $config_fonc='articles_edit_config', $row=array(), $hidden=''){
+function formulaires_editer_article_charger_dist($id_article = 'new', $id_rubrique = 0, $retour = '', $lier_trad = 0, $config_fonc = 'articles_edit_config', $row = array(), $hidden = ''){
 	$valeurs = formulaires_editer_objet_charger('article',$id_article,$id_rubrique,$lier_trad,$retour,$config_fonc,$row,$hidden);
 	// il faut enlever l'id_rubrique car la saisie se fait sur id_parent
 	// et id_rubrique peut etre passe dans l'url comme rubrique parent initiale
@@ -72,7 +72,7 @@ function formulaires_editer_article_charger_dist($id_article='new', $id_rubrique
  * @return string
  *     Hash du formulaire
  */
-function formulaires_editer_article_identifier_dist($id_article='new', $id_rubrique=0, $retour='', $lier_trad=0, $config_fonc='articles_edit_config', $row=array(), $hidden=''){
+function formulaires_editer_article_identifier_dist($id_article = 'new', $id_rubrique = 0, $retour = '', $lier_trad = 0, $config_fonc = 'articles_edit_config', $row = array(), $hidden = ''){
 	return serialize(array(intval($id_article),$lier_trad));
 }
 
@@ -117,7 +117,7 @@ function articles_edit_config($row){
  * @return array
  *     Erreurs du formulaire
 **/
-function formulaires_editer_article_verifier_dist($id_article='new', $id_rubrique=0, $retour='', $lier_trad=0, $config_fonc='articles_edit_config', $row=array(), $hidden=''){
+function formulaires_editer_article_verifier_dist($id_article = 'new', $id_rubrique = 0, $retour = '', $lier_trad = 0, $config_fonc = 'articles_edit_config', $row = array(), $hidden = ''){
 	// auto-renseigner le titre si il n'existe pas
 	titre_automatique('titre',array('descriptif','chapo','texte'));
 	// on ne demande pas le titre obligatoire : il sera rempli a la volee dans editer_article si vide
@@ -153,7 +153,7 @@ function formulaires_editer_article_verifier_dist($id_article='new', $id_rubriqu
  * @return array
  *     Retours des traitements
 **/
-function formulaires_editer_article_traiter_dist($id_article='new', $id_rubrique=0, $retour='', $lier_trad=0, $config_fonc='articles_edit_config', $row=array(), $hidden=''){
+function formulaires_editer_article_traiter_dist($id_article = 'new', $id_rubrique = 0, $retour = '', $lier_trad = 0, $config_fonc = 'articles_edit_config', $row = array(), $hidden = ''){
 	// ici on ignore changer_lang qui est poste en cas de trad,
 	// car l'heuristique du choix de la langue est pris en charge par article_inserer
 	// en fonction de la config du site et de la rubrique choisie

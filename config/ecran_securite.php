@@ -185,7 +185,7 @@ if (isset($_REQUEST[$var]) AND is_array($_REQUEST[$var]))
  */
 if (!function_exists('tmp_lkojfghx')) {
 	function tmp_lkojfghx() {}
-	function tmp_lkojfghx2($a=0, $b=0, $c=0, $d=0) {
+	function tmp_lkojfghx2($a = 0, $b = 0, $c = 0, $d = 0) {
 		// si jamais on est arrivé ici sur une erreur php
 		// et qu'un autre gestionnaire d'erreur est défini, l'appeller
 		if ($b&&$GLOBALS['tmp_xhgfjokl'])

@@ -26,7 +26,7 @@ if (!defined('_ECRIRE_INC_VERSION')) return;
  * @param <type> $crit
  * @param <type> $left
  */
-function critere_compteur_articles_filtres_dist($idb, &$boucles, $crit, $left=false){
+function critere_compteur_articles_filtres_dist($idb, &$boucles, $crit, $left = false){
 	$boucle = &$boucles[$idb];
 
 	$_statut = calculer_liste($crit->param[0], array(), $boucles, $boucle->id_parent);
@@ -76,7 +76,7 @@ function balise_COMPTEUR_ARTICLES_dist($p) {
  * @param <type> $pas
  * @return <type>
  */
-function afficher_initiale($url,$initiale,$compteur,$debut,$pas){
+function afficher_initiale($url, $initiale, $compteur, $debut, $pas){
 	static $memo = null;
 	static $res = array();
 	$out = "";
@@ -120,7 +120,7 @@ function afficher_initiale($url,$initiale,$compteur,$debut,$pas){
  * @param string $email
  * @return string
  */
-function auteur_lien_messagerie($id_auteur,$en_ligne,$statut,$imessage,$email=''){
+function auteur_lien_messagerie($id_auteur, $en_ligne, $statut, $imessage, $email = ''){
 	static $time = null;
 	if (!in_array($statut, array('0minirezo', '1comite')))
 		return '';

@@ -41,7 +41,7 @@ function formulaires_configurer_langage_traiter_dist(){
 	return array('message_ok'=>_T('config_info_enregistree'),'editable'=>true,'redirect'=>self());
 }
 
-function afficher_langues_choix($langues,$name,$id,$selected){
+function afficher_langues_choix($langues, $name, $id, $selected){
 	include_spip('inc/lang');
 	$ret = '';
 	sort($langues);

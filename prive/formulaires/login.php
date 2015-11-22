@@ -56,7 +56,7 @@ function is_url_prive($cible){
  * @return array
  *     Environnement du formulaire
 **/
-function formulaires_login_charger_dist($cible="",$login="",$prive=null)
+function formulaires_login_charger_dist($cible = "", $login = "", $prive = null)
 {
 	$erreur = _request('var_erreur');
 
@@ -180,7 +180,7 @@ function login_auth_http()
  * @return array
  *     Erreurs du formulaire
 **/
-function formulaires_login_verifier_dist($cible="",$login="",$prive=null){
+function formulaires_login_verifier_dist($cible = "", $login = "", $prive = null){
 	
 	$session_login = _request('var_login');
 	$session_password = _request('password');
@@ -267,7 +267,7 @@ function login_autoriser()
  * @return array
  *     Retours du traitement
 **/
-function formulaires_login_traiter_dist($cible="",$login="",$prive=null){
+function formulaires_login_traiter_dist($cible = "", $login = "", $prive = null){
 	$res = array();
 	// Si on se connecte dans l'espace prive, 
 	// ajouter "bonjour" (repere a peu pres les cookies desactives)

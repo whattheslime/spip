@@ -44,7 +44,7 @@ include_spip('inc/editer');
  * @return array
  *     Environnement du formulaire
 **/
-function formulaires_editer_rubrique_charger_dist($id_rubrique='new', $id_parent=0, $retour='', $lier_trad=0, $config_fonc='rubriques_edit_config', $row=array(), $hidden=''){
+function formulaires_editer_rubrique_charger_dist($id_rubrique = 'new', $id_parent = 0, $retour = '', $lier_trad = 0, $config_fonc = 'rubriques_edit_config', $row = array(), $hidden = ''){
 	return formulaires_editer_objet_charger('rubrique',$id_rubrique,$id_parent,$lier_trad,$retour,$config_fonc,$row,$hidden);
 }
 
@@ -89,7 +89,7 @@ function rubriques_edit_config($row)
  * @return string
  *     Hash du formulaire
  */
-function formulaires_editer_rubrique_identifier_dist($id_rubrique='new', $id_parent=0, $retour='', $lier_trad=0, $config_fonc='rubriques_edit_config', $row=array(), $hidden=''){
+function formulaires_editer_rubrique_identifier_dist($id_rubrique = 'new', $id_parent = 0, $retour = '', $lier_trad = 0, $config_fonc = 'rubriques_edit_config', $row = array(), $hidden = ''){
 	return serialize(array(intval($id_rubrique),$lier_trad));
 }
 
@@ -115,7 +115,7 @@ function formulaires_editer_rubrique_identifier_dist($id_rubrique='new', $id_par
  * @return array
  *     Erreurs du formulaire
 **/
-function formulaires_editer_rubrique_verifier_dist($id_rubrique='new', $id_parent=0, $retour='', $lier_trad=0, $config_fonc='rubriques_edit_config', $row=array(), $hidden=''){
+function formulaires_editer_rubrique_verifier_dist($id_rubrique = 'new', $id_parent = 0, $retour = '', $lier_trad = 0, $config_fonc = 'rubriques_edit_config', $row = array(), $hidden = ''){
 	// auto-renseigner le titre si il n'existe pas
 	titre_automatique('titre',array('descriptif','texte'));
 	// on ne demande pas le titre obligatoire : il sera rempli a la volee dans editer_rubrique si vide
@@ -145,7 +145,7 @@ function formulaires_editer_rubrique_verifier_dist($id_rubrique='new', $id_paren
  * @return array
  *     Retour des traitements 
 **/
-function formulaires_editer_rubrique_traiter_dist($id_rubrique='new', $id_parent=0, $retour='', $lier_trad=0, $config_fonc='rubriques_edit_config', $row=array(), $hidden=''){
+function formulaires_editer_rubrique_traiter_dist($id_rubrique = 'new', $id_parent = 0, $retour = '', $lier_trad = 0, $config_fonc = 'rubriques_edit_config', $row = array(), $hidden = ''){
 	return formulaires_editer_objet_traiter('rubrique',$id_rubrique,$id_parent,$lier_trad,$retour,$config_fonc,$row,$hidden);
 }
 

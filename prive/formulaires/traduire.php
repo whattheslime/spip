@@ -36,7 +36,7 @@ include_spip('inc/editer');
  *     False si l'identifiant n'est pas numérique ou si l'objet n'a pas de langue
  *     Contexte à transmettre au squelette du formulaire sinon
  */
-function formulaires_traduire_charger_dist($objet, $id_objet, $retour='', $traduire = true){
+function formulaires_traduire_charger_dist($objet, $id_objet, $retour = '', $traduire = true){
 	if (!intval($id_objet))
 		return false;
 	$valeurs = formulaires_editer_objet_charger($objet,$id_objet,null,0,$retour,'');
@@ -99,7 +99,7 @@ function formulaires_traduire_charger_dist($objet, $id_objet, $retour='', $tradu
  * @return array
  *     Erreurs des saisies
  */
-function formulaires_traduire_verifier_dist($objet, $id_objet, $retour='', $traduire = true){
+function formulaires_traduire_verifier_dist($objet, $id_objet, $retour = '', $traduire = true){
 	$erreurs = array();
 
 	if (null !== _request('changer_lang')) {
@@ -135,7 +135,7 @@ function formulaires_traduire_verifier_dist($objet, $id_objet, $retour='', $trad
  * @return array
  *     Retour des traitements
  */
-function formulaires_traduire_traiter_dist($objet, $id_objet, $retour='', $traduire = true){
+function formulaires_traduire_traiter_dist($objet, $id_objet, $retour = '', $traduire = true){
 	$res = array();
 	if (!_request('annuler') AND autoriser('changerlangue',$objet,$id_objet)) {
 		// action/editer_xxx doit traiter la modif de changer_lang

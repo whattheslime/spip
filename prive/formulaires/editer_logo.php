@@ -46,7 +46,7 @@ $logo_libelles['racine'] = _T('logo_standard_rubrique');
  * @param array $options       Tableau d'option (exemple : image_reduire => 50)
  * @return array               Variables d'environnement pour le fond
  */
-function formulaires_editer_logo_charger_dist($objet, $id_objet, $retour='', $options=array()){
+function formulaires_editer_logo_charger_dist($objet, $id_objet, $retour = '', $options = array()){
 	// pas dans une boucle ? formulaire pour le logo du site
 	// dans ce cas, il faut chercher un 'siteon0.ext'
 	if (!$objet) $objet = 'site';
@@ -136,7 +136,7 @@ function formulaires_editer_logo_charger_dist($objet, $id_objet, $retour='', $op
  * @param array $options       Tableau d'option (exemple : image_reduire => 50)
  * @return string              Hash du formulaire
  */
-function formulaires_editer_logo_identifier_dist($objet, $id_objet, $retour='', $options=array()){
+function formulaires_editer_logo_identifier_dist($objet, $id_objet, $retour = '', $options = array()){
 	return serialize(array($objet, $id_objet));
 }
 
@@ -152,7 +152,7 @@ function formulaires_editer_logo_identifier_dist($objet, $id_objet, $retour='', 
  * @param array $options       Tableau d'option (exemple : image_reduire => 50)
  * @return array               Erreurs du formulaire
  */
-function formulaires_editer_logo_verifier_dist($objet, $id_objet, $retour='', $options=array()){
+function formulaires_editer_logo_verifier_dist($objet, $id_objet, $retour = '', $options = array()){
 	$erreurs = array();
 	// verifier les extensions
 	$sources = formulaire_editer_logo_get_sources();
@@ -178,7 +178,7 @@ function formulaires_editer_logo_verifier_dist($objet, $id_objet, $retour='', $o
  * @param array $options       Tableau d'option (exemple : image_reduire => 50)
  * @return array               Retour des traitements
  */
-function formulaires_editer_logo_traiter_dist($objet, $id_objet, $retour='', $options=array()){
+function formulaires_editer_logo_traiter_dist($objet, $id_objet, $retour = '', $options = array()){
 	$res = array('editable'=>' ');
 	
 	// pas dans une boucle ? formulaire pour le logo du site

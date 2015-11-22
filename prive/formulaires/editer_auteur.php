@@ -34,7 +34,7 @@ include_spip('inc/autoriser');
  * @return array
  *     Environnement du formulaire
 **/
-function formulaires_editer_auteur_charger_dist($id_auteur='new', $retour='', $associer_objet='', $config_fonc='auteurs_edit_config', $row=array(), $hidden=''){
+function formulaires_editer_auteur_charger_dist($id_auteur = 'new', $retour = '', $associer_objet = '', $config_fonc = 'auteurs_edit_config', $row = array(), $hidden = ''){
 	$valeurs = formulaires_editer_objet_charger('auteur',$id_auteur,0,0,$retour,$config_fonc,$row,$hidden);
 	$valeurs['new_login'] = $valeurs['login'];
 
@@ -64,7 +64,7 @@ function formulaires_editer_auteur_charger_dist($id_auteur='new', $retour='', $a
  * @return string
  *     Hash du formulaire
  */
-function formulaires_editer_auteur_identifier_dist($id_auteur='new', $retour='', $associer_objet='', $config_fonc='auteurs_edit_config', $row=array(), $hidden=''){
+function formulaires_editer_auteur_identifier_dist($id_auteur = 'new', $retour = '', $associer_objet = '', $config_fonc = 'auteurs_edit_config', $row = array(), $hidden = ''){
 	return serialize(array(intval($id_auteur),$associer_objet));
 }
 
@@ -127,7 +127,7 @@ function auteurs_edit_config($row)
  * @return array
  *     Erreurs des saisies
 **/
-function formulaires_editer_auteur_verifier_dist($id_auteur='new', $retour='', $associer_objet='', $config_fonc='auteurs_edit_config', $row=array(), $hidden=''){
+function formulaires_editer_auteur_verifier_dist($id_auteur = 'new', $retour = '', $associer_objet = '', $config_fonc = 'auteurs_edit_config', $row = array(), $hidden = ''){
 	// auto-renseigner le nom si il n'existe pas, sans couper
 	titre_automatique('nom',array('email','login'),255);
 	// mais il reste obligatoire si on a rien trouve
@@ -236,7 +236,7 @@ function formulaires_editer_auteur_verifier_dist($id_auteur='new', $retour='', $
  * @return array
  *     Retour des traitements
 **/
-function formulaires_editer_auteur_traiter_dist($id_auteur='new', $retour='', $associer_objet='', $config_fonc='auteurs_edit_config', $row=array(), $hidden=''){
+function formulaires_editer_auteur_traiter_dist($id_auteur = 'new', $retour = '', $associer_objet = '', $config_fonc = 'auteurs_edit_config', $row = array(), $hidden = ''){
 	if (_request('saisie_webmestre') OR _request('webmestre'))
 		set_request('webmestre',_request('webmestre')?_request('webmestre'):'non');
 	$retour = parametre_url($retour, 'email_confirm','');

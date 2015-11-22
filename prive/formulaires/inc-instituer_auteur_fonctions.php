@@ -20,7 +20,7 @@ if (!defined('_ECRIRE_INC_VERSION')) return;
  * @return string
  *     Code HTML et javascript
  */
-function choisir_rubriques_admin_restreint($id_auteur,$label='', $sel_css="#liste_rubriques_restreintes", $img_remove="") {
+function choisir_rubriques_admin_restreint($id_auteur, $label = '', $sel_css = "#liste_rubriques_restreintes", $img_remove = "") {
 	global $spip_lang;
 	$res = "";
 	// Ajouter une rubrique a un administrateur restreint
