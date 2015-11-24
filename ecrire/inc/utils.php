@@ -1220,8 +1220,9 @@ function test_valeur_serveur($truc) {
 // Fonctions de fabrication des URL des scripts de Spip
 //
 /**
- * l'URL de base du site, sans se fier a meta(adresse_site) qui
- * peut etre fausse (sites a plusieurs noms d'hotes, deplacements, erreurs)
+ * L'URL de base du site, en priorité sans se fier a meta(adresse_site) qui
+ * peut etre fausse (sites a plusieurs noms d'hotes, deplacements, erreurs).
+ * En dernier recours, lorsqu'on ne trouve rien, on utilise adresse_site comme fallback.
  * Note : la globale $profondeur_url doit etre initialisee de maniere a
  * indiquer le nombre de sous-repertoires de l'url courante par rapport a la
  * racine de SPIP : par exemple, sur ecrire/ elle vaut 1, sur sedna/ 1, et a
@@ -1252,8 +1253,16 @@ function url_de_base($profondeur=null) {
 		OR (isset($_SERVER['HTTPS']) AND
 		    test_valeur_serveur($_SERVER['HTTPS']))
 	) ? 'https' : 'http';
-	# note : HTTP_HOST contient le :port si necessaire
+	// note : HTTP_HOST contient le :port si necessaire
 	$host = $_SERVER['HTTP_HOST'];
+	// si on n'a pas trouvé d'hôte du tout, en dernier recours on utilise adresse_site comme fallback
+	if (is_null($host) and isset($GLOBALS['meta']['adresse_site'])) {
+		$host = $GLOBALS['meta']['adresse_site'];
+		if ($scheme = parse_url($host, PHP_URL_SCHEME)) {
+			$http = $scheme;
+			$host = str_replace("{$scheme}://", '', $host);
+		}
+	}
 	if (isset($_SERVER['SERVER_PORT'])
 		AND $port=$_SERVER['SERVER_PORT']
 		AND strpos($host,":")==false){
