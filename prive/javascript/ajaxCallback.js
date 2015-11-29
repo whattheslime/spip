@@ -245,7 +245,7 @@ jQuery.fn.formulaire_dyn_ajax = function(target) {
 			},
 			error: onError,
 			success: function(c, status, xhr , $form){
-				if (c.match(/\s*noajax\s*/)){
+				if (c.match(/^\s*noajax\s*$/)){
 					// le serveur ne veut pas traiter ce formulaire en ajax
 					// on resubmit sans ajax
 					jQuery("input[name=var_ajax]",leform).remove();
