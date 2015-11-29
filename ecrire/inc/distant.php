@@ -45,9 +45,11 @@ define('_REGEXP_COPIE_LOCALE', ',' .
  *   'force' - charger toujours (mettre a jour)
  * @param string $local
  *   permet de specifier le nom du fichier local (stockage d'un cache par exemple, et non document IMG)
+ * @param int $taille_max
+ *   taille maxi de la copie local, par defaut _COPIE_LOCALE_MAX_SIZE
  * @return bool|string
  */
-function copie_locale($source, $mode='auto', $local = null) {
+function copie_locale($source, $mode='auto', $local=null, $taille_max=null){
 
 	// si c'est la protection de soi-meme, retourner le path
 	if ($mode !== 'force' AND preg_match(_REGEXP_COPIE_LOCALE, $source, $match)) {
@@ -82,7 +84,8 @@ function copie_locale($source, $mode='auto', $local = null) {
 		// passer par un fichier temporaire unique pour gerer les echecs en cours de recuperation
 		// et des eventuelles recuperations concurantes
 		include_spip("inc/acces");
-		$res = recuperer_page($source, $localrac, false, _COPIE_LOCALE_MAX_SIZE, '', '', false, $t ? filemtime($localrac) : '');
+		if (!$taille_max) $taille_max = _COPIE_LOCALE_MAX_SIZE;
+		$res = recuperer_page($source, $localrac, false, taille_max, '', '', false, $t ? filemtime($localrac) : '');
 		if (!$res) {
 			if (!$t) // si $t c'est sans doute juste un not-modified-since qui fait renvoyer false
 				spip_log("copie_locale : Echec recuperation $source sur $localrac",_LOG_INFO_IMPORTANTE);
