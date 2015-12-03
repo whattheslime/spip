@@ -196,7 +196,7 @@ function export_objets($table, $cpt, $total, $filetable, $les_rubriques, $les_me
 	while (1){ // on ne connait pas le nb de paquets d'avance
 
 		$cpt++;
-		$tranche = build_while($debut, $table, $prim, $les_rubriques, $les_meres, $v[7], $v[6]);
+		$tranche = build_while($debut, $table, $prim, $les_rubriques, $les_meres, $meta);
 		// attention: vide ne suffit pas a sortir
 		// car les sauvegardes partielles peuvent parcourir
 		// une table dont la portion qui les concerne sera vide..
@@ -239,8 +239,9 @@ function export_objets($table, $cpt, $total, $filetable, $les_rubriques, $les_me
 // Retourne un tableau de chaines, d'autant d'element que de Row
 // ou leur nombre, selon la fonction utilisee
 // http://doc.spip.org/@build_while
-function build_while($debut, $table, $prim, $les_rubriques, $les_meres, $save='', $serveur='') {
+function build_while($debut, $table, $prim, $les_rubriques, $les_meres, $meta) {
 
+	list(, , , , , , $serveur, $save) = unserialize($GLOBALS['meta'][$meta]);
 	$result = sql_select('*', $table, '', '', $prim, "$debut," . _EXPORT_TRANCHES_LIMITE, array(), $serveur);
 
 	$i = 0;
@@ -248,7 +249,7 @@ function build_while($debut, $table, $prim, $les_rubriques, $les_meres, $save=''
 	$save = 'inc_export_' . ($save ? $save : 'xml');
 	while ($r = sql_fetch($result, $serveur)) {
 		if (export_select($r, $les_rubriques, $les_meres)) {
-			if ($s = $save($r, $table, $prim, $serveur)) $res[]=$s; else $i++;
+			if ($s = $save($r, $table, $prim, $serveur, $meta)) $res[]=$s; else $i++;
 		}
 	}
 	sql_free($result, $serveur);
@@ -256,7 +257,7 @@ function build_while($debut, $table, $prim, $les_rubriques, $les_meres, $save=''
 }
 
 // Construit la version xml des champs d'une table
-function inc_export_xml($row, $table, $prim, $serveur) {
+function inc_export_xml($row, $table, $prim, $serveur, $meta='') {
 	global  $chercher_logo ;
 	if ($chercher_logo) {
 		$on = $chercher_logo($row[$prim], $prim, 'on');

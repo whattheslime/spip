@@ -32,7 +32,7 @@ function action_export_all_dist()
 	effacer_meta($meta);
 	utiliser_langue_visiteur();
 	if (!$size)
-		$corps = _T('avis_erreur_sauvegarde', array('type'=>'.', 'id_objet'=>'. .'));
+		$corps = _T('avis_erreur_sauvegarde', array('type'=>"'$file'", 'id_objet'=>$rub));
 	else {
 		$corps = export_all_report_size($file, $rub, $size, generer_url_ecrire())
 		.  export_all_report_tables($tables);
