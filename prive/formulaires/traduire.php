@@ -69,8 +69,9 @@ function formulaires_traduire_charger_dist($objet, $id_objet, $retour = '', $tra
 	$valeurs['changer_lang'] = '';
 
 
+	$valeurs['_traduisible'] = autoriser('changertraduction',$objet,$id_objet);
 	$valeurs['_traduire'] = '';
-	if (isset($valeurs['id_trad'])) {
+	if (isset($valeurs['id_trad']) AND $valeurs['_traduisible']) {
 		$valeurs['_traduire'] = ($traduire?' ':'');
 		$valeurs['_vue_traductions'] = "prive/objets/liste/" . (trouver_fond($f=table_objet($objet)."-trad","prive/objets/liste")?$f:"objets-trad");
 		// pour afficher la liste des trad sur la base de l'id_trad en base
