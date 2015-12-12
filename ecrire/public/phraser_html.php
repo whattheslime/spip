@@ -384,7 +384,9 @@ function phraser_champs_interieurs($texte, $ligne, $sep, $result) {
 			$champ->avant =
 				phraser_champs_exterieurs($match[1],$n,$sep,$result);
 			$debut = substr($champ->apres,1);
-			$n += substr_count(substr($texte, 0, strpos($texte, $debut)), "\n");
+			if (!empty($debut)){
+				$n += substr_count(substr($texte, 0, strpos($texte, $debut)), "\n");
+			}
 			$champ->apres = phraser_champs_exterieurs($debut,$n,$sep,$result);
 
 			$result[$i] = $champ;
@@ -659,21 +661,24 @@ function public_phraser_html_dist($texte, $id_parent, &$boucles, $descr, $ligne=
 		  $milieu = substr($milieu, $k);
 
 		} else {
-		  $debut = substr($texte, 0, $n);
-		  $milieu = substr($texte, $n);
-		  $k = strpos($milieu, '>');
-		  $id_boucle = substr($milieu,
+			$debut = substr($texte, 0, $n);
+			$milieu = substr($texte, $n);
+			$k = strpos($milieu, '>');
+			$id_boucle = substr($milieu,
 				       strlen(BALISE_PRE_BOUCLE),
 				       $k - strlen(BALISE_PRE_BOUCLE));
 
-		  if (!preg_match(",".BALISE_BOUCLE . $id_boucle . "[[:space:]]*\(,", $milieu, $r)) {
-			$err_b = array('zbug_erreur_boucle_syntaxe', array('id' => $id_boucle));
-			erreur_squelette($err_b, $result);
-		  }
-		  $pos_boucle = $n;
-		  $n = strpos($milieu, $r[0]);
-		  $result->avant = substr($milieu, $k+1, $n-$k-1);
-		  $milieu = substr($milieu, $n+strlen($id_boucle)+strlen(BALISE_BOUCLE));
+			if (!preg_match(",".BALISE_BOUCLE . $id_boucle . "[[:space:]]*\(,", $milieu, $r)) {
+				$err_b = array('zbug_erreur_boucle_syntaxe', array('id' => $id_boucle));
+				erreur_squelette($err_b, $result);
+				$texte = substr($texte, $n+1);
+				continue;
+			} else {
+				$pos_boucle = $n;
+				$n = strpos($milieu, $r[0]);
+				$result->avant = substr($milieu, $k+1, $n-$k-1);
+				$milieu = substr($milieu, $n+strlen($id_boucle)+strlen(BALISE_BOUCLE));
+			}
 		}
 		$result->id_boucle = $id_boucle;
 
@@ -795,7 +800,9 @@ function public_phraser_html_dist($texte, $id_parent, &$boucles, $descr, $ligne=
 			$boucles[$id_boucle] = $result;
 		$all_res = phraser_champs_etendus($debut, $ligne, $all_res);
 		$all_res[] = &$boucles[$id_boucle];
-		$ligne += substr_count(substr($texte, 0, strpos($texte, $suite)), "\n");
+		if (!empty($suite)){
+			$ligne += substr_count(substr($texte, 0, strpos($texte, $suite)), "\n");
+		}
 		$texte = $suite;
 	}
 
