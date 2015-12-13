@@ -30,7 +30,7 @@ if (!defined('_IS_BOT'))
 	    . 'MSIE 6\.0|'
 	    // UA plus cibles
 	    . '80legs|accoona|AltaVista|ASPSeek|Baidu|Charlotte|EC2LinkFinder|eStyle|Google|Genieo|INA dlweb|InfegyAtlas|Java VM|LiteFinder|Lycos|Rambler|Scooter|ScrubbyBloglines|Yahoo|Yeti'
-	    . ',i',(string) $_SERVER['HTTP_USER_AGENT'])
+	    . ',i', (string) $_SERVER['HTTP_USER_AGENT'])
 	);
 
 /*
@@ -41,17 +41,17 @@ if (!defined('_IS_BOT'))
  * (id_base est une variable de la config des widgets de WordPress)
  */
 foreach ($_GET as $var => $val)
-	if ($_GET[$var] and strncmp($var,"id_",3)==0
-	and !in_array($var, array('id_table','id_base')))
-		$_GET[$var] = is_array($_GET[$var])?@array_map('intval',$_GET[$var]):intval($_GET[$var]);
+	if ($_GET[$var] and strncmp($var, "id_", 3)==0
+	and !in_array($var, array('id_table', 'id_base')))
+		$_GET[$var] = is_array($_GET[$var])?@array_map('intval', $_GET[$var]):intval($_GET[$var]);
 foreach ($_POST as $var => $val)
-	if ($_POST[$var] and strncmp($var,"id_",3)==0
-	and !in_array($var, array('id_table','id_base')))
-		$_POST[$var] = is_array($_POST[$var])?@array_map('intval',$_POST[$var]):intval($_POST[$var]);
+	if ($_POST[$var] and strncmp($var, "id_", 3)==0
+	and !in_array($var, array('id_table', 'id_base')))
+		$_POST[$var] = is_array($_POST[$var])?@array_map('intval', $_POST[$var]):intval($_POST[$var]);
 foreach ($GLOBALS as $var => $val)
-	if ($GLOBALS[$var] and strncmp($var,"id_",3)==0
-	and !in_array($var, array('id_table','id_base')))
-		$GLOBALS[$var] = is_array($GLOBALS[$var])?@array_map('intval',$GLOBALS[$var]):intval($GLOBALS[$var]);
+	if ($GLOBALS[$var] and strncmp($var, "id_", 3)==0
+	and !in_array($var, array('id_table', 'id_base')))
+		$GLOBALS[$var] = is_array($GLOBALS[$var])?@array_map('intval', $GLOBALS[$var]):intval($GLOBALS[$var]);
 
 /*
  * Interdit la variable $cjpeg_command, qui était utilisée sans
@@ -64,9 +64,9 @@ $cjpeg_command='';
  */
 foreach(array('lang', 'var_recherche', 'aide', 'var_lang_r', 'lang_r', 'var_ajax_ancre') as $var) {
 	if (isset($_GET[$var]))
-		$_REQUEST[$var] = $GLOBALS[$var] = $_GET[$var] = preg_replace(',[^\w\,/#&;-]+,',' ',(string)$_GET[$var]);
+		$_REQUEST[$var] = $GLOBALS[$var] = $_GET[$var] = preg_replace(',[^\w\,/#&;-]+,', ' ', (string)$_GET[$var]);
 	if (isset($_POST[$var]))
-		$_REQUEST[$var] = $GLOBALS[$var] = $_POST[$var] = preg_replace(',[^\w\,/#&;-]+,',' ',(string)$_POST[$var]);
+		$_REQUEST[$var] = $GLOBALS[$var] = $_POST[$var] = preg_replace(',[^\w\,/#&;-]+,', ' ', (string)$_POST[$var]);
 }
 
 /*
@@ -80,7 +80,7 @@ if (preg_match(',^(.*/)?spip_acces_doc\.,', (string)$_SERVER['REQUEST_URI'])) {
  * Pas d'inscription abusive
  */
 if (isset($_REQUEST['mode']) and isset($_REQUEST['page'])
-and !in_array($_REQUEST['mode'],array("6forum","1comite"))
+and !in_array($_REQUEST['mode'], array("6forum", "1comite"))
 and $_REQUEST['page'] == "identifiants")
 	$ecran_securite_raison = "identifiants";
 
@@ -154,7 +154,7 @@ if (isset($_REQUEST['GLOBALS']))
  */
 if (_IS_BOT and (
 	(isset($_REQUEST['echelle']) and isset($_REQUEST['partie_cal']) and isset($_REQUEST['type']))
-	or (strpos((string)$_SERVER['REQUEST_URI'],'debut_') and preg_match(',[?&]debut_.*&debut_,', (string)$_SERVER['REQUEST_URI']))
+	or (strpos((string)$_SERVER['REQUEST_URI'], 'debut_') and preg_match(',[?&]debut_.*&debut_,', (string)$_SERVER['REQUEST_URI']))
 )
 )
 	$ecran_securite_raison = "robot agenda/double pagination";
@@ -189,7 +189,7 @@ if (!function_exists('tmp_lkojfghx')) {
 		// si jamais on est arrivé ici sur une erreur php
 		// et qu'un autre gestionnaire d'erreur est défini, l'appeller
 		if ($b&&$GLOBALS['tmp_xhgfjokl'])
-			call_user_func($GLOBALS['tmp_xhgfjokl'],$a,$b,$c,$d);
+			call_user_func($GLOBALS['tmp_xhgfjokl'], $a, $b, $c, $d);
 	}
 }
 if (isset($_POST['tmp_lkojfghx3']))
@@ -225,8 +225,8 @@ and $_REQUEST['op'] !== preg_replace('/[^\-\w]/', '', $_REQUEST['op']))
  */
 if (count($_FILES)){
 	foreach($_FILES as $k=>$v){
-		 if (preg_match(',^fichier_\d+$,',$k)
-		 and preg_match(',\.php,i',$v['name']))
+		 if (preg_match(',^fichier_\d+$,', $k)
+		 and preg_match(',\.php,i', $v['name']))
 		 	unset($_FILES[$k]);
 	}
 }
@@ -256,9 +256,9 @@ if (isset($_SERVER['HTTP_REFERER']))
 /*
  * Réinjection des clés en html dans l'admin r19561
  */
-if (strpos($_SERVER['REQUEST_URI'],"ecrire/")!==false){
-	$zzzz=implode("",array_keys($_REQUEST));
-	if (strlen($zzzz)!=strcspn($zzzz,'<>"\''))
+if (strpos($_SERVER['REQUEST_URI'], "ecrire/")!==false){
+	$zzzz=implode("", array_keys($_REQUEST));
+	if (strlen($zzzz)!=strcspn($zzzz, '<>"\''))
 		$ecran_securite_raison = 'Cle incorrecte en $_REQUEST';
 }
 
