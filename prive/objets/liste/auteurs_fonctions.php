@@ -92,7 +92,7 @@ function afficher_initiale($url, $initiale, $compteur, $debut, $pas) {
 		or (!$initiale and !$url)
 		or ($initiale !== $memo['initiale'])
 	) {
-		$newcompt = intval(floor(($compteur-1)/$pas)*$pas);
+		$newcompt = intval(floor(($compteur - 1) / $pas) * $pas);
 		// si fin de la pagination et une seule entree, ne pas l'afficher, ca ne sert a rien
 		if (!$initiale and !$url and !$memo['compteur']) {
 			$memo = null;
@@ -106,7 +106,7 @@ function afficher_initiale($url, $initiale, $compteur, $debut, $pas) {
 		}
 		if ($initiale) {
 			$memo = array(
-				'entree' => isset($memo['entree']) ? $memo['entree']+1 : 0,
+				'entree' => isset($memo['entree']) ? $memo['entree'] + 1 : 0,
 				'initiale' => $initiale,
 				'url' => parametre_url($url, 'i', $initiale),
 				'compteur' => $newcompt
@@ -147,7 +147,7 @@ function auteur_lien_messagerie($id_auteur, $en_ligne, $statut, $imessage, $emai
 	if (is_null($time)) {
 		$time = time();
 	}
-	$parti = (($time-strtotime($en_ligne)) > 15*60);
+	$parti = (($time - strtotime($en_ligne)) > 15 * 60);
 
 	if (
 		$imessage != 'non' and !$parti // historique : est-ce que ca a encore un sens de limiter vu qu'on a la notification par email ?

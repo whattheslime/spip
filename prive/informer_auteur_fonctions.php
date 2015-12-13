@@ -37,8 +37,8 @@ function informer_auteur($bof) {
 		// http://core.spip.org/issues/1758
 		else {
 			include_spip('inc/securiser_action');
-			$fauxalea1 = md5('fauxalea' . secret_du_site() . $login . floor(date('U')/86400));
-			$fauxalea2 = md5('fauxalea' . secret_du_site() . $login . ceil(date('U')/86400));
+			$fauxalea1 = md5('fauxalea' . secret_du_site() . $login . floor(date('U') / 86400));
+			$fauxalea2 = md5('fauxalea' . secret_du_site() . $login . ceil(date('U') / 86400));
 
 			$row = array(
 				'login' => $login,

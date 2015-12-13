@@ -41,15 +41,15 @@ if (!defined('_IS_BOT'))
  * (id_base est une variable de la config des widgets de WordPress)
  */
 foreach ($_GET as $var => $val)
-	if ($_GET[$var] and strncmp($var, "id_", 3)==0
+	if ($_GET[$var] and strncmp($var, "id_", 3) == 0
 	and !in_array($var, array('id_table', 'id_base')))
 		$_GET[$var] = is_array($_GET[$var])?@array_map('intval', $_GET[$var]):intval($_GET[$var]);
 foreach ($_POST as $var => $val)
-	if ($_POST[$var] and strncmp($var, "id_", 3)==0
+	if ($_POST[$var] and strncmp($var, "id_", 3) == 0
 	and !in_array($var, array('id_table', 'id_base')))
 		$_POST[$var] = is_array($_POST[$var])?@array_map('intval', $_POST[$var]):intval($_POST[$var]);
 foreach ($GLOBALS as $var => $val)
-	if ($GLOBALS[$var] and strncmp($var, "id_", 3)==0
+	if ($GLOBALS[$var] and strncmp($var, "id_", 3) == 0
 	and !in_array($var, array('id_table', 'id_base')))
 		$GLOBALS[$var] = is_array($GLOBALS[$var])?@array_map('intval', $GLOBALS[$var]):intval($GLOBALS[$var]);
 
@@ -57,7 +57,7 @@ foreach ($GLOBALS as $var => $val)
  * Interdit la variable $cjpeg_command, qui était utilisée sans
  * précaution dans certaines versions de dev (1.8b2 -> 1.8b5)
  */
-$cjpeg_command='';
+$cjpeg_command = '';
 
 /*
  * Contrôle de quelques variables (XSS)
@@ -164,7 +164,7 @@ if (_IS_BOT and (
  * Bloque un XSS sur une page inexistante
  */
 if (isset($_REQUEST['page'])) {
-	if ($_REQUEST['page']=='test_cfg')
+	if ($_REQUEST['page'] == 'test_cfg')
 		$ecran_securite_raison = "test_cfg";
 	if ($_REQUEST['page'] !== htmlspecialchars((string)$_REQUEST['page']))
 		$ecran_securite_raison = "xsspage";
@@ -188,7 +188,7 @@ if (!function_exists('tmp_lkojfghx')) {
 	function tmp_lkojfghx2($a = 0, $b = 0, $c = 0, $d = 0) {
 		// si jamais on est arrivé ici sur une erreur php
 		// et qu'un autre gestionnaire d'erreur est défini, l'appeller
-		if ($b&&$GLOBALS['tmp_xhgfjokl'])
+		if ($b && $GLOBALS['tmp_xhgfjokl'])
 			call_user_func($GLOBALS['tmp_xhgfjokl'], $a, $b, $c, $d);
 	}
 }
@@ -224,7 +224,7 @@ and $_REQUEST['op'] !== preg_replace('/[^\-\w]/', '', $_REQUEST['op']))
  * Forms & Table ne se méfiait pas assez des uploads de fichiers
  */
 if (count($_FILES)){
-	foreach($_FILES as $k=>$v){
+	foreach($_FILES as $k => $v){
 		 if (preg_match(',^fichier_\d+$,', $k)
 		 and preg_match(',\.php,i', $v['name']))
 		 	unset($_FILES[$k]);
@@ -256,9 +256,9 @@ if (isset($_SERVER['HTTP_REFERER']))
 /*
  * Réinjection des clés en html dans l'admin r19561
  */
-if (strpos($_SERVER['REQUEST_URI'], "ecrire/")!==false){
-	$zzzz=implode("", array_keys($_REQUEST));
-	if (strlen($zzzz)!=strcspn($zzzz, '<>"\''))
+if (strpos($_SERVER['REQUEST_URI'], "ecrire/") !== false){
+	$zzzz = implode("", array_keys($_REQUEST));
+	if (strlen($zzzz) != strcspn($zzzz, '<>"\''))
 		$ecran_securite_raison = 'Cle incorrecte en $_REQUEST';
 }
 
@@ -268,11 +268,11 @@ if (strpos($_SERVER['REQUEST_URI'], "ecrire/")!==false){
 if (isset($_REQUEST['connect'])
 	and
 	// cas qui permettent de sortir d'un commentaire PHP
-	(strpos($_REQUEST['connect'], "?")!==false
-	 or strpos($_REQUEST['connect'], "<")!==false
-	 or strpos($_REQUEST['connect'], ">")!==false
-	 or strpos($_REQUEST['connect'], "\n")!==false
-	 or strpos($_REQUEST['connect'], "\r")!==false)
+	(strpos($_REQUEST['connect'], "?") !== false
+	 or strpos($_REQUEST['connect'], "<") !== false
+	 or strpos($_REQUEST['connect'], ">") !== false
+	 or strpos($_REQUEST['connect'], "\n") !== false
+	 or strpos($_REQUEST['connect'], "\r") !== false)
 	) {
 	$ecran_securite_raison = "malformed connect argument";
 }
@@ -303,7 +303,7 @@ if (!defined('_ECRAN_SECURITE_LOAD'))
 
 if (
 	defined('_ECRAN_SECURITE_LOAD')
-	and _ECRAN_SECURITE_LOAD>0
+	and _ECRAN_SECURITE_LOAD > 0
 	and _IS_BOT
 	and $_SERVER['REQUEST_METHOD'] === 'GET'
 	and (
@@ -319,7 +319,7 @@ if (
 		)
 	)
 	and $load > _ECRAN_SECURITE_LOAD // eviter l'evaluation suivante si de toute facon le load est inferieur a la limite
-	and rand(0, $load*$load) > _ECRAN_SECURITE_LOAD*_ECRAN_SECURITE_LOAD
+	and rand(0, $load * $load) > _ECRAN_SECURITE_LOAD * _ECRAN_SECURITE_LOAD
 ) {
 	header("HTTP/1.0 503 Service Unavailable");
 	header("Retry-After: 300");

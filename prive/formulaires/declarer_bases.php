@@ -26,7 +26,7 @@ function formulaires_declarer_bases_charger_dist() {
 		$nom_connect = _DECLARER_choix_db;
 		$n = "";
 		while (in_array($nom_connect . $n, $deja)) {
-			$n = ($n ? $n+1 : 1);
+			$n = ($n ? $n + 1 : 1);
 		}
 		$nom_connect = $nom_connect . $n;
 	}

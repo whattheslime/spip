@@ -90,7 +90,7 @@ function formulaires_login_charger_dist($cible = "", $login = "", $prive = null)
 		'editable' => !$row,
 		'cnx' => isset($row['cnx']) ? $row['cnx'] : '',
 		'auth_http' => login_auth_http(),
-		'rester_connecte' => ((_RENOUVELLE_ALEA < 12*3600) ? '' : ' '),
+		'rester_connecte' => ((_RENOUVELLE_ALEA < 12 * 3600) ? '' : ' '),
 		'_logo' => isset($row['logo']) ? $row['logo'] : '',
 		'_alea_actuel' => isset($row['alea_actuel']) ? $row['alea_actuel'] : '',
 		'_alea_futur' => isset($row['alea_futur']) ? $row['alea_futur'] : '',
@@ -213,7 +213,7 @@ function formulaires_login_verifier_dist($cible = "", $login = "", $prive = null
 			$erreurs['var_login'] = $auteur;
 		}
 		include_spip('inc/cookie');
-		spip_setcookie("spip_admin", "", time()-3600);
+		spip_setcookie("spip_admin", "", time() - 3600);
 		if (strlen($session_password)) {
 			$erreurs['password'] = _T('login_erreur_pass');
 		}

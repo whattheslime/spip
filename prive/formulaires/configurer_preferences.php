@@ -106,7 +106,7 @@ function formulaires_configurer_preferences_traiter_dist() {
 		// car ce reglage depend plus du navigateur que de l'utilisateur
 		$GLOBALS['spip_ecran'] = $spip_ecran;
 		include_spip('inc/cookie');
-		spip_setcookie('spip_ecran', $_COOKIE['spip_ecran'] = $spip_ecran, time()+365*24*3600);
+		spip_setcookie('spip_ecran', $_COOKIE['spip_ecran'] = $spip_ecran, time() + 365 * 24 * 3600);
 	}
 
 	return array('message_ok' => _T('config_info_enregistree'), 'editable' => true);
