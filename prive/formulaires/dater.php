@@ -40,7 +40,7 @@ if (!defined('_ECRIRE_INC_VERSION')) {
 function formulaires_dater_charger_dist($objet, $id_objet, $retour = '', $options = array()) {
 
 	$objet = objet_type($objet);
-	if (!$objet OR !intval($id_objet)) {
+	if (!$objet or !intval($id_objet)) {
 		return false;
 	}
 
@@ -85,7 +85,7 @@ function formulaires_dater_charger_dist($objet, $id_objet, $retour = '', $option
 
 	$possedeDateRedac = false;
 
-	if (isset($row['date_redac']) AND
+	if (isset($row['date_redac']) and
 		$regs = recup_date($row['date_redac'], false)
 	) {
 		$annee_redac = $regs[0];
@@ -99,7 +99,7 @@ function formulaires_dater_charger_dist($objet, $id_objet, $retour = '', $option
 		// on verifie donc que le intval($row['date_redac']) qui ressort l'annee
 		// est bien lui aussi <=1 : dans ce cas c'est une date sql 'nulle' ou presque, selon
 		// le gestionnnaire sql utilise (0001-01-01 pour PG par exemple)
-		if (intval($row['date_redac']) <= 1 AND ($annee_redac <= 1) AND ($mois_redac <= 1) AND ($jour_redac <= 1)) {
+		if (intval($row['date_redac']) <= 1 and ($annee_redac <= 1) and ($mois_redac <= 1) and ($jour_redac <= 1)) {
 			$possedeDateRedac = false;
 		}
 	} else {
@@ -129,15 +129,15 @@ function formulaires_dater_charger_dist($objet, $id_objet, $retour = '', $option
 	if (isset($options['date_redac'])) {
 		$valeurs['_editer_date_anterieure'] = $options['date_redac'];
 	} else {
-		$valeurs['_editer_date_anterieure'] = ($objet == 'article' AND ($GLOBALS['meta']["articles_redac"] != 'non' OR $possedeDateRedac));
+		$valeurs['_editer_date_anterieure'] = ($objet == 'article' and ($GLOBALS['meta']["articles_redac"] != 'non' or $possedeDateRedac));
 	}
 	$valeurs['_label_date'] = (($statut == 'publie') ? _T('texte_date_publication_objet') : _T('texte_date_creation_objet'));
-	$valeurs['_saisie_en_cours'] = (_request('_saisie_en_cours') !== null OR _request('date_jour') !== null);
+	$valeurs['_saisie_en_cours'] = (_request('_saisie_en_cours') !== null or _request('date_jour') !== null);
 
 	// cas ou l'on ne peut pas dater mais on peut modifier la date de redac anterieure
 	// https://core.spip.net/issues/3494
 	$valeurs['_editer_date'] = $valeurs['editable'];
-	if ($valeurs['_editer_date_anterieure'] AND !$valeurs['editable']) {
+	if ($valeurs['_editer_date_anterieure'] and !$valeurs['editable']) {
 		$valeurs['editable'] = autoriser('modifier', $objet, $id_objet);
 	}
 
@@ -219,9 +219,9 @@ function formulaires_dater_verifier_dist($objet, $id_objet, $retour = '', $optio
 	}
 
 	foreach (array('date', 'date_redac') as $k) {
-		if ($v = _request($k . "_jour") AND !dater_recuperer_date_saisie($v, $k)) {
+		if ($v = _request($k . "_jour") and !dater_recuperer_date_saisie($v, $k)) {
 			$erreurs[$k] = _T('format_date_incorrecte');
-		} elseif ($v = _request($k . "_heure") AND !dater_recuperer_heure_saisie($v)) {
+		} elseif ($v = _request($k . "_heure") and !dater_recuperer_heure_saisie($v)) {
 			$erreurs[$k] = _T('format_heure_incorrecte');
 		}
 	}
@@ -278,8 +278,8 @@ function formulaires_dater_traiter_dist($objet, $id_objet, $retour = '', $option
 			$set[$champ_date] = sql_format_date($d[0], $d[1], $d[2], $h[0], $h[1]);
 		}
 
-		if (isset($desc['field']['date_redac']) AND $v['_editer_date_anterieure']) {
-			if (!_request('date_redac_jour') OR _request('sans_redac')) {
+		if (isset($desc['field']['date_redac']) and $v['_editer_date_anterieure']) {
+			if (!_request('date_redac_jour') or _request('sans_redac')) {
 				$set['date_redac'] = sql_format_date(0, 0, 0, 0, 0, 0);
 			} else {
 				if (!$d = dater_recuperer_date_saisie(_request('date_redac_jour'), "date_redac")) {
@@ -329,7 +329,7 @@ function dater_recuperer_date_saisie($post, $quoi = "date") {
 		return '';
 	}
 	if ($quoi == "date_redac") {
-		if ($regs[3] <> '' AND $regs[3] < 1001) {
+		if ($regs[3] <> '' and $regs[3] < 1001) {
 			$regs[3] += 9000;
 		}
 

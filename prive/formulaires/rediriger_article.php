@@ -29,7 +29,7 @@ function formulaires_rediriger_article_charger_dist($id_article, $retour = '') {
 	$redirection = virtuel_redirige($row["virtuel"]);
 
 	if (!$redirection
-		AND $GLOBALS['meta']['articles_redirection'] != 'oui'
+		and $GLOBALS['meta']['articles_redirection'] != 'oui'
 	) {
 		return false;
 	}

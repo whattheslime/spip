@@ -66,7 +66,7 @@ function formulaires_editer_logo_charger_dist($objet, $id_objet, $retour = '', $
 		$balise_img = chercher_filtre('balise_img');
 		$img = $balise_img(chemin_image('image-24.png'), "", 'cadre-icone');
 		$libelles = pipeline('libeller_logo', $GLOBALS['logo_libelles']);
-		$libelle = (($id_objet OR $objet != 'rubrique') ? $objet : 'racine');
+		$libelle = (($id_objet or $objet != 'rubrique') ? $objet : 'racine');
 		if (isset($libelles[$libelle])) {
 			$libelle = $libelles[$libelle];
 		} elseif ($libelle = objet_info($objet, 'texte_logo_objet')) {
@@ -96,7 +96,7 @@ function formulaires_editer_logo_charger_dist($objet, $id_objet, $retour = '', $
 	}
 
 	$res = array(
-		'editable' => ($GLOBALS['meta']['activer_logos'] == 'oui' ? ' ' : '') && (!isset($options['editable']) OR $options['editable']),
+		'editable' => ($GLOBALS['meta']['activer_logos'] == 'oui' ? ' ' : '') && (!isset($options['editable']) or $options['editable']),
 		'logo_survol' => ($GLOBALS['meta']['activer_logos_survol'] == 'oui' ? ' ' : ''),
 		'objet' => $objet,
 		'id_objet' => $id_objet,
@@ -119,14 +119,14 @@ function formulaires_editer_logo_charger_dist($objet, $id_objet, $retour = '', $
 	// pas de logo_on -> pas de formulaire pour le survol
 	if (!isset($res['logo_on'])) {
 		$res['logo_survol'] = '';
-	} elseif (!isset($res['logo_off']) AND _request('logo_up')) {
+	} elseif (!isset($res['logo_off']) and _request('logo_up')) {
 		$res['_show_upload_off'] = ' ';
 	}
 
 	// si le logo n'est pas editable et qu'il n'y en a pas, on affiche pas du tout le formulaire
 	if (!$res['editable']
-		AND !isset($res['logo_off'])
-		AND !isset($res['logo_on'])
+		and !isset($res['logo_off'])
+		and !isset($res['logo_on'])
 	) {
 		return false;
 	}
@@ -166,7 +166,7 @@ function formulaires_editer_logo_verifier_dist($objet, $id_objet, $retour = '', 
 	$sources = formulaire_editer_logo_get_sources();
 	foreach ($sources as $etat => $file) {
 		// seulement si une reception correcte a eu lieu
-		if ($file AND $file['error'] == 0) {
+		if ($file and $file['error'] == 0) {
 			if (!in_array(strtolower(pathinfo($file['name'], PATHINFO_EXTENSION)), array('jpg', 'png', 'gif', 'jpeg'))) {
 				$erreurs['logo_' . $etat] = _L('Extension non reconnue');
 			}
@@ -201,7 +201,7 @@ function formulaires_editer_logo_traiter_dist($objet, $id_objet, $retour = '', $
 
 	// effectuer la suppression si demandee d'un logo
 	$on = _request('supprimer_logo_on');
-	if ($on OR _request('supprimer_logo_off')) {
+	if ($on or _request('supprimer_logo_off')) {
 		logo_supprimer($objet, $id_objet, $on ? 'on' : 'off');
 		$res['message_ok'] = ''; // pas besoin de message : la validation est visuelle
 		set_request('logo_up', ' ');
@@ -250,7 +250,7 @@ function formulaire_editer_logo_get_sources() {
 
 	$sources = array();
 	foreach (array('on', 'off') as $etat) {
-		if (isset($_FILES['logo_' . $etat]) AND $_FILES['logo_' . $etat]['error'] == 0) {
+		if (isset($_FILES['logo_' . $etat]) and $_FILES['logo_' . $etat]['error'] == 0) {
 			$sources[$etat] = $_FILES['logo_' . $etat];
 		}
 	}

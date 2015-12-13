@@ -38,7 +38,7 @@ function determine_source_lien_objet($a, $b, $c) {
 	$table_source = $objet_lien = $objet = $id_objet = null;
 	// auteurs, article, 23 :
 	// associer des auteurs à l'article 23, sur la table pivot spip_auteurs_liens
-	if (is_numeric($c) AND !is_numeric($b)) {
+	if (is_numeric($c) and !is_numeric($b)) {
 		$table_source = table_objet($a);
 		$objet_lien = objet_type($a);
 		$objet = objet_type($b);
@@ -46,7 +46,7 @@ function determine_source_lien_objet($a, $b, $c) {
 	}
 	// article, 23, auteurs
 	// associer des auteurs à l'article 23, sur la table pivot spip_articles_liens
-	if (is_numeric($b) AND !is_numeric($c)) {
+	if (is_numeric($b) and !is_numeric($c)) {
 		$table_source = table_objet($c);
 		$objet_lien = objet_type($a);
 		$objet = objet_type($a);
@@ -89,7 +89,7 @@ function formulaires_editer_liens_charger_dist($a, $b, $c, $options = array()) {
 	$editable = $options['editable'];
 
 	list($table_source, $objet, $id_objet, $objet_lien) = determine_source_lien_objet($a, $b, $c);
-	if (!$table_source OR !$objet OR !$objet_lien OR !$id_objet) {
+	if (!$table_source or !$objet or !$objet_lien or !$id_objet) {
 		return false;
 	}
 
@@ -107,7 +107,7 @@ function formulaires_editer_liens_charger_dist($a, $b, $c, $options = array()) {
 	$editable = ($editable and autoriser('associer' . $table_source, $objet, $id_objet) and autoriser('modifier', $objet,
 			$id_objet));
 
-	if (!$editable AND !count(objet_trouver_liens(array($objet_lien => '*'),
+	if (!$editable and !count(objet_trouver_liens(array($objet_lien => '*'),
 			array(($objet_lien == $objet_source ? $objet : $objet_source) => '*')))
 	) {
 		return false;
@@ -197,7 +197,7 @@ function formulaires_editer_liens_traiter_dist($a, $b, $c, $options = array()) {
 
 	$res = array('editable' => $editable ? true : false);
 	list($table_source, $objet, $id_objet, $objet_lien) = determine_source_lien_objet($a, $b, $c);
-	if (!$table_source OR !$objet OR !$objet_lien) {
+	if (!$table_source or !$objet or !$objet_lien) {
 		return $res;
 	}
 
@@ -210,8 +210,8 @@ function formulaires_editer_liens_traiter_dist($a, $b, $c, $options = array()) {
 	if (autoriser('modifier', $objet, $id_objet)) {
 		// annuler les suppressions du coup d'avant !
 		if (_request('annuler_oups')
-			AND $oups = _request('_oups')
-			AND $oups = unserialize($oups)
+			and $oups = _request('_oups')
+			and $oups = unserialize($oups)
 		) {
 			if ($oups_objets = charger_fonction("editer_liens_oups_{$table_source}_{$objet}_{$objet_lien}", "action", true)) {
 				$oups_objets($oups);
@@ -385,19 +385,19 @@ function lien_retrouver_qualif($objet_lien, $lien) {
 
 	// retrouver les rôles postés pour cette liaison, s'il y en a.
 	$qualifier_lien = _request('qualifier_lien');
-	if (!$qualifier_lien OR !is_array($qualifier_lien)) {
+	if (!$qualifier_lien or !is_array($qualifier_lien)) {
 		return array();
 	}
 
 	// pas avec l'action complete (incluant le role)
 	$qualif = array();
-	if ((!isset($qualifier_lien[$lien]) OR !$qualif = $qualifier_lien[$lien])
-		AND count($defs) == 5
+	if ((!isset($qualifier_lien[$lien]) or !$qualif = $qualifier_lien[$lien])
+		and count($defs) == 5
 	) {
 		// on tente avec l'action sans le role
 		array_pop($defs);
 		$lien = implode('-', $defs);
-		if (!isset($qualifier_lien[$lien]) OR !$qualif = $qualifier_lien[$lien]) {
+		if (!isset($qualifier_lien[$lien]) or !$qualif = $qualifier_lien[$lien]) {
 			$qualif = array();
 		}
 	}
@@ -419,7 +419,7 @@ function lien_retrouver_qualif($objet_lien, $lien) {
 			}
 		}
 		// pas de rôle vide
-		if (!$colonne_role OR !isset($q[$colonne_role]) OR $q[$colonne_role]) {
+		if (!$colonne_role or !isset($q[$colonne_role]) or $q[$colonne_role]) {
 			$qualifs[] = $q;
 		}
 	}

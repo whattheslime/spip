@@ -28,7 +28,7 @@ function formulaires_configurer_transcodeur_verifier_dist() {
 	$erreurs = array();
 	if (!$charset = _request('charset')) {
 		$erreurs['charset'] = _T('info_obligatoire');
-	} elseif ($charset != 'utf-8' AND !load_charset($charset)) {
+	} elseif ($charset != 'utf-8' and !load_charset($charset)) {
 		$erreurs['charset'] = _T('utf8_convert_erreur_orig', array('charset' => $charset));
 	}
 

@@ -21,7 +21,7 @@ function formulaires_configurer_multilinguisme_charger_dist() {
 	}
 
 	if (count($valeurs['multi_objets'])
-		OR count(explode(',', $GLOBALS['meta']['langues_utilisees'])) > 1
+		or count(explode(',', $GLOBALS['meta']['langues_utilisees'])) > 1
 	) {
 
 		$selection = (is_null(_request('multi_objets')) ? explode(',',
@@ -50,7 +50,7 @@ function formulaires_configurer_multilinguisme_traiter_dist() {
 		}
 	}
 
-	if ($i = _request('langues_auth') AND is_array($i)) {
+	if ($i = _request('langues_auth') and is_array($i)) {
 		$i = array_unique(array_merge($i, explode(',', $GLOBALS['meta']['langues_utilisees'])));
 		ecrire_meta('langues_multilingue', implode(",", $i));
 	}
@@ -68,7 +68,7 @@ function formulaires_configurer_multilinguisme_traiter_dist() {
 function table_supporte_lang($table_sql) {
 	$trouver_table = charger_fonction('trouver_table', 'base');
 	$desc = $trouver_table($table_sql);
-	if (!$desc OR !isset($desc['field']['lang'])) {
+	if (!$desc or !isset($desc['field']['lang'])) {
 		return '';
 	}
 
@@ -84,7 +84,7 @@ function table_supporte_lang($table_sql) {
 function table_supporte_trad($table_sql) {
 	$trouver_table = charger_fonction('trouver_table', 'base');
 	$desc = $trouver_table($table_sql);
-	if (!$desc OR !isset($desc['field']['id_trad'])) {
+	if (!$desc or !isset($desc['field']['id_trad'])) {
 		return '';
 	}
 

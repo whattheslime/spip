@@ -117,14 +117,14 @@ function url_vignette_choix($process) {
 			}
 		case 'gd1':
 			if (!function_exists('ImageGif')
-				AND !function_exists('ImageJpeg')
-				AND !function_exists('ImagePng')
+				and !function_exists('ImageJpeg')
+				and !function_exists('ImagePng')
 			) {
 				return '';
 			}
 			break;
 		case 'netpbm':
-			if (defined('_PNMSCALE_COMMAND') AND _PNMSCALE_COMMAND == '') {
+			if (defined('_PNMSCALE_COMMAND') and _PNMSCALE_COMMAND == '') {
 				return '';
 			}
 			break;
@@ -134,7 +134,7 @@ function url_vignette_choix($process) {
 			}
 			break;
 		case 'convert':
-			if (defined('_CONVERT_COMMAND') AND _CONVERT_COMMAND == '') {
+			if (defined('_CONVERT_COMMAND') and _CONVERT_COMMAND == '') {
 				return '';
 			}
 			break;

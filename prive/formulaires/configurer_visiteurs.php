@@ -35,7 +35,7 @@ function formulaires_configurer_visiteurs_traiter_dist() {
 	// Modification du reglage accepter_inscriptions => vider le cache
 	// (pour repercuter la modif sur le panneau de login)
 	if (($i = _request('accepter_visiteurs')
-		AND $i != $GLOBALS['meta']['accepter_visiteurs'])
+		and $i != $GLOBALS['meta']['accepter_visiteurs'])
 	) {
 		include_spip('inc/invalideur');
 		suivre_invalideur("1"); # tout effacer

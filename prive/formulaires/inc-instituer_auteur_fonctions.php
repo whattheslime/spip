@@ -32,7 +32,7 @@ function choisir_rubriques_admin_restreint(
 	$res = "";
 	// Ajouter une rubrique a un administrateur restreint
 	if ($chercher_rubrique = charger_fonction('chercher_rubrique', 'inc')
-		AND $a = $chercher_rubrique(0, 'auteur', false)
+		and $a = $chercher_rubrique(0, 'auteur', false)
 	) {
 
 		if ($img_remove) {

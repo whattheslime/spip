@@ -66,13 +66,13 @@ function formulaires_login_charger_dist($cible = "", $login = "", $prive = null)
 		$login = strval(_request('var_login'));
 	}
 	// si on est deja identifie
-	if (!$login AND isset($GLOBALS['visiteur_session']['login'])) {
+	if (!$login and isset($GLOBALS['visiteur_session']['login'])) {
 		$login = $GLOBALS['visiteur_session']['login'];
 	}
 	// ou si on a un cookie admin
 	if (!$login) {
 		if (isset($_COOKIE['spip_admin'])
-			AND preg_match(",^@(.*)$,", $_COOKIE['spip_admin'], $regs)
+			and preg_match(",^@(.*)$,", $_COOKIE['spip_admin'], $regs)
 		) {
 			$login = $regs[1];
 		}
@@ -97,7 +97,7 @@ function formulaires_login_charger_dist($cible = "", $login = "", $prive = null)
 		'_pipeline' => 'affiche_formulaire_login', // faire passer le formulaire dans un pipe dedie pour les methodes auth
 	);
 
-	if ($erreur OR !isset($GLOBALS['visiteur_session']['id_auteur']) OR !$GLOBALS['visiteur_session']['id_auteur']) {
+	if ($erreur or !isset($GLOBALS['visiteur_session']['id_auteur']) or !$GLOBALS['visiteur_session']['id_auteur']) {
 		$valeurs['editable'] = true;
 	}
 
@@ -105,12 +105,12 @@ function formulaires_login_charger_dist($cible = "", $login = "", $prive = null)
 		include_spip('inc/autoriser');
 		$loge = autoriser('ecrire');
 	} else {
-		$loge = (isset($GLOBALS['visiteur_session']['auth']) AND $GLOBALS['visiteur_session']['auth'] != '');
+		$loge = (isset($GLOBALS['visiteur_session']['auth']) and $GLOBALS['visiteur_session']['auth'] != '');
 	}
 
 	// Si on est connecte, appeler traiter()
 	// et lancer la redirection si besoin
-	if (!$valeurs['editable'] AND $loge) {
+	if (!$valeurs['editable'] and $loge) {
 		$traiter = charger_fonction('traiter', 'formulaires/login');
 		$res = $traiter($cible, $login, $prive);
 		$valeurs = array_merge($valeurs, $res);
@@ -154,13 +154,13 @@ function formulaires_login_charger_dist($cible = "", $login = "", $prive = null)
  **/
 function login_auth_http() {
 	if (!$GLOBALS['ignore_auth_http']
-		AND _request('var_erreur') == 'cookie'
-		AND (!isset($_COOKIE['spip_session']) OR $_COOKIE['spip_session'] != 'test_echec_cookie')
-		AND (($GLOBALS['flag_sapi_name'] AND preg_match(",apache,i", @php_sapi_name()))
-			OR preg_match(",^Apache.* PHP,", $_SERVER['SERVER_SOFTWARE']))
+		and _request('var_erreur') == 'cookie'
+		and (!isset($_COOKIE['spip_session']) or $_COOKIE['spip_session'] != 'test_echec_cookie')
+		and (($GLOBALS['flag_sapi_name'] and preg_match(",apache,i", @php_sapi_name()))
+			or preg_match(",^Apache.* PHP,", $_SERVER['SERVER_SOFTWARE']))
 		// Attention dans le cas 'intranet' la proposition de se loger
 		// par auth_http peut conduire a l'echec.
-		AND !(isset($_SERVER['PHP_AUTH_USER']) AND isset($_SERVER['PHP_AUTH_PW']))
+		and !(isset($_SERVER['PHP_AUTH_USER']) and isset($_SERVER['PHP_AUTH_PW']))
 	) {
 		return generer_url_action('cookie', "", false, true);
 	} else {
@@ -209,7 +209,7 @@ function formulaires_login_verifier_dist($cible = "", $login = "", $prive = null
 	// on arrive ici si on ne s'est pas identifie avec un SSO
 	if (!is_array($auteur)) {
 		$erreurs = array();
-		if (is_string($auteur) AND strlen($auteur)) {
+		if (is_string($auteur) and strlen($auteur)) {
 			$erreurs['var_login'] = $auteur;
 		}
 		include_spip('inc/cookie');
@@ -306,14 +306,14 @@ function formulaires_login_traiter_dist($cible = "", $login = "", $prive = null)
 
 		// si c'est une url absolue, refuser la redirection
 		// sauf si cette securite est levee volontairement par le webmestre
-		elseif (tester_url_absolue($cible) AND !defined('_AUTORISER_LOGIN_ABS_REDIRECT')) {
+		elseif (tester_url_absolue($cible) and !defined('_AUTORISER_LOGIN_ABS_REDIRECT')) {
 			$cible = "";
 		}
 	}
 
 	// Si on est connecte, envoyer vers la destination
-	if ($cible AND ($cible != self('&')) AND ($cible != self())) {
-		if (!headers_sent() AND !isset($_GET['var_mode'])) {
+	if ($cible and ($cible != self('&')) and ($cible != self())) {
+		if (!headers_sent() and !isset($_GET['var_mode'])) {
 			include_spip('inc/headers');
 			$res['redirect'] = $cible;
 		} else {

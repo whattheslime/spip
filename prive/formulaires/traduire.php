@@ -67,7 +67,7 @@ function formulaires_traduire_charger_dist($objet, $id_objet, $retour = '', $tra
 		$langue_parent = $GLOBALS['meta']['langue_site'];
 	}
 	if ($valeurs['editable']
-		AND in_array(table_objet_sql($objet), explode(',', $GLOBALS['meta']['multi_objets']))
+		and in_array(table_objet_sql($objet), explode(',', $GLOBALS['meta']['multi_objets']))
 	) {
 		$valeurs['_langue'] = $valeurs['langue'];
 	}
@@ -80,7 +80,7 @@ function formulaires_traduire_charger_dist($objet, $id_objet, $retour = '', $tra
 
 	$valeurs['_traduisible'] = autoriser('changertraduction', $objet, $id_objet);
 	$valeurs['_traduire'] = '';
-	if (isset($valeurs['id_trad']) AND $valeurs['_traduisible']) {
+	if (isset($valeurs['id_trad']) and $valeurs['_traduisible']) {
 		$valeurs['_traduire'] = ($traduire ? ' ' : '');
 		$valeurs['_vue_traductions'] = "prive/objets/liste/" . (trouver_fond($f = table_objet($objet) . "-trad",
 				"prive/objets/liste") ? $f : "objets-trad");
@@ -90,7 +90,7 @@ function formulaires_traduire_charger_dist($objet, $id_objet, $retour = '', $tra
 		$valeurs['_id_parent'] = $id_parent;
 	}
 
-	$valeurs['_saisie_en_cours'] = (!_request('annuler') AND (_request('changer_lang') !== null OR _request('changer_id_trad') !== null));
+	$valeurs['_saisie_en_cours'] = (!_request('annuler') and (_request('changer_lang') !== null or _request('changer_id_trad') !== null));
 	$valeurs['_pipeline'] = array('traduire', array('type' => $objet, 'id' => $id_objet));
 
 	return $valeurs;
@@ -151,16 +151,16 @@ function formulaires_traduire_verifier_dist($objet, $id_objet, $retour = '', $tr
  */
 function formulaires_traduire_traiter_dist($objet, $id_objet, $retour = '', $traduire = true) {
 	$res = array();
-	if (!_request('annuler') AND autoriser('changerlangue', $objet, $id_objet)) {
+	if (!_request('annuler') and autoriser('changerlangue', $objet, $id_objet)) {
 		// action/editer_xxx doit traiter la modif de changer_lang
 		$res = formulaires_editer_objet_traiter($objet, $id_objet, 0, 0, $retour);
 
-		if ($id_trad = _request('id_trad') OR _request('supprimer_trad')) {
+		if ($id_trad = _request('id_trad') or _request('supprimer_trad')) {
 			$referencer_traduction = charger_fonction('referencer_traduction', 'action');
 			$referencer_traduction($objet, $id_objet, intval($id_trad)); // 0 si supprimer_trad
 		} elseif ($new_id_trad = _request('changer_reference_trad')
-			AND $new_id_trad = array_keys($new_id_trad)
-			AND $new_id_trad = reset($new_id_trad)
+			and $new_id_trad = array_keys($new_id_trad)
+			and $new_id_trad = reset($new_id_trad)
 		) {
 			$table_objet_sql = table_objet_sql($objet);
 			$_id_table_objet = id_table_objet($objet);

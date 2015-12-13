@@ -154,7 +154,7 @@ function formulaires_editer_article_verifier_dist(
 		include_spip('inc/autoriser');
 	} // si on utilise le formulaire dans le public
 	if (!isset($erreurs['id_parent'])
-		AND !autoriser('creerarticledans', 'rubrique', _request('id_parent'))
+		and !autoriser('creerarticledans', 'rubrique', _request('id_parent'))
 	) {
 		$erreurs['id_parent'] = _T('info_creerdansrubrique_non_autorise');
 	}

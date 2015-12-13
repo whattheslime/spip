@@ -31,11 +31,11 @@ function formulaires_configurer_relayeur_verifier_dist() {
 	$http_proxy = relayeur_saisie_ou_config(_request('http_proxy'), lire_config('http_proxy', ''));
 	$http_noproxy = _request('http_noproxy');
 
-	if ($http_proxy AND !tester_url_absolue($http_proxy)) {
+	if ($http_proxy and !tester_url_absolue($http_proxy)) {
 		$erreurs['http_proxy'] = _L('format_proxy_incorrect');
 	}
 
-	if (!isset($erreurs['http_proxy']) AND _request('tester_proxy')) {
+	if (!isset($erreurs['http_proxy']) and _request('tester_proxy')) {
 		if (!$http_proxy) {
 			$erreurs['http_proxy'] = _T('info_obligatoire');
 		} else {
@@ -137,9 +137,9 @@ function glue_url($url) {
 // http://code.spip.net/@no_password_proxy_url
 function no_password_proxy_url($http_proxy) {
 	if ($http_proxy
-		AND $p = @parse_url($http_proxy)
-		AND isset($p['pass'])
-		AND $p['pass']
+		and $p = @parse_url($http_proxy)
+		and isset($p['pass'])
+		and $p['pass']
 	) {
 		$p['pass'] = '****';
 		$http_proxy = glue_url($p);

@@ -25,7 +25,7 @@ function formulaires_configurer_previsualiseur_charger_dist() {
 function formulaires_configurer_previsualiseur_traiter_dist() {
 	$res = array('editable' => true);
 
-	if ($i = _request('preview') AND is_array($i)) {
+	if ($i = _request('preview') and is_array($i)) {
 		$i = ',' . implode(",", $i) . ',';
 	}
 

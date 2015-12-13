@@ -35,7 +35,7 @@ function formulaires_declarer_bases_charger_dist() {
 		'_etapes' => 3,
 		'_bases_deja' => $deja,
 		'_bases_prop' => defined('_DECLARER_serveur_db') ? liste_bases(_DECLARER_serveur_db) : '',
-		'_tables' => (defined('_DECLARER_serveur_db') AND defined('_DECLARER_choix_db')) ?
+		'_tables' => (defined('_DECLARER_serveur_db') and defined('_DECLARER_choix_db')) ?
 			$tables = sql_alltable('%', _DECLARER_serveur_db)
 			:
 			array(),
@@ -62,12 +62,12 @@ function liste_serveurs() {
 	}
 	while ($f = readdir($d)) {
 		if ((preg_match('/^(.*)[.]php$/', $f, $s))
-			AND is_readable($f = $dir . $f)
+			and is_readable($f = $dir . $f)
 		) {
 			require_once($f);
 			$s = $s[1];
 			$v = 'spip_versions_' . $s;
-			if (function_exists($v) AND $v()) {
+			if (function_exists($v) and $v()) {
 				$options[$s] = "install_select_type_$s";
 			} else {
 				spip_log("$s: portage indisponible");
@@ -81,7 +81,7 @@ function liste_serveurs() {
 
 function liste_bases($server_db) {
 	if (is_null($server_db)
-		OR !$result = sql_listdbs($server_db)
+		or !$result = sql_listdbs($server_db)
 	) {
 		return '';
 	}
@@ -148,7 +148,7 @@ function formulaires_declarer_bases_verifier_1_dist() {
 		define('_DECLARER_pass_db', $pass_db);
 		// si on est sur le meme serveur que connect.php
 		// indiquer quelle est la db utilisee pour l'exclure des choix possibles
-		if ($serveur_db == $def_serveur_db AND $adresse_db == $def_adresse_db) {
+		if ($serveur_db == $def_serveur_db and $adresse_db == $def_adresse_db) {
 			set_request('main_db', $sel_db);
 		} else {
 			set_request('main_db', '');

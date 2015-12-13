@@ -23,7 +23,7 @@ function informer_auteur($bof) {
 	include_spip('inc/auth');
 	$login = strval(_request('var_login'));
 	$row = auth_informer_login($login);
-	if ($row AND is_array($row)) {
+	if ($row and is_array($row)) {
 		unset($row['id_auteur']);
 	}
 	// permettre d'autoriser l'envoi de password non crypte lorsque

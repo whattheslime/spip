@@ -89,18 +89,18 @@ function afficher_initiale($url, $initiale, $compteur, $debut, $pas) {
 	static $res = array();
 	$out = "";
 	if (!$memo
-		OR (!$initiale AND !$url)
-		OR ($initiale !== $memo['initiale'])
+		or (!$initiale and !$url)
+		or ($initiale !== $memo['initiale'])
 	) {
 		$newcompt = intval(floor(($compteur-1)/$pas)*$pas);
 		// si fin de la pagination et une seule entree, ne pas l'afficher, ca ne sert a rien
-		if (!$initiale AND !$url AND !$memo['compteur']) {
+		if (!$initiale and !$url and !$memo['compteur']) {
 			$memo = null;
 		}
 		if ($memo) {
 			$on = (($memo['compteur'] <= $debut)
-				AND (
-					$newcompt > $debut OR ($newcompt == $debut AND $newcompt == $memo['compteur'])
+				and (
+					$newcompt > $debut or ($newcompt == $debut and $newcompt == $memo['compteur'])
 				));
 			$res[] = lien_ou_expose($memo['url'], $memo['initiale'], $on, 'lien_pagination');
 		}
@@ -113,7 +113,7 @@ function afficher_initiale($url, $initiale, $compteur, $debut, $pas) {
 			);
 		}
 	}
-	if (!$initiale AND !$url) {
+	if (!$initiale and !$url) {
 		if (count($res) > 1) {
 			$out = implode(' ', $res);
 		}
@@ -150,12 +150,12 @@ function auteur_lien_messagerie($id_auteur, $en_ligne, $statut, $imessage, $emai
 	$parti = (($time-strtotime($en_ligne)) > 15*60);
 
 	if (
-		$imessage != 'non' AND !$parti // historique : est-ce que ca a encore un sens de limiter vu qu'on a la notification par email ?
-		AND $GLOBALS['meta']['messagerie_agenda'] != 'non'
+		$imessage != 'non' and !$parti // historique : est-ce que ca a encore un sens de limiter vu qu'on a la notification par email ?
+		and $GLOBALS['meta']['messagerie_agenda'] != 'non'
 	) {
 		return parametre_url(parametre_url(generer_url_ecrire("message_edit", "new=oui"), 'to', $id_auteur), 'redirect',
 			self());
-	} elseif (strlen($email) AND autoriser('voir', 'auteur', $id_auteur)) {
+	} elseif (strlen($email) and autoriser('voir', 'auteur', $id_auteur)) {
 		return 'mailto:' . $email;
 	} else {
 		return '';

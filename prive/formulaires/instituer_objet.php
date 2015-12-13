@@ -94,7 +94,7 @@ function formulaires_instituer_objet_charger_dist($objet, $id_objet, $retour = "
 		}
 	}
 	$statuts = lister_statuts_proposes($desc, $editable ? $publiable : true);
-	if (count($statuts) == 1 AND isset($statuts[$v['statut']])) {
+	if (count($statuts) == 1 and isset($statuts[$v['statut']])) {
 		$editable = false;
 	}
 
@@ -144,14 +144,14 @@ function formulaires_instituer_objet_verifier_dist($objet, $id_objet, $retour = 
 
 		$publiable = true;
 		if (isset($v['id_rubrique'])
-			AND !autoriser('publierdans', 'rubrique', $v['id_rubrique'])
+			and !autoriser('publierdans', 'rubrique', $v['id_rubrique'])
 		) {
 			$publiable = false;
 		}
 		$l = lister_statuts_proposes($desc, $publiable);
 		$statut = _request('statut');
 		if (!isset($l[$statut])
-			OR !autoriser('instituer', $objet, $id_objet, '', array('statut' => $statut))
+			or !autoriser('instituer', $objet, $id_objet, '', array('statut' => $statut))
 		) {
 			$erreurs['statut'] = _T('instituer_erreur_statut_non_autorise');
 		}

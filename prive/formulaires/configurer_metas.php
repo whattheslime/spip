@@ -66,7 +66,7 @@ function formulaires_configurer_metas_recense($form, $opt = '') {
 		$opt = PREG_SET_ORDER;
 	}
 	$f = file_get_contents($form);
-	if ($f AND preg_match_all(_EXTRAIRE_SAISIES, $f, $r, $opt)) {
+	if ($f and preg_match_all(_EXTRAIRE_SAISIES, $f, $r, $opt)) {
 		return $r;
 	} else {
 		return array();
