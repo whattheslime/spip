@@ -39,4 +39,3 @@ function formulaires_configurer_flux_traiter_dist() {
 
 	return $res;
 }
-

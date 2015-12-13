@@ -41,4 +41,3 @@ function formulaires_configurer_rubriques_traiter_dist() {
 
 	return $res;
 }
-

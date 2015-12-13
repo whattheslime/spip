@@ -452,4 +452,3 @@ function lien_ajouter_liaisons($objet_source, $ids, $objet_lien, $idl, $qualifs)
 		objet_associer(array($objet_source => $ids), array($objet_lien => $idl));
 	}
 }
-

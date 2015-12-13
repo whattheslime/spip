@@ -68,4 +68,3 @@ function formulaires_configurer_articles_traiter_dist() {
 
 	return $res;
 }
-

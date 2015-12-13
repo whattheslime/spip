@@ -62,7 +62,7 @@ function formulaires_editer_logo_charger_dist($objet, $id_objet, $retour = '', $
 		$options = unserialize($options);
 	}
 
-	if (!isset ($options['titre'])) {
+	if (!isset($options['titre'])) {
 		$balise_img = chercher_filtre('balise_img');
 		$img = $balise_img(chemin_image('image-24.png'), "", 'cadre-icone');
 		$libelles = pipeline('libeller_logo', $GLOBALS['logo_libelles']);
@@ -90,7 +90,7 @@ function formulaires_editer_logo_charger_dist($objet, $id_objet, $retour = '', $
 
 		$options['titre'] = $img . $libelle;
 	}
-	if (!isset ($options['editable'])) {
+	if (!isset($options['editable'])) {
 		include_spip('inc/autoriser');
 		$options['editable'] = autoriser('iconifier', $objet, $id_objet);
 	}

@@ -40,4 +40,3 @@ function formulaires_configurer_avertisseur_traiter_dist() {
 
 	return $res;
 }
-

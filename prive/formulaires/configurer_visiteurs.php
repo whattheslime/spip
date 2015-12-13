@@ -53,4 +53,3 @@ function formulaires_configurer_visiteurs_traiter_dist() {
 
 	return $res;
 }
-

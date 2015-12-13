@@ -41,4 +41,3 @@ function formulaires_configurer_logos_traiter_dist() {
 
 	return $res;
 }
-

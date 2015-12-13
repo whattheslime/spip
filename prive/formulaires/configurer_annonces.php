@@ -94,4 +94,3 @@ function formulaires_configurer_annonces_traiter_dist() {
 
 	return $res;
 }
-

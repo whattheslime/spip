@@ -38,4 +38,3 @@ function formulaires_configurer_moderniseur_traiter_dist() {
 
 	return $res;
 }
-

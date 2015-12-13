@@ -48,4 +48,3 @@ function formulaires_configurer_redacteurs_traiter_dist() {
 
 	return $res;
 }
-

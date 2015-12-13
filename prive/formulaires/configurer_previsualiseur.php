@@ -35,4 +35,3 @@ function formulaires_configurer_previsualiseur_traiter_dist() {
 
 	return $res;
 }
-
