@@ -19,5 +19,3 @@ function inclure_liste_recherche_par_id($table, $id, $statut, $env) {
 
 	return recuperer_fond("prive/objets/liste/$table", $env);
 }
-
-?>

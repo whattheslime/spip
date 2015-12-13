@@ -12,5 +12,3 @@ function job_queue_block_and_watch() {
 	include_spip('inc/genie');
 	genie_queue_watch_dist();
 }
-
-?>
