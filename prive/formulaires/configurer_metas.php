@@ -108,5 +108,3 @@ function formulaires_configurer_metas_infos($form) {
 
 	return $infos;
 }
-
-?>

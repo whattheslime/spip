@@ -146,5 +146,3 @@ function saisie_langues_utiles($name, $selection) {
 
 	return $res;
 }
-
-?>

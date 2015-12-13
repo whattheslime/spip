@@ -52,5 +52,3 @@ function informer_auteur($bof) {
 
 	return json_export($row);
 }
-
-?>

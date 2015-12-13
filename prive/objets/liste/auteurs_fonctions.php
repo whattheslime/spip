@@ -162,5 +162,3 @@ function auteur_lien_messagerie($id_auteur, $en_ligne, $statut, $imessage, $emai
 	}
 
 }
-
-?>

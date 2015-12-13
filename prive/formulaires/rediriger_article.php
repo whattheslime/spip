@@ -72,5 +72,3 @@ function formulaires_rediriger_article_traiter_dist($id_article, $retour = '') {
 		'editable' => true
 	);
 }
-
-?>

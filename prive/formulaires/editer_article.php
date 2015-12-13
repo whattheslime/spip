@@ -201,5 +201,3 @@ function formulaires_editer_article_traiter_dist(
 	return formulaires_editer_objet_traiter('article', $id_article, $id_rubrique, $lier_trad, $retour, $config_fonc, $row,
 		$hidden);
 }
-
-?>

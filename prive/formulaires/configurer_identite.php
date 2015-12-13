@@ -64,5 +64,3 @@ function formulaires_configurer_identite_traiter_dist() {
 
 	return array('message_ok' => _T('config_info_enregistree') . $reload, 'editable' => true);
 }
-
-?>

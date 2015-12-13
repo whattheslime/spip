@@ -326,5 +326,3 @@ function formulaires_login_traiter_dist($cible = "", $login = "", $prive = null)
 
 	return $res;
 }
-
-?>

@@ -359,5 +359,3 @@ function dater_recuperer_heure_saisie($post) {
 
 	return array($regs[1], $regs[2]);
 }
-
-?>

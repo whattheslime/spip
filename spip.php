@@ -22,5 +22,3 @@ if (isset($_GET['fond'])) {
 
 # au travail...
 include _DIR_RESTREINT_ABS.'public.php';
-
-?>

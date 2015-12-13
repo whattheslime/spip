@@ -73,5 +73,3 @@ jQuery(function(){
 
 	return $res;
 }
-
-?>

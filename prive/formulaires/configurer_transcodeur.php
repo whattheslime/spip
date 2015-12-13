@@ -43,5 +43,3 @@ function formulaires_configurer_transcodeur_traiter_dist() {
 
 	return $res;
 }
-
-?>

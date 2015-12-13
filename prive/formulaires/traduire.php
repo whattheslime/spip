@@ -177,5 +177,3 @@ function formulaires_traduire_traiter_dist($objet, $id_objet, $retour = '', $tra
 
 	return $res;
 }
-
-?>

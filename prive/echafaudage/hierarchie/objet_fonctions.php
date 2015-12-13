@@ -41,5 +41,3 @@ function deplacement_restreint($objet, $statut) {
 
 	return false;
 }
-
-?>

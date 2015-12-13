@@ -15,4 +15,3 @@ if (!defined('_ECRIRE_INC_VERSION')) {
 }
 
 include_spip('inc/drapeau_edition');
-?>

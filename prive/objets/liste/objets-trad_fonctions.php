@@ -23,5 +23,3 @@ function lister_traductions($id_trad, $objet) {
 
 	return $rows;
 }
-
-?>

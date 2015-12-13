@@ -328,5 +328,3 @@ function formulaires_editer_auteur_traiter_dist(
 
 	return $res;
 }
-
-?>

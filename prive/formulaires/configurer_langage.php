@@ -57,5 +57,3 @@ function afficher_langues_choix($langues, $name, $id, $selected) {
 
 	return $ret;
 }
-
-?>

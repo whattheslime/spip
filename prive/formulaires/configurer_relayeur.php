@@ -147,5 +147,3 @@ function no_password_proxy_url($http_proxy) {
 
 	return $http_proxy;
 }
-
-?>
