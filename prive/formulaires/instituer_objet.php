@@ -14,9 +14,11 @@
  * Gestion du formulaire d'institution (changement de statut) d'un objet
  *
  * @package SPIP\Core\Formulaires
-**/
+ **/
 
-if (!defined('_ECRIRE_INC_VERSION')) return;
+if (!defined('_ECRIRE_INC_VERSION')) {
+	return;
+}
 
 include_spip('inc/editer');
 include_spip('inc/autoriser');
@@ -24,20 +26,22 @@ include_spip('inc/puce_statut');
 
 /**
  * Filtres les statuts utilisable selon les droits de publication
- * 
+ *
  * @param array $desc
  * @param bool $publiable
  * @return array
  */
-function lister_statuts_proposes($desc, $publiable = true){
-	if (!isset($desc['statut_textes_instituer']))
+function lister_statuts_proposes($desc, $publiable = true) {
+	if (!isset($desc['statut_textes_instituer'])) {
 		return false;
+	}
 
 	$l = $desc['statut_textes_instituer'];
-	if (!$publiable){
+	if (!$publiable) {
 		unset($l['publie']);
 		unset($l['refuse']);
 	}
+
 	return $l;
 }
 
@@ -45,7 +49,7 @@ function lister_statuts_proposes($desc, $publiable = true){
  * Chargement du formulaire instituer objet
  *
  * @uses formulaires_editer_objet_charger()
- * 
+ *
  * @param string $objet
  *     Type d'objet
  * @param int $id_objet
@@ -59,35 +63,38 @@ function lister_statuts_proposes($desc, $publiable = true){
  * @return array|bool
  *     Environnement du formulaire ou false si aucun affichage à faire.
  */
-function formulaires_instituer_objet_charger_dist($objet, $id_objet, $retour = "", $editable = true){
-	$editable = ($editable?true:false);
+function formulaires_instituer_objet_charger_dist($objet, $id_objet, $retour = "", $editable = true) {
+	$editable = ($editable ? true : false);
 
 	$table = table_objet_sql($objet);
 	$desc = lister_tables_objets_sql($table);
 
-	if (!isset($desc['statut_textes_instituer']))
+	if (!isset($desc['statut_textes_instituer'])) {
 		return false;
+	}
 
-	if (!autoriser('modifier', $objet, $id_objet))
+	if (!autoriser('modifier', $objet, $id_objet)) {
 		$editable = false;
+	}
 
 	// charger le contenu de l'objet
 	// dont son champ statut
-	$v = formulaires_editer_objet_charger($objet,$id_objet,0,0,'','');
+	$v = formulaires_editer_objet_charger($objet, $id_objet, 0, 0, '', '');
 
 	$publiable = true;
 	$statuts = lister_statuts_proposes($desc);
 	// tester si on a le droit de publier, si un statut publie existe
-	if (isset($statuts['publie'])){
-		if (!autoriser('instituer', $objet, $id_objet, null, array('statut'=>'publie'))){
-			if ($v['statut'] == 'publie')
+	if (isset($statuts['publie'])) {
+		if (!autoriser('instituer', $objet, $id_objet, null, array('statut' => 'publie'))) {
+			if ($v['statut'] == 'publie') {
 				$editable = false;
-			else
+			} else {
 				$publiable = false;
+			}
 		}
 	}
-	$statuts = lister_statuts_proposes($desc, $editable?$publiable:true);
-	if (count($statuts)==1  AND isset($statuts[$v['statut']])){
+	$statuts = lister_statuts_proposes($desc, $editable ? $publiable : true);
+	if (count($statuts) == 1 AND isset($statuts[$v['statut']])) {
 		$editable = false;
 	}
 
@@ -98,9 +105,9 @@ function formulaires_instituer_objet_charger_dist($objet, $id_objet, $retour = "
 		'_id_objet' => $id_objet,
 		'_statuts' => $statuts,
 		'_publiable' => $publiable,
-		'_label' => isset($desc['texte_changer_statut'])?$desc['texte_changer_statut']:'texte_article_statut',
-		'_aide' => isset($desc['aide_changer_statut'])?$desc['aide_changer_statut']:'',
-		'_hidden' => "<input type='hidden' name='statut_old' value='".$v['statut']."' />",
+		'_label' => isset($desc['texte_changer_statut']) ? $desc['texte_changer_statut'] : 'texte_article_statut',
+		'_aide' => isset($desc['aide_changer_statut']) ? $desc['aide_changer_statut'] : '',
+		'_hidden' => "<input type='hidden' name='statut_old' value='" . $v['statut'] . "' />",
 	);
 
 	#if (!count($valeurs['statuts']))
@@ -111,7 +118,7 @@ function formulaires_instituer_objet_charger_dist($objet, $id_objet, $retour = "
  * Vérifications du formulaire instituer objet
  *
  * @uses formulaires_editer_objet_charger()
- * 
+ *
  * @param string $objet
  *     Type d'objet
  * @param int $id_objet
@@ -123,28 +130,31 @@ function formulaires_instituer_objet_charger_dist($objet, $id_objet, $retour = "
  * @return array
  *     Tableau des erreurs
  */
-function formulaires_instituer_objet_verifier_dist($objet, $id_objet, $retour = "", $editable = true){
+function formulaires_instituer_objet_verifier_dist($objet, $id_objet, $retour = "", $editable = true) {
 	$erreurs = array();
 	// charger le contenu de l'objet
 	// dont son champ statut
-	$v = formulaires_editer_objet_charger($objet,$id_objet,0,0,'','');
+	$v = formulaires_editer_objet_charger($objet, $id_objet, 0, 0, '', '');
 
-	if ($v['statut']!==_request('statut_old'))
+	if ($v['statut'] !== _request('statut_old')) {
 		$erreurs['statut'] = _T('instituer_erreur_statut_a_change');
-	else {
+	} else {
 		$table = table_objet_sql($objet);
 		$desc = lister_tables_objets_sql($table);
 
 		$publiable = true;
 		if (isset($v['id_rubrique'])
-			AND !autoriser('publierdans', 'rubrique', $v['id_rubrique'])) {
+			AND !autoriser('publierdans', 'rubrique', $v['id_rubrique'])
+		) {
 			$publiable = false;
 		}
 		$l = lister_statuts_proposes($desc, $publiable);
 		$statut = _request('statut');
 		if (!isset($l[$statut])
-		  OR !autoriser('instituer',$objet,$id_objet,'',array('statut'=>$statut)))
+			OR !autoriser('instituer', $objet, $id_objet, '', array('statut' => $statut))
+		) {
 			$erreurs['statut'] = _T('instituer_erreur_statut_non_autorise');
+		}
 	}
 
 	return $erreurs;
@@ -152,7 +162,7 @@ function formulaires_instituer_objet_verifier_dist($objet, $id_objet, $retour = 
 
 /**
  * Traitements du formulaire instituer objet
- * 
+ *
  * @param string $objet
  *     Type d'objet
  * @param int $id_objet
@@ -164,22 +174,24 @@ function formulaires_instituer_objet_verifier_dist($objet, $id_objet, $retour = 
  * @return array
  *     Retour des traitements
  */
-function formulaires_instituer_objet_traiter_dist($objet, $id_objet, $retour = "", $editable = true){
+function formulaires_instituer_objet_traiter_dist($objet, $id_objet, $retour = "", $editable = true) {
 
 	$c = array('statut' => _request('statut'));
 	// si on a envoye une 'date_posterieure', l'enregistrer
 	// todo dans le HTML
-	if ($d = _request('date_posterieure'))
+	if ($d = _request('date_posterieure')) {
 		$c['date'] = $d;
+	}
 
 
 	include_spip('action/editer_objet');
-	if ($err=objet_instituer($objet, $id_objet, $c))
-		$res = array('message_erreur'=>$err);
-	else {
-		$res = array('message_ok'=>_T('info_modification_enregistree'));
-		if ($retour)
+	if ($err = objet_instituer($objet, $id_objet, $c)) {
+		$res = array('message_erreur' => $err);
+	} else {
+		$res = array('message_ok' => _T('info_modification_enregistree'));
+		if ($retour) {
 			$res['redirect'] = $retour;
+		}
 		set_request('statut');
 		set_request('date_posterieure');
 	}

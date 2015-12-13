@@ -10,7 +10,9 @@
  *  Pour plus de details voir le fichier COPYING.txt ou l'aide en ligne.   *
 \***************************************************************************/
 
-if (!defined('_ECRIRE_INC_VERSION')) return;
+if (!defined('_ECRIRE_INC_VERSION')) {
+	return;
+}
 
 /**
  * Tester le deplacement restreint ou non
@@ -30,12 +32,13 @@ function deplacement_restreint($objet, $statut) {
 		case 'site':
 		case 'syndic':
 		case 'breve':
-			return ($statut=='publie');
+			return ($statut == 'publie');
 			break;
 		default :
-			return ($statut?$statut=='publie':false);
+			return ($statut ? $statut == 'publie' : false);
 			break;
 	}
+
 	return false;
 }
 

@@ -4,8 +4,10 @@
  * Fonction pour le squelette du même nom
  *
  * @package SPIP\Core\Formulaires
-**/
-if (!defined('_ECRIRE_INC_VERSION')) return;
+ **/
+if (!defined('_ECRIRE_INC_VERSION')) {
+	return;
+}
 
 /**
  * Afficher le formulaire de choix de rubrique restreinte
@@ -20,26 +22,33 @@ if (!defined('_ECRIRE_INC_VERSION')) return;
  * @return string
  *     Code HTML et javascript
  */
-function choisir_rubriques_admin_restreint($id_auteur, $label = '', $sel_css = "#liste_rubriques_restreintes", $img_remove = "") {
+function choisir_rubriques_admin_restreint(
+	$id_auteur,
+	$label = '',
+	$sel_css = "#liste_rubriques_restreintes",
+	$img_remove = ""
+) {
 	global $spip_lang;
 	$res = "";
 	// Ajouter une rubrique a un administrateur restreint
 	if ($chercher_rubrique = charger_fonction('chercher_rubrique', 'inc')
-	  AND $a = $chercher_rubrique(0, 'auteur', false)) {
+		AND $a = $chercher_rubrique(0, 'auteur', false)
+	) {
 
-		if ($img_remove)
+		if ($img_remove) {
 			$img_remove = addslashes("<a href=\"#\" onclick=\"jQuery(this).parent().remove();return false;\" class=\"removelink\">$img_remove</a>");
+		}
 
 		$res =
-		  "\n<div id='ajax_rubrique'>\n"
-		. "<label>$label</label>\n"
-		. "<input name='id_auteur' value='$id_auteur' type='hidden' />\n"
-		. $a
-		. "</div>\n"
+			"\n<div id='ajax_rubrique'>\n"
+			. "<label>$label</label>\n"
+			. "<input name='id_auteur' value='$id_auteur' type='hidden' />\n"
+			. $a
+			. "</div>\n"
 
-		// onchange = pour le menu
-		// l'evenement doit etre provoque a la main par le selecteur ajax
-		. "<script type='text/javascript'>/*<![CDATA[*/
+			// onchange = pour le menu
+			// l'evenement doit etre provoque a la main par le selecteur ajax
+			. "<script type='text/javascript'>/*<![CDATA[*/
 jQuery(function(){
 	jQuery('#id_parent')
 	.bind('change', function(){

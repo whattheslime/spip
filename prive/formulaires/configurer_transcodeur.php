@@ -10,9 +10,11 @@
  *  Pour plus de details voir le fichier COPYING.txt ou l'aide en ligne.   *
 \***************************************************************************/
 
-if (!defined('_ECRIRE_INC_VERSION')) return;
+if (!defined('_ECRIRE_INC_VERSION')) {
+	return;
+}
 
-function formulaires_configurer_transcodeur_charger_dist(){
+function formulaires_configurer_transcodeur_charger_dist() {
 	$valeurs = array(
 		'charset' => $GLOBALS['meta']["charset"],
 	);
@@ -20,23 +22,26 @@ function formulaires_configurer_transcodeur_charger_dist(){
 	return $valeurs;
 }
 
-function formulaires_configurer_transcodeur_verifier_dist(){
+function formulaires_configurer_transcodeur_verifier_dist() {
 	include_spip('inc/charsets');
-	
+
 	$erreurs = array();
-	if (!$charset=_request('charset'))
+	if (!$charset = _request('charset')) {
 		$erreurs['charset'] = _T('info_obligatoire');
-	elseif ($charset!='utf-8' AND !load_charset($charset))
-		$erreurs['charset'] = _T('utf8_convert_erreur_orig',array('charset'=>$charset));
+	} elseif ($charset != 'utf-8' AND !load_charset($charset)) {
+		$erreurs['charset'] = _T('utf8_convert_erreur_orig', array('charset' => $charset));
+	}
 
 	return $erreurs;
 }
 
 
-function formulaires_configurer_transcodeur_traiter_dist(){
-	$res = array('editable'=>true);
+function formulaires_configurer_transcodeur_traiter_dist() {
+	$res = array('editable' => true);
 	ecrire_meta('charset', _request('charset'));
 	$res['message_ok'] = _T('config_info_enregistree');
+
 	return $res;
 }
+
 ?>

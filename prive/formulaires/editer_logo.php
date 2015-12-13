@@ -14,22 +14,24 @@
  * Gestion du formulaire d'édition de logo
  *
  * Ce formulaire ajoute, modifie ou supprime des logos sur les objets de SPIP.
- * 
+ *
  * - En dehors d'une boucle, ce formulaire modifie le logo du site.
  * - Dans une boucle, il modifie le logo de la table selectionnée.
- * 
+ *
  * Pensez juste que l'appel de `#LOGO_{TYPE}` s'appuie sur le nom de la clé primaire et non sur le
  * nom de l'objet réel. Par exemple on ecrira `#LOGO_GROUPE` (et non `#LOGO_GROUPEMOTS`) pour afficher
  * un logo issu du formulaire mis dans une boucle `GROUPES_MOTS`
- * 
+ *
  * - il est possible de lui passer les paramètres objet et id : `#FORMULAIRE_EDITER_LOGO{article,1}`
  * - il est possible de spécifier une URL de redirection apres traitement :
  *   `#FORMULAIRE_EDITER_LOGO{article,1,#URL_ARTICLE}`
- * 
+ *
  * @package SPIP\Core\Formulaires
-**/
+ **/
 
-if (!defined('_ECRIRE_INC_VERSION')) return;
+if (!defined('_ECRIRE_INC_VERSION')) {
+	return;
+}
 
 global $logo_libelles;
 // utilise pour le logo du site, donc doit rester ici
@@ -40,22 +42,25 @@ $logo_libelles['racine'] = _T('logo_standard_rubrique');
 /**
  * Chargement du formulaire d'édition de logo
  *
- * @param string $objet        Objet SPIP auquel sera lie le document (ex. article)
- * @param int $id_objet        Identifiant de l'objet
- * @param string $retour       Url de redirection apres traitement
- * @param array $options       Tableau d'option (exemple : image_reduire => 50)
+ * @param string $objet Objet SPIP auquel sera lie le document (ex. article)
+ * @param int $id_objet Identifiant de l'objet
+ * @param string $retour Url de redirection apres traitement
+ * @param array $options Tableau d'option (exemple : image_reduire => 50)
  * @return array               Variables d'environnement pour le fond
  */
-function formulaires_editer_logo_charger_dist($objet, $id_objet, $retour = '', $options = array()){
+function formulaires_editer_logo_charger_dist($objet, $id_objet, $retour = '', $options = array()) {
 	// pas dans une boucle ? formulaire pour le logo du site
 	// dans ce cas, il faut chercher un 'siteon0.ext'
-	if (!$objet) $objet = 'site';
+	if (!$objet) {
+		$objet = 'site';
+	}
 
 	$objet = objet_type($objet);
 	$_id_objet = id_table_objet($objet);
 
-	if (!is_array($options))
+	if (!is_array($options)) {
 		$options = unserialize($options);
+	}
 
 	if (!isset ($options['titre'])) {
 		$balise_img = chercher_filtre('balise_img');
@@ -69,15 +74,15 @@ function formulaires_editer_logo_charger_dist($objet, $id_objet, $retour = '', $
 		} else {
 			$libelle = _L('Logo');
 		}
-		switch($objet){
+		switch ($objet) {
 			case 'article':
-				$libelle .= " " . aide ("logoart");
+				$libelle .= " " . aide("logoart");
 				break;
 			case 'breve':
-				$libelle .= " " . aide ("breveslogo");
+				$libelle .= " " . aide("breveslogo");
 				break;
 			case 'rubrique':
-				$libelle .= " " . aide ("rublogo");
+				$libelle .= " " . aide("rublogo");
 				break;
 			default:
 				break;
@@ -85,43 +90,46 @@ function formulaires_editer_logo_charger_dist($objet, $id_objet, $retour = '', $
 
 		$options['titre'] = $img . $libelle;
 	}
-	if (!isset ($options['editable'])){
+	if (!isset ($options['editable'])) {
 		include_spip('inc/autoriser');
-		$options['editable'] = autoriser('iconifier',$objet,$id_objet);
+		$options['editable'] = autoriser('iconifier', $objet, $id_objet);
 	}
 
 	$res = array(
-		'editable'=>($GLOBALS['meta']['activer_logos'] == 'oui' ? ' ' : '')&&(!isset($options['editable']) OR $options['editable']),
-		'logo_survol'=>($GLOBALS['meta']['activer_logos_survol'] == 'oui' ? ' ' : ''),
-		'objet'=>$objet,
-		'id_objet'=>$id_objet,
-		'_options'=>$options,
-		'_show_upload_off'=>'',
+		'editable' => ($GLOBALS['meta']['activer_logos'] == 'oui' ? ' ' : '') && (!isset($options['editable']) OR $options['editable']),
+		'logo_survol' => ($GLOBALS['meta']['activer_logos_survol'] == 'oui' ? ' ' : ''),
+		'objet' => $objet,
+		'id_objet' => $id_objet,
+		'_options' => $options,
+		'_show_upload_off' => '',
 	);
-	
+
 	// rechercher le logo de l'objet
 	// la fonction prend un parametre '_id_objet' etrange : 
 	// le nom de la cle primaire (et non le nom de la table)
 	// ou directement le nom du raccourcis a chercher
 	$chercher_logo = charger_fonction('chercher_logo', 'inc');
-	$etats = $res['logo_survol'] ? array('on','off') : array('on');
-	foreach($etats as $etat) {
+	$etats = $res['logo_survol'] ? array('on', 'off') : array('on');
+	foreach ($etats as $etat) {
 		$logo = $chercher_logo($id_objet, $_id_objet, $etat);
-		if ($logo){
-			$res['logo_'.$etat] = $logo[0];
+		if ($logo) {
+			$res['logo_' . $etat] = $logo[0];
 		}
 	}
 	// pas de logo_on -> pas de formulaire pour le survol
-	if (!isset($res['logo_on']))
-		$res['logo_survol']='';
-	elseif (!isset($res['logo_off']) AND _request('logo_up'))
+	if (!isset($res['logo_on'])) {
+		$res['logo_survol'] = '';
+	} elseif (!isset($res['logo_off']) AND _request('logo_up')) {
 		$res['_show_upload_off'] = ' ';
+	}
 
 	// si le logo n'est pas editable et qu'il n'y en a pas, on affiche pas du tout le formulaire
 	if (!$res['editable']
-	  AND !isset($res['logo_off'])
-	  AND !isset($res['logo_on']))
+		AND !isset($res['logo_off'])
+		AND !isset($res['logo_on'])
+	) {
 		return false;
+	}
 
 	return $res;
 }
@@ -130,13 +138,13 @@ function formulaires_editer_logo_charger_dist($objet, $id_objet, $retour = '', $
  * Identifier le formulaire en faisant abstraction des parametres qui
  * ne representent pas l'objet edite
  *
- * @param string $objet        Objet SPIP auquel sera lie le document (ex. article)
- * @param int $id_objet        Identifiant de l'objet
- * @param string $retour       Url de redirection apres traitement
- * @param array $options       Tableau d'option (exemple : image_reduire => 50)
+ * @param string $objet Objet SPIP auquel sera lie le document (ex. article)
+ * @param int $id_objet Identifiant de l'objet
+ * @param string $retour Url de redirection apres traitement
+ * @param array $options Tableau d'option (exemple : image_reduire => 50)
  * @return string              Hash du formulaire
  */
-function formulaires_editer_logo_identifier_dist($objet, $id_objet, $retour = '', $options = array()){
+function formulaires_editer_logo_identifier_dist($objet, $id_objet, $retour = '', $options = array()) {
 	return serialize(array($objet, $id_objet));
 }
 
@@ -146,23 +154,25 @@ function formulaires_editer_logo_identifier_dist($objet, $id_objet, $retour = ''
  * On verifie que l'upload s'est bien passe et
  * que le document recu est une image (d'apres son extension)
  *
- * @param string $objet        Objet SPIP auquel sera lie le document (ex. article)
- * @param int $id_objet        Identifiant de l'objet
- * @param string $retour       Url de redirection apres traitement
- * @param array $options       Tableau d'option (exemple : image_reduire => 50)
+ * @param string $objet Objet SPIP auquel sera lie le document (ex. article)
+ * @param int $id_objet Identifiant de l'objet
+ * @param string $retour Url de redirection apres traitement
+ * @param array $options Tableau d'option (exemple : image_reduire => 50)
  * @return array               Erreurs du formulaire
  */
-function formulaires_editer_logo_verifier_dist($objet, $id_objet, $retour = '', $options = array()){
+function formulaires_editer_logo_verifier_dist($objet, $id_objet, $retour = '', $options = array()) {
 	$erreurs = array();
 	// verifier les extensions
 	$sources = formulaire_editer_logo_get_sources();
-	foreach($sources as $etat=>$file) {
+	foreach ($sources as $etat => $file) {
 		// seulement si une reception correcte a eu lieu
 		if ($file AND $file['error'] == 0) {
-			if (!in_array(strtolower(pathinfo($file['name'], PATHINFO_EXTENSION)),array('jpg','png','gif','jpeg')))
-				$erreurs['logo_'.$etat] = _L('Extension non reconnue');
+			if (!in_array(strtolower(pathinfo($file['name'], PATHINFO_EXTENSION)), array('jpg', 'png', 'gif', 'jpeg'))) {
+				$erreurs['logo_' . $etat] = _L('Extension non reconnue');
+			}
 		}
 	}
+
 	return $erreurs;
 }
 
@@ -172,39 +182,40 @@ function formulaires_editer_logo_verifier_dist($objet, $id_objet, $retour = '', 
  * Il est affecte au site si la balise n'est pas dans une boucle,
  * sinon a l'objet concerne par la boucle ou indiquee par les parametres d'appel
  *
- * @param string $objet        Objet SPIP auquel sera lie le document (ex. article)
- * @param int $id_objet        Identifiant de l'objet
- * @param string $retour       Url de redirection apres traitement
- * @param array $options       Tableau d'option (exemple : image_reduire => 50)
+ * @param string $objet Objet SPIP auquel sera lie le document (ex. article)
+ * @param int $id_objet Identifiant de l'objet
+ * @param string $retour Url de redirection apres traitement
+ * @param array $options Tableau d'option (exemple : image_reduire => 50)
  * @return array               Retour des traitements
  */
-function formulaires_editer_logo_traiter_dist($objet, $id_objet, $retour = '', $options = array()){
-	$res = array('editable'=>' ');
-	
+function formulaires_editer_logo_traiter_dist($objet, $id_objet, $retour = '', $options = array()) {
+	$res = array('editable' => ' ');
+
 	// pas dans une boucle ? formulaire pour le logo du site
 	// dans ce cas, il faut chercher un 'siteon0.ext'	
-	if (!$objet) $objet = 'site';
+	if (!$objet) {
+		$objet = 'site';
+	}
 
 	include_spip("action/editer_logo");
 
 	// effectuer la suppression si demandee d'un logo
 	$on = _request('supprimer_logo_on');
-	if ($on OR _request('supprimer_logo_off')){
+	if ($on OR _request('supprimer_logo_off')) {
 		logo_supprimer($objet, $id_objet, $on ? 'on' : 'off');
 		$res['message_ok'] = ''; // pas besoin de message : la validation est visuelle
-		set_request('logo_up',' ');
-	}
-	
-	// sinon supprimer ancien logo puis copier le nouveau
+		set_request('logo_up', ' ');
+	} // sinon supprimer ancien logo puis copier le nouveau
 	else {
 		$sources = formulaire_editer_logo_get_sources();
-		foreach($sources as $etat=>$file) {
-			if ($file and $file['error']==0) {
-				if ($err = logo_modifier($objet, $id_objet, $etat ,$file))
+		foreach ($sources as $etat => $file) {
+			if ($file and $file['error'] == 0) {
+				if ($err = logo_modifier($objet, $id_objet, $etat, $file)) {
 					$res['message_erreur'] = $err;
-				else
-					$res['message_ok'] = ''; // pas besoin de message : la validation est visuelle
-				set_request('logo_up',' ');
+				} else {
+					$res['message_ok'] = '';
+				} // pas besoin de message : la validation est visuelle
+				set_request('logo_up', ' ');
 			}
 		}
 	}
@@ -213,8 +224,8 @@ function formulaires_editer_logo_traiter_dist($objet, $id_objet, $retour = '', $
 	include_spip('inc/invalideur');
 	suivre_invalideur("id='$objet/$id_objet'");
 
-	
-	if ($retour){
+
+	if ($retour) {
 		$res['redirect'] = $retour;
 	}
 
@@ -229,15 +240,20 @@ function formulaires_editer_logo_traiter_dist($objet, $id_objet, $retour = '', $
  * @return array
  *     Sources des fichiers dans les clés `on` ou `off`
  */
-function formulaire_editer_logo_get_sources(){
-	if (!$_FILES) $_FILES = isset($GLOBALS['HTTP_POST_FILES']) ? $GLOBALS['HTTP_POST_FILES'] : array();
-	if (!is_array($_FILES)) return array();
-	
+function formulaire_editer_logo_get_sources() {
+	if (!$_FILES) {
+		$_FILES = isset($GLOBALS['HTTP_POST_FILES']) ? $GLOBALS['HTTP_POST_FILES'] : array();
+	}
+	if (!is_array($_FILES)) {
+		return array();
+	}
+
 	$sources = array();
-	foreach(array('on','off') as $etat) {
-		if (isset($_FILES['logo_'.$etat]) AND $_FILES['logo_'.$etat]['error'] == 0) {
-			$sources[$etat] = $_FILES['logo_'.$etat];
+	foreach (array('on', 'off') as $etat) {
+		if (isset($_FILES['logo_' . $etat]) AND $_FILES['logo_' . $etat]['error'] == 0) {
+			$sources[$etat] = $_FILES['logo_' . $etat];
 		}
 	}
+
 	return $sources;
 }

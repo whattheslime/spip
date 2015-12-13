@@ -14,9 +14,11 @@
  * Gestion du formulaire de d'édition de rubrique
  *
  * @package SPIP\Core\Rubriques\Formulaires
-**/
+ **/
 
-if (!defined('_ECRIRE_INC_VERSION')) return;
+if (!defined('_ECRIRE_INC_VERSION')) {
+	return;
+}
 
 include_spip('inc/actions');
 include_spip('inc/editer');
@@ -26,7 +28,7 @@ include_spip('inc/editer');
  * Chargement du formulaire d'édition d'une rubrique
  *
  * @see formulaires_editer_objet_charger()
- * 
+ *
  * @param int|string $id_rubrique
  *     Identifiant de la rubrique. 'new' pour une nouvelle rubrique
  * @param int $id_parent
@@ -43,9 +45,18 @@ include_spip('inc/editer');
  *     Contenu HTML ajouté en même temps que les champs cachés du formulaire.
  * @return array
  *     Environnement du formulaire
-**/
-function formulaires_editer_rubrique_charger_dist($id_rubrique = 'new', $id_parent = 0, $retour = '', $lier_trad = 0, $config_fonc = 'rubriques_edit_config', $row = array(), $hidden = ''){
-	return formulaires_editer_objet_charger('rubrique',$id_rubrique,$id_parent,$lier_trad,$retour,$config_fonc,$row,$hidden);
+ **/
+function formulaires_editer_rubrique_charger_dist(
+	$id_rubrique = 'new',
+	$id_parent = 0,
+	$retour = '',
+	$lier_trad = 0,
+	$config_fonc = 'rubriques_edit_config',
+	$row = array(),
+	$hidden = ''
+) {
+	return formulaires_editer_objet_charger('rubrique', $id_rubrique, $id_parent, $lier_trad, $retour, $config_fonc, $row,
+		$hidden);
 }
 
 /**
@@ -56,8 +67,7 @@ function formulaires_editer_rubrique_charger_dist($id_rubrique = 'new', $id_pare
  * return array
  *     Configuration pour le formulaire
  */
-function rubriques_edit_config($row)
-{
+function rubriques_edit_config($row) {
 	global $spip_lang;
 
 	$config = $GLOBALS['meta'];
@@ -65,6 +75,7 @@ function rubriques_edit_config($row)
 	$config['langue'] = $spip_lang;
 
 	$config['restreint'] = (!$GLOBALS['connect_toutes_rubriques']);
+
 	return $config;
 }
 
@@ -89,15 +100,23 @@ function rubriques_edit_config($row)
  * @return string
  *     Hash du formulaire
  */
-function formulaires_editer_rubrique_identifier_dist($id_rubrique = 'new', $id_parent = 0, $retour = '', $lier_trad = 0, $config_fonc = 'rubriques_edit_config', $row = array(), $hidden = ''){
-	return serialize(array(intval($id_rubrique),$lier_trad));
+function formulaires_editer_rubrique_identifier_dist(
+	$id_rubrique = 'new',
+	$id_parent = 0,
+	$retour = '',
+	$lier_trad = 0,
+	$config_fonc = 'rubriques_edit_config',
+	$row = array(),
+	$hidden = ''
+) {
+	return serialize(array(intval($id_rubrique), $lier_trad));
 }
 
 /**
  * Vérifications du formulaire d'édition d'une rubrique
  *
  * @see formulaires_editer_objet_verifier()
- * 
+ *
  * @param int|string $id_rubrique
  *     Identifiant de la rubrique. 'new' pour une nouvelle rubrique
  * @param int $id_parent
@@ -114,12 +133,21 @@ function formulaires_editer_rubrique_identifier_dist($id_rubrique = 'new', $id_p
  *     Contenu HTML ajouté en même temps que les champs cachés du formulaire.
  * @return array
  *     Erreurs du formulaire
-**/
-function formulaires_editer_rubrique_verifier_dist($id_rubrique = 'new', $id_parent = 0, $retour = '', $lier_trad = 0, $config_fonc = 'rubriques_edit_config', $row = array(), $hidden = ''){
+ **/
+function formulaires_editer_rubrique_verifier_dist(
+	$id_rubrique = 'new',
+	$id_parent = 0,
+	$retour = '',
+	$lier_trad = 0,
+	$config_fonc = 'rubriques_edit_config',
+	$row = array(),
+	$hidden = ''
+) {
 	// auto-renseigner le titre si il n'existe pas
-	titre_automatique('titre',array('descriptif','texte'));
+	titre_automatique('titre', array('descriptif', 'texte'));
 	// on ne demande pas le titre obligatoire : il sera rempli a la volee dans editer_rubrique si vide
-	$erreurs = formulaires_editer_objet_verifier('rubrique',$id_rubrique,array());
+	$erreurs = formulaires_editer_objet_verifier('rubrique', $id_rubrique, array());
+
 	return $erreurs;
 }
 
@@ -127,7 +155,7 @@ function formulaires_editer_rubrique_verifier_dist($id_rubrique = 'new', $id_par
  * Traitements du formulaire d'édition d'une rubrique
  *
  * @see formulaires_editer_objet_traiter()
- * 
+ *
  * @param int|string $id_rubrique
  *     Identifiant de la rubrique. 'new' pour une nouvelle rubrique
  * @param int $id_parent
@@ -143,10 +171,19 @@ function formulaires_editer_rubrique_verifier_dist($id_rubrique = 'new', $id_par
  * @param string $hidden
  *     Contenu HTML ajouté en même temps que les champs cachés du formulaire.
  * @return array
- *     Retour des traitements 
-**/
-function formulaires_editer_rubrique_traiter_dist($id_rubrique = 'new', $id_parent = 0, $retour = '', $lier_trad = 0, $config_fonc = 'rubriques_edit_config', $row = array(), $hidden = ''){
-	return formulaires_editer_objet_traiter('rubrique',$id_rubrique,$id_parent,$lier_trad,$retour,$config_fonc,$row,$hidden);
+ *     Retour des traitements
+ **/
+function formulaires_editer_rubrique_traiter_dist(
+	$id_rubrique = 'new',
+	$id_parent = 0,
+	$retour = '',
+	$lier_trad = 0,
+	$config_fonc = 'rubriques_edit_config',
+	$row = array(),
+	$hidden = ''
+) {
+	return formulaires_editer_objet_traiter('rubrique', $id_rubrique, $id_parent, $lier_trad, $retour, $config_fonc, $row,
+		$hidden);
 }
 
 ?>
