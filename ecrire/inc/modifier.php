@@ -83,6 +83,7 @@ function collecter_requests($white_list, $black_list, $set=null, $tous=false){
  *     string date_modif : champ a mettre a date('Y-m-d H:i:s') s'il y a modif
  *     string invalideur : id de l'invalideur eventuel
  *     array champs : non documente (utilise seulement par inc/rechercher ?)
+ *     string action : action realisee, passee aux pipelines pre/post edition (par defaut 'modifier')
  *     bool indexation : deprecie
  * @param array|null $c
  *     Couples champ/valeur à modifier
@@ -155,7 +156,7 @@ function objet_modifier_champs($objet, $id_objet, $options, $c=null, $serveur=''
 				'id_objet' => $id_objet,
 				'champs' => isset($options['champs']) ? $options['champs'] : array(), // [doc] c'est quoi ?
 				'serveur' => $serveur,
-				'action' => 'modifier'
+				'action' => isset($options['action']) ? $options['action'] : 'modifier'
 			),
 			'data' => $champs
 		)
@@ -253,7 +254,7 @@ function objet_modifier_champs($objet, $id_objet, $options, $c=null, $serveur=''
 					'id_objet' => $id_objet,
 					'champs' => isset($options['champs']) ? $options['champs'] : array(), // [doc] kesako ?
 					'serveur' => $serveur,
-					'action' => 'modifier'
+					'action' => isset($options['action']) ? $options['action'] : 'modifier'
 				),
 				'data' => $champs
 			)
