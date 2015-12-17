@@ -44,7 +44,7 @@ function inc_log_dist($message, $logname=NULL, $logdir=NULL, $logsuf=NULL) {
 	// accepter spip_log( Array )
 	if (!is_string($message)) $message = var_export($message, true);
 
-	$m = date("M d H:i:s").' '.$GLOBALS['ip'].' '.$pid.' '
+	$m = date("Y-m-d H:i:s").' '.$GLOBALS['ip'].' '.$pid.' '
 		.preg_replace("/\n*$/", "\n", $message);
 
 
