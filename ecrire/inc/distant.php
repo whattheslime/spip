@@ -85,7 +85,7 @@ function copie_locale($source, $mode='auto', $local=null, $taille_max=null){
 		// et des eventuelles recuperations concurantes
 		include_spip("inc/acces");
 		if (!$taille_max) $taille_max = _COPIE_LOCALE_MAX_SIZE;
-		$res = recuperer_page($source, $localrac, false, taille_max, '', '', false, $t ? filemtime($localrac) : '');
+		$res = recuperer_page($source, $localrac, false, $taille_max, '', '', false, $t ? filemtime($localrac) : '');
 		if (!$res) {
 			if (!$t) // si $t c'est sans doute juste un not-modified-since qui fait renvoyer false
 				spip_log("copie_locale : Echec recuperation $source sur $localrac",_LOG_INFO_IMPORTANTE);
