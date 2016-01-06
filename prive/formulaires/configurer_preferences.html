@@ -99,7 +99,8 @@
 					<input type='radio' class='radio' name='imessage' value='non' [(#ENV{imessage}|=={non}|oui) checked='checked'] id='perso_activer_imessage_off' #GET{disable}/>
 					<label for='perso_activer_imessage_off'><:bouton_radio_non_apparaitre_liste_redacteurs_connectes:></label>
 				</div>
-			</div>[(#AUTORISER{menu,developpement}|oui)
+			</div>
+			[(#AUTORISER{webmestre}|oui)
 			<div class='editer editer_activer_menudev[ (#ENV**{erreurs}|table_valeur{activer_menudev}|oui)erreur]'>
 				[<span class='erreur_message'>(#ENV**{erreurs}|table_valeur{activer_menudev})</span>]
 				<div class='choix'>
