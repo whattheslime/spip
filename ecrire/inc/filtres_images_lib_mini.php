@@ -513,8 +513,8 @@ function _image_gd_output($img,$valeurs, $qualite=_IMG_GD_QUALITE){
 function reconstruire_image_intermediaire($fichier_manquant){
 	$reconstruire = array();
 	$fichier = $fichier_manquant;
-	while (
-		!@file_exists($fichier)
+	while (strpos($fichier,"://")===false
+		and !@file_exists($fichier)
 		AND lire_fichier($src = "$fichier.src",$source)
 		AND $valeurs=unserialize($source)
     AND ($fichier = $valeurs['fichier']) # l'origine est connue (on ne verifie pas son existence, qu'importe ...)
@@ -533,10 +533,29 @@ function reconstruire_image_intermediaire($fichier_manquant){
 	ramasse_miettes($fichier_manquant);
 }
 
-// http://doc.spip.org/@ramasse_miettes
-function ramasse_miettes($fichier){
-	if (!lire_fichier($src = "$fichier.src",$source) 
-		OR !$valeurs=unserialize($source)) return;
+/**
+ * Indique qu'un fichier d'image calculé est à conserver
+ *
+ * Permet de rendre une image définitive et de supprimer les images
+ * intermédiaires à son calcul.
+ *
+ * Supprime le fichier de contrôle de l’image cible (le $fichier.src)
+ * ce qui indique que l'image est définitive.
+ *
+ * Remonte ensuite la chaîne des fichiers de contrôle pour supprimer
+ * les images temporaires (mais laisse les fichiers de contrôle permettant
+ * de les reconstruire).
+ *
+ * @param string $fichier
+ *     Chemin du fichier d'image calculé
+ **/
+function ramasse_miettes($fichier) {
+	if (strpos($fichier,"://")!==false
+		or !lire_fichier($src = "$fichier.src", $source)
+		or !$valeurs = unserialize($source)
+	) {
+		return;
+	}
 	spip_unlink($src); # on supprime la reference a sa source pour marquer cette image comme non intermediaire
 	while (
 	     ($fichier = $valeurs['fichier']) # l'origine est connue (on ne verifie pas son existence, qu'importe ...)
@@ -563,8 +582,10 @@ function image_graver($img){
 	if (strlen($fichier) < 1)
 		$fichier = $img;
 	# si jamais le fichier final n'a pas ete calcule car suppose temporaire
-	if (!@file_exists($fichier))
+	# et qu'il ne s'agit pas d'une URL
+	if (strpos($fichier,"://")===false and !@file_exists($fichier)) {
 		reconstruire_image_intermediaire($fichier);
+	}
 	ramasse_miettes($fichier);
 	return $img; // on ne change rien
 }
