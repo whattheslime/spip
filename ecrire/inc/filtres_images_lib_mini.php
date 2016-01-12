@@ -333,8 +333,8 @@ function _image_gd_output($img,$valeurs, $qualite=_IMG_GD_QUALITE){
 function reconstruire_image_intermediaire($fichier_manquant){
 	$reconstruire = array();
 	$fichier = $fichier_manquant;
-	while (
-		!@file_exists($fichier)
+	while (strpos($fichier,"://")===false
+		and !@file_exists($fichier)
 		AND lire_fichier($src = "$fichier.src",$source)
 		AND $valeurs=unserialize($source)
     AND ($fichier = $valeurs['fichier']) # l'origine est connue (on ne verifie pas son existence, qu'importe ...)
@@ -355,7 +355,8 @@ function reconstruire_image_intermediaire($fichier_manquant){
 
 // http://doc.spip.org/@ramasse_miettes
 function ramasse_miettes($fichier){
-	if (!lire_fichier($src = "$fichier.src",$source) 
+	if (strpos($fichier,"://")!==false
+		or !lire_fichier($src = "$fichier.src",$source) 
 		OR !$valeurs=unserialize($source)) return;
 	spip_unlink($src); # on supprime la reference a sa source pour marquer cette image comme non intermediaire
 	while (
@@ -383,7 +384,8 @@ function image_graver($img){
 	if (strlen($fichier) < 1)
 		$fichier = $img;
 	# si jamais le fichier final n'a pas ete calcule car suppose temporaire
-	if (!@file_exists($fichier)) 
+	# et qu'il ne s'agit pas d'une URL
+	if (strpos($fichier,"://")===false and !@file_exists($fichier)) 
 		reconstruire_image_intermediaire($fichier);
 	ramasse_miettes($fichier);
 	return $img; // on ne change rien
