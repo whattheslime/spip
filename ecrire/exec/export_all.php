@@ -41,7 +41,7 @@ function exec_export_all_dist(){
 }
 
 function exec_export_all_init($rub, $gz, $tables, $serveur='', $save=''){
-	$meta = base_dump_meta_name($rub);
+	$meta = base_dump_meta_name();
 	utiliser_langue_visiteur();
 	if (!isset($GLOBALS['meta'][$meta])){
 		// c'est un demarrage en arrivee directe depuis exec=admin_tech

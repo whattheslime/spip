@@ -30,8 +30,8 @@ if (@is_readable(_CACHE_PLUGINS_FCT)){
 	include_once(_CACHE_PLUGINS_FCT);
 }
 
-function base_dump_meta_name($rub){
-	return $meta = "status_dump_$rub_"  . $GLOBALS['visiteur_session']['id_auteur'];
+function base_dump_meta_name(){
+	return "status_dump_" . $GLOBALS['visiteur_session']['id_auteur'];
 }
 function base_dump_dir($meta){
 	// determine upload va aussi initialiser l'index "restreint"

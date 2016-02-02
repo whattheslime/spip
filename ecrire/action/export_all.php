@@ -21,9 +21,8 @@ function action_export_all_dist()
 {
 	$securiser_action = charger_fonction('securiser_action', 'inc');
 	$arg = $securiser_action();
-
 	@list(, , $archive, $rub) = explode(',', $arg);
-	$meta = base_dump_meta_name($rub);
+	$meta = base_dump_meta_name();
 	$file = ramasse_parties($rub, $archive, $meta);
 	$size = !$file ? 0 : @(!file_exists($file) ? 0 : filesize($file));
 	$metatable = $meta . '_tables';
