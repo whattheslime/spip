@@ -108,7 +108,7 @@ function tester_compatibilite_hebergement() {
 	}
 
 	// Il faut une base de donnees tout de meme ...
-	if (!function_exists('mysql_query')
+	if (!function_exists('mysqli_query')
 	AND !function_exists('pg_connect')
 	AND !function_exists('sqlite_open'))
 		$err[] = _T('install_extension_php_obligatoire')
@@ -141,29 +141,11 @@ function tester_compatibilite_hebergement() {
 // Une fonction pour faciliter la recherche du login (superflu ?)
 // http://doc.spip.org/@login_hebergeur
 function login_hebergeur() {
-	global $HTTP_X_HOST, $REQUEST_URI, $SERVER_NAME, $HTTP_HOST;
 
-	$base_hebergeur = 'localhost'; # par defaut
-
-	// Lycos (ex-Multimachin)
-	if ($HTTP_X_HOST == 'membres.lycos.fr') {
-		preg_match(',^/([^/]*),', $REQUEST_URI, $regs);
-		$login_hebergeur = $regs[1];
-	}
-	// Altern
-	else if (preg_match(',altern\.com$,', $SERVER_NAME)) {
-		preg_match(',([^.]*\.[^.]*)$,', $HTTP_HOST, $regs);
-		$login_hebergeur = preg_replace('[^\w\d]', '_', $regs[1]);
-	}
-	// Free
-	else if (preg_match(',(.*)\.free\.fr$,', $SERVER_NAME, $regs)) {
-		$base_hebergeur = 'sql.free.fr';
-		$login_hebergeur = $regs[1];
-	} else $login_hebergeur = '';
-
-	return array($base_hebergeur, $login_hebergeur);
+    if (preg_match(',(.*)\.free\.fr$,', $_SERVER['SERVER_NAME'], $regs)) {
+		return array('sql.free.fr', $regs[1]);
+	return array('localhost', '');
 }
-
 
 // http://doc.spip.org/@info_etape
 function info_etape($titre, $complement = ''){
