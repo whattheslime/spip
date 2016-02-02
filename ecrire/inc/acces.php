@@ -14,7 +14,7 @@ if (!defined('_ECRIRE_INC_VERSION')) return;
 
 // http://doc.spip.org/@creer_pass_aleatoire
 function creer_pass_aleatoire($longueur = 8, $sel = "") {
-	$seed = (double) (microtime() + 1) * time();
+	$seed = (int) (microtime() + 1) * time();
 	mt_srand($seed);
 	srand($seed);
 	$s = '';
@@ -50,7 +50,7 @@ function creer_uniqid() {
 	static $seeded;
 
 	if (!$seeded) {
-		$seed = (double) (microtime() + 1) * time();
+		$seed = (int) (microtime() + 1) * time();
 		mt_srand($seed);
 		srand($seed);
 		$seeded = true;
