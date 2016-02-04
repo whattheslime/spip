@@ -56,7 +56,7 @@ function formulaires_declarer_bases_charger_dist() {
 function liste_serveurs() {
 	$options = array();
 	$dir = _DIR_RESTREINT . 'req/';
-	$d = @opendir($dir);
+	$d = opendir($dir);
 	if (!$d) {
 		return array();
 	}
