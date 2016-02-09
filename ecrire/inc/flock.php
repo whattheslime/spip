@@ -359,11 +359,14 @@ function sous_repertoire($base, $subdir='', $nobase = false, $tantpis=false) {
 		fclose($f);
 	else {
 		spip_log("echec creation $base${subdir}");
-		if ($tantpis) return '';
-		if (!_DIR_RESTREINT)
-			$base = preg_replace(',^' . _DIR_RACINE .',', '',$base);
-		if ($test) $base .= $subdir;
-		raler_fichier($base . '/.ok');
+		if ($tantpis) {
+			return '';
+		}
+		if (!_DIR_RESTREINT) {
+			$base = preg_replace(',^' . _DIR_RACINE . ',', '', $base);
+		}
+		$base .= $subdir;
+		raler_fichier($base . '/.plat');
 	}
 	spip_log("faux sous-repertoire $base${subdir}");
 	return $baseaff.($dirs[$base.$subdirs] = "${subdir}_");
