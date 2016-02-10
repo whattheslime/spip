@@ -14,9 +14,25 @@ if (!defined('_ECRIRE_INC_VERSION')) {
 	return;
 }
 
-// Filtre ad hoc pour le formulaire de login:
-// le parametre var_login n'est pas dans le contexte pour optimiser le cache
-// il faut aller le chercher a la main
+
+/**
+ * Retrouve pour le formulaire de login les informations d'un login qui permettront de crypter le mot de passe saisi
+ * 
+ * Si le login n'est pas trouvé, retourne de fausses informations,
+ * sauf si la constante `_AUTORISER_AUTH_FAIBLE` est déclarée à true.
+ * 
+ * @note 
+ *     Le parametre var_login n'est pas dans le contexte pour optimiser le cache
+ *     il faut aller le chercher à la main
+ * 
+ * @uses auth_informer_login()
+ * @uses json_export()
+ * 
+ * @param string $bof 
+ *     Date de la demande 
+ * @return string 
+ *     JSON des différentes informations
+ */
 function informer_auteur($bof) {
 	include_spip('inc/json');
 	include_spip('formulaires/login');
@@ -42,7 +58,7 @@ function informer_auteur($bof) {
 
 			$row = array(
 				'login' => $login,
-				'cnx' => 0,
+				'cnx' => '0',
 				'logo' => "",
 				'alea_actuel' => substr_replace($fauxalea1, '.', 24, 0),
 				'alea_futur' => substr_replace($fauxalea2, '.', 24, 0)
