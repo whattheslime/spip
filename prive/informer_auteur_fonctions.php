@@ -42,7 +42,7 @@ function informer_auteur($bof) {
 
 			$row = array(
 				'login' => $login,
-				'cnx' => 0,
+				'cnx' => '0',
 				'logo' => "",
 				'alea_actuel' => substr_replace($fauxalea1, '.', 24, 0),
 				'alea_futur' => substr_replace($fauxalea2, '.', 24, 0)
