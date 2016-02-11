@@ -59,15 +59,15 @@
 </div>
 <script type="text/javascript">
 $(document).ready(function() {
-	if ($("#sql_serveur_db").attr("value").match("sqlite*"))
-			$("#sql_serveur_db").parents('li').siblings("li.connexion_db").hide();
+	if ($("#sql_serveur_db").val().match("sqlite*"))
+			$("#sql_serveur_db").parents('.editer').siblings(".connexion_db").hide();
 		else
-			$("#sql_serveur_db").parents('li').siblings("li.connexion_db").show();
+			$("#sql_serveur_db").parents('.editer').siblings(".connexion_db").show();
 	$("#sql_serveur_db").change(function(){
-		if ($(this).find("option:selected").attr("value").match("sqlite*"))
-			$("#sql_serveur_db").parents('li').siblings("li.connexion_db:visible").hide('fast');
+		if ($(this).find("option:selected").val().match("sqlite*"))
+			$("#sql_serveur_db").parents('.editer').siblings(".connexion_db:visible").hide('fast');
 		else
-			$("#sql_serveur_db").parents('li').siblings("li.connexion_db:hidden").show('fast');
+			$("#sql_serveur_db").parents('.editer').siblings(".connexion_db:hidden").show('fast');
 	});
 });
 </script>

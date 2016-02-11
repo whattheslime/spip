@@ -33,7 +33,7 @@
 					<label for='new' class="on"><:config_choix_base_sup:></label>
 				</div>
 				<input type="text" class="text" name="table_new" value="#ENV*{table_new}"
-					onfocus="$(this).siblings('.choix').find('input').attr('checked','checked');"
+					onfocus="$(this).siblings('.choix').find('input').prop('checked',true);"
 					/>
 			</div>
 		</div>
