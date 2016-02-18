@@ -52,8 +52,24 @@ if ($page['process_ins'] != 'html') {
 	if (strpos($page['texte'],'?xml')!==false)
 		$page['texte'] = str_replace('<'.'?xml', "<\1?xml", $page['texte']);
 
-	$res = eval('?' . '>' . $page['texte']);
-	$page['texte'] = ob_get_contents();
+	try {
+		$res = eval('?' . '>' . $page['texte']);
+		// error catching PHP<7
+		if ($res === false
+		  and function_exists('error_get_last')
+		  and ($erreur = error_get_last()) ) {
+			erreur_squelette($erreur['message'],array($page['source'],'',$erreur['file'],$erreur['line'],$GLOBALS['spip_lang']));
+			$page['texte'] = "<!-- Erreur -->";
+		}
+		else {
+			$page['texte'] = ob_get_contents();
+		}
+	}
+	// error catching PHP>=7
+	catch (Exception $e){
+		erreur_squelette($e->getMessage(),array($page['source'],'',$e->getFile(),$e->getLine(),$GLOBALS['spip_lang']));
+		$page['texte'] = "<!-- Erreur -->";
+	}
 	ob_end_clean();
 
 	$page['process_ins'] = 'html';
