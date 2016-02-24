@@ -611,7 +611,9 @@ jQuery.spip.makeAjaxUrl = function(href,ajax_env,origin){
 				if (p!==-1)
 					arg = arg.substring(0,p);
 				val = parametre_url(href,arg);
-				if (typeof val=="undefined")
+				console.log(val);
+				console.log(typeof val);
+				if (typeof val=="undefined" || val==null)
 					url[0] = url[0] + '&' + arg + '=';
 			}
 		}
