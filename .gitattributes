@@ -85,7 +85,6 @@ ecrire/exec/valider_xml.php -text
 ecrire/genie/maintenance.php -text
 ecrire/genie/mise_a_jour.php -text
 ecrire/inc/actions.php -text
-ecrire/inc/aider.php -text
 ecrire/inc/autoriser.php -text
 ecrire/inc/bandeau.php -text
 ecrire/inc/boutons.php -text
@@ -536,8 +535,6 @@ prive/squelettes/body.html -text
 prive/squelettes/contenu/accueil.html -text
 prive/squelettes/contenu/admin_tech.html -text
 prive/squelettes/contenu/admin_vider.html -text
-prive/squelettes/contenu/aide.html -text
-prive/squelettes/contenu/aide_fonctions.php -text
 prive/squelettes/contenu/article.html -text
 prive/squelettes/contenu/article_edit.html -text
 prive/squelettes/contenu/articles.html -text
