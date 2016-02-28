@@ -66,7 +66,7 @@ function formulaires_configurer_relayeur_verifier_dist() {
 					$erreurs['message_erreur'] = $info . _T('info_impossible_lire_page',
 							array('test_proxy' => "<tt>$test_proxy</tt>"))
 						. " <b><tt>" . no_password_proxy_url($http_proxy) . "</tt></b>."
-						. aide('confhttpproxy');
+						. aider('confhttpproxy');
 				}
 			}
 
