@@ -141,9 +141,9 @@ function tester_compatibilite_hebergement() {
 // Une fonction pour faciliter la recherche du login (superflu ?)
 // http://doc.spip.org/@login_hebergeur
 function login_hebergeur() {
-
-    if (preg_match(',(.*)\.free\.fr$,', $_SERVER['SERVER_NAME'], $regs)) {
+	if (preg_match(',(.*)\.free\.fr$,', $_SERVER['SERVER_NAME'], $regs)) {
 		return array('sql.free.fr', $regs[1]);
+	}
 	return array('localhost', '');
 }
 
