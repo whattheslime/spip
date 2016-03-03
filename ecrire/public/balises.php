@@ -474,45 +474,54 @@ function balise_LESAUTEURS_dist ($p) {
 function balise_RANG_dist($p) {
 	$b = index_boucle($p);
 	if ($b === '') {
-		$msg = array('zbug_champ_hors_boucle',
-				array('champ' => '#RANG')
-			  );
+		$msg = array(
+			'zbug_champ_hors_boucle',
+			array('champ' => '#RANG')
+		);
 		erreur_squelette($msg, $p);
-	}
-	else {
+	} else {
 		// chercher d'abord un champ sql rang (mais pas dans le env : defaut '' si on trouve pas de champ sql)
 		// dans la boucle immediatement englobante uniquement
 		// sinon on compose le champ calcule
 		$_rang = champ_sql('rang', $p, '', false);
 
 		// si pas trouve de champ sql rang :
-		if (!$_rang){
+		if (!$_rang) {
 			$boucle = &$p->boucles[$b];
-			$trouver_table = charger_fonction('trouver_table','base');
+			$trouver_table = charger_fonction('trouver_table', 'base');
 			$desc = $trouver_table($boucle->id_table);
-			$_titre = ''; # champ dont on extrait le numero
-			if (isset($desc['titre'])){
-				$t=$desc['titre'];
-			  if (preg_match(';(^|,)([^,]*titre)(,|$);',$t,$m)){
-				  $m = preg_replace(",as\s+titre$,i","",$m[2]);
-				  $m = trim($m);
-				  if ($m!="''"){
-					  if (!preg_match(",\W,",$m))
-						  $m = $boucle->id_table . ".$m";
-					  $m .= " AS titre_rang";
+			$_titre = ''; # où extraire le numero ?
+			
+			if (isset($desc['titre'])) {
+				$t = $desc['titre'];
+				if (preg_match(';(^|,)([^,]*titre)(,|$);', $t, $m)) {
+					$m = preg_replace(',as\s+titre$,i', '', $m[2]);
+					$m = trim($m);
+					if ($m != "''") {
+						if (!preg_match(",\W,", $m)) {
+							$m = $boucle->id_table . ".$m";
+						}
+						
+						$m .= " AS titre_rang";
 
-					  $boucle->select[] = $m;
-					  $_titre = '$Pile[$SP][\'titre_rang\']';
-				  }
-			  }
+						$boucle->select[] = $m;
+						$_titre = '$Pile[$SP][\'titre_rang\']';
+					}
+				}
 			}
-			if (!$_titre)
+			
+			// si on n'a rien trouvé, on utilise le champ titre classique
+			if (!$_titre) {
 				$_titre = champ_sql('titre', $p);
+			}
+			
 			$_rang = "recuperer_numero($_titre)";
 		}
+		
 		$p->code = $_rang;
 		$p->interdire_scripts = false;
 	}
+	
 	return $p;
 }
 
