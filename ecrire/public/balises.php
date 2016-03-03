@@ -494,8 +494,13 @@ function balise_RANG_dist($p) {
 			
 			if (isset($desc['titre'])) {
 				$t = $desc['titre'];
-				if (preg_match(';(^|,)([^,]*titre)(,|$);', $t, $m)) {
-					$m = preg_replace(',as\s+titre$,i', '', $m[2]);
+				if (
+					// Soit on trouve avec la déclaration de la lang AVANT
+					preg_match(';(?:lang\s*,)\s*(.*?titre)\s*(,|$);', $t, $m)
+					// Soit on prend depuis le début
+					or preg_match(';^(.*?titre)\s*(,|$);', $t, $m)
+				) {
+					$m = preg_replace(',as\s+titre$,i', '', $m[1]);
 					$m = trim($m);
 					if ($m != "''") {
 						if (!preg_match(",\W,", $m)) {
