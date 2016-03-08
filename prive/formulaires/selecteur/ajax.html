@@ -33,13 +33,13 @@
 						url: '[(#URL_PAGE{ajax_selecteur})]',
 						data: {	
 							objets:[(#ENV{objets/selectionner}|json_encode|sinon{\[\]}),]
-							ref: jQuery('#picker_rapide_#ENV{name}').attr('value')
+							ref: jQuery('#picker_rapide_#ENV{name}').val()
 						},
 						success: function(r, statut, xhr){
 							if (r){
 								jQuery('#picker_rapide_#ENV{name}').item_pick(r.id,'#ENV{name,id_item}',r.titre,r.type);
 							}
-							jQuery('#picker_rapide_#ENV{name}').attr('value','');
+							jQuery('#picker_rapide_#ENV{name}').val('');
 						}
 					});
 					return false;
