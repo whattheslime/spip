@@ -372,6 +372,20 @@ function filtrer_entites($texte) {
 	return unicode2charset($texte);
 }
 
+
+/**
+ * Version securisee de filtrer_entites
+ * @param string $t
+ * @return string
+ */
+if (!function_exists('filtre_filtrer_entites_dist')) {
+	function filtre_filtrer_entites_dist($t) {
+		include_spip('inc/texte');
+		return interdire_scripts(filtrer_entites($t));
+	}
+}
+
+
 // caracteres de controle - http://www.w3.org/TR/REC-xml/#charsets
 // http://doc.spip.org/@supprimer_caracteres_illegaux
 function supprimer_caracteres_illegaux($texte) {
