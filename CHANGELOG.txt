@@ -1,4 +1,48 @@
 
+SPIP-Core spip-2.1.28 -> spip-2.1.29  10 mars 2016
+-------------------------------------------------------------
+
+r22264 | esj       |  (mer. 24 juin 2015) | 3sSuite de r22206 quant à l'exemple fourni par Georges Kandalaft.D'abord le message r22206 a été tronqué par un chevron non neutralisé; il voulait dire:Dans le squelette ci-dessous le "**" après #SESSION n'est pas seulementdestiné à produire un code PHP plus efficace (il ne sécurise pas car cen'est pas nécessaire quand on ne s'intéresse qu'au résultat booléen),mais aussi parce que le "interdire_script" introduit sinon transcodele chevron dans le "&lt;?php" de la balise dynamique #URL_LOGOUT,ce qui la neutralise. C'est en fait un bug qui a toujours existé. Le rôle de "interdire_scripts" est de nettoyer la valeur d'une balise qui peut être alimentée de l'extérieur.Cette fonction doit s'appliquer sur cette valeur seulement,et non sur le résultat de son traitement par les filtres qu'on lui applique,qui eux peuvent introduire des scripts à bon escient. C'est en particulierle cas des balises dynamiques comme URL_LOGOUT qui introduit un "&lt;?php"neutralisé à tort par le compilateur jusqu'à aujourd'hui.On permute donc l'insertion de "interdire_scripts" dans le code avec l'insertion des filtres. Dans le squelette ci-dessous, il n'est donc plus nécessaire de placer la double étoile pour obtenir un code compilé correct (mais il reste intéressant dans le faire par souci d'efficacité).<pre><code class="html">[(#SESSION**{nom}|?{<:bienvenue:> <strong>#SESSION{nom}</strong>    <br /><a href='#URL_LOGOUT'><:logout:></a>,<p><small><img alt="<:zonep:>" src='#CHEMIN{encrypted.png}' /> <:acces:> <a href="#URL_PAGE{login,url=#SELF}"><:ident:></a></small></p>})]</code></pre>
+r22265 | esj       |  (mer. 24 juin 2015) | Lorsqu'on applique ce filtre de modèles, ne pas rajouter les balises Pre si le document est vide car ça force à tort l'apparition des parties avant/après d'un champ étendu dont le contenu est réduit à un modèle utilisant ce filtre.
+r22266 | esj       |  (mer. 24 juin 2015) | Retour sur r19885 sur l'existence d'un fichier faussement distant mais vraiment protégé: le file_exists introduit pour éviter un Warning ne donne pas la bonne réponse quand on passe par le script ecrire/prive.php, il faut tester l'existence pour les 2 cas d'appels possibles.On élimine aussi le Warning en cas de définition préalable de la constante repérant le cas.
+r22269 | esj       |  (jeu. 25 juin 2015) | Retour sur r22264. En fait l'emplacement orginel de "interdire_scripts" provoque deux bugs de natures différentes: * la neutralisation inopportune des scripts introduits par le compilateur (bug corrigé par r22264); * l'altération des appels à des scripts introduits par un rédacteur, scripts q'il ne faut effectivement pas interpréter (cas du squelette nécessitant une double passe de PHP, cf. scénario possible sur http://article.gmane.org/gmane.comp.web.spip.devel/66397) mais cette stratégie brutale ne répond pas à l'intention d'un rédacteur qui s'attend à voir s'afficher le source de l'appel du script, pas le résultat de son exécution (je ne parle évidemment pas d'un rédacteur malveillant qui essaye d'exploiter une faille).A première vue la résolution correcte du 2e point nécessite de gros changementsdans la stratégie de compilation adoptée depuis le début de SPIP. Il vaut mieux se donner le temps de la réflexion avant d'aller dans cette voie.Je remets le code antérieur par "svn merge -r -r22264:22263 ."pour ne pas laisser cette faille potentielle,en actant provisoirement que le premier bug doit être considéré comme une limitation de SPIP,savoir le fait qu'il n'est pas possible d'utiliser une balise produisant du PHP dans un argument de filtre.
+r22281 | fil       |  (lun. 29 juin 2015) | liens_absolus et data-src (https://core.spip.net/issues/3456)
+r22374 | cy_altern |  (jeu. 30 juil. 2015) | report de 91148 (acces de google bot aux js et css)
+r22388 | b_b       |  (ven. 14 août 2015) | Report de r22384Gros bug sur r22282 (cf #3456)Le passage en liens absolus se faisait uniquement sur le premier href ou src, remplaçant le premier href ou src par le dernier href / src présent dans le texte...On ne remplaçait plus lien par lien
+r22391 | erational |  (mar. 25 août 2015) | report de c22360
+r22413 | esj       |  (mar. 15 sept. 2015) | Lorsque des auteurs n'ont plus de nom dans leur table, ne pas mettre "vide" à chaque fois mais plutôt leur numéro, ça permet de les différencier.
+r22416 | esj       |  (jeu. 17 sept. 2015) | include manquant
+r22438 | esj       |  (ven. 23 oct. 2015) | Microscopique retour sur r15976 améliorant http://zone.spip.org/trac/spip-zone/changeset/25794 consacré au lien Hreflang dans un raccourci d'article: on ne vérifiait pas que le raccourci portait bien sur un article. Et eviter de produire un attribut "class" vide.
+r22619 | esj       |  (jeu. 03 déc. 2015) | Complément à r20277: la réécriture de la fonction build_while pour permettre l'import-export entre  bases ne donnait accès qu'au nom de la base importée, et pas à toutes les informations fournies par la meta décrivant l'opération.  On la lui fait donner à présent à la fonction calculée "inc_export_$save". Afin de préserver la compatibilité, cet argument est donné en plus en non à la place de celui qui le précède, bien qu'il le contienne.Donner aussi les informations issues de cette meta en cas d'échec de l'opération.
+r22652 | esj       |  (sam. 12 déc. 2015) | Full Path Disclosure dans le phraseur. Lorsqu'un symbole d'avant-boucle n'avait pas son chevron fermant,le compilateur signalait bien l'erreur mais produisait quand même du code PHP,leque étant syntaxiquement faux produisait une erreur PHP. Bonne stratégie: poursuivre la compilation un caractère après le chevron ouvrant de cette avant-boucle pour traquer les éventuelles erreurs plus loi.
+r22682 | booz      |  (jeu. 17 déc. 2015) | Backporter la feature disruptive des logs de spip 3
+r22692 | denisb    |  (ven. 01 janv. 2016) | bonne année.
+r22722 | fil       |  (mar. 12 janv. 2016) | report de https://core.spip.net/projects/spip/repository/revisions/22719 (Perf issue sur les filtres images appliques sur des images distantes en 404, par cerdic)
+r22726 | esj       |  (ven. 15 janv. 2016) | Il arrivait qu'un bloc d'objets prétendumet proposés à la publication etc soit vide. La raison en était que la fonction inc_presenter_liste_dist répondait bien une chaîne vide si la requête SQL ne donnait rien, mais retournait une balise HTML TABLE ou UL vide si la fonction passée en paramètre retournait vide pour tous les résulats de la requête (par exemple afficher_object_boucle qui renvoie vide si autoriser_voir reponse False).
+r22772 | esj       |  (mar. 02 févr. 2016) | Compatibilité PHP7 par report du code de SPIP3. Toutefois la disparition de l'appel à creer_base_type_doc est problématique en SPIP2.1 (pas en SPIP3 ?), on le remet.
+r22773 | esj       |  (mar. 02 févr. 2016) | Compatibilité PHP7 par report du code de SPIP3, savoir abandon du connecteur mysql pour le connecteur msqli. Toutefois on n'adopte pas le chgt de nom de deux constantes pour assurer la compatibilité. Et report de r22771 sur les hébergeurs disparus.
+r22774 | esj       |  (mar. 02 févr. 2016) | Compatibilité PHP7. De plus, il manquait la prise en compte de "?" dans l'analyse de la DTD.
+r22775 | esj       |  (mar. 02 févr. 2016) | Compatibilité PHP7.
+r22776 | esj       |  (mar. 02 févr. 2016) | Eviter un warning
+r22777 | esj       |  (mar. 02 févr. 2016) | La fonction base_dump_meta_name n'utilisait en fait pas son argument, ce qui montre qu'il n'était pas important. On rationalise.
+r22804 | james     |  (sam. 06 févr. 2016) | report de r22801: éviter des warning dans les logs (Camille Sauvage)
+r22807 | james     |  (sam. 06 févr. 2016) | report de r22805
+r22817 | james     |  (mar. 09 févr. 2016) | report r22814
+r22821 | james     |  (mer. 10 févr. 2016) | report r22818
+r22825 | marcimat  |  (mer. 10 févr. 2016) | Report de r22822 : Le cnx doit être de la même forme dans tous les cas de retour, avec ou sans le login trouvé dans le formulaire de login. Clos https://core.spip.net/issues/3690 (Stéph R).
+r22871 | marcimat  |  (lun. 29 févr. 2016) | Manque une accolade depuis rphp -l install.php 
+r22904 | cedric    |  (jeu. 10 mars 2016) | Report de r22872 : Fix #3680 : on change le format du contexte ajax pour pouvoir verifier la cle de signature du contexte avant de deserializer, ce qui permet de faire confiance au contenu
+r22911 | cedric    |  (jeu. 10 mars 2016) | un filtre filtrer_entites
+
+SPIP-plugins-dist spip-2.1.28 -> spip-2.1.29  10 mars 2016
+-------------------------------------------------------------
+
+r93499 | pierre    |  (mer. 09 déc. 2015) | Espaces insécables
+r93500 | pierre    |  (mer. 09 déc. 2015) | Annuler le commit précédent sur les espaces insécables.C'est probablement sur la chaine de langue qu'il faut intervenir.Elle est dans ecrire_fr.php, ne faudrait-il pas la déplacer dans le plugin forum texte_statut_publiestexte_statut_attente_validation?
+r94398 | denisb    |  (ven. 01 janv. 2016) | bonne année.
+r94399 | denisb    |  (ven. 01 janv. 2016) | bonne année.
+r94884 | esj       |  (mar. 02 févr. 2016) | Compatibilité PHP7, report de SPIP3.
+
 SPIP-Core spip-2.1.27 -> spip-2.1.28  23 juin 2015
 -------------------------------------------------------------
 
