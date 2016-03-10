@@ -1,4 +1,85 @@
 
+SPIP-Core spip-3.0.21 -> spip-3.0.22  10 mars 2016
+-------------------------------------------------------------
+
+r22472 | ben       |  (dim. 01 nov. 2015) | 3.0.22-dev ! tonton 
+r22476 | b_b       |  (mar. 03 nov. 2015) | report de r22475Fix #3422 : classer les rubriques du picker ajax par rang, puis ordre alpha (maieul)
+r22483 | b_b       |  (mer. 04 nov. 2015) | report de r22482Fix #2745 : ajouter au htaccess la règle qui permet de servir les favicons des itrucs (commentée par défaut)
+r22491 | marcimat  |  (jeu. 05 nov. 2015) | Suppression d'un $requeter défini en double (azerttyu, via damien, via exakat.io).+ phpdoc de ces 2 fonctions tant qu'on y est.
+r22512 | marcimat  |  (ven. 06 nov. 2015) | Report de r22511 (et r22510 !) : Correction suite à un report un peu erronné en r17385 et r17386 (mauvais copier / coller !)
+r22536 | cedric    |  (mar. 10 nov. 2015) | Report de r22530 : indentation et PHPDoc
+r22537 | cedric    |  (mar. 10 nov. 2015) | Report de r22531 : type dans PHPDoc (marcimat)
+r22538 | cedric    |  (mar. 10 nov. 2015) | Report de r22532 : PHPDoc, indentation
+r22539 | cedric    |  (mar. 10 nov. 2015) | Report de r22534 : Generalisation de la prise en charge de <procure> utilisable par les plugins pour signaler qu'ils fournissent le service d'un autre plugin<procure nom="xxxx" version "1.2.3" />si le procure est dans une version plus recente que le plugin du meme nom, c'est le procure qui l'emportePour les procure, on attribue un faux repertoire compose du repertoire du plugin qui procure suivi de /procure:xxxxce qui permet si besoin de savoir a partir de _DIR_PLUGIN_XXXX que c'est un procure, et qui procure.+ renommage d'une variable ambigue dans plugin_valide_resume
+r22559 | kent1     |  (lun. 16 nov. 2015) | Report de r22558Forcer la couleur de ces h6 pour éviter des cas illisibles où le container a pour couleur #fff par exemple
+r22590 | rasta     |  (mar. 24 nov. 2015) | Backport de r22588 en 3.0 : On ajoute un fallback à la fonction url_de_base() avec d'utiliser adresse_site en dernier recours. Cela permet d'avoir une URL de site dans tous les cas, même quand on ne navigue pas avec un client web classique (par exemple en CLI, mais ça peut être d'autres types d'appel).
+r22592 | marcimat  |  (mar. 24 nov. 2015) | Report de r22591 :  Erreur dans r22534 : $p n'est pas un tableau, mais le préfixe !
+r22600 | erational |  (jeu. 26 nov. 2015) | report de https://core.spip.net/projects/spip/repository/revisions/22599
+r22603 | cedric    |  (dim. 29 nov. 2015) | Report de r22602 : copie_locale prend un 4e argument optionnel pour specifier une taille maxi du telechargement (#3527)
+r22607 | cedric    |  (dim. 29 nov. 2015) | Report de r22606 : #3588 : n'appeller spip_clear_opcode_cache que lorsqu'on ecrit un fichier PHP (perf issue)
+r22609 | cedric    |  (dim. 29 nov. 2015) | Report de r22608 : oups : erreur sur r22606, toute ecriture de fichier provoquait un echec
+r22631 | cedric    |  (dim. 06 déc. 2015) | Fix #3542 : z-index du date-picker superieur a celui des icones et de la navigation principale
+r22633 | cedric    |  (dim. 06 déc. 2015) | Fix #3542 : probleme de overflow
+r22637 | b_b       |  (mar. 08 déc. 2015) | report de r22636 / Fix #3614 : affichage des icones en RTL (George)
+r22650 | cedric    |  (ven. 11 déc. 2015) | Report de r22648 : Fix #3617 : la fonction objet_modifier_champ utilise options[data] pour verifier les conflit, et si non fourni ou nul se rabat sur $_POST pour assurer la continuite de fonctionnement
+r22651 | cedric    |  (ven. 11 déc. 2015) | Report de r22649 : Fix #3617 : passer $set a objet_modifier_champs pour qu'elle ne detecte les conflits sur $_POST que quand c'est pertinent
+r22655 | cedric    |  (sam. 12 déc. 2015) | Report de r22652 : Full Path Disclosure dans le phraseur. Lorsqu'un symbole d'avant-boucle n'avait pas son chevron fermant,le compilateur signalait bien l'erreur mais produisait quand même du code PHP,leque étant syntaxiquement faux produisait une erreur PHP. Bonne stratégie: poursuivre la compilation un caractère après le chevron ouvrant de cette avant-boucle pour traquer les éventuelles erreurs plus loi.
+r22656 | cedric    |  (sam. 12 déc. 2015) | Indentation (soupe d'espaces et de tabulations)
+r22680 | cedric    |  (mer. 16 déc. 2015) | option peut prendre une valeur 'action' passee aux pipelines pre/post edition
+r22684 | cedric    |  (ven. 18 déc. 2015) | r22281 et r22282 ont introduit une dependance de la fonction liens_absolus aux fonctions extraire_attribut et inserer_attribut, mais qui ne sont pas forcement chargees. Faire un include_spip au besoin
+r22687 | cedric    |  (lun. 21 déc. 2015) | coquille affreuse dans r22603 qui cassait copie_locale
+r22693 | denisb    |  (ven. 01 janv. 2016) | bonne année.
+r22695 | erational |  (ven. 01 janv. 2016) | backport SPIP 3.1: éviter le problème avec set_magic_quotes_runtime avec les versions PHP5.3+
+r22698 | cedric    |  (lun. 04 janv. 2016) | Report de r22697 : utiliser PHP_VERSION_ID plutot que version_compare pour ce code execute a chaque hit (perf issue) + emuler PHP_VERSION_ID si besoin
+r22721 | cedric    |  (lun. 11 janv. 2016) | Report de r22719 : Perf issue sur les filtres images appliques sur des images distantes en 404 :[(#VAL{http://example.org/fichier_inexistant.png}|image_reduire{64,64})] provoquait 3 operations file_exists sur http://example.org/fichier_inexistant.png.srcque PHP interprete en faisant 3 hits http sur le fichier sauf si PHP bloque ce type d'operation.
+r22781 | b_b       |  (mar. 02 févr. 2016) | report de r22779 : réparer le lien d'accès rapide vers la recherche (cf #3634)
+r22803 | james     |  (sam. 06 févr. 2016) | report @22801: éviter des warning dans les logs (Camille Sauvage)
+r22806 | james     |  (sam. 06 févr. 2016) | report de r22805
+r22816 | james     |  (mar. 09 févr. 2016) | report r22814
+r22820 | james     |  (mar. 09 févr. 2016) | report r22818
+r22824 | marcimat  |  (mer. 10 févr. 2016) | Report de r22822 : Le cnx doit être de la même forme dans tous les cas de retour, avec ou sans le login trouvé dans le formulaire de login. Clos https://core.spip.net/issues/3690 (Stéph R).
+r22834 | marcimat  |  (dim. 14 févr. 2016) | Report de r22833 : Coquille sur un log.
+r22840 | cedric    |  (jeu. 18 févr. 2016) | Catcher les erreurs de eval(), ce qui permet de generer une erreur squelette propre avec le nom du squelette qui a genere l'erreur, information qui manquait cruellement. Les utilisatateurs non admin ne voient pas l'erreur, et on genere un commentaire html a la place du resultat
+r22841 | cedric    |  (jeu. 18 févr. 2016) | Suite de r22840 : on expose le code PHP du squelette qui fait l'erreur d'eval, avec numerotation des
+r22865 | b_b       |  (ven. 26 févr. 2016) | report de r22863Fix #3660 : éviter de retomber sur _MEMORY_LIMIT_MIN quand memory_limit est défini à -1 dans php.ini
+r22874 | rasta     |  (jeu. 03 mars 2016) | Juste des tabulations et espacements, pour y voir plus clair et ne pas mélanger avec des vraies modifs.
+r22875 | rasta     |  (ven. 04 mars 2016) | Déplantage de la balise #RANG quand on a déclaré autre chose qu'un simple champ pour le titre (par exemple une expression avec fonctions et virgules).On garde exactement le même fonctionnement qu'avant avec un "AS titre_rang" rajouté. Mais on fait deux tests au lieu d'un seul :- d'abord on cherche le titre en se disant que "lang" est défini AVANT- et si on ne trouve pas, là on prend depuis le débutMais dans les deux cas, vu que c'est séparé en deux, et qu'on cherche "lang" explicitement et pas une virgule toute seule : on peut donc prendre tout caractère pour le titre, y compris les virgules qu'il y aurait dans des fonctions.Cela gère donc bien tous les cas, enfin de toute façon plus de cas qu'avant.
+r22885 | rasta     |  (mar. 08 mars 2016) | Backport de #22884 : échapper les apostrophes (quote simple) dans les appels javascript.
+r22888 | rasta     |  (mar. 08 mars 2016) | Backport de r22887 : Pour le javascript on fait un plus brutal "textebrut", là au moins ça marche.
+r22901 | cedric    |  (jeu. 10 mars 2016) | Report de r22899 : Mise a jour de la liste des bots : Moreover|FunWebProducts|facebook|hootsuite|MetaURI|flipboard sont tous des bots
+r22903 | cedric    |  (jeu. 10 mars 2016) | Report de r22872 : Fix #3680 : on change le format du contexte ajax pour pouvoir verifier la cle de signature du contexte avant de deserializer, ce qui permet de faire confiance au contenu
+r22909 | cedric    |  (jeu. 10 mars 2016) | un var_isbot pour permettre le monitoring par robot (monitoring de la disponibilite user/robot)+ mise a jour de la liste des robots
+r22910 | cedric    |  (jeu. 10 mars 2016) | un filtre filtrer_entites
+
+SPIP-plugins-dist spip-3.0.21 -> spip-3.0.22  10 mars 2016
+-------------------------------------------------------------
+
+r92729 | marcimat  |  (sam. 07 nov. 2015) | Report de r92728: Il manquait le préfixe sur l'appel d'une chaine de langue.
+r92931 | real3t    |  (sam. 14 nov. 2015) | Ajout du moteur Lilo pour les statistiques
+r92992 | cedric    |  (mer. 18 nov. 2015) | Robustesse de la detection du titre qui pouichait quand la balise title etait sur plusieurs (contexte.com)
+r92995 | cedric    |  (mer. 18 nov. 2015) | On etend la prise en charge de _SYNDICATION_DEREFERENCER_URL a tout flux en verifiant que les URLs syndiquees ne sont pas des redirections, et en recuperant l'URL finale le cas echeant
+r92996 | cedric    |  (mer. 18 nov. 2015) | quand syndication=non mais qu'il y a des articles, afficher la liste en plus du bouton pour purger, car sinon on ne sait pas ce qu'on purge
+r93070 | eric      |  (sam. 21 nov. 2015) | Report des initialisations de certaines variables de la fonction printWordWrapped
+r93160 | guytarr   |  (mer. 25 nov. 2015) | report de [93159] (coquille)
+r93278 | cedric    |  (sam. 28 nov. 2015) | Version 1.5.5 de CSSTidy (bugfix font shorthand avec font-family:inherit)
+r93285 | cedric    |  (dim. 29 nov. 2015) | Report de r93284 : Fix https://core.spip.net/issues/3527 : accepter les paquets jusqu'a 64Mo, personalisable par la constante _SVP_PAQUET_MAX_SIZE
+r93407 | cedric    |  (dim. 06 déc. 2015) | Report de r93406 : Fix https://core.spip.net/issues/3571 : ne pas risquer que les fonctions de substitution cache_(get|set) du plugin soient utilisees par ailleurs car elles ne sont pas concues pour cela. On simplifie donc l'approche en les renommant et en les chargeant de deleguer aux fonctions de memoization si presentes
+r93426 | cedric    |  (lun. 07 déc. 2015) | bugfix sur les URLs des pages uniques (id_parent=-1) : on ne pouvait pas les supprimer, et leur id_parent les faisait passer devant une rubrique racine dans une recherche d'URL
+r93430 | cedric    |  (lun. 07 déc. 2015) | Utiliser partout autoriser(modifierurl) au lieu de autoriser(modifier) car cette derniere repond false quand l'objet n'existe plus en base, et dans ce cas precis on veut pouvoir supprimer l'URLautoriser(modifierurl) verifie donc si l'objet existe encore en base et dans le cas contraire on s'en remet a autoriser(administrer,url)
+r93499 | pierre    |  (mer. 09 déc. 2015) | Espaces insécables
+r93500 | pierre    |  (mer. 09 déc. 2015) | Annuler le commit précédent sur les espaces insécables.C'est probablement sur la chaine de langue qu'il faut intervenir.Elle est dans ecrire_fr.php, ne faudrait-il pas la déplacer dans le plugin forum texte_statut_publiestexte_statut_attente_validation?
+r93710 | cedric    |  (mer. 16 déc. 2015) | Un hreflang sur les articles syndiques qui ne sont pas dans la langue courante
+r93711 | cedric    |  (mer. 16 déc. 2015) | utiliser objet_modifier_champs plutot que sql_updateq, cela permet de passer par les pipelines pre/post edition
+r93712 | cedric    |  (mer. 16 déc. 2015) | passer l'action 'syndiquer' a objet_modifier_champs
+r93713 | cedric    |  (mer. 16 déc. 2015) | version
+r93746 | erational |  (jeu. 17 déc. 2015) | Le tri par défaut doit être en multi titre pour respecter la langue(report de http://zone.spip.org/trac/spip-zone/changeset/93745 )
+r94397 | denisb    |  (ven. 01 janv. 2016) | bonne année.
+r95237 | Francky   |  (ven. 19 févr. 2016) | Ne sont que pour spip 3.0, ils ont une autre version pour spip 3.1
+r95523 | b_b       |  (ven. 26 févr. 2016) | quelques pétouilles pour ie cf https://core.spip.net/issues/3650
+r95524 | b_b       |  (ven. 26 févr. 2016) | encore des CDATA à échapper cf https://core.spip.net/issues/3650pour plus d'infos sur les différentes syntaxes voir http://javascript.about.com/library/blxhtml.htm
+r95651 | b_b       |  (mar. 01 mars 2016) | report de r85647 cf https://core.spip.net/issues/2283
+r95776 | cedric    |  (sam. 05 mars 2016) | Eviter une notice
+
 SPIP-Core spip-3.0.20 -> spip-3.0.21  31 octobre 2015
 -------------------------------------------------------------
 
@@ -644,7 +725,7 @@ r78152 | ben       |  (sam. 09 nov. 2013) | maj langues
 SPIP-Core spip-3.0.10 -> spip-3.0.11  09 août 2013
 -------------------------------------------------------------
 
-r20605 | ben       |  (lun 27 mai 2013) | prenons de bonnes habitudes : dès qu'une release est faite, on passe en dev pour ceux/celles qui utilisent svn (eric) 
+r20605 | ben       |  (lun 27 mai 2013) | prenons de bonnes habitudes : dès qu'une release est faite, on passe en dev pour ceux/celles qui utilisent svn (eric)
 r20606 | cedric    |  (lun 27 mai 2013) | Ferme #2860 : appliquer les règles typographiques de la langue de l'article sur son texte (et son titre) dans l'espace privé.Pour cela, on reforme changer_typo() qui ne renvoit plus rien, et annule la dérogation de lang_typo quand on lui passe une chaine vide.
 r20613 | cedric    |  (jeu 30 mai 2013) | Report adapté de r20611, et retour sur r20576 : tester_statut_inscription() revient a son role initial qui est de tester le mode fourni ou de retourner le meilleur mode possible si aucun mode n'est fourni lors de l'inscription. Il accepte aussi un id en second argument, comme c'était le cas en 2.1, non usité par défaut, mais qui peut l'être si passé au #FORMULAIRE_INSCRIPTIONtester_config() est rebranché sur la fonction tester_statut_inscription()
 r20640 | cedric    |  (lun 10 jun 2013) | un filtre liens_nofollow qui ajoute un rel="nofollow" à tous les liens du texte passé en argument
@@ -1142,7 +1223,7 @@ r70865 | ben       |  (lun. 18 mars 2013) | Un ptit update de langue avant la so
 
 
 SPIP-core spip-3.0.4 -> spip-3.0.5
---------------------------------- 
+---------------------------------
 
 r19786 | cedric    | 2012-08-02 14:35:20 | Complement a r19775 : explications et optimisation (il faut en fait doubler la condition objet='xxx' pour être exact et optimisé)
 r19794 | cedric    | 2012-08-05 00:02:49 | eviter une notice
@@ -1173,8 +1254,8 @@ r19894 | cedric    | 2012-09-11 09:43:31 | La fonction notifications_envoyer_mai
 r19897 | cedric    | 2012-09-11 12:56:18 | Dans une requete HEAD renvoyer le vrai en-tête. Pour cela on est bien obligé de calculer toute la page, mais on coupe la connexion après les entête http.On perd donc la rapidité de calcul des requetes HEAD au profit de leur exactitude.Dans la mesure ou HEAD représente en général moins de 1% des requetes (voire de l'ordre de 2/1000 sur un echantillon de sites en production) la perte en performance serveur est négligeable (d'autant plus qu'une réponse 200 a toute les chances de générer une requete complète à suivre).A contrario, en cas de soucis, ou pour analyser une page ou le comportement de SPIP, avoir une réponse pertinente sur HEAD est plus utile. Et la page est en cache pour l'éventuelle requete complète qui suit.
 r19901 | marcimat  | 2012-09-12 11:15:21 | Report de r19900 : classes lat sur les colonnes des exec php
 
-plugins-dist spip-3.0.4 -> spip-3.0.5 
---------------------------------- 
+plugins-dist spip-3.0.4 -> spip-3.0.5
+---------------------------------
 
 r64570 | yffic     | 2012-08-07 19:46:04 | Petite précision sur le message d'erreur en cas de répertoire lib inexistant
 r64787 | kent1     | 2012-08-14 11:34:43 | un peu de documentation
