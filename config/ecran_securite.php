@@ -5,7 +5,7 @@
  * ------------------
  */
 
-define('_ECRAN_SECURITE', '1.2.2'); // 2014-12-01
+define('_ECRAN_SECURITE', '1.2.4'); // 2016-03-10
 
 /*
  * Documentation : http://www.spip.net/fr_article4200.html
@@ -16,6 +16,15 @@ define('_ECRAN_SECURITE', '1.2.2'); // 2014-12-01
  */
 if (isset($_GET['test_ecran_securite']))
 	$ecran_securite_raison = 'test '._ECRAN_SECURITE;
+
+/*
+ * Monitoring
+ * var_isbot=0 peut etre utilise par un bot de monitoring pour surveiller la disponibilite d'un site vu par les users
+ * var_isbot=1 peut etre utilise pour monitorer la disponibilite pour les bots (sujets a 503 de delestage si
+ * le load depasse ECRAN_SECURITE_LOAD)
+ */
+if (!defined('_IS_BOT') and isset($_GET['var_isbot']))
+		define('_IS_BOT',$_GET['var_isbot']?true:false);
 
 /*
  * Détecteur de robot d'indexation
@@ -29,7 +38,7 @@ if (!defined('_IS_BOT'))
 	    // MSIE 6.0 est un botnet 99,9% du temps, on traite donc ce USER_AGENT comme un bot
 	    . 'MSIE 6\.0|'
 	    // UA plus cibles
-	    . '80legs|accoona|AltaVista|ASPSeek|Baidu|Charlotte|EC2LinkFinder|eStyle|Google|Genieo|INA dlweb|InfegyAtlas|Java VM|LiteFinder|Lycos|Rambler|Scooter|ScrubbyBloglines|Yahoo|Yeti'
+	    . '80legs|accoona|AltaVista|ASPSeek|Baidu|Charlotte|EC2LinkFinder|eStyle|facebook|flipboard|hootsuite|FunWebProducts|Google|Genieo|INA dlweb|InfegyAtlas|Java VM|LiteFinder|Lycos|MetaURI|Moreover|Rambler|Scooter|ScrubbyBloglines|Yahoo|Yeti'
 	    . ',i', (string) $_SERVER['HTTP_USER_AGENT'])
 	);
 
@@ -288,6 +297,17 @@ if (isset($ecran_securite_raison)) {
 	header("Content-Type: text/html");
 	die("<html><title>Error 403: Forbidden</title><body><h1>Error 403</h1><p>You are not authorized to view this page ($ecran_securite_raison)</p></body></html>");
 }
+
+/*
+ * Un filtre filtrer_entites securise
+ */
+if (!function_exists('filtre_filtrer_entites_dist')) {
+	function filtre_filtrer_entites_dist($t) {
+		include_spip('inc/texte');
+		return interdire_scripts(filtrer_entites($t));
+	}
+}
+
 
 /*
  * Fin sécurité
