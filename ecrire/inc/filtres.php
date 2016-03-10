@@ -2507,8 +2507,10 @@ function encoder_contexte_ajax($c,$form='', $emboite=NULL, $ajaxid='') {
 	
 	if (!function_exists('calculer_cle_action'))
 		include_spip("inc/securiser_action");
-	$cle = calculer_cle_action($form.(is_array($c)?serialize($c):$c));
-	$c = serialize(array($c,$cle));
+
+	$c = serialize($c);
+	$cle = calculer_cle_action($form . $c);
+	$c = "$cle:$c";
 
 	// on ne stocke pas les contextes dans des fichiers caches
 	// par defaut, sauf si cette configuration a ete forcee
@@ -2575,10 +2577,20 @@ function decoder_contexte_ajax($c,$form='') {
 		if (function_exists('gzdeflate') && function_exists('gzinflate'))
 			$c = @gzinflate($c);
 	}
-	list($env, $cle) = @unserialize($c);
 
-	if ($cle == calculer_cle_action($form.(is_array($env)?serialize($env):$env)))
-		return $env;
+	// extraire la signature en debut de contexte
+	// et la verifier avant de deserializer
+	// format : signature:donneesserializees
+	if ($p = strpos($c,":")){
+		$cle = substr($c,0,$p);
+		$c = substr($c,$p+1);
+
+		if ($cle == calculer_cle_action($form . $c)) {
+			$env = @unserialize($c);
+			return $env;
+		}
+	}
+
 	return false;
 }
 
