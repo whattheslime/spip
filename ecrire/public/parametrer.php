@@ -143,6 +143,12 @@ function public_parametrer_dist($fond, $contexte='', $cache='', $connect='')  {
 			. join(', ', $infos)
 			.' ('.strlen($page['texte']).' octets)');
 
+		if (defined('_CALCUL_PROFILER') AND intval($profile)>_CALCUL_PROFILER){
+			spip_log("calcul ($profile) [$skel] "
+				. join(', ', $infos)
+				.' ('.strlen($page['texte']).' octets) | '.$_SERVER['REQUEST_URI'],"profiler"._LOG_AVERTISSEMENT);
+		}
+
 		if ($debug) {
 		// si c'est ce que demande le debusqueur, lui passer la main
 			$t = strlen($page['texte']) ? $page['texte'] : " ";
@@ -158,7 +164,7 @@ function public_parametrer_dist($fond, $contexte='', $cache='', $connect='')  {
 		// Si #CACHE{} n'etait pas la, le mettre a $delais
 		if (!isset($page['entetes']['X-Spip-Cache'])){
 			// Dans l'espace prive ou dans un modeles/ on pose un cache 0 par defaut
-			// si aucun #CACHE{} spécifié
+			// si aucun #CACHE{} specifie
 			// le contexte implicite qui conditionne le cache assure qu'on retombe pas sur le meme
 			// entre public et prive
 			if (test_espace_prive() OR strncmp($fond,'modeles/',8)==0)
