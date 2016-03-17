@@ -1583,6 +1583,9 @@ function spip_initialisation_core($pi=NULL, $pa=NULL, $ti=NULL, $ta=NULL) {
 		#if (!defined('_SPIP_LOCK_MODE')) define('_SPIP_LOCK_MODE',2); // utiliser le nfslock de spip mais link() est tres souvent interdite
 	}
 
+	// Langue par defaut
+	if (!defined('_LANGUE_PAR_DEFAUT')) define('_LANGUE_PAR_DEFAUT','fr');
+
 	// PHP_VERSION_ID dispo depuis PHP 5.2.7
 	if (!defined('PHP_VERSION_ID')) {
 	   $version = explode('.',PHP_VERSION);
