@@ -155,6 +155,7 @@ function formulaires_editer_article_verifier_dist(
 		include_spip('inc/autoriser');
 	}
 	if (!isset($erreurs['id_parent'])
+		and !intval($id_article)
 		and !autoriser('creerarticledans', 'rubrique', _request('id_parent'))
 	) {
 		$erreurs['id_parent'] = _T('info_creerdansrubrique_non_autorise');
