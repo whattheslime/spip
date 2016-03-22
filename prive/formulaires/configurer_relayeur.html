@@ -17,7 +17,6 @@
 				<span class='erreur_message'>(#GET{erreurs})</span>
 				]
 				<input type="text" class="text" name="#GET{name}" id="#GET{name}" value="#ENV*{#GET{name}}"
-					onclick="jQuery(this).blur();"
 					onchange="if (jQuery(this).val()) jQuery('.editer_test_proxy:hidden').show('fast'); else jQuery('.editer_test_proxy:visible').hide('fast');"
 				/>
 			</div>
