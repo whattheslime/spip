@@ -62,6 +62,7 @@ function formulaires_configurer_relayeur_verifier_dist() {
 				if ($page) {
 					$erreurs['message_ok'] = _T('info_proxy_ok') . "<br />$info\n<tt>" . couper(entites_html($page),
 							300) . "</tt>";
+					$erreurs['message_erreur'] = '';
 				} else {
 					$erreurs['message_erreur'] = $info . _T('info_impossible_lire_page',
 							array('test_proxy' => "<tt>$test_proxy</tt>"))
