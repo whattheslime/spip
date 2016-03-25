@@ -339,6 +339,7 @@ function self($amp = '&amp;', $root = false) {
 
 	// eviter les hacks
 	$url = htmlspecialchars($url);
+	$url = str_replace(array('[', ']'), array('%5B', '%5D'), $url);
 
 	// &amp; ?
 	if ($amp != '&amp;')
