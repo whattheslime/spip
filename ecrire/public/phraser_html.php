@@ -618,12 +618,11 @@ function public_phraser_html_dist($texte, $id_parent, &$boucles, $descr, $ligne=
 			OR ($n > $pos_boucle) ) {
 		  $debut = substr($texte, 0, $pos_boucle);
 		  $milieu = substr($texte, $pos_boucle);
-		  $k = strpos($milieu, '(');
+		  $n = strpos($milieu, '(');
 		  $id_boucle = trim(substr($milieu,
 					   strlen(BALISE_BOUCLE),
-					   $k - strlen(BALISE_BOUCLE)));
-		  $milieu = substr($milieu, $k);
-
+					   $n - strlen(BALISE_BOUCLE)));
+		  $milieu = substr($milieu, $n);
 		} else {
             $debut = substr($texte, 0, $n);
             $milieu = substr($texte, $n);
@@ -644,6 +643,13 @@ function public_phraser_html_dist($texte, $id_parent, &$boucles, $descr, $ligne=
                 $milieu = substr($milieu, $n+strlen($id_boucle)+strlen(BALISE_BOUCLE));
             }
 		}
+        if (!preg_match('#^' . NOM_DE_BOUCLE . '$#', $id_boucle)) {
+            $err_b = array('zbug_erreur_boucle_syntaxe', array('id' => $id_boucle));
+            erreur_squelette($err_b, $result);
+            $texte = substr($texte, $n);
+            continue;
+        }
+
 		$result->id_boucle = $id_boucle;
 
 		preg_match(SPEC_BOUCLE, $milieu, $match);
