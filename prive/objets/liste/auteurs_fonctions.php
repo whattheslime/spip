@@ -33,7 +33,7 @@ function critere_compteur_articles_filtres_dist($idb, &$boucles, $crit, $left = 
 
 	$_statut = calculer_liste($crit->param[0], array(), $boucles, $boucle->id_parent);
 
-	$not = "";
+	$not = '';
 	if ($crit->not) {
 		$not = ", 'NOT'";
 	}
@@ -50,7 +50,7 @@ function critere_compteur_articles_filtres_dist($idb, &$boucles, $crit, $left = 
 		"'(articles.statut IS NULL OR '.sql_in('articles.statut',_q($_statut)$not).')'"
 	);
 
-	$boucle->select[] = "COUNT(articles.id_article) AS compteur_articles";
+	$boucle->select[] = 'COUNT(articles.id_article) AS compteur_articles';
 	$boucle->group[] = 'auteurs.id_auteur';
 }
 
@@ -87,7 +87,7 @@ function balise_COMPTEUR_ARTICLES_dist($p) {
 function afficher_initiale($url, $initiale, $compteur, $debut, $pas) {
 	static $memo = null;
 	static $res = array();
-	$out = "";
+	$out = '';
 	if (!$memo
 		or (!$initiale and !$url)
 		or ($initiale !== $memo['initiale'])
@@ -149,12 +149,10 @@ function auteur_lien_messagerie($id_auteur, $en_ligne, $statut, $imessage, $emai
 	}
 	$parti = (($time - strtotime($en_ligne)) > 15 * 60);
 
-	if (
-		$imessage != 'non' and !$parti // historique : est-ce que ca a encore un sens de limiter vu qu'on a la notification par email ?
+	if ($imessage != 'non' and !$parti // historique : est-ce que ca a encore un sens de limiter vu qu'on a la notification par email ?
 		and $GLOBALS['meta']['messagerie_agenda'] != 'non'
 	) {
-		return parametre_url(parametre_url(generer_url_ecrire("message_edit", "new=oui"), 'to', $id_auteur), 'redirect',
-			self());
+		return parametre_url(parametre_url(generer_url_ecrire('message_edit', 'new=oui'), 'to', $id_auteur), 'redirect', self());
 	} elseif (strlen($email) and autoriser('voir', 'auteur', $id_auteur)) {
 		return 'mailto:' . $email;
 	} else {
