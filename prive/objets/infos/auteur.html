@@ -31,18 +31,23 @@
 [(#REM)
 
 	Bouton voir en ligne
+	
+	Si l'auteur est publié ou si on est autorisé à le prévisualiser
+	Si dans la déclaration de table il y a une page de déclarée
 
 ]<BOUCLE_publie(AUTEURS){id_auteur}>
+	[(#VAL{auteur}|objet_info{page}|oui)
 	[(#VAL{redirect}
 		|generer_url_action{type=auteur&id=#ID_AUTEUR}
 		|parametre_url{var_mode,calcul}
-		|icone_horizontale{<:icone_voir_en_ligne:>,racine})]
+		|icone_horizontale{<:icone_voir_en_ligne:>,racine})]]
 </BOUCLE_publie>
+	[(#VAL{auteur}|objet_info{page}|oui)
 	[(#AUTORISER{previsualiser,auteur,#ID_AUTEUR,'',#ARRAY{statut,''}})
 		[(#VAL{redirect}
 			|generer_url_action{type=auteur&id=#ID_AUTEUR}
 			|parametre_url{var_mode,preview}
 			|icone_horizontale{<:previsualiser:>,preview})]
-	]
+	]]
 <//B_publie>
 </BOUCLE_auteur>
