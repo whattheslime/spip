@@ -606,13 +606,11 @@ jQuery.spip.makeAjaxUrl = function(href,ajax_env,origin){
 			var arg;
 			for(var n=0;n<args.length;n++){
 				arg = args[n].split('=');
-				arg = arg[0];
+				arg = unescape(arg[0]);
 				p = arg.indexOf('[');
 				if (p!==-1)
 					arg = arg.substring(0,p);
-				val = parametre_url(href,arg);
-				console.log(val);
-				console.log(typeof val);
+				val = parametre_url(url[0],arg);
 				if (typeof val=="undefined" || val==null)
 					url[0] = url[0] + '&' + arg + '=';
 			}
