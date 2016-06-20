@@ -122,7 +122,7 @@ if (isset($GLOBALS['_INC_PUBLIC'])) {
 	$debug = ((_request('var_mode') == 'debug') OR $tableau_des_temps) ? array(1) : array();
 
 	// Mettre le Content-Type Html si manquant 
-	// Idem si debug, avec retrait du Content-Disposition pour voir le voir
+	// Idem si debug, avec retrait du Content-Disposition pour pouvoir le voir
 
 	if ($debug OR !isset($page['entetes']['Content-Type'])) {
 		$page['entetes']['Content-Type'] = 
@@ -184,7 +184,6 @@ if (isset($GLOBALS['_INC_PUBLIC'])) {
 		// bien que l'enlever a l'air sans incidence
 		$html = preg_match(',^\s*text/html,',$page['entetes']['Content-Type']);
 	}
-	envoyer_entetes($page['entetes']);
 
 	// en cas d'erreur lors du eval,
 	// la memoriser dans le tableau des erreurs
@@ -199,25 +198,30 @@ if (isset($GLOBALS['_INC_PUBLIC'])) {
 
 	// (c'est ici qu'on fait var_recherche, validation, boutons d'admin,
 	// cf. public/assembler.php)
-	echo pipeline('affichage_final', $page['texte']);
+    $page['texte'] = pipeline('affichage_final', $page['texte']);
 
-	if ($lang) lang_select();
-	// l'affichage de la page a pu lever des erreurs (inclusion manquante)
-	// il faut tester a nouveau
+	// Ces dernieres operations ont pu lever des erreurs (inclusion manquante)
+	// il faut tester a nouveau 
+
 	$debug = ((_request('var_mode') == 'debug') OR $tableau_des_temps) ? array(1) : array();
 
+    // Si pas d'ajout ulterieur, fournir Content-Length
+    if (!$debug) {
+        $page['entetes']['Content-Length'] = strlen($page['texte']);
+    }
+    envoyer_entetes($page['entetes']);
+    echo $page['texte'];
+
+	if ($lang) lang_select();
+
 	// Appel au debusqueur en cas d'erreurs ou de demande de trace
-	// at last
 	if ($debug) {
-		// en cas d'erreur, retester l'affichage
-		if ($html AND ($affiche_boutons_admin OR $debug)) {
 			if (!_request('var_mode_affiche'))
 				set_request('var_mode_affiche', 'resultat');
 			$var_mode_affiche = _request('var_mode_affiche');
 			$var_mode_objet = _request('var_mode_objet');
 			$GLOBALS['debug_objets'][$var_mode_affiche][$var_mode_objet . 'tout'] = ($var_mode_affiche== 'validation' ? $page['texte'] :"");
 			echo erreur_squelette(false);
-		}
 	} else {
 		if (isset($GLOBALS['meta']['date_prochain_postdate'])
 		AND $GLOBALS['meta']['date_prochain_postdate'] <= time()) {
