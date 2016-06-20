@@ -954,12 +954,14 @@ function url_de_($http,$host,$request,$prof=0){
 	$prof = max($prof,0);
 
 	$myself = ltrim($request,'/');
+    if (preg_match('@^\w+://(.*)@', $myself, $m)) $myself = $m[1];
 	# supprimer la chaine de GET
 	list($myself) = explode('?', $myself);
-	$url = join('/', array_slice(explode('/', $myself), 0, -1-$prof)).'/';
-
-	$url = $http.'://'.rtrim($host,'/').'/'.ltrim($url,'/');
-	return $url;
+	$url = ltrim(join('/', array_slice(explode('/', $myself), 0, -1-$prof)).'/', '/');
+    if (!$host AND isset($GLOBALS['meta']['adresse_site']))
+        $host = $GLOBALS['meta']['adresse_site'];
+	else $host = $http.'://'.rtrim($host,'/').'/';
+	return $host . $url;
 }
 
 
