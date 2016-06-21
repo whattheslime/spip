@@ -17,24 +17,33 @@ if (!defined('_ECRIRE_INC_VERSION')) return;
 //
 // http://doc.spip.org/@spip_setcookie
 function spip_setcookie ($name='', $value='', $expire=0, $path='AUTO', $domain='', $secure='') {
+	// liste des cookies en httponly (a passer en define si besoin)
+	$httponly = in_array($name, explode(' ', 'spip_session'));
+	
 	$name = preg_replace ('/^spip_/', $GLOBALS['cookie_prefix'].'_', $name);
 	if ($path == 'AUTO')
 		$path = defined('_COOKIE_PATH')?_COOKIE_PATH:preg_replace(',^\w+://[^/]*,', '', url_de_base());
 	if (!$domain AND defined('_COOKIE_DOMAIN'))
 		$domain = _COOKIE_DOMAIN;
 
-	#spip_log("cookie('$name', '$value', '$expire', '$path', '$domain', '$secure'");
+	#spip_log("cookie('$name', '$value', '$expire', '$path', '$domain', '$secure', '$httponly'");
 
-	if ($secure)
-		@setcookie ($name, $value, $expire, $path, $domain, $secure);
-	else if ($domain)
-		@setcookie ($name, $value, $expire, $path, $domain);
-	else if ($path)
-		@setcookie ($name, $value, $expire, $path);
-	else if ($expire)
-		@setcookie ($name, $value, $expire);
-	else
-		@setcookie ($name, $value);
+	$a =
+	($httponly AND strnatcmp(phpversion(),'5.2.0') >= 0) ?
+	@setcookie ($name, $value, $expire, $path, $domain, $secure, $httponly)
+	: ($secure ?
+	@setcookie ($name, $value, $expire, $path, $domain, $secure)
+	: ($domain ?
+	@setcookie ($name, $value, $expire, $path, $domain)
+	: ($path ?
+	@setcookie ($name, $value, $expire, $path)
+	: ($expire ?
+	@setcookie ($name, $value, $expire)
+	:
+	@setcookie ($name, $value)
+	))));
+	
+	return $a;
 }
 
 // http://doc.spip.org/@recuperer_cookies_spip
