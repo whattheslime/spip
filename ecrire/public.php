@@ -205,9 +205,15 @@ if (isset($GLOBALS['_INC_PUBLIC'])) {
 
 	$debug = ((_request('var_mode') == 'debug') OR $tableau_des_temps) ? array(1) : array();
 
-    // Si pas d'ajout ulterieur, fournir Content-Length
+    // Si pas d'ajout ulterieur, 
+    // fournir Content-Length et compresser si possible et utile
     if (!$debug) {
-        $page['entetes']['Content-Length'] = strlen($page['texte']);
+        if (($page['entetes']['Content-Length'] = strlen($page['texte']))>8192)
+            if (strpos($_SERVER['HTTP_ACCEPT_ENCODING'], 'gzip') !==false) {
+                $page['texte'] = gzencode($page['texte']);
+                $page['entetes']['Content-Encoding'] = 'gzip';
+                $page['entetes']['Content-Length'] = strlen($page['texte']);
+            }
     }
     envoyer_entetes($page['entetes']);
     echo $page['texte'];
