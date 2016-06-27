@@ -70,6 +70,10 @@ function gzip_page($page) {
 // http://doc.spip.org/@gunzip_page
 function gunzip_page(&$page) {
 	if ($page['gz']) {
+        if (isset($page['sourcecache'])) {
+            lire_fichier($page['sourcecache'], $page['texte']);
+            unset($page['sourcecache']);
+        }
 		$page['texte'] = gzuncompress($page['texte']);
 		$page['gz'] = false;
 	}
@@ -147,34 +151,33 @@ function creer_cache(&$page, &$chemin_cache) {
     // indiquer s'il manque la balise base alors qu'elle devrait
 	$page['base']= page_base_presente($page['texte']);
 
-	// Si la page c1234 a un invalideur de session 'zz', sauver dans
-	// 'tmp/cache/MD5(chemin_cache)_zz'
-	if (isset($page['invalideurs'])
-	AND isset($page['invalideurs']['session'])) {
-		// on verifie que le contenu du chemin cache indique seulement
-		// "cache sessionne" ; sa date indique la date de validite
-		// des caches sessionnes
-		if (!lire_fichier(_DIR_CACHE . $chemin_cache, $tmp)
-		OR !$tmp = @unserialize($tmp)) {
-			$tmp = array(
-				'invalideurs' => array('session' => ''),
-				'lastmodified' => time()
-			);
-			ecrire_fichier(_DIR_CACHE . $chemin_cache, serialize($tmp));
-		}
-		$chemin_cache .= '_'.$page['invalideurs']['session'];
-	}
-
-	// l'enregistrer, compresse ou non...
+	// compresser si on peut
 	$zpage = gzip_page($page);
-	$ok = ecrire_fichier(_DIR_CACHE . $chemin_cache, serialize($zpage));
+
+	// Si la page n'a pas d'invalideur de session
+	// on sauve tout dans un seul fichier.
+	if (!isset($page['invalideurs'])
+	OR !isset($page['invalideurs']['session'])) {
+        $ok = ecrire_fichier(_DIR_CACHE . $chemin_cache, serialize($zpage));
+    } else {
+		// sinon on sauve dans le fichier prevu seulement les infos, pas la page 
+        $texte = $zpage['texte'];
+        // On met a la place le suffixe du fichier qui va la contenir
+        $zpage['texte'] = '_'.$page['invalideurs']['session'];
+        $ok = ecrire_fichier(_DIR_CACHE . $chemin_cache, serialize($zpage));
+        // puis on sauve la page elle-meme dans un fichier homonyme+session
+		$chemin_cache .= $zpage['texte'];  
+        $ok &= ecrire_fichier(_DIR_CACHE . $chemin_cache, $texte);
+        $zpage['texte'] = $texte;
+	}
 
 	spip_log("Creation du cache $chemin_cache pour "
 		. $page['entetes']['X-Spip-Cache']." secondes". ($ok?'':' (erreur!)'));
 
-	// Inserer ses invalideurs
+	// Inserer ses invalideurs a partir de la page non compressee
 	include_spip('inc/invalideur');
 	maj_invalideurs($chemin_cache, $page);
+	// retourner toutes les infos
 	$page = $zpage;
 }
 
@@ -242,17 +245,19 @@ function public_cacher_dist($contexte, &$use_cache, &$chemin_cache, &$page, &$la
 	else
 		$page = array();
 
-	// s'il est sessionne, charger celui correspondant a notre session
+	// s'il est sessionne, 
+    // la session demandee doit etre posterieure au cache
+    // (sinon le squelette a ete modifie, et utilise par une autre session depuis)
 	if (isset($page['invalideurs'])
 	AND isset($page['invalideurs']['session'])) {
-		$chemin_cache_session = $chemin_cache . '_' . spip_session();
-		if (lire_fichier(_DIR_CACHE . $chemin_cache_session, $page_session)
-		AND $page_session = @unserialize($page_session)
-		AND $page_session['lastmodified'] >= $page['lastmodified'])
-			$page = $page_session;
-		else
-			$page = array();
-	}
+		$chemin_cache_session = _DIR_CACHE . $chemin_cache . '_' . spip_session();
+        if (is_readable($chemin_cache_session)
+        AND (filemtime($chemin_cache_session) > $page['lastmodified'])) {
+                $page['sourcecache'] = $chemin_cache_session;
+                // a la place de:
+                // lire_fichier($chemin_cache_session, $page['texte']);
+        } else $page = array();
+    }
 
 	// HEAD : cas sans jamais de calcul pour raisons de performance
 	if ($_SERVER['REQUEST_METHOD'] == 'HEAD') {
@@ -272,7 +277,7 @@ function public_cacher_dist($contexte, &$use_cache, &$chemin_cache, &$page, &$la
 		retire_caches($chemin_cache); # API invalideur inutile
 		supprimer_fichier(_DIR_CACHE.$chemin_cache);
 		if ($chemin_cache_session)
-			supprimer_fichier(_DIR_CACHE.$chemin_cache_session);
+			supprimer_fichier($chemin_cache_session);
 	}
 
 	// $delais par defaut (pour toutes les pages sans #CACHE{})

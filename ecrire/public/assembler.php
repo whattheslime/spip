@@ -66,8 +66,7 @@ function assembler($fond, $connect='') {
 		// ca economise du temps de calcul sans trop induire en erreur
 		if (!$page) $page['status'] = 204;
 		$page['entetes']["Connection"] = "close";
-		$page['texte'] = "";
-		$page['gz'] = false;
+		$page['texte'] = $page['sourcecache'] =	$page['gz'] = '';
 		// Ne pas ajouter le bouton admin!
 		$flag_preserver = true;
 
@@ -267,6 +266,12 @@ function inclure_page($fond, $contexte, $connect='') {
 	// $res = message d'erreur : on sort de la
 	if ($res) {return array('texte' => $res);}
 
+    // si on a seulement un pointeur sur le fichier, le lire.
+    if (isset($page['sourcecache'])) {
+        if (lire_fichier($page['sourcecache'], $page['texte']))
+            unset($page['sourcecache']);
+        else return array('texte' => 'error'); // ne devrait pas arriver
+    }
 	// Si use_cache ne vaut pas 0, la page doit etre calculee
 	// produire la page : peut mettre a jour $lastinclude
 	// le contexte_cache envoye a cacher() a ete conserve et est passe a produire

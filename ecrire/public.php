@@ -265,7 +265,10 @@ if (isset($GLOBALS['_INC_PUBLIC'])) {
         }
     }
     envoyer_entetes($page['entetes']);
-    echo $page['texte'];
+    if (!empty($page['sourcecache'])) {
+#        spip_log("envoi direct de " . $page['sourcecache']);
+        readfile($page['sourcecache']);
+    } else echo $page['texte'];
 
 	if ($lang) lang_select();
 
