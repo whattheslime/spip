@@ -55,12 +55,10 @@ function generer_nom_fichier_cache($contexte, $page) {
 }
 
 // Faut-il compresser ce cache ? A partir de 16ko ca vaut le coup
-// (pas de passage par reference car on veut conserver la version non compressee
-// pour l'afficher)
 // http://doc.spip.org/@gzip_page
 function gzip_page($page) {
 	if (function_exists('gzcompress') AND strlen($page['texte']) > 16*1024) {
-		$page['gz'] = true;
+		$page['gz'] = 'deflate';
 		$page['texte'] = gzcompress($page['texte']);
 	} else {
 		$page['gz'] = false;
@@ -68,13 +66,12 @@ function gzip_page($page) {
 	return $page;
 }
 
-// Faut-il decompresser ce cache ?
-// (passage par reference pour alleger)
+// Decompresser ce cache au besoin
 // http://doc.spip.org/@gunzip_page
 function gunzip_page(&$page) {
 	if ($page['gz']) {
 		$page['texte'] = gzuncompress($page['texte']);
-		$page['gz'] = false; // ne pas gzuncompress deux fois une meme page
+		$page['gz'] = false;
 	}
 }
 
@@ -143,6 +140,13 @@ function creer_cache(&$page, &$chemin_cache) {
 		OR defined('spip_interdire_cache'))
 		return;
 
+	// ajouter la date de production dans le cache lui meme
+	// (qui contient deja sa duree de validite)
+	$page['lastmodified'] = time();
+
+    // indiquer s'il manque la balise base alors qu'elle devrait
+	$page['base']= page_base_presente($page['texte']);
+
 	// Si la page c1234 a un invalideur de session 'zz', sauver dans
 	// 'tmp/cache/MD5(chemin_cache)_zz'
 	if (isset($page['invalideurs'])
@@ -152,7 +156,6 @@ function creer_cache(&$page, &$chemin_cache) {
 		// des caches sessionnes
 		if (!lire_fichier(_DIR_CACHE . $chemin_cache, $tmp)
 		OR !$tmp = @unserialize($tmp)) {
-			spip_log('Creation cache sessionne '.$chemin_cache);
 			$tmp = array(
 				'invalideurs' => array('session' => ''),
 				'lastmodified' => time()
@@ -162,14 +165,9 @@ function creer_cache(&$page, &$chemin_cache) {
 		$chemin_cache .= '_'.$page['invalideurs']['session'];
 	}
 
-	// ajouter la date de production dans le cache lui meme
-	// (qui contient deja sa duree de validite)
-	$page['lastmodified'] = time();
-
-
 	// l'enregistrer, compresse ou non...
-	$ok = ecrire_fichier(_DIR_CACHE . $chemin_cache,
-		serialize(gzip_page($page)));
+	$zpage = gzip_page($page);
+	$ok = ecrire_fichier(_DIR_CACHE . $chemin_cache, serialize($zpage));
 
 	spip_log("Creation du cache $chemin_cache pour "
 		. $page['entetes']['X-Spip-Cache']." secondes". ($ok?'':' (erreur!)'));
@@ -177,7 +175,7 @@ function creer_cache(&$page, &$chemin_cache) {
 	// Inserer ses invalideurs
 	include_spip('inc/invalideur');
 	maj_invalideurs($chemin_cache, $page);
-
+	$page = $zpage;
 }
 
 
@@ -291,7 +289,6 @@ function public_cacher_dist($contexte, &$use_cache, &$chemin_cache, &$page, &$la
 		$page['contexte_implicite'] = $contexte_implicite;
 		if (!$use_cache) {
 			// $page est un cache utilisable
-			gunzip_page($page);
 			return;
 		}
 	} else {
@@ -302,7 +299,6 @@ function public_cacher_dist($contexte, &$use_cache, &$chemin_cache, &$page, &$la
 	// Si pas valide mais pas de connexion a la base, le garder quand meme
 	if (!spip_connect()) {
 		if (isset($page['texte'])) {
-			gunzip_page($page);
 			$use_cache = 0;
 		}
 		else {

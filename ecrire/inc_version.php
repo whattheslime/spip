@@ -264,7 +264,7 @@ $spip_pipeline = array(
 	'accueil_gadgets' => '',
 	'accueil_informations' => '',
 	 # cf. public/assembler
-	'affichage_final' => '|f_surligne|f_tidy|f_admin',
+	'affichage_final' => '',
 	'affichage_entetes_final' => '',
 	'afficher_fiche_objet'=>'',
 	'afficher_config_objet' => '',

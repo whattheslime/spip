@@ -163,6 +163,7 @@ if (isset($GLOBALS['_INC_PUBLIC'])) {
 	// inclure_balise_dynamique nous enverra peut-etre
 	// quelques en-tetes de plus (voire qq envoyes directement)
 
+        gunzip_page($page);
 		// restaurer l'etat des notes
 		if (isset($page['notes']) AND $page['notes']){
 			$notes = charger_fonction("notes","inc");
@@ -192,13 +193,46 @@ if (isset($GLOBALS['_INC_PUBLIC'])) {
 			erreur_squelette($msg);
 	}
 	//
-	// Post-traitements
+	// Post-traitements pour pages HTML (font perdre la compression initiale)
 	//
-	page_base_href($page['texte']);
+	if ($html) {
+        // S'il faut inserer une balise Base du fait de profondeur_url > 0
+        if (page_base_define()) {
+            // Compatibilite vieux caches
+            if (!isset($page['base'])) {
+                gunzip_page($page);
+                $page['base']= page_base_presente($page['texte']);
+            }
+            if ($page['base']) {
+                gunzip_page($page);
+                page_base_href($page['texte'], $page['base']);
+            }
+        }
+        // S'il faut surligner une recherche
+        // ce code semble mort, car dependant du filtre url_var_recherche
+        // de la 1.9.2 disparu en 2.0. Y a un plugin qui s'en sert ?
+        if (_request('var_recherche') AND isset($_SERVER['HTTP_REFERER'])) {
+            gunzip_page($page);
+            include_spip('inc/surligne');
+            $page['texte'] = surligner_mots($page['texte'], _request('var_recherche'));
+        }
+        // Si on veut appliquer un validateur local
+        if ($xhtml) {
+            gunzip_page($page);
+            $page['texte'] = f_tidy($page['texte']);
+        }
+        // Si on a un cookie de session d'admin
+        if ($affiche_boutons_admin) {
+            gunzip_page($page);
+            $page['texte'] = f_admin($page['texte']);
+        }
+    }
 
-	// (c'est ici qu'on fait var_recherche, validation, boutons d'admin,
-	// cf. public/assembler.php)
-    $page['texte'] = pipeline('affichage_final', $page['texte']);
+	// Ce pipeline fait perdre la possibilite d'envoyer la version compressee
+    if ($spip_pipeline['affichage_final']) {
+        gunzip_page($page);
+        $page['texte'] = pipeline('affichage_final', $page['texte']);
+    }
 
 	// Ces dernieres operations ont pu lever des erreurs (inclusion manquante)
 	// il faut tester a nouveau 
@@ -206,14 +240,29 @@ if (isset($GLOBALS['_INC_PUBLIC'])) {
 	$debug = ((_request('var_mode') == 'debug') OR $tableau_des_temps) ? array(1) : array();
 
     // Si pas d'ajout ulterieur, 
-    // fournir Content-Length et compresser si possible et utile
-    if (!$debug) {
-        if (($page['entetes']['Content-Length'] = strlen($page['texte']))>8192)
-            if (strpos($_SERVER['HTTP_ACCEPT_ENCODING'], 'gzip') !==false) {
-                $page['texte'] = gzencode($page['texte']);
-                $page['entetes']['Content-Encoding'] = 'gzip';
+    // fournir Content-Length et compresser si possible, utile et pas deja fait
+    if ($debug) {
+        gunzip_page($page);
+    } else {
+        // si page deja compressee la servir comme ca si possible
+        if ($page['gz'] == 'deflate') {
+            if (strpos($_SERVER['HTTP_ACCEPT_ENCODING'], 'deflate') !==false) {
                 $page['entetes']['Content-Length'] = strlen($page['texte']);
+                $page['entetes']['Content-Encoding'] = 'deflate';
+#                spip_log("gain d'une decompression pour $fond");
+            } else gunzip_page($page);
+        }
+        // si pas compressee ou decompressee a l'instant, essayer en gzip
+        if ($page['gz'] != 'deflate') {
+            $page['entetes']['Content-Length'] = strlen($page['texte']);
+            if (($page['entetes']['Content-Length']>8192)
+            AND ($GLOBALS['meta']['auto_compress_http'] == 'oui')
+            AND (strpos($_SERVER['HTTP_ACCEPT_ENCODING'], 'gzip') !==false)) {
+                    $page['texte'] = gzencode($page['texte']);
+                    $page['entetes']['Content-Encoding'] = 'gzip';
+                    $page['entetes']['Content-Length'] = strlen($page['texte']);
             }
+        }
     }
     envoyer_entetes($page['entetes']);
     echo $page['texte'];

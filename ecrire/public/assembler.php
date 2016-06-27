@@ -67,6 +67,7 @@ function assembler($fond, $connect='') {
 		if (!$page) $page['status'] = 204;
 		$page['entetes']["Connection"] = "close";
 		$page['texte'] = "";
+		$page['gz'] = false;
 		// Ne pas ajouter le bouton admin!
 		$flag_preserver = true;
 
@@ -276,6 +277,14 @@ function inclure_page($fond, $contexte, $connect='') {
 	// dans tous les cas, mettre a jour $lastmodified
 	$lastmodified = max($lastmodified, $lastinclude);
 
+    if (is_array($page)) {
+        gunzip_page($page);
+        // compatibilite vieux cache:
+        // indiquer s'il manque la balise base alors qu'elle devrait
+        if (!isset($page['base']))
+            $page['base']= page_base_presente($page['texte']);
+    }
+
 	return $page;
 }
 
@@ -386,15 +395,9 @@ function inclure_balise_dynamique($texte, $echo=true, $contexte_compil=array())
 
 }
 
-// Traiter var_recherche ou le referrer pour surligner les mots
+// obsolete
 // http://doc.spip.org/@f_surligne
-function f_surligne ($texte) {
-	if (!$GLOBALS['html']) return $texte;
-	$rech = _request('var_recherche');
-	if (!$rech AND !isset($_SERVER['HTTP_REFERER'])) return $texte;
-	include_spip('inc/surligne');
-	return surligner_mots($texte, $rech);
-}
+function f_surligne ($texte) { return $texte;}
 
 // Valider/indenter a la demande.
 // http://doc.spip.org/@f_tidy
@@ -620,7 +623,8 @@ function evaluer_fond ($fond, $contexte=array(), $connect=null) {
 		$page['process_ins'] = 'html';
 		ob_end_clean();
 	}
-	page_base_href($page['texte']);
+    if (page_base_define())
+        page_base_href($page['texte'], $page['base']);
 
 	// Lever un drapeau (global) si le fond utilise #SESSION
 	// a destination de public/parametrer
@@ -645,52 +649,55 @@ function xml_hack(&$page, $echap = false) {
 }
 
 // http://doc.spip.org/@page_base_href
-function page_base_href(&$texte){
-	if (!defined('_SET_HTML_BASE'))
-		// si la profondeur est superieure a 1
-		// est que ce n'est pas une url page ni une url action
-		// activer par defaut
-		define('_SET_HTML_BASE',
-			$GLOBALS['profondeur_url'] >= (_DIR_RESTREINT?1:2)
-			AND _request(_SPIP_PAGE) !== 'login'
-			AND !_request('action'));
+function page_base_href(&$texte, $poshead){
+    include_spip('inc/filtres_mini');
+    // ajouter un base qui reglera tous les liens relatifs
+    $base = url_absolue('./');
+    $bbase = "\n<base href=\"$base\" />";
+    $head = substr($texte,0,$poshead);
+    if (($pos = strpos($head, '<head>')) !== false)
+        $head = substr_replace($head, $bbase, $pos+6, 0);
+    elseif(preg_match(",<head[^>]*>,i",$head,$r)){
+        $head = str_replace($r[0], $r[0].$bbase, $head);
+    }
+    $texte = $head . substr($texte,$poshead);
+    // gerer les ancres
+    $base = $_SERVER['REQUEST_URI'];
+    if (strpos($texte,"href='#")!==false)
+        $texte = str_replace("href='#","href='$base#",$texte);
+    if (strpos($texte, "href=\"#")!==false)
+        $texte = str_replace("href=\"#","href=\"$base#",$texte);
+}
 
-	if (_SET_HTML_BASE
-	AND isset($GLOBALS['html']) AND $GLOBALS['html']
-	AND $GLOBALS['profondeur_url']>0
-	AND ($poshead = strpos($texte,'</head>'))!==FALSE){
-		$head = substr($texte,0,$poshead);
-		$insert = false;
-		if (strpos($head, '<base')===false) 
-			$insert = true;
-		else {
-			// si aucun <base ...> n'a de href c'est bon quand meme !
-			$insert = true;
-			include_spip('inc/filtres');
-			$bases = extraire_balises($head,'base');
-			foreach ($bases as $base)
-				if (extraire_attribut($base,'href'))
-					$insert = false;
-		}
-		if ($insert) {
-			include_spip('inc/filtres_mini');
-			// ajouter un base qui reglera tous les liens relatifs
-			$base = url_absolue('./');
-			$bbase = "\n<base href=\"$base\" />";
-			if (($pos = strpos($head, '<head>')) !== false)
-				$head = substr_replace($head, $bbase, $pos+6, 0);
-			elseif(preg_match(",<head[^>]*>,i",$head,$r)){
-				$head = str_replace($r[0], $r[0].$bbase, $head);
-			}
-			$texte = $head . substr($texte,$poshead);
-			// gerer les ancres
-			$base = $_SERVER['REQUEST_URI'];
-			if (strpos($texte,"href='#")!==false)
-				$texte = str_replace("href='#","href='$base#",$texte);
-			if (strpos($texte, "href=\"#")!==false)
-				$texte = str_replace("href=\"#","href=\"$base#",$texte);
-		}
-	}
+function page_base_presente($texte)
+{
+    $insert = strpos($texte,'</head>');
+    if ($insert === false) return false;
+    $head = substr($texte, 0, $insert);
+     if (strpos($head, '<base')===false) 
+         return $insert;
+    else {
+        // si aucun <base ...> n'a de href c'est bon quand meme !
+        include_spip('inc/filtres');
+        $bases = extraire_balises($head,'base');
+        foreach ($bases as $base)
+            if (extraire_attribut($base,'href'))
+                return false;
+    }
+    return $insert;
+}
+
+function page_base_define()
+{    
+    if (!defined('_SET_HTML_BASE'))
+        // si la profondeur est superieure a 1
+        // et que ce n'est pas une url page ni une url action
+        // activer par defaut
+        define('_SET_HTML_BASE',
+				$GLOBALS['profondeur_url'] >= (_DIR_RESTREINT?1:2)
+				AND _request(_SPIP_PAGE) !== 'login'
+				AND !_request('action'));
+    return _SET_HTML_BASE;
 }
 
 function public_previsualisation_dist($page)
