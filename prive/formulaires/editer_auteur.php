@@ -201,7 +201,7 @@ function formulaires_editer_auteur_verifier_dist(
 		}
 	}
 
-	if (preg_match(",^\s*(javascript|data),i", _request('url_site'))) {
+	if ($url = _request('url_site') and !tester_url_absolue($url)) {
 		$erreurs['url_site'] = _T('info_url_site_pas_conforme');
 	}
 
