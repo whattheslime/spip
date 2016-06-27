@@ -1007,7 +1007,7 @@ jQuery(function() {
 	.formulaire_dyn_ajax();
 	jQuery('div.ajaxbloc').ajaxbloc();
 	jQuery("input[placeholder]:text").placeholderLabel();
-	jQuery('a.popin').click(function(){if (jQuery.modalbox) jQuery.modalbox(parametre_url(this.href,"var_zajax",jQuery(this).attr('data-var_zajax')?jQuery(this).attr('data-var_zajax'):var_zajax_content));return false;});
+	jQuery('a.popin').click(function(){if (jQuery.modalbox) jQuery.modalbox(parametre_url(jQuery(this).attr('data-href-popin')?jQuery(this).attr('data-href-popin'):this.href,"var_zajax",jQuery(this).attr('data-var_zajax')?jQuery(this).attr('data-var_zajax'):var_zajax_content));return false;});
 });
 
 // ... et a chaque fois que le DOM change
@@ -1022,7 +1022,7 @@ onAjaxLoad(function() {
 		else
 			jQuery('div.ajaxbloc', this).ajaxbloc();
 		jQuery("input[placeholder]:text",this).placeholderLabel();
-		jQuery('a.popin',this).click(function(){if (jQuery.modalbox) jQuery.modalbox(parametre_url(this.href,"var_zajax",jQuery(this).attr('data-var_zajax')?jQuery(this).attr('data-var_zajax'):var_zajax_content));return false;});
+		jQuery('a.popin',this).click(function(){if (jQuery.modalbox) jQuery.modalbox(parametre_url(jQuery(this).attr('data-href-popin')?jQuery(this).attr('data-href-popin'):this.href,"var_zajax",jQuery(this).attr('data-var_zajax')?jQuery(this).attr('data-var_zajax'):var_zajax_content));return false;});
 	}
 });
 
