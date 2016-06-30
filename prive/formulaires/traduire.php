@@ -167,7 +167,7 @@ function formulaires_traduire_traiter_dist($objet, $id_objet, $retour = '', $tra
 			$_id_table_objet = id_table_objet($objet);
 			if ($id_trad = sql_getfetsel('id_trad', $table_objet_sql, "$_id_table_objet=" . intval($id_objet))) {
 				$referencer_traduction = charger_fonction('referencer_traduction', 'action');
-				$res = $referencer_traduction($objet, $id_trad, $new_id_trad);
+				$referencer_traduction($objet, $id_trad, $new_id_trad);
 			}
 		}
 	}
