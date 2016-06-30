@@ -154,7 +154,8 @@ function formulaires_traduire_traiter_dist($objet, $id_objet, $retour = '', $tra
 	if (!_request('annuler') and autoriser('changerlangue', $objet, $id_objet)) {
 		// action/editer_xxx doit traiter la modif de changer_lang
 		$res = formulaires_editer_objet_traiter($objet, $id_objet, 0, 0, $retour);
-
+	}
+	if (!_request('annuler') and autoriser('changertraduction', $objet, $id_objet)) {
 		if ($id_trad = _request('id_trad') or _request('supprimer_trad')) {
 			$referencer_traduction = charger_fonction('referencer_traduction', 'action');
 			$referencer_traduction($objet, $id_objet, intval($id_trad)); // 0 si supprimer_trad
@@ -166,7 +167,7 @@ function formulaires_traduire_traiter_dist($objet, $id_objet, $retour = '', $tra
 			$_id_table_objet = id_table_objet($objet);
 			if ($id_trad = sql_getfetsel('id_trad', $table_objet_sql, "$_id_table_objet=" . intval($id_objet))) {
 				$referencer_traduction = charger_fonction('referencer_traduction', 'action');
-				$referencer_traduction($objet, $id_trad, $new_id_trad);
+				$res = $referencer_traduction($objet, $id_trad, $new_id_trad);
 			}
 		}
 	}
