@@ -271,12 +271,18 @@ function set_request($var, $val = NULL, $c=false) {
 
 
 /**
- * Tester si une url est absolue
- * @param  $url
+ * Tester si une URL est absolue
+ * on accepte tous les protocoles sauf file:// (on est sur le web quand meme)
+ * @param string $url
  * @return bool
  */
-function tester_url_absolue($url){
-	return preg_match(";^([a-z]+:)?//;Uims",trim($url))?true:false;
+function tester_url_absolue($url) {
+	$url = trim($url);
+	if (preg_match(";^([a-z]{3,7}:)?//;Uims", $url)
+	  and strncasecmp($url, 'file://', 7)!==0){
+		return true;
+	}
+	return false;
 }
 
 /**
