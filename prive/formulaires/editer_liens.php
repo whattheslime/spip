@@ -108,7 +108,7 @@ function formulaires_editer_liens_charger_dist($a, $b, $c, $options = array()) {
 			$id_objet));
 
 	if (!$editable and !count(objet_trouver_liens(array($objet_lien => '*'),
-			array(($objet_lien == $objet_source ? $objet : $objet_source) => '*')))
+			array(($objet_lien == $objet_source ? $objet : $objet_source) => $id_objet)))
 	) {
 		return false;
 	}
