@@ -32,7 +32,7 @@ function formulaires_configurer_relayeur_verifier_dist() {
 	$http_noproxy = _request('http_noproxy');
 
 	if ($http_proxy and !tester_url_absolue($http_proxy)) {
-		$erreurs['http_proxy'] = _L('format_proxy_incorrect');
+		$erreurs['http_proxy'] = _T('info_url_proxy_pas_conforme');
 	}
 
 	if (!isset($erreurs['http_proxy']) and _request('tester_proxy')) {
