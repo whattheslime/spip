@@ -1,6 +1,6 @@
 [<h1 class="grostitre"><:info_resultat_recherche:> &laquo;(#ENV{recherche})&raquo;</h1>]
 [(#ENV{recherche}|non)<h1 class="grostitre"><:info_rechercher:></h1>]
-#FORMULAIRE_RECHERCHE_ECRIRE{#SELF,ajax}
+#FORMULAIRE_RECHERCHE_ECRIRE{#URL_ECRIRE{recherche},ajax}
 <div class="nettoyeur"></div>
 
 <BOUCLE_num(CONDITION){si #ENV{recherche}|is_numeric}>
