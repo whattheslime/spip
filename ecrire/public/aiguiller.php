@@ -12,8 +12,9 @@
 
 if (!defined('_ECRIRE_INC_VERSION')) return;
 
-function securiser_redirect_action($redirect){
-	if (tester_url_absolue($redirect) AND !defined('_AUTORISER_ACTION_ABS_REDIRECT')){
+function securiser_redirect_action($redirect) {
+	if ((tester_url_absolue($redirect) or preg_match(',^\w+:,',trim($redirect)))
+		and !defined('_AUTORISER_ACTION_ABS_REDIRECT')) {
 		// si l'url est une url du site, on la laisse passer sans rien faire
 		// c'est encore le plus simple
 		$base = $GLOBALS['meta']['adresse_site']."/";
