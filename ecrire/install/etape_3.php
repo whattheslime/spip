@@ -236,7 +236,7 @@ function install_premier_auteur($email, $login, $nom, $pass, $hidden, $auteur_ob
 	              'required' => $auteur_obligatoire,
 							  ),
 					 'pass' => array(
-							 'label' => "<b>"._T('entree_mot_passe')."</b><br />\n"._T('info_passe_trop_court_car_pluriel', array('nb' => _PASS_LONGUEUR_MINI))."\n",
+							 'label' => "<b>"._T('entree_mot_passe')."</b><br />\n",
 							 'valeur' => $pass,
 	             'required' => $auteur_obligatoire,
 							 ),
