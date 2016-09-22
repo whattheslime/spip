@@ -26,6 +26,7 @@ if (!defined('_ECRIRE_INC_VERSION')) return;
  *   id : id_rubrique fournit en second arg de #FORMULAIRE_INSCRIPTION
  *   from : email de l'envoyeur pour l'envoi du mail d'inscription
  *   force_nouveau : forcer le statut nouveau sur l'auteur inscrit, meme si il existait deja en base
+ *   modele_mail : squelette de mail a utiliser
  * @return array|string
  */
 function action_inscrire_auteur_dist($statut, $mail_complet, $nom, $options = array()){
@@ -210,8 +211,12 @@ function envoyer_inscription_dist($desc, $nom, $mode, $options=array()) {
 	$contexte['url_confirm'] = parametre_url($contexte['url_confirm'],'email',$desc['email']);
 	$contexte['url_confirm'] = parametre_url($contexte['url_confirm'],'jeton',$desc['jeton']);
 
-	$message = recuperer_fond('modeles/mail_inscription',$contexte);
-	$from = (isset($options['from'])?$options['from']:null);
+	$modele_mail = 'modeles/mail_inscription';
+	if (isset($options['modele_mail']) and $options['modele_mail']){
+		$modele_mail = $options['modele_mail'];
+	}
+	$message = recuperer_fond($modele_mail, $contexte);
+	$from = (isset($options['from']) ? $options['from'] : null);
 	$head = null;
 	return array("", $message,$from,$head);
 }
