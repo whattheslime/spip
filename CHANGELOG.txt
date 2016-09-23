@@ -1,4 +1,51 @@
 
+SPIP-Core spip-3.0.22 -> spip-3.0.23  23 septembre 2016
+-------------------------------------------------------------
+
+r22923 | cedric    |  (ven. 11 mars 2016) | version : ici on est en 3.0.23-dev
+r22924 | cedric    |  (ven. 11 mars 2016) | oups commit par erreur dans r22923
+r22930 | fil       |  (dim. 13 mars 2016) | report de r22929 : le robot facebook est mechant mais il est aussi bete, il faut donc le laisser faire son travail + mise a jour de la version de l'écran
+r22941 | cedric    |  (jeu. 17 mars 2016) | define('_CALCUL_PROFILER',300) permet de loger dans le profiler les calculs de squelette qui prennent plus de 300ms(a eclaircir : quand une boucle est lente et prends plusieurs secondes, cela n'affecte pas le temps calcule ici)
+r22948 | cedric    |  (jeu. 17 mars 2016) | Report de r22946 : un pipeline auth_administrer permet de personaliser le retour des differentes fonctions d'auth (par exemple pour renforcer la verification du mot de passe, quand flux['args']['fonction']=='verifier_pass'
+r22950 | cedric    |  (jeu. 17 mars 2016) | Report de r22055 : Permettre de choisir une langue par defaut autre que le francais -- utile pour les sites a destination d'un public non francophone, et qui utilise des plugins partiellement traduits -- clot #3292
+r22951 | cedric    |  (jeu. 17 mars 2016) | Report de r22062 : Il manquait des elements pour que le parametrage de la langue par defaut soit operationnel
+r22983 | b_b       |  (mer. 13 avril 2016) | report de r22981ne plus limiter la longueur maxi des logins dans test_login()
+r23015 | denisb    |  (lun. 23 mai 2016) | ecrire/inc/utils.php : on affecte une vraie valeur à $prefs. report de r23013
+r23025 | b_b       |  (lun. 06 juin 2016) | report de r23023complément à r20876 : pas de data dans le champ url_site
+r23032 | cedric    |  (sam. 11 juin 2016) | Report de r23030 : Bugfix erreur SQL sur langue_choisie, notamment lors de la syndication :il faut verifier l'existence du champ qui n'est pas systematique avec un champ lang+ prendre un argument $serveur en plus par coherence+ reports precedents sur les appels de calculer_langues_rubriques()
+r23038 | cedric    |  (lun. 13 juin 2016) | Report de r23036 : fixer le bug d'inclusion introduit par r23030
+r23059 | cedric    |  (sam. 25 juin 2016) | Report de r23057 : recuperer_infos_distantes() renvoyait a tort un tableau avec pour seul argument un mime_type vide quand le document n'existait pas, pouvant laisser croire a son existence. On sort explicitement avec false dans ce cas, comme prevu. Et on essaye meme pas de recuperer l'URL si la source fournie n'en est pas une
+r23062 | cedric    |  (lun. 27 juin 2016) | Report de r23060 : suite de r23023 et r20876 : soyons carrement restrictif sur ce qu'on attend
+r23065 | cedric    |  (lun. 27 juin 2016) | Report de r23063 : Sanitizer/controler les entree fournies a valider_xml_ok (Thomas Chauchefoin)
+r23068 | cedric    |  (lun. 27 juin 2016) | Report de r23066 : passer entites_html sur les id ajax par precaution (Guillaume Fahrer)
+r23071 | cedric    |  (lun. 27 juin 2016) | Report de r23069 : quand on faisait recherche=/ cela etait considere a tort comme une regexp (Thomas Chauchefoin)
+r23079 | cedric    |  (mar. 28 juin 2016) | Report de r23077 : report de r23049 sans le bug : si la request string contient le protocole et le host, il faut les depiler (cf test http://zone.spip.org/trac/spip-zone/changeset/98585)
+r23100 | cedric    |  (mer. 06 juil. 2016) | Report de r23098 : tester_url_absolue() n'accepte pas le protocole file:// car on est sur le web
+r23105 | cedric    |  (jeu. 07 juil. 2016) | Report de r23103 : completer r23098 : exclure tous les protocoles qui ne sont pas des URL mais que php accepte dans ses fonctions de lecture (guy)
+r23108 | cedric    |  (jeu. 07 juil. 2016) | Report de r23106 : suite de 23103 : la casse qui peut tout casser
+r23111 | marcimat  |  (jeu. 07 juil. 2016) | Report de r23109 : Compléter r23103 : retirer le protocole 'zip' également, et phpdoc plus à jour.
+r23153 | cedric    |  (ven. 09 sept. 2016) | Report de r23151 : Eviter d'accepter n'importe quoi dans les redirect de l'espace prive (Tim Coen)
+r23156 | cedric    |  (mar. 13 sept. 2016) | Report de r23154 : Quand un charger_fonction echoue renvoyer un 404 (et inliner les css si jamais on cherhcait un /truc.api/ pour que le rendu soit bon)
+r23158 | marcimat  |  (lun. 19 sept. 2016) | Parenthèse en trop dans r23154 (RealET)
+r23167 | cedric    |  (jeu. 22 sept. 2016) | Report de r23165 : le modele de mail utilise lors de l'inscription est modifiable via le tableau options de inscrire_auteur()
+
+SPIP-plugins-dist spip-3.0.22 -> spip-3.0.23  23 septembre 2016
+-------------------------------------------------------------
+
+r96125 | b_b       |  (lun. 21 mars 2016) | report de r93291il ne faut pas faire une alerte si c'est le form de forum en dessous de la previsu qu'on submit a nouveaucf https://core.spip.net/issues/3515
+r96640 | Nicod     |  (ven. 15 avril 2016) | report de r96638Générer des urls publiques dans les notifications de forums publics.
+r97979 | Yohann    |  (mar. 24 mai 2016) | Ajout d’une fonction aux statistiques pour désactiver les referers. Des fois, on en a pas besoin, et ça prend de la place (beaucoup !) dans les tables SQL.
+r98016 | Francky   |  (mar. 24 mai 2016) | Il y a eu une coquille dans le dernier commit, la version passait de 0.4.36 à 0.4.4Je change le donc le z pour lui mettre 37
+r98068 | cedric    |  (jeu. 26 mai 2016) | Certains flux RSS publient l'integralite de leur contenus (par exemple http://www.lelotenaction.org/pages/do/rss.xml) ce qui produit inevitablement un timeout lors de l'analyse et de la syndication.On optimise les fonctions cdata_echappe et cdata_echappe_retour, et on limite la syndication aux 1000 premiers items, surchargeable par la constante _SYNDICATION_MAX_ITEMS
+r98104 | Yohann    |  (dim. 29 mai 2016) | On revert r97979 de la branche de maintenance.
+r98274 | rasta     |  (jeu. 09 juin 2016) | Backport de [98272] : Correction de bug : il manquait <!--affiche_milieu--> pour les documents, ce qui empêchait par exemple l'inseration des traductions ou autre ajout de ce genre.
+r98562 | cedric    |  (sam. 25 juin 2016) | Report de r98560 : plusieurs petits bugs sur les documents distants mal formates qui pourraient exister en base par des operations peu avouables, on teste systematiquement que le fichier ressemble bien a une URL avant de s'y fier
+r98605 | cedric    |  (mer. 29 juin 2016) | fix r96640 qui annoncait reporter r96638 mais avait reporte le true en false
+r99156 | b_b       |  (dim. 14 août 2016) | report de r99153revert de r86810Ref la kermesse de ​​https://core.spip.net/issues/3368
+r99434 | cedric    |  (ven. 09 sept. 2016) | Report de r99431 : l'URL de rappel de mot de passe doit etre une URL safe, on la force sur l'adresse_site parametree dans la configuration du site
+
+
+
 SPIP-Core spip-3.0.21 -> spip-3.0.22  10 mars 2016
 -------------------------------------------------------------
 
