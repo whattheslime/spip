@@ -123,6 +123,10 @@ function minipres($titre='', $corps="", $onload='', $all_inline = false)
 		$statut = isset($GLOBALS['visiteur_session']['statut']) ? $GLOBALS['visiteur_session']['statut'] : '';
 		$nom    = isset($GLOBALS['visiteur_session']['nom']) ? $GLOBALS['visiteur_session']['nom'] : '';
 
+		if ($statut != '0minirezo') {
+			$titre = _T('info_acces_interdit');
+		}
+
 		$corps = generer_form_ecrire('accueil', '','',
 						$statut ? _T('public:accueil_site') : _T('public:lien_connecter')
 		);
