@@ -82,6 +82,13 @@ function f_surligne ($texte) {
 	       OR !isset($_SERVER['HTTP_REFERER'])))
 		return $texte;
 	include_spip('inc/surligne');
+	if (isset($_SERVER['HTTP_REFERER'])) {
+		$_SERVER['HTTP_REFERER'] = preg_replace(',[^\w\,/#&;-]+,', ' ', $_SERVER['HTTP_REFERER']);
+	}
+	if ($rech){
+		$rech = preg_replace(',[^\w\,/#&;-]+,', ' ', $rech);
+	}
+
 	return surligner_mots($texte, $rech);
 }
 
