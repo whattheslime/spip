@@ -185,10 +185,10 @@ function spip_mysql_query($query, $serveur='',$requeter=true) {
 	if (defined('_DEBUG_SLOW_QUERIES') AND _DEBUG_SLOW_QUERIES){
 		if(isset($GLOBALS['debug']['aucasou'])){
 			list(,$id,, $infos) = $GLOBALS['debug']['aucasou'];
-			$debug .= " BOUCLE$id @ ".$infos[0] ." | ";
+			$debug .= "BOUCLE$id @ ".$infos[0] ." | ";
 		}
-		$debug .= " " . $_SERVER['REQUEST_URI'].' + '.$GLOBALS['ip'];
-		$debug = ' /*'.str_replace('*/','@/',$debug).' */';
+		$debug .= $_SERVER['REQUEST_URI'].' + '.$GLOBALS['ip'];
+		$debug = ' /* '. mysql_real_escape_string(str_replace('*/','@/',$debug)). ' */';
 	}
 
 	$r = $link ? mysql_query($query.$debug, $link) : mysql_query($query.$debug);
