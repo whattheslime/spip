@@ -1,3 +1,26 @@
+SPIP-Core spip-3.1.2 -> spip-3.1.3  30 septembre 2016
+-------------------------------------------------------------
+
+r23175 | b_b       |  (lun. 26 sept. 2016) | report de r23174Meilleur contraste des labels dans certains cas...Depuis FF 49, la couleur #4444 est considérée valide, ce qui rend les labels du privé bien plus clairs que #666 qui était appliqué avant (ou sous chromium). On passe donc en #444, pour être certain d'avoir un contraste suffisant.Remarque : la couleur appliquée aux labels n'est jamais la même suivant la structure du formulaire (444, 666, 777, etc). Il serait inétréssant d'homogénéiser tout ça.
+r23177 | guytarr   |  (lun. 26 sept. 2016) | report de r23017 à r23020 : fix: on signe le contenu compressé, car la signature est vérifiée sur le cache avant décompression (fixes #3786) (thx joachim)
+r23181 | cedric    |  (mar. 27 sept. 2016) | Report de r23179 : ne pas afficher l'url brute venant de la request (Nicolas CHATELAIN)
+r23182 | cedric    |  (mar. 27 sept. 2016) | Report de r23180 : pas d'url absolue dans var_url (Nicolas CHATELAIN)
+r23188 | cedric    |  (mar. 27 sept. 2016) | Report de r23185 : Eviter aussi les urls absolues windows c:\xxx et supprimer le onfocus obsolete au profit d'un placholder innofensif (Nicolas Chatelain)
+r23189 | cedric    |  (mar. 27 sept. 2016) | Report de r23186 : echapper les guillemets dans les noms de fichier pour ne pas generer du code invalide (Nicolas Chatelain)
+r23190 | cedric    |  (mar. 27 sept. 2016) | Report de r23187 : proteger des var_url fantaisistes sur le validateur_xml
+r23195 | cedric    |  (mar. 27 sept. 2016) | Report de r23194 : proteger HTTP_REFERER et var_recherche qui seront utilisee dans le surlignage JS (Rastapopoulos)
+r23198 | cedric    |  (mar. 27 sept. 2016) | Report de r23197 : proteger les commentaires de debug des slow queries
+r23201 | cedric    |  (mer. 28 sept. 2016) | Report de r23200 : - ?exec=valider_xml n'est executable que par les webmestres- var_url ne doit pas contenir de ../../ ni de ..\..\ (windows)- elle ne lance une action que si on a un var_token qui correspond soit a la signature de l'action en POST soit a la signature de l'action+var_url en GET. Ceci evite de faire lancer le validateur par un lien malveillant fourni a un webmstre d'un site auquel on a pas acces (CSRF)(Nicolas Chatelain)
+r23203 | cedric    |  (jeu. 29 sept. 2016) | Report de r23093 : Prise en compte complete des entetes HTTP_X_FORWARDED_(FOR|HOST|PORT|PROTO) utilises conventionnellement lors de la prise en charge des hits par un proxy(notamment pour gerer le https). On prend en compte les cas (rares) de double proxy, qui inserent possiblement des valeurs multiples dans HOST et FOR, separees par une virguleLe risque d'empoisonnement du cache est garanti par le fait que HTTP_X_FORWARDED_HOST est injecte dans le contexte des caches, evitant de melanger les caches des hits servis avec et sans HTTP_X_FORWARDED_HOSThttps://core.spip.net/projects/spip/repository/entry/spip/ecrire/public/assembler.php#L226
+r23205 | cedric    |  (ven. 30 sept. 2016) | Report de r23204 : pas de justify sur les labels qui sont court en general
+r23207 | cedric    |  (ven. 30 sept. 2016) | Report de r23206 : verification plus generique pour prendre en compte le cas windows
+r23210 | cedric    |  (ven. 30 sept. 2016) | Report de r23209 : fix css sur les boutons actions en icone horizontale
+
+SPIP-plugins-dist spip-3.1.2 -> spip-3.1.3  30 septembre 2016
+-------------------------------------------------------------
+
+r99660 | cedric    |  (mar. 27 sept. 2016) | Report de r99659 : Complement a r85602 : utiliser la variable de session et ne passer qu'un md5 du chemin du zip dans le formulaire
+r99735 | real3t    |  (jeu. 29 sept. 2016) | Notice PHP en moins
 
 SPIP-Core spip-3.1.1 -> spip-3.1.2  23 septembre 2016
 -------------------------------------------------------------
