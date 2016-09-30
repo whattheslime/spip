@@ -1,4 +1,26 @@
 
+SPIP-Core spip-3.0.23 -> spip-3.0.24  30 septembre 2016
+-------------------------------------------------------------
+
+r23176 | b_b       |  (lun. 26 sept. 2016) | report de r23174Depuis FF 49, la couleur #4444 est considérée valide, ce qui rend les labels du privé bien plus clairs que #666 qui était appliqué avant (ou sous chromium). On passe donc en #444, pour être certain d'avoir un contraste suffisant.Remarque : la couleur appliquée aux labels n'est jamais la même suivant la structure du formulaire (444, 666, 777, etc). Il serait inétréssant d'homogénéiser tout ça.
+r23178 | b_b       |  (mar. 27 sept. 2016) | Fix #3831 : report de r23141 et r23148
+r23183 | cedric    |  (mar. 27 sept. 2016) | Report de r23179 : ne pas afficher l'url brute venant de la request (Nicolas CHATELAIN)
+r23184 | cedric    |  (mar. 27 sept. 2016) | Report de r23180 : pas d'url absolue dans var_url (Nicolas CHATELAIN)
+r23191 | cedric    |  (mar. 27 sept. 2016) | Report de r23185 : Eviter aussi les urls absolues windows c:\xxx et supprimer le onfocus obsolete au profit d'un placholder innofensif (Nicolas Chatelain)
+r23192 | cedric    |  (mar. 27 sept. 2016) | Report de r23186 : echapper les guillemets dans les noms de fichier pour ne pas generer du code invalide (Nicolas Chatelain)
+r23193 | cedric    |  (mar. 27 sept. 2016) | Report de r23187 : proteger des var_url fantaisistes sur le validateur_xml
+r23196 | cedric    |  (mar. 27 sept. 2016) | Report de r23194 : proteger HTTP_REFERER et var_recherche qui seront utilisee dans le surlignage JS (Rastapopoulos)
+r23199 | cedric    |  (mar. 27 sept. 2016) | Report de r23197 : proteger les commentaires de debug des slow queries
+r23202 | cedric    |  (mer. 28 sept. 2016) | Report de r23200 : - ?exec=valider_xml n'est executable que par les webmestres- var_url ne doit pas contenir de ../../ ni de ..\..\ (windows)- elle ne lance une action que si on a un var_token qui correspond soit a la signature de l'action en POST soit a la signature de l'action+var_url en GET. Ceci evite de faire lancer le validateur par un lien malveillant fourni a un webmstre d'un site auquel on a pas acces (CSRF)(Nicolas Chatelain)
+r23208 | cedric    |  (ven. 30 sept. 2016) | Report de r23206 : verification plus generique pour prendre en compte le cas windows
+
+SPIP-plugins-dist spip-3.0.23 -> spip-3.0.24  30 septembre 2016
+-------------------------------------------------------------
+
+r99661 | cedric    |  (mar. 27 sept. 2016) | Report de r85602 : Fix http://core.spip.org/issues/2938 : quand on met un zip dans tmp/ le memoriser dans la session pour le nettoyer au hit suivant si ce n'est pas un $_POST (ie si on a abandonne l'upload/deballage). Au passage on met les zip dans un sous dossier tmp/zip/ plutot que directement dans tmp/
+r99662 | cedric    |  (mar. 27 sept. 2016) | Report de r99659 : Complement a r85602 : utiliser la variable de session et ne passer qu'un md5 du chemin du zip dans le formulaire
+
+
 SPIP-Core spip-3.0.22 -> spip-3.0.23  23 septembre 2016
 -------------------------------------------------------------
 
