@@ -188,7 +188,7 @@ function spip_mysql_query($query, $serveur='',$requeter=true) {
 			$debug .= "BOUCLE$id @ ".$infos[0] ." | ";
 		}
 		$debug .= $_SERVER['REQUEST_URI'].' + '.$GLOBALS['ip'];
-		$debug = ' /* '. mysql_real_escape_string(str_replace('*/','@/',$debug)). ' */';
+		$debug = ' /* '. mysql_real_escape_string($link, str_replace('*/','@/',$debug)). ' */';
 	}
 
 	$r = $link ? mysql_query($query.$debug, $link) : mysql_query($query.$debug);
