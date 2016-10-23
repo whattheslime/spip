@@ -1,8 +1,8 @@
 <!-- hierarchie -->
 #SET{objet_exec,#ENV{exec}|trouver_objet_exec}
 [(#GET{objet_exec}|oui)
-	#SET{objet,#GET{objet_exec}|table_valeur{type}}
-	#SET{id_objet,#ENV{#GET{objet_exec}|table_valeur{id_table_objet}}}
+	#SET{objet,#GET{objet_exec/type}}
+	#SET{id_objet,#ENV{#GET{objet_exec/id_table_objet}}}
 
 	#SET{id_parent,#GET{objet}|=={rubrique}|?{#ENV{id_parent,#INFO_ID_PARENT{#GET{objet},#GET{id_objet}}},#ENV{id_rubrique,#INFO_ID_RUBRIQUE{#GET{objet},#GET{id_objet}}}}}
 	[(#GET{id_parent}|ou{#GET{objet}|=={rubrique}}|oui)
