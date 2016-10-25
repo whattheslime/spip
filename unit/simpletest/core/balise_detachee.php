@@ -24,4 +24,3 @@ class Test_balise_detachee extends SpipTest{
 	}
 }
 
-?>

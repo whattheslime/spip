@@ -20,6 +20,3 @@ class Test_SpipTest extends SpipTest{
 	}
 
 }
-
-
-?>

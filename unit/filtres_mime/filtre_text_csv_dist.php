@@ -132,12 +132,3 @@ guillemets;est-ce;que;ça;marche ?;',
 		return $essais;
 	}
 
-
-
-
-
-
-
-
-
-?>

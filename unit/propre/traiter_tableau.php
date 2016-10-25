@@ -101,5 +101,5 @@ array('preg_match', ',colspan=.*->,is',true),
 		echo "OK";
 	}
 
-?>
+
 

@@ -84,5 +84,3 @@ class Test_balise_generique extends SpipTest{
 	}
 }
 
-
-?>

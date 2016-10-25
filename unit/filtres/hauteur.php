@@ -57,7 +57,3 @@
 );
 		return $essais;
 	}
-
-
-
-?>

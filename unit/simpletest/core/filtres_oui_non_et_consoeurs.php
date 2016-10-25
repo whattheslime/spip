@@ -66,5 +66,3 @@ class Test_filtres_oui_non_et_consoeurs extends SpipTest{
 	}
 }
 
-
-?>

@@ -215,4 +215,4 @@ function traiter_echap_script($regs) {
 			extraire_attribut($ess[1], $ess[2]);
 		}
 	}
-?>
+

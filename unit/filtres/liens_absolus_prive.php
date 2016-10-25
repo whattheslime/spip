@@ -13,4 +13,4 @@ $test = 'liens_absolus_prive';
 //define('_SPIP_SCRIPT', '../../');
 
 include dirname(__FILE__) . '/liens_absolus.php';
-?>
+

@@ -403,6 +403,3 @@
 		return $essais;
 	}
 
-
-
-?>

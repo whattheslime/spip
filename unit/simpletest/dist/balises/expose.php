@@ -29,5 +29,3 @@ class Test_balise_expose extends SpipTest{
 	
 }
 
-
-?>

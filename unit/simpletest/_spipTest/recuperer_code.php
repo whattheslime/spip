@@ -73,4 +73,4 @@ class Test_SpipTestRecupererInfosCode extends SpipTest{
 		$this->assertFalse(count($infos['erreurs']));
 	}
 }
-?>
+

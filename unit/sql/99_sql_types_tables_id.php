@@ -113,4 +113,4 @@ array('types_document','types_documents'),
 		echo "OK";
 	}
 
-?>
+

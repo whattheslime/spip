@@ -30,6 +30,6 @@ class Test_boucle_hierarchie extends SpipTest{
 	}
 }
 
-?>
+
 
 

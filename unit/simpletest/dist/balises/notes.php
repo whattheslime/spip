@@ -120,7 +120,3 @@ class Test_balise_notes extends SpipTest{
 		$this->viderNotes();
 	}
 }
-
-
-
-?>

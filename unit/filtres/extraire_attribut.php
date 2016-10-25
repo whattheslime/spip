@@ -113,4 +113,4 @@
 			extraire_attribut($ess[1], $ess[2]);
 		}
 	}
-?>
+

@@ -28,5 +28,3 @@ class Test_doublons_generiques extends SpipTest{
 			<BOUCLE_e(AUTEURS){doublons kakis}{doublons kokos}{0,1}>Erreur doubles doublons Auteurs</BOUCLE_e>OK<//B_e>");
 	}
 }
-
-?>

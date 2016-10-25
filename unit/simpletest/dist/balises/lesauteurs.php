@@ -15,7 +15,3 @@ class Test_balise_lesauteurs extends SpipTest{
 	}
 }
 
-
-
-
-?>

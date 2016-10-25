@@ -82,4 +82,3 @@ dans les items
 	else
 		echo "OK";
 
-?>

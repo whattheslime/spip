@@ -50,6 +50,3 @@ class Test_balise_autoriser extends SpipTest{
 		$this->assertFalse(autoriser('moimeme','',$GLOBALS['visiteur_session']['id_auteur']+1));
 	}
 }
-
-
-?>

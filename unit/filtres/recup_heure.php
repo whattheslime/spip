@@ -773,6 +773,3 @@
 		return $essais;
 	}
 
-
-
-?>

@@ -199,5 +199,4 @@ function nettoyage_plugins_suppl($Ta_supprimer) {
 		
 	}
 }
-		
-?>
+

@@ -30,5 +30,3 @@ class Test_doublons_divers extends SpipTest{
 			");
 	}
 }
-
-?>

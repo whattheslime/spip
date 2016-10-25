@@ -230,4 +230,4 @@ no mostrarà tots els articles de la secció! Imaginem, per exemple, que hi ha u
 }
 
 
-?>
+

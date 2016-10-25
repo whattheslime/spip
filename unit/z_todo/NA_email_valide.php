@@ -166,7 +166,4 @@
 	foreach($emails_non_valides_rejetes as $tests => $email)
 		echo '<li>'.$email.' -> pass&eacute;s par email_public_valide() -> '.email_public_valide($email).'</li>';
 	echo '</ul>';
-	?>
-	
-	
-	
+

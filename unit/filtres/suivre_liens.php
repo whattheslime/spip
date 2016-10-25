@@ -329,4 +329,3 @@ array(
 
 	echo "OK";
 
-?>

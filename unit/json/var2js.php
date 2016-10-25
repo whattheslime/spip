@@ -251,13 +251,3 @@ paragraphes',
 		return $essais;
 	}
 
-
-
-
-
-
-
-
-
-
-?>

@@ -72,5 +72,3 @@ class Test_balise_introduction extends SpipTest{
 		}
 	}
 }
-
-?>

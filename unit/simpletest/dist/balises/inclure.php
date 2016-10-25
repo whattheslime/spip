@@ -111,6 +111,3 @@ class Test_inclure_inline extends SpipTest{
 		}
 	}
 }
-
-
-?>

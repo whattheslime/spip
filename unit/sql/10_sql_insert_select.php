@@ -257,4 +257,4 @@ sleep(1); // sinon le timestamp ne change pas !
 			
 	echo "OK";
 
-?>
+

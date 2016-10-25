@@ -63,6 +63,3 @@ class Test_balise_config extends SpipTest{
 	}	
 	
 }
-
-
-?>

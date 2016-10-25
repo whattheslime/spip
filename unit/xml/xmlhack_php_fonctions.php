@@ -1,3 +1,3 @@
 <?php
-	include_spip('inc/xml');	
-?>
+include_spip('inc/xml');
+

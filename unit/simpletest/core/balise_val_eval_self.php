@@ -33,4 +33,4 @@ class Test_balise_self extends SpipTest{
 	}
 }
 * */
-?>
+

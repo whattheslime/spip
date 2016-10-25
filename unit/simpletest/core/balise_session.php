@@ -62,4 +62,4 @@ class Test_balise_session_set extends SpipTest{
 		}
 	}
 }
-?>
+

@@ -999,8 +999,3 @@
 		return $essais;
 	}
 
-
-
-
-
-?>

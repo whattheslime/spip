@@ -32,5 +32,3 @@ class Test_boucle_generique extends SpipTest{
 	}	
 	
 }
-
-?>
