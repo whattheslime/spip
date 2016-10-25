@@ -23,8 +23,13 @@
 		}
 	} else {
 		// toto a été ajouté au tout début (dossier squelettes étant vide)
-		if ('toto/'!==$chemin1[0]) {
-			die('Erreur ajout chemin par la fonction _chemin() : sans dossier_squelettes'.var_dump($chemin).var_dump($chemin1));
+		// ou juste après un répertoire 'squelettes' existant
+		if (@is_dir(_DIR_RACINE . 'squelettes')) {
+			if ('toto/' !== $chemin1[1]) {
+				die('Erreur ajout chemin par la fonction _chemin() : sans dossier_squelettes avec répertoire squelettes'.var_dump($chemin).var_dump($chemin1));
+			}
+		} elseif ('toto/'!==$chemin1[0]) {
+			die('Erreur ajout chemin par la fonction _chemin() : sans dossier_squelettes sans répertoire squelettes'.var_dump($chemin).var_dump($chemin1));
 		}
 	}
 
