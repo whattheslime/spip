@@ -43,4 +43,3 @@ function balise_FORMULAIRE_TEST_PHRASEUR_dyn($id_rubrique,$url) {
 		)
 	);
 }
-?>

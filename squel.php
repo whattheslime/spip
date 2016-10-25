@@ -41,4 +41,4 @@
 		echo erreur_squelette(false);
 	}
 
-?>
+

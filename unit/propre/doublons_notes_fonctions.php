@@ -14,4 +14,4 @@ function creer_article_a_doublons_notes() {
 		die ('NA il faut un document');
 }
 
-?>
+

@@ -101,6 +101,3 @@ paragraphes',
 );
 		return $essais;
 	}
-
-
-?>

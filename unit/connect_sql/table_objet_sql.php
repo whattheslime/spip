@@ -181,5 +181,3 @@ array('spip_types_documents','type_document'),
 );
 		return $essais;
 	}
-
-?>

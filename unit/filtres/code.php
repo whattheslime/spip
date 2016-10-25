@@ -30,4 +30,4 @@ spip_articles.sql.gz &nbsp; &nbsp;spip_breves.sql.gz ....</code></div>'
 	? 'OK'
 	: var_export($a,1);
 	
-?>
+

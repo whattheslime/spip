@@ -182,6 +182,3 @@ array('extension','type_document'),
 		return $essais;
 	}
 
-
-
-?>

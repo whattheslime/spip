@@ -29,4 +29,4 @@
 	echo "<li>test du verrou sur 'monfichier':$verrou_absent2</li>";
 	echo "</ul></li></ul>";
 
-?>
+

@@ -192,6 +192,3 @@ array('types_document','types_documents'),
 		return $essais;
 	}
 
-
-
-?>

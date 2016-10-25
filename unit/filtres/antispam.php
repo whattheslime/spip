@@ -32,8 +32,3 @@
 );
 		return $essais;
 	}
-
-
-
-
-?>

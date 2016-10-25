@@ -11,4 +11,4 @@
 		$GLOBALS['tableau_des_erreurs'] = array();
 		return 'OK';
 	}
-?>
+

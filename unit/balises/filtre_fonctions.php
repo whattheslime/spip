@@ -16,4 +16,3 @@ function strip_on($texte){
 	return $texte;
 }
 
-?>

@@ -144,5 +144,3 @@ function version_spip() {
 
 	return $version;
 }
-
-?>

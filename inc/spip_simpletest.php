@@ -818,5 +818,3 @@ if (_request('mode') == 'test_general') {
 } else {
 	SimpleTest::prefer(new SpipHtmlReporter());
 }
-
-?>

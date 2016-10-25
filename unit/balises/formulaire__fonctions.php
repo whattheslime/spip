@@ -12,5 +12,3 @@ function formulaire_inscription_present($page){
 	else
 		return 'OK';
 }
-
-?>

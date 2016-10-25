@@ -20,4 +20,4 @@ $GLOBALS['toto'] = array(
 );
 
 }
-?>
+

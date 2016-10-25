@@ -180,7 +180,3 @@ array('types_documents','type_document'),
 );
 		return $essais;
 	}
-
-
-
-?>
