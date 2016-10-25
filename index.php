@@ -17,6 +17,10 @@
 		set_request('fond', null);
 		set_request('test', null);
 		set_request('simpletest', null);
+		// pas de cron !
+		if (!defined('_DEBUG_BLOCK_QUEUE')) {
+			define('_DEBUG_BLOCK_QUEUE', true);
+		}
 		include _DIR_RESTREINT_ABS.'public.php';
 		die();
 	}
