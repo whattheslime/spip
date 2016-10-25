@@ -4,7 +4,7 @@ require_once('lanceur_spip.php');
 class Test_balise_config extends SpipTest{
 
 	// initialisation
-	function Test_balise_config() {
+	function __construct() {
 		parent::__construct();
 		$this->options_recuperer_code(array(
 			'fonctions'=>"
