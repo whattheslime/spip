@@ -1,16 +1,8 @@
 <?php
-/**
- * @package        SimpleTest
- * @subpackage     Extensions
- */
-/**
- * @package        SimpleTest
- * @subpackage     Extensions
- */
-interface CoverageWriter {
 
-    function writeSummary($out, $variables);
+interface CoverageWriter
+{
+    public function writeSummary($out, $variables);
 
-    function writeByFile($out, $variables);
+    public function writeByFile($out, $variables);
 }
-?>

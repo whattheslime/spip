@@ -1,15 +1,76 @@
-SimpleTest
+SimpleTest [![Build Status](https://travis-ci.org/simpletest/simpletest.svg)](https://travis-ci.org/simpletest/simpletest) [![Latest Stable Version](https://img.shields.io/packagist/v/simpletest/simpletest.svg?style=flat-square)](https://packagist.org/packages/simpletest/simpletest) [![Total Downloads](https://img.shields.io/packagist/dt/simpletest/simpletest.svg?style=flat-square)](https://packagist.org/packages/simpletest/simpletest) [![Latest Unstable Version](https://poser.pugx.org/simpletest/simpletest/v/unstable)](https://packagist.org/packages/simpletest/simpletest) 
 ==========
+
+SimpleTest is a framework for unit testing, web site testing and
+mock objects for PHP.
+
+### Installation
+
+#### Downloads
+
+All downloads are stored on Github Releases.
+
+You may find the zip of the "latest released/tagged version" here:
+
+https://github.com/simpletest/simpletest/releases/latest
+
+You may find the zip archive of the "dev-master" branch here:
+
+https://github.com/simpletest/simpletest/archive/master.zip
+
+#### Composer
+
+You may also install the extension through Composer into the `/vendor` folder of your project.
+
+Either run
+
+    php composer.phar require --dev --prefer-dist simpletest/simpletest "^1.1"
+
+or add the package `simpletest/simpletest` to the require-dev section of your `composer.json` file:
+
+    {
+        "require-dev": {
+            "simpletest/simpletest": "^1.1"
+        }
+    }
+
+followed by running `composer install`.
+
+### Issues
+
+Please report all issues you encounter at [Github Issues](https://github.com/simpletest/simpletest/issues).
+
+### Community
+
+Feel free to [ask a new question on Stack Overflow](https://stackoverflow.com/questions/ask?tags=simpletest+php) or at [Github Issues](https://github.com/simpletest/simpletest/issues).
+
+StackOverflow offers also a good collection of [SimpleTest related questions](https://stackoverflow.com/questions/tagged/simpletest).
+
+### Requirements
+
+PHP 5.4+
+
+### Authors
+
+- Marcus Baker
+- Jason Sweat
+- Travis Swicegood
+- Perrick Penet
+- Edward Z. Yang
+- Jens A. Koch
+- [Contributors on Github](https://github.com/simpletest/simpletest/graphs/contributors)
+
+### License
+
+GNU LGPL v2.1 
+
+-----
 
 You probably got this package from:
 
     http://simpletest.org/en/download.html
 
-If there is no licence agreement with this package please download
-a version from the location above. You must read and accept that
-licence to use this software. The file is titled simply LICENSE.
-
-What is it? It's a framework for unit testing, web site testing and
+SimpleTest is a framework for unit testing, web site testing and
 mock objects for PHP 5.0.5+.
 
 If you have used JUnit, you will find this PHP unit testing version very
@@ -28,12 +89,12 @@ which is also copied to the documentation folder with this release.
 A full PHPDocumenter API documentation exists at
 http://simpletest.org/api/.
 
-The user interface is minimal in the extreme, but a lot of information 
-flows from the test suite. After version 1.0 we will release a better 
-web UI, but we are leaving XUL and GTK versions to volunteers as 
-everybody has their own opinion on a good GUI, and we don't want to 
-discourage development by shipping one with the toolkit. You can 
-download an Eclipse plug-in separately. 
+The user interface is minimal in the extreme, but a lot of information
+flows from the test suite. After version 1.0 we will release a better
+web UI, but we are leaving XUL and GTK versions to volunteers as
+everybody has their own opinion on a good GUI, and we don't want to
+discourage development by shipping one with the toolkit. You can
+download an Eclipse plug-in separately.
 
 The unit tests for SimpleTest itself can be run here:
 
@@ -89,10 +150,10 @@ status of any bugs, but if the bug is recent then it will be fixed in SVN only.
 The SVN check-ins always have all the tests passing and so SVN snapshots should
 be pretty usable, although the code may not look so good internally.
 
-Oh, and one last thing: SimpleTest is called "Simple" because it should 
-be simple to use. We intend to add a complete set of tools for a test 
-first and "test as you code" type of development. "Simple" does not mean 
-"Lite" in this context. 
+Oh, and one last thing: SimpleTest is called "Simple" because it should
+be simple to use. We intend to add a complete set of tools for a test
+first and "test as you code" type of development. "Simple" does not mean
+"Lite" in this context.
 
 Thanks to everyone who has sent comments and offered suggestions. They
 really are invaluable, but sadly you are too many to mention in full.
