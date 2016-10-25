@@ -428,12 +428,12 @@ class SpipTestException extends Exception {
  * et ajouter des fonctions specifiques a SPIP
  */
 class SpipTestSuite extends TestSuite {
-	function SpipTestSuite($name = false){
+	function __construct($name = false){
 		chdir(_CHDIR);
 		if (!$name) {
 			$name = get_class($this);
 		}
-		$this->TestSuite($name);
+		parent::__construct($name);
 	}
 	
 	/**
@@ -749,7 +749,7 @@ class SqueletteTest{
 	 * Constructeur
 	 * @param string $title		Donne un titre a la page
 	 */
-	function SqueletteTest($title = ""){
+	function __construct($title = ""){
 		$this->setTitle($title ? $title : "Squelette de test");
 	}
 	
