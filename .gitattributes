@@ -113,6 +113,7 @@ ecrire/inc/filtres_selecteur_generique.php -text
 ecrire/inc/headers.php -text
 ecrire/inc/icone_renommer.php -text
 ecrire/inc/iconifier.php -text
+ecrire/inc/idna_convert.class.php -text
 ecrire/inc/importer_csv.php -text
 ecrire/inc/index.php -text
 ecrire/inc/informer.php -text
