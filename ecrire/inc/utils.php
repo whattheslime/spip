@@ -80,7 +80,7 @@ function charger_fonction($nom, $dossier='exec', $continue=false) {
  */
 function include_once_check($file){
 	if (file_exists($file)) {include_once $file;return true;}
-	$crash = (isset($GLOBALS['message_crash_plugins'])?unserialize($GLOBALS['message_crash_plugins']):'');
+	$crash = (isset($GLOBALS['meta']['message_crash_plugins'])?unserialize($GLOBALS['meta']['message_crash_plugins']):'');
 	$crash = ($crash?$crash:array());
 	$crash[$file] = true;
 	ecrire_meta('message_crash_plugins',serialize($crash));
