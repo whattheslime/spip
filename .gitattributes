@@ -114,6 +114,7 @@ ecrire/inc/filtres_mini.php -text
 ecrire/inc/headers.php -text
 ecrire/inc/icone_renommer.php -text
 ecrire/inc/iconifier.php -text
+ecrire/inc/idna_convert.class.php -text
 ecrire/inc/index.php -text
 ecrire/inc/informer.php -text
 ecrire/inc/install.php -text
