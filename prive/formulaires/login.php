@@ -231,7 +231,12 @@ function formulaires_login_verifier_dist($cible = "", $login = "", $prive = null
 	if ($session_remember !== null) {
 		$auteur['cookie'] = $session_remember;
 	}
-	auth_loger($auteur);
+	// si la connexion est refusee on renvoi un message erreur de mot de passe
+	// car en donnant plus de detail on renseignerait un assaillant sur l'existence d'un compte
+	if (auth_loger($auteur) === false) {
+		$erreurs['message_erreur'] = _T('login_erreur_pass');
+		return $erreurs;
+	}
 
 	return (is_null($prive) ? is_url_prive($cible) : $prive)
 		? login_autoriser() : array();
