@@ -5,8 +5,8 @@ if (!defined('_ECRIRE_INC_VERSION')) {
 }
 
 function trier_rss($texte) {
-	if (preg_match_all(",<item.*</item>\s*?,Uims", $texte, $matches, PREG_SET_ORDER)) {
-		$placeholder = "<!--REINSERT-->";
+	if (preg_match_all(',<item.*</item>\s*?,Uims', $texte, $matches, PREG_SET_ORDER)) {
+		$placeholder = '<!--REINSERT-->';
 		$items = array();
 		foreach ($matches as $match) {
 			if (preg_match(',<dc:date>(.*)</dc:date>,Uims', $match[0], $r)) {
