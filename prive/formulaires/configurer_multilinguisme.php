@@ -15,6 +15,7 @@ if (!defined('_ECRIRE_INC_VERSION')) {
 }
 
 function formulaires_configurer_multilinguisme_charger_dist() {
+	$valeurs = array();
 	$valeurs['multi_secteurs'] = $GLOBALS['meta']['multi_secteurs'];
 	foreach (array('multi_objets', 'gerer_trad_objets') as $m) {
 		$valeurs[$m] = explode(',', isset($GLOBALS['meta'][$m]) ? $GLOBALS['meta'][$m] : '');
@@ -23,9 +24,8 @@ function formulaires_configurer_multilinguisme_charger_dist() {
 	if (count($valeurs['multi_objets'])
 		or count(explode(',', $GLOBALS['meta']['langues_utilisees'])) > 1
 	) {
-
-		$selection = (is_null(_request('multi_objets')) ? explode(',',
-			$GLOBALS['meta']['langues_multilingue']) : _request('langues_auth'));
+		$selection = (is_null(_request('multi_objets')) ?
+			explode(',', $GLOBALS['meta']['langues_multilingue']) : _request('langues_auth'));
 		$valeurs['_langues'] = saisie_langues_utiles('langues_auth', $selection ? $selection : array());
 		$valeurs['_nb_langues_selection'] = count($selection);
 	}
@@ -52,7 +52,7 @@ function formulaires_configurer_multilinguisme_traiter_dist() {
 
 	if ($i = _request('langues_auth') and is_array($i)) {
 		$i = array_unique(array_merge($i, explode(',', $GLOBALS['meta']['langues_utilisees'])));
-		ecrire_meta('langues_multilingue', implode(",", $i));
+		ecrire_meta('langues_multilingue', implode(',', $i));
 	}
 	$res['message_ok'] = _T('config_info_enregistree');
 
@@ -101,19 +101,19 @@ function saisie_langues_utiles($name, $selection) {
 
 	$langues_bloquees = explode(',', $GLOBALS['meta']['langues_utilisees']);
 
-	$res = "";
+	$res = '';
 
 	$i = 0;
 	foreach ($langues_bloquees as $code_langue) {
 		$nom_langue = $langues[$code_langue];
 		$res .= "<li class='choix "
 			. alterner(++$i, 'odd', 'even')
-			. (isset($langues_trad[$code_langue]) ? " traduite" : "")
+			. (isset($langues_trad[$code_langue]) ? ' traduite' : '')
 			. "'>"
 			. "<input type='hidden' name='{$name}[]' value='$code_langue'>" // necessaire ...
 			. "<input type='checkbox' name='{$name}[]' id='{$name}_$code_langue' value='$code_langue' checked='checked' disabled='disabled' />"
 			. "<label for='{$name}_$code_langue'>" . $nom_langue . "&nbsp;&nbsp; <span class='code_langue'>[$code_langue]</span></label>"
-			. "</li>";
+			. '</li>';
 	}
 
 	if ($res) {
@@ -129,16 +129,16 @@ function saisie_langues_utiles($name, $selection) {
 			$checked = (in_array($code_langue, $selection) ? ' checked="checked"' : '');
 			$res .= "<li class='choix "
 				. alterner(++$i, 'odd', 'even')
-				. (isset($langues_trad[$code_langue]) ? " traduite" : "")
+				. (isset($langues_trad[$code_langue]) ? ' traduite' : '')
 				. "'>"
 				. "<input type='checkbox' name='{$name}[]' id='{$name}_$code_langue' value='$code_langue'"
 				. $checked
-				. "/>"
+				. '/>'
 				. "<label for='{$name}_$code_langue'"
-				. ($checked ? " class='on'" : "")
-				. ">"
+				. ($checked ? " class='on'" : '')
+				. '>'
 				. $nom_langue . "&nbsp;&nbsp; <span class='code_langue'>[$code_langue]</span></label>"
-				. "</li>";
+				. '</li>';
 		}
 	}
 

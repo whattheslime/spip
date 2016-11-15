@@ -56,8 +56,10 @@ function formulaires_configurer_metas_traiter_dist($form) {
 }
 
 // version amelioree de la RegExp de cfg_formulaire.
-define('_EXTRAIRE_SAISIES',
-'#<(select|textarea|input)[^>]*\sname=["\'](\w+)(\[\w*\])?["\'](?: class=["\']([^\'"]*)["\'])?( multiple=)?[^>]*?>#ims');
+define(
+	'_EXTRAIRE_SAISIES',
+	'#<(select|textarea|input)[^>]*\sname=["\'](\w+)(\[\w*\])?["\'](?: class=["\']([^\'"]*)["\'])?( multiple=)?[^>]*?>#ims'
+);
 
 // determiner la liste des noms des saisies d'un formulaire
 // (a refaire avec SAX)

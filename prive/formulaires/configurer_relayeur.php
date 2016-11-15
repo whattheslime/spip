@@ -46,9 +46,9 @@ function formulaires_configurer_relayeur_verifier_dist() {
 				$erreurs['test_proxy'] = _T('info_adresse_non_indiquee');
 			} else {
 				include_spip('inc/texte'); // pour aide, couper, lang
-				$info = "";
+				$info = '';
 				if (!need_proxy($t['host'], $http_proxy, $http_noproxy)) {
-					$info = "<strong>" . _T('page_pas_proxy') . "</strong><br />";
+					$info = '<strong>' . _T('page_pas_proxy') . '</strong><br />';
 				}
 
 				// il faut fausser le proxy actuel pour faire le test !
@@ -60,17 +60,17 @@ function formulaires_configurer_relayeur_verifier_dist() {
 				$GLOBALS['meta']['http_proxy'] = $cur_http_proxy;
 				$GLOBALS['meta']['http_noproxy'] = $cur_http_noproxy;
 				if ($page) {
-					$erreurs['message_ok'] = _T('info_proxy_ok') . "<br />$info\n<tt>" . couper(entites_html($page),
-							300) . "</tt>";
+					$erreurs['message_ok'] = _T('info_proxy_ok') . "<br />$info\n<tt>" . couper(entites_html($page), 300) . '</tt>';
 					$erreurs['message_erreur'] = '';
 				} else {
-					$erreurs['message_erreur'] = $info . _T('info_impossible_lire_page',
-							array('test_proxy' => "<tt>$test_proxy</tt>"))
-						. " <b><tt>" . no_password_proxy_url($http_proxy) . "</tt></b>."
+					$erreurs['message_erreur'] = $info . _T(
+						'info_impossible_lire_page',
+						array('test_proxy' => "<tt>$test_proxy</tt>")
+					)
+						. ' <b><tt>' . no_password_proxy_url($http_proxy) . '</tt></b>.'
 						. aider('confhttpproxy');
 				}
 			}
-
 		}
 	}
 

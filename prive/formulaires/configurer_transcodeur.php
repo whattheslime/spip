@@ -16,7 +16,7 @@ if (!defined('_ECRIRE_INC_VERSION')) {
 
 function formulaires_configurer_transcodeur_charger_dist() {
 	$valeurs = array(
-		'charset' => $GLOBALS['meta']["charset"],
+		'charset' => $GLOBALS['meta']['charset'],
 	);
 
 	return $valeurs;

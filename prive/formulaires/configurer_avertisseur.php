@@ -16,9 +16,10 @@ if (!defined('_ECRIRE_INC_VERSION')) {
 include_spip('inc/presentation');
 
 function formulaires_configurer_avertisseur_charger_dist() {
+	$valeurs = array();
 	foreach (array(
-		         "articles_modif",
-	         ) as $m) {
+		'articles_modif',
+	) as $m) {
 		$valeurs[$m] = $GLOBALS['meta'][$m];
 	}
 
@@ -29,8 +30,8 @@ function formulaires_configurer_avertisseur_charger_dist() {
 function formulaires_configurer_avertisseur_traiter_dist() {
 	$res = array('editable' => true);
 	foreach (array(
-		         "articles_modif",
-	         ) as $m) {
+		'articles_modif',
+	) as $m) {
 		if (!is_null($v = _request($m))) {
 			ecrire_meta($m, $v == 'oui' ? 'oui' : 'non');
 		}

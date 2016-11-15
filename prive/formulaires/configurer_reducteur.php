@@ -28,12 +28,13 @@ if (!defined('_ECRIRE_INC_VERSION')) {
  *     Environnement du formulaire
  **/
 function formulaires_configurer_reducteur_charger_dist() {
+	$valeurs = array();
 	foreach (array(
-		         "image_process",
-		         "formats_graphiques",
-		         "creer_preview",
-		         "taille_preview",
-	         ) as $m) {
+		'image_process',
+		'formats_graphiques',
+		'creer_preview',
+		'taille_preview',
+	) as $m) {
 		$valeurs[$m] = isset($GLOBALS['meta'][$m]) ? $GLOBALS['meta'][$m] : null;
 	}
 
@@ -85,14 +86,14 @@ function formulaires_configurer_reducteur_traiter_dist() {
 	}
 
 	foreach (array(
-		         "creer_preview",
-	         ) as $m) {
+		'creer_preview'
+	) as $m) {
 		if (!is_null($v = _request($m))) {
 			ecrire_meta($m, $v == 'oui' ? 'oui' : 'non');
 		}
 	}
 	if (!is_null($v = _request('taille_preview'))) {
-		ecrire_meta("taille_preview", intval($v));
+		ecrire_meta('taille_preview', intval($v));
 	}
 
 	$res['message_ok'] = _T('config_info_enregistree');
@@ -112,9 +113,10 @@ function formulaires_configurer_reducteur_traiter_dist() {
 function url_vignette_choix($process) {
 	switch ($process) {
 		case 'gd2':
-			if (!function_exists("ImageCreateTrueColor")) {
+			if (!function_exists('ImageCreateTrueColor')) {
 				return '';
 			}
+			break;
 		case 'gd1':
 			if (!function_exists('ImageGif')
 				and !function_exists('ImageJpeg')
@@ -140,5 +142,5 @@ function url_vignette_choix($process) {
 			break;
 	}
 
-	return generer_url_action("tester", "arg=$process&time=" . time());
+	return generer_url_action('tester', "arg=$process&time=" . time());
 }
