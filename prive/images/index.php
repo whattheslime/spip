@@ -11,12 +11,11 @@
 		<?php
 		$myDir = opendir('.');
 		while ($file = readdir($myDir)) {
-			if (preg_match(",\.(png|gif)$,i", $file)) {
+			if (preg_match(',\.(png|gif)$,i', $file)) {
 				echo "		<tr><td>$file</td><td><img src='$file' alt='$file' /></td></tr>\n";
 			}
 		}
 		?>
-
 	</table>
 </center>
 </body>
