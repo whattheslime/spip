@@ -34,7 +34,7 @@ function deplacement_restreint($objet, $statut) {
 		case 'breve':
 			return ($statut == 'publie');
 			break;
-		default :
+		default:
 			return ($statut ? $statut == 'publie' : false);
 			break;
 	}
