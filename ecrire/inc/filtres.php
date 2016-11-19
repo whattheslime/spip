@@ -2214,21 +2214,31 @@ function url_absolue_css ($css) {
  * @param mixed $defaut
  * 		Valeur par defaut retournee si la cle demandee n'existe pas
  * 
+ * @param bool  $conserver_null
+ *     Permet de forcer la fonction à renvoyer la valeur null d'un index
+ *     et non pas $defaut comme cela est fait naturellement par la fonction
+ *     isset. On utilise alors array_key_exists() à la place de isset().
+ *
  * @return mixed Valeur trouvee ou valeur par defaut.
 **/
-function table_valeur($table, $cle, $defaut='') {
+function table_valeur($table, $cle, $defaut = '', $conserver_null = false) {
 	foreach (explode('/', $cle) as $k) {
 
 		$table = is_string($table) ? @unserialize($table) : $table;
 
 		if (is_object($table)) {
-			$table =  (($k !== "") and isset($table->$k)) ? $table->$k : $defaut;
+			$table = (($k !== "") and isset($table->$k)) ? $table->$k : $defaut;
 		} elseif (is_array($table)) {
-			$table = isset($table[$k]) ? $table[$k] : $defaut;
+			if ($conserver_null) {
+				$table = array_key_exists($k, $table) ? $table[$k] : $defaut;
+			} else {
+				$table = isset($table[$k]) ? $table[$k] : $defaut;
+			}
 		} else {
 			$table = $defaut;
 		}
 	}
+
 	return $table;
 }
 
