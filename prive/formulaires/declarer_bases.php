@@ -22,8 +22,8 @@ function formulaires_declarer_bases_charger_dist() {
 	$deja = bases_referencees(_FILE_CONNECT);
 	// proposer un nom de connect si pas encore saisi
 	$nom_connect = '';
-	if (defined('_DECLARER_choix_db')) {
-		$nom_connect = _DECLARER_choix_db;
+	if (defined('_DECLARER_CHOIX_DB')) {
+		$nom_connect = _DECLARER_CHOIX_DB;
 		$n = '';
 		while (in_array($nom_connect . $n, $deja)) {
 			$n = ($n ? $n + 1 : 1);
@@ -34,9 +34,9 @@ function formulaires_declarer_bases_charger_dist() {
 	$valeurs = array(
 		'_etapes' => 3,
 		'_bases_deja' => $deja,
-		'_bases_prop' => defined('_DECLARER_serveur_db') ? liste_bases(_DECLARER_serveur_db) : '',
-		'_tables' => (defined('_DECLARER_serveur_db') and defined('_DECLARER_choix_db')) ?
-			$tables = sql_alltable('%', _DECLARER_serveur_db)
+		'_bases_prop' => defined('_DECLARER_SERVEUR_DB') ? liste_bases(_DECLARER_SERVEUR_DB) : '',
+		'_tables' => (defined('_DECLARER_SERVEUR_DB') and defined('_DECLARER_CHOIX_DB')) ?
+			$tables = sql_alltable('%', _DECLARER_SERVEUR_DB)
 			:
 			array(),
 		'main_db' => '',
@@ -104,7 +104,6 @@ function formulaires_declarer_bases_verifier_1_dist() {
 	$erreurs = array();
 	list($def_adresse_db, $def_login_db, $def_pass_db, $sel_db, $def_serveur_db) = analyse_fichier_connection(_FILE_CONNECT);
 
-
 	if (!$adresse_db = _request('adresse_db')) {
 		if (defined('_INSTALL_HOST_DB')) {
 			$adresse_db = _INSTALL_HOST_DB;
@@ -142,10 +141,10 @@ function formulaires_declarer_bases_verifier_1_dist() {
 	if ($link) {
 		$GLOBALS['connexions'][$serveur_db][$GLOBALS['spip_sql_version']] = $GLOBALS['spip_' . $serveur_db . '_functions_' . $GLOBALS['spip_sql_version']];
 		$GLOBALS['connexions'][$serveur_db] = $link;
-		define('_DECLARER_serveur_db', $serveur_db);
-		define('_DECLARER_adresse_db', $adresse_db);
-		define('_DECLARER_login_db', $login_db);
-		define('_DECLARER_pass_db', $pass_db);
+		define('_DECLARER_SERVEUR_DB', $serveur_db);
+		define('_DECLARER_ADRESSE_DB', $adresse_db);
+		define('_DECLARER_LOGIN_DB', $login_db);
+		define('_DECLARER_PASS_DB', $pass_db);
 		// si on est sur le meme serveur que connect.php
 		// indiquer quelle est la db utilisee pour l'exclure des choix possibles
 		if ($serveur_db == $def_serveur_db and $adresse_db == $def_adresse_db) {
@@ -170,10 +169,10 @@ function formulaires_declarer_bases_verifier_2_dist() {
 		$erreurs['choix_db'] = _T('info_obligatoire');
 	} else {
 		define('_ECRIRE_INSTALL', 1); // hackons sqlite
-		if (!sql_selectdb($choix_db, _DECLARER_serveur_db)) {
+		if (!sql_selectdb($choix_db, _DECLARER_SERVEUR_DB)) {
 			$erreurs['choix_db'] = _T('avis_base_inaccessible', array('base' => $choix_db));
 		} else {
-			define('_DECLARER_choix_db', $choix_db);
+			define('_DECLARER_CHOIX_DB', $choix_db);
 		}
 	}
 
@@ -193,7 +192,7 @@ function formulaires_declarer_bases_verifier_3_dist() {
 		} elseif (file_exists(_DIR_CONNECT . $nom_connect . '.php')) {
 			$erreurs['nom_connect'] = _T('erreur_connect_deja_existant');
 		} else {
-			define('_DECLARER_nom_connect', $nom_connect);
+			define('_DECLARER_NOM_CONNECT', $nom_connect);
 		}
 	}
 
@@ -202,31 +201,31 @@ function formulaires_declarer_bases_verifier_3_dist() {
 
 function formulaires_declarer_bases_traiter_dist() {
 
-	$adresse_db = _DECLARER_adresse_db;
+	$adresse_db = _DECLARER_ADRESSE_DB;
 	if (preg_match(',(.*):(.*),', $adresse_db, $r)) {
 		list(, $adresse_db, $port) = $r;
 	} else {
 		$port = '';
 	}
 
-	$server_db = addcslashes(_DECLARER_serveur_db, "'\\");
+	$server_db = addcslashes(_DECLARER_SERVEUR_DB, "'\\");
 
 	$conn = install_mode_appel($server_db)
 		. install_connexion(
 			$adresse_db,
 			$port,
-			_DECLARER_login_db,
-			_DECLARER_pass_db,
-			_DECLARER_choix_db,
-			_DECLARER_serveur_db,
+			_DECLARER_LOGIN_DB,
+			_DECLARER_PASS_DB,
+			_DECLARER_CHOIX_DB,
+			_DECLARER_SERVEUR_DB,
 			'',
 			'',
 			''
 		);
 
-	install_fichier_connexion(_DIR_CONNECT . _DECLARER_nom_connect . '.php', $conn);
+	install_fichier_connexion(_DIR_CONNECT . _DECLARER_NOM_CONNECT . '.php', $conn);
 
 	return array(
-		'message_ok' => _T('install_connect_ok', array('connect' => '<strong>' . _DECLARER_nom_connect . '</strong>'))
+		'message_ok' => _T('install_connect_ok', array('connect' => '<strong>' . _DECLARER_NOM_CONNECT . '</strong>'))
 	);
 }
