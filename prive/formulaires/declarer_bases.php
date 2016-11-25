@@ -21,10 +21,10 @@ function formulaires_declarer_bases_charger_dist() {
 
 	$deja = bases_referencees(_FILE_CONNECT);
 	// proposer un nom de connect si pas encore saisi
-	$nom_connect = "";
+	$nom_connect = '';
 	if (defined('_DECLARER_choix_db')) {
 		$nom_connect = _DECLARER_choix_db;
-		$n = "";
+		$n = '';
 		while (in_array($nom_connect . $n, $deja)) {
 			$n = ($n ? $n + 1 : 1);
 		}
@@ -120,7 +120,7 @@ function formulaires_declarer_bases_verifier_1_dist() {
 		}
 	}
 
-	$login_db = $pass_db = "";
+	$login_db = $pass_db = '';
 	if (!preg_match(',^sqlite,i', $serveur_db)) {
 		if (!$login_db = _request('login_db')) {
 			if (defined('_INSTALL_USER_DB')) {
@@ -221,11 +221,12 @@ function formulaires_declarer_bases_traiter_dist() {
 			_DECLARER_serveur_db,
 			'',
 			'',
-			'');
+			''
+		);
 
 	install_fichier_connexion(_DIR_CONNECT . _DECLARER_nom_connect . '.php', $conn);
 
 	return array(
-		'message_ok' => _T('install_connect_ok', array('connect' => "<strong>" . _DECLARER_nom_connect . "</strong>"))
+		'message_ok' => _T('install_connect_ok', array('connect' => '<strong>' . _DECLARER_nom_connect . '</strong>'))
 	);
 }

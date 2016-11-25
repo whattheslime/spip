@@ -104,26 +104,27 @@ function formulaires_editer_liens_charger_dist($a, $b, $c, $options = array()) {
 
 	// L'éditabilité :) est définie par un test permanent (par exemple "associermots") ET le 4ème argument
 	include_spip('inc/autoriser');
-	$editable = ($editable and autoriser('associer' . $table_source, $objet, $id_objet) and autoriser('modifier', $objet,
-			$id_objet));
+	$editable = ($editable and autoriser('associer' . $table_source, $objet, $id_objet)
+		and autoriser('modifier', $objet, $id_objet));
 
-	if (!$editable and !count(objet_trouver_liens(array($objet_lien => '*'),
-			array(($objet_lien == $objet_source ? $objet : $objet_source) => $id_objet)))
-	) {
+	if (!$editable and !count(objet_trouver_liens(
+		array($objet_lien => '*'),
+		array(($objet_lien == $objet_source ? $objet : $objet_source) => $id_objet)
+	))) {
 		return false;
 	}
 
 	// squelettes de vue et de d'association
 	// ils sont différents si des rôles sont définis.
-	$skel_vue = $table_source . "_lies";
-	$skel_ajout = $table_source . "_associer";
+	$skel_vue = $table_source . '_lies';
+	$skel_ajout = $table_source . '_associer';
 
 	// description des roles
 	include_spip('inc/roles');
 	if ($roles = roles_presents($objet_source, $objet)) {
 		// on demande de nouveaux squelettes en conséquence
-		$skel_vue = $table_source . "_roles_lies";
-		$skel_ajout = $table_source . "_roles_associer";
+		$skel_vue = $table_source . '_roles_lies';
+		$skel_ajout = $table_source . '_roles_associer';
 	}
 
 	$valeurs = array(
@@ -213,7 +214,7 @@ function formulaires_editer_liens_traiter_dist($a, $b, $c, $options = array()) {
 			and $oups = _request('_oups')
 			and $oups = unserialize($oups)
 		) {
-			if ($oups_objets = charger_fonction("editer_liens_oups_{$table_source}_{$objet}_{$objet_lien}", "action", true)) {
+			if ($oups_objets = charger_fonction("editer_liens_oups_{$table_source}_{$objet}_{$objet_lien}", 'action', true)) {
 				$oups_objets($oups);
 			} else {
 				$objet_source = objet_type($table_source);
@@ -249,9 +250,11 @@ function formulaires_editer_liens_traiter_dist($a, $b, $c, $options = array()) {
 		}
 
 		if ($supprimer) {
-			if ($supprimer_objets = charger_fonction("editer_liens_supprimer_{$table_source}_{$objet}_{$objet_lien}",
-				"action", true)
-			) {
+			if ($supprimer_objets = charger_fonction(
+				"editer_liens_supprimer_{$table_source}_{$objet}_{$objet_lien}",
+				'action',
+				true
+			)) {
 				$oups = $supprimer_objets($supprimer);
 			} else {
 				include_spip('action/editer_liens');
@@ -259,17 +262,21 @@ function formulaires_editer_liens_traiter_dist($a, $b, $c, $options = array()) {
 
 				foreach ($supprimer as $k => $v) {
 					if ($lien = lien_verifier_action($k, $v)) {
-						$lien = explode("-", $lien);
+						$lien = explode('-', $lien);
 						list($objet_source, $ids, $objet_lie, $idl, $role) = $lien;
 						// appliquer une condition sur le rôle si défini ('*' pour tous les roles)
 						$cond = (!is_null($role) ? array('role' => $role) : array());
 						if ($objet_lien == $objet_source) {
-							$oups = array_merge($oups,
-								objet_trouver_liens(array($objet_source => $ids), array($objet_lie => $idl), $cond));
+							$oups = array_merge(
+								$oups,
+								objet_trouver_liens(array($objet_source => $ids), array($objet_lie => $idl), $cond)
+							);
 							objet_dissocier(array($objet_source => $ids), array($objet_lie => $idl), $cond);
 						} else {
-							$oups = array_merge($oups,
-								objet_trouver_liens(array($objet_lie => $idl), array($objet_source => $ids), $cond));
+							$oups = array_merge(
+								$oups,
+								objet_trouver_liens(array($objet_lie => $idl), array($objet_source => $ids), $cond)
+							);
 							objet_dissocier(array($objet_lie => $idl), array($objet_source => $ids), $cond);
 						}
 					}
@@ -279,8 +286,7 @@ function formulaires_editer_liens_traiter_dist($a, $b, $c, $options = array()) {
 		}
 
 		if ($ajouter) {
-			if ($ajouter_objets = charger_fonction("editer_liens_ajouter_{$table_source}_{$objet}_{$objet_lien}", "action",
-				true)
+			if ($ajouter_objets = charger_fonction("editer_liens_ajouter_{$table_source}_{$objet}_{$objet_lien}", 'action', true)
 			) {
 				$ajout_ok = $ajouter_objets($ajouter);
 			} else {
@@ -289,7 +295,7 @@ function formulaires_editer_liens_traiter_dist($a, $b, $c, $options = array()) {
 				foreach ($ajouter as $k => $v) {
 					if ($lien = lien_verifier_action($k, $v)) {
 						$ajout_ok = true;
-						list($objet1, $ids, $objet2, $idl) = explode("-", $lien);
+						list($objet1, $ids, $objet2, $idl) = explode('-', $lien);
 						$qualifs = lien_retrouver_qualif($objet_lien, $lien);
 						if ($objet_lien == $objet1) {
 							lien_ajouter_liaisons($objet1, $ids, $objet2, $idl, $qualifs);
@@ -334,10 +340,10 @@ function formulaires_editer_liens_traiter_dist($a, $b, $c, $options = array()) {
  */
 function lien_verifier_action($k, $v) {
 	$action = '';
-	if (preg_match(",^\w+-[\w*]+-[\w*]+-[\w*]+(-[\w*])?,", $k)) {
+	if (preg_match(',^\w+-[\w*]+-[\w*]+-[\w*]+(-[\w*])?,', $k)) {
 		$action = $k;
 	}
-	if (preg_match(",^\w+-[\w*]+-[\w*]+-[\w*]+(-[\w*])?,", $v)) {
+	if (preg_match(',^\w+-[\w*]+-[\w*]+-[\w*]+(-[\w*])?,', $v)) {
 		if (is_numeric($k)) {
 			$action = $v;
 		}
@@ -346,7 +352,7 @@ function lien_verifier_action($k, $v) {
 		}
 	}
 	// ajout un role null fictif (plus pratique) si pas défini
-	if ($action and count(explode("-", $action)) == 4) {
+	if ($action and count(explode('-', $action)) == 4) {
 		$action .= '-';
 	}
 

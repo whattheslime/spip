@@ -55,8 +55,16 @@ function formulaires_editer_rubrique_charger_dist(
 	$row = array(),
 	$hidden = ''
 ) {
-	return formulaires_editer_objet_charger('rubrique', $id_rubrique, $id_parent, $lier_trad, $retour, $config_fonc, $row,
-		$hidden);
+	return formulaires_editer_objet_charger(
+		'rubrique',
+		$id_rubrique,
+		$id_parent,
+		$lier_trad,
+		$retour,
+		$config_fonc,
+		$row,
+		$hidden
+	);
 }
 
 /**
@@ -182,6 +190,14 @@ function formulaires_editer_rubrique_traiter_dist(
 	$row = array(),
 	$hidden = ''
 ) {
-	return formulaires_editer_objet_traiter('rubrique', $id_rubrique, $id_parent, $lier_trad, $retour, $config_fonc, $row,
-		$hidden);
+	return formulaires_editer_objet_traiter(
+		'rubrique',
+		$id_rubrique,
+		$id_parent,
+		$lier_trad,
+		$retour,
+		$config_fonc,
+		$row,
+		$hidden
+	);
 }

@@ -63,7 +63,7 @@ function lister_statuts_proposes($desc, $publiable = true) {
  * @return array|bool
  *     Environnement du formulaire ou false si aucun affichage à faire.
  */
-function formulaires_instituer_objet_charger_dist($objet, $id_objet, $retour = "", $editable = true) {
+function formulaires_instituer_objet_charger_dist($objet, $id_objet, $retour = '', $editable = true) {
 	$editable = ($editable ? true : false);
 
 	$table = table_objet_sql($objet);
@@ -130,7 +130,7 @@ function formulaires_instituer_objet_charger_dist($objet, $id_objet, $retour = "
  * @return array
  *     Tableau des erreurs
  */
-function formulaires_instituer_objet_verifier_dist($objet, $id_objet, $retour = "", $editable = true) {
+function formulaires_instituer_objet_verifier_dist($objet, $id_objet, $retour = '', $editable = true) {
 	$erreurs = array();
 	// charger le contenu de l'objet
 	// dont son champ statut
@@ -174,7 +174,7 @@ function formulaires_instituer_objet_verifier_dist($objet, $id_objet, $retour = 
  * @return array
  *     Retour des traitements
  */
-function formulaires_instituer_objet_traiter_dist($objet, $id_objet, $retour = "", $editable = true) {
+function formulaires_instituer_objet_traiter_dist($objet, $id_objet, $retour = '', $editable = true) {
 
 	$c = array('statut' => _request('statut'));
 	// si on a envoye une 'date_posterieure', l'enregistrer

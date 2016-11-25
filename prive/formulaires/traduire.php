@@ -60,7 +60,7 @@ function formulaires_traduire_charger_dist($objet, $id_objet, $retour = '', $tra
 		$id_parent = $valeurs['id_parent'];
 	}
 	if ($id_parent) {
-		$langue_parent = sql_getfetsel("lang", "spip_rubriques", "id_rubrique=" . intval($id_parent));
+		$langue_parent = sql_getfetsel('lang', 'spip_rubriques', 'id_rubrique=' . intval($id_parent));
 	}
 
 	if (!$langue_parent) {
@@ -82,15 +82,18 @@ function formulaires_traduire_charger_dist($objet, $id_objet, $retour = '', $tra
 	$valeurs['_traduire'] = '';
 	if (isset($valeurs['id_trad']) and $valeurs['_traduisible']) {
 		$valeurs['_traduire'] = ($traduire ? ' ' : '');
-		$valeurs['_vue_traductions'] = "prive/objets/liste/" . (trouver_fond($f = table_objet($objet) . "-trad",
-				"prive/objets/liste") ? $f : "objets-trad");
+		$valeurs['_vue_traductions'] = 'prive/objets/liste/' . (trouver_fond(
+			$f = table_objet($objet) . '-trad',
+			'prive/objets/liste'
+		) ? $f : 'objets-trad');
 		// pour afficher la liste des trad sur la base de l'id_trad en base
 		// independamment d'une saisie en cours sur id_trad
 		$valeurs['_lister_id_trad'] = $valeurs['id_trad'];
 		$valeurs['_id_parent'] = $id_parent;
 	}
 
-	$valeurs['_saisie_en_cours'] = (!_request('annuler') and (_request('changer_lang') !== null or _request('changer_id_trad') !== null));
+	$valeurs['_saisie_en_cours'] = (!_request('annuler') and (_request('changer_lang') !== null
+		or _request('changer_id_trad') !== null));
 	$valeurs['_pipeline'] = array('traduire', array('type' => $objet, 'id' => $id_objet));
 
 	return $valeurs;
@@ -122,9 +125,12 @@ function formulaires_traduire_verifier_dist($objet, $id_objet, $retour = '', $tr
 	if ($id_trad = _request('id_trad')) {
 		$table_objet_sql = table_objet_sql($objet);
 		$_id_table_objet = id_table_objet($objet);
-		if (sql_getfetsel('id_trad', $table_objet_sql,
-			"$_id_table_objet=" . intval($id_objet))) // ne devrait jamais arriver sauf concurence de saisie
-		{
+		if (sql_getfetsel(
+			'id_trad',
+			$table_objet_sql,
+			"$_id_table_objet=" . intval($id_objet)
+		)) {
+			// ne devrait jamais arriver sauf concurence de saisie
 			$erreurs['id_trad'] = _L('Une traduction est deja referencee');
 		} elseif (!sql_getfetsel($_id_table_objet, $table_objet_sql, "$_id_table_objet=" . intval($id_trad))) {
 			$erreurs['id_trad'] = _L('Indiquez un contenu existant');

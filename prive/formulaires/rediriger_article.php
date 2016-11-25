@@ -26,7 +26,7 @@ function formulaires_rediriger_article_charger_dist($id_article, $retour = '') {
 		return false;
 	}
 	include_spip('inc/lien');
-	$redirection = virtuel_redirige($row["virtuel"]);
+	$redirection = virtuel_redirige($row['virtuel']);
 
 	if (!$redirection
 		and $GLOBALS['meta']['articles_redirection'] != 'oui'
@@ -57,7 +57,7 @@ function formulaires_rediriger_article_verifier_dist($id_article, $retour = '') 
 
 function formulaires_rediriger_article_traiter_dist($id_article, $retour = '') {
 
-	$url = preg_replace(",^\s*https?://$,i", "", rtrim(_request('redirection')));
+	$url = preg_replace(',^\s*https?://$,i', '', rtrim(_request('redirection')));
 	if ($url) {
 		$url = corriger_caracteres($url);
 	}

@@ -54,8 +54,16 @@ function formulaires_editer_article_charger_dist(
 	$row = array(),
 	$hidden = ''
 ) {
-	$valeurs = formulaires_editer_objet_charger('article', $id_article, $id_rubrique, $lier_trad, $retour, $config_fonc,
-		$row, $hidden);
+	$valeurs = formulaires_editer_objet_charger(
+		'article',
+		$id_article,
+		$id_rubrique,
+		$lier_trad,
+		$retour,
+		$config_fonc,
+		$row,
+		$hidden
+	);
 	// il faut enlever l'id_rubrique car la saisie se fait sur id_parent
 	// et id_rubrique peut etre passe dans l'url comme rubrique parent initiale
 	// et sera perdue si elle est supposee saisie
@@ -197,8 +205,16 @@ function formulaires_editer_article_traiter_dist(
 	// ici on ignore changer_lang qui est poste en cas de trad,
 	// car l'heuristique du choix de la langue est pris en charge par article_inserer
 	// en fonction de la config du site et de la rubrique choisie
-	set_request("changer_lang");
+	set_request('changer_lang');
 
-	return formulaires_editer_objet_traiter('article', $id_article, $id_rubrique, $lier_trad, $retour, $config_fonc, $row,
-		$hidden);
+	return formulaires_editer_objet_traiter(
+		'article',
+		$id_article,
+		$id_rubrique,
+		$lier_trad,
+		$retour,
+		$config_fonc,
+		$row,
+		$hidden
+	);
 }

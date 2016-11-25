@@ -64,7 +64,7 @@ function formulaires_editer_logo_charger_dist($objet, $id_objet, $retour = '', $
 
 	if (!isset($options['titre'])) {
 		$balise_img = chercher_filtre('balise_img');
-		$img = $balise_img(chemin_image('image-24.png'), "", 'cadre-icone');
+		$img = $balise_img(chemin_image('image-24.png'),'', 'cadre-icone');
 		$libelles = pipeline('libeller_logo', $GLOBALS['logo_libelles']);
 		$libelle = (($id_objet or $objet != 'rubrique') ? $objet : 'racine');
 		if (isset($libelles[$libelle])) {
@@ -76,13 +76,13 @@ function formulaires_editer_logo_charger_dist($objet, $id_objet, $retour = '', $
 		}
 		switch ($objet) {
 			case 'article':
-				$libelle .= " " . aider("logoart");
+				$libelle .= ' ' . aider('logoart');
 				break;
 			case 'breve':
-				$libelle .= " " . aider("breveslogo");
+				$libelle .= ' ' . aider('breveslogo');
 				break;
 			case 'rubrique':
-				$libelle .= " " . aider("rublogo");
+				$libelle .= ' ' . aider('rublogo');
 				break;
 			default:
 				break;
@@ -105,7 +105,7 @@ function formulaires_editer_logo_charger_dist($objet, $id_objet, $retour = '', $
 	);
 
 	// rechercher le logo de l'objet
-	// la fonction prend un parametre '_id_objet' etrange : 
+	// la fonction prend un parametre '_id_objet' etrange :
 	// le nom de la cle primaire (et non le nom de la table)
 	// ou directement le nom du raccourcis a chercher
 	$chercher_logo = charger_fonction('chercher_logo', 'inc');
@@ -167,7 +167,10 @@ function formulaires_editer_logo_verifier_dist($objet, $id_objet, $retour = '', 
 	foreach ($sources as $etat => $file) {
 		// seulement si une reception correcte a eu lieu
 		if ($file and $file['error'] == 0) {
-			if (!in_array(strtolower(pathinfo($file['name'], PATHINFO_EXTENSION)), array('jpg', 'png', 'gif', 'jpeg'))) {
+			if (!in_array(
+				strtolower(pathinfo($file['name'], PATHINFO_EXTENSION)),
+				array('jpg', 'png', 'gif', 'jpeg')
+			)) {
 				$erreurs['logo_' . $etat] = _L('Extension non reconnue');
 			}
 		}
@@ -192,12 +195,12 @@ function formulaires_editer_logo_traiter_dist($objet, $id_objet, $retour = '', $
 	$res = array('editable' => ' ');
 
 	// pas dans une boucle ? formulaire pour le logo du site
-	// dans ce cas, il faut chercher un 'siteon0.ext'	
+	// dans ce cas, il faut chercher un 'siteon0.ext'
 	if (!$objet) {
 		$objet = 'site';
 	}
 
-	include_spip("action/editer_logo");
+	include_spip('action/editer_logo');
 
 	// effectuer la suppression si demandee d'un logo
 	$on = _request('supprimer_logo_on');

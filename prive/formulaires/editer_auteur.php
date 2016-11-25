@@ -161,7 +161,7 @@ function formulaires_editer_auteur_verifier_dist(
 	include_spip('inc/auth');
 
 	if (!nom_acceptable(_request('nom'))) {
-		$erreurs['nom'] = _T("info_nom_pas_conforme");
+		$erreurs['nom'] = _T('info_nom_pas_conforme');
 	}
 
 	if ($email = _request('email')) {
@@ -186,15 +186,19 @@ function formulaires_editer_auteur_verifier_dist(
 			#Nouvel auteur
 			if (intval($id_auteur) == 0) {
 				#Un auteur existe deja avec cette adresse ?
-				if (sql_countsel("spip_auteurs", "email=" . sql_quote($email)) > 0) {
+				if (sql_countsel('spip_auteurs', 'email=' . sql_quote($email)) > 0) {
 					$erreurs['email'] = _T('erreur_email_deja_existant');
 				}
 			} else {
 				#Un auteur existe deja avec cette adresse ? et n'est pas le user courant.
-				if ((sql_countsel("spip_auteurs",
-							"email=" . sql_quote($email)) > 0) and ($id_auteur != ($id_auteur_ancien = sql_getfetsel('id_auteur',
-							'spip_auteurs', "email=" . sql_quote($email))))
-				) {
+				if ((sql_countsel(
+					'spip_auteurs',
+					'email=' . sql_quote($email)
+				) > 0) and ($id_auteur != ($id_auteur_ancien = sql_getfetsel(
+					'id_auteur',
+					'spip_auteurs',
+					'email=' . sql_quote($email)
+				)))) {
 					$erreurs['email'] = _T('erreur_email_deja_existant');
 				}
 			}
@@ -276,8 +280,10 @@ function formulaires_editer_auteur_traiter_dist(
 	}
 	$retour = parametre_url($retour, 'email_confirm', '');
 
-	set_request('email',
-		email_valide(_request('email'))); // eviter d'enregistrer les cas qui sont acceptés par email_valide dans le verifier :
+	set_request(
+		'email',
+		email_valide(_request('email'))
+	); // eviter d'enregistrer les cas qui sont acceptés par email_valide dans le verifier :
 	// "Marie@toto.com  " ou encore "Marie Toto <Marie@toto.com>"
 
 	include_spip('inc/autoriser');
@@ -289,13 +295,20 @@ function formulaires_editer_auteur_traiter_dist(
 		// son clic sur l'url du message permettre de confirmer le changement
 		// et de revenir sur son profil
 		if ($GLOBALS['visiteur_session']['id_auteur'] == $id_auteur
-			and $email_nouveau != ($email_ancien = sql_getfetsel('email', 'spip_auteurs', 'id_auteur=' . intval($id_auteur)))
+			and $email_nouveau !=
+				($email_ancien = sql_getfetsel('email', 'spip_auteurs', 'id_auteur=' . intval($id_auteur)))
 		) {
 			$envoyer_mail = charger_fonction('envoyer_mail', 'inc');
-			$texte = _T('form_auteur_mail_confirmation',
+			$texte = _T(
+				'form_auteur_mail_confirmation',
 				array(
-					'url' => generer_action_auteur('confirmer_email', $email_nouveau, parametre_url($retour, 'email_modif', 'ok'))
-				));
+					'url' => generer_action_auteur(
+						'confirmer_email',
+						$email_nouveau,
+						parametre_url($retour, 'email_modif', 'ok')
+					)
+				)
+			);
 			$envoyer_mail($email_nouveau, _T('form_auteur_confirmation'), $texte);
 			set_request('email_confirm', $email_nouveau);
 			if ($email_ancien) {
@@ -321,7 +334,7 @@ function formulaires_editer_auteur_traiter_dist(
 			include_spip('action/editer_auteur');
 			auteur_associer($id_auteur, array($objet => $id_objet));
 			if (isset($res['redirect'])) {
-				$res['redirect'] = parametre_url($res['redirect'], "id_lien_ajoute", $id_auteur, '&');
+				$res['redirect'] = parametre_url($res['redirect'], 'id_lien_ajoute', $id_auteur, '&');
 			}
 		}
 	}

@@ -25,16 +25,15 @@ if (!defined('_ECRIRE_INC_VERSION')) {
 function choisir_rubriques_admin_restreint(
 	$id_auteur,
 	$label = '',
-	$sel_css = "#liste_rubriques_restreintes",
-	$img_remove = ""
+	$sel_css = '#liste_rubriques_restreintes',
+	$img_remove = ''
 ) {
 	global $spip_lang;
-	$res = "";
+	$res = '';
 	// Ajouter une rubrique a un administrateur restreint
 	if ($chercher_rubrique = charger_fonction('chercher_rubrique', 'inc')
 		and $a = $chercher_rubrique(0, 'auteur', false)
 	) {
-
 		if ($img_remove) {
 			$img_remove = addslashes("<a href=\"#\" onclick=\"jQuery(this).parent().remove();return false;\" class=\"removelink\">$img_remove</a>");
 		}
@@ -68,7 +67,6 @@ jQuery(function(){
 	.attr('name','noname');
 });
 /*]]>*/</script>";
-
 	}
 
 	return $res;

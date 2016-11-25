@@ -343,7 +343,6 @@ function dater_recuperer_date_saisie($post, $quoi = 'date') {
 
 		return array(date('Y', $t), date('m', $t), date('d', $t));
 	}
-
 }
 
 /**
