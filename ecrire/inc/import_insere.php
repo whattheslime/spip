@@ -152,6 +152,19 @@ function import_translate($values, $table, $desc, $request, $atts) {
 	$f($values, $table, $desc, $request, $atts);
 }
 
+
+function import_trouver_identifiant_origine($p, $v) {
+	global $trans;
+	if (isset($trans[$p])) {
+		foreach ($trans[$p] as $old => $correspondance) {
+			if ($correspondance[0] == $v) {
+				return $old;
+			}
+		}
+	}
+	return false;
+}
+
 // La fonction d'insertion apres renumerotation.
 // Afin qu'inserer une 2e fois la meme sauvegarde ne change pas la base,
 // chaque entree de la sauvegarde est ignoree s'il existe une entree
@@ -161,8 +174,10 @@ function import_translate($values, $table, $desc, $request, $atts) {
 // http://doc.spip.org/@import_inserer_translate
 function import_inserer_translate($values, $table, $desc, $request, $atts) {
 	global $trans;
+
 	$p = $desc['key']["PRIMARY KEY"];
-	$v = $values[$p];
+	$v = import_trouver_identifiant_origine($p, $values[$p]);
+
 	if (!isset($trans[$p]) OR !isset($trans[$p][$v]) OR $trans[$p][$v][2]){
 		sql_replace($table, $values);
 		$on = isset($atts['on']) ? ($atts['on']) : '';
@@ -174,6 +189,7 @@ function import_inserer_translate($values, $table, $desc, $request, $atts) {
 			if (substr($url,-1) !='/') $url .='/';
 			$url .= $atts['dir_logos'];
 			$new = $trans[$p][$v][0];
+
 			if ($on) {
 			  if ($logo = recuperer_page($url . $t . "on$v." . $on))
 			    ecrire_fichier(_DIR_LOGOS. $t . "on$new." . $on, $logo);
