@@ -205,6 +205,13 @@ function formulaires_editer_auteur_verifier_dist(
 		}
 	}
 
+	// corriger un cas si frequent : www.example.org sans le http:// qui precede
+	if ($url = _request('url_site') and !tester_url_absolue($url)) {
+		if (strpos($url, ':') === false and strncasecmp($url, 'www.', 4) === 0) {
+			$url = 'http://' . $url;
+			set_request('url_site', $url);
+		}
+	}
 	if ($url = _request('url_site') and !tester_url_absolue($url)) {
 		$erreurs['url_site'] = _T('info_url_site_pas_conforme');
 	}
