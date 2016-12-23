@@ -25,6 +25,9 @@ function defaut_tri_defined($defaut) {
 	if (strncasecmp(end($tri), 'DESC', 4) == 0) {
 		$sens = -1;
 		array_pop($tri);
+	} elseif (strncasecmp(end($tri), 'ASC', 3) == 0) {
+		$sens = 1;
+		array_pop($tri);
 	}
 	$tri = implode(' ', $tri);
 	$tri = array($tri => $sens);
