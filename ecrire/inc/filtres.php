@@ -1335,8 +1335,8 @@ function filtrer_ical($texte) {
 function date_ical($date, $addminutes = 0) {
 	list($heures, $minutes, $secondes) = recup_heure($date);
 	list($annee, $mois, $jour) = recup_date($date);
-	return date("Ymd\THis", 
-		    mktime($heures, $minutes+$addminutes,$secondes,$mois,$jour,$annee));
+
+	return gmdate("Ymd\THis\Z", mktime($heures, $minutes + $addminutes, $secondes, $mois, $jour, $annee));
 }
 
 // date_iso retourne la date au format "RFC 3339" / "ISO 8601"
