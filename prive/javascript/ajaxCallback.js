@@ -377,7 +377,7 @@ jQuery.fn.formulaire_activer_verif_auto = function(callback){
 				.find('form')
 				.attr('data-verifjson','on')
 				.find('input,select,textarea')
-				.bind('change',check);
+				.on('change', check);
 		}
 	}
 	jQuery(activer);
@@ -701,7 +701,7 @@ jQuery.fn.ajaxbloc = function() {
 		var ajax_env = blocfrag.attr('data-ajax-env');
 		if (!ajax_env || ajax_env==undefined) return;
 
-		blocfrag.not('.bind-ajaxReload').bind('ajaxReload',function(event, options){
+		blocfrag.not('.bind-ajaxReload').on('ajaxReload', function(event, options){
 			if (jQuery.spip.ajaxReload(blocfrag,options))
 				// don't trig reload of parent blocks
 				event.stopPropagation();
