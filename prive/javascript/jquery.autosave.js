@@ -36,22 +36,21 @@
 				}
 			}).removeClass('autosavechanged');
 		}
-		$(window)
-		.bind('unload',save_changed);
+		$(window).on('unload', save_changed);
 		return this
-		.bind('keyup', function() {
-			$(this).addClass('autosavechanged');
-		})
-		.bind('change', function() {
-			$(this).addClass('autosavechanged');
-			save_changed();
-		})
-		.bind('submit',function() {
-			save_changed();
-			/* trop agressif : exemple du submit previsu forum, ou des submit suivant/precedent d'un cvt multipage
-			on sauvegarde toujours, et le serveur videra quand il faudra */
-			/*$(this).removeClass('autosavechanged')*/;
-		});
+			.on('keyup', function() {
+				$(this).addClass('autosavechanged');
+			})
+			.on('change', function() {
+				$(this).addClass('autosavechanged');
+				save_changed();
+			})
+			.on('submit',function() {
+				save_changed();
+				/* trop agressif : exemple du submit previsu forum, ou des submit suivant/precedent d'un cvt multipage
+				on sauvegarde toujours, et le serveur videra quand il faudra */
+				/*$(this).removeClass('autosavechanged')*/;
+			});
 	}
 })(jQuery);
 
