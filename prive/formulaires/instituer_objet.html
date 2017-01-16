@@ -53,10 +53,10 @@
 		else
 			boutons.css('visibility','hidden')
 	}
-	jQuery(function(){
-		jQuery(".formulaire_#FORM .show select")
-						.each(function(){update_select.apply(this,['#ENV{#GET{name}}']);})
-						.bind('change',function(){update_select.apply(this,['#ENV{#GET{name}}']);})
-						.bind('keyup',function(){update_select.apply(this,['#ENV{#GET{name}}']);});
+	jQuery(function($){
+		$(".formulaire_#FORM .show select")
+			.each(function(){update_select.apply(this,['#ENV{#GET{name}}']);})
+			.on('change',function(){update_select.apply(this,['#ENV{#GET{name}}']);})
+			.on('keyup',function(){update_select.apply(this,['#ENV{#GET{name}}']);});
 	});
 </script>
