@@ -318,7 +318,7 @@ function charger_node_url_si_vide(url, noeud, gifanime, jjscript,event) {
 }
 
 // Lancer verifForm
-jQuery(document).ready(function(){
+jQuery(function(){
 	verifForm();
 	onAjaxLoad(verifForm);
 });

@@ -16,7 +16,7 @@ function focus_zone(selecteur){
 	jQuery(selecteur).eq(0).find('a,input:visible').get(0).focus();
 	return false;
 }
-jQuery(document).ready(function(){
+jQuery(function(){
 	init_gadgets(url_menu_rubrique);
 	var is_open = 0;
 	jQuery.fn.menuItemOpen = function(){
@@ -104,6 +104,7 @@ jQuery(document).ready(function(){
 		.blur(function(){
 			jQuery('#bando_liens_rapides').removeClass('actif');
 		});
-	if (typeof window.test_accepte_ajax != "undefined")
+	if (typeof window.test_accepte_ajax != "undefined") {
 		test_accepte_ajax();
+	}
 });
