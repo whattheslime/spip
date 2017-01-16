@@ -115,9 +115,9 @@
 		<p class='boutons'><span class='image_loading'>&nbsp;</span><input type='submit' class='submit' value='<:bouton_enregistrer:>' /></p>
 	</div></form>
 	<script type="text/javascript">
-		jQuery(document).ready(function(){
-			jQuery('div.formulaire_#FORM form').find('input.radio, input.checkbox').bind('change',function(){jQuery(this).parents('form').submit();});
-			jQuery('div.formulaire_#FORM .boutons').hide();
+		jQuery(function($){
+			$('div.formulaire_#FORM form').find('input.radio, input.checkbox').on('change',function(){$(this).parents('form').submit();});
+			$('div.formulaire_#FORM .boutons').hide();
 		});
 	</script>
 
