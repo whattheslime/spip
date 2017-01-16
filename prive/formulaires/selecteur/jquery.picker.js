@@ -9,11 +9,10 @@ item_picked et picker doivent seulement etre voisins
 </xx>
 ...
 **/
-;if (window.jQuery)
-(function($) {
+;if (window.jQuery) {
 
-	jQuery(document).ready(function(){
-		var picked = jQuery('ul.item_picked');
+	jQuery(function($){
+		var picked = $('ul.item_picked');
 		if (picked.length) {
 			picked.find('>li').removeClass('last').find('li:last').addClass('last');
 		}
@@ -78,14 +77,13 @@ item_picked et picker doivent seulement etre voisins
 			sel.parent().addClass('on');
 		return this; // don't break the chain
 	}
-	jQuery.fn.item_unpick = function(){
+	jQuery.fn.item_unpick = function() {
 		var picked = this.parents('ul.item_picked');
 		var me = this.parent();
 		jQuery(me).fadeOut('fast');
-		setTimeout(function(){
+		setTimeout(function () {
 			me.remove();
 			picked.find('>li').removeClass('last').find('li:last').addClass('last');
-		},400);
+		}, 400);
 	}
-	
-})(jQuery);
+};
