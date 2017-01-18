@@ -17,7 +17,7 @@
 
 /* * ***************************************************/
 /* directives specifiques a une page */
-#navigation .sous_navigation {margin-top:[(#ENV{margin-bottom}|mult{1.5})em]}
+#navigation .sous_navigation {margin-top:[(#ENV{margin-bottom}|floatval|mult{1.5})em]}
 /* exec=admin_plugin */
 .liste-plugins.formulaire_spip {border:0;background:none;padding:0;}
 .liste-plugins .liens {padding:6px;background:#ddd; margin-#ENV{left}: -6px; margin-#ENV{right}: -7px;}
