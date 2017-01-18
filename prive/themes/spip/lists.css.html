@@ -17,7 +17,7 @@
 
 /* Listes d'objet */
 .liste-objets{
-	margin:[(#ENV{margin-bottom}|mult{1.5})em] 0;
+	margin:[(#ENV{margin-bottom}|floatval|mult{1.5})em] 0;
 	/*font-size:.95em;*/
 	border: 1px solid #dfdfdf;
 	position:relative;
@@ -36,7 +36,7 @@
 .liste-objets table caption {margin:0;text-align:#ENV{left};padding:0 3px;background-color:#FFFFFF;}
 .caption-wrap {padding:0 3px;background-color:#FFFFFF;}
 
-.liste-objets .caption {display:block;color:#333;font-size:1.0em;padding:[(#ENV{margin-bottom}|div{4})em] 5px;background:none no-repeat [(#ENV{left})] 2px #FFFFFF}
+.liste-objets .caption {display:block;color:#333;font-size:1.0em;padding:[(#ENV{margin-bottom}|floatval|div{4})em] 5px;background:none no-repeat [(#ENV{left})] 2px #FFFFFF}
 .liste-objets tr {background:white;}
 .liste-objets .row_odd td {background:white;}
 .liste-objets .row_even td {background:white;}
@@ -66,7 +66,7 @@
 .liste-objets.auteurs tr td.logo a {width: 40px; height: 40px; display: block; background-position: center center; background-size: cover; border-radius: 50%; margin: 3px 0;}
 .liste-objets-associer.auteurs tr td.logo a {width: 30px; height: 30px; display: block; background-position: center center; background-size: cover; border-radius: 50%; margin: 2px 0;}
 .liste-objets tr td > span {font-size:0.85em;}
-.liste-objets table td, .liste-objets table th {[ padding: (#ENV{line-height}|div{4})em;] }
+.liste-objets table td, .liste-objets table th {[ padding: (#ENV{line-height}|floatval|div{4})em;] }
 
 .liste-objets .bouton_action_post .submit,.liste-objets .button {font-size:1em;}
 .liste-objets .action a {color:inherit;}
@@ -107,7 +107,7 @@
 .liste > h5,.liste > .h5,
 .liste > h6,.liste > .h6 {margin-bottom:0;}
 .liste_items,.liste-items {list-style:none;margin:0 0 [(#ENV{margin-bottom})];padding:0;border-top:1px solid #ddd;clear:both;}
-.liste_items .item,.liste-items .item  {border-bottom:1px solid #ddd;padding:[(#ENV{margin-bottom}|div{2})em] 0; overflow:hidden;clear:both;}
+.liste_items .item,.liste-items .item  {border-bottom:1px solid #ddd;padding:[(#ENV{margin-bottom}|floatval|div{2})em] 0; overflow:hidden;clear:both;}
 .liste_items .odd,.liste-items .odd  {background:#eee;}
 .liste_items .item:hover,.liste-items .item:hover  {background-color:[#(#ENV{claire}|couleur_eclaircir|couleur_eclaircir)];}
 .liste_items .court:hover,.liste-items .court:hover  {background-color:#eee;}
@@ -139,7 +139,7 @@
 .menu-items {list-style:none;margin:1em 0;padding:0;border-top:1px solid #ddd;clear:both;}
 .menu-items .item {border-bottom:1px solid #ddd; padding:0; overflow:hidden; clear:both;}
 .menu-items .menu-items {margin:0;padding:0;margin-#ENV{left}:11px;}
-.menu-items .item >a,.menu-items .item >strong.on {display:block;padding:[(#ENV{margin-bottom}|div{2})em] 0;}
+.menu-items .item >a,.menu-items .item >strong.on {display:block;padding:[(#ENV{margin-bottom}|floatval|div{2})em] 0;}
 .menu-items .item >a:hover {background-color:[#(#ENV{claire}|couleur_eclaircir|couleur_eclaircir)];}
 .menu-items .item >.on {background-color:[#(#ENV{claire}|couleur_eclaircir|couleur_eclaircir)];}
 
