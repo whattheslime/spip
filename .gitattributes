@@ -104,6 +104,7 @@ ecrire/inc/editer.php -text
 ecrire/inc/envoyer_mail.php -text
 ecrire/inc/exporter_csv.php -text
 ecrire/inc/filtres_boites.php -text
+ecrire/inc/filtres_dates.php -text
 ecrire/inc/filtres_ecrire.php -text
 ecrire/inc/filtres_images_lib_mini.php -text
 ecrire/inc/filtres_images_mini.php -text
