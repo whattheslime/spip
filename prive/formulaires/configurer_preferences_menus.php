@@ -21,7 +21,7 @@
  **/
 
 include_spip('inc/bandeau');
-
+include_spip('inc/filtres');
 
 /**
  * Chargement du formulaire de préférence des menus d'un auteur dans l'espace privé
@@ -34,6 +34,7 @@ function formulaires_configurer_preferences_menus_charger_dist() {
 	include_spip('inc/meta');
 	lire_metas();
 	$valeurs = array();
+	$valeurs['activer_menudev'] = table_valeur($GLOBALS['visiteur_session'], 'prefs/activer_menudev', 'non');
 	$valeurs['menus_favoris'] = obtenir_menus_favoris();
 	return $valeurs;
 }
@@ -46,19 +47,23 @@ function formulaires_configurer_preferences_menus_charger_dist() {
  **/
 function formulaires_configurer_preferences_menus_traiter_dist() {
 
+	$activer_menudev = _request('activer_menudev');
 	$menus_favoris = _request('menus_favoris');
 
-	// si le menu change, on recharge toute la page.
-	if ($menus_favoris != obtenir_menus_favoris()) {
+	// si le menu dev change, ou les menus favoris, on recharge toute la page.
+	if (
+		table_valeur($GLOBALS['visiteur_session'], 'prefs/activer_menudev') != $activer_menudev
+		OR $menus_favoris != obtenir_menus_favoris()
+	) {
 		refuser_traiter_formulaire_ajax();
 
+		$GLOBALS['visiteur_session']['prefs']['activer_menudev'] = $activer_menudev;
 		$GLOBALS['visiteur_session']['prefs']['menus_favoris'] = $menus_favoris;
 
 		if (intval($GLOBALS['visiteur_session']['id_auteur'])) {
 			include_spip('action/editer_auteur');
 			$c = array('prefs' => serialize($GLOBALS['visiteur_session']['prefs']));
 			auteur_modifier($GLOBALS['visiteur_session']['id_auteur'], $c);
-
 		}
 	}
 
