@@ -326,6 +326,8 @@ prive/formulaires/configurer_multilinguisme.html -text
 prive/formulaires/configurer_multilinguisme.php -text
 prive/formulaires/configurer_preferences.html -text
 prive/formulaires/configurer_preferences.php -text
+prive/formulaires/configurer_preferences_menus.html -text
+prive/formulaires/configurer_preferences_menus.php -text
 prive/formulaires/configurer_previsualiseur.html -text
 prive/formulaires/configurer_previsualiseur.php -text
 prive/formulaires/configurer_redacteurs.html -text

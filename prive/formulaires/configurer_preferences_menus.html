@@ -1,0 +1,36 @@
+<div class="formulaire_spip formulaire_configurer formulaire_#FORM formulaire_#FORM-#ENV{id,nouveau}">
+	<h3 class='titrem'><:titre_configurer_preferences_menus:></h3>
+	[<p class="reponse_formulaire reponse_formulaire_ok">(#ENV*{message_ok})</p>]
+	[<p class="reponse_formulaire reponse_formulaire_erreur">(#ENV*{message_erreur})</p>]
+
+	<form method='post' action='#ENV{action}'><div>
+		#ACTION_FORMULAIRE
+
+		#SET{boutons,#ARRAY|definir_barre_boutons{0}}
+		<div class='menus_favoris fieldset'>
+			<fieldset>
+				<legend><:titre_preference_menus_favoris:></legend>
+				<div class="editer-groupe deux_colonnes">
+					<BOUCLE_menu(DATA){source tableau, #GET{boutons}}{cle LIKE 'menu_%'}{cle !IN #LISTE{menu_accueil}}>
+					<B_menusous>
+						<div class="editer menus_favoris pleine_largeur">
+							<label>[(#LIBELLE|_T)]</label>
+							[<span class='erreur_message'>(#ENV{erreurs/menus_favoris})</span>]
+							<BOUCLE_menusous(DATA){source tableau, #SOUSMENU}>
+							<div class="item choix">
+								<input class='checkbox' type="checkbox" name="menus_favoris[]" value="#CLE" id="menu_fav_#CLE"[(#CLE|in_any{#ENV{menus_favoris}}|oui)checked="checked"]>
+								<label for="menu_fav_#CLE">[(#LIBELLE|_T)]</label>
+							</div>
+							</BOUCLE_menusous>
+						</div>
+					</B_menusous>
+					</BOUCLE_menu>
+				</div>
+			</fieldset>
+		</div>
+
+		[(#REM) ajouter les saisies supplementaires : extra et autre, a cet endroit ]
+		<!--extra-->
+		<p class='boutons'><span class='image_loading'>&nbsp;</span><input type='submit' class='submit' value='<:bouton_enregistrer:>' /></p>
+	</div></form>
+</div>
