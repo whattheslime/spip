@@ -29,12 +29,16 @@
 #bando_haut ul.deroulant li ul li {float:none;position:static;}
 #bando_haut ul.deroulant li.actif,#bando_haut ul.deroulant li.actif_tempo { background-color: #[(#ENV{claire}|couleur_eclaircir|couleur_eclaircir)]; z-index: 100; }
 #bando_haut ul.deroulant li ul {border: 1px solid #aaaaaa; border-top: 0; text-align:#ENV{left}; height: auto; width: auto; display: block; position:absolute; #ENV{left}:-3000em;margin-#ENV{left}:-1px; }
+#bando_haut ul.deroulant li ul.menu-2col { max-width: initial;  -moz-column-count: 2; -moz-column-gap: 0;  -webkit-column-count: 2; -webkit-column-gap: 0; -webkit-perspective:1; column-count: 2; column-gap: 0; }
 #bando_haut ul.deroulant li.actif ul, #bando_haut ul.deroulant li.actif_tempo ul { #ENV{left}:auto;}
 #bando_haut ul.deroulant li a { display: block;  color:#444; font-weight:bold;}
 #bando_haut ul.deroulant li ul li { background-color: #fff; }
 #bando_haut ul.deroulant li ul li a {  }
 #bando_haut ul.deroulant li ul li a:hover,
 #bando_haut ul.deroulant li ul li a:focus { background-color: #[(#ENV{claire}|couleur_eclaircir|couleur_eclaircir)]; }
+
+#bando_haut ul.deroulant li.non_favori { background-color: #[(#ENV{claire}|couleur_eclaircir{.92})]; }
+#bando_haut ul.deroulant li.favori + li.non_favori { border-top:1px solid #aaa; }
 
 #bando_identite { line-height:2em; background: #[(#ENV{claire}|couleur_eclaircir|couleur_eclaircir)]; color: #666; overflow:hidden; z-index:10;position:relative;}
 #bando_identite p { width: 50%; padding: 1px 0; margin:0;}
