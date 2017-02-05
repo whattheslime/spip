@@ -1,4 +1,4 @@
-#SET{boutons,#ENV**|definir_barre_contexte|definir_barre_boutons{0}}
+#SET{boutons,#ENV**|definir_barre_contexte|definir_barre_boutons{0}|trier_boutons_enfants_par_alpha}
 
 <BOUCLE_menu(POUR){tableau #GET{boutons}}{cle=#ENV{menu}}>
 [(#ENV{bloc}|=={contenu}|?{

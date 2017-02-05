@@ -1,5 +1,5 @@
 #SET{contexte,#EVAL{definir_barre_contexte()}}
-#SET{boutons,#GET{contexte}|definir_barre_boutons{0}}
+#SET{boutons,#GET{contexte}|definir_barre_boutons{0}|trier_boutons_enfants_par_favoris_alpha}
 <div id="bando_haut" role="navigation">
 	<div id="bando_liens_rapides">
 		<div class="largeur clearfix">
