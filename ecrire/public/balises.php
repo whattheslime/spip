@@ -900,25 +900,42 @@ function balise_REM_dist($p) {
 }
 
 
-//
-// #HTTP_HEADER
-// pour les entetes de retour http
-// Ne fonctionne pas sur les INCLURE !
-// #HTTP_HEADER{Content-Type: text/css}
-//
-// http://doc.spip.org/@balise_HTTP_HEADER_dist
+
+/**
+ * Compile la balise `#HTTP_HEADER` envoyant des entêtes de retour HTTP
+ *
+ * Doit être placée en tête de fichier et ne fonctionne pas dans une
+ * inclusion.
+ *
+ * @balise
+ * @link http://www.spip.net/4631
+ * @example
+ *     ```
+ *     #HTTP_HEADER{Content-Type: text/csv; charset=#CHARSET}
+ *     ```
+ *
+ * @param Champ $p
+ *     Pile au niveau de la balise
+ * @return Champ
+ *     Pile complétée par le code à générer
+ **/
 function balise_HTTP_HEADER_dist($p) {
 
-	$header = interprete_argument_balise(1,$p);
+	$header = interprete_argument_balise(1, $p);
 	if (!$header) {
 		$err_b_s_a = array('zbug_balise_sans_argument', array('balise' => 'HTTP_HEADER'));
 		erreur_squelette($err_b_s_a, $p);
-	} else 	$p->code = "'<'.'?php header(\"' . "
-		. $header
-		. " . '\"); ?'.'>'";
+	} else {
+		$p->code = "'<'.'?php header(' . _q("
+			. $header
+			. ") . '); ?'.'>'";
+	}
 	$p->interdire_scripts = false;
+
 	return $p;
 }
+
+
 
 // Filtre a appliquer a l'ensemble de la page une fois calculee
 // (filtrage fait au niveau du squelette, et sans s'appliquer aux <INCLURE>)
