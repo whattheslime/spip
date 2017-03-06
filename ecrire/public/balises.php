@@ -887,9 +887,9 @@ function balise_HTTP_HEADER_dist($p) {
 	if (!$header) {
 		$err_b_s_a = array('zbug_balise_sans_argument', array('balise' => 'HTTP_HEADER'));
 		erreur_squelette($err_b_s_a, $p);
-	} else 	$p->code = "'<'.'?php header(\"' . "
+	} else  $p->code = "'<'.'?php header(' . _q("
 		. $header
-		. " . '\"); ?'.'>'";
+		. ") . '); ?'.'>'";
 	$p->interdire_scripts = false;
 	return $p;
 }
