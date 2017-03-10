@@ -26,7 +26,6 @@ function date_picker_options(){
 			'<:date_jour_5_initiale|texte_script:>','<:date_jour_6_initiale|texte_script:>','<:date_jour_7_initiale|texte_script:>'],
 		dateFormat: 'dd/mm/yy',
 		firstDay: 1,
-		isRTL: [(#ENV{lang}|lang_dir|=={rtl}|?{true,false})],
 		changeMonth: true,
 		changeYear: true,
 		showOtherMonths: true,
@@ -66,8 +65,8 @@ if (window.jQuery){
 /*]]>*/</script>
 <style type="text/css">
 [(#INCLURE{formulaires/dateur/time_picker.css}|compacte{css})]
-img.ui-datepicker-trigger { display: inline-block; padding: 0; margin: 0px 0 0 -19px; vertical-align: middle; z-index:2 }
+img.ui-datepicker-trigger { display: inline-block; padding: 0; margin: 0; margin-[(#ENV{lang}|lang_dir|choixsiegal{ltr,left,right})]: -19px; vertical-align: middle; z-index:2 }
 div.time-picker {font-size:11px;  width:5em; /* needed for IE */}
-.formulaire_spip input.date {width:9em;padding-right:25px;}
+.formulaire_spip input.date {width:9em;padding-[(#ENV{lang}|lang_dir|choixsiegal{ltr,right,left})]:25px;}
 .formulaire_spip input.heure {width:7em;}
 </style>
