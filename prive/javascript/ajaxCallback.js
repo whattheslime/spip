@@ -75,18 +75,28 @@ if(!jQuery.spip.load_handlers) {
 
 	// intercept jQuery.ajax
 	jQuery.spip.intercepted.ajax = jQuery.ajax;
-	jQuery.ajax = function(type) {
-		var s = jQuery.extend(true, {}, jQuery.ajaxSettings, type);
+	jQuery.ajax = function(url, settings) {
+		if (typeof settings == 'undefined') {
+			settings = {};
+			if (typeof url == 'object') {
+				settings = url;
+				url = null;
+			}
+		}
+		if (typeof url == 'string') {
+			settings['url'] = url;
+		}
+		var s = jQuery.extend(true, {}, jQuery.ajaxSettings, settings);
 		var callbackContext = s.context || s;
 		try {
 			if (jQuery.ajax.caller==jQuery.spip.intercepted.load || jQuery.ajax.caller==jQuery.spip.intercepted.ajaxSubmit)
-				return jQuery.spip.intercepted.ajax(type);
+				return jQuery.spip.intercepted.ajax(settings);
 		}
 		catch (err){}
 		var orig_complete = s.complete || function() {};
-		type.complete = function(res,status) {
+		settings.complete = function(res,status) {
 			// Do not fire OnAjaxLoad if the dataType is not html
-			var dataType = type.dataType;
+			var dataType = settings.dataType;
 			var ct = (res && (typeof res.getResponseHeader == 'function'))
 				? res.getResponseHeader("content-type"): '';
 			var xml = !dataType && ct && ct.indexOf("xml") >= 0;
@@ -97,7 +107,7 @@ if(!jQuery.spip.load_handlers) {
 					jQuery.spip.triggerAjaxLoad(s.ajaxTarget?s.ajaxTarget:document);
 			}
 		};
-		return jQuery.spip.intercepted.ajax(type);
+		return jQuery.spip.intercepted.ajax(settings);
 	};
 
 }
