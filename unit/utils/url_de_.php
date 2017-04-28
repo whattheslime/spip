@@ -101,7 +101,7 @@
     3 => '/sousrep/url/arbo/page.html',
     4 => 4,
   ),
-	9 =>
+  9 =>
   array (
     0 => 'http://www.example.org/',
     1 => 'http',
@@ -110,6 +110,14 @@
     4 => 3,
   ),
   10 =>
+  array (
+    0 => 'http://www.example.org/',
+    1 => 'http',
+    2 => 'www.example.org',
+    3 => '/?param=http://domain.tld/autre/piege/tordu',
+    4 => 3,
+  ),
+  11 =>
   array (
     0 => 'http:///',
     1 => 'http',
