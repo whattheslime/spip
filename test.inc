@@ -162,11 +162,11 @@ function display_error($titre,$call,$result,$expected,$opts=array()){
 }
 
 // pour essayer de calculer/montrer le temps qu'on y met
-register_shutdown_function('afficher_timer', time() + microtime());
+register_shutdown_function('afficher_timer', time() + (float)microtime());
 
 function afficher_timer($depart) {
 	if (!defined('_NO_TIMER'))
-		echo sprintf(" %.2fs", time() + microtime() - $depart);
+		echo sprintf(" %.2fs", time() + (float)microtime() - $depart);
 }
 
 
