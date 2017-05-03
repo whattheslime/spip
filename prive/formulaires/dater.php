@@ -318,11 +318,11 @@ function formulaires_dater_traiter_dist($objet, $id_objet, $retour = '', $option
 }
 
 /**
- * Récupérer annee,mois,jour sur la date saisie
+ * Récupérer annee, mois, jour sur la date saisie
  *
  * @param string $post
  * @param string $quoi
- * @return array
+ * @return array|string Chaîne vide si date invalide, tableau (année, mois, jour) sinon.
  */
 function dater_recuperer_date_saisie($post, $quoi = 'date') {
 	if (!preg_match('#^(?:(?:([0-9]{1,2})[/-])?([0-9]{1,2})[/-])?([0-9]{4}|[0-9]{1,2})#', $post, $regs)) {
@@ -335,13 +335,13 @@ function dater_recuperer_date_saisie($post, $quoi = 'date') {
 
 		return array($regs[3], $regs[2], $regs[1]);
 	} else {
-		$t = mktime(0, 0, 0, $regs[2], $regs[1], $regs[3]);
-		// si la date n'est pas valide selon mktime, la refuser
-		if (!$t) {
-			return '';
+		if (
+			checkdate(intval($regs[2]), intval($regs[1]), intval($regs[3]))
+			and $t = mktime(0, 0, 0, $regs[2], $regs[1], $regs[3])
+		) {
+			return array(date('Y', $t), date('m', $t), date('d', $t));
 		}
-
-		return array(date('Y', $t), date('m', $t), date('d', $t));
+		return '';
 	}
 }
 
@@ -353,6 +353,9 @@ function dater_recuperer_date_saisie($post, $quoi = 'date') {
  */
 function dater_recuperer_heure_saisie($post) {
 	if (!preg_match('#([0-9]{1,2})(?:[h:](?:([0-9]{1,2}))?)?#', $post, $regs)) {
+		return '';
+	}
+	if ($regs[1] >= 23 or $regs[2] >= 59) {
 		return '';
 	}
 
