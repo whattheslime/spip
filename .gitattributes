@@ -286,6 +286,7 @@ ecrire/xml/index.php -text
 ecrire/xml/interfaces.php -text
 ecrire/xml/valider.php -text
 /index.php -text
+local/CACHEDIR.TAG -text
 local/remove.txt -text
 prive/aide_body.css -text
 prive/aide_menu.html -text
@@ -922,4 +923,5 @@ prive/xhtml-special.ent -text
 prive/xhtml-symbol.ent -text
 /spip.php -text
 /spip.png -text
+tmp/CACHEDIR.TAG -text
 tmp/remove.txt -text
