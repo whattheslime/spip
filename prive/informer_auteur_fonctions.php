@@ -39,30 +39,9 @@ function informer_auteur($bof) {
 	include_spip('inc/auth');
 	$login = strval(_request('var_login'));
 	$row = auth_informer_login($login);
-	if ($row and is_array($row)) {
+	if ($row and is_array($row) and isset($row['id_auteur'])) {
 		unset($row['id_auteur']);
-	} else {
-		// permettre d'autoriser l'envoi de password non crypte lorsque
-		// l'auteur n'est pas (encore) declare dans SPIP, par exemple pour les cas
-		// de premiere authentification via SPIP a une autre application.
-		if (defined('_AUTORISER_AUTH_FAIBLE') and _AUTORISER_AUTH_FAIBLE) {
-			$row = array();
-		} else {
-			// generer de fausses infos, mais credibles, pour eviter une attaque
-			// http://core.spip.org/issues/1758
-			include_spip('inc/securiser_action');
-			$fauxalea1 = md5('fauxalea' . secret_du_site() . $login . floor(date('U') / 86400));
-			$fauxalea2 = md5('fauxalea' . secret_du_site() . $login . ceil(date('U') / 86400));
-
-			$row = array(
-				'login' => $login,
-				'cnx' => '0',
-				'logo' => '',
-				'alea_actuel' => substr_replace($fauxalea1, '.', 24, 0),
-				'alea_futur' => substr_replace($fauxalea2, '.', 24, 0)
-			);
-		}
 	}
-
+	
 	return json_export($row);
 }
