@@ -88,7 +88,7 @@ function formulaires_login_charger_dist($cible = '', $login = '', $prive = null)
 	$valeurs = array(
 		'var_login' => $login,
 		'editable' => !$row,
-		'cnx' => isset($row['cnx']) ? $row['cnx'] : '',
+		'cnx' => isset($row['cnx']) ? $row['cnx'] : '0',
 		'auth_http' => login_auth_http(),
 		'rester_connecte' => ((_RENOUVELLE_ALEA < 12 * 3600) ? '' : ' '),
 		'_logo' => isset($row['logo']) ? $row['logo'] : '',
