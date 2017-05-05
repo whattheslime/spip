@@ -615,6 +615,7 @@ prive/squelettes/objet.html -text
 prive/squelettes/page.html -text
 prive/squelettes/structure.html -text
 prive/squelettes/top/aide.html -text
+prive/squelettes/top/auteur.html -text
 prive/squelettes/top/configurer_langage.html -text
 prive/squelettes/top/configurer_preferences.html -text
 prive/squelettes/top/dist.html -text
