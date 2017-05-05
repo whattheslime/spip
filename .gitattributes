@@ -92,6 +92,7 @@ ecrire/inc/charger_php_extension.php -text
 ecrire/inc/chercher_logo.php -text
 ecrire/inc/chercher_rubrique.php -text
 ecrire/inc/commencer_page.php -text
+ecrire/inc/completer_traduction.php -text
 ecrire/inc/cookie.php -text
 ecrire/inc/couleurs.php -text
 ecrire/inc/csv.php -text
