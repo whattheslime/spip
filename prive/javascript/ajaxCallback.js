@@ -240,7 +240,9 @@ jQuery.fn.formulaire_dyn_ajax = function(target) {
 			beforeSubmit: function(){
 				// memoriser le bouton clique, en cas de repost non ajax
 				leclk = leform.clk;
+				var scrollwhensubmit_button = true;
 				if (leclk) {
+					scrollwhensubmit_button = !jQuery(leclk).is('.noscroll');
 					var n = leclk.name;
 					if (n && !leclk.disabled && leclk.type == "image") {
 						leclk_x = leform.clk_x;
@@ -250,8 +252,9 @@ jQuery.fn.formulaire_dyn_ajax = function(target) {
 				jQuery(cible).wrap('<div />');
 				cible = jQuery(cible).parent();
 				jQuery(cible).closest('.ariaformprop').animateLoading();
-				if (scrollwhensubmit)
+				if (scrollwhensubmit && scrollwhensubmit_button) {
 					jQuery(cible).positionner(false,false);
+				}
 			},
 			error: onError,
 			success: function(c, status, xhr , $form){
@@ -739,11 +742,15 @@ jQuery.fn.ajaxbloc = function() {
 		jQuery('form.bouton_action_post.ajax', this).not('.noajax,.bind-ajax').each(function(){
 			var leform = this;
 			var url = jQuery(this).attr('action').split('#');
+			var scrollwhensubmit = (!jQuery(this).is('.noscroll') && !jQuery('.submit',this).is('.noscroll'));
 			jQuery(this)
 			.prepend("<input type='hidden' name='var_ajax' value='1' /><input type='hidden' name='var_ajax_env' value='"+(ajax_env)+"' />"+(url[1]?"<input type='hidden' name='var_ajax_ancre' value='"+url[1]+"' />":""))
 			.ajaxForm({
 				beforeSubmit: function(){
-					jQuery(blocfrag).animateLoading().positionner(false);
+					jQuery(blocfrag).animateLoading();
+					if (scrollwhensubmit) {
+						jQuery(blocfrag).positionner(false);
+					}
 				},
 				onAjaxLoad:false,
 				success: function(c){
