@@ -205,6 +205,24 @@ function formulaires_editer_auteur_verifier_dist(
 		}
 	}
 
+	if (!count($erreurs) and _request('reset_password')) {
+		$auteur = sql_fetsel('*', 'spip_auteurs', 'id_auteur=' . intval($id_auteur));
+		$config = auteurs_edit_config($auteur);
+		if ($config['edit_pass']) {
+			if ($email = auteur_regenerer_identifiants($id_auteur)) {
+				$erreurs['message_ok'] = _T('message_nouveaux_identifiants_ok', array('email' => $email));
+				$erreurs['message_erreur'] = '';
+			} elseif ($email === false) {
+				$erreurs['message_erreur'] = _T('message_nouveaux_identifiants_echec_envoi');
+			} else {
+				$erreurs['message_erreur'] = _T('message_nouveaux_identifiants_echec_creation');
+			}
+		} else {
+			$erreurs['message_erreur'] = _T('message_nouveaux_identifiants_echec_creation');
+		}
+		return $erreurs;
+	}
+
 	// corriger un cas si frequent : www.example.org sans le http:// qui precede
 	if ($url = _request('url_site') and !tester_url_absolue($url)) {
 		if (strpos($url, ':') === false and strncasecmp($url, 'www.', 4) === 0) {
@@ -349,4 +367,51 @@ function formulaires_editer_auteur_traiter_dist(
 	}
 
 	return $res;
+}
+
+
+/**
+ * Renvoyer des identifiants
+ * @param int $id_auteur
+ * @param bool $notifier
+ * @param array $contexte
+ * @return string
+ */
+function auteur_regenerer_identifiants($id_auteur, $notifier=true, $contexte = array()) {
+	if ($id_auteur){
+		$set = array();
+		include_spip('inc/access');
+		$set['pass'] = creer_pass_aleatoire();
+
+		include_spip('action/editer_auteur');
+		auteur_modifier($id_auteur,$set);
+
+		$row = sql_fetsel('*','spip_auteurs','id_auteur='.intval($id_auteur));
+		include_spip('inc/filtres');
+		if ($notifier
+			and $row['email']
+			and email_valide($row['email'])
+		  and trouver_fond($fond = 'modeles/mail_nouveaux_identifiants')){
+			// envoyer l'email avec login/pass
+			$c = array(
+				'id_auteur' => $id_auteur,
+				'nom' => $row['nom'],
+				'mode' => $row['statut'],
+				'email' => $row['email'],
+				'pass' => $set['pass'],
+			);
+			// on merge avec les champs fournit en appel, qui sont passes au modele de notification donc
+			$contexte = array_merge($contexte, $c);
+			$message = recuperer_fond($fond, $contexte);
+			include_spip("inc/notifications");
+			notifications_envoyer_mails($row['email'],$message);
+
+			return $row['email'];
+		}
+
+		return false;
+
+	}
+
+	return '';
 }
