@@ -28,7 +28,7 @@
 							[<span class='erreur_message'>(#ENV{erreurs/menus_favoris})</span>]
 							<BOUCLE_menusous(DATA){source tableau, #SOUSMENU}>
 							<div class="item choix">
-								<input class='checkbox' type="checkbox" name="menus_favoris[]" value="#CLE" id="menu_fav_#CLE"[(#CLE|in_any{#ENV{menus_favoris}}|oui)checked="checked"]>
+								<input class='text positionner' type="text" name="menus_favoris[#CLE]" value="#ENV{menus_favoris/#CLE}" id="menu_fav_#CLE" size="1">
 								<label for="menu_fav_#CLE">[(#LIBELLE|_T)]</label>
 							</div>
 							</BOUCLE_menusous>
@@ -41,6 +41,49 @@
 
 		[(#REM) ajouter les saisies supplementaires : extra et autre, a cet endroit ]
 		<!--extra-->
-		<p class='boutons'><span class='image_loading'>&nbsp;</span><input type='submit' class='submit' value='<:bouton_enregistrer:>' /></p>
+		<p class='boutons'>
+			<span class='image_loading'>&nbsp;</span>
+			<input type='submit' name="reset" class='submit' value='<:bouton_reinitialiser_aux_valeurs_par_defaut:>' />
+			<input type='submit' class='submit' value='<:bouton_enregistrer:>' />
+		</p>
 	</div></form>
 </div>
+<style type="text/css">
+	.formulaire_spip .choix .positionner {
+		width:2.2em;
+		text-align:right;
+	}
+</style>
+<script type="text/javascript">
+jQuery(function($) {
+	$('.formulaire_#FORM form').on('click', '.choix label', function(){
+		var $me = $(this);
+		var $parent = $me.closest('.editer');
+		var $input = $me.siblings('.positionner');
+		if ($input.val()) {
+			$input.val("");
+			var trier = [];
+			$parent.find('.positionner').each(function(){
+				if ($(this).val()) {
+					trier.push({id: $(this).attr('id'), val: parseInt($(this).val()) });
+				}
+			});
+			trier.sort(function(a,b) { return a.val - b.val; });
+			var i = 1;
+			$.each(trier, function(k, a) {
+				$parent.find('#' + a.id).val(i);
+				i++;
+			});
+		} else {
+			var max = 0;
+			$parent.find('.positionner').each(function(){
+				if ($(this).val() > max) {
+					max = $(this).val();
+				}
+			});
+			$input.val(parseInt(max) + 1);
+		}
+		return false;
+	});
+});
+</script>

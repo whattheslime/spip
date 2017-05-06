@@ -99,6 +99,7 @@ ecrire/inc/csv.php -text
 ecrire/inc/cvt_autosave.php -text
 ecrire/inc/cvt_configurer.php -text
 ecrire/inc/cvt_multietapes.php -text
+ecrire/inc/definir_menus_favoris.php -text
 ecrire/inc/distant.php -text
 ecrire/inc/drapeau_edition.php -text
 ecrire/inc/editer.php -text

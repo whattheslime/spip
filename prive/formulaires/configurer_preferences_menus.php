@@ -49,6 +49,13 @@ function formulaires_configurer_preferences_menus_traiter_dist() {
 
 	$activer_menudev = _request('activer_menudev');
 	$menus_favoris = _request('menus_favoris');
+	$menus_favoris = array_filter($menus_favoris);
+	$menus_favoris = array_map('intval', $menus_favoris);
+
+	if (_request('reset')) {
+		$menus_favoris = array();
+		set_request('menus_favoris', null);
+	}
 
 	// si le menu dev change, ou les menus favoris, on recharge toute la page.
 	if (
