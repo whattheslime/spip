@@ -49,6 +49,7 @@ if(!jQuery.spip.load_handlers) {
 				params = null;
 			}
 		}
+		params = jQuery.extend(params, {triggerAjaxLoad:false}); // prevent $.ajax to triggerAjaxLoad
 		var callback2 = function() {jQuery.spip.log('jQuery.load');jQuery.spip.triggerAjaxLoad(this);callback.apply(this,arguments);};
 		return jQuery.spip.intercepted.load.apply(this,[url, params, callback2]);
 	};
@@ -86,13 +87,13 @@ if(!jQuery.spip.load_handlers) {
 		if (typeof url == 'string') {
 			settings['url'] = url;
 		}
+		// if triggerAjaxLoad is prevented, finish without faking callback
+		if (settings.data && settings.data['triggerAjaxLoad'] === false) {
+			settings.data['triggerAjaxLoad'] = null;
+			return jQuery.spip.intercepted.ajax(settings);
+		}
 		var s = jQuery.extend(true, {}, jQuery.ajaxSettings, settings);
 		var callbackContext = s.context || s;
-		try {
-			if (jQuery.ajax.caller==jQuery.spip.intercepted.load || jQuery.ajax.caller==jQuery.spip.intercepted.ajaxSubmit)
-				return jQuery.spip.intercepted.ajax(settings);
-		}
-		catch (err){}
 		var orig_complete = s.complete || function() {};
 		settings.complete = function(res,status) {
 			// Do not fire OnAjaxLoad if the dataType is not html
@@ -101,7 +102,7 @@ if(!jQuery.spip.load_handlers) {
 				? res.getResponseHeader("content-type"): '';
 			var xml = !dataType && ct && ct.indexOf("xml") >= 0;
 			orig_complete.call( callbackContext, res, status);
-			if(!dataType && !xml || dataType == "html") {
+			if((!dataType && !xml) || dataType == "html") {
 				jQuery.spip.log('jQuery.ajax');
 				if (typeof s.onAjaxLoad=="undefined" || s.onAjaxLoad!=false)
 					jQuery.spip.triggerAjaxLoad(s.ajaxTarget?s.ajaxTarget:document);
