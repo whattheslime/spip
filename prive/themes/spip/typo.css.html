@@ -56,20 +56,20 @@ h4 { font-size: 1.2em; line-height: 1.25; margin-bottom: 1.25em; }
 h5 { font-size: 1em; font-weight: bold; margin-bottom: 1.5em; }
 h6 { font-size: 1em; font-weight: bold; }*/
 
-#SET{coeff,#GET{line-height}|floatval|plus{2}|div{2}|div{#GET{line-height}|floatval}}
-#SET{coeffinv,#VAL{1}|div{#GET{coeff}}}
-h1,.h1 {[ font-size: (#GET{line-height}|floatval|mult{#GET{coeff}})em];[ line-height: (#GET{coeffinv}|mult{2})em];[ margin-bottom: (#GET{coeffinv})em;]}
-h2,.h2 {[ font-size: (#GET{line-height}|floatval|mult{1})em]; line-height: 1; margin-bottom: 1em; font-weight: bold;}
-#SET{coeff,#GET{line-height}|floatval|plus{1}|div{2}|div{#GET{line-height}|floatval}}
-#SET{coeffinv,#VAL{1}|div{#GET{coeff}}}
-h3,.h3 {[ font-size: (#GET{line-height}|floatval|mult{#GET{coeff}})em];[ line-height: (#GET{coeffinv})em];[ margin-bottom: (#GET{coeffinv})em;]font-weight: bold; }
-#SET{coeff,#GET{line-height}|floatval|plus{3}|div{4}|div{#GET{line-height}|floatval}}
-#SET{coeffinv,#VAL{1}|div{#GET{coeff}}}
-h4,.h4,caption,.caption-wrap {[ font-size: (#GET{line-height}|floatval|mult{#GET{coeff}})em];[ line-height: (#GET{coeffinv})em];[ margin-bottom: (#GET{coeffinv})em;]font-weight: bold; }
+#SET{coeff,#GET{line-height}|strplus{2}|strdiv{2}|strdiv{#GET{line-height}}}
+#SET{coeffinv,#VAL{1}|strdiv{#GET{coeff}}}
+h1,.h1 {[ font-size: (#GET{line-height}|strmult{#GET{coeff}})em];[ line-height: (#GET{coeffinv}|strmult{2})em];[ margin-bottom: (#GET{coeffinv})em;]}
+h2,.h2 {[ font-size: (#GET{line-height}|strmult{1})em]; line-height: 1; margin-bottom: 1em; font-weight: bold;}
+#SET{coeff,#GET{line-height}|strplus{1}|strdiv{2}|strdiv{#GET{line-height}}}
+#SET{coeffinv,#VAL{1}|strdiv{#GET{coeff}}}
+h3,.h3 {[ font-size: (#GET{line-height}|strmult{#GET{coeff}})em];[ line-height: (#GET{coeffinv})em];[ margin-bottom: (#GET{coeffinv})em;]font-weight: bold; }
+#SET{coeff,#GET{line-height}|strplus{3}|strdiv{4}|strdiv{#GET{line-height}}}
+#SET{coeffinv,#VAL{1}|strdiv{#GET{coeff}}}
+h4,.h4,caption,.caption-wrap {[ font-size: (#GET{line-height}|strmult{#GET{coeff}})em];[ line-height: (#GET{coeffinv})em];[ margin-bottom: (#GET{coeffinv})em;]font-weight: bold; }
 h5,.h5 { font-size: 1em; font-weight: bold; margin-bottom: #GET{margin-bottom}; }
 h6,.h6 { font-size: 1em; font-weight: bold; }
 
-#haut h1,h1.grostitre {margin-top:[(#ENV{margin-bottom}|floatval|mult{1.5}|div{2}|div{#GET{line-height}|floatval})em]}
+#haut h1,h1.grostitre {margin-top:[(#ENV{margin-bottom}|strmult{1.5}|strdiv{2}|strdiv{#GET{line-height}})em]}
 
 /* Enrichissements typographiques */
 strong, b { font-weight: bold; }
@@ -99,7 +99,7 @@ table { margin-bottom: #GET{margin-bottom}; width: 100%; }
 th { font-weight: bold; }
 thead th {color:inherit; background: [#(#ENV{claire}|couleur_eclaircir{0.4})]; }
 table.spip td, table.spip th, /* annuler spip-styles */
-th,td,caption {[ padding: (#GET{line-height}|floatval|div{2})em;] }
+th,td,caption {[ padding: (#GET{line-height}|strdiv{2})em;] }
 
 tbody tr:nth-child(even) td,tbody tr:nth-child(even) th,
 tbody tr.even td,tbody tr.even th { background: [#(#ENV{claire}|couleur_eclaircir{0.80})]; }
@@ -140,7 +140,7 @@ ul.spip ul, #conteneur ul.spip ul { list-style: circle; }
 ol.spip, #conteneur ol.spip { list-style: decimal; margin-bottom:#ENV{margin-bottom};}
 
 ul.spip li, ol.spip li, #conteneur ul.spip li  {margin-#ENV{left}:#ENV{text-indent};}
-ul.spip li li, ol.spip li li, #conteneur ul.spip li li {margin-#ENV{left}:[(#ENV{text-indent}|floatval|div{2})px];}
+ul.spip li li, ol.spip li li, #conteneur ul.spip li li {margin-#ENV{left}:[(#ENV{text-indent}|strdiv{2})px];}
 
 /* Citations, code et poesie */
 /*blockquote.spip { margin: 2em 0; padding-left: 1em; border-left: 0.30em solid; }

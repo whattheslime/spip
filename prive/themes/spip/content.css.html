@@ -20,7 +20,7 @@
 /*  Habillage des elements du contenu
 /*  ------------------------------------------ */
 html {background-color:#eee;}
-#pied {font-size:0.9em;border-top:1px solid #ddd;background:#eee;margin-top:[(#ENV{margin-bottom}|floatval|div{0.9})em];padding-top:[(#ENV{margin-bottom}|floatval|div{0.9})em];overflow:hidden;}
+#pied {font-size:0.9em;border-top:1px solid #ddd;background:#eee;margin-top:[(#ENV{margin-bottom}|strdiv{0.9})em];padding-top:[(#ENV{margin-bottom}|strdiv{0.9})em];overflow:hidden;}
 #copyright {text-align:#ENV{right};}
 
 #chemin { overflow: hidden; margin: 0; padding: 0;	text-align:#ENV{left};}
@@ -96,7 +96,7 @@ li .puce_article_popup, li.puce_breve_popup,li.puce_site_popup { padding: 0; }*/
 #contenu .fiche_objet > .inner > .hd {padding-bottom: 0;}
 #contenu .fiche_objet > .inner > .bd {padding-top: 0;}
 
-.infos .instituer_objet {border-bottom:1px solid #eee;margin-bottom:[(#ENV{margin-bottom}|floatval|mult{0.5})em];}
+.infos .instituer_objet {border-bottom:1px solid #eee;margin-bottom:[(#ENV{margin-bottom}|strmult{0.5})em];}
 .infos .formulaire_instituer {background: none;border: 0;margin:0 -10px;}
 .infos .formulaire_instituer .reponse_formulaire {display: none;}
 .infos .formulaire_instituer ul {padding-bottom: 0;margin-bottom: 0;}
@@ -164,5 +164,5 @@ li .puce_article_popup, li.puce_breve_popup,li.puce_site_popup { padding: 0; }*/
 
 h2.titrem { display: block; padding-top: 6px; padding-bottom: 4px; background-repeat: no-repeat;padding-[(#ENV{left})]:16px;background-color: #ENV{claire};font-size:14px;}
 
-.aide .contenu-aide,.box_mediabox .contenu-aide {padding-top:[(#ENV{margin-bottom}|floatval|mult{1.0})em];}
+.aide .contenu-aide,.box_mediabox .contenu-aide {padding-top:[(#ENV{margin-bottom}|strmult{1.0})em];}
 .box_mediabox .contenu-aide {min-width:450px;margin-right: 15px;}
