@@ -37,6 +37,9 @@ if(!jQuery.spip.load_handlers) {
 	// intercept jQuery.fn.load
 	jQuery.spip.intercepted.load = jQuery.fn.load;
 	jQuery.fn.load = function( url, params, callback ) {
+		if ( typeof url !== "string") {
+			return jQuery.spip.intercepted.load.apply( this, arguments );
+		}
 
 		callback = callback || function(){};
 
@@ -94,6 +97,11 @@ if(!jQuery.spip.load_handlers) {
 		}
 		var s = jQuery.extend(true, {}, jQuery.ajaxSettings, settings);
 		var callbackContext = s.context || s;
+		try {
+			if (jQuery.ajax.caller==jQuery.spip.intercepted.load || jQuery.ajax.caller==jQuery.spip.intercepted.ajaxSubmit)
+				return jQuery.spip.intercepted.ajax(settings);
+		}
+		catch (err){}
 		var orig_complete = s.complete || function() {};
 		settings.complete = function(res,status) {
 			// Do not fire OnAjaxLoad if the dataType is not html
