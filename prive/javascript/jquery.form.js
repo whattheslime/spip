@@ -1,6 +1,6 @@
 /*!
  * jQuery Form Plugin
- * version: 4.1.0
+ * version: 4.2.1
  * Requires jQuery v1.7 or later
  * Copyright 2017 Kevin Morris
  * Copyright 2006 M. Alsup
@@ -145,7 +145,7 @@
 			options = {};
 		}
 
-		method = options.type || this.attr2('method');
+		method = options.method || options.type || this.attr2('method');
 		action = options.url || this.attr2('action');
 
 		url = (typeof action === 'string') ? $.trim(action) : '';
@@ -243,10 +243,13 @@
 		if (!options.dataType && options.target) {
 			var oldSuccess = options.success || function(){};
 
-			callbacks.push(function(data) {
-				var fn = options.replaceTarget ? 'replaceWith' : 'html';
+			callbacks.push(function(data, textStatus, jqXHR) {
+				var successArguments = arguments,
+					fn = options.replaceTarget ? 'replaceWith' : 'html';
 
-				$(options.target)[fn](data).each(oldSuccess, arguments);
+				$(options.target)[fn](data).each(function(){
+					oldSuccess.apply(this, successArguments);
+				});
 			});
 
 		} else if (options.success) {
@@ -343,6 +346,8 @@
 			var i, part;
 
 			for (i = 0; i < len; i++) {
+				// #252; undo param space replacement
+				serialized[i] = serialized[i].replace(/\+/g, ' ');
 				part = serialized[i].split('=');
 				// #278; use array instead of object storage, favoring array serializations
 				result.push([decodeURIComponent(part[0]), decodeURIComponent(part[1])]);
