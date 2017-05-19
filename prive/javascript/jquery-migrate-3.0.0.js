@@ -8,6 +8,10 @@
 
 jQuery.migrateVersion = "3.0.0";
 
+// Only turn warnings off if not already overridden
+if ( typeof jQuery.migrateMute === "undefined" ) {
+	jQuery.migrateMute = true;
+}
 
 ( function() {
 
