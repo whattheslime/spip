@@ -1,3 +1,28 @@
+SPIP-Core spip-3.0.25 -> spip-3.0.26  08 juin 2017
+-------------------------------------------------------------
+
+r23474 | marcimat  |  (dim. 12 mars 2017) | Non exécutable.
+r23504 | marcimat  |  (ven. 28 avril 2017) | report de r23502 : Correction d'un problème avec url_de_() depuis r23077 : une URL dans la query string faisait echouer le calcul correct.On enlève la query string avant d'analyser si on a affaire à un "vieux mode http" …Test unitaire ajouté aussi en https://zone.spip.org/trac/spip-zone/changeset/104118 du coup.
+r23567 | cedric    |  (mer. 31 mai 2017) | Report de r23565 : On reintegre facebookexternalhit dans la liste des bots, car on ne veut pas le compter en statistiques, mais on ajoute une constante _IS_BOT_FRIEND qui matche facebookexternalhitLes botfriend ne sont pas rejetes d'un coup de 503 en cas de surcharge serveur, pour eviter les partages sociaux rates
+r23571 | guytarr   |  (dim. 04 juin 2017) | report de c21800, c'est un oubli je suppose
+
+SPIP-plugins-dist spip-3.0.25 -> spip-3.0.26  08 juin 2017
+-------------------------------------------------------------
+
+r103243 | Francky   |  (sam. 11 mars 2017) | DMOZ ferme le 14/03/2017http://www.generation-nt.com/dmoz-fermeture-annuaire-sites-web-actualite-1940186.html
+r103293 | Francky   |  (ven. 17 mars 2017) | Report de https://zone.spip.org/trac/spip-zone/changeset/103292
+r103329 | Francky   |  (sam. 18 mars 2017) | accents + ajout du "s" au lien de doc
+r103330 | Francky   |  (sam. 18 mars 2017) | coquille
+r103416 | Francky   |  (lun. 20 mars 2017) | Un fichier de langue qui ne sert à rien
+r104359 | Francky   |  (lun. 08 mai 2017) | spip.net est maintenant en https, donc j'ajoute le "s" à http
+r104360 | Francky   |  (lun. 08 mai 2017) | code.spip est maintenant en https, donc j'ajoute le "s" à http
+r104361 | Francky   |  (lun. 08 mai 2017) | - Ce n'est plus http://programmer.spip.org mais http://programmer.spip.net- programmer.spip est maintenant en https, donc, j'ajoute le"s"
+r104362 | Francky   |  (lun. 08 mai 2017) | plugins.spip est maintenant en https, donc j'ajoute le "s" à http
+r104363 | Francky   |  (lun. 08 mai 2017) | contrib.spip est maintenant en https, donc, j'ajoute le "s" à http
+r104364 | Francky   |  (lun. 08 mai 2017) | trad.spip est maintenant en https, donc j'ajoute le "s" à http
+r104365 | Francky   |  (lun. 08 mai 2017) | zone.spip est maintenant en https, donc, j'ajoute le "s" à http
+r104644 | Francky   |  (jeu. 25 mai 2017) | Report de commit de gyutarr :- https://zone.spip.org/trac/spip-zone/changeset/104221- https://zone.spip.org/trac/spip-zone/changeset/104224- https://zone.spip.org/trac/spip-zone/changeset/104236- https://zone.spip.org/trac/spip-zone/changeset/104237
+
 SPIP-Core spip-3.0.24 -> spip-3.0.25  06 mars 2017
 -------------------------------------------------------------
 
