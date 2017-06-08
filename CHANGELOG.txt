@@ -1,4 +1,52 @@
 
+SPIP-Core spip-3.1.4 -> spip-3.1.5  08 juin 2017
+-------------------------------------------------------------
+
+r23473 | marcimat  |  (dim. 12 mars 2017) | Non exécutable.
+r23488 | b_b       |  (sam. 25 mars 2017) | report de r23487Fix #3925 : réparer la validation du dateur quand il est validé par la touche entrée
+r23490 | cedric    |  (mar. 28 mars 2017) | Fix syntaxe jQuery.ajax(url,settings) qui etait cassee par la surcharge de spip
+r23493 | marcimat  |  (sam. 08 avril 2017) | Report de r23492 : Depuis r17563 il était devenu impossible d'éditer un champ 'chapo' commençant par un signe =, car un bout de code autour des anciennes redirections était discrètement resté dans le formulaire d'édition d'article.
+r23496 | marcimat  |  (sam. 08 avril 2017) | Report de r23495 : Permettre de surcharger la fonction qui teste les redirections d'articles (un plugin arrive qui gère d'autres objets éditoriaux)
+r23497 | marcimat  |  (ven. 14 avril 2017) | r21289 introduisait un bug avec le sélecteur générique avec les articles. Les rubriques avaient déjà été corrigées par r22737. On reporte cette correction sur la hiérarchie des articles également.
+r23500 | rasta     |  (mer. 26 avril 2017) | Correction d'une régression en 3.1 : pour generer_info_entite() l'application des traitements a été déporté dans une fonction dédiée appliquer_traitement_champ() mais en oubliant d'y reporter le chargement des filtres de texte qui était toujours là en 3.0. Car la plupart des traitements pré-définis en ont besoin (propre, typo etc) et il ne faut pas partir du principe que c'est déjà chargé (form ajax ou autre) : c'est quand on les applique qu'on doit être sûr de les avoir. Du coup ça faisait erreur PHP bien sûr.
+r23503 | marcimat  |  (ven. 28 avril 2017) | Report de r23502 : Correction d'un problème avec url_de_() depuis r23077 : une URL dans la query string faisait echouer le calcul correct.On enlève la query string avant d'analyser si on a affaire à un "vieux mode http" …Test unitaire ajouté aussi en https://zone.spip.org/trac/spip-zone/changeset/104118 du coup.
+r23516 | erational |  (jeu. 04 mai 2017) | report de r23515 : double definition CSS
+r23524 | cedric    |  (ven. 05 mai 2017) | Report de r23521 : Fix #3631 : les articles en cours de redaction sont visualisables en previsu par les admins (autorisation surchargeable autoriser(previsualiserredac,article)
+r23525 | cedric    |  (ven. 05 mai 2017) | Report de r23523 : Fix #3655 : on peut utiliser une class noscroll sur les boutons action des listes ajax, ou sur les submit des forms ajax (complete donc r18894)
+r23527 | cedric    |  (ven. 05 mai 2017) | Report de r23526 : Fix #3763 : la page exec=infos_perso est redirigee vers la page exec=auteur&id_auteur=xx de l'auteur connecte, qui reprend les nglets d'acces aux pages de preference perfoDans le header, on met l'id_auteur de l'auteur connecte au survol de son nom (dans le title) pour permettre de le retrouver. L'url reste  exec=infos_perso car elle n'est de toute facon pas visible dans tous les navigateurs. On a garde cette URL car on ne sait pas definir exec=auteur&id_auteur=xx  dans la definition de l'onglet dans le paquet.xml
+r23533 | cedric    |  (sam. 06 mai 2017) | Report de r23532 : Fix #3562 : jQuery.load appelle jQuery.ajax, et dans ce cas ce dernier ne doit pas appeler triggerAjaxLoadPour corriger ca on passe un triggerAjaxLoad:false en data, qui est ensuite vide par jQuery.ajax
+r23535 | cedric    |  (sam. 06 mai 2017) | Report de r23534 : Fix cas borderline si dans mes_options on appelle redirige_par_entete qui utilise _T et charge un fichier de langue on a pas encore inclus flock.php
+r23546 | cedric    |  (dim. 07 mai 2017) | Report de r23545 : Fix #3807 : limiter le nombre de sessions maxi d'un auteur quand on en ouvre une nouvelle ou quand on actualise les sessionsSi plus que le seuil defini par la constante _NB_SESSIONS_MAX les plus anciennes sont supprimees
+r23550 | cedric    |  (mar. 09 mai 2017) | la fonction jQuery.fn.load peut etre appellee avec une fonction en argument, et il ne faut pas casser ce cas d'usage (ce que faisait r23533 par erreur) - on retablit aussi le try/catch sur le caller pour le cas ajaxSubmit
+r23553 | marcimat  |  (lun. 15 mai 2017) | Report de r23552 : Coquille dans r23545 (Francky)
+r23559 | guytarr   |  (sam. 20 mai 2017) | report de 23308 : Introduction d'un pipeline 'formulaire_receptionner' qui est exécuté au moment où une personne poste un formulaire, mais avant de passer dans la fonction de vérification prévu par ce formulaire.Cela permet pour l'usage que j'ai, de modifier $_FILES (sauvegarder / compléter) avant que la fonction verifier() s'en occupe. Notamment, si on utilisait le pipeline 'verifier' on arrivait trop tard.La clé 'data' du pipeline n'a pas d'utilité pour l'instant et pour mon usage, du coup je la laisse à null. Peut être que quelqu'un·e trouvera un usage un jour :)(et bigup pour marcimat)
+r23564 | b_b       |  (mer. 31 mai 2017) | report de r23563une classe webmestre_(oui|non) sur le body de l'espace privé
+r23566 | cedric    |  (mer. 31 mai 2017) | Report de r23565 : On reintegre facebookexternalhit dans la liste des bots, car on ne veut pas le compter en statistiques, mais on ajoute une constante _IS_BOT_FRIEND qui matche facebookexternalhitLes botfriend ne sont pas rejetes d'un coup de 503 en cas de surcharge serveur, pour eviter les partages sociaux rates
+
+SPIP-plugins-dist spip-3.1.4 -> spip-3.1.5  08 juin 2017
+-------------------------------------------------------------
+
+r103218 | cedric    |  (ven. 10 mars 2017) | 2 bugfixes : selecteur image n'etait pas pris en compte, et il faut passer aussi speed et transition quand on utilise $.mediabox()
+r103243 | Francky   |  (sam. 11 mars 2017) | DMOZ ferme le 14/03/2017http://www.generation-nt.com/dmoz-fermeture-annuaire-sites-web-actualite-1940186.html
+r103292 | real3t    |  (ven. 17 mars 2017) | Autre url pour le moteur de recherche Lilo
+r103328 | Francky   |  (sam. 18 mars 2017) | Accents + ajout du "s" au lien de doc + suppression d'une balise qui avait été ajouté au moment ou spip 3.1 était en dev et dont les borne de comptabilité étaient n'importe quoi
+r103416 | Francky   |  (lun. 20 mars 2017) | Un fichier de langue qui ne sert à rien
+r103990 | marcimat  |  (mar. 18 avril 2017) | Le champ crédits est parfois un peu court (ici j'avais des lonnnngues URLs dedans) et elles étaient coupées.On passe ce champ en 'text' déjà (65000 caractères). Ça sera déjà mieux.
+r104164 | marcimat  |  (jeu. 04 mai 2017) | Report de r104161 : Fixes #3756 : Utiliser le bon événement sur la restauration de l'état des dépliements dans le plan du site : l'événement 'restore_state' ne se chargeaitque si un état avait déjà été sauvegardé. Il faut utiliser 'state_ready' à la place. Du coup, les liens sont bien clicables dans tous les cas. (merci b_b pour le soutien)
+r104181 | erational |  (ven. 05 mai 2017) | report de r104180 - en cas d'appel en pop-in, on ajoute un bouton enregistrer en haut pour l'ergonomie
+r104187 | erational |  (ven. 05 mai 2017) | report de r104186 - en responsive, on linéarise les tableaux (au lieu du scroll proposé par tinytypo)
+r104216 | cedric    |  (sam. 06 mai 2017) | Report de r104215 : Fix https://core.spip.net/issues/3633 : un appel de mediabox sur une collection vide jQuery().mediabox(...) ou jQuery('#truc').mediabox() n'ouvre plus la box. On peut le faire par le shorthand jQuery.mediabox()
+r104359 | Francky   |  (lun. 08 mai 2017) | spip.net est maintenant en https, donc j'ajoute le "s" à http
+r104360 | Francky   |  (lun. 08 mai 2017) | code.spip est maintenant en https, donc j'ajoute le "s" à http
+r104361 | Francky   |  (lun. 08 mai 2017) | - Ce n'est plus http://programmer.spip.org mais http://programmer.spip.net- programmer.spip est maintenant en https, donc, j'ajoute le"s"
+r104362 | Francky   |  (lun. 08 mai 2017) | plugins.spip est maintenant en https, donc j'ajoute le "s" à http
+r104363 | Francky   |  (lun. 08 mai 2017) | contrib.spip est maintenant en https, donc, j'ajoute le "s" à http
+r104364 | Francky   |  (lun. 08 mai 2017) | trad.spip est maintenant en https, donc j'ajoute le "s" à http
+r104422 | real3t    |  (mar. 09 mai 2017) | Compatibilité avec http://core.spip.org/projects/spip/repository/revisions/23533
+r104621 | b_b       |  (mar. 23 mai 2017) | report de r104620 / Fix #3951 : réparer la détection automatique des sites en https
+r104642 | Francky   |  (jeu. 25 mai 2017) | Report de https://zone.spip.org/trac/spip-zone/changeset/104221/ et https://zone.spip.org/trac/spip-zone/changeset/104224 de guytarr
+r104643 | Francky   |  (jeu. 25 mai 2017) | Il manquait encore des report https://zone.spip.org/trac/spip-zone/changeset/104236 et https://zone.spip.org/trac/spip-zone/changeset/104237 ( guytarr )
+
 SPIP-Core spip-3.1.3 -> spip-3.1.4  06 mars 2017
 -------------------------------------------------------------
 
