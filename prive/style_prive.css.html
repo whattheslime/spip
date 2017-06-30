@@ -13,5 +13,5 @@
 #HTTP_HEADER{Content-Type: text/css; charset=iso-8859-15}
 #HTTP_HEADER{Vary: Accept-Encoding}
 
-[(#SET{fond,[(#VAL{style_prive.css.html}|find_in_theme|substr{[(#VAL{_DIR_RACINE}|constant|strlen)],[(#VAL{-5}|intval)]})]})]
+[(#SET{fond,[(#VAL{style_prive.css.html}|find_in_theme|substr{[(#CONST{_DIR_RACINE}|strlen)],[(#VAL{-5}|intval)]})]})]
 [(#INCLURE{fond=#GET{fond},env})]
