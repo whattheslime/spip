@@ -20,7 +20,7 @@
 					type="submit"
 					class="vignette_reducteur[(#ENV{image_process}|=={#GET{process}}|oui)on]"
 					style="background-image:url((#GET{process}|url_vignette_choix));"
-					name="image_process_#EVAL{chr(91)}[(#GET{process})]#EVAL{chr(93)}">
+					name="image_process_\[#GET{process}\]">
 				[(#GET{process}|strtoupper)]
 				</button>]
 				#SET{process,gd2}
@@ -28,7 +28,7 @@
 					type="submit"
 					class="vignette_reducteur[(#ENV{image_process}|=={#GET{process}}|oui)on]"
 					style="background-image:url((#GET{process}|url_vignette_choix));"
-					name="image_process_#EVAL{chr(91)}[(#GET{process})]#EVAL{chr(93)}">
+					name="image_process_\[#GET{process}\]">
 				[(#GET{process}|strtoupper)]
 				</button>]
 				#SET{process,netpbm}
@@ -36,7 +36,7 @@
 					type="submit"
 					class="vignette_reducteur[(#ENV{image_process}|=={#GET{process}}|oui)on]"
 					style="background-image:url((#GET{process}|url_vignette_choix));"
-					name="image_process_#EVAL{chr(91)}[(#GET{process})]#EVAL{chr(93)}">
+					name="image_process_\[#GET{process}\]">
 				[(#GET{process}|strtoupper)]
 				</button>]
 				#SET{process,imagick}
@@ -44,7 +44,7 @@
 					type="submit"
 					class="vignette_reducteur[(#ENV{image_process}|=={#GET{process}}|oui)on]"
 					style="background-image:url((#GET{process}|url_vignette_choix));"
-					name="image_process_#EVAL{chr(91)}[(#GET{process})]#EVAL{chr(93)}">
+					name="image_process_\[#GET{process}\]">
 				[(#GET{process}|strtoupper)]
 				</button>]
 				#SET{process,convert}
@@ -52,7 +52,7 @@
 					type="submit"
 					class="vignette_reducteur[(#ENV{image_process}|=={#GET{process}}|oui)on]"
 					style="background-image:url((#GET{process}|url_vignette_choix));"
-					name="image_process_#EVAL{chr(91)}[(#GET{process})]#EVAL{chr(93)}">
+					name="image_process_\[#GET{process}\]">
 				[(#GET{process}|strtoupper)]
 				</button>]
 				</div>

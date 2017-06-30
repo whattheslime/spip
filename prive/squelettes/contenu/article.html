@@ -63,7 +63,7 @@
 #PIPELINE{afficher_complement_objet,#ARRAY{args,#ARRAY{type,article,id,#ID_ARTICLE},data,'<div class="nettoyeur"></div>'}}
 
 #BOITE_FERMER
-[(#EVAL{_AJAX}|oui)
+[(#CONST{_AJAX}|oui)
 	<script type="text/javascript">/*<!\[CDATA\[*/reloadExecPage('#ENV{exec}','#navigation,#chemin,#extra');/*\]\]>*/</script>
 ]
 </BOUCLE_article>

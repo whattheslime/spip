@@ -41,7 +41,7 @@
 	[(#PIPELINE{affiche_auteurs_interventions,#ARRAY{args,#ARRAY{id_auteur,#ID_AUTEUR},data,#INCLURE{fond=prive/objets/liste/articles,id_auteur,statut=#GET{statuts},par=date,titre=<:info_articles_auteur:>,env,ajax}}})]
 ]
 
-[(#EVAL{_AJAX}|oui)
+[(#CONST{_AJAX}|oui)
 	<script type="text/javascript">/*<!\[CDATA\[*/reloadExecPage('#ENV{exec}','#navigation,#extra');/*\]\]>*/</script>
 ]
 </BOUCLE_auteur>

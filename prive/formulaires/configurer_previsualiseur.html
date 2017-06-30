@@ -15,11 +15,11 @@
 				<span class='erreur_message'>(#GET{erreurs})</span>
 				]
 				<div class="choix">
-					<input type="checkbox" name="#GET{name}#EVAL{chr(91)}#EVAL{chr(93)}" id="#GET{name}_0minirezo" value="0minirezo"
+					<input type="checkbox" name="#GET{name}\[\]" id="#GET{name}_0minirezo" value="0minirezo"
 					[(#VAL{0minirezo}|in_any{#ENV{#GET{name}}}|oui)checked="checked"] /><label for="#GET{name}_0minirezo"><:info_administrateurs:></label>
 				</div>
 				<div class="choix">
-					<input type="checkbox" name="#GET{name}#EVAL{chr(91)}#EVAL{chr(93)}" id="#GET{name}_1comite" value="1comite"
+					<input type="checkbox" name="#GET{name}\[\]" id="#GET{name}_1comite" value="1comite"
 					[(#VAL{1comite}|in_any{#ENV{#GET{name}}}|oui)checked="checked"] /><label for="#GET{name}_1comite"><:info_redacteurs:></label>
 				</div>
 			</div>

@@ -17,7 +17,7 @@
 <:form_forum_voici1{nom_site_spip=#NOM_SITE_SPIP,adresse_site=#GET{url_site},adresse_login=#GET{url_login}}:>
 ]
 [(#ENV{mode}|=={6forum}|non)
-#SET{url_login,#URL_SITE_SPIP|concat{'/',#EVAL{_DIR_RESTREINT_ABS}}}
+#SET{url_login,#URL_SITE_SPIP|concat{'/',#CONST{_DIR_RESTREINT_ABS}}}
 <:form_forum_voici2{nom_site_spip=#NOM_SITE_SPIP,adresse_site=#GET{url_site},adresse_login=#GET{url_login}}:>
 ]
 
