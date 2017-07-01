@@ -10,7 +10,7 @@
 		<ul class="liste-items">
 			<BOUCLE_jobs(jobs){par date}{pagination 20}>
 				<li class="item[ (#STATUS|?{'scheduled','pending'})]">
-					<div class="date">[(#DATE|date_relative)][ (#STATUS|non)(en cours)][(#PRIORITE|oui)&#91;#PRIORITE&#93;]</div>
+					<div class="date">[(#DATE|date_relative)][ (#STATUS|non)(en cours)] [(#PRIORITE|oui)<span title="<:queue_priorite_tache:>">\[#PRIORITE\]</span>]</div>
 					[<strong class="description">(#DESCRIPTIF|PtoBR)</strong>]
 					[<span class="small">| #FONCTION((#ARGS|unserialize|implode{','}))</span>]
 					[(#AUTORISER{'annuler','job',#ID_JOB}|oui)
