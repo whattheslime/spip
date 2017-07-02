@@ -5,7 +5,7 @@
 	<form method='post' action='#ENV{action}'><div>
 		[(#REM) declarer les hidden qui declencheront le service du formulaire
 		parametre : url d'action ]
-		#ACTION_FORMULAIRE{#ENV{action}}
+		#ACTION_FORMULAIRE
 		<input type="hidden" name="visible" value="#ENV{visible,0}" id="visible-#ENV{id}"/>
 	  <div class="over"><span class='image_loading'>&nbsp;</span><input type='submit' class='submit' value='<:bouton_changer:>' /></div>
 	]

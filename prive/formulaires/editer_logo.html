@@ -8,7 +8,7 @@
 	<form method='post' action='#ENV{action}' enctype='multipart/form-data'><div>
 		[(#REM) declarer les hidden qui declencheront le service du formulaire 
 		parametre : url d'action ]
-		#ACTION_FORMULAIRE{#ENV{action}}
+		#ACTION_FORMULAIRE
 		[(#REM) un submit pour attraper la touche entree]
 		<div style="display:none;"><input type='submit' class='submit' value='<:bouton_upload:>' /></div>
 	]

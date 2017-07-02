@@ -8,7 +8,7 @@
 	<form method='post' action='#ENV{action}'><div>
 		[(#REM) declarer les hidden qui declencheront le service du formulaire
 		parametre : url d'action ]
-		#ACTION_FORMULAIRE{#ENV{action}}
+		#ACTION_FORMULAIRE
 		<input type='submit' class='submit' value='<:bouton_enregistrer:>' style="display:none;"/>
 		<div class="editer-groupe">
 			#SET{name,http_proxy}#SET{erreurs,#ENV**{erreurs}|table_valeur{#GET{name}}}
