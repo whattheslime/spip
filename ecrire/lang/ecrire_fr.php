@@ -725,7 +725,7 @@ dans une couleur qui indique leur état :',
 	'queue_next_job_in_nb_sec' => 'Prochain travail dans @nb@ s',
 	'queue_no_job_in_queue' => 'Aucun travail en attente',
 	'queue_one_job_in_queue' => '1 travail en attente',
-	'queue_priorite_tache' => 'Priorité de la tâche',
+	'queue_priorite_tache' => 'priorité',
 	'queue_purger_queue' => 'Réinitialiser la liste des travaux',
 	'queue_titre' => 'Liste des travaux',
 
