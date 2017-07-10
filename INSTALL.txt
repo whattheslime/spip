@@ -1,4 +1,3 @@
-
 ###### Installation de SPIP ######
 
 Rendez-vous avec votre navigateur sur la page ecrire/

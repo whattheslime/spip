@@ -17,13 +17,6 @@
 		</div>
 	</B_restreintes>
 
-	[(#EVAL{$_COOKIE}|table_valeur{spip_admin}|oui)
-		[(#SELF|parametre_url{action,cookie}|parametre_url{cookie_admin,non}|parametre_url{redirect,#SELF}|icone_horizontale{<:icone_supprimer_cookie:>,cookie-24.png,delsafe})]
-	][(#EVAL{$_COOKIE}|table_valeur{spip_admin}|non)
-		<p><:info_activer_cookie:> #AIDER{cookie}</p>
-
-		[(#SELF|parametre_url{action,cookie}|parametre_url{cookie_admin,@#SESSION{login}}|parametre_url{redirect,#SELF}|icone_horizontale{<:icone_activer_cookie:>,cookie-24.png})]
-	]
 #BOITE_FERMER
 
 [(#BOITE_OUVRIR{[[(#AUTORISER{configurer}|oui)
