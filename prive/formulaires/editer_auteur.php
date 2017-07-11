@@ -215,10 +215,10 @@ function formulaires_editer_auteur_verifier_dist(
 			} elseif ($email === false) {
 				$erreurs['message_erreur'] = _T('message_nouveaux_identifiants_echec_envoi');
 			} else {
-				$erreurs['message_erreur'] = _T('message_nouveaux_identifiants_echec_creation');
+				$erreurs['message_erreur'] = _T('message_nouveaux_identifiants_echec');
 			}
 		} else {
-			$erreurs['message_erreur'] = _T('message_nouveaux_identifiants_echec_creation');
+			$erreurs['message_erreur'] = _T('message_nouveaux_identifiants_echec');
 		}
 		return $erreurs;
 	}
