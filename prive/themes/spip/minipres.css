@@ -89,6 +89,7 @@ select { font-size: 120%; }
 ---------------------------------------------- */
 
 .petit-centre { width: 300px; margin: auto; margin-bottom: 20px; text-align: center; }
+.petit-centre .logo { margin-bottom: 20px; }
 
 .toile_foncee { background: #777; }
 
