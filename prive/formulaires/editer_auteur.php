@@ -153,8 +153,19 @@ function formulaires_editer_auteur_verifier_dist(
 ) {
 	// auto-renseigner le nom si il n'existe pas, sans couper
 	titre_automatique('nom', array('email', 'login'), 255);
+
+	$oblis = array('nom');
+	// si on veut renvoyer des identifiants il faut un email et un login
+	if (_request('reset_password')) {
+		$oblis[] = 'email';
+		$oblis[] = 'new_login';
+	}
 	// mais il reste obligatoire si on a rien trouve
-	$erreurs = formulaires_editer_objet_verifier('auteur', $id_auteur, array('nom'));
+	$erreurs = formulaires_editer_objet_verifier('auteur', $id_auteur, $oblis);
+	if (isset($erreurs['new_login'])) {
+		$erreurs['login'] = $erreurs['new_login'];
+		unset($erreurs['new_login']);
+	}
 
 	$auth_methode = sql_getfetsel('source', 'spip_auteurs', 'id_auteur=' . intval($id_auteur));
 	$auth_methode = ($auth_methode ? $auth_methode : 'spip');
@@ -205,21 +216,9 @@ function formulaires_editer_auteur_verifier_dist(
 		}
 	}
 
-	if (!count($erreurs) and _request('reset_password')) {
-		$auteur = sql_fetsel('*', 'spip_auteurs', 'id_auteur=' . intval($id_auteur));
-		$config = auteurs_edit_config($auteur);
-		if ($config['edit_pass']) {
-			if ($email = auteur_regenerer_identifiants($id_auteur)) {
-				$erreurs['message_ok'] = _T('message_nouveaux_identifiants_ok', array('email' => $email));
-				$erreurs['message_erreur'] = '';
-			} elseif ($email === false) {
-				$erreurs['message_erreur'] = _T('message_nouveaux_identifiants_echec_envoi');
-			} else {
-				$erreurs['message_erreur'] = _T('message_nouveaux_identifiants_echec');
-			}
-		} else {
-			$erreurs['message_erreur'] = _T('message_nouveaux_identifiants_echec');
-		}
+	// quand c'est un auteur existant on fait le reset password ici
+	if (!count($erreurs) and _request('reset_password') and intval($id_auteur)) {
+		$erreurs = auteur_reset_password($id_auteur, $erreurs);
 		return $erreurs;
 	}
 
@@ -348,6 +347,19 @@ function formulaires_editer_auteur_traiter_dist(
 
 	$res = formulaires_editer_objet_traiter('auteur', $id_auteur, 0, 0, $retour, $config_fonc, $row, $hidden);
 
+	if (_request('reset_password') and !intval($id_auteur) and intval($res['id_auteur'])) {
+		$erreurs = array();
+		$erreurs = auteur_reset_password($res['id_auteur'], $erreurs);
+		if (isset($erreurs['message_ok'])) {
+			if (!isset($res['message_ok'])) $res['message_ok'] = '';
+			$res['message_ok'] = trim($res['message_ok'] . ' ' . $erreurs['message_ok']);
+		}
+		if (isset($erreurs['message_erreur']) and $erreurs['message_erreur']) {
+			if (!isset($res['message_erreur'])) $res['message_erreur'] = '';
+			$res['message_erreur'] = trim($res['message_erreur'] . ' ' . $erreurs['message_erreur']);
+		}
+	}
+
 	// Un lien auteur a prendre en compte ?
 	if ($associer_objet and $id_auteur = $res['id_auteur']) {
 		$objet = '';
@@ -369,6 +381,26 @@ function formulaires_editer_auteur_traiter_dist(
 	return $res;
 }
 
+
+function auteur_reset_password($id_auteur, $erreurs = array()) {
+	$auteur = sql_fetsel('*', 'spip_auteurs', 'id_auteur=' . intval($id_auteur));
+	$config = auteurs_edit_config($auteur);
+
+	if ($config['edit_pass']) {
+		if ($email = auteur_regenerer_identifiants($id_auteur)) {
+			$erreurs['message_ok'] = _T('message_nouveaux_identifiants_ok', array('email' => $email));
+			$erreurs['message_erreur'] = '';
+		} elseif ($email === false) {
+			$erreurs['message_erreur'] = _T('message_nouveaux_identifiants_echec_envoi');
+		} else {
+			$erreurs['message_erreur'] = _T('message_nouveaux_identifiants_echec');
+		}
+	} else {
+		$erreurs['message_erreur'] = _T('message_nouveaux_identifiants_echec');
+	}
+
+	return $erreurs;
+}
 
 /**
  * Renvoyer des identifiants
