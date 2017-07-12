@@ -410,6 +410,7 @@ prive/images/arrow_right.gif -text
 prive/images/deplierbas.gif -text
 prive/images/deplierhaut.gif -text
 prive/images/deplierhaut_rtl.gif -text
+prive/images/favicon.png -text
 prive/images/feed.png -text
 prive/images/fleche-left.png -text
 prive/images/fleche-right.png -text
@@ -590,6 +591,7 @@ prive/squelettes/inclure/barre-nav.html -text
 prive/squelettes/inclure/barre-nav_fonctions.php -text
 prive/squelettes/inclure/cfg.html -text
 prive/squelettes/inclure/configurer.html -text
+prive/squelettes/inclure/favicon-head.html -text
 prive/squelettes/inclure/head.html -text
 prive/squelettes/inclure/menu-navigation_fonctions.php -text
 prive/squelettes/inclure/pied.html -text
