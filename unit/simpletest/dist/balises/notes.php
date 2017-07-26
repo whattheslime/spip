@@ -71,11 +71,11 @@ class Test_balise_notes extends SpipTest{
 		$this->assertPattern('/Pinguin en bas de page/', $note2);
 		$this->assertPattern('/Marmotte en bas de page/', $note2);
 		
-		$this->viderNotes();		
+		$this->viderNotes();
 	}
 	// en ne vidant pas les notes
 	// les identifiant des renvois changent
-	function testNoteDoubleDeuxFoisEtUnCalcul(){	
+	function testNoteDoubleDeuxFoisEtUnCalcul(){
 		$texte =  propre("Texte avant [[Note en bas de page]] texte apres [[Seconde note en bas de page]]");
 		$texte2 =  propre("Autre avant [[Pinguin en bas de page]] autre apres [[Marmotte en bas de page]]");
 		$note = calculer_notes();
@@ -83,17 +83,17 @@ class Test_balise_notes extends SpipTest{
 		$this->assertPattern('/#nb1/', $texte);
 		$this->assertPattern('/#nb2/', $texte);
 		$this->assertPattern('/#nb3/', $texte2);
-		$this->assertPattern('/#nb4/', $texte2);		
+		$this->assertPattern('/#nb4/', $texte2);
 		
 		$this->assertPattern('/Note en bas de page/', $note);
 		$this->assertPattern('/Seconde note en bas de page/', $note);
 		$this->assertPattern('/Pinguin en bas de page/', $note);
 		$this->assertPattern('/Marmotte en bas de page/', $note);
 		
-		$this->viderNotes();		
+		$this->viderNotes();
 	}
 	
-	function testNoteDoubleCoupeParModele(){	
+	function testNoteDoubleCoupeParModele(){
 		$texte =  propre("Texte avant [[Note en bas de page]] <img1> [[Seconde note en bas de page]]");
 		$this->assertPattern('/#nb1/', $texte);
 		$this->assertPattern('/#nb2/', $texte);
@@ -101,7 +101,7 @@ class Test_balise_notes extends SpipTest{
 		$note = calculer_notes();
 		$this->assertPattern('/Note en bas de page/', $note);
 		$this->assertPattern('/Seconde note en bas de page/', $note);
-		$this->viderNotes();						
+		$this->viderNotes();
 	}
 	
 	/**

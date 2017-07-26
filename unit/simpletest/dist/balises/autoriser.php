@@ -34,10 +34,10 @@ class Test_balise_autoriser extends SpipTest{
 			return true;
 		}		
 		$this->assertTrue(autoriser('chiparder','carottes'));
-		$this->assertTrue(autoriser('carottes','chiparder'));			
-	}	
-	
-	
+		$this->assertTrue(autoriser('carottes','chiparder'));
+	}
+
+
 	function testAutoriserVerifAuteur(){
 		function autoriser_moimeme($faire, $type, $id, $qui, $opt){
 			if (!$id)
