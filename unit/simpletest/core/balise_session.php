@@ -31,8 +31,8 @@ class Test_balise_session extends SpipTest{
 
 class Test_balise_session_set extends SpipTest{
 	function testSessionSet(){
-		$set = "#CACHE{0}#SESSION_SET{bonbon,caramel}--";
-		$get = "#CACHE{0}[(#SESSION{bonbon})]--";
+		$set = "#HTTP_HEADER{Content-type: text/html}#CACHE{0}#SESSION_SET{bonbon,caramel}--";
+		$get = "#HTTP_HEADER{Content-type: text/html}#CACHE{0}[(#SESSION{bonbon})]--";
 		$diversion = "Page de publicite...";
 
 		$this->recuperer_code($set);
