@@ -43,12 +43,12 @@ $(function(){
 				$(this).parent().removeClass('todo');
 				if (e.match(/^\s*OK/)) {
 					$(this).prev().html(e).parent().addClass('ok');
-					if ($(this).parent().siblings('dd:not(.ok):not(.na)').size() == 0)
+					if ($(this).parent().siblings('dd:not(.ok):not(.na)').length == 0)
 						$(this).parent().parent().addClass('ok');
 					$('#succes').html(parseInt($('#succes').text())+1);
 				} else if (e.match(/^\s*NA/)) {
 					$(this).prev().html(e).parent().addClass('na');
-					if ($(this).parent().siblings('dd:not(.ok):not(.na)').size() == 0)
+					if ($(this).parent().siblings('dd:not(.ok):not(.na)').length == 0)
 						$(this).parent().parent().addClass('ok');
 				} else {
 					$(this).prev().html('erreur').parent().addClass('erreur');
