@@ -24,6 +24,22 @@ class Test_balise_eval extends SpipTest{
 		$this->assertEqualCode(20,'#EVAL{3*5+5}');
 	}
 }
+
+class Test_balise_const extends SpipTest{
+	function testBaliseConstVide() {
+		$this->assertEqualCode('', '#CONST');
+		$this->assertEqualCode('', '#CONST{\'\'}');
+	}
+	function testBaliseConstInconnue() {
+		$this->assertEqualCode('', '#CONST{\'une_constante_inconnue\'}');
+	}
+	function testBaliseConstExistante() {
+		$this->assertEqualCode(_DIR_CACHE,'#CONST{\'_DIR_CACHE\'}');
+		$this->assertEqualCode(_DIR_CACHE,'#CONST{_DIR_CACHE}');
+		$this->assertEqualCode(_DIR_CACHE,'#SET{c,_DIR_CACHE}#CONST{#GET{c}}');
+	}
+}
+
 /* pas au point
 class Test_balise_self extends SpipTest{
 	function testBaliseSelf(){
