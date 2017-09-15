@@ -461,6 +461,8 @@ function self($amp = '&amp;', $root = false) {
 	// eviter les hacks
 	include_spip('inc/filtres_mini');
 	$url = spip_htmlspecialchars($url);
+	
+	$url = str_replace(array("'", '"', '<', '[', ']'), array('%27', '%22', '%3C', '%5B', '%5D'), $url);
 
 	// &amp; ?
 	if ($amp != '&amp;')
