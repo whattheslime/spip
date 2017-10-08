@@ -90,10 +90,13 @@ function tester_fun($fun, $essais, $opts = array())
 				$res = call_user_func_array($fun, $copy);
 		}
 		$ok = false;
-		#var_dump($res);
+		$expected = null;
+		$affdiff =  true;
 		if (is_array($ess) and is_array($ess[0]) and isset($ess[0][0])
 			&& is_string($ess[0][0]) && function_exists($ess[0][0]) && isset($ess[0][1]) && isset($ess[0][2])) {
 			$ok = ($ess[0][0]($ess[0][1],$res)==$ess[0][2]);
+			$expected = $ess[0][0]."(".sql_quote($ess[0][1]).", \$res) == " . sql_quote($ess[0][2]);
+			$affdiff = false;
 		} else {
 			$ok = test_equality($res,$ess[0]);
 		}
@@ -104,11 +107,12 @@ function tester_fun($fun, $essais, $opts = array())
 			for ($iarg = 1; $iarg < count($ess); ++$iarg) {
 				$erritem_args[] = htmlspecialchars(var_export($ess[$iarg], true));
 			}
+			$opts['affdiff'] = $affdiff;
 			$err[] = display_error(
 			  $titre,
 				"$fun(". join($erritem_args,', ') . ")",
 				$res,
-				$ess[0],
+				$expected ? $expected : $ess[0],
 				$opts
 			);
 		}
@@ -128,6 +132,10 @@ function display_error($titre,$call,$result,$expected,$opts=array()){
 		}
 		// l'enrobage de sortie
 		list($bef, $mid, $end) = explode('@', $out);
+	}
+	$affdiff = true;
+	if (isset($opts['affdiff'])) {
+		$affdiff = $opts['affdiff'];
 	}
 
 	if (is_null($style)){
@@ -154,7 +162,7 @@ function display_error($titre,$call,$result,$expected,$opts=array()){
 	  . $mid
 	  . "<pre>$call</pre>"
 	  . "<table style='width:100%;'><tr><th>diff</th><th>attendu</th><th>resultat</th></tr><tr>"
-	  . "<td><pre>".$diff->renderDiffToHTML()."</pre></td>"
+	  . "<td><pre>".( $affdiff ? $diff->renderDiffToHTML() : $affdiff )."</pre></td>"
 	  . '<td><pre>' . htmlspecialchars(var_export($expected, true))."</pre></td>"
 		. '<td><pre>' . htmlspecialchars(var_export($result, true))."</pre></td>"
 	  . "</tr></table>"
