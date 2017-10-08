@@ -15,6 +15,8 @@
 	find_in_path("inc/texte.php",'',true);
 	$GLOBALS['meta']['type_urls'] = $type_urls = "page";
 
+	changer_langue('fr'); // ce test est en fr
+
 	// initialiser les plugins qui changent les intertitre (Z), et les restaurer juste apres
 	$mem = array(
 		isset($GLOBALS['debut_intertitre']) ? $GLOBALS['debut_intertitre'] : null,

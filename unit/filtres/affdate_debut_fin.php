@@ -17,6 +17,8 @@
 	require $remonte.'tests/test.inc';
 	find_in_path("./inc/filtres.php",'',true);
 
+	changer_langue('fr'); // ce test est en fr
+
 	// chercher la fonction si elle n'existe pas
 	if (!function_exists($f='affdate_debut_fin')){
 		find_in_path("inc/filtres.php",'',true);

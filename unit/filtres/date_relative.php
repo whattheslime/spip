@@ -17,6 +17,8 @@
 	require $remonte.'tests/test.inc';
 	find_in_path("inc/filtres.php",'',true);
 
+	changer_langue('fr'); // ce test est en fr
+
 	//
 	// hop ! on y va
 	//
