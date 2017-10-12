@@ -1,4 +1,47 @@
 
+SPIP-Core spip-3.1.6 -> spip-3.1.7  12 octobre 2017
+-------------------------------------------------------------
+
+r23606 | marcimat  |  (mar. 13 juin 2017) | Report de r23605 : ne pas indiquer la version de PHP dans les headers.
+r23612 | cedric    |  (jeu. 15 juin 2017) | Report de r23611 : fix r23588 qui avait casse les criteres implicites des boucles DATA quand ils ne sont pas de type int :<BOUCLE_pages(DATA) {source table, #NOIZETIER_PAGE_INFOS}{est_page_objet?}{par cle}>(Eric)
+r23623 | cedric    |  (mar. 27 juin 2017) | Report de r23622 : Fix #3751 (et #3967) : directives SNI dans le proxy pour les sites en https
+r23634 | marcimat  |  (lun. 03 juil. 2017) | Report de r23632 et r23632 : utiliser le même identifiant pour les images traités par les filtres d’images, qu’on soit dans l’espace privé ou dans l’espace public. Un même traitement graphique ne crée pas 2 images dans local inutilement.
+r23660 | cedric    |  (mer. 12 juil. 2017) | Report de r23659 : coquille dans la condition de statut quand rien ne matche
+r23665 | Nicod     |  (mer. 12 juil. 2017) | Report de c23664 : Ne pas afficher les plugins lors d'une recherche
+r23679 | b_b       |  (jeu. 20 juil. 2017) | report de r23678Bugfix dans recup_date() quand on lui passe une chaîne du type 2017-07
+r23688 | b_b       |  (jeu. 24 août 2017) | report de r23686 et r23687Ref #3751 : compat PHP 5.6+
+r23691 | b_b       |  (mer. 30 août 2017) | report de r23690Fix #3981 : permettre aux rédacteurs de créer une nouvelle traductionSuite aux modifications relatives à #2746 un rédacteur ne pouvait plus créer de traduction sur un article dont il n'était pas l'auteur, on corrige ce bug.
+r23695 | cedric    |  (ven. 08 sept. 2017) | Report de r23694 : Revert de r23632 r23633 r23693 :	// les images calculees dependent du chemin du fichier source	// pour une meme image source et un meme filtre on aboutira a 2 fichiers selon si l'appel est dans le public ou dans le prive	// ce n'est pas totalement optimal en terme de stockage, mais chaque image est associee a un fichier .src	// qui contient la methode de reconstrucion (le filtre + les arguments d'appel) et les arguments different entre prive et public	// la mise en commun du fichier image cree donc un bug et des problemes qui necessiteraient beaucoup de complexite de code	// alors que ca concerne peu de site au final	// la release de r23632+r23633+r23634 a provoque peu de remontee de bug attestant du peu de sites impactes
+r23697 | cedric    |  (ven. 08 sept. 2017) | Report de r23696 : Securiser l'URL qu'on insere sur les ancres en url arborescentes (xdjuj)
+r23708 | cedric    |  (ven. 15 sept. 2017) | Report de r23707 : Securiser les URLs renvoyees par self() et #SELF qui sont souvent reinjectees dans le HTML (Jarrod Farncomb)
+r23711 | cedric    |  (ven. 15 sept. 2017) | Report de r23710 : Echapper le charset dans le message d'erreur (Jarrod Farncomb)
+r23714 | cedric    |  (ven. 15 sept. 2017) | Report de r23713 : Permettre de passer le mode de filtrage en second argument de interdire_script, et on utilise la valeur de la globale sinon (comportement par defaut inchange)
+r23717 | cedric    |  (ven. 15 sept. 2017) | Report de r23716 : Pas de onclick ni de popup JS dans le pied de page
+r23725 | cedric    |  (dim. 17 sept. 2017) | Report de r23724 : Fix #3598 #3731 #3850 : quelques echappements manquants
+r23727 | cedric    |  (dim. 17 sept. 2017) | Report de r23719 : Les arguments passes a _T() et _L() sont securises car ce sont souvent des contenu utilisateurs affiches (Jarrod Farncomb)
+r23733 | cedric    |  (ven. 29 sept. 2017) | Report de r23731 : Suite de r23719 : les fonctions _T et _L prennent une option sanitize qui par defaut vaut true pour dire qu'on veut nettoyer le html suspect des arguments des chaines de languepasser cette option a false permet de debrayer ce nettoyage pour les cas ou ils poserait probleme (exceptions)
+r23734 | cedric    |  (ven. 29 sept. 2017) | Report de r23732 : Les arguments des chaines de langue utilises dans le filtre affdate_debut_fin sont surs, on peut desactiver la sanitization de _T qui se declenche betement sur le abbr du microformat
+r23738 | b_b       |  (lun. 02 oct. 2017) | report de r23737prise en charge des clés partielles dans split_key (thx marcimat)permet d'éviter une erreur avec les index du type text(60) qui étaient à tort insérés tels quels dans le group by des requêtes sqlref https://github.com/seenthis/seenthis_squelettes/issues/149
+r23739 | marcimat  |  (mar. 03 oct. 2017) | Report de r23735 et r23736 : Complément à r23731 : en présence du plugin 'dev' ou du mode 'traductions' ne pas prendre toutes les chaines de langues comme non traduites !(Eric)
+r23741 | marcimat  |  (mer. 04 oct. 2017) | Report de r23740 1) Éviter des notices PHP en CLI2) Éviter de prendre 'PHP_SELF', en CLI comme étant l’URL (c’est le chemin du script), sinon, notamment le calcul des urls absolues devient faussé.
+r23742 | cedric    |  (ven. 06 oct. 2017) | Report de r23701 : #3371 (suite de r22428) on complete la fonction echapper_html_suspect pour permettre de l'appeler sur du contenu qui passe par propre sans declencher trop de faux positif en lui ajoutant un argument $strict+ appel de la fonction en filtre dans l'affichage de #PGP+ chaine de langue pour signaler le texte mal forme quand on l'echappe(et du coup on integre un emoji unicode dans le code pour afficher un signe warning qui porte le message en title)
+r23754 | marcimat  |  (mer. 11 oct. 2017) | Report de r23752 : On ajoute sur le lien du pied de page privé un attribut rel (noopener noreferrer)
+
+SPIP-plugins-dist spip-3.1.6 -> spip-3.1.7  12 octobre 2017
+-------------------------------------------------------------
+
+r104899 | chankalan |  (lun. 19 juin 2017) | lorsqu'on fait "modifier" un document, ne pas proposer un multi upload lorsqu'on veut juste changer le fichier https://core.spip.net/issues/3961
+r104900 | chankalan |  (lun. 19 juin 2017) | up de z pour le multi upload que quand c'est nécessaire
+r104904 | chankalan |  (lun. 19 juin 2017) | report correct de r104901 (RealET et b_b)
+r104992 | b_b       |  (mar. 27 juin 2017) | report de r104991Fix #3959 : réparer la box sur les images insérées dans le contenu, retour sur r103219
+r105480 | marcimat  |  (jeu. 27 juil. 2017) | Report très très partiel de r105476 sur la regexp de nettoyage des notes. On la simplifie, ce qui évite de tuer PCRE sur des textes longs avec des notes mal fermées.
+r106018 | b_b       |  (ven. 01 sept. 2017) | report de r106017Fix #3992 : rétablir la classe microformat sur le titre des articlesRef ​https://core.spip.net/issues/3992
+r106238 | cedric    |  (mer. 13 sept. 2017) | Report de r106237 : echapper quelque caracteres sur les URLs des documents distants (Chen Ruiqi)
+r106293 | cedric    |  (ven. 15 sept. 2017) | Report de r106292 : Permettre de passer le mode de filtrage en second argument de interdire_script, et on utilise la valeur de la globale sinon (comportement par defaut inchange)
+r106366 | b_b       |  (jeu. 21 sept. 2017) | report de r106365Fix #4001 : rétablir la mise à jour de la date_thread pour les forums du privéretour sur r89165
+r106460 | cedric    |  (ven. 29 sept. 2017) | Report de r106234 : Complement de https://core.spip.net/projects/spip/repository/revisions/23701 pour https://core.spip.net/issues/3371 : on appelle la fonction echapper_html_suspect() sur les contenus qui passent dans propre() si on est dans l'espace prive (repere par espace_prive ou wysiwyg dans le env ou le flag automatique interdire_script leve en cas d'appel a propre() depuis du code php
+r106462 | cedric    |  (ven. 29 sept. 2017) | Report de r106461 : Mise a jour de la librairie CSSTidy
+
 SPIP-Core spip-3.1.5 -> spip-3.1.6  12 juin 2017
 -------------------------------------------------------------
 
