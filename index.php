@@ -84,6 +84,10 @@
 			if (stristr($test,'data/'))
 				continue;
 
+			//ignorer les tests todo
+			if (stristr($test,'/_todo_'))
+				continue;
+
 			//ignorer les fichiers lanceurs pour simpleTests aux tests
 			if (stristr($test,'lanceur_spip.php'))
 				continue;
