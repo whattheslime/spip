@@ -25,6 +25,7 @@ dt a {
 }
 
 dd, dd a {
+	line-height: 1.25em;
 	background-color: white;
 	color: #333;
 	text-decoration: none;
