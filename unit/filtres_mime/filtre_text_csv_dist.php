@@ -13,6 +13,7 @@
 		$remonte = "../$remonte";
 	require $remonte.'tests/test.inc';
 	find_in_path("inc/filtres_mime.php",'',true);
+	changer_langue('fr');
 
 	//
 	// hop ! on y va
