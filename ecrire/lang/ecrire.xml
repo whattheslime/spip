@@ -1,5 +1,5 @@
 <traduction module="ecrire" gestionnaire="salvatore" url="https://trad.spip.net" source="svn://trac.rezo.net/spip/spip/ecrire/lang/" reference="fr">
-	<langue code="ar" url="https://trad.spip.net/tradlang_module/ecrire_?lang_cible=ar" total="809" traduits="809" relire="0" modifs="0" nouveaux="0" pourcent="100.00">
+	<langue code="ar" url="https://trad.spip.net/tradlang_module/ecrire_?lang_cible=ar" total="809" traduits="808" relire="0" modifs="1" nouveaux="0" pourcent="99.88">
 		<traducteur nom="b_b" lien="https://trad.spip.net/auteur/b_b" />
 		<traducteur nom="chankalan" lien="https://trad.spip.net/auteur/chankalan" />
 		<traducteur nom="George" lien="https://trad.spip.net/auteur/جورج-قندلفت" />
@@ -44,7 +44,7 @@
 	<langue code="da" url="https://trad.spip.net/tradlang_module/ecrire_?lang_cible=da" total="809" traduits="438" relire="0" modifs="39" nouveaux="332" pourcent="54.14">
 		<traducteur nom="kent1" lien="https://trad.spip.net/auteur/kent1" />
 	</langue>
-	<langue code="de" url="https://trad.spip.net/tradlang_module/ecrire_?lang_cible=de" total="809" traduits="806" relire="0" modifs="0" nouveaux="3" pourcent="99.63">
+	<langue code="de" url="https://trad.spip.net/tradlang_module/ecrire_?lang_cible=de" total="809" traduits="809" relire="0" modifs="0" nouveaux="0" pourcent="100.00">
 		<traducteur nom="b_b" lien="https://trad.spip.net/auteur/b_b" />
 		<traducteur nom="EricT" lien="https://trad.spip.net/auteur/erict-7193" />
 		<traducteur nom="Fil" lien="https://trad.spip.net/auteur/fil" />
@@ -55,7 +55,7 @@
 		<traducteur nom="RealET" lien="https://trad.spip.net/auteur/realet" />
 		<traducteur nom="Torsten Willmann" lien="https://trad.spip.net/auteur/torsten-willmann" />
 	</langue>
-	<langue code="en" url="https://trad.spip.net/tradlang_module/ecrire_?lang_cible=en" total="809" traduits="809" relire="0" modifs="0" nouveaux="0" pourcent="100.00">
+	<langue code="en" url="https://trad.spip.net/tradlang_module/ecrire_?lang_cible=en" total="809" traduits="808" relire="0" modifs="1" nouveaux="0" pourcent="99.88">
 		<traducteur nom="akomarani" lien="https://trad.spip.net/auteur/akomarani" />
 		<traducteur nom="b_b" lien="https://trad.spip.net/auteur/b_b" />
 		<traducteur nom="Benitron" lien="https://trad.spip.net/auteur/benitron" />
@@ -115,7 +115,7 @@
 		<traducteur nom="kent1" lien="https://trad.spip.net/auteur/kent1" />
 		<traducteur nom="touti" lien="https://trad.spip.net/auteur/touti" />
 	</langue>
-	<langue code="fr_tu" url="https://trad.spip.net/tradlang_module/ecrire_?lang_cible=fr_tu" total="809" traduits="808" relire="0" modifs="0" nouveaux="1" pourcent="99.88">
+	<langue code="fr_tu" url="https://trad.spip.net/tradlang_module/ecrire_?lang_cible=fr_tu" total="809" traduits="808" relire="0" modifs="1" nouveaux="0" pourcent="99.88">
 		<traducteur nom="Astalaseven" lien="https://trad.spip.net/auteur/astalaseven" />
 		<traducteur nom="b_b" lien="https://trad.spip.net/auteur/b_b" />
 		<traducteur nom="beatnick" lien="https://trad.spip.net/auteur/beatnick" />
