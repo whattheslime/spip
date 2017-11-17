@@ -143,7 +143,8 @@
 	<langue code="id" url="https://trad.spip.net/tradlang_module/ecrire_?lang_cible=id" total="809" traduits="495" relire="0" modifs="41" nouveaux="273" pourcent="61.19">
 		<traducteur nom="kent1" lien="https://trad.spip.net/auteur/kent1" />
 	</langue>
-	<langue code="it" url="https://trad.spip.net/tradlang_module/ecrire_?lang_cible=it" total="809" traduits="784" relire="0" modifs="5" nouveaux="20" pourcent="96.91">
+	<langue code="it" url="https://trad.spip.net/tradlang_module/ecrire_?lang_cible=it" total="809" traduits="803" relire="0" modifs="0" nouveaux="6" pourcent="99.26">
+		<traducteur nom="Alberto" lien="https://trad.spip.net/auteur/alberto" />
 		<traducteur nom="b_b" lien="https://trad.spip.net/auteur/b_b" />
 		<traducteur nom="cam.lafit" lien="https://trad.spip.net/auteur/cam-lafit" />
 		<traducteur nom="Julia14" lien="https://trad.spip.net/auteur/julia14" />
