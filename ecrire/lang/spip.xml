@@ -112,6 +112,7 @@
 	<langue code="he" url="https://trad.spip.net/tradlang_module/spip?lang_cible=he" total="641" traduits="567" relire="0" modifs="12" nouveaux="62" pourcent="88.46">
 	</langue>
 	<langue code="hr" url="https://trad.spip.net/tradlang_module/spip?lang_cible=hr" total="641" traduits="629" relire="0" modifs="3" nouveaux="9" pourcent="98.13">
+		<traducteur nom="b_b" lien="https://trad.spip.net/auteur/b_b" />
 		<traducteur nom="kent1" lien="https://trad.spip.net/auteur/kent1" />
 	</langue>
 	<langue code="hu" url="https://trad.spip.net/tradlang_module/spip?lang_cible=hu" total="641" traduits="530" relire="0" modifs="39" nouveaux="72" pourcent="82.68">
