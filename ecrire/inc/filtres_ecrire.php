@@ -48,8 +48,7 @@ function parametres_css_prive() {
 	// un md5 des menus : si un menu change il faut maj la css
 	$args['md5b'] = (function_exists('md5_boutons_plugins') ? md5_boutons_plugins() : '');
 
-	$c = (is_array($GLOBALS['visiteur_session'])
-		and is_array($GLOBALS['visiteur_session']['prefs']))
+	$c = isset($GLOBALS['visiteur_session']['prefs']['couleur'])
 		? $GLOBALS['visiteur_session']['prefs']['couleur']
 		: 9;
 
