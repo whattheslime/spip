@@ -1810,7 +1810,7 @@ function generer_url_entite_absolue($id = '', $entite = '', $args = '', $ancre =
  * Tester qu'une variable d'environnement est active
  *
  * Sur certains serveurs, la valeur 'Off' tient lieu de false dans certaines
- * variables d'environnement comme $_SERVER[HTTPS] ou ini_get(register_globals)
+ * variables d'environnement comme `$_SERVER['HTTPS']` ou `ini_get('display_errors')`
  *
  * @param string|bool $truc
  *     La valeur de la variable d'environnement
@@ -2483,22 +2483,6 @@ function spip_initialisation_core($pi = null, $pa = null, $ti = null, $ta = null
 	spip_desinfecte($_COOKIE);
 	spip_desinfecte($_REQUEST);
 
-	// Si les variables sont passees en global par le serveur,
-	// il faut faire quelques verifications de base
-	// Todo: test à supprimer lorsque version PHP minimum >= 5.4.
-	$avertir_register_globals = false;
-	if (test_valeur_serveur(@ini_get('register_globals'))) {
-		// ne pas desinfecter les globales en profondeur car elle contient aussi les
-		// precedentes, qui seraient desinfectees 2 fois.
-		spip_desinfecte($GLOBALS, false);
-		// plugin grenier
-		if (include_spip('inc/php3')) {
-			spip_register_globals(true);
-		}
-
-		$avertir_register_globals = true;
-	}
-
 	// appliquer le cookie_prefix
 	if ($GLOBALS['cookie_prefix'] != 'spip') {
 		include_spip('inc/cookie');
@@ -2541,12 +2525,6 @@ function spip_initialisation_core($pi = null, $pa = null, $ti = null, $ta = null
 	// charge aussi effacer_meta et ecrire_meta
 	$inc_meta = charger_fonction('meta', 'inc');
 	$inc_meta();
-
-	// on a pas pu le faire plus tot
-	if ($avertir_register_globals) {
-		avertir_auteurs("register_globals",
-			_L("Probl&egrave;me de s&eacute;curit&eacute; : register_globals=on; dans php.ini &agrave; corriger."));
-	}
 
 	// nombre de repertoires depuis la racine
 	// on compare a l'adresse de spip.php : $_SERVER["SCRIPT_NAME"]
