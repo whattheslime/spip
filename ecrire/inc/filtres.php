@@ -2840,9 +2840,11 @@ function urls_absolues_css($contenu, $source) {
 
 	return preg_replace_callback(
 		",url\s*\(\s*['\"]?([^'\"/#\s][^:]*)['\"]?\s*\),Uims",
-		create_function('$x',
-			'return "url(\'".suivre_lien(\'' . $path . '\',$x[1])."\')";'
-		), $contenu);
+		function($x) use ($path) {
+			return "url('" . suivre_lien($path, $x[1]) . "')";
+		},
+		$contenu
+	);
 }
 
 
