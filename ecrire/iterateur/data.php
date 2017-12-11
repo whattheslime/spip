@@ -486,17 +486,17 @@ class IterateurDATA implements Iterator {
 					$a = ' . sprintf($tv, '$aa') . ';
 					$b = ' . sprintf($tv, '$bb') . ';
 					if ($a <> $b)
-						return ($a ' . ((isset($r[2]) and $r[2]) ? '>' : '<') . ' $b) ? -1 : 1;';
+						return ($a ' . (!empty($r[2]) ? '>' : '<') . ' $b) ? -1 : 1;';
 					}
 				}
 			}
 		}
 
 		if ($sortfunc) {
-			uasort($this->tableau, create_function('$aa,$bb',
-				$sortfunc . '
-				return 0;'
-			));
+			$sortfunc .= "\n return 0;";
+			uasort($this->tableau, function($aa, $bb) use ($sortfunc) {
+				return eval($sortfunc);
+			});
 		}
 	}
 
