@@ -20,9 +20,9 @@ version: 0.2
 .box .br,.box .tr{float:right;}
 .box .bl,.box .br{margin-top:-10px;}
 .box .top{background-position:center top;}
-.box .bottom{background-position:center bottom;_zoom:1;}/* this zoom required for IE5.5 only*/
+.box .bottom{background-position:center bottom;}
 /* complex */
-.complex{overflow:hidden;*position:relative;*zoom:1;}/* position/zoom required for IE7, 6, 5.5 */
+.complex{overflow:hidden;}
 .complex .tl, .complex .tr{height:32000px; margin-bottom:-32000px;width:10px;overflow:hidden;}
 .complex .bl, .complex .br{/*margin-top:0;*/}
 .complex .top{height:5px;}
