@@ -2645,25 +2645,22 @@ function spip_initialisation_suite() {
 	}
 
 	if (!defined('_DOCTYPE_ECRIRE')) {
-		define('_DOCTYPE_ECRIRE',
-			// "<!DOCTYPE HTML PUBLIC '-//W3C//DTD HTML 4.01 Transitional//EN' 'http://www.w3.org/TR/html4/loose.dtd'>\n");
-			//"<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>\n");
-			//"<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Strict//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd'>\n");
-			// "<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.1 //EN' 'http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd'>\n");
-		"<!DOCTYPE html>\n");
+		/** Définit le doctype de l’espace privé */
+		define('_DOCTYPE_ECRIRE', "<!DOCTYPE html>\n");
 	}
 	if (!defined('_DOCTYPE_AIDE')) {
+		/** Définit le doctype de l’aide en ligne */
 		define('_DOCTYPE_AIDE',
 		"<!DOCTYPE html PUBLIC '-//W3C//DTD HTML 4.01 Frameset//EN' 'http://www.w3.org/TR/1999/REC-html401-19991224/frameset.dtd'>");
 	}
 
-	/** L'adresse de base du site ; on peut mettre '' si la racine est gerée par
-	 * le script de l'espace public, alias index.php */
 	if (!defined('_SPIP_SCRIPT')) {
+		/** L'adresse de base du site ; on peut mettre '' si la racine est gerée par
+		 * le script de l'espace public, alias index.php */
 		define('_SPIP_SCRIPT', 'spip.php');
 	}
-	/** Argument page, personalisable en cas de conflit avec un autre script */
 	if (!defined('_SPIP_PAGE')) {
+		/** Argument page, personalisable en cas de conflit avec un autre script */
 		define('_SPIP_PAGE', 'page');
 	}
 
