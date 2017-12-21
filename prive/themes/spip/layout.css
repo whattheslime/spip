@@ -5,8 +5,8 @@ body.large {min-width: 974px;}
 #haut {text-align:center;margin-top:10px;}
 .largeur { width: 780px; margin: auto; text-align:left;padding:0; }
 #conteneur,.table_page { clear: both; margin-right: auto; margin-left: auto; text-align: left; width: 780px; margin-top:0.5em;}
-#navigation { float: left; width: 200px; min-height: 100px; }
-#extra { float: left; clear:left; width: 200px; }
+#navigation { float: left; width: 200px; min-height: 100px;  overflow-wrap: break-word; }
+#extra { float: left; clear:left; width: 200px;  overflow-wrap: break-word; }
 #contenu { float: right ; margin-left: 30px; width: 550px; min-height:400px}
 #pied {}
 div.messages-alertes {text-align: right;background: #fff;padding: 5px;width: 770px;clear: both; margin-right: auto; margin-left: auto;}
