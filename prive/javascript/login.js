@@ -1,10 +1,4 @@
 var login_info;
-function affiche_login_secure() {
-	if (login_info.alea_actuel)
-		jQuery('#pass_securise').show();
-	else
-		jQuery('#pass_securise').hide();
-}
 
 function informe_auteur(c){
 	login_info.informe_auteur_en_cours = false;
