@@ -408,10 +408,6 @@ if (_FILE_OPTIONS) {
 	include_once _FILE_OPTIONS;
 }
 
-if (!defined('E_DEPRECATED')) {
-	/** Compatibilite PHP 5.3 */
-	define('E_DEPRECATED', 8192);
-}
 if (!defined('SPIP_ERREUR_REPORT')) {
 	/** Masquer les warning */
 	define('SPIP_ERREUR_REPORT', E_ALL ^ E_NOTICE ^ E_DEPRECATED);
