@@ -128,7 +128,6 @@ ecrire/inc/lien.php -text
 ecrire/inc/lien_court.php -text
 ecrire/inc/lister_objets.php -text
 ecrire/inc/log.php -text
-ecrire/inc/mail.php -text
 ecrire/inc/minipres.php -text
 ecrire/inc/modifier.php -text
 ecrire/inc/nfslock.php -text
