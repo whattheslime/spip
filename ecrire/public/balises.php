@@ -769,54 +769,6 @@ function calculer_balise_expose($p, $on, $off) {
 
 
 /**
- * Compile la balise `#DEBUT_SURLIGNE` qui permettait le surlignage
- * des mots d'une recherche
- *
- * @note
- *     Cette balise n'a plus d'effet depuis r9343
- *
- * @balise
- * @see balise_FIN_SURLIGNE_dist()
- * @deprecated Utiliser les classes CSS `surlignable` ou `pas_surlignable`
- *
- * @param Champ $p
- *     Pile au niveau de la balise
- * @return Champ
- *     Pile complétée par le code à générer
- **/
-function balise_DEBUT_SURLIGNE_dist($p) {
-	include_spip('inc/surligne');
-	$p->code = "'<!-- " . MARQUEUR_SURLIGNE . " -->'";
-
-	return $p;
-}
-
-
-/**
- * Compile la balise `#FIN_SURLIGNE` qui arrêtait le surlignage
- * des mots d'une recherche
- *
- * @note
- *     Cette balise n'a plus d'effet depuis r9343
- *
- * @balise
- * @see balise_DEBUT_SURLIGNE_dist()
- * @deprecated Utiliser les classes CSS `surlignable` ou `pas_surlignable`
- *
- * @param Champ $p
- *     Pile au niveau de la balise
- * @return Champ
- *     Pile complétée par le code à générer
- **/
-function balise_FIN_SURLIGNE_dist($p) {
-	include_spip('inc/surligne');
-	$p->code = "'<!-- " . MARQUEUR_FSURLIGNE . "-->'";
-
-	return $p;
-}
-
-
-/**
  * Compile la balise `#INTRODUCTION`
  *
  * Retourne une introduction d'un objet éditorial, c'est à dire les 600
