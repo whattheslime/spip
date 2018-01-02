@@ -3325,25 +3325,21 @@ function tester_url_ecrire($nom) {
 
 
 /**
- * Tente de charger dynamiquement une extension PHP
+ * Teste la présence d’une extension PHP
  *
+ * @deprected Utiliser directement la fonction native `extension_loaded($module)`
  * @example
  *     ```
  *     $ok = charger_php_extension('sqlite');
  *     ```
- * @uses inc_charger_php_extension_dist() Si la librairie n'est pas déjà charchée
- *
  * @param string $module Nom du module à charger
  * @return bool true si le module est chargé
  **/
 function charger_php_extension($module) {
 	if (extension_loaded($module)) {
 		return true;
-	} else {
-		$charger_php_extension = charger_fonction('charger_php_extension', 'inc');
-
-		return $charger_php_extension($module);
 	}
+	return false;
 }
 
 
