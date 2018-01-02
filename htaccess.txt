@@ -3,7 +3,6 @@
 #                                                            #
 # Permet de controler les URLs et la version de php utilisee #
 # Compatible avec les URLs 'html', 'propres' et 'propres2'   #
-# Permet aussi d'effectuer la transition de .PHP 3 vers .PHP #
 #                                                            #
 # Pour utiliser ce fichier renommez-le '.htaccess' dans le   #
 # repertoire racine du site, en veillant a ne pas ecraser un #
@@ -30,15 +29,6 @@ RewriteRule ^(.*) - [E=BASE:%1]
 # vous pouvez indiquer un RewriteBase specifique
 #RewriteBase /
 
-
-# SPIP version 'php' - si vous avez d'anciennes adresses en '.php[3]',
-# supprimez le '#' sur les lignes qui suivent pour rediriger les acces
-# errones vers le .php correspondant
-
-#RewriteCond %{REQUEST_FILENAME} -f
-#RewriteRule ^(.+)\.php[3]$ $1.php [QSA,L]
-
-# Fin version
 ###
 
 
@@ -49,14 +39,6 @@ RewriteRule ^(.*) - [E=BASE:%1]
 
 
 ################ GESTIONS DES URLS SPIP #######################
-
-# Deux pseudo-actions a present evacuees
-# N'y at-il pas moyen de REMPLACER un nom dans la QueryString ?
-RewriteCond %{QUERY_STRING} action=rss
-RewriteRule spip.php	spip.php?page=rss [QSA,L]
-RewriteCond %{QUERY_STRING} action=ical
-RewriteRule spip.php	spip.php?page=ical_prive [QSA,L]
-
 ###
 # Si le fichier ou repertoire demande existe
 # ignorer toutes les regles qui suivent
@@ -77,13 +59,6 @@ RewriteRule ^breve([0-9]+)(\.html)?$	spip.php?page=breve&id_breve=$1 [QSA,L]
 RewriteRule ^mot([0-9]+)(\.html)?$		spip.php?page=mot&id_mot=$1 [QSA,L]
 RewriteRule ^auteur([0-9]+)(\.html)?$	spip.php?page=auteur&id_auteur=$1 [QSA,L]
 RewriteRule ^site([0-9]+)(\.html)?$	spip.php?page=site&id_syndic=$1 [QSA,L]
-# Compatibilite avec les anciennes URLS appelant directement des fichiers php
-RewriteRule ^(rubrique|article|breve|mot|auteur|site|agenda|backend|backend-breves|distrib|forum|ical|plan|recherche|sommaire|sommaire_texte)\.php3?$	spip.php?page=$1 [QSA,L]
-RewriteRule ^resume.php[3]?	spip.php?page=sommaire [QSA,L]
-RewriteRule ^page.php[3]?	spip.php [QSA,L]
-RewriteRule ^spip_cal\.php3?$	spip.php?page=ical_prive [QSA,L]
-RewriteRule ^spip_rss\.php3?$	spip.php?page=rss [QSA,L]
-
 
 # Fin compatibilite
 ###
