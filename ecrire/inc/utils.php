@@ -2012,30 +2012,6 @@ function generer_url_ecrire($script = '', $args = "", $no_entities = false, $rel
 	return $rel . ($no_entities ? $args : str_replace('&', '&amp;', $args));
 }
 
-/**
- * Permet d'ajouter lien vers une page privée à un paramètre d'url (déprécié)
- *
- *     ```
- *     // deprecié
- *     $h = generer_url_ecrire('article', "id_article=$id_article&redirect=" . generer_url_retour('articles'));
- *     // utiliser
- *     $h = generer_url_ecrire('article');
- *     $h = parametre_url($h, 'id_article', $id_article);
- *     $h = parametre_url($h, 'redirect', generer_url_ecrire('articles'));
- *     ```
- *
- * @deprecated Utiliser parametre_url() et generer_url_ecrire()
- * @see parametre_url()
- * @see generer_url_ecrire()
- *
- * @param string $script
- * @param string $args
- * @return string
- */
-function generer_url_retour($script, $args = "") {
-	return rawurlencode(generer_url_ecrire($script, $args, true, true));
-}
-
 //
 // Adresse des scripts publics (a passer dans inc-urls...)
 //
