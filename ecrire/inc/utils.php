@@ -3357,37 +3357,6 @@ function lire_meta($nom) {
 function ecrire_metas() { }
 
 /**
- * Retourne une ligne d'un résultat de requête mysql (déprécié)
- *
- * @see sql_fetch()
- * @deprecated Utiliser sql_fetch()
- * @param Ressource $r Ressource mysql
- * @param int|null $t Type de retour
- * @return array|void|bool Tableau de la ligne SQL
- **/
-function spip_fetch_array($r, $t = null) {
-	if (!isset($t)) {
-		if ($r) {
-			return sql_fetch($r);
-		}
-	} else {
-		if ($t == 'SPIP_NUM') {
-			$t = MYSQLI_NUM;
-		}
-		if ($t == 'SPIP_BOTH') {
-			$t = MYSQLI_BOTH;
-		}
-		if ($t == 'SPIP_ASSOC') {
-			$t = MYSQLI_ASSOC;
-		}
-		spip_log("appel deprecie de spip_fetch_array(..., $t)", 'vieilles_defs');
-		if ($r) {
-			return mysqli_fetch_array($r, $t);
-		}
-	}
-}
-
-/**
  * Poser une alerte qui sera affiche aux auteurs de bon statut ('' = tous)
  * au prochain passage dans l'espace prive
  * chaque alerte doit avoir un nom pour eviter duplication a chaque hit
