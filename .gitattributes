@@ -27,7 +27,6 @@ ecrire/action/instituer_langue_rubrique.php -text
 ecrire/action/instituer_objet.php -text
 ecrire/action/logout.php -text
 ecrire/action/menu_rubriques.php -text
-ecrire/action/preferer.php -text
 ecrire/action/purger.php -text
 ecrire/action/purger_queue.php -text
 ecrire/action/redirect.php -text
