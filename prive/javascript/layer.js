@@ -174,66 +174,38 @@ function verifForm(racine) {
 // et son resultat booleen est inverse ce qui lui permet de retourner 
 // le gestionnaire Ajax comme valeur non fausse
 function AjaxSqueezeNode(trig, target, f, event) {
-	var i, callback;
+	var callback;
 
 	// retour std si pas precise: affecter ce noeud avec ce retour
 	if (!f) {
 		callback = function() { verifForm(this);}
-	}
-	else {
+	} else {
 		callback = function(res,status) {
 			f.apply(this,[res,status]);
 			verifForm(this);
 		}
 	}
 
-	valid = false;
-	if (typeof(window['_OUTILS_DEVELOPPEURS']) != 'undefined'){
-		if (!(navigator.userAgent.toLowerCase().indexOf("firefox/1.0")))
-			valid = (typeof event == 'object') && (event.altKey || event.metaKey);
-	}
-
-	if (typeof(trig) == 'string') {
-		// laisser le choix de la touche enfoncee au moment du clic
-		// car beaucoup de systemes en prenne une a leur usage
-		if  (valid) {
-			window.open(trig+'&transformer_xml=valider_xml');
-		} else {
-			jQuery(target).animeajax();
-		}
-		res = jQuery.ajax({
+	if (typeof(trig) === 'string') {
+		jQuery(target).animeajax();
+		return jQuery.ajax({
 			"url":trig,
 			"complete": function(r,s) {
 				AjaxRet(r,s,target, callback);
 				jQuery(target).endLoading();
 			}
 		});
-		return res;
 	}
 
-	if(valid) {
-		//open a blank window
-		var doc = window.open("","valider").document;
-		//create a document to enable receiving the result of the ajax post
-		doc.open();
-		doc.close();
-		//set the element receiving the ajax post
-		target = doc.body;
-	}
-	else {
-		jQuery(target).animeajax();
-	}
+	jQuery(target).animeajax();
 
 	jQuery(trig).ajaxSubmit({
 		"target": target,
 		"success": function(res,status) {
-			if(status=='error') return this.html('Erreur HTTP');
+			if (status === 'error') {
+				return this.html('Erreur HTTP');
+			}
 			callback.apply(this,[res,status]);
-		},
-		"beforeSubmit":function (vars) {
-			if (valid)
-				vars.push({"name":"transformer_xml","value":"valider_xml"});
-			return true;
 		}
 	});
 	return true; 
@@ -241,8 +213,12 @@ function AjaxSqueezeNode(trig, target, f, event) {
 
 
 function AjaxRet(res,status, target, callback) {
-	if (res.aborted) return;
-	if (status=='error') return jQuery(target).html('HTTP Error');
+	if (res.aborted) {
+		return;
+	}
+	if (status === 'error') {
+		return jQuery(target).html('HTTP Error');
+	}
 
 	// Inject the HTML into all the matched elements
 	jQuery(target)
