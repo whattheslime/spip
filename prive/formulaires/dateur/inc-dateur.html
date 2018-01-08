@@ -33,21 +33,48 @@ function date_picker_options(){
 		yearRange: "c-60:c+40"
 	};
 }
+function time_picker_options() {
+	return {
+		step: #ENV{heure_pas,30},
+	};
+}
 function date_picker_init(){
+	// Initialisation du sélecteur sur les champs de date
 	jQuery('input.date').not('.datePicker')
-		.addClass('datePicker').each(function(){
+		.addClass('datePicker').each(function() {
+			// Pour chaque champ, on regarde s'il y a des options propres
 			var options = {showOn: 'button'};
-			if (jQuery(this).attr('data-startDate'))
-				options.minDate = jQuery(this).attr('data-startDate');
-			if (jQuery(this).attr('data-endDate'))
-				options.maxDate = jQuery(this).attr('data-endDate');
-			if (jQuery(this).attr('data-yearRange'))
-				options.yearRange = jQuery(this).attr('data-yearRange');
+			if (jQuery(this).data('startDate')) {
+				options.minDate = jQuery(this).data('startDate');
+			}
+			if (jQuery(this).data('endDate')) {
+				options.maxDate = jQuery(this).data('endDate');
+			}
+			if (jQuery(this).data('yearRange')) {
+				options.yearRange = jQuery(this).data('yearRange');
+			}
 			jQuery(this)
 				.datepicker(jQuery.extend(date_picker_options(),options))
 				.trigger('datePickerLoaded');
 		});
-	jQuery("input.heure").not('.timePicker').addClass('timePicker').timePicker({step:#ENV{heure_pas,30}});
+	
+	// Initialisation du sélecteur sur les champs d'heure
+	jQuery("input.heure").not('.timePicker')
+		.addClass('timePicker').each(function() {
+			// Pour chaque champ, on regarde s'il y a des options propres
+			var options = {};
+			if (jQuery(this).data('startTime')) {
+				options.startTime = jQuery(this).data('startTime');
+			}
+			if (jQuery(this).data('endTime')) {
+				options.endTime = jQuery(this).data('endTime');
+			}
+			if (jQuery(this).data('step')) {
+				options.step = jQuery(this).data('step');
+			}
+			jQuery(this)
+				.timePicker(jQuery.extend(time_picker_options(), options));
+		});
 }
 var date_picker_loading;
 if (window.jQuery){
