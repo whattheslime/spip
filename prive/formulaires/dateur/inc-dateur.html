@@ -44,14 +44,14 @@ function date_picker_init(){
 		.addClass('datePicker').each(function() {
 			// Pour chaque champ, on regarde s'il y a des options propres
 			var options = {showOn: 'button'};
-			if (jQuery(this).data('startDate')) {
-				options.minDate = jQuery(this).data('startDate');
+			if (jQuery(this).data('startdate')) {
+				options.minDate = jQuery(this).data('startdate');
 			}
-			if (jQuery(this).data('endDate')) {
-				options.maxDate = jQuery(this).data('endDate');
+			if (jQuery(this).data('enddate')) {
+				options.maxDate = jQuery(this).data('enddate');
 			}
-			if (jQuery(this).data('yearRange')) {
-				options.yearRange = jQuery(this).data('yearRange');
+			if (jQuery(this).data('yearrange')) {
+				options.yearRange = jQuery(this).data('yearrange');
 			}
 			jQuery(this)
 				.datepicker(jQuery.extend(date_picker_options(),options))
@@ -63,11 +63,11 @@ function date_picker_init(){
 		.addClass('timePicker').each(function() {
 			// Pour chaque champ, on regarde s'il y a des options propres
 			var options = {};
-			if (jQuery(this).data('startTime')) {
-				options.startTime = jQuery(this).data('startTime');
+			if (jQuery(this).data('starttime')) {
+				options.startTime = jQuery(this).data('starttime');
 			}
-			if (jQuery(this).data('endTime')) {
-				options.endTime = jQuery(this).data('endTime');
+			if (jQuery(this).data('endtime')) {
+				options.endTime = jQuery(this).data('endtime');
 			}
 			if (jQuery(this).data('step')) {
 				options.step = jQuery(this).data('step');
