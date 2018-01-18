@@ -224,62 +224,6 @@ function purger_repertoire($dir, $options = array()) {
 
 
 //
-// Methode : on prend un des sous-repertoires de CACHE/
-// on considere qu'il fait 1/16e de la taille du cache
-// et on le ratiboise en supprimant les fichiers qui n'ont pas
-// ete sollicites dans l'heure qui vient de s'ecouler
-//
-// http://code.spip.net/@appliquer_quota_cache
-function appliquer_quota_cache() {
-
-	$encore = false;
-
-	$tour_quota_cache = intval(1 + $GLOBALS['meta']['tour_quota_cache']) % 16;
-	ecrire_meta('tour_quota_cache', $tour_quota_cache);
-
-	$l = dechex($tour_quota_cache);
-	$dir = sous_repertoire(_DIR_CACHE, $l);
-	list($nombre, $taille) = nombre_de_fichiers_repertoire($dir);
-	$total_cache = $taille * $nombre;
-	spip_log("Taille du CACHE estimee ($l): "
-		. (intval(16 * $total_cache / (1024 * 1024 / 10)) / 10) . ' Mo', 'invalideur');
-
-	// Nombre max de fichiers a supprimer
-	if ($GLOBALS['quota_cache'] > 0
-		and $taille > 0
-	) {
-		$trop = $total_cache - ($GLOBALS['quota_cache'] / 16) * 1024 * 1024;
-		$trop = 3 * intval($trop / $taille);
-		if ($trop > 0) {
-			$n = purger_repertoire(
-				$dir,
-				array(
-					'atime' => time() - _AGE_CACHE_ATIME,
-					'limit' => $trop,
-					'subdir' => true // supprimer les vieux sous repertoire de session (avant [15851])
-				)
-			);
-			spip_log("$dir : $n/$trop caches supprimes [taille moyenne $taille]", 'invalideur');
-			$total_cache = intval(max(0, (16 * $total_cache) - $n * $taille) / (1024 * 1024) * 10) / 10;
-			spip_log("cache restant estime : $total_cache Mo, ratio " . $total_cache / $GLOBALS['quota_cache'], 'invalideur');
-
-			// redemander la main pour eviter que le cache ne gonfle trop
-			// mais pas si on ne peut pas purger car les fichiers sont trops recents
-			if (
-				$total_cache / $GLOBALS['quota_cache'] > 1.5
-				and $n * 50 > $trop
-			) {
-				$encore = true;
-				spip_log('Il faut encore purger', 'invalideur');
-			}
-		}
-	}
-
-	return $encore;
-}
-
-
-//
 // Destruction des fichiers caches invalides
 //
 

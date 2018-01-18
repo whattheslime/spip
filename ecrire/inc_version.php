@@ -280,11 +280,6 @@ $ignore_remote_user = true; # methode obsolete et risquee
 // vous pouvez mettre cette globale a false (dans mes_options).
 $derniere_modif_invalide = true;
 
-// Quota : la variable $quota_cache, si elle est > 0, indique la taille
-// totale maximale desiree des fichiers contenus dans le cache ; ce quota n'est
-// pas "dur" : si le site necessite un espace plus important, il le prend
-$quota_cache = 10;
-
 //
 // Serveurs externes
 //
