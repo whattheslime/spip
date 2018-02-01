@@ -245,16 +245,18 @@ function formulaires_dater_verifier_dist($objet, $id_objet, $retour = '', $optio
 		return $erreurs;
 	}
 
-	foreach (array('date', 'date_redac') as $k) {
-		if ($v = _request($k . '_jour') and !dater_recuperer_date_saisie($v, $k)) {
-			$erreurs[$k] = _T('format_date_incorrecte');
-		} elseif ($v = _request($k . '_heure') and !dater_recuperer_heure_saisie($v)) {
-			$erreurs[$k] = _T('format_heure_incorrecte');
+	if (_request('changer')) {
+		foreach (array('date', 'date_redac') as $k) {
+			if ($v = _request($k . '_jour') and !dater_recuperer_date_saisie($v, $k)) {
+				$erreurs[$k] = _T('format_date_incorrecte');
+			} elseif ($v = _request($k . '_heure') and !dater_recuperer_heure_saisie($v)) {
+				$erreurs[$k] = _T('format_heure_incorrecte');
+			}
 		}
-	}
 
-	if (!_request('date_jour')) {
-		$erreurs['date'] = _T('info_obligatoire');
+		if (!_request('date_jour')) {
+			$erreurs['date'] = _T('info_obligatoire');
+		}
 	}
 
 	return $erreurs;
@@ -388,7 +390,7 @@ function dater_recuperer_heure_saisie($post) {
 	if (!preg_match('#([0-9]{1,2})(?:[h:](?:([0-9]{1,2}))?)?#', $post, $regs)) {
 		return '';
 	}
-	if ($regs[1] >= 23 or $regs[2] >= 59) {
+	if ($regs[1] > 23 or $regs[2] > 59) {
 		return '';
 	}
 
