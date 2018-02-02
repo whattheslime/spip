@@ -31,8 +31,8 @@
 		$essais = array (
   0 => 
   array (
-    0 => '<a href=\'http://www.spip.net\'>SPIP</a>',
-    1 => '<a href=\'http://www.spip.net\'>SPIP</a>',
+    0 => '<a href=\'https://www.spip.net\'>SPIP</a>',
+    1 => '<a href=\'https://www.spip.net\'>SPIP</a>',
     2 => 'title',
     3 => '',
     4 => true,
@@ -40,8 +40,8 @@
   ),
   1 => 
   array (
-    0 => '<a href=\'http://www.spip.net\' title=\'\'>SPIP</a>',
-    1 => '<a href=\'http://www.spip.net\'>SPIP</a>',
+    0 => '<a href=\'https://www.spip.net\' title=\'\'>SPIP</a>',
+    1 => '<a href=\'https://www.spip.net\'>SPIP</a>',
     2 => 'title',
     3 => '',
     4 => true,
@@ -49,8 +49,8 @@
   ),
   2 => 
   array (
-    0 => '<a href=\'http://www.spip.net\'>SPIP</a>',
-    1 => '<a href=\'http://www.spip.net\'>SPIP</a>',
+    0 => '<a href=\'https://www.spip.net\'>SPIP</a>',
+    1 => '<a href=\'https://www.spip.net\'>SPIP</a>',
     2 => 'title',
     3 => '',
     4 => false,
@@ -58,8 +58,8 @@
   ),
   3 => 
   array (
-    0 => '<a href=\'http://www.spip.net\' title=\'\'>SPIP</a>',
-    1 => '<a href=\'http://www.spip.net\'>SPIP</a>',
+    0 => '<a href=\'https://www.spip.net\' title=\'\'>SPIP</a>',
+    1 => '<a href=\'https://www.spip.net\'>SPIP</a>',
     2 => 'title',
     3 => '',
     4 => false,
@@ -67,8 +67,8 @@
   ),
   4 => 
   array (
-    0 => '<a href=\'http://www.spip.net\' title=\'0\'>SPIP</a>',
-    1 => '<a href=\'http://www.spip.net\'>SPIP</a>',
+    0 => '<a href=\'https://www.spip.net\' title=\'0\'>SPIP</a>',
+    1 => '<a href=\'https://www.spip.net\'>SPIP</a>',
     2 => 'title',
     3 => '0',
     4 => true,
@@ -76,8 +76,8 @@
   ),
   5 => 
   array (
-    0 => '<a href=\'http://www.spip.net\' title=\'0\'>SPIP</a>',
-    1 => '<a href=\'http://www.spip.net\'>SPIP</a>',
+    0 => '<a href=\'https://www.spip.net\' title=\'0\'>SPIP</a>',
+    1 => '<a href=\'https://www.spip.net\'>SPIP</a>',
     2 => 'title',
     3 => '0',
     4 => true,
@@ -85,8 +85,8 @@
   ),
   6 => 
   array (
-    0 => '<a href=\'http://www.spip.net\' title=\'0\'>SPIP</a>',
-    1 => '<a href=\'http://www.spip.net\'>SPIP</a>',
+    0 => '<a href=\'https://www.spip.net\' title=\'0\'>SPIP</a>',
+    1 => '<a href=\'https://www.spip.net\'>SPIP</a>',
     2 => 'title',
     3 => '0',
     4 => false,
@@ -94,8 +94,8 @@
   ),
   7 => 
   array (
-    0 => '<a href=\'http://www.spip.net\' title=\'0\'>SPIP</a>',
-    1 => '<a href=\'http://www.spip.net\'>SPIP</a>',
+    0 => '<a href=\'https://www.spip.net\' title=\'0\'>SPIP</a>',
+    1 => '<a href=\'https://www.spip.net\'>SPIP</a>',
     2 => 'title',
     3 => '0',
     4 => false,
@@ -103,44 +103,44 @@
   ),
   8 => 
   array (
-    0 => '<a href=\'http://www.spip.net\' title=\'Un texte avec des &lt;a href=&#034;http://spip.net&#034;&gt;liens&lt;/a&gt; [Article 1-&gt;art1] [spip-&gt;http://www.spip.net] http://www.spip.net\'>SPIP</a>',
-    1 => '<a href=\'http://www.spip.net\'>SPIP</a>',
+    0 => '<a href=\'https://www.spip.net\' title=\'Un texte avec des &lt;a href=&#034;http://spip.net&#034;&gt;liens&lt;/a&gt; [Article 1-&gt;art1] [spip-&gt;https://www.spip.net] https://www.spip.net\'>SPIP</a>',
+    1 => '<a href=\'https://www.spip.net\'>SPIP</a>',
     2 => 'title',
-    3 => 'Un texte avec des <a href="http://spip.net">liens</a> [Article 1->art1] [spip->http://www.spip.net] http://www.spip.net',
+    3 => 'Un texte avec des <a href="http://spip.net">liens</a> [Article 1->art1] [spip->https://www.spip.net] https://www.spip.net',
     4 => true,
     5 => true,
   ),
   9 => 
   array (
-    0 => '<a href=\'http://www.spip.net\' title=\'Un texte avec des &lt;a href=&#034;http://spip.net&#034;&gt;liens&lt;/a&gt; [Article 1-&gt;art1] [spip-&gt;http://www.spip.net] http://www.spip.net\'>SPIP</a>',
-    1 => '<a href=\'http://www.spip.net\'>SPIP</a>',
+    0 => '<a href=\'https://www.spip.net\' title=\'Un texte avec des &lt;a href=&#034;http://spip.net&#034;&gt;liens&lt;/a&gt; [Article 1-&gt;art1] [spip-&gt;https://www.spip.net] https://www.spip.net\'>SPIP</a>',
+    1 => '<a href=\'https://www.spip.net\'>SPIP</a>',
     2 => 'title',
-    3 => 'Un texte avec des <a href="http://spip.net">liens</a> [Article 1->art1] [spip->http://www.spip.net] http://www.spip.net',
+    3 => 'Un texte avec des <a href="http://spip.net">liens</a> [Article 1->art1] [spip->https://www.spip.net] https://www.spip.net',
     4 => true,
     5 => false,
   ),
   10 => 
   array (
-    0 => '<a href=\'http://www.spip.net\' title=\'Un texte avec des <a href="http://spip.net">liens</a> [Article 1->art1] [spip->http://www.spip.net] http://www.spip.net\'>SPIP</a>',
-    1 => '<a href=\'http://www.spip.net\'>SPIP</a>',
+    0 => '<a href=\'https://www.spip.net\' title=\'Un texte avec des <a href="http://spip.net">liens</a> [Article 1->art1] [spip->https://www.spip.net] https://www.spip.net\'>SPIP</a>',
+    1 => '<a href=\'https://www.spip.net\'>SPIP</a>',
     2 => 'title',
-    3 => 'Un texte avec des <a href="http://spip.net">liens</a> [Article 1->art1] [spip->http://www.spip.net] http://www.spip.net',
+    3 => 'Un texte avec des <a href="http://spip.net">liens</a> [Article 1->art1] [spip->https://www.spip.net] https://www.spip.net',
     4 => false,
     5 => true,
   ),
   11 => 
   array (
-    0 => '<a href=\'http://www.spip.net\' title=\'Un texte avec des <a href="http://spip.net">liens</a> [Article 1->art1] [spip->http://www.spip.net] http://www.spip.net\'>SPIP</a>',
-    1 => '<a href=\'http://www.spip.net\'>SPIP</a>',
+    0 => '<a href=\'https://www.spip.net\' title=\'Un texte avec des <a href="http://spip.net">liens</a> [Article 1->art1] [spip->https://www.spip.net] https://www.spip.net\'>SPIP</a>',
+    1 => '<a href=\'https://www.spip.net\'>SPIP</a>',
     2 => 'title',
-    3 => 'Un texte avec des <a href="http://spip.net">liens</a> [Article 1->art1] [spip->http://www.spip.net] http://www.spip.net',
+    3 => 'Un texte avec des <a href="http://spip.net">liens</a> [Article 1->art1] [spip->https://www.spip.net] https://www.spip.net',
     4 => false,
     5 => false,
   ),
   12 => 
   array (
-    0 => '<a href=\'http://www.spip.net\' title=\'Un texte avec des entit&#233;s &#38;&lt;&gt;&#034;\'>SPIP</a>',
-    1 => '<a href=\'http://www.spip.net\'>SPIP</a>',
+    0 => '<a href=\'https://www.spip.net\' title=\'Un texte avec des entit&#233;s &#38;&lt;&gt;&#034;\'>SPIP</a>',
+    1 => '<a href=\'https://www.spip.net\'>SPIP</a>',
     2 => 'title',
     3 => 'Un texte avec des entit&eacute;s &amp;&lt;&gt;&#034;',
     4 => true,
@@ -148,8 +148,8 @@
   ),
   13 => 
   array (
-    0 => '<a href=\'http://www.spip.net\' title=\'Un texte avec des entit&#233;s &#38;&lt;&gt;&#034;\'>SPIP</a>',
-    1 => '<a href=\'http://www.spip.net\'>SPIP</a>',
+    0 => '<a href=\'https://www.spip.net\' title=\'Un texte avec des entit&#233;s &#38;&lt;&gt;&#034;\'>SPIP</a>',
+    1 => '<a href=\'https://www.spip.net\'>SPIP</a>',
     2 => 'title',
     3 => 'Un texte avec des entit&eacute;s &amp;&lt;&gt;&#034;',
     4 => true,
@@ -157,8 +157,8 @@
   ),
   14 => 
   array (
-    0 => '<a href=\'http://www.spip.net\' title=\'Un texte avec des entit&eacute;s &amp;&lt;&gt;&#034;\'>SPIP</a>',
-    1 => '<a href=\'http://www.spip.net\'>SPIP</a>',
+    0 => '<a href=\'https://www.spip.net\' title=\'Un texte avec des entit&eacute;s &amp;&lt;&gt;&#034;\'>SPIP</a>',
+    1 => '<a href=\'https://www.spip.net\'>SPIP</a>',
     2 => 'title',
     3 => 'Un texte avec des entit&eacute;s &amp;&lt;&gt;&#034;',
     4 => false,
@@ -166,8 +166,8 @@
   ),
   15 => 
   array (
-    0 => '<a href=\'http://www.spip.net\' title=\'Un texte avec des entit&eacute;s &amp;&lt;&gt;&#034;\'>SPIP</a>',
-    1 => '<a href=\'http://www.spip.net\'>SPIP</a>',
+    0 => '<a href=\'https://www.spip.net\' title=\'Un texte avec des entit&eacute;s &amp;&lt;&gt;&#034;\'>SPIP</a>',
+    1 => '<a href=\'https://www.spip.net\'>SPIP</a>',
     2 => 'title',
     3 => 'Un texte avec des entit&eacute;s &amp;&lt;&gt;&#034;',
     4 => false,
@@ -175,8 +175,8 @@
   ),
   16 => 
   array (
-    0 => '<a href=\'http://www.spip.net\' title=\'Un texte sans entites &#38;&lt;&gt;&#034;&#039;\'>SPIP</a>',
-    1 => '<a href=\'http://www.spip.net\'>SPIP</a>',
+    0 => '<a href=\'https://www.spip.net\' title=\'Un texte sans entites &#38;&lt;&gt;&#034;&#039;\'>SPIP</a>',
+    1 => '<a href=\'https://www.spip.net\'>SPIP</a>',
     2 => 'title',
     3 => 'Un texte sans entites &<>"\'',
     4 => true,
@@ -184,8 +184,8 @@
   ),
   17 => 
   array (
-    0 => '<a href=\'http://www.spip.net\' title=\'Un texte sans entites &#38;&lt;&gt;&#034;&#039;\'>SPIP</a>',
-    1 => '<a href=\'http://www.spip.net\'>SPIP</a>',
+    0 => '<a href=\'https://www.spip.net\' title=\'Un texte sans entites &#38;&lt;&gt;&#034;&#039;\'>SPIP</a>',
+    1 => '<a href=\'https://www.spip.net\'>SPIP</a>',
     2 => 'title',
     3 => 'Un texte sans entites &<>"\'',
     4 => true,
@@ -193,8 +193,8 @@
   ),
   18 => 
   array (
-    0 => '<a href=\'http://www.spip.net\' title=\'Un texte sans entites &<>"&#039;\'>SPIP</a>',
-    1 => '<a href=\'http://www.spip.net\'>SPIP</a>',
+    0 => '<a href=\'https://www.spip.net\' title=\'Un texte sans entites &<>"&#039;\'>SPIP</a>',
+    1 => '<a href=\'https://www.spip.net\'>SPIP</a>',
     2 => 'title',
     3 => 'Un texte sans entites &<>"\'',
     4 => false,
@@ -202,8 +202,8 @@
   ),
   19 => 
   array (
-    0 => '<a href=\'http://www.spip.net\' title=\'Un texte sans entites &<>"&#039;\'>SPIP</a>',
-    1 => '<a href=\'http://www.spip.net\'>SPIP</a>',
+    0 => '<a href=\'https://www.spip.net\' title=\'Un texte sans entites &<>"&#039;\'>SPIP</a>',
+    1 => '<a href=\'https://www.spip.net\'>SPIP</a>',
     2 => 'title',
     3 => 'Un texte sans entites &<>"\'',
     4 => false,
@@ -211,8 +211,8 @@
   ),
   20 => 
   array (
-    0 => '<a href=\'http://www.spip.net\' title=\'{{{Des raccourcis}}} {italique} {{gras}} &lt;code&gt;du code&lt;/code&gt;\'>SPIP</a>',
-    1 => '<a href=\'http://www.spip.net\'>SPIP</a>',
+    0 => '<a href=\'https://www.spip.net\' title=\'{{{Des raccourcis}}} {italique} {{gras}} &lt;code&gt;du code&lt;/code&gt;\'>SPIP</a>',
+    1 => '<a href=\'https://www.spip.net\'>SPIP</a>',
     2 => 'title',
     3 => '{{{Des raccourcis}}} {italique} {{gras}} <code>du code</code>',
     4 => true,
@@ -220,8 +220,8 @@
   ),
   21 => 
   array (
-    0 => '<a href=\'http://www.spip.net\' title=\'{{{Des raccourcis}}} {italique} {{gras}} &lt;code&gt;du code&lt;/code&gt;\'>SPIP</a>',
-    1 => '<a href=\'http://www.spip.net\'>SPIP</a>',
+    0 => '<a href=\'https://www.spip.net\' title=\'{{{Des raccourcis}}} {italique} {{gras}} &lt;code&gt;du code&lt;/code&gt;\'>SPIP</a>',
+    1 => '<a href=\'https://www.spip.net\'>SPIP</a>',
     2 => 'title',
     3 => '{{{Des raccourcis}}} {italique} {{gras}} <code>du code</code>',
     4 => true,
@@ -229,8 +229,8 @@
   ),
   22 => 
   array (
-    0 => '<a href=\'http://www.spip.net\' title=\'{{{Des raccourcis}}} {italique} {{gras}} <code>du code</code>\'>SPIP</a>',
-    1 => '<a href=\'http://www.spip.net\'>SPIP</a>',
+    0 => '<a href=\'https://www.spip.net\' title=\'{{{Des raccourcis}}} {italique} {{gras}} <code>du code</code>\'>SPIP</a>',
+    1 => '<a href=\'https://www.spip.net\'>SPIP</a>',
     2 => 'title',
     3 => '{{{Des raccourcis}}} {italique} {{gras}} <code>du code</code>',
     4 => false,
@@ -238,8 +238,8 @@
   ),
   23 => 
   array (
-    0 => '<a href=\'http://www.spip.net\' title=\'{{{Des raccourcis}}} {italique} {{gras}} <code>du code</code>\'>SPIP</a>',
-    1 => '<a href=\'http://www.spip.net\'>SPIP</a>',
+    0 => '<a href=\'https://www.spip.net\' title=\'{{{Des raccourcis}}} {italique} {{gras}} <code>du code</code>\'>SPIP</a>',
+    1 => '<a href=\'https://www.spip.net\'>SPIP</a>',
     2 => 'title',
     3 => '{{{Des raccourcis}}} {italique} {{gras}} <code>du code</code>',
     4 => false,
@@ -247,45 +247,45 @@
   ),
   24 => 
   array (
-    0 => '<a href=\'http://www.spip.net\' title=\'Un modele &lt;modeleinexistant|lien=[-&gt;http://www.spip.net]&gt;\'>SPIP</a>',
-    1 => '<a href=\'http://www.spip.net\'>SPIP</a>',
+    0 => '<a href=\'https://www.spip.net\' title=\'Un modele &lt;modeleinexistant|lien=[-&gt;https://www.spip.net]&gt;\'>SPIP</a>',
+    1 => '<a href=\'https://www.spip.net\'>SPIP</a>',
     2 => 'title',
-    3 => 'Un modele <modeleinexistant|lien=[->http://www.spip.net]>',
+    3 => 'Un modele <modeleinexistant|lien=[->https://www.spip.net]>',
     4 => true,
     5 => true,
   ),
   25 => 
   array (
-    0 => '<a href=\'http://www.spip.net\' title=\'Un modele &lt;modeleinexistant|lien=[-&gt;http://www.spip.net]&gt;\'>SPIP</a>',
-    1 => '<a href=\'http://www.spip.net\'>SPIP</a>',
+    0 => '<a href=\'https://www.spip.net\' title=\'Un modele &lt;modeleinexistant|lien=[-&gt;https://www.spip.net]&gt;\'>SPIP</a>',
+    1 => '<a href=\'https://www.spip.net\'>SPIP</a>',
     2 => 'title',
-    3 => 'Un modele <modeleinexistant|lien=[->http://www.spip.net]>',
+    3 => 'Un modele <modeleinexistant|lien=[->https://www.spip.net]>',
     4 => true,
     5 => false,
   ),
   26 => 
   array (
-    0 => '<a href=\'http://www.spip.net\' title=\'Un modele <modeleinexistant|lien=[->http://www.spip.net]>\'>SPIP</a>',
-    1 => '<a href=\'http://www.spip.net\'>SPIP</a>',
+    0 => '<a href=\'https://www.spip.net\' title=\'Un modele <modeleinexistant|lien=[->https://www.spip.net]>\'>SPIP</a>',
+    1 => '<a href=\'https://www.spip.net\'>SPIP</a>',
     2 => 'title',
-    3 => 'Un modele <modeleinexistant|lien=[->http://www.spip.net]>',
+    3 => 'Un modele <modeleinexistant|lien=[->https://www.spip.net]>',
     4 => false,
     5 => true,
   ),
   27 => 
   array (
-    0 => '<a href=\'http://www.spip.net\' title=\'Un modele <modeleinexistant|lien=[->http://www.spip.net]>\'>SPIP</a>',
-    1 => '<a href=\'http://www.spip.net\'>SPIP</a>',
+    0 => '<a href=\'https://www.spip.net\' title=\'Un modele <modeleinexistant|lien=[->https://www.spip.net]>\'>SPIP</a>',
+    1 => '<a href=\'https://www.spip.net\'>SPIP</a>',
     2 => 'title',
-    3 => 'Un modele <modeleinexistant|lien=[->http://www.spip.net]>',
+    3 => 'Un modele <modeleinexistant|lien=[->https://www.spip.net]>',
     4 => false,
     5 => false,
   ),
   28 => 
   array (
-    0 => '<a href=\'http://www.spip.net\' title=\'Un texte avec des retour
+    0 => '<a href=\'https://www.spip.net\' title=\'Un texte avec des retour
 a la ligne et meme des paragraphes\'>SPIP</a>',
-    1 => '<a href=\'http://www.spip.net\'>SPIP</a>',
+    1 => '<a href=\'https://www.spip.net\'>SPIP</a>',
     2 => 'title',
     3 => 'Un texte avec des retour
 a la ligne et meme des
@@ -296,9 +296,9 @@ paragraphes',
   ),
   29 => 
   array (
-    0 => '<a href=\'http://www.spip.net\' title=\'Un texte avec des retour
+    0 => '<a href=\'https://www.spip.net\' title=\'Un texte avec des retour
 a la ligne et meme des paragraphes\'>SPIP</a>',
-    1 => '<a href=\'http://www.spip.net\'>SPIP</a>',
+    1 => '<a href=\'https://www.spip.net\'>SPIP</a>',
     2 => 'title',
     3 => 'Un texte avec des retour
 a la ligne et meme des
@@ -309,11 +309,11 @@ paragraphes',
   ),
   30 => 
   array (
-    0 => '<a href=\'http://www.spip.net\' title=\'Un texte avec des retour
+    0 => '<a href=\'https://www.spip.net\' title=\'Un texte avec des retour
 a la ligne et meme des
 
 paragraphes\'>SPIP</a>',
-    1 => '<a href=\'http://www.spip.net\'>SPIP</a>',
+    1 => '<a href=\'https://www.spip.net\'>SPIP</a>',
     2 => 'title',
     3 => 'Un texte avec des retour
 a la ligne et meme des
@@ -324,11 +324,11 @@ paragraphes',
   ),
   31 => 
   array (
-    0 => '<a href=\'http://www.spip.net\' title=\'Un texte avec des retour
+    0 => '<a href=\'https://www.spip.net\' title=\'Un texte avec des retour
 a la ligne et meme des
 
 paragraphes\'>SPIP</a>',
-    1 => '<a href=\'http://www.spip.net\'>SPIP</a>',
+    1 => '<a href=\'https://www.spip.net\'>SPIP</a>',
     2 => 'title',
     3 => 'Un texte avec des retour
 a la ligne et meme des
@@ -339,8 +339,8 @@ paragraphes',
   ),
   32 => 
   array (
-    0 => '<a href=\'http://www.spip.net\'>SPIP</a>',
-    1 => '<a href=\'http://www.spip.net\' title=\'Simplement\'>SPIP</a>',
+    0 => '<a href=\'https://www.spip.net\'>SPIP</a>',
+    1 => '<a href=\'https://www.spip.net\' title=\'Simplement\'>SPIP</a>',
     2 => 'title',
     3 => '',
     4 => true,
@@ -348,8 +348,8 @@ paragraphes',
   ),
   33 => 
   array (
-    0 => '<a href=\'http://www.spip.net\' title=\'\'>SPIP</a>',
-    1 => '<a href=\'http://www.spip.net\' title=\'Simplement\'>SPIP</a>',
+    0 => '<a href=\'https://www.spip.net\' title=\'\'>SPIP</a>',
+    1 => '<a href=\'https://www.spip.net\' title=\'Simplement\'>SPIP</a>',
     2 => 'title',
     3 => '',
     4 => true,
@@ -357,8 +357,8 @@ paragraphes',
   ),
   34 => 
   array (
-    0 => '<a href=\'http://www.spip.net\'>SPIP</a>',
-    1 => '<a href=\'http://www.spip.net\' title=\'Simplement\'>SPIP</a>',
+    0 => '<a href=\'https://www.spip.net\'>SPIP</a>',
+    1 => '<a href=\'https://www.spip.net\' title=\'Simplement\'>SPIP</a>',
     2 => 'title',
     3 => '',
     4 => false,
@@ -366,8 +366,8 @@ paragraphes',
   ),
   35 => 
   array (
-    0 => '<a href=\'http://www.spip.net\' title=\'\'>SPIP</a>',
-    1 => '<a href=\'http://www.spip.net\' title=\'Simplement\'>SPIP</a>',
+    0 => '<a href=\'https://www.spip.net\' title=\'\'>SPIP</a>',
+    1 => '<a href=\'https://www.spip.net\' title=\'Simplement\'>SPIP</a>',
     2 => 'title',
     3 => '',
     4 => false,
@@ -375,8 +375,8 @@ paragraphes',
   ),
   36 => 
   array (
-    0 => '<a href=\'http://www.spip.net\' title=\'0\'>SPIP</a>',
-    1 => '<a href=\'http://www.spip.net\' title=\'Simplement\'>SPIP</a>',
+    0 => '<a href=\'https://www.spip.net\' title=\'0\'>SPIP</a>',
+    1 => '<a href=\'https://www.spip.net\' title=\'Simplement\'>SPIP</a>',
     2 => 'title',
     3 => '0',
     4 => true,
@@ -384,8 +384,8 @@ paragraphes',
   ),
   37 => 
   array (
-    0 => '<a href=\'http://www.spip.net\' title=\'0\'>SPIP</a>',
-    1 => '<a href=\'http://www.spip.net\' title=\'Simplement\'>SPIP</a>',
+    0 => '<a href=\'https://www.spip.net\' title=\'0\'>SPIP</a>',
+    1 => '<a href=\'https://www.spip.net\' title=\'Simplement\'>SPIP</a>',
     2 => 'title',
     3 => '0',
     4 => true,
@@ -393,8 +393,8 @@ paragraphes',
   ),
   38 => 
   array (
-    0 => '<a href=\'http://www.spip.net\' title=\'0\'>SPIP</a>',
-    1 => '<a href=\'http://www.spip.net\' title=\'Simplement\'>SPIP</a>',
+    0 => '<a href=\'https://www.spip.net\' title=\'0\'>SPIP</a>',
+    1 => '<a href=\'https://www.spip.net\' title=\'Simplement\'>SPIP</a>',
     2 => 'title',
     3 => '0',
     4 => false,
@@ -402,8 +402,8 @@ paragraphes',
   ),
   39 => 
   array (
-    0 => '<a href=\'http://www.spip.net\' title=\'0\'>SPIP</a>',
-    1 => '<a href=\'http://www.spip.net\' title=\'Simplement\'>SPIP</a>',
+    0 => '<a href=\'https://www.spip.net\' title=\'0\'>SPIP</a>',
+    1 => '<a href=\'https://www.spip.net\' title=\'Simplement\'>SPIP</a>',
     2 => 'title',
     3 => '0',
     4 => false,
@@ -411,44 +411,44 @@ paragraphes',
   ),
   40 => 
   array (
-    0 => '<a href=\'http://www.spip.net\' title=\'Un texte avec des &lt;a href=&#034;http://spip.net&#034;&gt;liens&lt;/a&gt; [Article 1-&gt;art1] [spip-&gt;http://www.spip.net] http://www.spip.net\'>SPIP</a>',
-    1 => '<a href=\'http://www.spip.net\' title=\'Simplement\'>SPIP</a>',
+    0 => '<a href=\'https://www.spip.net\' title=\'Un texte avec des &lt;a href=&#034;http://spip.net&#034;&gt;liens&lt;/a&gt; [Article 1-&gt;art1] [spip-&gt;https://www.spip.net] https://www.spip.net\'>SPIP</a>',
+    1 => '<a href=\'https://www.spip.net\' title=\'Simplement\'>SPIP</a>',
     2 => 'title',
-    3 => 'Un texte avec des <a href="http://spip.net">liens</a> [Article 1->art1] [spip->http://www.spip.net] http://www.spip.net',
+    3 => 'Un texte avec des <a href="http://spip.net">liens</a> [Article 1->art1] [spip->https://www.spip.net] https://www.spip.net',
     4 => true,
     5 => true,
   ),
   41 => 
   array (
-    0 => '<a href=\'http://www.spip.net\' title=\'Un texte avec des &lt;a href=&#034;http://spip.net&#034;&gt;liens&lt;/a&gt; [Article 1-&gt;art1] [spip-&gt;http://www.spip.net] http://www.spip.net\'>SPIP</a>',
-    1 => '<a href=\'http://www.spip.net\' title=\'Simplement\'>SPIP</a>',
+    0 => '<a href=\'https://www.spip.net\' title=\'Un texte avec des &lt;a href=&#034;http://spip.net&#034;&gt;liens&lt;/a&gt; [Article 1-&gt;art1] [spip-&gt;https://www.spip.net] https://www.spip.net\'>SPIP</a>',
+    1 => '<a href=\'https://www.spip.net\' title=\'Simplement\'>SPIP</a>',
     2 => 'title',
-    3 => 'Un texte avec des <a href="http://spip.net">liens</a> [Article 1->art1] [spip->http://www.spip.net] http://www.spip.net',
+    3 => 'Un texte avec des <a href="http://spip.net">liens</a> [Article 1->art1] [spip->https://www.spip.net] https://www.spip.net',
     4 => true,
     5 => false,
   ),
   42 => 
   array (
-    0 => '<a href=\'http://www.spip.net\' title=\'Un texte avec des <a href="http://spip.net">liens</a> [Article 1->art1] [spip->http://www.spip.net] http://www.spip.net\'>SPIP</a>',
-    1 => '<a href=\'http://www.spip.net\' title=\'Simplement\'>SPIP</a>',
+    0 => '<a href=\'https://www.spip.net\' title=\'Un texte avec des <a href="http://spip.net">liens</a> [Article 1->art1] [spip->https://www.spip.net] https://www.spip.net\'>SPIP</a>',
+    1 => '<a href=\'https://www.spip.net\' title=\'Simplement\'>SPIP</a>',
     2 => 'title',
-    3 => 'Un texte avec des <a href="http://spip.net">liens</a> [Article 1->art1] [spip->http://www.spip.net] http://www.spip.net',
+    3 => 'Un texte avec des <a href="http://spip.net">liens</a> [Article 1->art1] [spip->https://www.spip.net] https://www.spip.net',
     4 => false,
     5 => true,
   ),
   43 => 
   array (
-    0 => '<a href=\'http://www.spip.net\' title=\'Un texte avec des <a href="http://spip.net">liens</a> [Article 1->art1] [spip->http://www.spip.net] http://www.spip.net\'>SPIP</a>',
-    1 => '<a href=\'http://www.spip.net\' title=\'Simplement\'>SPIP</a>',
+    0 => '<a href=\'https://www.spip.net\' title=\'Un texte avec des <a href="http://spip.net">liens</a> [Article 1->art1] [spip->https://www.spip.net] https://www.spip.net\'>SPIP</a>',
+    1 => '<a href=\'https://www.spip.net\' title=\'Simplement\'>SPIP</a>',
     2 => 'title',
-    3 => 'Un texte avec des <a href="http://spip.net">liens</a> [Article 1->art1] [spip->http://www.spip.net] http://www.spip.net',
+    3 => 'Un texte avec des <a href="http://spip.net">liens</a> [Article 1->art1] [spip->https://www.spip.net] https://www.spip.net',
     4 => false,
     5 => false,
   ),
   44 => 
   array (
-    0 => '<a href=\'http://www.spip.net\' title=\'Un texte avec des entit&#233;s &#38;&lt;&gt;&#034;\'>SPIP</a>',
-    1 => '<a href=\'http://www.spip.net\' title=\'Simplement\'>SPIP</a>',
+    0 => '<a href=\'https://www.spip.net\' title=\'Un texte avec des entit&#233;s &#38;&lt;&gt;&#034;\'>SPIP</a>',
+    1 => '<a href=\'https://www.spip.net\' title=\'Simplement\'>SPIP</a>',
     2 => 'title',
     3 => 'Un texte avec des entit&eacute;s &amp;&lt;&gt;&#034;',
     4 => true,
@@ -456,8 +456,8 @@ paragraphes',
   ),
   45 => 
   array (
-    0 => '<a href=\'http://www.spip.net\' title=\'Un texte avec des entit&#233;s &#38;&lt;&gt;&#034;\'>SPIP</a>',
-    1 => '<a href=\'http://www.spip.net\' title=\'Simplement\'>SPIP</a>',
+    0 => '<a href=\'https://www.spip.net\' title=\'Un texte avec des entit&#233;s &#38;&lt;&gt;&#034;\'>SPIP</a>',
+    1 => '<a href=\'https://www.spip.net\' title=\'Simplement\'>SPIP</a>',
     2 => 'title',
     3 => 'Un texte avec des entit&eacute;s &amp;&lt;&gt;&#034;',
     4 => true,
@@ -465,8 +465,8 @@ paragraphes',
   ),
   46 => 
   array (
-    0 => '<a href=\'http://www.spip.net\' title=\'Un texte avec des entit&eacute;s &amp;&lt;&gt;&#034;\'>SPIP</a>',
-    1 => '<a href=\'http://www.spip.net\' title=\'Simplement\'>SPIP</a>',
+    0 => '<a href=\'https://www.spip.net\' title=\'Un texte avec des entit&eacute;s &amp;&lt;&gt;&#034;\'>SPIP</a>',
+    1 => '<a href=\'https://www.spip.net\' title=\'Simplement\'>SPIP</a>',
     2 => 'title',
     3 => 'Un texte avec des entit&eacute;s &amp;&lt;&gt;&#034;',
     4 => false,
@@ -474,8 +474,8 @@ paragraphes',
   ),
   47 => 
   array (
-    0 => '<a href=\'http://www.spip.net\' title=\'Un texte avec des entit&eacute;s &amp;&lt;&gt;&#034;\'>SPIP</a>',
-    1 => '<a href=\'http://www.spip.net\' title=\'Simplement\'>SPIP</a>',
+    0 => '<a href=\'https://www.spip.net\' title=\'Un texte avec des entit&eacute;s &amp;&lt;&gt;&#034;\'>SPIP</a>',
+    1 => '<a href=\'https://www.spip.net\' title=\'Simplement\'>SPIP</a>',
     2 => 'title',
     3 => 'Un texte avec des entit&eacute;s &amp;&lt;&gt;&#034;',
     4 => false,
@@ -483,8 +483,8 @@ paragraphes',
   ),
   48 => 
   array (
-    0 => '<a href=\'http://www.spip.net\' title=\'Un texte sans entites &#38;&lt;&gt;&#034;&#039;\'>SPIP</a>',
-    1 => '<a href=\'http://www.spip.net\' title=\'Simplement\'>SPIP</a>',
+    0 => '<a href=\'https://www.spip.net\' title=\'Un texte sans entites &#38;&lt;&gt;&#034;&#039;\'>SPIP</a>',
+    1 => '<a href=\'https://www.spip.net\' title=\'Simplement\'>SPIP</a>',
     2 => 'title',
     3 => 'Un texte sans entites &<>"\'',
     4 => true,
@@ -492,8 +492,8 @@ paragraphes',
   ),
   49 => 
   array (
-    0 => '<a href=\'http://www.spip.net\' title=\'Un texte sans entites &#38;&lt;&gt;&#034;&#039;\'>SPIP</a>',
-    1 => '<a href=\'http://www.spip.net\' title=\'Simplement\'>SPIP</a>',
+    0 => '<a href=\'https://www.spip.net\' title=\'Un texte sans entites &#38;&lt;&gt;&#034;&#039;\'>SPIP</a>',
+    1 => '<a href=\'https://www.spip.net\' title=\'Simplement\'>SPIP</a>',
     2 => 'title',
     3 => 'Un texte sans entites &<>"\'',
     4 => true,
@@ -501,8 +501,8 @@ paragraphes',
   ),
   50 => 
   array (
-    0 => '<a href=\'http://www.spip.net\' title=\'Un texte sans entites &<>"&#039;\'>SPIP</a>',
-    1 => '<a href=\'http://www.spip.net\' title=\'Simplement\'>SPIP</a>',
+    0 => '<a href=\'https://www.spip.net\' title=\'Un texte sans entites &<>"&#039;\'>SPIP</a>',
+    1 => '<a href=\'https://www.spip.net\' title=\'Simplement\'>SPIP</a>',
     2 => 'title',
     3 => 'Un texte sans entites &<>"\'',
     4 => false,
@@ -510,8 +510,8 @@ paragraphes',
   ),
   51 => 
   array (
-    0 => '<a href=\'http://www.spip.net\' title=\'Un texte sans entites &<>"&#039;\'>SPIP</a>',
-    1 => '<a href=\'http://www.spip.net\' title=\'Simplement\'>SPIP</a>',
+    0 => '<a href=\'https://www.spip.net\' title=\'Un texte sans entites &<>"&#039;\'>SPIP</a>',
+    1 => '<a href=\'https://www.spip.net\' title=\'Simplement\'>SPIP</a>',
     2 => 'title',
     3 => 'Un texte sans entites &<>"\'',
     4 => false,
@@ -519,8 +519,8 @@ paragraphes',
   ),
   52 => 
   array (
-    0 => '<a href=\'http://www.spip.net\' title=\'{{{Des raccourcis}}} {italique} {{gras}} &lt;code&gt;du code&lt;/code&gt;\'>SPIP</a>',
-    1 => '<a href=\'http://www.spip.net\' title=\'Simplement\'>SPIP</a>',
+    0 => '<a href=\'https://www.spip.net\' title=\'{{{Des raccourcis}}} {italique} {{gras}} &lt;code&gt;du code&lt;/code&gt;\'>SPIP</a>',
+    1 => '<a href=\'https://www.spip.net\' title=\'Simplement\'>SPIP</a>',
     2 => 'title',
     3 => '{{{Des raccourcis}}} {italique} {{gras}} <code>du code</code>',
     4 => true,
@@ -528,8 +528,8 @@ paragraphes',
   ),
   53 => 
   array (
-    0 => '<a href=\'http://www.spip.net\' title=\'{{{Des raccourcis}}} {italique} {{gras}} &lt;code&gt;du code&lt;/code&gt;\'>SPIP</a>',
-    1 => '<a href=\'http://www.spip.net\' title=\'Simplement\'>SPIP</a>',
+    0 => '<a href=\'https://www.spip.net\' title=\'{{{Des raccourcis}}} {italique} {{gras}} &lt;code&gt;du code&lt;/code&gt;\'>SPIP</a>',
+    1 => '<a href=\'https://www.spip.net\' title=\'Simplement\'>SPIP</a>',
     2 => 'title',
     3 => '{{{Des raccourcis}}} {italique} {{gras}} <code>du code</code>',
     4 => true,
@@ -537,8 +537,8 @@ paragraphes',
   ),
   54 => 
   array (
-    0 => '<a href=\'http://www.spip.net\' title=\'{{{Des raccourcis}}} {italique} {{gras}} <code>du code</code>\'>SPIP</a>',
-    1 => '<a href=\'http://www.spip.net\' title=\'Simplement\'>SPIP</a>',
+    0 => '<a href=\'https://www.spip.net\' title=\'{{{Des raccourcis}}} {italique} {{gras}} <code>du code</code>\'>SPIP</a>',
+    1 => '<a href=\'https://www.spip.net\' title=\'Simplement\'>SPIP</a>',
     2 => 'title',
     3 => '{{{Des raccourcis}}} {italique} {{gras}} <code>du code</code>',
     4 => false,
@@ -546,8 +546,8 @@ paragraphes',
   ),
   55 => 
   array (
-    0 => '<a href=\'http://www.spip.net\' title=\'{{{Des raccourcis}}} {italique} {{gras}} <code>du code</code>\'>SPIP</a>',
-    1 => '<a href=\'http://www.spip.net\' title=\'Simplement\'>SPIP</a>',
+    0 => '<a href=\'https://www.spip.net\' title=\'{{{Des raccourcis}}} {italique} {{gras}} <code>du code</code>\'>SPIP</a>',
+    1 => '<a href=\'https://www.spip.net\' title=\'Simplement\'>SPIP</a>',
     2 => 'title',
     3 => '{{{Des raccourcis}}} {italique} {{gras}} <code>du code</code>',
     4 => false,
@@ -555,45 +555,45 @@ paragraphes',
   ),
   56 => 
   array (
-    0 => '<a href=\'http://www.spip.net\' title=\'Un modele &lt;modeleinexistant|lien=[-&gt;http://www.spip.net]&gt;\'>SPIP</a>',
-    1 => '<a href=\'http://www.spip.net\' title=\'Simplement\'>SPIP</a>',
+    0 => '<a href=\'https://www.spip.net\' title=\'Un modele &lt;modeleinexistant|lien=[-&gt;https://www.spip.net]&gt;\'>SPIP</a>',
+    1 => '<a href=\'https://www.spip.net\' title=\'Simplement\'>SPIP</a>',
     2 => 'title',
-    3 => 'Un modele <modeleinexistant|lien=[->http://www.spip.net]>',
+    3 => 'Un modele <modeleinexistant|lien=[->https://www.spip.net]>',
     4 => true,
     5 => true,
   ),
   57 => 
   array (
-    0 => '<a href=\'http://www.spip.net\' title=\'Un modele &lt;modeleinexistant|lien=[-&gt;http://www.spip.net]&gt;\'>SPIP</a>',
-    1 => '<a href=\'http://www.spip.net\' title=\'Simplement\'>SPIP</a>',
+    0 => '<a href=\'https://www.spip.net\' title=\'Un modele &lt;modeleinexistant|lien=[-&gt;https://www.spip.net]&gt;\'>SPIP</a>',
+    1 => '<a href=\'https://www.spip.net\' title=\'Simplement\'>SPIP</a>',
     2 => 'title',
-    3 => 'Un modele <modeleinexistant|lien=[->http://www.spip.net]>',
+    3 => 'Un modele <modeleinexistant|lien=[->https://www.spip.net]>',
     4 => true,
     5 => false,
   ),
   58 => 
   array (
-    0 => '<a href=\'http://www.spip.net\' title=\'Un modele <modeleinexistant|lien=[->http://www.spip.net]>\'>SPIP</a>',
-    1 => '<a href=\'http://www.spip.net\' title=\'Simplement\'>SPIP</a>',
+    0 => '<a href=\'https://www.spip.net\' title=\'Un modele <modeleinexistant|lien=[->https://www.spip.net]>\'>SPIP</a>',
+    1 => '<a href=\'https://www.spip.net\' title=\'Simplement\'>SPIP</a>',
     2 => 'title',
-    3 => 'Un modele <modeleinexistant|lien=[->http://www.spip.net]>',
+    3 => 'Un modele <modeleinexistant|lien=[->https://www.spip.net]>',
     4 => false,
     5 => true,
   ),
   59 => 
   array (
-    0 => '<a href=\'http://www.spip.net\' title=\'Un modele <modeleinexistant|lien=[->http://www.spip.net]>\'>SPIP</a>',
-    1 => '<a href=\'http://www.spip.net\' title=\'Simplement\'>SPIP</a>',
+    0 => '<a href=\'https://www.spip.net\' title=\'Un modele <modeleinexistant|lien=[->https://www.spip.net]>\'>SPIP</a>',
+    1 => '<a href=\'https://www.spip.net\' title=\'Simplement\'>SPIP</a>',
     2 => 'title',
-    3 => 'Un modele <modeleinexistant|lien=[->http://www.spip.net]>',
+    3 => 'Un modele <modeleinexistant|lien=[->https://www.spip.net]>',
     4 => false,
     5 => false,
   ),
   60 => 
   array (
-    0 => '<a href=\'http://www.spip.net\' title=\'Un texte avec des retour
+    0 => '<a href=\'https://www.spip.net\' title=\'Un texte avec des retour
 a la ligne et meme des paragraphes\'>SPIP</a>',
-    1 => '<a href=\'http://www.spip.net\' title=\'Simplement\'>SPIP</a>',
+    1 => '<a href=\'https://www.spip.net\' title=\'Simplement\'>SPIP</a>',
     2 => 'title',
     3 => 'Un texte avec des retour
 a la ligne et meme des
@@ -604,9 +604,9 @@ paragraphes',
   ),
   61 => 
   array (
-    0 => '<a href=\'http://www.spip.net\' title=\'Un texte avec des retour
+    0 => '<a href=\'https://www.spip.net\' title=\'Un texte avec des retour
 a la ligne et meme des paragraphes\'>SPIP</a>',
-    1 => '<a href=\'http://www.spip.net\' title=\'Simplement\'>SPIP</a>',
+    1 => '<a href=\'https://www.spip.net\' title=\'Simplement\'>SPIP</a>',
     2 => 'title',
     3 => 'Un texte avec des retour
 a la ligne et meme des
@@ -617,11 +617,11 @@ paragraphes',
   ),
   62 => 
   array (
-    0 => '<a href=\'http://www.spip.net\' title=\'Un texte avec des retour
+    0 => '<a href=\'https://www.spip.net\' title=\'Un texte avec des retour
 a la ligne et meme des
 
 paragraphes\'>SPIP</a>',
-    1 => '<a href=\'http://www.spip.net\' title=\'Simplement\'>SPIP</a>',
+    1 => '<a href=\'https://www.spip.net\' title=\'Simplement\'>SPIP</a>',
     2 => 'title',
     3 => 'Un texte avec des retour
 a la ligne et meme des
@@ -632,11 +632,11 @@ paragraphes',
   ),
   63 => 
   array (
-    0 => '<a href=\'http://www.spip.net\' title=\'Un texte avec des retour
+    0 => '<a href=\'https://www.spip.net\' title=\'Un texte avec des retour
 a la ligne et meme des
 
 paragraphes\'>SPIP</a>',
-    1 => '<a href=\'http://www.spip.net\' title=\'Simplement\'>SPIP</a>',
+    1 => '<a href=\'https://www.spip.net\' title=\'Simplement\'>SPIP</a>',
     2 => 'title',
     3 => 'Un texte avec des retour
 a la ligne et meme des
@@ -647,8 +647,8 @@ paragraphes',
   ),
   64 => 
   array (
-    0 => '<a href=\'http://www.spip.net\'><img src=\'http://www.spip.net/squelettes/img/spip.png\' /></a>',
-    1 => '<a href=\'http://www.spip.net\'><img src=\'http://www.spip.net/squelettes/img/spip.png\' /></a>',
+    0 => '<a href=\'https://www.spip.net\'><img src=\'https://www.spip.net/IMG/siteon0.png\' /></a>',
+    1 => '<a href=\'https://www.spip.net\'><img src=\'https://www.spip.net/IMG/siteon0.png\' /></a>',
     2 => 'alt',
     3 => '',
     4 => true,
@@ -656,8 +656,8 @@ paragraphes',
   ),
   65 => 
   array (
-    0 => '<a href=\'http://www.spip.net\'><img src=\'http://www.spip.net/squelettes/img/spip.png\' alt=\'\' /></a>',
-    1 => '<a href=\'http://www.spip.net\'><img src=\'http://www.spip.net/squelettes/img/spip.png\' /></a>',
+    0 => '<a href=\'https://www.spip.net\'><img src=\'https://www.spip.net/IMG/siteon0.png\' alt=\'\' /></a>',
+    1 => '<a href=\'https://www.spip.net\'><img src=\'https://www.spip.net/IMG/siteon0.png\' /></a>',
     2 => 'alt',
     3 => '',
     4 => true,
@@ -665,8 +665,8 @@ paragraphes',
   ),
   66 => 
   array (
-    0 => '<a href=\'http://www.spip.net\'><img src=\'http://www.spip.net/squelettes/img/spip.png\' /></a>',
-    1 => '<a href=\'http://www.spip.net\'><img src=\'http://www.spip.net/squelettes/img/spip.png\' /></a>',
+    0 => '<a href=\'https://www.spip.net\'><img src=\'https://www.spip.net/IMG/siteon0.png\' /></a>',
+    1 => '<a href=\'https://www.spip.net\'><img src=\'https://www.spip.net/IMG/siteon0.png\' /></a>',
     2 => 'alt',
     3 => '',
     4 => false,
@@ -674,8 +674,8 @@ paragraphes',
   ),
   67 => 
   array (
-    0 => '<a href=\'http://www.spip.net\'><img src=\'http://www.spip.net/squelettes/img/spip.png\' alt=\'\' /></a>',
-    1 => '<a href=\'http://www.spip.net\'><img src=\'http://www.spip.net/squelettes/img/spip.png\' /></a>',
+    0 => '<a href=\'https://www.spip.net\'><img src=\'https://www.spip.net/IMG/siteon0.png\' alt=\'\' /></a>',
+    1 => '<a href=\'https://www.spip.net\'><img src=\'https://www.spip.net/IMG/siteon0.png\' /></a>',
     2 => 'alt',
     3 => '',
     4 => false,
@@ -683,8 +683,8 @@ paragraphes',
   ),
   68 => 
   array (
-    0 => '<a href=\'http://www.spip.net\'><img src=\'http://www.spip.net/squelettes/img/spip.png\' alt=\'0\' /></a>',
-    1 => '<a href=\'http://www.spip.net\'><img src=\'http://www.spip.net/squelettes/img/spip.png\' /></a>',
+    0 => '<a href=\'https://www.spip.net\'><img src=\'https://www.spip.net/IMG/siteon0.png\' alt=\'0\' /></a>',
+    1 => '<a href=\'https://www.spip.net\'><img src=\'https://www.spip.net/IMG/siteon0.png\' /></a>',
     2 => 'alt',
     3 => '0',
     4 => true,
@@ -692,8 +692,8 @@ paragraphes',
   ),
   69 => 
   array (
-    0 => '<a href=\'http://www.spip.net\'><img src=\'http://www.spip.net/squelettes/img/spip.png\' alt=\'0\' /></a>',
-    1 => '<a href=\'http://www.spip.net\'><img src=\'http://www.spip.net/squelettes/img/spip.png\' /></a>',
+    0 => '<a href=\'https://www.spip.net\'><img src=\'https://www.spip.net/IMG/siteon0.png\' alt=\'0\' /></a>',
+    1 => '<a href=\'https://www.spip.net\'><img src=\'https://www.spip.net/IMG/siteon0.png\' /></a>',
     2 => 'alt',
     3 => '0',
     4 => true,
@@ -701,8 +701,8 @@ paragraphes',
   ),
   70 => 
   array (
-    0 => '<a href=\'http://www.spip.net\'><img src=\'http://www.spip.net/squelettes/img/spip.png\' alt=\'0\' /></a>',
-    1 => '<a href=\'http://www.spip.net\'><img src=\'http://www.spip.net/squelettes/img/spip.png\' /></a>',
+    0 => '<a href=\'https://www.spip.net\'><img src=\'https://www.spip.net/IMG/siteon0.png\' alt=\'0\' /></a>',
+    1 => '<a href=\'https://www.spip.net\'><img src=\'https://www.spip.net/IMG/siteon0.png\' /></a>',
     2 => 'alt',
     3 => '0',
     4 => false,
@@ -710,8 +710,8 @@ paragraphes',
   ),
   71 => 
   array (
-    0 => '<a href=\'http://www.spip.net\'><img src=\'http://www.spip.net/squelettes/img/spip.png\' alt=\'0\' /></a>',
-    1 => '<a href=\'http://www.spip.net\'><img src=\'http://www.spip.net/squelettes/img/spip.png\' /></a>',
+    0 => '<a href=\'https://www.spip.net\'><img src=\'https://www.spip.net/IMG/siteon0.png\' alt=\'0\' /></a>',
+    1 => '<a href=\'https://www.spip.net\'><img src=\'https://www.spip.net/IMG/siteon0.png\' /></a>',
     2 => 'alt',
     3 => '0',
     4 => false,
@@ -719,44 +719,44 @@ paragraphes',
   ),
   72 => 
   array (
-    0 => '<a href=\'http://www.spip.net\'><img src=\'http://www.spip.net/squelettes/img/spip.png\' alt=\'Un texte avec des &lt;a href=&#034;http://spip.net&#034;&gt;liens&lt;/a&gt; [Article 1-&gt;art1] [spip-&gt;http://www.spip.net] http://www.spip.net\' /></a>',
-    1 => '<a href=\'http://www.spip.net\'><img src=\'http://www.spip.net/squelettes/img/spip.png\' /></a>',
+    0 => '<a href=\'https://www.spip.net\'><img src=\'https://www.spip.net/IMG/siteon0.png\' alt=\'Un texte avec des &lt;a href=&#034;http://spip.net&#034;&gt;liens&lt;/a&gt; [Article 1-&gt;art1] [spip-&gt;https://www.spip.net] https://www.spip.net\' /></a>',
+    1 => '<a href=\'https://www.spip.net\'><img src=\'https://www.spip.net/IMG/siteon0.png\' /></a>',
     2 => 'alt',
-    3 => 'Un texte avec des <a href="http://spip.net">liens</a> [Article 1->art1] [spip->http://www.spip.net] http://www.spip.net',
+    3 => 'Un texte avec des <a href="http://spip.net">liens</a> [Article 1->art1] [spip->https://www.spip.net] https://www.spip.net',
     4 => true,
     5 => true,
   ),
   73 => 
   array (
-    0 => '<a href=\'http://www.spip.net\'><img src=\'http://www.spip.net/squelettes/img/spip.png\' alt=\'Un texte avec des &lt;a href=&#034;http://spip.net&#034;&gt;liens&lt;/a&gt; [Article 1-&gt;art1] [spip-&gt;http://www.spip.net] http://www.spip.net\' /></a>',
-    1 => '<a href=\'http://www.spip.net\'><img src=\'http://www.spip.net/squelettes/img/spip.png\' /></a>',
+    0 => '<a href=\'https://www.spip.net\'><img src=\'https://www.spip.net/IMG/siteon0.png\' alt=\'Un texte avec des &lt;a href=&#034;http://spip.net&#034;&gt;liens&lt;/a&gt; [Article 1-&gt;art1] [spip-&gt;https://www.spip.net] https://www.spip.net\' /></a>',
+    1 => '<a href=\'https://www.spip.net\'><img src=\'https://www.spip.net/IMG/siteon0.png\' /></a>',
     2 => 'alt',
-    3 => 'Un texte avec des <a href="http://spip.net">liens</a> [Article 1->art1] [spip->http://www.spip.net] http://www.spip.net',
+    3 => 'Un texte avec des <a href="http://spip.net">liens</a> [Article 1->art1] [spip->https://www.spip.net] https://www.spip.net',
     4 => true,
     5 => false,
   ),
   74 => 
   array (
-    0 => '<a href=\'http://www.spip.net\'><img src=\'http://www.spip.net/squelettes/img/spip.png\' alt=\'Un texte avec des <a href="http://spip.net">liens</a> [Article 1->art1] [spip->http://www.spip.net] http://www.spip.net\' /></a>',
-    1 => '<a href=\'http://www.spip.net\'><img src=\'http://www.spip.net/squelettes/img/spip.png\' /></a>',
+    0 => '<a href=\'https://www.spip.net\'><img src=\'https://www.spip.net/IMG/siteon0.png\' alt=\'Un texte avec des <a href="http://spip.net">liens</a> [Article 1->art1] [spip->https://www.spip.net] https://www.spip.net\' /></a>',
+    1 => '<a href=\'https://www.spip.net\'><img src=\'https://www.spip.net/IMG/siteon0.png\' /></a>',
     2 => 'alt',
-    3 => 'Un texte avec des <a href="http://spip.net">liens</a> [Article 1->art1] [spip->http://www.spip.net] http://www.spip.net',
+    3 => 'Un texte avec des <a href="http://spip.net">liens</a> [Article 1->art1] [spip->https://www.spip.net] https://www.spip.net',
     4 => false,
     5 => true,
   ),
   75 => 
   array (
-    0 => '<a href=\'http://www.spip.net\'><img src=\'http://www.spip.net/squelettes/img/spip.png\' alt=\'Un texte avec des <a href="http://spip.net">liens</a> [Article 1->art1] [spip->http://www.spip.net] http://www.spip.net\' /></a>',
-    1 => '<a href=\'http://www.spip.net\'><img src=\'http://www.spip.net/squelettes/img/spip.png\' /></a>',
+    0 => '<a href=\'https://www.spip.net\'><img src=\'https://www.spip.net/IMG/siteon0.png\' alt=\'Un texte avec des <a href="http://spip.net">liens</a> [Article 1->art1] [spip->https://www.spip.net] https://www.spip.net\' /></a>',
+    1 => '<a href=\'https://www.spip.net\'><img src=\'https://www.spip.net/IMG/siteon0.png\' /></a>',
     2 => 'alt',
-    3 => 'Un texte avec des <a href="http://spip.net">liens</a> [Article 1->art1] [spip->http://www.spip.net] http://www.spip.net',
+    3 => 'Un texte avec des <a href="http://spip.net">liens</a> [Article 1->art1] [spip->https://www.spip.net] https://www.spip.net',
     4 => false,
     5 => false,
   ),
   76 => 
   array (
-    0 => '<a href=\'http://www.spip.net\'><img src=\'http://www.spip.net/squelettes/img/spip.png\' alt=\'Un texte avec des entit&#233;s &#38;&lt;&gt;&#034;\' /></a>',
-    1 => '<a href=\'http://www.spip.net\'><img src=\'http://www.spip.net/squelettes/img/spip.png\' /></a>',
+    0 => '<a href=\'https://www.spip.net\'><img src=\'https://www.spip.net/IMG/siteon0.png\' alt=\'Un texte avec des entit&#233;s &#38;&lt;&gt;&#034;\' /></a>',
+    1 => '<a href=\'https://www.spip.net\'><img src=\'https://www.spip.net/IMG/siteon0.png\' /></a>',
     2 => 'alt',
     3 => 'Un texte avec des entit&eacute;s &amp;&lt;&gt;&quot;',
     4 => true,
@@ -764,8 +764,8 @@ paragraphes',
   ),
   77 => 
   array (
-    0 => '<a href=\'http://www.spip.net\'><img src=\'http://www.spip.net/squelettes/img/spip.png\' alt=\'Un texte avec des entit&#233;s &#38;&lt;&gt;&#034;\' /></a>',
-    1 => '<a href=\'http://www.spip.net\'><img src=\'http://www.spip.net/squelettes/img/spip.png\' /></a>',
+    0 => '<a href=\'https://www.spip.net\'><img src=\'https://www.spip.net/IMG/siteon0.png\' alt=\'Un texte avec des entit&#233;s &#38;&lt;&gt;&#034;\' /></a>',
+    1 => '<a href=\'https://www.spip.net\'><img src=\'https://www.spip.net/IMG/siteon0.png\' /></a>',
     2 => 'alt',
     3 => 'Un texte avec des entit&eacute;s &amp;&lt;&gt;&quot;',
     4 => true,
@@ -773,8 +773,8 @@ paragraphes',
   ),
   78 => 
   array (
-    0 => '<a href=\'http://www.spip.net\'><img src=\'http://www.spip.net/squelettes/img/spip.png\' alt=\'Un texte avec des entit&eacute;s &amp;&lt;&gt;&#034;\' /></a>',
-    1 => '<a href=\'http://www.spip.net\'><img src=\'http://www.spip.net/squelettes/img/spip.png\' /></a>',
+    0 => '<a href=\'https://www.spip.net\'><img src=\'https://www.spip.net/IMG/siteon0.png\' alt=\'Un texte avec des entit&eacute;s &amp;&lt;&gt;&#034;\' /></a>',
+    1 => '<a href=\'https://www.spip.net\'><img src=\'https://www.spip.net/IMG/siteon0.png\' /></a>',
     2 => 'alt',
     3 => 'Un texte avec des entit&eacute;s &amp;&lt;&gt;&#034;',
     4 => false,
@@ -782,8 +782,8 @@ paragraphes',
   ),
   79 => 
   array (
-    0 => '<a href=\'http://www.spip.net\'><img src=\'http://www.spip.net/squelettes/img/spip.png\' alt=\'Un texte avec des entit&eacute;s &amp;&lt;&gt;&quot;\' /></a>',
-    1 => '<a href=\'http://www.spip.net\'><img src=\'http://www.spip.net/squelettes/img/spip.png\' /></a>',
+    0 => '<a href=\'https://www.spip.net\'><img src=\'https://www.spip.net/IMG/siteon0.png\' alt=\'Un texte avec des entit&eacute;s &amp;&lt;&gt;&quot;\' /></a>',
+    1 => '<a href=\'https://www.spip.net\'><img src=\'https://www.spip.net/IMG/siteon0.png\' /></a>',
     2 => 'alt',
     3 => 'Un texte avec des entit&eacute;s &amp;&lt;&gt;&quot;',
     4 => false,
@@ -791,8 +791,8 @@ paragraphes',
   ),
   80 => 
   array (
-    0 => '<a href=\'http://www.spip.net\'><img src=\'http://www.spip.net/squelettes/img/spip.png\' alt=\'Un texte sans entites &#38;&lt;&gt;&#034;&#039;\' /></a>',
-    1 => '<a href=\'http://www.spip.net\'><img src=\'http://www.spip.net/squelettes/img/spip.png\' /></a>',
+    0 => '<a href=\'https://www.spip.net\'><img src=\'https://www.spip.net/IMG/siteon0.png\' alt=\'Un texte sans entites &#38;&lt;&gt;&#034;&#039;\' /></a>',
+    1 => '<a href=\'https://www.spip.net\'><img src=\'https://www.spip.net/IMG/siteon0.png\' /></a>',
     2 => 'alt',
     3 => 'Un texte sans entites &<>"\'',
     4 => true,
@@ -800,8 +800,8 @@ paragraphes',
   ),
   81 => 
   array (
-    0 => '<a href=\'http://www.spip.net\'><img src=\'http://www.spip.net/squelettes/img/spip.png\' alt=\'Un texte sans entites &#38;&lt;&gt;&#034;&#039;\' /></a>',
-    1 => '<a href=\'http://www.spip.net\'><img src=\'http://www.spip.net/squelettes/img/spip.png\' /></a>',
+    0 => '<a href=\'https://www.spip.net\'><img src=\'https://www.spip.net/IMG/siteon0.png\' alt=\'Un texte sans entites &#38;&lt;&gt;&#034;&#039;\' /></a>',
+    1 => '<a href=\'https://www.spip.net\'><img src=\'https://www.spip.net/IMG/siteon0.png\' /></a>',
     2 => 'alt',
     3 => 'Un texte sans entites &<>"\'',
     4 => true,
@@ -809,8 +809,8 @@ paragraphes',
   ),
   82 => 
   array (
-    0 => '<a href=\'http://www.spip.net\'><img src=\'http://www.spip.net/squelettes/img/spip.png\' alt=\'Un texte sans entites &<>"&#039;\' /></a>',
-    1 => '<a href=\'http://www.spip.net\'><img src=\'http://www.spip.net/squelettes/img/spip.png\' /></a>',
+    0 => '<a href=\'https://www.spip.net\'><img src=\'https://www.spip.net/IMG/siteon0.png\' alt=\'Un texte sans entites &<>"&#039;\' /></a>',
+    1 => '<a href=\'https://www.spip.net\'><img src=\'https://www.spip.net/IMG/siteon0.png\' /></a>',
     2 => 'alt',
     3 => 'Un texte sans entites &<>"\'',
     4 => false,
@@ -818,8 +818,8 @@ paragraphes',
   ),
   83 => 
   array (
-    0 => '<a href=\'http://www.spip.net\'><img src=\'http://www.spip.net/squelettes/img/spip.png\' alt=\'Un texte sans entites &<>"&#039;\' /></a>',
-    1 => '<a href=\'http://www.spip.net\'><img src=\'http://www.spip.net/squelettes/img/spip.png\' /></a>',
+    0 => '<a href=\'https://www.spip.net\'><img src=\'https://www.spip.net/IMG/siteon0.png\' alt=\'Un texte sans entites &<>"&#039;\' /></a>',
+    1 => '<a href=\'https://www.spip.net\'><img src=\'https://www.spip.net/IMG/siteon0.png\' /></a>',
     2 => 'alt',
     3 => 'Un texte sans entites &<>"\'',
     4 => false,
@@ -827,8 +827,8 @@ paragraphes',
   ),
   84 => 
   array (
-    0 => '<a href=\'http://www.spip.net\'><img src=\'http://www.spip.net/squelettes/img/spip.png\' alt=\'{{{Des raccourcis}}} {italique} {{gras}} &lt;code&gt;du code&lt;/code&gt;\' /></a>',
-    1 => '<a href=\'http://www.spip.net\'><img src=\'http://www.spip.net/squelettes/img/spip.png\' /></a>',
+    0 => '<a href=\'https://www.spip.net\'><img src=\'https://www.spip.net/IMG/siteon0.png\' alt=\'{{{Des raccourcis}}} {italique} {{gras}} &lt;code&gt;du code&lt;/code&gt;\' /></a>',
+    1 => '<a href=\'https://www.spip.net\'><img src=\'https://www.spip.net/IMG/siteon0.png\' /></a>',
     2 => 'alt',
     3 => '{{{Des raccourcis}}} {italique} {{gras}} <code>du code</code>',
     4 => true,
@@ -836,8 +836,8 @@ paragraphes',
   ),
   85 => 
   array (
-    0 => '<a href=\'http://www.spip.net\'><img src=\'http://www.spip.net/squelettes/img/spip.png\' alt=\'{{{Des raccourcis}}} {italique} {{gras}} &lt;code&gt;du code&lt;/code&gt;\' /></a>',
-    1 => '<a href=\'http://www.spip.net\'><img src=\'http://www.spip.net/squelettes/img/spip.png\' /></a>',
+    0 => '<a href=\'https://www.spip.net\'><img src=\'https://www.spip.net/IMG/siteon0.png\' alt=\'{{{Des raccourcis}}} {italique} {{gras}} &lt;code&gt;du code&lt;/code&gt;\' /></a>',
+    1 => '<a href=\'https://www.spip.net\'><img src=\'https://www.spip.net/IMG/siteon0.png\' /></a>',
     2 => 'alt',
     3 => '{{{Des raccourcis}}} {italique} {{gras}} <code>du code</code>',
     4 => true,
@@ -845,8 +845,8 @@ paragraphes',
   ),
   86 => 
   array (
-    0 => '<a href=\'http://www.spip.net\'><img src=\'http://www.spip.net/squelettes/img/spip.png\' alt=\'{{{Des raccourcis}}} {italique} {{gras}} <code>du code</code>\' /></a>',
-    1 => '<a href=\'http://www.spip.net\'><img src=\'http://www.spip.net/squelettes/img/spip.png\' /></a>',
+    0 => '<a href=\'https://www.spip.net\'><img src=\'https://www.spip.net/IMG/siteon0.png\' alt=\'{{{Des raccourcis}}} {italique} {{gras}} <code>du code</code>\' /></a>',
+    1 => '<a href=\'https://www.spip.net\'><img src=\'https://www.spip.net/IMG/siteon0.png\' /></a>',
     2 => 'alt',
     3 => '{{{Des raccourcis}}} {italique} {{gras}} <code>du code</code>',
     4 => false,
@@ -854,8 +854,8 @@ paragraphes',
   ),
   87 => 
   array (
-    0 => '<a href=\'http://www.spip.net\'><img src=\'http://www.spip.net/squelettes/img/spip.png\' alt=\'{{{Des raccourcis}}} {italique} {{gras}} <code>du code</code>\' /></a>',
-    1 => '<a href=\'http://www.spip.net\'><img src=\'http://www.spip.net/squelettes/img/spip.png\' /></a>',
+    0 => '<a href=\'https://www.spip.net\'><img src=\'https://www.spip.net/IMG/siteon0.png\' alt=\'{{{Des raccourcis}}} {italique} {{gras}} <code>du code</code>\' /></a>',
+    1 => '<a href=\'https://www.spip.net\'><img src=\'https://www.spip.net/IMG/siteon0.png\' /></a>',
     2 => 'alt',
     3 => '{{{Des raccourcis}}} {italique} {{gras}} <code>du code</code>',
     4 => false,
@@ -863,45 +863,45 @@ paragraphes',
   ),
   88 => 
   array (
-    0 => '<a href=\'http://www.spip.net\'><img src=\'http://www.spip.net/squelettes/img/spip.png\' alt=\'Un modele &lt;modeleinexistant|lien=[-&gt;http://www.spip.net]&gt;\' /></a>',
-    1 => '<a href=\'http://www.spip.net\'><img src=\'http://www.spip.net/squelettes/img/spip.png\' /></a>',
+    0 => '<a href=\'https://www.spip.net\'><img src=\'https://www.spip.net/IMG/siteon0.png\' alt=\'Un modele &lt;modeleinexistant|lien=[-&gt;https://www.spip.net]&gt;\' /></a>',
+    1 => '<a href=\'https://www.spip.net\'><img src=\'https://www.spip.net/IMG/siteon0.png\' /></a>',
     2 => 'alt',
-    3 => 'Un modele <modeleinexistant|lien=[->http://www.spip.net]>',
+    3 => 'Un modele <modeleinexistant|lien=[->https://www.spip.net]>',
     4 => true,
     5 => true,
   ),
   89 => 
   array (
-    0 => '<a href=\'http://www.spip.net\'><img src=\'http://www.spip.net/squelettes/img/spip.png\' alt=\'Un modele &lt;modeleinexistant|lien=[-&gt;http://www.spip.net]&gt;\' /></a>',
-    1 => '<a href=\'http://www.spip.net\'><img src=\'http://www.spip.net/squelettes/img/spip.png\' /></a>',
+    0 => '<a href=\'https://www.spip.net\'><img src=\'https://www.spip.net/IMG/siteon0.png\' alt=\'Un modele &lt;modeleinexistant|lien=[-&gt;https://www.spip.net]&gt;\' /></a>',
+    1 => '<a href=\'https://www.spip.net\'><img src=\'https://www.spip.net/IMG/siteon0.png\' /></a>',
     2 => 'alt',
-    3 => 'Un modele <modeleinexistant|lien=[->http://www.spip.net]>',
+    3 => 'Un modele <modeleinexistant|lien=[->https://www.spip.net]>',
     4 => true,
     5 => false,
   ),
   90 => 
   array (
-    0 => '<a href=\'http://www.spip.net\'><img src=\'http://www.spip.net/squelettes/img/spip.png\' alt=\'Un modele <modeleinexistant|lien=[->http://www.spip.net]>\' /></a>',
-    1 => '<a href=\'http://www.spip.net\'><img src=\'http://www.spip.net/squelettes/img/spip.png\' /></a>',
+    0 => '<a href=\'https://www.spip.net\'><img src=\'https://www.spip.net/IMG/siteon0.png\' alt=\'Un modele <modeleinexistant|lien=[->https://www.spip.net]>\' /></a>',
+    1 => '<a href=\'https://www.spip.net\'><img src=\'https://www.spip.net/IMG/siteon0.png\' /></a>',
     2 => 'alt',
-    3 => 'Un modele <modeleinexistant|lien=[->http://www.spip.net]>',
+    3 => 'Un modele <modeleinexistant|lien=[->https://www.spip.net]>',
     4 => false,
     5 => true,
   ),
   91 => 
   array (
-    0 => '<a href=\'http://www.spip.net\'><img src=\'http://www.spip.net/squelettes/img/spip.png\' alt=\'Un modele <modeleinexistant|lien=[->http://www.spip.net]>\' /></a>',
-    1 => '<a href=\'http://www.spip.net\'><img src=\'http://www.spip.net/squelettes/img/spip.png\' /></a>',
+    0 => '<a href=\'https://www.spip.net\'><img src=\'https://www.spip.net/IMG/siteon0.png\' alt=\'Un modele <modeleinexistant|lien=[->https://www.spip.net]>\' /></a>',
+    1 => '<a href=\'https://www.spip.net\'><img src=\'https://www.spip.net/IMG/siteon0.png\' /></a>',
     2 => 'alt',
-    3 => 'Un modele <modeleinexistant|lien=[->http://www.spip.net]>',
+    3 => 'Un modele <modeleinexistant|lien=[->https://www.spip.net]>',
     4 => false,
     5 => false,
   ),
   92 => 
   array (
-    0 => '<a href=\'http://www.spip.net\'><img src=\'http://www.spip.net/squelettes/img/spip.png\' alt=\'Un texte avec des retour
+    0 => '<a href=\'https://www.spip.net\'><img src=\'https://www.spip.net/IMG/siteon0.png\' alt=\'Un texte avec des retour
 a la ligne et meme des paragraphes\' /></a>',
-    1 => '<a href=\'http://www.spip.net\'><img src=\'http://www.spip.net/squelettes/img/spip.png\' /></a>',
+    1 => '<a href=\'https://www.spip.net\'><img src=\'https://www.spip.net/IMG/siteon0.png\' /></a>',
     2 => 'alt',
     3 => 'Un texte avec des retour
 a la ligne et meme des
@@ -912,9 +912,9 @@ paragraphes',
   ),
   93 => 
   array (
-    0 => '<a href=\'http://www.spip.net\'><img src=\'http://www.spip.net/squelettes/img/spip.png\' alt=\'Un texte avec des retour
+    0 => '<a href=\'https://www.spip.net\'><img src=\'https://www.spip.net/IMG/siteon0.png\' alt=\'Un texte avec des retour
 a la ligne et meme des paragraphes\' /></a>',
-    1 => '<a href=\'http://www.spip.net\'><img src=\'http://www.spip.net/squelettes/img/spip.png\' /></a>',
+    1 => '<a href=\'https://www.spip.net\'><img src=\'https://www.spip.net/IMG/siteon0.png\' /></a>',
     2 => 'alt',
     3 => 'Un texte avec des retour
 a la ligne et meme des
@@ -925,11 +925,11 @@ paragraphes',
   ),
   94 => 
   array (
-    0 => '<a href=\'http://www.spip.net\'><img src=\'http://www.spip.net/squelettes/img/spip.png\' alt=\'Un texte avec des retour
+    0 => '<a href=\'https://www.spip.net\'><img src=\'https://www.spip.net/IMG/siteon0.png\' alt=\'Un texte avec des retour
 a la ligne et meme des
 
 paragraphes\' /></a>',
-    1 => '<a href=\'http://www.spip.net\'><img src=\'http://www.spip.net/squelettes/img/spip.png\' /></a>',
+    1 => '<a href=\'https://www.spip.net\'><img src=\'https://www.spip.net/IMG/siteon0.png\' /></a>',
     2 => 'alt',
     3 => 'Un texte avec des retour
 a la ligne et meme des
@@ -940,11 +940,11 @@ paragraphes',
   ),
   95 => 
   array (
-    0 => '<a href=\'http://www.spip.net\'><img src=\'http://www.spip.net/squelettes/img/spip.png\' alt=\'Un texte avec des retour
+    0 => '<a href=\'https://www.spip.net\'><img src=\'https://www.spip.net/IMG/siteon0.png\' alt=\'Un texte avec des retour
 a la ligne et meme des
 
 paragraphes\' /></a>',
-    1 => '<a href=\'http://www.spip.net\'><img src=\'http://www.spip.net/squelettes/img/spip.png\' /></a>',
+    1 => '<a href=\'https://www.spip.net\'><img src=\'https://www.spip.net/IMG/siteon0.png\' /></a>',
     2 => 'alt',
     3 => 'Un texte avec des retour
 a la ligne et meme des
@@ -955,8 +955,8 @@ paragraphes',
   ),
   96 => 
   array (
-    0 => '<a href=\'http://www.spip.net\'><img src=\'http://www.spip.net/squelettes/img/spip.png\' /></a>',
-    1 => '<a href=\'http://www.spip.net\'><img src=\'http://www.spip.net/squelettes/img/spip.png\' alt=\'SPIP\' /></a>',
+    0 => '<a href=\'https://www.spip.net\'><img src=\'https://www.spip.net/IMG/siteon0.png\' /></a>',
+    1 => '<a href=\'https://www.spip.net\'><img src=\'https://www.spip.net/IMG/siteon0.png\' alt=\'SPIP\' /></a>',
     2 => 'alt',
     3 => '',
     4 => true,
@@ -964,8 +964,8 @@ paragraphes',
   ),
   97 => 
   array (
-    0 => '<a href=\'http://www.spip.net\'><img src=\'http://www.spip.net/squelettes/img/spip.png\' alt=\'\' /></a>',
-    1 => '<a href=\'http://www.spip.net\'><img src=\'http://www.spip.net/squelettes/img/spip.png\' alt=\'SPIP\' /></a>',
+    0 => '<a href=\'https://www.spip.net\'><img src=\'https://www.spip.net/IMG/siteon0.png\' alt=\'\' /></a>',
+    1 => '<a href=\'https://www.spip.net\'><img src=\'https://www.spip.net/IMG/siteon0.png\' alt=\'SPIP\' /></a>',
     2 => 'alt',
     3 => '',
     4 => true,
@@ -973,8 +973,8 @@ paragraphes',
   ),
   98 => 
   array (
-    0 => '<a href=\'http://www.spip.net\'><img src=\'http://www.spip.net/squelettes/img/spip.png\' /></a>',
-    1 => '<a href=\'http://www.spip.net\'><img src=\'http://www.spip.net/squelettes/img/spip.png\' alt=\'SPIP\' /></a>',
+    0 => '<a href=\'https://www.spip.net\'><img src=\'https://www.spip.net/IMG/siteon0.png\' /></a>',
+    1 => '<a href=\'https://www.spip.net\'><img src=\'https://www.spip.net/IMG/siteon0.png\' alt=\'SPIP\' /></a>',
     2 => 'alt',
     3 => '',
     4 => false,
@@ -982,8 +982,8 @@ paragraphes',
   ),
   99 => 
   array (
-    0 => '<a href=\'http://www.spip.net\'><img src=\'http://www.spip.net/squelettes/img/spip.png\' alt=\'\' /></a>',
-    1 => '<a href=\'http://www.spip.net\'><img src=\'http://www.spip.net/squelettes/img/spip.png\' alt=\'SPIP\' /></a>',
+    0 => '<a href=\'https://www.spip.net\'><img src=\'https://www.spip.net/IMG/siteon0.png\' alt=\'\' /></a>',
+    1 => '<a href=\'https://www.spip.net\'><img src=\'https://www.spip.net/IMG/siteon0.png\' alt=\'SPIP\' /></a>',
     2 => 'alt',
     3 => '',
     4 => false,
@@ -991,8 +991,8 @@ paragraphes',
   ),
   100 => 
   array (
-    0 => '<a href=\'http://www.spip.net\'><img src=\'http://www.spip.net/squelettes/img/spip.png\' alt=\'0\' /></a>',
-    1 => '<a href=\'http://www.spip.net\'><img src=\'http://www.spip.net/squelettes/img/spip.png\' alt=\'SPIP\' /></a>',
+    0 => '<a href=\'https://www.spip.net\'><img src=\'https://www.spip.net/IMG/siteon0.png\' alt=\'0\' /></a>',
+    1 => '<a href=\'https://www.spip.net\'><img src=\'https://www.spip.net/IMG/siteon0.png\' alt=\'SPIP\' /></a>',
     2 => 'alt',
     3 => '0',
     4 => true,
@@ -1000,8 +1000,8 @@ paragraphes',
   ),
   101 => 
   array (
-    0 => '<a href=\'http://www.spip.net\'><img src=\'http://www.spip.net/squelettes/img/spip.png\' alt=\'0\' /></a>',
-    1 => '<a href=\'http://www.spip.net\'><img src=\'http://www.spip.net/squelettes/img/spip.png\' alt=\'SPIP\' /></a>',
+    0 => '<a href=\'https://www.spip.net\'><img src=\'https://www.spip.net/IMG/siteon0.png\' alt=\'0\' /></a>',
+    1 => '<a href=\'https://www.spip.net\'><img src=\'https://www.spip.net/IMG/siteon0.png\' alt=\'SPIP\' /></a>',
     2 => 'alt',
     3 => '0',
     4 => true,
@@ -1009,8 +1009,8 @@ paragraphes',
   ),
   102 => 
   array (
-    0 => '<a href=\'http://www.spip.net\'><img src=\'http://www.spip.net/squelettes/img/spip.png\' alt=\'0\' /></a>',
-    1 => '<a href=\'http://www.spip.net\'><img src=\'http://www.spip.net/squelettes/img/spip.png\' alt=\'SPIP\' /></a>',
+    0 => '<a href=\'https://www.spip.net\'><img src=\'https://www.spip.net/IMG/siteon0.png\' alt=\'0\' /></a>',
+    1 => '<a href=\'https://www.spip.net\'><img src=\'https://www.spip.net/IMG/siteon0.png\' alt=\'SPIP\' /></a>',
     2 => 'alt',
     3 => '0',
     4 => false,
@@ -1018,8 +1018,8 @@ paragraphes',
   ),
   103 => 
   array (
-    0 => '<a href=\'http://www.spip.net\'><img src=\'http://www.spip.net/squelettes/img/spip.png\' alt=\'0\' /></a>',
-    1 => '<a href=\'http://www.spip.net\'><img src=\'http://www.spip.net/squelettes/img/spip.png\' alt=\'SPIP\' /></a>',
+    0 => '<a href=\'https://www.spip.net\'><img src=\'https://www.spip.net/IMG/siteon0.png\' alt=\'0\' /></a>',
+    1 => '<a href=\'https://www.spip.net\'><img src=\'https://www.spip.net/IMG/siteon0.png\' alt=\'SPIP\' /></a>',
     2 => 'alt',
     3 => '0',
     4 => false,
@@ -1027,44 +1027,44 @@ paragraphes',
   ),
   104 => 
   array (
-    0 => '<a href=\'http://www.spip.net\'><img src=\'http://www.spip.net/squelettes/img/spip.png\' alt=\'Un texte avec des &lt;a href=&#034;http://spip.net&#034;&gt;liens&lt;/a&gt; [Article 1-&gt;art1] [spip-&gt;http://www.spip.net] http://www.spip.net\' /></a>',
-    1 => '<a href=\'http://www.spip.net\'><img src=\'http://www.spip.net/squelettes/img/spip.png\' alt=\'SPIP\' /></a>',
+    0 => '<a href=\'https://www.spip.net\'><img src=\'https://www.spip.net/IMG/siteon0.png\' alt=\'Un texte avec des &lt;a href=&#034;http://spip.net&#034;&gt;liens&lt;/a&gt; [Article 1-&gt;art1] [spip-&gt;https://www.spip.net] https://www.spip.net\' /></a>',
+    1 => '<a href=\'https://www.spip.net\'><img src=\'https://www.spip.net/IMG/siteon0.png\' alt=\'SPIP\' /></a>',
     2 => 'alt',
-    3 => 'Un texte avec des <a href="http://spip.net">liens</a> [Article 1->art1] [spip->http://www.spip.net] http://www.spip.net',
+    3 => 'Un texte avec des <a href="http://spip.net">liens</a> [Article 1->art1] [spip->https://www.spip.net] https://www.spip.net',
     4 => true,
     5 => true,
   ),
   105 => 
   array (
-    0 => '<a href=\'http://www.spip.net\'><img src=\'http://www.spip.net/squelettes/img/spip.png\' alt=\'Un texte avec des &lt;a href=&#034;http://spip.net&#034;&gt;liens&lt;/a&gt; [Article 1-&gt;art1] [spip-&gt;http://www.spip.net] http://www.spip.net\' /></a>',
-    1 => '<a href=\'http://www.spip.net\'><img src=\'http://www.spip.net/squelettes/img/spip.png\' alt=\'SPIP\' /></a>',
+    0 => '<a href=\'https://www.spip.net\'><img src=\'https://www.spip.net/IMG/siteon0.png\' alt=\'Un texte avec des &lt;a href=&#034;http://spip.net&#034;&gt;liens&lt;/a&gt; [Article 1-&gt;art1] [spip-&gt;https://www.spip.net] https://www.spip.net\' /></a>',
+    1 => '<a href=\'https://www.spip.net\'><img src=\'https://www.spip.net/IMG/siteon0.png\' alt=\'SPIP\' /></a>',
     2 => 'alt',
-    3 => 'Un texte avec des <a href="http://spip.net">liens</a> [Article 1->art1] [spip->http://www.spip.net] http://www.spip.net',
+    3 => 'Un texte avec des <a href="http://spip.net">liens</a> [Article 1->art1] [spip->https://www.spip.net] https://www.spip.net',
     4 => true,
     5 => false,
   ),
   106 => 
   array (
-    0 => '<a href=\'http://www.spip.net\'><img src=\'http://www.spip.net/squelettes/img/spip.png\' alt=\'Un texte avec des <a href="http://spip.net">liens</a> [Article 1->art1] [spip->http://www.spip.net] http://www.spip.net\' /></a>',
-    1 => '<a href=\'http://www.spip.net\'><img src=\'http://www.spip.net/squelettes/img/spip.png\' alt=\'SPIP\' /></a>',
+    0 => '<a href=\'https://www.spip.net\'><img src=\'https://www.spip.net/IMG/siteon0.png\' alt=\'Un texte avec des <a href="http://spip.net">liens</a> [Article 1->art1] [spip->https://www.spip.net] https://www.spip.net\' /></a>',
+    1 => '<a href=\'https://www.spip.net\'><img src=\'https://www.spip.net/IMG/siteon0.png\' alt=\'SPIP\' /></a>',
     2 => 'alt',
-    3 => 'Un texte avec des <a href="http://spip.net">liens</a> [Article 1->art1] [spip->http://www.spip.net] http://www.spip.net',
+    3 => 'Un texte avec des <a href="http://spip.net">liens</a> [Article 1->art1] [spip->https://www.spip.net] https://www.spip.net',
     4 => false,
     5 => true,
   ),
   107 => 
   array (
-    0 => '<a href=\'http://www.spip.net\'><img src=\'http://www.spip.net/squelettes/img/spip.png\' alt=\'Un texte avec des <a href="http://spip.net">liens</a> [Article 1->art1] [spip->http://www.spip.net] http://www.spip.net\' /></a>',
-    1 => '<a href=\'http://www.spip.net\'><img src=\'http://www.spip.net/squelettes/img/spip.png\' alt=\'SPIP\' /></a>',
+    0 => '<a href=\'https://www.spip.net\'><img src=\'https://www.spip.net/IMG/siteon0.png\' alt=\'Un texte avec des <a href="http://spip.net">liens</a> [Article 1->art1] [spip->https://www.spip.net] https://www.spip.net\' /></a>',
+    1 => '<a href=\'https://www.spip.net\'><img src=\'https://www.spip.net/IMG/siteon0.png\' alt=\'SPIP\' /></a>',
     2 => 'alt',
-    3 => 'Un texte avec des <a href="http://spip.net">liens</a> [Article 1->art1] [spip->http://www.spip.net] http://www.spip.net',
+    3 => 'Un texte avec des <a href="http://spip.net">liens</a> [Article 1->art1] [spip->https://www.spip.net] https://www.spip.net',
     4 => false,
     5 => false,
   ),
   108 => 
   array (
-    0 => '<a href=\'http://www.spip.net\'><img src=\'http://www.spip.net/squelettes/img/spip.png\' alt=\'Un texte avec des entit&#233;s &#38;&lt;&gt;&#034;\' /></a>',
-    1 => '<a href=\'http://www.spip.net\'><img src=\'http://www.spip.net/squelettes/img/spip.png\' alt=\'SPIP\' /></a>',
+    0 => '<a href=\'https://www.spip.net\'><img src=\'https://www.spip.net/IMG/siteon0.png\' alt=\'Un texte avec des entit&#233;s &#38;&lt;&gt;&#034;\' /></a>',
+    1 => '<a href=\'https://www.spip.net\'><img src=\'https://www.spip.net/IMG/siteon0.png\' alt=\'SPIP\' /></a>',
     2 => 'alt',
     3 => 'Un texte avec des entit&eacute;s &amp;&lt;&gt;&quot;',
     4 => true,
@@ -1072,8 +1072,8 @@ paragraphes',
   ),
   109 => 
   array (
-    0 => '<a href=\'http://www.spip.net\'><img src=\'http://www.spip.net/squelettes/img/spip.png\' alt=\'Un texte avec des entit&#233;s &#38;&lt;&gt;&#034;\' /></a>',
-    1 => '<a href=\'http://www.spip.net\'><img src=\'http://www.spip.net/squelettes/img/spip.png\' alt=\'SPIP\' /></a>',
+    0 => '<a href=\'https://www.spip.net\'><img src=\'https://www.spip.net/IMG/siteon0.png\' alt=\'Un texte avec des entit&#233;s &#38;&lt;&gt;&#034;\' /></a>',
+    1 => '<a href=\'https://www.spip.net\'><img src=\'https://www.spip.net/IMG/siteon0.png\' alt=\'SPIP\' /></a>',
     2 => 'alt',
     3 => 'Un texte avec des entit&eacute;s &amp;&lt;&gt;&quot;',
     4 => true,
@@ -1081,8 +1081,8 @@ paragraphes',
   ),
   110 => 
   array (
-    0 => '<a href=\'http://www.spip.net\'><img src=\'http://www.spip.net/squelettes/img/spip.png\' alt=\'Un texte avec des entit&eacute;s &amp;&lt;&gt;&quot;\' /></a>',
-    1 => '<a href=\'http://www.spip.net\'><img src=\'http://www.spip.net/squelettes/img/spip.png\' alt=\'SPIP\' /></a>',
+    0 => '<a href=\'https://www.spip.net\'><img src=\'https://www.spip.net/IMG/siteon0.png\' alt=\'Un texte avec des entit&eacute;s &amp;&lt;&gt;&quot;\' /></a>',
+    1 => '<a href=\'https://www.spip.net\'><img src=\'https://www.spip.net/IMG/siteon0.png\' alt=\'SPIP\' /></a>',
     2 => 'alt',
     3 => 'Un texte avec des entit&eacute;s &amp;&lt;&gt;&quot;',
     4 => false,
@@ -1090,8 +1090,8 @@ paragraphes',
   ),
   111 => 
   array (
-    0 => '<a href=\'http://www.spip.net\'><img src=\'http://www.spip.net/squelettes/img/spip.png\' alt=\'Un texte avec des entit&eacute;s &amp;&lt;&gt;&quot;\' /></a>',
-    1 => '<a href=\'http://www.spip.net\'><img src=\'http://www.spip.net/squelettes/img/spip.png\' alt=\'SPIP\' /></a>',
+    0 => '<a href=\'https://www.spip.net\'><img src=\'https://www.spip.net/IMG/siteon0.png\' alt=\'Un texte avec des entit&eacute;s &amp;&lt;&gt;&quot;\' /></a>',
+    1 => '<a href=\'https://www.spip.net\'><img src=\'https://www.spip.net/IMG/siteon0.png\' alt=\'SPIP\' /></a>',
     2 => 'alt',
     3 => 'Un texte avec des entit&eacute;s &amp;&lt;&gt;&quot;',
     4 => false,
@@ -1099,8 +1099,8 @@ paragraphes',
   ),
   112 => 
   array (
-    0 => '<a href=\'http://www.spip.net\'><img src=\'http://www.spip.net/squelettes/img/spip.png\' alt=\'Un texte sans entites &#38;&lt;&gt;&#034;&#039;\' /></a>',
-    1 => '<a href=\'http://www.spip.net\'><img src=\'http://www.spip.net/squelettes/img/spip.png\' alt=\'SPIP\' /></a>',
+    0 => '<a href=\'https://www.spip.net\'><img src=\'https://www.spip.net/IMG/siteon0.png\' alt=\'Un texte sans entites &#38;&lt;&gt;&#034;&#039;\' /></a>',
+    1 => '<a href=\'https://www.spip.net\'><img src=\'https://www.spip.net/IMG/siteon0.png\' alt=\'SPIP\' /></a>',
     2 => 'alt',
     3 => 'Un texte sans entites &<>"\'',
     4 => true,
@@ -1108,8 +1108,8 @@ paragraphes',
   ),
   113 => 
   array (
-    0 => '<a href=\'http://www.spip.net\'><img src=\'http://www.spip.net/squelettes/img/spip.png\' alt=\'Un texte sans entites &#38;&lt;&gt;&#034;&#039;\' /></a>',
-    1 => '<a href=\'http://www.spip.net\'><img src=\'http://www.spip.net/squelettes/img/spip.png\' alt=\'SPIP\' /></a>',
+    0 => '<a href=\'https://www.spip.net\'><img src=\'https://www.spip.net/IMG/siteon0.png\' alt=\'Un texte sans entites &#38;&lt;&gt;&#034;&#039;\' /></a>',
+    1 => '<a href=\'https://www.spip.net\'><img src=\'https://www.spip.net/IMG/siteon0.png\' alt=\'SPIP\' /></a>',
     2 => 'alt',
     3 => 'Un texte sans entites &<>"\'',
     4 => true,
@@ -1117,8 +1117,8 @@ paragraphes',
   ),
   114 => 
   array (
-    0 => '<a href=\'http://www.spip.net\'><img src=\'http://www.spip.net/squelettes/img/spip.png\' alt=\'Un texte sans entites &<>"&#039;\' /></a>',
-    1 => '<a href=\'http://www.spip.net\'><img src=\'http://www.spip.net/squelettes/img/spip.png\' alt=\'SPIP\' /></a>',
+    0 => '<a href=\'https://www.spip.net\'><img src=\'https://www.spip.net/IMG/siteon0.png\' alt=\'Un texte sans entites &<>"&#039;\' /></a>',
+    1 => '<a href=\'https://www.spip.net\'><img src=\'https://www.spip.net/IMG/siteon0.png\' alt=\'SPIP\' /></a>',
     2 => 'alt',
     3 => 'Un texte sans entites &<>"\'',
     4 => false,
@@ -1126,8 +1126,8 @@ paragraphes',
   ),
   115 => 
   array (
-    0 => '<a href=\'http://www.spip.net\'><img src=\'http://www.spip.net/squelettes/img/spip.png\' alt=\'Un texte sans entites &<>"&#039;\' /></a>',
-    1 => '<a href=\'http://www.spip.net\'><img src=\'http://www.spip.net/squelettes/img/spip.png\' alt=\'SPIP\' /></a>',
+    0 => '<a href=\'https://www.spip.net\'><img src=\'https://www.spip.net/IMG/siteon0.png\' alt=\'Un texte sans entites &<>"&#039;\' /></a>',
+    1 => '<a href=\'https://www.spip.net\'><img src=\'https://www.spip.net/IMG/siteon0.png\' alt=\'SPIP\' /></a>',
     2 => 'alt',
     3 => 'Un texte sans entites &<>"\'',
     4 => false,
@@ -1135,8 +1135,8 @@ paragraphes',
   ),
   116 => 
   array (
-    0 => '<a href=\'http://www.spip.net\'><img src=\'http://www.spip.net/squelettes/img/spip.png\' alt=\'{{{Des raccourcis}}} {italique} {{gras}} &lt;code&gt;du code&lt;/code&gt;\' /></a>',
-    1 => '<a href=\'http://www.spip.net\'><img src=\'http://www.spip.net/squelettes/img/spip.png\' alt=\'SPIP\' /></a>',
+    0 => '<a href=\'https://www.spip.net\'><img src=\'https://www.spip.net/IMG/siteon0.png\' alt=\'{{{Des raccourcis}}} {italique} {{gras}} &lt;code&gt;du code&lt;/code&gt;\' /></a>',
+    1 => '<a href=\'https://www.spip.net\'><img src=\'https://www.spip.net/IMG/siteon0.png\' alt=\'SPIP\' /></a>',
     2 => 'alt',
     3 => '{{{Des raccourcis}}} {italique} {{gras}} <code>du code</code>',
     4 => true,
@@ -1144,8 +1144,8 @@ paragraphes',
   ),
   117 => 
   array (
-    0 => '<a href=\'http://www.spip.net\'><img src=\'http://www.spip.net/squelettes/img/spip.png\' alt=\'{{{Des raccourcis}}} {italique} {{gras}} &lt;code&gt;du code&lt;/code&gt;\' /></a>',
-    1 => '<a href=\'http://www.spip.net\'><img src=\'http://www.spip.net/squelettes/img/spip.png\' alt=\'SPIP\' /></a>',
+    0 => '<a href=\'https://www.spip.net\'><img src=\'https://www.spip.net/IMG/siteon0.png\' alt=\'{{{Des raccourcis}}} {italique} {{gras}} &lt;code&gt;du code&lt;/code&gt;\' /></a>',
+    1 => '<a href=\'https://www.spip.net\'><img src=\'https://www.spip.net/IMG/siteon0.png\' alt=\'SPIP\' /></a>',
     2 => 'alt',
     3 => '{{{Des raccourcis}}} {italique} {{gras}} <code>du code</code>',
     4 => true,
@@ -1153,8 +1153,8 @@ paragraphes',
   ),
   118 => 
   array (
-    0 => '<a href=\'http://www.spip.net\'><img src=\'http://www.spip.net/squelettes/img/spip.png\' alt=\'{{{Des raccourcis}}} {italique} {{gras}} <code>du code</code>\' /></a>',
-    1 => '<a href=\'http://www.spip.net\'><img src=\'http://www.spip.net/squelettes/img/spip.png\' alt=\'SPIP\' /></a>',
+    0 => '<a href=\'https://www.spip.net\'><img src=\'https://www.spip.net/IMG/siteon0.png\' alt=\'{{{Des raccourcis}}} {italique} {{gras}} <code>du code</code>\' /></a>',
+    1 => '<a href=\'https://www.spip.net\'><img src=\'https://www.spip.net/IMG/siteon0.png\' alt=\'SPIP\' /></a>',
     2 => 'alt',
     3 => '{{{Des raccourcis}}} {italique} {{gras}} <code>du code</code>',
     4 => false,
@@ -1162,8 +1162,8 @@ paragraphes',
   ),
   119 => 
   array (
-    0 => '<a href=\'http://www.spip.net\'><img src=\'http://www.spip.net/squelettes/img/spip.png\' alt=\'{{{Des raccourcis}}} {italique} {{gras}} <code>du code</code>\' /></a>',
-    1 => '<a href=\'http://www.spip.net\'><img src=\'http://www.spip.net/squelettes/img/spip.png\' alt=\'SPIP\' /></a>',
+    0 => '<a href=\'https://www.spip.net\'><img src=\'https://www.spip.net/IMG/siteon0.png\' alt=\'{{{Des raccourcis}}} {italique} {{gras}} <code>du code</code>\' /></a>',
+    1 => '<a href=\'https://www.spip.net\'><img src=\'https://www.spip.net/IMG/siteon0.png\' alt=\'SPIP\' /></a>',
     2 => 'alt',
     3 => '{{{Des raccourcis}}} {italique} {{gras}} <code>du code</code>',
     4 => false,
@@ -1171,45 +1171,45 @@ paragraphes',
   ),
   120 => 
   array (
-    0 => '<a href=\'http://www.spip.net\'><img src=\'http://www.spip.net/squelettes/img/spip.png\' alt=\'Un modele &lt;modeleinexistant|lien=[-&gt;http://www.spip.net]&gt;\' /></a>',
-    1 => '<a href=\'http://www.spip.net\'><img src=\'http://www.spip.net/squelettes/img/spip.png\' alt=\'SPIP\' /></a>',
+    0 => '<a href=\'https://www.spip.net\'><img src=\'https://www.spip.net/IMG/siteon0.png\' alt=\'Un modele &lt;modeleinexistant|lien=[-&gt;https://www.spip.net]&gt;\' /></a>',
+    1 => '<a href=\'https://www.spip.net\'><img src=\'https://www.spip.net/IMG/siteon0.png\' alt=\'SPIP\' /></a>',
     2 => 'alt',
-    3 => 'Un modele <modeleinexistant|lien=[->http://www.spip.net]>',
+    3 => 'Un modele <modeleinexistant|lien=[->https://www.spip.net]>',
     4 => true,
     5 => true,
   ),
   121 => 
   array (
-    0 => '<a href=\'http://www.spip.net\'><img src=\'http://www.spip.net/squelettes/img/spip.png\' alt=\'Un modele &lt;modeleinexistant|lien=[-&gt;http://www.spip.net]&gt;\' /></a>',
-    1 => '<a href=\'http://www.spip.net\'><img src=\'http://www.spip.net/squelettes/img/spip.png\' alt=\'SPIP\' /></a>',
+    0 => '<a href=\'https://www.spip.net\'><img src=\'https://www.spip.net/IMG/siteon0.png\' alt=\'Un modele &lt;modeleinexistant|lien=[-&gt;https://www.spip.net]&gt;\' /></a>',
+    1 => '<a href=\'https://www.spip.net\'><img src=\'https://www.spip.net/IMG/siteon0.png\' alt=\'SPIP\' /></a>',
     2 => 'alt',
-    3 => 'Un modele <modeleinexistant|lien=[->http://www.spip.net]>',
+    3 => 'Un modele <modeleinexistant|lien=[->https://www.spip.net]>',
     4 => true,
     5 => false,
   ),
   122 => 
   array (
-    0 => '<a href=\'http://www.spip.net\'><img src=\'http://www.spip.net/squelettes/img/spip.png\' alt=\'Un modele <modeleinexistant|lien=[->http://www.spip.net]>\' /></a>',
-    1 => '<a href=\'http://www.spip.net\'><img src=\'http://www.spip.net/squelettes/img/spip.png\' alt=\'SPIP\' /></a>',
+    0 => '<a href=\'https://www.spip.net\'><img src=\'https://www.spip.net/IMG/siteon0.png\' alt=\'Un modele <modeleinexistant|lien=[->https://www.spip.net]>\' /></a>',
+    1 => '<a href=\'https://www.spip.net\'><img src=\'https://www.spip.net/IMG/siteon0.png\' alt=\'SPIP\' /></a>',
     2 => 'alt',
-    3 => 'Un modele <modeleinexistant|lien=[->http://www.spip.net]>',
+    3 => 'Un modele <modeleinexistant|lien=[->https://www.spip.net]>',
     4 => false,
     5 => true,
   ),
   123 => 
   array (
-    0 => '<a href=\'http://www.spip.net\'><img src=\'http://www.spip.net/squelettes/img/spip.png\' alt=\'Un modele <modeleinexistant|lien=[->http://www.spip.net]>\' /></a>',
-    1 => '<a href=\'http://www.spip.net\'><img src=\'http://www.spip.net/squelettes/img/spip.png\' alt=\'SPIP\' /></a>',
+    0 => '<a href=\'https://www.spip.net\'><img src=\'https://www.spip.net/IMG/siteon0.png\' alt=\'Un modele <modeleinexistant|lien=[->https://www.spip.net]>\' /></a>',
+    1 => '<a href=\'https://www.spip.net\'><img src=\'https://www.spip.net/IMG/siteon0.png\' alt=\'SPIP\' /></a>',
     2 => 'alt',
-    3 => 'Un modele <modeleinexistant|lien=[->http://www.spip.net]>',
+    3 => 'Un modele <modeleinexistant|lien=[->https://www.spip.net]>',
     4 => false,
     5 => false,
   ),
   124 => 
   array (
-    0 => '<a href=\'http://www.spip.net\'><img src=\'http://www.spip.net/squelettes/img/spip.png\' alt=\'Un texte avec des retour
+    0 => '<a href=\'https://www.spip.net\'><img src=\'https://www.spip.net/IMG/siteon0.png\' alt=\'Un texte avec des retour
 a la ligne et meme des paragraphes\' /></a>',
-    1 => '<a href=\'http://www.spip.net\'><img src=\'http://www.spip.net/squelettes/img/spip.png\' alt=\'SPIP\' /></a>',
+    1 => '<a href=\'https://www.spip.net\'><img src=\'https://www.spip.net/IMG/siteon0.png\' alt=\'SPIP\' /></a>',
     2 => 'alt',
     3 => 'Un texte avec des retour
 a la ligne et meme des
@@ -1220,9 +1220,9 @@ paragraphes',
   ),
   125 => 
   array (
-    0 => '<a href=\'http://www.spip.net\'><img src=\'http://www.spip.net/squelettes/img/spip.png\' alt=\'Un texte avec des retour
+    0 => '<a href=\'https://www.spip.net\'><img src=\'https://www.spip.net/IMG/siteon0.png\' alt=\'Un texte avec des retour
 a la ligne et meme des paragraphes\' /></a>',
-    1 => '<a href=\'http://www.spip.net\'><img src=\'http://www.spip.net/squelettes/img/spip.png\' alt=\'SPIP\' /></a>',
+    1 => '<a href=\'https://www.spip.net\'><img src=\'https://www.spip.net/IMG/siteon0.png\' alt=\'SPIP\' /></a>',
     2 => 'alt',
     3 => 'Un texte avec des retour
 a la ligne et meme des
@@ -1233,11 +1233,11 @@ paragraphes',
   ),
   126 => 
   array (
-    0 => '<a href=\'http://www.spip.net\'><img src=\'http://www.spip.net/squelettes/img/spip.png\' alt=\'Un texte avec des retour
+    0 => '<a href=\'https://www.spip.net\'><img src=\'https://www.spip.net/IMG/siteon0.png\' alt=\'Un texte avec des retour
 a la ligne et meme des
 
 paragraphes\' /></a>',
-    1 => '<a href=\'http://www.spip.net\'><img src=\'http://www.spip.net/squelettes/img/spip.png\' alt=\'SPIP\' /></a>',
+    1 => '<a href=\'https://www.spip.net\'><img src=\'https://www.spip.net/IMG/siteon0.png\' alt=\'SPIP\' /></a>',
     2 => 'alt',
     3 => 'Un texte avec des retour
 a la ligne et meme des
@@ -1248,11 +1248,11 @@ paragraphes',
   ),
   127 => 
   array (
-    0 => '<a href=\'http://www.spip.net\'><img src=\'http://www.spip.net/squelettes/img/spip.png\' alt=\'Un texte avec des retour
+    0 => '<a href=\'https://www.spip.net\'><img src=\'https://www.spip.net/IMG/siteon0.png\' alt=\'Un texte avec des retour
 a la ligne et meme des
 
 paragraphes\' /></a>',
-    1 => '<a href=\'http://www.spip.net\'><img src=\'http://www.spip.net/squelettes/img/spip.png\' alt=\'SPIP\' /></a>',
+    1 => '<a href=\'https://www.spip.net\'><img src=\'https://www.spip.net/IMG/siteon0.png\' alt=\'SPIP\' /></a>',
     2 => 'alt',
     3 => 'Un texte avec des retour
 a la ligne et meme des

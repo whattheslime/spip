@@ -31,8 +31,8 @@
 		$essais = array (
   0 => 
   array (
-    0 => 403,
-    1 => 'http://www.spip.net/squelettes/img/spip.png',
+    0 => 300,
+    1 => 'https://www.spip.net/IMG/siteon0.png',
   ),
   1 => 
   array (

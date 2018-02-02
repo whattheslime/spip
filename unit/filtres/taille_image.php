@@ -33,10 +33,10 @@
   array (
     0 => 
     array (
-      0 => 137,
-      1 => 403,
+      0 => 223,
+      1 => 300,
     ),
-    1 => 'http://www.spip.net/squelettes/img/spip.png',
+    1 => 'https://www.spip.net/IMG/siteon0.png',
   ),
   1 => 
   array (
