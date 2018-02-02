@@ -35,8 +35,8 @@
 		$essais = array (
   0 => 
   array (
-    0 => '<img src=\'http://www.spip.net/squelettes/img/spip.png\' alt=\'\' width=\'403\' height=\'137\' />',
-    1 => 'http://www.spip.net/squelettes/img/spip.png',
+    0 => '<img src=\'https://www.spip.net/IMG/siteon0.png\' alt=\'\' width=\'300\' height=\'223\' />',
+    1 => 'https://www.spip.net/IMG/siteon0.png',
   ),
   1 => 
   array (
