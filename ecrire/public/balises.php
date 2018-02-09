@@ -1110,7 +1110,7 @@ function balise_PAGINATION_dist($p, $liste = 'true') {
 	// si true, les arguments simples (sans truc=chose) vont degager
 	$_contexte = argumenter_inclure($p->param, true, $p, $p->boucles, $p->id_boucle, false, false);
 	if (count($_contexte)) {
-		list($key, $val) = each($_contexte);
+		$key = key($_contexte);
 		if (is_numeric($key)) {
 			array_shift($_contexte);
 			$__modele = interprete_argument_balise(1, $p);
