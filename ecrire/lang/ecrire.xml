@@ -14,11 +14,12 @@
 	</langue>
 	<langue code="bg" url="https://trad.spip.net/tradlang_module/ecrire_?lang_cible=bg" total="809" traduits="482" relire="0" modifs="42" nouveaux="285" pourcent="59.58">
 	</langue>
-	<langue code="br" url="https://trad.spip.net/tradlang_module/ecrire_?lang_cible=br" total="809" traduits="786" relire="0" modifs="5" nouveaux="18" pourcent="97.16">
+	<langue code="br" url="https://trad.spip.net/tradlang_module/ecrire_?lang_cible=br" total="809" traduits="808" relire="0" modifs="1" nouveaux="0" pourcent="99.88">
 		<traducteur nom="AudeB" lien="https://trad.spip.net/auteur/audeb" />
 		<traducteur nom="b_b" lien="https://trad.spip.net/auteur/b_b" />
 		<traducteur nom="kerivo" lien="https://trad.spip.net/auteur/kerivo" />
 		<traducteur nom="Kristen" lien="https://trad.spip.net/auteur/kristen" />
+		<traducteur nom="nonobreizh" lien="https://trad.spip.net/auteur/nonobreizh" />
 	</langue>
 	<langue code="bs" url="https://trad.spip.net/tradlang_module/ecrire_?lang_cible=bs" total="809" traduits="429" relire="0" modifs="71" nouveaux="309" pourcent="53.03">
 	</langue>
@@ -107,7 +108,7 @@
 	<langue code="fr" url="https://trad.spip.net/tradlang_module/ecrire_?lang_cible=fr" total="809" traduits="809" relire="0" modifs="0" nouveaux="0" pourcent="100.00">
 		<traducteur nom="Matthieu Marcillaud" lien="https://trad.spip.net/auteur/matthieu-marcillaud" />
 	</langue>
-	<langue code="fr_fem" url="https://trad.spip.net/tradlang_module/ecrire_?lang_cible=fr_fem" total="809" traduits="799" relire="0" modifs="0" nouveaux="10" pourcent="98.76">
+	<langue code="fr_fem" url="https://trad.spip.net/tradlang_module/ecrire_?lang_cible=fr_fem" total="809" traduits="801" relire="0" modifs="0" nouveaux="8" pourcent="99.01">
 		<traducteur nom="b_b" lien="https://trad.spip.net/auteur/b_b" />
 		<traducteur nom="Cerf" lien="https://trad.spip.net/auteur/cerf" />
 		<traducteur nom="denisb" lien="https://trad.spip.net/auteur/denisb" />
