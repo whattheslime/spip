@@ -136,6 +136,7 @@ Estas informações deverão ser fornecidas pelo administrador do sistema ou da 
 	'entree_url' => 'O endereço (URL) do seu site',
 	'entree_url_2' => 'Endereço (URL) do site',
 	'erreur_connect_deja_existant' => 'Já existe um servidor com esse nome',
+	'erreur_contenu_suspect' => 'Texto escapado',
 	'erreur_email_deja_existant' => 'Esse endereço de email já está em uso.',
 	'erreur_nom_connect_incorrect' => 'Este nome de servidor não é autorizado',
 	'erreur_plugin_attribut_balise_manquant' => 'Atributo @attribut@ faltando no tag @balise@.',
