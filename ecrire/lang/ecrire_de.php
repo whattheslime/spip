@@ -33,7 +33,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'avis_erreur_connexion_mysql' => 'Verbindungsfehler (SQL)',
 	'avis_espace_interdit' => '<b>Gesperrter Bereich</b> <div>SPIP ist bereits installiert.</div>',
 	'avis_lecture_noms_bases_1' => 'Das Installationsprogramm konnte die Namen der vorhandenen Datenbanken nicht lesen.',
-	'avis_lecture_noms_bases_2' => 'Entweder ist keine Datenbank vorhanden oder die Funktion zum Auflisten der Datenbanken ist aus Sciherheitsgründen abgeschaltet
+	'avis_lecture_noms_bases_2' => 'Entweder ist keine Datenbank vorhanden oder die Funktion zum Auflisten der Datenbanken ist aus Sicherheitsgründen abgeschaltet
 (Das ist bei vielen Webhostern der Fall).',
 	'avis_lecture_noms_bases_3' => 'Im zweiten Fall ist wahrscheinlich eine Datenbank vorhanden, die Ihren Anmeldenamen trägt:',
 	'avis_non_acces_page' => 'Sie haben keinen Zugriff auf diese Seite.',
