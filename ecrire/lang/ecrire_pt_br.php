@@ -396,7 +396,7 @@ Os idiomas já utilizados no site (no topo da lista) não podem ser desativados.
 	'info_preview_texte' => 'É possível visualizar os diferentes elementos editoriais do site que tenham  pelo menos o status de «proposto», bem como os elementos em fase de redação de que se é autor. Esta funcionalidade deve estar disponível para os administradores, para os redatores, ou para ninguém?',
 	'info_procedez_par_etape' => 'proceder passo-a-passo',
 	'info_procedure_maj_version' => 'o procedimento de atualização deve ser rodado para adaptar a base de dados à nova versão do SPIP.',
-	'info_proxy_ok' => 'Proxy testado com sucesso',
+	'info_proxy_ok' => 'Teste do proxy bem sucedido',
 	'info_ps' => 'P.S.',
 	'info_publier' => 'publicar',
 	'info_publies' => 'Suas matérias publicadas online',
