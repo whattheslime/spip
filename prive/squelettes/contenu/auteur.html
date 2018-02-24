@@ -33,6 +33,8 @@
 
 #BOITE_FERMER
 
+#SET{enfants,''}
+[(#PIPELINE{affiche_enfants,[(#ARRAY{args,#ARRAY{exec,#ENV**{exec},objet,auteur,id_objet,#ID_AUTEUR},data,#GET{enfants}})]})]
 
 [(#ENV{id_auteur}|intval|oui)
 
