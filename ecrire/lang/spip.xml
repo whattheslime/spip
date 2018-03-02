@@ -62,7 +62,8 @@
 	</langue>
 	<langue code="en_hx" url="https://trad.spip.net/tradlang_module/spip?lang_cible=en_hx" total="641" traduits="400" relire="0" modifs="58" nouveaux="183" pourcent="62.40">
 	</langue>
-	<langue code="eo" url="https://trad.spip.net/tradlang_module/spip?lang_cible=eo" total="641" traduits="625" relire="0" modifs="3" nouveaux="13" pourcent="97.50">
+	<langue code="eo" url="https://trad.spip.net/tradlang_module/spip?lang_cible=eo" total="641" traduits="637" relire="4" modifs="0" nouveaux="0" pourcent="99.38">
+		<traducteur nom="gpl" lien="https://trad.spip.net/auteur/gpl" />
 		<traducteur nom="Matthieu Marcillaud" lien="https://trad.spip.net/auteur/matthieu-marcillaud" />
 	</langue>
 	<langue code="es" url="https://trad.spip.net/tradlang_module/spip?lang_cible=es" total="641" traduits="636" relire="0" modifs="0" nouveaux="5" pourcent="99.22">
