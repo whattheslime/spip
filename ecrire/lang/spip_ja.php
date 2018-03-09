@@ -209,7 +209,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 
 	// E
 	'envoi_via_le_site' => 'サイト経由で送信',
-	'erreur' => 'ƒGƒ‰[',
+	'erreur' => 'エラー',
 
 	// F
 	'fichier_introuvable' => '見つからなかったファイル: @fichier@',
