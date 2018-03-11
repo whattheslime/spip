@@ -422,7 +422,7 @@ function _request($var, $c = false) {
  *
  * @param string $var Nom de la clé
  * @param string $val Valeur à affecter
- * @param bool|array $c Tableu de données (sinon utilise `$_GET` et `$_POST`)
+ * @param bool|array $c Tableau de données (sinon utilise `$_GET` et `$_POST`)
  * @return array|bool
  *     - array $c complété si un $c est transmis,
  *     - false sinon
