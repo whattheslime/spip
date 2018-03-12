@@ -3,7 +3,7 @@
 /***************************************************************************\
  *  SPIP, Systeme de publication pour l'internet                           *
  *                                                                         *
- *  Copyright (c) 2001-2017                                                *
+ *  Copyright (c) 2001-2018                                                *
  *  Arnaud Martin, Antoine Pitrou, Philippe Riviere, Emmanuel Saint-James  *
  *                                                                         *
  *  Ce programme est un logiciel libre distribue sous licence GNU/GPL.     *
@@ -173,6 +173,8 @@ function formulaires_editer_logo_verifier_dist($objet, $id_objet, $retour = '', 
 			)) {
 				$erreurs['logo_' . $etat] = _L('Extension non reconnue');
 			}
+		} elseif ($file and $file['error'] != 0 and isset($file['msg'])) {
+			$erreurs['message_erreur'] = $file['msg'];
 		}
 	}
 
@@ -251,10 +253,18 @@ function formulaire_editer_logo_get_sources() {
 		return array();
 	}
 
+	include_spip('inc/documents');
 	$sources = array();
 	foreach (array('on', 'off') as $etat) {
 		if (isset($_FILES['logo_' . $etat]) and $_FILES['logo_' . $etat]['error'] == 0) {
 			$sources[$etat] = $_FILES['logo_' . $etat];
+		}
+		elseif ($_FILES['logo_' . $etat]['error'] != 0) {
+			$msg = check_upload_error($_FILES['logo_' . $etat]['error'], false, true);
+			if ($msg and is_string($msg)) {
+				$sources[$etat] = $_FILES['logo_' . $etat];
+				$sources[$etat]['msg'] = $msg;
+			}
 		}
 	}
 
