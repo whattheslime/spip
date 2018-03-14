@@ -2,6 +2,7 @@
 /INSTALL.txt -text
 config/ecran_securite.php -text
 config/remove.txt -text
+ecrire/CHANGELOG.txt -text
 ecrire/action/activer_plugins.php -text
 ecrire/action/ajouter_lien.php -text
 ecrire/action/annuler_job.php -text
