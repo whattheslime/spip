@@ -288,8 +288,8 @@ la retadreso ĉi-sube (alie, via peto estos ignoritaj) :
 	'form_prop_non_enregistre' => 'Via propono ne estis registrita.',
 	'form_prop_sujet' => 'Temo',
 	'form_prop_url_site' => 'URL-adreso de la retejo',
-	'format_date_incorrecte' => 'La dato aŭ ĝia formo ne validas', # RELIRE
-	'format_heure_incorrecte' => 'La horo aŭ ĝia formo ne validas', # RELIRE
+	'format_date_incorrecte' => 'La dato aŭ ĝia formo ne validas',
+	'format_heure_incorrecte' => 'La horo aŭ ĝia formo ne validas',
 	'forum_non_inscrit' => 'Vi ne estas registrita, aŭ la adreso aŭ la pasvorto ne ĝustas.',
 	'forum_par_auteur' => 'de @auteur@',
 	'forum_titre_erreur' => 'Eraro...',
@@ -547,7 +547,7 @@ aŭ kontaktu vian retgastiganton.</span>',
 	'masquer_colonne' => 'Kaŝi tiun ĉi kolumnon',
 	'masquer_trad' => 'kaŝi la tradukojn',
 	'message_nouveaux_identifiants_echec' => 'Ne eblas krei novajn ensalutilojn.',
-	'message_nouveaux_identifiants_echec_envoi' => 'Ne eblis sendi la novajn ensalutilojn.', # RELIRE
+	'message_nouveaux_identifiants_echec_envoi' => 'Ne eblis sendi la novajn ensalutilojn.',
 	'message_nouveaux_identifiants_ok' => 'La novaj ensalutilojn estis senditaj al @email@.',
 	'module_fichiers_langues' => 'Dosieroj de lingvo',
 
@@ -604,7 +604,7 @@ kaj ensaluti.
 	'pass_nouveau_pass' => 'Nova pasvorto',
 	'pass_ok' => 'JES',
 	'pass_oubli_mot' => 'Pasvorto-forgeso',
-	'pass_procedure_changer' => 'Por ŝanĝi vian pasvorton, ni unue devas kontroli vian identecon. Por tio, specifu al ni la asociitan retpoŝtadreson el via konto.', # RELIRE
+	'pass_procedure_changer' => 'Por ŝanĝi vian pasvorton, specifu al ni la asociitan retpoŝtadreson el via konto.',
 	'pass_quitter_fenetre' => 'Forlasi tiun fenestron',
 	'pass_rappel_login' => 'Memoru : via ensalutilo (salutnomo) estas « @login@ ».',
 	'pass_recevoir_mail' => 'Vi ricevos retmesaĝon indikantan al vi kiel retrovi vian aliron al la retejo.',
@@ -686,6 +686,9 @@ sub la respondeco de la ĉefa retejestro .</b>',
 	'todo' => 'venonta',
 	'trad_definir_reference' => 'Elekti „@titre@“ kiel referenco de la tradukoj',
 	'trad_reference' => '(referenco de la traduktoj)',
+
+	// U
+	'upload_limit' => 'Tiu dosiero estas tro granda por la servilo : la maksimuma dosiergrando, kiam oni alŝutas, estas @max@.',
 
 	// Z
 	'zbug_balise_b_aval' => ' : posta B marko',
