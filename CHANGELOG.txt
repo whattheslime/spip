@@ -1,3 +1,30 @@
+SPIP-Core spip-3.0.26 -> spip-3.0.27  14 mars 2018
+-------------------------------------------------------------
+
+r23596 | cedric    |  (lun. 12 juin 2017)  | Report de r23592 : Version 1.3.2 : Sanitizer HTTP_X_FORWARDED_HOST quand il est envoye en en-tete
+r23666 | Nicod     |  (mer. 12 juil. 2017) | Report de r23664 : Ne pas afficher les plugins lors d'une recherche
+r23698 | cedric    |  (ven. 08 sept. 2017) | Report de r23696 : Securiser l'URL qu'on insere sur les ancres en url arborescentes (xdjuj)
+r23709 | cedric    |  (ven. 15 sept. 2017) | Report de r23707 : Securiser les URLs renvoyees par self() et #SELF qui sont souvent reinjectees dans le HTML (Jarrod Farncomb)
+r23712 | cedric    |  (ven. 15 sept. 2017) | Report de r23710 : Echapper le charset dans le message d'erreur (Jarrod Farncomb)
+r23715 | cedric    |  (ven. 15 sept. 2017) | Report de r23713 : Permettre de passer le mode de filtrage en second argument de interdire_script, et on utilise la valeur de la globale sinon (comportement par defaut inchange)
+r23718 | cedric    |  (ven. 15 sept. 2017) | Report de r23716 : Pas de onclick ni de popup JS dans le pied de page
+r23720 | b_b       |  (sam. 16 sept. 2017) | Fix #3997 : report de r21716 en 3.0
+r23726 | cedric    |  (dim. 17 sept. 2017) | Report de r23724 : Fix #3598 #3731 #3850 : quelques echappements manquants
+r23730 | b_b       |  (lun. 25 sept. 2017) | Fix #4003 : report de r22364 en 3.0
+r23755 | marcimat  |  (mer. 11 oct. 2017)  | Report de r23752 : On ajoute sur le lien du pied de page privé un attribut rel (noopener noreferrer)
+r23790 | rasta     |  (mar. 24 oct. 2017)  | Backport de r23787 : Franck proposait de mettre les versions min tout comme PHP dans ce fichier d'install pour ne pas avoir à se poser de questions.
+r23798 | kent1     |  (ven. 10 nov. 2017)  | Report de r23796 Les Mongols utilisent en général le cyrillique (cf http://www.mfa.gov.mn/ par exemple)
+r23910 | cedric    |  (ven. 09 févr. 2018) | Report de r23908 : Prise en compte amelioree du flag process
+r23929 | booz      |  (mer. 28 févr. 2018) | Report de [23926] ; voir aussi https://core.spip.net/issues/3924
+
+SPIP-plugins-dist spip-3.0.26 -> spip-3.0.27  14 mars 2018
+-------------------------------------------------------------
+
+r106019 | b_b       |  (ven. 01 sept. 2017) | report de r106017Fix #3992 : rétablir la classe microformat sur le titre des articlesRef ​​https://core.spip.net/issues/3992
+r106239 | cedric    |  (mer. 13 sept. 2017) | Report de r106237 : echapper quelque caracteres sur les URLs des documents distants (Chen Ruiqi)
+r106294 | cedric    |  (ven. 15 sept. 2017) | Report de r106292 : Permettre de passer le mode de filtrage en second argument de interdire_script, et on utilise la valeur de la globale sinon (comportement par defaut inchange)
+r107074 | chankalan |  (ven. 20 oct. 2017) | éviter des notices, report de https://zone.spip.org/trac/spip-zone/changeset/107072
+
 SPIP-Core spip-3.0.25 -> spip-3.0.26  08 juin 2017
 -------------------------------------------------------------
 
