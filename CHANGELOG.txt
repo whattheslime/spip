@@ -1,3 +1,47 @@
+SPIP-Core spip-3.1.7 -> spip-3.1.8  14 mars 2018
+-------------------------------------------------------------
+
+r23782 | erational |  (mer. 18 oct. 2017)  | report de r23780 passer la requête http://query.yahooapis.com en https://
+r23785 | marcimat  |  (jeu. 19 oct. 2017)  | Report de r23783 : Cet argument pour sqlite est un tableau et provoque sinon des warnings lors des mises à jours.
+r23789 | rasta     |  (mar. 24 oct. 2017)  | Backport de r23787 : Franck proposait de mettre les versions min tout comme PHP dans ce fichier d'install pour ne pas avoir à se poser de questions.
+r23793 | b_b       |  (mar. 31 oct. 2017)  | report de r23792retour sur r23686 : $streamContext n'est pas un tableau mais un contexte de fluxref #3751 thx to Thierry Voyat
+r23797 | kent1     |  (ven. 10 nov. 2017)  | Report de r23796Les Mongols utilisent en général le cyrillique (cf http://www.mfa.gov.mn/ par exemple)
+r23807 | fil       |  (jeu. 16 nov. 2017)  | merge r23806 ne pas donner le menu 'afficher les visiteurs' si les visiteurs ne sont pas souhaités ou s'il n'y en a aucun
+r23812 | rasta     |  (dim. 19 nov. 2017)  | Backport de la correction de r23810 : pas que webmestre et un OR
+r23818 | b_b       |  (jeu. 07 déc. 2017)  | report de r23816Fix #3418 again : ajouter un log pour signaler le problème de conf opcache
+r23821 | b_b       |  (ven. 08 déc. 2017)  | report de r23819
+r23838 | cedric    |  (jeu. 14 déc. 2017)  | Report de r23836 : Meme si _VAR_MODE est deja definie, il faut exclure calcul et recalcul de l'analyse pour ne pas provoquer une redirection erronnee
+r23863 | cedric    |  (ven. 05 janv. 2018) | Report de r23862 : Fix indentation du selecteur de rubrique dans FF :Finie l'exception de Firefox : le padding/margin ne marche plus, au moins sur Mac OSX recent, on simplfie donc le code et traite tous les navigateurs de la meme facon+ petit ajustement sur l'indentation de base pour eviter trop de decalage entre 1er et 2nd niveau, le 1er niveau etant bien distingue par la couleur
+r23872 | marcimat  |  (lun. 08 janv. 2018) | Report de r23870 : petite correction sur certains create table sqlite.
+r23875 | b_b       |  (lun. 08 janv. 2018) | report de r23873Fix #3626 : installation, ne pas permettre un prefixe qui commence par des chiffres puisqu'on ne le prend pas en charge
+r23878 | cedric    |  (mar. 09 janv. 2018) | Report de r23876 : Amelioration du #FORMULAIRE_DATER a qui on peut passer explicitement le champ date et le champ date_redac que l'on veut utiliser ainsi que les labels associes, ce qui permet d'en etendre l'usage et la reutilisation possible
+r23881 | b_b       |  (mar. 09 janv. 2018) | report de r23879Fix #3426 : enrichir la détection des robots
+r23884 | marcimat  |  (mer. 10 janv. 2018) | Report de r23882 :  Ticket #3426, Correction de r23879, éviter un ||.
+r23887 | rasta     |  (jeu. 11 janv. 2018) | backport de r23885 : les admins doivent voir les comptes à confirmer aussi (peetdu)
+r23889 | marcimat  |  (jeu. 11 janv. 2018) | Report de r23888 : Ticket #3426, Correction de r23879, 'web' attrape webkit, qui n’est pas un bot. On l’enlève !
+r23909 | cedric    |  (ven. 09 févr. 2018) | Report de r23908 : Prise en compte amelioree du flag process
+r23928 | booz      |  (mer. 28 févr. 2018) | Report de [23926] ; voir aussi https://core.spip.net/issues/3924
+
+SPIP-plugins-dist spip-3.1.7 -> spip-3.1.8  14 mars 2018
+-------------------------------------------------------------
+
+r107072 | chankalan |  (ven. 20 oct. 2017)  | éviter des notices php
+r107283 | fil       |  (jeu. 02 nov. 2017)  | _EXTRAIRE_DOMAINE pas defini au bon endroit
+r107342 | maieul    |  (sam. 04 nov. 2017)  | Afficher les documents les plus récents en haut dans la colonne des documents liés à un objet.Cela permet de ne pas scroller tout en bas pour trouver le document qu'on vient d'ajouter.Notes:  - J'espère avoir commité aux bon en endroits (entre les branches et le trunk, je suis perdu). En tout cas, je commit pas sur la v3.0 car n'est plus maintenu que pour raison de sécurité. - On se base sur l'idée document et pas sur la date associée au document, pour éviter une jointure peut utile dans le cas présent.fix #4039
+r107345 | maieul    |  (sam. 04 nov. 2017)  | dans un premier tps, r107342 n'aurait du être que sur le trunk
+r107569 | fil       |  (mar. 14 nov. 2017)  | report de 107509 : possibilité d'une virgule dans les mots et tri par points de la liste
+r108517 | cedric    |  (lun. 15 janv. 2018) | Eviter un fatal memory si jamais un tampon est ouvert
+r108692 | cedric    |  (mar. 30 janv. 2018) | le titrage des documents a partir du nom de fichier est un peu restritif, on donne la possibilite de definir sa regle via une fonction inc_titrer_document_dist surchargeable
+r108736 | cedric    |  (ven. 02 févr. 2018) | Report de r108734 : mise a jour du test unitaire suite au changement de serveur math : la taille de l'image test change de 1px
+r108737 | cedric    |  (ven. 02 févr. 2018) | Report de r100150 : Tolérer PHP7 tout de même pour les tests SimpleTest.
+r108738 | cedric    |  (ven. 02 févr. 2018) | Report de r100156 : Des fins de PHP en moins
+r108741 | cedric    |  (ven. 02 févr. 2018) | Report de r108740 : Plus de img/spip.png sur SPIP.net, tout fout le camp...
+r108743 | cedric    |  (ven. 02 févr. 2018) | Report de r108742 : Plus de img/spip.png sur SPIP.net, tout fout le camp...
+r108744 | cedric    |  (ven. 02 févr. 2018) | Report de r100149 : Mise à jour de SimpleTest à la version 1.1.8-dev commit 03db272pour fonctionner sous PHP7.
+r108786 | jluc      |  (sam. 03 févr. 2018) | suite fix couleur_saturation dans le cas où couleur est FFFFFF ou #ffffff
+r109385 | real3t    |  (jeu. 08 mars 2018)  | Report de r109375 : la premiere fois qu'on voit un referer, on lui pose 0 visites pour la veille (et non pas  visites du jour même)
+r109387 | real3t    |  (jeu. 08 mars 2018)  | Backport du lien d'archivage des statistiques, la fonctionnalité ayant été codée en 3.1, mais sans le lien pour le faire. (Et les chaînes de langue étaient déjà là).
+
 
 SPIP-Core spip-3.1.6 -> spip-3.1.7  12 octobre 2017
 -------------------------------------------------------------
