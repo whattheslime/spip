@@ -135,6 +135,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'entree_url' => 'Retadreso de via retejo',
 	'entree_url_2' => 'Retadreso de la retejo',
 	'erreur_connect_deja_existant' => 'Servilo jam ekzistas kun tiu nomo',
+	'erreur_contenu_suspect' => 'Teksto kun ne aktivaj HTML-markoj',
 	'erreur_email_deja_existant' => 'Tiu retpoŝtadreso jam estas registrita.',
 	'erreur_nom_connect_incorrect' => 'Tiu servilonomo ne estas permesita',
 	'erreur_plugin_attribut_balise_manquant' => 'Atributo @attribut@ mankas en la marko @balise@.',
@@ -157,7 +158,7 @@ Tamen vi povas malŝalti ĝin.',
 	'ical_info2' => 'Por pli da informoj pri ĉi ĉiuj teknikoj, senhezite konsultu <a href="@spipnet@">la dokumentaron de SPIP</a>.',
 	'ical_info_calendrier' => 'Du kalendaroj disponeblas. La unua estas retejo-mapo anoncanta ĉiujn publikigitajn artikolojn. La dua enhavas la eldon-anoncojn, kaj viajn lastajn privatajn mesaĝojn : ĝi estas rezervita al vi, pere de persona ŝlosilo, kiun vi ĉiumomente povas modifi ŝanĝante vian pasvorton.',
 	'ical_methode_http' => 'Elŝuti',
-	'ical_methode_webcal' => 'Sinkroniga ĝisdatigo (webcal://)', # MODIF
+	'ical_methode_webcal' => 'Sinkroniga ĝisdatigo (webcal://)',
 	'ical_texte_js' => 'Per ununura linio de ĝavaskripto, vi povas simplege afiŝi ĉe kiu ajn retejo, kiun vi havas, la lastajn artikolojn publikigitajn ĉe tiu retejo.',
 	'ical_texte_prive' => 'Tiu ĉi strikte persona kalendaro, informas vin pri la privataj eldonoj de la retejo (personaj taskoj kaj rendevuoj, proponitaj artikoloj kaj fulm-informoj...).',
 	'ical_texte_public' => 'Per tiu ĉi kalendaro, vi povas gvati la publikan funkciadon de tiu retejo (publikigitaj fulm-informoj kaj artikoloj).',
@@ -216,6 +217,7 @@ Tamen vi povas malŝalti ĝin.',
 	'info_administrateurs' => 'Mastrumantoj',
 	'info_administrer_rubrique' => 'Vi povas mastrumi tiun rubrikon',
 	'info_adresse' => 'ĉe la adreso :',
+	'info_adresse_desinscription' => 'Adreso de malregistriĝo',
 	'info_adresse_url' => 'Retadreso (URL) de la publika retejo',
 	'info_afficher_par_nb' => 'Afiŝi per',
 	'info_aide_en_ligne' => 'Reta SPIP-helpilo',
@@ -241,7 +243,7 @@ Tamen vi povas malŝalti ĝin.',
 	'info_aujourdhui' => 'hodiaŭ : ',
 	'info_auteur_gere_rubriques' => 'Tiu aŭtoro mastrumas la jenajn rubrikojn :',
 	'info_auteur_gere_toutes_rubriques' => 'Tiu aŭtoro mastrumas <b>ĉiujn rubrikojn</b>',
-	'info_auteur_gere_toutes_rubriques_2' => 'Mi mastrumas <b>ĉiujn rubrikojn</b>', # MODIF
+	'info_auteur_gere_toutes_rubriques_2' => 'Mi mastrumas <b>ĉiujn rubrikojn</b>',
 	'info_auteurs' => 'La aŭtoroj',
 	'info_auteurs_par_tri' => 'Aŭtoroj@partri@',
 	'info_auteurs_trouves' => 'Aŭtoroj trovitaj',
@@ -396,7 +398,7 @@ postulas disponi je FTP-alirrajto al la retejo.</p>',
 	'info_post_scriptum' => 'Postskribo',
 	'info_post_scriptum_2' => 'Postskribo :',
 	'info_pour' => 'por',
-	'info_preview_texte' => 'Eblas antaŭrigardi la retejon kvazaŭ ciuj artikoloj kaj fulm-informoj (kiuj almenaŭ havas la statuson « proponatan ») estus publikigitaj. Ĉu tio eblu nur al mastrumantoj, al ĉiuj redaktantoj, aŭ al neniu ?', # MODIF
+	'info_preview_texte' => 'Eblas antaŭrigardi la diversajn redakteblajn elementojn, kiuj havas almenaŭ la statuson „Proponita“, kaj ankaŭ la elementojn, kiujn vi estas redaktanta. Ĉu tio eblu nur al mastrumantoj, al ĉiuj redaktantoj, aŭ al neniu ?',
 	'info_procedez_par_etape' => 'procedu etapon post etapo',
 	'info_procedure_maj_version' => 'la ĝisdatiga proceduro devas esti lanĉita por adapti
  la datenbazon al la nova versio de SPIP.',
@@ -569,7 +571,7 @@ La tradukoj estas kunligitaj al la originalo, kun koloro kiu indikas ties staton
 	'label_choix_langue' => 'Elektu vian lingvon',
 	'label_nom_fichier_connect' => 'Indiku la nomon uzita por tiu servilo',
 	'label_slogan_site' => 'Devizo de la retejo',
-	'label_taille_ecran' => 'Larĝo de la ekrano', # MODIF
+	'label_taille_ecran' => 'Larĝo de la ekrano',
 	'label_texte_et_icones_navigation' => 'Naviga menuo',
 	'label_texte_et_icones_page' => 'Afiŝado en paĝo',
 	'ldap_correspondance' => 'heredado de la kampo @champ@',
@@ -613,7 +615,7 @@ La tradukoj estas kunligitaj al la originalo, kun koloro kiu indikas ties staton
 	'mois_non_connu' => 'nekonata',
 
 	// N
-	'nouvelle_version_spip' => 'SPIP-versio @version@ estas disponebla', # MODIF
+	'nouvelle_version_spip' => 'La SPIP-ĝisdatigo @version@ estas disponebla',
 	'nouvelle_version_spip_majeure' => 'Nova SPIP-versio @version@ disponeblas',
 
 	// O
@@ -667,7 +669,7 @@ La tradukoj estas kunligitaj al la originalo, kun koloro kiu indikas ties staton
 	'plugin_necessite_extension_php_sans_version' => 'Postulas la PHP-kromprogramon @plugin@',
 	'plugin_necessite_lib' => 'Tiu ĉi kromprogramo bezonas la bibliotekon @lib@',
 	'plugin_necessite_php' => 'Postulas @plugin@ laŭ versio @version@.',
-	'plugin_necessite_plugin' => 'Postulas la kromprogramon @plugin@ minimume laŭ versio @version@.', # MODIF
+	'plugin_necessite_plugin' => 'Postulas la kromprogramon @plugin@ laŭ versio @version@.',
 	'plugin_necessite_plugin_sans_version' => 'Necesas la kromprogramon @plugin@',
 	'plugin_necessite_spip' => 'Necesas SPIP laŭ minimume versio @version@.',
 	'plugin_source' => 'fonto : ',
@@ -705,7 +707,7 @@ La tradukoj estas kunligitaj al la originalo, kun koloro kiu indikas ties staton
 
 	// Q
 	'queue_executer_maintenant' => 'Lanĉi nun',
-	'queue_info_purger' => 'Vi povas forviŝi ĉiujn atendante taskojn kaj restarigi la liston kun la periodaj taskoj', # MODIF
+	'queue_info_purger' => 'Vi povas forviŝi ĉiujn atendante taskojn kaj restarigi la liston kun la periodaj taskoj',
 	'queue_nb_jobs_in_queue' => '@nb@ atendante taskoj',
 	'queue_next_job_in_nb_sec' => 'Sekva tasko post @nb@ s',
 	'queue_no_job_in_queue' => 'Neniu atendante tasko',
@@ -719,7 +721,7 @@ La tradukoj estas kunligitaj al la originalo, kun koloro kiu indikas ties staton
 
 	// S
 	'sans_heure' => 'sen horo',
-	'statut_admin_restreint' => '(etrajta mastrumanto)', # MODIF
+	'statut_admin_restreint' => '(limigita mastrumanto)',
 	'statut_webmestre' => 'retejestro',
 
 	// T
@@ -777,13 +779,9 @@ SPIP-reinstalon por rekrei novan bazon kaj unuan mastrumulan alirrajton.',
 	'texte_effacer_statistiques' => 'Forviŝi statistikojn',
 	'texte_en_cours_validation' => 'La enhavoj ĉi-subaj estas proponitaj por publikigo.',
 	'texte_enrichir_mise_a_jour' => 'Vi povas pliriĉigi la enpaĝigon de via teksto uzante « tipografiajn rapidklavojn ».',
-	'texte_fichier_authent' => '<b>Ĉu SPIP kreu la specialajn dosierojn <tt>.htpasswd</tt>   kaj <tt>.htpasswd-admin</tt> en dosierujo @dossier@ ?</b><p>
-  Tiuj dosieroj ebligas limigi la alirrajton de aŭtoroj
-  kaj administrantoj en aliaj lokoj de via retejo
-  (ekzemple, ekstera statistik-programo).</p><p>
-  Se tio ne utilas al vi, vi povas lasi tiun opcion
-  je ĝia defaŭlta valoro (neniu dosier-kreo).</p>
-', # MODIF
+	'texte_fichier_authent' => '<b>Ĉu SPIP kreu la specialajn dosierojn <tt>.htpasswd</tt> kaj <tt>.htpasswd-admin</tt> en dosierujo @dossier@ ?</b>
+<p>Tiuj dosieroj ebligas limigi la alirrajton de aŭtoroj kaj administrantoj en aliaj lokoj de via retejo (ekzemple, ekstera statistik-programo).</p>
+<p>Se tio ne utilas al vi, vi povas lasi tiun opcion je ĝia defaŭlta valoro (neniu dosier-kreo).</p>',
 	'texte_informations_personnelles_1' => 'La sistemo kreos por vi nun personan alireblon al la retejo.',
 	'texte_informations_personnelles_2' => '(Noto : se temas pri reinstalo kaj se via aliro daŭre funkcias, vi povas',
 	'texte_introductif_article' => '(Enkonduka teksto al la artikolo.)',
