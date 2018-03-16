@@ -5,7 +5,7 @@
  * ------------------
  */
 
-define('_ECRAN_SECURITE', '1.3.2'); // 2017-06-12
+define('_ECRAN_SECURITE', '1.3.6'); // 2018-03-16
 
 /*
  * Documentation : http://www.spip.net/fr_article4200.html
@@ -39,7 +39,7 @@ if (!defined('_IS_BOT')){
 			// MSIE 6.0 est un botnet 99,9% du temps, on traite donc ce USER_AGENT comme un bot
 			. 'MSIE 6\.0|'
 			// UA plus cibles
-			. '80legs|accoona|AltaVista|ASPSeek|Baidu|Charlotte|EC2LinkFinder|eStyle|facebookexternalhit|flipboard|hootsuite|FunWebProducts|Google|Genieo|INA dlweb|InfegyAtlas|Java VM|LiteFinder|Lycos|MegaIndex|MetaURI|Moreover|Rambler|Scrapy|Scooter|ScrubbyBloglines|Yahoo|Yeti'
+			. '200please|80legs|a6-indexer|aboundex|accoona|addthis|adressendeutschland|alexa|altavista|analyticsseo|archive|aspseek|baidu|begunadvertising|bingpreview|bloglines|browsershots|bubing|butterfly|changedetection|charlotte|chilkat|china|coccoc|crowsnest|dataminr|daumoa|dlweb|ec2linkfinder|estyle|ezooms|facebookexternalhit|facebookplatform|fairshare|feedfetcher|feedfetcher-google|feedly|fetch|flipboardproxy|genieo|google|grapeshot|hatena-useragent|head|hosttracker|hubspot|ia_archiver|ichiro|iltrovatore-setaccio|immediatenet|ina|infegyatlas|infohelfer|instapaper|jabse|james|kumkie|linkdex|linkfluence|linkwalker|litefinder|loadimpactpageanalyzer|luminate|lycos|lycosa|mediapartners-google|msai|najdi|netcraftsurveyagent|netestate|netseer|nuhk|panscient|parsijoo|plukkie|proximic|qirina|qualidator|rambler|readability|sbsearch|scooter|scrapy|scrubby|scrubbybloglines|shareaholic|shopwiki|sistrix|sitechecker|siteexplorer|sogou|special_archiver|speedy|spinn3r|spreadtrum|steeler|subscriber|suma|superdownloads|svenska-webbsido|teoma|thumbshots|tineye|trendiction|tweetedtimes|tweetmeme|uaslinkchecker|undrip|unwindfetchor|vedma|vkshare|vm|wch|webalta|webcookies|webthumbnail|wesee|wise-guys|woko|wotbox|y!j-bri|y!j-bro|y!j-brw|y!j-bsc|yahoo|yahoo!|yahooysmcm|yats|yeti|zeerch'
 			. ',i', (string)$_SERVER['HTTP_USER_AGENT'])
 	);
 }
@@ -237,6 +237,7 @@ if (isset($_REQUEST['var_url']) and $_REQUEST['var_url'] and isset($_REQUEST['ex
 	$url = trim($_REQUEST['var_url']);
 	if (strncmp($url,'/',1)==0
 	  or (($p=strpos($url,'..'))!==false AND strpos($url,'..',$p+3)!==false)
+	  or (($p=strpos($url,'..'))!==false AND strpos($url,'IMG',$p+3)!==false)
 		or (strpos($url,'://')!==false or strpos($url,':\\')!==false)) {
 		$ecran_securite_raison = 'URL interdite pour var_url';
 	}
