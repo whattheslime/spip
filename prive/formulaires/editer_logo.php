@@ -256,14 +256,16 @@ function formulaire_editer_logo_get_sources() {
 	include_spip('inc/documents');
 	$sources = array();
 	foreach (array('on', 'off') as $etat) {
-		if (isset($_FILES['logo_' . $etat]) and $_FILES['logo_' . $etat]['error'] == 0) {
-			$sources[$etat] = $_FILES['logo_' . $etat];
-		}
-		elseif ($_FILES['logo_' . $etat]['error'] != 0) {
-			$msg = check_upload_error($_FILES['logo_' . $etat]['error'], false, true);
-			if ($msg and is_string($msg)) {
-				$sources[$etat] = $_FILES['logo_' . $etat];
-				$sources[$etat]['msg'] = $msg;
+		$logo = 'logo_' . $etat;
+		if (isset($_FILES[$logo])) {
+			if ($_FILES[$logo]['error'] == 0) {
+				$sources[$etat] = $_FILES[$logo];
+			} elseif ($_FILES[$logo]['error'] != 0) {
+				$msg = check_upload_error($_FILES[$logo]['error'], false, true);
+				if ($msg and is_string($msg)) {
+					$sources[$etat] = $_FILES[$logo];
+					$sources[$etat]['msg'] = $msg;
+				}
 			}
 		}
 	}
