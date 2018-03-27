@@ -64,7 +64,7 @@ function action_redirect_dist() {
 	$status = '302';
 	if ($url) {
 		if ($var_mode) {
-			$url = parametre_url($url, 'var_mode', $var_mode);
+			$url = parametre_url($url, 'var_mode', $var_mode, '&');
 		}
 
 		if ($var_mode == 'preview'
@@ -96,6 +96,7 @@ function action_redirect_dist() {
  * @param string $type
  * @param int $id
  * @param string $var_mode
+ * @return string|null
  */
 function calculer_url_redirect_entite($type, $id, $var_mode) {
 	// invalider le cache à chaque modif en bdd
