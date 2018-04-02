@@ -1878,6 +1878,11 @@ function url_de_base($profondeur = null) {
 		and test_valeur_serveur($_SERVER['HTTPS'])
 	) {
 		$http = 'https';
+	} elseif (
+		isset($GLOBALS['meta']['adresse_site'])
+		and parse_url($GLOBALS['meta']['adresse_site'], PHP_URL_SCHEME) == 'https'
+	) {
+		$http = 'https';
 	}
 
 	// note : HTTP_HOST contient le :port si necessaire
