@@ -291,7 +291,7 @@ wird Ihre Adresse beibehalten):
 	'format_date_incorrecte' => 'Falsches Datum oder Datumsformat',
 	'format_heure_incorrecte' => 'Falsches Zeitformat oder Zeit',
 	'forum_non_inscrit' => 'Sie sind nicht eingeschrieben oder Adresse bzw. Passwort waren falsch.',
-	'forum_par_auteur' => 'Nach @auteur@',
+	'forum_par_auteur' => 'von @auteur@',
 	'forum_titre_erreur' => 'Fehler...',
 
 	// I
@@ -662,6 +662,9 @@ Sie können auf dieser Seite ein neues Passwort eingeben und sich wieder bei der
 	'todo' => 'demnächst',
 	'trad_definir_reference' => 'Wählen Sie "@titre@" als Referenz für Übersetzungen',
 	'trad_reference' => '(Referenzartikel)',
+
+	// U
+	'upload_limit' => 'Die Datei ist zu groß für den Server; die maximal erlaubte Dateigröße für den <i>Upload</i> ist @max@.',
 
 	// Z
 	'zbug_balise_b_aval' => ' : Tag B muss vor der Schleife stehen',
