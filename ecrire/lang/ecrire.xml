@@ -216,12 +216,13 @@
 	<langue code="oc_va" url="https://trad.spip.net/tradlang_module/ecrire_?lang_cible=oc_va" total="809" traduits="454" relire="0" modifs="41" nouveaux="314" pourcent="56.12">
 		<traducteur nom="kent1" lien="https://trad.spip.net/auteur/kent1" />
 	</langue>
-	<langue code="pl" url="https://trad.spip.net/tradlang_module/ecrire_?lang_cible=pl" total="809" traduits="658" relire="0" modifs="62" nouveaux="89" pourcent="81.33">
+	<langue code="pl" url="https://trad.spip.net/tradlang_module/ecrire_?lang_cible=pl" total="809" traduits="770" relire="34" modifs="0" nouveaux="5" pourcent="95.18">
 		<traducteur nom="b_b" lien="https://trad.spip.net/auteur/b_b" />
 		<traducteur nom="hookz" lien="https://trad.spip.net/auteur/hookz" />
 		<traducteur nom="Karolina Anna" lien="https://trad.spip.net/auteur/karolina-anna" />
 		<traducteur nom="kent1" lien="https://trad.spip.net/auteur/kent1" />
 		<traducteur nom="ktos" lien="https://trad.spip.net/auteur/keycheck" />
+		<traducteur nom="ziel" lien="https://trad.spip.net/auteur/ziel" />
 	</langue>
 	<langue code="pt" url="https://trad.spip.net/tradlang_module/ecrire_?lang_cible=pt" total="809" traduits="770" relire="0" modifs="9" nouveaux="30" pourcent="95.18">
 		<traducteur nom="b_b" lien="https://trad.spip.net/auteur/b_b" />
