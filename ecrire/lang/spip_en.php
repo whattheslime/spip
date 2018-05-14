@@ -687,6 +687,9 @@ and log in to the site.
 	'trad_definir_reference' => 'Choose "@titre@" as a reference for translations',
 	'trad_reference' => '(reference for translations)',
 
+	// U
+	'upload_limit' => 'This file is too big for the server: the maximum size allowed for <i>upload</i> is @max@.',
+
 	// Z
 	'zbug_balise_b_aval' => ': B tag too late in loop',
 	'zbug_balise_inexistante' => 'Tag @balise@ wrongly declared for @from@',
