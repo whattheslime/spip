@@ -722,6 +722,7 @@ and their status is colour-coded:',
 	'queue_next_job_in_nb_sec' => 'Next job in @nb@ s',
 	'queue_no_job_in_queue' => 'No pending tasks',
 	'queue_one_job_in_queue' => '1 job in queue',
+	'queue_priorite_tache' => 'priority',
 	'queue_purger_queue' => 'Reset the job queue',
 	'queue_titre' => 'List of tasks',
 
