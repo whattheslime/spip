@@ -728,6 +728,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'queue_next_job_in_nb_sec' => 'العمل القادم خلال @nb@ ثانية',
 	'queue_no_job_in_queue' => 'لا توجد أعمال بالانتظار',
 	'queue_one_job_in_queue' => 'عمل واحد بالانتظار',
+	'queue_priorite_tache' => 'الأفضلية',
 	'queue_purger_queue' => 'تأصيل لائحة الأعمال',
 	'queue_titre' => 'لائحة الأعمال',
 
