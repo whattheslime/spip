@@ -30,7 +30,7 @@
 				title="<:info_numero_abbreviation|attribut_html:> #ID_RUBRIQUE">[(#RANG). ]#TITRE</a></td>
 			<td class='date secondaire'>[(#DATE|affdate_jourcourt)]</td>
 			<td class='id'>[(#AUTORISER{modifier,rubrique,#ID_RUBRIQUE}|?{
-				<a href="[(#URL_ECRIRE{rubriques_edit,id_rubrique=#ID_RUBRIQUE})]" title="<:icone_modifier_rubrique|attribut_html:>">#ID_RUBRIQUE</a>,
+				<a href="[(#URL_ECRIRE{rubrique_edit,id_rubrique=#ID_RUBRIQUE})]" title="<:icone_modifier_rubrique|attribut_html:>">#ID_RUBRIQUE</a>,
 				#ID_RUBRIQUE
 			})]</td>
 			<td class='action'><button type="submit" class="button link delete" name="supprimer_lien[rubrique-#ID_RUBRIQUE-#OBJET-#ID_OBJET]" value="X"><:lien_retirer_rubrique:> [(#CHEMIN_IMAGE{supprimer-12.png}|balise_img{'X'})]</button></td>
