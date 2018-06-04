@@ -712,6 +712,7 @@ La tradukoj estas kunligitaj al la originalo, kun koloro kiu indikas ties staton
 	'queue_next_job_in_nb_sec' => 'Sekva tasko post @nb@ s',
 	'queue_no_job_in_queue' => 'Neniu atendante tasko',
 	'queue_one_job_in_queue' => '1 atendante tasko',
+	'queue_priorite_tache' => 'prioritato',
 	'queue_purger_queue' => 'Restarigi la taskliston',
 	'queue_titre' => 'Tasklisto',
 
