@@ -468,7 +468,7 @@ class IterateurDATA implements Iterator {
 					}
 				} # {par hasard}
 				else {
-					if ($r[1] == 'alea') {
+					if ($r[1] == 'hasard') {
 						$k = array_keys($this->tableau);
 						shuffle($k);
 						$v = array();
