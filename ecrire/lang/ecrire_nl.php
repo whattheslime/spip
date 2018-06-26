@@ -712,6 +712,7 @@ een kleur geeft hun status aan:',
 	'queue_next_job_in_nb_sec' => 'Volgende opdracht in @nb@ sec',
 	'queue_no_job_in_queue' => 'Geen opdracht in de wachtrij',
 	'queue_one_job_in_queue' => '1 taak in wachtrij',
+	'queue_priorite_tache' => 'prioriteit',
 	'queue_purger_queue' => 'De takenlijst leegmaken',
 	'queue_titre' => 'Lijst van taken',
 
