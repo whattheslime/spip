@@ -681,6 +681,9 @@ opnieuw verbinding maken met de site
 	'trad_definir_reference' => 'Kies "@titre@" als referentie voor vertalingen',
 	'trad_reference' => '(verwijzing naar vertalingen)',
 
+	// U
+	'upload_limit' => 'Dit bestand is te groot voor de server; de maximaal toegelaten grootte in <i>upload</i> is @max@.',
+
 	// Z
 	'zbug_balise_b_aval' => ': beginnende opmaakcode B',
 	'zbug_balise_inexistante' => 'Slecht gedeclareerd baken @balise@ voor @from@',
