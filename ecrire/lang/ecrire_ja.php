@@ -10,7 +10,7 @@ if (!defined('_ECRIRE_INC_VERSION')) {
 $GLOBALS[$GLOBALS['idx_lang']] = array(
 
 	// A
-	'activer_plugin' => 'プラグインを有効する',
+	'activer_plugin' => 'プラグインを有効にする',
 	'affichage' => '表示',
 	'aide_non_disponible' => '現在の言語の設定では、このオンラインヘルプはまだご利用になれません。',
 	'annuler_recherche' => '検索を取り消す',
