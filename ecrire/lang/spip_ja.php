@@ -117,15 +117,15 @@ http://mysite.com、あるいは単純にこのサイトの記事番号を与え
 	'date_fmt_heures_minutes_court' => '@h@時@m@分',
 	'date_fmt_jour' => '@nomjour@ @jour@',
 	'date_fmt_jour_heure' => '@jour@の@heure@',
-	'date_fmt_jour_heure_debut_fin' => '@jour@ de @heure_debut@ à @heure_fin@',
-	'date_fmt_jour_heure_debut_fin_abbr' => '@dtstart@@jour@ de @heure_debut@@dtabbr@ à @dtend@@heure_fin@@dtabbr@',
+	'date_fmt_jour_heure_debut_fin' => '@jour@に、@heure_debut@より@heure_fin@まで',
+	'date_fmt_jour_heure_debut_fin_abbr' => '@dtstart@@jour@に、@heure_debut@@dtabbr@より@dtend@@heure_fin@@dtabbr@まで',
 	'date_fmt_jour_mois' => '@nommois@月@jour@日',
 	'date_fmt_jour_mois_annee' => '@annee@年@nommois@月@jour@日',
 	'date_fmt_mois_annee' => '@annee@年@nommois@月',
-	'date_fmt_nomjour' => '@nomjour@ @date@',
-	'date_fmt_nomjour_date' => '@date@@nomjour@',
+	'date_fmt_nomjour' => '@date@に@nomjour@日',
+	'date_fmt_nomjour_date' => '@date@に@nomjour@日',
 	'date_fmt_periode' => '@date_debut@より@date_fin@まで',
-	'date_fmt_periode_abbr' => '@dtart@@date_debut@@dtabbr@より @dtend@@date_fin@@dtabbr@まで', # MODIF
+	'date_fmt_periode_abbr' => '@dtart@@date_debut@@dtabbr@より @dtend@@date_fin@@dtabbr@まで',
 	'date_fmt_periode_from' => 'より',
 	'date_fmt_periode_to' => 'まで',
 	'date_fmt_saison_annee' => '@annee@年の@saison@',
@@ -198,13 +198,17 @@ http://mysite.com、あるいは単純にこのサイトの記事番号を与え
 	'date_mois_2' => '2',
 	'date_mois_2_abbr' => '2',
 	'date_mois_3' => '3',
+	'date_mois_3_abbr' => '3',
 	'date_mois_4' => '4',
 	'date_mois_4_abbr' => '4',
 	'date_mois_5' => '5',
+	'date_mois_5_abbr' => '5',
 	'date_mois_6' => '6',
+	'date_mois_6_abbr' => '6',
 	'date_mois_7' => '7',
 	'date_mois_7_abbr' => '7',
 	'date_mois_8' => '8',
+	'date_mois_8_abbr' => '8',
 	'date_mois_9' => '9',
 	'date_mois_9_abbr' => '9',
 	'date_saison_1' => '冬',
@@ -240,11 +244,8 @@ http://mysite.com、あるいは単純にこのサイトの記事番号を与え
 	'fichier_introuvable' => 'ファイル@fichier@は見つからない。',
 	'form_auteur_confirmation' => 'メールアドレスを確認してください。',
 	'form_auteur_email_modifie' => 'メールアドレスは変更されました。',
-	'form_auteur_envoi_mail_confirmation' => '@email@に確認メールが送信されました。 このメールに記載されているウェブアドレ
-スにアクセスしてから、登録されたメールアドレスを確認してください。',
-	'form_auteur_mail_confirmation' => 'こんにちは。メールアドレスを変更してもらうように依頼しました。 新しいメールア
-ドレスを確認するには、下のウェブアドレスに接続する必要があります。 （さもない
-と御要求は無視になります。）：@url@',
+	'form_auteur_envoi_mail_confirmation' => '@email@に確認メールが送信されました。 このメールに記載されているウェブアドレスにアクセスしてから、登録されたメールアドレスを確認してください。',
+	'form_auteur_mail_confirmation' => 'こんにちは。メールアドレスを変更してもらうように依頼しました。 新しいメールアドレスを確認するには、下のウェブアドレスに接続する必要があります。 （さもないと御要求は無視になります。）：@url@',
 	'form_deja_inscrit' => '既に申し込み済みです。',
 	'form_email_non_valide' => 'メールアドレスは有効ではありません。',
 	'form_forum_access_refuse' => '当サイトにアクセスはもう禁止です。',
@@ -253,8 +254,7 @@ http://mysite.com、あるいは単純にこのサイトの記事番号を与え
 	'form_forum_email_deja_enregistre' => 'メールアドレスは登録済みで、いつものパスワードを使ってください。',
 	'form_forum_identifiant_mail' => '新規ＩＤは、メールで送信されました。',
 	'form_forum_identifiants' => '個人ＩＤ',
-	'form_forum_indiquer_nom_email' => 'お名前とEメールアドレスを入力してください。 個人ＩＤをメールですぐに送信しま
-す。',
+	'form_forum_indiquer_nom_email' => 'お名前とEメールアドレスを入力してください。 個人ＩＤをメールですぐに送信します。',
 	'form_forum_login' => 'ログインＩＤ：',
 	'form_forum_message_auto' => '(自動送信メッセージです)',
 	'form_forum_pass' => 'パスワード：',
@@ -286,8 +286,7 @@ http://mysite.com、あるいは単純にこのサイトの記事番号を与え
 	// I
 	'ical_texte_rss_articles' => 'サイト内の記事の「バックエンド」が次のアドレスにあります：',
 	'ical_texte_rss_articles2' => 'サイトの各セクションの記事のバックエンドファイルを取得することが出来ます：',
-	'ical_texte_rss_breves' => 'さらに、サイト内のニュースを含んでいるファイルがあります。セクション番号を選
-択することによって、そのセクションだけのニュースを取得できます。',
+	'ical_texte_rss_breves' => 'さらに、サイト内のニュースを含んでいるファイルがあります。セクション番号を選択することによって、そのセクションだけのニュースを取得できます。',
 	'icone_a_suivre' => 'つづき',
 	'icone_admin_site' => 'サイトの管理',
 	'icone_agenda' => 'カレンダー',
@@ -390,12 +389,10 @@ http://mysite.com、あるいは単純にこのサイトの記事番号を与え
 	'info_grand_ecran' => '大きく表示する',
 	'info_image_aide' => 'ヘルプ',
 	'info_image_process_titre' => 'サムネイルの作り方',
-	'info_impossible_lire_page' => '<b>エラー！</b>プロキシ経由で<tt><html>@test_proxy@</html></tt>ページを読むこ
-とが出来ませんでした。',
+	'info_impossible_lire_page' => '<b>エラー！</b>プロキシ経由で<code><html>@test_proxy@</html></code>ページを読むことが出来ませんでした。',
 	'info_installation_systeme_publication' => '出版システムインストール…',
 	'info_installer_documents' => '@upload@フォルダーにあるすべてのファイルを自動的にインストール出来ます。',
-	'info_installer_ftp' => '管理者なら@upload@フォルダーに（FTPで）ファイルを置いておけば、後でここから直
-接そのファイルを選択できるようになります。',
+	'info_installer_ftp' => '管理者なら@upload@フォルダーに（FTPで）ファイルを置いておけば、後でここから直接そのファイルを選択できるようになります。',
 	'info_installer_images' => 'JPEG、GIF、PNGフォーマットの画像をインストール出来ます。',
 	'info_installer_images_dossier' => '@upload@フォルダにインストールしたファイルをここで選択することが出来ます。',
 	'info_interface_complete' => '完全なインターフェース',
@@ -417,20 +414,18 @@ http://mysite.com、あるいは単純にこのサイトの記事番号を与え
 	'info_messages_nb' => 'メッセージ@nb@件',
 	'info_messages_un' => 'メッセージ１件',
 	'info_mise_en_ligne' => '公開された日付：',
-	'info_modification_parametres_securite' => 'セキュリティ設定の変更',
+	'info_modification_parametres_securite' => 'セキュリティ設定の変更する',
 	'info_mois_courant' => '今月の間：',
 	'info_mot_cle_ajoute' => '次のキーワードが追加された',
 	'info_multi_herit' => 'デフォルト言語',
-	'info_multi_langues_soulignees' => '<u>下線が引かれている言語は</u> インターフェースが翻訳されています。その言語
-を選んだら、公開のサイトの多くの要素（日付、形式など）は自動的に翻訳されま
-す。下線が引かれていない言語は、サイトのメイン言語で現れます。',
+	'info_multi_langues_soulignees' => '<u>下線が引かれている言語は</u> インターフェースが翻訳されています。その言語を選んだら、公開のサイトの多くの要素（日付、形式など）は自動的に翻訳されます。下線が引かれていない言語は、サイトのメイン言語で現れます。',
 	'info_multilinguisme' => '多言語',
 	'info_nom_non_utilisateurs_connectes' => 'お名前は接続しているユーザーのリストに現れない。',
 	'info_nom_utilisateurs_connectes' => 'お名前は接続しているユーザーのリストに現れる。',
 	'info_nombre_en_ligne' => '今オンライン:',
 	'info_non_resultat' => '「@cherche_mot@」に関する結果はありません。',
 	'info_non_utilisation_messagerie' => 'サイトの内部のメッセージ交換を使用していない。',
-	'info_nouveau_message' => 'あなたに１通メッセージが届いています',
+	'info_nouveau_message' => 'メッセージが１通届いています',
 	'info_nouveaux_messages' => 'メッセージが@total_messages@通届いています。',
 	'info_numero_abbreviation' => '号',
 	'info_obligatoire' => 'この情報は必須です。',
@@ -462,10 +457,8 @@ http://mysite.com、あるいは単純にこのサイトの記事番号を与え
 	'info_sites_un' => 'サイト１件',
 	'info_supprimer_vignette' => 'サムネイルを削除する',
 	'info_symbole_bleu' => '<b>青色</b>は、<b>メモ</b>、つまり個人的なメッセージを表します：',
-	'info_symbole_jaune' => '<b>黄色</b>は、<b>全著者向きの告知</b>を表します。つまり著者は皆読み、それに
-管理者は編集も出来ます。',
-	'info_symbole_vert' => '<b>緑色</b>は、サイトの<b>その他のユーザー</b>と交換されるメッセージを表しま
-す。',
+	'info_symbole_jaune' => '<b>黄色</b>は、<b>全著者向きの告知</b>を表します。つまり著者は皆読み、それに管理者は編集も出来ます。',
+	'info_symbole_vert' => '<b>緑色</b>は、サイトの<b>その他のユーザー</b>と交換されるメッセージを表します。',
 	'info_telecharger_nouveau_logo' => '新規ロゴをアップロードする：',
 	'info_telecharger_ordinateur' => '当コンピュータよりアップロードする：',
 	'info_tous_resultats_enregistres' => '［すべての結果は登録されます。］',
@@ -507,8 +500,7 @@ http://mysite.com、あるいは単純にこのサイトの記事番号を与え
 	'login' => 'ログイン',
 	'login_acces_prive' => '管理エリアへアクセスする',
 	'login_autre_identifiant' => '他のＩＤで接続する',
-	'login_cookie_accepte' => '（なるべくこのサイトのため）クッキーを許可するように、ブラウザを設定してくだ
-さい。',
+	'login_cookie_accepte' => '（なるべくこのサイトのため）クッキーを許可するように、ブラウザを設定してください。',
 	'login_cookie_oblige' => 'このサイト上で安全にログインするには、クッキーを受け入れる必要があります。',
 	'login_deconnexion_ok' => 'ログアウト済み',
 	'login_erreur_pass' => 'パスワードエラー',
@@ -518,14 +510,12 @@ http://mysite.com、あるいは単純にこのサイトの記事番号を与え
 	'login_login2' => 'ログインＩＤ（このサイトに接続するためのＩＤ）：',
 	'login_login_pass_incorrect' => '（ログインＩＤ、または、パスワードは一致しません）',
 	'login_motpasseoublie' => 'パスワードを忘れましたか？',
-	'login_non_securise' => '警告：このフォームは安全ではありません。 パスワードをネット上で傍受される恐れ
-がないように、ブラウザでJavascriptを有効にしてください。',
+	'login_non_securise' => '警告：このフォームは安全ではありません。 パスワードをネット上で傍受される恐れがないように、ブラウザでJavascriptを有効にしてください。',
 	'login_nouvelle_tentative' => '新しい試み',
 	'login_par_ici' => '登録済みなので… どうぞ…',
 	'login_pass2' => 'パスワード：',
-	'login_preferez_refuser' => '<b>クッキーを拒絶したければ</b>、（それほど安全でない）別の接続方法を使うこと
-が出来ます：',
-	'login_recharger' => 'このページを再読込してください<br />',
+	'login_preferez_refuser' => '<b>クッキーを拒絶したければ</b>、（それほど安全でない）別の接続方法を使うことが出来ます：',
+	'login_recharger' => 'このページをリフレッシュする',
 	'login_rester_identifie' => 'しばらく接続したままにする',
 	'login_retour_public' => '公開サイトに戻る',
 	'login_retour_site' => 'パブリックなサイトへ戻る',
@@ -566,18 +556,15 @@ http://mysite.com、あるいは単純にこのサイトの記事番号を与え
 	'pass_choix_pass' => '新しいパスワードを決めてください：',
 	'pass_erreur' => 'エラー',
 	'pass_erreur_acces_refuse' => '<b>エラー：</b> もはや、このサイトへのアクセスが拒否されました。',
-	'pass_erreur_code_inconnu' => '<b>エラー：</b> このコードは、このサイトにアクセスするどの訪問者にも対応して
-いません。',
+	'pass_erreur_code_inconnu' => '<b>エラー：</b> このコードは、このサイトにアクセスするどの訪問者にも対応していません。',
 	'pass_erreur_non_enregistre' => '<b>エラー：</b> アドレス <tt>@email_oubli@</tt> は登録されていません。',
 	'pass_erreur_non_valide' => '<b>エラー：</b> そのアドレス<tt>@email_oubli@</tt> は有効ではありません。',
 	'pass_erreur_probleme_technique' => '<b>エラー：</b> このメールは、技術的な問題によって送信が出来ませんでした。',
-	'pass_espace_prive_bla' => '管理エリアは、登録済みの訪問者に開かれています。登録されたら、記事の閲覧、記
-事の投稿、フォーラムへの参加が可能になります。',
+	'pass_espace_prive_bla' => '管理エリアは、登録済みの訪問者に開かれています。登録されたら、記事の閲覧、記事の投稿、フォーラムへの参加が可能になります。',
 	'pass_forum_bla' => '登録された訪問者用のフォーラムに介入させてもらうように願いました。',
-	'pass_indiquez_cidessous' => '登録されたメールアドレスを下に入力してください。アクセスが再び出来るように、
-取り扱い説明をメールで送信します。',
+	'pass_indiquez_cidessous' => '登録されたメールアドレスを下に入力してください。アクセスが再び出来るように、取り扱い説明をメールで送信します。',
 	'pass_mail_passcookie' => '(自動メッセージ)サイト@nom_site_spip@(@adresse_site@)へのアクセスを取り戻すように、次のアドレスに行ってください：@sendcookie@。それで新しいパスワードを入力すると再接続ができます。',
-	'pass_mot_oublie' => 'パスワードを忘れました',
+	'pass_mot_oublie' => 'パスワードを忘れました。',
 	'pass_nouveau_enregistre' => '新しいパスワードを登録されました。',
 	'pass_nouveau_pass' => '新規パスワード',
 	'pass_ok' => 'オケー',
@@ -585,7 +572,7 @@ http://mysite.com、あるいは単純にこのサイトの記事番号を与え
 	'pass_procedure_changer' => 'パスワードを変更するには、アカウントを作成した時のメールアドレスを入力してく
 ださい。',
 	'pass_quitter_fenetre' => 'このウィンドウを閉じる',
-	'pass_rappel_login' => 'リマインダー： あなたのＩＤ (ログインＩＤ) は \\"@login@\\"です。',
+	'pass_rappel_login' => 'リマインダー： あなたのＩＤ (ログインＩＤ) は「@login@」です。',
 	'pass_recevoir_mail' => 'アクセスが出来るように、取り扱い説明のメールが届きます。',
 	'pass_retour_public' => '公開サイトへ戻る',
 	'pass_rien_a_faire_ici' => '居るべきではありません。',
@@ -613,21 +600,14 @@ http://mysite.com、あるいは単純にこのサイトの記事番号を与え
 	'texte_actualite_site_1' => 'インターフェースに精通した時、「',
 	'texte_actualite_site_2' => '完全なインターフェース',
 	'texte_actualite_site_3' => '」さらに多くの特徴を利用可能にするようにクリックしてください。',
-	'texte_creation_automatique_vignette' => 'プレビューサムネイルの自動制作が有効になっています。このフォームを通して画像
-のフォーマット@gd_formats@であれば、@size_preview@pixelsの最大サイズのサムネ
-イルが添付されます。',
-	'texte_documents_associes' => '次のファイルは記事に関連付けられていますが、挿入されていません。 公開サイトの
-レイアウトによって、添付ドキュメントとして表示されることもあります。',
+	'texte_creation_automatique_vignette' => 'プレビューサムネイルの自動制作が有効になっています。このフォームを通して画像のフォーマット@gd_formats@であれば、@size_preview@pixelsの最大サイズのサムネイルが添付されます。',
+	'texte_documents_associes' => '次のファイルは記事に関連付けられていますが、挿入されていません。 公開サイトのレイアウトによって、添付ドキュメントとして表示されることもあります。',
 	'texte_erreur_mise_niveau_base' => 'アップグレード中のデータベースエラー。画像 <b>@fichier@</b> をパスすることが出来なかった（記事@id_article@）。注意を払ってこの参照を残してください。また記事に画像が現れることを確認して下さい。',
 	'texte_erreur_visiteur' => '権利のないＩＤを使用して管理エリアにアクセスしようとしました。',
 	'texte_inc_auth_1' => 'ＩＤ<b>@auth_login@</b>でログインしていますが、このＩＤはデータベースにはもはや存在していません。',
 	'texte_inc_auth_2' => 'ブラウザを再起動した後、',
 	'texte_inc_auth_3' => 'もう一度接続をしてください。',
-	'texte_inc_config' => '下で入力した変更はサイトの機能に躊躇に
-  影響を与えます。あなたがSPIPシステムの機能に精通していないなら
- それらを扱わないように助言します<br /><br /><b>より
- 一般的に、あなたは
- あなたのサイトの主なウェブマスターにこのページを取り扱わせることを強くお勧めします。</b>', # MODIF
+	'texte_inc_config' => 'このページの変更は、サイトの作動に大きな影響を与えます。 SPIPの操作に慣れるまで設定を変更しないことをお勧めします。<br/>基本的には、これらのページの設定変更を管理者に任せておくことを強くお勧めします。',
 	'texte_inc_meta_1' => 'ファイル<code>@file@</ code>の書き込みながら、エラーが発生しました。',
 	'texte_inc_meta_2' => 'サイト管理者として、',
 	'texte_inc_meta_3' => '<code>@directory@</ code>フォルダの書き込み権を確認してください。',
@@ -649,8 +629,7 @@ http://mysite.com、あるいは単純にこのサイトの記事番号を与え
 	'titre_image_visiteur' => '訪問者',
 	'titre_joindre_document' => 'ファイルを添付する',
 	'titre_mots_cles' => 'キーワード',
-	'titre_probleme_technique' => '警告：技術的なエラーが発生して（SQLサーバー）、サイトのこの部分へのアクセスが
-出来ません。 ご理解いただき、ありがとうございます。',
+	'titre_probleme_technique' => '警告：技術的なエラーが発生して（SQLサーバー）、サイトのこの部分へのアクセスが出来ません。 ご理解いただき、ありがとうございます。',
 	'titre_publier_document' => 'このセクションにファイルを公開する',
 	'titre_signatures_attente' => '署名確認中',
 	'titre_signatures_confirmees' => '署名は確認された',
@@ -661,27 +640,26 @@ http://mysite.com、あるいは単純にこのサイトの記事番号を与え
 	'trad_reference' => '（参考記事）',
 
 	// U
-	'upload_limit' => 'このファイルのサイズは大きすぎます。 <b>アップロード</b>に許可される最大サイ
-ズは@max@です。',
+	'upload_limit' => 'このファイルのサイズは大きすぎます。 <b>アップロード</b>に許可される最大サイズは@max@です。',
 
 	// Z
 	'zbug_balise_b_aval' => ': Bタグはループ内で遅すぎる',
-	'zbug_balise_inexistante' => 'erreur @from@: la balise #@balise@ n’existe pas', # MODIF
+	'zbug_balise_inexistante' => '@from@エラー：タグ#@balise@は存在していません。',
 	'zbug_balise_sans_argument' => '@balise@タグのパラメーターが足りません。',
 	'zbug_boucle' => 'ループ',
-	'zbug_boucle_recursive_undef' => '未定義な回帰的なループ', # MODIF
+	'zbug_boucle_recursive_undef' => '@nom@：未定義な回帰的なループ',
 	'zbug_calcul' => '制作',
 	'zbug_champ_hors_boucle' => 'ループ外の@champ@フィールド',
-	'zbug_champ_hors_motif' => 'ループ外の @champ@ フィールドは @motif@ とタグされた', # MODIF
+	'zbug_champ_hors_motif' => 'フィルドは @champ@ 外部の文脈 @motif@',
 	'zbug_code' => 'コード',
 	'zbug_critere_inconnu' => '未知の基準@critere@',
 	'zbug_critere_sur_table_sans_cle_primaire' => '{@critere@} on a table without atomic primary key',
 	'zbug_distant_interdit' => '外部のデータは禁止',
-	'zbug_doublon_table_sans_cle_primaire' => 'doublons sur une table sans clef primaire atomique', # MODIF
-	'zbug_doublon_table_sans_index' => 'doublons sur une table sans index', # MODIF
-	'zbug_erreur_boucle_double' => '歪んでいる@id@: ２重登録', # MODIF
+	'zbug_doublon_table_sans_cle_primaire' => 'Duplicate entries on a table which does not have a simple primary key',
+	'zbug_doublon_table_sans_index' => 'Duplicate entries on a table without an index',
+	'zbug_erreur_boucle_double' => 'ループ@id@：二重定義',
 	'zbug_erreur_boucle_fermant' => '歪んでいる@id@： 欠けている終了タグ',
-	'zbug_erreur_boucle_syntaxe' => '間違ったループ (歪んだ) 構文', # MODIF
+	'zbug_erreur_boucle_syntaxe' => 'ループ@id@に構文エラー（BOUCLE）',
 	'zbug_erreur_compilation' => 'コンパイルエラー',
 	'zbug_erreur_execution_page' => 'ページの制作失敗',
 	'zbug_erreur_filtre' => 'エラー：未定義のフィルター「<b>@filtre@</b>」',
@@ -691,7 +669,7 @@ http://mysite.com、あるいは単純にこのサイトの記事番号を与え
 	'zbug_info_erreur_squelette' => 'サイトのエラー',
 	'zbug_inversion_ordre_inexistant' => '実在しない順番の逆転',
 	'zbug_pagination_sans_critere' => '基準{pagination}をもたない#PAGINATION。または再帰的ループで使用される基準。',
-	'zbug_parametres_inclus_incorrects' => 'インクルードのパラメタが間違っている', # MODIF
+	'zbug_parametres_inclus_incorrects' => 'インクルードパラメータエラー：@param@',
 	'zbug_profile' => '制作時間：@time@',
 	'zbug_resultat' => '結果',
 	'zbug_serveur_indefini' => '未定義のSQLサーバー',
