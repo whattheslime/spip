@@ -84,7 +84,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	// P
 	'page_precedente' => '前のページ',
 	'page_suivante' => '次のページ',
-	'par_auteur' => '著者によって',
+	'par_auteur' => '著者：',
 	'participer_site' => 'サインアップすると、サイトにご自分の記事を書くことが出来ます。申し込みしてから、管理エリアへのアクセスコードがメールで届きます。',
 	'plan_site' => 'サイトマップ',
 	'popularite' => '人気',
