@@ -48,7 +48,20 @@ a:active.spip-admin-boutons,
 	border-bottom:2px solid #FEFF7F !important;
 	background:url(images/fond-inclure.png) repeat top left !important;
 }
-.inclure_blocs > h6 {background:#FEFF7F;color:#000000;margin:0;padding:2px;margin-bottom:2px;font-family: Courier, "Courier New", monospace;font-size: 0.8em;}
+.inclure_blocs > h6 {
+	background: #FEFF7F;
+	color: #000000;
+	margin: 0;
+	padding: 2px;
+	margin-bottom: 2px;
+	clear: both;
+	font-family: monospace;
+	font-size: 0.66rem;
+	line-height: 1;
+	text-align: left;
+	letter-spacing: normal;
+	text-transform: none;
+}
 .inclure_blocs > h6:hover,
 .inclure_blocs.hover {
 	background-color: #FDFF1F !important;
