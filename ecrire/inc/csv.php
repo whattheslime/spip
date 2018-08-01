@@ -124,10 +124,11 @@ function analyse_csv($t) {
 			$lignes[$k] = substr($v, 0, -1);
 		}
 	}
-
+	
 	foreach ($lignes as &$l) {
+		$l = str_replace('&#34#','"',$l);
 		$l = explode($sep, $l);
 	}
-
+	
 	return array(explode($sep, $entete), $lignes, $caption);
 }
