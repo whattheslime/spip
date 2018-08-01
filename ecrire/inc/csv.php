@@ -3,7 +3,7 @@
 /***************************************************************************\
  *  SPIP, Systeme de publication pour l'internet                           *
  *                                                                         *
- *  Copyright (c) 2001-2018                                                *
+ *  Copyright (c) 2001-2017                                                *
  *  Arnaud Martin, Antoine Pitrou, Philippe Riviere, Emmanuel Saint-James  *
  *                                                                         *
  *  Ce programme est un logiciel libre distribue sous licence GNU/GPL.     *
@@ -32,6 +32,8 @@ if (!defined('_ECRIRE_INC_VERSION')) {
  *     - Titre du tableau (si une seule colonne)
  **/
 function analyse_csv($t) {
+	
+	// Quel est le séparateur ?
 	$virg = substr_count($t, ',');
 	$pvirg = substr_count($t, ';');
 	$tab = substr_count($t, "\t");
@@ -43,11 +45,12 @@ function analyse_csv($t) {
 		$hs = '&#59;';
 		$virg = $pvirg;
 	}
-	if ($tab > $virg) {
+	// un certain nombre de tab => le séparateur est tab
+	if ($tab > $virg / 10) {
 		$sep = "\t";
 		$hs = "\t";
 	}
-
+	
 	$t = preg_replace('/\r?\n/', "\n",
 		preg_replace('/[\r\n]+/', "\n", $t));
 	// un separateur suivi de 3 guillemets attention !
