@@ -51,10 +51,8 @@ function analyse_csv($t) {
 		$hs = "\t";
 	}
 	
-	$t = preg_replace('/\r?\n/', "\n",
-		preg_replace('/[\r\n]+/', "\n", $t));
 	// un separateur suivi de 3 guillemets attention !
-	// attention au ; suceptible d'etre confondu avec un separateur
+	// attention au ; ou , suceptible d'etre confondu avec un separateur
 	// on substitue un # et on remplacera a la fin
 	$t = preg_replace("/([\n$sep])\"\"\"/", '\\1"&#34#', $t);
 	$t = str_replace('""', '&#34#', $t);
@@ -62,10 +60,14 @@ function analyse_csv($t) {
 	foreach ($r[0] as $cell) {
 		$t = str_replace($cell,
 			str_replace($sep, $hs,
-				str_replace("\n", "<br />",
+				str_replace("\n", "``**``", // échapper les saut de lignes, on les remettra après.
 					substr($cell, 1, -1))),
 			$t);
 	}
+	
+	$t = preg_replace('/\r?\n/', "\n",
+	preg_replace('/[\r\n]+/', "\n", $t));
+	
 	list($entete, $corps) = explode("\n", $t, 2);
 	$caption = '';
 	// sauter la ligne de tete formee seulement de separateurs
@@ -127,6 +129,7 @@ function analyse_csv($t) {
 	
 	foreach ($lignes as &$l) {
 		$l = str_replace('&#34#','"',$l);
+		$l = str_replace('``**``',"\n",$l);
 		$l = explode($sep, $l);
 	}
 	
