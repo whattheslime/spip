@@ -118,7 +118,7 @@ function formulaires_login_charger_dist($cible = '', $login = '', $prive = null)
 		if (isset($res['redirect']) and $res['redirect']) {
 			include_spip('inc/headers');
 			# preparer un lien pour quand redirige_formulaire ne fonctionne pas
-			$m = redirige_formulaire($res['redirect']);
+			$m = redirige_formulaire($res['redirect'], '', 'ajaxform');
 			$valeurs['_deja_loge'] = inserer_attribut(
 				'<a>' . _T('login_par_ici') . "</a>$m",
 				'href',
