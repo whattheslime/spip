@@ -48,7 +48,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'en_reponse' => 'Als antwoord op:',
 	'en_resume' => 'Samengevat',
 	'envoyer_message' => 'Een bericht sturen',
-	'espace_prive' => 'Privé-gedeelte',
+	'espace_prive' => 'Privé gedeelte',
 
 	// F
 	'formats_acceptes' => 'Toegelaten formaten: @formats@.',
