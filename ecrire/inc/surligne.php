@@ -54,7 +54,7 @@ function surligner_mots($page, $surcharge_surligne = '') {
 	);
 
 
-	$ref = $_SERVER['HTTP_REFERER'];
+	$ref = isset($_SERVER['HTTP_REFERER']) ? $_SERVER['HTTP_REFERER'] : null;
 	//avoid a js injection
 	if ($surcharge_surligne) {
 		$surcharge_surligne = preg_replace(",(?<!\\\\)((?:(?>\\\\){2})*)('),", "$1\\\\$2", $surcharge_surligne);
