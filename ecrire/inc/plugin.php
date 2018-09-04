@@ -864,7 +864,7 @@ function ecrire_plugin_actifs($plugin, $pipe_recherche = false, $operation = 'ra
 	pipeline_precompile($prepend_code);
 
 	// attendre eventuellement l'invalidation du cache opcode
-	spip_attend_invalidation_opcode_cache();
+	#spip_attend_invalidation_opcode_cache();
 
 	if (spip_connect()) {
 		// lancer et initialiser les nouveaux crons !
@@ -904,7 +904,10 @@ function plugins_precompile_chemin($plugin_valides, $ordre) {
 			$dir = $dir_type . ".'" . $plug . "/'";
 
 			$prefix = strtoupper(preg_replace(',\W,', '_', $info['prefix']));
-			if ($prefix !== "SPIP") {
+			if (
+				$prefix !== "SPIP"
+				and strpos($dir, ":") === false // exclure le cas des procure:
+			) {
 				$contenu .= "define('_DIR_PLUGIN_$prefix',$dir);\n";
 				foreach ($info['chemin'] as $chemin) {
 					if (!isset($chemin['version']) or plugin_version_compatible($chemin['version'],
