@@ -269,7 +269,6 @@ ecrire/public/sandbox.php -text
 ecrire/public/styliser_par_z.php -text
 ecrire/public/tracer.php -text
 ecrire/req/pg.exp.php -text
-ecrire/req/sqlite2.php -text
 ecrire/req/sqlite3.php -text
 ecrire/req/sqlite_fonctions.php -text
 ecrire/req/sqlite_generique.php -text
