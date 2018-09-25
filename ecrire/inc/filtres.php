@@ -2862,10 +2862,16 @@ function direction_css($css, $voulue = '') {
 		}
 	}
 
-	$contenu = str_replace(
-		array('right', 'left', '@@@@L E F T@@@@'),
-		array('@@@@L E F T@@@@', 'right', 'left'),
-		$contenu);
+
+	// Inverser la direction gauche-droite en utilisant CSSTidy qui gere aussi les shorthands
+	include_spip("lib/csstidy/class.csstidy");
+	$css = new csstidy();
+	$css->set_cfg('optimise_shorthands', 0);
+	$css->set_cfg('reverse_left_and_right', true);
+	$css->parse($contenu);
+
+	$contenu = $css->print->plain();
+
 
 	// reperer les @import auxquels il faut propager le direction_css
 	preg_match_all(",\@import\s*url\s*\(\s*['\"]?([^'\"/][^:]*)['\"]?\s*\),Uims", $contenu, $regs);
