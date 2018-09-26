@@ -2819,7 +2819,7 @@ function direction_css($css, $voulue = '') {
 
 	if (
 		// url absolue
-		preg_match(",^http:,i", $css)
+		preg_match(",^https?:,i", $css)
 		// ou qui contient un ?
 		or (($p = strpos($css, '?')) !== false)
 	) {
@@ -2847,8 +2847,8 @@ function direction_css($css, $voulue = '') {
 	// la css peut etre distante (url absolue !)
 	if ($distant) {
 		include_spip('inc/distant');
-		$contenu = recuperer_page($css);
-		if (!$contenu) {
+		$res = recuperer_url($css);
+		if (!$res or !$contenu = $res['page']) {
 			return $css;
 		}
 	} else {
@@ -2865,12 +2865,12 @@ function direction_css($css, $voulue = '') {
 
 	// Inverser la direction gauche-droite en utilisant CSSTidy qui gere aussi les shorthands
 	include_spip("lib/csstidy/class.csstidy");
-	$css = new csstidy();
-	$css->set_cfg('optimise_shorthands', 0);
-	$css->set_cfg('reverse_left_and_right', true);
-	$css->parse($contenu);
+	$parser = new csstidy();
+	$parser->set_cfg('optimise_shorthands', 0);
+	$parser->set_cfg('reverse_left_and_right', true);
+	$parser->parse($contenu);
 
-	$contenu = $css->print->plain();
+	$contenu = $parser->print->plain();
 
 
 	// reperer les @import auxquels il faut propager le direction_css
