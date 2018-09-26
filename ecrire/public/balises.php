@@ -805,9 +805,16 @@ function balise_INTRODUCTION_dist($p) {
 	$type = $p->type_requete;
 
 	$_texte = champ_sql('texte', $p);
-	$_descriptif = ($type == 'articles' or $type == 'rubriques') ? champ_sql('descriptif', $p) : "''";
+	$trouver_table = charger_fonction('trouver_table', 'base');
+	$desc = $trouver_table(table_objet_sql($type));
+	$_descriptif = "''";
+	if ($desc and isset($desc['field']['descriptif'])) {
+		// notamment articles et rubriques mais aussi tout nouvel objet concerne
+		$_descriptif = champ_sql('descriptif', $p);
+	}
 
-	if ($type == 'articles') {
+	// notamment les articles mais aussi tout nouvel objet concerne
+	if ($desc and isset($desc['field']['chapo'])) {
 		$_chapo = champ_sql('chapo', $p);
 		$_texte = "(strlen($_descriptif))
 		? ''
