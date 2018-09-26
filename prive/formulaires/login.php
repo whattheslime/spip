@@ -328,5 +328,10 @@ function formulaires_login_traiter_dist($cible = '', $login = '', $prive = null)
 		}
 	}
 
+	// avant de rediriger il faut mettre a jour les sessions sur le disque si on a charge une session
+	if (function_exists('terminer_actualiser_sessions')) {
+		terminer_actualiser_sessions();
+	}
+
 	return $res;
 }
