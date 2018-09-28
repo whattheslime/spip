@@ -928,7 +928,7 @@ function recuperer_numero($texte) {
  *     Texte converti
  **/
 function supprimer_tags($texte, $rempl = "") {
-	$texte = preg_replace(",<(!--|\w|/)[^>]*>,US", $rempl, $texte);
+	$texte = preg_replace(",<(!--|\w|/|!\[endif|!\[if)[^>]*>,US", $rempl, $texte);
 	// ne pas oublier un < final non ferme car coupe
 	$texte = preg_replace(",<(!--|\w|/).*$,US", $rempl, $texte);
 	// mais qui peut aussi etre un simple signe plus petit que
