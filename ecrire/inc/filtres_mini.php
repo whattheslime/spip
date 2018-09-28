@@ -228,7 +228,7 @@ function abs_url($texte, $base = '') {
  * @param bool $double_encode
  * @return string
  */
-function spip_htmlspecialchars($string, $flags = null, $encoding = 'ISO-8859-1', $double_encode = true) {
+function spip_htmlspecialchars($string, $flags = null, $encoding = 'UTF-8', $double_encode = true) {
 	if (is_null($flags)) {
 		$flags = ENT_COMPAT|ENT_HTML401;
 	}
@@ -245,7 +245,7 @@ function spip_htmlspecialchars($string, $flags = null, $encoding = 'ISO-8859-1',
  * @param bool $double_encode
  * @return string
  */
-function spip_htmlentities($string, $flags = null, $encoding = 'ISO-8859-1', $double_encode = true) {
+function spip_htmlentities($string, $flags = null, $encoding = 'UTF-8', $double_encode = true) {
 	if (is_null($flags)) {
 		$flags = ENT_COMPAT|ENT_HTML401;
 	}
