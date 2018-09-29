@@ -517,6 +517,10 @@ function _image_imagejpg($img, $fichier, $qualite = _IMG_GD_QUALITE) {
 		return false;
 	}
 	$tmp = $fichier . ".tmp";
+
+	// Enable interlancing
+	imageinterlace($img, true);
+
 	$ret = imagejpeg($img, $tmp, $qualite);
 
 	if (file_exists($tmp)) {
