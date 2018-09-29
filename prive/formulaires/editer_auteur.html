@@ -105,7 +105,7 @@
 							]<input type='password' autocomplete="off" class='password' name='new_pass2' id='new_pass2' value="" />
 							[(#ENV{config/edit_pass}|oui)
 							<input type="submit" class="over offscreen" name="submit" value="submit" />
-							<button class="submit reset_password" type="submit" name="reset_password" value="1"><:bouton_reset_password:></button>
+							<button class="btn submit reset_password" type="submit" name="reset_password" value="1"><:bouton_reset_password:></button>
 							]
 						</div>]
 					</div>
@@ -114,7 +114,7 @@
 		</div>
 		[(#REM) ajouter les saisies supplementaires : extra et autre, a cet endroit ]
 		<!--extra-->
-		<p class='boutons'><input type='submit' class='submit' value='<:bouton_enregistrer:>' /></p>
+		<p class='boutons'><input type='submit' class='btn submit' value='<:bouton_enregistrer:>' /></p>
 	</div></form>
 	]
 </div>

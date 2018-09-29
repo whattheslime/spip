@@ -5,6 +5,6 @@
 	[<div class="titre">(#ENV{titre,''})</div>]
 	<div class="taille"><:info_largeur_vignette{largeur_vignette=#GET{largeur},hauteur_vignette=#GET{hauteur}}:></div>
 	[(#ENV{editable}|oui)
-		<input type='submit' class='submit supprimer' id="supprimer_#ENV{quoi,logo_on}_#ENV{objet}_#ENV{id_objet}" name="supprimer_#ENV{quoi,logo_on}" value='<:lien_supprimer|ucfirst|attribut_html:>' />
+		<input type='submit' class='btn submit supprimer' id="supprimer_#ENV{quoi,logo_on}_#ENV{objet}_#ENV{id_objet}" name="supprimer_#ENV{quoi,logo_on}" value='<:lien_supprimer|ucfirst|attribut_html:>' />
 	]
 </div>

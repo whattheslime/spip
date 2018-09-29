@@ -36,7 +36,7 @@
 					<INCLURE{fond=#ENV**{_vue_traductions},id_trad=#ENV{_lister_id_trad},titre=#ENV{_objet}|objet_T{info_traductions},objet=#ENV{_objet},env,ajax} />
 					[(#ENV{editable}|ou{#ENV{_traduisible}})
 					<span class="input[(#ENV{_saisie_en_cours}|non)none-js]">
-						<input type="submit" class="submit supprimer_trad" name="supprimer_trad" value="[(#ENV{_objet}|objet_T{trad_delier}|attribut_html)]" />
+						<input type="submit" class="btn submit supprimer_trad" name="supprimer_trad" value="[(#ENV{_objet}|objet_T{trad_delier}|attribut_html)]" />
 					</span>
 					]
 				</div>
@@ -59,8 +59,8 @@
 		[(#ENV{editable}|ou{#ENV{_traduisible}})
 		<p class="boutons[(#ENV{_saisie_en_cours}|non)none-js]">
 			<input type='submit' class='over' name='changer' value='<:bouton_changer:>' />
-			<input type='submit' class='submit' name='annuler' value='<:bouton_fermer:>' />
-			<input type="submit" class="submit" value="<:bouton_changer:>" />
+			<input type='submit' class='btn submit' name='annuler' value='<:bouton_fermer:>' />
+			<input type="submit" class="btn submit" value="<:bouton_changer:>" />
 		</p>
 	</div></form>]
 </div>

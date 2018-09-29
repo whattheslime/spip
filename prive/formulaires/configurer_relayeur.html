@@ -9,7 +9,7 @@
 		[(#REM) declarer les hidden qui declencheront le service du formulaire
 		parametre : url d'action ]
 		#ACTION_FORMULAIRE
-		<input type='submit' class='submit' value='<:bouton_enregistrer:>' style="display:none;"/>
+		<input type='submit' class='btn submit' value='<:bouton_enregistrer:>' style="display:none;"/>
 		<div class="editer-groupe">
 			#SET{name,http_proxy}#SET{erreurs,#ENV**{erreurs}|table_valeur{#GET{name}}}
 			<div class="editer editer_[(#GET{name})][ (#GET{obli})][ (#GET{erreurs}|oui)erreur]">
@@ -34,12 +34,12 @@
 				<span class='erreur_message'>(#GET{erreurs})</span>
 				]<p class="explication"><:texte_test_proxy:></p>
 				<input type="text" class="text" name="#GET{name}" id="#GET{name}" value="#ENV*{#GET{name}}" />
-				<input type='submit' class='submit' name="tester_proxy" value='<:bouton_test_proxy:>' />
+				<input type='submit' class='btn submit' name="tester_proxy" value='<:bouton_test_proxy:>' />
 			</div>
 		</div>
 	  [(#REM) ajouter les saisies supplementaires : extra et autre, a cet endroit ]
 	  <!--extra-->
-	  <p class='boutons'><span class='image_loading'>&nbsp;</span><input type='submit' class='submit' value='<:bouton_enregistrer:>' /></p>
+	  <p class='boutons'><span class='image_loading'>&nbsp;</span><input type='submit' class='btn submit' value='<:bouton_enregistrer:>' /></p>
 	</div></form>
 	]
 </div>
