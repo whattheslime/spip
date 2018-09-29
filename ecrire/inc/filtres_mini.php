@@ -96,6 +96,24 @@ function protocole_implicite($url_absolue){
 	return preg_replace(";^[a-z]{3,7}://;i","//",$url_absolue);
 }
 
+/**
+ * Verifier qu'une url est absolue et que son protocole est bien parmi une liste autorisee
+ * @param string $url_absolue
+ * @param array $protocoles_autorises
+ * @return bool
+ */
+function protocole_verifier($url_absolue, $protocoles_autorises = array('http','https')) {
+
+	if (preg_match(';^([a-z]{3,7})://;i', '//', $url_absolue, $m)) {
+		$protocole = $m[1];
+		if (in_array($protocole, $protocoles_autorises)
+		  or in_array(strtolower($protocole), array_map('strtolower', $protocoles_autorises))) {
+			return true;
+		}
+	}
+	return false;
+}
+
 // un filtre pour transformer les URLs relatives en URLs absolues ;
 // ne s'applique qu'aux textes contenant des liens
 // http://doc.spip.org/@liens_absolus
