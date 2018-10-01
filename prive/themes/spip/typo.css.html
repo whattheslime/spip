@@ -129,6 +129,23 @@ a[hreflang]:after { content: "\0000a0[" attr(hreflang) "]"; display: inline-bloc
  * Specificites de code SPIP (ex spip-styles.css)
  */
 
+.spip-puce b {display:none;}
+.spip-puce {
+  position: relative;
+  top: 1px;
+  display: inline-block;
+  font-style: normal;
+	font-weight: bold;
+	font-size: 1.4em;
+  line-height: 0.7;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+.spip-puce:before {
+	content: "\203A";
+}
+
+
 /* Listes SPIP */
 ul.spip,.formulaire_spip ul.spip, #conteneur ul.spip { list-style: square; margin-bottom:#ENV{margin-bottom};}
 ul.spip ul, #conteneur ul.spip ul { list-style: circle; }
