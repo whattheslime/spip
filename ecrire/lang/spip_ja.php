@@ -266,7 +266,7 @@ http://mysite.com、あるいは単純にこのサイトの記事番号を与え
 	'form_indiquer_nom_site' => 'あなたのサイトの名前を入力して下さい。',
 	'form_pet_deja_enregistre' => 'このサイトは既に登録済みです。',
 	'form_pet_signature_pasprise' => 'あなたの署名は無視されました。',
-	'form_prop_confirmer_envoi' => '発送を確認する',
+	'form_prop_confirmer_envoi' => '送信します。',
 	'form_prop_description' => '説明/コメント',
 	'form_prop_enregistre' => 'ご提案は登録されており、当サイトの管理者による検証した上で公開されます。',
 	'form_prop_envoyer' => 'メッセージを送る',
