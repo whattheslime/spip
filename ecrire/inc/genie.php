@@ -154,7 +154,7 @@ function genie_queue_watch_dist() {
 	$deja_la = true;
 	$taches = taches_generales();
 	$programmees = sql_allfetsel('fonction', 'spip_jobs', sql_in('fonction', array_keys($taches)));
-	$programmees = array_map('reset', $programmees);
+	$programmees = array_column($programmees, 'fonction');
 	foreach ($taches as $tache => $periode) {
 		if (!in_array($tache, $programmees)) {
 			queue_genie_replan_job($tache, $periode, time() - round(rand(1, $periode)), 0);

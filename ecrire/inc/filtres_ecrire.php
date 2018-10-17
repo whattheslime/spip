@@ -204,7 +204,7 @@ function statuts_articles_visibles($statut_auteur) {
 	static $auth = array();
 	if (!isset($auth[$statut_auteur])) {
 		$auth[$statut_auteur] = array();
-		$statuts = array_map('reset', sql_allfetsel('distinct statut', 'spip_articles'));
+		$statuts = array_column(sql_allfetsel('distinct statut', 'spip_articles'), 'statut');
 		foreach ($statuts as $s) {
 			if (autoriser('voir', 'article', 0, array('statut' => $statut_auteur), array('statut' => $s))) {
 				$auth[$statut_auteur][] = $s;
@@ -316,7 +316,7 @@ function auteurs_lister_statuts($quoi = 'tous', $en_base = true) {
 			$statut = AUTEURS_MIN_REDAC;
 			$statut = explode(',', $statut);
 			if ($en_base) {
-				$check = array_map('reset', sql_allfetsel('DISTINCT statut', 'spip_auteurs', sql_in('statut', $statut)));
+				$check = array_column(sql_allfetsel('DISTINCT statut', 'spip_auteurs', sql_in('statut', $statut)), 'statut');
 				$retire = array_diff($statut, $check);
 				$statut = array_diff($statut, $retire);
 			}
@@ -331,19 +331,23 @@ function auteurs_lister_statuts($quoi = 'tous', $en_base = true) {
 				// prendre aussi les statuts de la table des status qui ne sont pas dans le define
 				$statut = array_diff(array_values($GLOBALS['liste_des_statuts']), $exclus);
 			}
-			$s_complement = array_map('reset',
-				sql_allfetsel('DISTINCT statut', 'spip_auteurs', sql_in('statut', $exclus, 'NOT')));
+			$s_complement = array_column(
+				sql_allfetsel('DISTINCT statut', 'spip_auteurs', sql_in('statut', $exclus, 'NOT')),
+				'statut'
+			);
 
 			return array_unique(array_merge($statut, $s_complement));
 			break;
 		default:
 		case "tous":
 			$statut = array_values($GLOBALS['liste_des_statuts']);
-			$s_complement = array_map('reset',
-				sql_allfetsel('DISTINCT statut', 'spip_auteurs', sql_in('statut', $statut, 'NOT')));
+			$s_complement = array_column(
+				sql_allfetsel('DISTINCT statut', 'spip_auteurs', sql_in('statut', $statut, 'NOT')),
+				'statut'
+			);
 			$statut = array_merge($statut, $s_complement);
 			if ($en_base) {
-				$check = array_map('reset', sql_allfetsel('DISTINCT statut', 'spip_auteurs', sql_in('statut', $statut)));
+				$check = array_column(sql_allfetsel('DISTINCT statut', 'spip_auteurs', sql_in('statut', $statut)), 'statut');
 				$retire = array_diff($statut, $check);
 				$statut = array_diff($statut, $retire);
 			}
