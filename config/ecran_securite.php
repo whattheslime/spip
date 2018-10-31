@@ -34,7 +34,7 @@ if (!defined('_IS_BOT')){
 	define('_IS_BOT',
 		isset($_SERVER['HTTP_USER_AGENT'])
 		and preg_match(','
-		. array(
+		. implode ('|', array(
 			// mots generiques
 			'bot',
 			'slurp',
@@ -175,17 +175,17 @@ if (!defined('_IS_BOT')){
 			'yats',
 			'yeti',
 			'zeerch'
-		).join('|') . ',i',
+		)) . ',i',
 		(string)$_SERVER['HTTP_USER_AGENT'])
 	);
 }
 if (!defined('_IS_BOT_FRIEND')){
 	define('_IS_BOT_FRIEND',
 		isset($_SERVER['HTTP_USER_AGENT'])
-		and preg_match(',' . array(
+		and preg_match(',' . implode ('|', array(
 			'facebookexternalhit',
 			'flipboardproxy'
-		).join('|') . ',i',
+		)) . ',i',
 		(string)$_SERVER['HTTP_USER_AGENT'])
 	);
 }
