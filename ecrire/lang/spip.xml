@@ -10,11 +10,12 @@
 	</langue>
 	<langue code="bg" url="https://trad.spip.net/tradlang_module/spip?lang_cible=bg" total="642" traduits="478" relire="0" modifs="27" nouveaux="137" pourcent="74.45">
 	</langue>
-	<langue code="br" url="https://trad.spip.net/tradlang_module/spip?lang_cible=br" total="642" traduits="604" relire="0" modifs="1" nouveaux="37" pourcent="94.08">
+	<langue code="br" url="https://trad.spip.net/tradlang_module/spip?lang_cible=br" total="642" traduits="604" relire="2" modifs="1" nouveaux="35" pourcent="94.08">
 		<traducteur nom="AudeB" lien="https://trad.spip.net/auteur/audeb" />
 		<traducteur nom="fa_b" lien="https://trad.spip.net/auteur/fa_b" />
 		<traducteur nom="kerivo" lien="https://trad.spip.net/auteur/kerivo" />
 		<traducteur nom="nonobreizh" lien="https://trad.spip.net/auteur/nonobreizh" />
+		<traducteur nom="pgiron" lien="https://trad.spip.net/auteur/pgiron" />
 	</langue>
 	<langue code="bs" url="https://trad.spip.net/tradlang_module/spip?lang_cible=bs" total="642" traduits="466" relire="0" modifs="42" nouveaux="134" pourcent="72.59">
 		<traducteur nom="kent1" lien="https://trad.spip.net/auteur/kent1" />
