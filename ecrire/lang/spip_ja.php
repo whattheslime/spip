@@ -380,7 +380,7 @@ http://mysite.com、あるいは単純にこのサイトの記事番号を与え
 	'info_envoyer_message_prive' => 'この著者にプライベートメッセージを送る',
 	'info_erreur_requete' => 'クエリのエラー：',
 	'info_erreur_squelette2' => 'テンプレート<b>@fichier@</b> が見つからない',
-	'info_erreur_systeme' => 'システムエラー（エラー番号@errsys@）',
+	'info_erreur_systeme' => 'システムエラー（エラー番号：@errsys@）',
 	'info_erreur_systeme2' => 'ハードドライブがいっぱいになったか、データベースが破損している可能性があります。<br/>
 <span style="color:red;"><a href="@script@">データベースを修理する</a>か、プロバイダーに問い合わせてください。</span>',
 	'info_fini' => '作業済み！',
@@ -427,7 +427,7 @@ http://mysite.com、あるいは単純にこのサイトの記事番号を与え
 	'info_non_utilisation_messagerie' => 'サイトの内部のメッセージ交換を使用していない。',
 	'info_nouveau_message' => 'メッセージが１通届いています',
 	'info_nouveaux_messages' => 'メッセージが@total_messages@通届いています。',
-	'info_numero_abbreviation' => '号',
+	'info_numero_abbreviation' => '#',
 	'info_obligatoire' => 'この情報は必須です。',
 	'info_pense_bete' => 'メモ',
 	'info_petit_ecran' => '小さく表示',
