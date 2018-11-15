@@ -85,12 +85,12 @@ jQuery(function(){
 		.find('> a, li > a')
 			// navigation au clavier :
 			// deplier le ul enfant
-			.on('focus', function(){
+			.on('focus, mouseenter', function(){
 				jQuery(this).parents('li').siblings('.actif').removeClass('actif');
 				jQuery(this).parents('li').addClass('actif');
 			})
 			// cacher en partant de l'onglet...
-			.on('blur', function(){
+			.on('blur, mouseleave', function(){
 				jQuery(this).parents('li').removeClass('actif');
 			});
 		return this;
