@@ -105,7 +105,7 @@ function chercher_module_lang($module, $lang = '') {
 function charger_langue($lang, $module = 'spip') {
 	static $langs = array();
 	$var = 'i18n_' . $module . '_' . $lang;
-	if (isset($langs[$lang])) {
+	if (!isset($langs[$lang])) {
 		$langs[$lang] = array();
 		if ($lang) {
 			$langs[$lang][] = $lang;
