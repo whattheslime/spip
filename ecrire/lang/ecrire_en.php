@@ -342,17 +342,16 @@ via FTP.</p>',
 	'info_login_existant' => 'This login already exists.',
 	'info_login_trop_court' => 'Login too short.',
 	'info_login_trop_court_car_pluriel' => 'Your login must contain at least @nb@ characters.',
-	'info_logos' => 'The logos',
+	'info_logos' => 'Logos',
 	'info_maximum' => 'maximum:',
 	'info_meme_rubrique' => 'In this section',
 	'info_message_en_redaction' => 'Your draft messages',
 	'info_message_technique' => 'Technical message:',
 	'info_messagerie_interne' => 'Internal messaging',
 	'info_mise_a_niveau_base' => 'SQL database upgrade',
-	'info_mise_a_niveau_base_2' => '{{Warning!}} You have installed a version of
-  SPIP {older} than the one
-  originally installed on this site: your database is at risk of being lost
-  and your site will not work properly anymore.<br />{{Reinstall
+	'info_mise_a_niveau_base_2' => '{{Warning!}} You have installed an {older} SPIP version, prior to the one
+  originally installed on this website: your database is at risk of being corrupted
+  and your site might not work properly anymore.<br />{{Please, re-install
   SPIP files.}}',
 	'info_modification_enregistree' => 'Your changes have been saved',
 	'info_modifier_auteur' => 'Edit author details:',
