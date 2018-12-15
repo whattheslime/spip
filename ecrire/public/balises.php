@@ -2045,7 +2045,7 @@ function balise_MODELE_dist($p) {
 	// erreur de syntaxe = fond absent
 	// (2 messages d'erreur SPIP pour le prix d'un, mais pas d'erreur PHP
 	if (!$_contexte) {
-		$contexte = array();
+		$_contexte = array();
 	}
 
 	if (!isset($_contexte[1])) {
