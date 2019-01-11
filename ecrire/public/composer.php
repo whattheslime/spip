@@ -77,6 +77,7 @@ function public_composer_dist($squelette, $mime_type, $gram, $source, $connect =
 	}
 
 	// charger le source, si possible, et compiler 
+	$skel_code = '';
 	if (lire_fichier($source, $skel)) {
 		$compiler = charger_fonction('compiler', 'public');
 		$skel_code = $compiler($skel, $nom, $gram, $source, $connect);
