@@ -1,3 +1,55 @@
+
+SPIP-Core spip-3.1.8 -> spip-3.1.9  18 janvier 2019
+-------------------------------------------------------------
+
+r23952 | cedric    |  (ven. 16 mars 2018) | Report de r23950 : Up ecran securite pour valider_xml encore
+r23960 | erational |  (lun. 26 mars 2018) | Bonne année 2018
+r23970 | cedric    |  (mer. 18 avril 2018) | Report de r23968 : cet espace ajoute a tort par r22569 casse l'affichage des tags dans les articles syndiques de l'espace prive
+r23987 | ben       |  (mar. 15 mai 2018) | Dites 33 ! prendre en compte un protocole plus long que d'habitude pour les urls maSuperAppli:// ... On passe de 7 à 33 ce qui devrait largement convenir https://core.spip.net/issues/4135
+r24001 | cedric    |  (mar. 12 juin 2018) | Report de r23999 : intval ici, c'est pas plus mal
+r24006 | b_b       |  (ven. 15 juin 2018) | report de r24004Fix #4151 : passer l'id_groupe en paramètre lors de la "création rapide" d'un mot depuis une page mot... en passant id_groupe dans le contexte du bandeaupatch temporaire en attendant que #3844 soit réglé
+r24016 | cedric    |  (ven. 29 juin 2018) | Report de r24012 : Retablir le support des sockets dans connect.php que le passage a mysqli avait casse (syntaxe differente entre mysql_connect() et mysqli_connect())
+r24017 | cedric    |  (ven. 29 juin 2018) | Report de r24013 : complement de r24012 pour la connexion en mysqli par socket : il faut mettre null dans le port, fournir login et pass et le host peut etre 'localhost'
+r24020 | cedric    |  (mar. 03 juil. 2018) | Report de r24018 : Fix #4157 : les inconsistances de PHP nous avaient enduit en erreur. On croyait bien faire en explicitant tls:// comme protocole pour l'ouverture des sockets, grave erreur cela limitait a SSLv1.0.Il faut revenir a ssl:// pour avoir une negociation sans limite du protocole crypto et donv pouvoir acceder a TLSv1.1 ou TLSv1.2 pour les serveurs qui ne supportent que cela les autres etant non securises
+r24035 | cedric    |  (jeu. 02 août 2018) | Report de r24033 : Appel du cron non bloquant :L'appel du cron de secours via une image background bloque certains scripts JS le temps que le cron s'execute, ce qui peut etre genantOn modernise via un appel en JS+xhr simple (pas grave si ne marche pas sur des vieux navigateurs) et un <noscript> avec l'ancien code en fallback
+r24078 | cedric    |  (jeu. 27 sept. 2018) | Report de r24050 : debut de solution pour #4173 mais il manque les tests unitaires pour verifier que ca marche bien
+r24079 | cedric    |  (jeu. 27 sept. 2018) | Report de r24062 : fix protocole_verifier (copier-coller abusif)
+r24080 | cedric    |  (jeu. 27 sept. 2018) | Report de r24063 : debug fonction valider_url_distante() https://core.spip.net/issues/4173
+r24111 | cedric    |  (sam. 29 sept. 2018) | Report de r24109 : Fix #3564 : en statut propose c'est la date de publi de l'article qu'on regle
+r24125 | b_b       |  (sam. 13 oct. 2018) | report de r24123
+r24130 | cedric    |  (ven. 19 oct. 2018) | Report de r24128 : des scories historiques sur le formulaire de login le rendait un peu disgracieux et pas super fonctionnel en mode ajax, avec double message de redirection + quand on allait sur la page de login en etant connecte on avait un lien 'par ici...' au lieu d'une redirection directs plus efficace
+r24133 | cedric    |  (jeu. 25 oct. 2018) | Report de r24131 : la fonction echapper_html_suspect() peut etre surchargee par une fonction inc_echapper_html_suspect_dist() dans un plugin, pour traiter specifiquement certains use case
+r24138 | fil       |  (mer. 31 oct. 2018) | report de l'ecran de secu 1.3.8
+r24154 | cedric    |  (mar. 04 déc. 2018) | Report de r24152 : Quand on fait une requete http/https sur un port non standard il faut suffixer le host envoye dans l'entete tcp, sinon le $[SERVER_PORT] n'est pas renseigne a l'arrivee(fix le fait qu'on avait un resultat different entre un curl http://localhost:8888/ et un recuperer_url() sur la meme url)
+r24157 | cedric    |  (mer. 05 déc. 2018) | Report de r24155 : pour certaines API il est vital d'etre a la racine du site, et pas dans un sous repertoire. On permet donc d'utiliser indifferement un . ou un / dans les URLs d'appel aux APIex : https://site/offline.api.sw.js
+r24160 | cedric    |  (mer. 05 déc. 2018) | Report de r24158 : Suite de r24152 : quand le cron est sur un port non standard il faut ajouter le port au host envoye en TCP pour que le SERVER_PORT soit bien renseigne a l'arrivee (localhost:8888 dans mon cas)
+r24164 | marcimat  |  (mar. 11 déc. 2018) | Report de r24163 : Ticket #4245 : Correction empêchant la création de certains répertoires, s’ils ont un souligné final dans leur nom.Lorsque la constante CREER_DIR_PLAT n’est pas définie, ne pas supprimer les soulignés finaux des répertoires.À l’inverse, par contre le faire aussi pour $subdir si la constante est là (sinon, on a une incohérence entre les appels `sous_repertoire('a/b')` et `sous_repertoire('a', 'b_')`.Note: on ne gèrera plus ce vieux _CREER_DIR_PLAT à partir de SPIP 3.3-dev.Corrige, entre autres un bug dans le plugin Bigup empêchant la réception de certains fichiers.
+r24173 | cedric    |  (dim. 23 déc. 2018) | Report de r24171 : Comme plus haut en ligne 494, si on recupere le contenu de l'URL par un moyen detourne, il faut mettre un status 200 et ne pas le laisser vide (Arno*)
+r24182 | cedric    |  (lun. 07 janv. 2019) | Un .gitignore qui fait le job
+r24195 | marcimat  |  (ven. 11 janv. 2019) | Ticket #4222 : Report oublié de r21880 pour id_table_objet() sur tables non SPIP. (RealET)
+r24196 | cedric    |  (lun. 14 janv. 2019) | le futur c'est maintenant
+r24200 | cedric    |  (mer. 16 janv. 2019) | eviter d'envoyer un header invalide qui fait planter apache+php-fpm si jamais on fait un define('_HEADER_COMPOSED_BY','') (mod_apache ignorait silencieusement le probleme)
+
+SPIP-plugins-dist spip-3.1.8 -> spip-3.1.9  18 janvier 2019
+-------------------------------------------------------------
+
+r109645 | Teddy     |  (ven. 23 mars 2018) | Report de r109644 : Ne pas envoyer la chaine traduite ici. C'est label_champ() qui s'en occupera.
+r109648 | Teddy     |  (ven. 23 mars 2018) | Report de r109647 : Pouvoir cibler une révision d'un type d'objet précis en CSS.
+r109750 | Francky   |  (dim. 01 avril 2018) | Bonne année aussi aux plugins-dist :-D
+r109862 | cedric    |  (mar. 10 avril 2018) | Report de r109860 : Mise a jour de CSSTidy
+r109871 | real3t    |  (mer. 11 avril 2018) | r107073 avait casse le traitement des expression regulieres dans les query (ex : Google). Il est bien possible que ca remette un notice
+r110647 | cedric    |  (mer. 13 juin 2018) | Afficher le rang dans la liste des documents
+r110687 | real3t    |  (ven. 15 juin 2018) | fix #3976 : (Report r110686) Pouvoir revenir au mot clef nouvellement créé au  lieu du comportement dérogatoire natif consistant à revenir à la page où était le bouton de création du mot.Dans mes_options.php :if (!defined('_MOTS_CREATION_RETOUR_MOT_CREE'))	define('_MOTS_CREATION_RETOUR_MOT_CREE', true);
+r111485 | marcimat  |  (mer. 05 sept. 2018) | Report de r111483 : Compat PHP 7 et coquille.
+r111714 | cedric    |  (jeu. 27 sept. 2018) | Report de r111687 : https://core.spip.net/issues/4173 : ne pas permettre d'acceder a des URLs locales du serveur via l'upload de documents distants
+r111767 | cedric    |  (sam. 29 sept. 2018) | Maj de CSSTidy en v1.6.3
+r111768 | cedric    |  (sam. 29 sept. 2018) | Report de r111750 : Report de r109858 : Ticket #3991 : préserver les ressources encodées en base64. Lorsqu'une valeur est égale à zéro (ex 0px), s'assurer qu'il s'agit d'une unité avant de retirer celle-ci (une chaîne encodée en base64 peut également contenir des parties '0px')
+r111770 | cedric    |  (sam. 29 sept. 2018) | Report de r111695 : Fix https://core.spip.net/issues/4132 : une fonction escape/unescape avec de la croute pour echapper sans risque ni failure et ne pas casser le code JS qu'on compresse
+r112457 | b_b       |  (ven. 16 nov. 2018) | version 1.7.7 : report de r112455
+r113163 | Francky   |  (dim. 30 déc. 2018) | Mise à jour de la lib getid en version 1.9.16, nous étions en 1.9.12https://github.com/JamesHeinrich/getID3/blob/master/changelog.txt
+r113164 | Francky   |  (dim. 30 déc. 2018) | Oubli de faire un z+1 pour la peine
+r113380 | Francky   |  (sam. 12 janv. 2019) | Bonne année spip 3.1
+
 SPIP-Core spip-3.1.7 -> spip-3.1.8  14 mars 2018
 -------------------------------------------------------------
 
