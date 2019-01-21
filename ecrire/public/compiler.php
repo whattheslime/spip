@@ -542,9 +542,7 @@ function calculer_boucle_nonrec($id_boucle, &$boucles, $trace) {
 	// souhaite invalider ces elements
 	if (!$constant and $primary) {
 		include_spip('inc/invalideur');
-		if (function_exists($i = 'calcul_invalideurs')) {
-			$corps = $i($corps, $primary, $boucles, $id_boucle);
-		}
+		$corps = calcul_invalideurs($corps, $primary,$boucles, $id_boucle);
 	}
 
 	// gerer le compteur de boucle 
