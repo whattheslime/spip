@@ -21,7 +21,9 @@ if (!defined('_ECRIRE_INC_VERSION')) {
 }
 
 /** l'adresse du repertoire de telechargement et de decompactage des plugins */
-define('_DIR_PLUGINS_AUTO', _DIR_PLUGINS . 'auto/');
+if (!defined('_DIR_PLUGINS_AUTO')) {
+	define('_DIR_PLUGINS_AUTO', _DIR_PLUGINS . 'auto/');
+}
 
 #include_spip('inc/texte'); // ????? Appelle public/parametrer trop tot avant la reconstruction du chemin des plugins.
 include_spip('plugins/installer');
