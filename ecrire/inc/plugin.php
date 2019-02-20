@@ -552,10 +552,10 @@ function plugins_erreurs($liste_non_classee, $liste, $infos, $msg = array()) {
 		$plug = constant($dir_type) . $plug;
 		if (!isset($msg[$p])) {
 			if (isset($resume['erreur']) and $resume['erreur']) {
-				$msg[$p] = $resume['erreur'];
+				$msg[$p] = array($resume['erreur']);
 			}
 			elseif (!plugin_version_compatible($k['compatibilite'], $GLOBALS['spip_version_branche'], 'spip')) {
-				$msg[$p] = plugin_message_incompatibilite($k['compatibilite'], $GLOBALS['spip_version_branche'], 'SPIP', 'necessite');
+				$msg[$p] = array(plugin_message_incompatibilite($k['compatibilite'], $GLOBALS['spip_version_branche'], 'SPIP', 'necessite'));
 			}
 			elseif (!$msg[$p] = plugin_necessite($k['necessite'], $liste, 'necessite')) {
 				$msg[$p] = plugin_necessite($k['utilise'], $liste, 'utilise');
