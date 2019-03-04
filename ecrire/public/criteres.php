@@ -961,6 +961,7 @@ function calculer_critere_par_expression_multi($idb, &$boucles, $crit, $tri, $ch
  */
 function calculer_critere_par_champ($idb, &$boucles, $crit,  $par, $raw = false) {
 	$boucle = &$boucles[$idb];
+	$desc = $boucle->show;
 
 	// le champ existe dans la table, pas de souci (le plus commun)
 	if (isset($desc['field'][$par])) {
