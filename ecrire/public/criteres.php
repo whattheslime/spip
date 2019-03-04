@@ -1666,7 +1666,8 @@ function lister_champs_selection_conditionnelle($table, $desc = null, $serveur =
 	if (isset($desc['type'])) {
 		$primary = id_table_objet($desc['type']);
 		$associable = objet_associable($desc['type']);
-	} elseif (substr($table, -6) === '_liens') {
+	}
+	if (isset($desc['field']['id_objet']) and isset($desc['field']['objet'])) {
 		$associable = true;
 	}
 
