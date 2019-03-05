@@ -142,6 +142,8 @@ function formulaires_editer_liens_charger_dist($a, $b, $c, $options = array()) {
 		'ajouter_lien' => '',
 		'supprimer_lien' => '',
 		'qualifier_lien' => '',
+		'ordonner_lien' => '',
+		'desordonner_liens' => '',
 		'_roles' => $roles, # description des roles
 		'_oups' => _request('_oups'),
 		'editable' => $editable,
@@ -160,6 +162,8 @@ function formulaires_editer_liens_charger_dist($a, $b, $c, $options = array()) {
  * - ajouter_lien et supprimer_lien
  * - remplacer_lien
  * - qualifier_lien
+ * - ordonner_lien
+ * - desordonner_liens
  *
  * Les deux premières peuvent être de trois formes différentes :
  * ajouter_lien[]="objet1-id1-objet2-id2"
@@ -176,6 +180,11 @@ function formulaires_editer_liens_charger_dist($a, $b, $c, $options = array()) {
  * qualifier_lien[objet1-id1-objet2-id2][role] = array("role1", "autre_role")
  * qualifier_lien[objet1-id1-objet2-id2][valeur] = array("truc", "chose")
  * produira 2 liens chacun avec array("role"=>"role1","valeur"=>"truc") et array("role"=>"autre_role","valeur"=>"chose")
+ *
+ * ordonner_lien doit être de la forme, et sert pour trier les liens
+ * ordonner_lien[objet1-id1-objet2-id2] = nouveau_rang
+ *
+ * desordonner_liens n'a pas de forme precise, il doit simplement estre non nul/non vide
  *
  * @param string $a
  * @param string|int $b
@@ -233,6 +242,12 @@ function formulaires_editer_liens_traiter_dist($a, $b, $c, $options = array()) {
 
 		$supprimer = _request('supprimer_lien');
 		$ajouter = _request('ajouter_lien');
+		$ordonner = _request('ordonner_lien');
+
+		if (_request('desordonner_liens')) {
+			include_spip('action/editer_liens');
+			objet_qualifier_liens(array($objet_lien => '*'), array($objet => $id_objet), array('rang_lien' => 0));
+		}
 
 		// il est possible de preciser dans une seule variable un remplacement :
 		// remplacer_lien[old][new]
@@ -311,6 +326,24 @@ function formulaires_editer_liens_traiter_dist($a, $b, $c, $options = array()) {
 			# non annulable !
 			if ($ajout_ok) {
 				set_request('_oups');
+			}
+		}
+
+		if ($ordonner) {
+			include_spip('action/editer_liens');
+			foreach ($ordonner as $k => $rang_lien) {
+				if ($lien = lien_verifier_action($k, '')) {
+					list($objet1, $ids, $objet2, $idl) = explode('-', $lien);
+					$qualif = array('rang_lien' => $rang_lien);
+
+					if ($objet_lien == $objet1) {
+						objet_qualifier_liens(array($objet1 => $ids), array($objet2 => $idl), $qualif);
+					} else {
+						objet_qualifier_liens(array($objet2 => $idl), array($objet1 => $ids), $qualif);
+					}
+					set_request('id_lien_ajoute', $ids);
+					set_request('_oups');
+				}
 			}
 		}
 	}

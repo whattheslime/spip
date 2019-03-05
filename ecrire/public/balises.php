@@ -972,6 +972,8 @@ function balise_RANG_dist($p) {
 		// si pas trouve de champ sql rang :
 		if (!$_rang or $_rang == "''") {
 			$boucle = &$p->boucles[$b];
+
+			// on gere le cas ou #RANG est une extraction du numero dans le titre
 			$trouver_table = charger_fonction('trouver_table', 'base');
 			$desc = $trouver_table($boucle->id_table);
 			$_titre = ''; # où extraire le numero ?
@@ -998,13 +1000,29 @@ function balise_RANG_dist($p) {
 					}
 				}
 			}
-			
+
 			// si on n'a rien trouvé, on utilise le champ titre classique
 			if (!$_titre) {
 				$_titre = champ_sql('titre', $p);
 			}
-			
-			$_rang = "recuperer_numero($_titre)";
+
+			// ca peut etre un rang sur le lien
+			// (mais pareil, uniquement sur la boucle immediatement englobante uniquement)
+			$_rang_lien = champ_sql('rang_lien', $p, '', false);
+
+			// et on recupere aussi les infos de liaison si on est en train d'editer les liens justement
+			// cas des formulaires xxx_lies utilises par #FORMULAIRE_EDITER_LIENS
+			$type_boucle = $boucle->type_requete;
+			$objet = objet_type($type_boucle);
+			$id_table_objet = id_table_objet($type_boucle);
+			$_primary = champ_sql($id_table_objet, $p, '', false);
+			$_env = '$Pile[0]';
+
+			if (!$_titre) {$_titre = "''";}
+			if (!$_rang_lien) {$_rang_lien = "''";}
+			if (!$_primary) {$_primary = "''";}
+			$_rang = "calculer_rang_smart($_titre, $_rang_lien, '$objet', $_primary, $_env)";
+
 		}
 		
 		$p->code = $_rang;
