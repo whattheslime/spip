@@ -1612,6 +1612,11 @@ function critere_id__dist($idb, &$boucles, $crit) {
 		$boucle->sql_serveur
 	);
 
+	// ne pas tenir compte des critères identiques déjà présents.
+	if (!empty($boucle->modificateur['criteres'])) {
+		$champs = array_diff($champs, array_keys($boucle->modificateur['criteres']));
+	}
+	// nous aider en mode debug.
 	$boucle->debug[] = "id_ : " . implode(', ', $champs);
 	$boucle->modificateur['id_'] = $champs;
 
@@ -1690,7 +1695,7 @@ function lister_champs_selection_conditionnelle($table, $desc = null, $serveur =
 			$champs[] = id_table_objet($_table);
 		}
 	}
-	$champs = array_unique($champs);
+	$champs = array_values(array_unique($champs));
 	$champs = pipeline(
 		'lister_champs_selection_conditionnelle',
 		array(
