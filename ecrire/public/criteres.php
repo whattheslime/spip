@@ -1603,12 +1603,17 @@ function critere_where_dist($idb, &$boucles, $crit) {
  * @return void
  */
 function critere_id__dist($idb, &$boucles, $crit) {
+	/** @var Boucle $boucle */
+	$boucle = $boucles[$idb];
 
 	$champs = lister_champs_selection_conditionnelle(
-		$boucles[$idb]->show['table'],
-		$boucles[$idb]->show,
-		$boucles[$idb]->sql_serveur
+		$boucle->show['table'],
+		$boucle->show,
+		$boucle->sql_serveur
 	);
+
+	$boucle->debug[] = "id_ : " . implode(', ', $champs);
+	$boucle->modificateur['id_'] = $champs;
 
 	// créer un critère {id_xxx?} de chaque champ retenu
 	foreach ($champs as $champ) {

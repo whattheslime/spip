@@ -1245,6 +1245,7 @@ function public_compiler_dist($squelette, $nom, $gram, $sourcefile, $connect = '
 					$boucle->type_requete .
 					" " .
 					str_replace('*/', '* /', public_decompiler($boucle, $gram, 0, 'criteres')) .
+					($boucle->debug ? "\n *\n * " . implode("\n * ", $boucle->debug) . "\n" : '') .
 					" */\n";
 			} else {
 				$decomp = ("\n/*\n" .
