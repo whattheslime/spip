@@ -639,14 +639,14 @@ function lister_objets_liens($objet_source, $objet, $id_objet, $objet_lien) {
  * quand ce n'est pas un champ rang :
  * peut etre le num titre, le champ rang_lien ou le rang du lien en edition des liens, a retrouver avec les infos du formulaire
  * @param $titre
- * @param $rang_lien
  * @param $objet_source
  * @param $id
  * @param $env
  * @return int|string
  */
-function calculer_rang_smart($titre, $rang_lien, $objet_source, $id, $env) {
+function calculer_rang_smart($titre, $objet_source, $id, $env) {
 	// Cas du #RANG utilisé dans #FORMULAIRE_EDITER_LIENS -> attraper le rang du lien
+	// permet de voir le rang du lien si il y en a un en base, meme avant un squelette xxxx-lies.html ne gerant pas les liens
 	if (isset($env['form']) and $env['form']
 		and isset($env['_objet_lien']) and $env['_objet_lien']
 		and (function_exists('lien_triables') or include_spip('action/editer_liens'))
@@ -660,9 +660,6 @@ function calculer_rang_smart($titre, $rang_lien, $objet_source, $id, $env) {
 	) {
 		$rang = retrouver_rang_lien($objet_source, $id, $env['objet'], $env['id_objet'], $env['_objet_lien']);
 		return ($rang ? $rang : '');
-	}
-	elseif(!is_null($rang_lien) and strlen($rang_lien)) {
-		return $rang_lien;
 	}
 	return recuperer_numero($titre);
 }

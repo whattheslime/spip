@@ -1006,10 +1006,6 @@ function balise_RANG_dist($p) {
 				$_titre = champ_sql('titre', $p);
 			}
 
-			// ca peut etre un rang sur le lien
-			// (mais pareil, uniquement sur la boucle immediatement englobante uniquement)
-			$_rang_lien = champ_sql('rang_lien', $p, '', false);
-
 			// et on recupere aussi les infos de liaison si on est en train d'editer les liens justement
 			// cas des formulaires xxx_lies utilises par #FORMULAIRE_EDITER_LIENS
 			$type_boucle = $boucle->type_requete;
@@ -1019,9 +1015,8 @@ function balise_RANG_dist($p) {
 			$_env = '$Pile[0]';
 
 			if (!$_titre) {$_titre = "''";}
-			if (!$_rang_lien) {$_rang_lien = "''";}
 			if (!$_primary) {$_primary = "''";}
-			$_rang = "calculer_rang_smart($_titre, $_rang_lien, '$objet', $_primary, $_env)";
+			$_rang = "calculer_rang_smart($_titre, '$objet', $_primary, $_env)";
 
 		}
 		
