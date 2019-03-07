@@ -486,7 +486,7 @@ function lien_ordonner($objet_source, $primary, $table_lien, $id, $objets) {
 			$liens = sql_allfetsel("$primary, id_objet, objet, rang_lien", $table_lien, $where, $primary,"rang_lien");
 
 			$rangs = array_column($liens, 'rang_lien');
-			if (max($rangs)>0 or min($rangs)<0) {
+			if (count($rangs) and (max($rangs)>0 or min($rangs)<0)) {
 				$rang = 1;
 				foreach ($liens as $lien) {
 					$where = lien_where($primary, $lien[$primary], $objet, $id_objet, array('rang_lien!='.intval($rang)));

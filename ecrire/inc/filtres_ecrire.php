@@ -571,16 +571,16 @@ function afficher_plus_info($lien, $titre = "+", $titre_lien = "") {
  */
 function lister_objets_lies($objet_source, $objet, $id_objet, $objet_lien) {
 	$res = lister_objets_liens($objet_source, $objet, $id_objet, $objet_lien);
-	if (count($res)) {
-		$r = reset($res);
-		if (isset($r['rang_lien'])) {
-			$l = array_column($res, 'rang_lien', $objet_source);
-			asort($l);
-			$l = array_keys($l);
-		}
-		else {
-			$l = array_column($res, $objet_source);
-		}
+	if (!count($res)) {
+		return [];
+	}
+	$r = reset($res);
+	if (isset($r['rang_lien'])) {
+		$l = array_column($res, 'rang_lien', $objet_source);
+		asort($l);
+		$l = array_keys($l);
+	} else {
+		$l = array_column($res, $objet_source);
 	}
 	return $l;
 }
