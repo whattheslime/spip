@@ -1425,7 +1425,7 @@ function chemin_image($icone) {
 	}
 
 	// si c'est un nom d'image complet (article-24.png) essayer de le renvoyer direct
-	if (preg_match(',[.](png|gif|jpg)$,', $icone) and $f = find_in_theme("images/$icone")) {
+	if (preg_match(',[.](png|gif|jpg|svg)$,', $icone) and $f = find_in_theme("images/$icone")) {
 		return $f;
 	}
 	// sinon passer par le module de renommage
