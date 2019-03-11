@@ -834,10 +834,17 @@ function lien_set($objet_source, $primary, $table_lien, $id, $objets, $qualif) {
 			);
 			$args['id_objet'] = $id_objet;
 
-			if (lien_triables($table_lien) and isset($qualif['rang_lien']) and intval($qualif['rang_lien'])) {
-				// on decale les liens de rang_lien>=la valeur inseree pour faire la place
-				$w = lien_where($primary, '*', $objet, $id_objet, array('rang_lien>='.intval($qualif['rang_lien']),"$primary!=".intval($id)));
-				sql_update($table_lien, array('rang_lien'=>'rang_lien+1'), $w);
+			if (lien_triables($table_lien) and isset($qualif['rang_lien'])) {
+				if (intval($qualif['rang_lien'])) {
+					// on decale les liens de rang_lien>=la valeur inseree pour faire la place
+					$w = lien_where($primary, '*', $objet, $id_objet, array('rang_lien>='.intval($qualif['rang_lien']),"$primary!=".intval($id)));
+					sql_update($table_lien, array('rang_lien'=>'rang_lien+1'), $w);
+				}
+				// tous les liens de même rôle recoivent le rang indiqué aussi
+				if (roles_colonne($objet_source, $objet)) {
+					$w = lien_where($primary, $id, $objet, $id_objet);
+					sql_updateq($table_lien, array('rang_lien' => intval($qualif['rang_lien'])), $w);
+				}
 				$reordonner = true;
 			}
 

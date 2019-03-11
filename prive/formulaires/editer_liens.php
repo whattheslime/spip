@@ -184,7 +184,7 @@ function formulaires_editer_liens_charger_dist($a, $b, $c, $options = array()) {
  * ordonner_lien doit être de la forme, et sert pour trier les liens
  * ordonner_lien[objet1-id1-objet2-id2] = nouveau_rang
  *
- * desordonner_liens n'a pas de forme precise, il doit simplement estre non nul/non vide
+ * desordonner_liens n'a pas de forme précise, il doit simplement être non nul/non vide
  *
  * @param string $a
  * @param string|int $b
@@ -278,7 +278,7 @@ function formulaires_editer_liens_traiter_dist($a, $b, $c, $options = array()) {
 				foreach ($supprimer as $k => $v) {
 					if ($lien = lien_verifier_action($k, $v)) {
 						$lien = explode('-', $lien);
-						list($objet_source, $ids, $objet_lie, $idl, $role) = $lien;
+						list($objet_source, $ids, $objet_lie, $idl, $role) = array_pad($lien, 5, null);
 						// appliquer une condition sur le rôle si défini ('*' pour tous les roles)
 						$cond = (!is_null($role) ? array('role' => $role) : array());
 						if ($objet_lien == $objet_source) {
@@ -407,7 +407,7 @@ function lien_verifier_action($k, $v) {
 function lien_retrouver_qualif($objet_lien, $lien) {
 	// un role est défini dans la liaison
 	$defs = explode('-', $lien);
-	list($objet1, , $objet2, , $role) = $defs;
+	list($objet1, , $objet2, , $role) = array_pad($defs, 5, null);
 	if ($objet_lien == $objet1) {
 		$colonne_role = roles_colonne($objet1, $objet2);
 	} else {
