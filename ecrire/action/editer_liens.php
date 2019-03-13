@@ -802,7 +802,7 @@ function lien_find($objet_source, $primary, $table_lien, $id, $objets, $cond = n
 		// ajouter les entrees objet_source et objet cible par convenance
 		foreach ($liens as $l) {
 			$l[$objet_source] = $l[$primary];
-			$l[$objet] = $l['id_objet'];
+			$l[$l['objet']] = $l['id_objet'];
 			$trouve[] = $l;
 		}
 	}
