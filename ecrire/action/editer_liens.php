@@ -247,7 +247,12 @@ function objet_dupliquer_liens($objet, $id_source, $id_cible, $types = null, $ex
 				foreach ($liens as $lien) {
 					$n++;
 					if ($infos['type'] == $objet) {
-						objet_associer(array($objet => $id_cible), array($lien['objet'] => $lien[$lien['objet']]), $lien);
+						if (
+							(is_null($types) or in_array($lien['objet'], $types))
+							and (is_null($exclure_types) or !in_array($lien['objet'], $exclure_types))
+						) {
+							objet_associer(array($objet => $id_cible), array($lien['objet'] => $lien[$lien['objet']]), $lien);
+						}
 					} else {
 						objet_associer(array($infos['type'] => $lien[$infos['type']]), array($objet => $id_cible), $lien);
 					}
