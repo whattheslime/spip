@@ -175,7 +175,8 @@
 		<traducteur nom="Bastian" lien="https://trad.spip.net/auteur/bastian" />
 		<traducteur nom="sylvain" lien="https://trad.spip.net/auteur/sylvain" />
 	</langue>
-	<langue code="oc_ni_la" url="https://trad.spip.net/tradlang_module/spip?lang_cible=oc_ni_la" total="642" traduits="474" relire="0" modifs="24" nouveaux="144" pourcent="73.83">
+	<langue code="oc_ni_la" url="https://trad.spip.net/tradlang_module/spip?lang_cible=oc_ni_la" total="642" traduits="473" relire="0" modifs="24" nouveaux="145" pourcent="73.68">
+		<traducteur nom="adminieo" lien="https://trad.spip.net/auteur/adminieo" />
 	</langue>
 	<langue code="oc_ni_mis" url="https://trad.spip.net/tradlang_module/spip?lang_cible=oc_ni_mis" total="642" traduits="636" relire="0" modifs="0" nouveaux="6" pourcent="99.07">
 		<traducteur nom="sylvain" lien="https://trad.spip.net/auteur/sylvain" />
