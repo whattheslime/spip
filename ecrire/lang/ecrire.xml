@@ -188,25 +188,30 @@
 		<traducteur nom="Suske" lien="https://trad.spip.net/auteur/suske" />
 	</langue>
 	<langue code="oc_auv" url="https://trad.spip.net/tradlang_module/ecrire_?lang_cible=oc_auv" total="810" traduits="454" relire="0" modifs="41" nouveaux="315" pourcent="56.05">
+		<traducteur nom="adminieo" lien="https://trad.spip.net/auteur/adminieo" />
 		<traducteur nom="kent1" lien="https://trad.spip.net/auteur/kent1" />
 	</langue>
 	<langue code="oc_gsc" url="https://trad.spip.net/tradlang_module/ecrire_?lang_cible=oc_gsc" total="810" traduits="454" relire="0" modifs="41" nouveaux="315" pourcent="56.05">
 		<traducteur nom="kent1" lien="https://trad.spip.net/auteur/kent1" />
 	</langue>
 	<langue code="oc_lms" url="https://trad.spip.net/tradlang_module/ecrire_?lang_cible=oc_lms" total="810" traduits="454" relire="0" modifs="41" nouveaux="315" pourcent="56.05">
+		<traducteur nom="adminieo" lien="https://trad.spip.net/auteur/adminieo" />
 		<traducteur nom="kent1" lien="https://trad.spip.net/auteur/kent1" />
 	</langue>
 	<langue code="oc_lnc" url="https://trad.spip.net/tradlang_module/ecrire_?lang_cible=oc_lnc" total="810" traduits="515" relire="0" modifs="41" nouveaux="254" pourcent="63.58">
+		<traducteur nom="adminieo" lien="https://trad.spip.net/auteur/adminieo" />
 		<traducteur nom="b_b" lien="https://trad.spip.net/auteur/b_b" />
 		<traducteur nom="kent1" lien="https://trad.spip.net/auteur/kent1" />
 	</langue>
 	<langue code="oc_ni" url="https://trad.spip.net/tradlang_module/ecrire_?lang_cible=oc_ni" total="810" traduits="670" relire="1" modifs="2" nouveaux="137" pourcent="82.72">
+		<traducteur nom="adminieo" lien="https://trad.spip.net/auteur/adminieo" />
 		<traducteur nom="b_b" lien="https://trad.spip.net/auteur/b_b" />
 		<traducteur nom="Bastian" lien="https://trad.spip.net/auteur/bastian" />
 		<traducteur nom="kent1" lien="https://trad.spip.net/auteur/kent1" />
 		<traducteur nom="sylvain" lien="https://trad.spip.net/auteur/sylvain" />
 	</langue>
 	<langue code="oc_ni_la" url="https://trad.spip.net/tradlang_module/ecrire_?lang_cible=oc_ni_la" total="810" traduits="453" relire="0" modifs="42" nouveaux="315" pourcent="55.93">
+		<traducteur nom="adminieo" lien="https://trad.spip.net/auteur/adminieo" />
 		<traducteur nom="Bastian" lien="https://trad.spip.net/auteur/bastian" />
 		<traducteur nom="kent1" lien="https://trad.spip.net/auteur/kent1" />
 	</langue>
@@ -215,9 +220,11 @@
 		<traducteur nom="sylvain" lien="https://trad.spip.net/auteur/sylvain" />
 	</langue>
 	<langue code="oc_prv" url="https://trad.spip.net/tradlang_module/ecrire_?lang_cible=oc_prv" total="810" traduits="468" relire="0" modifs="41" nouveaux="301" pourcent="57.78">
+		<traducteur nom="adminieo" lien="https://trad.spip.net/auteur/adminieo" />
 		<traducteur nom="kent1" lien="https://trad.spip.net/auteur/kent1" />
 	</langue>
 	<langue code="oc_va" url="https://trad.spip.net/tradlang_module/ecrire_?lang_cible=oc_va" total="810" traduits="454" relire="0" modifs="41" nouveaux="315" pourcent="56.05">
+		<traducteur nom="adminieo" lien="https://trad.spip.net/auteur/adminieo" />
 		<traducteur nom="kent1" lien="https://trad.spip.net/auteur/kent1" />
 	</langue>
 	<langue code="pl" url="https://trad.spip.net/tradlang_module/ecrire_?lang_cible=pl" total="810" traduits="770" relire="34" modifs="0" nouveaux="6" pourcent="95.06">
