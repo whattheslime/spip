@@ -547,7 +547,10 @@ if (isset($_REQUEST['var_memotri'])
 	if (!function_exists('session_set')) {
 		include_spip('inc/session');
 	}
-	session_set($t, _request($t));
+	$t = preg_replace(",\W,","_", $t);
+	if ($v = _request($t)) {
+		session_set($t, $v);
+	}
 }
 
 /**
