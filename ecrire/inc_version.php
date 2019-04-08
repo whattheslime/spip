@@ -515,7 +515,12 @@ if (!defined('_HEADER_COMPOSED_BY')) {
 	define('_HEADER_COMPOSED_BY', "Composed-By: SPIP");
 }
 if (!headers_sent() and _HEADER_COMPOSED_BY) {
-	header("Vary: Cookie, Accept-Encoding");
+	if (!defined('_HEADER_VARY')) {
+		define('_HEADER_VARY', "Vary: Cookie, Accept-Encoding");
+	}
+	if (_HEADER_VARY) {
+		header(_HEADER_VARY);
+	}
 	if (!isset($GLOBALS['spip_header_silencieux']) or !$GLOBALS['spip_header_silencieux']) {
 		include_spip('inc/filtres_mini');
 		header(_HEADER_COMPOSED_BY . " $spip_version_affichee @ www.spip.net + " . url_absolue(_DIR_VAR . "config.txt"));
