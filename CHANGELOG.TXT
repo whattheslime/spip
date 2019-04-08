@@ -1,3 +1,36 @@
+
+SPIP-Core spip-3.2.3 -> spip-3.2.4  08 avril 2019
+-------------------------------------------------------------
+
+r24221 | Cerdic |  (mar. 12 févr. 2019) | Ecran de securite :* les id_ exceptions dans une variable et on ajoute id_parent et id_article_pdf qui posent parfois problemes* bloquer les paginations croisees dans les calendrier egalement pour les bots (sur certains squelettes genere des tonnes de requetes)* envoyer une 429 Too Many Requests plutot qu'une 503 cf https://webmasters.stackexchange.com/questions/65674/should-i-return-a-429-or-503-status-code-to-a-bot et c'est mieux pour le referencement et GoogleBot qui a tendance a penser que 503 vient d'un serveur mal gere
+r24224 | Cerdic |  (mar. 12 févr. 2019) | Retour a une liste complete de bots telle qu'elle etait sur la version non incremente de la zone, et on incremente
+r24228 | Cerdic |  (mer. 20 févr. 2019) | Fix : quand on essaye d'activer un plugin qui n'est pas compatible avec la version de SPIP, il faut remonter une erreur d'activationOn modifie pour cela les fonctions* plugin_valide_resume() pour qu'elle renvoie le prefixe du plugin accepte ou la description short du plugin refuse pour incompatibilite ou erreur* liste_plugin_valides() pour qu'elle renvoie en plus la liste des plugins invalides qu'on voulait* plugins_erreurs() pour gerer le cas xml en erreur ou incompatibilite avec la version de SPIP* plugin_message_incompatibilite() pour generer un message d'erreur approprie quand il s'agit de SPIP et pas d'un pluginAucune rupture de compat, ce ne sont que des ajouts : du code qui utilisait les anciennes signatures de fonction continue a fonctionner sans probleme(Dans l'interface on ne peut pas cocher un plugin non compatible avec la version de SPIP, mais en spip-cli on peut le faire et ca echouait silencieusement)
+r24229 | Cerdic |  (mer. 20 févr. 2019) | oups, il faut un array ici (complete aba087b3a)
+r24234 | marcimat  |  (jeu. 21 févr. 2019) | Coquille ici (déjà corrigée en dev.)
+r24235 | marcimat  |  (jeu. 21 févr. 2019) | Reports de r24105 et r24233 :- Ticket #3962 : générer des jpgs progressifs- Ticket #4177 : Lorsqu’une image est déjà présente (dans IMG/) avec une extension ne correspondant pas réellement à son contenu, la librairie GD récente de traitement d’image génère une erreur fatale.On évite ce petit souci en vérifiant le contenu de l’image (via le mime type retourné par getimagesize).
+r24237 | Cerdic |  (ven. 22 févr. 2019) | Fix la langue de mail d'envoi des identifiants : il faut prendre celle de l'auteur ou a defaut celle du site, mais pas celle de l'admin
+r24257 | Cerdic |  (mer. 13 mars 2019) | Attention au cas ou * en second argument de l'appel de la fonction objet_trouver_lien(), ce qui se produit malheureusement dans la fonction objet_dupliquer_liens()
+r24258 | Cerdic |  (mer. 13 mars 2019) | respecter les arguments  et  dans objet_dupliquer_liens(), y compris quand ca concerne un lien qui part de l'objet source
+r24271 | marcimat |  (lun. 08 avril 2019) | Report de r24140 : Ticket #4204 : Compatibilité PHP 7.3. La librairie PCRE passe en v2, et est moins tolérante.Le caractère -, indiqué dans un bloc de caractères `[ - ]`, pour ne pas être pris pour une déclaration d’intervalle (comme `[a-z]`), doit être soit échappé avec \ soit être en tête ou en fin de la structure.(Francky)
+r24275 | Cerdic |  (lun. 08 avril 2019) | utiliser var_export qui fait le job plus surement
+r24276 | Cerdic |  (lun. 08 avril 2019) | sanitizer var_memotri avant de l'utiliser (G0uz)
+r24277 | Cerdic |  (lun. 08 avril 2019) | v1.3.11 (securiser var_memotri)
+
+
+SPIP-plugins-dist spip-3.2.3 -> spip-3.2.4  08 avril 2019
+-------------------------------------------------------------
+
+r113589 | e.longuemare |  (jeu. 24 janv. 2019) | Regroupement des référants : correction pour matcher Twitter avec les urls courtes de tyoe t.co et non Qwant - report de r113588
+r113735 | cedric    |  (lun. 04 févr. 2019) | Report de r113734 : oups en voulant conserver les commentaires important commencant par un \! on avait introduit un bug sur les commentaires vides
+r113878 | cedric    |  (mar. 12 févr. 2019) | Report de r113877 : Fix https://core.spip.net/issues/4282 casse par r87494 qui avait renomme par erreur la boucle _forum en _forums (JLuc)
+r113884 | cedric    |  (mar. 12 févr. 2019) | Report de r113883 : une indirection manquante signalee dans https://core.spip.net/issues/4282 (JLuc)
+r114014 | cedric    |  (ven. 22 févr. 2019) | Report de r114013 : Envoyer des mails en from d'un inconnu c'est de l'usurpation d'identite et ca peut vous conduire au commissariat, en plus d'etre vu comme un SPAM par beaucoup de fournisseur de mail. On laisse donc le from par defaut du site, mais un mets un Reply-To a l'envoyeur et l'email de l'envoyeur suppose (mais pas verifie) en signature du message. C'est plus robuste et moins sujet a litige
+r114612 | bruno     |  (ven. 22 mars 2019) | report à l'arrache de r114572 pour sauver les stats de tonton sur plugin.spip :)
+r114613 | eric      |  (ven. 22 mars 2019) | Il manquait la mise à jour de la fonction svp_compter qui était dans un commit précédent à celui qui a été mergé.
+r114666 | bruno    |  (jeu. 28 mars 2019) | version 2.1.8 : report de r114665ne pas afficher le lien "Modifier" au survol si pas autorisé fix #4307
+
+
+
 SPIP-Core spip-3.2.2 -> spip-3.2.3  21 janvier 2019
 -------------------------------------------------------------
 Oups : problème de génération du zip 
