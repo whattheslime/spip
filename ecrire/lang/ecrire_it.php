@@ -198,6 +198,8 @@ Se non conosci queste informazioni, richiedile all’amministratore del sistema 
 	'icone_supprimer_signature' => 'Cancella l’adesione',
 	'icone_valider_signature' => 'Conferma l’adesione',
 	'image_administrer_rubrique' => 'Puoi amministrare questa rubrica',
+	'impossible_modifier_login_auteur' => 'Impossibile modificare le credenziali d’accesso', # MODIF
+	'impossible_modifier_pass_auteur' => 'Impossible de modifier le mot de passe.', # Impossibile modificare la password MODIF
 	'info_1_article' => '1 articolo',
 	'info_1_auteur' => '1 autore',
 	'info_1_message' => '1 messaggio',
