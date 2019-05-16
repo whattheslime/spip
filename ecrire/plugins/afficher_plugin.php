@@ -69,7 +69,7 @@ function plugins_afficher_plugin_dist(
 	}
 
 	// numerotons les occurrences d'un meme prefix
-	$versions[$prefix] = $id = isset($versions[$prefix]) ? $versions[$prefix] + 1 : '';
+	$versions[$prefix] = $id = isset($versions[$prefix]) ? intval($versions[$prefix]) + 1 : '';
 
 	$class_li .= ($actif ? " actif" : "") . ($expose ? " on" : "");
 
