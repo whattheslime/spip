@@ -138,7 +138,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'entree_url' => 'L’adresse (URL) de ton site',
 	'entree_url_2' => 'Adresse (URL) du site',
 	'erreur_connect_deja_existant' => 'Un serveur existe déjà avec ce nom',
-	'erreur_contenu_suspect' => 'Texte mal formé', # MODIF
+	'erreur_contenu_suspect' => 'Texte échappé',
 	'erreur_email_deja_existant' => 'Cette adresse email est déjà enregistrée.',
 	'erreur_nom_connect_incorrect' => 'Ce nom de serveur n’est pas autorisé',
 	'erreur_plugin_attribut_balise_manquant' => 'Attribut @attribut@ manquant dans la balise @balise@.',
@@ -199,8 +199,8 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'icone_supprimer_signature' => 'Supprimer cette signature',
 	'icone_valider_signature' => 'Valider cette signature',
 	'image_administrer_rubrique' => 'Tu peux administrer cette rubrique',
-	'impossible_modifier_login_auteur' => 'Impossible de modifier le login.', # MODIF
-	'impossible_modifier_pass_auteur' => 'Impossible de modifier le mot de passe.', # MODIF
+	'impossible_modifier_login_auteur' => 'Impossible de modifier le login.',
+	'impossible_modifier_pass_auteur' => 'Impossible de modifier le mot de passe.Impossible de modifier le mot de passe.',
 	'info_1_article' => '1 article',
 	'info_1_auteur' => '1 auteur',
 	'info_1_message' => '1 message',
@@ -730,6 +730,7 @@ dans une couleur qui indique leur état :',
 	'queue_next_job_in_nb_sec' => 'Prochain travail dans @nb@ s',
 	'queue_no_job_in_queue' => 'Aucun travail en attente',
 	'queue_one_job_in_queue' => '1 travail en attente',
+	'queue_priorite_tache' => 'priorité',
 	'queue_purger_queue' => 'Réinitialiser la liste des travaux',
 	'queue_titre' => 'Liste des travaux',
 
