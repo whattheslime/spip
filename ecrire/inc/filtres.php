@@ -438,7 +438,7 @@ function image_filtrer($args) {
 		foreach ($tags as $tag) {
 			$class = extraire_attribut($tag[3], 'class');
 			if (!$class or
-				(strpos($class, 'filtre_inactif') == false
+				(strpos($class, 'filtre_inactif') === false
 					// compat historique a virer en 3.2
 					and strpos($class, 'no_image_filtrer') === false)
 			) {
