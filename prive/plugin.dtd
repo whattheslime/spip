@@ -27,10 +27,9 @@
 <!ENTITY % URI "CDATA"> <!-- lien sur le Web -->
 <!ENTITY % VNUM "CDATA"> <!-- 3 entiers naturels separes par un point: x.y.z -->
 <!ENTITY % INTERVAL "CDATA"> <!-- 2 VNUM entre crochets ou parentheses -->
+<!ENTITY % CATEGORY "CDATA"> <!-- un identifiant alphanumerique avec slash eventuel : activite, activite/projet... -->
 
 <!ENTITY % STATUS "(experimental|dev|test|stable)">
-
-<!ENTITY % CATEGORY "(auteur|communication|date|divers|edition|maintenance|multimedia|navigation|outil|performance|squelette|statistique|theme)">
 
 <!ENTITY % CONTENT "auteur|install|options|fonctions|licence|lien|bouton|chemin|necessite|onglet|pipeline|procure|utilise|traduire" >
 

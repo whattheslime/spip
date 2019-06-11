@@ -28,10 +28,9 @@
 <!ENTITY % INTERVAL "CDATA"> <!-- 2 VNUM entre crochets separes par un point-virgule -->
 <!ENTITY % ITEM "CDATA"> <!-- chaine de langue -->
 <!ENTITY % SOURCE "CDATA"> <!-- un chemin au format %PATH ou un lien au format %URI -->
+<!ENTITY % CATEGORY "CDATA"> <!-- un identifiant alphanumerique avec slash eventuel : activite, activite/projet... -->
 
 <!ENTITY % ETAT "(experimental|dev|test|stable)" >
-
-<!ENTITY % CATEGORY "(auteur|communication|date|divers|edition|maintenance|multimedia|navigation|outil|performance|squelette|statistique|theme)" >
 
 <!ENTITY % CREDITS "(auteur|copyright|credit|licence)*" >
 
@@ -40,10 +39,10 @@
 <!ELEMENT paquet (nom, %CREDITS;, traduire*, %IMPLEMENTATION;, spip*) >
 <!ATTLIST paquet
 	  prefix ID #REQUIRED
-	  categorie %CATEGORY; #REQUIRED
 	  version %VNUM; #REQUIRED
 	  etat %ETAT; #REQUIRED
 	  compatibilite %INTERVAL; #REQUIRED
+	  categorie %CATEGORY; #IMPLIED
 	  logo %PATH; #IMPLIED
 	  schema %NUMBER; #IMPLIED
 	  meta %NAME; #IMPLIED
