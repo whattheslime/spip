@@ -127,3 +127,4 @@ prive/transmettre/.htaccess
 tmp/*
 tmp/.DS_Store
 tmp/.htaccess
+/.idea/
