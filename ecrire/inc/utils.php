@@ -2648,9 +2648,11 @@ function spip_initialisation_suite() {
 	// les anciens IIS n'acceptent pas les POST sur ecrire/ (#419)
 	// meme pb sur thttpd cf. http://forum.spip.net/fr_184153.html
 	if (!defined('_SPIP_ECRIRE_SCRIPT')) {
-		define('_SPIP_ECRIRE_SCRIPT', (empty($_SERVER['SERVER_SOFTWARE']) ? '' :
-			preg_match(',IIS|thttpd,', $_SERVER['SERVER_SOFTWARE']) ?
-				'index.php' : ''));
+		if (!empty($_SERVER['SERVER_SOFTWARE']) and preg_match(',IIS|thttpd,', $_SERVER['SERVER_SOFTWARE'])) {
+			define('_SPIP_ECRIRE_SCRIPT', 'index.php');
+		} else {
+			define('_SPIP_ECRIRE_SCRIPT', '');
+		}
 	}
 
 
