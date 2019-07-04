@@ -79,14 +79,14 @@ function balise_FORMULAIRE_ADMIN_stat($args, $context_compil) {
  *     Classe CSS éventuelle
  * @param string|array $debug
  *     Informations sur la page contenant une erreur de compilation
- * @return array
+ * @return array|string
  *     Liste : Chemin du squelette, durée du cache, contexte
  **/
 function balise_FORMULAIRE_ADMIN_dyn($float = '', $debug = '') {
 
 	static $dejafait = false;
 
-	if (!@$_COOKIE['spip_admin']) {
+	if (empty($_COOKIE['spip_admin'])) {
 		return '';
 	}
 
@@ -251,8 +251,14 @@ function admin_preview($type, $id, $desc = null) {
  *     Code de langue
  **/
 function admin_lang() {
-	$alang = sql_getfetsel('lang', 'spip_auteurs',
-		"login=" . sql_quote(preg_replace(',^@,', '', @$_COOKIE['spip_admin'])));
+	$alang = '';
+	if (!empty($_COOKIE['spip_admin'])) {
+		$email_or_login = preg_replace(',^@,', '', $_COOKIE['spip_admin']);
+		$alang = sql_getfetsel('lang', 'spip_auteurs', "email=" . sql_quote($email_or_login));
+		if (!$alang) {
+			$alang = sql_getfetsel('lang', 'spip_auteurs', "login=" . sql_quote($email_or_login));
+		}
+	}
 	if (!$alang) {
 		return '';
 	}
