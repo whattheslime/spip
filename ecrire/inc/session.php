@@ -214,7 +214,7 @@ function ajouter_session($auteur) {
 		include_spip('inc/autoriser');
 	}
 	if (autoriser('ecrire','','',$auteur) and _DUREE_COOKIE_ADMIN) {
-		spip_setcookie('spip_admin', '@' . $auteur['login'], time() + max(_DUREE_COOKIE_ADMIN, $duree));
+		spip_setcookie('spip_admin', '@' . ($auteur['email'] ?: $auteur['login']), time() + max(_DUREE_COOKIE_ADMIN, $duree));
 	} // sinon le supprimer ...
 	else {
 		spip_setcookie('spip_admin', '', 1);

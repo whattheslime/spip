@@ -66,6 +66,9 @@ function formulaires_login_charger_dist($cible = '', $login = '', $prive = null)
 		$login = strval(_request('var_login'));
 	}
 	// si on est deja identifie
+	if (!$login and isset($GLOBALS['visiteur_session']['email'])) {
+		$login = $GLOBALS['visiteur_session']['email'];
+	}
 	if (!$login and isset($GLOBALS['visiteur_session']['login'])) {
 		$login = $GLOBALS['visiteur_session']['login'];
 	}
