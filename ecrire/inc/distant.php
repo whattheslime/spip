@@ -1179,7 +1179,7 @@ function recuperer_infos_distantes($source, $max = 0, $charger_si_petite_image =
 
 	// S'il s'agit d'une image pas trop grosse ou d'un fichier html, on va aller
 	// recharger le document en GET et recuperer des donnees supplementaires...
-	if (preg_match(',^image/(jpeg|gif|png|swf),', $mime_type)) {
+	if (preg_match(',^image/(jpeg|gif|png|swf|svg),', $mime_type)) {
 		if ($max == 0
 			and (empty($a['taille']) or $a['taille'] < _INC_DISTANT_MAX_SIZE)
 			and isset($GLOBALS['meta']['formats_graphiques'])
@@ -1191,7 +1191,7 @@ function recuperer_infos_distantes($source, $max = 0, $charger_si_petite_image =
 			if ($a['body']) {
 				$a['fichier'] = _DIR_RACINE . nom_fichier_copie_locale($source, $a['extension']);
 				ecrire_fichier($a['fichier'], $a['body']);
-				$size_image = @getimagesize($a['fichier']);
+				$size_image = @spip_getimagesize($a['fichier']);
 				$a['largeur'] = intval($size_image[0]);
 				$a['hauteur'] = intval($size_image[1]);
 				$a['type_image'] = true;
