@@ -104,7 +104,7 @@ function logo_modifier($objet, $id_objet, $etat, $source) {
 		return $erreur;
 	}
 
-	$size = @getimagesize($file_tmp);
+	$size = @spip_getimagesize($file_tmp);
 	$extension = !$size ? '' : ($size[2] > 3 ? '' : $GLOBALS['formats_logos'][$size[2] - 1]);
 	if ($extension) {
 		@rename($file_tmp, $file_tmp . ".$extension");
@@ -128,7 +128,7 @@ function logo_modifier($objet, $id_objet, $etat, $source) {
 					if (@file_exists($img) and $img !== $file_tmp) {
 						spip_unlink($file_tmp);
 						@rename($img, $file_tmp);
-						$size = @getimagesize($file_tmp);
+						$size = @spip_getimagesize($file_tmp);
 					}
 				}
 				// verifier au cas ou image_reduire a echoue

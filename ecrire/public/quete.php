@@ -356,7 +356,7 @@ function quete_logo($cle_objet, $onoff, $id, $id_rubrique, $flag) {
 			if ($flag) {
 				return basename($on['chemin']);
 			} else {
-				$taille = @getimagesize($on['chemin']);
+				$taille = @spip_getimagesize($on['chemin']);
 
 				// Si on a déjà demandé un survol directement ($onoff = off)
 				// ou qu'on a demandé uniquement le normal ($onoff = on)
