@@ -59,6 +59,10 @@ function redirige_par_entete($url, $equiv = '', $status = 302) {
 
 	// ne pas laisser passer n'importe quoi dans l'url
 	$url = str_replace(array('<', '"'), array('&lt;', '&quot;'), $url);
+	$url = str_replace(array("\r", "\n", ' '), array('%0D', '%0A', '%20'), $url);
+	while (strpos($url, '%0A') !== false) {
+		$url = str_replace('%0A', '', $url);
+	}
 	// interdire les url inline avec des pseudo-protocoles :
 	if (
 		(preg_match(",data:,i", $url) and preg_match("/base64\s*,/i", $url))
