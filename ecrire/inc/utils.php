@@ -3352,6 +3352,52 @@ function html5_permis() {
 		and ('html5' == $GLOBALS['meta']['version_html_max']));
 }
 
+
+/**
+ * Extension de la fonction getimagesize pour supporter aussi les images SVG
+ * @param string $fichier
+ * @return array|bool
+ */
+function spip_getimagesize($fichier) {
+	if (!$imagesize = @getimagesize($fichier)) {
+
+		include_spip("inc/svg");
+		if ($attrs = svg_lire_attributs($fichier)) {
+			$width = 350; // default width
+			$height = 150; // default height
+			if (isset($attrs['width'])
+			  and intval($attrs['width'])
+				and isset($attrs['height'])
+			  and intval($attrs['height'])) {
+				$width = $attrs['width'];
+				$height = $attrs['height'];
+			}
+			elseif (isset($attrs['viewBox'])) {
+				$viewbox = trim($attrs['viewBox']);
+				$viewbox = preg_replace(",\s+,", " ", $viewbox);
+				$viewbox = explode(" ", $viewbox);
+				$viewbox = array_map('intval', $viewbox);
+				if (count($viewbox) === 4
+				  and $w = $viewbox[2] - $viewbox[0]
+				  and $h = $viewbox[3] - $viewbox[1]) {
+					$width = $w;
+					$height = $h;
+				}
+			}
+			$imagesize = [
+				$width,
+				$height,
+				IMAGETYPE_SVG,
+				"width=\"{$width}\" height=\"{$height}\"",
+				"mime" => "image/svg+xml"
+			];
+		}
+	}
+	return $imagesize;
+}
+
+
+
 /*
  * Bloc de compatibilite : quasiment tous les plugins utilisent ces fonctions
  * desormais depreciees ; plutot que d'obliger tout le monde a charger

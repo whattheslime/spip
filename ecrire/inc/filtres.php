@@ -477,7 +477,6 @@ function image_filtrer($args) {
 	return $texte;
 }
 
-
 /**
  * Retourne les tailles d'une image
  *
@@ -494,10 +493,10 @@ function taille_image($img) {
 	$srcWidth = 0;
 	$srcHeight = 0;
 
-	$logo = extraire_attribut($img, 'src');
+	$src = extraire_attribut($img, 'src');
 
-	if (!$logo) {
-		$logo = $img;
+	if (!$src) {
+		$src = $img;
 	} else {
 		$srcWidth = extraire_attribut($img, 'width');
 		$srcHeight = extraire_attribut($img, 'height');
@@ -505,44 +504,45 @@ function taille_image($img) {
 
 	// ne jamais operer directement sur une image distante pour des raisons de perfo
 	// la copie locale a toutes les chances d'etre la ou de resservir
-	if (tester_url_absolue($logo)) {
+	if (tester_url_absolue($src)) {
 		include_spip('inc/distant');
-		$fichier = copie_locale($logo);
-		$logo = $fichier ? _DIR_RACINE . $fichier : $logo;
+		$fichier = copie_locale($src);
+		$src = $fichier ? _DIR_RACINE . $fichier : $src;
 	}
-	if (($p = strpos($logo, '?')) !== false) {
-		$logo = substr($logo, 0, $p);
+	if (($p = strpos($src, '?')) !== false) {
+		$src = substr($src, 0, $p);
 	}
 
 	$srcsize = false;
-	if (isset($largeur_img[$logo])) {
-		$srcWidth = $largeur_img[$logo];
+	if (isset($largeur_img[$src])) {
+		$srcWidth = $largeur_img[$src];
 	}
-	if (isset($hauteur_img[$logo])) {
-		$srcHeight = $hauteur_img[$logo];
+	if (isset($hauteur_img[$src])) {
+		$srcHeight = $hauteur_img[$src];
 	}
 	if (!$srcWidth or !$srcHeight) {
-		if (file_exists($logo)
-			and $srcsize = @getimagesize($logo)
+
+		if (file_exists($src)
+			and $srcsize = spip_getimagesize($src)
 		) {
 			if (!$srcWidth) {
-				$largeur_img[$logo] = $srcWidth = $srcsize[0];
+				$largeur_img[$src] = $srcWidth = $srcsize[0];
 			}
 			if (!$srcHeight) {
-				$hauteur_img[$logo] = $srcHeight = $srcsize[1];
+				$hauteur_img[$src] = $srcHeight = $srcsize[1];
 			}
 		}
-		// $logo peut etre une reference a une image temporaire dont a n'a que le log .src
+		// $src peut etre une reference a une image temporaire dont a n'a que le log .src
 		// on s'y refere, l'image sera reconstruite en temps utile si necessaire
-		elseif (@file_exists($f = "$logo.src")
+		elseif (@file_exists($f = "$src.src")
 			and lire_fichier($f, $valeurs)
 			and $valeurs = unserialize($valeurs)
 		) {
 			if (!$srcWidth) {
-				$largeur_img[$logo] = $srcWidth = $valeurs["largeur_dest"];
+				$largeur_img[$src] = $srcWidth = $valeurs["largeur_dest"];
 			}
 			if (!$srcHeight) {
-				$hauteur_img[$logo] = $srcHeight = $valeurs["hauteur_dest"];
+				$hauteur_img[$src] = $srcHeight = $valeurs["hauteur_dest"];
 			}
 		}
 	}
@@ -3302,7 +3302,7 @@ function http_img_pack($img, $alt, $atts = '', $title = '', $options = array()) 
 	if (!isset($options['chemin_image']) or $options['chemin_image'] == true) {
 		$img = chemin_image($img);
 	}
-	if (stripos($atts, 'width') === false && !preg_match(',\.svg$,', $img)) {
+	if (stripos($atts, 'width') === false) {
 		// utiliser directement l'info de taille presente dans le nom
 		if ((!isset($options['utiliser_suffixe_size']) or $options['utiliser_suffixe_size'] == true)
 			and preg_match(',-([0-9]+)[.](png|gif)$,', $img, $regs)
