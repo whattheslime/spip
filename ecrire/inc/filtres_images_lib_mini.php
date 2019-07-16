@@ -379,11 +379,16 @@ function _image_trouver_extension_pertinente($path) {
 		return $terminaison;
 	}
 
-	if (!$info = @getimagesize($path)) {
+	if (!$info = @spip_getimagesize($path)) {
 		return $terminaison;
 	}
 
-	$mime = image_type_to_mime_type($info[2]);
+	if (isset($info['mime'])) {
+		$mime = $info['mime'];
+	}
+	else {
+		$mime = image_type_to_mime_type($info[2]);
+	}
 
 	switch (strtolower($mime)) {
 		case 'image/png':
@@ -406,10 +411,14 @@ function _image_trouver_extension_pertinente($path) {
 			$_terminaison = 'webp';
 			break;
 
+		case 'image/svg+xml':
+			$_terminaison = 'svg';
+			break;
+
 		default:
 			$_terminaison = '';
 	}
-	if ($_terminaison !== $terminaison) {
+	if ($_terminaison and $_terminaison !== $terminaison) {
 		spip_log("Mauvaise extension du fichier : $path . Son type mime est : $mime", "images." . _LOG_INFO_IMPORTANTE);
 		$terminaison = $_terminaison;
 	}
@@ -1196,7 +1205,7 @@ function _image_creer_vignette($valeurs, $maxWidth, $maxHeight, $process = 'AUTO
 		ImageDestroy($destImage);
 	}
 
-	$size = @getimagesize($vignette);
+	$size = @spip_getimagesize($vignette);
 	// Gaffe: en safe mode, pas d'acces a la vignette,
 	// donc risque de balancer "width='0'", ce qui masque l'image sous MSIE
 	if ($size[0] < 1) {
