@@ -24,6 +24,8 @@ if (!defined('_ECRIRE_INC_VERSION')) {
 include_spip('inc/filtres'); // par precaution
 include_spip('inc/filtres_images_mini'); // par precaution
 
+define('_SVG_SUPPORTED', true); // ne sert qu'a la lisibilite du code
+
 /**
  * Transforme une couleur vectorielle R,G,B en hexa (par exemple pour usage css)
  *
@@ -71,7 +73,6 @@ function _couleur_hex_to_dec($couleur) {
 
 	return $retour;
 }
-
 
 /**
  * Donne un statut au fichier-image intermédiaire servant au traitement d'image
@@ -124,6 +125,10 @@ function statut_effacer_images_temporaires($stat) {
  * @param bool $find_in_path
  *     false (par défaut) indique que l'on travaille sur un fichier
  *     temporaire (.src) ; true, sur un fichier définitif déjà existant.
+ * @param bool $support_svg
+ *     false (par defaut) indique que le filtre ne sait pas traiter le cas particulier du SVG
+ *     on lui substitue un filtre generique qui ne fait rien pour ne pas briser la chaine des filtres images
+ *     true si le filtre appelant sait traiter les SVG
  * @return bool|string|array
  *
  *     - false si pas de tag `<img`,
@@ -136,7 +141,7 @@ function statut_effacer_images_temporaires($stat) {
  *       réussi à être copié sur le serveur ;
  *     - array : tableau décrivant de l'image
  */
-function _image_valeurs_trans($img, $effet, $forcer_format = false, $fonction_creation = null, $find_in_path = false) {
+function _image_valeurs_trans($img, $effet, $forcer_format = false, $fonction_creation = null, $find_in_path = false, $support_svg = false) {
 	static $images_recalcul = array();
 	if (strlen($img) == 0) {
 		return false;
@@ -147,7 +152,7 @@ function _image_valeurs_trans($img, $effet, $forcer_format = false, $fonction_cr
 		$source = $img;
 		$img = "<img src='$source' />";
 	} # gerer img src="data:....base64"
-	elseif (preg_match('@^data:image/(jpe?g|png|gif);base64,(.*)$@isS', $source, $regs)) {
+	elseif (preg_match('@^data:image/(jpe?g|png|gif|svg+xml);base64,(.*)$@isS', $source, $regs)) {
 		$local = sous_repertoire(_DIR_VAR, 'image-data') . md5($regs[2]) . '.' . str_replace('jpeg', 'jpg', $regs[1]);
 		if (!file_exists($local)) {
 			ecrire_fichier($local, base64_decode($regs[2]));
@@ -341,8 +346,17 @@ function _image_valeurs_trans($img, $effet, $forcer_format = false, $fonction_cr
 	// une globale pour le debug en cas de crash memoire
 	$GLOBALS["derniere_image_calculee"] = $ret;
 
-	if (!function_exists($ret["fonction_imagecreatefrom"])) {
-		return false;
+	// traiter le cas particulier des SVG : si le filtre n'a pas annonce explicitement qu'il savait faire, on delegue
+	if ($term_fonction === 'svg') {
+		if ($creer and !$support_svg) {
+			process_image_svg_identite($ret);
+			$ret['creer'] = false;
+		}
+	}
+	else {
+		if (!function_exists($ret["fonction_imagecreatefrom"])) {
+			return false;
+		}
 	}
 
 	return $ret;
@@ -354,7 +368,7 @@ function _image_valeurs_trans($img, $effet, $forcer_format = false, $fonction_cr
  * @return string
  */
 function _image_trouver_extension($path) {
-	if (preg_match(",\.(gif|jpe?g|png)($|[?]),i", $path, $regs)) {
+	if (preg_match(",\.(gif|jpe?g|png|svg)($|[?]),i", $path, $regs)) {
 		$terminaison = strtolower($regs[1]);
 		return $terminaison;
 	}
@@ -626,6 +640,56 @@ function _image_imageico($img, $fichier) {
 	return ecrire_fichier($fichier, phpthumb_functions::GD2ICOstring($gd_image_array));
 }
 
+
+/**
+ * Sauvegarde une image au format SVG
+ *
+ * - N'UTILISE PAS GD -
+ * C'est une fonction derogatoire pour faciliter le traitement des SVG
+ *
+ * @param string $img
+ *     contenu du SVG ou chemin vers le SVG source (et c'est alors une copie)
+ * @param string $fichier
+ *     Le path vers l'image (ex : local/cache-vignettes/L180xH51/image.png).
+ * @return bool
+ *
+ *     - false si l'image créée a une largeur nulle ou n'existe pas ;
+ *     - true si une image est bien retournée.
+ */
+function _image_imagesvg($img, $fichier) {
+
+	$tmp = $fichier . ".tmp";
+	if (strpos($img, "<") === false) {
+		$img = supprimer_timestamp($img);
+		if (!file_exists($img)) {
+			return false;
+		}
+		@copy($img, $tmp);
+		if (filesize($tmp) == filesize($img)) {
+			spip_unlink($fichier); // le fichier peut deja exister
+			@rename($tmp, $fichier);
+			return true;
+		}
+		return false;
+	}
+
+	file_put_contents($tmp, $img);
+	if (file_exists($tmp)) {
+		$taille_test = spip_getimagesize($tmp);
+		if ($taille_test[0] < 1) {
+			return false;
+		}
+
+		spip_unlink($fichier); // le fichier peut deja exister
+		@rename($tmp, $fichier);
+
+		return true;
+	}
+
+	return false;
+}
+
+
 /**
  * Finalise le traitement GD
  *
@@ -634,8 +698,8 @@ function _image_imageico($img, $fichier) {
  *
  * @uses statut_effacer_images_temporaires()
  *
- * @param ressource $img
- *     Une ressource de type Image GD.
+ * @param resource|string $img
+ *     Une ressource de type Image GD (ou une string pour un SVG)
  * @param array $valeurs
  *     Un tableau des informations (tailles, traitement, path...) accompagnant
  *     l'image.
@@ -1007,13 +1071,8 @@ function _image_creer_vignette($valeurs, $maxWidth, $maxHeight, $process = 'AUTO
 		$process = $GLOBALS['meta']['image_process'];
 	}
 
-	// liste des formats qu'on sait lire
-	$img = isset($GLOBALS['meta']['formats_graphiques'])
-		? (strpos($GLOBALS['meta']['formats_graphiques'], $format) !== false)
-		: false;
-
 	// si le doc n'est pas une image, refuser
-	if (!$force and !$img) {
+	if (!$force and !in_array($format, formats_image_acceptables())) {
 		return;
 	}
 	$destination = "$destdir/$destfile";
@@ -1036,7 +1095,18 @@ function _image_creer_vignette($valeurs, $maxWidth, $maxHeight, $process = 'AUTO
 	if ($srcWidth and $srcWidth <= $maxWidth and $srcHeight <= $maxHeight) {
 		$vignette = $destination . '.' . $format;
 		@copy($image, $vignette);
-	} // imagemagick en ligne de commande
+	}
+
+	elseif ($valeurs["format_source"] === 'svg') {
+		if ($svg = svg_redimensionner($valeurs['fichier'], $destWidth, $destHeight)){
+			$format_sortie = 'svg';
+			$vignette = $destination . "." . $format_sortie;
+			$valeurs['fichier_dest'] = $vignette;
+			_image_gd_output($svg, $valeurs);
+		}
+	}
+
+	// imagemagick en ligne de commande
 	elseif ($process == 'convert') {
 		if (!defined('_CONVERT_COMMAND')) {
 			define('_CONVERT_COMMAND', 'convert');
@@ -1061,7 +1131,9 @@ function _image_creer_vignette($valeurs, $maxWidth, $maxHeight, $process = 'AUTO
 
 			return;  // echec commande
 		}
-	} // php5 imagemagick
+	}
+
+	// php5 imagemagick
 	elseif ($process == 'imagick') {
 		$vignette = "$destination." . $format_sortie;
 
@@ -1081,7 +1153,9 @@ function _image_creer_vignette($valeurs, $maxWidth, $maxHeight, $process = 'AUTO
 
 			return;
 		}
-	} // netpbm
+	}
+
+	// netpbm
 	elseif ($process == "netpbm") {
 		if (!defined('_PNMSCALE_COMMAND')) {
 			define('_PNMSCALE_COMMAND', 'pnmscale');
@@ -1130,7 +1204,9 @@ function _image_creer_vignette($valeurs, $maxWidth, $maxHeight, $process = 'AUTO
 				}
 			}
 		}
-	} // gd ou gd2
+	}
+
+	// gd ou gd2
 	elseif ($process == 'gd1' or $process == 'gd2') {
 		if (!function_exists('gd_info')) {
 			spip_log("Librairie GD absente !", _LOG_ERREUR);
@@ -1304,6 +1380,24 @@ function ratio_passe_partout($srcWidth, $srcHeight, $maxWidth, $maxHeight) {
 
 
 /**
+ * Fonction identite de traitement par defaut des images SVG
+ * (quand un filtre n'annonce pas qu'il sait traiter un SVG on applique cette fonction a la place)
+ *
+ * @param array $image
+ *   tableau des valeurs crees par _image_valeurs_trans
+ * @return string
+ */
+function process_image_svg_identite($image) {
+	if ($image['creer']) {
+		$source = $image['fichier'];
+		_image_gd_output($source, $image);
+	}
+
+	return _image_ecrire_tag($image, array('src' => $image['fichier_dest']));
+}
+
+
+/**
  * Réduit une image
  *
  * @uses extraire_attribut()
@@ -1341,10 +1435,10 @@ function process_image_reduire($fonction, $img, $taille, $taille_y, $force, $pro
 	if ($process == "netpbm") {
 		$format_sortie = "jpg";
 	} elseif ($process == 'gd1' or $process == 'gd2') {
-		$image = _image_valeurs_trans($img, "reduire-{$taille}-{$taille_y}", $format_sortie, $fonction);
+		$image = _image_valeurs_trans($img, "reduire-{$taille}-{$taille_y}", $format_sortie, $fonction, false, _SVG_SUPPORTED);
 
 		// on verifie que l'extension choisie est bonne (en principe oui)
-		$gd_formats = explode(',', $GLOBALS['meta']["gd_formats"]);
+		$gd_formats = formats_image_acceptables(true);
 		if (is_array($image)
 			and (!in_array($image['format_dest'], $gd_formats)
 				or ($image['format_dest'] == 'gif' and !function_exists('ImageGif'))
@@ -1375,7 +1469,7 @@ function process_image_reduire($fonction, $img, $taille, $taille_y, $force, $pro
 	}
 
 	if (!is_array($image)) {
-		$image = _image_valeurs_trans($img, "reduire-{$taille}-{$taille_y}", $format_sortie, $fonction);
+		$image = _image_valeurs_trans($img, "reduire-{$taille}-{$taille_y}", $format_sortie, $fonction, false, _SVG_SUPPORTED);
 	}
 
 	if (!is_array($image) or !$image['largeur'] or !$image['hauteur']) {
@@ -1408,7 +1502,7 @@ function process_image_reduire($fonction, $img, $taille, $taille_y, $force, $pro
 			array('src' => $image['fichier_dest'], 'width' => $image['largeur_dest'], 'height' => $image['hauteur_dest']));
 	}
 
-	if (in_array($image["format_source"], array('jpg', 'gif', 'png'))) {
+	if (in_array($image["format_source"], formats_image_acceptables())) {
 		$destWidth = $image['largeur_dest'];
 		$destHeight = $image['hauteur_dest'];
 		$logo = $image['fichier'];
@@ -1428,8 +1522,9 @@ function process_image_reduire($fonction, $img, $taille, $taille_y, $force, $pro
 		$date = test_espace_prive() ? ('?' . $date) : '';
 
 		return _image_ecrire_tag($image, array('src' => "$logo$date", 'width' => $destWidth, 'height' => $destHeight));
-	} else # SVG par exemple ? BMP, tiff ... les redacteurs osent tout!
-	{
+	}
+	else {
+		# BMP, tiff ... les redacteurs osent tout!
 		return $img;
 	}
 }
