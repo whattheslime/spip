@@ -122,6 +122,47 @@ function svg_lire_attributs($img) {
 	return false;
 }
 
+/**
+ * Convertir l'attribut widht/height d'un SVG en pixels
+ * (approximatif eventuellement, du moment qu'on respecte le ratio)
+ * @param $dimension
+ * @return bool|float|int
+ */
+function svg_dimension_to_pixels($dimension) {
+	if (preg_match(',(\d+)([^\d]*),i', trim($dimension), $m)){
+		switch (strtolower($m[2])) {
+			case '%':
+				// on ne sait pas faire :(
+				return false;
+				break;
+			case 'em':
+				return intval($m[1])*16; // 16px font-size par defaut
+				break;
+			case 'ex':
+				return intval($m[1])*16; // 16px font-size par defaut
+				break;
+			case 'pc':
+				return intval($m[1])*16; // 1/6 inch = 96px/6 in CSS
+				break;
+			case 'cm':
+				return intval(round($m[1]*96/2.54)); // 96px / 2.54cm;
+				break;
+			case 'mm':
+				return intval(round($m[1]*96/25.4)); // 96px / 25.4mm;
+				break;
+			case 'in':
+				return intval($m[1])*96; // 1 inch = 96px in CSS
+				break;
+			case 'px':
+			case 'pt':
+			default:
+				return intval($m[1]);
+				break;
+		}
+	}
+	return false;
+}
+
 
 /**
  * Redimensionner le SVG via le width/height de la balise

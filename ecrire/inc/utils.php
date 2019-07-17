@@ -3385,20 +3385,19 @@ function spip_getimagesize($fichier) {
 			$width = 350; // default width
 			$height = 150; // default height
 			if (isset($attrs['width'])
-			  and intval($attrs['width'])
+			  and $w = svg_dimension_to_pixels($attrs['width'])
 				and isset($attrs['height'])
-			  and intval($attrs['height'])) {
-				$width = $attrs['width'];
-				$height = $attrs['height'];
+			  and $h = svg_dimension_to_pixels($attrs['height'])) {
+				$width = $w;
+				$height = $h;
 			}
 			elseif (isset($attrs['viewBox'])) {
 				$viewbox = trim($attrs['viewBox']);
 				$viewbox = preg_replace(",\s+,", " ", $viewbox);
 				$viewbox = explode(" ", $viewbox);
-				$viewbox = array_map('intval', $viewbox);
 				if (count($viewbox) === 4
-				  and $w = $viewbox[2] - $viewbox[0]
-				  and $h = $viewbox[3] - $viewbox[1]) {
+				  and $w = svg_dimension_to_pixels($viewbox[2])
+				  and $h = svg_dimension_to_pixels($viewbox[3])) {
 					$width = $w;
 					$height = $h;
 				}
