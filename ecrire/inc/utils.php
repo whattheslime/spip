@@ -3352,6 +3352,25 @@ function html5_permis() {
 		and ('html5' == $GLOBALS['meta']['version_html_max']));
 }
 
+/**
+ * Lister les formats image acceptes par les lib et fonctions images
+ * @param bool $gd
+ * @param bool $svg_allowed
+ * @return array
+ */
+function formats_image_acceptables($gd = false, $svg_allowed = true) {
+	$config = ($gd ? "gd_formats" : "formats_graphiques");
+	$formats = (isset($GLOBALS['meta'][$config]) ? $GLOBALS['meta'][$config] : 'png,gif,jpg');
+	$formats = explode(',', $formats);
+	$formats = array_filter($formats);
+	$formats = array_map('trim', $formats);
+
+	if ($svg_allowed) {
+		$formats[] = 'svg';
+	}
+
+	return $formats;
+}
 
 /**
  * Extension de la fonction getimagesize pour supporter aussi les images SVG
