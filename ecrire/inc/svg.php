@@ -26,16 +26,65 @@ if (!defined('IMG_SVG')) {
 	define('IMAGETYPE_SVG', 19);
 }
 
-function svg_lire_attributs($fichier) {
-
-	if (!file_exists($fichier)) {
-		$fichier  = supprimer_timestamp($fichier);
-	}
-	if (!file_exists($fichier)) {
+/**
+ * Charger une image SVG a partir d'une source qui peut etre
+ * - l'image svg deja chargee
+ * - une data-url
+ * - un nom de fichier
+ *
+ * @param string $fichier
+ * @param null|int $maxlen
+ *   pour limiter la taille chargee en memoire si on lit depuis le disque et qu'on a besoin que du debut du fichier
+ * @return bool|string
+ *   false si on a pas pu charger l'image
+ */
+function svg_charger($fichier, $maxlen=null) {
+	if (strpos($fichier, "data:image/svg+xml") === 0) {
+		$image = explode(";", $fichier, 2);
+		$image = end($image);
+		if (strpos($image, "base64,") === 0) {
+			$image = base64_decode(substr($image, 7));
+		}
+		if (strpos($image, "<svg") !== false) {
+			return $image;
+		}
+		var_dump('fail1');
+		// encodage inconnu ou autre format d'image ?
 		return false;
 	}
+	// c'est peut etre deja une image svg ?
+	if (strpos($fichier, "<svg") !== false) {
+		return $fichier;
+	}
+	if (!file_exists($fichier)) {
+		$fichier  = supprimer_timestamp($fichier);
+		if (!file_exists($fichier)) {
+			var_dump('fail2');
+			return false;
+		}
+	}
+	if (is_null($maxlen)) {
+		$image = file_get_contents($fichier);
+	}
+	else {
+		$image = file_get_contents($fichier, false,null,0, $maxlen);
+	}
+	// est-ce bien une image svg ?
+	if (strpos($image, "<svg") !== false) {
+		return $image;
+	}
+	return false;
+}
 
-	$debut_fichier = file_get_contents($fichier,false,null,0, 4096);
+/**
+ * Lire la balise <svg...> qui demarre le fichier et la parser pour renvoyer un tableau de ses attributs
+ * @param string $fichier
+ * @return array|bool
+ */
+function svg_lire_balise_svg($fichier) {
+	if (!$debut_fichier = svg_charger($fichier, 4096)) {
+		return false;
+	}
 
 	if (($ps = stripos($debut_fichier, "<svg")) !== false) {
 
@@ -51,9 +100,57 @@ function svg_lire_attributs($fichier) {
 				$attributs[$att] = extraire_attribut($balise_svg, $att);
 			}
 
-			return $attributs;
+			return [$balise_svg, $attributs];
 		}
 	}
 
 	return false;
+}
+
+/**
+ * Attributs de la balise SVG
+ * @param string $img
+ * @return array|bool
+ */
+function svg_lire_attributs($img) {
+
+	if ($svg_infos = svg_lire_balise_svg($img)) {
+		list($balise_svg, $attributs) = $svg_infos;
+		return $attributs;
+	}
+
+	return false;
+}
+
+
+/**
+ * Redimensionner le SVG via le width/height de la balise
+ * @param string $img
+ * @param $new_width
+ * @param $new_height
+ * @return bool|string
+ */
+function svg_redimensionner($img, $new_width, $new_height) {
+	if ($svg = svg_charger($img)
+	  and $svg_infos = svg_lire_balise_svg($svg)) {
+
+		list($balise_svg, $attributs) = $svg_infos;
+		if (!isset($attributs['viewBox'])) {
+			$attributs['viewBox'] = "0 0 " . $attributs['width'] . " " . $attributs['height'];
+		}
+		$attributs['width'] = strval($new_width);
+		$attributs['height'] = strval($new_height);
+
+		$new_balise_svg = "<svg";
+		foreach ($attributs as $k=>$v) {
+			$new_balise_svg .= " $k=\"".entites_html($v)."\"";
+		}
+		$new_balise_svg .= ">";
+
+		$p = strpos($svg, $balise_svg);
+		$svg = substr_replace($svg, $new_balise_svg, $p, strlen($balise_svg));
+		return $svg;
+	}
+
+	return $img;
 }
