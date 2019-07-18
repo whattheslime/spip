@@ -107,8 +107,17 @@ function logo_modifier($objet, $id_objet, $etat, $source) {
 	if ($size = @spip_getimagesize($file_tmp)
 	  and $extension = logo_decoder_type_image($size[2])
 		and in_array($extension, $GLOBALS['formats_logos'])) {
+
 		@rename($file_tmp, $file_tmp . ".$extension");
 		$file_tmp = $file_tmp . ".$extension";
+
+		// checker les metadata si plugin medias present
+		// inclu une sanitization des SVG
+		if ($metadata = charger_fonction($extension, 'metadata', true)
+		  or $metadata = charger_fonction('image', 'metadata', true )) {
+			$infos = $metadata($file_tmp);
+		}
+
 		$poids = filesize($file_tmp);
 
 		if (defined('_LOGO_MAX_WIDTH') or defined('_LOGO_MAX_HEIGHT')) {
