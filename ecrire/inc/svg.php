@@ -481,6 +481,64 @@ function svg_transformer($img, $attributs) {
 	return $img;
 }
 
+/**
+ * Ajouter + appliquer un filtre a un svg
+ * @param string $img
+ * @param string $filter_def
+ *   definition du filtre (contenu de <filter>...</filter>
+ * @return bool|string
+ */
+function svg_apply_filter($img, $filter_def) {
+	if ($svg = svg_charger($img)
+	  and $svg_infos = svg_lire_balise_svg($svg)){
+
+		if ($filter_def) {
+			list($balise_svg, ) = $svg_infos;
+			$filter_id = "filter-". substr(md5($filter_def . strlen($svg)), 0, 8);
+			$filter = "<defs><filter id=\"$filter_id\">$filter_def</filter></defs>";
+			$g = "<g filter=\"url(#$filter_id)\">";
+			$svg = svg_insert_shapes($svg, $filter . $g);
+			$svg = svg_insert_shapes($svg, "</g>", false);
+		}
+		return $svg;
+	}
+	return $img;
+}
+
+/**
+ * Filtre blur en utilisant <filter>
+ * @param string $img
+ * @param int $blur_width
+ * @return string
+ */
+function svg_filter_blur($img, $blur_width) {
+	$blur_width = intval($blur_width);
+	return svg_apply_filter($img, "<feGaussianBlur stdDeviation=\"$blur_width\"/>");
+}
+
+/**
+ * Filtre grayscale en utilisant <filter>
+ * @param string $img
+ * @param float $intensity
+ * @return bool|string
+ */
+function svg_filter_grayscale($img, $intensity) {
+	$value = round(1.0 - $intensity, 2);
+	//$filter = "<feColorMatrix type=\"matrix\" values=\"0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0 0 0 1 0\"/>";
+	$filter = "<feColorMatrix type=\"saturate\" values=\"$value\"/>";
+	return svg_apply_filter($img, $filter);
+}
+
+/**
+ * Filtre sepia en utilisant <filter>
+ * @param $img
+ * @param $intensity
+ * @return bool|string
+ */
+function svg_filter_sepia($img, $intensity) {
+	$filter = "<feColorMatrix type=\"matrix\" values=\"0.30 0.30 0.30 0.0 0 0.25 0.25 0.25 0.0 0 0.20 0.20 0.20 0.0 0 0.00 0.00 0.00 1 0\"/>";
+	return svg_apply_filter($img, $filter);
+}
 
 /**
  * Ajouter un background au SVG : un rect pleine taille avec la bonne couleur
