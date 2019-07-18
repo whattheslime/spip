@@ -91,7 +91,7 @@ function plugin_bouton_config($nom, $infos, $dir) {
 	// la verification se base sur le filesystem
 	// il faut donc n'utiliser que des minuscules, par convention
 	$prefix = strtolower($infos['prefix']);
-	// si plugin.xml fournit un squelette, le prendre
+	// si paquet.xml fournit un squelette, le prendre
 	if (isset($infos['config']) and $infos['config']) {
 		return recuperer_fond("$dir$nom/" . $infos['config'],
 			array(
@@ -246,6 +246,7 @@ function affiche_bloc_plugin($plug_file, $info, $dir_plugins = null) {
 	$s = "";
 	// TODO: le traiter_multi ici n'est pas beau
 	// cf. description du plugin/_stable_/ortho/plugin.xml
+	// concerne les anciens plugin.xml donc on devrait plus en avoir besoin
 	$description = "";
 	if (isset($info['description'])) {
 		$description = plugin_propre($info['description'], $dir);

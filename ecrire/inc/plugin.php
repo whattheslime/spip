@@ -126,7 +126,7 @@ function fast_find_plugin_dirs($dir, $max_prof = 100) {
  * Indique si un répertoire (ou plusieurs) est la racine d'un plugin SPIP
  *
  * Vérifie le ou les chemins relatifs transmis pour vérifier qu'ils contiennent
- * un `plugin.xml` ou un `paquet.xml`. Les chemins valides sont retournés.
+ * un `paquet.xml`. Les chemins valides sont retournés.
  * 
  * @param string|string[] $dir
  *     Chemin (relatif à `$dir_plugins`), ou liste de chemins à tester
@@ -1262,7 +1262,7 @@ function pipeline_matrice_precompile($plugin_valides, $ordre, $pipe_recherche) {
  * 
  * La liste des pipelines est définie par la globale `spip_pipeline`
  * qui a été remplie soit avec les fichiers d'options, soit avec 
- * des descriptions de plugins (plugin.xml ou paquet.xml) dont celui de SPIP lui-même.
+ * des descriptions de plugins (paquet.xml) dont celui de SPIP lui-même.
  * 
  * Les fichiers à charger pour accéder aux fonctions qui doivent traverser
  * un pipeline se trouve dans la globale `spip_matrice`.

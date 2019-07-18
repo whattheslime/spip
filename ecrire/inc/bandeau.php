@@ -82,10 +82,10 @@ function definir_barre_boutons($contexte = array(), $icones = true, $autorise = 
 	include_spip('inc/autoriser');
 	$boutons_admin = array();
 
-	// les boutons du core, issus de prive/navigation.xml
+	// les boutons du core, issus de ecrire/paquet.xml
 	$liste_boutons = array();
 
-	// ajouter les boutons issus des plugin via plugin.xml
+	// ajouter les boutons issus des plugin via paquet.xml
 	if (function_exists('boutons_plugins')
 		and is_array($liste_boutons_plugins = boutons_plugins())
 	) {

@@ -27,7 +27,7 @@ if (!defined('_ECRIRE_INC_VERSION')) {
  * @example
  *     ```
  *     include_spip('inc/xml');
- *     $arbre = spip_xml_load(_DIR_PLUGINS . "$plug/plugin.xml");
+ *     $arbre = spip_xml_load("example.xml");
  *     ```
  *
  * @uses spip_xml_parse()
