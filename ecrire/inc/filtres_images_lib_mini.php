@@ -66,7 +66,10 @@ function _couleur_dec_to_hex($red, $green, $blue) {
  */
 function _couleur_hex_to_dec($couleur) {
 	$couleur = couleur_html_to_hex($couleur);
-	$couleur = preg_replace(",^#,", "", $couleur);
+	$couleur = ltrim($couleur, '#');
+	if (strlen($couleur) === 3) {
+		$couleur = $couleur[0] . $couleur[0] . $couleur[1] . $couleur[1] . $couleur[2] . $couleur[2];
+	}
 	$retour["red"] = hexdec(substr($couleur, 0, 2));
 	$retour["green"] = hexdec(substr($couleur, 2, 2));
 	$retour["blue"] = hexdec(substr($couleur, 4, 2));
@@ -190,7 +193,9 @@ function _image_valeurs_trans($img, $effet, $forcer_format = false, $fonction_cr
 		$terminaison_dest = ($terminaison == 'gif') ? 'png' : $terminaison;
 	}
 
-	if ($forcer_format !== false) {
+	if ($forcer_format !== false
+		// ignorer forcer_format si on a une image svg, que le filtre appelant ne supporte pas SVG, et que le forcage est un autre format image
+		and ($terminaison_dest !== 'svg' or $support_svg or !in_array($forcer_format,['png','gif','jpg']))) {
 		$terminaison_dest = $forcer_format;
 	}
 
