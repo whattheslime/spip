@@ -164,12 +164,17 @@ function formulaires_editer_logo_verifier_dist($objet, $id_objet, $retour = '', 
 	$erreurs = array();
 	// verifier les extensions
 	$sources = formulaire_editer_logo_get_sources();
+	include_spip('action/editer_logo');
+	$extensions_possibles = $GLOBALS['formats_logos'];
+	if (in_array('jpg', $extensions_possibles)) {
+		$extensions_possibles[] = 'jpeg';
+	}
 	foreach ($sources as $etat => $file) {
 		// seulement si une reception correcte a eu lieu
 		if ($file and $file['error'] == 0) {
 			if (!in_array(
 				strtolower(pathinfo($file['name'], PATHINFO_EXTENSION)),
-				array('jpg', 'png', 'gif', 'jpeg')
+				$extensions_possibles
 			)) {
 				$erreurs['logo_' . $etat] = _L('Extension non reconnue');
 			}

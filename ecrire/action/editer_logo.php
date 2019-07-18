@@ -104,9 +104,9 @@ function logo_modifier($objet, $id_objet, $etat, $source) {
 		return $erreur;
 	}
 
-	$size = @spip_getimagesize($file_tmp);
-	$extension = !$size ? '' : ($size[2] > 3 ? '' : $GLOBALS['formats_logos'][$size[2] - 1]);
-	if ($extension) {
+	if ($size = @spip_getimagesize($file_tmp)
+	  and $extension = logo_decoder_type_image($size[2])
+		and in_array($extension, $GLOBALS['formats_logos'])) {
 		@rename($file_tmp, $file_tmp . ".$extension");
 		$file_tmp = $file_tmp . ".$extension";
 		$poids = filesize($file_tmp);
@@ -184,4 +184,41 @@ function logo_modifier($objet, $id_objet, $etat, $source) {
 	}
 
 	return $erreur;
+}
+
+
+/**
+ * Convertit le type numerique retourne par getimagesize() en extension fichier
+ * doublon de la fonction presente dans metadata/image du plugin medias
+ * a fusionner avec les logos en documents
+ *
+ * @param int $type
+ * @param bool $strict
+ * @return string
+ */
+// https://code.spip.net/@decoder_type_image
+function logo_decoder_type_image($type, $strict = false) {
+	switch ($type) {
+		case IMAGETYPE_GIF:
+			return 'gif';
+		case IMAGETYPE_JPEG:
+			return 'jpg';
+		case IMAGETYPE_PNG:
+			return 'png';
+		case IMAGETYPE_SWF:
+			return $strict ? '' : 'swf';
+		case IMAGETYPE_PSD:
+			return 'psd';
+		case IMAGETYPE_BMP:
+			return 'bmp';
+		case IMAGETYPE_TIFF_II:
+		case IMAGETYPE_TIFF_MM:
+			return 'tif';
+		case IMAGETYPE_WEBP:
+			return 'webp';
+		case IMAGETYPE_SVG:
+			return $strict ? '' : 'svg';
+		default:
+			return '';
+	}
 }

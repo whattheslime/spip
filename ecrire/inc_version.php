@@ -357,7 +357,7 @@ $traiter_math = 'tex';
 $xhtml = false;
 $xml_indent = false;
 
-$formats_logos = array('gif', 'jpg', 'png');
+$formats_logos = array('jpg', 'png', 'svg', 'gif');
 
 // Controler les dates des item dans les flux RSS ?
 $controler_dates_rss = true;
