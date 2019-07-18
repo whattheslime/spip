@@ -152,7 +152,7 @@ function is_plugin_dir($dir, $dir_plugins = null) {
 	if (is_null($dir_plugins)) {
 		$dir_plugins = _DIR_PLUGINS;
 	}
-	$search = array("$dir_plugins$dir/plugin.xml", "$dir_plugins$dir/paquet.xml");
+	$search = array("$dir_plugins$dir/paquet.xml");
 
 	foreach ($search as $s) {
 		if (file_exists($s)) {
