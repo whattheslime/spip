@@ -185,13 +185,13 @@ function svg_change_balise_svg($svg, $old_balise_svg, $attributs) {
 /**
  * @param string $svg
  * @param string $shapes
- * @param bool $start
+ * @param bool|string $start
  *   inserer au debut (true) ou a la fin (false)
  * @return string
  */
 function svg_insert_shapes($svg, $shapes, $start=true) {
 
-	if (!$start) {
+	if ($start === false or $start === 'end') {
 		$svg = str_replace("</svg>", $shapes . "</svg>", $svg);
 	}
 	else {
@@ -199,6 +199,25 @@ function svg_insert_shapes($svg, $shapes, $start=true) {
 		$p = strpos($svg, ">", $p);
 		$svg = substr_replace($svg, $shapes, $p+1, 0);
 	}
+	return $svg;
+}
+
+/**
+ * Clipper le SVG dans une box
+ * @param string $svg
+ * @param int $x
+ * @param int $y
+ * @param int $width
+ * @param int $height
+ * @return string
+ */
+function svg_clip_in_box($svg, $x, $y, $width, $height) {
+	$rect = "<rect x=\"$x\" y=\"$y\" width=\"$width\" height=\"$height\" />";
+	$id = 'clip-'.substr(md5($rect . strlen($svg)),0,8);
+	$clippath = "<clipPath id=\"$id\">$rect</clipPath>";
+	$g = "<g clip-path=\"url(#$id)\">";
+	$svg = svg_insert_shapes($svg, $clippath . $g);
+	$svg = svg_insert_shapes($svg, "</g>", false);
 	return $svg;
 }
 
@@ -227,10 +246,15 @@ function svg_redimensionner($img, $new_width, $new_height) {
 	return $img;
 }
 
-
+/**
+ * Transformer une couleur extraite du SVG en hexa
+ * @param string $couleur
+ * @return string
+ */
 function svg_couleur_to_hexa($couleur) {
-	if (preg_match("/rgb\(\s*(\d+)\s*,\s*(\d+)\s*,\s*(\d+)\s*\)/,", $couleur, $m)) {
-		$couleur = _couleur_dec_to_hex($m[1], $m[2], $m[3]);
+	if (strpos($couleur, "rgb(")===0) {
+		$c = explode(',', substr($couleur, 4));
+		$couleur = _couleur_dec_to_hex(intval($c[0]), intval($c[1]), intval($c[2]));
 	}
 	else {
 		$couleur = couleur_html_to_hex($couleur);
@@ -239,6 +263,31 @@ function svg_couleur_to_hexa($couleur) {
 	return $couleur;
 }
 
+/**
+ * Transformer une couleur extraite du SVG en rgb
+ * @param string $couleur
+ * @return array
+ */
+function svg_couleur_to_rgb($couleur) {
+	if (strpos($couleur, "rgb(")===0) {
+		$c = explode(',', substr($couleur, 4));
+		return ['red' => intval($c[0]),'green' => intval($c[1]),'blue' => intval($c[2])];
+	}
+	return _couleur_hex_to_dec($couleur);
+}
+
+
+/**
+ * Forcer la viewBox du SVG, en px
+ * cree l'attribut viewBox si il n'y en a pas
+ * convertit les unites en px si besoin
+ *
+ * Les manipulations d'image par les filtres images se font en px, on a donc besoin d'une viewBox en px
+ * Certains svg produits avec des unites exotiques subiront donc peut etre des deformations...
+ *
+ * @param string $img
+ * @return string
+ */
 function svg_force_viewBox_px($img) {
 	if ($svg = svg_charger($img)
 	  and $svg_infos = svg_lire_balise_svg($svg)){
@@ -293,28 +342,11 @@ function svg_extract_couleurs($img) {
  * @return bool|string
  */
 function svg_recadrer($img, $new_width, $new_height, $offset_width, $offset_height, $background_color='') {
-	if ($svg = svg_charger($img)
+	if ($svg = svg_force_viewBox_px($img)
 	  and $svg_infos = svg_lire_balise_svg($svg)) {
 
 		list($balise_svg, $attributs) = $svg_infos;
-
-		// il nous faut une viewBox
-		if (!isset($attributs['viewBox'])) {
-			$viewBox = "0 0 " . $attributs['width'] . " " . $attributs['height'];
-		}
-		else {
-			$viewBox = $attributs['viewBox'];
-		}
-		// et on la convertit en px
-		$viewBox = explode(' ', $viewBox);
-		$viewBox = array_map('svg_dimension_to_pixels', $viewBox);
-		$viewBox = array_map('intval', $viewBox);
-		if (!$viewBox[2]) {
-			$viewBox[2] = '300';
-		}
-		if (!$viewBox[3]) {
-			$viewBox[3] = '150';
-		}
+		$viewBox = explode(' ', $attributs['viewBox']);
 
 		$viewport_w = $new_width;
 		$viewport_h = $new_height;
@@ -333,6 +365,10 @@ function svg_recadrer($img, $new_width, $new_height, $offset_width, $offset_heig
 			$yscale = $viewBox[3] / $h;
 			$viewport_h = intval(round($viewport_h * $yscale));
 			$viewport_oy = intval(round($viewport_oy * $yscale));
+		}
+
+		if ($viewport_w>$viewBox[2] or $viewport_h>$viewBox[3]) {
+			$svg = svg_clip_in_box($svg, $viewBox[0], $viewBox[1], $viewBox[2], $viewBox[3]);
 		}
 
 		// maintenant on redefinit la viewBox
@@ -480,9 +516,35 @@ function svg_flip($img, $HorV) {
 }
 
 /**
+ * @param string $img
+ * @param int/float $angle
+ *   angle en degres
+ * @param $center_x
+ *   centre X de la rotation entre 0 et 1, relatif a la pleine largeur (0=bord gauche, 1=bord droit)
+ * @param $center_y
+ *   centre Y de la rotation entre 0 et 1, relatif a la pleine hauteur (0=bord top, 1=bord bottom)
+ * @return bool|string
+ */
+function svg_rotate($img, $angle, $center_x, $center_y) {
+	if ($svg = svg_force_viewBox_px($img)
+		and $svg_infos = svg_lire_balise_svg($svg)){
+
+		list($balise_svg, $atts) = $svg_infos;
+		$viewBox = explode(' ', $atts['viewBox']);
+
+		$center_x = round($viewBox[0] + $center_x * $viewBox[2]);
+		$center_y = round($viewBox[1] + $center_y * $viewBox[3]);
+		$svg = svg_transformer($svg, ['transform' => "rotate($angle $center_x $center_y)"]);
+
+		return $svg;
+	}
+	return $img;
+}
+
+/**
  * Filtrer les couleurs d'un SVG avec une callback
  * (peut etre lent si beaucoup de couleurs)
- * 
+ *
  * @param $img
  * @param $callback_filter
  * @return bool|mixed|string
