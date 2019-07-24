@@ -89,7 +89,7 @@ function svg_lire_balise_svg($fichier) {
 		$pe = stripos($debut_fichier, ">", $ps);
 		$balise_svg = substr($debut_fichier, $ps, $pe - $ps +1);
 
-		if (preg_match_all(",([\w\-]+)=,Uims", $balise_svg, $matches)) {
+		if (preg_match_all(",([\w:\-]+)=,Uims", $balise_svg, $matches)) {
 			if (!function_exists('extraire_attribut')) {
 				include_spip('inc/filtres');
 			}
