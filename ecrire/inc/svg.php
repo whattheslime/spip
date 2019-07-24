@@ -48,7 +48,6 @@ function svg_charger($fichier, $maxlen=null) {
 		if (strpos($image, "<svg") !== false) {
 			return $image;
 		}
-		var_dump('fail1');
 		// encodage inconnu ou autre format d'image ?
 		return false;
 	}
@@ -59,7 +58,6 @@ function svg_charger($fichier, $maxlen=null) {
 	if (!file_exists($fichier)) {
 		$fichier  = supprimer_timestamp($fichier);
 		if (!file_exists($fichier)) {
-			var_dump('fail2');
 			return false;
 		}
 	}
