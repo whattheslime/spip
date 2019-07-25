@@ -86,7 +86,10 @@ function creer_repertoire_documents($ext) {
 
 	// Cette variable de configuration peut etre posee par un plugin
 	// par exemple acces_restreint
-	if (isset($GLOBALS['meta']["creer_htaccess"]) and $GLOBALS['meta']["creer_htaccess"] == 'oui') {
+	// sauf pour logo/ utilise pour stocker les logoon et logooff
+	if (isset($GLOBALS['meta']["creer_htaccess"])
+		and $GLOBALS['meta']["creer_htaccess"] == 'oui'
+	  and $ext !== 'logo') {
 		include_spip('inc/acces');
 		verifier_htaccess($rep);
 	}
@@ -119,18 +122,20 @@ function effacer_repertoire_temporaire($nom) {
 
 //
 /**
- * Copier un document `$source` un dossier `IMG/$ext/$orig.$ext`
+ * Copier un document `$source`
+ * dans un dossier `IMG/$ext/$orig.$ext` ou `IMG/$subdir/$orig.$ext` si `$subdir` est fourni
  * en numérotant éventuellement si un fichier de même nom existe déjà
  *
  * @param string $ext
  * @param string $orig
  * @param string $source
+ * @param string $subdir
  * @return bool|mixed|string
  */
-function copier_document($ext, $orig, $source) {
+function copier_document($ext, $orig, $source, $subdir = null) {
 
 	$orig = preg_replace(',\.\.+,', '.', $orig); // pas de .. dans le nom du doc
-	$dir = creer_repertoire_documents($ext);
+	$dir = creer_repertoire_documents($subdir ? $subdir : $ext);
 	$dest = preg_replace("/[^.=\w-]+/", "_",
 		translitteration(preg_replace("/\.([^.]+)$/", "",
 			preg_replace("/<[^>]*>/", '', basename($orig)))));
