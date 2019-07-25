@@ -284,9 +284,10 @@ function svg_couleur_to_rgb($couleur) {
  * Certains svg produits avec des unites exotiques subiront donc peut etre des deformations...
  *
  * @param string $img
+ * @param bool $force_width_and_height
  * @return string
  */
-function svg_force_viewBox_px($img) {
+function svg_force_viewBox_px($img, $force_width_and_height = false) {
 	if ($svg = svg_charger($img)
 	  and $svg_infos = svg_lire_balise_svg($svg)){
 
@@ -308,6 +309,25 @@ function svg_force_viewBox_px($img) {
 		}
 		if (!$viewBox[3]) {
 			$viewBox[3] = '150';
+		}
+
+		if ($force_width_and_height) {
+			$width = false;
+			if (isset($attributs['width'])) {
+				$width = svg_dimension_to_pixels($attributs['width']);
+			}
+			if (!$width) {
+				$width = $viewBox[2];
+			}
+			$attributs['width'] = $width;
+			$height = false;
+			if (isset($attributs['height'])) {
+				$height = svg_dimension_to_pixels($attributs['height']);
+			}
+			if (!$height) {
+				$height = $viewBox[3];
+			}
+			$attributs['height'] = $height;
 		}
 
 		$attributs['viewBox'] = implode(' ', $viewBox);
