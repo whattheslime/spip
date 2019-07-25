@@ -540,22 +540,15 @@ function critere_branche_dist($idb, &$boucles, $crit) {
  **/
 function critere_logo_dist($idb, &$boucles, $crit) {
 
-	$not = $crit->not;
 	$boucle = &$boucles[$idb];
+	$not = ($crit->not ? 'NOT' : '');
+	$serveur = $boucle->sql_serveur;
 
 	$c = "sql_in('" .
 		$boucle->id_table . '.' . $boucle->primary
-		. "', lister_objets_avec_logos('" . $boucle->primary . "'), '')";
+		. "', lister_objets_avec_logos('" . $boucle->primary . "'), '$not', '$serveur')";
 
-	if ($crit->cond) {
-		$c = "($arg ? $c : 1)";
-	}
-
-	if ($not) {
-		$boucle->where[] = array("'NOT'", $c);
-	} else {
-		$boucle->where[] = $c;
-	}
+	$boucle->where[] = $c;
 }
 
 

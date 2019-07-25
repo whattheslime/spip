@@ -534,8 +534,6 @@ function executer_balise_dynamique($nom, $args, $context_compil) {
 /**
  * Retourne pour une clé primaire d'objet donnée les identifiants ayant un logo
  *
- * @uses type_du_logo() Pour calculer le nom du logo
- *
  * @param string $type
  *     Nom de la clé primaire de l'objet
  * @return string
@@ -543,24 +541,15 @@ function executer_balise_dynamique($nom, $args, $context_compil) {
  **/
 function lister_objets_avec_logos($type) {
 
-	$logos = array();
-	$chercher_logo = charger_fonction('chercher_logo', 'inc');
-	$type = '/'
-		. type_du_logo($type)
-		. "on(\d+)\.("
-		. join('|', $GLOBALS['formats_logos'])
-		. ")$/";
-
-	if ($d = opendir(_DIR_LOGOS)) {
-		while (($f = readdir($d)) !== false) {
-			if (preg_match($type, $f, $r)) {
-				$logos[] = $r[1];
-			}
-		}
+	$objet = objet_type($type);
+	$ids = sql_allfetsel("L.id_objet", "spip_documents AS D JOIN spip_documents_liens AS L ON L.id_document=D.id_document", "D.mode=".sql_quote('logoon')." AND L.objet=".sql_quote($objet));
+	if ($ids) {
+		$ids = array_column($ids, 'id_objet');
+		return implode(',', $ids);
 	}
-	@closedir($d);
-
-	return join(',', $logos);
+	else {
+		return "0";
+	}
 }
 
 
