@@ -38,7 +38,25 @@ function logo_supprimer($objet, $id_objet, $etat) {
 	// existe-t-il deja un logo ?
 	$logo = $chercher_logo($id_objet, $primary, $etat);
 	if ($logo) {
-		spip_unlink($logo[0]);
+		# TODO : deprecated, a supprimer -> anciens logos IMG/artonxx.png pas en base
+		if (count($logo) < 6) {
+			spip_unlink($logo[0]);
+		}
+		elseif ($doc = $logo[5]
+			and isset($doc['id_document'])
+		  and $id_document = $doc['id_document']) {
+
+			include_spip('action/editer_liens');
+			// supprimer le lien dans la base
+			objet_dissocier(array('document' => $id_document), array($objet => $id_objet), array('role' => '*'));
+
+			// verifier si il reste des liens avec d'autres objets et sinon supprimer
+			$liens = objet_trouver_liens(array('document' => $id_document), '*');
+			if (!count($liens)) {
+				$supprimer_document = charger_fonction('supprimer_document', 'action');
+				$supprimer_document($doc['id_document']);
+			}
+		}
 	}
 }
 
@@ -60,139 +78,69 @@ function logo_modifier($objet, $id_objet, $etat, $source) {
 	$objet = objet_type($objet);
 	$primary = id_table_objet($objet);
 	include_spip('inc/chercher_logo');
-	$type = type_du_logo($primary);
 
-	// nom du logo
-	$nom = $type . $etat . $id_objet;
+	$mode = preg_replace(",\W,", '', $etat);
+	if (!$mode){
+		spip_log("logo_modifier : etat $etat invalide", 'logo');
+		$erreur = 'etat invalide';
+
+		return $erreur;
+	}
+	// chercher dans la base
+	$mode_document = 'logo' . $mode;
 
 	// supprimer le logo eventueel existant
+	// TODO : si un logo existe, le modifier plutot que supprimer + reinserer (mais il faut gerer le cas ou il est utilise par plusieurs objets, donc pas si simple)
+	// mais de toute facon l'interface actuelle oblige a supprimer + reinserer
 	logo_supprimer($objet, $id_objet, $etat);
+
 
 	include_spip('inc/documents');
 	$erreur = '';
 
 	if (!$source) {
-		spip_log('spip_image_ajouter : source inconnue');
+		spip_log('spip_image_ajouter : source inconnue', 'logo');
 		$erreur = 'source inconnue';
 
 		return $erreur;
 	}
 
-	$file_tmp = _DIR_LOGOS . $nom . '.tmp';
-
-	$ok = false;
 	// fichier dans upload/
 	if (is_string($source)) {
+		$tmp_name = false;
 		if (file_exists($source)) {
-			$ok = @copy($source, $file_tmp);
+			$tmp_name = $source;
 		} elseif (file_exists($f = determine_upload() . $source)) {
-			$ok = @copy($f, $file_tmp);
+			$tmp_name = $f;
 		}
-	} elseif (!$erreur = check_upload_error($source['error'], '', true)) {
-		// Intercepter une erreur a l'envoi
-		// analyse le type de l'image (on ne fait pas confiance au nom de
-		// fichier envoye par le browser : pour les Macs c'est plus sur)
-		$ok = deplacer_fichier_upload($source['tmp_name'], $file_tmp);
-	}
+		if (!$tmp_name) {
+			spip_log('spip_image_ajouter : source inconnue', 'logo');
+			$erreur = 'source inconnue';
 
-	if ($erreur) {
-		return $erreur;
-	}
-	if (!$ok or !file_exists($file_tmp)) {
-		spip_log($erreur = "probleme de copie pour $file_tmp ");
-
-		return $erreur;
-	}
-
-	if ($size = @spip_getimagesize($file_tmp)
-	  and $extension = logo_decoder_type_image($size[2])
-		and in_array($extension, $GLOBALS['formats_logos'])) {
-
-		@rename($file_tmp, $file_tmp . ".$extension");
-		$file_tmp = $file_tmp . ".$extension";
-
-		// checker les metadata si plugin medias present
-		// inclu une sanitization des SVG
-		if ($metadata = charger_fonction($extension, 'metadata', true)
-		  or $metadata = charger_fonction('image', 'metadata', true )) {
-			$infos = $metadata($file_tmp);
+			return $erreur;
 		}
-
-		$poids = filesize($file_tmp);
-
-		if (defined('_LOGO_MAX_WIDTH') or defined('_LOGO_MAX_HEIGHT')) {
-			if ((defined('_LOGO_MAX_WIDTH') and _LOGO_MAX_WIDTH and $size[0] > _LOGO_MAX_WIDTH)
-				or (defined('_LOGO_MAX_HEIGHT') and _LOGO_MAX_HEIGHT and $size[1] > _LOGO_MAX_HEIGHT)
-			) {
-				$max_width = (defined('_LOGO_MAX_WIDTH') and _LOGO_MAX_WIDTH) ? _LOGO_MAX_WIDTH : '*';
-				$max_height = (defined('_LOGO_MAX_HEIGHT') and _LOGO_MAX_HEIGHT) ? _LOGO_MAX_HEIGHT : '*';
-
-				// pas la peine d'embeter le redacteur avec ca si on a active le calcul des miniatures
-				// on met directement a la taille maxi a la volee
-				if (isset($GLOBALS['meta']['creer_preview']) and $GLOBALS['meta']['creer_preview'] == 'oui') {
-					include_spip('inc/filtres');
-					$img = filtrer('image_reduire', $file_tmp, $max_width, $max_height);
-					$img = extraire_attribut($img, 'src');
-					$img = supprimer_timestamp($img);
-					if (@file_exists($img) and $img !== $file_tmp) {
-						spip_unlink($file_tmp);
-						@rename($img, $file_tmp);
-						$size = @spip_getimagesize($file_tmp);
-					}
-				}
-				// verifier au cas ou image_reduire a echoue
-				if ((defined('_LOGO_MAX_WIDTH') and _LOGO_MAX_WIDTH and $size[0] > _LOGO_MAX_WIDTH)
-					or (defined('_LOGO_MAX_HEIGHT') and _LOGO_MAX_HEIGHT and $size[1] > _LOGO_MAX_HEIGHT)
-				) {
-					spip_unlink($file_tmp);
-					$erreur = _T(
-						'info_logo_max_poids',
-						array(
-							'maxi' =>
-								_T(
-									'info_largeur_vignette',
-									array(
-										'largeur_vignette' => $max_width,
-										'hauteur_vignette' => $max_height
-									)
-								),
-							'actuel' =>
-								_T(
-									'info_largeur_vignette',
-									array(
-										'largeur_vignette' => $size[0],
-										'hauteur_vignette' => $size[1]
-									)
-								)
-						)
-					);
-				}
-			}
-		}
-
-		if (!$erreur and defined('_LOGO_MAX_SIZE') and _LOGO_MAX_SIZE and $poids > _LOGO_MAX_SIZE * 1024) {
-			spip_unlink($file_tmp);
-			$erreur = _T(
-				'info_logo_max_poids',
-				array(
-					'maxi' => taille_en_octets(_LOGO_MAX_SIZE * 1024),
-					'actuel' => taille_en_octets($poids)
-				)
-			);
-		}
-
-		if (!$erreur) {
-			@rename($file_tmp, _DIR_LOGOS . $nom . ".$extension");
-		}
-	} else {
-		spip_unlink($file_tmp);
-		$erreur = _T(
-			'info_logo_format_interdit',
-			array('formats' => join(', ', $GLOBALS['formats_logos']))
+		$source = array(
+			'tmp_name' => $tmp_name,
+			'name' => basename($tmp_name),
 		);
+	} elseif ($erreur = check_upload_error($source['error'], '', true)) {
+		return $erreur;
 	}
 
-	return $erreur;
+	$source['mode'] = $mode_document;
+	$ajouter_documents = charger_fonction('ajouter_documents', 'action');
+	$ajoutes = $ajouter_documents('new', [$source], $objet, $id_objet, $mode_document);
+
+	$id_document = reset($ajoutes);
+
+	if (!is_numeric($id_document)) {
+		$erreur = ($id_document ? $id_document : 'Erreur inconnue');
+		spip_log("Erreur ajout logo : $erreur pour source=".json_encode($source), 'logo');
+		return $erreur;
+	}
+
+	return ''; // tout est bon, pas d'erreur
+
 }
 
 

@@ -32,21 +32,34 @@ if (!defined('_ECRIRE_INC_VERSION')) {
  * @param string $mode
  *     Mode de survol du logo désiré (on ou off)
  * @return array
- *     - Liste (chemin complet du fichier, répertoire de logos, nom du logo, extension du logo, date de modification)
+ *     - Liste (chemin complet du fichier, répertoire de logos, nom du logo, extension du logo, date de modification[, doc])
  *     - array vide aucun logo trouvé.
  **/
 function inc_chercher_logo_dist($id, $_id_objet, $mode = 'on') {
-	# attention au cas $id = '0' pour LOGO_SITE_SPIP : utiliser intval()
-	
-	$type = type_du_logo($_id_objet);
-	$nom = $type . $mode . intval($id);
-	
-	foreach ($GLOBALS['formats_logos'] as $format) {
-		if (@file_exists($d = (_DIR_LOGOS . $nom . '.' . $format))) {
-			return array($d, _DIR_LOGOS, $nom, $format, @filemtime($d));
+
+	$mode = preg_replace(",\W,", '', $mode);
+	if ($mode) {
+		// chercher dans la base
+		$mode_document = 'logo' . $mode;
+		$objet = objet_type($_id_objet);
+		$doc = sql_fetsel('D.*', 'spip_documents AS D JOIN spip_documents_liens AS L ON L.id_document=D.id_document', "D.mode=".sql_quote($mode_document)." AND L.objet=".sql_quote($objet)." AND id_objet=".intval($id));
+		if ($doc) {
+			$d = get_spip_doc($doc['fichier']);
+			return array($d, _DIR_IMG, basename($d), $d['extension'], @filemtime($d), $doc);
+		}
+
+		# TODO : deprecated
+		# attention au cas $id = '0' pour LOGO_SITE_SPIP : utiliser intval()
+		$type = type_du_logo($_id_objet);
+		$nom = $type . $mode . intval($id);
+
+		foreach ($GLOBALS['formats_logos'] as $format) {
+			if (@file_exists($d = (_DIR_LOGOS . $nom . '.' . $format))) {
+				return array($d, _DIR_LOGOS, $nom, $format, @filemtime($d));
+			}
 		}
 	}
-	
+
 	# coherence de type pour servir comme filtre (formulaire_login)
 	return array();
 }
@@ -64,6 +77,7 @@ function inc_chercher_logo_dist($id, $_id_objet, $mode = 'on') {
  *     Nom de la clé primaire de l'objet
  * @return string
  *     Type du logo
+ * @deprecated
  **/
 function type_du_logo($_id_objet) {
 	return isset($GLOBALS['table_logos'][$_id_objet])
