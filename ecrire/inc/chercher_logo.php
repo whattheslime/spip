@@ -35,7 +35,7 @@ if (!defined('_ECRIRE_INC_VERSION')) {
  *     - Liste (chemin complet du fichier, répertoire de logos, nom du logo, extension du logo, date de modification[, doc])
  *     - array vide aucun logo trouvé.
  **/
-function inc_chercher_logo_dist($id, $_id_objet, $mode = 'on') {
+function inc_chercher_logo_dist($id, $_id_objet, $mode = 'on', $compat_old_logos = true) {
 
 	$mode = preg_replace(",\W,", '', $mode);
 	if ($mode) {
@@ -48,14 +48,16 @@ function inc_chercher_logo_dist($id, $_id_objet, $mode = 'on') {
 			return array($d, _DIR_IMG, basename($d), $d['extension'], @filemtime($d), $doc);
 		}
 
-		# TODO : deprecated
-		# attention au cas $id = '0' pour LOGO_SITE_SPIP : utiliser intval()
-		$type = type_du_logo($_id_objet);
-		$nom = $type . $mode . intval($id);
+		# deprecated TODO remove
+		if ($compat_old_logos) {
+			# attention au cas $id = '0' pour LOGO_SITE_SPIP : utiliser intval()
+			$type = type_du_logo($_id_objet);
+			$nom = $type . $mode . intval($id);
 
-		foreach ($GLOBALS['formats_logos'] as $format) {
-			if (@file_exists($d = (_DIR_LOGOS . $nom . '.' . $format))) {
-				return array($d, _DIR_LOGOS, $nom, $format, @filemtime($d));
+			foreach ($GLOBALS['formats_logos'] as $format) {
+				if (@file_exists($d = (_DIR_LOGOS . $nom . '.' . $format))) {
+					return array($d, _DIR_LOGOS, $nom, $format, @filemtime($d));
+				}
 			}
 		}
 	}
