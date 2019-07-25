@@ -143,39 +143,3 @@ function logo_modifier($objet, $id_objet, $etat, $source) {
 
 }
 
-
-/**
- * Convertit le type numerique retourne par getimagesize() en extension fichier
- * doublon de la fonction presente dans metadata/image du plugin medias
- * a fusionner avec les logos en documents
- *
- * @param int $type
- * @param bool $strict
- * @return string
- */
-// https://code.spip.net/@decoder_type_image
-function logo_decoder_type_image($type, $strict = false) {
-	switch ($type) {
-		case IMAGETYPE_GIF:
-			return 'gif';
-		case IMAGETYPE_JPEG:
-			return 'jpg';
-		case IMAGETYPE_PNG:
-			return 'png';
-		case IMAGETYPE_SWF:
-			return $strict ? '' : 'swf';
-		case IMAGETYPE_PSD:
-			return 'psd';
-		case IMAGETYPE_BMP:
-			return 'bmp';
-		case IMAGETYPE_TIFF_II:
-		case IMAGETYPE_TIFF_MM:
-			return 'tif';
-		case IMAGETYPE_WEBP:
-			return 'webp';
-		case IMAGETYPE_SVG:
-			return $strict ? '' : 'svg';
-		default:
-			return '';
-	}
-}
