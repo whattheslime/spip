@@ -429,7 +429,7 @@ function lien_insert($objet_source, $primary, $table_lien, $id, $objets, $qualif
 
 			$where = lien_where($primary, $id, $objet, $id_objet, $cond);
 
-			if ($id_objet = intval($insertions['id_objet'])
+			if (($id_objet = intval($insertions['id_objet']) or $objet=='site')
 				and !sql_getfetsel($primary, $table_lien, $where)
 			) {
 
@@ -654,7 +654,7 @@ function lien_delete($objet_source, $primary, $table_lien, $id, $objets, $cond =
 				);
 				$args['id_objet'] = $id_o = $l['id_objet'];
 
-				if ($id_o = intval($l['id_objet'])) {
+				if ($id_o = intval($l['id_objet']) or $l['objet'] == 'site') {
 					$where = lien_where($primary, $l[$primary], $l['objet'], $id_o, $cond);
 					$e = sql_delete($table_lien, $where);
 					if ($e !== false) {
