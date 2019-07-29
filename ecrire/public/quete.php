@@ -520,6 +520,30 @@ function quete_logo_document($row, $lien, $align, $mode_logo, $x, $y, $connect =
 }
 
 /**
+ * Recuperer le HTML du logo d'apres ses infos
+ * @param $logo
+ * @param $align
+ * @param $lien
+ * @return string
+ */
+function quete_html_logo($logo, $align, $lien) {
+
+	if (!is_array($logo)) {
+		return '';
+	}
+
+	$contexte = [];
+	foreach ($logo as $k=>$v) {
+		if (!is_numeric($k)) {
+			$contexte[$k] = $v;
+		}
+	}
+	$contexte['align'] = $align;
+	$contexte['lien'] = $lien;
+	return recuperer_fond('modeles/logo', $contexte);
+}
+
+/**
  * Retourne le chemin d’un document lorsque le connect est précisé
  *
  * Sur un connecteur distant, voir si on connait l’adresse du site (spip distant)

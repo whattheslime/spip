@@ -157,7 +157,7 @@ function balise_LOGO__dist($p) {
  * @return string
  *     Code compilé retournant le chemin du logo ou le code HTML du logo.
  **/
-function logo_survol($id_objet, $_id_objet, $type, $align, $fichier, $lien, $p, $suite) {
+function logo_survol($id_objet, $_id_objet, $type, $align, $fichier, $_lien, $p, $suite) {
 	$code = "quete_logo('$id_objet', '" .
 		(($suite == '_SURVOL') ? 'off' :
 			(($suite == '_NORMAL') ? 'on' : 'ON')) .
@@ -171,28 +171,7 @@ function logo_survol($id_objet, $_id_objet, $type, $align, $fichier, $lien, $p, 
 		return $code;
 	}
 
-	// class spip_logos a supprimer ulterieurement (transition douce vers spip_logo)
-	// cf http://core.spip.net/issues/2483
-	$class = 'spip_logo ';
-	if ($align) {
-		$class .= "spip_logo_$align ";
-	}
-	$class .= 'spip_logos';
-	$style = '';
-	if (in_array($align, array('left', 'right'))) {
-		$style = "float:$align";
-		$align = '';
-	}
-	$code = "\n((!is_array(\$l = $code)) ? '':\n (" .
-		'"<img class=\"' . $class . '\" alt=\"\"' .
-		($style ? " style=\\\"$style\\\"" : '') .
-		($align ? " align=\\\"$align\\\"" : '') .
-		' src=\"$l[0]\"" . $l[2] .  ($l[1] ? " onmouseover=\"this.src=\'$l[1]\'\" onmouseout=\"this.src=\'$l[0]\'\"" : "") . \' />\'))';
+	$align = preg_replace(",\W,", "", $align);
 
-	if (!$lien) {
-		return $code;
-	}
-
-	return ('(strlen($logo=' . $code . ')?\'<a href="\' .' . $lien . ' . \'">\' . $logo . \'</a>\':\'\')');
-
+	return "quete_html_logo($code, '$align', " .($_lien ? $_lien : "''") .")";
 }
