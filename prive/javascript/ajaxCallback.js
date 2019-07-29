@@ -1023,6 +1023,20 @@ function parametre_url(url,c,v,sep,force_vide){
 	return a + ancre;
 }
 
+function spip_logo_survol_hover() {
+	var me = jQuery(this);
+	if (me.attr('data-src-hover')) {
+		me.attr('data-src-original', me.attr('src'));
+		me.attr('src', me.attr('data-src-hover'));
+	}
+}
+
+function spip_logo_survol_out() {
+	var me = jQuery(this);
+	if (me.attr('data-src-original')) {
+		me.attr('src', me.attr('data-src-original'));
+	}
+}
 
 
 // Ajaxer les formulaires qui le demandent, au demarrage
@@ -1033,6 +1047,7 @@ jQuery(function() {
 	.formulaire_dyn_ajax();
 	jQuery('div.ajaxbloc').ajaxbloc();
 	jQuery("input[placeholder]:text").placeholderLabel();
+	jQuery('.spip_logo_survol').hover(spip_logo_survol_hover, spip_logo_survol_out);
 });
 
 // ... et a chaque fois que le DOM change
@@ -1047,6 +1062,7 @@ onAjaxLoad(function() {
 		else
 			jQuery('div.ajaxbloc', this).ajaxbloc();
 		jQuery("input[placeholder]:text",this).placeholderLabel();
+		jQuery('.spip_logo_survol',this).hover(spip_logo_survol_hover, spip_logo_survol_out);
 	}
 });
 
