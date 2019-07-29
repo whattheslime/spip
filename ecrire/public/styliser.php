@@ -47,6 +47,12 @@ function public_styliser_dist($fond, $contexte, $lang = '', $connect = '') {
 		$fond = "404";
 	}
 
+	if (strncmp($fond, 'modeles/', 8) == 0) {
+		$modele = substr($fond, 8);
+		$modele = styliser_modele($modele, null, $contexte);
+		$fond = "modeles/$modele";
+	}
+
 	// Choisir entre $fond-dist.html, $fond=7.html, etc?
 	$id_rubrique = 0;
 	// Chercher le fond qui va servir de squelette

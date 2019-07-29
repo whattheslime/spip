@@ -487,6 +487,54 @@ function creer_contexte_de_modele($args) {
 }
 
 /**
+ * Router eventuellement un modele vers un autre
+ *   * le modele doit etre declare dans la liste 'modeles' d'une table objet
+ *   * il faut avoir un routeur de modele declare pour le meme objet
+ * @param string $modele
+ * @param int $id
+ * @param null|array $contexte
+ *   contexte eventuel : attention sa presence n'est pas garantie
+ *   et il ne doit etre utilise que pour trouver le id_xx si pas de $id fourni (cas appel depuis styliser)
+ * @return string
+ */
+function styliser_modele($modele, $id, $contexte=null) {
+	static $styliseurs = null;
+	if (is_null($styliseurs)) {
+		$tables_objet = lister_tables_objets_sql();
+		foreach ($tables_objet as $table => $desc) {
+			if (isset($desc['modeles']) and $desc['modeles']
+				and isset($desc['modeles_styliser']) and $desc['modeles_styliser']
+				and function_exists($desc['modeles_styliser'])) {
+				$primary = id_table_objet($table);
+				foreach ($desc['modeles'] as $m) {
+					$styliseurs[$m] = ['primary' => $primary, 'callback' => $desc['modeles_styliser']];
+				}
+			}
+		}
+	}
+
+	if (isset($styliseurs[$modele])) {
+		$styliseur = $styliseurs[$modele]['callback'];
+		if (is_null($id) and $contexte) {
+			if (isset($contexte['id'])) {
+				$id = $contexte['id'];
+			} elseif (isset($contexte[$primary])) {
+				$id = $contexte[$primary];
+			}
+		}
+		if (is_null($id)) {
+			$msg = "modeles/$modele : " . _T('zbug_parametres_inclus_incorrects', array('param' => "id/$primary"));
+			erreur_squelette($msg);
+			// on passe id=0 au routeur pour tomber sur le modele par defaut et eviter une seconde erreur sur un modele inexistant
+			$id = 0;
+		}
+		$modele = $styliseur($modele, $id);
+	}
+
+	return $modele;
+}
+
+/**
  * Calcule le modele et retourne la mini-page ainsi calculee
  *
  * http://code.spip.net/@inclure_modele
@@ -508,6 +556,7 @@ function inclure_modele($type, $id, $params, $lien, $connect = '', $env = array(
 	} # ne pas boucler indefiniment
 
 	$type = strtolower($type);
+	$type = styliser_modele($type, $id);
 
 	$fond = $class = '';
 
