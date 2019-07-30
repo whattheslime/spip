@@ -170,7 +170,7 @@ function logo_migrer_en_base($objet, $time_limit) {
 			$logo = substr($file, strlen($dir . $nom_base));
 			$logo = explode('.', $logo);
 			if (is_numeric($logo[0])
-			  and $id_objet = intval($logo[0])) {
+			  and ($id_objet = intval($logo[0]) or $objet==='site')) {
 				if (!isset($deja[$id_objet])) {
 					$logo = $chercher_logo($id_objet, $_id_objet, $mode);
 					// if no logo in base
