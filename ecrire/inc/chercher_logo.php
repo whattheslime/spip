@@ -45,7 +45,7 @@ function inc_chercher_logo_dist($id, $_id_objet, $mode = 'on', $compat_old_logos
 		$doc = sql_fetsel('D.*', 'spip_documents AS D JOIN spip_documents_liens AS L ON L.id_document=D.id_document', "D.mode=".sql_quote($mode_document)." AND L.objet=".sql_quote($objet)." AND id_objet=".intval($id));
 		if ($doc) {
 			$d = get_spip_doc($doc['fichier']);
-			return array($d, _DIR_IMG, basename($d), $d['extension'], @filemtime($d), $doc);
+			return array($d, _DIR_IMG, basename($d), $doc['extension'], @filemtime($d), $doc);
 		}
 
 		# deprecated TODO remove
