@@ -738,6 +738,9 @@ function lien_optimise($objet_source, $primary, $table_lien, $id, $objets) {
 					"L.objet=" . sql_quote($type) . " AND O.$id_table_objet IS NULL");
 				// sur une cle primaire composee, pas d'autres solutions que de virer un a un
 				while ($row = sql_fetch($res)) {
+					if ($primary === 'id_document' and $type === 'site' and !intval($row['id_objet'])) {
+						continue; // gaffe, c'est le logo du site !
+					}
 					$e = sql_delete($table_lien,
 						array("$primary=" . $row['id'], "id_objet=" . $row['id_objet'], "objet=" . sql_quote($type)));
 					if ($e != false) {
