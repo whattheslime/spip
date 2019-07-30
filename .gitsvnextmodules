@@ -17,7 +17,7 @@
 [submodule "plugins-dist/bigup"]
 	path = plugins-dist/bigup
 	owner = /
-	url = https://github.com/marcimat/bigup
+	url = https://github.com/marcimat/bigup/trunk
 	branch = /
 	fetch = :refs/remotes/git-svn
 	remote = svn
