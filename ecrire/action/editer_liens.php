@@ -429,7 +429,7 @@ function lien_insert($objet_source, $primary, $table_lien, $id, $objets, $qualif
 
 			$where = lien_where($primary, $id, $objet, $id_objet, $cond);
 
-			if (($id_objet = intval($insertions['id_objet']) or $objet=='site')
+			if (($id_objet = intval($insertions['id_objet']) or in_array($objet, ['site', 'rubrique']))
 				and !sql_getfetsel($primary, $table_lien, $where)
 			) {
 
@@ -654,7 +654,7 @@ function lien_delete($objet_source, $primary, $table_lien, $id, $objets, $cond =
 				);
 				$args['id_objet'] = $id_o = $l['id_objet'];
 
-				if ($id_o = intval($l['id_objet']) or $l['objet'] == 'site') {
+				if ($id_o = intval($l['id_objet']) or in_array($l['objet'], ['site', 'rubrique'])) {
 					$where = lien_where($primary, $l[$primary], $l['objet'], $id_o, $cond);
 					$e = sql_delete($table_lien, $where);
 					if ($e !== false) {
@@ -738,8 +738,8 @@ function lien_optimise($objet_source, $primary, $table_lien, $id, $objets) {
 					"L.objet=" . sql_quote($type) . " AND O.$id_table_objet IS NULL");
 				// sur une cle primaire composee, pas d'autres solutions que de virer un a un
 				while ($row = sql_fetch($res)) {
-					if ($primary === 'id_document' and $type === 'site' and !intval($row['id_objet'])) {
-						continue; // gaffe, c'est le logo du site !
+					if ($primary === 'id_document' and in_array($type, ['site', 'rubrique']) and !intval($row['id_objet'])) {
+						continue; // gaffe, c'est le logo du site ou des rubriques!
 					}
 					$e = sql_delete($table_lien,
 						array("$primary=" . $row['id'], "id_objet=" . $row['id_objet'], "objet=" . sql_quote($type)));
