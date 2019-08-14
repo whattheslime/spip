@@ -1096,6 +1096,8 @@ function _image_creer_vignette($valeurs, $maxWidth, $maxHeight, $process = 'AUTO
 		return;
 	}
 
+	$vignette = '';
+
 	// Si l'image est de la taille demandee (ou plus petite), simplement la retourner
 	if ($srcWidth and $srcWidth <= $maxWidth and $srcHeight <= $maxHeight) {
 		$vignette = $destination . '.' . $format;
@@ -1286,7 +1288,10 @@ function _image_creer_vignette($valeurs, $maxWidth, $maxHeight, $process = 'AUTO
 		ImageDestroy($destImage);
 	}
 
-	$size = @spip_getimagesize($vignette);
+	if (!$vignette or !$size = @spip_getimagesize($vignette)) {
+		$size = array($destWidth, $destHeight);
+	}
+
 	// Gaffe: en safe mode, pas d'acces a la vignette,
 	// donc risque de balancer "width='0'", ce qui masque l'image sous MSIE
 	if ($size[0] < 1) {
