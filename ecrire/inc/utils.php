@@ -1641,14 +1641,24 @@ function find_all_in_path($dir, $pattern, $recurs = false) {
 
 /**
  * Prédicat sur les scripts de ecrire qui n'authentifient pas par cookie
+ * et beneficient d'une exception
+ *
  * @param string $nom
+ * @param bool $strict
  * @return bool
  */
-function autoriser_sans_cookie($nom) {
+function autoriser_sans_cookie($nom, $strict = false) {
 	static $autsanscookie = array('install', 'base_repair');
-	$nom = preg_replace('/.php[3]?$/', '', basename($nom));
 
-	return in_array($nom, $autsanscookie);
+	if (in_array($nom, $autsanscookie)) {
+		if (test_espace_prive()){
+			include_spip('base/connect_sql');
+			if (!$strict or !spip_connect()){
+				return true;
+			}
+		}
+	}
+	return false;
 }
 
 /**

@@ -184,14 +184,16 @@ function caracteriser_auteur($id_auteur = null) {
 function _action_auteur($action, $id_auteur, $pass, $alea) {
 	static $sha = array();
 	if (!isset($sha[$id_auteur . $pass . $alea])) {
-		if (!isset($GLOBALS['meta'][$alea]) and _request('exec') !== 'install') {
-			include_spip('inc/acces');
-			charger_aleas();
-			if (empty($GLOBALS['meta'][$alea])) {
-				include_spip('inc/minipres');
-				echo minipres();
-				spip_log("$alea indisponible");
-				exit;
+		if (!isset($GLOBALS['meta'][$alea])) {
+			if (!$exec = _request('exec') or !autoriser_sans_cookie($exec)){
+				include_spip('inc/acces');
+				charger_aleas();
+				if (empty($GLOBALS['meta'][$alea])){
+					include_spip('inc/minipres');
+					echo minipres();
+					spip_log("$alea indisponible");
+					exit;
+				}
 			}
 		}
 		include_spip('auth/sha256.inc');

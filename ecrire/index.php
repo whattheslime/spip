@@ -41,7 +41,7 @@ $reinstall = (!is_null(_request('reinstall'))) ? _request('reinstall') : ($exec 
 // Les scripts d'insallation n'authentifient pas, forcement,
 // alors il faut blinder les variables d'URL
 //
-if (autoriser_sans_cookie($exec)) {
+if (autoriser_sans_cookie($exec, false)) {
 	if (!isset($reinstall)) {
 		$reinstall = 'non';
 	}
@@ -65,20 +65,22 @@ $forcer_lang = true;
 
 
 if (_request('action') or _request('var_ajax') or _request('formulaire_action')) {
-	// Charger l'aiguilleur qui va mettre sur la bonne voie les traitements derogatoires
-	include_spip('public/aiguiller');
-	if (
-		// cas des appels actions ?action=xxx
-		traiter_appels_actions()
-		or
-		// cas des hits ajax sur les inclusions ajax
-		traiter_appels_inclusions_ajax()
-		or
-		// cas des formulaires charger/verifier/traiter
-		traiter_formulaires_dynamiques()
-	) {
-		exit;
-	} // le hit est fini !
+	if (!autoriser_sans_cookie($exec)){
+		// Charger l'aiguilleur qui va mettre sur la bonne voie les traitements derogatoires
+		include_spip('public/aiguiller');
+		if (
+			// cas des appels actions ?action=xxx
+			traiter_appels_actions()
+			or
+			// cas des hits ajax sur les inclusions ajax
+			traiter_appels_inclusions_ajax()
+			or
+			// cas des formulaires charger/verifier/traiter
+			traiter_formulaires_dynamiques()
+		){
+			exit;
+		} // le hit est fini !
+	}
 }
 // securiser les redirect du back-office
 if (_request('redirect')) {
