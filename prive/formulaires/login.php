@@ -134,8 +134,8 @@ function formulaires_login_charger_dist($cible = "", $login = "", $prive = null)
 	} elseif ($erreur) {
 		// une erreur d'un SSO indique dans la redirection vers ici
 		// mais il faut se proteger de toute tentative d'injection malveilante
-		include_spip('inc/texte');
-		$valeurs['message_erreur'] = safehtml($erreur);
+		include_spip('inc/filtres');
+		$valeurs['message_erreur'] = textebrut($erreur);
 	}
 
 	return $valeurs;
