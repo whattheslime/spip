@@ -605,7 +605,7 @@ and connect again to the site.
 	'pass_procedure_changer' => 'Щоб змінити пароль, будь ласка, ведіть e-mail, який ви вказали при реєстрації.',
 	'pass_quitter_fenetre' => 'Закрити вікно',
 	'pass_rappel_login' => 'Нагадуємо: ваш логін „@login@”.',
-	'pass_recevoir_mail' => 'Ви одержите листа, в якому будуть подальші інструкції з реєстрації на сайті.',
+	'pass_recevoir_mail' => 'Ви одержите листа, в якому будуть подальші інструкції з реєстрації на сайті.', # MODIF
 	'pass_retour_public' => 'Назад до основного сайту',
 	'pass_rien_a_faire_ici' => 'Нема чого тут робити',
 	'pass_vousinscrire' => 'Реєстрація з сайту',

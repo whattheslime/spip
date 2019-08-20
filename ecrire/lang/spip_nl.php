@@ -606,7 +606,7 @@ opnieuw verbinding maken met de site
 	'pass_procedure_changer' => 'Om je wachtwoord te wijzigen, moeten we eerst je identiteit controleren. Geef hiervoor het e-mailadres dat is gekoppeld aan je account.',
 	'pass_quitter_fenetre' => 'Venster sluiten',
 	'pass_rappel_login' => 'Herinnering: je aanmeldingsnaam (login) is "@login@".',
-	'pass_recevoir_mail' => 'Je zal een e-mail ontvangen waarin uitgelegd staat hoe je opnieuw toegang krijgt tot de site.',
+	'pass_recevoir_mail' => 'Je zal een e-mail ontvangen waarin uitgelegd staat hoe je opnieuw toegang krijgt tot de site.', # MODIF
 	'pass_retour_public' => 'Terug naar de publiek site',
 	'pass_rien_a_faire_ici' => 'Niets te zoeken hier.',
 	'pass_vousinscrire' => 'Je inschrijven op de site',

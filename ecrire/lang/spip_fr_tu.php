@@ -607,7 +607,7 @@ et te reconnecter au site.
 	'pass_procedure_changer' => 'Pour changer ton mot de passe, merci d’indiquer l’adresse email associée à ton compte.',
 	'pass_quitter_fenetre' => 'Quitter cette fenêtre',
 	'pass_rappel_login' => 'Rappel : ton identifiant (login) est « @login@ ».',
-	'pass_recevoir_mail' => 'Tu vas recevoir un email t’indiquant comment retrouver ton accès au site.',
+	'pass_recevoir_mail' => 'Tu vas recevoir un email t’indiquant comment retrouver ton accès au site.', # MODIF
 	'pass_retour_public' => 'Retour sur le site public',
 	'pass_rien_a_faire_ici' => 'Rien à faire ici.',
 	'pass_vousinscrire' => 'T’inscrire sur ce site',

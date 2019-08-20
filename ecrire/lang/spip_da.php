@@ -504,7 +504,7 @@ og igen få adgang til webstedet.', # MODIF
 	'pass_oubli_mot' => 'Glemt adgangskode',
 	'pass_quitter_fenetre' => 'Luk vinduet',
 	'pass_rappel_login' => 'Påmindelse: din brugeridentifikation (login) er "@login@".',
-	'pass_recevoir_mail' => 'Du vil modtage en e-mail, der forklarer hvordan du kan få adgang til webstedet.',
+	'pass_recevoir_mail' => 'Du vil modtage en e-mail, der forklarer hvordan du kan få adgang til webstedet.', # MODIF
 	'pass_retour_public' => 'Tilbage til det offentlige websted',
 	'pass_rien_a_faire_ici' => 'Intet at gøre her.',
 	'pass_vousinscrire' => 'Tilmelding til webstedet',

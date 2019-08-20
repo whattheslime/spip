@@ -607,7 +607,7 @@ a znova sa prihlásiť na stránku.
 	'pass_procedure_changer' => 'Ďakujeme, že pri zmene hesla zadáte e-mailovú adresu priradenú k svojmu účtu.',
 	'pass_quitter_fenetre' => 'Zatvoriť toto okno',
 	'pass_rappel_login' => 'Na pripomenutie: váš identifikátor (prihlasovacie meno) je "@login@".',
-	'pass_recevoir_mail' => 'Dostanete e-mail, ktorý vám vysvetlí, ako znova získať prístup na stránku.',
+	'pass_recevoir_mail' => 'Dostanete e-mail, ktorý vám vysvetlí, ako znova získať prístup na stránku.', # MODIF
 	'pass_retour_public' => 'Späť na verejne prístupnú stránku',
 	'pass_rien_a_faire_ici' => 'Niet tu čo robiť.',
 	'pass_vousinscrire' => 'Registrácia na stránke',

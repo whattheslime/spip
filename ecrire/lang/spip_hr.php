@@ -595,7 +595,7 @@ ponovo dobiti pristup web stranicama.
 	'pass_procedure_changer' => 'Kako bismo promjenili vašu lozinku, moramo prvo provjeriti vaš identitet. Stoga nam morate navesti mail adresu pridruženu vašem korisničkom računu.', # MODIF
 	'pass_quitter_fenetre' => 'napustiti ovaj prozor',
 	'pass_rappel_login' => 'podsjetnik: Vaše korisničko ime za prijavu (login) je "@login@".',
-	'pass_recevoir_mail' => 'Primit ćete mail sa uputama za povrat pristupa web stranicama.',
+	'pass_recevoir_mail' => 'Primit ćete mail sa uputama za povrat pristupa web stranicama.', # MODIF
 	'pass_retour_public' => 'natrag u javno područje weba',
 	'pass_rien_a_faire_ici' => 'ovdje se nema što raditi.',
 	'pass_vousinscrire' => 'registrirati se na web stranicama',

@@ -598,7 +598,7 @@ volver a conectarte al sitio.
 	'pass_procedure_changer' => 'Para cambiar su contraseña, indique por favor el correo electrónico asociado a su cuenta.',
 	'pass_quitter_fenetre' => 'Abandonar esta ventana',
 	'pass_rappel_login' => 'Recuerda: tu identificador (login) es «@login@».',
-	'pass_recevoir_mail' => 'Recibirás un mensaje de correo electrónico indicando como recuperar tu acceso al sitio.',
+	'pass_recevoir_mail' => 'Recibirás un mensaje de correo electrónico indicando como recuperar tu acceso al sitio.', # MODIF
 	'pass_retour_public' => 'Volver al sitio público',
 	'pass_rien_a_faire_ici' => 'Nada que hacer aquí.',
 	'pass_vousinscrire' => 'Inscribirse en este sitio',

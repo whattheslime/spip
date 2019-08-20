@@ -593,7 +593,7 @@ Poderá então introduzir uma nova palavra-passe e reconectar-se ao sítio.
 	'pass_procedure_changer' => 'Para alterar a sua palavra-passe, temos primeiro de verificar a sua identidade. Por favor escreva o endereço e-mail associado a esta conta.', # MODIF
 	'pass_quitter_fenetre' => 'Fechar esta janela',
 	'pass_rappel_login' => 'Recorde : o seu identificador (login) é « @login@ ».',
-	'pass_recevoir_mail' => 'Vai receber um email que indica como recuperar o seu acesso ao sítio.',
+	'pass_recevoir_mail' => 'Vai receber um email que indica como recuperar o seu acesso ao sítio.', # MODIF
 	'pass_retour_public' => 'Regresso ao sítio público',
 	'pass_rien_a_faire_ici' => 'Nada a fazer aqui.',
 	'pass_vousinscrire' => 'Inscrever-se neste sítio',

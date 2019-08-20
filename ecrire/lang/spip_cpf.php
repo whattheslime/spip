@@ -533,7 +533,7 @@ Aprésa, ou i poura mèt in nouvo modpas
 	'pass_oubli_mot' => 'Modpas oublyé',
 	'pass_quitter_fenetre' => 'Défalk finèt-la',
 	'pass_rappel_login' => 'Rapèl aou : out lidantifyan (nondkod) lé « @login@ ».',
-	'pass_recevoir_mail' => 'Ou sava giny inn limèl sak i indik aou kouk sa i pé artrouv out laksé sir lo sit.',
+	'pass_recevoir_mail' => 'Ou sava giny inn limèl sak i indik aou kouk sa i pé artrouv out laksé sir lo sit.', # MODIF
 	'pass_retour_public' => 'Artourn sir figirwèb',
 	'pass_rien_a_faire_ici' => 'Nana ryinn a fèr isi.',
 	'pass_vousinscrire' => 'Inskri aou sir lo sit',

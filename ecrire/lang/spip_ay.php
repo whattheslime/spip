@@ -515,7 +515,7 @@ Sitix uka arunak ajlltax.Walja sapa mayanaka jach’a qamawita (urunaka, phuqañ
 	'pass_oubli_mot' => 'Imt’aw armata',
 	'pass_quitter_fenetre' => 'Aka wintan jaytanukuña',
 	'pass_rappel_login' => 'Amtam: apnaqirit sutimax (login) «@login@».',
-	'pass_recevoir_mail' => 'Aruskipayirit mä yatiyaw qatuqata kunjams mantwj qamawir kutiqayata.',
+	'pass_recevoir_mail' => 'Aruskipayirit mä yatiyaw qatuqata kunjams mantwj qamawir kutiqayata.', # MODIF
 	'pass_retour_public' => 'Jach’a qamaw utar kuttaña',
 	'pass_rien_a_faire_ici' => 'Akjan janiw kuna lurañas utjkiti.',
 	'pass_vousinscrire' => 'Aka qamawin qillqayasiña',

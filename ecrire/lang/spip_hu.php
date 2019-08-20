@@ -528,7 +528,7 @@ Akkor újabb jelszót tud beírni
 	'pass_oubli_mot' => 'Jelszó elvesztése',
 	'pass_quitter_fenetre' => 'Kilépni az ablakból',
 	'pass_rappel_login' => 'Emlékeztető : az Ön azonosítója (login) « @login@ ».',
-	'pass_recevoir_mail' => 'Hamarosan olyan emailt fog kapni, ami mutatja hogyan lehet visszaszerezni a hozzáférést a honlapra.',
+	'pass_recevoir_mail' => 'Hamarosan olyan emailt fog kapni, ami mutatja hogyan lehet visszaszerezni a hozzáférést a honlapra.', # MODIF
 	'pass_retour_public' => 'Vissza a nyilvános honlapra',
 	'pass_rien_a_faire_ici' => 'Nincs keresnivalója itt.',
 	'pass_vousinscrire' => 'Beíratkozás ezen a honlapon',

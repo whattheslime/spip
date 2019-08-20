@@ -525,7 +525,7 @@ ak tounyen déyé konekte sou sit-la.
 	'pass_oubli_mot' => 'Modpas ki oublye ',
 	'pass_quitter_fenetre' => 'Lage finèt-la',
 	'pass_rappel_login' => 'Raple : lidantifyan ou-a (nondkod) se « @login@ ».',
-	'pass_recevoir_mail' => 'W ke genyen yon limèl ki di w kouman w kapab rekipè laksé ou sou sit sa-a.',
+	'pass_recevoir_mail' => 'W ke genyen yon limèl ki di w kouman w kapab rekipè laksé ou sou sit sa-a.', # MODIF
 	'pass_retour_public' => 'Tounyen déyè sou sit piblik',
 	'pass_rien_a_faire_ici' => 'Genyen pa ryen pou fè isit.',
 	'pass_vousinscrire' => 'Enskri w sou sit sa-a',

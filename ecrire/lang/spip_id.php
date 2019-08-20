@@ -530,7 +530,7 @@ dan mengakses situs kembali.
 	'pass_oubli_mot' => 'Lupa kata sandi',
 	'pass_quitter_fenetre' => 'Keluar dari layar ini',
 	'pass_rappel_login' => 'Pengingat: pengidentifikasi (log masuk) anda adalah "@login@".',
-	'pass_recevoir_mail' => 'Anda akan menerima sebuah e-mail yang menjelaskan bagaimana anda mendapatkan akses anda ke situs.',
+	'pass_recevoir_mail' => 'Anda akan menerima sebuah e-mail yang menjelaskan bagaimana anda mendapatkan akses anda ke situs.', # MODIF
 	'pass_retour_public' => 'Kembali ke situs umum',
 	'pass_rien_a_faire_ici' => 'Tidak ada yang dapat dilakukan di sini.',
 	'pass_vousinscrire' => 'Mendaftar dengan situs',

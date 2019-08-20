@@ -603,7 +603,7 @@ e vi recounetà au sit.
 	'pass_procedure_changer' => 'Per changà lou vouòstre mot de passa, endicàs l’adressa email assouciada au vouòstre conte.',
 	'pass_quitter_fenetre' => 'Quità aquesta fenèstra ',
 	'pass_rappel_login' => 'Renembrança: lo voastre identificant (login) es « @login@ ».',
-	'pass_recevoir_mail' => 'Receverès un e-mail que v’espliquerà couma retroubà lou vouòstre achès au sit.',
+	'pass_recevoir_mail' => 'Receverès un e-mail que v’espliquerà couma retroubà lou vouòstre achès au sit.', # MODIF
 	'pass_retour_public' => 'Retour soubre lou sit pùblicou',
 	'pass_rien_a_faire_ici' => 'Ren à faire aquì.',
 	'pass_vousinscrire' => 'V’inscriéure soubre estou sit',

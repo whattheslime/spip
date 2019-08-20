@@ -526,7 +526,7 @@ a znovu se ke stránkám připojíte.
 	'pass_oubli_mot' => 'Zapomenuté heslo',
 	'pass_quitter_fenetre' => 'Odejít z tohoto okna',
 	'pass_rappel_login' => 'Připomenutí: Vaše uživatelské jméno (login) je "@login@".',
-	'pass_recevoir_mail' => 'Obdržíte e-mail s vysvětlením, jak znovu získat přístup k těmto stránkám.',
+	'pass_recevoir_mail' => 'Obdržíte e-mail s vysvětlením, jak znovu získat přístup k těmto stránkám.', # MODIF
 	'pass_retour_public' => 'Zpět na veřejně přístupné stránky',
 	'pass_rien_a_faire_ici' => 'Tady není co dělat :-).',
 	'pass_vousinscrire' => 'Registrace přístupu na stránky',

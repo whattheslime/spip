@@ -473,7 +473,7 @@ Nú mi ná ɖó mɔ nɔtɛn gblogblojí  é lɔ tɔn  mi yì
 	'pass_oubli_mot' => 'mi yɔn càvì ɔ',
 	'pass_quitter_fenetre' => 'jó flècè é lɔ ɖó',
 	'pass_rappel_login' => 'nyíkɔ mi tɔn  « @login@ ».',
-	'pass_recevoir_mail' => 'mi ná sɛ wɛn ɖê ná ɖɔ ɖé mi ná byɔ gblogblojí gbɔn é .',
+	'pass_recevoir_mail' => 'mi ná sɛ wɛn ɖê ná ɖɔ ɖé mi ná byɔ gblogblojí gbɔn é .', # MODIF
 	'pass_retour_public' => 'gblogblojí',
 	'pass_rien_a_faire_ici' => 'ŋ ɖé ɖò fí á.',
 	'pass_vousinscrire' => 'nyíkɔ mi tɔn',

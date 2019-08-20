@@ -519,7 +519,7 @@ Bạn cho vào mật mã mới để vào lại trang web.', # MODIF
 	'pass_oubli_mot' => 'Quên mật mã',
 	'pass_quitter_fenetre' => 'Rời bỏ khung đó',
 	'pass_rappel_login' => 'Lưu ý: login của bạn là "@login@".',
-	'pass_recevoir_mail' => 'Bạn sẽ nhận qua email chi tiết chỉ dẫn cách thu hồi phép ra/vô trang web.',
+	'pass_recevoir_mail' => 'Bạn sẽ nhận qua email chi tiết chỉ dẫn cách thu hồi phép ra/vô trang web.', # MODIF
 	'pass_retour_public' => 'Trở lại trang web',
 	'pass_rien_a_faire_ici' => 'Không có gì ở đây.',
 	'pass_vousinscrire' => 'Ghi danh với website',

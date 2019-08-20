@@ -583,7 +583,7 @@ Veţi putea după aceea alege o nouă parolă şi veţi putea să vă reconecta�
 	'pass_oubli_mot' => 'Parolă uitată',
 	'pass_quitter_fenetre' => 'Părăsiţi această fereastră',
 	'pass_rappel_login' => 'Atenţie : identificatorul dumneavoastră (login) este « @login@ ».',
-	'pass_recevoir_mail' => 'Veţi primi în curând un email care vă va indica cum puteţi să recuperaţi accesul la site.',
+	'pass_recevoir_mail' => 'Veţi primi în curând un email care vă va indica cum puteţi să recuperaţi accesul la site.', # MODIF
 	'pass_retour_public' => 'Întoarceţi-vă la site-ul public',
 	'pass_rien_a_faire_ici' => 'Nimic de făcut aici.',
 	'pass_vousinscrire' => 'Înscrieţi-vă pe acest site',

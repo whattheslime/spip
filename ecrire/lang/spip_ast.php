@@ -570,7 +570,7 @@ pa volver a coneutate al sitiu.
 	'pass_oubli_mot' => 'Contraseña escaecida',
 	'pass_quitter_fenetre' => 'Zarrar esta ventana',
 	'pass_rappel_login' => 'Recuerda: la to identidá (login) ye « @login@ ».',
-	'pass_recevoir_mail' => 'Vas recibir un email que te indica cómo volver a tener accesu al sitiu.',
+	'pass_recevoir_mail' => 'Vas recibir un email que te indica cómo volver a tener accesu al sitiu.', # MODIF
 	'pass_retour_public' => 'Volver pal sitiu públicu',
 	'pass_rien_a_faire_ici' => 'Nun hai qué facer equí.',
 	'pass_vousinscrire' => 'Apuntate a esti sitiu',

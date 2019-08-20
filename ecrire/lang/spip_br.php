@@ -602,7 +602,7 @@ kevreañ en-dro ouzh al lec’hienn.
 	'pass_procedure_changer' => 'Evit kemmañ ho ker-tremen e rankomp gwiriekaat piv oc’h. Evit en ober diskouezit deomp ar postel liammet gant ho kont.',
 	'pass_quitter_fenetre' => 'Kuitaat ar prenestr-mañ',
 	'pass_rappel_login' => 'Dalc’hit soñj : « @login@ » eo ho anv-tremen (login).',
-	'pass_recevoir_mail' => 'Ur postel a vo kaset deoc’h, ennañ an titouroù ret da c’hallout tizhout al lec’hienn en-dro.',
+	'pass_recevoir_mail' => 'Ur postel a vo kaset deoc’h, ennañ an titouroù ret da c’hallout tizhout al lec’hienn en-dro.', # MODIF
 	'pass_retour_public' => 'Distreiñ d’al lodenn foran',
 	'pass_rien_a_faire_ici' => 'Netra d’ober amañ.',
 	'pass_vousinscrire' => 'En em enskrivañ war al lec’hienn-mañ',

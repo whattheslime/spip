@@ -486,7 +486,7 @@ Tamo mozete unijeti novu lozinku i ponovo se prijaviti na stranicu.
 	'pass_oubli_mot' => 'Zaboravljena lozinka',
 	'pass_quitter_fenetre' => 'Napusti ovaj prozor',
 	'pass_rappel_login' => 'Podsjetnik: vas identifikator (login) je « @login@ ».',
-	'pass_recevoir_mail' => 'Primicete e-mai sa uputstvom za pronalazenje vaseg pristupa.',
+	'pass_recevoir_mail' => 'Primicete e-mai sa uputstvom za pronalazenje vaseg pristupa.', # MODIF
 	'pass_retour_public' => 'Nazad na javnu stranicu',
 	'pass_rien_a_faire_ici' => 'Ovdje nema nista za raditi.',
 	'pass_vousinscrire' => 'Registrujte se na srtranicu se na stranicu',

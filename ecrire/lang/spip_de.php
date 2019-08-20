@@ -594,7 +594,7 @@ Sie können auf dieser Seite ein neues Passwort eingeben und sich wieder bei der
 	'pass_procedure_changer' => 'Um Ihr Paßwort zu ändern, geben Sie bitte die Mailadresse Ihres Accounts an.',
 	'pass_quitter_fenetre' => 'Dieses Fenster verlassen',
 	'pass_rappel_login' => 'Erinnerung: Ihr Login ist «@login@».',
-	'pass_recevoir_mail' => 'Sie erhalten eine E-Mail mit allen Informationen um wieder Zugang zur Website zu erhalten.',
+	'pass_recevoir_mail' => 'Sie erhalten eine E-Mail mit allen Informationen um wieder Zugang zur Website zu erhalten.', # MODIF
 	'pass_retour_public' => 'Zurück zum öffentlichen Bereich',
 	'pass_rien_a_faire_ici' => 'Hier ist nichts zu tun.',
 	'pass_vousinscrire' => 'Bei dieser Website anmelden',

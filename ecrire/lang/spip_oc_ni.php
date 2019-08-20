@@ -538,7 +538,7 @@ e vos tornar connectar au sit.
 	'pass_oubli_mot' => 'Denembrança dau mòt de santa Clara',
 	'pass_quitter_fenetre' => 'Quitar aquesta fenèstra ',
 	'pass_rappel_login' => 'Renembrança: lo voastre identificant (login) es « @login@ ».',
-	'pass_recevoir_mail' => 'Receberetz un e-mail que vos explicarà coma tornar trobar lo voastre accès au sit.',
+	'pass_recevoir_mail' => 'Receberetz un e-mail que vos explicarà coma tornar trobar lo voastre accès au sit.', # MODIF
 	'pass_retour_public' => 'Tornar au sit public',
 	'pass_rien_a_faire_ici' => 'Ren à faire aquí.',
 	'pass_vousinscrire' => 'S’inscriure sus aquest sit',

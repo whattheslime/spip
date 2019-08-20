@@ -506,7 +506,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'pass_quitter_fenetre' => 'Затваряне на прозореца',
 	'pass_rappel_login' => 'Напомняне: Вашето потребителско име (идентификатор) е @login@.',
 	'pass_recevoir_mail' => 'Ще получите писмо с инструкции за това, как
-да подновите достъпа си до сайта.',
+да подновите достъпа си до сайта.', # MODIF
 	'pass_retour_public' => 'Обратно в публичния сайт',
 	'pass_rien_a_faire_ici' => 'Нямате работа тук.',
 	'pass_vousinscrire' => 'Регистриране на сайта',

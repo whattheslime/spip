@@ -576,7 +576,7 @@ Puderete tandu inserisce un nuvellu password
 	'pass_oubli_mot' => 'Password dimenticatu',
 	'pass_quitter_fenetre' => 'Esce da sta finestra',
 	'pass_rappel_login' => 'Attenti : u vostru còdice (login) hè « @login@ ».',
-	'pass_recevoir_mail' => 'Avete da riceve un email spieghendu vi cumu ricuarà u vostru accessu à u situ.',
+	'pass_recevoir_mail' => 'Avete da riceve un email spieghendu vi cumu ricuarà u vostru accessu à u situ.', # MODIF
 	'pass_retour_public' => 'Ritornu à u situ pùbblicu',
 	'pass_rien_a_faire_ici' => 'Nunda à fà quì.',
 	'pass_vousinscrire' => 'Iscrive vi nant’à u situ',

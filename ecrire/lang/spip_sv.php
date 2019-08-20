@@ -559,7 +559,7 @@ och koppla upp dig mot sajten igen.
 	'pass_oubli_mot' => 'Glömma bort lösenord',
 	'pass_quitter_fenetre' => 'Stäng detta fönster',
 	'pass_rappel_login' => 'Kom ihåg: ditt användarnamn (login) är "@login@".',
-	'pass_recevoir_mail' => 'Du kommer att få ett mejl som förklarar hur du kan återfå tillgång till sajten.',
+	'pass_recevoir_mail' => 'Du kommer att få ett mejl som förklarar hur du kan återfå tillgång till sajten.', # MODIF
 	'pass_retour_public' => 'Tillbaka till den publika delen',
 	'pass_rien_a_faire_ici' => 'Det finns inget att göra här.',
 	'pass_vousinscrire' => 'Registrera dig på sajten',

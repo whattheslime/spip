@@ -581,7 +581,7 @@ e reconectar co web.
 	'pass_oubli_mot' => 'Chave esquecida',
 	'pass_quitter_fenetre' => 'Pechar esta xanela',
 	'pass_rappel_login' => 'Lembra: o teu identificador (login) é « @login@ «.',
-	'pass_recevoir_mail' => 'Recibirás un correo indicándote os pasos a seguir para recuperar o teu acceso.',
+	'pass_recevoir_mail' => 'Recibirás un correo indicándote os pasos a seguir para recuperar o teu acceso.', # MODIF
 	'pass_retour_public' => 'Volver ao web público',
 	'pass_rien_a_faire_ici' => 'Non hai nada que facer aquí.',
 	'pass_vousinscrire' => 'Inscríbase neste web',

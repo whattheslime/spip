@@ -594,7 +594,7 @@ e reconectar-se com o site.
 	'pass_procedure_changer' => 'Para alterar a sua senha, por favor informe o endereço de e-mail associado à sua conta.',
 	'pass_quitter_fenetre' => 'Fechar esta janela',
 	'pass_rappel_login' => 'Lembrete: seu login é «@login@».',
-	'pass_recevoir_mail' => 'Você receberá um e-mail explicando como você pode recuperar o acesso ao site.',
+	'pass_recevoir_mail' => 'Você receberá um e-mail explicando como você pode recuperar o acesso ao site.', # MODIF
 	'pass_retour_public' => 'Voltar para o site público',
 	'pass_rien_a_faire_ici' => 'Nada a fazer aqui.',
 	'pass_vousinscrire' => 'Cadastrar-se neste site',

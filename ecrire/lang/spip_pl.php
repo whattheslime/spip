@@ -569,7 +569,7 @@ można ponownie połączyć się ze stroną.
 	'pass_oubli_mot' => 'Zapomnienie hasła',
 	'pass_quitter_fenetre' => 'Zamknij okno',
 	'pass_rappel_login' => 'Przypomnienie : twój identyfikator (login) to « @login@ ».',
-	'pass_recevoir_mail' => 'Otrzymasz e-mail wyjaśniający jak możesz odzyskać dostęp do strony.',
+	'pass_recevoir_mail' => 'Otrzymasz e-mail wyjaśniający jak możesz odzyskać dostęp do strony.', # MODIF
 	'pass_retour_public' => 'Powrót do strony publicznej',
 	'pass_rien_a_faire_ici' => 'Nie ma tu nic do zrobienia.',
 	'pass_vousinscrire' => 'Zapisaś się w tym serwisie',

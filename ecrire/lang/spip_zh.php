@@ -533,7 +533,7 @@ Zhen QIN (zhen_q@21cn.com)',
 	'pass_oubli_mot' => '忘记密码',
 	'pass_quitter_fenetre' => '退出窗口',
 	'pass_rappel_login' => '记住: 你的标识符(登录) 是 "@login@".',
-	'pass_recevoir_mail' => '你将收到电子邮件解释如何访问站点.',
+	'pass_recevoir_mail' => '你将收到电子邮件解释如何访问站点.', # MODIF
 	'pass_retour_public' => '返回公众站点',
 	'pass_rien_a_faire_ici' => '这里无事可作.',
 	'pass_vousinscrire' => '登记站点',

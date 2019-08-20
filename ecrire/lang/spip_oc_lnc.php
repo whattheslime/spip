@@ -529,7 +529,7 @@ e vos tornar connectar al sit.
 	'pass_oubli_mot' => 'Mot de santa Clara desmembrat',
 	'pass_quitter_fenetre' => 'Quitar aquesta fenèstra ',
 	'pass_rappel_login' => 'Remembrança: vòstre identificant (login) es « @login@ ».',
-	'pass_recevoir_mail' => 'Recebretz un e-mail que vos explicarà cossí tornar trobar vòstre accès al sit.',
+	'pass_recevoir_mail' => 'Recebretz un e-mail que vos explicarà cossí tornar trobar vòstre accès al sit.', # MODIF
 	'pass_retour_public' => 'Tornar al sit public',
 	'pass_rien_a_faire_ici' => 'Pas res a faire aicí.',
 	'pass_vousinscrire' => 'S’inscriure sus aqueste sit',

@@ -573,7 +573,7 @@ http://mysite.com、あるいは単純にこのサイトの記事番号を与え
 ださい。',
 	'pass_quitter_fenetre' => 'このウィンドウを閉じる',
 	'pass_rappel_login' => 'リマインダー： あなたのＩＤ (ログインＩＤ) は「@login@」です。',
-	'pass_recevoir_mail' => 'アクセスが出来るように、取り扱い説明のメールが届きます。',
+	'pass_recevoir_mail' => 'アクセスが出来るように、取り扱い説明のメールが届きます。', # MODIF
 	'pass_retour_public' => '公開サイトへ戻る',
 	'pass_rien_a_faire_ici' => '居るべきではありません。',
 	'pass_vousinscrire' => 'サイトに登録する',

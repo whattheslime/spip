@@ -588,7 +588,7 @@ Dir kënnt do e neit Passwuert aginn an Iech um Site umellen.
 	'pass_procedure_changer' => 'Mir mussen är Identitéit kontrolléieren fir äert Passwuert ze änneren. Dofir gitt ons d’Email-Adress un déi zu ärem Login gehéiert.', # MODIF
 	'pass_quitter_fenetre' => 'Dës Fënster zoumaachen',
 	'pass_rappel_login' => 'Rappel: äre Login ass "@login@".',
-	'pass_recevoir_mail' => 'Dir kritt e Message mat Instruktiounen fir den Zougang zum Site erëm ze kréien.',
+	'pass_recevoir_mail' => 'Dir kritt e Message mat Instruktiounen fir den Zougang zum Site erëm ze kréien.', # MODIF
 	'pass_retour_public' => 'Zeréck op den ëffentleche Site',
 	'pass_rien_a_faire_ici' => 'Hei ass näischt lass.',
 	'pass_vousinscrire' => 'Iech op dësem Site aschreiwen',

@@ -498,7 +498,7 @@ e vos tornar connectar au sit.
 	'pass_oubli_mot' => 'Mot de santa Clara eissubliat',
 	'pass_quitter_fenetre' => 'Quitar aquesta fenèstra ',
 	'pass_rappel_login' => 'Remembrança: vòstre identificant (login) z-es «@login@».',
-	'pass_recevoir_mail' => 'Recebretz un e-mail que vos explicará cossí tornar trobar vòstre accès au sit.',
+	'pass_recevoir_mail' => 'Recebretz un e-mail que vos explicará cossí tornar trobar vòstre accès au sit.', # MODIF
 	'pass_retour_public' => 'Tornar au sit public',
 	'pass_rien_a_faire_ici' => 'Ren a faire aicí.',
 	'pass_vousinscrire' => 'S’inscriure sus aqueste sit',
