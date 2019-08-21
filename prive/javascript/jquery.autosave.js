@@ -51,6 +51,6 @@
 				on sauvegarde toujours, et le serveur videra quand il faudra */
 				/*$(this).removeClass('autosavechanged');*/
 			});
-	}
+	};
 })(jQuery);
 
