@@ -35,7 +35,7 @@
 					});
 				}
 			}).removeClass('autosavechanged');
-		}
+		};
 		$(window).on('unload', save_changed);
 		return this
 			.on('keyup', function() {
@@ -49,7 +49,7 @@
 				save_changed();
 				/* trop agressif : exemple du submit previsu forum, ou des submit suivant/precedent d'un cvt multipage
 				on sauvegarde toujours, et le serveur videra quand il faudra */
-				/*$(this).removeClass('autosavechanged')*/;
+				/*$(this).removeClass('autosavechanged');*/
 			});
 	}
 })(jQuery);
