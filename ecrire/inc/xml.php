@@ -218,7 +218,7 @@ function spip_xml_decompose_tag($tag) {
 	while ($p !== false) {
 		$attr = trim(substr($tag, 0, $p));
 		$tag = ltrim(substr($tag, $p + 1));
-		$quote = $tag{0};
+		$quote = $tag[0];
 		$p = strpos($tag, $quote, 1);
 		$cont = substr($tag, 1, $p - 1);
 		$liste[$attr] = $cont;

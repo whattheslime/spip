@@ -211,7 +211,7 @@ function plugin_version_compatible($intervalle, $version, $avec_quoi = '') {
 		// cas du plugin qui n'est compatible qu'avec cette nouvelle version
 	}
 
-	$minimum_inc = $intervalle{0} == "[";
+	$minimum_inc = $intervalle[0] == "[";
 	$maximum_inc = substr($intervalle, -1) == "]";
 
 	if (strlen($minimum)) {
@@ -701,7 +701,7 @@ function plugin_message_incompatibilite($intervalle, $version, $nom, $balise) {
 		$minimum = $regs[1];
 		$maximum = $regs[2];
 
-		$minimum_inclus = $intervalle{0} == "[";
+		$minimum_inclus = $intervalle[0] == "[";
 		$maximum_inclus = substr($intervalle, -1) == "]";
 
 		if (strlen($minimum)) {
@@ -938,7 +938,7 @@ function plugins_precompile_chemin($plugin_valides, $ordre) {
 							$GLOBALS['spip_version_branche'], 'spip')
 					) {
 						$dir = $chemin['path'];
-						if (strlen($dir) and $dir{0} == "/") {
+						if (strlen($dir) and $dir[0] == "/") {
 							$dir = substr($dir, 1);
 						}
 						if (strlen($dir) and $dir == "./") {
