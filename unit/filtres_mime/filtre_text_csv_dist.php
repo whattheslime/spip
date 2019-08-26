@@ -32,7 +32,7 @@
 		$essais = array (
   0 => 
   array (
-    0 => '<table class="spip">
+    0 => '<table class="table spip">
 <thead><tr class=\'row_first\'><th id=\'id8549_c0\'>A</th><th id=\'id8549_c1\'>B</th><th id=\'id8549_c2\'>C</th><th id=\'id8549_c3\'>D</th><th id=\'id8549_c4\'>E</th><th id=\'id8549_c5\'>F</th></tr></thead>
 <tbody>
 <tr class=\'row_odd odd\'>
@@ -65,7 +65,7 @@ dans chaque;case;et aussi une;case;avec;des
   ),
   1 => 
   array (
-    0 => '<table class="spip">
+    0 => '<table class="table spip">
 <thead><tr class=\'row_first\'><th id=\'id5b64_c0\'>A</th><th id=\'id5b64_c1\'>B</th><th id=\'id5b64_c2\'>C</th><th id=\'id5b64_c3\'>D</th><th id=\'id5b64_c4\'>E</th><th id=\'id5b64_c5\'>F</th></tr></thead>
 <tbody>
 <tr class=\'row_odd odd\'>
@@ -98,7 +98,7 @@ guillemets;est-ce;que;ça;marche ?;',
   ),
   2 => 
   array (
-    0 => '<table class="spip">
+    0 => '<table class="table spip">
 <thead><tr class=\'row_first\'><th id=\'idcc66_c0\'>A</th><th id=\'idcc66_c1\'>B</th><th id=\'idcc66_c2\'>C</th><th id=\'idcc66_c3\'>D</th><th id=\'idcc66_c4\'>E</th><th id=\'idcc66_c5\'>F</th></tr></thead>
 <tbody>
 <tr class=\'row_odd odd\'>
