@@ -23,10 +23,10 @@ if (!defined('_ECRIRE_INC_VERSION')) {
  * Compter les articles publies lies a un auteur, dans une boucle auteurs
  * pour la vue prive/liste/auteurs.html
  *
- * @param <type> $idb
- * @param <type> $boucles
- * @param <type> $crit
- * @param <type> $left
+ * @param string $idb
+ * @param array $boucles
+ * @param Critere $crit
+ * @param bool $left
  */
 function critere_compteur_articles_filtres_dist($idb, &$boucles, $crit, $left = false) {
 	$boucle = &$boucles[$idb];
@@ -77,16 +77,16 @@ function balise_COMPTEUR_ARTICLES_dist($p) {
  * Afficher l'initiale pour la navigation par lettres
  *
  * @staticvar string $memo
- * @param <type> $url
- * @param <type> $initiale
- * @param <type> $compteur
- * @param <type> $debut
- * @param <type> $pas
- * @return <type>
+ * @param string $url
+ * @param string $initiale
+ * @param int $compteur
+ * @param int $debut
+ * @param int $pas
+ * @return string
  */
 function afficher_initiale($url, $initiale, $compteur, $debut, $pas) {
 	static $memo = null;
-	static $res = array();
+	static $res = [];
 	$out = '';
 	if (!$memo
 		or (!$initiale and !$url)
@@ -117,7 +117,8 @@ function afficher_initiale($url, $initiale, $compteur, $debut, $pas) {
 		if (count($res) > 1) {
 			$out = implode(' ', $res);
 		}
-		$memo = $res = null;
+		$memo = null;
+		$res = [];
 	}
 
 	return $out;
@@ -132,7 +133,7 @@ function afficher_initiale($url, $initiale, $compteur, $debut, $pas) {
  *
  * @staticvar string $time
  * @param int $id_auteur
- * @param date $en_ligne
+ * @param string $en_ligne Date
  * @param string $statut
  * @param string $imessage
  * @param string $email
