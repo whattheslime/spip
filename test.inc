@@ -110,7 +110,7 @@ function tester_fun($fun, $essais, $opts = array())
 			$opts['affdiff'] = $affdiff;
 			$err[] = display_error(
 			  $titre,
-				"$fun(". join($erritem_args,', ') . ")",
+				"$fun(". implode(', ', $erritem_args) . ")",
 				$res,
 				$expected ? $expected : $ess[0],
 				$opts
