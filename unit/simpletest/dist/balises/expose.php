@@ -4,9 +4,16 @@ require_once('lanceur_spip.php');
 class Test_balise_expose extends SpipTest{
 	
 	function testExposerRubrique(){
-		$id_rubrique = sql_getfetsel('id_rubrique','spip_rubriques',array('id_parent='.sql_quote(0),'statut='.sql_quote('publie')));
-		
-		if (!$id_rubrique) {
+		$id_rubrique = sql_getfetsel('id_rubrique','spip_rubriques', array(
+			'id_parent='.sql_quote(0),
+			'statut='.sql_quote('publie')
+		));
+		$id_seconde_rubrique = sql_getfetsel('id_rubrique','spip_rubriques', array(
+			'id_parent='.sql_quote(0),
+			'statut='.sql_quote('publie'),
+			'id_rubrique != ' . intval($id_rubrique),
+		));
+		if (!$id_rubrique or !$id_seconde_rubrique) {
 			$this->exceptionSiNa("NA Vous devez avoir au moins 2 rubriques racines publiees pour tester #EXPOSE...");
 		}
 		else {

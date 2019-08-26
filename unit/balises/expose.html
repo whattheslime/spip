@@ -8,11 +8,11 @@ filtre:strip_tags
 <BOUCLE_select(RUBRIQUES){0,1}>
 
 <BOUCLE_rubrique2(RUBRIQUES){id_rubrique}>
-#SET{expose,#INCLURE{fond=#DOSSIER_SQUELETTE/inclus_expose}{id_rubrique}|trim}
+#SET{expose,#INCLURE{fond=#DOSSIER_SQUELETTE/inclus_expose,id_rubrique}|trim}
 </BOUCLE_rubrique2>
 
 <BOUCLE_rubrique3(RUBRIQUES){id_rubrique!=#ID_RUBRIQUE}{0,1}>
-#SET{expose,#GET{expose}|concat{#INCLURE{fond=#DOSSIER_SQUELETTE/inclus_expose}{id_rubrique}|trim} }
+#SET{expose,#GET{expose}|concat{#INCLURE{fond=#DOSSIER_SQUELETTE/inclus_expose,id_rubrique}|trim} }
 </BOUCLE_rubrique3>
 NA Ce test exige l'existence d'au moins deux rubriques publiees
 <//B_rubrique3>
