@@ -136,7 +136,7 @@ function test_sql_datas(){
 		),
 		array(
 			"id_haddock" => 4,
-			"alcool" => "Un debut de chaine : <multi>[fr]Vinasse[en]Vinassy</multi>, et [la fin]",
+			"alcool" => "Un début de chaine : <multi>[fr]Vinasse[en]Vinassy</multi>, et [la fin]",
 		),
 	);
 			
