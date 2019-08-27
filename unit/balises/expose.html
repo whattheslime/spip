@@ -11,10 +11,10 @@ filtre:strip_tags
 #SET{expose,#INCLURE{fond=#DOSSIER_SQUELETTE/inclus_expose,id_rubrique}|trim}
 </BOUCLE_rubrique2>
 
-<BOUCLE_rubrique3(RUBRIQUES){id_rubrique!=#ID_RUBRIQUE}{0,1}>
+<BOUCLE_rubrique3(RUBRIQUES){id_rubrique!=#ID_RUBRIQUE}{id_secteur!=#ID_SECTEUR}{0,1}>
 #SET{expose,#GET{expose}|concat{#INCLURE{fond=#DOSSIER_SQUELETTE/inclus_expose,id_rubrique}|trim} }
 </BOUCLE_rubrique3>
-NA Ce test exige l'existence d'au moins deux rubriques publiees
+NA Ce test exige l'existence d'au moins deux rubriques publiees (non parentes)
 <//B_rubrique3>
 
 [(#GET{expose}|=={ONOFF}|?{OK,ERREUR:#GET{expose}})]
