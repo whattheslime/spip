@@ -61,7 +61,7 @@ class Test_balise_introduction extends SpipTest{
 		$suite = _INTRODUCTION_SUITE;
 		$code = "
 			[(#REM) une introduction normale doit finir par _INTRODUCTION_SUITE]
-			<BOUCLE_a(ARTICLES){chapo=='.{100}'}{texte>''}{descriptif=''}{0,1}>
+			<BOUCLE_a(ARTICLES){chapo=='.{100}'}{texte!=''}{descriptif=''}{0,1}>
 			[(#INTRODUCTION)]
 			</BOUCLE_a>
 			NA necessite un article avec du texte, un chapo long (plus de 100 caracteres) et pas de descriptif
