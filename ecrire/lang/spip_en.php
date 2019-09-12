@@ -607,7 +607,7 @@ and log in to the site.
 	'pass_procedure_changer' => 'In order to change your password, we have to check your identity first. Please enter the e-mail address associated with this account.',
 	'pass_quitter_fenetre' => 'Close this window',
 	'pass_rappel_login' => 'Reminder: your identifier (login) is "@login@".',
-	'pass_recevoir_mail' => 'You will receive an email explaining how you can retrieve your access to the site.', # MODIF
+	'pass_recevoir_mail' => 'A link to reset your password has been sent to your email address (if it is valid).',
 	'pass_retour_public' => 'Back to the public site',
 	'pass_rien_a_faire_ici' => 'Nothing to do here.',
 	'pass_vousinscrire' => 'Registering with the site',
