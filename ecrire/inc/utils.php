@@ -847,17 +847,16 @@ function _L($text, $args = array(), $options = array()) {
 			include_spip('inc/texte_mini');
 		}
 		foreach ($args as $name => $value) {
-			if ($options['sanitize']) {
-				$value = echapper_html_suspect($value);
-				$value = interdire_scripts($value, -1);
-			}
-			if (!empty($options['class'])) {
-				$value = "<span class='".$options['class']."'>$value</span>";
-			}
-			$t = str_replace("@$name@", $value, $text);
-			if ($text !== $t) {
+			if (strpos($text, "@$name@") !== false) {
+				if ($options['sanitize']) {
+					$value = echapper_html_suspect($value);
+					$value = interdire_scripts($value, -1);
+				}
+				if (!empty($options['class'])) {
+					$value = "<span class='".$options['class']."'>$value</span>";
+				}
+				$text = str_replace("@$name@", $value, $text);
 				unset($args[$name]);
-				$text = $t;
 			}
 		}
 		// Si des variables n'ont pas ete inserees, le signaler
