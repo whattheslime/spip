@@ -839,7 +839,7 @@ function _L($text, $args = array(), $options = array()) {
 		$options = $defaut_options;
 	}
 
-	if (is_array($args)) {
+	if (is_array($args) and count($args)) {
 		if (!function_exists('interdire_scripts')) {
 			include_spip('inc/texte');
 		}
