@@ -1,3 +1,22 @@
+SPIP-Core spip-3.1.10 -> spip-3.1.11  16 septembre 2019
+-------------------------------------------------------------
+r24290 | Cerdic |  (lun. 08 avril 2019) | Permettre de personaliser le _HEADER_VARY, ce qui peut etre necessaire pour le reverse proxy en amont du frontal
+r24315 | Cerdic |  (ven. 31 mai 2019) | Fix : la class filtre_inactif etait inactive si en premiere position de l'attribut class
+r24393 | cedric    |  (dim. 15 sept. 2019) | Rewording sur le message de succes eventuel apres envoi d'un email de reset mot de passe
+r24394 | cedric    |  (dim. 15 sept. 2019) | ne rien laisser passer dans var_erreur, c'est encore plus sur et de toute facon on attends pas de HTML ici (Boulouiz Youssouf)
+r24395 | cedric    |  (dim. 15 sept. 2019) | perf issue : eviter d'inclure plein de fichier quand on appelle _T() sans argument
+r24400 | cedric    |  (lun. 16 sept. 2019) | sanitizer les URLs de redirection au cas ou (beaucoup de conditions pour arriver la et que ce soit effectivement nocif, mais bon)
+r24401 | cedric    |  (lun. 16 sept. 2019) | centraliser les tests identiques c'est plus simple a mainteanir
+r24402 | cedric    |  (lun. 16 sept. 2019) | Mise a jour de l'ecran de securite
+r24405 | cedric    |  (lun. 16 sept. 2019) | oubli d'une accolade fermante dans r24401 (pierrox)
+
+SPIP-plugins-dist spip-3.1.10 -> spip-3.1.11  16 septembre 2019
+-------------------------------------------------------------
+r113885 | cedric    |  (mar. 12 févr. 2019) | Report de r113883 : une indirection manquante signalee dans https://core.spip.net/issues/4282 (JLuc)
+r114015 | cedric    |  (ven. 22 févr. 2019) | Report de r114013 : Envoyer des mails en from d'un inconnu c'est de l'usurpation d'identite et ca peut vous conduire au commissariat, en plus d'etre vu comme un SPAM par beaucoup de fournisseur de mail. On laisse donc le from par defaut du site, mais un mets un Reply-To a l'envoyeur et l'email de l'envoyeur suppose (mais pas verifie) en signature du message. C'est plus robuste et moins sujet a litige
+
+
+
 SPIP-Core spip-3.1.9 -> spip-3.1.10  08 avril 2019
 -------------------------------------------------------------
 
