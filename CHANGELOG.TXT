@@ -1,4 +1,43 @@
 
+SPIP-Core spip-3.2.4 -> spip-3.2.5  16 septembre 2019
+-------------------------------------------------------------
+r24283 | ben     |  (lun. 08 avril 2019) | SPIP 3.2.4
+r24289 | Cerdic  |  (lun. 08 avril 2019) | Permettre de personaliser le _HEADER_VARY, ce qui peut etre necessaire pour le reverse proxy en amont du frontal
+r24306 | Cerdic  |  (jeu. 09 mai 2019)   | Support des images SVG : |balise_img ne cherche pas a calculer une width/height dans ce cas et |balise_svg permet d'inserer le SVG inline avec ou sans alt selon les bonnes pratiques de http://www.accede-web.com/notices/html-css-javascript/6-images-icones/6-2-svg-images-vectorielles/
+r24314 | Cerdic  |  (ven. 31 mai 2019)   | Fix : la class filtre_inactif etait inactive si en premiere position de l'attribut class
+r24319 | marcimat|  (mer. 12 juin 2019)  | Report de 52d55876e : Petite notice PHP en moins parfois avec une boucle data.
+r24322 | marcimat|  (jeu. 04 juil. 2019) | Report de r24321 : Ticket #4351 : utiliser de préférence l’email pour préremplir le formulaire de login lorsque c’est possible.
+r24325 | marcimat|  (mar. 16 juil. 2019) | [report de 5749e10f0b] (Warning en PHP 7.2) Éviter une notice PHP lorsque deux plugins de même préfixes sont affichés (sans SVP).
+r24380 | Cerdic  |  (lun. 26 août 2019)  | Rewording sur le message de succes eventuel apres envoi d'un email de reset mot de passe
+r24381 | Cerdic  |  (lun. 26 août 2019)  | ne rien laisser passer dans var_erreur, c'est encore plus sur et de toute facon on attends pas de HTML ici (Boulouiz Youssouf)
+r24382 | Cerdic  |  (lun. 26 août 2019)  | Fix menu 2 col pour ne pas avoir un lien coupe en 2 par le changement de colonne
+r24392 | cedric  |  (dim. 15 sept. 2019) | perf issue : eviter d'inclure plein de fichier quand on appelle _T() sans argument
+r24397 | cedric  |  (lun. 16 sept. 2019) | sanitizer les URLs de redirection au cas ou (beaucoup de conditions pour arriver la et que ce soit effectivement nocif, mais bon)
+r24398 | cedric  |  (lun. 16 sept. 2019) | centraliser les tests identiques c'est plus simple a mainteanir
+r24399 | cedric  |  (lun. 16 sept. 2019) | Mise a jour de l'ecran de securite
+
+SPIP-plugins-dist spip-3.2.4 -> spip-3.2.5  16 septembre 2019
+-------------------------------------------------------------
+
+r113884 | cedric    |  (mar. 12 févr. 2019) | Report de r113883 : une indirection manquante signalee dans https://core.spip.net/issues/4282 (JLuc)
+r114014 | cedric    |  (ven. 22 févr. 2019) | Report de r114013 : Envoyer des mails en from d'un inconnu c'est de l'usurpation d'identite et ca peut vous conduire au commissariat, en plus d'etre vu comme un SPAM par beaucoup de fournisseur de mail. On laisse donc le from par defaut du site, mais un mets un Reply-To a l'envoyeur et l'email de l'envoyeur suppose (mais pas verifie) en signature du message. C'est plus robuste et moins sujet a litige
+r114612 | bruno     |  (ven. 22 mars 2019)  | report à l'arrache de r114572 pour sauver les stats de tonton sur plugin.spip :)
+r114613 | eric      |  (ven. 22 mars 2019)  | Il manquait la mise à jour de la fonction svp_compter qui était dans un commit précédent à celui qui a été mergé.
+r114666 | bruno     |  (jeu. 28 mars 2019)  | version 2.1.8 : report de r114665ne pas afficher le lien "Modifier" au survol si pas autorisé fix #4307
+r114855 | marcimat  |  (lun. 08 avril 2019) | Report de r112276 : Fix #4205 : À l’installation, il n’y a pas encore de fichier de sauvegarde des actions SVP. Du coup, il pouvait y avoir un petit bug en tentant de les lire.(Francky).
+r114856 | marcimat  |  (lun. 08 avril 2019) | Report de r112275 : Ticket #4205 : Compatibilité PHP 7.3. La librairie PCRE passe en v2, et est moins tolérante.Le caractère -, indiqué dans un bloc de caractères `[ - ]`, pour ne pas être pris pour une déclaration d’intervalle (comme `[a-z]`), doit être soit échappé avec \ soit être en tête ou en fin de la structure.(Francky)
+r114857 | marcimat  |  (lun. 08 avril 2019) | Petite version suite aux reports r114855 et r114856
+r115009 | rasta     |  (mer. 17 avril 2019) | Report dans la dernière stable de [115008] : Cela fait plus de 8 ans que SPIP dit au gens de se connecter avec leur email dans la notif d'inscription. Et là dans le formulaire de changement de mot de passe, on continuait de leur afficher leur login, dont ils n'avaient jamais entendu parler… On corrige ça, en leur rappelant en priorité l'email s'il existe, et seulement sinon le login.
+r115011 | rasta     |  (mer. 17 avril 2019) | Backport [115010] : Correction de la correction : dire aux gens d'utiliser leur login aussi si leur email est déjà utilisé par quelqu'un d'autre, que ce soit dans un champ email ou login (Cédric).
+r115017 | rasta     |  (jeu. 18 avril 2019) | Backport de [115016] : Stupéfaction : dans le where de notre API SQL, lorsque c'est un tableau, ça joint les critères avec un AND mais SANS les sécuriser avec des parenthèses svn st! Du coup si dans un élément on a des OR ça pète tout. Faut mettre les parenthèses soi-même.
+r115053 | real3t    |  (ven. 26 avril 2019) | Report en 3.2 de r113960 (fixes #4160) : Application du patch proposé ici : ​https://core.spip.net/issues/4160#change-14773 : Les rangs (numéros de titre) des mots clefs ne sont pas affichés dans les listes déroulantes permettant de les affecter à des articles, rubriques... et autres objets.Retour de la fonctionnalité présente en SPIP 2.1 et perdue en 3.0
+r115213 | jluc      |  (ven. 03 mai 2019)   | report de 115189 pour SPIP 3.2 (#4325 détection sqlite)
+r115621 | rasta     |  (mer. 12 juin 2019)  | roh il manquait un morceau dans le backport en 3.2
+r115800 | bruno     |  (jeu. 27 juin 2019)  | report de r115799
+r116219 | eric      |  (dim. 04 août 2019)  | Report de 116217.Ajout de l'id du commit GIT pour le flux atom Github
+r116220 | eric      |  (dim. 04 août 2019)  | Oups oubli de up de z
+r117846 | cedric    |  (sam. 14 sept. 2019) | Update CSSTidy v1.6.5 (compat PHP 7.3)
+
 SPIP-Core spip-3.2.3 -> spip-3.2.4  08 avril 2019
 -------------------------------------------------------------
 
