@@ -5,7 +5,7 @@
  * ------------------
  */
 
-define('_ECRAN_SECURITE', '1.3.11'); // 2019-04-08
+define('_ECRAN_SECURITE', '1.3.12'); // 2019-09-16
 
 /*
  * Documentation : http://www.spip.net/fr_article4200.html
@@ -475,6 +475,13 @@ and $_REQUEST['reinstall'] == 'oui')
 	$ecran_securite_raison = 'reinstall=oui';
 
 /*
+ * Pas d'action pendant l'install
+ */
+if (isset($_REQUEST['exec']) and $_REQUEST['exec'] === 'install' and isset($_REQUEST['action'])) {
+	$ecran_securite_raison = 'install&action impossibles';
+}
+
+/*
  * Échappement xss referer
  */
 if (isset($_SERVER['HTTP_REFERER']))
@@ -486,6 +493,15 @@ if (isset($_SERVER['HTTP_REFERER']))
  */
 if (isset($_SERVER['HTTP_X_FORWARDED_HOST']))
 	$_SERVER['HTTP_X_FORWARDED_HOST'] = strtr($_SERVER['HTTP_X_FORWARDED_HOST'], "<>?\"\{\}\$'` \r\n", '____________');
+
+
+/*
+ * Pas d'erreur dans l'erreur
+ */
+if (isset($_REQUEST['var_erreur']) and isset($_REQUEST['page']) and $_REQUEST['page'] === 'login') {
+	if (strlen($_REQUEST['var_erreur']) !== strcspn($_REQUEST['var_erreur'], '<>'))
+		$ecran_securite_raison = 'var_erreur incorrecte';
+}
 
 
 /*
