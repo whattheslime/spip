@@ -298,13 +298,6 @@ class IterateurDATA implements Iterator {
 			$this->tableau = $cache['data'];
 		} else {
 			try {
-				# dommage que ca ne soit pas une option de yql_to_array...
-				if ($this->command['sourcemode'] == 'yql') {
-					if (!isset($ttl)) {
-						$ttl = 3600;
-					}
-				}
-
 				if (isset($this->command['sourcemode'])
 					and in_array($this->command['sourcemode'],
 						array('table', 'array', 'tableau'))
@@ -630,28 +623,6 @@ function inc_object_to_array($object) {
 	}
 
 	return array_map('inc_object_to_array', $object);
-}
-
-/**
- * yql -> tableau
- *
- * @throws Exception
- * @param  string $u
- * @return array|bool
- */
-function inc_yql_to_array_dist($u) {
-	define('_YQL_ENDPOINT', 'https://query.yahooapis.com/v1/public/yql?&env=store%3A%2F%2Fdatatables.org%2Falltableswithkeys&q=');
-	$v = recuperer_url($url = _YQL_ENDPOINT . urlencode($u) . '&format=json');
-	if (!$v['page']
-		or !$w = json_decode($v['page'], true)
-	) {
-		throw new Exception('YQL: r&#233;ponse vide ou mal form&#233;e');
-	}
-	if (isset($w['error'])) {
-		throw new Exception($w['error']['description']);
-	}
-
-	return inc_object_to_array($w);
 }
 
 /**
