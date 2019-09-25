@@ -130,7 +130,9 @@ function logo_modifier($objet, $id_objet, $etat, $source) {
 
 	$source['mode'] = $mode_document;
 	$ajouter_documents = charger_fonction('ajouter_documents', 'action');
+	autoriser_exception('associerdocuments', $objet, $id_objet);
 	$ajoutes = $ajouter_documents('new', [$source], $objet, $id_objet, $mode_document);
+	autoriser_exception('associerdocuments', $objet, $id_objet, false);
 
 	$id_document = reset($ajoutes);
 
