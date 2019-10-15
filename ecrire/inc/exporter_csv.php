@@ -52,12 +52,11 @@ function exporter_csv_champ($champ) {
  *     Si défini exporte dans le charset indiqué
  * @return string
  */
-function exporter_csv_ligne($ligne, $delim = ', ', $importer_charset = null) {
+function exporter_csv_ligne($ligne, $delim = ',', $importer_charset = null) {
 	$output = join($delim, array_map('exporter_csv_champ', $ligne)) . "\r\n";
 	if ($importer_charset) {
 		$output = unicode2charset(html2unicode(charset2unicode($output)), $importer_charset);
 	}
-
 	return $output;
 }
 
@@ -104,6 +103,7 @@ function inc_exporter_csv_dist($titre, $resource, $delim = ', ', $entetes = null
 	}
 	$filename = "$filename.$extension";
 
+	$output = '';
 	if ($entetes and is_array($entetes) and count($entetes)) {
 		$output = exporter_csv_ligne($entetes, $delim, $importer_charset);
 	}
@@ -124,7 +124,7 @@ function inc_exporter_csv_dist($titre, $resource, $delim = ', ', $entetes = null
 		header("Content-Type: text/comma-separated-values; charset=$charset");
 		header("Content-Disposition: attachment; filename=$filename");
 		//non supporte
-		//Header("Content-Type: text/plain; charset=$charset");
+		//header("Content-Type: text/plain; charset=$charset");
 		header("Content-Length: $length");
 		ob_clean();
 		flush();
