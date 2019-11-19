@@ -3296,20 +3296,31 @@ function charge_scripts($files, $script = true) {
  *   chemin_image : utiliser chemin_image sur $img fourni, ou non (oui par dafaut)
  *   utiliser_suffixe_size : utiliser ou non le suffixe de taille dans le nom de fichier de l'image
  *   sous forme -xx.png (pour les icones essentiellement) (oui par defaut)
+ *   variante_svg_si_possible: utiliser l'image -xx.svg au lieu de -32.png par exemple (si la variante svg est disponible)
  * @return string
  */
 function http_img_pack($img, $alt, $atts = '', $title = '', $options = array()) {
+	$img_file = $img;
 	if (!isset($options['chemin_image']) or $options['chemin_image'] == true) {
-		$img = chemin_image($img);
+		$img_file = chemin_image($img);
+	}
+	else {
+		if (!isset($options['variante_svg_si_possible']) or $options['variante_svg_si_possible'] == true){
+			if (preg_match(',-\d+[.](png|gif|svg)$,', $img_file, $m)
+				and $variante_svg_generique = substr($img_file, 0, -strlen($m[0])) . "-xx.svg"
+				and file_exists($variante_svg_generique)){
+				$img_file = $variante_svg_generique;
+			}
+		}
 	}
 	if (stripos($atts, 'width') === false) {
 		// utiliser directement l'info de taille presente dans le nom
 		if ((!isset($options['utiliser_suffixe_size']) or $options['utiliser_suffixe_size'] == true)
-			and preg_match(',-([0-9]+)[.](png|gif)$,', $img, $regs)
+			and preg_match(',-([0-9]+)[.](png|gif|svg)$,', $img, $regs)
 		) {
 			$largeur = $hauteur = intval($regs[1]);
 		} else {
-			$taille = taille_image($img);
+			$taille = taille_image($img_file);
 			list($hauteur, $largeur) = $taille;
 			if (!$hauteur or !$largeur) {
 				return "";
@@ -3318,7 +3329,7 @@ function http_img_pack($img, $alt, $atts = '', $title = '', $options = array()) 
 		$atts .= " width='" . $largeur . "' height='" . $hauteur . "'";
 	}
 
-	return "<img src='$img' alt='" . attribut_html($alt ? $alt : $title) . "'"
+	return "<img src='$img_file' alt='" . attribut_html($alt ? $alt : $title) . "'"
 	. ($title ? ' title="' . attribut_html($title) . '"' : '')
 	. " " . ltrim($atts)
 	. " />";
