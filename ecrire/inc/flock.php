@@ -462,6 +462,9 @@ function spip_clear_opcode_cache($filepath) {
 		if (!$invalidate and !defined('_spip_attend_invalidation_opcode_cache')) {
 			define('_spip_attend_invalidation_opcode_cache',true);
 		}
+	} elseif (!defined('_spip_attend_invalidation_opcode_cache')) {
+		// n'agira que si opcache est effectivement actif (il semble qu'on a pas toujours la fonction opcache_invalidate)
+		define('_spip_attend_invalidation_opcode_cache',true);
 	}
 	// APC.
 	if (function_exists('apc_delete_file')) {
@@ -495,7 +498,7 @@ function spip_attend_invalidation_opcode_cache($timestamp = null) {
 	if (function_exists('opcache_get_configuration')
 		and @ini_get('opcache.enable')
 		and @ini_get('opcache.validate_timestamps')
-		and $duree = @ini_get('opcache.revalidate_freq')
+		and ($duree = intval(@ini_get('opcache.revalidate_freq')) or $duree = 2)
 		and defined('_spip_attend_invalidation_opcode_cache') // des invalidations ont echouees
 	) {
 		$wait = $duree + 1;
