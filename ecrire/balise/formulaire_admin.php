@@ -133,7 +133,7 @@ function balise_FORMULAIRE_ADMIN_dyn($float = '', $debug = '') {
 	$env['analyser'] = (!$env['debug'] and !$GLOBALS['xhtml']) ? '' : admin_valider();
 	$env['inclure'] = ((defined('_VAR_INCLURE') and _VAR_INCLURE) ? 'inclure' : '');
 
-	if (!$GLOBALS['use_cache']) {
+	if (empty($GLOBALS['use_cache'])) {
 		$env['use_cache'] = ' *';
 	}
 
