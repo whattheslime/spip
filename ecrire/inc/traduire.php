@@ -229,7 +229,7 @@ class SPIP_Traductions_Description {
  * @param bool $raw
  *     - false : retourne le texte (par défaut)
  *     - true  : retourne une description de la chaine de langue (module, texte, langue)
- * @return string|array
+ * @return string|SPIP_Traductions_Description
  *     - string : Traduction demandée. Chaîne vide si aucune traduction trouvée.
  *     - SPIP_Traductions_Description : traduction et description (texte, module, langue)
  **/
