@@ -1385,11 +1385,17 @@ function find_in_theme($file, $subdir = '', $include = false) {
 	if (isset($themefiles["$subdir$file"])) {
 		return $themefiles["$subdir$file"];
 	}
-	// on peut fournir une icone generique -xx.svg qui fera le job dans toutes les tailles, et qui est prioritaire
-	if (preg_match(',-\d+[.](png|gif|svg)$,', $file, $m)
+	// on peut fournir une icone generique -xx.svg qui fera le job dans toutes les tailles, et qui est prioritaire sur le png
+	// si il y a un .svg a la bonne taille (-16.svg) a cote, on l'utilise en remplacement du -16.png
+	if (preg_match(',-(\d+)[.](png|gif|svg)$,', $file, $m)
 	  and $file_svg_generique = substr($file,0, -strlen($m[0])) . "-xx.svg"
 		and $f = find_in_theme("$file_svg_generique")) {
-		return $themefiles["$subdir$file"] = $f;
+		if ($fsize = substr($f,0,-6) . $m[1] . ".svg" and file_exists($fsize)) {
+			return $themefiles["$subdir$file"] = $fsize;
+		}
+		else {
+			return $themefiles["$subdir$file"] = $f;
+		}
 	}
 
 	$themes = lister_themes_prives();

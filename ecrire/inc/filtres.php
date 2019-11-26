@@ -3306,10 +3306,17 @@ function http_img_pack($img, $alt, $atts = '', $title = '', $options = array()) 
 	}
 	else {
 		if (!isset($options['variante_svg_si_possible']) or $options['variante_svg_si_possible'] == true){
-			if (preg_match(',-\d+[.](png|gif|svg)$,', $img_file, $m)
-				and $variante_svg_generique = substr($img_file, 0, -strlen($m[0])) . "-xx.svg"
-				and file_exists($variante_svg_generique)){
-				$img_file = $variante_svg_generique;
+			// on peut fournir une icone generique -xx.svg qui fera le job dans toutes les tailles, et qui est prioritaire sur le png
+			// si il y a un .svg a la bonne taille (-16.svg) a cote, on l'utilise en remplacement du -16.png
+			if (preg_match(',-(\d+)[.](png|gif|svg)$,', $img_file, $m)
+			  and $variante_svg_generique = substr($img_file, 0, -strlen($m[0])) . "-xx.svg"
+			  and file_exists($variante_svg_generique)) {
+				if ($variante_svg_size = substr($variante_svg_generique,0,-6) . $m[1] . ".svg" and file_exists($variante_svg_size)) {
+					$img_file = $variante_svg_size;
+				}
+				else {
+					$img_file = $variante_svg_generique;
+				}
 			}
 		}
 	}
