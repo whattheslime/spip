@@ -115,13 +115,13 @@ function copie_locale($source, $mode = 'auto', $local = null, $taille_max = null
 			array('file' => $localrac, 'taille_max' => $taille_max, 'if_modified_since' => $t ? filemtime($localrac) : '')
 		);
 		if (!$res or (!$res['length'] and $res['status'] != 304)) {
-			spip_log("copie_locale : Echec recuperation $source sur $localrac status : " . $res['status'], _LOG_INFO_IMPORTANTE);
+			spip_log("copie_locale : Echec recuperation $source sur $localrac status : " . $res['status'], 'distant' . _LOG_INFO_IMPORTANTE);
 		}
 		if (!$res['length']) {
 			// si $t c'est sans doute juste un not-modified-since
 			return $t ? $local : false;
 		}
-		spip_log("copie_locale : recuperation $source sur $localrac taille " . $res['length'] . ' OK');
+		spip_log("copie_locale : recuperation $source sur $localrac taille " . $res['length'] . ' OK', 'distant');
 
 		// pour une eventuelle indexation
 		pipeline(
@@ -465,7 +465,7 @@ function recuperer_url($url, $options = array()) {
 		$options['if_modified_since']
 	);
 	if (!$handle) {
-		spip_log("ECHEC init_http $url");
+		spip_log("ECHEC init_http $url", 'distant' . _LOG_ERREUR);
 
 		return false;
 	}
@@ -494,6 +494,7 @@ function recuperer_url($url, $options = array()) {
 					'status' => 200,
 				);
 			} else {
+				spip_log("ECHEC chinoiserie $url", 'distant' . _LOG_ERREUR);
 				return false;
 			}
 		} elseif ($res['location'] and $options['follow_location']) {
@@ -501,11 +502,11 @@ function recuperer_url($url, $options = array()) {
 			fclose($handle);
 			include_spip('inc/filtres');
 			$url = suivre_lien($url, $res['location']);
-			spip_log("recuperer_url recommence sur $url");
+			spip_log("recuperer_url recommence sur $url", 'distant');
 
 			return recuperer_url($url, $options);
 		} elseif ($res['status'] !== 200) {
-			spip_log('HTTP status ' . $res['status'] . " pour $url");
+			spip_log('HTTP status ' . $res['status'] . " pour $url", 'distant');
 		}
 		$result['status'] = $res['status'];
 		if (isset($res['headers'])) {
@@ -1058,7 +1059,7 @@ function fichier_copie_locale($source) {
 	if ($ext and sql_getfetsel('extension', 'spip_types_documents', 'extension=' . sql_quote($ext))) {
 		return nom_fichier_copie_locale($source, $ext);
 	}
-	spip_log("pas de copie locale pour $source");
+	spip_log("pas de copie locale pour $source", 'distant' . _LOG_ERREUR);
 }
 
 
@@ -1149,11 +1150,11 @@ function recuperer_infos_distantes($source, $max = 0, $charger_si_petite_image =
 		}
 
 		if ($t) {
-			spip_log("mime-type $mime_type ok, extension " . $t['extension']);
+			spip_log("mime-type $mime_type ok, extension " . $t['extension'], 'distant');
 			$a['extension'] = $t['extension'];
 		} else {
 			# par defaut on retombe sur '.bin' si c'est autorise
-			spip_log("mime-type $mime_type inconnu");
+			spip_log("mime-type $mime_type inconnu", 'distant');
 			$t = sql_fetsel('extension', 'spip_types_documents', "extension='bin'");
 			if (!$t) {
 				return false;
@@ -1168,7 +1169,7 @@ function recuperer_infos_distantes($source, $max = 0, $charger_si_petite_image =
 
 	// Echec avec HEAD, on tente avec GET
 	if (!$a and !$max) {
-		spip_log("tenter GET $source");
+		spip_log("tenter GET $source", 'distant');
 		$a = recuperer_infos_distantes($source, _INC_DISTANT_MAX_SIZE);
 	}
 
@@ -1339,7 +1340,7 @@ function init_http($method, $url, $refuse_gz = false, $referer = '', $datas = ''
 			and (!isset($GLOBALS['inc_distant_allow_fopen']) or $GLOBALS['inc_distant_allow_fopen'])
 		) {
 			$f = @fopen($url, 'rb');
-			spip_log("connexion vers $url par simple fopen");
+			spip_log("connexion vers $url par simple fopen", 'distant');
 			$fopen = true;
 		} else {
 			// echec total
@@ -1448,7 +1449,7 @@ function lance_requete(
 		);
 		spip_log("Recuperer $path sur $first_host:$port par $f (via CONNECT)", 'connect');
 		if (!$f) {
-			spip_log("Erreur connexion $errno $errstr", _LOG_ERREUR);
+			spip_log("Erreur connexion $errno $errstr", 'distant' . _LOG_ERREUR);
 			return $errno;
 		}
 		stream_set_timeout($f, _INC_DISTANT_CONNECT_TIMEOUT);
@@ -1477,7 +1478,7 @@ function lance_requete(
 		} while (!$f and $ntry-- and $errno !== 110 and sleep(1));
 		spip_log("Recuperer $path sur $first_host:$port par $f");
 		if (!$f) {
-			spip_log("Erreur connexion $errno $errstr", _LOG_ERREUR);
+			spip_log("Erreur connexion $errno $errstr", 'distant' . _LOG_ERREUR);
 
 			return $errno;
 		}
@@ -1500,7 +1501,7 @@ function lance_requete(
 		. (!$proxy_user ? '' : "Proxy-Authorization: Basic $proxy_user\r\n")
 		. (!strpos($vers, '1.1') ? '' : "Keep-Alive: 300\r\nConnection: keep-alive\r\n");
 
-#	spip_log("Requete\n$req");
+#	spip_log("Requete\n$req", 'distant');
 	fputs($f, $req);
 	fputs($f, $datas ? $datas : "\r\n");
 
