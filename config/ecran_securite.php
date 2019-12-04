@@ -5,7 +5,7 @@
  * ------------------
  */
 
-define('_ECRAN_SECURITE', '1.3.12'); // 2019-09-16
+define('_ECRAN_SECURITE', '1.3.13'); // 2019-12-04
 
 /*
  * Documentation : http://www.spip.net/fr_article4200.html
@@ -335,6 +335,13 @@ and $_REQUEST['action'] == 'configurer') {
 		}
 	}
 }
+if (isset($_REQUEST['action'])
+and $_REQUEST['action'] == 'ordonner_liens_documents'
+and isset($_REQUEST['ordre'])
+and is_string($_REQUEST['ordre'])){
+	$ecran_securite_raison = "ordre a la chaine";
+}
+
 
 /*
  * Bloque les requêtes contenant %00 (manipulation d'include)
