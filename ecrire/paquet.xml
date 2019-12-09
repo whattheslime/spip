@@ -139,7 +139,6 @@
 	<pipeline nom="trig_purger" action="" />
 
 	<necessite nom="php" compatibilite="[5.6.0;7.4.*]" />
-	<necessite nom="php:mysqli" />
 	<necessite nom="php:xml" />
 	<necessite nom="php:gd" />
 
