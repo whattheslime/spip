@@ -3368,11 +3368,21 @@ function http_style_background($img, $att = '', $size=null) {
  * @param string $img
  * @param string $alt
  * @param string $class
+ * @param string $width
  * @return string
  *     Code HTML de la balise IMG
  */
-function filtre_balise_img_dist($img, $alt = "", $class = "") {
-	return http_img_pack($img, $alt, $class ? " class='" . attribut_html($class) . "'" : '', '',
+function filtre_balise_img_dist($img, $alt = "", $class = "", $width=null) {
+	$atts = $class ? " class='" . attribut_html($class) . "'" : '';
+	// ecriture courte : on donne le width en 2e arg
+	if (empty($width) and is_numeric($alt)) {
+		$width = $alt;
+		$alt = '';
+	}
+	if ($width) {
+		$atts .= " width='{$width}'";
+	}
+	return http_img_pack($img, $alt, $atts, '',
 		array('chemin_image' => false, 'utiliser_suffixe_size' => false));
 }
 
@@ -4572,14 +4582,15 @@ function objet_afficher_nb($nb, $objet) {
  *
  * @param string $objet
  * @param int $taille
+ * @param string $class
  * @return string
  */
-function objet_icone($objet, $taille = 24) {
+function objet_icone($objet, $taille = 24, $class='') {
 	$icone = objet_info($objet, 'icone_objet') . "-" . $taille . ".png";
 	$icone = chemin_image($icone);
 	$balise_img = charger_filtre('balise_img');
 
-	return $icone ? $balise_img($icone, _T(objet_info($objet, 'texte_objet'))) : '';
+	return $icone ? $balise_img($icone, _T(objet_info($objet, 'texte_objet')), $class, $taille) : '';
 }
 
 /**
