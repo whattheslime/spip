@@ -199,7 +199,7 @@ function f_admin($texte) {
 	if (defined('_VAR_PREVIEW') and _VAR_PREVIEW and $GLOBALS['html']) {
 		include_spip('inc/filtres'); // pour http_img_pack
 		$x = "<div class='spip-previsu' "
-			. http_style_background('preview-32.png')
+			. http_style_background('preview-32.png', '', 32)
 			. ">"
 			. _T('previsualisation')
 			. "</div>";

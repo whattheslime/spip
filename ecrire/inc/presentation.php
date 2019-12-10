@@ -61,7 +61,7 @@ function debut_cadre($style, $icone = "", $fonction = "", $titre = "", $id = "",
 			// 2 images pour composer l'icone : le fond (article) en background,
 			// la fonction (new) en image
 			$icone = http_img_pack($fonction, "", "class='cadre-icone' width='$size' height='$size'\n" .
-				http_style_background($fond, "no-repeat center center"));
+				http_style_background($fond, "no-repeat center center", $size));
 		} else {
 			$icone = http_img_pack($fond, "", "class='cadre-icone' width='$size' height='$size'");
 		}

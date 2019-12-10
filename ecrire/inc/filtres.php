@@ -3347,10 +3347,17 @@ function http_img_pack($img, $alt, $atts = '', $title = '', $options = array()) 
  *
  * @param string $img
  * @param string $att
+ * @param string $size
  * @return string
  */
-function http_style_background($img, $att = '') {
-	return " style='background" . ($att ? "" : "-image") . ": url(\"" . chemin_image($img) . "\")" . ($att ? (' ' . $att) : '') . ";'";
+function http_style_background($img, $att = '', $size=null) {
+	if ($size and is_numeric($size)){
+		$size = trim($size) . "px";
+	}
+	return " style='background" .
+		($att ? "" : "-image") . ": url(\"" . chemin_image($img) . "\")" . ($att ? (' ' . $att) : '') . ";"
+		. ($size ? "background-size:{$size};" : '')
+		. "'";
 }
 
 /**
@@ -3916,7 +3923,7 @@ function prepare_icone_base($type, $lien, $texte, $fond, $fonction = "", $class 
 		// 2 images pour composer l'icone : le fond (article) en background,
 		// la fonction (new) en image
 		$icone = http_img_pack($fonction, $alt, "width='$size' height='$size'\n" .
-			http_style_background($fond));
+			http_style_background($fond, '', $size));
 	} else {
 		$icone = http_img_pack($fond, $alt, "width='$size' height='$size'");
 	}
