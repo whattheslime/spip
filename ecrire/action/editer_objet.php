@@ -503,7 +503,7 @@ function objet_editer_heritage($objet, $id, $id_rubrique, $statut, $champs, $con
  * @param string     $objet     Type d'objet (comme article ou rubrique)
  * @param int|string $valeur_id Valeur du champ identifiant
  * @param array      $options   Tableau d'options dont les index possibles sont:
- *                              - informations : liste des champs à renvoyer. Si absent ou vide la fonction
+ *                              - champs : liste des champs à renvoyer. Si absent ou vide la fonction
  *                                renvoie tous les champs.
  *                              - champ_id : nom du champ utilisé comme identifiant de l'objet. Si absent ou vide on
  *                                utilise l'id défini dans la déclaration de l'objet.
@@ -519,13 +519,13 @@ function objet_lire($objet, $valeur_id, $options = array()) {
 
 	// On détermine le nom du champ id de la table.
 	include_spip('base/objets');
-	$table_id = id_table_objet($objet);
+	$primary = id_table_objet($objet);
 
 	// On détermine l'id à utiliser.
-	$champ_id = !empty($options['champ_id']) ? $options['champ_id'] : $table_id;
+	$champ_id = (!empty($options['champ_id']) ? $options['champ_id'] : $primary);
 
 	// On détermine si on a passé l'id objet ou un autre identifiant unique de la table :
-	if ($champ_id != $table_id) {
+	if ($champ_id !== $primary) {
 		// on a passé un identifiant différent que l'id de l'objet, on cherche si cet objet a déjà été rencontré
 		// car dans ce cas on a déjà stocké son id objet.
 		$index = isset($ids[$objet][$valeur_id]) ? $ids[$objet][$valeur_id] : 0;
@@ -553,11 +553,10 @@ function objet_lire($objet, $valeur_id, $options = array()) {
 			// On récupère la table SQL à partir du type d'objet.
 			$table = table_objet_sql($objet);
 
-			// La condition est appliquée sur le champ désigné par l'utilisateur. Si ce champ n'est pas l'id objet
-			// on considère qu'il est de type chaine.
-			$where = ($champ_id != $table_id)
-				? array("${champ_id}=" . sql_quote($valeur_id))
-				: array("${champ_id}=" . intval($valeur_id));
+			// La condition est appliquée sur le champ désigné par l'utilisateur.
+			$where = array(
+				"${champ_id}=" . sql_quote($valeur_id)
+			);
 
 			// Acquisition de tous les champs de l'objet : si l'accès SQL retourne une erreur on renvoie un tableau vide.
 			if (!$description = sql_fetsel('*', $table, $where)) {
@@ -570,7 +569,7 @@ function objet_lire($objet, $valeur_id, $options = array()) {
 			// Première sauvegarde de l'objet qui est forcément lu via un champ qui n'est pas l'id objet.
 			// Il faut donc stocker l'index pour un futur appel si la description est non vide.
 			if ($description) {
-				$index = $description[$table_id];
+				$index = $description[$primary];
 				$ids[$objet][$valeur_id] = $index;
 			}
 		}
@@ -581,28 +580,29 @@ function objet_lire($objet, $valeur_id, $options = array()) {
 		}
 	}
 
+	$retour = $description;
 	// On ne retourne maintenant que les champs demandés.
 	// - on détermine les informations à renvoyer.
-	$informations = !empty($options['informations']) ? $options['informations'] : '';
-	if ($description and $informations) {
+	if ($retour and !empty($options['champs'])) {
+		$champs = $options['champs'];
 		// Extraction des seules informations demandées.
 		// -- si on demande une information unique on renvoie la valeur simple, sinon on renvoie un tableau.
 		// -- si une information n'est pas un champ valide elle n'est pas renvoyée sans renvoyer d'erreur.
-		if (is_array($informations)) {
-			if (count($informations) == 1) {
+		if (is_array($champs)) {
+			if (count($champs) == 1) {
 				// Tableau d'une seule information : on revient à une chaine unique.
-				$informations = array_shift($informations);
+				$champs = array_shift($champs);
 			} else {
 				// Tableau des informations valides
-				$description = array_intersect_key($description, array_flip($informations));
+				$retour = array_intersect_key($retour, array_flip($champs));
 			}
 		}
 
-		if (is_string($informations)) {
+		if (is_string($champs)) {
 			// Valeur unique demandée.
-			$description = isset($description[$informations]) ? $description[$informations] : '';
+			$retour = (isset($description[$champs]) ? $description[$champs] : '');
 		}
 	}
 
-	return $description;
+	return $retour;
 }
