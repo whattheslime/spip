@@ -138,8 +138,6 @@
 	<pipeline nom="trig_supprimer_objets_lies" action="" />
 	<pipeline nom="trig_purger" action="" />
 
-	<necessite nom="php" compatibilite="[5.6.0;[" />
-
 	<procure nom="iterateurs" version="1.0.6" />
 	<procure nom="queue" version="0.6.8" />
 	<procure nom="jquery" version="3.4.1" />
