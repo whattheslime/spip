@@ -508,7 +508,14 @@ function objet_editer_heritage($objet, $id, $id_rubrique, $statut, $champs, $con
  *                              - champ_id : nom du champ utilisé comme identifiant de l'objet. Si absent ou vide on
  *                                utilise l'id défini dans la déclaration de l'objet.
  *
- * @return array|mixed
+ * @return array|string|int|bool
+ *   si champs est non fourni ou au format array
+ *     false : l'objet demande n'existe pas
+ *     array vide : l'objet existe, mais aucun champ demande n'existe
+ *     array non vide : objet avec le ou les champs demandes existants (les champs demandes non existant sont absent)
+ *   si champs est fourni au format string
+ *     false : l'objet demande n'existe pas OU le champs demande n'existe pas
+ *     string|int : valeur du champ demande pour l'objet demande
  */
 function objet_lire($objet, $valeur_id, $options = array()) {
 
@@ -538,11 +545,11 @@ function objet_lire($objet, $valeur_id, $options = array()) {
 	if (isset($descriptions[$objet][$index])) {
 		$description = $descriptions[$objet][$index];
 	} else {
-		$description = array();
+		$description = null;
 	}
 
 	// Si l'objet n'a pas encore été stocké, il faut récupérer sa description complète.
-	if (!$description) {
+	if (is_null($description)) {
 		// Il est possible pour un type d'objet de fournir une fonction de lecture de tous les champs d'un objet.
 		if (
 			include_spip('action/editer_' . $objet)
@@ -559,9 +566,11 @@ function objet_lire($objet, $valeur_id, $options = array()) {
 			);
 
 			// Acquisition de tous les champs de l'objet : si l'accès SQL retourne une erreur on renvoie un tableau vide.
-			if (!$description = sql_fetsel('*', $table, $where)) {
-				$description = array();
-			}
+			$description = sql_fetsel('*', $table, $where);
+		}
+
+		if (!$description) {
+			$description = false;
 		}
 
 		// On stocke systématiquement la description à l'index correspondant à l'objet et l'id objet.
@@ -589,18 +598,11 @@ function objet_lire($objet, $valeur_id, $options = array()) {
 		// -- si on demande une information unique on renvoie la valeur simple, sinon on renvoie un tableau.
 		// -- si une information n'est pas un champ valide elle n'est pas renvoyée sans renvoyer d'erreur.
 		if (is_array($champs)) {
-			if (count($champs) == 1) {
-				// Tableau d'une seule information : on revient à une chaine unique.
-				$champs = array_shift($champs);
-			} else {
-				// Tableau des informations valides
-				$retour = array_intersect_key($retour, array_flip($champs));
-			}
-		}
-
-		if (is_string($champs)) {
+			// Tableau des informations valides
+			$retour = array_intersect_key($retour, array_flip($champs));
+		} else {
 			// Valeur unique demandée.
-			$retour = (isset($description[$champs]) ? $description[$champs] : '');
+			$retour = (isset($retour[$champs]) ? $retour[$champs] : false);
 		}
 	}
 
