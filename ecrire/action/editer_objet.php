@@ -519,10 +519,9 @@ function objet_editer_heritage($objet, $id, $id_rubrique, $statut, $champs, $con
  */
 function objet_lire($objet, $valeur_id, $options = array()) {
 
-	// Initialisation du tableau des descriptions et des id d'objet (au sens id_xxx).
-	// Les tableaux sont toujours indexés par l'objet et l'id objet.
+	// tableau du cache des descriptions et des id d'objet (au sens id_xxx).
+	// Les tableaux sont toujours indexés par le trio [objet][cle][valeur_cle]
 	static $descriptions = array();
-	static $ids = array();
 
 	// On détermine le nom du champ id de la table.
 	include_spip('base/objets');
@@ -531,31 +530,14 @@ function objet_lire($objet, $valeur_id, $options = array()) {
 	// On détermine l'id à utiliser.
 	$champ_id = (!empty($options['champ_id']) ? $options['champ_id'] : $primary);
 
-	// On détermine si on a passé l'id objet ou un autre identifiant unique de la table :
-	if ($champ_id !== $primary) {
-		// on a passé un identifiant différent que l'id de l'objet, on cherche si cet objet a déjà été rencontré
-		// car dans ce cas on a déjà stocké son id objet.
-		$index = isset($ids[$objet][$valeur_id]) ? $ids[$objet][$valeur_id] : 0;
-	} else {
-		$index = $valeur_id;
-	}
-
-	// On vérifie si l'objet demandé n'est pas déjà stocké : si oui, la description sera utilisée sauf si on a forcé
-	// la lecture en base.
-	if (isset($descriptions[$objet][$index])) {
-		$description = $descriptions[$objet][$index];
-	} else {
-		$description = null;
-	}
-
 	// Si l'objet n'a pas encore été stocké, il faut récupérer sa description complète.
-	if (is_null($description)) {
+	if (!isset($descriptions[$objet][$champ_id][$valeur_id])) {
 		// Il est possible pour un type d'objet de fournir une fonction de lecture de tous les champs d'un objet.
 		if (
 			include_spip('action/editer_' . $objet)
 			and function_exists($lire = "${objet}_lire_champs")
 		) {
-			$description = $lire($objet, $valeur_id, $champ_id);
+			$valeurs = $lire($objet, $valeur_id, $champ_id);
 		} else {
 			// On récupère la table SQL à partir du type d'objet.
 			$table = table_objet_sql($objet);
@@ -566,30 +548,23 @@ function objet_lire($objet, $valeur_id, $options = array()) {
 			);
 
 			// Acquisition de tous les champs de l'objet : si l'accès SQL retourne une erreur on renvoie un tableau vide.
-			$description = sql_fetsel('*', $table, $where);
+			$valeurs = sql_fetsel('*', $table, $where);
 		}
 
-		if (!$description) {
-			$description = false;
+		if (!$valeurs) {
+			$valeurs = false;
 		}
 
-		// On stocke systématiquement la description à l'index correspondant à l'objet et l'id objet.
-		if (!$index) {
-			// Première sauvegarde de l'objet qui est forcément lu via un champ qui n'est pas l'id objet.
-			// Il faut donc stocker l'index pour un futur appel si la description est non vide.
-			if ($description) {
-				$index = $description[$primary];
-				$ids[$objet][$valeur_id] = $index;
-			}
-		}
+		$descriptions[$objet][$champ_id][$valeur_id] = $valeurs;
 
-		// Si l'index a bien été déterminé, on stocke la description à cet index.
-		if ($index) {
-			$descriptions[$objet][$index] = $description;
+		if ($champ_id !== $primary and isset($valeurs[$primary])) {
+			$descriptions[$objet][$primary][$valeurs[$primary]] = $valeurs;
+			$descriptions[$objet][$champ_id][$valeur_id] = &$descriptions[$objet][$primary][$valeurs[$primary]];
 		}
 	}
 
-	$retour = $description;
+	$retour = $descriptions[$objet][$champ_id][$valeur_id];
+
 	// On ne retourne maintenant que les champs demandés.
 	// - on détermine les informations à renvoyer.
 	if ($retour and !empty($options['champs'])) {
