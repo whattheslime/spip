@@ -507,6 +507,7 @@ function objet_editer_heritage($objet, $id, $id_rubrique, $statut, $champs, $con
  *                                renvoie tous les champs.
  *                              - champ_id : nom du champ utilisé comme identifiant de l'objet. Si absent ou vide on
  *                                utilise l'id défini dans la déclaration de l'objet.
+ *                              - force : true pour reforcer une lecture en base meme si un cache existe
  *
  * @return array|string|int|bool
  *   si champs est non fourni ou au format array
@@ -531,7 +532,8 @@ function objet_lire($objet, $valeur_id, $options = array()) {
 	$champ_id = (!empty($options['champ_id']) ? $options['champ_id'] : $primary);
 
 	// Si l'objet n'a pas encore été stocké, il faut récupérer sa description complète.
-	if (!isset($descriptions[$objet][$champ_id][$valeur_id])) {
+	if (!isset($descriptions[$objet][$champ_id][$valeur_id])
+	  or (isset($options['force']) and $options['force'])) {
 		// Il est possible pour un type d'objet de fournir une fonction de lecture de tous les champs d'un objet.
 		if (
 			include_spip('action/editer_' . $objet)
