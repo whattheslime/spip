@@ -1,3 +1,18 @@
+
+SPIP-Core spip-3.1.11 -> spip-3.1.12  12 décembre 2019
+-------------------------------------------------------------
+
+r24412 | marcimat    |  (mar. 17 sept. 2019)| Fix #4381 : coquille de priorités d’opérateurs sur un test (Équipement).
+r24432 | cedric      |  (ven. 22 nov. 2019) | Fix opcache invalidation sur les mutus qui n'ont pas la fonction opcache_invalidate() (Jean Marie)
+r24449 | cedric      |  (mer. 04 déc. 2019) | Feu les temps modernes
+
+SPIP-plugins-dist spip-3.1.11 -> spip-3.1.12  12 décembre 2019
+-------------------------------------------------------------
+
+r117893 | marcimat  |  (mer. 18 sept. 2019)| Ticket #4383 : Bien prendre en compte les nécessite / utilise des paquets.xml qui ont une balise `<spip>` intégrée.[Report de r117891]
+r118164 | Cerdic    |  (mer. 16 oct. 2019) | Reparer le formulaire de saisie d'un nouveau mot de passe qui ne marchait plus avec les navigateur bases sur webkit/blink : ceux-ci croient reconnaitre le formulaire de login, et preremplissent avec les identifiants enregistres. Du coup faute de mieux ils mettaient le login dans le champ nobot, declenchant un fort peu avenant 'Rien a faire ici' pour les utilisateurs
+r118196 | Cerdic    |  (ven. 18 oct. 2019) | Trop de n attire l'attention (dd)
+
 SPIP-Core spip-3.1.10 -> spip-3.1.11  16 septembre 2019
 -------------------------------------------------------------
 r24290 | Cerdic |  (lun. 08 avril 2019) | Permettre de personaliser le _HEADER_VARY, ce qui peut etre necessaire pour le reverse proxy en amont du frontal
