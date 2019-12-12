@@ -372,9 +372,11 @@ $liste_des_authentifications = array(
 // pour specifier les versions de SPIP necessaires
 // il faut s'en tenir a un nombre de decimales fixe
 // ex : 2.0.0, 2.0.0-dev, 2.0.0-beta, 2.0.0-beta2
-$spip_version_branche = "3.2.6-dev";
-define('_SPIP_VERSION_ID', 30206);
-define('_SPIP_EXTRA_VERSION', '-dev');
+// le _SPIP_VERSION_ID est un nombre entier représentant le numéro de version (2 chiffres pour chaque 03 + 02 + 06 = 30206
+// le _SPIP_EXTRA_VERSION sert à repérer les version dev, beta etc. Pour une version stable il est vide.
+$spip_version_branche = "3.2.7";
+define('_SPIP_VERSION_ID', 30207);
+define('_SPIP_EXTRA_VERSION', '');
 
 // cette version dev accepte tous les plugins compatible avec la version ci-dessous
 // a supprimer en phase beta/rc/release

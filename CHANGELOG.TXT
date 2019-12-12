@@ -1,3 +1,31 @@
+SPIP-Core spip-3.2.6 -> spip-3.2.7  12 décembre 2019
+-------------------------------------------------------------
+
+r24471 | ben       |  (jeu. 12 déc. 2019) | la 3.2.6 est stable (realet) 
+
+
+SPIP-Core spip-3.2.5 -> spip-3.2.6  10 décembre 2019
+-------------------------------------------------------------
+
+r24399 | cedric    |  (lun. 16 sept. 2019) | Mise a jour de l'ecran de securite
+r24403 | ben       |  (lun. 16 sept. 2019) | SPIP 3.2.5
+r24411 | marcimat  |  (mar. 17 sept. 2019) | Fix #4381 : coquille de priorités d’opérateurs sur un test (Équipement).
+r24420 | cedric    |  (mar. 24 sept. 2019) | 2 constantes _SPIP_VERSION_ID et _SPIP_EXTRA_VERSION pour faciliter les tests de version dans les plugins
+r24421 | cedric    |  (mar. 24 sept. 2019) | coherence du paquet.xml avec inc_version
+r24431 | cedric    |  (ven. 22 nov. 2019) | Fix opcache invalidation sur les mutus qui n'ont pas la fonction opcache_invalidate() (Jean Marie)
+r24440 | bruno     |  (mer. 04 déc. 2019) | des fichiers CACHEDIR.TAG fonctionnelsretour sur https://core.spip.net/projects/spip/repository/revisions/23514ref https://core.spip.net/issues/2346 & https://bford.info/cachedir/
+r24448 | cedric    |  (mer. 04 déc. 2019) | Feu les temps modernes
+
+SPIP-plugins-dist spip-3.2.5 -> spip-3.2.6  10 décembre 2019
+-------------------------------------------------------------
+
+r117876 | cedric    |  (mar. 17 sept. 2019) | Report de r117577 et 117578 : Dans le formulaire d'oubli de mot de passe, ne pas dire si l'email est inscrit sur le site ou non, toujours afficher le meme resultat ​https://core.spip.net/issues/4171
+r117892 | marcimat  |  (mer. 18 sept. 2019) | Ticket #4383 : Bien prendre en compte les nécessite / utilise des paquets.xml qui ont une balise `<spip>` intégrée. [report de r117891]
+r118163 | Cerdic |  (mer. 16 oct. 2019) | Reparer le formulaire de saisie d'un nouveau mot de passe qui ne marchait plus avec les navigateur bases sur webkit/blink : ceux-ci croient reconnaitre le formulaire de login, et preremplissent avec les identifiants enregistres. Du coup faute de mieux ils mettaient le login dans le champ nobot, declenchant un fort peu avenant 'Rien a faire ici' pour les utilisateurs
+r118195 | Cerdic |  (ven. 18 oct. 2019) | Trop de n attire l'attention (dd)
+r118593 | marcimat  |  (mer. 13 nov. 2019) | Report de r118592 : Ne pas transmettre le paramètre "objet" aux listes d’objets dont on a trouvé le squelette, c’est contre productif, particulièrement lorsque ce paramètre peut servir à autre chose, comme dans le plugin albums.
+r118900 | marcimat  |  (mer. 04 déc. 2019) | Rétablir l’ordre un minimum ; on ne tolère aucune manifestation en chaîne. (Alexis Z)
+r118901 | marcimat  |  (mer. 04 déc. 2019) | Version 2.20.31
 
 SPIP-Core spip-3.2.4 -> spip-3.2.5  16 septembre 2019
 -------------------------------------------------------------
