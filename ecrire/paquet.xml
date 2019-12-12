@@ -2,7 +2,7 @@
 	prefix="spip"
 	categorie="outil"
 	version="3.2.6"
-	etat="dev"
+	etat=""
 	compatibilite="];["
 	schema="23375"
 	documentation="https://www.spip.net"
