@@ -1599,7 +1599,7 @@ function critere_id__dist($idb, &$boucles, $crit) {
 	/** @var Boucle $boucle */
 	$boucle = $boucles[$idb];
 
-	$champs = lister_champs_selection_conditionnelle(
+	$champs = lister_champs_id_conditionnel(
 		$boucle->show['table'],
 		$boucle->show,
 		$boucle->sql_serveur
@@ -1639,7 +1639,7 @@ function critere_id__dist($idb, &$boucles, $crit) {
  * @param string $serveur Connecteur sql a utiliser
  * @return array Liste de nom de champs (tel que id_article, id_mot, id_parent ...)
  */
-function lister_champs_selection_conditionnelle($table, $desc = null, $serveur = '') {
+function lister_champs_id_conditionnel($table, $desc = null, $serveur = '') {
 	// calculer la description de la table
 	if (!is_array($desc)) {
 		$desc = description_table($table, $serveur);
@@ -1657,6 +1657,14 @@ function lister_champs_selection_conditionnelle($table, $desc = null, $serveur =
 				or (in_array($champ, array('objet')));
 		}
 	);
+
+	// Si le champ id_rubrique appartient à la liste et si id_secteur n'est pas inclus on le rajoute.
+	if (
+		in_array('id_rubrique', $champs)
+		and !in_array('id_secteur', $champs)
+	) {
+		$champs[] = 'id_secteur';
+	}
 
 	// On ne fera pas mieux pour les tables d’un autre serveur
 	if ($serveur) {
@@ -1689,17 +1697,21 @@ function lister_champs_selection_conditionnelle($table, $desc = null, $serveur =
 		}
 	}
 	$champs = array_values(array_unique($champs));
-	$champs = pipeline(
-		'lister_champs_selection_conditionnelle',
+
+	// Exclusions de certains id
+	$exclusions = pipeline(
+		'exclure_id_conditionnel',
 		array(
 			'args' => array(
 				'table' => $table,
 				'id_table_objet' => $primary,
 				'associable' => $associable,
 			),
-			'data' => $champs,
+			'data' => array(),
 		)
 	);
+	$champs = array_diff($champs, $exclusions);
+
 	return $champs;
 }
 
