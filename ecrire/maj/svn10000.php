@@ -706,7 +706,7 @@ $GLOBALS['maj'][23375] = array(
 );
 
 function upgrade_logo_objet($objet) {
-	include_spip('action/editer_logo');
+	include_spip('ecrire/action/editer_logo');
 	logo_migrer_en_base($objet, _TIME_OUT);
 }
 // upgrade des logos
