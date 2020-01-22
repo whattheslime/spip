@@ -185,7 +185,9 @@ function depublier_rubrique_if($id_rubrique, $date = null) {
 		'articles' => sql_countsel("spip_articles",
 			"id_rubrique=" . intval($id_rubrique) . " AND statut='publie'$postdates"),
 		'rubriques' => sql_countsel("spip_rubriques", "id_parent=" . intval($id_rubrique) . " AND statut='publie'"),
-		'documents' => sql_countsel("spip_documents_liens", "id_objet=" . intval($id_rubrique) . " AND objet='rubrique'")
+		'documents' => sql_countsel(
+			"spip_documents AS D JOIN spip_documents_liens AS L ON D.id_document=L.id_document", 
+			"L.id_objet=" . intval($id_rubrique) . " AND L.objet='rubrique' and D.mode NOT IN('logoon', 'logooff') ")
 	);
 
 	// On passe le tableau des comptes dans un pipeline pour que les plugins puissent ajouter (ou retirer) des enfants
