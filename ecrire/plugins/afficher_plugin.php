@@ -137,9 +137,9 @@ function plugin_nom($info, $dir_plugins, $plug_file) {
 	$dir = "$dir_plugins$plug_file";
 	// Si dtd paquet, on traite le nom soit par son item de langue soit par sa valeur immediate a l'index "nom"
 	if ($info['dtd'] == "paquet") {
-		$nom = PtoBR(plugin_propre("{$prefix}_nom", "$dir/lang/paquet-$prefix"));
+		$nom = plugin_typo("{$prefix}_nom", "$dir/lang/paquet-$prefix");
 		if (!$nom) {
-			$nom = PtoBR(propre($info['nom']));
+			$nom = typo($info['nom']);
 		}
 	} else {
 		$nom = typo(attribut_html($info['nom']));
@@ -221,7 +221,7 @@ function plugin_etat_en_clair($etat) {
 }
 
 // http://code.spip.net/@plugin_propre
-function plugin_propre($texte, $module = '') {
+function plugin_propre($texte, $module = '',$propre='propre') {
 	// retirer le retour a la racine du module, car le find_in_path se fait depuis la racine
 	if (_DIR_RACINE and strncmp($module, _DIR_RACINE, strlen(_DIR_RACINE)) == 0) {
 		$module = substr($module, strlen(_DIR_RACINE));
@@ -230,7 +230,11 @@ function plugin_propre($texte, $module = '') {
 		$texte = _T(($module ? "$module:" : '') . $texte, array(), array('force' => false));
 	}
 
-	return propre($texte);
+	return $propre($texte);
+}
+
+function plugin_typo($texte, $module = '') {
+	return plugin_propre($texte, $module, 'typo');
 }
 
 
