@@ -85,12 +85,13 @@
 		<traducteur nom="gpl" lien="https://trad.spip.net/auteur/gpl" />
 		<traducteur nom="Matthieu Marcillaud" lien="https://trad.spip.net/auteur/matthieu-marcillaud" />
 	</langue>
-	<langue code="es" url="https://trad.spip.net/tradlang_module/ecrire_?lang_cible=es" total="812" traduits="799" relire="0" modifs="2" nouveaux="11" pourcent="98.40">
+	<langue code="es" url="https://trad.spip.net/tradlang_module/ecrire_?lang_cible=es" total="812" traduits="800" relire="0" modifs="2" nouveaux="10" pourcent="98.52">
 		<traducteur nom="alf" lien="https://trad.spip.net/auteur/alf" />
 		<traducteur nom="b_b" lien="https://trad.spip.net/auteur/b_b" />
 		<traducteur nom="dani" lien="https://trad.spip.net/auteur/dani" />
 		<traducteur nom="danielquisbert" lien="https://trad.spip.net/auteur/danielquisbert" />
 		<traducteur nom="Davood Hossein" lien="https://trad.spip.net/auteur/davood-hossein" />
+		<traducteur nom="henry" lien="https://trad.spip.net/auteur/henry" />
 		<traducteur nom="jotacese" lien="https://trad.spip.net/auteur/jotacese" />
 		<traducteur nom="mjrusalv" lien="https://trad.spip.net/auteur/mjrusalv" />
 		<traducteur nom="Nathan" lien="https://trad.spip.net/auteur/nathan" />
