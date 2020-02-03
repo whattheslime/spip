@@ -34,7 +34,7 @@ function exec_403_dist($message = '') {
 	$extra = '';
 
 	if (!$message) {
-		$message = _T("avis_acces_interdit_prive", array('exec' => _request('exec')));
+		$message = _T('avis_acces_interdit_prive', array('exec' => _request('exec')));
 	}
 
 	$contenu = "<h1 class='grostitre'>" . _T('info_acces_interdit') . '</h1>' . $message;
