@@ -16,6 +16,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'annuler_recherche' => 'Cancel the search',
 	'auteur' => 'Author:',
 	'avis_acces_interdit' => 'Access forbidden.',
+	'avis_acces_interdit_prive' => 'You are not allowed to access the page <b>@exec@</b>.',
 	'avis_article_modifie' => 'Warning: @nom_auteur_modif@ modified this article @date_diff@ minutes ago',
 	'avis_aucun_resultat' => 'No results found.',
 	'avis_base_inaccessible' => 'Impossible to connect to the database @base@.',
