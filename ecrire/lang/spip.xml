@@ -1,9 +1,9 @@
 <traduction
 	module="spip"
-	id="spip--spip-8461b"
+	id="spip--spip-4b393"
 	gestionnaire="salvatore"
 	url="https://trad.spip.net"
-	source="svn://trac.rezo.net/spip/spip/ecrire/lang"
+	source="https://git.spip.net/spip/spip.git"
 	reference="fr">
 	<langue code="ar" url="https://trad.spip.net/tradlang_module/spip?lang_cible=ar" total="642" traduits="642" relire="0" modifs="0" nouveaux="0" pourcent="100.00">
 		<traducteur nom="George" lien="https://trad.spip.net/auteur/جورج-قندلفت" />
@@ -93,7 +93,7 @@
 	</langue>
 	<langue code="fon" url="https://trad.spip.net/tradlang_module/spip?lang_cible=fon" total="642" traduits="449" relire="0" modifs="50" nouveaux="143" pourcent="69.94" />
 	<langue code="fr" url="https://trad.spip.net/tradlang_module/spip?lang_cible=fr" total="642" traduits="642" relire="0" modifs="0" nouveaux="0" pourcent="100.00" />
-	<langue code="fr_fem" url="https://trad.spip.net/tradlang_module/spip?lang_cible=fr_fem" total="642" traduits="641" relire="0" modifs="1" nouveaux="0" pourcent="99.84">
+	<langue code="fr_fem" url="https://trad.spip.net/tradlang_module/spip?lang_cible=fr_fem" total="642" traduits="642" relire="0" modifs="0" nouveaux="0" pourcent="100.00">
 		<traducteur nom="b_b" lien="https://trad.spip.net/auteur/b_b" />
 		<traducteur nom="Cerf" lien="https://trad.spip.net/auteur/cerf" />
 		<traducteur nom="denisb" lien="https://trad.spip.net/auteur/denisb" />
