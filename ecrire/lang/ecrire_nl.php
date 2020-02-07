@@ -16,6 +16,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'annuler_recherche' => 'Zoekopdracht stoppen',
 	'auteur' => 'Auteur:',
 	'avis_acces_interdit' => 'Toegang verboden',
+	'avis_acces_interdit_prive' => 'Je hebt geen toegangsrechten voor pagina <b>@exec@</b>.',
 	'avis_article_modifie' => 'LET OP: @nom_auteur_modif@ heeft @date_diff@ minuten geleden aan dit artikel gewerkt.',
 	'avis_aucun_resultat' => 'Geen resultaat.',
 	'avis_base_inaccessible' => 'Kan geen verbinding maken met database @base@.',
