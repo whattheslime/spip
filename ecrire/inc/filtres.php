@@ -3300,7 +3300,11 @@ function charge_scripts($files, $script = true) {
  * @return string
  */
 function http_img_pack($img, $alt, $atts = '', $title = '', $options = array()) {
+
 	$img_file = $img;
+	if ($p = strpos($img_file, '?')) {
+		$img_file = substr($img_file,0, $p);
+	}
 	if (!isset($options['chemin_image']) or $options['chemin_image'] == true) {
 		$img_file = chemin_image($img);
 	}
@@ -3322,8 +3326,11 @@ function http_img_pack($img, $alt, $atts = '', $title = '', $options = array()) 
 	}
 	if (stripos($atts, 'width') === false) {
 		// utiliser directement l'info de taille presente dans le nom
-		if ((!isset($options['utiliser_suffixe_size']) or $options['utiliser_suffixe_size'] == true)
-			and preg_match(',-([0-9]+)[.](png|gif|svg)$,', $img, $regs)
+		if ((!isset($options['utiliser_suffixe_size'])
+				or $options['utiliser_suffixe_size'] == true
+			  or strpos($img_file, '-xx.svg') !== false)
+			and (preg_match(',-([0-9]+)[.](png|gif|svg)$,', $img, $regs)
+					 or preg_match(',\?([0-9]+)px$,', $img, $regs))
 		) {
 			$largeur = $hauteur = intval($regs[1]);
 		} else {
@@ -3336,6 +3343,9 @@ function http_img_pack($img, $alt, $atts = '', $title = '', $options = array()) 
 		$atts .= " width='" . $largeur . "' height='" . $hauteur . "'";
 	}
 
+	if (file_exists($img_file)) {
+		$img_file = timestamp($img_file);
+	}
 	return "<img src='$img_file' alt='" . attribut_html($alt ? $alt : $title) . "'"
 	. ($title ? ' title="' . attribut_html($title) . '"' : '')
 	. " " . ltrim($atts)

@@ -1394,7 +1394,7 @@ function find_in_theme($file, $subdir = '', $include = false) {
 			return $themefiles["$subdir$file"] = $fsize;
 		}
 		else {
-			return $themefiles["$subdir$file"] = $f;
+			return $themefiles["$subdir$file"] = "$f?".$m[1]."px";
 		}
 	}
 
@@ -1431,6 +1431,9 @@ function find_in_theme($file, $subdir = '', $include = false) {
  **/
 function chemin_image($icone) {
 	static $icone_renommer;
+	if ($p = strpos($icone, '?')) {
+		$icone = substr($icone,0, $p);
+	}
 	// gerer le cas d'un double appel en evitant de refaire le travail inutilement
 	if (strpos($icone, "/") !== false and file_exists($icone)) {
 		return $icone;
