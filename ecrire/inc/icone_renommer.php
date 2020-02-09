@@ -51,10 +51,10 @@ function inc_icone_renommer_dist($fond, $fonction) {
 		$fond = $icone;
 
 		if ($rtl
-			and $fr = "$type-rtl-$size.png"
-			and file_exists($dir . '/' . $fr)
+			and $fr = $dir . '/' . str_replace("$type-", "$type-rtl-", basename($icone))
+			and file_exists($fr)
 		) {
-			$type = "$type-rtl";
+			$fond = $fr;
 		}
 
 		$action = $fonction;
@@ -65,18 +65,10 @@ function inc_icone_renommer_dist($fond, $fonction) {
 		} elseif ($action == "edit.gif") {
 			$action = "edit";
 		}
-		if (!in_array($action, array('del', 'new', 'edit'))) {
-			$action = "";
-		}
-		if ($action) {
-			if ($fa = "$type-$action-$size.png"
-				and file_exists($dir . '/' . $fa)
-			) {
-				$fond = $dir . '/' . $fa;
-				$fonction = "";
-			} else {
-				$fonction = "$action-$size.png";
-			}
+
+		$fonction = "";
+		if (in_array($action, array('add','del', 'new', 'edit', 'config'))) {
+			$fonction = $action;
 		}
 
 		// c'est bon !

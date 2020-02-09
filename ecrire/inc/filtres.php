@@ -3901,6 +3901,7 @@ function prepare_icone_base($type, $lien, $texte, $fond, $fonction = "", $class 
 		$fonction = "del";
 	}
 
+	$fond_origine = $fond;
 	// remappage des icone : article-24.png+new => article-new-24.png
 	if ($icone_renommer = charger_fonction('icone_renommer', 'inc', true)) {
 		list($fond, $fonction) = $icone_renommer($fond, $fonction);
@@ -3925,18 +3926,13 @@ function prepare_icone_base($type, $lien, $texte, $fond, $fonction = "", $class 
 	}
 
 	$size = 24;
-	if (preg_match("/-([0-9]{1,3})[.](gif|png)$/i", $fond, $match)) {
+	if (preg_match("/-([0-9]{1,3})[.](gif|png|svg)$/i", $fond, $match)
+	  or preg_match("/-([0-9]{1,3})([.](gif|png|svg))?$/i", $fond_origine, $match)) {
 		$size = $match[1];
 	}
 
-	if ($fonction) {
-		// 2 images pour composer l'icone : le fond (article) en background,
-		// la fonction (new) en image
-		$icone = http_img_pack($fonction, $alt, "width='$size' height='$size'\n" .
-			http_style_background($fond, '', $size));
-	} else {
-		$icone = http_img_pack($fond, $alt, "width='$size' height='$size'");
-	}
+	$icone = http_img_pack($fond, $alt, "width='$size' height='$size'");
+	$icone = "<span class=\"icone-image".($fonction ? " icone-fonction icone-fonction-$fonction" : "") . "\">$icone</span>";
 
 	if ($type == 'lien') {
 		return "<span class='icone s$size $class'>"
