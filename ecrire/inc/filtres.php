@@ -2789,9 +2789,10 @@ function filtre_pagination_dist(
 		return $ancres[$ancre];
 	}
 
+	$self = (empty($env['self']) ? self() : $env['self']);
 	$pagination = array(
 		'debut' => $debut,
-		'url' => parametre_url(self(), 'fragment', ''), // nettoyer l'id ahah eventuel
+		'url' => parametre_url($self, 'fragment', ''), // nettoyer l'id ahah eventuel
 		'total' => $total,
 		'position' => intval($position),
 		'pas' => $pas,
