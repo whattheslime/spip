@@ -257,18 +257,8 @@ class IterDecorator extends FilterIterator {
 					unset($where[$k]);
 				}
 				// traiter {cle IN a,b} ou {valeur !IN a,b}
-				// prendre en compte le cas particulier de sous-requetes
-				// produites par sql_in quand plus de 255 valeurs passees a IN
-				if (preg_match_all(',\s+IN\s+(\(.*\)),', $op, $s_req)) {
-					$req = '';
-					foreach ($s_req[1] as $key => $val) {
-						$req .= trim($val, '(,)') . ',';
-					}
-					$req = '(' . rtrim($req, ',') . ')';
-				}
-				if (preg_match(',^\(\(([\w/]+)(\s+NOT)?\s+IN\s+(\(.*\))\)(?:\s+(AND|OR)\s+\(([\w/]+)(\s+NOT)?\s+IN\s+(\(.*\))\))*\)$,',
-					$op, $regs)) {
-					$this->ajouter_filtre($regs[1], 'IN', strlen($req) ? $req : $regs[3], $regs[2]);
+				if (preg_match(',^\(([\w/]+)(\s+NOT)?\s+IN\s+(\(.*\))\)$,', $op, $regs)) {
+					$this->ajouter_filtre($regs[1], 'IN', $regs[3], $regs[2]);
 					unset($op, $where[$k]);
 				}
 			}
