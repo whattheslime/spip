@@ -39,8 +39,8 @@ img, .spip_logo { margin: 0; padding: 0; border: 0; }
 .spip_documents { text-align: center; line-height: normal; min-width: 120px; margin-bottom: 5px; margin-left: auto; margin-right: auto;  max-width: 100%;}
 .spip_documents p { margin: 0.10em; padding: 0; }
 .spip_documents_center { display: block; clear: both; width: 100%; margin: 1em auto; }
-.spip_documents_left { float: left; margin-right: 15px; margin-bottom: 5px; max-width: 66%; }
-.spip_documents_right { float: right; margin-left: 15px; margin-bottom: 5px; max-width: 66%; }
+.spip_documents_left { float: left; margin-right: 15px; margin-bottom: 5px; max-width: 33%; }
+.spip_documents_right { float: right; margin-left: 15px; margin-bottom: 5px; max-width: 33%; }
 .spip_doc_titre { margin-right: auto; margin-left: auto; font-weight: bold; font-size: 0.90em; }
 .spip_doc_descriptif { clear: both; margin-right: auto; margin-left: auto; font-size: 0.90em; }
 .spip_doc_credits { clear: both; margin-right: auto; margin-left: auto; font-size: 0.90em; font-style:italic; }
