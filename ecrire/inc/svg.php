@@ -126,35 +126,35 @@ function svg_lire_attributs($img) {
  * @param $dimension
  * @return bool|float|int
  */
-function svg_dimension_to_pixels($dimension) {
-	if (preg_match(',^(-?\d+)([^\d]*),i', trim($dimension), $m)){
+function svg_dimension_to_pixels($dimension, $precision = 2) {
+	if (preg_match(',^(-?\d+(\.\d+)?)([^\d]*),i', trim($dimension), $m)){
 		switch (strtolower($m[2])) {
 			case '%':
 				// on ne sait pas faire :(
 				return false;
 				break;
 			case 'em':
-				return intval($m[1])*16; // 16px font-size par defaut
+				return round($m[1]*16, $precision); // 16px font-size par defaut
 				break;
 			case 'ex':
-				return intval($m[1])*16; // 16px font-size par defaut
+				return round($m[1]*16, $precision); // 16px font-size par defaut
 				break;
 			case 'pc':
-				return intval($m[1])*16; // 1/6 inch = 96px/6 in CSS
+				return round($m[1]*16, $precision); // 1/6 inch = 96px/6 in CSS
 				break;
 			case 'cm':
-				return intval(round($m[1]*96/2.54)); // 96px / 2.54cm;
+				return round($m[1]*96/2.54, $precision); // 96px / 2.54cm;
 				break;
 			case 'mm':
-				return intval(round($m[1]*96/25.4)); // 96px / 25.4mm;
+				return round($m[1]*96/25.4, $precision); // 96px / 25.4mm;
 				break;
 			case 'in':
-				return intval($m[1])*96; // 1 inch = 96px in CSS
+				return round($m[1]*96, $precision); // 1 inch = 96px in CSS
 				break;
 			case 'px':
 			case 'pt':
 			default:
-				return intval($m[1]);
+				return $m[1];
 				break;
 		}
 	}
@@ -276,6 +276,74 @@ function svg_couleur_to_rgb($couleur) {
 
 
 /**
+ * Calculer les dimensions width/heigt/viewBox du SVG d'apres les attributs de la balise <svg>
+ * @param array $attributs
+ * @return array
+ */
+function svg_getimagesize_from_attr($attributs) {
+	$width = 350; // default width
+	$height = 150; // default height
+
+	$viewBox = "0 0 $width $height";
+	if (isset($attributs['viewBox'])) {
+		$viewBox = $attributs['viewBox'];
+		$viewBox = preg_replace(",\s+,", " ", $viewBox);
+	}
+	// et on la convertit en px
+	$viewBox = explode(' ', $viewBox);
+	$viewBox = array_map('svg_dimension_to_pixels', $viewBox);
+	if (!$viewBox[2]) {
+		$viewBox[2] = $width;
+	}
+	if (!$viewBox[3]) {
+		$viewBox[3] = $height;
+	}
+
+	$coeff = 1;
+	if (isset($attributs['width'])
+	  and $w = svg_dimension_to_pixels($attributs['width'])) {
+		$width = $w;
+	}
+	else {
+		// si on recupere la taille de la viewbox mais si la viewbox est petite on met un multiplicateur pour la taille finale
+		$width = $viewBox[2];
+		if ($width < 1) {
+			$coeff = max($coeff, 1000);
+		}
+		elseif ($width < 10) {
+			$coeff = max($coeff, 100);
+		}
+		elseif ($width < 100) {
+			$coeff = max($coeff, 10);
+		}
+	}
+	if (isset($attributs['height'])
+	  and $h = svg_dimension_to_pixels($attributs['height'])) {
+		$height = $h;
+	}
+	else {
+		$height = $viewBox[3];
+		if ($height < 1) {
+			$coeff = max($coeff, 1000);
+		}
+		elseif ($height < 10) {
+			$coeff = max($coeff, 100);
+		}
+		elseif ($height < 100) {
+			$coeff = max($coeff, 10);
+		}
+	}
+
+	// arrondir le width et height en pixel in fine
+	$width = round($coeff * $width);
+	$height = round($coeff * $height);
+
+	$viewBox = implode(' ', $viewBox);
+
+	return array($width, $height, $viewBox);
+}
+
+/**
  * Forcer la viewBox du SVG, en px
  * cree l'attribut viewBox si il n'y en a pas
  * convertit les unites en px si besoin
@@ -293,44 +361,14 @@ function svg_force_viewBox_px($img, $force_width_and_height = false) {
 
 		list($balise_svg, $attributs) = $svg_infos;
 
-		// il nous faut une viewBox
-		if (!isset($attributs['viewBox'])) {
-			$viewBox = "0 0 " . $attributs['width'] . " " . $attributs['height'];
-		}
-		else {
-			$viewBox = $attributs['viewBox'];
-		}
-		// et on la convertit en px
-		$viewBox = explode(' ', $viewBox);
-		$viewBox = array_map('svg_dimension_to_pixels', $viewBox);
-		$viewBox = array_map('intval', $viewBox);
-		if (!$viewBox[2]) {
-			$viewBox[2] = '300';
-		}
-		if (!$viewBox[3]) {
-			$viewBox[3] = '150';
-		}
+		list($width, $height, $viewBox) = svg_getimagesize_from_attr($attributs);
 
 		if ($force_width_and_height) {
-			$width = false;
-			if (isset($attributs['width'])) {
-				$width = svg_dimension_to_pixels($attributs['width']);
-			}
-			if (!$width) {
-				$width = $viewBox[2];
-			}
 			$attributs['width'] = $width;
-			$height = false;
-			if (isset($attributs['height'])) {
-				$height = svg_dimension_to_pixels($attributs['height']);
-			}
-			if (!$height) {
-				$height = $viewBox[3];
-			}
 			$attributs['height'] = $height;
 		}
 
-		$attributs['viewBox'] = implode(' ', $viewBox);
+		$attributs['viewBox'] = $viewBox;
 
 		$svg = svg_change_balise_svg($svg, $balise_svg, $attributs);
 		return $svg;
@@ -378,11 +416,11 @@ function svg_recadrer($img, $new_width, $new_height, $offset_width, $offset_heig
 		  and $h = svg_dimension_to_pixels($attributs['height'])) {
 
 			$xscale = $viewBox[2] / $w;
-			$viewport_w = intval(round($viewport_w * $xscale));
-			$viewport_ox = intval(round($viewport_ox * $xscale));
+			$viewport_w = round($viewport_w * $xscale, 2);
+			$viewport_ox = round($viewport_ox * $xscale, 2);
 			$yscale = $viewBox[3] / $h;
-			$viewport_h = intval(round($viewport_h * $yscale));
-			$viewport_oy = intval(round($viewport_oy * $yscale));
+			$viewport_h = round($viewport_h * $yscale, 2);
+			$viewport_oy = round($viewport_oy * $yscale, 2);
 		}
 
 		if ($viewport_w>$viewBox[2] or $viewport_h>$viewBox[3]) {

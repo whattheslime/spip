@@ -3407,26 +3407,7 @@ function spip_getimagesize($fichier) {
 
 		include_spip("inc/svg");
 		if ($attrs = svg_lire_attributs($fichier)) {
-			$width = 350; // default width
-			$height = 150; // default height
-			if (isset($attrs['width'])
-			  and $w = svg_dimension_to_pixels($attrs['width'])
-				and isset($attrs['height'])
-			  and $h = svg_dimension_to_pixels($attrs['height'])) {
-				$width = $w;
-				$height = $h;
-			}
-			elseif (isset($attrs['viewBox'])) {
-				$viewbox = trim($attrs['viewBox']);
-				$viewbox = preg_replace(",\s+,", " ", $viewbox);
-				$viewbox = explode(" ", $viewbox);
-				if (count($viewbox) === 4
-				  and $w = svg_dimension_to_pixels($viewbox[2])
-				  and $h = svg_dimension_to_pixels($viewbox[3])) {
-					$width = $w;
-					$height = $h;
-				}
-			}
+			list($width, $height, $viewbox) = svg_getimagesize_from_attr($attrs);
 			$imagesize = [
 				$width,
 				$height,
