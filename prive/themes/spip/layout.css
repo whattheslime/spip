@@ -57,6 +57,10 @@
 	margin-top: 10px;
 }
 
+#page {
+	text-align: center;
+}
+
 /* Navigateurs napthaline : par defaut */
 #conteneur {
 	text-align: center;
@@ -181,7 +185,6 @@
 
 	#page {
 		margin: auto;
-		text-align: center;
 	}
 
 	#haut {
@@ -250,10 +253,17 @@
 	text-align: center;
 }
 
+.wrap-messages-alertes {
+	padding: 5px 10px;
+	background: #eee;
+}
+@media (min-width: 960px) {
+	.wrap-messages-alertes {
+		padding: 5px 20px;
+	}
+}
 div.messages-alertes {
 	text-align: right;
-	background: #fff;
-	padding: 5px;
 	clear: both;
 	margin-right: auto;
 	margin-left: auto;
