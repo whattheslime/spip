@@ -18,7 +18,9 @@
 	<langue code="ay" url="https://trad.spip.net/tradlang_module/ecrire_?lang_cible=ay" total="813" traduits="175" relire="0" modifs="9" nouveaux="629" pourcent="21.53">
 		<traducteur nom="b_b" lien="https://trad.spip.net/auteur/b_b" />
 	</langue>
-	<langue code="bg" url="https://trad.spip.net/tradlang_module/ecrire_?lang_cible=bg" total="813" traduits="482" relire="0" modifs="44" nouveaux="287" pourcent="59.29" />
+	<langue code="bg" url="https://trad.spip.net/tradlang_module/ecrire_?lang_cible=bg" total="813" traduits="483" relire="0" modifs="44" nouveaux="286" pourcent="59.41">
+		<traducteur nom="Benitron" lien="https://trad.spip.net/auteur/benitron" />
+	</langue>
 	<langue code="br" url="https://trad.spip.net/tradlang_module/ecrire_?lang_cible=br" total="813" traduits="810" relire="0" modifs="2" nouveaux="1" pourcent="99.63">
 		<traducteur nom="AudeB" lien="https://trad.spip.net/auteur/audeb" />
 		<traducteur nom="b_b" lien="https://trad.spip.net/auteur/b_b" />

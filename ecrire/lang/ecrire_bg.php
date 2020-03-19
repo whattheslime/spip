@@ -379,6 +379,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'info_tout_site5' => 'Оригинална статия.',
 	'info_tout_site6' => '<b>Предупреждение:</b> показани са само оригинални статии.
 Преводите са свързани с оригинала в цвят, посочващ техния статус:',
+	'info_traductions' => 'Преводи',
 	'info_travail_colaboratif' => 'Съвместна работа по статии',
 	'info_un_article' => 'една статия,',
 	'info_un_site' => 'сайт,',
