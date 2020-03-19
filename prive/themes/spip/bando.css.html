@@ -105,8 +105,17 @@
 #bando_outils #rapides {float:#ENV{right};}
 #bando_outils #rapides .formulaire_recherche {margin:3px 0;clear:none;}
 
-#bando_navigation ul.deroulant > li {min-width:85px; max-width:115px; text-align:center; }
+#bando_navigation ul.deroulant > li {min-width:90px; max-width:115px; text-align:center; }
+@media (min-width: 960px) {
+	#bando_navigation ul.deroulant > li {min-width:100px; max-width:130px;}
+}
+@media (min-width: 1200px) {
+	#bando_navigation ul.deroulant > li {min-width:110px;max-width:150px;}
+}
 #bando_navigation ul li ul {min-width: 85px; max-width:250px;z-index:1;}
+@media (min-width: 960px) {
+	#bando_navigation ul li ul {max-width:300px;}
+}
 #bando_navigation ul li ul li {width: auto;float:none;text-align:#ENV{left};position:static;}
 
 #bando_navigation { position: relative;z-index: 10; }
