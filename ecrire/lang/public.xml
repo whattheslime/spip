@@ -153,7 +153,9 @@
 		<traducteur nom="olly" lien="https://trad.spip.net/auteur/olly" />
 		<traducteur nom="Serge Markitanenko" lien="https://trad.spip.net/auteur/serge-markitanenko" />
 	</langue>
-	<langue code="sc" url="https://trad.spip.net/tradlang_module/public?lang_cible=sc" total="78" traduits="64" relire="0" modifs="3" nouveaux="11" pourcent="82.05" />
+	<langue code="sc" url="https://trad.spip.net/tradlang_module/public?lang_cible=sc" total="78" traduits="64" relire="0" modifs="3" nouveaux="11" pourcent="82.05">
+		<traducteur nom="didac" lien="https://trad.spip.net/auteur/didac" />
+	</langue>
 	<langue code="sh_cyrl" url="https://trad.spip.net/tradlang_module/public?lang_cible=sh_cyrl" total="78" traduits="61" relire="0" modifs="3" nouveaux="14" pourcent="78.21" />
 	<langue code="sk" url="https://trad.spip.net/tradlang_module/public?lang_cible=sk" total="78" traduits="78" relire="0" modifs="0" nouveaux="0" pourcent="100.00">
 		<traducteur nom="jaro" lien="https://trad.spip.net/auteur/jaro" />
