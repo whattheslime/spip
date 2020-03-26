@@ -693,7 +693,7 @@ function quete_debut_pagination($primary, $valeur, $pas, $iter) {
 		$pos++;
 	}
 	// si on a pas trouve
-	if ($row[$primary] != $valeur) {
+	if (!$row or $row[$primary] != $valeur) {
 		return 0;
 	}
 
