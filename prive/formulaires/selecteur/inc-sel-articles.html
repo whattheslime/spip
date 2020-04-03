@@ -3,8 +3,8 @@
 	type="hidden"
 	name="[(#ENV{name,id_item})][]"
 	value="article|#ID_ARTICLE"
-	/>[(#ENV{afficher_langue,0}|oui)[&#91;(#LANG)&#93;] ]#TITRE[(#ENV{select,''}|non)
+	/>[(#ENV{afficher_langue,0}|oui)[&#91;(#LANG)&#93;] ]#TITRE
 <a
 	href='#'
-	onclick='jQuery(this).item_unpick();return false;'>[(#ENV{img_unpick}|balise_img)]</a>]<span
+	onclick='jQuery(this).item_unpick();return false;'>[(#ENV{img_unpick}|balise_img)]</a><span
 	class="sep">, </span></li></BOUCLE_sel>
