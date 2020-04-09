@@ -171,23 +171,27 @@ jQuery.getScript = function(url,callback){
 /**
  * if not fully visible, scroll the page to position
  * target block at the top of page
- * if force = true, allways scroll
+ * if force = true, always scroll
  *
  * @param bool force
  */
 jQuery.fn.positionner = function(force, setfocus) {
 	var offset = jQuery(this).offset();
 	var hauteur = parseInt(jQuery(this).css('height'));
+	var marge = jQuery.spip.positionner_marge || 5;
 	var scrolltop = self['pageYOffset'] ||
 		jQuery.boxModel && document.documentElement[ 'scrollTop' ] ||
 		document.body[ 'scrollTop' ];
 	var h = jQuery(window).height();
 	var scroll=0;
 
-	if (force || (offset && offset['top'] - 5 <= scrolltop))
-		scroll = offset['top'] - 5;
-	else if (offset && offset['top'] + hauteur - h + 5 > scrolltop)
-		scroll = Math.min(offset['top'] - 5, offset['top'] + hauteur - h + 15);
+	if (force || (offset && offset['top'] - marge <= scrolltop)) {
+		scroll = offset['top'] - marge;
+	}
+	else if (offset && offset['top'] + hauteur - h + marge > scrolltop) {
+		scroll = Math.min(offset['top'] - marge - 15, offset['top'] + hauteur - h + 40);
+	}
+
 	if (scroll)
 		jQuery('html,body')
 		.animate({scrollTop: scroll}, 300);
@@ -1065,4 +1069,3 @@ onAjaxLoad(function() {
 		jQuery('.spip_logo_survol',this).hover(spip_logo_survol_hover, spip_logo_survol_out);
 	}
 });
-
