@@ -3410,8 +3410,12 @@ function filtre_balise_img_dist($img, $alt = "", $class = "", $width=null) {
  * @return string
  */
 function filtre_balise_svg_dist($img, $alt = "", $class = "") {
-	if (!$file = find_in_path($img)
-	  or !$svg = file_get_contents($file)) {
+	$img_file = $img;
+	if ($p = strpos($img_file, '?')) {
+		$img_file = substr($img_file,0, $p);
+	}
+
+	if (!$img_file or !$svg = file_get_contents($img_file)) {
 		return '';
 	}
 
@@ -3431,7 +3435,7 @@ function filtre_balise_svg_dist($img, $alt = "", $class = "") {
 	}
 	if ($alt){
 		$balise_svg = inserer_attribut($balise_svg, 'role', 'img');
-		$id = "img-svg-title-" . substr(md5("$file:$svg:$alt"),0,4);
+		$id = "img-svg-title-" . substr(md5("$img_file:$svg:$alt"),0,4);
 		$balise_svg = inserer_attribut($balise_svg, 'aria-labelledby', $id);
 		$title = "<title id=\"$id\">" . entites_html($alt)."</title>\n";
 		$balise_svg .= $title;
