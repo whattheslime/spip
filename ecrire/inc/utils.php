@@ -1496,6 +1496,10 @@ function find_in_path($file, $dirname = '', $include = false) {
 	static $inc = array(); # cf http://trac.rezo.net/trac/spip/changeset/14743
 	static $c = '';
 
+	if (!$file and !strlen($file)) {
+		return false;
+	}
+
 	// on calcule le chemin si le dossier skel a change
 	if ($c != $GLOBALS['dossier_squelettes']) {
 		// assurer le non plantage lors de la montee de version :
