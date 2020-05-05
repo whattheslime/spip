@@ -111,7 +111,7 @@ function critere_doublons_dist($idb, &$boucles, $crit) {
 	// compléter le nom avec un nom précisé {doublons nom}
 	// on obtient $nom = "'article' . 'nom'"
 	if (isset($crit->param[0])) {
-		$nom .= "." . calculer_liste($crit->param[0], array(), $boucles, $boucles[$idb]->id_parent);
+		$nom .= "." . calculer_liste($crit->param[0], $idb, $boucles, $boucles[$idb]->id_parent);
 	}
 
 	// code qui déclarera l'index du stockage de nos doublons (pour éviter une notice PHP)
@@ -259,7 +259,7 @@ function critere_pagination_dist($idb, &$boucles, $crit) {
 	$boucle = &$boucles[$idb];
 	// definition de la taille de la page
 	$pas = !isset($crit->param[0][0]) ? "''"
-		: calculer_liste(array($crit->param[0][0]), array(), $boucles, $boucle->id_parent);
+		: calculer_liste(array($crit->param[0][0]), $idb, $boucles, $boucle->id_parent);
 
 	if (!preg_match(_CODE_QUOTE, $pas, $r)) {
 		$pas = "((\$a = intval($pas)) ? \$a : 10)";
@@ -275,10 +275,10 @@ function critere_pagination_dist($idb, &$boucles, $crit) {
 	// Calcul d'un nommage spécifique de la pagination si précisé.
 	// Syntaxe {pagination 20, nom}
 	if (isset($crit->param[0][1])) {
-		$type = calculer_liste(array($crit->param[0][1]), array(), $boucles, $boucle->id_parent);
+		$type = calculer_liste(array($crit->param[0][1]), $idb, $boucles, $boucle->id_parent);
 	} // Ancienne syntaxe {pagination 20 nom} pour compatibilité
 	elseif (isset($crit->param[1][0])) {
-		$type = calculer_liste(array($crit->param[1][0]), array(), $boucles, $boucle->id_parent);
+		$type = calculer_liste(array($crit->param[1][0]), $idb, $boucles, $boucle->id_parent);
 	}
 
 	$debut = ($type[0] !== "'") ? "'debut'.$type" : ("'debut" . substr($type, 1));
@@ -337,7 +337,7 @@ function critere_recherche_dist($idb, &$boucles, $crit) {
 	}
 
 	if (isset($crit->param[0])) {
-		$quoi = calculer_liste($crit->param[0], array(), $boucles, $boucles[$idb]->id_parent);
+		$quoi = calculer_liste($crit->param[0], $idb, $boucles, $boucles[$idb]->id_parent);
 	} else {
 		$quoi = '(isset($Pile[0]["recherche"])?$Pile[0]["recherche"]:(isset($GLOBALS["recherche"])?$GLOBALS["recherche"]:""))';
 	}
@@ -498,7 +498,7 @@ function critere_branche_dist($idb, &$boucles, $crit) {
 	$boucle = &$boucles[$idb];
 	// prendre en priorite un identifiant en parametre {branche XX}
 	if (isset($crit->param[0])) {
-		$arg = calculer_liste($crit->param[0], array(), $boucles, $boucles[$idb]->id_parent);
+		$arg = calculer_liste($crit->param[0], $idb, $boucles, $boucles[$idb]->id_parent);
 		// sinon on le prend chez une boucle parente
 	} else {
 		$arg = kwote(calculer_argument_precedent($idb, 'id_rubrique', $boucles), $boucle->sql_serveur, 'int NOT NULL');
@@ -632,7 +632,7 @@ function critere_fusion_dist($idb, &$boucles, $crit) {
  */
 function critere_collecte_dist($idb, &$boucles, $crit) {
 	if (isset($crit->param[0])) {
-		$_coll = calculer_liste($crit->param[0], array(), $boucles, $boucles[$idb]->id_parent);
+		$_coll = calculer_liste($crit->param[0], $idb, $boucles, $boucles[$idb]->id_parent);
 		$boucle = $boucles[$idb];
 		$boucle->modificateur['collate'] = "($_coll ?' COLLATE '.$_coll:'')";
 		$n = count($boucle->order);
@@ -667,7 +667,7 @@ function calculer_critere_arg_dynamique($idb, &$boucles, $crit, $suffix = '') {
 	if ($desc) {
 		$alt = "(in_array(\$x, $var)  ? $alt :(\$x$suffix))";
 	}
-	$arg = calculer_liste($crit, array(), $boucles, $boucle->id_parent);
+	$arg = calculer_liste($crit, $idb, $boucles, $boucle->id_parent);
 
 	return "((\$x = preg_replace(\"/\\W/\",'', $arg)) ? $alt : '')";
 }
@@ -866,7 +866,7 @@ function calculer_critere_par_expression_num($idb, &$boucles, $crit, $tri, $cham
 	}
 	$boucle = &$boucles[$idb];
 	$texte = '0+' . $_champ;
-	$suite = calculer_liste($tri, array(), $boucles, $boucle->id_parent);
+	$suite = calculer_liste($tri, $idb, $boucles, $boucle->id_parent);
 	if ($suite !== "''") {
 		$texte = "\" . ((\$x = $suite) ? ('$texte' . \$x) : '0')" . " . \"";
 	}
@@ -900,7 +900,7 @@ function calculer_critere_par_expression_sinum($idb, &$boucles, $crit, $tri, $ch
 	}
 	$boucle = &$boucles[$idb];
 	$texte = '0+' . $_champ;
-	$suite = calculer_liste($tri, array(), $boucles, $boucle->id_parent);
+	$suite = calculer_liste($tri, $idb, $boucles, $boucle->id_parent);
 	if ($suite !== "''") {
 		$texte = "\" . ((\$x = $suite) ? ('$texte' . \$x) : '0')" . " . \"";
 	}
@@ -1053,7 +1053,7 @@ function critere_inverse_dist($idb, &$boucles, $crit) {
 		$order = "' DESC'";
 		// Classement par ordre inverse fonction eventuelle de #ENV{...}
 		if (isset($crit->param[0])) {
-			$critere = calculer_liste($crit->param[0], array(), $boucles, $boucles[$idb]->id_parent);
+			$critere = calculer_liste($crit->param[0], $idb, $boucles, $boucles[$idb]->id_parent);
 			$order = "(($critere)?' DESC':'')";
 		}
 
@@ -1103,7 +1103,7 @@ function critere_agenda_dist($idb, &$boucles, $crit) {
 			return array('zbug_critere_inconnu', array('critere' => $crit->op . " " . $date));
 		}
 	} else {
-		$a = calculer_liste($date, array(), $boucles, $parent);
+		$a = calculer_liste($date, $idb, $boucles, $parent);
 		$noms = array_keys($fields);
 		$defaut = $noms[0];
 		$noms = join(" ", $noms);
@@ -1113,32 +1113,32 @@ function critere_agenda_dist($idb, &$boucles, $crit) {
 	}
 	$annee = $params ? array_shift($params) : "";
 	$annee = "\n" . 'sprintf("%04d", ($x = ' .
-		calculer_liste($annee, array(), $boucles, $parent) .
+		calculer_liste($annee, $idb, $boucles, $parent) .
 		') ? $x : date("Y"))';
 
 	$mois = $params ? array_shift($params) : "";
 	$mois = "\n" . 'sprintf("%02d", ($x = ' .
-		calculer_liste($mois, array(), $boucles, $parent) .
+		calculer_liste($mois, $idb, $boucles, $parent) .
 		') ? $x : date("m"))';
 
 	$jour = $params ? array_shift($params) : "";
 	$jour = "\n" . 'sprintf("%02d", ($x = ' .
-		calculer_liste($jour, array(), $boucles, $parent) .
+		calculer_liste($jour, $idb, $boucles, $parent) .
 		') ? $x : date("d"))';
 
 	$annee2 = $params ? array_shift($params) : "";
 	$annee2 = "\n" . 'sprintf("%04d", ($x = ' .
-		calculer_liste($annee2, array(), $boucles, $parent) .
+		calculer_liste($annee2, $idb, $boucles, $parent) .
 		') ? $x : date("Y"))';
 
 	$mois2 = $params ? array_shift($params) : "";
 	$mois2 = "\n" . 'sprintf("%02d", ($x = ' .
-		calculer_liste($mois2, array(), $boucles, $parent) .
+		calculer_liste($mois2, $idb, $boucles, $parent) .
 		') ? $x : date("m"))';
 
 	$jour2 = $params ? array_shift($params) : "";
 	$jour2 = "\n" . 'sprintf("%02d", ($x = ' .
-		calculer_liste($jour2, array(), $boucles, $parent) .
+		calculer_liste($jour2, $idb, $boucles, $parent) .
 		') ? $x : date("d"))';
 
 	$date = $boucle->id_table . ".$date";
@@ -1334,7 +1334,7 @@ function calculer_parties(&$boucles, $id_boucle, $debut, $mode) {
  **/
 function calculer_critere_parties_aux($idb, &$boucles, $param) {
 	if ($param[0]->type != 'texte') {
-		$a1 = calculer_liste(array($param[0]), array('id_mere' => $idb), $boucles, $boucles[$idb]->id_parent);
+		$a1 = calculer_liste(array($param[0]), $idb, $boucles, $boucles[$idb]->id_parent);
 		if (isset($param[1]->texte)) {
 			preg_match(',^ *(-([0-9]+))? *$,', $param[1]->texte, $m);
 
@@ -1350,7 +1350,7 @@ function calculer_critere_parties_aux($idb, &$boucles, $param) {
 		} elseif (!empty($m[4])) {
 			return array($a1, $m[4]);
 		} else {
-			return array($a1, calculer_liste(array($param[1]), array(), $boucles, $boucles[$idb]->id_parent));
+			return array($a1, calculer_liste(array($param[1]), $idb, $boucles, $boucles[$idb]->id_parent));
 		}
 	}
 }
@@ -1555,7 +1555,7 @@ function critere_IN_cas($idb, &$boucles, $crit2, $arg, $op, $val, $col) {
 function critere_where_dist($idb, &$boucles, $crit) {
 	$boucle = &$boucles[$idb];
 	if (isset($crit->param[0])) {
-		$_where = calculer_liste($crit->param[0], array(), $boucles, $boucle->id_parent);
+		$_where = calculer_liste($crit->param[0], $idb, $boucles, $boucle->id_parent);
 	} else {
 		$_where = '@$Pile[0]["where"]';
 	}
@@ -1771,11 +1771,11 @@ function critere_tri_dist($idb, &$boucles, $crit) {
 
 	// definition du champ par defaut
 	$_champ_defaut = !isset($crit->param[0][0]) ? "''"
-		: calculer_liste(array($crit->param[0][0]), array(), $boucles, $boucle->id_parent);
+		: calculer_liste(array($crit->param[0][0]), $idb, $boucles, $boucle->id_parent);
 	$_sens_defaut = !isset($crit->param[1][0]) ? "1"
-		: calculer_liste(array($crit->param[1][0]), array(), $boucles, $boucle->id_parent);
+		: calculer_liste(array($crit->param[1][0]), $idb, $boucles, $boucle->id_parent);
 	$_variable = !isset($crit->param[2][0]) ? "'$idb'"
-		: calculer_liste(array($crit->param[2][0]), array(), $boucles, $boucle->id_parent);
+		: calculer_liste(array($crit->param[2][0]), $idb, $boucles, $boucle->id_parent);
 
 	$_tri = "((\$t=(isset(\$Pile[0]['tri'.$_variable]))?\$Pile[0]['tri'.$_variable]:((strncmp($_variable,'session',7)==0 AND session_get('tri'.$_variable))?session_get('tri'.$_variable):$_champ_defaut))?tri_protege_champ(\$t):'')";
 
@@ -2452,7 +2452,6 @@ function calculer_critere_infixe_ops($idb, &$boucles, $crit) {
 		$col = $col[0]->texte;
 
 		$val = array();
-		$desc = array('id_mere' => $idb);
 		$parent = $boucles[$idb]->id_parent;
 
 		// Dans le cas {x=='#DATE'} etc, defaire le travail du phraseur,
@@ -2469,7 +2468,7 @@ function calculer_critere_infixe_ops($idb, &$boucles, $crit) {
 			$val[] = "$p\\$p#" . $params[0][1]->nom_champ . "\\$p$p";
 		} else {
 			foreach ((($op != 'IN') ? $params : calculer_vieux_in($params)) as $p) {
-				$a = calculer_liste($p, $desc, $boucles, $parent);
+				$a = calculer_liste($p, $idb, $boucles, $parent);
 				if (strcasecmp($op, 'IN') == 0) {
 					$val[] = $a;
 				} else {
@@ -2682,7 +2681,7 @@ function critere_DATA_source_dist($idb, &$boucles, $crit) {
 	$args = array();
 	foreach ($crit->param as &$param) {
 		array_push($args,
-			calculer_liste($param, array(), $boucles, $boucles[$idb]->id_parent));
+			calculer_liste($param, $idb, $boucles, $boucles[$idb]->id_parent));
 	}
 
 	$boucle->hash .= '
@@ -2707,8 +2706,8 @@ function critere_DATA_source_dist($idb, &$boucles, $crit) {
 function critere_DATA_datasource_dist($idb, &$boucles, $crit) {
 	$boucle = &$boucles[$idb];
 	$boucle->hash .= '
-	$command[\'source\'] = array(' . calculer_liste($crit->param[0], array(), $boucles, $boucles[$idb]->id_parent) . ');
-	$command[\'sourcemode\'] = ' . calculer_liste($crit->param[1], array(), $boucles, $boucles[$idb]->id_parent) . ';';
+	$command[\'source\'] = array(' . calculer_liste($crit->param[0], $idb, $boucles, $boucles[$idb]->id_parent) . ');
+	$command[\'sourcemode\'] = ' . calculer_liste($crit->param[1], $idb, $boucles, $boucles[$idb]->id_parent) . ';';
 }
 
 
@@ -2728,7 +2727,7 @@ function critere_DATA_datasource_dist($idb, &$boucles, $crit) {
 function critere_DATA_datacache_dist($idb, &$boucles, $crit) {
 	$boucle = &$boucles[$idb];
 	$boucle->hash .= '
-	$command[\'datacache\'] = ' . calculer_liste($crit->param[0], array(), $boucles, $boucles[$idb]->id_parent) . ';';
+	$command[\'datacache\'] = ' . calculer_liste($crit->param[0], $idb, $boucles, $boucles[$idb]->id_parent) . ';';
 }
 
 
@@ -2747,7 +2746,7 @@ function critere_php_args_dist($idb, &$boucles, $crit) {
 	$boucle->hash .= '$command[\'args\']=array();';
 	foreach ($crit->param as $param) {
 		$boucle->hash .= '
-			$command[\'args\'][] = ' . calculer_liste($param, array(), $boucles, $boucles[$idb]->id_parent) . ';';
+			$command[\'args\'][] = ' . calculer_liste($param, $idb, $boucles, $boucles[$idb]->id_parent) . ';';
 	}
 }
 
@@ -2768,7 +2767,7 @@ function critere_DATA_liste_dist($idb, &$boucles, $crit) {
 	$boucle = &$boucles[$idb];
 	$boucle->hash .= "\n\t" . '$command[\'liste\'] = array();' . "\n";
 	foreach ($crit->param as $param) {
-		$boucle->hash .= "\t" . '$command[\'liste\'][] = ' . calculer_liste($param, array(), $boucles,
+		$boucle->hash .= "\t" . '$command[\'liste\'][] = ' . calculer_liste($param, $idb, $boucles,
 				$boucles[$idb]->id_parent) . ";\n";
 	}
 }
@@ -2798,7 +2797,7 @@ function critere_DATA_enum_dist($idb, &$boucles, $crit) {
 	$boucle = &$boucles[$idb];
 	$boucle->hash .= "\n\t" . '$command[\'enum\'] = array();' . "\n";
 	foreach ($crit->param as $param) {
-		$boucle->hash .= "\t" . '$command[\'enum\'][] = ' . calculer_liste($param, array(), $boucles,
+		$boucle->hash .= "\t" . '$command[\'enum\'][] = ' . calculer_liste($param, $idb, $boucles,
 				$boucles[$idb]->id_parent) . ";\n";
 	}
 }
@@ -2818,7 +2817,7 @@ function critere_DATA_datapath_dist($idb, &$boucles, $crit) {
 	$boucle = &$boucles[$idb];
 	foreach ($crit->param as $param) {
 		$boucle->hash .= '
-			$command[\'datapath\'][] = ' . calculer_liste($param, array(), $boucles, $boucles[$idb]->id_parent) . ';';
+			$command[\'datapath\'][] = ' . calculer_liste($param, $idb, $boucles, $boucles[$idb]->id_parent) . ';';
 	}
 }
 
@@ -2859,7 +2858,7 @@ function critere_si_dist($idb, &$boucles, $crit) {
 	if ($crit->param) {
 		foreach ($crit->param as $param) {
 			$boucle->hash .= "\t\$command['si'][] = "
-				. calculer_liste($param, array(), $boucles, $boucles[$idb]->id_parent) . ";\n";
+				. calculer_liste($param, $idb, $boucles, $boucles[$idb]->id_parent) . ";\n";
 		}
 		// interdire {si 0} aussi !
 	} else {
@@ -2882,7 +2881,7 @@ function critere_si_dist($idb, &$boucles, $crit) {
 function critere_POUR_tableau_dist($idb, &$boucles, $crit) {
 	$boucle = &$boucles[$idb];
 	$boucle->hash .= '
-	$command[\'source\'] = array(' . calculer_liste($crit->param[0], array(), $boucles, $boucles[$idb]->id_parent) . ');
+	$command[\'source\'] = array(' . calculer_liste($crit->param[0], $idb, $boucles, $boucles[$idb]->id_parent) . ');
 	$command[\'sourcemode\'] = \'table\';';
 }
 
