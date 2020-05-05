@@ -904,10 +904,13 @@ function public_phraser_html_dist($texte, $id_parent, &$boucles, $descr, $ligne 
 		}
 
 		$descr['id_mere_contexte'] = $id_boucle;
+		$result->milieu = public_phraser_html_dist($milieu, $id_boucle, $boucles, $descr, $result->ligne + $b);
+		// reserver la place dans la pile des boucles pour compiler ensuite dans le bon ordre
+		// ie les boucles qui apparaissent dans les partie conditionnelles doivent etre compilees apres cette boucle
+		$boucles[$id_boucle] = null;
 		$result->avant = public_phraser_html_dist($result->avant, $id_parent, $boucles, $descr, $result->ligne);
 		$result->apres = public_phraser_html_dist($result->apres, $id_parent, $boucles, $descr, $result->ligne + $b + $m);
 		$result->altern = public_phraser_html_dist($result->altern, $id_parent, $boucles, $descr, $result->ligne + $a + $m + $b);
-		$result->milieu = public_phraser_html_dist($milieu, $id_boucle, $boucles, $descr, $result->ligne + $b);
 
 		// Prevenir le generateur de code que le squelette est faux
 		if ($err_b) {
@@ -917,7 +920,7 @@ function public_phraser_html_dist($texte, $id_parent, &$boucles, $descr, $ligne 
 		// Verifier qu'il n'y a pas double definition
 		// apres analyse des sous-parties (pas avant).
 
-		if (isset($boucles[$id_boucle])) {
+		if (!empty($boucles[$id_boucle])) {
 			$err_b_d = array(
 				'zbug_erreur_boucle_double',
 				array('id' => $id_boucle)
