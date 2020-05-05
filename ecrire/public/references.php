@@ -26,7 +26,7 @@ if (!defined('_ECRIRE_INC_VERSION')) {
  * où une référence explicite est demandée
  *
  * - `#MABALISE` : l'index est celui de la première boucle englobante
- * - `#_autreboucle:MABALISE` : l'index est celui de la boucle _autreboucle si elle est bien englobante
+ * - `#_autreboucle:MABALISE` : l'index est celui de la boucle _autreboucle
  *
  * @example
  *     Dans une balise dynamique ou calculée :
@@ -41,33 +41,27 @@ if (!defined('_ECRIRE_INC_VERSION')) {
  *     - '' si une référence explicite incorrecte est envoyée
  */
 function index_boucle($p) {
-
-	$idb = $p->id_boucle;
-	$explicite = $p->nom_boucle;
-
-	if (strlen($explicite)) {
-		// Recherche d'un champ dans un étage supérieur
-		while (($idb !== $explicite) && ($idb !== '')) {
-			$idb = $p->boucles[$idb]->id_parent;
+	if (strlen($p->nom_boucle)) {
+		// retourne l’index explicite demandé s’il existe
+		if (!empty($p->boucles[$p->nom_boucle])) {
+			return $p->nom_boucle;
 		}
-	}
-
-	return $idb;
+		return '';
+	} 
+	return $p->id_boucle;
 }
 
 
 /**
- * Retrouver l'index de la boucle parente d'une balise (sauf explicitée)
- *
- * Retrouve la boucle parente d’une balise, sauf si son nom est explicité
+ * Retrouve la boucle mère d’une balise, sauf si son nom est explicité
  *
  * - `#MABALISE` : l'index sera celui de la boucle parente
- * - `#_autreboucle:MABALISE` : l'index est celui de la boucle _autreboucle si elle est bien englobante
- *
+ * - `#_autreboucle:MABALISE` : l'index est celui de la boucle _autreboucle, si elle existe
+ * 
  * @example
  *     Dans une balise dynamique ou calculée :
  *     ```
- *     $idb = index_boucle_parente($p);
+ *     $idb = index_boucle_mere($p);
  *     ```
  *
  * @param Champ $p AST au niveau de la balise
@@ -76,11 +70,14 @@ function index_boucle($p) {
  *     - Identifiant de la boucle parente possédant ce champ, ou '' si pas de parent.
  *     - '' si une référence explicite incorrecte est envoyée
  */
-function index_boucle_parente($p) {
+function index_boucle_mere($p) {
 	if (strlen($p->nom_boucle)) {
 		// retourne l’index explicite demandé s’il existe
-		return index_boucle($p);
-	}
+		if (!empty($p->boucles[$p->nom_boucle])) {
+			return $p->nom_boucle;
+		}
+		return '';
+	} 
 	if (!empty($p->descr['id_mere'])) {
 		return $p->descr['id_mere'];
 	}

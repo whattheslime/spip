@@ -508,7 +508,7 @@ function balise_RECHERCHE_dist($p) {
  *     Pile complétée par le code à générer
  **/
 function balise_COMPTEUR_BOUCLE_dist($p) {
-	$b = index_boucle_parente($p);
+	$b = index_boucle_mere($p);
 	if ($b === '') {
 		$msg = array('zbug_champ_hors_boucle', array('champ' => zbug_presenter_champ($p)));
 		erreur_squelette($msg, $p);
@@ -536,7 +536,7 @@ function balise_COMPTEUR_BOUCLE_dist($p) {
  *     Pile complétée par le code à générer
  **/
 function balise_TOTAL_BOUCLE_dist($p) {
-	$b = index_boucle_parente($p);
+	$b = index_boucle_mere($p);
 	if ($b === '') {
 		$msg = array('zbug_champ_hors_boucle', array('champ' => zbug_presenter_champ($p)));
 		erreur_squelette($msg, $p);
@@ -1092,7 +1092,7 @@ define('CODE_PAGINATION',
  *     Pile complétée par le code à générer
  */
 function balise_PAGINATION_dist($p, $liste = 'true') {
-	$b = index_boucle_parente($p);
+	$b = index_boucle_mere($p);
 
 	// s'il n'y a pas de nom de boucle, on ne peut pas paginer
 	if ($b === '') {
@@ -1202,7 +1202,7 @@ function balise_ANCRE_PAGINATION_dist($p) {
  *     Pile complétée par le code à générer
  **/
 function balise_GRAND_TOTAL_dist($p) {
-	$b = index_boucle_parente($p);
+	$b = index_boucle_mere($p);
 	if ($b === '') {
 		$msg = array('zbug_champ_hors_boucle', array('champ' => zbug_presenter_champ($p)));
 		erreur_squelette($msg, $p);
@@ -2640,7 +2640,7 @@ function balise_HTML5_dist($p) {
  *     Pile complétée par le code à générer
  */
 function balise_TRI_dist($p, $liste = 'true') {
-	$b = index_boucle_parente($p);
+	$b = index_boucle_mere($p);
 	// s'il n'y a pas de nom de boucle, on ne peut pas trier
 	if ($b === '') {
 		$msg = array('zbug_champ_hors_boucle', array('champ' => zbug_presenter_champ($p)));
