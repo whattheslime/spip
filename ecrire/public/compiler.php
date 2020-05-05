@@ -880,6 +880,21 @@ function calculer_liste($tableau, $descr, &$boucles, $id_boucle = '') {
 	if (!$tableau) {
 		return "''";
 	}
+	if (is_string($descr)) {
+		if (isset($boucles[$descr])) {
+			$idb = $descr;
+			$descr = [];
+			if (isset($boucles[$idb]->descr['id_mere_contexte'])) {
+				$descr['id_mere'] = $boucles[$idb]->descr['id_mere_contexte'];
+			}
+			if (isset($boucles[$idb]->descr['sourcefile'])) {
+				$descr['sourcefile'] = $boucles[$idb]->descr['sourcefile'];
+			}
+		}
+		else {
+			$descr = array();
+		}
+	}
 	if (!isset($descr['niv'])) {
 		$descr['niv'] = 0;
 	}
@@ -1338,7 +1353,9 @@ function compiler_squelette($squelette, $boucles, $nom, $descr, $sourcefile, $co
 						$boucles[$id]->from[$x] = $nom_table = $show['table'];
 						$boucles[$id]->iterateur = 'SQL';
 
-						$boucles[$id]->descr = &$descr;
+						if (empty($boucles[$id]->descr)) {
+							$boucles[$id]->descr = &$descr;
+						}
 						if ((!$boucles[$id]->jointures)
 							and is_array($show['tables_jointures'])
 							and count($x = $show['tables_jointures'])

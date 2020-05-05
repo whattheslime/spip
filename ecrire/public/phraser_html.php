@@ -903,6 +903,7 @@ function public_phraser_html_dist($texte, $id_parent, &$boucles, $descr, $ligne 
 			}
 		}
 
+		$descr['id_mere_contexte'] = $id_boucle;
 		$result->avant = public_phraser_html_dist($result->avant, $id_parent, $boucles, $descr, $result->ligne);
 		$result->apres = public_phraser_html_dist($result->apres, $id_parent, $boucles, $descr, $result->ligne + $b + $m);
 		$result->altern = public_phraser_html_dist($result->altern, $id_parent, $boucles, $descr, $result->ligne + $a + $m + $b);
