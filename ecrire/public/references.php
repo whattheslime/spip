@@ -46,13 +46,45 @@ function index_boucle($p) {
 	$explicite = $p->nom_boucle;
 
 	if (strlen($explicite)) {
-		// Recherche d'un champ dans un etage superieur
+		// Recherche d'un champ dans un étage supérieur
 		while (($idb !== $explicite) && ($idb !== '')) {
 			$idb = $p->boucles[$idb]->id_parent;
 		}
 	}
 
 	return $idb;
+}
+
+
+/**
+ * Retrouver l'index de la boucle parente d'une balise (sauf explicitée)
+ *
+ * Retrouve la boucle parente d’une balise, sauf si son nom est explicité
+ *
+ * - `#MABALISE` : l'index sera celui de la boucle parente
+ * - `#_autreboucle:MABALISE` : l'index est celui de la boucle _autreboucle si elle est bien englobante
+ *
+ * @example
+ *     Dans une balise dynamique ou calculée :
+ *     ```
+ *     $idb = index_boucle_parente($p);
+ *     ```
+ *
+ * @param Champ $p AST au niveau de la balise
+ * @return string
+ *
+ *     - Identifiant de la boucle parente possédant ce champ, ou '' si pas de parent.
+ *     - '' si une référence explicite incorrecte est envoyée
+ */
+function index_boucle_parente($p) {
+	if (strlen($p->nom_boucle)) {
+		// retourne l’index explicite demandé s’il existe
+		return index_boucle($p);
+	}
+	if (!empty($p->descr['id_mere'])) {
+		return $p->descr['id_mere'];
+	}
+	return '';
 }
 
 /**
@@ -924,4 +956,16 @@ function rindex_pile($p, $champ, $motif) {
 	$p->interdire_scripts = false;
 
 	return $p;
+}
+
+/** 
+ * Retourne le nom de la balise indiquée pour les messages d’erreurs
+ * @param Pile $p Description de la balise
+ * @param string $champ Nom du champ
+ * @return string Nom de la balise, avec indication de boucle explicite si présent.
+ */
+function zbug_presenter_champ($p, $champ = "") {
+	$balise = $champ ? $champ : $p->nom_champ;
+	$explicite = $explicite = $p->nom_boucle ? $p->nom_boucle . ':' : '';
+	return "#{$explicite}{$balise}";
 }

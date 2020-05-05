@@ -508,12 +508,9 @@ function balise_RECHERCHE_dist($p) {
  *     Pile complétée par le code à générer
  **/
 function balise_COMPTEUR_BOUCLE_dist($p) {
-	$b = $p->nom_boucle ? $p->nom_boucle : $p->descr['id_mere'];
+	$b = index_boucle_parente($p);
 	if ($b === '') {
-		$msg = array(
-			'zbug_champ_hors_boucle',
-			array('champ' => '#COMPTEUR_BOUCLE')
-		);
+		$msg = array('zbug_champ_hors_boucle', array('champ' => zbug_presenter_champ($p)));
 		erreur_squelette($msg, $p);
 	} else {
 		$p->code = "\$Numrows['$b']['compteur_boucle']";
@@ -539,12 +536,9 @@ function balise_COMPTEUR_BOUCLE_dist($p) {
  *     Pile complétée par le code à générer
  **/
 function balise_TOTAL_BOUCLE_dist($p) {
-	$b = $p->nom_boucle ? $p->nom_boucle : $p->descr['id_mere'];
-	if ($b === '' || !isset($p->boucles[$b])) {
-		$msg = array(
-			'zbug_champ_hors_boucle',
-			array('champ' => "#$b" . 'TOTAL_BOUCLE')
-		);
+	$b = index_boucle_parente($p);
+	if ($b === '') {
+		$msg = array('zbug_champ_hors_boucle', array('champ' => zbug_presenter_champ($p)));
 		erreur_squelette($msg, $p);
 	} else {
 		$p->code = "\$Numrows['$b']['total']";
@@ -735,9 +729,9 @@ function balise_EXPOSE_dist($p) {
  *     Pile complétée par le code à générer
  **/
 function calculer_balise_expose($p, $on, $off) {
-	$b = $p->nom_boucle ? $p->nom_boucle : $p->id_boucle;
+	$b = index_boucle($p);
 	if (empty($p->boucles[$b]->primary)) {
-		$msg = array('zbug_champ_hors_boucle', array('champ' => '#EXPOSER'));
+		$msg = array('zbug_champ_hors_boucle', array('champ' => zbug_presenter_champ($p)));
 		erreur_squelette($msg, $p);
 	} else {
 
@@ -1098,7 +1092,7 @@ define('CODE_PAGINATION',
  *     Pile complétée par le code à générer
  */
 function balise_PAGINATION_dist($p, $liste = 'true') {
-	$b = $p->nom_boucle ? $p->nom_boucle : $p->descr['id_mere'];
+	$b = index_boucle_parente($p);
 
 	// s'il n'y a pas de nom de boucle, on ne peut pas paginer
 	if ($b === '') {
@@ -1208,12 +1202,9 @@ function balise_ANCRE_PAGINATION_dist($p) {
  *     Pile complétée par le code à générer
  **/
 function balise_GRAND_TOTAL_dist($p) {
-	$b = $p->nom_boucle ? $p->nom_boucle : $p->descr['id_mere'];
-	if ($b === '' || !isset($p->boucles[$b])) {
-		$msg = array(
-			'zbug_champ_hors_boucle',
-			array('champ' => "#$b" . 'TOTAL_BOUCLE')
-		);
+	$b = index_boucle_parente($p);
+	if ($b === '') {
+		$msg = array('zbug_champ_hors_boucle', array('champ' => zbug_presenter_champ($p)));
 		erreur_squelette($msg, $p);
 	} else {
 		$p->code = "(isset(\$Numrows['$b']['grand_total'])
@@ -2649,14 +2640,11 @@ function balise_HTML5_dist($p) {
  *     Pile complétée par le code à générer
  */
 function balise_TRI_dist($p, $liste = 'true') {
-	$b = $p->nom_boucle ? $p->nom_boucle : $p->descr['id_mere'];
-
+	$b = index_boucle_parente($p);
 	// s'il n'y a pas de nom de boucle, on ne peut pas trier
 	if ($b === '') {
-		erreur_squelette(
-			_T('zbug_champ_hors_boucle',
-				array('champ' => '#TRI')
-			), $p->id_boucle);
+		$msg = array('zbug_champ_hors_boucle', array('champ' => zbug_presenter_champ($p)));
+		erreur_squelette($msg, $p);
 		$p->code = "''";
 
 		return $p;
@@ -2666,10 +2654,11 @@ function balise_TRI_dist($p, $liste = 'true') {
 	// s'il n'y a pas de tri_champ, c'est qu'on se trouve
 	// dans un boucle recursive ou qu'on a oublie le critere {tri}
 	if (!isset($boucle->modificateur['tri_champ'])) {
-		erreur_squelette(
-			_T('zbug_tri_sans_critere',
-				array('champ' => '#TRI')
-			), $p->id_boucle);
+		$msg = array('zbug_champ_hors_critere', array(
+			'champ' => zbug_presenter_champ($p),
+			'critere' => 'tri'
+		));
+		erreur_squelette($msg, $p);
 		$p->code = "''";
 
 		return $p;
