@@ -109,8 +109,7 @@ function quete_parent($id_rubrique, $connect = '') {
 		return 0;
 	}
 	$id_parent = quete_parent_lang('spip_rubriques', $id_rubrique, $connect);
-
-	return $id_parent['id_parent'];
+	return $id_parent ? $id_parent['id_parent'] : 0;
 }
 
 /**
