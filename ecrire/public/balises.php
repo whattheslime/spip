@@ -1728,6 +1728,19 @@ function balise_REM_dist($p) {
 	return $p;
 }
 
+/**
+ * Une balise #NULL quand on a besoin de passer un argument null sur l'appel d'un filtre ou formulaire
+ * (evite un #EVAL{null})
+ * @param $p
+ * @return mixed
+ */
+function balise_NULL_dist($p) {
+	$p->code = "null";
+	$p->interdire_scripts = false;
+
+	return $p;
+}
+
 
 /**
  * Compile la balise `#HTTP_HEADER` envoyant des entêtes de retour HTTP
