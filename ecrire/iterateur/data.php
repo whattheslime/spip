@@ -633,7 +633,7 @@ function inc_object_to_array($object) {
  */
 function inc_sql_to_array_dist($u) {
 	# sortir le connecteur de $u
-	preg_match(',^(?:(\w+):)?(.*)$,S', $u, $v);
+	preg_match(',^(?:(\w+):)?(.*)$,Sm', $u, $v);
 	$serveur = (string)$v[1];
 	$req = trim($v[2]);
 	if ($s = sql_query($req, $serveur)) {
