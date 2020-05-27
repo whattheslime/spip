@@ -127,6 +127,17 @@ function formulaires_editer_liens_charger_dist($a, $b, $c, $options = array()) {
 		$skel_ajout = $table_source . '_roles_associer';
 	}
 
+	$oups = _request('_oups');
+	if (unserialize(base64_decode($oups))) {
+		// on est bon, rien a faire
+	}
+	elseif(unserialize($oups)) {
+		// il faut encoder
+		$oups = base64_encode($oups);
+	}
+	else {
+		$oups = '';
+	}
 	$valeurs = array(
 		'id' => "$table_source-$objet-$id_objet-$objet_lien", // identifiant unique pour les id du form
 		'_vue_liee' => $skel_vue,
@@ -143,7 +154,7 @@ function formulaires_editer_liens_charger_dist($a, $b, $c, $options = array()) {
 		'supprimer_lien' => '',
 		'qualifier_lien' => '',
 		'_roles' => $roles, # description des roles
-		'_oups' => _request('_oups'),
+		'_oups' => $oups,
 		'editable' => $editable,
 	);
 
@@ -212,6 +223,7 @@ function formulaires_editer_liens_traiter_dist($a, $b, $c, $options = array()) {
 		// annuler les suppressions du coup d'avant !
 		if (_request('annuler_oups')
 			and $oups = _request('_oups')
+			and $oups = base64_decode($oups)
 			and $oups = unserialize($oups)
 		) {
 			if ($oups_objets = charger_fonction("editer_liens_oups_{$table_source}_{$objet}_{$objet_lien}", 'action', true)) {
@@ -282,7 +294,7 @@ function formulaires_editer_liens_traiter_dist($a, $b, $c, $options = array()) {
 					}
 				}
 			}
-			set_request('_oups', $oups ? serialize($oups) : null);
+			set_request('_oups', $oups ? base64_encode(serialize($oups)) : null);
 		}
 
 		if ($ajouter) {
