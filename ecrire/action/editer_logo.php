@@ -146,6 +146,34 @@ function logo_modifier($objet, $id_objet, $etat, $source) {
 
 }
 
+/**
+ * Dupliquer un logo entre deux contenus
+ * 
+ * Cette fonction est destinée à être remplacé par une plus moderne dans le plugin Rôles de documents, qui gère alors aussi les logos en documents.
+ * 
+ * @param $objet 
+ * 		Type de l'objet dont on veut dupliquer le logo
+ * @param $id_source 
+ * 		Identifiant de l'objet dont on veut dupliquer le logo
+ * @param $id_cible 
+ * 		Identifiant de l'objet sur lequel mettre le logo dupliqué
+ * @param $etat 
+ * 		État du logo (on ou off)
+ * @return
+ * 		Retourne le chemin du nouveau logo si tout s'est déroulé correctement
+ */
+function logo_dupliquer($objet, $id_source, $id_cible, $etat='on') {
+	$chercher_logo = charger_fonction('chercher_logo', 'inc');
+	$cle_objet = id_table_objet($objet);
+	
+	// Si on trouve le logo pour la source
+	if ($logo_source = $chercher_logo($id_source, $cle_objet, $etat)) {
+		return logo_modifier($objet, $id_cible, $etat, $logo_source[0]);
+	}
+	
+	return false;
+}
+
 function logo_migrer_en_base($objet, $time_limit) {
 
 	$dir_logos_erreurs = sous_repertoire(_DIR_IMG, 'logo_erreurs');
