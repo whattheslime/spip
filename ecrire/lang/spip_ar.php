@@ -698,6 +698,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'zbug_boucle_recursive_undef' => 'حلقة دورية غير معرّفة: @nom@',
 	'zbug_calcul' => 'حساب',
 	'zbug_champ_hors_boucle' => 'الحقل @champ@ خارج الحلقة',
+	'zbug_champ_hors_critere' => 'الحقل @champ@ خارج المقياس @critere@',
 	'zbug_champ_hors_motif' => 'الحقل @champ@ خارج سياق @motif@',
 	'zbug_code' => 'الرموز البرمجية',
 	'zbug_critere_inconnu' => 'معيار غير معروف @critere@',

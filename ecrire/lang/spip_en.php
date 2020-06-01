@@ -698,6 +698,7 @@ and log in to the site.
 	'zbug_boucle_recursive_undef' => 'undefined recursive loop: @nom@',
 	'zbug_calcul' => 'calculation',
 	'zbug_champ_hors_boucle' => 'Field @champ@ outside loop',
+	'zbug_champ_hors_critere' => 'Field @champ@ outside criterion @critere@',
 	'zbug_champ_hors_motif' => 'Field @champ@ outside context @motif@',
 	'zbug_code' => 'code',
 	'zbug_critere_inconnu' => 'Unknown criterion @critere@',
