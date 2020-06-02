@@ -698,6 +698,7 @@ et te reconnecter au site.
 	'zbug_boucle_recursive_undef' => 'boucle récursive non définie',
 	'zbug_calcul' => 'calcul',
 	'zbug_champ_hors_boucle' => 'Champ @champ@ hors boucle',
+	'zbug_champ_hors_critere' => 'Champ @champ@ hors critère @critere@',
 	'zbug_champ_hors_motif' => 'Champ @champ@ hors d’un contexte @motif@',
 	'zbug_code' => 'code',
 	'zbug_critere_inconnu' => 'critère inconnu @critere@',
