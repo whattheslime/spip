@@ -366,9 +366,15 @@ function calculer_boucle($id_boucle, &$boucles) {
 	if (_request('var_mode_affiche') != 'resultat') {
 		$trace = '';
 	} else {
-		$trace = $boucles[$id_boucle]->descr['nom'] . $id_boucle;
-		$trace = "if (count(@\$GLOBALS['debug_objets']['resultat']['$trace'])<3)
-	    \$GLOBALS['debug_objets']['resultat']['$trace'][] = \$t0;";
+		$_trace = $boucles[$id_boucle]->descr['nom'] . $id_boucle;
+		$_trace = "\$GLOBALS['debug_objets']['resultat']['$_trace']";
+		$trace = "
+		if (empty($_trace)) { 
+			$_trace = []; 
+		}
+		if (count($_trace) < 3) { 
+			$_trace" . "[] = \$t0; 
+		}";
 	}
 
 	return ($boucles[$id_boucle]->type_requete == TYPE_RECURSIF)
