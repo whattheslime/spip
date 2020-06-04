@@ -4646,15 +4646,8 @@ function produire_fond_statique($fond, $contexte = array(), $options = array(), 
 			// mais on peut mettre un md5 du contenu, ce qui donne un aperu rapide si la feuille a change ou non
 			$comment .= "}\n   md5:" . md5($contenu) . " */\n";
 		}
-		// et ecrire le fichier
-		ecrire_fichier($filename . ".last", $comment . $contenu);
-		// regarder si on recopie
-		if (!file_exists($filename)
-			or md5_file($filename) !== md5_file($filename . ".last")
-		) {
-			@copy($filename . ".last", $filename);
-			clearstatcache(true, $filename); // eviter que PHP ne reserve le vieux timestamp
-		}
+		// et ecrire le fichier si il change
+		ecrire_fichier_calcule_si_modifie($filename, $comment . $contenu, false, true);
 	}
 
 	return timestamp($filename);

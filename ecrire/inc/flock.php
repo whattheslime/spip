@@ -322,6 +322,34 @@ function ecrire_fichier_securise($fichier, $contenu, $ecrire_quand_meme = false,
 	return ecrire_fichier($fichier, $contenu, $ecrire_quand_meme, $truncate);
 }
 
+
+/**
+ * @param string $fichier
+ * @param string $contenu
+ * @param bool $force
+ * @return bool
+ */
+function ecrire_fichier_calcule_si_modifie($fichier, $contenu, $force=false, $use_copy=false) {
+	$fichier_tmp = $fichier . '.last';
+	if (!ecrire_fichier($fichier_tmp, $contenu, true)){
+		return false;
+	}
+	if ($force
+	  or !file_exists($fichier)
+		or md5_file($fichier) != md5_file($fichier_tmp)) {
+		if ($use_copy) {
+			@copy($fichier_tmp, $fichier);
+		}
+		else {
+			@rename($fichier_tmp, $fichier);
+		}
+		// eviter que PHP ne reserve le vieux timestamp
+		clearstatcache(true, $fichier);
+	}
+	return true;
+}
+
+
 /**
  * Lire un fichier encapsulé en PHP
  *
