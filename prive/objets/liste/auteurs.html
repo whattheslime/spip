@@ -16,7 +16,7 @@
 	<thead>
 
 		#SET{p,''}
-		<BOUCLE_lettre(AUTEURS){tout}{id_auteur?}{where?}{statut?}{recherche?}{par multi nom}{id_auteur==#GET{afficher_lettres}|?{'.*','A'}}>[
+		<BOUCLE_lettre(AUTEURS){tout}{id_?}{where?}{statut?}{recherche?}{par multi nom}{id_auteur==#GET{afficher_lettres}|?{'.*','A'}}>[
 		(#NOM**|initiale|unique|oui)
 		[(#SET{p,#GET{p}|concat{
 		#SELF|parametre_url{debutaut,@#ID_AUTEUR}|ancre_url{paginationaut}|afficher_initiale{#NOM**|initiale{},#COMPTEUR_BOUCLE,#GET{debut},#ENV{nb,10}}
@@ -40,7 +40,7 @@
 		</tr>
 	</thead>
 	<tbody>
-	<BOUCLE_liste_aut(AUTEURS){tout}{id_auteur?}{id_mot?}{where?}{statut?}{recherche?}{tri #ENV{par,multi nom},#GET{defaut_tri}}{pagination #ENV{nb,10} aut}{!compteur_articles_filtres #ENV{filtre_statut_articles,poubelle}}>
+	<BOUCLE_liste_aut(AUTEURS){tout}{id_?}{where?}{statut?}{recherche?}{tri #ENV{par,multi nom},#GET{defaut_tri}}{pagination #ENV{nb,10} aut}{!compteur_articles_filtres #ENV{filtre_statut_articles,poubelle}}>
 		[(#LANG|changer_typo)]
 		<tr class="[(#COMPTEUR_BOUCLE|alterner{row_odd,row_even})][ (#EXPOSE|unique)][ (#NOM**|initiale|=={#ENV{i}}|et{#ENV{i}}|?{on}|unique)]">
 			<td class='statut'>[(#STATUT|puce_statut{auteur})]</td>
