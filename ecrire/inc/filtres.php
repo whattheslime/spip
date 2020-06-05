@@ -4615,9 +4615,19 @@ function produire_fond_statique($fond, $contexte = array(), $options = array(), 
 	$dir_var = sous_repertoire(_DIR_VAR, 'cache-' . $extension);
 	$nom_safe = preg_replace(",\W,", '_', str_replace('.', '_', $fond));
 	$contexte_implicite = calculer_contexte_implicite();
-	$filename = $dir_var . $extension . "dyn-$nom_safe-"
-		. substr(md5($fond . serialize($contexte_implicite) . serialize($contexte) . $connect), 0, 8)
-		. ".$extension";
+
+	// par defaut on hash selon les contextes qui sont a priori moins variables
+	// mais on peut hasher selon le contenu a la demande, si plusieurs contextes produisent un meme contenu
+	// reduit la variabilite du nom et donc le nombre de css concatenees possibles in fine
+	if (isset($options['hash_on_content']) and $options['hash_on_content']) {
+		$hash = md5($contexte_implicite['host'] . '::'. $cache);
+	}
+	else {
+		unset($contexte_implicite['notes']); // pas pertinent pour signaler un changeemnt de contenu pour des css/js
+		ksort($contexte);
+		$hash = md5($fond . json_encode($contexte_implicite) . json_encode($contexte) . $connect);
+	}
+	$filename = $dir_var . $extension . "dyn-$nom_safe-" . substr($hash, 0, 8) . ".$extension";
 
 	// mettre a jour le fichier si il n'existe pas
 	// ou trop ancien
