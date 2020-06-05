@@ -3393,3 +3393,20 @@ function avertir_auteurs($nom, $message, $statut = '') {
 	$alertes[$statut][$nom] = $message;
 	ecrire_meta("message_alertes_auteurs", serialize($alertes));
 }
+
+/**
+ * Nettoie une chaine pour servir comme classes CSS.
+ *
+ * @note
+ *     les classes CSS acceptent théoriquement tous les caractères sauf NUL.
+ *     Ici, on limite (enlève) les caractères autres qu’alphanumérique, espace, - + _ @
+ *
+ * @param string|string[] $classes
+ * @return string|string[]
+ */
+function spip_sanitize_classname($classes) {
+	if (is_array($classes)) {
+		return array_map('spip_sanitize_classname', $classes);
+	}
+	return preg_replace("/[^ 0-9a-z_\-+@]/i", "", $classes);
+}
