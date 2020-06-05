@@ -65,30 +65,36 @@ function formulaires_configurer_preferences_charger_dist() {
 function formulaires_configurer_preferences_traiter_dist() {
 
 	if ($couleur = _request('couleur')) {
-		$GLOBALS['visiteur_session']['prefs']['couleur'] = $couleur;
+		$couleurs = charger_fonction('couleurs', 'inc');
+		$les_couleurs = $couleurs(array(), true);
+		if (isset($les_couleurs[$couleur])) {
+			$GLOBALS['visiteur_session']['prefs']['couleur'] = $couleur;
+		}
 	}
-	if ($display = _request('display')) {
+	if ($display = intval(_request('display'))) {
 		$GLOBALS['visiteur_session']['prefs']['display'] = $display;
 	}
-	if ($display_navigation = _request('display_navigation')) {
+	if ($display_navigation = _request('display_navigation')
+		and in_array($display_navigation, ['navigation_sans_icone', 'navigation_avec_icones'])) {
 		$GLOBALS['visiteur_session']['prefs']['display_navigation'] = $display_navigation;
 	}
 	if (!is_null($display_outils = _request('display_outils'))) {
-		$GLOBALS['visiteur_session']['prefs']['display_outils'] = $display_outils;
+		$GLOBALS['visiteur_session']['prefs']['display_outils'] = ($display_outils ? 'oui' : '');
 	}
 
 	if (intval($GLOBALS['visiteur_session']['id_auteur'])) {
 		include_spip('action/editer_auteur');
 		$c = array('prefs' => serialize($GLOBALS['visiteur_session']['prefs']));
 
-		if (_request('imessage')) {
-			$c['imessage'] = _request('imessage');
+		if ($imessage = _request('imessage') and in_array($imessage, ['oui', 'non'])) {
+			$c['imessage'] = $imessage;
 		}
 
 		auteur_modifier($GLOBALS['visiteur_session']['id_auteur'], $c);
 	}
 
-	if ($spip_ecran = _request('spip_ecran')) {
+	if ($spip_ecran = _request('spip_ecran')
+	  and in_array($spip_ecran, ['etroit', 'large'])) {
 		// Poser un cookie,
 		// car ce reglage depend plus du navigateur que de l'utilisateur
 		$GLOBALS['spip_ecran'] = $spip_ecran;
