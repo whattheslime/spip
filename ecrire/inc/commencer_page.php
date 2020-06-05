@@ -157,16 +157,14 @@ function init_body($rubrique = 'accueil', $sous_rubrique = 'accueil', $id_rubriq
  * @return string Classes CSS (séparées par des espaces)
  */
 function init_body_class() {
-	$GLOBALS['spip_display'] = isset($GLOBALS['visiteur_session']['prefs']['display'])
-		? $GLOBALS['visiteur_session']['prefs']['display']
-		: 2;
-	$spip_display_navigation = isset($GLOBALS['visiteur_session']['prefs']['display_navigation'])
-		? $GLOBALS['visiteur_session']['prefs']['display_navigation']
-		: 'navigation_avec_icones';
-	$spip_display_outils = isset($GLOBALS['visiteur_session']['prefs']['display_outils'])
-		? ($GLOBALS['visiteur_session']['prefs']['display_outils'] ? 'navigation_avec_outils' : 'navigation_sans_outils')
+	$prefs = isset($GLOBALS['visiteur_session']['prefs']) ? $GLOBALS['visiteur_session']['prefs'] : array();
+
+	$GLOBALS['spip_display'] = isset($prefs['display']) ? (int) $prefs['display'] : 2;
+	$spip_display_navigation = isset($prefs['display_navigation']) ? spip_sanitize_classname($prefs['display_navigation']) : 'navigation_avec_icones';
+	$spip_display_outils = isset($prefs['display_outils'])
+		? ($prefs['display_outils'] ? 'navigation_avec_outils' : 'navigation_sans_outils')
 		: 'navigation_avec_outils';
-	$GLOBALS['spip_ecran'] = isset($_COOKIE['spip_ecran']) ? $_COOKIE['spip_ecran'] : "etroit";
+	$GLOBALS['spip_ecran'] = isset($_COOKIE['spip_ecran']) ? spip_sanitize_classname($_COOKIE['spip_ecran']) : "etroit";
 
 	$display_class = array(
 		0 => 'icones_img_texte'
@@ -176,11 +174,10 @@ function init_body_class() {
 		3 => 'icones_img'
 	);
 
-	$couleur = isset($GLOBALS['visiteur_session']['prefs']['couleur'])
-		? $GLOBALS['visiteur_session']['prefs']['couleur']
-		: 9;
+	$couleur = isset($prefs['couleur']) ? (int) $prefs['couleur'] : 9;
 
-	return $GLOBALS['spip_ecran'] . " couleur_$couleur $spip_display_navigation $spip_display_outils " . $display_class[$GLOBALS['spip_display']];
+	$classes = $GLOBALS['spip_ecran'] . " couleur_$couleur $spip_display_navigation $spip_display_outils " . $display_class[$GLOBALS['spip_display']];
+	return spip_sanitize_classname($classes);
 }
 
 
