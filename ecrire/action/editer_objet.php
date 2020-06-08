@@ -598,7 +598,7 @@ function objet_lire($objet, $valeur_id, $options = array()) {
  * @param $options
  * 		Tableau d'options :
  * 		- champs : liste des champs à dupliquer, sinon * par défaut
- * 		- ajout_titre : ajouter une chaine à la fin du titre
+ * 		- titre_suffixe : ajouter une chaine à la fin du titre
  * 		- dupliquer_liens : booléen précisant si on duplique les liens ou pas, par défaut oui
  * 		- liens : liste d'objets liables dont on veut dupliquer les liens
  * 		- liens_exclus : liste d'objets liables dont on ne veut pas dupliquer les liens
@@ -641,8 +641,8 @@ function objet_dupliquer($objet, $id_objet, $modifications=array(), $options=arr
 	
 	// Si on a demandé à ajouter une chaine après le titre
 	// TODO : on n'a toujours rien pour trouver uniquement le champ de titre SEUL
-	if (isset($options['ajout_titre']) and isset($infos_a_dupliquer['titre'])) {
-		$infos_a_dupliquer['titre'] .= $options['ajout_titre'];
+	if (isset($options['titre_suffixe']) and isset($infos_a_dupliquer['titre'])) {
+		$infos_a_dupliquer['titre'] .= $options['titre_suffixe'];
 	}
 	
 	// On applique des modifications s'il y en a
@@ -717,7 +717,7 @@ function objet_dupliquer($objet, $id_objet, $modifications=array(), $options=arr
 						
 						// On enlève des options qui n'ont pas à venir du parent de départ
 						unset($options_enfant['champs']);
-						unset($options_enfant['ajout_titre']);
+						unset($options_enfant['titre_suffixe']);
 						
 						// S'il existe des options d'objets, on utilise
 						if (isset($options['options_objets'][$objet_enfant])) {
