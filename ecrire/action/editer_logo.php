@@ -151,10 +151,12 @@ function logo_modifier($objet, $id_objet, $etat, $source) {
  * 
  * Cette fonction est destinée à être remplacé par une plus moderne dans le plugin Rôles de documents, qui gère alors aussi les logos en documents.
  * 
- * @param $objet 
+ * @param $objet_source
  * 		Type de l'objet dont on veut dupliquer le logo
  * @param $id_source 
  * 		Identifiant de l'objet dont on veut dupliquer le logo
+ * @param $objet_cible
+ * 		Type de l'objet dont on veut dupliquer le logo
  * @param $id_cible 
  * 		Identifiant de l'objet sur lequel mettre le logo dupliqué
  * @param $etat 
