@@ -680,8 +680,8 @@ function objet_dupliquer($objet, $id_objet, $modifications=array(), $options=arr
 		}
 		
 		// On duplique les logos
-		logo_dupliquer($objet, $id_objet, $id_objet_duplicata, 'on');
-		logo_dupliquer($objet, $id_objet, $id_objet_duplicata, 'off');
+		logo_dupliquer($objet, $id_objet, $objet, $id_objet_duplicata, 'on');
+		logo_dupliquer($objet, $id_objet, $objet, $id_objet_duplicata, 'off');
 		
 		// On continue de lancer l'ancien pipeline
 		pipeline('duplicator', array(

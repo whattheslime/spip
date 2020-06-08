@@ -162,13 +162,13 @@ function logo_modifier($objet, $id_objet, $etat, $source) {
  * @return
  * 		Retourne le chemin du nouveau logo si tout s'est déroulé correctement
  */
-function logo_dupliquer($objet, $id_source, $id_cible, $etat='on') {
+function logo_dupliquer($objet_source, $id_source, $objet_cible, $id_cible, $etat='on') {
 	$chercher_logo = charger_fonction('chercher_logo', 'inc');
-	$cle_objet = id_table_objet($objet);
+	$cle_objet = id_table_objet($objet_source);
 	
 	// Si on trouve le logo pour la source
 	if ($logo_source = $chercher_logo($id_source, $cle_objet, $etat)) {
-		return logo_modifier($objet, $id_cible, $etat, $logo_source[0]);
+		return logo_modifier($objet_cible, $id_cible, $etat, $logo_source[0]);
 	}
 	
 	return false;
