@@ -160,6 +160,7 @@ function objet_modifier_champs($objet, $id_objet, $options, $c = null, $serveur 
 				'spip_table_objet' => $spip_table_objet,
 				'type' => $objet,
 				'id_objet' => $id_objet,
+				'data' => isset($options['data']) ? $options['data'] : null,
 				'champs' => isset($options['champs']) ? $options['champs'] : array(), // [doc] c'est quoi ?
 				'serveur' => $serveur,
 				'action' => isset($options['action']) ? $options['action'] : 'modifier'
