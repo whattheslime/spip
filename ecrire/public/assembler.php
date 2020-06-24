@@ -440,6 +440,7 @@ function message_page_indisponible($page, $contexte) {
 	$contexte['code'] = $codes[$contexte['status']];
 	$contexte['fond'] = '404'; // gere les 2 erreurs
 	if (!isset($contexte['lang'])) {
+		include_spip('inc/lang');
 		$contexte['lang'] = $GLOBALS['spip_lang'];
 	}
 
