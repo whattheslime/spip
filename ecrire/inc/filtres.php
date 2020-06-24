@@ -147,19 +147,19 @@ function appliquer_filtre($arg, $filtre, $force = null) {
 /**
  * Retourne la version de SPIP
  *
- * Si l'on retrouve un numéro de révision SVN, il est ajouté entre crochets.
- * Si effectivement le SPIP est installé par SVN, 'SVN' est ajouté avant sa révision.
+ * Si l'on retrouve un numéro de révision GIT ou SVN, il est ajouté entre crochets.
+ * Si effectivement le SPIP est installé par Git ou Svn, 'GIT' ou 'SVN' est ajouté avant sa révision.
  *
  * @global spip_version_affichee Contient la version de SPIP
- * @uses version_svn_courante() Pour trouver le numéro de révision SVN
+ * @uses version_vcs_courante() Pour trouver le numéro de révision
  *
  * @return string
  *     Version de SPIP
  **/
 function spip_version() {
 	$version = $GLOBALS['spip_version_affichee'];
-	if ($svn_revision = version_svn_courante(_DIR_RACINE)) {
-		$version .= ($svn_revision < 0 ? ' SVN' : '') . ' [' . abs($svn_revision) . ']';
+	if ($vcs_version = version_vcs_courante(_DIR_RACINE)) {
+		$version .= " $vcs_version";
 	}
 
 	return $version;
