@@ -223,11 +223,23 @@ function info_copyright() {
 	//
 	// Mention, le cas echeant, de la revision SVN courante
 	//
-	if ($svn_revision = version_svn_courante(_DIR_RACINE)) {
-		$version .= ' ' . (($svn_revision < 0) ? 'SVN ' : '')
-			. "[<a href='http://core.spip.net/projects/spip/repository/revisions/"
-			. abs($svn_revision) . "' target=\"_blank\" rel=\"noopener noreferrer\">"
-			. abs($svn_revision) . "</a>]";
+	if ($vcs = version_vcs_courante(_DIR_RACINE, true)) {
+		if ($vcs['vcs'] === 'GIT') {
+			$url = 'https://git.spip.net/spip/spip/commit/' . $vcs['commit'];
+		} elseif ($vcs['vcs'] === 'SVN') {
+			$url = 'http://core.spip.net/projects/spip/repository/revisions/' . $vcs['commit'];
+		} else {
+			$url = '';
+		}
+		// affichage "GIT [master: abcdef]"
+		$commit = isset($vcs['commit_short']) ? $vcs['commit_short'] : $vcs['commit'];
+		if ($url) {
+			$commit = "<a href=\"$url\" target=\"_blank\" rel=\"noopener noreferrer\">$commit</a>";
+		}
+		if ($vcs['branch']) {
+			$commit = $vcs['branch'] . ': ' . $commit;
+		}
+		$version .= " {$vcs['vcs']} [$commit]";
 	}
 
 	// et la version de l'ecran de securite

@@ -165,33 +165,73 @@ function spip_version() {
 	return $version;
 }
 
+/**
+ * Retourne une courte description d’une révision VCS d’un répertoire
+ *
+ * @param string $dir Le répertoire à tester
+ * @param array $raw True pour avoir les données brutes, false pour un texte à afficher
+ * @retun string|array|null
+ *    - array|null si $raw = true,
+ *    - string|null si $raw = false
+ */
+function version_vcs_courante($dir, $raw = false) {
+	$desc = decrire_version_git($dir);
+	if ($desc === null) {
+		$desc = decrire_version_svn($dir);
+	}
+	if ($desc === null or $raw) {
+		return $desc;
+	}
+	// affichage "GIT [master: abcdef]"
+	$commit = isset($desc['commit_short']) ? $desc['commit_short'] : $desc['commit'];
+	if ($desc['branch']) {
+		$commit = $desc['branch'] . ': ' . $commit;
+	}
+	return "{$desc['vcs']} [$commit]";
+}
 
 /**
- * Retrouve un numéro de révision SVN d'un répertoire
- *
- * Mention de la révision SVN courante d'un répertoire
- * Retourne un nombre négatif si on est sur .svn, et positif si on utilise svn.revision
+ * Retrouve un numéro de révision Git d'un répertoire
  *
  * @param string $dir Chemin du répertoire
- * @return int
- *
- *     - 0 si aucune info trouvée
- *     - NN (entier) si info trouvée par svn.revision (créé par le générateur de paquet Zip)
- *     - -NN (entier) si info trouvée par .svn/entries
- *
+ * @return array|null
+ *      null si aucune info trouvée
+ *      array ['branch' => xx, 'commit' => yy] sinon.
  **/
-function version_svn_courante($dir) {
+function decrire_version_git($dir) {
 	if (!$dir) {
 		$dir = '.';
 	}
 
-	// version installee par paquet ZIP
-	if (lire_fichier($dir . '/svn.revision', $c)
-		and preg_match(',Revision: (\d+),', $c, $d)
-	) {
-		return intval($d[1]);
+	// version installee par GIT
+	if (lire_fichier($dir . '/.git/HEAD', $c)) {
+		$currentHead = trim(substr($c, 4));
+		if (lire_fichier($dir . '/.git/' . $currentHead, $hash)) {
+			return [
+				'vcs' => 'GIT',
+				'branch' => basename($currentHead),
+				'commit' => trim($hash),
+				'commit_short' => substr(trim($hash), 0, 8),
+			];
+		}
 	}
 
+	return null;
+}
+
+
+/**
+ * Retrouve un numéro de révision Svn d'un répertoire
+ *
+ * @param string $dir Chemin du répertoire
+ * @return array|null
+ *      null si aucune info trouvée
+ *      array ['commit' => yy, 'date' => xx, 'author' => xx] sinon.
+ **/
+function decrire_version_svn($dir) {
+	if (!$dir) {
+		$dir = '.';
+	}
 	// version installee par SVN
 	if (file_exists($dir . '/.svn/wc.db') && class_exists('SQLite3')) {
 		$db = new SQLite3($dir . '/.svn/wc.db');
@@ -199,24 +239,35 @@ function version_svn_courante($dir) {
 		if ($result) {
 			$row = $result->fetchArray();
 			if ($row['changed_revision'] != "") {
-				return -$row['changed_revision'];
+				return [
+					'vcs' => 'SVN',
+					'branch' => '',
+					'commit' => $row['changed_revision'],
+				];
 			}
 		}
-	} else if (lire_fichier($dir . '/.svn/entries', $c)
-		and (
-			(preg_match_all(
-					',committed-rev="([0-9]+)",', $c, $r1, PREG_PATTERN_ORDER)
-				and $v = max($r1[1])
-			)
-			or
-			(preg_match(',^\d.*dir[\r\n]+(\d+),ms', $c, $r1) # svn >= 1.4
-				and $v = $r1[1]
-			))
-	) {
-		return -$v;
 	}
+	return null;
+}
 
-	// Bug ou paquet fait main
+/**
+ * Retrouve un numéro de révision SVN d'un répertoire
+ *
+ * Mention de la révision SVN courante d'un répertoire
+ * /!\ Retourne un nombre négatif si on est sur .svn
+ *
+ * @deprecated Utiliser version_vcs_courante()
+ * @param string $dir Chemin du répertoire
+ * @return int
+ *
+ *     - 0 si aucune info trouvée
+ *     - -NN (entier) si info trouvée par .svn/wc.db
+ *
+ **/
+function version_svn_courante($dir) {
+	if ($desc = decrire_version_svn($dir)) {
+		return -$desc['commit'];
+	}
 	return 0;
 }
 

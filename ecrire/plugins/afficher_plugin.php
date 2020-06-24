@@ -304,9 +304,9 @@ function affiche_bloc_plugin($plug_file, $info, $dir_plugins = null) {
 	$infotech = array();
 
 	$version = "<dt>" . _T('version') . "</dt><dd>" . $info['version'];
-	// Version SVN
-	if ($svn_revision = version_svn_courante($dir_plugins . $plug_file)) {
-		$version .= ($svn_revision < 0 ? ' SVN' : '') . ' [' . abs($svn_revision) . ']';
+	// Version VCS
+	if ($vcs = version_vcs_courante($dir_plugins . $plug_file)) {
+		$version .= ' ' . $vcs;
 	}
 	$version .= "</dd>";
 	$infotech[] = $version;
