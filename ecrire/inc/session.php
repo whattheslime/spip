@@ -478,8 +478,12 @@ function actualiser_sessions($auteur, $supprimer_cles = array()) {
 	}
 
 	// les préférences sont désérialisées, toujours.
+	// [fixme] Le champ 'prefs' sert aussi à l’inscription
 	if (isset($auteur['prefs']) and is_string($auteur['prefs'])) {
-		$auteur['prefs'] = unserialize($auteur['prefs']);
+		$auteur['prefs'] = @unserialize($auteur['prefs']);
+		if (!is_array($auteur['prefs'])) {
+			$auteur['prefs'] = [];
+		}
 	}
 
 	// memoriser l'auteur courant (celui qui modifie la fiche)
