@@ -536,7 +536,7 @@ if (!(_FILE_CONNECT
 		// Si on est dans le site public, dire que qq s'en occupe
 		include_spip('inc/minipres');
 		utiliser_langue_visiteur();
-		echo minipres(_T('info_travaux_titre'), "<p style='text-align: center;'>" . _T('info_travaux_texte') . "</p>");
+		echo minipres(_T('info_travaux_titre'), "<p style='text-align: center;'>" . _T('info_travaux_texte') . "</p>", array('status' => 503));
 		exit;
 	}
 	// autrement c'est une install ad hoc (spikini...), on sait pas faire
