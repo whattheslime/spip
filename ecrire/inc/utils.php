@@ -2952,16 +2952,8 @@ function init_var_mode() {
 // la commande is_readable('chemin/vers/fichier/interdit%00truc_normal')
 // http://code.spip.net/@spip_desinfecte
 function spip_desinfecte(&$t, $deep = true) {
-	static $magic_quotes;
-	if (!isset($magic_quotes)) {
-		$magic_quotes = @get_magic_quotes_gpc();
-	}
-
 	foreach ($t as $key => $val) {
 		if (is_string($t[$key])) {
-			if ($magic_quotes) {
-				$t[$key] = stripslashes($t[$key]);
-			}
 			$t[$key] = str_replace(chr(0), '-', $t[$key]);
 		} // traiter aussi les "texte_plus" de article_edit
 		else {
