@@ -347,7 +347,7 @@ and is_string($_REQUEST['ordre'])){
  * Bloque les requêtes contenant %00 (manipulation d'include)
  */
 if (strpos(
-	@get_magic_quotes_gpc() ?
+	(function_exists('get_magic_quotes_gpc') and @get_magic_quotes_gpc()) ?
 		stripslashes(serialize($_REQUEST)) : serialize($_REQUEST),
 	chr(0)
 ) !== false)
