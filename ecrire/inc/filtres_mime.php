@@ -16,7 +16,7 @@
  * Ces filtres peuvent être appelés par le modèle `<embXX>` dans certains cas,
  * en utilisant `|appliquer_filtre{#MIME_TYPE}` sur un contenu
  *
- * @see appliquer_filtre()
+ * @see \appliquer_filtre()
  *
  * @package SPIP\Core\Filtres\Mime
  **/
