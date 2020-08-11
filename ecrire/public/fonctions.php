@@ -17,7 +17,7 @@
  * trouver un modele de donnees qui les associe physiquement au fichier
  * definissant leur balise ???)
  *
- * Ce ne sont pas des filtres à part entière, il n'est donc pas logique de les retrouver dans inc/filtres
+ * Ce ne sont pas des filtres Ã  part entiÃ¨re, il n'est donc pas logique de les retrouver dans inc/filtres
  *
  * @package SPIP\Core\Compilateur\Composer
  **/
@@ -30,26 +30,26 @@ if (!defined('_ECRIRE_INC_VERSION')) {
 /**
  * Calcul d'une introduction
  *
- * L'introduction est prise dans le descriptif s'il est renseigné,
- * sinon elle est calculée depuis le texte : à ce moment là,
+ * L'introduction est prise dans le descriptif s'il est renseignÃ©,
+ * sinon elle est calculÃ©e depuis le texte : Ã  ce moment lÃ ,
  * l'introduction est prise dans le contenu entre les balises
- * `<intro>` et `</intro>` si présentes, sinon en coupant le
- * texte à la taille indiquée.
+ * `<intro>` et `</intro>` si prÃ©sentes, sinon en coupant le
+ * texte Ã  la taille indiquÃ©e.
  *
- * Cette fonction est utilisée par la balise #INTRODUCTION
+ * Cette fonction est utilisÃ©e par la balise #INTRODUCTION
  *
  * @param string $descriptif
  *     Descriptif de l'introduction
  * @param string $texte
- *     Texte à utiliser en absence de descriptif
+ *     Texte Ã  utiliser en absence de descriptif
  * @param string $longueur
  *     Longueur de l'introduction
  * @param string $connect
- *     Nom du connecteur à la base de données
+ *     Nom du connecteur Ã  la base de donnÃ©es
  * @param string $suite
  *     points de suite si on coupe (par defaut _INTRODUCTION_SUITE et sinon &nbsp;(...)
  * @return string
- *     Introduction calculée
+ *     Introduction calculÃ©e
  **/
 function filtre_introduction_dist($descriptif, $texte, $longueur, $connect, $suite = null) {
 	// Si un descriptif est envoye, on l'utilise directement
@@ -97,7 +97,7 @@ function filtre_introduction_dist($descriptif, $texte, $longueur, $connect, $sui
 	if ($notes = charger_fonction('notes', 'inc', true)) {
 		$notes('', 'empiler');
 	}
-	// Supprimer les modèles avant le propre afin d'éviter qu'ils n'ajoutent du texte indésirable
+	// Supprimer les modÃ¨les avant le propre afin d'Ã©viter qu'ils n'ajoutent du texte indÃ©sirable
 	// dans l'introduction.
 	$texte = supprime_img($texte, '');
 	$texte = appliquer_traitement_champ($texte, 'introduction', '', array(), $connect);
@@ -125,12 +125,12 @@ function filtre_introduction_dist($descriptif, $texte, $longueur, $connect, $sui
 
 
 /**
- * Retourne pour une clé primaire d'objet donnée les identifiants ayant un logo
+ * Retourne pour une clÃ© primaire d'objet donnÃ©e les identifiants ayant un logo
  *
  * @param string $type
- *     Nom de la clé primaire de l'objet
+ *     Nom de la clÃ© primaire de l'objet
  * @return string
- *     Liste des identifiants ayant un logo (séparés par une virgule)
+ *     Liste des identifiants ayant un logo (sÃ©parÃ©s par une virgule)
  **/
 function lister_objets_avec_logos($type) {
 
@@ -147,9 +147,9 @@ function lister_objets_avec_logos($type) {
 
 
 /**
- * Renvoie l'état courant des notes, le purge et en prépare un nouveau
+ * Renvoie l'Ã©tat courant des notes, le purge et en prÃ©pare un nouveau
  *
- * Fonction appelée par la balise `#NOTES`
+ * Fonction appelÃ©e par la balise `#NOTES`
  *
  * @see  balise_NOTES_dist()
  * @uses inc_notes_dist()
@@ -228,7 +228,7 @@ function lister_objets_liens($objet_source, $objet, $id_objet, $objet_lien) {
  * @return int|string
  */
 function calculer_rang_smart($titre, $objet_source, $id, $env) {
-	// Cas du #RANG utilisé dans #FORMULAIRE_EDITER_LIENS -> attraper le rang du lien
+	// Cas du #RANG utilisÃ© dans #FORMULAIRE_EDITER_LIENS -> attraper le rang du lien
 	// permet de voir le rang du lien si il y en a un en base, meme avant un squelette xxxx-lies.html ne gerant pas les liens
 	if (isset($env['form']) and $env['form']
 		and isset($env['_objet_lien']) and $env['_objet_lien']
