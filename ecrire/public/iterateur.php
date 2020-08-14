@@ -539,18 +539,7 @@ class IterDecorator extends FilterIterator {
 
 	// retourner la valeur pour #VALEUR
 	public function valeur() {
-		# attention PHP est mechant avec les objets, parfois il ne les
-		# clone pas proprement (directoryiterator sous php 5.2.2)
-		# on se rabat sur la version __toString()
-		if (is_object($v = $this->current())) {
-			if (method_exists($v, '__toString')) {
-				$v = $v->__toString();
-			} else {
-				$v = (array)$v;
-			}
-		}
-
-		return $v;
+		return $this->current();
 	}
 
 	/**
