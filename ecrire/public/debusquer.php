@@ -217,9 +217,23 @@ function debusquer_contexte($env) {
 		if (is_array($valeur)) {
 			$valeur_simple = array();
 			foreach ($valeur as $v) {
-				$valeur_simple[] = is_array($v) ? 'array(size=' . count($v) . ')' : $v;
+				if (is_array($v)) {
+					$valeur_simple[] = 'array:' . count($v);
+				} elseif (is_object($v)) {
+					$valeur_simple[] = get_class($v);
+				} elseif (is_string($v)) {
+					$valeur_simple[] = "'" . $v . "'";
+				} else {
+					$valeur_simple[] = $v;
+				}
 			}
-			$valeur = '(' . count($valeur) . ' items) [' . join(',', $valeur_simple) . ']';
+			$n = count($valeur);
+			$valeur = (($n > 3) ? 'array:' . $n . ' ' : '');
+			$valeur .= '[' . join(', ', $valeur_simple) . ']';
+		} elseif (is_object($valeur)) {
+			$valeur = get_class($valeur);
+		} elseif (is_string($valeur)) {
+			$valeur = "'" . $valeur . "'";
 		}
 		$res .= "\n<tr><td><strong>" . nl2br(entites_html($nom))
 			. "</strong></td><td>:&nbsp;" . nl2br(entites_html($valeur))

@@ -146,27 +146,14 @@ function public_parametrer_dist($fond, $contexte = '', $cache = '', $connect = '
 		}
 
 		// spip_log: un joli contexte
-		$infos = array();
-		foreach (array_filter($contexte) as $var => $val) {
-			if (is_array($val)) {
-				$val = serialize($val);
-			}
-			if (strlen("$val") > 30) {
-				$val = substr("$val", 0, 27) . '..';
-			}
-			if (strstr($val, ' ')) {
-				$val = "'$val'";
-			}
-			$infos[] = $var . '=' . $val;
-		}
+		$infos = presenter_contexte(array_filter($contexte));
+
 		$profile = spip_timer($a);
-		spip_log("calcul ($profile) [$skel] "
-			. join(', ', $infos)
+		spip_log("calcul ($profile) [$skel] $infos"
 			. ' (' . strlen($page['texte']) . ' octets)');
 
 		if (defined('_CALCUL_PROFILER') AND intval($profile)>_CALCUL_PROFILER){
-			spip_log("calcul ($profile) [$skel] "
-				. join(', ', $infos)
+			spip_log("calcul ($profile) [$skel] $infos"
 				.' ('.strlen($page['texte']).' octets) | '.$_SERVER['REQUEST_URI'],"profiler"._LOG_AVERTISSEMENT);
 		}
 
@@ -220,6 +207,41 @@ function public_parametrer_dist($fond, $contexte = '', $cache = '', $connect = '
 	}
 
 	return $page;
+}
+
+/** 
+ * Retourne une présentation succincte du contexte pour les logs 
+ * @param array $contexte
+ * @return string
+*/
+function presenter_contexte($contexte, $profondeur_max = 1, $max_lines = 0) {
+	$infos = array();
+	$line = 0;
+	foreach ($contexte as $var => $val) {
+		$line++;
+		if ($max_lines and $max_lines < $line) {
+			$infos[] = '…';
+			break;
+		}
+		if (is_array($val)) {
+			if ($profondeur_max > 0) {
+				$val = 'array:' . count($val) . '(' . presenter_contexte($val, $profondeur_max - 1, 3) . ')';
+			} else {
+				$val = 'array:' . count($val);
+			}
+		} elseif (is_object($val)) {
+			$val = get_class($val);
+		} elseif (strlen("$val") > 30) {
+			$val = substr("$val", 0, 29) . '…';
+			if (strstr($val, ' ')) {
+				$val = "'$val'";
+			}
+		} elseif (strstr($val, ' ')) {
+			$val = "'$val'";
+		}
+		$infos[] = $var . '=' . $val;
+	}
+	return join(', ', $infos);
 }
 
 

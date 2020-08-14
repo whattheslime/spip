@@ -337,7 +337,12 @@ function synthetiser_balise_dynamique($nom, $args, $file, $context_compil) {
  **/
 function argumenter_squelette($v) {
 
-	if (!is_array($v)) {
+	if (is_object($v)) {
+		if (PHP_VERSION_ID < 73000 and $v instanceof \stdClass) {
+			return "(object) " . var_export((array) $v, true);
+		}
+		return var_export($v, true);
+	} elseif (!is_array($v)) {
 		return "'" . texte_script($v) . "'";
 	} else {
 		$out = array();
