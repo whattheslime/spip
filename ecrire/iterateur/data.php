@@ -570,17 +570,17 @@ class IterateurDATA implements Iterator {
 /**
  * file -> tableau
  *
- * @param  string $u
+ * @param string $data
  * @return array
  */
-function inc_file_to_array_dist($u) {
-	return preg_split('/\r?\n/', $u);
+function inc_file_to_array_dist($data) {
+	return preg_split('/\r?\n/', $data);
 }
 
 /**
  * plugins -> tableau
  *
- * @return unknown
+ * @return array
  */
 function inc_plugins_to_array_dist() {
 	include_spip('inc/plugin');
@@ -591,19 +591,19 @@ function inc_plugins_to_array_dist() {
 /**
  * xml -> tableau
  *
- * @param  string $u
+ * @param string $data
  * @return array
  */
-function inc_xml_to_array_dist($u) {
-	return @XMLObjectToArray(new SimpleXmlIterator($u));
+function inc_xml_to_array_dist($data) {
+	return @XMLObjectToArray(new SimpleXmlIterator($data));
 }
 
 /**
  *
  * object -> tableau
  *
- * @param    object $object The object to convert
- * @return   array
+ * @param object $object The object to convert
+ * @return array
  *
  */
 function inc_object_to_array($object) {
@@ -620,12 +620,12 @@ function inc_object_to_array($object) {
 /**
  * sql -> tableau
  *
- * @param string $u
+ * @param string $data
  * @return array|bool
  */
-function inc_sql_to_array_dist($u) {
-	# sortir le connecteur de $u
-	preg_match(',^(?:(\w+):)?(.*)$,Sm', $u, $v);
+function inc_sql_to_array_dist($data) {
+	# sortir le connecteur de $data
+	preg_match(',^(?:(\w+):)?(.*)$,Sm', $data, $v);
 	$serveur = (string)$v[1];
 	$req = trim($v[2]);
 	if ($s = sql_query($req, $serveur)) {
@@ -643,11 +643,11 @@ function inc_sql_to_array_dist($u) {
 /**
  * json -> tableau
  *
- * @param string $u
+ * @param string $data
  * @return array|bool
  */
-function inc_json_to_array_dist($u) {
-	if (is_array($json = json_decode($u))
+function inc_json_to_array_dist($data) {
+	if (is_array($json = json_decode($data))
 		or is_object($json)
 	) {
 		return (array)$json;
@@ -657,12 +657,12 @@ function inc_json_to_array_dist($u) {
 /**
  * csv -> tableau
  *
- * @param string $u
+ * @param string $data
  * @return array|bool
  */
-function inc_csv_to_array_dist($u) {
+function inc_csv_to_array_dist($data) {
 	include_spip('inc/csv');
-	list($entete, $csv) = analyse_csv($u);
+	list($entete, $csv) = analyse_csv($data);
 	array_unshift($csv, $entete);
 
 	include_spip('inc/charsets');
@@ -690,12 +690,12 @@ function inc_csv_to_array_dist($u) {
 /**
  * RSS -> tableau
  *
- * @param string $u
+ * @param string $data
  * @return array|bool
  */
-function inc_rss_to_array_dist($u) {
+function inc_rss_to_array_dist($data) {
 	include_spip('inc/syndic');
-	if (is_array($rss = analyser_backend($u))) {
+	if (is_array($rss = analyser_backend($data))) {
 		$tableau = $rss;
 	}
 
@@ -705,24 +705,24 @@ function inc_rss_to_array_dist($u) {
 /**
  * atom, alias de rss -> tableau
  *
- * @param string $u
+ * @param string $data
  * @return array|bool
  */
-function inc_atom_to_array_dist($u) {
-	$g = charger_fonction('rss_to_array', 'inc');
+function inc_atom_to_array_dist($data) {
+	$rss_to_array = charger_fonction('rss_to_array', 'inc');
 
-	return $g($u);
+	return $rss_to_array($data);
 }
 
 /**
  * glob -> tableau
  * lister des fichiers selon un masque, pour la syntaxe cf php.net/glob
  *
- * @param string $u
+ * @param string $data
  * @return array|bool
  */
-function inc_glob_to_array_dist($u) {
-	$a = glob($u,
+function inc_glob_to_array_dist($data) {
+	$a = glob($data,
 		GLOB_MARK | GLOB_NOSORT | GLOB_BRACE
 	);
 
@@ -732,11 +732,11 @@ function inc_glob_to_array_dist($u) {
 /**
  * YAML -> tableau
  *
- * @param string $u
+ * @param string $data
  * @return bool|array
  * @throws Exception
  */
-function inc_yaml_to_array_dist($u) {
+function inc_yaml_to_array_dist($data) {
 	include_spip('inc/yaml-mini');
 	if (!function_exists("yaml_decode")) {
 		throw new Exception('YAML: impossible de trouver la fonction yaml_decode');
@@ -744,7 +744,7 @@ function inc_yaml_to_array_dist($u) {
 		return false;
 	}
 
-	return yaml_decode($u);
+	return yaml_decode($data);
 }
 
 
@@ -767,12 +767,12 @@ function inc_pregfiles_to_array_dist($dir, $regexp = -1, $limit = 10000) {
  * ls : lister des fichiers selon un masque glob
  * et renvoyer aussi leurs donnees php.net/stat
  *
- * @param string $u
+ * @param string $data
  * @return array|bool
  */
-function inc_ls_to_array_dist($u) {
-	$glob = charger_fonction('glob_to_array', 'inc');
-	$a = $glob($u);
+function inc_ls_to_array_dist($data) {
+	$glob_to_array = charger_fonction('glob_to_array', 'inc');
+	$a = $glob_to_array($data);
 	foreach ($a as &$v) {
 		$b = (array)@stat($v);
 		foreach ($b as $k => $ignore) {
