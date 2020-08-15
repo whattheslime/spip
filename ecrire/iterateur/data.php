@@ -310,41 +310,33 @@ class IterateurDATA implements Iterator {
 						$this->tableau = $a;
 					}
 				} else {
-					if (tester_url_absolue($src)) {
-						include_spip('inc/distant');
-						$u = recuperer_page($src, false, false, _DATA_SOURCE_MAX_SIZE);
-						if (!$u) {
-							throw new Exception("404");
+					$data = $src;
+					if (is_string($src)) { 
+						if (tester_url_absolue($src)) {
+							include_spip('inc/distant');
+							$data = recuperer_page($src, false, false, _DATA_SOURCE_MAX_SIZE);
+							if (!$data) {
+								throw new Exception("404");
+							}
+							if (!isset($ttl)) {
+								$ttl = 24 * 3600;
+							}
+						} elseif (@is_dir($src)) {
+							$data = $src;
+						} elseif (@is_readable($src) && @is_file($src)) {
+							$data = spip_file_get_contents($src);
 						}
 						if (!isset($ttl)) {
-							$ttl = 24 * 3600;
-						}
-					} else {
-						if (@is_dir($src)) {
-							$u = $src;
-							if (!isset($ttl)) {
-								$ttl = 10;
-							}
-						} else {
-							if (@is_readable($src) && @is_file($src)) {
-								$u = spip_file_get_contents($src);
-								if (!isset($ttl)) {
-									$ttl = 10;
-								}
-							} else {
-								$u = $src;
-								if (!isset($ttl)) {
-									$ttl = 10;
-								}
-							}
+							$ttl = 10;
 						}
 					}
+
 					if (!$this->err
-						and $g = charger_fonction($this->command['sourcemode'] . '_to_array', 'inc', true)
+						and $data_to_array = charger_fonction($this->command['sourcemode'] . '_to_array', 'inc', true)
 					) {
 						$args = $this->command['source'];
-						$args[0] = $u;
-						if (is_array($a = call_user_func_array($g, $args))) {
+						$args[0] = $data;
+						if (is_array($a = $data_to_array(...$args))) {
 							$this->tableau = $a;
 						}
 					}
