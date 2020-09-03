@@ -28,9 +28,9 @@ define('BALISE_BOUCLE', '<BOUCLE');
 /** Fin de la partie principale d'une boucle */
 define('BALISE_FIN_BOUCLE', '</BOUCLE');
 /** Début de la partie optionnelle avant d'une boucle */
-define('BALISE_PRE_BOUCLE', '<B');
+define('BALISE_PRECOND_BOUCLE', '<B');
 /** Fin de la partie optionnelle après d'une boucle */
-define('BALISE_POST_BOUCLE', '</B');
+define('BALISE_POSTCOND_BOUCLE', '</B');
 /** Fin de la partie alternative après d'une boucle */
 define('BALISE_ALT_BOUCLE', '<//B');
 
@@ -815,7 +815,7 @@ function public_phraser_html_dist($texte, $id_parent, &$boucles, $descr, $ligne 
 		$ligne_avant = $ligne_milieu = $ligne + public_compte_ligne($texte, 0, $pos_parent);
 
 		# attention: reperer la premiere des 2 balises: pre_boucle ou boucle
-		$avant_boucle = BALISE_PRE_BOUCLE . $id_boucle . '>';
+		$avant_boucle = BALISE_PRECOND_BOUCLE . $id_boucle . '>';
 		$pos_avant = strpos($texte, $avant_boucle);
 		if ($pos_avant === false or $pos_avant > $pos_boucle) {
 
@@ -908,7 +908,7 @@ function public_phraser_html_dist($texte, $id_parent, &$boucles, $descr, $ligne 
 		//
 		// 1. Recuperer la partie conditionnelle apres
 		//
-		$apres_boucle = BALISE_POST_BOUCLE . $id_boucle . ">";
+		$apres_boucle = BALISE_POSTCOND_BOUCLE . $id_boucle . ">";
 		$pos_apres = strpos($suite, $apres_boucle);
 		if ($pos_apres !== false) {
 			$result->apres = substr($suite, 0, $pos_apres);
