@@ -938,6 +938,7 @@ function calculer_liste($tableau, $descr, &$boucles, $id_boucle = '') {
 	}
 }
 
+
 define('_REGEXP_COND_VIDE_NONVIDE', "/^[(](.*)[?]\s*''\s*:\s*('[^']+')\s*[)]$/");
 define('_REGEXP_COND_NONVIDE_VIDE', "/^[(](.*)[?]\s*('[^']+')\s*:\s*''\s*[)]$/");
 define('_REGEXP_CONCAT_NON_VIDE', "/^(.*)[.]\s*'[^']+'\s*$/");
@@ -1007,14 +1008,17 @@ function compile_cas($tableau, $descr, &$boucles, $id_boucle) {
 				$newdescr = $descr;
 				$newdescr['id_mere'] = $nom;
 				$newdescr['niv']++;
-				$avant = calculer_liste($p->avant,
-					$newdescr, $boucles, $id_boucle);
-				$apres = calculer_liste($p->apres,
-					$newdescr, $boucles, $id_boucle);
+				$preaff = calculer_liste($p->preaff, $newdescr, $boucles, $id_boucle);
+				$avant = calculer_liste($p->avant, $newdescr, $boucles, $id_boucle);
+				$apres = calculer_liste($p->apres, $newdescr, $boucles, $id_boucle);
+				$postaff = calculer_liste($p->postaff, $newdescr, $boucles, $id_boucle);
 				$newdescr['niv']--;
-				$altern = calculer_liste($p->altern,
-					$newdescr, $boucles, $id_boucle);
-				if (($avant === false) or ($apres === false) or ($altern === false)) {
+				$altern = calculer_liste($p->altern, $newdescr, $boucles, $id_boucle);
+				if ($preaff === false
+					or $avant === false
+					or $apres === false
+					or $altern === false
+					or $postaff === false) {
 					$err_e_c = true;
 					$code = "''";
 				} else {
@@ -1025,14 +1029,28 @@ function compile_cas($tableau, $descr, &$boucles, $id_boucle) {
 					if (!$boucles[$nom]->milieu
 						and $boucles[$nom]->type_requete <> TYPE_RECURSIF
 					) {
+						if ($preaff != "''") {
+							$code .= "\n. $preaff";
+						}
 						if ($altern != "''") {
 							$code .= "\n. $altern";
+						}
+						if ($postaff != "''") {
+							$code .= "\n. $postaff";
 						}
 						if ($avant <> "''" or $apres <> "''") {
 							spip_log("boucle $nom toujours vide, code superflu dans $descr[sourcefile]");
 						}
 						$avant = $apres = $altern = "''";
 					} else {
+						if ($preaff != "''") {
+							$avant = compile_concatene_parties_codes($preaff, $avant);
+							$altern = compile_concatene_parties_codes($preaff, $altern);
+						}
+						if ($postaff != "''") {
+							$apres = compile_concatene_parties_codes($apres, $postaff);
+							$altern = compile_concatene_parties_codes($altern, $postaff);
+						}
 						if ($altern != "''") {
 							$altern = "($altern)";
 						}
@@ -1127,47 +1145,80 @@ function compile_cas($tableau, $descr, &$boucles, $id_boucle) {
 	return $err_e_c ? false : $codes;
 }
 
-// production d'une expression conditionnelle ((v=EXP) ? (p . v .s) : a)
-// mais si EXP est de la forme (t ? 'C' : '') on produit (t ? (p . C . s) : a)
-// de meme si EXP est de la forme (t ? '' : 'C')
+/**
+ * Concatene 2 parties de code, en simplifiant si l'une des 2 est vides
+ * @param $partie1
+ * @param $partie2
+ * @return string
+ */
+function compile_concatene_parties_codes($partie1, $partie2) {
+	if ($partie1 === "''") {
+		return $partie2;
+	}
+	if ($partie2 === "''") {
+		return $partie1;
+	}
+	return "$partie1\n. $partie2";
+}
 
-// http://code.spip.net/@compile_retour
+
+/**
+ * production d'une expression conditionnelle ((v=EXP) ? (p . v .s) : a)
+ * mais si EXP est de la forme (t ? 'C' : '') on produit (t ? (p . C . s) : a)
+ * de meme si EXP est de la forme (t ? '' : 'C')
+ * http://code.spip.net/@compile_retour
+ *
+ * @param string $code
+ *   le code principal, dont le resultat conditionnera le reste
+ * @param string $avant
+ *   la partie conditionnelle avant, qui est calculee apres le code, mais s'affiche avant si le code produit un resultat
+ * @param string $apres
+ *   la partie conditionnelle apres, qui est calculee apres le code, et s'affiche apres si le code produit un resultat
+ * @param string $altern
+ *   la partie alternative apres, qui est calculee apres le code, et s'affiche apres, si le code ne produit pas de resultat
+ * @param string $tab
+ *   tabulation
+ * @param int $n
+ *   compteur
+ * @return mixed|string
+ */
 function compile_retour($code, $avant, $apres, $altern, $tab, $n) {
-	if ($avant == "''") {
+	if ($avant === "''") {
 		$avant = '';
 	}
-	if ($apres == "''") {
+	if ($apres === "''") {
 		$apres = '';
 	}
-	if (!$avant and !$apres and ($altern === "''")) {
-		return $code;
-	}
-
-	if (preg_match(_REGEXP_CONCAT_NON_VIDE, $code)) {
-		$t = $code;
-		$cond = '';
-	} elseif (preg_match(_REGEXP_COND_VIDE_NONVIDE, $code, $r)) {
-		$t = $r[2];
-		$cond = '!' . $r[1];
-	} else {
-		if (preg_match(_REGEXP_COND_NONVIDE_VIDE, $code, $r)) {
+	if ($avant or $apres or ($altern !== "''")){
+		if (preg_match(_REGEXP_CONCAT_NON_VIDE, $code)){
+			$t = $code;
+			$cond = '';
+		} elseif (preg_match(_REGEXP_COND_VIDE_NONVIDE, $code, $r)) {
 			$t = $r[2];
-			$cond = $r[1];
+			$cond = '!' . $r[1];
 		} else {
-			$t = '$t' . $n;
-			$cond = "($t = $code)!==''";
+			if (preg_match(_REGEXP_COND_NONVIDE_VIDE, $code, $r)){
+				$t = $r[2];
+				$cond = $r[1];
+			} else {
+				$t = '$t' . $n;
+				$cond = "($t = $code)!==''";
+			}
 		}
+
+		$res = (!$avant ? "" : "$avant . ") .
+			$t .
+			(!$apres ? "" : " . $apres");
+
+		if ($res!==$t){
+			$res = "($res)";
+		}
+
+		$code = (!$cond ? $res : "($cond ?\n\t$tab$res :\n\t$tab$altern)");
 	}
 
-	$res = (!$avant ? "" : "$avant . ") .
-		$t .
-		(!$apres ? "" : " . $apres");
+	return $code;
 
-	if ($res !== $t) {
-		$res = "($res)";
-	}
-
-	return !$cond ? $res : "($cond ?\n\t$tab$res :\n\t$tab$altern)";
 }
 
 

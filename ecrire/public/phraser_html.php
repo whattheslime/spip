@@ -27,10 +27,14 @@ if (!defined('_ECRIRE_INC_VERSION')) {
 define('BALISE_BOUCLE', '<BOUCLE');
 /** Fin de la partie principale d'une boucle */
 define('BALISE_FIN_BOUCLE', '</BOUCLE');
+/** Début de la partie avant non optionnelle d'une boucle (toujours affichee)*/
+define('BALISE_PREAFF_BOUCLE', '<BB');
 /** Début de la partie optionnelle avant d'une boucle */
 define('BALISE_PRECOND_BOUCLE', '<B');
 /** Fin de la partie optionnelle après d'une boucle */
 define('BALISE_POSTCOND_BOUCLE', '</B');
+/** Fin de la partie après non optionnelle d'une boucle (toujours affichee) */
+define('BALISE_POSTAFF_BOUCLE', '</BB');
 /** Fin de la partie alternative après d'une boucle */
 define('BALISE_ALT_BOUCLE', '<//B');
 
@@ -812,27 +816,36 @@ function public_phraser_html_dist($texte, $id_parent, &$boucles, $descr, $ligne 
 			continue;
 		}
 
-		$ligne_avant = $ligne_milieu = $ligne + public_compte_ligne($texte, 0, $pos_parent);
+		$ligne_preaff = $ligne_avant = $ligne_milieu = $ligne + public_compte_ligne($texte, 0, $pos_parent);
+		$pos_debut_boucle = $pos_boucle;
+		$milieu = substr($texte, $pos_parent);
 
-		# attention: reperer la premiere des 2 balises: pre_boucle ou boucle
+		// Regarder si on a une partie conditionnelle avant <B_xxx>
 		$avant_boucle = BALISE_PRECOND_BOUCLE . $id_boucle . '>';
 		$pos_avant = strpos($texte, $avant_boucle);
-		if ($pos_avant === false or $pos_avant > $pos_boucle) {
+		if ($pos_avant !== false && $pos_avant < $pos_debut_boucle) {
 
-			$debut = substr($texte, 0, $pos_boucle);
-			$milieu = substr($texte, $pos_parent);
-
-		}
-		else {
-
-			$debut = substr($texte, 0, $pos_avant);
-			$milieu = substr($texte, $pos_parent);
+			$pos_debut_boucle = $pos_avant;
 
 			$pos_avant += strlen($avant_boucle);
 			$result->avant = substr($texte, $pos_avant, $pos_boucle - $pos_avant);
-			$ligne_avant = $ligne +  public_compte_ligne($debut);
-
+			$ligne_avant = $ligne +  public_compte_ligne(0, $pos_avant);
 		}
+
+		// Regarder si on a une partie inconditionnelle avant <BB_xxx>
+		$preaff_boucle = BALISE_PREAFF_BOUCLE . $id_boucle . '>';
+		$pos_preaff = strpos($texte, $preaff_boucle);
+		if ($pos_preaff !== false && $pos_preaff < $pos_debut_boucle) {
+
+			$end_preaff = $pos_debut_boucle;
+			$pos_debut_boucle = $pos_preaff;
+
+			$pos_preaff += strlen($preaff_boucle);
+			$result->preaff = substr($texte, $pos_preaff, $end_preaff - $pos_preaff);
+			$ligne_preaff = $ligne +  public_compte_ligne(0, $pos_preaff);
+		}
+
+		$debut = substr($texte, 0, $pos_debut_boucle);
 
 		$result->id_boucle = $id_boucle;
 
@@ -918,11 +931,11 @@ function public_phraser_html_dist($texte, $id_parent, &$boucles, $descr, $ligne 
 			$pos_boucle += $pos_apres ;
 		}
 
-		$ligne_altern = $ligne_suite;
 
 		//
 		// 2. Recuperer la partie alternative
 		//
+		$ligne_altern = $ligne_suite;
 		$altern_boucle = BALISE_ALT_BOUCLE . $id_boucle . ">";
 		$pos_altern = strpos($suite, $altern_boucle);
 		if ($pos_altern !== false) {
@@ -933,7 +946,21 @@ function public_phraser_html_dist($texte, $id_parent, &$boucles, $descr, $ligne 
 			$pos_boucle += $pos_altern;
 		}
 
-		$result->ligne = $ligne_avant;
+		//
+		// 3. Recuperer la partie footer non alternative
+		//
+		$ligne_postaff = $ligne_suite;
+		$postaff_boucle = BALISE_POSTAFF_BOUCLE . $id_boucle . ">";
+		$pos_postaff = strpos($suite, $postaff_boucle);
+		if ($pos_postaff !== false) {
+			$result->postaff = substr($suite, 0, $pos_postaff);
+			$pos_postaff += strlen($postaff_boucle);
+			$suite = substr($suite, $pos_postaff);
+			$ligne_suite += public_compte_ligne($texte, $pos_boucle, $pos_postaff);
+			$pos_boucle += $pos_postaff ;
+		}
+
+		$result->ligne = $ligne_preaff;
 
 		if ($p = strpos($type, ':')) {
 			$result->sql_serveur = substr($type, 0, $p);
@@ -965,9 +992,11 @@ function public_phraser_html_dist($texte, $id_parent, &$boucles, $descr, $ligne 
 		// reserver la place dans la pile des boucles pour compiler ensuite dans le bon ordre
 		// ie les boucles qui apparaissent dans les partie conditionnelles doivent etre compilees apres cette boucle
 		$boucles[$id_boucle] = null;
-		$result->avant = public_phraser_html_dist($result->avant, $id_parent, $boucles, $descr, $result->ligne);
+		$result->preaff = public_phraser_html_dist($result->preaff, $id_parent, $boucles, $descr, $ligne_preaff);
+		$result->avant = public_phraser_html_dist($result->avant, $id_parent, $boucles, $descr, $ligne_avant);
 		$result->apres = public_phraser_html_dist($result->apres, $id_parent, $boucles, $descr, $ligne_apres);
 		$result->altern = public_phraser_html_dist($result->altern, $id_parent, $boucles, $descr, $ligne_altern);
+		$result->postaff = public_phraser_html_dist($result->postaff, $id_parent, $boucles, $descr, $ligne_postaff);
 
 		// Prevenir le generateur de code que le squelette est faux
 		if ($err_b) {
