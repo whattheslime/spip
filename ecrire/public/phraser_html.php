@@ -829,7 +829,7 @@ function public_phraser_html_dist($texte, $id_parent, &$boucles, $descr, $ligne 
 
 			$pos_avant += strlen($avant_boucle);
 			$result->avant = substr($texte, $pos_avant, $pos_boucle - $pos_avant);
-			$ligne_avant = $ligne +  public_compte_ligne(0, $pos_avant);
+			$ligne_avant = $ligne +  public_compte_ligne($texte,0, $pos_avant);
 		}
 
 		// Regarder si on a une partie inconditionnelle avant <BB_xxx>
@@ -842,7 +842,7 @@ function public_phraser_html_dist($texte, $id_parent, &$boucles, $descr, $ligne 
 
 			$pos_preaff += strlen($preaff_boucle);
 			$result->preaff = substr($texte, $pos_preaff, $end_preaff - $pos_preaff);
-			$ligne_preaff = $ligne +  public_compte_ligne(0, $pos_preaff);
+			$ligne_preaff = $ligne +  public_compte_ligne($texte,0, $pos_preaff);
 		}
 
 		$debut = substr($texte, 0, $pos_debut_boucle);
