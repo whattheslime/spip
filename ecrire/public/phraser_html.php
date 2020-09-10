@@ -786,66 +786,119 @@ function public_compte_ligne($texte, $debut = 0, $longueur = null) {
 	}
 }
 
-function public_phraser_html_dist($texte, $id_parent, &$boucles, $descr, $ligne = 1) {
 
-	$all_res = array();
-
-	while (($pos_boucle = strpos($texte, BALISE_BOUCLE)) !== false) {
-
-		$err_b = ''; // indiquera s'il y a eu une erreur
-		$result = new Boucle;
-		$result->id_parent = $id_parent;
-		$result->descr = $descr;
-
-		// trouver l'id de la boucle et verifier qu'il est valide
+/**
+ * Trouver la boucle qui commence en premier dans un texte
+ * On repere les boucles via <BOUCLE_xxx(
+ * et ensuite on regarde son vrai debut soit <B_xxx> soit <BB_xxx>
+ *
+ * @param $texte
+ * @param $id_parent
+ * @param $descr
+ * @return array|null
+ */
+function public_trouver_premiere_boucle($texte, $id_parent, $descr) {
+	$premiere_boucle = null;
+	$current_pos = 0;
+	while (($pos_boucle = strpos($texte, BALISE_BOUCLE, $current_pos)) !== false) {
+		$current_pos = $pos_boucle + 1;
 		$pos_parent = strpos($texte,'(', $pos_boucle);
-		$id_boucle = '';
 		if ($pos_parent === false
 		  or !$id_boucle = trim(substr($texte,$pos_boucle + strlen(BALISE_BOUCLE), $pos_parent - $pos_boucle - strlen(BALISE_BOUCLE)))
 			or !(is_numeric($id_boucle) or strpos($id_boucle, '_') === 0)) {
+
+			$result = new Boucle;
+			$result->id_parent = $id_parent;
+			$result->descr = $descr;
 
 			// un id_boucle pour l'affichage de l'erreur
 			if (!$id_boucle) {
 				$id_boucle = substr($texte,$pos_boucle + strlen(BALISE_BOUCLE), 15);
 			}
+			$result->id_boucle = $id_boucle;
 			$err_b = array('zbug_erreur_boucle_syntaxe', array('id' => $id_boucle));
 			erreur_squelette($err_b, $result);
 
-			$ligne += public_compte_ligne($texte, 0, $pos_boucle + 1);
-			$texte = substr($texte, $pos_boucle + 1);
 			continue;
 		}
+		else {
+			$boucle = [
+				'id_boucle' => $id_boucle,
+				'debut_boucle' => $pos_boucle,
+				'pos_boucle' => $pos_boucle,
+				'pos_parent' => $pos_parent,
+				'pos_precond' => false,
+				'pos_precond_inside' => false,
+				'pos_preaff' => false,
+				'pos_preaff_inside' => false,
+			];
+
+			// trouver sa position de depart reelle : au <B_ ou au <BB_
+			$precond_boucle = BALISE_PRECOND_BOUCLE . $id_boucle . '>';
+			$pos_precond = strpos($texte, $precond_boucle);
+			if ($pos_precond !== false and $pos_precond < $boucle['debut_boucle']) {
+				$boucle['debut_boucle'] = $pos_precond;
+				$boucle['pos_precond'] = $pos_precond;
+				$boucle['pos_precond_inside'] = $pos_precond + strlen($precond_boucle);
+			}
+
+			$preaff_boucle = BALISE_PREAFF_BOUCLE . $id_boucle . '>';
+			$pos_preaff = strpos($texte, $preaff_boucle);
+			if ($pos_preaff !== false and $pos_preaff < $boucle['debut_boucle']) {
+				$boucle['debut_boucle'] = $pos_preaff;
+				$boucle['pos_preaff'] = $pos_preaff;
+				$boucle['pos_preaff_inside'] = $pos_preaff + strlen($preaff_boucle);
+			}
+
+			if (is_null($premiere_boucle) or $premiere_boucle['debut_boucle'] > $boucle['debut_boucle']) {
+				$premiere_boucle = $boucle;
+			}
+		}
+	}
+
+	return $premiere_boucle;
+}
+
+
+function public_phraser_html_dist($texte, $id_parent, &$boucles, $descr, $ligne = 1) {
+
+	$all_res = array();
+
+	while ($boucle = public_trouver_premiere_boucle($texte, $id_parent, $descr)) {
+		$err_b = ''; // indiquera s'il y a eu une erreur
+		$result = new Boucle;
+		$result->id_parent = $id_parent;
+		$result->descr = $descr;
+
+		$pos_boucle = $boucle['pos_boucle'];
+		$id_boucle = $boucle['id_boucle'];
+		$pos_parent = $boucle['pos_parent'];
 
 		$ligne_preaff = $ligne_avant = $ligne_milieu = $ligne + public_compte_ligne($texte, 0, $pos_parent);
 		$pos_debut_boucle = $pos_boucle;
 		$milieu = substr($texte, $pos_parent);
 
 		// Regarder si on a une partie conditionnelle avant <B_xxx>
-		$avant_boucle = BALISE_PRECOND_BOUCLE . $id_boucle . '>';
-		$pos_avant = strpos($texte, $avant_boucle);
-		if ($pos_avant !== false && $pos_avant < $pos_debut_boucle) {
+		if ($boucle['pos_precond'] !== false) {
 
-			$pos_debut_boucle = $pos_avant;
+			$pos_debut_boucle = $boucle['pos_precond'];
 
-			$pos_avant += strlen($avant_boucle);
+			$pos_avant = $boucle['pos_precond_inside'];
 			$result->avant = substr($texte, $pos_avant, $pos_boucle - $pos_avant);
 			$ligne_avant = $ligne +  public_compte_ligne($texte,0, $pos_avant);
 		}
 
 		// Regarder si on a une partie inconditionnelle avant <BB_xxx>
-		$preaff_boucle = BALISE_PREAFF_BOUCLE . $id_boucle . '>';
-		$pos_preaff = strpos($texte, $preaff_boucle);
-		if ($pos_preaff !== false && $pos_preaff < $pos_debut_boucle) {
+		if ($boucle['pos_preaff'] !== false) {
 
 			$end_preaff = $pos_debut_boucle;
-			$pos_debut_boucle = $pos_preaff;
 
-			$pos_preaff += strlen($preaff_boucle);
+			$pos_preaff = $boucle['pos_preaff_inside'];
 			$result->preaff = substr($texte, $pos_preaff, $end_preaff - $pos_preaff);
 			$ligne_preaff = $ligne +  public_compte_ligne($texte,0, $pos_preaff);
 		}
 
-		$debut = substr($texte, 0, $pos_debut_boucle);
+		$debut = substr($texte, 0, $boucle['debut_boucle']);
 
 		$result->id_boucle = $id_boucle;
 
