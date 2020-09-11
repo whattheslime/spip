@@ -14,17 +14,19 @@ if (!defined('_ECRIRE_INC_VERSION')) {
 	return;
 }
 
-function format_boucle_html($avant, $nom, $type, $crit, $corps, $apres, $altern, $prof) {
+function format_boucle_html($preaff, $avant, $nom, $type, $crit, $corps, $apres, $altern, $postaff, $prof) {
+	$preaff = $preaff ? "<BB$nom>$preaff" : "";
 	$avant = $avant ? "<B$nom>$avant" : "";
 	$apres = $apres ? "$apres</B$nom>" : "";
 	$altern = $altern ? "$altern<//B$nom>" : "";
+	$postaff = $postaff ? "$postaff</BB$nom>" : "";
 	if (!$corps) {
 		$corps = " />";
 	} else {
 		$corps = ">$corps</BOUCLE$nom>";
 	}
 
-	return "$avant<BOUCLE$nom($type)$crit$corps$apres$altern";
+	return "$preaff$avant<BOUCLE$nom($type)$crit$corps$apres$altern$postaff";
 }
 
 function format_inclure_html($file, $args, $prof) {

@@ -211,6 +211,13 @@ class Boucle {
 	public $id_parent = '';
 
 	/**
+	 * Partie avant toujours affichee
+	 *
+	 * @var string|array
+	 */
+	public $preaff = '';
+
+	/**
 	 * Partie optionnelle avant
 	 *
 	 * @var string|array
@@ -237,6 +244,14 @@ class Boucle {
 	 * @var string|array
 	 */
 	public $altern = '';
+
+	/**
+	 * Partie apres toujours affichee
+	 *
+	 * @var string|array
+	 */
+	public $postaff = '';
+
 
 	/**
 	 * La boucle doit-elle sélectionner la langue ?

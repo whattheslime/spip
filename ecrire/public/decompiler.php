@@ -18,10 +18,12 @@ if (!defined('_ECRIRE_INC_VERSION')) {
 
 function decompiler_boucle($struct, $fmt = '', $prof = 0) {
 	$nom = $struct->id_boucle;
+	$preaff = decompiler_($struct->preaff, $fmt, $prof);
 	$avant = decompiler_($struct->avant, $fmt, $prof);
 	$apres = decompiler_($struct->apres, $fmt, $prof);
 	$altern = decompiler_($struct->altern, $fmt, $prof);
 	$milieu = decompiler_($struct->milieu, $fmt, $prof);
+	$postaff = decompiler_($struct->postaff, $fmt, $prof);
 
 	$type = $struct->sql_serveur ? "$struct->sql_serveur:" : '';
 	$type .= ($struct->type_requete ? $struct->type_requete :
@@ -43,7 +45,7 @@ function decompiler_boucle($struct, $fmt = '', $prof = 0) {
 
 	$f = 'format_boucle_' . $fmt;
 
-	return $f($avant, $nom, $type, $crit, $milieu, $apres, $altern, $prof);
+	return $f($preaff, $avant, $nom, $type, $crit, $milieu, $apres, $altern, $postaff, $prof);
 }
 
 function decompiler_include($struct, $fmt = '', $prof = 0) {
