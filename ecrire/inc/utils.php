@@ -3129,7 +3129,18 @@ function exec_info_dist() {
 
 	include_spip('inc/autoriser');
 	if (autoriser('webmestre')) {
+		$cookies_masques = ['spip_session', 'PHPSESSID'];
+		$cookies_backup = [];
+		foreach ($cookies_masques as $k) {
+			if (!empty($_COOKIE[$k])) {
+				$cookies_backup[$k] = $_COOKIE[$k];
+				$_COOKIE[$k] = '******************************';
+			}
+		}
 		phpinfo();
+		foreach ($cookies_backup as $k => $v) {
+			$_COOKIE[$k] = $v;
+		}
 	} else {
 		include_spip('inc/filtres');
 		sinon_interdire_acces();
