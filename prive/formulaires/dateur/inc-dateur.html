@@ -1,14 +1,13 @@
 <script type='text/javascript'>/*<![CDATA[*/
 function date_picker_options(){
 	return {
-		buttonText: '<:afficher_calendrier|texte_script:>',
+		buttonText: '',
 		buttonImage: '#CHEMIN_IMAGE{calendrier-16.png}',
 		buttonImageOnly: true,
 		closeText: '<:bouton_fermer|texte_script:>',
 		prevText: '<:precedent|texte_script:>',
 		nextText: '<:suivant|texte_script:>',
 		currentText: '<:date_aujourdhui|texte_script:>',
-		closeText: '<:bouton_fermer|texte_script:>',
 		monthNames: [
 			'<:date_mois_1|texte_script:>','<:date_mois_2|texte_script:>','<:date_mois_3|texte_script:>','<:date_mois_4|texte_script:>','<:date_mois_5|texte_script:>','<:date_mois_6|texte_script:>',
 			'<:date_mois_7|texte_script:>','<:date_mois_8|texte_script:>','<:date_mois_9|texte_script:>','<:date_mois_10|texte_script:>','<:date_mois_11|texte_script:>','<:date_mois_12|texte_script:>'],
@@ -55,7 +54,8 @@ function date_picker_init(){
 			}
 			jQuery(this)
 				.datepicker(jQuery.extend(date_picker_options(),options))
-				.trigger('datePickerLoaded');
+				.trigger('datePickerLoaded')
+				.next('.ui-datepicker-trigger').removeAttr('title');
 		});
 	
 	// Initialisation du sélecteur sur les champs d'heure
