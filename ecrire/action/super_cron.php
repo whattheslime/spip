@@ -29,30 +29,19 @@ if (!defined('_ECRIRE_INC_VERSION')) {
  * Exemple de tache cron Unix pour un appel toutes les minutes :
  * `* * * * * curl  http://www.mondomaine.tld/spip.php?action=super_cron`
  *
+ * @deprecated
+ * utiliser directement curl  http://www.mondomaine.tld/spip.php?action=cron
+ * qui ferme la connection immediatement et est plus robuste
+ * (ici le curl peut ne pas marcher si la configuration reseau du serveur le bloque)
+ *
  * @see queue_affichage_cron() Dont une partie du code est repris ici.
  * @see action_cron() URL appelée en asynchrone pour excécuter le cron
+ * @use queue_lancer_url_http_async()
  */
 function action_super_cron_dist() {
-	// Si fsockopen est possible, on lance le cron via un socket
-	// en asynchrone
-	if (function_exists('fsockopen')) {
-		$url = generer_url_action('cron');
-		$parts = parse_url($url);
-		$fp = fsockopen($parts['host'],
-			isset($parts['port']) ? $parts['port'] : 80,
-			$errno, $errstr, 30);
-		if ($fp) {
-			$out = "GET " . $parts['path'] . "?" . $parts['query'] . " HTTP/1.1\r\n";
-			$out .= "Host: " . $parts['host'] . "\r\n";
-			$out .= "Connection: Close\r\n\r\n";
-			fwrite($fp, $out);
-			fclose($fp);
 
-			return;
-		}
-	}
-	// ici lancer le cron par un CURL asynchrone si CURL est présent
-	// TBD
+	$url_cron = generer_url_action('cron');
+	include_spip('inc/queue');
+	queue_lancer_url_http_async($url_cron);
 
-	return;
 }

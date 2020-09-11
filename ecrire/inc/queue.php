@@ -619,73 +619,10 @@ function queue_affichage_cron() {
 
 	if (!defined('_HTML_BG_CRON_FORCE') or !_HTML_BG_CRON_FORCE) {
 
-		// methode la plus rapide :
-		// Si fsockopen est possible, on lance le cron via un socket en asynchrone
-		// si fsockopen echoue (disponibilite serveur, firewall) on essaye pas cURL
-		// car on a toutes les chances d'echouer pareil mais sans moyen de le savoir
-		// on passe direct a la methode background-image
-		if (function_exists('fsockopen')) {
-			$parts = parse_url($url_cron);
-
-			switch ($parts['scheme']) {
-				case 'https':
-					$scheme = 'ssl://';
-					$port = 443;
-					break;
-				case 'http':
-				default:
-					$scheme = '';
-					$port = 80;
-			}
-			$fp = @fsockopen($scheme . $parts['host'],
-				isset($parts['port']) ? $parts['port'] : $port,
-				$errno, $errstr, 1);
-
-			if ($fp) {
-				$host_sent = $parts['host'];
-				if (isset($parts['port']) and $parts['port'] !== $port) {
-					$host_sent .= ':' . $parts['port'];
-				}
-				$timeout = 200; // ms
-				stream_set_timeout($fp, 0, $timeout * 1000);
-				$query = $parts['path'] . ($parts['query'] ? "?" . $parts['query'] : "");
-				$out = "GET " . $query . " HTTP/1.1\r\n";
-				$out .= "Host: " . $host_sent . "\r\n";
-				$out .= "Connection: Close\r\n\r\n";
-				fwrite($fp, $out);
-				spip_timer('read');
-				$t = 0;
-				// on lit la reponse si possible pour fermer proprement la connexion
-				// avec un timeout total de 200ms pour ne pas se bloquer
-				while (!feof($fp) and $t < $timeout) {
-					@fgets($fp, 1024);
-					$t += spip_timer('read', true);
-					spip_timer('read');
-				}
-				fclose($fp);
-				if (!$urgent) {
-					return $texte;
-				}
-			}
+		if (queue_lancer_url_http_async($url_cron) and !$urgent) {
+			return $texte;
 		}
-		// si fsockopen n'est pas dispo on essaye cURL :
-		// lancer le cron par un cURL asynchrone si cURL est present
-		elseif (function_exists("curl_init")) {
-			//setting the curl parameters.
-			$ch = curl_init($url_cron);
-			curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-			// cf bug : http://www.php.net/manual/en/function.curl-setopt.php#104597
-			curl_setopt($ch, CURLOPT_NOSIGNAL, 1);
-			// valeur mini pour que la requete soit lancee
-			curl_setopt($ch, CURLOPT_TIMEOUT_MS, 200);
-			// lancer
-			curl_exec($ch);
-			// fermer
-			curl_close($ch);
-			if (!$urgent) {
-				return $texte;
-			}
-		}
+
 	}
 
 	// si deja force, on retourne sans rien
@@ -709,4 +646,77 @@ function queue_affichage_cron() {
 	  . "<noscript><div style=\"background-image: url('$url_cron');\"></div></noscript>";
 
 	return $texte;
+}
+
+/**
+ * Lancer le cron via un hit http sans attendre le resultat
+ * @param string $url_cron
+ * @return bool
+ */
+function queue_lancer_url_http_async($url_cron) {
+	// methode la plus rapide :
+	// Si fsockopen est possible, on lance le cron via un socket en asynchrone
+	// si fsockopen echoue (disponibilite serveur, firewall) on essaye pas cURL
+	// car on a toutes les chances d'echouer pareil mais sans moyen de le savoir
+	// on passe direct a la methode background-image
+	if (function_exists('fsockopen')) {
+		$parts = parse_url($url_cron);
+
+		switch ($parts['scheme']) {
+			case 'https':
+				$scheme = 'ssl://';
+				$port = 443;
+				break;
+			case 'http':
+			default:
+				$scheme = '';
+				$port = 80;
+		}
+		$fp = @fsockopen($scheme . $parts['host'],
+			isset($parts['port']) ? $parts['port'] : $port,
+			$errno, $errstr, 1);
+
+		if ($fp) {
+			$host_sent = $parts['host'];
+			if (isset($parts['port']) and $parts['port'] !== $port) {
+				$host_sent .= ':' . $parts['port'];
+			}
+			$timeout = 200; // ms
+			stream_set_timeout($fp, 0, $timeout * 1000);
+			$query = $parts['path'] . ($parts['query'] ? "?" . $parts['query'] : "");
+			$out = "GET " . $query . " HTTP/1.1\r\n";
+			$out .= "Host: " . $host_sent . "\r\n";
+			$out .= "Connection: Close\r\n\r\n";
+			fwrite($fp, $out);
+			spip_timer('read');
+			$t = 0;
+			// on lit la reponse si possible pour fermer proprement la connexion
+			// avec un timeout total de 200ms pour ne pas se bloquer
+			while (!feof($fp) and $t < $timeout) {
+				@fgets($fp, 1024);
+				$t += spip_timer('read', true);
+				spip_timer('read');
+			}
+			fclose($fp);
+			return true;
+		}
+	}
+	// si fsockopen n'est pas dispo on essaye cURL :
+	// lancer le cron par un cURL asynchrone si cURL est present
+	elseif (function_exists("curl_init")) {
+		//setting the curl parameters.
+		$ch = curl_init($url_cron);
+		curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+		// cf bug : http://www.php.net/manual/en/function.curl-setopt.php#104597
+		curl_setopt($ch, CURLOPT_NOSIGNAL, 1);
+		// valeur mini pour que la requete soit lancee
+		curl_setopt($ch, CURLOPT_TIMEOUT_MS, 200);
+		// lancer
+		curl_exec($ch);
+		// fermer
+		curl_close($ch);
+		return true;
+	}
+
+	return false;
 }
