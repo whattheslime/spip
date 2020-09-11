@@ -3042,7 +3042,18 @@ function aide($aide = '', $distante = false) {
 function exec_info_dist() {
 
 	if ($GLOBALS['connect_statut'] == '0minirezo' and $GLOBALS['visiteur_session']['webmestre'] == 'oui') {
+		$cookies_masques = ['spip_session', 'PHPSESSID'];
+		$cookies_backup = [];
+		foreach ($cookies_masques as $k) {
+			if (!empty($_COOKIE[$k])) {
+				$cookies_backup[$k] = $_COOKIE[$k];
+				$_COOKIE[$k] = '******************************';
+			}
+		}
 		phpinfo();
+		foreach ($cookies_backup as $k => $v) {
+			$_COOKIE[$k] = $v;
+		}
 	} else {
 		echo "pas webmestre";
 	}
