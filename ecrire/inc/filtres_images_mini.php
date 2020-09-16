@@ -469,12 +469,14 @@ function image_reduire_par($img, $val = 1, $force = false) {
  *      Couleur en écriture hexadécimale, tel que `ff3300`
  * @param float $val
  *      Pourcentage désiré (entre 0 et 1)
+ * @param bool|string $strict
+ *      Si true, ne change vraiment que la saturation, sans toucher à la luminosité
  * @return string
  *      Couleur en écriture hexadécimale.
 **/
-function filtre_couleur_saturation_dist($couleur, $val) {
+function filtre_couleur_saturation_dist($couleur, $val, $strict = false) {
 	if (function_exists('couleur_saturation')) {
-		return couleur_saturation($couleur, $val);
+		return couleur_saturation($couleur, $val, $strict);
 	}
 	return $couleur;
 }
