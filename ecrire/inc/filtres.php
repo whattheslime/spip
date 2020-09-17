@@ -3111,7 +3111,7 @@ function table_valeur($table, $cle, $defaut = '', $conserver_null = false) {
  *     - true : expression trouvée, mais pas la parenthèse capturante
  *     - string : expression trouvée.
  **/
-function match($texte, $expression, $modif = "UimsS", $capte = 0) {
+function filtre_match_dist($texte, $expression, $modif = "UimsS", $capte = 0) {
 	if (intval($modif) and $capte == 0) {
 		$capte = $modif;
 		$modif = "UimsS";
