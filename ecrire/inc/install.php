@@ -396,22 +396,32 @@ function install_connexion_form($db, $login, $pass, $predef, $hidden, $etape, $j
 		. ($jquery ? http_script('', 'jquery.js') : '')
 		. http_script('
 		jQuery(function($) {
+			$details_db = $("#install_adresse_base_hebergeur,#install_login_base_hebergeur,#install_pass_base_hebergeur");
 			$("input[type=hidden][name=server_db]").each(function(){
 				if ($(this).attr("value").match("sqlite*")){
-					$("#install_adresse_base_hebergeur,#install_login_base_hebergeur,#install_pass_base_hebergeur").hide();
+					$details_db.hide();
 				}
 			});
-			if ($("input[name=server_db][checked]").attr("value").match("sqlite*"))
-				$("#install_adresse_base_hebergeur,#install_login_base_hebergeur,#install_pass_base_hebergeur").hide();
-			else
-				$("#install_adresse_base_hebergeur,#install_login_base_hebergeur,#install_pass_base_hebergeur").show();
+			$choix = $("input[type=radio][name=server_db]");
+			if ($choix.length == 1) {
+				$choix.eq(0).prop("checked", true);
+			}
+			$checked = $("input[name=server_db][checked]");
+			if (!$checked.length) {
+				$details_db.hide();
+			} else if ($checked.attr("value").match("sqlite*")) {
+				$details_db.hide();
+			} else {
+				$details_db.show();
+			}
+
 			$("input[name=server_db]").each(function(){
 				$(this).on("change",function(){
 					if ($(this).prop("checked") && $(this).attr("value").match("sqlite*")) {
-						$("#install_adresse_base_hebergeur,#install_login_base_hebergeur,#install_pass_base_hebergeur").hide();
+						$details_db.hide();
 					}
 					if ($(this).prop("checked") && !$(this).attr("value").match("sqlite*")) {
-						$("#install_adresse_base_hebergeur,#install_login_base_hebergeur,#install_pass_base_hebergeur").show();
+						$details_db.show();
 					}
 				});
 			});
