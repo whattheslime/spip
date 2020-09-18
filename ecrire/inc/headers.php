@@ -71,7 +71,7 @@ function redirige_par_entete($url, $equiv = '', $status = 302) {
 	include_spip('inc/cookie');
 	if ((!$equiv and !spip_cookie_envoye()) or (
 			   (strncmp("Apache", $_SERVER['SERVER_SOFTWARE'], 6) == 0)
-			or (stripos($_SERVER['SERVER_SIGNATURE'], 'Apache') !== false)
+			or (isset($_SERVER['SERVER_SIGNATURE']) and stripos($_SERVER['SERVER_SIGNATURE'], 'Apache') !== false)
 			or function_exists('apache_getenv')
 			or defined('_SERVER_APACHE')
 		)

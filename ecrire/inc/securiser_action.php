@@ -263,7 +263,11 @@ function secret_du_site() {
 		include_spip('inc/acces');
 		include_spip('auth/sha256.inc');
 		ecrire_meta('secret_du_site',
-			spip_sha256($_SERVER["DOCUMENT_ROOT"] . $_SERVER["SERVER_SIGNATURE"] . creer_uniqid()), 'non');
+			spip_sha256(
+				$_SERVER["DOCUMENT_ROOT"] 
+				. (isset($_SERVER['SERVER_SIGNATURE']) ? $_SERVER["SERVER_SIGNATURE"] : "")
+				. creer_uniqid()
+			), 'non');
 		lire_metas(); // au cas ou ecrire_meta() ne fonctionne pas
 	}
 
