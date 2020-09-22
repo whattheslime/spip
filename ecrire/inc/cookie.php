@@ -103,7 +103,18 @@ function spip_setcookie($name = '', $value = '', $options = []) {
 	}
 
 	#spip_log("cookie('$name', '$value', " . json_encode($options, true) . ")", "cookies");
-	$a = @setcookie($name, $value, $options);
+	if (PHP_VERSION_ID < 70300) {
+		$options = [
+			isset($options['expires']) ? $options['expires'] : 0,
+			isset($options['path']) ? $options['path'] : '',
+			isset($options['domain']) ? $options['domain'] : '',
+			isset($options['secure']) ? $options['secure'] : false,
+			isset($options['httponly']) ? $options['httponly'] : false,
+		];
+		$a = @setcookie($name, $value, ...$options);
+	} else {
+		$a = @setcookie($name, $value, $options);
+	}
 
 	spip_cookie_envoye(true);
 
