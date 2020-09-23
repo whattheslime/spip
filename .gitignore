@@ -4,6 +4,7 @@
 /.project
 /.settings
 /.idea/
+/.vscode/*
 IMG/*
 config/*
 ecrire/inc_connect.php3
