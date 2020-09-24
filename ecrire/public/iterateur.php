@@ -318,12 +318,12 @@ class IterDecorator extends FilterIterator {
 		$filtre = '';
 
 		if ($op == 'REGEXP') {
-			$filtre = 'match(' . $a . ', ' . str_replace('\"', '"', $valeur) . ')';
+			$filtre = 'filtrer("match", ' . $a . ', ' . str_replace('\"', '"', $valeur) . ')';
 			$op = '';
 		} else {
 			if ($op == 'LIKE') {
 				$valeur = str_replace(array('\"', '_', '%'), array('"', '.', '.*'), preg_quote($valeur));
-				$filtre = 'match(' . $a . ', ' . $valeur . ')';
+				$filtre = 'filtrer("match", ' . $a . ', ' . $valeur . ')';
 				$op = '';
 			} else {
 				if ($op == '=') {
