@@ -1,3 +1,67 @@
+SPIP-Core v3.2.7 -> v3.2.8 (29 septembre 2020)
+----------------------------------------------
+a5cda7ff8 | cedric        | 2020-09-17 | Si une page preview est visualisee dans un element embed on sandbox l'element et on redirige sur la home pour eviter t..
+6c2e56441 | marcimat      | 2020-09-28 | On intègre plugins-dist.json à la place de .gitsvnextmodules pour lister les plugins-dist. Report de 7306ba9a sans big..
+10718d144 | marcimat      | 2020-09-08 | Lorsqu’un champ date contient un souligné, tel que "date_modif_manuelle", permettre d’utiliser les critères {age_modif..
+85e8576b4 | nicod_        | 2020-09-11 | issue_4549 (!58)
+f868732de | cedric        | 2020-09-11 | #4494 : masquer les cookies sensible de le phpinfo
+eaa08a27c | cedric        | 2020-09-11 | Ajouter des logs sur le genie optimiser, dans un log dedie, c'est bien le moins qu'on puisse faire pour savoir un peu ..
+978cec0d5 | cedric        | 2020-09-11 | Complement a 52764a1611 : permettre d'utiliser une vue aussi pour une table de liens, en declarant les cles dans table..
+8158f8b6f | cedric        | 2020-09-02 | Fix petit cas tordu sur trouver_table() quand on l'utilise sur une vue qui est un filtre d'une table reelle : sql_show..
+6418ceb40 | cedric        | 2020-05-27 | cot cot cot...
+e593f2fbb | cedric        | 2020-05-27 | _oups donc (aka un base64_encode ca fait pas de mal)
+6b5de38ac | cedric        | 2020-05-19 | Divers petites sanitization et une balise manquante #4494
+f6cfbce16 | rastapopoulos | 2020-06-24 | Corriger un bug présent dans plusieurs navigateurs, qui fait que ça agrandit tous les fieldsets dès qu'il y a un éléme..
+925abdf1d | bruno         | 2020-06-23 | API modifier : passer l'éventuelle la liste de champs fixe au pipeline pre_edition
+319b9acbf | bruno         | 2020-06-19 | corriger le filtre singuler_ou_pluriel quand la valeur est 0
+44ebe4927 | bruno         | 2020-06-16 | Améliorer le filtre singulier_ou_pluriel pour prendre en compte les valeurs non entières (!41)
+bd9957b0b | marcimat      | 2020-06-05 | Sanitiser les préférences utilisateurs. (g0uz)
+ae4267eba | cedric        | 2020-06-05 | n'enregistrer que les preferences licites (g0uZ)
+0880b517b | cedric        | 2020-05-29 | Fix petite salade autour de la suppression des resultats de recherche trop vieux : - on utilise le champ maj comme ind..
+f6e3627c5 | maieul        | 2019-09-19 | filtre |balise_svg > supprimer l'entête XML + effacer pour gagner un peu de place les commentaires XML
+f02e933cc | cedric        | 2020-03-11 | class grostitre manquante dans l'echafaudage
+db97552ff | cedric        | 2020-02-10 | Permettre de preciser le #SELF utilise par la pagination dans l'appel de la balise pagination, ce qui permet de nettoy..
+adda869ce | cedric        | 2020-01-22 | Fix : utiliser propre sur les nom de plugin est dangereux, car certains plugins peuvent enrichir avec un lien et comme..
+f7a93668f | ben.spip      | 2019-12-12 | SPIP 3.2.7
+d3c2db6b9 | ben.spip      | 2019-12-12 | la 3.2.6 est stable (realet)
+a306385cc | ben.spip      | 2019-12-12 | SPIP 3.2.6
+
+
+SPIP-plugins-dist v3.2.7 -> v3.2.8 (29 septembre 2020)
+------------------------------------------------------
+aide                    | fe76f13 | spip.franck  | 2020-01-01 | Bonne année "aide" de spip 3.2
+archiviste              | 94be628 | spip.franck  | 2020-01-01 | Bonne année "archives" de spip 3.2
+breves                  | 7f4e2ac | spip.franck  | 2020-01-01 | Bonne Année "breves" de spip 3.2
+compresseur             | 4785c1a | cedric       | 2020-06-04 | Tentative de fix de l'inflation du repertoire local/cache-css : tenir compte des timestamps des fichiers a concatener ..
+compresseur             | 2372cf3 | spip.franck  | 2020-01-01 | Bonne Année "compresseur" de spip 3.2
+dump                    | 0955b05 | spip.franck  | 2020-01-01 | Bonne Année "dump" de spip 3.2
+filtres_images          | 190bf90 | spip.franck  | 2020-01-01 | Bonne année "filtres_images" de spip 3.2
+forum                   | 2e18f59 | spip.franck  | 2020-01-01 | Bonne année "forum" de spip 3.2
+medias                  | bc5a517 | cedric       | 2020-06-05 | Utilisation des fonctions de sanitization sur galerie et _galerie en lien avec #4494 du core
+medias                  | a4484ea | spip.franck  | 2020-01-02 | ajout du cartouche spip avec accord de cerdic (spip 3.2)
+medias                  | fa3c5b3 | spip.franck  | 2020-01-01 | Bonne année "medias" de spip 3.2
+mots                    | 012f539 | spip.franck  | 2020-01-01 | Bonne année "mots" de spip 3.2
+organiseur              | 4a30bd8 | marcimat     | 2020-09-23 | FullCalendar 3.10.2 (c’est vieux, mais des bugs en moins) et Moment 2.29 + Correction sur les rendez vous dont le cale..
+organiseur              | 53a76b0 | marcimat     | 2020-09-23 | Notice PHP en moins.
+organiseur              | aa7eb97 | spip.franck  | 2020-01-01 | Bonne année "organiseur" de spip 3.2
+petitions               | 1f40e1b | spip.franck  | 2020-01-01 | Bonne année "petitions" de spip 3.2
+porte_plume             | 57cae2a | cedric       | 2020-08-25 | Deux constantes pour piloter une desactivation partielle ou totale du porte_plume : * `define('_PORTE_PLUME_INSERER_AU..
+revisions               | 44d7df8 | spip.franck  | 2020-01-01 | Bonne année "revisions" de spip 3.2
+safehtml                | c404945 | spip.franck  | 2020-01-01 | Bonne année "safehtml" de spip 3.2
+sites                   | 0f362a7 | spip.franck  | 2020-01-01 | Bonne année "sites" de spip 3.2
+squelettes_par_rubrique | 4a70c9f | spip.franck  | 2020-01-01 | Bonne année "squelettes_par_rubrique" de spip 3.2
+statistiques            | d64d037 | spip.franck  | 2020-01-01 | Bonne année "statistiques" de spip 3.2
+svp                     | dcaf67b | cedric       | 2020-03-31 | Support des logos au format svg en provenance de l'empaqueteur, meme si le paquet.xml reference un png + support de la..
+svp                     | 0e1d905 | spip.franck  | 2020-01-01 | Bonne année "svp" de spip 3.2
+svp                     | 9f8caf6 | eric         | 2019-12-23 | Utiliser le logo SVG ou PNG si il existe en se servant de la nouvelle balise incluse par Smart-Paquets. Compatible ave..
+textwheel               | 77f1aac | cyrille      | 2020-06-11 | éviter un warning lorsqu'il y a une ligne de cellules vides dans un table
+textwheel               | 578a21f | cyrille      | 2020-06-11 | éviter un warning lorsqu'il y a une ligne de cellules vides dans un table
+textwheel               | 216519a | spip.franck  | 2020-01-01 | Bonne année "textwheel" de spip 3.2
+urls_etendues           | b74a272 | spip.franck  | 2020-01-01 | Bonne année "urls_etendues" de spip 3.2
+vertebres               | d84a81e | spip.franck  | 2020-01-01 | Bonne année "vertebres" de spip 3.2
+squelettes-dist         | ea695c1 | spip.franck  | 2020-01-01 | Bonne Année "dist" de spip 3.2
+
+
 SPIP-Core spip-3.2.6 -> spip-3.2.7  12 décembre 2019
 -------------------------------------------------------------
 
