@@ -1,4 +1,42 @@
 
+SPIP-Core v3.1.12 -> v3.1.13 (29 septembre 2020)
+------------------------------------------------
+f9047f81c | cedric       | 2020-09-17 | Si une page preview est visualisee dans un element embed on sandbox l'element et on redirige sur la home pour eviter t..
+bf1a00cc1 | marcimat     | 2020-06-05 | Sanitiser les préférences utilisateurs. (g0uz)
+5eb225d95 | cedric       | 2020-06-05 | n'enregistrer que les preferences licites (g0uZ)
+923f20fa0 | cedric       | 2020-01-22 | Fix : utiliser propre sur les nom de plugin est dangereux, car certains plugins peuvent enrichir avec un lien et comme..
+64821d216 | cedric       | 2020-09-11 | Report. #4494 : masquer les cookies sensible de le phpinfo
+66735047f | marcimat     | 2020-09-28 | On intègre plugins-dist.json pour lister les plugins-dist. Report de 7306ba9a sans bigup, archiviste, aide.
+bfc4a833f | cedric       | 2020-05-27 | cot cot cot...
+b4d6be458 | cedric       | 2020-05-27 | _oups donc (aka un base64_encode ca fait pas de mal)
+02de17d7d | cedric       | 2020-05-19 | Divers petites sanitization et une balise manquante #4494
+a158cc9d7 | ben.spip     | 2019-12-12 | SPIP 3.1.11
+
+SPIP-plugins-dist v3.1.12 -> v3.1.13 (29 septembre 2020)
+--------------------------------------------------------
+breves                  | 049dd3e | spip.franck  | 2020-01-01 | Bonne Année "breves" de spip 3.1
+compresseur             | 50865b1 | spip.franck  | 2020-01-01 | Bonne Année "compresseur" de spip 3.1
+dump                    | 42184fe | spip.franck  | 2020-01-01 | Bonne Année "dump" de spip 3.1
+filtres_images          | ae3b4a7 | spip.franck  | 2020-01-01 | Bonne année "filtres_images" de spip 3.1
+forum                   | 15c34d9 | spip.franck  | 2020-01-01 | Bonne année "forum" de spip 3.1
+medias                  | 0c5185d | cedric       | 2020-06-05 | Utilisation des fonctions de sanitization sur galerie et _galerie en lien avec #4494 du core
+medias                  | c9cfa71 | spip.franck  | 2020-01-02 | ajout du cartouche spip avec accord de cerdic (spip 3.1)
+medias                  | 57737c0 | spip.franck  | 2020-01-01 | Bonne année "medias" de spip 3.1
+mots                    | 55492b8 | spip.franck  | 2020-01-01 | Bonne année "mots" de spip 3.1
+organiseur              | f1e3fc1 | spip.franck  | 2020-01-01 | Bonne année "organiseur" de spip 3.1
+petitions               | a0184a1 | spip.franck  | 2020-01-01 | Bonne année "petitions" de spip 3.1
+revisions               | 1e7e8fe | spip.franck  | 2020-01-01 | Bonne année "petitions" de spip 3.1
+safehtml                | 46e78a5 | spip.franck  | 2020-01-01 | Bonne année "safehtml" de spip 3.1
+sites                   | 58958c0 | spip.franck  | 2020-01-01 | Bonne année "sites" de spip 3.1
+squelettes_par_rubrique | b3412a7 | spip.franck  | 2020-01-01 | Bonne année "squelettes_par_rubrique" de spip 3.1
+statistiques            | 79b5b96 | spip.franck  | 2020-01-01 | Bonne année "statistiques" de spip 3.1
+svp                     | eea4fa3 | spip.franck  | 2020-01-01 | Bonne année "svp" de spip 3.1
+textwheel               | b6e385a | spip.franck  | 2020-01-01 | Bonne année "textwheel" de spip 3.1
+urls_etendues           | ff32755 | spip.franck  | 2020-01-01 | Bonne année "urls_etendues" de spip 3.1
+vertebres               | 566092f | spip.franck  | 2020-01-01 | Bonne année "vertebres" de spip 3.1
+squelettes-dist         | f7bf955 | spip.franck  | 2020-01-01 | Bonne Année "dist" de spip 3.1
+
+
 SPIP-Core spip-3.1.11 -> spip-3.1.12  12 décembre 2019
 -------------------------------------------------------------
 
