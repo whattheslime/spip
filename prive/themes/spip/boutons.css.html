@@ -23,8 +23,8 @@
 
 #SET{couleurs, #ARRAY{
 	claire,     ##ENV{claire}|couleur_luminance{0.05}|couleur_saturation{0.33, strict},
-	foncee,     #ENV{foncee}|couleur_luminance{0.55},
-	foncee_max, #ENV{foncee}|couleur_luminance{0.75},
+	foncee,     #ENV{foncee}|couleur_luminance{0.7}|couleur_saturation{0.66, strict},
+	foncee_max, #ENV{foncee}|couleur_luminance{0.95}|couleur_saturation{0.85, strict},
 }}
 
 [(#REM) Tailles et valeurs associées ]
@@ -300,6 +300,15 @@
 	width: [(#CLE)]px !important; /* Obligé important */
 	height: [(#CLE)]px !important;
 }
+.bouton.s#CLE .icone-image img,
+.bouton.s#CLE .icone-image svg,
+.bouton_action_post.s#CLE .submit .icone-image img,
+.bouton_action_post.s#CLE .submit .icone-image svg,
+.formulaire_spip button.s#CLE .icone-image img,
+.formulaire_spip button.s#CLE .icone-image svg {
+	max-height: [(#CLE)]px;
+	width: auto;
+}
 .formulaire_spip input.submit.s#CLE {
 	background-size: [(#CLE)]px;
 	padding-#ENV{left}: [(#VALEUR{padding/1})];
@@ -515,6 +524,7 @@
 	            flex-flow: column wrap;
 }
 .groupe-boutons.vertical .bouton:not(:last-child),
+.groupe-boutons.vertical .bouton_action_post:not(:last-child),
 .groupe-boutons.vertical .bouton_action_post:not(:last-child) .submit,
 .formulaire_spip .groupe-boutons.vertical input.submit:not(:last-child),
 .formulaire_spip .groupe-boutons.vertical button.submit:not(:last-child) {
