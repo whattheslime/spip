@@ -206,7 +206,7 @@ jQuery.fn.positionner = function(force, setfocus) {
 jQuery.spip.virtualbuffer_id='spip_virtualbufferupdate';
 jQuery.spip.initReaderBuffer = function(){
 	if (jQuery('#'+jQuery.spip.virtualbuffer_id).length) return;
-	jQuery('body').append('<p style="float:left;width:0;height:0;position:absolute;left:-5000px;top:-5000px;"><input type="hidden" name="'+jQuery.spip.virtualbuffer_id+'" id="'+jQuery.spip.virtualbuffer_id+'" value="0" /></p>');
+	jQuery('body').append('<div style="float:left;width:0;height:0;position:absolute;left:-5000px;top:-5000px;"><input type="hidden" name="'+jQuery.spip.virtualbuffer_id+'" id="'+jQuery.spip.virtualbuffer_id+'" value="0" /></div>');
 }
 jQuery.spip.updateReaderBuffer = function(){
 	var i = jQuery('#'+jQuery.spip.virtualbuffer_id);
