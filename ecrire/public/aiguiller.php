@@ -41,7 +41,7 @@ function securiser_redirect_action($redirect) {
 	return $redirect;
 }
 
-// http://code.spip.net/@traiter_appels_actions
+// https://code.spip.net/@traiter_appels_actions
 function traiter_appels_actions() {
 	// cas de l'appel qui renvoie une redirection (302) ou rien (204)
 	if ($action = _request('action')) {
@@ -107,7 +107,7 @@ function traiter_appels_actions() {
 }
 
 
-// http://code.spip.net/@refuser_traiter_formulaire_ajax
+// https://code.spip.net/@refuser_traiter_formulaire_ajax
 function refuser_traiter_formulaire_ajax() {
 	if ($v = _request('var_ajax')
 		and $v == 'form'
@@ -125,7 +125,7 @@ function refuser_traiter_formulaire_ajax() {
 	}
 }
 
-// http://code.spip.net/@traiter_appels_inclusions_ajax
+// https://code.spip.net/@traiter_appels_inclusions_ajax
 function traiter_appels_inclusions_ajax() {
 	// traiter les appels de bloc ajax (ex: pagination)
 	if ($v = _request('var_ajax')
@@ -164,7 +164,7 @@ function traiter_appels_inclusions_ajax() {
 // au 2e se sachant 2e, retourne les messages et erreurs stockes au 1er
 // Le 1er renvoie True si il faut faire exit a la sortie
 
-// http://code.spip.net/@traiter_formulaires_dynamiques
+// https://code.spip.net/@traiter_formulaires_dynamiques
 function traiter_formulaires_dynamiques($get = false) {
 	static $post = array();
 	static $done = false;

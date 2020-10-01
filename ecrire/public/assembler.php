@@ -28,7 +28,7 @@ if (!defined('_CONTEXTE_IGNORE_VARIABLES')) {
 	define('_CONTEXTE_IGNORE_VARIABLES', "/(^var_|^PHPSESSID$|^fbclid$|^utm_)/");
 }
 
-// http://code.spip.net/@assembler
+// https://code.spip.net/@assembler
 function assembler($fond, $connect = '') {
 
 	// flag_preserver est modifie ici, et utilise en globale
@@ -181,7 +181,7 @@ function assembler($fond, $connect = '') {
  * il est recommande de modifier $_GET['toto'] (meme si la page est
  * appelee avec la methode POST).
  *
- * http://code.spip.net/@calculer_contexte
+ * https://code.spip.net/@calculer_contexte
  *
  * @return array Un tableau du contexte de la page
  */
@@ -235,7 +235,7 @@ function calculer_contexte_implicite() {
 // fonction pour compatibilite arriere, probablement superflue
 //
 
-// http://code.spip.net/@auto_content_type
+// https://code.spip.net/@auto_content_type
 function auto_content_type($page) {
 
 	if (!isset($GLOBALS['flag_preserver'])) {
@@ -244,7 +244,7 @@ function auto_content_type($page) {
 	}
 }
 
-// http://code.spip.net/@inclure_page
+// https://code.spip.net/@inclure_page
 function inclure_page($fond, $contexte, $connect = '') {
 	static $cacher, $produire_page;
 
@@ -358,7 +358,7 @@ function inserer_balise_dynamique($contexte_exec, $contexte_compil) {
  * Inclusion de balise dynamique
  * Attention, un appel explicite a cette fonction suppose certains include
  *
- * http://code.spip.net/@inclure_balise_dynamique
+ * https://code.spip.net/@inclure_balise_dynamique
  *
  * @param string|array $texte
  * @param bool $echo Faut-il faire echo ou return
@@ -425,7 +425,7 @@ function inclure_balise_dynamique($texte, $echo = true, $contexte_compil = array
 	}
 }
 
-// http://code.spip.net/@message_page_indisponible
+// https://code.spip.net/@message_page_indisponible
 function message_page_indisponible($page, $contexte) {
 	static $deja = false;
 	if ($deja) {
@@ -461,7 +461,7 @@ function message_page_indisponible($page, $contexte) {
 
 // temporairement ici : a mettre dans le futur inc/modeles
 // creer_contexte_de_modele('left', 'autostart=true', ...) renvoie un array()
-// http://code.spip.net/@creer_contexte_de_modele
+// https://code.spip.net/@creer_contexte_de_modele
 function creer_contexte_de_modele($args) {
 	$contexte = array();
 	foreach ($args as $var => $val) {
@@ -538,7 +538,7 @@ function styliser_modele($modele, $id, $contexte=null) {
 /**
  * Calcule le modele et retourne la mini-page ainsi calculee
  *
- * http://code.spip.net/@inclure_modele
+ * https://code.spip.net/@inclure_modele
  *
  * @param $type string Nom du modele
  * @param $id int
@@ -646,7 +646,7 @@ function inclure_modele($type, $id, $params, $lien, $connect = '', $env = array(
 // fonction interne a spip, ne pas appeler directement
 // pour recuperer $page complet, utiliser:
 // 	recuperer_fond($fond,$contexte,array('raw'=>true))
-// http://code.spip.net/@evaluer_fond
+// https://code.spip.net/@evaluer_fond
 function evaluer_fond($fond, $contexte = array(), $connect = null) {
 
 	$page = inclure_page($fond, $contexte, $connect);
@@ -672,7 +672,7 @@ function evaluer_fond($fond, $contexte = array(), $connect = null) {
 }
 
 
-// http://code.spip.net/@page_base_href
+// https://code.spip.net/@page_base_href
 function page_base_href(&$texte) {
 	static $set_html_base = null;
 	if (is_null($set_html_base)) {
@@ -740,7 +740,7 @@ function page_base_href(&$texte) {
 
 // Envoyer les entetes, en retenant ceux qui sont a usage interne
 // et demarrent par X-Spip-...
-// http://code.spip.net/@envoyer_entetes
+// https://code.spip.net/@envoyer_entetes
 function envoyer_entetes($entetes) {
 	foreach ($entetes as $k => $v) #	if (strncmp($k, 'X-Spip-', 7))
 	{

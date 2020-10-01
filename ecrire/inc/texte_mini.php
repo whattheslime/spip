@@ -77,7 +77,7 @@ if (!defined('_BALISES_BLOCS_REGEXP')) {
 // Creer un bloc base64 correspondant a $rempl ; au besoin en marquant
 // une $source differente ; le script detecte automagiquement si ce qu'on
 // echappe est un div ou un span
-// http://code.spip.net/@code_echappement
+// https://code.spip.net/@code_echappement
 function code_echappement($rempl, $source = '', $no_transform = false, $mode = null) {
 	if (!strlen($rempl)) {
 		return '';
@@ -104,13 +104,13 @@ function code_echappement($rempl, $source = '', $no_transform = false, $mode = n
 
 
 // Echapper les <html>...</ html>
-// http://code.spip.net/@traiter_echap_html_dist
+// https://code.spip.net/@traiter_echap_html_dist
 function traiter_echap_html_dist($regs) {
 	return $regs[3];
 }
 
 // Echapper les <code>...</ code>
-// http://code.spip.net/@traiter_echap_code_dist
+// https://code.spip.net/@traiter_echap_code_dist
 function traiter_echap_code_dist($regs) {
 	list(, , $att, $corps) = $regs;
 	$echap = spip_htmlspecialchars($corps); // il ne faut pas passer dans entites_html, ne pas transformer les &#xxx; du code !
@@ -135,7 +135,7 @@ function traiter_echap_code_dist($regs) {
 }
 
 // Echapper les <cadre>...</ cadre> aka <frame>...</ frame>
-// http://code.spip.net/@traiter_echap_cadre_dist
+// https://code.spip.net/@traiter_echap_cadre_dist
 function traiter_echap_cadre_dist($regs) {
 	$echap = trim(entites_html($regs[3]));
 	// compter les lignes un peu plus finement qu'avec les \n
@@ -150,12 +150,12 @@ function traiter_echap_cadre_dist($regs) {
 	return $echap;
 }
 
-// http://code.spip.net/@traiter_echap_frame_dist
+// https://code.spip.net/@traiter_echap_frame_dist
 function traiter_echap_frame_dist($regs) {
 	return traiter_echap_cadre_dist($regs);
 }
 
-// http://code.spip.net/@traiter_echap_script_dist
+// https://code.spip.net/@traiter_echap_script_dist
 function traiter_echap_script_dist($regs) {
 	// rendre joli (et inactif) si c'est un script language=php
 	if (preg_match(',<script\b[^>]+php,ims', $regs[0])) {
@@ -170,7 +170,7 @@ define('_PROTEGE_BLOCS', ',<(html|code|cadre|frame|script|style)(\s[^>]*)?>(.*)<
 
 // - pour $source voir commentaire infra (echappe_retour)
 // - pour $no_transform voir le filtre post_autobr dans inc/filtres
-// http://code.spip.net/@echappe_html
+// https://code.spip.net/@echappe_html
 function echappe_html(
 	$letexte,
 	$source = '',
@@ -243,7 +243,7 @@ function echappe_html(
 // Traitement final des echappements
 // Rq: $source sert a faire des echappements "a soi" qui ne sont pas nettoyes
 // par propre() : exemple dans multi et dans typo()
-// http://code.spip.net/@echappe_retour
+// https://code.spip.net/@echappe_retour
 function echappe_retour($letexte, $source = '', $filtre = "") {
 	if (strpos($letexte, "base64$source")) {
 		# spip_log(spip_htmlspecialchars($letexte));  ## pour les curieux
@@ -281,7 +281,7 @@ function echappe_retour($letexte, $source = '', $filtre = "") {
 
 // Reinserer le javascript de confiance (venant des modeles)
 
-// http://code.spip.net/@echappe_retour_modeles
+// https://code.spip.net/@echappe_retour_modeles
 function echappe_retour_modeles($letexte, $interdire_scripts = false) {
 	$letexte = echappe_retour($letexte);
 
@@ -306,7 +306,7 @@ function echappe_retour_modeles($letexte, $interdire_scripts = false) {
  *     très courts.
  *
  * @filtre
- * @link http://www.spip.net/4275
+ * @link https://www.spip.net/4275
  *
  * @param string $texte
  *     Texte à couper
@@ -400,7 +400,7 @@ function couper($texte, $taille = 50, $suite = null) {
 }
 
 
-// http://code.spip.net/@protege_js_modeles
+// https://code.spip.net/@protege_js_modeles
 function protege_js_modeles($t) {
 	if (isset($GLOBALS['visiteur_session'])) {
 		if (preg_match_all(',<script.*?($|</script.),isS', $t, $r, PREG_SET_ORDER)) {
@@ -504,7 +504,7 @@ function echapper_html_suspect($texte, $strict=true) {
  * Permet de protéger les textes issus d'une origine douteuse (forums, syndications...)
  *
  * @filtre
- * @link http://www.spip.net/4310
+ * @link https://www.spip.net/4310
  *
  * @param string $t
  *      Texte à sécuriser

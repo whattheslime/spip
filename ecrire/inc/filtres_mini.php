@@ -112,7 +112,7 @@ function suivre_lien($url, $lien) {
  * S'applique sur une balise SPIP d'URL.
  *
  * @filtre
- * @link http://www.spip.net/4127
+ * @link https://www.spip.net/4127
  * @uses suivre_lien()
  * @example
  *     ```
@@ -171,7 +171,7 @@ function protocole_verifier($url_absolue, $protocoles_autorises = array('http','
  *
  * @filtre
  * @uses url_absolue()
- * @link http://www.spip.net/4126
+ * @link https://www.spip.net/4126
  *
  * @param string $texte Texte
  * @param string $base URL de base de destination (par défaut ce sera l'URL de notre site)
@@ -206,7 +206,7 @@ function liens_absolus($texte, $base = '') {
  * Transforme une URL ou des liens en URL ou liens absolus
  *
  * @filtre
- * @link http://www.spip.net/4128
+ * @link https://www.spip.net/4128
  * @global mode_abs_url Pour connaître le mode (url ou texte)
  *
  * @param string $texte Texte ou URL

@@ -67,7 +67,7 @@ function interprete_argument_balise($n, $p) {
  * Compile la balise `#NOM_SITE_SPIP` retournant le nom du site
  *
  * @balise
- * @link http://www.spip.net/4622
+ * @link https://www.spip.net/4622
  *
  * @param Champ $p
  *     Pile au niveau de la balise
@@ -86,7 +86,7 @@ function balise_NOM_SITE_SPIP_dist($p) {
  * du webmestre
  *
  * @balise
- * @link http://www.spip.net/4586
+ * @link https://www.spip.net/4586
  *
  * @param Champ $p
  *     Pile au niveau de la balise
@@ -105,7 +105,7 @@ function balise_EMAIL_WEBMASTER_dist($p) {
  * du site !
  *
  * @balise
- * @link http://www.spip.net/4338
+ * @link https://www.spip.net/4338
  *
  * @param Champ $p
  *     Pile au niveau de la balise
@@ -125,7 +125,7 @@ function balise_DESCRIPTIF_SITE_SPIP_dist($p) {
  * utilisé par le site tel que `utf-8`
  *
  * @balise
- * @link http://www.spip.net/4331
+ * @link https://www.spip.net/4331
  * @example
  *     ```
  *     <meta http-equiv="Content-Type" content="text/html; charset=#CHARSET" />
@@ -153,7 +153,7 @@ function balise_CHARSET_dist($p) {
  *     `direction_css` si on le souhaite sensible à la langue utilisé.
  *
  * @balise
- * @link http://www.spip.net/4625
+ * @link https://www.spip.net/4625
  * @see lang_dir()
  * @see balise_LANG_RIGHT_dist()
  * @see balise_LANG_DIR_dist()
@@ -177,7 +177,7 @@ function balise_LANG_LEFT_dist($p) {
  * de gauche à droite, sinon 'left'
  *
  * @balise
- * @link http://www.spip.net/4625
+ * @link https://www.spip.net/4625
  * @see lang_dir()
  * @see balise_LANG_LEFT_dist()
  * @see balise_LANG_DIR_dist()
@@ -201,7 +201,7 @@ function balise_LANG_RIGHT_dist($p) {
  * de gauche à droite, sinon 'rtl'
  *
  * @balise
- * @link http://www.spip.net/4625
+ * @link https://www.spip.net/4625
  * @see lang_dir()
  * @see balise_LANG_LEFT_dist()
  * @see balise_LANG_RIGHT_dist()
@@ -230,7 +230,7 @@ function balise_LANG_DIR_dist($p) {
  * Compile la balise `#PUCE` affichant une puce
  *
  * @balise
- * @link http://www.spip.net/4628
+ * @link https://www.spip.net/4628
  * @see definir_puce()
  *
  * @param Champ $p
@@ -253,8 +253,8 @@ function balise_PUCE_dist($p) {
  * utilisée dans une boucle, sinon la date de calcul du squelette.
  *
  * @balise
- * @link http://www.spip.net/4336 Balise DATE
- * @link http://www.spip.net/1971 La gestion des dates
+ * @link https://www.spip.net/4336 Balise DATE
+ * @link https://www.spip.net/1971 La gestion des dates
  * @example
  *     ```
  *     <td>[(#DATE|affdate_jourcourt)]</td>
@@ -281,8 +281,8 @@ function balise_DATE_dist($p) {
  * Cette balise retourne le champ `date_redac` d'une table
  *
  * @balise
- * @link http://www.spip.net/3858 Balises DATE_MODIF et DATE_REDAC
- * @link http://www.spip.net/1971 La gestion des dates
+ * @link https://www.spip.net/3858 Balises DATE_MODIF et DATE_REDAC
+ * @link https://www.spip.net/1971 La gestion des dates
  * @see balise_DATE_MODIF_dist()
  *
  * @param Champ $p
@@ -306,8 +306,8 @@ function balise_DATE_REDAC_dist($p) {
  * Cette balise retourne le champ `date_modif` d'une table
  *
  * @balise
- * @link http://www.spip.net/3858 Balises DATE_MODIF et DATE_REDAC
- * @link http://www.spip.net/1971 La gestion des dates
+ * @link https://www.spip.net/3858 Balises DATE_MODIF et DATE_REDAC
+ * @link https://www.spip.net/1971 La gestion des dates
  * @see balise_DATE_REDAC_dist()
  *
  * @param Champ $p
@@ -327,8 +327,8 @@ function balise_DATE_MODIF_dist($p) {
  * du mail de nouveautés
  *
  * @balise
- * @link http://www.spip.net/4337 Balise DATE_NOUVEAUTES
- * @link http://www.spip.net/1971 La gestion des dates
+ * @link https://www.spip.net/4337 Balise DATE_NOUVEAUTES
+ * @link https://www.spip.net/1971 La gestion des dates
  * @see balise_DATE_REDAC_dist()
  *
  * @param Champ $p
@@ -353,7 +353,7 @@ function balise_DATE_NOUVEAUTES_dist($p) {
  *
  * @balise
  * @deprecated Utiliser `#CHEMIN`
- * @link http://www.spip.net/4627
+ * @link https://www.spip.net/4627
  * @see balise_CHEMIN_dist()
  *
  * @param Champ $p
@@ -373,7 +373,7 @@ function balise_DOSSIER_SQUELETTE_dist($p) {
  * Compile la balise `#SQUELETTE` retournant le chemin du squelette courant
  *
  * @balise
- * @link http://www.spip.net/4027
+ * @link https://www.spip.net/4027
  *
  * @param Champ $p
  *     Pile au niveau de la balise.
@@ -452,7 +452,7 @@ function balise_NOM_SITE_dist($p) {
  * Compile la balise `#NOTE` qui affiche les notes de bas de page
  *
  * @balise
- * @link http://www.spip.net/3964
+ * @link https://www.spip.net/3964
  * @see calculer_notes()
  *
  * @param Champ $p
@@ -499,7 +499,7 @@ function balise_RECHERCHE_dist($p) {
  * actuelle de la boucle
  *
  * @balise
- * @link http://www.spip.net/4333
+ * @link https://www.spip.net/4333
  * @see balise_TOTAL_BOUCLE_dist()
  *
  * @param Champ $p
@@ -526,7 +526,7 @@ function balise_COMPTEUR_BOUCLE_dist($p) {
  * affichés par la boucle
  *
  * @balise
- * @link http://www.spip.net/4334
+ * @link https://www.spip.net/4334
  * @see balise_COMPTEUR_BOUCLE_dist()
  * @see balise_GRAND_TOTAL_dist()
  *
@@ -557,7 +557,7 @@ function balise_TOTAL_BOUCLE_dist($p) {
  * Cette balise nécessite donc la présence de ce critère.
  *
  * @balise
- * @link http://www.spip.net/903 Boucles et balises de recherche
+ * @link https://www.spip.net/903 Boucles et balises de recherche
  * @see critere_recherche_dist()
  *
  * @param Champ $p
@@ -576,7 +576,7 @@ function balise_POINTS_dist($p) {
  * Cela correspond à la popularité quotidienne de l'article
  *
  * @balise
- * @link http://www.spip.net/1846 La popularité
+ * @link https://www.spip.net/1846 La popularité
  * @see balise_POPULARITE_dist()
  * @see balise_POPULARITE_MAX_dist()
  * @see balise_POPULARITE_SITE_dist()
@@ -601,7 +601,7 @@ function balise_POPULARITE_ABSOLUE_dist($p) {
  * La popularité du site est la somme de toutes les popularités absolues.
  *
  * @balise
- * @link http://www.spip.net/1846 La popularité
+ * @link https://www.spip.net/1846 La popularité
  * @see balise_POPULARITE_ABSOLUE_dist()
  * @see balise_POPULARITE_dist()
  * @see balise_POPULARITE_MAX_dist()
@@ -625,7 +625,7 @@ function balise_POPULARITE_SITE_dist($p) {
  * Cela correspond à la popularité quotidienne de l'article
  *
  * @balise
- * @link http://www.spip.net/1846 La popularité
+ * @link https://www.spip.net/1846 La popularité
  * @see balise_POPULARITE_ABSOLUE_dist()
  * @see balise_POPULARITE_dist()
  * @see balise_POPULARITE_SITE_dist()
@@ -649,7 +649,7 @@ function balise_POPULARITE_MAX_dist($p) {
  * Utile dans une boucle DATA pour retourner une valeur.
  *
  * @balise
- * @link http://www.spip.net/5546 #CLE et #VALEUR
+ * @link https://www.spip.net/5546 #CLE et #VALEUR
  * @see table_valeur()
  * @example
  *     ```
@@ -692,7 +692,7 @@ function balise_VALEUR_dist($p) {
  *     ```
  *
  * @balise
- * @link http://www.spip.net/2319 Exposer un article
+ * @link https://www.spip.net/2319 Exposer un article
  * @uses calculer_balise_expose()
  *
  * @param Champ $p
@@ -787,7 +787,7 @@ function calculer_balise_expose($p, $on, $off) {
  *     ```
  *
  * @balise
- * @link http://www.spip.net/@introduction
+ * @link https://www.spip.net/@introduction
  *
  * @param Champ $p
  *     Pile au niveau de la balise
@@ -848,7 +848,7 @@ function balise_INTRODUCTION_dist($p) {
  * L'étoile `#LANG*` n'affiche rien si aucune langue n'est trouvée dans le SQL ou le contexte.
  *
  * @balise
- * @link http://www.spip.net/3864
+ * @link https://www.spip.net/3864
  *
  * @param Champ $p
  *     Pile au niveau de la balise
@@ -876,9 +876,9 @@ function balise_LANG_dist($p) {
  *   le couple `objet` et `id_objet` dans son environnement.
  *
  * @balise
- * @link http://www.spip.net/3966 Description de la balise
- * @link http://www.spip.net/902 Description de la boucle ARTICLES
- * @link http://www.spip.net/911 Description de la boucle SYNDIC_ARTICLES
+ * @link https://www.spip.net/3966 Description de la balise
+ * @link https://www.spip.net/902 Description de la boucle ARTICLES
+ * @link https://www.spip.net/911 Description de la boucle SYNDIC_ARTICLES
  *
  * @param Champ $p
  *     Pile au niveau de la balise
@@ -942,7 +942,7 @@ function balise_LESAUTEURS_dist($p) {
  * Si un champ `rang` existe, il est pris en priorité.
  *
  * @balise
- * @link http://www.spip.net/5495
+ * @link https://www.spip.net/5495
  *
  * @param Champ $p
  *     Pile au niveau de la balise
@@ -1029,7 +1029,7 @@ function balise_RANG_dist($p) {
  * (la popularité absolue) par rapport à la popularité maximum.
  *
  * @balise
- * @link http://www.spip.net/1846 La popularité
+ * @link https://www.spip.net/1846 La popularité
  * @see balise_POPULARITE_ABSOLUE_dist()
  * @see balise_POPULARITE_MAX_dist()
  * @see balise_POPULARITE_SITE_dist()
@@ -1072,7 +1072,7 @@ define('CODE_PAGINATION',
  * est utilisée.
  *
  * @balise
- * @link http://www.spip.net/3367 Le système de pagination
+ * @link https://www.spip.net/3367 Le système de pagination
  * @see filtre_pagination_dist()
  * @see critere_pagination_dist()
  * @see balise_ANCRE_PAGINATION_dist()
@@ -1166,8 +1166,8 @@ function balise_PAGINATION_dist($p, $liste = 'true') {
  * est utilisée.
  *
  * @balise
- * @link http://www.spip.net/3367 Le système de pagination
- * @link http://www.spip.net/4328 Balise ANCRE_PAGINATION
+ * @link https://www.spip.net/3367 Le système de pagination
+ * @link https://www.spip.net/4328 Balise ANCRE_PAGINATION
  * @see critere_pagination_dist()
  * @see balise_PAGINATION_dist()
  *
@@ -1229,7 +1229,7 @@ function balise_GRAND_TOTAL_dist($p) {
  *     (Dans ce cas faire <INCLURE{self=#SELF}> pour différencier les caches.)
  *
  * @balise
- * @link http://www.spip.net/4574
+ * @link https://www.spip.net/4574
  * @example
  *     ```
  *     <a href="[(#SELF|parametre_url{id_mot,#ID_MOT})]">...
@@ -1257,7 +1257,7 @@ function balise_SELF_dist($p) {
  * Retourne une chaîne vide si le fichier n'est pas trouvé.
  *
  * @balise
- * @link http://www.spip.net/4332
+ * @link https://www.spip.net/4332
  * @see find_in_path() Recherche de chemin
  * @example
  *     ```
@@ -1404,7 +1404,7 @@ function balise_ENV_dist($p, $src = null) {
  * dans une table des meta qui serait `spip_infos`
  *
  * @balise
- * @link http://www.spip.net/4335
+ * @link https://www.spip.net/4335
  *
  * @param Champ $p
  *     Pile au niveau de la balise.
@@ -1461,7 +1461,7 @@ function balise_CONNECT_dist($p) {
  * permet à public/cacher de créer un cache différent par visiteur
  *
  * @balise
- * @link http://www.spip.net/3979
+ * @link https://www.spip.net/3979
  * @see balise_AUTORISER_dist()
  * @see balise_SESSION_SET_dist()
  * @example
@@ -1492,7 +1492,7 @@ function balise_SESSION_dist($p) {
  * des données supplémentaires
  *
  * @balise
- * @link http://www.spip.net/3984
+ * @link https://www.spip.net/3984
  * @see balise_AUTORISER_dist()
  * @see balise_SESSION_SET_dist()
  * @example
@@ -1527,7 +1527,7 @@ function balise_SESSION_SET_dist($p) {
  * À utiliser avec précautions !
  *
  * @balise
- * @link http://www.spip.net/4587
+ * @link https://www.spip.net/4587
  * @example
  *     ```
  *     #EVAL{6+9}
@@ -1582,7 +1582,7 @@ function balise_EVAL_dist($p) {
  * être qu'un texte statique !
  *
  * @balise
- * @link http://www.spip.net/4041
+ * @link https://www.spip.net/4041
  * @see champ_sql()
  * @example
  *     ```
@@ -1617,7 +1617,7 @@ function balise_CHAMP_SQL_dist($p) {
  * Cela permet d'appliquer un filtre à une chaîne de caractère
  *
  * @balise
- * @link http://www.spip.net/4026
+ * @link https://www.spip.net/4026
  * @example
  *     ```
  *     #VAL retourne ''
@@ -1665,7 +1665,7 @@ function balise_NOOP_dist($p) { return balise_VAL_dist($p); }
  * Retourne toujours une chaîne vide.
  *
  * @balise
- * @link http://www.spip.net/4578
+ * @link https://www.spip.net/4578
  * @example
  *     ```
  *     [(#REM)
@@ -1712,7 +1712,7 @@ function balise_NULL_dist($p) {
  * inclusion.
  *
  * @balise
- * @link http://www.spip.net/4631
+ * @link https://www.spip.net/4631
  * @example
  *     ```
  *     #HTTP_HEADER{Content-Type: text/csv; charset=#CHARSET}
@@ -1748,7 +1748,7 @@ function balise_HTTP_HEADER_dist($p) {
  * Plusieurs filtres peuvent être indiqués, séparés par des barres verticales `|`
  *
  * @balise
- * @link http://www.spip.net/4894
+ * @link https://www.spip.net/4894
  * @example
  *     ```
  *     #FILTRE{compacte_head}
@@ -1792,7 +1792,7 @@ function balise_FILTRE_dist($p) {
  *
  * @balise
  * @see ecrire/public/cacher.php
- * @link http://www.spip.net/4330
+ * @link https://www.spip.net/4330
  * @example
  *     ```
  *     #CACHE{24*3600}
@@ -1879,7 +1879,7 @@ function balise_CACHE_dist($p) {
  * CSS et JS, et on ne veut pas qu'il rate les css insérées en fallback
  * par `insert_head_css_conditionnel`.
  *
- * @link http://www.spip.net/4629
+ * @link https://www.spip.net/4629
  * @see balise_INSERT_HEAD_CSS_dist()
  *
  * @param Champ $p
@@ -1903,7 +1903,7 @@ function balise_INSERT_HEAD_dist($p) {
  * Et par extension pour le JS inline qui doit préférentiellement
  * être inséré avant les CSS car bloquant sinon.
  *
- * @link http://www.spip.net/4605
+ * @link https://www.spip.net/4605
  * @see balise_INSERT_HEAD_dist()
  *
  * @param Champ $p
@@ -2129,7 +2129,7 @@ function balise_MODELE_dist($p) {
  * Signature : `#SET{cle,valeur}`
  *
  * @balise
- * @link http://www.spip.net/3990 Balises #SET et #GET
+ * @link https://www.spip.net/3990 Balises #SET et #GET
  * @see balise_GET_dist()
  * @example
  *     ```
@@ -2169,7 +2169,7 @@ function balise_SET_dist($p) {
  * La clé peut obtenir des sous clés séparés par des `/`
  *
  * @balise
- * @link http://www.spip.net/3990 Balises #SET et #GET
+ * @link https://www.spip.net/3990 Balises #SET et #GET
  * @see balise_SET_dist()
  * @example
  *     ```
@@ -2207,7 +2207,7 @@ function balise_GET_dist($p) {
  *   (changera si la gestion des doublons evolue)
  *
  * @balise
- * @link http://www.spip.net/4123
+ * @link https://www.spip.net/4123
  *
  * @param Champ $p
  *     Pile au niveau de la balise
@@ -2277,7 +2277,7 @@ function balise_PIPELINE_dist($p) {
  * Ainsi en absence du plugin, la balise est toujours reconnue (mais n'a aucune action).
  *
  * @balise
- * @link http://www.spip.net/4584
+ * @link https://www.spip.net/4584
  * @example
  *     ```
  *     [<div class="#EDIT{texte} texte">(#TEXTE)</div>]
@@ -2301,7 +2301,7 @@ function balise_EDIT_dist($p) {
  * différents affichés par le filtre `unique`
  *
  * @balise
- * @link http://www.spip.net/4374
+ * @link https://www.spip.net/4374
  * @see unique()
  * @example
  *     ```
@@ -2329,7 +2329,7 @@ function balise_TOTAL_UNIQUE_dist($p) {
  * Chaque paire d'arguments représente la clé et la valeur du tableau.
  *
  * @balise
- * @link http://www.spip.net/4009
+ * @link https://www.spip.net/4009
  * @example
  *     ```
  *     #ARRAY{key1,val1,key2,val2 ...} retourne
@@ -2361,7 +2361,7 @@ function balise_ARRAY_dist($p) {
  * Compile la balise `#LISTE` qui crée un tableau PHP avec les valeurs, sans préciser les clés
  *
  * @balise
- * @link http://www.spip.net/5547
+ * @link https://www.spip.net/5547
  * @example
  *    ```
  *    #LISTE{a,b,c,d,e}
@@ -2400,7 +2400,7 @@ function balise_LISTE_dist($p) {
  *     La priorité des opérateurs exige && plutot que AND
  *
  * @balise
- * @link http://www.spip.net/3896
+ * @link https://www.spip.net/3896
  * @see autoriser()
  * @see sinon_interdire_acces()
  * @example
@@ -2436,7 +2436,7 @@ function balise_AUTORISER_dist($p) {
  *
  * @balise
  * @see filtre_info_plugin_dist()
- * @link http://www.spip.net/4591
+ * @link https://www.spip.net/4591
  * @example
  *     ```
  *     #PLUGIN Retourne la liste sérialisée des préfixes de plugins actifs
@@ -2468,7 +2468,7 @@ function balise_PLUGIN_dist($p) {
  *
  * @balise
  * @see inc_aide_dist()
- * @link http://www.spip.net/4733
+ * @link https://www.spip.net/4733
  * @example
  *     ```
  *     #AIDER{titre}
@@ -2545,7 +2545,7 @@ function balise_ACTION_FORMULAIRE($p) {
  * - ou encore `#BOUTON_ACTION{libelle[,url[,ajax[,message_confirmation[,title[,callback]]]]]}`
  *
  * @balise
- * @link http://www.spip.net/4583
+ * @link https://www.spip.net/4583
  * @example
  *     ```
  *     [(#AUTORISER{reparer,base})
@@ -2751,7 +2751,7 @@ function balise_SAUTER_dist($p) {
  * Compile la balise `#PUBLIE` qui indique si un objet est publié ou non
  *
  * @balise
- * @link http://www.spip.net/5545
+ * @link https://www.spip.net/5545
  * @see objet_test_si_publie()
  * @example
  *     ```
@@ -2797,7 +2797,7 @@ function balise_PUBLIE_dist($p) {
  *
  * @balise
  * @see balise_INCLURE_dist()
- * @link http://www.spip.net/5505
+ * @link https://www.spip.net/5505
  * @example
  *     ```
  *     <link rel="stylesheet" type="text/css" href="#PRODUIRE{fond=css/macss.css,couleur=ffffff}" />

@@ -71,7 +71,7 @@ function inc_securiser_action_dist($action = '', $arg = '', $redirect = "", $mod
  * @note
  *   Attention: PHP applique urldecode sur $_GET mais pas sur $_POST
  *   cf http://fr.php.net/urldecode#48481
- *   http://code.spip.net/@securiser_action_auteur
+ *   https://code.spip.net/@securiser_action_auteur
  *
  * @uses calculer_action_auteur()
  * @uses generer_form_action()

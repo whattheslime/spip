@@ -34,7 +34,7 @@ define('_CODE_QUOTE', ",^(\n//[^\n]*\n)? *'(.*)' *$,");
  * Ce critère sélectionne les éléments à la racine d'une hiérarchie,
  * c'est à dire ayant id_parent=0
  *
- * @link http://www.spip.net/@racine
+ * @link https://www.spip.net/@racine
  *
  * @param string $idb Identifiant de la boucle
  * @param array $boucles AST du squelette
@@ -59,7 +59,7 @@ function critere_racine_dist($idb, &$boucles, $crit) {
  *
  * Exclut du résultat l’élément dans lequel on se trouve déjà
  *
- * @link http://www.spip.net/@exclus
+ * @link https://www.spip.net/@exclus
  *
  * @param string $idb Identifiant de la boucle
  * @param array $boucles AST du squelette
@@ -87,7 +87,7 @@ function critere_exclus_dist($idb, &$boucles, $crit) {
  *
  * Il est possible de spécifier un nom au doublon tel que {doublons sommaire}
  *
- * @link http://www.spip.net/@doublons
+ * @link https://www.spip.net/@doublons
  *
  * @param string $idb Identifiant de la boucle
  * @param array $boucles AST du squelette
@@ -239,8 +239,8 @@ function critere_debut_dist($idb, &$boucles, $crit) {
  *
  * @critere
  * @see balise_PAGINATION_dist()
- * @link http://www.spip.net/3367 Le système de pagination
- * @link http://www.spip.net/4867 Le critère pagination
+ * @link https://www.spip.net/3367 Le système de pagination
+ * @link https://www.spip.net/4867 Le critère pagination
  * @example
  *     ```
  *     {pagination}
@@ -318,7 +318,7 @@ function critere_pagination_dist($idb, &$boucles, $crit) {
  * ou à défaut dans la clé `recherche` de l'environnement du squelette.
  *
  * @critere
- * @link http://www.spip.net/3878
+ * @link https://www.spip.net/3878
  * @see inc_prepare_recherche_dist()
  *
  * @param string $idb Identifiant de la boucle
@@ -485,7 +485,7 @@ function critere_meme_parent_dist($idb, &$boucles, $crit) {
  * sinon d'une valeur 'id_rubrique' dans l'environnement (et non 'branche'
  * donc).
  *
- * @link http://www.spip.net/@branche
+ * @link https://www.spip.net/@branche
  *
  * @param string $idb Identifiant de la boucle
  * @param array $boucles AST du squelette
@@ -558,7 +558,7 @@ function critere_logo_dist($idb, &$boucles, $crit) {
  * C'est la commande SQL «GROUP BY»
  *
  * @critere
- * @link http://www.spip.net/5166
+ * @link https://www.spip.net/5166
  * @example
  *     ```
  *      <BOUCLE_a(articles){fusion lang}>
@@ -623,7 +623,7 @@ function critere_fusion_dist($idb, &$boucles, $crit) {
  *     au `par` précédent s'il a déjà un interclassement demandé).
  *
  * @critere
- * @link http://www.spip.net/4028
+ * @link https://www.spip.net/4028
  * @see critere_par_dist() Le critère `{par}`
  * 
  * @param string $idb Identifiant de la boucle
@@ -653,7 +653,7 @@ function critere_collecte_dist($idb, &$boucles, $crit) {
 	}
 }
 
-// http://code.spip.net/@calculer_critere_arg_dynamique
+// https://code.spip.net/@calculer_critere_arg_dynamique
 function calculer_critere_arg_dynamique($idb, &$boucles, $crit, $suffix = '') {
 	$boucle = $boucles[$idb];
 	$alt = "('" . $boucle->id_table . '.\' . $x' . $suffix . ')';
@@ -697,7 +697,7 @@ function calculer_critere_arg_dynamique($idb, &$boucles, $crit, $suffix = '') {
  *     - `{par num titre, multi titre, hasard}`
  *
  * @critere
- * @link http://www.spip.net/5531
+ * @link https://www.spip.net/5531
  * @see critere_tri_dist() Le critère `{tri ...}`
  * @see critere_inverse_dist() Le critère `{inverse}`
  *
@@ -1036,7 +1036,7 @@ function critere_par_joint($table, $champ, &$boucle) {
  *
  * @critere
  * @see critere_par_dist() Le critère `{par}`
- * @link http://www.spip.net/5530
+ * @link https://www.spip.net/5530
  * @uses critere_parinverse()
  *
  * @param string $idb Identifiant de la boucle
@@ -1074,7 +1074,7 @@ function critere_inverse_dist($idb, &$boucles, $crit) {
 	}
 }
 
-// http://code.spip.net/@critere_agenda_dist
+// https://code.spip.net/@critere_agenda_dist
 function critere_agenda_dist($idb, &$boucles, $crit) {
 	$params = $crit->param;
 
@@ -1428,7 +1428,7 @@ function calculer_criteres($idb, &$boucles) {
  * Madeleine de Proust, revision MIT-1958 sqq, revision CERN-1989
  * hum, c'est kwoi cette fonxion ? on va dire qu'elle desemberlificote les guillemets...
  *
- * http://code.spip.net/@kwote
+ * https://code.spip.net/@kwote
  *
  * @param string $lisp Code compilé
  * @param string $serveur Connecteur de bdd utilisé
@@ -1502,7 +1502,7 @@ function critere_IN_dist($idb, &$boucles, $crit) {
 	}
 }
 
-// http://code.spip.net/@critere_IN_cas
+// https://code.spip.net/@critere_IN_cas
 function critere_IN_cas($idb, &$boucles, $crit2, $arg, $op, $val, $col) {
 	static $num = array();
 	$descr = $boucles[$idb]->descr;
@@ -1757,7 +1757,7 @@ function lister_champs_id_conditionnel($table, $desc = null, $serveur = '') {
  *     `{tri num titre}{par titre}` permet de faire un tri sur le rang (modifiable dynamiquement)
  *     avec un second critère sur le titre en cas d'égalité des rangs
  *
- * @link http://www.spip.net/5429
+ * @link https://www.spip.net/5429
  * @see critere_par_dist() Le critère `{par ...}`
  * @see balise_TRI_dist() La balise `#TRI`
  *
@@ -2081,7 +2081,7 @@ function calculer_critere_infixe($idb, &$boucles, $crit) {
 	// ajout pour le cas special d'une condition sur le champ statut:
 	// il faut alors interdire a la fonction de boucle
 	// de mettre ses propres criteres de statut
-	// http://www.spip.net/@statut (a documenter)
+	// https://www.spip.net/@statut (a documenter)
 	// garde pour compatibilite avec code des plugins anterieurs, mais redondant avec la ligne precedente
 	if ($col == 'statut') {
 		$boucles[$idb]->statut = true;
@@ -2497,7 +2497,7 @@ function calculer_critere_infixe_ops($idb, &$boucles, $crit) {
 
 // compatibilite ancienne version
 
-// http://code.spip.net/@calculer_vieux_in
+// https://code.spip.net/@calculer_vieux_in
 function calculer_vieux_in($params) {
 	$deb = $params[0][0];
 	$k = count($params) - 1;

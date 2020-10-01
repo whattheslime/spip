@@ -16,7 +16,7 @@ if (!defined('_ECRIRE_INC_VERSION')) {
 
 include_spip('base/abstract_sql');
 
-// http://code.spip.net/@install_etape_2_dist
+// https://code.spip.net/@install_etape_2_dist
 function install_etape_2_dist() {
 	$adresse_db = defined('_INSTALL_HOST_DB')
 		? _INSTALL_HOST_DB
@@ -101,7 +101,7 @@ function install_etape_2_dist() {
 // Liste les bases accessibles,
 // avec une heuristique pour preselectionner la plus probable
 
-// http://code.spip.net/@install_etape_2_bases
+// https://code.spip.net/@install_etape_2_bases
 function install_etape_2_bases($login_db, $server_db) {
 	$res = install_etape_liste_bases($server_db, $login_db);
 	if ($res) {
@@ -150,7 +150,7 @@ function install_etape_2_bases($login_db, $server_db) {
 	return array($checked, $res);
 }
 
-// http://code.spip.net/@install_etape_2_form
+// https://code.spip.net/@install_etape_2_form
 function install_etape_2_form($hidden, $checked, $res, $etape) {
 	return generer_form_ecrire('install', (
 		"\n<input type='hidden' name='etape' value='$etape' />"

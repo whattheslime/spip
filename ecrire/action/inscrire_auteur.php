@@ -182,7 +182,7 @@ function inscription_nouveau($desc) {
 
 
 /**
- * http://code.spip.net/@test_login
+ * https://code.spip.net/@test_login
  *
  * @param string $nom
  * @param string $mail

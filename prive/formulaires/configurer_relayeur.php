@@ -20,7 +20,7 @@ function formulaires_configurer_relayeur_charger_dist() {
 	$valeurs = array(
 		'http_proxy' => no_password_proxy_url(lire_config('http_proxy', '')),
 		'http_noproxy' => lire_config('http_noproxy', ''),
-		'test_proxy' => 'http://www.spip.net/',
+		'test_proxy' => 'https://www.spip.net/',
 	);
 
 	return $valeurs;
@@ -105,7 +105,7 @@ function relayeur_saisie_ou_config($http_proxy, $default) {
 }
 
 // Function glue_url : le pendant de parse_url
-// http://code.spip.net/@glue_url
+// https://code.spip.net/@glue_url
 function glue_url($url) {
 	if (!is_array($url)) {
 		return false;
@@ -135,7 +135,7 @@ function glue_url($url) {
 
 
 // Ne pas afficher la partie 'password' du proxy
-// http://code.spip.net/@no_password_proxy_url
+// https://code.spip.net/@no_password_proxy_url
 function no_password_proxy_url($http_proxy) {
 	if ($http_proxy
 		and $p = @parse_url($http_proxy)

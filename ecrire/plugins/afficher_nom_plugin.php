@@ -17,7 +17,7 @@ include_spip('inc/charsets');
 include_spip('inc/texte');
 include_spip('plugins/afficher_plugin');
 
-// http://code.spip.net/@ligne_plug
+// https://code.spip.net/@ligne_plug
 function plugins_afficher_nom_plugin_dist(
 	$url_page,
 	$plug_file,

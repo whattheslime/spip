@@ -16,7 +16,7 @@ if (!defined('_ECRIRE_INC_VERSION')) {
 
 # Les information d'une rubrique selectionnee dans le mini navigateur
 
-// http://code.spip.net/@inc_informer_dist
+// https://code.spip.net/@inc_informer_dist
 function inc_informer_dist($id, $col, $exclus, $rac, $type, $do = 'aff') {
 	include_spip('inc/texte');
 	$titre = $descriptif = '';

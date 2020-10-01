@@ -20,7 +20,7 @@ if (!defined('_ECRIRE_INC_VERSION')) {
 // Gestion du raccourci <math>...</math> en client-serveur
 //
 
-// http://code.spip.net/@image_math
+// https://code.spip.net/@image_math
 function produire_image_math($tex) {
 
 	switch ($GLOBALS['traiter_math']) {
@@ -96,7 +96,7 @@ function produire_image_math($tex) {
  *     dans les expressions mathématiques trouvées (utiliser l'option
  *     `$defaire_amp` à true pour cela).
  *
- * @link http://www.spip.net/3016
+ * @link https://www.spip.net/3016
  * @uses produire_image_math()
  * @uses code_echappement()
  *

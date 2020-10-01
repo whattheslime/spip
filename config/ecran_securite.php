@@ -8,7 +8,7 @@
 define('_ECRAN_SECURITE', '1.3.13'); // 2019-12-04
 
 /*
- * Documentation : http://www.spip.net/fr_article4200.html
+ * Documentation : https://www.spip.net/fr_article4200.html
  */
 
 /*

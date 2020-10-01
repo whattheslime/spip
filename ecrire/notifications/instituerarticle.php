@@ -12,7 +12,7 @@ if (!defined('_ECRIRE_INC_VERSION')) {
 }
 
 // Fonction appelee par divers pipelines
-// http://code.spip.net/@notifications_instituerarticle_dist
+// https://code.spip.net/@notifications_instituerarticle_dist
 function notifications_instituerarticle_dist($quoi, $id_article, $options) {
 
 	// ne devrait jamais se produire

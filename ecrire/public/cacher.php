@@ -20,7 +20,7 @@ if (!defined('_ECRIRE_INC_VERSION')) {
  * Attention a modifier simultanement le sanity check de
  * la fonction retire_cache() de inc/invalideur
  *
- * http://code.spip.net/@generer_nom_fichier_cache
+ * https://code.spip.net/@generer_nom_fichier_cache
  *
  * @param array $contexte
  * @param array $page
@@ -92,7 +92,7 @@ function cache_signature(&$page) {
  * (pas de passage par reference car on veut conserver la version non compressee
  * pour l'afficher)
  * on positionne un flag gz si on comprime, pour savoir si on doit decompresser ou pas
- * http://code.spip.net/@gzip_page
+ * https://code.spip.net/@gzip_page
  *
  * @param array $page
  * @return array
@@ -114,7 +114,7 @@ function gzip_page($page) {
  * on met a jour le flag gz quand on decompresse, pour ne pas risquer
  * de decompresser deux fois de suite un cache (ce qui echoue)
  *
- * http://code.spip.net/@gunzip_page
+ * https://code.spip.net/@gunzip_page
  *
  * @param array $page
  * @return void
@@ -137,7 +137,7 @@ function gunzip_page(&$page) {
  * 0 si le cache est valide
  * -1 si il faut calculer sans stocker en cache
  */
-/// http://code.spip.net/@cache_valide
+/// https://code.spip.net/@cache_valide
 function cache_valide(&$page, $date) {
 	$now = $_SERVER['REQUEST_TIME'];
 
@@ -211,7 +211,7 @@ function cache_valide(&$page, $date) {
  * Creer le fichier cache
  * Passage par reference de $page par souci d'economie
  *
- * http://code.spip.net/@creer_cache
+ * https://code.spip.net/@creer_cache
  *
  * @param array $page
  * @param string $chemin_cache
@@ -276,7 +276,7 @@ function creer_cache(&$page, &$chemin_cache) {
  * purger un petit cache (tidy ou recherche) qui ne doit pas contenir de
  * vieux fichiers ; (cette fonction ne sert que dans des plugins obsoletes)
  *
- * http://code.spip.net/@nettoyer_petit_cache
+ * https://code.spip.net/@nettoyer_petit_cache
  *
  * @param string $prefix
  * @param int $duree
@@ -310,7 +310,7 @@ function nettoyer_petit_cache($prefix, $duree = 300) {
  * Elle retourne '' si tout va bien
  * un message d'erreur si le calcul de la page est totalement impossible
  *
- * http://code.spip.net/@public_cacher_dist
+ * https://code.spip.net/@public_cacher_dist
  *
  * @param array $contexte
  * @param int $use_cache

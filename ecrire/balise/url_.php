@@ -151,7 +151,7 @@ function balise_URL__dist($p) {
  *
  * @balise
  * @uses generer_generer_url()
- * @link http://www.spip.net/3963
+ * @link https://www.spip.net/3963
  * @example
  *     ```
  *     #URL_ARTICLE
@@ -189,7 +189,7 @@ function balise_URL_ARTICLE_dist($p) {
  * @balise
  * @uses generer_generer_url()
  * @see  calculer_url()
- * @link http://www.spip.net/3861
+ * @link https://www.spip.net/3861
  *
  * @param Champ $p
  *     Pile au niveau de la balise
@@ -222,7 +222,7 @@ function balise_URL_SITE_dist($p) {
  * telle que définie dans la configuration
  *
  * @balise
- * @link http://www.spip.net/4623
+ * @link https://www.spip.net/4623
  *
  * @param Champ $p
  *     Pile au niveau de la balise
@@ -247,7 +247,7 @@ function balise_URL_SITE_SPIP_dist($p) {
  * - `#URL_PAGE*` retourne l'URL sans convertir les `&` en `&amp;`
  *
  * @balise
- * @link http://www.spip.net/4630
+ * @link https://www.spip.net/4630
  * @see generer_url_public()
  * @example
  *     ```
@@ -311,7 +311,7 @@ function balise_URL_PAGE_dist($p) {
  * - `#URL_ECRIRE*` retourne l'URL sans convertir les `&` en `&amp;`
  *
  * @balise
- * @link http://www.spip.net/5566
+ * @link https://www.spip.net/5566
  * @see generer_url_ecrire()
  * @example
  *     ```

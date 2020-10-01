@@ -29,7 +29,7 @@ if (!defined('_ECRIRE_INC_VERSION')) {
  *
  * Les jours ne sont pas pris en compte et le résultat est toujours le 1er du mois.
  *
- * @link http://www.spip.net/5516
+ * @link https://www.spip.net/5516
  * @param string $texte
  *    Texte contenant une date tel que `2008-04`
  * @return string
@@ -50,7 +50,7 @@ function extraire_date($texte) {
  *     Si elle vient du contexte (public/parametrer.php), on force le jour
  *
  * @filtre
- * @link http://www.spip.net/5518
+ * @link https://www.spip.net/5518
  * @uses vider_date()
  * @param string $date
  *     La date à normaliser
@@ -134,7 +134,7 @@ function recup_heure($date) {
  * Retourne l'heure d'une date
  *
  * @filtre
- * @link http://www.spip.net/4293
+ * @link https://www.spip.net/4293
  * @uses recup_heure()
  *
  * @param string $numdate La date à extraire
@@ -153,7 +153,7 @@ function heures($numdate) {
  * Retourne les minutes d'une date
  *
  * @filtre
- * @link http://www.spip.net/4300
+ * @link https://www.spip.net/4300
  * @uses recup_heure()
  *
  * @param string $numdate La date à extraire
@@ -172,7 +172,7 @@ function minutes($numdate) {
  * Retourne les secondes d'une date
  *
  * @filtre
- * @link http://www.spip.net/4312
+ * @link https://www.spip.net/4312
  * @uses recup_heure()
  *
  * @param string $numdate La date à extraire
@@ -194,7 +194,7 @@ function secondes($numdate) {
  *     Le format de retour varie selon la langue utilisée.
  *
  * @filtre
- * @link http://www.spip.net/5519
+ * @link https://www.spip.net/5519
  *
  * @param string $numdate La date à extraire
  * @return string L'heure formatée dans la langue en cours.
@@ -289,7 +289,7 @@ function recup_date($numdate, $forcer_jour = true) {
  * @example `[(#DATE|date_interface)]`
  *
  * @filtre
- * @link http://www.spip.net/5520
+ * @link https://www.spip.net/5520
  * @uses date_relative()
  * @uses affdate_heure() utilisé si le décalage est trop grand
  *
@@ -323,7 +323,7 @@ function date_interface($date, $decalage_maxi = 43200 /* 12*3600 */) {
  *     - `[(#DATE|date_relative{0, #AUTRE_DATE})]` Calcul relatif à une date spécifique
  *
  * @filtre
- * @link http://www.spip.net/4277
+ * @link https://www.spip.net/4277
  *
  * @param string $date
  *     La date fournie
@@ -657,7 +657,7 @@ function affdate_base($numdate, $vue, $options = array()) {
  *     - `[(#DATE|nom_jour{initiale})]` l.
  *
  * @filtre
- * @link http://www.spip.net/4305
+ * @link https://www.spip.net/4305
  * @uses affdate_base()
  *
  * @param string $numdate
@@ -687,7 +687,7 @@ function nom_jour($numdate, $forme = '') {
  * @example `[(#DATE|jour)]`
  *
  * @filtre
- * @link http://www.spip.net/4295
+ * @link https://www.spip.net/4295
  * @uses affdate_base()
  * @see  journum()
  *
@@ -724,7 +724,7 @@ function journum($numdate) {
  * @example `[(#DATE|mois)]`
  *
  * @filtre
- * @link http://www.spip.net/4303
+ * @link https://www.spip.net/4303
  * @uses affdate_base()
  *
  * @param string $numdate
@@ -744,7 +744,7 @@ function mois($numdate) {
  *     - `[(#DATE|nom_mois{abbr})]` nov.
  *
  * @filtre
- * @link http://www.spip.net/4306
+ * @link https://www.spip.net/4306
  * @uses affdate_base()
  *
  * @param string $numdate
@@ -770,7 +770,7 @@ function nom_mois($numdate, $forme = '') {
  * @example `[(#DATE|annee)]`
  *
  * @filtre
- * @link http://www.spip.net/4146
+ * @link https://www.spip.net/4146
  * @uses affdate_base()
  *
  * @param string $numdate
@@ -787,7 +787,7 @@ function annee($numdate) {
  * Affiche le nom boréal ou austral de la saison
  *
  * @filtre
- * @link http://www.spip.net/4311
+ * @link https://www.spip.net/4311
  * @uses affdate_base()
  * @example
  *     En PHP
@@ -861,7 +861,7 @@ function saison_annee($numdate, $hemisphere = 'nord') {
  *     - `[(#DATE|affdate{Y-m-d})]`
  *
  * @filtre
- * @link http://www.spip.net/4129
+ * @link https://www.spip.net/4129
  * @uses affdate_base()
  * @see  affdate_court()
  * @see  affdate_jourcourt()
@@ -888,7 +888,7 @@ function affdate($numdate, $format = 'entier') {
  * @example `[(#DATE|affdate_court)]`
  *
  * @filtre
- * @link http://www.spip.net/4130
+ * @link https://www.spip.net/4130
  * @uses affdate_base()
  * @see  affdate()
  * @see  affdate_jourcourt()
@@ -915,7 +915,7 @@ function affdate_court($numdate, $annee_courante = null) {
  * @example `[(#DATE|affdate_jourcourt)]`
  *
  * @filtre
- * @link http://www.spip.net/4131
+ * @link https://www.spip.net/4131
  * @uses affdate_base()
  * @see  affdate()
  * @see  affdate_court()
@@ -937,7 +937,7 @@ function affdate_jourcourt($numdate, $annee_courante = null) {
  * Ne retourne pas le jour donc.
  *
  * @filtre
- * @link http://www.spip.net/4132
+ * @link https://www.spip.net/4132
  * @uses affdate_base()
  *
  * @param string $numdate
@@ -1146,7 +1146,7 @@ function date_ical($date, $addminutes = 0) {
  * @example `[(#DATE|date_iso)]` peut donner "2015-11-11T10:13:45Z"
  *
  * @filtre
- * @link http://www.spip.net/5641
+ * @link https://www.spip.net/5641
  * @link https://fr.wikipedia.org/wiki/ISO_8601
  * @link http://www.ietf.org/rfc/rfc3339.txt
  * @link http://php.net/manual/fr/class.datetime.php
@@ -1175,7 +1175,7 @@ function date_iso($date_heure) {
  * @example `[(#DATE|date_822)]` peut donner "Wed, 11 Nov 2015 11:13:45 +0100"
  *
  * @filtre
- * @link http://www.spip.net/4276
+ * @link https://www.spip.net/4276
  * @link http://php.net/manual/fr/class.datetime.php
  *
  * @uses recup_date()

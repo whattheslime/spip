@@ -23,7 +23,7 @@ include_spip('inc/charsets');
 include_spip('inc/texte');
 include_spip('inc/plugin'); // pour plugin_est_installe
 
-// http://code.spip.net/@ligne_plug
+// https://code.spip.net/@ligne_plug
 function plugins_afficher_plugin_dist(
 	$url_page,
 	$plug_file,
@@ -220,7 +220,7 @@ function plugin_etat_en_clair($etat) {
 	return _T('plugin_etat_' . $etat);
 }
 
-// http://code.spip.net/@plugin_propre
+// https://code.spip.net/@plugin_propre
 function plugin_propre($texte, $module = '',$propre='propre') {
 	// retirer le retour a la racine du module, car le find_in_path se fait depuis la racine
 	if (_DIR_RACINE and strncmp($module, _DIR_RACINE, strlen(_DIR_RACINE)) == 0) {
@@ -238,7 +238,7 @@ function plugin_typo($texte, $module = '') {
 }
 
 
-// http://code.spip.net/@affiche_bloc_plugin
+// https://code.spip.net/@affiche_bloc_plugin
 function affiche_bloc_plugin($plug_file, $info, $dir_plugins = null) {
 	if (!$dir_plugins) {
 		$dir_plugins = _DIR_PLUGINS;

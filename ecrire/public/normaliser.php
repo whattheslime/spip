@@ -22,7 +22,7 @@ if (!defined('_ECRIRE_INC_VERSION')) {
 // et son URL, remplaces par ** et *: LOGO_XXX** et LOGO_XXX*
 // Il y a aussi le futur attribut align et l'ecriture #LOGO|#URL
 // qui passent en arguments de la balise: #LOGO{left,#URL...}
-// -> http://www.spip.net/fr_article901.html
+// -> https://www.spip.net/fr_article901.html
 
 function phraser_vieux_logos(&$p) {
 	if ($p->param[0][0]) {

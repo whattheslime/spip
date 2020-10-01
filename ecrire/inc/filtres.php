@@ -427,7 +427,7 @@ function filtre_sanitize_env(&$Pile, $keys) {
  *     en précisant "avant" et "apres".
  *
  * @filtre
- * @link http://www.spip.net/5695
+ * @link https://www.spip.net/5695
  * @param mixed $val La valeur à debugguer
  * @param mixed|null $key Clé pour s'y retrouver
  * @return mixed Retourne la valeur (sans la modifier).
@@ -617,7 +617,7 @@ function taille_image($img) {
  * Retourne la largeur d'une image
  *
  * @filtre
- * @link http://www.spip.net/4296
+ * @link https://www.spip.net/4296
  * @uses taille_image()
  * @see  hauteur()
  *
@@ -639,7 +639,7 @@ function largeur($img) {
  * Retourne la hauteur d'une image
  *
  * @filtre
- * @link http://www.spip.net/4291
+ * @link https://www.spip.net/4291
  * @uses taille_image()
  * @see  largeur()
  *
@@ -721,7 +721,7 @@ function proteger_amp($texte) {
  * sans dommages.
  *
  * @filtre
- * @link http://www.spip.net/4280
+ * @link https://www.spip.net/4280
  *
  * @uses echappe_html()
  * @uses echappe_retour()
@@ -762,7 +762,7 @@ function entites_html($texte, $tout = false, $quote = true) {
  *     sera transformé en `é`
  *
  * @filtre
- * @link http://www.spip.net/5513
+ * @link https://www.spip.net/5513
  *
  * @param string $texte
  *     Texte à convertir
@@ -850,7 +850,7 @@ function corriger_caracteres($texte) {
  * Ce filtre transforme les liens en liens absolus, importe les entitées html et échappe les tags html.
  *
  * @filtre
- * @link http://www.spip.net/4287
+ * @link https://www.spip.net/4287
  *
  * @param string $texte
  *     Texte à transformer
@@ -919,7 +919,7 @@ function texte_backendq($texte) {
  * Supprime `10. ` dans la chaine `10. Titre`
  *
  * @filtre
- * @link http://www.spip.net/4314
+ * @link https://www.spip.net/4314
  * @see recuperer_numero() Pour obtenir le numéro
  * @example
  *     ```
@@ -943,7 +943,7 @@ function supprimer_numero($texte) {
  * Récupère le numéro `10` dans la chaine `10. Titre`
  *
  * @filtre
- * @link http://www.spip.net/5514
+ * @link https://www.spip.net/5514
  * @see supprimer_numero() Pour supprimer le numéro
  * @see balise_RANG_dist() Pour obtenir un numéro de titre
  * @example
@@ -973,7 +973,7 @@ function recuperer_numero($texte) {
  * Utilisé fréquemment pour écrire des RSS.
  *
  * @filtre
- * @link http://www.spip.net/4315
+ * @link https://www.spip.net/4315
  * @example
  *     ```
  *     <title>[(#TITRE|supprimer_tags|texte_backend)]</title>
@@ -1005,7 +1005,7 @@ function supprimer_tags($texte, $rempl = "") {
  * Transforme les chevrons de tag `<...>` en entité HTML.
  *
  * @filtre
- * @link http://www.spip.net/5515
+ * @link https://www.spip.net/5515
  * @example
  *     ```
  *     <pre>[(#TEXTE|echapper_tags)]</pre>
@@ -1030,7 +1030,7 @@ function echapper_tags($texte, $rempl = "") {
  * Enlève les tags d'un code HTML, élimine les doubles espaces.
  *
  * @filtre
- * @link http://www.spip.net/4317
+ * @link https://www.spip.net/4317
  * @example
  *     ```
  *     <title>[(#TITRE|textebrut) - ][(#NOM_SITE_SPIP|textebrut)]</title>
@@ -1061,7 +1061,7 @@ function textebrut($texte) {
  * Remplace les liens SPIP en liens ouvrant dans une nouvelle fenetre (target=blank)
  *
  * @filtre
- * @link http://www.spip.net/4297
+ * @link https://www.spip.net/4297
  *
  * @param string $texte
  *     Texte avec des liens
@@ -1111,7 +1111,7 @@ function liens_nofollow($texte) {
  * Transforme les sauts de paragraphe HTML `p` en simples passages à la ligne `br`
  *
  * @filtre
- * @link http://www.spip.net/4308
+ * @link https://www.spip.net/4308
  * @example
  *     ```
  *     [<div>(#DESCRIPTIF|PtoBR)[(#NOTES|PtoBR)]</div>]
@@ -1144,7 +1144,7 @@ function PtoBR($texte) {
  *   un `div` ou `span` portant ce style CSS inline.
  *
  * @filtre
- * @link http://www.spip.net/4298
+ * @link https://www.spip.net/4298
  * @link http://www.alsacreations.com/tuto/lire/1038-gerer-debordement-contenu-css.html
  * @deprecated Utiliser le style CSS `word-wrap:break-word;`
  *
@@ -1214,7 +1214,7 @@ function majuscules($texte) {
  *     - `[(#VAL{123456789}|taille_en_octets)]` affiche `117.7 Mo`
  *
  * @filtre
- * @link http://www.spip.net/4316
+ * @link https://www.spip.net/4316
  * @param int $taille
  * @return string
  **/
@@ -1251,7 +1251,7 @@ function taille_en_octets($taille) {
  * @example `<a href="#URL_ARTICLE" title="[(#TITRE|attribut_html)]">#TITRE</a>`
  *
  * @filtre
- * @link http://www.spip.net/4282
+ * @link https://www.spip.net/4282
  * @uses textebrut()
  * @uses texte_backend()
  *
@@ -1363,7 +1363,7 @@ function securiser_acces($id_auteur, $cle, $dir, $op = '', $args = '') {
  *
  * @filtre
  * @see filtre_logique() pour la compilation du filtre dans un squelette
- * @link http://www.spip.net/4313
+ * @link https://www.spip.net/4313
  * @note
  *     L'utilisation de `|sinon` en tant que filtre de squelette
  *     est directement compilé dans `public/references` par la fonction `filtre_logique()`
@@ -1393,7 +1393,7 @@ function sinon($texte, $sinon = '') {
  *
  * @filtre
  * @see choixsiegal()
- * @link http://www.spip.net/4189
+ * @link https://www.spip.net/4189
  *
  * @param mixed $a
  *     La valeur à tester
@@ -1415,7 +1415,7 @@ function choixsivide($a, $vide, $pasvide) {
  *      `#LANG_DIR` vaut `ltr` et `right` sinon.
  *
  * @filtre
- * @link http://www.spip.net/4148
+ * @link https://www.spip.net/4148
  *
  * @param mixed $a1
  *     La valeur à tester
@@ -1631,7 +1631,7 @@ define('_EXTRAIRE_MULTI', "@<multi>(.*?)</multi>@sS");
  * Ne pas mettre de span@lang=fr si on est déjà en fr.
  *
  * @filtre
- * @link http://www.spip.net/5332
+ * @link https://www.spip.net/5332
  *
  * @uses extraire_trads()
  * @uses approcher_langue()
@@ -1764,7 +1764,7 @@ function filtre_initiale($nom) {
  * le second paramètre.
  *
  * @filtre
- * @link http://www.spip.net/4320
+ * @link https://www.spip.net/4320
  * @example
  *     ```
  *     [(#ID_SECTEUR|unique)]
@@ -1844,7 +1844,7 @@ function unique($donnee, $famille = '', $cpt = false) {
  *     - `[(#COMPTEUR_BOUCLE|alterner{#LISTE{bleu,vert,rouge}})]`
  *
  * @filtre
- * @link http://www.spip.net/4145
+ * @link https://www.spip.net/4145
  *
  * @param int $i
  *     Le compteur
@@ -1941,7 +1941,7 @@ function extraire_attribut($balise, $attribut, $complet = false) {
  *       filtre `attribut_html` dessus.
  *
  * @filtre
- * @link http://www.spip.net/4294
+ * @link https://www.spip.net/4294
  * @uses attribut_html()
  * @uses extraire_attribut()
  *
@@ -1998,7 +1998,7 @@ function inserer_attribut($balise, $attribut, $val, $proteger = true, $vider = f
  * @example `[(#LOGO_ARTICLE|vider_attribut{class})]`
  *
  * @filtre
- * @link http://www.spip.net/4142
+ * @link https://www.spip.net/4142
  * @uses inserer_attribut()
  * @see  extraire_attribut()
  *
@@ -2034,7 +2034,7 @@ function strize($f, $a, $b) { return floatstr($f(floatstr($a),floatstr($b))); }
  * Additionne 2 nombres
  *
  * @filtre
- * @link http://www.spip.net/4307
+ * @link https://www.spip.net/4307
  * @see moins()
  * @example
  *     ```
@@ -2053,7 +2053,7 @@ function strplus($a, $b) {return strize('plus', $a, $b);}
  * Soustrait 2 nombres
  *
  * @filtre
- * @link http://www.spip.net/4302
+ * @link https://www.spip.net/4302
  * @see plus()
  * @example
  *     ```
@@ -2073,7 +2073,7 @@ function strmoins($a, $b) {return strize('moins', $a, $b);}
  * Multiplie 2 nombres
  *
  * @filtre
- * @link http://www.spip.net/4304
+ * @link https://www.spip.net/4304
  * @see div()
  * @see modulo()
  * @example
@@ -2094,7 +2094,7 @@ function strmult($a, $b) {return strize('mult', $a, $b);}
  * Divise 2 nombres
  *
  * @filtre
- * @link http://www.spip.net/4279
+ * @link https://www.spip.net/4279
  * @see mult()
  * @see modulo()
  * @example
@@ -2115,7 +2115,7 @@ function strdiv($a, $b) {return strize('div', $a, $b);}
  * Retourne le modulo 2 nombres
  *
  * @filtre
- * @link http://www.spip.net/4301
+ * @link https://www.spip.net/4301
  * @see mult()
  * @see div()
  * @example
@@ -2205,7 +2205,7 @@ function email_valide($adresses) {
  * documents attachés d'un article (liens ayant `rel=enclosure`).
  *
  * @filtre
- * @link http://www.spip.net/4134
+ * @link https://www.spip.net/4134
  *
  * @param string $tags Texte
  * @return string Texte
@@ -2232,7 +2232,7 @@ function afficher_enclosures($tags) {
  * et ne retourne que ceux là.
  *
  * @filtre
- * @link http://www.spip.net/4187
+ * @link https://www.spip.net/4187
  *
  * @param string $tags Texte
  * @param string $rels Attribut `rel` à capturer (ou plusieurs séparés par des virgules)
@@ -2356,7 +2356,7 @@ function tags2dcsubject($tags) {
  * @example `[(#DESCRIPTIF|extraire_balise{img})]`
  *
  * @filtre
- * @link http://www.spip.net/4289
+ * @link https://www.spip.net/4289
  * @see extraire_balises()
  * @note
  *     Attention : les résultats peuvent être incohérents sur des balises imbricables,
@@ -2401,7 +2401,7 @@ function extraire_balise($texte, $tag = 'a') {
  * @example `[(#TEXTE|extraire_balises{img}|implode{" - "})]`
  *
  * @filtre
- * @link http://www.spip.net/5618
+ * @link https://www.spip.net/5618
  * @see extraire_balise()
  * @note
  *     Attention : les résultats peuvent être incohérents sur des balises imbricables,
@@ -2523,7 +2523,7 @@ function regledetrois($a, $b, $c) {
  * l'URL donnée en argument, compatible avec les types_urls
  *
  * @filtre
- * @link http://www.spip.net/4286
+ * @link https://www.spip.net/4286
  * @see balise_ACTION_FORMULAIRE()
  *     Également pour transmettre les actions à un formulaire
  * @example
@@ -2683,7 +2683,7 @@ function filtre_end($array) {
  * @example `[(#LISTE{un,deux,trois}|push{quatre}|print)]`
  *
  * @filtre
- * @link http://www.spip.net/4571
+ * @link https://www.spip.net/4571
  * @link http://php.net/manual/fr/function.array-push.php
  *
  * @param array $array
@@ -2707,7 +2707,7 @@ function filtre_push($array, $val) {
  * @example `[(#LISTE{un,deux,trois}|find{quatre}|oui) ... ]`
  *
  * @filtre
- * @link http://www.spip.net/4575
+ * @link https://www.spip.net/4575
  * @see in_any() Assez proche, avec les paramètres tableau et valeur inversés.
  *
  * @param array $array
@@ -3037,7 +3037,7 @@ function url_absolue_css($css) {
  * dans un tableau (ou un objet).
  *
  * @filtre
- * @link http://www.spip.net/4572
+ * @link https://www.spip.net/4572
  * @example
  *     ```
  *     [(#VALEUR|table_valeur{cle/sous/element})]
@@ -3094,7 +3094,7 @@ function table_valeur($table, $cle, $defaut = '', $conserver_null = false) {
  *    - `[(#TEXTE|match{truc(...)$, 1})]` Équivalent, sans indiquer les modificateurs
  *
  * @filtre
- * @link http://www.spip.net/4299
+ * @link https://www.spip.net/4299
  * @link http://php.net/manual/fr/function.preg-match.php Pour des infos sur `preg_match()`
  *
  * @param string $texte
@@ -3135,7 +3135,7 @@ function filtre_match_dist($texte, $expression, $modif = "UimsS", $capte = 0) {
  * Remplacement de texte à base d'expression régulière
  *
  * @filtre
- * @link http://www.spip.net/4309
+ * @link https://www.spip.net/4309
  * @see match()
  * @example
  *     ```
@@ -3222,7 +3222,7 @@ function vide($texte) {
  * @example `[(#ENV*|env_to_params)]`
  *
  * @filtre
- * @link http://www.spip.net/4005
+ * @link https://www.spip.net/4005
  *
  * @param array|string $env
  *      Tableau cle => valeur des paramètres à écrire, ou chaine sérialisée de ce tableau
@@ -3295,7 +3295,7 @@ function env_to_attributs($env, $ignore_params = array()) {
  * Concatène des chaînes
  *
  * @filtre
- * @link http://www.spip.net/4150
+ * @link https://www.spip.net/4150
  * @example
  *     ```
  *     #TEXTE|concat{texte1,texte2,...}
@@ -3520,7 +3520,7 @@ function filtre_balise_svg_dist($img, $alt = "", $class = "") {
  *     - `[(#ARRAY{a,un,b,deux}|foreach)]`
  *
  * @filtre
- * @link http://www.spip.net/4248
+ * @link https://www.spip.net/4248
  *
  * @param array $tableau
  *     Tableau de données à afficher
@@ -3881,7 +3881,7 @@ function url_rss_forum($texte) { return $texte; }
  * l'item est sélectionné
  *
  * @filtre
- * @link http://www.spip.net/4004
+ * @link https://www.spip.net/4004
  * @example
  *   ```
  *   [(#URL_RUBRIQUE|lien_ou_expose{#TITRE, #ENV{test}|=={en_cours}})]

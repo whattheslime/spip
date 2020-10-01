@@ -14,7 +14,7 @@ if (!defined('_ECRIRE_INC_VERSION')) {
 	return;
 }
 
-// http://code.spip.net/@affiche_arbre_plugins
+// https://code.spip.net/@affiche_arbre_plugins
 function plugins_afficher_repertoires_dist($url_page, $liste_plugins, $liste_plugins_actifs) {
 	$ligne_plug = charger_fonction('afficher_plugin', 'plugins');
 	$racine = basename(_DIR_PLUGINS);
@@ -74,12 +74,12 @@ function plugins_afficher_repertoires_dist($url_page, $liste_plugins, $liste_plu
 
 // vraiment n'importe quoi la gestion des chemins des plugins
 // une fonction pour aider...
-// http://code.spip.net/@chemin_plug
+// https://code.spip.net/@chemin_plug
 function chemin_plug($racine, $plug) {
 	return preg_replace(',[^/]+/\.\./,', '', "$racine/$plug");
 }
 
-// http://code.spip.net/@tree_open_close_dir
+// https://code.spip.net/@tree_open_close_dir
 function tree_open_close_dir(&$current, $target, $deplie = array()) {
 	if ($current == $target) {
 		return "";

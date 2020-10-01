@@ -17,7 +17,7 @@ include_spip('inc/charsets');
 
 /**
  * Afficher une liste de plugins dans l'interface
- * http://code.spip.net/@affiche_liste_plugins
+ * https://code.spip.net/@affiche_liste_plugins
  *
  * @param string $url_page
  * @param array $liste_plugins
@@ -100,7 +100,7 @@ function plugins_afficher_liste_dist(
 }
 
 
-// http://code.spip.net/@affiche_block_initiale
+// https://code.spip.net/@affiche_block_initiale
 function affiche_block_initiale($initiale, $block, $block_actif) {
 	if (strlen($block)) {
 		return "<li class='item'>"

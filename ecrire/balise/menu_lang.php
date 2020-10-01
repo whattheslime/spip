@@ -29,7 +29,7 @@ if (!defined('_ECRIRE_INC_VERSION')) {
  * ou de l'arguemnt fourni: `#MENU_LANG{#ENV{malangue}}`
  *
  * @balise
- * @link http://www.spip.net/4626
+ * @link https://www.spip.net/4626
  *
  * @param Champ $p
  *     Pile au niveau de la balise

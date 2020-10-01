@@ -126,7 +126,7 @@ function traduire_nom_langue($lang) {
 // alphabet arabe a priori), hebreu, yiddish (langues ecrites en alphabet
 // hebreu a priori), 'droitier' sinon.
 // C'est utilise par #LANG_DIR, #LANG_LEFT, #LANG_RIGHT.
-// http://code.spip.net/@lang_dir
+// https://code.spip.net/@lang_dir
 function lang_dir($lang = '', $droitier = 'ltr', $gaucher = 'rtl') {
 	static $lang_rtl = array('ar', 'fa', 'ku', 'prs', 'ps', 'ur', 'he', 'heb', 'hbo', 'yi');
 
@@ -139,7 +139,7 @@ function lang_dir($lang = '', $droitier = 'ltr', $gaucher = 'rtl') {
 // un texte anglais en interface francaise (ou l'inverse) ;
 // sinon determiner la typo en fonction de la langue courante
 
-// http://code.spip.net/@lang_typo
+// https://code.spip.net/@lang_typo
 function lang_typo($lang = '') {
 	if (!$lang) {
 		$lang = isset($GLOBALS['lang_objet'])
@@ -159,7 +159,7 @@ function lang_typo($lang = '') {
 
 // gestion de la globale $lang_objet pour que les textes soient affiches
 // avec les memes typo et direction dans l'espace prive que dans le public
-// http://code.spip.net/@changer_typo
+// https://code.spip.net/@changer_typo
 function changer_typo($lang = '') {
 	if ($lang) {
 		$GLOBALS['lang_objet'] = $lang;
@@ -174,7 +174,7 @@ function changer_typo($lang = '') {
 // pour var_lang' = langue de l'article, espace public, voir les squelettes
 // pour 'changer_lang' (langue de l'article, espace prive), c'est en Ajax
 // 
-// http://code.spip.net/@menu_langues
+// https://code.spip.net/@menu_langues
 function menu_langues($nom_select, $default = '') {
 	include_spip('inc/actions');
 
@@ -208,7 +208,7 @@ function menu_langues($nom_select, $default = '') {
 		" method='post'");
 }
 
-// http://code.spip.net/@select_langues
+// https://code.spip.net/@select_langues
 function select_langues($nom_select, $change, $options, $label = "") {
 	static $cpt = 0;
 	$id = "menu_langues" . $cpt++;

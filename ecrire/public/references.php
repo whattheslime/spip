@@ -710,7 +710,7 @@ function balise_distante_interdite($p) {
 // Traitements standard de divers champs
 // definis par $table_des_traitements, cf. ecrire/public/interfaces
 //
-// http://code.spip.net/@champs_traitements
+// https://code.spip.net/@champs_traitements
 function champs_traitements($p) {
 
 	if (isset($GLOBALS['table_des_traitements'][$p->nom_champ])) {
@@ -783,7 +783,7 @@ function champs_traitements($p) {
 //  - une etoile => pas de processeurs standards
 //  - deux etoiles => pas de securite non plus !
 //
-// http://code.spip.net/@applique_filtres
+// https://code.spip.net/@applique_filtres
 function applique_filtres($p) {
 
 	// Traitements standards (cf. supra)
@@ -810,7 +810,7 @@ function applique_filtres($p) {
 }
 
 // Cf. function pipeline dans ecrire/inc_utils.php
-// http://code.spip.net/@compose_filtres
+// https://code.spip.net/@compose_filtres
 function compose_filtres(&$p, $code) {
 
 	$image_miette = false;
@@ -880,7 +880,7 @@ function filtre_logique($fonc, $code, $arg) {
 	return '';
 }
 
-// http://code.spip.net/@compose_filtres_args
+// https://code.spip.net/@compose_filtres_args
 function compose_filtres_args($p, $args, $sep) {
 	$arglist = "";
 	foreach ($args as $arg) {
@@ -927,7 +927,7 @@ function calculer_argument_precedent($idb, $nom_champ, &$boucles, $defaut = null
 // "SELECT XXXX AS points"
 //
 
-// http://code.spip.net/@rindex_pile
+// https://code.spip.net/@rindex_pile
 function rindex_pile($p, $champ, $motif) {
 	$n = 0;
 	$b = $p->id_boucle;

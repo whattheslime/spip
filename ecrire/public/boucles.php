@@ -42,7 +42,7 @@ function boucle_DEFAUT_dist($id_boucle, &$boucles) {
  *
  * `<BOUCLE(BOUCLE)>`
  *
- * @link http://www.spip.net/914
+ * @link https://www.spip.net/914
  *
  * @param string $id_boucle
  *     Identifiant de la boucle
@@ -72,7 +72,7 @@ function boucle_BOUCLE_dist($id_boucle, &$boucles) {
  * Le code compilé calculant la hierarchie est ajouté au tout début de la
  * fonction de boucle et quitte la boucle si aucune rubrique n'est trouvée.
  *
- * @link http://www.spip.net/913
+ * @link https://www.spip.net/913
  *
  * @param string $id_boucle
  *     Identifiant de la boucle

@@ -51,7 +51,7 @@ define('_REGEXP_COPIE_LOCALE', ',' 	.
  * Prend en argument un chemin relatif au rep racine, ou une URL
  * Renvoie un chemin relatif au rep racine, ou false
  *
- * @link http://www.spip.net/4155
+ * @link https://www.spip.net/4155
  * @pipeline_appel post_edition
  *
  * @param string $source

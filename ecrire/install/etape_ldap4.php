@@ -16,7 +16,7 @@ if (!defined('_ECRIRE_INC_VERSION')) {
 
 include_spip('auth/ldap');
 
-// http://code.spip.net/@install_etape_ldap4_dist
+// https://code.spip.net/@install_etape_ldap4_dist
 function install_etape_ldap4_dist() {
 	$adresse_ldap = _request('adresse_ldap');
 	$login_ldap = _request('login_ldap');
@@ -74,7 +74,7 @@ function install_etape_ldap4_dist() {
 	echo install_fin_html();
 }
 
-// http://code.spip.net/@liste_statuts_ldap
+// https://code.spip.net/@liste_statuts_ldap
 function liste_statuts_ldap() {
 	$recom = array(
 		'info_administrateurs' => ('<b>' . _T('info_administrateur_1') . '</b> ' . _T('info_administrateur_2') . '<br />'),

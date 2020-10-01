@@ -16,7 +16,7 @@ if (!defined('_ECRIRE_INC_VERSION')) {
 
 include_spip('xml/interfaces');
 
-// http://code.spip.net/@charger_dtd
+// https://code.spip.net/@charger_dtd
 function charger_dtd($grammaire, $avail, $rotlvl) {
 	static $dtd = array(); # cache bien utile pour le validateur en boucle
 
@@ -74,7 +74,7 @@ function charger_dtd($grammaire, $avail, $rotlvl) {
 // faire suivre chaque nom d'un espace (et supprimer les autres) ...
 // et parentheser le tout pour que  | + * ? s'applique dessus.
 
-// http://code.spip.net/@compilerRegle
+// https://code.spip.net/@compilerRegle
 function compilerRegle($val) {
 	$x = str_replace('()', '',
 		preg_replace('/\s*,\s*/', '',
@@ -87,7 +87,7 @@ function compilerRegle($val) {
 }
 
 
-// http://code.spip.net/@analyser_dtd
+// https://code.spip.net/@analyser_dtd
 function analyser_dtd($loc, $avail, &$dtc) {
 	// creer le repertoire de cache si ce n'est fait
 	// (utile aussi pour le resultat de la compil)
@@ -166,7 +166,7 @@ function analyser_dtd($loc, $avail, &$dtc) {
 	return true;
 }
 
-// http://code.spip.net/@analyser_dtd_comment
+// https://code.spip.net/@analyser_dtd_comment
 function analyser_dtd_comment($dtd, &$dtc, $grammaire) {
 	// ejecter les commentaires, surtout quand ils contiennent du code.
 	// Option /s car sur plusieurs lignes parfois
@@ -178,7 +178,7 @@ function analyser_dtd_comment($dtd, &$dtc, $grammaire) {
 	return $m[1];
 }
 
-// http://code.spip.net/@analyser_dtd_pi
+// https://code.spip.net/@analyser_dtd_pi
 function analyser_dtd_pi($dtd, &$dtc, $grammaire) {
 	if (!preg_match('/^<\?.*?>\s*(.*)$/s', $dtd, $m)) {
 		return -10;
@@ -187,7 +187,7 @@ function analyser_dtd_pi($dtd, &$dtc, $grammaire) {
 	return $m[1];
 }
 
-// http://code.spip.net/@analyser_dtd_lexeme
+// https://code.spip.net/@analyser_dtd_lexeme
 function analyser_dtd_lexeme($dtd, &$dtc, $grammaire) {
 
 	if (!preg_match(_REGEXP_ENTITY_DEF, $dtd, $m)) {
@@ -214,7 +214,7 @@ function analyser_dtd_lexeme($dtd, &$dtc, $grammaire) {
 // il faudrait gerer plus proprement les niveaux d'inclusion:
 // ca ne depasse pas 3 ici.
 
-// http://code.spip.net/@analyser_dtd_data
+// https://code.spip.net/@analyser_dtd_data
 function analyser_dtd_data($dtd, &$dtc, $grammaire) {
 
 	if (!preg_match(_REGEXP_INCLUDE_USE, $dtd, $m)) {
@@ -235,7 +235,7 @@ function analyser_dtd_data($dtd, &$dtc, $grammaire) {
 	return $retour;
 }
 
-// http://code.spip.net/@analyser_dtd_notation
+// https://code.spip.net/@analyser_dtd_notation
 function analyser_dtd_notation($dtd, &$dtc, $grammaire) {
 	if (!preg_match('/^<!NOTATION.*?>\s*(.*)$/s', $dtd, $m)) {
 		return -8;
@@ -245,7 +245,7 @@ function analyser_dtd_notation($dtd, &$dtc, $grammaire) {
 	return $m[1];
 }
 
-// http://code.spip.net/@analyser_dtd_entity
+// https://code.spip.net/@analyser_dtd_entity
 function analyser_dtd_entity($dtd, &$dtc, $grammaire) {
 	if (!preg_match(_REGEXP_ENTITY_DECL, $dtd, $m)) {
 		return -2;
@@ -302,7 +302,7 @@ function analyser_dtd_entity($dtd, &$dtc, $grammaire) {
 // aura fait l'essentiel du controle sans memorisation des balises.
 // Fin du controle en finElement
 
-// http://code.spip.net/@analyser_dtd_element
+// https://code.spip.net/@analyser_dtd_element
 function analyser_dtd_element($dtd, &$dtc, $grammaire) {
 	if (!preg_match('/^<!ELEMENT\s+([^>\s]+)([^>]*)>\s*(.*)$/s', $dtd, $m)) {
 		return -3;
@@ -350,7 +350,7 @@ function analyser_dtd_element($dtd, &$dtc, $grammaire) {
 }
 
 
-// http://code.spip.net/@analyser_dtd_attlist
+// https://code.spip.net/@analyser_dtd_attlist
 function analyser_dtd_attlist($dtd, &$dtc, $grammaire) {
 	if (!preg_match('/^<!ATTLIST\s+(\S+)\s+([^>]*)>\s*(.*)/s', $dtd, $m)) {
 		return -5;

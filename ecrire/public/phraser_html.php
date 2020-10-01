@@ -62,7 +62,7 @@ define('SQL_ARGS', '(\([^)]*\))');
 /** Fonction SQL sur un champ ex: SUM(visites) */
 define('CHAMP_SQL_PLUS_FONC', '`?([A-Z_\/][A-Z_\/0-9.]*)' . SQL_ARGS . '?`?');
 
-// http://code.spip.net/@phraser_inclure
+// https://code.spip.net/@phraser_inclure
 function phraser_inclure($texte, $ligne, $result) {
 
 	while (preg_match(BALISE_INCLURE, $texte, $match)) {
@@ -101,7 +101,7 @@ function phraser_inclure($texte, $ligne, $result) {
 	return (($texte === "") ? $result : phraser_idiomes($texte, $ligne, $result));
 }
 
-// http://code.spip.net/@phraser_polyglotte
+// https://code.spip.net/@phraser_polyglotte
 function phraser_polyglotte($texte, $ligne, $result) {
 
 	if (preg_match_all(BALISE_POLYGLOTTE, $texte, $m, PREG_SET_ORDER)) {
@@ -263,7 +263,7 @@ function phraser_champs($texte, $ligne, $result) {
 // %###N@ ou N indexe un tableau comportant le resultat de leur analyse
 // on recommence tant qu'il y a des [...] en substituant a l'appel suivant
 
-// http://code.spip.net/@phraser_champs_etendus
+// https://code.spip.net/@phraser_champs_etendus
 function phraser_champs_etendus($texte, $ligne, $result) {
 	if ($texte === "") {
 		return $result;
@@ -283,7 +283,7 @@ function phraser_champs_etendus($texte, $ligne, $result) {
  * sert aussi aux arguments des includes et aux criteres de boucles
  * Tres chevelu
  *
- * http://code.spip.net/@phraser_args
+ * https://code.spip.net/@phraser_args
  *
  * @param $texte
  * @param $fin
@@ -305,7 +305,7 @@ function phraser_args($texte, $fin, $sep, $result, &$pointeur_champ) {
 	return $result;
 }
 
-// http://code.spip.net/@phraser_arg
+// https://code.spip.net/@phraser_arg
 function phraser_arg(&$texte, $sep, $result, &$pointeur_champ) {
 	preg_match(",^(\|?[^}{)|]*)(.*)$,ms", $texte, $match);
 	$suite = ltrim($match[2]);
@@ -442,7 +442,7 @@ function phraser_arg(&$texte, $sep, $result, &$pointeur_champ) {
 }
 
 
-// http://code.spip.net/@phraser_champs_exterieurs
+// https://code.spip.net/@phraser_champs_exterieurs
 function phraser_champs_exterieurs($texte, $ligne, $sep, $nested) {
 	$res = array();
 	while (($p = strpos($texte, "%$sep")) !== false) {
@@ -461,7 +461,7 @@ function phraser_champs_exterieurs($texte, $ligne, $sep, $nested) {
 	return (($texte === '') ? $res : phraser_inclure($texte, $ligne, $res));
 }
 
-// http://code.spip.net/@phraser_champs_interieurs
+// https://code.spip.net/@phraser_champs_interieurs
 function phraser_champs_interieurs($texte, $ligne, $sep, $result) {
 	$i = 0; // en fait count($result)
 	$x = "";
@@ -754,7 +754,7 @@ function phraser_criteres($params, &$result) {
 	}
 }
 
-// http://code.spip.net/@phraser_critere_infixe
+// https://code.spip.net/@phraser_critere_infixe
 function phraser_critere_infixe($arg1, $arg2, $args, $op, $not, $cond) {
 	$args[0] = new Texte;
 	$args[0]->texte = $arg1;
