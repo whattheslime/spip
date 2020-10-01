@@ -14,12 +14,12 @@
 #HTTP_HEADER{Content-Type: text/css;charset=utf-8}
 #HTTP_HEADER{Vary: Accept-Encoding}
 
-#SET{iconfontsize,0.9em}
+#SET{iconfontsize,0.85em}
 #SET{iconpadding,0.5em}
 #SET{couleurs, #ARRAY{
-	claire,     ##ENV{claire}|couleur_luminance{0.05}|couleur_saturation{0.33, strict},
-	foncee,     #ENV{foncee}|couleur_luminance{0.55},
-	foncee_max, #ENV{foncee}|couleur_luminance{0.75},
+	base,       ##ENV{claire}|couleur_luminance{0.05}|couleur_saturation{0.1, strict},
+	survol,     #ENV{claire},
+	actif,      #ENV{foncee},
 }}
 
 /**
@@ -98,9 +98,13 @@
 }
 .icone a:hover .icone-image,
 .icone a:focus .icone-image {
-	background-color: #ENV{claire};
+	background-color: #GET{couleurs/survol};
 	-webkit-box-shadow: none;
 	        box-shadow: none;
+}
+.icone a:active .icone-image,
+.icone a:active .icone-image {
+	background-color: #GET{couleurs/actif};
 }
 .icone a:hover b,
 .icone a:focus b {
@@ -134,7 +138,7 @@
 	padding: #GET{iconpadding};
 	border-radius: inherit;
 	/* background-color: hsla(0, 0%, 0%, 0.025); */
-	background-color: #GET{couleurs/claire};
+	background-color: #GET{couleurs/base};
 	-webkit-box-shadow: inset 0 0 0.75em hsla(0, 0%, 0%, 0.033);
 	        box-shadow: inset 0 0 0.75em hsla(0, 0%, 0%, 0.033);
 	-webkit-transition: all 0.2s;
@@ -193,6 +197,7 @@
 }
 .icone.horizontale a:not(:hover):not(:focus) b {
 	color: #666;
+	color: hsla(0, 0%, 0%, 0.6);
 }
 .icone.horizontale .icone-image {
 	padding: 0;
@@ -208,7 +213,7 @@
 }
 .icone.horizontale a:hover .icone-image,
 .icone.horizontale a:focus .icone-image {
-	background: transparent;
+	background: #GET{couleur/survol};
 }
 
 /* Tailles */
