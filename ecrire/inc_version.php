@@ -375,8 +375,8 @@ $liste_des_authentifications = array(
 // ex : 2.0.0, 2.0.0-dev, 2.0.0-beta, 2.0.0-beta2
 // le _SPIP_VERSION_ID est un nombre entier représentant le numéro de version (2 chiffres pour chaque 03 + 01 + 13 = 30113
 // le _SPIP_EXTRA_VERSION sert à repérer les version dev, beta etc. Pour une version stable il est vide.
-$spip_version_branche = "3.1.13";
-define('_SPIP_VERSION_ID', 30113);
+$spip_version_branche = "3.1.14";
+define('_SPIP_VERSION_ID', 30114);
 define('_SPIP_EXTRA_VERSION', '');
 
 // version des signatures de fonctions PHP
