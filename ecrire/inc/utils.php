@@ -443,7 +443,7 @@ function spip_sanitize_from_request($value, $key, $sanitize_function='entites_ht
 			$key = array_keys($value);
 		}
 		if (!is_array($key)) {
-			$key = [$key];
+			$key = array($key);
 		}
 		foreach ($key as $k) {
 			if (!empty($value[$k])) {
@@ -3042,8 +3042,8 @@ function aide($aide = '', $distante = false) {
 function exec_info_dist() {
 
 	if ($GLOBALS['connect_statut'] == '0minirezo' and $GLOBALS['visiteur_session']['webmestre'] == 'oui') {
-		$cookies_masques = ['spip_session', 'PHPSESSID'];
-		$cookies_backup = [];
+		$cookies_masques = array('spip_session', 'PHPSESSID');
+		$cookies_backup = array();
 		foreach ($cookies_masques as $k) {
 			if (!empty($_COOKIE[$k])) {
 				$cookies_backup[$k] = $_COOKIE[$k];
