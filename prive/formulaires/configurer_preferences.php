@@ -99,7 +99,7 @@ function formulaires_configurer_preferences_traiter_dist() {
 		include_spip('action/editer_auteur');
 		$c = array('prefs' => serialize($GLOBALS['visiteur_session']['prefs']));
 
-		if ($imessage = _request('imessage') and in_array($imessage, ['oui', 'non'])) {
+		if ($imessage = _request('imessage') and in_array($imessage, array('oui', 'non'))) {
 			$c['imessage'] = $imessage;
 		}
 
