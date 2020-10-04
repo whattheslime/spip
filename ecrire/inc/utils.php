@@ -1530,7 +1530,7 @@ $GLOBALS['path_files'] = null;
  **/
 function find_in_path($file, $dirname = '', $include = false) {
 	static $dirs = array();
-	static $inc = array(); # cf https://core.spip.net/projects/spip/repository/revisions/14743
+	static $inc = array(); # cf https://git.spip.net/spip/spip/commit/42e4e028e38c839121efaee84308d08aee307eec
 	static $c = '';
 
 	if (!$file and !strlen($file)) {

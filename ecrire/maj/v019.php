@@ -431,7 +431,7 @@ function maj_1_950($installee) {
 $GLOBALS['maj'][1950] = array(array('maj_1_950', $GLOBALS['meta']['version_installee']));
 
 // Erreur dans maj_1_948():
-// // https://core.spip.net/projects/spip/repository/revisions/10194
+// // https://git.spip.net/spip/spip/commit/619a9e5b10bfbe287aec1e11d66b720ec9da4494
 // // Gestion du verrou SQL par PHP
 
 $GLOBALS['maj'][1951] = array(
@@ -539,7 +539,7 @@ $GLOBALS['maj'][1938] = array(
 
 
 // PG veut une valeur par defaut a l'insertion
-// https://core.spip.net/projects/spip/repository/revisions/10482
+// https://git.spip.net/spip/spip/commit/5a981d1fbec021a42593a91482a6b17da060c2c5
 
 $GLOBALS['maj'][1957] = array(
 	array('sql_alter', "TABLE spip_mots CHANGE `id_groupe` `id_groupe` bigint(21) DEFAULT 0 NOT NULL"),

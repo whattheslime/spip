@@ -334,7 +334,7 @@ if (@$GLOBALS['meta']['version_installee'] >= 14588) {
 // Restauration correcte des types mime des fichiers Ogg
 // https://core.spip.net/issues/1941
 // + Types de fichiers : f4a/f4b/f4p/f4v/mpc http://en.wikipedia.org/wiki/Flv#File_formats
-// + Report du commit oublié : https://core.spip.net/projects/spip/repository/revisions/14272
+// + Report du commit oublié : https://git.spip.net/spip/spip/commit/a6468fa5e3e34483b98b24b0102c4356f2f369a3
 $GLOBALS['maj'][15676] = array(array('upgrade_types_documents'));
 
 // Type de fichiers : webm http://en.wikipedia.org/wiki/Flv#File_formats
