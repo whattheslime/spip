@@ -34,7 +34,7 @@ $GLOBALS['maj'][11042] = array(array('upgrade_types_documents'));
 
 // Un bug permettait au champ 'upload' d'etre vide, provoquant
 // l'impossibilite de telecharger une image
-// http://trac.rezo.net/trac/spip/ticket/1238
+// https://core.spip.net/issues/1238
 $GLOBALS['maj'][11171] = array(
 	array('sql_query', "UPDATE spip_types_documents SET upload='oui' WHERE upload IS NULL OR upload!='non'")
 );
@@ -332,7 +332,7 @@ if (@$GLOBALS['meta']['version_installee'] >= 14588) {
 }
 
 // Restauration correcte des types mime des fichiers Ogg
-// http://trac.rezo.net/trac/spip/ticket/1941
+// https://core.spip.net/issues/1941
 // + Types de fichiers : f4a/f4b/f4p/f4v/mpc http://en.wikipedia.org/wiki/Flv#File_formats
 // + Report du commit oublié : http://trac.rezo.net/trac/spip/changeset/14272
 $GLOBALS['maj'][15676] = array(array('upgrade_types_documents'));
