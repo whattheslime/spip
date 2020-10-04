@@ -346,7 +346,7 @@ $home_server = 'https://www.spip.net';
 $url_glossaire_externe = "https://@lang@.wikipedia.org/wiki/%s";
 
 # TeX
-$tex_server = 'http://math.spip.org/tex.php';
+$tex_server = 'https://latex.spip.net/tex.php';
 # MathML (pas pour l'instant: manque un bon convertisseur)
 // $mathml_server = 'http://arno.rezo.net/tex2mathml/latex.php';
 
