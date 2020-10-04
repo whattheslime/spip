@@ -671,7 +671,7 @@ $GLOBALS['maj'][21676] = array(
 /**
  * Ranger les images de local/cache-gd2 dans des sous-rep
  *
- * http://core.spip.net/issues/3277
+ * https://core.spip.net/issues/3277
  */
 function ranger_cache_gd2() {
 	spip_log("ranger_cache_gd2");

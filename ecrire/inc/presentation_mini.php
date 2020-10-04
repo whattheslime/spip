@@ -227,7 +227,7 @@ function info_copyright() {
 		if ($vcs['vcs'] === 'GIT') {
 			$url = 'https://git.spip.net/spip/spip/commit/' . $vcs['commit'];
 		} elseif ($vcs['vcs'] === 'SVN') {
-			$url = 'http://core.spip.net/projects/spip/repository/revisions/' . $vcs['commit'];
+			$url = 'https://core.spip.net/projects/spip/repository/revisions/' . $vcs['commit'];
 		} else {
 			$url = '';
 		}
