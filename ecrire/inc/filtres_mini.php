@@ -58,7 +58,7 @@ function resolve_path($url) {
  * @example
  *     ```
  *     suivre_lien(
- *         'http://rezo.net/sous/dir/../ect/ory/fi.html..s#toto',
+ *         'https://rezo.net/sous/dir/../ect/ory/fi.html..s#toto',
  *         'a/../../titi.coco.html/tata#titi');
  *     ```
  *
