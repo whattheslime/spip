@@ -32,24 +32,34 @@
 
 [(#REM) Tailles et valeurs associées ]
 #SET{paddings, #ARRAY{
+	12, #LISTE{0.25em, 0.75em},
 	16, #LISTE{0.5em, 1.25em},
 	24, #LISTE{0.5em, 1.25em},
 	32, #LISTE{0.5em, 1.25em},
 }}
+#SET{margins, #ARRAY{
+	12, 0.25em,
+	16, 0.25em,
+	24, 0.25em,
+	32, 0.25em,
+}}
 #SET{font-sizes, #ARRAY{
+	12, 0.75em,
 	16, 0.85em,
-	24, 1em,
-	32, 1.15em,
+	24, 0.85em,
+	32, 1em,
 }}
 #SET{heights, #ARRAY{
+	12, calc\(\(#GET{paddings/12/0} * 2\) + 12px + 2px\),
 	16, calc\(\(#GET{paddings/16/0} * 2\) + 16px + 2px\),
 	24, calc\(\(#GET{paddings/24/0} * 2\) + 24px + 2px\),
 	32, calc\(\(#GET{paddings/32/0} * 2\) + 32px + 2px\),
 }}
 #SET{tailles, #ARRAY{
-	16, #ARRAY{font-size, #GET{font-sizes/16}, height, #GET{heights/16}, padding, #GET{paddings/16}},
-	24, #ARRAY{font-size, #GET{font-sizes/24}, height, #GET{heights/24}, padding, #GET{paddings/24}},
-	32, #ARRAY{font-size, #GET{font-sizes/32}, height, #GET{heights/32}, padding, #GET{paddings/32}},
+	12, #ARRAY{font-size, #GET{font-sizes/12}, height, #GET{heights/12}, padding, #GET{paddings/12}, margin, #GET{margins/12}},
+	16, #ARRAY{font-size, #GET{font-sizes/16}, height, #GET{heights/16}, padding, #GET{paddings/16}, margin, #GET{margins/16}},
+	24, #ARRAY{font-size, #GET{font-sizes/24}, height, #GET{heights/24}, padding, #GET{paddings/24}, margin, #GET{margins/24}},
+	32, #ARRAY{font-size, #GET{font-sizes/32}, height, #GET{heights/32}, padding, #GET{paddings/32}, margin, #GET{margins/32}},
 }}
 
 /**
@@ -65,7 +75,7 @@
 .formulaire_spip button {
 	border-radius: 0.33em;
 	text-decoration: none;
-	margin-bottom: 0.25em;
+	margin-bottom: #GET{tailles/16/margin};
 	vertical-align: middle;
 }
 .bouton,
@@ -220,6 +230,16 @@
 	-webkit-box-shadow: none;
 	        box-shadow: none;
 }
+.bouton.link:hover:before,
+.bouton.link:focus:before,
+.bouton_action_post.link .submit:hover:before,
+.bouton_action_post.link .submit:focus:before,
+.formulaire_spip input.submit.link:hover:before,
+.formulaire_spip input.submit.link:focus:before,
+.formulaire_spip button.link:hover:before,
+.formulaire_spip button.link:focus:before {
+	filter: brightness(1.33);
+}
 
 /* Variante bloc : pleine largeur */
 .bouton.bloc,
@@ -309,7 +329,7 @@
 .bouton_action_post.s#CLE .submit,
 .formulaire_spip input.submit.s#CLE,
 .formulaire_spip button.s#CLE {
-	font-size: [(#VALEUR{fontsize})];
+	font-size: [(#VALEUR{font-size})];
 	min-height: [(#VALEUR{height})]; /* Pour hauteur identique avec ou sans icone */
 	padding: [(#VALEUR{padding}|implode{' '})];
 }
@@ -329,7 +349,7 @@
 	width: auto;
 }
 .formulaire_spip input.submit.s#CLE {
-	background-size: [(#CLE)]px;
+	background-size: calc([(#CLE) ]* 0.8)px; /* Limiter un peu en hauteur pour ne pas « écraser » le texte adjacent */
 	padding-#ENV{left}: [(#VALEUR{padding/1})];
 }
 </BOUCLE_icones_tailles>
@@ -357,7 +377,7 @@
 	width: 16px;
 	height: 16px;
 	margin-#ENV{right}: 0.5em;
-	background-size: 100%;
+	background-size: auto 80%; /* Limiter un peu en hauteur pour ne pas « écraser » le texte adjacent */
 	background-position: center center;
 	background-repeat: no-repeat;
 }
@@ -366,7 +386,7 @@
 </BOUCLE_icones_submit>
 {
 	padding-#ENV{left}: calc(16px + 1.5em); /* Todo autres tailles */
-	background-size: 16px 16px;
+	background-size: auto calc(16px * 0.8); /* Limiter un peu en hauteur pour ne pas « écraser » le texte adjacent */
 	background-position: center left 1em;
 	background-repeat: no-repeat;
 }
@@ -379,15 +399,15 @@
 .formulaire_spip button.#VALEUR:before {
 	background-image: url(#CHEMIN_IMAGE{#VALEUR-xx.svg});
 }
-/* Au survol on met une variante mono de couleur claire */
-.bouton.#VALEUR:hover:before,
-.bouton.#VALEUR:focus:before,
-.bouton_action_post.#VALEUR .submit:hover:before,
-.bouton_action_post.#VALEUR .submit:focus:before,
-.formulaire_spip input.submit.#VALEUR:hover,
-.formulaire_spip input.submit.#VALEUR:focus,
-.formulaire_spip button.#VALEUR:hover:before,
-.formulaire_spip button.#VALEUR:focus:before  {
+/* Au survol on met une variante mono de couleur claire, sauf pour les .link */
+.bouton.#VALEUR:not(.link):hover:before,
+.bouton.#VALEUR:not(.link):focus:before,
+.bouton_action_post.#VALEUR:not(.link) .submit:hover:before,
+.bouton_action_post.#VALEUR:not(.link) .submit:focus:before,
+.formulaire_spip input.submit.#VALEUR:not(.link):hover,
+.formulaire_spip input.submit.#VALEUR:not(.link):focus,
+.formulaire_spip button.#VALEUR:not(.link):hover:before,
+.formulaire_spip button.#VALEUR:not(.link):focus:before  {
 	background-image: url(#CHEMIN_IMAGE{#VALEUR-inverse-xx.svg});
 }
 </BOUCLE_icones_images>
@@ -490,6 +510,7 @@
 	-webkit-box-direction: normal;
 	        -ms-flex-flow: row nowrap;
 	            flex-flow: row nowrap;
+	margin-bottom: #GET{tailles/16/margin};
 }
 /* Si boutons de formulaire ou pied d'une boîte : bloc et alignement */
 .groupe-boutons.act,
@@ -508,6 +529,7 @@
 	-webkit-box-flex: 0;
 	        -ms-flex: 0 1 auto;
 	            flex: 0 1 auto;
+	margin: 0;
 }
 .groupe-boutons:not(.vertical) .bouton:not(:last-child),
 .groupe-boutons:not(.vertical) .bouton_action_post:not(:last-child) .submit,
@@ -612,3 +634,15 @@
 	   -ms-flex-pack: end;
 	 justify-content: flex-end;
 }
+
+/* Ajustements .link */
+.groupe-boutons .link {
+	padding-left: #GET{tailles/16/padding/1};
+	padding-right: #GET{tailles/16/padding/1};
+}
+<BOUCLE_tailles_link(DATA) {source table, #GET{tailles}|array_keys}>
+.groupe-boutons .link.s#VALEUR {
+	padding-left: #GET{tailles/#VALEUR/padding/1};
+	padding-right: #GET{tailles/#VALEUR/padding/1};
+}
+</BOUCLE_tailles_link>
