@@ -16,7 +16,7 @@
 	6. Boutons d'action
 	7. Groupes de boutons
 
-<style>]
+<style>/**]
 #CACHE{3600*100,cache-client}
 #HTTP_HEADER{Content-Type: text/css; charset=utf-8}
 #HTTP_HEADER{Vary: Accept-Encoding}
@@ -31,51 +31,47 @@
 }}
 
 [(#REM) Tailles et valeurs associées ]
-#SET{paddings, #ARRAY{
-	12, #LISTE{0.25em, 0.75em},
-	16, #LISTE{0.5em, 1.25em},
-	24, #LISTE{0.5em, 1.25em},
-	32, #LISTE{0.5em, 1.25em},
-}}
-#SET{margins, #ARRAY{
-	12, 0.25em,
-	16, 0.25em,
-	24, 0.25em,
-	32, 0.25em,
-}}
-#SET{font-sizes, #ARRAY{
-	12, 0.75em,
-	16, 0.85em,
-	24, 0.85em,
-	32, 1em,
-}}
-#SET{heights, #ARRAY{
-	12, calc\(\(#GET{paddings/12/0} * 2\) + 12px + 2px\),
-	16, calc\(\(#GET{paddings/16/0} * 2\) + 16px + 2px\),
-	24, calc\(\(#GET{paddings/24/0} * 2\) + 24px + 2px\),
-	32, calc\(\(#GET{paddings/32/0} * 2\) + 32px + 2px\),
-}}
 #SET{tailles, #ARRAY{
-	12, #ARRAY{font-size, #GET{font-sizes/12}, height, #GET{heights/12}, padding, #GET{paddings/12}, margin, #GET{margins/12}},
-	16, #ARRAY{font-size, #GET{font-sizes/16}, height, #GET{heights/16}, padding, #GET{paddings/16}, margin, #GET{margins/16}},
-	24, #ARRAY{font-size, #GET{font-sizes/24}, height, #GET{heights/24}, padding, #GET{paddings/24}, margin, #GET{margins/24}},
-	32, #ARRAY{font-size, #GET{font-sizes/32}, height, #GET{heights/32}, padding, #GET{paddings/32}, margin, #GET{margins/32}},
+	mini, #ARRAY{
+		font-size, 0.75em,
+		padding,   #LISTE{0.25em, 0.5em},
+		margin,    0.25em,
+		icon-size, 0.9em,
+		gutter,    0.33em,
+	},
+	normal, #ARRAY{
+		font-size, 0.85em,
+		padding,   #LISTE{0.5em, 1em},
+		margin,    0.25em,
+		icon-size, 1em,
+		gutter,    0.33em,
+	},
+	large, #ARRAY{
+		font-size, 1em,
+		padding,   #LISTE{0.66em, 1.5em},
+		margin,    0.25em,
+		icon-size, 1.25em,
+		gutter,    0.33em,
+	},
 }}
+
+#SET{border-radius, 0.25em}
+#SET{icones, #LISTE{add, del, supprimer, ajouter, config, edit, import, export, new, fermer, ouvrir, ok, actualiser}}
+[(#REM)*/]
 
 /**
  * ==================================
  * 1. Base commune à tous les boutons
  * ==================================
- * Fond gris clair, police, alignement.
  */
 
 .bouton,
 .bouton_action_post,
 .formulaire_spip input.submit,
 .formulaire_spip button {
-	border-radius: 0.33em;
+	border-radius: #GET{border-radius};
 	text-decoration: none;
-	margin-bottom: #GET{tailles/16/margin};
+	margin-bottom: #GET{tailles/normal/margin};
 	vertical-align: middle;
 }
 .bouton,
@@ -96,21 +92,26 @@
 	      align-items: center;
 	vertical-align: middle; /* Répété juste pour .bouton_action_post */
 	text-align: center;
-	min-height: [(#GET{tailles/16/height})];
-	padding: [(#GET{tailles/16/padding}|implode{' '})];
-	border: 1px solid transparent; /* Garder les mêmes dimensions que ceux avec bordure */
+	min-height: calc\(\(#GET{tailles/normal/padding/0} * 2\) + [(#GET{tailles/normal/icon-size})] + 2px\); /* Pour hauteur identique avec ou sans icone = padding + icône + bordure */
+	padding: [(#GET{tailles/normal/padding}|implode{' '})];
+	border: 1px solid transparent; /* Pour garder les mêmes dimensions que ceux avec bordure */
 	background-color: #GET{couleurs/base};
 	color: #666;
 	color: hsla(0, 0%, 0%, 0.6); /* Pour mieux s'adapter aux couleurs de fond */
+	font-size: [(#GET{tailles/normal/font-size})];
 	font-family: inherit;
 	font-weight: bold;
-	font-size: [(#GET{tailles/16/font-size})];
-	line-height: 1;
+	line-height: 1.2;
+	white-space: nowrap; /* Pas de retour ligne non voulu (<br>) */
+	-webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+	        user-select: none;
 	transition: all 0.2s, transform 0.05s;
 }
-/* Fix form dans colonne */
+/* Fix form dans colonne : obligé de dupliquer des règles */
 .lat .formulaire_spip input.submit {
-	padding: [(#GET{tailles/16/padding}|implode{' '})]; /* Obligé de dupliquer la règle */
+	padding: [(#GET{tailles/normal/padding}|implode{' '})];
 }
 
 /* Survol, focus & active */
@@ -143,7 +144,16 @@
 .bouton .icone-image,
 .bouton_action_post .submit .icone-image,
 .formulaire_spip button .icone-image {
-	margin-#ENV{right}: 0.5em;
+	margin-#ENV{right}: #GET{tailles/normal/gutter};
+}
+.bouton .icone-image img,
+.bouton .icone-image svg,
+.bouton_action_post .submit .icone-image img,
+.bouton_action_post .submit .icone-image svg,
+.formulaire_spip button .icone-image img,
+.formulaire_spip button .icone-image svg {
+	max-height: #GET{tailles/normal/icon-size};
+	width: auto;
 }
 
 
@@ -154,7 +164,9 @@
  * Nb : on fait en sorte de garder les couleurs de base pour le survol et cie.
  */
 
-/* Variante principal : boutons mis en avant, fond de couleur du thème */
+/**
+ * Variante principal : boutons mis en avant, fond de couleur du thème
+ */
 .bouton.principal:not(:hover):not(:focus):not(:active),
 .bouton_action_post.principal .submit:not(:hover):not(:focus):not(:active),
 .formulaire_spip input.submit.principal:not(:hover):not(:focus):not(:active),
@@ -179,7 +191,9 @@
 	background: [#(#GET{couleurs/actif}|couleur_foncer)];
 }
 
-/* Variante secondaire : boutons mis en retrait, juste une bordure */
+/**
+ * Variante secondaire : boutons mis en retrait, juste une bordure
+ */
 .bouton.secondaire:not(:hover):not(:focus):not(:active),
 .bouton_action_post.secondaire .submit:not(:hover):not(:focus):not(:active),
 .formulaire_spip input.submit.secondaire:not(:hover):not(:focus):not(:active),
@@ -204,14 +218,16 @@
 	border-color: #GET{couleurs/actif}; /* Idem fond */
 }
 
-/* Variante link : boutons affichés comme un lien */
+/**
+ * Variante link : boutons affichés comme un lien
+ */
 .bouton.link,
 .bouton_action_post.link .submit,
 .formulaire_spip input.submit.link,
 .formulaire_spip button.link {
 	background-color: transparent;
-	padding-left: 0; /* garder une marge verticale */
-	padding-right: 0; /* garder une marge verticale */
+	padding-left: 0; /* garder juste une marge verticale */
+	padding-right: 0; /* garder juste une marge verticale */
 }
 .bouton.link:hover,
 .bouton.link:focus,
@@ -238,10 +254,12 @@
 .formulaire_spip input.submit.link:focus:before,
 .formulaire_spip button.link:hover:before,
 .formulaire_spip button.link:focus:before {
-	filter: brightness(1.33);
+	filter: brightness(1.2);
 }
 
-/* Variante bloc : pleine largeur */
+/**
+ * Variante bloc : pleine largeur
+ */
 .bouton.bloc,
 .formulaire_spip input.submit.bloc,
 .formulaire_spip button.bloc {
@@ -263,7 +281,9 @@
 	            flex: 1 1 auto;
 }
 
-/* Variantes alignements : boutons flottants à gauche ou à droite */
+/**
+ * Variantes alignements : boutons flottants à gauche ou à droite
+ */
 .bouton.right,
 .bouton_action_post.right,
 .formulaire_spip input.submit.right,
@@ -277,7 +297,9 @@
 	float: #ENV{left};
 }
 
-/* Variante désactivé : boutons non cliquables */
+/**
+ * Variante désactivé : boutons non cliquables
+ */
 .bouton.desactive,
 .bouton_action_post.desactive,
 .formulaire_spip input.submit.desactive,
@@ -288,7 +310,9 @@
 	pointer-events: none;
 }
 
-/* Variante danger (voir aussi dans icons.css) */
+/**
+ * Variante danger (voir aussi dans icons.css)
+ */
 .bouton.danger,
 .bouton_action_post.danger .submit,
 .formulaire_spip input.submit.danger,
@@ -311,7 +335,9 @@
 	color: red !important;
 }
 
-/* Variante sans icône (préférence utilisateur) */
+/**
+ * Variante sans icône (préf. utilisateur)
+ */
 .icones_texte .bouton:before,
 .icones_texte .bouton_action_post .submit:before,
 .icones_texte .formulaire_spip button:before,
@@ -320,51 +346,92 @@
 }
 .icones_texte .formulaire_spip input.submit:not(.danger) {
 	background-image: none !important;
-	padding-left: #GET{tailles/16/padding/1} !important; /* Todo autres tailles ? */
+	padding-left: [(#GET{tailles/normal/padding/1})] !important;
 }
 
-/* Variantes tailles */
- <BOUCLE_icones_tailles(DATA) {source table, #GET{tailles}}>
-.bouton.s#CLE,
-.bouton_action_post.s#CLE .submit,
-.formulaire_spip input.submit.s#CLE,
-.formulaire_spip button.s#CLE {
-	font-size: [(#VALEUR{font-size})];
-	min-height: [(#VALEUR{height})]; /* Pour hauteur identique avec ou sans icone */
+/**
+ * Variantes de tailles
+ * Ajuste la taille des icônes, de la police, des marges, etc.
+ */
+ <BOUCLE_tailles(DATA) {source table, #GET{tailles}} {cle != normal}>
+.bouton.#CLE,
+.bouton_action_post.#CLE .submit,
+.formulaire_spip input.submit.#CLE,
+.formulaire_spip button.#CLE,
+.groupe-boutons.#CLE .bouton,
+.groupe-boutons.#CLE .bouton_action_post .submit,
+.groupe-boutons.#CLE input.submit,
+.groupe-boutons.#CLE button {
+	font-size: #VALEUR{font-size};
+	min-height: calc\(\([(#VALEUR{padding/0})] * 2\) + [(#VALEUR{icon-size})] + 2px\); /* Pour hauteur identique avec ou sans icone = padding + icône + bordure */
+}
+.bouton.#CLE:not(.link),
+.bouton_action_post.#CLE:not(.link) .submit,
+.formulaire_spip input.submit.#CLE:not(.link),
+.formulaire_spip button.#CLE:not(.link),
+.groupe-boutons.#CLE:not(.link) .bouton,
+.groupe-boutons.#CLE:not(.link) .bouton_action_post .submit,
+.groupe-boutons.#CLE:not(.link) input.submit,
+.groupe-boutons.#CLE:not(.link) button {
 	padding: [(#VALEUR{padding}|implode{' '})];
 }
-.bouton.s#CLE:before,
-.bouton_action_post.s#CLE .submit:before,
-.formulaire_spip button.s#CLE:before {
-	width: [(#CLE)]px !important; /* Obligé important */
-	height: [(#CLE)]px !important;
+/* Avec icône CSS */
+.bouton.#CLE:before,
+.bouton_action_post.#CLE .submit:before,
+.formulaire_spip button.#CLE:before,
+.groupe-boutons.#CLE .bouton:before,
+.groupe-boutons.#CLE .bouton_action_post .submit:before,
+.groupe-boutons.#CLE .formulaire_spip button:before {
+	width: #VALEUR{icon-size} !important; /* Obligé important */
+	height: #VALEUR{icon-size} !important;
 }
-.bouton.s#CLE .icone-image img,
-.bouton.s#CLE .icone-image svg,
-.bouton_action_post.s#CLE .submit .icone-image img,
-.bouton_action_post.s#CLE .submit .icone-image svg,
-.formulaire_spip button.s#CLE .icone-image img,
-.formulaire_spip button.s#CLE .icone-image svg {
-	max-height: [(#CLE)]px;
+/* Avec icône CSS en background direct */
+<BOUCLE_tailles_icones_submit(DATA) {source table, #GET{icones}} {","}>
+.formulaire_spip input.submit.#_tailles:CLE.#VALEUR,
+.groupe-boutons.#_tailles:CLE input.submit.#VALEUR
+</BOUCLE_tailles_icones_submit>
+{
+	padding-#ENV{left}: calc\([(#VALEUR{padding/1}) ]+[ (#VALEUR{icon-size}) ]+[ (#VALEUR{gutter})]\);
+	background-size: auto #VALEUR{icon-size};
+}
+/* Avec icône HTML */
+.bouton.#CLE .icone-image img,
+.bouton.#CLE .icone-image svg,
+.bouton_action_post.#CLE .submit .icone-image img,
+.bouton_action_post.#CLE .submit .icone-image svg,
+.formulaire_spip button.#CLE .icone-image img,
+.formulaire_spip button.#CLE .icone-image svg,
+.groupe-boutons.#CLE .bouton .icone-image img,
+.groupe-boutons.#CLE .bouton .icone-image svg,
+.groupe-boutons.#CLE .bouton_action_post .submit .icone-image img,
+.groupe-boutons.#CLE .bouton_action_post .submit .icone-image svg,
+.groupe-boutons.#CLE  button .icone-image img,
+.groupe-boutons.#CLE  button .icone-image svg{
+	max-height: #VALEUR{icon-size};
 	width: auto;
 }
-.formulaire_spip input.submit.s#CLE {
-	background-size: calc([(#CLE) ]* 0.8)px; /* Limiter un peu en hauteur pour ne pas « écraser » le texte adjacent */
-	padding-#ENV{left}: [(#VALEUR{padding/1})];
+/* Avec icône CSS en bg direct mais interface sans icône (préf. utilisateur) */
+.icones_texte .formulaire_spip input.submit.#CLE:not(.danger),
+.icones_texte .groupe-boutons.#CLE input.submit:not(.danger) {
+	padding-left: #VALEUR{padding/1} !important;
 }
-</BOUCLE_icones_tailles>
+/* Variante .link dans groupe de boutons */
+.groupe-boutons .link.#CLE {
+	padding-left: #VALEUR{padding/1};
+	padding-right: #VALEUR{padding/1};
+}
+</BOUCLE_tailles>
 
 
 /**
- * ===================
- * 3. Variantes images
- * ===================
+ * ========================
+ * 3. Variantes avec icônes
+ * ========================
  * Des images/icônes pour des boutons avec des fonctions précises : ajouter, supprimer, etc.
  * Certaines règles sont mutualisées avec icons.css
  * On peut aussi mettre manuellement une icône dans le HTML : <img class="icone-image">
  */
 
-#SET{icones, #LISTE{add, del, config, edit, import, export, new, fermer, ouvrir, ok, actualiser}}
 /* Styles communs */
 <BOUCLE_icones_common(DATA) {source table, #GET{icones}} {","}>
 .bouton.#VALEUR:before,
@@ -374,10 +441,10 @@
 {
 	content: '';
 	display: block;
-	width: 16px;
-	height: 16px;
-	margin-#ENV{right}: 0.5em;
-	background-size: auto 80%; /* Limiter un peu en hauteur pour ne pas « écraser » le texte adjacent */
+	width: #GET{tailles/normal/icon-size};
+	height: #GET{tailles/normal/icon-size};
+	margin-#ENV{right}: #GET{tailles/normal/gutter};
+	background-size: contain;
 	background-position: center center;
 	background-repeat: no-repeat;
 }
@@ -385,9 +452,9 @@
 .formulaire_spip input.submit.#VALEUR
 </BOUCLE_icones_submit>
 {
-	padding-#ENV{left}: calc(16px + 1.5em); /* Todo autres tailles */
-	background-size: auto calc(16px * 0.8); /* Limiter un peu en hauteur pour ne pas « écraser » le texte adjacent */
-	background-position: center left 1em;
+	padding-#ENV{left}: calc\([(#GET{tailles/normal/padding/1}) ]+[ (#GET{tailles/normal/icon-size}) ]+[ (#GET{tailles/normal/gutter})]\);
+	background-size: auto #GET{tailles/normal/icon-size};
+	background-position: center left #GET{tailles/normal/padding/1};
 	background-repeat: no-repeat;
 }
 /* Images */
@@ -488,6 +555,9 @@
 .box .bouton_action_post.icone b {
 	font-size: 1em;
 }
+.bouton_action_post.icone .icone-image img {
+	max-height: 100%;
+}
 
 /**
  * =====================
@@ -510,7 +580,7 @@
 	-webkit-box-direction: normal;
 	        -ms-flex-flow: row nowrap;
 	            flex-flow: row nowrap;
-	margin-bottom: #GET{tailles/16/margin};
+	margin-bottom: #GET{tailles/normal/margin};
 }
 /* Si boutons de formulaire ou pied d'une boîte : bloc et alignement */
 .groupe-boutons.act,
@@ -577,6 +647,7 @@
 	-webkit-box-direction: normal;
 	        -ms-flex-flow: column wrap;
 	            flex-flow: column wrap;
+	vertical-align: top; /* middle fait des trucs bizarres */
 }
 .groupe-boutons.vertical .bouton:not(:last-child),
 .groupe-boutons.vertical .bouton_action_post:not(:last-child),
@@ -637,12 +708,6 @@
 
 /* Ajustements .link */
 .groupe-boutons .link {
-	padding-left: #GET{tailles/16/padding/1};
-	padding-right: #GET{tailles/16/padding/1};
+	padding-left: #GET{tailles/normal/padding/1};
+	padding-right: #GET{tailles/normal/padding/1};
 }
-<BOUCLE_tailles_link(DATA) {source table, #GET{tailles}|array_keys}>
-.groupe-boutons .link.s#VALEUR {
-	padding-left: #GET{tailles/#VALEUR/padding/1};
-	padding-right: #GET{tailles/#VALEUR/padding/1};
-}
-</BOUCLE_tailles_link>
