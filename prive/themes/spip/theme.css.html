@@ -106,7 +106,7 @@ h1 {font-size: 2em;line-height: 125%;}
 .liste-objets.selection-articles form {background-color: #[(#ENV{claire}|couleur_luminance{0.25})];}
 .liste-objets table {background: transparent;}
 .liste-objets table caption {background: #e5e5e5;}
-.liste-objets table caption strong.caption { padding-top: 7px; padding-bottom: 7px; color: #444; background-color: transparent; font-size: 0.85em; line-height: 120%; }
+.liste-objets table caption strong.caption { padding-top: 8px; padding-bottom: 8px; color: #444; background-color: transparent; font-size: 0.85em; line-height: 120%; }
 .liste-objets table thead {font-size: 0.85em;line-height: 120%;}
 .liste-objets table thead th {padding-top: 5px;padding-bottom: 5px;}
 .liste-objets table tbody > tr:last-child td {border-bottom: 0;}
@@ -165,9 +165,6 @@ h3.titrem {font-size: 1em;line-height: 125%;padding-top: 7px;padding-bottom: 7px
 .formulaire_spip .boutons {-webkit-border-bottom-left-radius:5px;-moz-border-radius-bottomleft:5px;border-bottom-left-radius:5px;-webkit-border-bottom-right-radius:5px;-moz-border-radius-bottomright:5px;border-bottom-right-radius:5px;position:relative;}
 
 .actions a.editbox:not(.bouton) {display:inline-block;}
-.formulaire_spip .toggle_box_link {-webkit-opacity:0.6;-moz-opacity:0.6;opacity:0.6;filter:alpha(opacity=60);;z-index: 1;font-size: 10px;color: #GET{lien};}
-.formulaire_spip .toggle_box_link button {font-size: 10px;color: #GET{lien};}
-.formulaire_spip:hover .toggle_box_link {-webkit-opacity:1.0;-moz-opacity:1.0;opacity:1.0;filter:alpha(opacity=100);}
 .formulaire_editer_liens .associer_mot .submit {margin-top:3px;}
 .formulaire_editer_logo .editer_logo_on.logo_upload,
 .formulaire_editer_logo .editer_logo_off.logo_upload.open {background: #fff;} [(#REM) https://core.spip.net/issues/2995]
@@ -223,12 +220,7 @@ h3.titrem {font-size: 1em;line-height: 125%;padding-top: 7px;padding-bottom: 7px
 #contenu .preview h1 {color: inherit;}
 
 #text_area {height: 450px;padding: 10px;outline: none;-webkit-border-top-left-radius:0px;-moz-border-radius-topleft:0px;border-top-left-radius:0px;-webkit-border-top-right-radius:0px;-moz-border-radius-topright:0px;border-top-right-radius:0px;position:relative;}
-.formulaire_editer_liens .liste-objets tr > .action button {-webkit-opacity:0.6;-moz-opacity:0.6;opacity:0.6;filter:alpha(opacity=60);font-size: 90%;}
-.formulaire_editer_liens .liste-objets tr > .action button img {float: none;margin-left: 0px;vertical-align: bottom;}
-.formulaire_editer_liens .liste-objets tr:hover > .action button {-webkit-opacity:1.0;-moz-opacity:1.0;opacity:1.0;filter:alpha(opacity=100);}
-.formulaire_spip button.delete {color: #999;padding:0}
-.formulaire_spip button.delete:hover {color: red;text-decoration: underline;border: none;}
-.formulaire_spip button.delete:focus {color: red;text-decoration: underline;border: none;}
+
 .logo_du_site {text-align: center;}
 .fiche_objet .formulaire_spip {border: 1px solid #e5e5e5;}
 .fiche_objet .formulaire_spip.formulaire_dater {margin-top:0;border: 0;-webkit-border-radius:0;-moz-border-radius:0;border-radius:0;margin-left: -15px;margin-right: -15px;padding: 10px 15px;background-color: #eee;position:relative;}
@@ -250,3 +242,9 @@ h3.titrem {font-size: 1em;line-height: 125%;padding-top: 7px;padding-bottom: 7px
 .navigation .sous_navigation .item a {margin: 0;padding: 10px;padding-left: 34px;background-position: 10px center;background-size: 16px;}
 .navigation .sous_navigation .item a:hover {background-color: #[(#ENV{foncee}|couleur_luminance{0.15})];-webkit-box-shadow:0px 0px 10px #[(#ENV{foncee}|couleur_luminance{0.20})] inset;-moz-box-shadow:0px 0px 10px #[(#ENV{foncee}|couleur_luminance{0.20})] inset;box-shadow:0px 0px 10px #[(#ENV{foncee}|couleur_luminance{0.20})] inset;color: black;position:relative;}
 .navigation .sous_navigation .item a:focus {background-color: #[(#ENV{foncee}|couleur_luminance{0.15})];-webkit-box-shadow:0px 0px 10px #[(#ENV{foncee}|couleur_luminance{0.20})] inset;-moz-box-shadow:0px 0px 10px #[(#ENV{foncee}|couleur_luminance{0.20})] inset;box-shadow:0px 0px 10px #[(#ENV{foncee}|couleur_luminance{0.20})] inset;color: black;position:relative;}
+
+p.actions.right {
+	float: #ENV{right};
+	clear: none;
+	margin-#ENV{left}: 1em;
+}

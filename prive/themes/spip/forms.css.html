@@ -165,6 +165,11 @@ h3.titrem {position:relative;}
 .formulaire_spip input.button {
 	width: auto;
 }
+/* Bouton de validation */
+input[type="file"] {
+	border: none;
+	background-color: transparent;
+}
 
 /* icone d'aide */
 img.aide {padding: 2px !important;box-sizing: border-box;}
@@ -188,16 +193,6 @@ img.aide {padding: 2px !important;box-sizing: border-box;}
 #extra .formulaire_spip .boutons { padding: [(#ENV{margin-bottom}|strdiv{4})em] 5px}
 
 .formulaire_spip .boutons .image_loading {float:none;}
-.formulaire_spip input,
-.formulaire_spip button,
-.bouton_action_post .submit {
-	cursor: pointer;
-}
-
-/* Bouton de validation */
-input[type="file"] {border: none;background-color: transparent;}
-/* Pour IE, qui grossit le bouton submit */
-input[type="submit"],input[type="reset"] {font-size: inherit;}
 
 /* Date picker */
 #ui-datepicker-div {z-index: 10000 !important;}
@@ -216,7 +211,7 @@ input[type="submit"],input[type="reset"] {font-size: inherit;}
 
 .lat .formulaire_spip .editer label {text-transform: none;color: #444444;display:block;font-weight: normal;float:none;padding: 0;width:auto;margin-#ENV{left}:0;}
 .lat .formulaire_spip select { width:auto;padding:1px 0;}
-.lat .formulaire_spip input {padding: 1px 0;}
+.lat .formulaire_spip input:not(.submit):not(.reset) {padding: 1px 0;}
 .lat .formulaire_spip textarea {padding: 2px;}
 .lat .formulaire_spip input.file {font-size: 0.9em;}
 
@@ -234,6 +229,35 @@ input[type="submit"],input[type="reset"] {font-size: inherit;}
 	font-weight: bold;
 }
 
+/* Toggle box link = bouton pour afficher/masquer du contenu.
+ * Pour le bouton en lui-même, voir dans boutons.css */
+.formulaire_spip .toggle_box_link {
+	position: absolute;
+	top: 6px;
+	#ENV{right}: 6px;
+	-webkit-opacity: 0.6;
+	-moz-opacity: 0.6;
+	opacity: 0.6;
+	filter: alpha(opacity=60);
+	z-index: 1;
+}
+.formulaire_spip:hover .toggle_box_link {
+	-webkit-opacity: 1.0;
+	-moz-opacity: 1.0;
+	opacity: 1.0;
+	filter: alpha(opacity=100);
+}
+.formulaire_spip .toggle_box_link button {
+	margin: 0;
+}
+/* Centrage vertical */
+.formulaire_spip .toggle_box_link.middle {
+	top: 50%;
+	-webkit-transform: translateY(-50%);
+	    -ms-transform: translateY(-50%);
+	        transform: translateY(-50%);
+}
+
 
 /**
  * ========================
@@ -241,7 +265,7 @@ input[type="submit"],input[type="reset"] {font-size: inherit;}
  * ========================
  */
 
-
+/* Article */
 .formulaire_editer_article .editer.editer_liens_sites {border-bottom: 1px solid #ccc;}
 
 /* edition d'un auteur */
@@ -251,8 +275,7 @@ input[type="submit"],input[type="reset"] {font-size: inherit;}
 .formulaire_editer_auteur .editer.editer_statut .rubriques_restreintes > p {margin-#ENV{left}:0;margin-bottom:0;margin-top:10px;}
 .formulaire_editer_auteur .editer.editer_statut .rubriques_restreintes label { float: none; width: auto; margin-#ENV{left}: 0; }
 
-.formulaire_spip .toggle_box_link {position:absolute;top:5px;#ENV{right}:5px;}
-
+/* Logo */
 .formulaire_editer_logo {}
 #navigation .formulaire_editer_logo .apercu,#navigation .formulaire_editer_logo .ajouter_survol {text-align: center;}
 .formulaire_editer_logo .spip_logo img, #illustrations .vignette img, #documents_joints .image img.spip_logo {
@@ -260,6 +283,7 @@ input[type="submit"],input[type="reset"] {font-size: inherit;}
 }
 .formulaire_editer_logo .taille {font-size: 0.9em;}
 
+/* Multilinguisme */
 .formulaire_configurer_multilinguisme #langues_bloquees .choix,
 .formulaire_configurer_multilinguisme #langues_proposees .choix { padding:0 5px;margin-#ENV{right}:10px;float:#ENV{left};width:45%;clear:none; background: transparent; border: 0; }
 .formulaire_configurer_multilinguisme .traduite label {text-decoration:underline;}
@@ -293,13 +317,35 @@ input[type="submit"],input[type="reset"] {font-size: inherit;}
 .formulaire_editer_liens .selecteur .tout_voir {visibility:hidden;}
 .formulaire_editer_liens .selecteur.filtre .tout_voir {visibility:visible;}
 .formulaire_editer_liens.non_editable input,.formulaire_editer_liens.non_editable button {display:none;}
-.formulaire_editer_liens .action {text-align: #ENV{right};}
-.formulaire_editer_liens .liste-objets tr > .action {text-align: #ENV{right};width:120px;}
-.formulaire_editer_liens .liste-objets tr > .action button img {float:#ENV{right};margin-#ENV{left}:5px;}
+.formulaire_editer_liens .action {
+	text-align: #ENV{right};
+}
+.formulaire_editer_liens .liste-objets tr > .action {
+	text-align: #ENV{right};
+	width: 120px;
+}
+.formulaire_editer_liens .liste-objets tr > .action button {
+	-webkit-opacity: 0.6;
+	-moz-opacity: 0.6;
+	opacity: 0.6;
+	filter: alpha(opacity=60);
+}
+.formulaire_editer_liens .liste-objets tr > .action button img {
+	margin-#ENV{left}: 0px;
+	vertical-align: bottom;
+}
+.formulaire_editer_liens .liste-objets tr:hover > .action button,
+.formulaire_editer_liens .liste-objets tr:focus > .action button {
+	-webkit-opacity: 1.0;
+	-moz-opacity: 1.0;
+	opacity: 1.0;
+	filter: alpha(opacity=100);
+}
 
 .formulaire_editer_liens .associer_mot.obligatoire.nonvu {background-color:#FFCDAF;}
 .formulaire_editer_liens .associer_mot select,.formulaire_editer_liens .associer_mot input.text {width:75%;}
-.formulaire_editer_liens .associer_mot .submit {float:#ENV{right};font-weight:normal;}
+.formulaire_editer_liens .associer_mot .submit {float:#ENV{right};}
+
 
 /* retour visuel a la suppression et a l'ajout */
 .remove {background-color:#FFD0BF;}
