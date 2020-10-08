@@ -19,11 +19,11 @@
 				]
 				<span class="affiche"[(#ENV{_saisie_en_cours}|et{#ENV{_editer_date}}|oui)style="display:none;"]>[(#ENV*{afficher_#GET{name}}|affdate)]</span>
 				<BOUCLE_editable(CONDITION){si #ENV{editable}}>
-				<span class="toggle_box_link"[(#ENV{_saisie_en_cours}|oui)style="display:none;"]>&#91;<button
-					  class="link"
+				<span class="toggle_box_link middle"[(#ENV{_saisie_en_cours}|oui)style="display:none;"]><button
+					  class="mini principal"
 					  name="_saisie_en_cours" value="X"
 						onclick="var f=jQuery(this).parents('form').eq(0);f.find('.editer .input.editable').show('fast').siblings('span').add(jQuery(this).parent()).hide('fast');f.find('.boutons').show('fast');f.find('input.date').eq(0).focus();[(#ENV{sans_redac}|oui)f.find('.editer_date_redac label\[for=date_redac\]').hide();]return false;"
-						><:bouton_changer:><i class="over"> \(#ENV{_label_date}\)</i></button>&#93;</span>
+						><:bouton_changer:><i class="over"> \(#ENV{_label_date}\)</i></button></span>
 				<span class="input[(#ENV{_editer_date}|oui)editable]"[(#ENV{_saisie_en_cours}|et{#ENV{_editer_date}}|non)style="display:none;"]>
 					<input type="text" class="text date" name="#GET{name}_jour" id="#GET{name}_jour" value="#ENV{#GET{name}_jour}" size="10" aria-describedby="[(#GET{erreurs}|oui)erreur_#GET{id} ]format_date_#GET{id}"/>
 					<input type="text" class="text heure time" name="#GET{name}_heure" id="#GET{name}_heure" value="#ENV{#GET{name}_heure}" size="5" aria-labelledby="#GET{name}_jour_#GET{id}" aria-describedby="format_heure_#GET{id}"/>
@@ -58,11 +58,13 @@
 	[(#REM) ajouter les saisies supplementaires : extra et autre, a cet endroit ]
 	<!--extra-->
 	[(#ENV{editable})
-		<p class='boutons'[(#ENV{_saisie_en_cours}|non)style="display:none;"]>
+		<div class='boutons'[(#ENV{_saisie_en_cours}|non)style="display:none;"]>
 			<span class='image_loading'>&nbsp;</span>
-			<input type='submit' class='btn submit' name='annuler' value='<:bouton_annuler:>' />
-			<input type='submit' class='btn submit' name='changer' value='<:bouton_changer:>' />
-		</p>
+			<div class="groupe-boutons">
+				<input type='submit' class='btn submit' name='annuler' value='<:bouton_annuler:>' />
+				<input type='submit' class='btn submit' name='changer' value='<:bouton_changer:>' />
+			</div>
+		</div>
 	</div></form>
 	]
 </div>

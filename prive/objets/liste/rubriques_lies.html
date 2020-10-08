@@ -33,13 +33,13 @@
 				<a href="[(#URL_ECRIRE{rubrique_edit,id_rubrique=#ID_RUBRIQUE})]" title="<:icone_modifier_rubrique|attribut_html:>">#ID_RUBRIQUE</a>,
 				#ID_RUBRIQUE
 			})]</td>
-			<td class='action'><button type="submit" class="button link delete" name="supprimer_lien[rubrique-#ID_RUBRIQUE-#OBJET-#ID_OBJET]" value="X"><:lien_retirer_rubrique:> [(#CHEMIN_IMAGE{supprimer-12.png}|balise_img{'X'})]</button></td>
+			<td class='action'><button type="submit" class="supprimer link mini" name="supprimer_lien[rubrique-#ID_RUBRIQUE-#OBJET-#ID_OBJET]" value="X"><:lien_retirer_rubrique:></button></td>
 		</tr>
 	</BOUCLE_liste_rub>
 	</tbody>
 </table>
 [<p class='pagination'>(#PAGINATION{prive})</p>]
-[(#GRAND_TOTAL|>{3}|oui)<div class="action"><button type="submit" class="button link" name="supprimer_lien\[rubrique-*-#OBJET-#ID_OBJET\]" value="X"><:lien_retirer_toutes_rubriques:> [(#CHEMIN_IMAGE{supprimer-8.png}|balise_img{'X'})]</button></div>]
+[(#GRAND_TOTAL|>{3}|oui)<div class="action"><button type="submit" class="supprimer link mini" name="supprimer_lien\[rubrique-*-#OBJET-#ID_OBJET\]" value="X"><:lien_retirer_toutes_rubriques:></button></div>]
 </div>
 </B_liste_rub>
 <div class="liste-objets liste-objets-lies rubriques caption-wrap">
