@@ -93,7 +93,7 @@
 	</langue>
 	<langue code="fon" url="https://trad.spip.net/tradlang_module/spip?lang_cible=fon" total="641" traduits="445" relire="0" modifs="50" nouveaux="146" pourcent="69.42" />
 	<langue code="fr" url="https://trad.spip.net/tradlang_module/spip?lang_cible=fr" total="641" traduits="641" relire="0" modifs="0" nouveaux="0" pourcent="100.00" />
-	<langue code="fr_fem" url="https://trad.spip.net/tradlang_module/spip?lang_cible=fr_fem" total="641" traduits="638" relire="0" modifs="0" nouveaux="3" pourcent="99.53">
+	<langue code="fr_fem" url="https://trad.spip.net/tradlang_module/spip?lang_cible=fr_fem" total="641" traduits="641" relire="0" modifs="0" nouveaux="0" pourcent="100.00">
 		<traducteur nom="b_b" lien="https://trad.spip.net/auteur/b_b" />
 		<traducteur nom="Cerf" lien="https://trad.spip.net/auteur/cerf" />
 		<traducteur nom="denisb" lien="https://trad.spip.net/auteur/denisb" />
