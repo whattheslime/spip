@@ -322,14 +322,16 @@ button.bloc {
 .bouton_action_post.right,
 input.submit.right,
 input.reset.right,
-button.right {
+button.right,
+.groupe-boutons.right {
 	float: #ENV{right};
 }
 .bouton.left,
 .bouton_action_post.left,
 input.submit.left,
 input.reset.left,
-button.left {
+button.left ,
+.groupe-boutons.left {
 	float: #ENV{left};
 }
 
@@ -551,6 +553,11 @@ button.#VALEUR:not(.link):focus:before  {
  * <a class="bouton [variante]">…</a>
  */
 .bouton {}
+/* Garder la couleur de base pour les boutons liens externes */
+.bouton[rel=external],
+.bouton.spip_out {
+	color: hsla(0, 0%, 0%, 0.6);
+}
 
 
 /**
@@ -785,8 +792,10 @@ button.#VALEUR:not(.link):focus:before  {
 }
 
 /* Ajustements .link */
-.groupe-boutons > *.link {
+.groupe-boutons > *.link:not(:first-child) {
 	padding-left: #GET{tailles/normal/padding/1};
+}
+.groupe-boutons > *.link:not(:last-child) {
 	padding-right: #GET{tailles/normal/padding/1};
 }
 
@@ -803,7 +812,9 @@ button.#VALEUR:not(.link):focus:before  {
 <BOUCLE_fonds_clairs(DATA) {source table, #GET{fonds_clairs}} {","}>
 [(#VALEUR) ].bouton:not(.principal):not(.link):not(.secondaire):not(:hover):not(:focus),
 [(#VALEUR) ].bouton_action_post:not(.principal):not(.link):not(.secondaire) .submit:not(:hover):not(:focus),
-[(#VALEUR) ]button:not(.principal):not(.link):not(.secondaire):not(:hover):not(:focus)
+[(#VALEUR) ]button:not(.principal):not(.link):not(.secondaire):not(:hover):not(:focus),
+[(#VALEUR) ]input.submit:not(.principal):not(.link):not(.secondaire):not(:hover):not(:focus),
+[(#VALEUR) ]input.reset:not(.principal):not(.link):not(.secondaire):not(:hover):not(:focus)
 </BOUCLE_fonds_clairs>
 {
 	border-color: hsla(0, 0%, 0%, 0.1);
