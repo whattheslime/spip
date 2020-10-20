@@ -1044,7 +1044,10 @@ function public_phraser_html_dist($texte, $id_parent, &$boucles, $descr, $ligne 
 		$result->milieu = public_phraser_html_dist($milieu, $id_boucle, $boucles, $descr, $ligne_milieu);
 		// reserver la place dans la pile des boucles pour compiler ensuite dans le bon ordre
 		// ie les boucles qui apparaissent dans les partie conditionnelles doivent etre compilees apres cette boucle
-		$boucles[$id_boucle] = null;
+		// si il y a deja une boucle de ce nom, cela declenchera une erreur ensuite
+		if (empty($boucles[$id_boucle])){
+			$boucles[$id_boucle] = null;
+		}
 		$result->preaff = public_phraser_html_dist($result->preaff, $id_parent, $boucles, $descr, $ligne_preaff);
 		$result->avant = public_phraser_html_dist($result->avant, $id_parent, $boucles, $descr, $ligne_avant);
 		$result->apres = public_phraser_html_dist($result->apres, $id_parent, $boucles, $descr, $ligne_apres);
@@ -1058,7 +1061,6 @@ function public_phraser_html_dist($texte, $id_parent, &$boucles, $descr, $ligne 
 
 		// Verifier qu'il n'y a pas double definition
 		// apres analyse des sous-parties (pas avant).
-
 		if (!empty($boucles[$id_boucle])) {
 			$err_b_d = array(
 				'zbug_erreur_boucle_double',
