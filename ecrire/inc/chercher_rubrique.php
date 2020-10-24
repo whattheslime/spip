@@ -279,7 +279,7 @@ function selecteur_rubrique_html($id_rubrique, $type, $restreint, $idem = 0) {
  * @return string
  *     Code HTML du sélecteur
  */
-function selecteur_rubrique_ajax($id_rubrique, $type, $restreint, $idem = 0, $do) {
+function selecteur_rubrique_ajax($id_rubrique, $type, $restreint, $idem = 0, $do = 'aff') {
 
 	if ($id_rubrique) {
 		$titre = sql_getfetsel("titre", "spip_rubriques", "id_rubrique=" . intval($id_rubrique));
