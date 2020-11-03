@@ -442,7 +442,7 @@ input.reset.#_tailles:CLE.#VALEUR,
 {
 	padding-#ENV{left}: calc\([(#VALEUR{padding/1}) ]+[ (#VALEUR{icon-size}) ]+[ (#VALEUR{gutter})]\);
 	background-size: auto #VALEUR{icon-size};
-	background-position: left [(#VALEUR{padding/1})] center;
+	background-position: [(#ENV{left})] [(#VALEUR{padding/1})] center;
 }
 /* Avec icône HTML */
 .bouton.#CLE .icone-image img,
@@ -509,7 +509,7 @@ input.reset.#VALEUR
 {
 	padding-#ENV{left}: calc\([(#GET{tailles/normal/padding/1}) ]+[ (#GET{tailles/normal/icon-size}) ]+[ (#GET{tailles/normal/gutter})]\);
 	background-size: auto #GET{tailles/normal/icon-size};
-	background-position: center left #GET{tailles/normal/padding/1};
+	background-position: center [(#ENV{left})] #GET{tailles/normal/padding/1};
 	background-repeat: no-repeat;
 }
 /* Images */
