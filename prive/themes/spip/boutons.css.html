@@ -793,10 +793,10 @@ button.#VALEUR:not(.link):focus:before  {
 
 /* Ajustements .link */
 .groupe-boutons > *.link:not(:first-child) {
-	padding-left: #GET{tailles/normal/padding/1};
+	padding-#ENV{left}: #GET{tailles/normal/padding/1};
 }
 .groupe-boutons > *.link:not(:last-child) {
-	padding-right: #GET{tailles/normal/padding/1};
+	padding-#ENV{right}: #GET{tailles/normal/padding/1};
 }
 
 
