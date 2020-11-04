@@ -1560,11 +1560,10 @@ class phpthumb_functions {
 	 * @return array|bool
 	 */
 	public static function GetPixelColor(&$img, $x, $y) {
-		if (!is_resource($img)) {
-			return false;
+		if (is_resource($img) || (is_object($img) && $img instanceof \GdImage)) {
+			return @ImageColorsForIndex($img, @ImageColorAt($img, $x, $y));
 		}
-
-		return @ImageColorsForIndex($img, @ImageColorAt($img, $x, $y));
+		return false;
 	}
 
 	/**
