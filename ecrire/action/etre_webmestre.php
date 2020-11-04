@@ -56,6 +56,6 @@ function action_etre_webmestre_dist() {
 function base_etre_webmestre_dist() {
 	if ($GLOBALS['visiteur_session']['statut'] == '0minirezo' and $GLOBALS['visiteur_session']['webmestre'] !== 'oui') {
 		include_spip('action/editer_auteur');
-		instituer_auteur($GLOBALS['visiteur_session']['id_auteur'], array('webmestre' => 'oui'), true);
+		auteur_instituer($GLOBALS['visiteur_session']['id_auteur'], array('webmestre' => 'oui'), true);
 	}
 }
