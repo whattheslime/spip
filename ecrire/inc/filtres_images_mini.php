@@ -332,24 +332,31 @@ function image_passe_partout(
 	$cherche_image = false,
 	$process = 'AUTO'
 ) {
+	// PHP 7+ type hint
+	$img = (string)$img;
+	$taille_x = (int)$taille_x;
+	$taille_y = (int)$taille_y;
+	$force = (bool)$force;
+	$process = (string)$process;
+
 	if (!$img) {
 		return '';
 	}
 	list($hauteur, $largeur) = taille_image($img);
-	if ($taille_x == -1) {
+	if ($taille_x === -1) {
 		$taille_x = isset($GLOBALS['meta']['taille_preview']) ? $GLOBALS['meta']['taille_preview'] : 150;
 	}
-	if ($taille_y == -1) {
+	if ($taille_y === -1) {
 		$taille_y = $taille_x;
 	}
 
-	if ($taille_x == 0 and $taille_y > 0) {
+	if ($taille_x === 0 and $taille_y > 0) {
 		$taille_x = 1;
 	} # {0,300} -> c'est 300 qui compte
-	elseif ($taille_x > 0 and $taille_y == 0) {
+	elseif ($taille_x > 0 and $taille_y === 0) {
 		$taille_y = 1;
 	} # {300,0} -> c'est 300 qui compte
-	elseif ($taille_x == 0 and $taille_y == 0) {
+	elseif ($taille_x == 0 and $taille_y === 0) {
 		return '';
 	}
 
@@ -398,23 +405,39 @@ function image_passe_partout(
  * @return string
  *     Code HTML de l'image ou du texte.
  **/
-function image_reduire($img, $taille = -1, $taille_y = -1, $force = false, $cherche_image = false, $process = 'AUTO') {
+function image_reduire(
+	$img,
+	$taille = -1,
+	$taille_y = -1,
+	$force = false,
+	$cherche_image = false,
+	$process = 'AUTO'
+) {
+	// PHP 7+ type hint
+	$img = (string)$img;
+	$taille = (int)$taille;
+	$taille_y = (int)$taille_y;
+	$force = (bool)$force;
+	$process = (string)$process;
+
 	// Determiner la taille x,y maxi
 	// prendre le reglage de previsu par defaut
-	if ($taille == -1) {
-		$taille = (isset($GLOBALS['meta']['taille_preview']) and intval($GLOBALS['meta']['taille_preview'])) ? intval($GLOBALS['meta']['taille_preview']) : 150;
+	if ($taille === -1) {
+		$taille = (isset($GLOBALS['meta']['taille_preview']) and intval($GLOBALS['meta']['taille_preview']))
+			? intval($GLOBALS['meta']['taille_preview'])
+			: 150;
 	}
-	if ($taille_y == -1) {
+	if ($taille_y === -1) {
 		$taille_y = $taille;
 	}
 
-	if ($taille == 0 and $taille_y > 0) {
+	if ($taille === 0 and $taille_y > 0) {
 		$taille = 10000;
 	} # {0,300} -> c'est 300 qui compte
-	elseif ($taille > 0 and $taille_y == 0) {
+	elseif ($taille > 0 and $taille_y === 0) {
 		$taille_y = 10000;
 	} # {300,0} -> c'est 300 qui compte
-	elseif ($taille == 0 and $taille_y == 0) {
+	elseif ($taille == 0 and $taille_y === 0) {
 		return '';
 	}
 
@@ -439,6 +462,11 @@ function image_reduire($img, $taille = -1, $taille_y = -1, $force = false, $cher
  *     Code HTML de l'image ou du texte.
  **/
 function image_reduire_par($img, $val = 1, $force = false) {
+	// PHP 7+ type hint
+	$img = (string)$img;
+	$val = (int)$val;
+	$force = (bool)$force;
+
 	list($hauteur, $largeur) = taille_image($img);
 
 	$l = round($largeur / $val);
