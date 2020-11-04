@@ -347,6 +347,7 @@ if (
 if (
 	isset($_REQUEST['exec'])
 	and $_REQUEST['exec'] == 'auteurs'
+	and isset($_REQUEST['recherche'])
 	and preg_match(',[<],', (string)$_REQUEST['recherche'])
 ) {
 	$ecran_securite_raison = "recherche";
@@ -354,6 +355,7 @@ if (
 if (
 	isset($_REQUEST['exec'])
 	and $_REQUEST['exec'] == 'info_plugin'
+	and isset($_REQUEST['plugin'])
 	and preg_match(',[<],', (string)$_REQUEST['plugin'])
 ) {
 	$ecran_securite_raison = "plugin";
