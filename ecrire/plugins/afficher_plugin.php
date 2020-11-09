@@ -164,13 +164,21 @@ function plugin_resume($info, $dir_plugins, $plug_file, $url_page) {
 
 	$url = parametre_url($url_page, "plugin", substr($dir, strlen(_DIR_RACINE)));
 
+	$icon_class = 'icon';
+	$img = '';
 	if (isset($info['logo']) and $i = trim($info['logo'])) {
-		include_spip("inc/filtres_images_mini");
-		$i = inserer_attribut(image_reduire("$dir/$i", 32), 'alt', '');
-		$i = "<div class='icon'><a href='$url' rel='info'>$i</a></div>";
-	} else {
-		$i = '';
+		if ($img = chemin_image("$dir/$i")) {
+			$img = http_img_pack($img, '', " width='32' height='32'", '', ['variante_svg_si_possible' => true, 'chemin_image' => false]);
+		}
 	}
+	if (!$img) {
+		$img = http_img_pack("plugin-xx.svg", '', " width='32' height='32'");
+		$icon_class .= ' no-logo';
+	}
+	else {
+#		$img = "<img src='$img' width='32' height='32' alt='' />";
+	}
+	$i = "<div class='$icon_class'><a href='$url' rel='info'>$img</a></div>";
 
 	return "<div class='resume'>"
 	. "<h3><a href='$url' rel='info'>"
