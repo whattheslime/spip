@@ -1,6 +1,6 @@
-[(#ID_OBJET|oui)
+[(#ID_OBJET|intval|oui)
 	[(#AUTORISER{modifier,#OBJET,#ID_OBJET}|sinon_interdire_acces)]
-][(#ID_OBJET|non)
+][(#ID_OBJET|intval|non)
 	#SET{id_rubrique,#ENV{id_rubrique,#ENV{id_parent}}|trouver_rubrique_creer_objet{#OBJET}}
 	[(#GET{id_rubrique}|?{[(#AUTORISER{[creer(#OBJET)dans],rubrique,#GET{id_rubrique}})],[(#AUTORISER{creer,#OBJET})]}|sinon_interdire_acces)]
 ]
