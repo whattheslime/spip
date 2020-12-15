@@ -3128,7 +3128,7 @@ function aider($aide = '', $distante = false) {
 function exec_info_dist() {
 
 	include_spip('inc/autoriser');
-	if (autoriser('webmestre')) {
+	if (autoriser('phpinfos')) {
 		$cookies_masques = ['spip_session', 'PHPSESSID'];
 		$cookies_backup = [];
 		foreach ($cookies_masques as $k) {
