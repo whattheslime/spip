@@ -128,7 +128,7 @@ function format_suite_html($args) {
 		}
 	}
 
-	return join("", array_map('reset', $args));
+	return join("", array_map(function($arg) { return reset($arg); }, $args));
 }
 
 function format_texte_html($texte) {
