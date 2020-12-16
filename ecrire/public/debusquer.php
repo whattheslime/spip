@@ -204,8 +204,7 @@ function debusquer_bandeau($erreurs) {
  * @return string Code HTML
  **/
 function debusquer_contexte($env) {
-
-	if (is_array($env_tab = @unserialize($env))) {
+	if (is_string($env) and is_array($env_tab = @unserialize($env))) {
 		$env = $env_tab;
 	}
 
