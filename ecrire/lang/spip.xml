@@ -71,11 +71,12 @@
 		<traducteur nom="gpl" lien="https://trad.spip.net/auteur/gpl" />
 		<traducteur nom="Matthieu Marcillaud" lien="https://trad.spip.net/auteur/matthieu-marcillaud" />
 	</langue>
-	<langue code="es" url="https://trad.spip.net/tradlang_module/spip?lang_cible=es" total="641" traduits="633" relire="2" modifs="1" nouveaux="5" pourcent="98.75">
+	<langue code="es" url="https://trad.spip.net/tradlang_module/spip?lang_cible=es" total="641" traduits="641" relire="0" modifs="0" nouveaux="0" pourcent="100.00">
 		<traducteur nom="b_b" lien="https://trad.spip.net/auteur/b_b" />
 		<traducteur nom="dani" lien="https://trad.spip.net/auteur/dani" />
 		<traducteur nom="Freddy" lien="https://trad.spip.net/auteur/freddy" />
 		<traducteur nom="jotacese" lien="https://trad.spip.net/auteur/jotacese" />
+		<traducteur nom="juanalbglz" lien="https://trad.spip.net/auteur/juanalbglz" />
 		<traducteur nom="kent1" lien="https://trad.spip.net/auteur/kent1" />
 		<traducteur nom="Raquel S. Bujaldón" lien="https://trad.spip.net/auteur/raquel-s-bujaldon" />
 		<traducteur nom="severo" lien="https://trad.spip.net/auteur/severo" />
