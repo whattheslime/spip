@@ -3677,10 +3677,10 @@ function encoder_contexte_ajax($c, $form = '', $emboite = null, $ajaxid = '') {
 	$cle = calculer_cle_action($form . $c);
 	$c = "$cle:$c";
 
-	// on ne stocke pas les contextes dans des fichiers caches
-	// par defaut, sauf si cette configuration a ete forcee
-	// OU que la longueur de l''argument generee est plus long
-	// que ce que telere Suhosin.
+	// on ne stocke pas les contextes dans des fichiers en cache
+	// par defaut, sauf si cette configuration a été forcée
+	// OU que la longueur de l’argument géneré est plus long
+	// que ce qui est toléré.
 	$cache_contextes_ajax = (defined('_CACHE_CONTEXTES_AJAX') and _CACHE_CONTEXTES_AJAX);
 	if (!$cache_contextes_ajax) {
 		$env = $c;
@@ -3694,9 +3694,20 @@ function encoder_contexte_ajax($c, $form = '', $emboite = null, $ajaxid = '') {
 		}
 		$env = _xor($env);
 		$env = base64_encode($env);
-		// tester Suhosin et la valeur maximale des variables en GET...
-		if ($max_len = @ini_get('suhosin.get.max_value_length')
-			and $max_len < ($len = strlen($env))
+		$len = strlen($env);
+		// Si l’url est trop longue pour le navigateur
+		$max_len = _CACHE_CONTEXTES_AJAX_SUR_LONGUEUR;
+		if ($len > $max_len) {
+			$cache_contextes_ajax = true;
+			spip_log("Contextes AJAX forces en fichiers !"
+				. " Cela arrive lorsque la valeur du contexte" 
+				. " depasse la longueur maximale autorisee ($max_len). Ici : $len."
+				, _LOG_AVERTISSEMENT);
+		}
+		// Sinon si Suhosin est actif et a une la valeur maximale des variables en GET...
+		elseif (
+			$max_len = @ini_get('suhosin.get.max_value_length')
+			and $max_len < $len
 		) {
 			$cache_contextes_ajax = true;
 			spip_log("Contextes AJAX forces en fichiers !"
@@ -3705,7 +3716,8 @@ function encoder_contexte_ajax($c, $form = '', $emboite = null, $ajaxid = '') {
 				. " ($max_len) dans 'suhosin.get.max_value_length'. Ici : $len."
 				. " Vous devriez modifier les parametres de Suhosin"
 				. " pour accepter au moins 1024 caracteres.", _LOG_AVERTISSEMENT);
-		}
+		} 
+
 	}
 
 	if ($cache_contextes_ajax) {
