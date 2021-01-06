@@ -514,6 +514,13 @@ if (!defined('_OUTILS_DEVELOPPEURS')) {
 	define('_OUTILS_DEVELOPPEURS', false);
 }
 
+if (!defined('_CACHE_CONTEXTES_AJAX_SUR_LONGUEUR')) {
+	/** 
+	 * Basculer les contextes ajax en fichier si la longueur d’url est trop grande 
+	 * @var int Nombre de caractères */
+	define('_CACHE_CONTEXTES_AJAX_SUR_LONGUEUR', 2000);
+}
+
 // charger systematiquement inc/autoriser dans l'espace restreint
 if (test_espace_prive()) {
 	include_spip('inc/autoriser');
