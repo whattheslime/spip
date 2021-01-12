@@ -32,7 +32,7 @@ include_spip('inc/texte');
  * @return string
  */
 function nettoyer_titre_email($titre) {
-	return str_replace("\n", ' ', textebrut(corriger_typo($titre)));
+	return str_replace("\n", ' ', nettoyer_caracteres_mail(textebrut(corriger_typo($titre))));
 }
 
 /**
