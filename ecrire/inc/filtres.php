@@ -4902,3 +4902,39 @@ function filtre_compacte_dist($source, $format = null) {
 
 	return $source;
 }
+
+
+/**
+ * Afficher partiellement un mot de passe que l'on ne veut pas rendre lisible par un champ hidden
+ * @param string $passe
+ * @param bool $afficher_partiellement
+ * @param int|null $portion_pourcent
+ * @return string
+ */
+function spip_affiche_mot_de_passe_masque($passe, $afficher_partiellement = false, $portion_pourcent = null) {
+	$l = strlen($passe);
+
+	if ($l<=8 or !$afficher_partiellement){
+		if (!$l) {
+			return ''; // montrer qu'il y a pas de mot de passe si il y en a pas
+		}
+		return str_pad('',$afficher_partiellement ? $l : 16,'*');
+	}
+
+	if (is_null($portion_pourcent)) {
+		if (!defined('_SPIP_AFFICHE_MOT_DE_PASSE_MASQUE_PERCENT')) {
+			define('_SPIP_AFFICHE_MOT_DE_PASSE_MASQUE_PERCENT', 20); // 20%
+		}
+		$portion_pourcent = _SPIP_AFFICHE_MOT_DE_PASSE_MASQUE_PERCENT;
+	}
+	if ($portion_pourcent >= 100) {
+		return $passe;
+	}
+	$e = intval(ceil($l * $portion_pourcent / 100 / 2));
+	$e = max($e, 0);
+	$mid = str_pad('',$l-2*$e,'*');
+	if ($e>0 and strlen($mid)>8){
+		$mid = '***...***';
+	}
+	return substr($passe,0,$e) . $mid . ($e > 0 ? substr($passe,-$e) : '');
+}
