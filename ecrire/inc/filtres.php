@@ -4548,7 +4548,7 @@ function filtre_print_dist($u, $join = "<br />", $indent = 0) {
  *
  * @param string $objet
  * @param string $info
- * @return string
+ * @return string|array
  */
 function objet_info($objet, $info) {
 	$table = table_objet_sql($objet);
