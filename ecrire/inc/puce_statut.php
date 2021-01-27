@@ -403,12 +403,9 @@ function puce_statut_changement_rapide(
 
 		$nom = "puce_statut_";
 		$action = generer_url_ecrire('puce_statut', "", true);
-		$action = "if (!this.puce_loaded) { this.puce_loaded = true; prepare_selec_statut(this, '$nom', '$type', '$id', '$action'); }";
-		$over = " onmouseover=\"$action\"";
-
 		$lang_dir = lang_dir(lang_typo());
 
-		return "<span class='puce_objet $type' id='$nom$type$id' dir='$lang_dir'$over>"
+		return "<span class='puce_objet $type' id='$nom$type$id' dir='$lang_dir' data-puce-nom='$nom' data-puce-type='$type' data-puce-id='$id' data-puce-action='$action'>"
 		. $inser_puce
 		. '</span>';
 	}
@@ -417,10 +414,9 @@ function puce_statut_changement_rapide(
 
 function afficher_script_statut($id, $type, $n, $img, $statut, $titre, $act = '') {
 	$h = generer_action_auteur("instituer_objet", "$type-$id-$statut");
-	$h = "selec_statut('$id', '$type', $n, jQuery('img',this).attr('src'), '$h');return false;";
 	$t = supprimer_tags($titre);
 
-	return "<a href=\"#\" onclick=\"$h\" title=\"$t\"$act>" . http_img_pack($img, $t) . "</a>";
+	return "<a href=\"#\" data-puce-id=\"$id\" data-puce-type=\"$type\" data-puce-decal=\"$n\" data-puce-action=\"$h\" title=\"$t\"$act>" . http_img_pack($img, $t) . "</a>";
 }
 
 // compat
