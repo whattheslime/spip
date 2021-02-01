@@ -4408,7 +4408,7 @@ function env_to_params($env, $ignore_params = array()) {
 	if ($env) {
 		foreach ($env as $i => $j) {
 			if (is_string($j) and !in_array($i, $ignore_params)) {
-				$texte .= "<param name='" . $i . "'\n\tvalue='" . $j . "' />";
+				$texte .= "<param name='" . attribut_html($i) . "'\n\tvalue='" . attribut_html($j) . "' />";
 			}
 		}
 	}
@@ -4447,7 +4447,7 @@ function env_to_attributs($env, $ignore_params = array()) {
 	if ($env) {
 		foreach ($env as $i => $j) {
 			if (is_string($j) and !in_array($i, $ignore_params)) {
-				$texte .= $i . "='" . $j . "' ";
+				$texte .= attribut_html($i) . "='" . attribut_html($j) . "' ";
 			}
 		}
 	}
