@@ -54,8 +54,24 @@ function formulaires_editer_article_charger_dist(
 	$row = array(),
 	$hidden = ''
 ) {
-	$valeurs = formulaires_editer_objet_charger('article', $id_article, $id_rubrique, $lier_trad, $retour, $config_fonc,
-		$row, $hidden);
+
+	$valeurs = formulaires_editer_objet_charger(
+		'article',
+		$id_article,
+		$id_rubrique,
+		$lier_trad,
+		$retour,
+		$config_fonc,
+		$row,
+		$hidden
+	);
+
+	if (test_formulaire_inclus_par_modele()) {
+		if (intval($id_article) and !autoriser('modifier', 'article', intval($id_article))) {
+			$valeurs['editable'] = '';
+		}
+	}
+
 	// il faut enlever l'id_rubrique car la saisie se fait sur id_parent
 	// et id_rubrique peut etre passe dans l'url comme rubrique parent initiale
 	// et sera perdue si elle est supposee saisie

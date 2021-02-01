@@ -55,8 +55,25 @@ function formulaires_editer_rubrique_charger_dist(
 	$row = array(),
 	$hidden = ''
 ) {
-	return formulaires_editer_objet_charger('rubrique', $id_rubrique, $id_parent, $lier_trad, $retour, $config_fonc, $row,
-		$hidden);
+
+	$valeurs = formulaires_editer_objet_charger(
+		'rubrique',
+		$id_rubrique,
+		$id_parent,
+		$lier_trad,
+		$retour,
+		$config_fonc,
+		$row,
+		$hidden
+	);
+
+	if (test_formulaire_inclus_par_modele()){
+		if (intval($id_rubrique) and !autoriser('modifier', 'rubrique', intval($id_rubrique))){
+			$valeurs['editable'] = '';
+		}
+	}
+
+	return $valeurs;
 }
 
 /**
