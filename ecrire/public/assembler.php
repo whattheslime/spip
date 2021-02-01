@@ -345,6 +345,9 @@ function public_produire_page_dist(
 // 4: langue
 
 function inserer_balise_dynamique($contexte_exec, $contexte_compil) {
+	if (!empty($GLOBALS["balise_dyn_appellee_par_modele"])) {
+		unset($GLOBALS["balise_dyn_appellee_par_modele"]);
+	}
 	if (!is_array($contexte_exec)) {
 		echo $contexte_exec;
 	} // message d'erreur etc
@@ -455,6 +458,11 @@ function message_page_indisponible($page, $contexte) {
 	$page['status'] = $contexte['status'];
 
 	return $page;
+}
+
+function arguments_balise_dyn_depuis_modele($arg) {
+	$GLOBALS["balise_dyn_appellee_par_modele"] = $arg;
+	return $arg;
 }
 
 // temporairement ici : a mettre dans le futur inc/modeles
