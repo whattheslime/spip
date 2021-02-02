@@ -549,7 +549,7 @@ function image_filtrer($args) {
  * @return array
  *     Liste (hauteur, largeur) en pixels
  **/
-function taille_image($img) {
+function taille_image($img, $force_refresh = false) {
 
 	static $largeur_img = array(), $hauteur_img = array();
 	$srcWidth = 0;
@@ -576,10 +576,10 @@ function taille_image($img) {
 	}
 
 	$srcsize = false;
-	if (isset($largeur_img[$src])) {
+	if (isset($largeur_img[$src]) and !$force_refresh) {
 		$srcWidth = $largeur_img[$src];
 	}
-	if (isset($hauteur_img[$src])) {
+	if (isset($hauteur_img[$src]) and !$force_refresh) {
 		$srcHeight = $hauteur_img[$src];
 	}
 	if (!$srcWidth or !$srcHeight) {
