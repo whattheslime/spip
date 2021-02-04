@@ -198,7 +198,7 @@ function traiter_formulaires_dynamiques($get = false) {
 
 
 		// inclure mes_fonctions et autres filtres avant verifier/traiter
-		include_spip('public/parametrer');
+		include_fichiers_fonctions();
 		// ainsi que l'API SQL bien utile dans verifier/traiter
 		include_spip('base/abstract_sql');
 

@@ -14,22 +14,7 @@ if (!defined('_ECRIRE_INC_VERSION')) {
 	return;
 }
 
-include_spip('inc/lang');
-
-// NB: mes_fonctions peut initialiser $dossier_squelettes (old-style)
-// donc il faut l'inclure "en globals"
-if ($f = find_in_path('mes_fonctions.php')) {
-	global $dossier_squelettes;
-	include_once(_ROOT_CWD . $f);
-}
-
-if (@is_readable(_CACHE_PLUGINS_FCT)) {
-	// chargement optimise precompile
-	include_once(_CACHE_PLUGINS_FCT);
-}
-if (test_espace_prive()) {
-	include_spip('inc/filtres_ecrire');
-}
+include_fichiers_fonctions();
 
 # Determine le squelette associe a une requete 
 # et l'applique sur le contexte, le nom du cache et le serveur

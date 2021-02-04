@@ -171,6 +171,34 @@ function require_spip($f) {
 	return find_in_path($f . '.php', '', 'required');
 }
 
+
+/**
+ * Raccourci pour inclure mes_fonctions.php et tous les fichiers _fonctions.php des plugin
+ * quand on a besoin dans le PHP de filtres/fonctions qui y sont definis
+ */
+function include_fichiers_fonctions() {
+	static $done = false;
+	if (!$done) {
+		include_spip('inc/lang');
+
+		// NB: mes_fonctions peut initialiser $dossier_squelettes (old-style)
+		// donc il faut l'inclure "en globals"
+		if ($f = find_in_path('mes_fonctions.php')) {
+			global $dossier_squelettes;
+			include_once(_ROOT_CWD . $f);
+		}
+
+		if (@is_readable(_CACHE_PLUGINS_FCT)) {
+			// chargement optimise precompile
+			include_once(_CACHE_PLUGINS_FCT);
+		}
+		if (test_espace_prive()) {
+			include_spip('inc/filtres_ecrire');
+		}
+		$done = true;
+	}
+}
+
 /**
  * Exécute une fonction (appellée par un pipeline) avec la donnée transmise.
  *

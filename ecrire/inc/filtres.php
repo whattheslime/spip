@@ -92,6 +92,8 @@ function chercher_filtre($fonc, $default = null) {
 
 		return $f;
 	}
+
+	include_fichiers_fonctions();
 	foreach (array('filtre_' . $fonc, 'filtre_' . $fonc . '_dist', $fonc) as $f) {
 		trouver_filtre_matrice($f); // charge des fichiers spécifiques éventuels
 		// fonction ou name\space\fonction
