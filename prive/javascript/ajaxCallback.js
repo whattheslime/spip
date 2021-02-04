@@ -1042,6 +1042,18 @@ function spip_logo_survol_out() {
 	}
 }
 
+function puce_enable_survol() {
+	console.log(this);
+	jQuery('span.puce_objet_popup a',this).not('.puce-survol-enabled').click(function(){
+		selec_statut(jQuery(this).attr('data-puce-id'), jQuery(this).attr('data-puce-type'), jQuery(this).attr('data-puce-decal'), jQuery('img',this).attr('src'), jQuery(this).attr('data-puce-action'));
+		return false;
+	}).addClass('puce-survol-enabled');
+	jQuery('span.puce_objet',this).not('.puce-survol-enabled').mouseover(function(){
+		if (!this.puce_loaded) {
+			this.puce_loaded = true; prepare_selec_statut(this, jQuery(this).attr('data-puce-nom'), jQuery(this).attr('data-puce-type'), jQuery(this).attr('data-puce-id'), jQuery(this).attr('data-puce-action'));
+		}
+	}).addClass('puce-survol-enabled');
+}
 
 // Ajaxer les formulaires qui le demandent, au demarrage
 if (!window.var_zajax_content)
@@ -1052,7 +1064,7 @@ jQuery(function() {
 	jQuery('div.ajaxbloc').ajaxbloc();
 	jQuery("input[placeholder]:text").placeholderLabel();
 	jQuery('.spip_logo_survol').hover(spip_logo_survol_hover, spip_logo_survol_out);
-	jQuery('span.puce_objet',this).mouseover(function(){if (!this.puce_loaded) { this.puce_loaded = true; prepare_selec_statut(this, jQuery(this).attr('data-puce-nom'), jQuery(this).attr('data-puce-type'), jQuery(this).attr('data-puce-id'), jQuery(this).attr('data-puce-action')); }});
+	puce_enable_survol.apply(this);
 });
 
 // ... et a chaque fois que le DOM change
@@ -1068,7 +1080,6 @@ onAjaxLoad(function() {
 			jQuery('div.ajaxbloc', this).ajaxbloc();
 		jQuery("input[placeholder]:text",this).placeholderLabel();
 		jQuery('.spip_logo_survol',this).hover(spip_logo_survol_hover, spip_logo_survol_out);
-		jQuery('span.puce_objet_popup a',this).click(function(){selec_statut(jQuery(this).attr('data-puce-id'), jQuery(this).attr('data-puce-type'), jQuery(this).attr('data-puce-decal'), jQuery('img',this).attr('src'), jQuery(this).attr('data-puce-action'));return false;});
-		jQuery('span.puce_objet',this).mouseover(function(){if (!this.puce_loaded) { this.puce_loaded = true; prepare_selec_statut(this, jQuery(this).attr('data-puce-nom'), jQuery(this).attr('data-puce-type'), jQuery(this).attr('data-puce-id'), jQuery(this).attr('data-puce-action')); }});
+		puce_enable_survol.apply(this);
 	}
 });
