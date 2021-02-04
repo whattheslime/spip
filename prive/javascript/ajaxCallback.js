@@ -1043,7 +1043,6 @@ function spip_logo_survol_out() {
 }
 
 function puce_enable_survol() {
-	console.log(this);
 	jQuery('span.puce_objet_popup a',this).not('.puce-survol-enabled').click(function(){
 		selec_statut(jQuery(this).attr('data-puce-id'), jQuery(this).attr('data-puce-type'), jQuery(this).attr('data-puce-decal'), jQuery('img',this).attr('src'), jQuery(this).attr('data-puce-action'));
 		return false;
