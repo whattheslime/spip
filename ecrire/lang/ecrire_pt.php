@@ -379,7 +379,7 @@ os autores apagados, por um ícone cinzento.',
 	'info_nouvel_article' => 'Novo artigo',
 	'info_nouvelle_traduction' => 'Nova tradução :',
 	'info_numero_article' => 'ARTIGO NÚMERO :',
-	'info_obligatoire_02' => '[Obigatório]',
+	'info_obligatoire_02' => '[Obigatório]', # MODIF
 	'info_option_accepter_visiteurs' => 'Aceitar a inscrição de visitantes do sítio público',
 	'info_option_ne_pas_accepter_visiteurs' => 'Recusar a inscrição de visitantes',
 	'info_options_avancees' => 'OPÇÕES AVANÇADAS',
@@ -701,7 +701,7 @@ numa cor que indica o seu estado:',
 
 	// R
 	'repertoire_plugins' => 'Directório :',
-	'required' => '[Obigatório]',
+	'required' => '[Obigatório]', # MODIF
 
 	// S
 	'sans_heure' => 'tempo não especificado',

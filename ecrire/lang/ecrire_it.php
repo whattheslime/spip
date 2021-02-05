@@ -390,7 +390,7 @@ le informazioni contenute nel database sono probabilmente andate perse.<br />{{R
 	'info_nouvel_article' => 'Nuovo articolo',
 	'info_nouvelle_traduction' => 'Nuova traduzione:',
 	'info_numero_article' => 'ARTICOLO NUMERO:',
-	'info_obligatoire_02' => '(Obbligatorio)',
+	'info_obligatoire_02' => '(Obbligatorio)', # MODIF
 	'info_option_accepter_visiteurs' => 'Accetta l’iscrizione di utenti del sito pubblico',
 	'info_option_ne_pas_accepter_visiteurs' => 'Rifiuta l’iscrizione di utenti',
 	'info_options_avancees' => 'OPZIONE AVANZATA',
@@ -724,7 +724,7 @@ Le traduzioni sono associate all’originale,
 
 	// R
 	'repertoire_plugins' => 'Cartella:',
-	'required' => '(Obbligatorio)',
+	'required' => '(Obbligatorio)', # MODIF
 
 	// S
 	'sans_heure' => 'ora mancante',

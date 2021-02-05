@@ -380,7 +380,7 @@ gewiste auteurs met een grijze.',
 	'info_nouvel_article' => 'Nieuw artikel',
 	'info_nouvelle_traduction' => 'Nieuwe vertaling :',
 	'info_numero_article' => 'ARTIKEL NUMMER:',
-	'info_obligatoire_02' => '(verplicht)',
+	'info_obligatoire_02' => '(verplicht)', # MODIF
 	'info_option_accepter_visiteurs' => 'Inschrijving van bezoekers van de publieke site aanvaarden',
 	'info_option_ne_pas_accepter_visiteurs' => 'Inschrijving van bezoekers weigeren',
 	'info_options_avancees' => 'GEAVANCEERDE OPTIES',
@@ -720,7 +720,7 @@ een kleur geeft hun status aan:',
 
 	// R
 	'repertoire_plugins' => 'Map:',
-	'required' => '(verplicht)',
+	'required' => '(verplicht)', # MODIF
 
 	// S
 	'sans_heure' => 'zonder tijdstip',

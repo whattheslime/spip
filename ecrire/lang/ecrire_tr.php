@@ -331,7 +331,7 @@ yaratabilir. Bu da otomatik olarak bir galeri
 	'info_nouvel_article' => 'Yeni makale',
 	'info_nouvelle_traduction' => 'Yeni çeviri :',
 	'info_numero_article' => 'MAKALE N° :',
-	'info_obligatoire_02' => '(Zorunlu)',
+	'info_obligatoire_02' => '(Zorunlu)', # MODIF
 	'info_option_accepter_visiteurs' => 'Kamu sitesi ziyaretçilerinin kaydını kabul et',
 	'info_option_ne_pas_accepter_visiteurs' => 'Ziyaretçi kayıdını reddet',
 	'info_options_avancees' => 'GELİŞMİŞ SEÇENEKLER',

@@ -388,7 +388,7 @@ Daje dostęp do różnych funkcje konserwacji technicznej. Niektóre spośród n
 	'info_nouvel_article' => 'Nowy artykuł',
 	'info_nouvelle_traduction' => 'Nowe tłumaczenie:',
 	'info_numero_article' => 'ARTYKUŁ NUMER:',
-	'info_obligatoire_02' => '(obowiązkowo)',
+	'info_obligatoire_02' => '(obowiązkowo)', # MODIF
 	'info_option_accepter_visiteurs' => 'Zaakceptuj zapisy czytelników Twojej strony',
 	'info_option_ne_pas_accepter_visiteurs' => 'Wyłącz zapisy czytelników serwisu',
 	'info_options_avancees' => 'OPCJE ZAAWANSOWANE',
@@ -717,7 +717,7 @@ Przekłady są połączone z oryginałem, za pomocą koloru wskazującego na ich
 
 	// R
 	'repertoire_plugins' => 'Katalog :',
-	'required' => '(Obowiązkowo)',
+	'required' => '(Obowiązkowo)', # MODIF
 
 	// S
 	'sans_heure' => 'Czas nie określony',

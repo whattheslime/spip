@@ -374,7 +374,7 @@ Ihr Status wird durch die Farbe ihres Symbols angezeigt (Redakteur = gelb; Admin
 	'info_nouvel_article' => 'Neuer Artikel',
 	'info_nouvelle_traduction' => 'Neue Übersetzung:',
 	'info_numero_article' => 'ARTIKEL NUMMER:',
-	'info_obligatoire_02' => ' (Erforderlich)',
+	'info_obligatoire_02' => ' (Erforderlich)', # MODIF
 	'info_option_accepter_visiteurs' => 'Besucher dürfen sich als Leser der Website anmelden.',
 	'info_option_ne_pas_accepter_visiteurs' => 'Anmeldung von Lesern verhindern',
 	'info_options_avancees' => 'SPEZIALFUNKTIONEN',
@@ -711,7 +711,7 @@ in einer Farbe, die den Status anzeigt :',
 
 	// R
 	'repertoire_plugins' => 'Verzeichnis:',
-	'required' => ' (Erforderlich)',
+	'required' => ' (Erforderlich)', # MODIF
 
 	// S
 	'sans_heure' => 'Ohne Zeit',

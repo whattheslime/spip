@@ -378,7 +378,7 @@ Aqueli informacioun vi devon poudé estre prouvedi da l’aministratour dóu sis
 	'info_nouvel_article' => 'Nouvèl article',
 	'info_nouvelle_traduction' => 'Nouvela traducioun :',
 	'info_numero_article' => 'ARTICLE NÙMERO',
-	'info_obligatoire_02' => '(Oubligatori)',
+	'info_obligatoire_02' => '(Oubligatori)', # MODIF
 	'info_option_accepter_visiteurs' => 'Achetà l’inscricioun dei visitaire dóu sit public',
 	'info_option_ne_pas_accepter_visiteurs' => 'Refudà l’inscricioun dei visitour',
 	'info_options_avancees' => 'OUPCIOUN AVANÇADI',
@@ -715,7 +715,7 @@ embé una coulou qu’endica lou sieu estat :',
 
 	// R
 	'repertoire_plugins' => 'Repertori :',
-	'required' => ' (oubligatori)',
+	'required' => ' (oubligatori)', # MODIF
 
 	// S
 	'sans_heure' => 'sensa oura',

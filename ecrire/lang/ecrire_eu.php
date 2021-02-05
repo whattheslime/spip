@@ -366,7 +366,7 @@ Kasu honetan, SPIP-eko hurrengo funtzinalitateak ez dute funtzionatuko.',
 	'info_nouvel_article' => 'Artikulu berria',
 	'info_nouvelle_traduction' => 'Itzulpen berria:',
 	'info_numero_article' => 'Artikulua:',
-	'info_obligatoire_02' => '(nahitaezkoa)',
+	'info_obligatoire_02' => '(nahitaezkoa)', # MODIF
 	'info_option_accepter_visiteurs' => 'Gune publikoko bisitarien inskripzioa onartu',
 	'info_option_ne_pas_accepter_visiteurs' => 'Bisitarien inskripzioa ezetsi',
 	'info_options_avancees' => 'Aukera aurreratuak',
@@ -687,7 +687,7 @@ Hutsik utz ezazu ez betetzeko, espazio edo komak tarteka itzazu LDAP eremu bat b
 
 	// R
 	'repertoire_plugins' => 'Direktorioa :',
-	'required' => '(nahitaezkoa)',
+	'required' => '(nahitaezkoa)', # MODIF
 
 	// S
 	'sans_heure' => 'ordurik gabe',

@@ -355,7 +355,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'info_nouvel_article' => 'Neien Artikel',
 	'info_nouvelle_traduction' => 'Nei Iwwersetzung:',
 	'info_numero_article' => 'ARTIKEL NUMMER:',
-	'info_obligatoire_02' => '(obligatoresch)',
+	'info_obligatoire_02' => '(obligatoresch)', # MODIF
 	'info_option_accepter_visiteurs' => 'D’Aschreiwung vu Visiteuren unhuelen',
 	'info_option_ne_pas_accepter_visiteurs' => 'D’Aschreiwung vu Visiteuren refuséieren',
 	'info_options_avancees' => 'FORTGESCHRATTEN OPTIOUNEN',
@@ -667,7 +667,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 
 	// R
 	'repertoire_plugins' => 'Dossier:',
-	'required' => '(obligatoresch)',
+	'required' => '(obligatoresch)', # MODIF
 
 	// S
 	'sans_heure' => 'ouni Zäit',

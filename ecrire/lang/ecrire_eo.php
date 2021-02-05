@@ -380,7 +380,7 @@ postulas disponi je FTP-alirrajto al la retejo.</p>',
 	'info_nouvel_article' => 'Nova artikolo',
 	'info_nouvelle_traduction' => 'Nova tradukaĵo :',
 	'info_numero_article' => 'ARTIKOLO NUMERO :',
-	'info_obligatoire_02' => '(deviga)',
+	'info_obligatoire_02' => '(deviga)', # MODIF
 	'info_option_accepter_visiteurs' => 'Permesi registriĝojn de vizitantoj el la publika spaco',
 	'info_option_ne_pas_accepter_visiteurs' => 'Rifuzi registriĝon de vizitantoj',
 	'info_options_avancees' => 'PLENDETALAJ AGORDOJ',
@@ -720,7 +720,7 @@ La tradukoj estas kunligitaj al la originalo, kun koloro kiu indikas ties staton
 
 	// R
 	'repertoire_plugins' => 'Dosierujo :',
-	'required' => '(deviga)',
+	'required' => '(deviga)', # MODIF
 
 	// S
 	'sans_heure' => 'sen horo',

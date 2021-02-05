@@ -324,7 +324,7 @@ Aqueli informacions vos devon poder èstre provesidi per l’administrator dau s
 	'info_nouvel_article' => 'Article nòu',
 	'info_nouvelle_traduction' => 'Novèla revirada :',
 	'info_numero_article' => 'ARTICLE NÚMERO',
-	'info_obligatoire_02' => '(obligatòri)',
+	'info_obligatoire_02' => '(obligatòri)', # MODIF
 	'info_option_accepter_visiteurs' => 'Acceptar l’inscripcion dei visitaires dau sit public',
 	'info_option_ne_pas_accepter_visiteurs' => 'Refusar l’inscripcion de visitaires',
 	'info_options_avancees' => 'OPCIONS AVANÇADAS',
@@ -589,7 +589,7 @@ una color indica lo sieu estat :',
 
 	// R
 	'repertoire_plugins' => 'Repertòri:',
-	'required' => '(Obligatòri)',
+	'required' => '(Obligatòri)', # MODIF
 
 	// S
 	'sans_heure' => 'sensa ora',

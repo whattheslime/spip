@@ -382,7 +382,7 @@ Riskloù zo e vefe distrujet ho tiaz titouroù pe ne’z afe ket en-dro ken.<br 
 	'info_nouvel_article' => 'Pennad nevez',
 	'info_nouvelle_traduction' => 'Troidigezh nevez :',
 	'info_numero_article' => 'PENNAD NIVERENN :',
-	'info_obligatoire_02' => '[Rekis]',
+	'info_obligatoire_02' => '[Rekis]', # MODIF
 	'info_option_accepter_visiteurs' => 'Aotren enrolladennoù gweladennerien al lec’hienn foran',
 	'info_option_ne_pas_accepter_visiteurs' => 'Nac’hañ enrolladennoù ar weladennerien',
 	'info_options_avancees' => 'DIBARZHIOÙ PISHOC’H',
@@ -720,7 +720,7 @@ diskouezet en ul liv disheñvel, diouzh o stad :',
 
 	// R
 	'repertoire_plugins' => 'Kavlec’h :',
-	'required' => '[Rekis]',
+	'required' => '[Rekis]', # MODIF
 
 	// S
 	'sans_heure' => 'hep eur',

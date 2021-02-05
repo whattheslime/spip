@@ -375,7 +375,7 @@ desactivada per raons de seguretat (cosa normal en molts proveïdors d’hostatg
 	'info_nouvel_article' => 'Nou article',
 	'info_nouvelle_traduction' => 'Nova traducció:',
 	'info_numero_article' => 'ARTICLE NÚMERO:',
-	'info_obligatoire_02' => '[obligatori]',
+	'info_obligatoire_02' => '[obligatori]', # MODIF
 	'info_option_accepter_visiteurs' => 'Acceptar la inscripció dels visitants del lloc públic',
 	'info_option_ne_pas_accepter_visiteurs' => 'Refusar la inscripció de visitants',
 	'info_options_avancees' => 'OPCIONS AVANÇADES',
@@ -696,7 +696,7 @@ amb un color que indica el seu estat:',
 
 	// R
 	'repertoire_plugins' => 'Directori:',
-	'required' => '[obligatori]',
+	'required' => '[obligatori]', # MODIF
 
 	// S
 	'sans_heure' => 'sense hora',

@@ -390,7 +390,7 @@ via FTP.</p>',
 	'info_nouvel_article' => 'New article',
 	'info_nouvelle_traduction' => 'New translation:',
 	'info_numero_article' => 'ARTICLE NUMBER:',
-	'info_obligatoire_02' => '(Required)',
+	'info_obligatoire_02' => '(Required)', # MODIF
 	'info_option_accepter_visiteurs' => 'Allow visitor registration via the public site',
 	'info_option_ne_pas_accepter_visiteurs' => 'Disable visitor registration',
 	'info_options_avancees' => 'ADVANCED OPTIONS',
@@ -729,7 +729,7 @@ and their status is colour-coded:',
 
 	// R
 	'repertoire_plugins' => 'Directory:',
-	'required' => '(Required)',
+	'required' => '(Required)', # MODIF
 
 	// S
 	'sans_heure' => 'time not specified',

@@ -376,7 +376,7 @@ Os idiomas já utilizados no site (no topo da lista) não podem ser desativados.
 	'info_nouvel_article' => 'Nova matéria',
 	'info_nouvelle_traduction' => 'Nova tradução:',
 	'info_numero_article' => 'MATÉRIA NÚMERO:',
-	'info_obligatoire_02' => '(obrigatório)',
+	'info_obligatoire_02' => '(obrigatório)', # MODIF
 	'info_option_accepter_visiteurs' => 'Aceitar a inscrição de visitantes do site público',
 	'info_option_ne_pas_accepter_visiteurs' => 'Recusar a inscrição dos visitantes',
 	'info_options_avancees' => 'OPÇÕES AVANÇADAS',
@@ -706,7 +706,7 @@ As traduções estão associadas ao original, numa côr que indica o seu status:
 
 	// R
 	'repertoire_plugins' => 'Diretório:',
-	'required' => '(obrigatório)',
+	'required' => '(obrigatório)', # MODIF
 
 	// S
 	'sans_heure' => 'sem hora',

@@ -374,7 +374,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'info_nouvel_article' => '新規記事',
 	'info_nouvelle_traduction' => '新規翻訳：',
 	'info_numero_article' => '記事番号：',
-	'info_obligatoire_02' => '［必須］',
+	'info_obligatoire_02' => '［必須］', # MODIF
 	'info_option_accepter_visiteurs' => '公開サイトから、訪問者の登録を受け取る',
 	'info_option_ne_pas_accepter_visiteurs' => '訪問者の登録を断る',
 	'info_options_avancees' => '詳細オプション',
@@ -705,7 +705,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 
 	// R
 	'repertoire_plugins' => 'フォルダー：',
-	'required' => '［必須］',
+	'required' => '［必須］', # MODIF
 
 	// S
 	'sans_heure' => '時間指定なし',

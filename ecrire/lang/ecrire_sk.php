@@ -389,7 +389,7 @@ cez FTP.</p>',
 	'info_nouvel_article' => 'Nový článok',
 	'info_nouvelle_traduction' => 'Nový preklad:',
 	'info_numero_article' => 'ČLÁNOK ČÍSLO:',
-	'info_obligatoire_02' => ' (povinné)',
+	'info_obligatoire_02' => ' (povinné)', # MODIF
 	'info_option_accepter_visiteurs' => 'Povoliť registráciu návštevníkov cez verejne prístupnú stránku',
 	'info_option_ne_pas_accepter_visiteurs' => 'Deaktivovať registráciu návštevníkov',
 	'info_options_avancees' => 'ROZŠÍRENÉ MOŽNOSTI',
@@ -724,7 +724,7 @@ a stav ich spracovania je označený farbou:',
 
 	// R
 	'repertoire_plugins' => 'Priečinok:',
-	'required' => ' (povinné)',
+	'required' => ' (povinné)', # MODIF
 
 	// S
 	'sans_heure' => 'neurčený čas',

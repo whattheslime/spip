@@ -375,7 +375,7 @@ Los idiomas que ya se utilizan en el sitio (al principio de la lista) no pueden 
 	'info_nouvel_article' => 'Nuevo artículo',
 	'info_nouvelle_traduction' => 'Nueva traducción:',
 	'info_numero_article' => 'ARTÍCULO NÚMERO:',
-	'info_obligatoire_02' => '(obligatorio)',
+	'info_obligatoire_02' => '(obligatorio)', # MODIF
 	'info_option_accepter_visiteurs' => 'Aceptar la inscripción de los visitantes del sitio público',
 	'info_option_ne_pas_accepter_visiteurs' => 'Rechazar la inscripción de visitantes',
 	'info_options_avancees' => 'OPCIONES AVANZADAS',
@@ -714,7 +714,7 @@ Las traducciones están asociadas al original, en un color que indica su estado:
 
 	// R
 	'repertoire_plugins' => 'Carpeta:',
-	'required' => '(obligatorio)',
+	'required' => '(obligatorio)', # MODIF
 
 	// S
 	'sans_heure' => 'sin hora',

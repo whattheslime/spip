@@ -371,7 +371,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'info_nouvel_article' => 'Новая стаття',
 	'info_nouvelle_traduction' => 'Новий переклад:',
 	'info_numero_article' => 'НОМЕР СТАТТІ:',
-	'info_obligatoire_02' => '(обов’язково)',
+	'info_obligatoire_02' => '(обов’язково)', # MODIF
 	'info_option_accepter_visiteurs' => 'Увімкнути реєстрацію відвідувачів на сайті',
 	'info_option_ne_pas_accepter_visiteurs' => 'Відключити реєстрацію відвідувачів на сайті',
 	'info_options_avancees' => 'ДОДАТКОВІ НАЛАШТУВАННЯ',
@@ -699,7 +699,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 
 	// R
 	'repertoire_plugins' => 'Репозиторій:',
-	'required' => '(обов’язково)',
+	'required' => '(обов’язково)', # MODIF
 
 	// S
 	'sans_heure' => 'час невизначений',

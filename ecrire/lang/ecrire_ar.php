@@ -397,7 +397,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'info_nouvel_article' => 'مقال جديد',
 	'info_nouvelle_traduction' => 'ترجمة جديدة:',
 	'info_numero_article' => 'المقال رقم:',
-	'info_obligatoire_02' => '(إجباري)',
+	'info_obligatoire_02' => '(إجباري)', # MODIF
 	'info_option_accepter_visiteurs' => 'قبول تسجيل الزوار من الموقع العمومي',
 	'info_option_ne_pas_accepter_visiteurs' => 'رفض تسجيل الزوار من الموقع العمومي',
 	'info_options_avancees' => 'الخيارات المتطورة',
@@ -737,7 +737,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 
 	// R
 	'repertoire_plugins' => 'دليل:',
-	'required' => '(إجباري)',
+	'required' => '(إجباري)', # MODIF
 
 	// S
 	'sans_heure' => 'بدون توقيت الساعات',
