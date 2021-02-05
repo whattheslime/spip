@@ -607,6 +607,8 @@ function appliquer_adresse_site($adresse_site) {
 			$adresse_site = "http://$adresse_site";
 		}
 
+		$adresse_site = entites_html($adresse_site);
+
 		ecrire_meta('adresse_site', $adresse_site);
 	}
 
