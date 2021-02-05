@@ -397,7 +397,7 @@ exige d’avoir un accès FTP au site Web.</p>',
 	'info_nouvel_article' => 'Nouvel article',
 	'info_nouvelle_traduction' => 'Nouvelle traduction :',
 	'info_numero_article' => 'ARTICLE NUMÉRO :',
-	'info_obligatoire_02' => ' (obligatoire)',
+	'info_obligatoire_02' => '(obligatoire)',
 	'info_option_accepter_visiteurs' => 'Accepter l’inscription de visiteuses du site public',
 	'info_option_ne_pas_accepter_visiteurs' => 'Refuser l’inscription des visiteuses',
 	'info_options_avancees' => 'OPTIONS AVANCÉES',
@@ -737,7 +737,7 @@ dans une couleur qui indique leur état :',
 
 	// R
 	'repertoire_plugins' => 'Répertoire :',
-	'required' => ' (obligatoire)',
+	'required' => '(obligatoire)',
 
 	// S
 	'sans_heure' => 'sans heure',
