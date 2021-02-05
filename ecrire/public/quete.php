@@ -346,6 +346,8 @@ function quete_logo($cle_objet, $onoff, $id, $id_rubrique, $flag) {
 	include_spip('base/objets');
 	$nom = strtolower($onoff);
 
+	$cle_objet = id_table_objet($cle_objet);
+
 	while (1) {
 		$objet = objet_type($cle_objet);
 
