@@ -140,6 +140,7 @@
 		<traducteur nom="Nathan" lien="https://trad.spip.net/auteur/nathan" />
 		<traducteur nom="orlammd" lien="https://trad.spip.net/auteur/orlammd" />
 		<traducteur nom="PatV" lien="https://trad.spip.net/auteur/pat" />
+		<traducteur nom="periute" lien="https://trad.spip.net/auteur/periute" />
 		<traducteur nom="RealET" lien="https://trad.spip.net/auteur/realet" />
 	</langue>
 	<langue code="gl" url="https://trad.spip.net/tradlang_module/ecrire_?lang_cible=gl" total="815" traduits="693" relire="0" modifs="42" nouveaux="80" pourcent="85.03">
