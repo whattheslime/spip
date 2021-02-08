@@ -1074,6 +1074,38 @@ function critere_inverse_dist($idb, &$boucles, $crit) {
 	}
 }
 
+/**
+ * {par_ordre_liste champ,#LISTE{...}} pour trier selon une liste
+ * @param $idb
+ * @param $boucles
+ * @param $crit
+ * @return array|string
+ */
+function critere_par_ordre_liste_dist($idb, &$boucles, $crit){
+	$boucle = &$boucles[$idb];
+
+	$sens = $collecte = '';
+	if ($crit->not){
+		$sens = " . ' DESC'";
+	}
+
+	$crit2 = clone $crit;
+	$crit2->not = false;
+	$crit2->param = [reset($crit->param)];
+	$res = critere_parinverse($idb, $boucles, $crit2);
+
+	// erreur ?
+	if (is_array($res)){
+		return $res;
+	}
+
+	$_order = array_pop($boucle->order);
+
+	$_liste = calculer_liste($crit->param[1], array(), $boucles, $boucles[$idb]->id_parent);
+	$boucle->order[] = "'FIELD(' . $_order . ',' . ((\$zl=formate_liste_critere_par_ordre_liste($_liste,'" . $boucle->sql_serveur . "')) ? \$zl : '0').')'$sens";
+}
+
+
 // https://code.spip.net/@critere_agenda_dist
 function critere_agenda_dist($idb, &$boucles, $crit) {
 	$params = $crit->param;

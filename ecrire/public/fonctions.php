@@ -323,3 +323,24 @@ function tri_champ_select($t) {
 
 	return "''";
 }
+
+/**
+ * Fonction de mise en forme utilisee par le critere {par_ordre_liste..}
+ * @see critere_par_ordre_liste_dist()
+ *
+ * @param array $valeurs
+ * @param string $serveur
+ * @return string
+ */
+function formate_liste_critere_par_ordre_liste($valeurs, $serveur = ''){
+	if (!is_array($valeurs)){
+		return '';
+	}
+	$f = sql_serveur('quote', $serveur, true);
+	if (!is_string($f) or !$f){
+		return '';
+	}
+	$valeurs = implode(',', array_map($f, array_unique($valeurs)));
+
+	return $valeurs;
+}
