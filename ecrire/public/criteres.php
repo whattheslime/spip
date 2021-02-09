@@ -2638,7 +2638,7 @@ function calculer_critere_infixe_date($idb, &$boucles, $col) {
 			$col = "DATE_FORMAT($date_orig, \\'%H:%i\\')";
 			break;
 		case 'age':
-			$col = calculer_param_date("NOW()", $date_orig);
+			$col = calculer_param_date("\'' . date('Y-m-d H:i:00') . '\'", $date_orig);
 			$col_vraie = "";// comparer a un int (par defaut)
 			break;
 		case 'age_relatif':
