@@ -156,6 +156,11 @@ function picker_identifie_id_rapide($ref, $rubriques_ou_objets = false, $article
 		}
 	}
 
+	// si id numerique et un seul objet possible, pas d'ambiguite
+	if (is_numeric($ref) and count($objets) === 1) {
+		$ref = reset($objets) . $ref;
+	}
+
 	// Si la référence ne correspond à rien, c'est fini
 	if (!($match = typer_raccourci($ref))) {
 		return json_export(false);

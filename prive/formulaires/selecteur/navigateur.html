@@ -21,7 +21,7 @@
 	[(#ENV{limite_branche}|non)
 	[(#GRAND_TOTAL|<{#TOTAL_BOUCLE}|oui)
 	<div class='frame[ total_(#GRAND_TOTAL|max{#TOTAL_BOUCLE|moins{1}})] frame_0'><h2>[<a(#ENV{rubriques,0}|oui) href='#' onclick="jQuery(this).item_pick('rubrique|0','#ENV{name,id_item}','<:info_racine_site|texte_script|attribut_html:>','rubrique');return false;"
-><img class='add' src='#CHEMIN_IMAGE{ajouter-16.png}' alt='' /></a>]<:info_racine_site:></h2>
+>[(#CHEMIN_IMAGE{ajouter-16.png}|balise_img{'',add})]</a>]<:info_racine_site:></h2>
 	[(#INCLURE{fond=formulaires/selecteur/inc-nav-rubriques}{id_rubrique=0}{env})]</div>]]
 	<BOUCLE_contenu(HIERARCHIE){id_rubrique}{tout}{n-4,4}>#SET{n,0}
 	<div class='frame[ total_(#GRAND_TOTAL|min{#TOTAL_BOUCLE|moins{1}})][ frame_(#COMPTEUR_BOUCLE|moins{#GRAND_TOTAL|plus{1}|max{#TOTAL_BOUCLE}}|plus{#TOTAL_BOUCLE})]'>[(#ID_RUBRIQUE|=={#ENV{limite_branche}}|non)<a
