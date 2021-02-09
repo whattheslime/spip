@@ -220,7 +220,11 @@ img.aide {padding: 2px !important;box-sizing: border-box;}
 /* Champs particuliers, trans-forms */
 .formulaire_spip .editer_parent,
 .formulaire_spip .editer_groupe_mot,
-.formulaire_editer_auteur .editer_statut {background-color: [#(#ENV{couleur_claire}|couleur_eclaircir)];margin-top:5px;padding-bottom:[(#ENV{margin-bottom}|strdiv{2})em];}
+.formulaire_editer_auteur .editer_statut {margin-top:5px;padding-bottom:[(#ENV{margin-bottom}|strdiv{2})em];}
+.formulaire_spip .editer_parent:not(.erreur),
+.formulaire_spip .editer_groupe_mot:not(.erreur),
+.formulaire_editer_auteur .editer_statut:not(.erreur) {background-color: [#(#ENV{couleur_claire}|couleur_eclaircir)];}
+
 .formulaire_spip .editer_parent .rubrique_actuelle {clear:#ENV{left};}
 
 .formulaire_spip .editer.editer_parent label,
