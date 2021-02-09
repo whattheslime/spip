@@ -81,8 +81,14 @@ function formulaires_login_charger_dist($cible = '', $login = '', $prive = null)
 		}
 	}
 
+	$lang = $GLOBALS['spip_lang'];
 	include_spip('inc/auth');
 	$row = auth_informer_login($login);
+
+	// retablir la langue de l'URL si forcee (on ignore la langue de l'auteur dans ce cas)
+	if (_request('lang') === $lang and $GLOBALS['spip_lang'] !== $lang) {
+		changer_langue($lang);
+	}
 
 	// Construire l'environnement du squelette
 	// Ne pas proposer de "rester connecte quelques jours"
