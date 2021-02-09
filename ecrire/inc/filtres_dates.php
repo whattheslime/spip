@@ -197,10 +197,18 @@ function secondes($numdate) {
  * @link https://www.spip.net/5519
  *
  * @param string $numdate La date à extraire
+ * @param string $forme.
+ *	- si vide,  précise l'unité des minutes : 12h10min
+ *	- si 'abbr' ne précise pas l'unité des minutes : 12h10
  * @return string L'heure formatée dans la langue en cours.
  **/
-function heures_minutes($numdate) {
-	return _T('date_fmt_heures_minutes', array('h' => heures($numdate), 'm' => minutes($numdate)));
+function heures_minutes($numdate, $forme='') {
+	if ($forme !='abbr') {
+		return _T('date_fmt_heures_minutes', array('h' => heures($numdate), 'm' => minutes($numdate)));
+	}
+	else {
+		return _T('date_fmt_heures_minutes_court', array('h' => heures($numdate), 'm' => minutes($numdate)));
+	}
 }
 
 /**
