@@ -726,14 +726,14 @@ dans une couleur qui indique leur état :',
 
 	// Q
 	'queue_executer_maintenant' => 'Exécuter maintenant',
-	'queue_info_purger' => 'Vous pouvez supprimer tous les travaux en attente et réinitialiser la liste avec les travaux périodiques',
-	'queue_nb_jobs_in_queue' => '@nb@ travaux en attente',
-	'queue_next_job_in_nb_sec' => 'Prochain travail dans @nb@ s',
-	'queue_no_job_in_queue' => 'Aucun travail en attente',
-	'queue_one_job_in_queue' => '1 travail en attente',
+	'queue_info_purger' => 'Vous pouvez supprimer toutes les tâches de fond en attente et réinitialiser la liste avec les tâches périodiques',
+	'queue_nb_jobs_in_queue' => '@nb@ tâches en attente',
+	'queue_next_job_in_nb_sec' => 'Prochaine tâche dans @nb@ s',
+	'queue_no_job_in_queue' => 'Aucune tâche en attente',
+	'queue_one_job_in_queue' => '1 tâche en attente',
 	'queue_priorite_tache' => 'priorité',
-	'queue_purger_queue' => 'Réinitialiser la liste des travaux',
-	'queue_titre' => 'Liste des travaux',
+	'queue_purger_queue' => 'Réinitialiser la liste des tâches',
+	'queue_titre' => 'Tâches de fond',
 
 	// R
 	'repertoire_plugins' => 'Répertoire :',
