@@ -306,6 +306,15 @@ function formulaires_editer_auteur_traiter_dist(
 	}
 	$retour = parametre_url($retour, 'email_confirm', '');
 
+	if ($restreintes = _request('restreintes')) {
+		foreach ($restreintes as $k => $v) {
+			if(strpos($v, 'rubrique|') === 0) {
+				$restreintes[$k] = substr($v, 9);
+			}
+		}
+		set_request('restreintes', $restreintes);
+	}
+
 	set_request(
 		'email',
 		email_valide(_request('email'))
