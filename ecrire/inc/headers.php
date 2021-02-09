@@ -69,9 +69,19 @@ function redirige_par_entete($url, $equiv = '', $status = 302) {
 
 	// Il n'y a que sous Apache que setcookie puis redirection fonctionne
 	include_spip('inc/cookie');
+	if (!defined('_SERVEUR_SOFTWARE_ACCEPTE_LOCATION_APRES_COOKIE')) {
+		define('_SERVEUR_SOFTWARE_ACCEPTE_LOCATION_APRES_COOKIE', '^(Apache|Cherokee|nginx)');
+	}
+	if (!defined('_SERVEUR_SIGNATURE_ACCEPTE_LOCATION_APRES_COOKIE')) {
+		define('_SERVEUR_SIGNATURE_ACCEPTE_LOCATION_APRES_COOKIE', 'Apache|Cherokee|nginx');
+	}
 	if ((!$equiv and !spip_cookie_envoye()) or (
-			   (strncmp("Apache", $_SERVER['SERVER_SOFTWARE'], 6) == 0)
-			or (isset($_SERVER['SERVER_SIGNATURE']) and stripos($_SERVER['SERVER_SIGNATURE'], 'Apache') !== false)
+			   (!empty($_SERVER['SERVER_SOFTWARE'])
+				   and _SERVEUR_SOFTWARE_ACCEPTE_LOCATION_APRES_COOKIE
+				   and preg_match("/"._SERVEUR_SOFTWARE_ACCEPTE_LOCATION_APRES_COOKIE."/i",$_SERVER['SERVER_SOFTWARE']))
+			or (!empty($_SERVER['SERVER_SIGNATURE'])
+				   and _SERVEUR_SIGNATURE_ACCEPTE_LOCATION_APRES_COOKIE
+				   and preg_match("/"._SERVEUR_SIGNATURE_ACCEPTE_LOCATION_APRES_COOKIE."/i",$_SERVER['SERVER_SIGNATURE']))
 			or function_exists('apache_getenv')
 			or defined('_SERVER_APACHE')
 		)
