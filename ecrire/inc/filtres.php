@@ -3411,7 +3411,16 @@ function http_img_pack($img, $alt, $atts = '', $title = '', $options = array()) 
 	if (file_exists($img_file)) {
 		$img_file = timestamp($img_file);
 	}
-	return "<img src='$img_file' alt='" . attribut_html($alt ? $alt : $title) . "'"
+	if ($alt === false) {
+		$alt = '';
+	}
+	elseif($alt or $alt==='') {
+		$alt = " alt='".attribut_html($alt)."'";
+	}
+	else {
+		$alt = " alt='".attribut_html($title)."'";
+	}
+	return "<img src='$img_file'$alt"
 	. ($title ? ' title="' . attribut_html($title) . '"' : '')
 	. " " . ltrim($atts)
 	. " />";
