@@ -155,12 +155,13 @@ function optimiser_sansref($table, $id, $sel, $and = '') {
 function optimiser_base_disparus($attente = 86400) {
 
 	# format = 20060610110141, si on veut forcer une optimisation tout de suite
-	$mydate = sql_quote(date("Y-m-d H:i:s", time() - $attente));
+	$mydate = date("Y-m-d H:i:s", time() - $attente);
+	$mydate_quote = sql_quote($mydate);
 
 	$n = 0;
 
 	//
-	// Rubriques 
+	// Rubriques
 	//
 
 	# les articles qui sont dans une id_rubrique inexistante
@@ -173,12 +174,12 @@ function optimiser_base_disparus($attente = 86400) {
 		          ON A.id_rubrique=R.id_rubrique",
 		"A.id_rubrique > 0
 			 AND R.id_rubrique IS NULL
-		         AND A.maj < $mydate");
+		         AND A.maj < $mydate_quote");
 
 	$n += optimiser_sansref('spip_articles', 'id_article', $res);
 
 	// les articles a la poubelle
-	sql_delete("spip_articles", "statut='poubelle' AND maj < $mydate");
+	sql_delete("spip_articles", "statut='poubelle' AND maj < $mydate_quote");
 
 	//
 	// Auteurs
@@ -195,7 +196,7 @@ function optimiser_base_disparus($attente = 86400) {
 		      	LEFT JOIN spip_auteurs_liens AS L
 		          ON L.id_auteur=A.id_auteur",
 		"L.id_auteur IS NULL
-		       	AND A.statut='5poubelle' AND A.maj < $mydate");
+		       	AND A.statut='5poubelle' AND A.maj < $mydate_quote");
 
 	$n += optimiser_sansref('spip_auteurs', 'id_auteur', $res);
 
