@@ -264,6 +264,7 @@ function tester_redirection($fond, $contexte, $connect) {
  */
 function public_tester_redirection_dist($fond, $contexte, $connect) {
 	if ($fond == 'article'
+		and !empty($contexte['id_article'])
 		and $id_article = intval($contexte['id_article'])
 	) {
 		include_spip('public/quete'); // pour quete_virtuel et ses dependances
