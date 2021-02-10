@@ -204,7 +204,9 @@ function expression_recherche($recherche, $options) {
 			and $char_t = translitteration($char)
 			and $char_t !== $char
 		) {
-			$q_t = str_replace($char, $is_preg ? "." : "_", $q_t);
+			// on utilise ..?.? car le char utf peut etre encode sur 1, 2 ou 3 bytes
+			// mais c'est un pis aller cf #4354
+			$q_t = str_replace($char, $is_preg ? "..?.?" : "_", $q_t);
 		}
 	}
 
