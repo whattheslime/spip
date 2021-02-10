@@ -547,10 +547,6 @@ function critere_logo_dist($idb, &$boucles, $crit) {
 		$boucle->id_table . '.' . $boucle->primary
 		. "', lister_objets_avec_logos('" . $boucle->primary . "'), '')";
 
-	if ($crit->cond) {
-		$c = "($arg ? $c : 1)";
-	}
-
 	if ($not) {
 		$boucle->where[] = array("'NOT'", $c);
 	} else {
