@@ -75,6 +75,10 @@ function action_editer_objet_dist($id = null, $objet = null, $set = null) {
  * @return mixed|string
  */
 function objet_modifier($objet, $id, $set = null) {
+	if (($t=objet_type($objet)) !== $objet) {
+		spip_log("objet_modifier: appel avec type $objet invalide au lieu de $t", "editer" . _LOG_INFO_IMPORTANTE);
+		$objet = $t;
+	}
 	if (include_spip('action/editer_' . $objet)
 		and function_exists($modifier = $objet . "_modifier")
 	) {
@@ -159,6 +163,10 @@ function objet_modifier($objet, $id, $set = null) {
  * @return bool|int
  */
 function objet_inserer($objet, $id_parent = null, $set = null) {
+	if (($t=objet_type($objet)) !== $objet) {
+		spip_log("objet_inserer: appel avec type $objet invalide au lieu de $t", "editer" . _LOG_INFO_IMPORTANTE);
+		$objet = $t;
+	}
 	if (include_spip('action/editer_' . $objet)
 		and function_exists($inserer = $objet . "_inserer")
 	) {
@@ -289,6 +297,10 @@ function objet_inserer($objet, $id_parent = null, $set = null) {
  * @return string
  */
 function objet_instituer($objet, $id, $c, $calcul_rub = true) {
+	if (($t=objet_type($objet)) !== $objet) {
+		spip_log("objet_instituer: appel avec type $objet invalide au lieu de $t", "editer" . _LOG_INFO_IMPORTANTE);
+		$objet = $t;
+	}
 	if (include_spip('action/editer_' . $objet)
 		and function_exists($instituer = $objet . "_instituer")
 	) {
@@ -519,6 +531,10 @@ function objet_editer_heritage($objet, $id, $id_rubrique, $statut, $champs, $con
  *     string|int : valeur du champ demande pour l'objet demande
  */
 function objet_lire($objet, $valeur_id, $options = array()) {
+	if (($t=objet_type($objet)) !== $objet) {
+		spip_log("objet_lire: appel avec type $objet invalide au lieu de $t", "editer" . _LOG_INFO_IMPORTANTE);
+		$objet = $t;
+	}
 
 	// tableau du cache des descriptions et des id d'objet (au sens id_xxx).
 	// Les tableaux sont toujours indexés par le trio [objet][cle][valeur_cle]
