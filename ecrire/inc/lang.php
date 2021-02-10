@@ -31,14 +31,23 @@ if (!defined('_ECRIRE_INC_VERSION')) {
  *
  * @param string $lang
  *     La langue à utiliser
+ * @param string|array $liste_langues
+ *     La liste des langues valides
  * @return string|bool
  *     string : La langue qui a été utilisée si trouvée
  *     false : aucune langue ne correspondait à la demande
  **/
-function changer_langue($lang) {
+function changer_langue($lang, $liste_langues=null) {
 
-	$liste_langues = ',' . @$GLOBALS['meta']['langues_proposees']
-		. ',' . @$GLOBALS['meta']['langues_multilingue'] . ',';
+	if (is_null($liste_langues)) {
+		$liste_langues = @$GLOBALS['meta']['langues_proposees'] . ',' . @$GLOBALS['meta']['langues_multilingue'];
+	}
+	else {
+		if (is_array($liste_langues)) {
+			$liste_langues = implode(',', $liste_langues);
+		}
+	}
+	$liste_langues = ',' . $liste_langues . ',';
 
 	// Si la langue demandee n'existe pas, on essaie d'autres variantes
 	// Exemple : 'pt-br' => 'pt_br' => 'pt'
@@ -331,10 +340,12 @@ function verifier_lang_url() {
  *
  * Note : Cette fonction initialise la globale spip_lang au chargement de inc/lang
  *
+ * @param string|array|null $liste_langues
+ *     liste des langues valides
  * @return string
  *     La langue sélectionnée
  **/
-function utiliser_langue_site() {
+function utiliser_langue_site($liste_langues = null) {
 	// s'il existe une langue du site (en gros tout le temps en théorie)
 	if (isset($GLOBALS['meta']['langue_site'])
 		// et si spip_langue est pas encore définie (ce que va faire changer_langue())
@@ -342,7 +353,7 @@ function utiliser_langue_site() {
 		and (!isset($GLOBALS['spip_lang'])
 			or $GLOBALS['spip_lang'] != $GLOBALS['meta']['langue_site'])
 	) {
-		return changer_langue($GLOBALS['meta']['langue_site']);//@:install
+		return changer_langue($GLOBALS['meta']['langue_site'], $liste_langues);//@:install
 	}
 	// en theorie là, la globale est définie, sinon c'est un problème.
 	if (!isset($GLOBALS['spip_lang'])) {
@@ -361,20 +372,22 @@ function utiliser_langue_site() {
  * - Sinon dans une des langues définie en préférence du navigateur
  * - Sinon la langue du site
  *
+ * @param string|array|null $liste_langues
+ *     liste des langues valides
  * @return string
  *     La langue utilisée
  **/
-function utiliser_langue_visiteur() {
+function utiliser_langue_visiteur($liste_langues = null) {
 
 	$l = (!test_espace_prive() ? 'spip_lang' : 'spip_lang_ecrire');
 	if (isset($_COOKIE[$l])) {
-		if (changer_langue($l = $_COOKIE[$l])) {
+		if (changer_langue($l = $_COOKIE[$l], $liste_langues)) {
 			return $l;
 		}
 	}
 
 	if (isset($GLOBALS['visiteur_session']['lang'])) {
-		if (changer_langue($l = $GLOBALS['visiteur_session']['lang'])) {
+		if (changer_langue($l = $GLOBALS['visiteur_session']['lang'], $liste_langues)) {
 			return $l;
 		}
 	}
@@ -382,14 +395,14 @@ function utiliser_langue_visiteur() {
 	if (isset($_SERVER['HTTP_ACCEPT_LANGUAGE'])) {
 		foreach (explode(',', $_SERVER['HTTP_ACCEPT_LANGUAGE']) as $s) {
 			if (preg_match('#^([a-z]{2,3})(-[a-z]{2,3})?(;q=[0-9.]+)?$#i', trim($s), $r)) {
-				if (changer_langue($l = strtolower($r[1]))) {
+				if (changer_langue($l = strtolower($r[1]), $liste_langues)) {
 					return $l;
 				}
 			}
 		}
 	}
 
-	return utiliser_langue_site();
+	return utiliser_langue_site($liste_langues);
 }
 
 
