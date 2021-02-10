@@ -177,6 +177,7 @@ function admin_objet() {
 			and $id = $GLOBALS['contexte'][$_id_type]
 			and !is_array($id)
 			and $id = intval($id)
+			and $desc = $trouver_table(table_objet_sql($type))
 		) {
 			$id = sql_getfetsel($_id_type, table_objet_sql($type), "$_id_type=" . intval($id));
 			if ($id) {
@@ -185,8 +186,7 @@ function admin_objet() {
 				$env['id_objet'] = $id;
 				$env['voir_' . $obj] =
 					str_replace('&amp;', '&', generer_url_entite($id, $obj, '', '', false));
-				if ($desc = $trouver_table(table_objet_sql($type))
-					and isset($desc['field']['id_rubrique'])
+				if (isset($desc['field']['id_rubrique'])
 					and $type != 'rubrique'
 				) {
 					unset($env['id_rubrique']);
