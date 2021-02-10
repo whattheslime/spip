@@ -55,8 +55,10 @@ function inc_completer_traduction_dist($objet, $id_objet, $id_trad) {
 		$champs[] = 'virtuel';
 	}
 
-	if ($champs) {
-		$set = sql_fetsel($champs, $desc['table'], $_id_table . '=' . intval($id_trad));
+	$data = sql_fetsel('*', $desc['table'], $_id_table . '=' . intval($id_trad));
+
+	foreach ($champs as $c) {
+		$set[$c] = $data[$c];
 	}
 
 	/*
@@ -67,7 +69,7 @@ function inc_completer_traduction_dist($objet, $id_objet, $id_trad) {
 		$objet,
 		$id_objet,
 		array(
-			'data' => $set,
+			'data' => $data,
 			'action' => 'completer_traduction',
 		),
 		$set
