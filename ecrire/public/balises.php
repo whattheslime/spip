@@ -1314,7 +1314,7 @@ function balise_CHEMIN_IMAGE_dist($p) {
 		$p->code = 'chemin_image(' . $arg . ')';
 	}
 
-	#$p->interdire_scripts = true;
+	$p->interdire_scripts = false;
 	return $p;
 }
 
