@@ -521,7 +521,7 @@ Kako biste potvrdili svoju novu adresu, potrebno je samo pristupiti niže navede
 	'login_pass2' => 'lozinka:',
 	'login_preferez_refuser' => '<b>Ako ne želite primiti cookie</b>, postoji drugi (manje siguran) način za spajanje:',
 	'login_recharger' => 'osvježiti ovu stranicu',
-	'login_rester_identifie' => 'upamti moj identitet nekoliko dana',
+	'login_rester_identifie' => 'upamti moj identitet nekoliko dana', # MODIF
 	'login_retour_public' => 'natrag u javni dio weba',
 	'login_retour_site' => 'natrag u javni dio weba',
 	'login_retoursitepublic' => 'natrag u javni dio weba',

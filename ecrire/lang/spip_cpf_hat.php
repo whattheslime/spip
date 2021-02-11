@@ -454,7 +454,7 @@ sit "@nom_site_spip@" (@adresse_login@) :', # MODIF
 	'login_pass2' => 'Modpas :',
 	'login_preferez_refuser' => '<b>Si w vlé refize tout gatomakro </b>, gen yon lòt métòd pou konèkt a w (yon ki   gen pa pli gran sékirité) :',
 	'login_recharger' => 'Chaj ankò paj-la',
-	'login_rester_identifie' => 'Gad lidantifikasyon pou plizyè jou',
+	'login_rester_identifie' => 'Gad lidantifikasyon pou plizyè jou', # MODIF
 	'login_retour_public' => 'Tounyen sou sit piblik',
 	'login_retour_site' => 'Tounyen sou sit piblik',
 	'login_retoursitepublic' => 'tounyen dèyè sou sit piblik',

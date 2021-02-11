@@ -517,7 +517,7 @@ Per confirmar la nova adreça, només heu de connectar-vos a l’adreça que hi 
 	'login_pass2' => 'Contrasenya:',
 	'login_preferez_refuser' => '<b>Si preferiu refusar les galetes</b>, un altre mètode de connexió (menys segur) és a la vostra disposició :',
 	'login_recharger' => 'actualitzar aquesta pàgina',
-	'login_rester_identifie' => 'Continuar identificat alguns dies',
+	'login_rester_identifie' => 'Continuar identificat alguns dies', # MODIF
 	'login_retour_public' => 'Tornar al lloc públic',
 	'login_retour_site' => 'Tornar al lloc públic',
 	'login_retoursitepublic' => 'tornar al lloc públic',

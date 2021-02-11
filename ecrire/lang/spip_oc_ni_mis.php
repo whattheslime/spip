@@ -526,7 +526,7 @@ sera ignourada) :
 	'login_pass2' => 'Mot de passa :',
 	'login_preferez_refuser' => '<b>Se preferas refudà lu cookie</b>, un autre mètodou de counessioun (mens securisat) es a la vouòstra dispousicioun :',
 	'login_recharger' => 'Recargà aquela pàgina',
-	'login_rester_identifie' => 'Restà identificat quauqu jou',
+	'login_rester_identifie' => 'Restà identificat quauqu jou', # MODIF
 	'login_retour_public' => 'Retour au sit pùblicou',
 	'login_retour_site' => 'Retour au sit pùblicou',
 	'login_retoursitepublic' => 'retour au sit pùblicou',

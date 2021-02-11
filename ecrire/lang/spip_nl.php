@@ -530,7 +530,7 @@ de website "@nom_site_spip@" (@adresse_login@):',
 	'login_pass2' => 'Wachtwoord:',
 	'login_preferez_refuser' => '<b>Als je verkiest om cookies te blokkeren</b>, is een andere (minder veilige) methode voor verbinding mogelijk:',
 	'login_recharger' => 'Pagina vernieuwen',
-	'login_rester_identifie' => 'Enkele dagen aangemeld blijven',
+	'login_rester_identifie' => 'Enkele dagen aangemeld blijven', # MODIF
 	'login_retour_public' => 'Terug naar de publieke site',
 	'login_retour_site' => 'Terug naar de publieke site',
 	'login_retoursitepublic' => 'terug naar de publieke site',

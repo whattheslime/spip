@@ -464,7 +464,7 @@ devi attivare Javascript nel tuo browser e',
 	'login_pass2' => 'Password:',
 	'login_preferez_refuser' => '<b>Se preferisci non accettare i cookie</b> c’è un altro metodo (meno sicuro) per connettersi:',
 	'login_recharger' => 'aggiorna questa pagina',
-	'login_rester_identifie' => 'Conservare l’identificazione per alcuni giorni',
+	'login_rester_identifie' => 'Conservare l’identificazione per alcuni giorni', # MODIF
 	'login_retour_public' => 'Ritorna al sito pubblico',
 	'login_retour_site' => 'Ritorna al sito pubblico',
 	'login_retoursitepublic' => 'ritorna al sito pubblico',

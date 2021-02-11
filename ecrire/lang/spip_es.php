@@ -527,7 +527,7 @@ en el sitio "@nom_site_spip@" (@adresse_login@):',
 	'login_pass2' => 'Contraseña:',
 	'login_preferez_refuser' => '<b>Si prefieres rechazar las "cookies"</b>, otro método de conexión (menos seguro) está a tu disposición:',
 	'login_recharger' => 'actualizar esta página',
-	'login_rester_identifie' => 'Quedar identificado unos días',
+	'login_rester_identifie' => 'Quedar identificado unos días', # MODIF
 	'login_retour_public' => 'Volver al sitio público',
 	'login_retour_site' => 'Volver al sitio público',
 	'login_retoursitepublic' => 'volver al sitio público',

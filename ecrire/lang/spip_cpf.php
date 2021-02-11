@@ -467,7 +467,7 @@ dann out navigatèr é',
 	'login_pass2' => 'Modpas :',
 	'login_preferez_refuser' => '<b>Si ou préfèr afront bann gatomakro</b>,nana inn ot sistèm lakostaz (mwin sir) sak ou pé anserv :',
 	'login_recharger' => 'rosarz pazwèb-la',
-	'login_rester_identifie' => 'Po inn lidantifikasyon i dir plisyèr zor',
+	'login_rester_identifie' => 'Po inn lidantifikasyon i dir plisyèr zor', # MODIF
 	'login_retour_public' => 'Artourn sir figirwèb',
 	'login_retour_site' => 'Artourn sir figirwèb',
 	'login_retoursitepublic' => 'artourn sir figirwèb',

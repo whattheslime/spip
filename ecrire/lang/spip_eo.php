@@ -527,7 +527,7 @@ aŭ kontaktu vian retgastiganton.</span>',
 	'login_pass2' => 'Pasvorto :',
 	'login_preferez_refuser' => '<b>Se vi preferas rifuzi kuketojn</b>, alia konektometodo (malpli sekura) estas je via dispono :',
 	'login_recharger' => 'freŝigi tiun ĉi paĝon',
-	'login_rester_identifie' => 'Resti ensalutinta kelkajn tagojn',
+	'login_rester_identifie' => 'Resti ensalutinta kelkajn tagojn', # MODIF
 	'login_retour_public' => 'Reen al la publika spaco',
 	'login_retour_site' => 'Reen al la publika spaco',
 	'login_retoursitepublic' => 'reen al la publika spaco',

@@ -521,7 +521,7 @@ Se você não quiser que a sua senha possa ser interceptada na rede, por favor a
 	'login_pass2' => 'Senha:',
 	'login_preferez_refuser' => '<b>Se você prefere recusar os cookies</b>, um outro método de conexão (menos seguro) está disponível:',
 	'login_recharger' => 'atualizar esta página',
-	'login_rester_identifie' => 'Manter-se identificado por alguns dias',
+	'login_rester_identifie' => 'Manter-se identificado por alguns dias', # MODIF
 	'login_retour_public' => 'Voltar ao site público',
 	'login_retour_site' => 'Voltar ao site público',
 	'login_retoursitepublic' => 'voltar ao site público',

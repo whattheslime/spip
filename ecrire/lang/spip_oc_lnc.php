@@ -456,7 +456,7 @@ del sit "@nom_site_spip@" (@adresse_site@) :',
 	'login_pass2' => 'Mot de santa Clara :',
 	'login_preferez_refuser' => '<b>Se vos agrada mai de refusar los cookies</b>, un autre metòde de connexion (mens securizat) es a vòstra disposicion:',
 	'login_recharger' => 'tornar cargar aquela pagina',
-	'login_rester_identifie' => 'Demorar identificat qualques jorns',
+	'login_rester_identifie' => 'Demorar identificat qualques jorns', # MODIF
 	'login_retour_public' => 'Tornar al sit public',
 	'login_retour_site' => 'Tornar al sit public',
 	'login_retoursitepublic' => 'tornar al sit public',

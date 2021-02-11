@@ -528,7 +528,7 @@ stránku "@nom_site_spip@" (@adresse_login@):',
 	'login_pass2' => 'Heslo:',
 	'login_preferez_refuser' => '<b>Ak radšej odmietate cookies,</b> máte k dispozícii iný, menej bezpečný, spôsob:',
 	'login_recharger' => 'obnoviť túto stránku',
-	'login_rester_identifie' => 'Pamätať si moje ID niekoľko dní',
+	'login_rester_identifie' => 'Pamätať si moje ID niekoľko dní', # MODIF
 	'login_retour_public' => 'Späť na verejne prístupnú stránku',
 	'login_retour_site' => 'Späť na verejne prístupnú stránku',
 	'login_retoursitepublic' => 'Späť na verejne prístupnú stránku',

@@ -428,7 +428,7 @@ deu sit "@nom_site_spip@" (@adresse_site@):', # MODIF
 	'login_pass2' => 'Mot de santa Clara:',
 	'login_preferez_refuser' => '<b>Se vs’agrada mei d’arrefusar los cookies</b>, un aute metòde de connexion (mensh securizat) qu’ei a la vòsta disposicion:',
 	'login_recharger' => 'tornar cargar aquera pagina',
-	'login_rester_identifie' => 'Demorar identificat quauques dias',
+	'login_rester_identifie' => 'Demorar identificat quauques dias', # MODIF
 	'login_retour_public' => 'Tornar au sit public',
 	'login_retour_site' => 'Tornar au sit public',
 	'login_retoursitepublic' => 'tornar au sit public',

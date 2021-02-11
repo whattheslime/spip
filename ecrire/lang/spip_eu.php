@@ -520,7 +520,7 @@ Zure pasahitza sarean atzeman ahal izatea nahi ez baduzu, JavaScript-a aktibatu 
 	'login_pass2' => 'Pasahitza :',
 	'login_preferez_refuser' => '"Cookiak" errefusatzea nahiago baduzu, beste konexio modu bat dago (gutxiz seguruagoa) zure eskura :',
 	'login_recharger' => 'Orrialde hau berriz kargatu',
-	'login_rester_identifie' => 'Egun batzuetan identifikatuta geratu',
+	'login_rester_identifie' => 'Egun batzuetan identifikatuta geratu', # MODIF
 	'login_retour_public' => 'Eremu publikora itzuli',
 	'login_retour_site' => 'Eremu publikora itzuli',
 	'login_retoursitepublic' => 'eremu publikora itzuli',

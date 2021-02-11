@@ -495,7 +495,7 @@ sitiu "@nom_site_spip@" (@adresse_login@):',
 	'login_pass2' => 'Contraseña:',
 	'login_preferez_refuser' => '<b>Si quiés más refugar les cookies</b>, tenemos disponible otru métodu de conexón (enforma menos seguru):',
 	'login_recharger' => 'recargar esta páxina',
-	'login_rester_identifie' => 'Quedar identificáu pa dellos díes',
+	'login_rester_identifie' => 'Quedar identificáu pa dellos díes', # MODIF
 	'login_retour_public' => 'Tornar pal sitiu públicu',
 	'login_retour_site' => 'Tornar pal sitiu públicu',
 	'login_retoursitepublic' => 'tornar pal sitiu públicu',

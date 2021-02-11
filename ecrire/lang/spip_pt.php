@@ -521,7 +521,7 @@ Pediu para alterar o seu endereço e-mail. Para confirmar o seu novo endereço, 
 	'login_pass2' => 'Palavra-passe :',
 	'login_preferez_refuser' => '<b>Se prefere recusar os cookies</b>, um outro método de ligação (menos seguro) está à sua disposição',
 	'login_recharger' => 'carregar de novo esta página ',
-	'login_rester_identifie' => 'Permanecer identificado durante alguns dias ',
+	'login_rester_identifie' => 'Permanecer identificado durante alguns dias ', # MODIF
 	'login_retour_public' => 'Regresso ao sítio público',
 	'login_retour_site' => 'Regresso ao sítio público',
 	'login_retoursitepublic' => 'Regresso ao sítio público',

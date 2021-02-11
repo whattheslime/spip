@@ -511,7 +511,7 @@ site-ul "@nom_site_spip@" (@adresse_login@):',
 	'login_pass2' => 'Parolă :',
 	'login_preferez_refuser' => '<b>Dacă preferaţi să refuzaţi cookies</b>, există o altă metodă de conectare (mai puţin sigură) la dispoziţia dumneavoastră :',
 	'login_recharger' => 're-încărcaţi această pagină',
-	'login_rester_identifie' => 'Rămâneţi autentificat pentru câteva zile',
+	'login_rester_identifie' => 'Rămâneţi autentificat pentru câteva zile', # MODIF
 	'login_retour_public' => 'Înapoi la site-ul public',
 	'login_retour_site' => 'Înapoi la site-ul public',
 	'login_retoursitepublic' => 'înapoi la site-ul public',

@@ -507,7 +507,7 @@ do web "@nom_site_spip@" (@adresse_site@):',
 	'login_pass2' => 'Chave :',
 	'login_preferez_refuser' => '<b>Se prefire non usar as cookies</b>, ten outro método de conexión (menos seguro) á súa disposición:',
 	'login_recharger' => 'recargar a páxina',
-	'login_rester_identifie' => 'Permanecer identificado algúns días',
+	'login_rester_identifie' => 'Permanecer identificado algúns días', # MODIF
 	'login_retour_public' => 'Volver ao web público',
 	'login_retour_site' => 'Volver ao web público',
 	'login_retoursitepublic' => 'volver ao web público',

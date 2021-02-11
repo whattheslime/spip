@@ -428,7 +428,7 @@ dau sit "@nom_site_spip@" (@adresse_site@):',
 	'login_pass2' => 'Mot de santa Clara:',
 	'login_preferez_refuser' => '<b>Se vos agrada mai de refusar lei cookies</b>, un autre metòde de connexion (mens securizat) es a vòstra disposicion:',
 	'login_recharger' => 'tornar cargar aquela pagina',
-	'login_rester_identifie' => 'Restar identificat/ada quauquei jorns',
+	'login_rester_identifie' => 'Restar identificat/ada quauquei jorns', # MODIF
 	'login_retour_public' => 'Tornar au sit public',
 	'login_retour_site' => 'Tornar au sit public',
 	'login_retoursitepublic' => 'tornar au sit public',

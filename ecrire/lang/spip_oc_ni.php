@@ -465,7 +465,7 @@ dau sit "@nom_site_spip@" (@adresse_site@) :',
 	'login_pass2' => 'Mòt de santa Clara :',
 	'login_preferez_refuser' => '<b>Se preferissètz refudar lu cookies</b>, un autre metòde de connexion (mens securisat) es à la voastra disposicion:',
 	'login_recharger' => 'Tornar cargar aquela pàgina',
-	'login_rester_identifie' => 'Demorar identificat quaucu jorns',
+	'login_rester_identifie' => 'Demorar identificat quaucu jorns', # MODIF
 	'login_retour_public' => 'Tornar au sit public',
 	'login_retour_site' => 'Tornar au sit public',
 	'login_retoursitepublic' => 'tornar au sit public',

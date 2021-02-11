@@ -496,7 +496,7 @@ serwisie "@nom_site_spip@" (@adresse_login@):',
 	'login_pass2' => 'Hasło:',
 	'login_preferez_refuser' => '<b>Jeśli wolisz nie korzystać z cookies</b>, jest inna (mniej bezpieczna) metoda do dyspozycji :',
 	'login_recharger' => 'przeładuj stronę',
-	'login_rester_identifie' => 'Pozostań zalogowany kilka dni',
+	'login_rester_identifie' => 'Pozostań zalogowany kilka dni', # MODIF
 	'login_retour_public' => 'Powrót do strony publicznej',
 	'login_retour_site' => 'Powrót do strony publicznej',
 	'login_retoursitepublic' => 'Powrót do strony publicznej',

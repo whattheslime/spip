@@ -521,7 +521,7 @@ Wann dir net wëllt dat äert Passwuert ka um Internet ofgefaange ginn, aktivéi
 	'login_pass2' => 'Passwuert:',
 	'login_preferez_refuser' => '<b>Wann dir kee Cookie wëllt</b>, hei ass eng aner (manner sécher) Umeldungs-Method:',
 	'login_recharger' => 'dës Säit nei lueden',
-	'login_rester_identifie' => 'E puer Deg ugemellt bleiwen',
+	'login_rester_identifie' => 'E puer Deg ugemellt bleiwen', # MODIF
 	'login_retour_public' => 'Zeréck op den ëffentleche Site',
 	'login_retour_site' => 'Zeréck op de Site',
 	'login_retoursitepublic' => 'zeréck op den ëffentleche Site',

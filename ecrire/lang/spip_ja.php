@@ -510,7 +510,7 @@ http://mysite.com、あるいは単純にこのサイトの記事番号を与え
 	'login_pass2' => 'パスワード：',
 	'login_preferez_refuser' => '<b>クッキーを拒絶したければ</b>、（それほど安全でない）別の接続方法を使うことが出来ます：',
 	'login_recharger' => 'このページをリフレッシュする',
-	'login_rester_identifie' => 'しばらく接続したままにする',
+	'login_rester_identifie' => 'しばらく接続したままにする', # MODIF
 	'login_retour_public' => '公開サイトに戻る',
 	'login_retour_site' => 'パブリックなサイトへ戻る',
 	'login_retoursitepublic' => '公開サイトに戻る',

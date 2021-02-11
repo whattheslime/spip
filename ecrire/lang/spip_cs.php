@@ -455,7 +455,7 @@ na webu "@nom_site_spip@" (@adresse_login@):',
 	'login_pass2' => 'Heslo:',
 	'login_preferez_refuser' => '<b>Nechcete-li soubory cookies povolit</b>, existuje i jiný (méně bezpečný) způsob připojení:',
 	'login_recharger' => 'znovu načíst tuto stránku',
-	'login_rester_identifie' => 'Pamatovat moje ID několik dní',
+	'login_rester_identifie' => 'Pamatovat moje ID několik dní', # MODIF
 	'login_retour_public' => 'Zpět na veřejné stránky',
 	'login_retour_site' => 'Zpět na veřejné stránky',
 	'login_retoursitepublic' => 'zpět na veřejné stránky',

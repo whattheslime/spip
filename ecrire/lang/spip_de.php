@@ -523,7 +523,7 @@ wird Ihre Adresse beibehalten):
 	'login_pass2' => 'Passwort:',
 	'login_preferez_refuser' => '<b>Wenn Sie keine Cookies verwenden wollen</b>, können Sie eine alternative (weniger sichere) Anmeldung nutzen:',
 	'login_recharger' => 'diese Seite neu laden',
-	'login_rester_identifie' => 'Anmeldedaten einige Tage merken',
+	'login_rester_identifie' => 'Anmeldedaten einige Tage merken', # MODIF
 	'login_retour_public' => 'Zurück zur öffentlichen Website',
 	'login_retour_site' => 'Zurück zur öffentlichen Website',
 	'login_retoursitepublic' => 'Zurück zur öffentlichen Website',

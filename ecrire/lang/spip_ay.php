@@ -458,7 +458,7 @@ Sitix uka arunak ajlltax.Walja sapa mayanaka jach’a qamawita (urunaka, phuqañ
 	'login_pass2' => 'Imt’awi:',
 	'login_preferez_refuser' => '<b>Janitix munktaxa \\&quot;cookies\\&quot;</b>, yaqha chinuwit thakhi (jan sum jark’ata) ukax jumataxiw:',
 	'login_recharger' => 'Aka laphi uñnaq phuqantaskakiña',
-	'login_rester_identifie' => 'Mä qawqha urunak uñt’ayasiña',
+	'login_rester_identifie' => 'Mä qawqha urunak uñt’ayasiña', # MODIF
 	'login_retour_public' => 'Jach’a qamaw utar kuttaña',
 	'login_retour_site' => 'Jach’a qamaw utar kuttaña',
 	'login_retoursitepublic' => 'jach’a qamaw uta',

@@ -485,7 +485,7 @@ För att bekräfta din nya adress måste du gå till
 	'login_pass2' => 'Lösenord:',
 	'login_preferez_refuser' => '<b>Om du inte vill använda cookies</b>, så finns det en annan uppkopplingsmetod tillgänglig (mer osäker):',
 	'login_recharger' => 'ladda om sidan',
-	'login_rester_identifie' => 'Kom ihåg mitt ID under några dagar',
+	'login_rester_identifie' => 'Kom ihåg mitt ID under några dagar', # MODIF
 	'login_retour_public' => 'Tillbaka till den publika delen',
 	'login_retour_site' => 'Tillbaka till den publika delen',
 	'login_retoursitepublic' => 'Tillbaka till den publika delen',

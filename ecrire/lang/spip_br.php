@@ -527,7 +527,7 @@ Evit gwiriekaat ho postel nevez, n’ho peus nemet kevreañ d’ar chomlec’h a
 	'login_pass2' => 'Ger-tremen :',
 	'login_preferez_refuser' => '<b>Ma kavit gwell nac’hañ an toupinoù</b>, e c’hellit ober gant un doare all da gevreañ, met n’eo ket ken asur :',
 	'login_recharger' => 'adkargañ ar bajenn-mañ',
-	'login_rester_identifie' => 'Chom anavezet un nebeud devezhioù',
+	'login_rester_identifie' => 'Chom anavezet un nebeud devezhioù', # MODIF
 	'login_retour_public' => 'Distreiñ d’al lodenn foran',
 	'login_retour_site' => 'Distreiñ d’al lodenn foran',
 	'login_retoursitepublic' => 'distreiñ d’al lodenn foran',
