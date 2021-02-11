@@ -236,19 +236,31 @@ function formulaires_editer_auteur_verifier_dist(
 	}
 
 	$erreurs['message_erreur'] = '';
+	if (
+		$login = _request('login') and
+		$login !== sql_getfetsel('login','spip_auteurs', 'id_auteur='.intval($id_auteur))
+	) {
+		// on verifie la meme chose que dans auteurs_edit_config()
+		if ( ! auth_autoriser_modifier_login($auth_methode)
+			or !autoriser('modifier', 'auteur', intval($id_auteur), null, array('email' => true))){
+			$erreurs['login'] = _T('info_non_modifiable');
+		}
+	}
 
-	if ($err = auth_verifier_login($auth_methode, _request('new_login'), $id_auteur)) {
-		$erreurs['new_login'] = $err;
-		$erreurs['message_erreur'] .= $err;
-	} else {
-		// pass trop court ou confirmation non identique
-		if ($p = _request('new_pass')) {
-			if ($p != _request('new_pass2')) {
-				$erreurs['new_pass'] = _T('info_passes_identiques');
-				$erreurs['message_erreur'] .= _T('info_passes_identiques');
-			} elseif ($err = auth_verifier_pass($auth_methode, _request('new_login'), $p, $id_auteur)) {
-				$erreurs['new_pass'] = $err;
-				$erreurs['message_erreur'] .= $err;
+	if (empty($erreurs['login'])) {
+		if ($err = auth_verifier_login($auth_methode, _request('new_login'), $id_auteur)) {
+			$erreurs['login'] = $err;
+			$erreurs['message_erreur'] .= $err;
+		} else {
+			// pass trop court ou confirmation non identique
+			if ($p = _request('new_pass')) {
+				if ($p != _request('new_pass2')) {
+					$erreurs['new_pass'] = _T('info_passes_identiques');
+					$erreurs['message_erreur'] .= _T('info_passes_identiques');
+				} elseif ($err = auth_verifier_pass($auth_methode, _request('new_login'), $p, $id_auteur)) {
+					$erreurs['new_pass'] = $err;
+					$erreurs['message_erreur'] .= $err;
+				}
 			}
 		}
 	}
