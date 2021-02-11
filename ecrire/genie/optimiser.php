@@ -201,7 +201,10 @@ function optimiser_base_disparus($attente = 86400) {
 
 	# supprimer les auteurs 'nouveau' qui n'ont jamais donne suite
 	# au mail de confirmation (45 jours pour repondre, ca devrait suffire)
-	sql_delete("spip_auteurs", "statut='nouveau' AND maj < " . sql_quote(date('Y-m-d', time() - 45 * 24 * 3600)));
+	if (!defined('_AUTEURS_DELAI_REJET_NOUVEAU')) {
+		define('_AUTEURS_DELAI_REJET_NOUVEAU', 45 * 24 * 3600);
+	}
+	sql_delete("spip_auteurs", "statut='nouveau' AND maj < " . sql_quote(date('Y-m-d', time() - intval(_AUTEURS_DELAI_REJET_NOUVEAU))));
 
 	/**
 	 * Permet aux plugins de compléter l'optimisation suite aux éléments disparus
