@@ -371,6 +371,7 @@ function balise_URL_ACTION_AUTEUR_dist($p) {
 	$p->descr['session'] = true;
 
 	$p->code = interprete_argument_balise(1, $p);
+
 	$args = interprete_argument_balise(2, $p);
 	if ($args != "''" && $args !== null) {
 		$p->code .= "," . $args;

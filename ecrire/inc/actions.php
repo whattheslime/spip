@@ -28,7 +28,7 @@ if (!defined('_ECRIRE_INC_VERSION')) {
  * @param string $action
  *     Nom du fichier/action appelé (dans le répertoire action)
  * @param string $arg
- *     Arguments pour l'action sécurisée
+ *     Arguments pour l'action sécurisée, peut etre vide
  * @param string $redirect
  *     Adresse de redirection souhaitée à la fin du bon déroulement de l’action
  * @param bool|int|string $mode
@@ -42,7 +42,7 @@ if (!defined('_ECRIRE_INC_VERSION')) {
  * @return array|string
  *     URL, code HTML du formulaire ou tableau (action, arg, hash)
  */
-function generer_action_auteur($action, $arg, $redirect = '', $mode = false, $att = '', $public = false) {
+function generer_action_auteur($action, $arg = '', $redirect = '', $mode = false, $att = '', $public = false) {
 	$securiser_action = charger_fonction('securiser_action', 'inc');
 
 	return $securiser_action($action, $arg, $redirect, $mode, $att, $public);
