@@ -598,7 +598,7 @@ function recuperer_url_cache($url, $options = array()) {
 		'file' => '',
 		'follow_location' => 10,
 		'version_http' => _INC_DISTANT_VERSION_HTTP,
-		'delai_cache' => _DELAI_RECUPERER_URL_CACHE,
+		'delai_cache' => in_array(_VAR_MODE, ['preview', 'recalcul']) ? 0 : _DELAI_RECUPERER_URL_CACHE,
 	);
 	$options = array_merge($default, $options);
 
