@@ -125,6 +125,93 @@ function filtre_introduction_dist($descriptif, $texte, $longueur, $connect, $sui
 
 
 /**
+ * Filtre calculant une pagination, utilisé par la balise `#PAGINATION`
+ *
+ * Le filtre cherche le modèle `pagination.html` par défaut, mais peut
+ * chercher un modèle de pagination particulier avec l'argument `$modele`.
+ * S'il `$modele='prive'`, le filtre cherchera le modèle `pagination_prive.html`.
+ *
+ * @filtre
+ * @see balise_PAGINATION_dist()
+ *
+ * @param int $total
+ *     Nombre total d'éléments
+ * @param string $nom
+ *     Nom identifiant la pagination
+ * @param int $position
+ *     Page à afficher (tel que la 3è page)
+ * @param int $pas
+ *     Nombre d'éléments par page
+ * @param bool $liste
+ *     - True pour afficher toute la liste des éléments,
+ *     - False pour n'afficher que l'ancre
+ * @param string $modele
+ *     Nom spécifique du modèle de pagination
+ * @param string $connect
+ *     Nom du connecteur à la base de données
+ * @param array $env
+ *     Environnement à transmettre au modèle
+ * @return string
+ *     Code HTML de la pagination
+ **/
+function filtre_pagination_dist(
+	$total,
+	$nom,
+	$position,
+	$pas,
+	$liste = true,
+	$modele = '',
+	$connect = '',
+	$env = array()
+) {
+	static $ancres = array();
+	if ($pas < 1) {
+		return '';
+	}
+	$ancre = 'pagination' . $nom; // #pagination_articles
+	$debut = 'debut' . $nom; // 'debut_articles'
+
+	// n'afficher l'ancre qu'une fois
+	if (!isset($ancres[$ancre])) {
+		$bloc_ancre = $ancres[$ancre] = "<a name='" . $ancre . "' id='" . $ancre . "'></a>";
+	} else {
+		$bloc_ancre = '';
+	}
+	// liste = false : on ne veut que l'ancre
+	if (!$liste) {
+		return $ancres[$ancre];
+	}
+
+	$self = (empty($env['self']) ? self() : $env['self']);
+	$pagination = array(
+		'debut' => $debut,
+		'url' => parametre_url($self, 'fragment', ''), // nettoyer l'id ahah eventuel
+		'total' => $total,
+		'position' => intval($position),
+		'pas' => $pas,
+		'nombre_pages' => floor(($total - 1) / $pas) + 1,
+		'page_courante' => floor(intval($position) / $pas) + 1,
+		'ancre' => $ancre,
+		'bloc_ancre' => $bloc_ancre
+	);
+	if (is_array($env)) {
+		$pagination = array_merge($env, $pagination);
+	}
+
+	// Pas de pagination
+	if ($pagination['nombre_pages'] <= 1) {
+		return '';
+	}
+
+	if ($modele) {
+		$modele = '_' . $modele;
+	}
+
+	return recuperer_fond("modeles/pagination$modele", $pagination, array('trim' => true), $connect);
+}
+
+
+/**
  * Retourne pour une clé primaire d'objet donnée les identifiants ayant un logo
  *
  * @param string $type
