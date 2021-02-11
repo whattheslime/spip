@@ -148,13 +148,15 @@ function notifications_envoyer_mails($emails, $texte, $sujet = "", $from = "", $
 			array(
 				'email' => $email,
 				'sujet' => $sujet,
-				'texte' => $texte
+				'texte' => $texte,
+				'from' => $from,
+				'headers' => $headers,
 			)
 		);
 		$email = $envoi['email'];
 
 		job_queue_add('envoyer_mail', ">$email : " . $envoi['sujet'],
-			array($email, $envoi['sujet'], $envoi['texte'], $from, $headers), 'inc/');
+			array($email, $envoi['sujet'], $envoi['texte'], $envoi['from'], $envoi['headers']), 'inc/');
 	}
 
 }
