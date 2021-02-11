@@ -143,7 +143,14 @@ function notifications_envoyer_mails($emails, $texte, $sujet = "", $from = "", $
 	foreach ($emails as $email) {
 		// passer dans un pipeline qui permet un ajout eventuel
 		// (url de suivi des notifications par exemple)
-		$envoi = pipeline('notifications_envoyer_mails', array('email' => $email, 'sujet' => $sujet, 'texte' => $texte));
+		$envoi = pipeline(
+			'notifications_envoyer_mails',
+			array(
+				'email' => $email,
+				'sujet' => $sujet,
+				'texte' => $texte
+			)
+		);
 		$email = $envoi['email'];
 
 		job_queue_add('envoyer_mail', ">$email : " . $envoi['sujet'],
