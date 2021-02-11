@@ -173,7 +173,7 @@ function filtre_pagination_dist(
 
 	// n'afficher l'ancre qu'une fois
 	if (!isset($ancres[$ancre])) {
-		$bloc_ancre = $ancres[$ancre] = "<a name='" . $ancre . "' id='" . $ancre . "'></a>";
+		$bloc_ancre = $ancres[$ancre] = "<a id='" . $ancre . "' class='pagination_ancre'></a>";
 	} else {
 		$bloc_ancre = '';
 	}
