@@ -355,6 +355,8 @@ function url_to_ascii($url_idn) {
 			$url_idn = explode($host, $url_idn, 2);
 			$url_idn = implode($host_ascii, $url_idn);
 		}
+		// et on urlencode les char utf si besoin dans le path
+		$url_idn = preg_replace_callback('/[^\x20-\x7f]/', function($match) { return urlencode($match[0]); }, $url_idn);
 	}
 
 	return $url_idn;
