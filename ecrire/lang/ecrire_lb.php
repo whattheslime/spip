@@ -658,12 +658,12 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	// Q
 	'queue_executer_maintenant' => 'Elo ausféieren',
 	'queue_info_purger' => 'Dir kënnt all Aarbechten déi nach ustinn läschen an d’Lëscht mat de periodeschen Aarbechten nei starten', # MODIF
-	'queue_nb_jobs_in_queue' => '@nb@ Aarbechten an der Waardeschläif',
-	'queue_next_job_in_nb_sec' => 'Nächst Aarbecht an @nb@ s',
-	'queue_no_job_in_queue' => 'Kéng Aarbecht an der Waardeschläif',
-	'queue_one_job_in_queue' => '1 Aarbecht an der Waardeschläif',
-	'queue_purger_queue' => 'D’Aarbechtslëscht nei starten',
-	'queue_titre' => 'Aarbechtslëscht',
+	'queue_nb_jobs_in_queue' => '@nb@ Aarbechten an der Waardeschläif', # MODIF
+	'queue_next_job_in_nb_sec' => 'Nächst Aarbecht an @nb@ s', # MODIF
+	'queue_no_job_in_queue' => 'Kéng Aarbecht an der Waardeschläif', # MODIF
+	'queue_one_job_in_queue' => '1 Aarbecht an der Waardeschläif', # MODIF
+	'queue_purger_queue' => 'D’Aarbechtslëscht nei starten', # MODIF
+	'queue_titre' => 'Aarbechtslëscht', # MODIF
 
 	// R
 	'repertoire_plugins' => 'Dossier:',

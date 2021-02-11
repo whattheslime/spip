@@ -726,14 +726,14 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 
 	// Q
 	'queue_executer_maintenant' => 'تنفيذ الآن',
-	'queue_info_purger' => 'يمكنك حذف كل الأعمال في الانتظار وتأصيل لائحة الأعمال الدورية',
-	'queue_nb_jobs_in_queue' => '@nb@ عمل بالانتظار',
-	'queue_next_job_in_nb_sec' => 'العمل القادم خلال @nb@ ثانية',
-	'queue_no_job_in_queue' => 'لا توجد أعمال بالانتظار',
-	'queue_one_job_in_queue' => 'عمل واحد بالانتظار',
+	'queue_info_purger' => 'يمكنك حذف كل الأعمال في الانتظار وتأصيل لائحة الأعمال الدورية', # MODIF
+	'queue_nb_jobs_in_queue' => '@nb@ عمل بالانتظار', # MODIF
+	'queue_next_job_in_nb_sec' => 'العمل القادم خلال @nb@ ثانية', # MODIF
+	'queue_no_job_in_queue' => 'لا توجد أعمال بالانتظار', # MODIF
+	'queue_one_job_in_queue' => 'عمل واحد بالانتظار', # MODIF
 	'queue_priorite_tache' => 'الأفضلية',
-	'queue_purger_queue' => 'تأصيل لائحة الأعمال',
-	'queue_titre' => 'لائحة الأعمال',
+	'queue_purger_queue' => 'تأصيل لائحة الأعمال', # MODIF
+	'queue_titre' => 'لائحة الأعمال', # MODIF
 
 	// R
 	'repertoire_plugins' => 'دليل:',

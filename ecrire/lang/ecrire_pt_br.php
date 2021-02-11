@@ -695,14 +695,14 @@ As traduções estão associadas ao original, numa côr que indica o seu status:
 
 	// Q
 	'queue_executer_maintenant' => 'Executar agora',
-	'queue_info_purger' => 'Você pode excluir todas as tarefas em espera e reinicializar a lista com as tarefas periódicas',
-	'queue_nb_jobs_in_queue' => '@nb@ trabalhos em espera',
-	'queue_next_job_in_nb_sec' => 'Próximo trabalho em @nb@ s',
-	'queue_no_job_in_queue' => 'Nenhum tarefa em espera',
-	'queue_one_job_in_queue' => '1 trabalho em espera',
+	'queue_info_purger' => 'Você pode excluir todas as tarefas em espera e reinicializar a lista com as tarefas periódicas', # MODIF
+	'queue_nb_jobs_in_queue' => '@nb@ trabalhos em espera', # MODIF
+	'queue_next_job_in_nb_sec' => 'Próximo trabalho em @nb@ s', # MODIF
+	'queue_no_job_in_queue' => 'Nenhum tarefa em espera', # MODIF
+	'queue_one_job_in_queue' => '1 trabalho em espera', # MODIF
 	'queue_priorite_tache' => 'prioridade',
-	'queue_purger_queue' => 'Reiniciar a lista de tarefas',
-	'queue_titre' => 'Lista de tarefas',
+	'queue_purger_queue' => 'Reiniciar a lista de tarefas', # MODIF
+	'queue_titre' => 'Lista de tarefas', # MODIF
 
 	// R
 	'repertoire_plugins' => 'Diretório:',

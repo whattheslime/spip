@@ -653,9 +653,9 @@ cunha cor que indica o seu estado :',
 
 	// Q
 	'queue_executer_maintenant' => 'Executar as tarefas de mantemento',
-	'queue_nb_jobs_in_queue' => '@nb@ traballos en agarda',
-	'queue_next_job_in_nb_sec' => 'Próximo traballo en @nb@ s',
-	'queue_one_job_in_queue' => '1 traballo en agarda',
+	'queue_nb_jobs_in_queue' => '@nb@ traballos en agarda', # MODIF
+	'queue_next_job_in_nb_sec' => 'Próximo traballo en @nb@ s', # MODIF
+	'queue_one_job_in_queue' => '1 traballo en agarda', # MODIF
 	'queue_purger_queue' => 'Purgar a lista de traballos', # MODIF
 	'queue_titre' => 'Lista de traballos', # MODIF
 

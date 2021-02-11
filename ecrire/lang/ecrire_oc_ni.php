@@ -582,10 +582,10 @@ una color indica lo sieu estat :',
 	'protocole_ldap' => 'Version dau protocòl :',
 
 	// Q
-	'queue_nb_jobs_in_queue' => '@nb@ travalhs en espèra',
-	'queue_no_job_in_queue' => 'Minga de travalh en espèra',
-	'queue_one_job_in_queue' => '1 travalh en espèra',
-	'queue_titre' => 'Tièra dei travalhs',
+	'queue_nb_jobs_in_queue' => '@nb@ travalhs en espèra', # MODIF
+	'queue_no_job_in_queue' => 'Minga de travalh en espèra', # MODIF
+	'queue_one_job_in_queue' => '1 travalh en espèra', # MODIF
+	'queue_titre' => 'Tièra dei travalhs', # MODIF
 
 	// R
 	'repertoire_plugins' => 'Repertòri:',

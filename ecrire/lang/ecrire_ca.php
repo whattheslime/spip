@@ -687,12 +687,12 @@ amb un color que indica el seu estat:',
 	// Q
 	'queue_executer_maintenant' => 'Executar ara',
 	'queue_info_purger' => 'Vous pouvez supprimer tous les travaux en attente et ré-inialiser la liste avec les travaux périodiques', # MODIF
-	'queue_nb_jobs_in_queue' => '@nb@ treballs en espera',
-	'queue_next_job_in_nb_sec' => 'Proper treball en @nb@ s',
-	'queue_no_job_in_queue' => 'Cap treball en espera',
-	'queue_one_job_in_queue' => '1 treball en espera',
-	'queue_purger_queue' => 'Purgar la llista de treballs',
-	'queue_titre' => 'Llista de treballs',
+	'queue_nb_jobs_in_queue' => '@nb@ treballs en espera', # MODIF
+	'queue_next_job_in_nb_sec' => 'Proper treball en @nb@ s', # MODIF
+	'queue_no_job_in_queue' => 'Cap treball en espera', # MODIF
+	'queue_one_job_in_queue' => '1 treball en espera', # MODIF
+	'queue_purger_queue' => 'Purgar la llista de treballs', # MODIF
+	'queue_titre' => 'Llista de treballs', # MODIF
 
 	// R
 	'repertoire_plugins' => 'Directori:',

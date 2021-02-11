@@ -718,14 +718,14 @@ and their status is colour-coded:',
 
 	// Q
 	'queue_executer_maintenant' => 'Run now',
-	'queue_info_purger' => 'You can delete all pending jobs and reset the list of periodic tasks',
-	'queue_nb_jobs_in_queue' => '@nb@ tasks in queue',
-	'queue_next_job_in_nb_sec' => 'Next job in @nb@ s',
-	'queue_no_job_in_queue' => 'No pending tasks',
-	'queue_one_job_in_queue' => '1 job in queue',
+	'queue_info_purger' => 'You can delete all pending jobs and reset the list of periodic tasks', # MODIF
+	'queue_nb_jobs_in_queue' => '@nb@ tasks in queue', # MODIF
+	'queue_next_job_in_nb_sec' => 'Next job in @nb@ s', # MODIF
+	'queue_no_job_in_queue' => 'No pending tasks', # MODIF
+	'queue_one_job_in_queue' => '1 job in queue', # MODIF
 	'queue_priorite_tache' => 'priority',
-	'queue_purger_queue' => 'Reset the job queue',
-	'queue_titre' => 'List of tasks',
+	'queue_purger_queue' => 'Reset the job queue', # MODIF
+	'queue_titre' => 'List of tasks', # MODIF
 
 	// R
 	'repertoire_plugins' => 'Directory:',

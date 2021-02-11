@@ -692,12 +692,12 @@ numa cor que indica o seu estado:',
 	// Q
 	'queue_executer_maintenant' => 'Executar agora',
 	'queue_info_purger' => 'Pode eliminar todas as tarefas em espera e pôr a zeros a lista de tarefas periódicas', # MODIF
-	'queue_nb_jobs_in_queue' => '@nb@ tarefas em espera',
-	'queue_next_job_in_nb_sec' => 'Próxima tarefa em @nb@ s',
-	'queue_no_job_in_queue' => 'Sem tarefas em espera',
-	'queue_one_job_in_queue' => '1 tarefa em espera',
-	'queue_purger_queue' => 'Pôr a zeros a lista de tarefas',
-	'queue_titre' => 'Lista de tarefas',
+	'queue_nb_jobs_in_queue' => '@nb@ tarefas em espera', # MODIF
+	'queue_next_job_in_nb_sec' => 'Próxima tarefa em @nb@ s', # MODIF
+	'queue_no_job_in_queue' => 'Sem tarefas em espera', # MODIF
+	'queue_one_job_in_queue' => '1 tarefa em espera', # MODIF
+	'queue_purger_queue' => 'Pôr a zeros a lista de tarefas', # MODIF
+	'queue_titre' => 'Lista de tarefas', # MODIF
 
 	// R
 	'repertoire_plugins' => 'Directório :',

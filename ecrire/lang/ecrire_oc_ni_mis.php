@@ -705,13 +705,13 @@ embé una coulou qu’endica lou sieu estat :',
 
 	// Q
 	'queue_executer_maintenant' => 'Esecutà ahura',
-	'queue_info_purger' => 'Poudès supprimà toui lu travai en aspera et reinicialisà la lista emb’ai travai periòdicou',
-	'queue_nb_jobs_in_queue' => '@nb@ travai en aspera',
-	'queue_next_job_in_nb_sec' => 'Travai que ven en @nb@ s',
-	'queue_no_job_in_queue' => 'Minga travai en aspera',
-	'queue_one_job_in_queue' => '1 travai en aspera',
-	'queue_purger_queue' => 'Reinitialisà la lista dei travai',
-	'queue_titre' => 'Lista dei travai',
+	'queue_info_purger' => 'Poudès supprimà toui lu travai en aspera et reinicialisà la lista emb’ai travai periòdicou', # MODIF
+	'queue_nb_jobs_in_queue' => '@nb@ travai en aspera', # MODIF
+	'queue_next_job_in_nb_sec' => 'Travai que ven en @nb@ s', # MODIF
+	'queue_no_job_in_queue' => 'Minga travai en aspera', # MODIF
+	'queue_one_job_in_queue' => '1 travai en aspera', # MODIF
+	'queue_purger_queue' => 'Reinitialisà la lista dei travai', # MODIF
+	'queue_titre' => 'Lista dei travai', # MODIF
 
 	// R
 	'repertoire_plugins' => 'Repertori :',

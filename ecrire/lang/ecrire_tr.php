@@ -638,12 +638,12 @@ Site sloganı', # RELIRE
 	'protocole_ldap' => 'Protokol sürümü :',
 
 	// Q
-	'queue_info_purger' => 'Bekleyen tüm işleri silip periyodik işler listesi sıfırlayabilirsiniz', # RELIRE
-	'queue_next_job_in_nb_sec' => 'Sonraki iş @nb@ s ’den sonra', # RELIRE
-	'queue_no_job_in_queue' => 'Bekleyen iş yok', # RELIRE
-	'queue_one_job_in_queue' => '1 bekleyen iş var', # RELIRE
-	'queue_purger_queue' => 'İş listesini sıfırla', # RELIRE
-	'queue_titre' => 'İş listesi', # RELIRE
+	'queue_info_purger' => 'Bekleyen tüm işleri silip periyodik işler listesi sıfırlayabilirsiniz', # MODIF
+	'queue_next_job_in_nb_sec' => 'Sonraki iş @nb@ s ’den sonra', # MODIF
+	'queue_no_job_in_queue' => 'Bekleyen iş yok', # MODIF
+	'queue_one_job_in_queue' => '1 bekleyen iş var', # MODIF
+	'queue_purger_queue' => 'İş listesini sıfırla', # MODIF
+	'queue_titre' => 'İş listesi', # MODIF
 
 	// R
 	'repertoire_plugins' => 'Dizin :',

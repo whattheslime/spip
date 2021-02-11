@@ -669,12 +669,12 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	// Q
 	'queue_executer_maintenant' => 'اجرا حالا',
 	'queue_info_purger' => 'مي‌‌توانيد تمام كارهاي در دست انجام را حذف كنيد و فهرست  كارهاي دوره‌اي را بازتنظيم (ريست) كنيد', # MODIF
-	'queue_nb_jobs_in_queue' => '@nb@ وظيفه در صف ',
-	'queue_next_job_in_nb_sec' => 'وظيفه‌ي بعدي در  @nb@ امين',
-	'queue_no_job_in_queue' => 'وظيفه‌اي در دست اجرا نيست',
-	'queue_one_job_in_queue' => '1 وظيفه در صف',
-	'queue_purger_queue' => 'بازتنظيم فهرست كارها',
-	'queue_titre' => 'فهرست وظيفه‌ها',
+	'queue_nb_jobs_in_queue' => '@nb@ وظيفه در صف ', # MODIF
+	'queue_next_job_in_nb_sec' => 'وظيفه‌ي بعدي در  @nb@ امين', # MODIF
+	'queue_no_job_in_queue' => 'وظيفه‌اي در دست اجرا نيست', # MODIF
+	'queue_one_job_in_queue' => '1 وظيفه در صف', # MODIF
+	'queue_purger_queue' => 'بازتنظيم فهرست كارها', # MODIF
+	'queue_titre' => 'فهرست وظيفه‌ها', # MODIF
 
 	// R
 	'repertoire_plugins' => 'رپرتوار:',

@@ -694,14 +694,14 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	// Q
 	'queue_executer_maintenant' => '今すぐ実行する',
 	'queue_info_purger' => '全ての保留中のタスクを削除し、定期タスクのリストをリセットすることもできま
-す。',
-	'queue_nb_jobs_in_queue' => '保留中のタスクは@nb@つです。',
-	'queue_next_job_in_nb_sec' => '次のタスクは@nb@秒間後になります。',
-	'queue_no_job_in_queue' => '保留中のタスクなし',
-	'queue_one_job_in_queue' => '保留中のタスク1つ',
+す。', # MODIF
+	'queue_nb_jobs_in_queue' => '保留中のタスクは@nb@つです。', # MODIF
+	'queue_next_job_in_nb_sec' => '次のタスクは@nb@秒間後になります。', # MODIF
+	'queue_no_job_in_queue' => '保留中のタスクなし', # MODIF
+	'queue_one_job_in_queue' => '保留中のタスク1つ', # MODIF
 	'queue_priorite_tache' => '優先',
-	'queue_purger_queue' => 'タスクのリストをリセットする',
-	'queue_titre' => 'タスクのリスト',
+	'queue_purger_queue' => 'タスクのリストをリセットする', # MODIF
+	'queue_titre' => 'タスクのリスト', # MODIF
 
 	// R
 	'repertoire_plugins' => 'フォルダー：',

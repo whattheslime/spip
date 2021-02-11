@@ -713,14 +713,14 @@ Le traduzioni sono associate all’originale,
 
 	// Q
 	'queue_executer_maintenant' => 'Esegui adesso',
-	'queue_info_purger' => 'È possibile eliminare tutti i lavori in sospeso e reinizializzare la lista con delle elaborazioni periodiche',
-	'queue_nb_jobs_in_queue' => '@nb@ processi in coda',
-	'queue_next_job_in_nb_sec' => 'Prossimo processo in @nb@ s',
-	'queue_no_job_in_queue' => 'Nessun processo appeso',
-	'queue_one_job_in_queue' => '1 processo in coda',
+	'queue_info_purger' => 'È possibile eliminare tutti i lavori in sospeso e reinizializzare la lista con delle elaborazioni periodiche', # MODIF
+	'queue_nb_jobs_in_queue' => '@nb@ processi in coda', # MODIF
+	'queue_next_job_in_nb_sec' => 'Prossimo processo in @nb@ s', # MODIF
+	'queue_no_job_in_queue' => 'Nessun processo appeso', # MODIF
+	'queue_one_job_in_queue' => '1 processo in coda', # MODIF
 	'queue_priorite_tache' => 'priorità',
-	'queue_purger_queue' => 'Pulisci la coda dei processi',
-	'queue_titre' => 'Lista dei processi',
+	'queue_purger_queue' => 'Pulisci la coda dei processi', # MODIF
+	'queue_titre' => 'Lista dei processi', # MODIF
 
 	// R
 	'repertoire_plugins' => 'Cartella:',

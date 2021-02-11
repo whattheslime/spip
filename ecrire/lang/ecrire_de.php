@@ -700,14 +700,14 @@ in einer Farbe, die den Status anzeigt :',
 
 	// Q
 	'queue_executer_maintenant' => 'Jetzt ausführen',
-	'queue_info_purger' => 'Sie können alle anstehenden Jobs löschen und so die Liste der regelmäßigen Jobs neu initialisieren.',
-	'queue_nb_jobs_in_queue' => '@nb@ Jobs in der Warteschlange',
-	'queue_next_job_in_nb_sec' => 'Nächster Job in @nb@ s',
-	'queue_no_job_in_queue' => 'Keine Aufgaben in der Warteschlange',
-	'queue_one_job_in_queue' => '1 Job in der Warteschlange',
+	'queue_info_purger' => 'Sie können alle anstehenden Jobs löschen und so die Liste der regelmäßigen Jobs neu initialisieren.', # MODIF
+	'queue_nb_jobs_in_queue' => '@nb@ Jobs in der Warteschlange', # MODIF
+	'queue_next_job_in_nb_sec' => 'Nächster Job in @nb@ s', # MODIF
+	'queue_no_job_in_queue' => 'Keine Aufgaben in der Warteschlange', # MODIF
+	'queue_one_job_in_queue' => '1 Job in der Warteschlange', # MODIF
 	'queue_priorite_tache' => 'Rangfolge',
-	'queue_purger_queue' => 'Jobliste löschen',
-	'queue_titre' => 'Jobliste',
+	'queue_purger_queue' => 'Jobliste löschen', # MODIF
+	'queue_titre' => 'Jobliste', # MODIF
 
 	// R
 	'repertoire_plugins' => 'Verzeichnis:',

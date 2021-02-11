@@ -677,13 +677,13 @@ Hutsik utz ezazu ez betetzeko, espazio edo komak tarteka itzazu LDAP eremu bat b
 
 	// Q
 	'queue_executer_maintenant' => 'Exekutatu orai',
-	'queue_info_purger' => 'Zain diren lan guziak ezeztatzen ahal dituzu, eta zerrenda berrabiarazi lan periodikoekin',
-	'queue_nb_jobs_in_queue' => '@nb@ lan zain daude',
-	'queue_next_job_in_nb_sec' => 'Ondoko lana @nb@ segundutan',
-	'queue_no_job_in_queue' => 'Zain dauden lanik ez da',
-	'queue_one_job_in_queue' => '1 lan zain dago',
-	'queue_purger_queue' => 'Lanen zerrenda purgatu',
-	'queue_titre' => 'Obren zerrenda',
+	'queue_info_purger' => 'Zain diren lan guziak ezeztatzen ahal dituzu, eta zerrenda berrabiarazi lan periodikoekin', # MODIF
+	'queue_nb_jobs_in_queue' => '@nb@ lan zain daude', # MODIF
+	'queue_next_job_in_nb_sec' => 'Ondoko lana @nb@ segundutan', # MODIF
+	'queue_no_job_in_queue' => 'Zain dauden lanik ez da', # MODIF
+	'queue_one_job_in_queue' => '1 lan zain dago', # MODIF
+	'queue_purger_queue' => 'Lanen zerrenda purgatu', # MODIF
+	'queue_titre' => 'Obren zerrenda', # MODIF
 
 	// R
 	'repertoire_plugins' => 'Direktorioa :',

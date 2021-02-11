@@ -714,13 +714,13 @@ a stav ich spracovania je označený farbou:',
 
 	// Q
 	'queue_executer_maintenant' => 'Spustiť teraz',
-	'queue_info_purger' => 'Môžete vymazať všetky čakajúce úlohy a zobraziť zoznam pravidelných úloh',
-	'queue_nb_jobs_in_queue' => '@nb@ úloh v rade',
-	'queue_next_job_in_nb_sec' => 'Ďalšia úloha o @nb@ s.',
-	'queue_no_job_in_queue' => 'Žiadne nevykonané úlohy',
-	'queue_one_job_in_queue' => '1 úloha v rade',
-	'queue_purger_queue' => 'Obnoviť rad úloh',
-	'queue_titre' => 'Zoznam úloh',
+	'queue_info_purger' => 'Môžete vymazať všetky čakajúce úlohy a zobraziť zoznam pravidelných úloh', # MODIF
+	'queue_nb_jobs_in_queue' => '@nb@ úloh v rade', # MODIF
+	'queue_next_job_in_nb_sec' => 'Ďalšia úloha o @nb@ s.', # MODIF
+	'queue_no_job_in_queue' => 'Žiadne nevykonané úlohy', # MODIF
+	'queue_one_job_in_queue' => '1 úloha v rade', # MODIF
+	'queue_purger_queue' => 'Obnoviť rad úloh', # MODIF
+	'queue_titre' => 'Zoznam úloh', # MODIF
 
 	// R
 	'repertoire_plugins' => 'Priečinok:',

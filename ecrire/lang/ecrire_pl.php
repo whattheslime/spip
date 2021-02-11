@@ -707,13 +707,13 @@ Przekłady są połączone z oryginałem, za pomocą koloru wskazującego na ich
 
 	// Q
 	'queue_executer_maintenant' => 'Uruchom teraz',
-	'queue_info_purger' => 'Możesz usunąć wszystkie zadania w toku i zresetować listę zadań okresowych',
-	'queue_nb_jobs_in_queue' => '@nb@ zadania w kolejce',
-	'queue_next_job_in_nb_sec' => 'Następne zadanie w @nb@ S',
-	'queue_no_job_in_queue' => 'Brak zadań w toku',
-	'queue_one_job_in_queue' => '1 zadanie w kolejce',
-	'queue_purger_queue' => 'Zresetuj kolejkę zadań',
-	'queue_titre' => 'Lista zadań',
+	'queue_info_purger' => 'Możesz usunąć wszystkie zadania w toku i zresetować listę zadań okresowych', # MODIF
+	'queue_nb_jobs_in_queue' => '@nb@ zadania w kolejce', # MODIF
+	'queue_next_job_in_nb_sec' => 'Następne zadanie w @nb@ S', # MODIF
+	'queue_no_job_in_queue' => 'Brak zadań w toku', # MODIF
+	'queue_one_job_in_queue' => '1 zadanie w kolejce', # MODIF
+	'queue_purger_queue' => 'Zresetuj kolejkę zadań', # MODIF
+	'queue_titre' => 'Lista zadań', # MODIF
 
 	// R
 	'repertoire_plugins' => 'Katalog :',

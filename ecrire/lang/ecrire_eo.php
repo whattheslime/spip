@@ -709,14 +709,14 @@ La tradukoj estas kunligitaj al la originalo, kun koloro kiu indikas ties staton
 
 	// Q
 	'queue_executer_maintenant' => 'Lanĉi nun',
-	'queue_info_purger' => 'Vi povas forviŝi ĉiujn atendante taskojn kaj restarigi la liston kun la periodaj taskoj',
-	'queue_nb_jobs_in_queue' => '@nb@ atendante taskoj',
-	'queue_next_job_in_nb_sec' => 'Sekva tasko post @nb@ s',
-	'queue_no_job_in_queue' => 'Neniu atendante tasko',
-	'queue_one_job_in_queue' => '1 atendante tasko',
+	'queue_info_purger' => 'Vi povas forviŝi ĉiujn atendante taskojn kaj restarigi la liston kun la periodaj taskoj', # MODIF
+	'queue_nb_jobs_in_queue' => '@nb@ atendante taskoj', # MODIF
+	'queue_next_job_in_nb_sec' => 'Sekva tasko post @nb@ s', # MODIF
+	'queue_no_job_in_queue' => 'Neniu atendante tasko', # MODIF
+	'queue_one_job_in_queue' => '1 atendante tasko', # MODIF
 	'queue_priorite_tache' => 'prioritato',
-	'queue_purger_queue' => 'Restarigi la taskliston',
-	'queue_titre' => 'Tasklisto',
+	'queue_purger_queue' => 'Restarigi la taskliston', # MODIF
+	'queue_titre' => 'Tasklisto', # MODIF
 
 	// R
 	'repertoire_plugins' => 'Dosierujo :',

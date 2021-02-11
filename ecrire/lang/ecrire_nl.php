@@ -709,14 +709,14 @@ een kleur geeft hun status aan:',
 
 	// Q
 	'queue_executer_maintenant' => 'Nu uitvoeren',
-	'queue_info_purger' => 'Je kunt alle wachtende taken verwijderen en de lijst van periodieke taken herstarten',
-	'queue_nb_jobs_in_queue' => '@nb@ wachtrij',
-	'queue_next_job_in_nb_sec' => 'Volgende opdracht in @nb@ sec',
-	'queue_no_job_in_queue' => 'Geen opdracht in de wachtrij',
-	'queue_one_job_in_queue' => '1 taak in wachtrij',
+	'queue_info_purger' => 'Je kunt alle wachtende taken verwijderen en de lijst van periodieke taken herstarten', # MODIF
+	'queue_nb_jobs_in_queue' => '@nb@ wachtrij', # MODIF
+	'queue_next_job_in_nb_sec' => 'Volgende opdracht in @nb@ sec', # MODIF
+	'queue_no_job_in_queue' => 'Geen opdracht in de wachtrij', # MODIF
+	'queue_one_job_in_queue' => '1 taak in wachtrij', # MODIF
 	'queue_priorite_tache' => 'prioriteit',
-	'queue_purger_queue' => 'De takenlijst leegmaken',
-	'queue_titre' => 'Lijst van taken',
+	'queue_purger_queue' => 'De takenlijst leegmaken', # MODIF
+	'queue_titre' => 'Lijst van taken', # MODIF
 
 	// R
 	'repertoire_plugins' => 'Map:',

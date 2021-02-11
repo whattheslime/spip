@@ -709,14 +709,14 @@ diskouezet en ul liv disheñvel, diouzh o stad :',
 
 	// Q
 	'queue_executer_maintenant' => 'Seveniñ bremañ',
-	'queue_info_purger' => 'Bez e c’hallit lemel an holl labourioù o c’hortoz, ha nevesaat roll al labourioù mareadek',
-	'queue_nb_jobs_in_queue' => '@nb@ labourioù o c’hortoz',
-	'queue_next_job_in_nb_sec' => 'Labour-all a-benn @nb@ eilenn',
-	'queue_no_job_in_queue' => 'Labour ebet o chom a-ispilh',
-	'queue_one_job_in_queue' => '1 labour o chom a-ispilh',
+	'queue_info_purger' => 'Bez e c’hallit lemel an holl labourioù o c’hortoz, ha nevesaat roll al labourioù mareadek', # MODIF
+	'queue_nb_jobs_in_queue' => '@nb@ labourioù o c’hortoz', # MODIF
+	'queue_next_job_in_nb_sec' => 'Labour-all a-benn @nb@ eilenn', # MODIF
+	'queue_no_job_in_queue' => 'Labour ebet o chom a-ispilh', # MODIF
+	'queue_one_job_in_queue' => '1 labour o chom a-ispilh', # MODIF
 	'queue_priorite_tache' => 'prioriezh',
-	'queue_purger_queue' => 'Nevesaat roll al labourioù',
-	'queue_titre' => 'Roll al labourioù',
+	'queue_purger_queue' => 'Nevesaat roll al labourioù', # MODIF
+	'queue_titre' => 'Roll al labourioù', # MODIF
 
 	// R
 	'repertoire_plugins' => 'Kavlec’h :',

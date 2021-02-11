@@ -689,13 +689,13 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 
 	// Q
 	'queue_executer_maintenant' => 'Запустити',
-	'queue_info_purger' => 'Ви можете видалити усі поточні завдання і очистити всю чергу завдань',
-	'queue_nb_jobs_in_queue' => 'В черзі @nb@ завдань',
-	'queue_next_job_in_nb_sec' => 'Наступне завдання через @nb@ s',
-	'queue_no_job_in_queue' => 'Список завдань пустий',
-	'queue_one_job_in_queue' => '1 завдання в черзі',
-	'queue_purger_queue' => 'Очистити список завдань',
-	'queue_titre' => 'Список завдань',
+	'queue_info_purger' => 'Ви можете видалити усі поточні завдання і очистити всю чергу завдань', # MODIF
+	'queue_nb_jobs_in_queue' => 'В черзі @nb@ завдань', # MODIF
+	'queue_next_job_in_nb_sec' => 'Наступне завдання через @nb@ s', # MODIF
+	'queue_no_job_in_queue' => 'Список завдань пустий', # MODIF
+	'queue_one_job_in_queue' => '1 завдання в черзі', # MODIF
+	'queue_purger_queue' => 'Очистити список завдань', # MODIF
+	'queue_titre' => 'Список завдань', # MODIF
 
 	// R
 	'repertoire_plugins' => 'Репозиторій:',

@@ -703,14 +703,14 @@ Las traducciones están asociadas al original, en un color que indica su estado:
 
 	// Q
 	'queue_executer_maintenant' => 'Ejecutar ahora',
-	'queue_info_purger' => 'Puede eliminar todos los trabajos pendientes y reinicializar la lista con los trabajos periódicos',
-	'queue_nb_jobs_in_queue' => '@nb@ trabajos en espera',
-	'queue_next_job_in_nb_sec' => 'Próximo trabajo en @nb@ s',
-	'queue_no_job_in_queue' => 'Ningún trabajo en espera',
-	'queue_one_job_in_queue' => '1 trabajo en espera',
+	'queue_info_purger' => 'Puede eliminar todos los trabajos pendientes y reinicializar la lista con los trabajos periódicos', # MODIF
+	'queue_nb_jobs_in_queue' => '@nb@ trabajos en espera', # MODIF
+	'queue_next_job_in_nb_sec' => 'Próximo trabajo en @nb@ s', # MODIF
+	'queue_no_job_in_queue' => 'Ningún trabajo en espera', # MODIF
+	'queue_one_job_in_queue' => '1 trabajo en espera', # MODIF
 	'queue_priorite_tache' => 'prioridad',
-	'queue_purger_queue' => 'Purgar la lista de trabajos',
-	'queue_titre' => 'Lista de trabajos',
+	'queue_purger_queue' => 'Purgar la lista de trabajos', # MODIF
+	'queue_titre' => 'Lista de trabajos', # MODIF
 
 	// R
 	'repertoire_plugins' => 'Carpeta:',
