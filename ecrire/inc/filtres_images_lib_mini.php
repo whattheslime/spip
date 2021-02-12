@@ -1452,7 +1452,7 @@ function _image_ratio($srcWidth, $srcHeight, $maxWidth, $maxHeight) {
 	$ratioWidth = $srcWidth / $maxWidth;
 	$ratioHeight = $srcHeight / $maxHeight;
 
-	if ($ratioWidth <= 1 and $ratioHeight <= 1) {
+	if ($srcWidth <= $maxWidth and $srcHeight <= $maxHeight) {
 		$destWidth = $srcWidth;
 		$destHeight = $srcHeight;
 	} elseif ($ratioWidth < $ratioHeight) {
@@ -1464,8 +1464,8 @@ function _image_ratio($srcWidth, $srcHeight, $maxWidth, $maxHeight) {
 	}
 
 	return array(
-		ceil($destWidth),
-		ceil($destHeight),
+		intval(round($destWidth)),
+		intval(round($destHeight)),
 		max($ratioWidth, $ratioHeight)
 	);
 }
@@ -1490,7 +1490,7 @@ function ratio_passe_partout($srcWidth, $srcHeight, $maxWidth, $maxHeight) {
 	$ratioWidth = $srcWidth / $maxWidth;
 	$ratioHeight = $srcHeight / $maxHeight;
 
-	if ($ratioWidth <= 1 and $ratioHeight <= 1) {
+	if ($srcWidth <= $maxWidth and $srcHeight <= $maxHeight) {
 		$destWidth = $srcWidth;
 		$destHeight = $srcHeight;
 	} elseif ($ratioWidth > $ratioHeight) {
@@ -1502,8 +1502,8 @@ function ratio_passe_partout($srcWidth, $srcHeight, $maxWidth, $maxHeight) {
 	}
 
 	return array(
-		ceil($destWidth),
-		ceil($destHeight),
+		intval(round($destWidth)),
+		intval(round($destHeight)),
 		min($ratioWidth, $ratioHeight)
 	);
 }
