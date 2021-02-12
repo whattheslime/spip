@@ -1,3 +1,44 @@
+ SPIP-Core v3.2.8 -> v3.2.9 (12 février 2021)
+ ---------------------------------------------
+
+ c965889bc | cedric        | 2021-02-10 | Fix #4316 : la PR a ete fermee sur github quand on est passe a git.spip.net je suppose
+ c76c39a6e | cedric        | 2021-02-10 | nonsense code, copie colle surement, fix #4315
+ 93a917a4d | cedric        | 2021-02-10 | Fix #4140 (deja fixe en 3.3)
+ 7246f1966 | cedric        | 2021-02-08 | Fix #3869 (ou du moins on espere, sinon c'est pas si grave)
+ 55bc9fd5d | erational     | 2021-02-08 | [bugfix] empecher warning sur le count de l'iterateur devrait resoudre le ticket https://core.spip.net/issues/4450 et ..
+ 42898eb47 | rastapopoulos | 2021-02-05 | Corrige 4401 en améliorant la rustine déjà en place
+ 24eda3678 | cedric        | 2021-02-05 | nettoyer l'adresse site qu'on enregistre fix #4629
+ bb69f3466 | bruno         | 2021-02-05 | ne pas stocker le champ ldap_password dans les fichiers de session
+ 2269d0a6a | cedric        | 2021-02-01 | appels a autoriser sur les formulaires editer, a minima quand on les utilise en modification d'un objet existant depui..
+ 610c24f06 | cedric        | 2021-02-02 | Eviter d'utiliser une globale, gerer le flag en static avec operations de lecture+reset
+ a8493a3ce | cedric        | 2021-02-01 | Eviter de donner sa langue au chat
+ f9d9e5b1a | cedric        | 2021-02-01 | on accepte pas une fonction de config inconnue si elle vient d'un modele
+ 962a95f44 | cedric        | 2021-02-01 | Utiliser contexte_compil pour reperer les appels a executer_balise_dynamique() venant d'un modele, et lever un flag le..
+ c35edb769 | cedric        | 2021-02-01 | une fonction pour detecter qu'un formulaire a ete inclu via un modele et non directement via une balide #FORMULAIRE_xxx
+ 577ad8d21 | bruno         | 2021-01-21 | éviter d'afficher n'importe quoi dans le message d'édition concurrente
+ f1f27e9f7 | bruno         | 2021-02-01 | attribut_html() sur les attributs renvoyés par env_to_params() & env_to_attributs()
+ 6c6b6c6d4 | nicod         | 2021-01-06 | Stocker les contextes dans des fichiers en cache si la longueur de l’argument géneré est plus long que ce qui est tolé..
+ 2be11db95 | bruno         | 2020-10-25 | fix undefined index sur l'action réparation de la base
+
+
+
+ SPIP-plugins-dist v3.2.8 -> v3.2.9 (12 février 2021)
+ -----------------------------------------------------
+
+ breves                  | ba1e040 | cedric       | 2021-02-04 | verifier l'autorisation de modifier la breve passe en argument
+ mediabox                | 9020d16 | cedric       | 2021-02-08 | #4625 : echapper les valeurs injectees dans le js via les parametres mediabox, c'est plus propre
+ medias                  | 96bf7b2 | cedric       | 2021-02-04 | Verifier l'autorisation de modifier les documents passes en argument du formulaire
+ medias                  | bfc3319 | cedric       | 2021-01-20 | Report de 049dee8 : Extraire la fonction de determination automatique du statut d'un document dans une fonction inc_de..
+ medias                  | 9764525 | cedric       | 2021-01-19 | Normaliser le comportement de document_instituer() en appelant les pipelines pre_editon et post_edition avec action=in..
+ medias                  | 2293b84 | tcharlss     | 2021-01-19 | Report de 890506eb99 : Pour le JS des modes d'affichages, cibler plus précisément l'élément, sinon les boutons peuvent..
+ mots                    | 0955e0d | cedric       | 2021-02-04 | Verifier les autorisations de modifier les mots/groupes de mots passes en argument du formulaire d'edition
+ revisions               | e573977 | bruno        | 2020-10-23 | éviter un warning dans les révisions lors de la suppression d'un lien par une personne non identifiée
+ sites                   | 28bdb59 | cedric       | 2021-02-10 | Fix #4296 : l'url peut etre dans le href meme si c'est pas un link autofermant...
+ sites                   | 92994f3 | cedric       | 2021-02-04 | verifier l'autorisation de modifier le site passe en argument du formulaire d'edition
+ sites                   | 638ceef | cedric       | 2020-12-18 | Fix le id_mot manquant sur les syndic_articles. Ce n'est pas un usage frequent, mais il existe et soyons homogene avec..
+ textwheel               | 317b045 | rastapopoulos | 2021-02-05 | Correction de 4508 : on ne gère le caption/summary *réellement* qu'en première ligne, seulement si on n'a pas déjà gén..
+
+
 SPIP-Core v3.2.7 -> v3.2.8 (29 septembre 2020)
 ----------------------------------------------
 a5cda7ff8 | cedric        | 2020-09-17 | Si une page preview est visualisee dans un element embed on sandbox l'element et on redirige sur la home pour eviter t..
