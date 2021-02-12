@@ -341,6 +341,8 @@ function definir_details_traduction($desc, $modules) {
 		$desc->texte = '<span '
 			. 'lang=' . $desc->langue
 			. ' class=' . $classe
+			. ' data-module=' . $desc->module
+			. ' data-code=' . $desc->code
 			. ' title=' . $modules . '(' . $desc->langue . ')>'
 			. $desc->texte
 			. '</span>';
