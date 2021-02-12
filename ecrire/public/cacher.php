@@ -33,6 +33,41 @@ function generer_nom_fichier_cache($contexte, $page) {
 }
 
 /**
+ * Calcule le chemin hashe du fichier cache
+ * Le format souhaite : tmp/cache/ab/cd
+ * soit au maximum 16^4 fichiers dans 256 repertoires
+ * mais la longueur est configurable via un define qui permer d'avoir une taille de 16^_CACHE_PROFONDEUR_STOCKAGE
+ *
+ * Attention a modifier simultanement le sanity check de
+ * la fonction retire_cache() de inc/invalideur
+ *
+ * @param $nom_cache
+ * @return string
+ */
+function cache_chemin_fichier($nom_cache, $ecrire = false) {
+	static $l1, $l2;
+	if (is_null($l1)) {
+		$length = (defined('_CACHE_PROFONDEUR_STOCKAGE') ? min(8,max(_CACHE_PROFONDEUR_STOCKAGE,2)) : 4);
+		$l1 = intval(floor($length / 2));
+		$l2 = $length - $l1;
+	}
+	$d = substr($nom_cache, 0, $l1);
+	$u = substr($nom_cache, $l1, $l2);
+
+	if ($ecrire) {
+		$rep = sous_repertoire(_DIR_CACHE, '', false, true);
+		$rep = sous_repertoire($rep, 'calcul/', false, true);
+		$rep = sous_repertoire($rep, $d, false, true);
+	}
+	else {
+		// en lecture on essaye pa de creer les repertoires, on va au plus vite
+		$rep = _DIR_CACHE . "$d/";
+	}
+
+	return $rep . $u . ".cache";
+}
+
+/**
  * ecrire le cache dans un casier
  *
  * @param string $nom_cache
@@ -40,13 +75,7 @@ function generer_nom_fichier_cache($contexte, $page) {
  * @return bool
  */
 function ecrire_cache($nom_cache, $valeur) {
-	$d = substr($nom_cache, 0, 2);
-	$u = substr($nom_cache, 2, 2);
-	$rep = _DIR_CACHE;
-	$rep = sous_repertoire($rep, '', false, true);
-	$rep = sous_repertoire($rep, $d, false, true);
-
-	return ecrire_fichier($rep . $u . ".cache", serialize(array("nom_cache" => $nom_cache, "valeur" => $valeur)));
+	return ecrire_fichier(cache_chemin_fichier($nom_cache, true), serialize(array("nom_cache" => $nom_cache, "valeur" => $valeur)));
 }
 
 /**
@@ -56,9 +85,7 @@ function ecrire_cache($nom_cache, $valeur) {
  * @return mixed
  */
 function lire_cache($nom_cache) {
-	$d = substr($nom_cache, 0, 2);
-	$u = substr($nom_cache, 2, 2);
-	if (file_exists($f = _DIR_CACHE . "$d/$u.cache")
+	if (file_exists($f = cache_chemin_fichier($nom_cache))
 		and lire_fichier($f, $tmp)
 		and $tmp = unserialize($tmp)
 		and $tmp['nom_cache'] == $nom_cache
