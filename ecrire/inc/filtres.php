@@ -482,14 +482,20 @@ function image_filtrer($args) {
 	find_in_path('filtres_images_mini.php', 'inc/', true);
 	statut_effacer_images_temporaires(true); // activer la suppression des images temporaires car le compilo finit la chaine par un image_graver
 	// Cas du nom de fichier local
-	if (strpos(substr($texte, strlen(_DIR_RACINE)), '..') === false
-		and !preg_match(',^/|[<>]|\s,S', $texte)
+	$is_file = trim($texte);
+	if (strpos(substr($is_file, strlen(_DIR_RACINE)), '..') !== false
+		  or strpbrk($is_file, "<>\n\r\t") !== false
+		  or strpos($is_file, '/') === 0
+	) {
+		$is_file = false;
+	}
+	if ($is_file
 		and (
-			file_exists(preg_replace(',[?].*$,', '', $texte))
-			or tester_url_absolue($texte)
+			file_exists(supprimer_timestamp($is_file))
+			or tester_url_absolue($is_file)
 		)
 	) {
-		array_unshift($args, "<img src='$texte' />");
+		array_unshift($args, "<img src='$is_file' />");
 		$res = call_user_func_array($filtre, $args);
 		statut_effacer_images_temporaires(false); // desactiver pour les appels hors compilo
 		return $res;
