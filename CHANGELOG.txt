@@ -1,3 +1,29 @@
+
+SPIP-Core v3.1.14 -> v3.1.15 (12 février 2021)
+-----------------------------------------------
+
+9009d4834 | cedric       | 2021-02-08 | Fix #3869 (ou du moins on espere, sinon c'est pas si grave)
+5db30f457 | cedric       | 2021-02-05 | nettoyer l'adresse site qu'on enregistre fix #4629
+fdfe5a332 | bruno        | 2021-02-05 | ne pas stocker le champ ldap_password dans les fichiers de session
+868365414 | cedric       | 2021-02-01 | appels a autoriser sur les formulaires editer, a minima quand on les utilise en modification d'un objet existant depui..
+11f4c24cc | cedric       | 2021-02-02 | Eviter d'utiliser une globale, gerer le flag en static avec operations de lecture+reset
+7e995ff2f | cedric       | 2021-02-01 | Eviter de donner sa langue au chat
+6cdf5f766 | cedric       | 2021-02-01 | on accepte pas une fonction de config inconnue si elle vient d'un modele
+c27b8a9f4 | cedric       | 2021-02-01 | Utiliser contexte_compil pour reperer les appels a executer_balise_dynamique() venant d'un modele, et lever un flag le..
+259e6ce02 | cedric       | 2021-02-01 | une fonction pour detecter qu'un formulaire a ete inclu via un modele et non directement via une balide #FORMULAIRE_xxx
+7f2d085f3 | bruno        | 2021-01-21 | éviter d'afficher n'importe quoi dans le message d'édition concurrente
+9c7315c3e | bruno        | 2021-02-01 | attribut_html() sur les attributs renvoyés par env_to_params() & env_to_attributs()
+
+SPIP-plugins-dist v3.1.14 -> v3.1.15 (12 février 2021)
+-------------------------------------------------------
+
+breves                  | 8ec9cd7 | cedric       | 2021-02-04 | verifier l'autorisation de modifier la breve passe en argument
+mediabox                | abff912 | cedric       | 2021-02-08 |  #4625 : echapper les valeurs injectees dans le js via les parametres mediabox, c'est plus propre
+medias                  | 9a3b53f | cedric       | 2021-02-04 | Verifier l'autorisation de modifier les documents passes en argument du formulaire
+mots                    | f9d92a8 | cedric       | 2021-02-04 | Verifier les autorisations de modifier les mots/groupes de mots passes en argument du formulaire d'edition
+sites                   | aca62c8 | cedric       | 2021-02-04 | verifier l'autorisation de modifier le site passe en argument du formulaire d'edition
+
+
 SPIP-Core v3.1.13 -> v3.1.14 (2 octobre 2020)
 ---------------------------------------------
 daa3a9ee3 | marcimat     | 2020-10-02 | Compat PHP < 5.4 !
