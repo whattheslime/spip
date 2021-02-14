@@ -64,6 +64,8 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'bouton_radio_non_envoi_annonces_editoriales' => 'عدم إرسال أي إعلان تحرير',
 	'bouton_redirection' => 'إعادة توجيه',
 	'bouton_reinitialiser_aux_valeurs_par_defaut' => 'إعادة التأصيل الى القيم القياسية',
+	'bouton_relancer_inscription' => 'إعادة تشغيل التسجيل',
+	'bouton_relancer_inscriptions' => 'إعادة تشغيل التسجيلات',
 	'bouton_relancer_installation' => 'إعادة إطلاق عملية التثبيت',
 	'bouton_reset_password' => 'إنشاء كلمة سر جديدة وإرسالها بالبريد الإلكتروني',
 	'bouton_suivant' => 'التالي',
@@ -397,7 +399,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'info_nouvel_article' => 'مقال جديد',
 	'info_nouvelle_traduction' => 'ترجمة جديدة:',
 	'info_numero_article' => 'المقال رقم:',
-	'info_obligatoire_02' => '(إجباري)', # MODIF
+	'info_obligatoire_02' => '(إجباري)',
 	'info_option_accepter_visiteurs' => 'قبول تسجيل الزوار من الموقع العمومي',
 	'info_option_ne_pas_accepter_visiteurs' => 'رفض تسجيل الزوار من الموقع العمومي',
 	'info_options_avancees' => 'الخيارات المتطورة',
@@ -726,18 +728,18 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 
 	// Q
 	'queue_executer_maintenant' => 'تنفيذ الآن',
-	'queue_info_purger' => 'يمكنك حذف كل الأعمال في الانتظار وتأصيل لائحة الأعمال الدورية', # MODIF
-	'queue_nb_jobs_in_queue' => '@nb@ عمل بالانتظار', # MODIF
-	'queue_next_job_in_nb_sec' => 'العمل القادم خلال @nb@ ثانية', # MODIF
-	'queue_no_job_in_queue' => 'لا توجد أعمال بالانتظار', # MODIF
-	'queue_one_job_in_queue' => 'عمل واحد بالانتظار', # MODIF
+	'queue_info_purger' => 'يمكنك حذف كل الأعمال في الانتظار وتأصيل لائحة الأعمال الدورية',
+	'queue_nb_jobs_in_queue' => '@nb@ عمل بالانتظار',
+	'queue_next_job_in_nb_sec' => 'العمل القادم خلال @nb@ ثانية',
+	'queue_no_job_in_queue' => 'لا توجد أعمال بالانتظار',
+	'queue_one_job_in_queue' => 'عمل واحد بالانتظار',
 	'queue_priorite_tache' => 'الأفضلية',
-	'queue_purger_queue' => 'تأصيل لائحة الأعمال', # MODIF
-	'queue_titre' => 'لائحة الأعمال', # MODIF
+	'queue_purger_queue' => 'تأصيل لائحة الأعمال',
+	'queue_titre' => 'أعمال الخلفية',
 
 	// R
 	'repertoire_plugins' => 'دليل:',
-	'required' => '(إجباري)', # MODIF
+	'required' => '(إجباري)',
 
 	// S
 	'sans_heure' => 'بدون توقيت الساعات',

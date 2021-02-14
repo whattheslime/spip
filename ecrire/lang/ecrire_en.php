@@ -10,7 +10,7 @@ if (!defined('_ECRIRE_INC_VERSION')) {
 $GLOBALS[$GLOBALS['idx_lang']] = array(
 
 	// A
-	'activer_plugin' => 'Activate plugin',
+	'activer_plugin' => 'Enable plugin',
 	'affichage' => 'Display',
 	'aide_non_disponible' => 'This part of the online help is not yet available in this language.',
 	'annuler_recherche' => 'Cancel the search',
@@ -63,6 +63,8 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'bouton_radio_non_envoi_annonces_editoriales' => 'Do not send any editorial announcements',
 	'bouton_redirection' => 'REDIRECT',
 	'bouton_reinitialiser_aux_valeurs_par_defaut' => 'Reset to default values',
+	'bouton_relancer_inscription' => 'Re-launch registration',
+	'bouton_relancer_inscriptions' => 'Re-launch registrations',
 	'bouton_relancer_installation' => 'Recommence installation',
 	'bouton_reset_password' => 'Create a new password and send by e-mail',
 	'bouton_suivant' => 'Next',
@@ -390,7 +392,7 @@ via FTP.</p>',
 	'info_nouvel_article' => 'New article',
 	'info_nouvelle_traduction' => 'New translation:',
 	'info_numero_article' => 'ARTICLE NUMBER:',
-	'info_obligatoire_02' => '(Required)', # MODIF
+	'info_obligatoire_02' => '(Required)',
 	'info_option_accepter_visiteurs' => 'Allow visitor registration via the public site',
 	'info_option_ne_pas_accepter_visiteurs' => 'Disable visitor registration',
 	'info_options_avancees' => 'ADVANCED OPTIONS',
@@ -718,18 +720,18 @@ and their status is colour-coded:',
 
 	// Q
 	'queue_executer_maintenant' => 'Run now',
-	'queue_info_purger' => 'You can delete all pending jobs and reset the list of periodic tasks', # MODIF
-	'queue_nb_jobs_in_queue' => '@nb@ tasks in queue', # MODIF
-	'queue_next_job_in_nb_sec' => 'Next job in @nb@ s', # MODIF
-	'queue_no_job_in_queue' => 'No pending tasks', # MODIF
-	'queue_one_job_in_queue' => '1 job in queue', # MODIF
+	'queue_info_purger' => 'You can delete all pending tasks and reset the list with periodic tasks',
+	'queue_nb_jobs_in_queue' => '@nb@ pending tasks',
+	'queue_next_job_in_nb_sec' => 'Next task in @nb@ s',
+	'queue_no_job_in_queue' => 'No pending tasks',
+	'queue_one_job_in_queue' => '1 pending task',
 	'queue_priorite_tache' => 'priority',
-	'queue_purger_queue' => 'Reset the job queue', # MODIF
-	'queue_titre' => 'List of tasks', # MODIF
+	'queue_purger_queue' => 'Reset the tasks queue',
+	'queue_titre' => 'Background tasks',
 
 	// R
 	'repertoire_plugins' => 'Directory:',
-	'required' => '(Required)', # MODIF
+	'required' => '(Required)',
 
 	// S
 	'sans_heure' => 'time not specified',
