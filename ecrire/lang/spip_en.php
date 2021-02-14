@@ -530,7 +530,7 @@ the site "@nom_site_spip@" (@adresse_login@):',
 	'login_pass2' => 'Password:',
 	'login_preferez_refuser' => '<b>If you prefer to refuse cookies</b>, there is another, less secure, method of connection available:',
 	'login_recharger' => 'reload this page',
-	'login_rester_identifie' => 'Remember my ID for a few days', # MODIF
+	'login_rester_identifie' => 'Remember me',
 	'login_retour_public' => 'Back to the public site',
 	'login_retour_site' => 'Back to the public site',
 	'login_retoursitepublic' => 'back to the public site',
