@@ -100,9 +100,12 @@ function statut_effacer_images_temporaires($stat) {
 
 
 /**
- * Fonctions de traitement d'image
+ * Fonctions de preparation aux filtres de traitement d'image
+ * les fonctions de lecture et d'ecriture renseignees traitent uniquement le cas GD2
+ * qui est le cas general des filtres images
  *
- * Uniquement pour GD2.
+ * mais image_reduire utilise aussi cette fonction en adaptant le traitement
+ * en fonction de la librairie graphique choisie dans la configuration de SPIP
  *
  * @pipeline_appel image_preparer_filtre
  * @uses extraire_attribut()
