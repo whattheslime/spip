@@ -46,18 +46,36 @@ function exporter_csv_champ($champ) {
  *
  * @uses exporter_csv_champ()
  *
+ * @param int $nb
  * @param array $ligne
  * @param string $delim
  * @param string|null $importer_charset
  *     Si défini exporte dans le charset indiqué
+ * @param callable $callback
  * @return string
  */
-function exporter_csv_ligne($ligne, $delim = ',', $importer_charset = null) {
+function exporter_csv_ligne_numerotee($nb, $ligne, $delim = ',', $importer_charset = null, $callback=null) {
+	if ($callback) {
+		$ligne = call_user_func($callback, $nb, $ligne, $delim, $importer_charset);
+	}
 	$output = join($delim, array_map('exporter_csv_champ', $ligne)) . "\r\n";
 	if ($importer_charset) {
+		$output = str_replace('’', '\'', $output);
 		$output = unicode2charset(html2unicode(charset2unicode($output)), $importer_charset);
 	}
 	return $output;
+}
+
+/**
+ * @deprecated
+ *
+ * @param $ligne
+ * @param string $delim
+ * @param null $importer_charset
+ * @return string
+ */
+function exporter_csv_ligne($ligne, $delim = ',', $importer_charset = null){
+	return exporter_csv_ligne_numerotee(null, $ligne, $delim, $importer_charset);
 }
 
 /**
@@ -73,62 +91,110 @@ function exporter_csv_ligne($ligne, $delim = ',', $importer_charset = null) {
  * @param string $titre
  *   titre utilise pour nommer le fichier
  * @param array|resource $resource
- * @param string $delim
- *   delimiteur
- * @param array $entetes
- *   tableau d'en-tetes pour nommer les colonnes (genere la premiere ligne)
- * @param bool $envoyer
- *   pour envoyer le fichier exporte (permet le telechargement)
+ * @param array $options
+ *   string $delim : delimiteur
+ *   array $entetes : tableau d'en-tetes pour nommer les colonnes (genere la premiere ligne)
+ *   bool $envoyer : pour envoyer le fichier exporte (permet le telechargement)
+ *   string $charset : charset de l'export si different de celui du site
+ *   callable callback : fonction callback a appeler sur chaque ligne pour mettre en forme/completer les donnees
  * @return string
  */
-function inc_exporter_csv_dist($titre, $resource, $delim = ', ', $entetes = null, $envoyer = true) {
+function inc_exporter_csv_dist($titre, $resource, $options = []) {
+
+	// support ancienne syntaxe
+	// inc_exporter_csv_dist($titre, $resource, $delim = ', ', $entetes = null, $envoyer = true)
+	if (is_string($options)) {
+		$args = func_get_args();
+		$options = [];
+		foreach ([2 => 'delim', 3 => 'entetes', 4 => 'envoyer'] as $k => $option) {
+			if (!empty($args[$k])) {
+				$options[$option] = $args[$k];
+			}
+		}
+	}
+
+	$default_options = [
+		'delim' => ', ',
+		'entetes' => null,
+		'envoyer' => true,
+		'charset' => null,
+		'callback' => null,
+	];
+	$options = array_merge($default_options, $options);
 
 	$filename = preg_replace(',[^-_\w]+,', '_', translitteration(textebrut(typo($titre))));
 
-	if ($delim == 'TAB') {
-		$delim = "\t";
+	if ($options['delim'] == 'TAB') {
+		$options['delim'] = "\t";
 	}
-	if (!in_array($delim, array(',', ';', "\t"))) {
-		$delim = ',';
+	if (!in_array($options['delim'], array(',', ';', "\t"))) {
+		$options['delim'] = ',';
 	}
 
 	$charset = $GLOBALS['meta']['charset'];
 	$importer_charset = null;
-	if ($delim == ',') {
+	if ($options['delim'] == ',') {
 		$extension = 'csv';
 	} else {
 		$extension = 'xls';
 		# Excel n'accepte pas l'utf-8 ni les entites html... on transcode tout ce qu'on peut
-		$importer_charset = $charset = 'iso-8859-1';
+		$charset = 'iso-8859-1';
 	}
+	// mais si une option charset est explicite, elle a la priorite
+	if (!empty($options['charset'])) {
+		$charset = $options['charset'];
+	}
+
+	$importer_charset = (($charset === $GLOBALS['meta']['charset']) ? null : $charset);
+
 	$filename = "$filename.$extension";
 
 	$output = '';
-	if ($entetes and is_array($entetes) and count($entetes)) {
-		$output = exporter_csv_ligne($entetes, $delim, $importer_charset);
+	$nb = 0;
+	if (!empty($options['entetes']) and is_array($options['entetes'])) {
+		$output = exporter_csv_ligne_numerotee($nb, $options['entetes'], $options['delim'], $importer_charset, $options['callback']);
+	}
+	// les donnees commencent toujours a la ligne 1, qu'il y ait ou non des entetes
+	$nb++;
+
+	if ($options['envoyer']) {
+		$disposition = ($options['envoyer'] === 'attachment' ? 'attachment' : 'inline');
+		header("Content-Type: text/comma-separated-values; charset=$charset");
+		header("Content-Disposition: $disposition; filename=$filename");
+
+		// Vider tous les tampons
+		$level = @ob_get_level();
+		while ($level--) {
+			@ob_end_flush();
+		}
 	}
 
-	// on passe par un fichier temporaire qui permet de ne pas saturer la memoire
-	// avec les gros exports
+	// si envoyer=='attachment' on passe par un fichier temporaire
+	// sinon on ecrit directement sur stdout
+	if ($options['envoyer'] and $options['envoyer'] !== 'attachment') {
+		$fichier = "php://output";
+	}
+	else {
 	$fichier = sous_repertoire(_DIR_CACHE, 'export') . $filename;
+	}
+
 	$fp = fopen($fichier, 'w');
 	$length = fwrite($fp, $output);
 
 	while ($row = is_array($resource) ? array_shift($resource) : sql_fetch($resource)) {
-		$output = exporter_csv_ligne($row, $delim, $importer_charset);
+		$output = exporter_csv_ligne_numerotee($nb, $row, $options['delim'], $importer_charset, $options['callback']);
 		$length += fwrite($fp, $output);
+		$nb++;
 	}
 	fclose($fp);
 
-	if ($envoyer) {
-		header("Content-Type: text/comma-separated-values; charset=$charset");
-		header("Content-Disposition: attachment; filename=$filename");
-		//non supporte
-		//header("Content-Type: text/plain; charset=$charset");
-		header("Content-Length: $length");
-		ob_clean();
-		flush();
-		readfile($fichier);
+	if ($options['envoyer']) {
+		if ($options['envoyer'] === 'attachment') {
+			header("Content-Length: $length");
+			readfile($fichier);
+		}
+		// si on a envoye inline, c'est deja tout bon
+		exit;
 	}
 
 	return $fichier;

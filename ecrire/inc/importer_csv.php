@@ -77,23 +77,46 @@ function importer_csv_nettoie_key($key) {
  * pour generer un tableau associatif
  *
  * @param string $file
- * @param bool $head
- * @param string $delim
- * @param string $enclos
- * @param int $len
- * @param string $charset_source
- *     Permet de définir un charset source du CSV, si différent de utf-8 ou iso-8859-1
- * @return array
+ * @param array $options
+ *   bool $head
+ *   string $delim
+ *   string $enclos
+ *   int $len
+ *   string $charset_source : Permet de définir un charset source du CSV, si différent de utf-8 ou iso-8859-1
+ * @return false|array
  */
-function inc_importer_csv_dist($file, $head = false, $delim = ',', $enclos = '"', $len = 10000, $charset_source = '') {
+function inc_importer_csv_dist($file, $options = []) {
+
+	// support ancienne syntaxe
+	// inc_importer_csv_dist($file, $head = false, $delim = ',', $enclos = '"', $len = 10000, $charset_source = '')
+	if (is_string($options)) {
+		$args = func_get_args();
+		$options = [];
+		foreach ([1 => 'head', 2 => 'delim', 3 => 'enclos', 4 => 'len', 5 => 'charset_source'] as $k => $option) {
+			if (!empty($args[$k])) {
+				$options[$option] = $args[$k];
+			}
+		}
+	}
+
+	$default_options = [
+		'head' => false,
+		'delim' => ',',
+		'enclos' => '"',
+		'len' => 10000,
+		'charset_source' => '',
+	];
+	$options = array_merge($default_options, $options);
+
+
 	$return = false;
 	if (@file_exists($file)
 		and $handle = fopen($file, 'r')) {
-		if ($charset_source) {
-			importer_csv_importcharset('', $charset_source);
+		if ($options['charset_source']) {
+			importer_csv_importcharset('', $options['charset_source']);
 		}
-		if ($head) {
-			$header = fgetcsv($handle, $len, $delim, $enclos);
+		if ($options['head']) {
+			$header = fgetcsv($handle, $options['len'], $options['delim'], $options['enclos']);
 			if ($header) {
 				$header = array_map('importer_csv_importcharset', $header);
 				$header = array_map('importer_csv_nettoie_key', $header);
@@ -107,9 +130,10 @@ function inc_importer_csv_dist($file, $head = false, $delim = ',', $enclos = '"'
 				}
 			}
 		}
-		while (($data = fgetcsv($handle, $len, $delim, $enclos)) !== false) {
+
+		while (($data = fgetcsv($handle, $options['len'], $options['delim'], $options['enclos'])) !== false) {
 			$data = array_map('importer_csv_importcharset', $data);
-			if ($head and isset($header)) {
+			if ($options['head'] and isset($header)) {
 				$row = array();
 				foreach ($header as $key => $heading) {
 					if ($header_type[$heading] == "array") {
@@ -128,7 +152,7 @@ function inc_importer_csv_dist($file, $head = false, $delim = ',', $enclos = '"'
 				$return[] = $data;
 			}
 		}
-		if ($charset_source) {
+		if ($options['charset_source']) {
 			importer_csv_importcharset('', true);
 		}
 	}
