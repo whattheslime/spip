@@ -5,7 +5,7 @@
  * ------------------
  */
 
-define('_ECRAN_SECURITE', '1.3.13'); // 2019-12-04
+define('_ECRAN_SECURITE', '1.4.0'); // 2020-02-15
 
 /*
  * Documentation : https://www.spip.net/fr_article4200.html
@@ -16,6 +16,10 @@ define('_ECRAN_SECURITE', '1.3.13'); // 2019-12-04
  */
 if (isset($_GET['test_ecran_securite'])) {
 	$ecran_securite_raison = 'test ' . _ECRAN_SECURITE;
+}
+
+if (file_exists($f = __DIR__ . DIRECTORY_SEPARATOR  . 'ecran_securite_options.php')) {
+	include ($f);
 }
 
 /*
