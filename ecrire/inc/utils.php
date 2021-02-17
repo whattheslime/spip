@@ -3446,8 +3446,8 @@ function charger_php_extension($module) {
  *     true si la constante _VERSION_HTML n'est pas définie ou égale à html5
  **/
 function html5_permis() {
-	return (!defined('_VERSION_HTML') 
-		or _VERSION_HTML === 'html5');
+	return (!defined('_VERSION_HTML')
+		or _VERSION_HTML !== 'html4');
 }
 
 /**
