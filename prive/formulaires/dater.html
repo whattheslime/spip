@@ -1,7 +1,7 @@
 #SET{id,#FORM-#ENV{objet}-#ENV{id,nouveau}}
 <div class="formulaire_spip formulaire_#FORM formulaire_#GET{id}[ (#ENV{_class})]">
-	[<p class="reponse_formulaire reponse_formulaire_ok">(#ENV*{message_ok})</p>]
-	[<p class="reponse_formulaire reponse_formulaire_erreur">(#ENV*{message_erreur})</p>]
+	[<p class="reponse_formulaire reponse_formulaire_ok" role="status">(#ENV*{message_ok})</p>]
+	[<p class="reponse_formulaire reponse_formulaire_erreur" role="alert">(#ENV*{message_erreur})</p>]
 	<p hidden id="format_date_#GET{id}"><:format_date_attendu:></p>
 	<p hidden id="format_heure_#GET{id}"><:format_heure_attendu:></p>
 	[(#ENV{editable})
