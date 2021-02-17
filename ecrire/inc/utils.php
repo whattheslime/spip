@@ -3442,11 +3442,11 @@ function charger_php_extension($module) {
  * Indique si le code HTML5 est permis sur le site public
  *
  * @return bool
- *     true si et seulement si la configuration autorise le code HTML5 sur le site public
+ *     true si la constante _VERSION_HTML n'est pas définie ou égale à html5
  **/
 function html5_permis() {
-	return (isset($GLOBALS['meta']['version_html_max'])
-		and ('html5' == $GLOBALS['meta']['version_html_max']));
+	return (!defined('_VERSION_HTML') 
+		or _VERSION_HTML === 'html5');
 }
 
 /**
