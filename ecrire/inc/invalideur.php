@@ -22,50 +22,12 @@ if (!defined('_ECRIRE_INC_VERSION')) {
 
 include_spip('base/serial');
 
-/** Estime la taille moyenne d'un fichier cache, pour ne pas les regarder (10ko) */
-if (!defined('_TAILLE_MOYENNE_FICHIER_CACHE')) {
-	define('_TAILLE_MOYENNE_FICHIER_CACHE', 1024 * 10);
-}
 /**
  * Si un fichier n'a pas été servi (fileatime) depuis plus d'une heure, on se sent
  * en droit de l'éliminer
  */
 if (!defined('_AGE_CACHE_ATIME')) {
 	define('_AGE_CACHE_ATIME', 3600);
-}
-
-/**
- * Calcul le nombre de fichiers à la racine d'un répertoire ainsi qu'une
- * approximation de la taille du répertoire
- *
- * On ne calcule que la racine pour pour aller vite.
- *
- * @param string $dir Chemin du répertoire
- * @param string $nb_estim_taille Nombre de fichiers maximum pour estimer la taille
- * @return bool|array
- *
- *     - false si le répertoire ne peut pas être ouvert
- *     - array(nombre de fichiers, approximation de la taille en octet) sinon
- **/
-function nombre_de_fichiers_repertoire($dir, $nb_estim_taille = 20) {
-	$taille = 0; // mesurer la taille de N fichiers au hasard dans le repertoire
-	$nb = $nb_estim_taille;
-	if (!$h = opendir($dir)) {
-		return false;
-	}
-	$total = 0;
-	while (($fichier = @readdir($h)) !== false) {
-		if ($fichier[0] != '.' and !is_dir("$dir/$fichier")) {
-			$total++;
-			if ($nb and rand(1, 10) == 1) {
-				$taille += filesize("$dir/$fichier");
-				$nb--;
-			}
-		}
-	}
-	closedir($h);
-
-	return array($total, $taille ? $taille / ($nb_estim_taille - $nb) : _TAILLE_MOYENNE_FICHIER_CACHE);
 }
 
 
