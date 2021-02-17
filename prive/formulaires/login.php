@@ -51,16 +51,26 @@ function is_url_prive($cible) {
  *     URL de destination après identification.
  *     Cas spécifique : la valeur `@page_auteur` permet d'être redirigé
  *     après connexion sur le squelette public de l'auteur qui se connecte.
- * @param string $login
- *     Login de la personne à identifier (si connu)
- * @param null|bool $prive
- *     Identifier pour l'espace privé (true), public (false)
- *     ou automatiquement (null) en fonction de la destination de l'URL cible.
+ * @param array $options
+ *   string $login : Login de la personne à identifier (si connu)
+ *   null|bool $prive : Identifier pour l'espace privé (true), public (false) ou automatiquement (null) en fonction de la destination de l'URL cible.
+ * @param null $deprecated
+ *
  * @return array
  *     Environnement du formulaire
  **/
-function formulaires_login_charger_dist($cible = '', $login = '', $prive = null) {
+function formulaires_login_charger_dist($cible = '', $options = [], $deprecated = null) {
 	$erreur = _request('var_erreur');
+
+	if (!is_array($options)) {
+		$options = [
+			'login' => $options,
+			'prive' => $deprecated
+		];
+	}
+
+	$login = (empty($options['login']) ? '' : $options['login']);
+	$prive = (empty($options['prive']) ? null : $options['prive']);
 
 	if (!$login) {
 		$login = strval(_request('var_login'));
@@ -178,6 +188,7 @@ function login_auth_http() {
 	}
 }
 
+
 /**
  * Vérifications du formulaire de login
  *
@@ -191,15 +202,23 @@ function login_auth_http() {
  *     URL de destination après identification.
  *     Cas spécifique : la valeur `@page_auteur` permet d'être redirigé
  *     après connexion sur le squelette public de l'auteur qui se connecte.
- * @param string $login
- *     Login de la personne à identifier (si connu)
- * @param null|bool $prive
- *     Identifier pour l'espace privé (true), public (false)
- *     ou automatiquement (null) en fonction de la destination de l'URL cible.
+ * @param array $options
+ *   string $login : Login de la personne à identifier (si connu)
+ *   null|bool $prive : Identifier pour l'espace privé (true), public (false) ou automatiquement (null) en fonction de la destination de l'URL cible.
+ * @param null $deprecated
  * @return array
  *     Erreurs du formulaire
  **/
-function formulaires_login_verifier_dist($cible = '', $login = '', $prive = null) {
+function formulaires_login_verifier_dist($cible = '', $options = [], $deprecated = null) {
+
+	if (!is_array($options)) {
+		$options = [
+			'login' => $options,
+			'prive' => $deprecated
+		];
+	}
+
+	$prive = (empty($options['prive']) ? null : $options['prive']);
 
 	$session_login = _request('var_login');
 	$session_password = _request('password');
@@ -290,16 +309,26 @@ function login_autoriser() {
  *     URL de destination après identification.
  *     Cas spécifique : la valeur `@page_auteur` permet d'être redirigé
  *     après connexion sur le squelette public de l'auteur qui se connecte.
- * @param string $login
- *     Login de la personne à identifier (si connu)
- * @param null|bool $prive
- *     Identifier pour l'espace privé (true), public (false)
- *     ou automatiquement (null) en fonction de la destination de l'URL cible.
+ * @param array $options
+ *   string $login : Login de la personne à identifier (si connu)
+ *   null|bool $prive : Identifier pour l'espace privé (true), public (false) ou automatiquement (null) en fonction de la destination de l'URL cible.
+ * @param null $deprecated
  * @return array
  *     Retours du traitement
  **/
-function formulaires_login_traiter_dist($cible = '', $login = '', $prive = null) {
+function formulaires_login_traiter_dist($cible = '', $options = [], $deprecated = null) {
 	$res = array();
+
+	if (!is_array($options)) {
+		$options = [
+			'login' => $options,
+			'prive' => $deprecated
+		];
+	}
+
+	$login = (empty($options['login']) ? '' : $options['login']);
+	$prive = (empty($options['prive']) ? null : $options['prive']);
+
 	// Si on se connecte dans l'espace prive,
 	// ajouter "bonjour" (repere a peu pres les cookies desactives)
 	if (is_null($prive) ? is_url_prive($cible) : $prive) {
