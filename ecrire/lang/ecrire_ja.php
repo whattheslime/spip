@@ -263,7 +263,6 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'info_classement_1' => ' @liste@ の外',
 	'info_classement_2' => ' @liste@ 外',
 	'info_code_acces' => 'アクセスコードを忘れないで下さい！',
-	'info_compatibilite_html' => '従うべきHTML標準',
 	'info_config_suivi' => 'もしもこのアドレスがメーリングリストのものと一致する場合、サイト参加者が登録可能なアドレスを下記に表示することができます。記すべきアドレスは、URL（例えばWeb経由の登録ページなど）、サブジェクトを特定してあるメールアドレス (たとえば: <tt>@adresse_suivi@?subject=subscribe</tt>)がいいでしょう。',
 	'info_config_suivi_explication' => 'サイトのメーリングリストに登録したら、公開された記事およびニュース項目に関する告知のメールを受け取ります',
 	'info_confirmer_passe' => '新規パスワード確認：',
@@ -544,8 +543,6 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'item_oui' => 'はい',
 	'item_publier_articles' => '公開日に関係なく、記事を公開する。',
 	'item_reponse_article' => '記事に返信する',
-	'item_version_html_max_html4' => '公開サイトでHTML4のみを使用する',
-	'item_version_html_max_html5' => 'HTML5を使用可する',
 	'item_visiteur' => '訪問者',
 
 	// J
@@ -738,8 +735,6 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'texte_choix_base_2' => 'SQLサーバーはいくつかのデータベースを含んでいます。',
 	'texte_choix_base_3' => 'プロバイダがあなたに割り当てたデータベース１つを選んで下さい。',
 	'texte_choix_table_prefix' => 'テーブルの接頭辞：',
-	'texte_compatibilite_html' => 'HTML4と互換性のあるコードを生成したり、より現代的なHTML5互換性のあるコードを使用するようには、SPIPに要求してください。',
-	'texte_compatibilite_html_attention' => 'HTML5を有効にする事に伴うリスクはありません。しかし、サイトのページは、HTML5が有効になるために、<code><!DOCTYPE html></code>とのコードで始まる必要があります。',
 	'texte_compte_element' => '@count@ 要素',
 	'texte_compte_elements' => '@count@ 要素',
 	'texte_conflit_edition_correction' => '2つのバージョンの違いを比べてください。変更をコピーしてやり直すこともできます。',

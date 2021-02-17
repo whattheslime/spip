@@ -262,7 +262,6 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'info_classement_1' => '<sup>o</sup> sobre @liste@',
 	'info_classement_2' => '<sup>o</sup> sobre @liste@',
 	'info_code_acces' => '¡No olvide sus códigos de acceso!',
-	'info_compatibilite_html' => '¿Qué norma HTML seguir?',
 	'info_config_suivi' => 'Si esta dirección corresponde a una lista de correo, puede indicar aquí abajo la dirección en la cual los participantes del sitio pueden inscribirse. Esta dirección puede ser una URL (por ejemplo la página de inscripción a la lista por la web), o una dirección de correo electrónico con un asunto específico (por ejemplo: <tt>@adresse_suivi@?subject=subscribe</tt>):',
 	'info_config_suivi_explication' => 'Puede suscribirse a la lista de correo de este sitio. Recibirás por correo electrónico los anuncios de artículos y de breves propuestas a la publicación.',
 	'info_confirmer_passe' => 'Confirmar la nueva contraseña:',
@@ -555,8 +554,6 @@ Las traducciones están asociadas al original, en un color que indica su estado:
 	'item_oui' => 'Sí',
 	'item_publier_articles' => 'Publicar los artículos sin tener en cuenta la fecha de publicación',
 	'item_reponse_article' => 'Respuesta al artículo',
-	'item_version_html_max_html4' => 'Limitarse al HTML4 en el sitio público',
-	'item_version_html_max_html5' => 'Permitir el HTML5',
 	'item_visiteur' => 'visitante',
 
 	// J
@@ -747,8 +744,6 @@ Las traducciones están asociadas al original, en un color que indica su estado:
 	'texte_choix_base_2' => 'El servidor SQL contiene varias bases de datos.',
 	'texte_choix_base_3' => '<b>Seleccione</b> aquí la que te fue atribuída por tu proveedor de hospedaje:',
 	'texte_choix_table_prefix' => 'Prefijo de las tablas:',
-	'texte_compatibilite_html' => 'Puede elegir si quiere que SPIP produzca, en el sitio público, un código compatible con la norma <i>HTML4</i>, o si prefiere usar las posibilidades más modernas de <i>HTML5</i>.',
-	'texte_compatibilite_html_attention' => 'No hay ningún riesgo en activar la opción <i>HTML5</i>, pero entonces las páginas de su sitio tienen que empezar por la mención siguiente (para ser válidas): <code>&lt;!DOCTYPE html&gt;</code>.',
 	'texte_compte_element' => '@count@ elemento',
 	'texte_compte_elements' => '@count@ elementos',
 	'texte_conflit_edition_correction' => 'Por favor revise aquí debajo las diferencias entre las dos versiones del texto; también podrá copiar sus modificaciones, y luego volver a empezar.',

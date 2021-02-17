@@ -238,7 +238,6 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'info_classement_1' => 'pe @liste@',
 	'info_classement_2' => 'pe @liste@',
 	'info_code_acces' => 'Nu uitaţi propriile dumeavoastră coduri de acces !',
-	'info_compatibilite_html' => 'Normă HTML de urmat',
 	'info_config_suivi' => 'Dacă această adresă corespunde unei liste de email-uri, puteţi indica mai jos adresa la care participanţii la site se pot înscrie. Această adresă poate fi un URL (de exemplu adresa paginii de însriere la listă pe Web) sau o adresă de email dotată cu un subiect specific (de exemplu: <tt>@adresse_suivi@?subject=subscribe</tt>):',
 	'info_config_suivi_explication' => 'Puteţi să vă abonaţi la lista de email-uri a acestui site. Veţi primi ca urmare anunţuri de ştiri sau articole propuse spre publicare.',
 	'info_confirmer_passe' => 'Confirmaţi această nouă parolă :',

@@ -261,7 +261,6 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'info_classement_1' => ' из @liste@',
 	'info_classement_2' => ' из @liste@',
 	'info_code_acces' => 'Не забудьте свой пароль!',
-	'info_compatibilite_html' => 'Использовать стандартный HTML ',
 	'info_config_suivi' => 'Если этот адрес соответствует списку e-mail рассылки, вы можете указать ниже адрес, по которому участники сайта могут зарегистрироваться. Этим адресом может быть адрес сайта (например страница списка регистрации через сеть) или адрес электронной почты с определенной темой (например: <tt>@adresse_suivi@?subject=subscribe</tt>):',
 	'info_config_suivi_explication' => 'Вы можете подписаться на почтовую рассылку этого сайта. Тогда вы будете получать на email информацию о статьях и новостях, отправленных для публикации.',
 	'info_confirmer_passe' => 'Подтвердите новый пароль:',
@@ -554,8 +553,6 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'item_oui' => 'Да',
 	'item_publier_articles' => 'Немедленно публиковать статьи, вне зависимости от даты публикации',
 	'item_reponse_article' => 'Ответить на статью',
-	'item_version_html_max_html4' => 'Использовать только HTML4 на сайте',
-	'item_version_html_max_html5' => 'Разрешить HTML5',
 	'item_visiteur' => 'посетитель',
 
 	// J
@@ -747,8 +744,6 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'texte_choix_base_2' => 'SQL сервер содержит несколько баз данных.',
 	'texte_choix_base_3' => '<b>Выберите</b> ниже ту, которую ваш интернет провайдер может отнести к вам:',
 	'texte_choix_table_prefix' => 'Префикс для таблиц БД:',
-	'texte_compatibilite_html' => 'Вы можете установить настройки SPIP так, что бы он генерировал код, совместимый с <i>HTML4</i>, или же с поддержкой <i>HTML5</i>.',
-	'texte_compatibilite_html_attention' => 'При включении поддержки <i>HTML5</i> проблем не ожидается, но в этом случае необходимо добавить следующую строку кода на все страницы сайта: <code><!DOCTYPE html></code>.',
 	'texte_compte_element' => '@count@ элемент',
 	'texte_compte_elements' => '@count@ элементы',
 	'texte_conflit_edition_correction' => 'Пожалуйста, проверьте ниже разницу между двумя версиями. Вы также можете скопировать ваши изменения и начать всё заново.',

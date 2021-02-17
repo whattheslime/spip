@@ -488,8 +488,6 @@ una color indica lo sieu estat :',
 	'item_oui' => 'Aï',
 	'item_publier_articles' => 'Publicar lu articles, quauque sigue la data de publicacion',
 	'item_reponse_article' => 'Respoasta à l’article',
-	'item_version_html_max_html4' => 'Si limitar au HTML4 sus lo site public',
-	'item_version_html_max_html5' => 'Permetre lo HTML5',
 	'item_visiteur' => 'visitaire',
 
 	// J

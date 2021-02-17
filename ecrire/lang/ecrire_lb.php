@@ -247,7 +247,6 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'info_classement_1' => '. an @liste@',
 	'info_classement_2' => '. an @liste@',
 	'info_code_acces' => 'Vergiesst är Zougangs-Informatioune net!',
-	'info_compatibilite_html' => 'HTML-Norm',
 	'info_config_suivi' => 'Wann dës Adress eng Mailingslëscht ass, da kënnt dier hei d’Adress uginn wou d’Mataarbechter vun dësem Site sech aschreiwe kënnen. Dës Adress kann eng URL sinn (z.B. d’Internetsäit wou een sech aschreiwe kann), oder eng Email-Adress mat engem extra Sujet (z.B.: <tt>@adresse_suivi@?subject=subscribe</tt>):',
 	'info_config_suivi_explication' => 'Dir kënnt Iech un d’Mailingslëscht vun dësem Site abonnéieren. Dir kritt dann per Email d’Annoncen vun den Artikelen a Kuerzmeldungen déi fir d’Verëffentlechung virgeschloe goufen.',
 	'info_confirmer_passe' => 'Bestätegt dat neit Passwuert:',
@@ -522,8 +521,6 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'item_oui' => 'Jo',
 	'item_publier_articles' => 'D’Artikelen fäiginn, egal wéi e Verëffentlechungs-Datum',
 	'item_reponse_article' => 'Äntwert op den Artikel',
-	'item_version_html_max_html4' => 'Op HTML4 um ëffentleche Site beschränken',
-	'item_version_html_max_html5' => 'HTML5 erlaaben',
 	'item_visiteur' => 'Visiteur',
 
 	// J
@@ -699,8 +696,6 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'texte_choix_base_2' => 'Den SQL-Server huet e puer Datebanken.',
 	'texte_choix_base_3' => '<b>Wielt</b> hei déi déi Iech vun ärem Provider zougewise gouf:',
 	'texte_choix_table_prefix' => 'Präfix vun den Tabellen:',
-	'texte_compatibilite_html' => 'Dir kënnt SPIP ustellen um ëffentleche Site e Code ze produzéieren dee mat der <i>HTML4-Norm</i> kompatibel ass oder him erlaben déi méi modern Méiglechkeete vun <i>HTML5</i> auszenotzen.',
-	'texte_compatibilite_html_attention' => 'D’Optioun <i>HTML5</i> aschalten ass risikofräi, mais wann dir et maacht mussen är Säite mat dësem Code ufänken fir kompatibel ze sinn: <code><!DOCTYPE html></code>.',
 	'texte_compte_element' => '@count@ Element',
 	'texte_compte_elements' => '@count@ Elementer',
 	'texte_conflit_edition_correction' => 'Kontrolléiert d’Ënnerscheeder tëschent den zwou Versioune vum Text; dir kënnt är Ännerungen och kopéieren an erëm ufänken.',

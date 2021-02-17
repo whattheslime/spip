@@ -271,7 +271,6 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'info_classement_1' => ' من أصل @liste@ مقال',
 	'info_classement_2' => 'من أصل @liste@ مقال',
 	'info_code_acces' => 'لا تنسى بيانات الدخول الخاصة بك!',
-	'info_compatibilite_html' => 'مقاييس HTML التي يجب اتباعها',
 	'info_config_suivi' => 'اذا كان هذا العنوان يدل الى قائمة بريدية، يمكنك ادخال العنوان حيث يقوم المشاركون في الموفع بتسجيل انفسهم، ادناه. ويمكن لهذا العنوان ان يكون عنوان URL (مثلاً صفحة التسجيل في القائمة عبر النسيج) او عنوان بريدي يحمل موضوعاً محدداً (مثلاً: <tt>@adresse_suivi@?subject=subscribe</tt>):',
 	'info_config_suivi_explication' => 'يمكنك الاشتراك في القائمة البريدية في هذا الموقع. ستحصل عندها آلياً في رسالة الكترونية على اعلانات حول المقالات والاخبار المقترحة للنشر. ',
 	'info_confirmer_passe' => 'تأكيد كلمة السر الجديدة:',
@@ -580,8 +579,6 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'item_oui' => 'نعم',
 	'item_publier_articles' => 'نشر المقالات مهما كان تاريخها.',
 	'item_reponse_article' => 'الرد على المقال',
-	'item_version_html_max_html4' => 'حصر الموقع العمومي بلغة HTML4 ',
-	'item_version_html_max_html5' => 'السماح بلغة HTML5',
 	'item_visiteur' => 'زائر',
 
 	// J
@@ -774,8 +771,6 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'texte_choix_base_2' => 'يحتوي خادم SQL على عدة قواعد بيانات.',
 	'texte_choix_base_3' => '<b>حدد</b> أدناه القاعدة التي خصصها مضيفك لك:',
 	'texte_choix_table_prefix' => 'بادئة الجداول:',
-	'texte_compatibilite_html' => 'يمكنك الطلب من SPIP إنتاج علامات متوافقة مع مقياس <i>HTML4</i> في الموقع العمومي او السماح له باستخدام إمكانات مقياس <i>HTML5</i> الأحدث.',
-	'texte_compatibilite_html_attention' => 'لا يشكل تفعيل خيار <i>HTML5</i> أية مخاطرة، ولكن اذا اخترت التفعيل يجب ان تبدأ صفحات موقعك بالعبارة التالية لكي تكون صالحة: <code><!DOCTYPE html></code>.',
 	'texte_compte_element' => 'عنصر@count@',
 	'texte_compte_elements' => 'عنصر@count@',
 	'texte_conflit_edition_correction' => 'الرجاء التدقيق ادناه في الفوارق بين إصداري النص. يمكنك ايضاً تسخ تعديلاتك ثم البدء من جديد.',

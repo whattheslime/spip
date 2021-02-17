@@ -254,7 +254,6 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'info_classement_1' => '<sup>ين</sup>در @liste@',
 	'info_classement_2' => '<sup>ين</sup>در@liste@',
 	'info_code_acces' => '! كد ها ى وردي تان را فراموش نكنيد',
-	'info_compatibilite_html' => 'نرم اچ.تي.ام.ال براي پيگيري ',
 	'info_config_suivi' => 'اگر اين آدرس به فهرست ايميل ها mailing-list مربوط ميشود, ميتوانيد در زير آدرسى را كه شركت كنندگان سايت ميتوانند در آن ثبت نام كنند را مشخص كنيد. اين آدرس ميتواند يك  URL( مانند صفحه ثبت نام در فهرست) و يا ميتواند بدين صورت باشد : <tt>@adresse_suivi@?subject=subscribe</tt>):',
 	'info_config_suivi_explication' => ' شما ميتوانيد بطور خودكار بوسيله ايميل خبرهاى مربوط به فعاليت تحريريه سايت را دريافت كنيد. براى اين منظور شما بايد در فهرست ايميلها mailing-list ثبت نام كنيد.',
 	'info_confirmer_passe' => ':كلمه ورودى جديدتان را تأئيد كنيد',
@@ -532,8 +531,6 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'item_oui' => 'آرى',
 	'item_publier_articles' => '.مقالات را عليرغم تاريخ نشرشان منتشر كنيد',
 	'item_reponse_article' => 'پاسخ به مقاله',
-	'item_version_html_max_html4' => 'در سايت همگاني فقط اچ.تي.ام.ال4 را استفاده كنيد',
-	'item_version_html_max_html5' => 'اجازه‌ي اج.تي.ام.ال5',
 	'item_visiteur' => 'بازديد كننده',
 
 	// J
@@ -711,8 +708,6 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'texte_choix_base_2' => 'سرور اس كيوال حاوى چند داده پى است.',
 	'texte_choix_base_3' => 'پايگاهى را كه توسط ميزبانتان بشما داده شده <b>انتخاب كنيد</b>:',
 	'texte_choix_table_prefix' => 'پیشوند جدولها:',
-	'texte_compatibilite_html' => 'مي‌توانيد از اسپيپ بخواهيد تا، روي سايت همگاني، كد سازگار با نرم <i>HTML4</i>  ايجاد كند، يا به اسپيپ اجازه دهيد تا از از امكانات مدرن‌تر <i>HTML5</i> استفاده كند. ',
-	'texte_compatibilite_html_attention' => 'در فعال‌سازي گزينه‌ي <i>HTML5</i> هيچ خطري وجود ندارد، اما در آن صورت، صفحه‌هاي سايت شما بايد با كد: <code>&lt;!DOCTYPE html&gt;</code> شروع شوند تا معتبر باشند. ',
 	'texte_compte_element' => 'عنصر @count@ ',
 	'texte_compte_elements' => ' @count@ عنصر',
 	'texte_conflit_edition_correction' => 'لطفاً تفاوت‌هاي دو متن زير را چك كنيد؛ نيز مي‌توانيد اصلاحات خود را روبرداري كرده و سپس از نو شروع كنيد.',

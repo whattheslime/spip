@@ -244,7 +244,6 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'info_classement_1' => '<sup>o</sup> nant’à @liste@',
 	'info_classement_2' => '<sup>o</sup> nant’à @liste@',
 	'info_code_acces' => 'Ùn vi scurdate di i vostri còdici d’accessu !',
-	'info_compatibilite_html' => 'Norma HTML da rispettà',
 	'info_config_suivi' => 'Sì st’indirizzu currisponde à una mailing-list, rinsignate puru quì sottu l’indirizzu cù chì i participanti di u situ si ponu iscrive. 
 		St’indirizzu pò esse un’URL (per esempiu a pàgina-web d’iscrizzione à a lista), o puru un indirizzu email cù un sugettu specìficu 
 		(per esempiu : <tt>@adresse_suivi@?subject=subscribe</tt>) :',
@@ -537,7 +536,6 @@ U so statutu hè signalatu da u culore di l’icona (scrittore = giallu; amminis
 	'item_oui' => 'Iè',
 	'item_publier_articles' => 'Pubblicà l’artìculi qualsìasi a data di pubblicazione.',
 	'item_reponse_article' => 'Risposta à l’artìculu ',
-	'item_version_html_max_html5' => 'Permette HTML5',
 	'item_visiteur' => 'visitore',
 
 	// J

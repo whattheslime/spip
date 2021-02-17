@@ -262,7 +262,6 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'info_classement_1' => '<sup>er</sup> na @liste@',
 	'info_classement_2' => '<sup>e</sup> na @liste@',
 	'info_code_acces' => 'Zapamiętaj swoje kody dostępu!',
-	'info_compatibilite_html' => 'Norma HTML do zastosowania',
 	'info_config_suivi' => 'Jeśli ten adres odpowiada liście subskrypcyjnej, możecie wpisać poniżej adres, za któego pomocą uczestnicy serwisu mogą się zapisać. Adres ten może być URL-em (np. stroną służącą do zapisywania się na listę przez internet), albo adresem e-mail opatrzonym stosownym tematem (np.: <tt>@adresse_suivi@?subject=subscribe</tt>):',
 	'info_config_suivi_explication' => 'Możesz automatycznie, za pomocą poczty elektronicznej otrzymywać ogłoszenia dotyczące aktywności redakcyjnej tego serwisu. W tym celu powinnieneś się zapisać na listę mailową.',
 	'info_confirmer_passe' => 'Potwierdź nowe hasło:',
@@ -560,8 +559,6 @@ Przekłady są połączone z oryginałem, za pomocą koloru wskazującego na ich
 	'item_oui' => 'Tak',
 	'item_publier_articles' => 'Publikuj artykuły bez względu na datę ich publikacji.',
 	'item_reponse_article' => 'Odpowiedz na artykuł',
-	'item_version_html_max_html4' => 'Na stronie publicznej używaj tylko HTML4',
-	'item_version_html_max_html5' => 'Zezwól na używanie HTML5',
 	'item_visiteur' => 'odwiedzający',
 
 	// J
@@ -752,8 +749,6 @@ zreinstalować SPIP w celu utworzenia nowej bazy danych i dostępu pierwszego ad
 	'texte_choix_base_2' => 'Serwer SQL zawiera kilka baz danych.',
 	'texte_choix_base_3' => '<b>Wybierz</b>, jaka została Ci przyznana przez Twój serwis hostingowy:',
 	'texte_choix_table_prefix' => 'Prefix tablic:',
-	'texte_compatibilite_html' => 'Możesz zmusić SPIP do wytwarzania kodu kompatybilnego ze standardem <>HTML4</i>, albo umożliwić mu używanie bardziej nowoczesnego kodu kompatybilnego z <i>HTML5</i>.',
-	'texte_compatibilite_html_attention' => 'Nie ma żadnego zagrożenia związanego z aktywacją opcji <i>HTML5</i>, natomiast jeśli chcesz to zrobić, strony Twojej witryny muszą zaczynać się od następującego kodu, aby być odpowiednie: <code>&lt; !DOCTYPE html&gt;</code>.',
 	'texte_compte_element' => '@count@ element',
 	'texte_compte_elements' => '@count@ elementy',
 	'texte_conflit_edition_correction' => 'Proszę porównać różnice między obiema wersjami. Możesz również skopiować zmiany i zacząć od nowa.',

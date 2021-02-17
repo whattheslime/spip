@@ -263,7 +263,6 @@ Estas informações deverão ser fornecidas pelo administrador do sistema ou da 
 	'info_classement_1' => '<sup><u>o</u></sup> em @liste@',
 	'info_classement_2' => '<sup><u>a</u></sup> em @liste@',
 	'info_code_acces' => 'Não se esqueça dos seus dados de conexão!',
-	'info_compatibilite_html' => 'Norma HTML a ser seguida',
 	'info_config_suivi' => 'Se este endereço corresponde a uma mailing-list, você pode informar abaixo o endereço onde os participantes do site podem se inscrever. Este endereço pode ser um URL (por exemplo a página de inscrição na lista pela Web), ou um endereço de e-mail dotado de um assunto específico (par exemple: <tt>@adresse_suivi@?subject=subscribe</tt>):',
 	'info_config_suivi_explication' => 'Voce pode assinar a  mailing-list deste site. Você irá receber por e-mail, os avisos de matérias e notas propostos para publicação.',
 	'info_confirmer_passe' => 'Confirmar a nova senha:',
@@ -547,8 +546,6 @@ As traduções estão associadas ao original, numa côr que indica o seu status:
 	'item_oui' => 'Sim',
 	'item_publier_articles' => 'Publicar as matérias seja qual for a sua data de publicação.',
 	'item_reponse_article' => 'Resposta à matéria',
-	'item_version_html_max_html4' => 'Limitar-se ao HTML4 no site público',
-	'item_version_html_max_html5' => 'Permitir o HTML5',
 	'item_visiteur' => 'Visitante',
 
 	// J
@@ -739,8 +736,6 @@ As traduções estão associadas ao original, numa côr que indica o seu status:
 	'texte_choix_base_2' => 'O servidor SQL contém várias bases de dados.',
 	'texte_choix_base_3' => '<b>Escolha</b> abaixo a que lhe foi atribuída pelo seu serviço de hospedagem:',
 	'texte_choix_table_prefix' => 'Prefixo das tabelas:',
-	'texte_compatibilite_html' => 'Você pode solicitar ao SPIP que gere, no site público, código compatível com o padrão <i>HTML4</i>, ou permitir que ele use as possibilidades mais modernas do <i>HTML5</i>.',
-	'texte_compatibilite_html_attention' => 'Não há nenhum risco em ativar a opção <i>HTML5</i> mas, se você o fizer, as páginas do seu site deverão começar com o código a seguir, para continuarem válidas: <code><!DOCTYPE html></code>.',
 	'texte_compte_element' => '@count@ elemento',
 	'texte_compte_elements' => '@count@ elementos',
 	'texte_conflit_edition_correction' => 'Por favor, controle abaixo as diferenças entre as duas versões do texto; você pode também copiar as suas modificações e depois recomeçar.',

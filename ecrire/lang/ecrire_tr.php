@@ -213,7 +213,6 @@ yaratabilir. Bu da otomatik olarak bir galeri
 	'info_classement_1' => '@liste@’den     inci',
 	'info_classement_2' => '@liste@’den     inci',
 	'info_code_acces' => 'Kendi erişim şifrelerinizi unutmayınız !',
-	'info_compatibilite_html' => 'Takıp edilmesi HTML normu', # RELIRE
 	'info_config_suivi' => 'Eğer bu adres bir gönderi listesi (mailing-list)’ne karşı düşüyorsa, aşağıya site katılımcılarının hangi adrese kaydolabileceklerini yazabilirsiniz. Bu adres URL (örneğin listeye Web ile kaydolma sayfası), veya özel bir konu içeren (örneğin: @adresse_suivi@?subject=subscribe) bir e-posta adresi olabilir:',
 	'info_config_suivi_explication' => 'Bu sitenin gönderi listesi (mailing-list)’ne abone olabilirsiniz. O takdirde yayınlanması önerilen makale ve haber ilanları e-posta yoluyla elinize geçecektir. ',
 	'info_confirmer_passe' => 'Yeni şifrenin teyid edilmesi :',
@@ -507,7 +506,6 @@ yaratabilir. Bu da otomatik olarak bir galeri
 	'item_oui' => 'Evet  ',
 	'item_publier_articles' => 'Makaleleri yayın tarihlerine bakmadan yayınla',
 	'item_reponse_article' => 'Makaleye yanıt ',
-	'item_version_html_max_html5' => 'HTML5 etkinleştir', # RELIRE
 	'item_visiteur' => 'Ziyaretçi ',
 
 	// J

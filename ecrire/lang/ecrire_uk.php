@@ -260,7 +260,6 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'info_classement_1' => ' з @liste@',
 	'info_classement_2' => ' з @liste@',
 	'info_code_acces' => 'Не забудьте ваші власні коди доступу!',
-	'info_compatibilite_html' => 'Стандарт HTML, якому слідувати',
 	'info_config_suivi' => 'Якщо ця адреса відповідає списку адресатів, ви можете вказати нижче адресу, за якою учасники сайту можуть зареєструватися. Цією адресою може бути адреса сайту (наприклад сторінка списка реєстрації через мережу) або адреса електронної пошти з певною темою (наприклад: <tt>@adresse_suivi@?subject=subscribe</tt>):',
 	'info_config_suivi_explication' => 'Ви можете підписатися на почтову розсилку цього сайту і отримувати на email інформацію про статті та новини, відправлені для публікації.',
 	'info_confirmer_passe' => 'Підтвердіть новий пароль:',
@@ -541,8 +540,6 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'item_oui' => 'Так',
 	'item_publier_articles' => 'Негайно публіковати статті, не дивлячись на дату публікації',
 	'item_reponse_article' => 'Відповісти на статтю',
-	'item_version_html_max_html4' => 'Використовувати тільки HTML4 на сайті',
-	'item_version_html_max_html5' => 'Дозволити HTML5',
 	'item_visiteur' => 'відвідувач',
 
 	// J
@@ -732,8 +729,6 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'texte_choix_base_2' => 'SQL сервер містить декілька баз даних.',
 	'texte_choix_base_3' => '<b>Виберіть</b> нижче ту, яку ваш інтернет провайдер може віднести до вас:',
 	'texte_choix_table_prefix' => 'Префікс для таблиць БД:',
-	'texte_compatibilite_html' => 'Ви можете встановити налаштування SPIP так, щоб він генерував код, сумісний з <i>HTML4</i>, або ж в стандарті <i>HTML5</i>.',
-	'texte_compatibilite_html_attention' => 'У випадку включення підтримки <i>HTML5</i> проблем не очікується, але в цьому випадку необхідно додати наступний рядок коду на усі сторінки сайту: &lt; !DOCTYPE html&gt;.',
 	'texte_compte_element' => '@count@ елемент',
 	'texte_compte_elements' => '@count@ елементи',
 	'texte_conflit_edition_correction' => 'Будь ласка, перевірте нижче різницю між двома версіями. Таким чином ви можете зкопіювати ваші зміни і почати спочатку.',

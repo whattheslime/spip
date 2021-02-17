@@ -254,7 +254,6 @@ Seguritate hobetzeko, konfigurazio hau aldatu behar zenuke, edo @constantes@ kon
 	'info_classement_1' => '. @zerrendan@',
 	'info_classement_2' => '.@zerrendan@',
 	'info_code_acces' => 'Zure sarbide kodeak ezahaztu !',
-	'info_compatibilite_html' => 'Segitu beharreko HTML normak',
 	'info_config_suivi' => 'Helbide hau korreo lista bati baldin ba dagokio, hemen azpian bere bitartez tokiarenparte-hartzaileek inskripzioa egin dezaketen helbidea jar dezakezu. Helbide hau URLbat izan daiteke ( adibidez web-aren bitartez izena emateko orria), edo e-mail helbidebat gai zehatz batekin (adibidez: @adresse_suivi@?subject=subscribe):',
 	'info_config_suivi_explication' => 'Gune honetako posta-zerrendan harpidetza egindezakezu. Argitalpenerako proposaturiko artikuluen eta berri laburren iragarpenakjasoko dituzu posta elektronikoz.',
 	'info_confirmer_passe' => 'Pasahitz berria baieztatu:',
@@ -540,8 +539,6 @@ Itzulpenak originalari asoziatuta daude, bere egoera adierazten duten kolore bat
 	'item_oui' => 'Bai',
 	'item_publier_articles' => 'Artikuluak argitaratu argitaratze-eguna kontuan izan gabe ',
 	'item_reponse_article' => 'Artikuluari erantzuna',
-	'item_version_html_max_html4' => 'HTML4-ean mugatu gune publikoarentzat.',
-	'item_version_html_max_html5' => 'HTML5 baimendu',
 	'item_visiteur' => 'bisitaria',
 
 	// J
@@ -720,7 +717,6 @@ Hutsik utz ezazu ez betetzeko, espazio edo komak tarteka itzazu LDAP eremu bat b
 	'texte_choix_base_2' => 'MYSQL zerbitzariak data base ugari dauzka.',
 	'texte_choix_base_3' => 'Aukeratu hemen zure ostapen zuzkitzaileak eman dizuna:',
 	'texte_choix_table_prefix' => 'Mahaien aurrizkiak :',
-	'texte_compatibilite_html' => 'SPIPi galdegin diezaiokezu sortzea, parte publikoan, <i>HTML4</i> normarekin bateragarri den kodea, edo baimentzen ahal zenioke <i>HTML5</i> norma modernoagoaren erabiltzea.',
 	'texte_compte_element' => '@count@ osagai',
 	'texte_compte_elements' => '@count@osagai',
 	'texte_conflit_edition_correction' => 'Otoi, testoaren bi bertsio desberdinen arteko desberdinatsunak kontrola itzazu ;edo zure aldaketak kopia itzazu, eta ondotik berriz hasi.',
