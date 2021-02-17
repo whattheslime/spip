@@ -71,6 +71,10 @@ function formulaires_login_charger_dist($cible = '', $options = [], $deprecated 
 
 	$login = (empty($options['login']) ? '' : $options['login']);
 	$prive = (empty($options['prive']) ? null : $options['prive']);
+	// conserver le fonctionnement historique
+	if (!isset($options['autofocus'])) {
+		$options['autofocus'] = true;
+	}
 
 	if (!$login) {
 		$login = strval(_request('var_login'));
@@ -114,6 +118,7 @@ function formulaires_login_charger_dist($cible = '', $options = [], $deprecated 
 		'_alea_actuel' => isset($row['alea_actuel']) ? $row['alea_actuel'] : '',
 		'_alea_futur' => isset($row['alea_futur']) ? $row['alea_futur'] : '',
 		'_pipeline' => 'affiche_formulaire_login', // faire passer le formulaire dans un pipe dedie pour les methodes auth
+		'_autofocus' => ($options['autofocus'] and $options['autofocus'] !== 'non') ? ' ' : '',
 	);
 
 	if ($erreur or !isset($GLOBALS['visiteur_session']['id_auteur']) or !$GLOBALS['visiteur_session']['id_auteur']) {
