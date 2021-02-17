@@ -613,8 +613,10 @@ function critere_fusion_dist($idb, &$boucles, $crit) {
  * @param Critere $crit Paramètres du critère dans cette boucle
  * @return void
  **/
-function critere_fusion_supprimer_dist($idb, &$boucles, $crit){
-	$boucles[$idb]->group = array();
+if (!function_exists('critere_fusion_supprimer_dist')) {
+	function critere_fusion_supprimer_dist($idb, &$boucles, $crit){
+		$boucles[$idb]->group = array();
+	}
 }
 
 /**
