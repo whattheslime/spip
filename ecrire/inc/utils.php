@@ -328,8 +328,11 @@ function spip_log($message = null, $name = null) {
 	if (!isset($regs[1]) or !$logname = $regs[1]) {
 		$logname = null;
 	}
-	if (!isset($regs[2]) or !$niveau = $regs[2]) {
+	if (!isset($regs[2])) {
 		$niveau = _LOG_INFO;
+	}
+	else {
+		$niveau = intval($regs[2]);
 	}
 
 	if ($niveau <= (defined('_LOG_FILTRE_GRAVITE') ? _LOG_FILTRE_GRAVITE : _LOG_INFO_IMPORTANTE)) {
