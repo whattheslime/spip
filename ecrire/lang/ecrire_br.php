@@ -16,6 +16,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'annuler_recherche' => 'Nullañ an enklask',
 	'auteur' => 'Skridaozer:',
 	'avis_acces_interdit' => 'Digor difennet.',
+	'avis_acces_interdit_prive' => 'N’ho peus ket an aotre da vont war ar bajenn-mañ<b>@exec@</b>.',
 	'avis_article_modifie' => 'Diwallit, labouret ez eus bet war ar pennad-mañ gant @nom_auteur_modif@, @date_diff@ munutenn zo',
 	'avis_aucun_resultat' => 'Disoc’h ebet.',
 	'avis_base_inaccessible' => 'N’haller ket kevreañ ouzh an diaz roadennoù @base@.',
@@ -62,6 +63,8 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'bouton_radio_non_envoi_annonces_editoriales' => 'Na gas kemennoù embann',
 	'bouton_redirection' => 'ADHEÑCHAÑ',
 	'bouton_reinitialiser_aux_valeurs_par_defaut' => 'Adderaouekaat an talvoudoù dre ziouer',
+	'bouton_relancer_inscription' => 'Adlañsañ an enskrivadenn',
+	'bouton_relancer_inscriptions' => 'Adlañsañ an enskrivadenn.',
 	'bouton_relancer_installation' => 'Adlañsañ ar staliañ',
 	'bouton_reset_password' => 'Krouiñ ur ger-tremen nevez hag e gas dre bostel',
 	'bouton_suivant' => 'War-lerc’h',
@@ -197,8 +200,8 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'icone_supprimer_signature' => 'Diverkañ ar sinadur-mañ',
 	'icone_valider_signature' => 'Aprouiñ ar sinadur-mañ',
 	'image_administrer_rubrique' => 'Gallout a rit merañ ar rubrikenn-mañ',
-	'impossible_modifier_login_auteur' => ' Login digemm', # MODIF
-	'impossible_modifier_pass_auteur' => 'Ger-tremen digemm.', # MODIF
+	'impossible_modifier_login_auteur' => ' Login digemm',
+	'impossible_modifier_pass_auteur' => 'Ger-tremen digemm.',
 	'info_1_article' => '1 pennad',
 	'info_1_auteur' => '1 aozer',
 	'info_1_message' => '1 kemennad',
@@ -265,7 +268,6 @@ ar skeudennoù enframmet. Evel-se e c’heller krouiñ, da skouer,
 	'info_classement_1' => '<sup>añ</sup> war @liste@',
 	'info_classement_2' => '<sup>vet</sup> war @liste@',
 	'info_code_acces' => 'N’ankouait ket ho kodoù moned !',
-	'info_compatibilite_html' => 'Reolad HTML da heuliañ',
 	'info_config_suivi' => 'Ma’z eo ar chomlec’h-mañ hini ur roll-skignañ e c’hellit skrivañ amañ ar chomlec’h evit en em enrollañ. Gallout a ra ar chomlec’h-se bezañ un URL (hini ar bajenn Web m’en em enroller warni), pe ur postel diwar-benn un danvez bennak (da skouer : <tt>@adresse_suivi@?subject=subscribe</tt>):',
 	'info_config_suivi_explication' => 'Gallout a rit en em enrollañ war roll-skignañ al lec’hienn-mañ. Degaset e vo deoc’h kemennoù dre bostel pa vo kinniget pennadoù pe berrskridoù nevez neuze.',
 	'info_confirmer_passe' => 'Gwiriañ ar ger-tremen :',
@@ -382,7 +384,7 @@ Riskloù zo e vefe distrujet ho tiaz titouroù pe ne’z afe ket en-dro ken.<br 
 	'info_nouvel_article' => 'Pennad nevez',
 	'info_nouvelle_traduction' => 'Troidigezh nevez :',
 	'info_numero_article' => 'PENNAD NIVERENN :',
-	'info_obligatoire_02' => '[Rekis]', # MODIF
+	'info_obligatoire_02' => '[Rekis]',
 	'info_option_accepter_visiteurs' => 'Aotren enrolladennoù gweladennerien al lec’hienn foran',
 	'info_option_ne_pas_accepter_visiteurs' => 'Nac’hañ enrolladennoù ar weladennerien',
 	'info_options_avancees' => 'DIBARZHIOÙ PISHOC’H',
@@ -561,8 +563,6 @@ diskouezet en ul liv disheñvel, diouzh o stad :',
 	'item_oui' => 'Ya',
 	'item_publier_articles' => 'Embann ar pennadoù, ne vern an deiziad embann lakaet dezho.',
 	'item_reponse_article' => 'Respont d’ar pennad',
-	'item_version_html_max_html4' => 'Dibabit HTML4 war al load internet voutin',
-	'item_version_html_max_html5' => 'Aotren an HTML5',
 	'item_visiteur' => 'gweladenner',
 
 	// J
@@ -709,18 +709,18 @@ diskouezet en ul liv disheñvel, diouzh o stad :',
 
 	// Q
 	'queue_executer_maintenant' => 'Seveniñ bremañ',
-	'queue_info_purger' => 'Bez e c’hallit lemel an holl labourioù o c’hortoz, ha nevesaat roll al labourioù mareadek', # MODIF
-	'queue_nb_jobs_in_queue' => '@nb@ labourioù o c’hortoz', # MODIF
-	'queue_next_job_in_nb_sec' => 'Labour-all a-benn @nb@ eilenn', # MODIF
-	'queue_no_job_in_queue' => 'Labour ebet o chom a-ispilh', # MODIF
-	'queue_one_job_in_queue' => '1 labour o chom a-ispilh', # MODIF
+	'queue_info_purger' => 'Bez e c’hallit lemel an holl labourioù o c’hortoz, ha nevesaat roll al labourioù mareadek',
+	'queue_nb_jobs_in_queue' => '@nb@ labourioù o c’hortoz',
+	'queue_next_job_in_nb_sec' => 'Labour-all a-benn @nb@ eilenn',
+	'queue_no_job_in_queue' => 'Labour ebet o chom a-ispilh',
+	'queue_one_job_in_queue' => '1 labour o chom a-ispilh',
 	'queue_priorite_tache' => 'prioriezh',
-	'queue_purger_queue' => 'Nevesaat roll al labourioù', # MODIF
-	'queue_titre' => 'Roll al labourioù', # MODIF
+	'queue_purger_queue' => 'Nevesaat roll al labourioù',
+	'queue_titre' => 'Roll al labourioù en-adreñv',
 
 	// R
 	'repertoire_plugins' => 'Kavlec’h :',
-	'required' => '[Rekis]', # MODIF
+	'required' => '[Rekis]',
 
 	// S
 	'sans_heure' => 'hep eur',
@@ -755,8 +755,6 @@ adstaliañ SPIP hag adkrouiñ un diaz titouroù nevez hag ur moned merour kenta�
 	'texte_choix_base_2' => 'Er servijer SQL ez eus meur a ziaz titouroù.',
 	'texte_choix_base_3' => '<b>Diuzit</b> amañ dindan an hini zo bet lakaet deoc’h gant an herberc’hier :',
 	'texte_choix_table_prefix' => 'Rakger an taolennoù :',
-	'texte_compatibilite_html' => 'Bez e c’hallit goulenn digant SPIP lakaat (war al lec’hienn voutin) boneg keverlec’h gant reolad<i>HTML4</i>, pe aotren  <i>HTML5</i> a zo arnevesoc’h.',
-	'texte_compatibilite_html_attention' => 'Riskl ebet da werediñ an dibab <i>HTML5</i>, met lakait neuze <code>&lt;!DOCTYPE html&gt;</code> e penn pep pajenn ho lec’hienn.',
 	'texte_compte_element' => '@count@ elfenn',
 	'texte_compte_elements' => '@count@ elfenn',
 	'texte_conflit_edition_correction' => 'Gwiriit amañ dindan an diforc’hioù etre daou stumm an destenn. Gallout a rit ivez eilañ ho kemmoù, hag adkregiñ.',
