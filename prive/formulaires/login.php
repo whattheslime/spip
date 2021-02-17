@@ -254,6 +254,7 @@ function formulaires_login_verifier_dist($cible = '', $options = [], $deprecated
 			// sinon c'est un login en deux passe old style (ou js en panne)
 			// pas de message d'erreur
 			$erreurs['password'] = ' ';
+			$erreurs['message_erreur'] = '';
 		}
 
 		return
