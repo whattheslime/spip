@@ -2958,10 +2958,8 @@ function init_var_mode() {
 					// si on n'est pas connecte on se redirige
 					if (!$GLOBALS['visiteur_session']) {
 						include_spip('inc/headers');
-						redirige_par_entete(generer_url_public('login',
-							'url=' . rawurlencode(
-								parametre_url(self(), 'var_mode', $_GET['var_mode'], '&')
-							), true));
+						$redirect = parametre_url(self('&', true), 'var_mode', $_GET['var_mode'], '&');
+						redirige_par_entete(generer_url_public('login','url=' . rawurlencode($redirect), true));
 					}
 					// sinon tant pis
 				}
