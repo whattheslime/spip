@@ -376,7 +376,7 @@ function _image_valeurs_trans($img, $effet, $forcer_format = false, $fonction_cr
 function _image_extensions_acceptees_en_entree() {
 	static $extensions = null;
 	if (empty($extensions)) {
-		$extensions = ['png', 'gif', 'jpg', 'jpeg', 'svg'];
+		$extensions = ['png', 'gif', 'jpg', 'jpeg'];
 		if (!empty($GLOBALS['meta']['gd_formats'])) {
 			// action=tester renseigne gd_formats et detecte le support de webp
 			$extensions = array_merge(explode(',', $GLOBALS['meta']['gd_formats']));
@@ -384,6 +384,7 @@ function _image_extensions_acceptees_en_entree() {
 			$extensions = array_filter($extensions);
 			$extensions = array_unique($extensions);
 		}
+		$extensions[] = 'svg'; // on le supporte toujours avec des fonctions specifiques
 	}
 
 	return $extensions;
