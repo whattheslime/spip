@@ -216,12 +216,12 @@ jQuery.spip.updateReaderBuffer = function(){
 	i.val(parseInt(i.val())+1);
 }
 
-jQuery.fn.formulaire_setARIA = function(){
-	if (!this.closest('.ariaformprop').length){
+jQuery.fn.formulaire_setContainer = function(){
+	if (!this.closest('.ajax-form-container').length){
 		// eviter une double execution du js au moment de sa reinsertion dans le DOM par wrap()
 		// cf http://bugs.jquery.com/ticket/7447
 		this.find('script').remove();
-		this.wrap('<div class="ariaformprop" aria-live="polite" aria-atomic="true" aria-relevant="additions"></div>');
+		this.wrap('<div class="ajax-form-container" aria-live="polite" aria-atomic="true" aria-relevant="additions"></div>');
 		// dans un formulaire, le screen reader relit tout a chaque saisie d'un caractere si on est en aria-live
 		jQuery('form',this).not('[aria-live]').attr('aria-live','off');
 	}
@@ -237,7 +237,7 @@ jQuery.fn.formulaire_dyn_ajax = function(target) {
 	return this.each(function() {
 		var scrollwhensubmit = !jQuery(this).is('.noscroll');
 		var cible = target || this;
-		jQuery(cible).formulaire_setARIA();
+		jQuery(cible).formulaire_setContainer();
 		jQuery('form:not(.noajax):not(.bouton_action_post)', this).each(function(){
 		var leform = this;
 		var leclk,leclk_x,leclk_y;
@@ -246,7 +246,7 @@ jQuery.fn.formulaire_dyn_ajax = function(target) {
 			var msg = "Erreur";
 			if (typeof(error_on_ajaxform)!=="undefined") msg = error_on_ajaxform;
 			jQuery(leform).prepend("<p class='error ajax-error none'>"+msg+"</p>").find('.ajax-error').show('fast');
-			jQuery(cible).closest('.ariaformprop').endLoading(true);
+			jQuery(cible).closest('.ajax-form-container').endLoading(true);
 		}
 		jQuery(this).prepend("<input type='hidden' name='var_ajax' value='form' />")
 		.ajaxForm({
@@ -264,7 +264,7 @@ jQuery.fn.formulaire_dyn_ajax = function(target) {
 				}
 				jQuery(cible).wrap('<div />');
 				cible = jQuery(cible).parent();
-				jQuery(cible).closest('.ariaformprop').animateLoading();
+				jQuery(cible).closest('.ajax-form-container').animateLoading();
 				if (scrollwhensubmit && scrollwhensubmit_button) {
 					jQuery(cible).positionner(false,false);
 				}
@@ -325,7 +325,7 @@ jQuery.fn.formulaire_dyn_ajax = function(target) {
 							//a = a.split('#');
 							//window.location.hash = a[1];
 							},10);
-						jQuery(cible).closest('.ariaformprop').endLoading(true);
+						jQuery(cible).closest('.ajax-form-container').endLoading(true);
 					}
 					else{
 						//jQuery(cible).positionner(false);
@@ -342,10 +342,10 @@ jQuery.fn.formulaire_dyn_ajax = function(target) {
 							},10);
 							// ne pas arreter l'etat loading, puisqu'on redirige !
 							// mais le relancer car l'image loading a pu disparaitre
-							jQuery(cible).closest('.ariaformprop').animateLoading();
+							jQuery(cible).closest('.ajax-form-container').animateLoading();
 						}
 						else {
-							jQuery(cible).closest('.ariaformprop').endLoading(true);
+							jQuery(cible).closest('.ajax-form-container').endLoading(true);
 						}
 					}
 					// si jamais le formulaire n'a pas un retour OK, retablissons le cache
@@ -370,7 +370,7 @@ jQuery.fn.formulaire_verifier = function(callback, champ){
 	var erreurs = {'message_erreur':'form non ajax'};
 	var me=this;
 	// si on est aussi en train de submit pour de vrai, abandonner
-	if (jQuery(me).closest('.ariaformprop').attr('aria-busy')!='true') {
+	if (jQuery(me).closest('.ajax-form-container').attr('aria-busy')!='true') {
 		if (jQuery(me).is('form.hasajax')){
 			jQuery(me).ajaxSubmit({
 				dataType:"json",
@@ -378,7 +378,7 @@ jQuery.fn.formulaire_verifier = function(callback, champ){
 				success:function(errs){
 					var args = [errs, champ]
 					// si on est aussi en train de submit pour de vrai, abandonner
-					if (jQuery(me).closest('.ariaformprop').attr('aria-busy')!='true')
+					if (jQuery(me).closest('.ajax-form-container').attr('aria-busy')!='true')
 						callback.apply(me,args);
 				}
 			});
@@ -391,7 +391,7 @@ jQuery.fn.formulaire_verifier = function(callback, champ){
 
 jQuery.fn.formulaire_activer_verif_auto = function(callback){
 	callback = callback || formulaire_actualiser_erreurs;
-	var me = jQuery(this).closest('.ariaformprop');
+	var me = jQuery(this).closest('.ajax-form-container');
 	var check = function(){
 		var name=jQuery(this).attr('name');
 		// declencher apres 50ms pour ne pas double submit sur sequence saisie+submit
