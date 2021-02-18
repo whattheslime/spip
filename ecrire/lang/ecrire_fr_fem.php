@@ -64,6 +64,8 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'bouton_radio_non_envoi_annonces_editoriales' => 'Ne pas envoyer d’annonces éditoriales',
 	'bouton_redirection' => 'REDIRECTION',
 	'bouton_reinitialiser_aux_valeurs_par_defaut' => 'Réinitialiser aux valeurs par défaut',
+	'bouton_relancer_inscription' => 'Relancer l’inscription',
+	'bouton_relancer_inscriptions' => 'Relancer les inscriptions',
 	'bouton_relancer_installation' => 'Relancer l’installation',
 	'bouton_reset_password' => 'Générer un nouveau mot de passe et l’envoyer par email',
 	'bouton_suivant' => 'Suivant',
@@ -396,7 +398,7 @@ exige d’avoir un accès FTP au site Web.</p>',
 	'info_nouvel_article' => 'Nouvel article',
 	'info_nouvelle_traduction' => 'Nouvelle traduction :',
 	'info_numero_article' => 'ARTICLE NUMÉRO :',
-	'info_obligatoire_02' => '(obligatoire)', # MODIF
+	'info_obligatoire_02' => '(obligatoire)',
 	'info_option_accepter_visiteurs' => 'Accepter l’inscription de visiteuses du site public',
 	'info_option_ne_pas_accepter_visiteurs' => 'Refuser l’inscription des visiteuses',
 	'info_options_avancees' => 'OPTIONS AVANCÉES',
@@ -723,18 +725,18 @@ dans une couleur qui indique leur état :',
 
 	// Q
 	'queue_executer_maintenant' => 'Exécuter maintenant',
-	'queue_info_purger' => 'Vous pouvez supprimer tous les travaux en attente et réinitialiser la liste avec les travaux périodiques', # MODIF
-	'queue_nb_jobs_in_queue' => '@nb@ travaux en attente', # MODIF
-	'queue_next_job_in_nb_sec' => 'Prochain travail dans @nb@ s', # MODIF
-	'queue_no_job_in_queue' => 'Aucun travail en attente', # MODIF
-	'queue_one_job_in_queue' => '1 travail en attente', # MODIF
+	'queue_info_purger' => 'Vous pouvez supprimer toutes les tâches de fond en attente et réinitialiser la liste avec les tâches périodiques',
+	'queue_nb_jobs_in_queue' => '@nb@ tâches en attente',
+	'queue_next_job_in_nb_sec' => 'Prochaine tâche dans @nb@ s',
+	'queue_no_job_in_queue' => 'Aucune tâche en attente',
+	'queue_one_job_in_queue' => '1 tâche en attente',
 	'queue_priorite_tache' => 'priorité',
-	'queue_purger_queue' => 'Réinitialiser la liste des travaux', # MODIF
-	'queue_titre' => 'Liste des travaux', # MODIF
+	'queue_purger_queue' => 'Réinitialiser la liste des tâches',
+	'queue_titre' => 'Tâches de fond',
 
 	// R
 	'repertoire_plugins' => 'Répertoire :',
-	'required' => '(obligatoire)', # MODIF
+	'required' => '(obligatoire)',
 
 	// S
 	'sans_heure' => 'sans heure',
