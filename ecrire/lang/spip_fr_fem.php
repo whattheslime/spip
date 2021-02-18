@@ -530,7 +530,7 @@ le site "@nom_site_spip@" (@adresse_login@) :',
 	'login_pass2' => 'Mot de passe :',
 	'login_preferez_refuser' => '<b>Si vous préférez refuser les cookies</b>, une autre méthode de connexion (moins sécurisée) est à votre disposition :',
 	'login_recharger' => 'recharger cette page',
-	'login_rester_identifie' => 'Rester identifiée quelques jours', # MODIF
+	'login_rester_identifie' => 'Se souvenir de moi',
 	'login_retour_public' => 'Retour au site public',
 	'login_retour_site' => 'Retour au site public',
 	'login_retoursitepublic' => 'retour au site public',
