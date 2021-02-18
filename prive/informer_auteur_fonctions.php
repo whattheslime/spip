@@ -42,6 +42,7 @@ function informer_auteur($bof) {
 	if ($row and is_array($row) and isset($row['id_auteur'])) {
 		unset($row['id_auteur']);
 	}
-	
-	return json_export($row);
+
+	// on encode tout pour ne pas avoir de probleme au deballage dans le JS
+	return json_encode($row, JSON_HEX_TAG | JSON_HEX_APOS | JSON_HEX_QUOT | JSON_HEX_AMP);
 }
