@@ -97,6 +97,9 @@ function auteur_inserer($source = null, $set = null) {
 	$champs['login'] = '';
 	$champs['statut'] = '5poubelle';  // inutilisable tant qu'il n'a pas ete renseigne et institue
 	$champs['webmestre'] = 'non';
+	if (empty($champs['imessage'])) {
+		$champs['imessage'] = 'oui';
+	}
 
 	if ($set) {
 		$champs = array_merge($champs, $set);
