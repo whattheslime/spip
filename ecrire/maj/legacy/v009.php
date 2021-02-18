@@ -25,7 +25,7 @@ if (!defined('_ECRIRE_INC_VERSION')) {
  * @param float $version_installee Version actuelle
  * @param float $version_cible Version de destination
  **/
-function maj_v009_dist($version_installee, $version_cible) {
+function maj_legacy_v009_dist($version_installee, $version_cible) {
 	if (upgrade_vers(0.98, $version_installee, $version_cible)) {
 
 		sql_query("ALTER TABLE spip_articles ADD maj TIMESTAMP");

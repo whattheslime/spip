@@ -26,7 +26,7 @@ if (!defined('_ECRIRE_INC_VERSION')) {
  * @param float $version_installee Version actuelle
  * @param float $version_cible Version de destination
  **/
-function maj_v010_dist($version_installee, $version_cible) {
+function maj_legacy_v010_dist($version_installee, $version_cible) {
 
 	if (upgrade_vers(1.01, $version_installee, $version_cible)) {
 		sql_query("UPDATE spip_forum SET statut='publie' WHERE statut=''");

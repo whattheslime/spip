@@ -25,7 +25,7 @@ if (!defined('_ECRIRE_INC_VERSION')) {
  * @param float $version_installee Version actuelle
  * @param float $version_cible Version de destination
  **/
-function maj_v012_dist($version_installee, $version_cible) {
+function maj_legacy_v012_dist($version_installee, $version_cible) {
 	// Correction de l'oubli des modifs creations depuis 1.04
 	if (upgrade_vers(1.204, $version_installee, $version_cible)) {
 		sql_query("ALTER TABLE spip_articles ADD accepter_forum VARCHAR(3) NOT NULL");

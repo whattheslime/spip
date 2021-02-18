@@ -25,7 +25,7 @@ if (!defined('_ECRIRE_INC_VERSION')) {
  * @param float $version_installee Version actuelle
  * @param float $version_cible Version de destination
  **/
-function v019_pre193($version_installee, $version_cible) {
+function maj_legacy_v019_pre193($version_installee, $version_cible) {
 	// Syndication : ajout de l'option resume=oui/non et de la langue
 	if (upgrade_vers(1.901, $version_installee, $version_cible)) {
 		sql_query("ALTER TABLE spip_syndic ADD `resume` VARCHAR(3) DEFAULT 'oui'");

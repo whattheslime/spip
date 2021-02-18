@@ -25,7 +25,7 @@ if (!defined('_ECRIRE_INC_VERSION')) {
  * @param float $version_installee Version actuelle
  * @param float $version_cible Version de destination
  **/
-function maj_v016_dist($version_installee, $version_cible) {
+function maj_legacy_v016_dist($version_installee, $version_cible) {
 
 	if (upgrade_vers(1.600, $version_installee, $version_cible)) {
 #8/08/07  plus d'indexation dans le core

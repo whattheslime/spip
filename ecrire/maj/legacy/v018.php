@@ -25,7 +25,7 @@ if (!defined('_ECRIRE_INC_VERSION')) {
  * @param float $version_installee Version actuelle
  * @param float $version_cible Version de destination
  **/
-function maj_v018_dist($version_installee, $version_cible) {
+function maj_legacy_v018_dist($version_installee, $version_cible) {
 	if (upgrade_vers(1.801, $version_installee, $version_cible)) {
 		sql_query("ALTER TABLE spip_rubriques	ADD statut_tmp VARCHAR(10) NOT NULL,	ADD date_tmp datetime DEFAULT '0000-00-00 00:00:00' NOT NULL");
 		include_spip('inc/rubriques');
