@@ -37,12 +37,24 @@ function genie_optimiser_dist($t) {
 
 	optimiser_base_une_table();
 	optimiser_base();
+	optimiser_caches_contextes();
 
 	// la date souhaitee pour le tour suivant = apres-demain a 4h du mat ;
 	// sachant qu'on a un delai de 48h, on renvoie aujourd'hui a 4h du mat
 	// avec une periode de flou entre 2h et 6h pour ne pas saturer un hebergeur
 	// qui aurait beaucoup de sites SPIP
 	return -(mktime(2, 0, 0) + rand(0, 3600 * 4));
+}
+
+/**
+ * Vider les contextes ajax de plus de 48h
+ */
+function optimiser_caches_contextes() {
+	sous_repertoire(_DIR_CACHE, 'contextes');
+	if (is_dir( $d = _DIR_CACHE . 'contextes')) {
+		include_spip('inc/invalideur');
+		purger_repertoire($d, ['mtime' => time() - 48*24*3600, 'limit' => 10000]);
+	}
 }
 
 /**
