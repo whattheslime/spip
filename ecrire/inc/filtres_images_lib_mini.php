@@ -510,26 +510,51 @@ function _image_trouver_extension_depuis_mime($mime) {
 	return $terminaison;
 }
 
+
 /**
- * Crée une image depuis un fichier ou une URL
+ * Crée une image depuis un fichier ou une URL (un indiquant la fonction GD à utiliser)
  *
  * Utilise les fonctions spécifiques GD.
+ * - Si la fonction GD n'existe pas (GD non actif?), génère une erreur, mais ne retourne rien
+ * - Si l'image est impossible à créer avec la fonction indiquée, génère une erreur, et une image vide
  *
+ * @param string $func
+ *     Fonction GD à utiliser tel que 'imagecreatefromjpeg'
  * @param string $filename
  *     Le path vers l'image à traiter (par exemple : IMG/distant/jpg/image.jpg
  *     ou local/cache-vignettes/L180xH51/image.jpg).
- * @return resource
+ * @return resource|null
  *     Une ressource de type Image GD.
  */
-function _imagecreatefromjpeg($filename) {
-	$img = @imagecreatefromjpeg($filename);
+function _imagecreatefrom_func(string $func, string $filename) {
+	if (!function_exists($func)) {
+		spip_log("GD indisponible : $func inexistante. Traitement $filename impossible.", _LOG_CRITIQUE);
+		erreur_squelette("GD indisponible : $func inexistante. Traitement $filename impossible.");
+		return null;
+	}
+	$img = @$func($filename);
 	if (!$img) {
 		spip_log("Erreur lecture imagecreatefromjpeg $filename", _LOG_CRITIQUE);
 		erreur_squelette("Erreur lecture imagecreatefromjpeg $filename");
 		$img = imagecreate(10, 10);
 	}
-
 	return $img;
+}
+
+/**
+ * Crée une image depuis un fichier ou une URL (au format jpeg)
+ *
+ * Utilise les fonctions spécifiques GD.
+ *
+ * @uses _imagecreatefrom_func()
+ * @param string $filename
+ *     Le path vers l'image à traiter (par exemple : IMG/distant/jpg/image.jpg
+ *     ou local/cache-vignettes/L180xH51/image.jpg).
+ * @return resource|null
+ *     Une ressource de type Image GD.
+ */
+function _imagecreatefromjpeg($filename) {
+	return _imagecreatefrom_func('imagecreatefromjpeg', $filename);
 }
 
 /**
@@ -537,21 +562,15 @@ function _imagecreatefromjpeg($filename) {
  *
  * Utilise les fonctions spécifiques GD.
  *
+ * @uses _imagecreatefrom_func()
  * @param string $filename
  *     Le path vers l'image à traiter (par exemple : IMG/distant/png/image.png
  *     ou local/cache-vignettes/L180xH51/image.png).
- * @return resource
+ * @return resource|null
  *     Une ressource de type Image GD.
  */
 function _imagecreatefrompng($filename) {
-	$img = @imagecreatefrompng($filename);
-	if (!$img) {
-		spip_log("Erreur lecture imagecreatefrompng $filename", _LOG_CRITIQUE);
-		erreur_squelette("Erreur lecture imagecreatefrompng $filename");
-		$img = imagecreate(10, 10);
-	}
-
-	return $img;
+	return _imagecreatefrom_func('imagecreatefrompng', $filename);
 }
 
 /**
@@ -559,21 +578,15 @@ function _imagecreatefrompng($filename) {
  *
  * Utilise les fonctions spécifiques GD.
  *
+ * @uses _imagecreatefrom_func()
  * @param string $filename
  *     Le path vers l'image à traiter (par exemple : IMG/distant/gif/image.gif
  *     ou local/cache-vignettes/L180xH51/image.gif).
- * @return resource
+ * @return resource|null
  *     Une ressource de type Image GD.
  */
 function _imagecreatefromgif($filename) {
-	$img = @imagecreatefromgif($filename);
-	if (!$img) {
-		spip_log("Erreur lecture imagecreatefromgif $filename", _LOG_CRITIQUE);
-		erreur_squelette("Erreur lecture imagecreatefromgif $filename");
-		$img = imagecreate(10, 10);
-	}
-
-	return $img;
+	return _imagecreatefrom_func('imagecreatefromgif', $filename);
 }
 
 
@@ -582,21 +595,15 @@ function _imagecreatefromgif($filename) {
  *
  * Utilise les fonctions spécifiques GD.
  *
+ * @uses _imagecreatefrom_func()
  * @param string $filename
  *     Le path vers l'image à traiter (par exemple : IMG/distant/png/image.png
  *     ou local/cache-vignettes/L180xH51/image.png).
- * @return resource
+ * @return resource|null
  *     Une ressource de type Image GD.
  */
 function _imagecreatefromwebp($filename) {
-	$img = @imagecreatefromwebp($filename);
-	if (!$img) {
-		spip_log("Erreur lecture imagecreatefromwebp $filename", _LOG_CRITIQUE);
-		erreur_squelette("Erreur lecture imagecreatefrompng $filename");
-		$img = imagecreate(10, 10);
-	}
-
-	return $img;
+	return _imagecreatefrom_func('imagecreatefromwebp', $filename);
 }
 
 /**
