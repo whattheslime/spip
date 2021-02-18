@@ -221,9 +221,21 @@ jQuery.fn.formulaire_setContainer = function(){
 		// eviter une double execution du js au moment de sa reinsertion dans le DOM par wrap()
 		// cf http://bugs.jquery.com/ticket/7447
 		this.find('script').remove();
-		this.wrap('<div class="ajax-form-container" aria-live="polite" aria-atomic="true" aria-relevant="additions"></div>');
-		// dans un formulaire, le screen reader relit tout a chaque saisie d'un caractere si on est en aria-live
-		jQuery('form',this).not('[aria-live]').attr('aria-live','off');
+		var aria = this.data('aria');
+		var $container = jQuery('<div class="ajax-form-container"></div>');
+		if (aria && typeof aria === 'object') {
+			for (var i in aria) {
+				$container = $container.attr(i, aria[i]);
+			}
+		}
+		else {
+			aria = false;
+		}
+		this.wrap($container);
+		if (aria) {
+			// dans un formulaire, le screen reader relit tout a chaque saisie d'un caractere si on est en aria-live
+			jQuery('form',this).not('[aria-live]').attr('aria-live','off');
+		}
 	}
 	return this;
 }
@@ -731,12 +743,13 @@ jQuery.fn.ajaxbloc = function() {
 			if (jQuery.spip.ajaxReload(blocfrag,options))
 				// don't trig reload of parent blocks
 				event.stopPropagation();
-		}).addClass('bind-ajaxReload')
-			.attr('aria-live','polite').attr('aria-atomic','true');
+		}).addClass('bind-ajaxReload');
 
+		// "No aria is better than bad aria"
+		// blocfrag.attr('aria-live','polite').attr('aria-atomic','true')
 		// dans un formulaire, le screen reader relit tout a chaque saisie d'un caractere si on est en aria-live
 		// mettre un aria-live="off" sur les forms inclus dans ce bloc aria-live="polite"
-		jQuery('form',this).not('[aria-live]').attr('aria-live','off');
+		// jQuery('form',this).not('[aria-live]').attr('aria-live','off');
 
 		jQuery(ajaxbloc_selecteur,this).not('.noajax,.bind-ajax')
 			.click(function(){return jQuery.spip.ajaxClick(blocfrag,this.href,{force:jQuery(this).is('.nocache'),history:!(jQuery(this).is('.nohistory')||jQuery(this).closest('.box_modalbox').length)});})
