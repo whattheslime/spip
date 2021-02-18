@@ -240,7 +240,8 @@ function valider_url_distante($url, $known_hosts = array()) {
 /**
  * Preparer les donnes pour un POST
  * si $donnees est une chaine
- *  - charge a l'envoyeur de la boundariser, de gerer le Content-Type etc...
+ *  - charge a l'envoyeur de la boundariser, de gerer le Content-Type,
+ *    de séparer les entetes des données par une ligne vide etc...
  *  - on traite les retour ligne pour les mettre au bon format
  *  - on decoupe en entete/corps (separes par ligne vide)
  * si $donnees est un tableau
@@ -370,13 +371,14 @@ function url_to_ascii($url_idn) {
  * @uses recuperer_entetes()
  * @uses recuperer_body()
  * @uses transcoder_page()
+ * @uses prepare_donnees_post()
  *
  * @param string $url
  * @param array $options
  *   bool transcoder : true si on veut transcoder la page dans le charset du site
  *   string methode : Type de requête HTTP à faire (HEAD, GET ou POST)
  *   int taille_max : Arrêter le contenu au-delà (0 = seulement les entetes ==> requête HEAD). Par defaut taille_max = 1Mo ou 16Mo si copie dans un fichier
- *   string|array datas : Pour envoyer des donnees (array) et/ou entetes (string) (force la methode POST si donnees non vide)
+ *   string|array datas : Pour envoyer des donnees (array) et/ou entetes au complet, avec saut de ligne entre headers et donnees ( string @see prepare_donnees_post()) (force la methode POST si donnees non vide)
  *   string boundary : boundary pour formater les datas au format array
  *   bool refuser_gz : Pour forcer le refus de la compression (cas des serveurs orthographiques)
  *   int if_modified_since : Un timestamp unix pour arrêter la récuperation si la page distante n'a pas été modifiée depuis une date donnée
