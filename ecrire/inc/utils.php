@@ -2716,6 +2716,13 @@ function spip_initialisation_suite() {
 		define('_CACHE_RUBRIQUES_MAX', 500);
 	}
 
+	if (!defined('_CACHE_CONTEXTES_AJAX_SUR_LONGUEUR')) {
+		/**
+		 * Basculer les contextes ajax en fichier si la longueur d’url est trop grande
+		 * @var int Nombre de caractères */
+		define('_CACHE_CONTEXTES_AJAX_SUR_LONGUEUR', 2000);
+	}
+
 	if (!defined('_EXTENSION_SQUELETTES')) {
 		define('_EXTENSION_SQUELETTES', 'html');
 	}
