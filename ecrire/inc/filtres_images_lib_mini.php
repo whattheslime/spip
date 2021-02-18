@@ -512,7 +512,7 @@ function _image_trouver_extension_depuis_mime($mime) {
 
 
 /**
- * Crée une image depuis un fichier ou une URL (un indiquant la fonction GD à utiliser)
+ * Crée une image depuis un fichier ou une URL (en indiquant la fonction GD à utiliser)
  *
  * Utilise les fonctions spécifiques GD.
  * - Si la fonction GD n'existe pas (GD non actif?), génère une erreur, mais ne retourne rien
