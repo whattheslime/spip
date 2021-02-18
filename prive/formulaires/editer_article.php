@@ -210,7 +210,9 @@ function formulaires_editer_article_traiter_dist(
 	// ici on ignore changer_lang qui est poste en cas de trad,
 	// car l'heuristique du choix de la langue est pris en charge par article_inserer
 	// en fonction de la config du site et de la rubrique choisie
-	set_request('changer_lang');
+	if (!$lier_trad) {
+		set_request('changer_lang');
+	}
 
 	return formulaires_editer_objet_traiter(
 		'article',

@@ -146,6 +146,22 @@ function precharger_traduction_objet($type, $id_objet, $id_rubrique = 0, $lier_t
 	$is_rubrique = isset($desc['field']['id_rubrique']);
 
 	if ($is_rubrique) {
+		$langues_dispo = explode(',', $GLOBALS['meta']['langues_multilingue']);
+		// si le redacteur utilise une autre langue que celle de la source, on suppose que c'est pour traduire dans sa langue
+		if (in_array($GLOBALS['spip_lang'], $langues_dispo) and $GLOBALS['spip_lang'] !== $row['lang']) {
+			$row['lang'] = $GLOBALS['spip_lang'];
+		}
+		// sinon si il y a seulement 2 langues dispos, on bascule sur l'"autre"
+		elseif (count($langues_dispo) == 2) {
+			$autre_langue = array_diff($langues_dispo, [$row['lang']]);
+			if (count($autre_langue) == 1) {
+				$row['lang'] = reset($autre_langue);
+			}
+		}
+		else {
+			$row['lang'] = 'en';
+		}
+
 		if ($id_rubrique) {
 			$row['id_rubrique'] = $id_rubrique;
 
@@ -156,8 +172,7 @@ function precharger_traduction_objet($type, $id_objet, $id_rubrique = 0, $lier_t
 
 		// Regler la langue, si possible, sur celle du redacteur
 		// Cela implique souvent de choisir une rubrique ou un secteur
-		if (in_array($GLOBALS['spip_lang'],
-			explode(',', $GLOBALS['meta']['langues_multilingue']))) {
+		if (in_array($GLOBALS['spip_lang'], $langues_dispo)) {
 
 			// Si le menu de langues est autorise sur l'objet,
 			// on peut changer la langue quelle que soit la rubrique

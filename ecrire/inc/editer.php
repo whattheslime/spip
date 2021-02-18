@@ -223,11 +223,14 @@ function formulaires_editer_objet_charger(
 	}
 
 	$new = !is_numeric($id);
+	$lang_default = '';
 	// Appel direct dans un squelette
 	if (!$row) {
 		if (!$new or $lier_trad) {
 			if ($select = charger_fonction('precharger_' . $type, 'inc', true)) {
 				$row = $select($id, $id_parent, $lier_trad);
+				// si on a une fonction precharger, elle pu faire un reglage de langue
+				$lang_default = (!empty($row['lang']) ? $row['lang'] : null);
 			} else {
 				$row = sql_fetsel('*', $table_objet_sql, $id_table_objet . '=' . intval($id));
 			}
@@ -277,6 +280,9 @@ function formulaires_editer_objet_charger(
 	$config = array();
 	if ($config_fonc) {
 		$contexte['config'] = $config = $config_fonc($contexte);
+		if (!$lang_default) {
+			$lang_default = $config['langue'];
+		}
 	}
 	$config = $config + array(
 		'lignes' => 0,
@@ -305,7 +311,7 @@ function formulaires_editer_objet_charger(
 				$lier_trad .
 				"' />" .
 				"\n<input type='hidden' name='changer_lang' value='" .
-				$config['langue'] .
+				$lang_default .
 				"' />"))
 		. $hidden
 		. (isset($md5) ? $md5 : '');
