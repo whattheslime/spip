@@ -518,6 +518,20 @@ jQuery.spip.on_ajax_loaded = function(blocfrag,c,href,history) {
 	jQuery.spip.updateReaderBuffer();
 }
 
+jQuery.spip.on_ajax_failed = function(blocfrag,statusCode,href,history) {
+	// marquer le bloc invalide
+	jQuery(blocfrag).addClass('invalid');
+	// si c'est une erreur 400 on a perdu la signature ajax
+	//console.log("AJAX Erreur");
+	//console.log(statusCode);
+	history = history || (history==null);
+	// quelle que soit l'erreur, on redirige si c'était la nouvelle URL principale de la page
+	if (history) {
+		//console.log("On redirige : " + href);
+		window.location.href = href;
+	}
+}
+
 jQuery.spip.stateId=0;
 jQuery.spip.setHistoryState = function(blocfrag){
 	if (!window.history.replaceState) return;
@@ -611,8 +625,9 @@ jQuery.spip.loadAjax = function(blocfrag,url, href, options){
 				if (options.callback && typeof options.callback == "function")
 					options.callback.apply(blocfrag);
 			},
-			error: function(){
+			error: function(e){
 				jQuery.spip.preloaded_urls[url]='';
+				jQuery.spip.on_ajax_failed(blocfrag,e.status,href,options.history);
 			}
 		});
 	}
