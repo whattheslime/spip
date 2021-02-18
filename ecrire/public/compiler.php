@@ -181,14 +181,20 @@ function calculer_inclure($p, &$boucles, $id_boucle) {
 			$fichier = '';
 		}
 	}
-	if (!$code or $code === '""') {
+	if (!$code or $code === '""' or $code === "''") {
+		$trace = $p->fonctions;
+		while (is_array($trace)
+		  and $trace = array_filter($trace)
+			and count($trace)==1) {
+			$trace = reset($trace);
+		}
 		$erreur_p_i_i = array(
 			'zbug_parametres_inclus_incorrects',
-			array('param' => $code)
+			array('param' => print_r($trace, true))
 		);
 		erreur_squelette($erreur_p_i_i, $p);
 
-		return false;
+		return "''";
 	}
 	$compil = texte_script(memoriser_contexte_compil($p));
 
