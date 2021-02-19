@@ -27,6 +27,17 @@ hr.clear { visibility: hidden; }
 }
 .clearfix { display: block; }
 
+.offscreen {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
 
 /* Non visible a l'ecran */
 .none,.js .none-js,.no-js .none-nojs { display: none; }
