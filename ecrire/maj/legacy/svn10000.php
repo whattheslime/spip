@@ -705,18 +705,6 @@ $GLOBALS['maj'][23375] = array(
 	array('sql_alter', "TABLE spip_auteurs CHANGE prefs prefs text"),
 );
 
-function upgrade_logo_objet($objet) {
-	$GLOBALS['logo_migrer_en_base'] = true;
-	include_spip('ecrire/action/editer_logo');
-	logo_migrer_en_base($objet, _TIME_OUT);
-	unset($GLOBALS['logo_migrer_en_base']);
-}
-// upgrade des logos
-$GLOBALS['maj'][24351] = [];
-$tables_objets_sql = lister_tables_objets_sql();
-foreach(array_keys($tables_objets_sql) as $table) {
-	$GLOBALS['maj'][24351][] = ['upgrade_logo_objet', objet_type($table)];
-};
 
 // adaptation des timestamp mysql
 $GLOBALS['maj'][24379] = [['maj_timestamp_mysql']];
