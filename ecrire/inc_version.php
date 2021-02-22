@@ -172,7 +172,6 @@ global
 	$ignore_auth_http,
 	$ignore_remote_user,
 	$derniere_modif_invalide,
-	$quota_cache,
 	$home_server,
 	$help_server,
 	$url_glossaire_externe,
