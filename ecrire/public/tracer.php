@@ -17,11 +17,16 @@ if (!defined('_ECRIRE_INC_VERSION')) {
 // https://code.spip.net/@trace_query_start
 function trace_query_start() {
 	static $trace = '?';
-	if ($trace === '?') {
-		include_spip('inc/autoriser');
+	if ($trace === '?' or defined('_DEBUG_TRACE_QUERIES')) {
 		// gare au bouclage sur calcul de droits au premier appel
 		// A fortiori quand on demande une trace
-		$trace = isset($_GET['var_profile']) and (autoriser('debug'));
+		if (defined('_DEBUG_TRACE_QUERIES') and _DEBUG_TRACE_QUERIES) {
+			$trace = true;
+		}
+		else {
+			include_spip('inc/autoriser');
+			$trace = (isset($_GET['var_profile']) and autoriser('debug'));
+		}
 	}
 
 	return $trace ? microtime() : 0;
@@ -29,11 +34,22 @@ function trace_query_start() {
 
 // https://code.spip.net/@trace_query_end
 function trace_query_end($query, $start, $result, $erreur, $serveur = '') {
+	static $trace = '?';
+	if ($trace === '?') {
+		$trace = isset($_GET['var_profile']) and (autoriser('debug'));
+	}
 	if ($start) {
-		trace_query_chrono($start, microtime(), $query, $result, $serveur);
+		$end = microtime();
+		list($usec, $sec) = explode(" ", $start);
+		list($usec2, $sec2) = explode(" ", $end);
+		$dt = $sec2 + $usec2 - $sec - $usec;
+		pipeline('trig_trace_query', ['query' => $query, 'start' => $start, 'end' => $end, 'time' => $dt, 'result' => $result, 'erreur' => $erreur, 'serveur' => $serveur]);
+		if ($trace) {
+			trace_query_chrono($dt, $query, $result, $serveur);
+		}
 	}
 	// tracer les erreurs, sauf pour select, c'est fait dans abstract_sql
-	if ($erreur and !preg_match('/^select\b/i', $query)) {
+	if ($trace and $erreur and !preg_match('/^select\b/i', $query)) {
 		erreur_squelette(array(sql_errno($serveur), $erreur, $query));
 	}
 
@@ -41,7 +57,7 @@ function trace_query_end($query, $start, $result, $erreur, $serveur = '') {
 }
 
 // https://code.spip.net/@trace_query_chrono
-function trace_query_chrono($m1, $m2, $query, $result, $serveur = '') {
+function trace_query_chrono($dt, $query, $result, $serveur = '') {
 	include_spip('inc/filtres_mini');
 	static $tt = 0, $nb = 0;
 
@@ -62,9 +78,6 @@ function trace_query_chrono($m1, $m2, $query, $result, $serveur = '') {
 		$boucle = $contexte = '';
 	}
 
-	list($usec, $sec) = explode(" ", $m1);
-	list($usec2, $sec2) = explode(" ", $m2);
-	$dt = $sec2 + $usec2 - $sec - $usec;
 	$tt += $dt;
 	$nb++;
 
