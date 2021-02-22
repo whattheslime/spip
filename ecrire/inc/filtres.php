@@ -489,16 +489,21 @@ function image_filtrer($args) {
 	) {
 		$is_file = false;
 	}
-	if ($is_file
-		and (
-			file_exists(supprimer_timestamp($is_file))
-			or tester_url_absolue($is_file)
-		)
-	) {
-		array_unshift($args, "<img src='$is_file' />");
-		$res = call_user_func_array($filtre, $args);
-		statut_effacer_images_temporaires(false); // desactiver pour les appels hors compilo
-		return $res;
+	if ($is_file) {
+		$is_local_file = function($path) {
+			if (strpos($path, "?") !== false) {
+				$path = supprimer_timestamp($path);
+				// remove ?24px added by find_in_theme on .svg files
+				$path = preg_replace(",\?[[:digit:]]+(px)$,", "", $path);
+			}
+			return file_exists($path);
+		};
+		if ($is_local_file($is_file) or tester_url_absolue($is_file)) {
+			array_unshift($args, "<img src='$is_file' />");
+			$res = call_user_func_array($filtre, $args);
+			statut_effacer_images_temporaires(false); // desactiver pour les appels hors compilo
+			return $res;
+		}
 	}
 
 	// Cas general : trier toutes les images, avec eventuellement leur <span>
