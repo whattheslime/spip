@@ -1278,10 +1278,28 @@ function pipeline_matrice_precompile($plugin_valides, $ordre, $pipe_recherche) {
 **/
 function pipeline_precompile($prepend_code = array()) {
 
+	$all_pipes = $all_pipes_end = '';
+	if (!empty($GLOBALS['spip_pipeline']['all'])) {
+		$a = explode('||', $GLOBALS['spip_pipeline']['all'], 2);
+		unset($GLOBALS['spip_pipeline']['all']);
+		$all_pipes = trim(array_shift($a));
+		if ($all_pipes) {
+			$all_pipes = '|' . ltrim($a, '|');
+		}
+		if (count($a)) {
+			$all_pipes_end = '||' . array_shift($a);
+		}
+	}
 	$content = "";
 	foreach ($GLOBALS['spip_pipeline'] as $action => $pipeline) {
 		$s_inc = "";
 		$s_call = "";
+		if ($all_pipes) {
+			$pipeline = preg_replace(",(\|\||$),", "$all_pipes\\1", $pipeline, 1);
+		}
+		if ($all_pipes_end) {
+			$pipeline .= $all_pipes_end;
+		}
 		$pipe = array_filter(explode('|', $pipeline));
 		// Eclater le pipeline en filtres et appliquer chaque filtre
 		foreach ($pipe as $fonc) {
