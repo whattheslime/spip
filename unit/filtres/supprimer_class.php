@@ -59,9 +59,37 @@
     1 => '<span class="maclasse maclasse-prefixe suffixe-maclasse maclasse--bem">toto</span>',
     2 => 'maclasse-prefixe maclasse--bem',
   ),
+  4 => 
+  array (
+    0 => '<span class=\'maclasse-prefixe\'>toto</span>',
+    1 => '<span class="maclasse maclasse-prefixe">toto</span>',
+    2 => 'maclasse',
+  ),
+  5 => 
+  array (
+    0 => '<span class=\'maclasse\'>toto</span>',
+    1 => '<span class="maclasse maclasse-prefixe">toto</span>',
+    2 => 'maclasse-prefixe',
+  ),
+  6 => 
+  array (
+    0 => '<span>toto</span>',
+    1 => '<span class="maclasse maclasse-prefixe">toto</span>',
+    2 => 'maclasse maclasse-prefixe',
+  ),
+  7 => 
+  array (
+    0 => '<span>toto</span>',
+    1 => '<span class="maclasse maclasse-prefixe">toto</span>',
+    2 => 'maclasse-prefixe maclasse',
+  ),
 );
 		return $essais;
 	}
+
+
+
+
 
 
 
