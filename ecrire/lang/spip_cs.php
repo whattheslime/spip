@@ -310,7 +310,7 @@ na webu "@nom_site_spip@" (@adresse_login@):',
 	'info_copyright' => '@spip@ je freeware distribuovaný @lien_gpl@.',
 	'info_copyright_doc' => 'Bližší informace viz <a href="@spipnet@">http://www.spip.net/en</a>.', # MODIF
 	'info_copyright_gpl' => 'v rámci licence GPL',
-	'info_cours_edition' => 'Vaše rozpracované články',
+	'info_cours_edition' => 'Vaše rozpracované články', # MODIF
 	'info_creer_repertoire' => 'Vytvořte soubor nebo adresář s názvem:',
 	'info_creer_repertoire_2' => 'v podadresáři <b>@repertoire@</b>. Potom',
 	'info_creer_vignette' => 'automatické vytvoření náhledu',

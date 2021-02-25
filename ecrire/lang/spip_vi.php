@@ -310,7 +310,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'info_copyright' => '@spip@ là nhu liệu miễn phí phổ biến @lien_gpl@.',
 	'info_copyright_doc' => 'Để biết thêm, xin vào xem trang <a href="@spipnet@">http://www.spip.net/vi</a>.', # MODIF
 	'info_copyright_gpl' => 'theo giấp phép GPL',
-	'info_cours_edition' => 'Bài của bạn đang soạn',
+	'info_cours_edition' => 'Bài của bạn đang soạn', # MODIF
 	'info_creer_repertoire' => 'Xin lập ra một hồ sơ hay một ngăn mang tên:',
 	'info_creer_repertoire_2' => 'trong ngăn phụ <b>@repertoire@</b>, kế đó', # MODIF
 	'info_creer_vignette' => 'tự động tạo ra các hình mẫu nhỏ',

@@ -368,7 +368,7 @@ de website "@nom_site_spip@" (@adresse_login@):',
 	'info_copyright' => '@spip@ is vrije software @lien_gpl@ distributie.',
 	'info_copyright_doc' => 'Voor meer informatie, bezoek <a href="@spipnet@">@spipnet_affiche@</a>.',
 	'info_copyright_gpl' => 'onder GPL licentie',
-	'info_cours_edition' => 'In voorbereiding',
+	'info_cours_edition' => 'In voorbereiding', # MODIF
 	'info_creer_repertoire' => 'Maak een bestand of map aan met de volgende naam:',
 	'info_creer_repertoire_2' => 'in de submap <b>@repertoire@</b>, vervolgens:',
 	'info_creer_vignette' => 'automatische aanmaak miniatuur-afbeeldingen',

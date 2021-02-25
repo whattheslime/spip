@@ -301,7 +301,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'info_copyright' => '@spip@ er fri software der distribueres @lien_gpl@.',
 	'info_copyright_doc' => 'For yderligere oplysninger besøg webstedet <a href="@spipnet@">http://www.spip.net/da</a>.', # MODIF
 	'info_copyright_gpl' => 'under GPL licens',
-	'info_cours_edition' => 'Artikler undervejs',
+	'info_cours_edition' => 'Artikler undervejs', # MODIF
 	'info_creer_repertoire' => 'Opret en fil eller et katalog med navnet:',
 	'info_creer_repertoire_2' => 'i underkataloget <b>@repertoire@</b>, og derefter', # MODIF
 	'info_deplier' => 'Luk op',

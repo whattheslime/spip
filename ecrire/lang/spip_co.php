@@ -350,7 +350,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'info_copyright' => '@spip@ hè un prugrammu lìberu distribuitu @lien_gpl@.',
 	'info_copyright_doc' => 'Per sapè ne di più, visitate puru u situ <a href=\'http://www.spip.net/fr\'>http://www.spip.net/fr</a>.', # MODIF
 	'info_copyright_gpl' => 'sottu licenza GPL',
-	'info_cours_edition' => 'I vostri artìculi in corsu di scrittura',
+	'info_cours_edition' => 'I vostri artìculi in corsu di scrittura', # MODIF
 	'info_creer_repertoire' => 'Create puru un schedariu o un cartulare chjamatu :',
 	'info_creer_repertoire_2' => 'à l’internu di u sottucartulare <b>@repertoire@</b>, poi :',
 	'info_creer_vignette' => 'creazione autumàtica di a figuretta',

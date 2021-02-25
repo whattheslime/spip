@@ -369,7 +369,7 @@ en el sitio "@nom_site_spip@" (@adresse_login@):',
 	'info_copyright' => '@spip@ es un software libre distribuído @lien_gpl@.',
 	'info_copyright_doc' => 'Para mayor información, ver el sitio <a href="@spipnet@">@spipnet_affiche@</a>.',
 	'info_copyright_gpl' => 'bajo licencia GPL',
-	'info_cours_edition' => 'En curso de redacción',
+	'info_cours_edition' => 'En curso de redacción', # MODIF
 	'info_creer_repertoire' => 'Debes crear un archivo o una carpeta llamada',
 	'info_creer_repertoire_2' => 'en el directorio <b>@repertoire@</b>, y luego',
 	'info_creer_vignette' => 'creación automática de la miniatura',

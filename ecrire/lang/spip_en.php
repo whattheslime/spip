@@ -370,7 +370,7 @@ the site "@nom_site_spip@" (@adresse_login@):',
 	'info_copyright' => '@spip@ is free software distributed @lien_gpl@.',
 	'info_copyright_doc' => 'For more visit <a href="@spipnet@">@spipnet_affiche@</a>.',
 	'info_copyright_gpl' => 'under the GPL license',
-	'info_cours_edition' => 'In progress',
+	'info_cours_edition' => 'In progress', # MODIF
 	'info_creer_repertoire' => 'Please create a file or a directory called:',
 	'info_creer_repertoire_2' => 'inside the sub-directory <b>@repertoire@</b>, then',
 	'info_creer_vignette' => 'automatic thumbnail creation',

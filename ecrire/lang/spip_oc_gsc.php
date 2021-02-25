@@ -284,7 +284,7 @@ deu sit "@nom_site_spip@" (@adresse_site@):', # MODIF
 	'info_copyright' => '@spip@ qu’ei un logiciau liure distribuit @lien_gpl@.',
 	'info_copyright_doc' => 'Per mei informacions, véder lo sit <a href="@spipnet@">http://www.spip.net/oc</a>.', # MODIF
 	'info_copyright_gpl' => 'devath licéncia GPL',
-	'info_cours_edition' => 'Los vòstes articles en cors de redaccion',
+	'info_cours_edition' => 'Los vòstes articles en cors de redaccion', # MODIF
 	'info_creer_repertoire' => 'Volhatz crear un fichièr o un repertòri nomentat',
 	'info_creer_repertoire_2' => 'laguens lo sosrepertòri   <b>@repertoire@</b>, puish:', # MODIF
 	'info_creer_vignette' => 'creacion automatica de la vinheta',

@@ -355,7 +355,7 @@ http://mysite.com、あるいは単純にこのサイトの記事番号を与え
 	'info_copyright' => '@spip@は、@lien_gpl@で配布されるフリーソフトです。',
 	'info_copyright_doc' => '詳細情報は<a href="@spipnet@">@spipnet_affiche@</a>をご覧ください。',
 	'info_copyright_gpl' => 'GPLライセンスのもとで',
-	'info_cours_edition' => '編集中の記事',
+	'info_cours_edition' => '編集中の記事', # MODIF
 	'info_creer_repertoire' => 'ファイルかフォルダかかを作成してください：',
 	'info_creer_repertoire_2' => 'サブフォルダー<b>@repertoire@</b>内、そして',
 	'info_creer_vignette' => 'サムネイルの自動制作',

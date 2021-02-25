@@ -369,7 +369,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'info_copyright' => '@spip@ برنامج حر موزع @lien_gpl@.',
 	'info_copyright_doc' => 'لمزيد من المعلومات راجع الموقع<a href="@spipnet@">@spipnet_affiche@</a>.',
 	'info_copyright_gpl' => 'بموجب الترخيص العام GPL',
-	'info_cours_edition' => 'قيد التحرير',
+	'info_cours_edition' => 'قيد التحرير', # MODIF
 	'info_creer_repertoire' => 'الرجاء إنشاء ملف أو دليل باسم',
 	'info_creer_repertoire_2' => 'داخل الدليل الفرعي <b>@repertoire@</b>، ثم:',
 	'info_creer_vignette' => 'إنشاء آلي للمصغر',

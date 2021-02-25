@@ -299,7 +299,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'info_copyright' => '@spip@ သည်အခမဲ့ရနိုင်သော @lien_gpl@ ဆောက်ဝဲလ်ဖြစ်သည်',
 	'info_copyright_doc' => 'ပိုမိုသိရှိရန် <a href="@spipnet@">http://www.spip.net/en</a> သို့သွားပါ', # MODIF
 	'info_copyright_gpl' => 'အများဆိုင် GPL လိုင်စင်ဖြင့်ထုတ်ဝေသည့်',
-	'info_cours_edition' => 'သင့်ဆောင်းပါးသည် ပြင်ဆင်နေဆဲဖြစ်တယ်',
+	'info_cours_edition' => 'သင့်ဆောင်းပါးသည် ပြင်ဆင်နေဆဲဖြစ်တယ်', # MODIF
 	'info_creer_repertoire' => 'ဖိုင် သို့မဟုတ် ဖိုင်တွဲကိုဖန်တီးပါ',
 	'info_creer_repertoire_2' => '<b>@repertoire@</b>ရဲ့အထဲမှာ၊ ပြီးတော့',
 	'info_creer_vignette' => 'အလိုအလျှောက်ဖန်တီးသော နမူနာပုံ',

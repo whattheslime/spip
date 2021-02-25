@@ -316,7 +316,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'info_copyright' => '@spip@ ជា​ផ្នែកទន់សេរី ត្រូវបានបែងចែក ​ដោយ @lien_gpl@។',
 	'info_copyright_doc' => 'សំរាប់ ពត៌មាន​បន្ថែម, ​មើលសៃថ៍ <a href="@spipnet@">http://www.spip.net/en</a>។', # MODIF
 	'info_copyright_gpl' => 'តាមអាជ្ញាបណ្ណ GPL',
-	'info_cours_edition' => 'អត្ថបទ​ របស់​អ្នក ​កំពុង ​ត្រូវតែង',
+	'info_cours_edition' => 'អត្ថបទ​ របស់​អ្នក ​កំពុង ​ត្រូវតែង', # MODIF
 	'info_creer_repertoire' => 'សូម​បង្កើត មួយ​ឯកសារ ឬ មួយ​បញ្ជី​រាយ​នាម ដែលបានដាក់ឈ្មោះ​៖',
 	'info_creer_repertoire_2' => '​ខាងក្នុង​បញ្ជី​រាយ​នាម​រង <b>@repertoire@</b>, រួច៖',
 	'info_creer_vignette' => 'ការ​បង្កើត​​ស្វ័យប្រវត្ដិ​ នៃ​គំនូស​ព្រាង',

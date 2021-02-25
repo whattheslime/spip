@@ -310,7 +310,7 @@ sit "@nom_site_spip@" (@adresse_login@) :', # MODIF
 	'info_copyright' => '@spip@ se yon logisyèl lib ki done @lien_gpl@.',
 	'info_copyright_doc' => 'Si w vle plis enfòmasyon, ann gad sit sa-a <a href="@spipnet@">http://www.spip.net/cpf</a>.', # MODIF
 	'info_copyright_gpl' => 'nan lisans GPL',
-	'info_cours_edition' => 'Tout atik yo w ka ekri ankò',
+	'info_cours_edition' => 'Tout atik yo w ka ekri ankò', # MODIF
 	'info_creer_repertoire' => 'Kreye yon fichye ousinon yon répètwa sak i rele :',
 	'info_creer_repertoire_2' => 'nan sou-repètwa <b>@repertoire@</b>, epi :', # MODIF
 	'info_creer_vignette' => 'kreyasyon viyèt otomatik ',

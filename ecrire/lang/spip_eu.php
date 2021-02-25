@@ -360,7 +360,7 @@ Zure helbide berria baieztatzeko ondoko helbidea bisita ezazu.
 	'info_copyright' => '@spip@ software librea da, @lien_gpl@ banatua.',
 	'info_copyright_doc' => 'Argibide gehiago izateko, jo helbide honetara: <a href="@spipnet@">http://www.spip.net/eu</a>.',
 	'info_copyright_gpl' => 'GPL lizentziarekin',
-	'info_cours_edition' => 'Bukatu gabe utzi dituzun artikuluak',
+	'info_cours_edition' => 'Bukatu gabe utzi dituzun artikuluak', # MODIF
 	'info_creer_repertoire' => 'Fitxategi edo karpeta bat sortu behar duzu, eta hari izen hau jarri :',
 	'info_creer_repertoire_2' => '<b>@repertoire@</b>, azpidirektorioan, eta ondotik :',
 	'info_creer_vignette' => 'miniaturaren sorkuntza automatikoa',

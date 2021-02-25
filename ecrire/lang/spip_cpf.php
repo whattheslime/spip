@@ -322,7 +322,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'info_copyright' => '@spip@ lé inn lozisyel lib sak lé doné @lien_gpl@.',
 	'info_copyright_doc' => 'Pou plid zinformasyon anon vizit lo sit <a href="@spipnet@">http://www.spip.net/cpf</a>.', # MODIF
 	'info_copyright_gpl' => 'sou lisans GPL',
-	'info_cours_edition' => 'Out bann zartik lé apré lédisyon',
+	'info_cours_edition' => 'Out bann zartik lé apré lédisyon', # MODIF
 	'info_creer_repertoire' => 'Mersi kré inn fisyé o inn répertwar èk non-la :',
 	'info_creer_repertoire_2' => 'andann lo sou-répertwar <b>@repertoire@</b>, é aprè :',
 	'info_creer_vignette' => 'pou kréy inn tite-limaz otomatikman',

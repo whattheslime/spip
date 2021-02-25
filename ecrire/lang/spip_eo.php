@@ -366,7 +366,7 @@ la retadreso ĉi-sube (alie, via peto estos ignoritaj) :
 	'info_copyright' => '@spip@ estas libera programo distribuata @lien_gpl@.',
 	'info_copyright_doc' => 'Por pliaj informoj vidu la retpaĝon <a href="@spipnet@">@spipnet_affiche@</a>.',
 	'info_copyright_gpl' => 'sub licenco GPL',
-	'info_cours_edition' => 'Viaj redaktataj artikoloj',
+	'info_cours_edition' => 'Viaj redaktataj artikoloj', # MODIF
 	'info_creer_repertoire' => 'Bonvolu krei dosieron aŭ dosierujon kies nomo estu :',
 	'info_creer_repertoire_2' => 'ene de la subdosierujo <b>@repertoire@</b>, kaj :',
 	'info_creer_vignette' => 'aŭtomata kreo de la vinjeto',

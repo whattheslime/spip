@@ -354,7 +354,7 @@ site-ul "@nom_site_spip@" (@adresse_login@):',
 	'info_copyright' => '@spip@ este un program liber distribuit @lien_gpl@.',
 	'info_copyright_doc' => 'Pentru mai multe informaţii, vizitaţi site-ul <a href="@spipnet@">@spipnet_affiche@</a>.',
 	'info_copyright_gpl' => 'sub licenţă GPL',
-	'info_cours_edition' => 'În curs de redactare',
+	'info_cours_edition' => 'În curs de redactare', # MODIF
 	'info_creer_repertoire' => 'Vă rugăm să creaţi un fișier sau un director numit :',
 	'info_creer_repertoire_2' => 'sub directorul <b>@repertoire@</b>, apoi :',
 	'info_creer_vignette' => 'crearea viniétei în mod automat ',

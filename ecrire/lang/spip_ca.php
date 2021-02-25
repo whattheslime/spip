@@ -360,7 +360,7 @@ Per confirmar la nova adreça, només heu de connectar-vos a l’adreça que hi 
 	'info_copyright' => '@spip@ és programari lliure distribuït @lien_gpl@.',
 	'info_copyright_doc' => 'Per a més informació, veure el lloc <a href="@spipnet@">@spipnet_affiche@</a>.',
 	'info_copyright_gpl' => 'sota llicència GPL',
-	'info_cours_edition' => 'Els vostres articles en procés de redacció',
+	'info_cours_edition' => 'Els vostres articles en procés de redacció', # MODIF
 	'info_creer_repertoire' => 'Creeu un fitxer o un directori anomenat:',
 	'info_creer_repertoire_2' => 'a l’interior del subdirectori <b>@repertoire@</b>, després:',
 	'info_creer_vignette' => 'creació automàtica de la miniatura',

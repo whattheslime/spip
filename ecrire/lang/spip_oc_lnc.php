@@ -310,7 +310,7 @@ del sit "@nom_site_spip@" (@adresse_site@) :',
 	'info_copyright' => '@spip@ es un logicial liure distribuit @lien_gpl@.',
 	'info_copyright_doc' => ' Per mai d’informacions, veire lo sit <a href="@spipnet@">http://www.spip.net/oc</a>.', # MODIF
 	'info_copyright_gpl' => 'jos licéncia GPL',
-	'info_cours_edition' => 'Vòstres articles en cors de redaccion',
+	'info_cours_edition' => 'Vòstres articles en cors de redaccion', # MODIF
 	'info_creer_repertoire' => 'Volgatz crear un fichièr o un repertòri nommat',
 	'info_creer_repertoire_2' => 'dintre lo sosrepertòri   <b>@repertoire@</b>, puèi:',
 	'info_creer_vignette' => 'creacion automatica de la vinheta',

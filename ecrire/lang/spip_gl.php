@@ -351,7 +351,7 @@ do web "@nom_site_spip@" (@adresse_site@):',
 	'info_copyright' => '@spip@ é un programa libre distribuído @lien_gpl@.',
 	'info_copyright_doc' => 'Para máis información, vaia a <a href="@spipnet@">http://www.spip.net/gl</a>.', # MODIF
 	'info_copyright_gpl' => 'con licenza GPL',
-	'info_cours_edition' => 'Os artigos en proceso de edición',
+	'info_cours_edition' => 'Os artigos en proceso de edición', # MODIF
 	'info_creer_repertoire' => 'Debe crear un ficheiro ou cartafol chamado :',
 	'info_creer_repertoire_2' => 'dentro do subcartafol <b>@repertoire@</b>, e logo:',
 	'info_creer_vignette' => 'creación automática da viñeta',

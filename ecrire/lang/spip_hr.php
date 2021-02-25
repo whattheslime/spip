@@ -362,7 +362,7 @@ Kako biste potvrdili svoju novu adresu, potrebno je samo pristupiti niže navede
 	'info_copyright' => '@spip@ je besplatan softver u smislu @lien_gpl@.',
 	'info_copyright_doc' => 'Za daljnje informacije, vidi <a href="@spipnet@">http://www.spip.net</a>.',
 	'info_copyright_gpl' => 'GPL dozvole',
-	'info_cours_edition' => 'Vaši članci u obradi',
+	'info_cours_edition' => 'Vaši članci u obradi', # MODIF
 	'info_creer_repertoire' => 'Napravite datoteku ili direktorij sa imenom:',
 	'info_creer_repertoire_2' => 'u poddirektoriju <b>@repertoire@</b>, i onda',
 	'info_creer_vignette' => 'automatska izrada male sličice',

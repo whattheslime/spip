@@ -288,7 +288,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'info_copyright' => '@spip@ е свободен софтуер, разпространяван @lien_gpl@.',
 	'info_copyright_doc' => 'За повече информация, посетете сайта <a href="@spipnet@">http://www.spip.net/bg</a>.', # MODIF
 	'info_copyright_gpl' => 'под лиценза GPL',
-	'info_cours_edition' => 'Сатиите Ви в процес на обработка',
+	'info_cours_edition' => 'Сатиите Ви в процес на обработка', # MODIF
 	'info_creer_repertoire' => 'Моля, създайте файл или директория, наречена:',
 	'info_creer_repertoire_2' => 'в под-директорията <b>@repertoire@</b>, след това',
 	'info_creer_vignette' => 'автоматично създаване на умален образ',

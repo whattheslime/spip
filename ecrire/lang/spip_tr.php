@@ -310,7 +310,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'info_copyright' => '@spip@, @lien_gpl@ GPL lisansı ile dağıtılan serbest bir yazılımdır.',
 	'info_copyright_doc' => 'Ayrıntılı bilgi için, bkz.  <a href="@spipnet@">http://www.spip.net/fr</a>.', # MODIF
 	'info_copyright_gpl' => 'GPL lisansı altında',
-	'info_cours_edition' => 'Yazılmakta olan makaleleriniz',
+	'info_cours_edition' => 'Yazılmakta olan makaleleriniz', # MODIF
 	'info_creer_repertoire' => 'Şu isimde bir dosya veya dizin oluşturunuz :',
 	'info_creer_repertoire_2' => '<b>@repertoire@</b> alt-dizini içerisinde, daha sonra :',
 	'info_creer_vignette' => 'otomatik ikon oluşturma',

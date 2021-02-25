@@ -366,7 +366,7 @@ wird Ihre Adresse beibehalten):
 	'info_copyright' => '@spip@ ist freie Software im Sinne der @lien_gpl@.',
 	'info_copyright_doc' => 'Weitere Informationen finden Sie unter <a href="@spipnet@">@spipnet_affiche@</a>.',
 	'info_copyright_gpl' => 'GNU Public License',
-	'info_cours_edition' => 'In Bearbeitung',
+	'info_cours_edition' => 'In Bearbeitung', # MODIF
 	'info_creer_repertoire' => 'Bitte legen Sie eine Datei oder ein Verzeichnis mit diesem Namen an: ',
 	'info_creer_repertoire_2' => '(Im Unterverzeichnis <b>@repertoire@</b>)',
 	'info_creer_vignette' => 'Miniaturbilder automatisch anlegen',

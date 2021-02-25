@@ -368,7 +368,7 @@ indirizzo qui sotto. (Altrimenti la tua richiesta sarà ignorata.):
 	'info_copyright' => '@spip@ è un software libero distribuito @lien_gpl@.',
 	'info_copyright_doc' => 'Per maggiori informazioni, vedi il sito <a href="@spipnet@">@spipnet_affiche@</a>.',
 	'info_copyright_gpl' => 'sotto licenza GPL',
-	'info_cours_edition' => 'Articoli in fase di redazione',
+	'info_cours_edition' => 'Articoli in fase di redazione', # MODIF
 	'info_creer_repertoire' => 'Creare un file o una cartella chiamata:',
 	'info_creer_repertoire_2' => 'all’interno della sottocartella <b>@repertoire@</b>, poi:',
 	'info_creer_vignette' => 'creazione automatica dell’anteprima',

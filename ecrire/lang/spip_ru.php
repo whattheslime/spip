@@ -368,7 +368,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'info_copyright' => '@spip@ - это бесплатное программное обеспечение, распространяемое @lien_gpl@.',
 	'info_copyright_doc' => 'Больше информации о SPIP <a href="@spipnet@">@spipnet_affiche@</a>.',
 	'info_copyright_gpl' => 'под лицензией GPL.',
-	'info_cours_edition' => 'В работе',
+	'info_cours_edition' => 'В работе', # MODIF
 	'info_creer_repertoire' => 'Создайте файл или папку с названием:',
 	'info_creer_repertoire_2' => 'в подразделе <b>@repertoire@</b>, затем ',
 	'info_creer_vignette' => 'автоматическое создание миниатюр изображений',

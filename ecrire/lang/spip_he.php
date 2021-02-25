@@ -323,7 +323,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'info_copyright' => 'תוכנה מופצת בחינם <a href=\'license.txt\'>under GPL license.</a>',
 	'info_copyright_doc' => 'למידע נוסף, בקרו באתר זה <a href="@spipnet@">http://www.spip.net/en</a>.', # MODIF
 	'info_copyright_gpl' => 'תחת רשיון GPL',
-	'info_cours_edition' => 'המאמרים שלך בהתקדמות',
+	'info_cours_edition' => 'המאמרים שלך בהתקדמות', # MODIF
 	'info_creer_repertoire' => ':נא צור קובץ או ספרייה אשר נקראת',
 	'info_creer_repertoire_2' => 'בתוך מדור משנה <b>@repertoire@</b>, ואחרי כן:',
 	'info_creer_vignette' => 'יצירה אוטמטית של הגפנית',

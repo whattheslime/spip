@@ -338,7 +338,7 @@ sitiu "@nom_site_spip@" (@adresse_login@):',
 	'info_copyright' => '@spip@ ye un programa llibre distribuyíu @lien_gpl@.',
 	'info_copyright_doc' => 'Pa más información, dir al sitiu <a href="@spipnet@">http://www.spip.net/</a>.', # MODIF
 	'info_copyright_gpl' => 'so llicencia GPL',
-	'info_cours_edition' => 'Los tos artículos en cursu de redaición',
+	'info_cours_edition' => 'Los tos artículos en cursu de redaición', # MODIF
 	'info_creer_repertoire' => 'Debes crear un ficheru o un direutoriu nomáu:',
 	'info_creer_repertoire_2' => 'dientro’l direutoriu <b>@repertoire@</b>, y llueu:',
 	'info_creer_vignette' => 'creación automática de la viñeta',

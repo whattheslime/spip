@@ -312,7 +312,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'info_copyright' => '@spip@ adalah piranti lunak bebas yang didistribusi @lien_gpl@.',
 	'info_copyright_doc' => 'Untuk informasi lebih lanjut, kunjungi <a href="@spipnet@">http://www.spip.net/en</a>.', # MODIF
 	'info_copyright_gpl' => 'di bawah lisensi GPL',
-	'info_cours_edition' => 'Artikel anda dalam proses',
+	'info_cours_edition' => 'Artikel anda dalam proses', # MODIF
 	'info_creer_repertoire' => 'Silakan buat sebuah berkas atau direktori yang diberi nama:',
 	'info_creer_repertoire_2' => 'dalam sub directori <b>@repertoire@</b>, kemudian',
 	'info_creer_vignette' => 'pembuatan otomatis gambar kecil',

@@ -368,7 +368,7 @@ Evit gwiriekaat ho postel nevez, n’ho peus nemet kevreañ d’ar chomlec’h a
 	'info_copyright' => 'Ur meziant dieub eo @spip@, dasparzhet @lien_gpl@.',
 	'info_copyright_doc' => 'Evit titouroù ouzhpenn, gwelet al lec’hienn <a href="@spipnet@">@spipnet_affiche@</a>.',
 	'info_copyright_gpl' => 'dindan aotre implijout GPL',
-	'info_cours_edition' => 'Ar pennadoù emaoc’h o skrivañ',
+	'info_cours_edition' => 'Ar pennadoù emaoc’h o skrivañ', # MODIF
 	'info_creer_repertoire' => 'Krouit ur restr pe ur c’havlec’h anvet :',
 	'info_creer_repertoire_2' => 'en iskavlec’h <b>@repertoire@</b>, ha :',
 	'info_creer_vignette' => 'krouiñ emgefreek ar skeudennig',

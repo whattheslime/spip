@@ -368,7 +368,7 @@ stránku "@nom_site_spip@" (@adresse_login@):',
 	'info_copyright' => '@spip@ je slobodný softvér distribuovaný @lien_gpl@',
 	'info_copyright_doc' => 'viac informácií nájdete na stránke <a href="@spipnet@">@spipnet_affiche@.</a>',
 	'info_copyright_gpl' => 's licenciou GPL.',
-	'info_cours_edition' => 'Spracúva sa',
+	'info_cours_edition' => 'Spracúva sa', # MODIF
 	'info_creer_repertoire' => 'Prosím, vytvorte súbor alebo priečinok s názvom:',
 	'info_creer_repertoire_2' => 'v podpriečinku <b>@repertoire@</b>, potom',
 	'info_creer_vignette' => 'automatické vytváranie miniatúr',

@@ -357,7 +357,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'info_copyright' => '@spip@ يك نرم افزار آزاد است  كه @lien_gpl@ توزيع شده.',
 	'info_copyright_doc' => ' براى اطلاعات بيشتر مراجعه كنيد به سايت <a href="@spipnet@">@spipnet_affiche@</a>.',
 	'info_copyright_gpl' => 'با مجوز GPL ',
-	'info_cours_edition' => 'مقاله در حال نگارش',
+	'info_cours_edition' => 'مقاله در حال نگارش', # MODIF
 	'info_creer_repertoire' => 'خواهشمند است كه يك فايل يا يك فهرست بنام  بسازيد: ',
 	'info_creer_repertoire_2' => 'در داخل زير بخش <b>@repertoire@</b> سپس :',
 	'info_creer_vignette' => 'ساخت خودكار تصاوير كوچك',

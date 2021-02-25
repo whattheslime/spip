@@ -281,7 +281,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'info_copyright' => '@spip@ je slobodni softver distribucije @lien_gpl@.',
 	'info_copyright_doc' => 'Za vise informacija pogledajte <a href="@spipnet@">http://www.spip.net/fr</a>.', # MODIF
 	'info_copyright_gpl' => 'pod GPL licencom',
-	'info_cours_edition' => 'Vasi clanci u toku uredjivanja',
+	'info_cours_edition' => 'Vasi clanci u toku uredjivanja', # MODIF
 	'info_creer_repertoire' => 'Kreirajte dokument ili direktorij pod imenom:',
 	'info_creer_repertoire_2' => 'Unutar podirektorija<b>ecrire/data/</b>, zatim:',
 	'info_creer_vignette' => 'automatska kreacija vinjete',

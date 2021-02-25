@@ -318,7 +318,7 @@ dau sit "@nom_site_spip@" (@adresse_site@) :',
 	'info_copyright' => 'es un logiciau liure distribuit @lien_gpl@.',
 	'info_copyright_doc' => 'Per mai d’informacions, veire lo sit <a href="@spipnet@">@spipnet_affiche@</a>.',
 	'info_copyright_gpl' => 'sota licença GPL',
-	'info_cours_edition' => 'Lu voastres articles en cors de redacion',
+	'info_cours_edition' => 'Lu voastres articles en cors de redacion', # MODIF
 	'info_creer_repertoire' => 'Vorgatz crear un fichier ò un repertòri nomat',
 	'info_creer_repertoire_2' => 'en dintre dau sosrepertòri <b>@repertoire@</b>, pi:',
 	'info_creer_vignette' => 'creacion automatica de la vinheta',

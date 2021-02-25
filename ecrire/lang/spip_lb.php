@@ -361,7 +361,7 @@ Fir är nei Adress ze bestätegen, surft op dës URL (soss gëtt är Ufro ignor�
 	'info_copyright' => '@spip@ ass eng fräi Software déi ënner @lien_gpl@ verdeelt gëtt.',
 	'info_copyright_doc' => 'Fir méi Informatioune, kuckt de Site <a href="@spipnet@">@spipnet_affiche@</a>.',
 	'info_copyright_gpl' => 'ënner GPL-Lizenz',
-	'info_cours_edition' => 'Är Artikelen an der Aarbecht',
+	'info_cours_edition' => 'Är Artikelen an der Aarbecht', # MODIF
 	'info_creer_repertoire' => 'Fléckt e Fichier oder Dossier mat dësem Numm:',
 	'info_creer_repertoire_2' => 'am Dossier <b>ecrire/data</b> bäi, dann:',
 	'info_creer_vignette' => 'Vignetten automatesch maachen',

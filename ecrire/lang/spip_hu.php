@@ -311,7 +311,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'info_copyright' => '@spip@ egy szabad szoftver, letölthető: @lien_gpl@.',
 	'info_copyright_doc' => 'Bővebb információkra, lásd a honlapot <a href="@spipnet@">http://www.spip.net/fr</a>.', # MODIF
 	'info_copyright_gpl' => 'GPL licenzú',
-	'info_cours_edition' => 'Az Ön szerkesztés alatti cikkei',
+	'info_cours_edition' => 'Az Ön szerkesztés alatti cikkei', # MODIF
 	'info_creer_repertoire' => 'Hozzon létre fájlt, vagy mappát, melynek a neve :',
 	'info_creer_repertoire_2' => 'az almappán <b>@repertoire@</b> belül, ezútán :',
 	'info_creer_vignette' => 'a bélyegkép automatikus létrehozása',

@@ -361,7 +361,7 @@ Pediu para alterar o seu endereço e-mail. Para confirmar o seu novo endereço, 
 	'info_copyright' => '@spip@ é um software livre distribuído @lien_gpl@.',
 	'info_copyright_doc' => 'Para mais informações, visite o sítio <a href="@spipnet@">@spipnet_affiche@</a',
 	'info_copyright_gpl' => 'sob licença GPL',
-	'info_cours_edition' => 'Os seus artigos em curso de redacção',
+	'info_cours_edition' => 'Os seus artigos em curso de redacção', # MODIF
 	'info_creer_repertoire' => 'Por favor crie um ficheiro ou um directório chamado :',
 	'info_creer_repertoire_2' => 'dentro do sub-directório <b>@repertoire@</b>, depois :',
 	'info_creer_vignette' => 'criação automática de miniatura',

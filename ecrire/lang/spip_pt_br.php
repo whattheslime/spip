@@ -363,7 +363,7 @@ Para confirmar o seu novo endereço, basta acessar o endereço abaixo (cas contr
 	'info_copyright' => '@spip@ é um software livre distribuído @lien_gpl@.',
 	'info_copyright_doc' => 'Para mais informações, veja o site <a href="@spipnet@">@spipnet_affiche@</a>.',
 	'info_copyright_gpl' => 'sob licença GPL',
-	'info_cours_edition' => 'Em fase de redação',
+	'info_cours_edition' => 'Em fase de redação', # MODIF
 	'info_creer_repertoire' => 'Por favor, crie um arquivo ou diretório com o nome:',
 	'info_creer_repertoire_2' => 'dentro do subdiretório <b>@repertoire@</b>, e depois:',
 	'info_creer_vignette' => 'criação automática do ícone',

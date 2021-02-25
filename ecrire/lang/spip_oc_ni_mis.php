@@ -366,7 +366,7 @@ sera ignourada) :
 	'info_copyright' => '@spip@ es un lougiciau lìberou distribuit @lien_gpl@.',
 	'info_copyright_doc' => 'Per mai d’infourmacioun, veire lou sit <a href="@spipnet@">@spipnet_affiche@</a>.',
 	'info_copyright_gpl' => 'souta lichença GPL',
-	'info_cours_edition' => 'Lu vouòstre article en cours de redacioun',
+	'info_cours_edition' => 'Lu vouòstre article en cours de redacioun', # MODIF
 	'info_creer_repertoire' => 'Vourguès creà un fichié o un repertori noumat :',
 	'info_creer_repertoire_2' => 'en dintre dóu souta-repertori <b>@repertoire@</b>, pi :',
 	'info_creer_vignette' => 'creacioun autoumatica de la vigneta',

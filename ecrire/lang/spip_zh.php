@@ -316,7 +316,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'info_copyright' => '@spip@是一款免费软件@lien_gpl@。',
 	'info_copyright_doc' => '详细信息,请访问站点 <a href="@spipnet@">http://www.spip.net/zh</a>.', # MODIF
 	'info_copyright_gpl' => '根据GPL协议',
-	'info_cours_edition' => '进展中文章',
+	'info_cours_edition' => '进展中文章', # MODIF
 	'info_creer_repertoire' => '请创建一个文件或目录叫:',
 	'info_creer_repertoire_2' => '在<b>@repertoire@</b>子目录内部，然后 ：',
 	'info_creer_vignette' => '自动产生图标',
