@@ -185,7 +185,17 @@ img.aide {padding: 2px !important;box-sizing: border-box;}
 .formulaire_spip fieldset {border: 0;width:auto;border-top: 1px solid #ccc;margin-top: [(#ENV{margin-bottom}|strdiv{4})em];padding-bottom:[(#ENV{margin-bottom}|strdiv{4})em];}
 
 .formulaire_spip h3.legend,
-.formulaire_spip legend {display: block;padding-top: 7px;padding-bottom: 7px;background-color: #eee;color: black;font-weight: normal;padding-#ENV{left}: 10px;padding-#ENV{right}: 5px;margin-bottom:[(#ENV{margin-bottom}|strdiv{2})em]}
+.formulaire_spip legend {
+	display: block;
+	padding-top: 7px;
+	padding-bottom: 7px;
+	background-color: [#(#ENV{foncee}|couleur_eclaircir)];
+	color: black;
+	font-weight: normal;
+	padding-#ENV{left}: 10px;
+	padding-#ENV{right}: 5px;
+	margin-bottom:[(#ENV{margin-bottom}|strdiv{2})em]
+}
 
 .formulaire_spip .editer fieldset label {color: #444444;}
 
