@@ -1113,9 +1113,11 @@ function public_phraser_html_dist($texte, $id_parent, &$boucles, $descr, $ligne_
 					array('id' => $id_boucle)
 				);
 				erreur_squelette($err_b, $result);
+				$pos_courante += strlen($fin_boucle);
 			}
-
-			$pos_courante = $pos_fin + strlen($fin_boucle);
+			else {
+				$pos_courante = $pos_fin + strlen($fin_boucle);
+			}
 			$result->milieu = substr($texte, $pos_milieu, $pos_fin - $pos_milieu);
 		}
 
@@ -1201,13 +1203,15 @@ function public_phraser_html_dist($texte, $id_parent, &$boucles, $descr, $ligne_
 		// Verifier qu'il n'y a pas double definition
 		// apres analyse des sous-parties (pas avant).
 		if (!empty($boucles[$id_boucle])) {
-			$err_b_d = array(
-				'zbug_erreur_boucle_double',
-				array('id' => $id_boucle)
-			);
-			erreur_squelette($err_b_d, $result);
-			// Prevenir le generateur de code que le squelette est faux
-			$boucles[$id_boucle]->type_requete = false;
+			if ($boucles[$id_boucle]->type_requete !== false) {
+				$err_b_d = array(
+					'zbug_erreur_boucle_double',
+					array('id' => $id_boucle)
+				);
+				erreur_squelette($err_b_d, $result);
+				// Prevenir le generateur de code que le squelette est faux
+				$boucles[$id_boucle]->type_requete = false;
+			}
 		} else {
 			$boucles[$id_boucle] = $result;
 		}
