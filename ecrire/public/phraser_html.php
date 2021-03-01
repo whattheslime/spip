@@ -1116,6 +1116,30 @@ function public_phraser_html_dist($texte, $id_parent, &$boucles, $descr, $ligne_
 				$pos_courante += strlen($fin_boucle);
 			}
 			else {
+				// verifier une eventuelle imbrication d'une boucle homonyme
+				// (interdite, generera une erreur plus loin, mais permet de signaler la bonne erreur)
+				$search_debut_boucle = BALISE_BOUCLE . $id_boucle_search . '(';
+				$search_from = $pos_milieu;
+				$nb_open = 1;
+				$nb_close = 1;
+				$maxiter = 0;
+				do {
+					while ($nb_close < $nb_open
+						and $p = strpos($texte, $fin_boucle, $pos_fin + 1)) {
+						$nb_close++;
+						$pos_fin = $p;
+					}
+					// si on a pas trouve assez de boucles fermantes, sortir de la, on a fait de notre mieux
+					if ($nb_close < $nb_open) {
+						break;
+					}
+					while ($p = strpos($texte, $search_debut_boucle, $search_from)
+					  and $p < $pos_fin) {
+						$nb_open++;
+						$search_from = $p + 1;
+					}
+				} while($nb_close < $nb_open and $maxiter++ < 5);
+
 				$pos_courante = $pos_fin + strlen($fin_boucle);
 			}
 			$result->milieu = substr($texte, $pos_milieu, $pos_fin - $pos_milieu);
