@@ -849,8 +849,10 @@ function _image_imagesvg($img, $fichier) {
  *     - true si le traitement GD s'est bien finalisé ;
  *     - false sinon.
  */
-function _image_gd_output($img, $valeurs, $qualite = _IMG_GD_QUALITE) {
-	$fonction = "_image_image" . $valeurs['format_dest'];
+function _image_gd_output($img, $valeurs, $qualite = _IMG_GD_QUALITE, $fonction = null) {
+	if (is_null($fonction)) {
+		$fonction = "_image_image" . $valeurs['format_dest'];
+	}
 	$ret = false;
 	#un flag pour reperer les images gravees
 	$lock =
