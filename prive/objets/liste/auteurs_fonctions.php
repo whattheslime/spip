@@ -117,7 +117,8 @@ function afficher_initiale($url, $initiale, $compteur, $debut, $pas) {
 		if (count($res) > 1) {
 			$out = implode(' ', $res);
 		}
-		$memo = $res = null;
+		$memo = null;
+		$res = array();
 	}
 
 	return $out;
