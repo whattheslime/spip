@@ -607,6 +607,18 @@ function taille_image($img, $force_refresh = false) {
 				$hauteur_img[$src] = $srcHeight = $srcsize[1];
 			}
 		}
+		elseif(strpos($src, "<svg") !== false) {
+			include_spip('inc/svg');
+			if ($attrs = svg_lire_attributs($src)){
+				list($width, $height, $viewbox) = svg_getimagesize_from_attr($attrs);
+				if (!$srcWidth){
+					$largeur_img[$src] = $srcWidth = $width;
+				}
+				if (!$srcHeight){
+					$hauteur_img[$src] = $srcHeight = $height;
+				}
+			}
+		}
 		// $src peut etre une reference a une image temporaire dont a n'a que le log .src
 		// on s'y refere, l'image sera reconstruite en temps utile si necessaire
 		elseif (@file_exists($f = "$src.src")
@@ -3443,30 +3455,126 @@ function http_style_background($img, $att = '', $size=null) {
 		. "'";
 }
 
+
+function helper_filtre_balise_img_svg_arguments($alt_or_size, $class_or_size, $size) {
+	$args = [$alt_or_size, $class_or_size, $size];
+	while (is_null(end($args)) and count($args)) {
+		array_pop($args);
+	}
+	if (!count($args)) {
+		return [null, null, null];
+	}
+	if (count($args) < 3) {
+		$maybe_size = array_pop($args);
+		// @2x
+		// @1.5x
+		// 512
+		// 512x*
+		// 512x300
+		if (!strlen($maybe_size)
+			or !preg_match(',^(@\d+(\.\d+)?x|\d+(x\*)?|\d+x\d+)$,', trim($maybe_size))) {
+			$args[] = $maybe_size;
+			$maybe_size = null;
+		}
+		while (count($args)<2) {
+			$args[] = null; // default alt or class
+		}
+		$args[] = $maybe_size;
+	}
+	return $args;
+}
+
+function helper_filtre_balise_img_svg_size($img, $size) {
+	// si size est de la forme '@2x' c'est un coeff multiplicateur sur la densite
+	if (strpos($size, '@') === 0 and substr($size,-1) === 'x') {
+		$coef = floatval(substr($size, 1, -1));
+		list($h, $w) = taille_image($img);
+		$height = intval(round($h / $coef));
+		$width = intval(round($w / $coef));
+	}
+	// sinon c'est une valeur seule si image caree ou largeurxhauteur
+	else {
+		$size = explode('x', $size, 2);
+		$size = array_map('trim', $size);
+		$height = $width = intval(array_shift($size));
+
+		if (count($size) and reset($size)) {
+			$height = array_shift($size);
+			if ($height === '*') {
+				list($h, $w) = taille_image($img);
+				$height = intval(round($h * $width / $w));
+			}
+		}
+	}
+
+	return [$width, $height];
+}
+
 /**
- * Générer une balise HTML `img` à partir d'un nom de fichier
+ * Générer une balise HTML `img` à partir d'un nom de fichier et/ou renseigne son alt/class/width/height
+ * selon les arguments passés
+ *
+ * Le class et le alt peuvent etre omis et dans ce cas size peut-être renseigné comme dernier argument :
+ * [(#FICHIER|balise_img{@2x})]
+ * [(#FICHIER|balise_img{1024})]
+ * [(#FICHIER|balise_img{1024x*})]
+ * [(#FICHIER|balise_img{1024x640})]
+ * [(#FICHIER|balise_img{'un nuage',1024x640})]
+ * [(#FICHIER|balise_img{'un nuage','spip_logo',1024x640})]
+ * Si le alt ou la class sont ambigu et peuvent etre interpretes comme une taille, il suffit d'indiquer une taille vide pour lever l'ambiguite
+ * [(#FICHIER|balise_img{'@2x','',''})]
  *
  * @uses http_img_pack()
  *
  * @param string $img
+ *   chemin vers un fichier ou balise `<img src='...' />` (generee par un filtre image par exemple)
  * @param string $alt
+ *   texte alternatif ; une valeur nulle pour explicitement ne pas avoir de balise alt sur l'image (au lieu d'un alt vide)
  * @param string $class
- * @param string $width
+ *   attribut class ; null par defaut (ie si img est une balise, son attribut class sera inchange. pas de class inseree
+ * @param string|int $size
+ *   taille imposee
+ *     @2x : pour imposer une densite x2 (widht et height seront divisees par 2)
+ *     largeur : pour une image carree
+ *     largeurx* : pour imposer uniquement la largeur (un attribut height sera aussi ajoute, mais calcule automatiquement pour respecter le ratio initial de l'image)
+ *     largeurxhauteur pour fixer les 2 dimensions
  * @return string
  *     Code HTML de la balise IMG
  */
-function filtre_balise_img_dist($img, $alt = "", $class = "", $width=null) {
-	$atts = $class ? " class='" . attribut_html($class) . "'" : '';
-	// ecriture courte : on donne le width en 2e arg
-	if (empty($width) and is_numeric($alt)) {
-		$width = $alt;
-		$alt = '';
+function filtre_balise_img_dist($img, $alt = '', $class = null, $size=null) {
+
+	list($alt, $class, $size) = helper_filtre_balise_img_svg_arguments($alt, $class, $size);
+
+	$img = trim($img);
+	if (strpos($img, '<img') === 0) {
+		if (!is_null($alt)) {
+			$img = inserer_attribut($img, 'alt', $alt);
+		}
+		if (!is_null($class)) {
+			if (strlen($class)) {
+				$img = inserer_attribut($img, 'class', $class);
+			}
+			else {
+				$img = vider_attribut($img, 'class');
+			}
+		}
 	}
-	if ($width) {
-		$atts .= " width='{$width}'";
+	else {
+		$img = http_img_pack($img, $alt, $class ? " class='" . attribut_html($class) . "'" : '', '',
+				array('chemin_image' => false, 'utiliser_suffixe_size' => false));
+		if (is_null($alt)) {
+			$img = vider_attribut($img, 'alt');
+		}
 	}
-	return http_img_pack($img, $alt, $atts, '',
-		array('chemin_image' => false, 'utiliser_suffixe_size' => false));
+
+	if ($img and !is_null($size) and strlen($size = trim($size))) {
+		list($width, $height) = helper_filtre_balise_img_svg_size($img, $size);
+
+		$img = inserer_attribut($img, 'width', $width);
+		$img = inserer_attribut($img, 'height', $height);
+	}
+
+	return $img;
 }
 
 
@@ -3476,24 +3584,48 @@ function filtre_balise_img_dist($img, $alt = "", $class = "", $width=null) {
  *
  * pour l'inserer avec une balise <img>, utiliser le filtre |balise_img
  *
+ * Le class et le alt peuvent etre omis et dans ce cas size peut-être renseigné comme dernier argument :
+ * [(#FICHIER|balise_svg{1024x640})]
+ * [(#FICHIER|balise_svg{'un nuage',1024x640})]
+ * [(#FICHIER|balise_svg{'un nuage','spip_logo',1024x640})]
+ * Si le alt ou la class sont ambigu et peuvent etre interpretes comme une taille, il suffit d'indiquer une taille vide pour lever l'ambiguite
+ * [(#FICHIER|balise_svg{'un nuage','@2x',''})]
+ *
  * @param string $img
+ *   chemin vers un fichier ou balise `<svg ... >... </svg>` deja preparee
  * @param string $alt
+ *   texte alternatif ; une valeur nulle pour explicitement ne pas avoir de balise alt sur l'image (au lieu d'un alt vide)
  * @param string $class
+ *   attribut class ; null par defaut (ie si img est une balise, son attribut class sera inchange. pas de class inseree
+ * @param string|int $size
+ *   taille imposee
+ *     @2x : pour imposer une densite x2 (widht et height seront divisees par 2)
+ *     largeur : pour une image carree
+ *     largeurx* : pour imposer uniquement la largeur (un attribut height sera aussi ajoute, mais calcule automatiquement pour respecter le ratio initial de l'image)
+ *     largeurxhauteur pour fixer les 2 dimensions
  * @return string
+ *     Code HTML de la balise SVG
  */
-function filtre_balise_svg_dist($img, $alt = "", $class = "") {
-	$img_file = $img;
-	if ($p = strpos($img_file, '?')) {
-		$img_file = substr($img_file,0, $p);
-	}
+function filtre_balise_svg_dist($img, $alt = '', $class = null, $size=null) {
 
-	if (!$img_file or !$svg = file_get_contents($img_file)) {
-		return '';
+	$img = trim($img);
+	$img_file = $img;
+	if (strpos($img, '<svg') === false){
+		if ($p = strpos($img_file, '?')){
+			$img_file = substr($img_file, 0, $p);
+		}
+
+		if (!$img_file or !$svg = file_get_contents($img_file)){
+			return '';
+		}
 	}
 
 	if (!preg_match(",<svg\b[^>]*>,UimsS", $svg, $match)) {
 		return '';
 	}
+
+	list($alt, $class, $size) = helper_filtre_balise_img_svg_arguments($alt, $class, $size);
+
 	$balise_svg = $match[0];
 	$balise_svg_source = $balise_svg;
 
@@ -3502,9 +3634,18 @@ function filtre_balise_svg_dist($img, $alt = "", $class = "") {
 
 	// IE est toujours mon ami
 	$balise_svg = inserer_attribut($balise_svg, 'focusable', 'false');
-	if ($class) {
-		$balise_svg = inserer_attribut($balise_svg, 'class', $class);
+
+	// regler la classe
+	if (!is_null($class)) {
+		if (strlen($class)) {
+			$balise_svg = inserer_attribut($balise_svg, 'class', $class);
+		}
+		else {
+			$balise_svg = vider_attribut($balise_svg, 'class');
+		}
 	}
+
+	// regler le alt
 	if ($alt){
 		$balise_svg = inserer_attribut($balise_svg, 'role', 'img');
 		$id = "img-svg-title-" . substr(md5("$img_file:$svg:$alt"),0,4);
@@ -3515,7 +3656,17 @@ function filtre_balise_svg_dist($img, $alt = "", $class = "") {
 	else {
 		$balise_svg = inserer_attribut($balise_svg, 'aria-hidden', 'true');
 	}
+
 	$svg = str_replace($balise_svg_source, $balise_svg, $svg);
+
+	if (!is_null($size) and strlen($size = trim($size))) {
+		list($width, $height) = helper_filtre_balise_img_svg_size($svg, $size);
+
+		if (!function_exists('svg_redimensionner')) {
+			include_spip('inc/svg');
+		}
+		$svg = svg_redimensionner($svg, $width, $height);
+	}
 
 	return $svg;
 }
