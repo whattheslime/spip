@@ -323,7 +323,9 @@ img.aide {padding: 2px !important;box-sizing: border-box;}
 .formulaire_dater .affiche {font-weight: bold;text-transform: uppercase;}
 .formulaire_dater .saisie_redac {display:block;}
 .formulaire_dater .editer_date_redac .editable .choix{ display:block;}
-.formulaire_dater .editer_date_redac .editable label { margin-left:-260px!important; width:240px !important; display:inline-block;}
+@media (max-width: 760px) {
+	.formulaire_dater .editer_date_redac .editable label { margin-left:-260px!important; width:240px !important; display:inline-block;}
+}
 .formulaire_dater  #sans_redac { vertical-align:top;}
 
 /* editer_liens */
