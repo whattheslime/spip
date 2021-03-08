@@ -1712,6 +1712,9 @@ function extraire_multi($letexte, $lang = null, $options = array()) {
 					include_spip('inc/texte');
 					$trad_propre = preg_replace(",(^<p[^>]*>|</p>$),Uims", "", propre($trad));
 					$mode = preg_match(',</?(' . _BALISES_BLOCS . ')[>[:space:]],iS', $trad_propre) ? 'div' : 'span';
+					if ($mode === 'div') {
+						$trad = rtrim($trad) . "\n\n";
+					}
 					$trad = code_echappement($trad, 'multi', false, $mode);
 					$trad = str_replace("'", '"', inserer_attribut($trad, 'lang', $l));
 					if (lang_dir($l) !== lang_dir($lang)) {
