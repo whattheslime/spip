@@ -91,7 +91,7 @@
     1 => 'spip.png',
     2 => 'This is SPIP',
     3 => 'spip_logo',
-    4 => 'x2',
+    4 => '@2x',
   ),
   array (
     0 => '<img src=\'spip.png\' alt=\'This is SPIP\' class=\'spip_logo\' width=\'20\' height=\'20\' />',
@@ -118,7 +118,7 @@
     0 => '<img src=\'spip.png\' alt=\'This is SPIP\' width=\'30\' height=\'20\' />',
     1 => 'spip.png',
     2 => 'This is SPIP',
-    3 => 'x2',
+    3 => '@2x',
   ),
   array (
     0 => '<img src=\'spip.png\' alt=\'This is SPIP\' width=\'20\' height=\'20\' />',
@@ -141,7 +141,7 @@
   array (
     0 => '<img src=\'spip.png\' width=\'30\' height=\'20\' />',
     1 => 'spip.png',
-    2 => 'x2',
+    2 => '@2x',
   ),
   array (
     0 => '<img src=\'spip.png\' width=\'20\' height=\'20\' />',
@@ -179,7 +179,7 @@
     1 => 'spip.svg',
     2 => 'This is SPIP',
     3 => 'spip_logo',
-    4 => 'x2',
+    4 => '@2x',
   ),
   array (
     0 => '<img src=\'spip.svg\' alt=\'This is SPIP\' class=\'spip_logo\' width=\'20\' height=\'20\' />',
@@ -208,7 +208,7 @@
     0 => '<img src=\'spip.svg\' alt=\'This is SPIP\' width=\'30\' height=\'20\' />',
     1 => 'spip.svg',
     2 => 'This is SPIP',
-    3 => 'x2',
+    3 => '@2x',
   ),
   array (
     0 => '<img src=\'spip.svg\' alt=\'This is SPIP\' width=\'20\' height=\'20\' />',
@@ -231,7 +231,7 @@
   array (
     0 => '<img src=\'spip.svg\' width=\'30\' height=\'20\' />',
     1 => 'spip.svg',
-    2 => 'x2',
+    2 => '@2x',
   ),
   array (
     0 => '<img src=\'spip.svg\' width=\'20\' height=\'20\' />',
