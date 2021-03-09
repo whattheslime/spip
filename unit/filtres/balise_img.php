@@ -35,18 +35,13 @@
 		$essais = array (
   0 => 
   array (
-    0 => '<img src=\'https://www.spip.net/IMG/siteon0.png\' alt=\'\' width=\'300\' height=\'223\' />',
-    1 => 'https://www.spip.net/IMG/siteon0.png',
+    0 => '<img src=\'https://www.spip.net/IMG/logo/siteon0.png\' alt=\'\' width=\'300\' height=\'223\' />',
+    1 => 'https://www.spip.net/IMG/logo/siteon0.png',
   ),
-  1 => 
+  2 =>
   array (
-    0 => '<img src=\'prive/images/logo_spip.jpg\' alt=\'\' width=\'105\' height=\'92\' />',
-    1 => 'prive/images/logo_spip.jpg',
-  ),
-  2 => 
-  array (
-    0 => '<img src=\'prive/images/logo-spip.gif\' alt=\'\' width=\'267\' height=\'170\' />',
-    1 => 'prive/images/logo-spip.gif',
+    0 => '<img src=\'prive/images/logo-spip.png\' alt=\'\' width=\'231\' height=\'172\' />',
+    1 => 'prive/images/logo-spip.png',
   ),
   3 => 
   array (
