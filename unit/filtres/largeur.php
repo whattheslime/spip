@@ -34,15 +34,10 @@
     0 => 300,
     1 => 'https://www.spip.net/IMG/logo/siteon0.png',
   ),
-  1 => 
+  2 =>
   array (
-    0 => 105,
-    1 => 'prive/images/logo_spip.jpg',
-  ),
-  2 => 
-  array (
-    0 => 267,
-    1 => 'prive/images/logo-spip.gif',
+    0 => 231,
+    1 => 'prive/images/logo-spip.png',
   ),
   3 => 
   array (
