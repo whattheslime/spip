@@ -37,7 +37,7 @@
 		$essais = array (
   0 => 
   array (
-    0 => '<strong class=\'on\'>libelle</strong>',
+    0 => '<strong class="on">libelle</strong>',
     1 => 'http://www.spip.net/',
     2 => 'libelle',
     3 => true,
@@ -51,126 +51,126 @@
   ),
   2 => 
   array (
-    0 => '<strong class=\'on\'>0</strong>',
+    0 => '<strong class="on">0</strong>',
     1 => 'http://www.spip.net/',
     2 => 0,
     3 => true,
   ),
   3 => 
   array (
-    0 => '<strong class=\'on\'>-1</strong>',
+    0 => '<strong class="on">-1</strong>',
     1 => 'http://www.spip.net/',
     2 => -1,
     3 => true,
   ),
   4 => 
   array (
-    0 => '<strong class=\'on\'>1</strong>',
+    0 => '<strong class="on">1</strong>',
     1 => 'http://www.spip.net/',
     2 => 1,
     3 => true,
   ),
   5 => 
   array (
-    0 => '<strong class=\'on\'>2</strong>',
+    0 => '<strong class="on">2</strong>',
     1 => 'http://www.spip.net/',
     2 => 2,
     3 => true,
   ),
   6 => 
   array (
-    0 => '<strong class=\'on\'>3</strong>',
+    0 => '<strong class="on">3</strong>',
     1 => 'http://www.spip.net/',
     2 => 3,
     3 => true,
   ),
   7 => 
   array (
-    0 => '<strong class=\'on\'>4</strong>',
+    0 => '<strong class="on">4</strong>',
     1 => 'http://www.spip.net/',
     2 => 4,
     3 => true,
   ),
   8 => 
   array (
-    0 => '<strong class=\'on\'>5</strong>',
+    0 => '<strong class="on">5</strong>',
     1 => 'http://www.spip.net/',
     2 => 5,
     3 => true,
   ),
   9 => 
   array (
-    0 => '<strong class=\'on\'>6</strong>',
+    0 => '<strong class="on">6</strong>',
     1 => 'http://www.spip.net/',
     2 => 6,
     3 => true,
   ),
   10 => 
   array (
-    0 => '<strong class=\'on\'>7</strong>',
+    0 => '<strong class="on">7</strong>',
     1 => 'http://www.spip.net/',
     2 => 7,
     3 => true,
   ),
   11 => 
   array (
-    0 => '<strong class=\'on\'>10</strong>',
+    0 => '<strong class="on">10</strong>',
     1 => 'http://www.spip.net/',
     2 => 10,
     3 => true,
   ),
   12 => 
   array (
-    0 => '<strong class=\'on\'>20</strong>',
+    0 => '<strong class="on">20</strong>',
     1 => 'http://www.spip.net/',
     2 => 20,
     3 => true,
   ),
   13 => 
   array (
-    0 => '<strong class=\'on\'>30</strong>',
+    0 => '<strong class="on">30</strong>',
     1 => 'http://www.spip.net/',
     2 => 30,
     3 => true,
   ),
   14 => 
   array (
-    0 => '<strong class=\'on\'>50</strong>',
+    0 => '<strong class="on">50</strong>',
     1 => 'http://www.spip.net/',
     2 => 50,
     3 => true,
   ),
   15 => 
   array (
-    0 => '<strong class=\'on\'>100</strong>',
+    0 => '<strong class="on">100</strong>',
     1 => 'http://www.spip.net/',
     2 => 100,
     3 => true,
   ),
   16 => 
   array (
-    0 => '<strong class=\'on\'>1000</strong>',
+    0 => '<strong class="on">1000</strong>',
     1 => 'http://www.spip.net/',
     2 => 1000,
     3 => true,
   ),
   17 => 
   array (
-    0 => '<strong class=\'on\'>10000</strong>',
+    0 => '<strong class="on">10000</strong>',
     1 => 'http://www.spip.net/',
     2 => 10000,
     3 => true,
   ),
   18 => 
   array (
-    0 => '<strong class=\'on\'>0</strong>',
+    0 => '<strong class="on">0</strong>',
     1 => 'http://www.spip.net/',
     2 => '0',
     3 => true,
   ),
   19 => 
   array (
-    0 => '<strong class=\'on\'>SPIP</strong>',
+    0 => '<strong class="on">SPIP</strong>',
     1 => 'http://www.spip.net/',
     2 => 'SPIP',
     3 => true,
@@ -186,7 +186,7 @@
   ),
   21 => 
   array (
-    0 => '<strong class=\'on\'>SPIP</strong>',
+    0 => '<strong class="on">SPIP</strong>',
     1 => 'http://www.spip.net/',
     2 => 'SPIP',
     3 => true,
@@ -204,7 +204,7 @@
   ),
   23 => 
   array (
-    0 => '<strong class=\'on\'>SPIP</strong>',
+    0 => '<strong class="on">SPIP</strong>',
     1 => 'http://www.spip.net/',
     2 => 'SPIP',
     3 => true,
@@ -224,7 +224,7 @@
   ),
   25 => 
   array (
-    0 => '<strong class=\'on\'>SPIP</strong>',
+    0 => '<strong class="on">SPIP</strong>',
     1 => 'http://www.spip.net/',
     2 => 'SPIP',
     3 => true,
