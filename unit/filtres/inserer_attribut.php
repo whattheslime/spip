@@ -647,8 +647,8 @@ paragraphes',
   ),
   64 => 
   array (
-    0 => '<a href=\'https://www.spip.net\'><img src=\'https://www.spip.net/IMG/siteon0.png\' /></a>',
-    1 => '<a href=\'https://www.spip.net\'><img src=\'https://www.spip.net/IMG/siteon0.png\' /></a>',
+    0 => '<a href=\'https://www.spip.net\'><img src=\'https://www.spip.net/IMG/logo/siteon0.png\' /></a>',
+    1 => '<a href=\'https://www.spip.net\'><img src=\'https://www.spip.net/IMG/logo/siteon0.png\' /></a>',
     2 => 'alt',
     3 => '',
     4 => true,
@@ -656,8 +656,8 @@ paragraphes',
   ),
   65 => 
   array (
-    0 => '<a href=\'https://www.spip.net\'><img src=\'https://www.spip.net/IMG/siteon0.png\' alt=\'\' /></a>',
-    1 => '<a href=\'https://www.spip.net\'><img src=\'https://www.spip.net/IMG/siteon0.png\' /></a>',
+    0 => '<a href=\'https://www.spip.net\'><img src=\'https://www.spip.net/IMG/logo/siteon0.png\' alt=\'\' /></a>',
+    1 => '<a href=\'https://www.spip.net\'><img src=\'https://www.spip.net/IMG/logo/siteon0.png\' /></a>',
     2 => 'alt',
     3 => '',
     4 => true,
@@ -665,8 +665,8 @@ paragraphes',
   ),
   66 => 
   array (
-    0 => '<a href=\'https://www.spip.net\'><img src=\'https://www.spip.net/IMG/siteon0.png\' /></a>',
-    1 => '<a href=\'https://www.spip.net\'><img src=\'https://www.spip.net/IMG/siteon0.png\' /></a>',
+    0 => '<a href=\'https://www.spip.net\'><img src=\'https://www.spip.net/IMG/logo/siteon0.png\' /></a>',
+    1 => '<a href=\'https://www.spip.net\'><img src=\'https://www.spip.net/IMG/logo/siteon0.png\' /></a>',
     2 => 'alt',
     3 => '',
     4 => false,
@@ -674,8 +674,8 @@ paragraphes',
   ),
   67 => 
   array (
-    0 => '<a href=\'https://www.spip.net\'><img src=\'https://www.spip.net/IMG/siteon0.png\' alt=\'\' /></a>',
-    1 => '<a href=\'https://www.spip.net\'><img src=\'https://www.spip.net/IMG/siteon0.png\' /></a>',
+    0 => '<a href=\'https://www.spip.net\'><img src=\'https://www.spip.net/IMG/logo/siteon0.png\' alt=\'\' /></a>',
+    1 => '<a href=\'https://www.spip.net\'><img src=\'https://www.spip.net/IMG/logo/siteon0.png\' /></a>',
     2 => 'alt',
     3 => '',
     4 => false,
@@ -683,8 +683,8 @@ paragraphes',
   ),
   68 => 
   array (
-    0 => '<a href=\'https://www.spip.net\'><img src=\'https://www.spip.net/IMG/siteon0.png\' alt=\'0\' /></a>',
-    1 => '<a href=\'https://www.spip.net\'><img src=\'https://www.spip.net/IMG/siteon0.png\' /></a>',
+    0 => '<a href=\'https://www.spip.net\'><img src=\'https://www.spip.net/IMG/logo/siteon0.png\' alt=\'0\' /></a>',
+    1 => '<a href=\'https://www.spip.net\'><img src=\'https://www.spip.net/IMG/logo/siteon0.png\' /></a>',
     2 => 'alt',
     3 => '0',
     4 => true,
@@ -692,8 +692,8 @@ paragraphes',
   ),
   69 => 
   array (
-    0 => '<a href=\'https://www.spip.net\'><img src=\'https://www.spip.net/IMG/siteon0.png\' alt=\'0\' /></a>',
-    1 => '<a href=\'https://www.spip.net\'><img src=\'https://www.spip.net/IMG/siteon0.png\' /></a>',
+    0 => '<a href=\'https://www.spip.net\'><img src=\'https://www.spip.net/IMG/logo/siteon0.png\' alt=\'0\' /></a>',
+    1 => '<a href=\'https://www.spip.net\'><img src=\'https://www.spip.net/IMG/logo/siteon0.png\' /></a>',
     2 => 'alt',
     3 => '0',
     4 => true,
@@ -701,8 +701,8 @@ paragraphes',
   ),
   70 => 
   array (
-    0 => '<a href=\'https://www.spip.net\'><img src=\'https://www.spip.net/IMG/siteon0.png\' alt=\'0\' /></a>',
-    1 => '<a href=\'https://www.spip.net\'><img src=\'https://www.spip.net/IMG/siteon0.png\' /></a>',
+    0 => '<a href=\'https://www.spip.net\'><img src=\'https://www.spip.net/IMG/logo/siteon0.png\' alt=\'0\' /></a>',
+    1 => '<a href=\'https://www.spip.net\'><img src=\'https://www.spip.net/IMG/logo/siteon0.png\' /></a>',
     2 => 'alt',
     3 => '0',
     4 => false,
@@ -710,8 +710,8 @@ paragraphes',
   ),
   71 => 
   array (
-    0 => '<a href=\'https://www.spip.net\'><img src=\'https://www.spip.net/IMG/siteon0.png\' alt=\'0\' /></a>',
-    1 => '<a href=\'https://www.spip.net\'><img src=\'https://www.spip.net/IMG/siteon0.png\' /></a>',
+    0 => '<a href=\'https://www.spip.net\'><img src=\'https://www.spip.net/IMG/logo/siteon0.png\' alt=\'0\' /></a>',
+    1 => '<a href=\'https://www.spip.net\'><img src=\'https://www.spip.net/IMG/logo/siteon0.png\' /></a>',
     2 => 'alt',
     3 => '0',
     4 => false,
@@ -719,8 +719,8 @@ paragraphes',
   ),
   72 => 
   array (
-    0 => '<a href=\'https://www.spip.net\'><img src=\'https://www.spip.net/IMG/siteon0.png\' alt=\'Un texte avec des &lt;a href=&#034;http://spip.net&#034;&gt;liens&lt;/a&gt; [Article 1-&gt;art1] [spip-&gt;https://www.spip.net] https://www.spip.net\' /></a>',
-    1 => '<a href=\'https://www.spip.net\'><img src=\'https://www.spip.net/IMG/siteon0.png\' /></a>',
+    0 => '<a href=\'https://www.spip.net\'><img src=\'https://www.spip.net/IMG/logo/siteon0.png\' alt=\'Un texte avec des &lt;a href=&#034;http://spip.net&#034;&gt;liens&lt;/a&gt; [Article 1-&gt;art1] [spip-&gt;https://www.spip.net] https://www.spip.net\' /></a>',
+    1 => '<a href=\'https://www.spip.net\'><img src=\'https://www.spip.net/IMG/logo/siteon0.png\' /></a>',
     2 => 'alt',
     3 => 'Un texte avec des <a href="http://spip.net">liens</a> [Article 1->art1] [spip->https://www.spip.net] https://www.spip.net',
     4 => true,
@@ -728,8 +728,8 @@ paragraphes',
   ),
   73 => 
   array (
-    0 => '<a href=\'https://www.spip.net\'><img src=\'https://www.spip.net/IMG/siteon0.png\' alt=\'Un texte avec des &lt;a href=&#034;http://spip.net&#034;&gt;liens&lt;/a&gt; [Article 1-&gt;art1] [spip-&gt;https://www.spip.net] https://www.spip.net\' /></a>',
-    1 => '<a href=\'https://www.spip.net\'><img src=\'https://www.spip.net/IMG/siteon0.png\' /></a>',
+    0 => '<a href=\'https://www.spip.net\'><img src=\'https://www.spip.net/IMG/logo/siteon0.png\' alt=\'Un texte avec des &lt;a href=&#034;http://spip.net&#034;&gt;liens&lt;/a&gt; [Article 1-&gt;art1] [spip-&gt;https://www.spip.net] https://www.spip.net\' /></a>',
+    1 => '<a href=\'https://www.spip.net\'><img src=\'https://www.spip.net/IMG/logo/siteon0.png\' /></a>',
     2 => 'alt',
     3 => 'Un texte avec des <a href="http://spip.net">liens</a> [Article 1->art1] [spip->https://www.spip.net] https://www.spip.net',
     4 => true,
@@ -737,8 +737,8 @@ paragraphes',
   ),
   74 => 
   array (
-    0 => '<a href=\'https://www.spip.net\'><img src=\'https://www.spip.net/IMG/siteon0.png\' alt=\'Un texte avec des <a href="http://spip.net">liens</a> [Article 1->art1] [spip->https://www.spip.net] https://www.spip.net\' /></a>',
-    1 => '<a href=\'https://www.spip.net\'><img src=\'https://www.spip.net/IMG/siteon0.png\' /></a>',
+    0 => '<a href=\'https://www.spip.net\'><img src=\'https://www.spip.net/IMG/logo/siteon0.png\' alt=\'Un texte avec des <a href="http://spip.net">liens</a> [Article 1->art1] [spip->https://www.spip.net] https://www.spip.net\' /></a>',
+    1 => '<a href=\'https://www.spip.net\'><img src=\'https://www.spip.net/IMG/logo/siteon0.png\' /></a>',
     2 => 'alt',
     3 => 'Un texte avec des <a href="http://spip.net">liens</a> [Article 1->art1] [spip->https://www.spip.net] https://www.spip.net',
     4 => false,
@@ -746,8 +746,8 @@ paragraphes',
   ),
   75 => 
   array (
-    0 => '<a href=\'https://www.spip.net\'><img src=\'https://www.spip.net/IMG/siteon0.png\' alt=\'Un texte avec des <a href="http://spip.net">liens</a> [Article 1->art1] [spip->https://www.spip.net] https://www.spip.net\' /></a>',
-    1 => '<a href=\'https://www.spip.net\'><img src=\'https://www.spip.net/IMG/siteon0.png\' /></a>',
+    0 => '<a href=\'https://www.spip.net\'><img src=\'https://www.spip.net/IMG/logo/siteon0.png\' alt=\'Un texte avec des <a href="http://spip.net">liens</a> [Article 1->art1] [spip->https://www.spip.net] https://www.spip.net\' /></a>',
+    1 => '<a href=\'https://www.spip.net\'><img src=\'https://www.spip.net/IMG/logo/siteon0.png\' /></a>',
     2 => 'alt',
     3 => 'Un texte avec des <a href="http://spip.net">liens</a> [Article 1->art1] [spip->https://www.spip.net] https://www.spip.net',
     4 => false,
@@ -755,8 +755,8 @@ paragraphes',
   ),
   76 => 
   array (
-    0 => '<a href=\'https://www.spip.net\'><img src=\'https://www.spip.net/IMG/siteon0.png\' alt=\'Un texte avec des entit&#233;s &#38;&lt;&gt;&#034;\' /></a>',
-    1 => '<a href=\'https://www.spip.net\'><img src=\'https://www.spip.net/IMG/siteon0.png\' /></a>',
+    0 => '<a href=\'https://www.spip.net\'><img src=\'https://www.spip.net/IMG/logo/siteon0.png\' alt=\'Un texte avec des entit&#233;s &#38;&lt;&gt;&#034;\' /></a>',
+    1 => '<a href=\'https://www.spip.net\'><img src=\'https://www.spip.net/IMG/logo/siteon0.png\' /></a>',
     2 => 'alt',
     3 => 'Un texte avec des entit&eacute;s &amp;&lt;&gt;&quot;',
     4 => true,
@@ -764,8 +764,8 @@ paragraphes',
   ),
   77 => 
   array (
-    0 => '<a href=\'https://www.spip.net\'><img src=\'https://www.spip.net/IMG/siteon0.png\' alt=\'Un texte avec des entit&#233;s &#38;&lt;&gt;&#034;\' /></a>',
-    1 => '<a href=\'https://www.spip.net\'><img src=\'https://www.spip.net/IMG/siteon0.png\' /></a>',
+    0 => '<a href=\'https://www.spip.net\'><img src=\'https://www.spip.net/IMG/logo/siteon0.png\' alt=\'Un texte avec des entit&#233;s &#38;&lt;&gt;&#034;\' /></a>',
+    1 => '<a href=\'https://www.spip.net\'><img src=\'https://www.spip.net/IMG/logo/siteon0.png\' /></a>',
     2 => 'alt',
     3 => 'Un texte avec des entit&eacute;s &amp;&lt;&gt;&quot;',
     4 => true,
@@ -773,8 +773,8 @@ paragraphes',
   ),
   78 => 
   array (
-    0 => '<a href=\'https://www.spip.net\'><img src=\'https://www.spip.net/IMG/siteon0.png\' alt=\'Un texte avec des entit&eacute;s &amp;&lt;&gt;&#034;\' /></a>',
-    1 => '<a href=\'https://www.spip.net\'><img src=\'https://www.spip.net/IMG/siteon0.png\' /></a>',
+    0 => '<a href=\'https://www.spip.net\'><img src=\'https://www.spip.net/IMG/logo/siteon0.png\' alt=\'Un texte avec des entit&eacute;s &amp;&lt;&gt;&#034;\' /></a>',
+    1 => '<a href=\'https://www.spip.net\'><img src=\'https://www.spip.net/IMG/logo/siteon0.png\' /></a>',
     2 => 'alt',
     3 => 'Un texte avec des entit&eacute;s &amp;&lt;&gt;&#034;',
     4 => false,
@@ -782,8 +782,8 @@ paragraphes',
   ),
   79 => 
   array (
-    0 => '<a href=\'https://www.spip.net\'><img src=\'https://www.spip.net/IMG/siteon0.png\' alt=\'Un texte avec des entit&eacute;s &amp;&lt;&gt;&quot;\' /></a>',
-    1 => '<a href=\'https://www.spip.net\'><img src=\'https://www.spip.net/IMG/siteon0.png\' /></a>',
+    0 => '<a href=\'https://www.spip.net\'><img src=\'https://www.spip.net/IMG/logo/siteon0.png\' alt=\'Un texte avec des entit&eacute;s &amp;&lt;&gt;&quot;\' /></a>',
+    1 => '<a href=\'https://www.spip.net\'><img src=\'https://www.spip.net/IMG/logo/siteon0.png\' /></a>',
     2 => 'alt',
     3 => 'Un texte avec des entit&eacute;s &amp;&lt;&gt;&quot;',
     4 => false,
@@ -791,8 +791,8 @@ paragraphes',
   ),
   80 => 
   array (
-    0 => '<a href=\'https://www.spip.net\'><img src=\'https://www.spip.net/IMG/siteon0.png\' alt=\'Un texte sans entites &#38;&lt;&gt;&#034;&#039;\' /></a>',
-    1 => '<a href=\'https://www.spip.net\'><img src=\'https://www.spip.net/IMG/siteon0.png\' /></a>',
+    0 => '<a href=\'https://www.spip.net\'><img src=\'https://www.spip.net/IMG/logo/siteon0.png\' alt=\'Un texte sans entites &#38;&lt;&gt;&#034;&#039;\' /></a>',
+    1 => '<a href=\'https://www.spip.net\'><img src=\'https://www.spip.net/IMG/logo/siteon0.png\' /></a>',
     2 => 'alt',
     3 => 'Un texte sans entites &<>"\'',
     4 => true,
@@ -800,8 +800,8 @@ paragraphes',
   ),
   81 => 
   array (
-    0 => '<a href=\'https://www.spip.net\'><img src=\'https://www.spip.net/IMG/siteon0.png\' alt=\'Un texte sans entites &#38;&lt;&gt;&#034;&#039;\' /></a>',
-    1 => '<a href=\'https://www.spip.net\'><img src=\'https://www.spip.net/IMG/siteon0.png\' /></a>',
+    0 => '<a href=\'https://www.spip.net\'><img src=\'https://www.spip.net/IMG/logo/siteon0.png\' alt=\'Un texte sans entites &#38;&lt;&gt;&#034;&#039;\' /></a>',
+    1 => '<a href=\'https://www.spip.net\'><img src=\'https://www.spip.net/IMG/logo/siteon0.png\' /></a>',
     2 => 'alt',
     3 => 'Un texte sans entites &<>"\'',
     4 => true,
@@ -809,8 +809,8 @@ paragraphes',
   ),
   82 => 
   array (
-    0 => '<a href=\'https://www.spip.net\'><img src=\'https://www.spip.net/IMG/siteon0.png\' alt=\'Un texte sans entites &<>"&#039;\' /></a>',
-    1 => '<a href=\'https://www.spip.net\'><img src=\'https://www.spip.net/IMG/siteon0.png\' /></a>',
+    0 => '<a href=\'https://www.spip.net\'><img src=\'https://www.spip.net/IMG/logo/siteon0.png\' alt=\'Un texte sans entites &<>"&#039;\' /></a>',
+    1 => '<a href=\'https://www.spip.net\'><img src=\'https://www.spip.net/IMG/logo/siteon0.png\' /></a>',
     2 => 'alt',
     3 => 'Un texte sans entites &<>"\'',
     4 => false,
@@ -818,8 +818,8 @@ paragraphes',
   ),
   83 => 
   array (
-    0 => '<a href=\'https://www.spip.net\'><img src=\'https://www.spip.net/IMG/siteon0.png\' alt=\'Un texte sans entites &<>"&#039;\' /></a>',
-    1 => '<a href=\'https://www.spip.net\'><img src=\'https://www.spip.net/IMG/siteon0.png\' /></a>',
+    0 => '<a href=\'https://www.spip.net\'><img src=\'https://www.spip.net/IMG/logo/siteon0.png\' alt=\'Un texte sans entites &<>"&#039;\' /></a>',
+    1 => '<a href=\'https://www.spip.net\'><img src=\'https://www.spip.net/IMG/logo/siteon0.png\' /></a>',
     2 => 'alt',
     3 => 'Un texte sans entites &<>"\'',
     4 => false,
@@ -827,8 +827,8 @@ paragraphes',
   ),
   84 => 
   array (
-    0 => '<a href=\'https://www.spip.net\'><img src=\'https://www.spip.net/IMG/siteon0.png\' alt=\'{{{Des raccourcis}}} {italique} {{gras}} &lt;code&gt;du code&lt;/code&gt;\' /></a>',
-    1 => '<a href=\'https://www.spip.net\'><img src=\'https://www.spip.net/IMG/siteon0.png\' /></a>',
+    0 => '<a href=\'https://www.spip.net\'><img src=\'https://www.spip.net/IMG/logo/siteon0.png\' alt=\'{{{Des raccourcis}}} {italique} {{gras}} &lt;code&gt;du code&lt;/code&gt;\' /></a>',
+    1 => '<a href=\'https://www.spip.net\'><img src=\'https://www.spip.net/IMG/logo/siteon0.png\' /></a>',
     2 => 'alt',
     3 => '{{{Des raccourcis}}} {italique} {{gras}} <code>du code</code>',
     4 => true,
@@ -836,8 +836,8 @@ paragraphes',
   ),
   85 => 
   array (
-    0 => '<a href=\'https://www.spip.net\'><img src=\'https://www.spip.net/IMG/siteon0.png\' alt=\'{{{Des raccourcis}}} {italique} {{gras}} &lt;code&gt;du code&lt;/code&gt;\' /></a>',
-    1 => '<a href=\'https://www.spip.net\'><img src=\'https://www.spip.net/IMG/siteon0.png\' /></a>',
+    0 => '<a href=\'https://www.spip.net\'><img src=\'https://www.spip.net/IMG/logo/siteon0.png\' alt=\'{{{Des raccourcis}}} {italique} {{gras}} &lt;code&gt;du code&lt;/code&gt;\' /></a>',
+    1 => '<a href=\'https://www.spip.net\'><img src=\'https://www.spip.net/IMG/logo/siteon0.png\' /></a>',
     2 => 'alt',
     3 => '{{{Des raccourcis}}} {italique} {{gras}} <code>du code</code>',
     4 => true,
@@ -845,8 +845,8 @@ paragraphes',
   ),
   86 => 
   array (
-    0 => '<a href=\'https://www.spip.net\'><img src=\'https://www.spip.net/IMG/siteon0.png\' alt=\'{{{Des raccourcis}}} {italique} {{gras}} <code>du code</code>\' /></a>',
-    1 => '<a href=\'https://www.spip.net\'><img src=\'https://www.spip.net/IMG/siteon0.png\' /></a>',
+    0 => '<a href=\'https://www.spip.net\'><img src=\'https://www.spip.net/IMG/logo/siteon0.png\' alt=\'{{{Des raccourcis}}} {italique} {{gras}} <code>du code</code>\' /></a>',
+    1 => '<a href=\'https://www.spip.net\'><img src=\'https://www.spip.net/IMG/logo/siteon0.png\' /></a>',
     2 => 'alt',
     3 => '{{{Des raccourcis}}} {italique} {{gras}} <code>du code</code>',
     4 => false,
@@ -854,8 +854,8 @@ paragraphes',
   ),
   87 => 
   array (
-    0 => '<a href=\'https://www.spip.net\'><img src=\'https://www.spip.net/IMG/siteon0.png\' alt=\'{{{Des raccourcis}}} {italique} {{gras}} <code>du code</code>\' /></a>',
-    1 => '<a href=\'https://www.spip.net\'><img src=\'https://www.spip.net/IMG/siteon0.png\' /></a>',
+    0 => '<a href=\'https://www.spip.net\'><img src=\'https://www.spip.net/IMG/logo/siteon0.png\' alt=\'{{{Des raccourcis}}} {italique} {{gras}} <code>du code</code>\' /></a>',
+    1 => '<a href=\'https://www.spip.net\'><img src=\'https://www.spip.net/IMG/logo/siteon0.png\' /></a>',
     2 => 'alt',
     3 => '{{{Des raccourcis}}} {italique} {{gras}} <code>du code</code>',
     4 => false,
@@ -863,8 +863,8 @@ paragraphes',
   ),
   88 => 
   array (
-    0 => '<a href=\'https://www.spip.net\'><img src=\'https://www.spip.net/IMG/siteon0.png\' alt=\'Un modele &lt;modeleinexistant|lien=[-&gt;https://www.spip.net]&gt;\' /></a>',
-    1 => '<a href=\'https://www.spip.net\'><img src=\'https://www.spip.net/IMG/siteon0.png\' /></a>',
+    0 => '<a href=\'https://www.spip.net\'><img src=\'https://www.spip.net/IMG/logo/siteon0.png\' alt=\'Un modele &lt;modeleinexistant|lien=[-&gt;https://www.spip.net]&gt;\' /></a>',
+    1 => '<a href=\'https://www.spip.net\'><img src=\'https://www.spip.net/IMG/logo/siteon0.png\' /></a>',
     2 => 'alt',
     3 => 'Un modele <modeleinexistant|lien=[->https://www.spip.net]>',
     4 => true,
@@ -872,8 +872,8 @@ paragraphes',
   ),
   89 => 
   array (
-    0 => '<a href=\'https://www.spip.net\'><img src=\'https://www.spip.net/IMG/siteon0.png\' alt=\'Un modele &lt;modeleinexistant|lien=[-&gt;https://www.spip.net]&gt;\' /></a>',
-    1 => '<a href=\'https://www.spip.net\'><img src=\'https://www.spip.net/IMG/siteon0.png\' /></a>',
+    0 => '<a href=\'https://www.spip.net\'><img src=\'https://www.spip.net/IMG/logo/siteon0.png\' alt=\'Un modele &lt;modeleinexistant|lien=[-&gt;https://www.spip.net]&gt;\' /></a>',
+    1 => '<a href=\'https://www.spip.net\'><img src=\'https://www.spip.net/IMG/logo/siteon0.png\' /></a>',
     2 => 'alt',
     3 => 'Un modele <modeleinexistant|lien=[->https://www.spip.net]>',
     4 => true,
@@ -881,8 +881,8 @@ paragraphes',
   ),
   90 => 
   array (
-    0 => '<a href=\'https://www.spip.net\'><img src=\'https://www.spip.net/IMG/siteon0.png\' alt=\'Un modele <modeleinexistant|lien=[->https://www.spip.net]>\' /></a>',
-    1 => '<a href=\'https://www.spip.net\'><img src=\'https://www.spip.net/IMG/siteon0.png\' /></a>',
+    0 => '<a href=\'https://www.spip.net\'><img src=\'https://www.spip.net/IMG/logo/siteon0.png\' alt=\'Un modele <modeleinexistant|lien=[->https://www.spip.net]>\' /></a>',
+    1 => '<a href=\'https://www.spip.net\'><img src=\'https://www.spip.net/IMG/logo/siteon0.png\' /></a>',
     2 => 'alt',
     3 => 'Un modele <modeleinexistant|lien=[->https://www.spip.net]>',
     4 => false,
@@ -890,8 +890,8 @@ paragraphes',
   ),
   91 => 
   array (
-    0 => '<a href=\'https://www.spip.net\'><img src=\'https://www.spip.net/IMG/siteon0.png\' alt=\'Un modele <modeleinexistant|lien=[->https://www.spip.net]>\' /></a>',
-    1 => '<a href=\'https://www.spip.net\'><img src=\'https://www.spip.net/IMG/siteon0.png\' /></a>',
+    0 => '<a href=\'https://www.spip.net\'><img src=\'https://www.spip.net/IMG/logo/siteon0.png\' alt=\'Un modele <modeleinexistant|lien=[->https://www.spip.net]>\' /></a>',
+    1 => '<a href=\'https://www.spip.net\'><img src=\'https://www.spip.net/IMG/logo/siteon0.png\' /></a>',
     2 => 'alt',
     3 => 'Un modele <modeleinexistant|lien=[->https://www.spip.net]>',
     4 => false,
@@ -899,9 +899,9 @@ paragraphes',
   ),
   92 => 
   array (
-    0 => '<a href=\'https://www.spip.net\'><img src=\'https://www.spip.net/IMG/siteon0.png\' alt=\'Un texte avec des retour
+    0 => '<a href=\'https://www.spip.net\'><img src=\'https://www.spip.net/IMG/logo/siteon0.png\' alt=\'Un texte avec des retour
 a la ligne et meme des paragraphes\' /></a>',
-    1 => '<a href=\'https://www.spip.net\'><img src=\'https://www.spip.net/IMG/siteon0.png\' /></a>',
+    1 => '<a href=\'https://www.spip.net\'><img src=\'https://www.spip.net/IMG/logo/siteon0.png\' /></a>',
     2 => 'alt',
     3 => 'Un texte avec des retour
 a la ligne et meme des
@@ -912,9 +912,9 @@ paragraphes',
   ),
   93 => 
   array (
-    0 => '<a href=\'https://www.spip.net\'><img src=\'https://www.spip.net/IMG/siteon0.png\' alt=\'Un texte avec des retour
+    0 => '<a href=\'https://www.spip.net\'><img src=\'https://www.spip.net/IMG/logo/siteon0.png\' alt=\'Un texte avec des retour
 a la ligne et meme des paragraphes\' /></a>',
-    1 => '<a href=\'https://www.spip.net\'><img src=\'https://www.spip.net/IMG/siteon0.png\' /></a>',
+    1 => '<a href=\'https://www.spip.net\'><img src=\'https://www.spip.net/IMG/logo/siteon0.png\' /></a>',
     2 => 'alt',
     3 => 'Un texte avec des retour
 a la ligne et meme des
@@ -925,11 +925,11 @@ paragraphes',
   ),
   94 => 
   array (
-    0 => '<a href=\'https://www.spip.net\'><img src=\'https://www.spip.net/IMG/siteon0.png\' alt=\'Un texte avec des retour
+    0 => '<a href=\'https://www.spip.net\'><img src=\'https://www.spip.net/IMG/logo/siteon0.png\' alt=\'Un texte avec des retour
 a la ligne et meme des
 
 paragraphes\' /></a>',
-    1 => '<a href=\'https://www.spip.net\'><img src=\'https://www.spip.net/IMG/siteon0.png\' /></a>',
+    1 => '<a href=\'https://www.spip.net\'><img src=\'https://www.spip.net/IMG/logo/siteon0.png\' /></a>',
     2 => 'alt',
     3 => 'Un texte avec des retour
 a la ligne et meme des
@@ -940,11 +940,11 @@ paragraphes',
   ),
   95 => 
   array (
-    0 => '<a href=\'https://www.spip.net\'><img src=\'https://www.spip.net/IMG/siteon0.png\' alt=\'Un texte avec des retour
+    0 => '<a href=\'https://www.spip.net\'><img src=\'https://www.spip.net/IMG/logo/siteon0.png\' alt=\'Un texte avec des retour
 a la ligne et meme des
 
 paragraphes\' /></a>',
-    1 => '<a href=\'https://www.spip.net\'><img src=\'https://www.spip.net/IMG/siteon0.png\' /></a>',
+    1 => '<a href=\'https://www.spip.net\'><img src=\'https://www.spip.net/IMG/logo/siteon0.png\' /></a>',
     2 => 'alt',
     3 => 'Un texte avec des retour
 a la ligne et meme des
@@ -955,8 +955,8 @@ paragraphes',
   ),
   96 => 
   array (
-    0 => '<a href=\'https://www.spip.net\'><img src=\'https://www.spip.net/IMG/siteon0.png\' /></a>',
-    1 => '<a href=\'https://www.spip.net\'><img src=\'https://www.spip.net/IMG/siteon0.png\' alt=\'SPIP\' /></a>',
+    0 => '<a href=\'https://www.spip.net\'><img src=\'https://www.spip.net/IMG/logo/siteon0.png\' /></a>',
+    1 => '<a href=\'https://www.spip.net\'><img src=\'https://www.spip.net/IMG/logo/siteon0.png\' alt=\'SPIP\' /></a>',
     2 => 'alt',
     3 => '',
     4 => true,
@@ -964,8 +964,8 @@ paragraphes',
   ),
   97 => 
   array (
-    0 => '<a href=\'https://www.spip.net\'><img src=\'https://www.spip.net/IMG/siteon0.png\' alt=\'\' /></a>',
-    1 => '<a href=\'https://www.spip.net\'><img src=\'https://www.spip.net/IMG/siteon0.png\' alt=\'SPIP\' /></a>',
+    0 => '<a href=\'https://www.spip.net\'><img src=\'https://www.spip.net/IMG/logo/siteon0.png\' alt=\'\' /></a>',
+    1 => '<a href=\'https://www.spip.net\'><img src=\'https://www.spip.net/IMG/logo/siteon0.png\' alt=\'SPIP\' /></a>',
     2 => 'alt',
     3 => '',
     4 => true,
@@ -973,8 +973,8 @@ paragraphes',
   ),
   98 => 
   array (
-    0 => '<a href=\'https://www.spip.net\'><img src=\'https://www.spip.net/IMG/siteon0.png\' /></a>',
-    1 => '<a href=\'https://www.spip.net\'><img src=\'https://www.spip.net/IMG/siteon0.png\' alt=\'SPIP\' /></a>',
+    0 => '<a href=\'https://www.spip.net\'><img src=\'https://www.spip.net/IMG/logo/siteon0.png\' /></a>',
+    1 => '<a href=\'https://www.spip.net\'><img src=\'https://www.spip.net/IMG/logo/siteon0.png\' alt=\'SPIP\' /></a>',
     2 => 'alt',
     3 => '',
     4 => false,
@@ -982,8 +982,8 @@ paragraphes',
   ),
   99 => 
   array (
-    0 => '<a href=\'https://www.spip.net\'><img src=\'https://www.spip.net/IMG/siteon0.png\' alt=\'\' /></a>',
-    1 => '<a href=\'https://www.spip.net\'><img src=\'https://www.spip.net/IMG/siteon0.png\' alt=\'SPIP\' /></a>',
+    0 => '<a href=\'https://www.spip.net\'><img src=\'https://www.spip.net/IMG/logo/siteon0.png\' alt=\'\' /></a>',
+    1 => '<a href=\'https://www.spip.net\'><img src=\'https://www.spip.net/IMG/logo/siteon0.png\' alt=\'SPIP\' /></a>',
     2 => 'alt',
     3 => '',
     4 => false,
@@ -991,8 +991,8 @@ paragraphes',
   ),
   100 => 
   array (
-    0 => '<a href=\'https://www.spip.net\'><img src=\'https://www.spip.net/IMG/siteon0.png\' alt=\'0\' /></a>',
-    1 => '<a href=\'https://www.spip.net\'><img src=\'https://www.spip.net/IMG/siteon0.png\' alt=\'SPIP\' /></a>',
+    0 => '<a href=\'https://www.spip.net\'><img src=\'https://www.spip.net/IMG/logo/siteon0.png\' alt=\'0\' /></a>',
+    1 => '<a href=\'https://www.spip.net\'><img src=\'https://www.spip.net/IMG/logo/siteon0.png\' alt=\'SPIP\' /></a>',
     2 => 'alt',
     3 => '0',
     4 => true,
@@ -1000,8 +1000,8 @@ paragraphes',
   ),
   101 => 
   array (
-    0 => '<a href=\'https://www.spip.net\'><img src=\'https://www.spip.net/IMG/siteon0.png\' alt=\'0\' /></a>',
-    1 => '<a href=\'https://www.spip.net\'><img src=\'https://www.spip.net/IMG/siteon0.png\' alt=\'SPIP\' /></a>',
+    0 => '<a href=\'https://www.spip.net\'><img src=\'https://www.spip.net/IMG/logo/siteon0.png\' alt=\'0\' /></a>',
+    1 => '<a href=\'https://www.spip.net\'><img src=\'https://www.spip.net/IMG/logo/siteon0.png\' alt=\'SPIP\' /></a>',
     2 => 'alt',
     3 => '0',
     4 => true,
@@ -1009,8 +1009,8 @@ paragraphes',
   ),
   102 => 
   array (
-    0 => '<a href=\'https://www.spip.net\'><img src=\'https://www.spip.net/IMG/siteon0.png\' alt=\'0\' /></a>',
-    1 => '<a href=\'https://www.spip.net\'><img src=\'https://www.spip.net/IMG/siteon0.png\' alt=\'SPIP\' /></a>',
+    0 => '<a href=\'https://www.spip.net\'><img src=\'https://www.spip.net/IMG/logo/siteon0.png\' alt=\'0\' /></a>',
+    1 => '<a href=\'https://www.spip.net\'><img src=\'https://www.spip.net/IMG/logo/siteon0.png\' alt=\'SPIP\' /></a>',
     2 => 'alt',
     3 => '0',
     4 => false,
@@ -1018,8 +1018,8 @@ paragraphes',
   ),
   103 => 
   array (
-    0 => '<a href=\'https://www.spip.net\'><img src=\'https://www.spip.net/IMG/siteon0.png\' alt=\'0\' /></a>',
-    1 => '<a href=\'https://www.spip.net\'><img src=\'https://www.spip.net/IMG/siteon0.png\' alt=\'SPIP\' /></a>',
+    0 => '<a href=\'https://www.spip.net\'><img src=\'https://www.spip.net/IMG/logo/siteon0.png\' alt=\'0\' /></a>',
+    1 => '<a href=\'https://www.spip.net\'><img src=\'https://www.spip.net/IMG/logo/siteon0.png\' alt=\'SPIP\' /></a>',
     2 => 'alt',
     3 => '0',
     4 => false,
@@ -1027,8 +1027,8 @@ paragraphes',
   ),
   104 => 
   array (
-    0 => '<a href=\'https://www.spip.net\'><img src=\'https://www.spip.net/IMG/siteon0.png\' alt=\'Un texte avec des &lt;a href=&#034;http://spip.net&#034;&gt;liens&lt;/a&gt; [Article 1-&gt;art1] [spip-&gt;https://www.spip.net] https://www.spip.net\' /></a>',
-    1 => '<a href=\'https://www.spip.net\'><img src=\'https://www.spip.net/IMG/siteon0.png\' alt=\'SPIP\' /></a>',
+    0 => '<a href=\'https://www.spip.net\'><img src=\'https://www.spip.net/IMG/logo/siteon0.png\' alt=\'Un texte avec des &lt;a href=&#034;http://spip.net&#034;&gt;liens&lt;/a&gt; [Article 1-&gt;art1] [spip-&gt;https://www.spip.net] https://www.spip.net\' /></a>',
+    1 => '<a href=\'https://www.spip.net\'><img src=\'https://www.spip.net/IMG/logo/siteon0.png\' alt=\'SPIP\' /></a>',
     2 => 'alt',
     3 => 'Un texte avec des <a href="http://spip.net">liens</a> [Article 1->art1] [spip->https://www.spip.net] https://www.spip.net',
     4 => true,
@@ -1036,8 +1036,8 @@ paragraphes',
   ),
   105 => 
   array (
-    0 => '<a href=\'https://www.spip.net\'><img src=\'https://www.spip.net/IMG/siteon0.png\' alt=\'Un texte avec des &lt;a href=&#034;http://spip.net&#034;&gt;liens&lt;/a&gt; [Article 1-&gt;art1] [spip-&gt;https://www.spip.net] https://www.spip.net\' /></a>',
-    1 => '<a href=\'https://www.spip.net\'><img src=\'https://www.spip.net/IMG/siteon0.png\' alt=\'SPIP\' /></a>',
+    0 => '<a href=\'https://www.spip.net\'><img src=\'https://www.spip.net/IMG/logo/siteon0.png\' alt=\'Un texte avec des &lt;a href=&#034;http://spip.net&#034;&gt;liens&lt;/a&gt; [Article 1-&gt;art1] [spip-&gt;https://www.spip.net] https://www.spip.net\' /></a>',
+    1 => '<a href=\'https://www.spip.net\'><img src=\'https://www.spip.net/IMG/logo/siteon0.png\' alt=\'SPIP\' /></a>',
     2 => 'alt',
     3 => 'Un texte avec des <a href="http://spip.net">liens</a> [Article 1->art1] [spip->https://www.spip.net] https://www.spip.net',
     4 => true,
@@ -1045,8 +1045,8 @@ paragraphes',
   ),
   106 => 
   array (
-    0 => '<a href=\'https://www.spip.net\'><img src=\'https://www.spip.net/IMG/siteon0.png\' alt=\'Un texte avec des <a href="http://spip.net">liens</a> [Article 1->art1] [spip->https://www.spip.net] https://www.spip.net\' /></a>',
-    1 => '<a href=\'https://www.spip.net\'><img src=\'https://www.spip.net/IMG/siteon0.png\' alt=\'SPIP\' /></a>',
+    0 => '<a href=\'https://www.spip.net\'><img src=\'https://www.spip.net/IMG/logo/siteon0.png\' alt=\'Un texte avec des <a href="http://spip.net">liens</a> [Article 1->art1] [spip->https://www.spip.net] https://www.spip.net\' /></a>',
+    1 => '<a href=\'https://www.spip.net\'><img src=\'https://www.spip.net/IMG/logo/siteon0.png\' alt=\'SPIP\' /></a>',
     2 => 'alt',
     3 => 'Un texte avec des <a href="http://spip.net">liens</a> [Article 1->art1] [spip->https://www.spip.net] https://www.spip.net',
     4 => false,
@@ -1054,8 +1054,8 @@ paragraphes',
   ),
   107 => 
   array (
-    0 => '<a href=\'https://www.spip.net\'><img src=\'https://www.spip.net/IMG/siteon0.png\' alt=\'Un texte avec des <a href="http://spip.net">liens</a> [Article 1->art1] [spip->https://www.spip.net] https://www.spip.net\' /></a>',
-    1 => '<a href=\'https://www.spip.net\'><img src=\'https://www.spip.net/IMG/siteon0.png\' alt=\'SPIP\' /></a>',
+    0 => '<a href=\'https://www.spip.net\'><img src=\'https://www.spip.net/IMG/logo/siteon0.png\' alt=\'Un texte avec des <a href="http://spip.net">liens</a> [Article 1->art1] [spip->https://www.spip.net] https://www.spip.net\' /></a>',
+    1 => '<a href=\'https://www.spip.net\'><img src=\'https://www.spip.net/IMG/logo/siteon0.png\' alt=\'SPIP\' /></a>',
     2 => 'alt',
     3 => 'Un texte avec des <a href="http://spip.net">liens</a> [Article 1->art1] [spip->https://www.spip.net] https://www.spip.net',
     4 => false,
@@ -1063,8 +1063,8 @@ paragraphes',
   ),
   108 => 
   array (
-    0 => '<a href=\'https://www.spip.net\'><img src=\'https://www.spip.net/IMG/siteon0.png\' alt=\'Un texte avec des entit&#233;s &#38;&lt;&gt;&#034;\' /></a>',
-    1 => '<a href=\'https://www.spip.net\'><img src=\'https://www.spip.net/IMG/siteon0.png\' alt=\'SPIP\' /></a>',
+    0 => '<a href=\'https://www.spip.net\'><img src=\'https://www.spip.net/IMG/logo/siteon0.png\' alt=\'Un texte avec des entit&#233;s &#38;&lt;&gt;&#034;\' /></a>',
+    1 => '<a href=\'https://www.spip.net\'><img src=\'https://www.spip.net/IMG/logo/siteon0.png\' alt=\'SPIP\' /></a>',
     2 => 'alt',
     3 => 'Un texte avec des entit&eacute;s &amp;&lt;&gt;&quot;',
     4 => true,
@@ -1072,8 +1072,8 @@ paragraphes',
   ),
   109 => 
   array (
-    0 => '<a href=\'https://www.spip.net\'><img src=\'https://www.spip.net/IMG/siteon0.png\' alt=\'Un texte avec des entit&#233;s &#38;&lt;&gt;&#034;\' /></a>',
-    1 => '<a href=\'https://www.spip.net\'><img src=\'https://www.spip.net/IMG/siteon0.png\' alt=\'SPIP\' /></a>',
+    0 => '<a href=\'https://www.spip.net\'><img src=\'https://www.spip.net/IMG/logo/siteon0.png\' alt=\'Un texte avec des entit&#233;s &#38;&lt;&gt;&#034;\' /></a>',
+    1 => '<a href=\'https://www.spip.net\'><img src=\'https://www.spip.net/IMG/logo/siteon0.png\' alt=\'SPIP\' /></a>',
     2 => 'alt',
     3 => 'Un texte avec des entit&eacute;s &amp;&lt;&gt;&quot;',
     4 => true,
@@ -1081,8 +1081,8 @@ paragraphes',
   ),
   110 => 
   array (
-    0 => '<a href=\'https://www.spip.net\'><img src=\'https://www.spip.net/IMG/siteon0.png\' alt=\'Un texte avec des entit&eacute;s &amp;&lt;&gt;&quot;\' /></a>',
-    1 => '<a href=\'https://www.spip.net\'><img src=\'https://www.spip.net/IMG/siteon0.png\' alt=\'SPIP\' /></a>',
+    0 => '<a href=\'https://www.spip.net\'><img src=\'https://www.spip.net/IMG/logo/siteon0.png\' alt=\'Un texte avec des entit&eacute;s &amp;&lt;&gt;&quot;\' /></a>',
+    1 => '<a href=\'https://www.spip.net\'><img src=\'https://www.spip.net/IMG/logo/siteon0.png\' alt=\'SPIP\' /></a>',
     2 => 'alt',
     3 => 'Un texte avec des entit&eacute;s &amp;&lt;&gt;&quot;',
     4 => false,
@@ -1090,8 +1090,8 @@ paragraphes',
   ),
   111 => 
   array (
-    0 => '<a href=\'https://www.spip.net\'><img src=\'https://www.spip.net/IMG/siteon0.png\' alt=\'Un texte avec des entit&eacute;s &amp;&lt;&gt;&quot;\' /></a>',
-    1 => '<a href=\'https://www.spip.net\'><img src=\'https://www.spip.net/IMG/siteon0.png\' alt=\'SPIP\' /></a>',
+    0 => '<a href=\'https://www.spip.net\'><img src=\'https://www.spip.net/IMG/logo/siteon0.png\' alt=\'Un texte avec des entit&eacute;s &amp;&lt;&gt;&quot;\' /></a>',
+    1 => '<a href=\'https://www.spip.net\'><img src=\'https://www.spip.net/IMG/logo/siteon0.png\' alt=\'SPIP\' /></a>',
     2 => 'alt',
     3 => 'Un texte avec des entit&eacute;s &amp;&lt;&gt;&quot;',
     4 => false,
@@ -1099,8 +1099,8 @@ paragraphes',
   ),
   112 => 
   array (
-    0 => '<a href=\'https://www.spip.net\'><img src=\'https://www.spip.net/IMG/siteon0.png\' alt=\'Un texte sans entites &#38;&lt;&gt;&#034;&#039;\' /></a>',
-    1 => '<a href=\'https://www.spip.net\'><img src=\'https://www.spip.net/IMG/siteon0.png\' alt=\'SPIP\' /></a>',
+    0 => '<a href=\'https://www.spip.net\'><img src=\'https://www.spip.net/IMG/logo/siteon0.png\' alt=\'Un texte sans entites &#38;&lt;&gt;&#034;&#039;\' /></a>',
+    1 => '<a href=\'https://www.spip.net\'><img src=\'https://www.spip.net/IMG/logo/siteon0.png\' alt=\'SPIP\' /></a>',
     2 => 'alt',
     3 => 'Un texte sans entites &<>"\'',
     4 => true,
@@ -1108,8 +1108,8 @@ paragraphes',
   ),
   113 => 
   array (
-    0 => '<a href=\'https://www.spip.net\'><img src=\'https://www.spip.net/IMG/siteon0.png\' alt=\'Un texte sans entites &#38;&lt;&gt;&#034;&#039;\' /></a>',
-    1 => '<a href=\'https://www.spip.net\'><img src=\'https://www.spip.net/IMG/siteon0.png\' alt=\'SPIP\' /></a>',
+    0 => '<a href=\'https://www.spip.net\'><img src=\'https://www.spip.net/IMG/logo/siteon0.png\' alt=\'Un texte sans entites &#38;&lt;&gt;&#034;&#039;\' /></a>',
+    1 => '<a href=\'https://www.spip.net\'><img src=\'https://www.spip.net/IMG/logo/siteon0.png\' alt=\'SPIP\' /></a>',
     2 => 'alt',
     3 => 'Un texte sans entites &<>"\'',
     4 => true,
@@ -1117,8 +1117,8 @@ paragraphes',
   ),
   114 => 
   array (
-    0 => '<a href=\'https://www.spip.net\'><img src=\'https://www.spip.net/IMG/siteon0.png\' alt=\'Un texte sans entites &<>"&#039;\' /></a>',
-    1 => '<a href=\'https://www.spip.net\'><img src=\'https://www.spip.net/IMG/siteon0.png\' alt=\'SPIP\' /></a>',
+    0 => '<a href=\'https://www.spip.net\'><img src=\'https://www.spip.net/IMG/logo/siteon0.png\' alt=\'Un texte sans entites &<>"&#039;\' /></a>',
+    1 => '<a href=\'https://www.spip.net\'><img src=\'https://www.spip.net/IMG/logo/siteon0.png\' alt=\'SPIP\' /></a>',
     2 => 'alt',
     3 => 'Un texte sans entites &<>"\'',
     4 => false,
@@ -1126,8 +1126,8 @@ paragraphes',
   ),
   115 => 
   array (
-    0 => '<a href=\'https://www.spip.net\'><img src=\'https://www.spip.net/IMG/siteon0.png\' alt=\'Un texte sans entites &<>"&#039;\' /></a>',
-    1 => '<a href=\'https://www.spip.net\'><img src=\'https://www.spip.net/IMG/siteon0.png\' alt=\'SPIP\' /></a>',
+    0 => '<a href=\'https://www.spip.net\'><img src=\'https://www.spip.net/IMG/logo/siteon0.png\' alt=\'Un texte sans entites &<>"&#039;\' /></a>',
+    1 => '<a href=\'https://www.spip.net\'><img src=\'https://www.spip.net/IMG/logo/siteon0.png\' alt=\'SPIP\' /></a>',
     2 => 'alt',
     3 => 'Un texte sans entites &<>"\'',
     4 => false,
@@ -1135,8 +1135,8 @@ paragraphes',
   ),
   116 => 
   array (
-    0 => '<a href=\'https://www.spip.net\'><img src=\'https://www.spip.net/IMG/siteon0.png\' alt=\'{{{Des raccourcis}}} {italique} {{gras}} &lt;code&gt;du code&lt;/code&gt;\' /></a>',
-    1 => '<a href=\'https://www.spip.net\'><img src=\'https://www.spip.net/IMG/siteon0.png\' alt=\'SPIP\' /></a>',
+    0 => '<a href=\'https://www.spip.net\'><img src=\'https://www.spip.net/IMG/logo/siteon0.png\' alt=\'{{{Des raccourcis}}} {italique} {{gras}} &lt;code&gt;du code&lt;/code&gt;\' /></a>',
+    1 => '<a href=\'https://www.spip.net\'><img src=\'https://www.spip.net/IMG/logo/siteon0.png\' alt=\'SPIP\' /></a>',
     2 => 'alt',
     3 => '{{{Des raccourcis}}} {italique} {{gras}} <code>du code</code>',
     4 => true,
@@ -1144,8 +1144,8 @@ paragraphes',
   ),
   117 => 
   array (
-    0 => '<a href=\'https://www.spip.net\'><img src=\'https://www.spip.net/IMG/siteon0.png\' alt=\'{{{Des raccourcis}}} {italique} {{gras}} &lt;code&gt;du code&lt;/code&gt;\' /></a>',
-    1 => '<a href=\'https://www.spip.net\'><img src=\'https://www.spip.net/IMG/siteon0.png\' alt=\'SPIP\' /></a>',
+    0 => '<a href=\'https://www.spip.net\'><img src=\'https://www.spip.net/IMG/logo/siteon0.png\' alt=\'{{{Des raccourcis}}} {italique} {{gras}} &lt;code&gt;du code&lt;/code&gt;\' /></a>',
+    1 => '<a href=\'https://www.spip.net\'><img src=\'https://www.spip.net/IMG/logo/siteon0.png\' alt=\'SPIP\' /></a>',
     2 => 'alt',
     3 => '{{{Des raccourcis}}} {italique} {{gras}} <code>du code</code>',
     4 => true,
@@ -1153,8 +1153,8 @@ paragraphes',
   ),
   118 => 
   array (
-    0 => '<a href=\'https://www.spip.net\'><img src=\'https://www.spip.net/IMG/siteon0.png\' alt=\'{{{Des raccourcis}}} {italique} {{gras}} <code>du code</code>\' /></a>',
-    1 => '<a href=\'https://www.spip.net\'><img src=\'https://www.spip.net/IMG/siteon0.png\' alt=\'SPIP\' /></a>',
+    0 => '<a href=\'https://www.spip.net\'><img src=\'https://www.spip.net/IMG/logo/siteon0.png\' alt=\'{{{Des raccourcis}}} {italique} {{gras}} <code>du code</code>\' /></a>',
+    1 => '<a href=\'https://www.spip.net\'><img src=\'https://www.spip.net/IMG/logo/siteon0.png\' alt=\'SPIP\' /></a>',
     2 => 'alt',
     3 => '{{{Des raccourcis}}} {italique} {{gras}} <code>du code</code>',
     4 => false,
@@ -1162,8 +1162,8 @@ paragraphes',
   ),
   119 => 
   array (
-    0 => '<a href=\'https://www.spip.net\'><img src=\'https://www.spip.net/IMG/siteon0.png\' alt=\'{{{Des raccourcis}}} {italique} {{gras}} <code>du code</code>\' /></a>',
-    1 => '<a href=\'https://www.spip.net\'><img src=\'https://www.spip.net/IMG/siteon0.png\' alt=\'SPIP\' /></a>',
+    0 => '<a href=\'https://www.spip.net\'><img src=\'https://www.spip.net/IMG/logo/siteon0.png\' alt=\'{{{Des raccourcis}}} {italique} {{gras}} <code>du code</code>\' /></a>',
+    1 => '<a href=\'https://www.spip.net\'><img src=\'https://www.spip.net/IMG/logo/siteon0.png\' alt=\'SPIP\' /></a>',
     2 => 'alt',
     3 => '{{{Des raccourcis}}} {italique} {{gras}} <code>du code</code>',
     4 => false,
@@ -1171,8 +1171,8 @@ paragraphes',
   ),
   120 => 
   array (
-    0 => '<a href=\'https://www.spip.net\'><img src=\'https://www.spip.net/IMG/siteon0.png\' alt=\'Un modele &lt;modeleinexistant|lien=[-&gt;https://www.spip.net]&gt;\' /></a>',
-    1 => '<a href=\'https://www.spip.net\'><img src=\'https://www.spip.net/IMG/siteon0.png\' alt=\'SPIP\' /></a>',
+    0 => '<a href=\'https://www.spip.net\'><img src=\'https://www.spip.net/IMG/logo/siteon0.png\' alt=\'Un modele &lt;modeleinexistant|lien=[-&gt;https://www.spip.net]&gt;\' /></a>',
+    1 => '<a href=\'https://www.spip.net\'><img src=\'https://www.spip.net/IMG/logo/siteon0.png\' alt=\'SPIP\' /></a>',
     2 => 'alt',
     3 => 'Un modele <modeleinexistant|lien=[->https://www.spip.net]>',
     4 => true,
@@ -1180,8 +1180,8 @@ paragraphes',
   ),
   121 => 
   array (
-    0 => '<a href=\'https://www.spip.net\'><img src=\'https://www.spip.net/IMG/siteon0.png\' alt=\'Un modele &lt;modeleinexistant|lien=[-&gt;https://www.spip.net]&gt;\' /></a>',
-    1 => '<a href=\'https://www.spip.net\'><img src=\'https://www.spip.net/IMG/siteon0.png\' alt=\'SPIP\' /></a>',
+    0 => '<a href=\'https://www.spip.net\'><img src=\'https://www.spip.net/IMG/logo/siteon0.png\' alt=\'Un modele &lt;modeleinexistant|lien=[-&gt;https://www.spip.net]&gt;\' /></a>',
+    1 => '<a href=\'https://www.spip.net\'><img src=\'https://www.spip.net/IMG/logo/siteon0.png\' alt=\'SPIP\' /></a>',
     2 => 'alt',
     3 => 'Un modele <modeleinexistant|lien=[->https://www.spip.net]>',
     4 => true,
@@ -1189,8 +1189,8 @@ paragraphes',
   ),
   122 => 
   array (
-    0 => '<a href=\'https://www.spip.net\'><img src=\'https://www.spip.net/IMG/siteon0.png\' alt=\'Un modele <modeleinexistant|lien=[->https://www.spip.net]>\' /></a>',
-    1 => '<a href=\'https://www.spip.net\'><img src=\'https://www.spip.net/IMG/siteon0.png\' alt=\'SPIP\' /></a>',
+    0 => '<a href=\'https://www.spip.net\'><img src=\'https://www.spip.net/IMG/logo/siteon0.png\' alt=\'Un modele <modeleinexistant|lien=[->https://www.spip.net]>\' /></a>',
+    1 => '<a href=\'https://www.spip.net\'><img src=\'https://www.spip.net/IMG/logo/siteon0.png\' alt=\'SPIP\' /></a>',
     2 => 'alt',
     3 => 'Un modele <modeleinexistant|lien=[->https://www.spip.net]>',
     4 => false,
@@ -1198,8 +1198,8 @@ paragraphes',
   ),
   123 => 
   array (
-    0 => '<a href=\'https://www.spip.net\'><img src=\'https://www.spip.net/IMG/siteon0.png\' alt=\'Un modele <modeleinexistant|lien=[->https://www.spip.net]>\' /></a>',
-    1 => '<a href=\'https://www.spip.net\'><img src=\'https://www.spip.net/IMG/siteon0.png\' alt=\'SPIP\' /></a>',
+    0 => '<a href=\'https://www.spip.net\'><img src=\'https://www.spip.net/IMG/logo/siteon0.png\' alt=\'Un modele <modeleinexistant|lien=[->https://www.spip.net]>\' /></a>',
+    1 => '<a href=\'https://www.spip.net\'><img src=\'https://www.spip.net/IMG/logo/siteon0.png\' alt=\'SPIP\' /></a>',
     2 => 'alt',
     3 => 'Un modele <modeleinexistant|lien=[->https://www.spip.net]>',
     4 => false,
@@ -1207,9 +1207,9 @@ paragraphes',
   ),
   124 => 
   array (
-    0 => '<a href=\'https://www.spip.net\'><img src=\'https://www.spip.net/IMG/siteon0.png\' alt=\'Un texte avec des retour
+    0 => '<a href=\'https://www.spip.net\'><img src=\'https://www.spip.net/IMG/logo/siteon0.png\' alt=\'Un texte avec des retour
 a la ligne et meme des paragraphes\' /></a>',
-    1 => '<a href=\'https://www.spip.net\'><img src=\'https://www.spip.net/IMG/siteon0.png\' alt=\'SPIP\' /></a>',
+    1 => '<a href=\'https://www.spip.net\'><img src=\'https://www.spip.net/IMG/logo/siteon0.png\' alt=\'SPIP\' /></a>',
     2 => 'alt',
     3 => 'Un texte avec des retour
 a la ligne et meme des
@@ -1220,9 +1220,9 @@ paragraphes',
   ),
   125 => 
   array (
-    0 => '<a href=\'https://www.spip.net\'><img src=\'https://www.spip.net/IMG/siteon0.png\' alt=\'Un texte avec des retour
+    0 => '<a href=\'https://www.spip.net\'><img src=\'https://www.spip.net/IMG/logo/siteon0.png\' alt=\'Un texte avec des retour
 a la ligne et meme des paragraphes\' /></a>',
-    1 => '<a href=\'https://www.spip.net\'><img src=\'https://www.spip.net/IMG/siteon0.png\' alt=\'SPIP\' /></a>',
+    1 => '<a href=\'https://www.spip.net\'><img src=\'https://www.spip.net/IMG/logo/siteon0.png\' alt=\'SPIP\' /></a>',
     2 => 'alt',
     3 => 'Un texte avec des retour
 a la ligne et meme des
@@ -1233,11 +1233,11 @@ paragraphes',
   ),
   126 => 
   array (
-    0 => '<a href=\'https://www.spip.net\'><img src=\'https://www.spip.net/IMG/siteon0.png\' alt=\'Un texte avec des retour
+    0 => '<a href=\'https://www.spip.net\'><img src=\'https://www.spip.net/IMG/logo/siteon0.png\' alt=\'Un texte avec des retour
 a la ligne et meme des
 
 paragraphes\' /></a>',
-    1 => '<a href=\'https://www.spip.net\'><img src=\'https://www.spip.net/IMG/siteon0.png\' alt=\'SPIP\' /></a>',
+    1 => '<a href=\'https://www.spip.net\'><img src=\'https://www.spip.net/IMG/logo/siteon0.png\' alt=\'SPIP\' /></a>',
     2 => 'alt',
     3 => 'Un texte avec des retour
 a la ligne et meme des
@@ -1248,11 +1248,11 @@ paragraphes',
   ),
   127 => 
   array (
-    0 => '<a href=\'https://www.spip.net\'><img src=\'https://www.spip.net/IMG/siteon0.png\' alt=\'Un texte avec des retour
+    0 => '<a href=\'https://www.spip.net\'><img src=\'https://www.spip.net/IMG/logo/siteon0.png\' alt=\'Un texte avec des retour
 a la ligne et meme des
 
 paragraphes\' /></a>',
-    1 => '<a href=\'https://www.spip.net\'><img src=\'https://www.spip.net/IMG/siteon0.png\' alt=\'SPIP\' /></a>',
+    1 => '<a href=\'https://www.spip.net\'><img src=\'https://www.spip.net/IMG/logo/siteon0.png\' alt=\'SPIP\' /></a>',
     2 => 'alt',
     3 => 'Un texte avec des retour
 a la ligne et meme des

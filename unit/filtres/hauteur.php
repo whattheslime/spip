@@ -32,7 +32,7 @@
   0 => 
   array (
     0 => 223,
-    1 => 'https://www.spip.net/IMG/siteon0.png',
+    1 => 'https://www.spip.net/IMG/logo/siteon0.png',
   ),
   1 => 
   array (
