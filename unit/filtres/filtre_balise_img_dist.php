@@ -46,7 +46,29 @@
 
 	function essais_filtre_balise_img_dist(){
 		$essais = array (
-  0 => 
+	  array (
+	    0 => '<img src=\'https://www.spip.net/IMG/logo/siteon0.png\' alt=\'\' width=\'300\' height=\'223\' />',
+	    1 => 'https://www.spip.net/IMG/logo/siteon0.png',
+	  ),
+	  array (
+	    0 => '<img src=\'prive/images/logo-spip.png\' alt=\'\' width=\'231\' height=\'172\' />',
+	    1 => 'prive/images/logo-spip.png',
+	  ),
+	  array (
+	    0 => '',
+	    1 => 'prive/aide_body.css',
+	  ),
+	  array (
+	    0 => '<img src=\'prive/images/searching.gif\' alt=\'\' width=\'16\' height=\'16\' />',
+	    1 => 'prive/images/searching.gif',
+	  ),
+	  array (
+	    0 => '<img src=\'prive/images/searching.gif\' alt=\'attendez\' class=\'loading\' width=\'16\' height=\'16\' />',
+	    1 => 'prive/images/searching.gif',
+	    2 => 'attendez',
+	    3 => 'loading',
+	  ),
+
   array (
     0 => '<img src=\'spip.png\' alt=\'\' width=\'60\' height=\'40\' />',
     1 => 'spip.png',
@@ -64,7 +86,6 @@
     2 => 'This is SPIP',
     3 => 'spip_logo',
   ),
-  3 => 
   array (
     0 => '<img src=\'spip.png\' alt=\'This is SPIP\' class=\'spip_logo\' width=\'30\' height=\'20\' />',
     1 => 'spip.png',
@@ -72,7 +93,6 @@
     3 => 'spip_logo',
     4 => 'x2',
   ),
-  4 => 
   array (
     0 => '<img src=\'spip.png\' alt=\'This is SPIP\' class=\'spip_logo\' width=\'20\' height=\'20\' />',
     1 => 'spip.png',
@@ -80,7 +100,6 @@
     3 => 'spip_logo',
     4 => '20',
   ),
-  5 => 
   array (
     0 => '<img src=\'spip.png\' alt=\'This is SPIP\' class=\'spip_logo\' width=\'90\' height=\'60\' />',
     1 => 'spip.png',
@@ -88,7 +107,6 @@
     3 => 'spip_logo',
     4 => '90x*',
   ),
-  6 => 
   array (
     0 => '<img src=\'spip.png\' alt=\'This is SPIP\' class=\'spip_logo\' width=\'50\' height=\'30\' />',
     1 => 'spip.png',
@@ -96,78 +114,66 @@
     3 => 'spip_logo',
     4 => '50x30',
   ),
-  7 => 
   array (
     0 => '<img src=\'spip.png\' alt=\'This is SPIP\' width=\'30\' height=\'20\' />',
     1 => 'spip.png',
     2 => 'This is SPIP',
     3 => 'x2',
   ),
-  8 => 
   array (
     0 => '<img src=\'spip.png\' alt=\'This is SPIP\' width=\'20\' height=\'20\' />',
     1 => 'spip.png',
     2 => 'This is SPIP',
     3 => '20',
   ),
-  9 => 
   array (
     0 => '<img src=\'spip.png\' alt=\'This is SPIP\' width=\'90\' height=\'60\' />',
     1 => 'spip.png',
     2 => 'This is SPIP',
     3 => '90x*',
   ),
-  10 => 
   array (
     0 => '<img src=\'spip.png\' alt=\'This is SPIP\' width=\'50\' height=\'30\' />',
     1 => 'spip.png',
     2 => 'This is SPIP',
     3 => '50x30',
   ),
-  11 => 
   array (
     0 => '<img src=\'spip.png\' width=\'30\' height=\'20\' />',
     1 => 'spip.png',
     2 => 'x2',
   ),
-  12 => 
   array (
     0 => '<img src=\'spip.png\' width=\'20\' height=\'20\' />',
     1 => 'spip.png',
     2 => '20',
   ),
-  13 => 
   array (
     0 => '<img src=\'spip.png\' width=\'90\' height=\'60\' />',
     1 => 'spip.png',
     2 => '90x*',
   ),
-  14 => 
   array (
     0 => '<img src=\'spip.png\' width=\'50\' height=\'30\' />',
     1 => 'spip.png',
     2 => '50x30',
   ),
 
-	20 =>
   array (
     0 => '<img src=\'spip.svg\' alt=\'\' width=\'60\' height=\'40\' />',
     1 => 'spip.svg',
   ),
-  21 =>
   array (
     0 => '<img src=\'spip.svg\' alt=\'This is SPIP\' width=\'60\' height=\'40\' />',
     1 => 'spip.svg',
     2 => 'This is SPIP',
   ),
-  22 =>
   array (
     0 => '<img src=\'spip.svg\' alt=\'This is SPIP\' class=\'spip_logo\' width=\'60\' height=\'40\' />',
     1 => 'spip.svg',
     2 => 'This is SPIP',
     3 => 'spip_logo',
   ),
-  23 =>
   array (
     0 => '<img src=\'spip.svg\' alt=\'This is SPIP\' class=\'spip_logo\' width=\'30\' height=\'20\' />',
     1 => 'spip.svg',
@@ -175,7 +181,6 @@
     3 => 'spip_logo',
     4 => 'x2',
   ),
-  24 =>
   array (
     0 => '<img src=\'spip.svg\' alt=\'This is SPIP\' class=\'spip_logo\' width=\'20\' height=\'20\' />',
     1 => 'spip.svg',
@@ -199,53 +204,45 @@
     3 => 'spip_logo',
     4 => '50x30',
   ),
-  27 =>
   array (
     0 => '<img src=\'spip.svg\' alt=\'This is SPIP\' width=\'30\' height=\'20\' />',
     1 => 'spip.svg',
     2 => 'This is SPIP',
     3 => 'x2',
   ),
-  28 =>
   array (
     0 => '<img src=\'spip.svg\' alt=\'This is SPIP\' width=\'20\' height=\'20\' />',
     1 => 'spip.svg',
     2 => 'This is SPIP',
     3 => '20',
   ),
-  29 =>
   array (
     0 => '<img src=\'spip.svg\' alt=\'This is SPIP\' width=\'90\' height=\'60\' />',
     1 => 'spip.svg',
     2 => 'This is SPIP',
     3 => '90x*',
   ),
-  30 =>
   array (
     0 => '<img src=\'spip.svg\' alt=\'This is SPIP\' width=\'50\' height=\'30\' />',
     1 => 'spip.svg',
     2 => 'This is SPIP',
     3 => '50x30',
   ),
-  31 =>
   array (
     0 => '<img src=\'spip.svg\' width=\'30\' height=\'20\' />',
     1 => 'spip.svg',
     2 => 'x2',
   ),
-  32 =>
   array (
     0 => '<img src=\'spip.svg\' width=\'20\' height=\'20\' />',
     1 => 'spip.svg',
     2 => '20',
   ),
-  33 =>
   array (
     0 => '<img src=\'spip.svg\' width=\'90\' height=\'60\' />',
     1 => 'spip.svg',
     2 => '90x*',
   ),
-  34 =>
   array (
     0 => '<img src=\'spip.svg\' width=\'50\' height=\'30\' />',
     1 => 'spip.svg',
