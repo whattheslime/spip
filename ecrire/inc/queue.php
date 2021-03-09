@@ -651,14 +651,14 @@ function queue_affichage_cron() {
 /**
  * Lancer le cron via un hit http sans attendre le resultat
  * @param string $url_cron
- * @return bool
+ * @return bool : true si l'url a pu être appelée en asynchrone, false sinon
  */
 function queue_lancer_url_http_async($url_cron) {
 	// methode la plus rapide :
 	// Si fsockopen est possible, on lance le cron via un socket en asynchrone
 	// si fsockopen echoue (disponibilite serveur, firewall) on essaye pas cURL
 	// car on a toutes les chances d'echouer pareil mais sans moyen de le savoir
-	// on passe direct a la methode background-image
+	// mais on renvoie false direct
 	if (function_exists('fsockopen')) {
 		$parts = parse_url($url_cron);
 
