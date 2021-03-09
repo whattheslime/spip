@@ -929,6 +929,13 @@ function calculer_select(
 		}
 		$from = reinjecte_joint($afrom, $from);
 	}
+	if (empty($GLOBALS['debug']) or !is_array($GLOBALS['debug'])) {
+		$wasdebug = empty($GLOBALS['debug']) ? false : $GLOBALS['debug'];
+		$GLOBALS['debug'] = array();
+		if ($wasdebug) {
+			$GLOBALS['debug']['debug'] = true;
+		}
+	}
 	$GLOBALS['debug']['aucasou'] = array($table, $id, $serveur, $requeter);
 	$r = sql_select($select, $from, $where,
 		$groupby, array_filter($orderby), $limit, $having, $serveur, $requeter);
