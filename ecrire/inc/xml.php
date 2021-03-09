@@ -212,8 +212,7 @@ function spip_xml_tagname($tag) {
 function spip_xml_decompose_tag($tag) {
 	$tagname = spip_xml_tagname($tag);
 	$liste = array();
-	$p = strpos($tag, ' ');
-	$tag = substr($tag, $p);
+	$tag = ltrim(strpbrk($tag, " \n\t"));
 	$p = strpos($tag, '=');
 	while ($p !== false) {
 		$attr = trim(substr($tag, 0, $p));
