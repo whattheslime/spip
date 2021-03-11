@@ -41,6 +41,10 @@ function inc_preselectionner_parent_nouvel_objet_dist($objet, $row) {
 	if ($GLOBALS['connect_id_rubrique']) {
 		// si admin restreint : sa rubrique
 		$id_rubrique = $GLOBALS['connect_id_rubrique'][0];
+	} elseif (is_int(_AUTO_SELECTION_RUBRIQUE)
+		and sql_fetsel("id_rubrique", "spip_rubriques", "id_rubrique=".intval(_AUTO_SELECTION_RUBRIQUE))
+	) {
+		$id_rubrique = _AUTO_SELECTION_RUBRIQUE;
 	} else {
 		// sinon la derniere rubrique cree
 		$row_rub = sql_fetsel("id_rubrique", "spip_rubriques", "", "", "id_rubrique DESC", "0,1");
