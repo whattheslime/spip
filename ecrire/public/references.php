@@ -704,13 +704,18 @@ function champs_traitements($p) {
 		$type_requete = isset($p->boucles[$idb]->type_requete) ? $p->boucles[$idb]->type_requete : false;
 		$table_sql = isset($p->boucles[$idb]->show['table_sql']) ? $p->boucles[$idb]->show['table_sql'] : false;
 
+		// bien prendre en compte les alias de boucles (hierarchie => rubrique, syndication => syncdic, etc.)
+		if ($type_requete and isset($GLOBALS['table_des_tables'][$type_requete])) {
+			$type_requete = $GLOBALS['table_des_tables'][$type_requete];
+		}
+
 		// le traitement peut n'etre defini que pour une table en particulier "spip_articles"
 		if ($table_sql and isset($ps[$table_sql])) {
 			$ps = $ps[$table_sql];
 		} // ou pour une boucle en particulier "DATA","articles"
 		elseif ($type_requete and isset($ps[$type_requete])) {
 			$ps = $ps[$type_requete];
-		} // ou pour indiferrement quelle que soit la boucle
+		} // ou pour indifféremment quelle que soit la boucle
 		elseif (isset($ps[0])) {
 			$ps = $ps[0];
 		} else {
