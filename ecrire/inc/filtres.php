@@ -110,40 +110,74 @@ function chercher_filtre($fonc, $default = null) {
 }
 
 /**
- * Applique un filtre
+ * Applique un filtre s'il existe, sinon retourne une chaîne vide
  *
  * Fonction générique qui prend en argument l’objet (texte, etc) à modifier
- * et le nom du filtre. Retrouve les arguments du filtre demandé dans les arguments
- * transmis à cette fonction, via func_get_args().
+ * et le nom du filtre.
  *
- * @see filtrer() Assez proche
+ * - À la différence de la fonction `filtrer()`, celle-ci ne lève
+ *   pas d'erreur de squelettes si le filtre n'est pas trouvé.
+ * - À la différence de la fonction `appliquer_si_filtre()` le contenu
+ *   d'origine n'est pas retourné si le filtre est absent.
+ *
+ * Les arguments supplémentaires transmis à cette fonction sont utilisés
+ * comme arguments pour le filtre appelé.
+ *
+ * @example
+ *      ```
+ *      [(#BALISE|appliquer_filtre{nom_du_filtre})]
+ *      [(#BALISE|appliquer_filtre{nom_du_filtre, arg1, arg2, ...})]
+ *
+ *      // Applique le filtre minifier si on le trouve :
+ *      // - Ne retourne rien si le filtre 'minifier' n'est pas trouvé
+ *      [(#INCLURE{fichier.js}|appliquer_filtre{minifier, js})]
+ *
+ *      // - Retourne le contenu du fichier.js si le filtre n'est pas trouvé.
+ *      [(#INCLURE{fichier.js}|appliquer_si_filtre{minifier, js})]
+ *      ```
+ *
+ * @filtre
+ * @see filtrer() Génère une erreur si le filtre est absent
+ * @see appliquer_si_filtre() Proche : retourne le texte d'origine si le filtre est absent
+ * @uses appliquer_filtre_sinon()
  *
  * @param mixed $arg
  *     Texte (le plus souvent) sur lequel appliquer le filtre
  * @param string $filtre
  *     Nom du filtre à appliquer
- * @param bool $force
- *     La fonction doit-elle retourner le texte ou rien si le filtre est absent ?
  * @return string
  *     Texte traité par le filtre si le filtre existe,
- *     Texte d'origine si le filtre est introuvable et si $force à `true`
- *     Chaîne vide sinon (filtre introuvable).
+ *     Chaîne vide sinon.
  **/
-function appliquer_filtre($arg, $filtre, $force = null) {
-	$f = chercher_filtre($filtre);
-	if (!$f) {
-		if (!$force) {
-			return '';
-		} else {
-			return $arg;
-		}
-	}
-
+function appliquer_filtre($arg, $filtre) {
 	$args = func_get_args();
-	array_shift($args); // enlever $arg
-	array_shift($args); // enlever $filtre
-	array_unshift($args, $arg); // remettre $arg
-	return call_user_func_array($f, $args);
+	return appliquer_filtre_sinon($arg, $filtre, $args, '');
+}
+
+/**
+ * Applique un filtre s'il existe, sinon retourne le contenu d'origine sans modification
+ *
+ * Se référer à `appliquer_filtre()` pour les détails.
+ *
+ * @example
+ *      ```
+ *      [(#INCLURE{fichier.js}|appliquer_si_filtre{minifier, js})]
+ *      ```
+ * @filtre
+ * @see appliquer_filtre() Proche : retourne vide si le filtre est absent
+ * @uses appliquer_filtre_sinon()
+ *
+ * @param mixed $arg
+ *     Texte (le plus souvent) sur lequel appliquer le filtre
+ * @param string $filtre
+ *     Nom du filtre à appliquer
+ * @return string
+ *     Texte traité par le filtre si le filtre existe,
+ *     Texte d'origine sinon
+ **/
+function appliquer_si_filtre($arg, $filtre) {
+	$args = func_get_args();
+	return appliquer_filtre_sinon($arg, $filtre, $args, $arg);
 }
 
 /**

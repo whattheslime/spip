@@ -431,3 +431,41 @@ function formate_liste_critere_par_ordre_liste($valeurs, $serveur = ''){
 
 	return $valeurs;
 }
+
+/**
+ * Applique un filtre s'il existe, sinon retourne la valeur par défaut indiquée
+ *
+ * @internal
+ * @uses trouver_filtre_matrice()
+ * @uses chercher_filtre()
+ *
+ * @param mixed $arg
+ *     Texte (le plus souvent) sur lequel appliquer le filtre
+ * @param string $filtre
+ *     Nom du filtre à appliquer
+ * @param array $args
+ *     Arguments reçus par la fonction parente (appliquer_filtre ou appliquer_si_filtre).
+ * @param mixed $defaut
+ *     Valeur par défaut à retourner en cas d'absence du filtre.
+ * @return string
+ *     Texte traité par le filtre si le filtre existe,
+ *     Valeur $defaut sinon.
+ **/
+function appliquer_filtre_sinon($arg, $filtre, $args, $defaut = '') {
+	// Si c'est un filtre d'image, on utilise image_filtrer()
+	// Attention : les 2 premiers arguments sont inversés dans ce cas
+	if (trouver_filtre_matrice($filtre) and substr($filtre, 0, 6) == 'image_') {
+		$args[1] = $args[0];
+		$args[0] = $filtre;
+		return image_graver(image_filtrer($args));
+	}
+
+	$f = chercher_filtre($filtre);
+	if (!$f) {
+		return $defaut;
+	}
+	array_shift($args); // enlever $arg
+	array_shift($args); // enlever $filtre
+	array_unshift($args, $arg); // remettre $arg
+	return call_user_func_array($f, $args);
+}
