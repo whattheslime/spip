@@ -338,12 +338,16 @@ function calculer_rang_smart($titre, $objet_source, $id, $env) {
 /**
  * Proteger les champs passes dans l'url et utiliser dans {tri ...}
  * preserver l'espace pour interpreter ensuite num xxx et multi xxx
+ * on permet d'utiliser les noms de champ prefixes
+ * articles.titre
+ * et les propriete json
+ * properties.gis[0].ville
  *
  * @param string $t
  * @return string
  */
 function tri_protege_champ($t) {
-	return preg_replace(',[^\s\w.+],', '', $t);
+	return preg_replace(',[^\s\w.+\[\]],', '', $t);
 }
 
 /**
