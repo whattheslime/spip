@@ -195,6 +195,7 @@ function include_fichiers_fonctions() {
 		if (test_espace_prive()) {
 			include_spip('inc/filtres_ecrire');
 		}
+		include_spip('public/fonctions'); // charger les fichiers fonctions associes aux criteres, balises..
 		$done = true;
 	}
 }

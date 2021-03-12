@@ -24,7 +24,7 @@ include_spip('inc/filtres_mini');
 include_spip('inc/filtres_dates');
 include_spip('inc/filtres_selecteur_generique');
 include_spip('base/objets');
-include_spip('public/parametrer'); // charger les fichiers fonctions
+include_spip('public/fonctions'); // charger les fichiers fonctions
 
 /**
  * Charger un filtre depuis le php
@@ -42,7 +42,7 @@ include_spip('public/parametrer'); // charger les fichiers fonctions
  * @return string Fonction PHP correspondante du filtre
  */
 function charger_filtre($fonc, $default = 'filtre_identite_dist') {
-	include_spip('public/parametrer'); // inclure les fichiers fonctions
+	include_fichiers_fonctions(); // inclure les fichiers fonctions
 	return chercher_filtre($fonc, $default);
 }
 
