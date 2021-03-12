@@ -340,8 +340,8 @@ function construire_selecteur($url, $js, $idom, $name, $init = '', $id = 0) {
 		. "', this.parentNode.nextSibling, this.nextSibling,'',event)\" title='" . attribut_html(_T('titre_image_selecteur')) . "'><img src='"
 		. chemin_image($icone)
 		. "'\nstyle='vertical-align: middle;' alt='" . attribut_html(_T('titre_image_selecteur')) . "' /></a><img src='"
-		. chemin_image('searching.gif')
-		. "' id='img_"
+		. chemin_image('loader.svg')
+		. "' class='loader' id='img_"
 		. $idom
 		. "'\nstyle='visibility: hidden;' alt='*' />"
 		. "<input id='titreparent' name='titreparent'"

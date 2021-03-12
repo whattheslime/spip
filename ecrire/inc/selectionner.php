@@ -116,8 +116,8 @@ function construire_selectionner_hierarchie($idom, $liste, $racine, $url, $name,
 	. ($url_init ? "\nhref='$url_init'" : '')
 	. "></a>"
 	. "<div class='recherche_rapide_parent'>"
-	. http_img_pack("searching.gif", "*",
-		"style='visibility: hidden;float:" . $GLOBALS['spip_lang_right'] . "' id='$idom5'")
+	. http_img_pack("loader.svg", "",
+		"class='loader' style='visibility: hidden;float:" . $GLOBALS['spip_lang_right'] . "' id='$idom5'")
 	. ""
 	. "<input style='width: 100px;float:" . $GLOBALS['spip_lang_right'] . ";' type='search' id='$idom1'"
 	// eliminer Return car il provoque la soumission (balise unique)

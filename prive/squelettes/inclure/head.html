@@ -10,7 +10,7 @@ var url_menu_rubrique="[(#CONST{_DIR_RACINE}|sinon{./}|concat{#CONST{_SPIP_SCRIP
 [(#EVAL{$_COOKIE}|table_valeur{spip_accepte_ajax}|>={1}|non)
 function test_accepte_ajax(){jQuery.ajax({"url":"[(#URL_ECRIRE{test_ajax,js=1}|replace{'&amp;','\x26'})]"});}
 ][(#CONST{_OUTILS_DEVELOPPEURS}|oui)var _OUTILS_DEVELOPPEURS=true;
-]var ajax_image_searching = '<img src="#CHEMIN_IMAGE{searching.gif}" alt="" />';
+]var ajax_image_searching = '<img src="#CHEMIN_IMAGE{loader.svg}" class="loader" alt="" />';
 var stat = [(#CONFIG{activer_statistiques}|=={non}|?{0,1})];
 var confirm_changer_statut = '<:confirm_changer_statut|html2unicode|addslashes|unicode_to_javascript:>';
 var error_on_ajaxform='<:erreur_technique_ajaxform|html2unicode|addslashes|unicode_to_javascript:>';
