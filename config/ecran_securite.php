@@ -5,7 +5,7 @@
  * ------------------
  */
 
-define('_ECRAN_SECURITE', '1.4.0'); // 2020-02-15
+define('_ECRAN_SECURITE', '1.4.1'); // 2021-03-12
 
 /*
  * Documentation : https://www.spip.net/fr_article4200.html
@@ -238,6 +238,7 @@ if (!defined('_IS_BOT_FRIEND')) {
 			and preg_match(
 				',' . implode('|', array(
 					'facebookexternalhit',
+					'twitterbot',
 					'flipboardproxy',
 					'wordpress'
 				)) . ',i',
