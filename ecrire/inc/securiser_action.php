@@ -66,6 +66,47 @@ function inc_securiser_action_dist($action = '', $arg = '', $redirect = "", $mod
 }
 
 /**
+ * Confirmer avant suppression si on arrive par un bouton action
+ * a appeler dans la fonction action avant toute action destructrice
+ *
+ * demander_confirmation_avant_action("Supprimer l'article xxxx", "Oui je veux le supprimer");
+ *
+ * L'action affiche le formulaire de demande de confirmation sans rendre la main au premier appel,
+ * si l'utilisateur clique, cela relance l'action avec un confirm et quand on repasse ici, la fonction ne fera rien et l'action se finira normalement
+ *
+ * @param string $titre
+ * @param string $titre_bouton
+ * @param string|null $url_action
+ * @return bool
+ */
+function demander_confirmation_avant_action($titre, $titre_bouton, $url_action=null) {
+
+	if (!$url_action) {
+		$url_action = self();
+		$action = _request('action');
+		$url_action = parametre_url($url_action, 'action', $action, '&');
+	}
+	else {
+		$action = parametre_url($url_action, 'action');
+	}
+
+	$arg = parametre_url($url_action, 'arg');
+	$confirm = md5("$action:$arg:".realpath(__FILE__));
+	if (_request('confirm_action') === $confirm) {
+		return true;
+	}
+
+	$url_confirm = parametre_url($url_action, "confirm_action", $confirm, '&');
+	include_spip("inc/filtres");
+	$bouton_action = bouton_action($titre_bouton, $url_confirm);
+	$corps = "<div style='text-align:center;'>$bouton_action</div>";
+
+	include_spip("inc/minipres");
+	echo minipres($titre,$corps);
+	exit;
+}
+
+/**
  * Retourne une URL ou un formulaire sécurisés
  *
  * @note
