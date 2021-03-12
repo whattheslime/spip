@@ -5,7 +5,7 @@
  * ------------------
  */
 
-define('_ECRAN_SECURITE', '1.4.0'); // 2020-02-15
+define('_ECRAN_SECURITE', '1.4.1'); // 2021-03-12
 
 /*
  * Documentation : http://www.spip.net/fr_article4200.html
@@ -230,12 +230,15 @@ if (!defined('_IS_BOT')){
 if (!defined('_IS_BOT_FRIEND')){
 	define('_IS_BOT_FRIEND',
 		isset($_SERVER['HTTP_USER_AGENT'])
-		and preg_match(',' . implode ('|', array(
-			'facebookexternalhit',
-			'flipboardproxy',
-			'wordpress'
-		)) . ',i',
-		(string)$_SERVER['HTTP_USER_AGENT'])
+			and preg_match(
+				',' . implode('|', array(
+					'facebookexternalhit',
+					'twitterbot',
+					'flipboardproxy',
+					'wordpress'
+				)) . ',i',
+				(string)$_SERVER['HTTP_USER_AGENT']
+			)
 	);
 }
 
