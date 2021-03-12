@@ -190,9 +190,16 @@ function minipres($titre = '', $corps = "", $options = array()) {
 			$titre = _T('info_acces_interdit');
 		}
 
-		$corps = generer_form_ecrire('accueil', '', '',
-			$statut ? _T('public:accueil_site') : _T('public:lien_connecter')
-		);
+		if ($statut AND test_espace_prive()) {
+			$corps = bouton_action(_T('public:accueil_site'),generer_url_ecrire('accueil'));
+		}
+		elseif (!empty($_COOKIE['spip_admin'])) {
+			$corps = bouton_action(_T('public:lien_connecter'),generer_url_public('login'));
+		}
+		else {
+			$corps = bouton_action(_T('public:accueil_site'),$GLOBALS['meta']['adresse_site']);
+		}
+		$corps = "<div class='boutons'>$corps</div>";
 		spip_log($nom . " $titre " . $_SERVER['REQUEST_URI']);
 	}
 
