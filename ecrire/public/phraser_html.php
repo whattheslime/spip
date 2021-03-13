@@ -352,7 +352,7 @@ function phraser_arg(&$texte, $sep, $result, &$pointeur_champ) {
 			preg_match("/^(')([^']*)(')(.*)$/ms", $args, $regs);
 		} else {
 			preg_match("/^([[:space:]]*)([^,([{}]*([(\[{][^])}]*[])}])?[^,}]*)([,}].*)$/ms", $args, $regs);
-			if (!strlen($regs[2])) {
+			if (!isset($regs[2]) or !strlen($regs[2])) {
 				$err_f = array('zbug_erreur_filtre', array('filtre' => $args));
 				erreur_squelette($err_f, $pointeur_champ);
 				$champ = new Texte;
