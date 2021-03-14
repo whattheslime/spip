@@ -46,16 +46,43 @@ if (!defined('_ECRIRE_INC_VERSION')) {
  *     Peut avoir 2 index, 'statut' étant obligatoire :
  *     - statut : indique le nouveau statut de la rubrique
  *     - id_rubrique : indiquer la rubrique dans laquelle on déplace la rubrique (son nouveau parent donc)
- * @param string $statut_ancien
- *     Ancien statut de la rubrique
+ * @param array $infos
+ *     Infos sur l'objet modifié : statut_ancien, objet, id_objet…
  * @param bool $postdate
  *     true pour recalculer aussi la date du prochain article post-daté
  * @return bool
  *     true si le statut change effectivement
  **/
-function calculer_rubriques_if($id_rubrique, $modifs, $statut_ancien = '', $postdate = false) {
+function calculer_rubriques_if($id_rubrique, $modifs, $infos = array(), $postdate = false) {
 	$neuf = false;
-	if ($statut_ancien == 'publie') {
+	
+	// Compat avec l'ancienne signature
+	if (is_string($infos)) {
+		$infos = array('statut_ancien' => $infos);
+	}
+	if (!isset($infos['statut_ancien'])) {
+		$infos['statut_ancien'] = '';
+	}
+	
+	// On recherche quels statuts tester
+	if (
+		isset($infos['objet'])
+		and include_spip('inc/filtres')
+		and $declaration_statut = objet_info($infos['objet'], 'statut')
+		and is_array($declaration_statut)
+	) {
+		foreach ($declaration_statut as $champ_statut) {
+			if ($champ_statut['champ'] == 'statut') {
+				$statuts_publies = array_map('trim', explode(',', $champ_statut['publie']));
+				break; // stop on a trouvé le bon champ
+			}
+		}
+	}
+	else {
+		$statuts_publies = array('publie');
+	}
+	
+	if (in_array($infos['statut_ancien'], $statuts_publies)) {
 		if (isset($modifs['statut'])
 			or isset($modifs['id_rubrique'])
 			or ($postdate and strtotime($postdate) > time())
@@ -69,7 +96,7 @@ function calculer_rubriques_if($id_rubrique, $modifs, $statut_ancien = '', $post
 		} elseif (isset($modifs['id_rubrique'])) {
 			$neuf |= publier_branche_rubrique($modifs['id_rubrique']);
 		}
-	} elseif (isset($modifs['statut']) and $modifs['statut'] == 'publie') {
+	} elseif (isset($modifs['statut']) and in_array($modifs['statut'], $statuts_publies)) {
 		if ($postdate) {
 			calculer_prochain_postdate(true);
 			$neuf |= (strtotime($postdate) <= time()); // par securite
