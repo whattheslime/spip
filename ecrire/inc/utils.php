@@ -2963,11 +2963,17 @@ function init_var_mode() {
 					}
 				} // pas autorise ?
 				else {
-					// si on n'est pas connecte on se redirige
-					if (!$GLOBALS['visiteur_session']) {
-						include_spip('inc/headers');
-						$redirect = parametre_url(self('&', true), 'var_mode', $_GET['var_mode'], '&');
-						redirige_par_entete(generer_url_public('login','url=' . rawurlencode($redirect), true));
+					// si on n'est pas connecte on se redirige, si on est pas en cli et pas deja en train de se loger
+					if (!$GLOBALS['visiteur_session']
+					  and !empty($_SERVER['HTTP_HOST'])
+					  and !empty($_SERVER['REQUEST_METHOD'])
+					  and $_SERVER['REQUEST_METHOD'] === 'GET') {
+						$self = self('&', true);
+						if (strpos($self, 'page=login') === false) {
+							include_spip('inc/headers');
+							$redirect = parametre_url(self('&', true), 'var_mode', $_GET['var_mode'], '&');
+							redirige_par_entete(generer_url_public('login','url=' . rawurlencode($redirect), true));
+						}
 					}
 					// sinon tant pis
 				}
