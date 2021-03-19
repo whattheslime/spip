@@ -60,7 +60,7 @@ function produire_image_math($tex) {
 
 		// MathML
 		if ($GLOBALS['traiter_math'] == 'mathml') {
-			return join(file("$fichier"), "");
+			return implode("", file($fichier));
 		} // TeX
 		else {
 			list(, , , $size) = @spip_getimagesize($fichier);
