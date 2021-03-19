@@ -414,11 +414,10 @@ function charset2unicode($texte, $charset = 'AUTO' /* $forcer: obsolete*/) {
 						}
 					}
 					
-				} catch (\Error $e) {
+				} catch (\Exception $e) {
 					// Le charset n'existe probablement pas
-				} finally {
-					mb_detect_order($order); # remettre comme precedemment
-				}
+				} 
+				mb_detect_order($order); # remettre comme precedemment
 			}
 
 			// Sinon, peut-etre connaissons-nous ce charset ?
