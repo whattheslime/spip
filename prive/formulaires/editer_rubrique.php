@@ -162,6 +162,18 @@ function formulaires_editer_rubrique_verifier_dist(
 	// on ne demande pas le titre obligatoire : il sera rempli a la volee dans editer_rubrique si vide
 	$erreurs = formulaires_editer_objet_verifier('rubrique', $id_rubrique, array());
 
+	// s'assurer qu'on ne s'auto-designe pas comme parent !
+	if (intval($id_rubrique)
+	  and empty($erreurs['id_parent'])
+		and $id_parent = _request('id_parent')) {
+		include_spip('inc/rubriques');
+		$branche = calcul_branche_in($id_rubrique);
+		$branche = explode(',', $branche);
+		if (in_array($id_parent, $branche)) {
+			$erreurs['id_parent'] = _L("Impossible de déplacer une rubrique dans sa propre branche, on tourne en rond !");
+		}
+	}
+
 	return $erreurs;
 }
 
