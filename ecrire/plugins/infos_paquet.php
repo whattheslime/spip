@@ -51,8 +51,8 @@ function plugins_infos_paquet($desc, $plug = '', $dir_plugins = _DIR_PLUGINS) {
 		$tree['description'] = $tree['prefix'] . "_description";
 		paquet_readable_files($tree, "$dir_plugins$plug/");
 		if (!$tree['chemin']) {
-			$tree['chemin'] = array(array('path' => ''));
-		} // initialiser par defaut
+			$tree['chemin'] = array();
+		}
 
 		// On verifie qu'il existe des balises spip qu'il faudrait rajouter dans
 		// la structure d'infos du paquet en fonction de la version spip courante

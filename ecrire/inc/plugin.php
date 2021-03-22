@@ -915,7 +915,10 @@ function ecrire_plugin_actifs($plugin, $pipe_recherche = false, $operation = 'ra
  *     Couples (prefixe => infos complètes) des plugins qui seront actifs, dans l'ordre de leurs dépendances
 **/
 function plugins_precompile_chemin($plugin_valides, $ordre) {
-	$chemins = array();
+	$chemins = [
+		'public' => [],
+		'prive' => []
+	];
 	$contenu = "";
 	foreach ($ordre as $p => $info) {
 		// $ordre peur contenir des plugins en attente et non valides pour ce hit
@@ -933,32 +936,41 @@ function plugins_precompile_chemin($plugin_valides, $ordre) {
 				and strpos($dir, ":") === false // exclure le cas des procure:
 			) {
 				$contenu .= "define('_DIR_PLUGIN_$prefix',$dir);\n";
-				foreach ($info['chemin'] as $chemin) {
-					if (!isset($chemin['version']) or plugin_version_compatible($chemin['version'],
-							$GLOBALS['spip_version_branche'], 'spip')
-					) {
-						$dir = $chemin['path'];
-						if (strlen($dir) and $dir[0] == "/") {
-							$dir = substr($dir, 1);
-						}
-						if (strlen($dir) and $dir == "./") {
-							$dir = '';
-						}
-						if (strlen($dir)) {
-							$dir = rtrim($dir, '/') . '/';
-						}
-						if (!isset($chemin['type']) or $chemin['type'] == 'public') {
-							$chemins['public'][] = "_DIR_PLUGIN_$prefix" . (strlen($dir) ? ".'$dir'" : "");
-						}
-						if (!isset($chemin['type']) or $chemin['type'] == 'prive') {
-							$chemins['prive'][] = "_DIR_PLUGIN_$prefix" . (strlen($dir) ? ".'$dir'" : "");
+				if (!$info['chemin']) {
+					$chemins['public'][] = "_DIR_PLUGIN_$prefix";
+					$chemins['prive'][] = "_DIR_PLUGIN_$prefix";
+					if (is_dir(constant($dir_type) . $plug . '/squelettes/')) {
+						$chemins['public'][] = "_DIR_PLUGIN_{$prefix}.'squelettes/'";
+					}
+				}
+				else{
+					foreach ($info['chemin'] as $chemin) {
+						if (!isset($chemin['version']) or plugin_version_compatible($chemin['version'],
+								$GLOBALS['spip_version_branche'], 'spip')
+						) {
+							$dir = $chemin['path'];
+							if (strlen($dir) and $dir[0] == "/") {
+								$dir = substr($dir, 1);
+							}
+							if (strlen($dir) and $dir == "./") {
+								$dir = '';
+							}
+							if (strlen($dir)) {
+								$dir = rtrim($dir, '/') . '/';
+							}
+							if (!isset($chemin['type']) or $chemin['type'] == 'public') {
+								$chemins['public'][] = "_DIR_PLUGIN_$prefix" . (strlen($dir) ? ".'$dir'" : "");
+							}
+							if (!isset($chemin['type']) or $chemin['type'] == 'prive') {
+								$chemins['prive'][] = "_DIR_PLUGIN_$prefix" . (strlen($dir) ? ".'$dir'" : "");
+							}
 						}
 					}
 				}
 			}
 		}
 	}
-	if (count($chemins)) {
+	if (count($chemins['public']) or count($chemins['prive'])) {
 		$contenu .= "if (_DIR_RESTREINT) _chemin([" . implode(',',
 				array_reverse($chemins['public'])) . "]);\n"
 			. "else _chemin([" . implode(',', array_reverse($chemins['prive'])) . "]);\n";
