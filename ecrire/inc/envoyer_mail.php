@@ -202,8 +202,14 @@ function mail_normaliser_headers($headers, $from, $to, $texte, $parts = '') {
 	}
 
 	// calculer un identifiant unique
-	preg_match('/@\S+/', $from, $domain);
-	$uniq = rand() . '_' . md5($to . $texte) . $domain[0];
+	// Marie Toto <Marie@toto.com> => @toto.com
+	if (preg_match('/@[^\s>]+/', $from, $domain)) {
+		$domain = $domain[0];
+	}
+	else {
+		$domain = "@unknown-".md5($from).'.org';
+	}
+	$uniq = rand() . '_' . md5($to . $texte) . $domain;
 
 	// Si multi-part, s'en servir comme borne ...
 	if ($parts) {
