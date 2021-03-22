@@ -109,7 +109,10 @@ function auteurs_edit_config($row) {
 	include_spip('inc/auth');
 	$config['edit_login'] =
 		(auth_autoriser_modifier_login($auth_methode)
-			and autoriser('modifier', 'auteur', $row['id_auteur'], null, array('email' => true)));
+			and autoriser('modifier', 'auteur', $row['id_auteur'], null, array('login' => true))
+			// legacy : ne pas risquer d'autoriser la modif login si fonction d'autorisation pas mise a jour et ne teste que l'option email
+			and autoriser('modifier', 'auteur', $row['id_auteur'], null, array('email' => true))
+		);
 	$config['edit_pass'] =
 		(auth_autoriser_modifier_pass($auth_methode)
 			and autoriser('modifier', 'auteur', $row['id_auteur']));
