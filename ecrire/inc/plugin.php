@@ -959,9 +959,9 @@ function plugins_precompile_chemin($plugin_valides, $ordre) {
 		}
 	}
 	if (count($chemins)) {
-		$contenu .= "if (_DIR_RESTREINT) _chemin(implode(':',array(" . implode(',',
-				array_reverse($chemins['public'])) . ")));\n"
-			. "else _chemin(implode(':',array(" . implode(',', array_reverse($chemins['prive'])) . ")));\n";
+		$contenu .= "if (_DIR_RESTREINT) _chemin([" . implode(',',
+				array_reverse($chemins['public'])) . "]);\n"
+			. "else _chemin([" . implode(',', array_reverse($chemins['prive'])) . "]);\n";
 	}
 
 	ecrire_fichier_php(_CACHE_PLUGINS_PATH, $contenu);

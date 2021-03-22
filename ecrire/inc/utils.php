@@ -1324,7 +1324,7 @@ function texte_script($texte) {
  *     - prive/
  *     - ecrire/
  *
- * @param string $dir_path
+ * @param string|array $dir_path
  *     - Répertoire(s) à empiler au path
  *     - '' provoque un recalcul des chemins.
  * @return array
@@ -1363,15 +1363,14 @@ function _chemin($dir_path = null) {
 		return $path_full;
 	}
 
-	if (strlen($dir_path)) {
+	if (is_array($dir_path) or strlen($dir_path)) {
 		$tete = "";
 		if (reset($path_base) == _DIR_RACINE . 'squelettes/') {
 			$tete = array_shift($path_base);
 		}
-		$dirs = array_reverse(explode(':', $dir_path));
+		$dirs = (is_array($dir_path) ? $dir_path : explode(':', $dir_path));
+		$dirs = array_reverse($dirs);
 		foreach ($dirs as $dir_path) {
-			#if ($dir_path{0}!='/')
-			#	$dir_path = $dir_path;
 			if (substr($dir_path, -1) != '/') {
 				$dir_path .= "/";
 			}
