@@ -148,6 +148,15 @@ if (!defined('_IS_BOT')) {
 	);
 }
 
+if (!defined('_IS_CLI')) {
+	define('_IS_CLI',
+	  !isset($_SERVER['HTTP_HOST'])
+	  and !strlen($_SERVER['DOCUMENT_ROOT'])
+	  and !empty($_SERVER['argv'])
+	  and empty($_SERVER['REQUEST_METHOD'])
+	);
+}
+
 // *** Parametrage par defaut de SPIP ***
 //
 // Les globales qui suivent peuvent etre modifiees
