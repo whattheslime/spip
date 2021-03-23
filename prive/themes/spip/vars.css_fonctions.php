@@ -30,19 +30,14 @@ class Spip_Css_Vars_Collection {
  * @param string $couleur Couleur hex
  * @return string
  */
-function spip_couleur_theme_generer_variables_css($couleur) : \Spip_Css_Vars_Collection {
+function spip_couleur_generer_variables_css_theme($couleur) : \Spip_Css_Vars_Collection {
 
     $vars = new \Spip_Css_Vars_Collection();
 
     $vars->add("--spip-color-theme--hsl", couleur_hex_to_hsl($couleur, "h, s, l"));
-    $vars->add("--spip-color-theme--rgb", couleur_hex_to_rgb($couleur, "r, g, b"));
-
     $vars->add("--spip-color-theme--h", couleur_hex_to_hsl($couleur, "h"));
     $vars->add("--spip-color-theme--s", couleur_hex_to_hsl($couleur, "s"));
     $vars->add("--spip-color-theme--l", couleur_hex_to_hsl($couleur, "l"));
-    $vars->add("--spip-color-theme--r", couleur_hex_to_rgb($couleur, "r")); // utile ?
-    $vars->add("--spip-color-theme--g", couleur_hex_to_rgb($couleur, "g")); // utile ?
-    $vars->add("--spip-color-theme--b", couleur_hex_to_rgb($couleur, "b")); // utile ?
 
     // un joli dégradé de presque blanc à presque noir…
     $vars->add("--spip-color-theme--100", '#' . couleur_eclaircir($couleur, .99));
@@ -58,6 +53,12 @@ function spip_couleur_theme_generer_variables_css($couleur) : \Spip_Css_Vars_Col
     $vars->add("--spip-color-theme--20", '#' . couleur_foncer($couleur, .50));
     $vars->add("--spip-color-theme--10", '#' . couleur_foncer($couleur, .75));
     $vars->add("--spip-color-theme--00", '#' . couleur_foncer($couleur, .98));
+
+    return $vars;
+}
+
+function spip_couleur_generer_variables_css() : \Spip_Css_Vars_Collection {
+    $vars = new \Spip_Css_Vars_Collection();
 
     // nos déclinaisons (basées sur le dégradé précedent, où 60 est là couleur du thème)
     $vars->add("--spip-color-theme-white", "var(--spip-color-theme--100)");
