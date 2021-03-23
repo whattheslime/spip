@@ -19,19 +19,41 @@ class Spip_Css_Vars_Collection {
         return $string;
     }
 
-    public function __toString() {
+    public function __toString() : string {
         return $this->getString();
     }
 }
 
+
 /**
- * Génère les variables CSS d'une couleur pour l'espace privé
+ * Génère les variables CSS relatif à la typo et langue pour l'espace privé
+ *
+ * @param Pile $pile Pile
+ */
+function spip_generer_variables_css_typo(array $Pile) : \Spip_Css_Vars_Collection {
+    $vars = new \Spip_Css_Vars_Collection();
+
+	$vars->add("--spip-css-dir", $Pile[0]["dir"]);
+	$vars->add("--spip-css-left", $Pile[0]["left"]);
+	$vars->add("--spip-css-right", $Pile[0]["right"]);
+
+	$vars->add("--spip-css-font-size", $Pile[0]["font-size"]);
+	$vars->add("--spip-css-line-heigh",  $Pile[0]["line-height"]);
+	$vars->add("--spip-css-margin-bottom", $Pile[0]["margin-bottom"]);
+	$vars->add("--spip-css-text-indent", $Pile[0]["text-indent"]);
+	$vars->add("--spip-css-font-family", $Pile[0]["font-family"]);
+	$vars->add("--spip-css-background-color", $Pile[0]["background-color"]);
+	$vars->add("--spip-css-color", $Pile[0]["color"]);
+
+    return $vars;
+}
+
+/**
+ * Génère les variables CSS d'un thème de couleur pour l'espace privé
  *
  * @param string $couleur Couleur hex
- * @return string
  */
-function spip_couleur_generer_variables_css_theme($couleur) : \Spip_Css_Vars_Collection {
-
+function spip_generer_variables_css_couleurs_theme(string $couleur) : \Spip_Css_Vars_Collection {
     $vars = new \Spip_Css_Vars_Collection();
 
     $vars->add("--spip-color-theme--hsl", couleur_hex_to_hsl($couleur, "h, s, l"));
@@ -57,7 +79,10 @@ function spip_couleur_generer_variables_css_theme($couleur) : \Spip_Css_Vars_Col
     return $vars;
 }
 
-function spip_couleur_generer_variables_css() : \Spip_Css_Vars_Collection {
+/**
+ * Génère les variables CSS dépendantes des couleurs du thème actif.
+ */
+function spip_generer_variables_css_couleurs_actives() : \Spip_Css_Vars_Collection {
     $vars = new \Spip_Css_Vars_Collection();
 
     // nos déclinaisons (basées sur le dégradé précedent, où 60 est là couleur du thème)

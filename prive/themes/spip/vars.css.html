@@ -11,25 +11,16 @@
 
 
 :root {
-	[(#ENV{couleur_theme}|spip_couleur_generer_variables_css_theme)]
+	[(#REM) Dépend pour le moment de l’environnement ]
+	[(#VAL|spip_generer_variables_css_typo)]
 
-	--spip-css-dir: #ENV{dir};
-	--spip-css-left: #ENV{left};
-	--spip-css-right: #ENV{right};
-
-	--spip-css-font-size: #ENV{font-size};
-	--spip-css-line-height: #ENV{line-height};
-	--spip-css-margin-bottom: #ENV{margin-bottom};
-	--spip-css-text-indent: #ENV{text-indent};
-	--spip-css-font-family: #ENV{font-family};
-	--spip-css-background-color: #ENV{background-color};
-	--spip-css-color: #ENV{color};
+	[(#ENV{couleur_theme}|spip_generer_variables_css_couleurs_theme)]
 }
 
 :root,
 [data-spip-theme-colors],
 [class*="spip-theme-colors"] {
-	[(#VAL|spip_couleur_generer_variables_css)]
+	[(#VAL|spip_generer_variables_css_couleurs_actives)]
 }
 
 
@@ -38,6 +29,6 @@
 <BOUCLE_themes(DATA){source tableau, #GET{couleurs}}>
 [data-spip-theme-colors="#CLE"],
 .spip-theme-colors-#CLE {
-	[(#VALEUR{couleur_theme}|spip_couleur_generer_variables_css_theme)]
+	[(#VALEUR{couleur_theme}|spip_generer_variables_css_couleurs_theme)]
 }
 </BOUCLE_themes>
