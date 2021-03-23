@@ -34,7 +34,7 @@ if (!defined('_ECRIRE_INC_VERSION')) {
  */
 function decompose_champ_id_objet($champ) {
 	if (($champ !== 'id_objet') and preg_match(',^id_([a-z_]+)$,', $champ, $regs)) {
-		return array('id_objet', 'objet', objet_type($regs[1]));
+		return array('id_objet', 'objet', objet_type($champ));
 	}
 
 	return $champ;
