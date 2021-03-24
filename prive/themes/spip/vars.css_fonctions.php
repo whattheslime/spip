@@ -56,25 +56,25 @@ function spip_generer_variables_css_typo(array $Pile) : \Spip_Css_Vars_Collectio
 function spip_generer_variables_css_couleurs_theme(string $couleur) : \Spip_Css_Vars_Collection {
     $vars = new \Spip_Css_Vars_Collection();
 
-    $vars->add("--spip-color-theme--hsl", couleur_hex_to_hsl($couleur, "h, s, l"));
+    #$vars->add("--spip-color-theme--hsl", couleur_hex_to_hsl($couleur, "h, s, l")); // redéfini ensuite
     $vars->add("--spip-color-theme--h", couleur_hex_to_hsl($couleur, "h"));
     $vars->add("--spip-color-theme--s", couleur_hex_to_hsl($couleur, "s"));
     $vars->add("--spip-color-theme--l", couleur_hex_to_hsl($couleur, "l"));
 
     // un joli dégradé de presque blanc à presque noir…
-    $vars->add("--spip-color-theme--100", '#' . couleur_eclaircir($couleur, .99));
-    $vars->add("--spip-color-theme--98", '#' . couleur_eclaircir($couleur, .95));
-    $vars->add("--spip-color-theme--95", '#' . couleur_eclaircir($couleur, .90));
-    $vars->add("--spip-color-theme--90", '#' . couleur_eclaircir($couleur, .75));
-    $vars->add("--spip-color-theme--80", '#' . couleur_eclaircir($couleur, .50));
-    $vars->add("--spip-color-theme--70", '#' . couleur_eclaircir($couleur, .25));
-    $vars->add("--spip-color-theme--60", $couleur);
-    $vars->add("--spip-color-theme--50", '#' . couleur_foncer($couleur, .125));
-    $vars->add("--spip-color-theme--40", '#' . couleur_foncer($couleur, .25));
-    $vars->add("--spip-color-theme--30", '#' . couleur_foncer($couleur, .375));
-    $vars->add("--spip-color-theme--20", '#' . couleur_foncer($couleur, .50));
-    $vars->add("--spip-color-theme--10", '#' . couleur_foncer($couleur, .75));
-    $vars->add("--spip-color-theme--00", '#' . couleur_foncer($couleur, .98));
+    $vars->add("--spip-color-theme--100", couleur_hex_to_hsl(couleur_eclaircir($couleur, .99), "h, s, l"));
+    $vars->add("--spip-color-theme--98", couleur_hex_to_hsl(couleur_eclaircir($couleur, .95), "h, s, l"));
+    $vars->add("--spip-color-theme--95", couleur_hex_to_hsl(couleur_eclaircir($couleur, .90), "h, s, l"));
+    $vars->add("--spip-color-theme--90", couleur_hex_to_hsl(couleur_eclaircir($couleur, .75), "h, s, l"));
+    $vars->add("--spip-color-theme--80", couleur_hex_to_hsl(couleur_eclaircir($couleur, .50), "h, s, l"));
+    $vars->add("--spip-color-theme--70", couleur_hex_to_hsl(couleur_eclaircir($couleur, .25), "h, s, l"));
+    $vars->add("--spip-color-theme--60", couleur_hex_to_hsl($couleur, "h, s, l"));
+    $vars->add("--spip-color-theme--50", couleur_hex_to_hsl(couleur_foncer($couleur, .125), "h, s, l"));
+    $vars->add("--spip-color-theme--40", couleur_hex_to_hsl(couleur_foncer($couleur, .25), "h, s, l"));
+    $vars->add("--spip-color-theme--30", couleur_hex_to_hsl(couleur_foncer($couleur, .375), "h, s, l"));
+    $vars->add("--spip-color-theme--20", couleur_hex_to_hsl(couleur_foncer($couleur, .50), "h, s, l"));
+    $vars->add("--spip-color-theme--10", couleur_hex_to_hsl(couleur_foncer($couleur, .75), "h, s, l"));
+    $vars->add("--spip-color-theme--00", couleur_hex_to_hsl(couleur_foncer($couleur, .98), "h, s, l"));
 
     return $vars;
 }
@@ -86,15 +86,25 @@ function spip_generer_variables_css_couleurs_actives() : \Spip_Css_Vars_Collecti
     $vars = new \Spip_Css_Vars_Collection();
 
     // nos déclinaisons (basées sur le dégradé précedent, où 60 est là couleur du thème)
-    $vars->add("--spip-color-theme-white", "var(--spip-color-theme--100)");
-    $vars->add("--spip-color-theme-lightest", "var(--spip-color-theme--95)");
-    $vars->add("--spip-color-theme-lighter", "var(--spip-color-theme--90)");
-    $vars->add("--spip-color-theme-light", "var(--spip-color-theme--80)");
-    $vars->add("--spip-color-theme", "var(--spip-color-theme--60)");
-    $vars->add("--spip-color-theme-dark", "var(--spip-color-theme--40)");
-    $vars->add("--spip-color-theme-darker", "var(--spip-color-theme--20)");
-    $vars->add("--spip-color-theme-darkest", "var(--spip-color-theme--10)");
-    $vars->add("--spip-color-theme-black", "var(--spip-color-theme--00)");
+    $vars->add("--spip-color-theme-white--hsl", "var(--spip-color-theme--100)");
+    $vars->add("--spip-color-theme-lightest--hsl", "var(--spip-color-theme--95)");
+    $vars->add("--spip-color-theme-lighter--hsl", "var(--spip-color-theme--90)");
+    $vars->add("--spip-color-theme-light--hsl", "var(--spip-color-theme--80)");
+    $vars->add("--spip-color-theme--hsl", "var(--spip-color-theme--60)");
+    $vars->add("--spip-color-theme-dark--hsl", "var(--spip-color-theme--40)");
+    $vars->add("--spip-color-theme-darker--hsl", "var(--spip-color-theme--20)");
+    $vars->add("--spip-color-theme-darkest--hsl", "var(--spip-color-theme--10)");
+    $vars->add("--spip-color-theme-black--hsl", "var(--spip-color-theme--00)");
+
+    $vars->add("--spip-color-theme-white", "hsl(var(--spip-color-theme-white--hsl))");
+    $vars->add("--spip-color-theme-lightest", "hsl(var(--spip-color-theme-lightest--hsl))");
+    $vars->add("--spip-color-theme-lighter", "hsl(var(--spip-color-theme-lighter--hsl))");
+    $vars->add("--spip-color-theme-light", "hsl(var(--spip-color-theme-light--hsl))");
+    $vars->add("--spip-color-theme", "hsl(var(--spip-color-theme--hsl))");
+    $vars->add("--spip-color-theme-dark", "hsl(var(--spip-color-theme-dark--hsl))");
+    $vars->add("--spip-color-theme-darker", "hsl(var(--spip-color-theme-darker--hsl))");
+    $vars->add("--spip-color-theme-darkest", "hsl(var(--spip-color-theme-darkest--hsl))");
+    $vars->add("--spip-color-theme-black", "hsl(var(--spip-color-theme-black--hsl))");
 
     return $vars;
 }
