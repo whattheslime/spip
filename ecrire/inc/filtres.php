@@ -5295,13 +5295,13 @@ function uniformiser_label(string $text, bool $ucfirst = true) : string {
  * @param int|string $id_objet
  * @return array
  */
-function filtre_objet_trouver_parent_dist($objet, $id_objet) {
+function filtre_objet_trouver_parents_dist($objet, $id_objet) {
 	// compatibilite signature inversee
 	if (is_numeric($objet) and !is_numeric($id_objet)) {
 		list($objet, $id_objet) = [$id_objet, $objet];
 	}
 	include_spip('base/objets');
-	return objet_trouver_parent($objet, $id_objet);
+	return objet_trouver_parents($objet, $id_objet);
 }
 
 
