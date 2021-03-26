@@ -2363,7 +2363,7 @@ function microformat2enclosure($tags) {
 function tags2dcsubject($tags) {
 	$subjects = '';
 	foreach (extraire_balises($tags, 'a') as $e) {
-		if (extraire_attribut($e, rel) == 'tag') {
+		if (extraire_attribut($e, 'rel') == 'tag') {
 			$subjects .= '<dc:subject>'
 				. texte_backend(textebrut($e))
 				. '</dc:subject>' . "\n";
