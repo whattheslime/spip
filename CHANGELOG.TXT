@@ -1,42 +1,128 @@
- SPIP-Core v3.2.8 -> v3.2.9 (12 février 2021)
- ---------------------------------------------
+SPIP-Core v3.2.9 -> v3.2.10 (26 mars 2021)
+-------------------------------------------
 
- c965889bc | cedric        | 2021-02-10 | Fix #4316 : la PR a ete fermee sur github quand on est passe a git.spip.net je suppose
- c76c39a6e | cedric        | 2021-02-10 | nonsense code, copie colle surement, fix #4315
- 93a917a4d | cedric        | 2021-02-10 | Fix #4140 (deja fixe en 3.3)
- 7246f1966 | cedric        | 2021-02-08 | Fix #3869 (ou du moins on espere, sinon c'est pas si grave)
- 55bc9fd5d | erational     | 2021-02-08 | [bugfix] empecher warning sur le count de l'iterateur devrait resoudre le ticket https://core.spip.net/issues/4450 et ..
- 42898eb47 | rastapopoulos | 2021-02-05 | Corrige 4401 en améliorant la rustine déjà en place
- 24eda3678 | cedric        | 2021-02-05 | nettoyer l'adresse site qu'on enregistre fix #4629
- bb69f3466 | bruno         | 2021-02-05 | ne pas stocker le champ ldap_password dans les fichiers de session
- 2269d0a6a | cedric        | 2021-02-01 | appels a autoriser sur les formulaires editer, a minima quand on les utilise en modification d'un objet existant depui..
- 610c24f06 | cedric        | 2021-02-02 | Eviter d'utiliser une globale, gerer le flag en static avec operations de lecture+reset
- a8493a3ce | cedric        | 2021-02-01 | Eviter de donner sa langue au chat
- f9d9e5b1a | cedric        | 2021-02-01 | on accepte pas une fonction de config inconnue si elle vient d'un modele
- 962a95f44 | cedric        | 2021-02-01 | Utiliser contexte_compil pour reperer les appels a executer_balise_dynamique() venant d'un modele, et lever un flag le..
- c35edb769 | cedric        | 2021-02-01 | une fonction pour detecter qu'un formulaire a ete inclu via un modele et non directement via une balide #FORMULAIRE_xxx
- 577ad8d21 | bruno         | 2021-01-21 | éviter d'afficher n'importe quoi dans le message d'édition concurrente
- f1f27e9f7 | bruno         | 2021-02-01 | attribut_html() sur les attributs renvoyés par env_to_params() & env_to_attributs()
- 6c6b6c6d4 | nicod         | 2021-01-06 | Stocker les contextes dans des fichiers en cache si la longueur de l’argument géneré est plus long que ce qui est tolé..
- 2be11db95 | bruno         | 2020-10-25 | fix undefined index sur l'action réparation de la base
+0b1bd0542 | marcimat      | 2018-09-05 | Compat PHP 7.x : Scorie résiduelle du passage à mysqli. Mais ces fonctions ne semblent plus utilisées.
+7621a660a | marcimat      | 2021-03-19 | Retour partiel sur 31df72005 pour compat PHP 5.4 ...
+4de4b3c34 | marcimat      | 2021-03-19 | Correction deprecated php 7.4 : ordre de join inversé.
+0ea620c9a | marcimat      | 2018-09-05 | Tickets #4059 et #4138 : meilleure compat PHP 7.2
+f69b39c9e | marcimat      | 2021-03-18 | Suppression du fichier .gitattributes inutile.
+a54ab9a89 | rastapopoulos | 2021-03-14 | Backport de 2e55e3a60e à la main car plus dans le même fichier en 3.3.
+bdc53dcc9 | marcimat      | 2021-03-11 | Lorsqu'on déclare un traitement à un champ de rubrique, tel que `$table_des_traitements['DEMO']['rubriques'] = ...`, c..
+510983b09 | cedric        | 2021-03-09 | Fix https://core.spip.net/issues/4442 : le vieux parseur xml a la main (qu'il faudrait virer) ne tolerait pas l'utilis..
+31df72005 | marcimat      | 2021-03-05 | Suite de e11b28be4 : plus éviter une fatale en PHP 8 si unicode2charset cherche à utiliser un charset inexistant
+00c2038da | marcimat      | 2021-03-05 | Correction d'une Fatale Suite à 27e4f1bcc. C'est sport mais le commit ajoute des accents dans le squelettes prive/sque..
+e380b0afd | cy.altern     | 2021-03-04 | report a4cdf3b633
+916b67198 | marcimat      | 2021-03-04 | Ticket #4348 : Compat PHP 7.4 (deprecated curly braces array)
+910c245ea | marcimat      | 2020-03-26 | Compat PHP 7.4 : éviter une notice lorsque la pagination ne trouve aucune entrée.
+1b5549e51 | marcimat      | 2019-08-26 | Ticket #4348 : Compat PHP 7.4 (notice).
+c5492ea3e | marcimat      | 2019-08-26 | Ticket #4348 : Compat PHP 7.4 (deprecated curly braces array)
+da6dfc068 | marcimat      | 2019-08-26 | Ticket #4348 : Compat PHP 7.4, Trying to access array offset on value of type null.
+db1814dc5 | marcimat      | 2019-08-25 | Compat PHP 7.4, Deprecated:  Array and string offset access syntax with curly braces (Francky)
+330eb930f | marcimat      | 2019-06-17 | Ticket #4348 : Correction pour PHP 7.4 (Left-associative ternary operator deprecation)
+130ada180 | marcimat      | 2018-02-09 | Compatibilité PHP 7.2 : create_function => function xxx each => key, current, next
+8075d79f2 | marcimat      | 2017-12-11 |  Ticket #4059 : Compat PHP 7.2, remplacer un create_function.
+061107f80 | marcimat      | 2017-12-11 | Ticket #4059 : Compat PHP 7.2, remplacer des create_function.
+af94fa5d9 | marcimat      | 2017-12-11 | Ticket #4059 : Compat PHP 7.2, remplacer des create_function. (encore un eval du coup).
+e7fe0d5aa | marcimat      | 2017-12-11 | Ticket #4059 : Compat PHP 7.2, remplacer des create_function.
+49f24e83b | marcimat      | 2017-12-11 | Ticket #4059 : Compat PHP 7.2. Un create_function de moins. Pour le coup, ça semble obligé ici de conserver une évalua..
+6555cb7b4 | marcimat      | 2021-03-04 | Report adapté de 5647069fb (Meilleure compat PHP 7.3)
+fcb3e1f5e | marcimat      | 2019-08-21 | Ticket #4348 : Notices/Warning en PHP 7.3+ : éviter un appel à time() avec un argument.
+31c614782 | bruno         | 2020-03-13 | report adapté de a0c24ecb6f8c1d70dce86b859eb448fb0415d869
+60d4d3d1f | cedric        | 2021-02-17 | Fix vraiment #4167 : _deja_loge peut contenir un js de redirection et doit donc etre non filtre par interdire_scripts()
+7046e391d | cedric        | 2021-02-17 | Fix #4387 : Revert "Fix #4167 : éviter d'afficher le script de redirection js quand le form de login est utilisé en aj..
+03cc99fce | cedric        | 2021-02-17 | Fix l'utilisation du niveau de log 0 (maieul) cf https://git.spip.net/spip/spip/pulls/106
+62e4284fd | bruno         | 2021-02-10 | éviter un plantage avec url_page quand on utilise une fonction perso pour generer_generer_url_XXX
+0281d90f2 | maieul        | 2021-02-10 | fix #4633, ne pas passer une date quotée au pipeline optimiser_base_disparus
+
+
+SPIP-plugins-dist v3.2.9 -> v3.2.10 (26 mars 2021)
+---------------------------------------------------
+
+aide                    | 329cfce | marcimat     | 2021-03-18 | Suppression du fichier .gitattributes inutile.
+archiviste              | de3283f | marcimat     | 2021-03-18 | Suppression du fichier .gitattributes inutile.
+breves                  | 668efb9 | marcimat     | 2021-03-18 | Suppression du fichier .gitattributes inutile.
+breves                  | 658f025 | maieul       | 2021-02-10 | Adaptation du code au fix du core https://core.spip.net/issues/4633
+compagnon               | d8aaa96 | marcimat     | 2021-03-18 | Suppression du fichier .gitattributes inutile.
+compresseur             | 08b96ff | marcimat     | 2021-03-24 | Mise à jour de CSSTidy en version 1.7.3
+compresseur             | 30d1b1f | marcimat     | 2021-03-18 | Suppression du fichier .gitattributes inutile.
+compresseur             | 827ba88 | marcimat     | 2018-09-05 | Tickets #4059 et #4138 : meilleure compat PHP 7.2
+dump                    | d767e27 | marcimat     | 2021-03-18 | Suppression du fichier .gitattributes inutile.
+filtres_images          | eb9ace8 | marcimat     | 2021-03-18 | Suppression du fichier .gitattributes inutile.
+forum                   | cb90b1a | marcimat     | 2021-03-18 | Suppression du fichier .gitattributes inutile.
+jquery_ui               | b04572e | marcimat     | 2021-03-18 | Suppression du fichier .gitattributes inutile.
+mediabox                | bcadf3d | marcimat     | 2021-03-18 | Suppression du fichier .gitattributes inutile.
+medias                  | d096d93 | marcimat     | 2021-03-26 | Report de d1ca0c8c : Suite de 890506eb99 : Il faut ajouteur la classe .portfolios__titre aux autres blocs documents du..
+medias                  | 4e13bea | cedric       | 2021-03-25 | Fix regression (Maieul via https://git.spip.net/spip/medias/pulls/17)
+medias                  | 1d917cd | spip.franck  | 2020-07-12 | - Mise à jour de la lib getid3 en 1.9.20, nous étions en 1.9.18 - Le changelog est dispo ici: https://github.com/James..
+medias                  | e019d3e | spip.franck  | 2019-09-20 | Mise à jour de la lib getid3 en 1.9.18, nous étions en 1.9.16. Le changelog est dispo ici: https://github.com/JamesHei..
+medias                  | 2dc03d5 | marcimat     | 2021-03-18 | Suppression du fichier .gitattributes inutile.
+mots                    | 6a346ba | marcimat     | 2021-03-18 | Suppression du fichier .gitattributes inutile.
+organiseur              | a7177ba | marcimat     | 2021-03-19 | Correction join à l'envers.
+organiseur              | 7c665fc | marcimat     | 2021-03-18 | Suppression du fichier .gitattributes inutile.
+petitions               | 2909a25 | marcimat     | 2021-03-18 | Suppression du fichier .gitattributes inutile.
+plan                    | e722c87 | marcimat     | 2021-03-18 | Suppression du fichier .gitattributes inutile.
+porte_plume             | 0003d09 | marcimat     | 2021-03-18 | Suppression du fichier .gitattributes inutile.
+revisions               | 1d88a68 | bruno        | 2018-09-15 | retour sur r111482 : éviter une erreur Maximum execution time
+revisions               | 2f2d47c | marcimat     | 2018-09-05 | Tickets #4059 et #4138 : meilleure compat PHP 7.2
+revisions               | 535cb2f | marcimat     | 2018-09-15 | Correction sur r111486 (compat PHP 7.2, suppression each()) qui était erronné.
+revisions               | aa56bf3 | marcimat     | 2018-09-05 | Ticket #4138 : Compatibilité PHP 7.2
+revisions               | df4b821 | marcimat     | 2021-03-18 | Suppression du fichier .gitattributes inutile.
+revisions               | 19c0b6c | marcimat     | 2019-08-21 | Ticket #4348 : Compat PHP 7.4+ Deprecated: The behavior of unparenthesized expressions containing both '.' and '+'/'-'
+safehtml                | b2853a1 | marcimat     | 2021-03-18 | Suppression du fichier .gitattributes inutile.
+safehtml                | 6e81e13 | marcimat     | 2019-08-26 | Tiket #4348 / Compat PHP 7.4 : Array and string offset access syntax with curly braces is deprecated
+sites                   | 622387c | marcimat     | 2021-03-18 | Suppression du fichier .gitattributes inutile.
+squelettes_par_rubrique | 357b283 | marcimat     | 2021-03-18 | Suppression du fichier .gitattributes inutile.
+statistiques            | 291386b | marcimat     | 2021-03-18 | Suppression du fichier .gitattributes inutile.
+svp                     | a3c6abf | marcimat     | 2021-03-18 | Suppression du fichier .gitattributes inutile.
+svp                     | 9fd9349 | marcimat     | 2019-08-25 | Compat PHP 7.4, Deprecated:  Array and string offset access syntax with curly braces (Francky)
+textwheel               | 8f70594 | marcimat     | 2021-03-18 | Suppression du fichier .gitattributes inutile.
+textwheel               | 84d32c5 | cedric       | 2018-09-06 | create_function est deprecie en PHP 7.2, on reecrit donc l'optimisation des subwheels via une fonction anonyme de type..
+textwheel               | 1bf8732 | marcimat     | 2018-02-09 | Compat PHP 7.2 : create_function => function (les plus simples, mais il en reste !…)
+urls_etendues           | be9066b | marcimat     | 2021-03-18 | Suppression du fichier .gitattributes inutile.
+vertebres               | a381bc9 | marcimat     | 2021-03-18 | Suppression du fichier .gitattributes inutile.
+squelettes-dist         | 6323be9 | marcimat     | 2021-03-18 | Suppression du fichier .gitattributes inutile.
 
 
 
- SPIP-plugins-dist v3.2.8 -> v3.2.9 (12 février 2021)
- -----------------------------------------------------
+SPIP-Core v3.2.8 -> v3.2.9 (12 février 2021)
+---------------------------------------------
 
- breves                  | ba1e040 | cedric       | 2021-02-04 | verifier l'autorisation de modifier la breve passe en argument
- mediabox                | 9020d16 | cedric       | 2021-02-08 | #4625 : echapper les valeurs injectees dans le js via les parametres mediabox, c'est plus propre
- medias                  | 96bf7b2 | cedric       | 2021-02-04 | Verifier l'autorisation de modifier les documents passes en argument du formulaire
- medias                  | bfc3319 | cedric       | 2021-01-20 | Report de 049dee8 : Extraire la fonction de determination automatique du statut d'un document dans une fonction inc_de..
- medias                  | 9764525 | cedric       | 2021-01-19 | Normaliser le comportement de document_instituer() en appelant les pipelines pre_editon et post_edition avec action=in..
- medias                  | 2293b84 | tcharlss     | 2021-01-19 | Report de 890506eb99 : Pour le JS des modes d'affichages, cibler plus précisément l'élément, sinon les boutons peuvent..
- mots                    | 0955e0d | cedric       | 2021-02-04 | Verifier les autorisations de modifier les mots/groupes de mots passes en argument du formulaire d'edition
- revisions               | e573977 | bruno        | 2020-10-23 | éviter un warning dans les révisions lors de la suppression d'un lien par une personne non identifiée
- sites                   | 28bdb59 | cedric       | 2021-02-10 | Fix #4296 : l'url peut etre dans le href meme si c'est pas un link autofermant...
- sites                   | 92994f3 | cedric       | 2021-02-04 | verifier l'autorisation de modifier le site passe en argument du formulaire d'edition
- sites                   | 638ceef | cedric       | 2020-12-18 | Fix le id_mot manquant sur les syndic_articles. Ce n'est pas un usage frequent, mais il existe et soyons homogene avec..
- textwheel               | 317b045 | rastapopoulos | 2021-02-05 | Correction de 4508 : on ne gère le caption/summary *réellement* qu'en première ligne, seulement si on n'a pas déjà gén..
+c965889bc | cedric        | 2021-02-10 | Fix #4316 : la PR a ete fermee sur github quand on est passe a git.spip.net je suppose
+c76c39a6e | cedric        | 2021-02-10 | nonsense code, copie colle surement, fix #4315
+93a917a4d | cedric        | 2021-02-10 | Fix #4140 (deja fixe en 3.3)
+7246f1966 | cedric        | 2021-02-08 | Fix #3869 (ou du moins on espere, sinon c'est pas si grave)
+55bc9fd5d | erational     | 2021-02-08 | [bugfix] empecher warning sur le count de l'iterateur devrait resoudre le ticket https://core.spip.net/issues/4450 et ..
+42898eb47 | rastapopoulos | 2021-02-05 | Corrige 4401 en améliorant la rustine déjà en place
+24eda3678 | cedric        | 2021-02-05 | nettoyer l'adresse site qu'on enregistre fix #4629
+bb69f3466 | bruno         | 2021-02-05 | ne pas stocker le champ ldap_password dans les fichiers de session
+2269d0a6a | cedric        | 2021-02-01 | appels a autoriser sur les formulaires editer, a minima quand on les utilise en modification d'un objet existant depui..
+610c24f06 | cedric        | 2021-02-02 | Eviter d'utiliser une globale, gerer le flag en static avec operations de lecture+reset
+a8493a3ce | cedric        | 2021-02-01 | Eviter de donner sa langue au chat
+f9d9e5b1a | cedric        | 2021-02-01 | on accepte pas une fonction de config inconnue si elle vient d'un modele
+962a95f44 | cedric        | 2021-02-01 | Utiliser contexte_compil pour reperer les appels a executer_balise_dynamique() venant d'un modele, et lever un flag le..
+c35edb769 | cedric        | 2021-02-01 | une fonction pour detecter qu'un formulaire a ete inclu via un modele et non directement via une balide #FORMULAIRE_xxx
+577ad8d21 | bruno         | 2021-01-21 | éviter d'afficher n'importe quoi dans le message d'édition concurrente
+f1f27e9f7 | bruno         | 2021-02-01 | attribut_html() sur les attributs renvoyés par env_to_params() & env_to_attributs()
+6c6b6c6d4 | nicod         | 2021-01-06 | Stocker les contextes dans des fichiers en cache si la longueur de l’argument géneré est plus long que ce qui est tolé..
+2be11db95 | bruno         | 2020-10-25 | fix undefined index sur l'action réparation de la base
+
+
+
+SPIP-plugins-dist v3.2.8 -> v3.2.9 (12 février 2021)
+-----------------------------------------------------
+
+breves                  | ba1e040 | cedric       | 2021-02-04 | verifier l'autorisation de modifier la breve passe en argument
+mediabox                | 9020d16 | cedric       | 2021-02-08 | #4625 : echapper les valeurs injectees dans le js via les parametres mediabox, c'est plus propre
+medias                  | 96bf7b2 | cedric       | 2021-02-04 | Verifier l'autorisation de modifier les documents passes en argument du formulaire
+medias                  | bfc3319 | cedric       | 2021-01-20 | Report de 049dee8 : Extraire la fonction de determination automatique du statut d'un document dans une fonction inc_de..
+medias                  | 9764525 | cedric       | 2021-01-19 | Normaliser le comportement de document_instituer() en appelant les pipelines pre_editon et post_edition avec action=in..
+medias                  | 2293b84 | tcharlss     | 2021-01-19 | Report de 890506eb99 : Pour le JS des modes d'affichages, cibler plus précisément l'élément, sinon les boutons peuvent..
+mots                    | 0955e0d | cedric       | 2021-02-04 | Verifier les autorisations de modifier les mots/groupes de mots passes en argument du formulaire d'edition
+revisions               | e573977 | bruno        | 2020-10-23 | éviter un warning dans les révisions lors de la suppression d'un lien par une personne non identifiée
+sites                   | 28bdb59 | cedric       | 2021-02-10 | Fix #4296 : l'url peut etre dans le href meme si c'est pas un link autofermant...
+sites                   | 92994f3 | cedric       | 2021-02-04 | verifier l'autorisation de modifier le site passe en argument du formulaire d'edition
+sites                   | 638ceef | cedric       | 2020-12-18 | Fix le id_mot manquant sur les syndic_articles. Ce n'est pas un usage frequent, mais il existe et soyons homogene avec..
+textwheel               | 317b045 | rastapopoulos | 2021-02-05 | Correction de 4508 : on ne gère le caption/summary *réellement* qu'en première ligne, seulement si on n'a pas déjà gén..
 
 
 SPIP-Core v3.2.7 -> v3.2.8 (29 septembre 2020)
