@@ -1,3 +1,13 @@
+SPIP-Core v3.2.10 -> v3.2.11 (26 March 2021)
+--------------------------------------------
+
+b52a4a5b3 | cedric       | 2021-03-12 | twitterbot est aussi notre ami pour le laisser scraper l'url qu'on veut touitter (fil)
+58d5d6190 | cedric       | 2021-02-15 | Report de https://git.spip.net/spip-contrib-outils/securite/commit/e7b571681a92eb40eddabbbb24b45dc472e113c1 qui fix #4..
+6611fd50b | cedric       | 2021-02-15 | Report de https://git.spip.net/spip-contrib-outils/securite/commit/3eccaf41426d4f3c8f28b50d81e12fbe5f8af4c2
+62d33c975 | marcimat     | 2021-03-26 | Notice-- : Attribut sans ses quotes... (realet)
+
+
+
 SPIP-Core v3.2.9 -> v3.2.10 (26 mars 2021)
 -------------------------------------------
 
