@@ -41,7 +41,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'dernieres_breves' => 'Neue Meldungen',
 	'derniers_articles' => 'Neueste Artikel',
 	'derniers_commentaires' => 'Neueste Kommentare',
-	'derniers_messages_forum' => 'Neuste Forumsbeiträge',
+	'derniers_messages_forum' => 'Neue Forumsbeiträge',
 
 	// E
 	'edition_mode_texte' => 'Im Textmodus bearbeiten ',
@@ -68,7 +68,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'memes_auteurs' => 'Von den gleichen Autoren',
 	'message' => 'Nachricht',
 	'messages_forum' => 'Nachrichten',
-	'messages_recents' => 'Neuste Forumsbeiträge',
+	'messages_recents' => 'Neue Forumsbeiträge',
 	'mots_clef' => 'Schlagwort',
 	'mots_clefs' => 'Schlagworte',
 	'mots_clefs_meme_groupe' => 'Schlagworte der gleichen Kategorie',
