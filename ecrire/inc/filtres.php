@@ -2744,32 +2744,6 @@ function form_hidden($action) {
 	return join("", $hidden);
 }
 
-/**
- * Calcule les bornes d'une pagination
- *
- * @filtre
- *
- * @param int $courante
- *     Page courante
- * @param int $nombre
- *     Nombre de pages
- * @param int $max
- *     Nombre d'éléments par page
- * @return int[]
- *     Liste (première page, dernière page).
- **/
-function filtre_bornes_pagination_dist($courante, $nombre, $max = 10) {
-	if ($max <= 0 or $max >= $nombre) {
-		return array(1, $nombre);
-	}
-
-	$premiere = max(1, $courante - floor(($max - 1) / 2));
-	$derniere = min($nombre, $premiere + $max - 2);
-	$premiere = $derniere == $nombre ? $derniere - $max + 1 : $premiere;
-
-	return array($premiere, $derniere);
-}
-
 
 /**
  * Retourne la première valeur d'un tableau
