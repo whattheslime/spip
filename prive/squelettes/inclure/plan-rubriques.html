@@ -1,7 +1,7 @@
 #SET{nomp,rubrub#ID_RUBRIQUE}
 #SET{nb,50}
 <B_rubriques>
-	[<p class="pagination">[<em>(#VAL{rubrique}|objet_info{texte_objets}|_T)</em>](#PAGINATION{prive})</p>]
+	[<nav class="pagination">(#PAGINATION{prive,label=[(#VAL{rubrique}|objet_info{texte_objets}|_T)]})</nav>]
 	<ul class="menu-items rubriques">
 		<BOUCLE_rubriques(RUBRIQUES) {id_parent}{id_rubrique?} {par num titre,titre}{statut==.*}{pagination #GET{nb} #GET{nomp}}>
 			<li class="item">
@@ -14,5 +14,5 @@
 			</li>
 		</BOUCLE_rubriques>
 	</ul>
-	[<p class="pagination">[<em>(#VAL{rubrique}|objet_info{texte_objets}|_T)</em>](#PAGINATION{prive})</p>]
+	[<nav class="pagination">(#PAGINATION{prive,label=[(#VAL{rubrique}|objet_info{texte_objets}|_T)]})</nav>]
 </B_rubriques>

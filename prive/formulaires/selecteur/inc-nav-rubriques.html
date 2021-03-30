@@ -1,5 +1,5 @@
 #SET{p,pr_#ID_RUBRIQUE}<B_enfants>
-[<p class='pagination'>(#PAGINATION)</p>]
+[<nav class='pagination'>(#PAGINATION)</nav>]
 <ul class='items'>
 <BOUCLE_enfants(RUBRIQUES){id_parent=#ID_RUBRIQUE}{statut?}{pagination 100 #GET{p}}{par num titre, titre}><li
 	class='rubrique'>[(#ENV{rubriques,0}|oui)<a

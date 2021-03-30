@@ -26,9 +26,9 @@
 				#REM|afficher_initiale{#REM,#TOTAL_BOUCLE,#GET{debut},#ENV{nb,10}}
 			}
 		})]</B_lettre>
-		[<tr><td colspan="6"><p class='pagination'>(#GET{p})</p></td></tr>]
+		[<tr><td colspan="6"><nav class='pagination'>(#GET{p})</nav></td></tr>]
 
-		[<tr><td colspan="6"><p class='pagination'>(#PAGINATION{prive})</p></td></tr>]
+		[<tr><td colspan="6"><nav class='pagination'>(#PAGINATION{prive})</nav></td></tr>]
 		<tr class='first_row'>
 			<th class='statut' scope='col'>[(#TRI{statut,#CHEMIN_IMAGE{auteur-16.png}|balise_img{<:lien_trier_statut|attribut_html:>},ajax})]</th>
 			<th class='messagerie' scope='col'></th>
@@ -52,7 +52,7 @@
 	[(#REM|changer_typo)]
 	</tbody>
 </table>
-[<p class='pagination'>(#PAGINATION{prive})</p>]
+[<nav class='pagination'>(#PAGINATION{prive})</nav>]
 </div>
 </B_liste_aut>[
 <div class="liste-objets auteurs caption-wrap"><strong class="caption">(#ENV*{sinon,''})</strong></div>

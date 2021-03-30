@@ -1,5 +1,5 @@
 #SET{p,pa_#ID_RUBRIQUE}<B_articles>
-[<p class='pagination'>(#PAGINATION{prive})</p>]
+[<nav class='pagination'>(#PAGINATION{prive})</nav>]
 <div class="editer-groupe">
 <BOUCLE_articles(ARTICLES){id_rubrique}{statut?}{pagination 100 #GET{p}}{!par date}><li
 	class='article[ (#EXPOSE)]'>[(#ENV{picker_article,1}|oui)<a

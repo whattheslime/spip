@@ -6,7 +6,7 @@
 	<div class="liste">
 		<h3>[(#GRAND_TOTAL|singulier_ou_pluriel{queue_one_job_in_queue,queue_nb_jobs_in_queue})]</h3>
 		<p>#SET{nb,#REM|queue_sleep_time_to_next_job}<:queue_next_job_in_nb_sec{nb=#GET{nb}}:></p>
-		[<p class="pagination">(#PAGINATION{prive})</p>]
+		[<nav class='pagination'>(#PAGINATION{prive})</nav>]
 		<ul class="liste-items">
 			<BOUCLE_jobs(jobs){par date}{pagination 20}>
 				<li class="item[ (#STATUS|?{'scheduled','pending'})]">
@@ -22,7 +22,7 @@
 				</li>
 			</BOUCLE_jobs>
 		</ul>
-		[<p class="pagination">(#PAGINATION{prive})</p>]
+		[<nav class='pagination'>(#PAGINATION{prive})</nav>]
 		[(#AUTORISER{'purger','queue'}|oui)
 		<p><:queue_info_purger:></p>
 		<div class="actions">
