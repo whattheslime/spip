@@ -1,7 +1,4 @@
 #ENV*{bloc_ancre}
-#SET{bornes,#ENV{page_courante}|bornes_pagination{#ENV{nombre_pages},10}}
-#SET{premiere, #GET{bornes}|reset}
-#SET{derniere, #GET{bornes}|end}
 #SET{sep,#ENV{separateur,' | '}}
 	[<span
 	class='label'>(#ENV{label,''})</span>][

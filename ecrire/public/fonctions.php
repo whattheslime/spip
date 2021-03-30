@@ -207,6 +207,14 @@ function filtre_pagination_dist(
 		$modele = '_' . $modele;
 	}
 
+	if (!defined('_PAGINATION_NOMBRE_LIENS_MAX')) {
+		define('_PAGINATION_NOMBRE_LIENS_MAX', 10);
+	}
+	if (!defined('_PAGINATION_NOMBRE_LIENS_MAX_ECRIRE')) {
+		define('_PAGINATION_NOMBRE_LIENS_MAX_ECRIRE', 10);
+	}
+
+
 	return recuperer_fond("modeles/pagination$modele", $pagination, array('trim' => true), $connect);
 }
 
@@ -228,6 +236,9 @@ function filtre_pagination_dist(
 function filtre_bornes_pagination_dist($courante, $nombre, $max = 10) {
 	if ($max <= 0 or $max >= $nombre) {
 		return array(1, $nombre);
+	}
+	if ($max <= 1) {
+		return array($courante, $courante);
 	}
 
 	$premiere = max(1, $courante - floor(($max - 1) / 2));
