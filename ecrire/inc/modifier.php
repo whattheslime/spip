@@ -233,7 +233,9 @@ function objet_modifier_champs($objet, $id_objet, $options, $c = null, $serveur 
 			foreach ($moof as $k => $v) {
 				if ($v !== $champs[$k]
 					// ne pas alerter si le champ est numerique est que les valeurs sont equivalentes
-					and (!is_numeric($v) or intval($v) != intval($champs[$k]))
+					and (!is_numeric($v) or intval($v) !== intval($champs[$k]))
+					// ne pas alerter si le champ est date, qu'on a envoye une valeur vide et qu'on recupere une date nulle
+					and (strlen($champs[$k]) or !in_array($v, ['0000-00-00 00:00:00', '0000-00-00']))
 				) {
 					$liste[] = $k;
 					$conflits[$k]['post'] = $champs[$k];
