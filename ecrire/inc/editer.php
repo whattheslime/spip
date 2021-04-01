@@ -281,7 +281,7 @@ function formulaires_editer_objet_charger(
 	if ($config_fonc) {
 		$contexte['config'] = $config = $config_fonc($contexte);
 		if (!$lang_default) {
-			$lang_default = $config['langue'];
+			$lang_default = $config['langue'] ?? session_get('lang') ;
 		}
 	}
 	$config = $config + array(
