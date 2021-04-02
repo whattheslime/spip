@@ -223,6 +223,8 @@ function cvtmulti_formulaire_verifier_etapes($args, $erreurs) {
 		list($etape, $etapes) = $e;
 		$etape_demandee = intval(_request('aller_a_etape')); // possibilite de poster un entier dans aller_a_etape
 
+		$args['etape_saisie'] = $etape;
+		$args['etapes'] = $etapes;
 		// lancer les verifs pour chaque etape deja saisie de 1 a $etape
 		$erreurs_etapes = array();
 		$derniere_etape_ok = 0;
@@ -239,6 +241,7 @@ function cvtmulti_formulaire_verifier_etapes($args, $erreurs) {
 			}
 			// et on appelle un pipeline dedie aux etapes, plus easy
 			$args['etape'] = $e;
+			$args['etape_demandee'] = $etape_demandee;
 			$erreurs_etapes[$e] = pipeline(
 				'formulaire_verifier_etape',
 				array(
