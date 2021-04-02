@@ -208,7 +208,7 @@ function cvtmulti_formulaire_verifier($flux) {
 
 /**
  * Verifier les etapes de saisie
- * 
+ *
  * @param array $args
  * @param $erreurs
  * @return array
@@ -221,7 +221,7 @@ function cvtmulti_formulaire_verifier_etapes($args, $erreurs) {
 	) {
 		// recuperer l'etape saisie et le nombre d'etapes total
 		list($etape, $etapes) = $e;
-		$etape_demandee = intval(_request('aller_a_etape')); // possibilite de poster en entier dans aller_a_etape
+		$etape_demandee = intval(_request('aller_a_etape')); // possibilite de poster un entier dans aller_a_etape
 
 		// lancer les verifs pour chaque etape deja saisie de 1 a $etape
 		$erreurs_etapes = array();
@@ -250,11 +250,16 @@ function cvtmulti_formulaire_verifier_etapes($args, $erreurs) {
 			if ($derniere_etape_ok == $e - 1 and !count($erreurs_etapes[$e])) {
 				$derniere_etape_ok = $e;
 			}
-			// possibilite de poster dans _retour_etape_x
+			// possibilite de poster dans _retour_etape_x ou aller_a_etape
 			if (!is_null(_request("_retour_etape_$e"))) {
 				$etape_demandee = $e;
 			}
+			// Il se peut que les verifications ait décidé de faire sauter des étapes
+			if ($aller_a_etape = intval(_request('aller_a_etape'))) {
+				$etape_demandee = $aller_a_etape; // possibilite de poster un entier dans aller_a_etape
+			}
 		}
+
 
 		// si la derniere etape OK etait la derniere
 		// on renvoie le flux inchange et ca declenche traiter
