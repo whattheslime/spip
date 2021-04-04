@@ -229,7 +229,7 @@ function cvtmulti_formulaire_verifier_etapes($args, $erreurs) {
 		$erreurs_etapes = array();
 		$derniere_etape_ok = 0;
 		$e = 0;
-		while ($e < max($etape, $etape_demandee) and $e < $etapes) {
+		while ($e < max($etape, $etape_demandee -1) and $e < $etapes) {
 			$e++;
 			$erreurs_etapes[$e] = array();
 			if ($verifier = charger_fonction("verifier_$e", "formulaires/$form/", true)) {
