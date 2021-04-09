@@ -24,7 +24,6 @@ class Spip_Css_Vars_Collection {
 	}
 }
 
-
 /**
  * Génère les variables CSS relatif à la typo et langue pour l'espace privé
  *
@@ -38,8 +37,9 @@ function spip_generer_variables_css_typo(array $Pile) : \Spip_Css_Vars_Collectio
 	$vars->add('--spip-css-right', $Pile[0]['right']);
 
 	$vars->add('--spip-css-font-size', $Pile[0]['font-size']);
-	$vars->add('--spip-css-line-heigh',  $Pile[0]['line-height']);
+	$vars->add('--spip-css-line-height',  $Pile[0]['line-height']);
 	$vars->add('--spip-css-margin-bottom', $Pile[0]['margin-bottom']);
+
 	$vars->add('--spip-css-text-indent', $Pile[0]['text-indent']);
 	$vars->add('--spip-css-font-family', $Pile[0]['font-family']);
 	$vars->add('--spip-css-background-color', $Pile[0]['background-color']);
