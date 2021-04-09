@@ -205,7 +205,7 @@ function filtre_pagination_dist(
 
 	if ($modele) {
 		$pagination['type_pagination'] = $modele;
-		if (trouver_fond('pagination_'.$modele, 'modele')) {
+		if (trouver_fond('pagination_'.$modele, 'modeles')) {
 			$modele = '_' . $modele;
 		}
 		else {
