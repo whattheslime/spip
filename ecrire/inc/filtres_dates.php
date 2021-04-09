@@ -90,20 +90,26 @@ function normaliser_date($date, $forcer_jour = false) {
  * Enlève une date considérée comme vide
  *
  * @param string $letexte
+ * @param bool $verif_format_date
  * @return string
  *     - La date entrée (si elle n'est pas considérée comme nulle)
  *     - Une chaine vide
  **/
-function vider_date($letexte) {
-	if (strncmp("0000-00-00", $letexte, 10) == 0) {
-		return '';
+function vider_date($letexte, $verif_format_date = false) {
+	if (!$verif_format_date
+	  or (in_array(strlen($letexte), [10,19]) and
+			  preg_match("/^[0-9]{4}-[0-9]{2}-[0-9]{2}(\s[0-9]{2}:[0-9]{2}:[0-9]{2})?$/", $letexte))) {
+
+		if (strncmp("0000-00-00", $letexte, 10) == 0) {
+			return '';
+		}
+		if (strncmp("0001-01-01", $letexte, 10) == 0) {
+			return '';
+		}
+		if (strncmp("1970-01-01", $letexte, 10) == 0) {
+			return '';
+		}  // eviter le bug GMT-1
 	}
-	if (strncmp("0001-01-01", $letexte, 10) == 0) {
-		return '';
-	}
-	if (strncmp("1970-01-01", $letexte, 10) == 0) {
-		return '';
-	}  // eviter le bug GMT-1
 	return $letexte;
 }
 
