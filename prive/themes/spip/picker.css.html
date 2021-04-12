@@ -19,8 +19,8 @@
 
 /* Ancien selecteur de rubriques */
 .selecteur_parent{font-size: 90%; width: 99%;} /* appliquee sur le <select> */
-option.selec_rub { background-position: [(#GET{left})] center; background-image: url(#CHEMIN_IMAGE{rubrique-12.png}); background-repeat: no-repeat; padding-#GET{left}: 16px; }
-option.niveau_1 { font-weight: bold; background: #GET{claire}; background-image: url(#CHEMIN_IMAGE{secteur-12.png}); background-repeat:  no-repeat; color: #444;}
+option.selec_rub { background-position: [(#GET{left})] center; background-image: url(#CHEMIN_IMAGE{rubrique-xx.svg}); background-size:12px; background-repeat: no-repeat; padding-#GET{left}: 16px; }
+option.niveau_1 { font-weight: bold; background: #GET{claire}; background-image: url(#CHEMIN_IMAGE{secteur-xx.svg}); background-size: 12px; background-repeat:  no-repeat; color: #444;}
 option.niveau_2 { background:#eee; color: #202020; border-bottom: 1px solid #GET{claire}; }
 option.niveau_3 { background:#eee; color: #404040; }
 option.niveau_4 { background:#eee; color: #606060; }
@@ -31,8 +31,8 @@ option.niveau_6 { background:#eee; color: #a0a0a0; }
 /* plongeur */
 div.petite-racine { margin-bottom: -5px; }
 div.petite-racine, a.petite-racine { background: [(#ENV{ltr}|choixsiegal{left,1,99})%] no-repeat; background-image: url(#CHEMIN_IMAGE{racine-xx.svg}); background-size:12px; padding-#GET{left}: 15px; background-color: #fff; border: 1px solid #GET{foncee}; border-bottom: 0; width: 134px; }
-div.petite-rubrique, a.petite-rubrique { background: [(#ENV{ltr}|choixsiegal{left,1,99})%] no-repeat; background-image: url(#CHEMIN_IMAGE{rubrique-12.png}); padding-#GET{left}: 15px; }
-div.petit-secteur, a.petit-secteur { background: [(#ENV{ltr}|choixsiegal{left,1,99})%] no-repeat; background-image: url(#CHEMIN_IMAGE{secteur-12.png}); padding-#GET{left}: 15px; }
+div.petite-rubrique, a.petite-rubrique { background: [(#ENV{ltr}|choixsiegal{left,1,99})%] no-repeat; background-image: url(#CHEMIN_IMAGE{rubrique-xx.svg}); background-size:12px; padding-#GET{left}: 15px; }
+div.petit-secteur, a.petit-secteur { background: [(#ENV{ltr}|choixsiegal{left,1,99})%] no-repeat; background-image: url(#CHEMIN_IMAGE{secteur-xx.svg}); background-size: 12px; padding-#GET{left}: 15px; }
 div.rub-ouverte, a.rub-ouverte { padding-#GET{right}: 10px; background: url([(#CHEMIN_IMAGE{triangle-droite[(#GET{rtl})].gif})]) [(#GET{right})] center no-repeat; }
 /* selecteur ajax */
 #choix_parent_principal { background: #fff; border: 1px solid #GET{foncee}; position: relative; height: 170px; overflow: auto; margin-top:5px;}
@@ -53,8 +53,8 @@ div.rub-ouverte, a.rub-ouverte { padding-#GET{right}: 10px; background: url([(#C
 <BOUCLE_objets(POUR){tableau (#REM|lister_tables_objets_sql)}>
 [(#SET{petite_icone, [(#CHEMIN_IMAGE{#VALEUR{icone_objet}-12.png}|sinon{[(#CHEMIN_IMAGE{#VALEUR{icone_objet}-16.png}|image_reduire{12}|extraire_attribut{src})]})]})]
 ul.item_picked li.#VALEUR{type} {padding-#GET{left}:15px;background-image:url(#GET{petite_icone});}
-.item_picker .[(#VALEUR{table_objet})] .type_objet {padding-#GET{left}:15px; background:url(#GET{petite_icone}) no-repeat[ (#GET{left}) ]center;}
-.item_picker .frame ul li.#VALEUR{type} {background:url(#GET{petite_icone}) no-repeat[ (#GET{left}) ]2px;}
+.item_picker .[(#VALEUR{table_objet})] .type_objet {padding-#GET{left}:15px; background:url(#GET{petite_icone}) no-repeat[ (#GET{left}) ]center; background-size:12px;}
+.item_picker .frame ul li.#VALEUR{type} {background:url(#GET{petite_icone}) no-repeat[ (#GET{left}) ]2px;background-size:12px;}
 </BOUCLE_objets>
 
 /* Styles des éléments déjà sélectionnés */
@@ -77,7 +77,7 @@ ul.item_picked.changing {}
 .item_picker .chemin {background:#GET{claire}; margin:0 0 0.25em 0;padding:0.3em;clear:both;}
 .item_picker .chemin .on {margin:0;}
 .item_picker a.choisir_ici {display:block;text-align:center;margin:0.2em 0;}
-.item_picker a.choisir_ici span{padding-#GET{left}:18px;background:transparent url('#CHEMIN_IMAGE{ajouter-16.png}') no-repeat [ (#GET{left}) ] center;}
+.item_picker a.choisir_ici span{padding-#GET{left}:18px;background:transparent url('#CHEMIN_IMAGE{ajouter-16.png}') no-repeat [ (#GET{left}) ] center;background-size:16px;}
 .item_picker .liste {margin:0;max-height:300px;overflow:auto;}
 .item_picker .liste .type_objet {margin:0;}
 .selecteur_type_unique .item_picker .liste .type_objet{display:none;}
