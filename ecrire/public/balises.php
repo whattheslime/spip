@@ -1078,7 +1078,7 @@ define('CODE_PAGINATION',
  * @see balise_ANCRE_PAGINATION_dist()
  * @example
  *    ```
- *    [<p class="pagination">(#PAGINATION{prive})</p>]
+ *    [<nav role="navigation" class="pagination">(#PAGINATION{prive})</nav>]
  *    ```
  *
  * @param Champ $p
