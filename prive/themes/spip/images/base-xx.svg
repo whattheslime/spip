@@ -1,1 +1,15 @@
-<svg version="1.1" id="Calque_2" xmlns="http://www.w3.org/2000/svg" x="0" y="0" viewBox="0 0 64 64" xml:space="preserve"><style>.st0{fill:#e5ab1a}.st1{fill:#fff}.st2{fill:#aa7705}</style><path class="st0" d="M2.7 7.7H62v12.8H2.7z"/><circle class="st1" cx="9.6" cy="14.1" r="4.6"/><path class="st2" d="M53.5 7.7H62v12.8h-8.5z"/><g><path class="st0" d="M2.7 25.2H62V38H2.7z"/><circle class="st1" cx="9.6" cy="31.6" r="4.6"/><path class="st2" d="M53.5 25.2H62V38h-8.5z"/></g><g><path class="st0" d="M2.7 42.7H62v12.8H2.7z"/><circle class="st1" cx="9.6" cy="49.1" r="4.6"/><path class="st2" d="M53.5 42.7H62v12.8h-8.5z"/></g></svg>
+<svg version="1.1"
+		 width="64"
+		 height="64"
+		 xmlns="http://www.w3.org/2000/svg"
+		 viewBox="0 0 64 64">
+	<path fill="#e5ab1a" d="M2.7 7.7H62v12.8H2.7z"/>
+	<circle fill="#fff" cx="9.6" cy="14.1" r="4.6"/>
+	<path fill="#aa7705" d="M53.5 7.7H62v12.8h-8.5z"/>
+	<path fill="#e5ab1a" d="M2.7 25.2H62V38H2.7z"/>
+	<circle fill="#fff" cx="9.6" cy="31.6" r="4.6"/>
+	<path fill="#aa7705" d="M53.5 25.2H62V38h-8.5z"/>
+	<path fill="#e5ab1a" d="M2.7 42.7H62v12.8H2.7z"/>
+	<circle fill="#fff" cx="9.6" cy="49.1" r="4.6"/>
+	<path fill="#aa7705" d="M53.5 42.7H62v12.8h-8.5z"/>
+</svg>
