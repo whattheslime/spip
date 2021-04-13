@@ -79,7 +79,7 @@
 .liste-objets.articles tr td.logo img,.liste-objets td.logo-carre img {width: 100%; height: 100%; object-fit: cover; border-radius: 8px;}
 
 <BOUCLE_objets(DATA){source table,#REM|lister_tables_objets_sql}>[
-.liste-objets.[(#VALEUR{table_objet})] .caption {background-image:url((#CHEMIN_IMAGE{#VALEUR{icone_objet}}));padding-#ENV{left}:30px;}]</BOUCLE_objets>
+.liste-objets.[(#VALEUR{table_objet})] .caption {background-image:url((#CHEMIN_IMAGE{#VALEUR{icone_objet}|concat{-24.png}}));padding-#ENV{left}:30px;}]</BOUCLE_objets>
 
 .liste-objets.traductions .trad {text-align:center;}
 .liste-objets.traductions button.changer_reference_trad {line-height: 1;margin: 0;width: 100%;}
