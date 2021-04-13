@@ -133,6 +133,7 @@
 	</langue>
 	<langue code="it_fem" url="https://trad.spip.net/tradlang_module/spip?lang_cible=it_fem" total="648" traduits="537" relire="0" modifs="32" nouveaux="79" pourcent="82.87" />
 	<langue code="ja" url="https://trad.spip.net/tradlang_module/spip?lang_cible=ja" total="648" traduits="636" relire="0" modifs="2" nouveaux="10" pourcent="98.15">
+		<traducteur nom="BoOz" lien="https://trad.spip.net/auteur/booz" />
 		<traducteur nom="Cap" lien="https://trad.spip.net/auteur/cap" />
 		<traducteur nom="erational" lien="https://trad.spip.net/auteur/erational-7186" />
 		<traducteur nom="origenius" lien="https://trad.spip.net/auteur/origenius" />

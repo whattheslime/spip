@@ -563,8 +563,7 @@ http://mysite.com、あるいは単純にこのサイトの記事番号を与え
 	'pass_nouveau_pass' => '新規パスワード',
 	'pass_ok' => 'オケー',
 	'pass_oubli_mot' => 'パスワードは忘れています。',
-	'pass_procedure_changer' => 'パスワードを変更するには、アカウントを作成した時のメールアドレスを入力してく
-ださい。',
+	'pass_procedure_changer' => 'パスワードを変更するには、アカウントを作成した時のメールアドレスを入力してください。',
 	'pass_quitter_fenetre' => 'このウィンドウを閉じる',
 	'pass_rappel_login' => 'リマインダー： あなたのＩＤ (ログインＩＤ) は「@login@」です。',
 	'pass_recevoir_mail' => 'パスワードをリセットするために、リンクをメールアドレスに送信されました。',
