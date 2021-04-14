@@ -84,21 +84,21 @@
 	--spip-btn-color-off-active-text:      var(--spip-btn-color-off-text);
 	/* taille normale */
 	--spip-btn-font-size:           0.9em;
-	--spip-btn-padding-x:           0.5em;
-	--spip-btn-padding-y:           1em;
+	--spip-btn-padding-x:           1em;
+	--spip-btn-padding-y:           0.5em;
 	--spip-btn-margin:              0.25em;
 	--spip-btn-border-radius:       0.25em;
 	--spip-btn-gutter:              0.5em;
 	/* taille mini */
 	--spip-btn-font-size-mini:      0.75em;
-	--spip-btn-padding-x-mini:      0.25em;
-	--spip-btn-padding-y-mini:      0.66em;
+	--spip-btn-padding-x-mini:      0.66em;
+	--spip-btn-padding-y-mini:      0.25em;
 	--spip-btn-margin-mini:         var(--spip-btn-margin);
 	--spip-btn-border-radius-mini:  var(--spip-btn-border-radius);
 	/* taille large */
 	--spip-btn-font-size-large:     1em;
-	--spip-btn-padding-x-large:     0.66em;
-	--spip-btn-padding-y-large:     1.5em;
+	--spip-btn-padding-x-large:     1.5em;
+	--spip-btn-padding-y-large:     0.66em;
 	--spip-btn-margin-large:        var(--spip-btn-margin);
 	--spip-btn-border-radius-large: 0.33em;
 }
@@ -127,7 +127,7 @@ button {
 	      align-items: center;
 	text-align: center;
 	vertical-align: middle;
-	padding: var(--spip-btn-padding-x) var(--spip-btn-padding-y);
+	padding: var(--spip-btn-padding-y) var(--spip-btn-padding-x);
 	margin-bottom: var(--spip-btn-margin);
 	background-color: var(--spip-btn-color-main-bg);
 	color: var(--spip-btn-color-main-text);
@@ -436,7 +436,7 @@ button.btn_#VALEUR,
 .groupe-btns_#VALEUR input.reset,
 .groupe-btns_#VALEUR button {
 	font-size: var\(--spip-btn-font-size-#VALEUR\);
-	padding: var\(--spip-btn-padding-x-#VALEUR\) var\(--spip-btn-padding-y-#VALEUR\);
+	padding: var\(--spip-btn-padding-y-#VALEUR\) var\(--spip-btn-padding-x-#VALEUR\);
 	border-radius: var\(--spip-btn-border-radius-#VALEUR\);
 	margin-bottom: var\(--spip-btn-margin-#VALEUR\);
 }
@@ -724,20 +724,17 @@ button.btn_#VALEUR,
  *
  * Markup :
  *
- * <a class="btn spicon spicon_ajouter">Bouton</a>
- * <a class="btn"><i class="spicon spicon_ajouter"></i> Bouton</a>
- * <a class="btn"><svg class="spicon spicon_ajouter"></svg> Bouton</a>
+ * <a class="btn sp-icone sp-icone_ajouter">Bouton</a>
+ * <a class="btn"><svg class="sp-icon sp-icone_ajouter"></svg> Bouton</a>
  */
 
 /* Base */
-.btn.spicon:before,
-.btn .spicon,
-button.spicon:before,
-button .spicon,
-input.submit.spicon:before,
-input.submit .spicon,
-input.reset.spicon:before,
-input.reset .spicon,
+.btn.sp-icone:before,
+.btn .sp-icone,
+button.sp-icone:before,
+button .sp-icone,
+input.submit.sp-icone:before,
+input.reset.sp-icone:before,
 .bouton_action_post .icone-image {
 	margin-#RIGHT: var(--spip-btn-gutter); /* fallback */
 	margin-inline-end: var(--spip-btn-gutter);
@@ -752,18 +749,18 @@ input.reset .spicon,
 	padding-left: var(--spip-btn-padding-x-mini);
 	padding-right: var(--spip-btn-padding-x-mini);
 }
-.btn_icone.btn_larglarge-e {
+.btn_icone.btn_large {
 	padding-left: var(--large-spip-btn-padding-x-large);
 	padding-right: var(--spip-btn-padding-x-large);
 }
-.btn_icone.spicon:before,
-.btn_icone .spicon {
+.btn_icone.sp-icone:before,
+.btn_icone .sp-icone {
 	margin: 0;
 }
 
 /* Icône après le texte */
-.btn_icone_after.spicon:before,
-.btn_icone_after .spicon {
+.btn_icone_after.sp-icone:before,
+.btn_icone_after .sp-icone {
 	order: 2;
 	margin-#LEFT: var(--spip-btn-gutter); /* fallback */
 	margin-#RIGHT: 0; /* fallback */
@@ -784,7 +781,7 @@ input.reset .spicon,
 .liste-objets-associer button:not(.btn_mini),
 .liste-objets-lies button:not(.btn_mini) {
 	font-size: var(--spip-btn-font-size-mini);
-	padding: var(--spip-btn-padding-x-mini) var(--spip-btn-padding-y-mini);
+	padding: var(--spip-btn-padding-y-mini) var(--spip-btn-padding-x-mini);
 	border-radius: var(--spip-btn-border-radius-mini);
 	margin-bottom: var(--spip-btn-margin-mini);
 }
