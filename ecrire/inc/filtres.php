@@ -5274,9 +5274,9 @@ function identifiant_slug($texte, $type = '', $options = array()) {
  *
  * Utile afficher dans un contexte de titre des chaines de langues qui contiennent des ':'
  * 
- * @exemple `<:info_maximum|spip_str_label:>`
+ * @exemple `<:info_maximum|uniformiser_label:>`
  */
-function spip_str_label(string $text, bool $ucfirst = true) : string {
+function uniformiser_label(string $text, bool $ucfirst = true) : string {
 	$label = rtrim($text, " : \t\n\r\0\x0B\xc2\xa0");
 	if ($label and $label[-1] === ';') {
 		$label = preg_replace("#(\&nbsp;)+$#", "", $label);
