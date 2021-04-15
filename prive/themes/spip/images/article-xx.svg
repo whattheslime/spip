@@ -1,10 +1,11 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
-  <style>
-    .st2{fill:#888;stroke:#888;stroke-width:3;stroke-miterlimit:10}
-  </style>
-  <path d="M51.5 62.6H12.9c-2.8 0-5-2.3-5-5V7c0-2.8 2.3-5 5-5h38.5c2.8 0 5 2.2 5 5v50.6c.1 2.7-2.2 5-4.9 5z" fill="#fff" stroke="#666" stroke-width="2.35" stroke-miterlimit="10" id="Calque_2"/>
-  <g id="Calque_5">
-    <path fill="#e895b7" d="M34.7 13.5h15.1v15.1H34.7z"/>
-    <path class="st2" d="M14.6 42.4h35.2M14.6 51.1h35.2M14.6 33.7h35.2M14.6 16.3h17M14.6 25h17"/>
+  <rect x="8" y="2" width="48" height="60" fill="#fff" stroke="#666" stroke-width="2"  rx="5"/>
+  <g>
+    <rect x="16" y="13" width="16" height="16" fill="#e895b7" />
+    <rect x="36" y="16" width="12" height="3" fill="#888" />
+    <rect x="36" y="24" width="12" height="3" fill="#888" />
+    <rect x="16" y="32" width="32" height="3" fill="#888" />
+    <rect x="16" y="40" width="32" height="3" fill="#888" />
+    <rect x="16" y="48" width="32" height="3" fill="#888" />
   </g>
 </svg>
