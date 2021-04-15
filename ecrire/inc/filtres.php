@@ -5265,3 +5265,24 @@ function identifiant_slug($texte, $type = '', $options = array()) {
 
 	return $texte;
 }
+
+/**
+ * Prépare un texte (issu d'une chaine de langue historique) pour un affichage en label ou titre
+ * 
+ * Enlève un ':' à la fin d'une chaine de caractère, ainsi que les espaces qui pourraient l'accompagner,
+ * Met la première lettre en majuscule (par défaut)
+ *
+ * Utile afficher dans un contexte de titre des chaines de langues qui contiennent des ':'
+ * 
+ * @exemple `<:info_maximum|spip_str_label:>`
+ */
+function spip_str_label(string $text, bool $ucfirst = true) : string {
+	$label = rtrim($text, " : \t\n\r\0\x0B\xc2\xa0");
+	if ($label and $label[-1] === ';') {
+		$label = preg_replace("#(\&nbsp;)+$#", "", $label);
+	}
+	if ($ucfirst) {
+		$label = spip_ucfirst($label);
+	}
+	return $label;
+}
