@@ -5288,35 +5288,84 @@ function uniformiser_label(string $text, bool $ucfirst = true) : string {
 	return $label;
 }
 
+
 /**
- * Cherche le contenu parent d'un contenu précis
+ * Helper pour les filtres associés aux fonctions objet_lister_(parents|enfants)(_par_type)?
  *
  * @param string $objet
  * @param int|string $id_objet
  * @return array
  */
-function filtre_objet_trouver_parents_dist($objet, $id_objet) {
+function helper_filtre_objet_lister_enfants_ou_parents($objet, $id_objet, $fonction) {
+	if (!in_array($fonction, ['objet_lister_parents', 'objet_lister_enfants', 'objet_lister_parents_par_type', 'objet_lister_enfants_par_type'])) {
+		return [];
+	}
+
 	// compatibilite signature inversee
 	if (is_numeric($objet) and !is_numeric($id_objet)) {
 		list($objet, $id_objet) = [$id_objet, $objet];
 	}
-	include_spip('base/objets');
-	return objet_trouver_parents($objet, $id_objet);
+
+	if (!function_exists($fonction)) {
+		include_spip('base/objets');
+	}
+	return $fonction($objet, $id_objet);
 }
 
 
 /**
- * Cherche les enfants d'un contenu précis
+ * Cherche les contenus parents d'un objet
+ * Supporte l'ecriture inverseee sous la forme
+ * [(#ID_OBJET|objet_lister_parents{#OBJET})]
  *
+ * @see objet_lister_parents()
  * @param string $objet
  * @param int|string $id_objet
  * @return array
  */
-function filtre_objet_trouver_enfants_dist($objet, $id_objet) {
-	// compatibilite signature inversee
-	if (is_numeric($objet) and !is_numeric($id_objet)) {
-		list($objet, $id_objet) = [$id_objet, $objet];
-	}
-	include_spip('base/objets');
-	return objet_trouver_enfants($objet, $id_objet);
+function filtre_objet_lister_parents_dist($objet, $id_objet) {
+	return helper_filtre_objet_lister_enfants_ou_parents($objet, $id_objet, 'objet_lister_parents');
 }
+
+/**
+ * Cherche les contenus parents d'un objet
+ * Supporte l'ecriture inverseee sous la forme
+ * [(#ID_OBJET|objet_lister_parents_par_type{#OBJET})]
+ *
+ * @see objet_lister_parents_par_type()
+ * @param string $objet
+ * @param int|string $id_objet
+ * @return array
+ */
+function filtre_objet_lister_parents_par_type_dist($objet, $id_objet) {
+	return helper_filtre_objet_lister_enfants_ou_parents($objet, $id_objet, 'objet_lister_parents_par_type');
+}
+
+/**
+ * Cherche les contenus enfants d'un objet
+ * Supporte l'ecriture inverseee sous la forme
+ * [(#ID_OBJET|objet_lister_enfants{#OBJET})]
+ *
+ * @see objet_lister_enfants()
+ * @param string $objet
+ * @param int|string $id_objet
+ * @return array
+ */
+function filtre_objet_lister_enfants_dist($objet, $id_objet) {
+	return helper_filtre_objet_lister_enfants_ou_parents($objet, $id_objet, 'objet_lister_enfants');
+}
+
+/**
+ * Cherche les contenus enfants d'un objet
+ * Supporte l'ecriture inverseee sous la forme
+ * [(#ID_OBJET|objet_lister_enfants_par_type{#OBJET})]
+ *
+ * @see objet_lister_enfants_par_type()
+ * @param string $objet
+ * @param int|string $id_objet
+ * @return array
+ */
+function filtre_objet_lister_enfants_par_type_dist($objet, $id_objet) {
+	return helper_filtre_objet_lister_enfants_ou_parents($objet, $id_objet, 'objet_lister_enfants_par_type');
+}
+
