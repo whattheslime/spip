@@ -668,9 +668,9 @@ in einer Farbe, die den Status anzeigt :',
 	'plugin_titre_automatique_ajouter' => 'Plugins hinzufügen',
 	'plugin_titre_installation' => 'Installation des Plugins @plugin@',
 	'plugin_titre_modifier' => 'Meine Plugins',
-	'plugin_utilise_extension_php' => 'verwendet die PHP-Erweiterung @plugin@ Version @version@.',
-	'plugin_utilise_php' => 'verwendet @plugin@ Version @version@.',
-	'plugin_utilise_plugin' => 'Verwendet das Plugin @plugin@ in der Version @version@.',
+	'plugin_utilise_extension_php' => 'verwendet die PHP-Erweiterung @plugin@ Version @version@.', # MODIF
+	'plugin_utilise_php' => 'verwendet @plugin@ Version @version@.', # MODIF
+	'plugin_utilise_plugin' => 'Verwendet das Plugin @plugin@ in der Version @version@.', # MODIF
 	'plugin_zip_active' => 'Weiter zum Aktivieren',
 	'plugin_zip_adresse' => 'Geben Sie hier die Adresse einer ZIP-Datei, die das Plugin enthält, oder die Adresse einer Plugin-Liste an.',
 	'plugin_zip_adresse_champ' => 'Adresse des Plugins oder der Liste ',

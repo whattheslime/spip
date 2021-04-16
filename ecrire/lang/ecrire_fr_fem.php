@@ -696,9 +696,9 @@ dans une couleur qui indique leur état :',
 	'plugin_titre_automatique_ajouter' => 'Ajouter des plugins',
 	'plugin_titre_installation' => 'Installation du plugin @plugin@',
 	'plugin_titre_modifier' => 'Mes plugins',
-	'plugin_utilise_extension_php' => 'Utilise l’extension PHP @plugin@ en version @version@.',
-	'plugin_utilise_php' => 'Utilise @plugin@ en version @version@.',
-	'plugin_utilise_plugin' => 'Utilise le plugin @plugin@ en version @version@.',
+	'plugin_utilise_extension_php' => 'Utilise l’extension PHP @plugin@ en version @version@.', # MODIF
+	'plugin_utilise_php' => 'Utilise @plugin@ en version @version@.', # MODIF
+	'plugin_utilise_plugin' => 'Utilise le plugin @plugin@ en version @version@.', # MODIF
 	'plugin_zip_active' => 'Continuez pour l’activer',
 	'plugin_zip_adresse' => 'indiquez ci-dessous l’adresse d’un fichier zip de plugin à télécharger, ou encore l’adresse d’une liste de plugins.',
 	'plugin_zip_adresse_champ' => 'Adresse du plugin ou de la liste ',

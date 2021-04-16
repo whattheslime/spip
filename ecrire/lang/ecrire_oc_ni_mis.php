@@ -673,9 +673,9 @@ embé una coulou qu’endica lou sieu estat :',
 	'plugin_titre_automatique_ajouter' => 'Ajustà dei plugin',
 	'plugin_titre_installation' => 'Instalacioun dóu plugin @plugin@',
 	'plugin_titre_modifier' => 'Lu miéu plugin',
-	'plugin_utilise_extension_php' => 'Utilisa l’estencioun PHP @plugin@ en versioun @version@.',
-	'plugin_utilise_php' => 'Utilisa @plugin@ en versioun @version@.',
-	'plugin_utilise_plugin' => 'Utilisa lou plugin @plugin@ en versioun @version@.',
+	'plugin_utilise_extension_php' => 'Utilisa l’estencioun PHP @plugin@ en versioun @version@.', # MODIF
+	'plugin_utilise_php' => 'Utilisa @plugin@ en versioun @version@.', # MODIF
+	'plugin_utilise_plugin' => 'Utilisa lou plugin @plugin@ en versioun @version@.', # MODIF
 	'plugin_zip_active' => 'Countinuas per l’ativà',
 	'plugin_zip_adresse' => 'endicas aquì souta l’adressa d’un fichié zip de plugin a telecargà, o ben l’adressa d’una lista de plugin.',
 	'plugin_zip_adresse_champ' => 'Adressa dóu plugin o de la lista ',

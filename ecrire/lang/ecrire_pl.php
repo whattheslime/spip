@@ -676,8 +676,8 @@ Przekłady są połączone z oryginałem, za pomocą koloru wskazującego na ich
 	'plugin_titre_automatique_ajouter' => 'Dodaj wtyczki',
 	'plugin_titre_installation' => 'Instalacja wtyczki @plugin@',
 	'plugin_titre_modifier' => 'Moje wtyczki',
-	'plugin_utilise_extension_php' => 'Używa rozszerzenia PHP @plugin@ w wersji @version@.',
-	'plugin_utilise_plugin' => 'Używa wtyczki @plugin@ w wersji @version@.', # RELIRE
+	'plugin_utilise_extension_php' => 'Używa rozszerzenia PHP @plugin@ w wersji @version@.', # MODIF
+	'plugin_utilise_plugin' => 'Używa wtyczki @plugin@ w wersji @version@.', # MODIF
 	'plugin_zip_active' => 'Kontynuuj w celu aktywacji',
 	'plugin_zip_adresse' => 'Aby załadować spakowany plik wtyczki lub listę wtyczek, wprowadź ścieżkę poniżej.',
 	'plugin_zip_adresse_champ' => 'Ścieżka wtyczki lub listy',

@@ -611,7 +611,7 @@ Site sloganı', # RELIRE
 	'plugin_titre_automatique_ajouter' => 'Eklenti ekleyiniz',
 	'plugin_titre_installation' => 'Plugin @plugin@ yüklemesi', # RELIRE
 	'plugin_titre_modifier' => 'Pluginlerim', # RELIRE
-	'plugin_utilise_plugin' => 'plugin @plugin@  @version@ kullanıyor', # RELIRE
+	'plugin_utilise_plugin' => 'plugin @plugin@  @version@ kullanıyor', # MODIF
 	'plugin_zip_active' => 'Aktive etmek için devam ediniz',
 	'plugin_zip_adresse' => 'aşağıda indirilecek eklentiye ait zip dosyasının adresini veya bir çok eklentinin adres listesini belirtiniz.',
 	'plugin_zip_adresse_champ' => 'Eklentinin veya listenin adresi ',

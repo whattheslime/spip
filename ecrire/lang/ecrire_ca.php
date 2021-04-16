@@ -656,7 +656,7 @@ amb un color que indica el seu estat:',
 	'plugin_titre_automatique_ajouter' => 'Afegir plugins',
 	'plugin_titre_installation' => 'Instal·lació del connector @plugin@',
 	'plugin_titre_modifier' => 'els meus plugins',
-	'plugin_utilise_plugin' => 'Utilitza el plugin @plugin@ a la versió @version@.',
+	'plugin_utilise_plugin' => 'Utilitza el plugin @plugin@ a la versió @version@.', # MODIF
 	'plugin_zip_active' => 'Continueu per activar-lo',
 	'plugin_zip_adresse' => 'indiqueu més avall l’adreça d’un fitxer zip de plugin a baixar, o fins i tot l’adreça d’una llista de plugins.',
 	'plugin_zip_adresse_champ' => 'Adreça del plugin o de la llista ',

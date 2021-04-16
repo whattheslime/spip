@@ -663,9 +663,9 @@ As traduções estão associadas ao original, numa côr que indica o seu status:
 	'plugin_titre_automatique_ajouter' => 'Incluir plugins',
 	'plugin_titre_installation' => 'Instalação do plugin @plugin@',
 	'plugin_titre_modifier' => 'Meus plugins',
-	'plugin_utilise_extension_php' => 'Utiliza a extensão PHP @plugin@ na versão @version@.',
-	'plugin_utilise_php' => 'Utiliza @plugin@ na versão @version@.',
-	'plugin_utilise_plugin' => 'Utiliza o plugin @plugin@ na versão @version@.',
+	'plugin_utilise_extension_php' => 'Utiliza a extensão PHP @plugin@ na versão @version@.', # MODIF
+	'plugin_utilise_php' => 'Utiliza @plugin@ na versão @version@.', # MODIF
+	'plugin_utilise_plugin' => 'Utiliza o plugin @plugin@ na versão @version@.', # MODIF
 	'plugin_zip_active' => 'Continue para o ativar',
 	'plugin_zip_adresse' => 'Indique abaixo o endereço de um arquivo zip de plugin a ser transferido, ou ainda o endereço de uma lista de plugins.',
 	'plugin_zip_adresse_champ' => 'Endereço do plugin ou da lista',

@@ -677,9 +677,9 @@ een kleur geeft hun status aan:',
 	'plugin_titre_automatique_ajouter' => 'Een plugin toevoegen',
 	'plugin_titre_installation' => 'Het installeren van plugin @plugin@',
 	'plugin_titre_modifier' => 'Mijn plugins',
-	'plugin_utilise_extension_php' => 'Gebruik de PHP-extensie @plugin@ in versie @version@.',
-	'plugin_utilise_php' => 'Gebruikt @plugin@ in versie @version@.',
-	'plugin_utilise_plugin' => 'Gebruikt plugin @plugin@ met versie @version@.',
+	'plugin_utilise_extension_php' => 'Gebruik de PHP-extensie @plugin@ in versie @version@.', # MODIF
+	'plugin_utilise_php' => 'Gebruikt @plugin@ in versie @version@.', # MODIF
+	'plugin_utilise_plugin' => 'Gebruikt plugin @plugin@ met versie @version@.', # MODIF
 	'plugin_zip_active' => 'Gaat door om het te activeren',
 	'plugin_zip_adresse' => 'geef hieronder het adres van een zipbestand om de plugin te downloaden, of het adres van een lijst van plugins.',
 	'plugin_zip_adresse_champ' => 'Adres van plugin of van de lijst ',

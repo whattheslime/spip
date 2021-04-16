@@ -682,9 +682,9 @@ a stav ich spracovania je označený farbou:',
 	'plugin_titre_automatique_ajouter' => 'Pridať zásuvné moduly',
 	'plugin_titre_installation' => 'Inštalácia zásuvného modulu @plugin@',
 	'plugin_titre_modifier' => 'Moje zásuvné moduly',
-	'plugin_utilise_extension_php' => 'Využíva rozšírenie PHP @plugin@ verziu @version@.',
-	'plugin_utilise_php' => 'Využíva @plugin@ verziu @version@.',
-	'plugin_utilise_plugin' => 'Využíva zásuvný modul @plugin@ vo verzii @version@.',
+	'plugin_utilise_extension_php' => 'Využíva rozšírenie PHP @plugin@ verziu @version@.', # MODIF
+	'plugin_utilise_php' => 'Využíva @plugin@ verziu @version@.', # MODIF
+	'plugin_utilise_plugin' => 'Využíva zásuvný modul @plugin@ vo verzii @version@.', # MODIF
 	'plugin_zip_active' => 'Pokračujte, aby sa aktivoval',
 	'plugin_zip_adresse' => 'Ak chcete spustiť zazipovaný súbor zásuvného modulu alebo zoznam zásuvných modulov, zadajte toto umiestnenie.',
 	'plugin_zip_adresse_champ' => 'Umiestnenie zásuvného modulu alebo zoznamu ',

@@ -676,9 +676,9 @@ La tradukoj estas kunligitaj al la originalo, kun koloro kiu indikas ties staton
 	'plugin_titre_automatique_ajouter' => 'Aldoni kromprogramojn',
 	'plugin_titre_installation' => 'Instalado de la kromprogramo @plugin@',
 	'plugin_titre_modifier' => 'Miaj kromprogramoj',
-	'plugin_utilise_extension_php' => 'Uzas la PHP-kromprogramon @plugin@ laŭ versio @version@.',
-	'plugin_utilise_php' => 'Uzas @plugin@ laŭ versio @version@.',
-	'plugin_utilise_plugin' => 'Uzas la kromprogramon @plugin@ de versio @version@.',
+	'plugin_utilise_extension_php' => 'Uzas la PHP-kromprogramon @plugin@ laŭ versio @version@.', # MODIF
+	'plugin_utilise_php' => 'Uzas @plugin@ laŭ versio @version@.', # MODIF
+	'plugin_utilise_plugin' => 'Uzas la kromprogramon @plugin@ de versio @version@.', # MODIF
 	'plugin_zip_active' => 'Daŭrigu por ĝin aktivigi',
 	'plugin_zip_adresse' => 'indiku ĉi-sube la retadreson de la maldensa dosiero de elŝutenda kromprogramo, aŭ la retadreson de kromprogramolisto.',
 	'plugin_zip_adresse_champ' => 'Retadreso de la kromprogramo aŭ de la listo ',

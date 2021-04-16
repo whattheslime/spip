@@ -681,9 +681,9 @@ Le traduzioni sono associate all’originale,
 	'plugin_titre_automatique_ajouter' => 'Aggiungere dei plugin',
 	'plugin_titre_installation' => 'Installazione del plugin @plugin@',
 	'plugin_titre_modifier' => 'I miei plugin',
-	'plugin_utilise_extension_php' => 'Usa l’estensione PHP @plugin@ in versione @version@.',
-	'plugin_utilise_php' => 'Utilizza @plugin@ in versione @version@.',
-	'plugin_utilise_plugin' => 'Utilizza il plugin @plugin@ in versione @version@.',
+	'plugin_utilise_extension_php' => 'Usa l’estensione PHP @plugin@ in versione @version@.', # MODIF
+	'plugin_utilise_php' => 'Utilizza @plugin@ in versione @version@.', # MODIF
+	'plugin_utilise_plugin' => 'Utilizza il plugin @plugin@ in versione @version@.', # MODIF
 	'plugin_zip_active' => 'Continuare per attivarlo',
 	'plugin_zip_adresse' => 'indicate qui sotto l’indirizzo di un file zip del plug-in da scaricare, oppure l’indirizzo di un elenco di plug-in.',
 	'plugin_zip_adresse_champ' => 'Indirizzo del plug-in o dell’elenco ',
