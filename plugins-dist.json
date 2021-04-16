@@ -35,10 +35,6 @@
         "path": "plugins-dist/forum",
         "source": "https://git.spip.net/spip/forum.git"
     },
-    "jquery_ui": {
-        "path": "plugins-dist/jquery_ui",
-        "source": "https://git.spip.net/spip/jquery_ui.git"
-    },
     "mediabox": {
         "path": "plugins-dist/mediabox",
         "source": "https://git.spip.net/spip/mediabox.git"
