@@ -77,7 +77,7 @@ function plugins_infos_paquet($desc, $plug = '', $dir_plugins = _DIR_PLUGINS) {
 	}
 
 	// Prendre les messages d'erreur sans les numeros de lignes
-	$msg = array_map('array_shift', $vxml->err);
+	$msg = array_column($vxml->err, 0);
 	$t = _T('plugins_erreur', array('plugins' => $plug));
 	array_unshift($msg, $t . " <ul class='erreur_xml'><li>" . reset($msg) . "</li></ul>");
 
