@@ -509,7 +509,7 @@
 /* Ceux avec un cadre */
 .formulaire_spip div.choix {
 	background-color: var(--spip-color-white);
-	padding: var(--spip-form-padding-input-y) var(--spip-form-padding-input-x);
+	padding: calc(var(--spip-form-padding-input-y) / 2) var(--spip-form-padding-input-x);
 	border: 1px solid var(--spip-form-border-color);
 	border-top-left-radius: var(--spip-form-border-radius);
 	border-top-right-radius: var(--spip-form-border-radius);
@@ -522,19 +522,20 @@
 	border-top: 0;
 	border-bottom: 0;
 	border-radius: 0;
-	margin-top: calc(var(--spip-form-spacing-y) / 2 * -1);
 }
 .formulaire_spip div.choix:last-of-type,
 .formulaire_spip div.choix:last-child {
 	border-bottom-left-radius: var(--spip-form-border-radius);
 	border-bottom-right-radius: var(--spip-form-border-radius);
 	border-bottom: 1px solid var(--spip-form-border-color);
+	padding-bottom: var(--spip-form-padding-input-y);
 	position: relative;
 }
 .formulaire_spip div.choix:first-of-type {
 	border-top-left-radius: var(--spip-form-border-radius);
 	border-top-right-radius: var(--spip-form-border-radius);
 	border-top: 1px solid var(--spip-form-border-color);
+	padding-top: var(--spip-form-padding-input-y);
 	position: relative;
 }
 
