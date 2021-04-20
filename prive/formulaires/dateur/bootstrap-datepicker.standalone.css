@@ -6,8 +6,6 @@
 
 .datepicker {
   padding: 4px;
-  -webkit-border-radius: 4px;
-  -moz-border-radius: 4px;
   border-radius: 4px;
   direction: ltr;
 }
@@ -88,8 +86,6 @@
   text-align: center;
   width: 20px;
   height: 20px;
-  -webkit-border-radius: 4px;
-  -moz-border-radius: 4px;
   border-radius: 4px;
   border: none;
 }
@@ -158,8 +154,6 @@
 .datepicker table tr td.range.disabled,
 .datepicker table tr td.range.disabled:hover {
   background: #eee;
-  -webkit-border-radius: 0;
-  -moz-border-radius: 0;
   border-radius: 0;
 }
 .datepicker table tr td.range.today,
@@ -169,8 +163,6 @@
   background-color: #f3d17a;
   border-color: #f3e97a #f3e97a #edde34;
   border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
-  -webkit-border-radius: 0;
-  -moz-border-radius: 0;
   border-radius: 0;
 }
 .datepicker table tr td.range.today:hover,
@@ -265,8 +257,6 @@
   float: left;
   margin: 1%;
   cursor: pointer;
-  -webkit-border-radius: 4px;
-  -moz-border-radius: 4px;
   border-radius: 4px;
 }
 .datepicker table tr td span:hover,
@@ -352,13 +342,9 @@
   text-align: center;
 }
 .input-daterange input:first-child {
-  -webkit-border-radius: 3px 0 0 3px;
-  -moz-border-radius: 3px 0 0 3px;
   border-radius: 3px 0 0 3px;
 }
 .input-daterange input:last-child {
-  -webkit-border-radius: 0 3px 3px 0;
-  -moz-border-radius: 0 3px 3px 0;
   border-radius: 0 3px 3px 0;
 }
 .input-daterange .add-on {
@@ -389,8 +375,6 @@
   background-color: #fff;
   border: 1px solid #ccc;
   border: 1px solid rgba(0, 0, 0, 0.2);
-  -webkit-border-radius: 5px;
-  -moz-border-radius: 5px;
   border-radius: 5px;
   -webkit-box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
   -moz-box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
