@@ -740,10 +740,13 @@
 	overflow: auto;
 }
 
-/* Placeholders simulés ? */
+/* Placeholders (et simulés, legacy) */
 .formulaire_spip input.placeholder,
-.formulaire_spip textarea.placeholder {
+.formulaire_spip textarea.placeholder,
+.formulaire_spip input::placeholder,
+.formulaire_spip textarea::placeholder {
 	color: var(--spip-form-color-text-lightest);
+	font-style: italic;
 }
 
 /* Input fichier */
