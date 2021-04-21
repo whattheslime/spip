@@ -793,57 +793,25 @@
 
 
 /**
- * =============================
- * 10. Messages de retour et cie
- * =============================
+ * ======================
+ * 10. Messages de retour
+ * ======================
  */
 
 
-.formulaire_spip .reponse_formulaire,
-.error, .success, .notice, .information {
-	border: 2px solid;
-	color: var(--spip-form-color-text);
-	font-weight: normal;
-	padding: var(--spip-form-spacing-y) var(--spip-form-spacing-x);
-	padding-left: calc(var(--spip-form-spacing-y) + 24px); /* place pour icône */
-	min-height: 24px;
-	background-repeat: no-repeat;
-	background-position: calc(var(--spip-form-spacing-y) / 2) var(--spip-form-spacing-x);
-	background-size: 24px;
-	margin-bottom: var(--spip-form-spacing-y);
-	margin-top: var(--spip-form-spacing-y);
-}
-.formulaire_spip .reponse_formulaire {
-	border-top-#RIGHT-radius: var(--spip-border-radius);
-	border-bottom-#RIGHT-radius: var(--spip-border-radius);
-	border-width: 0;
+/* Les styles sont mutualisés dans alertes.css
+   Par défaut, on étend les styles d'une alerte large.
+   Ici, ne mettre que les ajustements propres aux formulaires.
+   Nb : on double les sélecteurs pour avoir la priorité (joie des @extend) */
+.formulaire_spip .reponse_formulaire.reponse_formulaire {
 	border-#LEFT-width: 0.6em;
-	box-shadow: inset 0 0 1em hsla(0, 0%, 100%, 0.2);
+	border-#LEFT-style: solid;
 }
-.formulaire_spip .reponse_formulaire_ok,
-.success {
-	color: hsl(var(--spip-color-success--h), var(--spip-color-success--s), 25%);
-	border-color: hsl(var(--spip-color-success--h), var(--spip-color-success--s), 66%);
-	background-color:hsl(var(--spip-color-success--h), var(--spip-color-success--s), 85%);
-	background-image: url(#CHEMIN_IMAGE{ok-24.png});
+.formulaire_spip .reponse_formulaire.reponse_formulaire_ok {
+	border-#LEFT-color: hsl(var(--spip-color-success--h), var(--spip-color-success--s), 66%);
 }
-.formulaire_spip .reponse_formulaire_erreur,
-.error {
-	color: hsl(var(--spip-color-error--h), var(--spip-color-error--s), 45%);
-	border-color: hsl(var(--spip-color-error--h), var(--spip-color-error--s), 87%);
-	background-color:hsl(var(--spip-color-error--h), var(--spip-color-error--s), 95%);
-	background-image: url(#CHEMIN_IMAGE{erreur-24.png});
-}
-.notice {
-	color: hsl(var(--spip-color-notice--h), var(--spip-color-notice--s), 22%);
-	border-color: hsl(var(--spip-color-notice--h), var(--spip-color-notice--s), 57%);
-	background-color:hsl(var(--spip-color-notice--h), var(--spip-color-notice--s), 87%);
-	background-image: url(#CHEMIN_IMAGE{warning-24.png});
-}
-.information {
-	color: hsl(var(--spip-color-info--h), var(--spip-color-info--s), 27%);
-	border-color: hsl(var(--spip-color-info--h), var(--spip-color-info--s), 85%);
-	background-color:hsl(var(--spip-color-info--h), var(--spip-color-info--s), 94%);
+.formulaire_spip .reponse_formulaire.reponse_formulaire_erreur {
+	border-#LEFT-color: hsl(var(--spip-color-error--h), var(--spip-color-error--s), 87%);
 }
 
 
