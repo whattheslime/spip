@@ -20,7 +20,6 @@ if (!defined('_ECRIRE_INC_VERSION')) {
 }
 
 include_spip('inc/filtres_boites');
-include_spip('inc/filtres_alertes');
 include_spip('inc/boutons');
 include_spip('inc/pipelines_ecrire');
 

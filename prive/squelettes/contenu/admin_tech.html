@@ -8,14 +8,16 @@
 ]
 [(#CONST{_DIR_TMP}|verifier_htaccess{1}|et{#CONST{_DIR_CONNECT}|verifier_htaccess{1}}|non)
 
-	[(#ALERTE_OUVRIR{<:htaccess_inoperant:>,'notice'})]
+	#BOITE_OUVRIR{#VAL{htaccess_inoperant}|_T|wrap{'<h3>'},'notice','titrem'}
 		[(#SET{htaccess,[<tt>(#CONST{_ACCESS_FILE_NAME})</tt>]})]
 		[(#SET{constantes,<tt>_DIR_TMP &amp; _DIR_CONNECT</tt>})]
 		[(#SET{document_root,[<tt>(#EVAL{table_valeur($_SERVER,'DOCUMENT_ROOT')})</tt>]})]
 		<p><:htaccess_a_simuler{htaccess=#GET{htaccess},constantes=#GET{constantes},document_root=#GET{document_root}}:></p>
-	#ALERTE_FERMER
+	#BOITE_FERMER
 
 ]
+
+
 
 
 [(#AUTORISER{reparer,base})
