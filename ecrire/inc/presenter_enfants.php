@@ -86,9 +86,9 @@ function enfant_rub($collection, $debut = 0, $limite = 500) {
 				($row['lang'] !== $GLOBALS['spip_lang'] ? " hreflang='" . $row['lang'] . "'" : '') .
 				" href='" .
 				generer_url_entite($id_rubrique, 'rubrique') .
-				"'>" .
+				"'><span>" .
 				$rang . $titre
-				. '</a>'
+				. '</span></a>'
 				. (is_string($logo) ? $logo : '');
 
 			$titre = bouton_block_depliable($lib_bouton, $les_sous_enfants ? false : -1, "enfants$id_rubrique")
