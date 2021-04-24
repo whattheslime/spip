@@ -314,6 +314,7 @@ $GLOBALS['spip_matrice']['image_select'] = true;//'inc/filtres_images_mini.php';
 $GLOBALS['spip_matrice']['image_reduire'] = true;//'inc/filtres_images_mini.php';
 $GLOBALS['spip_matrice']['image_reduire_par'] = true;//'inc/filtres_images_mini.php';
 $GLOBALS['spip_matrice']['image_passe_partout'] = true;//'inc/filtres_images_mini.php';
+$GLOBALS['spip_matrice']['image_recadre_avec_fallback'] = true;//'inc/filtres_images_mini.php';
 
 $GLOBALS['spip_matrice']['couleur_html_to_hex'] = 'inc/filtres_images_mini.php';
 $GLOBALS['spip_matrice']['couleur_hex_to_hsl'] = 'inc/filtres_images_mini.php';
