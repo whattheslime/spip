@@ -68,7 +68,7 @@ function enfant_rub($collection, $debut = 0, $limite = 500) {
 			if ($voir_logo) {
 				if ($logo = $chercher_logo($id_rubrique, 'id_rubrique', 'on')) {
 					list($fid, $dir, $nom, $format) = $logo;
-					$logo = image_passe_partout("<img src='$fid' alt='' />", 70, 70);
+					$logo = image_recadre_avec_fallback("<img src='$fid' alt='' />", 70, 70);
 					if ($logo) {
 						$logo = wrap(inserer_attribut($logo, 'class', 'logo'),'<span class="logo-carre">');
 					}
@@ -86,10 +86,11 @@ function enfant_rub($collection, $debut = 0, $limite = 500) {
 				($row['lang'] !== $GLOBALS['spip_lang'] ? " hreflang='" . $row['lang'] . "'" : '') .
 				" href='" .
 				generer_url_entite($id_rubrique, 'rubrique') .
-				"'><span>" .
+				"'><span class='titre'>" .
 				$rang . $titre
-				. '</span></a>'
-				. (is_string($logo) ? $logo : '');
+				. '</span>'
+				. (is_string($logo) ? $logo : '')
+				. '</a>';
 
 			$titre = bouton_block_depliable($lib_bouton, $les_sous_enfants ? false : -1, "enfants$id_rubrique")
 				. (!$descriptif ? '' : "\n<div class='descriptif'>$descriptif</div>")
