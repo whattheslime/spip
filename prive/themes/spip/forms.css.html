@@ -62,8 +62,8 @@
 	--spip-form-fieldset-offset: 1.5em; /* décalage quand imbriqué */
 	--spip-form-fieldset-spacing: calc(var(--spip-form-spacing-y) / 2); /* espacement en plus */
 	/* layout labels */
-	--spip-form-label-width: 12em;
-	--spip-form-label-long-width: 19em;
+	--spip-form-label-width: 12rem;
+	--spip-form-label-long-width: 19rem; /* ne pas dépendre de la taille de la font-size du label qui peut varier */
 	/* couleurs */
 	--spip-form-border-color: hsla(0, 0%, 0%, 0.2); /* couleur bordure inputs et cie */
 	--spip-form-sep-color: hsla(0, 0%, 0%, 0.125); /* couleur trait de séparation */
@@ -1111,21 +1111,24 @@
 }
 
 /* dater */
-.formulaire_dater .editer:nth-child(2n) {
+.formulaire_dater .editer[class*=editer_date] {
 	padding-top: 0;
 }
 .formulaire_dater .editer > label {
 	font-weight: bold;
 	text-transform: uppercase;
 	display: flex;
-	align-items: center;
+	align-items: flex-start;
+	padding-top: calc(var(--spip-form-padding-input-y) / 2);
 }
-.formulaire_dater .editer > label .texte-label {
+.formulaire_dater .editer[class*=editer_date] > label {
 	font-size: 0.85em;
 }
 .formulaire_dater .affiche {
+	display:block;
 	font-weight: bold;
 	text-transform: uppercase;
+	padding-top: calc(var(--spip-form-padding-input-y) / 2);
 }
 .formulaire_dater .saisie_redac {
 	display: block;
@@ -1147,6 +1150,8 @@
 }
 .formulaire_spip.formulaire_dater .toggle_box_link {
 	#RIGHT: var(--spip-form-spacing-x);
+	top: calc(var(--spip-form-padding-input-y) / 2);
+	transform: none;
 }
 .formulaire_spip.formulaire_dater .boutons {
 	border-radius: 0px;
