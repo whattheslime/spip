@@ -445,9 +445,6 @@
 /* Légendes */
 .formulaire_spip fieldset legend:not(.label),
 .formulaire_spip fieldset .legend {
-	display: flex; /* pour aligner les pictos aide */
-	align-items: center;
-	justify-content: space-between;
 	padding: var(--spip-form-padding-input-y) var(--spip-form-padding-input-x);
 	background-color: var(--spip-color-gray-lightest);
 	/* color: var(--spip-color-theme-darker); */
@@ -1456,9 +1453,10 @@
 
 /* Icone d'aide
    Attention même classe sur le <a> et le <img> dedans */
-.formulaire_spip .aide {
+a.aide {
 	display: inline-flex; /* pour aligner correctement */
-	flex: 0 0 auto;
+	vertical-align: middle;
+	margin-bottom: 0.1em; /* pour aligner aussi */
 }
 img.aide {
 	padding: 2px !important;
