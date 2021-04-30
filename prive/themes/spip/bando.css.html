@@ -121,6 +121,16 @@
 .bando-haut .menu-simple__lien:focus {
 	text-decoration: underline !important;
 }
+.bando-haut .menu-simple__lien + .menu-simple__lien:before {
+	content:'';
+	display: inline-block;
+	height: 0.9em;
+	line-height: 1em;
+	border-#LEFT: 1px solid var(--spip-color-gray-light);
+	position: relative;
+	#LEFT: calc(-1 * var(--spip-bando-id-spacing-x));
+	margin-#LEFT:-1px;
+}
 .bando-haut .menu-simple img {
 	vertical-align: middle;
 }
