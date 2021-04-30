@@ -11,6 +11,7 @@
 }
 .datepicker-inline {
   width: 220px;
+  border: 1px solid var(--spip-color-gray-light);
 }
 .datepicker-rtl {
   direction: rtl;
