@@ -126,12 +126,12 @@
 /* Conteneur + obligé de reset les styles des vieux messages d'alertes */
 .box,
 .box.notice, .box.error, .box.success {
-	background: var(--spip-color-white);
 	padding: 0;
+	background: var(--spip-color-white);
+	border: 1px solid var(--spip-box-border-color);
 	border-radius: var(--spip-box-border-radius);
-	border: 0;
-	box-shadow: none;
 	color: var(--spip-color-black);
+	box-shadow: none;
 	transition: box-shadow 0.2s;
 }
 
@@ -188,11 +188,8 @@
  */
 
 
-/* Simple */
-.box.simple {
-	background-color: var(--spip-color-white);
-	border: 1px solid var(--spip-box-border-color);
-}
+/* Simple  = boîte par défaut */
+.box.simple {}
 
 /* Info */
 .box.info {
@@ -209,6 +206,7 @@
 /* Raccourcis */
 .box.raccourcis {
 	background-color: var(--spip-color-gray-lighter);
+	border: 0;
 }
 
 /* Important */
@@ -220,6 +218,7 @@
 /* Highlight */
 .box.highlight {
 	background-color: var(--spip-color-theme-light);
+	border: 0;
 }
 .box.highlight .box_header {
 	border-bottom-color: var(--spip-box-sep-color);
@@ -251,6 +250,7 @@
 /* Emballage */
 .box.notice, .box.error, .box.success {
 	box-shadow: var(--spip-box-shadow);
+	border: 0;
 }
 .box.notice:hover, .box.error:hover, .box.success:hover,
 .box.notice:focus-within, .box.error:focus-within, .box.success:focus-within {
@@ -368,7 +368,7 @@
 .box.pop:focus-within {
 	box-shadow: var(--spip-box-shadow-hover);
 }
-.box.simple.pop {
+.box.pop:not(.note):not(.info):not(.important) {
 	border: 0;
 }
 
