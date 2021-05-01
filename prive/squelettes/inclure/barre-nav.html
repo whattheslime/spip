@@ -29,7 +29,7 @@
 					title="<:titre_config_langage:>">
 					[(#CHEMIN_IMAGE{langue-small-xx.svg}|balise_svg{<:titre_config_langage:>,picto-lang})][(#LANG|traduire_nom_langue)]
 				</a>
-				[(#NULL|et{#PLUGIN{aide}}|oui)<a
+				[(#PLUGIN{aide}|oui)<a
 					class="menu-simple__item menu-simple__item_aide aide popin" target="_blank"
 					href="#URL_ECRIRE{aide,var_lang=#LANG}">
 					<:icone_aide_ligne:>
