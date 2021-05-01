@@ -63,10 +63,6 @@
         "path": "plugins-dist/sites",
         "source": "https://git.spip.net/spip/sites.git"
     },
-    "squelettes_par_rubrique": {
-        "path": "plugins-dist/squelettes_par_rubrique",
-        "source": "https://git.spip.net/spip/squelettes_par_rubrique.git"
-    },
     "statistiques": {
         "path": "plugins-dist/statistiques",
         "source": "https://git.spip.net/spip/statistiques.git"
