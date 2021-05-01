@@ -87,7 +87,7 @@
  * Markup :
  *
  * p.menu-simple
- *  a.menu-simple__lien
+ *  a.menu-simple__item | span.menu-simple__item
  */
 .bando-haut .menu-simple {
 	display: flex;
@@ -97,7 +97,7 @@
 .bando-haut .menu-simple + .menu-simple {
 	border-top: 1px solid hsla(0, 0%, 0%, 0.1);
 }
-.bando-haut .menu-simple__lien {
+.bando-haut .menu-simple__item {
 	position: relative;
 	display: inline-flex;
 	flex-wrap: wrap;
@@ -110,18 +110,18 @@
 	border: 1px solid transparent; /* Pour le focus */
 	transition: all 0.2s;
 }
-.bando-haut .menu-simple__lien:not(:hover):not(:focus) {
+.bando-haut a:not(:hover):not(:focus) {
 	color: inherit;
 }
-.bando-haut .menu-simple__lien:focus {
+.bando-haut a:hover,
+.bando-haut a:focus {
+	text-decoration: underline !important;
+}
+.bando-haut .menu-simple__item:focus {
 	border-color: var(--spip-color-theme);
 	outline: none;
 }
-.bando-haut .menu-simple__lien:hover,
-.bando-haut .menu-simple__lien:focus {
-	text-decoration: underline !important;
-}
-.bando-haut .menu-simple__lien + .menu-simple__lien:before {
+.bando-haut .menu-simple__item + .menu-simple__item:before {
 	content:'';
 	display: inline-block;
 	height: 0.9em;
@@ -323,8 +323,8 @@
 .bando-evitement.actif {
 	z-index: 11;
 }
-.bando-evitement .menu-simple__lien:hover,
-.bando-evitement .menu-simple__lien:focus {
+.bando-evitement a:hover,
+.bando-evitement a:focus {
 	color: var(--spip-color-theme);
 }
 
@@ -354,23 +354,21 @@
 .bando-id .menu-simple {
 	flex: 1 1 100%;
 }
-.bando-id .menu-simple__lien * {
+.bando-id .menu-simple__item * {
 	font-weight: inherit; /* tout unifier, même si <strong> */
 }
-.bando-id .menu-simple__lien:hover,
-.bando-id .menu-simple__lien:focus {
+.bando-id a:hover,
+.bando-id a:focus {
 	color: var(--spip-color-theme-dark);
 }
-.bando-id .picto-lang {
+.bando-id svg.picto-lang {
 	height: 1.3em;
 	width: auto;
 	margin-#RIGHT: 0.33em;
-}
-.bando-id svg.picto-lang .fond {
-	fill: transparent;
-}
-.bando-id svg.picto-lang .trait {
 	fill: currentColor;
+}
+.bando-id svg.picto-lang path {
+	fill: inherit; /* forcer la main (?) */
 }
 /* Responsive */
 @media (min-width: 580px) {

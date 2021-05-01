@@ -6,9 +6,9 @@
 	<div id="bando_liens_rapides" class="bando-evitement">
 		<div class="largeur">
 			<p class="menu-simple menu-simple_evitement">
-				<a class="menu-simple__lien" href="#conteneur" onclick="return focus_zone('#conteneur')">Aller au contenu</a>
-				<a class="menu-simple__lien" href="#bando_navigation" onclick="return focus_zone('#bando_navigation')">Aller &agrave; la navigation</a>
-				<a class="menu-simple__lien" href="#recherche" onclick="return focus_zone('#rapides .formulaire_recherche')">Aller &agrave; la recherche</a>
+				<a class="menu-simple__item" href="#conteneur" onclick="return focus_zone('#conteneur')">Aller au contenu</a>
+				<a class="menu-simple__item" href="#bando_navigation" onclick="return focus_zone('#bando_navigation')">Aller &agrave; la navigation</a>
+				<a class="menu-simple__item" href="#recherche" onclick="return focus_zone('#rapides .formulaire_recherche')">Aller &agrave; la recherche</a>
 			</p>
 		</div>
 	</div>
@@ -19,36 +19,41 @@
 
 			<p class="menu-simple menu-simple_perso">
 				<a
-					class="menu-simple__lien menu-simple__lien_nom"
+					class="menu-simple__item menu-simple__item_nom"
 					title="<:icone_informations_personnelles|attribut_html:> \(<:auteur|attribut_html:> ##SESSION{id_auteur}\)"
 					href="#URL_ECRIRE{infos_perso}">
 					<strong class="nom">[(#SESSION{nom}|trim|sinon{#SESSION{login}}|typo|couper{30})]</strong>
 				</a>
-				<a class="menu-simple__lien menu-simple__lien_lang menu_lang"
+				<a class="menu-simple__item menu-simple__item_lang menu_lang"
 					href="#URL_ECRIRE{configurer_langage}"
 					title="<:titre_config_langage:>">
 					[(#CHEMIN_IMAGE{langue-small-xx.svg}|balise_svg{<:titre_config_langage:>,picto-lang})][(#LANG|traduire_nom_langue)]
 				</a>
 				[(#PLUGIN{aide}|oui)<a
-					class="menu-simple__lien menu-simple__lien_aide aide popin" target="_blank"
+					class="menu-simple__item menu-simple__item_aide aide popin" target="_blank"
 					href="#URL_ECRIRE{aide,var_lang=#LANG}">
 					<:icone_aide_ligne:>
 				</a>]
-				<a class="menu-simple__lien menu-simple__lien_logout" href="[(#VAL{logout}|generer_url_action{logout=prive})]">
+				<a class="menu-simple__item menu-simple__item_logout" href="[(#VAL{logout}|generer_url_action{logout=prive})]">
 					<:icone_deconnecter:>
 				</a>
 			</p>
 
 			<p class="menu-simple menu-simple_site nom_site_spip">
-				[(#SET{configurer,#AUTORISER{configurer,_identite}|?{oui,''}})][(#GET{configurer}|oui)
+				[(#SET{configurer,#AUTORISER{configurer,_identite}|?{oui,''}})]
+				[(#GET{configurer}|oui)
 				<a
-					class="menu-simple__lien menu-simple__lien_site info"
+					class="menu-simple__item menu-simple__item_site info"
 					title="<:titre_identite_site|attribut_html:>"
-					href="#URL_ECRIRE{configurer_identite}">]
+					href="#URL_ECRIRE{configurer_identite}"
+				>
+				][(#GET{configurer}|non)
+				<span class="menu-simple__item menu-simple__item_nom">
+				]
 					<strong class="nom">[(#NOM_SITE_SPIP|couper{35})]</strong>
-				[</a>(#GET{configurer}|oui)]
+				[(#GET{configurer}|?{</a>,</span>})]
 				<a
-					class="menu-simple__lien menu-simple__lien_voir voir"
+					class="menu-simple__item menu-simple__item_voir voir"
 					href="#URL_SITE_SPIP">
 					<:icone_visiter_site:>
 				</a>
