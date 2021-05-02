@@ -2885,7 +2885,7 @@ function direction_css($css, $voulue = '') {
 	if (!preg_match(',(_rtl)?\.css$,i', $css, $r)) {
 		return $css;
 	}
-
+	include_spip("inc/lang");
 	// si on a precise le sens voulu en argument, le prendre en compte
 	if ($voulue = strtolower($voulue)) {
 		if ($voulue != 'rtl' and $voulue != 'ltr') {
