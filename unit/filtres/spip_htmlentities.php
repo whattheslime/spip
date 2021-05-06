@@ -99,50 +99,47 @@ paragraphes',
   ),
   11 => 
   array (
-    0 => 'Un texte avec des &lt;a href=&quot;http://spip.net&quot;&gt;liens avec des accents ISO a&agrave;&acirc;&auml; e&eacute;&egrave;&ecirc;&euml; i&icirc;&iuml; o&ocirc; u&ugrave;&uuml;&lt;/a&gt; [Article 1 avec des accents ISO a&agrave;&acirc;&auml; e&eacute;&egrave;&ecirc;&euml; i&icirc;&iuml; o&ocirc; u&ugrave;&uuml;-&gt;art1] [spip avec des accents ISO a&agrave;&acirc;&auml; e&eacute;&egrave;&ecirc;&euml; i&icirc;&iuml; o&ocirc; u&ugrave;&uuml;-&gt;http://www.spip.net] http://www.spip.net',
+    0 => '',
     1 => 'Un texte avec des <a href="http://spip.net">liens avec des accents ISO aàâä eéèêë iîï oô uùü</a> [Article 1 avec des accents ISO aàâä eéèêë iîï oô uùü->art1] [spip avec des accents ISO aàâä eéèêë iîï oô uùü->http://www.spip.net] http://www.spip.net',
   ),
   12 => 
   array (
-    0 => 'Un texte avec des entit&amp;eacute;s &amp;amp;&amp;lt;&amp;gt;&amp;quot; et avec des accents ISO a&agrave;&acirc;&auml; e&eacute;&egrave;&ecirc;&euml; i&icirc;&iuml; o&ocirc; u&ugrave;&uuml;',
+    0 => '',
     1 => 'Un texte avec des entit&eacute;s &amp;&lt;&gt;&quot; et avec des accents ISO aàâä eéèêë iîï oô uùü',
   ),
   13 => 
   array (
-    0 => 'Un texte avec des entit&amp;amp;eacute;s echap&amp;amp;eacute; &amp;amp;amp;&amp;amp;lt;&amp;amp;gt;&amp;amp;quot; et avec des accents ISO a&agrave;&acirc;&auml; e&eacute;&egrave;&ecirc;&euml; i&icirc;&iuml; o&ocirc; u&ugrave;&uuml;',
+    0 => '',
     1 => 'Un texte avec des entit&amp;eacute;s echap&amp;eacute; &amp;amp;&amp;lt;&amp;gt;&amp;quot; et avec des accents ISO aàâä eéèêë iîï oô uùü',
   ),
   14 => 
   array (
-    0 => 'Un texte avec des entit&amp;#233;s num&amp;#233;riques &amp;#38;&amp;#60;&amp;#62;&amp;quot; et avec des accents ISO a&agrave;&acirc;&auml; e&eacute;&egrave;&ecirc;&euml; i&icirc;&iuml; o&ocirc; u&ugrave;&uuml;',
+    0 => '',
     1 => 'Un texte avec des entit&#233;s num&#233;riques &#38;&#60;&#62;&quot; et avec des accents ISO aàâä eéèêë iîï oô uùü',
   ),
   15 => 
   array (
-    0 => 'Un texte avec des entit&amp;amp;#233;s num&amp;amp;#233;riques echap&amp;amp;#233;es &amp;amp;#38;&amp;amp;#60;&amp;amp;#62;&amp;amp;quot; et avec des accents ISO a&agrave;&acirc;&auml; e&eacute;&egrave;&ecirc;&euml; i&icirc;&iuml; o&ocirc; u&ugrave;&uuml;',
+    0 => '',
     1 => 'Un texte avec des entit&amp;#233;s num&amp;#233;riques echap&amp;#233;es &amp;#38;&amp;#60;&amp;#62;&amp;quot; et avec des accents ISO aàâä eéèêë iîï oô uùü',
   ),
   16 => 
   array (
-    0 => 'Un texte sans entites &amp;&lt;&gt;&quot;\' et avec des accents ISO a&agrave;&acirc;&auml; e&eacute;&egrave;&ecirc;&euml; i&icirc;&iuml; o&ocirc; u&ugrave;&uuml;',
+    0 => '',
     1 => 'Un texte sans entites &<>"\' et avec des accents ISO aàâä eéèêë iîï oô uùü',
   ),
   17 => 
   array (
-    0 => '{{{Des raccourcis avec des accents ISO a&agrave;&acirc;&auml; e&eacute;&egrave;&ecirc;&euml; i&icirc;&iuml; o&ocirc; u&ugrave;&uuml;}}} {italique avec des accents ISO a&agrave;&acirc;&auml; e&eacute;&egrave;&ecirc;&euml; i&icirc;&iuml; o&ocirc; u&ugrave;&uuml;} {{gras avec des accents ISO a&agrave;&acirc;&auml; e&eacute;&egrave;&ecirc;&euml; i&icirc;&iuml; o&ocirc; u&ugrave;&uuml;}} &lt;code&gt;du code avec des accents ISO a&agrave;&acirc;&auml; e&eacute;&egrave;&ecirc;&euml; i&icirc;&iuml; o&ocirc; u&ugrave;&uuml;&lt;/code&gt;',
+    0 => '',
     1 => '{{{Des raccourcis avec des accents ISO aàâä eéèêë iîï oô uùü}}} {italique avec des accents ISO aàâä eéèêë iîï oô uùü} {{gras avec des accents ISO aàâä eéèêë iîï oô uùü}} <code>du code avec des accents ISO aàâä eéèêë iîï oô uùü</code>',
   ),
   18 => 
   array (
-    0 => 'Un modele avec des accents ISO a&agrave;&acirc;&auml; e&eacute;&egrave;&ecirc;&euml; i&icirc;&iuml; o&ocirc; u&ugrave;&uuml; &lt;modeleinexistant|lien=[avec des accents ISO a&agrave;&acirc;&auml; e&eacute;&egrave;&ecirc;&euml; i&icirc;&iuml; o&ocirc; u&ugrave;&uuml;-&gt;http://www.spip.net]&gt;',
+    0 => '',
     1 => 'Un modele avec des accents ISO aàâä eéèêë iîï oô uùü <modeleinexistant|lien=[avec des accents ISO aàâä eéèêë iîï oô uùü->http://www.spip.net]>',
   ),
   19 => 
   array (
-    0 => 'Un texte avec des retour
-a la ligne et meme des
-
-paragraphes avec des accents ISO a&agrave;&acirc;&auml; e&eacute;&egrave;&ecirc;&euml; i&icirc;&iuml; o&ocirc; u&ugrave;&uuml;',
+    0 => '',
     1 => 'Un texte avec des retour
 a la ligne et meme des
 
@@ -150,42 +147,42 @@ paragraphes avec des accents ISO aàâä eéèêë iîï oô uùü',
   ),
   20 => 
   array (
-    0 => 'Un texte avec des &lt;a href=&quot;http://spip.net&quot;&gt;liens avec des accents UTF-8 a&Atilde;&nbsp;&Atilde;&cent;&Atilde;&curren; e&Atilde;&copy;&Atilde;&uml;&Atilde;&ordf;&Atilde;&laquo; i&Atilde;&reg;&Atilde;&macr; o&Atilde;&acute; u&Atilde;&sup1;&Atilde;&frac14;&lt;/a&gt; [Article 1 avec des accents UTF-8 a&Atilde;&nbsp;&Atilde;&cent;&Atilde;&curren; e&Atilde;&copy;&Atilde;&uml;&Atilde;&ordf;&Atilde;&laquo; i&Atilde;&reg;&Atilde;&macr; o&Atilde;&acute; u&Atilde;&sup1;&Atilde;&frac14;-&gt;art1] [spip avec des accents UTF-8 a&Atilde;&nbsp;&Atilde;&cent;&Atilde;&curren; e&Atilde;&copy;&Atilde;&uml;&Atilde;&ordf;&Atilde;&laquo; i&Atilde;&reg;&Atilde;&macr; o&Atilde;&acute; u&Atilde;&sup1;&Atilde;&frac14;-&gt;http://www.spip.net] http://www.spip.net',
+    0 => 'Un texte avec des &lt;a href=&quot;http://spip.net&quot;&gt;liens avec des accents UTF-8 a&agrave;&acirc;&auml; e&eacute;&egrave;&ecirc;&euml; i&icirc;&iuml; o&ocirc; u&ugrave;&uuml;&lt;/a&gt; [Article 1 avec des accents UTF-8 a&agrave;&acirc;&auml; e&eacute;&egrave;&ecirc;&euml; i&icirc;&iuml; o&ocirc; u&ugrave;&uuml;-&gt;art1] [spip avec des accents UTF-8 a&agrave;&acirc;&auml; e&eacute;&egrave;&ecirc;&euml; i&icirc;&iuml; o&ocirc; u&ugrave;&uuml;-&gt;http://www.spip.net] http://www.spip.net',
     1 => 'Un texte avec des <a href="http://spip.net">liens avec des accents UTF-8 aÃ Ã¢Ã¤ eÃ©Ã¨ÃªÃ« iÃ®Ã¯ oÃ´ uÃ¹Ã¼</a> [Article 1 avec des accents UTF-8 aÃ Ã¢Ã¤ eÃ©Ã¨ÃªÃ« iÃ®Ã¯ oÃ´ uÃ¹Ã¼->art1] [spip avec des accents UTF-8 aÃ Ã¢Ã¤ eÃ©Ã¨ÃªÃ« iÃ®Ã¯ oÃ´ uÃ¹Ã¼->http://www.spip.net] http://www.spip.net',
   ),
   21 => 
   array (
-    0 => 'Un texte avec des entit&amp;eacute;s &amp;amp;&amp;lt;&amp;gt;&amp;quot; et avec des accents UTF-8 a&Atilde;&nbsp;&Atilde;&cent;&Atilde;&curren; e&Atilde;&copy;&Atilde;&uml;&Atilde;&ordf;&Atilde;&laquo; i&Atilde;&reg;&Atilde;&macr; o&Atilde;&acute; u&Atilde;&sup1;&Atilde;&frac14;',
+    0 => 'Un texte avec des entit&amp;eacute;s &amp;amp;&amp;lt;&amp;gt;&amp;quot; et avec des accents UTF-8 a&agrave;&acirc;&auml; e&eacute;&egrave;&ecirc;&euml; i&icirc;&iuml; o&ocirc; u&ugrave;&uuml;',
     1 => 'Un texte avec des entit&eacute;s &amp;&lt;&gt;&quot; et avec des accents UTF-8 aÃ Ã¢Ã¤ eÃ©Ã¨ÃªÃ« iÃ®Ã¯ oÃ´ uÃ¹Ã¼',
   ),
   22 => 
   array (
-    0 => 'Un texte avec des entit&amp;amp;eacute;s echap&amp;amp;eacute; &amp;amp;amp;&amp;amp;lt;&amp;amp;gt;&amp;amp;quot; et avec des accents UTF-8 a&Atilde;&nbsp;&Atilde;&cent;&Atilde;&curren; e&Atilde;&copy;&Atilde;&uml;&Atilde;&ordf;&Atilde;&laquo; i&Atilde;&reg;&Atilde;&macr; o&Atilde;&acute; u&Atilde;&sup1;&Atilde;&frac14;',
+    0 => 'Un texte avec des entit&amp;amp;eacute;s echap&amp;amp;eacute; &amp;amp;amp;&amp;amp;lt;&amp;amp;gt;&amp;amp;quot; et avec des accents UTF-8 a&agrave;&acirc;&auml; e&eacute;&egrave;&ecirc;&euml; i&icirc;&iuml; o&ocirc; u&ugrave;&uuml;',
     1 => 'Un texte avec des entit&amp;eacute;s echap&amp;eacute; &amp;amp;&amp;lt;&amp;gt;&amp;quot; et avec des accents UTF-8 aÃ Ã¢Ã¤ eÃ©Ã¨ÃªÃ« iÃ®Ã¯ oÃ´ uÃ¹Ã¼',
   ),
   23 => 
   array (
-    0 => 'Un texte avec des entit&amp;#233;s num&amp;#233;riques &amp;#38;&amp;#60;&amp;#62;&amp;quot; et avec des accents UTF-8 a&Atilde;&nbsp;&Atilde;&cent;&Atilde;&curren; e&Atilde;&copy;&Atilde;&uml;&Atilde;&ordf;&Atilde;&laquo; i&Atilde;&reg;&Atilde;&macr; o&Atilde;&acute; u&Atilde;&sup1;&Atilde;&frac14;',
+    0 => 'Un texte avec des entit&amp;#233;s num&amp;#233;riques &amp;#38;&amp;#60;&amp;#62;&amp;quot; et avec des accents UTF-8 a&agrave;&acirc;&auml; e&eacute;&egrave;&ecirc;&euml; i&icirc;&iuml; o&ocirc; u&ugrave;&uuml;',
     1 => 'Un texte avec des entit&#233;s num&#233;riques &#38;&#60;&#62;&quot; et avec des accents UTF-8 aÃ Ã¢Ã¤ eÃ©Ã¨ÃªÃ« iÃ®Ã¯ oÃ´ uÃ¹Ã¼',
   ),
   24 => 
   array (
-    0 => 'Un texte avec des entit&amp;amp;#233;s num&amp;amp;#233;riques echap&amp;amp;#233;es &amp;amp;#38;&amp;amp;#60;&amp;amp;#62;&amp;amp;quot; et avec des accents UTF-8 a&Atilde;&nbsp;&Atilde;&cent;&Atilde;&curren; e&Atilde;&copy;&Atilde;&uml;&Atilde;&ordf;&Atilde;&laquo; i&Atilde;&reg;&Atilde;&macr; o&Atilde;&acute; u&Atilde;&sup1;&Atilde;&frac14;',
+    0 => 'Un texte avec des entit&amp;amp;#233;s num&amp;amp;#233;riques echap&amp;amp;#233;es &amp;amp;#38;&amp;amp;#60;&amp;amp;#62;&amp;amp;quot; et avec des accents UTF-8 a&agrave;&acirc;&auml; e&eacute;&egrave;&ecirc;&euml; i&icirc;&iuml; o&ocirc; u&ugrave;&uuml;',
     1 => 'Un texte avec des entit&amp;#233;s num&amp;#233;riques echap&amp;#233;es &amp;#38;&amp;#60;&amp;#62;&amp;quot; et avec des accents UTF-8 aÃ Ã¢Ã¤ eÃ©Ã¨ÃªÃ« iÃ®Ã¯ oÃ´ uÃ¹Ã¼',
   ),
   25 => 
   array (
-    0 => 'Un texte sans entites &amp;&lt;&gt;&quot;\' et avec des accents UTF-8 a&Atilde;&nbsp;&Atilde;&cent;&Atilde;&curren; e&Atilde;&copy;&Atilde;&uml;&Atilde;&ordf;&Atilde;&laquo; i&Atilde;&reg;&Atilde;&macr; o&Atilde;&acute; u&Atilde;&sup1;&Atilde;&frac14;',
+    0 => 'Un texte sans entites &amp;&lt;&gt;&quot;\' et avec des accents UTF-8 a&agrave;&acirc;&auml; e&eacute;&egrave;&ecirc;&euml; i&icirc;&iuml; o&ocirc; u&ugrave;&uuml;',
     1 => 'Un texte sans entites &<>"\' et avec des accents UTF-8 aÃ Ã¢Ã¤ eÃ©Ã¨ÃªÃ« iÃ®Ã¯ oÃ´ uÃ¹Ã¼',
   ),
   26 => 
   array (
-    0 => '{{{Des raccourcis avec des accents UTF-8 a&Atilde;&nbsp;&Atilde;&cent;&Atilde;&curren; e&Atilde;&copy;&Atilde;&uml;&Atilde;&ordf;&Atilde;&laquo; i&Atilde;&reg;&Atilde;&macr; o&Atilde;&acute; u&Atilde;&sup1;&Atilde;&frac14;}}} {italique avec des accents UTF-8 a&Atilde;&nbsp;&Atilde;&cent;&Atilde;&curren; e&Atilde;&copy;&Atilde;&uml;&Atilde;&ordf;&Atilde;&laquo; i&Atilde;&reg;&Atilde;&macr; o&Atilde;&acute; u&Atilde;&sup1;&Atilde;&frac14;} {{gras avec des accents UTF-8 a&Atilde;&nbsp;&Atilde;&cent;&Atilde;&curren; e&Atilde;&copy;&Atilde;&uml;&Atilde;&ordf;&Atilde;&laquo; i&Atilde;&reg;&Atilde;&macr; o&Atilde;&acute; u&Atilde;&sup1;&Atilde;&frac14;}} &lt;code&gt;du code avec des accents UTF-8 a&Atilde;&nbsp;&Atilde;&cent;&Atilde;&curren; e&Atilde;&copy;&Atilde;&uml;&Atilde;&ordf;&Atilde;&laquo; i&Atilde;&reg;&Atilde;&macr; o&Atilde;&acute; u&Atilde;&sup1;&Atilde;&frac14;&lt;/code&gt;',
+    0 => '{{{Des raccourcis avec des accents UTF-8 a&agrave;&acirc;&auml; e&eacute;&egrave;&ecirc;&euml; i&icirc;&iuml; o&ocirc; u&ugrave;&uuml;}}} {italique avec des accents UTF-8 a&agrave;&acirc;&auml; e&eacute;&egrave;&ecirc;&euml; i&icirc;&iuml; o&ocirc; u&ugrave;&uuml;} {{gras avec des accents UTF-8 a&agrave;&acirc;&auml; e&eacute;&egrave;&ecirc;&euml; i&icirc;&iuml; o&ocirc; u&ugrave;&uuml;}} &lt;code&gt;du code avec des accents UTF-8 a&agrave;&acirc;&auml; e&eacute;&egrave;&ecirc;&euml; i&icirc;&iuml; o&ocirc; u&ugrave;&uuml;&lt;/code&gt;',
     1 => '{{{Des raccourcis avec des accents UTF-8 aÃ Ã¢Ã¤ eÃ©Ã¨ÃªÃ« iÃ®Ã¯ oÃ´ uÃ¹Ã¼}}} {italique avec des accents UTF-8 aÃ Ã¢Ã¤ eÃ©Ã¨ÃªÃ« iÃ®Ã¯ oÃ´ uÃ¹Ã¼} {{gras avec des accents UTF-8 aÃ Ã¢Ã¤ eÃ©Ã¨ÃªÃ« iÃ®Ã¯ oÃ´ uÃ¹Ã¼}} <code>du code avec des accents UTF-8 aÃ Ã¢Ã¤ eÃ©Ã¨ÃªÃ« iÃ®Ã¯ oÃ´ uÃ¹Ã¼</code>',
   ),
   27 => 
   array (
-    0 => 'Un modele avec des accents UTF-8 a&Atilde;&nbsp;&Atilde;&cent;&Atilde;&curren; e&Atilde;&copy;&Atilde;&uml;&Atilde;&ordf;&Atilde;&laquo; i&Atilde;&reg;&Atilde;&macr; o&Atilde;&acute; u&Atilde;&sup1;&Atilde;&frac14; &lt;modeleinexistant|lien=[avec des accents UTF-8 a&Atilde;&nbsp;&Atilde;&cent;&Atilde;&curren; e&Atilde;&copy;&Atilde;&uml;&Atilde;&ordf;&Atilde;&laquo; i&Atilde;&reg;&Atilde;&macr; o&Atilde;&acute; u&Atilde;&sup1;&Atilde;&frac14;-&gt;http://www.spip.net]&gt;',
+    0 => 'Un modele avec des accents UTF-8 a&agrave;&acirc;&auml; e&eacute;&egrave;&ecirc;&euml; i&icirc;&iuml; o&ocirc; u&ugrave;&uuml; &lt;modeleinexistant|lien=[avec des accents UTF-8 a&agrave;&acirc;&auml; e&eacute;&egrave;&ecirc;&euml; i&icirc;&iuml; o&ocirc; u&ugrave;&uuml;-&gt;http://www.spip.net]&gt;',
     1 => 'Un modele avec des accents UTF-8 aÃ Ã¢Ã¤ eÃ©Ã¨ÃªÃ« iÃ®Ã¯ oÃ´ uÃ¹Ã¼ <modeleinexistant|lien=[avec des accents UTF-8 aÃ Ã¢Ã¤ eÃ©Ã¨ÃªÃ« iÃ®Ã¯ oÃ´ uÃ¹Ã¼->http://www.spip.net]>',
   ),
   28 => 
@@ -193,7 +190,7 @@ paragraphes avec des accents ISO aàâä eéèêë iîï oô uùü',
     0 => 'Un texte avec des retour
 a la ligne et meme des
 
-paragraphes avec des accents UTF-8 a&Atilde;&nbsp;&Atilde;&cent;&Atilde;&curren; e&Atilde;&copy;&Atilde;&uml;&Atilde;&ordf;&Atilde;&laquo; i&Atilde;&reg;&Atilde;&macr; o&Atilde;&acute; u&Atilde;&sup1;&Atilde;&frac14;',
+paragraphes avec des accents UTF-8 a&agrave;&acirc;&auml; e&eacute;&egrave;&ecirc;&euml; i&icirc;&iuml; o&ocirc; u&ugrave;&uuml;',
     1 => 'Un texte avec des retour
 a la ligne et meme des
 
@@ -273,58 +270,55 @@ paragraphes',
   ),
   40 => 
   array (
-    0 => 'Un texte avec des &lt;a href=&quot;http://spip.net&quot;&gt;liens avec des accents ISO a&agrave;&acirc;&auml; e&eacute;&egrave;&ecirc;&euml; i&icirc;&iuml; o&ocirc; u&ugrave;&uuml;&lt;/a&gt; [Article 1 avec des accents ISO a&agrave;&acirc;&auml; e&eacute;&egrave;&ecirc;&euml; i&icirc;&iuml; o&ocirc; u&ugrave;&uuml;-&gt;art1] [spip avec des accents ISO a&agrave;&acirc;&auml; e&eacute;&egrave;&ecirc;&euml; i&icirc;&iuml; o&ocirc; u&ugrave;&uuml;-&gt;http://www.spip.net] http://www.spip.net',
+    0 => '',
     1 => 'Un texte avec des <a href="http://spip.net">liens avec des accents ISO aàâä eéèêë iîï oô uùü</a> [Article 1 avec des accents ISO aàâä eéèêë iîï oô uùü->art1] [spip avec des accents ISO aàâä eéèêë iîï oô uùü->http://www.spip.net] http://www.spip.net',
     2 => ENT_COMPAT|ENT_HTML401,
   ),
   41 => 
   array (
-    0 => 'Un texte avec des entit&amp;eacute;s &amp;amp;&amp;lt;&amp;gt;&amp;quot; et avec des accents ISO a&agrave;&acirc;&auml; e&eacute;&egrave;&ecirc;&euml; i&icirc;&iuml; o&ocirc; u&ugrave;&uuml;',
+    0 => '',
     1 => 'Un texte avec des entit&eacute;s &amp;&lt;&gt;&quot; et avec des accents ISO aàâä eéèêë iîï oô uùü',
     2 => ENT_COMPAT|ENT_HTML401,
   ),
   42 => 
   array (
-    0 => 'Un texte avec des entit&amp;amp;eacute;s echap&amp;amp;eacute; &amp;amp;amp;&amp;amp;lt;&amp;amp;gt;&amp;amp;quot; et avec des accents ISO a&agrave;&acirc;&auml; e&eacute;&egrave;&ecirc;&euml; i&icirc;&iuml; o&ocirc; u&ugrave;&uuml;',
+    0 => '',
     1 => 'Un texte avec des entit&amp;eacute;s echap&amp;eacute; &amp;amp;&amp;lt;&amp;gt;&amp;quot; et avec des accents ISO aàâä eéèêë iîï oô uùü',
     2 => ENT_COMPAT|ENT_HTML401,
   ),
   43 => 
   array (
-    0 => 'Un texte avec des entit&amp;#233;s num&amp;#233;riques &amp;#38;&amp;#60;&amp;#62;&amp;quot; et avec des accents ISO a&agrave;&acirc;&auml; e&eacute;&egrave;&ecirc;&euml; i&icirc;&iuml; o&ocirc; u&ugrave;&uuml;',
+    0 => '',
     1 => 'Un texte avec des entit&#233;s num&#233;riques &#38;&#60;&#62;&quot; et avec des accents ISO aàâä eéèêë iîï oô uùü',
     2 => ENT_COMPAT|ENT_HTML401,
   ),
   44 => 
   array (
-    0 => 'Un texte avec des entit&amp;amp;#233;s num&amp;amp;#233;riques echap&amp;amp;#233;es &amp;amp;#38;&amp;amp;#60;&amp;amp;#62;&amp;amp;quot; et avec des accents ISO a&agrave;&acirc;&auml; e&eacute;&egrave;&ecirc;&euml; i&icirc;&iuml; o&ocirc; u&ugrave;&uuml;',
+    0 => '',
     1 => 'Un texte avec des entit&amp;#233;s num&amp;#233;riques echap&amp;#233;es &amp;#38;&amp;#60;&amp;#62;&amp;quot; et avec des accents ISO aàâä eéèêë iîï oô uùü',
     2 => ENT_COMPAT|ENT_HTML401,
   ),
   45 => 
   array (
-    0 => 'Un texte sans entites &amp;&lt;&gt;&quot;\' et avec des accents ISO a&agrave;&acirc;&auml; e&eacute;&egrave;&ecirc;&euml; i&icirc;&iuml; o&ocirc; u&ugrave;&uuml;',
+    0 => '',
     1 => 'Un texte sans entites &<>"\' et avec des accents ISO aàâä eéèêë iîï oô uùü',
     2 => ENT_COMPAT|ENT_HTML401,
   ),
   46 => 
   array (
-    0 => '{{{Des raccourcis avec des accents ISO a&agrave;&acirc;&auml; e&eacute;&egrave;&ecirc;&euml; i&icirc;&iuml; o&ocirc; u&ugrave;&uuml;}}} {italique avec des accents ISO a&agrave;&acirc;&auml; e&eacute;&egrave;&ecirc;&euml; i&icirc;&iuml; o&ocirc; u&ugrave;&uuml;} {{gras avec des accents ISO a&agrave;&acirc;&auml; e&eacute;&egrave;&ecirc;&euml; i&icirc;&iuml; o&ocirc; u&ugrave;&uuml;}} &lt;code&gt;du code avec des accents ISO a&agrave;&acirc;&auml; e&eacute;&egrave;&ecirc;&euml; i&icirc;&iuml; o&ocirc; u&ugrave;&uuml;&lt;/code&gt;',
+    0 => '',
     1 => '{{{Des raccourcis avec des accents ISO aàâä eéèêë iîï oô uùü}}} {italique avec des accents ISO aàâä eéèêë iîï oô uùü} {{gras avec des accents ISO aàâä eéèêë iîï oô uùü}} <code>du code avec des accents ISO aàâä eéèêë iîï oô uùü</code>',
     2 => ENT_COMPAT|ENT_HTML401,
   ),
   47 => 
   array (
-    0 => 'Un modele avec des accents ISO a&agrave;&acirc;&auml; e&eacute;&egrave;&ecirc;&euml; i&icirc;&iuml; o&ocirc; u&ugrave;&uuml; &lt;modeleinexistant|lien=[avec des accents ISO a&agrave;&acirc;&auml; e&eacute;&egrave;&ecirc;&euml; i&icirc;&iuml; o&ocirc; u&ugrave;&uuml;-&gt;http://www.spip.net]&gt;',
+    0 => '',
     1 => 'Un modele avec des accents ISO aàâä eéèêë iîï oô uùü <modeleinexistant|lien=[avec des accents ISO aàâä eéèêë iîï oô uùü->http://www.spip.net]>',
     2 => ENT_COMPAT|ENT_HTML401,
   ),
   48 => 
   array (
-    0 => 'Un texte avec des retour
-a la ligne et meme des
-
-paragraphes avec des accents ISO a&agrave;&acirc;&auml; e&eacute;&egrave;&ecirc;&euml; i&icirc;&iuml; o&ocirc; u&ugrave;&uuml;',
+    0 => '',
     1 => 'Un texte avec des retour
 a la ligne et meme des
 
@@ -333,49 +327,49 @@ paragraphes avec des accents ISO aàâä eéèêë iîï oô uùü',
   ),
   49 => 
   array (
-    0 => 'Un texte avec des &lt;a href=&quot;http://spip.net&quot;&gt;liens avec des accents UTF-8 a&Atilde;&nbsp;&Atilde;&cent;&Atilde;&curren; e&Atilde;&copy;&Atilde;&uml;&Atilde;&ordf;&Atilde;&laquo; i&Atilde;&reg;&Atilde;&macr; o&Atilde;&acute; u&Atilde;&sup1;&Atilde;&frac14;&lt;/a&gt; [Article 1 avec des accents UTF-8 a&Atilde;&nbsp;&Atilde;&cent;&Atilde;&curren; e&Atilde;&copy;&Atilde;&uml;&Atilde;&ordf;&Atilde;&laquo; i&Atilde;&reg;&Atilde;&macr; o&Atilde;&acute; u&Atilde;&sup1;&Atilde;&frac14;-&gt;art1] [spip avec des accents UTF-8 a&Atilde;&nbsp;&Atilde;&cent;&Atilde;&curren; e&Atilde;&copy;&Atilde;&uml;&Atilde;&ordf;&Atilde;&laquo; i&Atilde;&reg;&Atilde;&macr; o&Atilde;&acute; u&Atilde;&sup1;&Atilde;&frac14;-&gt;http://www.spip.net] http://www.spip.net',
+    0 => 'Un texte avec des &lt;a href=&quot;http://spip.net&quot;&gt;liens avec des accents UTF-8 a&agrave;&acirc;&auml; e&eacute;&egrave;&ecirc;&euml; i&icirc;&iuml; o&ocirc; u&ugrave;&uuml;&lt;/a&gt; [Article 1 avec des accents UTF-8 a&agrave;&acirc;&auml; e&eacute;&egrave;&ecirc;&euml; i&icirc;&iuml; o&ocirc; u&ugrave;&uuml;-&gt;art1] [spip avec des accents UTF-8 a&agrave;&acirc;&auml; e&eacute;&egrave;&ecirc;&euml; i&icirc;&iuml; o&ocirc; u&ugrave;&uuml;-&gt;http://www.spip.net] http://www.spip.net',
     1 => 'Un texte avec des <a href="http://spip.net">liens avec des accents UTF-8 aÃ Ã¢Ã¤ eÃ©Ã¨ÃªÃ« iÃ®Ã¯ oÃ´ uÃ¹Ã¼</a> [Article 1 avec des accents UTF-8 aÃ Ã¢Ã¤ eÃ©Ã¨ÃªÃ« iÃ®Ã¯ oÃ´ uÃ¹Ã¼->art1] [spip avec des accents UTF-8 aÃ Ã¢Ã¤ eÃ©Ã¨ÃªÃ« iÃ®Ã¯ oÃ´ uÃ¹Ã¼->http://www.spip.net] http://www.spip.net',
     2 => ENT_COMPAT|ENT_HTML401,
   ),
   50 => 
   array (
-    0 => 'Un texte avec des entit&amp;eacute;s &amp;amp;&amp;lt;&amp;gt;&amp;quot; et avec des accents UTF-8 a&Atilde;&nbsp;&Atilde;&cent;&Atilde;&curren; e&Atilde;&copy;&Atilde;&uml;&Atilde;&ordf;&Atilde;&laquo; i&Atilde;&reg;&Atilde;&macr; o&Atilde;&acute; u&Atilde;&sup1;&Atilde;&frac14;',
+    0 => 'Un texte avec des entit&amp;eacute;s &amp;amp;&amp;lt;&amp;gt;&amp;quot; et avec des accents UTF-8 a&agrave;&acirc;&auml; e&eacute;&egrave;&ecirc;&euml; i&icirc;&iuml; o&ocirc; u&ugrave;&uuml;',
     1 => 'Un texte avec des entit&eacute;s &amp;&lt;&gt;&quot; et avec des accents UTF-8 aÃ Ã¢Ã¤ eÃ©Ã¨ÃªÃ« iÃ®Ã¯ oÃ´ uÃ¹Ã¼',
     2 => ENT_COMPAT|ENT_HTML401,
   ),
   51 => 
   array (
-    0 => 'Un texte avec des entit&amp;amp;eacute;s echap&amp;amp;eacute; &amp;amp;amp;&amp;amp;lt;&amp;amp;gt;&amp;amp;quot; et avec des accents UTF-8 a&Atilde;&nbsp;&Atilde;&cent;&Atilde;&curren; e&Atilde;&copy;&Atilde;&uml;&Atilde;&ordf;&Atilde;&laquo; i&Atilde;&reg;&Atilde;&macr; o&Atilde;&acute; u&Atilde;&sup1;&Atilde;&frac14;',
+    0 => 'Un texte avec des entit&amp;amp;eacute;s echap&amp;amp;eacute; &amp;amp;amp;&amp;amp;lt;&amp;amp;gt;&amp;amp;quot; et avec des accents UTF-8 a&agrave;&acirc;&auml; e&eacute;&egrave;&ecirc;&euml; i&icirc;&iuml; o&ocirc; u&ugrave;&uuml;',
     1 => 'Un texte avec des entit&amp;eacute;s echap&amp;eacute; &amp;amp;&amp;lt;&amp;gt;&amp;quot; et avec des accents UTF-8 aÃ Ã¢Ã¤ eÃ©Ã¨ÃªÃ« iÃ®Ã¯ oÃ´ uÃ¹Ã¼',
     2 => ENT_COMPAT|ENT_HTML401,
   ),
   52 => 
   array (
-    0 => 'Un texte avec des entit&amp;#233;s num&amp;#233;riques &amp;#38;&amp;#60;&amp;#62;&amp;quot; et avec des accents UTF-8 a&Atilde;&nbsp;&Atilde;&cent;&Atilde;&curren; e&Atilde;&copy;&Atilde;&uml;&Atilde;&ordf;&Atilde;&laquo; i&Atilde;&reg;&Atilde;&macr; o&Atilde;&acute; u&Atilde;&sup1;&Atilde;&frac14;',
+    0 => 'Un texte avec des entit&amp;#233;s num&amp;#233;riques &amp;#38;&amp;#60;&amp;#62;&amp;quot; et avec des accents UTF-8 a&agrave;&acirc;&auml; e&eacute;&egrave;&ecirc;&euml; i&icirc;&iuml; o&ocirc; u&ugrave;&uuml;',
     1 => 'Un texte avec des entit&#233;s num&#233;riques &#38;&#60;&#62;&quot; et avec des accents UTF-8 aÃ Ã¢Ã¤ eÃ©Ã¨ÃªÃ« iÃ®Ã¯ oÃ´ uÃ¹Ã¼',
     2 => ENT_COMPAT|ENT_HTML401,
   ),
   53 => 
   array (
-    0 => 'Un texte avec des entit&amp;amp;#233;s num&amp;amp;#233;riques echap&amp;amp;#233;es &amp;amp;#38;&amp;amp;#60;&amp;amp;#62;&amp;amp;quot; et avec des accents UTF-8 a&Atilde;&nbsp;&Atilde;&cent;&Atilde;&curren; e&Atilde;&copy;&Atilde;&uml;&Atilde;&ordf;&Atilde;&laquo; i&Atilde;&reg;&Atilde;&macr; o&Atilde;&acute; u&Atilde;&sup1;&Atilde;&frac14;',
+    0 => 'Un texte avec des entit&amp;amp;#233;s num&amp;amp;#233;riques echap&amp;amp;#233;es &amp;amp;#38;&amp;amp;#60;&amp;amp;#62;&amp;amp;quot; et avec des accents UTF-8 a&agrave;&acirc;&auml; e&eacute;&egrave;&ecirc;&euml; i&icirc;&iuml; o&ocirc; u&ugrave;&uuml;',
     1 => 'Un texte avec des entit&amp;#233;s num&amp;#233;riques echap&amp;#233;es &amp;#38;&amp;#60;&amp;#62;&amp;quot; et avec des accents UTF-8 aÃ Ã¢Ã¤ eÃ©Ã¨ÃªÃ« iÃ®Ã¯ oÃ´ uÃ¹Ã¼',
     2 => ENT_COMPAT|ENT_HTML401,
   ),
   54 => 
   array (
-    0 => 'Un texte sans entites &amp;&lt;&gt;&quot;\' et avec des accents UTF-8 a&Atilde;&nbsp;&Atilde;&cent;&Atilde;&curren; e&Atilde;&copy;&Atilde;&uml;&Atilde;&ordf;&Atilde;&laquo; i&Atilde;&reg;&Atilde;&macr; o&Atilde;&acute; u&Atilde;&sup1;&Atilde;&frac14;',
+    0 => 'Un texte sans entites &amp;&lt;&gt;&quot;\' et avec des accents UTF-8 a&agrave;&acirc;&auml; e&eacute;&egrave;&ecirc;&euml; i&icirc;&iuml; o&ocirc; u&ugrave;&uuml;',
     1 => 'Un texte sans entites &<>"\' et avec des accents UTF-8 aÃ Ã¢Ã¤ eÃ©Ã¨ÃªÃ« iÃ®Ã¯ oÃ´ uÃ¹Ã¼',
     2 => ENT_COMPAT|ENT_HTML401,
   ),
   55 => 
   array (
-    0 => '{{{Des raccourcis avec des accents UTF-8 a&Atilde;&nbsp;&Atilde;&cent;&Atilde;&curren; e&Atilde;&copy;&Atilde;&uml;&Atilde;&ordf;&Atilde;&laquo; i&Atilde;&reg;&Atilde;&macr; o&Atilde;&acute; u&Atilde;&sup1;&Atilde;&frac14;}}} {italique avec des accents UTF-8 a&Atilde;&nbsp;&Atilde;&cent;&Atilde;&curren; e&Atilde;&copy;&Atilde;&uml;&Atilde;&ordf;&Atilde;&laquo; i&Atilde;&reg;&Atilde;&macr; o&Atilde;&acute; u&Atilde;&sup1;&Atilde;&frac14;} {{gras avec des accents UTF-8 a&Atilde;&nbsp;&Atilde;&cent;&Atilde;&curren; e&Atilde;&copy;&Atilde;&uml;&Atilde;&ordf;&Atilde;&laquo; i&Atilde;&reg;&Atilde;&macr; o&Atilde;&acute; u&Atilde;&sup1;&Atilde;&frac14;}} &lt;code&gt;du code avec des accents UTF-8 a&Atilde;&nbsp;&Atilde;&cent;&Atilde;&curren; e&Atilde;&copy;&Atilde;&uml;&Atilde;&ordf;&Atilde;&laquo; i&Atilde;&reg;&Atilde;&macr; o&Atilde;&acute; u&Atilde;&sup1;&Atilde;&frac14;&lt;/code&gt;',
+    0 => '{{{Des raccourcis avec des accents UTF-8 a&agrave;&acirc;&auml; e&eacute;&egrave;&ecirc;&euml; i&icirc;&iuml; o&ocirc; u&ugrave;&uuml;}}} {italique avec des accents UTF-8 a&agrave;&acirc;&auml; e&eacute;&egrave;&ecirc;&euml; i&icirc;&iuml; o&ocirc; u&ugrave;&uuml;} {{gras avec des accents UTF-8 a&agrave;&acirc;&auml; e&eacute;&egrave;&ecirc;&euml; i&icirc;&iuml; o&ocirc; u&ugrave;&uuml;}} &lt;code&gt;du code avec des accents UTF-8 a&agrave;&acirc;&auml; e&eacute;&egrave;&ecirc;&euml; i&icirc;&iuml; o&ocirc; u&ugrave;&uuml;&lt;/code&gt;',
     1 => '{{{Des raccourcis avec des accents UTF-8 aÃ Ã¢Ã¤ eÃ©Ã¨ÃªÃ« iÃ®Ã¯ oÃ´ uÃ¹Ã¼}}} {italique avec des accents UTF-8 aÃ Ã¢Ã¤ eÃ©Ã¨ÃªÃ« iÃ®Ã¯ oÃ´ uÃ¹Ã¼} {{gras avec des accents UTF-8 aÃ Ã¢Ã¤ eÃ©Ã¨ÃªÃ« iÃ®Ã¯ oÃ´ uÃ¹Ã¼}} <code>du code avec des accents UTF-8 aÃ Ã¢Ã¤ eÃ©Ã¨ÃªÃ« iÃ®Ã¯ oÃ´ uÃ¹Ã¼</code>',
     2 => ENT_COMPAT|ENT_HTML401,
   ),
   56 => 
   array (
-    0 => 'Un modele avec des accents UTF-8 a&Atilde;&nbsp;&Atilde;&cent;&Atilde;&curren; e&Atilde;&copy;&Atilde;&uml;&Atilde;&ordf;&Atilde;&laquo; i&Atilde;&reg;&Atilde;&macr; o&Atilde;&acute; u&Atilde;&sup1;&Atilde;&frac14; &lt;modeleinexistant|lien=[avec des accents UTF-8 a&Atilde;&nbsp;&Atilde;&cent;&Atilde;&curren; e&Atilde;&copy;&Atilde;&uml;&Atilde;&ordf;&Atilde;&laquo; i&Atilde;&reg;&Atilde;&macr; o&Atilde;&acute; u&Atilde;&sup1;&Atilde;&frac14;-&gt;http://www.spip.net]&gt;',
+    0 => 'Un modele avec des accents UTF-8 a&agrave;&acirc;&auml; e&eacute;&egrave;&ecirc;&euml; i&icirc;&iuml; o&ocirc; u&ugrave;&uuml; &lt;modeleinexistant|lien=[avec des accents UTF-8 a&agrave;&acirc;&auml; e&eacute;&egrave;&ecirc;&euml; i&icirc;&iuml; o&ocirc; u&ugrave;&uuml;-&gt;http://www.spip.net]&gt;',
     1 => 'Un modele avec des accents UTF-8 aÃ Ã¢Ã¤ eÃ©Ã¨ÃªÃ« iÃ®Ã¯ oÃ´ uÃ¹Ã¼ <modeleinexistant|lien=[avec des accents UTF-8 aÃ Ã¢Ã¤ eÃ©Ã¨ÃªÃ« iÃ®Ã¯ oÃ´ uÃ¹Ã¼->http://www.spip.net]>',
     2 => ENT_COMPAT|ENT_HTML401,
   ),
@@ -384,7 +378,7 @@ paragraphes avec des accents ISO aàâä eéèêë iîï oô uùü',
     0 => 'Un texte avec des retour
 a la ligne et meme des
 
-paragraphes avec des accents UTF-8 a&Atilde;&nbsp;&Atilde;&cent;&Atilde;&curren; e&Atilde;&copy;&Atilde;&uml;&Atilde;&ordf;&Atilde;&laquo; i&Atilde;&reg;&Atilde;&macr; o&Atilde;&acute; u&Atilde;&sup1;&Atilde;&frac14;',
+paragraphes avec des accents UTF-8 a&agrave;&acirc;&auml; e&eacute;&egrave;&ecirc;&euml; i&icirc;&iuml; o&ocirc; u&ugrave;&uuml;',
     1 => 'Un texte avec des retour
 a la ligne et meme des
 
@@ -465,58 +459,55 @@ paragraphes',
   ),
   69 => 
   array (
-    0 => 'Un texte avec des &lt;a href=&quot;http://spip.net&quot;&gt;liens avec des accents ISO a&agrave;&acirc;&auml; e&eacute;&egrave;&ecirc;&euml; i&icirc;&iuml; o&ocirc; u&ugrave;&uuml;&lt;/a&gt; [Article 1 avec des accents ISO a&agrave;&acirc;&auml; e&eacute;&egrave;&ecirc;&euml; i&icirc;&iuml; o&ocirc; u&ugrave;&uuml;-&gt;art1] [spip avec des accents ISO a&agrave;&acirc;&auml; e&eacute;&egrave;&ecirc;&euml; i&icirc;&iuml; o&ocirc; u&ugrave;&uuml;-&gt;http://www.spip.net] http://www.spip.net',
+    0 => '',
     1 => 'Un texte avec des <a href="http://spip.net">liens avec des accents ISO aàâä eéèêë iîï oô uùü</a> [Article 1 avec des accents ISO aàâä eéèêë iîï oô uùü->art1] [spip avec des accents ISO aàâä eéèêë iîï oô uùü->http://www.spip.net] http://www.spip.net',
     2 => ENT_QUOTES,
   ),
   70 => 
   array (
-    0 => 'Un texte avec des entit&amp;eacute;s &amp;amp;&amp;lt;&amp;gt;&amp;quot; et avec des accents ISO a&agrave;&acirc;&auml; e&eacute;&egrave;&ecirc;&euml; i&icirc;&iuml; o&ocirc; u&ugrave;&uuml;',
+    0 => '',
     1 => 'Un texte avec des entit&eacute;s &amp;&lt;&gt;&quot; et avec des accents ISO aàâä eéèêë iîï oô uùü',
     2 => ENT_QUOTES,
   ),
   71 => 
   array (
-    0 => 'Un texte avec des entit&amp;amp;eacute;s echap&amp;amp;eacute; &amp;amp;amp;&amp;amp;lt;&amp;amp;gt;&amp;amp;quot; et avec des accents ISO a&agrave;&acirc;&auml; e&eacute;&egrave;&ecirc;&euml; i&icirc;&iuml; o&ocirc; u&ugrave;&uuml;',
+    0 => '',
     1 => 'Un texte avec des entit&amp;eacute;s echap&amp;eacute; &amp;amp;&amp;lt;&amp;gt;&amp;quot; et avec des accents ISO aàâä eéèêë iîï oô uùü',
     2 => ENT_QUOTES,
   ),
   72 => 
   array (
-    0 => 'Un texte avec des entit&amp;#233;s num&amp;#233;riques &amp;#38;&amp;#60;&amp;#62;&amp;quot; et avec des accents ISO a&agrave;&acirc;&auml; e&eacute;&egrave;&ecirc;&euml; i&icirc;&iuml; o&ocirc; u&ugrave;&uuml;',
+    0 => '',
     1 => 'Un texte avec des entit&#233;s num&#233;riques &#38;&#60;&#62;&quot; et avec des accents ISO aàâä eéèêë iîï oô uùü',
     2 => ENT_QUOTES,
   ),
   73 => 
   array (
-    0 => 'Un texte avec des entit&amp;amp;#233;s num&amp;amp;#233;riques echap&amp;amp;#233;es &amp;amp;#38;&amp;amp;#60;&amp;amp;#62;&amp;amp;quot; et avec des accents ISO a&agrave;&acirc;&auml; e&eacute;&egrave;&ecirc;&euml; i&icirc;&iuml; o&ocirc; u&ugrave;&uuml;',
+    0 => '',
     1 => 'Un texte avec des entit&amp;#233;s num&amp;#233;riques echap&amp;#233;es &amp;#38;&amp;#60;&amp;#62;&amp;quot; et avec des accents ISO aàâä eéèêë iîï oô uùü',
     2 => ENT_QUOTES,
   ),
   74 => 
   array (
-    0 => 'Un texte sans entites &amp;&lt;&gt;&quot;&#039; et avec des accents ISO a&agrave;&acirc;&auml; e&eacute;&egrave;&ecirc;&euml; i&icirc;&iuml; o&ocirc; u&ugrave;&uuml;',
+    0 => '',
     1 => 'Un texte sans entites &<>"\' et avec des accents ISO aàâä eéèêë iîï oô uùü',
     2 => ENT_QUOTES,
   ),
   75 => 
   array (
-    0 => '{{{Des raccourcis avec des accents ISO a&agrave;&acirc;&auml; e&eacute;&egrave;&ecirc;&euml; i&icirc;&iuml; o&ocirc; u&ugrave;&uuml;}}} {italique avec des accents ISO a&agrave;&acirc;&auml; e&eacute;&egrave;&ecirc;&euml; i&icirc;&iuml; o&ocirc; u&ugrave;&uuml;} {{gras avec des accents ISO a&agrave;&acirc;&auml; e&eacute;&egrave;&ecirc;&euml; i&icirc;&iuml; o&ocirc; u&ugrave;&uuml;}} &lt;code&gt;du code avec des accents ISO a&agrave;&acirc;&auml; e&eacute;&egrave;&ecirc;&euml; i&icirc;&iuml; o&ocirc; u&ugrave;&uuml;&lt;/code&gt;',
+    0 => '',
     1 => '{{{Des raccourcis avec des accents ISO aàâä eéèêë iîï oô uùü}}} {italique avec des accents ISO aàâä eéèêë iîï oô uùü} {{gras avec des accents ISO aàâä eéèêë iîï oô uùü}} <code>du code avec des accents ISO aàâä eéèêë iîï oô uùü</code>',
     2 => ENT_QUOTES,
   ),
   76 => 
   array (
-    0 => 'Un modele avec des accents ISO a&agrave;&acirc;&auml; e&eacute;&egrave;&ecirc;&euml; i&icirc;&iuml; o&ocirc; u&ugrave;&uuml; &lt;modeleinexistant|lien=[avec des accents ISO a&agrave;&acirc;&auml; e&eacute;&egrave;&ecirc;&euml; i&icirc;&iuml; o&ocirc; u&ugrave;&uuml;-&gt;http://www.spip.net]&gt;',
+    0 => '',
     1 => 'Un modele avec des accents ISO aàâä eéèêë iîï oô uùü <modeleinexistant|lien=[avec des accents ISO aàâä eéèêë iîï oô uùü->http://www.spip.net]>',
     2 => ENT_QUOTES,
   ),
   77 => 
   array (
-    0 => 'Un texte avec des retour
-a la ligne et meme des
-
-paragraphes avec des accents ISO a&agrave;&acirc;&auml; e&eacute;&egrave;&ecirc;&euml; i&icirc;&iuml; o&ocirc; u&ugrave;&uuml;',
+    0 => '',
     1 => 'Un texte avec des retour
 a la ligne et meme des
 
@@ -525,49 +516,49 @@ paragraphes avec des accents ISO aàâä eéèêë iîï oô uùü',
   ),
   78 => 
   array (
-    0 => 'Un texte avec des &lt;a href=&quot;http://spip.net&quot;&gt;liens avec des accents UTF-8 a&Atilde;&nbsp;&Atilde;&cent;&Atilde;&curren; e&Atilde;&copy;&Atilde;&uml;&Atilde;&ordf;&Atilde;&laquo; i&Atilde;&reg;&Atilde;&macr; o&Atilde;&acute; u&Atilde;&sup1;&Atilde;&frac14;&lt;/a&gt; [Article 1 avec des accents UTF-8 a&Atilde;&nbsp;&Atilde;&cent;&Atilde;&curren; e&Atilde;&copy;&Atilde;&uml;&Atilde;&ordf;&Atilde;&laquo; i&Atilde;&reg;&Atilde;&macr; o&Atilde;&acute; u&Atilde;&sup1;&Atilde;&frac14;-&gt;art1] [spip avec des accents UTF-8 a&Atilde;&nbsp;&Atilde;&cent;&Atilde;&curren; e&Atilde;&copy;&Atilde;&uml;&Atilde;&ordf;&Atilde;&laquo; i&Atilde;&reg;&Atilde;&macr; o&Atilde;&acute; u&Atilde;&sup1;&Atilde;&frac14;-&gt;http://www.spip.net] http://www.spip.net',
+    0 => 'Un texte avec des &lt;a href=&quot;http://spip.net&quot;&gt;liens avec des accents UTF-8 a&agrave;&acirc;&auml; e&eacute;&egrave;&ecirc;&euml; i&icirc;&iuml; o&ocirc; u&ugrave;&uuml;&lt;/a&gt; [Article 1 avec des accents UTF-8 a&agrave;&acirc;&auml; e&eacute;&egrave;&ecirc;&euml; i&icirc;&iuml; o&ocirc; u&ugrave;&uuml;-&gt;art1] [spip avec des accents UTF-8 a&agrave;&acirc;&auml; e&eacute;&egrave;&ecirc;&euml; i&icirc;&iuml; o&ocirc; u&ugrave;&uuml;-&gt;http://www.spip.net] http://www.spip.net',
     1 => 'Un texte avec des <a href="http://spip.net">liens avec des accents UTF-8 aÃ Ã¢Ã¤ eÃ©Ã¨ÃªÃ« iÃ®Ã¯ oÃ´ uÃ¹Ã¼</a> [Article 1 avec des accents UTF-8 aÃ Ã¢Ã¤ eÃ©Ã¨ÃªÃ« iÃ®Ã¯ oÃ´ uÃ¹Ã¼->art1] [spip avec des accents UTF-8 aÃ Ã¢Ã¤ eÃ©Ã¨ÃªÃ« iÃ®Ã¯ oÃ´ uÃ¹Ã¼->http://www.spip.net] http://www.spip.net',
     2 => ENT_QUOTES,
   ),
   79 => 
   array (
-    0 => 'Un texte avec des entit&amp;eacute;s &amp;amp;&amp;lt;&amp;gt;&amp;quot; et avec des accents UTF-8 a&Atilde;&nbsp;&Atilde;&cent;&Atilde;&curren; e&Atilde;&copy;&Atilde;&uml;&Atilde;&ordf;&Atilde;&laquo; i&Atilde;&reg;&Atilde;&macr; o&Atilde;&acute; u&Atilde;&sup1;&Atilde;&frac14;',
+    0 => 'Un texte avec des entit&amp;eacute;s &amp;amp;&amp;lt;&amp;gt;&amp;quot; et avec des accents UTF-8 a&agrave;&acirc;&auml; e&eacute;&egrave;&ecirc;&euml; i&icirc;&iuml; o&ocirc; u&ugrave;&uuml;',
     1 => 'Un texte avec des entit&eacute;s &amp;&lt;&gt;&quot; et avec des accents UTF-8 aÃ Ã¢Ã¤ eÃ©Ã¨ÃªÃ« iÃ®Ã¯ oÃ´ uÃ¹Ã¼',
     2 => ENT_QUOTES,
   ),
   80 => 
   array (
-    0 => 'Un texte avec des entit&amp;amp;eacute;s echap&amp;amp;eacute; &amp;amp;amp;&amp;amp;lt;&amp;amp;gt;&amp;amp;quot; et avec des accents UTF-8 a&Atilde;&nbsp;&Atilde;&cent;&Atilde;&curren; e&Atilde;&copy;&Atilde;&uml;&Atilde;&ordf;&Atilde;&laquo; i&Atilde;&reg;&Atilde;&macr; o&Atilde;&acute; u&Atilde;&sup1;&Atilde;&frac14;',
+    0 => 'Un texte avec des entit&amp;amp;eacute;s echap&amp;amp;eacute; &amp;amp;amp;&amp;amp;lt;&amp;amp;gt;&amp;amp;quot; et avec des accents UTF-8 a&agrave;&acirc;&auml; e&eacute;&egrave;&ecirc;&euml; i&icirc;&iuml; o&ocirc; u&ugrave;&uuml;',
     1 => 'Un texte avec des entit&amp;eacute;s echap&amp;eacute; &amp;amp;&amp;lt;&amp;gt;&amp;quot; et avec des accents UTF-8 aÃ Ã¢Ã¤ eÃ©Ã¨ÃªÃ« iÃ®Ã¯ oÃ´ uÃ¹Ã¼',
     2 => ENT_QUOTES,
   ),
   81 => 
   array (
-    0 => 'Un texte avec des entit&amp;#233;s num&amp;#233;riques &amp;#38;&amp;#60;&amp;#62;&amp;quot; et avec des accents UTF-8 a&Atilde;&nbsp;&Atilde;&cent;&Atilde;&curren; e&Atilde;&copy;&Atilde;&uml;&Atilde;&ordf;&Atilde;&laquo; i&Atilde;&reg;&Atilde;&macr; o&Atilde;&acute; u&Atilde;&sup1;&Atilde;&frac14;',
+    0 => 'Un texte avec des entit&amp;#233;s num&amp;#233;riques &amp;#38;&amp;#60;&amp;#62;&amp;quot; et avec des accents UTF-8 a&agrave;&acirc;&auml; e&eacute;&egrave;&ecirc;&euml; i&icirc;&iuml; o&ocirc; u&ugrave;&uuml;',
     1 => 'Un texte avec des entit&#233;s num&#233;riques &#38;&#60;&#62;&quot; et avec des accents UTF-8 aÃ Ã¢Ã¤ eÃ©Ã¨ÃªÃ« iÃ®Ã¯ oÃ´ uÃ¹Ã¼',
     2 => ENT_QUOTES,
   ),
   82 => 
   array (
-    0 => 'Un texte avec des entit&amp;amp;#233;s num&amp;amp;#233;riques echap&amp;amp;#233;es &amp;amp;#38;&amp;amp;#60;&amp;amp;#62;&amp;amp;quot; et avec des accents UTF-8 a&Atilde;&nbsp;&Atilde;&cent;&Atilde;&curren; e&Atilde;&copy;&Atilde;&uml;&Atilde;&ordf;&Atilde;&laquo; i&Atilde;&reg;&Atilde;&macr; o&Atilde;&acute; u&Atilde;&sup1;&Atilde;&frac14;',
+    0 => 'Un texte avec des entit&amp;amp;#233;s num&amp;amp;#233;riques echap&amp;amp;#233;es &amp;amp;#38;&amp;amp;#60;&amp;amp;#62;&amp;amp;quot; et avec des accents UTF-8 a&agrave;&acirc;&auml; e&eacute;&egrave;&ecirc;&euml; i&icirc;&iuml; o&ocirc; u&ugrave;&uuml;',
     1 => 'Un texte avec des entit&amp;#233;s num&amp;#233;riques echap&amp;#233;es &amp;#38;&amp;#60;&amp;#62;&amp;quot; et avec des accents UTF-8 aÃ Ã¢Ã¤ eÃ©Ã¨ÃªÃ« iÃ®Ã¯ oÃ´ uÃ¹Ã¼',
     2 => ENT_QUOTES,
   ),
   83 => 
   array (
-    0 => 'Un texte sans entites &amp;&lt;&gt;&quot;&#039; et avec des accents UTF-8 a&Atilde;&nbsp;&Atilde;&cent;&Atilde;&curren; e&Atilde;&copy;&Atilde;&uml;&Atilde;&ordf;&Atilde;&laquo; i&Atilde;&reg;&Atilde;&macr; o&Atilde;&acute; u&Atilde;&sup1;&Atilde;&frac14;',
+    0 => 'Un texte sans entites &amp;&lt;&gt;&quot;&#039; et avec des accents UTF-8 a&agrave;&acirc;&auml; e&eacute;&egrave;&ecirc;&euml; i&icirc;&iuml; o&ocirc; u&ugrave;&uuml;',
     1 => 'Un texte sans entites &<>"\' et avec des accents UTF-8 aÃ Ã¢Ã¤ eÃ©Ã¨ÃªÃ« iÃ®Ã¯ oÃ´ uÃ¹Ã¼',
     2 => ENT_QUOTES,
   ),
   84 => 
   array (
-    0 => '{{{Des raccourcis avec des accents UTF-8 a&Atilde;&nbsp;&Atilde;&cent;&Atilde;&curren; e&Atilde;&copy;&Atilde;&uml;&Atilde;&ordf;&Atilde;&laquo; i&Atilde;&reg;&Atilde;&macr; o&Atilde;&acute; u&Atilde;&sup1;&Atilde;&frac14;}}} {italique avec des accents UTF-8 a&Atilde;&nbsp;&Atilde;&cent;&Atilde;&curren; e&Atilde;&copy;&Atilde;&uml;&Atilde;&ordf;&Atilde;&laquo; i&Atilde;&reg;&Atilde;&macr; o&Atilde;&acute; u&Atilde;&sup1;&Atilde;&frac14;} {{gras avec des accents UTF-8 a&Atilde;&nbsp;&Atilde;&cent;&Atilde;&curren; e&Atilde;&copy;&Atilde;&uml;&Atilde;&ordf;&Atilde;&laquo; i&Atilde;&reg;&Atilde;&macr; o&Atilde;&acute; u&Atilde;&sup1;&Atilde;&frac14;}} &lt;code&gt;du code avec des accents UTF-8 a&Atilde;&nbsp;&Atilde;&cent;&Atilde;&curren; e&Atilde;&copy;&Atilde;&uml;&Atilde;&ordf;&Atilde;&laquo; i&Atilde;&reg;&Atilde;&macr; o&Atilde;&acute; u&Atilde;&sup1;&Atilde;&frac14;&lt;/code&gt;',
+    0 => '{{{Des raccourcis avec des accents UTF-8 a&agrave;&acirc;&auml; e&eacute;&egrave;&ecirc;&euml; i&icirc;&iuml; o&ocirc; u&ugrave;&uuml;}}} {italique avec des accents UTF-8 a&agrave;&acirc;&auml; e&eacute;&egrave;&ecirc;&euml; i&icirc;&iuml; o&ocirc; u&ugrave;&uuml;} {{gras avec des accents UTF-8 a&agrave;&acirc;&auml; e&eacute;&egrave;&ecirc;&euml; i&icirc;&iuml; o&ocirc; u&ugrave;&uuml;}} &lt;code&gt;du code avec des accents UTF-8 a&agrave;&acirc;&auml; e&eacute;&egrave;&ecirc;&euml; i&icirc;&iuml; o&ocirc; u&ugrave;&uuml;&lt;/code&gt;',
     1 => '{{{Des raccourcis avec des accents UTF-8 aÃ Ã¢Ã¤ eÃ©Ã¨ÃªÃ« iÃ®Ã¯ oÃ´ uÃ¹Ã¼}}} {italique avec des accents UTF-8 aÃ Ã¢Ã¤ eÃ©Ã¨ÃªÃ« iÃ®Ã¯ oÃ´ uÃ¹Ã¼} {{gras avec des accents UTF-8 aÃ Ã¢Ã¤ eÃ©Ã¨ÃªÃ« iÃ®Ã¯ oÃ´ uÃ¹Ã¼}} <code>du code avec des accents UTF-8 aÃ Ã¢Ã¤ eÃ©Ã¨ÃªÃ« iÃ®Ã¯ oÃ´ uÃ¹Ã¼</code>',
     2 => ENT_QUOTES,
   ),
   85 => 
   array (
-    0 => 'Un modele avec des accents UTF-8 a&Atilde;&nbsp;&Atilde;&cent;&Atilde;&curren; e&Atilde;&copy;&Atilde;&uml;&Atilde;&ordf;&Atilde;&laquo; i&Atilde;&reg;&Atilde;&macr; o&Atilde;&acute; u&Atilde;&sup1;&Atilde;&frac14; &lt;modeleinexistant|lien=[avec des accents UTF-8 a&Atilde;&nbsp;&Atilde;&cent;&Atilde;&curren; e&Atilde;&copy;&Atilde;&uml;&Atilde;&ordf;&Atilde;&laquo; i&Atilde;&reg;&Atilde;&macr; o&Atilde;&acute; u&Atilde;&sup1;&Atilde;&frac14;-&gt;http://www.spip.net]&gt;',
+    0 => 'Un modele avec des accents UTF-8 a&agrave;&acirc;&auml; e&eacute;&egrave;&ecirc;&euml; i&icirc;&iuml; o&ocirc; u&ugrave;&uuml; &lt;modeleinexistant|lien=[avec des accents UTF-8 a&agrave;&acirc;&auml; e&eacute;&egrave;&ecirc;&euml; i&icirc;&iuml; o&ocirc; u&ugrave;&uuml;-&gt;http://www.spip.net]&gt;',
     1 => 'Un modele avec des accents UTF-8 aÃ Ã¢Ã¤ eÃ©Ã¨ÃªÃ« iÃ®Ã¯ oÃ´ uÃ¹Ã¼ <modeleinexistant|lien=[avec des accents UTF-8 aÃ Ã¢Ã¤ eÃ©Ã¨ÃªÃ« iÃ®Ã¯ oÃ´ uÃ¹Ã¼->http://www.spip.net]>',
     2 => ENT_QUOTES,
   ),
@@ -576,7 +567,7 @@ paragraphes avec des accents ISO aàâä eéèêë iîï oô uùü',
     0 => 'Un texte avec des retour
 a la ligne et meme des
 
-paragraphes avec des accents UTF-8 a&Atilde;&nbsp;&Atilde;&cent;&Atilde;&curren; e&Atilde;&copy;&Atilde;&uml;&Atilde;&ordf;&Atilde;&laquo; i&Atilde;&reg;&Atilde;&macr; o&Atilde;&acute; u&Atilde;&sup1;&Atilde;&frac14;',
+paragraphes avec des accents UTF-8 a&agrave;&acirc;&auml; e&eacute;&egrave;&ecirc;&euml; i&icirc;&iuml; o&ocirc; u&ugrave;&uuml;',
     1 => 'Un texte avec des retour
 a la ligne et meme des
 
@@ -657,58 +648,55 @@ paragraphes',
   ),
   98 => 
   array (
-    0 => 'Un texte avec des &lt;a href="http://spip.net"&gt;liens avec des accents ISO a&agrave;&acirc;&auml; e&eacute;&egrave;&ecirc;&euml; i&icirc;&iuml; o&ocirc; u&ugrave;&uuml;&lt;/a&gt; [Article 1 avec des accents ISO a&agrave;&acirc;&auml; e&eacute;&egrave;&ecirc;&euml; i&icirc;&iuml; o&ocirc; u&ugrave;&uuml;-&gt;art1] [spip avec des accents ISO a&agrave;&acirc;&auml; e&eacute;&egrave;&ecirc;&euml; i&icirc;&iuml; o&ocirc; u&ugrave;&uuml;-&gt;http://www.spip.net] http://www.spip.net',
+    0 => '',
     1 => 'Un texte avec des <a href="http://spip.net">liens avec des accents ISO aàâä eéèêë iîï oô uùü</a> [Article 1 avec des accents ISO aàâä eéèêë iîï oô uùü->art1] [spip avec des accents ISO aàâä eéèêë iîï oô uùü->http://www.spip.net] http://www.spip.net',
     2 => ENT_NOQUOTES,
   ),
   99 => 
   array (
-    0 => 'Un texte avec des entit&amp;eacute;s &amp;amp;&amp;lt;&amp;gt;&amp;quot; et avec des accents ISO a&agrave;&acirc;&auml; e&eacute;&egrave;&ecirc;&euml; i&icirc;&iuml; o&ocirc; u&ugrave;&uuml;',
+    0 => '',
     1 => 'Un texte avec des entit&eacute;s &amp;&lt;&gt;&quot; et avec des accents ISO aàâä eéèêë iîï oô uùü',
     2 => ENT_NOQUOTES,
   ),
   100 => 
   array (
-    0 => 'Un texte avec des entit&amp;amp;eacute;s echap&amp;amp;eacute; &amp;amp;amp;&amp;amp;lt;&amp;amp;gt;&amp;amp;quot; et avec des accents ISO a&agrave;&acirc;&auml; e&eacute;&egrave;&ecirc;&euml; i&icirc;&iuml; o&ocirc; u&ugrave;&uuml;',
+    0 => '',
     1 => 'Un texte avec des entit&amp;eacute;s echap&amp;eacute; &amp;amp;&amp;lt;&amp;gt;&amp;quot; et avec des accents ISO aàâä eéèêë iîï oô uùü',
     2 => ENT_NOQUOTES,
   ),
   101 => 
   array (
-    0 => 'Un texte avec des entit&amp;#233;s num&amp;#233;riques &amp;#38;&amp;#60;&amp;#62;&amp;quot; et avec des accents ISO a&agrave;&acirc;&auml; e&eacute;&egrave;&ecirc;&euml; i&icirc;&iuml; o&ocirc; u&ugrave;&uuml;',
+    0 => '',
     1 => 'Un texte avec des entit&#233;s num&#233;riques &#38;&#60;&#62;&quot; et avec des accents ISO aàâä eéèêë iîï oô uùü',
     2 => ENT_NOQUOTES,
   ),
   102 => 
   array (
-    0 => 'Un texte avec des entit&amp;amp;#233;s num&amp;amp;#233;riques echap&amp;amp;#233;es &amp;amp;#38;&amp;amp;#60;&amp;amp;#62;&amp;amp;quot; et avec des accents ISO a&agrave;&acirc;&auml; e&eacute;&egrave;&ecirc;&euml; i&icirc;&iuml; o&ocirc; u&ugrave;&uuml;',
+    0 => '',
     1 => 'Un texte avec des entit&amp;#233;s num&amp;#233;riques echap&amp;#233;es &amp;#38;&amp;#60;&amp;#62;&amp;quot; et avec des accents ISO aàâä eéèêë iîï oô uùü',
     2 => ENT_NOQUOTES,
   ),
   103 => 
   array (
-    0 => 'Un texte sans entites &amp;&lt;&gt;"\' et avec des accents ISO a&agrave;&acirc;&auml; e&eacute;&egrave;&ecirc;&euml; i&icirc;&iuml; o&ocirc; u&ugrave;&uuml;',
+    0 => '',
     1 => 'Un texte sans entites &<>"\' et avec des accents ISO aàâä eéèêë iîï oô uùü',
     2 => ENT_NOQUOTES,
   ),
   104 => 
   array (
-    0 => '{{{Des raccourcis avec des accents ISO a&agrave;&acirc;&auml; e&eacute;&egrave;&ecirc;&euml; i&icirc;&iuml; o&ocirc; u&ugrave;&uuml;}}} {italique avec des accents ISO a&agrave;&acirc;&auml; e&eacute;&egrave;&ecirc;&euml; i&icirc;&iuml; o&ocirc; u&ugrave;&uuml;} {{gras avec des accents ISO a&agrave;&acirc;&auml; e&eacute;&egrave;&ecirc;&euml; i&icirc;&iuml; o&ocirc; u&ugrave;&uuml;}} &lt;code&gt;du code avec des accents ISO a&agrave;&acirc;&auml; e&eacute;&egrave;&ecirc;&euml; i&icirc;&iuml; o&ocirc; u&ugrave;&uuml;&lt;/code&gt;',
+    0 => '',
     1 => '{{{Des raccourcis avec des accents ISO aàâä eéèêë iîï oô uùü}}} {italique avec des accents ISO aàâä eéèêë iîï oô uùü} {{gras avec des accents ISO aàâä eéèêë iîï oô uùü}} <code>du code avec des accents ISO aàâä eéèêë iîï oô uùü</code>',
     2 => ENT_NOQUOTES,
   ),
   105 => 
   array (
-    0 => 'Un modele avec des accents ISO a&agrave;&acirc;&auml; e&eacute;&egrave;&ecirc;&euml; i&icirc;&iuml; o&ocirc; u&ugrave;&uuml; &lt;modeleinexistant|lien=[avec des accents ISO a&agrave;&acirc;&auml; e&eacute;&egrave;&ecirc;&euml; i&icirc;&iuml; o&ocirc; u&ugrave;&uuml;-&gt;http://www.spip.net]&gt;',
+    0 => '',
     1 => 'Un modele avec des accents ISO aàâä eéèêë iîï oô uùü <modeleinexistant|lien=[avec des accents ISO aàâä eéèêë iîï oô uùü->http://www.spip.net]>',
     2 => ENT_NOQUOTES,
   ),
   106 => 
   array (
-    0 => 'Un texte avec des retour
-a la ligne et meme des
-
-paragraphes avec des accents ISO a&agrave;&acirc;&auml; e&eacute;&egrave;&ecirc;&euml; i&icirc;&iuml; o&ocirc; u&ugrave;&uuml;',
+    0 => '',
     1 => 'Un texte avec des retour
 a la ligne et meme des
 
@@ -717,49 +705,49 @@ paragraphes avec des accents ISO aàâä eéèêë iîï oô uùü',
   ),
   107 => 
   array (
-    0 => 'Un texte avec des &lt;a href="http://spip.net"&gt;liens avec des accents UTF-8 a&Atilde;&nbsp;&Atilde;&cent;&Atilde;&curren; e&Atilde;&copy;&Atilde;&uml;&Atilde;&ordf;&Atilde;&laquo; i&Atilde;&reg;&Atilde;&macr; o&Atilde;&acute; u&Atilde;&sup1;&Atilde;&frac14;&lt;/a&gt; [Article 1 avec des accents UTF-8 a&Atilde;&nbsp;&Atilde;&cent;&Atilde;&curren; e&Atilde;&copy;&Atilde;&uml;&Atilde;&ordf;&Atilde;&laquo; i&Atilde;&reg;&Atilde;&macr; o&Atilde;&acute; u&Atilde;&sup1;&Atilde;&frac14;-&gt;art1] [spip avec des accents UTF-8 a&Atilde;&nbsp;&Atilde;&cent;&Atilde;&curren; e&Atilde;&copy;&Atilde;&uml;&Atilde;&ordf;&Atilde;&laquo; i&Atilde;&reg;&Atilde;&macr; o&Atilde;&acute; u&Atilde;&sup1;&Atilde;&frac14;-&gt;http://www.spip.net] http://www.spip.net',
+    0 => 'Un texte avec des &lt;a href="http://spip.net"&gt;liens avec des accents UTF-8 a&agrave;&acirc;&auml; e&eacute;&egrave;&ecirc;&euml; i&icirc;&iuml; o&ocirc; u&ugrave;&uuml;&lt;/a&gt; [Article 1 avec des accents UTF-8 a&agrave;&acirc;&auml; e&eacute;&egrave;&ecirc;&euml; i&icirc;&iuml; o&ocirc; u&ugrave;&uuml;-&gt;art1] [spip avec des accents UTF-8 a&agrave;&acirc;&auml; e&eacute;&egrave;&ecirc;&euml; i&icirc;&iuml; o&ocirc; u&ugrave;&uuml;-&gt;http://www.spip.net] http://www.spip.net',
     1 => 'Un texte avec des <a href="http://spip.net">liens avec des accents UTF-8 aÃ Ã¢Ã¤ eÃ©Ã¨ÃªÃ« iÃ®Ã¯ oÃ´ uÃ¹Ã¼</a> [Article 1 avec des accents UTF-8 aÃ Ã¢Ã¤ eÃ©Ã¨ÃªÃ« iÃ®Ã¯ oÃ´ uÃ¹Ã¼->art1] [spip avec des accents UTF-8 aÃ Ã¢Ã¤ eÃ©Ã¨ÃªÃ« iÃ®Ã¯ oÃ´ uÃ¹Ã¼->http://www.spip.net] http://www.spip.net',
     2 => ENT_NOQUOTES,
   ),
   108 => 
   array (
-    0 => 'Un texte avec des entit&amp;eacute;s &amp;amp;&amp;lt;&amp;gt;&amp;quot; et avec des accents UTF-8 a&Atilde;&nbsp;&Atilde;&cent;&Atilde;&curren; e&Atilde;&copy;&Atilde;&uml;&Atilde;&ordf;&Atilde;&laquo; i&Atilde;&reg;&Atilde;&macr; o&Atilde;&acute; u&Atilde;&sup1;&Atilde;&frac14;',
+    0 => 'Un texte avec des entit&amp;eacute;s &amp;amp;&amp;lt;&amp;gt;&amp;quot; et avec des accents UTF-8 a&agrave;&acirc;&auml; e&eacute;&egrave;&ecirc;&euml; i&icirc;&iuml; o&ocirc; u&ugrave;&uuml;',
     1 => 'Un texte avec des entit&eacute;s &amp;&lt;&gt;&quot; et avec des accents UTF-8 aÃ Ã¢Ã¤ eÃ©Ã¨ÃªÃ« iÃ®Ã¯ oÃ´ uÃ¹Ã¼',
     2 => ENT_NOQUOTES,
   ),
   109 => 
   array (
-    0 => 'Un texte avec des entit&amp;amp;eacute;s echap&amp;amp;eacute; &amp;amp;amp;&amp;amp;lt;&amp;amp;gt;&amp;amp;quot; et avec des accents UTF-8 a&Atilde;&nbsp;&Atilde;&cent;&Atilde;&curren; e&Atilde;&copy;&Atilde;&uml;&Atilde;&ordf;&Atilde;&laquo; i&Atilde;&reg;&Atilde;&macr; o&Atilde;&acute; u&Atilde;&sup1;&Atilde;&frac14;',
+    0 => 'Un texte avec des entit&amp;amp;eacute;s echap&amp;amp;eacute; &amp;amp;amp;&amp;amp;lt;&amp;amp;gt;&amp;amp;quot; et avec des accents UTF-8 a&agrave;&acirc;&auml; e&eacute;&egrave;&ecirc;&euml; i&icirc;&iuml; o&ocirc; u&ugrave;&uuml;',
     1 => 'Un texte avec des entit&amp;eacute;s echap&amp;eacute; &amp;amp;&amp;lt;&amp;gt;&amp;quot; et avec des accents UTF-8 aÃ Ã¢Ã¤ eÃ©Ã¨ÃªÃ« iÃ®Ã¯ oÃ´ uÃ¹Ã¼',
     2 => ENT_NOQUOTES,
   ),
   110 => 
   array (
-    0 => 'Un texte avec des entit&amp;#233;s num&amp;#233;riques &amp;#38;&amp;#60;&amp;#62;&amp;quot; et avec des accents UTF-8 a&Atilde;&nbsp;&Atilde;&cent;&Atilde;&curren; e&Atilde;&copy;&Atilde;&uml;&Atilde;&ordf;&Atilde;&laquo; i&Atilde;&reg;&Atilde;&macr; o&Atilde;&acute; u&Atilde;&sup1;&Atilde;&frac14;',
+    0 => 'Un texte avec des entit&amp;#233;s num&amp;#233;riques &amp;#38;&amp;#60;&amp;#62;&amp;quot; et avec des accents UTF-8 a&agrave;&acirc;&auml; e&eacute;&egrave;&ecirc;&euml; i&icirc;&iuml; o&ocirc; u&ugrave;&uuml;',
     1 => 'Un texte avec des entit&#233;s num&#233;riques &#38;&#60;&#62;&quot; et avec des accents UTF-8 aÃ Ã¢Ã¤ eÃ©Ã¨ÃªÃ« iÃ®Ã¯ oÃ´ uÃ¹Ã¼',
     2 => ENT_NOQUOTES,
   ),
   111 => 
   array (
-    0 => 'Un texte avec des entit&amp;amp;#233;s num&amp;amp;#233;riques echap&amp;amp;#233;es &amp;amp;#38;&amp;amp;#60;&amp;amp;#62;&amp;amp;quot; et avec des accents UTF-8 a&Atilde;&nbsp;&Atilde;&cent;&Atilde;&curren; e&Atilde;&copy;&Atilde;&uml;&Atilde;&ordf;&Atilde;&laquo; i&Atilde;&reg;&Atilde;&macr; o&Atilde;&acute; u&Atilde;&sup1;&Atilde;&frac14;',
+    0 => 'Un texte avec des entit&amp;amp;#233;s num&amp;amp;#233;riques echap&amp;amp;#233;es &amp;amp;#38;&amp;amp;#60;&amp;amp;#62;&amp;amp;quot; et avec des accents UTF-8 a&agrave;&acirc;&auml; e&eacute;&egrave;&ecirc;&euml; i&icirc;&iuml; o&ocirc; u&ugrave;&uuml;',
     1 => 'Un texte avec des entit&amp;#233;s num&amp;#233;riques echap&amp;#233;es &amp;#38;&amp;#60;&amp;#62;&amp;quot; et avec des accents UTF-8 aÃ Ã¢Ã¤ eÃ©Ã¨ÃªÃ« iÃ®Ã¯ oÃ´ uÃ¹Ã¼',
     2 => ENT_NOQUOTES,
   ),
   112 => 
   array (
-    0 => 'Un texte sans entites &amp;&lt;&gt;"\' et avec des accents UTF-8 a&Atilde;&nbsp;&Atilde;&cent;&Atilde;&curren; e&Atilde;&copy;&Atilde;&uml;&Atilde;&ordf;&Atilde;&laquo; i&Atilde;&reg;&Atilde;&macr; o&Atilde;&acute; u&Atilde;&sup1;&Atilde;&frac14;',
+    0 => 'Un texte sans entites &amp;&lt;&gt;"\' et avec des accents UTF-8 a&agrave;&acirc;&auml; e&eacute;&egrave;&ecirc;&euml; i&icirc;&iuml; o&ocirc; u&ugrave;&uuml;',
     1 => 'Un texte sans entites &<>"\' et avec des accents UTF-8 aÃ Ã¢Ã¤ eÃ©Ã¨ÃªÃ« iÃ®Ã¯ oÃ´ uÃ¹Ã¼',
     2 => ENT_NOQUOTES,
   ),
   113 => 
   array (
-    0 => '{{{Des raccourcis avec des accents UTF-8 a&Atilde;&nbsp;&Atilde;&cent;&Atilde;&curren; e&Atilde;&copy;&Atilde;&uml;&Atilde;&ordf;&Atilde;&laquo; i&Atilde;&reg;&Atilde;&macr; o&Atilde;&acute; u&Atilde;&sup1;&Atilde;&frac14;}}} {italique avec des accents UTF-8 a&Atilde;&nbsp;&Atilde;&cent;&Atilde;&curren; e&Atilde;&copy;&Atilde;&uml;&Atilde;&ordf;&Atilde;&laquo; i&Atilde;&reg;&Atilde;&macr; o&Atilde;&acute; u&Atilde;&sup1;&Atilde;&frac14;} {{gras avec des accents UTF-8 a&Atilde;&nbsp;&Atilde;&cent;&Atilde;&curren; e&Atilde;&copy;&Atilde;&uml;&Atilde;&ordf;&Atilde;&laquo; i&Atilde;&reg;&Atilde;&macr; o&Atilde;&acute; u&Atilde;&sup1;&Atilde;&frac14;}} &lt;code&gt;du code avec des accents UTF-8 a&Atilde;&nbsp;&Atilde;&cent;&Atilde;&curren; e&Atilde;&copy;&Atilde;&uml;&Atilde;&ordf;&Atilde;&laquo; i&Atilde;&reg;&Atilde;&macr; o&Atilde;&acute; u&Atilde;&sup1;&Atilde;&frac14;&lt;/code&gt;',
+    0 => '{{{Des raccourcis avec des accents UTF-8 a&agrave;&acirc;&auml; e&eacute;&egrave;&ecirc;&euml; i&icirc;&iuml; o&ocirc; u&ugrave;&uuml;}}} {italique avec des accents UTF-8 a&agrave;&acirc;&auml; e&eacute;&egrave;&ecirc;&euml; i&icirc;&iuml; o&ocirc; u&ugrave;&uuml;} {{gras avec des accents UTF-8 a&agrave;&acirc;&auml; e&eacute;&egrave;&ecirc;&euml; i&icirc;&iuml; o&ocirc; u&ugrave;&uuml;}} &lt;code&gt;du code avec des accents UTF-8 a&agrave;&acirc;&auml; e&eacute;&egrave;&ecirc;&euml; i&icirc;&iuml; o&ocirc; u&ugrave;&uuml;&lt;/code&gt;',
     1 => '{{{Des raccourcis avec des accents UTF-8 aÃ Ã¢Ã¤ eÃ©Ã¨ÃªÃ« iÃ®Ã¯ oÃ´ uÃ¹Ã¼}}} {italique avec des accents UTF-8 aÃ Ã¢Ã¤ eÃ©Ã¨ÃªÃ« iÃ®Ã¯ oÃ´ uÃ¹Ã¼} {{gras avec des accents UTF-8 aÃ Ã¢Ã¤ eÃ©Ã¨ÃªÃ« iÃ®Ã¯ oÃ´ uÃ¹Ã¼}} <code>du code avec des accents UTF-8 aÃ Ã¢Ã¤ eÃ©Ã¨ÃªÃ« iÃ®Ã¯ oÃ´ uÃ¹Ã¼</code>',
     2 => ENT_NOQUOTES,
   ),
   114 => 
   array (
-    0 => 'Un modele avec des accents UTF-8 a&Atilde;&nbsp;&Atilde;&cent;&Atilde;&curren; e&Atilde;&copy;&Atilde;&uml;&Atilde;&ordf;&Atilde;&laquo; i&Atilde;&reg;&Atilde;&macr; o&Atilde;&acute; u&Atilde;&sup1;&Atilde;&frac14; &lt;modeleinexistant|lien=[avec des accents UTF-8 a&Atilde;&nbsp;&Atilde;&cent;&Atilde;&curren; e&Atilde;&copy;&Atilde;&uml;&Atilde;&ordf;&Atilde;&laquo; i&Atilde;&reg;&Atilde;&macr; o&Atilde;&acute; u&Atilde;&sup1;&Atilde;&frac14;-&gt;http://www.spip.net]&gt;',
+    0 => 'Un modele avec des accents UTF-8 a&agrave;&acirc;&auml; e&eacute;&egrave;&ecirc;&euml; i&icirc;&iuml; o&ocirc; u&ugrave;&uuml; &lt;modeleinexistant|lien=[avec des accents UTF-8 a&agrave;&acirc;&auml; e&eacute;&egrave;&ecirc;&euml; i&icirc;&iuml; o&ocirc; u&ugrave;&uuml;-&gt;http://www.spip.net]&gt;',
     1 => 'Un modele avec des accents UTF-8 aÃ Ã¢Ã¤ eÃ©Ã¨ÃªÃ« iÃ®Ã¯ oÃ´ uÃ¹Ã¼ <modeleinexistant|lien=[avec des accents UTF-8 aÃ Ã¢Ã¤ eÃ©Ã¨ÃªÃ« iÃ®Ã¯ oÃ´ uÃ¹Ã¼->http://www.spip.net]>',
     2 => ENT_NOQUOTES,
   ),
@@ -768,7 +756,7 @@ paragraphes avec des accents ISO aàâä eéèêë iîï oô uùü',
     0 => 'Un texte avec des retour
 a la ligne et meme des
 
-paragraphes avec des accents UTF-8 a&Atilde;&nbsp;&Atilde;&cent;&Atilde;&curren; e&Atilde;&copy;&Atilde;&uml;&Atilde;&ordf;&Atilde;&laquo; i&Atilde;&reg;&Atilde;&macr; o&Atilde;&acute; u&Atilde;&sup1;&Atilde;&frac14;',
+paragraphes avec des accents UTF-8 a&agrave;&acirc;&auml; e&eacute;&egrave;&ecirc;&euml; i&icirc;&iuml; o&ocirc; u&ugrave;&uuml;',
     1 => 'Un texte avec des retour
 a la ligne et meme des
 
@@ -1894,4 +1882,6 @@ paragraphes',
 );
 		return $essais;
 	}
+
+
 
