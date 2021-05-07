@@ -14,16 +14,17 @@
 
 
 	$essais[] =
-	 array('((i  IN (1,2,3)))','i','1,2,3');
+	 array('(i  IN (1,2,3))','i','1,2,3');
+
+	// le format string est historique et n'est accepte que pour des ids numeriques car autrement la securite ne peut etre garantie
+	// $essais[] =
+	//  array('(i  IN ("a","b","c"))','i','"a","b","c"');
 
 	$essais[] =
-	 array('((i  IN ("a","b","c")))','i','"a","b","c"');
+	 array("(i  IN (1,2,4))",'i',array(1,2,4));
 
 	$essais[] =
-	 array("((i  IN (1,2,4)))",'i',array(1,2,4));
-
-	$essais[] =
-	 array("((i  IN ('a','b','c')))",'i',array('a','b','c'));
+	 array("(i  IN ('a','b','c'))",'i',array('a','b','c'));
 
 
 	// ce test ne peut pas marcher avec _q(), il faut eviter le hex
