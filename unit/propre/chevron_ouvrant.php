@@ -55,7 +55,7 @@ function essais_chevron_ouvrant(){
 	  ),
 	3 =>
 	  array (
-	    0 => '<h3 class="spip">a&lt;b</h3>',
+	    0 => '<h2 class="spip">a&lt;b</h2>',
 	    1 => '{{{a<b}}}',
 	  ),
 	4 =>
