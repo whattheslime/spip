@@ -20,7 +20,7 @@ array('preg_match',',<caption>\s*titre de mon tableau\s*</caption>,i',true),
 | {{Bourg-de-Peage}} | 13,22 | 30 | 50 | 14,67 |'
 );
 $essais['caption'] = array(
-array('preg_match',',<caption>\s*titre de mon tableau\s*</caption>,i',true),
+array('preg_match',',<caption>\s*titre de mon tableau.*</caption>,i',true),
 '|| titre de mon tableau | resume de mon tableau ||
 |{{Colonne 0}} | {{Colonne 1}} | {{Colonne 2}} | {{Colonne 3}} | {{Colonne 4}} |
 | {{Bourg-les-Valence}} | 10,39 | 20,14 | 46,02 | 15,99 |
@@ -30,7 +30,7 @@ array('preg_match',',<caption>\s*titre de mon tableau\s*</caption>,i',true),
 | {{Bourg-de-Peage}} | 13,22 | 30 | 50 | 14,67 |'
 );
 $essais['summary'] = array(
-array('preg_match',',<table\s[^>]*summary=([\'"])\s*resume de mon tableau\s*(\\1)[^>]*>,i',true),
+array('preg_match',',<table[^>]*aria-describedby="([^"]*)"[^>]*>.*<caption>.* id="(\\1)"[^>]*>\s*resume de mon tableau.*</caption>,is',true),
 '|| titre de mon tableau | resume de mon tableau ||
 |{{Colonne 0}} | {{Colonne 1}} | {{Colonne 2}} | {{Colonne 3}} | {{Colonne 4}} |
 | {{Bourg-les-Valence}} | 10,39 | 20,14 | 46,02 | 15,99 |
