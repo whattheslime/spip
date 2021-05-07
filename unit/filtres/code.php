@@ -25,7 +25,7 @@ function essais_code_dist(){
 	$essais = array(
 		array(
 			0 =>
-				'<p>Le r&#233;sultat se pr&#233;sente sous la forme suivante :</p>
+				'<p>Le r&#233;sultat se pr&#233;sente sous la forme suivante&nbsp;:</p>
 <div style=\'text-align: left;\' class=\'spip_code\' dir=\'ltr\'><code>root@bennybox# ls /var/state/mysql/<br />
 alternc/ &nbsp; &nbsp; &nbsp; &nbsp; spip/ &nbsp; &nbsp; &nbsp; &nbsp; truc/<br />
 zope/<br />
