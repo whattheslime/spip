@@ -29,17 +29,11 @@ body {
 }
 
 
-.simple.fiche_objet .inner .hd {  }
-#contenu .fiche_objet .box.propose {
-	border: 0;
-	border-radius: 0;
-	background-color: #ffde00;
-	margin-left: calc(var(--spip-box-spacing-x) *  -1);
-	margin-right: calc(var(--spip-box-spacing-x) *  -1);
-	position:relative;
-}
+/* Fiche objet */
 #contenu .fiche_objet > .box__header {
 	line-height: 1.2;
+	border-bottom: 0;
+	padding-bottom: calc(var(--spip-box-spacing-y) / 2);
 }
 #contenu .fiche_objet > .box__header h1 {
 	margin-bottom: 0.25em;
@@ -49,12 +43,26 @@ body {
 #contenu .fiche_objet > .box__header .soustitre {
 	line-height: inherit;
 }
+.box.fiche_objet > .box__body {
+	padding-top: calc(var(--spip-box-spacing-y) / 2);
+}
 #contenu .fiche_objet .editer_urls {margin: 10px 0; }
 #contenu .fiche_objet .editer_urls .formulaire_editer_url_objet {margin: 10px -15px 0px -15px; clear: both;}
 #contenu .fiche_objet .editer_urls .formulaire_editer_url_objet {border-radius:0px;position:relative;}
 #contenu .fiche_objet .editer_urls .boutons {border-radius:0px;position:relative;}
 
 #contenu .fiche_objet {margin-bottom: 1em;}
+
+/* Boîte articles proposés */
+#contenu .fiche_objet .box.propose {
+	border: 0;
+	border-radius: 0;
+	background-color: #ffde00;
+	margin-left: calc(var(--spip-box-spacing-x) *  -1);
+	margin-right: calc(var(--spip-box-spacing-x) *  -1);
+	position:relative;
+}
+
 h1 {font-size: 2em;line-height: 125%;}
 .h1 {font-size: 2em;line-height: 125%;}
 
