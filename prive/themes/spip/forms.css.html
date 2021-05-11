@@ -1111,21 +1111,21 @@
 	font-weight: bold;
 }
 
-/* config/reducteur */
+/* Config / réducteur
+   Les vignettes sont des <button>
+   Les images en background font 150 x 150px */
 .formulaire_configurer_reducteur .vignettes_reducteur {
 	display: flex;
 }
 .formulaire_configurer_reducteur .vignette_reducteur {
 	text-align: center;
 	float: var(--spip-left);
-	padding: 2px;
-	border: 1px solid hsla(0, 0%, 0%, 0.1);
-	width: 154px;
-	padding-top: 150px;
+	border: 1px solid var(--spip-form-input-border-color);
+	width: 150px;
+	padding-top: calc(150px + var(--spip-btn-padding-y));
 	margin: 0.5em;
 	background-position: top center;
 	background-repeat: no-repeat;
-	background-size: contain;
 }
 .formulaire_configurer_reducteur .vignette_reducteur:first-child {
 	margin-#LEFT: 0;
@@ -1133,20 +1133,17 @@
 .formulaire_configurer_reducteur .vignette_reducteur:last-child {
 	margin-#RIGHT: 0;
 }
+.formulaire_configurer_reducteur .vignette_reducteur.on,
 .formulaire_configurer_reducteur .vignette_reducteur:hover {
-	border-color:#bbb;
-	background-color:#ddd;
+	border-color: var(--spip-color-theme);
+	background-color: var(--spip-color-theme);
+	color: var(--spip-color-white);
 }
 .formulaire_configurer_reducteur .vignette_reducteur.on {
-	font-weight: bold;
-	border: 2px solid var(--spip-color-theme);
-	background-color: var(--spip-color-gray-lightest);
-	box-shadow: 0 0 5px var(--spip-color-theme);
+	border-color: var(--spip-color-theme-dark);
+	background-color: var(--spip-color-theme-dark);
 }
-.formulaire_configurer_reducteur .vignette_reducteur.on:hover {
-	border-color: var(--spip-color-theme);
-	color: hsla(0, 0%, 0%, 0.6); /* Pour mieux s'adapter aux couleurs de fond */
-}
+
 
 /* dater
    @extend .mini
