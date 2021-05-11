@@ -231,33 +231,35 @@ function f_afficher_blocs_ecrire($flux) {
  * @return string
  *     HTML avec le marqueur, ou inchangé si ajout impossible.
  */
-function afficher_blocs_ecrire_preparer_marqueur(string $texte, string $marqueur, string $inserer_avant, string $ouvrir = '', string $fermer = '') : string {
+function afficher_blocs_ecrire_preparer_marqueur(?string $texte, string $marqueur, string $inserer_avant, string $ouvrir = '', string $fermer = '') : ?string {
 
-	$encapsuler = (($ouvrir and $fermer) ? true : false);
-	$marqueur_pos = strpos($texte, $marqueur);
-	$full_marqueur = "$ouvrir$marqueur$fermer";
+	if ($texte) {
+		$encapsuler = (($ouvrir and $fermer) ? true : false);
+		$marqueur_pos = strpos($texte, $marqueur);
+		$full_marqueur = "$ouvrir$marqueur$fermer";
 
-	// Le marqueur est absent : on l'ajoute avant l'élément indiqué
-	if ($marqueur_pos  === false) {
-		$texte = preg_replace(
-			",$inserer_avant,",
-			"$full_marqueur\\0",
-			$texte
-		);
-	// Le marqueur est présent mais pas encapsulé : on ajoute les balises ouvrantes et fermantes.
-	// Pour vérifier, on prend le texte précédent et on regarde si ça correspond à la balise ouvrante.
-	// Il ne faut donc aucun espace blanc en trop.
-	} elseif (
-		$marqueur_pos !== false
-		and $encapsuler
-		and substr($texte, $marqueur_pos-strlen($ouvrir), strlen($ouvrir)) !== $ouvrir
-	) {
-		$texte = substr_replace(
-			$texte,
-			$full_marqueur,
-			$marqueur_pos,
-			strlen($marqueur)
-		);
+		// Le marqueur est absent : on l'ajoute avant l'élément indiqué
+		if ($marqueur_pos  === false) {
+			$texte = preg_replace(
+				",$inserer_avant,",
+				"$full_marqueur\\0",
+				$texte
+			);
+		// Le marqueur est présent mais pas encapsulé : on ajoute les balises ouvrantes et fermantes.
+		// Pour vérifier, on prend le texte précédent et on regarde si ça correspond à la balise ouvrante.
+		// Il ne faut donc aucun espace blanc en trop.
+		} elseif (
+			$marqueur_pos !== false
+			and $encapsuler
+			and substr($texte, $marqueur_pos-strlen($ouvrir), strlen($ouvrir)) !== $ouvrir
+		) {
+			$texte = substr_replace(
+				$texte,
+				$full_marqueur,
+				$marqueur_pos,
+				strlen($marqueur)
+			);
+		}
 	}
 
 	return $texte;
