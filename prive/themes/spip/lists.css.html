@@ -506,15 +506,14 @@
  * N'afficher que les colonnes nécessaires : statut et id
  * @extend .mini
  */
-.lat .liste-objets tr > *:not(.principale):not(.id):not(.statut) {
-	display: none;
-}
-.lat .liste-objets tr td.principale {
-	word-wrap: break-word;
-}
+.lat .liste-objets tr > *:not(.principale):not(.id):not(.statut),
 .lat .liste-objets .titre .soustitre,
 .lat .liste-objets .titre .surtitre {
 	display: none;
+}
+.lat .liste-objets tr td,
+.lat .liste-objets tr th {
+	word-break: break-word;
 }
 
 /**
