@@ -1447,31 +1447,28 @@
 }
 
 /* formulaire_instituer */
+.infos .formulaire_instituer,
+.infos .formulaire_instituer .show {
+	margin-left: calc(var(--spip-box-spacing-x) * -1);
+	margin-right: calc(var(--spip-box-spacing-x) * -1);
+}
 .infos .formulaire_instituer {
 	background: none;
 	border: 0;
 	box-shadow: none;
-	margin:0 -10px;
+	margin-bottom: 0;
+	margin-top: 0;
 }
 .infos .formulaire_instituer .reponse_formulaire {
 	display: none;
 }
-.infos .formulaire_instituer ul {
-	padding-bottom: 0;
-	margin-bottom: 0;
-}
-.infos .formulaire_instituer .editer {
-	padding-left: 10px;
-	padding-right: 10px;
-}
 .infos .formulaire_instituer .show {
-	display:block;
-	margin:0 -10px;
-	padding:10px;
+	display: block;
+	padding: var(--spip-form-spacing-y) var(--spip-form-spacing-x);
 	background-color: var(--spip-color-gray-lightest);
 }
 .infos .formulaire_instituer .show select {
-	width: 100%;
+	border: 0;
 }
 .infos .formulaire_instituer .show select,
 .infos .formulaire_instituer .show option {
