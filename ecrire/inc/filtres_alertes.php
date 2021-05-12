@@ -211,7 +211,8 @@ function message_alerte_ouvrir(?string $titre = null, ?string $class = null, ?st
 		'success',
 		'info',
 	];
-	$type  = reset(array_intersect(explode(' ', $class), $types));
+	$type  = array_intersect(explode(' ', $class), $types);
+	$type  = reset($type);
 	$class = trim(str_replace($types, '', $class) . " $type");
 
 	// Classes
