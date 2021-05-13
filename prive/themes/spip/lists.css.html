@@ -311,9 +311,10 @@
 /* Titre */
 .liste-objets td.titre a {
 	display: block;
+	font-size: 1.05em;
 }
 .liste-objets td.titre a strong {
-	font-weight: inherit; /* forcer la graisse normale */
+	/* font-weight: inherit; /* forcer la graisse normale */
 }
 .liste-objets td.titre .surtitre,
 .liste-objets td.titre .soustitre {
@@ -343,7 +344,7 @@
 .liste-objets td.nologo {
 	padding: 0;
 	width: 0;
-	/* height: 45px; */
+	height: 45px; 
 }
 
 /* Auteur */
@@ -354,7 +355,10 @@
 	border: 0;
 	background: none;
 }
-
+/* Date */
+.liste-objets tr > .date {
+	font-size: .85em;
+}
 /* Actions */
 .liste-objets td.action {
 	text-align: var(--spip-right);
