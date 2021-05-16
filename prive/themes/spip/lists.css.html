@@ -288,6 +288,26 @@
  * -----------------------------------
  */
 
+/* Liens secondaires moins visibles */
+/*
+.liste-objets td.principale a strong {
+	text-decoration: underline;
+	text-decoration-style: dotted;
+}
+.liste-objets td.principale a strong:hover,
+.liste-objets td.principale a strong:focus {
+	text-decoration-style: solid;
+}
+*/
+
+.liste-objets td:not(.principale) a {
+	color: #888;
+}
+.liste-objets td:not(.principale) a:hover, 
+.liste-objets td:not(.principale) a:focus {
+	color: #333;
+}
+
 /* Statut et picto */
 .liste-objets tr > .statut,
 .liste-objets tr > .picto {
