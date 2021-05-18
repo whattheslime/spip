@@ -96,11 +96,11 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'date_mot_heures' => 'heures',
 
 	// E
-	'ecran_connexion_titre' => 'Écran de connexion',
 	'ecran_connexion_couleur_principale' => 'Couleur principale',
 	'ecran_connexion_image_fond' => 'Image de fond',
 	'ecran_connexion_image_fond_explication' => 'Utiliser une image (format JPEG, 1920x1080 pixels)',
 	'ecran_connexion_image_revenir_couleur_defaut' => 'Revenir à la couleur par défaut',
+	'ecran_connexion_titre' => 'Écran de connexion',
 	'ecran_securite' => ' + écran de sécurité @version@',
 	'email' => 'email',
 	'email_2' => 'email :',
@@ -147,7 +147,6 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'erreur_contenu_suspect' => 'Texte échappé',
 	'erreur_email_deja_existant' => 'Cette adresse email est déjà enregistrée.',
 	'erreur_nom_connect_incorrect' => 'Ce nom de serveur n’est pas autorisé',
-	'erreur_type_fichier' => 'Type de fichier incorrect',
 	'erreur_plugin_attribut_balise_manquant' => 'Attribut @attribut@ manquant dans la balise @balise@.',
 	'erreur_plugin_desinstalation_echouee' => 'La désinstallation du plugin a échoué. Vous pouvez néanmoins le désactiver.',
 	'erreur_plugin_fichier_absent' => 'Fichier absent',
@@ -157,6 +156,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'erreur_plugin_prefix_manquant' => 'Espace de nommage du plugin non défini',
 	'erreur_plugin_tag_plugin_absent' => '&lt;plugin&gt; manquant dans le fichier de définition',
 	'erreur_plugin_version_manquant' => 'Version du plugin manquante',
+	'erreur_type_fichier' => 'Type de fichier incorrect',
 
 	// H
 	'htaccess_a_simuler' => 'Avertissement : la configuration de votre serveur HTTP ne tient pas compte des fichiers @htaccess@. Pour pouvoir assurer une bonne sécurité, il faut que vous modifiiez cette configuration sur ce point, ou bien que les constantes @constantes@ (définissables dans le fichier mes_options.php) aient comme valeur des répertoires en dehors de @document_root@.',
