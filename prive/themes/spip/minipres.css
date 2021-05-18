@@ -126,7 +126,6 @@ input[type=radio],input[type=checkbox] {display: inline-block; margin-right: 0.7
 .install-plugins.error + .install-plugins.error {margin-top: 0;border-top: 0;}
 .install-plugins .result {display:block;position:absolute;top:0.8em;right:0.8em;font-weight:bold;}
 .install-plugins .success {display: none;} /* ne pas afficher les installations ok mais seulement les echecs */
-
 /* Couleurs des liens
 ---------------------------------------------- */
 a { color: #db1762; text-decoration: none; }
