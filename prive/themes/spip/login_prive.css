@@ -89,7 +89,7 @@
 .page_login .formulaire_spip fieldset p {
 	margin-bottom: 1em;
 }
-.page_login h1,  .page_login h3 {
+.page_login h1, .page_login h3 {
 	display: none;
 }
 .page_login .formulaire_spip fieldset .editer {
@@ -106,15 +106,13 @@
 	top: 0;
 	right: 0;
 }
-.page_login h1 {
-	margin-left: -1.5em;
-}
-.page_login h1,  .page_login label {
+
+.page_login label {
 	font-size: 0.9em;
 	padding-bottom: 0.2em;
 	text-shadow: 0 0 3px var(--spip-login-color-gray-dark);
 }
-.page_login h1,  .page_login input.text {
+.page_login input.text {
 	width: 100%;
 	box-sizing: border-box;
 	border: 0px;
@@ -122,12 +120,12 @@
 	border-radius: 4px;
 	transition: 0.2s background-color;
 }
-.page_login h1,  input.text:hover,
-.page_login h1,  input.text:focus{
+input.text:hover,
+input.text:focus{
 	background-color: white;
 }
 
-.page_login h1, .page_login #spip_logo_auteur {
+.page_login #spip_logo_auteur {
 	float: none;
 	position: absolute;
 	top: -130px;
@@ -139,11 +137,10 @@
 	overflow: hidden;
 }
 .page_login h1 {
-	font-size: 85%;
-	text-align: right;
-	padding-top: 5px;
-	padding-right: 30px;
+	font-size: 1.4em;
+	margin-bottom: 1em;
 }
+
 .page_login p.details {
 	font-size: 85%;
 	text-align: right;
@@ -158,11 +155,11 @@
 .page_login h1, .page_login p.details a:hover {
 	opacity: 1;
 }
-.page_login h1, .page_login .boutons {
+.page_login .boutons {
 	text-align: right;
 	margin-right: 0px;
 }
-.page_login h1, .page_login .boutons input.submit {
+.page_login .boutons input.submit {
 	font-size: 16px;
 	border: 0px;
 	padding: 7px 15px;
@@ -172,13 +169,13 @@
 	color: black;
 	-webkit-appearance: none;
 }
-.page_login h1, .page_login .boutons input.submit:hover,
-.page_login h1, .page_login .boutons input.submit:focus {
+.page_login .boutons input.submit:hover,
+.page_login .boutons input.submit:focus {
 	background-color: white;
 }
 
-.page_login h1, .page_login #spip_logo_auteur img {
-	position: inline;
+.page_login #spip_logo_auteur img {
+	display: inline;
 	margin: 0 !important;
 }
 .page_login p.retour {
@@ -208,9 +205,4 @@
 .page_login p.generator a:hover, 
 .page_login p.generator a:focus {
 	color: var(--spip-login-color-theme-light);
-}
-
-.page_login h1 {
-	margin-bottom: 1em;
-	font-size: 1.4em;
 }
