@@ -78,6 +78,8 @@
 }
 .page_login .formulaire_spip fieldset {
 	background: var(--spip-login-color-gray-dark);
+	-webkit-backdrop-filter: blur(10px);
+	backdrop-filter: blur(10px);
 	padding: 20px;
 	line-height: 130%;
 	border: 0;
@@ -178,7 +180,8 @@ input.text:focus{
 	display: inline;
 	margin: 0 !important;
 	width: 100%;
-	height: auto;
+	height: 100%;
+	object-fit: cover;
 }
 .page_login p.retour {
 	position: absolute;
