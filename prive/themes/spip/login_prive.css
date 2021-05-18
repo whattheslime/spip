@@ -177,6 +177,8 @@ input.text:focus{
 .page_login #spip_logo_auteur img {
 	display: inline;
 	margin: 0 !important;
+	width: 100%;
+	height: auto;
 }
 .page_login p.retour {
 	position: absolute;
