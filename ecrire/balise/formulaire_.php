@@ -292,7 +292,7 @@ function balise_FORMULAIRE__contexte($form, $args) {
 		// et si $k ne commence pas par un _ (c'est bien une vrai erreur sur un vrai champ)
 		if (html5_permis()) {
 			foreach ($erreurs as $k => $v) {
-				if (is_string($v) and strpos($k,'_') !== 0) {
+				if (is_string($v) and strlen(trim($v)) and strpos($k,'_') !== 0) {
 					// on encapsule dans un span car ces messages sont en general simple, juste du texte, et deja dans un span dans le form
 					$valeurs['erreurs'][$k] = "<span role='alert'>".$erreurs[$k]."</span>";
 				}
