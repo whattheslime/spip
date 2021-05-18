@@ -43,8 +43,8 @@ function inc_couleurs_dist($choix = null, $ajouter = false) {
 		9 => ["couleur_theme" => "#9a6ef2"],
 		// Violet rosé
 		4 => ["couleur_theme" => "#c464cb"],
-		// Rose foncé
-		2 => ["couleur_theme" =>  "#ff3da5"],
+		// Rose interface SPIP
+		2 => ["couleur_theme" =>  "#F02364"],
 		// Rouge
 		8 => ["couleur_theme" => "#ff4524"],
 		// Orange
