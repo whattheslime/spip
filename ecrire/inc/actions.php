@@ -143,6 +143,12 @@ function ajax_retour($corps, $content_type = null) {
 	$fin = '';
 
 	echo $debut.$corps.$fin.$e;
-	while (ob_get_level()) ob_end_flush();
+
+	// flusher tous les tampons
+	$level = @ob_get_level();
+	while ($level--) {
+		@ob_end_flush();
+	}
+
 	flush();
 }
