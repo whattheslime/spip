@@ -400,39 +400,43 @@
 	line-height: 1.3; /* légèrement inférieure au texte normal */
 }
 /* Labels plus longs */
-.formulaire_spip .long_label {
+.formulaire_spip .editer.long_label {
 	padding-#LEFT: calc(var(--spip-form-label-long-width) + (var(--spip-form-spacing-x) * 2)); /* largeur + marge gauche+droite */
 }
-.formulaire_spip .long_label .label,
-.formulaire_spip .long_label label {
+.formulaire_spip .editer.long_label > .label,
+.formulaire_spip .editer.long_label > label {
 	width: var(--spip-form-label-long-width);
 	margin-#LEFT: calc((var(--spip-form-label-long-width) + var(--spip-form-spacing-x)) * -1); /* inverse largeur + marge */
 }
 /* Labels en haut + cas particuliers où c'est forcé */
-.formulaire_spip .pleine_largeur,
+.formulaire_spip .editer.pleine_largeur,
 .formulaire_spip .editer_parent,
 .formulaire_spip .editer_groupe_mot,
 .formulaire_spip .editer_descriptif,
 .formulaire_spip .editer_chapo,
 .formulaire_spip .editer_texte,
 .formulaire_spip .editer_ps,
-.formulaire_spip .haut {
+.formulaire_spip .editer.haut {
 	padding-#LEFT: var(--spip-form-spacing-x);
 }
-.formulaire_spip .pleine_largeur > label,
-.formulaire_spip .editer-groupe.deux_colonnes .editer > label,
+.formulaire_spip .editer.pleine_largeur > label,
+.formulaire_spip .editer.pleine_largeur > .label, /* fieldsets avec legend.label */
+.formulaire_spip .editer-groupe.deux_colonnes > .editer > label,
 .formulaire_spip .editer_parent label,
 .formulaire_spip .editer_groupe_mot label,
 .formulaire_spip .editer_descriptif label,
 .formulaire_spip .editer_chapo label,
 .formulaire_spip .editer_texte label,
 .formulaire_spip .editer_ps label,
-.formulaire_spip .haut label {
+.formulaire_spip .editer.haut label {
 	display: block;
 	float: none;
 	width: auto;
 	margin-#LEFT: 0;
 	padding: 0;
+}
+.formulaire_spip fieldset.editer.pleine_largeur > .label {
+	transform: translateY(50%); /* remettre au niveau de la ligne */
 }
 
 /* Conteneur des boutons (les boutons eux-mêmes sont dans boutons.css.html) */
