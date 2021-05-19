@@ -78,8 +78,6 @@
 }
 .page_login .formulaire_spip fieldset {
 	background: var(--spip-login-color-gray-dark);
-	-webkit-backdrop-filter: blur(10px);
-	backdrop-filter: blur(10px);
 	padding: 20px;
 	line-height: 130%;
 	border: 0;
