@@ -73,12 +73,12 @@
 	position: absolute;
 	left: 50%;
 	top: 50%;
-	margin-top: 50px;
+	margin-top: 30px;
 	transform: translate(-50%, -50%);
 }
 .page_login .formulaire_spip fieldset {
 	background: var(--spip-login-color-gray-dark);
-	padding: 20px;
+	padding: 10px 20px;
 	line-height: 130%;
 	border: 0;
 	margin:0;
@@ -128,13 +128,33 @@ input.text:focus{
 .page_login #spip_logo_auteur {
 	float: none;
 	position: absolute;
-	top: -130px;
 	left: 50%;
-	margin-left: -50px;
-	width: 100px;
-	height: 100px;
 	border-radius: 50%;
 	overflow: hidden;
+	top: -80px;
+	margin-left: -35px;
+	width: 70px;
+	height: 70px;
+}
+.page_login .boutons {
+	margin-top: 0.5em;
+}
+@media (min-height: 600px) {
+	.page_login #spip_logo_auteur {
+		top: -130px;
+		margin-left: -50px;
+		width: 100px;
+		height: 100px;
+	}
+	.page_login .formulaire_spip fieldset {
+		padding: 20px;
+	}
+	.page_login .boutons {
+		margin-top: 1.5em;
+	}
+	.page_login .formulaire_login {
+		margin-top: 50px;
+	}
 }
 .page_login h1 {
 	font-size: 1.4em;
