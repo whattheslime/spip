@@ -473,14 +473,6 @@ class Boucle {
 	 */
 	public $hierarchie = '';
 
-	/**
-	 * Indique la présence d'un critère sur le statut
-	 *
-	 * @deprecated Remplacé par $boucle->modificateur['criteres']['statut']
-	 * @var bool
-	 */
-	public $statut = false;
-
 	// champs pour la construction du corps PHP
 
 	/**

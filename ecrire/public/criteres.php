@@ -2130,15 +2130,6 @@ function calculer_critere_infixe($idb, &$boucles, $crit) {
 		}
 	}
 
-	// ajout pour le cas special d'une condition sur le champ statut:
-	// il faut alors interdire a la fonction de boucle
-	// de mettre ses propres criteres de statut
-	// https://www.spip.net/@statut (a documenter)
-	// garde pour compatibilite avec code des plugins anterieurs, mais redondant avec la ligne precedente
-	if ($col == 'statut') {
-		$boucles[$idb]->statut = true;
-	}
-
 	// inserer le nom de la table SQL devant le nom du champ
 	if ($table) {
 		if ($col[0] == "`") {
