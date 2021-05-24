@@ -715,6 +715,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'zbug_erreur_compilation' => 'خطأ تصنيف',
 	'zbug_erreur_execution_page' => 'خطأ في التنفيذ',
 	'zbug_erreur_filtre' => 'المرشح @filtre@ غير معرّف ',
+	'zbug_erreur_filtre_nbarg_min' => 'المرشح @filtre@ : ينقص @nb@ عامل',
 	'zbug_erreur_meme_parent' => 'لا ينطبق معيار {meme_parent} إلا على حلقتي (FORUMS) أو (RUBRIQUES)',
 	'zbug_erreur_squelette' => 'خطأ في الصفحة النموذجية',
 	'zbug_hors_compilation' => 'خارج التصنيف',

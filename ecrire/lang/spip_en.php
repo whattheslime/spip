@@ -715,6 +715,7 @@ and log in to the site.
 	'zbug_erreur_compilation' => 'Compilation error',
 	'zbug_erreur_execution_page' => 'Execution error',
 	'zbug_erreur_filtre' => 'Undefined filter @filtre@',
+	'zbug_erreur_filtre_nbarg_min' => '@filtre@ filter: @nb@ argument(s) missing',
 	'zbug_erreur_meme_parent' => '{meme_parent} only applies to loops (FORUMS) and (RUBRIQUES)',
 	'zbug_erreur_squelette' => 'Error(s) in template',
 	'zbug_hors_compilation' => 'Uncompiled',
