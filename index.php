@@ -112,7 +112,7 @@
 					$section = dirname($test);
 					$section_dir = $section;
 					#$section = str_replace('/tests','  ',dirname($test));
-					if ($svn = version_svn_courante(dirname(dirname($test))))
+					if ($svn = version_vcs_courante(dirname(dirname($test))))
 						$section_svn = ' ['.abs($svn).']';
 				}
 				if ($section <> $sectionold) {
@@ -144,7 +144,7 @@
 function version_spip() {
 	include_spip('inc/minipres');
 	$version = $GLOBALS['spip_version_affichee'];
-	if ($svn_revision = version_svn_courante(_DIR_RACINE))
+	if ($svn_revision = version_vcs_courante(_DIR_RACINE))
 		$version .= ' ' . (($svn_revision < 0) ? 'SVN ':'')
 		. "[<a href='http://core.spip.org/projects/spip/repository/revisions/"
 		. abs($svn_revision) . "' onclick=\"window.open(this.href); return false;\">"
