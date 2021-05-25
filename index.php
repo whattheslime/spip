@@ -112,12 +112,13 @@
 					$section = dirname($test);
 					$section_dir = $section;
 					#$section = str_replace('/tests','  ',dirname($test));
-					if ($svn = version_vcs_courante(dirname(dirname($test))))
-						$section_svn = ' ['.abs($svn).']';
+					if ($vcs = decrire_version_git(dirname(dirname($test)))) {
+						$section_vcs = ' ['.$vcs['commit_short'].']';
+					}
 				}
 				if ($section <> $sectionold) {
 					if ($sectionold) echo "</dl>\n";
-					$titre = $dirTests ? $section : "<a href='../$section_dir'>$section</a>$section_svn";
+					$titre = $dirTests ? $section : "<a href='../$section_dir'>$section</a>$section_vcs";
 					echo "<dl><dt>$titre</dt>\n";
 					$sectionold = $section;
 				}
@@ -144,11 +145,12 @@
 function version_spip() {
 	include_spip('inc/minipres');
 	$version = $GLOBALS['spip_version_affichee'];
-	if ($svn_revision = version_vcs_courante(_DIR_RACINE))
-		$version .= ' ' . (($svn_revision < 0) ? 'SVN ':'')
-		. "[<a href='http://core.spip.org/projects/spip/repository/revisions/"
-		. abs($svn_revision) . "' onclick=\"window.open(this.href); return false;\">"
-		. abs($svn_revision) . "</a>]";
+	if ($vcs = decrire_version_git(_DIR_RACINE)) {
+		$version .= ' ' . ($vcs['vcs'] ?? '')
+		. "[<a href='https://git.spip.net/spip/spip/commit/"
+		. $vcs['commit'] . "' onclick=\"window.open(this.href); return false;\">"
+		. $vcs['commit_short'] . "</a>]";
+	}
 
 	return $version;
 }
