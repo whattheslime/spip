@@ -615,12 +615,12 @@
 	width: auto;
 }
 
-/* Espacements entre inputs et labels, indépendamment de la position du label (on sait qu'ils vont par paire, ça suffit) */
-.formulaire_spip .choix > *:nth-child(odd) {
-	margin-#RIGHT: calc(var(--spip-form-input-padding-x) * 3/4); /* entre input et label */
+/* Espacements entre inputs et labels (à affiner) */
+.formulaire_spip .choix > label,
+.formulaire_spip .choix > .label {
+	margin: 0 0.5em;
 }
-/* Espacement entre plusieurs options dans un même .choix, et entre .choix inline successifs */
-.formulaire_spip .choix > *:nth-child(3n+3),
+/* Espacement entre .choix inline successifs */
 .formulaire_spip span.choix + span.choix {
 	margin-#LEFT: var(--spip-form-spacing-x); /* entre options ou .choix inline */
 }
