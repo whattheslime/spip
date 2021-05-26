@@ -168,7 +168,7 @@
 	        transition: background 0.1s; /* Retour */
 }
 .icone-fonction-new:after {
-	background-position-y: top[ (#GET{iconpadding})];
+	background-position-y: [(#GET{iconpadding})];
 }
 #SET{icones, #LISTE{add, new, del, config, edit}}
 <BOUCLE_icones_images(DATA){source table, #GET{icones}}>
@@ -213,7 +213,7 @@
 	background-position: bottom 0 right 0;
 }
 .icone.horizontale .icone-fonction-new:after {
-	background-position-y: top 0;
+	background-position-y: 0;
 }
 .icone.horizontale a:hover .icone-image,
 .icone.horizontale a:focus .icone-image {
