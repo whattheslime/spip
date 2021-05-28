@@ -209,7 +209,7 @@
 	</langue>
 	<langue code="sv" url="https://trad.spip.net/tradlang_module/spip?lang_cible=sv" total="649" traduits="563" relire="0" modifs="29" nouveaux="57" pourcent="86.75" />
 	<langue code="tr" url="https://trad.spip.net/tradlang_module/spip?lang_cible=tr" total="649" traduits="537" relire="0" modifs="32" nouveaux="80" pourcent="82.74" />
-	<langue code="uk" url="https://trad.spip.net/tradlang_module/spip?lang_cible=uk" total="649" traduits="634" relire="0" modifs="3" nouveaux="12" pourcent="97.69">
+	<langue code="uk" url="https://trad.spip.net/tradlang_module/spip?lang_cible=uk" total="649" traduits="636" relire="0" modifs="1" nouveaux="12" pourcent="98.00">
 		<traducteur nom="olly" lien="https://trad.spip.net/auteur/olly" />
 		<traducteur nom="Retenodus" lien="https://trad.spip.net/auteur/retenodus" />
 		<traducteur nom="Serge Markitanenko" lien="https://trad.spip.net/auteur/serge-markitanenko" />
