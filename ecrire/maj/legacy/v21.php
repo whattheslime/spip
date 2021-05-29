@@ -21,6 +21,8 @@ if (!defined('_ECRIRE_INC_VERSION')) {
 	return;
 }
 
+include_spip('base/medias');
+
 // 2.0.0+
 
 // http://archives.rezo.net/archives/spip-zone.mbox/C6RZKNBUNJYN42IOEOC4QKVCA233AMLI/
@@ -48,9 +50,7 @@ $GLOBALS['maj'][13929] = array(
 
 // Types de fichiers m4a/m4b/m4p/m4u/m4v/dv
 // Types de fichiers Open XML (cro$oft)
-$GLOBALS['maj'][14558] = array(array('upgrade_types_documents'));
-
-
+$GLOBALS['maj'][14558] = array(array('creer_base_types_doc'));
 
 // refaire les upgrade dont les numeros sont inferieurs a ceux de la branche 2.0
 // etre sur qu'ils sont bien unipotents(?)...
@@ -84,7 +84,7 @@ if (@$GLOBALS['meta']['version_installee'] >= 14588) {
 // https://core.spip.net/issues/1941
 // + Types de fichiers : f4a/f4b/f4p/f4v/mpc http://en.wikipedia.org/wiki/Flv#File_formats
 // + Report du commit oublié : https://git.spip.net/spip/spip/commit/a6468fa5e3e34483b98b24b0102c4356f2f369a3
-$GLOBALS['maj'][15676] = array(array('upgrade_types_documents'));
+$GLOBALS['maj'][15676] = array(array('creer_base_types_doc'));
 
 // Type de fichiers : webm http://en.wikipedia.org/wiki/Flv#File_formats
-$GLOBALS['maj'][15827] = array(array('upgrade_types_documents'));
+$GLOBALS['maj'][15827] = array(array('creer_base_types_doc'));
