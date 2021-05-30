@@ -2986,7 +2986,7 @@ function direction_css($css, $voulue = '') {
  * Le calcul n'est pas refait si le fichier cache existe déjà et que
  * la source n'a pas été modifiée depuis.
  *
- * @uses recuperer_page() si l'URL source n'est pas sur le même site
+ * @uses recuperer_url() si l'URL source n'est pas sur le même site
  * @uses urls_absolues_css()
  *
  * @param string $css
@@ -3016,7 +3016,9 @@ function url_absolue_css($css) {
 			or !lire_fichier(_DIR_RACINE . substr($css, $l), $contenu)
 		) {
 			include_spip('inc/distant');
-			if (!$contenu = recuperer_page($css)) {
+			$contenu = recuperer_url($css);
+			$contenu = $contenu['page'] ?? '';
+			if (!$contenu) {
 				return $css;
 			}
 		}

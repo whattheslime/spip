@@ -1070,9 +1070,10 @@ function recuperer_infos_distantes($source, $max = 0, $charger_si_petite_image =
 	// On va directement charger le debut des images et des fichiers html,
 	// de maniere a attrapper le maximum d'infos (titre, taille, etc). Si
 	// ca echoue l'utilisateur devra les entrer...
-	if ($headers = recuperer_page($source, false, true, $max, '', '', true)) {
-		list($headers, $a['body']) = preg_split(',\n\n,', $headers, 2);
-
+	$reponse = recuperer_url($source, ['taille_max' => $max, 'refuser_gz' => true]);
+	$headers = $reponse['headers'] ?? '';
+	$a['body'] = $reponse['page'] ?? '';
+	if ($headers) {
 		if (preg_match(",\nContent-Type: *([^[:space:];]*),i", "\n$headers", $regs)) {
 			$mime_type = (trim($regs[1]));
 		} else {
@@ -1184,7 +1185,8 @@ function recuperer_infos_distantes($source, $max = 0, $charger_si_petite_image =
 
 	if ($mime_type == 'text/html') {
 		include_spip('inc/filtres');
-		$page = recuperer_page($source, true, false, _INC_DISTANT_MAX_SIZE);
+		$page = recuperer_url($source, ['transcoder' => true, 'taille_max' => _INC_DISTANT_MAX_SIZE]);
+		$page = $page['page'] ?? '';
 		if (preg_match(',<title>(.*?)</title>,ims', $page, $regs)) {
 			$a['titre'] = corriger_caracteres(trim($regs[1]));
 		}
