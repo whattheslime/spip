@@ -104,7 +104,7 @@
 
 				$joli = basename($test);
 				$dirTests = false;
-				$section_svn = "";
+				$section_vcs = "";
 				if ($base == 'tests/') {
 					$dirTests = true;
 					$section = basename(dirname($test));

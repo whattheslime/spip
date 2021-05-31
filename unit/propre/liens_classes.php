@@ -25,14 +25,6 @@
 		OR strpos($c,'spip_out')!==FALSE)
 		$err[] = "Classe $c errone dans $p0 : ".PtoBR(propre($p0));
 
-	$id = sql_getfetsel("id_breve","spip_breves","statut='publie'","","","0,1");
-	if (!$id) echo "NA Necessite une breve publiee<br />";
-	$p0 = "[->breve$id]";
-	if (!$c = extraire_attribut(propre($p0), 'class')
-		OR strpos($c,'spip_in')===FALSE
-		OR strpos($c,'spip_out')!==FALSE)
-		$err[] = "Classe $c errone dans $p0 : ".PtoBR(propre($p0));
-
 	$id = sql_getfetsel("id_syndic","spip_syndic","statut='publie'","","","0,1");
 	if (!$id) echo "NA Necessite un site publie<br />";
 	$p0 = "[->site$id]";

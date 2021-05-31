@@ -58,18 +58,6 @@
     1 => 'id_rubrique',
   ),
   array (
-    0 => 'spip_breves',
-    1 => 'breve',
-  ),
-  array (
-    0 => 'spip_breves',
-    1 => 'spip_breve',
-  ),
-  array (
-    0 => 'spip_breves',
-    1 => 'id_breve',
-  ),
-  array (
     0 => 'spip_mots',
     1 => 'mot',
   ),
@@ -129,37 +117,8 @@
     0 => 'spip_syndic_articles',
     1 => 'syndic_article',
   ),
-  array (
-    0 => 'spip_petitions',
-    1 => 'petition',
-  ),
-  array (
-    0 => 'spip_petitions',
-    1 => 'petitions',
-  ),
-  array (
-    0 => 'spip_petitions',
-    1 => 'spip_petitions',
-  ),
-  array (
-    0 => 'spip_signatures',
-    1 => 'signature',
-  ),
-  array (
-    0 => 'spip_signatures',
-    1 => 'signatures',
-  ),
-  array (
-    0 => 'spip_signatures',
-    1 => 'spip_signatures',
-  ),
-  array (
-    0 => 'spip_signatures',
-    1 => 'id_signature',
-  ),
 array('spip_articles','article'),
 array('spip_auteurs','auteur'),
-array('spip_breves','breve'),
 array('spip_documents','document'),
 array('spip_documents','doc'),
 array('spip_documents','img'),
@@ -169,11 +128,8 @@ array('spip_groupes_mots','groupes_mots'),
 array('spip_groupes_mots','groupe_mots'),
 array('spip_groupes_mots','groupe_mot'),
 array('spip_groupes_mots','groupe'),
-array('spip_messages','message'),
 array('spip_mots','mot'),
-array('spip_petitions','petition'),
 array('spip_rubriques','rubrique'),
-array('spip_signatures','signature'),
 array('spip_syndic','syndic'),
 array('spip_syndic','site'),
 array('spip_syndic_articles','syndic_article'),
