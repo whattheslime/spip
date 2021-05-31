@@ -346,6 +346,28 @@ function balise_DATE_NOUVEAUTES_dist($p) {
 	return $p;
 }
 
+
+/**
+ * Compile la balise `#DOSSIER_SQUELETTE` retournant le chemin vers le
+ * répertoire du fichier squelette dans lequel elle est appelee
+ * (comme __DIR__ en php)
+ *
+ * @balise
+ * @link https://www.spip.net/4627
+ *
+ * @param Champ $p
+ *     Pile au niveau de la balise.
+ * @return Champ
+ *     Pile completée du code PHP d'exécution de la balise
+ */
+function balise_DOSSIER_SQUELETTE_dist($p) {
+	$code = substr(addslashes(dirname($p->descr['sourcefile'])), strlen(_DIR_RACINE));
+	$p->code = "_DIR_RACINE . '$code'" .
+		$p->interdire_scripts = false;
+
+	return $p;
+}
+
 /**
  * Compile la balise `#SQUELETTE` retournant le chemin du squelette courant
  *
