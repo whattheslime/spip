@@ -5328,16 +5328,22 @@ function identifiant_slug($texte, $type = '', $options = array()) {
 
 
 /**
- * Prépare un texte (issu d'une chaine de langue historique) pour un affichage en label ou titre
+ * Prépare un texte pour un affichage en label ou titre
  * 
  * Enlève un ':' à la fin d'une chaine de caractère, ainsi que les espaces qui pourraient l'accompagner,
  * Met la première lettre en majuscule (par défaut)
  *
  * Utile afficher dans un contexte de titre des chaines de langues qui contiennent des ':'
  * 
- * @exemple `<:info_maximum|uniformiser_label:>`
+ * @note
+ *    Les chaines de langues (historiques) de SPIP contiennent parfois des ':', parfois pas. 
+ *    Les fonctions `label_nettoyer` et `label_ponctuer` permettent de choisir l'une ou l'autre selon le contexte.
+ *    Il convient dans les chaines de langues de labels de préférer les écritures sans ':'.
+ * 
+ * @see label_ponctuer()
+ * @exemple `<:info_maximum|label_nettoyer:>`
  */
-function uniformiser_label(string $text, bool $ucfirst = true) : string {
+function label_nettoyer(string $text, bool $ucfirst = true) : string {
 	$label = rtrim($text, " : \t\n\r\0\x0B\xc2\xa0");
 	if ($label and $label[-1] === ';') {
 		$label = preg_replace("#(\&nbsp;)+$#", "", $label);
@@ -5347,6 +5353,21 @@ function uniformiser_label(string $text, bool $ucfirst = true) : string {
 	}
 	return $label;
 }
+
+/**
+ * Prépare un texte pour un affichage en label ou titre en ligne, systématiquement avec ' :' à la fin
+ * 
+ * Ajoute ' :' aux chaines qui n'en ont pas (ajoute le caractère adapté à la langue utilisée). 
+ * Passe la première lettre en majuscule par défaut.
+ * 
+ * @uses label_nettoyer()
+ * @exemple `<:info_maximum|label_ponctuer:>`
+ */
+function label_ponctuer(string $text, bool $ucfirst = true) : string {
+	$label = label_nettoyer($text, $ucfirst);
+	return _T('label_ponctuer', ['label' => $label]);
+}
+
 
 
 /**
