@@ -96,6 +96,9 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'repondre_breve' => 'Comment on this news item',
 	'resultats_recherche' => 'Search results',
 	'retour_debut_forums' => 'Back to forum top',
+	'rss_abonnement' => 'Simply copy the following URL into your aggregator:',
+	'rss_abonnement_titre' => 'Subscribe',
+	'rss_explication_titre' => 'What is an RSS feed?',
 	'rubrique' => 'Section',
 	'rubriques' => 'Sections',
 
