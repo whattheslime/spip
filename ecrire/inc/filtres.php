@@ -4536,9 +4536,11 @@ function bouton_action($libelle, $url, $class = '', $confirm = '', $title = '', 
  * @param string $type_objet
  * @param string $info
  * @param string $etoile
+ * @param array $params
+ *     Tableau de paramètres supplémentaires transmis aux fonctions generer_xxx
  * @return string
  */
-function generer_info_entite($id_objet, $type_objet, $info, $etoile = "") {
+function generer_info_entite($id_objet, $type_objet, $info, $etoile = '', $params = []) {
 	static $trouver_table = null;
 	static $objets;
 
@@ -4555,11 +4557,12 @@ function generer_info_entite($id_objet, $type_objet, $info, $etoile = "") {
 
 	// Si on demande l'url, on retourne direct la fonction
 	if ($info == 'url') {
-		return generer_url_entite($id_objet, $type_objet);
+		return generer_url_entite($id_objet, $type_objet, ...$params);
 	}
 
 	// Sinon on va tout chercher dans la table et on garde en memoire
-	$demande_titre = ($info == 'titre');
+	$demande_titre = ($info === 'titre');
+	$demande_introduction = ($info === 'introduction');
 
 	// On ne fait la requete que si on a pas deja l'objet ou si on demande le titre mais qu'on ne l'a pas encore
 	if (!isset($objets[$type_objet][$id_objet])
@@ -4587,15 +4590,25 @@ function generer_info_entite($id_objet, $type_objet, $info, $etoile = "") {
 			$desc['table_sql'],
 			id_table_objet($type_objet) . ' = ' . intval($id_objet)
 		);
+
+		// Toujours noter la longueur d'introduction, même si pas demandé cette fois-ci
+		$objets[$type_objet]['introduction_longueur'] = $desc['introduction_longueur'] ?? null;
+	}
+
+	// Pour les fonction generer_xxx, si on demande l'introduction,
+	// ajouter la longueur au début des params supplémentaires
+	if ($demande_introduction) {
+		$introduction_longueur = $objets[$type_objet]['introduction_longueur'];
+		array_unshift($params, $introduction_longueur);
 	}
 
 	// Si la fonction generer_TRUC_TYPE existe, on l'utilise pour formater $info_generee
 	if ($generer = charger_fonction("generer_${info}_${type_objet}", '', true)) {
-		$info_generee = $generer($id_objet, $objets[$type_objet][$id_objet]);
+		$info_generee = $generer($id_objet, $objets[$type_objet][$id_objet], ...$params);
 	} // Si la fonction generer_TRUC_entite existe, on l'utilise pour formater $info_generee
 	else {
 		if ($generer = charger_fonction("generer_${info}_entite", '', true)) {
-			$info_generee = $generer($id_objet, $type_objet, $objets[$type_objet][$id_objet]);
+			$info_generee = $generer($id_objet, $type_objet, $objets[$type_objet][$id_objet], ...$params);
 		} // Sinon on prend directement le champ SQL tel quel
 		else {
 			$info_generee = (isset($objets[$type_objet][$id_objet][$info]) ? $objets[$type_objet][$id_objet][$info] : '');
@@ -4611,6 +4624,68 @@ function generer_info_entite($id_objet, $type_objet, $info, $etoile = "") {
 	}
 
 	return $info_generee;
+}
+
+/**
+ * Fonction privée pour donner l'introduction d'un objet de manière générique.
+ *
+ * Cette fonction est mutualisée entre les balises #INTRODUCTION et #INFO_INTRODUCTION.
+ * Elle se charge de faire le tri entre descriptif, texte et chapo,
+ * et normalise les paramètres pour la longueur et la suite.
+ * Ensuite elle fait appel au filtre 'introduction' qui construit celle-ci à partir de ces données.
+ *
+ * @uses filtre_introduction_dist()
+ * @see generer_info_entite()
+ * @see balise_INTRODUCTION_dist()
+ *
+ * @param int $id_objet
+ *     Numéro de l'objet
+ * @param string $type_objet
+ *     Type d'objet
+ * @param string $desc
+ *     Ligne SQL de l'objet avec au moins descriptif, texte et chapo
+ * @param int $introduction_longueur
+ *     Longueur de l'introduction donnée dans la description de la table l'objet
+ * @param int|string $longueur_ou_suite
+ *     Longueur de l'introduction OU points de suite si on coupe
+ * @param string $suite
+ *     Points de suite si on coupe
+ * @param string $connect
+ *     Nom du connecteur à la base de données
+ * @return string
+ */
+function generer_introduction_entite($id_objet, $type_objet, $ligne_sql, $introduction_longueur = null, $longueur_ou_suite = null, $suite = null, $connect = '') {
+
+	$descriptif = $ligne_sql['descriptif'] ?? '';
+	$texte = $ligne_sql['texte'] ?? '';
+	// En absence de descriptif, on se rabat sur chapo + texte
+	if (isset($ligne_sql['chapo'])) {
+		$chapo = $ligne_sql['chapo'];
+		$texte = strlen($descriptif) ?
+			'' :
+			"$chapo \n\n $texte";
+	}
+
+	// Longueur en paramètre, sinon celle renseignée dans la description de l'objet, sinon valeur en dur
+	if (!intval($longueur_ou_suite)) {
+		$longueur = intval($introduction_longueur ?: 600);
+	} else {
+		$longueur = intval($longueur_ou_suite);
+	}
+
+	// On peut optionnellement passer la suite en 1er paramètre de la balise
+	// Ex : #INTRODUCTION{...}
+	if (
+		is_null($suite)
+		and !intval($longueur_ou_suite)
+	) {
+		$suite = $longueur_ou_suite;
+	}
+
+	$f = chercher_filtre('introduction');
+	$introduction = $f($descriptif, $texte, $longueur, $connect, $suite);
+
+	return $introduction;
 }
 
 /**
