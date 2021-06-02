@@ -684,9 +684,7 @@ function inc_sql_to_array_dist($u) {
  * @return array|bool
  */
 function inc_json_to_array_dist($u) {
-	if (is_array($json = json_decode($u))
-		or is_object($json)
-	) {
+	if (is_array($json = json_decode($u, true))) {
 		return (array)$json;
 	}
 }
