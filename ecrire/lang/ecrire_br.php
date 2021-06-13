@@ -97,6 +97,11 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'date_mot_heures' => 'eur',
 
 	// E
+	'ecran_connexion_couleur_principale' => 'Liv kentañ penn',
+	'ecran_connexion_image_fond' => 'Skeudenn adreñv',
+	'ecran_connexion_image_fond_explication' => 'Ober gant ur skeudenn (stumm JPEG, 1920x1080 pixels)',
+	'ecran_connexion_image_revenir_couleur_defaut' => 'Distreiñ d’al liv dre ziouer',
+	'ecran_connexion_titre' => 'Skramm evit kennaskañ',
 	'ecran_securite' => ' + skramm surentez @version@',
 	'email' => 'postel',
 	'email_2' => 'postel:',
@@ -151,6 +156,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'erreur_plugin_prefix_manquant' => 'N’eo ket termenet tachenn envel al lugant',
 	'erreur_plugin_tag_plugin_absent' => '&lt;lugant&gt; ezvezant er restr termenañ',
 	'erreur_plugin_version_manquant' => 'Stumm al lugant ezvezant',
+	'erreur_type_fichier' => 'Stumm restr fall',
 
 	// H
 	'htaccess_a_simuler' => 'Diwall: Ne vez ket dalc’het kont eus ar restroù @htaccess@ gant ho tafariad HTTP. Evit diogeliñ surentez vat eo ret deoc’h kemmañ ar c’hefluniadur-mañ war ar c’hraf-mañ, peotramant eo ret o defe an digemmennoù @constantes@ (a c’haller termenañ er restr  mes_options.php) talvoudoù levrioù-chomlec’h er-maez eus @document_root@.',
