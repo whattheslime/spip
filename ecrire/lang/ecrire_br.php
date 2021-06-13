@@ -686,9 +686,9 @@ diskouezet en ul liv disheñvel, diouzh o stad :',
 	'plugin_titre_automatique_ajouter' => 'Ouzhpennañ adveziantoù',
 	'plugin_titre_installation' => 'Desezañ an askouez @plugin@',
 	'plugin_titre_modifier' => 'Va askouezioù plugin',
-	'plugin_utilise_extension_php' => 'Implijout an astenn PHP @plugin@ en version @version@.', # MODIF
-	'plugin_utilise_php' => 'Implijout @plugin@ en version @version@.', # MODIF
-	'plugin_utilise_plugin' => 'A ra gant ar plugin @plugin@ e doare @doare@', # MODIF
+	'plugin_utilise_extension_php' => 'An astenn PHP @plugin@ rank bezañ e stumm @version@.',
+	'plugin_utilise_php' => ' @plugin@ a rank bezañ @version@.',
+	'plugin_utilise_plugin' => 'Ar plugin @plugin@ rank bezañ e doare @version@.',
 	'plugin_zip_active' => 'Kendalc’hit evit e weredekaat',
 	'plugin_zip_adresse' => 'merkit amañ a-is chomlec’h restr zip un adveziant da bellgargañ, pe hini ul rollad adveziantoù.',
 	'plugin_zip_adresse_champ' => 'Chomlec’h an adveziant pe hini ar roll ',
