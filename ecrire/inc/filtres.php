@@ -4467,7 +4467,10 @@ function bando_images_background() {
 		if (is_array($detail->sousmenu)) {
 			foreach ($detail->sousmenu as $souspage => $sousdetail) {
 				if ($sousdetail->icone and strlen(trim($sousdetail->icone))) {
-					$res .= "\n$selecteur.bando2_$souspage {background-image:url(" . $sousdetail->icone . ");}";
+					// recherche de déclinaisons .svg même pour les -new- …
+					$img = http_img_pack($sousdetail->icone, '', '', '', ['variante_svg_si_possible' => true, 'chemin_image' => false]);
+					$img = extraire_attribut($img, 'src');
+					$res .= "\n$selecteur.bando2_$souspage {background-image:url($img);}";
 				}
 			}
 		}
