@@ -890,9 +890,13 @@ function calculer_critere_par_expression_num($idb, &$boucles, $crit, $tri, $cham
 	if ($suite !== "''") {
 		$texte = "\" . ((\$x = $suite) ? ('$texte' . \$x) : '0')" . " . \"";
 	}
-	$as = 'num' . ($boucle->order ? count($boucle->order) : "");
-	$boucle->select[] = $texte . " AS $as";
-	$order = "'$as'";
+	$asnum = 'num' . ($boucle->order ? count($boucle->order) : "");
+	$boucle->select[] = $texte . " AS $asnum";
+
+	$orderassinum = calculer_critere_par_expression_sinum($idb, $boucles, $crit, $tri, $champ);
+	$orderassinum = trim($orderassinum, "'");
+
+	$order = "'$orderassinum, $asnum'";
 	return $order;
 }
 
@@ -924,8 +928,23 @@ function calculer_critere_par_expression_sinum($idb, &$boucles, $crit, $tri, $ch
 	if ($suite !== "''") {
 		$texte = "\" . ((\$x = $suite) ? ('$texte' . \$x) : '0')" . " . \"";
 	}
-	$as = 'sinum' . ($boucle->order ? count($boucle->order) : "");
-	$boucle->select[] = 'CASE (' . $texte . ') WHEN 0 THEN 1 ELSE 0 END AS ' . $as;
+
+	$as = false;
+	$select = "CASE ( $texte ) WHEN 0 THEN 1 ELSE 0 END AS ";
+	foreach ($boucle->select as $s) {
+		if (strpos($s, $select) === 0) {
+			$as = trim(substr($s, strlen($select)));
+			if (!preg_match(",\W,", $as)) {
+				break;
+			}
+			$as = false;
+		}
+	}
+
+	if (!$as) {
+		$as = 'sinum' . ($boucle->order ? count($boucle->order) : "");
+		$boucle->select[] = $select . $as;
+	}
 	$order = "'$as'";
 	return $order;
 }
