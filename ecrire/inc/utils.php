@@ -936,7 +936,7 @@ function _L($text, $args = array(), $options = array()) {
 	}
 
 	if (($GLOBALS['test_i18n'] or (_request('var_mode') == 'traduction')) and is_null($options['class'])) {
-		return "<span class=debug-traduction-erreur>$text</span>";
+		return "<span class='debug-traduction-erreur'>$text</span>";
 	} else {
 		return $text;
 	}
