@@ -543,6 +543,16 @@ class Boucle {
 	 */
 	public $iterateur = ''; // type d'iterateur
 
+	/** 
+	 * Index de la boucle dont le champ présent dans cette boucle est originaire,
+	 * notamment si le champ a été trouve dans une boucle parente
+	 * 
+	 * Tableau nom du champ => index de boucle
+	 * 
+	 * @var array $index_champ 
+	*/
+	public $index_champ = [];
+
 	// obsoletes, conserves provisoirement pour compatibilite
 	public $tout = false;
 	public $plat = false;

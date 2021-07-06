@@ -127,7 +127,7 @@ function index_pile(
 				$boucles[$idb]->select[] = $t;
 			}
 			// renseigner la boucle source de ce champ pour les traitements
-			$boucles[$idb_origine]->source_champ[$nom_champ_origine] = $idb;
+			$boucles[$idb_origine]->index_champ[$nom_champ_origine] = $idb;
 			$champ = '$Pile[$SP' . ($i ? "-$i" : "") . '][\'' . $c . '\']';
 			if (!$joker) {
 				return index_compose($conditionnel, $champ);
@@ -706,8 +706,8 @@ function champs_traitements($p) {
 		// Recuperer le type de boucle (articles, DATA) et la table SQL sur laquelle elle porte
 		$idb = index_boucle($p);
 		// si le champ a ete trouve dans une boucle parente sa source est renseignee ici
-		if (!empty($p->boucles[$idb]->source_champ[$p->nom_champ])) {
-			$idb = $p->boucles[$idb]->source_champ[$p->nom_champ];
+		if (!empty($p->boucles[$idb]->index_champ[$p->nom_champ])) {
+			$idb = $p->boucles[$idb]->index_champ[$p->nom_champ];
 		}
 
 		// mais on peut aussi etre hors boucle. Se mefier.
