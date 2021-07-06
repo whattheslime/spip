@@ -8,7 +8,7 @@ class Test_balise_session extends SpipTest{
 
 	function test_visiteur_session(){
 		// loggue, c'est le nom id_auteur
-		$code = "#CACHE{0}".$this->php("echo isset(\$GLOBALS['visiteur_session']['id_auteur']) ? \$GLOBALS['visiteur_session']['id_auteur'] : 'non' ;");
+		$code = "#CACHE{0}".$this->php("echo (!empty(\$GLOBALS['visiteur_session']['id_auteur']) ? \$GLOBALS['visiteur_session']['id_auteur'] : 'non') ;");
 		$code2 = "[(#SESSION{id_auteur}|?{#SESSION{id_auteur},non})]";
 		$val = $this->recuperer_code($code);
 		$this->assertEqualCode($val, $code2);
