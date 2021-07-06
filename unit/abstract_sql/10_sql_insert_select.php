@@ -39,7 +39,10 @@ sleep(1); // sinon le timestamp ne change pas !
 		sql_update($table,array('un_texte'=>sql_quote($texte)),$where);
 		// comparaison timastamp
 		$maj2 = sql_getfetsel('maj',$table,$where);
-		if (!$maj2 OR $maj1==$maj2) {
+		if (!$maj2 OR !strtotime($maj2)) {
+			$err[] = "Le champ 'maj' ($maj2) est incorrect suite à l'update";
+		}
+		elseif ($maj1==$maj2) {
 			$err[] = "Le champ 'maj' ($maj2) n'a vraisemblablement pas été mis a jour lors de l'update";
 		}
 		// comparaison texte
@@ -54,7 +57,10 @@ sleep(1); // sinon le timestamp ne change pas !
 		sql_updateq($table,array('un_texte'=>$texte),$where);
 		// comparaison timastamp
 		$maj3 = sql_getfetsel('maj',$table,$where);
-		if (!$maj3 OR $maj3==$maj2) {
+		if (!$maj3 OR !strtotime($maj3)) {
+			$err[] = "Le champ 'maj' ($maj3) est incorrect suite à l'updateq";
+		}
+		elseif ($maj3==$maj2) {
 			$err[] = "Le champ 'maj' ($maj3) n'a vraisemblablement pas été mis a jour lors de l'updateq";
 		}
 		// comparaison texte
