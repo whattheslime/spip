@@ -2669,7 +2669,7 @@ function form_hidden($action) {
 	if (defined('_DEFINIR_CONTEXTE_TYPE') and _DEFINIR_CONTEXTE_TYPE) {
 		unset($contexte['type']);
 	}
-	if (defined('_DEFINIR_CONTEXTE_TYPE_PAGE') and _DEFINIR_CONTEXTE_TYPE_PAGE) {
+	if (!defined('_DEFINIR_CONTEXTE_TYPE_PAGE') or _DEFINIR_CONTEXTE_TYPE_PAGE) {
 		unset($contexte['type-page']);
 	}
 
