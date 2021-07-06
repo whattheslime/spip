@@ -5,14 +5,14 @@
 ]
 #SET{ida,''}
 #SET{idd,''}
-<BOUCLE_r(ARTICLES){texte==\\[\\[.*<doc[0-9]+>.*\\]\\]}{statut==.}{0,1}>
+<BOUCLE_r(ARTICLES){id_article==.*}{texte==\\\\[\\\\[.*<doc[0-9]+>.*\\\\]\\\\]}{statut==.*}{0,1}>
 	#SET{ida,#ID_ARTICLE}
 	#SET{idd,#TEXTE*|replace{^.*\x5b\x5b.*<doc}|replace{>.*$}|intval}
 </BOUCLE_r>
 
-<BOUCLE_d(DOCUMENTS){id_document=#GET{idd}}>
+<BOUCLE_d(DOCUMENTS){id_document=#GET{idd}}{statut==.*}>
 
-	<BOUCLE_a(ARTICLES){id_article=#GET{ida}}{statut==.}>
+	<BOUCLE_a(ARTICLES){id_article=#GET{ida}}{statut==.*}>
 		[(#TEXTE|?)]
 	</BOUCLE_a>
 
@@ -25,4 +25,5 @@
 
 </BOUCLE_d>
 	[(#REM|creer_article_a_doublons_notes)]
+	Article de test créé, relancer le test !
 <//B_d>
