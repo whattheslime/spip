@@ -52,12 +52,14 @@ function plugins_afficher_plugin_dist(
 			_T('plugin_info_non_compatible_spip'));
 		$class_li .= " disabled";
 		$checkable = false;
+
 	} elseif (isset($info['erreur'])) {
 		$class_li .= " error";
 		$erreur = http_img_pack("plugin-err-32.png", _T('plugin_info_erreur_xml'), " class='picto_err'",
 				_T('plugin_info_erreur_xml'))
 			. "<div class='erreur'>" . join('<br >', $info['erreur']) . "</div>";
 		$checkable = false;
+
 	} elseif (isset($GLOBALS['erreurs_activation_raw'][$dir_plugins . $plug_file])) {
 		$class_li .= " error";
 		$erreur = http_img_pack("plugin-err-32.png", _T('plugin_impossible_activer', array('plugin' => $nom)),
@@ -66,6 +68,11 @@ function plugins_afficher_plugin_dist(
 				$GLOBALS['erreurs_activation_raw'][$dir_plugins . $plug_file]) . "</div>";
 	} else {
 		$cfg = $actif ? plugin_bouton_config($plug_file, $info, $dir_plugins) : "";
+		if (defined('_DEV_VERSION_SPIP_COMPAT') and !plugin_version_compatible($info['compatibilite'], $GLOBALS['spip_version_branche'])){
+			//$info['slogan'] = _T('plugin_info_non_compatible_spip');
+			$erreur = http_img_pack("plugin-dis-32.png", _T('plugin_info_non_compatible_spip'), " class='picto_err picto_compat_forcee'",
+				_L('Version incompatible : compatibilité forcée'));
+		}
 	}
 
 	// numerotons les occurrences d'un meme prefix
