@@ -104,7 +104,7 @@
 		/* Décalage des fieldsets imbriqués */
 		--spip-form-fieldset-offset: 2.5em;
 	}
-	/* Taille réduite */
+	/* Formulaire de taille réduite */
 	.formulaire_spip.mini,
 	.lat,
 	.affiche_milieu,
@@ -118,10 +118,22 @@
 		--spip-form-heading-iconsize: var(--spip-box-heading-iconsize-mini);
 		--spip-from-heading-iconpadding: calc(var(--spip-from-heading-iconsize) + (var(--spip-from-spacing-x) * 1.5));
 		/* Inputs */
-		--spip-form-input-padding-x: 0.33rem;
-		--spip-form-input-padding-y: 0.33rem;
+		--spip-form-input-padding-x: 0.5rem;
+		--spip-form-input-padding-y: 0.2rem;
 		/* Décalage des fieldsets imbriqués */
 		--spip-form-fieldset-offset: 1.5em;
+	}
+	/* Aligner la taille des boutons avec celles des inputs mis automatiquement en taille réduite */
+	/* Nb : juste les boutons normaux pour l'insatnt, ajouter pour les boutons large si nécessaire */
+	.formulaire_spip.mini .editer-groupe .btn,
+	.formulaire_spip.mini .editer-groupe button,
+	.lat .editer-groupe .btn,
+	.lat .editer-groupe button,
+	.affiche_milieu .editer-groupe .btn,
+	.affiche_milieu .editer-groupe button {
+		--spip-btn-font-size: 0.9em;
+		--spip-btn-padding-x: 0.5rem;
+		--spip-btn-padding-y: calc(0.2rem * 1.325); /* facteur à la main pour compenser le font-size réduit */
 	}
 }
 
@@ -776,7 +788,7 @@
 .formulaire_spip select {
 	font-size: inherit;
 	font-family: inherit;
-	line-height: inherit;
+	line-height: var(--spip-line-height);
 }
 
 /* Éléments avec bordure */
@@ -804,6 +816,14 @@
 	border-color: var(--spip-color-theme);
 	box-shadow: 0 0 0 0.2rem var(--spip-form-color-focus);
 	outline: 0;
+}
+
+/* Selects
+ * Il faut un min-height car apparemment la hauteur est pas calculée pareil que pour les inputs,
+ * il faut tenir compte de la bordure. C'est nul.
+ */
+.formulaire_spip select {
+	min-height: calc(var(--spip-line-height) + 2px + (var(--spip-form-input-padding-y) * 2));
 }
 
 /* Bloc de texte */
