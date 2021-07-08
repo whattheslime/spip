@@ -1,8 +1,8 @@
 <paquet
 	prefix="spip"
 	categorie="outil"
-	version="4.0.0-beta"
-	etat="dev"
+	version="4.0.0"
+	etat="stable"
 	compatibilite="];["
 	schema="2021021800"
 	documentation="https://www.spip.net"
