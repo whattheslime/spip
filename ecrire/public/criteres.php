@@ -1660,7 +1660,7 @@ function critere_where_dist($idb, &$boucles, $crit) {
  *      <BOUCLE_liste_articles(ARTICLES){id_article?}{id_rubrique?}{id_secteur?}{id_trad?}{id_mot?}{id_document?} ... {tout}> ...
  *     ```
  *
- * @uses lister_champs_selection_conditionnelle()
+ * @uses lister_champs_id_conditionnel()
  * @param string $idb Identifiant de la boucle
  * @param array $boucles AST du squelette
  * @param Critere $crit Paramètres du critère dans cette boucle
@@ -1704,7 +1704,7 @@ function critere_id__dist($idb, &$boucles, $crit) {
  * -- soit parce que sa clé primaire de la table demandée est un champ dans la table principale
  * -- soit parce qu’une table de liaison existe, d’un côté ou de l’autre
  *
- * @pipeline_appel lister_champs_selection_conditionnelle
+ * @pipeline_appel exclure_id_conditionnel
  * @param string $table Nom de la table SQL
  * @param array|null $desc Description de la table SQL, si connu
  * @param string $serveur Connecteur sql a utiliser
