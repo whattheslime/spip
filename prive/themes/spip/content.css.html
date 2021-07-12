@@ -224,7 +224,7 @@ li .puce_article_popup, li.puce_breve_popup,li.puce_site_popup { padding: 0; }*/
 .infos .instituer_objet {border-bottom:1px solid #eee;margin-bottom:[(#ENV{margin-bottom}|strmult{0.5})em];}
 
 
-#wysiwyg .label { clear: both;color:#888;}
+#wysiwyg .champ>.label { clear: both;color:#888;}
 #wysiwyg div p { margin-top: 0; }
 #wysiwyg .champ {display:block; overflow: hidden; margin-bottom: 0.8em;}
 #wysiwyg .contenu_ps { background:#dddddd; border:1px solid #666; padding:5px;  margin:1em 0;}
@@ -249,15 +249,15 @@ li .puce_article_popup, li.puce_breve_popup,li.puce_site_popup { padding: 0; }*/
 #wysiwyg .contenu_ps { background:#eeeeee; border: 1px solid #ccc; padding: 1em 1em 0em 1em; margin: 1em 0 ;}
 #wysiwyg .contenu_nom_site {padding: 1em;}
 #wysiwyg .contenu_descriptif .label {color:#000;background:none;display:inline;font-size:1.1em;font-weight:bold;}
-#wysiwyg .label { display: block; font-weight: bold; color:#ENV{foncee}; font-family: var(--spip-font-family);font-size: 85%;}
-#wysiwyg .label.label-none { display: none !important;}
-#wysiwyg .label.label-inline { display: inline !important;}
-#wysiwyg .label.label-inline-block { display: inline-block !important;}
-#wysiwyg .label.label-block { display: block !important;}
-#wysiwyg .contenu_chapo .label,
-#wysiwyg .contenu_texte .label {display: none;}
+#wysiwyg .champ>.label { display: block; font-weight: bold; color:#ENV{foncee}; font-family: var(--spip-font-family);font-size: 85%;}
+#wysiwyg .champ>.label.label-none { display: none !important;}
+#wysiwyg .champ>.label.label-inline { display: inline !important;}
+#wysiwyg .champ>.label.label-inline-block { display: inline-block !important;}
+#wysiwyg .champ>.label.label-block { display: block !important;}
+#wysiwyg .contenu_chapo>.label,
+#wysiwyg .contenu_texte>.label {display: none;}
 #wysiwyg .contenu_lien_titre {margin:1em 0;}
-#wysiwyg .contenu_lien_titre .label{ color:#000;background:none;display:inline; font-size:1.1em;font-weight:bold;font-family:Georgia,Garamond,Times New Roman,serif;}
+#wysiwyg .contenu_lien_titre>.label{ color:#000;background:none;display:inline; font-size:1.1em;font-weight:bold;font-family:Georgia,Garamond,Times New Roman,serif;}
 #wysiwyg .contenu_lien_titre .lien_titre p { display:inline;}
 
 .site #wysiwyg .contenu_nom_site {display: none;}
@@ -267,7 +267,7 @@ li .puce_article_popup, li.puce_breve_popup,li.puce_site_popup { padding: 0; }*/
 #wysiwyg .contenu_email > div {display:inline;}
 .auteur #wysiwyg .contenu_nom_site,.infos_perso #wysiwyg .contenu_nom_site {padding:0;border:0;background:none;margin:0.5em 0;}
 .auteur #wysiwyg .contenu_nom_site > div,.infos_perso #wysiwyg .contenu_nom_site > div {display:inline;}
-#wysiwyg .contenu_pgp .label {display:inline;}
+#wysiwyg .contenu_pgp>.label {display:inline;}
 #wysiwyg .contenu_pgp .pgp code {word-wrap:break-word;}
 
 
