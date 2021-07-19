@@ -54,6 +54,7 @@ else {
 			set_request($arg[0], $arg[1]);
 		}
 	}
+	$_SERVER['REQUEST_METHOD'] = 'GET'; // eviter des notices dans les tests
 }
 
 // afficher toutes les erreurs
