@@ -5,7 +5,7 @@
 
 	// recherche test.inc qui nous ouvre au monde spip
 	$deep = 1;
-	$include = '../tests/test.inc';
+	$include = 'tests/test.inc';
 	while (!defined('_SPIP_TEST_INC') && $deep++ < 6) {
 		$include = '../' . $include;
 		@include $include;
