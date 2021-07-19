@@ -55,6 +55,12 @@ else {
 		}
 	}
 	$_SERVER['REQUEST_METHOD'] = 'GET'; // eviter des notices dans les tests
+
+	// il faut charger une session webmestre
+	include_spip('base/abstract_sql');
+	$webmestre = sql_fetsel('*', 'spip_auteurs', "statut='0minirezo' AND webmestre='oui'", '', 'id_auteur', '0,1');
+	include_spip('inc/auth');
+	auth_loger($webmestre);
 }
 
 // afficher toutes les erreurs
