@@ -37,10 +37,12 @@ $GLOBALS['taille_des_logs'] = 1024;
 $GLOBALS['compteur_essai'] = 0;
 
 // pas admin ? passe ton chemin (ce script est un vilain trou de securite)
-if ((!isset($GLOBALS['visiteur_session']['statut'])
-	OR $GLOBALS['visiteur_session']['statut'] != '0minirezo')
-	AND !in_array($_SERVER["REMOTE_ADDR"], array('127.0.0.1', '127.0.1.1', '::1')) ) {
-	die('Administrateur local requis !');
+if (!_IS_CLI) {
+	if ((!isset($GLOBALS['visiteur_session']['statut'])
+		OR $GLOBALS['visiteur_session']['statut'] != '0minirezo')
+		AND !in_array($_SERVER["REMOTE_ADDR"], array('127.0.0.1', '127.0.1.1', '::1')) ) {
+		die('Administrateur local requis !');
+	}
 }
 
 // afficher toutes les erreurs
@@ -170,13 +172,14 @@ function display_error($titre,$call,$result,$expected,$opts=array()){
 }
 
 // pour essayer de calculer/montrer le temps qu'on y met
-register_shutdown_function('afficher_timer', time() + (float)microtime());
+if (!_IS_CLI) {
+	register_shutdown_function('afficher_timer', time() + (float)microtime());
+}
 
 function afficher_timer($depart) {
 	if (!defined('_NO_TIMER'))
 		echo sprintf(" %.2fs", time() + (float)microtime() - $depart);
 }
-
 
 if (!function_exists('array_diff_assoc_recursive')){
 // http://www.php.net/manual/fr/function.array-diff-assoc.php#73972
@@ -217,4 +220,81 @@ function test_equality($val1,$val2){
 	}
 	else
 		return $val1===$val2;
+}
+
+function tests_legacy_lister($extension=null) {
+
+	// chercher les bases de tests
+	$bases = array('tests/unit');
+	foreach (creer_chemin() as $d) {
+		if ($d && @is_dir("${d}tests"))
+			$bases[] = "${d}tests";
+	}
+
+	if (!$extension) {
+		$extension = "php|html";
+	}
+
+	$liste_fichiers = [];
+
+	foreach ($bases as $base) {
+
+		// regarder tous les tests
+		$tests = preg_files($base .= '/', '/\w+/.*\.('.$extension.')$');
+
+		foreach ($tests as $test) {
+			if (strlen($t=_request('rech')) && (strpos($test, $t)===false))
+		 		continue;
+
+			//ignorer le contenu du jeu de squelettes dédié aux tests
+			if (stristr($test,'squelettes/'))
+				continue;
+
+			//ignorer le contenu des donnees de test
+			if (stristr($test,'data/'))
+				continue;
+
+			//ignorer les tests todo
+			if (stristr($test,'/_todo_'))
+				continue;
+
+			//ignorer les fichiers lanceurs pour simpleTests aux tests
+			if (stristr($test,'lanceur_spip.php'))
+				continue;
+			if (stristr($test,'all_tests.php'))
+				continue;
+
+			if (strncmp(basename($test),'inclus_',7)!==0
+				AND substr(basename($test),-14) != '_fonctions.php'
+			  AND (strncmp(basename($test),'NA_',3)!==0 OR _request('var_mode')=='dev')){
+
+				if (preg_match(',\.php$,', $test))
+					$url = '../'.$test.'?mode=test_general';
+				else
+					$url = "squel.php?test=$test&amp;var_mode=recalcul";
+
+				$joli = basename($test);
+				if ($base == 'tests/') {
+					$section = basename(dirname($test));
+				} else {
+					$section = dirname($test);
+				}
+				$titre = "$section/$joli";
+				if (isset($liste_fichiers[$titre])) {
+					$nb = 0;
+					do {
+						$nb++;
+						$suffixe = '_' . str_pad($nb, 2, '0', STR_PAD_LEFT);
+					}
+					while(isset($liste_fichiers[$titre . $suffixe]));
+					$titre = $titre . $suffixe;
+				}
+
+				$liste_fichiers[$titre] = $test;
+
+			}
+		}
+	}
+
+	return $liste_fichiers;
 }
