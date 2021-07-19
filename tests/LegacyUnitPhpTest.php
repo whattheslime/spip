@@ -26,7 +26,7 @@ class LegacyUnitPhpTest extends TestCase {
 	 */
 	public function testLegacyUnitPHP($inFname, $output){
 		$result = $this->legacyPhpRun($inFname);
-		$this->assertEquals($result, $output);
+		$this->assertEquals($output, $result);
 	}
 
 	public function legacyPhpfileNameProvider(){
@@ -50,13 +50,16 @@ class LegacyUnitPhpTest extends TestCase {
 
 		$output = [];
 		$returnCode = 0;
-		exec("/usr/bin/env php $realPath", $output, $returnCode);
+		exec("/usr/bin/env php \"$realPath\" mode=test_general", $output, $returnCode);
 
 		if ($returnCode) {
 			array_unshift($output, 'ReturnCode: '.$returnCode);
 		}
 
 		$result = rtrim(implode("\n", $output));
+		if (preg_match(",^OK \(\d+\)$,", $result)) {
+			$result = 'OK';
+		}
 		return $result;
 	}
 }

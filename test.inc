@@ -44,6 +44,17 @@ if (!_IS_CLI) {
 		die('Administrateur local requis !');
 	}
 }
+else {
+	// passer les argv en set_request pour compat
+	$args = $argv;
+	array_shift($args);
+	foreach ($args as $arg) {
+		$arg = explode('=', $arg, 2);
+		if (count($arg) === 2) {
+			set_request($arg[0], $arg[1]);
+		}
+	}
+}
 
 // afficher toutes les erreurs
 @ini_set('display_errors', 'On');
@@ -273,7 +284,7 @@ function tests_legacy_lister($extension=null) {
 				else
 					$url = "squel.php?test=$test&amp;var_mode=recalcul";
 
-				$joli = basename($test);
+				$joli = preg_replace(',\.(php|html)$,', '', basename($test));
 				if ($base == 'tests/') {
 					$section = basename(dirname($test));
 				} else {

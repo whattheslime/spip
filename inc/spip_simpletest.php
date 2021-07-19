@@ -5,10 +5,12 @@ include_spip('inc/autoriser');
 
 
 // pas admin ? passe ton chemin (ce script est un vilain trou de securite)
-if ((!isset($GLOBALS['visiteur_session']['statut'])
-     OR $GLOBALS['visiteur_session']['statut'] != '0minirezo')
-     AND !in_array($_SERVER["REMOTE_ADDR"], array('127.0.0.1', '127.0.1.1', '::1')) ) {
-	die('Administrateur local requis !');
+if (!_IS_CLI) {
+	if ((!isset($GLOBALS['visiteur_session']['statut'])
+	     OR $GLOBALS['visiteur_session']['statut'] != '0minirezo')
+	     AND !in_array($_SERVER["REMOTE_ADDR"], array('127.0.0.1', '127.0.1.1', '::1')) ) {
+		die('Administrateur local requis !');
+	}
 }
 
 /*
@@ -708,10 +710,22 @@ class SpipMiniHtmlReporter extends SpipHtmlReporter {
  * et ajouter des fonctions specifiques a SPIP
  */
 class SpipTextReporter extends TextReporter {
+	private $_na;
 
 	function __construct() {
 		chdir(_CHDIR);
 		parent::__construct();
+		$this->_na = 0;
+	}
+
+	/**
+	 *    Paints the top of the web page setting the
+	 *    title to the name of the starting test.
+	 *    @param string $test_name      Name class of test.
+	 *    @access public
+	 */
+	function paintHeader($test_name) {
+		flush();
 	}
 
 	/**
@@ -723,9 +737,9 @@ class SpipTextReporter extends TextReporter {
 	function paintFooter($test_name) {
 		if ($this->getFailCount() + $this->getExceptionCount() == 0) {
 			if ($this->getNaCount()) {
-				print "OK ($this->getPassCount()) but some NA ($this->getNaCount())\n";
+				print "OK (".$this->getPassCount().") but some NA (".$this->getNaCount().")\n";
 			} else {
-				print "OK ($this->getPassCount())\n";
+				print "OK (".$this->getPassCount().")\n";
 			}
 		} else {
 			print "FAILURES!!!\n";
@@ -737,6 +751,25 @@ class SpipTextReporter extends TextReporter {
 					", Non Applicable: " . $this->getNaCount() . "\n";
 		}
 	}
+
+	/**
+	 * retourne le nombre de tests non applicables
+	 * @return int	Nombre de tests non applicables
+	 */
+	function getNaCount(){
+		return $this->_na;
+	}
+
+	/**
+	 * Paints a Non Applicable Test
+	 *
+	 * @param Exception $exception    The actual exception thrown.
+	 * @access public
+	 */
+	function paintNa($exception) {
+		$this->_na++;
+	}
+
 }
 
 
