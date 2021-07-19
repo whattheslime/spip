@@ -16,23 +16,23 @@ use PHPUnit\Framework\TestCase;
 
 
 /**
- * LegacyUnitPhpTest test - runs all the unit/ php tests and check the ouput is 'OK'
+ * LegacyUnitHtmlTest test - runs all the unit/ php tests and check the ouput is 'OK'
  *
  */
-class LegacyUnitPhpTest extends TestCase {
+class LegacyUnitHtmlTest extends TestCase {
 
 	/**
-	 * @dataProvider legacyPhpfileNameProvider
+	 * @dataProvider legacyHtmlfileNameProvider
 	 */
-	public function testLegacyUnitPHP($inFname, $output){
-		$result = $this->legacyPhpRun($inFname);
+	public function testLegacyUnitHtml($inFname, $output){
+		$result = $this->legacyHtmlRun($inFname);
 		$this->assertEquals($output, $result);
 	}
 
-	public function legacyPhpfileNameProvider(){
+	public function legacyHtmlfileNameProvider(){
 		require_once(__DIR__ . '/../test.inc');
 
-		$liste_fichiers = tests_legacy_lister('php');
+		$liste_fichiers = tests_legacy_lister('html');
 		$tests = [];
 		foreach ($liste_fichiers as $k => $fichier) {
 			$tests[$k] = [$fichier, 'OK'];
@@ -41,23 +41,23 @@ class LegacyUnitPhpTest extends TestCase {
 		return $tests;
 	}
 
-	protected function legacyPhpRun($inFname){
+	protected function legacyHtmlRun($inFname){
 		chdir(_SPIP_TEST_INC);
-		if (!is_file('../'.$inFname)
-		  or !$realPath = realpath('../'.$inFname)){
+		if (!is_file('../'.$inFname)){
 			$this->fail("$inFname is missing" . json_encode([getcwd(), _SPIP_TEST_INC, _SPIP_TEST_CHDIR]));
 		}
 
 		$output = [];
 		$returnCode = 0;
-		exec("/usr/bin/env php \"$realPath\" mode=test_general", $output, $returnCode);
+		$realPath = realpath("squel.php");
+		exec("/usr/bin/env php \"$realPath\" test=$inFname mode=test_general", $output, $returnCode);
 
 		if ($returnCode) {
 			array_unshift($output, 'ReturnCode: '.$returnCode);
 		}
 
 		$result = rtrim(implode("\n", $output));
-		if (preg_match(",^OK \(\d+\)$,", $result)) {
+		if (preg_match(",^OK \(?\d+\)?$,", $result)) {
 			$result = 'OK';
 		}
 		return $result;

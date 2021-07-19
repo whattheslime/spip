@@ -1,9 +1,11 @@
 <?php
 
 
+	require 'test.inc';
+
 	// calcule un test a partir d'un squelette
 	$fond = preg_replace(',\.html$,', '', $_GET['test']);
-	require 'test.inc';
+
 	$debug = (_request('var_mode') == 'debug');
 	define('_INTERDIRE_COMPRESSION_HTML',true);
 
