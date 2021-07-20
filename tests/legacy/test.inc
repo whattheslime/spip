@@ -10,12 +10,18 @@
  *
  */
 // let's go spip
-define('_SPIP_TEST_INC', dirname(dirname(dirname(__FILE__))));
-// si rien defini on va dans le public
-@define('_SPIP_TEST_CHDIR', dirname(_SPIP_TEST_INC));
+if (!defined('_SPIP_TEST_INC')) {
+	define('_SPIP_TEST_INC', dirname(dirname(dirname(__FILE__))));
+}
+if (!defined('_SPIP_TEST_CHDIR')){
+	// si rien defini on va dans le public
+	define('_SPIP_TEST_CHDIR', dirname(_SPIP_TEST_INC));
+}
 chdir(_SPIP_TEST_CHDIR);
 
-@define('_DIR_TESTS', substr(_SPIP_TEST_INC, strlen(_SPIP_TEST_CHDIR) + 1) . '/');
+if (!defined('_DIR_TESTS')){
+	define('_DIR_TESTS', substr(_SPIP_TEST_INC, strlen(_SPIP_TEST_CHDIR)+1) . '/');
+}
 
 // pas de _VAR_MODE=recalcul par defaut, ca masque les eventuels problemes de cache
 // cf
@@ -23,7 +29,7 @@ chdir(_SPIP_TEST_CHDIR);
 #	define('_VAR_MODE', 'recalcul');
 #}
 
-require dirname(_SPIP_TEST_INC) . '/ecrire/inc_version.php';
+require_once dirname(_SPIP_TEST_INC) . '/ecrire/inc_version.php';
 include_once __DIR__ . '/test_fonctions.php';
 
 
@@ -49,7 +55,7 @@ if (!_IS_CLI) {
 }
 else {
 	// passer les argv en set_request pour compat
-	$args = $argv;
+	$args = $GLOBALS['argv'];
 	array_shift($args);
 	foreach ($args as $arg) {
 		$arg = explode('=', $arg, 2);
