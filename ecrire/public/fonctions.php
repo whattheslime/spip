@@ -538,6 +538,7 @@ function appliquer_filtre_sinon($arg, $filtre, $args, $defaut = '') {
 	// Si c'est un filtre d'image, on utilise image_filtrer()
 	// Attention : les 2 premiers arguments sont inversés dans ce cas
 	if (trouver_filtre_matrice($filtre) and substr($filtre, 0, 6) == 'image_') {
+		include_spip('inc/filtres_images_lib_mini');
 		$args[1] = $args[0];
 		$args[0] = $filtre;
 		return image_graver(image_filtrer($args));
