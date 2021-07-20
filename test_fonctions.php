@@ -216,11 +216,6 @@ function tests_legacy_lister($extension=null) {
 				AND substr(basename($test),-14) != '_fonctions.php'
 			  AND (strncmp(basename($test),'NA_',3)!==0 OR _request('var_mode')=='dev')){
 
-				if (preg_match(',\.php$,', $test))
-					$url = '../'.$test.'?mode=test_general';
-				else
-					$url = "squel.php?test=$test&amp;var_mode=recalcul";
-
 				$joli = preg_replace(',\.(php|html)$,', '', basename($test));
 				if ($base == 'tests/') {
 					$section = basename(dirname($test));

@@ -58,76 +58,45 @@
 		"Tests SPIP ", version_spip(),
 		"</h1>\n";
 
-
-	foreach ($bases as $base) {
-
-		// regarder tous les tests
-		$tests = preg_files($base .= '/', '/\w+/.*\.(php|html)$');
-
-		// utiliser le parametre $_GET['fichier'] pour limiter les tests a un seul fichier
-		if (isset($_GET['fichier']) AND $_GET['fichier'] != '' AND preg_match('[^\d\w-.]', $_GET['fichier']) != 1)
-			$fic = $_GET['fichier'];
+	include_once __DIR__ . '/test_fonctions.php';
 
 
-		foreach ($tests as $test) {
-			if (isset($fic) AND $fic != '' AND substr_count($test, $fic) == 0)
-				continue;
+	$tests = tests_legacy_lister();
 
-			if (strlen($t=_request('rech')) && (strpos($test, $t)===false))
-		 		continue;
+	// utiliser le parametre $_GET['fichier'] pour limiter les tests a un seul fichier
+	if (isset($_GET['fichier']) AND $_GET['fichier'] != '' AND preg_match('[^\d\w-.]', $_GET['fichier']) != 1)
+		$fic = $_GET['fichier'];
 
-			//ignorer le contenu du jeu de squelettes dédié aux tests
-			if (stristr($test,'squelettes/'))
-				continue;
 
-			//ignorer le contenu des donnees de test
-			if (stristr($test,'data/'))
-				continue;
+	foreach ($tests as $joli => $test) {
+		if (isset($fic) AND $fic != '' AND substr_count($test, $fic) == 0)
+			continue;
 
-			//ignorer les tests todo
-			if (stristr($test,'/_todo_'))
-				continue;
 
-			//ignorer les fichiers lanceurs pour simpleTests aux tests
-			if (stristr($test,'lanceur_spip.php'))
-				continue;
-			if (stristr($test,'all_tests.php'))
-				continue;
+		if (preg_match(',\.php$,', $test))
+			$url = '../'.$test.'?mode=test_general';
+		else
+			$url = "squel.php?test=$test&amp;var_mode=recalcul";
 
-			if (strncmp(basename($test),'inclus_',7)!==0
-				AND substr(basename($test),-14) != '_fonctions.php'
-			  AND (strncmp(basename($test),'NA_',3)!==0 OR _request('var_mode')=='dev')){
-				if (preg_match(',\.php$,', $test))
-					$url = '../'.$test.'?mode=test_general';
-				else
-					$url = "squel.php?test=$test&amp;var_mode=recalcul";
-
-				$joli = basename($test);
-				$dirTests = false;
-				$section_vcs = "";
-				if ($base == 'tests/') {
-					$dirTests = true;
-					$section = basename(dirname($test));
-				} else {
-					$section = dirname($test);
-					$section_dir = $section;
-					#$section = str_replace('/tests','  ',dirname($test));
-					if ($vcs = decrire_version_git(dirname(dirname($test)))) {
-						$section_vcs = ' ['.$vcs['commit_short'].']';
-					}
-				}
-				if ($section <> $sectionold) {
-					if ($sectionold) echo "</dl>\n";
-					$titre = $dirTests ? $section : "<a href='../$section_dir'>$section</a>$section_vcs";
-					echo "<dl><dt>$titre</dt>\n";
-					$sectionold = $section;
-				}
-		
-				echo "<dd>
-					<a href='$url' class='joli'>".$joli.":</a> &nbsp;
-					&nbsp;</dd>\n";
+		$section = dirname($joli);
+		$dirTests = true;
+		$section_vcs = "";
+		if (strpos($section, 'tests/') !== 0) {
+			$dirTests = false;
+			if ($vcs = decrire_version_git(dirname(dirname($test)))) {
+				$section_vcs = ' ['.$vcs['commit_short'].']';
 			}
 		}
+		if ($section <> $sectionold) {
+			if ($sectionold) echo "</dl>\n";
+			$titre = $dirTests ? $section : "<a href='../$section'>$section</a>$section_vcs";
+			echo "<dl><dt>$titre</dt>\n";
+			$sectionold = $section;
+		}
+
+		echo "<dd>
+			<a href='$url' class='joli' title='".basename($test)."'>".basename($joli).":</a> &nbsp;
+			&nbsp;</dd>\n";
 	}
 
 	echo "</dl>\n";
