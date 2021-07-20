@@ -113,7 +113,7 @@ function display_error($titre,$call,$result,$expected,$opts=array()){
 .ei dd {margin-bottom: 1em;}
 </style>";
 		if (!class_exists("FineDiff"))
-			include_once _SPIP_TEST_INC.'/finediff.php';
+			include_once _SPIP_TEST_INC.'/tests/legacy/finediff.php';
 	}
 	else
 		$style="";
