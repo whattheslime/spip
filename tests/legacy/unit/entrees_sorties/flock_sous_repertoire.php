@@ -7,10 +7,11 @@
 
 $test = 'sous_repertoire';
 $remonte = __DIR__ . '/';
-while (!is_dir($remonte . "ecrire")) {
+while (!is_file($remonte . "test.inc")) {
     $remonte = $remonte."../";
 }
-require $remonte . 'tests/test.inc';
+require $remonte . 'test.inc';
+
 $ok = true;
 
 $sous_repertoire = 'test' . md5(rand());

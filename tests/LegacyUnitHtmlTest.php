@@ -30,7 +30,7 @@ class LegacyUnitHtmlTest extends TestCase {
 	}
 
 	public function legacyHtmlfileNameProvider(){
-		require_once(__DIR__ . '/../test.inc');
+		require_once(__DIR__ . '/legacy/test.inc');
 
 		$liste_fichiers = tests_legacy_lister('html');
 		$tests = [];

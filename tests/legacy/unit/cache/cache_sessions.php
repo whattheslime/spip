@@ -5,15 +5,10 @@
 	define('_VAR_MODE','recalcul');
 
 	// recherche test.inc qui nous ouvre au monde spip
-	$deep = 1;
-	$include = 'tests/test.inc';
-	while (!defined('_SPIP_TEST_INC') && $deep++ < 6) {
-		$include = '../' . $include;
-		@include $include;
-	}
-	if (!defined('_SPIP_TEST_INC')) {
-		die("Pas de $include");
-	}
+	$remonte = __DIR__ . '/';
+	while (!is_file($remonte."test.inc"))
+		$remonte = $remonte."../";
+	require $remonte.'test.inc';
 
 	tests_init_dossier_squelettes();
 

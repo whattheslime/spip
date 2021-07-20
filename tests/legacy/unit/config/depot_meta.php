@@ -4,15 +4,10 @@
 	$test = 'config/meta';
 
 	// recherche test.inc qui nous ouvre au monde spip
-	$deep = 1;
-	$include = 'tests/test.inc';
-	while (!defined('_SPIP_TEST_INC') && $deep++ < 6) {
-		$include = '../' . $include;
-		@include $include;
-	}
-	if (!defined('_SPIP_TEST_INC')) {
-		die("Pas de $include");
-	}
+	$remonte = __DIR__ . '/';
+	while (!is_file($remonte."test.inc"))
+		$remonte = $remonte."../";
+	require $remonte.'test.inc';
 
 	include_spip('inc/config');
 

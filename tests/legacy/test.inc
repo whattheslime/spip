@@ -10,7 +10,7 @@
  *
  */
 // let's go spip
-define('_SPIP_TEST_INC', dirname(__FILE__));
+define('_SPIP_TEST_INC', dirname(dirname(dirname(__FILE__))));
 // si rien defini on va dans le public
 @define('_SPIP_TEST_CHDIR', dirname(_SPIP_TEST_INC));
 chdir(_SPIP_TEST_CHDIR);
@@ -24,7 +24,7 @@ chdir(_SPIP_TEST_CHDIR);
 #}
 
 require dirname(_SPIP_TEST_INC) . '/ecrire/inc_version.php';
-include_once __DIR__ . '/tests/legacy/test_fonctions.php';
+include_once __DIR__ . '/test_fonctions.php';
 
 
 // pour notice sur recuperer_fond()

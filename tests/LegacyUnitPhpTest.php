@@ -30,7 +30,7 @@ class LegacyUnitPhpTest extends TestCase {
 	}
 
 	public function legacyPhpfileNameProvider(){
-		require_once(__DIR__ . '/../test.inc');
+		require_once(__DIR__ . '/legacy/test.inc');
 
 		$liste_fichiers = tests_legacy_lister('php');
 		$tests = [];
@@ -50,6 +50,7 @@ class LegacyUnitPhpTest extends TestCase {
 
 		$output = [];
 		$returnCode = 0;
+		chdir(__DIR__ . '/legacy');
 		exec("/usr/bin/env php \"$realPath\" mode=test_general", $output, $returnCode);
 
 		if ($returnCode) {
