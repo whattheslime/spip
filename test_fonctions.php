@@ -1,5 +1,10 @@
 <?php
 
+function tests_init_dossier_squelettes() {
+	$dir_tests = substr(__DIR__, strlen(_SPIP_TEST_CHDIR) + 1);
+	$GLOBALS['dossier_squelettes'] = $dir_tests . '/tests/legacy/squelettes';
+}
+
 function tests_loger_webmestre() {
 	// il faut charger une session webmestre
 	include_spip('base/abstract_sql');

@@ -15,8 +15,7 @@
 		die("Pas de $include");
 	}
 
-	$dir_legacy = substr(dirname(dirname(__DIR__)), strlen(_SPIP_TEST_CHDIR) + 1);
-	$GLOBALS['dossier_squelettes'] = $dir_legacy . '/squelettes';
+	tests_init_dossier_squelettes();
 
 	// commencer par verifier que les assertions fonctionnent
 	$GLOBALS['erreurs_test'] = array();

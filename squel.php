@@ -11,9 +11,7 @@
 
 	$flag_preserver = true;
 
-	$dir_tests = substr(__DIR__, strlen(_SPIP_TEST_CHDIR) + 1);
-	global $dossier_squelettes;
-	$GLOBALS['dossier_squelettes'] = $dir_tests . '/tests/legacy/squelettes';
+	tests_init_dossier_squelettes();
 
 	$contenu = recuperer_fond($fond);
 	
