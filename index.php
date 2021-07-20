@@ -50,9 +50,9 @@
 		"<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Strict//EN'
 			'http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd'>\n",
 		"<html><head><title>Tests de SPIP</title>",
-		"<script src='jquery-3.2.js' type='text/javascript'></script>\n",
-		"<script src='testrunner.js' type='text/javascript'></script>\n",
-		"<link rel='stylesheet' href='tests.css' type='text/css' />\n",
+		"<script src='tests/legacy/js/jquery-3.2.js' type='text/javascript'></script>\n",
+		"<script src='tests/legacy/js/testrunner.js' type='text/javascript'></script>\n",
+		"<link rel='stylesheet' href='tests/legacy/css/tests.css' type='text/css' />\n",
 		"</head><body>\n",
 		"<h1>",
 		"Tests SPIP ", version_spip(),
