@@ -21,6 +21,7 @@
         "ext-iconv": "Can be used as fallback when ext-mbstring is not available"
     },
     "require-dev": {
+        "simpletest/simpletest": "^1.1",
         "phpunit/phpunit": "^5.7 || ^6.5 || ^7.5 || ^8.3 || ^9.4"
     },
     "repositories": [

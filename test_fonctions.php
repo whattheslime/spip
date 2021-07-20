@@ -21,7 +21,7 @@ function demarrer_simpletest() {
 		die("<strong>Echec :</strong> SPIP ne peut pas etre demarre automatiquement pour le test.<br />
 			Vous utilisez certainement un lien symbolique dans votre repertoire plugins.");
 	}
-	include_spip('tests/inc/spip_simpletest');
+	include_once __DIR__ . '/tests/legacy/inc/spip_simpletest.php';
 	if (!class_exists('SpipTestSuite')) {
 		die("<strong>Echec :</strong> le plugin pour les tests unitaires avec SimpleTest ne semble pas actif.");
 	}

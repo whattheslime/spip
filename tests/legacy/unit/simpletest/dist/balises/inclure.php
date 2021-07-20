@@ -1,7 +1,7 @@
 <?php
 require_once('lanceur_spip.php');
-include_spip('tests/simpletest/browser');
-include_spip('tests/simpletest/web_tester');
+include_spip(_DIR_TESTS . 'vendor/simpletest/simpletest/browser');
+include_spip(_DIR_TESTS . 'vendor/simpletest/simpletest/web_tester');
 
 class Test_inclure extends SpipTest{
 

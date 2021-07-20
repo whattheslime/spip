@@ -15,6 +15,8 @@ define('_SPIP_TEST_INC', dirname(__FILE__));
 @define('_SPIP_TEST_CHDIR', dirname(_SPIP_TEST_INC));
 chdir(_SPIP_TEST_CHDIR);
 
+@define('_DIR_TESTS', substr(_SPIP_TEST_INC, strlen(_SPIP_TEST_CHDIR) + 1) . '/');
+
 // pas de _VAR_MODE=recalcul par defaut, ca masque les eventuels problemes de cache
 // cf
 #if (!defined('_VAR_MODE')) {

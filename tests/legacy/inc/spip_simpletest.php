@@ -1,6 +1,6 @@
 <?php
 
-include_spip('tests/simpletest/autorun');
+include_spip(_DIR_TESTS . 'vendor/simpletest/simpletest/autorun');
 include_spip('inc/autoriser');
 
 
