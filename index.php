@@ -60,6 +60,7 @@
 
 	include_once __DIR__ . '/test_fonctions.php';
 
+	define(_DIR_TESTS, basename(__DIR__).'/');
 
 	$tests = tests_legacy_lister();
 

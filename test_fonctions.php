@@ -1,8 +1,7 @@
 <?php
 
 function tests_init_dossier_squelettes() {
-	$dir_tests = substr(__DIR__, strlen(_SPIP_TEST_CHDIR) + 1);
-	$GLOBALS['dossier_squelettes'] = $dir_tests . '/tests/legacy/squelettes';
+	$GLOBALS['dossier_squelettes'] = _DIR_TESTS . 'tests/legacy/squelettes';
 }
 
 function tests_loger_webmestre() {
@@ -21,7 +20,7 @@ function demarrer_simpletest() {
 		die("<strong>Echec :</strong> SPIP ne peut pas etre demarre automatiquement pour le test.<br />
 			Vous utilisez certainement un lien symbolique dans votre repertoire plugins.");
 	}
-	include_once __DIR__ . '/tests/legacy/inc/spip_simpletest.php';
+	include_once _SPIP_TEST_INC . '/tests/legacy/inc/spip_simpletest.php';
 	if (!class_exists('SpipTestSuite')) {
 		die("<strong>Echec :</strong> le plugin pour les tests unitaires avec SimpleTest ne semble pas actif.");
 	}
@@ -178,7 +177,8 @@ function test_equality($val1,$val2){
 function tests_legacy_lister($extension=null) {
 
 	// chercher les bases de tests
-	$bases = array('tests/tests/legacy/unit');
+	$bases = array(_DIR_TESTS . 'tests/legacy/unit');
+
 	foreach (creer_chemin() as $d) {
 		if ($d && @is_dir("${d}tests"))
 			$bases[] = "${d}tests";
@@ -222,10 +222,9 @@ function tests_legacy_lister($extension=null) {
 			  AND (strncmp(basename($test),'NA_',3)!==0 OR _request('var_mode')=='dev')){
 
 				$joli = preg_replace(',\.(php|html)$,', '', basename($test));
-				if ($base == 'tests/') {
-					$section = basename(dirname($test));
-				} else {
-					$section = dirname($test);
+				$section = dirname($test);
+				if (strpos($base, _DIR_TESTS) === 0) {
+					$section = substr($section, strlen(_DIR_TESTS . '/tests'));
 				}
 				$titre = "$section/$joli";
 				if (isset($liste_fichiers[$titre])) {
