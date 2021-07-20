@@ -8,9 +8,9 @@
 
 	$test = '_DIR_PLUGINS_SUPPL';
 
-	$remonte = "";
+	$remonte = __DIR__ . '/';
 	while (!is_file($remonte."test.inc"))
-		$remonte = "../$remonte";
+		$remonte = $remonte."../";
 	require $remonte.'test.inc';
 	find_in_path("./inc/plugin.php",'',true);
 

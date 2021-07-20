@@ -8,9 +8,9 @@
  */
 
 	$test = 'tester_url_absolue';
-	$remonte = "";
+	$remonte = __DIR__ . '/';
 	while (!is_file($remonte."test.inc"))
-		$remonte = "../$remonte";
+		$remonte = $remonte."../";
 	require $remonte.'test.inc';
 	find_in_path("./inc/utils.php",'',true);
 

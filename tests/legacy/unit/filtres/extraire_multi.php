@@ -8,9 +8,9 @@
  */
 
 	$test = 'extraire_multi';
-	$remonte = "";
+	$remonte = __DIR__ . '/';
 	while (!is_file($remonte."test.inc"))
-		$remonte = "../$remonte";
+		$remonte = $remonte."../";
 	require $remonte.'test.inc';
 	find_in_path("./inc/filtres.php",'',true);
 	find_in_path("./inc/lang.php",'',true);

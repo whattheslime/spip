@@ -29,9 +29,9 @@ dans les items
 
 
 	$test = 'flux';
-	$remonte = "";
+	$remonte = __DIR__ . '/';
 	while (!is_file($remonte."test.inc"))
-		$remonte = "../$remonte";
+		$remonte = $remonte."../";
 	require $remonte.'test.inc';
 
 	include_spip('inc/syndic');

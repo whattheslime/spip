@@ -8,9 +8,9 @@
  */
 
 	$test = 'valider_url_distante';
-	$remonte = "";
+	$remonte = __DIR__ . '/';
 	while (!is_file($remonte."test.inc"))
-		$remonte = "../$remonte";
+		$remonte = $remonte."../";
 	require $remonte.'test.inc';
 	find_in_path("./inc/distant.php",'',true);
 

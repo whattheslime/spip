@@ -3,9 +3,9 @@
 	// nom du test
 	$test = 'sql/sql_update_delete';
 
-	$remonte = "";
+	$remonte = __DIR__ . '/';
 	while (!is_file($remonte."test.inc"))
-		$remonte = "../$remonte";
+		$remonte = $remonte."../";
 	require $remonte.'test.inc';
 
 	include 'inc-sql_datas.inc';

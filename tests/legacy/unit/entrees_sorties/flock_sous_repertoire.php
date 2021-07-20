@@ -6,9 +6,9 @@
  */
 
 $test = 'sous_repertoire';
-$remonte = "";
+$remonte = __DIR__ . '/';
 while (!is_dir($remonte . "ecrire")) {
-    $remonte = "../$remonte";
+    $remonte = $remonte."../";
 }
 require $remonte . 'tests/test.inc';
 $ok = true;
