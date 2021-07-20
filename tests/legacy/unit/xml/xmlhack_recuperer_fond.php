@@ -1,7 +1,7 @@
 <?php
 
 	$test = 'xmlhack_recuperer_fond';
-	$remonte = "../";
+	$remonte = "";
 	while (!is_file($remonte."test.inc"))
 		$remonte = "../$remonte";
 	require $remonte.'test.inc';

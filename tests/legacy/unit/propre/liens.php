@@ -2,7 +2,7 @@
 
 	define('_ESPACE_PRIVE',1); // pour tester le modele inexistant, qui sera sinon ignore
 	$test = 'liens';
-	$remonte = "../";
+	$remonte = "";
 	while (!is_file($remonte."test.inc"))
 		$remonte = "../$remonte";
 	require $remonte.'test.inc';

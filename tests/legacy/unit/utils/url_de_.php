@@ -8,7 +8,7 @@
  */
 
 	$test = 'url_de_';
-	$remonte = "../";
+	$remonte = "";
 	while (!is_file($remonte."test.inc"))
 		$remonte = "../$remonte";
 	require $remonte.'test.inc';

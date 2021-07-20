@@ -6,7 +6,7 @@
  */
 
 $test = 'sous_repertoire';
-$remonte = "../";
+$remonte = "";
 while (!is_dir($remonte . "ecrire")) {
     $remonte = "../$remonte";
 }

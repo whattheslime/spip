@@ -8,7 +8,7 @@
  */
 
 	$test = 'table_objet_sql';
-	$remonte = "../";
+	$remonte = "";
 	while (!is_file($remonte."test.inc"))
 		$remonte = "../$remonte";
 	require $remonte.'test.inc';

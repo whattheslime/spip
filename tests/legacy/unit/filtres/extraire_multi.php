@@ -8,7 +8,7 @@
  */
 
 	$test = 'extraire_multi';
-	$remonte = "../";
+	$remonte = "";
 	while (!is_file($remonte."test.inc"))
 		$remonte = "../$remonte";
 	require $remonte.'test.inc';

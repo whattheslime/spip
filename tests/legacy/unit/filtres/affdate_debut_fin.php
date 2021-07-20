@@ -11,7 +11,7 @@
 	ini_set('date.timezone','Europe/Paris');
 
 	$test = 'affdate_debut_fin';
-	$remonte = "../";
+	$remonte = "";
 	while (!is_file($remonte."test.inc"))
 		$remonte = "../$remonte";
 	require $remonte.'test.inc';

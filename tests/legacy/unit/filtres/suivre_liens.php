@@ -1,7 +1,7 @@
 <?php
 
 	(isset($test) && $test) || ($test = 'suivre_liens');
-	$remonte = "../";
+	$remonte = "";
 	while (!is_file($remonte."test.inc"))
 		$remonte = "../$remonte";
 	require $remonte.'test.inc';
