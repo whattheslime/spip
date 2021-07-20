@@ -49,7 +49,7 @@ class LegacyUnitHtmlTest extends TestCase {
 
 		$output = [];
 		$returnCode = 0;
-		$realPath = realpath("squel.php");
+		$realPath = realpath("tests/legacy/squel.php");
 		exec("/usr/bin/env php \"$realPath\" test=$inFname mode=test_general", $output, $returnCode);
 
 		if ($returnCode) {

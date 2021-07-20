@@ -76,7 +76,7 @@
 		if (preg_match(',\.php$,', $test))
 			$url = '../'.$test.'?mode=test_general';
 		else
-			$url = "squel.php?test=$test&amp;var_mode=recalcul";
+			$url = "tests/legacy/squel.php?test=$test&amp;var_mode=recalcul";
 
 		$section = dirname($joli);
 		$dirTests = true;

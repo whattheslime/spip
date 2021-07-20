@@ -1,7 +1,10 @@
 <?php
 
+	$remonte = "";
+	while (!is_file($remonte."test.inc"))
+		$remonte = "../$remonte";
 
-	require 'test.inc';
+	require $remonte.'test.inc';
 
 	// calcule un test a partir d'un squelette
 	$fond = preg_replace(',\.html$,', '', $_GET['test']);
