@@ -58,7 +58,7 @@
 		"Tests SPIP ", version_spip(),
 		"</h1>\n";
 
-	include_once __DIR__ . '/test_fonctions.php';
+	include_once __DIR__ . '/tests/legacy/test_fonctions.php';
 
 	define(_DIR_TESTS, basename(__DIR__).'/');
 

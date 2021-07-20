@@ -24,7 +24,7 @@ chdir(_SPIP_TEST_CHDIR);
 #}
 
 require dirname(_SPIP_TEST_INC) . '/ecrire/inc_version.php';
-include_once __DIR__ . '/test_fonctions.php';
+include_once __DIR__ . '/tests/legacy/test_fonctions.php';
 
 
 // pour notice sur recuperer_fond()
