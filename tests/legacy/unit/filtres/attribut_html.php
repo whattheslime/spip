@@ -3,9 +3,9 @@
 
 	$test = 'attribut_html';
 	$remonte = "../";
-	while (!is_dir($remonte."ecrire"))
+	while (!is_file($remonte."test.inc"))
 		$remonte = "../$remonte";
-	require $remonte.'tests/test.inc';
+	require $remonte.'test.inc';
 	include_spip("inc/filtres");
 
 	$url = "/ecrire/?exec=exec&id_obj=id_obj&no_val";

@@ -2,9 +2,9 @@
 
 	$test = 'xmlhack_recuperer_fond';
 	$remonte = "../";
-	while (!is_dir($remonte."ecrire"))
+	while (!is_file($remonte."test.inc"))
 		$remonte = "../$remonte";
-	require $remonte.'tests/test.inc';
+	require $remonte.'test.inc';
 	
 	include_spip('public/assembler');
 	$dir = substr(dirname(dirname(__DIR__)), strlen(_SPIP_TEST_CHDIR) + 1);

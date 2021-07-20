@@ -2,9 +2,9 @@
 
 	$test = 'chemin';
 	$remonte = "../";
-	while (!is_dir($remonte."ecrire"))
+	while (!is_file($remonte."test.inc"))
 		$remonte = "../$remonte";
-	require $remonte.'tests/test.inc';
+	require $remonte.'test.inc';
 
 	$n = count(explode(":",$GLOBALS['dossier_squelettes']));
 

@@ -3,9 +3,9 @@
 	define('_ESPACE_PRIVE',1); // pour tester le modele inexistant, qui sera sinon ignore
 	$test = 'liens';
 	$remonte = "../";
-	while (!is_dir($remonte."ecrire"))
+	while (!is_file($remonte."test.inc"))
 		$remonte = "../$remonte";
-	require $remonte.'tests/test.inc';
+	require $remonte.'test.inc';
 	include_spip('inc/texte');
 	include_spip('inc/lang');
 

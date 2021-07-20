@@ -9,9 +9,9 @@
 
 	$test = 'parametre_url';
 	$remonte = "../";
-	while (!is_dir($remonte."ecrire"))
+	while (!is_file($remonte."test.inc"))
 		$remonte = "../$remonte";
-	require $remonte.'tests/test.inc';
+	require $remonte.'test.inc';
 	find_in_path("./inc/utils.php",'',true);
 
 	// chercher la fonction si elle n'existe pas

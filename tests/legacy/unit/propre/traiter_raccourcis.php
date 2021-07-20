@@ -2,9 +2,9 @@
 
 	$test = 'traiter_raccourcis';
 	$remonte = "../";
-	while (!is_dir($remonte."ecrire"))
+	while (!is_file($remonte."test.inc"))
 		$remonte = "../$remonte";
-	require $remonte.'tests/test.inc';
+	require $remonte.'test.inc';
 
 	// ces tests sont prevus pour la variable de personnalisation :
 	$GLOBALS['toujours_paragrapher'] = false;

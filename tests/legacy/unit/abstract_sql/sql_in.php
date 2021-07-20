@@ -8,10 +8,11 @@
  */
 
 	$test = 'sql_in';
-	$remonte = "../";
-	while (!is_dir($remonte."ecrire"))
+	$remonte = "";
+	while (!is_file($remonte."test.inc"))
 		$remonte = "../$remonte";
-	require $remonte.'tests/test.inc';
+	require $remonte.'test.inc';
+
 	find_in_path("./base/abstract_sql.php",'',true);
 
 	// chercher la fonction si elle n'existe pas

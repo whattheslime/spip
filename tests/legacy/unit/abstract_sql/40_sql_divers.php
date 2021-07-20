@@ -3,10 +3,11 @@
 	// nom du test
 	$test = 'sql/sql_divers';
 
-	$remonte = "../";
-	while (!is_dir($remonte."ecrire"))
+	$remonte = "";
+	while (!is_file($remonte."test.inc"))
 		$remonte = "../$remonte";
-	require $remonte.'tests/test.inc';
+	require $remonte.'test.inc';
+
 	include 'inc-sql_datas.inc';
 
 	include_spip('base/abstract_sql');
