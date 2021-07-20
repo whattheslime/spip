@@ -173,7 +173,7 @@ function test_equality($val1,$val2){
 function tests_legacy_lister($extension=null) {
 
 	// chercher les bases de tests
-	$bases = array('tests/unit');
+	$bases = array('tests/tests/legacy/unit');
 	foreach (creer_chemin() as $d) {
 		if ($d && @is_dir("${d}tests"))
 			$bases[] = "${d}tests";
