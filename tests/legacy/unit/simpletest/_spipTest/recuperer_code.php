@@ -6,7 +6,8 @@ require_once('lanceur_spip.php');
 class Test_SpipTestRecupererCode extends SpipTest{
 
 	function testRecupererFond(){
-		$this->assertEqual('Hello World', recuperer_fond('tests/unit/simpletest/core/inc/inclus_hello_world'));
+		$dir = substr(dirname(__DIR__), strlen(_SPIP_TEST_CHDIR) + 1);
+		$this->assertEqual('Hello World', recuperer_fond($dir . '/core/inc/inclus_hello_world'));
 	}
 	function testRecupererCode(){
 		$this->assertEqualCode('Hello World','Hello World');

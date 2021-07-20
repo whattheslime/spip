@@ -5,12 +5,16 @@
  * ceci avant que inc_version.php soit inclus ...
  */
 // let's go ecrire/
-define('_SPIP_TEST_CHDIR', dirname(dirname(dirname(dirname(__FILE__)))) . '/ecrire');
+$dir_racine = dirname(dirname(__DIR__));
+while (!is_dir($dir_racine."/ecrire"))
+	$dir_racine = dirname($dir_racine);
+
+define('_SPIP_TEST_CHDIR', $dir_racine . '/ecrire');
 $test = 'liens_absolus_prive';
 
 // si on rajoute ça ...
 // ça serait presque mieux , mais generer_url_public fait pas de resolv_path()
 //define('_SPIP_SCRIPT', '../../');
 
-include dirname(__FILE__) . '/liens_absolus.php';
+include __DIR__ . '/liens_absolus.php';
 

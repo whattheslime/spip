@@ -7,7 +7,8 @@
 	require $remonte.'tests/test.inc';
 	
 	include_spip('public/assembler');
-	$out = recuperer_fond(basename(_SPIP_TEST_INC).'/unit/xml/xmlhack');
+	$dir = substr(dirname(dirname(__DIR__)), strlen(_SPIP_TEST_CHDIR) + 1);
+	$out = recuperer_fond($dir.'/unit/xml/xmlhack');
 	// regarder si le hack a marche
 	include_spip('inc/xml');
 	$tree = spip_xml_parse($out);
@@ -16,7 +17,7 @@
 	if ($ok!=='OK') {
 		echo ('<dl> Erreur sur le xml produit (xmlhack) : ' . serialize($tree) . '</dl>');
 	}
-	$out = recuperer_fond(basename(_SPIP_TEST_INC).'/unit/xml/xmlhack_php');
+	$out = recuperer_fond($dir.'/unit/xml/xmlhack_php');
 	// regarder si le hack a marche
 	include_spip('inc/xml');
 	$tree = spip_xml_parse($out);
