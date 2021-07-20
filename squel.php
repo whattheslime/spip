@@ -11,11 +11,9 @@
 
 	$flag_preserver = true;
 
-	// recuperer le produit
-	//ob_start();
-
+	$dir_tests = substr(__DIR__, strlen(_SPIP_TEST_CHDIR) + 1);
 	global $dossier_squelettes;
-	$dossier_squelettes = 'tests/squelettes';
+	$GLOBALS['dossier_squelettes'] = $dir_tests . '/tests/legacy/squelettes';
 
 	$contenu = recuperer_fond($fond);
 	
