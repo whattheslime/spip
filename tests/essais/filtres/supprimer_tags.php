@@ -3,31 +3,29 @@
  * Test unitaire de la fonction supprimer_tags
  * du fichier inc/filtres.php
  *
- * genere automatiquement par TestBuilder
- * le 
  */
+namespace Spip\Core\Tests;
 
-	$test = 'supprimer_tags';
-	$remonte = __DIR__ . '/';
-	while (!is_file($remonte."test.inc"))
-		$remonte = $remonte."../";
-	require $remonte.'test.inc';
-	find_in_path("inc/filtres.php",'',true);
+find_in_path("inc/filtres.php",'',true);
 
-	//
-	// hop ! on y va
-	//
-	$err = tester_fun('supprimer_tags', essais_supprimer_tags());
-	
-	// si le tableau $err est pas vide ca va pas
-	if ($err) {
-		die ('<dl>' . join('', $err) . '</dl>');
-	}
+/**
+ * La fonction appelee pour chaque jeu de test
+ * Nommage conventionnel : test_[[dossier1_][[dossier2_]...]]fichier
+ * @param ...$args
+ * @return mixed
+ */
+function test_filtres_supprimer_tags(...$args) {
+	return supprimer_tags(...$args);
+}
 
-	echo "OK";
-	
 
-	function essais_supprimer_tags(){
+/**
+ * La fonction qui fournit les jeux de test
+ * Nommage conventionnel : essais_[[dossier1_][[dossier2_]...]]fichier
+ * @return array
+ *  [ output, input1, input2, input3...]
+ */
+function essais_filtres_supprimer_tags(){
 		$essais = array (
   0 => 
   array (

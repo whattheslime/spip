@@ -1,34 +1,34 @@
 <?php
 /**
  * Test unitaire de la fonction filtre_text_csv_dist
- * du fichier inc/filtres.php
+ * du fichier inc/filtres_mime.php
  *
- * genere automatiquement par TestBuilder
- * le 
  */
+namespace Spip\Core\Tests;
 
-	$test = 'filtre_text_csv_dist';
-	$remonte = __DIR__ . '/';
-	while (!is_file($remonte."test.inc"))
-		$remonte = $remonte."../";
-	require $remonte.'test.inc';
-	find_in_path("inc/filtres_mime.php",'',true);
-	changer_langue('fr');
+find_in_path("inc/filtres_mime.php",'',true);
 
-	//
-	// hop ! on y va
-	//
-	$err = tester_fun('filtre_text_csv_dist', essais_filtre_text_csv_dist());
-	
-	// si le tableau $err est pas vide ca va pas
-	if ($err) {
-		die ('<dl>' . join('', $err) . '</dl>');
-	}
+function pretest_filtres_mime_filtre_text_csv_dist(){
+	changer_langue('fr'); // ce test est en fr
+}
+/**
+ * La fonction appelee pour chaque jeu de test
+ * Nommage conventionnel : test_[[dossier1_][[dossier2_]...]]fichier
+ * @param ...$args
+ * @return mixed
+ */
+function test_filtres_mime_filtre_text_csv_dist(...$args) {
+	return filtre_text_csv_dist(...$args);
+}
 
-	echo "OK";
-	
 
-	function essais_filtre_text_csv_dist(){
+/**
+ * La fonction qui fournit les jeux de test
+ * Nommage conventionnel : essais_[[dossier1_][[dossier2_]...]]fichier
+ * @return array
+ *  [ output, input1, input2, input3...]
+ */
+function essais_filtres_mime_filtre_text_csv_dist(){
 		$essais = array (
   0 => 
   array (

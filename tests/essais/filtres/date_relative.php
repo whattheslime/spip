@@ -10,7 +10,6 @@ find_in_path("inc/filtres.php",'',true);
 
 function pretest_filtres_date_relative(){
 	// Pour que le tests soit independant de la timezone du serveur
-	//ini_set('date.timezone','Europe/Paris');
 	date_default_timezone_set('Europe/Paris');
 	changer_langue('fr'); // ce test est en fr
 }

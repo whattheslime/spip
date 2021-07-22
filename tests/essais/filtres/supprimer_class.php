@@ -3,37 +3,29 @@
  * Test unitaire de la fonction supprimer_class
  * du fichier ./inc/filtres.php
  *
- * genere automatiquement par TestBuilder
- * le 2021-02-19 14:53
  */
+namespace Spip\Core\Tests;
 
-	$test = 'supprimer_class';
-	$remonte = __DIR__ . '/';
-	while (!is_file($remonte."test.inc"))
-		$remonte = $remonte."../";
-	require $remonte.'test.inc';
-	find_in_path("./inc/filtres.php",'',true);
+find_in_path("./inc/filtres.php",'',true);
 
-	// chercher la fonction si elle n'existe pas
-	if (!function_exists($f='supprimer_class')){
-		find_in_path("inc/filtres.php",'',true);
-		$f = chercher_filtre($f);
-	}
+/**
+ * La fonction appelee pour chaque jeu de test
+ * Nommage conventionnel : test_[[dossier1_][[dossier2_]...]]fichier
+ * @param ...$args
+ * @return mixed
+ */
+function test_filtres_supprimer_class(...$args) {
+	return supprimer_class(...$args);
+}
 
-	//
-	// hop ! on y va
-	//
-	$err = tester_fun($f, essais_supprimer_class());
-	
-	// si le tableau $err est pas vide ca va pas
-	if ($err) {
-		die ('<dl>' . join('', $err) . '</dl>');
-	}
 
-	echo "OK";
-	
-
-	function essais_supprimer_class(){
+/**
+ * La fonction qui fournit les jeux de test
+ * Nommage conventionnel : essais_[[dossier1_][[dossier2_]...]]fichier
+ * @return array
+ *  [ output, input1, input2, input3...]
+ */
+function essais_filtres_supprimer_class(){
 		$essais = array (
   0 => 
   array (
