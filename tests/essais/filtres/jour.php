@@ -1,42 +1,43 @@
 <?php
 /**
- * Test unitaire de la fonction journum
+ * Test unitaire de la fonction jour
  * du fichier inc/filtres.php
  *
- * genere automatiquement par TestBuilder
- * le 
  */
+namespace Spip\Core\Tests;
 
-	$test = 'journum';
-	$remonte = __DIR__ . '/';
-	while (!is_file($remonte."test.inc"))
-		$remonte = $remonte."../";
-	require $remonte.'test.inc';
-	find_in_path("inc/filtres.php",'',true);
+find_in_path("inc/filtres.php",'',true);
 
-	//
-	// hop ! on y va
-	//
-	$err = tester_fun('journum', essais_journum());
-	
-	// si le tableau $err est pas vide ca va pas
-	if ($err) {
-		die ('<dl>' . join('', $err) . '</dl>');
-	}
+function pretest_filtres_jour(){
+	changer_langue('fr'); // ce test est en fr
+}
+/**
+ * La fonction appelee pour chaque jeu de test
+ * Nommage conventionnel : test_[[dossier1_][[dossier2_]...]]fichier
+ * @param ...$args
+ * @return mixed
+ */
+function test_filtres_jour(...$args) {
+	return jour(...$args);
+}
 
-	echo "OK";
-	
 
-	function essais_journum(){
+/**
+ * La fonction qui fournit les jeux de test
+ * Nommage conventionnel : essais_[[dossier1_][[dossier2_]...]]fichier
+ * @return array
+ *  [ output, input1, input2, input3...]
+ */
+function essais_filtres_jour(){
 		$essais = array (
   0 => 
   array (
-    0 => '0',
+    0 => '',
     1 => '2001-00-00 12:33:44',
   ),
   1 => 
   array (
-    0 => '0',
+    0 => '',
     1 => '2001-03-00 09:12:57',
   ),
   2 => 
@@ -46,17 +47,17 @@
   ),
   3 => 
   array (
-    0 => '0',
+    0 => '',
     1 => '0000-00-00',
   ),
   4 => 
   array (
-    0 => '1',
+    0 => '1er',
     1 => '0001-01-01',
   ),
   5 => 
   array (
-    0 => '1',
+    0 => '1er',
     1 => '1970-01-01',
   ),
   6 => 
@@ -66,7 +67,7 @@
   ),
   7 => 
   array (
-    0 => '1',
+    0 => '1er',
     1 => '2001-01-01 00:00:00',
   ),
   8 => 
@@ -76,7 +77,7 @@
   ),
   9 => 
   array (
-    0 => '1',
+    0 => '1er',
     1 => '2001-03-01 14:12:33',
   ),
   10 => 
@@ -151,7 +152,7 @@
   ),
   24 => 
   array (
-    0 => '1',
+    0 => '1er',
     1 => '2001-01-01',
   ),
   25 => 
@@ -161,7 +162,7 @@
   ),
   26 => 
   array (
-    0 => '1',
+    0 => '1er',
     1 => '2001-03-01',
   ),
   27 => 
@@ -231,22 +232,22 @@
   ),
   40 => 
   array (
-    0 => '1',
+    0 => '1er',
     1 => '2001/07/05',
   ),
   41 => 
   array (
-    0 => '1',
+    0 => '1er',
     1 => '2001/01/01',
   ),
   42 => 
   array (
-    0 => '1',
+    0 => '1er',
     1 => '2001/12/31',
   ),
   43 => 
   array (
-    0 => '1',
+    0 => '1er',
     1 => '2001/03/01',
   ),
   44 => 
@@ -321,7 +322,7 @@
   ),
   58 => 
   array (
-    0 => '1',
+    0 => '1er',
     1 => '01/01/2001',
   ),
   59 => 
@@ -331,7 +332,7 @@
   ),
   60 => 
   array (
-    0 => '1',
+    0 => '1er',
     1 => '01/03/2001',
   ),
   61 => 

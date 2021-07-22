@@ -3,37 +3,29 @@
  * Test unitaire de la fonction lien_ou_expose
  * du fichier ./inc/filtres.php
  *
- * genere automatiquement par TestBuilder
- * le 2011-01-07 10:18
  */
+namespace Spip\Core\Tests;
 
-	$test = 'lien_ou_expose';
-	$remonte = __DIR__ . '/';
-	while (!is_file($remonte."test.inc"))
-		$remonte = $remonte."../";
-	require $remonte.'test.inc';
-	find_in_path("./inc/filtres.php",'',true);
+find_in_path("./inc/filtres.php",'',true);
 
-	// chercher la fonction si elle n'existe pas
-	if (!function_exists($f='lien_ou_expose')){
-		find_in_path("inc/filtres.php",'',true);
-		$f = chercher_filtre($f);
-	}
+/**
+ * La fonction appelee pour chaque jeu de test
+ * Nommage conventionnel : test_[[dossier1_][[dossier2_]...]]fichier
+ * @param ...$args
+ * @return mixed
+ */
+function test_filtres_lien_ou_expose(...$args) {
+	return lien_ou_expose(...$args);
+}
 
-	//
-	// hop ! on y va
-	//
-	$err = tester_fun($f, essais_lien_ou_expose());
-	
-	// si le tableau $err est pas vide ca va pas
-	if ($err) {
-		die ('<dl>' . join('', $err) . '</dl>');
-	}
 
-	echo "OK";
-	
-
-	function essais_lien_ou_expose(){
+/**
+ * La fonction qui fournit les jeux de test
+ * Nommage conventionnel : essais_[[dossier1_][[dossier2_]...]]fichier
+ * @return array
+ *  [ output, input1, input2, input3...]
+ */
+function essais_filtres_lien_ou_expose(){
 		$essais = array (
   0 => 
   array (

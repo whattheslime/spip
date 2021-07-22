@@ -3,37 +3,29 @@
  * Test unitaire de la fonction identifiant_slug
  * du fichier ./inc/filtres.php
  *
- * genere automatiquement par TestBuilder
- * le 2021-03-09 12:06
  */
+namespace Spip\Core\Tests;
 
-	$test = 'identifiant_slug';
-	$remonte = __DIR__ . '/';
-	while (!is_file($remonte."test.inc"))
-		$remonte = $remonte."../";
-	require $remonte.'test.inc';
-	find_in_path("./inc/filtres.php",'',true);
+find_in_path("./inc/filtres.php",'',true);
 
-	// chercher la fonction si elle n'existe pas
-	if (!function_exists($f='identifiant_slug')){
-		find_in_path("inc/filtres.php",'',true);
-		$f = chercher_filtre($f);
-	}
+/**
+ * La fonction appelee pour chaque jeu de test
+ * Nommage conventionnel : test_[[dossier1_][[dossier2_]...]]fichier
+ * @param ...$args
+ * @return mixed
+ */
+function test_filtres_identifiant_slug(...$args) {
+	return identifiant_slug(...$args);
+}
 
-	//
-	// hop ! on y va
-	//
-	$err = tester_fun($f, essais_identifiant_slug());
-	
-	// si le tableau $err est pas vide ca va pas
-	if ($err) {
-		die ('<dl>' . join('', $err) . '</dl>');
-	}
 
-	echo "OK";
-	
-
-	function essais_identifiant_slug(){
+/**
+ * La fonction qui fournit les jeux de test
+ * Nommage conventionnel : essais_[[dossier1_][[dossier2_]...]]fichier
+ * @return array
+ *  [ output, input1, input2, input3...]
+ */
+function essais_filtres_identifiant_slug(){
 		$essais = array (
   0 => 
   array (
