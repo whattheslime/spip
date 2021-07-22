@@ -46,8 +46,32 @@ class EssaisTest extends TestCase {
 			self::$posttest_function_tolaunch[$posttest_function] = true;
 		}
 
-		$this->assertEquals($output, $result);
+		if (is_double($output) and is_double($result)){
+				$this->assertTrue(abs($output-$result)<=1e-10*abs($output));
+		}
+		else {
+			$this->assertSame($output, $result);
+			$this->assertEquals($output, $result);
+		}
 	}
+
+	protected function check_equality($val1,$val2){
+		if (is_array($val1) AND is_array($val2)){
+			return (
+				    !count(array_diff_assoc_recursive($val1,$val2))
+			  AND !count(array_diff_assoc_recursive($val2,$val1))
+			);
+		}
+		elseif (is_array($val1) OR is_array($val2)){
+			return false;
+		}
+		elseif (is_double($val1) OR is_double($val2)){
+			return abs($val1-$val2)<=1e-10*abs($val1);
+		}
+		else
+			return $val1===$val2;
+	}
+
 
 	public static function tearDownAfterClass():void {
 		foreach (array_keys(self::$posttest_function_tolaunch) as $posttest_function) {

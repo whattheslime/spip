@@ -3,48 +3,38 @@
  * Test unitaire de la fonction filtre_balise_img_dist
  * du fichier ./inc/filtres.php
  *
- * genere automatiquement par TestBuilder
- * le 2021-03-04 11:00
  */
+namespace Spip\Core\Tests;
 
-	$test = 'filtre_balise_img_dist';
-	$remonte = __DIR__ . '/';
-	while (!is_file($remonte."test.inc"))
-		$remonte = $remonte."../";
-	require $remonte.'test.inc';
-	find_in_path("./inc/filtres.php",'',true);
+find_in_path("./inc/filtres.php",'',true);
 
-
-	function filtre_balise_img_dist_sans_timestamp() {
-		static $f = null;
-		if (is_null($f)) {
-			// chercher la fonction si elle n'existe pas
-			if (!function_exists($f='filtre_balise_img_dist')){
-				find_in_path("inc/filtres.php",'',true);
-				$f = chercher_filtre($f);
-			}
+/**
+ * La fonction appelee pour chaque jeu de test
+ * Nommage conventionnel : test_[[dossier1_][[dossier2_]...]]fichier
+ * @param ...$args
+ * @return mixed
+ */
+function test_filtres_filtre_balise_img_dist(...$args) {
+	static $f = null;
+	if (is_null($f)){
+		// chercher la fonction si elle n'existe pas
+		if (!function_exists($f = 'filtre_balise_img_dist')){
+			find_in_path("inc/filtres.php", '', true);
+			$f = chercher_filtre($f);
 		}
-		$args = func_get_args();
-		$res = $f(...$args);
-
-		$res = preg_replace(",\?\d+,", '', $res);
-		return $res;
 	}
+	$res = $f(...$args);
+	$res = preg_replace(",\?\d+,", '', $res);
+	return $res;
+}
 
-	//
-	// hop ! on y va
-	//
-	$err = tester_fun('filtre_balise_img_dist_sans_timestamp', essais_filtre_balise_img_dist());
-	
-	// si le tableau $err est pas vide ca va pas
-	if ($err) {
-		die ('<dl>' . join('', $err) . '</dl>');
-	}
-
-	echo "OK";
-	
-
-	function essais_filtre_balise_img_dist(){
+/**
+ * La fonction qui fournit les jeux de test
+ * Nommage conventionnel : essais_[[dossier1_][[dossier2_]...]]fichier
+ * @return array
+ *  [ output, input1, input2, input3...]
+ */
+function essais_filtres_filtre_balise_img_dist(){
 		$essais = array (
 	  array (
 	    0 => '<img src=\'https://www.spip.net/IMG/logo/siteon0.png\' alt=\'\' width=\'300\' height=\'223\' />',

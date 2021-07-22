@@ -3,31 +3,30 @@
  * Test unitaire de la fonction extraire_multi
  * du fichier ./inc/filtres.php
  *
- * genere automatiquement par TestBuilder
- * le 2010-04-02 18:21
  */
+namespace Spip\Core\Tests;
 
-	$test = 'extraire_multi';
-	$remonte = __DIR__ . '/';
-	while (!is_file($remonte."test.inc"))
-		$remonte = $remonte."../";
-	require $remonte.'test.inc';
-	find_in_path("./inc/filtres.php",'',true);
-	find_in_path("./inc/lang.php",'',true);
-	//
-	// hop ! on y va
-	//
-	$err = tester_fun('extraire_multi', essais_extraire_multi());
-	
-	// si le tableau $err est pas vide ca va pas
-	if ($err) {
-		die ('<dl>' . join('', $err) . '</dl>');
-	}
+find_in_path("./inc/filtres.php",'',true);
+find_in_path("./inc/lang.php",'',true);
 
-	echo "OK";
-	
+/**
+ * La fonction appelee pour chaque jeu de test
+ * Nommage conventionnel : test_[[dossier1_][[dossier2_]...]]fichier
+ * @param ...$args
+ * @return mixed
+ */
+function test_filtres_extraire_multi(...$args) {
+	return extraire_multi(...$args);
+}
 
-	function essais_extraire_multi(){
+
+/**
+ * La fonction qui fournit les jeux de test
+ * Nommage conventionnel : essais_[[dossier1_][[dossier2_]...]]fichier
+ * @return array
+ *  [ output, input1, input2, input3...]
+ */
+function essais_filtres_extraire_multi(){
 		$essais = array (
   0 => 
   array (
