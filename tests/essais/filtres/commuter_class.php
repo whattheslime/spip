@@ -3,37 +3,29 @@
  * Test unitaire de la fonction commuter_class
  * du fichier ./inc/filtres.php
  *
- * genere automatiquement par TestBuilder
- * le 2021-02-19 14:56
  */
+namespace Spip\Core\Tests;
 
-	$test = 'commuter_class';
-	$remonte = __DIR__ . '/';
-	while (!is_file($remonte."test.inc"))
-		$remonte = $remonte."../";
-	require $remonte.'test.inc';
-	find_in_path("./inc/filtres.php",'',true);
+find_in_path("./inc/filtres.php",'',true);
 
-	// chercher la fonction si elle n'existe pas
-	if (!function_exists($f='commuter_class')){
-		find_in_path("inc/filtres.php",'',true);
-		$f = chercher_filtre($f);
-	}
+/**
+ * La fonction appelee pour chaque jeu de test
+ * Nommage conventionnel : test_[[dossier1_][[dossier2_]...]]fichier
+ * @param ...$args
+ * @return mixed
+ */
+function test_filtres_commuter_class(...$args) {
+	return commuter_class(...$args);
+}
 
-	//
-	// hop ! on y va
-	//
-	$err = tester_fun($f, essais_commuter_class());
-	
-	// si le tableau $err est pas vide ca va pas
-	if ($err) {
-		die ('<dl>' . join('', $err) . '</dl>');
-	}
 
-	echo "OK";
-	
-
-	function essais_commuter_class(){
+/**
+ * La fonction qui fournit les jeux de test
+ * Nommage conventionnel : essais_[[dossier1_][[dossier2_]...]]fichier
+ * @return array
+ *  [ output, input1, input2, input3...]
+ */
+function essais_filtres_commuter_class(){
 		$essais = array (
   0 => 
   array (

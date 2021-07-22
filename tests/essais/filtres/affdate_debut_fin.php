@@ -3,42 +3,35 @@
  * Test unitaire de la fonction affdate_debut_fin
  * du fichier ./inc/filtres.php
  *
- * genere automatiquement par TestBuilder
- * le 2011-07-27 15:46
  */
+namespace Spip\Core\Tests;
 
+find_in_path("./inc/filtres.php",'',true);
+
+function pretest_filtres_affdate_debut_fin() {
 	// Pour que le tests soit independant de la timezone du serveur
 	ini_set('date.timezone','Europe/Paris');
-
-	$test = 'affdate_debut_fin';
-	$remonte = __DIR__ . '/';
-	while (!is_file($remonte."test.inc"))
-		$remonte = $remonte."../";
-	require $remonte.'test.inc';
-	find_in_path("./inc/filtres.php",'',true);
-
 	changer_langue('fr'); // ce test est en fr
+}
 
-	// chercher la fonction si elle n'existe pas
-	if (!function_exists($f='affdate_debut_fin')){
-		find_in_path("inc/filtres.php",'',true);
-		$f = chercher_filtre($f);
-	}
+/**
+ * La fonction appelee pour chaque jeu de test
+ * Nommage conventionnel : test_[[dossier1_][[dossier2_]...]]fichier
+ * @param ...$args
+ * @return mixed
+ */
+function test_filtres_affdate_debut_fin(...$args) {
+	return affdate_debut_fin(...$args);
+}
 
-	//
-	// hop ! on y va
-	//
-	$err = tester_fun($f, essais_affdate_debut_fin());
-	
-	// si le tableau $err est pas vide ca va pas
-	if ($err) {
-		die ('<dl>' . join('', $err) . '</dl>');
-	}
 
-	echo "OK";
-	
-
-	function essais_affdate_debut_fin(){
+/**
+ * La fonction qui fournit les jeux de test
+ * Nommage conventionnel : essais_[[dossier1_][[dossier2_]...]]fichier
+ * @return array
+ *  [ output, input1, input2, input3...]
+ */
+function essais_filtres_affdate_debut_fin(){
 		$essais = array (
   0 => 
   array (

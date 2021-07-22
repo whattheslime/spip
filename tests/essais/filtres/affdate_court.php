@@ -3,12 +3,11 @@
  * Test unitaire de la fonction affdate_court
  * du fichier inc/filtres.php
  *
- * genere automatiquement par TestBuilder
- * le
  */
 namespace Spip\Core\Tests;
 
 find_in_path("inc/filtres.php",'',true);
+
 /**
  * La fonction appelee pour chaque jeu de test
  * Nommage conventionnel : test_[[dossier1_][[dossier2_]...]]fichier
@@ -19,6 +18,7 @@ function test_filtres_affdate_court(...$args) {
 	changer_langue('fr'); // ce test est en fr
 	return affdate_court(...$args);
 }
+
 
 /**
  * La fonction qui fournit les jeux de test

@@ -3,31 +3,29 @@
  * Test unitaire de la fonction corriger_entites_html
  * du fichier ./inc/filtres.php
  *
- * genere automatiquement par TestBuilder
- * le 2010-03-16 09:41
  */
+namespace Spip\Core\Tests;
 
-	$test = 'corriger_entites_html';
-	$remonte = __DIR__ . '/';
-	while (!is_file($remonte."test.inc"))
-		$remonte = $remonte."../";
-	require $remonte.'test.inc';
-	find_in_path("./inc/filtres.php",'',true);
+find_in_path("./inc/filtres.php",'',true);
 
-	//
-	// hop ! on y va
-	//
-	$err = tester_fun('corriger_entites_html', essais_corriger_entites_html());
-	
-	// si le tableau $err est pas vide ca va pas
-	if ($err) {
-		die ('<dl>' . join('', $err) . '</dl>');
-	}
+/**
+ * La fonction appelee pour chaque jeu de test
+ * Nommage conventionnel : test_[[dossier1_][[dossier2_]...]]fichier
+ * @param ...$args
+ * @return mixed
+ */
+function test_filtres_corriger_entites_html(...$args) {
+	return corriger_entites_html(...$args);
+}
 
-	echo "OK";
-	
 
-	function essais_corriger_entites_html(){
+/**
+ * La fonction qui fournit les jeux de test
+ * Nommage conventionnel : essais_[[dossier1_][[dossier2_]...]]fichier
+ * @return array
+ *  [ output, input1, input2, input3...]
+ */
+function essais_filtres_corriger_entites_html(){
 		$essais = array (
   0 => 
   array (

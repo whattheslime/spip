@@ -21,13 +21,39 @@ use PHPUnit\Framework\TestCase;
  */
 class EssaisTest extends TestCase {
 
+	protected static $pretest_function_launched = [];
+	protected static $posttest_function_tolaunch = [];
+
 	/**
 	 * @dataProvider EssaisProvider
 	 */
 	public function testEssai($test_function, $input, $output){
+
+		$namespace = '\\Spip\\Core\\Tests\\';
+		$pretest_function = $namespace . 'pre' . $test_function;
+		$posttest_function = $namespace . 'post' . $test_function;
+		$test_function = $namespace . $test_function;
+
+		if (function_exists($pretest_function)
+			and empty(self::$pretest_function_launched[$pretest_function])) {
+			self::$pretest_function_launched[$pretest_function] = true;
+			$pretest_function();
+		}
+
 		$result = $test_function(...$input);
+
+		if (function_exists($posttest_function)) {
+			self::$posttest_function_tolaunch[$posttest_function] = true;
+		}
+
 		$this->assertEquals($output, $result);
 	}
+
+	public static function tearDownAfterClass():void {
+		foreach (array_keys(self::$posttest_function_tolaunch) as $posttest_function) {
+			$posttest_function();
+		}
+  }
 
 	public function EssaisProvider(){
 
@@ -45,7 +71,7 @@ class EssaisTest extends TestCase {
 
 			$function_base = str_replace('/', '_', $joli_file);
 			$essais_function = '\\Spip\\Core\\Tests\\essais_'.$function_base;
-			$test_function = '\\Spip\\Core\\Tests\\test_'.$function_base;
+			$test_function = 'test_'.$function_base;
 
 			$essais = $essais_function();
 			$i = 0;

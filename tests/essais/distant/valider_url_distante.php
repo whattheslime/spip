@@ -3,37 +3,29 @@
  * Test unitaire de la fonction valider_url_distante
  * du fichier ./inc/distant.php
  *
- * genere automatiquement par TestBuilder
- * le 2018-09-26 10:54
  */
+namespace Spip\Core\Tests;
 
-	$test = 'valider_url_distante';
-	$remonte = __DIR__ . '/';
-	while (!is_file($remonte."test.inc"))
-		$remonte = $remonte."../";
-	require $remonte.'test.inc';
-	find_in_path("./inc/distant.php",'',true);
+find_in_path("./inc/distant.php",'',true);
 
-	// chercher la fonction si elle n'existe pas
-	if (!function_exists($f='valider_url_distante')){
-		find_in_path("inc/filtres.php",'',true);
-		$f = chercher_filtre($f);
-	}
+/**
+ * La fonction appelee pour chaque jeu de test
+ * Nommage conventionnel : test_[[dossier1_][[dossier2_]...]]fichier
+ * @param ...$args
+ * @return mixed
+ */
+function test_distant_valider_url_distante(...$args) {
+	return valider_url_distante(...$args);
+}
 
-	//
-	// hop ! on y va
-	//
-	$err = tester_fun($f, essais_valider_url_distante());
-	
-	// si le tableau $err est pas vide ca va pas
-	if ($err) {
-		die ('<dl>' . join('', $err) . '</dl>');
-	}
 
-	echo "OK";
-	
-
-	function essais_valider_url_distante(){
+/**
+ * La fonction qui fournit les jeux de test
+ * Nommage conventionnel : essais_[[dossier1_][[dossier2_]...]]fichier
+ * @return array
+ *  [ output, input1, input2, input3...]
+ */
+function essais_distant_valider_url_distante(){
 		$essais = array (
   0 => 
   array (
