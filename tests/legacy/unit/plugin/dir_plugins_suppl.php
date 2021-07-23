@@ -15,9 +15,9 @@
 	find_in_path("./inc/plugin.php",'',true);
 
 	// lancer le binz
-	echo essais_dir_plugins_suppl();
+	echo test_dir_plugins_suppl();
 
-function essais_dir_plugins_suppl() {
+function test_dir_plugins_suppl() {
 	// preparation: la constante est elle definie et comprend uniquement 1 reps suppl?
 	if (!defined('_DIR_PLUGINS_SUPPL')) {
 		define('_DIR_PLUGINS_SUPPL', _DIR_TMP.'plug_sup/');
