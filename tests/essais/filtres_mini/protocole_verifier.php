@@ -3,37 +3,29 @@
  * Test unitaire de la fonction protocole_verifier
  * du fichier ./inc/filtres_mini.php
  *
- * genere automatiquement par TestBuilder
- * le 2018-09-26 10:24
  */
+namespace Spip\Core\Tests;
 
-	$test = 'protocole_verifier';
-	$remonte = __DIR__ . '/';
-	while (!is_file($remonte."test.inc"))
-		$remonte = $remonte."../";
-	require $remonte.'test.inc';
-	find_in_path("./inc/filtres_mini.php",'',true);
+find_in_path("./inc/filtres_mini.php",'',true);
 
-	// chercher la fonction si elle n'existe pas
-	if (!function_exists($f='protocole_verifier')){
-		find_in_path("inc/filtres.php",'',true);
-		$f = chercher_filtre($f);
-	}
+/**
+ * La fonction appelee pour chaque jeu de test
+ * Nommage conventionnel : test_[[dossier1_][[dossier2_]...]]fichier
+ * @param ...$args
+ * @return mixed
+ */
+function test_filtres_mini_protocole_verifier(...$args) {
+	return protocole_verifier(...$args);
+}
 
-	//
-	// hop ! on y va
-	//
-	$err = tester_fun($f, essais_protocole_verifier());
-	
-	// si le tableau $err est pas vide ca va pas
-	if ($err) {
-		die ('<dl>' . join('', $err) . '</dl>');
-	}
 
-	echo "OK";
-	
-
-	function essais_protocole_verifier(){
+/**
+ * La fonction qui fournit les jeux de test
+ * Nommage conventionnel : essais_[[dossier1_][[dossier2_]...]]fichier
+ * @return array
+ *  [ output, input1, input2, input3...]
+ */
+function essais_filtres_mini_protocole_verifier(){
 		$essais = array (
   0 => 
   array (
