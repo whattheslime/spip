@@ -3,31 +3,29 @@
  * Test unitaire de la fonction tester_url_absolue
  * du fichier ./inc/utils.php
  *
- * genere automatiquement par TestBuilder
- * le 2011-01-07 09:11
  */
+namespace Spip\Core\Tests;
 
-	$test = 'tester_url_absolue';
-	$remonte = __DIR__ . '/';
-	while (!is_file($remonte."test.inc"))
-		$remonte = $remonte."../";
-	require $remonte.'test.inc';
-	find_in_path("./inc/utils.php",'',true);
+find_in_path("./inc/utils.php",'',true);
 
-	//
-	// hop ! on y va
-	//
-	$err = tester_fun('tester_url_absolue', essais_tester_url_absolue());
-	
-	// si le tableau $err est pas vide ca va pas
-	if ($err) {
-		die ('<dl>' . join('', $err) . '</dl>');
-	}
+/**
+ * La fonction appelee pour chaque jeu de test
+ * Nommage conventionnel : test_[[dossier1_][[dossier2_]...]]fichier
+ * @param ...$args
+ * @return mixed
+ */
+function test_utils_tester_url_absolue(...$args) {
+	return tester_url_absolue(...$args);
+}
 
-	echo "OK";
-	
 
-	function essais_tester_url_absolue(){
+/**
+ * La fonction qui fournit les jeux de test
+ * Nommage conventionnel : essais_[[dossier1_][[dossier2_]...]]fichier
+ * @return array
+ *  [ output, input1, input2, input3...]
+ */
+function essais_utils_tester_url_absolue(){
 		$essais = array (
   0 => 
   array (

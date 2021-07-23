@@ -1,18 +1,14 @@
 <?php
 /**
- * Test unitaire de la fonction propre
+ * Test unitaire de la fonction chevron_ouvrant
  * du fichier inc/texte.php
  *
- * genere automatiquement par testbuilder
- * le 
  */
+namespace Spip\Core\Tests;
 
-	$test = 'propre';
-	$remonte = __DIR__ . '/';
-	while (!is_file($remonte."test.inc"))
-		$remonte = $remonte."../";
-	require $remonte.'test.inc';
-	find_in_path("inc/texte.php",'',true);
+find_in_path("inc/texte.php",'',true);
+
+function pretest_propre_chevron_ouvrant(){
 	$GLOBALS['meta']['type_urls'] = $type_urls = "page";
 
 	// initialiser les plugins qui changent les intertitre (Z), et les restaurer juste apres
@@ -22,21 +18,26 @@
 	);
 	propre('rien du tout');
 	list($GLOBALS['debut_intertitre'],$GLOBALS['spip_raccourcis_typo']) = $mem;
+}
 
-	//
-	// hop ! on y va
-	//
-	$err = tester_fun('propre', essais_chevron_ouvrant());
+/**
+ * La fonction appelee pour chaque jeu de test
+ * Nommage conventionnel : test_[[dossier1_][[dossier2_]...]]fichier
+ * @param ...$args
+ * @return mixed
+ */
+function test_propre_chevron_ouvrant(...$args) {
+	return propre(...$args);
+}
 
-	// si le tableau $err est pas vide ca va pas
-	if ($err) {
-		die ('<dl>' . join('', $err) . '</dl>');
-	}
 
-	echo "OK";
-	
-
-function essais_chevron_ouvrant(){
+/**
+ * La fonction qui fournit les jeux de test
+ * Nommage conventionnel : essais_[[dossier1_][[dossier2_]...]]fichier
+ * @return array
+ *  [ output, input1, input2, input3...]
+ */
+function essais_propre_chevron_ouvrant(){
 		$essais = array (
   0 => 
 	  array (

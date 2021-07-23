@@ -3,37 +3,29 @@
  * Test unitaire de la fonction parametre_url
  * du fichier ./inc/utils.php
  *
- * genere automatiquement par TestBuilder
- * le 2012-02-02 09:22
  */
+namespace Spip\Core\Tests;
 
-	$test = 'parametre_url';
-	$remonte = __DIR__ . '/';
-	while (!is_file($remonte."test.inc"))
-		$remonte = $remonte."../";
-	require $remonte.'test.inc';
-	find_in_path("./inc/utils.php",'',true);
+find_in_path("./inc/utils.php",'',true);
 
-	// chercher la fonction si elle n'existe pas
-	if (!function_exists($f='parametre_url')){
-		find_in_path("inc/filtres.php",'',true);
-		$f = chercher_filtre($f);
-	}
+/**
+ * La fonction appelee pour chaque jeu de test
+ * Nommage conventionnel : test_[[dossier1_][[dossier2_]...]]fichier
+ * @param ...$args
+ * @return mixed
+ */
+function test_utils_parametre_url(...$args) {
+	return parametre_url(...$args);
+}
 
-	//
-	// hop ! on y va
-	//
-	$err = tester_fun($f, essais_parametre_url());
-	
-	// si le tableau $err est pas vide ca va pas
-	if ($err) {
-		die ('<dl>' . join('', $err) . '</dl>');
-	}
 
-	echo "OK";
-	
-
-	function essais_parametre_url(){
+/**
+ * La fonction qui fournit les jeux de test
+ * Nommage conventionnel : essais_[[dossier1_][[dossier2_]...]]fichier
+ * @return array
+ *  [ output, input1, input2, input3...]
+ */
+function essais_utils_parametre_url(){
 		$essais = array (
   0 => 
   array (

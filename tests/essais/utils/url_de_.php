@@ -3,31 +3,29 @@
  * Test unitaire de la fonction url_de_
  * du fichier ./inc/utils.php
  *
- * genere automatiquement par TestBuilder
- * le 2010-03-28 18:18
  */
+namespace Spip\Core\Tests;
 
-	$test = 'url_de_';
-	$remonte = __DIR__ . '/';
-	while (!is_file($remonte."test.inc"))
-		$remonte = $remonte."../";
-	require $remonte.'test.inc';
-	find_in_path("./inc/utils.php",'',true);
+find_in_path("./inc/utils.php",'',true);
 
-	//
-	// hop ! on y va
-	//
-	$err = tester_fun('url_de_', essais_url_de_());
-	
-	// si le tableau $err est pas vide ca va pas
-	if ($err) {
-		die ('<dl>' . join('', $err) . '</dl>');
-	}
+/**
+ * La fonction appelee pour chaque jeu de test
+ * Nommage conventionnel : test_[[dossier1_][[dossier2_]...]]fichier
+ * @param ...$args
+ * @return mixed
+ */
+function test_utils_url_de_(...$args) {
+	return url_de_(...$args);
+}
 
-	echo "OK";
-	
 
-	function essais_url_de_(){
+/**
+ * La fonction qui fournit les jeux de test
+ * Nommage conventionnel : essais_[[dossier1_][[dossier2_]...]]fichier
+ * @return array
+ *  [ output, input1, input2, input3...]
+ */
+function essais_utils_url_de_(){
 		$essais = array (
   0 => 
   array (

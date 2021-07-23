@@ -3,37 +3,29 @@
  * Test unitaire de la fonction plugin_version_compatible
  * du fichier ./inc/plugin.php
  *
- * genere automatiquement par TestBuilder
- * le 2011-05-14 11:13
  */
+namespace Spip\Core\Tests;
 
-	$test = 'plugin_version_compatible';
-	$remonte = __DIR__ . '/';
-	while (!is_file($remonte."test.inc"))
-		$remonte = $remonte."../";
-	require $remonte.'test.inc';
-	find_in_path("./inc/plugin.php",'',true);
+find_in_path("./inc/plugin.php",'',true);
 
-	// chercher la fonction si elle n'existe pas
-	if (!function_exists($f='plugin_version_compatible')){
-		find_in_path("inc/filtres.php",'',true);
-		$f = chercher_filtre($f);
-	}
+/**
+ * La fonction appelee pour chaque jeu de test
+ * Nommage conventionnel : test_[[dossier1_][[dossier2_]...]]fichier
+ * @param ...$args
+ * @return mixed
+ */
+function test_plugin_plugin_version_compatible(...$args) {
+	return plugin_version_compatible(...$args);
+}
 
-	//
-	// hop ! on y va
-	//
-	$err = tester_fun($f, essais_plugin_version_compatible());
-	
-	// si le tableau $err est pas vide ca va pas
-	if ($err) {
-		die ('<dl>' . join('', $err) . '</dl>');
-	}
 
-	echo "OK";
-	
-
-	function essais_plugin_version_compatible(){
+/**
+ * La fonction qui fournit les jeux de test
+ * Nommage conventionnel : essais_[[dossier1_][[dossier2_]...]]fichier
+ * @return array
+ *  [ output, input1, input2, input3...]
+ */
+function essais_plugin_plugin_version_compatible(){
 		$essais = array (
   0 => 
   array (

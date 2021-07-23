@@ -3,31 +3,29 @@
  * Test unitaire de la fonction spip_version_compare
  * du fichier ./inc/plugin.php
  *
- * genere automatiquement par TestBuilder
- * le 2010-03-14 16:16
  */
+namespace Spip\Core\Tests;
 
-	$test = 'spip_version_compare';
-	$remonte = __DIR__ . '/';
-	while (!is_file($remonte."test.inc"))
-		$remonte = $remonte."../";
-	require $remonte.'test.inc';
-	find_in_path("./inc/plugin.php",'',true);
+find_in_path("./inc/plugin.php",'',true);
 
-	//
-	// hop ! on y va
-	//
-	$err = tester_fun('spip_version_compare', essais_spip_version_compare());
-	
-	// si le tableau $err est pas vide ca va pas
-	if ($err) {
-		die ('<dl>' . join('', $err) . '</dl>');
-	}
+/**
+ * La fonction appelee pour chaque jeu de test
+ * Nommage conventionnel : test_[[dossier1_][[dossier2_]...]]fichier
+ * @param ...$args
+ * @return mixed
+ */
+function test_plugin_spip_version_compare(...$args) {
+	return spip_version_compare(...$args);
+}
 
-	echo "OK";
-	
 
-	function essais_spip_version_compare(){
+/**
+ * La fonction qui fournit les jeux de test
+ * Nommage conventionnel : essais_[[dossier1_][[dossier2_]...]]fichier
+ * @return array
+ *  [ output, input1, input2, input3...]
+ */
+function essais_plugin_spip_version_compare(){
 		$essais = array (
   0 => 
   array (
