@@ -673,6 +673,16 @@
 	position: relative;
 }
 
+/* Les choix qui contiennent un sous-formulaire optionnel, dependant du choix */
+
+.formulaire_spip div.choix>fieldset,
+.formulaire_spip div.choix>.editer-groupe,
+.formulaire_spip div.choix>.boutons {
+	/* Marges négatives pour annuler la gouttière. */
+	margin-left: calc(var(--spip-form-input-padding-x) * -1);
+	margin-right: calc(var(--spip-form-input-padding-x) * -1);
+}
+
 
 /**
  * ================================================
