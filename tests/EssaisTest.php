@@ -102,7 +102,11 @@ class EssaisTest extends TestCase {
 			foreach ($essais as $k => $essai) {
 				$output = array_shift($essai);
 				$input = $essai;
-				$tests[$joli_file.'_'.str_pad($i,2,0,STR_PAD_LEFT)] = [$test_function, $input, $output];
+				$key = $joli_file.'_'.str_pad($i,2,0,STR_PAD_LEFT);
+				if (!is_numeric($k)) {
+					$key .= "_$k";
+				}
+				$tests[$key] = [$test_function, $input, $output];
 				$i++;
 			}
 		}
