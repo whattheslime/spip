@@ -1,7 +1,9 @@
 <?php
 /**
- * Test unitaire de la fonction chevron_ouvrant
+ * Test unitaire de la fonction propre
  * du fichier inc/texte.php
+ *
+ * cas du chevron ouvrant
  *
  */
 namespace Spip\Core\Tests;
