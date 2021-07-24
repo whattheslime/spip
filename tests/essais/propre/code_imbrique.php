@@ -1,27 +1,38 @@
 <?php
-
-	$test = 'Ne pas crasher sur les <code><code></code> imbriqués';
-	$remonte = __DIR__ . '/';
-	while (!is_file($remonte."test.inc"))
-		$remonte = $remonte."../";
-	require $remonte.'test.inc';
-
-	include_spip('inc/texte');
-
-	$c = dutexte();
-
-
-	propre($c);
-
-	die('OK');
+/**
+ * Test unitaire de la fonction propre
+ * du fichier inc/texte.php
+ *
+ * cas du code imbriqué :
+ * Ne pas crasher sur les <code><code></code> imbriqués
+ *
+ */
+namespace Spip\Core\Tests;
 
 
-	//
-	// DONNEES
-	//
+find_in_path("inc/texte.php",'',true);
 
-	function dutexte() {
-		return '({{{Classificar els resultats}}}
+/**
+ * La fonction appelee pour chaque jeu de test
+ * Nommage conventionnel : test_[[dossier1_][[dossier2_]...]]fichier
+ * @param ...$args
+ * @return mixed
+ */
+function test_propre_code_imbrique(...$args) {
+	return strlen(propre(...$args)) > 0;
+}
+
+/**
+ * La fonction qui fournit les jeux de test
+ * Nommage conventionnel : essais_[[dossier1_][[dossier2_]...]]fichier
+ * @return array
+ *  [ output, input1, input2, input3...]
+ */
+function essais_propre_code_imbrique(){
+		$essais = [
+
+			[true,
+			'({{{Classificar els resultats}}}
 
 <html><tt><b>{par</b> <i>critère_de_classement</i><b>}</b></tt></html> iIndica l’ordre en què es presenten els resultats. Aquest criteri de classificació correspon a una de les etiquetes extretes de la base de dades per cada tipus de bucle. Per exemple, podrem classificar els articles per la data <code>{per date}</code>, per la data en què han estat redactats  <code>{par date_redac}</code> o per títol <code>{par titre}</code>. (Fixeu-vos que, tot i que les etiquetes es presenten en majúscules, els criteris de classificació es presenten en minúscules.)
 
@@ -226,7 +237,11 @@ no mostrarà tots els articles de la secció! Imaginem, per exemple, que hi ha u
 
 {{{Divers}}}
 
-{{<code>{logo}</code>}} permet seleccionar només els articles (o seccions, etc) que disposin d\'un logo. Funciona també en el bucle (HIERARCHIE). El criteri invers <code>{!logo}</code> llista els objectes que no tenen logo.';
+{{<code>{logo}</code>}} permet seleccionar només els articles (o seccions, etc) que disposin d\'un logo. Funciona també en el bucle (HIERARCHIE). El criteri invers <code>{!logo}</code> llista els objectes que no tenen logo.'
+			]
+		];
+
+		return $essais;
 }
 
 
