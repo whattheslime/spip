@@ -8,23 +8,23 @@
 
 namespace Spip\Core\Tests;
 
-function echappe($regs) {
+function test_propre_echappe_html_echappe($regs) {
 	return 'A';
 }
-function traiter_echap_html($regs) {
-	return echappe($regs);
+function test_propre_echappe_html_traiter_echap_html($regs) {
+	return test_propre_echappe_html_echappe($regs);
 }
-function traiter_echap_code($regs) {
-	return echappe($regs);
+function test_propre_echappe_html_traiter_echap_code($regs) {
+	return test_propre_echappe_html_echappe($regs);
 }
-function traiter_echap_cadre($regs) {
-	return echappe($regs);
+function test_propre_echappe_html_traiter_echap_cadre($regs) {
+	return test_propre_echappe_html_echappe($regs);
 }
-function traiter_echap_frame($regs) {
-	return echappe($regs);
+function test_propre_echappe_html_traiter_echap_frame($regs) {
+	return test_propre_echappe_html_echappe($regs);
 }
-function traiter_echap_script($regs) {
-	return echappe($regs);
+function test_propre_echappe_html_traiter_echap_script($regs) {
+	return test_propre_echappe_html_echappe($regs);
 }
 
 
@@ -38,7 +38,7 @@ find_in_path("inc/texte.php", '', true);
  * @return mixed
  */
 function test_propre_echappe_html(...$args){
-	return echappe_html($args[0], $args[1] ?? '', $args[2] ?? false, $args[3] ?? '', 'Spip\\Core\\Tests\\');
+	return echappe_html($args[0], $args[1] ?? '', $args[2] ?? false, $args[3] ?? '', 'Spip\\Core\\Tests\\test_propre_echappe_html_');
 }
 
 /**
