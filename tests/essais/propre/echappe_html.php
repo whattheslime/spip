@@ -1,21 +1,63 @@
 <?php
+/**
+ * Test unitaire de la fonction echappe_html
+ * du fichier inc/texte.php
+ *
+ *
+ */
 
-	$test = 'echappe_html';
-	$remonte = __DIR__ . '/';
-	while (!is_file($remonte."test.inc"))
-		$remonte = $remonte."../";
-	require $remonte.'test.inc';
+namespace Spip\Core\Tests;
 
-	include_spip('inc/texte');
+function echappe($regs) {
+	return 'A';
+}
+function traiter_echap_html($regs) {
+	return echappe($regs);
+}
+function traiter_echap_code($regs) {
+	return echappe($regs);
+}
+function traiter_echap_cadre($regs) {
+	return echappe($regs);
+}
+function traiter_echap_frame($regs) {
+	return echappe($regs);
+}
+function traiter_echap_script($regs) {
+	return echappe($regs);
+}
 
-$marque = '<span class="base64" title="QQ=="></span>';
 
-$essais['simple imbriqué'] = array(
-'avant 1' . $marque . 'apres 1</code>apres 2',  
-'avant 1<code class="php"> avant 2<code>le code</code>apres 1</code>apres 2'
-);
-$essais['complexe imbriqué'] = array(
-<<<EOT
+find_in_path("inc/texte.php", '', true);
+
+
+/**
+ * La fonction appelee pour chaque jeu de test
+ * Nommage conventionnel : test_[[dossier1_][[dossier2_]...]]fichier
+ * @param ...$args
+ * @return mixed
+ */
+function test_propre_echappe_html(...$args){
+	return echappe_html($args[0], $args[1] ?? '', $args[2] ?? false, $args[3] ?? '', 'Spip\\Core\\Tests\\');
+}
+
+/**
+ * La fonction qui fournit les jeux de test
+ * Nommage conventionnel : essais_[[dossier1_][[dossier2_]...]]fichier
+ * @return array
+ *  [ output, input1, input2, input3...]
+ */
+function essais_propre_echappe_html(){
+	$essais = [];
+
+	$marque = '<span class="base64" title="QQ=="></span>';
+
+	$essais['simple imbriqué'] = array(
+		'avant 1' . $marque . 'apres 1</code>apres 2',
+		'avant 1<code class="php"> avant 2<code>le code</code>apres 1</code>apres 2'
+	);
+	$essais['complexe imbriqué'] = array(
+			<<<EOT
 {{{code class="php"}}}
 avant blah
 $marque
@@ -28,8 +70,8 @@ Voilà , $marque</code>
 
 On peut croire que c'est embétant , faut mettre une div autour pour encadrer , mais cela permet d'orienter geshi en cours de route comme dans [Compte à rebours (revisited)->article6]
 EOT
-,
-<<<EOT
+		,
+			<<<EOT
 {{{code class="php"}}}
 avant blah
 <code class="blah">
@@ -61,23 +103,23 @@ Voilà , <code><code class="xxx">insere tout avec des <br /> , pas de <div class
 
 On peut croire que c'est embétant , faut mettre une div autour pour encadrer , mais cela permet d'orienter geshi en cours de route comme dans [Compte à rebours (revisited)->article6]
 EOT
-);
-$essais['unicode sans rien'] = array(
-"azerty小さくてもグローバルなケベックの村-azerty小さくてもグローバルなケベックの村-azerty小さくてもグローバルなケベックの村-azerty小さくてもグローバルなケベックの村-azerty小さくてもグローバルなケベックの村-azerty小さくてもグローバルなケベックの村-azerty小さくてもグローバルなケベックの村-azerty小さくてもグローバルなケベックの村-azerty小さくてもグローバルなケベックの村-azerty小さくてもグローバルなケベックの村-azerty小さくてもグローバルなケベックの村-azerty小さくてもグローバルなケベックの村-azerty小さくてもグローバルなケベックの村-azerty小さくてもグローバルなケベックの村-azerty小さくてもグローバルなケベックの村-"
-,
-"azerty小さくてもグローバルなケベックの村-azerty小さくてもグローバルなケベックの村-azerty小さくてもグローバルなケベックの村-azerty小さくてもグローバルなケベックの村-azerty小さくてもグローバルなケベックの村-azerty小さくてもグローバルなケベックの村-azerty小さくてもグローバルなケベックの村-azerty小さくてもグローバルなケベックの村-azerty小さくてもグローバルなケベックの村-azerty小さくてもグローバルなケベックの村-azerty小さくてもグローバルなケベックの村-azerty小さくてもグローバルなケベックの村-azerty小さくてもグローバルなケベックの村-azerty小さくてもグローバルなケベックの村-azerty小さくてもグローバルなケベックの村-"
-);
-$essais['sans rien'] = array(
-"astuce & travaux de mode rigolosastuce & travaux de mode rigolosastuce & travaux de mode rigolosastuce & travaux de mode rigolosastuce & travaux de mode rigolosastuce & travaux de mode rigolosastuce & travaux de mode rigolosastuce & travaux de mode rigolosastuce & travaux de mode rigolosastuce & travaux de mode rigolosastuce & travaux de mode rigolosastuce & travaux de mode rigolosastuce & travaux de mode rigolosastuce & travaux de mode rigolosastuce & travaux de mode rigolos"
-,
-"astuce & travaux de mode rigolosastuce & travaux de mode rigolosastuce & travaux de mode rigolosastuce & travaux de mode rigolosastuce & travaux de mode rigolosastuce & travaux de mode rigolosastuce & travaux de mode rigolosastuce & travaux de mode rigolosastuce & travaux de mode rigolosastuce & travaux de mode rigolosastuce & travaux de mode rigolosastuce & travaux de mode rigolosastuce & travaux de mode rigolosastuce & travaux de mode rigolosastuce & travaux de mode rigolos"
-);
-$essais['code sans imbrication'] = array(
-'avant 1' . $marque . 'apres 2'
-,
-'avant 1<code class="php"> avant 2 code le code code apres 1</code>apres 2'
-);
-$essais['pourriture'] = array(
+	);
+	$essais['unicode sans rien'] = array(
+		"azerty小さくてもグローバルなケベックの村-azerty小さくてもグローバルなケベックの村-azerty小さくてもグローバルなケベックの村-azerty小さくてもグローバルなケベックの村-azerty小さくてもグローバルなケベックの村-azerty小さくてもグローバルなケベックの村-azerty小さくてもグローバルなケベックの村-azerty小さくてもグローバルなケベックの村-azerty小さくてもグローバルなケベックの村-azerty小さくてもグローバルなケベックの村-azerty小さくてもグローバルなケベックの村-azerty小さくてもグローバルなケベックの村-azerty小さくてもグローバルなケベックの村-azerty小さくてもグローバルなケベックの村-azerty小さくてもグローバルなケベックの村-"
+	,
+		"azerty小さくてもグローバルなケベックの村-azerty小さくてもグローバルなケベックの村-azerty小さくてもグローバルなケベックの村-azerty小さくてもグローバルなケベックの村-azerty小さくてもグローバルなケベックの村-azerty小さくてもグローバルなケベックの村-azerty小さくてもグローバルなケベックの村-azerty小さくてもグローバルなケベックの村-azerty小さくてもグローバルなケベックの村-azerty小さくてもグローバルなケベックの村-azerty小さくてもグローバルなケベックの村-azerty小さくてもグローバルなケベックの村-azerty小さくてもグローバルなケベックの村-azerty小さくてもグローバルなケベックの村-azerty小さくてもグローバルなケベックの村-"
+	);
+	$essais['sans rien'] = array(
+		"astuce & travaux de mode rigolosastuce & travaux de mode rigolosastuce & travaux de mode rigolosastuce & travaux de mode rigolosastuce & travaux de mode rigolosastuce & travaux de mode rigolosastuce & travaux de mode rigolosastuce & travaux de mode rigolosastuce & travaux de mode rigolosastuce & travaux de mode rigolosastuce & travaux de mode rigolosastuce & travaux de mode rigolosastuce & travaux de mode rigolosastuce & travaux de mode rigolosastuce & travaux de mode rigolos"
+	,
+		"astuce & travaux de mode rigolosastuce & travaux de mode rigolosastuce & travaux de mode rigolosastuce & travaux de mode rigolosastuce & travaux de mode rigolosastuce & travaux de mode rigolosastuce & travaux de mode rigolosastuce & travaux de mode rigolosastuce & travaux de mode rigolosastuce & travaux de mode rigolosastuce & travaux de mode rigolosastuce & travaux de mode rigolosastuce & travaux de mode rigolosastuce & travaux de mode rigolosastuce & travaux de mode rigolos"
+	);
+	$essais['code sans imbrication'] = array(
+		'avant 1' . $marque . 'apres 2'
+	,
+		'avant 1<code class="php"> avant 2 code le code code apres 1</code>apres 2'
+	);
+	$essais['pourriture'] = array(
 <<<EOT
 Le code mis en $marque ou en $marque peut lui même contenir  $marque ou $marque ...
 $marque
@@ -113,7 +155,7 @@ et le tour est joué
 
 Donc comme l'ancien coloration_code, le  &lt;/code> est mangé et "et le tour est joué" apparait hors-code.
 EOT
-,
+	,
 <<<EOT
 Le code mis en <code><code></code> ou en <code><cadre></code> peut lui même contenir  <code><code></code> ou <code><cadre></code> ...
 <code class="xxx">
@@ -177,42 +219,6 @@ et le tour est joué
 
 Donc comme l'ancien coloration_code, le  &lt;/code> est mangé et "et le tour est joué" apparait hors-code.
 EOT
-);
-
-function echappe($regs) {
-	return 'A';
+	);
+	return $essais;
 }
-function traiter_echap_html($regs) {
-	return echappe($regs);
-}
-function traiter_echap_code($regs) {
-	return echappe($regs);
-}
-function traiter_echap_cadre($regs) {
-	return echappe($regs);
-}
-function traiter_echap_frame($regs) {
-	return echappe($regs);
-}
-function traiter_echap_script($regs) {
-	return echappe($regs);
-}
-
-// hop ! on y va
-	$err = tester_fun('echappe_html', $essais);
-
-	// si le tableau $err est pas vide ca va pas
-	if ($err) {
-		echo ('<dl>' . join('', $err) . '</dl>');
-	} else {
-		echo "OK";
-	}
-
-// essai de perf simple
-	$repeter = _request('repeter');
-	while ($repeter--) {
-		foreach ($essais as $ess) {
-			extraire_attribut($ess[1], $ess[2]);
-		}
-	}
-
