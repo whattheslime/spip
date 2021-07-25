@@ -13,6 +13,13 @@ function pretest_texte_propre(){
 
 	changer_langue('fr'); // ce test est en fr
 
+	$GLOBALS['toujours_paragrapher'] = true;
+
+	foreach (['puce', 'puce_rtl', 'puce_prive', 'puce_prive_rtl'] as $puce) {
+		unset($GLOBALS[$puce]);
+	}
+	definir_puce();
+
 	// initialiser les plugins qui changent les intertitre (Z), et les restaurer juste apres
 	$mem = array(
 		isset($GLOBALS['debut_intertitre']) ? $GLOBALS['debut_intertitre'] : null,
