@@ -46,7 +46,26 @@ class EssaisTest extends TestCase {
 			self::$posttest_function_tolaunch[$posttest_function] = true;
 		}
 
-		if (is_double($output) and is_double($result)){
+		if (is_array($output)
+			and !empty($output[0])
+		  and is_string($output[0])
+			and function_exists($output[0])
+			and !empty($output[1])
+			and isset($output[2])
+		) {
+			list($fmatch, $match_string, $output) = $output;
+			if ($fmatch === 'preg_match' and $output === true) {
+				$this->assertMatchesRegularExpression($match_string, $result);
+			}
+			elseif ($fmatch === 'preg_match' and $output === false) {
+				$this->assertDoesNotMatchRegularExpression($match_string, $result);
+			}
+			else {
+				$this->assertEquals($fmatch($match_string, $result), $output);
+			}
+		}
+		elseif (is_double($output) and is_double($result)){
+
 				$this->assertTrue(abs($output-$result)<=1e-10*abs($output));
 		}
 		else {
