@@ -217,9 +217,15 @@ function tests_legacy_lister($extension=null) {
 			if (stristr($test,'all_tests.php'))
 				continue;
 
-			if (strncmp(basename($test),'inclus_',7)!==0
-				AND substr(basename($test),-14) != '_fonctions.php'
-			  AND (strncmp(basename($test),'NA_',3)!==0 OR _request('var_mode')=='dev')){
+			$testbasename = basename($test);
+			// ignorer les vrais tests PHPUnit
+			if (strlen($testbasename)>8 and substr($testbasename, -8) === "Test.php") {
+				continue;
+			}
+
+			if (strncmp($testbasename,'inclus_',7)!==0
+				AND substr($testbasename,-14) != '_fonctions.php'
+			  AND (strncmp($testbasename,'NA_',3)!==0 OR _request('var_mode')=='dev')){
 
 				$joli = preg_replace(',\.(php|html)$,', '', basename($test));
 				$section = dirname($test);
