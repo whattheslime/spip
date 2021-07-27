@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<phpunit bootstrap="./tests/spip.inc"
+         colors="true"
+         convertErrorsToExceptions="true"
+         convertNoticesToExceptions="true"
+         convertWarningsToExceptions="true"
+         stopOnFailure="false">
+	<testsuites>
+		<testsuite name="core"><directory>./tests/</directory></testsuite>
+ 	</testsuites>
+</phpunit>
