@@ -76,8 +76,7 @@
 	// un exemple d'utilisation sympa du mode "array" de ces fonctions:
 	// aller chercher toutes les images d'un texte (img/src) ou encore
 	// tous les url des balises media:content :
-	$dir = dirname(__DIR__);
-	lire_fichier($f = $dir . '/syndication/data/dailymotion.rss', $rss);
+	lire_fichier($f = __DIR__ . '/data/dailymotion.rss', $rss);
 	$flux = extraire_attribut(extraire_balises($rss, 'media:content'), 'url');
 	# var_dump($flux);
 	if (!is_array($flux) OR !count($flux)==39)
