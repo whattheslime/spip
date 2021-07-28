@@ -26,7 +26,12 @@ class LegacyUnitPhpTest extends TestCase {
 	 */
 	public function testLegacyUnitPHP($inFname, $output){
 		$result = $this->legacyPhpRun($inFname);
-		$this->assertEquals($output, $result);
+		if ($result === $output) {
+			$this->assertEquals($output, $result, $result);
+		}
+		else {
+			$this->fail($result);
+		}
 	}
 
 	public function legacyPhpfileNameProvider(){
