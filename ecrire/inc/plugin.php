@@ -1395,16 +1395,25 @@ function plugin_installes_meta() {
 				}
 				if (is_array($infos)) {
 					list($ok, $trace) = $infos['install_test'];
-					include_spip('inc/filtres_boites');
-					echo "<div class='install-plugins svp_retour'>"
-						. boite_ouvrir(_T('plugin_titre_installation', array('plugin' => typo($infos['nom']))),
-							($ok ? 'success' : 'error'))
-						. $trace
-						. "<div class='result'>"
-						. ($ok ? ((isset($infos['upgrade']) && $infos['upgrade']) ? _T("plugin_info_upgrade_ok") : _T("plugin_info_install_ok")) : _T("avis_operation_echec"))
-						. "</div>"
-						. boite_fermer()
-						. "</div>";
+					$titre = _T('plugin_titre_installation', array('plugin' => typo($infos['nom'])));
+					$result = ($ok ? ((isset($infos['upgrade']) && $infos['upgrade']) ? _T("plugin_info_upgrade_ok") : _T("plugin_info_install_ok")) : _T("avis_operation_echec"));
+					if (_IS_CLI) {
+						include_spip('inc/filtres');
+						$trace = ltrim(textebrut($trace) . "\n" . $result);
+						$trace = "    " . str_replace("\n", "\n    ", $trace);
+						echo "\n" . ($ok ? 'OK  ' : '/!\ ') . textebrut($titre) . "\n",
+						  $trace,
+						  "\n";
+					}
+					else {
+						include_spip('inc/filtres_boites');
+						echo "<div class='install-plugins svp_retour'>"
+							. boite_ouvrir($titre, ($ok ? 'success' : 'error'))
+							. $trace
+							. "<div class='result'>$result</div>"
+							. boite_fermer()
+							. "</div>";
+					}
 				}
 			}
 		}
