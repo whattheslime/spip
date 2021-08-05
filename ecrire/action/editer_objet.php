@@ -89,7 +89,7 @@ function objet_modifier($objet, $id, $set = null) {
 	$trouver_table = charger_fonction('trouver_table', 'base');
 	$desc = $trouver_table($table_sql);
 	if (!$desc or !isset($desc['field'])) {
-		spip_log("Objet $objet inconnu dans objet_modifier", _LOG_ERREUR);
+		spip_log("Objet $objet inconnu dans objet_modifier", "editer" . _LOG_ERREUR);
 
 		return _L("Erreur objet $objet inconnu");
 	}
@@ -353,7 +353,7 @@ function objet_instituer($objet, $id, $c, $calcul_rub = true) {
 			if ($s != 'publie' and autoriser('modifier', $objet, $id)) {
 				$statut = $champs['statut'] = $s;
 			} else {
-				spip_log("editer_objet $id refus " . join(' ', $c));
+				spip_log("editer_objet $objet #$id refus " . json_encode($c), 'editer' . _LOG_INFO_IMPORTANTE);
 			}
 		}
 
