@@ -63,9 +63,9 @@ class ConfigDepotMeta extends TestCase {
 		$essais[] = array(null, 'rien');
 		$essais[] = array('defaut', 'rien','defaut');
 
-		foreach ($essais as $essai) {
+		foreach ($essais as $k => $essai) {
 			$expected = array_shift($essai);
-			$this->assertEquals($expected, lire_config(...$essai));
+			$this->assertEquals($expected, lire_config(...$essai), "Echec $k : lecture " . reset($essai));
 		}
 
 		$GLOBALS['meta'] = $meta;
@@ -98,9 +98,9 @@ class ConfigDepotMeta extends TestCase {
 		$essais[] = array(true, 'test_cfg_assoc', self::$assoc);
 		$essais[] = array(true, 'test_cfg_serie', self::$serassoc);
 
-		foreach ($essais as $essai) {
+		foreach ($essais as $k => $essai) {
 			$expected = array_shift($essai);
-			$this->assertEquals($expected, ecrire_config(...$essai));
+			$this->assertEquals($expected, ecrire_config(...$essai),"Echec $k : ecriture ".reset($essai));
 		}
 	}
 
@@ -116,9 +116,9 @@ class ConfigDepotMeta extends TestCase {
 		$essais[] = array(self::$assoc, 'test_cfg_assoc');
 		$essais[] = array(self::$serassoc, 'test_cfg_serie','',0);
 
-		foreach ($essais as $essai) {
+		foreach ($essais as $k => $essai) {
 			$expected = array_shift($essai);
-			$this->assertEquals($expected, lire_config(...$essai));
+			$this->assertEquals($expected, lire_config(...$essai), "Echec $k : lecture " . reset($essai));
 		}
 
 	}
@@ -136,9 +136,9 @@ class ConfigDepotMeta extends TestCase {
 		$essais[] = array(true, 'test_cfg_serie');
 		$essais[] = array(true, 'test_cfg_dummy');
 
-		foreach ($essais as $essai) {
+		foreach ($essais as $k => $essai) {
 			$expected = array_shift($essai);
-			$this->assertEquals($expected, effacer_config(...$essai));
+			$this->assertEquals($expected, effacer_config(...$essai), "Echec $k : effacer " . reset($essai));
 		}
 	}
 
@@ -155,9 +155,9 @@ class ConfigDepotMeta extends TestCase {
 		$essais[] = array(null, 'test_cfg_serie');
 		$essais[] = array(null, 'test_cfg_dummy');
 
-		foreach ($essais as $essai) {
+		foreach ($essais as $k => $essai) {
 			$expected = array_shift($essai);
-			$this->assertEquals($expected, lire_config(...$essai));
+			$this->assertEquals($expected, lire_config(...$essai), "Echec $k : lecture " . reset($essai));
 		}
 	}
 }
