@@ -30,6 +30,7 @@ class ConfigDepotMeta extends TestCase {
 		self::$savedMeta = $GLOBALS['meta'];
 		self::$assoc = array('one' => 'element 1', 'two' => 'element 2');
 		self::$serassoc = serialize(self::$assoc);
+		include_spip('inc/config');
 	}
 
 	public static function tearDownAfterClass():void {
@@ -37,10 +38,37 @@ class ConfigDepotMeta extends TestCase {
 	}
 
 	/**
+	 * expliquer_config
+	 */
+	public function testExpliquerConfig() {
+		$essais = [];
+		$essais[] = array(array('meta',null,array()), '');
+		$essais[] = array(array('meta','0',array()), '0');
+		$essais[] = array(array('meta','casier',array()), 'casier');
+		$essais[] = array(array('meta','casier',array('sous')), 'casier/sous');
+		$essais[] = array(array('meta','casier',array('sous','plus','bas','encore')), 'casier/sous/plus/bas/encore');
+
+		$essais[] = array(array('meta',null,array()), '/meta');
+		$essais[] = array(array('meta','casier',array()), '/meta/casier');
+		$essais[] = array(array('meta','casier',array('sous')), '/meta/casier/sous');
+		$essais[] = array(array('meta','casier',array('sous','plus','bas','encore')), '/meta/casier/sous/plus/bas/encore');
+
+		$essais[] = array(array('toto',null,array()), '/toto');
+		$essais[] = array(array('toto','casier',array()), '/toto/casier');
+		$essais[] = array(array('toto','casier',array('sous')), '/toto/casier/sous');
+		$essais[] = array(array('toto','casier',array('sous','plus','bas','encore')), '/toto/casier/sous/plus/bas/encore');
+
+		foreach ($essais as $k => $essai) {
+			$expected = array_shift($essai);
+			$this->assertEquals($expected, expliquer_config(...$essai), "Echec $k : lecture " . end($essai));
+		}
+	}
+
+	/**
 	 * lire_config meta
+	 * @depends testExpliquerConfig
 	 */
 	public function testLireConfig1() {
-		include_spip('inc/config');
 		$meta = $GLOBALS['meta'];
 
 		// on flingue meta a juste nos donnees
