@@ -16,10 +16,10 @@ use PHPUnit\Framework\TestCase;
 
 
 /**
- * LegacyUnitHtmlTest test - runs all the unit/ php tests and check the ouput is 'OK'
+ * ConfigDepotMetaPackTest test
  *
  */
-class ConfigDepotMetaPack extends TestCase {
+class ConfigDepotMetaPackTest extends TestCase {
 
 	protected static $savedMeta;
 	// les bases de test
