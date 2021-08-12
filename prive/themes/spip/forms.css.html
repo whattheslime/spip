@@ -340,3 +340,8 @@ form.bouton_action_post.link button.submit:hover, .formulaire_spip .boutons inpu
 .formulaire_editer_logo .titrem,.formulaire_editer_logo .ajouter_survol {text-transform: uppercase;}
 /* Date picker : passer par dessus des icones et du menu haut */
 .ui-datepicker { z-index: 1001 !important;}
+
+/* Bloc ajax invalid apres reload */
+.ajaxbloc.invalid {
+	box-shadow: 0 0 var(--spip-alert-spacing-x) hsl(var(--spip-color-error--h), var(--spip-color-error--s), 50%);
+}
