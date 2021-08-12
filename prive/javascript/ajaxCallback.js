@@ -812,6 +812,15 @@ jQuery.fn.ajaxbloc = function() {
 				success: function(c){
 					jQuery.spip.on_ajax_loaded(blocfrag,c);
 					jQuery.spip.preloaded_urls = {}; // on vide le cache des urls car on a fait une action en bdd
+				},
+				error: function(e){
+					jQuery.spip.preloaded_urls = {}; // on vide le cache des urls car on a fait une action en bdd
+					var href = parametre_url(url, 'redirect');
+					if (!href) {
+						href = window.location.href;
+					}
+					// si c'est une erreur 400 c'est un fragment ajax invalide, il faut rediriger vers href
+					jQuery.spip.on_ajax_failed(blocfrag,e.status,href,e.status === 400);
 				}/*,
 				iframe: jQuery.browser.msie*/
 			})
