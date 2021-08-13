@@ -3070,7 +3070,7 @@ function url_absolue_css($css) {
 function table_valeur($table, $cle, $defaut = '', $conserver_null = false) {
 	foreach (explode('/', $cle) as $k) {
 
-		$table = is_string($table) ? @unserialize($table) : $table;
+		$table = (is_string($table) ? @unserialize($table) : $table);
 
 		if (is_object($table)) {
 			$table = (($k !== "") and isset($table->$k)) ? $table->$k : $defaut;
@@ -3078,10 +3078,11 @@ function table_valeur($table, $cle, $defaut = '', $conserver_null = false) {
 			if ($conserver_null) {
 				$table = array_key_exists($k, $table) ? $table[$k] : $defaut;
 			} else {
-				$table = isset($table[$k]) ? $table[$k] : $defaut;
+				$table = ($table[$k] ?? $defaut);
 			}
 		} else {
 			$table = $defaut;
+			break;
 		}
 	}
 

@@ -1367,11 +1367,11 @@ function balise_ENV_dist($p, $src = null) {
 		if ($src) {
 			$p->code = '(is_array($a = (' . $src . ')) ? serialize($a) : "")';
 		} else {
-			$p->code = '@serialize($Pile[0])';
+			$p->code = 'serialize($Pile[0]??[])';
 		}
 	} else {
 		if (!$src) {
-			$src = '@$Pile[0]';
+			$src = '$Pile[0]??[]';
 		}
 		if ($_sinon) {
 			$p->code = "sinon(table_valeur($src, (string)$_nom, null), $_sinon)";
@@ -1481,7 +1481,7 @@ function balise_SESSION_dist($p) {
 		? 'balise_ENV'
 		: 'balise_ENV_dist';
 
-	$p = $f($p, '$GLOBALS["visiteur_session"]');
+	$p = $f($p, '$GLOBALS["visiteur_session"]??[]');
 
 	return $p;
 }
@@ -2172,9 +2172,9 @@ function balise_SET_dist($p) {
 function balise_GET_dist($p) {
 	$p->interdire_scripts = false; // le contenu vient de #SET, donc il est de confiance
 	if (function_exists('balise_ENV')) {
-		return balise_ENV($p, '$Pile["vars"]');
+		return balise_ENV($p, '$Pile["vars"]??[]');
 	} else {
-		return balise_ENV_dist($p, '$Pile["vars"]');
+		return balise_ENV_dist($p, '$Pile["vars"]??[]');
 	}
 }
 
