@@ -96,6 +96,11 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'repondre_breve' => 'Responder a esta nota',
 	'resultats_recherche' => 'Resultados da busca',
 	'retour_debut_forums' => 'Voltar ao início dos fóruns',
+	'rss_abonnement' => 'Copie o URL a seguir para o seu agregador:',
+	'rss_abonnement_titre' => 'Subscrever',
+	'rss_abonnement_titre_page' => 'Subscrever',
+	'rss_explication' => 'Um feed RSS coleta as informações de atualização de um site. Ele fornece o conteúdo das postagens ou dos somentários, ou um trecho dos mesmos, bem como um link para as versões integrais e informações adicionais. Esse feed é pensado para ser lido por um agregador RSS.',
+	'rss_explication_titre' => 'O que é um fluxo RSS?',
 	'rubrique' => 'Seção',
 	'rubriques' => 'Seções',
 
