@@ -552,6 +552,7 @@ function calculer_langues_utilisees($serveur = '') {
 			$boucle->nom = 'calculer_langues_utilisees';
 			$boucle->id_boucle = $desc['table_objet'];
 			$boucle->id_table = $desc['table_objet'];
+			$boucle->primary = $desc['key']["PRIMARY KEY"] ?? '';
 			$boucle->sql_serveur = $serveur;
 			$boucle->select[] = "DISTINCT lang";
 			$boucle->from[$desc['table_objet']] = $t;
