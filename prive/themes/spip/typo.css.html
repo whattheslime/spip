@@ -188,10 +188,15 @@ div.spip_code, .spip_cadre { margin-bottom: #ENV{margin-bottom}; }
 /* Logos, documents et images */
 img, .spip_logo { margin: 0; padding: 0; border: 0; max-width: 100%;height: auto;}
 .spip_documents { text-align: center; margin-bottom: #ENV{margin-bottom}; margin-left:auto; margin-right:auto; max-width:100%; }
-.spip_documents p { margin: 0.10em; padding: 0; min-width: 120px; }
+.spip_documents,
+.spip_documents_center,
+.spip_doc_titre,
+.spip_doc_descriptif,
+.spip_doc_credits { margin-right: auto; margin-left: auto; text-align: center; min-width: 120px; }
 .spip_documents_center { display: block; clear: both; width: 100%; margin: [(#ENV{margin-bottom})] auto; }
 .spip_documents_left { float: #ENV{left}; margin-#ENV{right}: 15px; margin-bottom: [(#ENV{margin-bottom})]; max-width: 33%; }
 .spip_documents_right { float: #ENV{right}; margin-#ENV{left}: 15px; margin-bottom: [(#ENV{margin-bottom})]; max-width: 33%; }
+.spip_documents p { margin: 0.10em; padding: 0;}
 .spip_doc_titre { margin-right: auto; margin-left: auto; font-weight: bold; font-size: 0.90em; line-height: 1.25; }
 .spip_doc_descriptif { clear: both; margin-right: auto; margin-left: auto; font-size: 0.90em; line-height: 1.25; }
 .spip_doc_credits { clear: both; margin-right: auto; margin-left: auto; font-size: 0.90em; font-style:italic; line-height: 1.25; }
@@ -199,6 +204,20 @@ img, .spip_logo { margin: 0; padding: 0; border: 0; max-width: 100%;height: auto
 .spip_documents>a { display: inline-block; }
 .spip_documents img { max-width: 100%; height: auto; }
 .spip_documents table { text-align: left; }
+table.spip .spip_document_image {width: auto !important;}
+
+/* Adaptation aux nouveaux modeles document SPIP 4.0 */
+.spip_document { display: flex; justify-content: center;align-items: center}
+.spip_doc_inner{ margin:0 auto;text-align: center;max-width: 100%;}
+.spip_doc_inner>* {margin-left: auto;margin-right: auto;}
+.spip_document .spip_doc_lien { display: inline-block; }
+.spip_doc_legende { display: block; max-width: 25em; }
+/* Fin adaptation */
+
+@media (max-width: 480px) {
+	.spip_documents_left, .spip_documents_right { float: none; margin-left: auto; margin-right: auto; max-width:100%; }
+}
+
 
 /* modeles par defaut */
 .spip_modele { float: right; display: block; padding: 1em; border: 1px solid; width: 180px; }
