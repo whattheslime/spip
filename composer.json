@@ -1,0 +1,21 @@
+{
+    "require-dev": {
+        "dealerdirect/phpcodesniffer-composer-installer": "^0.7.1",
+        "spip/coding-standards": "^1.2"
+    },
+    "archive": {
+        "exclude": [
+            "composer.json",
+            "phpcs.xml.dist",
+            "!plugins-dist",
+            "!squelettes-dist",
+            "!config/ecran_securite.php",
+            "!config/remove.txt",
+            "!IMG/remove.txt",
+            "!local/remove.txt",
+            "!local/CACHEDIR.TAG",
+            "!tmp/remove.txt",
+            "!tmp/CACHEDIR.TAG"
+        ]
+    }
+}
