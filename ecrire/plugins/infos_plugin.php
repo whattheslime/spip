@@ -32,7 +32,7 @@ function plugins_infos_plugin($desc, $plug = '', $dir_plugins = _DIR_PLUGINS) {
 	include_spip('inc/charsets');
 
 	// On renvoie la DTD utilisee
-	$ret['dtd'] = "plugin";
+	$ret['dtd'] = 'plugin';
 
 	if (isset($arbre['categorie'])) {
 		$ret['categorie'] = trim(spip_xml_aplatit($arbre['categorie']));
@@ -59,7 +59,7 @@ function plugins_infos_plugin($desc, $plug = '', $dir_plugins = _DIR_PLUGINS) {
 		$ret['etat'] = trim(spip_xml_aplatit($arbre['etat']));
 	}
 
-	$ret['description'] = $ret['slogan'] = "";
+	$ret['description'] = $ret['slogan'] = '';
 	if (isset($arbre['slogan'])) {
 		$ret['slogan'] = trim(spip_xml_aplatit($arbre['slogan']));
 	}
@@ -72,7 +72,7 @@ function plugins_infos_plugin($desc, $plug = '', $dir_plugins = _DIR_PLUGINS) {
 		if ($ret['documentation']) {
 			// le lien de doc doit etre une url et c'est tout
 			if (!tester_url_absolue($ret['documentation'])) {
-				$ret['documentation'] = "";
+				$ret['documentation'] = '';
 			}
 		}
 	}
@@ -153,7 +153,7 @@ function plugins_infos_plugin($desc, $plug = '', $dir_plugins = _DIR_PLUGINS) {
  *     Liste des necessite modifiés.
  */
 function info_plugin_normalise_necessite($necessite) {
-	$res = array('necessite' => array(), 'lib' => array());
+	$res = ['necessite' => [], 'lib' => []];
 
 	if (is_array($necessite)) {
 		foreach ($necessite as $need) {
@@ -165,9 +165,9 @@ function info_plugin_normalise_necessite($necessite) {
 				$res['compatible'] = $v;
 			} else {
 				if (preg_match(',^lib:\s*([^\s]*),i', $id, $r)) {
-					$res['lib'][] = array('nom' => $r[1], 'id' => $r[1], 'lien' => $need['src']);
+					$res['lib'][] = ['nom' => $r[1], 'id' => $r[1], 'lien' => $need['src']];
 				} else {
-					$res['necessite'][] = array('id' => $id, 'nom' => $id, 'version' => $v, 'compatibilite' => $v);
+					$res['necessite'][] = ['id' => $id, 'nom' => $id, 'version' => $v, 'compatibilite' => $v];
 				}
 			}
 		}
@@ -189,13 +189,13 @@ function info_plugin_normalise_necessite($necessite) {
  *    Liste des utilise modifiés.
  */
 function info_plugin_normalise_utilise($utilise) {
-	$res = array();
+	$res = [];
 
 	if (is_array($utilise)) {
 		foreach ($utilise as $need) {
 			$id = $need['id'];
 			$v = isset($need['version']) ? $need['version'] : '';
-			$res[] = array('nom' => $id, 'id' => $id, 'version' => $v, 'compatibilite' => $v);
+			$res[] = ['nom' => $id, 'id' => $id, 'version' => $v, 'compatibilite' => $v];
 		}
 	}
 
@@ -213,13 +213,13 @@ function info_plugin_normalise_utilise($utilise) {
  *    Liste des procure modifiés.
  */
 function info_plugin_normalise_procure($procure) {
-	$res = array();
+	$res = [];
 
 	if (is_array($procure)) {
 		foreach ($procure as $need) {
 			$id = $need['id'];
 			$v = $need['version'];
-			$res[] = array('nom' => $id, 'id' => $id, 'version' => $v);
+			$res[] = ['nom' => $id, 'id' => $id, 'version' => $v];
 		}
 	}
 
@@ -237,7 +237,7 @@ function info_plugin_normalise_procure($procure) {
  *    Liste des chemins modifiés.
  */
 function info_plugin_normalise_chemin($chemins) {
-	$res = array();
+	$res = [];
 
 	if (is_array($chemins)) {
 		foreach ($chemins as $c) {
