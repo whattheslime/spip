@@ -448,7 +448,7 @@ function auteur_regenerer_identifiants($id_auteur, $notifier = true, $contexte =
 	if ($id_auteur) {
 		$set = [];
 		include_spip('inc/access');
-		$set['pass'] = creer_pass_aleatoire();
+		$set['pass'] = creer_pass_aleatoire(max(_PASS_LONGUEUR_MINI, 16));
 
 		include_spip('action/editer_auteur');
 		auteur_modifier($id_auteur, $set);
