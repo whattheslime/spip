@@ -995,6 +995,6 @@ function rindex_pile($p, $champ, $motif) {
  */
 function zbug_presenter_champ($p, $champ = '') {
 	$balise = $champ ? $champ : $p->nom_champ;
-	$explicite = $explicite = $p->nom_boucle ? $p->nom_boucle . ':' : '';
+	$explicite = $p->nom_boucle ? $p->nom_boucle . ':' : '';
 	return "#{$explicite}{$balise}";
 }
