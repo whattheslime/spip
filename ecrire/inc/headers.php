@@ -188,42 +188,19 @@ function redirige_formulaire($url, $equiv = '', $format = 'message') {
 function redirige_url_ecrire($script = '', $args = '', $equiv = '') {
 	return redirige_par_entete(generer_url_ecrire($script, $args, true), $equiv);
 }
-
 /**
  * Renvoie au client le header HTTP avec le message correspondant au code indiqué.
  *
  * Ainsi `http_status(301)` enverra le message `301 Moved Permanently`.
  *
- * @link http://php.net/manual/fr/function.header.php Fonction header() de PHP utilisée ici
+ * @link https://www.php.net/manual/fr/function.http-response-code.php
+ * @uses http_response_code()
  *
  * @param int $status
  *     Code d'erreur
  **/
 function http_status($status) {
-
-	static $status_string = [
-		200 => '200 OK',
-		204 => '204 No Content',
-		301 => '301 Moved Permanently',
-		302 => '302 Found',
-		304 => '304 Not Modified',
-		400 => '400 Bad Request',
-		401 => '401 Unauthorized',
-		403 => '403 Forbidden',
-		404 => '404 Not Found',
-		503 => '503 Service Unavailable'
-	];
-
-	if (!empty($GLOBALS['REDIRECT_STATUS']) && $GLOBALS['REDIRECT_STATUS'] == $status) {
-		return;
-	}
-
-	$php_cgi = ($GLOBALS['flag_sapi_name'] and preg_match(',cgi,i', @php_sapi_name()));
-	if ($php_cgi) {
-		header('Status: ' . $status_string[$status]);
-	} else {
-		header('HTTP/1.0 ' . $status_string[$status]);
-	}
+	http_response_code($status);
 }
 
 // Retourne ce qui va bien pour que le navigateur ne mette pas la page en cache
