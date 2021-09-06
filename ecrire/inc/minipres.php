@@ -206,7 +206,7 @@ function minipres($titre = '', $corps = '', $options = []) {
 
 	if (!_AJAX) {
 		if (isset($options['status'])) {
-			http_status($options['status']);
+			http_response_code($options['status']);
 		}
 
 		return install_debut_html($titre, $options['onload'], $options['all_inline'])

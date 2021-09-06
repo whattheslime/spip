@@ -137,7 +137,7 @@ function public_debusquer_dist($message = '', $lieu = '', $opt = []) {
 		return $res;
 	}
 	if ($tableau_des_erreurs) {
-		http_status(503);
+		http_response_code(503);
 	}
 
 	http_no_cache();

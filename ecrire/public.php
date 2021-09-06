@@ -118,7 +118,7 @@ if (isset($GLOBALS['_INC_PUBLIC']) and $GLOBALS['_INC_PUBLIC']) {
 
 	if (isset($page['status'])) {
 		include_spip('inc/headers');
-		http_status($page['status']);
+		http_response_code($page['status']);
 	}
 
 	// Content-Type ?

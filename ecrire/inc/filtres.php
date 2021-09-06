@@ -5314,7 +5314,7 @@ function sinon_interdire_acces($ok = false, $url = '', $statut = 0, $message = n
 		if (!$statut or !in_array($statut, [404, 403])) {
 			$statut = 403;
 		}
-		http_status(403);
+		http_response_code(403);
 		$echec = charger_fonction('403', 'exec');
 		$echec($message);
 	} else {
@@ -5323,7 +5323,7 @@ function sinon_interdire_acces($ok = false, $url = '', $statut = 0, $message = n
 			$statut = 404;
 		}
 		// Dans tous les cas on modifie l'entité avec ce qui est demandé
-		http_status($statut);
+		http_response_code($statut);
 		// Si le statut est une erreur et qu'il n'y a pas de redirection on va chercher le squelette du même nom
 		if ($statut >= 400) {
 			echo recuperer_fond("$statut", ['erreur' => $message]);

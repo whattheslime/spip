@@ -1056,7 +1056,7 @@ function spip_touch($fichier, $duree = 0, $touch = true) {
  **/
 function action_cron() {
 	include_spip('inc/headers');
-	http_status(204); // No Content
+	http_response_code(204); // No Content
 	header('Connection: close');
 	define('_DIRECT_CRON_FORCE', true);
 	cron();

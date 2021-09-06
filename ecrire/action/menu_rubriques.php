@@ -63,7 +63,7 @@ function action_menu_rubriques_dist() {
 	) {
 		include_spip('inc/headers');
 		header('Content-Type: text/html; charset=' . $GLOBALS['meta']['charset']);
-		http_status(304);
+		http_response_code(304);
 		exit;
 	} else {
 		include_spip('inc/actions');

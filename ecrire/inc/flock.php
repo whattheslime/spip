@@ -390,7 +390,7 @@ function lire_fichier_securise($fichier, &$contenu, $options = []) {
 function raler_fichier($fichier) {
 	include_spip('inc/minipres');
 	$dir = dirname($fichier);
-	http_status(401);
+	http_response_code(401);
 	echo minipres(_T('texte_inc_meta_2'), "<h4 style='color: red'>"
 		. _T('texte_inc_meta_1', ['fichier' => $fichier])
 		. " <a href='"

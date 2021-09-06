@@ -160,7 +160,7 @@ function traiter_appels_inclusions_ajax() {
 			}
 		} else {
 			include_spip('inc/headers');
-			http_status(400);
+			http_response_code(400);
 			$texte = _L('signature ajax bloc incorrecte');
 		}
 		ajax_retour($texte, false);

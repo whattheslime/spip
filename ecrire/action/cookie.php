@@ -60,7 +60,7 @@ function action_cookie_dist($set_cookie_admin = null, $change_session = null) {
 		$session = charger_fonction('session', 'inc');
 		$session(true);
 		spip_log('statut 204 pour ' . $_SERVER['REQUEST_URI']);
-		http_status(204); // No Content
+		http_response_code(204); // No Content
 		return;
 	}
 
