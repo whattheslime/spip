@@ -426,10 +426,29 @@ function table_jointure($x, $y) {
  * @param string $query
  * @return array
  */
-function query_echappe_textes($query) {
-	static $codeEchappements = array("''" => "\x1@##@\x1", "\'" => "\x2@##@\x2", "\\\"" => "\x3@##@\x3");
-	$query = str_replace(array_keys($codeEchappements), array_values($codeEchappements), $query);
-	if (preg_match_all("/((['])[^']*(\\2))|(([\"])[^\"]*(\\5))/S", $query, $textes)) {
+function query_echappe_textes($query, $uniqid=null) {
+	static $codeEchappements = null;
+	if (is_null($codeEchappements)) {
+		if (is_null($uniqid)) {
+			$uniqid = uniqid();
+		}
+		$uniqid = substr(md5($uniqid), 0, 4);
+		$codeEchappements = ["\\\\" => "\x1@#{$uniqid}#@\x1", "\\'" => "\x2@#{$uniqid}#@\x2", '\\"' => "\x3@#{$uniqid}#@\x3"];
+	}
+	if ($query === null) {
+		return $codeEchappements;
+	}
+
+	// si la query contient deja des codes d'echappement on va s'emmeler les pinceaux et donc on ne touche a rien
+	// ce n'est pas un cas legitime
+	foreach ($codeEchappements as $codeEchappement) {
+		if (strpos($query, $codeEchappement) !== false) {
+			return [$query, []];
+		}
+	}
+
+	$query_echappees = str_replace(array_keys($codeEchappements), array_values($codeEchappements), $query);
+	if (preg_match_all("/((['])[^']*(\\2))|(([\"])[^\"]*(\\5))/S", $query_echappees, $textes)) {
 		$textes = reset($textes); // indice 0 du match
 		switch (count($textes)) {
 			case 0:
@@ -456,12 +475,18 @@ function query_echappe_textes($query) {
 				$replace = explode(',', $replace);
 				break;
 		}
-		$query = str_replace($textes, $replace, $query);
+		$query_echappees = str_replace($textes, $replace, $query_echappees);
 	} else {
 		$textes = array();
 	}
 
-	return array($query, $textes);
+	// si il reste des quotes simples ou doubles, c'est qu'on s'est emmelles les pinceaux
+	// dans le doute on ne touche a rien
+	if (strpbrk($query_echappees, "'\"") !== false) {
+		return [$query, []];
+	}
+
+	return [$query_echappees, $textes];
 }
 
 /**
@@ -475,13 +500,9 @@ function query_echappe_textes($query) {
  * @return string
  */
 function query_reinjecte_textes($query, $textes) {
-	static $codeEchappements = array("''" => "\x1@##@\x1", "\'" => "\x2@##@\x2", "\\\"" => "\x3@##@\x3");
-	# debug de la substitution
-	#if (($c1=substr_count($query,"%"))!=($c2=count($textes))){
-	#	spip_log("$c1 ::". $query,"tradquery"._LOG_ERREUR);
-	#	spip_log("$c2 ::". var_export($textes,1),"tradquery"._LOG_ERREUR);
-	#	spip_log("ini ::". $qi,"tradquery"._LOG_ERREUR);
-	#}
+	// recuperer les codes echappements
+	$codeEchappements = query_echappe_textes(null);
+
 	switch (count($textes)) {
 		case 0:
 			break;
