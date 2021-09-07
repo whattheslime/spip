@@ -195,6 +195,7 @@ function redirige_url_ecrire($script = '', $args = '', $equiv = '') {
  *
  * @link https://www.php.net/manual/fr/function.http-response-code.php
  * @uses http_response_code()
+ * @deprecated 4.1 Utiliser http_response_code()
  *
  * @param int $status
  *     Code d'erreur
