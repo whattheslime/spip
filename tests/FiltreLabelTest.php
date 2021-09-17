@@ -22,6 +22,7 @@ class FiltreLabelTest extends TestCase {
 
 	public static function setUpBeforeClass(): void{
 		include_spip('inc/filtres');
+		changer_langue('fr');
 	}
 
 	public function providerlabelNettoyer() {
