@@ -20,14 +20,14 @@ use PHPUnit\Framework\TestCase;
  */
 class TypographieFrTest extends TestCase {
 
-	private static $lang = 'fr';
-	private static $fnTypographie;
+	protected static $lang = 'fr';
+	protected static $root = 'ecrire/';
+	protected static $fnTypographie = 'typographie_fr_dist';
 
 	public static function setUpBeforeClass(): void{
 		include_spip('inc/texte');
 		changer_langue(self::$lang);
-		include_spip('ecrire/typographie/' . self::$lang);
-		self::$fnTypographie = 'typographie_fr_dist';
+		include_spip(self::$root . 'typographie/' . self::$lang);
 	}
 
 	public function providerBase() {
@@ -118,7 +118,39 @@ class TypographieFrTest extends TestCase {
 		$this->assertEquals($expected, $typographie($source));
 	}
 
-	public function providerDontChangeDoubleTwoPoints() {
+	public function providerKeepNonBreakingSpaceEntity() {
+		$list = [
+			'bonjour&nbsp;toi' => 'bonjour&nbsp;toi',
+			'bonjour&nbsp;toi&nbsp;!' => 'bonjour&nbsp;toi&nbsp;!',
+		];
+		return array_map(null, array_keys($list), array_values($list));
+	}
+
+	/** 
+	 * @dataProvider providerKeepNonBreakingSpaceEntity
+	 */
+	public function testKeepNonBreakingSpaceEntity($source, $expected) {
+		$typographie = self::$fnTypographie;
+		$this->assertEquals($expected, $typographie($source));
+	}
+
+	public function providerKeepNonBreakingSpaceUtf() {
+		$list = [
+			'bonjour toi' => 'bonjour toi',
+			'bonjour toi !' => 'bonjour toi !',
+		];
+		return array_map(null, array_keys($list), array_values($list));
+	}
+
+	/** 
+	 * @dataProvider providerKeepNonBreakingSpaceUtf
+	 */
+	public function testKeepNonBreakingSpaceUtf($source, $expected) {
+		$typographie = self::$fnTypographie;
+		$this->assertEquals($expected, $typographie($source));
+	}
+
+	public function providerKeepDoubleTwoPoints() {
 		$list = [
 			'bonjour::' => 'bonjour::',
 			'::1/128' => '::1/128',
@@ -128,9 +160,9 @@ class TypographieFrTest extends TestCase {
 	}
 
 	/** 
-	 * @dataProvider providerDontChangeDoubleTwoPoints
+	 * @dataProvider providerKeepDoubleTwoPoints
 	 */
-	public function testDontChangeDoubleTwoPoints($source, $expected) {
+	public function testKeepDoubleTwoPoints($source, $expected) {
 		$typographie = self::$fnTypographie;
 		$this->assertEquals($expected, $typographie($source));
 	}
