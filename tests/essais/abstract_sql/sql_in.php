@@ -27,7 +27,7 @@ function test_abstract_sql_sql_in(...$args) {
  */
 function essais_abstract_sql_sql_in(){
 	// charger la connexion SQL
-	$nb = sql_countsel('spip_articles');
+	$quote = sql_serveur('quote', '', true);
 	$type_sql = $GLOBALS['connexions'][0]['type'];
 	$test_provider = 'Spip\Core\Tests\essais_abstract_sql_sql_in_' . $type_sql;
 
