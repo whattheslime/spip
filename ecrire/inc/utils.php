@@ -2701,6 +2701,10 @@ function spip_initialisation_suite() {
 		define('_PASS_LONGUEUR_MINI', 6);
 	}
 
+	// largeur maximale des images dans l'administration
+	if (!defined('_IMG_ADMIN_MAX_WIDTH')) {
+		define('_IMG_ADMIN_MAX_WIDTH', 768);
+	}
 
 	// Qualite des images calculees automatiquement. C'est un nombre entre 0 et 100, meme pour imagick (on ramene a 0..1 par la suite)
 	if (!defined('_IMG_QUALITE')) {
