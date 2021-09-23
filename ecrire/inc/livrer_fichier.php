@@ -41,7 +41,7 @@ function spip_livrer_fichier($fichier, $content_type = 'application/octet-stream
 		'expires' => 3600,
 		'range' => null
 	];
-	$options = array_merge($options, $defaut);
+	$options = array_merge($defaut, $options);
 	if (is_numeric($options['expire']) and $options['expire'] > 0) {
 		$options['expire'] = gmdate('D, d M Y H:i:s', time() + $options['expires']) . ' GMT';
 	}
