@@ -571,6 +571,7 @@ function styliser_modele($modele, $id, $contexte = null) {
 
 	if (isset($styliseurs[$modele])) {
 		$styliseur = $styliseurs[$modele]['callback'];
+		$primary = $styliseurs[$modele]['primary'];
 		if (is_null($id) and $contexte) {
 			if (isset($contexte['id'])) {
 				$id = $contexte['id'];
