@@ -167,7 +167,7 @@ function queue_purger() {
  *
  * @param int $id_job
  *  id de la tache a retirer
- * @return bool
+ * @return int|bool
  */
 function queue_remove_job($id_job) {
 	include_spip('base/abstract_sql');
@@ -185,9 +185,10 @@ function queue_remove_job($id_job) {
 			queue_genie_replan_job($row['fonction'], $periode, strtotime($row['date']));
 		}
 		queue_update_next_job_time();
+		return $res;
 	}
 
-	return $res;
+	return false;
 }
 
 /**
