@@ -2532,6 +2532,8 @@ function balise_ACTION_FORMULAIRE($p) {
 		value=\'' . $_form . '\' />' .
 	'<input name=\'formulaire_action_args\' type=\'hidden\'
 		value=\'' . @\$Pile[0]['formulaire_args']. '\' />' .
+	'<input name=\'formulaire_action_sign\' type=\'hidden\'
+		value=\'' . @\$Pile[0]['formulaire_sign']. '\' />' .
 	(!empty(\$Pile[0]['_hidden']) ? @\$Pile[0]['_hidden'] : '') .
 	'</span>'";
 
