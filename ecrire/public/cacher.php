@@ -60,8 +60,8 @@ function cache_chemin_fichier($nom_cache, $ecrire = false) {
 		$rep = sous_repertoire($rep, $d, false, true);
 	}
 	else {
-		// en lecture on essaye pa de creer les repertoires, on va au plus vite
-		$rep = _DIR_CACHE . "$d/";
+		// en lecture on essaye pas de creer les repertoires, on va au plus vite
+		$rep = _DIR_CACHE . "calcul/$d/";
 	}
 
 	return $rep . $u . '.cache';
