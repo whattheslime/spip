@@ -443,7 +443,7 @@ function recuperer_url($url, $options = []) {
 			$head_add .= $champ . ': ' . $valeur . "\r\n";
 		}
 		// ne pas le repasser a recuperer_url si on follow un location, car ils seront dans datas
-		unset($options['entetes']);
+		unset($options['headers']);
 	}
 
 	if (!empty($options['datas'])) {
