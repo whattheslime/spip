@@ -210,7 +210,7 @@ function traiter_formulaires_dynamiques($get = false) {
 		}
 	}
 	else {
-		if (!is_null($sign)) {
+		if (!empty($sign)) {
 			spip_log("signature ajax form incorrecte : $form (formulaire signe mais pas de session)", 'formulaires' . _LOG_ERREUR);
 			return false;
 		}
