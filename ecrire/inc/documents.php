@@ -139,15 +139,11 @@ function copier_document($ext, $orig, $source, $subdir = null) {
 
 	$orig = preg_replace(',\.\.+,', '.', $orig); // pas de .. dans le nom du doc
 	$dir = creer_repertoire_documents($subdir ? $subdir : $ext);
-	$dest = preg_replace(
-		'/[^.=\w-]+/',
-		'_',
-		translitteration(preg_replace(
-			'/\.([^.]+)$/',
-			'',
-			preg_replace('/<[^>]*>/', '', basename($orig))
-		))
-	);
+
+	$dest = preg_replace('/<[^>]*>/', '', basename($orig));
+	$dest = preg_replace('/\.([^.]+)$/','', $dest);
+	$dest = translitteration($dest);
+	$dest = preg_replace('/[^.=\w-]+/','_', $dest);
 
 	// ne pas accepter de noms de la forme -r90.jpg qui sont reserves
 	// pour les images transformees par rotation (action/documenter)
