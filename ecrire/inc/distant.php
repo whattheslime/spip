@@ -123,6 +123,14 @@ function copie_locale($source, $mode = 'auto', $local = null, $taille_max = null
 		}
 		spip_log("copie_locale : recuperation $source sur $localrac taille " . $res['length'] . ' OK', 'distant');
 
+		// si on retrouve l'extension
+		if (!empty($res['headers'])
+		  and $extension = distant_trouver_extension_selon_headers($source, $res['headers'])) {
+			if ($sanitizer = charger_fonction($extension, 'sanitizer', true)) {
+				$sanitizer($localrac);
+			}
+		}
+
 		// pour une eventuelle indexation
 		pipeline(
 			'post_edition',
@@ -945,67 +953,11 @@ function recuperer_infos_distantes($source, $max = 0, $charger_si_petite_image =
 	$headers = $reponse['headers'] ?? '';
 	$a['body'] = $reponse['page'] ?? '';
 	if ($headers) {
-		if (preg_match(",\nContent-Type: *([^[:space:];]*),i", "\n$headers", $regs)) {
-			$mime_type = (trim($regs[1]));
-		} else {
-			$mime_type = '';
-		} // inconnu
-
-		// Appliquer les alias
-		while (isset($GLOBALS['mime_alias'][$mime_type])) {
-			$mime_type = $GLOBALS['mime_alias'][$mime_type];
+		if (!$extension = distant_trouver_extension_selon_headers($source, $headers)) {
+			return false;
 		}
 
-		// Si on a un mime-type insignifiant
-		// text/plain,application/octet-stream ou vide
-		// c'est peut-etre que le serveur ne sait pas
-		// ce qu'il sert ; on va tenter de detecter via l'extension de l'url
-		// ou le Content-Disposition: attachment; filename=...
-		$t = null;
-		if (in_array($mime_type, ['text/plain', '', 'application/octet-stream'])) {
-			if (
-				!$t
-				and preg_match(',\.([a-z0-9]+)(\?.*)?$,i', $source, $rext)
-			) {
-				$t = sql_fetsel('extension', 'spip_types_documents', 'extension=' . sql_quote($rext[1], '', 'text'));
-			}
-			if (
-				!$t
-				and preg_match(',^Content-Disposition:\s*attachment;\s*filename=(.*)$,Uims', $headers, $m)
-				and preg_match(',\.([a-z0-9]+)(\?.*)?$,i', $m[1], $rext)
-			) {
-				$t = sql_fetsel('extension', 'spip_types_documents', 'extension=' . sql_quote($rext[1], '', 'text'));
-			}
-		}
-
-		// Autre mime/type (ou text/plain avec fichier d'extension inconnue)
-		if (!$t) {
-			$t = sql_fetsel('extension', 'spip_types_documents', 'mime_type=' . sql_quote($mime_type));
-		}
-
-		// Toujours rien ? (ex: audio/x-ogg au lieu de application/ogg)
-		// On essaie de nouveau avec l'extension
-		if (
-			!$t
-			and $mime_type != 'text/plain'
-			and preg_match(',\.([a-z0-9]+)(\?.*)?$,i', $source, $rext)
-		) {
-			# eviter xxx.3 => 3gp (> SPIP 3)
-			$t = sql_fetsel('extension', 'spip_types_documents', 'extension=' . sql_quote($rext[1], '', 'text'));
-		}
-
-		if ($t) {
-			spip_log("mime-type $mime_type ok, extension " . $t['extension'], 'distant');
-			$a['extension'] = $t['extension'];
-		} else {
-			# par defaut on retombe sur '.bin' si c'est autorise
-			spip_log("mime-type $mime_type inconnu", 'distant');
-			$t = sql_fetsel('extension', 'spip_types_documents', "extension='bin'");
-			if (!$t) {
-				return false;
-			}
-			$a['extension'] = $t['extension'];
-		}
+		$a['extension'] = $extension;
 
 		if (preg_match(",\nContent-Length: *([^[:space:]]*),i", "\n$headers", $regs)) {
 			$a['taille'] = intval($regs[1]);
@@ -1077,6 +1029,74 @@ function recuperer_infos_distantes($source, $max = 0, $charger_si_petite_image =
 	return $a;
 }
 
+/**
+ * @param string $source
+ * @param string $headers
+ * @return false|mixed
+ */
+function distant_trouver_extension_selon_headers($source, $headers) {
+	if (preg_match(",\nContent-Type: *([^[:space:];]*),i", "\n$headers", $regs)) {
+		$mime_type = (trim($regs[1]));
+	} else {
+		$mime_type = '';
+	} // inconnu
+
+	// Appliquer les alias
+	while (isset($GLOBALS['mime_alias'][$mime_type])) {
+		$mime_type = $GLOBALS['mime_alias'][$mime_type];
+	}
+
+	// Si on a un mime-type insignifiant
+	// text/plain,application/octet-stream ou vide
+	// c'est peut-etre que le serveur ne sait pas
+	// ce qu'il sert ; on va tenter de detecter via l'extension de l'url
+	// ou le Content-Disposition: attachment; filename=...
+	$t = null;
+	if (in_array($mime_type, ['text/plain', '', 'application/octet-stream'])) {
+		if (
+			!$t
+			and preg_match(',\.([a-z0-9]+)(\?.*)?$,i', $source, $rext)
+		) {
+			$t = sql_fetsel('extension', 'spip_types_documents', 'extension=' . sql_quote($rext[1], '', 'text'));
+		}
+		if (
+			!$t
+			and preg_match(',^Content-Disposition:\s*attachment;\s*filename=(.*)$,Uims', $headers, $m)
+			and preg_match(',\.([a-z0-9]+)(\?.*)?$,i', $m[1], $rext)
+		) {
+			$t = sql_fetsel('extension', 'spip_types_documents', 'extension=' . sql_quote($rext[1], '', 'text'));
+		}
+	}
+
+	// Autre mime/type (ou text/plain avec fichier d'extension inconnue)
+	if (!$t) {
+		$t = sql_fetsel('extension', 'spip_types_documents', 'mime_type=' . sql_quote($mime_type));
+	}
+
+	// Toujours rien ? (ex: audio/x-ogg au lieu de application/ogg)
+	// On essaie de nouveau avec l'extension
+	if (
+		!$t
+		and $mime_type != 'text/plain'
+		and preg_match(',\.([a-z0-9]+)(\?.*)?$,i', $source, $rext)
+	) {
+		# eviter xxx.3 => 3gp (> SPIP 3)
+		$t = sql_fetsel('extension', 'spip_types_documents', 'extension=' . sql_quote($rext[1], '', 'text'));
+	}
+
+	if ($t) {
+		spip_log("mime-type $mime_type ok, extension " . $t['extension'], 'distant');
+		return $t['extension'];
+	} else {
+		# par defaut on retombe sur '.bin' si c'est autorise
+		spip_log("mime-type $mime_type inconnu", 'distant');
+		$t = sql_fetsel('extension', 'spip_types_documents', "extension='bin'");
+		if (!$t) {
+			return false;
+		}
+		return $t['extension'];
+	}
+}
 
 /**
  * Tester si un host peut etre recuperer directement ou doit passer par un proxy
