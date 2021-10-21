@@ -3702,7 +3702,17 @@ function filtre_balise_svg_dist($img, $alt = '', $class = null, $size = null) {
 			$img_file = substr($img_file, 0, $p);
 		}
 
-		if (!$img_file or !$svg = file_get_contents($img_file)) {
+		// ne jamais operer directement sur une image distante pour des raisons de perfo
+		// la copie locale a toutes les chances d'etre la ou de resservir
+		if (tester_url_absolue($img_file)) {
+			include_spip('inc/distant');
+			$fichier = copie_locale($img_file);
+			$img_file = ($fichier ? _DIR_RACINE . $fichier : $img_file);
+		}
+
+		if (!$img_file
+			or !file_exists($img_file)
+			or !$svg = file_get_contents($img_file)) {
 			return '';
 		}
 	}
