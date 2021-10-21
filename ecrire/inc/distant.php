@@ -124,8 +124,10 @@ function copie_locale($source, $mode = 'auto', $local = null, $taille_max = null
 		spip_log("copie_locale : recuperation $source sur $localrac taille " . $res['length'] . ' OK', 'distant');
 
 		// si on retrouve l'extension
-		if (!empty($res['headers'])
-		  and $extension = distant_trouver_extension_selon_headers($source, $res['headers'])) {
+		if (
+			!empty($res['headers'])
+			and $extension = distant_trouver_extension_selon_headers($source, $res['headers'])
+		) {
 			if ($sanitizer = charger_fonction($extension, 'sanitizer', true)) {
 				$sanitizer($localrac);
 			}

@@ -3710,9 +3710,11 @@ function filtre_balise_svg_dist($img, $alt = '', $class = null, $size = null) {
 			$img_file = ($fichier ? _DIR_RACINE . $fichier : $img_file);
 		}
 
-		if (!$img_file
+		if (
+			!$img_file
 			or !file_exists($img_file)
-			or !$svg = file_get_contents($img_file)) {
+			or !$svg = file_get_contents($img_file)
+		) {
 			return '';
 		}
 	}
