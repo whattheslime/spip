@@ -325,6 +325,9 @@ function _image_valeurs_trans($img, $effet, $forcer_format = false, $fonction_cr
 		if (!file_exists($local)) {
 			ecrire_fichier($local, base64_decode($regs[2]));
 		}
+		if ($sanitizer = charger_fonction($extension, 'sanitizer', true)) {
+			$sanitizer($local);
+		}
 		$source = $local;
 		$img = inserer_attribut($img, 'src', $source);
 		# eviter les mauvaises surprises lors de conversions de format
@@ -338,6 +341,10 @@ function _image_valeurs_trans($img, $effet, $forcer_format = false, $fonction_cr
 		$fichier = _DIR_RACINE . copie_locale($source);
 		if (!$fichier) {
 			return '';
+		}
+		if ($extension = _image_trouver_extension($fichier)
+		  and $sanitizer = charger_fonction($extension, 'sanitizer', true)) {
+			$sanitizer($fichier);
 		}
 	} else {
 		// enlever le timestamp eventuel
