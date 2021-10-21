@@ -139,6 +139,19 @@ function copier_document($ext, $orig, $source) {
 	// pour les images transformees par rotation (action/documenter)
 	$dest = preg_replace(',-r(90|180|270)$,', '', $dest);
 
+	while (preg_match(",\.(\w+)$,", $dest, $m)) {
+		if (!function_exists('verifier_upload_autorise')
+		  or !$r = verifier_upload_autorise($dest)
+		  or $r['autozip']) {
+			$dest = substr($dest, 0, -strlen($m[0])) . '_' . $m[1];
+			break;
+		}
+		else {
+			$dest = substr($dest, 0, -strlen($m[0]));
+			$ext = $m[1] . "." . $ext;
+		}
+	}
+
 	// Si le document "source" est deja au bon endroit, ne rien faire
 	if ($source == ($dir . $dest . '.' . $ext)) {
 		return $source;
