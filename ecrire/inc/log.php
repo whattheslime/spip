@@ -108,8 +108,8 @@ function inc_log_dist($message, $logname = null, $logdir = null, $logsuf = null)
 
 	// Dupliquer les erreurs specifiques dans le log general
 	if (
-		$logname !== _FILE_LOG
-		and defined('_FILE_LOG')
+		defined('_FILE_LOG')
+		and ($logname !== _FILE_LOG)
 	) {
 		inc_log_dist($logname == 'maj' ? 'cf maj.log' : $message);
 	}
