@@ -73,11 +73,9 @@ function surligner_mots($page, $surcharge_surligne = '') {
 			include_spip('inc/filtres');
 			$script = "
       <script type='text/javascript' src='" . url_absolue(find_in_path('javascript/SearchHighlight.js')) . "'></script>
-      <script type='text/javascript'>/*<![CDATA[*/
-      if (window.jQuery) {
+      <script type='text/javascript'>
        var highlighter = function() {
-		 jQuery(function($){
-		  \$(document).SearchHighlight({
+		  jQuery(this).SearchHighlight({
             tag_name:'" . (html5_permis() ? 'mark' : 'span') . "',
             style_name:'spip_surligne',
             exact:'whole',
@@ -87,14 +85,14 @@ function surligner_mots($page, $surcharge_surligne = '') {
             nohighlight:'.pas_surlignable'" .
 				($surcharge_surligne ? ",
             keys:'$surcharge_surligne'" : '') . ',
-            min_length: 3            
+            min_length: 3
           });
-		});
 	  }
-		 highlighter();
-		 onAjaxLoad(highlighter);
-     }(jQuery);
-      /*]]>*/</script>
+      if (window.jQuery) {
+		jQuery(function(){highlighter.apply(document, [])});
+		onAjaxLoad(function(){highlighter.apply(this, [])});
+      };
+      </script>
       ';
 			// on l'insere juste avant </head>, sinon tout en bas
 			if (is_null($l = strpos($page, '</head>'))) {
