@@ -29,6 +29,20 @@ if (!defined('_DIR_TESTS')){
 #	define('_VAR_MODE', 'recalcul');
 #}
 
+if (!empty($GLOBALS['argv'])) {
+	// passer les argv en set_request pour compat
+	$args = $GLOBALS['argv'];
+	array_shift($args);
+	$_GET = [];
+	foreach ($args as $arg) {
+		$arg = explode('=', $arg, 2);
+		if (count($arg) === 2) {
+			$_GET[$arg[0]] = $arg[1];
+		}
+	}
+}
+
+
 require_once dirname(_SPIP_TEST_INC) . '/ecrire/inc_version.php';
 include_once __DIR__ . '/test_fonctions.php';
 
@@ -54,17 +68,7 @@ if (!_IS_CLI) {
 	}
 }
 else {
-	// passer les argv en set_request pour compat
-	$args = $GLOBALS['argv'];
-	array_shift($args);
-	foreach ($args as $arg) {
-		$arg = explode('=', $arg, 2);
-		if (count($arg) === 2) {
-			set_request($arg[0], $arg[1]);
-		}
-	}
 	$_SERVER['REQUEST_METHOD'] = 'GET'; // eviter des notices dans les tests
-
 	tests_loger_webmestre();
 }
 

@@ -50,7 +50,7 @@ class LegacyUnitHtmlTest extends TestCase {
 		$output = [];
 		$returnCode = 0;
 		$realPath = realpath("tests/legacy/squel.php");
-		exec("/usr/bin/env php \"$realPath\" test=$inFname mode=test_general", $output, $returnCode);
+		exec("/usr/bin/env php \"$realPath\" test=$inFname mode=test_general var_mode=recalcul", $output, $returnCode);
 
 		if ($returnCode) {
 			array_unshift($output, 'ReturnCode: '.$returnCode);
