@@ -209,7 +209,9 @@
 		<traducteur nom="minijack" lien="https://trad.spip.net/auteur/minijack" />
 	</langue>
 	<langue code="sv" url="https://trad.spip.net/tradlang_module/spip?lang_cible=sv" total="650" traduits="563" relire="0" modifs="29" nouveaux="58" pourcent="86.62" />
-	<langue code="tr" url="https://trad.spip.net/tradlang_module/spip?lang_cible=tr" total="650" traduits="537" relire="0" modifs="32" nouveaux="81" pourcent="82.62" />
+	<langue code="tr" url="https://trad.spip.net/tradlang_module/spip?lang_cible=tr" total="650" traduits="537" relire="0" modifs="32" nouveaux="81" pourcent="82.62">
+		<traducteur nom="alexis" lien="https://trad.spip.net/auteur/alexis" />
+	</langue>
 	<langue code="uk" url="https://trad.spip.net/tradlang_module/spip?lang_cible=uk" total="650" traduits="636" relire="0" modifs="1" nouveaux="13" pourcent="97.85">
 		<traducteur nom="olly" lien="https://trad.spip.net/auteur/olly" />
 		<traducteur nom="Retenodus" lien="https://trad.spip.net/auteur/retenodus" />
