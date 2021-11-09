@@ -259,7 +259,7 @@ function debusquer_navigation($tableau, $caption = [], $id = 'debug-nav') {
 		list($msg, $lieu) = $err;
 		if (is_object($lieu)) {
 			$ligne = $lieu->ligne;
-			$boucle = $lieu->id_boucle ? $lieu->id_boucle : '';
+			$boucle = !empty($lieu->id_boucle) ? $lieu->id_boucle : '';
 			if (isset($lieu->descr['nom'])) {
 				$nom_code = $lieu->descr['nom'];
 				$skel = $lieu->descr['sourcefile'];
