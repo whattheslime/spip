@@ -76,7 +76,7 @@
 		<traducteur nom="kent1" lien="https://trad.spip.net/auteur/kent1" />
 		<traducteur nom="touti" lien="https://trad.spip.net/auteur/touti" />
 	</langue>
-	<langue code="fr_tu" url="https://trad.spip.net/tradlang_module/public?lang_cible=fr_tu" total="83" traduits="78" relire="0" modifs="0" nouveaux="5" pourcent="93.98">
+	<langue code="fr_tu" url="https://trad.spip.net/tradlang_module/public?lang_cible=fr_tu" total="83" traduits="83" relire="0" modifs="0" nouveaux="0" pourcent="100.00">
 		<traducteur nom="orlammd" lien="https://trad.spip.net/auteur/orlammd" />
 		<traducteur nom="PatV" lien="https://trad.spip.net/auteur/pat" />
 		<traducteur nom="RealET" lien="https://trad.spip.net/auteur/realet" />
