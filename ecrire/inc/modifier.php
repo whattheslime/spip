@@ -137,16 +137,10 @@ function objet_modifier_champs($objet, $id_objet, $options, $c = null, $serveur 
 		}
 	}
 
-
 	// N'accepter que les champs qui existent
 	// TODO: ici aussi on peut valider les contenus
 	// en fonction du type
-	$champs = [];
-	foreach ($desc['field'] as $champ => $ignore) {
-		if (isset($c[$champ])) {
-			$champs[$champ] = $c[$champ];
-		}
-	}
+	$champs = array_intersect_key($c, $desc['field']);
 
 	// Nettoyer les valeurs
 	$champs = array_map('corriger_caracteres', $champs);
