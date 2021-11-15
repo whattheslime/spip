@@ -156,10 +156,10 @@ function objet_modifier_champs($objet, $id_objet, $options, $c = null, $serveur 
 				'desc' => $desc,
 				'type' => $objet,
 				'id_objet' => $id_objet,
-				'data' => isset($options['data']) ? $options['data'] : null,
-				'champs' => isset($options['champs']) ? $options['champs'] : [], // [doc] c'est quoi ?
+				'data' => $options['data'] ?? null,
+				'champs' => $options['champs'] ?? [], // [doc] c'est quoi ?
 				'serveur' => $serveur,
-				'action' => isset($options['action']) ? $options['action'] : 'modifier'
+				'action' => $options['action'] ?? 'modifier'
 			],
 			'data' => $champs
 		]
@@ -211,7 +211,7 @@ function objet_modifier_champs($objet, $id_objet, $options, $c = null, $serveur 
 
 		// faut-il ajouter date_modif ?
 		if (
-			isset($options['date_modif']) and $options['date_modif']
+			!empty($options['date_modif'])
 			and !isset($champs[$options['date_modif']])
 		) {
 			$champs[$options['date_modif']] = date('Y-m-d H:i:s');
@@ -293,9 +293,9 @@ function objet_modifier_champs($objet, $id_objet, $options, $c = null, $serveur 
 					'desc' => $desc,
 					'type' => $objet,
 					'id_objet' => $id_objet,
-					'champs' => isset($options['champs']) ? $options['champs'] : [], // [doc] kesako ?
+					'champs' => $options['champs'] ?? [], // [doc] kesako ?
 					'serveur' => $serveur,
-					'action' => isset($options['action']) ? $options['action'] : 'modifier'
+					'action' => $options['action'] ?? 'modifier'
 				],
 				'data' => $champs
 			]
@@ -305,7 +305,7 @@ function objet_modifier_champs($objet, $id_objet, $options, $c = null, $serveur 
 	// journaliser l'affaire
 	// message a affiner :-)
 	include_spip('inc/filtres_mini');
-	$qui = isset($GLOBALS['visiteur_session']['nom']) and $GLOBALS['visiteur_session']['nom'] ? $GLOBALS['visiteur_session']['nom'] : $GLOBALS['ip'];
+	$qui = !empty($GLOBALS['visiteur_session']['nom']) ? $GLOBALS['visiteur_session']['nom'] : $GLOBALS['ip'];
 	journal(_L($qui . ' a &#233;dit&#233; l&#8217;' . $objet . ' ' . $id_objet . ' (' . join(
 		'+',
 		array_diff(array_keys($champs), ['date_modif'])
