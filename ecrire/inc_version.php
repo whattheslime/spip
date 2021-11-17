@@ -449,7 +449,7 @@ define('_SPIP_EXTRA_VERSION', '');
 #define('_DEV_VERSION_SPIP_COMPAT',"3.2.99");
 // version des signatures de fonctions PHP
 // (= date de leur derniere modif cassant la compatibilite et/ou necessitant un recalcul des squelettes)
-$spip_version_code = 20211021;
+$spip_version_code = 20211117;
 // version de la base SQL (= Date + numero incremental a 2 chiffres YYYYMMDDXX)
 $spip_version_base = 2021021800;
 
