@@ -1398,14 +1398,14 @@ function calculer_critere_parties_aux($idb, &$boucles, $param) {
 	if ($param[0]->type != 'texte') {
 		$a1 = calculer_liste([$param[0]], $idb, $boucles, $boucles[$idb]->id_parent);
 		if (isset($param[1]->texte)) {
-			preg_match(',^ *(-([0-9]+))? *$,', $param[1]->texte, $m);
+			preg_match(',^\s*(-([0-9]+))?\s*$,', $param[1]->texte, $m);
 
 			return ["intval($a1)", ((isset($m[2]) and $m[2]) ? $m[2] : 0)];
 		} else {
 			return ["intval($a1)", 0];
 		}
 	} else {
-		preg_match(',^ *(([0-9]+)|n) *(- *([0-9]+)? *)?$,', $param[0]->texte, $m);
+		preg_match(',^\s*(([0-9]+)|n)\s*(-\s*([0-9]+)?\s*)?$,', $param[0]->texte, $m);
 		$a1 = $m[1];
 		if (empty($m[3])) {
 			return [$a1, 0];
