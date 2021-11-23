@@ -144,6 +144,9 @@ function objet_modifier_champs($objet, $id_objet, $options, $c = null, $serveur 
 
 	// Nettoyer les valeurs
 	$champs = array_map('corriger_caracteres', $champs);
+	
+	// On récupère l'état avant toute modification
+	$row = sql_fetsel('*', $spip_table_objet, $id_table_objet . '=' . $id_objet);
 
 	// Envoyer aux plugins
 	$champs = pipeline(
@@ -158,6 +161,7 @@ function objet_modifier_champs($objet, $id_objet, $options, $c = null, $serveur 
 				'id_objet' => $id_objet,
 				'data' => $options['data'] ?? null,
 				'champs' => $options['champs'] ?? [], // [doc] c'est quoi ?
+				'champs_anciens' => $row, // état du contenu avant modif
 				'serveur' => $serveur,
 				'action' => $options['action'] ?? 'modifier'
 			],
@@ -294,6 +298,7 @@ function objet_modifier_champs($objet, $id_objet, $options, $c = null, $serveur 
 					'type' => $objet,
 					'id_objet' => $id_objet,
 					'champs' => $options['champs'] ?? [], // [doc] kesako ?
+					'champs_anciens' => $row, // état du contenu avant modif
 					'serveur' => $serveur,
 					'action' => $options['action'] ?? 'modifier'
 				],
