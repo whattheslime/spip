@@ -490,7 +490,7 @@ en el sitio "@nom_site_spip@" (@adresse_login@):',
 	// L
 	'label_ajout_id_rapide' => 'Agregado rápido',
 	'label_poids_fichier' => 'Tamaño',
-	'label_ponctuer' => '@label@ :',
+	'label_ponctuer' => '@label@ :', # MODIF
 	'lien_afficher_icones_seuls' => 'Mostrar sólo los iconos',
 	'lien_afficher_texte_icones' => 'Mostrar iconos y texto',
 	'lien_afficher_texte_seul' => 'Mostrar sólo el texto',

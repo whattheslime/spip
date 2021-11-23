@@ -486,7 +486,7 @@ Para confirmar o seu novo endereço, basta acessar o endereço abaixo (cas contr
 	// L
 	'label_ajout_id_rapide' => 'Ajuda rápida',
 	'label_poids_fichier' => 'Tamanho',
-	'label_ponctuer' => '@label@ :',
+	'label_ponctuer' => '@label@ :', # MODIF
 	'lien_afficher_icones_seuls' => 'Exibir apenas os ícones',
 	'lien_afficher_texte_icones' => 'Exibir ícones e texto',
 	'lien_afficher_texte_seul' => 'Exibir apenas o texto',

@@ -490,7 +490,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	// L
 	'label_ajout_id_rapide' => 'إضافة سريعة',
 	'label_poids_fichier' => 'الحجم',
-	'label_ponctuer' => '@label@ :',
+	'label_ponctuer' => '@label@ :', # MODIF
 	'lien_afficher_icones_seuls' => 'عرض الرموز فقط',
 	'lien_afficher_texte_icones' => 'عرض الرموز والعناوين',
 	'lien_afficher_texte_seul' => 'عرض العناوين فقط',
