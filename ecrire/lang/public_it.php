@@ -96,6 +96,11 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'repondre_breve' => 'Rispondere a questa breve',
 	'resultats_recherche' => 'Risultati della ricerca',
 	'retour_debut_forums' => 'Tornare all’inizio dei forum',
+	'rss_abonnement' => 'Copia il seguente URL nel tuo aggregatore RSS:',
+	'rss_abonnement_titre' => 'Sottoscrivi',
+	'rss_abonnement_titre_page' => 'Per sottoscrivere',
+	'rss_explication' => 'Un feed RSS raccoglie informazioni di aggiornamento per un sito. Fornisce il contenuto dei post o dei commenti o un estratto da essi, nonché un collegamento alle versioni complete e alcune altre informazioni. Questo feed deve essere letto da un aggregatore RSS.',
+	'rss_explication_titre' => 'Cos’è un flusso RSS?',
 	'rubrique' => 'Rubrica',
 	'rubriques' => 'Rubriche',
 

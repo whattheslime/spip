@@ -91,7 +91,8 @@
 	</langue>
 	<langue code="hu" url="https://trad.spip.net/tradlang_module/public?lang_cible=hu" total="83" traduits="65" relire="0" modifs="3" nouveaux="15" pourcent="78.31" />
 	<langue code="id" url="https://trad.spip.net/tradlang_module/public?lang_cible=id" total="83" traduits="66" relire="0" modifs="3" nouveaux="14" pourcent="79.52" />
-	<langue code="it" url="https://trad.spip.net/tradlang_module/public?lang_cible=it" total="83" traduits="78" relire="0" modifs="0" nouveaux="5" pourcent="93.98">
+	<langue code="it" url="https://trad.spip.net/tradlang_module/public?lang_cible=it" total="83" traduits="83" relire="0" modifs="0" nouveaux="0" pourcent="100.00">
+		<traducteur nom="Alberto" lien="https://trad.spip.net/auteur/alberto" />
 		<traducteur nom="phante" lien="https://trad.spip.net/auteur/phante" />
 	</langue>
 	<langue code="it_fem" url="https://trad.spip.net/tradlang_module/public?lang_cible=it_fem" total="83" traduits="71" relire="0" modifs="3" nouveaux="9" pourcent="85.54" />
