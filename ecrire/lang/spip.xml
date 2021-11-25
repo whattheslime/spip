@@ -126,7 +126,7 @@
 		<traducteur nom="Andras" lien="https://trad.spip.net/auteur/andras" />
 	</langue>
 	<langue code="id" url="https://trad.spip.net/tradlang_module/spip?lang_cible=id" total="650" traduits="521" relire="0" modifs="31" nouveaux="98" pourcent="80.15" />
-	<langue code="it" url="https://trad.spip.net/tradlang_module/spip?lang_cible=it" total="650" traduits="635" relire="0" modifs="3" nouveaux="12" pourcent="97.69">
+	<langue code="it" url="https://trad.spip.net/tradlang_module/spip?lang_cible=it" total="650" traduits="650" relire="0" modifs="0" nouveaux="0" pourcent="100.00">
 		<traducteur nom="Alberto" lien="https://trad.spip.net/auteur/alberto" />
 		<traducteur nom="Cap" lien="https://trad.spip.net/auteur/cap" />
 		<traducteur nom="Julia14" lien="https://trad.spip.net/auteur/julia14" />
