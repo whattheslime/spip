@@ -72,7 +72,8 @@
 	<langue code="fi" url="https://trad.spip.net/tradlang_module/public?lang_cible=fi" total="83" traduits="64" relire="0" modifs="4" nouveaux="15" pourcent="77.11" />
 	<langue code="fon" url="https://trad.spip.net/tradlang_module/public?lang_cible=fon" total="83" traduits="66" relire="0" modifs="3" nouveaux="14" pourcent="79.52" />
 	<langue code="fr" url="https://trad.spip.net/tradlang_module/public?lang_cible=fr" total="83" traduits="83" relire="0" modifs="0" nouveaux="0" pourcent="100.00" />
-	<langue code="fr_fem" url="https://trad.spip.net/tradlang_module/public?lang_cible=fr_fem" total="83" traduits="78" relire="0" modifs="0" nouveaux="5" pourcent="93.98">
+	<langue code="fr_fem" url="https://trad.spip.net/tradlang_module/public?lang_cible=fr_fem" total="83" traduits="83" relire="0" modifs="0" nouveaux="0" pourcent="100.00">
+		<traducteur nom="b_b" lien="https://trad.spip.net/auteur/b_b" />
 		<traducteur nom="kent1" lien="https://trad.spip.net/auteur/kent1" />
 		<traducteur nom="touti" lien="https://trad.spip.net/auteur/touti" />
 	</langue>
