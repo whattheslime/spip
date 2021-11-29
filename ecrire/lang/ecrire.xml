@@ -246,9 +246,10 @@
 		<traducteur nom="ktos" lien="https://trad.spip.net/auteur/keycheck" />
 		<traducteur nom="ziel" lien="https://trad.spip.net/auteur/ziel" />
 	</langue>
-	<langue code="pt" url="https://trad.spip.net/tradlang_module/ecrire_?lang_cible=pt" total="816" traduits="757" relire="0" modifs="19" nouveaux="40" pourcent="92.77">
+	<langue code="pt" url="https://trad.spip.net/tradlang_module/ecrire_?lang_cible=pt" total="816" traduits="803" relire="0" modifs="0" nouveaux="13" pourcent="98.41">
 		<traducteur nom="b_b" lien="https://trad.spip.net/auteur/b_b" />
 		<traducteur nom="Cláudia Anjos Lopes" lien="https://trad.spip.net/auteur/claudia_a_lopes" />
+		<traducteur nom="Miguel" lien="https://trad.spip.net/auteur/miguel" />
 		<traducteur nom="Ricardo Porto" lien="https://trad.spip.net/auteur/ricardo-porto" />
 	</langue>
 	<langue code="pt_br" url="https://trad.spip.net/tradlang_module/ecrire_?lang_cible=pt_br" total="816" traduits="816" relire="0" modifs="0" nouveaux="0" pourcent="100.00">
