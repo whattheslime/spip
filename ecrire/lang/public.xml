@@ -138,8 +138,9 @@
 	<langue code="pl" url="https://trad.spip.net/tradlang_module/public?lang_cible=pl" total="83" traduits="75" relire="0" modifs="3" nouveaux="5" pourcent="90.36">
 		<traducteur nom="Karolina Anna" lien="https://trad.spip.net/auteur/karolina-anna" />
 	</langue>
-	<langue code="pt" url="https://trad.spip.net/tradlang_module/public?lang_cible=pt" total="83" traduits="78" relire="0" modifs="0" nouveaux="5" pourcent="93.98">
+	<langue code="pt" url="https://trad.spip.net/tradlang_module/public?lang_cible=pt" total="83" traduits="83" relire="0" modifs="0" nouveaux="0" pourcent="100.00">
 		<traducteur nom="Cláudia Anjos Lopes" lien="https://trad.spip.net/auteur/claudia_a_lopes" />
+		<traducteur nom="Miguel" lien="https://trad.spip.net/auteur/miguel" />
 	</langue>
 	<langue code="pt_br" url="https://trad.spip.net/tradlang_module/public?lang_cible=pt_br" total="83" traduits="83" relire="0" modifs="0" nouveaux="0" pourcent="100.00">
 		<traducteur nom="placido" lien="https://trad.spip.net/auteur/placido" />
