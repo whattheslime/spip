@@ -98,6 +98,11 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'date_mot_heures' => 'heures',
 
 	// E
+	'ecran_connexion_couleur_principale' => 'Couleur principale',
+	'ecran_connexion_image_fond' => 'Image de fond',
+	'ecran_connexion_image_fond_explication' => 'Utiliser une image (format JPEG, 1920x1080 pixels)',
+	'ecran_connexion_image_revenir_couleur_defaut' => 'Revenir à la couleur par défaut',
+	'ecran_connexion_titre' => 'Écran de connexion',
 	'ecran_securite' => ' + écran de sécurité @version@',
 	'email' => 'email',
 	'email_2' => 'email :',
@@ -153,6 +158,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'erreur_plugin_prefix_manquant' => 'Espace de nommage du plugin non défini',
 	'erreur_plugin_tag_plugin_absent' => '&lt;plugin&gt; manquant dans le fichier de définition',
 	'erreur_plugin_version_manquant' => 'Version du plugin manquante',
+	'erreur_type_fichier' => 'Type de fichier incorrect',
 
 	// H
 	'htaccess_a_simuler' => 'Avertissement : la configuration de votre serveur HTTP ne tient pas compte des fichiers @htaccess@. Pour pouvoir assurer une bonne sécurité, il faut que vous modifiiez cette configuration sur ce point, ou bien que les constantes @constantes@ (définissables dans le fichier mes_options.php) aient comme valeur des répertoires en dehors de @document_root@.',
@@ -696,9 +702,9 @@ dans une couleur qui indique leur état :',
 	'plugin_titre_automatique_ajouter' => 'Ajouter des plugins',
 	'plugin_titre_installation' => 'Installation du plugin @plugin@',
 	'plugin_titre_modifier' => 'Mes plugins',
-	'plugin_utilise_extension_php' => 'Utilise l’extension PHP @plugin@ en version @version@.', # MODIF
-	'plugin_utilise_php' => 'Utilise @plugin@ en version @version@.', # MODIF
-	'plugin_utilise_plugin' => 'Utilise le plugin @plugin@ en version @version@.', # MODIF
+	'plugin_utilise_extension_php' => 'L’extension PHP @plugin@ doit être en version @version@.',
+	'plugin_utilise_php' => '@plugin@ doit être en version @version@.',
+	'plugin_utilise_plugin' => 'Le plugin @plugin@ doit être en version @version@.',
 	'plugin_zip_active' => 'Continuez pour l’activer',
 	'plugin_zip_adresse' => 'indiquez ci-dessous l’adresse d’un fichier zip de plugin à télécharger, ou encore l’adresse d’une liste de plugins.',
 	'plugin_zip_adresse_champ' => 'Adresse du plugin ou de la liste ',

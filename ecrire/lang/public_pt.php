@@ -96,6 +96,11 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'repondre_breve' => 'Comentar esta notícia',
 	'resultats_recherche' => 'Resultados da pesquisa',
 	'retour_debut_forums' => 'Regresso ao início dos fóruns',
+	'rss_abonnement' => 'Copie o seguinte URL para o seu agregador de conteúdos:',
+	'rss_abonnement_titre' => 'Subscrever',
+	'rss_abonnement_titre_page' => 'Subscrever',
+	'rss_explication' => 'Um "feed" RSS recolhe informação actualizada a partir de um sítio. Fornece o conteúdo das publicações ou comentários ou um extracto dos mesmos, bem como um link para as versões completas e outras informações. Este "feed" destina-se a ser lido por um agregador RSS.',
+	'rss_explication_titre' => 'O que é um "feed RSS"?',
 	'rubrique' => 'Rubrica',
 	'rubriques' => 'Rubricas',
 

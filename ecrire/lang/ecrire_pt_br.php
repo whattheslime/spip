@@ -97,6 +97,11 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'date_mot_heures' => 'horas',
 
 	// E
+	'ecran_connexion_couleur_principale' => 'Cor principal',
+	'ecran_connexion_image_fond' => 'Imagem de fundo',
+	'ecran_connexion_image_fond_explication' => 'Usar uma imagem (formato JPEG, 1920x1080 pixels)',
+	'ecran_connexion_image_revenir_couleur_defaut' => 'Reverter para a cor padrão',
+	'ecran_connexion_titre' => 'Tela de conexão',
 	'ecran_securite' => ' + tela de segurança @version@',
 	'email' => 'e-mail',
 	'email_2' => 'e-mail:',
@@ -151,6 +156,7 @@ Estas informações deverão ser fornecidas pelo administrador do sistema ou da 
 	'erreur_plugin_prefix_manquant' => 'Área de nomeação do plugin não definida',
 	'erreur_plugin_tag_plugin_absent' => '&lt;plugin&gt; ausente no arquivo de definição',
 	'erreur_plugin_version_manquant' => 'Versão do plugin ausente',
+	'erreur_type_fichier' => 'Tipo de arquivo incorreto',
 
 	// H
 	'htaccess_a_simuler' => 'Aviso: a configuração do seu servidor HTTP não leva em conta os arquivos @htaccess@. Para poder garantir um bom nível de segurança, é preciso que você altere esta configuração, ou que as constantes @constantes@ (definíveis no arquivo mes_options.php) tenham como valor os diretórios abaixo de @document_root@.',

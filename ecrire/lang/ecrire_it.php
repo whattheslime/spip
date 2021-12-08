@@ -16,6 +16,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'annuler_recherche' => 'Annullare la ricerca',
 	'auteur' => 'Autore:',
 	'avis_acces_interdit' => 'Accesso vietato.',
+	'avis_acces_interdit_prive' => 'Non hai i diritti di accesso per la pagina <b>@exec@</b>.',
 	'avis_article_modifie' => 'Attenzione, @nom_auteur_modif@ ha lavorato su quest’articolo @date_diff@ minuti fa',
 	'avis_aucun_resultat' => 'Nessun risultato.',
 	'avis_base_inaccessible' => 'Impossibile connettersi al database @base@.',
@@ -63,6 +64,8 @@ disattivata per motivi sicurezza (verifica con l’amministratore di sistema).',
 	'bouton_radio_non_envoi_annonces_editoriales' => 'Non inviare annunci editoriali ',
 	'bouton_redirection' => 'REINDIRIZZAMENTO',
 	'bouton_reinitialiser_aux_valeurs_par_defaut' => 'Ripristina i valori predefiniti',
+	'bouton_relancer_inscription' => 'Riavvia l’iscrizione',
+	'bouton_relancer_inscriptions' => 'Riavvia le registrazioni',
 	'bouton_relancer_installation' => 'Rilanciare l’installazione',
 	'bouton_reset_password' => 'Genera una nuova password ed inviala per email',
 	'bouton_suivant' => 'Avanti',
@@ -95,6 +98,11 @@ disattivata per motivi sicurezza (verifica con l’amministratore di sistema).',
 	'date_mot_heures' => 'ore',
 
 	// E
+	'ecran_connexion_couleur_principale' => 'Colore principale',
+	'ecran_connexion_image_fond' => 'Immagine di sfondo',
+	'ecran_connexion_image_fond_explication' => 'Usa un’immagine (formato JPEG, 1920x1080 pixel)',
+	'ecran_connexion_image_revenir_couleur_defaut' => 'Reimposta il colore predefinito',
+	'ecran_connexion_titre' => 'Schermata di accesso',
 	'ecran_securite' => ' + sicurezza dello schermo @version@',
 	'email' => 'email',
 	'email_2' => 'email:',
@@ -149,6 +157,7 @@ Se non conosci queste informazioni, richiedile all’amministratore del sistema 
 	'erreur_plugin_prefix_manquant' => 'Spazio per il nome del plugin non definito',
 	'erreur_plugin_tag_plugin_absent' => '&lt;plugin&gt; mancante nel file di definizione',
 	'erreur_plugin_version_manquant' => 'Versione del plugin mancante',
+	'erreur_type_fichier' => 'Tipo di file non corretto',
 
 	// H
 	'htaccess_a_simuler' => 'Attenzione: la configurazione del tuo HTTP server ignora il file @htaccess@. Per garantire un buon livello di sicurezza devi modificare la configurazione del server per questa impostazione, oppure devi assicurarti che la costante @constantes@ (definibile nel file mes_options.php) sia valorizzata con una perocorso di directory posta al di fuori di @document_root@.',
@@ -389,7 +398,7 @@ le informazioni contenute nel database sono probabilmente andate perse.<br />{{R
 	'info_nouvel_article' => 'Nuovo articolo',
 	'info_nouvelle_traduction' => 'Nuova traduzione:',
 	'info_numero_article' => 'ARTICOLO NUMERO:',
-	'info_obligatoire_02' => '(Obbligatorio)', # MODIF
+	'info_obligatoire_02' => '(Obbligatorio)',
 	'info_option_accepter_visiteurs' => 'Accetta l’iscrizione di utenti del sito pubblico',
 	'info_option_ne_pas_accepter_visiteurs' => 'Rifiuta l’iscrizione di utenti',
 	'info_options_avancees' => 'OPZIONE AVANZATA',
@@ -681,9 +690,9 @@ Le traduzioni sono associate all’originale,
 	'plugin_titre_automatique_ajouter' => 'Aggiungere dei plugin',
 	'plugin_titre_installation' => 'Installazione del plugin @plugin@',
 	'plugin_titre_modifier' => 'I miei plugin',
-	'plugin_utilise_extension_php' => 'Usa l’estensione PHP @plugin@ in versione @version@.', # MODIF
-	'plugin_utilise_php' => 'Utilizza @plugin@ in versione @version@.', # MODIF
-	'plugin_utilise_plugin' => 'Utilizza il plugin @plugin@ in versione @version@.', # MODIF
+	'plugin_utilise_extension_php' => 'Usa l’estensione PHP @plugin@ in versione @version@.',
+	'plugin_utilise_php' => 'Utilizza @plugin@ in versione @version@.',
+	'plugin_utilise_plugin' => 'Utilizza il plugin @plugin@ in versione @version@.',
 	'plugin_zip_active' => 'Continuare per attivarlo',
 	'plugin_zip_adresse' => 'indicate qui sotto l’indirizzo di un file zip del plug-in da scaricare, oppure l’indirizzo di un elenco di plug-in.',
 	'plugin_zip_adresse_champ' => 'Indirizzo del plug-in o dell’elenco ',
@@ -710,18 +719,18 @@ Le traduzioni sono associate all’originale,
 
 	// Q
 	'queue_executer_maintenant' => 'Esegui adesso',
-	'queue_info_purger' => 'È possibile eliminare tutti i lavori in sospeso e reinizializzare la lista con delle elaborazioni periodiche', # MODIF
-	'queue_nb_jobs_in_queue' => '@nb@ processi in coda', # MODIF
-	'queue_next_job_in_nb_sec' => 'Prossimo processo in @nb@ s', # MODIF
-	'queue_no_job_in_queue' => 'Nessun processo appeso', # MODIF
-	'queue_one_job_in_queue' => '1 processo in coda', # MODIF
+	'queue_info_purger' => 'È possibile eliminare tutti i lavori in sospeso e reinizializzare la lista con delle elaborazioni periodiche',
+	'queue_nb_jobs_in_queue' => '@nb@ processi in coda',
+	'queue_next_job_in_nb_sec' => 'Prossimo processo in @nb@ s',
+	'queue_no_job_in_queue' => 'Nessun processo appeso',
+	'queue_one_job_in_queue' => '1 processo in coda',
 	'queue_priorite_tache' => 'priorità',
-	'queue_purger_queue' => 'Pulisci la coda dei processi', # MODIF
-	'queue_titre' => 'Lista dei processi', # MODIF
+	'queue_purger_queue' => 'Pulisci la coda dei processi',
+	'queue_titre' => 'Lista dei processi',
 
 	// R
 	'repertoire_plugins' => 'Cartella:',
-	'required' => '(Obbligatorio)', # MODIF
+	'required' => '(Obbligatorio)',
 
 	// S
 	'sans_heure' => 'ora mancante',
