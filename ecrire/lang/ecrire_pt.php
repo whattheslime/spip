@@ -760,7 +760,7 @@ reinstalar SPIP para recriar uma nova base assim como uma primeira conta de admi
 	'texte_adresse_annuaire_1' => '(Se o seu anuário está instalado na mesma máquina que este sítio Web, trata-se de «localhost».)',
 	'texte_ajout_auteur' => 'O seguinte autor foi acrescentado ao artigo :',
 	'texte_annuaire_ldap_1' => 'Se tiver acesso a um anuário (LDAP), pode utilizá-lo para importar automaticamente utilizadores sob SPIP.',
-	'texte_article_statut' => 'Este artigo está :',
+	'texte_article_statut' => 'Este artigo está:',
 	'texte_article_virtuel' => 'Artigo virtual',
 	'texte_article_virtuel_reference' => '<b>Artigo virtual :</b> artigo referenciado no seu sítio SPIP, mas redirigido para uma outra URL. Para suprimir a redirecção, apague a URL acima.',
 	'texte_aucun_resultat_auteur' => 'Nenhum resultado para "@cherche_auteur@"',
