@@ -2754,10 +2754,9 @@ function balise_SAUTER_dist($p) {
 		$msg = ['zbug_champ_hors_boucle', ['champ' => '#SAUTER']];
 		erreur_squelette($msg, $p);
 	} else {
-		$boucle = $p->boucles[$id_boucle];
 		$_saut = interprete_argument_balise(1, $p);
 		$_compteur = "\$Numrows['$id_boucle']['compteur_boucle']";
-		$_total = "\$Numrows['$id_boucle']['total']";
+		$_total = "(\$Numrows['$id_boucle']['total'] ?? null)";
 
 		$p->code = "vide($_compteur=\$iter->skip($_saut,$_total))";
 	}
