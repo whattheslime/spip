@@ -166,9 +166,41 @@ function logo_migrer_en_base($objet, $time_limit) {
 		$nom_base = $type . $mode;
 		$dir = (defined('_DIR_LOGOS') ? _DIR_LOGOS : _DIR_IMG);
 
-		$deja = [];
 		$files = glob($dir . $nom_base . '*');
+		// est-ce que c'est une nouvelle tentative de migration ?
+		// dans ce cas les logos sont deja dans IMG/logo/
+		if (!count($files)) {
+			$files = glob($dir_logos . $nom_base . '*');
+			if (count($files)) {
+				// mais il faut verifier si ils ont pas deja ete migres pour tout ou partie
+				$filescheck = [];
+				foreach ($files as $file) {
+					$short = basename(dirname($file)) . DIRECTORY_SEPARATOR . basename($file);
+					$filescheck[$short] = $file;
+				}
+				// trouver ceux deja migres
+				$deja = sql_allfetsel('fichier', 'spip_documents', sql_in('fichier', array_keys($filescheck))." AND mode LIKE 'logo%'");
+				if (count($deja)) {
+					$deja = array_column($deja, 'fichier');
+					$restant = array_diff(array_keys($filescheck), $deja);
+					$files = [];
+					if (count($restant)) {
+						foreach ($restant as $r) {
+							$files[] = $filescheck[$r];
+						}
+					}
+				}
+				// et si il en reste on peut y aller...
+				// mais il faut modifier $dir qui sert de base dans la suite
+				if (count($files)) {
+					$dir = $dir_logos;
+				}
+			}
+		}
 
+		spip_log("logo_migrer_en_base $objet $mode : " . count($files) ." logos restant", "maj" . _LOG_INFO_IMPORTANTE);
+
+		$deja = [];
 		foreach ($files as $file) {
 			$logo = substr($file, strlen($dir . $nom_base));
 			$logo = explode('.', $logo);
@@ -194,7 +226,8 @@ function logo_migrer_en_base($objet, $time_limit) {
 				}
 			}
 			// si le fichier est encore la on le move : rien a faire ici
-			if (file_exists($file)) {
+			// (sauf si c'est une re-migration : il est deja dans logo/ donc il bouge pas)
+			if ($dir !== $dir_logos and file_exists($file)) {
 				@rename($file, $dir_logos_erreurs . basename($file));
 			}
 
