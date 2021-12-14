@@ -1,3 +1,61 @@
+SPIP-Core v3.2.11 -> v3.2.12 (14 December 2021)
+-----------------------------------------------
+
+19c3592b9 | cedric        | 2021-12-07 | Ameliorer valider_url_distante() : on utilise filter_var plutot que des regexp et on ajoute un controle sur le TTL du ..
+685a2c0bd | cedric        | 2021-11-03 | Le plugin mots et son formulaire editer_mot() contient encore du vieux code pas reformate, reactivons donc cette featu..
+28c2cd60b | cedric        | 2021-10-21 | Lors de l'upload de documents, gerer le cas des fichiers avec multiples extensions : on ne laisse que celles qui sont ..
+aefb90d6a | cedric        | 2021-10-21 | Il faut incrementer spip_version_code car tous les formulaires doivent etre recalcules
+299219036 | cedric        | 2021-10-21 | Oups, erreur dans 1b8e4f404 il faut utiliser empty car on poste potentiellement une signature vide (empechait de se lo..
+361cc2608 | cedric        | 2021-10-06 | Nom, nom_site et bio etant des champs librement modifiables par les utilisateurs, on les protege comme des forums, via..
+fea5b5b45 | cedric        | 2021-10-06 | Balise #FORMULAIRE : nettoyer du code mort qui ne sert plus, ameliorer la securite en ajoutant une signature des argum..
+a4fdb3b8e | cedric        | 2021-09-27 | Complement de 413ca3cc58 : _mysql_traite_query() s'appelle recursivement, elle ne doit echapper les textes qu'au premi..
+96e283e4a | cedric        | 2021-09-17 | Simplifier la regexp, c'est pas plus mal (cfreal)
+fca83dc95 | cedric        | 2021-09-06 | Fix/refactoring query_echappe_textes() qui ne detectait parfois pas completement et correctement les chaines On robust..
+1a3fda815 | cedric        | 2021-07-07 | Une constante _HTML_BG_CRON_INHIB permet d'inhiber l'insertion du markup html pour lancer le cron via une image backgr..
+e2d9ac340 | pierretux     | 2021-09-06 | Ticket #4878 : Mise à jour du code de http_status pour utiliser directement la function de php
+f3ddc3f10 | cedric        | 2021-08-12 | Petit bug vicieux sur le bouton de vidage de cache quand on est en mode _CACHE_CONTEXTES_AJAX : - le bouton 'vider le ..
+8eecb049c | marcimat      | 2021-07-08 | Ticket #4845 : on déclare la branche correspondante dans la liste des plugins-dist de cette distribution.
+a63f9e608 | marcimat      | 2021-07-06 | Ticket #4842 : Renommage de source_champ en index_champ, déclaration dans la classe Boucle et phpdoc. Éventuellement s..
+ae4f817fc | cedric        | 2021-07-06 | Fix #4842 : utiliser la meme boucle source pour le calcul des filtres d'une balise que celle utilisee pour la valeur d..
+50e30a4b5 | cedric        | 2021-07-06 | coquille dans la typo, ca craint (vue via https://core.spip.net/issues/4513)
+7969d18f6 | maieul        | 2020-10-16 | Permettre de surcharger les constantes de traitement typo sans provoquer de notice. Exemple de plugin qui utilise cela..
+c7091877a | marcimat      | 2019-08-27 | Ticket #4353 : On adapte les champs déclarés 'TIMESTAMP' en mysql versions récentes (8 par exemple) afin qu’ils se com..
+ad29547ec | maieul        | 2021-07-05 | des guillemets autour des attributs
+6c200052e | cedric        | 2021-02-18 | Fix #3239 : maintenant qu'on sait gerer l'erreur cote js en cas de perte de contexte ajax, on peut purger les contexte..
+11821bec9 | cedric        | 2021-02-18 | Quand un contexte ajax est invalide (corrompu ou trop long, ou on a vide le cache sur le disque), renvoyer une erreur ..
+ebe3911aa | cedric        | 2021-02-18 | Fix #4374 : traduire a la volee le current_timestamp() introduit par MariaDB mais que SQlite ne connait pas (b_b et ma..
+f76082e16 | bruno         | 2021-06-02 | report de 02f7548245985ad40d430d3e8f1f809960a2fcc4 & d07b859fbc7b92bf6d4d9140ced0bf601e2be8d2
+ec7a876a0 | cedric        | 2021-05-27 | Fix un bug sur l'autosave qui faisait parfois revenir une valeur pourtant saisie en cas de post ajax et de fichiers se..
+3d9882412 | rastapopoulos | 2021-03-14 | Dans l'API générique pour tout objet : passer à calculer_rubrique_if aussi l'info de quel objet on vient de modifié… C..
+4d2ea673d | glopglop      | 2021-04-21 | Gestion des alias de boucles dans le traitement des champs.
+de928fda2 | maieul        | 2021-04-11 | Permettre à vérification d'une étape spécifique de mettre son propre message d'erreur global.
+82cf0ba8d | maieul        | 2021-04-04 | CVT multiétape : permettre l'avance rapide à une autre étape, sans pour autant déclencher d'erreur à l'étape où l'on a..
+bcc3c3606 | maieul        | 2021-04-03 | Pipeline saisies_verifier_etapes: passer aussi en argument   - l'étape saisie   - le nb total d'étapes   - l'étape dem..
+240ca1577 | maieul        | 2021-04-02 | CVT multiétape : déplacer la recherche de `aller_a_etape` après les vérifications de chacune des étapes passées, qui p..
+378975997 | cedric        | 2021-03-22 | Fix #4699 : il faut indiquer une etape_demandee > que le nombre d'etapes pour aller directement a la validation finale..
+979babd7f | maieul        | 2021-03-31 | Dans `objet_modifier_champs()` on a une sécurité qui vérifie qu'après la modification de la ligne via `sql_updateq()`,..
+
+
+
+SPIP-plugins-dist v3.2.11 -> v3.2.12 (14 December 2021)
+-------------------------------------------------------
+
+compresseur             | 374fe22 | cedric       | 2018-09-06 | coquille dans r111480 qui cassait les images de background
+filtres_images          | 8005120 | cedric       | 2021-10-04 | Inclusion faite par image_filtrer() pour les filtres images standard mais manquante ici (bennyb)
+mediabox                | 94a80ae | maieul       | 2021-04-04 | Comme pour la branche 3.3, éviter l'appel à une fonction match qui n'est pas toujours définie (et poserait des problèm..
+medias                  | 1a4b702 | cedric       | 2021-12-07 | Utiliser valider_url_distante() en plus de tester_url_absolue() avant de faire une copie locale sur un document distan..
+mots                    | 3258f8f | nicod        | 2021-04-09 | Quand on a beaucoup de groupes de mots clés, un clic sur le titre du groupe dans la colonne de gauche (navigation) ne ..
+porte_plume             | c196f81 | rastapopoulos | 2020-12-10 | Tant qu'on n'utilise pas des loaders et classes bien propre, on doit toujours s'assurer que les fonctions qu'on utilis..
+porte_plume             | 8ae9b48 | marcimat      | 2021-06-15 | Ticket #4818 : il semble que les fonctions ne sont pas chargées parfois ici (real3t)
+safehtml                | 036e2cf | cedric       | 2021-05-12 | Fix https://core.spip.net/issues/4706 : les attributs HTML5 data-xx ne doivent pas etre supprimes par safehtml, on acc..
+safehtml                | 9d9da26 | maieul       | 2021-05-07 | SVP est sensible à l'odre des balises dans paquet.xml
+safehtml                | d12f7fc | cedric       | 2021-05-07 | Mise a jour du paquet avec credit/procure et increment de version
+safehtml                | a63d837 | cedric       | 2021-05-07 | Mise a jour des tests unitaires avec la v1.3.12 de safehtml
+safehtml                | accba7a | cedric       | 2021-05-07 | Mise a jour de SafeHTML en version 1.3.12 depuis https://bitbucket.org/wackowiki/wackowiki/src/master/wacko/lib/ Inclu..
+safehtml                | 3e15768 | cedric       | 2021-05-07 | Un test unitaire pour safehtml avec des string random et un jeu de test xss pour au moins verifier qu'on ne casse rien..
+squelettes-dist         | bbf7446 | cedric       | 2021-02-17 | Mise a jour des Disallow/Noindex pour permettres aux robots sociaux d'acceder aux images referencees dans les pages ht..
+
+
 SPIP-Core v3.2.10 -> v3.2.11 (26 March 2021)
 --------------------------------------------
 
