@@ -140,11 +140,18 @@ function inc_suivre_invalideur_dist($cond, $modif = true) {
  **/
 function purger_repertoire($dir, $options = []) {
 	if (!is_dir($dir) or !is_readable($dir)) {
-		return;
+		return 0;
 	}
+
+	// sur certains sites on veut absolument garder certains caches référencés dans un CDN
+	// on peut donc inhiber la purge de ces répertoires pour eviter tout probleme
+	if (file_exists(rtrim($dir,'/') . '/inhib_purger_repertoire.txt')) {
+		return 0;
+	}
+
 	$handle = opendir($dir);
 	if (!$handle) {
-		return;
+		return 0;
 	}
 
 	$total = 0;
