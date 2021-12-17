@@ -84,7 +84,7 @@ function install_etape_3b_dist() {
 		include_spip('auth/sha256.inc');
 		include_spip('inc/acces');
 		if ($generer_htpass = charger_fonction('generer_htpass', 'inc', true)) {
-			$htpass = $generer_htpass($new_pass);
+			$htpass = $generer_htpass($pass);
 		}
 		$alea_actuel = creer_uniqid();
 		$alea_futur = creer_uniqid();
