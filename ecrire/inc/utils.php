@@ -2149,6 +2149,9 @@ function generer_url_ecrire($script = '', $args = '', $no_entities = false, $rel
  *     Nom du fichier (constante _SPIP_SCRIPT), sinon nom par défaut
  **/
 function get_spip_script($default = '') {
+	if (!defined('_SPIP_SCRIPT')) {
+		return 'spip.php';
+	}
 	# cas define('_SPIP_SCRIPT', '');
 	if (_SPIP_SCRIPT) {
 		return _SPIP_SCRIPT;
