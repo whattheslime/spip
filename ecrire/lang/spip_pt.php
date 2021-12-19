@@ -259,8 +259,7 @@ Pediu para alterar o seu endereço e-mail. Para confirmar o seu novo endereço, 
 	'form_forum_message_auto' => '(esta é uma mensagem automática)',
 	'form_forum_pass' => 'palavra-passe',
 	'form_forum_probleme_mail' => 'Problema de mail :o identificador não pôde ser enviado',
-	'form_forum_voici1' => 'Estes são os seus dados para poder participar nos fóruns
- do sítio  "@nom_site_spip@" (@adresse_site@):',
+	'form_forum_voici1' => 'Aqui estão os seus dados para poder aceder ao sítio Internet do  "@nom_site_spip@" (@adresse_site@):',
 	'form_forum_voici2' => 'Eis os seus identificadores para propor artigos no
  sítio "@nom_site_spip@" (@adresse_login@):',
 	'form_indiquer_email' => 'Por favor indique o seu endereço email.',
