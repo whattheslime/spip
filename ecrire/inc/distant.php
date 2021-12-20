@@ -91,19 +91,19 @@ function copie_locale($source, $mode = 'auto', $local = null, $taille_max = null
 	}
 
 	$localrac = _DIR_RACINE . $local;
-	$t = ($mode == 'force') ? false : @file_exists($localrac);
+	$t = ($mode === 'force') ? false : @file_exists($localrac);
 
 	// test d'existence du fichier
-	if ($mode == 'test') {
+	if ($mode === 'test') {
 		return $t ? $local : '';
 	}
 
 	// sinon voir si on doit/peut le telecharger
-	if ($local == $source or !tester_url_absolue($source)) {
+	if ($local === $source or !tester_url_absolue($source)) {
 		return $local;
 	}
 
-	if ($mode == 'modif' or !$t) {
+	if ($mode === 'modif' or !$t) {
 		// passer par un fichier temporaire unique pour gerer les echecs en cours de recuperation
 		// et des eventuelles recuperations concurantes
 		include_spip('inc/acces');
@@ -907,7 +907,7 @@ function fichier_copie_locale($source) {
 	if (
 		!@file_exists($cache)
 		or !$path_parts = @unserialize(spip_file_get_contents($cache))
-		or _request('var_mode') == 'recalcul'
+		or _request('var_mode') === 'recalcul'
 	) {
 		$path_parts = recuperer_infos_distantes($source, 0, false);
 		ecrire_fichier($cache, serialize($path_parts));
