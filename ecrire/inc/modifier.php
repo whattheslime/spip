@@ -322,7 +322,6 @@ function objet_modifier_champs($objet, $id_objet, $options, $c = null, $serveur 
 	}
 	journal(_L($qui . ' a édité ' . $objet . ' ' . $id_objet . ' (' . join(
 		'+',
-		'+',
 		array_diff(array_keys($champs), ['date_modif'])
 	) . ')'), [
 		'faire' => 'modifier',
