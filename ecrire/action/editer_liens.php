@@ -53,7 +53,7 @@ function objet_associable($objet) {
 	$l = '';
 	if (
 		$primary = id_table_objet($objet)
-		and $trouver_table($l = $table_sql . '_liens')
+		and $trouver_table($l = $table_sql . '_liens', '', true, ['log_missing' => false])
 		and !preg_match(',[^\w],', $primary)
 		and !preg_match(',[^\w],', $l)
 	) {
