@@ -282,7 +282,7 @@ function spip_nfsunlock($fichier, $birth, $max_age = 0, $test = false) {
 			if (!$test) {
 				return false;
 			} //(NFSL_LOST);
-			sleep(1 + (random(0, 4)));    /* so sleep a bit */
+			sleep(1 + (rand(0, 4)));    /* so sleep a bit */
 		}
 
 		return true;//(NFSL_OK);			/* success */
