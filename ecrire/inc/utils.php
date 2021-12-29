@@ -961,7 +961,7 @@ function _L($text, $args = [], $options = []) {
  * Pour afficher `ecrire/action/` au lieu de `action/` dans les messages
  * ou `tmp/` au lieu de `../tmp/`
  *
- * @param stirng $rep Chemin d’un répertoire
+ * @param string $rep Chemin d’un répertoire
  * @return string
  */
 function joli_repertoire($rep) {
