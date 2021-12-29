@@ -603,7 +603,7 @@ function parametre_url($url, $c, $v = null, $sep = '&amp;') {
 			} else {
 				$id = (substr($k, -2) == '[]') ? $k : ($k . "[]");
 				foreach ($v as $w) {
-					$url[] = $id . '=' . (is_array($w) ? 'Array' : $w);
+					$url[] = $id . '=' . (is_array($w) ? 'Array' : rawurlencode($w));
 				}
 			}
 		}
