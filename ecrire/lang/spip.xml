@@ -5,7 +5,7 @@
 	url="https://trad.spip.net"
 	source="https://git.spip.net/spip/spip.git"
 	reference="fr">
-	<langue code="ar" url="https://trad.spip.net/tradlang_module/spip?lang_cible=ar" total="650" traduits="649" relire="0" modifs="1" nouveaux="0" pourcent="99.85">
+	<langue code="ar" url="https://trad.spip.net/tradlang_module/spip?lang_cible=ar" total="650" traduits="650" relire="0" modifs="0" nouveaux="0" pourcent="100.00">
 		<traducteur nom="George" lien="https://trad.spip.net/auteur/جورج-قندلفت" />
 	</langue>
 	<langue code="ast" url="https://trad.spip.net/tradlang_module/spip?lang_cible=ast" total="650" traduits="582" relire="0" modifs="12" nouveaux="56" pourcent="89.54">
