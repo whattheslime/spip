@@ -187,7 +187,7 @@ function cvtconf_formulaires_configurer_recense($form) {
 			foreach ($balises as $b) {
 				if ($n = extraire_attribut($b, 'name')
 					and preg_match(",^([\w\-]+)(\[\w*\])?$,", $n, $r)
-					and !in_array($n, array('formulaire_action', 'formulaire_action_args'))
+					and !in_array($n, array('formulaire_action', 'formulaire_action_args', 'formulaire_action_sign'))
 					and extraire_attribut($b, 'type') !== 'submit'
 				) {
 					$valeurs[$r[1]] = '';
