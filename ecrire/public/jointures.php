@@ -242,8 +242,9 @@ function fabrique_jointures(&$boucle, $res, $cond = false, $desc = [], $nom = ''
  * @return bool
  */
 function nogroupby_if($depart, $arrivee, $col) {
-	$pk = $arrivee['key']['PRIMARY KEY'];
-	if (!$pk) {
+	if (empty($arrivee['key']['PRIMARY KEY'])
+	  or !($pk = $arrivee['key']['PRIMARY KEY'])
+	  or empty($depart['key']['PRIMARY KEY'])) {
 		return false;
 	}
 	$id_primary = $depart['key']['PRIMARY KEY'];
