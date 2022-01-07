@@ -115,13 +115,15 @@ function copie_locale($source, $mode = 'auto', $local = null, $taille_max = null
 			['file' => $localrac, 'taille_max' => $taille_max, 'if_modified_since' => $t ? filemtime($localrac) : '']
 		);
 		if (!$res or (!$res['length'] and $res['status'] != 304)) {
-			spip_log("copie_locale : Echec recuperation $source sur $localrac status : " . $res['status'], 'distant' . _LOG_INFO_IMPORTANTE);
+			spip_log("copie_locale : Echec recuperation $source sur $localrac status : " . ($res ? $res['status'] : '-'), 'distant' . _LOG_INFO_IMPORTANTE);
 		}
-		if (!$res['length']) {
+		else {
+			spip_log("copie_locale : recuperation $source sur $localrac OK | taille " . $res['length'] . ' status ' . $res['status'], 'distant');
+		}
+		if (!$res or !$res['length']) {
 			// si $t c'est sans doute juste un not-modified-since
 			return $t ? $local : false;
 		}
-		spip_log("copie_locale : recuperation $source sur $localrac taille " . $res['length'] . ' OK', 'distant');
 
 		// si on retrouve l'extension
 		if (!empty($res['headers'])
