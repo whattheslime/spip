@@ -1959,14 +1959,14 @@ function calculer_critere_DEFAUT_args($idb, &$boucles, $crit, $args) {
 			];
 		}
 		$where = ["'?'", "!(is_array($pred)?count($pred):strlen($pred))", "''", $where];
-		if ($where_complement) { 
+		if ($where_complement) {
 			// condition annexe du type "AND (objet='article')"
 			$where_complement = ["'?'", "!(is_array($pred)?count($pred):strlen($pred))", "''", $where_complement];
 		}
 	}
 
 	$boucles[$idb]->where[] = $where;
-	if ($where_complement) { 
+	if ($where_complement) {
 		// condition annexe du type "AND (objet='article')"
 		$boucles[$idb]->where[] = $where_complement;
 	}

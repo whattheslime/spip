@@ -217,7 +217,7 @@ function valider_url_distante($url, $known_hosts = []) {
 				foreach ($records as $record) {
 					// il faut que le TTL soit suffisant afin d'etre certain que le copie_locale eventuel qui suit
 					// se fasse sur la meme IP
-					if ($record['ttl']<10) {
+					if ($record['ttl'] < 10) {
 						$ip = false;
 						break;
 					}
