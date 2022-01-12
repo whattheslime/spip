@@ -388,6 +388,9 @@ function lire_fichier_securise($fichier, &$contenu, $options = []) {
  *     Chemin du fichier
  **/
 function raler_fichier($fichier) {
+	if (!defined('_SPIP_ECRIRE_SCRIPT')) {
+		spip_initialisation_suite();
+	}
 	include_spip('inc/minipres');
 	$dir = dirname($fichier);
 	http_response_code(401);
