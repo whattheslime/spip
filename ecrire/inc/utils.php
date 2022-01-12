@@ -1974,7 +1974,7 @@ function url_de_base($profondeur = null) {
 	}
 
 	if (is_null($profondeur)) {
-		$profondeur = $GLOBALS['profondeur_url'];
+		$profondeur = $GLOBALS['profondeur_url'] ?? (_DIR_RESTREINT ? 0 : 1);
 	}
 
 	if (isset($url[$profondeur])) {
