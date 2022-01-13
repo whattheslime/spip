@@ -5,7 +5,7 @@
  * @internal
  */
 class Spip_Css_Vars_Collection {
-	private $vars = [];
+	private array $vars = [];
 
 	public function add(string $var, string $value) {
 		$this->vars[$var] = $value;

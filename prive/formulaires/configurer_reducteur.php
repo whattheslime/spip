@@ -37,7 +37,7 @@ function formulaires_configurer_reducteur_charger_dist() {
 			'taille_preview',
 		] as $m
 	) {
-		$valeurs[$m] = isset($GLOBALS['meta'][$m]) ? $GLOBALS['meta'][$m] : null;
+		$valeurs[$m] = $GLOBALS['meta'][$m] ?? null;
 	}
 
 	$valeurs['taille_preview'] = intval($valeurs['taille_preview']);
@@ -136,7 +136,7 @@ function url_vignette_choix($process) {
 			}
 			break;
 		case 'imagick':
-			if (!method_exists('Imagick', 'readImage')) {
+			if (!method_exists(\Imagick::class, 'readImage')) {
 				return '';
 			}
 			break;

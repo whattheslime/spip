@@ -17,7 +17,7 @@ if (!defined('_ECRIRE_INC_VERSION')) {
 include_spip('inc/install');
 
 function formulaires_declarer_bases_charger_dist() {
-	list($adresse_db, $login_db, $pass_db, $sel, $server_db) = analyse_fichier_connection(_FILE_CONNECT);
+	[$adresse_db, $login_db, $pass_db, $sel, $server_db] = analyse_fichier_connection(_FILE_CONNECT);
 
 	$deja = bases_referencees(_FILE_CONNECT);
 	// proposer un nom de connect si pas encore saisi
@@ -104,7 +104,7 @@ function liste_bases($server_db) {
 
 function formulaires_declarer_bases_verifier_1_dist() {
 	$erreurs = [];
-	list($def_adresse_db, $def_login_db, $def_pass_db, $sel_db, $def_serveur_db) = analyse_fichier_connection(_FILE_CONNECT);
+	[$def_adresse_db, $def_login_db, $def_pass_db, $sel_db, $def_serveur_db] = analyse_fichier_connection(_FILE_CONNECT);
 
 	if (!$adresse_db = _request('adresse_db')) {
 		if (defined('_INSTALL_HOST_DB')) {
@@ -205,7 +205,7 @@ function formulaires_declarer_bases_traiter_dist() {
 
 	$adresse_db = _DECLARER_ADRESSE_DB;
 	if (preg_match(',(.*):(.*),', $adresse_db, $r)) {
-		list(, $adresse_db, $port) = $r;
+		[, $adresse_db, $port] = $r;
 	} else {
 		$port = '';
 	}

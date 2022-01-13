@@ -256,7 +256,7 @@ function formulaires_editer_logo_traiter_dist($objet, $id_objet, $retour = '', $
  */
 function formulaire_editer_logo_get_sources() {
 	if (!$_FILES) {
-		$_FILES = isset($GLOBALS['HTTP_POST_FILES']) ? $GLOBALS['HTTP_POST_FILES'] : [];
+		$_FILES = $GLOBALS['HTTP_POST_FILES'] ?? [];
 	}
 	if (!is_array($_FILES)) {
 		return [];

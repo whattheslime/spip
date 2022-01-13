@@ -89,7 +89,7 @@ function formulaires_editer_liens_charger_dist($a, $b, $c, $options = []) {
 
 	$editable = $options['editable'];
 
-	list($table_source, $objet, $id_objet, $objet_lien) = determine_source_lien_objet($a, $b, $c);
+	[$table_source, $objet, $id_objet, $objet_lien] = determine_source_lien_objet($a, $b, $c);
 	if (!$table_source or !$objet or !$objet_lien or !$id_objet) {
 		return false;
 	}
@@ -220,7 +220,7 @@ function formulaires_editer_liens_traiter_dist($a, $b, $c, $options = []) {
 	$editable = $options['editable'];
 
 	$res = ['editable' => $editable ? true : false];
-	list($table_source, $objet, $id_objet, $objet_lien) = determine_source_lien_objet($a, $b, $c);
+	[$table_source, $objet, $id_objet, $objet_lien] = determine_source_lien_objet($a, $b, $c);
 	if (!$table_source or !$objet or !$objet_lien) {
 		return $res;
 	}
@@ -296,7 +296,7 @@ function formulaires_editer_liens_traiter_dist($a, $b, $c, $options = []) {
 				foreach ($supprimer as $k => $v) {
 					if ($lien = lien_verifier_action($k, $v)) {
 						$lien = explode('-', $lien);
-						list($objet_source, $ids, $objet_lie, $idl, $role) = array_pad($lien, 5, null);
+						[$objet_source, $ids, $objet_lie, $idl, $role] = array_pad($lien, 5, null);
 						// appliquer une condition sur le rôle si défini ('*' pour tous les roles)
 						$cond = (!is_null($role) ? ['role' => $role] : []);
 						if ($objet_lien == $objet_source) {
@@ -329,7 +329,7 @@ function formulaires_editer_liens_traiter_dist($a, $b, $c, $options = []) {
 				foreach ($ajouter as $k => $v) {
 					if ($lien = lien_verifier_action($k, $v)) {
 						$ajout_ok = true;
-						list($objet1, $ids, $objet2, $idl) = explode('-', $lien);
+						[$objet1, $ids, $objet2, $idl] = explode('-', $lien);
 						$qualifs = lien_retrouver_qualif($objet_lien, $lien);
 						if ($objet_lien == $objet1) {
 							lien_ajouter_liaisons($objet1, $ids, $objet2, $idl, $qualifs);
@@ -352,7 +352,7 @@ function formulaires_editer_liens_traiter_dist($a, $b, $c, $options = []) {
 			include_spip('action/editer_liens');
 			foreach ($ordonner as $k => $rang_lien) {
 				if ($lien = lien_verifier_action($k, '')) {
-					list($objet1, $ids, $objet2, $idl) = explode('-', $lien);
+					[$objet1, $ids, $objet2, $idl] = explode('-', $lien);
 					$qualif = ['rang_lien' => $rang_lien];
 
 					if ($objet_lien == $objet1) {
@@ -426,7 +426,7 @@ function lien_verifier_action($k, $v) {
 function lien_retrouver_qualif($objet_lien, $lien) {
 	// un role est défini dans la liaison
 	$defs = explode('-', $lien);
-	list($objet1, , $objet2, , $role) = array_pad($defs, 5, null);
+	[$objet1, , $objet2, , $role] = array_pad($defs, 5, null);
 	if ($objet_lien == $objet1) {
 		$colonne_role = roles_colonne($objet1, $objet2);
 	} else {
@@ -464,12 +464,12 @@ function lien_retrouver_qualif($objet_lien, $lien) {
 	// $qualif de la forme array(role=>array(...),valeur=>array(...),....)
 	// on le reforme en array(array(role=>..,valeur=>..,..),array(role=>..,valeur=>..,..),...)
 	$qualifs = [];
-	while (count($qualif)) {
+	while (is_countable($qualif) ? count($qualif) : 0) {
 		$q = [];
 		foreach ($qualif as $att => $values) {
 			if (is_array($values)) {
 				$q[$att] = array_shift($qualif[$att]);
-				if (!count($qualif[$att])) {
+				if (!(is_countable($qualif[$att]) ? count($qualif[$att]) : 0)) {
 					unset($qualif[$att]);
 				}
 			} else {

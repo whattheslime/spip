@@ -33,7 +33,7 @@ include_spip('base/abstract_sql');
 function is_url_prive($cible) {
 	include_spip('inc/filtres_mini');
 	$path = parse_url(tester_url_absolue($cible) ? $cible : url_absolue($cible));
-	$path = (isset($path['path']) ? $path['path'] : '');
+	$path = ($path['path'] ?? '');
 
 	return strncmp(substr($path, -strlen(_DIR_RESTREINT_ABS)), _DIR_RESTREINT_ABS, strlen(_DIR_RESTREINT_ABS)) == 0;
 }
@@ -112,12 +112,12 @@ function formulaires_login_charger_dist($cible = '', $options = [], $deprecated 
 	$valeurs = [
 		'var_login' => $login,
 		'editable' => !$row,
-		'cnx' => isset($row['cnx']) ? $row['cnx'] : '0',
+		'cnx' => $row['cnx'] ?? '0',
 		'auth_http' => login_auth_http(),
 		'rester_connecte' => ((_RENOUVELLE_ALEA < 12 * 3600) ? '' : ' '),
-		'_logo' => isset($row['logo']) ? $row['logo'] : '',
-		'_alea_actuel' => isset($row['alea_actuel']) ? $row['alea_actuel'] : '',
-		'_alea_futur' => isset($row['alea_futur']) ? $row['alea_futur'] : '',
+		'_logo' => $row['logo'] ?? '',
+		'_alea_actuel' => $row['alea_actuel'] ?? '',
+		'_alea_futur' => $row['alea_futur'] ?? '',
 		'_pipeline' => 'affiche_formulaire_login', // faire passer le formulaire dans un pipe dedie pour les methodes auth
 		'_autofocus' => ($options['autofocus'] and $options['autofocus'] !== 'non') ? ' ' : '',
 	];
@@ -218,6 +218,7 @@ function login_auth_http() {
  **/
 function formulaires_login_verifier_dist($cible = '', $options = [], $deprecated = null) {
 
+	$erreurs = [];
 	if (!is_array($options)) {
 		$options = [
 			'login' => $options,

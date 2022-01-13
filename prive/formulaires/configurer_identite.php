@@ -21,7 +21,7 @@ function formulaires_configurer_identite_charger_dist() {
 
 	$valeurs = [];
 	foreach (['nom_site', 'adresse_site', 'slogan_site', 'descriptif_site', 'email_webmaster'] as $k) {
-		$valeurs[$k] = isset($GLOBALS['meta'][$k]) ? $GLOBALS['meta'][$k] : '';
+		$valeurs[$k] = $GLOBALS['meta'][$k] ?? '';
 	}
 
 	return $valeurs;
@@ -46,7 +46,7 @@ function formulaires_configurer_identite_verifier_dist() {
 
 function formulaires_configurer_identite_traiter_dist() {
 	include_spip('inc/config');
-	$adresse_site = isset($GLOBALS['meta']['adresse_site']) ? $GLOBALS['meta']['adresse_site'] : '';
+	$adresse_site = $GLOBALS['meta']['adresse_site'] ?? '';
 	if (_request('adresse_site') != $adresse_site) {
 		refuser_traiter_formulaire_ajax();
 	}

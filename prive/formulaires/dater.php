@@ -45,6 +45,11 @@ if (!defined('_ECRIRE_INC_VERSION')) {
  **/
 function formulaires_dater_charger_dist($objet, $id_objet, $retour = '', $options = []) {
 
+	$jour = null;
+	$mois = null;
+	$annee = null;
+	$heure = null;
+	$minute = null;
 	$objet = objet_type($objet);
 	if (!$objet or !intval($id_objet)) {
 		return false;
@@ -63,7 +68,7 @@ function formulaires_dater_charger_dist($objet, $id_objet, $retour = '', $option
 		return false;
 	}
 
-	$champ_date = $desc['date'] ? $desc['date'] : 'date';
+	$champ_date = $desc['date'] ?: 'date';
 	if (isset($options['champ_date']) and $options['champ_date']) {
 		$champ_date = $options['champ_date'];
 	}
@@ -92,7 +97,7 @@ function formulaires_dater_charger_dist($objet, $id_objet, $retour = '', $option
 
 
 	$row = sql_fetsel($select, $desc['table'], "$_id_objet=" . intval($id_objet));
-	$statut = isset($row['statut']) ? $row['statut'] : 'publie'; // pas de statut => publie
+	$statut = $row['statut'] ?? 'publie'; // pas de statut => publie
 
 	$valeurs['editable'] = autoriser('dater', $objet, $id_objet, null, ['statut' => $statut]);
 
@@ -289,7 +294,7 @@ function formulaires_dater_traiter_dist($objet, $id_objet, $retour = '', $option
 			return ['message_erreur' => _L('erreur')];
 		} #impossible en principe
 
-		$champ_date = $desc['date'] ? $desc['date'] : 'date';
+		$champ_date = $desc['date'] ?: 'date';
 		if (isset($options['champ_date']) and $options['champ_date']) {
 			$champ_date = $options['champ_date'];
 		}

@@ -18,17 +18,17 @@ function formulaires_configurer_multilinguisme_charger_dist() {
 	$valeurs = [];
 	$valeurs['multi_secteurs'] = $GLOBALS['meta']['multi_secteurs'];
 	foreach (['multi_objets', 'gerer_trad_objets'] as $m) {
-		$valeurs[$m] = explode(',', isset($GLOBALS['meta'][$m]) ? $GLOBALS['meta'][$m] : '');
+		$valeurs[$m] = explode(',', $GLOBALS['meta'][$m] ?? '');
 	}
 
 	if (
-		count($valeurs['multi_objets'])
+		is_countable($valeurs['multi_objets']) ? count($valeurs['multi_objets']) : 0
 		or count(explode(',', $GLOBALS['meta']['langues_utilisees'])) > 1
 	) {
 		$selection = (is_null(_request('multi_objets')) ?
 			explode(',', $GLOBALS['meta']['langues_multilingue']) : _request('langues_auth'));
-		$valeurs['_langues'] = saisie_langues_utiles('langues_auth', $selection ? $selection : []);
-		$valeurs['_nb_langues_selection'] = count($selection);
+		$valeurs['_langues'] = saisie_langues_utiles('langues_auth', $selection ?: []);
+		$valeurs['_nb_langues_selection'] = is_countable($selection) ? count($selection) : 0;
 	}
 
 	return $valeurs;

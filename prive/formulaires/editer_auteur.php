@@ -171,7 +171,7 @@ function formulaires_editer_auteur_verifier_dist(
 	}
 
 	$auth_methode = sql_getfetsel('source', 'spip_auteurs', 'id_auteur=' . intval($id_auteur));
-	$auth_methode = ($auth_methode ? $auth_methode : 'spip');
+	$auth_methode = ($auth_methode ?: 'spip');
 	include_spip('inc/auth');
 
 	if (!nom_acceptable(_request('nom'))) {
@@ -223,7 +223,7 @@ function formulaires_editer_auteur_verifier_dist(
 	}
 
 	// quand c'est un auteur existant on fait le reset password ici
-	if (!count($erreurs) and _request('reset_password') and intval($id_auteur)) {
+	if (!(is_countable($erreurs) ? count($erreurs) : 0) and _request('reset_password') and intval($id_auteur)) {
 		$erreurs = auteur_reset_password($id_auteur, $erreurs);
 		return $erreurs;
 	}
@@ -321,8 +321,9 @@ function formulaires_editer_auteur_traiter_dist(
 	$row = [],
 	$hidden = ''
 ) {
+	$id_objet = null;
 	if (_request('saisie_webmestre') or _request('webmestre')) {
-		set_request('webmestre', _request('webmestre') ? _request('webmestre') : 'non');
+		set_request('webmestre', _request('webmestre') ?: 'non');
 	}
 	$retour = parametre_url($retour, 'email_confirm', '');
 
@@ -402,7 +403,7 @@ function formulaires_editer_auteur_traiter_dist(
 			$objet = 'article';
 			$id_objet = intval($associer_objet);
 		} elseif (preg_match(',^\w+\|[0-9]+$,', $associer_objet)) {
-			list($objet, $id_objet) = explode('|', $associer_objet);
+			[$objet, $id_objet] = explode('|', $associer_objet);
 		}
 		if ($objet and $id_objet and autoriser('modifier', $objet, $id_objet)) {
 			include_spip('action/editer_auteur');

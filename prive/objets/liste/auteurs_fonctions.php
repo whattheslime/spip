@@ -115,7 +115,7 @@ function afficher_initiale($url, $initiale, $compteur, $debut, $pas) {
 		}
 	}
 	if (!$initiale and !$url) {
-		if (count($res) > 1) {
+		if ((is_countable($res) ? count($res) : 0) > 1) {
 			$out = implode(' ', $res);
 		}
 		$memo = null;
