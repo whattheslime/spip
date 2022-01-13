@@ -49,9 +49,7 @@ function parametres_css_prive() {
 	// un md5 des menus : si un menu change il faut maj la css
 	$args['md5b'] = (function_exists('md5_boutons_plugins') ? md5_boutons_plugins() : '');
 
-	$c = isset($GLOBALS['visiteur_session']['prefs']['couleur'])
-		? $GLOBALS['visiteur_session']['prefs']['couleur']
-		: 2;
+	$c = $GLOBALS['visiteur_session']['prefs']['couleur'] ?? 2;
 
 	$couleurs = charger_fonction('couleurs', 'inc');
 	parse_str($couleurs($c), $c);
@@ -486,7 +484,7 @@ function alertes_auteur($id_auteur) {
 		$alertes[] = _T('plugins_erreur', ['plugins' => $msg]);
 	}
 
-	$a = isset($GLOBALS['meta']['message_alertes_auteurs']) ? $GLOBALS['meta']['message_alertes_auteurs'] : '';
+	$a = $GLOBALS['meta']['message_alertes_auteurs'] ?? '';
 	if (
 		$a
 		and is_array($a = unserialize($a))

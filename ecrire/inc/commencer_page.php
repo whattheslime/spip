@@ -157,13 +157,11 @@ function init_body($rubrique = 'accueil', $sous_rubrique = 'accueil', $id_rubriq
  * @return string Classes CSS (séparées par des espaces)
  */
 function init_body_class() {
-	$prefs = isset($GLOBALS['visiteur_session']['prefs']) ? $GLOBALS['visiteur_session']['prefs'] : [];
+	$prefs = $GLOBALS['visiteur_session']['prefs'] ?? [];
 
-	$GLOBALS['spip_display'] = isset($prefs['display']) ? (int) $prefs['display'] : 2;
+	$GLOBALS['spip_display'] = intval($prefs['display'] ?? 2);
 	$spip_display_navigation = isset($prefs['display_navigation']) ? spip_sanitize_classname($prefs['display_navigation']) : 'navigation_avec_icones';
-	$spip_display_outils = isset($prefs['display_outils'])
-		? ($prefs['display_outils'] ? 'navigation_avec_outils' : 'navigation_sans_outils')
-		: 'navigation_avec_outils';
+	$spip_display_outils = ($prefs['display_outils'] ?? true) ? 'navigation_avec_outils' : 'navigation_sans_outils';
 	$GLOBALS['spip_ecran'] = isset($_COOKIE['spip_ecran']) ? spip_sanitize_classname($_COOKIE['spip_ecran']) : 'etroit';
 
 	$display_class = [
@@ -174,7 +172,7 @@ function init_body_class() {
 		3 => 'icones_img'
 	];
 
-	$couleur = isset($prefs['couleur']) ? (int) $prefs['couleur'] : 2;
+	$couleur = intval($prefs['couleur'] ?? 2);
 
 	$classes = $GLOBALS['spip_ecran'] . " spip-theme-colors-$couleur $spip_display_navigation $spip_display_outils " . $display_class[$GLOBALS['spip_display']];
 	return spip_sanitize_classname($classes);

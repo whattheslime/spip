@@ -52,7 +52,7 @@ function balise_URL_LOGOUT($p) {
  *   Liste (url) des arguments collectés.
  */
 function balise_URL_LOGOUT_stat($args, $context_compil) {
-	$url = isset($args[0]) ? $args[0] : '';
+	$url = $args[0] ?? '';
 
 	return [$url];
 }

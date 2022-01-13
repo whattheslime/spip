@@ -1123,16 +1123,16 @@ function distant_trouver_extension_selon_headers($source, $headers) {
  * @return string
  */
 function need_proxy($host, $http_proxy = null, $http_noproxy = null) {
-	if (is_null($http_proxy)) {
-		$http_proxy = isset($GLOBALS['meta']['http_proxy']) ? $GLOBALS['meta']['http_proxy'] : null;
-	}
+
+	$http_proxy ??= $GLOBALS['meta']['http_proxy'] ?? null;
+	
 	// rien a faire si pas de proxy :)
 	if (is_null($http_proxy) or !$http_proxy = trim($http_proxy)) {
 		return '';
 	}
 
 	if (is_null($http_noproxy)) {
-		$http_noproxy = isset($GLOBALS['meta']['http_noproxy']) ? $GLOBALS['meta']['http_noproxy'] : null;
+		$http_noproxy = $GLOBALS['meta']['http_noproxy'] ?? null;
 	}
 	// si pas d'exception, on retourne le proxy
 	if (is_null($http_noproxy) or !$http_noproxy = trim($http_noproxy)) {
@@ -1372,7 +1372,7 @@ function lance_requete(
 		stream_set_timeout($f, _INC_DISTANT_CONNECT_TIMEOUT);
 	}
 
-	$site = isset($GLOBALS['meta']['adresse_site']) ? $GLOBALS['meta']['adresse_site'] : '';
+	$site = $GLOBALS['meta']['adresse_site'] ?? '';
 
 	$host_port = $host;
 	if ($port != (in_array($scheme, ['tls','ssl']) ? 443 : 80)) {

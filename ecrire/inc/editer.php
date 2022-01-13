@@ -741,7 +741,7 @@ function signaler_conflits_edition($conflits, $redirect = '') {
 	$diffs = [];
 	foreach ($conflits as $champ => $a) {
 		// probleme de stockage ou conflit d'edition ?
-		$base = isset($a['save']) ? $a['save'] : $a['base'];
+		$base = $a['save'] ?? $a['base'];
 
 		$diff = new Diff(new DiffTexte());
 		$n = preparer_diff($a['post']);

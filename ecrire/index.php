@@ -147,9 +147,7 @@ elseif (!preg_match(',^[a-z4_][0-9a-z_-]*$,i', $exec)) {
 }
 
 // compatibilite ascendante : obsolete, ne plus utiliser
-$GLOBALS['spip_display'] = isset($GLOBALS['visiteur_session']['prefs']['display'])
-	? (int) $GLOBALS['visiteur_session']['prefs']['display']
-	: 0;
+$GLOBALS['spip_display'] = intval($GLOBALS['visiteur_session']['prefs']['display'] ?? 0);
 $GLOBALS['spip_ecran'] = isset($_COOKIE['spip_ecran']) ? preg_replace('/[^a-z0-9]/i', '', $_COOKIE['spip_ecran']) : 'etroit';
 
 //  si la langue est specifiee par cookie et ne correspond pas

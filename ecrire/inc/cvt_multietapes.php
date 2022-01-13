@@ -284,7 +284,7 @@ function cvtmulti_formulaire_verifier_etapes($args, $erreurs) {
 			$etape = min($etape, $etapes);
 			#var_dump("prochaine etape $etape");
 			// retourner les erreurs de l'etape ciblee
-			$erreurs = isset($erreurs_etapes[$etape]) ? $erreurs_etapes[$etape] : [];
+			$erreurs = $erreurs_etapes[$etape] ?? [];
 			// Ne pas se tromper dans le texte du message d'erreur : la clé '_etapes' n'est pas une erreur !
 			if ($erreurs) {
 				if (!isset($erreurs['message_erreur'])) {

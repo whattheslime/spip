@@ -395,7 +395,7 @@ function image_passe_partout(
 	}
 	list($hauteur, $largeur) = taille_image($img);
 	if ($taille_x === -1) {
-		$taille_x = isset($GLOBALS['meta']['taille_preview']) ? $GLOBALS['meta']['taille_preview'] : 150;
+		$taille_x = $GLOBALS['meta']['taille_preview'] ?? 150;
 	}
 	if ($taille_y === -1) {
 		$taille_y = $taille_x;

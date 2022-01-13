@@ -181,8 +181,8 @@ function article_inserer($id_rubrique, $set = null) {
 
 	// eviter $id_secteur = NULL (erreur sqlite) si la requete precedente echoue
 	// cas de id_rubrique = -1 par exemple avec plugin "pages"
-	$id_secteur = isset($row['id_secteur']) ? $row['id_secteur'] : 0;
-	$lang_rub = isset($row['lang']) ? $row['lang'] : '';
+	$id_secteur = $row['id_secteur'] ?? 0;
+	$lang_rub = $row['lang'] ?? '';
 
 	$lang = '';
 	$choisie = 'non';
@@ -299,19 +299,17 @@ function article_instituer($id_article, $c, $calcul_rub = true) {
 	$date_ancienne = $date = $row['date'];
 	$champs = [];
 
-	$d = isset($c['date']) ? $c['date'] : null;
-	$s = isset($c['statut']) ? $c['statut'] : $statut;
+	$d = $c['date'] ?? null;
+	$s = $c['statut'] ?? $statut;
 
 	// cf autorisations dans inc/instituer_article
 	if ($s != $statut or ($d and $d != $date)) {
 		if (autoriser('publierdans', 'rubrique', $id_rubrique)) {
 			$statut = $champs['statut'] = $s;
+		} elseif (autoriser('modifier', 'article', $id_article) and $s != 'publie') {
+			$statut = $champs['statut'] = $s;
 		} else {
-			if (autoriser('modifier', 'article', $id_article) and $s != 'publie') {
-				$statut = $champs['statut'] = $s;
-			} else {
-				spip_log("editer_article $id_article refus " . join(' ', $c));
-			}
+			spip_log("editer_article $id_article refus " . join(' ', $c));
 		}
 
 		// En cas de publication, fixer la date a "maintenant"

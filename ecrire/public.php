@@ -123,7 +123,7 @@ if (isset($GLOBALS['_INC_PUBLIC']) and $GLOBALS['_INC_PUBLIC']) {
 
 	// Content-Type ?
 	if (!isset($page['entetes']['Content-Type'])) {
-		$charset = isset($GLOBALS['meta']['charset']) ? $GLOBALS['meta']['charset'] : 'utf-8';
+		$charset = $GLOBALS['meta']['charset'] ?? 'utf-8';
 		$page['entetes']['Content-Type'] = 'text/html; charset=' . $charset;
 		$html = true;
 	} else {

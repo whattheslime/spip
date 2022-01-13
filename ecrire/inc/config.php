@@ -144,14 +144,14 @@ function lire_config($cfg = '', $def = null, $unserialize = true) {
 	// le deserializer si demande
 	// ou si on a besoin
 	// d'un sous casier
-	$r = isset($r[$casier]) ? $r[$casier] : null;
+	$r = $r[$casier] ?? null;
 	if (($unserialize or count($sous_casier)) and $r and is_string($r)) {
 		$r = (($t = @unserialize($r)) === false ? $r : $t);
 	}
 
 	// aller chercher le sous_casier
 	while (!is_null($r) and $casier = array_shift($sous_casier)) {
-		$r = isset($r[$casier]) ? $r[$casier] : null;
+		$r = $r[$casier] ?? null;
 	}
 
 	if (is_null($r)) {
@@ -199,7 +199,7 @@ function ecrire_config($cfg, $store) {
 	}
 
 	// trouvons ou creons le pointeur sur le casier
-	$st = isset($GLOBALS[$table][$casier]) ? $GLOBALS[$table][$casier] : null;
+	$st = $GLOBALS[$table][$casier] ?? null;
 	if (!is_array($st) and ($sous_casier or is_array($store))) {
 		$st = unserialize($st);
 		if ($st === false) {

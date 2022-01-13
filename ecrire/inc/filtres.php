@@ -221,7 +221,7 @@ function version_vcs_courante($dir, $raw = false) {
 		return $desc;
 	}
 	// affichage "GIT [master: abcdef]"
-	$commit = isset($desc['commit_short']) ? $desc['commit_short'] : $desc['commit'];
+	$commit = $desc['commit_short'] ?? $desc['commit'];
 	if ($desc['branch']) {
 		$commit = $desc['branch'] . ': ' . $commit;
 	}
@@ -4857,7 +4857,7 @@ function appliquer_traitement_champ($texte, $champ, $table_objet = '', $env = []
 	include_fichiers_fonctions();
 
 	$champ = strtoupper($champ);
-	$traitements = isset($GLOBALS['table_des_traitements'][$champ]) ? $GLOBALS['table_des_traitements'][$champ] : false;
+	$traitements = $GLOBALS['table_des_traitements'][$champ] ?? false;
 	if (!$traitements or !is_array($traitements)) {
 		return $texte;
 	}
@@ -4903,7 +4903,7 @@ function generer_lien_entite($id_objet, $objet, $longueur = 80, $connect = null)
 	$titre = traiter_raccourci_titre($id_objet, $objet, $connect);
 	// lorsque l'objet n'est plus declare (plugin desactive par exemple)
 	// le raccourcis n'est plus valide
-	$titre = isset($titre['titre']) ? typo($titre['titre']) : '';
+	$titre = typo($titre['titre']) ?? '';
 	// on essaye avec generer_info_entite ?
 	if (!strlen($titre) and !$connect) {
 		$titre = generer_info_entite($id_objet, $objet, 'titre');

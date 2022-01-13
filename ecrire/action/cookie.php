@@ -99,7 +99,7 @@ function action_cookie_dist($set_cookie_admin = null, $change_session = null) {
 				);
 			}
 		} else {
-			$cook = isset($_COOKIE['spip_admin']) ? $_COOKIE['spip_admin'] : '';
+			$cook = $_COOKIE['spip_admin'] ?? '';
 			// Suppression cookie d'admin ?
 			if ($set_cookie_admin == 'non') {
 				if ($cook) {

@@ -214,7 +214,7 @@ function balise_FORMULAIRE__contexte($form, $args) {
 	if ($je_suis_poste) {
 		$post = traiter_formulaires_dynamiques(true);
 		$e = "erreurs_$form";
-		$erreurs = isset($post[$e]) ? $post[$e] : [];
+		$erreurs = $post[$e] ?? [];
 		$editable = "editable_$form";
 		$editable = (!isset($post[$e]))
 			|| count($erreurs)
