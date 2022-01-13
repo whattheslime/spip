@@ -1326,14 +1326,17 @@ function taille_en_octets($taille) {
  * @uses textebrut()
  * @uses texte_backend()
  *
- * @param string $texte
+ * @param ?string $texte
  *     Texte à mettre en attribut
  * @param bool $textebrut
  *     Passe le texte en texte brut (enlève les balises html) ?
  * @return string
  *     Texte prêt pour être utilisé en attribut HTML
  **/
-function attribut_html(string $texte, $textebrut = true): string {
+function attribut_html(?string $texte, $textebrut = true): string {
+	if ($texte === null) {
+		return '';
+	}
 	$u = $GLOBALS['meta']['pcre_u'];
 	if ($textebrut) {
 		$texte = preg_replace([",\n,", ',\s(?=\s),msS' . $u], [' ', ''], textebrut($texte));
