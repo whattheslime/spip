@@ -240,7 +240,7 @@ function rubrique_instituer($id_rubrique, $c) {
 	if (null !== ($id_parent = $c['id_parent'])) {
 		$id_parent = intval($id_parent);
 		$filles = calcul_branche_in($id_rubrique);
-		if (strpos(",$id_parent,", ",$filles,") !== false) {
+		if (strpos(",$id_parent,", (string) ",$filles,") !== false) {
 			spip_log("La rubrique $id_rubrique ne peut etre fille de sa descendante $id_parent");
 		} else {
 			$s = sql_fetsel('id_parent, statut', 'spip_rubriques', "id_rubrique=$id_rubrique");

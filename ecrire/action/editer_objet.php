@@ -37,7 +37,7 @@ function action_editer_objet_dist($id = null, $objet = null, $set = null) {
 	if (is_null($id) or is_null($objet)) {
 		$securiser_action = charger_fonction('securiser_action', 'inc');
 		$arg = $securiser_action();
-		list($objet, $id) = array_pad(explode('/', $arg, 2), 2, null);
+		[$objet, $id] = array_pad(explode('/', $arg, 2), 2, null);
 	}
 
 	// appel incorrect ou depuis une url erronnée interdit
@@ -168,6 +168,7 @@ function objet_modifier($objet, $id, $set = null) {
  * @return bool|int
  */
 function objet_inserer($objet, $id_parent = null, $set = null) {
+	$d = null;
 	if (($t = objet_type($objet)) !== $objet) {
 		spip_log("objet_inserer: appel avec type $objet invalide au lieu de $t", 'editer' . _LOG_INFO_IMPORTANTE);
 		$objet = $t;
@@ -228,7 +229,7 @@ function objet_inserer($objet, $id_parent = null, $set = null) {
 			}
 		}
 	} elseif (isset($desc['field']['lang']) and isset($desc['field']['langue_choisie'])) {
-		$champs['lang'] = ($lang_rub ? $lang_rub : $GLOBALS['meta']['langue_site']);
+		$champs['lang'] = ($lang_rub ?: $GLOBALS['meta']['langue_site']);
 		$champs['langue_choisie'] = 'non';
 	}
 
@@ -370,7 +371,7 @@ function objet_instituer($objet, $id, $c, $calcul_rub = true) {
 			if ($s != 'publie' and autoriser('modifier', $objet, $id)) {
 				$statut = $champs['statut'] = $s;
 			} else {
-				spip_log("editer_objet $objet #$id refus " . json_encode($c), 'editer' . _LOG_INFO_IMPORTANTE);
+				spip_log("editer_objet $objet #$id refus " . json_encode($c, JSON_THROW_ON_ERROR), 'editer' . _LOG_INFO_IMPORTANTE);
 			}
 		}
 
@@ -432,7 +433,7 @@ function objet_instituer($objet, $id, $c, $calcul_rub = true) {
 		]
 	);
 
-	if (!count($champs)) {
+	if (!(is_countable($champs) ? count($champs) : 0)) {
 		return '';
 	}
 
@@ -631,7 +632,7 @@ function objet_lire($objet, $valeur_id, $options = []) {
 			$retour = array_intersect_key($retour, array_flip($champs));
 		} else {
 			// Valeur unique demandée.
-			$retour = (isset($retour[$champs]) ? $retour[$champs] : false);
+			$retour = ($retour[$champs] ?? false);
 		}
 	}
 

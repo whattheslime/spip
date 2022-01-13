@@ -212,7 +212,7 @@ function objet_trouver_liens($objets_source, $objets_lies, $cond = null) {
  * @return int
  */
 function objet_optimiser_liens($objets_source, $objets_lies) {
-	spip_log('objet_optimiser_liens : ' . json_encode($objets_source) . ', ' . json_encode($objets_lies), 'genie' . _LOG_DEBUG);
+	spip_log('objet_optimiser_liens : ' . json_encode($objets_source, JSON_THROW_ON_ERROR) . ', ' . json_encode($objets_lies, JSON_THROW_ON_ERROR), 'genie' . _LOG_DEBUG);
 	return objet_traiter_liaisons('lien_optimise', $objets_source, $objets_lies);
 }
 
@@ -313,7 +313,7 @@ function objet_traiter_liaisons($operation, $objets_source, $objets_lies, $set =
 	$echec = null;
 	foreach ($objets_source as $objet => $ids) {
 		if ($a = objet_associable($objet)) {
-			list($primary, $l) = $a;
+			[$primary, $l] = $a;
 			if (!is_array($ids)) {
 				$ids = [$ids];
 			} elseif (reset($ids) == 'NOT') {
@@ -377,7 +377,7 @@ function lien_insert($objet_source, $primary, $table_lien, $id, $objets, $qualif
 		}
 
 		// role, colonne, where par défaut
-		list($role, $colonne_role, $cond) =
+		[$role, $colonne_role, $cond] =
 			roles_trouver_dans_qualif($objet_source, $objet, $qualif);
 
 		foreach ($id_objets as $id_objet) {
@@ -676,7 +676,7 @@ function lien_delete($objet_source, $primary, $table_lien, $id, $objets, $cond =
 			$id_objets = [$id_objets];
 		}
 		foreach ($id_objets as $id_objet) {
-			list($cond, $colonne_role, $role) = roles_creer_condition_role($objet_source, $objet, $cond);
+			[$cond, $colonne_role, $role] = roles_creer_condition_role($objet_source, $objet, $cond);
 			// id_objet peut valoir '*'
 			$where = lien_where($primary, $id, $objet, $id_objet, $cond);
 
@@ -877,7 +877,7 @@ function lien_set($objet_source, $primary, $table_lien, $id, $objets, $qualif) {
 	unset($qualif['id_objet']);
 	foreach ($objets as $objet => $id_objets) {
 		// role, colonne, where par défaut
-		list($role, $colonne_role, $cond) =
+		[$role, $colonne_role, $cond] =
 			roles_trouver_dans_qualif($objet_source, $objet, $qualif);
 
 		$objet = ($objet == '*') ? $objet : objet_type($objet); # securite
@@ -980,7 +980,7 @@ function lien_find($objet_source, $primary, $table_lien, $id, $objets, $cond = n
 	foreach ($objets as $objet => $id_objets) {
 		$objet = ($objet == '*') ? $objet : objet_type($objet); # securite
 		// gerer les roles s'il y en a dans $cond
-		list($cond) = roles_creer_condition_role($objet_source, $objet, $cond, true);
+		[$cond] = roles_creer_condition_role($objet_source, $objet, $cond, true);
 		// lien_where prend en charge les $id_objets sous forme int ou array
 		$where = lien_where($primary, $id, $objet, $id_objets, $cond);
 		$liens = sql_allfetsel('*', $table_lien, $where);

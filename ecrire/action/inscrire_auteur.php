@@ -90,7 +90,7 @@ function action_inscrire_auteur_dist($statut, $mail_complet, $nom, $options = []
 
 	// charger de suite cette fonction, pour ses utilitaires
 	$envoyer_inscription = charger_fonction('envoyer_inscription', '');
-	list($sujet, $msg, $from, $head) = $envoyer_inscription($desc, $nom, $statut, $options);
+	[$sujet, $msg, $from, $head] = $envoyer_inscription($desc, $nom, $statut, $options);
 
 	$notifications = charger_fonction('notifications', 'inc');
 	notifications_envoyer_mails($mail_complet, $msg, $sujet, $from, $head);
@@ -248,7 +248,7 @@ function envoyer_inscription_dist($desc, $nom, $mode, $options = []) {
 		$modele_mail = $options['modele_mail'];
 	}
 	$message = recuperer_fond($modele_mail, $contexte);
-	$from = (isset($options['from']) ? $options['from'] : null);
+	$from = ($options['from'] ?? null);
 	$head = null;
 
 	return ['', $message, $from, $head];

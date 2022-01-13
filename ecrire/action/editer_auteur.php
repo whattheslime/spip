@@ -90,7 +90,7 @@ function auteur_inserer($source = null, $set = null) {
 
 	// Ce qu'on va demander comme modifications
 	$champs = [];
-	$champs['source'] = $source ? $source : 'spip';
+	$champs['source'] = $source ?: 'spip';
 
 	$champs['login'] = '';
 	$champs['statut'] = '5poubelle';  // inutilisable tant qu'il n'a pas ete renseigne et institue
@@ -391,7 +391,7 @@ function auteur_instituer($id_auteur, $c, $force_webmestre = false) {
 		$flag_ecrire_acces = true;
 	}
 
-	if (!count($champs)) {
+	if (!(is_countable($champs) ? count($champs) : 0)) {
 		return implode(' ', array_map('_T', $erreurs));
 	}
 	sql_updateq('spip_auteurs', $champs, 'id_auteur=' . $id_auteur);

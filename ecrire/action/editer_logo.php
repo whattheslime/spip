@@ -39,7 +39,7 @@ function logo_supprimer($objet, $id_objet, $etat) {
 	$logo = $chercher_logo($id_objet, $primary, $etat);
 	if ($logo) {
 		# TODO : deprecated, a supprimer -> anciens logos IMG/artonxx.png pas en base
-		if (count($logo) < 6) {
+		if ((is_countable($logo) ? count($logo) : 0) < 6) {
 			spip_log("Supprimer ancien logo $logo", 'logo');
 			spip_unlink($logo[0]);
 		}
@@ -139,8 +139,8 @@ function logo_modifier($objet, $id_objet, $etat, $source) {
 	$id_document = reset($ajoutes);
 
 	if (!is_numeric($id_document)) {
-		$erreur = ($id_document ? $id_document : 'Erreur inconnue');
-		spip_log("Erreur ajout logo : $erreur pour source=" . json_encode($source), 'logo');
+		$erreur = ($id_document ?: 'Erreur inconnue');
+		spip_log("Erreur ajout logo : $erreur pour source=" . json_encode($source, JSON_THROW_ON_ERROR), 'logo');
 		return $erreur;
 	}
 
@@ -172,9 +172,9 @@ function logo_migrer_en_base($objet, $time_limit) {
 		$files = glob($dir . $nom_base . '*');
 		// est-ce que c'est une nouvelle tentative de migration ?
 		// dans ce cas les logos sont deja dans IMG/logo/
-		if (!count($files)) {
+		if (!(is_countable($files) ? count($files) : 0)) {
 			$files = glob($dir_logos . $nom_base . '*');
-			if (count($files)) {
+			if (is_countable($files) ? count($files) : 0) {
 				// mais il faut verifier si ils ont pas deja ete migres pour tout ou partie
 				$filescheck = [];
 				foreach ($files as $file) {
@@ -183,7 +183,7 @@ function logo_migrer_en_base($objet, $time_limit) {
 				}
 				// trouver ceux deja migres
 				$deja = sql_allfetsel('fichier', 'spip_documents', sql_in('fichier', array_keys($filescheck)) . " AND mode LIKE 'logo%'");
-				if (count($deja)) {
+				if (is_countable($deja) ? count($deja) : 0) {
 					$deja = array_column($deja, 'fichier');
 					$restant = array_diff(array_keys($filescheck), $deja);
 					$files = [];
@@ -195,13 +195,13 @@ function logo_migrer_en_base($objet, $time_limit) {
 				}
 				// et si il en reste on peut y aller...
 				// mais il faut modifier $dir qui sert de base dans la suite
-				if (count($files)) {
+				if (is_countable($files) ? count($files) : 0) {
 					$dir = $dir_logos;
 				}
 			}
 		}
 
-		spip_log("logo_migrer_en_base $objet $mode : " . count($files) . ' logos restant', 'maj' . _LOG_INFO_IMPORTANTE);
+		spip_log("logo_migrer_en_base $objet $mode : " . (is_countable($files) ? count($files) : 0) . ' logos restant', 'maj' . _LOG_INFO_IMPORTANTE);
 
 		$deja = [];
 		foreach ($files as $file) {
@@ -214,7 +214,7 @@ function logo_migrer_en_base($objet, $time_limit) {
 				if (!isset($deja[$id_objet])) {
 					$logo = $chercher_logo($id_objet, $_id_objet, $mode);
 					// if no logo in base
-					if (!$logo or count($logo) < 6) {
+					if (!$logo or (is_countable($logo) ? count($logo) : 0) < 6) {
 						foreach ($formats_logos as $format) {
 							if (@file_exists($d = ($dir . ($nom = $nom_base . intval($id_objet) . '.' . $format)))) {
 								if (isset($desc['field']['date_modif'])) {

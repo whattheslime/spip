@@ -34,7 +34,7 @@ function action_instituer_objet_dist($arg = null) {
 		$arg = $securiser_action();
 	}
 
-	list($objet, $id_objet, $statut) = preg_split('/\W/', $arg);
+	[$objet, $id_objet, $statut] = preg_split('/\W/', $arg);
 	if (!$statut) {
 		$statut = _request('statut_nouv');
 	} // cas POST

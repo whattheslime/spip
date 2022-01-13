@@ -210,7 +210,7 @@ function article_inserer($id_rubrique, $set = null) {
 
 	if (!$lang) {
 		$choisie = 'non';
-		$lang = $lang_rub ? $lang_rub : $GLOBALS['meta']['langue_site'];
+		$lang = $lang_rub ?: $GLOBALS['meta']['langue_site'];
 	}
 
 	$champs = [
@@ -364,7 +364,7 @@ function article_instituer($id_article, $c, $calcul_rub = true) {
 		]
 	);
 
-	if (!count($champs)) {
+	if (!(is_countable($champs) ? count($champs) : 0)) {
 		return '';
 	}
 

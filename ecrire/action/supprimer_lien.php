@@ -41,7 +41,7 @@ function action_supprimer_lien_dist($arg = null) {
 	}
 
 	$arg = explode('-', $arg);
-	list($objet_source, $ids, $objet_lie, $idl) = $arg;
+	[$objet_source, $ids, $objet_lie, $idl] = $arg;
 
 	include_spip('action/editer_liens');
 	objet_dissocier([$objet_source => $ids], [$objet_lie => $idl]);

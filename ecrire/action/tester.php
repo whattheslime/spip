@@ -158,13 +158,7 @@ function action_tester_dist() {
 				}
 			}
 
-
-			if ($netpbm_formats) {
-				$netpbm_formats = join(',', $netpbm_formats);
-			} else {
-				$netpbm_formats = '';
-			}
-			ecrire_meta('netpbm_formats', $netpbm_formats);
+			ecrire_meta('netpbm_formats', join(',', $netpbm_formats ?: []));
 		}
 	}
 

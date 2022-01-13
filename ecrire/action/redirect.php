@@ -100,6 +100,9 @@ function action_redirect_dist() {
  * @return string|null
  */
 function calculer_url_redirect_entite($type, $id, $var_mode) {
+	$desc = null;
+	$publie = null;
+	$url = null;
 	// invalider le cache à chaque modif en bdd
 	$date = 0;
 	if (isset($GLOBALS['meta']['derniere_modif'])) {
@@ -109,7 +112,7 @@ function calculer_url_redirect_entite($type, $id, $var_mode) {
 
 	// Obtenir l’url et si elle est publié du cache memoization
 	if (function_exists('cache_get') and $desc = cache_get($key)) {
-		list($url, $publie) = $desc;
+		[$url, $publie] = $desc;
 	}
 	// Si on ne l’a pas trouvé, ou si var mode, on calcule l’url et son état publie
 	if (empty($desc) or $var_mode) {

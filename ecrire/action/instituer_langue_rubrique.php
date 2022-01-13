@@ -29,7 +29,7 @@ function action_instituer_langue_rubrique_dist() {
 	$arg = $securiser_action();
 	$changer_lang = _request('changer_lang');
 
-	list($id_rubrique, $id_parent) = preg_split('/\W/', $arg);
+	[$id_rubrique, $id_parent] = preg_split('/\W/', $arg);
 
 	if (
 		$changer_lang

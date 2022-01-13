@@ -99,7 +99,7 @@ function action_logout_dist() {
 	// Rediriger en contrant le cache navigateur (Safari3)
 	include_spip('inc/headers');
 	redirige_par_entete($url
-		? parametre_url($url, 'var_hasard', uniqid(rand()), '&')
+		? parametre_url($url, 'var_hasard', uniqid(random_int(0, mt_getrandmax())), '&')
 		: generer_url_public('login'));
 }
 

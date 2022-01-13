@@ -40,7 +40,7 @@ function action_ajouter_lien_dist($arg = null) {
 	}
 
 	$arg = explode('-', $arg);
-	list($objet_source, $ids, $objet_lie, $idl) = $arg;
+	[$objet_source, $ids, $objet_lie, $idl] = $arg;
 
 	include_spip('action/editer_liens');
 	objet_associer([$objet_source => $ids], [$objet_lie => $idl]);

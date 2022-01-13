@@ -217,11 +217,12 @@ function extraire_article($id_p, $t) {
  **/
 function gen_liste_rubriques() {
 
+	$cache = null;
 	include_spip('inc/config');
 	// ici, un petit fichier cache ne fait pas de mal
 	$last = lire_config('date_calcul_rubriques', 0);
 	if (lire_fichier(_CACHE_RUBRIQUES, $cache)) {
-		list($date, $GLOBALS['db_art_cache']) = @unserialize($cache);
+		[$date, $GLOBALS['db_art_cache']] = @unserialize($cache);
 		if ($date == $last) {
 			return false;
 		} // c'etait en cache :-)
@@ -250,7 +251,7 @@ function gen_liste_rubriques() {
 		$GLOBALS['db_art_cache'][$r['id_parent']][$r['id_rubrique']] = supprimer_numero(typo($t));
 	}
 
-	$t = [$last ? $last : time(), $GLOBALS['db_art_cache']];
+	$t = [$last ?: time(), $GLOBALS['db_art_cache']];
 	ecrire_fichier(_CACHE_RUBRIQUES, serialize($t));
 
 	return true;

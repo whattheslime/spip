@@ -43,10 +43,10 @@ function action_cookie_dist($set_cookie_admin = null, $change_session = null) {
 
 		// La cible de notre operation de connexion
 		$url = securiser_redirect_action(_request('url'));
-		$redirect = $url ? $url : generer_url_ecrire('accueil');
+		$redirect = $url ?: generer_url_ecrire('accueil');
 		$redirect_echec = _request('url_echec');
 		if (!isset($redirect_echec)) {
-			if (strpos($redirect, _DIR_RESTREINT_ABS) !== false) {
+			if (strpos($redirect, (string) _DIR_RESTREINT_ABS) !== false) {
 				$redirect_echec = generer_url_public('login', '', true);
 			} else {
 				$redirect_echec = $redirect;
@@ -81,7 +81,7 @@ function action_cookie_dist($set_cookie_admin = null, $change_session = null) {
 				_T('login_retour_site'),
 				'url=' . rawurlencode($redirect),
 				_T('login_nouvelle_tentative'),
-				(strpos($url, _DIR_RESTREINT_ABS) !== false)
+				(strpos($url, (string) _DIR_RESTREINT_ABS) !== false)
 			);
 		}
 	} else {
