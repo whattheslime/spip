@@ -83,8 +83,7 @@ function etape_ldap5_suite() {
 
 	echo info_etape(
 		_T('info_ldap_ok'),
-		info_progression_etape(5, 'etape_ldap', 'install/'),
-		_T('info_terminer_installation')
+		info_progression_etape(5, 'etape_ldap', 'install/')
 	);
 
 	echo generer_form_ecrire('install', (
