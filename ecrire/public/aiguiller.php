@@ -76,8 +76,8 @@ function traiter_appels_actions() {
 		$var_f = charger_fonction($action, 'action');
 		$var_f();
 		if (!isset($GLOBALS['redirect'])) {
-			$GLOBALS['redirect'] = _request('redirect');
-			if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+			$GLOBALS['redirect'] = _request('redirect') ?? '';
+			if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 				$GLOBALS['redirect'] = urldecode($GLOBALS['redirect']);
 			}
 			$GLOBALS['redirect'] = securiser_redirect_action($GLOBALS['redirect']);
