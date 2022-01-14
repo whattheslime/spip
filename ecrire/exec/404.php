@@ -35,13 +35,13 @@ function exec_404_dist() {
 	$commencer_page = charger_fonction('commencer_page', 'inc');
 	echo $commencer_page($titre);
 
-	echo debut_gauche("404_$exec", true);
+	echo debut_gauche();
 	echo pipeline('affiche_gauche', ['args' => ['exec' => '404', 'exec_erreur' => $exec], 'data' => '']);
 
-	echo creer_colonne_droite('404', true);
+	echo creer_colonne_droite();
 	echo pipeline('affiche_droite', ['args' => ['exec' => '404', 'exec_erreur' => $exec], 'data' => '']);
 
-	echo debut_droite('404', true);
+	echo debut_droite();
 	echo "<h1 class='grostitre'>" . _T('fichier_introuvable', ['fichier' => $exec]) . '</h1>';
 	echo pipeline('affiche_milieu', ['args' => ['exec' => '404', 'exec_erreur' => $exec], 'data' => '']);
 

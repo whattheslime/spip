@@ -48,14 +48,14 @@ function exec_403_dist($message = '') {
 		$commencer_page = charger_fonction('commencer_page', 'inc');
 		echo $commencer_page($titre);
 
-		echo debut_gauche("403_$exec", true);
+		echo debut_gauche();
 		echo recuperer_fond('prive/squelettes/navigation/dist', []);
 		echo pipeline('affiche_gauche', ['args' => ['exec' => '403', 'exec_erreur' => $exec], 'data' => '']);
 
-		echo creer_colonne_droite('403', true);
+		echo creer_colonne_droite();
 		echo pipeline('affiche_droite', ['args' => ['exec' => '403', 'exec_erreur' => $exec], 'data' => '']);
 
-		echo debut_droite('403', true);
+		echo debut_droite();
 		echo pipeline(
 			'affiche_milieu',
 			['args' => ['exec' => '403', 'exec_erreur' => $exec], 'data' => $contenu]

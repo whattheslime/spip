@@ -95,7 +95,7 @@ function admin_plug_args($quoi, $erreur, $format) {
 	$commencer_page = charger_fonction('commencer_page', 'inc');
 	echo $commencer_page(_T('icone_admin_plugin'), 'configuration', 'plugin');
 
-	echo debut_gauche('plugin', true);
+	echo debut_gauche();
 	echo recuperer_fond('prive/squelettes/navigation/configurer', ['exec' => 'admin_plugin']);
 
 	echo pipeline(
@@ -106,8 +106,8 @@ function admin_plug_args($quoi, $erreur, $format) {
 		]
 	);
 
-	echo debut_droite('plugin', true);
-	echo gros_titre(_T('icone_admin_plugin'), '', false);
+	echo debut_droite();
+	echo gros_titre(_T('icone_admin_plugin'), '');
 
 	// Barre d'onglets de premier niveau
 	echo barre_onglets('plugins', 'plugins_actifs');
@@ -199,7 +199,7 @@ function admin_plug_args($quoi, $erreur, $format) {
 
 	echo redirige_action_post('activer_plugins', 'activer', 'admin_plugin', '', $corps);
 
-	echo fin_cadre_trait_couleur(true);
+	echo fin_cadre_trait_couleur();
 
 	if ($quoi == 'actifs') {
 		echo affiche_les_plugins_verrouilles($actifs);
@@ -269,7 +269,7 @@ function affiche_les_plugins_verrouilles($actifs) {
 		. '<br />' . _T('plugin_info_plugins_dist_2')
 		. '</p>'
 		. $liste
-		. fin_cadre_trait_couleur(true)
+		. fin_cadre_trait_couleur()
 		. "</div>\n";
 }
 
@@ -292,7 +292,7 @@ function afficher_librairies() {
 		$res .= "<dt>$lib</dt><dd>" . joli_repertoire($rep) . "</dd>\n";
 	}
 	$res .= '</dl>';
-	$res .= fin_cadre_enfonce(true);
+	$res .= fin_cadre_enfonce();
 
 	return $res;
 }

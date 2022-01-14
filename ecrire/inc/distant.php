@@ -316,7 +316,7 @@ function prepare_donnees_post($donnees, $boundary = '') {
 		if (is_string($boundary) and strlen($boundary)) {
 			// fabrique une chaine HTTP pour un POST avec boundary
 			$entete = "Content-Type: multipart/form-data; boundary=$boundary\r\n";
-			$chaine = '';
+			$chaine = [];
 			if (is_array($donnees)) {
 				foreach ($donnees as $cle => $valeur) {
 					if (is_array($valeur)) {
