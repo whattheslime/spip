@@ -18,6 +18,7 @@ include_spip('xml/interfaces');
 
 // https://code.spip.net/@charger_dtd
 function charger_dtd($grammaire, $avail, $rotlvl) {
+	$r = null;
 	static $dtd = []; # cache bien utile pour le validateur en boucle
 
 	if (isset($dtd[$grammaire])) {
@@ -55,7 +56,7 @@ function charger_dtd($grammaire, $avail, $rotlvl) {
 				$dtc->peres[$k] = $v;
 			}
 
-			spip_log("Analyser DTD $avail $grammaire (" . spip_timer('dtd') . ') ' . count($dtc->macros) . ' macros, ' . count($dtc->elements) . ' elements, ' . count($dtc->attributs) . " listes d'attributs, " . count($dtc->entites) . ' entites');
+			spip_log("Analyser DTD $avail $grammaire (" . spip_timer('dtd') . ') ' . (is_countable($dtc->macros) ? count($dtc->macros) : 0) . ' macros, ' . (is_countable($dtc->elements) ? count($dtc->elements) : 0) . ' elements, ' . (is_countable($dtc->attributs) ? count($dtc->attributs) : 0) . " listes d'attributs, " . (is_countable($dtc->entites) ? count($dtc->entites) : 0) . ' entites');
 			#	$r = $dtc->regles; ksort($r);foreach($r as $l => $v) {$t=array_keys($dtc->attributs[$l]);echo "<b>$l</b> '$v' ", count($t), " attributs: ", join (', ',$t);$t=$dtc->peres[$l];echo "<br />",count($t), " peres: ", @join (', ',$t), "<br />\n";}exit;
 			ecrire_fichier($file, serialize($dtc), true);
 		}
@@ -210,7 +211,7 @@ function analyser_dtd_lexeme($dtd, &$dtc, $grammaire) {
 		return -9;
 	}
 
-	list(, $s) = $m;
+	[, $s] = $m;
 	$n = $dtc->macros[$s];
 
 	if (is_array($n)) {
@@ -272,7 +273,7 @@ function analyser_dtd_entity($dtd, &$dtc, $grammaire) {
 		return -2;
 	}
 
-	list($t, $term, $nom, $type, $k1, $k2, $k3, $k4, $k5, $k6, $c, $q, $alt, $dtd) = $m;
+	[$t, $term, $nom, $type, $k1, $k2, $k3, $k4, $k5, $k6, $c, $q, $alt, $dtd] = $m;
 
 	if (isset($dtc->macros[$nom]) and $dtc->macros[$nom]) {
 		return $dtd;
@@ -287,7 +288,7 @@ function analyser_dtd_entity($dtd, &$dtc, $grammaire) {
 
 	// cas particulier double evaluation: 'PUBLIC "..." "...."'
 	if (preg_match('/(PUBLIC|SYSTEM)\s+"([^"]*)"\s*("([^"]*)")?\s*$/s', $val, $r)) {
-		list($t, $type, $val, $q, $alt) = $r;
+		[$t, $type, $val, $q, $alt] = $r;
 	}
 
 	if (!$term) {
@@ -330,7 +331,7 @@ function analyser_dtd_element($dtd, &$dtc, $grammaire) {
 		return -3;
 	}
 
-	list(, $nom, $contenu, $dtd) = $m;
+	[, $nom, $contenu, $dtd] = $m;
 	$nom = expanserEntite($nom, $dtc->macros);
 
 	if (isset($dtc->elements[$nom])) {
@@ -379,7 +380,7 @@ function analyser_dtd_attlist($dtd, &$dtc, $grammaire) {
 		return -5;
 	}
 
-	list(, $nom, $val, $dtd) = $m;
+	[, $nom, $val, $dtd] = $m;
 	$nom = expanserEntite($nom, $dtc->macros);
 	$val = expanserEntite($val, $dtc->macros);
 	if (!isset($dtc->attributs[$nom])) {

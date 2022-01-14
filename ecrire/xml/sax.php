@@ -43,7 +43,7 @@ function xml_entites_html($texte) {
 function xml_debutElement($phraseur, $name, $attrs) {
 	$depth = $phraseur->depth;
 
-	$t = isset($phraseur->ouvrant[$depth]) ? $phraseur->ouvrant[$depth] : ' ';
+	$t = $phraseur->ouvrant[$depth] ?? ' ';
 	// espace initial signifie: deja integree au resultat
 	if ($t[0] != ' ') {
 		$phraseur->res .= '<' . $t . '>';
@@ -192,7 +192,7 @@ function xml_sax_dist($page, $apply = false, $phraseur = null, $doctype = '', $c
 				. preg_replace(_REGEXP_DOCTYPE, '', $page);
 			$r = analyser_doctype($page);
 		}
-		list($entete, $avail, $grammaire, $rotlvl) = array_pad($r, 4, null);
+		[$entete, $avail, $grammaire, $rotlvl] = array_pad($r, 4, null);
 		$page = substr($page, strlen($entete));
 	} else {
 		$avail = 'SYSTEM';
@@ -266,7 +266,7 @@ function sax_bug($data, $dtc, $charset = null) {
 		$trans = [];
 
 		foreach ($dtc->entites as $k => $v) {
-			if (!strpos(' amp lt gt quot ', $k)) {
+			if (!strpos(' amp lt gt quot ', (string) $k)) {
 				$trans["&$k;"] = $v;
 			}
 		}
@@ -288,7 +288,7 @@ function sax_bug($data, $dtc, $charset = null) {
 function analyser_doctype($data) {
 	if (!preg_match(_REGEXP_DOCTYPE, $data, $page)) {
 		if (preg_match(_REGEXP_XML, $data, $page)) {
-			list(, $entete, $topelement) = $page;
+			[, $entete, $topelement] = $page;
 			if ($topelement == 'rss') {
 				return [
 					$entete,
@@ -308,14 +308,14 @@ function analyser_doctype($data) {
 
 		return [];
 	}
-	list($entete, , $topelement, $avail, $suite) = $page;
+	[$entete, , $topelement, $avail, $suite] = $page;
 
 	if (!preg_match('/^"([^"]*)"\s*(.*)$/', $suite, $r)) {
 		if (!preg_match("/^'([^']*)'\s*(.*)$/", $suite, $r)) {
 			return [];
 		}
 	}
-	list(, $rotlvl, $suite) = $r;
+	[, $rotlvl, $suite] = $r;
 
 	if (!$suite) {
 		if ($avail != 'SYSTEM') {

@@ -136,7 +136,7 @@ class ValidateurXML {
 	// https://code.spip.net/@validerAttribut_ID
 	public function validerAttribut_ID($phraseur, $name, $val, $bal) {
 		if (isset($this->ids[$val])) {
-			list($l, $c) = $this->ids[$val];
+			[$l, $c] = $this->ids[$val];
 			coordonnees_erreur($this, " <p><b>$val</b> "
 				. _T('zxml_valeur_attribut')
 				. " <b>$name</b> "
@@ -185,11 +185,11 @@ class ValidateurXML {
 	public function valider_passe2() {
 		if (!$this->err) {
 			foreach ($this->idrefs as $idref) {
-				list($nom, $ligne, $col) = $idref;
+				[$nom, $ligne, $col] = $idref;
 				$this->valider_idref($nom, $ligne, $col);
 			}
 			foreach ($this->idrefss as $idref) {
-				list($noms, $ligne, $col) = $idref;
+				[$noms, $ligne, $col] = $idref;
 				foreach (preg_split('/\s+/', $noms) as $nom) {
 					$this->valider_idref($nom, $ligne, $col);
 				}
@@ -222,7 +222,7 @@ class ValidateurXML {
 		$c = strlen(trim($contenu[$depth]));
 		$k = $this->debuts[$depth];
 
-		$regle = isset($this->dtc->regles[$name]) ? $this->dtc->regles[$name] : false;
+		$regle = $this->dtc->regles[$name] ?? false;
 		$vide = ($regle == 'EMPTY');
 		// controler que les balises devant etre vides le sont
 		if ($vide) {
@@ -238,7 +238,7 @@ class ValidateurXML {
 						. _T('zxml_vide_balise'));
 				}
 			} else {
-				$f = isset($this->fratrie[substr($depth, 2)]) ? $this->fratrie[substr($depth, 2)] : null;
+				$f = $this->fratrie[substr($depth, 2)] ?? null;
 				if (is_null($f) or !preg_match($regle, $f)) {
 					coordonnees_erreur(
 						$this,
@@ -292,7 +292,7 @@ class ValidateurXML {
 			and (preg_match_all('/&([^;]*)?/', $data, $r, PREG_SET_ORDER))
 		) {
 			foreach ($r as $m) {
-				list($t, $e) = $m;
+				[$t, $e] = $m;
 				if (!isset($this->dtc->entites[$e])) {
 					coordonnees_erreur($this, " <b>$e</b> "
 						. _T('zxml_inconnu_entite')
@@ -312,7 +312,7 @@ class ValidateurXML {
 		if (!$this->dtc or preg_match(',^' . _MESSAGE_DOCTYPE . ',', $data)) {
 			$this->err[] = ['DOCTYPE ?', 0, 0];
 		} else {
-			$this->valider_passe2($this);
+			$this->valider_passe2();
 		}
 	}
 
