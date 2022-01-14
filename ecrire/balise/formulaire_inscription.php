@@ -72,7 +72,7 @@ function balise_FORMULAIRE_INSCRIPTION($p) {
  *   - chaîne vide sinon.
  */
 function balise_FORMULAIRE_INSCRIPTION_stat($args, $context_compil) {
-	list($mode, $id, $retour) = array_pad($args, 3, null);
+	[$mode, $id, $retour] = array_pad($args, 3, null);
 	include_spip('action/inscrire_auteur');
 	$mode = tester_statut_inscription($mode, $id ?? 0);
 

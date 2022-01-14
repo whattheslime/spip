@@ -52,7 +52,7 @@ function balise_INFO__dist($p) {
 	} else {
 		// Récupérer tous les params à la suite de objet et id_objet
 		$_params = '[';
-		$nb_params = count($p->param[0]); // 1ère valeur vide donc 1 en plus
+		$nb_params = is_countable($p->param[0]) ? count($p->param[0]) : 0; // 1ère valeur vide donc 1 en plus
 		for ($i = 3; $i < $nb_params; $i++) {
 			$_params .= interprete_argument_balise($i, $p) . ',';
 		}

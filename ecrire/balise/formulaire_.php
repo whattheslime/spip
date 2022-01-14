@@ -217,7 +217,7 @@ function balise_FORMULAIRE__contexte($form, $args) {
 		$erreurs = $post[$e] ?? [];
 		$editable = "editable_$form";
 		$editable = (!isset($post[$e]))
-			|| count($erreurs)
+			|| (is_countable($erreurs) ? count($erreurs) : 0)
 			|| (isset($post[$editable]) && $post[$editable]);
 	}
 
@@ -232,7 +232,7 @@ function balise_FORMULAIRE__contexte($form, $args) {
 
 	// charger peut passer une action si le formulaire ne tourne pas sur self()
 	// ou une action vide si elle ne sert pas
-	$action = (isset($valeurs['action'])) ? $valeurs['action'] : self('&amp;', true);
+	$action = $valeurs['action'] ?? self('&amp;', true);
 	// bug IEx : si action finit par /
 	// IE croit que le <form ... action=../ > est autoferme
 	if (substr($action, -1) == '/') {

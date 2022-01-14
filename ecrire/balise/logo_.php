@@ -108,7 +108,7 @@ function balise_LOGO__dist($p) {
 		if ($fichier) {
 			$code = "quete_logo_file($doc, $qconnect)";
 		} else {
-			$code = "quete_logo_document($doc, " . ($lien ? $lien : "''") . ", '$align', '$mode_logo', $coord_x, $coord_y, $qconnect)";
+			$code = "quete_logo_document($doc, " . ($lien ?: "''") . ", '$align', '$mode_logo', $coord_x, $coord_y, $qconnect)";
 		}
 		// (x=non-faux ? y : '') pour affecter x en retournant y
 		if ($p->descr['documents']) {
@@ -173,5 +173,5 @@ function logo_survol($id_objet, $_id_objet, $type, $align, $fichier, $_lien, $p,
 
 	$align = preg_replace(',\W,', '', $align);
 
-	return "quete_html_logo($code, '$align', " . ($_lien ? $_lien : "''") . ')';
+	return "quete_html_logo($code, '$align', " . ($_lien ?: "''") . ')';
 }
