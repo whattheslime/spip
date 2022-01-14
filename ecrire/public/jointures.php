@@ -105,7 +105,7 @@ function calculer_jointure(&$boucle, $depart, $arrivee, $col = '', $cond = false
 	// jusqu'a ce qu'on trouve une jointure ou qu'on atteigne la limite maxi
 	$max = 1;
 	$res = false;
-	$milieu_exclus = ($col ? $col : []);
+	$milieu_exclus = ($col ?: []);
 	while ($max <= $max_liens and !$res) {
 		$res = calculer_chaine_jointures($boucle, $depart, $arrivee, [], $milieu_exclus, $max);
 		$max++;
@@ -114,7 +114,7 @@ function calculer_jointure(&$boucle, $depart, $arrivee, $col = '', $cond = false
 		return '';
 	}
 
-	list($nom, $desc) = $depart;
+	[$nom, $desc] = $depart;
 
 	return fabrique_jointures($boucle, $res, $cond, $desc, $nom, $col);
 }
@@ -155,17 +155,20 @@ function calculer_jointure(&$boucle, $depart, $arrivee, $col = '', $cond = false
  *     Alias de la table de jointure (Lx)
  */
 function fabrique_jointures(&$boucle, $res, $cond = false, $desc = [], $nom = '', $col = '', $echap = true) {
+	$a = [];
+	$j = null;
+	$n = null;
 	static $num = [];
 	$id_table = '';
 	$cpt = &$num[$boucle->descr['nom']][$boucle->descr['gram']][$boucle->id_boucle];
 	foreach ($res as $cle => $r) {
-		list($d, $a, $j) = $r;
+		[$d, $a, $j] = $r;
 		if (!$id_table) {
 			$id_table = $d;
 		}
 		$n = ++$cpt;
 		if (is_array($j)) { // c'est un lien sur un champ du type id_objet,objet,'article'
-			list($j1, $j2, $obj, $type) = $j;
+			[$j1, $j2, $obj, $type] = $j;
 			// trouver de quel cote est (id_objet,objet)
 			if ($j1 == "id_$obj") {
 				$obj = "$id_table.$obj";
@@ -373,8 +376,8 @@ function calculer_chaine_jointures(
 		$milieu_exclus[] = 'objet';
 	}
 
-	list($dnom, $ddesc) = $depart;
-	list($anom, $adesc) = $arrivee;
+	[$dnom, $ddesc] = $depart;
+	[$anom, $adesc] = $arrivee;
 	if (!count($vu)) {
 		$vu[] = $dnom; // ne pas oublier la table de depart
 		$vu[] = $anom; // ne pas oublier la table d'arrivee
@@ -614,7 +617,7 @@ function trouver_champ_exterieur($cle, $joints, &$boucle, $checkarrivee = false)
 		// -> il faut trouver une cle de depart zzz telle que
 		// id_objet,objet,zzz soit a l'arrivee
 		else {
-			$depart = liste_champs_jointures((isset($desc['table']) ? $desc['table'] : ''), $desc);
+			$depart = liste_champs_jointures(($desc['table'] ?? ''), $desc);
 			foreach ($depart as $d) {
 				$cle = [];
 				$cle[] = array_shift($decompose); // id_objet

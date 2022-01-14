@@ -78,7 +78,7 @@ function format_critere_html($critere) {
 	foreach ($critere as $k => $crit) {
 		$crit_s = '';
 		foreach ($crit as $operande) {
-			list($type, $valeur) = $operande;
+			[$type, $valeur] = $operande;
 			if ($type == 'champ' and $valeur[0] == '[') {
 				$valeur = substr($valeur, 1, -1);
 				if (preg_match(',^[(](#[^|]*)[)]$,sS', $valeur)) {
@@ -100,9 +100,9 @@ function format_liste_html($fonc, $args, $prof) {
 
 // Concatenation sans separateur: verifier qu'on ne cree pas de faux lexemes
 function format_suite_html($args) {
-	for ($i = 0; $i < count($args) - 1; $i++) {
-		list($texte, $type) = $args[$i];
-		list($texte2, $type2) = $args[$i + 1];
+	for ($i = 0; $i < (is_countable($args) ? count($args) : 0) - 1; $i++) {
+		[$texte, $type] = $args[$i];
+		[$texte2, $type2] = $args[$i + 1];
 		if (!$texte or !$texte2) {
 			continue;
 		}
@@ -129,9 +129,7 @@ function format_suite_html($args) {
 		}
 	}
 
-	return join('', array_map(function ($arg) {
- return reset($arg);
-	}, $args));
+	return join('', array_map(fn($arg) => reset($arg), $args));
 }
 
 function format_texte_html($texte) {

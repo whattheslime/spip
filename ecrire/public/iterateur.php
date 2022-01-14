@@ -23,6 +23,7 @@ if (!defined('_ECRIRE_INC_VERSION')) {
 class IterFactory {
 	public static function create($iterateur, $command, $info = null) {
 
+		$iter = null;
 		// cas des SI {si expression} analises tres tot
 		// pour eviter le chargement de tout iterateur
 		if (isset($command['si'])) {
@@ -39,11 +40,11 @@ class IterFactory {
 		// (il faudrait passer l'argument ->sql_serveur
 		// pour etre certain qu'on est sur un "php:")
 		if (class_exists($iterateur)) {
-			$a = isset($command['args']) ? $command['args'] : [];
+			$a = $command['args'] ?? [];
 
 			// permettre de passer un Iterateur directement {args #ITERATEUR} :
 			// si on recoit deja un iterateur en argument, on l'utilise
-			if (count($a) == 1 and is_object($a[0]) and is_subclass_of($a[0], 'Iterator')) {
+			if ((is_countable($a) ? count($a) : 0) == 1 and is_object($a[0]) and is_subclass_of($a[0], \Iterator::class)) {
 				$iter = $a[0];
 
 				// sinon, on cree un iterateur du type donne
@@ -51,7 +52,7 @@ class IterFactory {
 				// arguments de creation de l'iterateur...
 				// (pas glop)
 				try {
-					switch (count($a)) {
+					switch (is_countable($a) ? count($a) : 0) {
 						case 0:
 							$iter = new $iterateur();
 							break;
@@ -259,9 +260,7 @@ class IterDecorator extends FilterIterator {
 		if ($this->filtre) {
 			if ($filtres = $this->assembler_filtres($this->filtre)) {
 				$filtres = 'return ' . $filtres . ';';
-				$this->func_filtre = function () use ($filtres) {
-					return eval($filtres);
-				};
+				$this->func_filtre = fn() => eval($filtres);
 			}
 			else {
 				$this->func_filtre = null;

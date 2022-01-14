@@ -91,7 +91,7 @@ function quete_parent_lang($table, $id, string $connect = '') {
 		}
 	}
 
-	return isset($cache_quete[$connect][$table][$id]) ? $cache_quete[$connect][$table][$id] : null;
+	return $cache_quete[$connect][$table][$id] ?? null;
 }
 
 
@@ -619,10 +619,7 @@ function calcul_exposer($id, $prim, $reference, $parent, $type, string $connect 
 	// qu'une fois (par squelette) et on conserve le resultat
 	// en static.
 	if (!isset($exposer[$m = md5(serialize($reference))][$prim])) {
-		$principal = isset($reference[$type]) ? $reference[$type] :
-			// cas de la pagination indecte @xx qui positionne la page avec l'id xx
-			// et donne la reference dynamique @type=xx dans le contexte
-			(isset($reference["@$type"]) ? $reference["@$type"] : '');
+		$principal = $reference[$type] ?? $reference["@$type"] ?? '';
 		// le parent fournit en argument est le parent de $id, pas celui de $principal
 		// il n'est donc pas utile
 		$parent = 0;
@@ -636,7 +633,7 @@ function calcul_exposer($id, $prim, $reference, $parent, $type, string $connect 
 						or isset($reference["@$t"])
 					) {
 						$type = $t;
-						$principal = isset($reference[$type]) ? $reference[$type] : $reference["@$type"];
+						$principal = $reference[$type] ?? $reference["@$type"];
 						continue;
 					}
 				}

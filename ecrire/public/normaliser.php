@@ -103,7 +103,7 @@ function phraser_vieux_emb(&$p) {
 	$param = ['', [$texte]];
 
 	// Transformer les filtres en arguments
-	for ($i = 0; $i < count($p->param); $i++) {
+	for ($i = 0; $i < (is_countable($p->param) ? count($p->param) : 0); $i++) {
 		if ($p->param[$i][0]) {
 			if (!strstr($p->param[$i][0], '=')) {
 				break;
@@ -206,7 +206,7 @@ function normaliser_inclure($champ) {
 			}
 			$champ->texte = $p;
 			unset($champ->param[0][$k]);
-			if (count($champ->param[0]) == 1) {
+			if ((is_countable($champ->param[0]) ? count($champ->param[0]) : 0) == 1) {
 				array_shift($champ->param);
 			}
 

@@ -53,7 +53,7 @@ function public_parametrer_dist($fond, $contexte = '', $cache = '', string $conn
 	if (!$styliser) {
 		$styliser = charger_fonction('styliser', 'public');
 	}
-	list($skel, $mime_type, $gram, $sourcefile) =
+	[$skel, $mime_type, $gram, $sourcefile] =
 		$styliser($fond, $contexte, $GLOBALS['spip_lang'], $connect);
 
 	if ($skel) {
@@ -80,7 +80,7 @@ function public_parametrer_dist($fond, $contexte = '', $cache = '', string $conn
 	} else {
 		// Preparer l'appel de la fonction principale du squelette
 
-		spip_timer($a = 'calcul page ' . rand(0, 1000));
+		spip_timer($a = 'calcul page ' . random_int(0, 1000));
 
 		// On cree un marqueur de notes unique lie a cette composition
 		// et on enregistre l'etat courant des globales de notes...
@@ -174,7 +174,7 @@ function public_parametrer_dist($fond, $contexte = '', $cache = '', string $conn
 			if (test_espace_prive() or strncmp($fond, 'modeles/', 8) == 0) {
 				$page['entetes']['X-Spip-Cache'] = 0;
 			} else {
-				$page['entetes']['X-Spip-Cache'] = isset($GLOBALS['delais']) ? $GLOBALS['delais'] : 36000;
+				$page['entetes']['X-Spip-Cache'] = $GLOBALS['delais'] ?? 36000;
 			}
 		}
 

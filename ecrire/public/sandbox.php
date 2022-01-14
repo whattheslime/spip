@@ -182,7 +182,7 @@ function sandbox_filtrer_squelette($skel, $corps, $filtres) {
 	$replace = echapper_php_callback();
 
 	foreach ($series_filtres as $filtres) {
-		if (count($filtres)) {
+		if (is_countable($filtres) ? count($filtres) : 0) {
 			foreach ($filtres as $filtre) {
 				if ($filtre and $f = chercher_filtre($filtre)) {
 					$corps = $f($corps);

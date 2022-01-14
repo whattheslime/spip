@@ -26,8 +26,7 @@ function decompiler_boucle($struct, $fmt = '', $prof = 0) {
 	$postaff = decompiler_($struct->postaff, $fmt, $prof);
 
 	$type = $struct->sql_serveur ? "$struct->sql_serveur:" : '';
-	$type .= ($struct->type_requete ? $struct->type_requete :
-		$struct->table_optionnelle);
+	$type .= ($struct->type_requete ?: $struct->table_optionnelle);
 
 	if ($struct->jointures_explicites) {
 		$type .= ' ' . $struct->jointures_explicites;
@@ -50,7 +49,7 @@ function decompiler_boucle($struct, $fmt = '', $prof = 0) {
 
 function decompiler_include($struct, $fmt = '', $prof = 0) {
 	$res = [];
-	foreach ($struct->param ? $struct->param : [] as $couple) {
+	foreach ($struct->param ?: [] as $couple) {
 		array_shift($couple);
 		foreach ($couple as $v) {
 			$res[] = decompiler_($v, $fmt, $prof);
@@ -119,7 +118,7 @@ function decompiler_liste($sources, $fmt = '', $prof = 0) {
 		foreach ($arg as $v) {
 			// cas des arguments entoures de ' ou "
 			if (
-				(count($v) == 1)
+				((is_countable($v) ? count($v) : 0) == 1)
 				and $v[0]->type == 'texte'
 				and (strlen($v[0]->apres) == 1)
 				and $v[0]->apres == $v[0]->avant
@@ -156,7 +155,7 @@ function decompiler_criteres($boucle, $fmt = '', $prof = 0) {
 		$args = [];
 		foreach ($crit as $i => $v) {
 			if (
-				(count($v) == 1)
+				((is_countable($v) ? count($v) : 0) == 1)
 				and $v[0]->type == 'texte'
 				and $v[0]->apres
 			) {
@@ -195,7 +194,7 @@ function decompiler_($liste, $fmt = '', $prof = 0) {
 			continue;
 		} #??????
 		$d = 'decompiler_' . $p->type;
-		$next = isset($liste[$k + 1]) ? $liste[$k + 1] : false;
+		$next = $liste[$k + 1] ?? false;
 		// Forcer le champ etendu si son source (pas les reecritures)
 		// contenait des args et s'il est suivi d'espaces,
 		// le champ simple les eliminant est un bug helas perenne.

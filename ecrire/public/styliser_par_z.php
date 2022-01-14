@@ -226,7 +226,7 @@ function public_styliser_par_z_dist($flux) {
  */
 function z_blocs($espace_prive = false) {
 	if ($espace_prive) {
-		return (isset($GLOBALS['z_blocs_ecrire']) ? $GLOBALS['z_blocs_ecrire'] : [
+		return ($GLOBALS['z_blocs_ecrire'] ?? [
 			'contenu',
 			'navigation',
 			'extra',
@@ -236,7 +236,7 @@ function z_blocs($espace_prive = false) {
 		]);
 	}
 
-	return (isset($GLOBALS['z_blocs']) ? $GLOBALS['z_blocs'] : ['contenu']);
+	return ($GLOBALS['z_blocs'] ?? ['contenu']);
 }
 
 /**
@@ -350,7 +350,7 @@ function z_echafaudable($type) {
 		if (!isset($pages[$type])) {
 			return $echafaudable[$type] = false;
 		}
-		if (count($pages[$type]) == 2) {
+		if ((is_countable($pages[$type]) ? count($pages[$type]) : 0) == 2) {
 			$trouver_table = charger_fonction('trouver_table', 'base');
 			$pages[$type][] = $trouver_table(reset($pages[$type]));
 		}

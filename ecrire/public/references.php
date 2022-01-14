@@ -150,7 +150,7 @@ function index_pile(
 		// modifie $joker si tous les champs sont autorisés.
 		// $t = le select pour le champ, si on l'a trouvé (ou si joker)
 		// $c = le nom du champ demandé
-		list($t, $c) = index_tables_en_pile($idb, $nom_champ, $boucles, $joker);
+		[$t, $c] = index_tables_en_pile($idb, $nom_champ, $boucles, $joker);
 		if ($t) {
 			if ($select and !in_array($t, $boucles[$idb]->select)) {
 				$boucles[$idb]->select[] = $t;
@@ -198,7 +198,7 @@ function index_pile(
 function index_compose($conditionnel, $defaut) {
 	while ($c = array_pop($conditionnel)) {
 		// si on passe defaut = '', ne pas générer d'erreur de compilation.
-		$defaut = "($c:(" . ($defaut ? $defaut : "''") . '))';
+		$defaut = "($c:(" . ($defaut ?: "''") . '))';
 	}
 
 	return $defaut;
@@ -250,9 +250,9 @@ function index_tables_en_pile($idb, $nom_champ, &$boucles, &$joker) {
 
 	$desc = $boucles[$idb]->show;
 	// le nom du champ est il une exception de la table ? un alias ?
-	$excep = isset($GLOBALS['exceptions_des_tables'][$r]) ? $GLOBALS['exceptions_des_tables'][$r] : '';
+	$excep = $GLOBALS['exceptions_des_tables'][$r] ?? '';
 	if ($excep) {
-		$excep = isset($excep[$nom_champ]) ? $excep[$nom_champ] : '';
+		$excep = $excep[$nom_champ] ?? '';
 	}
 	if ($excep) {
 		$joker = false; // indiquer a l'appelant
@@ -348,7 +348,7 @@ function index_exception(&$boucle, $desc, $nom_champ, $excep) {
 			$t = $index_exception_derogatoire($boucle, $desc, $nom_champ, $excep);
 		}
 		if ($t == null) {
-			list($e, $x) = $excep;  #PHP4 affecte de gauche a droite
+			[$e, $x] = $excep;  #PHP4 affecte de gauche a droite
 			$excep = $x;    #PHP5 de droite a gauche !
 			$j = $trouver_table($e, $boucle->sql_serveur);
 			if (!$j) {
@@ -747,8 +747,8 @@ function champs_traitements($p) {
 		}
 
 		// mais on peut aussi etre hors boucle. Se mefier.
-		$type_requete = isset($p->boucles[$idb]->type_requete) ? $p->boucles[$idb]->type_requete : false;
-		$table_sql = isset($p->boucles[$idb]->show['table_sql']) ? $p->boucles[$idb]->show['table_sql'] : false;
+		$type_requete = $p->boucles[$idb]->type_requete ?? false;
+		$table_sql = $p->boucles[$idb]->show['table_sql'] ?? false;
 
 		// bien prendre en compte les alias de boucles (hierarchie => rubrique, syndication => syncdic, etc.)
 		if ($type_requete and isset($GLOBALS['table_des_tables'][$type_requete])) {
@@ -858,7 +858,7 @@ function compose_filtres(&$p, $code) {
 
 		// recuperer les arguments du filtre,
 		// a separer par "," ou ":" dans le cas du filtre "?{a,b}"
-		$countfiltre = count($filtre);
+		$countfiltre = is_countable($filtre) ? count($filtre) : 0;
 		if ($fonc !== '?') {
 			$sep = ',';
 		} else {
@@ -994,7 +994,7 @@ function rindex_pile($p, $champ, $motif) {
  * @return string Nom de la balise, avec indication de boucle explicite si présent.
  */
 function zbug_presenter_champ($p, $champ = '') {
-	$balise = $champ ? $champ : $p->nom_champ;
+	$balise = $champ ?: $p->nom_champ;
 	$explicite = $p->nom_boucle ? $p->nom_boucle . ':' : '';
 	return "#{$explicite}{$balise}";
 }

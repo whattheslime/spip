@@ -57,7 +57,7 @@ function public_styliser_dist($fond, $contexte, $lang = '', string $connect = ''
 	$id_rubrique = 0;
 	// Chercher le fond qui va servir de squelette
 	if ($r = quete_rubrique_fond($contexte)) {
-		list($id_rubrique, $lang) = $r;
+		[$id_rubrique, $lang] = $r;
 	}
 
 	// trouver un squelette du nom demande
@@ -189,7 +189,7 @@ function quete_rubrique_fond($contexte) {
 			$id
 			and $row = quete_parent_lang(table_objet_sql($liste_objets[$_id]), $id)
 		) {
-			$lang = isset($row['lang']) ? $row['lang'] : '';
+			$lang = $row['lang'] ?? '';
 			if ($_id == 'id_rubrique' or (isset($row['id_rubrique']) and $id = $row['id_rubrique'])) {
 				return $quete[$s] = [$id, $lang];
 			}

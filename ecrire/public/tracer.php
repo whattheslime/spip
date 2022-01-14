@@ -61,8 +61,8 @@ function trace_query_end($query, $start, $result, $erreur, $serveur = '') {
 	}
 	if ($start) {
 		$end = microtime();
-		list($usec, $sec) = explode(' ', $start);
-		list($usec2, $sec2) = explode(' ', $end);
+		[$usec, $sec] = explode(' ', $start);
+		[$usec2, $sec2] = explode(' ', $end);
 		$dt = $sec2 + $usec2 - $sec - $usec;
 		pipeline('trig_trace_query', ['query' => $query, 'start' => $start, 'end' => $end, 'time' => $dt, 'result' => $result, 'erreur' => $erreur, 'serveur' => $serveur]);
 		if ($trace) {
@@ -84,7 +84,7 @@ function trace_query_chrono($dt, $query, $result, $serveur = '') {
 
 	$x = _request('var_mode_objet');
 	if (isset($GLOBALS['debug']['aucasou'])) {
-		list(, $boucle, $serveur, $contexte) = $GLOBALS['debug']['aucasou'];
+		[, $boucle, $serveur, $contexte] = $GLOBALS['debug']['aucasou'];
 		if ($x and !preg_match("/$boucle\$/", $x)) {
 			return;
 		}
@@ -115,7 +115,7 @@ function chrono_requete($temps) {
 	$t = $q = $n = $d = [];
 	// Totaliser les temps et completer le Explain
 	foreach ($temps as $key => $v) {
-		list($dt, $nb, $boucle, $query, $explain, $res, $contexte) = $v;
+		[$dt, $nb, $boucle, $query, $explain, $res, $contexte] = $v;
 		if (is_array($contexte)) {
 			$k = ($contexte[0] . " $boucle");
 			include_spip('public/compiler');
@@ -193,7 +193,7 @@ function chrono_requete($temps) {
 		. join("</td></tr>\n<tr><td>", $d)
 		. "</td></tr>\n"
 		. (# _request('var_mode_objet') ? '' :
-		('<tr><td>' . count($temps) . '</td><td>' . _T('info_total') . '</td><td class="time">' . $total . '</td><td></td></tr>'))
+		('<tr><td>' . (is_countable($temps) ? count($temps) : 0) . '</td><td>' . _T('info_total') . '</td><td class="time">' . $total . '</td><td></td></tr>'))
 	];
 
 	return [$temps, $navigation];

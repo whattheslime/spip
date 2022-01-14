@@ -269,7 +269,7 @@ function filtre_pagination_affiche_texte_lien_page_dist($type_pagination, $numer
 		case 'resultats':
 			return $rang_item + 1; // 1 11 21 31...
 		case 'naturel':
-			return $rang_item ? $rang_item : 1; // 1 10 20 30...
+			return $rang_item ?: 1; // 1 10 20 30...
 		case 'rang':
 			return $rang_item; // 0 10 20 30...
 
@@ -341,7 +341,7 @@ function retrouver_rang_lien($objet_source, $ids, $objet_lie, $idl, $objet_lien)
 	$res = lister_objets_liens($objet_source, $objet_lie, $idl, $objet_lien);
 	$res = array_column($res, 'rang_lien', $objet_source);
 
-	return (isset($res[$ids]) ? $res[$ids] : '');
+	return ($res[$ids] ?? '');
 }
 
 
@@ -391,7 +391,7 @@ function calculer_rang_smart($titre, $objet_source, $id, $env) {
 		and isset($env['_objet_lien']) and $env['_objet_lien']
 		and (function_exists('lien_triables') or include_spip('action/editer_liens'))
 		and $r = objet_associable($env['_objet_lien'])
-		and list($p, $table_lien) = $r
+		and [$p, $table_lien] = $r
 		and lien_triables($table_lien)
 		and isset($env['objet']) and $env['objet']
 		and isset($env['id_objet']) and $env['id_objet']
@@ -399,7 +399,7 @@ function calculer_rang_smart($titre, $objet_source, $id, $env) {
 		and $id = intval($id)
 	) {
 		$rang = retrouver_rang_lien($objet_source, $id, $env['objet'], $env['id_objet'], $env['_objet_lien']);
-		return ($rang ? $rang : '');
+		return ($rang ?: '');
 	}
 	return recuperer_numero($titre);
 }
