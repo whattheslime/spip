@@ -449,9 +449,9 @@ define('_SPIP_EXTRA_VERSION', '-dev');
 define('_DEV_VERSION_SPIP_COMPAT', '4.0.99');
 // version des signatures de fonctions PHP
 // (= date de leur derniere modif cassant la compatibilite et/ou necessitant un recalcul des squelettes)
-$spip_version_code = 20211117;
+$spip_version_code = 2021_11_17;
 // version de la base SQL (= Date + numero incremental a 2 chiffres YYYYMMDDXX)
-$spip_version_base = 2021021800;
+$spip_version_base = 2021_02_18_00;
 
 // version de l'interface a la base
 $spip_sql_version = 1;
@@ -598,5 +598,5 @@ if (!headers_sent() and _HEADER_COMPOSED_BY) {
 	}
 }
 
-$methode = (isset($_SERVER['REQUEST_METHOD']) ? $_SERVER['REQUEST_METHOD'] : ((php_sapi_name() == 'cli') ? 'cli' : ''));
+$methode = ($_SERVER['REQUEST_METHOD'] ?? ((php_sapi_name() == 'cli') ? 'cli' : ''));
 spip_log($methode . ' ' . self() . ' - ' . _FILE_CONNECT, _LOG_DEBUG);

@@ -112,7 +112,7 @@ if (
 
 elseif (isset($GLOBALS['meta']['admin'])) {
 	if (preg_match('/^(.*)_(\d+)_/', $GLOBALS['meta']['admin'], $l)) {
-		list(, $var_f, $n) = $l;
+		[, $var_f, $n] = $l;
 	}
 	if (
 		_AJAX
@@ -128,7 +128,7 @@ elseif (isset($GLOBALS['meta']['admin'])) {
 		die(_T('info_travaux_texte'));
 	}
 	if ($n) {
-		list(, $var_f, $n) = $l;
+		[, $var_f, $n] = $l;
 		if (tester_url_ecrire("base_$var_f")) {
 			$var_f = "base_$var_f";
 		}
