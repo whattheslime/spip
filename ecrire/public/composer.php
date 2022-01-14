@@ -912,7 +912,7 @@ function calculer_select(
 			&& count($afrom[$t])
 		) {
 			$nfrom = reset($afrom[$t]);
-			$nt = key($afrom[$t]);
+			$nt = array_key_first($afrom[$t]);
 			unset($from[$t]);
 			$from[$nt] = $nfrom[1];
 			unset($afrom[$t][$nt]);
