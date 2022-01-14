@@ -664,9 +664,13 @@ function inc_sql_to_array_dist($data) {
  * @return array|bool
  */
 function inc_json_to_array_dist($data) {
-	if (is_array($json = json_decode($data, true, 512, JSON_THROW_ON_ERROR))) {
-		return (array)$json;
+	try {
+		$json = json_decode($data, true, 512, JSON_THROW_ON_ERROR);
+	} catch (JsonException $e) {
+		$json = null;
+		spip_log('Failed to parse Json data : ' . $e->getMessage(), _LOG_INFO);
 	}
+	return is_array($json) ? (array) $json : [];
 }
 
 /**
