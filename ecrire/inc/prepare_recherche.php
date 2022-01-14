@@ -21,8 +21,8 @@ if (!defined('_ECRIRE_INC_VERSION')) {
 }
 
 include_spip('inc/rechercher');
-if (!defined('_DELAI_CACHE_resultats')) {
-	define('_DELAI_CACHE_resultats', 600);
+if (!defined('_DELAI_CACHE_RESULTATS')) {
+	define('_DELAI_CACHE_RESULTATS', 600);
 }
 
 /**
