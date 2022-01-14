@@ -146,7 +146,7 @@ function inc_importer_csv_dist($file, $options = []) {
 							$row[$heading][] = $data[$key];
 						}
 					} else {
-						$row[$heading] = (isset($data[$key])) ? $data[$key] : '';
+						$row[$heading] = $data[$key] ?? '';
 					}
 				}
 				$return[] = $row;

@@ -388,7 +388,7 @@ function puce_statut_changement_rapide(
 	$clip = $zero + ($unit * $coord[$statut]);
 
 	if ($ajax) {
-		$width = $unit * count($desc['statut_textes_instituer']) + $margin;
+		$width = $unit * (is_countable($desc['statut_textes_instituer']) ? count($desc['statut_textes_instituer']) : 0) + $margin;
 		$out = "<span class='puce_objet_fixe $type'>"
 			. $inser_puce
 			. '</span>'

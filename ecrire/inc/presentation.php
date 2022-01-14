@@ -32,6 +32,7 @@ include_spip('inc/filtres_alertes');
 
 // https://code.spip.net/@debut_cadre
 function debut_cadre($style, $icone = '', $fonction = '', $titre = '', $id = '', $class = '', $padding = true) {
+	$fond = null;
 	$style_mapping = [
 		'r' => 'simple',
 		'e' => 'raccourcis',
@@ -43,7 +44,7 @@ function debut_cadre($style, $icone = '', $fonction = '', $titre = '', $id = '',
 		'sous_rub' => 'simple sous-rub'
 	];
 	$style_titre_mapping = ['couleur' => 'topper', 'trait-couleur' => 'section'];
-	$c = isset($style_mapping[$style]) ? $style_mapping[$style] : 'simple';
+	$c = $style_mapping[$style] ?? 'simple';
 	$class = $c . ($class ? " $class" : '');
 	if (!$padding) {
 		$class .= ($class ? ' ' : '') . 'no-padding';
@@ -52,7 +53,7 @@ function debut_cadre($style, $icone = '', $fonction = '', $titre = '', $id = '',
 	//($id?"id='$id' ":"")
 	if (strlen($icone) > 1) {
 		if ($icone_renommer = charger_fonction('icone_renommer', 'inc', true)) {
-			list($fond, $fonction) = $icone_renommer($icone, $fonction);
+			[$fond, $fonction] = $icone_renommer($icone, $fonction);
 		}
 		$size = 24;
 		if (preg_match('/-([0-9]{1,3})[.](gif|png)$/i', $fond, $match)) {
@@ -69,7 +70,7 @@ function debut_cadre($style, $icone = '', $fonction = '', $titre = '', $id = '',
 		$titre = $icone . $titre;
 	}
 
-	return boite_ouvrir($titre, $class, isset($style_titre_mapping[$style]) ? $style_titre_mapping[$style] : '', $id);
+	return boite_ouvrir($titre, $class, $style_titre_mapping[$style] ?? '', $id);
 }
 
 // https://code.spip.net/@fin_cadre
@@ -90,7 +91,7 @@ function debut_cadre_relief(
 }
 
 function fin_cadre_relief() {
- return fin_cadre('r');
+ return fin_cadre();
 }
 
 function debut_cadre_enfonce(
@@ -105,7 +106,7 @@ function debut_cadre_enfonce(
 }
 
 function fin_cadre_enfonce() {
- return fin_cadre('e');
+ return fin_cadre();
 }
 
 function debut_cadre_sous_rub(
@@ -120,7 +121,7 @@ function debut_cadre_sous_rub(
 }
 
 function fin_cadre_sous_rub() {
- return fin_cadre('sous_rub');
+ return fin_cadre();
 }
 
 function debut_cadre_couleur(
@@ -135,7 +136,7 @@ function debut_cadre_couleur(
 }
 
 function fin_cadre_couleur() {
- return fin_cadre('couleur');
+ return fin_cadre();
 }
 
 function debut_cadre_trait_couleur(
@@ -150,7 +151,7 @@ function debut_cadre_trait_couleur(
 }
 
 function fin_cadre_trait_couleur() {
- return fin_cadre('trait-couleur');
+ return fin_cadre();
 }
 
 function debut_boite_alerte() {
@@ -158,7 +159,7 @@ function debut_boite_alerte() {
 }
 
 function fin_boite_alerte() {
- return fin_cadre('alerte');
+ return fin_cadre();
 }
 
 function debut_boite_info() {
@@ -166,7 +167,7 @@ function debut_boite_info() {
 }
 
 function fin_boite_info() {
- return fin_cadre('info');
+ return fin_cadre();
 }
 
 /**
@@ -247,7 +248,7 @@ function icone_verticale($texte, $lien, $fond, $fonction = '', $align = '', $jav
 	// cas d'ajax_action_auteur: faut defaire le boulot
 	// (il faudrait fusionner avec le cas $javascript)
 	if (preg_match(",^<a\shref='([^']*)'([^>]*)>(.*)</a>$,i", $lien, $r)) {
-		list($x, $lien, $atts, $texte) = $r;
+		[$x, $lien, $atts, $texte] = $r;
 		$javascript .= $atts;
 	}
 
@@ -280,7 +281,7 @@ function icone_horizontale($texte, $lien, $fond, $fonction = '', $dummy = '', $j
 	// cas d'ajax_action_auteur: faut defaire le boulot
 	// (il faudrait fusionner avec le cas $javascript)
 	if (preg_match(",^<a\shref='([^']*)'([^>]*)>(.*)</a>$,i", $lien, $r)) {
-		list($x, $lien, $atts, $texte) = $r;
+		[$x, $lien, $atts, $texte] = $r;
 		$javascript .= $atts;
 	}
 

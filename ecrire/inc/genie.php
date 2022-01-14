@@ -162,7 +162,7 @@ function genie_queue_watch_dist() {
 	$programmees = array_column($programmees, 'fonction');
 	foreach ($taches as $tache => $periode) {
 		if (!in_array($tache, $programmees)) {
-			queue_genie_replan_job($tache, $periode, time() - round(rand(1, $periode)), 0);
+			queue_genie_replan_job($tache, $periode, time() - round(random_int(1, $periode)), 0);
 		}
 	}
 	$deja_la = false;

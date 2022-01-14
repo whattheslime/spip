@@ -104,7 +104,7 @@ function traiter_raccourcis($letexte) {
 function echappe_js($t, $class = ' class = "echappe-js"') {
 	foreach (['script', 'iframe'] as $tag) {
 		if (
-			stripos($t, "<$tag") !== false
+			stripos($t, (string) "<$tag") !== false
 			and preg_match_all(',<' . $tag . '.*?($|</' . $tag . '.),isS', $t, $r, PREG_SET_ORDER)
 		) {
 			foreach ($r as $regs) {

@@ -271,7 +271,7 @@ function decrire_version_svn($dir) {
 		$dir = '.';
 	}
 	// version installee par SVN
-	if (file_exists($dir . '/.svn/wc.db') && class_exists('SQLite3')) {
+	if (file_exists($dir . '/.svn/wc.db') && class_exists(\SQLite3::class)) {
 		$db = new SQLite3($dir . '/.svn/wc.db');
 		$result = $db->query('SELECT changed_revision FROM nodes WHERE local_relpath = "" LIMIT 1');
 		if ($result) {
@@ -635,7 +635,7 @@ function taille_image($img, $force_refresh = false) {
 		elseif (strpos($src, '<svg') !== false) {
 			include_spip('inc/svg');
 			if ($attrs = svg_lire_attributs($src)) {
-				list($width, $height, $viewbox) = svg_getimagesize_from_attr($attrs);
+				[$width, $height, $viewbox] = svg_getimagesize_from_attr($attrs);
 				if (!$srcWidth) {
 					$largeur_img[$src] = $srcWidth = $width;
 				}
@@ -681,7 +681,7 @@ function largeur($img) {
 	if (!$img) {
 		return;
 	}
-	list($h, $l) = taille_image($img);
+	[$h, $l] = taille_image($img);
 
 	return $l;
 }
@@ -703,7 +703,7 @@ function hauteur($img) {
 	if (!$img) {
 		return;
 	}
-	list($h, $l) = taille_image($img);
+	[$h, $l] = taille_image($img);
 
 	return $h;
 }
@@ -1531,7 +1531,7 @@ function choixsiegal($a1, $a2, $v, $f) {
 function filtrer_ical($texte) {
 	#include_spip('inc/charsets');
 	$texte = html2unicode($texte);
-	$texte = unicode2charset(charset2unicode($texte, $GLOBALS['meta']['charset'], 1), 'utf-8');
+	$texte = unicode2charset(charset2unicode($texte, $GLOBALS['meta']['charset']), 'utf-8');
 	$texte = preg_replace("/\n/", ' ', $texte);
 	$texte = preg_replace('/,/', '\,', $texte);
 
@@ -1817,6 +1817,7 @@ function extraire_multi($letexte, $lang = null, $options = []) {
  *     Peut retourner un code de langue vide, lorsqu'un texte par défaut est indiqué.
  **/
 function extraire_trads($bloc) {
+	$trads = [];
 	$lang = '';
 // ce reg fait planter l'analyse multi s'il y a de l'{italique} dans le champ
 //	while (preg_match("/^(.*?)[{\[]([a-z_]+)[}\]]/siS", $bloc, $regs)) {
@@ -1904,7 +1905,7 @@ function unique($donnee, $famille = '', $cpt = false) {
 		$mem[$famille] = [];
 	}
 	if ($cpt) {
-		return count($mem[$famille]);
+		return is_countable($mem[$famille]) ? count($mem[$famille]) : 0;
 	}
 	// eviter une notice
 	if (!isset($mem[$famille][$donnee])) {
@@ -2068,7 +2069,7 @@ function inserer_attribut(string $balise, string $attribut, string $val, bool $p
 		$insert = " $attribut='$val'";
 	}
 
-	list($old, $r) = extraire_attribut($balise, $attribut, true);
+	[$old, $r] = extraire_attribut($balise, $attribut, true);
 
 	if ($old !== null) {
 		// Remplacer l'ancien attribut du meme nom
@@ -2133,7 +2134,7 @@ function modifier_class($balise, $class, $operation = 'ajouter') {
 		$is_class_presente = false;
 		if (
 			$class_courante
-			and strpos($class_courante, $c) !== false
+			and strpos($class_courante, (string) $c) !== false
 			and preg_match('/(^|\s)' . preg_quote($c) . '($|\s)/', $class_courante)
 		) {
 			$is_class_presente = true;
@@ -2338,6 +2339,8 @@ function modulo($nb, $mod, $add = 0) {
  *      - true sinon
  **/
 function nom_acceptable($nom) {
+	$remp2 = [];
+	$remp1 = [];
 	if (!is_string($nom)) {
 		return false;
 	}
@@ -2430,7 +2433,7 @@ function afficher_tags($tags, $rels = 'tag,directory') {
 	$s = [];
 	foreach (extraire_balises($tags, 'a') as $tag) {
 		$rel = extraire_attribut($tag, 'rel');
-		if (strstr(",$rels,", ",$rel,")) {
+		if (strstr(",$rels,", (string) ",$rel,")) {
 			$s[] = $tag;
 		}
 	}
@@ -2792,7 +2795,7 @@ function form_hidden($action) {
 	// puis on rassemble le tout
 	$hidden = [];
 	foreach ($values as $value) {
-		list($var, $val) = $value;
+		[$var, $val] = $value;
 		$hidden[] = '<input name="'
 			. entites_html($var)
 			. '"'
@@ -2910,9 +2913,7 @@ function urls_absolues_css($contenu, $source) {
 
 	return preg_replace_callback(
 		",url\s*\(\s*['\"]?([^'\"/#\s][^:]*)['\"]?\s*\),Uims",
-		function ($x) use ($path) {
-			return "url('" . suivre_lien($path, $x[1]) . "')";
-		},
+		fn($x) => "url('" . suivre_lien($path, $x[1]) . "')",
 		$contenu
 	);
 }
@@ -3505,7 +3506,7 @@ function http_img_pack($img, $alt, $atts = '', $title = '', $options = []) {
 			$largeur = $hauteur = intval($regs[1]);
 		} else {
 			$taille = taille_image($img_file);
-			list($hauteur, $largeur) = $taille;
+			[$hauteur, $largeur] = $taille;
 			if (!$hauteur or !$largeur) {
 				return '';
 			}
@@ -3584,7 +3585,7 @@ function helper_filtre_balise_img_svg_size($img, $size) {
 	// si size est de la forme '@2x' c'est un coeff multiplicateur sur la densite
 	if (strpos($size, '@') === 0 and substr($size, -1) === 'x') {
 		$coef = floatval(substr($size, 1, -1));
-		list($h, $w) = taille_image($img);
+		[$h, $w] = taille_image($img);
 		$height = intval(round($h / $coef));
 		$width = intval(round($w / $coef));
 	}
@@ -3597,7 +3598,7 @@ function helper_filtre_balise_img_svg_size($img, $size) {
 		if (count($size) and reset($size)) {
 			$height = array_shift($size);
 			if ($height === '*') {
-				list($h, $w) = taille_image($img);
+				[$h, $w] = taille_image($img);
 				$height = intval(round($h * $width / $w));
 			}
 		}
@@ -3639,7 +3640,7 @@ function helper_filtre_balise_img_svg_size($img, $size) {
  */
 function filtre_balise_img_dist($img, $alt = '', $class = null, $size = null) {
 
-	list($alt, $class, $size) = helper_filtre_balise_img_svg_arguments($alt, $class, $size);
+	[$alt, $class, $size] = helper_filtre_balise_img_svg_arguments($alt, $class, $size);
 
 	$img = trim($img);
 	if (strpos($img, '<img') === 0) {
@@ -3669,7 +3670,7 @@ function filtre_balise_img_dist($img, $alt = '', $class = null, $size = null) {
 	}
 
 	if ($img and !is_null($size) and strlen($size = trim($size))) {
-		list($width, $height) = helper_filtre_balise_img_svg_size($img, $size);
+		[$width, $height] = helper_filtre_balise_img_svg_size($img, $size);
 
 		$img = inserer_attribut($img, 'width', $width);
 		$img = inserer_attribut($img, 'height', $height);
@@ -3709,6 +3710,7 @@ function filtre_balise_img_dist($img, $alt = '', $class = null, $size = null) {
  */
 function filtre_balise_svg_dist($img, $alt = '', $class = null, $size = null) {
 
+	$svg = null;
 	$img = trim($img);
 	$img_file = $img;
 	if (strpos($img, '<svg') === false) {
@@ -3737,7 +3739,7 @@ function filtre_balise_svg_dist($img, $alt = '', $class = null, $size = null) {
 		return '';
 	}
 
-	list($alt, $class, $size) = helper_filtre_balise_img_svg_arguments($alt, $class, $size);
+	[$alt, $class, $size] = helper_filtre_balise_img_svg_arguments($alt, $class, $size);
 
 	$balise_svg = $match[0];
 	$balise_svg_source = $balise_svg;
@@ -3773,7 +3775,7 @@ function filtre_balise_svg_dist($img, $alt = '', $class = null, $size = null) {
 	$svg = str_replace($balise_svg_source, $balise_svg, $svg);
 
 	if (!is_null($size) and strlen($size = trim($size))) {
-		list($width, $height) = helper_filtre_balise_img_svg_size($svg, $size);
+		[$width, $height] = helper_filtre_balise_img_svg_size($svg, $size);
 
 		if (!function_exists('svg_redimensionner')) {
 			include_spip('inc/svg');
@@ -3971,6 +3973,7 @@ function filtre_puce_statut_dist($statut, $objet, $id_objet = 0, $id_parent = 0)
  *   hash du contexte
  */
 function encoder_contexte_ajax($c, $form = '', $emboite = null, $ajaxid = '') {
+	$env = null;
 	if (
 		is_string($c)
 		and @unserialize($c) !== false
@@ -4331,7 +4334,7 @@ function prepare_icone_base($type, $lien, $texte, $fond, $fonction = '', $class 
 	$fond_origine = $fond;
 	// Remappage des icone : article-24.png+new => article-new-24.png
 	if ($icone_renommer = charger_fonction('icone_renommer', 'inc', true)) {
-		list($fond, $fonction) = $icone_renommer($fond, $fonction);
+		[$fond, $fonction] = $icone_renommer($fond, $fonction);
 	}
 
 	// Ajouter le type d'objet dans la classe
@@ -4756,7 +4759,7 @@ function generer_info_entite($id_objet, $type_objet, $info, $etoile = '', $param
 			$info_generee = $generer($id_objet, $type_objet, $objets[$type_objet][$id_objet], ...$params);
 		} // Sinon on prend directement le champ SQL tel quel
 		else {
-			$info_generee = (isset($objets[$type_objet][$id_objet][$info]) ? $objets[$type_objet][$id_objet][$info] : '');
+			$info_generee = ($objets[$type_objet][$id_objet][$info] ?? '');
 		}
 	}
 
@@ -5011,7 +5014,7 @@ function objet_info($objet, $info) {
 	$table = table_objet_sql($objet);
 	$infos = lister_tables_objets_sql($table);
 
-	return (isset($infos[$info]) ? $infos[$info] : '');
+	return ($infos[$info] ?? '');
 }
 
 /**
@@ -5147,7 +5150,7 @@ function produire_fond_statique($fond, $contexte = [], $options = [], string $co
 	else {
 		unset($contexte_implicite['notes']); // pas pertinent pour signaler un changeemnt de contenu pour des css/js
 		ksort($contexte);
-		$hash = md5($fond . json_encode($contexte_implicite) . json_encode($contexte) . $connect);
+		$hash = md5($fond . json_encode($contexte_implicite, JSON_THROW_ON_ERROR) . json_encode($contexte, JSON_THROW_ON_ERROR) . $connect);
 	}
 	$filename = $dir_var . $extension . "dyn-$nom_safe-" . substr($hash, 0, 8) . ".$extension";
 
@@ -5430,9 +5433,9 @@ function spip_affiche_mot_de_passe_masque($passe, $afficher_partiellement = fals
 function identifiant_slug($texte, $type = '', $options = []) {
 
 	$original = $texte;
-	$separateur = (isset($options['separateur']) ? $options['separateur'] : '_');
-	$longueur_maxi = (isset($options['longueur_maxi']) ? $options['longueur_maxi'] : 60);
-	$longueur_mini = (isset($options['longueur_mini']) ? $options['longueur_mini'] : 0);
+	$separateur = ($options['separateur'] ?? '_');
+	$longueur_maxi = ($options['longueur_maxi'] ?? 60);
+	$longueur_mini = ($options['longueur_mini'] ?? 0);
 
 	if (!function_exists('translitteration')) {
 		include_spip('inc/charsets');
@@ -5455,7 +5458,7 @@ function identifiant_slug($texte, $type = '', $options = []) {
 	$texte = preg_replace(',[\W_]+,ms', $separateur, $texte);
 
 	// nettoyer les doubles occurences du separateur si besoin
-	while (strpos($texte, "$separateur$separateur") !== false) {
+	while (strpos($texte, (string) "$separateur$separateur") !== false) {
 		$texte = str_replace("$separateur$separateur", $separateur, $texte);
 	}
 
@@ -5544,7 +5547,7 @@ function helper_filtre_objet_lister_enfants_ou_parents($objet, $id_objet, $fonct
 
 	// compatibilite signature inversee
 	if (is_numeric($objet) and !is_numeric($id_objet)) {
-		list($objet, $id_objet) = [$id_objet, $objet];
+		[$objet, $id_objet] = [$id_objet, $objet];
 	}
 
 	if (!function_exists($fonction)) {

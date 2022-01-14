@@ -153,7 +153,7 @@ function cvtconf_definir_configurer_conteneur($form, $valeurs) {
 	// car par defaut on utilise ni casier ni prefixe dans ce cas
 	if (isset($valeurs['_meta_table'])) {
 		$table = $valeurs['_meta_table'];
-		$casier = (isset($valeurs['_meta_casier']) ? $valeurs['_meta_casier'] : '');
+		$casier = ($valeurs['_meta_casier'] ?? '');
 	}
 
 	return [$table, $casier, $prefixe, $stockage];
@@ -221,7 +221,7 @@ function cvtconf_formulaires_configurer_recense($form) {
  */
 function cvtconf_configurer_stocker($form, $valeurs, $store) {
 	$trace = '';
-	list($table, $casier, $prefixe, $stockage) = cvtconf_definir_configurer_conteneur($form, $valeurs);
+	[$table, $casier, $prefixe, $stockage] = cvtconf_definir_configurer_conteneur($form, $valeurs);
 	// stocker en base
 	// par defaut, dans un casier serialize dans spip_meta (idem CFG)
 	if (!isset($GLOBALS[$table])) {
@@ -249,7 +249,7 @@ function cvtconf_configurer_stocker($form, $valeurs, $store) {
  * @param array $valeurs
  */
 function cvtconf_configurer_lire_meta($form, &$valeurs) {
-	list($table, $casier, $prefixe, $stockage) = cvtconf_definir_configurer_conteneur($form, $valeurs);
+	[$table, $casier, $prefixe, $stockage] = cvtconf_definir_configurer_conteneur($form, $valeurs);
 
 	$table = ($table) ? "/$table/" : '';
 	$prefixe = ($prefixe ? $prefixe . '_' : '');
@@ -263,7 +263,7 @@ function cvtconf_configurer_lire_meta($form, &$valeurs) {
 
 	foreach ($valeurs as $k => $v) {
 		if (substr($k, 0, 1) !== '_') {
-			$valeurs[$k] = (isset($meta[$prefixe . $k]) ? $meta[$prefixe . $k] : null);
+			$valeurs[$k] = ($meta[$prefixe . $k] ?? null);
 		}
 	}
 }

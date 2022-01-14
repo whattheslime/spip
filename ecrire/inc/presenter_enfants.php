@@ -66,7 +66,7 @@ function enfant_rub($collection, $debut = 0, $limite = 500) {
 
 			if ($voir_logo) {
 				if ($logo = $chercher_logo($id_rubrique, 'id_rubrique', 'on')) {
-					list($fid, $dir, $nom, $format) = $logo;
+					[$fid, $dir, $nom, $format] = $logo;
 					$logo = image_recadre_avec_fallback("<img src='$fid' alt='' />", 70, 70);
 					if ($logo) {
 						$logo = wrap(inserer_attribut($logo, 'class', 'logo'), '<span class="logo-carre">');
@@ -98,7 +98,7 @@ function enfant_rub($collection, $debut = 0, $limite = 500) {
 			$res[] =
 				debut_cadre_sous_rub(($id_parent ? 'rubrique-24.png' : 'secteur-24.png'), true, '', $titre) .
 				$les_sous_enfants .
-				fin_cadre_sous_rub(true);
+				fin_cadre_sous_rub();
 		}
 	}
 
@@ -128,7 +128,7 @@ function sous_enfant_rub($collection2) {
 	 * Si > 500 on affiche une pagination
 	 */
 	if ($nb > $limite) {
-		$debut = _request('debut_rubrique' . $collection2) ? _request('debut_rubrique' . $collection2) : $debut;
+		$debut = _request('debut_rubrique' . $collection2) ?: $debut;
 		$pagination = chercher_filtre('pagination');
 		$pagination = '<p class="pagination">' . $pagination(
 			$nb,
@@ -202,7 +202,7 @@ function afficher_enfant_rub($id_rubrique = 0) {
 	$nb = sql_countsel('spip_rubriques', 'id_parent=' . intval($id_rubrique));
 
 	if ($nb > $limite) {
-		$debut = _request('debut_rubrique' . $id_rubrique) ? _request('debut_rubrique' . $id_rubrique) : $debut;
+		$debut = _request('debut_rubrique' . $id_rubrique) ?: $debut;
 		$pagination = chercher_filtre('pagination');
 		$pagination = '<br class="nettoyeur"><p class="pagination">' .
 			$pagination($nb, '_rubrique' . $id_rubrique, $debut, $limite, true, 'prive') .

@@ -127,7 +127,7 @@ function lire_config($cfg = '', $def = null, $unserialize = true) {
 		return $lire_config(substr($cfg, $p + 2), $def, $unserialize);
 	}
 
-	list($table, $casier, $sous_casier) = expliquer_config($cfg);
+	[$table, $casier, $sous_casier] = expliquer_config($cfg);
 
 	if (!isset($GLOBALS[$table])) {
 		return $def;
@@ -145,7 +145,7 @@ function lire_config($cfg = '', $def = null, $unserialize = true) {
 	// ou si on a besoin
 	// d'un sous casier
 	$r = $r[$casier] ?? null;
-	if (($unserialize or count($sous_casier)) and $r and is_string($r)) {
+	if (($unserialize or is_countable($sous_casier) ? count($sous_casier) : 0) and $r and is_string($r)) {
 		$r = (($t = @unserialize($r)) === false ? $r : $t);
 	}
 
@@ -192,7 +192,7 @@ function ecrire_config($cfg, $store) {
 		return $ecrire_config(substr($cfg, $p + 2), $store);
 	}
 
-	list($table, $casier, $sous_casier) = expliquer_config($cfg);
+	[$table, $casier, $sous_casier] = expliquer_config($cfg);
 	// il faut au moins un casier pour ecrire
 	if (!$casier) {
 		return false;
@@ -216,7 +216,7 @@ function ecrire_config($cfg, $store) {
 	if ($c = $sous_casier) {
 		$sc = &$st;
 		$pointeurs = [];
-		while (count($c) and $cc = array_shift($c)) {
+		while (is_countable($c) ? count($c) : 0 and $cc = array_shift($c)) {
 			// creer l'entree si elle n'existe pas
 			if (!isset($sc[$cc])) {
 				// si on essaye d'effacer une config qui n'existe pas
@@ -237,12 +237,12 @@ function ecrire_config($cfg, $store) {
 			// effacer, et remonter pour effacer les parents vides
 			do {
 				unset($pointeurs[$sous][$sous]);
-			} while ($sous = array_pop($c) and !count($pointeurs[$sous][$sous]));
+			} while ($sous = array_pop($c) and !(is_countable($pointeurs[$sous][$sous]) ? count($pointeurs[$sous][$sous]) : 0));
 
 			// si on a vide tous les sous casiers,
 			// et que le casier est vide
 			// vider aussi la meta
-			if (!$sous and !count($st)) {
+			if (!$sous and !(is_countable($st) ? count($st) : 0)) {
 				$st = null;
 			}
 		} // dans tous les autres cas, on ecrase
@@ -330,7 +330,7 @@ function lister_configurer($exclure = []) {
 	// lister les pages de config deja dans les menus
 	$deja = [];
 	foreach ($exclure as $id => $b) {
-		$url = ($b['url'] ? $b['url'] : $id);
+		$url = ($b['url'] ?: $id);
 		if (!$b['url'] or !isset($exclure[$url])) {
 			if (strncmp($url, 'configurer_', 11) == 0) {
 				$deja[$url] = $b;

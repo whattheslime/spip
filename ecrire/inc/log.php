@@ -37,9 +37,9 @@ function inc_log_dist($message, $logname = null, $logdir = null, $logsuf = null)
 		return;
 	}
 
-	$logfile = ($logdir === null ? _DIR_LOG : $logdir)
+	$logfile = ($logdir ?? _DIR_LOG)
 		. ($logname)
-		. ($logsuf === null ? _FILE_LOG_SUFFIX : $logsuf);
+		. ($logsuf ?? _FILE_LOG_SUFFIX);
 
 	if (!isset($test_repertoire[$d = dirname($logfile)])) {
 		$test_repertoire[$d] = false; // eviter une recursivite en cas d'erreur de sous_repertoire
@@ -71,11 +71,11 @@ function inc_log_dist($message, $logname = null, $logdir = null, $logsuf = null)
 		if (strncmp($fi, _ROOT_RACINE, strlen(_ROOT_RACINE)) == 0) {
 			$fi = substr($fi, strlen(_ROOT_RACINE));
 		}
-		$fu = isset($debug[2]['function']) ? $debug[2]['function'] : '';
+		$fu = $debug[2]['function'] ?? '';
 		$debugverb = "$fi:L$l:$fu" . '():';
 	}
 
-	$m = date('Y-m-d H:i:s') . ' ' . (isset($GLOBALS['ip']) ? $GLOBALS['ip'] : '') . ' ' . $pid . ' '
+	$m = date('Y-m-d H:i:s') . ' ' . ($GLOBALS['ip'] ?? '') . ' ' . $pid . ' '
 		//distinguer les logs prives et publics dans les grep
 		. $debugverb
 		. (test_espace_prive() ? ':Pri:' : ':Pub:')

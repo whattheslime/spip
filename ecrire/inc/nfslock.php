@@ -168,7 +168,7 @@ function spip_nfslock($fichier, $max_age = 0) {
 			 * another process and unlink it's newly-
 			 * created file.
 			 */
-			sleep(1 + rand(0, 4));
+			sleep(1 + random_int(0, 4));
 			continue;
 		}
 
@@ -177,7 +177,7 @@ function spip_nfslock($fichier, $max_age = 0) {
 		 */
 
 		$tries++;
-		sleep(1 + rand(0, 4));
+		sleep(1 + random_int(0, 4));
 	}
 
 	/*
@@ -282,7 +282,7 @@ function spip_nfsunlock($fichier, $birth, $max_age = 0, $test = false) {
 			if (!$test) {
 				return false;
 			} //(NFSL_LOST);
-			sleep(1 + (rand(0, 4)));    /* so sleep a bit */
+			sleep(1 + (random_int(0, 4)));    /* so sleep a bit */
 		}
 
 		return true;//(NFSL_OK);			/* success */

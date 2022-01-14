@@ -54,6 +54,7 @@ if (!defined('_ECRIRE_INC_VERSION')) {
  *     true si le statut change effectivement
  **/
 function calculer_rubriques_if($id_rubrique, $modifs, $infos = [], $postdate = false) {
+	$statuts_publies = null;
 	$neuf = false;
 
 	// Compat avec l'ancienne signature
@@ -629,7 +630,7 @@ function calculer_langues_utilisees($serveur = '') {
 				];
 				// generer un nom de fonction "anonyme" unique
 				do {
-					$functionname = 'f_calculer_langues_utilisees_' . $boucle->id_table . '_' . time() . '_' . rand();
+					$functionname = 'f_calculer_langues_utilisees_' . $boucle->id_table . '_' . time() . '_' . random_int(0, mt_getrandmax());
 				} while (function_exists($functionname));
 				$code = calculer_boucle('calculer_langues_utilisees', $boucles);
 				$code = '$SP=0; $command=array();$command["connect"] = $connect = "' . $serveur . '"; $Pile=array(0=>array());' . "\n" . $code;

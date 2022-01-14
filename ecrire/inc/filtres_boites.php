@@ -47,7 +47,7 @@ function balise_BOITE_OUVRIR_dist($p) {
 	$_titre = interprete_argument_balise(1, $p);
 	$_class = interprete_argument_balise(2, $p);
 	$_head_class = interprete_argument_balise(3, $p);
-	$_titre = ($_titre ? $_titre : "''");
+	$_titre = ($_titre ?: "''");
 	$_class = ($_class ? ", $_class" : ", 'simple'");
 	$_head_class = ($_head_class ? ", $_head_class" : '');
 

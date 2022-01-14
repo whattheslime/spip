@@ -86,7 +86,7 @@ function expression_recherche($recherche, $options) {
 	}
 
 	$u = $GLOBALS['meta']['pcre_u'];
-	if ($u and strpos($options['preg_flags'], $u) === false) {
+	if ($u and strpos($options['preg_flags'], (string) $u) === false) {
 		$options['preg_flags'] .= $u;
 	}
 	include_spip('inc/charsets');
@@ -217,8 +217,8 @@ function expression_recherche($recherche, $options) {
 	// les plus frequents qui peuvent etre accentues
 	// (oui c'est tres dicustable...)
 	if (
-		isset($GLOBALS['connexions'][$options['serveur'] ? $options['serveur'] : 0]['type'])
-		and strncmp($GLOBALS['connexions'][$options['serveur'] ? $options['serveur'] : 0]['type'], 'sqlite', 6) == 0
+		isset($GLOBALS['connexions'][$options['serveur'] ?: 0]['type'])
+		and strncmp($GLOBALS['connexions'][$options['serveur'] ?: 0]['type'], 'sqlite', 6) == 0
 	) {
 		$q_t = strtr($q, 'aeuioc', $is_preg ? '......' : '______');
 		// si il reste au moins un char significatif...
@@ -326,7 +326,7 @@ function recherche_en_base($recherche = '', $tables = null, $options = [], $serv
 
 
 		spip_log(
-			"recherche $table ($recherche) : " . count($results[$table]) . ' resultats ' . spip_timer('rech'),
+			"recherche $table ($recherche) : " . (is_countable($results[$table]) ? count($results[$table]) : 0) . ' resultats ' . spip_timer('rech'),
 			'recherche'
 		);
 

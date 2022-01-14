@@ -52,7 +52,7 @@ function inc_recherche_to_array_dist($recherche, $options = []) {
 	}
 	$serveur = $options['serveur'];
 
-	list($methode, $q, $preg) = expression_recherche($recherche, $options);
+	[$methode, $q, $preg] = expression_recherche($recherche, $options);
 
 	$jointures = $options['jointures']
 		? liste_des_jointures()
@@ -226,7 +226,7 @@ function inc_recherche_to_array_dist($recherche, $options = []) {
 				// sinon cherchons une table de liaison
 				// cas recherche principale article, objet lie document : passer par spip_documents_liens
 				elseif ($l = objet_associable($table_liee)) {
-					list($primary, $table_liens) = $l;
+					[$primary, $table_liens] = $l;
 					$s = sql_select(
 						"id_objet as $cle_depart, $primary as $cle_arrivee",
 						$table_liens,
@@ -239,7 +239,7 @@ function inc_recherche_to_array_dist($recherche, $options = []) {
 					);
 				} // cas recherche principale auteur, objet lie article: passer par spip_auteurs_liens
 				elseif ($l = $depart_associable) {
-					list($primary, $table_liens) = $l;
+					[$primary, $table_liens] = $l;
 					$s = sql_select(
 						"$primary as $cle_depart, id_objet as $cle_arrivee",
 						$table_liens,
@@ -267,7 +267,7 @@ function inc_recherche_to_array_dist($recherche, $options = []) {
 					);
 				}
 			} else {
-				list($cle_depart, $cle_arrivee, $s) = $rechercher_joints(
+				[$cle_depart, $cle_arrivee, $s] = $rechercher_joints(
 					$table,
 					$table_liee,
 					array_keys($ids_trouves),

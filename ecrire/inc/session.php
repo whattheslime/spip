@@ -173,7 +173,7 @@ function ajouter_session($auteur) {
 		!isset($_COOKIE['spip_session'])
 		or !preg_match(',^' . $id_auteur . '_,', $_COOKIE['spip_session'])
 	) {
-		$_COOKIE['spip_session'] = $id_auteur . '_' . md5(uniqid(rand(), true));
+		$_COOKIE['spip_session'] = $id_auteur . '_' . md5(uniqid(random_int(0, mt_getrandmax()), true));
 	}
 
 	// Maintenant on sait qu'on a des choses à écrire
@@ -389,7 +389,7 @@ function verifier_session($change = false) {
  *     Valeur, si trouvée, `null` sinon.
  */
 function session_get($nom) {
-	return isset($GLOBALS['visiteur_session'][$nom]) ? $GLOBALS['visiteur_session'][$nom] : null;
+	return $GLOBALS['visiteur_session'][$nom] ?? null;
 }
 
 
@@ -716,7 +716,7 @@ function hash_env() {
 		return $res;
 	}
 
-	return $res = md5($GLOBALS['ip'] . (isset($_SERVER['HTTP_USER_AGENT']) ? $_SERVER['HTTP_USER_AGENT'] : ''));
+	return $res = md5($GLOBALS['ip'] . ($_SERVER['HTTP_USER_AGENT'] ?? ''));
 }
 
 

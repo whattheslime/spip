@@ -225,7 +225,7 @@ function cvtmulti_formulaire_verifier_etapes($args, $erreurs) {
 		and ($e = cvtmulti_recuperer_post_precedents($form)) !== false
 	) {
 		// recuperer l'etape saisie et le nombre d'etapes total
-		list($etape, $etapes) = $e;
+		[$etape, $etapes] = $e;
 		$etape_demandee = intval(_request('aller_a_etape')); // possibilite de poster un entier dans aller_a_etape
 
 		$args['etape_saisie'] = $etape;
@@ -255,7 +255,7 @@ function cvtmulti_formulaire_verifier_etapes($args, $erreurs) {
 				]
 			);
 
-			if ($derniere_etape_ok == $e - 1 and !count($erreurs_etapes[$e])) {
+			if ($derniere_etape_ok == $e - 1 and !(is_countable($erreurs_etapes[$e]) ? count($erreurs_etapes[$e]) : 0)) {
 				$derniere_etape_ok = $e;
 			}
 			// possibilite de poster dans _retour_etape_x ou aller_a_etape
@@ -288,7 +288,7 @@ function cvtmulti_formulaire_verifier_etapes($args, $erreurs) {
 			// Ne pas se tromper dans le texte du message d'erreur : la clé '_etapes' n'est pas une erreur !
 			if ($erreurs) {
 				if (!isset($erreurs['message_erreur'])) {
-					$erreurs['message_erreur'] = singulier_ou_pluriel(count($erreurs), 'avis_1_erreur_saisie', 'avis_nb_erreurs_saisie');
+					$erreurs['message_erreur'] = singulier_ou_pluriel(is_countable($erreurs) ? count($erreurs) : 0, 'avis_1_erreur_saisie', 'avis_nb_erreurs_saisie');
 				}
 			} else {
 				$erreurs['message_erreur'] = '';

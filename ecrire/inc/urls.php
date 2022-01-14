@@ -62,17 +62,17 @@ function urls_decoder_url($url, $fond = '', $contexte = [], $assembler = false) 
 	// les anciennes fonctions modifient directement les globales
 	// on les sauve avant l'appel, et on les retablit apres !
 	$save = [
-		isset($GLOBALS['fond']) ? $GLOBALS['fond'] : null,
-		isset($GLOBALS['contexte']) ? $GLOBALS['contexte'] : null,
-		isset($_SERVER['REDIRECT_url_propre']) ? $_SERVER['REDIRECT_url_propre'] : null,
-		isset($_ENV['url_propre']) ? $_ENV['url_propre'] : null,
+		$GLOBALS['fond'] ?? null,
+		$GLOBALS['contexte'] ?? null,
+		$_SERVER['REDIRECT_url_propre'] ?? null,
+		$_ENV['url_propre'] ?? null,
 		$GLOBALS['profondeur_url']
 	];
 
 	if (is_null($current_base)) {
 		include_spip('inc/filtres_mini');
 		// le decodage des urls se fait toujours par rapport au site public
-		$current_base = url_absolue(_DIR_RACINE ? _DIR_RACINE : './');
+		$current_base = url_absolue(_DIR_RACINE ?: './');
 	}
 	if (strncmp($url, $current_base, strlen($current_base)) == 0) {
 		$url = substr($url, strlen($current_base));
@@ -116,7 +116,7 @@ function urls_decoder_url($url, $fond = '', $contexte = [], $assembler = false) 
 	if ($renommer) {
 		$a = $renommer($url, $fond, $contexte);
 		if (is_array($a)) {
-			list($ncontexte, $type, $url_redirect, $nfond) = array_pad($a, 4, null);
+			[$ncontexte, $type, $url_redirect, $nfond] = array_pad($a, 4, null);
 			$url_redirect ??= '';
 			if ($url_redirect === $url) {
 				$url_redirect = '';
@@ -156,7 +156,7 @@ function urls_decoder_url($url, $fond = '', $contexte = [], $assembler = false) 
 	}
 
 	// retablir les globales
-	list($GLOBALS['fond'], $GLOBALS['contexte'], $_SERVER['REDIRECT_url_propre'], $_ENV['url_propre'], $GLOBALS['profondeur_url']) = $save;
+	[$GLOBALS['fond'], $GLOBALS['contexte'], $_SERVER['REDIRECT_url_propre'], $_ENV['url_propre'], $GLOBALS['profondeur_url']] = $save;
 
 	// vider les globales url propres qui ne doivent plus etre utilisees en cas
 	// d'inversion url => objet

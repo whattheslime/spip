@@ -97,9 +97,9 @@ function virtuel_redirige($virtuel, $url = false) {
 
 // https://code.spip.net/@calculer_url
 function calculer_url($ref, $texte = '', $pour = 'url', string $connect = '', $echappe_typo = true) {
-	$r = traiter_lien_implicite($ref, $texte, $pour, $connect, $echappe_typo);
+	$r = traiter_lien_implicite($ref, $texte, $pour, $connect);
 
-	return $r ? $r : traiter_lien_explicite($ref, $texte, $pour, $connect, $echappe_typo);
+	return $r ?: traiter_lien_explicite($ref, $texte, $pour, $connect, $echappe_typo);
 }
 
 define('_EXTRAIRE_LIEN', ',^\s*(?:' . _PROTOCOLES_STD . '):?/?/?\s*$,iS');
@@ -158,24 +158,25 @@ function liens_implicite_glose_dist($texte, $id, $type, $args, $ancre, string $c
 
 // https://code.spip.net/@traiter_lien_implicite
 function traiter_lien_implicite($ref, $texte = '', $pour = 'url', string $connect = '') {
+	$url = null;
 	if (!($match = typer_raccourci($ref))) {
 		return false;
 	}
-	@list($type, , $id, , $args, , $ancre) = $match;
+	@[$type, , $id, , $args, , $ancre] = $match;
 	// attention dans le cas des sites le lien doit pointer non pas sur
 	// la page locale du site, mais directement sur le site lui-meme
 	if ($f = charger_fonction("implicite_$type", 'liens', true)) {
 		$url = $f($texte, $id, $type, $args, $ancre, $connect);
 	}
 	if (!$url) {
-		$url = generer_url_entite($id, $type, $args, $ancre, $connect ? $connect : null);
+		$url = generer_url_entite($id, $type, $args, $ancre, $connect ?: null);
 	}
 	if (!$url) {
 		return false;
 	}
 	if (is_array($url)) {
-		@list($type, $id) = $url;
-		$url = generer_url_entite($id, $type, $args, $ancre, $connect ? $connect : null);
+		@[$type, $id] = $url;
+		$url = generer_url_entite($id, $type, $args, $ancre, $connect ?: null);
 	}
 	if ($pour === 'url') {
 		return $url;
@@ -326,14 +327,14 @@ function traiter_modeles($texte, $doublons = false, $echap = '', string $connect
 		foreach ($matches as $match) {
 			// Recuperer l'appel complet (y compris un eventuel lien)
 
-			$a = strpos($texte, $match[0]);
+			$a = strpos($texte, (string) $match[0]);
 			preg_match(
 				_RACCOURCI_MODELE_DEBUT,
 				substr($texte, $a),
 				$regs
 			);
 			$regs[] = ''; // s'assurer qu'il y a toujours un 5e arg, eventuellement vide
-			list(, $mod, $type, $id, $params, $fin) = $regs;
+			[, $mod, $type, $id, $params, $fin] = $regs;
 			if (
 				$fin and
 				preg_match(
@@ -408,7 +409,7 @@ function traiter_modeles($texte, $doublons = false, $echap = '', string $connect
 
 			// hack pour tout l'espace prive
 			if (((!_DIR_RESTREINT) or ($doublons)) and ($id)) {
-				foreach ($doublons ? $doublons : ['documents' => ['doc', 'emb', 'img']] as $quoi => $modeles) {
+				foreach ($doublons ?: ['documents' => ['doc', 'emb', 'img']] as $quoi => $modeles) {
 					if (in_array($type, $modeles)) {
 						$GLOBALS["doublons_{$quoi}_inclus"][] = $id;
 					}

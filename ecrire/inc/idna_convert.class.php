@@ -51,7 +51,7 @@
  */
 class idna_convert {
 
-    private $version = '0.9.1';
+    private string $version = '0.9.1';
     protected $sub_version = 'main';
 
     // NP See below
@@ -203,7 +203,7 @@ class idna_convert {
                 $this->_error('Only simple domain name parts can be handled in strict mode');
                 return false;
             }
-            list ($email_pref, $input) = explode('@', $input, 2);
+            [$email_pref, $input] = explode('@', $input, 2);
             $arr = explode('.', $input);
             foreach ($arr as $k => $v) {
                 if (preg_match('!^' . preg_quote($this->_punycode_prefix, '!') . '!', $v)) {
@@ -252,7 +252,7 @@ class idna_convert {
                 $arr = explode('.', $input);
                 foreach ($arr as $k => $v) {
                     $conv = $this->_decode($v);
-                    $arr[$k] = ($conv) ? $conv : $v;
+                    $arr[$k] = $conv ?: $v;
                 }
                 $return = join('.', $arr);
             }
@@ -264,7 +264,7 @@ class idna_convert {
         }
         // The output is UTF-8 by default, other output formats need conversion here
         // If one time encoding is given, use this, else the objects property
-        switch (($one_time_encoding) ? $one_time_encoding : $this->_api_encoding) {
+        switch ($one_time_encoding ?: $this->_api_encoding) {
             case 'utf8':        return $return; // break;
             case 'ucs4_string': return $this->_ucs4_to_ucs4_string($this->_utf8_to_ucs4($return));  // break;
             case 'ucs4_array':  return $this->_utf8_to_ucs4($return); // break;
@@ -282,7 +282,7 @@ class idna_convert {
     {
         // Forcing conversion of input to UCS4 array
         // If one time encoding is given, use this, else the objects property
-        switch ($one_time_encoding ? $one_time_encoding : $this->_api_encoding) {
+        switch ($one_time_encoding ?: $this->_api_encoding) {
             case 'utf8':
                 $decoded = $this->_utf8_to_ucs4($decoded);
                 break;
@@ -291,7 +291,7 @@ class idna_convert {
             case 'ucs4_array':
                 break;
             default:
-                $this->_error('Unsupported input format: ' . ($one_time_encoding ? $one_time_encoding : $this->_api_encoding));
+                $this->_error('Unsupported input format: ' . ($one_time_encoding ?: $this->_api_encoding));
                 return false;
         }
 
@@ -494,7 +494,7 @@ class idna_convert {
         if (!$decoded || !is_array($decoded)) {
             return false; // NAMEPREP failed
         }
-        $deco_len = count($decoded);
+        $deco_len = is_countable($decoded) ? count($decoded) : 0;
         if (!$deco_len) {
             return false; // Empty array
         }
@@ -725,7 +725,7 @@ class idna_convert {
      */
     protected function _hangul_compose($input)
     {
-        $inp_len = count($input);
+        $inp_len = is_countable($input) ? count($input) : 0;
         if (!$inp_len) {
             return array();
         }
@@ -767,7 +767,7 @@ class idna_convert {
      */
     protected function _get_combining_class($char)
     {
-        return isset(self::$NP['norm_combcls'][$char]) ? self::$NP['norm_combcls'][$char] : 0;
+        return self::$NP['norm_combcls'][$char] ?? 0;
     }
 
     /**
@@ -778,7 +778,7 @@ class idna_convert {
     protected function _apply_cannonical_ordering($input)
     {
         $swap = true;
-        $size = count($input);
+        $size = is_countable($input) ? count($input) : 0;
         while ($swap) {
             $swap = false;
             $last = $this->_get_combining_class(intval($input[0]));
@@ -811,7 +811,7 @@ class idna_convert {
      */
     protected function _combine($input)
     {
-        $inp_len = count($input);
+        $inp_len = is_countable($input) ? count($input) : 0;
         if (0 == $inp_len) {
             return false;
         }
@@ -819,7 +819,7 @@ class idna_convert {
             if ($np_target[0] != $input[0]) {
                 continue;
             }
-            if (count($np_target) != $inp_len) {
+            if ((is_countable($np_target) ? count($np_target) : 0) != $inp_len) {
                 continue;
             }
             $hit = false;
@@ -858,6 +858,8 @@ class idna_convert {
      */
     protected function _utf8_to_ucs4($input)
     {
+        $start_byte = null;
+        $next_byte = null;
         $output = array();
         $out_len = 0;
         $inp_len = self::byteLength($input);
@@ -1043,7 +1045,7 @@ class idna_convert {
 
         $signature = serialize($params);
         if (!isset($instances[$signature])) {
-            $instances[$signature] = idna_convert::getInstance($params);
+            $instances[$signature] = (new idna_convert())->getInstance($params);
         }
         return $instances[$signature];
     }

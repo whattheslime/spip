@@ -45,6 +45,7 @@ include_spip('inc/autoriser'); // necessaire si appel de l'espace public
  **/
 function precharger_objet($type, $id_objet, $id_rubrique = 0, $lier_trad = 0, $champ_titre = 'titre') {
 
+	$row = [];
 	$table = table_objet_sql($type);
 	$_id_objet = id_table_objet($table);
 

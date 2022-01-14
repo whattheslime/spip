@@ -112,7 +112,7 @@ function svg_lire_balise_svg($fichier) {
 function svg_lire_attributs($img) {
 
 	if ($svg_infos = svg_lire_balise_svg($img)) {
-		list($balise_svg, $attributs) = $svg_infos;
+		[$balise_svg, $attributs] = $svg_infos;
 		return $attributs;
 	}
 
@@ -230,7 +230,7 @@ function svg_redimensionner($img, $new_width, $new_height) {
 		$svg = svg_charger($img)
 		and $svg_infos = svg_lire_balise_svg($svg)
 	) {
-		list($balise_svg, $attributs) = $svg_infos;
+		[$balise_svg, $attributs] = $svg_infos;
 		if (!isset($attributs['viewBox'])) {
 			$attributs['viewBox'] = '0 0 ' . $attributs['width'] . ' ' . $attributs['height'];
 		}
@@ -364,9 +364,9 @@ function svg_force_viewBox_px($img, $force_width_and_height = false) {
 		$svg = svg_charger($img)
 		and $svg_infos = svg_lire_balise_svg($svg)
 	) {
-		list($balise_svg, $attributs) = $svg_infos;
+		[$balise_svg, $attributs] = $svg_infos;
 
-		list($width, $height, $viewBox) = svg_getimagesize_from_attr($attributs);
+		[$width, $height, $viewBox] = svg_getimagesize_from_attr($attributs);
 
 		if ($force_width_and_height) {
 			$attributs['width'] = $width;
@@ -407,7 +407,7 @@ function svg_recadrer($img, $new_width, $new_height, $offset_width, $offset_heig
 		$svg = svg_force_viewBox_px($img)
 		and $svg_infos = svg_lire_balise_svg($svg)
 	) {
-		list($balise_svg, $attributs) = $svg_infos;
+		[$balise_svg, $attributs] = $svg_infos;
 		$viewBox = explode(' ', $attributs['viewBox']);
 
 		$viewport_w = $new_width;
@@ -469,7 +469,7 @@ function svg_ajouter_background($img, $background_color) {
 		and $svg_infos = svg_lire_balise_svg($svg)
 	) {
 		if ($background_color and $background_color !== 'transparent') {
-			list($balise_svg, $attributs) = $svg_infos;
+			[$balise_svg, $attributs] = $svg_infos;
 
 			$background_color = svg_couleur_to_hexa($background_color);
 			if (isset($attributs['viewBox'])) {
@@ -499,7 +499,7 @@ function svg_ajouter_voile($img, $background_color, $opacity) {
 		and $svg_infos = svg_lire_balise_svg($svg)
 	) {
 		if ($background_color and $background_color !== 'transparent') {
-			list($balise_svg, $attributs) = $svg_infos;
+			[$balise_svg, $attributs] = $svg_infos;
 
 			$background_color = svg_couleur_to_hexa($background_color);
 			if (isset($attributs['viewBox'])) {
@@ -529,7 +529,7 @@ function svg_transformer($img, $attributs) {
 		and $svg_infos = svg_lire_balise_svg($svg)
 	) {
 		if ($attributs) {
-			list($balise_svg, ) = $svg_infos;
+			[$balise_svg, ] = $svg_infos;
 			$g = '<g';
 			foreach ($attributs as $k => $v) {
 				if (strlen($v)) {
@@ -560,7 +560,7 @@ function svg_apply_filter($img, $filter_def) {
 		and $svg_infos = svg_lire_balise_svg($svg)
 	) {
 		if ($filter_def) {
-			list($balise_svg, ) = $svg_infos;
+			[$balise_svg, ] = $svg_infos;
 			$filter_id = 'filter-' . substr(md5($filter_def . strlen($svg)), 0, 8);
 			$filter = "<defs><filter id=\"$filter_id\">$filter_def</filter></defs>";
 			$g = "<g filter=\"url(#$filter_id)\">";
@@ -618,7 +618,7 @@ function svg_flip($img, $HorV) {
 		$svg = svg_force_viewBox_px($img)
 		and $svg_infos = svg_lire_balise_svg($svg)
 	) {
-		list($balise_svg, $atts) = $svg_infos;
+		[$balise_svg, $atts] = $svg_infos;
 		$viewBox = explode(' ', $atts['viewBox']);
 
 		if (!in_array($HorV, ['h', 'H'])) {
@@ -656,7 +656,7 @@ function svg_rotate($img, $angle, $center_x, $center_y) {
 		$svg = svg_force_viewBox_px($img)
 		and $svg_infos = svg_lire_balise_svg($svg)
 	) {
-		list($balise_svg, $atts) = $svg_infos;
+		[$balise_svg, $atts] = $svg_infos;
 		$viewBox = explode(' ', $atts['viewBox']);
 
 		$center_x = round($viewBox[0] + $center_x * $viewBox[2]);
@@ -695,7 +695,7 @@ function svg_filtrer_couleurs($img, $callback_filter) {
 			}
 		}
 
-		$colors = array_merge($long, $short);
+		$colors = [...$long, ...$short];
 		$new_colors = [];
 		$colors = array_flip($colors);
 		foreach ($colors as $c => $k) {

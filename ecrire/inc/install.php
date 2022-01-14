@@ -260,6 +260,7 @@ function bouton_suivant($code = '') {
 
 // https://code.spip.net/@info_progression_etape
 function info_progression_etape($en_cours, $phase, $dir, $erreur = false) {
+	$intitule_etat = [];
 	//$en_cours = _request('etape')?_request('etape'):"";
 	$liste = find_all_in_path($dir, $phase . '(([0-9])+|fin)[.]php$');
 	$debut = 1;
@@ -371,7 +372,7 @@ function install_select_serveur() {
 				// proposer mysql par defaut si dispo
 				$checked = ($s == 'mysql' ? " checked='checked'" : '');
 				$options[$s] = "<li><input type='radio' id='$s' value='$s' name='server_db'$checked>"
-					. "<label for='$s'>" . ($titre ? $titre : $s) . '</label></li>';
+					. "<label for='$s'>" . ($titre ?: $s) . '</label></li>';
 			} else {
 				spip_log("$s: portage indisponible");
 			}

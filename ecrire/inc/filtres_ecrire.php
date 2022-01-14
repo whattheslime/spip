@@ -166,7 +166,7 @@ function chercher_rubrique(
 
 	include_spip('inc/presentation');
 
-	return debut_cadre_couleur($logo, true, '', $titre) . $form . fin_cadre_couleur(true);
+	return debut_cadre_couleur($logo, true, '', $titre) . $form . fin_cadre_couleur();
 }
 
 
@@ -386,7 +386,7 @@ function auteurs_lister_statuts($quoi = 'tous', $en_base = true) {
 function trouver_rubrique_creer_objet($id_rubrique, $objet) {
 
 	if (!$id_rubrique and defined('_CHOIX_RUBRIQUE_PAR_DEFAUT') and _CHOIX_RUBRIQUE_PAR_DEFAUT) {
-		$in = !count($GLOBALS['connect_id_rubrique'])
+		$in = !(is_countable($GLOBALS['connect_id_rubrique']) ? count($GLOBALS['connect_id_rubrique']) : 0)
 			? ''
 			: (' AND ' . sql_in('id_rubrique', $GLOBALS['connect_id_rubrique']));
 
@@ -587,7 +587,7 @@ function afficher_plus_info($lien, $titre = '+', $titre_lien = '') {
  */
 function lister_objets_lies($objet_source, $objet, $id_objet, $objet_lien) {
 	$res = lister_objets_liens($objet_source, $objet, $id_objet, $objet_lien);
-	if (!count($res)) {
+	if (!(is_countable($res) ? count($res) : 0)) {
 		return [];
 	}
 	$r = reset($res);

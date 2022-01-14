@@ -138,7 +138,7 @@ function barre_onglets($rubrique, $ongletCourant, $class = 'barre_onglet') {
 	$res = '';
 
 	foreach (definir_barre_onglets($rubrique) as $exec => $onglet) {
-		$url = $onglet->url ? $onglet->url : generer_url_ecrire($exec);
+		$url = $onglet->url ?: generer_url_ecrire($exec);
 		$res .= onglet(_T($onglet->libelle), $url, $exec, $ongletCourant, $onglet->icone);
 	}
 

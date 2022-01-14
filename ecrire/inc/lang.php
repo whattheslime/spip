@@ -57,9 +57,9 @@ function changer_langue($lang, $liste_langues = null) {
 	}
 
 	if (
-		strpos($liste_langues, ",$lang,") !== false
+		strpos($liste_langues, (string) ",$lang,") !== false
 		or ($lang = preg_replace(',_.*,', '', $lang)
-			and strpos($liste_langues, ",$lang,") !== false)
+			and strpos($liste_langues, (string) ",$lang,") !== false)
 	) {
 		$GLOBALS['spip_lang_rtl'] = lang_dir($lang, '', '_rtl');
 		$GLOBALS['spip_lang_right'] = $GLOBALS['spip_lang_rtl'] ? 'left' : 'right';
@@ -123,7 +123,7 @@ function traduire_nom_langue($lang) {
 	include_spip('inc/lang_liste');
 	include_spip('inc/charsets');
 
-	return html2unicode(isset($GLOBALS['codes_langues'][$lang]) ? $GLOBALS['codes_langues'][$lang] : $lang);
+	return html2unicode($GLOBALS['codes_langues'][$lang] ?? $lang);
 }
 
 //
@@ -139,7 +139,7 @@ function traduire_nom_langue($lang) {
 function lang_dir($lang = '', $droitier = 'ltr', $gaucher = 'rtl') {
 	static $lang_rtl = ['ar', 'fa', 'ku', 'prs', 'ps', 'ur', 'he', 'heb', 'hbo', 'yi'];
 
-	return in_array(($lang ? $lang : $GLOBALS['spip_lang']), $lang_rtl) ?
+	return in_array(($lang ?: $GLOBALS['spip_lang']), $lang_rtl) ?
 		$gaucher : $droitier;
 }
 
@@ -151,9 +151,7 @@ function lang_dir($lang = '', $droitier = 'ltr', $gaucher = 'rtl') {
 // https://code.spip.net/@lang_typo
 function lang_typo($lang = '') {
 	if (!$lang) {
-		$lang = isset($GLOBALS['lang_objet'])
-			? $GLOBALS['lang_objet']
-			: $GLOBALS['spip_lang'];
+		$lang = $GLOBALS['lang_objet'] ?? $GLOBALS['spip_lang'];
 	}
 	if (
 		$lang == 'eo'
@@ -228,7 +226,7 @@ function select_langues($nom_select, $change, $options, $label = '') {
 	$id = 'menu_langues' . $cpt++;
 
 	return
-		"<label for='$id'>" . ($label ? $label : _T('info_langues')) . '</label> ' .
+		"<label for='$id'>" . ($label ?: _T('info_langues')) . '</label> ' .
 		"<select name='$nom_select' id='$id' "
 		. ((!test_espace_prive()) ?
 			("class='forml menu_langues'") :
@@ -463,7 +461,7 @@ function init_langues() {
 	if (!isset($GLOBALS['meta']['langue_site'])) {
 		// Initialisation : le francais si dispo, sinon la premiere langue trouvee
 		$GLOBALS['meta']['langue_site'] = $tout =
-			(!$all_langs or (strpos(',' . _LANGUE_PAR_DEFAUT . ',', ",$all_langs,") !== false))
+			(!$all_langs or (strpos(',' . _LANGUE_PAR_DEFAUT . ',', (string) ",$all_langs,") !== false))
 				? _LANGUE_PAR_DEFAUT : substr($all_langs, 0, strpos($all_langs, ','));
 		ecrire_meta('langue_site', $tout);
 	}

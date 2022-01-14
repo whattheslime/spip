@@ -137,7 +137,7 @@ function sous_menu_rubriques($id_rubrique, $root, $niv, &$data, &$enfants, $excl
 	$selected = ($root == $id_rubrique) ? ' selected="selected"' : '';
 
 	// le style en fonction de la profondeur
-	list($class, $style, $espace) = style_menu_rubriques($niv);
+	[$class, $style, $espace] = style_menu_rubriques($niv);
 
 	$class .= ' selec_rub';
 
@@ -195,6 +195,7 @@ function sous_menu_rubriques($id_rubrique, $root, $niv, &$data, &$enfants, $excl
  *     Code HTML du sélecteur
  **/
 function selecteur_rubrique_html($id_rubrique, $type, $restreint, $idem = 0) {
+	$enfants = [];
 	$data = [];
 	if ($type == 'rubrique' and autoriser('publierdans', 'rubrique', 0)) {
 		$data[0] = _T('info_racine_site');
@@ -348,7 +349,7 @@ function construire_selecteur($url, $js, $idom, $name, $init = '', $id = 0) {
 	$icone = (strpos($idom, 'auteur') !== false) ? 'auteur-24.png' : 'rechercher-20.png';
 	// si icone de recherche on embed le svg
 	$balise = ($icone === 'rechercher-20.png' ? chercher_filtre('balise_svg') : chercher_filtre('balise_img'));
-	$img_icone = $balise(chemin_image($icone, _T('titre_image_selecteur')));
+	$img_icone = $balise(chemin_image($icone), _T('titre_image_selecteur'));
 
 	return
 		"<div class='rubrique_actuelle'><a href='#' class='rubrique-search' role='button' style='display:inline-flex;vertical-align:middle;' onclick=\""

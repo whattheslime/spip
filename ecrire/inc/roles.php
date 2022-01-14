@@ -62,9 +62,9 @@ function roles_presents($objet, $objet_destination = '') {
 	}
 
 	// on cherche ensuite si la colonne existe bien dans la table de liaison (par défaut 'role')
-	$colonne = isset($desc['roles_colonne']) ? $desc['roles_colonne'] : 'role';
+	$colonne = $desc['roles_colonne'] ?? 'role';
 	$trouver_table = charger_fonction('trouver_table', 'base');
-	list(, $table_lien) = $lien;
+	[, $table_lien] = $lien;
 	$desc_lien = $trouver_table($table_lien);
 	if (!isset($desc_lien['field'][$colonne])) {
 		return false;
@@ -176,10 +176,10 @@ function roles_trouver_dans_qualif($objet, $objet_destination, $qualif = []) {
  **/
 function roles_creer_condition_role($objet_source, $objet, $cond, $tous_si_absent = false) {
 	// role par défaut, colonne
-	list($role_defaut, $colonne_role) = roles_trouver_dans_qualif($objet_source, $objet);
+	[$role_defaut, $colonne_role] = roles_trouver_dans_qualif($objet_source, $objet);
 
 	// chercher d'eventuels rôles transmis
-	$role = (isset($cond['role']) ? $cond['role'] : ($tous_si_absent ? '*' : $role_defaut));
+	$role = ($cond['role'] ?? ($tous_si_absent ? '*' : $role_defaut));
 	unset($cond['role']); // cette condition est particuliere...
 
 	if ($colonne_role) {
@@ -363,7 +363,7 @@ function roles_connus_en_base($objet_source, $objet, $objet_lien) {
 		return $done[$hash] = false;
 	}
 
-	list($primary, $l) = $lien;
+	[$primary, $l] = $lien;
 	$colone_role = $roles['colonne'];
 
 	$all = sql_allfetsel(

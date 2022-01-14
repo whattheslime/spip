@@ -46,7 +46,7 @@ if (!defined('_ECRIRE_INC_VERSION')) {
  *     - array : l'arbre XML,
  *     - false si l'arbre xml ne peut être créé ou est vide
  **/
-function spip_xml_load($fichier, $strict = true, $clean = true, $taille_max = 1048576, $datas = '', $profondeur = -1) {
+function spip_xml_load($fichier, $strict = true, $clean = true, $taille_max = 1_048_576, $datas = '', $profondeur = -1) {
 	$contenu = '';
 	if (tester_url_absolue($fichier)) {
 		include_spip('inc/distant');
@@ -103,7 +103,7 @@ function spip_xml_parse(&$texte, $strict = true, $clean = true, $profondeur = -1
 
 	// tant qu'il y a des tags
 	$chars = preg_split(_SPIP_XML_TAG_SPLIT, $txt, 2, PREG_SPLIT_DELIM_CAPTURE);
-	while (count($chars) >= 2) {
+	while ((is_countable($chars) ? count($chars) : 0) >= 2) {
 		// tag ouvrant
 		//$chars = preg_split("{<([^>]*?)>}s",$txt,2,PREG_SPLIT_DELIM_CAPTURE);
 
@@ -128,7 +128,7 @@ function spip_xml_parse(&$texte, $strict = true, $clean = true, $profondeur = -1
 			$closing_tag = reset($closing_tag);
 			// tag fermant
 			$ncclos = strlen("</$closing_tag>");
-			$p = strpos($txt, "</$closing_tag>");
+			$p = strpos($txt, (string) "</$closing_tag>");
 			if ($p !== false and (strpos($txt, '<') < $p)) {
 				$nclose = 0;
 				$nopen = 0;
@@ -145,7 +145,7 @@ function spip_xml_parse(&$texte, $strict = true, $clean = true, $profondeur = -1
 				) {
 					$nclose++;
 					$d = $p + $ncclos;
-					$p = strpos($txt, "</$closing_tag>", $d);
+					$p = strpos($txt, (string) "</$closing_tag>", $d);
 				}
 			}
 			if ($p === false) {
@@ -268,5 +268,5 @@ function spip_xml_match_nodes($regexp, &$arbre, &$matches, $init = true) {
 		}
 	}
 
-	return (count($matches));
+	return (is_countable($matches) ? count($matches) : 0);
 }

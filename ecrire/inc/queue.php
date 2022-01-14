@@ -263,7 +263,7 @@ function queue_start_job($row) {
 	}
 
 	spip_log('queue [' . $row['id_job'] . "]: $fonction() start", 'queue');
-	switch (count($args)) {
+	switch (is_countable($args) ? count($args) : 0) {
 		case 0:
 			$res = $fonction();
 			break;
@@ -694,7 +694,7 @@ function queue_lancer_url_http_async($url_cron) {
 		}
 		$fp = @fsockopen(
 			$scheme . $parts['host'],
-			isset($parts['port']) ? $parts['port'] : $port,
+			$parts['port'] ?? $port,
 			$errno,
 			$errstr,
 			1

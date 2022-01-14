@@ -123,7 +123,7 @@ function include_once_check($file) {
 		return true;
 	}
 	$crash = (isset($GLOBALS['meta']['message_crash_plugins']) ? unserialize($GLOBALS['meta']['message_crash_plugins']) : '');
-	$crash = ($crash ? $crash : []);
+	$crash = ($crash ?: []);
 	$crash[$file] = true;
 	ecrire_meta('message_crash_plugins', serialize($crash));
 
@@ -419,7 +419,7 @@ function journal($phrase, $opt = []) {
 function _request($var, $c = false) {
 
 	if (is_array($c)) {
-		return isset($c[$var]) ? $c[$var] : null;
+		return $c[$var] ?? null;
 	}
 
 	if (isset($_GET[$var])) {
@@ -927,7 +927,7 @@ function _L($text, $args = [], $options = []) {
 			include_spip('inc/texte_mini');
 		}
 		foreach ($args as $name => $value) {
-			if (strpos($text, "@$name@") !== false) {
+			if (strpos($text, (string) "@$name@") !== false) {
 				if ($options['sanitize']) {
 					$value = echapper_html_suspect($value);
 					$value = interdire_scripts($value, -1);
@@ -1530,7 +1530,7 @@ function chemin_image($icone) {
 		$icone_renommer = charger_fonction('icone_renommer', 'inc', true);
 	}
 	if ($icone_renommer) {
-		list($icone, $fonction) = $icone_renommer($icone, '');
+		[$icone, $fonction] = $icone_renommer($icone, '');
 		if (file_exists($icone)) {
 			return $icone;
 		}
@@ -1804,10 +1804,7 @@ function generer_url_entite($id = '', $entite = '', $args = '', $ancre = '', $pu
 		$res = generer_url_ecrire_objet($entite, $id, $args, $ancre, false);
 	} else {
 		if ($type === null) {
-			$type = (isset($GLOBALS['type_urls']))
-				? $GLOBALS['type_urls'] // pour surcharge via fichier d'options
-				: ((isset($GLOBALS['meta']['type_urls'])) // sinon la config url_etendues
-					? ($GLOBALS['meta']['type_urls']) : 'page'); // sinon type "page" par défaut
+			$type = $GLOBALS['type_urls'] ?? $GLOBALS['meta']['type_urls'] ?? 'page'; // sinon type "page" par défaut
 		}
 
 		$f = charger_fonction($type, 'urls', true);
@@ -1996,7 +1993,7 @@ function url_de_base($profondeur = null) {
 	}
 
 	// note : HTTP_HOST contient le :port si necessaire
-	$host = isset($_SERVER['HTTP_HOST']) ? $_SERVER['HTTP_HOST'] : null;
+	$host = $_SERVER['HTTP_HOST'] ?? null;
 	// si on n'a pas trouvé d'hôte du tout, en dernier recours on utilise adresse_site comme fallback
 	if (is_null($host) and isset($GLOBALS['meta']['adresse_site'])) {
 		$host = $GLOBALS['meta']['adresse_site'];
@@ -2057,7 +2054,7 @@ function url_de_($http, $host, $request, $prof = 0) {
 
 	$myself = ltrim($request, '/');
 	# supprimer la chaine de GET
-	list($myself) = explode('?', $myself);
+	[$myself] = explode('?', $myself);
 	// vieux mode HTTP qui envoie après le nom de la methode l'URL compléte
 	// protocole, "://", nom du serveur avant le path dans _SERVER["REQUEST_URI"]
 	if (strpos($myself, '://') !== false) {
@@ -2111,12 +2108,11 @@ function generer_url_ecrire($script = '', $args = '', $no_entities = false, $rel
 		$rel = url_de_base() . _DIR_RESTREINT_ABS . _SPIP_ECRIRE_SCRIPT;
 	} else {
 		if (!is_string($rel)) {
-			$rel = _DIR_RESTREINT ? _DIR_RESTREINT :
-				('./' . _SPIP_ECRIRE_SCRIPT);
+			$rel = _DIR_RESTREINT ?: './' . _SPIP_ECRIRE_SCRIPT;
 		}
 	}
 
-	list($script, $ancre) = array_pad(explode('#', $script), 2, null);
+	[$script, $ancre] = array_pad(explode('#', $script), 2, null);
 	if ($script and ($script <> 'accueil' or $rel)) {
 		$args = "?exec=$script" . (!$args ? '' : "&$args");
 	} elseif ($args) {
@@ -2248,7 +2244,7 @@ function generer_form_ecrire($script, $corps, $atts = '', $submit = '') {
 	return "<form action='"
 	. ($script ? generer_url_ecrire($script) : '')
 	. "' "
-	. ($atts ? $atts : " method='post'")
+	. ($atts ?: " method='post'")
 	. "><div>\n"
 	. "<input type='hidden' name='exec' value='$script1' />"
 	. $corps
@@ -2645,7 +2641,7 @@ function spip_initialisation_core($pi = null, $pa = null, $ti = null, $ta = null
 		) {
 			if (isset($GLOBALS['meta']['adresse_site'])) {
 				$uri_ref = parse_url($GLOBALS['meta']['adresse_site']);
-				$uri_ref = (isset($uri_ref['path']) ? $uri_ref['path'] : '') . '/';
+				$uri_ref = ($uri_ref['path'] ?? '') . '/';
 			} else {
 				$uri_ref = '';
 			}
@@ -2724,7 +2720,7 @@ function spip_initialisation_suite() {
 	} # surcharge pour imagick en PHP
 
 	if (!defined('_COPIE_LOCALE_MAX_SIZE')) {
-		define('_COPIE_LOCALE_MAX_SIZE', 33554432);
+		define('_COPIE_LOCALE_MAX_SIZE', 33_554_432);
 	} // poids en octet
 
 	// qq chaines standard
@@ -3325,7 +3321,7 @@ function recuperer_fond($fond, $contexte = [], $options = [], string $connect = 
 	$GLOBALS['_INC_PUBLIC']++;
 
 	// fix #4235
-	$cache_utilise_session_appelant	= (isset($GLOBALS['cache_utilise_session']) ? $GLOBALS['cache_utilise_session'] : null);
+	$cache_utilise_session_appelant	= ($GLOBALS['cache_utilise_session'] ?? null);
 
 
 	foreach (is_array($fond) ? $fond : [$fond] as $f) {
@@ -3333,7 +3329,7 @@ function recuperer_fond($fond, $contexte = [], $options = [], string $connect = 
 
 		$page = evaluer_fond($f, $contexte, $connect);
 		if ($page === '') {
-			$c = isset($options['compil']) ? $options['compil'] : '';
+			$c = $options['compil'] ?? '';
 			$a = ['fichier' => $f];
 			$erreur = _T('info_erreur_squelette2', $a); // squelette introuvable
 			erreur_squelette($erreur, $c);
@@ -3518,7 +3514,7 @@ function spip_getimagesize($fichier) {
 	if (!$imagesize = @getimagesize($fichier)) {
 		include_spip('inc/svg');
 		if ($attrs = svg_lire_attributs($fichier)) {
-			list($width, $height, $viewbox) = svg_getimagesize_from_attr($attrs);
+			[$width, $height, $viewbox] = svg_getimagesize_from_attr($attrs);
 			$imagesize = [
 				$width,
 				$height,

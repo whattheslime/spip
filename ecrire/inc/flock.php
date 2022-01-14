@@ -22,7 +22,7 @@ if (!defined('_ECRIRE_INC_VERSION')) {
 
 if (!defined('_TEST_FILE_EXISTS')) {
 	/** Permettre d'éviter des tests file_exists sur certains hébergeurs */
-	define('_TEST_FILE_EXISTS', preg_match(',(online|free)[.]fr$,', isset($_ENV['HTTP_HOST']) ? $_ENV['HTTP_HOST'] : ''));
+	define('_TEST_FILE_EXISTS', preg_match(',(online|free)[.]fr$,', $_ENV['HTTP_HOST'] ?? ''));
 }
 
 #define('_SPIP_LOCK_MODE',0); // ne pas utiliser de lock (deconseille)

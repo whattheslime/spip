@@ -79,16 +79,16 @@ function analyse_csv($t) {
 		preg_replace('/[\r\n]+/', "\n", $t)
 	);
 
-	list($entete, $corps) = explode("\n", $t, 2);
+	[$entete, $corps] = explode("\n", $t, 2);
 	$caption = '';
 	// sauter la ligne de tete formee seulement de separateurs
 	if (substr_count($entete, $sep) == strlen($entete)) {
-		list($entete, $corps) = explode("\n", $corps, 2);
+		[$entete, $corps] = explode("\n", $corps, 2);
 	}
 	// si une seule colonne, en faire le titre
 	if (preg_match("/^([^$sep]+)$sep+\$/", $entete, $l)) {
 		$caption = "\n||" . $l[1] . '|';
-		list($entete, $corps) = explode("\n", $corps, 2);
+		[$entete, $corps] = explode("\n", $corps, 2);
 	}
 	// si premiere colonne vide, le raccourci doit quand meme produire <th...
 	if ($entete[0] == $sep) {

@@ -136,7 +136,7 @@ function filtre_text_dist($t) {
  **/
 function filtre_text_csv_dist($t) {
 	include_spip('inc/csv');
-	list($entete, $lignes, $caption) = analyse_csv($t);
+	[$entete, $lignes, $caption] = analyse_csv($t);
 	foreach ($lignes as &$l) {
 		$l = join('|', $l);
 	}
@@ -167,7 +167,7 @@ function filtre_text_html_dist($t) {
 		return appliquer_filtre($t, 'text/plain');
 	}
 
-	list(, $h, $t) = $r;
+	[, $h, $t] = $r;
 
 	$style = '';
 	// recuperer les styles internes

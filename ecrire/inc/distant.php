@@ -29,7 +29,7 @@ if (!defined('_INC_DISTANT_USER_AGENT')) {
 	define('_INC_DISTANT_USER_AGENT', 'SPIP-' . $GLOBALS['spip_version_affichee'] . ' (' . $GLOBALS['home_server'] . ')');
 }
 if (!defined('_INC_DISTANT_MAX_SIZE')) {
-	define('_INC_DISTANT_MAX_SIZE', 2097152);
+	define('_INC_DISTANT_MAX_SIZE', 2_097_152);
 }
 if (!defined('_INC_DISTANT_CONNECT_TIMEOUT')) {
 	define('_INC_DISTANT_CONNECT_TIMEOUT', 10);
@@ -39,7 +39,7 @@ define('_REGEXP_COPIE_LOCALE', ',' 	.
 	preg_replace(
 		'@^https?:@',
 		'https?:',
-		(isset($GLOBALS['meta']['adresse_site']) ? $GLOBALS['meta']['adresse_site'] : '')
+		($GLOBALS['meta']['adresse_site'] ?? '')
 	)
 	. '/?spip.php[?]action=acceder_document.*file=(.*)$,');
 
@@ -309,7 +309,7 @@ function prepare_donnees_post($donnees, $boundary = '') {
 				}
 			}
 			if ($taille > 500) {
-				$boundary = substr(md5(rand() . 'spip'), 0, 8);
+				$boundary = substr(md5(random_int(0, mt_getrandmax()) . 'spip'), 0, 8);
 			}
 		}
 
@@ -380,9 +380,7 @@ function url_to_ascii($url_idn) {
 			$url_idn = implode($host_ascii, $url_idn);
 		}
 		// et on urlencode les char utf si besoin dans le path
-		$url_idn = preg_replace_callback('/[^\x20-\x7f]/', function ($match) {
- return urlencode($match[0]);
-		}, $url_idn);
+		$url_idn = preg_replace_callback('/[^\x20-\x7f]/', fn($match) => urlencode($match[0]), $url_idn);
 	}
 
 	return $url_idn;
@@ -465,7 +463,7 @@ function recuperer_url($url, $options = []) {
 	}
 
 	if (!empty($options['datas'])) {
-		list($head, $postdata) = prepare_donnees_post($options['datas'], $options['boundary']);
+		[$head, $postdata] = prepare_donnees_post($options['datas'], $options['boundary']);
 		$head .= $head_add;
 		if (stripos($head, 'Content-Length:') === false) {
 			$head .= 'Content-Length: ' . strlen($postdata) . "\r\n";
@@ -505,7 +503,7 @@ function recuperer_url($url, $options = []) {
 	$refuser_gz = (($options['refuser_gz'] or $copy) ? true : false);
 
 	// ouvrir la connexion et envoyer la requete et ses en-tetes
-	list($handle, $fopen) = init_http(
+	[$handle, $fopen] = init_http(
 		$options['methode'],
 		$url,
 		$refuser_gz,
@@ -582,12 +580,12 @@ function recuperer_url($url, $options = []) {
 
 	$gz = false;
 	if (preg_match(",\bContent-Encoding: .*gzip,is", $result['headers'])) {
-		$gz = (_DIR_TMP . md5(uniqid(mt_rand())) . '.tmp.gz');
+		$gz = (_DIR_TMP . md5(uniqid(random_int(0, mt_getrandmax()))) . '.tmp.gz');
 	}
 
 	// si on a pas deja recuperer le contenu par une methode detournee
 	if (!$result['length']) {
-		$res = recuperer_body($handle, $options['taille_max'], $gz ? $gz : $copy);
+		$res = recuperer_body($handle, $options['taille_max'], $gz ?: $copy);
 		fclose($handle);
 		if ($copy) {
 			$result['length'] = $res;
@@ -716,6 +714,7 @@ function recuperer_url_cache($url, $options = []) {
  *   string contenu de la resource
  */
 function recuperer_body($handle, $taille_max = _INC_DISTANT_MAX_SIZE, $fichier = '') {
+	$tmpfile = null;
 	$taille = 0;
 	$result = '';
 	$fp = false;
@@ -782,7 +781,7 @@ function recuperer_entetes_complets($handle, $if_modified_since = false) {
 	while ($s = trim(fgets($handle, 16384))) {
 		$result['headers'][] = $s . "\n";
 		preg_match(',^([^:]*): *(.*)$,i', $s, $r);
-		list(, $d, $v) = $r;
+		[, $d, $v] = $r;
 		if (strtolower(trim($d)) == 'location' and $result['status'] >= 300 and $result['status'] < 400) {
 			$result['location'] = $v;
 		} elseif ($d == 'Last-Modified') {
@@ -1146,7 +1145,7 @@ function need_proxy($host, $http_proxy = null, $http_noproxy = null) {
 	$http_noproxy = " $http_noproxy ";
 	$domain = $host;
 	// si le domaine exact www.example.org est dans les exceptions
-	if (strpos($http_noproxy, " $domain ") !== false) {
+	if (strpos($http_noproxy, (string) " $domain ") !== false) {
 		return '';
 	}
 
@@ -1156,7 +1155,7 @@ function need_proxy($host, $http_proxy = null, $http_noproxy = null) {
 		$domain = implode('.', $domain);
 
 		// ou si un domaine parent commencant par un . est dans les exceptions (indiquant qu'il couvre tous les sous-domaines)
-		if (strpos($http_noproxy, " .$domain ") !== false) {
+		if (strpos($http_noproxy, (string) " .$domain ") !== false) {
 			return '';
 		}
 	}
@@ -1390,7 +1389,7 @@ function lance_requete(
 
 #	spip_log("Requete\n$req", 'distant');
 	fputs($f, $req);
-	fputs($f, $datas ? $datas : "\r\n");
+	fputs($f, $datas ?: "\r\n");
 
 	return $f;
 }

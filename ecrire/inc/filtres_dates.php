@@ -148,9 +148,10 @@ function recup_heure($date) {
  * @return int heures, sinon 0
  **/
 function heures($numdate) {
+	$heures = null;
 	$date_array = recup_heure($numdate);
 	if ($date_array) {
-		list($heures, $minutes, $secondes) = $date_array;
+		[$heures, $minutes, $secondes] = $date_array;
 	}
 
 	return $heures;
@@ -167,9 +168,10 @@ function heures($numdate) {
  * @return int minutes, sinon 0
  **/
 function minutes($numdate) {
+	$minutes = null;
 	$date_array = recup_heure($numdate);
 	if ($date_array) {
-		list($heures, $minutes, $secondes) = $date_array;
+		[$heures, $minutes, $secondes] = $date_array;
 	}
 
 	return $minutes;
@@ -186,9 +188,10 @@ function minutes($numdate) {
  * @return int secondes, sinon 0
  **/
 function secondes($numdate) {
+	$secondes = null;
 	$date_array = recup_heure($numdate);
 	if ($date_array) {
-		list($heures, $minutes, $secondes) = $date_array;
+		[$heures, $minutes, $secondes] = $date_array;
 	}
 
 	return $secondes;
@@ -253,17 +256,17 @@ function recup_date($numdate, $forcer_jour = true) {
 		} elseif ($annee < 100) {
 			$annee = 1900 + $annee;
 		}
-		list($heures, $minutes, $secondes) = recup_heure($numdate);
+		[$heures, $minutes, $secondes] = recup_heure($numdate);
 	} elseif (preg_match('#([0-9]{4})-([0-9]{1,2})-([0-9]{1,2})#', $numdate, $regs)) {
 		$annee = $regs[1];
 		$mois = $regs[2];
 		$jour = $regs[3];
-		list($heures, $minutes, $secondes) = recup_heure($numdate);
+		[$heures, $minutes, $secondes] = recup_heure($numdate);
 	} elseif (preg_match('#([0-9]{4})-([0-9]{2})#', $numdate, $regs)) {
 		$annee = $regs[1];
 		$mois = $regs[2];
 		$jour = '';
-		list($heures, $minutes, $secondes) = recup_heure($numdate);
+		[$heures, $minutes, $secondes] = recup_heure($numdate);
 	} elseif (preg_match('#^([0-9]{4})([0-9]{2})([0-9]{2})([0-9]{2})([0-9]{2})([0-9]{2})$#', $numdate, $regs)) {
 		$annee = $regs[1];
 		$mois = $regs[2];
@@ -507,7 +510,7 @@ function affdate_base($numdate, $vue, $options = []) {
 	if (!$date_array) {
 		return;
 	}
-	list($annee, $mois, $jour, $heures, $minutes, $secondes) = $date_array;
+	[$annee, $mois, $jour, $heures, $minutes, $secondes] = $date_array;
 
 	// 1er, 21st, etc.
 	$journum = $jour;
@@ -662,7 +665,7 @@ function affdate_base($numdate, $vue, $options = []) {
 		// Cas d'une vue non definie : retomber sur le format
 		// de date propose par http://www.php.net/date
 		default:
-			list($annee, $mois, $jour, $heures, $minutes, $secondes) = $date_array;
+			[$annee, $mois, $jour, $heures, $minutes, $secondes] = $date_array;
 			if (!$time = mktime($heures, $minutes, $secondes, $mois, (int) $jour, $annee)) {
 				$time = strtotime($numdate);
 			}
@@ -991,7 +994,7 @@ function affdate_heure($numdate) {
 	if (!$date_array) {
 		return;
 	}
-	list($annee, $mois, $jour, $heures, $minutes, $sec) = $date_array;
+	[$annee, $mois, $jour, $heures, $minutes, $sec] = $date_array;
 
 	return _T('date_fmt_jour_heure', [
 		'jour' => affdate($numdate),
@@ -1159,8 +1162,8 @@ function affdate_debut_fin($date_debut, $date_fin, $horaire = 'oui', $forme = ''
  *     Date au format ical
  **/
 function date_ical($date, $addminutes = 0) {
-	list($heures, $minutes, $secondes) = recup_heure($date);
-	list($annee, $mois, $jour) = recup_date($date);
+	[$heures, $minutes, $secondes] = recup_heure($date);
+	[$annee, $mois, $jour] = recup_date($date);
 
 	return gmdate('Ymd\THis\Z', mktime($heures, $minutes + $addminutes, $secondes, $mois, $jour, $annee));
 }
@@ -1186,8 +1189,8 @@ function date_ical($date, $addminutes = 0) {
  *     La date formatée
  **/
 function date_iso($date_heure) {
-	list($annee, $mois, $jour) = recup_date($date_heure);
-	list($heures, $minutes, $secondes) = recup_heure($date_heure);
+	[$annee, $mois, $jour] = recup_date($date_heure);
+	[$heures, $minutes, $secondes] = recup_heure($date_heure);
 	$time = @mktime($heures, $minutes, $secondes, $mois, $jour, $annee);
 
 	return gmdate('Y-m-d\TH:i:s\Z', $time);
@@ -1213,8 +1216,8 @@ function date_iso($date_heure) {
  *     La date formatée
  **/
 function date_822($date_heure) {
-	list($annee, $mois, $jour) = recup_date($date_heure);
-	list($heures, $minutes, $secondes) = recup_heure($date_heure);
+	[$annee, $mois, $jour] = recup_date($date_heure);
+	[$heures, $minutes, $secondes] = recup_heure($date_heure);
 	$time = mktime($heures, $minutes, $secondes, $mois, $jour, $annee);
 
 	return date('r', $time);

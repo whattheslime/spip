@@ -30,7 +30,7 @@ if (!defined('_ECRIRE_INC_VERSION')) {
  * @return string
  */
 function set_spip_doc(?string $fichier): string {
-	if ($fichier and strpos($fichier, _DIR_IMG) === 0) {
+	if ($fichier and strpos($fichier, (string) _DIR_IMG) === 0) {
 		return substr($fichier, strlen(_DIR_IMG));
 	} else {
 		// ex: fichier distant
@@ -141,7 +141,7 @@ function effacer_repertoire_temporaire($nom) {
 function copier_document($ext, $orig, $source, $subdir = null) {
 
 	$orig = preg_replace(',\.\.+,', '.', $orig); // pas de .. dans le nom du doc
-	$dir = creer_repertoire_documents($subdir ? $subdir : $ext);
+	$dir = creer_repertoire_documents($subdir ?: $ext);
 
 	$dest = preg_replace('/<[^>]*>/', '', basename($orig));
 	$dest = preg_replace('/\.([^.]+)$/', '', $dest);

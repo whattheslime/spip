@@ -59,7 +59,7 @@ function f_jQuery_prive($texte) {
 	// inserer avant le premier script externe ou a la fin
 	if (
 		preg_match(',<script[^><]*src=,', $texte, $match)
-		and $p = strpos($texte, $match[0])
+		and $p = strpos($texte, (string) $match[0])
 	) {
 		$texte = substr_replace($texte, $x, $p, 0);
 	} else {
@@ -136,7 +136,7 @@ function f_boite_infos($flux) {
 function f_afficher_blocs_ecrire($flux) {
 	static $o = [];
 	if (is_string($fond = $flux['args']['fond'])) {
-		$exec = isset($flux['args']['contexte']['exec']) ? $flux['args']['contexte']['exec'] : _request('exec');
+		$exec = $flux['args']['contexte']['exec'] ?? _request('exec');
 		if (!isset($o[$exec])) {
 			$o[$exec] = trouver_objet_exec($exec);
 		}
@@ -144,7 +144,7 @@ function f_afficher_blocs_ecrire($flux) {
 		if ($exec == 'infos_perso') {
 			$flux['args']['contexte']['id_auteur'] = $GLOBALS['visiteur_session']['id_auteur'];
 		}
-		$typepage = (isset($flux['args']['contexte']['type-page']) ? $flux['args']['contexte']['type-page'] : $exec);
+		$typepage = ($flux['args']['contexte']['type-page'] ?? $exec);
 		if ($fond == "prive/squelettes/navigation/$typepage") {
 			$flux['data']['texte'] = pipeline(
 				'affiche_gauche',

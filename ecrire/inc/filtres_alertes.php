@@ -48,7 +48,7 @@ function balise_ALERTE_MESSAGE_dist($p) {
 	$_class = interprete_argument_balise(3, $p);
 	$_role  = interprete_argument_balise(4, $p);
 	$_id    = interprete_argument_balise(5, $p);
-	$_texte = ($_texte ? $_texte     : "''");
+	$_texte = ($_texte ?: "''");
 	$_titre = ($_titre ? ", $_titre" : ', null');
 	$_class = ($_class ? ", $_class" : ', null');
 	$_role  = ($_role  ? ", $_role"  : ', null');
@@ -201,8 +201,8 @@ function message_alerte_ouvrir(?string $titre = null, ?string $class = null, ?st
 	$prive = test_espace_prive();
 
 	// Valeurs par défaut
-	$role = $role ?? 'alert'; // fallback uniquement si null
-	$class = $class ?? 'notice'; // fallback uniquement si null
+	$role ??= 'alert'; // fallback uniquement si null
+	$class ??= 'notice'; // fallback uniquement si null
 
 	// Type d'alerte : le chercher dans les classes, nettoyer celles-ci, puis le réinjecter
 	$types = [

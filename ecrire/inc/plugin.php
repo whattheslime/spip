@@ -53,7 +53,7 @@ function liste_plugin_files($dir_plugins = null) {
 	}
 	if (
 		!isset($plugin_files[$dir_plugins])
-		or count($plugin_files[$dir_plugins]) == 0
+		or (is_countable($plugin_files[$dir_plugins]) ? count($plugin_files[$dir_plugins]) : 0) == 0
 	) {
 		$plugin_files[$dir_plugins] = [];
 		foreach (fast_find_plugin_dirs($dir_plugins) as $plugin) {
@@ -494,7 +494,7 @@ function plugin_trier($infos, $liste_non_classee) {
 			// on ne peut inserer qu'apres eux
 			foreach ($info1['necessite'] as $need) {
 				$nom = strtoupper($need['nom']);
-				$compat = isset($need['compatibilite']) ? $need['compatibilite'] : '';
+				$compat = $need['compatibilite'] ?? '';
 				if (!isset($liste[$nom]) or !plugin_version_compatible($compat, $liste[$nom]['version'])) {
 					$info1 = false;
 					break;
@@ -507,7 +507,7 @@ function plugin_trier($infos, $liste_non_classee) {
 			// sauf si ils sont de toute facon absents de la liste
 			foreach ($info1['utilise'] as $need) {
 				$nom = strtoupper($need['nom']);
-				$compat = isset($need['compatibilite']) ? $need['compatibilite'] : '';
+				$compat = $need['compatibilite'] ?? '';
 				if (isset($toute_la_liste[$nom])) {
 					if (
 						!isset($liste[$nom]) or
@@ -635,7 +635,7 @@ function plugin_necessite($n, $liste, $balise = 'necessite') {
 		$r = plugin_controler_necessite(
 			$liste,
 			$id,
-			isset($need['compatibilite']) ? $need['compatibilite'] : '',
+			$need['compatibilite'] ?? '',
 			$balise
 		);
 		if ($r) {
@@ -703,7 +703,7 @@ function plugin_message_incompatibilite($intervalle, $version, $nom, $balise) {
 		$type = 'php';
 	} elseif (strncmp($nom, 'PHP:', 4) === 0) {
 		$type = 'extension_php';
-		list(,$nom) = explode(':', $nom, 2);
+		[, $nom] = explode(':', $nom, 2);
 	}
 
 	if (preg_match(_EXTRAIRE_INTERVALLE, $intervalle, $regs)) {
@@ -832,7 +832,7 @@ function ecrire_plugin_actifs($plugin, $pipe_recherche = false, $operation = 'ra
 			$plugin = $plugin_valides;
 		}
 	}
-	$actifs_avant = isset($GLOBALS['meta']['plugin']) ? $GLOBALS['meta']['plugin'] : '';
+	$actifs_avant = $GLOBALS['meta']['plugin'] ?? '';
 
 	// si une fonction de gestion de dependances existe, l'appeler ici
 	if ($ajouter_dependances = charger_fonction('ajouter_dependances', 'plugins', true)) {
@@ -844,9 +844,9 @@ function ecrire_plugin_actifs($plugin, $pipe_recherche = false, $operation = 'ra
 	// pour ne pas rater l'ajout ou la suppression d'un fichier fonctions/options/administrations
 	// pourra etre evite quand on ne supportera plus les plugin.xml
 	// en deplacant la detection de ces fichiers dans la compilation ci dessous
-	list($infos, $liste, $invalides) = liste_plugin_valides($plugin, true);
+	[$infos, $liste, $invalides] = liste_plugin_valides($plugin, true);
 	// trouver l'ordre d'activation
-	list($plugin_valides, $ordre, $reste) = plugin_trier($infos, $liste);
+	[$plugin_valides, $ordre, $reste] = plugin_trier($infos, $liste);
 	if ($invalides or $reste) {
 		plugins_erreurs(array_merge($invalides, $reste), $liste, $infos);
 	}
@@ -1191,7 +1191,7 @@ function pipeline_matrice_precompile($plugin_valides, $ordre, $pipe_recherche) {
 					$GLOBALS['spip_pipeline'][$nom] = '';
 					}
 					if ($action) {
-						if (strpos($GLOBALS['spip_pipeline'][$nom], "|$prefix$action") === false) {
+						if (strpos($GLOBALS['spip_pipeline'][$nom], (string) "|$prefix$action") === false) {
 							$GLOBALS['spip_pipeline'][$nom] = preg_replace(
 								',(\|\||$),',
 								"|$prefix$action\\1",
@@ -1206,7 +1206,7 @@ function pipeline_matrice_precompile($plugin_valides, $ordre, $pipe_recherche) {
 					}
 				}
 			}
-			if (isset($info['genie']) and count($info['genie'])) {
+			if (isset($info['genie']) and is_countable($info['genie']) ? count($info['genie']) : 0) {
 				if (!isset($prepend_code['taches_generales_cron'])) {
 					$prepend_code['taches_generales_cron'] = '';
 				}
@@ -1220,7 +1220,7 @@ function pipeline_matrice_precompile($plugin_valides, $ordre, $pipe_recherche) {
 					}
 				}
 			}
-			if (isset($info['style']) and count($info['style'])) {
+			if (isset($info['style']) and is_countable($info['style']) ? count($info['style']) : 0) {
 				if (!isset($prepend_code['insert_head_css'])) {
 					$prepend_code['insert_head_css'] = '';
 				}
@@ -1252,7 +1252,7 @@ function pipeline_matrice_precompile($plugin_valides, $ordre, $pipe_recherche) {
 			if (!isset($prepend_code['header_prive'])) {
 				$prepend_code['header_prive'] = '';
 			}
-			if (isset($info['script']) and count($info['script'])) {
+			if (isset($info['script']) and is_countable($info['script']) ? count($info['script']) : 0) {
 				foreach ($info['script'] as $script) {
 					if (isset($script['path']) and $script['path']) {
 						$code = "if (\$f=timestamp(find_in_path('" . addslashes($script['path']) . "'))) ";
@@ -1415,7 +1415,7 @@ function plugin_installes_meta() {
 					$meta_plug_installes[] = $plug;
 				}
 				if (is_array($infos)) {
-					list($ok, $trace) = $infos['install_test'];
+					[$ok, $trace] = $infos['install_test'];
 					$titre = _T('plugin_titre_installation', ['plugin' => typo($infos['nom'])]);
 					$result = ($ok ? ((isset($infos['upgrade']) && $infos['upgrade']) ? _T('plugin_info_upgrade_ok') : _T('plugin_info_install_ok')) : _T('avis_operation_echec'));
 					if (_IS_CLI) {

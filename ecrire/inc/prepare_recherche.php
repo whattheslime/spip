@@ -56,10 +56,12 @@ function inc_prepare_recherche_dist(
 	$modificateurs = [],
 	$primary = ''
 ) {
+	$where = null;
+	$rows = null;
 	static $cache = [];
 	$delai_fraicheur = min(
-		_DELAI_CACHE_resultats,
-		time() - (isset($GLOBALS['meta']['derniere_modif']) ? $GLOBALS['meta']['derniere_modif'] : 0)
+		\_DELAI_CACHE_RESULTATS,
+		time() - ($GLOBALS['meta']['derniere_modif'] ?? 0)
 	);
 
 	// si recherche n'est pas dans le contexte, on va prendre en globals
@@ -115,7 +117,7 @@ function inc_prepare_recherche_dist(
 			$serveur
 		);
 		// pas de résultat, pas de point
-		$points = isset($points[$x]) ? $points[$x] : [];
+		$points = $points[$x] ?? [];
 
 		// permettre aux plugins de modifier le resultat
 		$points = pipeline('prepare_recherche', [
@@ -143,7 +145,7 @@ function inc_prepare_recherche_dist(
 		);
 
 		// inserer les resultats dans la table de cache des resultats
-		if (count($points)) {
+		if (is_countable($points) ? count($points) : 0) {
 			$tab_couples = [];
 			foreach ($points as $id => $p) {
 				$tab_couples[] = [

@@ -116,8 +116,8 @@ function inc_envoyer_mail_dist($destinataire, $sujet, $corps, $from = '', $heade
 	$parts = '';
 	if (is_array($corps)) {
 		$texte = $corps['texte'];
-		$from = (isset($corps['from']) ? $corps['from'] : $from);
-		$headers = (isset($corps['headers']) ? $corps['headers'] : $headers);
+		$from = ($corps['from'] ?? $from);
+		$headers = ($corps['headers'] ?? $headers);
 		if (is_array($headers)) {
 			$headers = implode("\n", $headers);
 		}
@@ -157,7 +157,7 @@ function inc_envoyer_mail_dist($destinataire, $sujet, $corps, $from = '', $heade
 		$texte = wordwrap($texte);
 	}
 
-	list($headers, $texte) = mail_normaliser_headers($headers, $from, $destinataire, $texte, $parts);
+	[$headers, $texte] = mail_normaliser_headers($headers, $from, $destinataire, $texte, $parts);
 
 	if (_OS_SERVEUR == 'windows') {
 		$texte = preg_replace("@\r*\n@", "\r\n", $texte);
@@ -209,7 +209,7 @@ function mail_normaliser_headers($headers, $from, $to, $texte, $parts = '') {
 	else {
 		$domain = '@unknown-' . md5($from) . '.org';
 	}
-	$uniq = rand() . '_' . md5($to . $texte) . $domain;
+	$uniq = random_int(0, mt_getrandmax()) . '_' . md5($to . $texte) . $domain;
 
 	// Si multi-part, s'en servir comme borne ...
 	if ($parts) {

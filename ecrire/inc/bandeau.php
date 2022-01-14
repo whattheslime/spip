@@ -226,7 +226,7 @@ function bandeau_creer_url($url, $args = '', $contexte = null) {
 				$contexte['id_secteur'] = sql_getfetsel('id_secteur', 'spip_rubriques', 'id_rubrique=' . intval($contexte['id_rubrique']));
 			}
 			$val = _request($matches[2], $contexte);
-			$url = parametre_url($url, $matches[1], $val ? $val : '', '&');
+			$url = parametre_url($url, $matches[1], $val ?: '', '&');
 		}
 		$url = str_replace('&', '&amp;', $url);
 	}

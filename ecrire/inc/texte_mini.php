@@ -133,7 +133,7 @@ function traiter_echap_pre_dist($regs) {
 // Echapper les <code>...</ code>
 // https://code.spip.net/@traiter_echap_code_dist
 function traiter_echap_code_dist($regs) {
-	list(, , $att, $corps) = $regs;
+	[, , $att, $corps] = $regs;
 	$echap = spip_htmlspecialchars($corps); // il ne faut pas passer dans entites_html, ne pas transformer les &#xxx; du code !
 
 	// ne pas mettre le <div...> s'il n'y a qu'une ligne
@@ -228,7 +228,7 @@ function echappe_html(
 
 	if (
 		($preg or strpos($letexte, '<') !== false)
-		and preg_match_all($preg ? $preg : _PROTEGE_BLOCS, $letexte, $matches, PREG_SET_ORDER)
+		and preg_match_all($preg ?: _PROTEGE_BLOCS, $letexte, $matches, PREG_SET_ORDER)
 	) {
 		foreach ($matches as $regs) {
 			// echappements tels quels ?
@@ -244,7 +244,7 @@ function echappe_html(
 				}
 			}
 
-			$p = strpos($letexte, $regs[0]);
+			$p = strpos($letexte, (string) $regs[0]);
 			$letexte = substr_replace($letexte, code_echappement($echap, $source, $no_transform), $p, strlen($regs[0]));
 		}
 	}
@@ -257,7 +257,7 @@ function echappe_html(
 	// seulement si on a echappe les <script>
 	// (derogatoire car on ne peut pas faire passer < ? ... ? >
 	// dans une callback autonommee
-	if (strpos($preg ? $preg : _PROTEGE_BLOCS, 'script') !== false) {
+	if (strpos($preg ?: _PROTEGE_BLOCS, 'script') !== false) {
 		if (
 			strpos($letexte, '<' . '?') !== false and preg_match_all(
 				',<[?].*($|[?]>),UisS',
@@ -285,7 +285,7 @@ function echappe_html(
 // par propre() : exemple dans multi et dans typo()
 // https://code.spip.net/@echappe_retour
 function echappe_retour($letexte, $source = '', $filtre = '') {
-	if (strpos($letexte, "base64$source")) {
+	if (strpos($letexte, (string) "base64$source")) {
 		# spip_log(spip_htmlspecialchars($letexte));  ## pour les curieux
 		$max_prof = 5;
 		while (
@@ -482,7 +482,7 @@ function echapper_faux_tags($letexte) {
 	$textMatches = preg_split(',(</?[a-z!][^<>]*>),', $letexte, -1, PREG_SPLIT_DELIM_CAPTURE);
 
 	$letexte = '';
-	while (count($textMatches)) {
+	while (is_countable($textMatches) ? count($textMatches) : 0) {
 		// un texte a echapper
 		$letexte .= str_replace('<', '&lt;', array_shift($textMatches));
 		// un tag html qui a servit a faite le split

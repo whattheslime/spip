@@ -56,7 +56,7 @@ function inc_plonger_dist($id_rubrique, $idom = '', $list = [], $col = 1, $exclu
 			}
 		}
 	}
-	$next = isset($list[$col]) ? $list[$col] : 0;
+	$next = $list[$col] ?? 0;
 	if ($ordre) {
 		$rec = generer_url_ecrire('plonger', "rac=$idom&exclus=$exclu&do=$do&col=" . ($col + 1));
 		$info = generer_url_ecrire('informer', "type=rubrique&rac=$idom&do=$do&id=");

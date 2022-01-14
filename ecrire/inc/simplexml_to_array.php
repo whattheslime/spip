@@ -43,6 +43,7 @@ function inc_simplexml_to_array_dist($u, $utiliser_namespace = false) {
  **/
 function xmlObjToArr($obj, $utiliser_namespace = false) {
 
+	$namespace = [];
 	$tableau = [];
 
 	// Cette fonction getDocNamespaces() est longue sur de gros xml. On permet donc

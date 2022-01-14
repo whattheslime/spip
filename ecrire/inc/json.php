@@ -77,7 +77,7 @@ if (!function_exists('json_encode')) {
 
 // https://code.spip.net/@json_export
 function json_export($var) {
-	$var = json_encode($var);
+	$var = json_encode($var, JSON_THROW_ON_ERROR);
 
 	// flag indiquant qu'on est en iframe et qu'il faut proteger nos
 	// donnees dans un <textarea> ; attention $_FILES a ete vide par array_pop

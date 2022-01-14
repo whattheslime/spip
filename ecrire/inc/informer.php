@@ -35,7 +35,7 @@ function inc_informer_dist($id, $col, $exclus, $rac, $type, $do = 'aff') {
 		if ($GLOBALS['meta']['image_process'] != 'non') {
 			$chercher_logo = charger_fonction('chercher_logo', 'inc');
 			if ($res = $chercher_logo($id, 'id_rubrique', 'on')) {
-				list($fid, $dir, $nom, $format) = $res;
+				[$fid, $dir, $nom, $format] = $res;
 				include_spip('inc/filtres_images_mini');
 				$res = image_reduire("<img src='$fid' alt='' />", 100, 48);
 				if ($res) {

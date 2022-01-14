@@ -73,15 +73,15 @@ function formulaires_editer_objet_traiter(
 	// eviter la redirection forcee par l'action...
 	set_request('redirect');
 	if ($action_editer = charger_fonction("editer_$type", 'action', true)) {
-		list($id, $err) = $action_editer($id);
+		[$id, $err] = $action_editer($id);
 	} else {
 		$action_editer = charger_fonction('editer_objet', 'action');
-		list($id, $err) = $action_editer($id, $type);
+		[$id, $err] = $action_editer($id, $type);
 	}
 	$id_table_objet = id_table_objet($type);
 	$res[$id_table_objet] = $id;
 	if ($err or !$id) {
-		$res['message_erreur'] = ($err ? $err : _T('erreur'));
+		$res['message_erreur'] = ($err ?: _T('erreur'));
 	} else {
 		// Un lien de trad a prendre en compte
 		if ($lier_trad) {
@@ -135,7 +135,7 @@ function formulaires_editer_objet_verifier($type, $id = 'new', $oblis = []) {
 	$erreurs = [];
 	if (intval($id)) {
 		$conflits = controler_contenu($type, $id);
-		if ($conflits and count($conflits)) {
+		if ($conflits and is_countable($conflits) ? count($conflits) : 0) {
 			foreach ($conflits as $champ => $conflit) {
 				if (!isset($erreurs[$champ])) {
 					$erreurs[$champ] = '';
@@ -209,6 +209,7 @@ function formulaires_editer_objet_charger(
 	$hidden = ''
 ) {
 
+	$valeurs = [];
 	$table_objet = table_objet($type);
 	$table_objet_sql = table_objet_sql($type);
 	$id_table_objet = id_table_objet($type);
@@ -300,7 +301,7 @@ function formulaires_editer_objet_charger(
 		. ($config['lignes'] + 15)
 		. "' cols='40'";
 	if (isset($contexte['texte'])) {
-		list($contexte['texte'], $contexte['_texte_trop_long']) = editer_texte_recolle($contexte['texte'], $att_text);
+		[$contexte['texte'], $contexte['_texte_trop_long']] = editer_texte_recolle($contexte['texte'], $att_text);
 	}
 
 	// on veut conserver la langue de l'interface ;
@@ -320,7 +321,7 @@ function formulaires_editer_objet_charger(
 				$lang_default .
 				"' />"))
 		. $hidden
-		. (isset($md5) ? $md5 : '');
+		. ($md5 ?? '');
 
 	// preciser que le formulaire doit passer dans un pipeline
 	$contexte['_pipeline'] = ['editer_contenu_objet', ['type' => $type, 'id' => $id]];
@@ -400,7 +401,7 @@ function editer_texte_recolle($texte, $att_text) {
 
 	while (strlen($texte) > 29 * 1024) {
 		$nombre++;
-		list($texte1, $texte) = coupe_trop_long($texte);
+		[$texte1, $texte] = coupe_trop_long($texte);
 		$textes_supplement .= '<br />' .
 			"<textarea id='texte$nombre' name='texte_plus[$nombre]'$att_text>$texte1</textarea>\n";
 	}
@@ -597,7 +598,7 @@ function controler_contenu($type, $id, $options = [], $c = false, $serveur = '')
 				'spip_table_objet' => $spip_table_objet,
 				'type' => $type,
 				'id_objet' => $id,
-				'champs' => isset($options['champs']) ? $options['champs'] : [], // [doc] c'est quoi ?
+				'champs' => $options['champs'] ?? [], // [doc] c'est quoi ?
 				'action' => 'controler',
 				'serveur' => $serveur,
 			],
@@ -610,7 +611,7 @@ function controler_contenu($type, $id, $options = [], $c = false, $serveur = '')
 	}
 
 	// Verifier si les mises a jour sont pertinentes, datees, en conflit etc
-	$conflits = controler_md5($champs, $_POST, $type, $id, $serveur, isset($options['prefix']) ? $options['prefix'] : 'ctr_');
+	$conflits = controler_md5($champs, $_POST, $type, $id, $serveur, $options['prefix'] ?? 'ctr_');
 
 	return $conflits;
 }
@@ -763,7 +764,7 @@ function signaler_conflits_edition($conflits, $redirect = '') {
 	}
 
 	if ($redirect) {
-		$id = uniqid(rand());
+		$id = uniqid(random_int(0, mt_getrandmax()));
 		$redirect = "<form action='$redirect' method='get'
 			id='$id'
 			style='float:" . $GLOBALS['spip_lang_right'] . "; margin-top:2em;'>\n"

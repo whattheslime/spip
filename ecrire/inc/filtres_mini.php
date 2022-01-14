@@ -35,7 +35,7 @@ if (!defined('_ECRIRE_INC_VERSION')) {
  * @return string URL nettoyée
  **/
 function resolve_path($url) {
-	list($url, $query) = array_pad(explode('?', $url, 2), 2, null);
+	[$url, $query] = array_pad(explode('?', $url, 2), 2, null);
 	while (
 		preg_match(',/\.?/,', $url, $regs)    # supprime // et /./
 		or preg_match(',/[^/]*/\.\./,S', $url, $regs)  # supprime /toto/../
@@ -69,6 +69,9 @@ function resolve_path($url) {
  **/
 function suivre_lien($url, $lien) {
 
+	$mot = null;
+	$get = null;
+	$hash = null;
 	if (preg_match(',^(mailto|javascript|data|tel|callto|file|ftp):,iS', $lien)) {
 		return $lien;
 	}

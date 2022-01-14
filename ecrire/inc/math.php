@@ -61,7 +61,7 @@ function produire_image_math($tex) {
 			return implode('', file($fichier));
 		} // TeX
 		else {
-			list(, , , $size) = @spip_getimagesize($fichier);
+			[, , , $size] = @spip_getimagesize($fichier);
 			$alt = "alt=\"$tex\" title=\"$tex\"";
 
 			return "<img src=\"$fichier\" style=\"vertical-align:middle;\" $size $alt />";
@@ -129,7 +129,7 @@ function traiter_math($letexte, $source = '', $defaire_amp = false) {
 				$expression = str_replace('&amp;', '&', $expression);
 			}
 			$echap = "\n<p class=\"spip\" style=\"text-align: center;\">" . produire_image_math($expression) . "</p>\n";
-			$pos = strpos($texte_milieu, $regs[0]);
+			$pos = strpos($texte_milieu, (string) $regs[0]);
 			$texte_milieu = substr($texte_milieu, 0, $pos)
 				. code_echappement($echap, $source)
 				. substr($texte_milieu, $pos + strlen($regs[0]));
@@ -142,7 +142,7 @@ function traiter_math($letexte, $source = '', $defaire_amp = false) {
 				$expression = str_replace('&amp;', '&', $expression);
 			}
 			$echap = produire_image_math($expression);
-			$pos = strpos($texte_milieu, $regs[0]);
+			$pos = strpos($texte_milieu, (string) $regs[0]);
 			$texte_milieu = substr($texte_milieu, 0, $pos)
 				. code_echappement($echap, $source)
 				. substr($texte_milieu, $pos + strlen($regs[0]));

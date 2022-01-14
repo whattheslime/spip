@@ -55,7 +55,7 @@ function inc_securiser_action_dist($action = '', $arg = '', $redirect = '', $mod
 	} else {
 		$arg = _request('arg');
 		$hash = _request('hash');
-		$action = _request('action') ? _request('action') : _request('formulaire_action');
+		$action = _request('action') ?: _request('formulaire_action');
 		if ($a = verifier_action_auteur("$action-$arg", $hash)) {
 			return $arg;
 		}
@@ -191,7 +191,7 @@ function caracteriser_auteur($id_auteur = null) {
 	}
 	// Eviter l'acces SQL si le pass est connu de PHP
 	if (is_null($id_auteur)) {
-		$id_auteur = isset($GLOBALS['visiteur_session']['id_auteur']) ? $GLOBALS['visiteur_session']['id_auteur'] : 0;
+		$id_auteur = $GLOBALS['visiteur_session']['id_auteur'] ?? 0;
 		if (isset($GLOBALS['visiteur_session']['pass']) and $GLOBALS['visiteur_session']['pass']) {
 			return $caracterisation[$id_auteur] = [$id_auteur, $GLOBALS['visiteur_session']['pass']];
 		}
@@ -260,7 +260,7 @@ function _action_auteur($action, $id_auteur, $pass, $alea) {
  * @return string
  */
 function calculer_action_auteur($action, $id_auteur = null) {
-	list($id_auteur, $pass) = caracteriser_auteur($id_auteur);
+	[$id_auteur, $pass] = caracteriser_auteur($id_auteur);
 
 	return _action_auteur($action, $id_auteur, $pass, 'alea_ephemere');
 }
@@ -275,7 +275,7 @@ function calculer_action_auteur($action, $id_auteur = null) {
  * @return bool
  */
 function verifier_action_auteur($action, $hash) {
-	list($id_auteur, $pass) = caracteriser_auteur();
+	[$id_auteur, $pass] = caracteriser_auteur();
 	if ($hash == _action_auteur($action, $id_auteur, $pass, 'alea_ephemere')) {
 		return true;
 	}
@@ -313,7 +313,7 @@ function secret_du_site() {
 			'secret_du_site',
 			spip_sha256(
 				$_SERVER['DOCUMENT_ROOT']
-				. (isset($_SERVER['SERVER_SIGNATURE']) ? $_SERVER['SERVER_SIGNATURE'] : '')
+				. ($_SERVER['SERVER_SIGNATURE'] ?? '')
 				. creer_uniqid()
 			),
 			'non'

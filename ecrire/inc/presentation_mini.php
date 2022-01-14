@@ -198,7 +198,7 @@ function html_tests_js() {
  **/
 function info_maj_spip() {
 
-	$maj = isset($GLOBALS['meta']['info_maj_spip']) ? $GLOBALS['meta']['info_maj_spip'] : null;
+	$maj = $GLOBALS['meta']['info_maj_spip'] ?? null;
 	if (!$maj) {
 		return '';
 	}
@@ -241,7 +241,7 @@ function info_copyright() {
 			$url = '';
 		}
 		// affichage "GIT [master: abcdef]"
-		$commit = isset($vcs['commit_short']) ? $vcs['commit_short'] : $vcs['commit'];
+		$commit = $vcs['commit_short'] ?? $vcs['commit'];
 		if ($url) {
 			$commit = "<a href=\"$url\" target=\"_blank\" rel=\"noopener noreferrer\">$commit</a>";
 		}
