@@ -78,6 +78,9 @@ function charger_fonction($nom, $dossier = 'exec', $continue = false) {
 
 	// passer en minuscules (cf les balises de formulaires)
 	// et inclure le fichier
+	if ($nom === null) { 
+		dd(debug_backtrace());
+	}
 	if (
 		!$inc = include_spip($dossier . ($d = strtolower($nom)))
 		// si le fichier truc/machin/nom.php n'existe pas,

@@ -462,7 +462,7 @@ function calculer_champ($p) {
  * @return Champ
  *     Pile complétée par le code PHP pour l'exécution de la balise et de ses filtres
  **/
-function calculer_balise($nom, $p) {
+function calculer_balise(string $nom, \Champ $p): \Champ {
 
 	// S'agit-t-il d'une balise_XXXX[_dist]() ?
 	if ($f = charger_fonction($nom, 'balise', true)) {
@@ -645,11 +645,15 @@ function calculer_balise_dynamique($p, $nom, $l, $supp = []) {
  * @return array
  *     Liste des codes PHP d'éxecution des balises collectées
  **/
-function collecter_balise_dynamique($l, &$p, $nom) {
+function collecter_balise_dynamique(array $l, \Champ &$p, string $nom): array {
 	$args = [];
 	foreach ($l as $c) {
-		$x = calculer_balise($c, $p);
-		$args[] = $x->code;
+		if ($c === null) {
+			$args[] = 'null';
+		} else {
+			$x = calculer_balise($c, $p);
+			$args[] = $x->code;
+		}
 	}
 
 	return $args;
