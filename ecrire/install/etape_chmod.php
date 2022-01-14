@@ -73,6 +73,7 @@ function test_ecrire($my_dir) {
 // https://code.spip.net/@install_etape_chmod_dist
 function install_etape_chmod_dist() {
 
+	$continuer = null;
 	$test_dir = _request('test_dir');
 	$chmod = 0;
 

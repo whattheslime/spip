@@ -23,7 +23,7 @@ function install_etape_2_dist() {
 		: _request('adresse_db');
 
 	if (preg_match(',(.*):(.*),', $adresse_db, $r)) {
-		list(, $adresse_db, $port) = $r;
+		[, $adresse_db, $port] = $r;
 	} else {
 		$port = '';
 	}
@@ -74,7 +74,7 @@ function install_etape_2_dist() {
 		echo info_etape(_T('menu_aide_installation_choix_base') . aider('install2', true));
 
 		echo "\n", '<!-- ', sql_version($server_db), ' -->';
-		list($checked, $res) = install_etape_2_bases($login_db, $server_db);
+		[$checked, $res] = install_etape_2_bases($login_db, $server_db);
 
 		$hidden = (defined('_SPIP_CHMOD')
 				? ''
@@ -105,7 +105,7 @@ function install_etape_2_dist() {
 function install_etape_2_bases($login_db, $server_db) {
 	$res = install_etape_liste_bases($server_db, $login_db);
 	if ($res) {
-		list($checked, $bases) = $res;
+		[$checked, $bases] = $res;
 
 		return [
 			$checked,

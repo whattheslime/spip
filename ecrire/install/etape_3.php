@@ -36,7 +36,7 @@ function install_bases($adresse_db, $login_db, $pass_db, $server_db, $choix_db, 
 	}
 
 	if (preg_match(',(.*):(.*),', $adresse_db, $r)) {
-		list(, $adresse_db, $port) = $r;
+		[, $adresse_db, $port] = $r;
 	} else {
 		$port = '';
 	}
@@ -351,7 +351,7 @@ function install_etape_3_dist() {
 		}
 	} else {
 		$res = '';
-		list($adresse_db, $login_db, $pass_db, $sel_db, $server_db) = analyse_fichier_connection(_FILE_CONNECT_TMP);
+		[$adresse_db, $login_db, $pass_db, $sel_db, $server_db] = analyse_fichier_connection(_FILE_CONNECT_TMP);
 		$GLOBALS['connexions'][$server_db] = spip_connect_db($adresse_db, $sel_db, $login_db, $pass_db, $sel_db, $server_db);
 	}
 

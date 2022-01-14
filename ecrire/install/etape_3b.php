@@ -17,6 +17,9 @@ if (!defined('_ECRIRE_INC_VERSION')) {
 include_spip('inc/headers');
 
 function install_etape_3b_dist() {
+	$auth_spip = null;
+	$session = null;
+	$row = null;
 	$login = _request('login');
 	$email = _request('email');
 	$nom = _request('nom');
@@ -134,7 +137,7 @@ function install_etape_3b_dist() {
 			!$auteur = auth_identifier_login($login, $pass)
 			or !auth_loger($auteur, true)
 		) {
-			spip_log("login automatique impossible $auth_spip $session" . count($row));
+			spip_log("login automatique impossible $auth_spip $session" . (is_countable($row) ? count($row) : 0));
 		}
 	}
 

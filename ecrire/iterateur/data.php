@@ -21,7 +21,7 @@ if (!defined('_ECRIRE_INC_VERSION')) {
 }
 
 if (!defined('_DATA_SOURCE_MAX_SIZE')) {
-	define('_DATA_SOURCE_MAX_SIZE', 2 * 1048576);
+	define('_DATA_SOURCE_MAX_SIZE', 2 * 1_048_576);
 }
 
 
@@ -127,7 +127,7 @@ class IterateurDATA implements Iterator {
 	 */
 	public function rewind() : void {
 		reset($this->tableau);
-		$this->cle = key($this->tableau);
+		$this->cle = array_key_first($this->tableau);
 		$this->valeur = current($this->tableau);
 		next($this->tableau);
 	}
@@ -294,7 +294,7 @@ class IterateurDATA implements Iterator {
 		}
 		if (
 			$cache
-			and ($cache['time'] + (isset($ttl) ? $ttl : $cache['ttl'])
+			and ($cache['time'] + ($ttl ?? $cache['ttl'])
 				> time())
 			and !(_request('var_mode') === 'recalcul'
 				and include_spip('inc/autoriser')
@@ -418,7 +418,7 @@ class IterateurDATA implements Iterator {
 				$this->command['enum'] = $this->command['enum'][0];
 			}
 		}
-		if (count($this->command['enum']) >= 3) {
+		if ((is_countable($this->command['enum']) ? count($this->command['enum']) : 0) >= 3) {
 			$enum = range(
 				array_shift($this->command['enum']),
 				array_shift($this->command['enum']),
@@ -498,9 +498,7 @@ class IterateurDATA implements Iterator {
 
 		if ($sortfunc) {
 			$sortfunc .= "\n return 0;";
-			uasort($this->tableau, function ($aa, $bb) use ($sortfunc) {
-				return eval($sortfunc);
-			});
+			uasort($this->tableau, fn($aa, $bb) => eval($sortfunc));
 		}
 	}
 
@@ -666,7 +664,7 @@ function inc_sql_to_array_dist($data) {
  * @return array|bool
  */
 function inc_json_to_array_dist($data) {
-	if (is_array($json = json_decode($data, true))) {
+	if (is_array($json = json_decode($data, true, 512, JSON_THROW_ON_ERROR))) {
 		return (array)$json;
 	}
 }
@@ -679,7 +677,7 @@ function inc_json_to_array_dist($data) {
  */
 function inc_csv_to_array_dist($data) {
 	include_spip('inc/csv');
-	list($entete, $csv) = analyse_csv($data);
+	[$entete, $csv] = analyse_csv($data);
 	array_unshift($csv, $entete);
 
 	include_spip('inc/charsets');
@@ -711,6 +709,7 @@ function inc_csv_to_array_dist($data) {
  * @return array|bool
  */
 function inc_rss_to_array_dist($data) {
+	$tableau = null;
 	include_spip('inc/syndic');
 	if (is_array($rss = analyser_backend($data))) {
 		$tableau = $rss;
@@ -744,7 +743,7 @@ function inc_glob_to_array_dist($data) {
 		GLOB_MARK | GLOB_NOSORT | GLOB_BRACE
 	);
 
-	return $a ? $a : [];
+	return $a ?: [];
 }
 
 /**

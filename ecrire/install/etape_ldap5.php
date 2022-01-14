@@ -23,6 +23,7 @@ function install_etape_ldap5_dist() {
 }
 
 function etape_ldap5_save() {
+	$conn = null;
 	if (!@file_exists(_FILE_CONNECT_TMP)) {
 		redirige_url_ecrire('install');
 	}

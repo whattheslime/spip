@@ -60,7 +60,7 @@ function maj_liens($pivot, $l = '') {
 	$exceptions_pluriel = ['forum' => 'forum', 'syndic' => 'syndic'];
 
 	$pivot = preg_replace(',[^\w],', '', $pivot); // securite
-	$pivots = (isset($exceptions_pluriel[$pivot]) ? $exceptions_pluriel[$pivot] : $pivot . 's');
+	$pivots = ($exceptions_pluriel[$pivot] ?? $pivot . 's');
 	$liens = 'spip_' . $pivots . '_liens';
 	$id_pivot = 'id_' . $pivot;
 	// Creer spip_auteurs_liens
@@ -74,7 +74,7 @@ function maj_liens($pivot, $l = '') {
 		$l = preg_replace(',[^\w],', '', $l); // securite
 		$primary = "id_$l";
 		$objet = ($l == 'syndic' ? 'site' : $l);
-		$ls = (isset($exceptions_pluriel[$l]) ? $exceptions_pluriel[$l] : $l . 's');
+		$ls = ($exceptions_pluriel[$l] ?? $l . 's');
 		$ancienne_table = 'spip_' . $pivots . '_' . $ls;
 		$pool = 400;
 
@@ -113,7 +113,7 @@ function maj_liens($pivot, $l = '') {
 			foreach ($ids as $id) {
 				$n = sql_countsel($liens, "objet='$objet' AND id_objet=" . intval($id));
 				while ($t = sql_allfetsel($champs, $ancienne_table, "$primary=" . intval($id), '', $id_pivot, "$n,$pool")) {
-					$n += count($t);
+					$n += is_countable($t) ? count($t) : 0;
 					// empiler en s'assurant a minima de l'unicite
 					while ($r = array_shift($t)) {
 						$insert[$r[$id_pivot] . ':' . $r['id_objet']] = $r;
