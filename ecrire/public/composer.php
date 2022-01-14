@@ -43,6 +43,8 @@ include_spip('public/quete');
 // https://code.spip.net/@public_composer_dist
 function public_composer_dist($squelette, $mime_type, $gram, $source, string $connect = '') {
 
+	$skel = null;
+	$boucle = null;
 	$nom = calculer_nom_fonction_squel($squelette, $mime_type, $connect);
 
 	//  si deja en memoire (INCLURE  a repetition) c'est bon.
@@ -135,11 +137,12 @@ function public_composer_dist($squelette, $mime_type, $gram, $source, string $co
 		}
 	}
 
-	return $nom ? $nom : false;
+	return $nom ?: false;
 }
 
 function squelette_traduit($squelette, $sourcefile, $phpfile, $boucles) {
 
+	$code = null;
 	// Le dernier index est '' (fonction principale)
 	$noms = substr(join(', ', array_keys($boucles)), 0, -2);
 	if (CODE_COMMENTE) {
@@ -250,7 +253,7 @@ function analyse_resultat_skel($nom, $cache, $corps, $source = '') {
 		$filtres_headers = array_filter(explode('|', $headers['X-Spip-Filtre']));
 		unset($headers['X-Spip-Filtre']);
 	}
-	if (count($filtres[$nom]) or count($filtres_headers)) {
+	if (is_array($filtres[$nom]) || $filtres[$nom] instanceof \Countable ? count($filtres[$nom]) : 0 or count($filtres_headers)) {
 		include_spip('public/sandbox');
 		$corps = sandbox_filtrer_squelette($skel, $corps, $filtres_headers, $filtres[$nom]);
 
@@ -705,7 +708,7 @@ function calculer_select(
 			} elseif ((count($v) >= 2) && ($v[0] == 'LIKE') && ($v[2] == "'%'")) {
 				$op = false;
 			} else {
-				$op = $v[0] ? $v[0] : $v;
+				$op = $v[0] ?: $v;
 			}
 		} else {
 			$op = $v;
@@ -720,7 +723,7 @@ function calculer_select(
 	$groupby = array_diff($groupby, ['']);
 
 	// remplacer les sous requetes recursives au calcul
-	list($where_simples, $where_sous) = trouver_sous_requetes($where);
+	[$where_simples, $where_sous] = trouver_sous_requetes($where);
 	foreach ($where_sous as $k => $w) {
 		$menage = true;
 		// on recupere la sous requete
@@ -759,8 +762,8 @@ function calculer_select(
 					$wherestring = calculer_where_to_string($where[$k]);
 					foreach ($join as $cle => $wj) {
 						if (
-							count($wj) == 4
-							and strpos($wherestring, "{$cle}.") !== false
+							(is_countable($wj) ? count($wj) : 0) == 4
+							and strpos($wherestring, (string) "{$cle}.") !== false
 						) {
 							$i = 0;
 							$wheresub[] = $wj[3];
@@ -780,10 +783,10 @@ function calculer_select(
 				$sous[3] ? (is_array($sous[3]) ? $sous[3] : [$sous[3]]) : [],
 				#where, qui peut etre de la forme string comme dans sql_select
 					[], #join
-				$sous[4] ? $sous[4] : [], #groupby
-				$sous[5] ? $sous[5] : [], #orderby
+				$sous[4] ?: [], #groupby
+				$sous[5] ?: [], #orderby
 				$sous[6], #limit
-				$sous[7] ? $sous[7] : [], #having
+				$sous[7] ?: [], #having
 				$table,
 				$id,
 				$serveur,
@@ -815,10 +818,10 @@ function calculer_select(
 		if (count($join[$cle]) == 2) {
 			$join[$cle][] = $join[$cle][1];
 		}
-		if (count($join[$cle]) == 3) {
+		if ((is_array($join[$cle]) || $join[$cle] instanceof \Countable ? count($join[$cle]) : 0) == 3) {
 			$join[$cle][] = '';
 		}
-		list($t, $c, $carr, $and) = $join[$cle];
+		[$t, $c, $carr, $and] = $join[$cle];
 		// si le nom de la jointure n'a pas ete specifiee, on prend Lx avec x sont rang dans la liste
 		// pour compat avec ancienne convention
 		if (is_numeric($cle)) {
@@ -852,7 +855,7 @@ function calculer_select(
 			// un implode(' ',..) est fait dans reinjecte_joint un peu plus bas
 			$afrom[$t][$cle] = [
 				"\n" .
-				(isset($from_type[$cle]) ? $from_type[$cle] : 'INNER') . ' JOIN',
+				($from_type[$cle] ?? 'INNER') . ' JOIN',
 				$from[$cle],
 				"AS $cle",
 				'ON (',
