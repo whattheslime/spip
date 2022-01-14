@@ -82,14 +82,8 @@ function urls_page_dist($i, &$entite, $args = '', $ancre = '') {
 	// Si on est revenu en mode html, mais c'est une ancienne url_propre
 	// on ne redirige pas, on assume le nouveau contexte (si possible)
 	$url = $i;
-	$url_propre = isset($url)
-		? $url
-		: (isset($_SERVER['REDIRECT_url_propre'])
-			? $_SERVER['REDIRECT_url_propre']
-			: (isset($_ENV['url_propre'])
-				? $_ENV['url_propre']
-				: ''
-			));
+	$url_propre = $url ?? $_SERVER['REDIRECT_url_propre'] ?? $_ENV['url_propre'] ?? '';
+
 	if ($url_propre) {
 		if ($GLOBALS['profondeur_url'] <= 0) {
 			$urls_anciennes = charger_fonction('propres', 'urls', true);
