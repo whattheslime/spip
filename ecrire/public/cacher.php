@@ -85,6 +85,7 @@ function ecrire_cache($nom_cache, $valeur) {
  * @return mixed
  */
 function lire_cache($nom_cache) {
+	$tmp = [];
 	if (
 		file_exists($f = cache_chemin_fichier($nom_cache))
 		and lire_fichier($f, $tmp)
@@ -108,7 +109,7 @@ function cache_signature(&$page) {
 			'cache_signature',
 			spip_sha256(
 				$_SERVER['DOCUMENT_ROOT']
-				. (isset($_SERVER['SERVER_SIGNATURE']) ? $_SERVER['SERVER_SIGNATURE'] : '')
+				. ($_SERVER['SERVER_SIGNATURE'] ?? '')
 				. creer_uniqid()
 			),
 			'non'
@@ -221,7 +222,7 @@ function cache_valide(&$page, $date) {
 
 	// Sinon comparer l'age du fichier a sa duree de cache
 	$duree = intval($page['entetes']['X-Spip-Cache']);
-	$cache_mark = (isset($GLOBALS['meta']['cache_mark']) ? $GLOBALS['meta']['cache_mark'] : 0);
+	$cache_mark = ($GLOBALS['meta']['cache_mark'] ?? 0);
 	if ($duree == 0) {  #CACHE{0}
 	return -1;
 	} // sauf pour les bots, qui utilisent toujours le cache
@@ -451,7 +452,7 @@ function public_cacher_dist($contexte, &$use_cache, &$chemin_cache, &$page, &$la
 
 	// determiner la validite de la page
 	if ($page) {
-		$use_cache = cache_valide($page, isset($page['lastmodified']) ? $page['lastmodified'] : 0);
+		$use_cache = cache_valide($page, $page['lastmodified'] ?? 0);
 		// le contexte implicite n'est pas stocke dans le cache, mais il y a equivalence
 		// par le nom du cache. On le reinjecte donc ici pour utilisation eventuelle au calcul
 		$page['contexte_implicite'] = $contexte_implicite;

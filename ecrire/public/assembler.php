@@ -31,6 +31,9 @@ if (!defined('_CONTEXTE_IGNORE_VARIABLES')) {
 // https://code.spip.net/@assembler
 function assembler($fond, string $connect = '') {
 
+	$chemin_cache = null;
+	$lastmodified = null;
+	$res = null;
 	// flag_preserver est modifie ici, et utilise en globale
 	// use_cache sert a informer le bouton d'admin pr savoir s'il met un *
 	// contexte est utilise en globale dans le formulaire d'admin
@@ -111,7 +114,7 @@ function assembler($fond, string $connect = '') {
 			// et calculer la page
 			if (!test_espace_prive()) {
 				include_spip('inc/urls');
-				list($fond, $GLOBALS['contexte'], $url_redirect) = urls_decoder_url(
+				[$fond, $GLOBALS['contexte'], $url_redirect] = urls_decoder_url(
 					nettoyer_uri(),
 					$fond,
 					$GLOBALS['contexte'],
@@ -239,11 +242,11 @@ function calculer_contexte_implicite() {
 	}
 	$contexte_implicite = [
 		'squelettes' => $GLOBALS['dossier_squelettes'], // devrait etre 'chemin' => $GLOBALS['path_sig'], ?
-		'host' => (isset($_SERVER['HTTP_HOST']) ? $_SERVER['HTTP_HOST'] : null),
-		'https' => (isset($_SERVER['HTTPS']) ? $_SERVER['HTTPS'] : ''),
+		'host' => ($_SERVER['HTTP_HOST'] ?? null),
+		'https' => ($_SERVER['HTTPS'] ?? ''),
 		'espace' => test_espace_prive(),
-		'marqueur' => (isset($GLOBALS['marqueur']) ? $GLOBALS['marqueur'] : ''),
-		'marqueur_skel' => (isset($GLOBALS['marqueur_skel']) ? $GLOBALS['marqueur_skel'] : ''),
+		'marqueur' => ($GLOBALS['marqueur'] ?? ''),
+		'marqueur_skel' => ($GLOBALS['marqueur_skel'] ?? ''),
 		'notes' => $notes ? $notes('', 'contexter_cache') : '',
 		'spip_version_code' => $GLOBALS['spip_version_code'],
 	];
@@ -271,6 +274,10 @@ function auto_content_type($page) {
 
 // https://code.spip.net/@inclure_page
 function inclure_page($fond, $contexte, string $connect = '') {
+	$use_cache = null;
+	$chemin_cache = null;
+	$lastinclude = null;
+	$res = null;
 	static $cacher, $produire_page;
 
 	// enlever le fond de contexte inclus car sinon il prend la main
@@ -304,7 +311,7 @@ function inclure_page($fond, $contexte, string $connect = '') {
 		$page = $produire_page($fond, $contexte, $use_cache, $chemin_cache, $contexte, $page, $lastinclude, $connect);
 	}
 	// dans tous les cas, mettre a jour $GLOBALS['lastmodified']
-	$GLOBALS['lastmodified'] = max((isset($GLOBALS['lastmodified']) ? $GLOBALS['lastmodified'] : 0), $lastinclude);
+	$GLOBALS['lastmodified'] = max(($GLOBALS['lastmodified'] ?? 0), $lastinclude);
 
 	return $page;
 }
@@ -395,10 +402,10 @@ function inserer_balise_dynamique($contexte_exec, $contexte_compil) {
  */
 function inclure_balise_dynamique($texte, $echo = true, $contexte_compil = []) {
 	if (is_array($texte)) {
-		list($fond, $delainc, $contexte_inclus) = $texte;
+		[$fond, $delainc, $contexte_inclus] = $texte;
 
 		// delais a l'ancienne, c'est pratiquement mort
-		$d = isset($GLOBALS['delais']) ? $GLOBALS['delais'] : null;
+		$d = $GLOBALS['delais'] ?? null;
 		$GLOBALS['delais'] = $delainc;
 
 		$page = recuperer_fond(
@@ -437,8 +444,7 @@ function inclure_balise_dynamique($texte, $echo = true, $contexte_compil = []) {
 					[
 						'data' => $texte,
 						'args' => $args
-					],
-					false
+					]
 				);
 			}
 		}
@@ -446,7 +452,7 @@ function inclure_balise_dynamique($texte, $echo = true, $contexte_compil = []) {
 
 	if (defined('_VAR_MODE') and _VAR_MODE == 'debug') {
 		// compatibilite : avant on donnait le numero de ligne ou rien.
-		$ligne = intval(isset($contexte_compil[3]) ? $contexte_compil[3] : $contexte_compil);
+		$ligne = intval($contexte_compil[3] ?? $contexte_compil);
 		$GLOBALS['debug_objets']['resultat'][$ligne] = $texte;
 	}
 	if ($echo) {

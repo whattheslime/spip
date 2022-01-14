@@ -168,6 +168,7 @@ define('CODE_RECUPERER_FOND', 'recuperer_fond(%s, %s, array(%s), %s)');
  **/
 function calculer_inclure($p, &$boucles, $id_boucle) {
 
+	$_options = [];
 	$_contexte = argumenter_inclure($p->param, false, $p, $boucles, $id_boucle, true, '', true);
 	if (is_string($p->texte)) {
 		$fichier = $p->texte;
@@ -478,6 +479,7 @@ define('CODE_CORPS_BOUCLE', '%s
  **/
 function calculer_boucle_nonrec($id_boucle, &$boucles, $trace) {
 
+	$code_sep = null;
 	$boucle = &$boucles[$id_boucle];
 	$return = $boucle->return;
 	$type_boucle = $boucle->type_requete;
@@ -544,7 +546,7 @@ function calculer_boucle_nonrec($id_boucle, &$boucles, $trace) {
 	}
 
 	// gestion optimale des separateurs et des boucles constantes
-	if (count($boucle->separateur)) {
+	if (is_countable($boucle->separateur) ? count($boucle->separateur) : 0) {
 		$code_sep = ("'" . str_replace("'", "\'", join('', $boucle->separateur)) . "'");
 	}
 
@@ -720,9 +722,9 @@ function calculer_requete_sql($boucle) {
  **/
 function memoriser_contexte_compil($p) {
 	return join(',', [
-		_q(isset($p->descr['sourcefile']) ? $p->descr['sourcefile'] : ''),
-		_q(isset($p->descr['nom']) ? $p->descr['nom'] : ''),
-		_q(isset($p->id_boucle) ? $p->id_boucle : ''),
+		_q($p->descr['sourcefile'] ?? ''),
+		_q($p->descr['nom'] ?? ''),
+		_q($p->id_boucle ?? ''),
 		intval($p->ligne),
 		'$GLOBALS[\'spip_lang\']'
 	]);
@@ -933,7 +935,7 @@ function calculer_liste($tableau, $descr, &$boucles, $id_boucle = '') {
 	if ($codes === false) {
 		return false;
 	}
-	$n = count($codes);
+	$n = is_countable($codes) ? count($codes) : 0;
 	if (!$n) {
 		return "''";
 	}
@@ -957,7 +959,7 @@ function calculer_liste($tableau, $descr, &$boucles, $id_boucle = '') {
 			return '(' . substr($res, 2 + $descr['niv']) . ')';
 		}
 	} else {
-		$nom = $descr['nom'] . $id_boucle . ($descr['niv'] ? $descr['niv'] : '');
+		$nom = $descr['nom'] . $id_boucle . ($descr['niv'] ?: '');
 
 		return "join('', array_map('array_shift', \$GLOBALS['debug_objets']['sequence']['$nom'] = array(" . join(
 			" ,\n$tab",
@@ -1302,9 +1304,7 @@ function public_compiler_dist($squelette, $nom, $gram, $sourcefile, string $conn
 	}
 	$squelette = preg_replace_callback(
 		',\\\\([#[()\]{}<>]),',
-		function ($a) use ($inerte) {
-			return "$inerte-" . ord($a[1]) . '-';
-		},
+		fn($a) => "$inerte-" . ord($a[1]) . '-',
 		$squelette,
 		-1,
 		$esc
@@ -1331,16 +1331,12 @@ function public_compiler_dist($squelette, $nom, $gram, $sourcefile, string $conn
 		foreach ($boucles as $i => $boucle) {
 			$boucles[$i]->return = preg_replace_callback(
 				",$inerte-(\d+)-,",
-				function ($a) {
-					return chr($a[1]);
-				},
+				fn($a) => chr($a[1]),
 				$boucle->return
 			);
 			$boucles[$i]->descr['squelette'] = preg_replace_callback(
 				",$inerte-(\d+)-,",
-				function ($a) {
-					return '\\\\' . chr($a[1]);
-				},
+				fn($a) => '\\\\' . chr($a[1]),
 				$boucle->descr['squelette']
 			);
 		}
@@ -1449,7 +1445,7 @@ function compiler_squelette($squelette, $boucles, $nom, $descr, $sourcefile, str
 					if ($show) {
 						$boucles[$id]->show = $show;
 						// recopie les infos les plus importantes
-						$boucles[$id]->primary = isset($show['key']['PRIMARY KEY']) ? $show['key']['PRIMARY KEY'] : '';
+						$boucles[$id]->primary = $show['key']['PRIMARY KEY'] ?? '';
 						$boucles[$id]->id_table = $x = preg_replace(',^spip_,', '', $show['id_table']);
 						$boucles[$id]->from[$x] = $nom_table = $show['table'];
 						$boucles[$id]->iterateur = 'SQL';

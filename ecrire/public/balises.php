@@ -48,7 +48,7 @@ if (!defined('_ECRIRE_INC_VERSION')) {
  *     Code PHP si cet argument est présent, sinon null
  **/
 function interprete_argument_balise(int $n, Champ $p): ?string {
-	if (($p->param) && (!$p->param[0][0]) && (count($p->param[0]) > $n)) {
+	if (($p->param) && (!$p->param[0][0]) && ((is_countable($p->param[0]) ? count($p->param[0]) : 0) > $n)) {
 		return calculer_liste(
 			$p->param[0][$n],
 			$p->descr,
@@ -660,7 +660,7 @@ function balise_POPULARITE_MAX_dist($p) {
  *     Pile complétée par le code à générer
  **/
 function balise_VALEUR_dist($p) {
-	$b = $p->nom_boucle ? $p->nom_boucle : $p->id_boucle;
+	$b = $p->nom_boucle ?: $p->id_boucle;
 	$p->code = index_pile($p->id_boucle, 'valeur', $p->boucles, $b);
 ;
 	if (($v = interprete_argument_balise(1, $p)) !== null) {
@@ -900,7 +900,7 @@ function balise_LESAUTEURS_dist($p) {
 			$objet = 'article';
 			$id_table_objet = 'id_article';
 		} else {
-			$b = $p->nom_boucle ? $p->nom_boucle : $p->id_boucle;
+			$b = $p->nom_boucle ?: $p->id_boucle;
 			$connect = $p->boucles[$b]->sql_serveur;
 			$type_boucle = $p->boucles[$b]->type_requete;
 			$objet = objet_type($type_boucle);
@@ -1125,7 +1125,7 @@ function balise_PAGINATION_dist($p, $liste = 'true') {
 	// si false, le compilo va bloquer sur des syntaxes avec un filtre sans argument qui suit la balise
 	// si true, les arguments simples (sans truc=chose) vont degager
 	$_contexte = argumenter_inclure($p->param, true, $p, $p->boucles, $p->id_boucle, false, false);
-	if (count($_contexte)) {
+	if (is_countable($_contexte) ? count($_contexte) : 0) {
 		$key = key($_contexte);
 		if (is_numeric($key)) {
 			array_shift($_contexte);
@@ -1133,7 +1133,7 @@ function balise_PAGINATION_dist($p, $liste = 'true') {
 		}
 	}
 
-	if (count($_contexte)) {
+	if (is_countable($_contexte) ? count($_contexte) : 0) {
 		$code_contexte = implode(',', $_contexte);
 	} else {
 		$code_contexte = '';
@@ -2259,7 +2259,7 @@ function balise_PIPELINE_dist($p) {
 		erreur_squelette($err_b_s_a, $p);
 	} else {
 		$_flux = interprete_argument_balise(2, $p);
-		$_flux = $_flux ? $_flux : "''";
+		$_flux = $_flux ?: "''";
 		$p->code = "pipeline( $_pipe , $_flux )";
 		$p->interdire_scripts = false;
 	}
@@ -2316,7 +2316,7 @@ function balise_EDIT_dist($p) {
  **/
 function balise_TOTAL_UNIQUE_dist($p) {
 	$_famille = interprete_argument_balise(1, $p);
-	$_famille = $_famille ? $_famille : "''";
+	$_famille = $_famille ?: "''";
 	$p->code = "unique('', $_famille, true)";
 
 	return $p;
@@ -2703,7 +2703,7 @@ function balise_TRI_dist($p, $liste = 'true') {
 	}
 
 	$_libelle = interprete_argument_balise(2, $p);
-	$_libelle = $_libelle ? $_libelle : $_champ;
+	$_libelle = $_libelle ?: $_champ;
 
 	$_class = interprete_argument_balise(3, $p);
 	// si champ = ">" c'est un lien vers le tri croissant : de gauche a droite ==> 1

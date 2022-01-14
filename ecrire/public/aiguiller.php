@@ -265,9 +265,9 @@ function traiter_formulaires_dynamiques($get = false) {
 		}
 
 		// accessibilite : si des erreurs mais pas de message general l'ajouter
-		if ((isset($post["erreurs_$form"]) and count($post["erreurs_$form"])) and !isset($post["erreurs_$form"]['message_erreur'])) {
+		if ((isset($post["erreurs_$form"]) and is_countable($post["erreurs_$form"]) ? count($post["erreurs_$form"]) : 0) and !isset($post["erreurs_$form"]['message_erreur'])) {
 			$post["erreurs_$form"]['message_erreur'] = singulier_ou_pluriel(
-				count($post["erreurs_$form"]),
+				is_countable($post["erreurs_$form"]) ? count($post["erreurs_$form"]) : 0,
 				'avis_1_erreur_saisie',
 				'avis_nb_erreurs_saisie'
 			);
@@ -277,12 +277,12 @@ function traiter_formulaires_dynamiques($get = false) {
 		if (_request('formulaire_action_verifier_json')) {
 			include_spip('inc/json');
 			include_spip('inc/actions');
-			ajax_retour(json_encode($post["erreurs_$form"]), 'text/plain');
+			ajax_retour(json_encode($post["erreurs_$form"], JSON_THROW_ON_ERROR), 'text/plain');
 
 			return true; // on a fini le hit
 		}
 		$retour = '';
-		if (isset($post["erreurs_$form"]) and (count($post["erreurs_$form"]) == 0)) {
+		if (isset($post["erreurs_$form"]) and ((is_countable($post["erreurs_$form"]) ? count($post["erreurs_$form"]) : 0) == 0)) {
 			$rev = '';
 			if ($traiter = charger_fonction('traiter', "formulaires/$form/", true)) {
 				$rev = call_user_func_array($traiter, $args);
@@ -319,7 +319,7 @@ function traiter_formulaires_dynamiques($get = false) {
 				// le bon mode de redirection (302 et on ne revient pas ici, ou javascript et on continue)
 				if (isset($rev['redirect']) and $rev['redirect']) {
 					include_spip('inc/headers');
-					list($masque, $message) = redirige_formulaire($rev['redirect'], '', 'ajaxform');
+					[$masque, $message] = redirige_formulaire($rev['redirect'], '', 'ajaxform');
 					$post["message_ok_$form"] .= $message;
 					$retour .= $masque;
 				}
