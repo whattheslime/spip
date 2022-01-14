@@ -45,7 +45,7 @@ function plugins_afficher_repertoires_dist($url_page, $liste_plugins, $liste_plu
 	$maxiter = 1000;
 
 	$res = '';
-	while (count($liste_plugins) && $maxiter--) {
+	while ((is_countable($liste_plugins) ? count($liste_plugins) : 0) && $maxiter--) {
 		// le rep suivant
 		$dir = dirname(reset($liste_plugins));
 		if ($dir != $current_dir) {

@@ -21,6 +21,7 @@ if (!defined('_ECRIRE_INC_VERSION')) {
  * @return <type>
  */
 function plugins_extraire_boutons_dist($arbre) {
+	$les_boutons = null;
 	$ret = ['bouton' => [], 'onglet' => []];
 	// recuperer les boutons et onglets si necessaire
 	spip_xml_match_nodes(',^(bouton|onglet)\s,', $arbre, $les_boutons);
@@ -35,8 +36,8 @@ function plugins_extraire_boutons_dist($arbre) {
 				$id = $bouton['id'];
 				$val = reset($val);
 				if (is_array($val)) {
-					$ret[$type][$id]['parent'] = isset($bouton['parent']) ? $bouton['parent'] : '';
-					$ret[$type][$id]['position'] = isset($bouton['position']) ? $bouton['position'] : '';
+					$ret[$type][$id]['parent'] = $bouton['parent'] ?? '';
+					$ret[$type][$id]['position'] = $bouton['position'] ?? '';
 					$ret[$type][$id]['titre'] = isset($val['titre']) ? trim(spip_xml_aplatit($val['titre'])) : '';
 					$ret[$type][$id]['icone'] = isset($val['icone']) ? trim(end($val['icone'])) : '';
 					$ret[$type][$id]['action'] = isset($val['url']) ? trim(end($val['url'])) : '';

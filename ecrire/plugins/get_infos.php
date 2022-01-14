@@ -33,6 +33,8 @@ if (!defined('_ECRIRE_INC_VERSION')) {
  * @return array
  */
 function plugins_get_infos_dist($plug = false, $reload = false, $dir = _DIR_PLUGINS, $clean_old = false) {
+	$contenu = null;
+	$res = null;
 	static $cache = '';
 	static $filecache = '';
 
@@ -67,7 +69,7 @@ function plugins_get_infos_dist($plug = false, $reload = false, $dir = _DIR_PLUG
 		}
 
 		// Nettoyer le cache des vieux plugins qui ne sont plus la
-		if ($clean_old and isset($cache[$dir]) and count($cache[$dir])) {
+		if ($clean_old and isset($cache[$dir]) and is_countable($cache[$dir]) ? count($cache[$dir]) : 0) {
 			foreach (array_keys($cache[$dir]) as $p) {
 				if (!in_array($p, $plug)) {
 					unset($cache[$dir][$p]);
@@ -82,7 +84,7 @@ function plugins_get_infos_dist($plug = false, $reload = false, $dir = _DIR_PLUG
 		return [];
 	}
 	if (is_string($plug)) {
-		return isset($cache[$dir][$plug]) ? $cache[$dir][$plug] : [];
+		return $cache[$dir][$plug] ?? [];
 	} else {
 		return $cache[$dir];
 	}
@@ -99,9 +101,7 @@ function plugins_get_infos_un($plug, $reload, $dir, &$cache) {
 	}
 	$md5 = md5_file($file);
 
-	$pcache = isset($cache[$dir][$plug])
-		? $cache[$dir][$plug]
-		: ['filemtime' => 0, 'md5_file' => ''];
+	$pcache = $cache[$dir][$plug] ?? ['filemtime' => 0, 'md5_file' => ''];
 
 	// si le cache est valide
 	if (

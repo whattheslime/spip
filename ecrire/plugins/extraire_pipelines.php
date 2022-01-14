@@ -21,11 +21,13 @@ if (!defined('_ECRIRE_INC_VERSION')) {
  * @param array $arbre
  */
 function plugins_extraire_pipelines_dist(&$arbre) {
+	$pipes = null;
+	$tag = null;
 	$pipeline = [];
 	if (spip_xml_match_nodes(',^pipeline,', $arbre, $pipes)) {
 		foreach ($pipes as $tag => $p) {
 			if (!is_array($p[0])) {
-				list($tag, $att) = spip_xml_decompose_tag($tag);
+				[$tag, $att] = spip_xml_decompose_tag($tag);
 				$pipeline[] = $att;
 			} else {
 				foreach ($p as $pipe) {

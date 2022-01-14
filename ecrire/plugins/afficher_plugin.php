@@ -273,6 +273,7 @@ function plugin_typo($texte, $module = '') {
 
 // https://code.spip.net/@affiche_bloc_plugin
 function affiche_bloc_plugin($plug_file, $info, $dir_plugins = null) {
+	$log = null;
 	if (!$dir_plugins) {
 		$dir_plugins = _DIR_PLUGINS;
 	}

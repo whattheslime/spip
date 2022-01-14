@@ -56,7 +56,7 @@ function plugins_infos_paquet($desc, $plug = '', $dir_plugins = _DIR_PLUGINS) {
 
 		// On verifie qu'il existe des balises spip qu'il faudrait rajouter dans
 		// la structure d'infos du paquet en fonction de la version spip courante
-		if (count($vxml->versions) > 1) {
+		if ((is_countable($vxml->versions) ? count($vxml->versions) : 0) > 1) {
 			$vspip = $GLOBALS['spip_version_branche'];
 			foreach ($vxml->versions as $_compatibilite => $_version) {
 				if (

@@ -19,6 +19,11 @@ include_spip('inc/plugin');
 
 // https://code.spip.net/@plugin_verifie_conformite
 function plugins_verifie_conformite_dist($plug, &$arbre, $dir_plugins = _DIR_PLUGINS) {
+	$needs = null;
+	$compat_spip = null;
+	$uses = null;
+	$paths = null;
+	$trads = null;
 	static $etats = ['dev', 'experimental', 'test', 'stable'];
 
 	$matches = [];
@@ -29,7 +34,7 @@ function plugins_verifie_conformite_dist($plug, &$arbre, $dir_plugins = _DIR_PLU
 		// version de SPIP
 		$vspip = $GLOBALS['spip_version_branche'];
 		foreach ($matches as $tag => $sous) {
-			list($tagname, $atts) = spip_xml_decompose_tag($tag);
+			[$tagname, $atts] = spip_xml_decompose_tag($tag);
 			if ($tagname == 'plugin' and is_array($sous)) {
 				// On rajoute la condition sur $n :
 				// -- en effet si $n==1 on a pas plus a choisir la balise que l'on ait
@@ -42,7 +47,7 @@ function plugins_verifie_conformite_dist($plug, &$arbre, $dir_plugins = _DIR_PLU
 				) {
 					// on prend la derniere declaration avec ce nom
 					$p = end($sous);
-					$compat_spip = isset($atts['spip']) ? $atts['spip'] : '';
+					$compat_spip = $atts['spip'] ?? '';
 				}
 			}
 		}
@@ -151,7 +156,7 @@ function plugins_verifie_conformite_dist($plug, &$arbre, $dir_plugins = _DIR_PLU
 		$spip_trouve = false;
 		if (spip_xml_match_nodes(',^necessite,', $arbre, $needs)) {
 			foreach (array_keys($needs) as $tag) {
-				list($tag, $att) = spip_xml_decompose_tag($tag);
+				[$tag, $att] = spip_xml_decompose_tag($tag);
 				if (!isset($att['id'])) {
 					if (!$silence) {
 						$arbre['erreur'][] = _T(
@@ -174,7 +179,7 @@ function plugins_verifie_conformite_dist($plug, &$arbre, $dir_plugins = _DIR_PLU
 		$utilise = [];
 		if (spip_xml_match_nodes(',^utilise,', $arbre, $uses)) {
 			foreach (array_keys($uses) as $tag) {
-				list($tag, $att) = spip_xml_decompose_tag($tag);
+				[$tag, $att] = spip_xml_decompose_tag($tag);
 				if (!isset($att['id'])) {
 					if (!$silence) {
 						$arbre['erreur'][] = _T(
@@ -191,7 +196,7 @@ function plugins_verifie_conformite_dist($plug, &$arbre, $dir_plugins = _DIR_PLU
 		$procure = [];
 		if (spip_xml_match_nodes(',^procure,', $arbre, $uses)) {
 			foreach (array_keys($uses) as $tag) {
-				list($tag, $att) = spip_xml_decompose_tag($tag);
+				[$tag, $att] = spip_xml_decompose_tag($tag);
 				$procure[] = $att;
 			}
 		}
@@ -199,7 +204,7 @@ function plugins_verifie_conformite_dist($plug, &$arbre, $dir_plugins = _DIR_PLU
 		$path = [];
 		if (spip_xml_match_nodes(',^chemin,', $arbre, $paths)) {
 			foreach (array_keys($paths) as $tag) {
-				list($tag, $att) = spip_xml_decompose_tag($tag);
+				[$tag, $att] = spip_xml_decompose_tag($tag);
 				$att['path'] = $att['dir']; // ancienne syntaxe
 				$path[] = $att;
 			}
@@ -222,7 +227,7 @@ function plugins_verifie_conformite_dist($plug, &$arbre, $dir_plugins = _DIR_PLU
 		$traduire = [];
 		if (spip_xml_match_nodes(',^traduire,', $arbre, $trads)) {
 			foreach (array_keys($trads) as $tag) {
-				list($tag, $att) = spip_xml_decompose_tag($tag);
+				[$tag, $att] = spip_xml_decompose_tag($tag);
 				$traduire[] = $att;
 			}
 		}

@@ -96,7 +96,7 @@ function plugins_installer_dist($plug, $action, $dir_type = '_DIR_PLUGINS') {
 		// stupide: info deja dans le nom
 		$arg = $infos['prefix'];
 	}
-	$version = isset($infos['schema']) ? $infos['schema'] : '';
+	$version = $infos['schema'] ?? '';
 
 	if (!$f) {
 		// installation sans operation particuliere
@@ -196,7 +196,7 @@ function spip_plugin_install($action, $infos, $version_cible) {
  * @return array Tableau des plugins actifs
  **/
 function liste_plugin_actifs() {
-	$liste = isset($GLOBALS['meta']['plugin']) ? $GLOBALS['meta']['plugin'] : '';
+	$liste = $GLOBALS['meta']['plugin'] ?? '';
 	if (!$liste) {
 		return [];
 	}
@@ -204,7 +204,7 @@ function liste_plugin_actifs() {
 		// compatibilite pre 1.9.2, mettre a jour la meta
 		spip_log("MAJ meta plugin vieille version : $liste", 'plugin');
 		$new = true;
-		list(, $liste) = liste_plugin_valides(explode(',', $liste));
+		[, $liste] = liste_plugin_valides(explode(',', $liste));
 	} else {
 		$new = false;
 		// compat au moment d'une migration depuis version anterieure
