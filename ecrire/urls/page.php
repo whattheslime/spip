@@ -37,8 +37,8 @@ function _generer_url_page($type, $id, $args = '', $ancre = '') {
 		}
 	}
 
-	$url = \_DEBUT_URLS_PAGE . $type . \_SEPARATEUR_URLS_PAGE
-		. $id . \_TERMINAISON_URLS_PAGE;
+	$url = \_debut_urls_page . $type . \_debut_urls_page
+		. $id . \_debut_urls_page;
 
 	if ($args) {
 		$args = strpos($url, '?') ? "&$args" : "?$args";
