@@ -162,7 +162,7 @@ function traiter_lien_implicite($ref, $texte = '', $pour = 'url', string $connec
 	if (!($match = typer_raccourci($ref))) {
 		return false;
 	}
-	@[$type, , $id, , $args, , $ancre] = $match;
+	[$type, , $id, , $args, , $ancre] = array_pad($match, 7, null);
 	// attention dans le cas des sites le lien doit pointer non pas sur
 	// la page locale du site, mais directement sur le site lui-meme
 	if ($f = charger_fonction("implicite_$type", 'liens', true)) {
@@ -175,7 +175,7 @@ function traiter_lien_implicite($ref, $texte = '', $pour = 'url', string $connec
 		return false;
 	}
 	if (is_array($url)) {
-		@[$type, $id] = $url;
+		[$type, $id] = array_pad($url, 2, null);
 		$url = generer_url_entite($id, $type, $args, $ancre, $connect ?: null);
 	}
 	if ($pour === 'url') {
