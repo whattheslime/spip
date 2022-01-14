@@ -31,6 +31,7 @@ if (!defined('_ECRIRE_INC_VERSION')) {
  * Réparer la base de données
  */
 function exec_base_repair_dist() {
+	$action = null;
 	$ok = false;
 	if (!spip_connect()) {
 		$message = _T('titre_probleme_technique');

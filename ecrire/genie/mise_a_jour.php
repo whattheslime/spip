@@ -33,7 +33,7 @@ function genie_mise_a_jour_dist($t) {
 
 	mise_a_jour_ecran_securite();
 
-	spip_log('Verification version SPIP : ' . ($maj ? $maj : 'version a jour'), 'verifie_maj');
+	spip_log('Verification version SPIP : ' . ($maj ?: 'version a jour'), 'verifie_maj');
 
 	return 1;
 }
@@ -111,7 +111,7 @@ function mise_a_jour_ecran_securite() {
 function info_maj($dir, $file, $version) {
 	include_spip('inc/plugin');
 
-	list($maj, $min, $rev) = preg_split('/\D+/', $version);
+	[$maj, $min, $rev] = preg_split('/\D+/', $version);
 
 	$nom = _DIR_CACHE_XML . _VERSIONS_LISTE;
 	$page = !file_exists($nom) ? '' : file_get_contents($nom);
@@ -129,7 +129,7 @@ function info_maj($dir, $file, $version) {
 
 	foreach ($m as $v) {
 		$v = array_pad($v, 5, 0);
-		list(, $maj2, $min2, , $rev2) = $v;
+		[, $maj2, $min2, , $rev2] = $v;
 		$branche_maj = $maj2 . '.' . $min2;
 		$version_maj = $maj2 . '.' . $min2 . '.' . $rev2;
 		// d'abord les mises à jour de la même branche
@@ -190,7 +190,7 @@ function info_maj_cache($nom, $dir, $page = '') {
 	$res = recuperer_url_cache($url, ['if_modified_since' => $a]);
 	// Si rien de neuf (ou inaccessible), garder l'ancienne
 	if ($res) {
-		$page = $res['page'] ? $res['page'] : $page;
+		$page = $res['page'] ?: $page;
 	}
 	// Placer l'indicateur de fraicheur
 	$page = preg_replace('/^<archives.*?>/', $re, $page);

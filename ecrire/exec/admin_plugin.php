@@ -81,6 +81,9 @@ function exec_admin_plugin_dist($retour = '') {
  *     Format d'affichage (liste ou arborescence)
  **/
 function admin_plug_args($quoi, $erreur, $format) {
+	$lpf = null;
+	$lcpas = null;
+	$lcpaffichesup = null;
 	if (!$quoi) {
 		$quoi = 'actifs';
 	}
@@ -165,9 +168,9 @@ function admin_plug_args($quoi, $erreur, $format) {
 	}
 
 	if ($quoi == 'actifs' or $lpf) {
-		$nb = count($lcpa);
+		$nb = is_countable($lcpa) ? count($lcpa) : 0;
 		if (defined('_DIR_PLUGINS_SUPPL')) {
-			$nb += count($lcpas);
+			$nb += is_countable($lcpas) ? count($lcpas) : 0;
 		}
 		echo '<h3>' . sinon(
 			singulier_ou_pluriel($nb, 'plugins_actif_un', 'plugins_actifs', 'count'),

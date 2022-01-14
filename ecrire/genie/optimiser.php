@@ -43,7 +43,7 @@ function genie_optimiser_dist($t) {
 	// sachant qu'on a un delai de 48h, on renvoie aujourd'hui a 4h du mat
 	// avec une periode de flou entre 2h et 6h pour ne pas saturer un hebergeur
 	// qui aurait beaucoup de sites SPIP
-	return -(mktime(2, 0, 0) + rand(0, 3600 * 4));
+	return -(mktime(2, 0, 0) + random_int(0, 3600 * 4));
 }
 
 /**
@@ -96,7 +96,7 @@ function optimiser_base_une_table() {
 		$tables[] = array_shift($row);
 	}
 
-	spip_log('optimiser_base_une_table ' . json_encode($tables), 'genie' . _LOG_DEBUG);
+	spip_log('optimiser_base_une_table ' . json_encode($tables, JSON_THROW_ON_ERROR), 'genie' . _LOG_DEBUG);
 	if ($tables) {
 		$table_op = intval(lire_config('optimiser_table', 0) + 1) % sizeof($tables);
 		ecrire_config('optimiser_table', $table_op);
