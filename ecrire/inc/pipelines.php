@@ -55,7 +55,6 @@ function f_jQuery($texte) {
 			'javascript/jquery.placeholder-label.js',
 			'javascript/ajaxCallback.js',
 			'javascript/js.cookie.js',
-			'javascript/jquery.cookie.js'
 		]
 	);
 	foreach (array_unique($jquery_plugins) as $script) {
