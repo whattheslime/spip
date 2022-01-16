@@ -2040,7 +2040,7 @@ function extraire_attribut($balise, $attribut, $complet = false) {
  * @uses attribut_html()
  * @uses extraire_attribut()
  *
- * @param string $balise
+ * @param ?string $balise
  *     Code html de la balise (ou contenant une balise)
  * @param string $attribut
  *     Nom de l'attribut html à modifier
@@ -2053,7 +2053,12 @@ function extraire_attribut($balise, $attribut, $complet = false) {
  * @return string
  *     Code html modifié
  **/
-function inserer_attribut(string $balise, string $attribut, string $val, bool $proteger = true, bool $vider = false): string {
+function inserer_attribut(?string $balise, string $attribut, string $val, bool $proteger = true, bool $vider = false): string {
+
+	if ($balise === null or $balise === '') {
+		return '';
+	}
+
 	// preparer l'attribut
 	// supprimer les &nbsp; etc mais pas les balises html
 	// qui ont un sens dans un attribut value d'un input
