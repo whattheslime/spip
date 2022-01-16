@@ -2102,11 +2102,11 @@ function inserer_attribut(?string $balise, string $attribut, string $val, bool $
  * @uses inserer_attribut()
  * @see  extraire_attribut()
  *
- * @param string $balise Code HTML de l'élément
+ * @param ?string $balise Code HTML de l'élément
  * @param string $attribut Nom de l'attribut à enlever
  * @return string Code HTML sans l'attribut
  **/
-function vider_attribut(string $balise, string $attribut): string {
+function vider_attribut(?string $balise, string $attribut): string {
 	return inserer_attribut($balise, $attribut, '', false, true);
 }
 
