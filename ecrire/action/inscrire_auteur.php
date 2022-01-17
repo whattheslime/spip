@@ -56,7 +56,7 @@ function action_inscrire_auteur_dist($statut, $mail_complet, $nom, $options = []
 	}
 
 	include_spip('base/abstract_sql');
-	$res = sql_select('statut, id_auteur, login, email', 'spip_auteurs', 'email=' . sql_quote($desc['email']));
+	$res = sql_select('statut, id_auteur, login, email, nom', 'spip_auteurs', 'email=' . sql_quote($desc['email']));
 	// erreur ?
 	if (!$res) {
 		return _T('titre_probleme_technique');
