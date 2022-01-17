@@ -99,7 +99,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	// E
 	'ecran_connexion_couleur_principale' => 'Main colour',
 	'ecran_connexion_image_fond' => 'Background image',
-	'ecran_connexion_image_fond_explication' => 'Use an imege (JPEG format, 1920x1080 pixels)',
+	'ecran_connexion_image_fond_explication' => 'Use an image (JPEG format, 1920x1080 pixels)',
 	'ecran_connexion_image_revenir_couleur_defaut' => 'Back to the default colour',
 	'ecran_connexion_titre' => 'Connection screen',
 	'ecran_securite' => '+ safety screen @version@',
