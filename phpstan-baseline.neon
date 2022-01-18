@@ -1,16 +1,6 @@
 parameters:
 	ignoreErrors:
 		-
-			message: "#^Function cache_get not found\\.$#"
-			count: 1
-			path: ecrire/action/redirect.php
-
-		-
-			message: "#^Function cache_set not found\\.$#"
-			count: 1
-			path: ecrire/action/redirect.php
-
-		-
 			message: "#^Function spip_connect_db\\(\\) should return array but return statement is missing\\.$#"
 			count: 1
 			path: ecrire/base/connect_sql.php
@@ -44,16 +34,6 @@ parameters:
 			message: "#^Function message_crash_tables\\(\\) should return string but return statement is missing\\.$#"
 			count: 1
 			path: ecrire/genie/maintenance.php
-
-		-
-			message: "#^Function boutons_plugins not found\\.$#"
-			count: 1
-			path: ecrire/inc/bandeau.php
-
-		-
-			message: "#^Function onglets_plugins not found\\.$#"
-			count: 1
-			path: ecrire/inc/boutons.php
 
 		-
 			message: "#^Function fichier_copie_locale\\(\\) should return string but return statement is missing\\.$#"
@@ -101,16 +81,6 @@ parameters:
 			path: ecrire/inc/editer.php
 
 		-
-			message: "#^Function mail_embarquer_pieces_jointes not found\\.$#"
-			count: 1
-			path: ecrire/inc/envoyer_mail.php
-
-		-
-			message: "#^Function compacte not found\\.$#"
-			count: 1
-			path: ecrire/inc/filtres.php
-
-		-
 			message: "#^Instantiated class csstidy not found\\.$#"
 			count: 1
 			path: ecrire/inc/filtres.php
@@ -131,34 +101,9 @@ parameters:
 			path: ecrire/inc/filtres_ecrire.php
 
 		-
-			message: "#^Function md5_boutons_plugins not found\\.$#"
-			count: 1
-			path: ecrire/inc/filtres_ecrire.php
-
-		-
-			message: "#^Class GdImage not found\\.$#"
-			count: 1
-			path: ecrire/inc/filtres_images_lib_mini.php
-
-		-
 			message: "#^Function statut_effacer_images_temporaires\\(\\) should return bool but return statement is missing\\.$#"
 			count: 1
 			path: ecrire/inc/filtres_images_lib_mini.php
-
-		-
-			message: "#^Function couleur_luminance not found\\.$#"
-			count: 1
-			path: ecrire/inc/filtres_images_mini.php
-
-		-
-			message: "#^Function couleur_saturation not found\\.$#"
-			count: 1
-			path: ecrire/inc/filtres_images_mini.php
-
-		-
-			message: "#^Function image_recadre not found\\.$#"
-			count: 1
-			path: ecrire/inc/filtres_images_mini.php
 
 		-
 			message: "#^Function sous_repertoire\\(\\) should return string but return statement is missing\\.$#"
@@ -166,29 +111,9 @@ parameters:
 			path: ecrire/inc/flock.php
 
 		-
-			message: "#^Function compacte not found\\.$#"
-			count: 1
-			path: ecrire/inc/minipres.php
-
-		-
 			message: "#^Function minipres\\(\\) should return string but return statement is missing\\.$#"
 			count: 1
 			path: ecrire/inc/minipres.php
-
-		-
-			message: "#^Function random not found\\.$#"
-			count: 1
-			path: ecrire/inc/nfslock.php
-
-		-
-			message: "#^Function cache_set not found\\.$#"
-			count: 1
-			path: ecrire/inc/queue.php
-
-		-
-			message: "#^Function cache_lock not found\\.$#"
-			count: 1
-			path: ecrire/inc/rechercher.php
 
 		-
 			message: "#^Function cache_unlock not found\\.$#"
@@ -206,34 +131,9 @@ parameters:
 			path: ecrire/inc/traduire.php
 
 		-
-			message: "#^Function recuperer_parametres_url not found\\.$#"
-			count: 1
-			path: ecrire/inc/urls.php
-
-		-
-			message: "#^Function cache_get not found\\.$#"
-			count: 1
-			path: ecrire/inc/utils.php
-
-		-
 			message: "#^Result of function debug_print_backtrace \\(void\\) is used\\.$#"
 			count: 1
 			path: ecrire/inc/utils.php
-
-		-
-			message: "#^Undefined variable\\: \\$auth_spip$#"
-			count: 1
-			path: ecrire/install/etape_3b.php
-
-		-
-			message: "#^Undefined variable\\: \\$row$#"
-			count: 1
-			path: ecrire/install/etape_3b.php
-
-		-
-			message: "#^Undefined variable\\: \\$session$#"
-			count: 1
-			path: ecrire/install/etape_3b.php
 
 		-
 			message: "#^Class IterateurDATA referenced with incorrect case\\: IterateurData\\.$#"
@@ -261,26 +161,6 @@ parameters:
 			path: ecrire/iterateur/data.php
 
 		-
-			message: "#^Function cache_get not found\\.$#"
-			count: 1
-			path: ecrire/iterateur/data.php
-
-		-
-			message: "#^Function cache_set not found\\.$#"
-			count: 1
-			path: ecrire/iterateur/data.php
-
-		-
-			message: "#^Function inc_json_to_array_dist\\(\\) should return array\\|bool but return statement is missing\\.$#"
-			count: 1
-			path: ecrire/iterateur/data.php
-
-		-
-			message: "#^Function yaml_decode not found\\.$#"
-			count: 1
-			path: ecrire/iterateur/data.php
-
-		-
 			message: "#^Access to an undefined property IterateurSQL\\:\\:\\$command\\.$#"
 			count: 7
 			path: ecrire/iterateur/sql.php
@@ -292,7 +172,7 @@ parameters:
 
 		-
 			message: "#^Access to an undefined property IterateurSQL\\:\\:\\$pos\\.$#"
-			count: 6
+			count: 7
 			path: ecrire/iterateur/sql.php
 
 		-
@@ -311,42 +191,12 @@ parameters:
 			path: ecrire/public/assembler.php
 
 		-
-			message: "#^Undefined variable\\: \\$chemin_cache$#"
-			count: 4
-			path: ecrire/public/assembler.php
-
-		-
-			message: "#^Undefined variable\\: \\$lastinclude$#"
-			count: 3
-			path: ecrire/public/assembler.php
-
-		-
-			message: "#^Undefined variable\\: \\$lastmodified$#"
-			count: 2
-			path: ecrire/public/assembler.php
-
-		-
-			message: "#^Undefined variable\\: \\$use_cache$#"
-			count: 1
-			path: ecrire/public/assembler.php
-
-		-
 			message: "#^Function balise_COMPTEUR_BOUCLE_dist\\(\\) should return Champ but return statement is missing\\.$#"
 			count: 1
 			path: ecrire/public/balises.php
 
 		-
-			message: "#^Function balise_ENV not found\\.$#"
-			count: 1
-			path: ecrire/public/balises.php
-
-		-
 			message: "#^Function balise_FILTRE_dist\\(\\) should return Champ but return statement is missing\\.$#"
-			count: 1
-			path: ecrire/public/balises.php
-
-		-
-			message: "#^Function balise_INCLURE not found\\.$#"
 			count: 1
 			path: ecrire/public/balises.php
 
