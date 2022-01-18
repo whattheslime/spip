@@ -1,6 +1,6 @@
 {
     "require": {
-        "php": "7.4 || ^8.0",
+        "php": "^7.4 || ^8.0",
         "ext-xml": "*",
         "ext-zip": "*"
     },
@@ -36,6 +36,9 @@
     "config": {
         "allow-plugins": {
             "dealerdirect/phpcodesniffer-composer-installer": true
+        },
+        "platform": {
+            "php": "7.4.27"
         }
     }
 }
