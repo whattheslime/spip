@@ -6,8 +6,8 @@
     },
     "require-dev": {
         "dealerdirect/phpcodesniffer-composer-installer": "^0.7.1",
-        "spip/coding-standards": "^1.2",
-        "phpstan/phpstan": "^1.4"
+        "phpstan/phpstan": "^1.4",
+        "spip/coding-standards": "^1.2"
     },
     "suggest": {
         "ext-curl": "*",
