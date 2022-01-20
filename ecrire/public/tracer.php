@@ -14,7 +14,6 @@ if (!defined('_ECRIRE_INC_VERSION')) {
 	return;
 }
 
-// https://code.spip.net/@trace_query_start
 function trace_query_start() {
 	static $trace = '?';
 	if ($trace === '?' or defined('_DEBUG_TRACE_QUERIES')) {
@@ -41,7 +40,6 @@ function trace_query_start() {
 	return $trace ? microtime() : 0;
 }
 
-// https://code.spip.net/@trace_query_end
 function trace_query_end($query, $start, $result, $erreur, $serveur = '') {
 	static $trace = '?';
 	if ($trace === '?') {
@@ -77,7 +75,6 @@ function trace_query_end($query, $start, $result, $erreur, $serveur = '') {
 	return $result;
 }
 
-// https://code.spip.net/@trace_query_chrono
 function trace_query_chrono($dt, $query, $result, $serveur = '') {
 	include_spip('inc/filtres_mini');
 	static $tt = 0, $nb = 0;

@@ -16,7 +16,6 @@ if (!defined('_ECRIRE_INC_VERSION')) {
 
 include_spip('inc/headers');
 
-// https://code.spip.net/@install_etape_4_dist
 function install_etape_4_dist() {
 
 	// creer le repertoire cache, qui sert partout !

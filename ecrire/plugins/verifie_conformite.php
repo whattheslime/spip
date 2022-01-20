@@ -17,7 +17,6 @@ if (!defined('_ECRIRE_INC_VERSION')) {
 include_spip('inc/xml');
 include_spip('inc/plugin');
 
-// https://code.spip.net/@plugin_verifie_conformite
 function plugins_verifie_conformite_dist($plug, &$arbre, $dir_plugins = _DIR_PLUGINS) {
 	$needs = null;
 	$compat_spip = null;

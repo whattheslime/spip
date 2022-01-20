@@ -175,7 +175,6 @@ function spip_xml_parse(&$texte, $strict = true, $clean = true, $profondeur = -1
 	}//$texte;
 }
 
-// https://code.spip.net/@spip_xml_aplatit
 function spip_xml_aplatit($arbre, $separateur = ' ') {
 	$s = '';
 	if (is_array($arbre)) {
@@ -203,7 +202,6 @@ function spip_xml_aplatit($arbre, $separateur = ' ') {
 	return strlen($separateur) ? substr($s, 0, -strlen($separateur)) : $s;
 }
 
-// https://code.spip.net/@spip_xml_tagname
 function spip_xml_tagname($tag) {
 	if (preg_match(',^([a-z][\w:]*),i', $tag, $reg)) {
 		return $reg[1];
@@ -212,7 +210,6 @@ function spip_xml_tagname($tag) {
 	return '';
 }
 
-// https://code.spip.net/@spip_xml_decompose_tag
 function spip_xml_decompose_tag($tag) {
 	$tagname = spip_xml_tagname($tag);
 	$liste = [];

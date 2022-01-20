@@ -30,7 +30,6 @@ if (!defined('_ECRIRE_INC_VERSION')) {
  * Cette fonction est appelée par le pipeline header_prive
  *
  * @see f_jQuery()
- * @link https://code.spip.net/@f_jQuery
  *
  * @param string $texte Contenu qui sera inséré dans le head HTML
  * @return string          Contenu complété des scripts javascripts, dont jQuery
@@ -103,7 +102,6 @@ function affichage_final_prive_title_auto($texte) {
 
 
 // Fonction standard pour le pipeline 'boite_infos'
-// https://code.spip.net/@f_boite_infos
 function f_boite_infos($flux) {
 	$args = $flux['args'];
 	$type = $args['type'];

@@ -1027,7 +1027,6 @@ function spip_timer($t = 'rien', $raw = false) {
 
 // Renvoie False si un fichier n'est pas plus vieux que $duree secondes,
 // sinon renvoie True et le date sauf si ca n'est pas souhaite
-// https://code.spip.net/@spip_touch
 function spip_touch($fichier, $duree = 0, $touch = true) {
 	if ($duree) {
 		clearstatcache();
@@ -1870,7 +1869,6 @@ function generer_url_ecrire_entite_edit($id, $entite, $args = '', $ancre = '') {
 	return $url;
 }
 
-// https://code.spip.net/@urls_connect_dist
 function urls_connect_dist($i, &$entite, $args = '', $ancre = '', $public = null) {
 	include_spip('base/connect_sql');
 	$id_type = id_table_objet($entite, $public);
@@ -1903,7 +1901,6 @@ function urlencode_1738($url) {
 	return quote_amp($url);
 }
 
-// https://code.spip.net/@generer_url_entite_absolue
 function generer_url_entite_absolue($id = '', $entite = '', $args = '', $ancre = '', $connect = null) {
 	if (!$connect) {
 		$connect = true;
@@ -2210,7 +2207,6 @@ function generer_url_public($script = '', $args = '', $no_entities = false, $rel
 	return ($rel ? _DIR_RACINE . $action : rtrim(url_de_base(), '/') . preg_replace(',^/[.]/,', '/', "/$action"));
 }
 
-// https://code.spip.net/@generer_url_prive
 function generer_url_prive($script, $args = '', $no_entities = false) {
 
 	return generer_url_public($script, $args, $no_entities, false, _DIR_RESTREINT_ABS . 'prive.php');
@@ -3026,7 +3022,6 @@ function init_var_mode() {
 // Annuler les magic quotes \' sur GET POST COOKIE et GLOBALS ;
 // supprimer aussi les eventuels caracteres nuls %00, qui peuvent tromper
 // la commande is_readable('chemin/vers/fichier/interdit%00truc_normal')
-// https://code.spip.net/@spip_desinfecte
 function spip_desinfecte(&$t, $deep = true) {
 	foreach ($t as $key => $val) {
 		if (is_string($t[$key])) {
@@ -3042,7 +3037,6 @@ function spip_desinfecte(&$t, $deep = true) {
 
 //  retourne le statut du visiteur s'il s'annonce
 
-// https://code.spip.net/@verifier_visiteur
 function verifier_visiteur() {
 	// Rq: pour que cette fonction marche depuis mes_options
 	// il faut forcer l'init si ce n'est fait

@@ -16,17 +16,14 @@ if (!defined('_ECRIRE_INC_VERSION')) {
 
 class IndenteurXML {
 
-	// https://code.spip.net/@debutElement
 	public function debutElement($phraseur, $name, $attrs) {
 		xml_debutElement($this, $name, $attrs);
 	}
 
-	// https://code.spip.net/@finElement
 	public function finElement($phraseur, $name) {
 		xml_finElement($this, $name);
 	}
 
-	// https://code.spip.net/@textElement
 	public function textElement($phraseur, $data) {
 		xml_textElement($this, $data);
 	}
@@ -35,12 +32,10 @@ class IndenteurXML {
 		xml_PiElement($this, $target, $data);
 	}
 
-	// https://code.spip.net/@defautElement
 	public function defaultElement($phraseur, $data) {
 		xml_defaultElement($this, $data);
 	}
 
-	// https://code.spip.net/@phraserTout
 	public function phraserTout($phraseur, $data) {
 		xml_parsestring($this, $data);
 	}
@@ -57,7 +52,6 @@ class IndenteurXML {
 	public $sax = null;
 }
 
-// https://code.spip.net/@xml_indenter_dist
 function xml_indenter_dist($page, $apply = false) {
 	$sax = charger_fonction('sax', 'xml');
 	$f = new IndenteurXML();

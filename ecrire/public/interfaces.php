@@ -942,8 +942,6 @@ $exception_des_connect[] = ''; // ne pas transmettre le connect='' par les inclu
  * et les envoie dans un pipeline
  * pour les plugins
  *
- * @link https://code.spip.net/@declarer_interfaces
- *
  * @return void
  */
 function declarer_interfaces() {

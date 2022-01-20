@@ -16,7 +16,6 @@ if (!defined('_ECRIRE_INC_VERSION')) {
 include_spip('inc/headers');
 include_spip('auth/ldap');
 
-// https://code.spip.net/@install_etape_ldap5_dist
 function install_etape_ldap5_dist() {
 	etape_ldap5_save();
 	etape_ldap5_suite();

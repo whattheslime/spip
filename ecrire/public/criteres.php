@@ -666,7 +666,6 @@ function critere_collecte_dist($idb, &$boucles, $crit) {
 	}
 }
 
-// https://code.spip.net/@calculer_critere_arg_dynamique
 function calculer_critere_arg_dynamique($idb, &$boucles, $crit, $suffix = '') {
 	$boucle = $boucles[$idb];
 	$alt = "('" . $boucle->id_table . '.\' . $x' . $suffix . ')';
@@ -1138,7 +1137,6 @@ function critere_par_ordre_liste_dist($idb, &$boucles, $crit) {
 }
 
 
-// https://code.spip.net/@critere_agenda_dist
 function critere_agenda_dist($idb, &$boucles, $crit) {
 	$params = $crit->param;
 
@@ -1492,8 +1490,6 @@ function calculer_criteres($idb, &$boucles) {
  * Madeleine de Proust, revision MIT-1958 sqq, revision CERN-1989
  * hum, c'est kwoi cette fonxion ? on va dire qu'elle desemberlificote les guillemets...
  *
- * https://code.spip.net/@kwote
- *
  * @param string $lisp Code compilé
  * @param string $serveur Connecteur de bdd utilisé
  * @param string $type Type d'échappement (char, int...)
@@ -1563,7 +1559,6 @@ function critere_IN_dist($idb, &$boucles, $crit) {
 	}
 }
 
-// https://code.spip.net/@critere_IN_cas
 function critere_IN_cas($idb, &$boucles, $crit2, $arg, $op, $val, $col) {
 	static $num = [];
 	$descr = $boucles[$idb]->descr;
@@ -2558,7 +2553,6 @@ function calculer_critere_infixe_ops($idb, &$boucles, $crit) {
 
 // compatibilite ancienne version
 
-// https://code.spip.net/@calculer_vieux_in
 function calculer_vieux_in($params) {
 	$deb = $params[0][0];
 	$k = (is_countable($params) ? count($params) : 0) - 1;

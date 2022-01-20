@@ -23,7 +23,6 @@ if (!defined('_ECRIRE_INC_VERSION')) {
  **/
 class ValidateurXML {
 
-	// https://code.spip.net/@validerElement
 	public function validerElement($phraseur, $name, $attrs) {
 		if (!($p = isset($this->dtc->elements[$name]))) {
 			if ($p = strpos($name, ':')) {
@@ -89,7 +88,6 @@ class ValidateurXML {
 		}
 	}
 
-	// https://code.spip.net/@validerAttribut
 	public function validerAttribut($phraseur, $name, $val, $bal) {
 		// Si la balise est inconnue, eviter d'insister
 		if (!isset($this->dtc->attributs[$bal])) {
@@ -133,7 +131,6 @@ class ValidateurXML {
 		$this->valider_motif($phraseur, $name, $val, $bal, _REGEXP_NMTOKENS);
 	}
 
-	// https://code.spip.net/@validerAttribut_ID
 	public function validerAttribut_ID($phraseur, $name, $val, $bal) {
 		if (isset($this->ids[$val])) {
 			[$l, $c] = $this->ids[$val];
@@ -150,17 +147,14 @@ class ValidateurXML {
 		}
 	}
 
-	// https://code.spip.net/@validerAttribut_IDREF
 	public function validerAttribut_IDREF($phraseur, $name, $val, $bal) {
 		$this->idrefs[] = [$val, xml_get_current_line_number($phraseur), xml_get_current_column_number($phraseur)];
 	}
 
-	// https://code.spip.net/@validerAttribut_IDREFS
 	public function validerAttribut_IDREFS($phraseur, $name, $val, $bal) {
 		$this->idrefss[] = [$val, xml_get_current_line_number($phraseur), xml_get_current_column_number($phraseur)];
 	}
 
-	// https://code.spip.net/@valider_motif
 	public function valider_motif($phraseur, $name, $val, $bal, $motif) {
 		if (!preg_match($motif, $val)) {
 			coordonnees_erreur($this, "<b>$val</b> "
@@ -174,14 +168,12 @@ class ValidateurXML {
 		}
 	}
 
-	// https://code.spip.net/@valider_idref
 	public function valider_idref($nom, $ligne, $col) {
 		if (!isset($this->ids[$nom])) {
 			$this->err[] = [" <p><b>$nom</b> " . _T('zxml_inconnu_id'), $ligne, $col];
 		}
 	}
 
-	// https://code.spip.net/@valider_passe2
 	public function valider_passe2() {
 		if (!$this->err) {
 			foreach ($this->idrefs as $idref) {
@@ -197,7 +189,6 @@ class ValidateurXML {
 		}
 	}
 
-	// https://code.spip.net/@debutElement
 	public function debutElement($phraseur, $name, $attrs) {
 		if ($this->dtc->elements) {
 			$this->validerElement($phraseur, $name, $attrs);
@@ -213,7 +204,6 @@ class ValidateurXML {
 		}
 	}
 
-	// https://code.spip.net/@finElement
 	public function finElement($phraseur, $name) {
 		$depth = $this->depth;
 		$contenu = $this->contenu;
@@ -256,7 +246,6 @@ class ValidateurXML {
 		}
 	}
 
-	// https://code.spip.net/@textElement
 	public function textElement($phraseur, $data) {
 		if (trim($data)) {
 			$d = $this->depth;
@@ -285,7 +274,6 @@ class ValidateurXML {
 	// On ne les verra donc pas passer a cette etape, contrairement a ce que
 	// le source de la page laisse legitimement supposer.
 
-	// https://code.spip.net/@defautElement
 	public function defaultElement($phraseur, $data) {
 		if (
 			!preg_match('/^<!--/', $data)
@@ -305,7 +293,6 @@ class ValidateurXML {
 		}
 	}
 
-	// https://code.spip.net/@phraserTout
 	public function phraserTout($phraseur, $data) {
 		xml_parsestring($this, $data);
 

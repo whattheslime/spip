@@ -17,7 +17,6 @@ if (!defined('_ECRIRE_INC_VERSION')) {
 include_spip('inc/headers');
 include_spip('base/abstract_sql');
 
-// https://code.spip.net/@install_bases
 function install_bases($adresse_db, $login_db, $pass_db, $server_db, $choix_db, $sel_db, $chmod_db) {
 
 	// Prefix des tables :
@@ -230,7 +229,6 @@ function preparer_prefixe_tables($prefixe) {
 	return trim(preg_replace(',^[0-9]+,', '', preg_replace(',[^a-z0-9],', '', strtolower($prefixe))));
 }
 
-// https://code.spip.net/@install_propose_ldap
 function install_propose_ldap() {
 	return generer_form_ecrire('install', (
 	fieldset(
@@ -247,7 +245,6 @@ function install_propose_ldap() {
 }
 
 
-// https://code.spip.net/@install_premier_auteur
 function install_premier_auteur($email, $login, $nom, $pass, $hidden, $auteur_obligatoire) {
 	return info_progression_etape(3, 'etape_', 'install/') .
 	info_etape(
@@ -308,7 +305,6 @@ function install_premier_auteur($email, $login, $nom, $pass, $hidden, $auteur_ob
 		. bouton_suivant()));
 }
 
-// https://code.spip.net/@install_etape_3_dist
 function install_etape_3_dist() {
 	$ldap_present = _request('ldap_present');
 

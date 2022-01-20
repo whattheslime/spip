@@ -56,7 +56,6 @@ function liste_des_champs() {
 
 // Recherche des auteurs et mots-cles associes
 // en ne regardant que le titre ou le nom
-// https://code.spip.net/@liste_des_jointures
 function liste_des_jointures() {
 	static $liste = null;
 	if (is_null($liste)) {
@@ -340,7 +339,6 @@ function recherche_en_base($recherche = '', $tables = null, $options = [], $serv
 
 
 // Effectue une recherche sur toutes les tables de la base de donnees
-// https://code.spip.net/@remplace_en_base
 function remplace_en_base($recherche = '', $remplace = null, $tables = null, $options = []) {
 	include_spip('inc/modifier');
 

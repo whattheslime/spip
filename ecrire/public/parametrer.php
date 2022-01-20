@@ -29,7 +29,6 @@ include_fichiers_fonctions();
 
 # En cas d'erreur process_ins est absent et texte est un tableau de 2 chaines
 
-// https://code.spip.net/@public_parametrer_dist
 function public_parametrer_dist($fond, $contexte = '', $cache = '', string $connect = '') {
 	static $composer, $styliser, $notes = null;
 	$page = tester_redirection($fond, $contexte, $connect);

@@ -19,7 +19,6 @@ if (!defined('_ECRIRE_INC_VERSION')) {
 // Gestion du raccourci <math>...</math> en client-serveur
 //
 
-// https://code.spip.net/@image_math
 function produire_image_math($tex) {
 
 	switch ($GLOBALS['traiter_math']) {

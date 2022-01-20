@@ -39,7 +39,6 @@ function xml_entites_html($texte) {
 	return $texte;
 }
 
-// https://code.spip.net/@xml_debutElement
 function xml_debutElement($phraseur, $name, $attrs) {
 	$depth = $phraseur->depth;
 
@@ -69,7 +68,6 @@ function xml_debutElement($phraseur, $name, $attrs) {
 	$phraseur->reperes[$phraseur->depth] = xml_get_current_line_number($phraseur->sax);
 }
 
-// https://code.spip.net/@xml_finElement
 function xml_finElement($phraseur, $name, $fusion_bal = false) {
 	$ouv = $phraseur->ouvrant[$phraseur->depth];
 
@@ -95,7 +93,6 @@ function xml_finElement($phraseur, $name, $fusion_bal = false) {
 	}
 }
 
-// https://code.spip.net/@xml_textElement
 function xml_textElement($phraseur, $data) {
 	$depth = $phraseur->depth;
 	$phraseur->contenu[$depth] .= preg_match('/^script/', $phraseur->ouvrant[$depth])
@@ -118,7 +115,6 @@ function xml_piElement($phraseur, $target, $data) {
 }
 
 
-// https://code.spip.net/@xml_defautElement
 function xml_defaultElement($phraseur, $data) {
 	$depth = $phraseur->depth;
 
@@ -128,7 +124,6 @@ function xml_defaultElement($phraseur, $data) {
 	$phraseur->contenu[$depth] .= $data;
 }
 
-// https://code.spip.net/@xml_parsestring
 function xml_parsestring($phraseur, $data) {
 	$phraseur->contenu[$phraseur->depth] = '';
 
@@ -151,7 +146,6 @@ function xml_parsestring($phraseur, $data) {
 	}
 }
 
-// https://code.spip.net/@coordonnees_erreur
 function coordonnees_erreur($phraseur, $msg) {
 	$entete_length = substr_count($phraseur->entete, "\n");
 	$phraseur->err[] = [
@@ -161,7 +155,6 @@ function coordonnees_erreur($phraseur, $msg) {
 	];
 }
 
-// https://code.spip.net/@xml_sax_dist
 function xml_sax_dist($page, $apply = false, $phraseur = null, $doctype = '', $charset = null) {
 	if (is_null($charset)) {
 		$charset = $GLOBALS['meta']['charset'];
@@ -256,7 +249,6 @@ function xml_sax_dist($page, $apply = false, $phraseur = null, $doctype = '', $c
 // Si la DTD est dispo, on va chercher les entites dedans
 // sinon on se rabat sur ce qu'en connait SPIP en standard.
 
-// https://code.spip.net/@sax_bug
 function sax_bug($data, $dtc, $charset = null) {
 	if (is_null($charset)) {
 		$charset = $GLOBALS['meta']['charset'];
@@ -284,7 +276,6 @@ function sax_bug($data, $dtc, $charset = null) {
 // Si pas de Doctype et premiere balise = RSS prendre la doctype RSS 0.91:
 // les autres formats RSS n'ont pas de DTD,
 // mais un XML Schema que SPIP ne fait pas encore lire.
-// https://code.spip.net/@analyser_doctype
 function analyser_doctype($data) {
 	if (!preg_match(_REGEXP_DOCTYPE, $data, $page)) {
 		if (preg_match(_REGEXP_XML, $data, $page)) {

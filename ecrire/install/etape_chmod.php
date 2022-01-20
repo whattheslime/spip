@@ -25,7 +25,6 @@ utiliser_langue_visiteur();
 //
 // Tente d'ecrire
 //
-// https://code.spip.net/@test_ecrire
 function test_ecrire($my_dir) {
 	static $chmod = 0;
 
@@ -70,7 +69,6 @@ function test_ecrire($my_dir) {
 // rajouter celui passe dans l'url ou celui du source (a l'installation)
 //
 
-// https://code.spip.net/@install_etape_chmod_dist
 function install_etape_chmod_dist() {
 
 	$continuer = null;

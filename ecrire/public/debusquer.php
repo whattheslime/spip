@@ -368,7 +368,6 @@ function debusquer_requete($message) {
 }
 
 
-// https://code.spip.net/@trouve_boucle_debug
 function trouve_boucle_debug($n, $nom, $debut = 0, $boucle = '') {
 
 	$id = $nom . $boucle;
@@ -405,7 +404,6 @@ function trouve_boucle_debug($n, $nom, $debut = 0, $boucle = '') {
 	return [$nom, $boucle, $n - $debut];
 }
 
-// https://code.spip.net/@trouve_squelette_inclus
 function trouve_squelette_inclus($script) {
 
 	preg_match('/include\(.(.*).php3?.\);/', $script, $reg);
@@ -429,7 +427,6 @@ function trouve_squelette_inclus($script) {
 	return '';
 }
 
-// https://code.spip.net/@reference_boucle_debug
 function reference_boucle_debug($n, $nom, $self) {
 	[$skel, $boucle, $ligne] = trouve_boucle_debug($n, $nom);
 
@@ -449,7 +446,6 @@ function reference_boucle_debug($n, $nom, $self) {
 
 // affiche un texte avec numero de ligne et ancre.
 
-// https://code.spip.net/@ancre_texte
 function ancre_texte($texte, $fautifs = [], $nocpt = false) {
 
 	$var_mode_ligne = _request('var_mode_ligne');
@@ -581,7 +577,6 @@ function debusquer_squelette($fonc, $mode, $self) {
 }
 
 
-// https://code.spip.net/@emboite_texte
 function emboite_texte($res, $fonc = '', $self = '') {
 	$errs = $res->err;
 	$texte = $res->entete . ($errs ? '' : $res->page);
@@ -658,7 +653,6 @@ function emboite_texte($res, $fonc = '', $self = '') {
 	}
 }
 
-// https://code.spip.net/@count_occ
 function count_occ($regs) {
 	$encore = [];
 	foreach ($regs as $r) {
@@ -818,7 +812,6 @@ function debusquer_source($objet, $affiche) {
 	return [$legend, $res, $res2];
 }
 
-// https://code.spip.net/@debusquer_entete
 function debusquer_entete($titre, $corps) {
 
 	include_spip('balise/formulaire_admin');

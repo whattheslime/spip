@@ -112,7 +112,6 @@ function demander_confirmation_avant_action($titre, $titre_bouton, $url_action =
  * @note
  *   Attention: PHP applique urldecode sur $_GET mais pas sur $_POST
  *   cf http://fr.php.net/urldecode#48481
- *   https://code.spip.net/@securiser_action_auteur
  *
  * @uses calculer_action_auteur()
  * @uses generer_form_action()

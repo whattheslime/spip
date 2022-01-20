@@ -162,7 +162,6 @@ function install_mode_appel($server_db, $tout = true) {
 //
 // Verifier que l'hebergement est compatible SPIP ... ou l'inverse :-)
 // (sert a l'etape 1 de l'installation)
-// https://code.spip.net/@tester_compatibilite_hebergement
 function tester_compatibilite_hebergement() {
 	$err = [];
 
@@ -233,7 +232,6 @@ function login_hebergeur() {
 }
 
 
-// https://code.spip.net/@info_etape
 function info_etape($titre, $complement = '') {
 	return '<h2>' . $titre . "</h2>\n" .
 	($complement ? '' . $complement . "\n" : '');
@@ -258,7 +256,6 @@ function bouton_suivant($code = '') {
 	" >>\" /></p>\n";
 }
 
-// https://code.spip.net/@info_progression_etape
 function info_progression_etape($en_cours, $phase, $dir, $erreur = false) {
 	$intitule_etat = [];
 	//$en_cours = _request('etape')?_request('etape'):"";
@@ -315,7 +312,6 @@ function info_progression_etape($en_cours, $phase, $dir, $erreur = false) {
 }
 
 
-// https://code.spip.net/@fieldset
 function fieldset($legend, $champs = [], $apres = '', $avant = '') {
 	return "<fieldset>\n" .
 	$avant .
@@ -383,7 +379,6 @@ function install_select_serveur() {
 	return $options;
 }
 
-// https://code.spip.net/@install_connexion_form
 function install_connexion_form($db, $login, $pass, $predef, $hidden, $etape, $jquery = true) {
 	$server_db = (is_string($predef[0])) ? $predef[0] : '';
 
@@ -498,7 +493,6 @@ function install_connexion_form($db, $login, $pass, $predef, $hidden, $etape, $j
 // 4 valeurs qu'on reconduit d'un script a l'autre
 // sauf s'ils sont predefinis.
 
-// https://code.spip.net/@predef_ou_cache
 function predef_ou_cache($adresse_db, $login_db, $pass_db, $server_db) {
 	return ((defined('_INSTALL_HOST_DB'))
 		? ''
@@ -521,7 +515,6 @@ function predef_ou_cache($adresse_db, $login_db, $pass_db, $server_db) {
 
 // presentation des bases existantes
 
-// https://code.spip.net/@install_etape_liste_bases
 function install_etape_liste_bases($server_db, $login_db, $disabled = []) {
 	$bases = $checked = [];
 	$noms = sql_listdbs($server_db);

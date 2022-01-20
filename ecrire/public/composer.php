@@ -40,7 +40,6 @@ include_spip('public/quete');
 # 3. des declaration de tables SQL supplementaires
 # Toutefois pour 2. et 3. preferer la technique de la surcharge
 
-// https://code.spip.net/@public_composer_dist
 function public_composer_dist($squelette, $mime_type, $gram, $source, string $connect = '') {
 
 	$skel = null;
@@ -164,7 +163,6 @@ function squelette_traduit($squelette, $sourcefile, $phpfile, $boucles) {
 }
 
 // Le squelette compile est-il trop vieux ?
-// https://code.spip.net/@squelette_obsolete
 function squelette_obsolete($skel, $squelette) {
 	static $date_change = null;
 	// ne verifier la date de mes_fonctions et mes_options qu'une seule fois
@@ -188,7 +186,6 @@ function squelette_obsolete($skel, $squelette) {
 }
 
 // Activer l'invalideur de session
-// https://code.spip.net/@invalideur_session
 function invalideur_session(&$Cache, $code = null) {
 	$Cache['session'] = spip_session();
 
@@ -196,7 +193,6 @@ function invalideur_session(&$Cache, $code = null) {
 }
 
 
-// https://code.spip.net/@analyse_resultat_skel
 function analyse_resultat_skel($nom, $cache, $corps, $source = '') {
 	static $filtres = [];
 	$headers = [];
@@ -557,7 +553,6 @@ function lang_select_public($lang, $lang_select, $titre = null) {
 
 // Si un tableau &doublons[articles] est passe en parametre,
 // il faut le nettoyer car il pourrait etre injecte en SQL
-// https://code.spip.net/@nettoyer_env_doublons
 function nettoyer_env_doublons($envd) {
 	foreach ($envd as $table => $liste) {
 		$n = '';
@@ -996,7 +991,6 @@ function calculer_where_to_string($v, $join = 'AND') {
 
 //condition suffisante (mais non necessaire) pour qu'une table soit utile
 
-// https://code.spip.net/@calculer_jointnul
 function calculer_jointnul($cle, $exp, $equiv = '') {
 	if (!is_array($exp)) {
 		if ($equiv) {
@@ -1015,7 +1009,6 @@ function calculer_jointnul($cle, $exp, $equiv = '') {
 	}
 }
 
-// https://code.spip.net/@reinjecte_joint
 function reinjecte_joint($afrom, $from) {
 	$from_synth = [];
 	foreach ($from as $k => $v) {
@@ -1032,7 +1025,6 @@ function reinjecte_joint($afrom, $from) {
 	return $from_synth;
 }
 
-// https://code.spip.net/@remplacer_jointnul
 function remplacer_jointnul($cle, $exp, $equiv = '') {
 	if (!is_array($exp)) {
 		return preg_replace($equiv, $cle, $exp);
@@ -1046,7 +1038,6 @@ function remplacer_jointnul($cle, $exp, $equiv = '') {
 }
 
 // calcul du nom du squelette
-// https://code.spip.net/@calculer_nom_fonction_squel
 function calculer_nom_fonction_squel($skel, $mime_type = 'html', string $connect = '') {
 	// ne pas doublonner les squelette selon qu'ils sont calcules depuis ecrire/ ou depuis la racine
 	if ($l = strlen(_DIR_RACINE) and strncmp($skel, _DIR_RACINE, $l) == 0) {

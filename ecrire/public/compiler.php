@@ -57,7 +57,6 @@ include_spip('public/jointures');
 // mais pas pour <INCLURE> dont le fond est defini explicitement.
 
 
-// https://code.spip.net/@argumenter_inclure
 function argumenter_inclure(
 	$params,
 	$rejet_filtres,
@@ -839,7 +838,6 @@ function calculer_dump_array($a) {
 	}
 }
 
-// https://code.spip.net/@calculer_dump_join
 function calculer_dump_join($a) {
 	$res = '';
 	foreach ($a as $k => $v) {
@@ -884,7 +882,6 @@ function calculer_from_type(&$boucle) {
 	return 'array(' . substr($res, 1) . ')';
 }
 
-// https://code.spip.net/@calculer_order
 function calculer_order(&$boucle) {
 	if (
 		!$order = $boucle->order
@@ -908,7 +905,6 @@ function calculer_order(&$boucle) {
 // Retourne une expression PHP,
 // (qui sera argument d'un Return ou la partie droite d'une affectation).
 
-// https://code.spip.net/@calculer_liste
 function calculer_liste($tableau, $descr, &$boucles, $id_boucle = '') {
 	if (!$tableau) {
 		return "''";
@@ -973,7 +969,6 @@ define('_REGEXP_COND_VIDE_NONVIDE', "/^[(](.*)[?]\s*''\s*:\s*('[^']+')\s*[)]$/")
 define('_REGEXP_COND_NONVIDE_VIDE', "/^[(](.*)[?]\s*('[^']+')\s*:\s*''\s*[)]$/");
 define('_REGEXP_CONCAT_NON_VIDE', "/^(.*)[.]\s*'[^']+'\s*$/");
 
-// https://code.spip.net/@compile_cas
 function compile_cas($tableau, $descr, &$boucles, $id_boucle) {
 
 	$codes = [];
@@ -1206,7 +1201,6 @@ function compile_concatene_parties_codes($partie1, $partie2) {
  * production d'une expression conditionnelle ((v=EXP) ? (p . v .s) : a)
  * mais si EXP est de la forme (t ? 'C' : '') on produit (t ? (p . C . s) : a)
  * de meme si EXP est de la forme (t ? '' : 'C')
- * https://code.spip.net/@compile_retour
  *
  * @param string $code
  *   le code principal, dont le resultat conditionnera le reste
@@ -1290,7 +1284,6 @@ function compile_inclure_doublons($lexemes) {
 // - 'entetes' => tableau des entetes http
 // En cas d'erreur, elle retournera un tableau des 2 premiers elements seulement
 
-// https://code.spip.net/@public_compiler_dist
 function public_compiler_dist($squelette, $nom, $gram, $sourcefile, string $connect = '') {
 	// Pre-traitement : reperer le charset du squelette, et le convertir
 	// Bonus : supprime le BOM

@@ -107,7 +107,6 @@ function inc_genie_dist($taches = []) {
 // les serveurs Http n'accordant en general pas plus de 30 secondes
 // a leur sous-processus
 //
-// https://code.spip.net/@taches_generales
 function taches_generales($taches_generales = []) {
 
 	// verifier que toutes les taches cron sont planifiees

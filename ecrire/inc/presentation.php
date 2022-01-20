@@ -30,7 +30,6 @@ include_spip('inc/filtres_ecrire');
 include_spip('inc/filtres_boites');
 include_spip('inc/filtres_alertes');
 
-// https://code.spip.net/@debut_cadre
 function debut_cadre($style, $icone = '', $fonction = '', $titre = '', $id = '', $class = '', $padding = true) {
 	$fond = null;
 	$style_mapping = [
@@ -73,7 +72,6 @@ function debut_cadre($style, $icone = '', $fonction = '', $titre = '', $id = '',
 	return boite_ouvrir($titre, $class, $style_titre_mapping[$style] ?? '', $id);
 }
 
-// https://code.spip.net/@fin_cadre
 function fin_cadre() {
  return boite_fermer();
 }
@@ -186,7 +184,6 @@ function gros_titre(
 
 // La boite des raccourcis
 // Se place a droite si l'ecran est en mode panoramique.
-// https://code.spip.net/@bloc_des_raccourcis
 function bloc_des_raccourcis($bloc) {
 	return creer_colonne_droite()
 	. boite_ouvrir(_T('titre_cadre_raccourcis'), 'raccourcis') . $bloc . boite_fermer();
@@ -197,18 +194,15 @@ function bloc_des_raccourcis($bloc) {
 //
 
 // Fonctions onglets
-// https://code.spip.net/@debut_onglet
 // @param string $sous_classe	prend la valeur second pour definir les onglet de deuxieme niveau
 function debut_onglet($classe = 'barre_onglet') {
  return "<div class = '$classe clearfix'><ul>\n";
 }
 
-// https://code.spip.net/@fin_onglet
 function fin_onglet() {
  return "</ul></div>\n";
 }
 
-// https://code.spip.net/@onglet
 function onglet($texte, $lien, $onglet_ref, $onglet, $icone = '') {
 	return '<li>'
 	. ($icone ? http_img_pack($icone, '', " class='cadre-icone'") : '')

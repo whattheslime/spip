@@ -14,7 +14,6 @@ if (!defined('_ECRIRE_INC_VERSION')) {
 	return;
 }
 
-// https://code.spip.net/@install_etape_ldap3_dist
 function install_etape_ldap3_dist() {
 	$info = [];
 	$adresse_ldap = _request('adresse_ldap');

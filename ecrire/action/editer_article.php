@@ -29,7 +29,6 @@ if (!defined('_ECRIRE_INC_VERSION')) {
  * à condition que la rubrique parente (id_rubrique) puisse être obtenue
  * (avec _request())
  *
- * @link https://code.spip.net/@action_editer_article_dist
  * @uses article_inserer()
  * @uses article_modifier()
  *

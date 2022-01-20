@@ -106,7 +106,6 @@ function relayeur_saisie_ou_config($http_proxy, $default) {
 }
 
 // Function glue_url : le pendant de parse_url
-// https://code.spip.net/@glue_url
 function glue_url($url) {
 	if (!is_array($url)) {
 		return false;
@@ -136,7 +135,6 @@ function glue_url($url) {
 
 
 // Ne pas afficher la partie 'password' du proxy
-// https://code.spip.net/@no_password_proxy_url
 function no_password_proxy_url($http_proxy) {
 	if (
 		$http_proxy

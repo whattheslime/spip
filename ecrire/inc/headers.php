@@ -120,7 +120,6 @@ function redirige_par_entete($url, $equiv = '', $status = 302) {
 	exit;
 }
 
-// https://code.spip.net/@redirige_formulaire
 function redirige_formulaire($url, $equiv = '', $format = 'message') {
 	if (
 		!_AJAX
@@ -205,7 +204,6 @@ function http_status($status) {
 }
 
 // Retourne ce qui va bien pour que le navigateur ne mette pas la page en cache
-// https://code.spip.net/@http_no_cache
 function http_no_cache() {
 	if (headers_sent()) {
 		spip_log('http_no_cache arrive trop tard');

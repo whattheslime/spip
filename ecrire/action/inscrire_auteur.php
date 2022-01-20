@@ -185,7 +185,12 @@ function inscription_nouveau($desc) {
 
 
 /**
- * https://code.spip.net/@test_login
+ * Retourne un login valide à partir du nom et email donné
+ * 
+ * Un suffixe incrémental est ajouté si le login obtenu existe déjà en base
+ * pour ne pas créer de doublon.
+ * 
+ * Si le login est trop court 'user' est utilisé ; puis donc 'user1', 'user2' etc...
  *
  * @param string $nom
  * @param string $mail
