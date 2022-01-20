@@ -487,7 +487,7 @@ function quete_logo_file($row, $connect = null) {
 /**
  * Trouver l'image logo d'un document
  *
- * @param  $row
+ * @param array $row
  *   description du document, issue de la base
  * @param  $lien
  *   url de lien
@@ -580,7 +580,8 @@ function document_spip_externe($fichier, $connect) {
  * @return string
  */
 function vignette_logo_document($row, string $connect = '') {
-	if (!$row['id_vignette']) {
+
+	if (!$row or empty($row['id_vignette'])) {
 		return '';
 	}
 	$fichier = quete_fichier($row['id_vignette'], $connect);
