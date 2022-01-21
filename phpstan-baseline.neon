@@ -255,8 +255,3 @@ parameters:
 			count: 1
 			path: ecrire/req/sqlite_generique.php
 
-		-
-			message: "#^Function serialise not found\\.$#"
-			count: 1
-			path: prive/formulaires/configurer_metas.php
-
