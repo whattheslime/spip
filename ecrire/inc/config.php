@@ -201,13 +201,21 @@ function ecrire_config($cfg, $store) {
 	// trouvons ou creons le pointeur sur le casier
 	$st = $GLOBALS[$table][$casier] ?? null;
 	if (!is_array($st) and ($sous_casier or is_array($store))) {
-		$st = unserialize($st);
-		if ($st === false) {
+		if ($st === null) {
 			// ne rien creer si c'est une demande d'effacement
-			if (is_null($store)) {
+			if ($store === null) {
 				return false;
 			}
 			$st = [];
+		} else {
+			$st = unserialize($st);
+			if ($st === false) {
+				// ne rien creer si c'est une demande d'effacement
+				if ($store === null) {
+					return false;
+				}
+				$st = [];
+			}
 		}
 	}
 
