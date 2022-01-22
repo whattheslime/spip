@@ -62,7 +62,7 @@ function plugins_afficher_liste_dist(
 		}
 	}
 	asort($liste_plugins);
-	$exposed = urldecode(_request('plugin'));
+	$exposed = urldecode(_request('plugin') ?? '');
 
 	$block_par_lettre = false;//count($liste_plugins)>10;
 	$fast_liste_plugins_actifs = [];
