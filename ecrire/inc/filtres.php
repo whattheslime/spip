@@ -2736,10 +2736,11 @@ function regledetrois($a, $b, $c) {
  *     [(#ENV{action}|form_hidden)] dans un formulaire
  *     ```
  *
- * @param string $action URL
+ * @param ?string $action URL
  * @return string Suite de champs input hidden
  **/
-function form_hidden($action) {
+function form_hidden(?string $action = ''): string {
+	$action ??= '';
 
 	$contexte = [];
 	include_spip('inc/urls');
