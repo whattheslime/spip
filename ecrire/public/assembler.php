@@ -121,7 +121,7 @@ function assembler($fond, string $connect = '') {
 				);
 			}
 			// squelette par defaut
-			if (!strlen($fond)) {
+			if (!strlen($fond ?? '')) {
 				$fond = 'sommaire';
 			}
 
