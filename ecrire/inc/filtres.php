@@ -4579,7 +4579,7 @@ function filtre_icone_dist($lien, $texte, $fond, $align = '', $fonction = '', $c
  * @return array Liste des éléments
  */
 function filtre_explode_dist($a, $b) {
- return explode($b, $a);
+	return explode($b, (string) $a);
 }
 
 /**
@@ -4600,7 +4600,7 @@ function filtre_explode_dist($a, $b) {
  * @return string Texte
  */
 function filtre_implode_dist($a, $b) {
- return is_array($a) ? implode($b, $a) : $a;
+	return is_array($a) ? implode($b, $a) : $a;
 }
 
 /**
