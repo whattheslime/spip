@@ -301,7 +301,7 @@ function nettoyer_url_page($url, $contexte = []) {
  * L'URL est calculée en fonction de son état publié ou non,
  * calculé à partir de la déclaration de statut.
  *
- * @param int $id Identifiant de l'objet
+ * @param int|string|null $id Identifiant de l'objet
  * @param string $objet Type d'objet
  * @param string $args
  * @param string $ancre
@@ -309,8 +309,9 @@ function nettoyer_url_page($url, $contexte = []) {
  * @param string $connect
  * @return string
  */
-function generer_objet_url_ecrire(int $id, string $objet, string $args = '', string $ancre = '', ?bool $public = null, string $connect = ''): string {
+function generer_objet_url_ecrire($id, string $objet, string $args = '', string $ancre = '', ?bool $public = null, string $connect = ''): string {
 	static $furls = [];
+	$id = intval($id);
 	if (!isset($furls[$objet])) {
 		if (
 			function_exists($f = 'generer_' . $objet . '_url_ecrire')

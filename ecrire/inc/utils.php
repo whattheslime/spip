@@ -1826,11 +1826,11 @@ function charger_fonction_url(string $quoi, string $type = '') {
 
 
 /**
- * Fonction codant et décodant les URLs des objets SQL mis en page par SPIP
+ * Fonction codant  les URLs des objets SQL mis en page par SPIP
  *
  * @api
- * @param string $id
- *   numero de la cle primaire si nombre, URL a decoder si pas numerique
+ * @param int|string|null $id
+ *   numero de la cle primaire si nombre
  * @param string $entite
  *   surnom de la table SQL (donne acces au nom de cle primaire)
  * @param string $args
@@ -1849,10 +1849,11 @@ function charger_fonction_url(string $quoi, string $type = '') {
  *   array : derogatoire, la fonction d'url retourne (objet,id_objet) utilises par nettoyer_raccourcis_typo() pour generer un lien titre
  *           (cas des raccourcis personalises [->spip20] : il faut implementer une fonction generer_spip_url et une fonction generer_spip_url_ecrire)
  */
-function generer_objet_url(int $id, string $entite, string $args = '', string $ancre = '', ?bool $public = null, string $type = '', string $connect = ''): string {
+function generer_objet_url($id, string $entite, string $args = '', string $ancre = '', ?bool $public = null, string $type = '', string $connect = ''): string {
 	if ($public === null) {
 		$public = !test_espace_prive();
 	}
+	$id = intval($id);
 	$entite = objet_type($entite); // cas particulier d'appels sur objet/id_objet...
 
 	if (!$public) {
@@ -1905,13 +1906,14 @@ function generer_url_entite($id = 0, $entite = '', $args = '', $ancre = '', $pub
 
 /**
  * Generer l'url vers la page d'edition dans ecrire/
- * @param int $id
+ * @param int|string|null $id
  * @param string $entite
  * @param string $args
  * @param string $ancre
  * @return string
  */
-function generer_objet_url_ecrire_edit(int $id, string $entite, string $args = '', string $ancre = ''): string {
+function generer_objet_url_ecrire_edit($id, string $entite, string $args = '', string $ancre = ''): string {
+	$id = intval($id);
 	$exec = objet_info($entite, 'url_edit');
 	$url = generer_url_ecrire($exec, $args);
 	if (intval($id)) {
@@ -1970,7 +1972,7 @@ function urlencode_1738($url) {
 /**
  * Generer l'url absolue vers un objet
  *
- * @param int $id
+ * @param int|string|null $id
  * @param string $entite
  * @param string $args
  * @param string $ancre
@@ -1979,7 +1981,8 @@ function urlencode_1738($url) {
  * @param string $connect
  * @return string
  */
-function generer_objet_url_absolue(int $id = 0, string $entite = '', string $args = '', string $ancre = '', ?bool $public = null, string $type = '', string $connect = ''): string {
+function generer_objet_url_absolue($id = 0, string $entite = '', string $args = '', string $ancre = '', ?bool $public = null, string $type = '', string $connect = ''): string {
+	$id = intval($id);
 	$h = generer_objet_url($id, $entite, $args, $ancre, $public, $type, $connect);
 	if (!preg_match(',^\w+:,', $h)) {
 		include_spip('inc/filtres_mini');

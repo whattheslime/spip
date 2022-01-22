@@ -4685,7 +4685,7 @@ function bouton_action($libelle, $url, $class = '', $confirm = '', $title = '', 
  * $ligne correspond a la ligne SQL de tous les champs de l'objet, les fonctions
  * de personnalisation n'ont donc pas a refaire de requete.
  *
- * @param int $id_objet
+ * @param int|string|null $id_objet
  * @param string $type_objet
  * @param string $info
  * @param string $etoile
@@ -4693,7 +4693,7 @@ function bouton_action($libelle, $url, $class = '', $confirm = '', $title = '', 
  *     Tableau de paramètres supplémentaires transmis aux fonctions generer_xxx
  * @return string
  */
-function generer_objet_info(int $id_objet, string $type_objet, string $info, string $etoile = '', array $params = []): string {
+function generer_objet_info($id_objet, string $type_objet, string $info, string $etoile = '', array $params = []): string {
 	static $trouver_table = null;
 	static $objets;
 
@@ -4925,7 +4925,7 @@ function appliquer_traitement_champ($texte, $champ, $table_objet = '', $env = []
  * Generer un lien (titre clicable vers url) vers un objet
  *
  * @param int $id_objet
- * @param $objet
+ * @param string $objet
  * @param int $longueur
  * @param null|string $connect
  * @return string
