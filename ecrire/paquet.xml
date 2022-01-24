@@ -7,7 +7,7 @@
 	schema="2021021800"
 	documentation="https://www.spip.net"
 	demonstration="https://demo.spip.net"
-	developpement="https://core.spip.net/projects/spip/"
+	developpement="https://git.spip.net/spip/spip"
 >
 
 	<nom>SPIP</nom>
