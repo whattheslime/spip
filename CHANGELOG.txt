@@ -1,4 +1,43 @@
-SPIP-Core v4.0.0 -> v4.0.1 (14 December 2021)
+
+SPIP-Core v4.0.1 -> v4.0.2 (24 Janvier 2022)
+--------------------------------------------
+
+c3cf4cae9 | marcimat     | 2022-01-24 | Url de git.spip.net
+1cc1c4cc5 | marcimat     | 2022-01-12 | Lorsqu’une erreur provient sur l’écriture d’un fichier et que raler_fichier() est appelé, terminer de charger les cons..
+614de3a44 | bruno        | 2021-10-28 | Boucles DATA : permettre d'utiliser les caractères :_-. dans un critère `{par xxx}`
+e1e7966b5 | jluc         | 2022-01-17 | $notifications a besoin du nom - fixes #4996
+0b85286f5 | cedric       | 2022-01-07 | Fix #4980 : eviter des warning sur echec de recuperer_url()
+37beb80f7 | cedric       | 2022-01-07 | Fix #4982 : tester l'existence de PRIMARY KEY sur arrivee et depart
+bec001301 | cedric       | 2022-01-04 | Ne pas stocker formulaire_action_sign dans les configurations des plugins... (hum)
+edf5d6976 | cedric       | 2021-12-29 | appliquer rawurlencode() aussi sur les tableaux qu'on passe en argument de parametre_url() #4819
+f6d1d31a8 | bruno        | 2021-12-28 | revert !486 & d8d83b4ce5 puisque generer_htpass() delegue à la fonction inc_generer_htpass_dist() si elle existe
+3064dee5a | bruno        | 2021-12-27 | warning -- sur generer_htpass
+e93b17028 | taffit       | 2021-12-25 | Convert to UTF-8
+0865ab237 | taffit       | 2021-12-24 | Drop executable bit
+7a21a83d0 | bruno        | 2021-12-17 | déplacer corriger_extension() du plugin medias vers inc/documents du core
+f7f2d934a | bruno        | 2021-12-03 | prise en charge des fichier .jpeg lors de l'ajout d'un document distant
+f7bbc27f2 | bruno        | 2021-12-17 | bugfix : passer la bonne variable à generer_htpass()
+a44cf808e | cedric       | 2021-12-17 | Eviter une indefinie si get_spip_script() est appelé depuis mes_options, avant que la constante _SPIP_SCRIPT soit defi..
+d6d321541 | bruno        | 2021-12-16 | rétablir le traitement _TRAITEMENT_TYPO_SANS_NUMERO (multi, supprimer_numero, etc) sur la balise #NOM des auteurs
+c3891a90a | cedric       | 2021-12-16 | sur certains sites on veut absolument garder certains caches on peut donc inhiber la purge de ces répertoires pour evi..
+
+
+SPIP-plugins-dist v4.0.1 -> v4.0.2 (24 Janvier 2022)
+----------------------------------------------------
+
+forum           | 1626386 | cedric       | 2022-01-14 | Normaliser un peu plus l'ajout de forum en base : la fonction forum_insert_base() historique delegue l'insertion en ba..
+forum           | 3f4d66a | george       | 2021-06-10 | Icones du bon cote en RTL
+forum           | 94832a9 | jluc         | 2021-12-18 | https pas http en placeholder et commentaire
+medias          | 11981a6 | maieul       | 2022-01-23 | Dans `action_ajouter_un_document_dist` s'assurer qu'il n'y ait pas deux entrées dans `spip_documents` avec la même val..
+medias          | d1c197e | taffit       | 2021-12-25 | Convert to UTF-8
+medias          | bc774ee | taffit       | 2021-12-24 | Drop executable bit
+medias          | fad2298 | bruno        | 2021-12-17 | la fonction corriger_extension passe dans inc/documents du core
+porte_plume     | f587f9a | taffit       | 2021-12-25 | Convert to UTF-8
+svp             | ed48746 | tcharlss     | 2021-08-23 | Ticket #4822 : décocher les autres quand on coche les mises à jour. Cela est nécessaire si on a fait « tout cocher » a..
+svp             | 87b9366 | tcharlss     | 2021-08-23 | Ticket #4822 : légère marge sous les boutons à cocher pour ne pas coller aux autres dessous.
+
+
+SPIP-Core v4.0.0 -> v4.0.1 (14 Decembre 2021)
 ---------------------------------------------
 
 4f240aef7 | marcimat         | 2021-12-10 | Ticket #4950 : Éviter que la date modif soit modifiée lors de la migration des logos.
@@ -78,7 +117,7 @@ b8fec87a0 | marcimat         | 2021-07-09 | PHPDoc erroné.
 
 
 
-SPIP-plugins-dist v4.0.0 -> v4.0.1 (14 December 2021)
+SPIP-plugins-dist v4.0.0 -> v4.0.1 (14 Decembre 2021)
 -----------------------------------------------------
 
 aide            | 1613ae6 | marcimat     | 2021-12-10 | Report des chaines de langue depuis master (salvatore)
