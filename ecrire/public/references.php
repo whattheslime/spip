@@ -105,10 +105,10 @@ function index_boucle_mere($p) {
  *     Indique que le nom de la boucle est explicite dans la balise #_nomboucletruc:CHAMP
  * @param null|string $defaut
  *     Code par defaut si le champ n'est pas trouvé dans l'index.
- *     Utilise @$Pile[0][$nom_champ] si non fourni
+ *     Utilise `($Pile[0][$nom_champ] ?? null)` si non fourni
  * @param bool $remonte_pile
  *     Permettre de remonter la pile des boucles ou non (dans ce cas on
- *     ne cherche que danss la 1ère boucle englobante)
+ *     ne cherche que dans la 1ère boucle englobante)
  * @param bool $select
  *     Pour ajouter au select de la boucle, par defaut true
  * @return string

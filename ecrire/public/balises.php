@@ -883,16 +883,13 @@ function balise_LANG_dist($p) {
  */
 function balise_LESAUTEURS_dist($p) {
 	// Cherche le champ 'lesauteurs' dans la pile
-	$_lesauteurs = champ_sql('lesauteurs', $p, false);
+	$_lesauteurs = champ_sql('lesauteurs', $p, '');
 
 	// Si le champ n'existe pas (cas de spip_articles), on applique
 	// le modele lesauteurs.html en passant id_article dans le contexte;
 	// dans le cas contraire on prend le champ 'lesauteurs'
 	// (cf extension sites/)
-	if (
-		$_lesauteurs
-		and $_lesauteurs != '@$Pile[0][\'lesauteurs\']'
-	) {
+	if ($_lesauteurs) {
 		$p->code = "safehtml($_lesauteurs)";
 		// $p->interdire_scripts = true;
 	} else {

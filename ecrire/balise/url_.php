@@ -196,8 +196,8 @@ function balise_URL_ARTICLE_dist($p) {
  *     Pile complétée par le code à générer
  */
 function balise_URL_SITE_dist($p) {
-	$code = champ_sql('url_site', $p);
-	if (strpos($code, '@$Pile[0]') !== false) {
+	$code = champ_sql('url_site', $p, '');
+	if (!$code) {
 		$code = generer_generer_url('site', $p);
 		if ($code === null) {
 			return null;
