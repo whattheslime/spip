@@ -1,18 +1,12 @@
 <!--================ Entites XML std =========================-->
 
-<!ENTITY % HTMLlat1 SYSTEM
-   "-//W3C//ENTITIES Latin 1 for XHTML//EN"
-   "xhtml-lat1.ent">
+<!ENTITY % HTMLlat1 SYSTEM "xhtml-lat1.ent">
 %HTMLlat1;
 
-<!ENTITY % HTMLsymbol SYSTEM
-   "-//W3C//ENTITIES Symbols for XHTML//EN"
-   "xhtml-symbol.ent">
+<!ENTITY % HTMLsymbol SYSTEM "xhtml-symbol.ent">
 %HTMLsymbol;
 
-<!ENTITY % HTMLspecial SYSTEM
-   "-//W3C//ENTITIES Special for XHTML//EN"
-   "xhtml-special.ent">
+<!ENTITY % HTMLspecial SYSTEM "xhtml-special.ent">
 %HTMLspecial;
 
 <!--================ DTD originale =========================-->
