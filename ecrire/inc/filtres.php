@@ -165,6 +165,21 @@ function spip_version() {
 	return $version;
 }
 
+/**
+ * Masque la version de SPIP si la globale spip_header_silencieux le demande.
+ *
+ * @global spip_header_silencieux permet de rendre le header minimal pour raisons de securité
+ * 
+ * @param string $version
+ * @return void
+ */
+function header_silencieux($version) {
+	if (isset($GLOBALS['spip_header_silencieux']) && (bool) $GLOBALS['spip_header_silencieux']) {
+		$version = '';
+	}
+
+	return $version;
+}
 
 /**
  * Retrouve un numéro de révision SVN d'un répertoire
