@@ -326,14 +326,22 @@ function liste_plugin_valides($liste_plug, $force = false) {
  */
 function plugin_valide_resume(&$liste, $plug, $infos, $dir_type) {
 	$i = $infos[$dir_type][$plug];
-	$p = strtoupper($i['prefix']);
+	// minimum syndical pour afficher si le xml avait des erreurs éventuelles
 	$short_desc = [
-		'nom' => $i['nom'],
-		'etat' => $i['etat'],
-		'version' => $i['version'],
 		'dir' => $plug,
 		'dir_type' => $dir_type
 	];
+	if (empty($i['prefix'])) {
+		// erreur xml ? mais sans connaissance du prefix, on retourne le chemin…
+		$short_desc['erreur'] = $i['erreur'] ?? ['?'];
+		return [$plug => $short_desc];
+	}
+
+	$p = strtoupper($i['prefix']);
+	$short_desc['nom'] = $i['nom'];
+	$short_desc['etat'] = $i['etat'];
+	$short_desc['version'] = $i['version'];
+
 	if (isset($i['erreur']) and $i['erreur']) {
 		$short_desc['erreur'] = $i['erreur'];
 		return [$p => $short_desc];
