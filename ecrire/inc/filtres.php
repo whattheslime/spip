@@ -3700,7 +3700,7 @@ function filtre_balise_img_dist($img, $alt = '', $class = null, $size = null) {
 
 	[$alt, $class, $size] = helper_filtre_balise_img_svg_arguments($alt, $class, $size);
 
-	$img = trim($img);
+	$img = trim((string) $img);
 	if (strpos($img, '<img') === 0) {
 		if (!is_null($alt)) {
 			$img = inserer_attribut($img, 'alt', $alt);
