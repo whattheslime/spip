@@ -83,7 +83,7 @@ function existe_formulaire($form) {
  * @return false|array
  */
 function test_formulaire_inclus_par_modele() {
-	$trace = debug_backtrace(null, 20);
+	$trace = debug_backtrace(0, 20);
 	$trace_fonctions = array_column($trace, 'function');
 	$trace_fonctions = array_map('strtolower', $trace_fonctions);
 
