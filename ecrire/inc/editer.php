@@ -213,6 +213,9 @@ function formulaires_editer_objet_charger(
 	$table_objet = table_objet($type);
 	$table_objet_sql = table_objet_sql($type);
 	$id_table_objet = id_table_objet($type);
+	if (!is_array($row)) {
+		$row = [];
+	}
 
 	// on accepte pas une fonction de config inconnue si elle vient d'un modele
 	if (
