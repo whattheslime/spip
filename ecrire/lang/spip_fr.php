@@ -238,7 +238,8 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'etape' => 'Étape',
 
 	// F
-	'fichier_introuvable' => 'Fichier @fichier@ introuvable',
+	'fichier_introuvable' => 'Fichier @fichier@ introuvable.',
+	'fonction_introuvable' => 'Fonction @fonction@() introuvable.',
 	'form_auteur_confirmation' => 'Confirmez votre adresse email',
 	'form_auteur_email_modifie' => 'Votre adresse email a été modifiée.',
 	'form_auteur_envoi_mail_confirmation' => 'Un courrier électronique de confirmation vient d’être envoyé à @email@. Vous devrez visiter l’adresse Web mentionnée dans ce courrier pour valider votre adresse mail.',
