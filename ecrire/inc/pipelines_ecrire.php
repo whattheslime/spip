@@ -314,11 +314,11 @@ function f_queue_affiche_milieu($flux) {
  * renvoie false si pas d'objet en cours, ou un tableau associatif
  * contenant les informations table_objet_sql,table,type,id_table_objet,edition
  *
- * @param string $exec
+ * @param ?string $exec
  *   nom de la page testee
  * @return array|bool
  */
-function trouver_objet_exec(string $exec) {
+function trouver_objet_exec(?string $exec) {
 	static $objet_exec = [];
 	if (!$exec) {
 		return false;
