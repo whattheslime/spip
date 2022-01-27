@@ -104,8 +104,13 @@ function charger_fonction($nom, $dossier = 'exec', $continue = false) {
 	include_spip('inc/minipres');
 	echo minipres(
 		_T('forum_titre_erreur'),
-		_T('fichier_introuvable', ['fichier' => '<b>' . spip_htmlentities($d) . '</b>']),
-		['all_inline' => true,'status' => 404]
+		$inc ?
+			_T('fonction_introuvable', ['fonction' => '<code>'.spip_htmlentities($f).'</code>'])
+			.'<br />'
+			._T('fonction_introuvable', ['fonction' => '<code>'.spip_htmlentities($g).'</code>'])
+			:
+			_T('fichier_introuvable', ['fichier' => '<code>'. spip_htmlentities($d).'</code>']),
+			['all_inline' => true,'status' => 404]
 	);
 	exit;
 }
