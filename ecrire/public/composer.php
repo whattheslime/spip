@@ -276,7 +276,7 @@ function analyse_resultat_skel($nom, $cache, $corps, $source = '') {
 //
 
 /** Code PHP pour inclure une balise dynamique à l'exécution d'une page */
-define('CODE_INCLURE_BALISE', '<' . '?php 
+define('CODE_INCLURE_BALISE', '<' . '?php
 include_once("%s");
 if ($lang_select = "%s") $lang_select = lang_select($lang_select);
 inserer_balise_dynamique(balise_%s_dyn(%s), array(%s));
@@ -697,7 +697,7 @@ function calculer_select(
 	// IN sur collection vide (ce dernier devrait pouvoir etre fait a la compil)
 	$menage = false;
 	foreach ($where as $k => $v) {
-		if (is_array($v)) {
+		if (is_array($v) and count($v)) {
 			if ((count($v) >= 2) && ($v[0] == 'REGEXP') && ($v[2] == "'.*'")) {
 				$op = false;
 			} elseif ((count($v) >= 2) && ($v[0] == 'LIKE') && ($v[2] == "'%'")) {
