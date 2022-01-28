@@ -282,7 +282,7 @@ function public_tester_redirection_dist($fond, $contexte, $connect) {
 		and $id_article = intval($contexte['id_article'])
 	) {
 		include_spip('public/quete'); // pour quete_virtuel et ses dependances
-		$m = quete_virtuel($id_article, $connect);
+		$m = quete_virtuel($id_article, $connect) ?? '';
 		if (strlen($m)) {
 			include_spip('inc/texte');
 			// les navigateurs pataugent si l'URL est vide
