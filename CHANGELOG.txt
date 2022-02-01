@@ -1,6 +1,7 @@
 SPIP-Core v4.0.2 -> v4.0.3 (01 Février 2022)
 ---------------------------------------------
 
+ab21f0888 | b_b          | 2022-02-01 | bien verifier le droit de modifier le login dans le formulaire_editer_auteur
 872b8c506 | cedric       | 2022-02-01 | Même syntaxe que pour prive/rss.html
 4c5a04eef | cedric       | 2021-10-15 | Support des conditions imbriquees OR/AND dans la traduction du where SQL en filtre sur DATA : - lors de la traduction,..
 e65807008 | cedric       | 2021-10-15 | Refactoring de la traduction des conditions SQL du where en filtres applicables sur tableau : tout le travail etait fa..
