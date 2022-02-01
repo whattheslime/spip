@@ -1,3 +1,19 @@
+SPIP-Core v4.0.2 -> v4.0.3 (01 Février 2022)
+---------------------------------------------
+
+872b8c506 | cedric       | 2022-02-01 | Même syntaxe que pour prive/rss.html
+4c5a04eef | cedric       | 2021-10-15 | Support des conditions imbriquees OR/AND dans la traduction du where SQL en filtre sur DATA : - lors de la traduction,..
+e65807008 | cedric       | 2021-10-15 | Refactoring de la traduction des conditions SQL du where en filtres applicables sur tableau : tout le travail etait fa..
+bb76ebe5f | marcimat     | 2022-01-28 | Pas d’affichage inutile avant minipres().
+
+
+SPIP-plugins-dist v4.0.2 -> v4.0.3 (01 Février 2022)
+-----------------------------------------------------
+
+medias          | 372244e | marcimat     | 2022-01-27 | Fix #4870 : parenthèse fermante manquante sur l’embed csv
+statistiques    | 208a98c | marcimat     | 2022-01-28 | Protection de l’identifiant : texte_script doit être utilisé sur `#ENV` pour peupler du PHP dans un squelette (g0oZ)
+squelettes-dist | be458cc | james        | 2022-01-26 | feat(header_silencieux) : application du filtre |header_silencieux
+
 
 SPIP-Core v4.0.1 -> v4.0.2 (24 Janvier 2022)
 --------------------------------------------
