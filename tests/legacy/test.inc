@@ -6,7 +6,7 @@
  * ensuite ses tests.
  *
  * Si tout est ok, le test doit afficher 'OK' et sortir
- * Sinon du debug ou toute indication de la nuature de l'échec...
+ * Sinon du debug ou toute indication de la nature de l'échec...
  *
  */
 // let's go spip
@@ -60,7 +60,7 @@ $GLOBALS['taille_des_logs'] = 1024;
 $GLOBALS['compteur_essai'] = 0;
 
 // pas admin ? passe ton chemin (ce script est un vilain trou de securite)
-if (!_IS_CLI) {
+if (!defined('_IS_CLI') or !_IS_CLI) {
 	if ((!isset($GLOBALS['visiteur_session']['statut'])
 		OR $GLOBALS['visiteur_session']['statut'] != '0minirezo')
 		AND !in_array($_SERVER["REMOTE_ADDR"], array('127.0.0.1', '127.0.1.1', '::1')) ) {
@@ -77,7 +77,7 @@ else {
 @error_reporting(E_ALL);
 
 // pour essayer de calculer/montrer le temps qu'on y met
-if (!_IS_CLI) {
+if (!defined('_IS_CLI') or !_IS_CLI) {
 	register_shutdown_function('afficher_timer', time() + (float)microtime());
 }
 
