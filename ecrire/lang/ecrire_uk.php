@@ -16,6 +16,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'annuler_recherche' => 'Відмінити пошук',
 	'auteur' => 'Автор:',
 	'avis_acces_interdit' => 'Доступ заборонено.',
+	'avis_acces_interdit_prive' => 'У вас немає прав для перегляду сторінки <b>@exec@</b>.',
 	'avis_article_modifie' => 'Увага: @nom_auteur_modif@ вносив зміни в цю статтю @date_diff@ хвилин тому',
 	'avis_aucun_resultat' => 'Нічого не знайдено',
 	'avis_base_inaccessible' => 'Неможливо підключитися до бази @base@.',
@@ -62,6 +63,8 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'bouton_radio_non_envoi_annonces_editoriales' => 'Не відправляти ніяких редакційних оголошень',
 	'bouton_redirection' => 'ПЕРЕНАПРАВЛЕННЯ',
 	'bouton_reinitialiser_aux_valeurs_par_defaut' => 'Відновити початкові значення',
+	'bouton_relancer_inscription' => 'Перезапустити реєстрацію',
+	'bouton_relancer_inscriptions' => 'Перезапустити реєстрації',
 	'bouton_relancer_installation' => 'Перезапустити установку',
 	'bouton_reset_password' => 'Створити новий пароль і відправити по e-mail',
 	'bouton_suivant' => 'Наступний',
@@ -94,6 +97,11 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'date_mot_heures' => ':',
 
 	// E
+	'ecran_connexion_couleur_principale' => 'Головний колір',
+	'ecran_connexion_image_fond' => 'Зображення на тло',
+	'ecran_connexion_image_fond_explication' => 'Використати зображення (JPEG, 1920x1080 пікселів)',
+	'ecran_connexion_image_revenir_couleur_defaut' => 'Повернути кольори за замовчуванням',
+	'ecran_connexion_titre' => 'Сторінка входу',
 	'ecran_securite' => ' + сервіс безпеки @version@',
 	'email' => 'email',
 	'email_2' => 'email:',
@@ -135,6 +143,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'entree_url' => 'Адреса (URL) вашого сайту',
 	'entree_url_2' => 'URL',
 	'erreur_connect_deja_existant' => 'Сервер з такою назвою вже існує',
+	'erreur_contenu_suspect' => 'Текст екрановано',
 	'erreur_email_deja_existant' => 'Ця адреса електронної пошти вже зареєстрована.',
 	'erreur_nom_connect_incorrect' => 'Неприпустиме ім’я серверу',
 	'erreur_plugin_attribut_balise_manquant' => 'Атрибут @attribut@ відсутній в тезі @balise@.',
@@ -146,6 +155,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'erreur_plugin_prefix_manquant' => 'Простір імен плагіна невизначений',
 	'erreur_plugin_tag_plugin_absent' => '&lt;plugin&gt; відсутнє в файлі опису',
 	'erreur_plugin_version_manquant' => 'Відсутня версія плагіну',
+	'erreur_type_fichier' => 'Неконкретний тип файлу',
 
 	// H
 	'htaccess_a_simuler' => 'Увага: в налаштуваннях веб-серверу відключено використання @htaccess@ файлів. Для забезпечення достатнього рівня безпеки внесіть зміни до налаштувань серверу самостійно або зверніться до технічної підтримки хостінгу. Ви також можете задати константи @constantes@ (в файлі mes_options.php) так, щоб ці Файли знаходились поза папкою @document_root@.',
@@ -195,8 +205,8 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'icone_supprimer_signature' => 'Видалити підпис',
 	'icone_valider_signature' => 'Затвердити підпис',
 	'image_administrer_rubrique' => 'Ви можете керувати цим розділом',
-	'impossible_modifier_login_auteur' => 'Неможливо змінити логін.', # MODIF
-	'impossible_modifier_pass_auteur' => 'Неможливо змінити пароль.', # MODIF
+	'impossible_modifier_login_auteur' => 'Неможливо змінити логін.',
+	'impossible_modifier_pass_auteur' => 'Неможливо змінити пароль.',
 	'info_1_article' => '1 стаття',
 	'info_1_auteur' => '1 автор',
 	'info_1_message' => '1 повідомлення',
@@ -370,7 +380,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'info_nouvel_article' => 'Новая стаття',
 	'info_nouvelle_traduction' => 'Новий переклад:',
 	'info_numero_article' => 'НОМЕР СТАТТІ:',
-	'info_obligatoire_02' => '(обов’язково)', # MODIF
+	'info_obligatoire_02' => '(обов’язково)',
 	'info_option_accepter_visiteurs' => 'Увімкнути реєстрацію відвідувачів на сайті',
 	'info_option_ne_pas_accepter_visiteurs' => 'Відключити реєстрацію відвідувачів на сайті',
 	'info_options_avancees' => 'ДОДАТКОВІ НАЛАШТУВАННЯ',
@@ -657,9 +667,9 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'plugin_titre_automatique_ajouter' => 'Додати плагін',
 	'plugin_titre_installation' => 'Встановити плагін @plugin@ ',
 	'plugin_titre_modifier' => 'Мої плагіни',
-	'plugin_utilise_extension_php' => 'Використовується PHP-розширення @plugin@ версії @version@.', # MODIF
-	'plugin_utilise_php' => 'Використовується @plugin@ версії @version@.', # MODIF
-	'plugin_utilise_plugin' => 'Використовуйте плагін @plugin@ en версії @version@.', # MODIF
+	'plugin_utilise_extension_php' => 'Використовується PHP-розширення @plugin@ версії @version@.',
+	'plugin_utilise_php' => 'Використовується @plugin@ версії @version@.',
+	'plugin_utilise_plugin' => 'Використовуйте плагін @plugin@ en версії @version@.',
 	'plugin_zip_active' => 'Продовжити для активації',
 	'plugin_zip_adresse' => 'Вкажіть посилання на zip файла плагіна для завантаження або адресу RSS листа плагінів.',
 	'plugin_zip_adresse_champ' => 'URL плагіна (zip file) або RSS листа',
@@ -686,17 +696,18 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 
 	// Q
 	'queue_executer_maintenant' => 'Запустити',
-	'queue_info_purger' => 'Ви можете видалити усі поточні завдання і очистити всю чергу завдань', # MODIF
-	'queue_nb_jobs_in_queue' => 'В черзі @nb@ завдань', # MODIF
-	'queue_next_job_in_nb_sec' => 'Наступне завдання через @nb@ s', # MODIF
-	'queue_no_job_in_queue' => 'Список завдань пустий', # MODIF
-	'queue_one_job_in_queue' => '1 завдання в черзі', # MODIF
-	'queue_purger_queue' => 'Очистити список завдань', # MODIF
-	'queue_titre' => 'Список завдань', # MODIF
+	'queue_info_purger' => 'Ви можете видалити усі поточні завдання і очистити всю чергу завдань',
+	'queue_nb_jobs_in_queue' => 'В черзі @nb@ завдань',
+	'queue_next_job_in_nb_sec' => 'Наступне завдання через @nb@ s',
+	'queue_no_job_in_queue' => 'Список завдань пустий',
+	'queue_one_job_in_queue' => '1 завдання в черзі',
+	'queue_priorite_tache' => 'пріорітет',
+	'queue_purger_queue' => 'Очистити список завдань',
+	'queue_titre' => 'Список завдань',
 
 	// R
 	'repertoire_plugins' => 'Репозиторій:',
-	'required' => '(обов’язково)', # MODIF
+	'required' => '(обов’язково)',
 
 	// S
 	'sans_heure' => 'час невизначений',
