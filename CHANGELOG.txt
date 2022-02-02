@@ -1,3 +1,9 @@
+SPIP-Core v4.0.3 -> v4.0.4 (02 Févirer 2022)
+---------------------------------------------
+
+b93f4f9e1 | jamesrezo    | 2022-01-26 | feat(header_silencieux) : ajout et application du filtre |header_silencieux (#5010)
+
+
 SPIP-Core v4.0.2 -> v4.0.3 (01 Février 2022)
 ---------------------------------------------
 
