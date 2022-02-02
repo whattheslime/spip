@@ -1,3 +1,26 @@
+SPIP-Core v3.2.12 -> v3.2.13 (02 Février 2022)
+-----------------------------------------------
+
+9ed1818f1 | cedric       | 2022-02-02 | Verifier qu'on a bien le droit de modifier le login avant d'accepter un post sur cette variable
+dec69cb7d | marcimat     | 2022-02-02 | Les tags de chaque plugin dist dans plugins-dist.json
+39fbb0a8e | jamesrezo    | 2022-01-26 | feat(header_silencieux) : ajout et application du filtre |header_silencieux (#5010)
+00222255b | cedric       | 2022-01-04 | Ne pas stocker formulaire_action_sign dans les configurations des plugins... (hum)
+e48c92558 | bruno        | 2021-12-03 | prise en charge des fichiers .jpeg lors de l'ajout d'un document distant
+b2f8e3a59 | cedric       | 2021-12-29 | appliquer rawurlencode() aussi sur les tableaux qu'on passe en argument de parametre_url() #4819
+f1b7feae8 | cedric       | 2021-12-17 | Eviter une indefinie si get_spip_script() est appelé depuis mes_options, avant que la constante _SPIP_SCRIPT soit defi..
+b6236a92e | bruno        | 2021-12-16 | rétablir le traitement _TRAITEMENT_TYPO_SANS_NUMERO (multi, supprimer_numero, etc) sur la balise #NOM des auteurs
+712f5b5df | cedric       | 2021-03-18 | Rediriger sans boucle infinie quand on a un probleme de var_mode (probleme qui arrive parfois sur une install un peu b..
+d793f599e | cedric       | 2021-12-16 | sur certains sites on veut absolument garder certains caches on peut donc inhiber la purge de ces répertoires pour evi..
+c4a362f35 | taffit       | 2021-12-14 | Drop misplaced changelog
+
+
+SPIP-plugins-dist v3.2.12 -> v3.2.13 (02 Février 2022)
+-------------------------------------------------------
+
+squelettes-dist         | f872fdb | marcimat     | 2022-02-02 | Version 3.2.5
+squelettes-dist         | ae985dd | james        | 2022-01-26 | feat(header_silencieux) : application du filtre |header_silencieux
+
+
 SPIP-Core v3.2.11 -> v3.2.12 (14 December 2021)
 -----------------------------------------------
 
