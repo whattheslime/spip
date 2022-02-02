@@ -2,131 +2,157 @@
     "aide": {
         "path": "plugins-dist/aide",
         "source": "https://git.spip.net/spip/aide.git",
-        "branch": "spip-3.2"
+        "branch": "spip-3.2",
+        "tag": "v1.0.1"
     },
     "archiviste": {
         "path": "plugins-dist/archiviste",
         "source": "https://git.spip.net/spip/archiviste.git",
-        "branch": "spip-3.2"
+        "branch": "spip-3.2",
+        "tag": "v0.2.3"
     },
     "breves": {
         "path": "plugins-dist/breves",
         "source": "https://git.spip.net/spip/breves.git",
-        "branch": "spip-3.2"
+        "branch": "spip-3.2",
+        "tag": "v1.4.2"
     },
     "compagnon": {
         "path": "plugins-dist/compagnon",
         "source": "https://git.spip.net/spip/compagnon.git",
-        "branch": "spip-3.2"
+        "branch": "spip-3.2",
+        "tag": "v1.6.2"
     },
     "compresseur": {
         "path": "plugins-dist/compresseur",
         "source": "https://git.spip.net/spip/compresseur.git",
-        "branch": "spip-3.2"
+        "branch": "spip-3.2",
+        "tag": "v1.12.11"
     },
     "dump": {
         "path": "plugins-dist/dump",
         "source": "https://git.spip.net/spip/dump.git",
-        "branch": "spip-3.2"
+        "branch": "spip-3.2",
+        "tag": "v1.8.6"
     },
     "filtres_images": {
         "path": "plugins-dist/filtres_images",
         "source": "https://git.spip.net/spip/filtres_images.git",
-        "branch": "spip-3.2"
+        "branch": "spip-3.2",
+        "tag": "v2.0.4"
     },
     "forum": {
         "path": "plugins-dist/forum",
         "source": "https://git.spip.net/spip/forum.git",
-        "branch": "spip-3.2"
+        "branch": "spip-3.2",
+        "tag": "v1.11.8"
     },
     "jquery_ui": {
         "path": "plugins-dist/jquery_ui",
         "source": "https://git.spip.net/spip/jquery_ui.git",
-        "branch": "spip-3.2"
+        "branch": "spip-3.2",
+        "tag": "v1.12.2"
     },
     "mediabox": {
         "path": "plugins-dist/mediabox",
         "source": "https://git.spip.net/spip/mediabox.git",
-        "branch": "spip-3.2"
+        "branch": "spip-3.2",
+        "tag": "v1.1.6"
     },
     "medias": {
         "path": "plugins-dist/medias",
         "source": "https://git.spip.net/spip/medias.git",
-        "branch": "spip-3.2"
+        "branch": "spip-3.2",
+        "tag": "v2.20.36"
     },
     "mots": {
         "path": "plugins-dist/mots",
         "source": "https://git.spip.net/spip/mots.git",
-        "branch": "spip-3.2"
+        "branch": "spip-3.2",
+        "tag": "v2.8.10"
     },
     "organiseur": {
         "path": "plugins-dist/organiseur",
         "source": "https://git.spip.net/spip/organiseur.git",
-        "branch": "spip-3.2"
+        "branch": "spip-3.2",
+        "tag": "v1.2.6"
     },
     "petitions": {
         "path": "plugins-dist/petitions",
         "source": "https://git.spip.net/spip/petitions.git",
-        "branch": "spip-3.2"
+        "branch": "spip-3.2",
+        "tag": "v1.6.2"
     },
     "plan": {
         "path": "plugins-dist/plan",
         "source": "https://git.spip.net/spip/plan.git",
-        "branch": "spip-3.2"
+        "branch": "spip-3.2",
+        "tag": "v2.2.6"
     },
     "porte_plume": {
         "path": "plugins-dist/porte_plume",
         "source": "https://git.spip.net/spip/porte_plume.git",
-        "branch": "spip-3.2"
+        "branch": "spip-3.2",
+        "tag": "v1.18.5"
     },
     "revisions": {
         "path": "plugins-dist/revisions",
         "source": "https://git.spip.net/spip/revisions.git",
-        "branch": "spip-3.2"
+        "branch": "spip-3.2",
+        "tag": "v1.9.5"
     },
     "safehtml": {
         "path": "plugins-dist/safehtml",
         "source": "https://git.spip.net/spip/safehtml.git",
-        "branch": "spip-3.2"
+        "branch": "spip-3.2",
+        "tag": "v1.5.4"
     },
     "sites": {
         "path": "plugins-dist/sites",
         "source": "https://git.spip.net/spip/sites.git",
-        "branch": "spip-3.2"
+        "branch": "spip-3.2",
+        "tag": "v1.10.7"
     },
     "squelettes_par_rubrique": {
         "path": "plugins-dist/squelettes_par_rubrique",
         "source": "https://git.spip.net/spip/squelettes_par_rubrique.git",
-        "branch": "spip-3.2"
+        "branch": "spip-3.2",
+        "tag": "v1.2.2"
     },
     "statistiques": {
         "path": "plugins-dist/statistiques",
         "source": "https://git.spip.net/spip/statistiques.git",
-        "branch": "spip-3.2"
+        "branch": "spip-3.2",
+        "tag": "v1.1.12"
     },
     "svp": {
         "path": "plugins-dist/svp",
         "source": "https://git.spip.net/spip/svp.git",
-        "branch": "spip-3.2"
+        "branch": "spip-3.2",
+        "tag": "v1.3.13"
     },
     "textwheel": {
         "path": "plugins-dist/textwheel",
         "source": "https://git.spip.net/spip/textwheel.git",
-        "branch": "spip-3.2"
+        "branch": "spip-3.2",
+        "tag": "v1.5.7"
     },
     "urls_etendues": {
         "path": "plugins-dist/urls_etendues",
         "source": "https://git.spip.net/spip/urls_etendues.git",
-        "branch": "spip-3.2"
+        "branch": "spip-3.2",
+        "tag": "v2.1.10"
     },
     "vertebres": {
         "path": "plugins-dist/vertebres",
         "source": "https://git.spip.net/spip/vertebres.git",
-        "branch": "spip-3.2"
+        "branch": "spip-3.2",
+        "tag": "v1.3.3"
     },
     "dist": {
         "path": "squelettes-dist",
         "source": "https://git.spip.net/spip/dist.git",
-        "branch": "spip-3.2"
+        "branch": "spip-3.2",
+        "tag": "v3.2.5"
     }
 }
