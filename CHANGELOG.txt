@@ -1,6 +1,7 @@
-SPIP-Core v4.0.3 -> v4.0.4 (02 Févirer 2022)
+SPIP-Core v4.0.3 -> v4.0.4 (02 Février 2022)
 ---------------------------------------------
 
+e6fa21e8c | cedric       | 2022-02-02 | Suite de f38e4b52b 9eeafbb4d et 34710be47 : le login n'est jamais poste dans 'login' (ce qui est un cas d'erreur donc)..
 b93f4f9e1 | jamesrezo    | 2022-01-26 | feat(header_silencieux) : ajout et application du filtre |header_silencieux (#5010)
 
 
