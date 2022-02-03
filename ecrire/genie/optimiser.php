@@ -124,7 +124,7 @@ function optimiser_base_une_table() {
  *     Nom de la table SQL, exemple : spip_articles
  * @param string $id
  *     Nom de la clé primaire de la table, exemple : id_article
- * @param Resource $sel
+ * @param Object $sel
  *     Ressource SQL issue d'une sélection (sql_select) et contenant une
  *     colonne 'id' ayant l'identifiant de la clé primaire à supprimer
  * @param string $and
