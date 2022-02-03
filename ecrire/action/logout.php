@@ -62,7 +62,7 @@ function action_logout_dist() {
 			$texte = bouton_action(_T('spip:icone_deconnecter'), $action);
 			$texte = "<div class='boutons'>$texte</div>";
 			$texte .= '<script type="text/javascript">document.write("<style>body{visibility:hidden;}</style>");window.document.forms[0].submit();</script>';
-			$res = minipres(_T('spip:icone_deconnecter'), $texte, '', true);
+			$res = minipres(_T('spip:icone_deconnecter'), $texte, ['all_inline' => true]);
 			echo $res;
 
 			return;
