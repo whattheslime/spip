@@ -267,7 +267,7 @@ function minipipe($fonc, &$val) {
  *
  * @param string $action
  *     Nom du pipeline
- * @param null|string|array $val
+ * @param mixed $val
  *     Données à l’entrée du pipeline
  * @return mixed|null
  *     Résultat
