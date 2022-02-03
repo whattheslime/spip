@@ -124,15 +124,6 @@ function plugin_bouton_config($nom, $infos, $dir) {
 		);
 	}
 
-	// si le plugin CFG est la, l'essayer
-	if (defined('_DIR_PLUGIN_CFG')) {
-		if (include_spip('inc/cfg')) { // test CFG version >= 1.0.5
-		if ($cfg = icone_lien_cfg("$dir$nom", 'cfg')) {
-				return "<div class='cfg_link'>$cfg</div>";
-		}
-		}
-	}
-
 	// sinon prendre le squelette std sur le nom std
 	return recuperer_fond(
 		'prive/squelettes/inclure/cfg',
