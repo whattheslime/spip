@@ -110,7 +110,7 @@ function menu_lang_pour_tous($nom, $default) {
 
 	# lien a partir de /
 	$cible = parametre_url(self(), 'lang', '', '&');
-	$post = generer_url_action('converser', 'redirect=' . rawurlencode($cible), '&');
+	$post = generer_url_action('converser', 'redirect=' . rawurlencode($cible), true);
 
 	return [
 		'formulaires/menu_lang',
