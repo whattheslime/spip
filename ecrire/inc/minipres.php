@@ -32,7 +32,7 @@ include_spip('inc/texte'); //inclue inc/lang et inc/filtres
  * @uses utiliser_langue_visiteur()
  * @uses http_no_cache()
  * @uses html_lang_attributes()
- * @uses compacte() si le plugin compresseur est présent
+ * @uses minifier() si le plugin compresseur est présent
  * @uses url_absolue_css()
  *
  * @param string $titre
@@ -66,8 +66,8 @@ function install_debut_html($titre = 'AUTO', $onLoad = '', $all_inline = false) 
 		// inliner les CSS (optimisation de la page minipres qui passe en un seul hit a la demande)
 		foreach ($files as $name) {
 			$file = direction_css(find_in_theme($name));
-			if (function_exists('compacte')) {
-				$file = compacte($file);
+			if (function_exists('minifier')) {
+				$file = minifier($file);
 			} else {
 				$file = url_absolue_css($file); // precaution
 			}
