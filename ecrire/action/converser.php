@@ -69,7 +69,7 @@ function action_converser_changer_langue($update_session) {
 				]);
 			}
 		}
-		action_converser_post($lang, 'spip_lang_ecrire');
+		action_converser_post($lang, true);
 	}
 
 	return $lang;
