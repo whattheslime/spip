@@ -29,9 +29,9 @@ if (!defined('_ECRIRE_INC_VERSION')) {
 class IterateurSQL implements Iterator {
 
 	/**
-	 * ressource sql
+	 * Ressource sql
 	 *
-	 * @var resource|bool
+	 * @var Object|bool
 	 */
 	protected $sqlresult = false;
 
