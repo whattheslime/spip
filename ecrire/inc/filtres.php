@@ -5455,8 +5455,8 @@ function sinon_interdire_acces($ok = false, $url = '', $statut = 0, $message = n
  * @return string
  */
 function filtre_compacte_dist($source, $format = null) {
-	if (function_exists('compacte')) {
-		return compacte($source, $format);
+	if (function_exists('minifier')) {
+		return minifier($source, $format);
 	}
 
 	return $source;
