@@ -88,6 +88,10 @@ function essais_connect_sql_query_echappe_textes(){
 		0 => array('UPDATE spip_truc SET html=%1$s, texte=%2$s WHERE id_truc=1', array("'''0'' style=''margin: 0;padding: 0;width: 100\x4@#{$md5}#@\x4;border: 0;height: auto;lin'", "'toto'")),
 		1 => "UPDATE spip_truc SET html='''0'' style=''margin: 0;padding: 0;width: 100%;border: 0;height: auto;lin', texte='toto' WHERE id_truc=1",
 	),
+	array(
+		0 => array('UPDATE spip_truc SET texte=%1$s, html=%2$s WHERE id_truc=1', array("''", "'''0'' style=''margin: 0;padding: 0;width: 100\x4@#{$md5}#@\x4;border: 0;height: auto;lin'")),
+		1 => "UPDATE spip_truc SET texte='', html='''0'' style=''margin: 0;padding: 0;width: 100%;border: 0;height: auto;lin' WHERE id_truc=1",
+	),
 );
 		return $essais;
 	}
