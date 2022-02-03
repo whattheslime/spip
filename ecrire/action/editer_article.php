@@ -460,7 +460,7 @@ function editer_article_heritage($id_article, $id_rubrique, $statut, $champs, $c
 	if ($cond) {
 		include_spip('inc/rubriques');
 		$postdate = ($GLOBALS['meta']['post_dates'] == 'non' and isset($champs['date']) and (strtotime($champs['date']) < time())) ? $champs['date'] : false;
-		calculer_rubriques_if($id_rubrique, $champs, $statut, $postdate);
+		calculer_rubriques_if($id_rubrique, $champs, ['statut_ancien' => $statut], $postdate);
 	}
 }
 

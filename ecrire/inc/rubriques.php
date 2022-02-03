@@ -78,8 +78,7 @@ function calculer_rubriques_if($id_rubrique, $modifs, $infos = [], $postdate = f
 				break; // stop on a trouvé le bon champ
 			}
 		}
-	}
-	else {
+	} else {
 		$statuts_publies = ['publie'];
 	}
 
@@ -107,8 +106,9 @@ function calculer_rubriques_if($id_rubrique, $modifs, $infos = [], $postdate = f
 		}
 	}
 
-	if ($neuf) { // Sauver la date de la derniere mise a jour (pour menu_rubriques)
-	ecrire_meta('date_calcul_rubriques', date('U'));
+	if ($neuf) { 
+		// Sauver la date de la derniere mise a jour (pour menu_rubriques)
+		ecrire_meta('date_calcul_rubriques', date('U'));
 	}
 
 	$langues = calculer_langues_utilisees();

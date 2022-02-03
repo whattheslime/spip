@@ -265,7 +265,7 @@ function rubrique_instituer($id_rubrique, $c) {
 
 				// Deplacement d'une rubrique publiee ==> chgt general de leur statut
 				if ($statut_ancien == 'publie') {
-					calculer_rubriques_if($old_parent, ['id_rubrique' => $id_parent], $statut_ancien);
+					calculer_rubriques_if($old_parent, ['id_rubrique' => $id_parent], ['statut_ancien' => $statut_ancien]);
 				}
 				// Creation ou deplacement d'une rubrique non publiee
 				// invalider le cache de leur menu
