@@ -187,8 +187,9 @@ function balise_FORMULAIRE__dyn($form, ...$args) {
  *     Nom du formulaire
  * @param array $args
  *     Arguments envoyés à l'appel du formulaire
- * @return array
- *     Contexte d'environnement à envoyer au squelette
+ * @return array|string
+ *     array: Contexte d'environnement à envoyer au squelette
+ *     string: Formulaire non applicable (message d’explication)
  **/
 function balise_FORMULAIRE__contexte($form, $args) {
 	// tester si ce formulaire vient d'etre poste (memes arguments)
