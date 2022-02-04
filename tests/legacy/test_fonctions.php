@@ -229,7 +229,8 @@ function tests_legacy_lister($extension=null) {
 		$tests = preg_files($base .= '/', '/\w+/.*\.('.$extension.')$');
 
 		foreach ($tests as $test) {
-			if (strlen($t=_request('rech')) && (strpos($test, $t)===false))
+			$t = (string) _request('rech');
+			if (strlen($t) && (strpos($test, $t)===false))
 		 		continue;
 
 			//ignorer le contenu du jeu de squelettes dédié aux tests
