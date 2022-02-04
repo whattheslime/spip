@@ -942,7 +942,7 @@ function fichier_copie_locale($source) {
  *     Taille maximum du fichier à télécharger
  * @param bool $charger_si_petite_image
  *     Pour télécharger le document s'il est petit
- * @return array
+ * @return array|false
  *     Couples des informations obtenues parmis :
  *
  *     - 'body' = chaine

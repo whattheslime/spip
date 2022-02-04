@@ -29,7 +29,7 @@ include_spip('inc/config');
  * Proposer un chargement par defaut pour les #FORMULAIRE_CONFIGURER_XXX
  *
  * @param array $flux
- * @return array
+ * @return array|false
  */
 function cvtconf_formulaire_charger($flux) {
 	if (

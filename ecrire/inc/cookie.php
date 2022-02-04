@@ -24,7 +24,7 @@ if (!defined('_ECRIRE_INC_VERSION')) {
 /**
  * Place un cookie (préfixé) sur le poste client
  *
- * @global cookie_prefix Préfixe de cookie défini
+ * @global string cookie_prefix Préfixe de cookie défini
  * @link http://fr.php.net/setcookie
  *
  * @param string $name

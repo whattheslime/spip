@@ -22,7 +22,7 @@ if (!defined('_ECRIRE_INC_VERSION')) {
 /**
  * Cherche le logo d'un élément d'objet
  *
- * @global formats_logos Extensions possibles des logos
+ * @global array formats_logos Extensions possibles des logos
  * @uses type_du_logo()
  *
  * @param int $id
