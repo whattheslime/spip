@@ -1,11 +1,6 @@
 parameters:
 	ignoreErrors:
 		-
-			message: "#^Function spip_connect_db\\(\\) should return array but return statement is missing\\.$#"
-			count: 1
-			path: ecrire/base/connect_sql.php
-
-		-
 			message: "#^Array has 2 duplicate keys with value 350 \\(350, 350\\)\\.$#"
 			count: 1
 			path: ecrire/charsets/translit.php
@@ -101,6 +96,11 @@ parameters:
 			path: ecrire/inc/filtres_ecrire.php
 
 		-
+			message: "#^Class GdImage not found\\.$#"
+			count: 1
+			path: ecrire/inc/filtres_images_lib_mini.php
+
+		-
 			message: "#^Function statut_effacer_images_temporaires\\(\\) should return bool but return statement is missing\\.$#"
 			count: 1
 			path: ecrire/inc/filtres_images_lib_mini.php
@@ -179,11 +179,6 @@ parameters:
 			message: "#^Access to an undefined property IterateurSQL\\:\\:\\$type\\.$#"
 			count: 1
 			path: ecrire/iterateur/sql.php
-
-		-
-			message: "#^Function icone_lien_cfg not found\\.$#"
-			count: 1
-			path: ecrire/plugins/afficher_plugin.php
 
 		-
 			message: "#^Function inclure_balise_dynamique\\(\\) should return string but return statement is missing\\.$#"
