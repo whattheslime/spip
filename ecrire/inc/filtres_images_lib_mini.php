@@ -1884,7 +1884,7 @@ class phpthumb_functions {
 	/**
 	 * Retourne la couleur d'un pixel dans une image
 	 *
-	 * @param ressource $img
+	 * @param resource|GdImage $img
 	 * @param int $x
 	 * @param int $y
 	 * @return array|bool
