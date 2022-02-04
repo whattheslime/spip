@@ -3482,7 +3482,7 @@ function recuperer_fond($fond, $contexte = [], $options = [], string $connect = 
 		if (isset($options['raw']) and $options['raw']) {
 			$pages[] = $page;
 		} else {
-			$texte .= $options['trim'] ? rtrim($page['texte']) : $page['texte'];
+			$texte .= $options['trim'] ? rtrim($page['texte'] ?? '') : $page['texte'];
 		}
 
 		// contamination de la session appelante, pour les inclusions statiques

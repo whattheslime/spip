@@ -2866,7 +2866,7 @@ function balise_LARGEUR_ECRAN_dist($p) {
  **/
 function balise_CONST_dist($p) {
 	$_const = interprete_argument_balise(1, $p);
-	if (!strlen($_const)) {
+	if (!strlen($_const ?? '')) {
 		$p->code = "''";
 	}
 	else {

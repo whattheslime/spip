@@ -2820,7 +2820,7 @@ function form_hidden(?string $action = ''): string {
 		foreach (preg_split('/&(amp;)?/S', substr($action, $p + 1)) as $c) {
 			$c = explode('=', $c, 2);
 			$var = array_shift($c);
-			$val = array_shift($c);
+			$val = array_shift($c) ?? '';
 			if ($var) {
 				$val = rawurldecode($val);
 				$var = rawurldecode($var); // decoder les [] eventuels

@@ -196,6 +196,7 @@ function invalideur_session(&$Cache, $code = null) {
 function analyse_resultat_skel($nom, $cache, $corps, $source = '') {
 	static $filtres = [];
 	$headers = [];
+	$corps ??= '';
 
 	// Recupere les < ?php header('Xx: y'); ? > pour $page['headers']
 	// note: on essaie d'attrapper aussi certains de ces entetes codes
