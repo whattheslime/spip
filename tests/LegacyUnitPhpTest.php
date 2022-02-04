@@ -56,7 +56,8 @@ class LegacyUnitPhpTest extends TestCase {
 		$output = [];
 		$returnCode = 0;
 		chdir(__DIR__ . '/legacy');
-		exec("/usr/bin/env php \"$realPath\" mode=test_general", $output, $returnCode);
+		$php = PHP_BINARY;
+		exec("$php \"$realPath\" mode=test_general", $output, $returnCode);
 
 		if ($returnCode) {
 			array_unshift($output, 'ReturnCode: '.$returnCode);
