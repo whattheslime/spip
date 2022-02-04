@@ -51,8 +51,9 @@ function balise_MENU_LANG_ECRIRE($p) {
  *   complétés de ceux fournis à la balise
  * @param array $context_compil
  *   Tableau d'informations sur la compilation
- * @return array
- *   Liste (lang) des arguments collectés et fournis.
+ * @return array|string
+ *   - array: Liste (lang) des arguments collectés et fournis.
+ *   - string: Si pas de multilinguisme
  */
 function balise_MENU_LANG_ECRIRE_stat($args, $context_compil) {
 	include_spip('inc/lang');

@@ -127,8 +127,8 @@ function admin_plug_args($quoi, $erreur, $format) {
 	}
 
 	// la mise a jour de cette meta a ete faite par ecrire_plugin_actifs
-	$actifs = unserialize($GLOBALS['meta']['plugin']);
-	$lcpa = $actifs + unserialize($GLOBALS['meta']['plugin_attente']);
+	$actifs = (array) unserialize($GLOBALS['meta']['plugin']);
+	$lcpa = $actifs + (array) unserialize($GLOBALS['meta']['plugin_attente']);
 
 	// Les affichages se basent sur le repertoire, pas sur le nom
 	$actifs = liste_chemin_plugin($actifs, '');
