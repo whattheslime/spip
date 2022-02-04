@@ -190,7 +190,7 @@ function liens_absolus($texte, $base = '') {
 		}
 		foreach ($liens as $lien) {
 			foreach (['href', 'src'] as $attr) {
-				$href = extraire_attribut($lien[0], $attr);
+				$href = extraire_attribut($lien[0], $attr) ?? '';
 				if (strlen($href) > 0) {
 					if (!preg_match(';^((?:[a-z]{3,7}:)?//);iS', $href)) {
 						$abs = url_absolue($href, $base);

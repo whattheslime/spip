@@ -120,7 +120,7 @@ function filtre_text_dist($t) {
 	static $t1 = ['&', '<', '>'];
 	static $t2 = ['&amp;', '&lt;', '&gt;'];
 
-	return '<pre>' . str_replace($t1, $t2, $t) . '</pre>';
+	return '<pre>' . str_replace($t1, $t2, (string) $t) . '</pre>';
 }
 
 /**
