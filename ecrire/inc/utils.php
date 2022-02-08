@@ -532,8 +532,8 @@ function spip_sanitize_from_request($value, $key, $sanitize_function = 'entites_
  * @return bool
  */
 function tester_url_absolue($url) {
-	$url = trim($url);
-	if (preg_match(';^([a-z]{3,7}:)?//;Uims', $url, $m)) {
+	$url = trim($url ?? '');
+	if ($url && preg_match(';^([a-z]{3,7}:)?//;Uims', $url, $m)) {
 		if (
 			isset($m[1])
 			and $p = strtolower(rtrim($m[1], ':'))

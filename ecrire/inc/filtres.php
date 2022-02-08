@@ -1217,7 +1217,7 @@ function liens_nofollow($texte) {
 
 	if (preg_match_all(",<a\b[^>]*>,UimsS", $texte, $regs, PREG_PATTERN_ORDER)) {
 		foreach ($regs[0] as $a) {
-			$rel = extraire_attribut($a, 'rel');
+			$rel = extraire_attribut($a, 'rel') ?? '';
 			if (strpos($rel, 'nofollow') === false) {
 				$rel = 'nofollow' . ($rel ? " $rel" : '');
 				$anofollow = inserer_attribut($a, 'rel', $rel);
