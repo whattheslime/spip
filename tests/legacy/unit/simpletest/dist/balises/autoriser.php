@@ -40,10 +40,11 @@ class Test_balise_autoriser extends SpipTest{
 
 	function testAutoriserVerifAuteur(){
 		function autoriser_moimeme($faire, $type, $id, $qui, $opt){
-			if (!$id)
-				return ($qui['id_auteur'] == $GLOBALS['visiteur_session']['id_auteur']);
-			else
-				return ($id == $qui['id_auteur']);
+			if (!$id) {
+				return ($qui['id_auteur'] === $GLOBALS['visiteur_session']['id_auteur']);
+			} else {
+				return ($id === $qui['id_auteur']);
+			}
 		}
 		$this->assertTrue(autoriser('moimeme'));
 		$this->assertTrue(autoriser('moimeme','',$GLOBALS['visiteur_session']['id_auteur']));
