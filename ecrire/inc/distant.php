@@ -1317,10 +1317,8 @@ function lance_requete(
 		}
 		$t2 = @parse_url($http_proxy);
 		$first_host = $t2['host'];
-		if (!($port = $t2['port'])) {
-			$port = 80;
-		}
-		if ($t2['user']) {
+		$port = ($t2['port'] ?? null) ?: 80;
+		if ($t2['user'] ?? null) {
 			$proxy_user = base64_encode($t2['user'] . ':' . $t2['pass']);
 		}
 	} else {

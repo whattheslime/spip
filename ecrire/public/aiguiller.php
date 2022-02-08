@@ -14,7 +14,12 @@ if (!defined('_ECRIRE_INC_VERSION')) {
 	return;
 }
 
+/**
+ * @param string $redirect
+ * @return string
+ */
 function securiser_redirect_action($redirect) {
+	$redirect ??= '';
 	// cas d'un double urlencode : si un urldecode de l'url n'est pas secure, on retient ca comme redirect
 	if (strpos($redirect, '%') !== false) {
 		$r2 = urldecode($redirect);
