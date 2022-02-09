@@ -239,7 +239,7 @@ de las carpetas mencionadas. El procedimiento se explica detalladamente en la gu
 	'etape' => 'Etapa',
 
 	// F
-	'fichier_introuvable' => 'No se encuentra el archivo @fichier@',
+	'fichier_introuvable' => 'No se encuentra el archivo @fichier@', # MODIF
 	'form_auteur_confirmation' => 'Confirma tu dirección de correo',
 	'form_auteur_email_modifie' => 'Tu dirección de correo fue modificada',
 	'form_auteur_envoi_mail_confirmation' => 'Se te acaba de enviar un mensaje de confirmación a @email@. Tienes que visitar la página web indicada en ese mensaje para validar tu dirección de correo.',

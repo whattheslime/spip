@@ -208,7 +208,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'envoi_via_le_site' => '通过本网站发送',
 
 	// F
-	'fichier_introuvable' => '找不到@fichier@文件',
+	'fichier_introuvable' => '找不到@fichier@文件', # MODIF
 	'form_deja_inscrit' => '您已注册.',
 	'form_email_non_valide' => '您的电子邮件无效.',
 	'form_forum_access_refuse' => '您无权继续访问该站点.',

@@ -203,7 +203,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'etape' => 'Etapp',
 
 	// F
-	'fichier_introuvable' => 'Fil som inte kunde hittas: @fichier@',
+	'fichier_introuvable' => 'Fil som inte kunde hittas: @fichier@', # MODIF
 	'form_auteur_confirmation' => 'Bekräfta din e-postadress',
 	'form_auteur_email_modifie' => 'Din e-postadress är nu ändrad.',
 	'form_auteur_envoi_mail_confirmation' => 'En bekräftelse har skickats med e-post till @email@. Klicka på den länk som du hittar i detta meddelande för att bekräfta din e-postadress.',

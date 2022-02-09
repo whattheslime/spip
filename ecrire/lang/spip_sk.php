@@ -239,7 +239,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'etape' => 'Etapa',
 
 	// F
-	'fichier_introuvable' => 'Súbor @fichier@ sa nenašiel',
+	'fichier_introuvable' => 'Súbor @fichier@ sa nenašiel', # MODIF
 	'form_auteur_confirmation' => 'Prosím, potvrďte svoju e-mailovú adresu',
 	'form_auteur_email_modifie' => 'Vaša e-mailová adresa sa zmenila.',
 	'form_auteur_envoi_mail_confirmation' => 'Na adresu @email@ bol odoslaný potvrdzovací e-mail. Musíte navštíviť stránku uvedenú v správe a potvrdiť tak svoju e-mailovú adresu.',

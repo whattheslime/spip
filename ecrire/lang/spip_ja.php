@@ -235,7 +235,7 @@ http://mysite.com、あるいは単純にこのサイトの記事番号を与え
 	'etape' => '階',
 
 	// F
-	'fichier_introuvable' => 'ファイル@fichier@は見つからない。',
+	'fichier_introuvable' => 'ファイル@fichier@は見つからない。', # MODIF
 	'form_auteur_confirmation' => 'メールアドレスを確認してください。',
 	'form_auteur_email_modifie' => 'メールアドレスは変更されました。',
 	'form_auteur_envoi_mail_confirmation' => '@email@に確認メールが送信されました。 このメールに記載されているウェブアドレスにアクセスしてから、登録されたメールアドレスを確認してください。',

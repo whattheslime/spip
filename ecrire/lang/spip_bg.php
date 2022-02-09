@@ -178,7 +178,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'envoi_via_le_site' => 'Изпращане през сайта',
 
 	// F
-	'fichier_introuvable' => 'Файлът: @fichier@ не бе намерен',
+	'fichier_introuvable' => 'Файлът: @fichier@ не бе намерен', # MODIF
 	'form_deja_inscrit' => 'Вече сте регистриран(а).',
 	'form_email_non_valide' => 'Неалиден електронен адрес.',
 	'form_forum_access_refuse' => 'Преустановен достъп до сайта',

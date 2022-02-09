@@ -235,7 +235,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'etape' => 'Etapa',
 
 	// F
-	'fichier_introuvable' => 'Fitxer @fichier@ introbable',
+	'fichier_introuvable' => 'Fitxer @fichier@ introbable', # MODIF
 	'form_auteur_confirmation' => 'Confirmeu el vostre correu electrònic',
 	'form_auteur_email_modifie' => 'El vostre correu electrònic s’ha modificat.',
 	'form_auteur_envoi_mail_confirmation' => 'Us acabem d’enviar un correu electrònic de confirmació a @email@. Per validar la vostra adreça de correu electrònic, haureu de visitar l’adreça Web esmentada en aquest correu.',

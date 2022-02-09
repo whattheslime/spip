@@ -241,7 +241,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'etape' => 'Pazenn',
 
 	// F
-	'fichier_introuvable' => 'Restr @fichier@ dibosupl da gavout',
+	'fichier_introuvable' => 'Restr @fichier@ dibosupl da gavout', # MODIF
 	'form_auteur_confirmation' => 'Gwirekait ho postel',
 	'form_auteur_email_modifie' => 'Ho postel a zo bet kemmet.',
 	'form_auteur_envoi_mail_confirmation' => 'Ur postel a wiriekadur a zo paouez bezañ kaset da @email@.  Ret eo deoc’h mont da welet ar chomlec’h merket e-barzh al lizher-se evit gwiriekaat ho postel.',

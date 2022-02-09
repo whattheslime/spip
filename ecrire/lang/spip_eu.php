@@ -235,7 +235,7 @@ Eragiketa hori egin eta gero, gauza izango zara',
 	'etape' => 'Etapa',
 
 	// F
-	'fichier_introuvable' => '@fichier@ aurkitzeko moduan ez dagoen artxiboa',
+	'fichier_introuvable' => '@fichier@ aurkitzeko moduan ez dagoen artxiboa', # MODIF
 	'form_auteur_confirmation' => 'Zure helbide elektronikoa baiezta ezazu',
 	'form_auteur_email_modifie' => 'Zure helbide elektronikoa aldatu da.',
 	'form_auteur_envoi_mail_confirmation' => 'Baieztapen e-maila bat bidalia izan da  @email@ helbidera. Mezu hartan idatzitako helbidea bisitatu beharku duzu zure helbidea baieztatzeko.',

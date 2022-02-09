@@ -239,7 +239,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'etape' => 'Etappe',
 
 	// F
-	'fichier_introuvable' => 'Bestand @fichier@ onvindbaar',
+	'fichier_introuvable' => 'Bestand @fichier@ onvindbaar', # MODIF
 	'form_auteur_confirmation' => 'Gelieve je e-mail adres te bevestigen',
 	'form_auteur_email_modifie' => 'Je e-mail adres is veranderd',
 	'form_auteur_envoi_mail_confirmation' => 'Een bevestigingsmail werd verstuurd naar @email@. Klik op de URL in de e-mail om je e-mailadres te bevestigen.',

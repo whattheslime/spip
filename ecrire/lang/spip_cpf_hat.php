@@ -200,7 +200,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'envoi_via_le_site' => 'Voye ek sit-la',
 
 	// F
-	'fichier_introuvable' => 'Oken fisyé @fichier@ konsa',
+	'fichier_introuvable' => 'Oken fisyé @fichier@ konsa', # MODIF
 	'form_deja_inscrit' => 'W se deja enskri.',
 	'form_email_non_valide' => 'Ladrès limèl ou se pa bon.',
 	'form_forum_access_refuse' => 'W pli ap gen lakse sou sit-la.',

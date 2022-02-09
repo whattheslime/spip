@@ -202,7 +202,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'erreur_texte' => 'hiba',
 
 	// F
-	'fichier_introuvable' => 'A(z) @fichier@ fájl nem található',
+	'fichier_introuvable' => 'A(z) @fichier@ fájl nem található', # MODIF
 	'form_deja_inscrit' => 'Ön már regisztrált.',
 	'form_email_non_valide' => 'A megadott e-mail cím érvénytelen.',
 	'form_forum_access_refuse' => 'Önnek már nincs hozzáférése ehhez az oldalhoz.',

@@ -238,7 +238,7 @@ Verifique se as maiúsculas e minúsuculas destes diretórios coincidem exatamen
 	'etape' => 'Etapa',
 
 	// F
-	'fichier_introuvable' => 'Arquivo @fichier@ não encontrado',
+	'fichier_introuvable' => 'Arquivo @fichier@ não encontrado', # MODIF
 	'form_auteur_confirmation' => 'Confirme o seu endereço de e-mail',
 	'form_auteur_email_modifie' => 'O seu endereço de e-mail foi alterado.',
 	'form_auteur_envoi_mail_confirmation' => 'Uma mensagem de confirmação acabou de ser enviada para @email@. Você precisa entrar no endereço web mencionado na mensagem para validar o seu endereço de e-mail.',

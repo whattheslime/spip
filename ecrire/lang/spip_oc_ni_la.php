@@ -173,7 +173,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'envoi_via_le_site' => 'Mandadís embau biais dau sit web',
 
 	// F
-	'fichier_introuvable' => 'Non s’es pogut trobar lo fichier @fichier@.',
+	'fichier_introuvable' => 'Non s’es pogut trobar lo fichier @fichier@.', # MODIF
 	'form_deja_inscrit' => 'Siatz ja inscrich(a).',
 	'form_email_non_valide' => 'La vòstra adreiça e-mail non es valida.',
 	'form_forum_access_refuse' => 'Podètz pus accedir a aqueu sit.',

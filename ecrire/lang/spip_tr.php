@@ -202,7 +202,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'etape' => 'Aşama',
 
 	// F
-	'fichier_introuvable' => '@fichier@ dosyası bulunamadı',
+	'fichier_introuvable' => '@fichier@ dosyası bulunamadı', # MODIF
 	'form_deja_inscrit' => 'Zaten kayıtlısınız.',
 	'form_email_non_valide' => 'E-posta adresiniz geçersiz.',
 	'form_forum_access_refuse' => 'Artık bu siteye erişim izniniz yok.',

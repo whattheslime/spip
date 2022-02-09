@@ -227,7 +227,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'etape' => 'Etapă',
 
 	// F
-	'fichier_introuvable' => 'Fişier @fichier@ de negăsit',
+	'fichier_introuvable' => 'Fişier @fichier@ de negăsit', # MODIF
 	'form_auteur_confirmation' => 'Confirmaţi adresa dumneavoastră de email',
 	'form_auteur_email_modifie' => 'Adresa dumneavoastră de email a fost modificată.',
 	'form_auteur_envoi_mail_confirmation' => 'Un email de confirmare a fost trimis la @email@. Trebuie să vizitaţi adresa de web menţionată în email pentru a valida adresa de email.',
