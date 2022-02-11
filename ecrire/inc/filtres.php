@@ -1721,7 +1721,7 @@ function extraire_idiome($letexte, $lang = null, $options = []) {
 			$desc = $traduire($cle, $lang, true);
 			$l = $desc->langue;
 			// si pas de traduction, on laissera l'écriture de l'idiome entier dans le texte.
-			if (strlen($desc->texte)) {
+			if (strlen($desc->texte ?? '')) {
 				$trad = code_echappement($desc->texte, 'idiome', false);
 				if ($l !== $lang) {
 					$trad = str_replace("'", '"', inserer_attribut($trad, 'lang', $l));
