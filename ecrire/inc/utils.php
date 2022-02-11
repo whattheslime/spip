@@ -2948,41 +2948,6 @@ function spip_initialisation_suite() {
 		);
 	}
 
-	if (!defined('_MEMORY_LIMIT_MIN')) {
-		define('_MEMORY_LIMIT_MIN', 16);
-	} // en Mo
-	// si on est dans l'espace prive et si le besoin est superieur a 8Mo (qui est vraiment le standard)
-	// on verifie que la memoire est suffisante pour le compactage css+js pour eviter la page blanche
-	// il y aura d'autres problemes et l'utilisateur n'ira pas tres loin, mais ce sera plus comprehensible qu'une page blanche
-	if (test_espace_prive() and _MEMORY_LIMIT_MIN > 8) {
-		if ($memory = trim(ini_get('memory_limit')) and $memory != -1) {
-			$unit = strtolower(substr($memory, -1));
-			$memory = substr($memory, 0, -1);
-			switch ($unit) {
-				// Le modifieur 'G' est disponible depuis PHP 5.1.0
-				case 'g':
-					$memory *= 1024;
-				case 'm':
-					$memory *= 1024;
-				case 'k':
-					$memory *= 1024;
-			}
-			if ($memory < _MEMORY_LIMIT_MIN * 1024 * 1024) {
-				if (function_exists('ini_set')) {
-					@ini_set('memory_limit', $m = _MEMORY_LIMIT_MIN . 'M');
-				}
-				if (trim(ini_get('memory_limit')) != $m) {
-					if (!defined('_INTERDIRE_COMPACTE_HEAD_ECRIRE')) {
-						define('_INTERDIRE_COMPACTE_HEAD_ECRIRE', true);
-					} // evite une page blanche car on ne saura pas calculer la css dans ce hit
-				}
-			}
-		} else {
-			if (!defined('_INTERDIRE_COMPACTE_HEAD_ECRIRE')) {
-				define('_INTERDIRE_COMPACTE_HEAD_ECRIRE', true);
-			}
-		} // evite une page blanche car on ne saura pas calculer la css dans ce hit
-	}
 	// Protocoles a normaliser dans les chaines de langues
 	if (!defined('_PROTOCOLES_STD')) {
 		define('_PROTOCOLES_STD', 'http|https|ftp|mailto|webcal');
