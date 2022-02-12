@@ -206,20 +206,6 @@ function echappe_html(
 		return $letexte;
 	}
 
-	// si le texte recu est long PCRE risque d'exploser, on
-	// fait donc un mic-mac pour augmenter pcre.backtrack_limit
-	if (function_exists('ini_set')) {
-		if (($len = strlen($letexte)) > 100000) {
-			if (!$old = @ini_get('pcre.backtrack_limit')) {
-				$old = 100000;
-			}
-			if ($len > $old) {
-				@ini_set('pcre.backtrack_limit', $len);
-				spip_log("ini_set pcre.backtrack_limit=$len ($old)");
-			}
-		}
-	}
-
 	if (
 		($preg or strpos($letexte, '<') !== false)
 		and preg_match_all($preg ?: _PROTEGE_BLOCS, $letexte, $matches, PREG_SET_ORDER)
