@@ -101,7 +101,7 @@ function chercher_module_lang($module, $lang = '') {
  *
  * @param string $lang Code de langue
  * @param string $module Nom du module de langue
- * @return string Langue du module chargé, sinon chaîne vide.
+ * @return void
  **/
 function charger_langue($lang, $module = 'spip') {
 	static $langs = [];
@@ -121,7 +121,7 @@ function charger_langue($lang, $module = 'spip') {
 	foreach ($langs[$lang] as $l) {
 		if ($fichiers_lang = chercher_module_lang($module, $l)) {
 			$GLOBALS['idx_lang'] = 'i18n_' . $module . '_' . $l;
-			include(array_shift($fichiers_lang));
+			$GLOBALS[$GLOBALS['idx_lang']] = lire_fichier_langue(array_shift($fichiers_lang));
 			surcharger_langue($fichiers_lang);
 			if ($l !== $lang) {
 				$GLOBALS[$var] = &$GLOBALS['i18n_' . $module . '_' . $l];
@@ -131,6 +131,33 @@ function charger_langue($lang, $module = 'spip') {
 			break;
 		}
 	}
+}
+
+/** 
+ * Retourne les entrées d’un fichier de langue 
+ * 
+ * Les fichiers de langue retournent soit un array [ cle => valeur ],
+ * soit peuplent une globale `$GLOBALS[$GLOBALS['idx_lang']]`.
+ * 
+ * @return string Chemin du fichier de langue (un fichier PHP)
+ * @return array<string, string>
+ */
+function lire_fichier_langue(string $fichier): array {
+	$idx_lang_before = $GLOBALS['idx_lang'] ?? null;
+	$idx_lang_tmp = ($GLOBALS['idx_lang'] ?? 'lang') . '@temporaire';
+	$GLOBALS['idx_lang'] = $idx_lang_tmp;
+	$idx_lang = include $fichier;
+	$GLOBALS['idx_lang'] = $idx_lang_before;
+	if (!is_array($idx_lang)) {
+		if (isset($GLOBALS[$idx_lang_tmp]) and is_array($GLOBALS[$idx_lang_tmp])) {
+			$idx_lang = $GLOBALS[$idx_lang_tmp];
+		} else {
+			$idx_lang = [];
+			spip_log(sprintf('Fichier de langue incorrect : %s', $fichier), _LOG_ERREUR);
+		}
+		unset($GLOBALS[$idx_lang_tmp]);
+	}
+	return $idx_lang;
 }
 
 /**
@@ -163,16 +190,12 @@ function surcharger_langue($fichiers) {
 	}
 	foreach ($fichiers as $fichier) {
 		if (!isset($surcharges[$fichier])) {
-			$idx_lang_normal = $GLOBALS['idx_lang'];
-			$GLOBALS['idx_lang'] = $GLOBALS['idx_lang'] . '@temporaire';
-			include($fichier);
-			$surcharges[$fichier] = $GLOBALS[$GLOBALS['idx_lang']];
-			unset($GLOBALS[$GLOBALS['idx_lang']]);
-			$GLOBALS['idx_lang'] = $idx_lang_normal;
+			$surcharges[$fichier] = lire_fichier_langue($fichier);
 		}
 		if (is_array($surcharges[$fichier])) {
+			$GLOBALS[$GLOBALS['idx_lang']] ??= [];
 			$GLOBALS[$GLOBALS['idx_lang']] = array_merge(
-				(isset($GLOBALS[$GLOBALS['idx_lang']]) ? (array)$GLOBALS[$GLOBALS['idx_lang']] : []),
+				$GLOBALS[$GLOBALS['idx_lang']],
 				$surcharges[$fichier]
 			);
 		}
