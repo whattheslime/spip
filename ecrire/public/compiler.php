@@ -749,12 +749,12 @@ function reconstruire_contexte_compil($context_compil) {
 	}
 	$p = new Contexte();
 	$p->descr = [
-		'sourcefile' => $context_compil[0],
-		'nom' => $context_compil[1]
+		'sourcefile' => $context_compil[0] ?? '',
+		'nom' => $context_compil[1] ?? '',
 	];
-	$p->id_boucle = $context_compil[2];
-	$p->ligne = $context_compil[3];
-	$p->lang = $context_compil[4];
+	$p->id_boucle = $context_compil[2] ?? '';
+	$p->ligne = $context_compil[3] ?? '';
+	$p->lang = $context_compil[4] ?? '';
 
 	return $p;
 }

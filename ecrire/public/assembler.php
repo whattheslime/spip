@@ -411,7 +411,10 @@ function inclure_balise_dynamique($texte, $echo = true, $contexte_compil = []) {
 
 		$GLOBALS['delais'] = $d;
 		// Faire remonter les entetes
-		if (is_array($page['entetes'])) {
+		if (
+			isset($page['entetes'])
+			and is_array($page['entetes'])
+		) {
 			// mais pas toutes
 			unset($page['entetes']['X-Spip-Cache']);
 			unset($page['entetes']['Content-Type']);
