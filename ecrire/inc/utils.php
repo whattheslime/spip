@@ -233,7 +233,7 @@ function include_fichiers_fonctions() {
 function minipipe($fonc, &$val) {
 	// fonction
 	if (function_exists($fonc)) {
-		$val = call_user_func($fonc, $val);
+		$val = $fonc($val);
 	} // Class::Methode
 	else {
 		if (
@@ -241,7 +241,7 @@ function minipipe($fonc, &$val) {
 			and $methode = [$regs[1], $regs[2]]
 			and is_callable($methode)
 		) {
-			$val = call_user_func($methode, $val);
+			$val = $methode($val);
 		} else {
 			spip_log("Erreur - '$fonc' non definie !");
 		}

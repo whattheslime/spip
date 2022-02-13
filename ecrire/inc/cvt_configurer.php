@@ -96,7 +96,7 @@ function cvtconf_formulaires_configurer_enregistre($form, $args) {
 	// ce qui permet de prendre en charge une fonction charger() existante
 	// qui prend alors la main sur l'auto detection
 	if ($charger_valeurs = charger_fonction('charger', "formulaires/$form/", true)) {
-		$valeurs = call_user_func_array($charger_valeurs, $args);
+		$valeurs = $charger_valeurs(...$args);
 	}
 	$valeurs = pipeline(
 		'formulaire_charger',

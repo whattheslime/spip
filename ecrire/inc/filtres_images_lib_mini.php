@@ -1081,7 +1081,7 @@ function reconstruire_image_intermediaire($fichier_manquant) {
 		$r = array_pop($reconstruire);
 		$fonction = $r[0];
 		$args = $r[1];
-		call_user_func_array($fonction, $args);
+		$fonction(...$args);
 	}
 	// cette image intermediaire est commune a plusieurs series de filtre, il faut la conserver
 	// mais l'on peut nettoyer les miettes de sa creation

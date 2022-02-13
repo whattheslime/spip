@@ -310,7 +310,7 @@ function queue_start_job($row) {
 			break;
 		default:
 			# plus lent mais completement generique
-			$res = call_user_func_array($fonction, $args);
+			$res = $fonction(...$args);
 	}
 	spip_log('queue [' . $row['id_job'] . "]: $fonction() end", 'queue');
 

@@ -162,7 +162,7 @@ function xml_sax_dist($page, $apply = false, $phraseur = null, $doctype = '', $c
 	if ($apply) {
 		ob_start();
 		if (is_array($apply)) {
-			$r = call_user_func_array($page, $apply);
+			$r = $page(...$apply);
 		} else {
 			$r = $page();
 		}
