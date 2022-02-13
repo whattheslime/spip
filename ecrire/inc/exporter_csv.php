@@ -54,9 +54,9 @@ function exporter_csv_champ($champ) {
  * @param callable $callback
  * @return string
  */
-function exporter_csv_ligne_numerotee($nb, $ligne, $delim = ',', $importer_charset = null, $callback = null) {
+function exporter_csv_ligne_numerotee($nb, $ligne, $delim = ',', $importer_charset = null, ?callable $callback = null) {
 	if ($callback) {
-		$ligne = call_user_func($callback, $nb, $ligne, $delim, $importer_charset);
+		$ligne = $callback($nb, $ligne, $delim, $importer_charset);
 	}
 	$output = join($delim, array_map('exporter_csv_champ', $ligne)) . "\r\n";
 	if ($importer_charset) {

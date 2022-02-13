@@ -353,7 +353,7 @@ function filtrer($filtre) {
 		return image_filtrer($tous);
 	} elseif ($f = chercher_filtre($filtre)) {
 		array_shift($tous);
-		return call_user_func_array($f, $tous);
+		return $f(...$tous);
 	} else {
 		// le filtre n'existe pas, on provoque une erreur
 		$msg = ['zbug_erreur_filtre', ['filtre' => texte_script($filtre)]];
@@ -535,7 +535,7 @@ function image_filtrer($args) {
 		};
 		if ($is_local_file($is_file) or tester_url_absolue($is_file)) {
 			array_unshift($args, "<img src='$is_file' />");
-			$res = call_user_func_array($filtre, $args);
+			$res = $filtre(...$args);
 			statut_effacer_images_temporaires(false); // desactiver pour les appels hors compilo
 			return $res;
 		}
@@ -559,7 +559,7 @@ function image_filtrer($args) {
 					and strpos($class, 'no_image_filtrer') === false)
 			) {
 				array_unshift($args, $tag[3]);
-				if ($reduit = call_user_func_array($filtre, $args)) {
+				if ($reduit = $filtre(...$args)) {
 					// En cas de span spip_documents, modifier le style=...width:
 					if ($tag[1]) {
 						$w = extraire_attribut($reduit, 'width');
@@ -578,7 +578,7 @@ function image_filtrer($args) {
 							$srcover = $match[1];
 							array_shift($args);
 							array_unshift($args, "<img src='" . $match[1] . "' />");
-							$srcover_filter = call_user_func_array($filtre, $args);
+							$srcover_filter = $filtre(...$args);
 							$srcover_filter = extraire_attribut($srcover_filter, 'src');
 							$reduit = str_replace($srcover, $srcover_filter, $reduit);
 						}

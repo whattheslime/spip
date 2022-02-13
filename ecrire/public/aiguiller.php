@@ -253,7 +253,7 @@ function traiter_formulaires_dynamiques($get = false) {
 			'formulaire_verifier',
 			[
 				'args' => ['form' => $form, 'args' => $args],
-				'data' => $verifier ? call_user_func_array($verifier, $args) : []
+				'data' => $verifier ? $verifier(...$args) : []
 			]
 		);
 		// prise en charge CVT multi etape si besoin
@@ -286,7 +286,7 @@ function traiter_formulaires_dynamiques($get = false) {
 		if (isset($post["erreurs_$form"]) and ((is_countable($post["erreurs_$form"]) ? count($post["erreurs_$form"]) : 0) == 0)) {
 			$rev = '';
 			if ($traiter = charger_fonction('traiter', "formulaires/$form/", true)) {
-				$rev = call_user_func_array($traiter, $args);
+				$rev = $traiter(...$args);
 			}
 
 			$rev = pipeline(
@@ -331,8 +331,7 @@ function traiter_formulaires_dynamiques($get = false) {
 			if (find_in_path('formulaire_.php', 'balise/', true)) {
 				include_spip('inc/actions');
 				include_spip('public/assembler');
-				array_unshift($args, $form);
-				$retour .= inclure_balise_dynamique(call_user_func_array('balise_formulaire__dyn', $args), false);
+				$retour .= inclure_balise_dynamique(balise_formulaire__dyn($form, ...$args), false);
 				// on ajoute un br en display none en tete du retour ajax pour regler un bug dans IE6/7
 				// sans cela le formulaire n'est pas actif apres le hit ajax
 				// la classe ajax-form-is-ok sert a s'assurer que le retour ajax s'est bien passe

@@ -344,7 +344,7 @@ function balise_FORMULAIRE__contexte($form, $args) {
  */
 function formulaire__charger($form, $args, $poste) {
 	if ($charger_valeurs = charger_fonction('charger', "formulaires/$form", true)) {
-		$valeurs = call_user_func_array($charger_valeurs, $args);
+		$valeurs = $charger_valeurs(...$args);
 	} else {
 		$valeurs = [];
 	}
@@ -407,7 +407,7 @@ function formulaire__charger($form, $args, $poste) {
  */
 function formulaire__identifier($form, $args, $p) {
 	if ($identifier_args = charger_fonction('identifier', "formulaires/$form", true)) {
-		return call_user_func_array($identifier_args, $args) === call_user_func_array($identifier_args, $p);
+		return $identifier_args(...$args) === $identifier_args(...$p);
 	}
 
 	return $args === $p;

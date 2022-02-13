@@ -238,11 +238,11 @@ function cvtmulti_formulaire_verifier_etapes($args, $erreurs) {
 			$e++;
 			$erreurs_etapes[$e] = [];
 			if ($verifier = charger_fonction("verifier_$e", "formulaires/$form/", true)) {
-				$erreurs_etapes[$e] = call_user_func_array($verifier, $args['args']);
+				$erreurs_etapes[$e] = $verifier(...$args['args']);
 			} elseif ($verifier = charger_fonction('verifier_etape', "formulaires/$form/", true)) {
 				$a = $args['args'];
 				array_unshift($a, $e);
-				$erreurs_etapes[$e] = call_user_func_array($verifier, $a);
+				$erreurs_etapes[$e] = $verifier(...$a);
 			}
 			// et on appelle un pipeline dedie aux etapes, plus easy
 			$args['etape'] = $e;
