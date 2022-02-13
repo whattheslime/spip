@@ -113,7 +113,7 @@ else {
  * @param string $fichier
  * @param Champ $p
  *     Balise créant l'inclusion
- * @param array $_contexte
+ * @param string $_contexte Chaine PHP qui écrira le contexte 'array(...)' 
  * @return string
  */
 function sandbox_composer_inclure_php($fichier, &$p, $_contexte) {
