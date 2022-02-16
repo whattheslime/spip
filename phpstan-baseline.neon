@@ -41,41 +41,6 @@ parameters:
 			path: ecrire/inc/drapeau_edition.php
 
 		-
-			message: "#^Function afficher_diff not found\\.$#"
-			count: 1
-			path: ecrire/inc/editer.php
-
-		-
-			message: "#^Function afficher_para_modifies not found\\.$#"
-			count: 1
-			path: ecrire/inc/editer.php
-
-		-
-			message: "#^Function preparer_diff not found\\.$#"
-			count: 2
-			path: ecrire/inc/editer.php
-
-		-
-			message: "#^Function propre_diff not found\\.$#"
-			count: 1
-			path: ecrire/inc/editer.php
-
-		-
-			message: "#^Function signaler_conflits_edition\\(\\) should return string but return statement is missing\\.$#"
-			count: 1
-			path: ecrire/inc/editer.php
-
-		-
-			message: "#^Instantiated class Diff not found\\.$#"
-			count: 1
-			path: ecrire/inc/editer.php
-
-		-
-			message: "#^Instantiated class DiffTexte not found\\.$#"
-			count: 1
-			path: ecrire/inc/editer.php
-
-		-
 			message: "#^Instantiated class csstidy not found\\.$#"
 			count: 1
 			path: ecrire/inc/filtres.php
