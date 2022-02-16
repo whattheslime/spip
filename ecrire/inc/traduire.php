@@ -295,7 +295,7 @@ function inc_traduire_dist($ori, $lang, $raw = false) {
 		// Retour aux sources si la chaine est absente dans la langue cible ;
 		// on essaie d'abord la langue du site, puis a defaut la langue fr
 		if (
-			($desc->texte === null || !strlen($desc->texte)) 
+			($desc->texte === null || !strlen($desc->texte))
 			and $lang !== _LANGUE_PAR_DEFAUT
 		) {
 			if ($lang !== $GLOBALS['meta']['langue_site']) {

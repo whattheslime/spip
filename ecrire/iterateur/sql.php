@@ -27,7 +27,6 @@ if (!defined('_ECRIRE_INC_VERSION')) {
  * Permet d'itérer sur des données en base de données
  */
 class IterateurSQL implements Iterator {
-
 	/**
 	 * Ressource sql
 	 *
@@ -105,7 +104,7 @@ class IterateurSQL implements Iterator {
 	 *
 	 * @return bool
 	 */
-	public function rewind() : void {
+	public function rewind(): void {
 		if ($this->pos > 0) {
 			$this->seek(0);
 		}
@@ -174,7 +173,7 @@ class IterateurSQL implements Iterator {
 	 *
 	 * @return void
 	 */
-	public function next() : void {
+	public function next(): void {
 		$this->row = sql_fetch($this->sqlresult, $this->command['connect']);
 		$this->pos++;
 		$this->firstseek |= true;

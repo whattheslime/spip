@@ -442,7 +442,7 @@ class IterDecorator extends FilterIterator {
 	}
 
 
-	public function next() : void {
+	public function next(): void {
 		$this->pos++;
 		parent::next();
 	}
@@ -452,7 +452,7 @@ class IterDecorator extends FilterIterator {
 	 *
 	 * @return void
 	 */
-	public function rewind() : void {
+	public function rewind(): void {
 		$this->pos = 0;
 		$this->fetched = 0;
 		parent::rewind();

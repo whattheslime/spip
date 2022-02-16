@@ -213,8 +213,10 @@ function minipres($titre = '', $corps = '', $options = []) {
 				. $corps
 				. install_fin_html();
 
-		if ($GLOBALS['profondeur_url'] >= (_DIR_RESTREINT ? 1 : 2)
-		  and empty($options['all_inline'])) {
+		if (
+			$GLOBALS['profondeur_url'] >= (_DIR_RESTREINT ? 1 : 2)
+			and empty($options['all_inline'])
+		) {
 			define('_SET_HTML_BASE', true);
 			include_spip('public/assembler');
 			$GLOBALS['html'] = true;

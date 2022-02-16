@@ -105,12 +105,12 @@ function charger_fonction($nom, $dossier = 'exec', $continue = false) {
 	echo minipres(
 		_T('forum_titre_erreur'),
 		$inc ?
-			_T('fonction_introuvable', ['fonction' => '<code>'.spip_htmlentities($f).'</code>'])
-			.'<br />'
-			._T('fonction_introuvable', ['fonction' => '<code>'.spip_htmlentities($g).'</code>'])
+			_T('fonction_introuvable', ['fonction' => '<code>' . spip_htmlentities($f) . '</code>'])
+			. '<br />'
+			. _T('fonction_introuvable', ['fonction' => '<code>' . spip_htmlentities($g) . '</code>'])
 			:
-			_T('fichier_introuvable', ['fichier' => '<code>'. spip_htmlentities($d).'</code>']),
-			['all_inline' => true,'status' => 404]
+			_T('fichier_introuvable', ['fichier' => '<code>' . spip_htmlentities($d) . '</code>']),
+		['all_inline' => true,'status' => 404]
 	);
 	exit;
 }
@@ -1779,7 +1779,8 @@ function autoriser_sans_cookie($nom, $strict = false) {
 function charger_fonction_url(string $quoi, string $type = '') {
 	if ($type === 'defaut') {
 		$objet = objet_type($quoi);
-		if ($f = charger_fonction('generer_' . $objet . '_url', 'urls', true)
+		if (
+			$f = charger_fonction('generer_' . $objet . '_url', 'urls', true)
 			// deprecated
 			or $f = charger_fonction('generer_url_' . $objet, 'urls', true)
 		) {
@@ -1793,16 +1794,16 @@ function charger_fonction_url(string $quoi, string $type = '') {
 	}
 
 	// inclure le module d'url
-	include_spip('urls/'.$type);
+	include_spip('urls/' . $type);
 
 	switch ($quoi) {
 		case 'page':
 			if (
 				 function_exists($f = "urls_{$type}_generer_url_page")
-			  or function_exists($f .= "_dist")
-			  // ou une fonction custom utilisateur independante du type d'url
-			  or function_exists($f = "generer_url_page")
-			  or function_exists($f .= "_dist")
+				or function_exists($f .= '_dist')
+				// ou une fonction custom utilisateur independante du type d'url
+				or function_exists($f = 'generer_url_page')
+				or function_exists($f .= '_dist')
 			) {
 				return $f;
 			}
@@ -1812,8 +1813,10 @@ function charger_fonction_url(string $quoi, string $type = '') {
 		case 'decoder':
 		default:
 			$fquoi = ($quoi === 'objet' ? 'generer_url_objet' : 'decoder_url');
-			if (function_exists($f = "urls_{$type}_{$fquoi}")
-			  or function_exists($f .= "_dist")) {
+			if (
+				function_exists($f = "urls_{$type}_{$fquoi}")
+				or function_exists($f .= '_dist')
+			) {
 				return $f;
 			}
 			// est-ce qu'on a une ancienne fonction urls_xxx_dist() ?
@@ -1880,7 +1883,8 @@ function generer_objet_url($id, string $entite, string $args = '', string $ancre
 
 		// mais d'abord il faut tester le cas des urls sur une
 		// base distante
-		if ($connect
+		if (
+			$connect
 			and $g = charger_fonction('connect', 'urls', true)
 		) {
 			$f = $g;
@@ -1902,7 +1906,7 @@ function generer_objet_url($id, string $entite, string $args = '', string $ancre
  * @deprecated 4.1
  * @see generer_objet_url
  */
-function generer_url_entite($id = 0, $entite = '', $args = '', $ancre = '', $public = null, $type = null){
+function generer_url_entite($id = 0, $entite = '', $args = '', $ancre = '', $public = null, $type = null) {
 	if ($public and is_string($public)) {
 		return generer_objet_url(intval($id), $entite, $args ?: '', $ancre ?: '', true, $type ?? '', $public);
 	}
@@ -1937,7 +1941,7 @@ function generer_objet_url_ecrire_edit($id, string $entite, string $args = '', s
  * @deprecated 4.1
  * @see generer_objet_url_ecrire_edit
  */
-function generer_url_ecrire_entite_edit($id, $entite, $args = '', $ancre = ''){
+function generer_url_ecrire_entite_edit($id, $entite, $args = '', $ancre = '') {
 	return generer_objet_url_ecrire_edit(intval($id), $entite, $args, $ancre);
 }
 
@@ -2001,7 +2005,7 @@ function generer_objet_url_absolue($id = 0, string $entite = '', string $args = 
  * @deprecated 4.1
  * @see  generer_objet_url_absolue
  */
-function generer_url_entite_absolue($id = 0, $entite = '', $args = '', $ancre = '', $connect = null){
+function generer_url_entite_absolue($id = 0, $entite = '', $args = '', $ancre = '', $connect = null) {
 	return generer_objet_url_absolue(intval($id), $entite, $args, $ancre, true, '', $connect);
 }
 
@@ -2439,7 +2443,7 @@ function generer_url_api(string $script, string $path, string $args, bool $no_en
 		(($public ? _DIR_RACINE : _DIR_RESTREINT) ?: './')
 	. $script . '/'
 	. ($path ? trim($path, '/') : '')
-	. ($args ? "?" . quote_amp($args) : '');
+	. ($args ? '?' . quote_amp($args) : '');
 
 	if ($no_entities) {
 		$url = str_replace('&amp;', '&', $url);
