@@ -237,7 +237,7 @@ Dës Prozedur ass am Detail am Installatiouns-Guide beschriwwen.<p>
 	'etape' => 'Schrëtt',
 
 	// F
-	'fichier_introuvable' => 'De Fichier @fichier@ ka net fonnt ginn',
+	'fichier_introuvable' => 'De Fichier @fichier@ ka net fonnt ginn', # MODIF
 	'form_auteur_confirmation' => 'Bestätegt är Email-Adress.',
 	'form_auteur_email_modifie' => 'Är Email-Adress ass geännert.',
 	'form_auteur_envoi_mail_confirmation' => 'En Email ass un @email@ geschéckt ginn. Dir musst op d’URL surfen déi an deem Email steet fir är Email-Adress ze bestätegen.',

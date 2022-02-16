@@ -208,7 +208,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'etape' => 'ដំណាក់',
 
 	// F
-	'fichier_introuvable' => '​គ្មានរកឃើញ សំណុំឯកសារ ៖ @fichier@',
+	'fichier_introuvable' => '​គ្មានរកឃើញ សំណុំឯកសារ ៖ @fichier@', # MODIF
 	'form_deja_inscrit' => 'អ្នក​ធ្លាប់បាន​ហើយ ចុះ​ឈ្មោះ​។',
 	'form_email_non_valide' => 'អាសយដ្ឋាន​អ៊ីមែវល៍ ​របស់​អ្នក គ្មាន​សុពលភាព។',
 	'form_forum_access_refuse' => 'អ្នក​គ្មានទៀត ​ចូល​ទៅសៃថ៍ នេះ ។',

@@ -204,7 +204,7 @@ di ciascuna di queste cartelle. La procedura è spiegata in dettaglio nella guid
 	'etape' => 'Fase',
 
 	// F
-	'fichier_introuvable' => 'File @fichier@ non trovato',
+	'fichier_introuvable' => 'File @fichier@ non trovato', # MODIF
 	'form_deja_inscrit' => 'Sei già iscritta.',
 	'form_email_non_valide' => 'L’indirizzo email non è valido.',
 	'form_forum_access_refuse' => 'Non hai più accesso a questo sito.',

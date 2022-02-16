@@ -200,7 +200,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'erreur_texte' => 'error(s)',
 
 	// F
-	'fichier_introuvable' => 'S’es pas pogut trobar lo fichièr @fichier@.',
+	'fichier_introuvable' => 'S’es pas pogut trobar lo fichièr @fichier@.', # MODIF
 	'form_deja_inscrit' => 'Sètz ja inscrich(a).',
 	'form_email_non_valide' => 'Vòstra adreiça e-mail es pas valida.',
 	'form_forum_access_refuse' => 'Podètz pas mai accedir a aquel sit.',

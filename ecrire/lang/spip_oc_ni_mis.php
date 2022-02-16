@@ -239,7 +239,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'etape' => 'Tapa',
 
 	// F
-	'fichier_introuvable' => 'Fichié @fichier@ introuvable',
+	'fichier_introuvable' => 'Fichié @fichier@ introuvable', # MODIF
 	'form_auteur_confirmation' => 'Counfirmas la vouòstra adressa email',
 	'form_auteur_email_modifie' => 'La vouòstra adressa email a estada moudificada.',
 	'form_auteur_envoi_mail_confirmation' => 'Un courrié electrònicou de counfirmacioun es estat mandat a @email@. Deurès visità l’adressa Web menciounada en aqueu courrié per validà la vouòstra adressa mail.',

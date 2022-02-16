@@ -174,7 +174,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'envoi_via_le_site' => 'Poslano putem stranice',
 
 	// F
-	'fichier_introuvable' => 'Dokument @fichier@ nije pronadjen',
+	'fichier_introuvable' => 'Dokument @fichier@ nije pronadjen', # MODIF
 	'form_deja_inscrit' => 'Vec ste registrovani.',
 	'form_email_non_valide' => 'Vasa e-mail adresa nije vazeca.',
 	'form_forum_access_refuse' => 'Nemate vise pristup ovoj stranici.',

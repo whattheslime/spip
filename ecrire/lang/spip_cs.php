@@ -200,7 +200,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'envoi_via_le_site' => 'Odeslat pomocí webu',
 
 	// F
-	'fichier_introuvable' => 'Nalezen nový soubor: @fichier@',
+	'fichier_introuvable' => 'Nalezen nový soubor: @fichier@', # MODIF
 	'form_deja_inscrit' => 'Už jste zaregistrováni.',
 	'form_email_non_valide' => 'Neplatná elektronická adresa.',
 	'form_forum_access_refuse' => 'K tomuto webu již nemáte přístup.',

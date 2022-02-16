@@ -201,7 +201,7 @@ Uk lurasinsti jutir imañ q’ipinaka jikitawa.&lt;/p&gt;
 	'erreur_texte' => 'Pantjawinaka',
 
 	// F
-	'fichier_introuvable' => 'Q’ipix janiw jiskiskiti @fichier@',
+	'fichier_introuvable' => 'Q’ipix janiw jiskiskiti @fichier@', # MODIF
 	'form_deja_inscrit' => 'Qillqataxtaw.',
 	'form_email_non_valide' => 'Aruskipayirimanx utjawipax janiw walikiti',
 	'form_forum_access_refuse' => 'Aka qamawirux mantawimax janiw utjiti',

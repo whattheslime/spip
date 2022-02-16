@@ -213,7 +213,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'etape' => 'שלב',
 
 	// F
-	'fichier_introuvable' => 'לא נמצא הקובץ @fichier@',
+	'fichier_introuvable' => 'לא נמצא הקובץ @fichier@', # MODIF
 	'form_deja_inscrit' => 'אתה כבר רשום.',
 	'form_email_non_valide' => 'כתובת הדוא"ל שלך לא מתאימה.',
 	'form_forum_access_refuse' => 'הכניסה לאתר אסורה לך.',

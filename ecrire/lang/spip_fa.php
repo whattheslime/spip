@@ -233,7 +233,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'etape' => 'مرحله',
 
 	// F
-	'fichier_introuvable' => 'فايل @fichier@ پيدا نميشود ',
+	'fichier_introuvable' => 'فايل @fichier@ پيدا نميشود ', # MODIF
 	'form_auteur_confirmation' => 'نشاني ايميل خود را تأييد كنيد',
 	'form_auteur_email_modifie' => 'نشاني ايميل شما اصلاح شده.',
 	'form_auteur_envoi_mail_confirmation' => 'يك نامه‌ي الكترونيكي تأييدي به @email@ ارسال مي‌شود. شما بايد نشاني وب را كه در اين نامه براي تأييد نشاني ايميل شما ذكر شده مشاهده كنيد.  ',

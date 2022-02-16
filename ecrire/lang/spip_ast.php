@@ -211,7 +211,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'etape' => 'Etapa',
 
 	// F
-	'fichier_introuvable' => 'Nun s’alcuentra el ficheru @fichier@',
+	'fichier_introuvable' => 'Nun s’alcuentra el ficheru @fichier@', # MODIF
 	'form_auteur_confirmation' => 'Confirma les tos señes de corréu',
 	'form_auteur_email_modifie' => 'Se camudaron les tos señes de corréu.',
 	'form_auteur_envoi_mail_confirmation' => 'Vien d’unviase un corréu electrónicu de confirmación a @email@. Tendrás de visitar la direición Web qu’apaez nesi corréu pa validar les tos señes de corréu.',

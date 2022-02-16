@@ -240,7 +240,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'etape' => 'Step',
 
 	// F
-	'fichier_introuvable' => 'File not found: @fichier@',
+	'fichier_introuvable' => 'File not found: @fichier@', # MODIF
 	'form_auteur_confirmation' => 'Please confirm your email address',
 	'form_auteur_email_modifie' => 'Your email address has been changed.',
 	'form_auteur_envoi_mail_confirmation' => 'A confirmation email has been sent to @email@. You must visit the URL mentioned in the message to validate your email address.',

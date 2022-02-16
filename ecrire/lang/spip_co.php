@@ -236,7 +236,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'etape' => 'Tappa',
 
 	// F
-	'fichier_introuvable' => 'Schedariu @fichier@ inesistente',
+	'fichier_introuvable' => 'Schedariu @fichier@ inesistente', # MODIF
 	'form_auteur_confirmation' => 'Cunfirmate l’indirizzu mail',
 	'form_auteur_email_modifie' => 'Hè statu mudificatu u vostru indirizzu mail.',
 	'form_deja_inscrit' => 'Site digià iscrittu.',

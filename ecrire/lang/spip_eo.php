@@ -240,7 +240,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'etape' => 'Etapo',
 
 	// F
-	'fichier_introuvable' => 'Netrovebla dosiero @fichier@ ',
+	'fichier_introuvable' => 'Netrovebla dosiero @fichier@ ', # MODIF
 	'form_auteur_confirmation' => 'Konfirmu vian retpoŝtadreso',
 	'form_auteur_email_modifie' => 'Via retpoŝtadreso estis modifita.',
 	'form_auteur_envoi_mail_confirmation' => 'Konfirmretmesaĝo estis sendita al @email@. Vi devu viziti la menciita retadreso en la retmesaĝo por validigi vian retpoŝtadreson.',

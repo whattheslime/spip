@@ -200,7 +200,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'erreur_texte' => 'lỗi',
 
 	// F
-	'fichier_introuvable' => 'Không tìm rà hồ sơ @fichier@',
+	'fichier_introuvable' => 'Không tìm rà hồ sơ @fichier@', # MODIF
 	'form_deja_inscrit' => 'Bạn đã ghi danh rồi.',
 	'form_email_non_valide' => 'Địa chỉ email của bạn không đúng.',
 	'form_forum_access_refuse' => 'Bạn không có quyền vào trang web này nữa.',

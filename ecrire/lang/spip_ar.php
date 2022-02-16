@@ -238,7 +238,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'etape' => 'خطوة',
 
 	// F
-	'fichier_introuvable' => 'لا يمكن العثور على الملف @fichier@',
+	'fichier_introuvable' => 'لا يمكن العثور على الملف @fichier@', # MODIF
 	'form_auteur_confirmation' => 'تأكيد عنوان البريد الالكتروني',
 	'form_auteur_email_modifie' => 'تغير عنوان بريدك.',
 	'form_auteur_envoi_mail_confirmation' => 'لفد تم ارسال بريد تأكيد الى @email@. عليك زيارة عنوان الموقع الموجود في الرسالة للتصديق على عنوان بريدك.',

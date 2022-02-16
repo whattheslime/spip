@@ -214,7 +214,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'erreur_texte' => 'kanard(s)',
 
 	// F
-	'fichier_introuvable' => 'Fisyé-la @fichier@ ni pa kav trouv ali',
+	'fichier_introuvable' => 'Fisyé-la @fichier@ ni pa kav trouv ali', # MODIF
 	'form_deja_inscrit' => 'Ou lé déza inskri.',
 	'form_email_non_valide' => 'Out ladrès imèl la pa marsé.',
 	'form_forum_access_refuse' => 'Ou néna plid drwa pou akost dann sitwèb-la.',

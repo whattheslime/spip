@@ -236,7 +236,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'etape' => 'Etapa',
 
 	// F
-	'fichier_introuvable' => 'Ficheiro @fichier@ não localizado',
+	'fichier_introuvable' => 'Ficheiro @fichier@ não localizado', # MODIF
 	'form_auteur_confirmation' => 'Confirme o seu endereço e-mail',
 	'form_auteur_email_modifie' => 'O seu endereço e-mail foi alterado.',
 	'form_auteur_envoi_mail_confirmation' => 'Um e-mail de confirmação foi enviado para @email@. Para validar o seu endereço de e-mail, deve abrir o endereço Web mencionado na mensagem.',

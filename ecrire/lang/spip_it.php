@@ -240,7 +240,7 @@ di ciascuna di queste cartelle. La procedura è spiegata in dettaglio nella guid
 	'etape' => 'Fase',
 
 	// F
-	'fichier_introuvable' => 'File @fichier@ non trovato',
+	'fichier_introuvable' => 'File @fichier@ non trovato', # MODIF
 	'form_auteur_confirmation' => 'Per cortesia conferma il tuo indirizzo email',
 	'form_auteur_email_modifie' => 'Il tuo indirizzo email è stato modificato',
 	'form_auteur_envoi_mail_confirmation' => 'Una email di conferma è stata inviata a  @email@. È necessario visitare l’URL indicata nel messaggio per convalidare il tuo indirizzo email.',

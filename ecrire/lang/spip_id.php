@@ -203,7 +203,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'erreur_texte' => 'kesalahan',
 
 	// F
-	'fichier_introuvable' => 'Berkas tidak ditemukan: @fichier@',
+	'fichier_introuvable' => 'Berkas tidak ditemukan: @fichier@', # MODIF
 	'form_deja_inscrit' => 'Anda telah terdaftar.',
 	'form_email_non_valide' => 'Alamat e-mail anda tidak sah.',
 	'form_forum_access_refuse' => 'Anda tidak memiliki akses ke situs ini lagi.',

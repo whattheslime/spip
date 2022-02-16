@@ -191,7 +191,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'erreur_texte' => 'အမှား(များ)',
 
 	// F
-	'fichier_introuvable' => '@fichier@ဖိုင်မတွေ့ရပါ',
+	'fichier_introuvable' => '@fichier@ဖိုင်မတွေ့ရပါ', # MODIF
 	'form_deja_inscrit' => 'သင်မှတ်ပုံတင်ထားပြီးပြီ',
 	'form_email_non_valide' => 'သင့်အီးမေးလ် မှန်ကန်မှုမရှိပါ',
 	'form_forum_access_refuse' => 'ဤဝက်ဘ်ဆိုက်ထဲသို့ ဝင်​ခွင့် သင့်မှာမရှိတော့ပါ',

@@ -235,7 +235,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'etape' => 'Stupanj',
 
 	// F
-	'fichier_introuvable' => 'Datoteka nije pronađena: @fichier@',
+	'fichier_introuvable' => 'Datoteka nije pronađena: @fichier@', # MODIF
 	'form_auteur_confirmation' => 'Potvrdite mail adresu',
 	'form_auteur_email_modifie' => 'Vaša mail adresa je promjenjena.',
 	'form_auteur_envoi_mail_confirmation' => 'Potvrda je upravo poslana putem elektroničke pošte na @email@. Otvorite navedenu web adresu iz poruke kako biste potvrdili potvrdili vašu mail adresu.',

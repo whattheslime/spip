@@ -239,7 +239,7 @@ Verzeichnisse zu setzen.Die Installationsanleitung erläutert die Details dazu.<
 	'etape' => 'Schritt',
 
 	// F
-	'fichier_introuvable' => 'Datei @fichier@ unauffindbar',
+	'fichier_introuvable' => 'Datei @fichier@ unauffindbar', # MODIF
 	'form_auteur_confirmation' => 'Bestätigen Sie Ihre Mailadresse',
 	'form_auteur_email_modifie' => 'Ihre Mailadresse wurde geändert.',
 	'form_auteur_envoi_mail_confirmation' => 'Eine Mail wurde an @email@ gesendet. Sie müssen auf den in ihr angegebenen Link klicken, um die Korrektheit Ihrer Adresse zu bestätigen.',
