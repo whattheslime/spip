@@ -1880,7 +1880,6 @@ function process_image_reduire($fonction, $img, $taille, $taille_y, $force, $pro
  * Class phpthumb_functions
  */
 class phpthumb_functions {
-
 	/**
 	 * Retourne la couleur d'un pixel dans une image
 	 *

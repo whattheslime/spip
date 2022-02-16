@@ -207,7 +207,7 @@ function spip_version() {
  * Masque la version de SPIP si la globale spip_header_silencieux le demande.
  *
  * @global spip_header_silencieux permet de rendre le header minimal pour raisons de securité
- * 
+ *
  * @param string $version
  * @return void
  */
@@ -653,7 +653,7 @@ function infos_image($img, $force_refresh = false) {
 			if (!$srcHeight) {
 				$hauteur_img[$src] = $srcHeight = $imagesize[1];
 			}
-			if (!$srcSize){
+			if (!$srcSize) {
 				$poids_img[$src] = filesize($src);
 			}
 		}
@@ -667,7 +667,7 @@ function infos_image($img, $force_refresh = false) {
 				if (!$srcHeight) {
 					$hauteur_img[$src] = $srcHeight = $height;
 				}
-				if (!$srcSize){
+				if (!$srcSize) {
 					$poids_img[$src] = $srcSize = strlen($src);
 				}
 			}
@@ -685,7 +685,7 @@ function infos_image($img, $force_refresh = false) {
 			if (!$srcHeight) {
 				$hauteur_img[$src] = $srcHeight = $valeurs['hauteur_dest'];
 			}
-			if (!$srcSize){
+			if (!$srcSize) {
 				$poids_img[$src] = $srcSize = 0;
 			}
 		}
@@ -711,7 +711,7 @@ function poids_image($img, $force_refresh = false) {
 	return $infos['poids'];
 }
 
-function taille_image($img, $force_refresh = false){
+function taille_image($img, $force_refresh = false) {
 	$infos = infos_image($img, $force_refresh);
 	return [$infos['hauteur'], $infos['largeur']];
 }
@@ -2001,7 +2001,7 @@ function alterner($i, ...$args) {
 	}
 
 	// un index compris entre 0 et num exclus
-	$i = ((intval($i) -1) % $num); // dans ]-$num;$num[
+	$i = ((intval($i) - 1) % $num); // dans ]-$num;$num[
 	$i = ($i + $num) % $num; // dans [0;$num[
 	// renvoyer le i-ieme argument, modulo le nombre d'arguments
 	return $args[$i];

@@ -15,7 +15,6 @@ if (!defined('_ECRIRE_INC_VERSION')) {
 }
 
 class IndenteurXML {
-
 	public function debutElement($phraseur, $name, $attrs) {
 		xml_debutElement($this, $name, $attrs);
 	}

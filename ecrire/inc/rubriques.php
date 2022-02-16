@@ -106,7 +106,7 @@ function calculer_rubriques_if($id_rubrique, $modifs, $infos = [], $postdate = f
 		}
 	}
 
-	if ($neuf) { 
+	if ($neuf) {
 		// Sauver la date de la derniere mise a jour (pour menu_rubriques)
 		ecrire_meta('date_calcul_rubriques', date('U'));
 	}

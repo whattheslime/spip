@@ -213,7 +213,7 @@ function critere_debut_dist($idb, &$boucles, $crit) {
 	$un = $un[0]->texte;
 	$deux = $deux[0]->texte;
 	if ($deux) {
-		$boucles[$idb]->limit = 
+		$boucles[$idb]->limit =
 			'intval($Pile[0]["debut' . $un . '"]) . ",' . $deux . '"';
 	} else {
 		calculer_critere_DEFAUT_dist($idb, $boucles, $crit);
@@ -1943,7 +1943,7 @@ function calculer_critere_DEFAUT_args($idb, &$boucles, $crit, $args) {
 			];
 		}
 		$where = ["'?'", "!is_whereable($pred)", "''", $where];
-		if ($where_complement) { 
+		if ($where_complement) {
 			// condition annexe du type "AND (objet='article')"
 			$where_complement = ["'?'", "!is_whereable($pred)", "''", $where_complement];
 		}

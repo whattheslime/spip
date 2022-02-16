@@ -35,7 +35,7 @@ function set_spip_doc(?string $fichier): string {
 	} else {
 		// ex: fichier distant
 		return $fichier ?? '';
-	} 
+	}
 }
 
 /**

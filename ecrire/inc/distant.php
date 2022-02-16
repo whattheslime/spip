@@ -451,7 +451,7 @@ function recuperer_url($url, $options = []) {
 		$options['taille_max'] = $copy ? _COPIE_LOCALE_MAX_SIZE : _INC_DISTANT_MAX_SIZE;
 	}
 
-	spip_log("recuperer_url " . $options['methode']. " sur $url", 'distant' . _LOG_DEBUG);
+	spip_log('recuperer_url ' . $options['methode'] . " sur $url", 'distant' . _LOG_DEBUG);
 
 	// Ajout des en-têtes spécifiques si besoin
 	$formatted_data = '';
@@ -558,7 +558,7 @@ function recuperer_url($url, $options = []) {
 					$options['datas'] = '';
 				}
 			}
-			spip_log("recuperer_url recommence " . $options['methode']. " sur $url", 'distant' . _LOG_DEBUG);
+			spip_log('recuperer_url recommence ' . $options['methode'] . " sur $url", 'distant' . _LOG_DEBUG);
 
 			return recuperer_url($url, $options);
 		} elseif ($res['status'] !== 200) {
@@ -578,7 +578,7 @@ function recuperer_url($url, $options = []) {
 
 	// on ne veut que les entetes
 	if (!$options['taille_max'] or $options['methode'] == 'HEAD' or $result['status'] == '304') {
-		spip_log("RESULTAT recuperer_url " . $options['methode']. " sur $url : " . json_encode($result), 'distant' . _LOG_DEBUG);
+		spip_log('RESULTAT recuperer_url ' . $options['methode'] . " sur $url : " . json_encode($result), 'distant' . _LOG_DEBUG);
 		return $result;
 	}
 
@@ -624,7 +624,7 @@ function recuperer_url($url, $options = []) {
 
 	$trace = json_decode(json_encode($result), true);
 	$trace['page'] = '...';
-	spip_log("RESULTAT recuperer_url " . $options['methode']. " sur $url : " . json_encode($trace), 'distant' . _LOG_DEBUG);
+	spip_log('RESULTAT recuperer_url ' . $options['methode'] . " sur $url : " . json_encode($trace), 'distant' . _LOG_DEBUG);
 
 	return $result;
 }
@@ -1136,7 +1136,7 @@ function distant_trouver_extension_selon_headers($source, $headers) {
 function need_proxy($host, $http_proxy = null, $http_noproxy = null) {
 
 	$http_proxy ??= $GLOBALS['meta']['http_proxy'] ?? null;
-	
+
 	// rien a faire si pas de proxy :)
 	if (is_null($http_proxy) or !$http_proxy = trim($http_proxy)) {
 		return '';

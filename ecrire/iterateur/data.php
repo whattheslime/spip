@@ -125,7 +125,7 @@ class IterateurDATA implements Iterator {
 	 *
 	 * @return void
 	 */
-	public function rewind() : void {
+	public function rewind(): void {
 		reset($this->tableau);
 		$this->cle = array_key_first($this->tableau);
 		$this->valeur = current($this->tableau);
@@ -558,7 +558,7 @@ class IterateurDATA implements Iterator {
 	 *
 	 * @return void
 	 */
-	public function next() : void {
+	public function next(): void {
 		if ($this->valid()) {
 			$this->cle = key($this->tableau);
 			$this->valeur = current($this->tableau);
