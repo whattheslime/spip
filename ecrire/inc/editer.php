@@ -209,7 +209,6 @@ function formulaires_editer_objet_charger(
 	$hidden = ''
 ) {
 
-	$valeurs = [];
 	$table_objet = table_objet($type);
 	$table_objet_sql = table_objet_sql($type);
 	$id_table_objet = id_table_objet($type);
@@ -338,12 +337,12 @@ function formulaires_editer_objet_charger(
 	include_spip('inc/autoriser');
 	if (intval($id)) {
 		if (!autoriser('modifier', $type, intval($id))) {
-			$valeurs['editable'] = '';
+			$contexte['editable'] = '';
 		}
 	}
 	else {
 		if (!autoriser('creer', $type, 0, null, ['id_parent' => $id_parent])) {
-			$valeurs['editable'] = '';
+			$contexte['editable'] = '';
 		}
 	}
 
