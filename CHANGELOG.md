@@ -4,6 +4,7 @@
 
 ### Changed
 
+- #5042 Introduction de `README.md` et `LICENSE` (en remplacement de `INSTALL.txt` et `COPYING.txt`)
 - #4881 suppression des globales `flag_*` et adaptation ou nettoyage en conséquence du code.
 - #5108 `id_table_objet()` typé comme `objet_type()` que la fonction appelle
 
