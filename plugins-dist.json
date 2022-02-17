@@ -3,37 +3,37 @@
         "path": "plugins-dist/aide",
         "source": "https://git.spip.net/spip/aide.git",
         "branch": "3.0",
-        "tag": "v3.0.0"
+        "tag": "v3.0.1"
     },
     "archiviste": {
         "path": "plugins-dist/archiviste",
         "source": "https://git.spip.net/spip/archiviste.git",
         "branch": "2.1",
-        "tag": "v2.1.0"
+        "tag": "v2.1.1"
     },
     "bigup": {
         "path": "plugins-dist/bigup",
         "source": "https://git.spip.net/spip/bigup.git",
         "branch": "3.0",
-        "tag": "v3.0.0"
+        "tag": "v3.0.1"
     },
     "compagnon": {
         "path": "plugins-dist/compagnon",
         "source": "https://git.spip.net/spip/compagnon.git",
         "branch": "3.0",
-        "tag": "v3.0.0"
+        "tag": "v3.0.1"
     },
     "compresseur": {
         "path": "plugins-dist/compresseur",
         "source": "https://git.spip.net/spip/compresseur.git",
         "branch": "2.0",
-        "tag": "v2.0.0"
+        "tag": "v2.0.1"
     },
     "dump": {
         "path": "plugins-dist/dump",
         "source": "https://git.spip.net/spip/dump.git",
         "branch": "2.0",
-        "tag": "v2.0.0"
+        "tag": "v2.0.1"
     },
     "filtres_images": {
         "path": "plugins-dist/filtres_images",
@@ -51,19 +51,19 @@
         "path": "plugins-dist/mediabox",
         "source": "https://git.spip.net/spip/mediabox.git",
         "branch": "3.0",
-        "tag": "v3.0.0"
+        "tag": "v3.0.1"
     },
     "medias": {
         "path": "plugins-dist/medias",
         "source": "https://git.spip.net/spip/medias.git",
         "branch": "4.0",
-        "tag": "v4.0.0"
+        "tag": "v4.0.1"
     },
     "mots": {
         "path": "plugins-dist/mots",
         "source": "https://git.spip.net/spip/mots.git",
         "branch": "4.0",
-        "tag": "v4.0.0"
+        "tag": "v4.0.1"
     },
     "plan": {
         "path": "plugins-dist/plan",
@@ -99,13 +99,13 @@
         "path": "plugins-dist/statistiques",
         "source": "https://git.spip.net/spip/statistiques.git",
         "branch": "3.0",
-        "tag": "v3.0.0"
+        "tag": "v3.0.1"
     },
     "svp": {
         "path": "plugins-dist/svp",
         "source": "https://git.spip.net/spip/svp.git",
         "branch": "3.0",
-        "tag": "v3.0.0"
+        "tag": "v3.0.1"
     },
     "textwheel": {
         "path": "plugins-dist/textwheel",
