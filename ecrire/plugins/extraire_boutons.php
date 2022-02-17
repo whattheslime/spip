@@ -17,8 +17,8 @@ if (!defined('_ECRIRE_INC_VERSION')) {
 /**
  * Analyser un arbre xml et extraire les infos concernant les boutons et onglets
  *
- * @param <type> $arbre
- * @return <type>
+ * @param array $arbre
+ * @return array
  */
 function plugins_extraire_boutons_dist($arbre) {
 	$les_boutons = null;
