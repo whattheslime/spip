@@ -1095,15 +1095,15 @@ function recuperer_numero($texte) {
  * @note
  *     Ce filtre supprime aussi les signes inférieurs `<` rencontrés.
  *
- * @param string|null $texte
- *     Texte à échapper
+ * @param string|array|null $texte
+ *     Texte ou tableau de textes à échapper
  * @param string $rempl
  *     Inutilisé.
- * @return string
- *     Texte converti
+ * @return string|array
+ *     Texte ou tableau de textes converti
  **/
-function supprimer_tags(?string $texte, $rempl = ''): string {
-	if ($texte === null || !strlen($texte)) {
+function supprimer_tags($texte, $rempl = '') {
+	if ($texte === null) {
 		return '';
 	}
 	$texte = preg_replace(',<(!--|\w|/|!\[endif|!\[if)[^>]*>,US', $rempl, $texte);
