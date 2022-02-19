@@ -494,12 +494,10 @@ function date_relativecourt($date, $decalage_maxi = 0) {
  *     Une écriture de date
  * @param string $vue
  *     Type de format souhaité ou expression pour `strtotime()` tel que `Y-m-d h:i:s`
- * @param array $options {
- * @type string $param
- *         'abbr' ou 'initiale' permet d'afficher les jours au format court ou initiale
- * @type int $annee_courante
- *         Permet de definir l'annee de reference pour l'affichage des dates courtes
- * }
+ * @param array $options {param: string, annee_courante: int}
+ *  - param: 'abbr' ou 'initiale' permet d'afficher les jours au format court ou initiale
+ *  - annee_courante: Permet de definir l'annee de reference pour l'affichage des dates courtes
+ *
  * @return mixed|string
  */
 function affdate_base($numdate, $vue, $options = []) {

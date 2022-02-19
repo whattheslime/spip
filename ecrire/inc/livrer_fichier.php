@@ -22,9 +22,9 @@ if (!defined('_ECRIRE_INC_VERSION')) {
 /**
  * Envoyer un fichier dont on fourni le chemin, le mime type, en attachment ou non, avec un expire
  *
- * @use spip_livrer_fichier_entetes()
- * @use spip_livrer_fichier_entier()
- * @use spip_livrer_fichier_partie()
+ * @uses spip_livrer_fichier_entetes()
+ * @uses spip_livrer_fichier_entier()
+ * @uses spip_livrer_fichier_partie()
  *
  * @param string $fichier
  * @param string $content_type

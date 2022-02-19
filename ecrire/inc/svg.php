@@ -520,7 +520,7 @@ function svg_ajouter_voile($img, $background_color, $opacity) {
 /**
  * Ajouter un background au SVG : un rect pleine taille avec la bonne couleur
  * @param $img
- * @array $attributs
+ * @param array $attributs
  * @return bool|string
  */
 function svg_transformer($img, $attributs) {
@@ -610,7 +610,7 @@ function svg_filter_sepia($img, $intensity) {
 /**
  * Ajouter un background au SVG : un rect pleine taille avec la bonne couleur
  * @param $img
- * @array string $HorV
+ * @param array string $HorV
  * @return bool|string
  */
 function svg_flip($img, $HorV) {

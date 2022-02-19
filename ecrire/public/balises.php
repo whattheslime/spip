@@ -784,7 +784,7 @@ function calculer_balise_expose($p, $on, $off) {
  *
  * @balise
  * @link http://www.spip.net/@introduction
- * @use generer_objet_introduction
+ * @uses generer_objet_introduction()
  *
  * @param Champ $p
  *     Pile au niveau de la balise
