@@ -245,8 +245,9 @@ function _couleur_hsl_to_rgb($H, $S, $L) {
  * `filtrer('image_xx, ...)` effacera automatiquement le fichier-image temporaire.
  *
  * @param bool|string $stat
- *     true, false ou le statut déjà défini si traitements enchaînés.
- * @return bool
+ *     - true, false ou le statut déjà défini 
+ *     - 'get' pour obtenir le statut sauvé si traitements enchaînés.
+ * @return bool|void
  *     true si il faut supprimer le fichier temporaire ; false sinon.
  */
 function statut_effacer_images_temporaires($stat) {
@@ -1560,7 +1561,7 @@ function _image_creer_vignette($valeurs, $maxWidth, $maxHeight, $process = 'AUTO
 
 		$fonction_imagecreatefrom = $valeurs['fonction_imagecreatefrom'];
 		if (!function_exists($fonction_imagecreatefrom)) {
-			return '';
+			return;
 		}
 		$srcImage = @$fonction_imagecreatefrom($image);
 		if (!$srcImage) {

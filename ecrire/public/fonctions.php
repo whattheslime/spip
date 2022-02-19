@@ -550,6 +550,5 @@ function appliquer_filtre_sinon($arg, $filtre, $args, $defaut = '') {
 	}
 	array_shift($args); // enlever $arg
 	array_shift($args); // enlever $filtre
-	array_unshift($args, $arg); // remettre $arg
-	return $f(...$args);
+	return $f($arg, ...$args);
 }
