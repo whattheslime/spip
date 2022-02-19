@@ -107,9 +107,6 @@ function definir_barre_boutons($contexte = [], $icones = true, $autorise = true)
 				and $parent = preg_replace(',^bando_,', 'menu_', $parent)
 				and isset($boutons_admin[$parent])
 			) {
-				if (!is_array($boutons_admin[$parent]->sousmenu)) {
-					$boutons_admin[$parent]->sousmenu = [];
-				}
 				$position = (isset($infos['position']) and strlen($infos['position'])) ? intval($infos['position']) : count($boutons_admin[$parent]->sousmenu);
 				if ($position < 0) {
 					$position = count($boutons_admin[$parent]->sousmenu) + 1 + $position;
