@@ -498,6 +498,8 @@ function filtre_debug($val, $key = null) {
  *
  * Applique le filtre demande à chacune des occurrences
  *
+ * @param string $filtre
+ * @param string|null $texte
  * @param array $args
  *     Liste des arguments :
  *
@@ -511,7 +513,7 @@ function image_filtrer($args) {
 	$filtre = array_shift($args); # enlever $filtre
 	$texte = array_shift($args);
 	if ($texte === null || !strlen($texte)) {
-		return;
+		return '';
 	}
 	find_in_path('filtres_images_mini.php', 'inc/', true);
 	statut_effacer_images_temporaires(true); // activer la suppression des images temporaires car le compilo finit la chaine par un image_graver
@@ -534,8 +536,7 @@ function image_filtrer($args) {
 			return file_exists($path);
 		};
 		if ($is_local_file($is_file) or tester_url_absolue($is_file)) {
-			array_unshift($args, "<img src='$is_file' />");
-			$res = $filtre(...$args);
+			$res = $filtre("<img src='$is_file' />", ...$args);
 			statut_effacer_images_temporaires(false); // desactiver pour les appels hors compilo
 			return $res;
 		}
@@ -558,8 +559,7 @@ function image_filtrer($args) {
 					// compat historique a virer en 3.2
 					and strpos($class, 'no_image_filtrer') === false)
 			) {
-				array_unshift($args, $tag[3]);
-				if ($reduit = $filtre(...$args)) {
+				if ($reduit = $filtre($tag[3], ...$args)) {
 					// En cas de span spip_documents, modifier le style=...width:
 					if ($tag[1]) {
 						$w = extraire_attribut($reduit, 'width');
@@ -576,16 +576,13 @@ function image_filtrer($args) {
 					if ($mouseover = extraire_attribut($reduit, 'onmouseover')) {
 						if (preg_match(",this[.]src=['\"]([^'\"]+)['\"],ims", $mouseover, $match)) {
 							$srcover = $match[1];
-							array_shift($args);
-							array_unshift($args, "<img src='" . $match[1] . "' />");
-							$srcover_filter = $filtre(...$args);
+							$srcover_filter = $filtre("<img src='" . $match[1] . "' />", ...$args);
 							$srcover_filter = extraire_attribut($srcover_filter, 'src');
 							$reduit = str_replace($srcover, $srcover_filter, $reduit);
 						}
 					}
 					$texte = str_replace($tag[3], $reduit, $texte);
 				}
-				array_shift($args);
 			}
 		}
 	}
