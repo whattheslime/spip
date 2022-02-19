@@ -72,7 +72,7 @@ if (empty($page['process_ins']) or $page['process_ins'] != 'html') {
 			$page['texte'] = ob_get_contents();
 		}
 	}
-	catch (Exception $e) {
+	catch (\Exception | \Error $e) {
 		$code = $page['texte'];
 		$GLOBALS['numero_ligne_php'] = 1;
 		if (!function_exists('numerote_ligne_php')) {
