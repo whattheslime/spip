@@ -62,7 +62,7 @@ function critere_racine_dist($idb, &$boucles, $crit) {
  * @param string $idb Identifiant de la boucle
  * @param array $boucles AST du squelette
  * @param Critere $crit Paramètres du critère dans cette boucle
- * @return void
+ * @return void|array
  **/
 function critere_exclus_dist($idb, &$boucles, $crit) {
 	$not = $crit->not;
@@ -70,7 +70,7 @@ function critere_exclus_dist($idb, &$boucles, $crit) {
 	$id = $boucle->primary;
 
 	if ($not or !$id) {
-		return (['zbug_critere_inconnu', ['critere' => $not . $crit->op]]);
+		return ['zbug_critere_inconnu', ['critere' => $not . $crit->op]];
 	}
 	$arg = kwote(calculer_argument_precedent($idb, $id, $boucles));
 	$boucle->where[] = ["'!='", "'$boucle->id_table." . "$id'", $arg];
@@ -90,7 +90,7 @@ function critere_exclus_dist($idb, &$boucles, $crit) {
  * @param string $idb Identifiant de la boucle
  * @param array $boucles AST du squelette
  * @param Critere $crit Paramètres du critère dans cette boucle
- * @return void
+ * @return void|array
  **/
 function critere_doublons_dist($idb, &$boucles, $crit) {
 	$boucle = &$boucles[$idb];
@@ -98,7 +98,7 @@ function critere_doublons_dist($idb, &$boucles, $crit) {
 
 	// la table nécessite une clé primaire, non composée
 	if (!$primary or strpos($primary, ',')) {
-		return (['zbug_doublon_sur_table_sans_cle_primaire']);
+		return ['zbug_doublon_sur_table_sans_cle_primaire'];
 	}
 
 	$not = ($crit->not ? '' : 'NOT');
@@ -442,7 +442,7 @@ function critere_origine_traduction_dist($idb, &$boucles, $crit) {
  * @param string $idb Identifiant de la boucle
  * @param array $boucles AST du squelette
  * @param Critere $crit Paramètres du critère dans cette boucle
- * @return void
+ * @return void|array
  **/
 function critere_meme_parent_dist($idb, &$boucles, $crit) {
 
@@ -455,7 +455,7 @@ function critere_meme_parent_dist($idb, &$boucles, $crit) {
 		$boucle->where[] = ["'='", "'$mparent'", $arg];
 	} // le cas FORUMS est gere dans le plugin forum, dans la fonction critere_FORUMS_meme_parent_dist()
 	else {
-		return (['zbug_critere_inconnu', ['critere' => $crit->op . ' ' . $boucle->type_requete]]);
+		return ['zbug_critere_inconnu', ['critere' => $crit->op . ' ' . $boucle->type_requete]];
 	}
 }
 
@@ -560,7 +560,7 @@ function critere_logo_dist($idb, &$boucles, $crit) {
  * @param string $idb Identifiant de la boucle
  * @param array $boucles AST du squelette
  * @param Critere $crit Paramètres du critère dans cette boucle
- * @return void
+ * @return void|array
  **/
 function critere_fusion_dist($idb, &$boucles, $crit) {
 	if ($t = isset($crit->param[0])) {
@@ -586,7 +586,7 @@ function critere_fusion_dist($idb, &$boucles, $crit) {
 			$boucles[$idb]->select[] = $t;
 		}
 	} else {
-		return (['zbug_critere_inconnu', ['critere' => $crit->op . ' ?']]);
+		return ['zbug_critere_inconnu', ['critere' => $crit->op . ' ?']];
 	}
 }
 
@@ -869,7 +869,7 @@ function calculer_critere_par_hasard($idb, &$boucles, $crit) {
  * @param Critere $crit Paramètres du critère dans cette boucle
  * @param array $tri Paramètre en cours du critère
  * @param string $champ Texte suivant l'expression ('titre' dans {par num titre})
- * @return string Clause pour le Order by
+ * @return string|array Clause pour le Order by (array si erreur)
  */
 function calculer_critere_par_expression_num($idb, &$boucles, $crit, $tri, $champ) {
 	$_champ = calculer_critere_par_champ($idb, $boucles, $crit, $champ, true);
@@ -907,7 +907,7 @@ function calculer_critere_par_expression_num($idb, &$boucles, $crit, $tri, $cham
  * @param Critere $crit Paramètres du critère dans cette boucle
  * @param array $tri Paramètre en cours du critère
  * @param string $champ Texte suivant l'expression ('titre' dans {par sinum titre})
- * @return string Clause pour le Order by
+ * @return string|array Clause pour le Order by (array si erreur)
  */
 function calculer_critere_par_expression_sinum($idb, &$boucles, $crit, $tri, $champ) {
 	$_champ = calculer_critere_par_champ($idb, $boucles, $crit, $champ, true);
@@ -955,7 +955,7 @@ function calculer_critere_par_expression_sinum($idb, &$boucles, $crit, $tri, $ch
  * @param Critere $crit Paramètres du critère dans cette boucle
  * @param array $tri Paramètre en cours du critère
  * @param string $champ Texte suivant l'expression ('titre' dans {par multi titre})
- * @return string Clause pour le Order by
+ * @return string|array Clause pour le Order by (array si erreur)
  */
 function calculer_critere_par_expression_multi($idb, &$boucles, $crit, $tri, $champ) {
 	$_champ = calculer_critere_par_champ($idb, $boucles, $crit, $champ, true);
@@ -1110,7 +1110,7 @@ function critere_inverse_dist($idb, &$boucles, $crit) {
  * @param $idb
  * @param $boucles
  * @param $crit
- * @return array|string
+ * @return void|array
  */
 function critere_par_ordre_liste_dist($idb, &$boucles, $crit) {
 	$boucle = &$boucles[$idb];
@@ -1516,12 +1516,12 @@ function kwote($lisp, $serveur = '', $type = '') {
  * @param string $idb Identifiant de la boucle
  * @param array $boucles AST du squelette
  * @param Critere $crit Paramètres du critère dans cette boucle
- * @return void
+ * @return void|array
  **/
 function critere_IN_dist($idb, &$boucles, $crit) {
 	$r = calculer_critere_infixe($idb, $boucles, $crit);
 	if (!$r) {
-		return (['zbug_critere_inconnu', ['critere' => $crit->op . ' ?']]);
+		return ['zbug_critere_inconnu', ['critere' => $crit->op . ' ?']];
 	}
 	[$arg, $op, $val, $col, $where_complement] = $r;
 
@@ -1862,7 +1862,7 @@ function critere_tri_dist($idb, &$boucles, $crit) {
  * @param string $idb Identifiant de la boucle
  * @param array $boucles AST du squelette
  * @param Critere $crit Paramètres du critère dans cette boucle
- * @return void
+ * @return void|array
  **/
 function calculer_critere_DEFAUT_dist($idb, &$boucles, $crit) {
 	// double cas particulier {0,1} et {1/2} repere a l'analyse lexicale
@@ -1874,7 +1874,7 @@ function calculer_critere_DEFAUT_dist($idb, &$boucles, $crit) {
 	if (!$r) {
 		#	// on produit une erreur seulement si le critere n'a pas de '?'
 		#	if (!$crit->cond) {
-		return (['zbug_critere_inconnu', ['critere' => $crit->op]]);
+		return ['zbug_critere_inconnu', ['critere' => $crit->op]];
 		#	}
 	} else {
 		calculer_critere_DEFAUT_args($idb, $boucles, $crit, $r);
