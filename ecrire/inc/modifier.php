@@ -222,7 +222,7 @@ function objet_modifier_champs($objet, $id_objet, $options, $c = null, $serveur 
 		}
 
 		// allez on commit la modif
-		sql_updateq($spip_table_objet, $champs, "$id_table_objet=" . intval($id_objet), $serveur);
+		sql_updateq($spip_table_objet, $champs, "$id_table_objet=" . intval($id_objet), [], $serveur);
 
 		// on verifie si elle est bien passee
 		$moof = sql_fetsel(
