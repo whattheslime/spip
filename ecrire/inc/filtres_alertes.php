@@ -201,6 +201,7 @@ function message_alerte_ouvrir(?string $titre = null, ?string $class = null, ?st
 	$prive = test_espace_prive();
 
 	// Valeurs par défaut
+	$titre = trim($titre ?? '');
 	$role ??= 'alert'; // fallback uniquement si null
 	$class ??= 'notice'; // fallback uniquement si null
 
