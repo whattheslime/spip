@@ -110,29 +110,29 @@ function install_bases($adresse_db, $login_db, $pass_db, $server_db, $choix_db, 
 				'valeur' => $charset['charset'],
 				'impt' => 'non'
 			];
-			@sql_insertq('spip_meta', $t, '', $server_db);
+			@sql_insertq('spip_meta', $t, [], $server_db);
 			$t['nom'] = 'charset_collation_sql_base';
 			$t['valeur'] = $charset['collation'];
-			@sql_insertq('spip_meta', $t, '', $server_db);
+			@sql_insertq('spip_meta', $t, [], $server_db);
 			$t['nom'] = 'charset_sql_connexion';
 			$t['valeur'] = $charset['charset'];
-			@sql_insertq('spip_meta', $t, '', $server_db);
+			@sql_insertq('spip_meta', $t, [], $server_db);
 		}
 		$t = [
 			'nom' => 'version_installee',
 			'valeur' => $GLOBALS['spip_version_base'],
 			'impt' => 'non'
 		];
-		@sql_insertq('spip_meta', $t, '', $server_db);
+		@sql_insertq('spip_meta', $t, [], $server_db);
 		$t['nom'] = 'nouvelle_install';
 		$t['valeur'] = 1;
-		@sql_insertq('spip_meta', $t, '', $server_db);
+		@sql_insertq('spip_meta', $t, [], $server_db);
 		// positionner la langue par defaut du site si un cookie de lang a ete mis
 		if (isset($_COOKIE['spip_lang_ecrire'])) {
 			@sql_insertq(
 				'spip_meta',
 				['nom' => 'langue_site', 'valeur' => $_COOKIE['spip_lang_ecrire']],
-				'',
+				[],
 				$server_db
 			);
 		}

@@ -939,7 +939,7 @@ function creer_rubrique_nommee($titre, $id_parent = 0, $serveur = '') {
 				'spip_rubriques',
 				['id_secteur' => $id_secteur, 'lang' => $lang],
 				'id_rubrique=' . intval($id_rubrique),
-				$desc = '',
+				[],
 				$serveur
 			);
 
