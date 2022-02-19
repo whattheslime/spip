@@ -43,8 +43,8 @@ class Bouton {
 	/** @var null|string Pour ouvrir dans une fenetre a part */
 	public $target = null;
 
-	/** @var null|mixed Sous-barre de boutons / onglets */
-	public $sousmenu = null;
+	/** @var array Sous-barre de boutons / onglets */
+	public $sousmenu = [];
 
 	/**
 	 * Définit un bouton

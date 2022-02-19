@@ -192,7 +192,7 @@ function balise_URL_ARTICLE_dist($p) {
  *
  * @param Champ $p
  *     Pile au niveau de la balise
- * @return Champ
+ * @return Champ|null
  *     Pile complétée par le code à générer
  */
 function balise_URL_SITE_dist($p) {

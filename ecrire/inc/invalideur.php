@@ -78,7 +78,7 @@ function taille_du_cache() {
  * pour le type d'objet en question (non utilisé cependant) et pour
  * tout le site (sur la meta `derniere_modif`)
  *
- * @global derniere_modif_invalide
+ * @global array $derniere_modif_invalide
  *     Par défaut à `true`, la meta `derniere_modif` est systématiquement
  *     calculée dès qu'un invalideur se présente. Cette globale peut
  *     être mise à `false` (aucun changement sur `derniere_modif`) ou

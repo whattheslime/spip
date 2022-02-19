@@ -116,4 +116,5 @@ function message_crash_tables() {
 				_T('bouton_tenter_recuperation')
 			);
 	}
+	return '';
 }

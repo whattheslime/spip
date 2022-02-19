@@ -213,7 +213,7 @@ function liens_absolus($texte, $base = '') {
  *
  * @filtre
  * @link https://www.spip.net/4128
- * @global mode_abs_url Pour connaître le mode (url ou texte)
+ * @global string $mode_abs_url Pour connaître le mode (url ou texte)
  *
  * @param string $texte Texte ou URL
  * @param string $base URL de base de destination (par défaut ce sera l'URL de notre site)

@@ -1188,7 +1188,7 @@ if (!function_exists('imagepalettetotruecolor')) {
 	 *
 	 * @link http://php.net/manual/fr/function.imagepalettetotruecolor.php
 	 *
-	 * @param ressource $img
+	 * @param resource $img
 	 * @return bool
 	 *     - true si l'image est déjà en vrai RGB ou peut être transformée
 	 *     - false si la transformation ne peut être faite.

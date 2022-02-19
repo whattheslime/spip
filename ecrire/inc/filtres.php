@@ -188,7 +188,7 @@ function appliquer_si_filtre($arg, $filtre) {
  * Si l'on retrouve un numéro de révision GIT ou SVN, il est ajouté entre crochets.
  * Si effectivement le SPIP est installé par Git ou Svn, 'GIT' ou 'SVN' est ajouté avant sa révision.
  *
- * @global spip_version_affichee Contient la version de SPIP
+ * @global string $spip_version_affichee Contient la version de SPIP
  * @uses version_vcs_courante() Pour trouver le numéro de révision
  *
  * @return string
@@ -206,7 +206,7 @@ function spip_version() {
 /**
  * Masque la version de SPIP si la globale spip_header_silencieux le demande.
  *
- * @global spip_header_silencieux permet de rendre le header minimal pour raisons de securité
+ * @global bool $spip_header_silencieux permet de rendre le header minimal pour raisons de securité
  *
  * @param string $version
  * @return void
