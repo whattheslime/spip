@@ -459,7 +459,7 @@ function bouton_spip_rss($op, $args = [], $lang = '', $title = 'RSS') {
  * @param int $id_auteur
  * @return string
  */
-function alertes_auteur($id_auteur) {
+function alertes_auteur($id_auteur): string {
 
 	$alertes = [];
 
@@ -529,6 +529,8 @@ function alertes_auteur($id_auteur) {
 		join(' | ', $alertes)
 		. '</div></div>';
 	}
+
+	return '';
 }
 
 /**

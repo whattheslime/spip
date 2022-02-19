@@ -209,14 +209,14 @@ function spip_version() {
  * @global bool $spip_header_silencieux permet de rendre le header minimal pour raisons de securité
  *
  * @param string $version
- * @return void
+ * @return string
  */
-function header_silencieux($version) {
+function header_silencieux($version): string {
 	if (isset($GLOBALS['spip_header_silencieux']) && (bool) $GLOBALS['spip_header_silencieux']) {
 		$version = '';
 	}
 
-	return $version;
+	return (string) $version;
 }
 
 /**
