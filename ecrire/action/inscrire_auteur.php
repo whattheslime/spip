@@ -218,8 +218,6 @@ function test_login($nom, $mail) {
 		}
 		$login = $login_base . $i;
 	}
-
-	return $login;
 }
 
 
