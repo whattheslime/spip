@@ -29,9 +29,8 @@ include_spip('inc/presentation');
  * et appelle la fonction de traitement de cet exec.
  *
  * @uses exec_puce_statut_args()
- * @return string Code HTML
  **/
-function exec_puce_statut_dist() {
+function exec_puce_statut_dist(): void {
 	exec_puce_statut_args(_request('id'), _request('type'));
 }
 
@@ -49,9 +48,8 @@ function exec_puce_statut_dist() {
  *     Identifiant de l'objet
  * @param string $type
  *     Type d'objet
- * @return string Code HTML
  **/
-function exec_puce_statut_args($id, $type) {
+function exec_puce_statut_args($id, $type): void {
 	$id = intval($id);
 	if (
 		$table_objet_sql = table_objet_sql($type)

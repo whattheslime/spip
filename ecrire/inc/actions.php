@@ -114,6 +114,8 @@ function redirige_action_post($action, $arg, $ret, $gra, $corps, $att = '') {
 /**
  * Fonction de formatage du contenu renvoyé en ajax
  *
+ * Echo la réponse directement
+ * 
  * @param string $corps
  * @param string $content_type
  *   permet de definir le type de contenu renvoye.
@@ -121,7 +123,7 @@ function redirige_action_post($action, $arg, $ret, $gra, $corps, $att = '') {
  *   La valeur speciale false fournit text/html sans entete xml. Elle equivaut a
  *   passer "text/html" comme $content_type
  */
-function ajax_retour($corps, $content_type = null) {
+function ajax_retour($corps, $content_type = null): void {
 	$xml = false;
 	if (is_null($content_type) or $content_type === true) {
 		$xml = true;

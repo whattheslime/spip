@@ -74,7 +74,7 @@ function inc_chercher_logo_dist($id, $_id_objet, $mode = 'on', $compat_old_logos
  * C'est par défaut le type d'objet, mais il existe des exceptions historiques
  * déclarées par la globale `$table_logos`
  *
- * @global table_logos Exceptions des types de logo
+ * @global array $table_logos Exceptions des types de logo
  *
  * @param string $_id_objet
  *     Nom de la clé primaire de l'objet

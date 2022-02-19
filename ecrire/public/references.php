@@ -225,7 +225,7 @@ function index_compose($conditionnel, $defaut) {
  *
  * @param string $idb Identifiant de la boucle
  * @param string $nom_champ Nom du champ SQL cherché
- * @param Boucle $boucles AST du squelette
+ * @param Boucle[] $boucles AST du squelette
  * @param bool $joker
  *     Le champ peut-il être inconnu à la compilation ?
  *     Ce drapeau sera levé si c'est le cas.
@@ -451,8 +451,8 @@ function calculer_champ($p) {
  * Les surcharges des colonnes SQL via charger_fonction sont donc possibles.
  *
  * @uses calculer_balise_DEFAUT_dist()
- *     Lorsqu'aucune fonction spécifique n'est trouvée.
- * @see  charger_fonction()
+ *     Lorsqu'aucune fonction spécifique n'est trouvée, ou que ces fonctions spécifiques ont retourné null.
+ * @see charger_fonction()
  *     Pour la recherche des fonctions de balises
  *
  * @param string $nom
