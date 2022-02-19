@@ -57,6 +57,7 @@ function inc_notifications_dist($quoi, $id = 0, $options = []) {
  */
 function notifications_nettoyer_emails(&$emails, $exclure = []) {
 	// filtrer et unifier
+	include_spip('inc/filtres');
 	$emails = array_unique(array_filter(array_map('email_valide', array_map('trim', $emails))));
 	if ($exclure and count($exclure)) {
 		// nettoyer les exclusions d'abord
