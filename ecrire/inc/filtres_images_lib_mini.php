@@ -791,7 +791,7 @@ function _imagecreatefromwebp($filename) {
  *
  * Utilise les fonctions spécifiques GD.
  *
- * @param ressource $img
+ * @param resource $img
  *     Une ressource de type Image GD.
  * @param string $fichier
  *     Le path vers l'image (ex : local/cache-vignettes/L180xH51/image.png).
