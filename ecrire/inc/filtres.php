@@ -2254,7 +2254,7 @@ function commuter_class($balise, $class) {
 /**
  * Un filtre pour déterminer le nom du statut des inscrits
  *
- * @param void|int $id
+ * @param int|null $id
  * @param string $mode
  * @return string
  */
