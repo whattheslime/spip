@@ -213,7 +213,7 @@ function interdire_scripts($arg, $mode_filtre = null) {
  *
  * @param string $letexte
  *     Texte d'origine
- * @param bool $echapper
+ * @param bool|string $echapper
  *     Échapper ?
  * @param string|null $connect
  *     Nom du connecteur à la bdd
