@@ -74,7 +74,7 @@ if (!defined('_ECRIRE_INC_VERSION')) {
  * dans les etapes precedentes
  *
  * @param string $form
- * @return array
+ * @return array|false
  */
 function cvtmulti_recuperer_post_precedents($form) {
 	include_spip('inc/filtres');

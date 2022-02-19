@@ -163,10 +163,10 @@ function qui_edite($id, $type = 'article') {
  *     Identifiant de l'objet
  * @param string $type
  *     Type de l'objet
- * @return array
+ * @return array<string, string>
  *     Liste de tableaux `['nom_auteur_modif' => x|y|z, 'date_diff' => n]`
  */
-function mention_qui_edite($id, $type = 'article') {
+function mention_qui_edite($id, $type = 'article'): array {
 	$modif = qui_edite($id, $type);
 	unset($modif[$GLOBALS['visiteur_session']['id_auteur']]);
 
@@ -183,6 +183,7 @@ function mention_qui_edite($id, $type = 'article') {
 			'date_diff' => ceil((time() - $quand) / 60)
 		];
 	}
+	return [];
 }
 
 /**
