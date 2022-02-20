@@ -318,7 +318,7 @@ function afficher_qui_edite($id_objet, $objet) {
  *   dans tous les cas, les statuts existants en base sont inclus
  * @return array
  */
-function auteurs_lister_statuts($quoi = 'tous', $en_base = true) {
+function auteurs_lister_statuts($quoi = 'tous', $en_base = true): array {
 	if (!defined('AUTEURS_MIN_REDAC')) {
 		define('AUTEURS_MIN_REDAC', '0minirezo,1comite,5poubelle');
 	}
@@ -334,7 +334,7 @@ function auteurs_lister_statuts($quoi = 'tous', $en_base = true) {
 			}
 
 			return array_unique($statut);
-			break;
+
 		case 'visiteurs':
 			$statut = [];
 			$exclus = AUTEURS_MIN_REDAC;
@@ -349,7 +349,7 @@ function auteurs_lister_statuts($quoi = 'tous', $en_base = true) {
 			);
 
 			return array_unique(array_merge($statut, $s_complement));
-			break;
+
 		default:
 		case 'tous':
 			$statut = array_values($GLOBALS['liste_des_statuts']);
@@ -365,11 +365,7 @@ function auteurs_lister_statuts($quoi = 'tous', $en_base = true) {
 			}
 
 			return array_unique($statut);
-			break;
 	}
-
-	// on arrive jamais ici
-	return array_values($GLOBALS['liste_des_statuts']);
 }
 
 /**
