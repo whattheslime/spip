@@ -186,13 +186,7 @@ function tester_compatibilite_hebergement() {
 			. "| <a href='http://www.php.net/sqlite'>SQLite</a>";
 	}
 
-	// et il faut preg
-	if (!function_exists('preg_match_all')) {
-		$err[] = _T('install_extension_php_obligatoire')
-			. " <a href='http://se.php.net/pcre'>PCRE</a>";
-	}
-
-	// et surtout pas ce mbstring.overload
+	// et surtout pas ce mbstring.overload (has been DEPRECATED as of PHP 7.2.0, and REMOVED as of PHP 8.0.0)
 	if ($a = @ini_get('mbstring.func_overload')) {
 		$err[] = _T('install_extension_mbstring')
 			. "mbstring.func_overload=$a - <a href='http://www.php.net/mb_string'>mb_string</a>.<br /><small>";
