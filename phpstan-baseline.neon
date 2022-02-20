@@ -6,21 +6,6 @@ parameters:
 			path: ecrire/action/inscrire_auteur.php
 
 		-
-			message: "#^Array has 2 duplicate keys with value 350 \\(350, 350\\)\\.$#"
-			count: 1
-			path: ecrire/charsets/translit.php
-
-		-
-			message: "#^Array has 2 duplicate keys with value 351 \\(351, 351\\)\\.$#"
-			count: 1
-			path: ecrire/charsets/translit.php
-
-		-
-			message: "#^Array has 2 duplicate keys with value 8212 \\(8212, 8212\\)\\.$#"
-			count: 1
-			path: ecrire/charsets/translit.php
-
-		-
 			message: "#^Function fichier_copie_locale\\(\\) should return string but return statement is missing\\.$#"
 			count: 1
 			path: ecrire/inc/distant.php
