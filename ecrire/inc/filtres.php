@@ -98,12 +98,7 @@ function chercher_filtre($fonc, $default = null) {
 	include_fichiers_fonctions();
 	foreach (['filtre_' . $fonc, 'filtre_' . $fonc . '_dist', $fonc] as $f) {
 		trouver_filtre_matrice($f); // charge des fichiers spécifiques éventuels
-		// fonction ou name\space\fonction
 		if (is_callable($f)) {
-			return $f;
-		}
-		// méthode statique d'une classe Classe::methode ou name\space\Classe::methode
-		elseif (false === strpos($f, '::') and is_callable([$f])) {
 			return $f;
 		}
 	}
