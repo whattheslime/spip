@@ -29,17 +29,19 @@ if (!defined('_ECRIRE_INC_VERSION')) {
  *
  * Les jours ne sont pas pris en compte et le résultat est toujours le 1er du mois.
  *
+ * @deprecated 4.2
  * @link https://www.spip.net/5516
  * @param string $texte
  *    Texte contenant une date tel que `2008-04`
  * @return string
- *    Date au format SQL tel que `2008-04-01`
+ *    Date au format SQL tel que `2008-04-01` sinon ''
  **/
-function extraire_date($texte) {
+function extraire_date($texte): string {
 	// format = 2001-08
 	if (preg_match(',([1-2][0-9]{3})[^0-9]*(1[0-2]|0?[1-9]),', $texte, $regs)) {
 		return $regs[1] . '-' . sprintf('%02d', $regs[2]) . '-01';
 	}
+	return '';
 }
 
 
