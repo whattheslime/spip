@@ -238,7 +238,8 @@ Verifique se as maiúsculas e minúsuculas destes diretórios coincidem exatamen
 	'etape' => 'Etapa',
 
 	// F
-	'fichier_introuvable' => 'Arquivo @fichier@ não encontrado', # MODIF
+	'fichier_introuvable' => 'Arquivo @fichier@ não encontrado.',
+	'fonction_introuvable' => 'Função @fonction@() não encontrada.',
 	'form_auteur_confirmation' => 'Confirme o seu endereço de e-mail',
 	'form_auteur_email_modifie' => 'O seu endereço de e-mail foi alterado.',
 	'form_auteur_envoi_mail_confirmation' => 'Uma mensagem de confirmação acabou de ser enviada para @email@. Você precisa entrar no endereço web mencionado na mensagem para validar o seu endereço de e-mail.',
@@ -486,7 +487,7 @@ Para confirmar o seu novo endereço, basta acessar o endereço abaixo (cas contr
 	// L
 	'label_ajout_id_rapide' => 'Ajuda rápida',
 	'label_poids_fichier' => 'Tamanho',
-	'label_ponctuer' => '@label@ :', # MODIF
+	'label_ponctuer' => '@label@:',
 	'lien_afficher_icones_seuls' => 'Exibir apenas os ícones',
 	'lien_afficher_texte_icones' => 'Exibir ícones e texto',
 	'lien_afficher_texte_seul' => 'Exibir apenas o texto',
