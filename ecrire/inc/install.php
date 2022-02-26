@@ -170,7 +170,7 @@ function tester_compatibilite_hebergement() {
 		$err[] = _T('install_php_version', ['version' => $p, 'minimum' => _PHP_MIN]);
 	}
 	if (version_compare($p, _PHP_MAX, '>')) {
-		$err[] = _T('install_php_version2', ['version' => $p, 'maximum' => _PHP_MAX]);
+		$err[] = _T('install_php_version_max', ['version' => $p, 'maximum' => _PHP_MAX]);
 	}
 
 	$diff = array_diff(['xml', 'zip'], get_loaded_extensions());
