@@ -34,6 +34,7 @@ error_reporting(E_ALL ^ E_NOTICE);
 
 /** version PHP minimum exigee (cf. inc/utils) */
 define('_PHP_MIN', '7.4.0');
+define('_PHP_MAX', '8.1.99');
 
 if (!defined('_DIR_RESTREINT_ABS')) {
 	/** le nom du repertoire ecrire/ */

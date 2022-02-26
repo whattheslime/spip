@@ -169,6 +169,14 @@ function tester_compatibilite_hebergement() {
 	if (version_compare($p, _PHP_MIN, '<')) {
 		$err[] = _T('install_php_version', ['version' => $p, 'minimum' => _PHP_MIN]);
 	}
+	if (version_compare($p, _PHP_MAX, '>')) {
+		$err[] = _T('install_php_version2', ['version' => $p, 'maximum' => _PHP_MAX]);
+	}
+
+	$diff = array_diff(['xml', 'zip'], get_loaded_extensions());
+	if (!empty($diff)) {
+		$err[] = _T('install_php_extension', ['extensions' => implode(',', $diff)]);
+	}
 
 	// Si on n'a pas la bonne version de PHP, c'est la fin
 	if ($err) {
