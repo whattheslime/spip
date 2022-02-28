@@ -1789,17 +1789,18 @@ function charger_fonction_url(string $quoi, string $type = '') {
 		return '';
 	}
 
-	if (!$type) {
-		$type = $GLOBALS['type_urls'] ?? $GLOBALS['meta']['type_urls'] ?? 'page'; // sinon type "page" par défaut
+	$url_type = $type;
+	if (!$url_type) {
+		$url_type = $GLOBALS['type_urls'] ?? $GLOBALS['meta']['type_urls'] ?? 'page'; // sinon type "page" par défaut
 	}
 
 	// inclure le module d'url
-	include_spip('urls/' . $type);
+	include_spip('urls/' . $url_type);
 
 	switch ($quoi) {
 		case 'page':
 			if (
-				 function_exists($f = "urls_{$type}_generer_url_page")
+				 function_exists($f = "urls_{$url_type}_generer_url_page")
 				or function_exists($f .= '_dist')
 				// ou une fonction custom utilisateur independante du type d'url
 				or function_exists($f = 'generer_url_page')
@@ -1814,18 +1815,18 @@ function charger_fonction_url(string $quoi, string $type = '') {
 		default:
 			$fquoi = ($quoi === 'objet' ? 'generer_url_objet' : 'decoder_url');
 			if (
-				function_exists($f = "urls_{$type}_{$fquoi}")
+				function_exists($f = "urls_{$url_type}_{$fquoi}")
 				or function_exists($f .= '_dist')
 			) {
 				return $f;
 			}
 			// est-ce qu'on a une ancienne fonction urls_xxx_dist() ?
 			// c'est un ancien module d'url, on appelle l'ancienne fonction qui fait tout
-			if ($f = charger_fonction($type, 'urls', true)) {
+			if ($f = charger_fonction($url_type, 'urls', true)) {
 				return $f;
 			}
-			// sinon on se rabat sur les urls page
-			if ($type !== 'page') {
+			// sinon on se rabat sur les urls page si ce n'est pas un type demande explicitement
+			if (!$type and $url_type !== 'page'){
 				return charger_fonction_url($quoi, 'page');
 			}
 			return '';
