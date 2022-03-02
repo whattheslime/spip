@@ -64,6 +64,8 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'bouton_radio_non_envoi_annonces_editoriales' => 'Keine editorischen Ankündigungen verschicken',
 	'bouton_redirection' => 'UMLEITUNG',
 	'bouton_reinitialiser_aux_valeurs_par_defaut' => 'Mit Standardwerten neu initialisieren',
+	'bouton_relancer_inscription' => 'Anmeldung neu starten',
+	'bouton_relancer_inscriptions' => 'Anmeldungen neu starten',
 	'bouton_relancer_installation' => 'Installation wiederholen',
 	'bouton_reset_password' => 'Neues Passwort erzeugen und per Mail zusenden',
 	'bouton_suivant' => 'weiter',
@@ -96,6 +98,11 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'date_mot_heures' => 'Stunden',
 
 	// E
+	'ecran_connexion_couleur_principale' => 'Grundfarbe',
+	'ecran_connexion_image_fond' => 'Hintergrundbild',
+	'ecran_connexion_image_fond_explication' => 'Ein Bild verwenden (fFormat JPEG, 1920x1080 Pixel)',
+	'ecran_connexion_image_revenir_couleur_defaut' => 'Standardfarbe verwenden',
+	'ecran_connexion_titre' => 'Anmeldebildschirm',
 	'ecran_securite' => ' + Sicherheitsschirm @version@',
 	'email' => 'E-Mail',
 	'email_2' => 'E-Mail:',
@@ -149,6 +156,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'erreur_plugin_prefix_manquant' => 'Namespace des Plugin nicht definiert',
 	'erreur_plugin_tag_plugin_absent' => '&lt;plugin&gt; fehlt in der Definitionsdatei',
 	'erreur_plugin_version_manquant' => 'Version des Plugin fehlt',
+	'erreur_type_fichier' => 'Falsches Dateiformat',
 
 	// H
 	'htaccess_a_simuler' => 'Achtung: Ihr HTTP-Server ist so konfiguriert, daß er @htaccess@ Dateien ignoriert. Eine sichere Konfiguration des Servers erzielen sie, indem sie diese Einstellung ändern, oder indem sie die Konstanten  @constantes@ in der Datei mes_options.php so setzen, daß die Verzeichnisse außerhalb des @document_root@ liegen.',
@@ -373,7 +381,7 @@ Ihr Status wird durch die Farbe ihres Symbols angezeigt (Redakteur = gelb; Admin
 	'info_nouvel_article' => 'Neuer Artikel',
 	'info_nouvelle_traduction' => 'Neue Übersetzung:',
 	'info_numero_article' => 'ARTIKEL NUMMER:',
-	'info_obligatoire_02' => ' (Erforderlich)', # MODIF
+	'info_obligatoire_02' => ' (erforderlich)',
 	'info_option_accepter_visiteurs' => 'Besucher dürfen sich als Leser der Website anmelden.',
 	'info_option_ne_pas_accepter_visiteurs' => 'Anmeldung von Lesern verhindern',
 	'info_options_avancees' => 'SPEZIALFUNKTIONEN',
@@ -506,7 +514,9 @@ in einer Farbe, die den Status anzeigt :',
 	'install_nom_base_hebergeur' => 'Name der vom Provider zugewiesenen Datenbank:',
 	'install_pas_table' => 'Datenbank zur Zeit ohne Tabellen',
 	'install_pass_base_hebergeur' => 'Vom Provider zugeteiltes Passwort',
+	'install_php_extension' => 'Folgende Erweiterungen fehlen: @extensions@',
 	'install_php_version' => 'Die PHP-Version @version@ ist zu alt. (Mindestens erforderlich = @minimum@)',
+	'install_php_version_max' => 'PHP Version @version@ zu neu (maximum = @maximum@)',
 	'install_select_langue' => 'Wählen Sie eine Sprache aus und klicken Sie auf «Weiter», um die Installation zu starten.',
 	'install_select_type_db' => 'Geben Sie den Typ der Datenbank an:',
 	'install_select_type_mysql' => 'MySQL',
@@ -668,9 +678,9 @@ in einer Farbe, die den Status anzeigt :',
 	'plugin_titre_automatique_ajouter' => 'Plugins hinzufügen',
 	'plugin_titre_installation' => 'Installation des Plugins @plugin@',
 	'plugin_titre_modifier' => 'Meine Plugins',
-	'plugin_utilise_extension_php' => 'verwendet die PHP-Erweiterung @plugin@ Version @version@.', # MODIF
-	'plugin_utilise_php' => 'verwendet @plugin@ Version @version@.', # MODIF
-	'plugin_utilise_plugin' => 'Verwendet das Plugin @plugin@ in der Version @version@.', # MODIF
+	'plugin_utilise_extension_php' => 'PHP-Erweiterung @plugin@ muss Version @version@ sein.',
+	'plugin_utilise_php' => '@plugin@ muss Version @version@ sein.',
+	'plugin_utilise_plugin' => 'Das Plugin @plugin@ muss Version @version@ sein.',
 	'plugin_zip_active' => 'Weiter zum Aktivieren',
 	'plugin_zip_adresse' => 'Geben Sie hier die Adresse einer ZIP-Datei, die das Plugin enthält, oder die Adresse einer Plugin-Liste an.',
 	'plugin_zip_adresse_champ' => 'Adresse des Plugins oder der Liste ',
@@ -697,18 +707,18 @@ in einer Farbe, die den Status anzeigt :',
 
 	// Q
 	'queue_executer_maintenant' => 'Jetzt ausführen',
-	'queue_info_purger' => 'Sie können alle anstehenden Jobs löschen und so die Liste der regelmäßigen Jobs neu initialisieren.', # MODIF
-	'queue_nb_jobs_in_queue' => '@nb@ Jobs in der Warteschlange', # MODIF
-	'queue_next_job_in_nb_sec' => 'Nächster Job in @nb@ s', # MODIF
-	'queue_no_job_in_queue' => 'Keine Aufgaben in der Warteschlange', # MODIF
-	'queue_one_job_in_queue' => '1 Job in der Warteschlange', # MODIF
+	'queue_info_purger' => 'Sie können alle anstehenden Aufgaben löschen und so die Liste der regelmäßigen Aufgaben neu einlesen.',
+	'queue_nb_jobs_in_queue' => '@nb@ Aufgaben in der Warteschlange',
+	'queue_next_job_in_nb_sec' => 'Nächste Aufgabe in @nb@ s',
+	'queue_no_job_in_queue' => 'Keine Aufgaben in der Warteschlange',
+	'queue_one_job_in_queue' => '1 Aufgabe in der Warteschlange',
 	'queue_priorite_tache' => 'Rangfolge',
-	'queue_purger_queue' => 'Jobliste löschen', # MODIF
-	'queue_titre' => 'Jobliste', # MODIF
+	'queue_purger_queue' => 'Aufgabenliste löschen',
+	'queue_titre' => 'Hintergrundprozesse',
 
 	// R
 	'repertoire_plugins' => 'Verzeichnis:',
-	'required' => ' (Erforderlich)', # MODIF
+	'required' => ' (erforderlich)',
 
 	// S
 	'sans_heure' => 'Ohne Zeit',
