@@ -133,12 +133,12 @@ function charger_langue($lang, $module = 'spip') {
 	}
 }
 
-/** 
- * Retourne les entrées d’un fichier de langue 
- * 
+/**
+ * Retourne les entrées d’un fichier de langue
+ *
  * Les fichiers de langue retournent soit un array [ cle => valeur ],
  * soit peuplent une globale `$GLOBALS[$GLOBALS['idx_lang']]`.
- * 
+ *
  * @return string Chemin du fichier de langue (un fichier PHP)
  * @return array<string, string>
  */
@@ -307,7 +307,7 @@ function inc_traduire_dist($ori, $lang, $raw = false) {
 		if (isset($GLOBALS[$var][$code])) {
 			$desc->code = $code;
 			$desc->module = $module;
-			$desc->langue = $GLOBALS['lang_' . $var];
+			$desc->langue = $GLOBALS['lang_' . $var] ?? $lang;
 			$desc->texte = $GLOBALS[$var][$code];
 			break;
 		}
