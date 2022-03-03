@@ -50,3 +50,6 @@ function spip_tests_loger_webmestre() {
 	include_spip('inc/auth');
 	auth_loger($webmestre);
 }
+
+// inclure les bootstrap.php de chaque suite
+include_once __DIR__ . '/bootstrap_plugins.php';

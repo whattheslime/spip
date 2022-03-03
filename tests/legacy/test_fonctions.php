@@ -250,6 +250,8 @@ function tests_legacy_lister($extension=null) {
 				continue;
 			if (stristr($test,'all_tests.php'))
 				continue;
+			if (stristr($test,'bootstrap.php'))
+				continue;
 
 			$testbasename = basename($test);
 			// ignorer les vrais tests PHPUnit
