@@ -4,3 +4,4 @@ composer.lock
 /vendor-bin/*/vendor/
 .phpunit.result.cache
 phpunit.xml
+tests/bootstrap_plugins.php

@@ -104,7 +104,7 @@ class EssaisTest extends TestCase {
 		$dir_base = __DIR__. '/essais';
 		$essais_files = glob("{{$dir_base}/*.php,{$dir_base}/*/*.php,{$dir_base}/*/*/*.php}",GLOB_BRACE);
 
-		include_once __DIR__ . "/spip.inc";
+		include_once __DIR__ . "/bootstrap.php";
 		$tests = [
 		];
 		foreach ($essais_files as $essai_file) {
