@@ -348,7 +348,7 @@ function confirmer_statut_inscription($auteur) {
 
 /**
  * Attribuer un jeton temporaire pour un auteur en assurant l'unicite du jeton.
- * 
+ *
  * Chaque appel crée un nouveau jeton pour l’auteur
  * et invalide donc le précédent
  *
@@ -361,8 +361,8 @@ function auteur_attribuer_jeton($id_auteur): string {
 	include_spip('inc/chiffrer');
 	// s'assurer de l'unicite du jeton pour le couple (email,cookie)
 	do {
-		// Un morceau du jeton est lisible en bdd pour éviter de devoir déchiffrer 
-		// tous les jetons connus pour vérifier le jeton d’un auteur. 
+		// Un morceau du jeton est lisible en bdd pour éviter de devoir déchiffrer
+		// tous les jetons connus pour vérifier le jeton d’un auteur.
 		$public = substr(creer_uniqid(), 0, 7) . '.';
 		$jeton = $public . creer_uniqid();
 		$jeton_chiffre_prefixe = $public . Chiffrement::chiffrer($jeton, SpipCles::secret_du_site());
@@ -374,10 +374,10 @@ function auteur_attribuer_jeton($id_auteur): string {
 
 /**
  * Lire un jeton temporaire d’un auteur (peut le créer au besoin)
- * 
+ *
  * Cette fonction peut être pratique si plusieurs notifications proches
  * dans la durée sont envoyées au même auteur.
- * 
+ *
  * @param int $id_auteur
  * @param bool $autoInit Attribue un jeton à l’auteur s’il n’en a pas déjà.
  * @return string|null

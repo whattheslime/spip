@@ -1826,7 +1826,7 @@ function charger_fonction_url(string $quoi, string $type = '') {
 				return $f;
 			}
 			// sinon on se rabat sur les urls page si ce n'est pas un type demande explicitement
-			if (!$type and $url_type !== 'page'){
+			if (!$type and $url_type !== 'page') {
 				return charger_fonction_url($quoi, 'page');
 			}
 			return '';
