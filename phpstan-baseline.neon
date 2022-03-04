@@ -155,3 +155,23 @@ parameters:
 			count: 1
 			path: ecrire/req/sqlite_generique.php
 
+		-
+			message: "#^Attribute class SensitiveParameter does not exist\\.$#"
+			count: 3
+			path: ecrire/src/Chiffrer/Chiffrement.php
+
+		-
+			message: "#^Attribute class SensitiveParameter does not exist\\.$#"
+			count: 1
+			path: ecrire/src/Chiffrer/Cles.php
+
+		-
+			message: "#^Attribute class SensitiveParameter does not exist\\.$#"
+			count: 5
+			path: ecrire/src/Chiffrer/Password.php
+
+		-
+			message: "#^Attribute class SensitiveParameter does not exist\\.$#"
+			count: 3
+			path: ecrire/src/Chiffrer/SpipCles.php
+
