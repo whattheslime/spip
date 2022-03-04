@@ -16,21 +16,6 @@ parameters:
 			path: ecrire/charsets/translit.php
 
 		-
-			message: "#^Function exec_puce_statut_args\\(\\) should return string but return statement is missing\\.$#"
-			count: 1
-			path: ecrire/exec/puce_statut.php
-
-		-
-			message: "#^Function exec_puce_statut_dist\\(\\) should return string but return statement is missing\\.$#"
-			count: 1
-			path: ecrire/exec/puce_statut.php
-
-		-
-			message: "#^Function message_crash_tables\\(\\) should return string but return statement is missing\\.$#"
-			count: 1
-			path: ecrire/genie/maintenance.php
-
-		-
 			message: "#^Function fichier_copie_locale\\(\\) should return string but return statement is missing\\.$#"
 			count: 1
 			path: ecrire/inc/distant.php
@@ -51,22 +36,12 @@ parameters:
 			path: ecrire/inc/filtres_dates.php
 
 		-
-			message: "#^Function recup_date\\(\\) should return array but return statement is missing\\.$#"
-			count: 1
-			path: ecrire/inc/filtres_dates.php
-
-		-
 			message: "#^Function alertes_auteur\\(\\) should return string but return statement is missing\\.$#"
 			count: 1
 			path: ecrire/inc/filtres_ecrire.php
 
 		-
 			message: "#^Class GdImage not found\\.$#"
-			count: 1
-			path: ecrire/inc/filtres_images_lib_mini.php
-
-		-
-			message: "#^Function statut_effacer_images_temporaires\\(\\) should return bool but return statement is missing\\.$#"
 			count: 1
 			path: ecrire/inc/filtres_images_lib_mini.php
 
@@ -89,11 +64,6 @@ parameters:
 			message: "#^Function calculer_rubriques_if\\(\\) should return bool but return statement is missing\\.$#"
 			count: 1
 			path: ecrire/inc/rubriques.php
-
-		-
-			message: "#^Function charger_langue\\(\\) should return string but return statement is missing\\.$#"
-			count: 1
-			path: ecrire/inc/traduire.php
 
 		-
 			message: "#^Result of function debug_print_backtrace \\(void\\) is used\\.$#"
@@ -214,4 +184,24 @@ parameters:
 			message: "#^Function spip_sqlite_update\\(\\) should return array\\|bool\\|string but return statement is missing\\.$#"
 			count: 1
 			path: ecrire/req/sqlite_generique.php
+
+		-
+			message: "#^Attribute class SensitiveParameter does not exist\\.$#"
+			count: 3
+			path: ecrire/src/Chiffrer/Chiffrement.php
+
+		-
+			message: "#^Attribute class SensitiveParameter does not exist\\.$#"
+			count: 1
+			path: ecrire/src/Chiffrer/Cles.php
+
+		-
+			message: "#^Attribute class SensitiveParameter does not exist\\.$#"
+			count: 5
+			path: ecrire/src/Chiffrer/Password.php
+
+		-
+			message: "#^Attribute class SensitiveParameter does not exist\\.$#"
+			count: 3
+			path: ecrire/src/Chiffrer/SpipCles.php
 
