@@ -1,3 +1,15 @@
+SPIP-Core v3.2.13 -> v3.2.14 (04 Mars 2022)
+--------------------------------------------
+
+SPIP-plugins-dist v3.2.13 -> v3.2.14 (04 Mars 2022)
+----------------------------------------------------
+
+medias                  | e4a3137 | marcimat     | 2022-03-04 | Pas de typage pour les vieux PHP
+medias                  | 3014b84 | marcimat     | 2022-02-22 | Déprécier et sécuriser l’insertion d’une galerie dans le formulaires d’ajout de document. Ce mode n’est plus utilisé d..
+mots                    | 844893f | bitbucket    | 2022-02-11 | un point d'interrogation pour le id_groupe qui permet d'afficher les groupes que l'on souhaite dans un formulaire d'as..
+squelettes-dist         | 93cee41 | marcimat     | 2022-02-24 | Report de 8505e7c0ed9118ee31 qui était dans la dist, et non reporté du squelette neodist
+
+
 SPIP-Core v3.2.12 -> v3.2.13 (02 Février 2022)
 -----------------------------------------------
 

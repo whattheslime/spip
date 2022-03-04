@@ -63,13 +63,13 @@
         "path": "plugins-dist/medias",
         "source": "https://git.spip.net/spip/medias.git",
         "branch": "spip-3.2",
-        "tag": "v2.20.36"
+        "tag": "v2.20.37"
     },
     "mots": {
         "path": "plugins-dist/mots",
         "source": "https://git.spip.net/spip/mots.git",
         "branch": "spip-3.2",
-        "tag": "v2.8.10"
+        "tag": "v2.8.11"
     },
     "organiseur": {
         "path": "plugins-dist/organiseur",
@@ -153,6 +153,6 @@
         "path": "squelettes-dist",
         "source": "https://git.spip.net/spip/dist.git",
         "branch": "spip-3.2",
-        "tag": "v3.2.5"
+        "tag": "v3.2.6"
     }
 }
