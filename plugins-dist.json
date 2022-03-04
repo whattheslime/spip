@@ -27,13 +27,13 @@
         "path": "plugins-dist/compresseur",
         "source": "https://git.spip.net/spip/compresseur.git",
         "branch": "1.15",
-        "tag": "v1.15.4"
+        "tag": "v1.15.5"
     },
     "dump": {
         "path": "plugins-dist/dump",
         "source": "https://git.spip.net/spip/dump.git",
         "branch": "1.10",
-        "tag": "v1.10.3"
+        "tag": "v1.10.4"
     },
     "filtres_images": {
         "path": "plugins-dist/filtres_images",
@@ -57,13 +57,13 @@
         "path": "plugins-dist/medias",
         "source": "https://git.spip.net/spip/medias.git",
         "branch": "3.2",
-        "tag": "v3.2.4"
+        "tag": "v3.2.5"
     },
     "mots": {
         "path": "plugins-dist/mots",
         "source": "https://git.spip.net/spip/mots.git",
         "branch": "3.0",
-        "tag": "v3.0.3"
+        "tag": "v3.0.4"
     },
     "plan": {
         "path": "plugins-dist/plan",
@@ -105,7 +105,7 @@
         "path": "plugins-dist/svp",
         "source": "https://git.spip.net/spip/svp.git",
         "branch": "2.4",
-        "tag": "v2.4.2"
+        "tag": "v2.4.3"
     },
     "textwheel": {
         "path": "plugins-dist/textwheel",
@@ -123,6 +123,6 @@
         "path": "squelettes-dist",
         "source": "https://git.spip.net/spip/dist.git",
         "branch": "4.0",
-        "tag": "v4.0.2"
+        "tag": "v4.0.3"
     }
 }

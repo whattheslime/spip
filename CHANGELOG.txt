@@ -1,3 +1,26 @@
+ 
+SPIP-Core v4.0.4 -> v4.0.5 (04 Mars 2022)
+------------------------------------------
+
+f2b7ed208 | eric         | 2022-02-19 | Un return manquant et pas grand chose semblait dépeuplé depuis des lustres...
+fd89189c0 | eric         | 2022-02-19 | Eviter un warning en ajoutant un include manquant
+dab74847d | marcimat     | 2022-02-17 | Coquille dans 9f830f05724 (g0uZ). Report de 3bf1a5daf
+23a6c14c0 | marcimat     | 2022-02-11 | Ticket #5032 : ini_set peut être désactivé sur les hébergements web.
+cdad6a93d | cedric       | 2022-02-03 | Fix #5021 et #5022 : - mieux decouper les chaines y compris dans le cas des simples quote echappes par sqlite - echapp..
+
+
+SPIP-plugins-dist v4.0.4 -> v4.0.5 (04 Mars 2022)
+--------------------------------------------------
+
+compresseur     | bbb1e25 | bruno        | 2022-03-03 | Include manquant dans minifier()
+dump            | ebd158c | marcimat     | 2022-02-11 | Ticket spip/spip#5032 : vérifier la présence de ini_set pour PHP 8
+medias          | f1b85e3 | marcimat     | 2022-02-22 | Déprécier et sécuriser l’insertion d’une galerie dans le formulaires d’ajout de document. Ce mode n’est plus utilisé d..
+mots            | c793d38 | bitbucket    | 2022-02-11 | un point d'interrogation pour le id_groupe qui permet d'afficher les groupes que l'on souhaite dans un formulaire d'as..
+svp             | 0060015 | marcimat     | 2022-02-11 | Ticket spip/spip#5032 : vérifier la présence de ini_set pour PHP 8
+squelettes-dist | 9967ec1 | marcimat     | 2022-02-24 | Report de 8505e7c0ed9118ee31 qui était dans la dist, et non reporté du squelette neodist
+
+
+
 SPIP-Core v4.0.3 -> v4.0.4 (02 Février 2022)
 ---------------------------------------------
 
