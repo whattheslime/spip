@@ -16,7 +16,7 @@
  * @package SPIP\Core\Actions
  **/
 
- use \Spip\Chiffrer\SpipCles;
+ use Spip\Chiffrer\SpipCles;
 
 if (!defined('_ECRIRE_INC_VERSION')) {
 	return;
@@ -296,7 +296,7 @@ function verifier_action_auteur($action, $hash) {
 
 /**
  * Renvoyer le secret du site (le generer si il n'existe pas encore)
- * 
+ *
  * @uses SpipCles::secret_du_site()
  * @return string
  */

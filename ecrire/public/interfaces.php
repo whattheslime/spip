@@ -538,13 +538,13 @@ class Boucle {
 	public $ligne = 0;
 
 
-	/** 
-	 * table pour stocker les modificateurs de boucle tels que tout, plat ..., 
-	 * utilisable par les plugins egalement 
-	 * 
+	/**
+	 * table pour stocker les modificateurs de boucle tels que tout, plat ...,
+	 * utilisable par les plugins egalement
+	 *
 	 * @var array<string, mixed>
 	 */
-	public $modificateur = []; 
+	public $modificateur = [];
 
 	/**
 	 * Type d'itérateur utilisé pour cette boucle

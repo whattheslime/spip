@@ -4432,7 +4432,7 @@ function prepare_icone_base($type, $lien, $texte, $fond, $fonction = '', $class 
 	$class_bouton .= " s$size";
 
 	// Icône
-	$icone = http_img_pack($fond, $alt, "width='$size' height='$size'",'', ['alternative' => "objet-generique-$size.png"]);
+	$icone = http_img_pack($fond, $alt, "width='$size' height='$size'", '', ['alternative' => "objet-generique-$size.png"]);
 	$icone = '<span class="icone-image' . ($fonction ? " icone-fonction icone-fonction-$fonction" : '') . "\">$icone</span>";
 
 	// Markup final
