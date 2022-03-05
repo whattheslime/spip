@@ -1,10 +1,10 @@
 <paquet
 	prefix="spip"
 	categorie="outil"
-	version="4.1.0-beta"
+	version="4.1.0-rc"
 	etat="dev"
 	compatibilite="];["
-	schema="2021021800"
+	schema="2022022302"
 	documentation="https://www.spip.net"
 	demonstration="https://demo.spip.net"
 	developpement="https://git.spip.net/spip/spip"
