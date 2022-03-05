@@ -96,6 +96,11 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'repondre_breve' => 'auf diese Meldung antworten',
 	'resultats_recherche' => 'Suchergebnis(se)',
 	'retour_debut_forums' => 'Zurück zum Beginn des Forums',
+	'rss_abonnement' => 'Kopieren Sie die folgende URL in Ihren Feedreader:',
+	'rss_abonnement_titre' => 'Abonnieren',
+	'rss_abonnement_titre_page' => 'Abonnieren von',
+	'rss_explication' => 'Ein RSS-Feed sammelt Informationen über die Aktualisierungen einer Website. Er liefert den Inhalt von Einträgen oder Kommentaren oder einen Auszug daraus sowie einen Link zu den Vollversionen und einige andere Informationen. Der Feed ist dazu gedacht, von einem RSS-Aggregator (Feedreader) gelesen zu werden',
+	'rss_explication_titre' => 'Was ist ein RSS-Feed ?',
 	'rubrique' => 'Rubrik',
 	'rubriques' => 'Rubriken',
 

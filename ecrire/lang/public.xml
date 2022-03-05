@@ -32,8 +32,9 @@
 	<langue code="cpf_hat" url="https://trad.spip.net/tradlang_module/public?lang_cible=cpf_hat" total="83" traduits="66" relire="0" modifs="3" nouveaux="14" pourcent="79.52" />
 	<langue code="cs" url="https://trad.spip.net/tradlang_module/public?lang_cible=cs" total="83" traduits="71" relire="0" modifs="3" nouveaux="9" pourcent="85.54" />
 	<langue code="da" url="https://trad.spip.net/tradlang_module/public?lang_cible=da" total="83" traduits="65" relire="0" modifs="3" nouveaux="15" pourcent="78.31" />
-	<langue code="de" url="https://trad.spip.net/tradlang_module/public?lang_cible=de" total="83" traduits="78" relire="0" modifs="0" nouveaux="5" pourcent="93.98">
+	<langue code="de" url="https://trad.spip.net/tradlang_module/public?lang_cible=de" total="83" traduits="83" relire="0" modifs="0" nouveaux="0" pourcent="100.00">
 		<traducteur nom="klaus++" lien="https://trad.spip.net/auteur/klaus" />
+		<traducteur nom="Torsten Willmann" lien="https://trad.spip.net/auteur/torsten-willmann" />
 	</langue>
 	<langue code="el" url="https://trad.spip.net/tradlang_module/public?lang_cible=el" total="83" traduits="70" relire="0" modifs="4" nouveaux="9" pourcent="84.34">
 		<traducteur nom="dlatr" lien="https://trad.spip.net/auteur/dlatr" />

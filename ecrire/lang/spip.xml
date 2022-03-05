@@ -41,7 +41,7 @@
 	</langue>
 	<langue code="cs" url="https://trad.spip.net/tradlang_module/spip?lang_cible=cs" total="651" traduits="488" relire="0" modifs="42" nouveaux="121" pourcent="74.96" />
 	<langue code="da" url="https://trad.spip.net/tradlang_module/spip?lang_cible=da" total="651" traduits="442" relire="0" modifs="57" nouveaux="152" pourcent="67.90" />
-	<langue code="de" url="https://trad.spip.net/tradlang_module/spip?lang_cible=de" total="651" traduits="634" relire="0" modifs="4" nouveaux="13" pourcent="97.39">
+	<langue code="de" url="https://trad.spip.net/tradlang_module/spip?lang_cible=de" total="651" traduits="651" relire="0" modifs="0" nouveaux="0" pourcent="100.00">
 		<traducteur nom="Andras" lien="https://trad.spip.net/auteur/andras" />
 		<traducteur nom="Benjamin Tricault" lien="https://trad.spip.net/auteur/benjamin-tricault" />
 		<traducteur nom="kent1" lien="https://trad.spip.net/auteur/kent1" />
@@ -188,7 +188,7 @@
 		<traducteur nom="Fernando Ferreira" lien="https://trad.spip.net/auteur/fernando-ferreira" />
 		<traducteur nom="Miguel" lien="https://trad.spip.net/auteur/miguel" />
 	</langue>
-	<langue code="pt_br" url="https://trad.spip.net/tradlang_module/spip?lang_cible=pt_br" total="651" traduits="648" relire="0" modifs="2" nouveaux="1" pourcent="99.54">
+	<langue code="pt_br" url="https://trad.spip.net/tradlang_module/spip?lang_cible=pt_br" total="651" traduits="651" relire="0" modifs="0" nouveaux="0" pourcent="100.00">
 		<traducteur nom="filipaun" lien="https://trad.spip.net/auteur/filipaun" />
 		<traducteur nom="joao1315" lien="https://trad.spip.net/auteur/joao1315" />
 		<traducteur nom="quijaua" lien="https://trad.spip.net/auteur/quijaua" />
