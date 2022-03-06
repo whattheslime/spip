@@ -572,8 +572,11 @@ function lister_objets_lies($objet_source, $objet, $id_objet, $objet_lien) {
 	} else {
 		$res = objet_trouver_liens(array($objet_source => '*'), array($objet => $id_objet));
 	}
+	// Si les liens qu'on cherche sont ceux de la table de lien, l'info est dans la clé de l'objet
+	// Sinon c'est dans "id_objet" 
+	$cle = ($objet_source == $objet_lien ? id_table_objet($objet_source) : 'id_objet');
 	while ($row = array_shift($res)) {
-		$l[] = $row[$objet_source];
+		$l[] = $row[$cle];
 	}
 
 	return $l;
