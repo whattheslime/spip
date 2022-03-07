@@ -1179,46 +1179,6 @@ function image_graver($img) {
 	return $img;
 }
 
-
-if (!function_exists('imagepalettetotruecolor')) {
-	/**
-	 * Transforme une image à palette indexée (256 couleurs max) en "vraies" couleurs RGB
-	 *
-	 * @note Pour compatibilité avec PHP < 5.5
-	 *
-	 * @link http://php.net/manual/fr/function.imagepalettetotruecolor.php
-	 *
-	 * @param resource $img
-	 * @return bool
-	 *     - true si l'image est déjà en vrai RGB ou peut être transformée
-	 *     - false si la transformation ne peut être faite.
-	 **/
-	function imagepalettetotruecolor(&$img) {
-		if (!$img or !function_exists('imagecreatetruecolor')) {
-			return false;
-		} elseif (!imageistruecolor($img)) {
-			$w = imagesx($img);
-			$h = imagesy($img);
-			$img1 = imagecreatetruecolor($w, $h);
-			//Conserver la transparence si possible
-			if (function_exists('ImageCopyResampled')) {
-				if (function_exists('imageAntiAlias')) {
-					imageAntiAlias($img1, true);
-				}
-				@imagealphablending($img1, false);
-				@imagesavealpha($img1, true);
-				@ImageCopyResampled($img1, $img, 0, 0, 0, 0, $w, $h, $w, $h);
-			} else {
-				imagecopy($img1, $img, 0, 0, 0, 0, $w, $h);
-			}
-
-			$img = $img1;
-		}
-
-		return true;
-	}
-}
-
 /**
  * Applique des attributs de taille (width, height) à une balise HTML
  *
