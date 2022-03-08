@@ -130,14 +130,14 @@ function sous_enfant_rub($collection2) {
 	if ($nb > $limite) {
 		$debut = _request('debut_rubrique' . $collection2) ?: $debut;
 		$pagination = chercher_filtre('pagination');
-		$pagination = '<p class="pagination">' . $pagination(
+		$pagination = '<nav class="pagination">' . $pagination(
 			$nb,
 			'_rubrique' . $collection2,
 			$debut,
 			$limite,
 			true,
 			'prive'
-		) . '</p>';
+		) . '</nav>';
 		$limite = $debut + $limite;
 	}
 
@@ -204,9 +204,9 @@ function afficher_enfant_rub($id_rubrique = 0) {
 	if ($nb > $limite) {
 		$debut = _request('debut_rubrique' . $id_rubrique) ?: $debut;
 		$pagination = chercher_filtre('pagination');
-		$pagination = '<br class="nettoyeur"><p class="pagination">' .
+		$pagination = '<br class="nettoyeur"><nav class="pagination">' .
 			$pagination($nb, '_rubrique' . $id_rubrique, $debut, $limite, true, 'prive') .
-		'</p>';
+		'</nav>';
 	}
 
 	$les_enfants = enfant_rub($id_rubrique, $debut, $limite);
