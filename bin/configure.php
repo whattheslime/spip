@@ -6,6 +6,11 @@ $args = $argv;
 array_shift($args);
 
 $dir_tests = dirname(__DIR__) . '/';
+$file_bootstrap_plugins = $dir_tests . "tests/bootstrap_plugins.php";
+if (!file_exists($file_bootstrap_plugins)) {
+	file_put_contents($file_bootstrap_plugins,"<?"."php\n");
+}
+
 // charger SPIP
 require_once $dir_tests . 'tests/bootstrap.php';
 
@@ -52,4 +57,4 @@ $code = "<?" . "php\n";
 foreach ($bootstraps as $bootstrap) {
 	$code .= "include_once '".addslashes($bootstrap)."';\n";
 }
-file_put_contents($dir_tests . "tests/bootstrap_plugins.php", $code);
+file_put_contents($file_bootstrap_plugins, $code);
