@@ -6,7 +6,7 @@ jQuery.spip.log = function(){
 
 /**
  * Test si on est dans l'admin de SPIP
- * 
+ *
  * @return bool
  *   Retourne true si on est dans l'admin, false sinon
  */
@@ -14,7 +14,7 @@ jQuery.spip.test_espace_prive = function () {
 	if (typeof spipConfig.core.test_espace_prive != undefined && spipConfig.core.test_espace_prive) {
 		return true;
 	}
-	
+
 	return false;
 }
 
@@ -29,7 +29,7 @@ if(!jQuery.spip.load_handlers) {
 	 *
 	 * most of time function f is applied on the loaded data
 	 * if not known, the whole document is targetted
-	 * 
+	 *
 	 * @param function f
 	 */
 	function onAjaxLoad(f) {
@@ -1094,6 +1094,14 @@ function spip_logo_survol_out() {
 	}
 }
 
+function disableClickAfterFormSubmit(){
+	jQuery(this)
+		.addClass('processing-submitted-form')
+		.find('button[type="submit"]')
+		.attr('disabled','disabled')
+		.addClass('disabled')
+}
+
 function puce_enable_survol() {
 	jQuery('span.puce_objet_popup a',this).not('.puce-survol-enabled').click(function(){
 		selec_statut(jQuery(this).attr('data-puce-id'), jQuery(this).attr('data-puce-type'), jQuery(this).attr('data-puce-decal'), jQuery('img',this).attr('src'), jQuery(this).attr('data-puce-action'));
@@ -1116,6 +1124,8 @@ jQuery(function() {
 	jQuery("input[placeholder]:text").placeholderLabel();
 	jQuery('.spip_logo_survol').hover(spip_logo_survol_hover, spip_logo_survol_out);
 	puce_enable_survol.apply(this);
+
+	jQuery('body').on('submit','form.bouton_action_post', disableClickAfterFormSubmit);
 });
 
 // ... et a chaque fois que le DOM change
