@@ -1285,7 +1285,7 @@ function balise_CHEMIN_dist($p) {
 		$msg = ['zbug_balise_sans_argument', ['balise' => ' CHEMIN']];
 		erreur_squelette($msg, $p);
 	} else {
-		$p->code = 'find_in_path(' . $arg . ')';
+		$p->code = 'find_in_path((string)' . $arg . ')';
 	}
 
 	$p->interdire_scripts = false;
@@ -1320,7 +1320,7 @@ function balise_CHEMIN_IMAGE_dist($p) {
 		$msg = ['zbug_balise_sans_argument', ['balise' => ' CHEMIN_IMAGE']];
 		erreur_squelette($msg, $p);
 	} else {
-		$p->code = 'chemin_image(' . $arg . ')';
+		$p->code = 'chemin_image((string)' . $arg . ')';
 	}
 
 	$p->interdire_scripts = false;
