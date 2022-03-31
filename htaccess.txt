@@ -94,7 +94,7 @@ RewriteRule ^[^\.]+(\.html)?$		spip.php [QSA,E=url_propre:$0,L]
 # Divers
 
 # bloquer les acces aux fichiers caches (.svn, .git, etc)
-RewriteRule /\\..*(/.*|$) - [F]
+RedirectMatch 404 (?i)/\..+
 
 ###
 # Fichiers "standards" (si absents de la racine)
