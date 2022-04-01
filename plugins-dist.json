@@ -45,7 +45,7 @@
         "path": "plugins-dist/forum",
         "source": "https://git.spip.net/spip/forum.git",
         "branch": "2.0",
-        "tag": "v2.0.4"
+        "tag": "v2.0.5"
     },
     "mediabox": {
         "path": "plugins-dist/mediabox",
@@ -123,6 +123,6 @@
         "path": "squelettes-dist",
         "source": "https://git.spip.net/spip/dist.git",
         "branch": "4.0",
-        "tag": "v4.0.3"
+        "tag": "v4.0.4"
     }
 }

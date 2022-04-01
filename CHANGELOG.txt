@@ -1,4 +1,26 @@
- 
+SPIP-Core v4.0.5 -> v4.0.6 (01 avril 2022)
+------------------------------------------
+
+12d62612e | bruno         | 2022-03-06 | éviter que les paginations débordent sur petit écran
+599a27b2e | rastapopoulos | 2022-03-06 | Fix #5076 : réparer la fonction buguée en n'utilisant jamais les clés raccourcis qui sont non fiables, mais les autres..
+688c1ec1b | cedric        | 2022-03-21 | Un peu de JS pour eviter les doubles clic sur un bouton action qui lance une action longue : lorsqu'un form.bouton_act..
+0c00bd3f3 | marcimat      | 2022-03-20 | Ticket #5089 : ce bout de code renvoyait toujours false étrangement en PHP <= 7.4 car le in_array() sur ob_get_status(..
+ac226860e | marcimat      | 2022-03-20 | Éviter une arobase
+935cab989 | marcimat      | 2022-03-20 | Éviter un arobase qui cachait un warning dont on peut se passer : aucune fonction decompiler_xx n’attend 4 paramètres !
+dd82d246d | marcimat      | 2022-03-20 | Phpdoc de types de retour dans cette fonction public_debusquer_dist() qui fait un peu... tout...
+e34def7f1 | marcimat      | 2022-03-20 | Notice php en moins
+8a9b5b134 | bruno         | 2022-03-10 | Réparer le critère compteur_articles_filtres & sa balise #COMPTEUR_ARTICLE
+3b43cb577 | bruno         | 2022-03-08 | Réparer le lien Afficher tout dans les paginations des boites de sous-rubriques
+4c6577cb1 | erational     | 2022-03-11 | Fix #5090 : afficher les logos auteurs et visiteurs de la même façon
+95d903ac6 | bruno         | 2022-03-08 | bugfix pagination des boites qui listent les sous-rubriques
+
+SPIP-plugins-dist v4.0.5 -> v4.0.6 (01 avril 2022)
+--------------------------------------------------
+
+forum           | a1660e4 | jluc         | 2022-03-27 | Les #NOTES doivent aussi passer par texte_backend et liens_absolus - fixes #4755
+squelettes-dist | 790c850 | bruno        | 2022-03-06 | éviter que les paginations débordent sur petit écran
+
+
 SPIP-Core v4.0.4 -> v4.0.5 (04 Mars 2022)
 ------------------------------------------
 
