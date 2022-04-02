@@ -2725,10 +2725,6 @@ function spip_initialisation_core($pi = null, $pa = null, $ti = null, $ta = null
 	$GLOBALS['flag_ob'] = (function_exists('ob_start')
 		&& function_exists('ini_get')
 		&& !strstr(@ini_get('disable_functions'), 'ob_'));
-	$GLOBALS['flag_get_cfg_var'] = (@get_cfg_var('error_reporting') != '');
-	$GLOBALS['flag_upload'] = (!$GLOBALS['flag_get_cfg_var'] ||
-		(get_cfg_var('upload_max_filesize') > 0));
-
 
 	// Compatibilite avec serveurs ne fournissant pas $REQUEST_URI
 	if (isset($_SERVER['REQUEST_URI'])) {
