@@ -158,21 +158,19 @@ function assembler($fond, string $connect = '') {
 
 		// Definir les entetes si ce n'est fait
 		if (!$GLOBALS['flag_preserver']) {
-			if ($GLOBALS['flag_ob']) {
-				// Si la page est vide, produire l'erreur 404 ou message d'erreur pour les inclusions
-				if (
-					trim($page['texte']) === ''
-					and _VAR_MODE != 'debug'
-					and !isset($page['entetes']['Location']) // cette page realise une redirection, donc pas d'erreur
-				) {
-					$GLOBALS['contexte']['fond_erreur'] = $fond;
-					$page = message_page_indisponible($page, $GLOBALS['contexte']);
-				}
-				// pas de cache client en mode 'observation'
-				if (defined('_VAR_MODE') and _VAR_MODE) {
-					$page['entetes']['Cache-Control'] = 'no-cache,must-revalidate';
-					$page['entetes']['Pragma'] = 'no-cache';
-				}
+			// Si la page est vide, produire l'erreur 404 ou message d'erreur pour les inclusions
+			if (
+				trim($page['texte']) === ''
+				and _VAR_MODE != 'debug'
+				and !isset($page['entetes']['Location']) // cette page realise une redirection, donc pas d'erreur
+			) {
+				$GLOBALS['contexte']['fond_erreur'] = $fond;
+				$page = message_page_indisponible($page, $GLOBALS['contexte']);
+			}
+			// pas de cache client en mode 'observation'
+			if (defined('_VAR_MODE') and _VAR_MODE) {
+				$page['entetes']['Cache-Control'] = 'no-cache,must-revalidate';
+				$page['entetes']['Pragma'] = 'no-cache';
 			}
 		}
 	}

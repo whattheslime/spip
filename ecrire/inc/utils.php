@@ -2719,13 +2719,6 @@ function spip_initialisation_core($pi = null, $pa = null, $ti = null, $ta = null
 		recuperer_cookies_spip($GLOBALS['cookie_prefix']);
 	}
 
-	//
-	// Capacites php (en fonction de la version)
-	//
-	$GLOBALS['flag_ob'] = (function_exists('ob_start')
-		&& function_exists('ini_get')
-		&& !strstr(@ini_get('disable_functions'), 'ob_'));
-
 	// Compatibilite avec serveurs ne fournissant pas $REQUEST_URI
 	if (isset($_SERVER['REQUEST_URI'])) {
 		$GLOBALS['REQUEST_URI'] = $_SERVER['REQUEST_URI'];
