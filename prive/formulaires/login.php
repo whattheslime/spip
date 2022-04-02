@@ -183,7 +183,7 @@ function login_auth_http() {
 		!$GLOBALS['ignore_auth_http']
 		and _request('var_erreur') == 'cookie'
 		and (!isset($_COOKIE['spip_session']) or $_COOKIE['spip_session'] != 'test_echec_cookie')
-		and (preg_match(',apache,i', \PHP_SAPI)
+		and (preg_match(',apache,', \PHP_SAPI)
 			or preg_match(',^Apache.* PHP,', $_SERVER['SERVER_SOFTWARE']))
 		// Attention dans le cas 'intranet' la proposition de se loger
 		// par auth_http peut conduire a l'echec.
