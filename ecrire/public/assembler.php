@@ -161,7 +161,7 @@ function assembler($fond, string $connect = '') {
 			// Si la page est vide, produire l'erreur 404 ou message d'erreur pour les inclusions
 			if (
 				trim($page['texte']) === ''
-				and _VAR_MODE != 'debug'
+				and _VAR_MODE !== 'debug'
 				and !isset($page['entetes']['Location']) // cette page realise une redirection, donc pas d'erreur
 			) {
 				$GLOBALS['contexte']['fond_erreur'] = $fond;
