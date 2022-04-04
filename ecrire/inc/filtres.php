@@ -5256,6 +5256,9 @@ function produire_fond_statique($fond, $contexte = [], $options = [], string $co
 		if (!in_array($extension, ['json', 'xml', 'svg'])) {
 			$comment = "/* #PRODUIRE{fond=$fond";
 			foreach ($contexte as $k => $v) {
+				if (is_array($v)) {
+					$v = var_export($v, true);
+				}
 				$comment .= ",$k=$v";
 			}
 			// pas de date dans le commentaire car sinon ca invalide le md5 et force la maj
