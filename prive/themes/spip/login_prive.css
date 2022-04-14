@@ -24,6 +24,7 @@
 	font-family: arial, helvetica, sans;
 	background-color: rgb(233, 233, 242);
 	background-size: cover;
+	background-position: center;
 }
 .page_login.sans_fond {
 	background: var(--spip-login-color-theme);
