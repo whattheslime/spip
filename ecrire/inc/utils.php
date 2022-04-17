@@ -1860,8 +1860,6 @@ function charger_fonction_url(string $quoi, string $type = '') {
  *   fichier dans le repertoire ecrire/urls determinant l'apparence
  * @return string
  *   url codee ou fonction de decodage
- *   array : derogatoire, la fonction d'url retourne (objet,id_objet) utilises par nettoyer_raccourcis_typo() pour generer un lien titre
- *           (cas des raccourcis personalises [->spip20] : il faut implementer une fonction generer_spip_url et une fonction generer_spip_url_ecrire)
  */
 function generer_objet_url($id, string $entite, string $args = '', string $ancre = '', ?bool $public = null, string $type = '', string $connect = ''): string {
 	if ($public === null) {
