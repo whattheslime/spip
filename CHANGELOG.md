@@ -25,6 +25,7 @@
 
 ### Changed
 
+- #5156 Les squelettes des formulaires d’édition (`formulaires/editer_xxx.html`) ne reçoivent plus l’ensemble du contenu de `spip_meta` dans l’entrée d’environnement `config`. Utiliser `#CONFIG` dedans si besoin pour cela. Seules les données spécifiques au formulaire sont transmises (par les fonctions `xxx_edit_config()`)
 - Typage de la fonction `spip_affiche_mot_de_passe_masque()`
 - Ne pas insérer de balise de fermeture PHP dans le fichier `config/connect.php`
 - Accélérer un peu la migration des logos en documents (sur mise à jour vers SPIP 4.0) en désactivant le versionnage et les drapeaux édition pendant cette étape
