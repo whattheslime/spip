@@ -37,9 +37,11 @@ function inc_log_dist($message, $logname = null, $logdir = null, $logsuf = null)
 		return;
 	}
 
-	$logfile = ($logdir ?? _DIR_LOG)
-		. ($logname)
-		. ($logsuf ?? _FILE_LOG_SUFFIX);
+	// si spip_log() est appelé dans mes_options, toutes les constantes n'ont pas été définies
+	$logfile =
+		($logdir ?? (defined('_DIR_LOG') ? _DIR_LOG : _DIR_RACINE . _NOM_TEMPORAIRES_INACCESSIBLES))
+		.$logname
+		.($logsuf ?? (defined ('_FILE_LOG_SUFFIX') ? _FILE_LOG_SUFFIX : '.log'));
 
 	if (!isset($test_repertoire[$d = dirname($logfile)])) {
 		$test_repertoire[$d] = false; // eviter une recursivite en cas d'erreur de sous_repertoire
@@ -51,8 +53,8 @@ function inc_log_dist($message, $logname = null, $logdir = null, $logsuf = null)
 		) : false));
 	}
 
-	// si spip_log() dans mes_options, ou repertoire log/ non present, poser dans tmp/
-	if (!defined('_DIR_LOG') or !$test_repertoire[$d]) {
+	// Si le repertoire défini n'existe pas, poser dans tmp/
+	if (!$test_repertoire[$d]) {
 		$logfile = _DIR_RACINE . _NOM_TEMPORAIRES_INACCESSIBLES . $logname . '.log';
 	}
 
