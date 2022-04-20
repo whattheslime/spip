@@ -248,6 +248,7 @@ function balise_FORMULAIRE__contexte($form, $args) {
 		// nettoyer l'url
 		$action = parametre_url($action, 'formulaire_action', '');
 		$action = parametre_url($action, 'formulaire_action_args', '');
+		$action = parametre_url($action, 'formulaire_action_sign', '');
 	}
 
 	/**
