@@ -37,6 +37,7 @@
 
 ### Fixed
 
+- #5169 Éviter une erreur JS sur `$.fn.positionner()` si la sélection est vide
 - #5168 Éviter une erreur fatale sur `analyse_fichier_connection()` si le fichier de connexion à analyser n’existe pas
 - #5101 Le statut de rubrique par défaut à tester est désormais `prepa` plutôt que `new`
 - #5183 Éviter de générer des icones trop grandes dans la liste des articles syndiqués
