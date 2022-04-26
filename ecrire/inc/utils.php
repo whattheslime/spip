@@ -2010,7 +2010,7 @@ function generer_objet_url_absolue($id = 0, string $entite = '', string $args = 
  * @see  generer_objet_url_absolue
  */
 function generer_url_entite_absolue($id = 0, $entite = '', $args = '', $ancre = '', $connect = null) {
-	return generer_objet_url_absolue(intval($id), $entite, $args, $ancre, true, '', $connect);
+	return generer_objet_url_absolue(intval($id), $entite, $args, $ancre, true, '', $connect ?? '');
 }
 
 
