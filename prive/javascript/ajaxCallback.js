@@ -537,13 +537,16 @@ jQuery.spip.on_ajax_failed = function(blocfrag,statusCode,href,history) {
 	// marquer le bloc invalide
 	jQuery(blocfrag).addClass('invalid');
 	// si c'est une erreur 400 on a perdu la signature ajax
-	//console.log("AJAX Erreur");
-	//console.log(statusCode);
+	jQuery.spip.log("Echec AJAX statusCode " + statusCode)
 	history = history || (history==null);
 	// quelle que soit l'erreur, on redirige si c'était la nouvelle URL principale de la page
 	if (history) {
-		//console.log("On redirige : " + href);
-		window.location.href = href;
+		if (jQuery.spip.debug) {
+			jQuery.spip.log("On redirige sur sur " + href)
+		}
+		else {
+			window.location.href = href;
+		}
 	}
 }
 
