@@ -40,7 +40,7 @@ function logo_supprimer($objet, $id_objet, $etat) {
 	if ($logo) {
 		# TODO : deprecated, a supprimer -> anciens logos IMG/artonxx.png pas en base
 		if ((is_countable($logo) ? count($logo) : 0) < 6) {
-			spip_log("Supprimer ancien logo $logo", 'logo');
+			spip_log("Supprimer ancien logo " . json_encode($logo, JSON_THROW_ON_ERROR), 'logo');
 			spip_unlink($logo[0]);
 		}
 		elseif (
@@ -126,7 +126,9 @@ function logo_modifier($objet, $id_objet, $etat, $source) {
 	// supprimer le logo eventueel existant
 	// TODO : si un logo existe, le modifier plutot que supprimer + reinserer (mais il faut gerer le cas ou il est utilise par plusieurs objets, donc pas si simple)
 	// mais de toute facon l'interface actuelle oblige a supprimer + reinserer
-	logo_supprimer($objet, $id_objet, $etat);
+	if (empty($GLOBALS['logo_migrer_en_base'])) {
+		logo_supprimer($objet, $id_objet, $etat);
+	}
 
 
 	include_spip('inc/autoriser');
@@ -164,6 +166,13 @@ function logo_migrer_en_base($objet, $time_limit) {
 	$table = table_objet_sql($objet);
 	$type = type_du_logo($_id_objet);
 	$desc = $trouver_table($table);
+
+	// on desactive les revisions
+	$liste_objets_versionnes = $GLOBALS['meta']['objets_versions'] ?? '';
+	unset($GLOBALS['meta']['objets_versions']);
+	// et le signalement des editions
+	$articles_modif = $GLOBALS['meta']['articles_modif'] ?? '';
+	$GLOBALS['meta']['articles_modif'] = 'non';
 
 	foreach (['on', 'off'] as $mode) {
 		$nom_base = $type . $mode;
@@ -248,5 +257,11 @@ function logo_migrer_en_base($objet, $time_limit) {
 			}
 		}
 	}
+
+	if ($liste_objets_versionnes) {
+		$GLOBALS['meta']['objets_versions'] = $liste_objets_versionnes;
+	}
+	$GLOBALS['meta']['articles_modif'] = $articles_modif;
+
 	effacer_meta('drapeau_edition');
 }
