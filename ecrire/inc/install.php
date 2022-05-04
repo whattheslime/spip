@@ -45,8 +45,7 @@ if (!defined('_ECRIRE_INC_VERSION')) {
 function install_fichier_connexion($nom, $texte) {
 	$texte = '<' . "?php\n"
 		. "if (!defined(\"_ECRIRE_INC_VERSION\")) return;\n"
-		. $texte
-		. '?' . '>';
+		. $texte;
 
 	ecrire_fichier($nom, $texte);
 }
