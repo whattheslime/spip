@@ -28,6 +28,7 @@ Changelog de SPIP 4.1
 
 ### Changed
 
+- Typage de la fonction `spip_affiche_mot_de_passe_masque()`
 - Accélérer un peu la migration des logos en documents (sur mise à jour vers SPIP 4.0) en désactivant le versionnage et les drapeaux édition pendant cette étape
 - spip-team/securite#4336 La fonction `recuperer_infos_distantes()` prend maintenant un tableau d'options en second argument (seul le core utilisait les 2nd et 3e arguments).
 - spip-team/securite#4336 La fonction `recuperer_infos_distantes()` accepte une option supplémentaire pour passer une callback de validation de l'URL distante finale (apres suivi des redirections eventuelles)
@@ -35,6 +36,7 @@ Changelog de SPIP 4.1
 
 ### Fixed
 
+- Correction notice PHP sur `spip_affiche_mot_de_passe_masque()` en absence de mot de passe
 - #5169 Éviter une erreur JS sur `$.fn.positionner()` si la sélection est vide
 - #5168 Éviter une erreur fatale sur `analyse_fichier_connection()` si le fichier de connexion à analyser n’existe pas
 - #5101 Le statut de rubrique par défaut à tester est désormais `prepa` plutôt que `new`
