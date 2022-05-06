@@ -36,6 +36,8 @@ Changelog de SPIP 4.1
 
 ### Fixed
 
+- #4277 Adaptation de `spip_mysql_repair()` à innodb
+- #4277 Permettre de spécifier l'engine mysql à utiliser
 - #5095 Ne pas casser une meta sérialisée quand un utilisateur saisit un emoji dans un formulaire de configuration
 - #5152 Éviter des warning si `spip_log()` est appelé avant l’initialisation (dans mes_options)
 - #5162 Erreur d’exécution sur `vider_date()` qui doit renvoyer une chaine
