@@ -201,7 +201,8 @@ function logo_migrer_en_base($objet, $time_limit) {
 			}
 		}
 
-		spip_log("logo_migrer_en_base $objet $mode : " . count($files) . ' logos restant', 'maj' . _LOG_INFO_IMPORTANTE);
+		$count = count($files);
+		spip_log("logo_migrer_en_base $objet $mode : " . $count . ' logos restant', 'maj' . _LOG_INFO_IMPORTANTE);
 
 		$deja = [];
 		foreach ($files as $file) {
@@ -240,6 +241,11 @@ function logo_migrer_en_base($objet, $time_limit) {
 			// (sauf si c'est une re-migration : il est deja dans logo/ donc il bouge pas)
 			if ($dir !== $dir_logos and file_exists($file)) {
 				@rename($file, $dir_logos_erreurs . basename($file));
+			}
+
+			$count--;
+			if ($count % 250 === 0) {
+				spip_log("logo_migrer_en_base $objet $mode : " . $count . ' logos restant', 'maj' . _LOG_INFO_IMPORTANTE);
 			}
 
 			if ($time_limit and time() > $time_limit) {
