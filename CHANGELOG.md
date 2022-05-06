@@ -36,6 +36,7 @@ Changelog de SPIP 4.1
 
 ### Fixed
 
+- #5095 Ne pas casser une meta sérialisée quand un utilisateur saisit un emoji dans un formulaire de configuration
 - #5152 Éviter des warning si `spip_log()` est appelé avant l’initialisation (dans mes_options)
 - #5162 Erreur d’exécution sur `vider_date()` qui doit renvoyer une chaine
 - Correction notice PHP sur `spip_affiche_mot_de_passe_masque()` en absence de mot de passe
