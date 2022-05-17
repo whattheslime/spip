@@ -35,6 +35,7 @@ Changelog de SPIP 4.1
 
 ### Fixed
 
+- #5101 Le statut de rubrique par défaut à tester est désormais `prepa` plutôt que `new`
 - #5183 Éviter de générer des icones trop grandes dans la liste des articles syndiqués
 - #5185 Éviter une double compression des JS de la page login
 - Correction de la navigation par initiale sur les listes auteurs et visiteurs (bon markup de pagination)
@@ -45,8 +46,8 @@ Changelog de SPIP 4.1
 - #5148 Centrer l'image de fond de la page login
 - #5117 Éviter un warning à l’installation sur l’absence de configuration de 'articles_modif'
 - spip-team/securite#4336 La fonction `copie_locale()` ne retourne un chemin local que s’il existe
-- #5121 CHANGELOG.md dans un format markdown (et complété)
-- #5115 éviter un warning lors de l'appel avec un tableau à `produire_fond_statique()`
+- #5121 CHANGELOG.md dans un format markdown suivant https://keepachangelog.com/fr/1.0.0/
+- #5115 Éviter un warning lors de l'appel avec un tableau à `produire_fond_statique()`
 
 ### Removed
 
