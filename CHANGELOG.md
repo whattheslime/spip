@@ -25,6 +25,7 @@
 
 ### Changed
 
+- Ne pas insérer de balise de fermeture PHP dans le fichier `config/connect.php`
 - Accélérer un peu la migration des logos en documents (sur mise à jour vers SPIP 4.0) en désactivant le versionnage et les drapeaux édition pendant cette étape
 - #5082 Ne pas autoriser à refuser ses propres articles en tant que rédacteur ou rédactrice.
 - spip-team/securite#4336 La fonction `recuperer_infos_distantes()` prend maintenant un tableau d'options en second argument (seul le core utilisait les 2nd et 3e arguments).
