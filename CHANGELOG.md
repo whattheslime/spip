@@ -37,6 +37,7 @@
 
 ### Fixed
 
+- #5183 Éviter de générer des icones trop grandes dans la liste des articles syndiqués
 - #5185 Éviter une double compression des JS de la page login
 - Correction de la navigation par initiale sur les listes auteurs et visiteurs (bon markup de pagination)
 - Correction warning sur un log dans `logo_supprimer()`
