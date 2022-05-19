@@ -36,6 +36,8 @@ Changelog de SPIP 4.1
 
 ### Fixed
 
+- #5152 Éviter des warning si `spip_log()` est appelé avant l’initialisation (dans mes_options)
+- #5162 Erreur d’exécution sur `vider_date()` qui doit renvoyer une chaine
 - Correction notice PHP sur `spip_affiche_mot_de_passe_masque()` en absence de mot de passe
 - #5169 Éviter une erreur JS sur `$.fn.positionner()` si la sélection est vide
 - #5168 Éviter une erreur fatale sur `analyse_fichier_connection()` si le fichier de connexion à analyser n’existe pas
