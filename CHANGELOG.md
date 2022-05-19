@@ -57,4 +57,4 @@
 
 ### Removed
 
-- Ticket #5110 : Depuis #5018, le fichier `prive/transmettre.html` n’a plus lieu d’être.
+- #5110 Depuis #5018, le fichier `prive/transmettre.html` n’a plus lieu d’être.
