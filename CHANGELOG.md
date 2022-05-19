@@ -4,6 +4,7 @@
 
 ### Security
 
+- spip-team/securite#3724 #5150 Le core ne génère plus de champ htpass par défaut dans `spip_auteurs`. Utiliser le plugin Htpasswd https://git.spip.net/spip-contrib-extensions/htpasswd pour ce besoin.
 - spip-team/securite#4829 Sécuriser le retour de `nettoyer_titre_email()` lorsqu’utilisé en squelette (Louka)
 - spip-team/securite#4494 Suite de #54 : masquer aussi les cookies sensibles dans `$_SERVER['HTTP_COOKIE']` et `$_ENV['HTTP_COOKIE']` sur la page d’info
 - spip-team/securite#3728 Sécuriser `HTTP_HOST` et `REQUEST_URI` dans `url_de_base()`
@@ -60,4 +61,5 @@
 
 ### Removed
 
+- spip-team/securite#3724 #5150 Suppression de la fonction `initialiser_sel()` (qui ne servait que pour la gestion de htpasswd déportée en plugin).
 - #5110 Depuis #5018, le fichier `prive/transmettre.html` n’a plus lieu d’être.
