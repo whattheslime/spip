@@ -55,7 +55,7 @@ Changelog de SPIP 4.1
 
 ### Removed
 
-- Ticket #5110 : Depuis #5018, le fichier `prive/transmettre.html` n’a plus lieu d’être.
+- #5110 Depuis #5018, le fichier `prive/transmettre.html` n’a plus lieu d’être.
 
 
 ## [4.1.1] - 2022-04-01
