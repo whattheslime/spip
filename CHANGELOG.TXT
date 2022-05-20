@@ -1,3 +1,27 @@
+SPIP-Core v3.2.14 -> v3.2.15 (2022-05-20)
+-----------------------------------------
+
+ 8283532c9 | claffont       | 2022-04-20 | Suppression de l'argument `formulaire_action_sign` dans l'url ACTION Ticket #5155
+ 2ce34e62e | cedric         | 2022-04-13 | Incrementer spip_version_code pour recompiler les squelettes
+ ac67fc5be | cedric         | 2022-04-13 | Securiser le retour de nettoyer_titre_email quand il est utilisé dans un squelette (Louka) https://git.spip.net/spip-t..
+ 901f58302 | cedric         | 2022-04-13 | Masquer aussi les cookies sensibles dans $_SERVER['HTTP_COOKIE'] et $_ENV['HTTP_COOKIE'] (suite de #54 et https://git...
+ 871777b0f | cedric         | 2022-04-13 | echapper sel_db avant de la reinserer dans une hidden (mais c'est assez theorique car si on arrive la c'est qu'on a re..
+ 754677579 | cedric         | 2022-04-13 | securiser HTTP_HOST et REQUEST_URI dans url_de_base() https://git.spip.net/spip-team/securite/issues/3728
+ 97845aa30 | cedric         | 2022-04-13 | Utiliser \b plutot que \s pour etre plus robuste sur la regexp de _PROTEGE_BLOCS https://git.spip.net/spip-team/securi..
+ d99890f66 | cedric         | 2022-04-13 | securiser la construction de la regexp dans parametre_url https://git.spip.net/spip-team/securite/issues/3702
+ e9a03a38d | cedric         | 2022-04-13 | securiser l'affichage de erreur quand il arrive de l'url https://git.spip.net/spip-team/securite/issues/3698
+ 772a4baed | cedric         | 2022-04-13 | Securiser l'usage des var_mode_xx dans le debuggueur https://git.spip.net/spip-team/securite/issues/3602
+ b28e1f9a3 | cedric         | 2022-04-13 | spip_htmlspecialchars() sur tous les affichages de variable dans le html + filtrer $adresse_ldap https://git.spip.net/..
+ edb6a01c6 | cedric         | 2022-04-13 | ne pas accepter un test_dir avec des .. dedans lors du test des repertoires en ecriture https://git.spip.net/spip-team..
+ 3b99287c9 | rastapopoulos  | 2022-03-06 | Fix #5076 : réparer la fonction buguée en n'utilisant jamais les clés raccourcis qui sont non fiables, mais les autres..
+ 
+SPIP-plugins-dist v3.2.14 -> v3.2.15 (2022-05-20)
+------------------------------------------------
+
+ SVP | bf0ff95 | cedric         | 2022-04-13 | Echapper l'url dans le html affiche https://git.spip.net/spip-team/securite/issues/3733
+
+
+
 SPIP-Core v3.2.13 -> v3.2.14 (04 Mars 2022)
 --------------------------------------------
 

@@ -129,7 +129,7 @@
         "path": "plugins-dist/svp",
         "source": "https://git.spip.net/spip/svp.git",
         "branch": "spip-3.2",
-        "tag": "v1.3.13"
+        "tag": "v1.3.14"
     },
     "textwheel": {
         "path": "plugins-dist/textwheel",
