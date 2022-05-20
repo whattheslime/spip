@@ -17,5 +17,10 @@
             "!tmp/remove.txt",
             "!tmp/CACHEDIR.TAG"
         ]
+    },
+    "config": {
+        "allow-plugins": {
+            "dealerdirect/phpcodesniffer-composer-installer": true
+        }
     }
 }

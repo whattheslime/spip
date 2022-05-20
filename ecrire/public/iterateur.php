@@ -258,7 +258,7 @@ class IterDecorator extends FilterIterator {
 		// Creer la fonction de filtrage sur $this
 		if ($this->filtre) {
 			if ($filtres = $this->assembler_filtres($this->filtre)) {
-				$filtres = 'return ' . $filtres.';';
+				$filtres = 'return ' . $filtres . ';';
 				$this->func_filtre = function () use ($filtres) {
 					return eval($filtres);
 				};
@@ -295,7 +295,7 @@ class IterDecorator extends FilterIterator {
 			return null;
 		}
 
-		return "(" . implode( ") $operateur (", $filtres_string) . ")";
+		return '(' . implode(") $operateur (", $filtres_string) . ')';
 	}
 
 	/**

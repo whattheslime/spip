@@ -27,7 +27,6 @@ if (!defined('_ECRIRE_INC_VERSION')) {
  * Permet d'itérer sur des données en base de données
  */
 class IterateurSQL implements Iterator {
-
 	/**
 	 * ressource sql
 	 *

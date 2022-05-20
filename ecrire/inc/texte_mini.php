@@ -238,8 +238,10 @@ function echappe_html(
 				$echap = $regs[0];
 			} // sinon les traiter selon le cas
 			else {
-				if (function_exists($f = $callback_prefix . 'traiter_echap_' . strtolower($regs[1]))
-				  or function_exists($f = $f . '_dist')) {
+				if (
+					function_exists($f = $callback_prefix . 'traiter_echap_' . strtolower($regs[1]))
+					or function_exists($f = $f . '_dist')
+				) {
 					$echap = $f($regs);
 				}
 			}

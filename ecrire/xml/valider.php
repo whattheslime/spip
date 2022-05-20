@@ -22,7 +22,6 @@ if (!defined('_ECRIRE_INC_VERSION')) {
  *     on a les memes methodes et variables que l'indenteur
  **/
 class ValidateurXML {
-
 	// https://code.spip.net/@validerElement
 	public function validerElement($phraseur, $name, $attrs) {
 		if (!($p = isset($this->dtc->elements[$name]))) {

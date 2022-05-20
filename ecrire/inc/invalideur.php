@@ -145,7 +145,7 @@ function purger_repertoire($dir, $options = []) {
 
 	// sur certains sites on veut absolument garder certains caches référencés dans un CDN
 	// on peut donc inhiber la purge de ces répertoires pour eviter tout probleme
-	if (file_exists(rtrim($dir,'/') . '/inhib_purger_repertoire.txt')) {
+	if (file_exists(rtrim($dir, '/') . '/inhib_purger_repertoire.txt')) {
 		return 0;
 	}
 

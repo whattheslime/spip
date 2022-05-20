@@ -342,8 +342,10 @@ function _image_valeurs_trans($img, $effet, $forcer_format = false, $fonction_cr
 		if (!$fichier) {
 			return '';
 		}
-		if ($extension = _image_trouver_extension($fichier)
-		  and $sanitizer = charger_fonction($extension, 'sanitizer', true)) {
+		if (
+			$extension = _image_trouver_extension($fichier)
+			and $sanitizer = charger_fonction($extension, 'sanitizer', true)
+		) {
 			$sanitizer($fichier);
 		}
 	} else {
@@ -1871,7 +1873,6 @@ function process_image_reduire($fonction, $img, $taille, $taille_y, $force, $pro
  * Class phpthumb_functions
  */
 class phpthumb_functions {
-
 	/**
 	 * Retourne la couleur d'un pixel dans une image
 	 *

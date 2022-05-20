@@ -399,7 +399,7 @@ function _q($a) {
  * @param string $query
  * @return array
  */
-function query_echappe_textes($query, $uniqid=null) {
+function query_echappe_textes($query, $uniqid = null) {
 	static $codeEchappements = null;
 	if (is_null($codeEchappements)) {
 		if (is_null($uniqid)) {
@@ -427,14 +427,16 @@ function query_echappe_textes($query, $uniqid=null) {
 		$parts = [];
 		$currentpos = 0;
 		$k = 0;
-		while(count($textes)) {
+		while (count($textes)) {
 			$part = array_shift($textes);
 			$nextpos = strpos($query_echappees, $part, $currentpos);
 			// si besoin recoller ensemble les doubles '' de sqlite (echappement des ')
 			while (count($textes) and substr($part, -1) === "'") {
 				$next = reset($textes);
-				if (strpos($next, "'") === 0
-				  and strpos($query_echappees, $part . $next, $currentpos) === $nextpos) {
+				if (
+					strpos($next, "'") === 0
+					and strpos($query_echappees, $part . $next, $currentpos) === $nextpos
+				) {
 					$part .= array_shift($textes);
 				}
 				else {
@@ -445,13 +447,13 @@ function query_echappe_textes($query, $uniqid=null) {
 			$parts[$k] = [
 				'texte' => $part,
 				'position' => $nextpos,
-				'placeholder' => '%'.$k.'$s',
+				'placeholder' => '%' . $k . '$s',
 			];
 			$currentpos = $nextpos + strlen($part);
 		}
 
 		// et on replace les parts une par une en commencant par la fin
-		while ($k>0) {
+		while ($k > 0) {
 			$query_echappees = substr_replace($query_echappees, $parts[$k]['placeholder'], $parts[$k]['position'], strlen($parts[$k]['texte']));
 			$k--;
 		}

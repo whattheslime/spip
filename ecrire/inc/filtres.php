@@ -207,7 +207,7 @@ function spip_version() {
  * Masque la version de SPIP si la globale spip_header_silencieux le demande.
  *
  * @global spip_header_silencieux permet de rendre le header minimal pour raisons de securité
- * 
+ *
  * @param string $version
  * @return void
  */
@@ -3728,9 +3728,11 @@ function filtre_balise_svg_dist($img, $alt = '', $class = null, $size = null) {
 			$img_file = ($fichier ? _DIR_RACINE . $fichier : $img_file);
 		}
 
-		if (!$img_file
+		if (
+			!$img_file
 			or !file_exists($img_file)
-			or !$svg = file_get_contents($img_file)) {
+			or !$svg = file_get_contents($img_file)
+		) {
 			return '';
 		}
 	}

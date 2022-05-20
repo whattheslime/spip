@@ -182,7 +182,7 @@ function logo_migrer_en_base($objet, $time_limit) {
 					$filescheck[$short] = $file;
 				}
 				// trouver ceux deja migres
-				$deja = sql_allfetsel('fichier', 'spip_documents', sql_in('fichier', array_keys($filescheck))." AND mode LIKE 'logo%'");
+				$deja = sql_allfetsel('fichier', 'spip_documents', sql_in('fichier', array_keys($filescheck)) . " AND mode LIKE 'logo%'");
 				if (count($deja)) {
 					$deja = array_column($deja, 'fichier');
 					$restant = array_diff(array_keys($filescheck), $deja);
@@ -201,7 +201,7 @@ function logo_migrer_en_base($objet, $time_limit) {
 			}
 		}
 
-		spip_log("logo_migrer_en_base $objet $mode : " . count($files) ." logos restant", "maj" . _LOG_INFO_IMPORTANTE);
+		spip_log("logo_migrer_en_base $objet $mode : " . count($files) . ' logos restant', 'maj' . _LOG_INFO_IMPORTANTE);
 
 		$deja = [];
 		foreach ($files as $file) {
