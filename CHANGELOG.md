@@ -20,6 +20,7 @@
 
 ### Added
 
+- #4277 Constante `_MYSQL_ENGINE` pour spécifier l’engine MySQL à utiliser
 - Loger l'avancement de la migration des logos (lors d’une mise à jour)
 - Permettre de debug (js) les erreurs sur les liens ajax en utilisant le flag `jQuery.spip.debug` pour désactiver la redirection automatique
 - spip-team/securite#3725 Permettre d'étendre la liste par défaut des cookies sécurisés via la constante `_COOKIE_SECURE_LIST`
