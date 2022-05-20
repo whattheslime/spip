@@ -21,6 +21,7 @@ Changelog de SPIP 4.1
 
 ### Added
 
+- #4277 Constante `_MYSQL_ENGINE` pour spécifier l’engine MySQL à utiliser
 - Loger l'avancement de la migration des logos (lors d’une mise à jour)
 - Permettre de debug (js) les erreurs sur les liens ajax en utilisant le flag `jQuery.spip.debug` pour désactiver la redirection automatique
 - spip-team/securite#4336 La fonction `recuperer_infos_distantes()` accepte une option supplémentaire pour passer une callback de validation de l'URL distante finale (apres suivi des redirections eventuelles)
