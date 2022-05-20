@@ -14,7 +14,7 @@ if (!defined('_ECRIRE_INC_VERSION')) {
 	return;
 }
 
-define('URLS_PAGE_EXEMPLE', 'spip.php?article12');
+defined('URLS_PAGE_EXEMPLE') || define('URLS_PAGE_EXEMPLE', 'spip.php?article12');
 
 ####### modifications possibles dans ecrire/mes_options
 # on peut indiquer '.html' pour faire joli
