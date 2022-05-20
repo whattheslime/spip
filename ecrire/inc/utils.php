@@ -3325,8 +3325,8 @@ function exec_info_dist() {
 		foreach ($cookies_masques as $k) {
 			if (!empty($_COOKIE[$k])) {
 				$cookies_backup[$k] = $_COOKIE[$k];
-				$_SERVER['HTTP_COOKIE'] = str_replace("$k=".$_COOKIE[$k], "$k=$mask", $_SERVER['HTTP_COOKIE'] ?? []);
-				$_ENV['HTTP_COOKIE'] = str_replace("$k=".$_COOKIE[$k], "$k=$mask", $_ENV['HTTP_COOKIE'] ?? []);
+				$_SERVER['HTTP_COOKIE'] = str_replace("$k=" . $_COOKIE[$k], "$k=$mask", $_SERVER['HTTP_COOKIE'] ?? []);
+				$_ENV['HTTP_COOKIE'] = str_replace("$k=" . $_COOKIE[$k], "$k=$mask", $_ENV['HTTP_COOKIE'] ?? []);
 				$_COOKIE[$k] = $mask;
 			}
 		}

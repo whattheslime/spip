@@ -40,8 +40,8 @@ function inc_log_dist($message, $logname = null, $logdir = null, $logsuf = null)
 	// si spip_log() est appelé dans mes_options, toutes les constantes n'ont pas été définies
 	$logfile =
 		($logdir ?? (defined('_DIR_LOG') ? _DIR_LOG : _DIR_RACINE . _NOM_TEMPORAIRES_INACCESSIBLES))
-		.$logname
-		.($logsuf ?? (defined ('_FILE_LOG_SUFFIX') ? _FILE_LOG_SUFFIX : '.log'));
+		. $logname
+		. ($logsuf ?? (defined('_FILE_LOG_SUFFIX') ? _FILE_LOG_SUFFIX : '.log'));
 
 	if (!isset($test_repertoire[$d = dirname($logfile)])) {
 		$test_repertoire[$d] = false; // eviter une recursivite en cas d'erreur de sous_repertoire

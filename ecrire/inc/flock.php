@@ -693,7 +693,7 @@ function sous_repertoire($base, $subdir = '', $nobase = false, $tantpis = false)
 function preg_files($dir, $pattern = -1 /* AUTO */, $maxfiles = 10000, $recurs = []) {
 	$nbfiles = 0;
 	if ($pattern == -1) {
-		$pattern = "";
+		$pattern = '';
 	}
 	$fichiers = [];
 	// revenir au repertoire racine si on a recu dossier/truc
