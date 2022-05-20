@@ -39,7 +39,7 @@
         "path": "plugins-dist/filtres_images",
         "source": "https://git.spip.net/spip/filtres_images.git",
         "branch": "3.0",
-        "tag": "v3.0.3"
+        "tag": "v3.0.4"
     },
     "forum": {
         "path": "plugins-dist/forum",
@@ -51,7 +51,7 @@
         "path": "plugins-dist/mediabox",
         "source": "https://git.spip.net/spip/mediabox.git",
         "branch": "2.0",
-        "tag": "v2.0.4"
+        "tag": "v2.0.5"
     },
     "medias": {
         "path": "plugins-dist/medias",
@@ -63,7 +63,7 @@
         "path": "plugins-dist/mots",
         "source": "https://git.spip.net/spip/mots.git",
         "branch": "3.0",
-        "tag": "v3.0.4"
+        "tag": "v3.0.5"
     },
     "plan": {
         "path": "plugins-dist/plan",
@@ -105,7 +105,7 @@
         "path": "plugins-dist/svp",
         "source": "https://git.spip.net/spip/svp.git",
         "branch": "2.4",
-        "tag": "v2.4.3"
+        "tag": "v2.4.4"
     },
     "textwheel": {
         "path": "plugins-dist/textwheel",

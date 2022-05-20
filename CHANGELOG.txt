@@ -1,3 +1,36 @@
+SPIP-Core v4.0.6 -> v4.0.7 (2022-05-20)
+---------------------------------------
+
+3263834e6 | marcimat       | 2022-05-20 | Coding standard
+24e66e71e | cedric         | 2022-05-06 | Issue #5095 : Ne pas casser une meta serializee quand un utilisateur saisit un emoji dans un formulaire de configuration
+ea0820f20 | bruno          | 2022-05-18 | Fix #5183 éviter de générer des icones trop grandes dans la liste des articles syndiqués
+a5e7bf2b3 | cedric         | 2022-04-28 | Permettre de debug les erreurs sur les liens ajax : le fallback redirige vers l'URL, mais du coup on ne peut plus voir..
+1c2c59065 | cedric         | 2022-04-28 | coquille sur l'option, qui est bien expires avec un s comme l'entete http qu'on envoie
+1f3a1ad01 | bruno          | 2022-04-20 | éviter des warnings sur exec=info en PHP 8
+d39740cec | claffont       | 2022-04-20 | Suppression de l'argument `formulaire_action_sign` dans l'url ACTION Ticket #5155
+eb4170130 | cedric         | 2022-04-13 | Incrementer spip_version_code pour recompiler les squelettes
+1e16d6a72 | cedric         | 2022-04-13 | Securiser le retour de nettoyer_titre_email quand il est utilisé dans un squelette (Louka) https://git.spip.net/spip-t..
+bf099935b | cedric         | 2022-04-13 | Masquer aussi les cookies sensibles dans $_SERVER['HTTP_COOKIE'] et $_ENV['HTTP_COOKIE'] (suite de #54 et https://git...
+ae3d98849 | cedric         | 2022-04-13 | echapper sel_db avant de la reinserer dans une hidden (mais c'est assez theorique car si on arrive la c'est qu'on a re..
+2629de6f0 | cedric         | 2022-04-13 | securiser HTTP_HOST et REQUEST_URI dans url_de_base() https://git.spip.net/spip-team/securite/issues/3728
+52d18a543 | cedric         | 2022-04-13 | Reconnaitre les cookies secure *meme* si on utilise un cookie_prefix + permettre d'etendre la liste par defaut via la ..
+410a57406 | cedric         | 2022-04-13 | Utiliser \b plutot que \s pour etre plus robuste sur la regexp de _PROTEGE_BLOCS https://git.spip.net/spip-team/securi..
+843ed3a52 | cedric         | 2022-04-13 | securiser la construction de la regexp dans parametre_url https://git.spip.net/spip-team/securite/issues/3702
+91b9a9f5e | cedric         | 2022-04-13 | securiser l'affichage de erreur quand il arrive de l'url https://git.spip.net/spip-team/securite/issues/3698
+7108815fb | cedric         | 2022-04-13 | Securiser l'usage des var_mode_xx dans le debuggueur https://git.spip.net/spip-team/securite/issues/3602
+707669e9d | cedric         | 2022-04-13 | spip_htmlspecialchars() sur tous les affichages de variable dans le html + filtrer $adresse_ldap https://git.spip.net/..
+9828ab4ba | cedric         | 2022-04-13 | ne pas accepter un test_dir avec des .. dedans lors du test des repertoires en ecriture https://git.spip.net/spip-team..
+
+SPIP-plugins-dist v4.0.6 -> v4.0.7 (2022-05-20)
+-----------------------------------------------
+
+Images   | 0c33dae | eric           | 2022-02-18 | Ticket #4682 Correction warning sur image_aplatir. Tester le retour de la fonction avant de l'utiliser
+MediaBox | 29762b9 | cedric         | 2022-04-22 | Fix #4859 : prise en charge de l'option overlayClose qui n'avait pas été implémentée au passage à lity
+Mots     | a04faa9 | bruno          | 2022-05-18 | Fix #4797 réparer la mise à jour depuis un vieux SPIP vers la version 4
+SVP      | 6752c89 | cedric         | 2022-04-13 | Echapper l'url dans le html affiche https://git.spip.net/spip-team/securite/issues/3733
+
+
+
 SPIP-Core v4.0.5 -> v4.0.6 (01 avril 2022)
 ------------------------------------------
 
