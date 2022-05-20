@@ -103,7 +103,7 @@ function afficher_initiale($url, $initiale, $compteur, $debut, $pas) {
 				and (
 					$newcompt > $debut or ($newcompt == $debut and $newcompt == $memo['compteur'])
 				));
-			$res[] = "<li class='pagination-item'>" . lien_ou_expose($memo['url'], $memo['initiale'], $on ? 'span.pagination-item-label' : '', 'pagination-item-label lien_pagination') . "</li>";
+			$res[] = "<li class='pagination-item'>" . lien_ou_expose($memo['url'], $memo['initiale'], $on ? 'span.pagination-item-label' : '', 'pagination-item-label lien_pagination') . '</li>';
 		}
 		if ($initiale) {
 			$memo = [
@@ -116,7 +116,7 @@ function afficher_initiale($url, $initiale, $compteur, $debut, $pas) {
 	}
 	if (!$initiale and !$url) {
 		if ((is_countable($res) ? count($res) : 0) > 1) {
-			$out = "<ul class='pagination-items'>" . implode(' ', $res) . "</ul>";
+			$out = "<ul class='pagination-items'>" . implode(' ', $res) . '</ul>';
 		}
 		$memo = null;
 		$res = [];

@@ -131,10 +131,12 @@ function copie_locale($source, $mode = 'auto', $local = null, $taille_max = null
 		}
 
 		// si option valider url, verifions que l'URL finale est acceptable
-		if ($callback_valider_url
-		  and is_callable($callback_valider_url)
-		  and !$callback_valider_url($res['url'])) {
-			spip_log("copie_locale : url finale ".$res['url']." non valide, on refuse le fichier $localrac_tmp", 'distant' . _LOG_INFO_IMPORTANTE);
+		if (
+			$callback_valider_url
+			and is_callable($callback_valider_url)
+			and !$callback_valider_url($res['url'])
+		) {
+			spip_log('copie_locale : url finale ' . $res['url'] . " non valide, on refuse le fichier $localrac_tmp", 'distant' . _LOG_INFO_IMPORTANTE);
 			@unlink($localrac_tmp);
 			return $t ? $local : false;
 		}
@@ -994,9 +996,11 @@ function recuperer_infos_distantes($source, $options = []) {
 	// de maniere a attrapper le maximum d'infos (titre, taille, etc). Si
 	// ca echoue l'utilisateur devra les entrer...
 	$reponse = recuperer_url($source, ['taille_max' => $taille_max, 'refuser_gz' => true]);
-	if ($callback_valider_url
+	if (
+		$callback_valider_url
 		and is_callable($callback_valider_url)
-		and !$callback_valider_url($reponse['url'])) {
+		and !$callback_valider_url($reponse['url'])
+	) {
 		return false;
 	}
 	$headers = $reponse['headers'] ?? '';

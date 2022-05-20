@@ -40,7 +40,7 @@ function logo_supprimer($objet, $id_objet, $etat) {
 	if ($logo) {
 		# TODO : deprecated, a supprimer -> anciens logos IMG/artonxx.png pas en base
 		if ((is_countable($logo) ? count($logo) : 0) < 6) {
-			spip_log("Supprimer ancien logo " . json_encode($logo, JSON_THROW_ON_ERROR), 'logo');
+			spip_log('Supprimer ancien logo ' . json_encode($logo, JSON_THROW_ON_ERROR), 'logo');
 			spip_unlink($logo[0]);
 		}
 		elseif (

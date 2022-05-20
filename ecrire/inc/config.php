@@ -256,14 +256,12 @@ function ecrire_config($cfg, $store) {
 			}
 		} // dans tous les autres cas, on ecrase
 		else {
-
 			if (
-				    defined('_MYSQL_NOPLANES')
+					defined('_MYSQL_NOPLANES')
 				and _MYSQL_NOPLANES
 				and !empty($GLOBALS['meta']['charset_sql_connexion'])
 				and $GLOBALS['meta']['charset_sql_connexion'] == 'utf8'
 			) {
-
 				// detecter si la valeur qu'on veut ecrire a des planes
 				// @see utf8_noplanes
 				$serialized_store = (is_string($store) ? $store : serialize($store));
@@ -305,9 +303,13 @@ function ecrire_config($cfg, $store) {
 			// et dans ce cas il faut verifier que l'ecriture en base a bien eu lieu a l'identique si il y a des planes dans la chaine
 			// car sinon ca casse le serialize PHP - par exemple si on est en mysql utf8 (non mb4)
 			if ($has_planes) {
-				$check_store = sql_getfetsel('valeur', 'spip_'.$table, 'nom='.sql_quote($casier));
+				$check_store = sql_getfetsel('valeur', 'spip_' . $table, 'nom=' . sql_quote($casier));
 				if ($check_store !== $serialized_store) {
-					array_walk_recursive($store, function (&$value, $key) {if (is_string($value)) {$value = utf8_noplanes($value);}});
+					array_walk_recursive($store, function (&$value, $key) {
+						if (is_string($value)) {
+							$value = utf8_noplanes($value);
+						}
+					});
 					$serialized_store = serialize($store);
 					ecrire_meta($casier, $serialized_store, null, $table);
 				}
