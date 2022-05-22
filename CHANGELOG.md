@@ -10,9 +10,11 @@ Changelog de SPIP 4.1
 
 ### Fixed
 
-- #5204 Fix le login lors de la restauration des clés depuis un compte webmestre
+- #5190 Dans le formulaire de configuration de l'email de suivi, pouvoir indiquer une liste d'emails séparés par des virgules
+- #5204 Fix le login lors de la restauration des cles depuis un compte webmestre
 - #5118 Fix les viewbox erronnées lors de la copie locale des SVG sans viewbox
 - #5194 Améliorer le comportement du bouton "Ajourd'hui" dans le dateur en surlignant le jour courant + ajout option data-todayhighlight sur les input.date + fix option data-clearbtn
+
 
 ## [4.1.2] - 2022-05-20
 
