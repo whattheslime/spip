@@ -4,6 +4,7 @@
 
 ### Security
 
+- spip-team/securite#4831 Correction des traitements des balises `#INFO_` dans l’espace privé
 - spip-team/securite#3724 #5150 Le core ne génère plus de champ htpass par défaut dans `spip_auteurs`. Utiliser le plugin Htpasswd https://git.spip.net/spip-contrib-extensions/htpasswd pour ce besoin.
 
 ### Changed
