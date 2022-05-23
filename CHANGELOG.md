@@ -4,6 +4,10 @@ Changelog de SPIP 4.1
 
 ## [Unreleased]
 
+### Security
+
+- spip-team/securite#4831 Correction des traitements des balises `#INFO_` dans l’espace privé
+
 ### Fixed
 
 - #5204 Fix le login lors de la restauration des clés depuis un compte webmestre
