@@ -37,6 +37,7 @@ Changelog de SPIP 4.1
 
 ### Fixed
 
+- #5194 Améliorer le comportement du bouton "Ajourd'hui" dans le dateur en surlignant le jour courant + ajout option data-todayhighlight sur les input.date + fix option data-clearbtn
 - #4277 Adaptation de `spip_mysql_repair()` à innodb
 - #4277 Permettre de spécifier l'engine mysql à utiliser
 - #5095 Ne pas casser une meta sérialisée quand un utilisateur saisit un emoji dans un formulaire de configuration
