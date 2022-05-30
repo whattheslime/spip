@@ -29,6 +29,7 @@ function date_picker_options(){
 		orientation: 'bottom',
 		showOn:false,   // jQuery UI
 		showOnFocus:false,// BS Datepicker
+		todayHighlight:true,
 		zIndexOffset: 1010
 	};
 }
@@ -99,8 +100,11 @@ function date_picker_enable_on_this(opts) {
 		if ($me.data('todaybtn')) {
 			options.todayBtn = $me.data('todaybtn');
 		}
+		if ($me.data('todayhighlight')) {
+			options.todayHighlight = $me.data('todayHighlight');
+		}
 		if ($me.data('clearbtn')) {
-			options.todayBtn = $me.data('clearbtn');
+			options.clearbtn = $me.data('clearbtn');
 		}
 		if ($me.data('orientation')) {
 			options.orientation = $me.data('orientation');
