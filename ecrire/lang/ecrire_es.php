@@ -26,12 +26,15 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'avis_connexion_echec_2' => 'Regresa a la página precedente y verifica las informaciones procuradas.',
 	'avis_connexion_echec_3' => '<b>Aviso:</b> En muchos servidores, es necesario <b>solicitar</b> la activación del acceso a la base de datos SQL antes de poder usarla. En caso de no poder conectarse a la base de datos, compruebe que se ha realizado la activación.',
 	'avis_connexion_erreur_creer_base' => 'La base de datos no se ha podido crear',
+	'avis_connexion_erreur_fichier_cle_manquant_1' => 'La instalación debe ser realizada por un webmaster con una copia de seguridad de las claves y su contraseña', # RELIRE
+	'avis_connexion_erreur_fichier_cle_manquant_2' => 'La instalación debe ser realizada por un webmaster con una copia de seguridad de las claves', # RELIRE
 	'avis_connexion_erreur_nom_base' => 'El nombre de la base sólo puede contener letras, dígitos y guiones.',
 	'avis_connexion_ldap_echec_1' => 'La conexión al servidor LDAP ha fallado.',
 	'avis_connexion_ldap_echec_2' => 'Regrese a la página anterior y compruebe la información procurada.',
 	'avis_connexion_ldap_echec_3' => 'Alternativamente, no utilice el soporte LDAP para importar usuarios.',
 	'avis_deplacement_rubrique' => '¡ATENCIÓN! Esta sección contiene @contient_breves@ breve@scb@. Si la desplaza, active esta casilla de confirmación.',
 	'avis_erreur_connexion_mysql' => 'Error de conexión SQL',
+	'avis_erreur_creation_compte' => 'No se pudo inicializar la cuenta', # RELIRE
 	'avis_espace_interdit' => '<b>Espacio prohibido</b> <div>SPIP ya está instalado.</div>',
 	'avis_lecture_noms_bases_1' => 'El programa de instalación no logró leer los nombres de las bases de datos instaladas.',
 	'avis_lecture_noms_bases_2' => 'Dos posibilidades: o no hay ninguna base disponible o la función de listado de las bases fue desactivada por razones de seguridad (caso frecuente en muchos hospedajes).',
@@ -517,7 +520,9 @@ Las traducciones están asociadas al original, en un color que indica su estado:
 	'install_nom_base_hebergeur' => 'Nombre de la base asignada por el proveedor:',
 	'install_pas_table' => 'La base no tiene tablas en este momento',
 	'install_pass_base_hebergeur' => 'Contraseña de conexión asignada por el proveedor',
+	'install_php_extension' => 'Faltan las siguientes extensiones: @extensions@',
 	'install_php_version' => 'PHP versión @version@ insuficiente (mínimo = @minimum@)',
+	'install_php_version_max' => 'Versión PHP @version@ demasiado reciente (máximo = @maximum@)',
 	'install_select_langue' => 'Seleccione un idioma y después pulse el botón «siguiente» para iniciar el proceso de instalación.',
 	'install_select_type_db' => 'Indicar el tipo de base de datos:',
 	'install_select_type_mysql' => 'MySQL',
