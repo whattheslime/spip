@@ -2,6 +2,14 @@
 
 Changelog de SPIP 4.1
 
+## [Unreleased]
+
+### Fixed
+
+- #5204 Fix le login lors de la restauration des clés depuis un compte webmestre
+- #5118 Fix les viewbox erronnées lors de la copie locale des SVG sans viewbox
+- #5194 Améliorer le comportement du bouton "Ajourd'hui" dans le dateur en surlignant le jour courant + ajout option data-todayhighlight sur les input.date + fix option data-clearbtn
+
 ## [4.1.2] - 2022-05-20
 
 ### Security
@@ -37,9 +45,6 @@ Changelog de SPIP 4.1
 
 ### Fixed
 
-- #5204 Fix le login lors de la restauration des clés depuis un compte webmestre
-- #5118 Fix les viewbox erronnées lors de la copie locale des SVG sans viewbox
-- #5194 Améliorer le comportement du bouton "Ajourd'hui" dans le dateur en surlignant le jour courant + ajout option data-todayhighlight sur les input.date + fix option data-clearbtn
 - #4277 Adaptation de `spip_mysql_repair()` à innodb
 - #4277 Permettre de spécifier l'engine mysql à utiliser
 - #5095 Ne pas casser une meta sérialisée quand un utilisateur saisit un emoji dans un formulaire de configuration
