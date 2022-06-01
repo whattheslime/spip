@@ -212,7 +212,7 @@ inn liv-zimaz (sédir inn galri).',
 	'info_etape_suivante_1' => 'I pé pas létap answit.',
 	'info_etape_suivante_2' => 'I pé pas létap answit.',
 	'info_exportation_base' => 'Lésportasyon labaz aprosan  @archive@',
-	'info_facilite_suivi_activite' => 'Pou swiv fasilman laktivité léditoryal sir lo sit, SPIP i pé anvwa inn zanons dann fil-imèl pou tout bann zitilizatèr anrozistré. Zanons komsa i kadr tout bann dommand pou lapiblikasyon oubyinsa bann konfirmasyon do dernyé bann zartik.',
+	'info_facilite_suivi_activite' => 'Pou swiv fasilman laktivité léditoryal sir lo sit, SPIP i pé anvwa inn zanons dann fil-imèl pou tout bann zitilizatèr anrozistré. Zanons komsa i kadr tout bann dommand pou lapiblikasyon oubyinsa bann konfirmasyon do dernyé bann zartik.', # MODIF
 	'info_fichiers_authent' => 'Bann fisyé pou lotantifikasyon « .htpasswd »',
 	'info_forums_abo_invites' => 'Out sit néna bann forom si labonman ; Ifo bann vizitèr li inskri azot si lo sit piblik.',
 	'info_gauche_admin_tech' => '<b>Pazwèb-la, lé sèlman ouvèr pour inndé responsab lo sit.</b><p> Li donn laksé sir bann fonksyon pou lantrotyen tèknik. Nana désertin sak i domann aou fé zwé inn prosésus spésial pou lotantifikasyon. Dann ka-la inn laksé FTP lé

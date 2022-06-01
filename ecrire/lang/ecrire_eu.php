@@ -291,7 +291,7 @@ Seguritate hobetzeko, konfigurazio hau aldatu behar zenuke, edo @constantes@ kon
 	'info_etape_suivante_2' => 'Hurrengo etapara pasa zaitezke',
 	'info_exceptions_proxy' => 'Salbuespenak proxy-arentzat',
 	'info_exportation_base' => 'basearen esportazioa @archive@-ra',
-	'info_facilite_suivi_activite' => 'Jarduera editorialaren jarraipena errazteko, SPIP-ekkorreo elektronikoaren bidez bidali ahal dizkio, adibidez erredaktoreen zerrenda bati,artikuluen baliaztapen eta argitarapenen eskaeren iragarkiak.',
+	'info_facilite_suivi_activite' => 'Jarduera editorialaren jarraipena errazteko, SPIP-ekkorreo elektronikoaren bidez bidali ahal dizkio, adibidez erredaktoreen zerrenda bati,artikuluen baliaztapen eta argitarapenen eskaeren iragarkiak.', # MODIF
 	'info_fichiers_authent' => '« .htpasswd » autentifikazio-fitxategiak',
 	'info_forums_abo_invites' => 'Zure guneak harpidetza beharrezkoa egiten dituen foroak hartzen ditu ; beraz, bisitariak gune publikoan erregistratzera gonbidatuta daude.',
 	'info_gauche_admin_tech' => '<b>Orrialde honetan gunearen arduradunak baizik ezin dira sartu.</b><p>Mantentze teknikoaren funtzio guztietan sartzeko aukera ematen du. 

@@ -212,7 +212,7 @@ Tout informasyon-nan,  komandèr-sistèm ou komandèr-rézo li dwa donn a w.',
 	'info_exportation_base' => 'espòtasyon labaz sou  @archive@',
 	'info_facilite_suivi_activite' => 'Pou yon swivi fasil lakivité sit-la
 , SPIP kapab
- voye tout domann osnon konfimasyon pou fè parèt yon atik pa egsanp nan list-limèl pou redaktè.',
+ voye tout domann osnon konfimasyon pou fè parèt yon atik pa egsanp nan list-limèl pou redaktè.', # MODIF
 	'info_fichiers_authent' => 'Fichye yo pou lotantifikasyon « .htpasswd »',
 	'info_forums_abo_invites' => 'Sit w genyen fowom sou abonman ; vizitè   se invite enskri ali sou sit piblik.',
 	'info_gauche_admin_tech' => '<b>Responsab sit-la selman kapab fè lekti paj-la.</b><p> Li pèrmè laksé pou diféran fonksyon teknik pou swen sit sa-a. Genyen fonksyon sa-yo ki doman yon otantifikasyon espesifik ki doman yon laksé FTP pou sitweb-la.</p>', # MODIF

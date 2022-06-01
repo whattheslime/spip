@@ -297,7 +297,7 @@ desactivada per raons de seguretat (cosa normal en molts proveïdors d’hostatg
 	'info_etape_suivante_2' => 'Pot passar a l’etapa següent.',
 	'info_exceptions_proxy' => 'Excepcions pel proxy',
 	'info_exportation_base' => ' exportació de la base cap a @archive@',
-	'info_facilite_suivi_activite' => 'Per tal de facilitat el seguiment de l’activitat editorial, SPIP pot fer arribar per correu electrònic, per exemple a una llista de correu dels redactors, l’avís de les peticions de publicació i de les validacions dels articles.',
+	'info_facilite_suivi_activite' => 'Per tal de facilitat el seguiment de l’activitat editorial, SPIP pot fer arribar per correu electrònic, per exemple a una llista de correu dels redactors, l’avís de les peticions de publicació i de les validacions dels articles.', # MODIF
 	'info_fichiers_authent' => 'Fitxers d’autentificació « .htpasswd »',
 	'info_forums_abo_invites' => 'El seu lloc Web proporciona fòrums pels abonats; en el lloc públic els visitants són convidats a enregistrar-se.',
 	'info_gauche_admin_tech' => '<b>Només els responsables del lloc tenen accés a aquesta pàgina.</b><p> Dóna accés a les diferents funcions de manteniment tècnic. Algunes d’aquestes necessiten un procés d’autenticació específic que requereix disposar d’un accés FTP al lloc Web.</p>',

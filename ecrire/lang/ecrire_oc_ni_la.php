@@ -194,7 +194,7 @@ L’administrator dau sistèma ò de la ret vos deu poder fornir
 	'info_etape_suivante_1' => 'Podètz passar a l’estapa seguenta.',
 	'info_etape_suivante_2' => 'Podètz passar a l’estapa seguenta.',
 	'info_exportation_base' => 'exportacion de la basa vèrs @archive@',
-	'info_facilite_suivi_activite' => 'Per facilitar lo segut de l’activitat editoriala dau sit, SPIP vos pòu fornir per e-mail, per exemple a una lista de corrier dei redactors, l’anonci dei demandas de publicacion e dei validacions d’articles.',
+	'info_facilite_suivi_activite' => 'Per facilitar lo segut de l’activitat editoriala dau sit, SPIP vos pòu fornir per e-mail, per exemple a una lista de corrier dei redactors, l’anonci dei demandas de publicacion e dei validacions d’articles.', # MODIF
 	'info_fichiers_authent' => 'Fichiers d’autentificacion « .htpasswd »',
 	'info_forums_abo_invites' => 'Lo vòstre sit web pòrge de forums per lu abonats; dins lo sit public lu vesitaires son convidats a si registrar.',
 	'info_gauche_admin_tech' => '<b>A aquela pàgina, basta lu responsables dau sit i pòdon accedir.</b><p> Permete de trobar li diferenti foncions de mantenença tecnica. D’uni que i a implican un procès d’autentificacion especific, que necessita un accès FTP au sit web.</p>', # MODIF

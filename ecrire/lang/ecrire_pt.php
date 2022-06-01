@@ -316,7 +316,7 @@ Essas informações devem poder ser fornecidas pelo administrador do sistema ou 
 	'info_facilite_suivi_activite' => 'A fim de facilitar o acompanhamento da actividade
  editorial do sítio, SPIP pode fazer chegar por email, por exemplo
  a uma <i>mailing-list</i> dos redactores, o anúncio dos pedidos de
- publicação e das validações de artigos.',
+ publicação e das validações de artigos.', # MODIF
 	'info_fichiers_authent' => 'Ficheiros de autenticação « .htpasswd »',
 	'info_forums_abo_invites' => 'O seu sítio contém fóruns por assinatura; os visitantes são convidados a registar-se no sítio público.',
 	'info_gauche_admin_tech' => '<b>Esta página está acessível apenas aos responsáveis pelo site.</b><p> Ela dá acesso às diferentes funções de manutenção técnica. Algumas dessas funções possuem um processo específico de autenticação que exige acesso FTP ao sítio.</p>',

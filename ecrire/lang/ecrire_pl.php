@@ -302,7 +302,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'info_facilite_suivi_activite' => 'W celu uproszczenia działań
   redakcyjnych strony, SPIP może wysłać mailem, na przykład
    na listę mailingową redaktorów, informację-zapytanie
-  o sprawdzenie i publikację artykułów.',
+  o sprawdzenie i publikację artykułów.', # MODIF
 	'info_fichiers_authent' => 'Plik uwierzytelniający « .htpasswd »',
 	'info_forums_abo_invites' => 'Twoja strona zawiera formularze dostępne po zalogowaniu, zatem odwiedzający powinni się zarejestrować na stronie publicznej.',
 	'info_gauche_admin_tech' => 'Ta strona jest dostępna tylko dla osób kierujących witryną.</b><p>

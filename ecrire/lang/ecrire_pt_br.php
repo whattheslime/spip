@@ -308,7 +308,7 @@ Estas informações deverão ser fornecidas pelo administrador do sistema ou da 
 	'info_etape_suivante_2' => 'Você pode passar para a próxima etapa.',
 	'info_exceptions_proxy' => 'Exceções para o proxy',
 	'info_exportation_base' => 'exportação da base para @archive@',
-	'info_facilite_suivi_activite' => 'Para facilitar o acompanhamento da atividade editorial do site, o SPIP pode enviar por e-mail, por exemplo a uma mailing-list de redatores, avisos dos pedidos de publicação e das validações das matérias.',
+	'info_facilite_suivi_activite' => 'Para facilitar o acompanhamento da atividade editorial do site, o SPIP pode enviar por e-mail, por exemplo a uma mailing-list de redatores, avisos dos pedidos de publicação e das validações das matérias.', # MODIF
 	'info_fichiers_authent' => 'Arquivos de autenticação «.htpasswd»',
 	'info_forums_abo_invites' => 'O seu site comporta fóruns por assinatura; os visitantes são convidados a se registrar no site público.',
 	'info_gauche_admin_tech' => '<b>Esta página é acessível apenas aos responsáveis pelo site.</b><p>Ela dá acesso às diferentes funções de manutenção técnica. Algumas dessas funções possuem um processo específico de autenticação que exige acesso FTP ao website.</p>',

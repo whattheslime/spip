@@ -213,7 +213,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'info_exportation_base' => 'ekspor database ke @archive@',
 	'info_facilite_suivi_activite' => 'Untuk menfasilitasi tindak lanjut dari aktivitas editorial situs;
   SPIP dapat mengirimkan notifikasi melalui e-mail, ke daftar surat seorang editor,
-  sebagai contoh permohonan publikasi dan validasi artikel.',
+  sebagai contoh permohonan publikasi dan validasi artikel.', # MODIF
 	'info_fichiers_authent' => 'Berkas ototentikasi ".htpasswd"',
 	'info_forums_abo_invites' => 'Situs anda berisikan forum-forum berlangganan; pengunjung dapat mendaftarkan diri pada forum-forum tersebut di situs umum.',
 	'info_gauche_admin_tech' => '<b>Hanya administrator yang memiliki akses ke halaman ini.</b><p> Halaman ini memberikan akses ke berbagai tugas pemeliharaan teknis. Beberapa di antaranya memerlukan proses ototentikasi tersendiri yang membutuhkan akses FTP ke situs web.</p>', # MODIF

@@ -318,7 +318,7 @@ immagini inserite. Ciò permette ad esempio di creare in automatico una galleria
 	'info_facilite_suivi_activite' => 'Al fine di facilitare il monitoraggio
 dell’attività editoriale del sito, SPIP può far pervenire via email,
 per esempio ad una mailing-list dei redattori, l’annuncio delle domande di
-pubblicazione e di convalida degli articoli.',
+pubblicazione e di convalida degli articoli.', # MODIF
 	'info_fichiers_authent' => 'File d’autenticazione ".htpasswd"',
 	'info_forums_abo_invites' => 'Il sito comprende dei forum accessibili solo a utenti registrati. Nel sito pubblico è quindi presente una pagina d’iscrizione.',
 	'info_gauche_admin_tech' => '<b>Questa pagina è accessibile solo ai responsabili del sito.</b><p> Permette l’accesso alle diverse funzioni

@@ -198,7 +198,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'info_facilite_suivi_activite' => '为减轻站点编辑的跟踪;
   活动, SPIP 通过电子邮件发送给编辑的邮件列表作为实例,
   公共请求和文章
-  确认的声明.',
+  确认的声明.', # MODIF
 	'info_fichiers_authent' => '认证文件 ".htpasswd"',
 	'info_forums_abo_invites' => '您的网站包含要求注册的公共论坛；所以公共网站的访客将被要求注册。',
 	'info_gauche_admin_tech' => '<b>只有管理者才有权访问这页.</b><p> 它提供多种多种

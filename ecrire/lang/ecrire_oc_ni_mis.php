@@ -300,7 +300,7 @@ Aqueli informacioun vi devon poudé estre prouvedi da l’aministratour dóu sis
 	'info_etape_suivante_2' => 'Poudès passà a la tapa seguenta.',
 	'info_exceptions_proxy' => 'Ecepcioun per lou proxy',
 	'info_exportation_base' => 'Espourtacioun de la basa vers @archive@',
-	'info_facilite_suivi_activite' => 'Per fin de facilità lou segut de l’atività editouriala dóu sit, SPIP vi pòu fournì per e-mail, per isemple a una mailing-list dei redatour, l’anounça dei demanda de publicacioun e de validacioun d’article.',
+	'info_facilite_suivi_activite' => 'Per fin de facilità lou segut de l’atività editouriala dóu sit, SPIP vi pòu fournì per e-mail, per isemple a una mailing-list dei redatour, l’anounça dei demanda de publicacioun e de validacioun d’article.', # MODIF
 	'info_fichiers_authent' => 'Fichié d’autentificacioun « .htpasswd »',
 	'info_forums_abo_invites' => 'Lou vouòstre sit web counten de fòrou per lu abounat ; lu visitaire soun counvidat da si registrà soubre lou sit pùblicou.',
 	'info_gauche_admin_tech' => '<b>Aquela pàgina es basta achessible ai respounsable dóu sit.</b><p> Douna achès ai diferenti founcioun de mantenença tècnica. D’uni d’entre eli implicoun un prouchedimen d’autentificacion especific, que

@@ -213,7 +213,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'info_facilite_suivi_activite' => 'Systém SPIP může zasílat elektronické zprávy
   (např. do diskusní skupiny redaktorů) oznamující žádosti o zveřejnění
   a o schválení článků. Tím se ulehčí sledování publikační činnosti
-  na webu. ',
+  na webu. ', # MODIF
 	'info_fichiers_authent' => 'Autentifikační soubor ".htpasswd"',
 	'info_forums_abo_invites' => 'Na vašem webu existují diskusní skupiny vyhrazené přihlášeným účastníkům; návštěvníci se musí tedy zaregistrovat na veřejné části webu.',
 	'info_gauche_admin_tech' => '<b>Tato stránka je vyhrazena těm, kdo za web odpovídají.</b><p> Umožňuje přístup k funkcím
