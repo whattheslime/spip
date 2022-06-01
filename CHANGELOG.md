@@ -9,6 +9,7 @@
 
 ### Changed
 
+- #5203 La balise `#CHAMP_SQL` peut expliciter une jointure tel que `#CHAMP_SQL{rubrique.titre}`
 - #5156 Les squelettes des formulaires d’édition (`formulaires/editer_xxx.html`) ne reçoivent plus l’ensemble du contenu de `spip_meta` dans l’entrée d’environnement `config`. Utiliser `#CONFIG` dedans si besoin pour cela. Seules les données spécifiques au formulaire sont transmises (par les fonctions `xxx_edit_config()`)
 - Ne pas insérer de balise de fermeture PHP dans le fichier `config/connect.php`
 - #5082 Ne pas autoriser à refuser ses propres articles en tant que rédacteur ou rédactrice.
