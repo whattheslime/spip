@@ -6,6 +6,7 @@ Changelog de SPIP 4.1
 
 ### Fixed
 
+- #5206 Échouer en minipres si on ne peut pas écrire le fichier des clés lors du login
 - #5213 Prendre en compte le sens du critère `tri` en présence d’un tri `multi`
 
 ## [4.1.4] - 2022-07-21
