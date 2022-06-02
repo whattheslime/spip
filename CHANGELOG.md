@@ -25,6 +25,10 @@
 - #5118 Fix les viewbox erronnées lors de la copie locale des SVG sans viewbox
 - #5194 Améliorer le comportement du bouton "Ajourd'hui" dans le dateur en surlignant le jour courant + ajout option data-todayhighlight sur les input.date + fix option data-clearbtn
 
+### Added
+
+- #4877 La balise `#TRI` permet d'alterner le sens du critère `tri`
+
 ### Removed
 
 - spip-team/securite#3724 #5150 Suppression de la fonction `initialiser_sel()` (qui ne servait que pour la gestion de htpasswd déportée en plugin).
