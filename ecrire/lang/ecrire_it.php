@@ -315,10 +315,8 @@ immagini inserite. Ciò permette ad esempio di creare in automatico una galleria
 	'info_etape_suivante_2' => 'Puoi passare alla fase successiva.',
 	'info_exceptions_proxy' => 'Eccezioni per il proxy',
 	'info_exportation_base' => 'esportazione del database verso @archive@',
-	'info_facilite_suivi_activite' => 'Al fine di facilitare il monitoraggio
-dell’attività editoriale del sito, SPIP può far pervenire via email,
-per esempio ad una mailing-list dei redattori, l’annuncio delle domande di
-pubblicazione e di convalida degli articoli.', # MODIF
+	'info_facilite_suivi_activite' => 'Al fine di facilitare il monitoraggio dell’attività editoriale del sito, SPIP può far pervenire via email, per esempio ad una mailing-list dei redattori, l’annuncio delle domande di pubblicazione e di convalida degli articoli.
+Indicare uno o più indirizzi, separati da virgole.',
 	'info_fichiers_authent' => 'File d’autenticazione ".htpasswd"',
 	'info_forums_abo_invites' => 'Il sito comprende dei forum accessibili solo a utenti registrati. Nel sito pubblico è quindi presente una pagina d’iscrizione.',
 	'info_gauche_admin_tech' => '<b>Questa pagina è accessibile solo ai responsabili del sito.</b><p> Permette l’accesso alle diverse funzioni
