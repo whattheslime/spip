@@ -1426,13 +1426,20 @@ function _image_creer_vignette($valeurs, $maxWidth, $maxHeight, $process = 'AUTO
 
 	// php5 imagemagick
 	elseif ($process == 'imagick') {
-		$vignette = "$destination." . $format_sortie;
 
 		if (!class_exists(\Imagick::class)) {
 			spip_log('Classe Imagick absente !', _LOG_ERREUR);
 
 			return;
 		}
+
+		// chemin compatible Windows
+		$output = realpath(dirname($destination));
+		if (!$output) {
+			return;
+		}
+		$vignette = $output . DIRECTORY_SEPARATOR . basename($destination) . '.' . $format_sortie;
+
 		$imagick = new Imagick();
 		$imagick->readImage(realpath($image));
 		$imagick->resizeImage(
@@ -1448,6 +1455,8 @@ function _image_creer_vignette($valeurs, $maxWidth, $maxHeight, $process = 'AUTO
 
 			return;
 		}
+		// remettre le chemin relatif car c'est ce qu'attend SPIP pour la suite (en particluoer action/tester)
+		$vignette = $destination . '.' . $format_sortie;
 	}
 
 	// netpbm
