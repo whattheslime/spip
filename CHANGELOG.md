@@ -19,6 +19,7 @@
 
 ### Fixed
 
+- #5218 Éviter l’autocomplétion d’identifiants email en éditant un auteur
 - #5209 Fonctionnement de Imagick sous Windows
 - #5206 Échouer en minipres si on ne peut pas écrire le fichier des clés lors du login
 - #5213 Prendre en compte le sens du critère `tri` en présence d’un tri `multi`
