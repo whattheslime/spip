@@ -716,12 +716,17 @@
 	text-align: var(--spip-left);
 }
 
-/* Balise TRI : picto indiquant le sens de tri sur l'item exposé */
-.item-tri_actif {
+/* Balise TRI : picto indiquant le sens de tri
+ * Objectifs :
+ * - montrer l'item exposé et le sens de tri appliqué
+ * - montrer les autres items triables, et le sens de tri qui sera appliqué au survol/focus
+ */
+.item-tri {
 	display: inline-flex;
 	align-items: center;
+	color: inherit;
 }
-.item-tri_actif:after {
+.item-tri:after {
 	content: "";
 	display: inline-block;
 	width: 1em;
@@ -732,11 +737,22 @@
 	mask-size: contain;
 	mask-position: center;
 	mask-repeat: no-repeat;
+	mask-image: url("#CHEMIN_IMAGE{tri-sens-off-xx.svg}");
+	opacity: 0.5;
 }
-.item-tri_actif.item-tri_asc:after {
+.item-tri_actif:after,
+.item-tri:hover:after,
+.item-tri:focus:after {
+	opacity: 1;
+}
+.item-tri_actif.item-tri_asc:after,
+.item-tri_asc:not(.item-tri_actif):hover:after,
+.item-tri_asc:not(.item-tri_actif):focus:after {
 	mask-image: url("#CHEMIN_IMAGE{tri-sens-asc-xx.svg}");
 }
-.item-tri_actif.item-tri_desc:after {
+.item-tri_actif.item-tri_desc:after,
+.item-tri_desc:not(.item-tri_actif):hover:after,
+.item-tri_desc:not(.item-tri_actif):focus:after {
 	mask-image: url("#CHEMIN_IMAGE{tri-sens-desc-xx.svg}");
 }
 
