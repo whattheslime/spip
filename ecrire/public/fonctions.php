@@ -447,17 +447,19 @@ function calculer_balise_tri(string $champ_ou_sens, string $libelle, string $cla
 		];
 	}
 
-	// Le nouveau sens de tri :
+	// Les sens de tri actuel et nouveau :
 	// Soit c'est un sens fixe donné en paramètre (< ou >)
 	$is_sens_fixe = array_key_exists($champ_ou_sens, $alias_sens);
 	if ($is_sens_fixe) {
+		$tri_sens_actuel = $tri_sens;
 		$tri_sens_nouveau = $alias_sens[$champ_ou_sens];
 	// Soit c'est le champ utilisé actuellement pour le tri → on inverse le sens
 	} elseif ($champ_ou_sens === $tri_champ) {
+		$tri_sens_actuel = $tri_sens;
 		$tri_sens_nouveau = $tri_sens * -1;
 	// Sinon c'est un nouveau champ, et on prend son tri par défaut
 	} else {
-		$tri_sens_nouveau = (int) ($liste_tri_sens_defaut[$champ_ou_sens] ?? $liste_tri_sens_defaut['*']);
+		$tri_sens_actuel = $tri_sens_nouveau = (int) ($liste_tri_sens_defaut[$champ_ou_sens] ?? $liste_tri_sens_defaut['*']);
 	}
 
 	// URL : ajouter le champ sur lequel porte le tri
@@ -481,7 +483,9 @@ function calculer_balise_tri(string $champ_ou_sens, string $libelle, string $cla
 	$url = parametre_url($url, 'var_memotri', strncmp($tri_nom, 'session', 7) == 0 ? $param_memo : '');
 
 	// Classes : on indique le sens de tri et l'item exposé
-	$classe .= ' item-tri item-tri_' . ($tri_sens === 1 ? 'asc' : 'desc');
+	if (!$is_sens_fixe) {
+		$classe .= ' item-tri item-tri_' . ($tri_sens_actuel === 1 ? 'asc' : 'desc');
+	}
 	if ($champ_ou_sens === $tri_champ) {
 		$classe .= ' item-tri_actif';
 	}
