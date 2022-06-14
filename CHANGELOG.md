@@ -19,6 +19,7 @@
 
 ### Fixed
 
+- spip-contrib-extensions/agenda#57 Éviter une erreur de typage à l’enregistrement dans certains formulaires
 - #5228 Rétablir le filtrage des valeurs `null` envoyées à la fonction `objet_modifier_champs()`
 - #5223 Éviter une erreur fatale sur `sql_selectdb()` sur une base inexistante en mysql
 - #5218 Éviter l’autocomplétion d’identifiants email en éditant un auteur
