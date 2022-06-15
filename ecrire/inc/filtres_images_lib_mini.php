@@ -1455,7 +1455,7 @@ function _image_creer_vignette($valeurs, $maxWidth, $maxHeight, $process = 'AUTO
 
 			return;
 		}
-		// remettre le chemin relatif car c'est ce qu'attend SPIP pour la suite (en particluoer action/tester)
+		// remettre le chemin relatif car c'est ce qu'attend SPIP pour la suite (en particlier action/tester)
 		$vignette = $destination . '.' . $format_sortie;
 	}
 
