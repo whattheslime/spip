@@ -10,6 +10,7 @@ Changelog de SPIP 4.1
 
 ### Fixed
 
+- #5231 Deprecated PHP 8.1 sur `sql_quote(null)`
 - #5242 Correction warning sur `generer_objet_lien()`
 - #5239 Eviter une fatale sur un appel de `generer_objet_info()`
 - spip-contrib-extensions/agenda#57 Éviter une erreur de typage à l’enregistrement dans certains formulaires
