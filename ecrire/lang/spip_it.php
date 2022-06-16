@@ -493,7 +493,7 @@ indirizzo qui sotto. (Altrimenti la tua richiesta sarà ignorata.):
 
 	// L
 	'label_ajout_id_rapide' => 'Inserimento rapido',
-	'label_poids_fichier' => 'Dimnesione',
+	'label_poids_fichier' => 'Dimensione',
 	'label_ponctuer' => '@label@:',
 	'lien_afficher_icones_seuls' => 'Mostra solo le icone',
 	'lien_afficher_texte_icones' => 'Mostra le icone e il testo',
