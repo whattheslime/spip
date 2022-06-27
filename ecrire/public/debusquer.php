@@ -123,8 +123,10 @@ function public_debusquer_dist($message = '', $lieu = '', $opt = array()) {
 	}
 
 	lang_select($GLOBALS['visiteur_session']['lang']);
-	$fonc = preg_replace(",\W,", "_", _request('var_mode_objet') ?? '');
-	$mode = preg_replace(",\W,", "_", _request('var_mode_affiche') ?? '');
+	$fonc = _request('var_mode_objet');
+	$mode = _request('var_mode_affiche');
+	$fonc = preg_replace(",\W,", "_", isset($fonc) ? $fonc : '');
+	$mode = preg_replace(",\W,", "_", isset($mode) ? $mode : '');
 
 	$self = str_replace("\\'", '&#39;', self());
 	$self = parametre_url($self, 'var_mode', 'debug');
