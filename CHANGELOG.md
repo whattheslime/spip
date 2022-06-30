@@ -10,6 +10,7 @@ Changelog de SPIP 4.1
 
 ### Fixed
 
+- #5242 Correction warning sur `generer_objet_lien()`
 - #5239 Eviter une fatale sur un appel de `generer_objet_info()`
 - spip-contrib-extensions/agenda#57 Éviter une erreur de typage à l’enregistrement dans certains formulaires
 - #5190 Dans le formulaire de configuration de l'email de suivi, pouvoir indiquer une liste d'emails séparés par des virgules
