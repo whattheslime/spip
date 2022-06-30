@@ -19,6 +19,7 @@
 
 ### Fixed
 
+- #5242 Correction warning sur `generer_objet_lien()`
 - #5239 Eviter une fatale sur un appel de `generer_objet_info()`
 - spip-contrib-extensions/agenda#57 Éviter une erreur de typage à l’enregistrement dans certains formulaires
 - #5228 Rétablir le filtrage des valeurs `null` envoyées à la fonction `objet_modifier_champs()`
