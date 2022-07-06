@@ -33,10 +33,9 @@ if (!defined('_ECRIRE_INC_VERSION')) {
 	return;
 }
 
-global $logo_libelles;
 // utilise pour le logo du site, donc doit rester ici
-$logo_libelles['site'] = _T('logo_site');
-$logo_libelles['racine'] = _T('logo_standard_rubrique');
+$GLOBALS['logo_libelles']['site'] = _T('logo_site');
+$GLOBALS['logo_libelles']['racine'] = _T('logo_standard_rubrique');
 
 
 /**
