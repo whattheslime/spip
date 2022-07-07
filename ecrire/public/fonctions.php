@@ -26,6 +26,9 @@ if (!defined('_ECRIRE_INC_VERSION')) {
 	return;
 }
 
+// public/interfaces definit des traitements sur les champs qui utilisent des fonctions de inc/texte
+// il faut donc l'inclure des qu'on inclue les filtres et fonctions de SPIP car sinon on a potentiellement des fatales
+include_spip('inc/texte');
 
 /**
  * Calcul d'une introduction
