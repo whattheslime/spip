@@ -561,9 +561,10 @@ function _image_extensions_acceptees_en_entree() {
 			$extensions = array_merge(explode(',', $GLOBALS['meta']['gd_formats']));
 			$extensions = array_map('trim', $extensions);
 			$extensions = array_filter($extensions);
-			$extensions = array_unique($extensions);
-			if (in_array('jpg', $extensions)) { $extensions[] = 'jpeg';
+			if (in_array('jpg', $extensions)) { 
+				$extensions[] = 'jpeg';
 			}
+			$extensions = array_unique($extensions);
 		}
 		$extensions[] = 'svg'; // on le supporte toujours avec des fonctions specifiques
 	}
@@ -778,8 +779,8 @@ function _imagecreatefromgif($filename) {
  *
  * @uses _imagecreatefrom_func()
  * @param string $filename
- *     Le path vers l'image à traiter (par exemple : IMG/distant/png/image.png
- *     ou local/cache-vignettes/L180xH51/image.png).
+ *     Le path vers l'image à traiter (par exemple : IMG/distant/png/image.webp
+ *     ou local/cache-vignettes/L180xH51/image.webp).
  * @return resource|null
  *     Une ressource de type Image GD.
  */
@@ -931,7 +932,7 @@ function _image_imageico($img, $fichier) {
  * @param resource $img
  *     Une ressource de type Image GD.
  * @param string $fichier
- *     Le path vers l'image (ex : local/cache-vignettes/L180xH51/image.png).
+ *     Le path vers l'image (ex : local/cache-vignettes/L180xH51/image.webp).
  * @return bool
  *
  *     - false si l'image créée a une largeur nulle ou n'existe pas ;
