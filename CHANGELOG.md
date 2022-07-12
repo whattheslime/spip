@@ -4,6 +4,7 @@
 
 ### Security
 
+- spip-team/securite#4833 signaler visuellement les liens javascript dans les zones editoriales
 - spip-team/securite#4831 Correction des traitements des balises `#INFO_` dans l’espace privé
 - spip-team/securite#3724 #5150 Le core ne génère plus de champ htpass par défaut dans `spip_auteurs`. Utiliser le plugin Htpasswd https://git.spip.net/spip-contrib-extensions/htpasswd pour ce besoin.
 
@@ -37,6 +38,7 @@
 
 ### Added
 
+- spip-team/securite#4832 spip-team/securite#4833 une fonction `auth_controler_password_auteur_connecte()` pour securiser une action
 - #4877 La balise `#TRI` permet d'alterner le sens du critère `tri`
 
 ### Removed
