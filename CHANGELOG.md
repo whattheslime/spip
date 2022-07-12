@@ -6,6 +6,7 @@ Changelog de SPIP 4.1
 
 ### Security
 
+- spip-team/securite#4835 Sécuriser le paramètre `_oups` dans le formulaire d'édition de liens
 - spip-team/securite#4833 Signaler visuellement les liens javascript dans les zones éditoriales
 - spip-team/securite#4831 Correction des traitements des balises `#INFO_` dans l’espace privé
 
