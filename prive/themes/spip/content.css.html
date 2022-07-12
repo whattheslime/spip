@@ -106,8 +106,31 @@ img.lang { width: 12px; height: 12px; border: 0; }
 
 .chapo { font-weight: bold; color: #333; }
 
-#wysiwyg a { /*color: #604A7F;*/ text-decoration: underline; }
-#wysiwyg a:hover { /*color: #f57900;*/ text-decoration: underline; }
+#wysiwyg a, .wysiwyg a { /*color: #604A7F;*/ text-decoration: underline; }
+#wysiwyg a:hover, .wysiwyg a:hover { /*color: #f57900;*/ text-decoration: underline; }
+
+/* Signaler les liens JS suspect */
+#wysiwyg a[href*="javascript:"],
+.wysiwyg a[href*="javascript:"] {
+	background: yellow;
+	pointer-events: none;
+}
+#wysiwyg a[href*="javascript:"]:after,
+.wysiwyg a[href*="javascript:"]:after {
+	display: inline-block;
+	content: attr(href);
+	margin-left: 0.25em;
+	font-family: 'lucida console',monospace;
+	font-size: 0.85em;
+	font-weight: normal;
+}
+#wysiwyg a[href*="javascript:"]:before,
+.wysiwyg a[href*="javascript:"]:before {
+	display: inline;
+	content: "⚠️";
+	margin-right: 0.25em;
+	text-decoration: none;
+}
 
 .boutonlien { font-weight: bold; font-size: 9px; }
 a.boutonlien:hover { color: #454545; text-decoration: none; }
@@ -132,14 +155,14 @@ li .puce_article_popup, li.puce_breve_popup,li.puce_site_popup { padding: 0; }*/
 .puce_objet_fixe { position: relative; }
 
 .puce_objet_popup, .puce_objet_popup * { box-sizing: content-box; }
-.puce_objet_popup { 
-	position: absolute; 
-	visibility: hidden; 
+.puce_objet_popup {
+	position: absolute;
+	visibility: hidden;
 	border: 0px;
 	background-color: white;
 	padding: 0px;
-	z-index: 10; 
-	top: -3px; 
+	z-index: 10;
+	top: -3px;
 	box-shadow: 0 0 5px rgba(0,0,0,0.2);
 	border-radius: var(--spip-list-border-radius);
 	#ENV{left}: -7px;
