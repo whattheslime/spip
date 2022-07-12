@@ -130,16 +130,20 @@ function formulaires_editer_liens_charger_dist($a, $b, $c, $options = []) {
 		$skel_ajout = $table_source . '_roles_associer';
 	}
 
-	$oups = _request('_oups');
-	if (unserialize(base64_decode($oups))) {
-		// on est bon, rien a faire
-	}
-	elseif (unserialize($oups)) {
-		// il faut encoder
-		$oups = base64_encode($oups);
-	}
-	else {
-		$oups = '';
+	$oups = '';
+	if ($editable) {
+		$oups = _request('_oups');
+		$oups = $oups ? $oups : '';
+		if ($oups) {
+			if (unserialize(base64_decode($oups, true))) {
+				// on est bon, rien a faire
+			} elseif (unserialize($oups)) {
+				// il faut encoder
+				$oups = base64_encode($oups);
+			} else {
+				$oups = '';
+			}
+		}
 	}
 	$valeurs = [
 		'id' => "$table_source-$objet-$id_objet-$objet_lien", // identifiant unique pour les id du form
@@ -159,7 +163,7 @@ function formulaires_editer_liens_charger_dist($a, $b, $c, $options = []) {
 		'ordonner_lien' => '',
 		'desordonner_liens' => '',
 		'_roles' => $roles, # description des roles
-		'_oups' => $oups,
+		'_oups' => entites_html($oups),
 		'editable' => $editable,
 	];
 
