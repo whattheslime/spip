@@ -6,7 +6,12 @@ Changelog de SPIP 4.1
 
 ### Security
 
+- spip-team/securite#4833 Signaler visuellement les liens javascript dans les zones éditoriales
 - spip-team/securite#4831 Correction des traitements des balises `#INFO_` dans l’espace privé
+
+### Added
+
+- spip-team/securite#4832 spip-team/securite#4833 une fonction `auth_controler_password_auteur_connecte()` pour securiser une action
 
 ### Fixed
 
