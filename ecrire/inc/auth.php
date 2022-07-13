@@ -69,7 +69,7 @@ function inc_auth_dist() {
  * @param string $password
  * @return bool
  */
-function auth_controler_password_auteur_connecte(string $password): bool {
+function auth_controler_password_auteur_connecte($password) {
 
 	if (
 		empty($GLOBALS['visiteur_session']['id_auteur'])
@@ -517,7 +517,7 @@ function auth_informer_login($login, $serveur = '') {
  * @param string $serveur
  * @return mixed
  */
-function auth_identifier_login($login, $password, $serveur = '', bool $phpauth = false) {
+function auth_identifier_login($login, $password, $serveur = '', $phpauth = false) {
 	$erreur = '';
 	foreach ($GLOBALS['liste_des_authentifications'] as $methode) {
 		if ($auth = charger_fonction($methode, 'auth', true)) {
