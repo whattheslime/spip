@@ -5,7 +5,7 @@
  * ------------------
  */
 
-define('_ECRAN_SECURITE', '1.4.1'); // 2021-03-12
+define('_ECRAN_SECURITE', '1.4.2'); // 2022-07-12
 
 /*
  * Documentation : https://www.spip.net/fr_article4200.html
@@ -639,6 +639,17 @@ if (
 	$ecran_securite_raison = "malformed connect argument";
 }
 
+
+/*
+ * _oups donc
+ */
+if (
+	isset($_REQUEST['_oups'])
+	and base64_decode($_REQUEST['_oups'], true) === false) {
+	$ecran_securite_raison = "malformed _oups argument";
+}
+
+
 /*
  * S'il y a une raison de mourir, mourons
  */
@@ -693,7 +704,7 @@ if (
 			and $load = floatval($load))
 	)
 	and $load > _ECRAN_SECURITE_LOAD // eviter l'evaluation suivante si de toute facon le load est inferieur a la limite
-	and random_int(0, $load * $load) > _ECRAN_SECURITE_LOAD * _ECRAN_SECURITE_LOAD
+	and rand(0, $load * $load) > _ECRAN_SECURITE_LOAD * _ECRAN_SECURITE_LOAD
 ) {
 	//https://webmasters.stackexchange.com/questions/65674/should-i-return-a-429-or-503-status-code-to-a-bot
 	header("HTTP/1.0 429 Too Many Requests");

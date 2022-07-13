@@ -4,6 +4,7 @@
 
 ### Security
 
+- spip-team/securite#4835 Mise a jour de l'écran de sécurité en version 1.4.2
 - spip-team/securite#4835 Sécuriser le paramètre `_oups` dans le formulaire d'édition de liens
 - spip-team/securite#4833 Signaler visuellement les liens javascript dans les zones éditoriales
 - spip-team/securite#4831 Correction des traitements des balises `#INFO_` dans l’espace privé
