@@ -24,6 +24,7 @@
 
 ### Fixed
 
+- #4826 Vignettes fallback quand on ne sait par reduire la taille d'une image du fait de son format
 - #5232 Correction notice PHP sur `signale_edition()`
 - #5231 Correction deprecated PHP 8.1 sur `sql_quote(null)`
 - #5242 Correction warning sur `generer_objet_lien()`
