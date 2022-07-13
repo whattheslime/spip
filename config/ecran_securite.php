@@ -5,7 +5,7 @@
  * ------------------
  */
 
-define('_ECRAN_SECURITE', '1.4.1'); // 2021-03-12
+define('_ECRAN_SECURITE', '1.4.2'); // 2022-07-12
 
 /*
  * Documentation : http://www.spip.net/fr_article4200.html
@@ -541,6 +541,17 @@ if (isset($_REQUEST['connect'])
 	) {
 	$ecran_securite_raison = "malformed connect argument";
 }
+
+
+/*
+ * _oups donc
+ */
+if (
+	isset($_REQUEST['_oups'])
+	and base64_decode($_REQUEST['_oups'], true) === false) {
+	$ecran_securite_raison = "malformed _oups argument";
+}
+
 
 /*
  * S'il y a une raison de mourir, mourons
