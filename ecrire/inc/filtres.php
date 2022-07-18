@@ -3578,7 +3578,7 @@ function http_img_pack($img, $alt, $atts = '', $title = '', $options = []) {
 	else {
 		$alt = " alt='" . attribut_html($title) . "'";
 	}
-	return "<img src='$img_file'$alt"
+	return "<img src='" . attribut_html($img_file) . "'$alt"
 	. ($title ? ' title="' . attribut_html($title) . '"' : '')
 	. ' ' . ltrim($atts)
 	. ' />';

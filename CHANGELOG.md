@@ -24,6 +24,7 @@
 
 ### Fixed
 
+- spip-contrib-extensions/formidable#119 Échapper les noms de fichier quand on génère une balise img à l'aide du filtre `|balise_img`
 - #4826 Vignettes fallback quand on ne sait par reduire la taille d'une image du fait de son format
 - #5232 Correction notice PHP sur `signale_edition()`
 - #5231 Correction deprecated PHP 8.1 sur `sql_quote(null)`
