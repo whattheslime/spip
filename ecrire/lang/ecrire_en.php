@@ -315,7 +315,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'info_exportation_base' => 'export database to @archive@',
 	'info_facilite_suivi_activite' => 'To simplify monitoring of the site’s editorial;
   activities, SPIP can send rmail notifications, e.g. to an editors’ mailing list,
-  of publication requests and article validations.',
+  of publication requests and article validations. Enter one or more adresses separated by commas.',
 	'info_fichiers_authent' => 'Authentication file ".htpasswd"',
 	'info_forums_abo_invites' => 'Your site contains forums by subscription; visitors may register for them on the public site.',
 	'info_gauche_admin_tech' => '<b>Only webmasters have access to this page.</b><p> It provides access to various

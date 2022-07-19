@@ -229,7 +229,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'info_exportation_base' => 'Exportera databasen till @archive@',
 	'info_facilite_suivi_activite' => 'För att underlätta att följa de redaktionella;
   aktiviteterna, kan SPIP skicka medddelanden via e-post, exempelvis till en maillista för redaktörer,
-  angående publiceringar och godkännanden.',
+  angående publiceringar och godkännanden.', # MODIF
 	'info_fichiers_authent' => 'Lösenordsfil ".htpasswd"',
 	'info_gauche_auteurs' => 'Här hittar du alla redaktörer på sajten.
  Status på var och en av dem visas av färgen på ikonen (administratör = grön; redaktör = gul).',

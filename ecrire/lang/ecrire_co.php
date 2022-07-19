@@ -287,7 +287,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'info_exportation_base' => 'Spurtazione di a basa di dati versu @archive@',
 	'info_facilite_suivi_activite' => 'Da rende più fàciule a aguardia di l’attività edituriale di u situ, SPIP pò 
 		prucede à invii d’email, per esempiu à una mailing-list di i scrittori, l’annunciu di e dumande di 
-		pubblicazione è cunvalidazione d’artìculi.',
+		pubblicazione è cunvalidazione d’artìculi.', # MODIF
 	'info_fichiers_authent' => 'Schedari d’autentificazione ".htpasswd"',
 	'info_forums_abo_invites' => 'U vostru situ cumporta fori accessìbuli solu à l’abbunati. Per ciò esiste una pàgina d’iscrizzione in u situ pùbblicu.',
 	'info_gauche_admin_tech' => '<b>Sta pàgina hè accessìbule solu à i rispunsèvuli di u situ.</b><p> 

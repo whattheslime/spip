@@ -313,7 +313,7 @@ ar skeudennoù enframmet. Evel-se e c’heller krouiñ, da skouer,
 	'info_exportation_base' => 'Oc’h ezporzhiañ an diaz davet @archive@',
 	'info_facilite_suivi_activite' => 'A-benn heuliañ aesoc’h an oberererezh e c’hell SPIP kas dre bostel,
   d’ul roll-skignañ enni ar skridaozerien da skouer,
-  ar goulennoù embann ha kadarnaat ar pennadoù.',
+  ar goulennoù embann ha kadarnaat ar pennadoù.', # MODIF
 	'info_fichiers_authent' => 'Restroù gwiriekaat « .htpasswd »',
 	'info_forums_abo_invites' => 'Foromoù dre goumanant zo war ho lec’hienn ; pedet e vez ar weladennerien d’en em enrollañ war lodenn foran al lec’hienn neuze.',
 	'info_gauche_admin_tech' => '<b>N’eus nemet an dud e-karg eus al lec’hienn a c’hall mont war ar bajenn-mañ.</b><p> Warni e reer al labourioù kempenn. Evit traoù zo ez eus ezhomm eus un argerzh testeniekaat dibar a c’houlenn kaout ur moned FTP ouzh al lec’hienn.</p>',

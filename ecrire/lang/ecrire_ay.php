@@ -202,7 +202,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'info_etape_suivante_1' => 'Arkir sarawir sarantasmawa',
 	'info_etape_suivante_2' => 'Arkir sarawir sarantasmawa',
 	'info_exportation_base' => 'base ukax apsusispaw @archive@ uka tuqiru',
-	'info_facilite_suivi_activite' => 'Qillqa lurawit uñch’ukiw jasachañatakix, SPIP ukax aruskipayirit apayaspa, mä tanta qillqirinakar ukhama yatiyatawinakataki yatiyawinaka ukatak mayiwinaka, ukhamarak qillqatanakat iyaw sawi.',
+	'info_facilite_suivi_activite' => 'Qillqa lurawit uñch’ukiw jasachañatakix, SPIP ukax aruskipayirit apayaspa, mä tanta qillqirinakar ukhama yatiyatawinakataki yatiyawinaka ukatak mayiwinaka, ukhamarak qillqatanakat iyaw sawi.', # MODIF
 	'info_fichiers_authent' => 'Chiqpach sirit q’ipinaka «.htpasswd» ',
 	'info_forums_abo_invites' => 'Qamawimax aruskipañawinakaniw qullqimp qillqatanakatakikiwa; Aka jach’a uta qamawinxa tumpirinakaru qillqayasiñataki jawthapiyi.',
 	'info_gauche_auteurs' => 'Akanxa taqpach qamawit qillqirinakaw uñsti. Kunjamaskis ukxa jisk’a saltan kulurapampiw   uñacht’ayi (apnaqiri = ch’uxña, qillqiri = q’illu).',

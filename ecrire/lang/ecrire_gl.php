@@ -278,7 +278,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'info_facilite_suivi_activite' => 'Para facilitar o seguimento da actividade
   editorial do web, SPIP pode enviar por correo-e., por exemplo
   a unha lista de enderezos do equipo de redacción, avisos das peticións
-  de publicación e de validacións dos artigos.',
+  de publicación e de validacións dos artigos.', # MODIF
 	'info_fichiers_authent' => 'Ficheiros de autenticación «.htpasswd»',
 	'info_forums_abo_invites' => 'O seu web dispón de foros para se aboar ; os visitantes están invitados a se rexistrar neles na parte pública do web.',
 	'info_gauche_admin_tech' => '<b>Esta páxina é unicamente accessible para o equipo de xestión do web.</b><p> Dálle acceso a diferentes funcións de mantemento técnico. Algunhas delas dan lugar a procesos de autenticación específicos, que esixen ter un acceso por FTP ao web.</p>',

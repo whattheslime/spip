@@ -304,7 +304,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'info_exportation_base' => 'Exportovať databázu do súboru @archive@',
 	'info_facilite_suivi_activite' => 'Na uľahčenie monitorovania redakčnej aktivity stránky
   môže SPIP e-mailom posielať oznamy
- o požiadavkách na publikovanie a schválení článkov, napr. do elektronickej konferencie redaktorov.',
+ o požiadavkách na publikovanie a schválení článkov, napr. do elektronickej konferencie redaktorov.', # MODIF
 	'info_fichiers_authent' => 'Autentifikačný súbor „.htpasswd“',
 	'info_forums_abo_invites' => 'Na vašej stránke sú diskusné fóra, ktoré vyžadujú registráciu. Návštevníci sa môžu zaregistrovať na verejne prístupnej stránke.',
 	'info_gauche_admin_tech' => '<b>K tejto stránke majú prístup len webmasteri.</b><p> Poskytuje prístup k rôznym

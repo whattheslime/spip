@@ -252,7 +252,7 @@ yaratabilir. Bu da otomatik olarak bir galeri
 	'info_exportation_base' => 'tabanın @archive@’e doğru ihracı',
 	'info_facilite_suivi_activite' => 'Sitenin editör etkinliğinin izlenmesini kolaylaştırmak üzere,
                                    SPIP, e-posta ile, örneğin, yayınlama taleplerinin  ve makale
-                                   onaylarının duyurusunu editörlerin bir gönderi listesine yollayabilir.',
+                                   onaylarının duyurusunu editörlerin bir gönderi listesine yollayabilir.', # MODIF
 	'info_fichiers_authent' => ' « .htpasswd » tasdik dosyaları',
 	'info_forums_abo_invites' => 'Siteniz abone yöntemiyle çalışan forumlar bulunduruyor ; dolayısıyla ziyaretçiler kamu sitesine kaydolmaya davet edilirler.',
 	'info_gauche_admin_tech' => '<b>Bu sayfa sadece site yetkililerinin erişimine izin verir. </b><p<Çeşitli teknik bakım işlevlerine erişim vermektedir. Bunlardan bazıları, Web sitesine bir FTP erişimi gerektiren özel bir tasdik sürecine yol açar.</p>',

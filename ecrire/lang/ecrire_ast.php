@@ -275,7 +275,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'info_facilite_suivi_activite' => 'Col envís de facilitar el siguimientu de l’actividá
   editorial del sitiu, SPIP pue comunicar por e-mail, por exemplu
   a una llista de corréu de redactores, l’anunciu de les propuestes de
-  publicación y les validaciones d’artículos.',
+  publicación y les validaciones d’artículos.', # MODIF
 	'info_fichiers_authent' => 'Archivos d’autentificación «.htpasswd»',
 	'info_forums_abo_invites' => 'Esti sitiu tien foros pa abonaos; poro a los visiteurs se-yos encamienta que se rexistren nel sitiu públicu.',
 	'info_gauche_admin_tech' => '<b>Esta páxina namái ye accesible pa los responsables del sitiu.</b><p> Equí ta l’accesu a les diferentes

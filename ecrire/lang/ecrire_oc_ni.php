@@ -262,7 +262,7 @@ Aqueli informacions vos devon poder èstre provesidi per l’administrator dau s
 	'info_etape_suivante_1' => 'Podètz passar à la tapa seguenta.',
 	'info_etape_suivante_2' => 'Podètz passar à la tapa seguenta.',
 	'info_exportation_base' => 'exportacion de la basa vers @archive@',
-	'info_facilite_suivi_activite' => 'Per facilitar lo seguit de l’activitat editoriala dau sit, SPIP vos pòu fornir per e-mail, per exemple à una mailing-list dei redactors, l’anonça dei demandas de publicacion e de validacion d’articles.',
+	'info_facilite_suivi_activite' => 'Per facilitar lo seguit de l’activitat editoriala dau sit, SPIP vos pòu fornir per e-mail, per exemple à una mailing-list dei redactors, l’anonça dei demandas de publicacion e de validacion d’articles.', # MODIF
 	'info_fichiers_authent' => 'Fichiers d’autentificacion « .htpasswd »',
 	'info_forums_abo_invites' => 'Lo voastre sit web poarge de fòros per lu abonats; dins lo sit public lu visitaires son convidats de si registrar.',
 	'info_gauche_admin_tech' => '<b>A-n-aquela pàgina, son que lu responsables dau sit que la poadon accedir.</b><p> Dona accès ai diferenti foncions de mantenença tecnica. D’unas d’entre eli implicon un procèssus d’autentificacion especific, que

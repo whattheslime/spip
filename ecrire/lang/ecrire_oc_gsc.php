@@ -194,7 +194,7 @@ L’administrator deu sistèma o de l’arret que’vs deu poder hornir
 	'info_etape_suivante_1' => 'Que podetz passar a l’estapa seguenta.',
 	'info_etape_suivante_2' => 'Que podetz passar a l’estapa seguenta.',
 	'info_exportation_base' => 'exportacion de la basa de cap tà @archive@',
-	'info_facilite_suivi_activite' => 'Tà facilitar lo seguit de l’activitat editoriau deu sit, SPIP que’vs pòt hornir per e-mail, per exemple a ua lista de corrièr deus redactors, l’anonci de las demandas de publicacion e de las validacions d’articles.',
+	'info_facilite_suivi_activite' => 'Tà facilitar lo seguit de l’activitat editoriau deu sit, SPIP que’vs pòt hornir per e-mail, per exemple a ua lista de corrièr deus redactors, l’anonci de las demandas de publicacion e de las validacions d’articles.', # MODIF
 	'info_fichiers_authent' => 'Fichièrs d’autentificacion « .htpasswd »',
 	'info_forums_abo_invites' => 'Lo vòste sit web que horneish  forums entaus abonats; dens lo sit public los vesitaires que son convidats a registrà’s.',
 	'info_gauche_admin_tech' => '<b>A aquera pagina, sonque los responsables deu sit qu’i pòden accedir.</b><p> Que permet de trobar las diferentas foncions de mantienença tecnica. Daubuas qu’implican un procès d’autentificacion especific que necessita un accès FTP au sit web.', # MODIF

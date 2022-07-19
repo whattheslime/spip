@@ -301,7 +301,7 @@ Tamen vi povas malŝalti ĝin.',
 	'info_etape_suivante_2' => 'Vi povas paŝi al posta etapo.',
 	'info_exceptions_proxy' => 'Escepto por la prokura servilo',
 	'info_exportation_base' => 'Eksporto de la datenbazo al @archive@',
-	'info_facilite_suivi_activite' => 'Por faciligi la kontrolon de la reteja ĉefartikola aktiveco, SPIP povas transdoni per retmesaĝoj - ekzemple al dissendlisto de redaktantoj - la anoncon pri publikig-petoj kaj validig-petoj de artikoloj.',
+	'info_facilite_suivi_activite' => 'Por faciligi la kontrolon de la reteja ĉefartikola aktiveco, SPIP povas transdoni per retmesaĝoj - ekzemple al dissendlisto de redaktantoj - la anoncon pri publikig-petoj kaj validig-petoj de artikoloj.', # MODIF
 	'info_fichiers_authent' => 'Aŭtentokontrolaj dosieroj « .htpasswd »',
 	'info_forums_abo_invites' => 'Via retejo enhavas forumojn alireblajn nur per abono ; vizitantoj estas invititaj al registriĝo ĉe la publika retejo.',
 	'info_gauche_admin_tech' => '<b>Nur respondeculoj de la retejo rajtas aliri tiun paĝon.</b><p>Ĝi ebligas aliron al la diversaj funkcioj pri teknika bontenado. Iuj el ili okazigas specifan aŭtentigan procezon, kiu
