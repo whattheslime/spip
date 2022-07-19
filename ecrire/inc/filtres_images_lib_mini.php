@@ -1039,9 +1039,8 @@ function _image_gd_output($img, $valeurs, $qualite = _IMG_GD_QUALITE, $fonction 
 	#un flag pour reperer les images gravees
 	$lock = (
 		!statut_effacer_images_temporaires('get') // si la fonction n'a pas ete activee, on grave tout
-	    or
-		(@file_exists($valeurs['fichier_dest']) and !@file_exists($valeurs['fichier_dest'] . '.src'))
-		);
+		or (@file_exists($valeurs['fichier_dest']) and !@file_exists($valeurs['fichier_dest'] . '.src'))
+	);
 	if (
 		function_exists($fonction)
 		&& ($ret = $fonction($img, $valeurs['fichier_dest'], $qualite)) # on a reussi a creer l'image

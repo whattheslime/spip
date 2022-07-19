@@ -124,7 +124,7 @@ function signale_edition($id, $auteur, $type = 'article') {
 	}
 
 	$edition = lire_tableau_edition();
-	
+
 	$nom = $auteur['nom'] ?? $GLOBALS['ip'];
 	$id_a = $auteur['id_auteur'] ?? $GLOBALS['ip'];
 
