@@ -2,6 +2,11 @@
 
 Changelog de SPIP 4.1
 
+## [Unreleased]
+
+- #5259 Fatale sur `autoriser` appelé avec un identifiant d’auteur inexistant
+
+
 ## [4.1.3] - 2022-07-21
 
 ### Security
