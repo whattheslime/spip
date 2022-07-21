@@ -140,7 +140,9 @@ function objet_modifier_champs($objet, $id_objet, $options, $c = null, $serveur 
 	// N'accepter que les champs qui existent dans la table
 	$champs = array_intersect_key($c, $desc['field']);
 	// et dont la valeur n'est pas null
-	$champs = array_filter($champs, static function($var){return $var !== null;} );
+	$champs = array_filter($champs, static function ($var) {
+		return $var !== null;
+	});
 	// TODO: ici aussi on peut valider les contenus
 	// en fonction du type
 
