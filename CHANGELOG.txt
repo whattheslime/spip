@@ -1,3 +1,41 @@
+SPIP-Core v4.0.7 -> v4.0.8 (2022-07-21)
+---------------------------------------
+
+7a23d38af | cedric         | 2022-07-13 | fix: l'elevation de statut d'un auteur ou le changement de son mot de passe ou email ne peuvent pas se faire via une X..
+a874baeeb | cedric         | 2022-07-13 | fix: envoyer un CSP sur tout l'espace prive pour bloquer l'affichage en iframe et empecher une eventuelle XSS de manip..
+f1e64f753 | cedric         | 2022-07-13 | fix: #HTTP_HEADER{} avec quote dans la valeur du header provoquait l'envoi d'un quote echappe, ce qui n'est pas le res..
+c87283b90 | cedric         | 2022-07-13 | fix: refuser_traiter_formulaire_ajax() ne fonctionnait pas quand un form contenait un element avec un name ou id 'subm..
+07bc99aa5 | cedric         | 2022-07-18 | fix: Échapper les noms de fichier quand on génère une balise img à l'aide du filtre `|balise_img`
+824d0b5a1 | cedric         | 2022-07-12 | fix: envoyer un CSP sandbox sur tous les documents de IMG
+e6efd8e8f | cedric         | 2022-07-13 | fix: mise a jour de l'écran de sécurité
+fcc0c3c85 | cedric         | 2022-07-12 | fix: utiliser un base64_decode strict sur _oups et dans tous les cas echapper son contenu par entites_html + ignorer l..
+ba252df16 | cedric         | 2022-07-12 | fix: Signaler visuellement les liens javascript dans les zones editoriales #wysiwyg ou .wysiwyg
+7a77c3a9d | cedric         | 2022-07-12 | fix: des parenthèses manquantes et la seconde partie de l'expression etait ignoree pour l'affectation de lock
+cb079cf8c | cedric         | 2022-07-12 | fix: ne pas faire tourner les aleas et le hash du password quand on veririe le pass de l'auteur connecte, car cela inv..
+fe5e2ae7c | cedric         | 2022-07-07 | feat: une fonction `auth_controler_password_auteur_connecte()` pour contrôler facilement le password de l'auteur conne..
+a0e58d167 | cedric         | 2022-05-23 | fix(spip-team/securite#4831) Lever le flag `espace_prive=1` quand on calcule un traitement via la balise `#INFO_` dans..
+853191817 | cedric         | 2022-05-31 | Fix #5118 : lors de la copie locale on appele la sanitisation SVG, qui elle même commence par forcer les unités de la ..
+e2807ae7e | cedric         | 2022-05-30 | #5194 Améliorer le comportement du bouton 'Ajourd'hui' dans le dateur en surlignant le jour courant + ajout option da..
+c22d84c3d | cedric         | 2022-05-06 | loger l'avancement de la migration des logos, c'est mieux quand on upgrade en cli sur un gros site
+
+SPIP-plugins-dist v4.0.7 -> v4.0.8 (2022-07-21)
+---------------------------------------
+
+Big Upload | 3f45d10 | marcimat       | 2022-07-15 | refactor: Les js de bigup utilisent `bigup.buildFormData()` et `bigup.send()`.
+Big Upload | 1c73101 | marcimat       | 2022-07-15 | feat: Proposer une methode bigup.send() pour faciliter l’écriture des requêtes ajax avec FormData
+Big Upload | a503a7f | marcimat       | 2022-07-15 | fix: Ajout d’une méthode `buildFormData()` qui supplante `getFormData()`
+Big Upload | 09d60ff | bruno          | 2022-06-20 | feat: API JS, compléter l'event ready
+Big Upload | cb53315 | bruno          | 2022-06-16 | feat: Ajout de deux events à l'API JS
+Medias     | 9416378 | cedric         | 2022-07-12 | fix: ajouter une class wysiwyg sur les zones ou l'on affiche CREDITS et/ou DESCRIPTIF pour permettre le signalement de..
+Medias     | e1ea969 | cedric         | 2022-07-07 | fix: appliquer _TRAITEMENT_TYPO sur le champs CREDITS et renseigner le flag espace_prive quand on affiche la liste des..
+Medias     | fbc54f0 | bruno          | 2022-06-07 | fix(upgrade): Refaire un alter sur la champ mode avant la migration des logos, par précaution
+SVP        | 14f2cef | marcimat       | 2022-07-20 | fix: Déplacer le champ password en tête pour éviter qu’un input le précédent soit autocomplété comme un champ de login
+SVP        | bb9531c | marcimat       | 2022-07-12 | fix: Les champs password sont obligatoires. Suite de bf5756e
+SVP        | 044a56e | tcharlss       | 2022-07-06 | fix: ne cocher que les plugins visibles
+SVP        | 04678cb | cedric         | 2022-07-07 | fix: securisation du formulaire d'upload d'un plugin depuis un zip arbitraire ainsi que du formulaire d'ajout de nouve..
+SVP        | 9667f16 | bruno          | 2022-04-21 | Simplification de l’écriture du squelette du formulaire editer_depot (éviter table_valeur)
+
+
 SPIP-Core v4.0.6 -> v4.0.7 (2022-05-20)
 ---------------------------------------
 
