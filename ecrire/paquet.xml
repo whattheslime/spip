@@ -8,7 +8,7 @@
 	documentation="https://www.spip.net"
 	demonstration="https://demo.spip.net"
 	developpement="https://git.spip.net/spip/spip"
->no
+>
 
 	<nom>SPIP</nom>
 	<!-- Système de publication pour l'Internet -->
