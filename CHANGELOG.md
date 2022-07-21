@@ -25,6 +25,7 @@
 
 ### Fixed
 
+- #5259 Fatale sur `autoriser` appelé avec un identifiant d’auteur inexistant
 - #5256 Correction de `#HTTP_HEADER{}` quand la valeur contenait un simple quote
 - #5256 Corriger `refuser_traiter_formulaire_ajax()` qui ne fonctionnait pas quand un form contenait un element avec un name ou id `submit`
 - spip-contrib-extensions/formidable#119 Échapper les noms de fichier quand on génère une balise img à l'aide du filtre `|balise_img`
