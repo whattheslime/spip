@@ -21,16 +21,6 @@
 - #4881 suppression des globales `flag_*` et adaptation ou nettoyage en conséquence du code.
 - #5108 `id_table_objet()` typé comme `objet_type()` que la fonction appelle
 
-### Fixed
-
-- #5228 Rétablir le filtrage des valeurs `null` envoyées à la fonction `objet_modifier_champs()`
-- #5223 Éviter une erreur fatale sur `sql_selectdb()` sur une base inexistante en mysql
-- #5218 Éviter l’autocomplétion d’identifiants email en éditant un auteur
-- #5209 #5221 Fonctionnement de Imagick sous Windows
-- #5206 Échouer en minipres si on ne peut pas écrire le fichier des clés lors du login
-- #5213 Prendre en compte le sens du critère `tri` en présence d’un tri `multi`
-
-
 ### Removed
 
 - spip-team/securite#3724 #5150 Suppression de la fonction `initialiser_sel()` (qui ne servait que pour la gestion de htpasswd déportée en plugin).
