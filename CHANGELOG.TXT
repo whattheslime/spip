@@ -1,3 +1,28 @@
+SPIP-Core v3.2.15 -> v3.2.16 (2022-07-21)
+-----------------------------------------
+
+ 72f51177c | marcimat       | 2022-07-13 | fix: Compatibilité PHP 5.4
+ 793f28ac6 | cedric         | 2022-07-12 | fix: envoyer un CSP sandbox sur tous les documents de IMG
+ 7993f2a97 | cedric         | 2022-07-13 | fix: mise a jour de l'écran de sécurité
+ 18b4b2533 | cedric         | 2022-07-12 | fix: utiliser un base64_decode strict sur _oups et dans tous les cas echapper son contenu par entites_html + ignorer l..
+ 2e71a6596 | cedric         | 2022-07-12 | fix: Signaler visuellement les liens javascript dans les zones editoriales #wysiwyg ou .wysiwyg
+ 026ff873e | cedric         | 2022-07-12 | fix: ne pas faire tourner les aleas et le hash du password quand on veririe le pass de l'auteur connecte, car cela inv..
+ eba0c9413 | cedric         | 2022-07-07 | feat: une fonction `auth_controler_password_auteur_connecte()` pour contrôler facilement le password de l'auteur conne..
+ 444220ba6 | cedric         | 2022-05-23 | fix(spip-team/securite#4831) Lever le flag `espace_prive=1` quand on calcule un traitement via la balise `#INFO_` dans..
+ 37beb3dd7 | bruno          | 2022-06-27 | fix: compat PHP<7 ne pas utiliser l'opérateur ?? en 3.2
+ 
+SPIP-plugins-dist v3.2.15 -> v3.2.16 (2022-07-21)
+------------------------------------------------
+
+Medias | 8014d6d | cedric         | 2022-07-12 | fix: ajouter une class wysiwyg sur les zones ou l'on affiche CREDITS et/ou DESCRIPTIF pour permettre le signalement de..
+Medias | 526dcb7 | cedric         | 2022-07-07 | fix: appliquer _TRAITEMENT_TYPO sur le champs CREDITS et renseigner le flag espace_prive quand on affiche la liste des..
+SVP    | 3390c60 | marcimat       | 2022-07-20 | fix: Déplacer le champ password en tête pour éviter qu’un input le précédent soit autocomplété comme un champ de login
+SVP    | cb1c208 | marcimat       | 2022-07-13 | fix: Compatibilité PHP 5.4
+SVP    | c1e8d0e | marcimat       | 2022-07-12 | fix: Les champs password sont obligatoires. Suite de bf5756e
+SVP    | 7ddc9b5 | cedric         | 2022-07-07 | fix: securisation du formulaire d'upload d'un plugin depuis un zip arbitraire ainsi que du formulaire d'ajout de nouve..
+
+
+
 SPIP-Core v3.2.14 -> v3.2.15 (2022-05-20)
 -----------------------------------------
 

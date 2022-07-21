@@ -63,7 +63,7 @@
         "path": "plugins-dist/medias",
         "source": "https://git.spip.net/spip/medias.git",
         "branch": "spip-3.2",
-        "tag": "v2.20.37"
+        "tag": "v2.20.38"
     },
     "mots": {
         "path": "plugins-dist/mots",
@@ -129,7 +129,7 @@
         "path": "plugins-dist/svp",
         "source": "https://git.spip.net/spip/svp.git",
         "branch": "spip-3.2",
-        "tag": "v1.3.14"
+        "tag": "v1.3.15"
     },
     "textwheel": {
         "path": "plugins-dist/textwheel",
