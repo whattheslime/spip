@@ -4,13 +4,11 @@
 
 ### Security
 
-- #5256 Bloquer la modification d'un auteur via une XMLHttpRequest ou une iframe
-- spip-team/securite#4832 Envoyer un CSP sandbox sur tous les documents de IMG via une RewriteRule du htaccess.txt modèle
-- spip-team/securite#4835 Mise a jour de l'écran de sécurité en version 1.4.2
-- spip-team/securite#4835 Sécuriser le paramètre `_oups` dans le formulaire d'édition de liens
-- spip-team/securite#4833 Signaler visuellement les liens javascript dans les zones éditoriales
-- spip-team/securite#4831 Correction des traitements des balises `#INFO_` dans l’espace privé
 - spip-team/securite#3724 #5150 Le core ne génère plus de champ htpass par défaut dans `spip_auteurs`. Utiliser le plugin Htpasswd https://git.spip.net/spip-contrib-extensions/htpasswd pour ce besoin.
+
+### Added
+
+- #4877 La balise `#TRI` permet d'alterner le sens du critère `tri`
 
 ### Changed
 
@@ -25,31 +23,13 @@
 
 ### Fixed
 
-- #5259 Fatale sur `autoriser` appelé avec un identifiant d’auteur inexistant
-- #5256 Correction de `#HTTP_HEADER{}` quand la valeur contenait un simple quote
-- #5256 Corriger `refuser_traiter_formulaire_ajax()` qui ne fonctionnait pas quand un form contenait un element avec un name ou id `submit`
-- spip-contrib-extensions/formidable#119 Échapper les noms de fichier quand on génère une balise img à l'aide du filtre `|balise_img`
-- #4826 Vignettes fallback quand on ne sait par reduire la taille d'une image du fait de son format
-- #5232 Correction notice PHP sur `signale_edition()`
-- #5231 Correction deprecated PHP 8.1 sur `sql_quote(null)`
-- #5242 Correction warning sur `generer_objet_lien()`
-- #5239 Eviter une fatale sur un appel de `generer_objet_info()`
-- spip-contrib-extensions/agenda#57 Éviter une erreur de typage à l’enregistrement dans certains formulaires
 - #5228 Rétablir le filtrage des valeurs `null` envoyées à la fonction `objet_modifier_champs()`
 - #5223 Éviter une erreur fatale sur `sql_selectdb()` sur une base inexistante en mysql
 - #5218 Éviter l’autocomplétion d’identifiants email en éditant un auteur
 - #5209 #5221 Fonctionnement de Imagick sous Windows
 - #5206 Échouer en minipres si on ne peut pas écrire le fichier des clés lors du login
 - #5213 Prendre en compte le sens du critère `tri` en présence d’un tri `multi`
-- #5190 Dans le formulaire de configuration de l'email de suivi, pouvoir indiquer une liste d'emails séparés par des virgules
-- #5204 Fix le login lors de la restauration des cles depuis un compte webmestre
-- #5118 Fix les viewbox erronnées lors de la copie locale des SVG sans viewbox
-- #5194 Améliorer le comportement du bouton "Ajourd'hui" dans le dateur en surlignant le jour courant + ajout option data-todayhighlight sur les input.date + fix option data-clearbtn
 
-### Added
-
-- spip-team/securite#4832 spip-team/securite#4833 Une fonction `auth_controler_password_auteur_connecte()` pour sécuriser une action
-- #4877 La balise `#TRI` permet d'alterner le sens du critère `tri`
 
 ### Removed
 
