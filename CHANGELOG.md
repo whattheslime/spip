@@ -12,6 +12,7 @@
 
 ### Changed
 
+- #5016 Généralisation du traitement des balises dynamiques dans un modèle
 - #5272 Compatibilité avec PHP 8.2
 - #5025 Prise en charge de l'utf8 pour le filtre `|match` en appliquant par défaut le modificateur u (PCRE_UTF8)
 - spip-team/securite#4835 utiliser json_decode au lieu de serialize pour _oups dans le formulaire d'edition de liens
@@ -25,6 +26,7 @@
 
 ### Fixed
 
+- #5016 Collecte des arguments sur les formulaires dans un modèle
 - #5274 Homogénéiser les labels des listes
 
 ### Removed
