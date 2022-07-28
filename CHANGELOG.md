@@ -2,6 +2,17 @@
 
 Changelog de SPIP 4.1
 
+## [Unreleased]
+
+### Changed
+
+- #5016 Généralisation du traitement des balises dynamiques dans un modèle
+
+### Fixed
+
+- #5016 Collecte des arguments sur les formulaires dans un modèle
+
+
 ## [4.1.5] - 2022-07-21
 
 ### Fixed
