@@ -1853,11 +1853,10 @@ function charger_fonction_url(string $quoi, string $type = '') {
  *   ancre a mettre a la fin de l'URL a produire
  * @param ?bool $public
  *   produire l'URL publique ou privee (par defaut: selon espace)
- *   si string : serveur de base de donnee (nom du connect)
  * @param string $type
  *   fichier dans le repertoire ecrire/urls determinant l'apparence
  * @param string $connect
- *   fichier dans le repertoire ecrire/urls determinant l'apparence
+ *   serveur de base de donnee (nom du connect)
  * @return string
  *   url codee ou fonction de decodage
  */
