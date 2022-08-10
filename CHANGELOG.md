@@ -21,6 +21,10 @@
 - #4881 suppression des globales `flag_*` et adaptation ou nettoyage en conséquence du code.
 - #5108 `id_table_objet()` typé comme `objet_type()` que la fonction appelle
 
+### Fixed
+
+- #5274 Homogénéiser les labels des listes
+
 ### Removed
 
 - spip-team/securite#3724 #5150 Suppression de la fonction `initialiser_sel()` (qui ne servait que pour la gestion de htpasswd déportée en plugin).

@@ -34,7 +34,7 @@
 			<th class='statut' scope='col'>[(#TRI{statut,#CHEMIN_IMAGE{auteur-16.png}|balise_img{<:lien_trier_statut|attribut_html:>},ajax})]</th>[
 			(#PLUGIN{organiseur}|oui)<th class='messagerie' scope='col'></th>]
 			<th class='nom' scope='col' colspan='2'>[(#TRI{multi nom,<:info_nom:>,ajax})]</th>
-			<th class='email' scope='col'>[(#TRI{email,<:email:>,ajax})]</th>
+			<th class='email' scope='col'>[(#TRI{email,<:email|label_nettoyer:>,ajax})]</th>
 			<th class='nombre' scope='col'>[(#TRI{compteur_articles,<:info_articles:>,ajax})]</th>
 			<th class='id' scope='col'>[(#TRI{id_auteur,<:info_numero_abbreviation:>,ajax})]</th>
 		</tr>
