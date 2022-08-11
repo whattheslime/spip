@@ -19,7 +19,7 @@ if (!defined('_ECRIRE_INC_VERSION')) {
 function inc_informer_dist($id, $col, $exclus, $rac, $type, $do = 'aff') {
 	include_spip('inc/texte');
 	$titre = $descriptif = '';
-	if ($type == 'rubrique') {
+	if ($type === 'rubrique') {
 		$row = sql_fetsel('titre, descriptif', 'spip_rubriques', 'id_rubrique = ' . intval($id));
 		if ($row) {
 			$titre = typo($row['titre']);
@@ -30,8 +30,12 @@ function inc_informer_dist($id, $col, $exclus, $rac, $type, $do = 'aff') {
 	}
 
 	$res = '';
-	if ($type == 'rubrique' and $GLOBALS['spip_display'] != 1 and isset($GLOBALS['meta']['image_process'])) {
-		if ($GLOBALS['meta']['image_process'] != 'non') {
+	if (
+		$type === 'rubrique'
+		and intval($GLOBALS['visiteur_session']['prefs']['display'] ?? 0) !== 1
+		and isset($GLOBALS['meta']['image_process'])
+	) {
+		if ($GLOBALS['meta']['image_process'] !== 'non') {
 			$chercher_logo = charger_fonction('chercher_logo', 'inc');
 			if ($res = $chercher_logo($id, 'id_rubrique', 'on')) {
 				[$fid, $dir, $nom, $format] = $res;
