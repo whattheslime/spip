@@ -26,12 +26,15 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'avis_connexion_echec_2' => 'Reviens à la page précédente, et vérifie les informations que tu as fournies.',
 	'avis_connexion_echec_3' => '<b>N.B.</b> Sur de nombreux serveurs, tu dois <b>demander</b> l’activation de ton accès à la base de données avant de pouvoir l’utiliser. Si tu ne peux pas te connecter, vérifie que tu as effectué cette démarche.',
 	'avis_connexion_erreur_creer_base' => 'La base de données n’a pas pu être créée.',
+	'avis_connexion_erreur_fichier_cle_manquant_1' => 'L’installation doit être faite par un webmestre avec un backup des clés et son mot de passe',
+	'avis_connexion_erreur_fichier_cle_manquant_2' => 'L’installation doit être faite par un webmestre avec un backup des clés',
 	'avis_connexion_erreur_nom_base' => 'Le nom de la base ne peut contenir que des lettres, des chiffres et des tirets',
 	'avis_connexion_ldap_echec_1' => 'La connexion au serveur LDAP a échoué.',
 	'avis_connexion_ldap_echec_2' => 'Reviens à la page précédente, et vérifie les informations que tu as fournies.',
 	'avis_connexion_ldap_echec_3' => 'Alternativement, n’utilise pas le support LDAP pour importer des utilisateurs.',
 	'avis_deplacement_rubrique' => 'Attention ! Cette rubrique contient @contient_breves@ brève@scb@ : si tu la déplaces, coche cette case de confirmation.',
 	'avis_erreur_connexion_mysql' => 'Erreur de connexion SQL',
+	'avis_erreur_creation_compte' => 'Échec lors de l’initialisation du compte',
 	'avis_espace_interdit' => '<b>Espace interdit</b> <div>SPIP est déjà installé.</div>',
 	'avis_lecture_noms_bases_1' => 'Le programme d’installation n’a pas pu lire les noms des bases de données installées.',
 	'avis_lecture_noms_bases_2' => 'Soit aucune base n’est disponible, soit la fonction permettant de lister les bases a été désactivée
@@ -317,7 +320,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'info_facilite_suivi_activite' => 'Afin de faciliter le suivi de l’activité
 		éditoriale du site, SPIP peut faire parvenir par mail, par exemple
 		à une mailing-list des rédacteurs, l’annonce des demandes de
-		publication et des validations d’articles.', # MODIF
+		publication et des validations d’articles. Indiquer une ou plusieurs adresses, séparées par des virgules.',
 	'info_fichiers_authent' => 'Fichiers d’authentification « .htpasswd »',
 	'info_forums_abo_invites' => 'Ton site comporte des forums sur abonnement ; les visiteurs sont donc invités à s’enregistrer sur le site public.',
 	'info_gauche_admin_tech' => '<b>Cette page est uniquement accessible aux responsables du site.</b><p> Elle donne accès aux différentes
@@ -540,7 +543,9 @@ dans une couleur qui indique leur état :',
 	'install_nom_base_hebergeur' => 'Nom de la base attribué par l’hébergeur :',
 	'install_pas_table' => 'Base actuellement sans tables',
 	'install_pass_base_hebergeur' => 'Mot de passe de connexion attribué par l’hébergeur',
+	'install_php_extension' => 'Les extensions suivantes sont manquantes : @extensions@',
 	'install_php_version' => 'PHP version @version@ insuffisant (minimum = @minimum@)',
+	'install_php_version_max' => 'PHP version @version@ trop récent (maximum = @maximum@)',
 	'install_select_langue' => 'Sélectionne une langue puis clique sur le bouton « suivant » pour lancer la procédure d’installation.',
 	'install_select_type_db' => 'Indiquer le type de base de données :',
 	'install_select_type_mysql' => 'MySQL',

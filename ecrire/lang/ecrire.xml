@@ -130,7 +130,7 @@
 		<traducteur nom="periute" lien="https://trad.spip.net/auteur/periute" />
 		<traducteur nom="touti" lien="https://trad.spip.net/auteur/touti" />
 	</langue>
-	<langue code="fr_tu" url="https://trad.spip.net/tradlang_module/ecrire_?lang_cible=fr_tu" total="821" traduits="815" relire="0" modifs="1" nouveaux="5" pourcent="99.27">
+	<langue code="fr_tu" url="https://trad.spip.net/tradlang_module/ecrire_?lang_cible=fr_tu" total="821" traduits="821" relire="0" modifs="0" nouveaux="0" pourcent="100.00">
 		<traducteur nom="Astalaseven" lien="https://trad.spip.net/auteur/astalaseven" />
 		<traducteur nom="b_b" lien="https://trad.spip.net/auteur/b_b" />
 		<traducteur nom="beatnick" lien="https://trad.spip.net/auteur/beatnick" />
