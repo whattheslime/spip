@@ -11,6 +11,7 @@ Changelog de SPIP 4.1
 
 ### Fixed
 
+- #5283 Loger les erreurs de squelettes lorsqu’elles ne sont pas affichées sur la page
 - #5016 Collecte des arguments sur les formulaires dans un modèle
 
 
