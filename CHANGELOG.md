@@ -34,5 +34,6 @@
 
 ### Removed
 
+- #5285 Supprimer le lien obsolète vers `page=distrib` dans la page Suivre la vie du site
 - #5278 Globales obsolètes `spip_ecran` et `spip_display`
 - spip-team/securite#3724 #5150 Suppression de la fonction `initialiser_sel()` (qui ne servait que pour la gestion de htpasswd déportée en plugin).
