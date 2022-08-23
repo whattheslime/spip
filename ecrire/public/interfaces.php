@@ -517,6 +517,9 @@ class Boucle {
 	*/
 	public array $index_champ = [];
 
+	/** Résultat de la compilation (?) (sert au débusqueur) */
+	public string $code = '';
+
 	/** Source des filtres (compatibilité) (?) */
 	public array $fonctions = [];
 
