@@ -636,10 +636,8 @@ function safehtml($t) {
 
 /**
  * Detecter si un texte est "safe" ie non modifie significativement par safehtml()
- * @param $texte
- * @return bool
  */
-function is_html_safe($texte) {
+function is_html_safe(string $texte): bool {
 	if ($is_html_safe = charger_fonction('is_html_safe', 'inc', true)) {
 		return $is_html_safe($texte);
 	}
