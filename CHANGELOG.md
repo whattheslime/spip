@@ -8,10 +8,12 @@
 
 ### Added
 
+- #5271 Fonction `is_html_safe()`
 - #4877 La balise `#TRI` permet d'alterner le sens du critère `tri`
 
 ### Changed
 
+- #5271 Refactoring de la mise en sécurité des textes dans ecrire et public
 - #5189 Ne plus forcer l'Engine MySQL à l'installation
 - #5273 Le critère `par_ordre_liste` rejette à la fin les éléments de la boucle absents de la liste
 - #5016 Généralisation du traitement des balises dynamiques dans un modèle
