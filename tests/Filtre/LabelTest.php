@@ -10,15 +10,11 @@
  *  Pour plus de détails voir le fichier COPYING.txt ou l'aide en ligne.   *
 \***************************************************************************/
 
-namespace Spip\Core\Tests;
+namespace Spip\Core\Tests\Filtre;
 
 use PHPUnit\Framework\TestCase;
 
-
-/**
- * FiltreLabelTest test
- */
-class FiltreLabelTest extends TestCase {
+class LabelTest extends TestCase {
 
 	public static function setUpBeforeClass(): void{
 		include_spip('inc/filtres');
@@ -68,14 +64,14 @@ class FiltreLabelTest extends TestCase {
 		return array_map(null, array_keys($list), array_values($list));
 	}
 
-	/** 
+	/**
 	 * @dataProvider providerLabelNettoyer
 	 */
 	public function testLabelNettoyer($source, $expected) {
 		$this->assertEquals($expected, label_nettoyer($source, false));
 	}
 
-	/** 
+	/**
 	 * @depends testLabelNettoyer
 	 * @dataProvider providerLabelNettoyerInitialeMajuscule
 	 */
@@ -83,7 +79,7 @@ class FiltreLabelTest extends TestCase {
 		$this->assertEquals($expected, label_nettoyer($source, true));
 	}
 
-	/** 
+	/**
 	 * @depends testLabelNettoyer
 	 * @dataProvider providerLabelNettoyerInitialeMajuscule
 	 */
@@ -101,7 +97,7 @@ class FiltreLabelTest extends TestCase {
 		$this->assertEquals($expected, label_ponctuer($source, false));
 	}
 
-	/** 
+	/**
 	 * @depends testLabelPonctuer
 	 * @dataProvider providerLabelPonctuerInitialeMajuscule
 	 */
@@ -109,7 +105,7 @@ class FiltreLabelTest extends TestCase {
 		$this->assertEquals($expected, label_ponctuer($source, true));
 	}
 
-	/** 
+	/**
 	 * @depends testLabelPonctuer
 	 * @dataProvider providerLabelPonctuerInitialeMajuscule
 	 */

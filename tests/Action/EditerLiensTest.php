@@ -10,16 +10,11 @@
  *  Pour plus de détails voir le fichier COPYING.txt ou l'aide en ligne.   *
 \***************************************************************************/
 
-namespace Spip\Core\Tests;
+namespace Spip\Core\Tests\Action;
 
 use PHPUnit\Framework\TestCase;
 
-
-/**
- * ConfigDepotMetaPackTest test
- *
- */
-class ActionEditerLiensTest extends TestCase {
+class EditerLiensTest extends TestCase {
 
 	public static function setUpBeforeClass(): void{
 		include_spip('action/editer_liens');

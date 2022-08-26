@@ -10,16 +10,11 @@
  *  Pour plus de détails voir le fichier COPYING.txt ou l'aide en ligne.   *
 \***************************************************************************/
 
-namespace Spip\Core\Tests;
+namespace Spip\Core\Tests\Config;
 
 use PHPUnit\Framework\TestCase;
 
-
-/**
- * ConfigDepotMetaPackTest test
- *
- */
-class ConfigDepotMetaPackTest extends TestCase {
+class DepotMetaPackTest extends TestCase {
 
 	protected static $savedMeta;
 	// les bases de test

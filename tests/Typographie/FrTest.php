@@ -10,15 +10,11 @@
  *  Pour plus de détails voir le fichier COPYING.txt ou l'aide en ligne.   *
 \***************************************************************************/
 
-namespace Spip\Core\Tests;
+namespace Spip\Core\Tests\Typographie;
 
 use PHPUnit\Framework\TestCase;
 
-
-/**
- * TypographieFrTest test
- */
-class TypographieFrTest extends TestCase {
+class FrTest extends TestCase {
 
 	protected static $lang = 'fr';
 	protected static $root = 'ecrire/';
@@ -39,7 +35,7 @@ class TypographieFrTest extends TestCase {
 		return array_map(null, array_keys($list), array_values($list));
 	}
 
-	/** 
+	/**
 	 * @dataProvider providerBase
 	 */
 	public function testBase($source, $expected) {
@@ -58,7 +54,7 @@ class TypographieFrTest extends TestCase {
 		return array_map(null, array_keys($list), array_values($list));
 	}
 
-	/** 
+	/**
 	 * @dataProvider providerAddsSpaceOnPonctuation
 	 */
 	public function testAddsSpaceOnPonctuation($source, $expected) {
@@ -76,7 +72,7 @@ class TypographieFrTest extends TestCase {
 		return array_map(null, array_keys($list), array_values($list));
 	}
 
-	/** 
+	/**
 	 * @dataProvider providerChangeSpaceToNonBreakingSpaceOnPonctuation
 	 */
 	public function testChangeSpaceToNonBreakingSpaceOnPonctuation($source, $expected) {
@@ -92,7 +88,7 @@ class TypographieFrTest extends TestCase {
 		return array_map(null, array_keys($list), array_values($list));
 	}
 
-	/** 
+	/**
 	 * @dataProvider providerChangeTildeToNonBreakingSpace
 	 */
 	public function testChangeTildeToNonBreakingSpace($source, $expected) {
@@ -110,7 +106,7 @@ class TypographieFrTest extends TestCase {
 		return array_map(null, array_keys($list), array_values($list));
 	}
 
-	/** 
+	/**
 	 * @dataProvider providerChangeTildeToNonBreakingSpaceOnPonctuation
 	 */
 	public function testChangeTildeToNonBreakingSpaceOnPonctuation($source, $expected) {
@@ -126,7 +122,7 @@ class TypographieFrTest extends TestCase {
 		return array_map(null, array_keys($list), array_values($list));
 	}
 
-	/** 
+	/**
 	 * @dataProvider providerKeepNonBreakingSpaceEntity
 	 */
 	public function testKeepNonBreakingSpaceEntity($source, $expected) {
@@ -142,7 +138,7 @@ class TypographieFrTest extends TestCase {
 		return array_map(null, array_keys($list), array_values($list));
 	}
 
-	/** 
+	/**
 	 * @dataProvider providerKeepNonBreakingSpaceUtf
 	 */
 	public function testKeepNonBreakingSpaceUtf($source, $expected) {
@@ -161,7 +157,7 @@ class TypographieFrTest extends TestCase {
 		return array_map(null, array_keys($list), array_values($list));
 	}
 
-	/** 
+	/**
 	 * @dataProvider providerKeepDoubleTwoPoints
 	 */
 	public function testKeepDoubleTwoPoints($source, $expected) {

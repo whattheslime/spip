@@ -10,15 +10,11 @@
  *  Pour plus de détails voir le fichier COPYING.txt ou l'aide en ligne.   *
 \***************************************************************************/
 
-namespace Spip\Core\Tests;
+namespace Spip\Core\Tests\Typographie;
 
 use PHPUnit\Framework\TestCase;
 
-
-/**
- * TypographieFrTextwheelTest test
- */
-class TypographieFrTextwheelTest extends TypographieFrTest {
+class FrTextwheelTest extends FrTest {
 	protected static $lang = 'fr';
 	protected static $root = '';
 	protected static $fnTypographie = 'typographie_fr';
