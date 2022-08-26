@@ -15,12 +15,12 @@ $dirs = [];
 $bootstraps = [];
 foreach (creer_chemin() as $d) {
 	if ($d and
-		is_dir("${d}tests")
-		and count(glob("${d}tests/*Test.php"))
+		is_dir("{$d}tests")
+		and count(glob("{$d}tests/*Test.php"))
 	) {
-		$bases[] = "${d}tests";
+		$bases[] = "{$d}tests";
 
-		if (file_exists($f = "${d}tests/bootstrap.php")) {
+		if (file_exists($f = "{$d}tests/bootstrap.php")) {
 			$bootstraps[] = $f;
 		}
 	}

@@ -39,8 +39,8 @@
 	// chercher les bases de tests
 	$bases = array('tests/unit');
 	foreach (creer_chemin() as $d) {
-		if ($d && @is_dir("${d}tests"))
-			$bases[] = "${d}tests";
+		if ($d && @is_dir("{$d}tests"))
+			$bases[] = "{$d}tests";
 	}
 
 	// déclarations
