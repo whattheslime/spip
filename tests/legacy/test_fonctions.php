@@ -1,5 +1,8 @@
 <?php
 
+// pour FineDiff
+include_once _SPIP_TEST_INC . '/vendor/autoload.php';
+
 function tests_init_dossier_squelettes() {
 	$GLOBALS['dossier_squelettes'] = _DIR_TESTS . 'tests/legacy/squelettes';
 }
@@ -89,19 +92,19 @@ function tester_fun($fun, $essais, $opts = array())
 	return $err;
 }
 
-function display_text_diff_callback($op, $texte, $offset, $nbchars, $z='') {
-	switch ($op) {
-		case 'c':
-			echo "  " . substr($texte, $offset, $nbchars);
-			break;
-		case 'd':
-			echo "- " . substr($texte, $offset, $nbchars);
-			break;
-		case 'i':
-			echo "+ " . substr($texte, $offset, $nbchars);
-			break;
+class SpipTestFineDiffRenderer extends \cogpowered\FineDiff\Render\Text {
+	public function callback($opcode, $from, $offset, $length): string
+	{
+		$content = substr($from, $offset, $length);
+		switch ($opcode) {
+			case 'c':
+				return '  ' . $content;
+			case 'd':
+				return '- ' . $content;
+			case 'i':
+				return '+ ' . $content;
+		}
 	}
-
 }
 
 function display_error($titre,$call,$result,$expected,$opts=array()){
@@ -109,20 +112,20 @@ function display_error($titre,$call,$result,$expected,$opts=array()){
 	static $style;
 	if (defined('_IS_CLI') and _IS_CLI){
 		echo "/!\ FAIL test `$titre`\n--- Expected\n+++ Actual\n@@ @@\n";
-		if (!class_exists("FineDiff")){
-			include_once _SPIP_TEST_INC . '/tests/legacy/finediff.php';
-		}
-		$from = var_export($expected, true);
-		$diff = new FineDiff($from, var_export($result, true), FineDiff::$paragraphGranularity);
-		$diff->renderFromOpcodes($from, $diff->getOpcodes(), 'display_text_diff_callback');
 
+		$from = var_export($expected, true);
+
+		$FineDiff = new \cogpowered\FineDiff\Diff();
+		$FineDiff->setRenderer(new SpipTestFineDiffRenderer());
+		$FineDiff->setGranularity(new \cogpowered\FineDiff\Granularity\Paragraph());
+		echo $FineDiff->render($from, var_export($result, true));
 	} else {
 
 		if (!isset($bef)){
 			// options
 			foreach (array(
-				         'out' => '<dt>@</dt><dd class="ei">@</dd>'
-			         ) as $opt => $def){
+				'out' => '<dt>@</dt><dd class="ei">@</dd>'
+			) as $opt => $def) {
 				$$opt = isset($opts[$opt]) ? $opts[$opt] : $def;
 			}
 			// l'enrobage de sortie
@@ -142,14 +145,13 @@ function display_error($titre,$call,$result,$expected,$opts=array()){
 		.ei dt {font-weight: bold;font-size: 1.2em;}
 		.ei dd {margin-bottom: 1em;}
 		</style>";
-			if (!class_exists("FineDiff")){
-				include_once _SPIP_TEST_INC . '/tests/legacy/finediff.php';
-			}
 		} else {
 			$style = "";
 		}
 
-		$diff = new FineDiff(var_export($expected, true), var_export($result, true));
+		$FineDiff = new \cogpowered\FineDiff\Diff();
+		$FineDiff->setRenderer(new  \cogpowered\FineDiff\Render\Html());
+		$diff = $FineDiff->render(var_export($expected, true), var_export($result, true));
 
 		return
 			$style
@@ -158,7 +160,7 @@ function display_error($titre,$call,$result,$expected,$opts=array()){
 			. $mid
 			. "<pre>$call</pre>"
 			. "<table style='width:100%;'><tr><th>diff</th><th>attendu</th><th>resultat</th></tr><tr>"
-			. "<td><pre>" . ($affdiff ? $diff->renderDiffToHTML() : $affdiff) . "</pre></td>"
+			. "<td><pre>" . ($affdiff ? $diff : $affdiff) . "</pre></td>"
 			. '<td><pre>' . htmlspecialchars(var_export($expected, true)) . "</pre></td>"
 			. '<td><pre>' . htmlspecialchars(var_export($result, true)) . "</pre></td>"
 			. "</tr></table>"
