@@ -7,7 +7,7 @@ array_shift($args);
 
 $dir_tests = dirname(__DIR__) . '/';
 // charger SPIP
-require_once $dir_tests . 'tests/spip.inc';
+require_once $dir_tests . 'tests/bootstrap.php';
 
 // Lister les repertoires du path qui contiennent des dossier tests/ avec des tests PHPUnit
 
