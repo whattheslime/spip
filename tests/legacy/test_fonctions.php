@@ -213,8 +213,8 @@ function tests_legacy_lister($extension=null) {
 	$bases = array(_DIR_TESTS . 'tests/legacy/unit');
 
 	foreach (creer_chemin() as $d) {
-		if ($d && @is_dir("${d}tests"))
-			$bases[] = "${d}tests";
+		if ($d && @is_dir("{$d}tests"))
+			$bases[] = "{$d}tests";
 	}
 
 	if (!$extension) {
