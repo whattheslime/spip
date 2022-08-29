@@ -5,6 +5,7 @@ namespace Spip\Core\Testing;
 use PHPUnit\Framework\TestCase;
 use Spip\Core\Testing\Constraint\IsOk;
 use PHPUnit\Framework\Constraint\LogicalNot;
+use Spip\Core\Testing\Template\StringLoader;
 
 abstract class SquelettesTestCase extends TestCase
 {
@@ -49,7 +50,7 @@ abstract class SquelettesTestCase extends TestCase
 	 */
 	public static function assertOkCode(string $code, array $contexte = [], string $message = "%s"): void {
 
-		$actual = (new Code())->render($code, $contexte);
+		$actual = (new Template(new StringLoader()))->render($code, $contexte);
 
 		static::assertOk($actual, $message);
 	}
@@ -72,7 +73,7 @@ abstract class SquelettesTestCase extends TestCase
 	 */
 	function assertNotOkCode(string $code, array $contexte = [], $message = "%s") {
 
-		$actual = (new Code())->render($code, $contexte);
+		$actual = (new Template(new StringLoader()))->render($code, $contexte);
 
 		static::assertNotOk($actual, $message);
 	}
@@ -97,7 +98,7 @@ abstract class SquelettesTestCase extends TestCase
 	 */
 	function assertEqualsCode(string $expected, string $code, array $contexte = [], $message = "%s") {
 
-		$actual = (new Code())->render($code, $contexte);
+		$actual = (new Template(new StringLoader()))->render($code, $contexte);
 
 		static::assertEquals($expected, $actual, $message);
 	}
@@ -122,7 +123,7 @@ abstract class SquelettesTestCase extends TestCase
 	 */
 	function assertNotEqualsCode(string $expected, string $code, array $contexte = [], $message = "%s") {
 
-		$actual = (new Code())->render($code, $contexte);
+		$actual = (new Template(new StringLoader()))->render($code, $contexte);
 
 		static::assertNotEquals($expected, $actual, $message);
 	}
