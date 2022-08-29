@@ -21,7 +21,7 @@ class LabelTest extends TestCase {
 		changer_langue('fr');
 	}
 
-	public function providerlabelNettoyer() {
+	public function providerlabelNettoyer(): array {
 		$list = [
 			'bonjour' => 'bonjour',
 			'bonjour ' => 'bonjour',
@@ -37,7 +37,7 @@ class LabelTest extends TestCase {
 	}
 
 
-	public function providerlabelNettoyerInitialeMajuscule() {
+	public function providerlabelNettoyerInitialeMajuscule(): array {
 		$list = [
 			'bonjour' => 'Bonjour',
 			'à l’arrivée : ' => 'À l’arrivée',
@@ -46,7 +46,7 @@ class LabelTest extends TestCase {
 		return array_map(null, array_keys($list), array_values($list));
 	}
 
-	public function providerlabelPonctuer() {
+	public function providerlabelPonctuer(): array {
 		$list = [
 			'bonjour' => 'bonjour :',
 			'bonjour :' => 'bonjour :',
@@ -56,7 +56,7 @@ class LabelTest extends TestCase {
 		return array_map(null, array_keys($list), array_values($list));
 	}
 
-	public function providerlabelPonctuerInitialeMajuscule() {
+	public function providerlabelPonctuerInitialeMajuscule(): array {
 		$list = [
 			'bonjour' => 'Bonjour :',
 			'à la bonne heure : ' => 'À la bonne heure :',
@@ -67,7 +67,7 @@ class LabelTest extends TestCase {
 	/**
 	 * @dataProvider providerLabelNettoyer
 	 */
-	public function testLabelNettoyer($source, $expected) {
+	public function testLabelNettoyer($source, $expected): void {
 		$this->assertEquals($expected, label_nettoyer($source, false));
 	}
 
@@ -75,7 +75,7 @@ class LabelTest extends TestCase {
 	 * @depends testLabelNettoyer
 	 * @dataProvider providerLabelNettoyerInitialeMajuscule
 	 */
-	public function testLabelNettoyerInitialeMajuscule($source, $expected) {
+	public function testLabelNettoyerInitialeMajuscule($source, $expected): void {
 		$this->assertEquals($expected, label_nettoyer($source, true));
 	}
 
@@ -83,7 +83,7 @@ class LabelTest extends TestCase {
 	 * @depends testLabelNettoyer
 	 * @dataProvider providerLabelNettoyerInitialeMajuscule
 	 */
-	public function testLabelNettoyerInitialeMajusculeParDefaut($source, $expected) {
+	public function testLabelNettoyerInitialeMajusculeParDefaut($source, $expected): void {
 		$this->assertEquals($expected, label_nettoyer($source));
 	}
 
@@ -91,7 +91,7 @@ class LabelTest extends TestCase {
 	 * @depends testLabelNettoyer
 	 * @dataProvider providerLabelPonctuer
 	 */
-	public function testLabelPonctuer($source, $expected) {
+	public function testLabelPonctuer($source, $expected): void {
 		// TODO
 		$this->markTestSkipped('NIY');
 		$this->assertEquals($expected, label_ponctuer($source, false));
@@ -101,7 +101,7 @@ class LabelTest extends TestCase {
 	 * @depends testLabelPonctuer
 	 * @dataProvider providerLabelPonctuerInitialeMajuscule
 	 */
-	public function testLabelPonctuerInitialeMajuscule($source, $expected) {
+	public function testLabelPonctuerInitialeMajuscule($source, $expected): void {
 		$this->assertEquals($expected, label_ponctuer($source, true));
 	}
 
@@ -109,7 +109,7 @@ class LabelTest extends TestCase {
 	 * @depends testLabelPonctuer
 	 * @dataProvider providerLabelPonctuerInitialeMajuscule
 	 */
-	public function testLabelPonctuerInitialeMajusculeParDefaut($source, $expected) {
+	public function testLabelPonctuerInitialeMajusculeParDefaut($source, $expected): void {
 		$this->assertEquals($expected, label_ponctuer($source));
 	}
 

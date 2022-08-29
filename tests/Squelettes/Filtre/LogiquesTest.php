@@ -1,10 +1,8 @@
 <?php
 
-namespace Spip\Core\Tests\Filtre;
+namespace Spip\Core\Tests\Squelettes\Filtre;
 
-use PHPUnit\Framework\TestCase;
 use Spip\Core\Testing\SquelettesTestCase;
-use Spip\Core\Testing\Code;
 
 class LogiquesTest extends SquelettesTestCase {
 
