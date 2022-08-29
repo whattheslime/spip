@@ -8,66 +8,62 @@ use Spip\Core\Testing\Code;
 
 class LogiquesTest extends SquelettesTestCase {
 
-	public static function setUpBeforeClass(): void {
-		include_spip('public/references');
-	}
-
-	public function testOui() {
+	public function testOui(): void {
 		$this->assertNotOkCode("[(#VAL|oui)ok]");
 		$this->assertOkCode("[(#VAL{1}|oui)ok]");
 		$this->assertOkCode("[(#VAL{' '}|oui)ok]");
 	}
 
-	function testYes(){
+	public function testYes(): void {
 		$this->assertNotOkCode("[(#VAL|yes)ok]");
 		$this->assertOkCode("[(#VAL{1}|yes)ok]");
 		$this->assertOkCode("[(#VAL{' '}|yes)ok]");
 	}
 
-	function testNon(){
+	public function testNon(): void {
 		$this->assertOkCode("[(#VAL|non)ok]");
 		$this->assertNotOkCode("[(#VAL{1}|non)ok]");
 		$this->assertNotOkCode("[(#VAL{' '}|non)ok]");
 	}
-	function testNot(){
+	public function testNot(): void {
 		$this->assertOkCode("[(#VAL|not)ok]");
 		$this->assertNotOkCode("[(#VAL{1}|not)ok]");
 		$this->assertNotOkCode("[(#VAL{' '}|not)ok]");
 	}
 
-	function testEt(){
+	public function testEt(): void {
 		$this->assertOkCode("[(#VAL{1}|et{#VAL{1}})ok]");
 		$this->assertOkCode("[(#VAL{0}|et{#VAL{0}}|non)ok]");
 		$this->assertOkCode("[(#VAL{1}|et{#VAL{0}}|non)ok]");
 		$this->assertOkCode("[(#VAL{0}|et{#VAL{1}}|non)ok]");
 	}
-	function testAnd(){
+	public function testAnd(): void {
 		$this->assertOkCode("[(#VAL{1}|and{#VAL{1}})ok]");
 		$this->assertOkCode("[(#VAL{0}|and{#VAL{0}}|non)ok]");
 		$this->assertOkCode("[(#VAL{1}|and{#VAL{0}}|non)ok]");
 		$this->assertOkCode("[(#VAL{0}|and{#VAL{1}}|non)ok]");
 	}
 
-	function testOu(){
+	public function testOu(): void {
 		$this->assertOkCode("[(#VAL{1}|ou{#VAL{1}})ok]");
 		$this->assertOkCode("[(#VAL{0}|ou{#VAL{0}}|non)ok]");
 		$this->assertOkCode("[(#VAL{1}|ou{#VAL{0}})ok]");
 		$this->assertOkCode("[(#VAL{0}|ou{#VAL{1}})ok]");
 	}
-	function testOr(){
+	public function testOr(): void {
 		$this->assertOkCode("[(#VAL{1}|or{#VAL{1}})ok]");
 		$this->assertOkCode("[(#VAL{0}|or{#VAL{0}}|non)ok]");
 		$this->assertOkCode("[(#VAL{1}|or{#VAL{0}})ok]");
 		$this->assertOkCode("[(#VAL{0}|or{#VAL{1}})ok]");
 	}
 
-	function testXou(){
+	public function testXou(): void {
 		$this->assertOkCode("[(#VAL{1}|xou{#VAL{1}}|non)ok]");
 		$this->assertOkCode("[(#VAL{0}|xou{#VAL{0}}|non)ok]");
 		$this->assertOkCode("[(#VAL{1}|xou{#VAL{0}})ok]");
 		$this->assertOkCode("[(#VAL{0}|xou{#VAL{1}})ok]");
 	}
-	function testXor(){
+	public function testXor(): void {
 		$this->assertOkCode("[(#VAL{1}|xor{#VAL{1}}|non)ok]");
 		$this->assertOkCode("[(#VAL{0}|xor{#VAL{0}}|non)ok]");
 		$this->assertOkCode("[(#VAL{1}|xor{#VAL{0}})ok]");
