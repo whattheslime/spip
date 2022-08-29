@@ -64,6 +64,7 @@ function _couleur_dec_to_hex($red, $green, $blue) {
  *     Un tableau des 3 éléments : rouge, vert, bleu.
  */
 function _couleur_hex_to_dec($couleur) {
+	$couleur ??= '';
 	$couleur = couleur_html_to_hex($couleur);
 	$couleur = ltrim($couleur, '#');
 	if (strlen($couleur) === 3) {
