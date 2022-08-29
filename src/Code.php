@@ -21,12 +21,11 @@ class Code
 		return $infos['texte'];
 	}
 
-
 	/**
 	 * Appele recuperer_fond avec l'option raw pour obtenir un tableau d'informations
 	 * que l'on complete avec le nom du fond et les erreurs de compilations generees
 	 */
-	private function rawRender(string $code, array $contexte = []): array {
+	public function rawRender(string $code, array $contexte = []): array {
 		// vider les erreurs
 		$this->init_compilation_errors();
 		$infos = $this->recuperer_code($code, $contexte);

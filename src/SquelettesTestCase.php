@@ -83,9 +83,9 @@ abstract class SquelettesTestCase extends TestCase
 	 * la fonction appelle recuperer_code avec les arguments.
 	 *
 	 * L'appel
-	 * 		$this->assertEqualCode('ok','[(#CONFIG{pasla}|non)ok]');
+	 * 		$this->assertEqualsCode('ok','[(#CONFIG{pasla}|non)ok]');
 	 * est equivalent de :
-	 * 		$this->assertEqual('ok',$this->recuperer_code('[(#CONFIG{pasla}|non)ok]'));
+	 * 		$this->assertEquals('ok',$this->recuperer_code('[(#CONFIG{pasla}|non)ok]'));
 	 *
 	 * @uses Code
 	 * @param string $expected : chaine a comparer au resultat du code
@@ -95,7 +95,7 @@ abstract class SquelettesTestCase extends TestCase
 	 *
 	 * @return true/false
 	 */
-	function assertEqualCode(string $expected, string $code, array $contexte = [], $message = "%s") {
+	function assertEqualsCode(string $expected, string $code, array $contexte = [], $message = "%s") {
 
 		$actual = (new Code())->render($code, $contexte);
 
@@ -108,9 +108,9 @@ abstract class SquelettesTestCase extends TestCase
 	 * la fonction appelle recuperer_code avec les arguments.
 	 *
 	 * L'appel
-	 * 		$this->assertNotEqualCode('ok','[(#CONFIG{pasla}|non)ok]');
+	 * 		$this->assertNotEqualsCode('ok','[(#CONFIG{pasla}|non)ok]');
 	 * est equivalent de :
-	 * 		$this->assertNotEqual('ok',$this->recuperer_code('[(#CONFIG{pasla}|non)ok]'));
+	 * 		$this->assertNotEquals('ok',$this->recuperer_code('[(#CONFIG{pasla}|non)ok]'));
 	 *
 	 * @uses Code
 	 * @param string $value : chaine a comparer au resultat du code
@@ -120,7 +120,7 @@ abstract class SquelettesTestCase extends TestCase
 	 *
 	 * @return true/false
 	 */
-	function assertNotEqualCode(string $expected, string $code, array $contexte = [], $message = "%s") {
+	function assertNotEqualsCode(string $expected, string $code, array $contexte = [], $message = "%s") {
 
 		$actual = (new Code())->render($code, $contexte);
 

@@ -24,7 +24,6 @@ class SquelettesTestCaseTest extends SquelettesTestCase
 		$this->assertOk('NA');
 	}
 
-
 	function testAssertNotOk(){
 		$this->assertNotOk('nOK');
 		$this->assertNotOk('NOK');
