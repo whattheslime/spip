@@ -7,9 +7,10 @@
         "MIT"
     ],
     "autoload": {
-        "psr-4": { "Spip\\Core\\Tests\\": "tests/" }
+        "psr-4": { "Spip\\Core\\Testing\\": "src/" }
     },
     "autoload-dev": {
+        "psr-4": { "Spip\\Core\\Tests\\": "tests/" }
     },
     "require": {
         "php": ">=7.3.0",
