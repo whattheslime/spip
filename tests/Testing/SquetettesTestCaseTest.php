@@ -4,6 +4,8 @@ namespace Spip\Core\Tests\Testing;
 
 use Spip\Core\Testing\SquelettesTestCase;
 use PHPUnit\Framework\AssertionFailedError;
+use Spip\Core\Testing\Template\LoaderInterface;
+use Spip\Core\Testing\Template\ChainLoader;
 
 class SquelettesTestCaseTest extends SquelettesTestCase
 {

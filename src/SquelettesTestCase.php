@@ -5,18 +5,22 @@ namespace Spip\Core\Testing;
 use PHPUnit\Framework\TestCase;
 use Spip\Core\Testing\Constraint\IsOk;
 use PHPUnit\Framework\Constraint\LogicalNot;
+use Spip\Core\Testing\Template\ChainLoader;
 use Spip\Core\Testing\Template\StringLoader;
+use Spip\Core\Testing\Template\FileLoader;
 
 abstract class SquelettesTestCase extends TestCase
 {
-
 	/**
-	 * Determine si une chaine est de type NA (non applicable)
+	 * Determine si une chaine débute par 'NA' (non applicable)
 	 */
 	public function isNa(string $chaine): bool {
 		return substr(strtolower(trim($chaine)), 0, 2) === 'na';
 	}
 
+	/**
+	 * Determine si une chaine débute par 'OK'
+	 */
 	public static function assertOk($actual, string $message = ''): void
     {
         $constraint = new IsOk($actual);
@@ -24,6 +28,9 @@ abstract class SquelettesTestCase extends TestCase
         static::assertThat($actual, $constraint, $message);
     }
 
+	/**
+	 * Determine si une chaine ne débute pas par 'OK'
+	 */
 	public static function assertNotOk($actual, string $message = ''): void
     {
         $constraint = new LogicalNot(new IsOk($actual));
@@ -31,101 +38,217 @@ abstract class SquelettesTestCase extends TestCase
         static::assertThat($actual, $constraint, $message);
     }
 
-
 	/**
-	 * Assertion qui verifie si le retour vaut 'ok' (casse indifferente)
-	 * la fonction appelle recuperer_code avec les arguments.
+	 * Assertion qui vérifie que le résultat d’un template est 'OK'
 	 *
-	 * L'appel
-	 * 		$this->assertOkCode('[(#CONFIG{pasla}|non)ok]');
-	 * est equivalent de :
-	 * 		$this->assertOk($this->recuperer_code('[(#CONFIG{pasla}|non)ok]'));
+	 * @example
+	 * 		$templating = new Templating(new StringLoader());
+	 * 		$this->assertOkTemplate($templating, '[(#CONFIG{pasla}|non)ok]');
 	 *
-	 * @uses Code
-	 * @param string $code : code du squelette
-	 * @param array $contexte : contexte de calcul du squelette
-	 * @param string $message : message pour une eventuelle erreur
+	 * 	    $templating = new Templating(new FileLoader());
+	 * 		$this->assertOkTemplate($templating, __DIR__ . '/data/truc.html');
 	 *
-	 * @return true/false
+	 * @uses Template
+	 * @param string $code Code ou chemin du squelette
+	 * @param array $contexte Contexte de calcul du squelette
+	 * @param string $message Message pour une eventuelle erreur
 	 */
-	public static function assertOkCode(string $code, array $contexte = [], string $message = "%s"): void {
-
-		$actual = (new Template(new StringLoader()))->render($code, $contexte);
+	public static function assertOkTemplate(Templating $templating, string $code, array $contexte = [], string $message = "%s"): void
+	{
+		$actual = $templating->render($code, $contexte);
 
 		static::assertOk($actual, $message);
 	}
 
 	/**
-	 * Assertion qui verifie si le retour ne vaut pas 'ok' (casse indifferente)
-	 * la fonction appelle recuperer_code avec les arguments.
+	 * Assertion qui vérifie que le résultat d’un template est vide
 	 *
-	 * L'appel
-	 * 		$this->assertNotOkCode('[(#CONFIG{pasla}|oui)ok]');
-	 * est equivalent de :
-	 * 		$this->assertNotOk($this->recuperer_code('[(#CONFIG{pasla}|oui)ok]'));
-	 *
-	 * @uses Code
-	 * @param string $code : code du squelette
-	 * @param array $contexte : contexte de calcul du squelette
-	 * @param string $message : message pour une eventuelle erreur
-	 *
-	 * @return true/false
-	 */
-	function assertNotOkCode(string $code, array $contexte = [], $message = "%s") {
-
-		$actual = (new Template(new StringLoader()))->render($code, $contexte);
+	 * @see assertOkTemplate()
+	*/
+	public static function assertNotOkTemplate(Templating $templating, string $code, array $contexte = [], string $message = "%s"): void
+	{
+		$actual = $templating->render($code, $contexte);
 
 		static::assertNotOk($actual, $message);
 	}
 
+	/**
+	 * Assertion qui vérifie que le résultat d’un template est vide
+	 *
+	 * @see assertOkTemplate()
+	*/
+	public static function assertEmptyTemplate(Templating $templating, string $code, array $contexte = [], string $message = "%s"): void
+	{
+		$actual = $templating->render($code, $contexte);
+
+		static::assertEmpty($actual, $message);
+	}
 
 	/**
-	 * Assertion qui verifie si le retour vaut $value
-	 * la fonction appelle recuperer_code avec les arguments.
+	 * Assertion qui vérifie que le résultat d’un template n’est pas vide
 	 *
-	 * L'appel
-	 * 		$this->assertEqualsCode('ok','[(#CONFIG{pasla}|non)ok]');
-	 * est equivalent de :
-	 * 		$this->assertEquals('ok',$this->recuperer_code('[(#CONFIG{pasla}|non)ok]'));
-	 *
-	 * @uses Code
-	 * @param string $expected : chaine a comparer au resultat du code
-	 * @param string $code : code du squelette
-	 * @param array $contexte : contexte de calcul du squelette
-	 * @param string $message : message pour une eventuelle erreur
-	 *
-	 * @return true/false
-	 */
-	function assertEqualsCode(string $expected, string $code, array $contexte = [], $message = "%s") {
+	 * @see assertOkTemplate()
+	*/
+	public static function assertNotEmptyTemplate(Templating $templating, string $code, array $contexte = [], string $message = "%s"): void
+	{
+		$actual = $templating->render($code, $contexte);
 
-		$actual = (new Template(new StringLoader()))->render($code, $contexte);
+		static::assertNotEmpty($actual, $message);
+	}
+
+	/**
+	 * Assertion qui vérifie le résultat d’un template
+	 *
+	 * @see assertOkTemplate()
+	*/
+	public static function assertEqualsTemplate(string $expected, Templating $templating, string $code, array $contexte = [], string $message = "%s"): void
+	{
+		$actual = $templating->render($code, $contexte);
 
 		static::assertEquals($expected, $actual, $message);
 	}
 
-
 	/**
-	 * Assertion qui verifie si le retour ne vaut pas $value
-	 * la fonction appelle recuperer_code avec les arguments.
+	 * Assertion qui vérifie le résultat d’un template
 	 *
-	 * L'appel
-	 * 		$this->assertNotEqualsCode('ok','[(#CONFIG{pasla}|non)ok]');
-	 * est equivalent de :
-	 * 		$this->assertNotEquals('ok',$this->recuperer_code('[(#CONFIG{pasla}|non)ok]'));
-	 *
-	 * @uses Code
-	 * @param string $value : chaine a comparer au resultat du code
-	 * @param string $code : code du squelette
-	 * @param array $contexte : contexte de calcul du squelette
-	 * @param string $message : message pour une eventuelle erreur
-	 *
-	 * @return true/false
-	 */
-	function assertNotEqualsCode(string $expected, string $code, array $contexte = [], $message = "%s") {
-
-		$actual = (new Template(new StringLoader()))->render($code, $contexte);
+	 * @see assertOkTemplate()
+	*/
+	public static function assertNotEqualsTemplate(string $expected, Templating $templating, string $code, array $contexte = [], string $message = "%s"): void
+	{
+		$actual = $templating->render($code, $contexte);
 
 		static::assertNotEquals($expected, $actual, $message);
+	}
+
+	/**
+	 * Assertion qui vérifie que le résultat d’un code de squelette est 'OK'
+	 *
+	 * @example $this->assertOkCode('[(#CONFIG{pasla}|non)ok]');
+	 *
+	 * @uses Template
+	 * @param string $code Code ou chemin du squelette
+	 * @param array $contexte Contexte de calcul du squelette
+	 * @param string $message Message pour une eventuelle erreur
+	 */
+	public static function assertOkCode(string $code, array $contexte = [], string $message = "%s"): void
+	{
+		static::assertOkTemplate(Templating::fromString(), $code, $contexte);
+	}
+
+
+	/**
+	 * Assertion qui vérifie que le résultat d’un code de squelette n’est pas 'OK'
+	 *
+	 * @see assertOkCode()
+	 */
+	public function assertNotOkCode(string $code, array $contexte = [], $message = "%s"): void
+	{
+		static::assertNotOkTemplate(Templating::fromString(), $code, $contexte);
+	}
+
+	/**
+	 * Assertion qui vérifie que le résultat d’un code de squelette est vide
+	 *
+	 * @see assertOkCode()
+	 */
+	public static function assertEmptyCode(string $code, array $contexte = [], string $message = "%s"): void
+	{
+		static::assertEmptyTemplate(Templating::fromString(), $code, $contexte);
+	}
+
+	/**
+	 * Assertion qui vérifie que le résultat d’un code de squelette n’est pas vide
+	 *
+	 * @see assertOkCode()
+	 */
+	public static function assertNotEmptyCode(string $code, array $contexte = [], string $message = "%s"): void
+	{
+		static::assertNotEmptyTemplate(Templating::fromString(), $code, $contexte);
+	}
+
+	/**
+	 * Assertion qui vérifie le résultat d’un code de squelette
+	 *
+	 * @see assertOkCode()
+	 */
+	public function assertEqualsCode(string $expected, string $code, array $contexte = [], $message = "%s"): void
+	{
+		static::assertEqualsTemplate($expected, Templating::fromString(), $code, $contexte);
+	}
+
+	/**
+	 * Assertion qui vérifie le résultat d’un code de squelette
+	 *
+	 * @see assertOkCode()
+	 */
+	public function assertNotEqualsCode(string $expected, string $code, array $contexte = [], $message = "%s")
+	{
+		static::assertNotEqualsTemplate($expected, Templating::fromString(), $code, $contexte);
+	}
+
+	/**
+	 * Assertion qui vérifie que le résultat d’un fichier de squelette est 'OK'
+	 *
+	 * @example $this->assertOkSquelette(__DIR__ . '/data/squelette.html');
+	 *
+	 * @uses Template
+	 * @param string $code Code ou chemin du squelette
+	 * @param array $contexte Contexte de calcul du squelette
+	 * @param string $message Message pour une eventuelle erreur
+	 */
+	public static function assertOkSquelette(string $code, array $contexte = [], string $message = "%s"): void
+	{
+		static::assertOkTemplate(Templating::fromFile(), $code, $contexte);
+	}
+
+	/**
+	 * Assertion qui vérifie que le résultat d’un fichier de squelette n’est pas 'OK'
+	 *
+	 * @see assertOkSquelette()
+	 */
+	public function assertNotOkSquelette(string $code, array $contexte = [], $message = "%s"): void
+	{
+		static::assertNotOkTemplate(Templating::fromFile(), $code, $contexte);
+	}
+
+	/**
+	 * Assertion qui vérifie que le résultat d’un fichier de squelette est vide
+	 *
+	 * @see assertOkSquelette()
+	 */
+	public static function assertEmptySquelette(string $code, array $contexte = [], string $message = "%s"): void
+	{
+		static::assertEmptyTemplate(Templating::fromFile(), $code, $contexte);
+	}
+
+	/**
+	 * Assertion qui vérifie que le résultat d’un fichier de squelette n’est pas vide
+	 *
+	 * @see assertOkSquelette()
+	 */
+	public static function assertNotEmptySquelette(string $code, array $contexte = [], string $message = "%s"): void
+	{
+		static::assertNotEmptyTemplate(Templating::fromFile(), $code, $contexte);
+	}
+
+	/**
+	 * Assertion qui vérifie le résultat d’un fichier de squelette
+	 *
+	 * @see assertOkSquelette()
+	 */
+	public function assertEqualsSquelette(string $expected, string $code, array $contexte = [], $message = "%s"): void
+	{
+		static::assertEqualsTemplate($expected, Templating::fromFile(), $code, $contexte);
+	}
+
+	/**
+	 * Assertion qui vérifie le résultat d’un fichier de squelette
+	 *
+	 * @see assertOkSquelette()
+	 */
+	public function assertNotEqualsSquelette(string $expected, string $code, array $contexte = [], $message = "%s")
+	{
+		static::assertNotEqualsTemplate($expected, Templating::fromFile(), $code, $contexte);
 	}
 
 }

@@ -1,20 +1,17 @@
 <?php
 
 namespace Spip\Core\Testing;
-use Spip\Core\Testing\Template\LoaderInterface;
 
 class Template
 {
-	private LoaderInterface $loader;
-	private string $connect = '';
+	private string $fond;
 
-	public function __construct(LoaderInterface $loader, string $connect = '') {
-		$this->loader = $loader;
-		$this->connect = $connect;
+	public function __construct(string $fond) {
+		$this->fond = $fond;
 	}
 
-	public function render(string $name, array $contexte = []): string {
-		$infos = $this->rawRender($name, $contexte);
+	public function render(array $contexte = [], string $connect = ''): string {
+		$infos = $this->rawRender($contexte, $connect);
 		return $infos['texte'];
 	}
 
@@ -22,14 +19,13 @@ class Template
 	 * Appele recuperer_fond avec l'option raw pour obtenir un tableau d'informations
 	 * que l'on complete avec le nom du fond et les erreurs de compilations generees
 	 */
-	public function rawRender(string $name, array $contexte = []): array {
+	public function rawRender(array $contexte = [], string $connect = ''): array {
 		// vider les erreurs
 		$this->init_compilation_errors();
 
-		$source = $this->loader->getSourceFile($name);
-
-		$fond = str_replace('../', '', $source); // pas de ../ si dans ecrire !
-		$infos = recuperer_fond($fond, $contexte, ['raw' => true], $this->connect);
+		// en mode 'raw' ça ne trim pas le texte, sacrebleu !
+		$infos = recuperer_fond($this->fond, $contexte, ['raw' => true, 'trim' => true], $connect);
+		$infos['texte'] = trim($infos['texte']);
 
 		// on ajoute des infos supplementaires a celles retournees
 		$path = pathinfo($infos['source']);

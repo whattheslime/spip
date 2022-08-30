@@ -1,6 +1,6 @@
 <?php
 
-namespace Spip\Core\Testing\Template;
+namespace Spip\Core\Testing\Template\Loader;
 
 class StringLoader implements LoaderInterface
 {
@@ -16,11 +16,20 @@ class StringLoader implements LoaderInterface
 		$this->setOptions($options);
 	}
 
+	public function exists(string $name): bool {
+		return true;
+	}
+
+	public function getCacheKey(string $name): string {
+		return md5($name . serialize($this->options));
+	}
+
 	/**
 	 * Écrit le code du squelette dans un fichier temporaire de cache
 	 */
 	public function getSourceFile(string $name): string {
 
+		$fond = $this->cacheDirectory . $this->getCacheKey($name);
 		$options = $this->options;
 		$code = $name;
 
@@ -31,7 +40,6 @@ class StringLoader implements LoaderInterface
 			$code .= $options['apres_code'];
 		}
 
-		$fond = $this->cacheDirectory . md5($code . serialize($options));
 		$this->ecrire_fichier($fond . '.html', $code);
 
 		if (!empty($options['fonctions'])) {
