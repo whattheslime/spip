@@ -455,8 +455,6 @@ ami állapotát jelzi :',
 
 	// T
 	'taille_cache_image' => 'Az SPIP által kalkulált képek (dok. bélyegképei, grafikusan megjelenő címek, TeX formatumú matek függvények...) @taille@ méretű helyet foglalnak a @dir@ nevű mappában.',
-	'taille_cache_infinie' => 'Ennél a honlapnál nincs méretkorlátozás a <code>CACHE/</code> mappában.',
-	'taille_cache_maxi' => 'SPIP próbálja korlátozni a <code>CACHE/</code> mappa méretét kb. <b>@octets@</b> méretre.',
 	'taille_cache_octets' => 'A cache mérete jelenleg @octets@.', # MODIF
 	'taille_cache_vide' => 'A cache üres.',
 	'taille_repertoire_cache' => 'Cache mappa mérete',

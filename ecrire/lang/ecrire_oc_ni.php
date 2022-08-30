@@ -595,8 +595,6 @@ una color indica lo sieu estat :',
 
 	// T
 	'taille_cache_image' => 'Lu imatges que SPIP a calculat automaticament (vinhetas dei documents, títols presentats en forma gràfica, foncions matematiqui en format TeX...) ocupon dins lo repertòri @dir@ un totau de @taille@.',
-	'taille_cache_infinie' => 'Aquèu site prevei pas de limitacion de talha dau repertòri de l’amagador.',
-	'taille_cache_maxi' => 'SPIP prova de limitar la talha dau repertòri de l’amagador d’aqueu sit à circa <b>@octets@</b> de donadas.',
 	'taille_cache_octets' => 'La talha de l’amagador es aüra de circa @octets@ .',
 	'taille_cache_vide' => 'L’amagador es vuèi.',
 	'taille_repertoire_cache' => 'Talha dau repertòri amagador',

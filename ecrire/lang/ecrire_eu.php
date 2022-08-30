@@ -694,8 +694,6 @@ Hutsik utz ezazu ez betetzeko, espazio edo komak tarteka itzazu LDAP eremu bat b
 	'tache_cron_asap' => 'CRON zeregina @function@ (Ahal bezain goiz)',
 	'tache_cron_secondes' => 'CRON zeregina@function@ (@nb@ segunda guziz)',
 	'taille_cache_image' => 'SPIPek automatikoki kalkulatzen dituen irudiek (dokumentuen binetak, grafikoki aurkeztutako tituluak, TeX formatuan diren matematika funtzioak...) @dir@ direktorioko @taille@-eko espazioa okupatzen dute.',
-	'taille_cache_infinie' => 'Gune honek ez du ezartzen CACHE direktorioaren tamaina-mugaketarik.',
-	'taille_cache_maxi' => 'SPIP-ek gune honen CACHE direktorioaren tamaina mugatzen saiatzen da @octets@ datura gutxi gora-behera.',
 	'taille_cache_moins_de' => 'Cache-aren tamaina gehienez @octets@-koa da.',
 	'taille_cache_octets' => 'Cache-aren tamaina orain @octets@-koa da.',
 	'taille_cache_vide' => 'Cachea hutsik dago.',

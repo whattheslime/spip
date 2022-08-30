@@ -468,8 +468,6 @@ sanm in koulèr i présiz son léta :',
 
 	// T
 	'taille_cache_image' => 'Ban zimaz sak SPIP i pé kalkilé otomatikman (tite-zimaz dann dokiman, bann non i prézant grafikman, bann fonkson matématik dan forma TeX...)  zot i prann andan répertwar @dir@ in léspas total sat i ariv @taille@.',
-	'taille_cache_infinie' => 'Sit-la li di pas ryin si tay lo répèrtwar <code>CACHE/</code>.',
-	'taille_cache_maxi' => 'SPIP li sar esayé armèn lo tay lo répertwar <code>CACHE/</code> pou lo sit-la environ <b>@octets@</b> bann doné.',
 	'taille_cache_octets' => 'Lo ty lo CACHE li lé astèr de @octets@.', # MODIF
 	'taille_cache_vide' => 'Lo kas lé vid.',
 	'taille_repertoire_cache' => 'Tay lo répertwar kas',

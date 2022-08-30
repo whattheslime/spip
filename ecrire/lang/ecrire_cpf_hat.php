@@ -459,8 +459,6 @@ nan yon koulè ki bay lestati ali :',
 
 	// T
 	'taille_cache_image' => 'Tout imaj ki SPIP kav kalkile otomatikman (viyèt nan dokiman, kouman li rele ki pwézanté nan foma gwafik, tout fonksyon matematik nan foma TeX...) yo ka okipe nan répètwar @dir@ lespas total ki @taille@.',
-	'taille_cache_infinie' => 'Genyen pa oken limit pou latay répertwar CACHE.',
-	'taille_cache_maxi' => 'SPIP ka eseye limite latay répertwar CACHE sit-la, alantou <b>@octets@</b> pou tout doné .',
 	'taille_cache_octets' => 'Tay pou kach se aster @octets@.', # MODIF
 	'taille_cache_vide' => 'Kach-la se vid.',
 	'taille_repertoire_cache' => 'Latay répertwar kach',

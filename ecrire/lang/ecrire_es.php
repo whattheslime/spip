@@ -734,8 +734,6 @@ Las traducciones están asociadas al original, en un color que indica su estado:
 	'tache_cron_asap' => 'Tarea CRON @function@ (ASAP)',
 	'tache_cron_secondes' => 'Tarea CRON @function@ (cada @nb@ s)',
 	'taille_cache_image' => 'Las imágenes calculadas automáticamente por SPIP (miniaturas de documentos, títulos presentados en forma gráfica, fórmulas matemáticas en formato TeX...) ocupan en el directorio @dir@ un total de @taille@.',
-	'taille_cache_infinie' => 'En este sitio no se limita el tamaño de la carpeta de cache.',
-	'taille_cache_maxi' => 'SPIP intenta limitar el tamaño de la carpeta de cache de este sitio a unos <b>@octets@</b> de datos.',
 	'taille_cache_moins_de' => 'El tamaño de la cache es menor a @octets@.',
 	'taille_cache_octets' => 'El tamaño de la caché es actualmente de @octets@.',
 	'taille_cache_vide' => 'La cache está vacía.',

@@ -436,8 +436,6 @@ un color indica lo sieu estat:',
 
 	// T
 	'taille_cache_image' => 'Lu imatges qu’SPIP a calculat automaticament (vinhetas dei documents, títols presentats en forma grafica, foncions matematiqui en format TeX...) ocupan dins lo repertòri @dir@ un totau de @taille@.',
-	'taille_cache_infinie' => 'Aqueu sit prevé minga de limitacion de talha dau repertòri <code>CACHE/</code>.',
-	'taille_cache_maxi' => 'SPIP assaia de limitar la talha dau repertòri <code>CACHE/</code> d’aqueu sit a <b>@octets@</b> de donadas aperaquí.',
 	'taille_cache_octets' => 'Aüra la talha de l’escondedor compassa @octets@.', # MODIF
 	'taille_cache_vide' => 'L’escondedor es vuei.',
 	'taille_repertoire_cache' => 'Talha dau repertòri escondedor',

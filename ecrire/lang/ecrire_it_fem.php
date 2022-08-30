@@ -600,8 +600,6 @@ Le traduzioni sono associate all’originale,
 
 	// T
 	'taille_cache_image' => 'Le immagini elaborate automaticamente da SPIP (icone dei documenti, titoli in formato grafico, funzioni matematiche in formato TeX...) occupano nella cartella @dir@ in tutto @taille@.',
-	'taille_cache_infinie' => 'Questo sito non prevede limiti alle dimensioni della cartella della cache.',
-	'taille_cache_maxi' => 'SPIP tenta di limitare le dimensioni della cartella della cache di questo sito a circa <b>@octets@</b> di dati.',
 	'taille_cache_octets' => 'Attualmente la cache è di circa @octets@.', # RELIRE
 	'taille_cache_vide' => 'La cache è vuota.',
 	'taille_repertoire_cache' => 'Dimensioni della cartella di cache',

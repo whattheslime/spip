@@ -664,8 +664,6 @@ U so statutu hè signalatu da u culore di l’icona (scrittore = giallu; amminis
 	// T
 	'taille_cache_image' => 'L’imàgini create in autumàticu da SPIP (figurette di i ducumenti, tìtuli in furmatu gràficu, 
 		funzioni matemàtiche in furmatu TeX...) occupanu in u cartulare @dir@ in tuttu @taille@.',
-	'taille_cache_infinie' => 'Stu situ ùn hà limitazione pè a taglia di u cartulare di cache.',
-	'taille_cache_maxi' => 'SPIP a si prova à limità a taglia di u cartulare di cache di stu situ, à pocu pressu à <b>@octets@</b> di dati.',
 	'taille_cache_octets' => 'U cartulare di cache occupa attualmente @octets@ nant’à u discu.', # MODIF
 	'taille_cache_vide' => 'U cache hè viotu.',
 	'taille_repertoire_cache' => 'Taglia di u cartulare di cache',

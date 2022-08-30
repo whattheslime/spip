@@ -724,8 +724,6 @@ Przekłady są połączone z oryginałem, za pomocą koloru wskazującego na ich
 	'tache_cron_asap' => 'Zadanie CRON @function@ (ASAP)',
 	'tache_cron_secondes' => 'Zadanie CRON @function@ (co @nb@ s)', # RELIRE
 	'taille_cache_image' => 'Obrazki mają automatycznie zmieniany rozmiar przez SPIP (miniaturki dokumentów, tytuły przedstawiane w postaci graficznej, funkcje matematyczne w formacie TeX...) zajmują w katalogu @dir@ obszar @taille@.',
-	'taille_cache_infinie' => 'Serwis nie ma włączonego ograniczenia dla wielkości katalogu cache.',
-	'taille_cache_maxi' => 'SPIP próbuje ograniczyć wielkość katalogu   <code>CACHE/</code> tej strony do około <b>@octets@</b> danych.',
 	'taille_cache_moins_de' => 'Rozmiar pamięci podręcznej jest mniejsze niż @octets@.',
 	'taille_cache_octets' => 'Rozmiar pamięci podręcznej wynosi obecnie około @octets@.',
 	'taille_cache_vide' => 'Cache jest pusty.',

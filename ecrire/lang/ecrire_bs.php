@@ -424,8 +424,6 @@ Prevodi su (sa bojom koja ukazuje na njihovo stanje) povezani sa originalnim cla
 
 	// T
 	'taille_cache_image' => 'Slike koje SPIP automatski izracunava (vinjete dokumenata, naslove predstavljene u grafickoj formi, matematicke funkcije u TeX formatu ...) zauzimaju u @dir@  repertoaru total od @taille@.',
-	'taille_cache_infinie' => 'Ova stranica ne ukljucuje ogranicenje velicine u repertoaru <code>CACHE/</code>.', # MODIF
-	'taille_cache_maxi' => 'SPIP pokusava ograniciti velicinu repertoara <code>CACHE/</code> ove stranice za oko <b>@octets@</b> podataka.', # MODIF
 	'taille_cache_octets' => 'Aktuelna velicina kesa je @octets@.', # MODIF
 	'taille_cache_vide' => 'Kes je prazan.',
 	'taille_repertoire_cache' => 'Aktuelna velicina kesa',

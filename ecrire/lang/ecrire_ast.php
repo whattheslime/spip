@@ -652,8 +652,6 @@ con una color que indica el estáu:',
 
 	// T
 	'taille_cache_image' => 'Les imaxes calculáes automáticamente por SPIP (miniatures de documentos, títulos en formatu gráficu, funciones matemátiques en formatu TeX...) ocupen nel direutoriu @dir@ un total de @taille@.',
-	'taille_cache_infinie' => 'Esti sitiu nun conseña llendes de tamañu pal direutoriu de caché.',
-	'taille_cache_maxi' => 'SPIP tenta llendar el tamañu del direutoriu de caché d’esti sitiu a unos <b>@octets@</b> de datos.',
 	'taille_cache_octets' => 'El tamañu de caché actualmente ye de @octets@.', # MODIF
 	'taille_cache_vide' => 'La caché ta vacía.',
 	'taille_repertoire_cache' => 'Tamañu del direutoriu de caché',

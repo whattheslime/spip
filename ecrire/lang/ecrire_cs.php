@@ -477,8 +477,6 @@ ukazuje jejich stav:',
 
 	// T
 	'taille_cache_image' => 'Obrázky, automaticky vypočtené systémem SPIP (náhledy dokumentů, názvy zobrazené graficky, matematické funkce ve formátu TeX...) zabírají v adresáři @dir@ celkem @taille@.',
-	'taille_cache_infinie' => 'Maximální velikost adresáře pro vyrovnávací pamět není na tomto webu omezena.',
-	'taille_cache_maxi' => 'Systém SPIP se snaží omezit velikost adresáře vyrovnávací paměti (cache) tohoto webu na cca <b>@octets@</b> bajtů.',
 	'taille_cache_octets' => 'Velikost cache je v současnosti @octets@.', # MODIF
 	'taille_cache_vide' => 'Cache je prázdná.',
 	'taille_repertoire_cache' => 'Velikost adresáře cache',

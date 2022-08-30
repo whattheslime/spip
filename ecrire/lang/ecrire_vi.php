@@ -418,8 +418,6 @@ và hiển ra với những màu khác nhau tùy theo tình trạng bài vở :
 
 	// T
 	'taille_cache_image' => 'Các hình được tính toán tự động bởi SPIP (hình nhỏ, tựa đề được đổi thành hình, công thức toán học dưới dạng TeX, v.v...) chiếm tổng cộng @taille@ trong ngăn @dir@.',
-	'taille_cache_infinie' => 'Trang web không có giới hạn khổ của ngăn <code>CACHE/</code>.', # MODIF
-	'taille_cache_maxi' => 'SPIP sẽ giới hạn khổ của ngăn <code>CACHE/</code> vào khoảng <b>@octets@</b> dữ liệu.', # MODIF
 	'taille_cache_octets' => 'Khổ của cache hiện thời là @octets@.', # MODIF
 	'taille_cache_vide' => 'Cache trống rỗng.',
 	'taille_repertoire_cache' => 'Khổ hiện thời của cache',

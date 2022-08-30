@@ -480,8 +480,6 @@ dalam warna yang menunjukkan statusnya:',
 
 	// T
 	'taille_cache_image' => 'Gambar-gambar dikalkulasi secara otomatis oleh SPIP (gambar kecil, judul yang ditransformasi ke dalam grafik, formula matematika dalam format Tex, dll.) dengan jumlah keseluruhan @taille@ di direktori @dir@ .',
-	'taille_cache_infinie' => 'Situs ini tidak memiliki batasan tetap untuk ukuran direktori cache.',
-	'taille_cache_maxi' => 'SPIP sedang mencoba untuk membatasi ukuran direktori cache sebesar lebih kurang <b>@octets@</b> data.',
 	'taille_cache_octets' => 'Ukuran cache sekarang adalah @octets@.', # MODIF
 	'taille_cache_vide' => 'Cache kosong.',
 	'taille_repertoire_cache' => 'Ukuran cache saat ini',

@@ -608,8 +608,6 @@ cu o culoare care le indică starea :',
 
 	// T
 	'taille_cache_image' => 'Imaginile calculate automat de către SPIP (viniete de documente, titluri prezentate sub formă grafică, funcţii matematice în format TeX...) ocupă în directorul @dir@ un total de @taille@.',
-	'taille_cache_infinie' => 'Acest site nu prevede limitarea mărimii directorului <code>CACHE/</code>.',
-	'taille_cache_maxi' => 'SPIP încearcă să limiteze mărimea directorului <code>CACHE/</code> al acestui site la aproximativ <b>@octets@</b> octeţi de date.',
 	'taille_cache_octets' => 'Mărimea tamponului este acum de @octets@.', # MODIF
 	'taille_cache_vide' => 'Tamponul este gol.',
 	'taille_repertoire_cache' => 'Mărimea directorului de tampon',

@@ -653,8 +653,6 @@ Site sloganı', # RELIRE
 
 	// T
 	'taille_cache_image' => 'SPIP tarafından otomatik olarak hesaplanan resimler (doküman ikonları, grafik olarak gösterilen başlıklar, TeX biçimindeki matematik işlevler...) @dir@ dizininde toplam @taille@ yer tutuyor.',
-	'taille_cache_infinie' => 'Bu site <code>önbellek (CACHE)</code> dizininin boyutu için herhangi bir sınır öngörmüyor.',
-	'taille_cache_maxi' => 'SPIP, bu sitenin <code>önbellek (CACHE)</code> dizininin boyutunu yaklaşık @octets@ lik veriyle sınırlamaya çalışıyor.',
 	'taille_cache_moins_de' => 'Önbellek boyutu @octets@ altında.', # RELIRE
 	'taille_cache_octets' => 'Önbelleğin ölçüsü şu anda @octets@ dir.',
 	'taille_cache_vide' => 'Ön bellek boş.',

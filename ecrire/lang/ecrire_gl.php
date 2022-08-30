@@ -665,8 +665,6 @@ cunha cor que indica o seu estado :',
 
 	// T
 	'taille_cache_image' => 'As imaxes calculadas automaticamente por SPIP (viñetas dos documentos, títulos presentados so a forma gráfica, funcións matemáticas en formato TeX...) ocupan no directorio @dir@ un total de @taille@.',
-	'taille_cache_infinie' => 'Neste web non se preveu limitación de tamaño do directorio da memoria caché.',
-	'taille_cache_maxi' => 'SPIP está a tentar limitar o tamaño do directorio da caché deste web en volta de <b>@octets@</b> de datos.',
 	'taille_cache_octets' => 'O tamaño da caché é actualmente de  @octets@.', # MODIF
 	'taille_cache_vide' => 'A caché está baleira',
 	'taille_repertoire_cache' => 'Tamaño do directorio de memoria caché',

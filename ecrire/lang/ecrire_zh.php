@@ -440,8 +440,6 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'statut_admin_restreint' => '(受限制的管理)', # MODIF
 
 	// T
-	'taille_cache_infinie' => '本网站对 <code>CACHE/</code>目录的大小没有限制。', # MODIF
-	'taille_cache_maxi' => '网络文章发布系统将尝试限制 <code>CACHE/</code> 目录的大小至大约 <b>@octets@</b> 数据.', # MODIF
 	'taille_cache_octets' => '缓存目录当前的大小是 @octets@。', # MODIF
 	'taille_cache_vide' => '缓存当前状态为空。',
 	'taille_repertoire_cache' => '缓存目录的大小',

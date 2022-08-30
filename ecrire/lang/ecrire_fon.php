@@ -409,8 +409,6 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'statut_admin_restreint' => '(tìto kléwún)', # MODIF
 
 	// T
-	'taille_cache_infinie' => 'tìto kléwún.',
-	'taille_cache_maxi' => 'tìto kléwún',
 	'taille_cache_octets' => 'tìto kléwún de @octets@.', # MODIF
 	'taille_cache_vide' => 'gbàví ɔ jɛ vɔ.',
 	'taille_repertoire_cache' => 'gbàví ɔ jɛ vɔ',

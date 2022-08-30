@@ -727,8 +727,6 @@ La tradukoj estas kunligitaj al la originalo, kun koloro kiu indikas ties staton
 	'tache_cron_asap' => 'Tasko CRON @function@ (ASAP)',
 	'tache_cron_secondes' => 'Tasko CRON @function@ (ĉiuj @nb@ s)',
 	'taille_cache_image' => 'La bildoj aŭtomate komputitaj de SPIP (vijnetoj de dokumentoj, titoloj prezentitaj laŭ grafika formo, matematikaj funkcioj laŭ TeX-formato...) okupas en dosierujo @dir@ spacon je @taille@.',
-	'taille_cache_infinie' => 'Tiu retejo ne ebligas limigi memorspacon de stapla dosierujo.',
-	'taille_cache_maxi' => 'SPIP provas limigi memorspacon de stapla dosierujo po cirkaŭ <b>@octets@</b> da datenoj.',
 	'taille_cache_moins_de' => 'Memorspaco de la staplo estas malpli ol @octets@.',
 	'taille_cache_octets' => 'Memorspaco de la staplo estas nun proksimume @octets@.',
 	'taille_cache_vide' => 'La staplo estas malplena.',
