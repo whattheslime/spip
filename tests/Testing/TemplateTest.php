@@ -2,13 +2,8 @@
 
 namespace Spip\Core\Tests\Testing;
 
-
-use Spip\Core\Testing\Exception\TemplateNotFoundException;
 use Spip\Core\Testing\SquelettesTestCase;
 use Spip\Core\Testing\Template;
-use Spip\Core\Testing\Template\ChainLoader;
-use Spip\Core\Testing\Template\FileLoader;
-use Spip\Core\Testing\Template\StringLoader;
 
 class TemplateTest extends SquelettesTestCase
 {
