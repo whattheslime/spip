@@ -6,7 +6,7 @@ use Spip\Core\Testing\Templating;
 use Spip\Core\Testing\Template\StringLoader;
 use Spip\Core\Testing\Template\FileLoader;
 
-class BaliseSessionTest extends SquelettesTestCase
+class SessionTest extends SquelettesTestCase
 {
 	public static function setUpBeforeClass(): void {
 		include_spip('inc/session');
@@ -28,4 +28,3 @@ class BaliseSessionTest extends SquelettesTestCase
 		$this->assertEqualsCode('----', '--#HTTP_HEADER{Content-type: text/html}#CACHE{0}[(#SESSION{bonbon})]--');
 	}
 }
-
