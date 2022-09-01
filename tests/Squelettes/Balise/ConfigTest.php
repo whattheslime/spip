@@ -155,8 +155,6 @@ class ConfigTest extends SquelettesTestCase {
 		$this->assertOkTemplate($templating, '[(#CONFIG{/meta/serie,defaut}|=={a:2:{s:3:"one";s:9:"element 1";s:3:"two";s:9:"element 2";}}oui)ok]');
 	}
 
-
-
 	public function testAutreTableConfigNomAbsent(): void {
 		$templating = $this->getTemplatingOtherTable();
 		$this->assertOkTemplate($templating, '[(#CONFIG{/toto/tpasla}|non)ok]');
