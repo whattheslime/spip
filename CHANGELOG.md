@@ -30,6 +30,7 @@
 
 ### Fixed
 
+- #4016 Utiliser de préférence `#VALEUR{index}` dans le core
 - #5157 Deprecated en moins sur `_couleur_hex_to_dec()`, `couleur_html_to_hex()` & `url_absolue()`  quand on leur passe une valeur nulle
 - #5287 Éviter un échec de migration de certains logos au format SVG.
 - #5283 Loger les erreurs de squelettes lorsqu’elles ne sont pas affichées sur la page
