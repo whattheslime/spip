@@ -14,8 +14,16 @@ abstract class SquelettesTestCase extends TestCase
 	/**
 	 * Determine si une chaine débute par 'NA' (non applicable)
 	 */
-	public function isNa(string $chaine): bool {
+	public static function isNa(string $chaine): bool {
 		return substr(strtolower(trim($chaine)), 0, 2) === 'na';
+	}
+
+	/** Retourne le chemin relatif depuis la racine de SPIP */
+	public static function relativePath(string $fullDirectory): string {
+		if (!defined('_SPIP_TEST_CHDIR')) {
+			throw new \RuntimeException('_SPIP_TEST_CHDIR needs to be defined');
+		}
+		return substr($fullDirectory, strlen(_SPIP_TEST_CHDIR) + 1);
 	}
 
 	/**

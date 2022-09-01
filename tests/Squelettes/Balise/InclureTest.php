@@ -10,13 +10,13 @@ class InclureTest extends SquelettesTestCase
 {
 
 	public function testInclureNormal(): void {
-		$dir = substr(__DIR__, strlen(_SPIP_TEST_CHDIR) + 1);
+		$dir = $this->relativePath(__DIR__);
 		$this->assertEqualsCode('Hello World', '<INCLURE{fond=' . $dir . '/data/texte_hello_world}>');
 		$this->assertEqualsCode('Hello World', '<INCLURE{fond=' . $dir . '/data/texte_hello_world}/>');
 	}
 
 	public function testInclureDouble(): void {
-		$dir = substr(__DIR__, strlen(_SPIP_TEST_CHDIR) + 1);
+		$dir = $this->relativePath(__DIR__);
 		$this->assertEqualsCode(
 			'Hello WorldHello World',
 			'<INCLURE{fond=' . $dir . '/data/texte_hello_world}>'
@@ -29,28 +29,28 @@ class InclureTest extends SquelettesTestCase
 		);
 	}
 	public function testInclureArray(): void {
-		$dir = substr(__DIR__, strlen(_SPIP_TEST_CHDIR) + 1);
+		$dir = $this->relativePath(__DIR__);
 		$array = '#LISTE{
 			' . $dir . '/data/texte_hello_world,
 			' . $dir . '/data/texte_hello_world,
 			' . $dir . '/data/texte_hello_world}';
 		$this->assertEqualsCode('Hello WorldHello WorldHello World', "<INCLURE{fond=$array}>");
-	}	
-	
+	}
+
 	public function testInclureOldParam(): void {
-		$dir = substr(__DIR__, strlen(_SPIP_TEST_CHDIR) + 1);
+		$dir = $this->relativePath(__DIR__);
 		$this->assertEqualsCode('Kitty', '<INCLURE{fond=' . $dir . '/data/balise_env_test}{test=Kitty}>');
 		$this->assertEqualsCode('Kitty', '<INCLURE{fond=' . $dir . '/data/balise_env_test}{test=Kitty}/>');
 	}
 
 	public function testInclureNormalParam(): void {
-		$dir = substr(__DIR__, strlen(_SPIP_TEST_CHDIR) + 1);
+		$dir = $this->relativePath(__DIR__);
 		$this->assertEqualsCode('Kitty', '<INCLURE{fond=' . $dir . '/data/balise_env_test, test=Kitty}>');
 		$this->assertEqualsCode('Kitty', '<INCLURE{fond=' . $dir . '/data/balise_env_test, test=Kitty}/>');
 	}
-	
+
 	public function testInclureArrayParam(): void {
-		$dir = substr(__DIR__, strlen(_SPIP_TEST_CHDIR) + 1);
+		$dir = $this->relativePath(__DIR__);
 		$array = '#LISTE{
 			' . $dir . '/data/balise_env_test,
 			' . $dir . '/data/texte_hello_world,
@@ -62,7 +62,7 @@ class InclureTest extends SquelettesTestCase
 	/**
 	 * Un inclure manquant doit creer une erreur de compilation pour SPIP
 	 * qui ne doivent pas s'afficher dans le public si visiteur
-	 */ 
+	 */
 	public function testInclureManquantGenereErreurCompilation(): void {
 		$templating = Templating::fromString();
 		$infos = $templating->rawRender('<INCLURE{fond=carabistouille/de/tripoli/absente}/>ok');

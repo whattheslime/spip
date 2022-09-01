@@ -11,16 +11,18 @@
 
 ]
 [(#REM) une note simple ]
-#SET{appelnote,#EVAL{'"<p>a<span class=\"spip_note_ref\">&nbsp;".chr(91)."<a href=".chr(39)."#nb1".chr(39)." class=".chr(39)."spip_note".chr(39)." rel=".chr(39)."appendix".chr(39)." title=".chr(39)."b".chr(39)." id=".chr(39)."nh1".chr(39).">1</a>".chr(93)."</span></p>"'}}
-#SET{lanote,#EVAL{'"<div"." id=".chr(39)."nb1".chr(39).">\n"."<p><span class=\"spip_note_ref\">".chr(91)."<a href=".chr(39)."#nh1".chr(39)." class=".chr(39)."spip_note".chr(39)." title=".chr(39)._T("info_notes")." 1".chr(39)." rev=".chr(39)."appendix".chr(39).">1</a>".chr(93)."&nbsp;</span>b</p>\n</div>"'}}
-#SET{test1,#EVAL{'"a".chr(91).chr(91)."b".chr(93).chr(93)'}|propre}
+[(#SET{appelnote,#VAL{<p>a<span class="spip_note_ref">&nbsp;\[<a href='#nb1' class='spip_note' rel='appendix' title='b' id='nh1'>1</a>\]</span></p>}})]
+[(#SET{lanote,#VAL{<div id='nb1'>
+<p><span class="spip_note_ref">\[<a href='#nh1' class='spip_note' title='<:info_notes:> 1' rev='appendix'>1</a>\]&nbsp;</span>b</p>
+</div>}})]
+#SET{test1,#VAL{'a\[\[b\]\]'}|propre}
 [(#GET{test1}|=={#GET{appelnote}}|?{'',#SET{err,'erreur appel note simple'}})]
 #SET{notes,#NOTES}
 [(#GET{notes}|=={#GET{lanote}}|?{'',#SET{err,#VAL{'erreur note simple :'}|concat{#GET{notes},' vs ',#GET{lanote}}}})]
 
 
 [(#REM) une deuxieme note simple qui doit etre numerotee differement de la premiere deja affichee]
-#SET{test2,#EVAL{'"a".chr(91).chr(91)."b".chr(93).chr(93)'}|propre}
+#SET{test2,#VAL{'a\[\[b\]\]'}|propre}
 #SET{notes2,#NOTES}
 [(#GET{test1}|=={#GET{test2}}|?{#SET{err,'Le compteur de note n&#39;a pas ete incremente au meme niveau'}})]
 
@@ -30,7 +32,7 @@
 [(#GET{notes3}|=={#GET{notes2}}|?{#SET{err,'Le compteur de note n&#39;a pas ete incremente dans l&#39;inclusion2'}})]
 
 [(#REM) verifier que la note simple apres inclusion est bien numerotee encore differemment]
-#SET{test4,#EVAL{'"a".chr(91).chr(91)."b".chr(93).chr(93)'}|propre}
+#SET{test4,#VAL{'a\[\[b\]\]'}|propre}
 #SET{notes4,#NOTES}
 [(#GET{notes4}|=={#GET{notes}}|?{#SET{err,'Le compteur de note n&#39;a pas ete incremente apres l&#39;inclusion'}})]
 [(#GET{notes4}|=={#GET{notes2}}|?{#SET{err,'Le compteur de note n&#39;a pas ete incremente apres l&#39;inclusion2'}})]
@@ -43,31 +45,31 @@
 
 
 [(#REM) une note appelee explicitement ]
-[(#EVAL{'"a".chr(91).chr(91)."<b>c".chr(93).chr(93)'}|propre|?)]
+[(#VAL{'a\[\[<b>c\]\]'}|propre|?)]
 [(#NOTES|supprimer_tags|match{^.b.&nbsp;\s*c$}|?{'',#SET{err,'erreur note &lt;b>'}})]
 
 [(#REM) une note appelee explicitement <a>]
-[(#EVAL{'"eh".chr(91).chr(91)."<a>oh".chr(93).chr(93)'}|propre|?)]
+[(#VAL{'eh\[\[<a>oh\]\]'}|propre|?)]
 [(#NOTES|PtoBR|match{.<a.*>a</a>.&nbsp;</span>\s*oh$}|?{'',#SET{err,'erreur note &lt;a>'}})]
 
 [(#REM) une note appelee explicitement <a> avec un lien dedans]
-[(#EVAL{'"ki".chr(91).chr(91)."<a><a href=\"#test\">uh</a>".chr(93).chr(93)'}|propre|?)]
+[(#VAL{'ki\[\[<a><a href="#test">uh</a>\]\]'}|propre|?)]
 [(#NOTES|PtoBR|match{.<a.*>a</a>.&nbsp;}|?{'',#SET{err,'erreur note &lt;a&gt; avec lien'}})]
 
 [(#REM) une note appelee explicitement vide ]
-[(#EVAL{'"a".chr(91).chr(91)."<>d".chr(93).chr(93)'}|propre|?)]
+[(#VAL{'a\[\[<>d\]\]'}|propre|?)]
 [(#NOTES|supprimer_tags|match{^d$}|?{'',#SET{err,'erreur note &lt;d>'}})]
 
 [(#REM) une note appelee explicitement avec une espace au debut ]
-[(#EVAL{'"a".chr(91).chr(91)." <e>f".chr(93).chr(93)'}|propre|?)]
+[(#VAL{'a\[\[ <e>f\]\]'}|propre|?)]
 [(#NOTES|supprimer_tags|match{^.e.&nbsp;\s*f$}|?{'',#SET{err,'erreur note &lt;e>'}})]
 
 [(#REM) une note appelee avec une construction html equilibree ]
-[(#EVAL{'"g".chr(91).chr(91)." <b>h</b>".chr(93).chr(93)'}|propre|?)]
+[(#VAL{'g\[\[ <b>h</b>\]\]'}|propre|?)]
 [(#NOTES|supprimer_tags|match{^.1.&nbsp;\s*h$}|?{'',#SET{err,'erreur note &lt;g>'}})]
 
 [(#REM) une note appelee avec un caractere sensible ]
-[(#EVAL{'"j".chr(91).chr(91)." <*>k".chr(93).chr(93)'}|propre|?)]
+[(#VAL{'j\[\[ <*>k\]\]'}|propre|?)]
 [(#NOTES|PtoBR|match{.<a.*>\*</a>.&nbsp;</span>k$}|?{'',#SET{err,'erreur note &lt;j>'}})]
 
 
