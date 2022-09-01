@@ -2,9 +2,6 @@
 namespace Spip\Core\Tests\Squelettes\Balise;
 
 use Spip\Core\Testing\SquelettesTestCase;
-use Spip\Core\Testing\Templating;
-use Spip\Core\Testing\Template\StringLoader;
-use Spip\Core\Testing\Template\FileLoader;
 
 class SessionTest extends SquelettesTestCase
 {
