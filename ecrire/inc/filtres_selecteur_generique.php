@@ -131,8 +131,8 @@ function picker_selected($selected, $type = '') {
  *
  * @uses typer_raccourci()
  *
- * @param string $ref
- *     Référence de l'objet à chercher, de la forme "type|id", par exemple "rubrique|123".
+ * @param string|int $ref
+ *     Référence de l'objet à chercher sous forme raccourcie rub123 art123 ou meme 123 si pas d'ambiguité ou si un article
  * @param mixed $rubriques_ou_objets
  *     Soit un booléen (pouvant être une chaîne vide aussi) indiquant que les rubriques sont sélectionnables
  *     soit un tableau complet des objets sélectionnables.
@@ -158,19 +158,23 @@ function picker_identifie_id_rapide($ref, $rubriques_ou_objets = false, $article
 
 	// si id numerique et un seul objet possible, pas d'ambiguite
 	if (is_numeric($ref) and count($objets) === 1) {
-		$ref = reset($objets) . $ref;
+		$type = reset($objets);
+		$type = objet_type($type);
+		$id = intval($ref);
+		$ref = $type . $ref;
 	}
+	else {
+		// Si la référence ne correspond à rien, c'est fini
+		if (!($match = typer_raccourci($ref))) {
+			return json_export(false);
+		}
+		// Sinon on récupère les infos utiles
+		[$type, , $id, , , , ] = array_pad($match, 7, null);
 
-	// Si la référence ne correspond à rien, c'est fini
-	if (!($match = typer_raccourci($ref))) {
-		return json_export(false);
-	}
-	// Sinon on récupère les infos utiles
-	[$type, , $id, , , , ] = array_pad($match, 7, null);
-
-	// On regarde si le type trouvé fait partie des objets sélectionnables
-	if (!in_array(table_objet($type), $objets)) {
-		return json_export(false);
+		// On regarde si le type trouvé fait partie des objets sélectionnables
+		if (!in_array(table_objet($type), $objets)) {
+			return json_export(false);
+		}
 	}
 
 	// Maintenant que tout est bon, on cherche les informations sur cet objet
