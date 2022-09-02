@@ -13,7 +13,7 @@
         "psr-4": { "Spip\\Core\\Tests\\": "tests/" }
     },
     "require": {
-        "php": ">=7.3.0",
+        "php": ">=7.4.0",
         "ext-json": "*",
         "ext-ctype": "*"
     },
@@ -22,11 +22,9 @@
         "ext-iconv": "Can be used as fallback when ext-mbstring is not available"
     },
     "require-dev": {
-        "composer": "^2.4",
         "lolli42/finediff": "^1.0",
-        "phpunit/phpunit": "^5.7 || ^6.5 || ^7.5 || ^8.3 || ^9.4",
-        "simpletest/simpletest": "^1.1",
-        "symfony/var-dumper": "^6.1"
+        "phpunit/phpunit": "^8.3 || ^9.4",
+        "symfony/var-dumper": "^5.4 || ^6"
     },
     "repositories": [
     ],
