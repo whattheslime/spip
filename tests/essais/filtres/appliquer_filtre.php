@@ -26,20 +26,20 @@ function test_filtres_appliquer_filtre(...$args) {
  *  [ output, input1, input2, input3...]
  */
 function essais_filtres_appliquer_filtre(){
-		$essais = array (
+		$essais =  [
   0 => 
-  array (
+   [
     0 => '&lt;&gt;&quot;&#039;&amp;',
     1 => '<>"\'&',
     2 => 'entites_html',
-  ),
+  ],
   1 => 
-  array (
+   [
     0 => '&amp;',
     1 => '&amp;',
     2 => 'entites_html',
-  ),
-);
+  ],
+];
 		return $essais;
 	}
 

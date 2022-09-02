@@ -26,32 +26,32 @@ function test_filtres_commuter_class(...$args) {
  *  [ output, input1, input2, input3...]
  */
 function essais_filtres_commuter_class(){
-		$essais = array (
+		$essais =  [
   0 => 
-  array (
+   [
     0 => '<span class=\'maclasse-prefixe suffixe-maclasse maclasse--bem\'>toto</span>',
     1 => '<span class="maclasse maclasse-prefixe suffixe-maclasse maclasse--bem">toto</span>',
     2 => 'maclasse',
-  ),
+  ],
   1 => 
-  array (
+   [
     0 => '<span class=\'maclasse maclasse-prefixe suffixe-maclasse maclasse--bem autreclass\'>toto</span>',
     1 => '<span class="maclasse maclasse-prefixe suffixe-maclasse maclasse--bem">toto</span>',
     2 => 'autreclass',
-  ),
+  ],
   2 => 
-  array (
+   [
     0 => '<span class=\'maclasse-prefixe suffixe-maclasse maclasse--bem maclasse1 maclasse2\'>toto</span>',
     1 => '<span class="maclasse maclasse-prefixe suffixe-maclasse maclasse--bem">toto</span>',
     2 => 'maclasse1 maclasse maclasse2',
-  ),
+  ],
   3 => 
-  array (
+   [
     0 => '<span class="maclasse maclasse-prefixe suffixe-maclasse maclasse--bem">toto</span>',
     1 => '<span class="maclasse maclasse-prefixe suffixe-maclasse maclasse--bem">toto</span>',
     2 => '<span class="maclasse maclasse-prefixe suffixe-maclasse maclasse--bem">toto</span>',
-  ),
-);
+  ],
+];
 		return $essais;
 	}
 

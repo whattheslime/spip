@@ -22,11 +22,11 @@
 	 * Updates
 	 */
 	function test_update_data() {	
-		$err = $essais = array();
+		$err = $essais = [];
 		
 		// ajouter un champ
 		$nb = sql_getfetsel("un_bigint","spip_test_tintin","id_tintin=".sql_quote(1));
-		sql_update("spip_test_tintin",array("un_bigint"=>"un_bigint+2"));
+		sql_update("spip_test_tintin",["un_bigint"=>"un_bigint+2"]);
 		$nb2 = sql_getfetsel("un_bigint","spip_test_tintin","id_tintin=".sql_quote(1));
 		if ($nb+2 != $nb2)
 			$err[] = "sql_update n'a pas fait l'adition ! ($nb + 2 != $nb2)";
@@ -43,7 +43,7 @@
 	 * Delete
 	 */
 	function test_delete_data() {	
-		$err = $essais = array();
+		$err = $essais = [];
 		
 		// supprimer une colonne
 		sql_delete("spip_test_tintin","id_tintin=".sql_quote(1));

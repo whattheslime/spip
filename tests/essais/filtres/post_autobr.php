@@ -26,27 +26,27 @@ function test_filtres_post_autobr(...$args) {
  *  [ output, input1, input2, input3...]
  */
 function essais_filtres_post_autobr(){
-		$essais = array (
+		$essais =  [
   0 => 
-  array (
+   [
     0 => 'Texte avec un 
 _ un retour simple à la ligne.',
     1 => 'Texte avec un 
 un retour simple à la ligne.',
     2 => '
 _ ',
-  ),
+  ],
   1 => 
-  array (
+   [
     0 => '<cadre>cadre contenant un
 retour simple (doit rester inchangé)</cadre>',
     1 => '<cadre>cadre contenant un
 retour simple (doit rester inchangé)</cadre>',
     2 => '
 _ ',
-  ),
+  ],
   2 => 
-  array (
+   [
     0 => 'Un double saut de ligne
 
  ne doit pas être modifié par post_autobr.',
@@ -55,9 +55,9 @@ _ ',
  ne doit pas être modifié par post_autobr.',
     2 => '
 _ ',
-  ),
+  ],
   3 => 
-  array (
+   [
     0 => '<modele123|param1=un appel de modèle
   |param2=avec retour à la ligne
   ne doit pas être modifié>',
@@ -66,8 +66,8 @@ _ ',
   ne doit pas être modifié>',
     2 => '
 _ ',
-  ),
-);
+  ],
+];
 		return $essais;
 	}
 

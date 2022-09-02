@@ -14,7 +14,7 @@ if (!defined("_ECRIRE_INC_VERSION")) return;	#securite
 
 function balise_FORMULAIRE_TEST_PHRASEUR ($p) {
 
-	$p = calculer_balise_dynamique($p,'FORMULAIRE_TEST_PHRASEUR', array('id_rubrique'));
+	$p = calculer_balise_dynamique($p,'FORMULAIRE_TEST_PHRASEUR', ['id_rubrique']);
 	return $p;
 }
 
@@ -27,7 +27,7 @@ function balise_FORMULAIRE_TEST_PHRASEUR_stat($args, $context_compil) {
 	list ($idr, $url) = $args;
 
 	return
-		array($idr, $url);
+		[$idr, $url];
 }
 
 function balise_FORMULAIRE_TEST_PHRASEUR_dyn($id_rubrique,$url) {
@@ -36,10 +36,10 @@ function balise_FORMULAIRE_TEST_PHRASEUR_dyn($id_rubrique,$url) {
 	if (!preg_match(",^[0-9]+$,", $id_rubrique))
 		$res = "Erreur id_rubrique non numerique : ".var_export($id_rubrique,1);
 
-	return array("formulaires/test_phraseur",
+	return ["formulaires/test_phraseur",
 		0,
-		array(
+		[
 			'result' => $res,
-		)
-	);
+		]
+	];
 }

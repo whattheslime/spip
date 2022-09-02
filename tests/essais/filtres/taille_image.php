@@ -26,44 +26,44 @@ function test_filtres_taille_image(...$args) {
  *  [ output, input1, input2, input3...]
  */
 function essais_filtres_taille_image(){
-		$essais = array (
+		$essais =  [
   0 => 
-  array (
+   [
     0 => 
-    array (
+     [
       0 => 223,
       1 => 300,
-    ),
+    ],
     1 => 'https://www.spip.net/IMG/logo/siteon0.png',
-  ),
+  ],
   2 =>
-  array (
+   [
     0 => 
-    array (
+     [
       0 => 172,
       1 => 231,
-    ),
+    ],
     1 => 'prive/images/logo-spip.png',
-  ),
+  ],
   3 => 
-  array (
+   [
     0 => 
-    array (
+     [
       0 => 0,
       1 => 0,
-    ),
+    ],
     1 => 'prive/aide_body.css',
-  ),
+  ],
   4 => 
-  array (
+   [
     0 => 
-    array (
+     [
       0 => 16,
       1 => 16,
-    ),
+    ],
     1 => 'prive/images/searching.gif',
-  ),
-);
+  ],
+];
 		return $essais;
 	}
 

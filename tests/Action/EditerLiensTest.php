@@ -27,28 +27,28 @@ class EditerLiensTest extends TestCase {
 	}
 
 	public function testObjetAssociable(){
-		$essais = array(
-			array(
+		$essais = [
+			[
 				0 => false,
 				1 => 'article',
-			),
-			array(
-				0 => array('id_auteur', 'spip_auteurs_liens'),
+			],
+			[
+				0 => ['id_auteur', 'spip_auteurs_liens'],
 				1 => 'auteur',
-			),
-			array(
-				0 => array('id_mot', 'spip_mots_liens'),
+			],
+			[
+				0 => ['id_mot', 'spip_mots_liens'],
 				1 => 'mot',
-			),
-			array(
-				0 => array('id_document', 'spip_documents_liens'),
+			],
+			[
+				0 => ['id_document', 'spip_documents_liens'],
 				1 => 'document',
-			),
-			array(
+			],
+			[
 				0 => false,
 				1 => 'mot\' OR 1=1\'',
-			),
-		);
+			],
+		];
 
 		foreach ($essais as $k => $essai){
 			$expected = array_shift($essai);
@@ -61,43 +61,43 @@ class EditerLiensTest extends TestCase {
 	 * @depends testObjetAssociable
 	 */
 	public function testObjetAssocier(){
-		$essais = array(
-			array(
+		$essais = [
+			[
 				0 => false,
-				1 => array('article' => 1),
-				2 => array('spirou' => 1),
-			),
-			array(
+				1 => ['article' => 1],
+				2 => ['spirou' => 1],
+			],
+			[
 				0 => 1,
-				1 => array('auteur' => 1),
-				2 => array('spirou' => 1),
-			),
-			array(
+				1 => ['auteur' => 1],
+				2 => ['spirou' => 1],
+			],
+			[
 				0 => 0,
-				1 => array('auteur' => 1),
-				2 => array('spirou' => 1),
-			),
-			array(
+				1 => ['auteur' => 1],
+				2 => ['spirou' => 1],
+			],
+			[
 				0 => 2,
-				1 => array('auteur' => 1),
-				2 => array('spirou' => array(2, 3)),
-			),
-			array(
+				1 => ['auteur' => 1],
+				2 => ['spirou' => [2, 3]],
+			],
+			[
 				0 => 1,
-				1 => array('auteur' => 1),
-				2 => array('spirou' => array(2, 3, 4)),
-			),
-			array(
+				1 => ['auteur' => 1],
+				2 => ['spirou' => [2, 3, 4]],
+			],
+			[
 				10,
-				array('auteur' => 1),
-				array('zorglub' => array(1, 2, 3, 4, 5, 6, 7, 8, 9, 10))
-			),
-			array(
+				['auteur' => 1],
+				['zorglub' => [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]]
+			],
+			[
 				6,
-				array('auteur' => 1),
-				array('spirou' => array(1, 2, 3, 4, 5, 6, 7, 8, 9, 10))
-			)
-		);
+				['auteur' => 1],
+				['spirou' => [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]]
+			]
+		];
 
 		foreach ($essais as $k => $essai){
 			$expected = array_shift($essai);
@@ -110,38 +110,38 @@ class EditerLiensTest extends TestCase {
 	 * @depends testObjetAssocier
 	 */
 	public function testObjetQualifierLiens(){
-		$essais = array(
-			array(
+		$essais = [
+			[
 				0 => false,
-				1 => array('article' => 1),
-				2 => array('zorglub' => 1),
-				3 => array('vu' => 'oui'),
-			),
-			array(
+				1 => ['article' => 1],
+				2 => ['zorglub' => 1],
+				3 => ['vu' => 'oui'],
+			],
+			[
 				0 => 1,
-				1 => array('auteur' => 1),
-				2 => array('zorglub' => 1),
-				3 => array('vu' => 'oui'),
-			),
-			array(
+				1 => ['auteur' => 1],
+				2 => ['zorglub' => 1],
+				3 => ['vu' => 'oui'],
+			],
+			[
 				0 => 1,
-				1 => array('auteur' => 1),
-				2 => array('zorglub' => 1),
-				3 => array('vu' => 'oui'),
-			),
-			array(
+				1 => ['auteur' => 1],
+				2 => ['zorglub' => 1],
+				3 => ['vu' => 'oui'],
+			],
+			[
 				0 => false,
-				1 => array('auteur' => 1),
-				2 => array('zorglub' => 1),
-				3 => array('veraer' => 'oui'),
-			),
-			array(
+				1 => ['auteur' => 1],
+				2 => ['zorglub' => 1],
+				3 => ['veraer' => 'oui'],
+			],
+			[
 				0 => 2,
-				1 => array('auteur' => 1),
-				2 => array('zorglub' => array(2, 3)),
-				3 => array('vu' => 'oui'),
-			),
-		);
+				1 => ['auteur' => 1],
+				2 => ['zorglub' => [2, 3]],
+				3 => ['vu' => 'oui'],
+			],
+		];
 
 		foreach ($essais as $k => $essai){
 			$expected = array_shift($essai);
@@ -153,43 +153,43 @@ class EditerLiensTest extends TestCase {
 	 * @depends testObjetQualifierLiens
 	 */
 	public function testObjetDissocier(){
-		$essais = array(
-			array(
+		$essais = [
+			[
 				0 => false,
-				1 => array('article' => 1),
-				2 => array('zorglub' => 1),
-			),
-			array(
+				1 => ['article' => 1],
+				2 => ['zorglub' => 1],
+			],
+			[
 				0 => 1,
-				1 => array('auteur' => 1),
-				2 => array('zorglub' => 1),
-			),
-			array(
+				1 => ['auteur' => 1],
+				2 => ['zorglub' => 1],
+			],
+			[
 				0 => 0,
-				1 => array('auteur' => 1),
-				2 => array('zorglub' => 1),
-			),
-			array(
+				1 => ['auteur' => 1],
+				2 => ['zorglub' => 1],
+			],
+			[
 				0 => 2,
-				1 => array('auteur' => 1),
-				2 => array('zorglub' => array(2, 3)),
-			),
-			array(
+				1 => ['auteur' => 1],
+				2 => ['zorglub' => [2, 3]],
+			],
+			[
 				0 => 1,
-				1 => array('auteur' => 1),
-				2 => array('zorglub' => array(2, 3, 4)),
-			),
-			array(
+				1 => ['auteur' => 1],
+				2 => ['zorglub' => [2, 3, 4]],
+			],
+			[
 				0 => 4,
-				1 => array('auteur' => 1),
-				2 => array('zorglub' => array(5), 'spirou' => array(2, 3, 4)),
-			),
-			array(
+				1 => ['auteur' => 1],
+				2 => ['zorglub' => [5], 'spirou' => [2, 3, 4]],
+			],
+			[
 				0 => 12,
-				1 => array('auteur' => 1),
-				2 => array('zorglub' => '*', 'spirou' => '*'),
-			),
-		);
+				1 => ['auteur' => 1],
+				2 => ['zorglub' => '*', 'spirou' => '*'],
+			],
+		];
 
 		foreach ($essais as $k => $essai){
 			$expected = array_shift($essai);

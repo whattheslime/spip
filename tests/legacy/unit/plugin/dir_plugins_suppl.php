@@ -31,7 +31,7 @@ function test_dir_plugins_suppl() {
 	}
 
 	// preparation: verifier qu'il existe au moins un dossier plugin par rep suppl (i.e. contenant un fichier paquet.xml)?
-	$Ta_effacer = $Ta_retrouver = array();
+	$Ta_effacer = $Ta_retrouver = [];
 
 	$existe_paquet = FALSE;
 
@@ -133,7 +133,7 @@ function test_dir_plugins_suppl() {
 	// verifier qu'on retrouve bien tous les rep suppl de _DIR_PLUGINS_SUPPL
 	$Tplugins_recups = liste_plugin_files(_DIR_PLUGINS_SUPPL);
 
-	$Terr = array();
+	$Terr = [];
 	$mess_err = '';
 	foreach ($Ta_retrouver as $rep) {
 		if (!in_array($rep, $Tplugins_recups))
@@ -150,7 +150,7 @@ function test_dir_plugins_suppl() {
 
 	// test 2: la liste des reps plugins trouves comprend t'elle des dossiers
 	// ni dans _DIR_PLUGINS ni dans _DIR_PLUGINS_SUPPL?
-	$Terr = array();
+	$Terr = [];
 	foreach ($Tplugins_recups as $rep_plug) {
 		if (!is_dir(_DIR_PLUGINS.$rep_plug) AND is_dir(_DIR_RACINE.$rep_plug)) {	// le rep existe mais pas dans _DIR_PLUGINS
 			$ok = false;

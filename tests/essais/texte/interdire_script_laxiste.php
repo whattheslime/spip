@@ -33,25 +33,25 @@ function essais_texte_interdire_script_laxiste(){
 	$essais = [];
 
 	$essais[] =
-		array("<script type='text/javascript' src='toto.js'></script>", "<script type='text/javascript' src='toto.js'></script>");
+		["<script type='text/javascript' src='toto.js'></script>", "<script type='text/javascript' src='toto.js'></script>"];
 
 	$essais[] =
-		array("<script type='text/javascript' src='spip.php?page=toto'></script>", "<script type='text/javascript' src='spip.php?page=toto'></script>");
+		["<script type='text/javascript' src='spip.php?page=toto'></script>", "<script type='text/javascript' src='spip.php?page=toto'></script>"];
 
 	$essais[] =
-		array("<script type='text/javascript'>var php=5;</script>", "<script type='text/javascript'>var php=5;</script>");
+		["<script type='text/javascript'>var php=5;</script>", "<script type='text/javascript'>var php=5;</script>"];
 
 	$essais[] =
-		array("<script language='javascript' src='spip.php?page=toto'></script>", "<script language='javascript' src='spip.php?page=toto'></script>");
+		["<script language='javascript' src='spip.php?page=toto'></script>", "<script language='javascript' src='spip.php?page=toto'></script>"];
 
 	$essais[] =
-		array("&lt;script language='php'>die();</script>", "<script language='php'>die();</script>");
+		["&lt;script language='php'>die();</script>", "<script language='php'>die();</script>"];
 
 	$essais[] =
-		array("&lt;script language=php>die();</script>", "<script language=php>die();</script>");
+		["&lt;script language=php>die();</script>", "<script language=php>die();</script>"];
 
 	$essais[] =
-		array("&lt;script language = php >die();</script>", "<script language = php >die();</script>");
+		["&lt;script language = php >die();</script>", "<script language = php >die();</script>"];
 
 
 	return $essais;

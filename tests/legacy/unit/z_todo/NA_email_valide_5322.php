@@ -77,8 +77,8 @@
 		}
 
 		$expected	= ($valid === 'true') ? true : false;
-		$needles	= array('\\0'	, '\\'		, '"'	, '$'	, chr(9)	,chr(10)	,chr(13));
-		$substitutes	= array(chr(0)	, '\\\\'	, '\\"'	, '\\$'	, '\t'		,'\n'		,'\r');
+		$needles	= ['\\0'	, '\\'		, '"'	, '$'	, chr(9)	,chr(10)	,chr(13)];
+		$substitutes	= [chr(0)	, '\\\\'	, '\\"'	, '\\$'	, '\t'		,'\n'		,'\r'];
 		$address	= str_replace($needles, $substitutes, $address);
 		$comment	= str_replace($needles, $substitutes, $comment);
 		$source		= str_replace($needles, $substitutes, $source);

@@ -47,35 +47,35 @@ class DepotMetaPackTest extends TestCase {
 		$meta = $GLOBALS['meta'];
 
 		// on flingue meta a juste nos donnees
-		$GLOBALS['meta'] = array(
+		$GLOBALS['meta'] = [
 			'zero' => serialize(0),
 			'zeroc' => serialize('0'),
 			'chaine' => serialize('une chaine'),
 			'assoc' => serialize(self::$assoc),
 			'serie' => serialize(self::$serassoc)
-		);
+		];
 
 
 		$essais = [];
-		$essais[] = array($GLOBALS['meta'], 'metapack::');
-		$essais[] = array(serialize($GLOBALS['meta']), 'metapack::','',false);
+		$essais[] = [$GLOBALS['meta'], 'metapack::'];
+		$essais[] = [serialize($GLOBALS['meta']), 'metapack::','',false];
 		// racine
-		$essais[] = array(0, 'metapack::zero');
-		$essais[] = array('0', 'metapack::zeroc');
-		$essais[] = array('une chaine', 'metapack::chaine');
-		$essais[] = array(self::$assoc, 'metapack::assoc');
-		$essais[] = array(self::$serassoc, 'metapack::serie');
-		$essais[] = array(null, 'metapack::rien');
-		$essais[] = array('defaut', 'metapack::rien','defaut');
+		$essais[] = [0, 'metapack::zero'];
+		$essais[] = ['0', 'metapack::zeroc'];
+		$essais[] = ['une chaine', 'metapack::chaine'];
+		$essais[] = [self::$assoc, 'metapack::assoc'];
+		$essais[] = [self::$serassoc, 'metapack::serie'];
+		$essais[] = [null, 'metapack::rien'];
+		$essais[] = ['defaut', 'metapack::rien','defaut'];
 		// chemins
-		$essais[] = array(self::$assoc, 'metapack::assoc/');
-		$essais[] = array('element 1', 'metapack::assoc/one');
-		$essais[] = array(array('un'=>1, 'deux'=>2, 'troisc'=>"3"), 'metapack::assoc/three');
-		$essais[] = array(1, 'metapack::assoc/three/un');
-		$essais[] = array('3', 'metapack::assoc/three/troisc');
+		$essais[] = [self::$assoc, 'metapack::assoc/'];
+		$essais[] = ['element 1', 'metapack::assoc/one'];
+		$essais[] = [['un'=>1, 'deux'=>2, 'troisc'=>"3"], 'metapack::assoc/three'];
+		$essais[] = [1, 'metapack::assoc/three/un'];
+		$essais[] = ['3', 'metapack::assoc/three/troisc'];
 		// racourcis
-		$essais[] = array(self::$assoc, 'assoc/');
-		$essais[] = array('element 1', 'assoc/one');
+		$essais[] = [self::$assoc, 'assoc/'];
+		$essais[] = ['element 1', 'assoc/one'];
 
 		foreach ($essais as $k => $essai) {
 			$expected = array_shift($essai);
@@ -106,14 +106,14 @@ class DepotMetaPackTest extends TestCase {
 		 *
 		 */
 		$essais = [];
-		$essais[] = array(true, 'metapack::test_cfg_zero', 0);
-		$essais[] = array(true, 'metapack::test_cfg_zeroc', '0');
-		$essais[] = array(true, 'metapack::test_cfg_chaine', 'une chaine');
-		$essais[] = array(true, 'metapack::test_cfg_assoc', self::$assoc);
-		$essais[] = array(true, 'metapack::test_cfg_serie', self::$serassoc);
+		$essais[] = [true, 'metapack::test_cfg_zero', 0];
+		$essais[] = [true, 'metapack::test_cfg_zeroc', '0'];
+		$essais[] = [true, 'metapack::test_cfg_chaine', 'une chaine'];
+		$essais[] = [true, 'metapack::test_cfg_assoc', self::$assoc];
+		$essais[] = [true, 'metapack::test_cfg_serie', self::$serassoc];
 		// chemins
-		$essais[] = array(true, 'metapack::test_cfg_chemin/casier', self::$assoc);
-		$essais[] = array(true, 'metapack::test_cfg_chemin/casier/truc', 'trac');
+		$essais[] = [true, 'metapack::test_cfg_chemin/casier', self::$assoc];
+		$essais[] = [true, 'metapack::test_cfg_chemin/casier/truc', 'trac'];
 
 		foreach ($essais as $k => $essai) {
 			$expected = array_shift($essai);
@@ -127,17 +127,17 @@ class DepotMetaPackTest extends TestCase {
 	 */
 	public function testLireConfig2() {
 		$essais = [];
-		$essais[] = array(0, 'metapack::test_cfg_zero');
-		$essais[] = array('0', 'metapack::test_cfg_zeroc');
-		$essais[] = array('une chaine', 'metapack::test_cfg_chaine');
-		$essais[] = array(self::$assoc, 'metapack::test_cfg_assoc');
-		$essais[] = array(self::$serassoc, 'metapack::test_cfg_serie');
+		$essais[] = [0, 'metapack::test_cfg_zero'];
+		$essais[] = ['0', 'metapack::test_cfg_zeroc'];
+		$essais[] = ['une chaine', 'metapack::test_cfg_chaine'];
+		$essais[] = [self::$assoc, 'metapack::test_cfg_assoc'];
+		$essais[] = [self::$serassoc, 'metapack::test_cfg_serie'];
 		// chemins
-		$essais[] = array(self::$assoc + array('truc'=>'trac'), 'metapack::test_cfg_chemin/casier');
-		$essais[] = array('trac', 'metapack::test_cfg_chemin/casier/truc');
-		$essais[] = array(1, 'metapack::test_cfg_chemin/casier/three/un');
+		$essais[] = [self::$assoc + ['truc'=>'trac'], 'metapack::test_cfg_chemin/casier'];
+		$essais[] = ['trac', 'metapack::test_cfg_chemin/casier/truc'];
+		$essais[] = [1, 'metapack::test_cfg_chemin/casier/three/un'];
 		// chemin pas la
-		$essais[] = array(null, 'metapack::test_cfg_chemin/casier/three/huit');
+		$essais[] = [null, 'metapack::test_cfg_chemin/casier/three/huit'];
 
 		foreach ($essais as $k => $essai) {
 			$expected = array_shift($essai);
@@ -152,23 +152,23 @@ class DepotMetaPackTest extends TestCase {
 	 */
 	public function testEffacerConfig() {
 		$essais = [];
-		$essais[] = array(true, 'metapack::test_cfg_zero');
-		$essais[] = array(true, 'metapack::test_cfg_zeroc');
-		$essais[] = array(true, 'metapack::test_cfg_chaine');
-		$essais[] = array(true, 'metapack::test_cfg_assoc');
-		$essais[] = array(true, 'metapack::test_cfg_serie');
+		$essais[] = [true, 'metapack::test_cfg_zero'];
+		$essais[] = [true, 'metapack::test_cfg_zeroc'];
+		$essais[] = [true, 'metapack::test_cfg_chaine'];
+		$essais[] = [true, 'metapack::test_cfg_assoc'];
+		$essais[] = [true, 'metapack::test_cfg_serie'];
 		// chemins
 		// on enleve finement tout test_cfg_chemin : il ne doit rien rester
-		$essais[] = array(true, 'metapack::test_cfg_chemin/casier/three/huit'); // n'existe pas
-		$essais[] = array(true, 'metapack::test_cfg_chemin/casier/three/troisc');
-		$essais[] = array(true, 'metapack::test_cfg_chemin/casier/three/deux');
-		$essais[] = array(true, 'metapack::test_cfg_chemin/casier/three/un'); // supprime three
-		$essais[] = array(true, 'metapack::test_cfg_chemin/casier/one');
-		$essais[] = array(true, 'metapack::test_cfg_chemin/casier/two');
-		$essais[] = array(true, 'metapack::test_cfg_chemin/casier/truc'); // supprimer chemin/casier
+		$essais[] = [true, 'metapack::test_cfg_chemin/casier/three/huit']; // n'existe pas
+		$essais[] = [true, 'metapack::test_cfg_chemin/casier/three/troisc'];
+		$essais[] = [true, 'metapack::test_cfg_chemin/casier/three/deux'];
+		$essais[] = [true, 'metapack::test_cfg_chemin/casier/three/un']; // supprime three
+		$essais[] = [true, 'metapack::test_cfg_chemin/casier/one'];
+		$essais[] = [true, 'metapack::test_cfg_chemin/casier/two'];
+		$essais[] = [true, 'metapack::test_cfg_chemin/casier/truc']; // supprimer chemin/casier
 
 		// on essaye d'effacer une meta qui n'existe pas
-		$essais[] = array(true, 'metapack::test_cfg_dummy/casier/truc');
+		$essais[] = [true, 'metapack::test_cfg_dummy/casier/truc'];
 
 		foreach ($essais as $k => $essai) {
 			$expected = array_shift($essai);
@@ -182,13 +182,13 @@ class DepotMetaPackTest extends TestCase {
 	 */
 	public function testLireConfig3(){
 		$essais = [];
-		$essais[] = array(null, 'metapack::test_cfg_zero');
-		$essais[] = array(null, 'metapack::test_cfg_zeroc');
-		$essais[] = array(null, 'metapack::test_cfg_chaine');
-		$essais[] = array(null, 'metapack::test_cfg_assoc');
-		$essais[] = array(null, 'metapack::test_cfg_serie');
-		$essais[] = array(null, 'metapack::test_cfg_chemin');
-		$essais[] = array(null, 'metapack::test_cfg_dummy');
+		$essais[] = [null, 'metapack::test_cfg_zero'];
+		$essais[] = [null, 'metapack::test_cfg_zeroc'];
+		$essais[] = [null, 'metapack::test_cfg_chaine'];
+		$essais[] = [null, 'metapack::test_cfg_assoc'];
+		$essais[] = [null, 'metapack::test_cfg_serie'];
+		$essais[] = [null, 'metapack::test_cfg_chemin'];
+		$essais[] = [null, 'metapack::test_cfg_dummy'];
 
 		foreach ($essais as $k => $essai) {
 			$expected = array_shift($essai);

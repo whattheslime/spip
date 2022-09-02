@@ -13,29 +13,29 @@
 	tests_init_dossier_squelettes();
 
 	// commencer par verifier que les assertions fonctionnent
-	$GLOBALS['erreurs_test'] = array();
+	$GLOBALS['erreurs_test'] = [];
 	test_cache_squelette($f = "inclure/A_session_wo", false);
 	if (count($GLOBALS['erreurs_test'])) {
 		die("Echec Assertion $f assert_session=0\n");
 	}
-	$GLOBALS['erreurs_test'] = array();
+	$GLOBALS['erreurs_test'] = [];
 	test_cache_squelette($f = "inclure/A_session_wo", true);
 	if (!count($GLOBALS['erreurs_test'])) {
 		die("Echec Assertion $f assert_session=1\n");
 	}
-	$GLOBALS['erreurs_test'] = array();
+	$GLOBALS['erreurs_test'] = [];
 	test_cache_squelette($f = "inclure/A_session_w", false);
 	if (!count($GLOBALS['erreurs_test'])) {
 		die("Echec Assertion $f assert_session=0\n");
 	}
-	$GLOBALS['erreurs_test'] = array();
+	$GLOBALS['erreurs_test'] = [];
 	test_cache_squelette($f = "inclure/A_session_w", true);
 	if (count($GLOBALS['erreurs_test'])) {
 		die("Echec Assertion $f assert_session=1\n");
 	}
 
 	// now let's start the tests !
-	$GLOBALS['erreurs_test'] = array();
+	$GLOBALS['erreurs_test'] = [];
 	test_cache_squelette($f = "cache_session_wo_1", false);
 	test_cache_squelette($f = "cache_session_wo_2", false);
 	test_cache_squelette($f = "cache_session_wo_3", false);
@@ -59,9 +59,9 @@
 
 	function test_cache_squelette($fond, $session_attendue) {
 		unset($GLOBALS['cache_utilise_session']);
-		recuperer_fond($fond, array('assert_session' => ($session_attendue ? true  : false), 'caller'=>'none', 'salt'=>salt_contexte()));
+		recuperer_fond($fond, ['assert_session' => ($session_attendue ? true  : false), 'caller'=>'none', 'salt'=>salt_contexte()]);
 		unset($GLOBALS['cache_utilise_session']);
-		recuperer_fond('root', array('sousfond' => $fond, 'inc_assert_session' => ($session_attendue ? true  : false), 'salt'=>salt_contexte()));
+		recuperer_fond('root', ['sousfond' => $fond, 'inc_assert_session' => ($session_attendue ? true  : false), 'salt'=>salt_contexte()]);
 	}
 
 /**
@@ -90,7 +90,7 @@ function inc_maj_invalideurs($chemin_cache, $page) {
 }
 
 function salt_contexte() {
-	static $deja = array();
+	static $deja = [];
 
 	do {
 		$salt = time() . ':' . md5( time(). ':' . rand(0,65536));

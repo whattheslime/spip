@@ -33,7 +33,7 @@
 	$p10 = 'un superbe https://www.monsite.tld, pas mal';
 	$p11 = '<flv|url=http://rezo.net/>';
 
-	$err = array();
+	$err = [];
 
 	if (extraire_attribut(propre($p0), 'hreflang') !== $t['lang'])
 		$err[] = "hreflang automatique errone dans $p0 : ".PtoBR(propre($p0));
@@ -103,7 +103,7 @@
 	!== $a =extraire_attribut(extraire_balise(propre($p10), 'a'), 'href'))
 		$err[] = $a.': erreur sur le lien '.$p10;
 
-	if (!in_array($a = propre($p11),array("<p><flv|url=http://rezo.net/></p>","<p><tt>&lt;flv|url=http://rezo.net/&gt;</tt></p>","<pre>&lt;flv|url=http://rezo.net/&gt;</pre>")))
+	if (!in_array($a = propre($p11),["<p><flv|url=http://rezo.net/></p>","<p><tt>&lt;flv|url=http://rezo.net/&gt;</tt></p>","<pre>&lt;flv|url=http://rezo.net/&gt;</pre>"]))
 		$err[] = $a.': erreur sur le modele '.$p11;
 
 

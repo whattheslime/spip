@@ -37,10 +37,10 @@ function demarrer_simpletest() {
 *  si pas d'index, "test {numero}" sera utilise
 * retourne un tableau de textes d'erreur dont le but est d'etre vide :)
 */
-function tester_fun($fun, $essais, $opts = array())
+function tester_fun($fun, $essais, $opts = [])
 {
 	// pas d'erreur au depart
-	$err = array();
+	$err = [];
 
 	// let's go !
 	foreach ($essais as $titre => $ess) {
@@ -70,7 +70,7 @@ function tester_fun($fun, $essais, $opts = array())
 
 		spip_log('test ' . $GLOBALS['test']." : Essai ".$GLOBALS['compteur_essai']++.($ok?" ok":" ECHEC"),'testrunner');
 		if (!$ok) {
-			$erritem_args = array();
+			$erritem_args = [];
 			for ($iarg = 1; $iarg < count($ess); ++$iarg) {
 				$erritem_args[] = htmlspecialchars(var_export($ess[$iarg], true));
 			}
@@ -107,7 +107,7 @@ class SpipTestFineDiffRenderer extends \cogpowered\FineDiff\Render\Text {
 	}
 }
 
-function display_error($titre,$call,$result,$expected,$opts=array()){
+function display_error($titre,$call,$result,$expected,$opts=[]){
 	static $bef, $mid, $end;
 	static $style;
 	if (defined('_IS_CLI') and _IS_CLI){
@@ -123,9 +123,9 @@ function display_error($titre,$call,$result,$expected,$opts=array()){
 
 		if (!isset($bef)){
 			// options
-			foreach (array(
+			foreach ([
 				'out' => '<dt>@</dt><dd class="ei">@</dd>'
-			) as $opt => $def) {
+			] as $opt => $def) {
 				$$opt = isset($opts[$opt]) ? $opts[$opt] : $def;
 			}
 			// l'enrobage de sortie
@@ -179,7 +179,7 @@ if (!function_exists('array_diff_assoc_recursive')){
 					$difference[$key] = $value;
 				} else {
 					$new_diff = array_diff_assoc_recursive($value, $array2[$key]);
-					if ($new_diff!==array()){
+					if ($new_diff!==[]){
 						$difference[$key] = $new_diff;
 					}
 				}
@@ -188,7 +188,7 @@ if (!function_exists('array_diff_assoc_recursive')){
 				$difference[$key] = $value;
 			}
 		}
-		return !isset($difference) ? array() : $difference;
+		return !isset($difference) ? [] : $difference;
 	}
 }
 
@@ -212,7 +212,7 @@ function test_equality($val1,$val2){
 function tests_legacy_lister($extension=null) {
 
 	// chercher les bases de tests
-	$bases = array(_DIR_TESTS . 'tests/legacy/unit');
+	$bases = [_DIR_TESTS . 'tests/legacy/unit'];
 
 	foreach (creer_chemin() as $d) {
 		if ($d && @is_dir("{$d}tests"))

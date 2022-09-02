@@ -27,7 +27,7 @@
 	function test_maj_timestamp() {	
 		$table = 'spip_test_tintin';
 		$where = 'id_tintin='.sql_quote(1);
-		$err = $essais = array();
+		$err = $essais = [];
 		
 		// lecture du timestamp actuel
 		$maj1 = sql_getfetsel('maj',$table,$where);
@@ -37,7 +37,7 @@
 		// update
 sleep(1); // sinon le timestamp ne change pas !
 		$texte = 'nouveau texte';
-		sql_update($table,array('un_texte'=>sql_quote($texte)),$where);
+		sql_update($table,['un_texte'=>sql_quote($texte)],$where);
 		// comparaison timastamp
 		$maj2 = sql_getfetsel('maj',$table,$where);
 		if (!$maj2 OR !strtotime($maj2)) {
@@ -55,7 +55,7 @@ sleep(1); // sinon le timestamp ne change pas !
 		// idem avec updateq
 sleep(1); // sinon le timestamp ne change pas !
 		$texte = 'encore un nouveau texte';
-		sql_updateq($table,array('un_texte'=>$texte),$where);
+		sql_updateq($table,['un_texte'=>$texte],$where);
 		// comparaison timastamp
 		$maj3 = sql_getfetsel('maj',$table,$where);
 		if (!$maj3 OR !strtotime($maj3)) {
@@ -81,7 +81,7 @@ sleep(1); // sinon le timestamp ne change pas !
 	 * - 
 	 */
 	function test_selections() {	
-		$err = $essais = array();
+		$err = $essais = [];
 		$desc = test_sql_datas();
 		$nb_data = count($desc['spip_test_tintin']['data']);
 		// selection simple
@@ -91,7 +91,7 @@ sleep(1); // sinon le timestamp ne change pas !
 		}
 		
 		// selection float
-		$res = sql_select("*","spip_test_tintin",array("un_double>".sql_quote(3)));
+		$res = sql_select("*","spip_test_tintin",["un_double>".sql_quote(3)]);
 		$elems = $desc['spip_test_tintin']['data'];
 		$n=0;
 		foreach($elems as $a=>$b)
@@ -104,32 +104,32 @@ sleep(1); // sinon le timestamp ne change pas !
 		
 		// selection REGEXP
 		// ! chiffre en dur !
-		$res = sql_select("*","spip_test_tintin",array("un_varchar REGEXP ".sql_quote("^De")));
+		$res = sql_select("*","spip_test_tintin",["un_varchar REGEXP ".sql_quote("^De")]);
 		if (($nb = sql_count($res)) != 1) {
 			$err[] = "sql_select comprends mal REGEXP ($nb resultats au lieu de 1)";
 		}
 		
 		// selection LIKE
 		// ! chiffre en dur !
-		$res = sql_select("*","spip_test_tintin",array("un_varchar LIKE ".sql_quote("De%")));
+		$res = sql_select("*","spip_test_tintin",["un_varchar LIKE ".sql_quote("De%")]);
 		if (($nb = sql_count($res)) != 1) {
 			$err[] = "sql_select comprends mal LIKE ($nb resultats au lieu de 1)";
 		}
 		
 		// selection array(champs)
-		$res = sql_fetsel(array("id_tintin","un_varchar"),"spip_test_tintin");
+		$res = sql_fetsel(["id_tintin","un_varchar"],"spip_test_tintin");
 		if (!isset($res['id_tintin']) OR !isset($res['un_varchar'])) {
 			$err[] = "sql_select comprends mal une selection : array(champ1, champ2)";
 		}
 		
 		// selection array(champs=>alias)
-		$res = sql_fetsel(array("id_tintin AS id","un_varchar AS vchar"),"spip_test_tintin");
+		$res = sql_fetsel(["id_tintin AS id","un_varchar AS vchar"],"spip_test_tintin");
 		if (!isset($res['id']) OR !isset($res['vchar'])) {
 			$err[] = "sql_select comprends mal une selection : array(champ1 AS alias1, champ2 AS alias2)";
 		}		
 
 		// selection avec sql_multi
-		$res = sql_select(array("id_tintin", sql_multi("grrrr",'fr')),"spip_test_milou","","","multi");
+		$res = sql_select(["id_tintin", sql_multi("grrrr",'fr')],"spip_test_milou","","","multi");
 		if (!(sql_count($res) == $nb_data)) {
 			$err[] = "sql_multi mal interprete";
 		}
@@ -140,25 +140,25 @@ sleep(1); // sinon le timestamp ne change pas !
 			$err[] = "sql_multi order by multi rate : ordre ($id1, $id2, $id3) - attendu : (3, 2, 1)";
 		}
 		// le bon texte avec multi
-		foreach (array('fr'=>'Crac','en'=>'Krack') as $lg=>$res) {
+		foreach (['fr'=>'Crac','en'=>'Krack'] as $lg=>$res) {
 			$multi = sql_getfetsel(sql_multi("grrrr",$lg),"spip_test_milou","id_milou=".sql_quote(2));
 			if (!($multi == ($res))) {
 				$err[] = "sql_multi $lg mal rendu : retour : ".htmlentities($multi).", attendu : ".htmlentities($res);
 			}
 		}
 		// le bon texte avec multi et accents
-		foreach (array('fr'=>'Aérien','en'=>'Aérieny') as $lg=>$res) {
+		foreach (['fr'=>'Aérien','en'=>'Aérieny'] as $lg=>$res) {
 			$multi = sql_getfetsel(sql_multi("alcool",$lg),"spip_test_haddock","id_haddock=".sql_quote(2));
 			if (!($multi == ($res))) {
 				$err[] = "sql_multi $lg mal rendu : retour : ".htmlentities($multi).", attendu : ".htmlentities($res);
 			}
 		}
 		// le bon texte avec multi et debut et fin de chaine
-		foreach (array(
+		foreach ([
 			'fr' => 'Un début de chaine : Vinasse, et [la fin]',
 			'en' => 'Un début de chaine : Vinassy, et [la fin]',
 			'de' => 'Un début de chaine : Vinasse, et [la fin]',
-		) as $lg => $res) {
+		] as $lg => $res) {
             $multi = sql_getfetsel(sql_multi("alcool",$lg),"spip_test_haddock","id_haddock=".sql_quote(4));
             if (!($multi == ($res))) {
                 $err[] = "sql_multi [$lg] mal rendu : retour : ".htmlentities($multi).", attendu : ".htmlentities($res);
@@ -176,14 +176,14 @@ sleep(1); // sinon le timestamp ne change pas !
 	 * - 
 	 */
 	function test_selections_entre_table() {	
-		$err = $essais = array();
+		$err = $essais = [];
 		
 		// selection 2 tables
 		// ! nombre en dur !
 		$res = sql_select(
-			array("spip_test_tintin.id_tintin","spip_test_milou.id_milou"),
-			array("spip_test_tintin", "spip_test_milou"),
-			array("spip_test_milou.id_tintin=spip_test_tintin.id_tintin"));
+			["spip_test_tintin.id_tintin","spip_test_milou.id_milou"],
+			["spip_test_tintin", "spip_test_milou"],
+			["spip_test_milou.id_tintin=spip_test_tintin.id_tintin"]);
 		if (!($nb=sql_count($res) == 3)) {
 			$err[] = "selection sur 2 tables avec where en echec : attendu 3 reponses, présentes : $nb";
 		}
@@ -191,9 +191,9 @@ sleep(1); // sinon le timestamp ne change pas !
 		// selection 2 tables avec alias =>
 		// ! nombre en dur !
 		$res = sql_select(
-			array("a.id_tintin AS x","b.id_milou AS y"),
-			array("a"=>"spip_test_tintin", "b"=>"spip_test_milou"),
-			array("a.id_tintin=b.id_tintin"));				
+			["a.id_tintin AS x","b.id_milou AS y"],
+			["a"=>"spip_test_tintin", "b"=>"spip_test_milou"],
+			["a.id_tintin=b.id_tintin"]);				
 		if (!($nb=sql_count($res) == 3)) {
 			$err[] = "From avec alias en echec (3 reponses attendues) - présentes : $nb";
 		}
@@ -201,9 +201,9 @@ sleep(1); // sinon le timestamp ne change pas !
 		// selection 2 tables avec alias AS
 		// ! nombre en dur !
 		$res = sql_select(
-			array("a.id_tintin AS x","b.id_milou AS y"),
-			array("spip_test_tintin AS a", "spip_test_milou AS b"),
-			array("a.id_tintin=b.id_tintin"));				
+			["a.id_tintin AS x","b.id_milou AS y"],
+			["spip_test_tintin AS a", "spip_test_milou AS b"],
+			["a.id_tintin=b.id_tintin"]);				
 		if (!(($nb=sql_count($res)) == 3)) {
 			$err[] = "From avec alias AS en echec (3 reponses attendues) - présentes : $nb";
 		}
@@ -211,8 +211,8 @@ sleep(1); // sinon le timestamp ne change pas !
 		// selection 2 tables avec INNER JOIN + ON
 		// ! nombre en dur !
 		$res = sql_select(
-			array("a.id_tintin AS x","b.id_milou AS y"),
-			array("spip_test_tintin AS a INNER JOIN spip_test_milou AS b ON (a.id_tintin=b.id_tintin)"));				
+			["a.id_tintin AS x","b.id_milou AS y"],
+			["spip_test_tintin AS a INNER JOIN spip_test_milou AS b ON (a.id_tintin=b.id_tintin)"]);				
 		if (!(($nb=sql_count($res)) == 3)) {
 			$err[] = "Echec INNER JOIN + ON (3 reponses attendues, présentes : $nb)";
 		}
@@ -220,8 +220,8 @@ sleep(1); // sinon le timestamp ne change pas !
 		// selection 2 tables avec LEFT JOIN + ON
 		// ! nombre en dur !
 		$res = sql_select(
-			array("a.id_tintin AS x","b.id_milou AS y"),
-			array("spip_test_tintin AS a LEFT JOIN spip_test_milou AS b ON (a.id_tintin=b.id_tintin)"));				
+			["a.id_tintin AS x","b.id_milou AS y"],
+			["spip_test_tintin AS a LEFT JOIN spip_test_milou AS b ON (a.id_tintin=b.id_tintin)"]);				
 		if (!(($nb=sql_count($res)) == 4)) {
 			$err[] = "Echec LEFT JOIN + ON (4 reponses attendues, présentes : $nb)";
 		}
@@ -231,8 +231,8 @@ sleep(1); // sinon le timestamp ne change pas !
 		// SQLite 2 se plante : il ne connait pas USING (enleve de la requete, 
 		// et du coup ne fait pas correctement la jointure)
 		$res = sql_select(
-			array("a.id_tintin AS x","b.id_milou AS y"),
-			array("spip_test_tintin AS a INNER JOIN spip_test_milou AS b USING (id_tintin)"));				
+			["a.id_tintin AS x","b.id_milou AS y"],
+			["spip_test_tintin AS a INNER JOIN spip_test_milou AS b USING (id_tintin)"]);				
 		if (!(($nb=sql_count($res)) == 3)) {
 			$err[] = "Echec INNER JOIN + USING (3 reponses attendues, présentes : $nb)";
 		}			

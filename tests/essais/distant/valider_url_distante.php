@@ -26,75 +26,75 @@ function test_distant_valider_url_distante(...$args) {
  *  [ output, input1, input2, input3...]
  */
 function essais_distant_valider_url_distante(){
-		$essais = array (
+		$essais =  [
   0 => 
-  array (
+   [
     0 => 'http://www.spip.net',
     1 => 'http://www.spip.net',
-  ),
+  ],
   1 => 
-  array (
+   [
     0 => 'https://www.spip.net',
     1 => 'https://www.spip.net',
-  ),
+  ],
   2 => 
-  array (
+   [
     0 => false,
     1 => 'ftp://www.spip.net',
-  ),
+  ],
   3 => 
-  array (
+   [
     0 => false,
     1 => 'http://user@www.spip.net',
-  ),
+  ],
   4 => 
-  array (
+   [
     0 => false,
     1 => 'https://user:password@www.spip.net',
-  ),
+  ],
   5 => 
-  array (
+   [
     0 => false,
     1 => 'http://127.0.0.1/munin/graph.png',
-  ),
+  ],
   6 => 
-  array (
+   [
     0 => false,
     1 => 'http://localhost:8765',
-  ),
+  ],
   7 => 
-  array (
+   [
     0 => 'http://localhost:8765/test.png',
     1 => 'http://localhost:8765/test.png',
     2 => 
-    array (
+     [
       0 => 'localhost:8765',
-    ),
-  ),
+    ],
+  ],
   8 => 
-  array (
+   [
     0 => false,
     1 => 'http://localhost:9100/test.png',
-  ),
+  ],
   9 => 
-  array (
+   [
     0 => false,
     1 => 'http://user@password:localhost:8765/test.png',
     2 => 
-    array (
+     [
       0 => 'localhost:8765',
-    ),
-  ),
+    ],
+  ],
   10 => 
-  array (
+   [
     0 => false,
     1 => 'http://user@password:localhost:8765/test.png',
     2 => 
-    array (
+     [
       0 => 'http://user@password:localhost:8765',
-    ),
-  ),
-);
+    ],
+  ],
+];
 		return $essais;
 	}
 

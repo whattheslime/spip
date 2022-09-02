@@ -9,19 +9,19 @@
 	include_spip('inc/filtres');
 
 	// extraire une balise ouvrante
-	$essais[] = array('<a href="truc">chose</a>', 'allo <a href="truc">chose</a>');
+	$essais[] = ['<a href="truc">chose</a>', 'allo <a href="truc">chose</a>'];
 
 	// extraire une balise autofermante
-	$essais[] = array('<a href="truc" />', 'allo <a href="truc" />');
+	$essais[] = ['<a href="truc" />', 'allo <a href="truc" />'];
 
 	// peu importent les \n
-	$essais[] = array("<a\nhref='truc' />", 'allo'."\n"." <a\nhref='truc' />");
+	$essais[] = ["<a\nhref='truc' />", 'allo'."\n"." <a\nhref='truc' />"];
 
 	// extraire plusieurs balises (array => array)
-	$essais[] = array(
-		array('<a href="1">', '<a href="2">'),
-		array('allo <a href="1">', 'allo <a href="2">')
-	);
+	$essais[] = [
+		['<a href="1">', '<a href="2">'],
+		['allo <a href="1">', 'allo <a href="2">']
+	];
 
 	$err = tester_fun('extraire_balise', $essais);
 
@@ -32,37 +32,37 @@
 
 
 
-	$essais = array();
+	$essais = [];
 
 	// un tag
-	$essais[] = array(
-		array('<a href="truc">chose</a>'),
+	$essais[] = [
+		['<a href="truc">chose</a>'],
 		'bonjour <a href="truc">chose</a> machin'
-	);
+	];
 
 	// deux tags
-	$essais[] = array(
-		array('<a href="truc">chose</a>', '<A href="truc">machin</a>'),
+	$essais[] = [
+		['<a href="truc">chose</a>', '<A href="truc">machin</a>'],
 		'bonjour <a href="truc">chose</a> machin <A href="truc">machin</a>'
-	);
+	];
 
 	// tag mal forme
-	$essais[] = array(
-		array('<a href="truc">'),
+	$essais[] = [
+		['<a href="truc">'],
 		'bonjour <a href="truc">chose'
-	);
+	];
 
 	// piege
-	$essais[] = array(
-		array('<a href="truc"/>'),
+	$essais[] = [
+		['<a href="truc"/>'],
 		'<a href="truc"/>chose</a>'
-	);
+	];
 
 	// sans attributs
-	$essais[] = array(
-		array('<a>chose</a>'),
+	$essais[] = [
+		['<a>chose</a>'],
 		'<a>chose</a>'
-	);
+	];
 
 
 

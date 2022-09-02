@@ -8,20 +8,20 @@
 	include_spip('inc/filtres');
 
 	$essais["lien prive"] =
-	 array("bla bla <a href='".str_replace("&amp;","&#38;",generer_url_ecrire('toto','truc=machin&chose=bidule',false,false))."'>lien prive</a>",
-	 "bla bla <a href='".generer_url_ecrire('toto','truc=machin&chose=bidule',false,true)."'>lien prive</a>");
+	 ["bla bla <a href='".str_replace("&amp;","&#38;",generer_url_ecrire('toto','truc=machin&chose=bidule',false,false))."'>lien prive</a>",
+	 "bla bla <a href='".generer_url_ecrire('toto','truc=machin&chose=bidule',false,true)."'>lien prive</a>"];
 
 	$essais["lien public"] =
-	 array("bla bla <a href='".str_replace("&amp;","&#38;",generer_url_public('toto','truc=machin&chose=bidule',false,false))."'>lien public</a>",
-	 "bla bla <a href='".generer_url_public('toto','truc=machin&chose=bidule',false,true)."'>lien public</a>");
+	 ["bla bla <a href='".str_replace("&amp;","&#38;",generer_url_public('toto','truc=machin&chose=bidule',false,false))."'>lien public</a>",
+	 "bla bla <a href='".generer_url_public('toto','truc=machin&chose=bidule',false,true)."'>lien public</a>"];
 
 	$essais["mailto"] =
-	 array("bla bla <a href='mailto:toto'>email</a>",
-	 "bla bla <a href='mailto:toto'>email</a>");
+	 ["bla bla <a href='mailto:toto'>email</a>",
+	 "bla bla <a href='mailto:toto'>email</a>"];
 	 
 	$essais["javascript"] =
-	 array("bla bla <a href='javascript:open()'>javascript</a>",
-	 "bla bla <a href='javascript:open()'>javascript</a>");
+	 ["bla bla <a href='javascript:open()'>javascript</a>",
+	 "bla bla <a href='javascript:open()'>javascript</a>"];
 
 	//
 	// hop ! on y va

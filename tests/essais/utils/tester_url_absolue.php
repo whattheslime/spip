@@ -26,43 +26,43 @@ function test_utils_tester_url_absolue(...$args) {
  *  [ output, input1, input2, input3...]
  */
 function essais_utils_tester_url_absolue(){
-		$essais = array (
+		$essais =  [
   0 => 
-  array (
+   [
     0 => true,
     1 => 'http://www.spip.net/',
-  ),
+  ],
   1 => 
-  array (
+   [
     0 => true,
     1 => 'https://www.spip.net/',
-  ),
+  ],
   2 => 
-  array (
+   [
     0 => true,
     1 => 'http://www.spip.net/sousrep/fr/',
-  ),
+  ],
   3 => 
-  array (
+   [
     0 => true,
     1 => 'ftp://www.spip.net/',
-  ),
+  ],
   4 => 
-  array (
+   [
     0 => true,
     1 => '//www.spip.net/',
-  ),
+  ],
   5 => 
-  array (
+   [
     0 => false,
     1 => '/spip/?page=sommaire',
-  ),
+  ],
   6 => 
-  array (
+   [
     0 => false,
     1 => 'spip/?page=sommaire',
-  ),
-);
+  ],
+];
 		return $essais;
 	}
 

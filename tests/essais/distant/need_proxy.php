@@ -26,44 +26,44 @@ function test_distant_need_proxy(...$args) {
  *  [ output, input1, input2, input3...]
  */
 function essais_distant_need_proxy(){
-		$essais = array (
+		$essais =  [
   0 => 
-  array (
+   [
     0 => 'http://monproxy.example.org',
     1 => 'sous.domaine.spip.net',
     2 => 'http://monproxy.example.org',
     3 => 'spip.net',
-  ),
+  ],
   1 => 
-  array (
+   [
     0 => '',
     1 => 'sous.domaine.spip.net',
     2 => 'http://monproxy.example.org',
     3 => '.spip.net',
-  ),
+  ],
   2 => 
-  array (
+   [
     0 => '',
     1 => 'sous.domaine.spip.net',
     2 => 'http://monproxy.example.org',
     3 => '.spip.net
 .net',
-  ),
+  ],
   3 => 
-  array (
+   [
     0 => '',
     1 => 'sous.domaine.spip.net',
     2 => 'http://monproxy.example.org',
     3 => 'sous.domaine.spip.net',
-  ),
+  ],
   4 => 
-  array (
+   [
     0 => 'http://monproxy.example.org',
     1 => 'sous.domaine.spip.net',
     2 => 'http://monproxy.example.org',
     3 => '.sous.domaine.spip.net',
-  ),
-);
+  ],
+];
 		return $essais;
 	}
 

@@ -8,8 +8,8 @@
 
 	include_spip('inc/filtres');
 
-	$essais["2000/01"] = array('2000-01-01', "2000/01");
-	$essais["2000/12"] = array('2000-12-01', "2000/12");
+	$essais["2000/01"] = ['2000-01-01', "2000/01"];
+	$essais["2000/12"] = ['2000-12-01', "2000/12"];
 
 	$err = tester_fun('extraire_date', $essais);
 

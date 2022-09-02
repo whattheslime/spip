@@ -31,68 +31,68 @@ function test_connect_sql_query_echappe_textes(...$args) {
  */
 function essais_connect_sql_query_echappe_textes(){
 	  $md5 = substr(md5('uniqid'), 0, 4);
-		$essais = array (
-  array (
-    0 => array('%1$s', array ("'guillemets simples'")),
+		$essais =  [
+   [
+    0 => ['%1$s',  ["'guillemets simples'"]],
     1 => "'guillemets simples'",
-  ),
-  array (
-    0 => array('%1$s', array ("\"guillemets doubles\"")),
+  ],
+   [
+    0 => ['%1$s',  ["\"guillemets doubles\""]],
     1 => "\"guillemets doubles\"",
-  ),
-  array (
-    0 => array('%1$s,%2$s', array ("'guillemets simples 1/2'", "'guillemets simples 2/2'")),
+  ],
+   [
+    0 => ['%1$s,%2$s',  ["'guillemets simples 1/2'", "'guillemets simples 2/2'"]],
     1 => "'guillemets simples 1/2','guillemets simples 2/2'",
-  ),
-  array (
-    0 => array('%1$s,%2$s', array ("\"guillemets doubles 1/2\"", "\"guillemets doubles 2/2\"")),
+  ],
+   [
+    0 => ['%1$s,%2$s',  ["\"guillemets doubles 1/2\"", "\"guillemets doubles 2/2\""]],
     1 => "\"guillemets doubles 1/2\",\"guillemets doubles 2/2\"",
-  ),
-  array (
-    0 => array('%1$s', array ("'guillemets simples \x2@#{$md5}#@\x2 avec un echappement'")),
+  ],
+   [
+    0 => ['%1$s',  ["'guillemets simples \x2@#{$md5}#@\x2 avec un echappement'"]],
     1 => "'guillemets simples \' avec un echappement'",
-  ),
-  array (
-    0 => array('%1$s', array ("\"guillemets doubles \x3@#{$md5}#@\x3 avec un echappement\"")),
+  ],
+   [
+    0 => ['%1$s',  ["\"guillemets doubles \x3@#{$md5}#@\x3 avec un echappement\""]],
     1 => "\"guillemets doubles \\\" avec un echappement\"",
-  ),
-  array (
-    0 => array('%1$s', array ("'guillemets simples \x2@#{$md5}#@\x2\x3@#{$md5}#@\x3 avec deux echappements'")),
+  ],
+   [
+    0 => ['%1$s',  ["'guillemets simples \x2@#{$md5}#@\x2\x3@#{$md5}#@\x3 avec deux echappements'"]],
     1 => "'guillemets simples \'\\\" avec deux echappements'",
-  ),
-  array (
-    0 => array('%1$s', array ("\"guillemets doubles \x2@#{$md5}#@\x2\x3@#{$md5}#@\x3 avec deux echappements\"")),
+  ],
+   [
+    0 => ['%1$s',  ["\"guillemets doubles \x2@#{$md5}#@\x2\x3@#{$md5}#@\x3 avec deux echappements\""]],
     1 => "\"guillemets doubles \'\\\" avec deux echappements\"",
-  ),
-  array (
-    0 => array('%1$s', array ("'guillemet double \" dans guillemets simples'")),
+  ],
+   [
+    0 => ['%1$s',  ["'guillemet double \" dans guillemets simples'"]],
     1 => "'guillemet double \" dans guillemets simples'",
-  ),
-  array (
-    0 => array('%1$s', array ("\"guillemet simple ' dans guillemets doubles\"")),
+  ],
+   [
+    0 => ['%1$s',  ["\"guillemet simple ' dans guillemets doubles\""]],
     1 => "\"guillemet simple ' dans guillemets doubles\"",
-  ),
+  ],
 
   // sortie de sqlitemanager firefox
   // (description de table suite a import d'une table au format xml/phpmyadmin v5)
-  array (
-    0 => array('%1$s INTEGER,%2$s VARCHAR', array ("\"id_objet\"","\"objet\"")),
+   [
+    0 => ['%1$s INTEGER,%2$s VARCHAR',  ["\"id_objet\"","\"objet\""]],
     1 => "\"id_objet\" INTEGER,\"objet\" VARCHAR",
-  ),
+  ],
 
-	array(
-		0 => array('UPDATE spip_truc SET html=%1$s WHERE id_truc=1', array("'''0'' style=''margin: 0;padding: 0;width: 100\x4@#{$md5}#@\x4;border: 0;height: auto;lin'")),
+	[
+		0 => ['UPDATE spip_truc SET html=%1$s WHERE id_truc=1', ["'''0'' style=''margin: 0;padding: 0;width: 100\x4@#{$md5}#@\x4;border: 0;height: auto;lin'"]],
 		1 => "UPDATE spip_truc SET html='''0'' style=''margin: 0;padding: 0;width: 100%;border: 0;height: auto;lin' WHERE id_truc=1",
-	),
-	array(
-		0 => array('UPDATE spip_truc SET html=%1$s, texte=%2$s WHERE id_truc=1', array("'''0'' style=''margin: 0;padding: 0;width: 100\x4@#{$md5}#@\x4;border: 0;height: auto;lin'", "'toto'")),
+	],
+	[
+		0 => ['UPDATE spip_truc SET html=%1$s, texte=%2$s WHERE id_truc=1', ["'''0'' style=''margin: 0;padding: 0;width: 100\x4@#{$md5}#@\x4;border: 0;height: auto;lin'", "'toto'"]],
 		1 => "UPDATE spip_truc SET html='''0'' style=''margin: 0;padding: 0;width: 100%;border: 0;height: auto;lin', texte='toto' WHERE id_truc=1",
-	),
-	array(
-		0 => array('UPDATE spip_truc SET texte=%1$s, html=%2$s WHERE id_truc=1', array("''", "'''0'' style=''margin: 0;padding: 0;width: 100\x4@#{$md5}#@\x4;border: 0;height: auto;lin'")),
+	],
+	[
+		0 => ['UPDATE spip_truc SET texte=%1$s, html=%2$s WHERE id_truc=1', ["''", "'''0'' style=''margin: 0;padding: 0;width: 100\x4@#{$md5}#@\x4;border: 0;height: auto;lin'"]],
 		1 => "UPDATE spip_truc SET texte='', html='''0'' style=''margin: 0;padding: 0;width: 100%;border: 0;height: auto;lin' WHERE id_truc=1",
-	),
-);
+	],
+];
 		return $essais;
 	}
 

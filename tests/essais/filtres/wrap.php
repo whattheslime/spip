@@ -26,27 +26,27 @@ function test_filtres_wrap(...$args) {
  *  [ output, input1, input2, input3...]
  */
 function essais_filtres_wrap(){
-		$essais = array (
+		$essais =  [
   0 => 
-  array (
+   [
     0 => '<h3>un mot</h3>',
     1 => 'un mot',
     2 => '<h3>',
-  ),
+  ],
   1 => 
-  array (
+   [
     0 => '<h3><b>un mot</b></h3>',
     1 => 'un mot',
     2 => '<h3><b>',
-  ),
+  ],
   2 => 
-  array (
+   [
     0 => '<h3 class="spip"><b>un mot</b></h3>',
     1 => 'un mot',
     2 => '<h3 class="spip"><b>',
-  ),
+  ],
 
-);
+];
 		return $essais;
 	}
 

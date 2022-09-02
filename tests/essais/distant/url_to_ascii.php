@@ -26,38 +26,38 @@ function test_distant_url_to_ascii(...$args) {
  *  [ output, input1, input2, input3...]
  */
 function essais_distant_url_to_ascii(){
-		$essais = array (
+		$essais =  [
   0 => 
-  array (
+   [
     0 => 'http://www.spip.net/',
     1 => 'http://www.spip.net/',
-  ),
+  ],
   1 => 
-  array (
+   [
     0 => 'http://www.spip.net/fr_article879.html#BOUCLE-ARTICLES-',
     1 => 'http://www.spip.net/fr_article879.html#BOUCLE-ARTICLES-',
-  ),
+  ],
   2 => 
-  array (
+   [
     0 => 'http://user:pass@www.spip.net:80/fr_article879.html#BOUCLE-ARTICLES-',
     1 => 'http://user:pass@www.spip.net:80/fr_article879.html#BOUCLE-ARTICLES-',
-  ),
+  ],
   3 => 
-  array (
+   [
     0 => 'http://www.xn--spap-7pa.net/',
     1 => 'http://www.spaïp.net/',
-  ),
+  ],
   4 => 
-  array (
+   [
     0 => 'http://www.xn--spap-7pa.net/fr_article879.html#BOUCLE-ARTICLES-',
     1 => 'http://www.spaïp.net/fr_article879.html#BOUCLE-ARTICLES-',
-  ),
+  ],
   5 => 
-  array (
+   [
     0 => 'http://user:pass@www.xn--spap-7pa.net:80/fr_article879.html#BOUCLE-ARTICLES-',
     1 => 'http://user:pass@www.spaïp.net:80/fr_article879.html#BOUCLE-ARTICLES-',
-  ),
-);
+  ],
+];
 		return $essais;
 	}
 

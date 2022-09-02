@@ -27,7 +27,7 @@ function test_filtres_textebrut(...$args) {
  */
 function essais_filtres_textebrut(){
 	// TODO
-		$essais = array (
-);
+		$essais =  [
+];
 		return $essais;
 	}

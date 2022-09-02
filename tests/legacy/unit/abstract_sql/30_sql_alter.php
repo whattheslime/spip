@@ -21,7 +21,7 @@
 	 * Alter colonne
 	 */
 	function test_alter_colonne() {	
-		$err = $essais = array();
+		$err = $essais = [];
 		$table = "spip_test_tintin";
 
 		// supprimer une colonne
@@ -82,7 +82,7 @@
 	 * Renomme table
 	 */
 	function test_alter_renomme_table() {	
-		$err = $essais = array();
+		$err = $essais = [];
 		$table = "spip_test_tintin";
 		
 		// renommer une table
@@ -104,7 +104,7 @@
 	 * pointer l'index
 	 */
 	function test_alter_index() {	
-		$err = $essais = array();
+		$err = $essais = [];
 		$table = "spip_test_milou";
 
 		// supprimer un index
@@ -158,15 +158,15 @@
 	 * dezinguer la primary
 	 */
 	function test_alter_primary() {	
-		$err = $essais = array();
+		$err = $essais = [];
 		$table = "spip_test_kirikou";
 
 		// creer une table pour jouer
-		sql_create($table,array(
+		sql_create($table,[
 			"un"=>"INTEGER NOT NULL",
 			"deux"=>"INTEGER NOT NULL",
-			"trois"=>"INTEGER NOT NULL"),
-			array('PRIMARY KEY'=>"un"));
+			"trois"=>"INTEGER NOT NULL"],
+			['PRIMARY KEY'=>"un"]);
 
 		// supprimer une primary
 		$desc = sql_showtable($table);
@@ -196,7 +196,7 @@
 	 * Alter colonne
 	 */
 	function test_alter_multiple() {
-		$err = $essais = array();
+		$err = $essais = [];
 		$table = "spip_test_milou";
 
 		// supprimer des colonnes

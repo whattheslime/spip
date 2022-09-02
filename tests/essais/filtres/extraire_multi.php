@@ -27,72 +27,72 @@ function test_filtres_extraire_multi(...$args) {
  *  [ output, input1, input2, input3...]
  */
 function essais_filtres_extraire_multi(){
-		$essais = array (
+		$essais =  [
   0 => 
-  array (
+   [
     0 => 'english',
     1 => '<multi>[fr]francais[en]english[de]deutsch</multi>',
     2 => 'en',
-  ),
+  ],
   1 => 
-  array (
+   [
     0 => 'deutsch',
     1 => '<multi>[fr]francais[en]english[de]deutsch</multi>',
     2 => 'de',
-  ),
+  ],
   2 => 
-  array (
+   [
     0 => 'francais',
     1 => '<multi>[fr]francais[en]english[de]deutsch</multi>',
     2 => 'fr',
-  ),
+  ],
   3 => 
-  array (
+   [
     0 => '<span lang=\'fr\'>francais</span>',
     1 => '<multi>[fr]francais[en]english[de]deutsch</multi>',
     2 => 'it',
-  ),
+  ],
   4 => 
-  array (
+   [
     0 => '<span lang=\'fr\' dir=\'ltr\'>francais</span>',
     1 => '<multi>[fr]francais[en]english[de]deutsch</multi>',
     2 => 'ar',
-  ),
+  ],
   5 => 
-  array (
+   [
     0 => 'english',
     1 => '<multi>[fr]francais[en]english[de]deutsch</multi>',
     2 => 'en',
     3 => true,
-  ),
+  ],
   6 => 
-  array (
+   [
     0 => 'deutsch',
     1 => '<multi>[fr]francais[en]english[de]deutsch</multi>',
     2 => 'de',
     3 => true,
-  ),
+  ],
   7 => 
-  array (
+   [
     0 => 'francais',
     1 => '<multi>[fr]francais[en]english[de]deutsch</multi>',
     2 => 'fr',
     3 => true,
-  ),
+  ],
   8 => 
-  array (
+   [
     0 => '<span class="base64multi" title="ZnJhbmNhaXM=" lang="fr"></span>',
     1 => '<multi>[fr]francais[en]english[de]deutsch</multi>',
     2 => 'it',
     3 => true,
-  ),
+  ],
   9 => 
-  array (
+   [
     0 => '<span class="base64multi" title="ZnJhbmNhaXM=" lang="fr" dir="ltr"></span>',
     1 => '<multi>[fr]francais[en]english[de]deutsch</multi>',
     2 => 'ar',
     3 => true,
-  ),
-);
+  ],
+];
 		return $essais;
 	}

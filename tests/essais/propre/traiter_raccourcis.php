@@ -63,44 +63,44 @@ function essais_propre_traiter_raccourcis(){
 
 
 // trois tests un peu identiques sur <br />...
-	$essais['div'] = array(
+	$essais['div'] = [
 		"<div>titi<br />toto</div>\n<p><br />tata</p>\n",
 		'<div>titi<br />toto</div><br />tata'
-	);
-	$essais['span'] = array(
+	];
+	$essais['span'] = [
 		'<span>titi<br />toto</span><br />tata',
 		'<span>titi<br />toto</span><br />tata'
-	);
-	$essais['table'] = array(
+	];
+	$essais['table'] = [
 		"<table><tr><td>titi<br />toto</td></tr></table>\n<p><br />tata</p>\n",
 		'<table><tr><td>titi<br />toto</td></tr></table><br />tata'
-	);
+	];
 
 // melanges de \n et de <br />
-	$essais['\n_x1_mixte1'] = array(
+	$essais['\n_x1_mixte1'] = [
 		"titi\n<br />toto<br />",
 		"titi\n<br />toto<br />"
-	);
-	$essais['\n_x1_mixte2'] = array(
+	];
+	$essais['\n_x1_mixte2'] = [
 		"titi\n<br />\ntoto<br />",
 		"titi\n<br />\ntoto<br />"
-	);
+	];
 
 // des tirets en debut de texte
-	$essais['tirets1'] = array(
+	$essais['tirets1'] = [
 		"&mdash;&nbsp;chose\n<br />&mdash;&nbsp;truc",
 		"-- chose\n-- truc"
-	);
+	];
 
-	$essais['tirets2'] = array(
+	$essais['tirets2'] = [
 		"-&nbsp;chose\n<br />-&nbsp;truc",
 		"- chose\n- truc"
-	);
+	];
 // ligne horizontale
-	$essais['lignehorizontale'] = array(
+	$essais['lignehorizontale'] = [
 		"<hr class=\"spip\" />",
 		"\n----\n"
-	);
+	];
 
 	return $essais;
 }

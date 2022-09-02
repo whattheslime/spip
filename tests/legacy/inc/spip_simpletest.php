@@ -8,7 +8,7 @@ include_spip('inc/autoriser');
 if (!_IS_CLI) {
 	if ((!isset($GLOBALS['visiteur_session']['statut'])
 	     OR $GLOBALS['visiteur_session']['statut'] != '0minirezo')
-	     AND !in_array($_SERVER["REMOTE_ADDR"], array('127.0.0.1', '127.0.1.1', '::1')) ) {
+	     AND !in_array($_SERVER["REMOTE_ADDR"], ['127.0.0.1', '127.0.1.1', '::1']) ) {
 		die('Administrateur local requis !');
 	}
 }
@@ -28,7 +28,7 @@ define('_NO_TIMER',true);
  * et definir d'autres fonctions d'assertion
  */
 class SpipTest extends UnitTestCase {  
-	var $options_recuperer_code = array();
+	var $options_recuperer_code = [];
 	var $adresse_dernier_fichier_pour_code = '';
 
 	function __construct($name = false) {
@@ -60,7 +60,7 @@ class SpipTest extends UnitTestCase {
 	 * @param string $noisette : noisette a tester
 	 * @param array $params : tableau de params a transmettre
 	 */
-	function generer_url_test($noisette, $params=array(), $var_mode_auto=true){
+	function generer_url_test($noisette, $params=[], $var_mode_auto=true){
 
 		$appel = SpipTest::me() . "/tests/index.php";
 		$appel = parametre_url($appel, 'simpletest', true, '&');
@@ -70,7 +70,7 @@ class SpipTest extends UnitTestCase {
 		if ($var_mode_auto) {
 			if (isset($GLOBALS['var_mode'])
 				AND $mode = $GLOBALS['var_mode']
-				AND in_array($mode, array('calcul','recalcul'))) {
+				AND in_array($mode, ['calcul','recalcul'])) {
 					$appel =  parametre_url($appel,'var_mode',$mode,'&');
 			}
 		}
@@ -89,7 +89,7 @@ class SpipTest extends UnitTestCase {
 	 * 
 	 * @return url d'appel
 	 */	
-	function urlTestCode($code, $contexte=array(), $options = array(), $connect='') {
+	function urlTestCode($code, $contexte=[], $options = [], $connect='') {
 		$infos = $this->recuperer_infos_code($code, $contexte, $options, $connect);
 		return $this->generer_url_test($infos['fond']);
 	}
@@ -174,7 +174,7 @@ class SpipTest extends UnitTestCase {
 	 *  
 	 * @return true/false
 	 */
-	function assertNotOkCode($code, $contexte=array(), $options = array(), $connect='', $message = "%s") {
+	function assertNotOkCode($code, $contexte=[], $options = [], $connect='', $message = "%s") {
 		return $this->assertNotOk($this->recuperer_code($code, $contexte, $options, $connect), $message);
 	}
 
@@ -197,7 +197,7 @@ class SpipTest extends UnitTestCase {
 	 *  
 	 * @return true/false
 	 */
-	function assertOkCode($code, $contexte=array(), $options = array(), $connect='', $message = "%s") {
+	function assertOkCode($code, $contexte=[], $options = [], $connect='', $message = "%s") {
 		return $this->assertOk($this->recuperer_code($code, $contexte, $options, $connect), $message);
 	}
 
@@ -221,7 +221,7 @@ class SpipTest extends UnitTestCase {
 	 * 
 	 * @return true/false
 	 */
-	function assertEqualCode($value, $code, $contexte=array(), $options = array(), $connect='', $message = "%s") {
+	function assertEqualCode($value, $code, $contexte=[], $options = [], $connect='', $message = "%s") {
 		return $this->assertEqual($value, $this->recuperer_code($code, $contexte, $options, $connect), $message);
 	}
 
@@ -245,7 +245,7 @@ class SpipTest extends UnitTestCase {
 	 * 
 	 * @return true/false
 	 */
-	function assertNotEqualCode($value, $code, $contexte=array(), $options = array(), $connect='', $message = "%s") {
+	function assertNotEqualCode($value, $code, $contexte=[], $options = [], $connect='', $message = "%s") {
 		return $this->assertNotEqual($value, $this->recuperer_code($code, $contexte, $options, $connect), $message);
 	}
 
@@ -268,7 +268,7 @@ class SpipTest extends UnitTestCase {
 	 * 
 	 * @return true/false
 	 */
-	function assertPatternCode($pattern, $code, $contexte=array(), $options = array(), $connect='', $message = "%s") {
+	function assertPatternCode($pattern, $code, $contexte=[], $options = [], $connect='', $message = "%s") {
 		return $this->assertPattern($pattern, $this->recuperer_code($code, $contexte, $options, $connect), $message);
 	}
 
@@ -285,7 +285,7 @@ class SpipTest extends UnitTestCase {
 	 * 
 	 * @return string/array : page compilee et calculee
 	 */
-	function recuperer_code($code, $contexte=array(), $options = array(), $connect=''){
+	function recuperer_code($code, $contexte=[], $options = [], $connect=''){
 		$opt = $this->options_recuperer_code;
 		if (isset($opt['avant_code']))
 			$code = $opt['avant_code'] . $code;
@@ -312,7 +312,7 @@ class SpipTest extends UnitTestCase {
 	 * Appele recuperer_fond avec l'option raw pour obtenir un tableau d'informations
 	 * que l'on complete avec le nom du fond et les erreurs de compilations generees
 	 */
-	function recuperer_infos_code($code, $contexte=array(), $options = array(), $connect=''){
+	function recuperer_infos_code($code, $contexte=[], $options = [], $connect=''){
 		$options['raw'] = true;
 		// vider les erreurs
 		$this->init_compilation_errors();
@@ -342,7 +342,7 @@ class SpipTest extends UnitTestCase {
 	 * @param bool $merge  : les options se cumulent aux autres ? (ou viennent en remplacement)
 	 * @return null;
 	 */
-	function options_recuperer_code($options = array(), $merge=false) {
+	function options_recuperer_code($options = [], $merge=false) {
 		if ($merge) {
 			$this->options_recuperer_code = array_merge($this->options_recuperer_code,$options);
 		} else {
@@ -356,8 +356,8 @@ class SpipTest extends UnitTestCase {
 	 */
 	function get_compilation_errors(){
 		$debusquer = charger_fonction('debusquer', 'public');
-		$erreurs = $debusquer('', '', array('erreurs' => 'get'));
-		$debusquer('', '', array('erreurs' => 'reset'));
+		$erreurs = $debusquer('', '', ['erreurs' => 'get']);
+		$debusquer('', '', ['erreurs' => 'reset']);
 		return $erreurs;
 	}
 
@@ -367,7 +367,7 @@ class SpipTest extends UnitTestCase {
 	 */
 	function init_compilation_errors(){
 		$debusquer = charger_fonction('debusquer', 'public');
-		$debusquer('', '', array('erreurs' => 'reset'));
+		$debusquer('', '', ['erreurs' => 'reset']);
 	}
 
 	/**
@@ -455,10 +455,10 @@ class SpipTestSuite extends TestSuite {
 			$info = pathinfo($f);
 			if (($info['extension']=='php') 
 			AND !strpos($info['basename'], '_fonctions.php')
-			AND !in_array($info['basename'], array(
+			AND !in_array($info['basename'], [
 				'lanceur_spip.php',
 				'all_tests.php',
-			))) {
+			])) {
 				$this->addFile($f);	
 			}
 		}

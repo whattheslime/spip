@@ -33,25 +33,25 @@ function essais_texte_interdire_script_parano(){
 	$essais = [];
 
 	$essais[] =
-		array("<code class=\"echappe-js\">&lt;script type='text/javascript' src='toto.js'&gt;&lt;/script&gt;</code>", "<script type='text/javascript' src='toto.js'></script>");
+		["<code class=\"echappe-js\">&lt;script type='text/javascript' src='toto.js'&gt;&lt;/script&gt;</code>", "<script type='text/javascript' src='toto.js'></script>"];
 
 	$essais[] =
-		array("<code class=\"echappe-js\">&lt;script type='text/javascript' src='spip.php?page=toto'&gt;&lt;/script&gt;</code>", "<script type='text/javascript' src='spip.php?page=toto'></script>");
+		["<code class=\"echappe-js\">&lt;script type='text/javascript' src='spip.php?page=toto'&gt;&lt;/script&gt;</code>", "<script type='text/javascript' src='spip.php?page=toto'></script>"];
 
 	$essais[] =
-		array("<code class=\"echappe-js\">&lt;script type='text/javascript'&gt;var php=5;&lt;/script&gt;</code>", "<script type='text/javascript'>var php=5;</script>");
+		["<code class=\"echappe-js\">&lt;script type='text/javascript'&gt;var php=5;&lt;/script&gt;</code>", "<script type='text/javascript'>var php=5;</script>"];
 
 	$essais[] =
-		array("<code class=\"echappe-js\">&lt;script language='javascript' src='spip.php?page=toto'&gt;&lt;/script&gt;</code>", "<script language='javascript' src='spip.php?page=toto'></script>");
+		["<code class=\"echappe-js\">&lt;script language='javascript' src='spip.php?page=toto'&gt;&lt;/script&gt;</code>", "<script language='javascript' src='spip.php?page=toto'></script>"];
 
 	$essais[] =
-		array("&lt;script language='php'>die();</script>", "<script language='php'>die();</script>");
+		["&lt;script language='php'>die();</script>", "<script language='php'>die();</script>"];
 
 	$essais[] =
-		array("&lt;script language=php>die();</script>", "<script language=php>die();</script>");
+		["&lt;script language=php>die();</script>", "<script language=php>die();</script>"];
 
 	$essais[] =
-		array("&lt;script language = php >die();</script>", "<script language = php >die();</script>");
+		["&lt;script language = php >die();</script>", "<script language = php >die();</script>"];
 
 
 	return $essais;

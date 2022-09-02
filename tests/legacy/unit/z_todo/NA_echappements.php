@@ -11,32 +11,32 @@
 // $essai[][0] : texte original
 // $essai[][1] : resultat $no_transform=false
 // $essai[][2] : resultat $no_transform=true
-$essais = array(
-array(
+$essais = [
+[
 	'avant<code>toto</code>apres', 
 	',^avant<code[^>]*>toto</code>apres$,',
 	',^avant<code>toto</code>apres$,', 
-),array(
+],[
 	'avant<script>toto</script>\n\napres',  
 	',^avant<script>toto</script>\n\napres$,',
 	',^avant<script>toto</script>\n\napres$,',
-),array(
+],[
 	"toto<code>titi</code>tata<br>toto<script>titi</script>tata",  
 	",^toto<code[^>]*>titi</code>tata<br>toto<script>titi</script>\n\ntata$,",
 	",^toto<code>titi</code>tata<br>toto<script>titi</script>tata$,",
-),array(
+],[
 	"avant<script language=\"JavaScript\" type=\"text/javascript\">titi</script><noscript>notiti</noscript>apres",
 	",^avant<script language=\"JavaScript\" type=\"text/javascript\">titi</script>\n\n<noscript>notiti</noscript>apres$,",
 	",^avant<script language=\"JavaScript\" type=\"text/javascript\">titi</script>\n\n<noscript>notiti</noscript>apres$,",
-),array(
+],[
 	"avant <html>toto</html> apres",
 	",^avant toto apres$,",
 	",^avant <html>toto</html> apres$,",
-),array(
+],[
 	"avant<html><div>toto</div></html>apres",
 	",^avant<div>toto</div>\n\napres$,",
 	",^avant<html><div>toto</div></html>apres$,",
-));
+]];
 
 // une fonction de callback qui echappe les balises contenant des guillemets
 function echappe_balises_callback($matches) {

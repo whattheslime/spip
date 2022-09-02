@@ -1,6 +1,6 @@
 <?php
 
-	$err = array();
+	$err = [];
 	$test = 'liens_classes';
 	$remonte = __DIR__ . '/';
 	while (!is_file($remonte."test.inc"))

@@ -51,6 +51,6 @@ class Template
 	 */
 	private function init_compilation_errors(): void {
 		$debusquer = charger_fonction('debusquer', 'public');
-		$debusquer('', '', array('erreurs' => 'reset'));
+		$debusquer('', '', ['erreurs' => 'reset']);
 	}
 }

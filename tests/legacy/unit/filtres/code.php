@@ -22,8 +22,8 @@ echo "OK";
 
 
 function essais_code_dist(){
-	$essais = array(
-		array(
+	$essais = [
+		[
 			0 =>
 				'<p>Le r&#233;sultat se pr&#233;sente sous la forme suivante&nbsp;:</p>
 <div style=\'text-align: left;\' class=\'spip_code\' dir=\'ltr\'><code>root@bennybox# ls /var/state/mysql/<br />
@@ -42,8 +42,8 @@ root@bennybox# ls /var/state/mysql/spip/
 spip_articles.sql.gz    spip_breves.sql.gz ....
 </code>
 '
-		),
-	);
+		],
+	];
 
 	return $essais;
 }

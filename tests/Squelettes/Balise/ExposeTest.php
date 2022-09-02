@@ -9,16 +9,16 @@ use Spip\Core\Testing\Template\FileLoader;
 class ExposeTest extends SquelettesTestCase
 {
 	public function testExposerRubrique(): void {
-		$id_rubrique = sql_getfetsel('id_rubrique','spip_rubriques', array(
+		$id_rubrique = sql_getfetsel('id_rubrique','spip_rubriques', [
 			'id_parent='.sql_quote(0),
 			'statut='.sql_quote('publie')
-		));
+		]);
 
-		$id_seconde_rubrique = sql_getfetsel('id_rubrique','spip_rubriques', array(
+		$id_seconde_rubrique = sql_getfetsel('id_rubrique','spip_rubriques', [
 			'id_parent='.sql_quote(0),
 			'statut='.sql_quote('publie'),
 			'id_rubrique != ' . intval($id_rubrique),
-		));
+		]);
 
 		if (!$id_rubrique or !$id_seconde_rubrique) {
 			$this->markTestSkipped("Vous devez avoir au moins 2 rubriques racines publiees pour tester #EXPOSE...");

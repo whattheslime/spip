@@ -29,9 +29,9 @@ function test_filtres_mime_filtre_text_csv_dist(...$args) {
  *  [ output, input1, input2, input3...]
  */
 function essais_filtres_mime_filtre_text_csv_dist(){
-		$essais = array (
+		$essais =  [
   0 => 
-  array (
+   [
     0 => '<table class="table spip">
 <thead><tr class=\'row_first\'><th id=\'id9b86_c0\'>A</th><th id=\'id9b86_c1\'>B</th><th id=\'id9b86_c2\'>C</th><th id=\'id9b86_c3\'>D</th><th id=\'id9b86_c4\'>E</th><th id=\'id9b86_c5\'>F</th></tr></thead>
 <tbody>
@@ -62,9 +62,9 @@ function essais_filtres_mime_filtre_text_csv_dist(){
 un;tableau;csv;avec;des;valeurs
 dans chaque;case;et aussi une;case;avec;des
 """guillemets""";est-ce;que;ça;marche ?;',
-  ),
+  ],
   1 => 
-  array (
+   [
     0 => '<table class="table spip">
 <thead><tr class=\'row_first\'><th id=\'id5b64_c0\'>A</th><th id=\'id5b64_c1\'>B</th><th id=\'id5b64_c2\'>C</th><th id=\'id5b64_c3\'>D</th><th id=\'id5b64_c4\'>E</th><th id=\'id5b64_c5\'>F</th></tr></thead>
 <tbody>
@@ -95,9 +95,9 @@ dans chaque;case;et aussi une;case;avec;des
 un;tableau;csv;avec;des;valeurs
 dans chaque;case;et aussi une;case;avec;des
 guillemets;est-ce;que;ça;marche ?;',
-  ),
+  ],
   2 => 
-  array (
+   [
     0 => '<table class="table spip">
 <thead><tr class=\'row_first\'><th id=\'idee6c_c0\'>A</th><th id=\'idee6c_c1\'>B</th><th id=\'idee6c_c2\'>C</th><th id=\'idee6c_c3\'>D</th><th id=\'idee6c_c4\'>E</th><th id=\'idee6c_c5\'>F</th></tr></thead>
 <tbody>
@@ -128,8 +128,8 @@ guillemets;est-ce;que;ça;marche ?;',
 "un","tableau","csv","avec","des","valeurs"
 "dans chaque","case","et aussi une","case","avec","des"
 """guillemets""","est-ce","que","√ßa","marche ?",',
-  ),
-);
+  ],
+];
 		return $essais;
 	}
 

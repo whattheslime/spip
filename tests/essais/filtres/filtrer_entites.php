@@ -26,48 +26,48 @@ function test_filtres_filtrer_entites(...$args) {
  *  [ output, input1, input2, input3...]
  */
 function essais_filtres_filtrer_entites(){
-		$essais = array (
+		$essais =  [
   0 => 
-  array (
+   [
     0 => '',
     1 => '',
-  ),
+  ],
   1 => 
-  array (
+   [
     0 => '0',
     1 => '0',
-  ),
+  ],
   2 => 
-  array (
+   [
     0 => 'Un texte avec des <a href="http://spip.net">liens</a> [Article 1->art1] [spip->http://www.spip.net] http://www.spip.net',
     1 => 'Un texte avec des <a href="http://spip.net">liens</a> [Article 1->art1] [spip->http://www.spip.net] http://www.spip.net',
-  ),
+  ],
   3 => 
-  array (
+   [
     0 => 'Un texte avec des entités &<>"',
     1 => 'Un texte avec des entit&eacute;s &amp;&lt;&gt;&quot;',
-  ),
+  ],
 	4 =>
-  array (
+   [
     0 => 'Un texte avec des entités numériques &<>"\'',
     1 => 'Un texte avec des entit&#233;s num&#233;riques &amp;&lt;&gt;&#034;&#039;',
-  ),
+  ],
   5 =>
-  array (
+   [
     0 => 'Un texte sans entites &<>"\'',
     1 => 'Un texte sans entites &<>"\'',
-  ),
+  ],
   6 =>
-  array (
+   [
     0 => '{{{Des raccourcis}}} {italique} {{gras}} <code>du code</code>',
     1 => '{{{Des raccourcis}}} {italique} {{gras}} <code>du code</code>',
-  ),
+  ],
   7 =>
-  array (
+   [
     0 => 'Un modele <modeleinexistant|lien=[->http://www.spip.net]>',
     1 => 'Un modele <modeleinexistant|lien=[->http://www.spip.net]>',
-  ),
-);
+  ],
+];
 		return $essais;
 	}
 

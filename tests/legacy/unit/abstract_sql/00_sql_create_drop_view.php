@@ -28,14 +28,14 @@
 	 */
 	function test_show_table() {
 		$tables = test_sql_datas();
-		$essais = array();
+		$essais = [];
 		// lire la structure de la table
 		// la structure doit avoir le meme nombre de champs et de cle
 		// attention : la primary key DOIT etre dans les cle aussi
 		foreach ($tables as $t=>$d){
 			$desc = sql_showtable($t);
-			$essais["Compter field $t"] = array(count($d['desc']['field']),$desc['field']);
-			$essais["Compter key $t"] = array($d['desc']['nb_key_attendues'],$desc['key']);
+			$essais["Compter field $t"] = [count($d['desc']['field']),$desc['field']];
+			$essais["Compter key $t"] = [$d['desc']['nb_key_attendues'],$desc['key']];
 		}
 		$err = tester_fun('count', $essais);
 		if ($err) {

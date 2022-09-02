@@ -26,43 +26,43 @@ function test_filtres_echapper_tags(...$args) {
  *  [ output, input1, input2, input3...]
  */
 function essais_filtres_echapper_tags(){
-		$essais = array (
+		$essais =  [
   0 => 
-  array (
+   [
     0 => '',
     1 => '',
-  ),
+  ],
   1 => 
-  array (
+   [
     0 => '0',
     1 => '0',
-  ),
+  ],
   2 => 
-  array (
+   [
     0 => 'Un texte avec des &lt;a href="http://spip.net"&gt;liens&lt;/a&gt; [Article 1->art1] [spip->http://www.spip.net] http://www.spip.net',
     1 => 'Un texte avec des <a href="http://spip.net">liens</a> [Article 1->art1] [spip->http://www.spip.net] http://www.spip.net',
-  ),
+  ],
   3 => 
-  array (
+   [
     0 => 'Un texte avec des entit&eacute;s &amp;&lt;&gt;&quot;',
     1 => 'Un texte avec des entit&eacute;s &amp;&lt;&gt;&quot;',
-  ),
+  ],
   4 => 
-  array (
+   [
     0 => 'Un texte sans entites &&lt;&gt;"\'',
     1 => 'Un texte sans entites &<>"\'',
-  ),
+  ],
   5 => 
-  array (
+   [
     0 => '{{{Des raccourcis}}} {italique} {{gras}} &lt;code&gt;du code&lt;/code&gt;',
     1 => '{{{Des raccourcis}}} {italique} {{gras}} <code>du code</code>',
-  ),
+  ],
   6 => 
-  array (
+   [
     0 => 'Un modele &lt;modeleinexistant|lien=[-&gt;http://www.spip.net]>',
     1 => 'Un modele <modeleinexistant|lien=[->http://www.spip.net]>',
-  ),
-);
+  ],
+];
 		return $essais;
 	}
 
