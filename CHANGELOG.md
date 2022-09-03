@@ -30,6 +30,7 @@
 
 ### Fixed
 
+- #5303 Ne pas déclencher l'ouverture du datepicker quand la date n'est pas en édition
 - #5312 Bug sur la sélection rapide par id dans le selecteur générique
 - #4016 Utiliser de préférence `#VALEUR{index}` dans le core
 - #5157 Deprecated en moins sur `_couleur_hex_to_dec()`, `couleur_html_to_hex()` & `url_absolue()`  quand on leur passe une valeur nulle
