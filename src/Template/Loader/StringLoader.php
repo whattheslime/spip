@@ -6,7 +6,9 @@ class StringLoader implements LoaderInterface
 {
 
 	private string $adresse_dernier_fichier_pour_code = '';
+
 	private string $cacheDirectory = '';
+
 	private array $options = [];
 
 
@@ -36,6 +38,7 @@ class StringLoader implements LoaderInterface
 		if (isset($options['avant_code'])) {
 			$code = $options['avant_code'] . $code;
 		}
+
 		if (isset($options['apres_code'])) {
 			$code .= $options['apres_code'];
 		}
@@ -47,7 +50,7 @@ class StringLoader implements LoaderInterface
 			$func = $this->cacheDirectory . "func_" . md5($options['fonctions']) . ".php";
 			$this->ecrire_fichier($func, $this->php($options['fonctions']));
 			// une inclusion unique de ces fichiers
-			$this->ecrire_fichier($fond . '_fonctions.php', $this->php("include_once('$func');"));
+			$this->ecrire_fichier($fond . '_fonctions.php', $this->php(sprintf('include_once(\'%s\');', $func)));
 		}
 
 		return $fond;
@@ -90,6 +93,7 @@ class StringLoader implements LoaderInterface
 		if (file_exists($filename)) {
 			supprimer_fichier($filename);
 		}
+
 		ecrire_fichier($filename, $content);
 	}
 }

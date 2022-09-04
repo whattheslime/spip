@@ -8,6 +8,7 @@ class ChainLoader implements LoaderInterface
 {
 	/** @var LoaderInterface[] */
 	private array $loaders = [];
+
 	private array $cache = [];
 
 	public function __construct(array $loaders) {
@@ -43,6 +44,7 @@ class ChainLoader implements LoaderInterface
 
 			return $loader->getCacheKey($name);
 		}
+
 		throw new TemplateNotFoundException($name);
 	}
 
@@ -54,6 +56,7 @@ class ChainLoader implements LoaderInterface
 
             return $loader->getSourceFile($name);
         }
+
 		throw new TemplateNotFoundException($name);
 	}
 }

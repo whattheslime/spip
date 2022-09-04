@@ -26,10 +26,10 @@ class FileLoader implements LoaderInterface
 		if (!file_exists($filepath)) {
 			throw new TemplateNotFoundException($name);
 		}
+
 		$desc = pathinfo($name);
 		$fond = $desc['dirname'] . '/' . $desc['filename'];
-		$fond = substr($fond, $this->rootLen);
 
-		return $fond;
+		return substr($fond, $this->rootLen);
 	}
 }

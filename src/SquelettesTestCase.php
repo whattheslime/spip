@@ -23,6 +23,7 @@ abstract class SquelettesTestCase extends TestCase
 		if (!defined('_SPIP_TEST_CHDIR')) {
 			throw new \RuntimeException('_SPIP_TEST_CHDIR needs to be defined');
 		}
+
 		return substr($fullDirectory, strlen(_SPIP_TEST_CHDIR) + 1);
 	}
 
