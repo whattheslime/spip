@@ -26,7 +26,7 @@ function test_filtres_annee(...$args) {
  *  [ output, input1, input2, input3...]
  */
 function essais_filtres_annee(){
-		$essais =  [
+		return [
   0 => 
    [
     0 => '2001',
@@ -398,6 +398,5 @@ function essais_filtres_annee(){
     1 => '22/12/2012',
   ],
 ];
-		return $essais;
 	}
 

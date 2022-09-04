@@ -26,7 +26,7 @@ function test_utils_tester_url_absolue(...$args) {
  *  [ output, input1, input2, input3...]
  */
 function essais_utils_tester_url_absolue(){
-		$essais =  [
+		return [
   0 => 
    [
     0 => true,
@@ -63,6 +63,5 @@ function essais_utils_tester_url_absolue(){
     1 => 'spip/?page=sommaire',
   ],
 ];
-		return $essais;
 	}
 

@@ -26,7 +26,7 @@ function test_filtres_texte_backend(...$args) {
  *  [ output, input1, input2, input3...]
  */
 function essais_filtres_texte_backend(){
-		$essais =  [
+		return [
   0 => 
    [
     0 => '',
@@ -49,7 +49,7 @@ function essais_filtres_texte_backend(){
   ],
   4 => 
    [
-    0 => 'Un texte sans entites &amp;&lt;&gt;&#034;\'',
+    0 => "Un texte sans entites &amp;&lt;&gt;&#034;'",
     1 => 'Un texte sans entites &<>"\'',
   ],
   5 => 
@@ -63,6 +63,5 @@ function essais_filtres_texte_backend(){
     1 => 'Un modele <modeleinexistant|lien=[->http://www.spip.net]>',
   ],
 ];
-		return $essais;
 	}
 

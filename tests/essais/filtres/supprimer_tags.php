@@ -26,7 +26,7 @@ function test_filtres_supprimer_tags(...$args) {
  *  [ output, input1, input2, input3...]
  */
 function essais_filtres_supprimer_tags(){
-		$essais =  [
+		return [
   0 => 
    [
     0 => '',
@@ -63,5 +63,4 @@ function essais_filtres_supprimer_tags(){
     1 => 'Un modele <modeleinexistant|lien=[->http://www.spip.net]>',
   ],
 ];
-		return $essais;
 	}

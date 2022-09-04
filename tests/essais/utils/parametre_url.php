@@ -26,7 +26,7 @@ function test_utils_parametre_url(...$args) {
  *  [ output, input1, input2, input3...]
  */
 function essais_utils_parametre_url(){
-		$essais =  [
+		return [
   0 => 
    [
     0 => '/ecrire/?exec=exec&amp;id_obj=id_obj&amp;no_val&amp;ajout=valajout',
@@ -293,5 +293,4 @@ paragraphes',
 		2 => 't[]',
 	],
 ];
-		return $essais;
 	}

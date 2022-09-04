@@ -26,7 +26,7 @@ function test_filtres_mini_protocole_verifier(...$args) {
  *  [ output, input1, input2, input3...]
  */
 function essais_filtres_mini_protocole_verifier(){
-		$essais =  [
+		return [
   0 => 
    [
     0 => true,
@@ -79,7 +79,6 @@ function essais_filtres_mini_protocole_verifier(){
     ],
   ],
 ];
-		return $essais;
 	}
 
 

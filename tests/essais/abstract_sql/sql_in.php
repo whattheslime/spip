@@ -36,7 +36,7 @@ function essais_abstract_sql_sql_in(){
 
 
 function essais_abstract_sql_sql_in_sqlite3(){
-	$essais =  [
+	return [
  0 =>
   [
    0 => '(id_rubrique  IN (1,2,3))',
@@ -199,11 +199,10 @@ paragraphes',
    ],
  ],
 ];
-	return $essais;
 }
 
 function essais_abstract_sql_sql_in_mysql(){
-	$essais =  [
+	return [
  0 =>
   [
    0 => '(id_rubrique  IN (1,2,3))',
@@ -366,6 +365,5 @@ paragraphes',
    ],
  ],
 ];
-	return $essais;
 }
 

@@ -26,7 +26,7 @@ function test_filtres_supprimer_numero(...$args) {
  *  [ output, input1, input2, input3...]
  */
 function essais_filtres_supprimer_numero(){
-		$essais =  [
+		return [
   0 => 
    [
     0 => '1.titre',
@@ -63,6 +63,5 @@ function essais_filtres_supprimer_numero(){
     1 => '-1. titre',
   ],
 ];
-		return $essais;
 	}
 

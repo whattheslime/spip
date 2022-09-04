@@ -26,7 +26,7 @@ function test_connect_sql_objet_type(...$args) {
  *  [ output, input1, input2, input3...]
  */
 function essais_connect_sql_objet_type(){
-		$essais =  [
+		return [
    [
     0 => 'article',
     1 => 'articles',
@@ -143,6 +143,5 @@ function essais_connect_sql_objet_type(){
 ['syndic_article','syndic_articles'],
 ['types_document','types_documents'],
 ];
-		return $essais;
 	}
 

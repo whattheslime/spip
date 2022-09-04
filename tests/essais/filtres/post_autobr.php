@@ -26,7 +26,7 @@ function test_filtres_post_autobr(...$args) {
  *  [ output, input1, input2, input3...]
  */
 function essais_filtres_post_autobr(){
-		$essais =  [
+		return [
   0 => 
    [
     0 => 'Texte avec un 
@@ -68,6 +68,5 @@ _ ',
 _ ',
   ],
 ];
-		return $essais;
 	}
 

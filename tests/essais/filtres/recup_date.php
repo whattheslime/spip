@@ -26,7 +26,7 @@ function test_filtres_recup_date(...$args) {
  *  [ output, input1, input2, input3...]
  */
 function essais_filtres_recup_date(){
-		$essais =  [
+		return [
   0 => 
    [
     0 => 
@@ -2100,5 +2100,4 @@ function essais_filtres_recup_date(){
     2 => false,
   ],
 ];
-		return $essais;
 	}

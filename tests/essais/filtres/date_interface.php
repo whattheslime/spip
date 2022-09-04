@@ -30,7 +30,7 @@ function test_filtres_date_interface(...$args) {
  *  [ output, input1, input2, input3...]
  */
 function essais_filtres_date_interface(){
-		$essais =  [
+		return [
   0 => 
    [
     0 => '2001 à 12h33min',
@@ -402,5 +402,4 @@ function essais_filtres_date_interface(){
     1 => '22/12/2012',
   ],
 ];
-		return $essais;
 	}

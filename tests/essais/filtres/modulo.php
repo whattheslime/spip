@@ -26,7 +26,7 @@ function test_filtres_modulo(...$args) {
  *  [ output, input1, input2, input3...]
  */
 function essais_filtres_modulo(){
-		$essais =  [
+		return [
   0 => 
    [
     0 => 0,
@@ -1564,6 +1564,5 @@ function essais_filtres_modulo(){
     2 => 10000,
   ],
 ];
-		return $essais;
 	}
 

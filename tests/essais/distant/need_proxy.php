@@ -26,7 +26,7 @@ function test_distant_need_proxy(...$args) {
  *  [ output, input1, input2, input3...]
  */
 function essais_distant_need_proxy(){
-		$essais =  [
+		return [
   0 => 
    [
     0 => 'http://monproxy.example.org',
@@ -64,7 +64,6 @@ function essais_distant_need_proxy(){
     3 => '.sous.domaine.spip.net',
   ],
 ];
-		return $essais;
 	}
 
 

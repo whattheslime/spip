@@ -30,7 +30,7 @@ function test_filtres_affdate_jourcourt(...$args) {
  *  [ output, input1, input2, input3...]
  */
 function essais_filtres_affdate_jourcourt(){
-		$essais =  [
+		return [
   0 => 
    [
     0 => '  2001',
@@ -476,6 +476,5 @@ function essais_filtres_affdate_jourcourt(){
 		2 => '2011'
   ],
 ];
-		return $essais;
 	}
 

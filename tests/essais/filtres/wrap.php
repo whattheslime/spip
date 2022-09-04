@@ -26,7 +26,7 @@ function test_filtres_wrap(...$args) {
  *  [ output, input1, input2, input3...]
  */
 function essais_filtres_wrap(){
-		$essais =  [
+		return [
   0 => 
    [
     0 => '<h3>un mot</h3>',
@@ -47,6 +47,5 @@ function essais_filtres_wrap(){
   ],
 
 ];
-		return $essais;
 	}
 

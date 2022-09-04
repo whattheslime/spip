@@ -29,7 +29,7 @@ function test_propre_code_imbrique(...$args) {
  *  [ output, input1, input2, input3...]
  */
 function essais_propre_code_imbrique(){
-		$essais = [
+		return [
 
 			[true,
 			'({{{Classificar els resultats}}}
@@ -240,8 +240,6 @@ no mostrarà tots els articles de la secció! Imaginem, per exemple, que hi ha u
 {{<code>{logo}</code>}} permet seleccionar només els articles (o seccions, etc) que disposin d\'un logo. Funciona també en el bucle (HIERARCHIE). El criteri invers <code>{!logo}</code> llista els objectes que no tenen logo.'
 			]
 		];
-
-		return $essais;
 }
 
 

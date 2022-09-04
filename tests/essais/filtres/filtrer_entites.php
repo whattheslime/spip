@@ -26,7 +26,7 @@ function test_filtres_filtrer_entites(...$args) {
  *  [ output, input1, input2, input3...]
  */
 function essais_filtres_filtrer_entites(){
-		$essais =  [
+		return [
   0 => 
    [
     0 => '',
@@ -68,6 +68,5 @@ function essais_filtres_filtrer_entites(){
     1 => 'Un modele <modeleinexistant|lien=[->http://www.spip.net]>',
   ],
 ];
-		return $essais;
 	}
 

@@ -26,7 +26,7 @@ function test_filtres_lien_ou_expose(...$args) {
  *  [ output, input1, input2, input3...]
  */
 function essais_filtres_lien_ou_expose(){
-		$essais =  [
+		return [
   0 => 
    [
     0 => '<strong class="on">libelle</strong>',
@@ -36,7 +36,7 @@ function essais_filtres_lien_ou_expose(){
   ],
   1 => 
    [
-    0 => '<a href=\'http://www.spip.net/\'>libelle</a>',
+    0 => "<a href='http://www.spip.net/'>libelle</a>",
     1 => 'http://www.spip.net/',
     2 => 'libelle',
     3 => false,
@@ -170,7 +170,7 @@ function essais_filtres_lien_ou_expose(){
   ],
   20 => 
    [
-    0 => '<a href=\'http://www.spip.net/\' class=\'lien\'>SPIP</a>',
+    0 => "<a href='http://www.spip.net/' class='lien'>SPIP</a>",
     1 => 'http://www.spip.net/',
     2 => 'SPIP',
     3 => false,
@@ -187,7 +187,7 @@ function essais_filtres_lien_ou_expose(){
   ],
   22 => 
    [
-    0 => '<a href=\'http://www.spip.net/\' title=\'titre\'>SPIP</a>',
+    0 => "<a href='http://www.spip.net/' title='titre'>SPIP</a>",
     1 => 'http://www.spip.net/',
     2 => 'SPIP',
     3 => false,
@@ -206,7 +206,7 @@ function essais_filtres_lien_ou_expose(){
   ],
   24 => 
    [
-    0 => '<a href=\'http://www.spip.net/\' rel=\'prev\'>SPIP</a>',
+    0 => "<a href='http://www.spip.net/' rel='prev'>SPIP</a>",
     1 => 'http://www.spip.net/',
     2 => 'SPIP',
     3 => false,
@@ -237,6 +237,5 @@ function essais_filtres_lien_ou_expose(){
     7 => ' onclick="alert(\'toto\');"',
   ],
 ];
-		return $essais;
 	}
 

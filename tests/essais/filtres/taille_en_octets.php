@@ -30,7 +30,7 @@ function test_filtres_taille_en_octets(...$args) {
  *  [ output, input1, input2, input3...]
  */
 function essais_filtres_taille_en_octets(){
-		$essais =  [
+		return [
   0 => 
    [
     0 => '',
@@ -119,28 +119,27 @@ function essais_filtres_taille_en_octets(){
 	17 =>
    [
     0 => '976.6 ko',
-    1 => 1000000,
+    1 => 1_000_000,
   ],
 	18 =>
    [
     0 => '9.5 Mo',
-    1 => 10000000,
+    1 => 10_000_000,
   ],
 	19 =>
    [
     0 => '95.4 Mo',
-    1 => 100000000,
+    1 => 100_000_000,
   ],
 	20 =>
    [
     0 => '953.7 Mo',
-    1 => 1000000000,
+    1 => 1_000_000_000,
   ],
 	21 =>
    [
     0 => '9.31 Go',
-    1 => 10000000000,
+    1 => 10_000_000_000,
   ],
 ];
-		return $essais;
 	}

@@ -26,7 +26,7 @@ function test_json_var2js(...$args) {
  *  [ output, input1, input2, input3...]
  */
 function essais_json_var2js(){
-		$essais =  [
+		return [
   0 => 
    [
     0 => 'true',
@@ -246,6 +246,5 @@ paragraphes',
     1 => NULL,
   ],
 ];
-		return $essais;
 	}
 

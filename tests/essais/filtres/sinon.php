@@ -26,7 +26,7 @@ function test_filtres_sinon(...$args) {
  *  [ output, input1, input2, input3...]
  */
 function essais_filtres_sinon(){
-		$essais =  [
+		return [
   0 => 
    [
     0 => '',
@@ -994,6 +994,5 @@ function essais_filtres_sinon(){
     2 => 'Un modele <modeleinexistant|lien=[->http://www.spip.net]>',
   ],
 ];
-		return $essais;
 	}
 

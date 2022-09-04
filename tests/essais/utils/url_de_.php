@@ -26,7 +26,7 @@ function test_utils_url_de_(...$args) {
  *  [ output, input1, input2, input3...]
  */
 function essais_utils_url_de_(){
-		$essais =  [
+		return [
   0 => 
    [
     0 => 'http://www.example.org/',
@@ -124,7 +124,6 @@ function essais_utils_url_de_(){
     4 => 0,
   ],
 ];
-		return $essais;
 	}
 
 

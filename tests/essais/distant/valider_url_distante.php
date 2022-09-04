@@ -26,7 +26,7 @@ function test_distant_valider_url_distante(...$args) {
  *  [ output, input1, input2, input3...]
  */
 function essais_distant_valider_url_distante(){
-		$essais =  [
+		return [
   0 => 
    [
     0 => 'http://www.spip.net',
@@ -95,7 +95,6 @@ function essais_distant_valider_url_distante(){
     ],
   ],
 ];
-		return $essais;
 	}
 
 

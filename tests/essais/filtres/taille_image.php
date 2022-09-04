@@ -26,7 +26,7 @@ function test_filtres_taille_image(...$args) {
  *  [ output, input1, input2, input3...]
  */
 function essais_filtres_taille_image(){
-		$essais =  [
+		return [
   0 => 
    [
     0 => 
@@ -64,7 +64,6 @@ function essais_filtres_taille_image(){
     1 => 'prive/images/searching.gif',
   ],
 ];
-		return $essais;
 	}
 
 

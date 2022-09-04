@@ -26,7 +26,7 @@ function test_filtres_identifiant_slug(...$args) {
  *  [ output, input1, input2, input3...]
  */
 function essais_filtres_identifiant_slug(){
-		$essais =  [
+		return [
   0 => 
    [
     0 => '1',
@@ -841,7 +841,6 @@ paragraphes avec des accents UTF-8 aàâä eéèêë iîï oô uùü',
     ],
   ],
 ];
-		return $essais;
 	}
 
 

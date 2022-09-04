@@ -26,7 +26,7 @@ function test_filtres_hauteur(...$args) {
  *  [ output, input1, input2, input3...]
  */
 function essais_filtres_hauteur(){
-		$essais =  [
+		return [
   0 => 
    [
     0 => 223,
@@ -48,5 +48,4 @@ function essais_filtres_hauteur(){
     1 => 'prive/images/searching.gif',
   ],
 ];
-		return $essais;
 	}

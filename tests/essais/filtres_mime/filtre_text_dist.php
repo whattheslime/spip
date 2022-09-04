@@ -26,7 +26,7 @@ function test_filtres_mime_filtre_text_dist(...$args) {
  *  [ output, input1, input2, input3...]
  */
 function essais_filtres_mime_filtre_text_dist(){
-		$essais =  [
+		return [
   0 => 
    [
     0 => '<pre></pre>',
@@ -153,6 +153,5 @@ function essais_filtres_mime_filtre_text_dist(){
     1 => NULL,
   ],
 ];
-		return $essais;
 	}
 

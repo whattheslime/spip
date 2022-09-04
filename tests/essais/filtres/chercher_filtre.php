@@ -26,7 +26,7 @@ function test_filtres_chercher_filtre(...$args) {
  *  [ output, input1, input2, input3...]
  */
 function essais_filtres_chercher_filtre(){
-		$essais =  [
+		return [
   0 => 
    [
     0 => 'filtre_identite_dist',
@@ -585,7 +585,6 @@ function essais_filtres_chercher_filtre(){
     1 => 'application/vnd.openxmlformats-officedocument.spreadsheetml.template',
   ],
 ];
-		return $essais;
 	}
 
 

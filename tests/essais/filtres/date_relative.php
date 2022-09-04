@@ -32,7 +32,7 @@ function test_filtres_date_relative(...$args) {
  *  [ output, input1, input2, input3...]
  */
 function essais_filtres_date_relative(){
-		$essais =  [
+		return [
   0 => 
    [
     0 => 'dans 1 heure',
@@ -356,6 +356,5 @@ function essais_filtres_date_relative(){
     3 => '2010-03-14 22:41:13',
   ],
 ];
-		return $essais;
 	}
 

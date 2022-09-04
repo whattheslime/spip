@@ -27,7 +27,7 @@ function test_filtres_affdate_court(...$args) {
  *  [ output, input1, input2, input3...]
  */
 function essais_filtres_affdate_court(){
-		$essais =  [
+		return [
   0 => 
    [
     0 => ' 2001',
@@ -473,6 +473,5 @@ function essais_filtres_affdate_court(){
 		2 => '2011'
   ],
 ];
-		return $essais;
 	}
 

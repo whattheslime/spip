@@ -26,7 +26,7 @@ function test_filtres_proteger_amp(...$args) {
  *  [ output, input1, input2, input3...]
  */
 function essais_filtres_proteger_amp(){
-		$essais =  [
+		return [
   0 => 
    [
     0 => '',
@@ -63,7 +63,6 @@ function essais_filtres_proteger_amp(){
     1 => 'Un modele <modeleinexistant|lien=[->http://www.spip.net]>',
   ],
 ];
-		return $essais;
 	}
 
 

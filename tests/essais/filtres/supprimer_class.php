@@ -26,10 +26,10 @@ function test_filtres_supprimer_class(...$args) {
  *  [ output, input1, input2, input3...]
  */
 function essais_filtres_supprimer_class(){
-		$essais =  [
+		return [
   0 => 
    [
-    0 => '<span class=\'maclasse-prefixe suffixe-maclasse maclasse--bem\'>toto</span>',
+    0 => "<span class='maclasse-prefixe suffixe-maclasse maclasse--bem'>toto</span>",
     1 => '<span class="maclasse maclasse-prefixe suffixe-maclasse maclasse--bem">toto</span>',
     2 => 'maclasse',
   ],
@@ -41,25 +41,25 @@ function essais_filtres_supprimer_class(){
   ],
   2 => 
    [
-    0 => '<span class=\'maclasse-prefixe suffixe-maclasse maclasse--bem\'>toto</span>',
+    0 => "<span class='maclasse-prefixe suffixe-maclasse maclasse--bem'>toto</span>",
     1 => '<span class="maclasse maclasse-prefixe suffixe-maclasse maclasse--bem">toto</span>',
     2 => 'maclasse1 maclasse maclasse2',
   ],
   3 => 
    [
-    0 => '<span class=\'maclasse suffixe-maclasse\'>toto</span>',
+    0 => "<span class='maclasse suffixe-maclasse'>toto</span>",
     1 => '<span class="maclasse maclasse-prefixe suffixe-maclasse maclasse--bem">toto</span>',
     2 => 'maclasse-prefixe maclasse--bem',
   ],
   4 => 
    [
-    0 => '<span class=\'maclasse-prefixe\'>toto</span>',
+    0 => "<span class='maclasse-prefixe'>toto</span>",
     1 => '<span class="maclasse maclasse-prefixe">toto</span>',
     2 => 'maclasse',
   ],
   5 => 
    [
-    0 => '<span class=\'maclasse\'>toto</span>',
+    0 => "<span class='maclasse'>toto</span>",
     1 => '<span class="maclasse maclasse-prefixe">toto</span>',
     2 => 'maclasse-prefixe',
   ],
@@ -76,7 +76,6 @@ function essais_filtres_supprimer_class(){
     2 => 'maclasse-prefixe maclasse',
   ],
 ];
-		return $essais;
 	}
 
 

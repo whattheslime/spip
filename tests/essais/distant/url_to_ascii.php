@@ -26,7 +26,7 @@ function test_distant_url_to_ascii(...$args) {
  *  [ output, input1, input2, input3...]
  */
 function essais_distant_url_to_ascii(){
-		$essais =  [
+		return [
   0 => 
    [
     0 => 'http://www.spip.net/',
@@ -58,7 +58,6 @@ function essais_distant_url_to_ascii(){
     1 => 'http://user:pass@www.spaïp.net:80/fr_article879.html#BOUCLE-ARTICLES-',
   ],
 ];
-		return $essais;
 	}
 
 

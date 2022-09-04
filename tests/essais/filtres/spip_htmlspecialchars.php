@@ -26,7 +26,7 @@ function test_filtres_spip_htmlspecialchars(...$args) {
  *  [ output, input1, input2, input3...]
  */
 function essais_filtres_spip_htmlspecialchars(){
-		$essais =  [
+		return [
   0 => 
    [
     0 => '',
@@ -64,7 +64,7 @@ function essais_filtres_spip_htmlspecialchars(){
   ],
   7 => 
    [
-    0 => 'Un texte sans entites &amp;&lt;&gt;&quot;\'',
+    0 => "Un texte sans entites &amp;&lt;&gt;&quot;'",
     1 => 'Un texte sans entites &<>"\'',
   ],
   8 => 
@@ -163,7 +163,7 @@ paragraphes avec des accents ISO a��� e���� i�� o� u��',
   ],
   25 => 
    [
-    0 => 'Un texte sans entites &amp;&lt;&gt;&quot;\' et avec des accents UTF-8 aàâä eéèêë iîï oô uùü',
+    0 => "Un texte sans entites &amp;&lt;&gt;&quot;' et avec des accents UTF-8 aàâä eéèêë iîï oô uùü",
     1 => 'Un texte sans entites &<>"\' et avec des accents UTF-8 aàâä eéèêë iîï oô uùü',
   ],
   26 => 
@@ -420,7 +420,7 @@ paragraphes avec des accents UTF-8 aàâä eéèêë iîï oô uùü',
   ],
   65 => 
    [
-    0 => 'Un texte sans entites &amp;&lt;&gt;&quot;\'',
+    0 => "Un texte sans entites &amp;&lt;&gt;&quot;'",
     1 => 'Un texte sans entites &<>"\'',
     2 => ENT_COMPAT|ENT_HTML401,
   ],
@@ -537,7 +537,7 @@ paragraphes avec des accents ISO a��� e���� i�� o� u��',
   ],
   83 => 
    [
-    0 => 'Un texte sans entites &amp;&lt;&gt;&quot;\' et avec des accents UTF-8 aàâä eéèêë iîï oô uùü',
+    0 => "Un texte sans entites &amp;&lt;&gt;&quot;' et avec des accents UTF-8 aàâä eéèêë iîï oô uùü",
     1 => 'Un texte sans entites &<>"\' et avec des accents UTF-8 aàâä eéèêë iîï oô uùü',
     2 => ENT_COMPAT|ENT_HTML401,
   ],
@@ -616,7 +616,7 @@ paragraphes avec des accents UTF-8 aàâä eéèêë iîï oô uùü',
   ],
   94 => 
    [
-    0 => 'Un texte sans entites &amp;&lt;&gt;&quot;\'',
+    0 => "Un texte sans entites &amp;&lt;&gt;&quot;'",
     1 => 'Un texte sans entites &<>"\'',
     2 => ENT_COMPAT|ENT_HTML401,
     3 => 'ISO-8859-1',
@@ -685,7 +685,7 @@ paragraphes',
   ],
   103 => 
    [
-    0 => 'Un texte sans entites &amp;&lt;&gt;&quot;\' et avec des accents ISO a��� e���� i�� o� u��',
+    0 => "Un texte sans entites &amp;&lt;&gt;&quot;' et avec des accents ISO a\xe0\xe2\xe4 e\xe9\xe8\xea\xeb i\xee\xef o\xf4 u\xf9\xfc",
     1 => 'Un texte sans entites &<>"\' et avec des accents ISO a��� e���� i�� o� u��',
     2 => ENT_COMPAT|ENT_HTML401,
     3 => 'ISO-8859-1',
@@ -754,7 +754,7 @@ paragraphes avec des accents ISO a��� e���� i�� o� u��',
   ],
   112 => 
    [
-    0 => 'Un texte sans entites &amp;&lt;&gt;&quot;\' et avec des accents UTF-8 aàâä eéèêë iîï oô uùü',
+    0 => "Un texte sans entites &amp;&lt;&gt;&quot;' et avec des accents UTF-8 aàâä eéèêë iîï oô uùü",
     1 => 'Un texte sans entites &<>"\' et avec des accents UTF-8 aàâä eéèêë iîï oô uùü',
     2 => ENT_COMPAT|ENT_HTML401,
     3 => 'ISO-8859-1',
@@ -837,7 +837,7 @@ paragraphes avec des accents UTF-8 aàâä eéèêë iîï oô uùü',
   ],
   123 => 
    [
-    0 => 'Un texte sans entites &amp;&lt;&gt;&quot;\'',
+    0 => "Un texte sans entites &amp;&lt;&gt;&quot;'",
     1 => 'Un texte sans entites &<>"\'',
     2 => ENT_COMPAT|ENT_HTML401,
     3 => 'UTF-8',
@@ -972,7 +972,7 @@ paragraphes avec des accents ISO a��� e���� i�� o� u��',
   ],
   141 => 
    [
-    0 => 'Un texte sans entites &amp;&lt;&gt;&quot;\' et avec des accents UTF-8 aàâä eéèêë iîï oô uùü',
+    0 => "Un texte sans entites &amp;&lt;&gt;&quot;' et avec des accents UTF-8 aàâä eéèêë iîï oô uùü",
     1 => 'Un texte sans entites &<>"\' et avec des accents UTF-8 aàâä eéèêë iîï oô uùü',
     2 => ENT_COMPAT|ENT_HTML401,
     3 => 'UTF-8',
@@ -1005,7 +1005,6 @@ paragraphes avec des accents UTF-8 aàâä eéèêë iîï oô uùü',
     3 => 'UTF-8',
   ],
 ];
-		return $essais;
 	}
 
 

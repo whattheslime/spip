@@ -26,7 +26,7 @@ function test_filtres_mois(...$args) {
  *  [ output, input1, input2, input3...]
  */
 function essais_filtres_mois(){
-		$essais =  [
+		return [
   0 => 
    [
     0 => '00',
@@ -398,5 +398,4 @@ function essais_filtres_mois(){
     1 => '22/12/2012',
   ],
 ];
-		return $essais;
 	}

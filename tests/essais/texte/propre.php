@@ -9,24 +9,25 @@ namespace Spip\Core\Tests;
 find_in_path("inc/texte.php",'',true);
 
 function pretest_texte_propre(){
-	$GLOBALS['meta']['type_urls'] = $type_urls = "page";
-
-	changer_langue('fr'); // ce test est en fr
+	$GLOBALS['meta']['type_urls'] = "page";
+ $type_urls = "page";
+ changer_langue('fr'); // ce test est en fr
 
 	$GLOBALS['toujours_paragrapher'] = true;
 
 	foreach (['puce', 'puce_rtl', 'puce_prive', 'puce_prive_rtl'] as $puce) {
 		unset($GLOBALS[$puce]);
 	}
+
 	definir_puce();
 
 	// initialiser les plugins qui changent les intertitre (Z), et les restaurer juste apres
 	$mem = [
-		isset($GLOBALS['debut_intertitre']) ? $GLOBALS['debut_intertitre'] : null,
-		isset($GLOBALS['spip_raccourcis_typo']) ? $GLOBALS['spip_raccourcis_typo'] : null
+		$GLOBALS['debut_intertitre'] ?? null,
+		$GLOBALS['spip_raccourcis_typo'] ?? null
 	];
 	propre('rien du tout');
-	list($GLOBALS['debut_intertitre'],$GLOBALS['spip_raccourcis_typo']) = $mem;
+	[$GLOBALS['debut_intertitre'], $GLOBALS['spip_raccourcis_typo']] = $mem;
 }
 
 /**
@@ -47,7 +48,7 @@ function test_texte_propre(...$args) {
  *  [ output, input1, input2, input3...]
  */
 function essais_texte_propre(){
-		$essais =  [
+		return [
   0 => 
    [
     0 => '',
@@ -90,6 +91,5 @@ function essais_texte_propre(){
     1 => '- propre',
   ],
 ];
-		return $essais;
 	}
 

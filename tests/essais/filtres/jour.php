@@ -11,6 +11,7 @@ find_in_path("inc/filtres.php",'',true);
 function pretest_filtres_jour(){
 	changer_langue('fr'); // ce test est en fr
 }
+
 /**
  * La fonction appelee pour chaque jeu de test
  * Nommage conventionnel : test_[[dossier1_][[dossier2_]...]]fichier
@@ -29,7 +30,7 @@ function test_filtres_jour(...$args) {
  *  [ output, input1, input2, input3...]
  */
 function essais_filtres_jour(){
-		$essais =  [
+		return [
   0 => 
    [
     0 => '',
@@ -401,5 +402,4 @@ function essais_filtres_jour(){
     1 => '22/12/2012',
   ],
 ];
-		return $essais;
 	}

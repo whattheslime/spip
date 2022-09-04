@@ -26,7 +26,7 @@ function test_filtres_corriger_entites_html(...$args) {
  *  [ output, input1, input2, input3...]
  */
 function essais_filtres_corriger_entites_html(){
-		$essais =  [
+		return [
   0 => 
    [
     0 => '',
@@ -89,5 +89,4 @@ a la ligne et meme des
 paragraphes',
   ],
 ];
-		return $essais;
 	}

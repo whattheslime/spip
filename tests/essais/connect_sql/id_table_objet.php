@@ -26,7 +26,7 @@ function test_connect_sql_id_table_objet(...$args) {
  *  [ output, input1, input2, input3...]
  */
 function essais_connect_sql_id_table_objet(){
-		$essais =  [
+		return [
    [
     0 => 'id_article',
     1 => 'articles',
@@ -133,6 +133,5 @@ function essais_connect_sql_id_table_objet(){
 ['id_syndic_article','syndic_article'],
 ['extension','type_document'],
 ];
-		return $essais;
 	}
 

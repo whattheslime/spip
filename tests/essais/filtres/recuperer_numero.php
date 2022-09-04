@@ -26,7 +26,7 @@ function test_filtres_recuperer_numero(...$args) {
  *  [ output, input1, input2, input3...]
  */
 function essais_filtres_recuperer_numero(){
-		$essais =  [
+		return [
   0 => 
    [
     0 => '1',
@@ -58,5 +58,4 @@ function essais_filtres_recuperer_numero(){
     1 => '-1. titre',
   ],
 ];
-		return $essais;
 	}

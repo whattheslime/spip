@@ -26,7 +26,7 @@ function test_filtres_div(...$args) {
  *  [ output, input1, input2, input3...]
  */
 function essais_filtres_div(){
-		$essais =  [
+		return [
   0 => 
    [
     0 => 0,
@@ -1564,5 +1564,4 @@ function essais_filtres_div(){
     2 => 10000,
   ],
 ];
-		return $essais;
 	}

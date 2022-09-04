@@ -30,7 +30,7 @@ function test_filtres_nom_jour(...$args) {
  *  [ output, input1, input2, input3...]
  */
 function essais_filtres_nom_jour(){
-		$essais =  [
+		return [
   0 => 
    [
     0 => '',
@@ -402,5 +402,4 @@ function essais_filtres_nom_jour(){
     1 => '22/12/2012',
   ],
 ];
-		return $essais;
 	}

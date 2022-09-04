@@ -29,31 +29,8 @@ function test_texte_interdire_script_laxiste(...$args) {
  * @return array
  *  [ output, input1, input2, input3...]
  */
-function essais_texte_interdire_script_laxiste(){
-	$essais = [];
-
-	$essais[] =
-		["<script type='text/javascript' src='toto.js'></script>", "<script type='text/javascript' src='toto.js'></script>"];
-
-	$essais[] =
-		["<script type='text/javascript' src='spip.php?page=toto'></script>", "<script type='text/javascript' src='spip.php?page=toto'></script>"];
-
-	$essais[] =
-		["<script type='text/javascript'>var php=5;</script>", "<script type='text/javascript'>var php=5;</script>"];
-
-	$essais[] =
-		["<script language='javascript' src='spip.php?page=toto'></script>", "<script language='javascript' src='spip.php?page=toto'></script>"];
-
-	$essais[] =
-		["&lt;script language='php'>die();</script>", "<script language='php'>die();</script>"];
-
-	$essais[] =
-		["&lt;script language=php>die();</script>", "<script language=php>die();</script>"];
-
-	$essais[] =
-		["&lt;script language = php >die();</script>", "<script language = php >die();</script>"];
-
-
-	return $essais;
+function essais_texte_interdire_script_laxiste()
+{
+    return [["<script type='text/javascript' src='toto.js'></script>", "<script type='text/javascript' src='toto.js'></script>"], ["<script type='text/javascript' src='spip.php?page=toto'></script>", "<script type='text/javascript' src='spip.php?page=toto'></script>"], ["<script type='text/javascript'>var php=5;</script>", "<script type='text/javascript'>var php=5;</script>"], ["<script language='javascript' src='spip.php?page=toto'></script>", "<script language='javascript' src='spip.php?page=toto'></script>"], ["&lt;script language='php'>die();</script>", "<script language='php'>die();</script>"], ["&lt;script language=php>die();</script>", "<script language=php>die();</script>"], ["&lt;script language = php >die();</script>", "<script language = php >die();</script>"]];
 }
 

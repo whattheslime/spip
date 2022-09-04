@@ -27,7 +27,7 @@ function test_filtres_extraire_multi(...$args) {
  *  [ output, input1, input2, input3...]
  */
 function essais_filtres_extraire_multi(){
-		$essais =  [
+		return [
   0 => 
    [
     0 => 'english',
@@ -48,13 +48,13 @@ function essais_filtres_extraire_multi(){
   ],
   3 => 
    [
-    0 => '<span lang=\'fr\'>francais</span>',
+    0 => "<span lang='fr'>francais</span>",
     1 => '<multi>[fr]francais[en]english[de]deutsch</multi>',
     2 => 'it',
   ],
   4 => 
    [
-    0 => '<span lang=\'fr\' dir=\'ltr\'>francais</span>',
+    0 => "<span lang='fr' dir='ltr'>francais</span>",
     1 => '<multi>[fr]francais[en]english[de]deutsch</multi>',
     2 => 'ar',
   ],
@@ -94,5 +94,4 @@ function essais_filtres_extraire_multi(){
     3 => true,
   ],
 ];
-		return $essais;
 	}

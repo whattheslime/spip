@@ -31,22 +31,22 @@ function test_connect_sql_query_echappe_textes(...$args) {
  */
 function essais_connect_sql_query_echappe_textes(){
 	  $md5 = substr(md5('uniqid'), 0, 4);
-		$essais =  [
+		return [
    [
     0 => ['%1$s',  ["'guillemets simples'"]],
     1 => "'guillemets simples'",
   ],
    [
-    0 => ['%1$s',  ["\"guillemets doubles\""]],
-    1 => "\"guillemets doubles\"",
+    0 => ['%1$s',  ['"guillemets doubles"']],
+    1 => '"guillemets doubles"',
   ],
    [
     0 => ['%1$s,%2$s',  ["'guillemets simples 1/2'", "'guillemets simples 2/2'"]],
     1 => "'guillemets simples 1/2','guillemets simples 2/2'",
   ],
    [
-    0 => ['%1$s,%2$s',  ["\"guillemets doubles 1/2\"", "\"guillemets doubles 2/2\""]],
-    1 => "\"guillemets doubles 1/2\",\"guillemets doubles 2/2\"",
+    0 => ['%1$s,%2$s',  ['"guillemets doubles 1/2"', '"guillemets doubles 2/2"']],
+    1 => '"guillemets doubles 1/2","guillemets doubles 2/2"',
   ],
    [
     0 => ['%1$s',  ["'guillemets simples \x2@#{$md5}#@\x2 avec un echappement'"]],
@@ -76,8 +76,8 @@ function essais_connect_sql_query_echappe_textes(){
   // sortie de sqlitemanager firefox
   // (description de table suite a import d'une table au format xml/phpmyadmin v5)
    [
-    0 => ['%1$s INTEGER,%2$s VARCHAR',  ["\"id_objet\"","\"objet\""]],
-    1 => "\"id_objet\" INTEGER,\"objet\" VARCHAR",
+    0 => ['%1$s INTEGER,%2$s VARCHAR',  ['"id_objet"','"objet"']],
+    1 => '"id_objet" INTEGER,"objet" VARCHAR',
   ],
 
 	[
@@ -93,7 +93,6 @@ function essais_connect_sql_query_echappe_textes(){
 		1 => "UPDATE spip_truc SET texte='', html='''0'' style=''margin: 0;padding: 0;width: 100%;border: 0;height: auto;lin' WHERE id_truc=1",
 	],
 ];
-		return $essais;
 	}
 
 

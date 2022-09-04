@@ -11,6 +11,7 @@ find_in_path("inc/filtres_mime.php",'',true);
 function pretest_filtres_mime_filtre_text_csv_dist(){
 	changer_langue('fr'); // ce test est en fr
 }
+
 /**
  * La fonction appelee pour chaque jeu de test
  * Nommage conventionnel : test_[[dossier1_][[dossier2_]...]]fichier
@@ -29,7 +30,7 @@ function test_filtres_mime_filtre_text_csv_dist(...$args) {
  *  [ output, input1, input2, input3...]
  */
 function essais_filtres_mime_filtre_text_csv_dist(){
-		$essais =  [
+		return [
   0 => 
    [
     0 => '<table class="table spip">
@@ -130,6 +131,5 @@ guillemets;est-ce;que;ça;marche ?;',
 """guillemets""","est-ce","que","√ßa","marche ?",',
   ],
 ];
-		return $essais;
 	}
 

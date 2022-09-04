@@ -32,7 +32,7 @@ function test_filtres_normaliser_date(...$args) {
  *  [ output, input1, input2, input3...]
  */
 function essais_filtres_normaliser_date(){
-		$essais =  [
+		return [
   0 => 
    [
     0 => '2001-01-01 12:33:44',
@@ -886,5 +886,4 @@ function essais_filtres_normaliser_date(){
     2 => false,
   ],
 ];
-		return $essais;
 	}

@@ -26,7 +26,7 @@ function test_plugin_plugin_version_compatible(...$args) {
  *  [ output, input1, input2, input3...]
  */
 function essais_plugin_plugin_version_compatible(){
-		$essais =  [
+		return [
   0 => 
    [
     0 => true,
@@ -568,7 +568,6 @@ function essais_plugin_plugin_version_compatible(){
     2 => '2.0.1',
   ],
 ];
-		return $essais;
 	}
 
 

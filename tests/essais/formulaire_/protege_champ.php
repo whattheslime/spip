@@ -26,7 +26,7 @@ function test_formulaire__protege_champ(...$args) {
  *  [ output, input1, input2, input3...]
  */
 function essais_formulaire__protege_champ(){
-		$essais =  [
+		return [
   0 => 
    [
     0 => 'i:1;',
@@ -198,7 +198,6 @@ paragraphes',
     1 => NULL,
   ],
 ];
-		return $essais;
 	}
 
 

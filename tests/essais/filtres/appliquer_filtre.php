@@ -26,7 +26,7 @@ function test_filtres_appliquer_filtre(...$args) {
  *  [ output, input1, input2, input3...]
  */
 function essais_filtres_appliquer_filtre(){
-		$essais =  [
+		return [
   0 => 
    [
     0 => '&lt;&gt;&quot;&#039;&amp;',
@@ -40,6 +40,5 @@ function essais_filtres_appliquer_filtre(){
     2 => 'entites_html',
   ],
 ];
-		return $essais;
 	}
 

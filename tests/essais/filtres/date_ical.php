@@ -29,7 +29,7 @@ function test_filtres_date_ical(...$args) {
  *  [ output, input1, input2, input3...]
  */
 function essais_filtres_date_ical(){
-		$essais =  [
+		return [
   0 => 
    [
     0 => '20010101T123344Z',
@@ -401,5 +401,4 @@ function essais_filtres_date_ical(){
     1 => '22/12/2012',
   ],
 ];
-		return $essais;
 	}

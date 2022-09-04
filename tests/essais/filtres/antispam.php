@@ -26,7 +26,6 @@ function test_filtres_antispam(...$args) {
  *  [ output, input1, input2, input3...]
  */
 function essais_filtres_antispam(){
-		$essais =  [
+		return [
 ];
-		return $essais;
 	}

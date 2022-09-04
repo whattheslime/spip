@@ -11,18 +11,23 @@ namespace Spip\Core\Tests;
 function test_propre_echappe_html_echappe($regs) {
 	return 'A';
 }
+
 function test_propre_echappe_html_traiter_echap_html($regs) {
 	return test_propre_echappe_html_echappe($regs);
 }
+
 function test_propre_echappe_html_traiter_echap_code($regs) {
 	return test_propre_echappe_html_echappe($regs);
 }
+
 function test_propre_echappe_html_traiter_echap_cadre($regs) {
 	return test_propre_echappe_html_echappe($regs);
 }
+
 function test_propre_echappe_html_traiter_echap_frame($regs) {
 	return test_propre_echappe_html_echappe($regs);
 }
+
 function test_propre_echappe_html_traiter_echap_script($regs) {
 	return test_propre_echappe_html_echappe($regs);
 }
@@ -60,13 +65,13 @@ function essais_propre_echappe_html(){
 			<<<EOT
 {{{code class="php"}}}
 avant blah
-$marque
+{$marque}
 apres blah et avant php
-$marque
+{$marque}
 {{{code tout court}}}
-$marque
+{$marque}
 {{{Tu vois ?}}}
-Voilà , $marque</code>
+Voilà , {$marque}</code>
 
 On peut croire que c'est embétant , faut mettre une div autour pour encadrer , mais cela permet d'orienter geshi en cours de route comme dans [Compte à rebours (revisited)->article6]
 EOT
@@ -121,25 +126,25 @@ EOT
 	];
 	$essais['pourriture'] = [
 <<<EOT
-Le code mis en $marque ou en $marque peut lui même contenir  $marque ou $marque ...
-$marque
+Le code mis en {$marque} ou en {$marque} peut lui même contenir  {$marque} ou {$marque} ...
+{$marque}
 Je voudrais présenter l'usage du plugin coloration_code qui fournit une extension à geshi : la classe "spip".
 Je mets donc :
-$marque
-Ici présenté avec le $marque d'origine de spip
+{$marque}
+Ici présenté avec le {$marque} d'origine de spip
 
-Mais si je mets le même texte dans $marque , voilà le résultat:
-$marque
+Mais si je mets le même texte dans {$marque} , voilà le résultat:
+{$marque}
 
 Voilà c'est corrigé, [->http://trac.rezo.net/trac/spip-zone/changeset/3823] , mais on s'est aperçu que le problème est le même pour le &lt;code> d'origine de spip. (voir plus bas)
 
 En fait, l'expression régulière (regexp) utilisée par le plugin pour récupérer les morceaux de code à colorer devrait être récursive !
 
-$marque est insuffisant.
+{$marque} est insuffisant.
 
 Il faut un truc comme:
 <div style="color: red;">
-$marque
+{$marque}
 </div>
 Les différences:
 - la balise de fermeture est recherchée avec \1 , c'est à dire cadre ou code comme trouvé en début d'espression
@@ -149,7 +154,7 @@ Les différences:
 
 Essai de code dans code (au lieu de cadre comme tout en haut)
 
-$marque
+{$marque}
 et le tour est joué
 </code>
 

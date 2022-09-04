@@ -11,15 +11,15 @@ namespace Spip\Core\Tests;
 find_in_path("inc/texte.php",'',true);
 
 function pretest_propre_chevron_ouvrant(){
-	$GLOBALS['meta']['type_urls'] = $type_urls = "page";
-
-	// initialiser les plugins qui changent les intertitre (Z), et les restaurer juste apres
+	$GLOBALS['meta']['type_urls'] = "page";
+ $type_urls = "page";
+ // initialiser les plugins qui changent les intertitre (Z), et les restaurer juste apres
 	$mem = [
-		isset($GLOBALS['debut_intertitre']) ? $GLOBALS['debut_intertitre'] : null,
-		isset($GLOBALS['spip_raccourcis_typo']) ? $GLOBALS['spip_raccourcis_typo'] : null
+		$GLOBALS['debut_intertitre'] ?? null,
+		$GLOBALS['spip_raccourcis_typo'] ?? null
 	];
 	propre('rien du tout');
-	list($GLOBALS['debut_intertitre'],$GLOBALS['spip_raccourcis_typo']) = $mem;
+	[$GLOBALS['debut_intertitre'], $GLOBALS['spip_raccourcis_typo']] = $mem;
 }
 
 /**
@@ -40,8 +40,8 @@ function test_propre_chevron_ouvrant(...$args) {
  *  [ output, input1, input2, input3...]
  */
 function essais_propre_chevron_ouvrant(){
-		$essais =  [
-  0 => 
+		return [
+ 0 => 
 	   [
 	    0 => '<p>a&lt;b</p>',
 	    1 => 'a<b',
@@ -73,5 +73,4 @@ function essais_propre_chevron_ouvrant(){
 	  ],
 
 	];
-	return $essais;
 }

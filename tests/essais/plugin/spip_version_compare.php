@@ -26,7 +26,7 @@ function test_plugin_spip_version_compare(...$args) {
  *  [ output, input1, input2, input3...]
  */
 function essais_plugin_spip_version_compare(){
-		$essais =  [
+		return [
   0 => 
    [
     0 => false,
@@ -651,5 +651,4 @@ function essais_plugin_spip_version_compare(){
     3 => '=',
   ],
 ];
-		return $essais;
 	}
