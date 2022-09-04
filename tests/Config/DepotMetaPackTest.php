@@ -17,8 +17,10 @@ use PHPUnit\Framework\TestCase;
 class DepotMetaPackTest extends TestCase {
 
 	protected static $savedMeta;
+
 	// les bases de test
 	protected static $assoc;
+
 	protected static $serassoc;
 
 	public static function setUpBeforeClass(): void {
@@ -79,7 +81,7 @@ class DepotMetaPackTest extends TestCase {
 
 		foreach ($essais as $k => $essai) {
 			$expected = array_shift($essai);
-			$this->assertEquals($expected, lire_config(...$essai), "Echec $k : lecture " . reset($essai));
+			$this->assertEquals($expected, lire_config(...$essai), "Echec {$k} : lecture " . reset($essai));
 		}
 
 		$GLOBALS['meta'] = $meta;
@@ -117,7 +119,7 @@ class DepotMetaPackTest extends TestCase {
 
 		foreach ($essais as $k => $essai) {
 			$expected = array_shift($essai);
-			$this->assertEquals($expected, ecrire_config(...$essai),"Echec $k : ecriture ".reset($essai));
+			$this->assertEquals($expected, ecrire_config(...$essai),"Echec {$k} : ecriture ".reset($essai));
 		}
 	}
 
@@ -141,7 +143,7 @@ class DepotMetaPackTest extends TestCase {
 
 		foreach ($essais as $k => $essai) {
 			$expected = array_shift($essai);
-			$this->assertEquals($expected, lire_config(...$essai), "Echec $k : lecture " . reset($essai));
+			$this->assertEquals($expected, lire_config(...$essai), "Echec {$k} : lecture " . reset($essai));
 		}
 
 	}
@@ -172,7 +174,7 @@ class DepotMetaPackTest extends TestCase {
 
 		foreach ($essais as $k => $essai) {
 			$expected = array_shift($essai);
-			$this->assertEquals($expected, effacer_config(...$essai), "Echec $k : effacer " . reset($essai));
+			$this->assertEquals($expected, effacer_config(...$essai), "Echec {$k} : effacer " . reset($essai));
 		}
 	}
 
@@ -192,7 +194,7 @@ class DepotMetaPackTest extends TestCase {
 
 		foreach ($essais as $k => $essai) {
 			$expected = array_shift($essai);
-			$this->assertEquals($expected, lire_config(...$essai), "Echec $k : lecture " . reset($essai));
+			$this->assertEquals($expected, lire_config(...$essai), "Echec {$k} : lecture " . reset($essai));
 		}
 	}
 }

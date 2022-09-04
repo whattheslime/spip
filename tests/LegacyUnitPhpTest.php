@@ -48,25 +48,25 @@ class LegacyUnitPhpTest extends TestCase {
 
 	protected function legacyPhpRun($inFname){
 		chdir(_SPIP_TEST_INC);
-		if (!is_file('../'.$inFname)
-		  or !$realPath = realpath('../'.$inFname)){
-			$this->fail("$inFname is missing" . json_encode([getcwd(), _SPIP_TEST_INC, _SPIP_TEST_CHDIR]));
+		if (!is_file('../'.$inFname) || !$realPath = realpath('../'.$inFname)){
+			$this->fail("{$inFname} is missing" . json_encode([getcwd(), _SPIP_TEST_INC, _SPIP_TEST_CHDIR], JSON_THROW_ON_ERROR));
 		}
 
 		$output = [];
 		$returnCode = 0;
 		chdir(__DIR__ . '/legacy');
 		$php = PHP_BINARY;
-		exec("$php \"$realPath\" mode=test_general", $output, $returnCode);
+		exec("{$php} \"{$realPath}\" mode=test_general", $output, $returnCode);
 
 		if ($returnCode) {
 			array_unshift($output, 'ReturnCode: '.$returnCode);
 		}
 
 		$result = rtrim(implode("\n", $output));
-		if (preg_match(",^OK \(\d+\)$,", $result)) {
+		if (preg_match("#^OK \(\d+\)$#", $result)) {
 			$result = 'OK';
 		}
+
 		return $result;
 	}
 }

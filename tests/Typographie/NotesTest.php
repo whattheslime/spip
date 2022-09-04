@@ -57,6 +57,7 @@ class NotesTest extends TestCase {
 		$this->assertMatchesRegularExpression('/Note en bas de page/', $note);
 		$this->viderNotes();
 	}
+
 	public function testNoteDoubleEtTexte(): void {
 		$texte =  propre("Texte avant [[Note en bas de page]] texte apres [[Seconde note en bas de page]]");
 		$this->assertMatchesRegularExpression('/#nb1/', $texte);

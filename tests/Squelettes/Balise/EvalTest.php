@@ -9,7 +9,7 @@ use Spip\Core\Testing\Template\FileLoader;
 class EvalTest extends SquelettesTestCase
 {
 	public function testBaliseEval(): void {
-		$this->assertEmptyCode('#EVAL{\'\'}');
+		$this->assertEmptyCode("#EVAL{''}");
 		$this->assertOkCode('#EVAL{"\'ok\'"}');
 	 	$this->assertEqualsCode('1', '#EVAL{1}');
 		$this->assertEqualsCode(_DIR_CACHE, '#EVAL{_DIR_CACHE}');

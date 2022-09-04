@@ -8,13 +8,15 @@
 
 // let's go spip
 if (!defined('_SPIP_TEST_INC')){
-	define('_SPIP_TEST_INC', dirname(dirname(__FILE__)));
+	define('_SPIP_TEST_INC', dirname(__FILE__, 2));
 }
+
 // si rien defini on va dans le public
 
 if (!defined('_SPIP_TEST_CHDIR')){
 	define('_SPIP_TEST_CHDIR', dirname(_SPIP_TEST_INC));
 }
+
 if (!defined('_DIR_TESTS')){
 	define('_DIR_TESTS', substr(_SPIP_TEST_INC, strlen(_SPIP_TEST_CHDIR) + 1) . '/');
 }

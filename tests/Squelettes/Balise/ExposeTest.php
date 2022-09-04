@@ -17,10 +17,10 @@ class ExposeTest extends SquelettesTestCase
 		$id_seconde_rubrique = sql_getfetsel('id_rubrique','spip_rubriques', [
 			'id_parent='.sql_quote(0),
 			'statut='.sql_quote('publie'),
-			'id_rubrique != ' . intval($id_rubrique),
+			'id_rubrique != ' . (int) $id_rubrique,
 		]);
 
-		if (!$id_rubrique or !$id_seconde_rubrique) {
+		if (!$id_rubrique || !$id_seconde_rubrique) {
 			$this->markTestSkipped("Vous devez avoir au moins 2 rubriques racines publiees pour tester #EXPOSE...");
 		}
 

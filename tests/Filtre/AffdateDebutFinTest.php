@@ -188,7 +188,7 @@ class AffDateDebutFinTest extends TestCase
 			],
 			22 =>
 			[
-				0 => '<abbr class=\'dtstart\' title=\'2001-07-01T10:34:00Z\'>Dimanche 1er juillet 2001 à 12h34</abbr>',
+				0 => "<abbr class='dtstart' title='2001-07-01T10:34:00Z'>Dimanche 1er juillet 2001 à 12h34</abbr>",
 				1 => '2001-07-01 12:34:00',
 				2 => '2001-07-01 12:34:00',
 				3 => true,
@@ -196,7 +196,7 @@ class AffDateDebutFinTest extends TestCase
 			],
 			23 =>
 			[
-				0 => '<abbr class=\'dtstart\' title=\'2001-07-01T10:34:00Z\'>Dimanche 1er juillet 2001</abbr>',
+				0 => "<abbr class='dtstart' title='2001-07-01T10:34:00Z'>Dimanche 1er juillet 2001</abbr>",
 				1 => '2001-07-01 12:34:00',
 				2 => '2001-07-01 12:34:00',
 				3 => false,
@@ -204,7 +204,7 @@ class AffDateDebutFinTest extends TestCase
 			],
 			24 =>
 			[
-				0 => '<abbr class=\'dtstart\' title=\'2001-07-01T10:34:00Z\'>Dimanche 1er juillet 2001 de 12h34</abbr> à <abbr class=\'dtend\' title=\'2001-07-01T11:34:00Z\'>13h34</abbr>',
+				0 => "<abbr class='dtstart' title='2001-07-01T10:34:00Z'>Dimanche 1er juillet 2001 de 12h34</abbr> à <abbr class='dtend' title='2001-07-01T11:34:00Z'>13h34</abbr>",
 				1 => '2001-07-01 12:34:00',
 				2 => '2001-07-01 13:34:00',
 				3 => true,
@@ -212,7 +212,7 @@ class AffDateDebutFinTest extends TestCase
 			],
 			25 =>
 			[
-				0 => '<abbr class=\'dtstart\' title=\'2001-07-01T10:34:00Z\'>Dimanche 1er juillet 2001</abbr>',
+				0 => "<abbr class='dtstart' title='2001-07-01T10:34:00Z'>Dimanche 1er juillet 2001</abbr>",
 				1 => '2001-07-01 12:34:00',
 				2 => '2001-07-01 13:34:00',
 				3 => false,

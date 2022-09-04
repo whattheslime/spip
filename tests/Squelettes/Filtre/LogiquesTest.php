@@ -23,6 +23,7 @@ class LogiquesTest extends SquelettesTestCase {
 		$this->assertNotOkCode("[(#VAL{1}|non)ok]");
 		$this->assertNotOkCode("[(#VAL{' '}|non)ok]");
 	}
+
 	public function testNot(): void {
 		$this->assertOkCode("[(#VAL|not)ok]");
 		$this->assertNotOkCode("[(#VAL{1}|not)ok]");
@@ -35,6 +36,7 @@ class LogiquesTest extends SquelettesTestCase {
 		$this->assertOkCode("[(#VAL{1}|et{#VAL{0}}|non)ok]");
 		$this->assertOkCode("[(#VAL{0}|et{#VAL{1}}|non)ok]");
 	}
+
 	public function testAnd(): void {
 		$this->assertOkCode("[(#VAL{1}|and{#VAL{1}})ok]");
 		$this->assertOkCode("[(#VAL{0}|and{#VAL{0}}|non)ok]");
@@ -48,6 +50,7 @@ class LogiquesTest extends SquelettesTestCase {
 		$this->assertOkCode("[(#VAL{1}|ou{#VAL{0}})ok]");
 		$this->assertOkCode("[(#VAL{0}|ou{#VAL{1}})ok]");
 	}
+
 	public function testOr(): void {
 		$this->assertOkCode("[(#VAL{1}|or{#VAL{1}})ok]");
 		$this->assertOkCode("[(#VAL{0}|or{#VAL{0}}|non)ok]");
@@ -61,6 +64,7 @@ class LogiquesTest extends SquelettesTestCase {
 		$this->assertOkCode("[(#VAL{1}|xou{#VAL{0}})ok]");
 		$this->assertOkCode("[(#VAL{0}|xou{#VAL{1}})ok]");
 	}
+
 	public function testXor(): void {
 		$this->assertOkCode("[(#VAL{1}|xor{#VAL{1}}|non)ok]");
 		$this->assertOkCode("[(#VAL{0}|xor{#VAL{0}}|non)ok]");

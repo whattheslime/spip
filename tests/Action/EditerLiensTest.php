@@ -46,13 +46,13 @@ class EditerLiensTest extends TestCase {
 			],
 			[
 				0 => false,
-				1 => 'mot\' OR 1=1\'',
+				1 => "mot' OR 1=1'",
 			],
 		];
 
 		foreach ($essais as $k => $essai){
 			$expected = array_shift($essai);
-			$this->assertEquals($expected, objet_associable(...$essai), "Echec $k : objet_associable " . end($essai));
+			$this->assertEquals($expected, objet_associable(...$essai), "Echec {$k} : objet_associable " . end($essai));
 		}
 	}
 
@@ -101,7 +101,7 @@ class EditerLiensTest extends TestCase {
 
 		foreach ($essais as $k => $essai){
 			$expected = array_shift($essai);
-			$this->assertEquals($expected, objet_associer(...$essai), "Echec $k : objet_associer " . json_encode($essai));
+			$this->assertEquals($expected, objet_associer(...$essai), "Echec {$k} : objet_associer " . json_encode($essai, JSON_THROW_ON_ERROR));
 		}
 
 	}
@@ -145,7 +145,7 @@ class EditerLiensTest extends TestCase {
 
 		foreach ($essais as $k => $essai){
 			$expected = array_shift($essai);
-			$this->assertEquals($expected, objet_qualifier_liens(...$essai), "Echec $k : objet_qualifier_liens " . json_encode($essai));
+			$this->assertEquals($expected, objet_qualifier_liens(...$essai), "Echec {$k} : objet_qualifier_liens " . json_encode($essai, JSON_THROW_ON_ERROR));
 		}
 	}
 
@@ -193,7 +193,7 @@ class EditerLiensTest extends TestCase {
 
 		foreach ($essais as $k => $essai){
 			$expected = array_shift($essai);
-			$this->assertEquals($expected, objet_dissocier(...$essai), "Echec $k : objet_dissocier " . json_encode($essai));
+			$this->assertEquals($expected, objet_dissocier(...$essai), "Echec {$k} : objet_dissocier " . json_encode($essai, JSON_THROW_ON_ERROR));
 		}
 
 	}

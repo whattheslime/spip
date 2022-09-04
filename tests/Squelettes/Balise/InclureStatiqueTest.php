@@ -35,7 +35,7 @@ class InclureStatiqueTest extends SquelettesTestCase
 			' . $dir . '/data/texte_hello_world,
 			' . $dir . '/data/texte_hello_world,
 			' . $dir . '/data/texte_hello_world}';
-		$this->assertEqualsCode('Hello WorldHello WorldHello World', "#INCLURE{fond=$array}");
+		$this->assertEqualsCode('Hello WorldHello WorldHello World', "#INCLURE{fond={$array}}");
 	}
 
 	public function testInclureOldParam(): void {
@@ -56,8 +56,8 @@ class InclureStatiqueTest extends SquelettesTestCase
 			' . $dir . '/data/balise_env_test,
 			' . $dir . '/data/texte_hello_world,
 			' . $dir . '/data/balise_env_test}';
-		$this->assertEqualsCode('KittyHello WorldKitty', "[(#INCLURE{fond=$array, test=Kitty})]");
-		$this->assertEqualsCode('KittyHello WorldKitty', "[(#INCLURE{fond=$array, test=Kitty})]");
+		$this->assertEqualsCode('KittyHello WorldKitty', "[(#INCLURE{fond={$array}, test=Kitty})]");
+		$this->assertEqualsCode('KittyHello WorldKitty', "[(#INCLURE{fond={$array}, test=Kitty})]");
 	}
 
 	/**

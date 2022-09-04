@@ -40,7 +40,7 @@ class NotesTest extends SquelettesTestCase {
 		$dir = $this->relativePath(__DIR__);
 		$this->assertOkCode("
 			[(#VAL{'\[\[Ma note\]\]'}|propre|?)]
-			[(#INCLURE{fond=$dir/data/inclure_vide})]
+			[(#INCLURE{fond={$dir}/data/inclure_vide})]
 			[(#NOTES|match{Ma note}|?{'OK','Une note mangee par INCLURE'})]
 		");
 		$this->viderNotes();

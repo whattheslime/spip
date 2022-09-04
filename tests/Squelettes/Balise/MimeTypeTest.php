@@ -19,6 +19,7 @@ class MimeTypeTest extends SquelettesTestCase
 		if ($this->isNa($result)) {
 			$this->markTestSkipped($result);
 		}
+
 		$this->assertOkCode($result);
 	}
 }

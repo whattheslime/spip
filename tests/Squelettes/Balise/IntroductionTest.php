@@ -14,6 +14,7 @@ class IntroductionTest extends SquelettesTestCase
 		if ($this->isNA($result)) {
 			$this->markTestSkipped($result);
 		}
+
 		$this->assertOK($result);
 	}
 
@@ -23,7 +24,7 @@ class IntroductionTest extends SquelettesTestCase
 		$code = "<BOUCLE_a(ARTICLES){chapo=='.{100}'}{texte!=''}{descriptif=''}{0,1}>#INTRODUCTION</BOUCLE_a>";
 		$result = $templating->render($code);
 		$suite = '&nbsp;(...)';
-		$this->assertMatchesRegularExpression("#".preg_quote($suite . '</p>')."$#", $result);
+		$this->assertMatchesRegularExpression("#".preg_quote($suite . '</p>', '#')."$#", $result);
 	}
 
 	/** @depends testArticleLongExiste */
@@ -32,11 +33,11 @@ class IntroductionTest extends SquelettesTestCase
 		$code = "<BOUCLE_a(ARTICLES){chapo=='.{100}'}{texte!=''}{descriptif=''}{0,1}>#INTRODUCTION{…}</BOUCLE_a>";
 		$result = $templating->render($code);
 		$suite = '…';
-		$this->assertMatchesRegularExpression("#".preg_quote($suite . '</p>')."$#", $result);
+		$this->assertMatchesRegularExpression("#".preg_quote($suite . '</p>', '#')."$#", $result);
 
 		$code = "<BOUCLE_a(ARTICLES){chapo=='.{100}'}{texte!=''}{descriptif=''}{0,1}>#INTRODUCTION{#ENV{suite}}</BOUCLE_a>";
 		$result = $templating->render($code, ['suite' => $suite]);
-		$this->assertMatchesRegularExpression("#".preg_quote($suite . '</p>')."$#", $result);
+		$this->assertMatchesRegularExpression("#".preg_quote($suite . '</p>', '#')."$#", $result);
 	}
 
 	/** @depends testCoupeIntroduction */
@@ -51,6 +52,6 @@ class IntroductionTest extends SquelettesTestCase
 		$code = "#CACHE{0}<BOUCLE_a(ARTICLES){chapo=='.{100}'}{texte!=''}{descriptif=''}{0,1}>#INTRODUCTION</BOUCLE_a>";
 		$result = $templating->render($code);
 		$suite = _INTRODUCTION_SUITE;
-		$this->assertMatchesRegularExpression("#".preg_quote($suite . '</p>')."$#", $result);
+		$this->assertMatchesRegularExpression("#".preg_quote($suite . '</p>', '#')."$#", $result);
 	}
 }

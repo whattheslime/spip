@@ -13,14 +13,13 @@ class ConfigTest extends SquelettesTestCase {
 			'one' => 'element 1',
 			'two' => 'element 2'
 		];
-		$meta = [
+		return [
 			'zero' => 0,
 			'zeroc' => '0',
 			'chaine' => 'une chaine',
 			'assoc' => $assoc,
 			'serie' => serialize($assoc)
 		];
-		return $meta;
 	}
 
 	private function getFakeMetaDataT(): array {
@@ -28,14 +27,13 @@ class ConfigTest extends SquelettesTestCase {
 			'one' => 'element 1',
 			'two' => 'element 2'
 		];
-		$meta = [
+		return [
 			'tzero' => 0,
 			'tzeroc' => '0',
 			'tchaine' => 'une chaine',
 			'tassoc' => $assoc,
 			'tserie' => serialize($assoc)
 		];
-		return $meta;
 	}
 
 
@@ -48,7 +46,7 @@ class ConfigTest extends SquelettesTestCase {
 					if (!\$meta) {
 						\$meta = \$GLOBALS['meta'];
 					}
-					\$GLOBALS['meta'] = $fake;
+					\$GLOBALS['meta'] = {$fake};
 					if (\$raz) {
 						\$GLOBALS['meta'] = \$meta;
 					}
@@ -64,7 +62,7 @@ class ConfigTest extends SquelettesTestCase {
 		return Templating::fromString([
 			'fonctions'=> "
 				function test_meta_toto(\$raz = 0) {
-					\$GLOBALS['toto'] = $fake;
+					\$GLOBALS['toto'] = {$fake};
 					if (\$raz) {
 						unset(\$GLOBALS['toto']);
 					}

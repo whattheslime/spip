@@ -16,6 +16,8 @@ use PHPUnit\Framework\TestCase;
 
 class FrTextwheelTest extends FrTest {
 	protected static $lang = 'fr';
+
 	protected static $root = '';
+
 	protected static $fnTypographie = 'typographie_fr';
 }

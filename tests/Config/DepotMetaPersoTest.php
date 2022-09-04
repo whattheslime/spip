@@ -17,8 +17,10 @@ use PHPUnit\Framework\TestCase;
 class DepotMetaPersoTest extends TestCase {
 
 	protected static $savedMeta;
+
 	// les bases de test
 	protected static $assoc;
+
 	protected static $serassoc;
 
 	public static function setUpBeforeClass(): void {
@@ -67,7 +69,7 @@ class DepotMetaPersoTest extends TestCase {
 
 		foreach ($essais as $k => $essai) {
 			$expected = array_shift($essai);
-			$this->assertEquals($expected, lire_config(...$essai), "Echec $k : lecture " . reset($essai));
+			$this->assertEquals($expected, lire_config(...$essai), "Echec {$k} : lecture " . reset($essai));
 		}
 
 		$GLOBALS['meta'] = $meta;
@@ -103,12 +105,12 @@ class DepotMetaPersoTest extends TestCase {
 
 		foreach ($essais as $k => $essai) {
 			$expected = array_shift($essai);
-			$this->assertEquals($expected, ecrire_config(...$essai),"Echec $k : ecriture ".reset($essai));
+			$this->assertEquals($expected, ecrire_config(...$essai),"Echec {$k} : ecriture ".reset($essai));
 		}
 
 		$trouver_table = charger_fonction('trouver_table','base');
-		$this->assertNotEmpty($GLOBALS['toto'], 'La table spip_toto n\'a pas ete cree !');
-		$this->assertNotEmpty($trouver_table('spip_toto'), 'La table spip_toto n\'a pas ete cree !');
+		$this->assertNotEmpty($GLOBALS['toto'], "La table spip_toto n'a pas ete cree !");
+		$this->assertNotEmpty($trouver_table('spip_toto'), "La table spip_toto n'a pas ete cree !");
 
 	}
 
@@ -126,7 +128,7 @@ class DepotMetaPersoTest extends TestCase {
 
 		foreach ($essais as $k => $essai) {
 			$expected = array_shift($essai);
-			$this->assertEquals($expected, lire_config(...$essai), "Echec $k : lecture " . reset($essai));
+			$this->assertEquals($expected, lire_config(...$essai), "Echec {$k} : lecture " . reset($essai));
 		}
 
 	}
@@ -145,7 +147,7 @@ class DepotMetaPersoTest extends TestCase {
 
 		foreach ($essais as $k => $essai) {
 			$expected = array_shift($essai);
-			$this->assertEquals($expected, effacer_config(...$essai), "Echec $k : effacer " . reset($essai));
+			$this->assertEquals($expected, effacer_config(...$essai), "Echec {$k} : effacer " . reset($essai));
 		}
 
 	}
@@ -164,12 +166,12 @@ class DepotMetaPersoTest extends TestCase {
 
 		foreach ($essais as $k => $essai) {
 			$expected = array_shift($essai);
-			$this->assertEquals($expected, lire_config(...$essai), "Echec $k : lecture " . reset($essai));
+			$this->assertEquals($expected, lire_config(...$essai), "Echec {$k} : lecture " . reset($essai));
 		}
 
 		$trouver_table = charger_fonction('trouver_table','base');
-		$this->assertArrayNotHasKey('toto', $GLOBALS, 'La table spip_toto n\'a pas ete supprimee par le dernier effacement de config !');
-		$this->assertEmpty($trouver_table('spip_toto'), 'La table spip_toto n\'a pas ete supprimee par le dernier effacement de config !');
+		$this->assertArrayNotHasKey('toto', $GLOBALS, "La table spip_toto n'a pas ete supprimee par le dernier effacement de config !");
+		$this->assertEmpty($trouver_table('spip_toto'), "La table spip_toto n'a pas ete supprimee par le dernier effacement de config !");
 
 	}
 }

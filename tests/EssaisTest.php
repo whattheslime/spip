@@ -22,6 +22,7 @@ use PHPUnit\Framework\TestCase;
 class EssaisTest extends TestCase {
 
 	protected static $pretest_function_launched = [];
+
 	protected static $posttest_function_tolaunch = [];
 
 	/**
@@ -34,8 +35,7 @@ class EssaisTest extends TestCase {
 		$posttest_function = $namespace . 'post' . $test_function;
 		$test_function = $namespace . $test_function;
 
-		if (function_exists($pretest_function)
-			and empty(self::$pretest_function_launched[$pretest_function])) {
+		if (function_exists($pretest_function) && empty(self::$pretest_function_launched[$pretest_function])) {
 			self::$pretest_function_launched[$pretest_function] = true;
 			$pretest_function();
 		}
@@ -46,25 +46,20 @@ class EssaisTest extends TestCase {
 			self::$posttest_function_tolaunch[$posttest_function] = true;
 		}
 
-		if (is_array($output)
-			and !empty($output[0])
-		  and is_string($output[0])
-			and function_exists($output[0])
-			and !empty($output[1])
-			and isset($output[2])
+		if (is_array($output) && !empty($output[0]) && is_string($output[0]) && function_exists($output[0]) && !empty($output[1]) && isset($output[2])
 		) {
-			list($fmatch, $match_string, $output) = $output;
-			if ($fmatch === 'preg_match' and $output === true) {
+			[$fmatch, $match_string, $output] = $output;
+			if ($fmatch === 'preg_match' && $output === true) {
 				$this->assertMatchesRegularExpression($match_string, $result);
 			}
-			elseif ($fmatch === 'preg_match' and $output === false) {
+			elseif ($fmatch === 'preg_match' && $output === false) {
 				$this->assertDoesNotMatchRegularExpression($match_string, $result);
 			}
 			else {
 				$this->assertEquals($fmatch($match_string, $result), $output);
 			}
 		}
-		elseif (is_double($output) and is_double($result)){
+		elseif (is_float($output) && is_float($result)){
 
 				$this->assertTrue(abs($output-$result)<=1e-10*abs($output));
 		}
@@ -75,16 +70,15 @@ class EssaisTest extends TestCase {
 	}
 
 	protected function check_equality($val1,$val2){
-		if (is_array($val1) AND is_array($val2)){
+		if (is_array($val1) && is_array($val2)){
 			return (
-				    !count(array_diff_assoc_recursive($val1,$val2))
-			  AND !count(array_diff_assoc_recursive($val2,$val1))
+				    !(is_countable(array_diff_assoc_recursive($val1,$val2)) ? count(array_diff_assoc_recursive($val1,$val2)) : 0) && !(is_countable(array_diff_assoc_recursive($val2,$val1)) ? count(array_diff_assoc_recursive($val2,$val1)) : 0)
 			);
 		}
-		elseif (is_array($val1) OR is_array($val2)){
+		elseif (is_array($val1) || is_array($val2)){
 			return false;
 		}
-		elseif (is_double($val1) OR is_double($val2)){
+		elseif (is_float($val1) || is_float($val2)){
 			return abs($val1-$val2)<=1e-10*abs($val1);
 		}
 		else
@@ -123,10 +117,11 @@ class EssaisTest extends TestCase {
 				$input = $essai;
 				$key = $joli_file.'_'.str_pad($i,2,0,STR_PAD_LEFT);
 				if (!is_numeric($k)) {
-					$key .= "_$k";
+					$key .= "_{$k}";
 				}
+
 				$tests[$key] = [$test_function, $input, $output];
-				$i++;
+				++$i;
 			}
 		}
 

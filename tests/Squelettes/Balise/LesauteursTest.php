@@ -18,6 +18,7 @@ class LesauteursTest extends SquelettesTestCase
 		if ($this->isNa($result)) {
 			$this->markTestSkipped($result);
 		}
+
 		$this->assertOk($result);
 	}
 }

@@ -17,7 +17,9 @@ use PHPUnit\Framework\TestCase;
 class FrTest extends TestCase {
 
 	protected static $lang = 'fr';
+
 	protected static $root = 'ecrire/';
+
 	protected static $fnTypographie = 'typographie_fr_dist';
 
 	public static function setUpBeforeClass(): void{
