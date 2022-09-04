@@ -4,7 +4,8 @@
 	$test = 'attribut_html';
 	$remonte = __DIR__ . '/';
 	while (!is_file($remonte."test.inc"))
-		$remonte = $remonte."../";
+		$remonte .= "../";
+
 	require $remonte.'test.inc';
 	include_spip("inc/filtres");
 
@@ -25,10 +26,10 @@
 // hop ! on y va
 //
 	$err = tester_fun('attribut_html', $essais);
-	
+
 	// si le tableau $err est pas vide ca va pas
 	if ($err) {
-		die ('<dl>' . join('', $err) . '</dl>');
+		die ('<dl>' . implode('', $err) . '</dl>');
 	}
 
 	echo "OK";

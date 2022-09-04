@@ -3,11 +3,12 @@
 	$test = 'xmlhack_recuperer_fond';
 	$remonte = __DIR__ . '/';
 	while (!is_file($remonte."test.inc"))
-		$remonte = $remonte."../";
+		$remonte .= "../";
+
 	require $remonte.'test.inc';
-	
+
 	include_spip('public/assembler');
-	$dir = substr(dirname(dirname(__DIR__)), strlen(_SPIP_TEST_CHDIR) + 1);
+	$dir = substr(dirname(__DIR__, 2), strlen(_SPIP_TEST_CHDIR) + 1);
 	$out = recuperer_fond($dir.'/unit/xml/xmlhack');
 	// regarder si le hack a marche
 	include_spip('inc/xml');
@@ -17,6 +18,7 @@
 	if ($ok!=='OK') {
 		echo ('<dl> Erreur sur le xml produit (xmlhack) : ' . serialize($tree) . '</dl>');
 	}
+
 	$out = recuperer_fond($dir.'/unit/xml/xmlhack_php');
 	// regarder si le hack a marche
 	include_spip('inc/xml');

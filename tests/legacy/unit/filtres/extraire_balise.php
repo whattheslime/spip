@@ -3,7 +3,8 @@
 	$test = 'extraire_balise';
 	$remonte = __DIR__ . '/';
 	while (!is_file($remonte."test.inc"))
-		$remonte = $remonte."../";
+		$remonte .= "../";
+
 	require $remonte.'test.inc';
 
 	include_spip('inc/filtres');
@@ -27,7 +28,7 @@
 
 	// si le tableau $err est pas vide ca va pas
 	if ($err) {
-		die ('<dl>' . join('', $err) . '</dl>');
+		die ('<dl>' . implode('', $err) . '</dl>');
 	}
 
 
@@ -70,7 +71,7 @@
 
 	// si le tableau $err est pas vide ca va pas
 	if ($err) {
-		die ('<dl>' . join('', $err) . '</dl>');
+		die ('<dl>' . implode('', $err) . '</dl>');
 	}
 
 	// un exemple d'utilisation sympa du mode "array" de ces fonctions:
@@ -79,8 +80,8 @@
 	lire_fichier($f = __DIR__ . '/data/dailymotion.rss', $rss);
 	$flux = extraire_attribut(extraire_balises($rss, 'media:content'), 'url');
 	# var_dump($flux);
-	if (!is_array($flux) OR !count($flux)==39)
-		echo "pas vu les 39 media:content de dailymotion.rss ! (dans $f)\n";
+	if (!is_array($flux) || ($flux === [])==39)
+		echo "pas vu les 39 media:content de dailymotion.rss ! (dans {$f})\n";
 
 	// en objet on ecrirait
 	// $rss->extraire_balises('media:content')->extraire_attribut('url');

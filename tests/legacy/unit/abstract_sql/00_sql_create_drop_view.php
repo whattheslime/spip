@@ -5,11 +5,12 @@
 
 	$remonte = __DIR__ . '/';
 	while (!is_file($remonte."test.inc"))
-		$remonte = $remonte."../";
+		$remonte .= "../";
+
 	require $remonte.'test.inc';
 
-	include 'inc-sql_datas.inc';
-	
+	include __DIR__ . '/inc-sql_datas.inc';
+
 	include_spip('base/abstract_sql');
 
 	/* 
@@ -22,7 +23,7 @@
 	 * 
 	 */
 
-	
+
 	/*
 	 * Lecture de la description des tables
 	 */
@@ -34,12 +35,13 @@
 		// attention : la primary key DOIT etre dans les cle aussi
 		foreach ($tables as $t=>$d){
 			$desc = sql_showtable($t);
-			$essais["Compter field $t"] = [count($d['desc']['field']),$desc['field']];
-			$essais["Compter key $t"] = [$d['desc']['nb_key_attendues'],$desc['key']];
+			$essais["Compter field {$t}"] = [is_countable($d['desc']['field']) ? count($d['desc']['field']) : 0,$desc['field']];
+			$essais["Compter key {$t}"] = [$d['desc']['nb_key_attendues'],$desc['key']];
 		}
+
 		$err = tester_fun('count', $essais);
 		if ($err) {
-			return '<b>Lecture des structures de table en echec</b><dl>' . join('', $err) . '</dl>';
+			return '<b>Lecture des structures de table en echec</b><dl>' . implode('', $err) . '</dl>';
 		}
 	}
 
@@ -52,9 +54,9 @@
 	$err .= test_show_table();
 	// supprimer les tables
 	$err .= test_drop_table();
-	
-	if ($err) 
+
+	if ($err !== '' && $err !== '0') 
 		die($err);
-	
+
 	echo "OK";
 

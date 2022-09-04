@@ -1,9 +1,12 @@
 <?php
 
-	(isset($test) && $test) || ($test = 'liens_absolus');
+	if (!(isset($test) && $test)) {
+     $test = 'liens_absolus';
+ }
 	$remonte = __DIR__ . '/';
 	while (!is_file($remonte."test.inc"))
-		$remonte = $remonte."../";
+		$remonte .= "../";
+
 	require $remonte.'test.inc';
 	include_spip('inc/filtres');
 
@@ -18,7 +21,7 @@
 	$essais["mailto"] =
 	 ["bla bla <a href='mailto:toto'>email</a>",
 	 "bla bla <a href='mailto:toto'>email</a>"];
-	 
+
 	$essais["javascript"] =
 	 ["bla bla <a href='javascript:open()'>javascript</a>",
 	 "bla bla <a href='javascript:open()'>javascript</a>"];
@@ -29,13 +32,14 @@
 
 	# tests invalides si _SPIP_SCRIPT vaut ''
 	if (_SPIP_SCRIPT === '')
-		die ('NA _SPIP_SCRIPT=""'); # non applicable
+		die ('NA _SPIP_SCRIPT=""');
+  # non applicable
 
 	$err = tester_fun('liens_absolus', $essais);
 
 	// si le tableau $err est pas vide ca va pas
 	if ($err) {
-		die ('<dl>' . join('', $err) . '</dl>');
+		die ('<dl>' . implode('', $err) . '</dl>');
 	}
 
 	echo "OK";

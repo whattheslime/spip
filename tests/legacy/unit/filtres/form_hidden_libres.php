@@ -10,7 +10,8 @@
 	$test = 'form_hidden';
 	$remonte = __DIR__ . '/';
 	while (!is_file($remonte."test.inc"))
-		$remonte = $remonte."../";
+		$remonte .= "../";
+
 	require $remonte.'test.inc';
 	find_in_path("./inc/filtres.php",'',true);
 	$type_urls='libres';
@@ -20,17 +21,17 @@
 	// hop ! on y va
 	//
 	$err = tester_fun('form_hidden', essais_form_hidden());
-	
+
 	// si le tableau $err est pas vide ca va pas
 	if ($err) {
-		die ('<dl>' . join('', $err) . '</dl>');
+		die ('<dl>' . implode('', $err) . '</dl>');
 	}
 
 	echo "OK";
-	
+
 
 	function essais_form_hidden(){
-		$essais =  [
+		return [
   0 => 
    [
     0 => '<input name="id_rubrique" value="12" type="hidden"
@@ -79,5 +80,4 @@
     1 => './rubrique12.html?calendrier=1&amp;toto=2',
   ],
 ];
-		return $essais;
 	}

@@ -3,7 +3,8 @@
 	$test = 'extraire_attribut';
 	$remonte = __DIR__ . '/';
 	while (!is_file($remonte."test.inc"))
-		$remonte = $remonte."../";
+		$remonte .= "../";
+
 	require $remonte.'test.inc';
 
 	include_spip('inc/filtres');
@@ -86,7 +87,7 @@
 	// 
 	// ... pour pouvoir le remplacer correctement
 	if (
-	strpos('x', inserer_attribut('<a><img src="x"/></a>', 'src', 'y'))
+	strpos('x', (string) inserer_attribut('<a><img src="x"/></a>', 'src', 'y'))
 	!== false)
 		$err[] = 'erreur remplacement tag interne';
 
@@ -101,7 +102,7 @@
 
 	// si le tableau $err est pas vide ca va pas
 	if ($err) {
-		die ('<dl>' . join('', $err) . '</dl>');
+		die ('<dl>' . implode('', $err) . '</dl>');
 	}
 
 	echo "OK";

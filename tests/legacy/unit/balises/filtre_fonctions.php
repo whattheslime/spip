@@ -7,12 +7,10 @@
  */
 
 function strip_non($texte){
-	$texte = str_replace('NON','',$texte);
-	return $texte;
+	return str_replace('NON','',$texte);
 }
 
 function strip_on($texte){
-	$texte = str_replace('ON','',$texte);
-	return $texte;
+	return str_replace('ON','',$texte);
 }
 

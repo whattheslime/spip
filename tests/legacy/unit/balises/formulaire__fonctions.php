@@ -7,7 +7,7 @@
  */
 
 function formulaire_inscription_present($page){
-	if (!strlen(trim($page)))
+	if (trim($page) === '')
 		return '#FORMULAIRE_{inscription} ne renvoie rien';
 	else
 		return 'OK';

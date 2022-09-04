@@ -4,10 +4,11 @@
 	$test = 'entites_html';
 	$remonte = __DIR__ . '/';
 	while (!is_file($remonte."test.inc"))
-		$remonte = $remonte."../";
+		$remonte .= "../";
+
 	require $remonte.'test.inc';
 	include_spip("inc/filtres");
-	
+
 
 	$essais[] =
 	 ["&lt;code&gt;&amp;#233;&lt;/code&gt;&#233;","<code>&#233;</code>&#233;"];
@@ -16,16 +17,16 @@
 // hop ! on y va
 //
 	$err = tester_fun('entites_html', $essais);
-	
+
 	// si le tableau $err est pas vide ca va pas
 	if ($err) {
-		die ('<dl>' . join('', $err) . '</dl>');
+		die ('<dl>' . implode('', $err) . '</dl>');
 	}
 
 	echo "OK";
 
 function essais_entites_html(){
-		$essais =  [
+		return [
   0 => 
    [
     0 => '',
@@ -70,7 +71,7 @@ function essais_entites_html(){
   ],
   7 => 
    [
-    0 => 'Un texte sans entites &amp;&lt;&gt;&quot;\'',
+    0 => "Un texte sans entites &amp;&lt;&gt;&quot;'",
     1 => 'Un texte sans entites &<>"\'',
     2 => false,
   ],
@@ -99,5 +100,4 @@ paragraphes',
     2 => false,
   ],
 ];
-		return $essais;
 	}

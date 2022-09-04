@@ -3,7 +3,8 @@
 	$test = 'typo';
 	$remonte = __DIR__ . '/';
 	while (!is_file($remonte."test.inc"))
-		$remonte = $remonte."../";
+		$remonte .= "../";
+
 	require $remonte.'test.inc';
 
 	include_spip('inc/texte');
@@ -18,20 +19,20 @@
 	$err = tester_fun('typo', $essais);
 	// si le tableau $err est pas vide ca va pas
 	if ($err) {
-		die ('<dl>' . join('', $err) . '</dl>');
+		die ('<dl>' . implode('', $err) . '</dl>');
 	}
 
 	$essais = essais_typo();
 	$err = tester_fun('typo', $essais);
 	// si le tableau $err est pas vide ca va pas
 	if ($err) {
-		die ('<dl>' . join('', $err) . '</dl>');
+		die ('<dl>' . implode('', $err) . '</dl>');
 	}
 
 	echo "OK";
 
 		function essais_typo(){
-		$essais =  [
+		return [
   0 => 
    [
     0 => 'Quelle question&nbsp;!',
@@ -99,7 +100,7 @@
   ],
   11 => 
    [
-    0 => '{{{Des raccourcis}}} {italique} {{gras}} <code class=\'spip_code\' dir=\'ltr\'>du code</code>',
+    0 => "{{{Des raccourcis}}} {italique} {{gras}} <code class='spip_code' dir='ltr'>du code</code>",
     1 => '{{{Des raccourcis}}} {italique} {{gras}} <code>du code</code>',
     2 => true,
   ],
@@ -122,5 +123,4 @@
     2 => false,
   ],
 ];
-		return $essais;
 	}

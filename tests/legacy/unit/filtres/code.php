@@ -3,7 +3,8 @@
 $test = 'code';
 $remonte = __DIR__ . '/';
 while (!is_file($remonte."test.inc"))
-	$remonte = $remonte."../";
+	$remonte .= "../";
+
 require $remonte.'test.inc';
 find_in_path("./inc/texte.php",'',true);
 
@@ -15,14 +16,14 @@ $err = tester_fun('propre', essais_code_dist());
 
 // si le tableau $err est pas vide ca va pas
 if ($err) {
-	die ('<dl>' . join('', $err) . '</dl>');
+	die ('<dl>' . implode('', $err) . '</dl>');
 }
 
 echo "OK";
 
 
 function essais_code_dist(){
-	$essais = [
+	return [
 		[
 			0 =>
 				'<p>Le r&#233;sultat se pr&#233;sente sous la forme suivante&nbsp;:</p>
@@ -44,7 +45,5 @@ spip_articles.sql.gz    spip_breves.sql.gz ....
 '
 		],
 	];
-
-	return $essais;
 }
 

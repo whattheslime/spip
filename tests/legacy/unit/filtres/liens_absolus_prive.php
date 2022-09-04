@@ -5,7 +5,7 @@
  * ceci avant que inc_version.php soit inclus ...
  */
 // let's go ecrire/
-$dir_racine = dirname(dirname(__DIR__));
+$dir_racine = dirname(__DIR__, 2);
 while (!is_dir($dir_racine."/ecrire"))
 	$dir_racine = dirname($dir_racine);
 

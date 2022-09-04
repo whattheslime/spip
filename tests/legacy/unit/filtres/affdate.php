@@ -3,12 +3,13 @@
 	$test = 'affdate';
 	$remonte = __DIR__ . '/';
 	while (!is_file($remonte."test.inc"))
-		$remonte = $remonte."../";
+		$remonte .= "../";
+
 	require $remonte.'test.inc';
 
 	include_spip('inc/filtres');
 	include_spip('inc/lang');
-	
+
 	$lang = $GLOBALS['spip_lang'];
 
 	$GLOBALS['spip_lang'] = 'ca';
@@ -20,7 +21,7 @@
 	$essais["nc-01-2010"] = ['Januar 2010', "2010-01-00 01:00:00"];
 	$essais["nc-nc-2010"] = ['2010', "2010-00-00 01:00:00"];
 	$err[$GLOBALS['spip_lang']] = tester_fun('affdate', $essais);
-	
+
 	$GLOBALS['spip_lang'] = 'en';
 	$essais["nc-01-2010"] = ['January 2010', "2010-01-00 01:00:00"];
 	$essais["nc-nc-2010"] = ['2010', "2010-00-00 01:00:00"];
@@ -61,10 +62,10 @@
 	// si le tableau $err est pas vide ca va pas
 	$ok = true;
 	foreach ($err as $l=>$e) {
-		if (count($e)){
+		if (count($e) > 0){
 			$ok = false;
 			echo $l;
-			echo '<dl>' . join('', $e) . '</dl>';
+			echo '<dl>' . implode('', $e) . '</dl>';
 		}
 	}
 

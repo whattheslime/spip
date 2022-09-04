@@ -10,12 +10,12 @@
  *  Pour plus de details voir le fichier COPYING.txt ou l'aide en ligne.   *
 \***************************************************************************/
 
-if (!defined("_ECRIRE_INC_VERSION")) return;	#securite
+if (!defined("_ECRIRE_INC_VERSION")) return;
+	#securite
 
 function balise_FORMULAIRE_TEST_PHRASEUR ($p) {
 
-	$p = calculer_balise_dynamique($p,'FORMULAIRE_TEST_PHRASEUR', ['id_rubrique']);
-	return $p;
+	return calculer_balise_dynamique($p,'FORMULAIRE_TEST_PHRASEUR', ['id_rubrique']);
 }
 
 function balise_FORMULAIRE_TEST_PHRASEUR_stat($args, $context_compil) {
@@ -24,7 +24,7 @@ function balise_FORMULAIRE_TEST_PHRASEUR_stat($args, $context_compil) {
 	// exemple dans un squelette article.html : [(#FORMULAIRE_FORUM{#SELF})]
 
 	// recuperer les donnees du forum auquel on repond.
-	list ($idr, $url) = $args;
+	[$idr, $url] = $args;
 
 	return
 		[$idr, $url];
@@ -33,7 +33,7 @@ function balise_FORMULAIRE_TEST_PHRASEUR_stat($args, $context_compil) {
 function balise_FORMULAIRE_TEST_PHRASEUR_dyn($id_rubrique,$url) {
 	$res = "OK";
 
-	if (!preg_match(",^[0-9]+$,", $id_rubrique))
+	if (!preg_match("#^\d+$#", $id_rubrique))
 		$res = "Erreur id_rubrique non numerique : ".var_export($id_rubrique,1);
 
 	return ["formulaires/test_phraseur",

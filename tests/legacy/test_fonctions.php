@@ -23,8 +23,9 @@ function demarrer_simpletest() {
 		die("<strong>Echec :</strong> SPIP ne peut pas etre demarre automatiquement pour le test.<br />
 			Vous utilisez certainement un lien symbolique dans votre repertoire plugins.");
 	}
+
 	include_once _SPIP_TEST_INC . '/tests/legacy/inc/spip_simpletest.php';
-	if (!class_exists('SpipTestSuite')) {
+	if (!class_exists(\SpipTestSuite::class)) {
 		die("<strong>Echec :</strong> le plugin pour les tests unitaires avec SimpleTest ne semble pas actif.");
 	}
 }
@@ -44,7 +45,7 @@ function tester_fun($fun, $essais, $opts = [])
 
 	// let's go !
 	foreach ($essais as $titre => $ess) {
-		switch (count($ess)) {
+		switch (is_countable($ess) ? count($ess) : 0) {
 			case 0:	$res = null; break;
 			case 1:	$res = $fun(); break;
 			case 2:	$res = $fun($ess[1]); break;
@@ -56,11 +57,12 @@ function tester_fun($fun, $essais, $opts = [])
 				array_shift($copy);
 				$res = call_user_func_array($fun, $copy);
 		}
+
 		$ok = false;
 		$expected = null;
 		$affdiff =  true;
-		if (is_array($ess) and is_array($ess[0]) and isset($ess[0][0])
-			&& is_string($ess[0][0]) && function_exists($ess[0][0]) && isset($ess[0][1]) && isset($ess[0][2])) {
+		if (is_array($ess) && is_array($ess[0]) && (isset($ess[0][0])
+			&& is_string($ess[0][0]) && function_exists($ess[0][0]) && isset($ess[0][1]) && isset($ess[0][2]))) {
 			$ok = ($ess[0][0]($ess[0][1],$res)==$ess[0][2]);
 			$expected = $ess[0][0]."(".sql_quote($ess[0][1]).", \$res) == " . sql_quote($ess[0][2]);
 			$affdiff = false;
@@ -71,24 +73,25 @@ function tester_fun($fun, $essais, $opts = [])
 		spip_log('test ' . $GLOBALS['test']." : Essai ".$GLOBALS['compteur_essai']++.($ok?" ok":" ECHEC"),'testrunner');
 		if (!$ok) {
 			$erritem_args = [];
-			for ($iarg = 1; $iarg < count($ess); ++$iarg) {
+   $essCount = count($ess);
+			for ($iarg = 1; $iarg < $essCount; ++$iarg) {
 				$erritem_args[] = htmlspecialchars(var_export($ess[$iarg], true));
 			}
 			$opts['affdiff'] = $affdiff;
 			$err[] = display_error(
 			  $titre,
-				"$fun(". implode(', ', $erritem_args) . ")",
+				"{$fun}(". implode(', ', $erritem_args) . ")",
 				$res,
-				$expected ? $expected : $ess[0],
+				$expected ?: $ess[0],
 				$opts
 			);
 		}
 	}
-	if (defined('_IS_CLI') and _IS_CLI){
-		if (count($err)) {
-			exit;
-		}
+
+	if (defined('_IS_CLI') && _IS_CLI && count($err)){
+		exit;
 	}
+
 	return $err;
 }
 
@@ -108,10 +111,11 @@ class SpipTestFineDiffRenderer extends \cogpowered\FineDiff\Render\Text {
 }
 
 function display_error($titre,$call,$result,$expected,$opts=[]){
-	static $bef, $mid, $end;
+	$out = null;
+ static $bef, $mid, $end;
 	static $style;
-	if (defined('_IS_CLI') and _IS_CLI){
-		echo "/!\ FAIL test `$titre`\n--- Expected\n+++ Actual\n@@ @@\n";
+	if (defined('_IS_CLI') && _IS_CLI){
+		echo "/!\ FAIL test `{$titre}`\n--- Expected\n+++ Actual\n@@ @@\n";
 
 		$from = var_export($expected, true);
 
@@ -126,11 +130,13 @@ function display_error($titre,$call,$result,$expected,$opts=[]){
 			foreach ([
 				'out' => '<dt>@</dt><dd class="ei">@</dd>'
 			] as $opt => $def) {
-				$$opt = isset($opts[$opt]) ? $opts[$opt] : $def;
+				${$opt} = $opts[$opt] ?? $def;
 			}
+
 			// l'enrobage de sortie
-			list($bef, $mid, $end) = explode('@', $out);
+			[$bef, $mid, $end] = explode('@', $out);
 		}
+
 		$affdiff = true;
 		if (isset($opts['affdiff'])){
 			$affdiff = $opts['affdiff'];
@@ -156,9 +162,9 @@ function display_error($titre,$call,$result,$expected,$opts=[]){
 		return
 			$style
 			. $bef
-			. (is_numeric($titre) ? "test $titre" : htmlspecialchars($titre))
+			. (is_numeric($titre) ? "test {$titre}" : htmlspecialchars($titre))
 			. $mid
-			. "<pre>$call</pre>"
+			. "<pre>{$call}</pre>"
 			. "<table style='width:100%;'><tr><th>diff</th><th>attendu</th><th>resultat</th></tr><tr>"
 			. "<td><pre>" . ($affdiff ? $diff : $affdiff) . "</pre></td>"
 			. '<td><pre>' . htmlspecialchars(var_export($expected, true)) . "</pre></td>"
@@ -184,25 +190,25 @@ if (!function_exists('array_diff_assoc_recursive')){
 					}
 				}
 			}
-			elseif (!array_key_exists($key, $array2) OR !test_equality($array2[$key],$value)) {
+			elseif (!array_key_exists($key, $array2) || !test_equality($array2[$key],$value)) {
 				$difference[$key] = $value;
 			}
 		}
-		return !isset($difference) ? [] : $difference;
+
+		return $difference ?? [];
 	}
 }
 
 function test_equality($val1,$val2){
-	if (is_array($val1) AND is_array($val2)){
+	if (is_array($val1) && is_array($val2)){
 		return (
-			    !count(array_diff_assoc_recursive($val1,$val2))
-		  AND !count(array_diff_assoc_recursive($val2,$val1))
+			    !(is_countable(array_diff_assoc_recursive($val1,$val2)) ? count(array_diff_assoc_recursive($val1,$val2)) : 0) && !(is_countable(array_diff_assoc_recursive($val2,$val1)) ? count(array_diff_assoc_recursive($val2,$val1)) : 0)
 		);
 	}
-	elseif (is_array($val1) OR is_array($val2)){
+	elseif (is_array($val1) || is_array($val2)){
 		return false;
 	}
-	elseif (is_double($val1) OR is_double($val2)){
+	elseif (is_float($val1) || is_float($val2)){
 		return abs($val1-$val2)<=1e-10*abs($val1);
 	}
 	else
@@ -250,35 +256,37 @@ function tests_legacy_lister($extension=null) {
 			//ignorer les fichiers lanceurs pour simpleTests aux tests
 			if (stristr($test,'lanceur_spip.php'))
 				continue;
+
 			if (stristr($test,'all_tests.php'))
 				continue;
+
 			if (stristr($test,'bootstrap.php'))
 				continue;
 
 			$testbasename = basename($test);
 			// ignorer les vrais tests PHPUnit
-			if (strlen($testbasename)>8 and substr($testbasename, -8) === "Test.php") {
+			if (strlen($testbasename)>8 && substr($testbasename, -8) === "Test.php") {
 				continue;
 			}
 
-			if (strncmp($testbasename,'inclus_',7)!==0
-				AND substr($testbasename,-14) != '_fonctions.php'
-			  AND (strncmp($testbasename,'NA_',3)!==0 OR _request('var_mode')=='dev')){
+			if (strncmp($testbasename,'inclus_',7)!==0 && substr($testbasename,-14) != '_fonctions.php' && (strncmp($testbasename,'NA_',3)!==0 || _request('var_mode')=='dev')){
 
-				$joli = preg_replace(',\.(php|html)$,', '', basename($test));
+				$joli = preg_replace('#\.(php|html)$#', '', basename($test));
 				$section = dirname($test);
 				if (strpos($base, _DIR_TESTS) === 0) {
 					$section = substr($section, strlen(_DIR_TESTS . '/tests'));
 				}
-				$titre = "$section/$joli";
+
+				$titre = "{$section}/{$joli}";
 				if (isset($liste_fichiers[$titre])) {
 					$nb = 0;
 					do {
-						$nb++;
+						++$nb;
 						$suffixe = '_' . str_pad($nb, 2, '0', STR_PAD_LEFT);
 					}
 					while(isset($liste_fichiers[$titre . $suffixe]));
-					$titre = $titre . $suffixe;
+
+					$titre .= $suffixe;
 				}
 
 				$liste_fichiers[$titre] = $test;

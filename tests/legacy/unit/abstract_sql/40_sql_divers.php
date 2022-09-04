@@ -5,10 +5,11 @@
 
 	$remonte = __DIR__ . '/';
 	while (!is_file($remonte."test.inc"))
-		$remonte = $remonte."../";
+		$remonte .= "../";
+
 	require $remonte.'test.inc';
 
-	include 'inc-sql_datas.inc';
+	include __DIR__ . '/inc-sql_datas.inc';
 
 	include_spip('base/abstract_sql');
 
@@ -17,17 +18,17 @@
 	 * Selections mathematiques
 	 */
 	function test_func_mathematiques() {
-		$err = $essais = [];
-
-		//
+		$err = [];
+  $essais = [];
+  //
 		foreach ([
 			'COUNT'=>3,
 			'SUM'=>9000,
 			'AVG'=>3000,
 			] as $func=>$attendu){
-				$nb = sql_getfetsel("$func(un_int) AS nb", ["spip_test_tintin"]);
+				$nb = sql_getfetsel("{$func}(un_int) AS nb", ["spip_test_tintin"]);
 				if ($nb != $attendu) {
-					$err[] = "Selection $func en echec : attendu : $attendu, recu : $nb";
+					$err[] = "Selection {$func} en echec : attendu : {$attendu}, recu : {$nb}";
 				}
 		}
 
@@ -47,15 +48,15 @@
 			'md5(8)'=>md5(8),
 			'md5('.sql_quote('a').')'=>md5('a'),
 			] as $func=>$attendu){
-				$nb = sql_getfetsel("$func AS nb", ["spip_test_tintin"],['id_tintin='.sql_quote(1)]);
+				$nb = sql_getfetsel("{$func} AS nb", ["spip_test_tintin"],['id_tintin='.sql_quote(1)]);
 				if ($nb != $attendu) {
-					$err[] = "Selection $func en echec : attendu : $attendu, recu : $nb";
+					$err[] = "Selection {$func} en echec : attendu : {$attendu}, recu : {$nb}";
 				}
 		}
 
 		// affichage
-		if ($err) {
-			return '<b>Selections multi tables</b><dl><dd>' . join('</dd><dd>', $err) . '</dd></dl>';
+		if ($err !== []) {
+			return '<b>Selections multi tables</b><dl><dd>' . implode('</dd><dd>', $err) . '</dd></dl>';
 		}
 	}
 
@@ -63,22 +64,22 @@
 	 * Selections mathematiques
 	 */
 	function test_func_strings() {
-		$err = $essais = [];
-
-		//
+		$err = [];
+  $essais = [];
+  //
 		foreach ([
 			'CONCAT('.sql_quote("cou").','.sql_quote("cou").')'=>"coucou",
 			'CONCAT('.sql_quote("cou,").','.sql_quote("cou").')'=>"cou,cou",
 			] as $func=>$attendu){
-				$nb = sql_getfetsel("$func AS nb", ["spip_test_tintin"],['id_tintin='.sql_quote(1)]);
+				$nb = sql_getfetsel("{$func} AS nb", ["spip_test_tintin"],['id_tintin='.sql_quote(1)]);
 				if ($nb != $attendu) {
-					$err[] = "Selection $func en echec : attendu : $attendu, recu : $nb";
+					$err[] = "Selection {$func} en echec : attendu : {$attendu}, recu : {$nb}";
 				}
 		}
 
 		// affichage
-		if ($err) {
-			return '<b>Selections strings</b><dl><dd>' . join('</dd><dd>', $err) . '</dd></dl>';
+		if ($err !== []) {
+			return '<b>Selections strings</b><dl><dd>' . implode('</dd><dd>', $err) . '</dd></dl>';
 		}
 	}
 
@@ -92,6 +93,7 @@
 		sql_select("*","spip_test_tintin");
 		if (sql_error() != '')
 			$err[] = "sql_error() non vide lors d'une requete sans erreur";
+
 		if (sql_errno() !== 0)
 			$err[] = "sql_errno() ne retourne pas 0 lors d'une requete sans erreur";
 
@@ -99,12 +101,13 @@
 		sql_select("*","spip_test_toto");
 		if (sql_error() == '')
 			$err[] = "sql_error() vide lors d'une requete en erreur";
+
 		if (sql_errno() === 0)
 			$err[] = "sql_errno() retourne 0 lors d'une requete en erreur";
 
 		// affichage
 		if ($err)
-			return '<b>Retours fonctions d\'erreur</b><dl><dd>' . join('</dd><dd>', $err) . '</dd></dl>';
+			return "<b>Retours fonctions d'erreur</b><dl><dd>" . implode('</dd><dd>', $err) . '</dd></dl>';
 	}
 
 
@@ -127,8 +130,9 @@
 	$err .= test_drop_table();
 
 	// affichage
-	if ($err) {
+	if ($err !== '' && $err !== '0') {
 		die ($err);
 	}
+
 	echo "OK";
 

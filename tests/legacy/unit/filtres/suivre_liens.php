@@ -1,9 +1,12 @@
 <?php
 
-	(isset($test) && $test) || ($test = 'suivre_liens');
+	if (!(isset($test) && $test)) {
+     $test = 'suivre_liens';
+ }
 	$remonte = __DIR__ . '/';
 	while (!is_file($remonte."test.inc"))
-		$remonte = $remonte."../";
+		$remonte .= "../";
+
 	require $remonte.'test.inc';
 	include_spip('inc/filtres');
 
@@ -315,16 +318,16 @@ $tests = [
 	$err = 0;
 	foreach ($tests as $c => $u)
 		if (($s=suivre_lien($u[0],$u[1])) !== $u[2]) {
-			echo "test $c: suivre_lien("
+			echo "test {$c}: suivre_lien("
 			.htmlspecialchars($u[0])
 			.','
 			.htmlspecialchars($u[1])
 			.') = '
 			.htmlspecialchars($s).' mais =! '.htmlspecialchars($u[2])."<br />\n";
-			$err++;
+			++$err;
 		}
 
-	if ($err)
+	if ($err !== 0)
 		exit;
 
 	echo "OK";

@@ -5,12 +5,8 @@ include_spip('inc/autoriser');
 
 
 // pas admin ? passe ton chemin (ce script est un vilain trou de securite)
-if (!_IS_CLI) {
-	if ((!isset($GLOBALS['visiteur_session']['statut'])
-	     OR $GLOBALS['visiteur_session']['statut'] != '0minirezo')
-	     AND !in_array($_SERVER["REMOTE_ADDR"], ['127.0.0.1', '127.0.1.1', '::1']) ) {
-		die('Administrateur local requis !');
-	}
+if (!_IS_CLI && ((!isset($GLOBALS['visiteur_session']['statut']) || $GLOBALS['visiteur_session']['statut'] != '0minirezo') && !in_array($_SERVER["REMOTE_ADDR"], ['127.0.0.1', '127.0.1.1', '::1']))) {
+	die('Administrateur local requis !');
 }
 
 /*
@@ -28,14 +24,16 @@ define('_NO_TIMER',true);
  * et definir d'autres fonctions d'assertion
  */
 class SpipTest extends UnitTestCase {  
-	var $options_recuperer_code = [];
-	var $adresse_dernier_fichier_pour_code = '';
+	public $options_recuperer_code = [];
+
+	public $adresse_dernier_fichier_pour_code = '';
 
 	function __construct($name = false) {
 		chdir(_CHDIR);
 		if (!$name) {
 			$name = get_class($this);
 		}
+
 		parent::__construct($name);
 		// creer un repertoire pour les tests
 		// sert a la compilation
@@ -67,13 +65,11 @@ class SpipTest extends UnitTestCase {
 		$appel = parametre_url($appel, 'test', $noisette, '&');
 		foreach ($params as $p=>$v)
 			$appel =  parametre_url($appel,$p,$v,'&');
-		if ($var_mode_auto) {
-			if (isset($GLOBALS['var_mode'])
-				AND $mode = $GLOBALS['var_mode']
-				AND in_array($mode, ['calcul','recalcul'])) {
-					$appel =  parametre_url($appel,'var_mode',$mode,'&');
-			}
+
+		if ($var_mode_auto && (isset($GLOBALS['var_mode']) && ($mode = $GLOBALS['var_mode']) && in_array($mode, ['calcul','recalcul']))) {
+			$appel =  parametre_url($appel,'var_mode',$mode,'&');
 		}
+
 		return $appel;
 	}
 
@@ -117,6 +113,7 @@ class SpipTest extends UnitTestCase {
 			throw new SpipNaException($chaine);
 			return true;
 		}
+
 		return false;
 	}
 
@@ -132,10 +129,11 @@ class SpipTest extends UnitTestCase {
 		$dumper = new SimpleDumper();
 		$message = sprintf(
 				$message,
-				'[' . $dumper->describeValue($value) . '] should be string \'ok\'');
+				'[' . $dumper->describeValue($value) . "] should be string 'ok'");
 		if ($this->exceptionSiNa($value)) {
 			return false;
 		}
+
 		return $this->assertTrue((strtolower($value)=='ok'), $message);
 	}
 
@@ -151,7 +149,7 @@ class SpipTest extends UnitTestCase {
 		$dumper = new SimpleDumper();
 		$message = sprintf(
 				$message,
-				'[' . $dumper->describeValue($value) . '] shouldn\'t be string \'ok\'');
+				'[' . $dumper->describeValue($value) . "] shouldn't be string 'ok'");
 		return $this->assertFalse((strtolower($value)=='ok'), $message);
 	}
 
@@ -289,18 +287,19 @@ class SpipTest extends UnitTestCase {
 		$opt = $this->options_recuperer_code;
 		if (isset($opt['avant_code']))
 			$code = $opt['avant_code'] . $code;
+
 		if (isset($opt['apres_code']))
 			$code .= $opt['apres_code'];
 
 		$fond = _DIR_CODE . md5($code.serialize($opt));
 		$this->ecrire_fichier($fond . '.html', $code);
 
-		if (isset($opt['fonctions']) and $opt['fonctions']) {
+		if (isset($opt['fonctions']) && $opt['fonctions']) {
 			// un fichier unique pour ces fonctions
 			$func = _DIR_CODE . "func_" . md5($opt['fonctions']) . ".php";
 			$this->ecrire_fichier($func, $this->php($opt['fonctions']));
 			// une inclusion unique de ces fichiers
-			$this->ecrire_fichier($fond.'_fonctions.php', $this->php("include_once('$func');"));
+			$this->ecrire_fichier($fond.'_fonctions.php', $this->php("include_once('{$func}');"));
 		}
 
 		$fond = str_replace('../', '', $fond); // pas de ../ si dans ecrire !
@@ -313,14 +312,15 @@ class SpipTest extends UnitTestCase {
 	 * que l'on complete avec le nom du fond et les erreurs de compilations generees
 	 */
 	function recuperer_infos_code($code, $contexte=[], $options = [], $connect=''){
-		$options['raw'] = true;
+		$path = [];
+  $options['raw'] = true;
 		// vider les erreurs
 		$this->init_compilation_errors();
 		$infos = $this->recuperer_code($code, $contexte, $options, $connect);
 
 		// ca ne devrait pas arriver
 		if (!is_array($infos)) return $infos;
-		
+
 		// on ajoute des infos supplementaires a celles retournees
 		$path = pathinfo($infos['source']);
 		$infos['fond'] = $path['dirname'].'/'.$path['filename']; // = $fond;
@@ -343,11 +343,7 @@ class SpipTest extends UnitTestCase {
 	 * @return null;
 	 */
 	function options_recuperer_code($options = [], $merge=false) {
-		if ($merge) {
-			$this->options_recuperer_code = array_merge($this->options_recuperer_code,$options);
-		} else {
-			$this->options_recuperer_code = $options;
-		}
+		$this->options_recuperer_code = $merge ? array_merge($this->options_recuperer_code,$options) : $options;
 	}
 
 	/**
@@ -392,6 +388,7 @@ class SpipTest extends UnitTestCase {
 		if (file_exists($adresse)) {
 			supprimer_fichier($adresse);
 		}
+
 		ecrire_fichier($adresse, $contenu);
 	}
 }
@@ -435,6 +432,7 @@ class SpipTestSuite extends TestSuite {
 		if (!$name) {
 			$name = get_class($this);
 		}
+
 		parent::__construct($name);
 	}
 	
@@ -449,13 +447,12 @@ class SpipTestSuite extends TestSuite {
 	function addDir($dir, $recurs = false){
 		if (is_file($dir))
 			$dir = dirname($dir);
+
 		include_spip('inc/flock');
 		$a = preg_files($dir);
 		foreach ($a as $f) {
 			$info = pathinfo($f);
-			if (($info['extension']=='php') 
-			AND !strpos($info['basename'], '_fonctions.php')
-			AND !in_array($info['basename'], [
+			if ($info['extension']=='php' && !strpos($info['basename'], '_fonctions.php') && !in_array($info['basename'], [
 				'lanceur_spip.php',
 				'all_tests.php',
 			])) {
@@ -473,13 +470,13 @@ class SpipTestSuite extends TestSuite {
  * et ajouter des fonctions specifiques a SPIP
  */
 class SpipHtmlReporter extends HtmlReporter {
-	private $_na;
+	private int $_na = 0;
+
 	private $character_set;
 
 	public function __construct($charset='UTF-8') {
 		chdir(_CHDIR);
 		parent::__construct($charset);
-		$this->_na = 0;
 	}
 
 	/** 
@@ -502,9 +499,9 @@ class SpipHtmlReporter extends HtmlReporter {
 		chdir(_CHDIR); // va savoir Charles... des fois il le perd en route ?
 		include_spip('inc/filtres_mini');
 		$this->sendNoCacheHeaders();
-		print "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.01 Transitional//EN\" \"http://www.w3.org/TR/html4/loose.dtd\">";
-		print "<html>\n<head>\n<title>$test_name</title>\n";
-		print "<meta http-equiv=\"Content-Type\" content=\"text/html; charset=" .
+		print '<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">';
+		print "<html>\n<head>\n<title>{$test_name}</title>\n";
+		print '<meta http-equiv="Content-Type" content="text/html; charset=' .
 				$this->character_set . "\">\n";
 		print "<style type=\"text/css\">\n";
 		print $this->getCss() . "\n";
@@ -513,7 +510,7 @@ class SpipHtmlReporter extends HtmlReporter {
 		print "</head>\n<body>\n";
 
 		print "<h1>Tests SPIP " . $this->version_spip() . "</h1>\n";
-		print "<h2>$test_name</h2>\n";
+		print "<h2>{$test_name}</h2>\n";
 		flush();
 	}
 
@@ -526,9 +523,9 @@ class SpipHtmlReporter extends HtmlReporter {
 	function paintFooter($test_name) {
 		$colour = ($this->getFailCount() + $this->getExceptionCount() > 0 ? "red" : ($this->getNaCount()>0 ? "#ffaa00" : "green"));
 
-		print "<div style=\"";
-		print "padding: 8px; margin-top: 1em; background-color: $colour; color: white;";
-		print "\">";
+		print '<div style="';
+		print "padding: 8px; margin-top: 1em; background-color: {$colour}; color: white;";
+		print '">';
 		print $this->getTestCaseProgress() . "/" . $this->getTestCaseCount();
 		print " test complete:\n";
 		print "<strong>" . $this->getPassCount() . "</strong> passes, ";
@@ -554,10 +551,10 @@ class SpipHtmlReporter extends HtmlReporter {
 	 */
 	function paintException($exception) {
 		switch(get_class($exception)) {
-			case 'SpipNaException':
+			case \SpipNaException::class:
 				$this->paintNA($exception);
 				break;
-			case 'SpipTestException':
+			case \SpipTestException::class:
 				$this->paintTestException($exception);
 				break;
 			default:
@@ -573,9 +570,9 @@ class SpipHtmlReporter extends HtmlReporter {
 	 * @access public
 	 */
 	function paintNa($exception) {
-		$this->_na++;
+		++$this->_na;
 
-		print "<span class=\"na\">Non applicable</span>: ";
+		print '<span class="na">Non applicable</span>: ';
 		$breadcrumb = $this->getTestList();
 		array_shift($breadcrumb);
 		print implode(" -&gt; ", $breadcrumb);
@@ -593,7 +590,7 @@ class SpipHtmlReporter extends HtmlReporter {
 
 		parent::paintException($exception);
 
-		print "<span class=\"fail\">Exception</span>: ";
+		print '<span class="fail">Exception</span>: ';
 		$breadcrumb = $this->getTestList();
 		array_shift($breadcrumb);
 		print implode(" -&gt; ", $breadcrumb);
@@ -607,6 +604,7 @@ class SpipHtmlReporter extends HtmlReporter {
 		parent::paintGroupStart($test_name, $size);
 		#echo "<ul><li><h3>$test_name</h3>\n";
 	}
+
 /*
 	function paintGroupEnd($test_name){
 		parent::paintGroupEnd($test_name);
@@ -643,6 +641,7 @@ class SpipHtmlReporter extends HtmlReporter {
 			. abs($svn_revision) . "' onclick=\"window.open(this.href); return false;\">"
 			. abs($svn_revision) . "</a>]";
 		}
+
 		return $version;
 	}
 }
@@ -681,7 +680,7 @@ class SpipMiniHtmlReporter extends SpipHtmlReporter {
 	 */
 	function paintFooter($test_name) {
 		if ($this->getFailCount() + $this->getExceptionCount() == 0) {
-			if ($this->getNaCount()) {
+			if ($this->getNaCount() !== 0) {
 				print "OK <em>(".$this->getPassCount().")</em> but some NA <em>(".$this->getNaCount().")</em>\n";
 			} else {
 				print "OK <em>(".$this->getPassCount().")</em>\n";
@@ -710,12 +709,11 @@ class SpipMiniHtmlReporter extends SpipHtmlReporter {
  * et ajouter des fonctions specifiques a SPIP
  */
 class SpipTextReporter extends TextReporter {
-	private $_na;
+	private int $_na = 0;
 
 	function __construct() {
 		chdir(_CHDIR);
 		parent::__construct();
-		$this->_na = 0;
 	}
 
 	/**
@@ -736,7 +734,7 @@ class SpipTextReporter extends TextReporter {
 	 */
 	function paintFooter($test_name) {
 		if ($this->getFailCount() + $this->getExceptionCount() == 0) {
-			if ($this->getNaCount()) {
+			if ($this->getNaCount() !== 0) {
 				print "OK (".$this->getPassCount().") but some NA (".$this->getNaCount().")\n";
 			} else {
 				print "OK (".$this->getPassCount().")\n";
@@ -767,25 +765,27 @@ class SpipTextReporter extends TextReporter {
 	 * @access public
 	 */
 	function paintNa($exception) {
-		$this->_na++;
+		++$this->_na;
 	}
 
 }
 
 
 class SqueletteTest{
-	var $title = "";
-	var $head = "";
-	var $body = "";
-	
+	public $title = "";
+
+	public $head = "";
+
+	public $body = "";
+
 	/**
 	 * Constructeur
 	 * @param string $title		Donne un titre a la page
 	 */
 	function __construct($title = ""){
-		$this->setTitle($title ? $title : "Squelette de test");
+		$this->setTitle($title !== '' && $title !== '0' ? $title : "Squelette de test");
 	}
-	
+
 	/**
 	 * Change le title
 	 * @param string $title		Donne un titre a la page
@@ -794,7 +794,7 @@ class SqueletteTest{
 	function setTitle($title){
 		$this->title = $title;
 	}
-	
+
 	/**
 	 * Ajoute insert Head
 	 * @return null
@@ -802,7 +802,7 @@ class SqueletteTest{
 	function addInsertHead(){
 		$this->head = "\n#INSERT_HEAD\n" . $this->head;
 	}
-	
+
 	/**
 	 * Ajoute dans head
 	 * @return null
@@ -810,7 +810,7 @@ class SqueletteTest{
 	function addToHead($content){
 		$this->head .= "\n" . $content;
 	}	
-	
+
 	/**
 	 * Ajoute dans body
 	 * @return null
@@ -818,12 +818,12 @@ class SqueletteTest{
 	function addToBody($content){
 		$this->body .= "\n" . $content;
 	}
-		
+
 	/**
 	 * Retourne le code du squelette
 	 */
 	function code(){
-		$code = '
+		return '
 			<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 			<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="#LANG" lang="#LANG" dir="#LANG_DIR">
 			<head>
@@ -835,7 +835,6 @@ class SqueletteTest{
 			</body>
 			</html>
 		';
-		return $code;
 	}
 }
 

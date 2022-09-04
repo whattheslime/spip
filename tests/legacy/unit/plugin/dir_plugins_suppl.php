@@ -10,7 +10,8 @@
 
 	$remonte = __DIR__ . '/';
 	while (!is_file($remonte."test.inc"))
-		$remonte = $remonte."../";
+		$remonte .= "../";
+
 	require $remonte.'test.inc';
 	find_in_path("./inc/plugin.php",'',true);
 
@@ -29,9 +30,9 @@ function test_dir_plugins_suppl() {
 	if (substr(_DIR_PLUGINS_SUPPL, -1) != '/') {
 		return 'NA : la constante _DIR_PLUGINS_SUPPL doit terminer par un / ; actuellement sa valeur est "'._DIR_PLUGINS_SUPPL.'"';
 	}
-
-	// preparation: verifier qu'il existe au moins un dossier plugin par rep suppl (i.e. contenant un fichier paquet.xml)?
-	$Ta_effacer = $Ta_retrouver = [];
+ // preparation: verifier qu'il existe au moins un dossier plugin par rep suppl (i.e. contenant un fichier paquet.xml)?
+ $Ta_effacer = [];
+ $Ta_retrouver = [];
 
 	$existe_paquet = FALSE;
 
@@ -44,13 +45,14 @@ function test_dir_plugins_suppl() {
 	}
 
 	// le rep suppl est vide: creer un dossier de plugin bidon (toto) et y copier un paquet.xml
-	if (count(scandir(_DIR_RACINE . _DIR_PLUGINS_SUPPL)) < 3) {
+	if ((is_countable(scandir(_DIR_RACINE . _DIR_PLUGINS_SUPPL)) ? count(scandir(_DIR_RACINE . _DIR_PLUGINS_SUPPL)) : 0) < 3) {
 		if (!@mkdir(_DIR_RACINE . _DIR_PLUGINS_SUPPL . 'toto')) {
 			nettoyage_plugins_suppl($Ta_effacer);
 			return 'NA probleme de droits d\ecriture 1, impossible de creer un dossier dans "'._DIR_RACINE . _DIR_PLUGINS_SUPPL.'" necessaire pour ce test';
 		}
 		else
 			$Ta_effacer[] = _DIR_RACINE . _DIR_PLUGINS_SUPPL . 'toto';
+
 		if (!@copy(_DIR_PLUGINS_DIST.'dump/paquet.xml', _DIR_RACINE . _DIR_PLUGINS_SUPPL . 'toto/paquet.xml')) {
 			nettoyage_plugins_suppl($Ta_effacer);
 			return 'NA probleme de droits d\ecriture 2, impossible de creer un fichier dans "'._DIR_RACINE . _DIR_PLUGINS_SUPPL . 'toto" necessaire pour ce test';
@@ -59,35 +61,36 @@ function test_dir_plugins_suppl() {
 			$Ta_effacer[] = _DIR_RACINE . _DIR_PLUGINS_SUPPL.'toto/paquet.xml';
 			$Ta_retrouver[] = 'toto';
 		}
+
 		$existe_paquet = TRUE;
 	}
 	else {
 		if ($pointeur = opendir(_DIR_RACINE . _DIR_PLUGINS_SUPPL)) {
 			while (false !== ($rep = readdir($pointeur))) {
-				if ($rep == '.' OR $rep == '..' OR !is_dir($rep))
-					continue;
-				else {
-					if ($pointeur = opendir(_DIR_RACINE . _DIR_PLUGINS_SUPPL . $rep)) {
-						while (false !== ($fichier = readdir($pointeur))) {
-							if ($fichier == 'paquet.xml') {
-								$Ta_retrouver[] = $rep;
-								$existe_paquet = TRUE;
-								break;
-							}
-						}
-					}
-				}
+				if ($rep == '.' || $rep == '..' || !is_dir($rep)) {
+        continue;
+    } elseif ($pointeur = opendir(_DIR_RACINE . _DIR_PLUGINS_SUPPL . $rep)) {
+        while (false !== ($fichier = readdir($pointeur))) {
+  							if ($fichier == 'paquet.xml') {
+  								$Ta_retrouver[] = $rep;
+  								$existe_paquet = TRUE;
+  								break;
+  							}
+  						}
+    }
 			}
 		}
+
 		// tous les sous-dossiers sont scannes et toujours pas de paquet.xml:
 		// creer un dossier bidon et y copier un paquet.xml
 		if (!$existe_paquet) {
-			if (!in_array('toto', scandir(_DIR_RACINE . _DIR_PLUGINS_SUPPL)) AND !@mkdir(_DIR_RACINE . _DIR_PLUGINS_SUPPL . 'toto')) {
+			if (!in_array('toto', scandir(_DIR_RACINE . _DIR_PLUGINS_SUPPL)) && !@mkdir(_DIR_RACINE . _DIR_PLUGINS_SUPPL . 'toto')) {
 				nettoyage_plugins_suppl($Ta_effacer);
 				return 'NA probleme de droits d\ecriture 3, impossible de creer un dossier dans "'._DIR_RACINE . _DIR_PLUGINS_SUPPL.'" necessaire pour ce test';
 			}
 			else
 				$Ta_effacer[] = _DIR_RACINE . _DIR_PLUGINS_SUPPL . 'toto';
+
 			if (!@copy(_DIR_PLUGINS_DIST.'dump/paquet.xml', _DIR_RACINE . _DIR_PLUGINS_SUPPL.'toto/paquet.xml')) {
 				nettoyage_plugins_suppl($Ta_effacer);
 				return 'NA probleme de droits d\ecriture 4, impossible de creer un fichier dans "'._DIR_RACINE . _DIR_PLUGINS_SUPPL.'toto" necessaire pour ce test';
@@ -96,6 +99,7 @@ function test_dir_plugins_suppl() {
 				$Ta_retrouver[] = 'toto';
 				$Ta_effacer[] = _DIR_RACINE . _DIR_PLUGINS_SUPPL . 'toto/paquet.xml';
 			}
+
 			$existe_paquet = TRUE;
 		}
 	}
@@ -120,6 +124,7 @@ function test_dir_plugins_suppl() {
 		else
 			$Ta_effacer[] = $rep_non_suppl;
 	}
+
 	if (!file_exists($rep_non_suppl.'/paquet.xml')) {
 		if (!@copy(_DIR_PLUGINS_DIST.'dump/paquet.xml', $rep_non_suppl.'/paquet.xml')) {
 			nettoyage_plugins_suppl($Ta_effacer);
@@ -139,12 +144,14 @@ function test_dir_plugins_suppl() {
 		if (!in_array($rep, $Tplugins_recups))
 			$Terr[] = $rep;
 	}
-	if (count($Terr) > 0) {
+
+	if ($Terr !== []) {
 		if (count($Terr) != 1)
 			$mess_err .= "<li>Les repertoires supplementaires de _DIR_PLUGINS_SUPPL suivants n'ont pas etes trouves par la fonction liste_plugin_files(): ";
 		else
 			$mess_err .= "<li>Le repertoire supplementaire de _DIR_PLUGINS_SUPPL suivant n'a pas ete trouve par la fonction liste_plugin_files(): ";
-		$mess_err .= (join(', ', $Terr));
+
+		$mess_err .= (implode(', ', $Terr));
 	}
 
 
@@ -152,7 +159,7 @@ function test_dir_plugins_suppl() {
 	// ni dans _DIR_PLUGINS ni dans _DIR_PLUGINS_SUPPL?
 	$Terr = [];
 	foreach ($Tplugins_recups as $rep_plug) {
-		if (!is_dir(_DIR_PLUGINS.$rep_plug) AND is_dir(_DIR_RACINE.$rep_plug)) {	// le rep existe mais pas dans _DIR_PLUGINS
+		if (!is_dir(_DIR_PLUGINS.$rep_plug) && is_dir(_DIR_RACINE.$rep_plug)) {	// le rep existe mais pas dans _DIR_PLUGINS
 			$ok = false;
 			foreach ($Treps_suppl as $rep_suppl) {
 				if (substr_count($rep_plug, $rep_suppl) > 0) {
@@ -160,19 +167,21 @@ function test_dir_plugins_suppl() {
 					break;
 				}
 			}
+
 			if (!$ok)
 				$Terr[] = $rep_plug;
 		}
 	}
-	if (count($Terr) > 0) {
+
+	if ($Terr !== []) {
 		if (count($Terr) != 1) {
 			$mess_err .= "<li>Les repertoires suivants ont etes trouves par la fonction liste_plugin_files(): ";
-			$mess_err .= (join(', ', $Terr));
+			$mess_err .= (implode(', ', $Terr));
 			$mess_err .= " alors qu'ils n'appartiennent ni a _DIR_PLUGINS ni a _DIR_PLUGINS_SUPPL";
 		}
 		else {
 			$mess_err .= "<li>Le repertoire suivant a ete trouve par la fonction liste_plugin_files(): ";
-			$mess_err .= (join(', ', $Terr));
+			$mess_err .= (implode(', ', $Terr));
 			$mess_err .= " alors qu'il n'appartient ni a _DIR_PLUGINS ni a _DIR_PLUGINS_SUPPL";
 		}
 	}
@@ -180,7 +189,7 @@ function test_dir_plugins_suppl() {
 
 	// sortie propre du test
 	nettoyage_plugins_suppl($Ta_effacer);
-	
+
 	if ($mess_err != '')
 		return '<ul>'.$mess_err.'</ul>';
 	else
@@ -196,7 +205,7 @@ function nettoyage_plugins_suppl($Ta_supprimer) {
 			rmdir($a_suppr);
 		elseif (file_exists($a_suppr))
 			unlink($a_suppr);
-		
+
 	}
 }
 

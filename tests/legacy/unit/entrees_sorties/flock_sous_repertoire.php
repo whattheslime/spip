@@ -8,13 +8,14 @@
 $test = 'sous_repertoire';
 $remonte = __DIR__ . '/';
 while (!is_file($remonte . "test.inc")) {
-    $remonte = $remonte."../";
+    $remonte .= "../";
 }
+
 require $remonte . 'test.inc';
 
 $ok = true;
 
-$sous_repertoire = 'test' . md5(rand());
+$sous_repertoire = 'test' . md5(random_int(0, mt_getrandmax()));
 
 include_spip('inc/flock');
 

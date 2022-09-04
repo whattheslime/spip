@@ -4,7 +4,8 @@
 	$test = 'liens';
 	$remonte = __DIR__ . '/';
 	while (!is_file($remonte."test.inc"))
-		$remonte = $remonte."../";
+		$remonte .= "../";
+
 	require $remonte.'test.inc';
 	include_spip('inc/texte');
 	include_spip('inc/lang');
@@ -16,7 +17,8 @@
 	$la_langue = 'eo';
 	if ($t['lang'] == 'eo') {
 		$la_langue = 'fa';
-	} 
+	}
+
 	lang_select($la_langue);
 
 	$p0 = '[->'.$t['id_article'].']';
@@ -36,50 +38,64 @@
 	$err = [];
 
 	if (extraire_attribut(propre($p0), 'hreflang') !== $t['lang'])
-		$err[] = "hreflang automatique errone dans $p0 : ".PtoBR(propre($p0));
+		$err[] = "hreflang automatique errone dans {$p0} : ".PtoBR(propre($p0));
 
 	if (extraire_attribut(propre($p1), 'href') !== 'url')
-		$err[] = "url mal extrait de $p1";
+		$err[] = "url mal extrait de {$p1}";
+
 	if (extraire_attribut(propre($p1), 'hreflang') == 'blabla')
-		$err[] = "hreflang errone dans $p1";
+		$err[] = "hreflang errone dans {$p1}";
+
 	if (supprimer_tags(propre($p1)) !== 'bla blabla')
-		$err[] = "texte du lien abime dans $p1";
+		$err[] = "texte du lien abime dans {$p1}";
 
 	if (extraire_attribut(propre($p2), 'href') !== 'url')
-		$err[] = "url mal extrait de $p2";
+		$err[] = "url mal extrait de {$p2}";
+
 	if (extraire_attribut(propre($p2), 'hreflang') !== 'en')
-		$err[] = "hreflang errone dans $p2";
+		$err[] = "hreflang errone dans {$p2}";
+
 	if (supprimer_tags(propre($p2)) !== 'bla')
-		$err[] = "texte du lien abime dans $p2";
+		$err[] = "texte du lien abime dans {$p2}";
 
 	if (extraire_attribut(propre($p3), 'href') !== 'url')
-		$err[] = "url mal extrait de $p3";
+		$err[] = "url mal extrait de {$p3}";
+
 	if (extraire_attribut(propre($p3), 'hreflang') !== 'eo')
-		$err[] = "hreflang errone dans $p3";
+		$err[] = "hreflang errone dans {$p3}";
+
 	if (extraire_attribut(propre($p3), 'title') !== 'bulle de savon')
-		$err[] = "title errone dans $p3";
+		$err[] = "title errone dans {$p3}";
+
 	if (supprimer_tags(propre($p3)) !== 'bla')
-		$err[] = "texte du lien abime dans $p3";
+		$err[] = "texte du lien abime dans {$p3}";
 
 	if (extraire_attribut(propre($p4), 'href') !== 'url')
-		$err[] = "url mal extrait de $p4";
+		$err[] = "url mal extrait de {$p4}";
+
 	if (extraire_attribut(propre($p4), 'hreflang') !== 'fa')
-		$err[] = "hreflang errone dans $p4";
+		$err[] = "hreflang errone dans {$p4}";
+
 	if (extraire_attribut(propre($p4), 'title') !== 'fa')
-		$err[] = "title errone dans $p4";
+		$err[] = "title errone dans {$p4}";
+
 	if (supprimer_tags(propre($p4)) !== 'bla')
-		$err[] = "texte du lien abime dans $p4";
+		$err[] = "texte du lien abime dans {$p4}";
 
 	if (extraire_attribut(propre($p5), 'href') !== 'url')
-		$err[] = "url mal extrait de $p5";
+		$err[] = "url mal extrait de {$p5}";
+
 	if (extraire_attribut(propre($p5), 'hreflang') !== NULL)
-		$err[] = "hreflang errone dans $p5";
+		$err[] = "hreflang errone dans {$p5}";
+
 	if (extraire_attribut(propre($p5), 'title') !== 'bulle de savon')
-		$err[] = "title errone dans $p5";
+		$err[] = "title errone dans {$p5}";
+
 	if (supprimer_tags(propre($p5)) !== 'bla')
-		$err[] = "texte du lien abime dans $p5";
+		$err[] = "texte du lien abime dans {$p5}";
+
 	if (supprimer_tags(propre($p6)) !== ($la_langue == 'eo' ? 'Y' : 'Z'))
-		$err[] = "multi abime dans $p6";
+		$err[] = "multi abime dans {$p6}";
 
 	# (('<multi>[fr]X[en]Y</multi>')); => pre_typo
 	$balises_p7 = extraire_balises(propre($p7), 'a');
