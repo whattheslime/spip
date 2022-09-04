@@ -3,29 +3,6 @@
 	chdir($dir);
 	require 'ecrire/inc_version.php';
 
-	// certains tests de simpletest sont réalisés non connectés
-	// on se limite à certains squelettes tout de même !
-	if (_request('simpletest')) {
-		$test = str_replace('..','',_request('test'));
-		if ((substr($test, 0, 6) != 'tests/')
-			AND (substr($test, 0, 6) != 'unit/')
-			AND (false === strpos($test, _DIR_CACHE))) {
-				die("Squelette de test hors d'un répertoire autorisé");
-		}
-		$fond = $test; // squelette désiré
-		// pas de boutons d'admin
-		set_request('fond', null);
-		set_request('test', null);
-		set_request('simpletest', null);
-		// pas de cron !
-		if (!defined('_DEBUG_BLOCK_QUEUE')) {
-			define('_DEBUG_BLOCK_QUEUE', true);
-		}
-		include _DIR_RESTREINT_ABS.'public.php';
-		die();
-	}
-
-
 	// pas admin ? passe ton chemin (ce script est un vilain trou de securite)
 	if ((!isset($GLOBALS['visiteur_session']['statut'])
 	     OR $GLOBALS['visiteur_session']['statut'] != '0minirezo')
