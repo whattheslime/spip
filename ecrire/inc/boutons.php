@@ -49,8 +49,8 @@ class Bouton {
 	/** Position dans le menu */
 	public int $position = 0;
 
-	/** Entrée favorite ? */
-	public bool $favori = false;
+	/** Entrée favorite (sa position dans les favoris) ? */
+	public int $favori = 0;
 
 
 	/**
