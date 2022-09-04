@@ -19,6 +19,14 @@ class AffDateDebutFinTest extends TestCase
 		changer_langue('fr'); // ce test est en fr
 	}
 
+	/**
+	 * @dataProvider providerAffdateDebutFin
+	 */
+	public function testAffdateDebutFin($expected, ...$args): void
+	{
+		$this->assertEquals($expected, affdate_debut_fin(...$args));
+	}
+
 	public function providerAffdateDebutFin(): array
 	{
 		return [
@@ -268,13 +276,5 @@ class AffDateDebutFinTest extends TestCase
 			],
 		];
 
-	}
-
-	/**
-	 * @dataProvider providerAffdateDebutFin
-	 */
-	public function testAffdateDebutFin($expected, ...$args): void
-	{
-		$this->assertEquals($expected, affdate_debut_fin(...$args));
 	}
 }
