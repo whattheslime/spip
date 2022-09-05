@@ -4,102 +4,37 @@ declare(strict_types=1);
 
 namespace Utils\Rector\Rector;
 
-use Nette\Utils\Strings;
-use PhpParser\Builder\Method as MethodBuilder;
-use PhpParser\Builder\Use_ as UseBuilder;
+use PhpParser\Builder\Class_ as ClassBuilder;
+use PhpParser\BuilderFactory;
 use PhpParser\Node;
+use PhpParser\Node\Arg;
 use PhpParser\Node\Expr\MethodCall;
+use PhpParser\Node\Expr\Variable;
 use PhpParser\Node\Identifier;
 use PhpParser\Node\Name;
 use PhpParser\Node\Name\FullyQualified;
 use PhpParser\Node\Stmt\Namespace_;
-use PhpParser\Node\Stmt\Class_;
+use PhpParser\Node\Stmt\ClassLike;
 use PhpParser\Node\Stmt\Expression;
 use PhpParser\Node\Stmt\Function_;
+use PhpParser\Node\Stmt\Return_;
 use Rector\Core\NodeManipulator\ClassInsertManipulator;
 use Rector\Core\Rector\AbstractRector;
 use Symplify\RuleDocGenerator\ValueObject\CodeSample\CodeSample;
 use Symplify\RuleDocGenerator\ValueObject\RuleDefinition;
 use RectorPrefix202209\Symfony\Component\String\UnicodeString;
-use PhpParser\Node\Stmt\Use_;
-use Rector\Core\Application\FileSystem\RemovedAndAddedFilesCollector;
-use Rector\Core\PhpParser\Node\NodeFactory;
 
 final class RefactorSpipTestsEssais extends AbstractRector
 {
 	private string $namespace = 'Spip\\Core\\Tests';
+	private BuilderFactory $builderFactory;
 
-	/**
-	 * @readonly
-	 * @var \Rector\Core\NodeManipulator\ClassInsertManipulator
-	 */
-	private $classInsertManipulator;
-
-	/**
-     * @readonly
-     * @var \Rector\Core\Application\FileSystem\RemovedAndAddedFilesCollector
-     */
-    private $removedAndAddedFilesCollector;
-
-	public function __construct(ClassInsertManipulator $classInsertManipulator, RemovedAndAddedFilesCollector $removedAndAddedFilesCollector)
-	{
-		$this->classInsertManipulator = $classInsertManipulator;
-		$this->removedAndAddedFilesCollector = $removedAndAddedFilesCollector;
+	public function __construct(
+		BuilderFactory $builderFactory,
+	) {
+		$this->builderFactory = $builderFactory;
 	}
 
-	/**
-	 * @return array<class-string<Node>>
-	 */
-	public function getNodeTypes(): array
-	{
-		return [Namespace_::class];
-	}
-
-	/**
-	 * @param MethodCall $node - we can add "MethodCall" type here, because
-	 *                         only this node is in "getNodeTypes()"
-	 */
-	public function refactor(Node $node): ?Node
-	{
-
-		$fqdn = $this->getFqdn();
-		$newNamespace = $fqdn->slice(0, -1)->toString();
-		$this->isChangedInNamespaces[$newNamespace] = \true;
-		$node->name = new Name($newNamespace);
-
-		$uses = [
-			(new UseBuilder('PHPUnit\\Framework\\TestCase', Use_::TYPE_NORMAL))->getNode()
-		];
-
-		$class = $this->createTestClass($fqdn->getLast());
-		$class->namespacedName = $node->name;
-
-		$setUpMethod = $this->createPublicStaticMethod('setUpBeforeClass');
-		$this->classInsertManipulator->addAsFirstMethod($class, $setUpMethod);
-
-		foreach ($node->stmts as $key => $stmt) {
-			if ($stmt instanceof Expression) {
-				$setUpMethod->stmts[] = $stmt;
-			} elseif ($stmt instanceof Function_) {
-				$method = $this->createPublicMethod($stmt->name->toString());
-				$method->stmts = $stmt->stmts;
-				$class->stmts[] = $method;
-			}
-		}
-
-		$node->stmts = [
-			...$uses,
-			$class,
-		];
-
-		$this->renameFile($fqdn);
-		return $node;
-
-	}
-
-	/**
-	 * This method helps other to understand the rule and to generate documentation.
-	 */
 	public function getRuleDefinition(): RuleDefinition
 	{
 		return new RuleDefinition(
@@ -125,57 +60,170 @@ final class RefactorSpipTestsEssais extends AbstractRector
 		);
 	}
 
-	private function getFqdn(): FullyQualified
+	/**
+	 * @return array<class-string<Node>>
+	 */
+	public function getNodeTypes(): array
+	{
+		return [Namespace_::class];
+	}
+
+	public function refactor(Node $node): ?Node
+	{
+		if ($this->shouldSkip($node)) {
+            return null;
+        }
+
+		$fqdn = $this->generateFqdn();
+		$this->changeNodeNamespace($node, $fqdn->slice(0, -1)->toString());
+
+		$uses = $this->nodeFactory->createUsesFromNames(['PHPUnit\\Framework\\TestCase']);
+
+		$classBuilder = $this->builderFactory->class($fqdn->getLast());
+		$classBuilder->extend('TestCase');
+
+		$this->generateMethodSetUpBeforeClass($node, $classBuilder);
+		$this->generateMethodTest($node, $classBuilder);
+		$this->generateMethodProvider($node, $classBuilder);
+
+		$class = $classBuilder->getNode();
+		$class->namespacedName = $node->name;
+
+		$node->stmts = [
+			...$uses,
+			$class,
+		];
+
+		return $node;
+
+	}
+
+	private function shouldSkip(Node $node): bool {
+		// Skip if a class is already there.
+		foreach ($node->stmts as $stmt) {
+			if ($stmt instanceof ClassLike) {
+				return true;
+			}
+		}
+		return false;
+	}
+
+	private function toCamelCase(string $str): string {
+		$str = new UnicodeString($str);
+		return $str->camel()->toString();
+	}
+
+	private function generateFqdn(): FullyQualified
 	{
 		$filePath = $this->file->getFilePath();
 		$dirname = basename(\pathinfo($filePath, \PATHINFO_DIRNAME));
 		$basename = \pathinfo($filePath, \PATHINFO_FILENAME);
 
-		$dir = new UnicodeString($dirname);
-		$dir = ucfirst($dir->camel()->toString());
+		$dir = ucfirst($this->toCamelCase($dirname));
+		$file = ucfirst($this->toCamelCase($basename)) . 'Test';
 
-		$file = new UnicodeString($basename);
-		$file = ucfirst($file->camel()->toString()) . 'Test';
-
-		return new FullyQualified($this->namespace . "\\Essais\\$dir\\$file");
+		return new FullyQualified($this->namespace . "\\RectorEssais\\$dir\\$file");
 	}
 
-	/** @see https://github.com/rectorphp/rector/blob/main/rules/Restoration/Rector/ClassLike/UpdateFileNameByClassNameFileSystemRector.php */
-	private function renameFile(FullyQualified $namespace): void {
-		$filePath = $this->file->getFilePath();
-
-		$newPath = $namespace->slice(3)->toString();
-
-		$filePath = $this->file->getFilePath();
-		$newFileLocation = \dirname($filePath) . \DIRECTORY_SEPARATOR . $newPath . '.php';
-
-		$this->removedAndAddedFilesCollector->addMovedFile($this->file, $newFileLocation);
+	private function changeNodeNamespace(Node $node, string $namespace): void {
+		$this->isChangedInNamespaces[$namespace] = \true;
+		$node->name = new Name($namespace);
 	}
 
-
-	private function createTestClass(string $name): Class_
+	private function generateMethodSetUpBeforeClass(Node $node, ClassBuilder $classBuilder): void
 	{
-		$class = new Class_($name);
+		$stmts = [];
+		foreach ($node->stmts as $key => $stmt) {
+			if ($stmt instanceof Expression) {
+				$stmts[] = $stmt;
+				unset($node->stmts[$key]);
+			}
+		}
+		if (!$stmts) {
+			return;
+		}
 
-		$class->extends = new FullyQualified('TestCase');
+		$method = $this->builderFactory->method('setUpBeforeClass');
+		$method
+			->makePublic()
+			->makeStatic()
+			->setReturnType(new Identifier('void'))
+			->addStmts($stmts);
 
-		return $class;
+		$classBuilder->addStmt($method->getNode());
 	}
 
-	private function createPublicStaticMethod($name)
+	private function generateMethodTest(Node $node, ClassBuilder $classBuilder): void
 	{
-		$method = new MethodBuilder($name);
-		$method->makePublic();
-		$method->makeStatic();
-		$method->setReturnType(new Identifier('void'));
-		return $method->getNode();
+		foreach ($node->stmts as $key => $stmt) {
+			if (!$stmt instanceof Function_) {
+				continue;
+			}
+			$name = $stmt->name->toString();
+			if (!str_starts_with($name, 'test_')) {
+				continue;
+			}
+
+			$newName = $this->toCamelCase($name);
+			$method = $this->builderFactory->method($newName);
+			$method
+				->makePublic()
+				->setReturnType(new Identifier('void'))
+				->addStmts($this->transformTestMethodContent($stmt->stmts));
+
+			$param = $this->builderFactory->param('expected');
+			$method->addParam($param->getNode());
+
+			$param = $this->builderFactory->param('args');
+			$param->makeVariadic();
+			$method->addParam($param->getNode());
+
+			$method->setDocComment("/** @dataProvider provider" . ucfirst(substr($newName, 4)) . ' */');
+
+			$classBuilder->addStmt($method->getNode());
+			unset($node->stmts[$key]);
+		}
 	}
 
-	private function createPublicMethod($name)
+	/**
+	 * @param Node[] $nodes
+	 * @return Node[]
+	 */
+	private function transformTestMethodContent(array $nodes): array {
+		foreach ($nodes as $key => $node) {
+			if ($node instanceof Return_) {
+				// ...$args
+				# new Arg(new Variable('args'), false, true);
+
+				$call = new MethodCall(new Variable('this'), 'assertEquals', [
+					new Arg(new Variable('expected')),
+					new Arg($node->expr),
+				]);
+				$nodes[$key] = $call;
+			}
+		}
+		return $nodes;
+	}
+
+	private function generateMethodProvider(Node $node, ClassBuilder $classBuilder): void
 	{
-		$method = new MethodBuilder($name);
-		$method->makePublic();
-		$method->setReturnType(new Identifier('void'));
-		return $method->getNode();
+		foreach ($node->stmts as $key => $stmt) {
+			if (!$stmt instanceof Function_) {
+				continue;
+			}
+			$name = $stmt->name->toString();
+			if (!str_starts_with($name, 'essais_')) {
+				continue;
+			}
+			$newName = $this->toCamelCase(str_replace('essais_', 'provider_', $name));
+			$method = $this->builderFactory->method($newName);
+			$method
+				->makePublic()
+				->setReturnType(new Identifier('array'))
+				->addStmts($stmt->stmts);
+
+			$classBuilder->addStmt($method->getNode());
+			unset($node->stmts[$key]);
+		}
 	}
 }
