@@ -1,15 +1,16 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Spip\Core\Tests\Sql;
 
 use PHPUnit\Framework\TestCase;
 
 class SqlInSqliteTest extends TestCase
 {
-
 	public static function setUpBeforeClass(): void
 	{
-		find_in_path("base/abstract_sql.php", '', true);
+		find_in_path('base/abstract_sql.php', '', true);
 	}
 
 	protected function setUp(): void
@@ -19,11 +20,6 @@ class SqlInSqliteTest extends TestCase
 		}
 	}
 
-	private function getSqlType(): string
-	{
-		return $GLOBALS['connexions'][0]['type'] ?? '';
-	}
-
 	/**
 	 * @dataProvider providerSqliteSqliIn
 	 */
@@ -31,7 +27,6 @@ class SqlInSqliteTest extends TestCase
 	{
 		$this->assertEquals($expected, sql_in(...$args));
 	}
-
 
 	public function providerSqliteSqliIn(): array
 	{
@@ -196,5 +191,10 @@ paragraphes',
 				],
 			],
 		];
+	}
+
+	private function getSqlType(): string
+	{
+		return $GLOBALS['connexions'][0]['type'] ?? '';
 	}
 }

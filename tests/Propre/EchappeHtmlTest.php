@@ -1,61 +1,77 @@
 <?php
 
+declare(strict_types=1);
+
 /**
- * Test unitaire de la fonction echappe_html
- * du fichier inc/texte.php
- *
- *
+ * Test unitaire de la fonction echappe_html du fichier inc/texte.php
  */
+
 namespace Spip\Core\Tests\Propre;
 
 use PHPUnit\Framework\TestCase;
 
-
-function callback_test_propre_echappe_html_echappe($regs): string {
+function callback_test_propre_echappe_html_echappe($regs): string
+{
 	return 'A';
 }
 
-function callback_test_propre_echappe_html_traiter_echap_html($regs): string {
+function callback_test_propre_echappe_html_traiter_echap_html($regs): string
+{
 	return callback_test_propre_echappe_html_echappe($regs);
 }
 
-function callback_test_propre_echappe_html_traiter_echap_code($regs): string {
+function callback_test_propre_echappe_html_traiter_echap_code($regs): string
+{
 	return callback_test_propre_echappe_html_echappe($regs);
 }
 
-function callback_test_propre_echappe_html_traiter_echap_cadre($regs): string {
+function callback_test_propre_echappe_html_traiter_echap_cadre($regs): string
+{
 	return callback_test_propre_echappe_html_echappe($regs);
 }
 
-function callback_test_propre_echappe_html_traiter_echap_frame($regs): string {
+function callback_test_propre_echappe_html_traiter_echap_frame($regs): string
+{
 	return callback_test_propre_echappe_html_echappe($regs);
 }
 
-function callback_test_propre_echappe_html_traiter_echap_script($regs): string {
+function callback_test_propre_echappe_html_traiter_echap_script($regs): string
+{
 	return callback_test_propre_echappe_html_echappe($regs);
 }
 
 class EchappeHtmlTest extends TestCase
 {
-    public static function setUpBeforeClass(): void
-    {
-        find_in_path("inc/texte.php", '', true);
-    }
+	public static function setUpBeforeClass(): void
+	{
+		find_in_path('inc/texte.php', '', true);
+	}
 
-    /** @dataProvider providerPropreEchappeHtml */
-    public function testPropreEchappeHtml($expected, ...$args): void
-    {
-        $actual = echappe_html($args[0], $args[1] ?? '', $args[2] ?? false, $args[3] ?? '', __NAMESPACE__ . '\\callback_test_propre_echappe_html_');
-        $this->assertSame($expected, $actual);
-        $this->assertEquals($expected, $actual);
-    }
+	/**
+	 * @dataProvider providerPropreEchappeHtml
+	 */
+	public function testPropreEchappeHtml($expected, ...$args): void
+	{
+		$actual = echappe_html(
+			$args[0],
+			$args[1] ?? '',
+			$args[2] ?? false,
+			$args[3] ?? '',
+			__NAMESPACE__ . '\\callback_test_propre_echappe_html_'
+		);
+		$this->assertSame($expected, $actual);
+		$this->assertEquals($expected, $actual);
+	}
 
-    public function providerPropreEchappeHtml(): array
-    {
-        $essais = [];
-        $marque = '<span class="base64" title="QQ=="></span>';
-        $essais['simple imbriqué'] = ['avant 1' . $marque . 'apres 1</code>apres 2', 'avant 1<code class="php"> avant 2<code>le code</code>apres 1</code>apres 2'];
-        $essais['complexe imbriqué'] = [<<<EOT
+	public function providerPropreEchappeHtml(): array
+	{
+		$essais = [];
+		$marque = '<span class="base64" title="QQ=="></span>';
+		$essais['simple imbriqué'] = [
+			'avant 1' . $marque . 'apres 1</code>apres 2',
+			'avant 1<code class="php"> avant 2<code>le code</code>apres 1</code>apres 2',
+		];
+		$essais['complexe imbriqué'] = [<<<CODE_SAMPLE
 {{{code class="php"}}}
 avant blah
 {$marque}
@@ -67,8 +83,8 @@ apres blah et avant php
 Voilà , {$marque}</code>
 
 On peut croire que c'est embétant , faut mettre une div autour pour encadrer , mais cela permet d'orienter geshi en cours de route comme dans [Compte à rebours (revisited)->article6]
-EOT
-, <<<EOT
+CODE_SAMPLE
+			, <<<CODE_SAMPLE
 {{{code class="php"}}}
 avant blah
 <code class="blah">
@@ -99,12 +115,21 @@ function uncomment(\$source) {
 Voilà , <code><code class="xxx">insere tout avec des <br /> , pas de <div class="spip_code"></code></code>
 
 On peut croire que c'est embétant , faut mettre une div autour pour encadrer , mais cela permet d'orienter geshi en cours de route comme dans [Compte à rebours (revisited)->article6]
-EOT
-];
-        $essais['unicode sans rien'] = ["azerty小さくてもグローバルなケベックの村-azerty小さくてもグローバルなケベックの村-azerty小さくてもグローバルなケベックの村-azerty小さくてもグローバルなケベックの村-azerty小さくてもグローバルなケベックの村-azerty小さくてもグローバルなケベックの村-azerty小さくてもグローバルなケベックの村-azerty小さくてもグローバルなケベックの村-azerty小さくてもグローバルなケベックの村-azerty小さくてもグローバルなケベックの村-azerty小さくてもグローバルなケベックの村-azerty小さくてもグローバルなケベックの村-azerty小さくてもグローバルなケベックの村-azerty小さくてもグローバルなケベックの村-azerty小さくてもグローバルなケベックの村-", "azerty小さくてもグローバルなケベックの村-azerty小さくてもグローバルなケベックの村-azerty小さくてもグローバルなケベックの村-azerty小さくてもグローバルなケベックの村-azerty小さくてもグローバルなケベックの村-azerty小さくてもグローバルなケベックの村-azerty小さくてもグローバルなケベックの村-azerty小さくてもグローバルなケベックの村-azerty小さくてもグローバルなケベックの村-azerty小さくてもグローバルなケベックの村-azerty小さくてもグローバルなケベックの村-azerty小さくてもグローバルなケベックの村-azerty小さくてもグローバルなケベックの村-azerty小さくてもグローバルなケベックの村-azerty小さくてもグローバルなケベックの村-"];
-        $essais['sans rien'] = ["astuce & travaux de mode rigolosastuce & travaux de mode rigolosastuce & travaux de mode rigolosastuce & travaux de mode rigolosastuce & travaux de mode rigolosastuce & travaux de mode rigolosastuce & travaux de mode rigolosastuce & travaux de mode rigolosastuce & travaux de mode rigolosastuce & travaux de mode rigolosastuce & travaux de mode rigolosastuce & travaux de mode rigolosastuce & travaux de mode rigolosastuce & travaux de mode rigolosastuce & travaux de mode rigolos", "astuce & travaux de mode rigolosastuce & travaux de mode rigolosastuce & travaux de mode rigolosastuce & travaux de mode rigolosastuce & travaux de mode rigolosastuce & travaux de mode rigolosastuce & travaux de mode rigolosastuce & travaux de mode rigolosastuce & travaux de mode rigolosastuce & travaux de mode rigolosastuce & travaux de mode rigolosastuce & travaux de mode rigolosastuce & travaux de mode rigolosastuce & travaux de mode rigolosastuce & travaux de mode rigolos"];
-        $essais['code sans imbrication'] = ['avant 1' . $marque . 'apres 2', 'avant 1<code class="php"> avant 2 code le code code apres 1</code>apres 2'];
-        $essais['pourriture'] = [<<<EOT
+CODE_SAMPLE
+		];
+		$essais['unicode sans rien'] = [
+			'azerty小さくてもグローバルなケベックの村-azerty小さくてもグローバルなケベックの村-azerty小さくてもグローバルなケベックの村-azerty小さくてもグローバルなケベックの村-azerty小さくてもグローバルなケベックの村-azerty小さくてもグローバルなケベックの村-azerty小さくてもグローバルなケベックの村-azerty小さくてもグローバルなケベックの村-azerty小さくてもグローバルなケベックの村-azerty小さくてもグローバルなケベックの村-azerty小さくてもグローバルなケベックの村-azerty小さくてもグローバルなケベックの村-azerty小さくてもグローバルなケベックの村-azerty小さくてもグローバルなケベックの村-azerty小さくてもグローバルなケベックの村-',
+			'azerty小さくてもグローバルなケベックの村-azerty小さくてもグローバルなケベックの村-azerty小さくてもグローバルなケベックの村-azerty小さくてもグローバルなケベックの村-azerty小さくてもグローバルなケベックの村-azerty小さくてもグローバルなケベックの村-azerty小さくてもグローバルなケベックの村-azerty小さくてもグローバルなケベックの村-azerty小さくてもグローバルなケベックの村-azerty小さくてもグローバルなケベックの村-azerty小さくてもグローバルなケベックの村-azerty小さくてもグローバルなケベックの村-azerty小さくてもグローバルなケベックの村-azerty小さくてもグローバルなケベックの村-azerty小さくてもグローバルなケベックの村-',
+		];
+		$essais['sans rien'] = [
+			'astuce & travaux de mode rigolosastuce & travaux de mode rigolosastuce & travaux de mode rigolosastuce & travaux de mode rigolosastuce & travaux de mode rigolosastuce & travaux de mode rigolosastuce & travaux de mode rigolosastuce & travaux de mode rigolosastuce & travaux de mode rigolosastuce & travaux de mode rigolosastuce & travaux de mode rigolosastuce & travaux de mode rigolosastuce & travaux de mode rigolosastuce & travaux de mode rigolosastuce & travaux de mode rigolos',
+			'astuce & travaux de mode rigolosastuce & travaux de mode rigolosastuce & travaux de mode rigolosastuce & travaux de mode rigolosastuce & travaux de mode rigolosastuce & travaux de mode rigolosastuce & travaux de mode rigolosastuce & travaux de mode rigolosastuce & travaux de mode rigolosastuce & travaux de mode rigolosastuce & travaux de mode rigolosastuce & travaux de mode rigolosastuce & travaux de mode rigolosastuce & travaux de mode rigolosastuce & travaux de mode rigolos',
+		];
+		$essais['code sans imbrication'] = [
+			'avant 1' . $marque . 'apres 2',
+			'avant 1<code class="php"> avant 2 code le code code apres 1</code>apres 2',
+		];
+		$essais['pourriture'] = [<<<CODE_SAMPLE
 Le code mis en {$marque} ou en {$marque} peut lui même contenir  {$marque} ou {$marque} ...
 {$marque}
 Je voudrais présenter l'usage du plugin coloration_code qui fournit une extension à geshi : la classe "spip".
@@ -138,8 +163,8 @@ et le tour est joué
 </code>
 
 Donc comme l'ancien coloration_code, le  &lt;/code> est mangé et "et le tour est joué" apparait hors-code.
-EOT
-, <<<EOT
+CODE_SAMPLE
+			, <<<CODE_SAMPLE
 Le code mis en <code><code></code> ou en <code><cadre></code> peut lui même contenir  <code><code></code> ou <code><cadre></code> ...
 <code class="xxx">
 ça 'xiste pô
@@ -201,8 +226,8 @@ et le tour est joué
 </code>
 
 Donc comme l'ancien coloration_code, le  &lt;/code> est mangé et "et le tour est joué" apparait hors-code.
-EOT
-];
-        return $essais;
-    }
+CODE_SAMPLE
+		];
+		return $essais;
+	}
 }

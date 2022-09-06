@@ -1,14 +1,15 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Spip\Core\Tests\Squelettes\Boucle;
 
 use Spip\Core\Testing\SquelettesTestCase;
-use Spip\Core\Testing\Templating;
-use Spip\Core\Testing\Template\StringLoader;
-use Spip\Core\Testing\Template\FileLoader;
 
-class HierarchieTest extends SquelettesTestCase {
-	function testBoucleHierarchie(){
+class HierarchieTest extends SquelettesTestCase
+{
+	public function testBoucleHierarchie()
+	{
 		$this->assertOkCode("
 			<BOUCLE_a(RUBRIQUES){0,50}>
 			<BOUCLE_secteur(HIERARCHIE){0,1}>[(#ID_RUBRIQUE|=={#_a:ID_SECTEUR}|?{'',
@@ -22,7 +23,8 @@ class HierarchieTest extends SquelettesTestCase {
 		");
 	}
 
-	function testBoucleHierarchieTout(){
+	public function testBoucleHierarchieTout()
+	{
 		$this->assertOkCode("
 			<BOUCLE_a(RUBRIQUES){tout}{0,50}>
 			<BOUCLE_secteur(HIERARCHIE){statut==.*}{0,1}>[(#ID_RUBRIQUE|=={#_a:ID_SECTEUR}|?{'',

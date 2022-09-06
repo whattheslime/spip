@@ -1,16 +1,16 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Spip\Core\Tests\Filtre;
 
 use PHPUnit\Framework\TestCase;
 
 /**
- * Test unitaire de la fonction affdate_debut_fin
- * du fichier ./inc/filtres.php
+ * Test unitaire de la fonction affdate_debut_fin du fichier ./inc/filtres.php
  */
 class AffDateDebutFinTest extends TestCase
 {
-
 	public static function setUpBeforeClass(): void
 	{
 		find_in_path('./inc/filtres.php', '', true);
@@ -275,6 +275,5 @@ class AffDateDebutFinTest extends TestCase
 				4 => 'hcal',
 			],
 		];
-
 	}
 }

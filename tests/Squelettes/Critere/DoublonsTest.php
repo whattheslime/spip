@@ -1,36 +1,39 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Spip\Core\Tests\Squelettes\Critere;
 
 use Spip\Core\Testing\SquelettesTestCase;
 use Spip\Core\Testing\Templating;
-use Spip\Core\Testing\Template\StringLoader;
-use Spip\Core\Testing\Template\FileLoader;
 
-class DoublonsTest extends SquelettesTestCase {
-
-	public function testCritereDoublons(): void {
+class DoublonsTest extends SquelettesTestCase
+{
+	public function testCritereDoublons(): void
+	{
 		$this->assertOkCode(
-			"
+			'
 			<BOUCLE_a(ARTICLES){statut=.*}{doublons}></BOUCLE_a>
 			<BOUCLE_b(ARTICLES){statut=.*}{tout}{doublons}{0,1}>Erreur doublons articles</BOUCLE_b>
 			ok<//B_b>
-			"
+			'
 		);
 		$this->assertOkCode(
-			"
+			'
 			<BOUCLE_a(ARTICLES){doublons}></BOUCLE_a>
 			<BOUCLE_b(ARTICLES){doublons}{0,1}>Erreur doublons articles</BOUCLE_b>
 			ok<//B_b>
-			"
+			'
 		);
 	}
 
-	public function testCritereDoublonsMultiplesBoucles(): void {
+	public function testCritereDoublonsMultiplesBoucles(): void
+	{
 		$this->assertOkSquelette(__DIR__ . '/data/doublons.html');
 	}
 
-	public function testDoublonsAuteurs(): void {
+	public function testDoublonsAuteurs(): void
+	{
 		$templating = Templating::fromString();
 		$n = $templating->render('<BOUCLE_a(AUTEURS)>#COMPTEUR_BOUCLE</BOUCLE_a>');
 
@@ -47,7 +50,8 @@ class DoublonsTest extends SquelettesTestCase {
 	/**
 	 * @depends testDoublonsAuteurs
 	 */
-	public function testDoublonsNommesAuteurs(): void {
+	public function testDoublonsNommesAuteurs(): void
+	{
 		$this->assertOkCode('
 			<BOUCLE_a(AUTEURS){doublons polisson}></BOUCLE_a>
 			<BOUCLE_b(AUTEURS){doublons polisson}{0,1}>Erreur doublons Auteurs</BOUCLE_b>OK<//B_b>

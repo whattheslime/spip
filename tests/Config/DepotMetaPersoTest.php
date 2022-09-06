@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 /***************************************************************************\
  *  SPIP, Système de publication pour l'internet                           *
  *                                                                         *
@@ -14,8 +16,8 @@ namespace Spip\Core\Tests\Config;
 
 use PHPUnit\Framework\TestCase;
 
-class DepotMetaPersoTest extends TestCase {
-
+class DepotMetaPersoTest extends TestCase
+{
 	protected static $savedMeta;
 
 	// les bases de test
@@ -23,13 +25,18 @@ class DepotMetaPersoTest extends TestCase {
 
 	protected static $serassoc;
 
-	public static function setUpBeforeClass(): void {
+	public static function setUpBeforeClass(): void
+	{
 		self::$savedMeta = $GLOBALS['meta'];
-		self::$assoc = ['one' => 'element 1', 'two' => 'element 2'];
+		self::$assoc = [
+			'one' => 'element 1',
+			'two' => 'element 2',
+		];
 		self::$serassoc = serialize(self::$assoc);
 	}
 
-	public static function tearDownAfterClass():void {
+	public static function tearDownAfterClass(): void
+	{
 		$GLOBALS['meta'] = self::$savedMeta;
 		unset($GLOBALS['toto']);
 	}
@@ -37,22 +44,25 @@ class DepotMetaPersoTest extends TestCase {
 	/**
 	 * lire_config meta
 	 */
-	public function testLireConfig1() {
+	public function testLireConfig1()
+	{
 		include_spip('inc/config');
 		$meta = $GLOBALS['meta'];
 
-		$trouver_table = charger_fonction('trouver_table','base');
+		$trouver_table = charger_fonction('trouver_table', 'base');
 		$this->assertArrayNotHasKey('toto', $GLOBALS, 'Une table spip_toto existe deja !');
 		$this->assertEmpty($trouver_table('spip_toto'), 'Une table spip_toto existe deja !');
 
 		// on flingue meta a juste nos donnees
-		$GLOBALS['meta'] = ['dummy'=>''];
+		$GLOBALS['meta'] = [
+			'dummy' => '',
+		];
 		$GLOBALS['toto'] = [
 			'zero' => 0,
 			'zeroc' => '0',
 			'chaine' => 'une chaine',
 			'assoc' => self::$assoc,
-			'serie' => self::$serassoc
+			'serie' => self::$serassoc,
 		];
 
 		$essais = [];
@@ -61,9 +71,9 @@ class DepotMetaPersoTest extends TestCase {
 		$essais[] = ['une chaine', '/toto/chaine'];
 		$essais[] = [self::$assoc, '/toto/assoc'];
 		$essais[] = [self::$assoc, '/toto/serie'];
-		$essais[] = [self::$serassoc, '/toto/serie','',0];
+		$essais[] = [self::$serassoc, '/toto/serie', '', 0];
 		$essais[] = [null, '/toto/rien'];
-		$essais[] = ['defaut', '/toto/rien','defaut'];
+		$essais[] = ['defaut', '/toto/rien', 'defaut'];
 		$essais[] = [null, '/meta/chaine'];
 		$essais[] = [null, 'chaine'];
 
@@ -78,9 +88,11 @@ class DepotMetaPersoTest extends TestCase {
 
 	/**
 	 * ecrire_config meta
+	 *
 	 * @depends testLireConfig1
 	 */
-	public function testEcrireConfig() {
+	public function testEcrireConfig()
+	{
 		/*
 		 * Notes sur l'ecriture :
 		 * - dans le tableau $GLOBALS['meta'], les valeurs transmises
@@ -105,39 +117,41 @@ class DepotMetaPersoTest extends TestCase {
 
 		foreach ($essais as $k => $essai) {
 			$expected = array_shift($essai);
-			$this->assertEquals($expected, ecrire_config(...$essai),"Echec {$k} : ecriture ".reset($essai));
+			$this->assertEquals($expected, ecrire_config(...$essai), "Echec {$k} : ecriture " . reset($essai));
 		}
 
-		$trouver_table = charger_fonction('trouver_table','base');
+		$trouver_table = charger_fonction('trouver_table', 'base');
 		$this->assertNotEmpty($GLOBALS['toto'], "La table spip_toto n'a pas ete cree !");
 		$this->assertNotEmpty($trouver_table('spip_toto'), "La table spip_toto n'a pas ete cree !");
-
 	}
 
 	/**
 	 * re lire_config meta
+	 *
 	 * @depends testEcrireConfig
 	 */
-	public function testLireConfig2() {
+	public function testLireConfig2()
+	{
 		$essais = [];
 		$essais[] = [0, '/toto/test_cfg_zero'];
 		$essais[] = ['0', '/toto/test_cfg_zeroc'];
 		$essais[] = ['une chaine', '/toto/test_cfg_chaine'];
 		$essais[] = [self::$assoc, '/toto/test_cfg_assoc'];
-		$essais[] = [self::$serassoc, '/toto/test_cfg_serie','',0];
+		$essais[] = [self::$serassoc, '/toto/test_cfg_serie', '', 0];
 
 		foreach ($essais as $k => $essai) {
 			$expected = array_shift($essai);
 			$this->assertEquals($expected, lire_config(...$essai), "Echec {$k} : lecture " . reset($essai));
 		}
-
 	}
 
 	/**
 	 * effacer_config meta
+	 *
 	 * @depends testLireConfig2
 	 */
-	public function testEffacerConfig() {
+	public function testEffacerConfig()
+	{
 		$essais = [];
 		$essais[] = [true, '/toto/test_cfg_zero'];
 		$essais[] = [true, '/toto/test_cfg_zeroc'];
@@ -149,14 +163,15 @@ class DepotMetaPersoTest extends TestCase {
 			$expected = array_shift($essai);
 			$this->assertEquals($expected, effacer_config(...$essai), "Echec {$k} : effacer " . reset($essai));
 		}
-
 	}
 
 	/**
 	 * re lire_config meta
+	 *
 	 * @depends testEffacerConfig
 	 */
-	public function testLireConfig3(){
+	public function testLireConfig3()
+	{
 		$essais = [];
 		$essais[] = [null, '/toto/test_cfg_zero'];
 		$essais[] = [null, '/toto/test_cfg_zeroc'];
@@ -169,9 +184,15 @@ class DepotMetaPersoTest extends TestCase {
 			$this->assertEquals($expected, lire_config(...$essai), "Echec {$k} : lecture " . reset($essai));
 		}
 
-		$trouver_table = charger_fonction('trouver_table','base');
-		$this->assertArrayNotHasKey('toto', $GLOBALS, "La table spip_toto n'a pas ete supprimee par le dernier effacement de config !");
-		$this->assertEmpty($trouver_table('spip_toto'), "La table spip_toto n'a pas ete supprimee par le dernier effacement de config !");
-
+		$trouver_table = charger_fonction('trouver_table', 'base');
+		$this->assertArrayNotHasKey(
+			'toto',
+			$GLOBALS,
+			"La table spip_toto n'a pas ete supprimee par le dernier effacement de config !"
+		);
+		$this->assertEmpty(
+			$trouver_table('spip_toto'),
+			"La table spip_toto n'a pas ete supprimee par le dernier effacement de config !"
+		);
 	}
 }

@@ -1,26 +1,28 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Spip\Core\Tests\Squelettes\Balise;
 
 use Spip\Core\Testing\SquelettesTestCase;
 use Spip\Core\Testing\Templating;
-use Spip\Core\Testing\Template\StringLoader;
-use Spip\Core\Testing\Template\FileLoader;
 
-class BaliseGeneriqueTest extends SquelettesTestCase {
-
-	public function testBaliseInexistante(): void {
+class BaliseGeneriqueTest extends SquelettesTestCase
+{
+	public function testBaliseInexistante(): void
+	{
 		$this->assertEmptyCode('#JENEXISTEPAS');
 		$this->assertEmptyCode('[(#JENEXISTEPAS)]');
 		$this->assertEmptyCode('[avant(#JENEXISTEPAS)apres]');
 
 		// ceux-ci sont plus etonnant mais c'est ce qui se passe effectivement
-		$this->assertEqualsCode('{rien}','#JENEXISTEPAS{rien}');
-		$this->assertEqualsCode('{rien}','[(#JENEXISTEPAS{rien})]');
-		$this->assertEqualsCode('avant{rien}apres','[avant(#JENEXISTEPAS{rien})apres]');
+		$this->assertEqualsCode('{rien}', '#JENEXISTEPAS{rien}');
+		$this->assertEqualsCode('{rien}', '[(#JENEXISTEPAS{rien})]');
+		$this->assertEqualsCode('avant{rien}apres', '[avant(#JENEXISTEPAS{rien})apres]');
 	}
 
-	public function testBaliseDeclaree(): void {
+	public function testBaliseDeclaree(): void
+	{
 		$templating = Templating::fromString([
 			'fonctions' => '
 				function balise_JEXISTE_dist($p){
@@ -33,7 +35,8 @@ class BaliseGeneriqueTest extends SquelettesTestCase {
 		$this->assertOkTemplate($templating, '[(#JEXISTE)]');
 	}
 
-	public function testBaliseDeclareeAvantApres(): void {
+	public function testBaliseDeclareeAvantApres(): void
+	{
 		$templating = Templating::fromString([
 			'fonctions' => '
 				function balise_JEXISTE_dist($p){
@@ -44,11 +47,12 @@ class BaliseGeneriqueTest extends SquelettesTestCase {
 		]);
 
 		$this->assertEqualsTemplate('avantokapres', $templating, '[avant(#JEXISTE)apres]');
-		$this->assertEqualsTemplate('avant apres', $templating,'[avant(#JEXISTE|oui)apres]');
+		$this->assertEqualsTemplate('avant apres', $templating, '[avant(#JEXISTE|oui)apres]');
 		$this->assertEqualsTemplate('', $templating, '[avant(#JEXISTE|non)apres]');
 	}
 
-	public function testBaliseDeclareeEtParams(): void {
+	public function testBaliseDeclareeEtParams(): void
+	{
 		$templating = Templating::fromString([
 			'fonctions' => '
 				function balise_JEXISTE_dist($p){
@@ -65,7 +69,8 @@ class BaliseGeneriqueTest extends SquelettesTestCase {
 		$this->assertOkTemplate($templating, '[(#JEXISTE{[(#VAL{[(#SELF)]})]})]');
 	}
 
-	public function testBaliseDeclareeEtParamsUtiles(): void {
+	public function testBaliseDeclareeEtParamsUtiles(): void
+	{
 		$templating = Templating::fromString([
 			'fonctions' => '
 				function balise_ZEXISTE_dist($p){
@@ -86,7 +91,8 @@ class BaliseGeneriqueTest extends SquelettesTestCase {
 		$this->assertEmptyTemplate($templating, '[avant(#ZEXISTE{ok}|non)apres]');
 	}
 
-	public function testBaliseSurchargee(): void {
+	public function testBaliseSurchargee(): void
+	{
 		$templating = Templating::fromString([
 			'fonctions' => '
 				function balise_REXISTE_dist($p){
@@ -110,4 +116,3 @@ class BaliseGeneriqueTest extends SquelettesTestCase {
 		$this->assertOkTemplate($templating, '#REXISTE{ok}');
 	}
 }
-

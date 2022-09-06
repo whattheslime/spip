@@ -1,4 +1,7 @@
 <?php
+
+declare(strict_types=1);
+
 namespace Spip\Core\Tests\Squelettes\Balise;
 
 use Spip\Core\Testing\SquelettesTestCase;
@@ -6,7 +9,8 @@ use Spip\Core\Testing\Templating;
 
 class LesauteursTest extends SquelettesTestCase
 {
-	public function testLesAuteursRenvoieQqc(): void {
+	public function testLesAuteursRenvoieQqc(): void
+	{
 		$templating = Templating::fromString();
 		$result = $templating->render(
 			"<BOUCLE_a(ARTICLES){id_auteur>0}{0,1}>
@@ -22,4 +26,3 @@ class LesauteursTest extends SquelettesTestCase
 		$this->assertOk($result);
 	}
 }
-

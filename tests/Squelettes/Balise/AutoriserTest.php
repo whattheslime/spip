@@ -1,12 +1,15 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Spip\Core\Tests\Squelettes\Balise;
 
 use Spip\Core\Testing\SquelettesTestCase;
 
 class AutoriserTest extends SquelettesTestCase
 {
-	public function testAutoriserSqueletteOkNiet(): void {
+	public function testAutoriserSqueletteOkNiet(): void
+	{
 		$this->assertOkCode('[(#AUTORISER{ok})ok]');
 		$this->assertOkCode('[(#AUTORISER{niet}|sinon{ok})]');
 		$this->assertOkCode('

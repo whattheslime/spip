@@ -1,32 +1,56 @@
 <?php
 
+declare(strict_types=1);
+
 /**
- * Test unitaire de la fonction interdire_script
- * du fichier inc/texte.php
- *
+ * Test unitaire de la fonction interdire_script du fichier inc/texte.php
  */
+
 namespace Spip\Core\Tests\Texte;
 
 use PHPUnit\Framework\TestCase;
+
 class InterdireScriptParanoTest extends TestCase
 {
-    public static function setUpBeforeClass(): void
-    {
-        find_in_path("inc/texte.php", '', true);
-    }
-    public function setUp(): void
-    {
-        $GLOBALS['filtrer_javascript'] = -1;
-    }
-    /** @dataProvider providerTexteInterdireScriptParano */
-    public function testTexteInterdireScriptParano($expected, ...$args): void
-    {
-        $actual = interdire_scripts(...$args);
-        $this->assertSame($expected, $actual);
-        $this->assertEquals($expected, $actual);
-    }
-    public function providerTexteInterdireScriptParano(): array
-    {
-        return [["<code class=\"echappe-js\">&lt;script type='text/javascript' src='toto.js'&gt;&lt;/script&gt;</code>", "<script type='text/javascript' src='toto.js'></script>"], ["<code class=\"echappe-js\">&lt;script type='text/javascript' src='spip.php?page=toto'&gt;&lt;/script&gt;</code>", "<script type='text/javascript' src='spip.php?page=toto'></script>"], ["<code class=\"echappe-js\">&lt;script type='text/javascript'&gt;var php=5;&lt;/script&gt;</code>", "<script type='text/javascript'>var php=5;</script>"], ["<code class=\"echappe-js\">&lt;script language='javascript' src='spip.php?page=toto'&gt;&lt;/script&gt;</code>", "<script language='javascript' src='spip.php?page=toto'></script>"], ["&lt;script language='php'>die();</script>", "<script language='php'>die();</script>"], ["&lt;script language=php>die();</script>", "<script language=php>die();</script>"], ["&lt;script language = php >die();</script>", "<script language = php >die();</script>"]];
-    }
+	public static function setUpBeforeClass(): void
+	{
+		find_in_path('inc/texte.php', '', true);
+	}
+
+	protected function setUp(): void
+	{
+		$GLOBALS['filtrer_javascript'] = -1;
+	}
+
+	/**
+	 * @dataProvider providerTexteInterdireScriptParano
+	 */
+	public function testTexteInterdireScriptParano($expected, ...$args): void
+	{
+		$actual = interdire_scripts(...$args);
+		$this->assertSame($expected, $actual);
+		$this->assertEquals($expected, $actual);
+	}
+
+	public function providerTexteInterdireScriptParano(): array
+	{
+		return [[
+			"<code class=\"echappe-js\">&lt;script type='text/javascript' src='toto.js'&gt;&lt;/script&gt;</code>", "<script type='text/javascript' src='toto.js'></script>", ],
+			[
+				"<code class=\"echappe-js\">&lt;script type='text/javascript' src='spip.php?page=toto'&gt;&lt;/script&gt;</code>",
+				"<script type='text/javascript' src='spip.php?page=toto'></script>",
+			],
+			[
+				"<code class=\"echappe-js\">&lt;script type='text/javascript'&gt;var php=5;&lt;/script&gt;</code>",
+				"<script type='text/javascript'>var php=5;</script>",
+			],
+			[
+				"<code class=\"echappe-js\">&lt;script language='javascript' src='spip.php?page=toto'&gt;&lt;/script&gt;</code>",
+				"<script language='javascript' src='spip.php?page=toto'></script>",
+			],
+			["&lt;script language='php'>die();</script>", "<script language='php'>die();</script>"],
+			['&lt;script language=php>die();</script>', '<script language=php>die();</script>'],
+			['&lt;script language = php >die();</script>', '<script language = php >die();</script>'],
+		];
+	}
 }

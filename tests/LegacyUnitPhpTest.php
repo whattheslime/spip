@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 /***************************************************************************\
  *  SPIP, Système de publication pour l'internet                           *
  *                                                                         *
@@ -14,27 +16,26 @@ namespace Spip\Core\Tests;
 
 use PHPUnit\Framework\TestCase;
 
-
 /**
  * LegacyUnitPhpTest test - runs all the unit/ php tests and check the ouput is 'OK'
- *
  */
-class LegacyUnitPhpTest extends TestCase {
-
+class LegacyUnitPhpTest extends TestCase
+{
 	/**
 	 * @dataProvider legacyPhpfileNameProvider
 	 */
-	public function testLegacyUnitPHP($inFname, $output){
+	public function testLegacyUnitPHP($inFname, $output)
+	{
 		$result = $this->legacyPhpRun($inFname);
 		if ($result === $output) {
 			$this->assertEquals($output, $result, $result);
-		}
-		else {
+		} else {
 			$this->fail($result);
 		}
 	}
 
-	public function legacyPhpfileNameProvider(){
+	public function legacyPhpfileNameProvider()
+	{
 		require_once(__DIR__ . '/legacy/test.inc');
 
 		$liste_fichiers = tests_legacy_lister('php');
@@ -46,10 +47,13 @@ class LegacyUnitPhpTest extends TestCase {
 		return $tests;
 	}
 
-	protected function legacyPhpRun($inFname){
+	protected function legacyPhpRun($inFname)
+	{
 		chdir(_SPIP_TEST_INC);
-		if (!is_file('../'.$inFname) || !$realPath = realpath('../'.$inFname)){
-			$this->fail("{$inFname} is missing" . json_encode([getcwd(), _SPIP_TEST_INC, _SPIP_TEST_CHDIR], JSON_THROW_ON_ERROR));
+		if (! is_file('../' . $inFname) || ! $realPath = realpath('../' . $inFname)) {
+			$this->fail(
+				"{$inFname} is missing" . json_encode([getcwd(), _SPIP_TEST_INC, _SPIP_TEST_CHDIR], JSON_THROW_ON_ERROR)
+			);
 		}
 
 		$output = [];
@@ -59,7 +63,7 @@ class LegacyUnitPhpTest extends TestCase {
 		exec("{$php} \"{$realPath}\" mode=test_general", $output, $returnCode);
 
 		if ($returnCode) {
-			array_unshift($output, 'ReturnCode: '.$returnCode);
+			array_unshift($output, 'ReturnCode: ' . $returnCode);
 		}
 
 		$result = rtrim(implode("\n", $output));

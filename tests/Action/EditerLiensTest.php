@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 /***************************************************************************\
  *  SPIP, Système de publication pour l'internet                           *
  *                                                                         *
@@ -14,19 +16,22 @@ namespace Spip\Core\Tests\Action;
 
 use PHPUnit\Framework\TestCase;
 
-class EditerLiensTest extends TestCase {
-
-	public static function setUpBeforeClass(): void{
+class EditerLiensTest extends TestCase
+{
+	public static function setUpBeforeClass(): void
+	{
 		include_spip('action/editer_liens');
 	}
 
-	public static function tearDownAfterClass(): void{
+	public static function tearDownAfterClass(): void
+	{
 		include_spip('base/abstract_sql');
 		sql_delete('spip_auteurs_liens', "objet='spirou'");
 		sql_delete('spip_auteurs_liens', "objet='zorglub'");
 	}
 
-	public function testObjetAssociable(){
+	public function testObjetAssociable()
+	{
 		$essais = [
 			[
 				0 => false,
@@ -50,152 +55,251 @@ class EditerLiensTest extends TestCase {
 			],
 		];
 
-		foreach ($essais as $k => $essai){
+		foreach ($essais as $k => $essai) {
 			$expected = array_shift($essai);
 			$this->assertEquals($expected, objet_associable(...$essai), "Echec {$k} : objet_associable " . end($essai));
 		}
 	}
 
-
 	/**
 	 * @depends testObjetAssociable
 	 */
-	public function testObjetAssocier(){
+	public function testObjetAssocier()
+	{
 		$essais = [
 			[
 				0 => false,
-				1 => ['article' => 1],
-				2 => ['spirou' => 1],
+				1 => [
+					'article' => 1,
+				],
+				2 => [
+					'spirou' => 1,
+				],
 			],
 			[
 				0 => 1,
-				1 => ['auteur' => 1],
-				2 => ['spirou' => 1],
+				1 => [
+					'auteur' => 1,
+				],
+				2 => [
+					'spirou' => 1,
+				],
 			],
 			[
 				0 => 0,
-				1 => ['auteur' => 1],
-				2 => ['spirou' => 1],
+				1 => [
+					'auteur' => 1,
+				],
+				2 => [
+					'spirou' => 1,
+				],
 			],
 			[
 				0 => 2,
-				1 => ['auteur' => 1],
-				2 => ['spirou' => [2, 3]],
+				1 => [
+					'auteur' => 1,
+				],
+				2 => [
+					'spirou' => [2, 3],
+				],
 			],
 			[
 				0 => 1,
-				1 => ['auteur' => 1],
-				2 => ['spirou' => [2, 3, 4]],
+				1 => [
+					'auteur' => 1,
+				],
+				2 => [
+					'spirou' => [2, 3, 4],
+				],
 			],
 			[
 				10,
-				['auteur' => 1],
-				['zorglub' => [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]]
+				[
+					'auteur' => 1,
+				],
+				[
+					'zorglub' => [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
+				],
 			],
 			[
 				6,
-				['auteur' => 1],
-				['spirou' => [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]]
-			]
+				[
+					'auteur' => 1,
+				],
+				[
+					'spirou' => [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
+				],
+			],
 		];
 
-		foreach ($essais as $k => $essai){
+		foreach ($essais as $k => $essai) {
 			$expected = array_shift($essai);
-			$this->assertEquals($expected, objet_associer(...$essai), "Echec {$k} : objet_associer " . json_encode($essai, JSON_THROW_ON_ERROR));
+			$this->assertEquals(
+				$expected,
+				objet_associer(...$essai),
+				"Echec {$k} : objet_associer " . json_encode($essai, JSON_THROW_ON_ERROR)
+			);
 		}
-
 	}
 
 	/**
 	 * @depends testObjetAssocier
 	 */
-	public function testObjetQualifierLiens(){
+	public function testObjetQualifierLiens()
+	{
 		$essais = [
 			[
 				0 => false,
-				1 => ['article' => 1],
-				2 => ['zorglub' => 1],
-				3 => ['vu' => 'oui'],
+				1 => [
+					'article' => 1,
+				],
+				2 => [
+					'zorglub' => 1,
+				],
+				3 => [
+					'vu' => 'oui',
+				],
 			],
 			[
 				0 => 1,
-				1 => ['auteur' => 1],
-				2 => ['zorglub' => 1],
-				3 => ['vu' => 'oui'],
+				1 => [
+					'auteur' => 1,
+				],
+				2 => [
+					'zorglub' => 1,
+				],
+				3 => [
+					'vu' => 'oui',
+				],
 			],
 			[
 				0 => 1,
-				1 => ['auteur' => 1],
-				2 => ['zorglub' => 1],
-				3 => ['vu' => 'oui'],
+				1 => [
+					'auteur' => 1,
+				],
+				2 => [
+					'zorglub' => 1,
+				],
+				3 => [
+					'vu' => 'oui',
+				],
 			],
 			[
 				0 => false,
-				1 => ['auteur' => 1],
-				2 => ['zorglub' => 1],
-				3 => ['veraer' => 'oui'],
+				1 => [
+					'auteur' => 1,
+				],
+				2 => [
+					'zorglub' => 1,
+				],
+				3 => [
+					'veraer' => 'oui',
+				],
 			],
 			[
 				0 => 2,
-				1 => ['auteur' => 1],
-				2 => ['zorglub' => [2, 3]],
-				3 => ['vu' => 'oui'],
+				1 => [
+					'auteur' => 1,
+				],
+				2 => [
+					'zorglub' => [2, 3],
+				],
+				3 => [
+					'vu' => 'oui',
+				],
 			],
 		];
 
-		foreach ($essais as $k => $essai){
+		foreach ($essais as $k => $essai) {
 			$expected = array_shift($essai);
-			$this->assertEquals($expected, objet_qualifier_liens(...$essai), "Echec {$k} : objet_qualifier_liens " . json_encode($essai, JSON_THROW_ON_ERROR));
+			$this->assertEquals(
+				$expected,
+				objet_qualifier_liens(...$essai),
+				"Echec {$k} : objet_qualifier_liens " . json_encode($essai, JSON_THROW_ON_ERROR)
+			);
 		}
 	}
 
 	/**
 	 * @depends testObjetQualifierLiens
 	 */
-	public function testObjetDissocier(){
+	public function testObjetDissocier()
+	{
 		$essais = [
 			[
 				0 => false,
-				1 => ['article' => 1],
-				2 => ['zorglub' => 1],
+				1 => [
+					'article' => 1,
+				],
+				2 => [
+					'zorglub' => 1,
+				],
 			],
 			[
 				0 => 1,
-				1 => ['auteur' => 1],
-				2 => ['zorglub' => 1],
+				1 => [
+					'auteur' => 1,
+				],
+				2 => [
+					'zorglub' => 1,
+				],
 			],
 			[
 				0 => 0,
-				1 => ['auteur' => 1],
-				2 => ['zorglub' => 1],
+				1 => [
+					'auteur' => 1,
+				],
+				2 => [
+					'zorglub' => 1,
+				],
 			],
 			[
 				0 => 2,
-				1 => ['auteur' => 1],
-				2 => ['zorglub' => [2, 3]],
+				1 => [
+					'auteur' => 1,
+				],
+				2 => [
+					'zorglub' => [2, 3],
+				],
 			],
 			[
 				0 => 1,
-				1 => ['auteur' => 1],
-				2 => ['zorglub' => [2, 3, 4]],
+				1 => [
+					'auteur' => 1,
+				],
+				2 => [
+					'zorglub' => [2, 3, 4],
+				],
 			],
 			[
 				0 => 4,
-				1 => ['auteur' => 1],
-				2 => ['zorglub' => [5], 'spirou' => [2, 3, 4]],
+				1 => [
+					'auteur' => 1,
+				],
+				2 => [
+					'zorglub' => [5],
+					'spirou' => [2, 3, 4],
+				],
 			],
 			[
 				0 => 12,
-				1 => ['auteur' => 1],
-				2 => ['zorglub' => '*', 'spirou' => '*'],
+				1 => [
+					'auteur' => 1,
+				],
+				2 => [
+					'zorglub' => '*',
+					'spirou' => '*',
+				],
 			],
 		];
 
-		foreach ($essais as $k => $essai){
+		foreach ($essais as $k => $essai) {
 			$expected = array_shift($essai);
-			$this->assertEquals($expected, objet_dissocier(...$essai), "Echec {$k} : objet_dissocier " . json_encode($essai, JSON_THROW_ON_ERROR));
+			$this->assertEquals(
+				$expected,
+				objet_dissocier(...$essai),
+				"Echec {$k} : objet_dissocier " . json_encode($essai, JSON_THROW_ON_ERROR)
+			);
 		}
-
 	}
-
 }

@@ -1,34 +1,43 @@
 <?php
 
+declare(strict_types=1);
+
 /**
- * Test unitaire de la fonction filtre_text_csv_dist
- * du fichier inc/filtres_mime.php
- *
+ * Test unitaire de la fonction filtre_text_csv_dist du fichier inc/filtres_mime.php
  */
+
 namespace Spip\Core\Tests\Filtre\Mime;
 
 use PHPUnit\Framework\TestCase;
+
 class FiltreTextCsvDistTest extends TestCase
 {
-    public static function setUpBeforeClass(): void
-    {
-        find_in_path("inc/filtres_mime.php", '', true);
-    }
-    public function setUp(): void
-    {
-        changer_langue('fr');
-        // ce test est en fr
-    }
-    /** @dataProvider providerFiltresMimeFiltreTextCsvDist */
-    public function testFiltresMimeFiltreTextCsvDist($expected, ...$args): void
-    {
-        $actual = filtre_text_csv_dist(...$args);
-        $this->assertSame($expected, $actual);
-        $this->assertEquals($expected, $actual);
-    }
-    public function providerFiltresMimeFiltreTextCsvDist(): array
-    {
-        return [0 => [0 => '<table class="table spip">
+	public static function setUpBeforeClass(): void
+	{
+		find_in_path('inc/filtres_mime.php', '', true);
+	}
+
+	protected function setUp(): void
+	{
+		changer_langue('fr');
+		// ce test est en fr
+	}
+
+	/**
+	 * @dataProvider providerFiltresMimeFiltreTextCsvDist
+	 */
+	public function testFiltresMimeFiltreTextCsvDist($expected, ...$args): void
+	{
+		$actual = filtre_text_csv_dist(...$args);
+		$this->assertSame($expected, $actual);
+		$this->assertEquals($expected, $actual);
+	}
+
+	public function providerFiltresMimeFiltreTextCsvDist(): array
+	{
+		return [
+			0 => [
+				0 => '<table class="table spip">
 <thead><tr class=\'row_first\'><th id=\'id9b86_c0\'>A</th><th id=\'id9b86_c1\'>B</th><th id=\'id9b86_c2\'>C</th><th id=\'id9b86_c3\'>D</th><th id=\'id9b86_c4\'>E</th><th id=\'id9b86_c5\'>F</th></tr></thead>
 <tbody>
 <tr class=\'row_odd odd\'>
@@ -53,10 +62,14 @@ class FiltreTextCsvDistTest extends TestCase
 <td headers=\'id9b86_c4\'>marche&nbsp;?</td>
 <td headers=\'id9b86_c5\'></td></tr>
 </tbody>
-</table>', 1 => 'A;B;C;D;E;F
+</table>',
+				1 => 'A;B;C;D;E;F
 un;tableau;csv;avec;des;valeurs
 dans chaque;case;et aussi une;case;avec;des
-"""guillemets""";est-ce;que;ça;marche ?;'], 1 => [0 => '<table class="table spip">
+"""guillemets""";est-ce;que;ça;marche ?;',
+			],
+			1 => [
+				0 => '<table class="table spip">
 <thead><tr class=\'row_first\'><th id=\'id5b64_c0\'>A</th><th id=\'id5b64_c1\'>B</th><th id=\'id5b64_c2\'>C</th><th id=\'id5b64_c3\'>D</th><th id=\'id5b64_c4\'>E</th><th id=\'id5b64_c5\'>F</th></tr></thead>
 <tbody>
 <tr class=\'row_odd odd\'>
@@ -81,10 +94,14 @@ dans chaque;case;et aussi une;case;avec;des
 <td headers=\'id5b64_c4\'>marche&nbsp;?</td>
 <td headers=\'id5b64_c5\'></td></tr>
 </tbody>
-</table>', 1 => 'A;B;C;D;E;F
+</table>',
+				1 => 'A;B;C;D;E;F
 un;tableau;csv;avec;des;valeurs
 dans chaque;case;et aussi une;case;avec;des
-guillemets;est-ce;que;ça;marche ?;'], 2 => [0 => '<table class="table spip">
+guillemets;est-ce;que;ça;marche ?;',
+			],
+			2 => [
+				0 => '<table class="table spip">
 <thead><tr class=\'row_first\'><th id=\'idee6c_c0\'>A</th><th id=\'idee6c_c1\'>B</th><th id=\'idee6c_c2\'>C</th><th id=\'idee6c_c3\'>D</th><th id=\'idee6c_c4\'>E</th><th id=\'idee6c_c5\'>F</th></tr></thead>
 <tbody>
 <tr class=\'row_odd odd\'>
@@ -109,9 +126,12 @@ guillemets;est-ce;que;ça;marche ?;'], 2 => [0 => '<table class="table spip">
 <td headers=\'idee6c_c4\'>marche&nbsp;?</td>
 <td headers=\'idee6c_c5\'></td></tr>
 </tbody>
-</table>', 1 => '"A","B","C","D","E","F"
+</table>',
+				1 => '"A","B","C","D","E","F"
 "un","tableau","csv","avec","des","valeurs"
 "dans chaque","case","et aussi une","case","avec","des"
-"""guillemets""","est-ce","que","√ßa","marche ?",']];
-    }
+"""guillemets""","est-ce","que","√ßa","marche ?",',
+			],
+		];
+	}
 }

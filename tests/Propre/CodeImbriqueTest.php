@@ -1,32 +1,37 @@
 <?php
 
+declare(strict_types=1);
+
 /**
- * Test unitaire de la fonction propre
- * du fichier inc/texte.php
+ * Test unitaire de la fonction propre du fichier inc/texte.php
  *
- * cas du code imbriqué :
- * Ne pas crasher sur les <code><code></code> imbriqués
- *
+ * cas du code imbriqué : Ne pas crasher sur les <code><code></code> imbriqués
  */
+
 namespace Spip\Core\Tests\Propre;
 
 use PHPUnit\Framework\TestCase;
+
 class CodeImbriqueTest extends TestCase
 {
-    public static function setUpBeforeClass(): void
-    {
-        find_in_path("inc/texte.php", '', true);
-    }
-    /** @dataProvider providerPropreCodeImbrique */
-    public function testPropreCodeImbrique($expected, ...$args): void
-    {
-        $actual = strlen(propre(...$args)) > 0;
-        $this->assertSame($expected, $actual);
-        $this->assertEquals($expected, $actual);
-    }
-    public function providerPropreCodeImbrique(): array
-    {
-        return [[true, '({{{Classificar els resultats}}}
+	public static function setUpBeforeClass(): void
+	{
+		find_in_path('inc/texte.php', '', true);
+	}
+
+	/**
+	 * @dataProvider providerPropreCodeImbrique
+	 */
+	public function testPropreCodeImbrique($expected, ...$args): void
+	{
+		$actual = strlen(propre(...$args)) > 0;
+		$this->assertSame($expected, $actual);
+		$this->assertEquals($expected, $actual);
+	}
+
+	public function providerPropreCodeImbrique(): array
+	{
+		return [[true, '({{{Classificar els resultats}}}
 
 <html><tt><b>{par</b> <i>critère_de_classement</i><b>}</b></tt></html> iIndica l’ordre en què es presenten els resultats. Aquest criteri de classificació correspon a una de les etiquetes extretes de la base de dades per cada tipus de bucle. Per exemple, podrem classificar els articles per la data <code>{per date}</code>, per la data en què han estat redactats  <code>{par date_redac}</code> o per títol <code>{par titre}</code>. (Fixeu-vos que, tot i que les etiquetes es presenten en majúscules, els criteris de classificació es presenten en minúscules.)
 
@@ -232,5 +237,5 @@ no mostrarà tots els articles de la secció! Imaginem, per exemple, que hi ha u
 {{{Divers}}}
 
 {{<code>{logo}</code>}} permet seleccionar només els articles (o seccions, etc) que disposin d\'un logo. Funciona també en el bucle (HIERARCHIE). El criteri invers <code>{!logo}</code> llista els objectes que no tenen logo.']];
-    }
+	}
 }

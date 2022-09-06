@@ -1,20 +1,26 @@
 <?php
+
+declare(strict_types=1);
+
 namespace Spip\Core\Tests\Squelettes\Balise;
 
 use Spip\Core\Testing\SquelettesTestCase;
 
 class SessionTest extends SquelettesTestCase
 {
-	public static function setUpBeforeClass(): void {
+	public static function setUpBeforeClass(): void
+	{
 		include_spip('inc/session');
 	}
 
-	public function testVisiteurSession(): void {
+	public function testVisiteurSession(): void
+	{
 		$id_auteur = session_get('id_auteur');
 		$this->assertEqualsCode($id_auteur, '[(#SESSION{id_auteur})]');
 	}
 
-	public function testSessionSet(): void {
+	public function testSessionSet(): void
+	{
 		session_set('bonbon', null);
 		$this->assertEqualsCode('----', '--#HTTP_HEADER{Content-type: text/html}#CACHE{0}[(#SESSION{bonbon})]--');
 		$this->assertEqualsCode('----', '--#HTTP_HEADER{Content-type: text/html}#CACHE{0}[(#SESSION_SET{bonbon,caramel})]--');

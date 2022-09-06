@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 /***************************************************************************\
  *  SPIP, Système de publication pour l'internet                           *
  *                                                                         *
@@ -12,9 +14,8 @@
 
 namespace Spip\Core\Tests\Typographie;
 
-use PHPUnit\Framework\TestCase;
-
-class FrTextwheelTest extends FrTest {
+class FrTextwheelTest extends FrTest
+{
 	protected static $lang = 'fr';
 
 	protected static $root = '';

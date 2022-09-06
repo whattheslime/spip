@@ -1,16 +1,16 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Spip\Core\Tests\Sql;
 
 use PHPUnit\Framework\TestCase;
 
-
 class SqlInMysqlTest extends TestCase
 {
-
 	public static function setUpBeforeClass(): void
 	{
-		find_in_path("base/abstract_sql.php", '', true);
+		find_in_path('base/abstract_sql.php', '', true);
 	}
 
 	protected function setUp(): void
@@ -18,11 +18,6 @@ class SqlInMysqlTest extends TestCase
 		if ($this->getSqlType() !== 'mysql') {
 			$this->markTestSkipped('Needs a Mysql database');
 		}
-	}
-
-	private function getSqlType(): string
-	{
-		return $GLOBALS['connexions'][0]['type'] ?? '';
 	}
 
 	/**
@@ -196,5 +191,10 @@ paragraphes',
 				],
 			],
 		];
+	}
+
+	private function getSqlType(): string
+	{
+		return $GLOBALS['connexions'][0]['type'] ?? '';
 	}
 }

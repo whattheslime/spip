@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 /***************************************************************************\
  *  SPIP, Système de publication pour l'internet                           *
  *                                                                         *
@@ -14,8 +16,8 @@ namespace Spip\Core\Tests\Config;
 
 use PHPUnit\Framework\TestCase;
 
-class DepotMetaTest extends TestCase {
-
+class DepotMetaTest extends TestCase
+{
 	protected static $savedMeta;
 
 	// les bases de test
@@ -23,37 +25,43 @@ class DepotMetaTest extends TestCase {
 
 	protected static $serassoc;
 
-	public static function setUpBeforeClass(): void {
+	public static function setUpBeforeClass(): void
+	{
 		self::$savedMeta = $GLOBALS['meta'];
-		self::$assoc = ['one' => 'element 1', 'two' => 'element 2'];
+		self::$assoc = [
+			'one' => 'element 1',
+			'two' => 'element 2',
+		];
 		self::$serassoc = serialize(self::$assoc);
 		include_spip('inc/config');
 	}
 
-	public static function tearDownAfterClass():void {
+	public static function tearDownAfterClass(): void
+	{
 		$GLOBALS['meta'] = self::$savedMeta;
 	}
 
 	/**
 	 * expliquer_config
 	 */
-	public function testExpliquerConfig() {
+	public function testExpliquerConfig()
+	{
 		$essais = [];
-		$essais[] = [['meta',null,[]], ''];
-		$essais[] = [['meta','0',[]], '0'];
-		$essais[] = [['meta','casier',[]], 'casier'];
-		$essais[] = [['meta','casier',['sous']], 'casier/sous'];
-		$essais[] = [['meta','casier',['sous','plus','bas','encore']], 'casier/sous/plus/bas/encore'];
+		$essais[] = [['meta', null, []], ''];
+		$essais[] = [['meta', '0', []], '0'];
+		$essais[] = [['meta', 'casier', []], 'casier'];
+		$essais[] = [['meta', 'casier', ['sous']], 'casier/sous'];
+		$essais[] = [['meta', 'casier', ['sous', 'plus', 'bas', 'encore']], 'casier/sous/plus/bas/encore'];
 
-		$essais[] = [['meta',null,[]], '/meta'];
-		$essais[] = [['meta','casier',[]], '/meta/casier'];
-		$essais[] = [['meta','casier',['sous']], '/meta/casier/sous'];
-		$essais[] = [['meta','casier',['sous','plus','bas','encore']], '/meta/casier/sous/plus/bas/encore'];
+		$essais[] = [['meta', null, []], '/meta'];
+		$essais[] = [['meta', 'casier', []], '/meta/casier'];
+		$essais[] = [['meta', 'casier', ['sous']], '/meta/casier/sous'];
+		$essais[] = [['meta', 'casier', ['sous', 'plus', 'bas', 'encore']], '/meta/casier/sous/plus/bas/encore'];
 
-		$essais[] = [['toto',null,[]], '/toto'];
-		$essais[] = [['toto','casier',[]], '/toto/casier'];
-		$essais[] = [['toto','casier',['sous']], '/toto/casier/sous'];
-		$essais[] = [['toto','casier',['sous','plus','bas','encore']], '/toto/casier/sous/plus/bas/encore'];
+		$essais[] = [['toto', null, []], '/toto'];
+		$essais[] = [['toto', 'casier', []], '/toto/casier'];
+		$essais[] = [['toto', 'casier', ['sous']], '/toto/casier/sous'];
+		$essais[] = [['toto', 'casier', ['sous', 'plus', 'bas', 'encore']], '/toto/casier/sous/plus/bas/encore'];
 
 		foreach ($essais as $k => $essai) {
 			$expected = array_shift($essai);
@@ -63,9 +71,11 @@ class DepotMetaTest extends TestCase {
 
 	/**
 	 * lire_config meta
+	 *
 	 * @depends testExpliquerConfig
 	 */
-	public function testLireConfig1() {
+	public function testLireConfig1()
+	{
 		$meta = $GLOBALS['meta'];
 
 		// on flingue meta a juste nos donnees
@@ -74,7 +84,7 @@ class DepotMetaTest extends TestCase {
 			'zeroc' => '0',
 			'chaine' => 'une chaine',
 			'assoc' => self::$assoc,
-			'serie' => self::$serassoc
+			'serie' => self::$serassoc,
 		];
 
 		$essais = [];
@@ -84,9 +94,9 @@ class DepotMetaTest extends TestCase {
 		$essais[] = ['une chaine', 'chaine'];
 		$essais[] = [self::$assoc, 'assoc'];
 		$essais[] = [self::$assoc, 'serie'];
-		$essais[] = [self::$serassoc, 'serie','',0];
+		$essais[] = [self::$serassoc, 'serie', '', 0];
 		$essais[] = [null, 'rien'];
-		$essais[] = ['defaut', 'rien','defaut'];
+		$essais[] = ['defaut', 'rien', 'defaut'];
 
 		foreach ($essais as $k => $essai) {
 			$expected = array_shift($essai);
@@ -98,9 +108,11 @@ class DepotMetaTest extends TestCase {
 
 	/**
 	 * ecrire_config meta
+	 *
 	 * @depends testLireConfig1
 	 */
-	public function testEcrireConfig() {
+	public function testEcrireConfig()
+	{
 		/*
 		 * Notes sur l'ecriture :
 		 * - dans le tableau $GLOBALS['meta'], les valeurs transmises
@@ -125,34 +137,37 @@ class DepotMetaTest extends TestCase {
 
 		foreach ($essais as $k => $essai) {
 			$expected = array_shift($essai);
-			$this->assertEquals($expected, ecrire_config(...$essai),"Echec {$k} : ecriture ".reset($essai));
+			$this->assertEquals($expected, ecrire_config(...$essai), "Echec {$k} : ecriture " . reset($essai));
 		}
 	}
 
 	/**
 	 * re lire_config meta
+	 *
 	 * @depends testEcrireConfig
 	 */
-	public function testLireConfig2() {
+	public function testLireConfig2()
+	{
 		$essais = [];
 		$essais[] = [0, 'test_cfg_zero'];
 		$essais[] = ['0', 'test_cfg_zeroc'];
 		$essais[] = ['une chaine', 'test_cfg_chaine'];
 		$essais[] = [self::$assoc, 'test_cfg_assoc'];
-		$essais[] = [self::$serassoc, 'test_cfg_serie','',0];
+		$essais[] = [self::$serassoc, 'test_cfg_serie', '', 0];
 
 		foreach ($essais as $k => $essai) {
 			$expected = array_shift($essai);
 			$this->assertEquals($expected, lire_config(...$essai), "Echec {$k} : lecture " . reset($essai));
 		}
-
 	}
 
 	/**
 	 * effacer_config meta
+	 *
 	 * @depends testLireConfig2
 	 */
-	public function testEffacerConfig() {
+	public function testEffacerConfig()
+	{
 		$essais = [];
 		$essais[] = [true, 'test_cfg_zero'];
 		$essais[] = [true, 'test_cfg_zeroc'];
@@ -169,9 +184,11 @@ class DepotMetaTest extends TestCase {
 
 	/**
 	 * re lire_config meta
+	 *
 	 * @depends testEffacerConfig
 	 */
-	public function testLireConfig3(){
+	public function testLireConfig3()
+	{
 		$essais = [];
 		$essais[] = [null, 'test_cfg_zero'];
 		$essais[] = [null, 'test_cfg_zeroc'];

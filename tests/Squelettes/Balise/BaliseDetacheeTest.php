@@ -1,23 +1,24 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Spip\Core\Tests\Squelettes\Balise;
 
 use Spip\Core\Testing\SquelettesTestCase;
-use Spip\Core\Testing\Template;
-use Spip\Core\Testing\Template\StringLoader;
-use Spip\Core\Testing\Template\FileLoader;
 use Spip\Core\Testing\Templating;
 
 class BaliseDetacheeTest extends SquelettesTestCase
 {
-	public function testNecessiteNomSite(): void {
+	public function testNecessiteNomSite(): void
+	{
 		$this->assertNotEmptyCode('<BOUCLE_meta(spip_meta){nom=nom_site}>#VALEUR</BOUCLE_meta>');
 	}
 
 	/**
 	 * @depends testNecessiteNomSite
 	 */
-	public function testBaliseDetacheeInterne(): void {
+	public function testBaliseDetacheeInterne(): void
+	{
 		$templating = Templating::fromString();
 		$expected = $templating->render('<BOUCLE_meta(spip_meta){nom=nom_site}>#VALEUR</BOUCLE_meta>');
 		$actual = $templating->render(
@@ -31,7 +32,8 @@ class BaliseDetacheeTest extends SquelettesTestCase
 		$this->assertEquals($expected, trim($actual));
 	}
 
-	public function testBaliseDetacheeHorsBoucle(): void {
+	public function testBaliseDetacheeHorsBoucle(): void
+	{
 		// en dehors de sa boucle, une balise detachee n'est pas reconnue
 		$this->assertEmptyCode(
 			'<BOUCLE_meta(spip_meta){nom=nom_site}></BOUCLE_meta>
@@ -42,8 +44,8 @@ class BaliseDetacheeTest extends SquelettesTestCase
 	/**
 	 * @depends testBaliseDetacheeInterne
 	 */
-	public function testBaliseDetacheeComplexe(): void {
+	public function testBaliseDetacheeComplexe(): void
+	{
 		$this->assertOkSquelette(__DIR__ . '/data/balise_detachee.html');
 	}
 }
-

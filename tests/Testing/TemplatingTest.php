@@ -1,18 +1,20 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Spip\Core\Tests\Testing;
 
 use Spip\Core\Testing\Exception\TemplateNotFoundException;
 use Spip\Core\Testing\SquelettesTestCase;
-use Spip\Core\Testing\Templating;
 use Spip\Core\Testing\Template\Loader\ChainLoader;
 use Spip\Core\Testing\Template\Loader\FileLoader;
 use Spip\Core\Testing\Template\Loader\StringLoader;
+use Spip\Core\Testing\Templating;
 
 class TemplatingTest extends SquelettesTestCase
 {
-
-	public function testFileLoader(): void {
+	public function testFileLoader(): void
+	{
 		$loader = new FileLoader();
 		$templating = new Templating($loader);
 		$this->assertInstanceOf(FileLoader::class, $templating->getLoader());
@@ -34,21 +36,24 @@ class TemplatingTest extends SquelettesTestCase
 		$this->assertEqualsTemplate($expected, $templating, $file);
 	}
 
-	public function testFileLoaderException(): void {
+	public function testFileLoaderException(): void
+	{
 		$templating = new Templating(new FileLoader());
 		$file = __DIR__ . '/data/inexistant_file.html';
 		$this->expectException(TemplateNotFoundException::class);
 		$templating->render($file);
 	}
 
-	public function testStringLoader(): void {
+	public function testStringLoader(): void
+	{
 		$templating = Templating::fromString();
-		$expected = "Hello World";
+		$expected = 'Hello World';
 		$actual = $templating->render($expected);
 		$this->assertEquals($expected, $actual);
 	}
 
-	public function testChainLoader(): void {
+	public function testChainLoader(): void
+	{
 		$template = new Templating(new ChainLoader([new FileLoader(), new StringLoader()]));
 
 		$file = __DIR__ . '/data/inclus_hello_world.html';
@@ -61,14 +66,15 @@ class TemplatingTest extends SquelettesTestCase
 		$this->assertEquals($string, $actual);
 	}
 
-	public function testCodeRenderAvecFonctionEtApresCode(): void {
+	public function testCodeRenderAvecFonctionEtApresCode(): void
+	{
 		$loader = new StringLoader([
 			'fonctions' => "
 				function so_smile(): string {
 					return ' So Smile';
 				}
 			",
-			'apres_code' => '[(#VAL|so_smile)]'
+			'apres_code' => '[(#VAL|so_smile)]',
 		]);
 		$templating = new Templating($loader);
 		$this->assertEquals('Hello World So Smile', $templating->render('Hello World'));
@@ -79,12 +85,13 @@ class TemplatingTest extends SquelettesTestCase
 					return ' So Smile';
 				}
 			",
-			'apres_code' => '[(#VAL|so_smile)]'
+			'apres_code' => '[(#VAL|so_smile)]',
 		]);
 		$this->assertEquals('Hello World So Smile', $templating->render('Hello World'));
 	}
 
-	public function testCodeRenderAvecFonctionPrecedenteNonPresente(): void {
+	public function testCodeRenderAvecFonctionPrecedenteNonPresente(): void
+	{
 		$template = Templating::fromString();
 		$this->assertNotEquals('Hello World So Smile', $template->render('Hello World'));
 		$this->assertEquals('Hello World', $template->render('Hello World'));
@@ -92,13 +99,13 @@ class TemplatingTest extends SquelettesTestCase
 		$this->assertEquals('Hello Kitty', $template->render('Hello Kitty'));
 	}
 
-
-	public function testCodeRender(): void {
+	public function testCodeRender(): void
+	{
 		$this->assertEqualsCode('Hello World', 'Hello World');
 	}
 
-	public function testCodeRenderAvecFonctionVide(): void {
-
+	public function testCodeRenderAvecFonctionVide(): void
+	{
 		// pas de fichier de fonctions
 		$this->assertOkCode("[(#SQUELETTE|replace{'.html','_fonctions.php'}|find_in_path|non)ok]");
 
@@ -117,15 +124,17 @@ class TemplatingTest extends SquelettesTestCase
 		$this->assertNotOk($templating->render("[(#SQUELETTE|replace{'.html','_fonctions.php'}|find_in_path|oui)ok]"));
 	}
 
-	public function testCodeRenderAvantApres(): void {
+	public function testCodeRenderAvantApres(): void
+	{
 		$templating = Templating::fromString([
-			'avant_code'=>'Nice ',
-			'apres_code'=>' So Beautiful',
+			'avant_code' => 'Nice ',
+			'apres_code' => ' So Beautiful',
 		]);
 		$this->assertEquals('Nice Hello World So Beautiful', $templating->render('Hello World'));
 	}
 
-	public function testCodeRawRenderInfos(): void {
+	public function testCodeRawRenderInfos(): void
+	{
 		$templating = Templating::fromString();
 		$infos = $templating->rawRender('#SELF');
 		$this->assertTrue(is_array($infos));
@@ -133,15 +142,19 @@ class TemplatingTest extends SquelettesTestCase
 		$this->assertTrue(isset($infos['fond']));
 	}
 
-	public function testCodeRawRenderInfosErreurCompilationFiltreAbsent(): void {
-		$templating = Templating::fromString();;
+	public function testCodeRawRenderInfosErreurCompilationFiltreAbsent(): void
+	{
+		$templating = Templating::fromString();
+
 		$infos = $templating->rawRender('#CACHE{0}[(#SELF|ce_filtre_nexiste_pas)]');
 		$this->assertTrue(is_array($infos['erreurs']));
 		$this->assertCount(1, $infos['erreurs']);
 	}
 
-	public function testCodeRawRenderInfosErreurCompilationAbsentsDansNouvelleDemandeCorrecte(): void {
-		$templating = Templating::fromString();;
+	public function testCodeRawRenderInfosErreurCompilationAbsentsDansNouvelleDemandeCorrecte(): void
+	{
+		$templating = Templating::fromString();
+
 		$infos = $templating->rawRender('#CACHE{0}Aucun Probleme ici');
 		$this->assertCount(0, $infos['erreurs']);
 	}
