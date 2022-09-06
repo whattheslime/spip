@@ -34,6 +34,11 @@ final class RefactorSpipTestsEssais extends AbstractRector
 	private string $namespaceTo = 'Spip\\Core\\Tests';
 	private array $moves = [
 		'ConnectSql' => 'Sql\\Objets',
+		'Filtres' => 'Filtre',
+		'FiltresMime' => 'Filtre\\Mime',
+		'FiltresMini' => 'Filtre\\Mini',
+		'Json' => 'Format\\Json',
+		'Xml' => 'Format\\Xml',
 	];
 	private BuilderFactory $builderFactory;
 
