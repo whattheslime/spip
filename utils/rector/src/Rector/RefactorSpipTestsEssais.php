@@ -18,7 +18,6 @@ use PhpParser\Node\Stmt\ClassLike;
 use PhpParser\Node\Stmt\Expression;
 use PhpParser\Node\Stmt\Function_;
 use PhpParser\Node\Stmt\Return_;
-use Rector\Core\NodeManipulator\ClassInsertManipulator;
 use Rector\Core\Rector\AbstractRector;
 use Symplify\RuleDocGenerator\ValueObject\CodeSample\CodeSample;
 use Symplify\RuleDocGenerator\ValueObject\RuleDefinition;
@@ -26,7 +25,11 @@ use RectorPrefix202209\Symfony\Component\String\UnicodeString;
 
 final class RefactorSpipTestsEssais extends AbstractRector
 {
-	private string $namespace = 'Spip\\Core\\Tests';
+	private string $namespaceFrom = 'Spip\\Core\\Tests';
+	private string $namespaceTo = 'Spip\\Core\\Tests';
+	private array $moves = [
+		'ConnectSql' => 'Sql\\Objets',
+	];
 	private BuilderFactory $builderFactory;
 
 	public function __construct(
@@ -87,7 +90,7 @@ final class RefactorSpipTestsEssais extends AbstractRector
 		$this->generateMethodProvider($node, $classBuilder);
 
 		$class = $classBuilder->getNode();
-		$class->namespacedName = $node->name;
+		$class->namespacedName = new FullyQualified($this->getName($node) . '\\' . $fqdn->getLast());
 
 		$node->stmts = [
 			...$uses,
@@ -122,7 +125,9 @@ final class RefactorSpipTestsEssais extends AbstractRector
 		$dir = ucfirst($this->toCamelCase($dirname));
 		$file = ucfirst($this->toCamelCase($basename)) . 'Test';
 
-		return new FullyQualified($this->namespace . "\\RectorEssais\\$dir\\$file");
+		$newDir = $this->moves[$dir] ?? $dir;
+
+		return new FullyQualified($this->namespaceTo . "\\$newDir\\$file");
 	}
 
 	private function changeNodeNamespace(Node $node, string $namespace): void {

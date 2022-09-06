@@ -10,6 +10,8 @@ use Rector\CodingStyle\Rector\Encapsed\EncapsedStringsToSprintfRector;
 use Utils\Rector\Rector\Set\ValueObject\SpipTestSetList;
 
 return static function (RectorConfig $rectorConfig): void {
+	$rectorConfig->disableParallel();
+
     $rectorConfig->paths([
         __DIR__ . '/src',
         __DIR__ . '/tests'
