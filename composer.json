@@ -30,7 +30,8 @@
     "require-dev": {
         "lolli42/finediff": "^1.0",
         "phpunit/phpunit": "^8.3 || ^9.4",
-        "symfony/var-dumper": "^5.4 || ^6"
+        "symfony/var-dumper": "^5.4 || ^6",
+        "symplify/easy-coding-standard": "^11.1"
     },
     "repositories": [
     ],
