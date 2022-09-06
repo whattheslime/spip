@@ -1,13 +1,15 @@
 <?php
 
+declare(strict_types=1);
+
 $test = 'code';
 $remonte = __DIR__ . '/';
-while (!is_file($remonte."test.inc"))
-	$remonte .= "../";
+while (! is_file($remonte . 'test.inc')) {
+	$remonte .= '../';
+}
 
-require $remonte.'test.inc';
-find_in_path("./inc/texte.php",'',true);
-
+require $remonte . 'test.inc';
+find_in_path('./inc/texte.php', '', true);
 
 //
 // hop ! on y va
@@ -16,13 +18,13 @@ $err = tester_fun('propre', essais_code_dist());
 
 // si le tableau $err est pas vide ca va pas
 if ($err) {
-	die ('<dl>' . implode('', $err) . '</dl>');
+	die('<dl>' . implode('', $err) . '</dl>');
 }
 
-echo "OK";
+echo 'OK';
 
-
-function essais_code_dist(){
+function essais_code_dist()
+{
 	return [
 		[
 			0 =>
@@ -42,8 +44,7 @@ zope/
 root@bennybox# ls /var/state/mysql/spip/
 spip_articles.sql.gz    spip_breves.sql.gz ....
 </code>
-'
+',
 		],
 	];
 }
-

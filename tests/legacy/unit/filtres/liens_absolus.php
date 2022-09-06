@@ -1,46 +1,66 @@
 <?php
 
-	if (!(isset($test) && $test)) {
-     $test = 'liens_absolus';
- }
-	$remonte = __DIR__ . '/';
-	while (!is_file($remonte."test.inc"))
-		$remonte .= "../";
+declare(strict_types=1);
 
-	require $remonte.'test.inc';
-	include_spip('inc/filtres');
+if (! (isset($test) && $test)) {
+	$test = 'liens_absolus';
+}
 
-	$essais["lien prive"] =
-	 ["bla bla <a href='".str_replace("&amp;","&#38;",generer_url_ecrire('toto','truc=machin&chose=bidule',false,false))."'>lien prive</a>",
-	 "bla bla <a href='".generer_url_ecrire('toto','truc=machin&chose=bidule',false,true)."'>lien prive</a>"];
+$remonte = __DIR__ . '/';
 
-	$essais["lien public"] =
-	 ["bla bla <a href='".str_replace("&amp;","&#38;",generer_url_public('toto','truc=machin&chose=bidule',false,false))."'>lien public</a>",
-	 "bla bla <a href='".generer_url_public('toto','truc=machin&chose=bidule',false,true)."'>lien public</a>"];
+while (! is_file($remonte . 'test.inc')) {
+	$remonte .= '../';
+}
 
-	$essais["mailto"] =
-	 ["bla bla <a href='mailto:toto'>email</a>",
-	 "bla bla <a href='mailto:toto'>email</a>"];
+require $remonte . 'test.inc';
 
-	$essais["javascript"] =
-	 ["bla bla <a href='javascript:open()'>javascript</a>",
-	 "bla bla <a href='javascript:open()'>javascript</a>"];
+include_spip('inc/filtres');
 
-	//
-	// hop ! on y va
-	//
+$essais['lien prive'] =
+ [
+ 	"bla bla <a href='" . str_replace(
+ 		'&amp;',
+ 		'&#38;',
+ 		generer_url_ecrire('toto', 'truc=machin&chose=bidule', false, false)
+ 	) . "'>lien prive</a>",
+ 	"bla bla <a href='" . generer_url_ecrire('toto', 'truc=machin&chose=bidule', false, true) . "'>lien prive</a>",
+ ];
 
-	# tests invalides si _SPIP_SCRIPT vaut ''
-	if (_SPIP_SCRIPT === '')
-		die ('NA _SPIP_SCRIPT=""');
-  # non applicable
+$essais['lien public'] =
+ [
+ 	"bla bla <a href='" . str_replace(
+ 		'&amp;',
+ 		'&#38;',
+ 		generer_url_public('toto', 'truc=machin&chose=bidule', false, false)
+ 	) . "'>lien public</a>",
+ 	"bla bla <a href='" . generer_url_public('toto', 'truc=machin&chose=bidule', false, true) . "'>lien public</a>",
+ ];
 
-	$err = tester_fun('liens_absolus', $essais);
+$essais['mailto'] =
+ ["bla bla <a href='mailto:toto'>email</a>", "bla bla <a href='mailto:toto'>email</a>"];
 
-	// si le tableau $err est pas vide ca va pas
-	if ($err) {
-		die ('<dl>' . implode('', $err) . '</dl>');
-	}
+$essais['javascript'] =
+ ["bla bla <a href='javascript:open()'>javascript</a>", "bla bla <a href='javascript:open()'>javascript</a>"];
 
-	echo "OK";
+//
 
+// hop ! on y va
+//
+
+# tests invalides si _SPIP_SCRIPT vaut ''
+
+if (_SPIP_SCRIPT === '') {
+	die('NA _SPIP_SCRIPT=""');
+}
+
+# non applicable
+
+$err = tester_fun('liens_absolus', $essais);
+
+// si le tableau $err est pas vide ca va pas
+
+if ($err) {
+	die('<dl>' . implode('', $err) . '</dl>');
+}
+
+echo 'OK';

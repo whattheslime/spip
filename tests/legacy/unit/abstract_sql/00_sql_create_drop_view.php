@@ -1,62 +1,76 @@
 <?php
 
-	// nom du test
-	$test = 'sql/sql_create_drop_view';
+declare(strict_types=1);
 
-	$remonte = __DIR__ . '/';
-	while (!is_file($remonte."test.inc"))
-		$remonte .= "../";
+// nom du test
 
-	require $remonte.'test.inc';
+$test = 'sql/sql_create_drop_view';
 
-	include __DIR__ . '/inc-sql_datas.inc';
+$remonte = __DIR__ . '/';
 
-	include_spip('base/abstract_sql');
+while (! is_file($remonte . 'test.inc')) {
+	$remonte .= '../';
+}
 
-	/* 
-	 * Creation/suppression/analyse de tables dans la base de donnee 
-	 * 
-	 * Permet de verifier que
-	 * - tous les champs sont correctement ajoutes
-	 * - que les PRIMARY sont pris en compte
-	 * - que les KEY sont prises en compte
-	 * 
-	 */
+require $remonte . 'test.inc';
 
+include __DIR__ . '/inc-sql_datas.inc';
 
-	/*
-	 * Lecture de la description des tables
-	 */
-	function test_show_table() {
-		$tables = test_sql_datas();
-		$essais = [];
-		// lire la structure de la table
-		// la structure doit avoir le meme nombre de champs et de cle
-		// attention : la primary key DOIT etre dans les cle aussi
-		foreach ($tables as $t=>$d){
-			$desc = sql_showtable($t);
-			$essais["Compter field {$t}"] = [is_countable($d['desc']['field']) ? count($d['desc']['field']) : 0,$desc['field']];
-			$essais["Compter key {$t}"] = [$d['desc']['nb_key_attendues'],$desc['key']];
-		}
+include_spip('base/abstract_sql');
 
-		$err = tester_fun('count', $essais);
-		if ($err) {
-			return '<b>Lecture des structures de table en echec</b><dl>' . implode('', $err) . '</dl>';
-		}
+/*
+ * Creation/suppression/analyse de tables dans la base de donnee
+ *
+ * Permet de verifier que
+ * - tous les champs sont correctement ajoutes
+ * - que les PRIMARY sont pris en compte
+ * - que les KEY sont prises en compte
+ *
+ */
+
+/*
+ * Lecture de la description des tables
+ */
+
+function test_show_table()
+{
+	$tables = test_sql_datas();
+	$essais = [];
+	// lire la structure de la table
+	// la structure doit avoir le meme nombre de champs et de cle
+	// attention : la primary key DOIT etre dans les cle aussi
+	foreach ($tables as $t => $d) {
+		$desc = sql_showtable($t);
+		$essais["Compter field {$t}"] = [is_countable($d['desc']['field']) ? count($d['desc']['field']) : 0, $desc['field']];
+		$essais["Compter key {$t}"] = [$d['desc']['nb_key_attendues'], $desc['key']];
 	}
 
-	$err = "";
-	// supprimer les eventuelles tables
-	$err .= test_drop_table();
-	// creer les eventuelles tables
-	$err .= test_create_table();
-	// lire les structures des tables
-	$err .= test_show_table();
-	// supprimer les tables
-	$err .= test_drop_table();
+	$err = tester_fun('count', $essais);
+	if ($err) {
+		return '<b>Lecture des structures de table en echec</b><dl>' . implode('', $err) . '</dl>';
+	}
+}
 
-	if ($err !== '' && $err !== '0') 
-		die($err);
+$err = '';
 
-	echo "OK";
+// supprimer les eventuelles tables
 
+$err .= test_drop_table();
+
+// creer les eventuelles tables
+
+$err .= test_create_table();
+
+// lire les structures des tables
+
+$err .= test_show_table();
+
+// supprimer les tables
+
+$err .= test_drop_table();
+
+if ($err !== '' && $err !== '0') {
+	die($err);
+}
+
+echo 'OK';

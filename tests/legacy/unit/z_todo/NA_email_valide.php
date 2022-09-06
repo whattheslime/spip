@@ -1,12 +1,17 @@
-<?php
+<?php declare(strict_types=1);
 
-	$test = 'email_valide';
-	$remonte = __DIR__ . '/';
-	while (!is_file($remonte."test.inc"))
-		$remonte .= "../";
+$test = 'email_valide';
 
-	require $remonte.'test.inc';
-	include_spip('inc/filtres');
+$remonte = __DIR__ . '/';
+
+while (! is_file($remonte . 'test.inc')) {
+	$remonte .= '../';
+}
+
+require $remonte . 'test.inc';
+
+include_spip('inc/filtres');
+
 ?>
 
 	<p>Il existe une diff&eacute;rence entre la d&eacute;finition g&eacute;n&eacute;rale (RFC 822) et l&#x27;usage r&eacute;el qui est fait des adresses de courriel.</p>
@@ -56,63 +61,68 @@
 	<p>Ces mails sont valides, et bien reconnus.</p>
 
 	<?php
-	$emails_valides = [
-						'utilisateur@domaine.com',
-						'uti-lisa.teur@domai-ne.fr',
-						'&-_+.spip17&-_+.@domaine.com'
-					];
-	echo '<ul>';
-	foreach($emails_valides as $tests => $email)
-		echo '<li>'.$email.' -> pass&eacute;s par email_valide() -> '.email_valide($email).'</li>';
+	$emails_valides = ['utilisateur@domaine.com', 'uti-lisa.teur@domai-ne.fr', '&-_+.spip17&-_+.@domaine.com'];
 
-	echo '</ul>';
-	?>
+echo '<ul>';
+
+foreach ($emails_valides as $tests => $email) {
+	echo '<li>' . $email . ' -> pass&eacute;s par email_valide() -> ' . email_valide($email) . '</li>';
+}
+
+echo '</ul>';
+
+?>
 
 	<!-- // Emails qui ne devraient pas être valides -->
 	<p><strong>Ce mail est valide selon la RFC822 (mais &agrave; mon sens ne devrait pas l&#x27;&ecirc;tre), et rejet&eacute; par SPIP</strong></p>
 	<?php
-	$emails_non_valides_mais_valides = [
-						'#+^-`&%_=|/|_?=!§{}$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$@mail.com'
-					];	
-	echo '<ul style="font-weight:bold;">';
-	foreach($emails_non_valides_mais_valides as $tests => $email)
-		echo '<li>'.$email.' -> pass&eacute;s par email_valide() -> '.email_valide($email).'</li>';
+$emails_non_valides_mais_valides = ['#+^-`&%_=|/|_?=!§{}$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$@mail.com'];
 
-	echo '</ul>';
-	?>
+echo '<ul style="font-weight:bold;">';
+
+foreach ($emails_non_valides_mais_valides as $tests => $email) {
+	echo '<li>' . $email . ' -> pass&eacute;s par email_valide() -> ' . email_valide($email) . '</li>';
+}
+
+echo '</ul>';
+
+?>
 
 
 	<!-- // Emails qui ne devraient pas être valides -->
 	<p><strong>Ces mails sont valides, mais &agrave; mon sens devraient &ecirc;tre rejet&eacute;s dans un usage classique :</strong></p>
 	<?php
-	$emails_non_valides_mais_valides = [
-						'utilisateur@domaine.f',
-						'utilisateur@domaine.frfrfrfrfrfr',
-						'd@d',
-						'&&?julien@domaine.fr'
-					];	
-	echo '<ul style="font-weight:bold;">';
-	foreach($emails_non_valides_mais_valides as $tests => $email)
-		echo '<li>'.$email.' -> pass&eacute;s par email_valide() -> '.email_valide($email).'</li>';
+$emails_non_valides_mais_valides = [
+	'utilisateur@domaine.f',
+	'utilisateur@domaine.frfrfrfrfrfr',
+	'd@d',
+	'&&?julien@domaine.fr',
+];
 
-	echo '</ul>';
-	?>
+echo '<ul style="font-weight:bold;">';
+
+foreach ($emails_non_valides_mais_valides as $tests => $email) {
+	echo '<li>' . $email . ' -> pass&eacute;s par email_valide() -> ' . email_valide($email) . '</li>';
+}
+
+echo '</ul>';
+
+?>
 
 	<!-- // Emails effectivement rejetés -->
 	<p>Ces mails sont non valides, et filtr&eacute;s correctement.</p>
 	<?php
-	$emails_non_valides_rejetes = [
-						'utilisateurdomaine.f',
-						'utilis/@domaine',
-						'utilisateur@',
-						'@domaine.fr'
-					];	
-	echo '<ul>';				
-	foreach($emails_non_valides_rejetes as $tests => $email)
-		echo '<li>'.$email.' -> pass&eacute;s par email_valide() -> '.email_valide($email).'</li>';
+$emails_non_valides_rejetes = ['utilisateurdomaine.f', 'utilis/@domaine', 'utilisateur@', '@domaine.fr'];
 
-	echo '</ul>';
-	?>
+echo '<ul>';
+
+foreach ($emails_non_valides_rejetes as $tests => $email) {
+	echo '<li>' . $email . ' -> pass&eacute;s par email_valide() -> ' . email_valide($email) . '</li>';
+}
+
+echo '</ul>';
+
+?>
 
 	<!-- /* Suggestion d'expression régulière */ -->
 	<h1>Suggestion d'am&eacute;lioration</h1>
@@ -121,57 +131,69 @@
 	<p><strong>^([A-Za-z0-9]|&|+|_|-]){1}([A-Za-z0-9]|&|+|_|-|\.)*@[A-Za-z0-9]([A-Za-z0-9]|-|\.){2,}\.[A-Za-z]{2,4}$</strong></p>
 
 	<?php
-	function email_public_valide($adresses) {
-		// Si c'est un spammeur autant arreter tout de suite
-		if (preg_match(",[\n\r].*(MIME|multipart|Content-),i", $adresses)) {
-			spip_log("Tentative d'injection de mail : {$adresses}");
+function email_public_valide($adresses)
+{
+	// Si c'est un spammeur autant arreter tout de suite
+	if (preg_match(",[\n\r].*(MIME|multipart|Content-),i", $adresses)) {
+		spip_log("Tentative d'injection de mail : {$adresses}");
+		return false;
+	}
+
+	foreach (explode(',', $adresses) as $v) {
+		// nettoyer certains formats
+		// "Marie Toto <Marie@toto.com>"
+		$adresse = trim(preg_replace(',^[^<>"]*<([^<>"]+)>$,i', '\\1', $v));
+		// RFC 822 non respectée
+		if (! preg_match(
+			'#^([A-Za-z0-9]|\+|&|_|-|]){1}([A-Za-z0-9]|\+|&|_|-|\.)*@[A-Za-z0-9]([A-Za-z0-9]|-|\.){2,}\.[A-Za-z]{2,4}$#',
+			$adresse
+		)) {
 			return false;
 		}
-
-		foreach (explode(',', $adresses) as $v) {
-			// nettoyer certains formats
-			// "Marie Toto <Marie@toto.com>"
-			$adresse = trim(preg_replace(",^[^<>\"]*<([^<>\"]+)>$,i", "\\1", $v));
-			// RFC 822 non respectée
-			if (!preg_match('#^([A-Za-z0-9]|\+|&|_|-|]){1}([A-Za-z0-9]|\+|&|_|-|\.)*@[A-Za-z0-9]([A-Za-z0-9]|-|\.){2,}\.[A-Za-z]{2,4}$#', $adresse))
-				return false;
-		}
-
-		return $adresse;
 	}
-	?>
+
+	return $adresse;
+}
+
+?>
 
 	<p>Ces mails sont valides, et bien reconnus.</p>
 
 	<?php
-	$emails_valides = [
-						'utilisateur@domaine.com',
-						'uti-lisa.teur@domai-ne.fr',
-						'&-_+.spip17&-_+.@domaine.com',
-						'-@domaine.fr',
-					];
-	echo '<ul>';
-	foreach($emails_valides as $tests => $email)
-		echo '<li>'.$email.' -> pass&eacute;s par email_public_valide() -> '.email_public_valide($email).'</li>';
+$emails_valides = [
+	'utilisateur@domaine.com',
+	'uti-lisa.teur@domai-ne.fr',
+	'&-_+.spip17&-_+.@domaine.com',
+	'-@domaine.fr',
+];
 
-	echo '</ul>';
-	?>
+echo '<ul>';
+
+foreach ($emails_valides as $tests => $email) {
+	echo '<li>' . $email . ' -> pass&eacute;s par email_public_valide() -> ' . email_public_valide($email) . '</li>';
+}
+
+echo '</ul>';
+
+?>
 
 	<!-- // Emails effectivement rejetés -->
 	<p>Ces mails sont non valides, et filtr&eacute;s correctement.</p>
 	<?php
-	$emails_non_valides_rejetes = [
-						'#+^-`&%_=|/|_?=!§{}$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$@mail.com',
-						'utilisateur@domaine.frfrfrfrfrfr',
-						'd@d',
-						'utilisateurdomaine.f',
-						'utilis/@domaine',
-						'utilisateur@',
-						'@domaine.fr'
-					];	
-	echo '<ul>';				
-	foreach($emails_non_valides_rejetes as $tests => $email)
-		echo '<li>'.$email.' -> pass&eacute;s par email_public_valide() -> '.email_public_valide($email).'</li>';
+$emails_non_valides_rejetes = [
+	'#+^-`&%_=|/|_?=!§{}$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$@mail.com',
+	'utilisateur@domaine.frfrfrfrfrfr',
+	'd@d',
+	'utilisateurdomaine.f',
+	'utilis/@domaine',
+	'utilisateur@',
+	'@domaine.fr',
+];
 
-	echo '</ul>';
+echo '<ul>';
 
+foreach ($emails_non_valides_rejetes as $tests => $email) {
+	echo '<li>' . $email . ' -> pass&eacute;s par email_public_valide() -> ' . email_public_valide($email) . '</li>';
+}
+
+echo '</ul>';

@@ -1,33 +1,48 @@
 <?php
 
-	$test = 'spip_nfslock';
-	$remonte = __DIR__ . '/';
-	while (!is_file($remonte."test.inc"))
-		$remonte .= "../";
+declare(strict_types=1);
 
-	require $remonte.'test.inc';
-	include_spip("inc/nfslock");
+$test = 'spip_nfslock';
 
-	$verrou = spip_nfslock('monfichier');
-	$verrou_ok = spip_nfslock_test('monfichier',$verrou);
-	$verrou_absent = spip_nfslock_test('un autre',$verrou);
+$remonte = __DIR__ . '/';
 
-	$deverrouille = spip_nfsunlock('monfichier',$verrou);
-	$birth = false;
-	$verrou_absent2 = spip_nfslock_test('monfichier',$birth);
+while (! is_file($remonte . 'test.inc')) {
+	$remonte .= '../';
+}
 
-	if ($verrou && $verrou_ok && !$verrou_absent && $deverrouille && !$verrou_absent2){
-		echo "OK";
-		exit;
-	}
+require $remonte . 'test.inc';
 
-	echo "<ul><li>Erreur NFSLock :";
-	echo "<ul>";
-	echo "<li>verrou sur 'monfichier':{$verrou}</li>";
-	echo "<li>test du verrou sur 'monfichier':{$verrou_ok}</li>";
-	echo "<li>test du verrou sur 'un autre':{$verrou_absent}</li>";
-	echo "<li>deverrouille 'monfichier':{$deverrouille}</li>";
-	echo "<li>test du verrou sur 'monfichier':{$verrou_absent2}</li>";
-	echo "</ul></li></ul>";
+include_spip('inc/nfslock');
 
+$verrou = spip_nfslock('monfichier');
 
+$verrou_ok = spip_nfslock_test('monfichier', $verrou);
+
+$verrou_absent = spip_nfslock_test('un autre', $verrou);
+
+$deverrouille = spip_nfsunlock('monfichier', $verrou);
+
+$birth = false;
+
+$verrou_absent2 = spip_nfslock_test('monfichier', $birth);
+
+if ($verrou && $verrou_ok && ! $verrou_absent && $deverrouille && ! $verrou_absent2) {
+	echo 'OK';
+	exit;
+}
+
+echo '<ul><li>Erreur NFSLock :';
+
+echo '<ul>';
+
+echo "<li>verrou sur 'monfichier':{$verrou}</li>";
+
+echo "<li>test du verrou sur 'monfichier':{$verrou_ok}</li>";
+
+echo "<li>test du verrou sur 'un autre':{$verrou_absent}</li>";
+
+echo "<li>deverrouille 'monfichier':{$deverrouille}</li>";
+
+echo "<li>test du verrou sur 'monfichier':{$verrou_absent2}</li>";
+
+echo '</ul></li></ul>';

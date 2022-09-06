@@ -1,4 +1,7 @@
 <?php
+
+declare(strict_types=1);
+
 /*
  * Le meme que liens_absolus.php mais on hacke _SPIP_TEST_INC
  * pour que le chdir() au debut de test.inc nous transporte dans ecrire/
@@ -6,8 +9,9 @@
  */
 // let's go ecrire/
 $dir_racine = dirname(__DIR__, 2);
-while (!is_dir($dir_racine."/ecrire"))
+while (! is_dir($dir_racine . '/ecrire')) {
 	$dir_racine = dirname($dir_racine);
+}
 
 define('_SPIP_TEST_CHDIR', $dir_racine . '/ecrire');
 $test = 'liens_absolus_prive';
@@ -17,4 +21,3 @@ $test = 'liens_absolus_prive';
 //define('_SPIP_SCRIPT', '../../');
 
 include __DIR__ . '/liens_absolus.php';
-

@@ -1,41 +1,72 @@
 <?php
 
-	$err = [];
-	$test = 'liens_classes';
-	$remonte = __DIR__ . '/';
-	while (!is_file($remonte."test.inc"))
-		$remonte .= "../";
+declare(strict_types=1);
 
-	require $remonte.'test.inc';
-	include_spip('inc/texte');
-	include_spip('inc/lang');
+$err = [];
 
-	$id = sql_getfetsel("id_article","spip_articles","statut='publie'","","","0,1");
-	if (!$id) echo "NA Necessite un article publie<br />";
+$test = 'liens_classes';
 
-	$p0 = "[->art{$id}]";
-	if (!$c = extraire_attribut(propre($p0), 'class') || strpos($c,'spip_in')===FALSE || strpos($c,'spip_out')!==FALSE)
-		$err[] = "Classe {$c} errone dans {$p0} : ".PtoBR(propre($p0));
+$remonte = __DIR__ . '/';
 
-	$id = sql_getfetsel("id_rubrique","spip_rubriques","statut='publie'","","","0,1");
-	if (!$id) echo "NA Necessite une rubrique publiee<br />";
+while (! is_file($remonte . 'test.inc')) {
+	$remonte .= '../';
+}
 
-	$p0 = "[->rub{$id}]";
-	if (!$c = extraire_attribut(propre($p0), 'class') || strpos($c,'spip_in')===FALSE || strpos($c,'spip_out')!==FALSE)
-		$err[] = "Classe {$c} errone dans {$p0} : ".PtoBR(propre($p0));
+require $remonte . 'test.inc';
 
-	$id = sql_getfetsel("id_syndic","spip_syndic","statut='publie'","","","0,1");
-	if (!$id) echo "NA Necessite un site publie<br />";
+include_spip('inc/texte');
 
-	$p0 = "[->site{$id}]";
-	if (!$c = extraire_attribut(propre($p0), 'class') || strpos($c,'spip_in')!==FALSE || strpos($c,'spip_out')===FALSE)
-		$err[] = "Classe {$c} errone dans {$p0} : ".PtoBR(propre($p0));
+include_spip('inc/lang');
 
-	// si le tableau $err est pas vide ca va pas
-	if (count($err) > 0) {
-		echo ('<dl><dt>' . implode('</dt><dt>', $err) . '</dt></dl>');
-	} else {
-		echo "OK";
-	}
+$id = sql_getfetsel('id_article', 'spip_articles', "statut='publie'", '', '', '0,1');
 
+if (! $id) {
+	echo 'NA Necessite un article publie<br />';
+}
 
+$p0 = "[->art{$id}]";
+
+if (! $c = extraire_attribut(propre($p0), 'class') || strpos($c, 'spip_in') === false || strpos(
+	$c,
+	'spip_out'
+) !== false) {
+	$err[] = "Classe {$c} errone dans {$p0} : " . PtoBR(propre($p0));
+}
+
+$id = sql_getfetsel('id_rubrique', 'spip_rubriques', "statut='publie'", '', '', '0,1');
+
+if (! $id) {
+	echo 'NA Necessite une rubrique publiee<br />';
+}
+
+$p0 = "[->rub{$id}]";
+
+if (! $c = extraire_attribut(propre($p0), 'class') || strpos($c, 'spip_in') === false || strpos(
+	$c,
+	'spip_out'
+) !== false) {
+	$err[] = "Classe {$c} errone dans {$p0} : " . PtoBR(propre($p0));
+}
+
+$id = sql_getfetsel('id_syndic', 'spip_syndic', "statut='publie'", '', '', '0,1');
+
+if (! $id) {
+	echo 'NA Necessite un site publie<br />';
+}
+
+$p0 = "[->site{$id}]";
+
+if (! $c = extraire_attribut(propre($p0), 'class') || strpos($c, 'spip_in') !== false || strpos(
+	$c,
+	'spip_out'
+) === false) {
+	$err[] = "Classe {$c} errone dans {$p0} : " . PtoBR(propre($p0));
+}
+
+// si le tableau $err est pas vide ca va pas
+
+if (count($err) > 0) {
+	echo '<dl><dt>' . implode('</dt><dt>', $err) . '</dt></dl>';
+} else {
+	echo 'OK';
+}

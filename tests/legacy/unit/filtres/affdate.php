@@ -1,75 +1,109 @@
 <?php
 
-	$test = 'affdate';
-	$remonte = __DIR__ . '/';
-	while (!is_file($remonte."test.inc"))
-		$remonte .= "../";
+declare(strict_types=1);
 
-	require $remonte.'test.inc';
+$test = 'affdate';
 
-	include_spip('inc/filtres');
-	include_spip('inc/lang');
+$remonte = __DIR__ . '/';
 
-	$lang = $GLOBALS['spip_lang'];
+while (! is_file($remonte . 'test.inc')) {
+	$remonte .= '../';
+}
 
-	$GLOBALS['spip_lang'] = 'ca';
-	$essais["nc-01-2010"] = ['gener de 2010', "2010-01-00 01:00:00"];
-	$essais["nc-nc-2010"] = ['2010', "2010-00-00 01:00:00"];
-	$err[$GLOBALS['spip_lang']] = tester_fun('affdate', $essais);
+require $remonte . 'test.inc';
 
-	$GLOBALS['spip_lang'] = 'de';
-	$essais["nc-01-2010"] = ['Januar 2010', "2010-01-00 01:00:00"];
-	$essais["nc-nc-2010"] = ['2010', "2010-00-00 01:00:00"];
-	$err[$GLOBALS['spip_lang']] = tester_fun('affdate', $essais);
+include_spip('inc/filtres');
 
-	$GLOBALS['spip_lang'] = 'en';
-	$essais["nc-01-2010"] = ['January 2010', "2010-01-00 01:00:00"];
-	$essais["nc-nc-2010"] = ['2010', "2010-00-00 01:00:00"];
-	$err[$GLOBALS['spip_lang']] = tester_fun('affdate', $essais);
+include_spip('inc/lang');
 
-	$GLOBALS['spip_lang'] = 'es';
-	$essais["nc-01-2010"] = ['enero de 2010', "2010-01-00 01:00:00"];
-	$essais["nc-nc-2010"] = ['2010', "2010-00-00 01:00:00"];
-	$err[$GLOBALS['spip_lang']] = tester_fun('affdate', $essais);
+$lang = $GLOBALS['spip_lang'];
 
-	$GLOBALS['spip_lang'] = 'fr';
-	$essais["nc-01-2010"] = ['janvier 2010', "2010-01-00 01:00:00"];
-	$essais["nc-nc-2010"] = ['2010', "2010-00-00 01:00:00"];
-	$err[$GLOBALS['spip_lang']] = tester_fun('affdate', $essais);
+$GLOBALS['spip_lang'] = 'ca';
 
-	$GLOBALS['spip_lang'] = 'it';
-	$essais["nc-01-2010"] = ['Gennaio 2010', "2010-01-00 01:00:00"];
-	$essais["nc-nc-2010"] = ['2010', "2010-00-00 01:00:00"];
-	$err[$GLOBALS['spip_lang']] = tester_fun('affdate', $essais);
+$essais['nc-01-2010'] = ['gener de 2010', '2010-01-00 01:00:00'];
 
-	$GLOBALS['spip_lang'] = 'nl';
-	$essais["nc-01-2010"] = ['januari 2010', "2010-01-00 01:00:00"];
-	$essais["nc-nc-2010"] = ['2010', "2010-00-00 01:00:00"];
-	$err[$GLOBALS['spip_lang']] = tester_fun('affdate', $essais);
+$essais['nc-nc-2010'] = ['2010', '2010-00-00 01:00:00'];
 
-	$GLOBALS['spip_lang'] = 'pl';
-	$essais["nc-01-2010"] = ['Styczeń 2010', "2010-01-00 01:00:00"];
-	$essais["nc-nc-2010"] = ['2010', "2010-00-00 01:00:00"];
-	$err[$GLOBALS['spip_lang']] = tester_fun('affdate', $essais);
+$err[$GLOBALS['spip_lang']] = tester_fun('affdate', $essais);
 
-	$GLOBALS['spip_lang'] = 'pt';
-	$essais["nc-01-2010"] = ['Janeiro de 2010', "2010-01-00 01:00:00"];
-	$essais["nc-nc-2010"] = ['2010', "2010-00-00 01:00:00"];
-	$err[$GLOBALS['spip_lang']] = tester_fun('affdate', $essais);
+$GLOBALS['spip_lang'] = 'de';
 
-	$GLOBALS['spip_lang'] = $lang;
+$essais['nc-01-2010'] = ['Januar 2010', '2010-01-00 01:00:00'];
 
-	// si le tableau $err est pas vide ca va pas
-	$ok = true;
-	foreach ($err as $l=>$e) {
-		if (count($e) > 0){
-			$ok = false;
-			echo $l;
-			echo '<dl>' . implode('', $e) . '</dl>';
-		}
+$essais['nc-nc-2010'] = ['2010', '2010-00-00 01:00:00'];
+
+$err[$GLOBALS['spip_lang']] = tester_fun('affdate', $essais);
+
+$GLOBALS['spip_lang'] = 'en';
+
+$essais['nc-01-2010'] = ['January 2010', '2010-01-00 01:00:00'];
+
+$essais['nc-nc-2010'] = ['2010', '2010-00-00 01:00:00'];
+
+$err[$GLOBALS['spip_lang']] = tester_fun('affdate', $essais);
+
+$GLOBALS['spip_lang'] = 'es';
+
+$essais['nc-01-2010'] = ['enero de 2010', '2010-01-00 01:00:00'];
+
+$essais['nc-nc-2010'] = ['2010', '2010-00-00 01:00:00'];
+
+$err[$GLOBALS['spip_lang']] = tester_fun('affdate', $essais);
+
+$GLOBALS['spip_lang'] = 'fr';
+
+$essais['nc-01-2010'] = ['janvier 2010', '2010-01-00 01:00:00'];
+
+$essais['nc-nc-2010'] = ['2010', '2010-00-00 01:00:00'];
+
+$err[$GLOBALS['spip_lang']] = tester_fun('affdate', $essais);
+
+$GLOBALS['spip_lang'] = 'it';
+
+$essais['nc-01-2010'] = ['Gennaio 2010', '2010-01-00 01:00:00'];
+
+$essais['nc-nc-2010'] = ['2010', '2010-00-00 01:00:00'];
+
+$err[$GLOBALS['spip_lang']] = tester_fun('affdate', $essais);
+
+$GLOBALS['spip_lang'] = 'nl';
+
+$essais['nc-01-2010'] = ['januari 2010', '2010-01-00 01:00:00'];
+
+$essais['nc-nc-2010'] = ['2010', '2010-00-00 01:00:00'];
+
+$err[$GLOBALS['spip_lang']] = tester_fun('affdate', $essais);
+
+$GLOBALS['spip_lang'] = 'pl';
+
+$essais['nc-01-2010'] = ['Styczeń 2010', '2010-01-00 01:00:00'];
+
+$essais['nc-nc-2010'] = ['2010', '2010-00-00 01:00:00'];
+
+$err[$GLOBALS['spip_lang']] = tester_fun('affdate', $essais);
+
+$GLOBALS['spip_lang'] = 'pt';
+
+$essais['nc-01-2010'] = ['Janeiro de 2010', '2010-01-00 01:00:00'];
+
+$essais['nc-nc-2010'] = ['2010', '2010-00-00 01:00:00'];
+
+$err[$GLOBALS['spip_lang']] = tester_fun('affdate', $essais);
+
+$GLOBALS['spip_lang'] = $lang;
+
+// si le tableau $err est pas vide ca va pas
+
+$ok = true;
+
+foreach ($err as $l => $e) {
+	if (count($e) > 0) {
+		$ok = false;
+		echo $l;
+		echo '<dl>' . implode('', $e) . '</dl>';
 	}
+}
 
-	if ($ok)
-		echo "OK";
-
-
+if ($ok) {
+	echo 'OK';
+}

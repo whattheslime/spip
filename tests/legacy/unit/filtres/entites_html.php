@@ -1,103 +1,111 @@
 <?php
 
+declare(strict_types=1);
 
-	$test = 'entites_html';
-	$remonte = __DIR__ . '/';
-	while (!is_file($remonte."test.inc"))
-		$remonte .= "../";
+$test = 'entites_html';
 
-	require $remonte.'test.inc';
-	include_spip("inc/filtres");
+$remonte = __DIR__ . '/';
 
+while (! is_file($remonte . 'test.inc')) {
+	$remonte .= '../';
+}
 
-	$essais[] =
-	 ["&lt;code&gt;&amp;#233;&lt;/code&gt;&#233;","<code>&#233;</code>&#233;"];
+require $remonte . 'test.inc';
+
+include_spip('inc/filtres');
+
+$essais[] =
+ ['&lt;code&gt;&amp;#233;&lt;/code&gt;&#233;', '<code>&#233;</code>&#233;'];
 
 //
+
 // hop ! on y va
 //
-	$err = tester_fun('entites_html', $essais);
 
-	// si le tableau $err est pas vide ca va pas
-	if ($err) {
-		die ('<dl>' . implode('', $err) . '</dl>');
-	}
+$err = tester_fun('entites_html', $essais);
 
-	echo "OK";
+// si le tableau $err est pas vide ca va pas
 
-function essais_entites_html(){
-		return [
-  0 => 
-   [
-    0 => '',
-    1 => '',
-    2 => false,
-  ],
-  1 => 
-   [
-    0 => '0',
-    1 => '0',
-    2 => false,
-  ],
-  2 => 
-   [
-    0 => 'Un texte avec des &lt;a href=&quot;http://spip.net&quot;&gt;liens&lt;/a&gt; [Article 1-&gt;art1] [spip-&gt;http://www.spip.net] http://www.spip.net',
-    1 => 'Un texte avec des <a href="http://spip.net">liens</a> [Article 1->art1] [spip->http://www.spip.net] http://www.spip.net',
-    2 => false,
-  ],
-  3 => 
-   [
-    0 => 'Un texte avec des entit&amp;eacute;s &amp;&amp;lt;&amp;gt;&amp;quot;',
-    1 => 'Un texte avec des entit&eacute;s &amp;&lt;&gt;&quot;',
-    2 => false,
-  ],
-  4 => 
-   [
-    0 => 'Un texte avec des entit&amp;eacute;s echap&amp;eacute; &amp;amp;&amp;lt;&amp;gt;&amp;quot;',
-    1 => 'Un texte avec des entit&amp;eacute;s echap&amp;eacute; &amp;amp;&amp;lt;&amp;gt;&amp;quot;',
-    2 => false,
-  ],
-  5 => 
-   [
-    0 => 'Un texte avec des entit&#233;s num&#233;riques &amp;#38;&amp;#60;&amp;#62;&amp;quot;',
-    1 => 'Un texte avec des entit&#233;s num&#233;riques &#38;&#60;&#62;&quot;',
-    2 => false,
-  ],
-  6 => 
-   [
-    0 => 'Un texte avec des entit&amp;#233;s num&amp;#233;riques echap&amp;#233;es &amp;#38;&amp;#60;&amp;#62;&amp;quot;',
-    1 => 'Un texte avec des entit&amp;#233;s num&amp;#233;riques echap&amp;#233;es &amp;#38;&amp;#60;&amp;#62;&amp;quot;',
-    2 => false,
-  ],
-  7 => 
-   [
-    0 => "Un texte sans entites &amp;&lt;&gt;&quot;'",
-    1 => 'Un texte sans entites &<>"\'',
-    2 => false,
-  ],
-  8 => 
-   [
-    0 => '{{{Des raccourcis}}} {italique} {{gras}} &lt;code&gt;du code&lt;/code&gt;',
-    1 => '{{{Des raccourcis}}} {italique} {{gras}} <code>du code</code>',
-    2 => false,
-  ],
-  9 => 
-   [
-    0 => 'Un modele &lt;modeleinexistant|lien=[-&gt;http://www.spip.net]&gt;',
-    1 => 'Un modele <modeleinexistant|lien=[->http://www.spip.net]>',
-    2 => false,
-  ],
-  10 => 
-   [
-    0 => 'Un texte avec des retour
+if ($err) {
+	die('<dl>' . implode('', $err) . '</dl>');
+}
+
+echo 'OK';
+
+function essais_entites_html()
+{
+	return [
+		0 =>
+		 [
+		 	0 => '',
+		 	1 => '',
+		 	2 => false,
+		 ],
+		1 =>
+		 [
+		 	0 => '0',
+		 	1 => '0',
+		 	2 => false,
+		 ],
+		2 =>
+		 [
+		 	0 => 'Un texte avec des &lt;a href=&quot;http://spip.net&quot;&gt;liens&lt;/a&gt; [Article 1-&gt;art1] [spip-&gt;http://www.spip.net] http://www.spip.net',
+		 	1 => 'Un texte avec des <a href="http://spip.net">liens</a> [Article 1->art1] [spip->http://www.spip.net] http://www.spip.net',
+		 	2 => false,
+		 ],
+		3 =>
+		 [
+		 	0 => 'Un texte avec des entit&amp;eacute;s &amp;&amp;lt;&amp;gt;&amp;quot;',
+		 	1 => 'Un texte avec des entit&eacute;s &amp;&lt;&gt;&quot;',
+		 	2 => false,
+		 ],
+		4 =>
+		 [
+		 	0 => 'Un texte avec des entit&amp;eacute;s echap&amp;eacute; &amp;amp;&amp;lt;&amp;gt;&amp;quot;',
+		 	1 => 'Un texte avec des entit&amp;eacute;s echap&amp;eacute; &amp;amp;&amp;lt;&amp;gt;&amp;quot;',
+		 	2 => false,
+		 ],
+		5 =>
+		 [
+		 	0 => 'Un texte avec des entit&#233;s num&#233;riques &amp;#38;&amp;#60;&amp;#62;&amp;quot;',
+		 	1 => 'Un texte avec des entit&#233;s num&#233;riques &#38;&#60;&#62;&quot;',
+		 	2 => false,
+		 ],
+		6 =>
+		 [
+		 	0 => 'Un texte avec des entit&amp;#233;s num&amp;#233;riques echap&amp;#233;es &amp;#38;&amp;#60;&amp;#62;&amp;quot;',
+		 	1 => 'Un texte avec des entit&amp;#233;s num&amp;#233;riques echap&amp;#233;es &amp;#38;&amp;#60;&amp;#62;&amp;quot;',
+		 	2 => false,
+		 ],
+		7 =>
+		 [
+		 	0 => "Un texte sans entites &amp;&lt;&gt;&quot;'",
+		 	1 => 'Un texte sans entites &<>"\'',
+		 	2 => false,
+		 ],
+		8 =>
+		 [
+		 	0 => '{{{Des raccourcis}}} {italique} {{gras}} &lt;code&gt;du code&lt;/code&gt;',
+		 	1 => '{{{Des raccourcis}}} {italique} {{gras}} <code>du code</code>',
+		 	2 => false,
+		 ],
+		9 =>
+		 [
+		 	0 => 'Un modele &lt;modeleinexistant|lien=[-&gt;http://www.spip.net]&gt;',
+		 	1 => 'Un modele <modeleinexistant|lien=[->http://www.spip.net]>',
+		 	2 => false,
+		 ],
+		10 =>
+		 [
+		 	0 => 'Un texte avec des retour
 a la ligne et meme des
 
 paragraphes',
-    1 => 'Un texte avec des retour
+		 	1 => 'Un texte avec des retour
 a la ligne et meme des
 
 paragraphes',
-    2 => false,
-  ],
-];
-	}
+		 	2 => false,
+		 ],
+	];
+}

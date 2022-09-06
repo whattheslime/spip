@@ -1,25 +1,33 @@
 <?php
 
-	$test = 'date_iso';
-	$remonte = __DIR__ . '/';
-	while (!is_file($remonte."test.inc"))
-		$remonte .= "../";
+declare(strict_types=1);
 
-	require $remonte.'test.inc';
+$test = 'date_iso';
 
-	include_spip('inc/filtres');
+$remonte = __DIR__ . '/';
 
-	$essais["01-01-2010"] = [gmdate('Y-m-d\TH:i:s\Z', mktime(2, 5, 30, 1, 1, 2010)), "2010-01-01 02:05:30"];
-	$essais["nc-01-2010"] = [gmdate('Y-m-d\TH:i:s\Z', mktime(3, 6, 40, 1, 1, 2010)), "2010-01-00 03:06:40"];
-	$essais["nc-nc-2010"] = [gmdate('Y-m-d\TH:i:s\Z', mktime(4, 7, 50, 1, 1, 2010)), "2010-00-00 04:07:50"];
+while (! is_file($remonte . 'test.inc')) {
+	$remonte .= '../';
+}
 
-	// si le tableau $err est pas vide ca va pas
-	$err = tester_fun('date_iso', $essais);
+require $remonte . 'test.inc';
 
-	// si le tableau $err est pas vide ca va pas
-	if ($err) {
-		die ('<dl>' . implode('', $err) . '</dl>');
-	}
+include_spip('inc/filtres');
 
-	echo "OK";
+$essais['01-01-2010'] = [gmdate('Y-m-d\TH:i:s\Z', mktime(2, 5, 30, 1, 1, 2010)), '2010-01-01 02:05:30'];
 
+$essais['nc-01-2010'] = [gmdate('Y-m-d\TH:i:s\Z', mktime(3, 6, 40, 1, 1, 2010)), '2010-01-00 03:06:40'];
+
+$essais['nc-nc-2010'] = [gmdate('Y-m-d\TH:i:s\Z', mktime(4, 7, 50, 1, 1, 2010)), '2010-00-00 04:07:50'];
+
+// si le tableau $err est pas vide ca va pas
+
+$err = tester_fun('date_iso', $essais);
+
+// si le tableau $err est pas vide ca va pas
+
+if ($err) {
+	die('<dl>' . implode('', $err) . '</dl>');
+}
+
+echo 'OK';

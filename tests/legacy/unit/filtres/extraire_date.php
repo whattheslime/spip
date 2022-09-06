@@ -1,23 +1,29 @@
 <?php
 
-	$test = 'extraire_date';
-	$remonte = __DIR__ . '/';
-	while (!is_file($remonte."test.inc"))
-		$remonte .= "../";
+declare(strict_types=1);
 
-	require $remonte.'test.inc';
+$test = 'extraire_date';
 
-	include_spip('inc/filtres');
+$remonte = __DIR__ . '/';
 
-	$essais["2000/01"] = ['2000-01-01', "2000/01"];
-	$essais["2000/12"] = ['2000-12-01', "2000/12"];
+while (! is_file($remonte . 'test.inc')) {
+	$remonte .= '../';
+}
 
-	$err = tester_fun('extraire_date', $essais);
+require $remonte . 'test.inc';
 
-	// si le tableau $err est pas vide ca va pas
-	if ($err) {
-		die ('<dl>' . implode('', $err) . '</dl>');
-	}
+include_spip('inc/filtres');
 
-	echo "OK";
+$essais['2000/01'] = ['2000-01-01', '2000/01'];
 
+$essais['2000/12'] = ['2000-12-01', '2000/12'];
+
+$err = tester_fun('extraire_date', $essais);
+
+// si le tableau $err est pas vide ca va pas
+
+if ($err) {
+	die('<dl>' . implode('', $err) . '</dl>');
+}
+
+echo 'OK';
