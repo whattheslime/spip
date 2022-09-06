@@ -1,44 +1,46 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Spip\Core\Testing\Template\Loader;
 
 use Spip\Core\Testing\Exception\TemplateNotFoundException;
 
 class ChainLoader implements LoaderInterface
 {
-	/** @var LoaderInterface[] */
+	/**
+	 * @var LoaderInterface[]
+	 */
 	private array $loaders = [];
 
 	private array $cache = [];
 
-	public function __construct(array $loaders) {
+	public function __construct(array $loaders)
+	{
 		foreach ($loaders as $loader) {
-            $this->addLoader($loader);
-        }
+			$this->addLoader($loader);
+		}
 	}
 
-	private function addLoader(LoaderInterface $loader) {
-		$this->loaders[] = $loader;
-		$this->cache = [];
-	}
+	public function exists(string $name): bool
+	{
+		if (isset($this->cache[$name])) {
+			return $this->cache[$name];
+		}
 
-	public function exists(string $name): bool {
-        if (isset($this->cache[$name])) {
-            return $this->cache[$name];
-        }
-
-        foreach ($this->loaders as $loader) {
-            if ($loader->exists($name)) {
-                return $this->cache[$name] = true;
-            }
-        }
-
-        return $this->cache[$name] = false;
-    }
-
-	public function getCacheKey(string $name): string {
 		foreach ($this->loaders as $loader) {
-			if (!$loader->exists($name)) {
+			if ($loader->exists($name)) {
+				return $this->cache[$name] = true;
+			}
+		}
+
+		return $this->cache[$name] = false;
+	}
+
+	public function getCacheKey(string $name): string
+	{
+		foreach ($this->loaders as $loader) {
+			if (! $loader->exists($name)) {
 				continue;
 			}
 
@@ -48,15 +50,22 @@ class ChainLoader implements LoaderInterface
 		throw new TemplateNotFoundException($name);
 	}
 
-	public function getSourceFile(string $name): string {
+	public function getSourceFile(string $name): string
+	{
 		foreach ($this->loaders as $loader) {
-            if (!$loader->exists($name)) {
-                continue;
-            }
+			if (! $loader->exists($name)) {
+				continue;
+			}
 
-            return $loader->getSourceFile($name);
-        }
+			return $loader->getSourceFile($name);
+		}
 
 		throw new TemplateNotFoundException($name);
+	}
+
+	private function addLoader(LoaderInterface $loader)
+	{
+		$this->loaders[] = $loader;
+		$this->cache = [];
 	}
 }

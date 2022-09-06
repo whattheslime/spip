@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Spip\Core\Testing\Template\Loader;
 
 interface LoaderInterface

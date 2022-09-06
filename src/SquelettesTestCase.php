@@ -1,26 +1,31 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Spip\Core\Testing;
 
+use PHPUnit\Framework\Constraint\LogicalNot;
 use PHPUnit\Framework\TestCase;
 use Spip\Core\Testing\Constraint\IsOk;
-use PHPUnit\Framework\Constraint\LogicalNot;
-use Spip\Core\Testing\Template\ChainLoader;
-use Spip\Core\Testing\Template\StringLoader;
 use Spip\Core\Testing\Template\FileLoader;
+use Spip\Core\Testing\Template\StringLoader;
 
 abstract class SquelettesTestCase extends TestCase
 {
 	/**
 	 * Determine si une chaine débute par 'NA' (non applicable)
 	 */
-	public static function isNa(string $chaine): bool {
+	public static function isNa(string $chaine): bool
+	{
 		return substr(strtolower(trim($chaine)), 0, 2) === 'na';
 	}
 
-	/** Retourne le chemin relatif depuis la racine de SPIP */
-	public static function relativePath(string $fullDirectory): string {
-		if (!defined('_SPIP_TEST_CHDIR')) {
+	/**
+	 * Retourne le chemin relatif depuis la racine de SPIP
+	 */
+	public static function relativePath(string $fullDirectory): string
+	{
+		if (! defined('_SPIP_TEST_CHDIR')) {
 			throw new \RuntimeException('_SPIP_TEST_CHDIR needs to be defined');
 		}
 
@@ -31,39 +36,43 @@ abstract class SquelettesTestCase extends TestCase
 	 * Determine si une chaine débute par 'OK'
 	 */
 	public static function assertOk($actual, string $message = ''): void
-    {
-        $constraint = new IsOk($actual);
+	{
+		$constraint = new IsOk($actual);
 
-        static::assertThat($actual, $constraint, $message);
-    }
+		static::assertThat($actual, $constraint, $message);
+	}
 
 	/**
 	 * Determine si une chaine ne débute pas par 'OK'
 	 */
 	public static function assertNotOk($actual, string $message = ''): void
-    {
-        $constraint = new LogicalNot(new IsOk($actual));
+	{
+		$constraint = new LogicalNot(new IsOk($actual));
 
-        static::assertThat($actual, $constraint, $message);
-    }
+		static::assertThat($actual, $constraint, $message);
+	}
 
 	/**
 	 * Assertion qui vérifie que le résultat d’un template est 'OK'
 	 *
 	 * @example
-	 * 		$templating = new Templating(new StringLoader());
-	 * 		$this->assertOkTemplate($templating, '[(#CONFIG{pasla}|non)ok]');
+	 * $templating = new Templating(new StringLoader());
+	 * $this->assertOkTemplate($templating, '[(#CONFIG{pasla}|non)ok]');
 	 *
-	 * 	    $templating = new Templating(new FileLoader());
-	 * 		$this->assertOkTemplate($templating, __DIR__ . '/data/truc.html');
+	 * $templating = new Templating(new FileLoader());
+	 * $this->assertOkTemplate($templating, __DIR__ . '/data/truc.html');
 	 *
 	 * @uses Template
 	 * @param string $code Code ou chemin du squelette
 	 * @param array $contexte Contexte de calcul du squelette
 	 * @param string $message Message pour une eventuelle erreur
 	 */
-	public static function assertOkTemplate(Templating $templating, string $code, array $contexte = [], string $message = ''): void
-	{
+	public static function assertOkTemplate(
+		Templating $templating,
+		string $code,
+		array $contexte = [],
+		string $message = ''
+	): void {
 		$actual = $templating->render($code, $contexte);
 
 		static::assertOk($actual, $message);
@@ -73,9 +82,13 @@ abstract class SquelettesTestCase extends TestCase
 	 * Assertion qui vérifie que le résultat d’un template est vide
 	 *
 	 * @see assertOkTemplate()
-	*/
-	public static function assertNotOkTemplate(Templating $templating, string $code, array $contexte = [], string $message = ''): void
-	{
+	 */
+	public static function assertNotOkTemplate(
+		Templating $templating,
+		string $code,
+		array $contexte = [],
+		string $message = ''
+	): void {
 		$actual = $templating->render($code, $contexte);
 
 		static::assertNotOk($actual, $message);
@@ -85,9 +98,13 @@ abstract class SquelettesTestCase extends TestCase
 	 * Assertion qui vérifie que le résultat d’un template est vide
 	 *
 	 * @see assertOkTemplate()
-	*/
-	public static function assertEmptyTemplate(Templating $templating, string $code, array $contexte = [], string $message = ''): void
-	{
+	 */
+	public static function assertEmptyTemplate(
+		Templating $templating,
+		string $code,
+		array $contexte = [],
+		string $message = ''
+	): void {
 		$actual = $templating->render($code, $contexte);
 
 		static::assertEmpty($actual, $message);
@@ -97,9 +114,13 @@ abstract class SquelettesTestCase extends TestCase
 	 * Assertion qui vérifie que le résultat d’un template n’est pas vide
 	 *
 	 * @see assertOkTemplate()
-	*/
-	public static function assertNotEmptyTemplate(Templating $templating, string $code, array $contexte = [], string $message = ''): void
-	{
+	 */
+	public static function assertNotEmptyTemplate(
+		Templating $templating,
+		string $code,
+		array $contexte = [],
+		string $message = ''
+	): void {
 		$actual = $templating->render($code, $contexte);
 
 		static::assertNotEmpty($actual, $message);
@@ -109,9 +130,14 @@ abstract class SquelettesTestCase extends TestCase
 	 * Assertion qui vérifie le résultat d’un template
 	 *
 	 * @see assertOkTemplate()
-	*/
-	public static function assertEqualsTemplate(string $expected, Templating $templating, string $code, array $contexte = [], string $message = ''): void
-	{
+	 */
+	public static function assertEqualsTemplate(
+		string $expected,
+		Templating $templating,
+		string $code,
+		array $contexte = [],
+		string $message = ''
+	): void {
 		$actual = $templating->render($code, $contexte);
 
 		static::assertEquals($expected, $actual, $message);
@@ -121,9 +147,14 @@ abstract class SquelettesTestCase extends TestCase
 	 * Assertion qui vérifie le résultat d’un template
 	 *
 	 * @see assertOkTemplate()
-	*/
-	public static function assertNotEqualsTemplate(string $expected, Templating $templating, string $code, array $contexte = [], string $message = ''): void
-	{
+	 */
+	public static function assertNotEqualsTemplate(
+		string $expected,
+		Templating $templating,
+		string $code,
+		array $contexte = [],
+		string $message = ''
+	): void {
 		$actual = $templating->render($code, $contexte);
 
 		static::assertNotEquals($expected, $actual, $message);
@@ -143,7 +174,6 @@ abstract class SquelettesTestCase extends TestCase
 	{
 		static::assertOkTemplate(Templating::fromString(), $code, $contexte);
 	}
-
 
 	/**
 	 * Assertion qui vérifie que le résultat d’un code de squelette n’est pas 'OK'
@@ -259,5 +289,4 @@ abstract class SquelettesTestCase extends TestCase
 	{
 		static::assertNotEqualsTemplate($expected, Templating::fromFile(), $code, $contexte);
 	}
-
 }
