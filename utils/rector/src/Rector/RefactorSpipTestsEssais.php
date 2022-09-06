@@ -8,6 +8,8 @@ use PhpParser\Builder\Class_ as ClassBuilder;
 use PhpParser\BuilderFactory;
 use PhpParser\Node;
 use PhpParser\Node\Arg;
+use PhpParser\Node\Expr\Assign;
+use PhpParser\Node\Expr\FuncCall;
 use PhpParser\Node\Expr\MethodCall;
 use PhpParser\Node\Expr\Variable;
 use PhpParser\Node\Identifier;
@@ -15,10 +17,13 @@ use PhpParser\Node\Name;
 use PhpParser\Node\Name\FullyQualified;
 use PhpParser\Node\Stmt\Namespace_;
 use PhpParser\Node\Stmt\ClassLike;
+use PhpParser\Node\Stmt\Else_;
 use PhpParser\Node\Stmt\Expression;
 use PhpParser\Node\Stmt\Function_;
+use PhpParser\Node\Stmt\If_;
 use PhpParser\Node\Stmt\Return_;
 use Rector\Core\Rector\AbstractRector;
+use Rector\TypeDeclaration\ValueObject\AssignToVariable;
 use Symplify\RuleDocGenerator\ValueObject\CodeSample\CodeSample;
 use Symplify\RuleDocGenerator\ValueObject\RuleDefinition;
 use RectorPrefix202209\Symfony\Component\String\UnicodeString;
@@ -86,11 +91,18 @@ final class RefactorSpipTestsEssais extends AbstractRector
 		$classBuilder->extend('TestCase');
 
 		$this->generateMethodSetUpBeforeClass($node, $classBuilder);
+		$this->generateMethodSetUp($node, $classBuilder);
+		$this->generateMethodTearDown($node, $classBuilder);
 		$this->generateMethodTest($node, $classBuilder);
 		$this->generateMethodProvider($node, $classBuilder);
 
 		$class = $classBuilder->getNode();
 		$class->namespacedName = new FullyQualified($this->getName($node) . '\\' . $fqdn->getLast());
+
+		// s’il en reste… c’est un problème
+		if ($node->stmts) {
+			throw new \Exception('Zut, on n’a pas mangé tous les stmts…');
+		}
 
 		$node->stmts = [
 			...$uses,
@@ -158,6 +170,61 @@ final class RefactorSpipTestsEssais extends AbstractRector
 		$classBuilder->addStmt($method->getNode());
 	}
 
+	private function generateMethodSetUp(Node $node, ClassBuilder $classBuilder): void
+	{
+		$stmts = [];
+		foreach ($node->stmts as $key => $stmt) {
+			if (!$stmt instanceof Function_) {
+				continue;
+			}
+			$name = $stmt->name->toString();
+			if (!str_starts_with($name, 'pretest_')) {
+				continue;
+			}
+			$stmts = [...$stmts, ...$stmt->stmts];
+			unset($node->stmts[$key]);
+		}
+		if (!$stmts) {
+			return;
+		}
+
+		$method = $this->builderFactory->method('setUp');
+		$method
+			->makePublic()
+			->setReturnType(new Identifier('void'))
+			->addStmts($stmts);
+
+		$classBuilder->addStmt($method->getNode());
+	}
+
+
+	private function generateMethodTearDown(Node $node, ClassBuilder $classBuilder): void
+	{
+		$stmts = [];
+		foreach ($node->stmts as $key => $stmt) {
+			if (!$stmt instanceof Function_) {
+				continue;
+			}
+			$name = $stmt->name->toString();
+			if (!str_starts_with($name, 'posttest_')) {
+				continue;
+			}
+			$stmts = [...$stmts, ...$stmt->stmts];
+			unset($node->stmts[$key]);
+		}
+		if (!$stmts) {
+			return;
+		}
+
+		$method = $this->builderFactory->method('tearDown');
+		$method
+			->makePublic()
+			->setReturnType(new Identifier('void'))
+			->addStmts($stmts);
+
+		$classBuilder->addStmt($method->getNode());
+	}
+
 	private function generateMethodTest(Node $node, ClassBuilder $classBuilder): void
 	{
 		foreach ($node->stmts as $key => $stmt) {
@@ -199,12 +266,42 @@ final class RefactorSpipTestsEssais extends AbstractRector
 			if ($node instanceof Return_) {
 				// ...$args
 				# new Arg(new Variable('args'), false, true);
-
-				$call = new MethodCall(new Variable('this'), 'assertEquals', [
-					new Arg(new Variable('expected')),
-					new Arg($node->expr),
+				$expected = new Variable('expected');
+				$actual = new Variable('actual');
+				$assignActual = new Assign($actual, $node->expr);
+				$callAssertSame = new MethodCall(new Variable('this'), 'assertSame', [
+					new Arg($expected),
+					new Arg($actual),
 				]);
-				$nodes[$key] = $call;
+				$callAssertEquals = new MethodCall(new Variable('this'), 'assertEquals', [
+					new Arg($expected),
+					new Arg($actual),
+				]);
+
+				array_splice($nodes, $key, 1, [$assignActual, $callAssertSame, $callAssertEquals]);
+
+				// if (is_array($expected)) ...
+				/*
+				if (false) {
+					$cond = new FuncCall(new Name('is_array'), [
+						new Arg($expected),
+					]);
+
+					$if = new If_($cond);
+
+					$callAssertContains = new MethodCall(new Variable('this'), 'assertContains', [
+						new Arg($actual),
+						new Arg($expected),
+					]);
+
+					$if->stmts = [new Expression($callAssertContains)];
+					$if->else = new Else_([
+						new Expression($assignActual),
+						new Expression($callAssertSame),
+						new Expression($callAssertEquals),
+					]);
+					$nodes[$key] = $if;
+				}*/
 			}
 		}
 		return $nodes;

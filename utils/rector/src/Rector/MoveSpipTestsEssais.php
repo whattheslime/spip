@@ -4,28 +4,17 @@ declare(strict_types=1);
 
 namespace Utils\Rector\Rector;
 
-use PhpParser\Builder\Method as MethodBuilder;
 use PhpParser\Node;
-use PhpParser\Node\Identifier;
 use PhpParser\Node\Name\FullyQualified;
-use PhpParser\Node\Stmt\Class_;
 use PhpParser\Node\Stmt\ClassLike;
 use Rector\Core\Rector\AbstractRector;
 use Symplify\RuleDocGenerator\ValueObject\CodeSample\CodeSample;
 use Symplify\RuleDocGenerator\ValueObject\RuleDefinition;
-use RectorPrefix202209\Symfony\Component\String\UnicodeString;
 use Rector\Core\Application\FileSystem\RemovedAndAddedFilesCollector;
 
 final class MoveSpipTestsEssais extends AbstractRector
 {
-	private string $namespace = 'Spip\\Core\\Tests';
-
-
-	/**
-     * @readonly
-     * @var \Rector\Core\Application\FileSystem\RemovedAndAddedFilesCollector
-     */
-    private $removedAndAddedFilesCollector;
+    private RemovedAndAddedFilesCollector $removedAndAddedFilesCollector;
 
 	public function __construct(RemovedAndAddedFilesCollector $removedAndAddedFilesCollector)
 	{
