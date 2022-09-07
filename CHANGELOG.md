@@ -8,6 +8,7 @@
 
 ### Added
 
+- #5302 Afficher la langue des utilisateurs sur leur page et permettre aussi de l'éditer
 - #5271 Fonction `is_html_safe()`
 - #4877 La balise `#TRI` permet d'alterner le sens du critère `tri`
 
