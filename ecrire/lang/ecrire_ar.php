@@ -598,6 +598,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'label_bando_outils_afficher' => 'عرض الأدوات',
 	'label_bando_outils_masquer' => 'إخفاء الأدوات',
 	'label_choix_langue' => 'حدد لغتك',
+	'label_langue' => 'اللغة',
 	'label_nom_fichier_connect' => 'أدخل الاسم الذي يستخدمه هذا الخادم',
 	'label_slogan_site' => 'شعار الموقع',
 	'label_taille_ecran' => 'عرض الشاشة',
