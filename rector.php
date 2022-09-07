@@ -17,21 +17,8 @@ return static function (RectorConfig $rectorConfig): void {
         __DIR__ . '/tests'
     ]);
 
-    // register a single rule
-    // $rectorConfig->rule(InlineConstructorDefaultToPropertyRector::class);
-
     // define sets of rules
-	$rectorConfig->sets([
-		SpipTestSetList::ESSAIS_MIGRATION
-	]);
-	/*
-    $rectorConfig->sets([
-		SetList::CODE_QUALITY,
-		SetList::CODING_STYLE,
-        LevelSetList::UP_TO_PHP_74
-    ]);
-
-	$rectorConfig->skip([
-		EncapsedStringsToSprintfRector::class
-	]);*/
+	#$rectorConfig->sets([
+	#	SpipTestSetList::ESSAIS_MIGRATION
+	#]);
 };
