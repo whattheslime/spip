@@ -378,6 +378,11 @@ function utiliser_langue_site($liste_langues = null) {
  **/
 function utiliser_langue_visiteur($liste_langues = null) {
 
+	// si on est dans l'espace public et pas de $liste_langues : se limiter a la config langues_multilingue si définie
+	if (is_null($liste_langues) and !test_espace_prive() and !empty($GLOBALS['meta']['langues_multilingue'])) {
+		$liste_langues = $GLOBALS['meta']['langues_multilingue'];
+	}
+
 	$l = (!test_espace_prive() ? 'spip_lang' : 'spip_lang_ecrire');
 	if (isset($_COOKIE[$l])) {
 		if (changer_langue($l = $_COOKIE[$l], $liste_langues)) {
