@@ -136,8 +136,14 @@ class Inclure {
 	/** Numéro de ligne dans le code source du squelette */
 	public int $ligne = 0;
 
-	/** Valeurs des paramètres */
-	public array $param = [];
+	/**
+	 * Valeurs des paramètres
+	 *
+	 * FIXME: type unique.
+	 * @var false|array
+	 *     - false: erreur de syntaxe
+	 */
+	public $param = [];
 
 	/** Source des filtres (compatibilité) (?) */
 	public array $fonctions = [];
@@ -256,8 +262,12 @@ class Boucle {
 	 *
 	 * Description des paramètres passés à la boucle, qui servent ensuite
 	 * au calcul des critères
+	 *
+	 * FIXME: type unique.
+	 * @var false|array
+	 *     - false: erreur de syntaxe
 	 */
-	public array $param = [];
+	public $param = [];
 
 	/**
 	 * Critères de la boucle
@@ -556,8 +566,12 @@ class Critere {
 	 * Paramètres du critère
 	 * - $param[0] : élément avant l'opérateur
 	 * - $param[1..n] : éléments après l'opérateur
+	 *
+	 * FIXME: type unique.
+	 * @var false|array
+	 *     - false: erreur de syntaxe
 	 */
-	public array $param = [];
+	public $param = [];
 
 	/** Numéro de ligne dans le code source du squelette */
 	public int $ligne = 0;
@@ -605,8 +619,12 @@ class Champ {
 	 *
 	 * - $param[0] contient les arguments de la balise
 	 * - $param[1..n] contient les filtres à appliquer à la balise
+	 *
+	 * FIXME: type unique.
+	 * @var false|array
+	 *     - false: erreur de syntaxe
 	 */
-	public array $param = [];
+	public $param = [];
 
 	/** Source des filtres (compatibilité) (?) */
 	public array $fonctions = [];
@@ -682,8 +700,14 @@ class Idiome {
 	/** Arguments à passer à la chaîne */
 	public array $arg = [];
 
-	/** Filtres à appliquer au résultat */
-	public array $param = [];
+	/**
+	 * Filtres à appliquer au résultat
+	 *
+	 * FIXME: type unique.
+	 * @var false|array
+	 *     - false: erreur de syntaxe
+	 */
+	public $param = [];
 
 	/** Source des filtres (compatibilité) (?) */
 	public array $fonctions = [];
