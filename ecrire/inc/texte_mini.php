@@ -575,7 +575,7 @@ function echapper_html_suspect($texte, $options = [], $connect = null, $env = []
 	else {
 		$markid = null;
 		if (!empty($options['expanser_liens'])) {
-			$texte = expanser_liens($texte, $env['connect'] ?? '', $env['env'] ?? '');
+			$texte = expanser_liens($texte, $env['connect'] ?? '', $env['env'] ?? []);
 		}
 		else {
 			[$texte, $markid] = modeles_echapper_raccourcis($texte, false);
