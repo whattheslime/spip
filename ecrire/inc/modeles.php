@@ -83,9 +83,6 @@ function modeles_collecter($texte, bool $collecter_liens = true) {
 					$a -= $n;
 					$longueur = $n + strlen($regs[0]);
 				} else {
-					if ($fermeture_lien) {
-						$mod = rtrim(substr($mod, 0, -strlen($fermeture_lien)));
-					}
 					$lien = false;
 					$longueur = strlen($mod);
 				}
