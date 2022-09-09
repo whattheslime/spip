@@ -20,7 +20,7 @@ class TemplatingTest extends SquelettesTestCase
 		$this->assertInstanceOf(FileLoader::class, $templating->getLoader());
 		$this->assertEquals($loader, $templating->getLoader());
 
-		$file = __DIR__ . '/data/inclus_hello_world.html';
+		$file = __DIR__ . '/data/texte_hello_world.html';
 		$expected = trim(file_get_contents($file));
 
 		// Indirect render
@@ -56,7 +56,7 @@ class TemplatingTest extends SquelettesTestCase
 	{
 		$template = new Templating(new ChainLoader([new FileLoader(), new StringLoader()]));
 
-		$file = __DIR__ . '/data/inclus_hello_world.html';
+		$file = __DIR__ . '/data/texte_hello_world.html';
 		$expected = trim(file_get_contents($file));
 		$actual = $template->render($file);
 		$this->assertEquals($expected, $actual);
