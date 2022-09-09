@@ -12,9 +12,16 @@ use PHPUnit\Framework\TestCase;
 
 class InterdireScriptLaxisteTest extends TestCase
 {
+	protected static $save_filtrer_javascript;
 	public static function setUpBeforeClass(): void
 	{
+		self::$save_filtrer_javascript = $GLOBALS['filtrer_javascript'];
 		find_in_path('inc/texte.php', '', true);
+	}
+
+	public static function tearDownAfterClass(): void
+	{
+		$GLOBALS['filtrer_javascript'] = self::$save_filtrer_javascript;
 	}
 
 	protected function setUp(): void
