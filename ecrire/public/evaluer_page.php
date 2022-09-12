@@ -75,4 +75,6 @@ if (empty($page['process_ins']) or $page['process_ins'] != 'html') {
 	}
 }
 
+// le résultat de calcul d'un squelette est toujours de type string
+$page['texte'] = strval($page['texte']);
 page_base_href($page['texte']);
