@@ -8,10 +8,16 @@ use Spip\Core\Testing\SquelettesTestCase;
 
 class NotesTest extends SquelettesTestCase
 {
+
+	protected function setUp(): void
+	{
+		$this->viderNotes();
+	}
+
+
 	public function testNotesEnVrac(): void
 	{
 		$this->assertOkSquelette(__DIR__ . '/data/notes.html');
-		$this->viderNotes();
 	}
 
 	/**
@@ -26,7 +32,6 @@ class NotesTest extends SquelettesTestCase
 				|match{'nb.-1'}
 				|?{#VAL{'Le compteur_notes a change a cause du modele. Résultat: '#NOTES}, OK})]"
 		);
-		$this->viderNotes();
 	}
 
 	/**
@@ -41,7 +46,6 @@ class NotesTest extends SquelettesTestCase
 			[(#INCLURE{fond={$dir}/data/inclure_vide})]
 			[(#NOTES|match{Ma note}|?{'OK','Une note mangee par INCLURE'})]
 		");
-		$this->viderNotes();
 	}
 
 	private function viderNotes(): void
