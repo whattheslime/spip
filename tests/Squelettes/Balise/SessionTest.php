@@ -28,12 +28,12 @@ class SessionTest extends SquelettesTestCase
 	public function testSessionSet(): void
 	{
 		session_set('bonbon', null);
-		$this->assertEqualsCode('1----', '1--#HTTP_HEADER{Content-type: text/html}#CACHE{0}[(#SESSION{bonbon})]--');
-		$this->assertEqualsCode('2----', '2--#HTTP_HEADER{Content-type: text/html}#CACHE{0}[(#SESSION_SET{bonbon,caramel})]--');
-		$this->assertEqualsCode('3--caramel--', '3--#HTTP_HEADER{Content-type: text/html}#CACHE{0}[(#SESSION{bonbon})]--');
-		$this->assertEqualsCode('4----', '4--#HTTP_HEADER{Content-type: text/html}#CACHE{0}[(#SESSION_SET{bonbon,miel})]--');
-		$this->assertEqualsCode('5--miel--', '5--#HTTP_HEADER{Content-type: text/html}#CACHE{0}[(#SESSION{bonbon})]--');
-		$this->assertEqualsCode('6----', '6--#HTTP_HEADER{Content-type: text/html}#CACHE{0}[(#SESSION_SET{bonbon,#NULL})]--');
-		$this->assertEqualsCode('7----', '7--#HTTP_HEADER{Content-type: text/html}#CACHE{0}[(#SESSION{bonbon})]--');
+		$this->assertEqualsCode('1----', '1--#HTTP_HEADER{Content-type: text/html}[(#SESSION{bonbon})]--');
+		$this->assertEqualsCode('2----', '2--#HTTP_HEADER{Content-type: text/html}[(#SESSION_SET{bonbon,caramel})]--');
+		$this->assertEqualsCode('3--caramel--', '3--#HTTP_HEADER{Content-type: text/html}[(#SESSION{bonbon})]--');
+		$this->assertEqualsCode('4----', '4--#HTTP_HEADER{Content-type: text/html}[(#SESSION_SET{bonbon,miel})]--');
+		$this->assertEqualsCode('5--miel--', '5--#HTTP_HEADER{Content-type: text/html}[(#SESSION{bonbon})]--');
+		$this->assertEqualsCode('6----', '6--#HTTP_HEADER{Content-type: text/html}[(#SESSION_SET{bonbon,#NULL})]--');
+		$this->assertEqualsCode('7----', '7--#HTTP_HEADER{Content-type: text/html}[(#SESSION{bonbon})]--');
 	}
 }

@@ -35,6 +35,7 @@ if (! isset($GLOBALS['spip_lang'])) {
 }
 
 $GLOBALS['taille_des_logs'] = 1024;
+$GLOBALS['delais'] = 0;
 
 // pas admin ? passe ton chemin (ce script est un vilain trou de securite)
 if (! _IS_CLI) {
