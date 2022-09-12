@@ -19,7 +19,7 @@ class Template
 	{
 		$infos = $this->rawRender($contexte, $connect);
 		if (!empty($infos['erreurs'])) {
-			throw new TemplateCompilationErrorException(json_encode($infos['erreurs']));
+			throw new TemplateCompilationErrorException(json_encode($infos['erreurs'], \JSON_UNESCAPED_UNICODE|\JSON_PRETTY_PRINT));
 		}
 		return $infos['texte'];
 	}
