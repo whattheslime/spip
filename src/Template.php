@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace Spip\Core\Testing;
 
+use Spip\Core\Testing\Exception\TemplateCompilationErrorException;
+
 class Template
 {
 	private string $fond;
@@ -16,6 +18,9 @@ class Template
 	public function render(array $contexte = [], string $connect = ''): string
 	{
 		$infos = $this->rawRender($contexte, $connect);
+		if (!empty($infos['erreurs'])) {
+			throw new TemplateCompilationErrorException(json_encode($infos['erreurs']));
+		}
 		return $infos['texte'];
 	}
 
