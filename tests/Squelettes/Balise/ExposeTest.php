@@ -8,6 +8,11 @@ use Spip\Core\Testing\SquelettesTestCase;
 
 class ExposeTest extends SquelettesTestCase
 {
+	public static function setUpBeforeClass(): void
+	{
+		include_spip('base/abstract_sql');
+	}
+
 	public function testExposerRubrique(): void
 	{
 		$id_rubrique = sql_getfetsel('id_rubrique', 'spip_rubriques', [
@@ -45,7 +50,7 @@ class ExposeTest extends SquelettesTestCase
 	}
 
 	/**
-	 * @depends testExposerRubrique test
+	 * @depends testExposerRubrique
 	 */
 	public function testExposerRubriqueInclus(): void
 	{

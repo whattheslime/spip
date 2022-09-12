@@ -22,7 +22,7 @@ class IntroductionTest extends SquelettesTestCase
 	}
 
 	/**
-	 * @depends testArticleLongExiste test
+	 * @depends testArticleLongExiste
 	 */
 	public function testCoupeIntroduction(): void
 	{
@@ -34,7 +34,7 @@ class IntroductionTest extends SquelettesTestCase
 	}
 
 	/**
-	 * @depends testArticleLongExiste test
+	 * @depends testArticleLongExiste
 	 */
 	public function testCoupeIntroductionSuite(): void
 	{
@@ -52,7 +52,7 @@ class IntroductionTest extends SquelettesTestCase
 	}
 
 	/**
-	 * @depends testCoupeIntroduction test
+	 * @depends testCoupeIntroduction
 	 */
 	public function testCoupeIntroductionConstante(): void
 	{
