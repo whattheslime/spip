@@ -6,7 +6,7 @@ declare(strict_types=1);
  * Test unitaire de la fonction normaliser_date du fichier inc/filtres.php
  */
 
-namespace Spip\Core\Tests\Filtre;
+namespace Spip\Core\Tests\Filtre\Date;
 
 use PHPUnit\Framework\TestCase;
 

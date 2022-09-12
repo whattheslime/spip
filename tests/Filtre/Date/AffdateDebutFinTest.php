@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Spip\Core\Tests\Filtre;
+namespace Spip\Core\Tests\Filtre\Date;
 
 use PHPUnit\Framework\TestCase;
 
