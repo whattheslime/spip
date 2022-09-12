@@ -150,17 +150,17 @@ function test_selections()
 	}
 
 	// selection avec sql_multi
-	$res = sql_select(['id_tintin', sql_multi('grrrr', 'fr')], 'spip_test_milou', '', '', 'multi');
+	$res = sql_select(['id_milou', sql_multi('grrrr', 'fr')], 'spip_test_milou', '', '', 'multi');
 	if (sql_count($res) !== $nb_data) {
 		$err[] = 'sql_multi mal interprete';
 	}
 
 	$rs = sql_fetch($res);
-	$id1 = $rs['id_tintin'];
+	$id1 = intval($rs['id_milou']);
 	$rs = sql_fetch($res);
-	$id2 = $rs['id_tintin'];
+	$id2 = intval($rs['id_milou']);
 	$rs = sql_fetch($res);
-	$id3 = $rs['id_tintin'];
+	$id3 = intval($rs['id_milou']);
 	if ($id1 !== 3 && $id2 !== 2 && $id3 !== 1) {
 		$err[] = "sql_multi order by multi rate : ordre ({$id1}, {$id2}, {$id3}) - attendu : (3, 2, 1)";
 	}

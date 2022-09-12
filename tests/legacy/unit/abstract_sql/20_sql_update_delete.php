@@ -37,7 +37,7 @@ function test_update_data()
 		'un_bigint' => 'un_bigint+2',
 	]);
 	$nb2 = sql_getfetsel('un_bigint', 'spip_test_tintin', 'id_tintin=' . sql_quote(1));
-	if ($nb + 2 !== $nb2) {
+	if ($nb + 2 != $nb2) {
 		$err[] = "sql_update n'a pas fait l'adition ! ({$nb} + 2 != {$nb2})";
 	}
 

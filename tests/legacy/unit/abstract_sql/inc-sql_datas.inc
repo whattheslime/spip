@@ -2,15 +2,15 @@
 
 /*
  * Jeu de donnees pour les differents fichiers de tests sql
- * 
+ *
  * Quelques fonctions utilises souvent :
  * - test_create_table
  * - test_drop_table
  */
 
-/* 
- * tableaux des donnees 
- * 
+/*
+ * tableaux des donnees
+ *
  */
 function test_sql_datas(){
 	$table_tintin = [
@@ -26,9 +26,9 @@ function test_sql_datas(){
 			"maj" => "TIMESTAMP"
 		],
 		'key'=>[
-		
+
 		],
-		'nb_key_attendues'=>1 // attention : la primary key DOIT etre dans les cle aussi		
+		'nb_key_attendues'=>1 // attention : la primary key DOIT etre dans les cle aussi
 	];
 	$data_tintin = [
 		[
@@ -65,7 +65,7 @@ function test_sql_datas(){
 			//"maj" => "" // doit se remplir automatiquement
 		]
 	];
-	
+
 	$table_milou = [
 		'field'=> [
 			"id_milou" => "INTEGER NOT NULL AUTO_INCREMENT",
@@ -109,7 +109,7 @@ function test_sql_datas(){
 			// "maj" => "" // doit se remplir automatiquement
 		],
 	];
-	
+
 	$table_haddock = [
 		'field'=> [
 			"id_haddock" => "INTEGER NOT NULL AUTO_INCREMENT",
@@ -139,7 +139,7 @@ function test_sql_datas(){
 			"alcool" => "Un début de chaine : <multi>[fr]Vinasse[en]Vinassy</multi>, et [la fin]",
 		],
 	];
-			
+
 	return [
 		'spip_test_tintin'=>[
 			'desc'=>$table_tintin,
@@ -148,16 +148,16 @@ function test_sql_datas(){
 		'spip_test_milou'=>[
 			'desc'=>$table_milou,
 			'data'=>$data_milou
-			],				
+			],
 		'spip_test_haddock'=>[
 			'desc'=>$table_haddock,
 			'data'=>$data_haddock
-			],				
+			],
 	];
 }
 
 /*
- * Suppression de tables 
+ * Suppression de tables
  */
 function test_drop_table(){
 	$tables = test_sql_datas();
@@ -182,14 +182,14 @@ function test_create_table(){
 	foreach ($tables as $t=>$v){
 		if (!sql_create($t, $v['desc']['field'], $v['desc']['key']))
 			$err[] = "sql_create $t en echec"; // reponse, arguments
-	}		
+	}
 	if ($err) {
 		return '<b>Creation de table en echec</b><dl>' . join('', $err) . '</dl>';
 	}
 }
 
 
-	
+
 /*
  * Insertion de champs multiples sql_insertq_multi
  * et comptage avec sql_countsel
@@ -200,12 +200,12 @@ function test_insert_data() {
 	// inserer les donnees dans la table
 	foreach ($tables as $t=>$d){
 		sql_insertq_multi($t, $d['data']);
-		$essais[] = [(string)count($d['data']),$t];
+		$essais[] = [count($d['data']),$t];
 	}
-	$err = tester_fun('sql_countsel', $essais);	
+	$err = tester_fun('sql_countsel', $essais);
 	if ($err) {
 		return '<b>Insertion multiple puis countsel dans table</b><dl>' . join('', $err) . '</dl>';
-	}	
+	}
 }
-		
+
 ?>

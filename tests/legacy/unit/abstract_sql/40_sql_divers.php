@@ -33,7 +33,7 @@ function test_func_mathematiques()
 		'AVG' => 3000,
 	] as $func => $attendu) {
 		$nb = sql_getfetsel("{$func}(un_int) AS nb", ['spip_test_tintin']);
-		if ($nb !== $attendu) {
+		if ($nb != $attendu) {
 			$err[] = "Selection {$func} en echec : attendu : {$attendu}, recu : {$nb}";
 		}
 	}
@@ -51,11 +51,11 @@ function test_func_mathematiques()
 		'1.5/2' => (1.5 / 2),
 		'2.0/2' => (2.0 / 2),
 		'2/2' => (2 / 2),
-		'md5(8)' => md5(8),
+		'md5(8)' => md5("8"),
 		'md5(' . sql_quote('a') . ')' => md5('a'),
 	] as $func => $attendu) {
 		$nb = sql_getfetsel("{$func} AS nb", ['spip_test_tintin'], ['id_tintin=' . sql_quote(1)]);
-		if ($nb !== $attendu) {
+		if ($nb != $attendu) {
 			$err[] = "Selection {$func} en echec : attendu : {$attendu}, recu : {$nb}";
 		}
 	}
