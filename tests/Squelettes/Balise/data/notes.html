@@ -10,6 +10,8 @@
 		qui restaure l'etat de la pile des notes : ainsi lors de l'evaluation dynamique, les notes sont synchro
 
 ]
+#SET{err,''}
+
 [(#REM) une note simple ]
 [(#SET{appelnote,#VAL{<p>a<span class="spip_note_ref">&nbsp;\[<a href='#nb1' class='spip_note' rel='appendix' title='b' id='nh1'>1</a>\]</span></p>}})]
 [(#SET{lanote,#VAL{<div id='nb1'>
@@ -27,7 +29,7 @@
 [(#GET{test1}|=={#GET{test2}}|?{#SET{err,'Le compteur de note n&#39;a pas ete incremente au meme niveau'}})]
 
 [(#REM) une note simple affichee dans une inclusion qui doit etre numerotee differement des deux premieres]
-#SET{notes3,#INCLURE{fond=#DOSSIER_SQUELETTES/note_inclue_affichee}}
+#SET{notes3,#INCLURE{fond=#DOSSIER_SQUELETTE/note_inclue_affichee}}
 [(#GET{notes3}|=={#GET{notes}}|?{#SET{err,'Le compteur de note n&#39;a pas ete incremente dans l&#39;inclusion'}})]
 [(#GET{notes3}|=={#GET{notes2}}|?{#SET{err,'Le compteur de note n&#39;a pas ete incremente dans l&#39;inclusion2'}})]
 
@@ -39,7 +41,7 @@
 [(#GET{notes4}|=={#GET{notes3}}|?{#SET{err,'Le compteur de note n&#39;a pas ete incremente apres l&#39;inclusion3'}})]
 
 [(#REM) une note simple ajoutee dans une inclusion mais non affichee qui doit etre purgee avant retour ici ]
-[(#INCLURE{fond=#DOSSIER_SQUELETTES/note_inclue_nonaffichee}|vide)]
+[(#INCLURE{fond=#DOSSIER_SQUELETTE/note_inclue_nonaffichee}|vide)]
 #SET{notes5,#NOTES}
 [(#GET{notes5}|oui)#SET{err,'La note inclue n&#39;a pas ete purgee'}]
 
