@@ -18,7 +18,7 @@ class FileLoader implements LoaderInterface
 	public function exists(string $name): bool
 	{
 		$filepath = realpath($name);
-		return file_exists($filepath);
+		return ($filepath !== false) && file_exists($filepath);
 	}
 
 	public function getCacheKey(string $name): string
