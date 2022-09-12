@@ -21,10 +21,10 @@ class NotesTest extends TestCase
 
 	public function testNoteSimple(): void
 	{
-		$expected = "<p>a<span class=\"spip_note_ref\">&nbsp;[<a href='#nb1' class='spip_note' rel='appendix' title='b' id='nh1'>1</a>]</span></p>";
+		$expected = "<p>a<span class=\"spip_note_ref\">&nbsp;[<a href=\"#nb1\" class=\"spip_note\" rel=\"appendix\" title=\"b\" id=\"nh1\">1</a>]</span></p>";
 		$this->assertEquals($expected, propre('a[[b]]'));
 
-		$expected = "<div id=\"nb1\">\n<p><span class=\"spip_note_ref\">[<a href='#nh1' class='spip_note' title='" . _T('info_notes') . " 1' rev='appendix'>1</a>]&nbsp;</span>b</p>\n</div>";
+		$expected = "<div id=\"nb1\">\n<p><span class=\"spip_note_ref\">[<a href=\"#nh1\" class=\"spip_note\" title=\"" . _T('info_notes') . " 1\" rev=\"appendix\">1</a>]&nbsp;</span>b</p>\n</div>";
 		$this->assertEquals($expected, calculer_notes());
 	}
 

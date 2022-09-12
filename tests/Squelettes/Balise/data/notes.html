@@ -13,9 +13,9 @@
 #SET{err,''}
 
 [(#REM) une note simple ]
-[(#SET{appelnote,#VAL{<p>a<span class="spip_note_ref">&nbsp;\[<a href='#nb1' class='spip_note' rel='appendix' title='b' id='nh1'>1</a>\]</span></p>}})]
-[(#SET{lanote,#VAL{<div id='nb1'>
-<p><span class="spip_note_ref">\[<a href='#nh1' class='spip_note' title='<:info_notes:> 1' rev='appendix'>1</a>\]&nbsp;</span>b</p>
+[(#SET{appelnote,#VAL{<p>a<span class="spip_note_ref">&nbsp;\[<a href="#nb1" class="spip_note" rel="appendix" title="b" id="nh1">1</a>\]</span></p>}})]
+[(#SET{lanote,#VAL{<div id="nb1">
+<p><span class="spip_note_ref">\[<a href="#nh1" class="spip_note" title="<:info_notes:> 1" rev="appendix">1</a>\]&nbsp;</span>b</p>
 </div>}})]
 #SET{test1,#VAL{'a\[\[b\]\]'}|propre}
 [(#GET{test1}|=={#GET{appelnote}}|?{'',#SET{err,'erreur appel note simple'}})]
