@@ -54,5 +54,12 @@ function spip_tests_loger_webmestre()
 	auth_loger($webmestre);
 }
 
+function spip_tests_deloger_webmestre() {
+	if (!empty($GLOBALS['visiteur_session']['id_auteur'])) {
+		supprimer_sessions($GLOBALS['visiteur_session']['id_auteur'], false);
+	}
+	$GLOBALS['visiteur_session'] = [];
+}
+
 // inclure les bootstrap.php de chaque suite
 include_once __DIR__ . '/bootstrap_plugins.php';
