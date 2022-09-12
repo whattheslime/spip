@@ -16,7 +16,7 @@ require $remonte . 'test.inc';
 
 $ok = true;
 
-$sous_repertoire = 'test' . md5(random_int(0, mt_getrandmax()));
+$sous_repertoire = 'test' . md5(strval(random_int(0, mt_getrandmax())));
 
 include_spip('inc/flock');
 
