@@ -92,11 +92,11 @@ class SpipTestFineDiffRenderer extends \cogpowered\FineDiff\Render\Text
 		$content = substr($from, $offset, $length);
 		switch ($opcode) {
 			case 'c':
-				return '  ' . $content;
+				return '  ' . $content . PHP_EOL;
 			case 'd':
-				return '- ' . $content;
+				return '- ' . $content . PHP_EOL;
 			case 'i':
-				return '+ ' . $content;
+				return '+ ' . $content . PHP_EOL;
 		}
 	}
 }
@@ -107,7 +107,7 @@ function display_error($titre, $call, $result, $expected, $opts = [])
 	static $bef, $mid, $end;
 	static $style;
 	if (defined('_IS_CLI') && _IS_CLI) {
-		echo "/!\ FAIL test `{$titre}`\n--- Expected\n+++ Actual\n@@ @@\n";
+		echo "\n/!\ FAIL test `{$titre}`\n--- Expected\n+++ Actual\n@@ @@\n";
 
 		$from = var_export($expected, true);
 
