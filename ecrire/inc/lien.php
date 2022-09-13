@@ -16,6 +16,7 @@ if (!defined('_ECRIRE_INC_VERSION')) {
 
 include_spip('base/abstract_sql');
 include_spip('inc/modeles');
+include_spip('inc/liens');
 
 /**
  * Production de la balise a+href à partir des raccourcis `[xxx->url]` etc.
@@ -47,12 +48,6 @@ function inc_lien_dist(
 ) {
 	return $lien;
 }
-
-// Regexp des raccourcis, aussi utilisee pour la fusion de sauvegarde Spip
-// Laisser passer des paires de crochets pour la balise multi
-// mais refuser plus d'imbrications ou de mauvaises imbrications
-// sinon les crochets ne peuvent plus servir qu'a ce type de raccourci
-define('_RACCOURCI_LIEN', '/\[([^][]*?([[]\w*[]][^][]*)*)->(>?)([^]]*)\]/msS');
 
 function expanser_liens($t, string $connect = '', $env = []) {
 
