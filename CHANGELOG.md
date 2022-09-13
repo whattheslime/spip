@@ -14,6 +14,7 @@
 
 ### Changed
 
+- #5321 Refactoring de la collecte et echappement des liens
 - #5271 Refactoring de la mise en sécurité des textes dans ecrire et public
 - #5189 Ne plus forcer l'Engine MySQL à l'installation
 - #5273 Le critère `par_ordre_liste` rejette à la fin les éléments de la boucle absents de la liste
