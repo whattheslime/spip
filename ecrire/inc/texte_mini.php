@@ -543,7 +543,7 @@ function echapper_html_suspect($texte, $options = [], $connect = null, $env = []
 			return $texte;
 		}
 
-		[$texte, $markid] = modeles_echapper_raccourcis($texte, false);
+		[$texte, $markidmodeles] = modeles_echapper_raccourcis($texte, false);
 		$texte = echappe_js($texte);
 
 		$texte_to_check = $texte;
@@ -567,22 +567,26 @@ function echapper_html_suspect($texte, $options = [], $connect = null, $env = []
 			}
 			$texte = "<mark class='danger-js' title='" . attribut_html(_T('erreur_contenu_suspect')) . "'>⚠️</mark> " . $texte;
 		}
-		$texte = modele_retablir_raccourcis_echappes($texte, $markid);
+		$texte = modele_retablir_raccourcis_echappes($texte, $markidmodeles);
 	}
 
 	// si on est là dans le public c'est le mode parano
 	// on veut donc un rendu propre et secure, et virer silencieusement ce qui est dangereux
 	else {
-		$markid = null;
+		$markidmodeles = $markidliens = null;
 		if (!empty($options['expanser_liens'])) {
 			$texte = expanser_liens($texte, $env['connect'] ?? '', $env['env'] ?? []);
 		}
 		else {
-			[$texte, $markid] = modeles_echapper_raccourcis($texte, false);
+			[$texte, $markidliens] = liens_echapper_raccourcis($texte, 'safehtml');
+			[$texte, $markidmodeles] = modeles_echapper_raccourcis($texte, false);
 		}
 		$texte = safehtml($texte);
-		if ($markid) {
-			$texte = modele_retablir_raccourcis_echappes($texte, $markid);
+		if ($markidmodeles) {
+			$texte = modele_retablir_raccourcis_echappes($texte, $markidmodeles);
+		}
+		if ($markidliens) {
+			$texte = liens_retablir_raccourcis_echappes($texte, $markidliens);
 		}
 	}
 
