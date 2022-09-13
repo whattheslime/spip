@@ -173,11 +173,11 @@ function modele_retablir_raccourcis_echappes(string $texte, string $markid) {
  * @param bool|array $doublons
  * @param string $echap
  * @param string $connect
- * @param ?array $liens
+ * @param ?string $markidliens
  * @param array $env
  * @return string
  */
-function traiter_modeles($texte, $doublons = false, $echap = '', string $connect = '', $liens = null, $env = []) {
+function traiter_modeles($texte, $doublons = false, $echap = '', string $connect = '', ?string $markidliens = null, $env = []) {
 	// preserver la compatibilite : true = recherche des documents
 	if ($doublons === true) {
 		$doublons = ['documents' => ['doc', 'emb', 'img']];
@@ -199,8 +199,8 @@ function traiter_modeles($texte, $doublons = false, $echap = '', string $connect
 				// si un tableau de liens a ete passe, reinjecter le contenu d'origine
 				// dans les parametres, plutot que les liens echappes
 				$params = $m['params'];
-				if (!is_null($liens)) {
-					$params = str_replace($liens[0], $liens[1], $params);
+				if (!is_null($markidliens)) {
+					$params = liens_retablir_raccourcis_echappes($params, $markidliens);
 				}
 
 				$modele = inclure_modele($m['type'], $m['id'], $params, $m['lien'], $connect ?? '', $env);
@@ -211,8 +211,8 @@ function traiter_modeles($texte, $doublons = false, $echap = '', string $connect
 				if ($modele === false) {
 					$modele = $m['modele'];
 
-					if (!is_null($liens)) {
-						$modele = str_replace($liens[0], $liens[1], $modele);
+					if (!is_null($markidliens)) {
+						$modele = liens_retablir_raccourcis_echappes($modele, $markidliens);
 					}
 
 					$contexte = array_merge($env, ['id' => $m['id'], 'type' => $m['type'], 'modele' => $modele]);
