@@ -865,7 +865,8 @@ function entites_html($texte, $tout = false, $quote = true) {
  * @return string
  *     Texte converti
  **/
-function filtrer_entites($texte) {
+function filtrer_entites(?string $texte): string {
+	$texte ??= '';
 	if (strpos($texte, '&') === false) {
 		return $texte;
 	}
@@ -2511,8 +2512,8 @@ function afficher_tags($tags, $rels = 'tag,directory') {
  * @return string Tag HTML `<a>` avec microformat.
  **/
 function enclosure2microformat($e) {
-	if (!$url = filtrer_entites(extraire_attribut($e, 'url'))) {
-		$url = filtrer_entites(extraire_attribut($e, 'href'));
+	if (!$url = filtrer_entites(extraire_attribut($e, 'url') ?? '')) {
+		$url = filtrer_entites(extraire_attribut($e, 'href') ?? '');
 	}
 	$type = extraire_attribut($e, 'type');
 	if (!$length = extraire_attribut($e, 'length')) {
