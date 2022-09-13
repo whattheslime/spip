@@ -53,6 +53,7 @@ function liens_collecter($texte, ?string $sanitize_callback = null) {
 				'length' => strlen($match[0][0]),
 				'texte' => $match[1][0],
 				'href' => $href,
+				'ouvrant' => $match[3][0] ?? '',
 			];
 
 			// la mise en lien automatique est passee par la a tort !
