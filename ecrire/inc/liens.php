@@ -28,7 +28,7 @@ define('_RACCOURCI_LIEN', '/\[([^][]*?([[][^]>-]*[]][^][]*)*)->(>?)([^]]*)\]/msS
  * @param ?string $sanitize_callback
  * @return array
  */
-function liens_collecter($texte, ?string $sanitize_callback = null) {
+function liens_collecter(string $texte, ?string $sanitize_callback = null): array {
 
 	$liens = [];
 	$pos = 0;
@@ -105,7 +105,7 @@ function liens_collecter($texte, ?string $sanitize_callback = null) {
  * @return array
  *   texte, marqueur utilise pour echapper les modeles
  */
-function liens_echapper_raccourcis($texte, ?string $sanitize_callback = null) {
+function liens_echapper_raccourcis(string $texte, ?string $sanitize_callback = null): array {
 	if (!function_exists('creer_uniqid')) {
 		include_spip('inc/acces');
 	}
@@ -138,7 +138,7 @@ function liens_echapper_raccourcis($texte, ?string $sanitize_callback = null) {
  * @param string $markid
  * @return string
  */
-function liens_retablir_raccourcis_echappes(string $texte, string $markid) {
+function liens_retablir_raccourcis_echappes(string $texte, string $markid): string {
 
 	if ($markid) {
 		$lm = strlen($markid);
