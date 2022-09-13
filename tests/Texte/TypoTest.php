@@ -20,7 +20,7 @@ class TypoTest extends TestCase
 	protected function setUp(): void
 	{
 		$GLOBALS['meta']['type_urls'] = 'page';
-		$type_urls = 'page';
+		$GLOBALS['type_urls'] = 'page';
 		// ce test est en fr
 		changer_langue('fr');
 	}

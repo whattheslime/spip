@@ -20,7 +20,7 @@ class PropreTest extends TestCase
 	protected function setUp(): void
 	{
 		$GLOBALS['meta']['type_urls'] = 'page';
-		$type_urls = 'page';
+		$GLOBALS['type_urls'] = 'page';
 		changer_langue('fr');
 		// ce test est en fr
 		$GLOBALS['toujours_paragrapher'] = true;

@@ -22,7 +22,7 @@ class ChevronOuvrantTest extends TestCase
 	protected function setUp(): void
 	{
 		$GLOBALS['meta']['type_urls'] = 'page';
-		$type_urls = 'page';
+		$GLOBALS['type_urls'] = 'page';
 		// initialiser les plugins qui changent les intertitre (Z), et les restaurer juste apres
 		$mem = [$GLOBALS['debut_intertitre'] ?? null, $GLOBALS['spip_raccourcis_typo'] ?? null];
 		propre('rien du tout');
