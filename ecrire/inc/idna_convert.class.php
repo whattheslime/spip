@@ -84,6 +84,8 @@ class idna_convert {
     protected $_strict_mode = false;     // Behave strict or not
     protected $_idn_version = 2003;      // Can be either 2003 (old, default) or 2008
 
+	protected $slast;
+
     /**
      * the constructor
      *
