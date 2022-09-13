@@ -105,7 +105,7 @@ class TypoTest extends TestCase
 			 ],
 			11 =>
 			 [
-			 	0 => "{{{Des raccourcis}}} {italique} {{gras}} <code class='spip_code' dir='ltr'>du code</code>",
+			 	0 => "{{{Des raccourcis}}} {italique} {{gras}} <code class=\"spip_code\" dir=\"ltr\">du code</code>",
 			 	1 => '{{{Des raccourcis}}} {italique} {{gras}} <code>du code</code>',
 			 	2 => true,
 			 ],
