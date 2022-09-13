@@ -217,7 +217,7 @@ function urls_transition_retrouver_anciennes_url_html(string $url, string $entit
 			) {
 				[, $hash] = array_pad(explode('#', $url_propre), 2, '');
 				$args = [];
-				foreach (array_filter(explode('&', $suite)) as $fragment) {
+				foreach (array_filter(explode('&', $suite ?? '')) as $fragment) {
 					if ($fragment != "$_id=$id_objet") {
 						$args[] = $fragment;
 					}
