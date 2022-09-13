@@ -25,9 +25,10 @@ define('_RACCOURCI_LIEN', '/\[([^][]*?([[][^]>-]*[]][^][]*)*)->(>?)([^]]*)\]/msS
  * Detecter et collecter les raccourcis lien d'un texte dans un tableau descriptif
  * qui pourra servir a leurs traitements ou echappement selon le besoin
  * @param string $texte
+ * @param ?string $sanitize_callback
  * @return array
  */
-function liens_collecter($texte) {
+function liens_collecter($texte, ?string $sanitize_callback = null) {
 
 	$liens = [];
 	$pos = 0;
@@ -71,6 +72,19 @@ function liens_collecter($texte) {
 				$lien['href'] = str_replace(["\x1\x5", "\x1\x6"], ['[', ']'], $lien['href']);
 			}
 
+			if ($sanitize_callback) {
+				$t = $sanitize_callback($lien['texte']);
+				if ($t !== $lien['texte']) {
+					$lien['lien'] = str_replace($lien['texte'], $t, $lien['lien']);
+					$lien['texte'] = $t;
+				}
+				$href = $sanitize_callback($lien['href']);
+				if ($href !== $lien['href']) {
+					$lien['lien'] = str_replace($lien['href'], $href, $lien['lien']);
+					$lien['href'] = $href;
+				}
+			}
+
 			$liens[] = $lien;
 
 			$pos = $lien['pos'] + $lien['length'];
@@ -86,16 +100,16 @@ function liens_collecter($texte) {
  *
  * @see liens_retablir_raccourcis_echappes()
  * @param string $texte
- * @param bool $collecter_liens
+ * @param ?string $sanitize_callback
  * @return array
  *   texte, marqueur utilise pour echapper les modeles
  */
-function liens_echapper_raccourcis($texte) {
+function liens_echapper_raccourcis($texte, ?string $sanitize_callback = null) {
 	if (!function_exists('creer_uniqid')) {
 		include_spip('inc/acces');
 	}
 
-	$liens = liens_collecter($texte);
+	$liens = liens_collecter($texte, $sanitize_callback);
 	$markid = '';
 	if (!empty($liens)) {
 		// generer un marqueur qui n'est pas dans le texte
