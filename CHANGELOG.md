@@ -32,6 +32,7 @@
 
 ### Fixed
 
+- #5308 Correction de la valeur affichée pour le dernier item de pagination en mode naturel
 - #5132 Correction d'un deprecated sur `recuperer_numero()` quand on lui passe une valeur nulle
 - spip-contrib-extensions/mailsubscribers#23 La séléction de la langue du visiteur doit se limiter à la config `langues_multilingue` dans le public
 - spip/medias#4905 Utiliser une déclaration moins prioritaire pour les traitements sur les champs
