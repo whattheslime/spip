@@ -11,6 +11,7 @@ Changelog de SPIP 4.1
 
 ### Fixed
 
+- #5132 Correction d'un deprecated sur `recuperer_numero()` quand on lui passe une valeur nulle
 - #5287 Éviter un échec de migration de certains logos au format SVG.
 - #5283 Loger les erreurs de squelettes lorsqu’elles ne sont pas affichées sur la page
 - #5016 Collecte des arguments sur les formulaires dans un modèle
