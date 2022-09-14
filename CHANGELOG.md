@@ -32,6 +32,7 @@
 
 ### Fixed
 
+- #5132 Correction d'un deprecated sur `recuperer_numero()` quand on lui passe une valeur nulle
 - spip-contrib-extensions/mailsubscribers#23 La séléction de la langue du visiteur doit se limiter à la config `langues_multilingue` dans le public
 - spip/medias#4905 Utiliser une déclaration moins prioritaire pour les traitements sur les champs
 - #5303 Ne pas déclencher l'ouverture du datepicker quand la date n'est pas en édition
