@@ -247,7 +247,7 @@ function traiter_modeles($texte, $doublons = false, $echap = '', string $connect
 			if ((test_espace_prive() or ($doublons)) and !empty($m['id'])) {
 				$type = strtolower($m['type']);
 				foreach ($doublons ?: ['documents' => ['doc', 'emb', 'img']] as $quoi => $type_modeles) {
-					if (in_array($type, $modeles)) {
+					if (in_array($type, $type_modeles)) {
 						$GLOBALS["doublons_{$quoi}_inclus"][] = $m['id'];
 					}
 				}
