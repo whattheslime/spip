@@ -11,6 +11,7 @@ Changelog de SPIP 4.1
 
 ### Fixed
 
+- #5284 Éviter que les titres longs dépassent de leur bloc dans l'espace privé
 - #5308 Correction de la valeur affichée pour le dernier item de pagination en mode naturel
 - #5132 Correction d'un deprecated sur `recuperer_numero()` quand on lui passe une valeur nulle
 - #5287 Éviter un échec de migration de certains logos au format SVG.
