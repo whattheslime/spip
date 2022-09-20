@@ -33,6 +33,7 @@
 
 ### Fixed
 
+- #5284 Éviter que les titres longs dépassent de leur bloc dans l'espace privé
 - #5329 Rétablir la collecte des doublons par la fonction `traiter_modeles()`
 - #5308 Correction de la valeur affichée pour le dernier item de pagination en mode naturel
 - #5132 Correction d'un deprecated sur `recuperer_numero()` quand on lui passe une valeur nulle
