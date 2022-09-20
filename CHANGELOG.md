@@ -33,6 +33,7 @@
 
 ### Fixed
 
+- #5326 Utilisation de PHP_AUTH avec d'autres méthodes d'identification que LDAP
 - #5284 Éviter que les titres longs dépassent de leur bloc dans l'espace privé
 - #5329 Rétablir la collecte des doublons par la fonction `traiter_modeles()`
 - #5308 Correction de la valeur affichée pour le dernier item de pagination en mode naturel
