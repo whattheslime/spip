@@ -26,7 +26,7 @@ if (! $id) {
 
 $p0 = "[->art{$id}]";
 
-if (! $c = extraire_attribut(propre($p0), 'class') || strpos($c, 'spip_in') === false || strpos(
+if (! ($c = extraire_attribut(propre($p0), 'class')) || strpos($c, 'spip_in') === false || strpos(
 	$c,
 	'spip_out'
 ) !== false) {
