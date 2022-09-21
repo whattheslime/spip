@@ -61,6 +61,18 @@ class EchapperHtmlSuspectTest extends TestCase {
 				true,
 				'<span lang=\'fr\'>Créer des sélections d&#8217;objets ayant un prix</span>',
 			],
+			'multi_safe' => [
+				true,
+				'<multi>[fr]Salut[en]Hey[de]Hallo</multi>',
+			],
+			'multi_malicious' => [
+				false,
+				'<multi><script type="text/javascript">alert()</script></multi>',
+			],
+			'idiome' => [
+				true,
+				'<:spip:bonjour:> Toto',
+			],
 		];
 	}
 
