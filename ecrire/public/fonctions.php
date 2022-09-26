@@ -530,7 +530,7 @@ function tri_champ_order($t, $from = null, $senstri = '') {
 	$champ = $t;
 
 	$prefixe = '';
-	foreach (['num ', 'sinum '] as $p) {
+	foreach (['num ', 'sinum ', 'sansnum '] as $p) {
 		if (str_starts_with($t, $p)) {
 			$champ = substr($t, strlen($p));
 			$prefixe = $p;
@@ -554,6 +554,7 @@ function tri_champ_order($t, $from = null, $senstri = '') {
 	return match ($prefixe) {
 		'num ' => "CASE( 0+$champ ) WHEN 0 THEN 1 ELSE 0 END{$senstri}, 0+$champ{$senstri}",
 		'sinum ' => "CASE( 0+$champ ) WHEN 0 THEN 1 ELSE 0 END{$senstri}",
+		'sansnum' => "CASE WHEN $champ REGEXP(\"^[0-9]+\. \") THEN REVERSE(SUBSTRING_INDEX(REVERSE($champ), \" .\", 1)) ELSE $champ END{$senstri}",
 		default => $champ . $senstri,
 	};
 }
