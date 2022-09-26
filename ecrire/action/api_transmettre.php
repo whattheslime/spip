@@ -58,6 +58,7 @@ function action_api_transmettre_dist($arg = null) {
 		}
 	}
 	$qs = http_build_query($contexte);
+	include_spip('inc/acces');
 	if (!securiser_acces_low_sec(intval($id_auteur), $cle, "transmettre/$format", $fond, $qs)) {
 		// si le autoriser low_sec n'est pas bon, on peut valider l'appel si l'auteur est identifie
 		include_spip('inc/autoriser');
