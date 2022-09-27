@@ -1708,7 +1708,7 @@ function extraire_idiome($letexte, $lang = null, $options = []) {
 		include_spip("src/Texte/Collecteur/Idiomes");
 		$collecteurIdiomes = new Spip\Texte\Collecteur\Idiomes();
 
-		$letexte = $CollecteurIdiomes->traiter($letexte, $options);
+		$letexte = $collecteurIdiomes->traiter($letexte, $options);
 
 	}
 	return $letexte;
