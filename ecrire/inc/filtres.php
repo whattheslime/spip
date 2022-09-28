@@ -1025,13 +1025,15 @@ function texte_backendq(string $texte): string {
  *     ```
  *     [<h1>(#TITRE|supprimer_numero)</h1>]
  *     ```
- *
- * @param string $texte
+ * @param string|null $texte
  *     Texte
- * @return int|string
- *     Numéro de titre, sinon chaîne vide
+ * @return string
+ *     Texte sans son numéro éventuel
  **/
-function supprimer_numero($texte) {
+function supprimer_numero(?string $texte): string {
+	if ($texte === null) {
+		return '';
+	}
 	return preg_replace(
 		',^[[:space:]]*([0-9]+)([.)]|' . chr(194) . '?' . chr(176) . ')[[:space:]]+,S',
 		'',
@@ -1053,12 +1055,12 @@ function supprimer_numero($texte) {
  *     [(#TITRE|recuperer_numero)]
  *     ```
  *
- * @param string $texte
+ * @param string|null $texte
  *     Texte
- * @return int|string
+ * @return string
  *     Numéro de titre, sinon chaîne vide
  **/
-function recuperer_numero($texte) {
+function recuperer_numero(?string $texte): string {
 	if (
 		$texte and
 		preg_match(
