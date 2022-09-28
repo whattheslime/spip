@@ -34,6 +34,7 @@
 
 ### Fixed
 
+- #5316 Les PDF envoyés avec un CSP Sandbox ne sont pas visibles dans Safari ou Chrome, on fait donc une exception pour ces fichiers
 - #5326 Utilisation de PHP_AUTH avec d'autres méthodes d'identification que LDAP
 - #5284 Éviter que les titres longs dépassent de leur bloc dans l'espace privé
 - #5329 Rétablir la collecte des doublons par la fonction `traiter_modeles()`
