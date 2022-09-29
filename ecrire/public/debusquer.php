@@ -121,7 +121,7 @@ function public_debusquer_dist($message = '', $lieu = '', $opt = []) {
 	include_spip('inc/headers');
 	include_spip('inc/filtres');
 
-	lang_select($GLOBALS['visiteur_session']['lang']);
+	lang_select($GLOBALS['visiteur_session']['lang'] ?? null);
 	$fonc = preg_replace(',\W,', '_', _request('var_mode_objet') ?? '');
 	$mode = preg_replace(',\W,', '_', _request('var_mode_affiche') ?? '');
 
