@@ -50,6 +50,7 @@
 - #5283 Loger les erreurs de squelettes lorsqu’elles ne sont pas affichées sur la page
 - #5016 Collecte des arguments sur les formulaires dans un modèle
 - #5274 Homogénéiser les labels des listes
+- #5355 Correction d'un Warning si le débogueur est appelé sans être connecté
 
 ### Removed
 
