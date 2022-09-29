@@ -16,6 +16,7 @@
 
 ### Changed
 
+- #5351 Balisage html généré par la balise raccourci `<code>`
 - #5321 Refactoring de la collecte et echappement des liens
 - #5271 Refactoring de la mise en sécurité des textes dans ecrire et public
 - #5189 Ne plus forcer l'Engine MySQL à l'installation
