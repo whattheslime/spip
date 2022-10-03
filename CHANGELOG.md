@@ -16,6 +16,7 @@
 
 ### Changed
 
+- #5361 Image `loader.svg` dans un style plus moderne
 - #5351 Balisage html généré par la balise raccourci `<code>`
 - #5321 Refactoring de la collecte et echappement des liens
 - #5271 Refactoring de la mise en sécurité des textes dans ecrire et public
