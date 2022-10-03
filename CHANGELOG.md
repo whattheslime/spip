@@ -36,6 +36,7 @@
 
 ### Fixed
 
+- #5357 Utiliser le terme "Se connecter" valider le formulaire de login
 - #5355 Correction d'un Warning si le débogueur est appelé sans être connecté
 - #5316 Les PDF envoyés avec un CSP Sandbox ne sont pas visibles dans Safari ou Chrome, on fait donc une exception pour ces fichiers
 - #5326 Utilisation de PHP_AUTH avec d'autres méthodes d'identification que LDAP
