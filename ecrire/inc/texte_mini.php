@@ -72,6 +72,9 @@ function spip_balisage_code(string $corps, bool $bloc = false, string $attributs
 	if ($langage) {
 		$class .= " language-$langage";
 	}
+	if ($attributs) {
+		$attributs = " " . trim($attributs);
+	}
 	if ($bloc) {
 		$html = "<div class=\"precode\">"
 		  . "<pre class=\"$class\" dir=\"ltr\" style=\"text-align: left;\"$attributs>"
@@ -84,7 +87,7 @@ function spip_balisage_code(string $corps, bool $bloc = false, string $attributs
 	else {
 		$echap = str_replace("\t", "&nbsp; &nbsp; &nbsp; &nbsp; ", $echap);
 		$echap = str_replace("  ", " &nbsp;", $echap);
-		$html = "<code class=\"$class\" dir=\"ltr\" $attributs>" . $echap . '</code>';
+		$html = "<code class=\"$class\" dir=\"ltr\"$attributs>" . $echap . '</code>';
 	}
 
 	return $html;
