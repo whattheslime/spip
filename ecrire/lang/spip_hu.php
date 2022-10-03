@@ -462,7 +462,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'login_retour_public' => 'Vissza a nyilvános honlapra',
 	'login_retour_site' => 'Vissza a nyilvános honlapra',
 	'login_retoursitepublic' => 'vissza a nyilvános honlapra',
-	'login_sinscrire' => 'beíratkozás',
+	'login_sinscrire' => 'beíratkozás', # MODIF
 	'login_test_navigateur' => 'böngésző teszt/újracsatlakozás',
 	'login_verifiez_navigateur' => '(Azonban ellenőrizze, hogy a bongészó nem memorizálta-e a jelszót...)',
 

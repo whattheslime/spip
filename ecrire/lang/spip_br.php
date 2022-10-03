@@ -533,7 +533,7 @@ Evit gwiriekaat ho postel nevez, n’ho peus nemet kevreañ d’ar chomlec’h a
 	'login_retoursitepublic' => 'distreiñ d’al lodenn foran',
 	'login_sans_cookie' => 'Kevreañ hep toupinoù',
 	'login_securise' => 'Login diogelet',
-	'login_sinscrire' => 'en em enskrivañ',
+	'login_sinscrire' => 'en em enskrivañ', # MODIF
 	'login_test_navigateur' => 'taol-arnod merdeer/adkevreañ',
 	'login_verifiez_navigateur' => '(Gwiriit memes tra n’eo ket bet memoret ho ker-tremen gant ar merdeer...)',
 

@@ -533,7 +533,7 @@ aŭ kontaktu vian retgastiganton.</span>',
 	'login_retoursitepublic' => 'reen al la publika spaco',
 	'login_sans_cookie' => 'Ensaluto sen kuketo',
 	'login_securise' => 'Sekura salutnomo',
-	'login_sinscrire' => 'registriĝi',
+	'login_sinscrire' => 'registriĝi', # MODIF
 	'login_test_navigateur' => 'testo retumilo/rekonektiĝo',
 	'login_verifiez_navigateur' => '(Kontrolu tamen ke via retumilo ne memoras pri via pasvorto...)',
 

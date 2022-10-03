@@ -500,7 +500,7 @@ serwisie "@nom_site_spip@" (@adresse_login@):',
 	'login_retour_public' => 'Powrót do strony publicznej',
 	'login_retour_site' => 'Powrót do strony publicznej',
 	'login_retoursitepublic' => 'Powrót do strony publicznej',
-	'login_sinscrire' => 'rejestracja',
+	'login_sinscrire' => 'rejestracja', # MODIF
 	'login_test_navigateur' => 'test przeglądarki/łącz ponownie',
 	'login_verifiez_navigateur' => '(Sprawdź czy Twoja przeglądarka nie zapamiętała hasła...)',
 

@@ -468,7 +468,7 @@ devi attivare Javascript nel tuo browser e',
 	'login_retour_public' => 'Ritorna al sito pubblico',
 	'login_retour_site' => 'Ritorna al sito pubblico',
 	'login_retoursitepublic' => 'ritorna al sito pubblico',
-	'login_sinscrire' => 'registrati',
+	'login_sinscrire' => 'registrati', # MODIF
 	'login_test_navigateur' => 'test browser/riconnessione',
 	'login_verifiez_navigateur' => '(Verifica comunque se il tuo browser ha memorizzato la password...)',
 

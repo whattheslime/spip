@@ -440,7 +440,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'login_retour_public' => 'Обратно към публичния сайт',
 	'login_retour_site' => 'Обратно към публичния сайт',
 	'login_retoursitepublic' => 'обратно към публичния сайт',
-	'login_sinscrire' => 'регистрирация',
+	'login_sinscrire' => 'регистрирация', # MODIF
 	'login_test_navigateur' => 'тест на навигатор/повторно свързване',
 	'login_verifiez_navigateur' => '(Въпреки това, убедете се, че навигаторът не е запаметил Вашата парола...)',
 

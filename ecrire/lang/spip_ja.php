@@ -516,7 +516,7 @@ http://mysite.com、あるいは単純にこのサイトの記事番号を与え
 	'login_retoursitepublic' => '公開サイトに戻る',
 	'login_sans_cookie' => 'クッキーを拒絶して、ログインする。',
 	'login_securise' => '安全ログイン',
-	'login_sinscrire' => '申し込む',
+	'login_sinscrire' => '申し込む', # MODIF
 	'login_test_navigateur' => 'ブラウザテスト、接続をやり直す',
 	'login_verifiez_navigateur' => '(ところが、ブラウザがパスワードを登録しなかったことを確かめて下さい。)',
 

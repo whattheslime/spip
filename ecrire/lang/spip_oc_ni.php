@@ -469,7 +469,7 @@ dau sit "@nom_site_spip@" (@adresse_site@) :',
 	'login_retour_public' => 'Tornar au sit public',
 	'login_retour_site' => 'Tornar au sit public',
 	'login_retoursitepublic' => 'tornar au sit public',
-	'login_sinscrire' => 's’inscriure',
+	'login_sinscrire' => 's’inscriure', # MODIF
 	'login_test_navigateur' => 'test navigador/tornar connectar',
 	'login_verifiez_navigateur' => '(verificatz pura que lo voastre navigador a pas conservat lo mòt de santa Clara en memòria...)',
 

@@ -471,7 +471,7 @@ dann out navigatèr é',
 	'login_retour_public' => 'Artourn sir figirwèb',
 	'login_retour_site' => 'Artourn sir figirwèb',
 	'login_retoursitepublic' => 'artourn sir figirwèb',
-	'login_sinscrire' => 'inskri aou',
+	'login_sinscrire' => 'inskri aou', # MODIF
 	'login_test_navigateur' => 'test navigatèr/nouvo lakostaz',
 	'login_verifiez_navigateur' => '(Somansa gét byin out navigatèr la pa gardantèt out modpass...)',
 

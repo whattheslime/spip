@@ -525,7 +525,7 @@ Zure pasahitza sarean atzeman ahal izatea nahi ez baduzu, JavaScript-a aktibatu 
 	'login_retour_site' => 'Eremu publikora itzuli',
 	'login_retoursitepublic' => 'eremu publikora itzuli',
 	'login_securise' => 'Login segurua',
-	'login_sinscrire' => 'inskribatu',
+	'login_sinscrire' => 'inskribatu', # MODIF
 	'login_test_navigateur' => 'nabigatzaile proba/berkonexioa',
 	'login_verifiez_navigateur' => '(Hala ere,zure nabigatzaileak zure pasahitza memorizatu ez duela egiaztatu...)',
 

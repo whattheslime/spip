@@ -525,7 +525,7 @@ Pediu para alterar o seu endereço e-mail. Para confirmar o seu novo endereço, 
 	'login_retour_site' => 'Regresso ao sítio público',
 	'login_retoursitepublic' => 'Regresso ao sítio público',
 	'login_securise' => 'Login seguro',
-	'login_sinscrire' => 'inscrever-se',
+	'login_sinscrire' => 'inscrever-se', # MODIF
 	'login_test_navigateur' => 'teste navegação/nova ligação',
 	'login_verifiez_navigateur' => '(Verifique, porém, que o seu navegador não memorizou a sua palavra-passe...)',
 

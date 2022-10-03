@@ -519,7 +519,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'login_retour_site' => 'بازگشت به سايت همگانى',
 	'login_retoursitepublic' => 'بازگشت به سايت همگانى',
 	'login_securise' => 'لاگين امن ',
-	'login_sinscrire' => 'ثبت نام ',
+	'login_sinscrire' => 'ثبت نام ', # MODIF
 	'login_test_navigateur' => 'آزمايش مرورگر/ ارتباط دوباره',
 	'login_verifiez_navigateur' => '(...مطمئن شويد كه مرورگر كلمه ورودى تان را ضبط نكرده است)',
 

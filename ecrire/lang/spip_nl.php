@@ -536,7 +536,7 @@ de website "@nom_site_spip@" (@adresse_login@):',
 	'login_retoursitepublic' => 'terug naar de publieke site',
 	'login_sans_cookie' => 'Aanmelden zonder cookie',
 	'login_securise' => 'Secure Login',
-	'login_sinscrire' => 'Registreren',
+	'login_sinscrire' => 'Registreren', # MODIF
 	'login_test_navigateur' => 'testen van browser/opnieuw verbinden',
 	'login_verifiez_navigateur' => '(Controleer toch of je browser je wachtwoord niet heeft onthouden...)',
 

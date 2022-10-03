@@ -446,7 +446,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'login_retour_public' => 'အများဆိုင် စာမျက်နှာသို့ ပြန်သွားရန်',
 	'login_retour_site' => 'အများဆိုင် စာမျက်နှာသို့ ပြန်သွားရန်',
 	'login_retoursitepublic' => 'အများဆိုင် စာမျက်နှာသို့ ပြန်သွားရန်',
-	'login_sinscrire' => 'မှတ်ပုံတင်ရန်',
+	'login_sinscrire' => 'မှတ်ပုံတင်ရန်', # MODIF
 	'login_test_navigateur' => 'စမ်းသပ်ရန်',
 	'login_verifiez_navigateur' => '(သင့် browser မှ သင့်စကားဝှက်ကို မမှတ်မိပါ)',
 

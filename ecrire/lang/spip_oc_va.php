@@ -431,7 +431,7 @@ dau sit "@nom_site_spip@" (@adresse_site@):',
 	'login_retour_public' => 'Tornar au sit public',
 	'login_retour_site' => 'Tornar au sit public',
 	'login_retoursitepublic' => 'tornar au sit public',
-	'login_sinscrire' => 's’inscriure',
+	'login_sinscrire' => 's’inscriure', # MODIF
 	'login_test_navigateur' => 'Assai navigaor/tornar connectar',
 	'login_verifiez_navigateur' => '(pasmens verificatz que vòstre navigaor aia pas servat vòstre mot de santa Clara en memòria...)',
 

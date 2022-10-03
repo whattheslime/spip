@@ -459,7 +459,7 @@ na webu "@nom_site_spip@" (@adresse_login@):',
 	'login_retour_public' => 'Zpět na veřejné stránky',
 	'login_retour_site' => 'Zpět na veřejné stránky',
 	'login_retoursitepublic' => 'zpět na veřejné stránky',
-	'login_sinscrire' => 'registrovat',
+	'login_sinscrire' => 'registrovat', # MODIF
 	'login_test_navigateur' => 'test prohlížeče/opakované připojení',
 	'login_verifiez_navigateur' => '(Přesvědčte se však, zda si prohlížeč nezapamatoval vaše heslo...)',
 

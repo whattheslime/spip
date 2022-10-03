@@ -511,7 +511,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'login_retour_public' => 'Ritornu à u situ pùbblicu',
 	'login_retour_site' => 'Ritornu à u situ pùbblicu',
 	'login_retoursitepublic' => 'ritornu à u situ pùbblicu',
-	'login_sinscrire' => 'iscrive si',
+	'login_sinscrire' => 'iscrive si', # MODIF
 	'login_test_navigateur' => 'prova navigatore/ricunnessione',
 	'login_verifiez_navigateur' => '(Verificate quantunque chì u vostru navigatore ùn abbia memurizatu u vostru password...)',
 

@@ -526,7 +526,7 @@ Wann dir net wëllt dat äert Passwuert ka um Internet ofgefaange ginn, aktivéi
 	'login_retour_site' => 'Zeréck op de Site',
 	'login_retoursitepublic' => 'zeréck op den ëffentleche Site',
 	'login_securise' => 'Séchere Login',
-	'login_sinscrire' => 'sech aschreiwen',
+	'login_sinscrire' => 'sech aschreiwen', # MODIF
 	'login_test_navigateur' => 'Browser/Login-Test',
 	'login_verifiez_navigateur' => '(Kontrolléiert op äre Browser d’Passwuert net gespäichert huet...)',
 

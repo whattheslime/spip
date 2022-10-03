@@ -500,7 +500,7 @@ sitiu "@nom_site_spip@" (@adresse_login@):',
 	'login_retour_site' => 'Tornar pal sitiu públicu',
 	'login_retoursitepublic' => 'tornar pal sitiu públicu',
 	'login_securise' => 'Conexón asegurada',
-	'login_sinscrire' => 'inscribise',
+	'login_sinscrire' => 'inscribise', # MODIF
 	'login_test_navigateur' => 'preba de ñavegador/reconexón',
 	'login_verifiez_navigateur' => '(Verifica dafechu que’l ñavegador nun s’alcuerde de la to contraseña...)',
 

@@ -512,7 +512,7 @@ do web "@nom_site_spip@" (@adresse_site@):',
 	'login_retour_site' => 'Volver ao web público',
 	'login_retoursitepublic' => 'volver ao web público',
 	'login_securise' => 'Inicio de sesión securizado',
-	'login_sinscrire' => 'Inscribirse',
+	'login_sinscrire' => 'Inscribirse', # MODIF
 	'login_test_navigateur' => 'proba navegador/reconexión',
 	'login_verifiez_navigateur' => '(De todos os xeitos, comprobe que o seu navegador non memorizou a súa chave...)',
 

@@ -526,7 +526,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'login_retoursitepublic' => 'на головну сторінку сайту',
 	'login_sans_cookie' => 'Ідентифікація без cookie',
 	'login_securise' => 'Безпечний вхід',
-	'login_sinscrire' => 'реєстрація',
+	'login_sinscrire' => 'реєстрація', # MODIF
 	'login_test_navigateur' => 'перевірка браузера/(пере)підключення',
 	'login_verifiez_navigateur' => '(перевірте, що ваш браузер не запам’ятовує ваш пароль ...), ',
 

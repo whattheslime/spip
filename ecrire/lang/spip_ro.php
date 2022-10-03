@@ -516,7 +516,7 @@ site-ul "@nom_site_spip@" (@adresse_login@):',
 	'login_retour_site' => 'Înapoi la site-ul public',
 	'login_retoursitepublic' => 'înapoi la site-ul public',
 	'login_securise' => 'Login securizat',
-	'login_sinscrire' => 'înscrieţi-vă',
+	'login_sinscrire' => 'înscrieţi-vă', # MODIF
 	'login_test_navigateur' => 'test de navigator/reconectare',
 	'login_verifiez_navigateur' => '(Verificaţi totuşi că navigatorul de web nu a memorat parola dumneavoastră...)',
 

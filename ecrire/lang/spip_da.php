@@ -446,7 +446,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'login_retour_public' => 'Tilbage til det offentlige websted',
 	'login_retour_site' => 'Tilbage til den offentlige websted',
 	'login_retoursitepublic' => 'tilbage til den offentlige websted',
-	'login_sinscrire' => 'tilmelding',
+	'login_sinscrire' => 'tilmelding', # MODIF
 	'login_test_navigateur' => 'test af browser/nyt login',
 	'login_verifiez_navigateur' => '(Men kontroller, at din browser ikke har gemt adgangskoden...)',
 

@@ -532,7 +532,7 @@ sera ignourada) :
 	'login_retoursitepublic' => 'retour au sit pùblicou',
 	'login_sans_cookie' => 'Identificacioun sensa cookie',
 	'login_securise' => 'Login securisat',
-	'login_sinscrire' => 's’inscriéure',
+	'login_sinscrire' => 's’inscriéure', # MODIF
 	'login_test_navigateur' => 'prouva navigatour/recounessioun',
 	'login_verifiez_navigateur' => '(verificas pura que lou vouòstre navigatour noun àugue counservat lou mot de passa en memòria...)',
 

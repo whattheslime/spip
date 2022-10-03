@@ -544,7 +544,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'login_retoursitepublic' => 'عودة إلى الموقع العام',
 	'login_sans_cookie' => 'تعريف بدون الكعكة',
 	'login_securise' => 'تعريف مؤمّن',
-	'login_sinscrire' => 'تسجيل',
+	'login_sinscrire' => 'تسجيل', # MODIF
 	'login_test_navigateur' => 'تجربة المتصفح/إعادة الاتصال',
 	'login_verifiez_navigateur' => '(على أي حال، تأكد من أن المتصفح لم يقم بحفظ كلمة سرك...)',
 

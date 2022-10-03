@@ -534,7 +534,7 @@ stránku "@nom_site_spip@" (@adresse_login@):',
 	'login_retoursitepublic' => 'Späť na verejne prístupnú stránku',
 	'login_sans_cookie' => 'Identifikácia bez cookie',
 	'login_securise' => 'Zabezpečené prihlásenie',
-	'login_sinscrire' => 'Zaregistrovať sa',
+	'login_sinscrire' => 'Zaregistrovať sa', # MODIF
 	'login_test_navigateur' => 'Testuje sa prehliadač/nové pripojenie',
 	'login_verifiez_navigateur' => '(Skontrolujte však, či si prehliadač nezapamätal vaše heslo.)',
 

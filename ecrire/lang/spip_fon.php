@@ -417,7 +417,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'login_retour_public' => 'Mi lɛkɔ yì gblogblojí ɔ ',
 	'login_retour_site' => 'Mi lɛkɔ yì gblogblojí ɔ ',
 	'login_retoursitepublic' => 'Mi lɛkɔ yì gblogblojí ɔ ',
-	'login_sinscrire' => 'Ná nyíkɔ ',
+	'login_sinscrire' => 'Ná nyíkɔ ', # MODIF
 	'login_test_navigateur' => 'ɖèxlɛtɔ/àlɔwlí ɖévó',
 	'login_verifiez_navigateur' => '(mi kpɔn ɖɔ ɖèxlɛtɔ yí gbètákɛn à jí ...)',
 

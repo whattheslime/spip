@@ -466,7 +466,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'login_retour_public' => '返回公共站点',
 	'login_retour_site' => '返回公共站点',
 	'login_retoursitepublic' => '返回公共站点',
-	'login_sinscrire' => '注册',
+	'login_sinscrire' => '注册', # MODIF
 	'login_test_navigateur' => '测试浏览/重新连接',
 	'login_verifiez_navigateur' => '(无论如何, 请确认你的浏览器不会记住你的密码...)',
 

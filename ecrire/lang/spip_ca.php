@@ -522,7 +522,7 @@ Per confirmar la nova adreça, només heu de connectar-vos a l’adreça que hi 
 	'login_retour_site' => 'Tornar al lloc públic',
 	'login_retoursitepublic' => 'tornar al lloc públic',
 	'login_securise' => 'Inici de sessió segur',
-	'login_sinscrire' => 'inscriure’s',
+	'login_sinscrire' => 'inscriure’s', # MODIF
 	'login_test_navigateur' => 'prova de navegador/tornar a connectar',
 	'login_verifiez_navigateur' => '(Verifiqueu no obstant que el vostre navegador no ha memoritzat la contrasenya...)',
 

@@ -477,7 +477,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'login_retour_public' => 'חזור לאתר הציבורי',
 	'login_retour_site' => 'חזור לאתר הציבורי',
 	'login_retoursitepublic' => 'חזור לאתר הציבורי',
-	'login_sinscrire' => 'הרשמה',
+	'login_sinscrire' => 'הרשמה', # MODIF
 	'login_test_navigateur' => 'מבחן הדפדפן /חיבור מחדש',
 	'login_verifiez_navigateur' => '(בכל זאת נא לבדוק שהדפדפן שלך לא זכר את הסיסמה...)',
 

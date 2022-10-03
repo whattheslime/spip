@@ -462,7 +462,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'login_retour_public' => 'Kembali ke situs umum',
 	'login_retour_site' => 'Kembali ke situs umum',
 	'login_retoursitepublic' => 'kembali ke situs umum',
-	'login_sinscrire' => 'daftar',
+	'login_sinscrire' => 'daftar', # MODIF
 	'login_test_navigateur' => 'mencoba browser/koneksi',
 	'login_verifiez_navigateur' => '(Bagaimana pun, verifikasi bahwasanya browser anda tidak menyimpan kata sandi anda...)',
 

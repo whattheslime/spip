@@ -526,7 +526,7 @@ Kako biste potvrdili svoju novu adresu, potrebno je samo pristupiti niže navede
 	'login_retour_site' => 'natrag u javni dio weba',
 	'login_retoursitepublic' => 'natrag u javni dio weba',
 	'login_securise' => 'Sigurnosna prijava',
-	'login_sinscrire' => 'prijava',
+	'login_sinscrire' => 'prijava', # MODIF
 	'login_test_navigateur' => 'ispitivanje browsera / ponovno spajanje',
 	'login_verifiez_navigateur' => '(međutim, provjerite da li je Vaš browser možda upamtio Vašu lozinku...)',
 

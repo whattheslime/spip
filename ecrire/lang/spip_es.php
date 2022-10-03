@@ -541,7 +541,7 @@ en el sitio "@nom_site_spip@" (@adresse_login@):',
 	'login_retoursitepublic' => 'volver al sitio público',
 	'login_sans_cookie' => 'Identificación sin "cookie"',
 	'login_securise' => 'Conexión segura',
-	'login_sinscrire' => 'inscribirse',
+	'login_sinscrire' => 'inscribirse', # MODIF
 	'login_test_navigateur' => 'prueba de navegador/reconexión',
 	'login_verifiez_navigateur' => '(No obstante, comprueba que tu navegador no memorizó tu contraseña...)',
 

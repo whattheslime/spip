@@ -490,7 +490,7 @@ För att bekräfta din nya adress måste du gå till
 	'login_retour_site' => 'Tillbaka till den publika delen',
 	'login_retoursitepublic' => 'Tillbaka till den publika delen',
 	'login_securise' => 'Säker inloggning',
-	'login_sinscrire' => 'registrera dig',
+	'login_sinscrire' => 'registrera dig', # MODIF
 	'login_test_navigateur' => 'testar webbläsare/återuppkoppling',
 	'login_verifiez_navigateur' => '(Kontrollera att din webbläsare inte sparade lösenordet...)',
 
