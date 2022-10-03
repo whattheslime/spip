@@ -12,6 +12,7 @@ Changelog de SPIP 4.1
 ### Fixed
 
 - #5316 Les PDF envoyés avec un CSP Sandbox ne sont pas visibles dans Safari ou Chrome, on fait donc une exception pour ces fichiers
+- #5328 Réparer le lien vers la licence GPL dans le pied des pages du privé
 - #5284 Éviter que les titres longs dépassent de leur bloc dans l'espace privé
 - #5308 Correction de la valeur affichée pour le dernier item de pagination en mode naturel
 - #5132 Correction d'un deprecated sur `recuperer_numero()` quand on lui passe une valeur nulle
