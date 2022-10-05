@@ -858,7 +858,7 @@
 .formulaire_spip textarea.placeholder,
 .formulaire_spip input::placeholder,
 .formulaire_spip textarea::placeholder {
-	color: var(--spip-form-color-text-lightest);
+	color: hsla(var(--spip-color-black--hsl), 0.6);
 	font-style: italic;
 }
 
@@ -1406,25 +1406,23 @@
 }
 .formulaire_recherche {
 	z-index: 1;
-	position: relative;
 	float: var(--spip-right);
+	width: 40ch;
 	border: 0;
-	margin: 0 0 6px;
+	margin: 0 0 calc(var(--spip-spacing-y) / 2);
 	padding: 0;
 	background: transparent;
 	box-shadow: none !important;
 }
-.formulaire_recherche label {
-	display: none; /* Todo : masquer accessiblement */
+.formulaire_recherche form {
+	position: relative;
 }
 .formulaire_recherche input.text {
 	z-index: 1;
-	order: 2;
 	box-sizing: border-box;
-	position: relative;
-	width: 16em;
-	padding-#LEFT: var(--spip-searchform-padding);
-	padding-#RIGHT: calc(1.15em + var(--spip-searchform-padding)); /* place pour picto loupe (.image) */
+	width: 100%;
+	padding-inline-start: var(--spip-searchform-padding);
+	padding-inline-end: calc(1.15em + var(--spip-searchform-padding)); /* place pour picto loupe (.image) */
 	font-size: 0.9em;
 	border-radius: 99em;
 	border-color: transparent;
@@ -1440,7 +1438,7 @@
 	color: var(--spip-color-theme);
 }
 .formulaire_recherche input.text.cancelable {
-	padding-#LEFT: calc(16px + (var(--spip-searchform-padding) * 1)); /* place pour picto fermer */
+	padding-inline-start: calc(16px + (var(--spip-searchform-padding) * 1)); /* place pour picto fermer */
 }
 .formulaire_recherche input.text.placeholder {
 	color: var(--spip-color-gray-light);
@@ -1455,7 +1453,7 @@
 	line-height: 1px;
 }
 .formulaire_recherche .image {
-	#RIGHT: calc(var(--spip-searchform-padding) / 2);
+	inset-inline-end: calc(var(--spip-searchform-padding) / 2);
 	margin-bottom: 0;
 	padding: 0.25em;
 	color: hsla(0, 0%, 0%, 0.5);
@@ -1476,17 +1474,25 @@
 	color: var(--spip-color-theme-black);
 }
 .formulaire_recherche .cancel {
-	#LEFT: calc(var(--spip-searchform-padding) / 2);
+	inset-inline-start: calc(var(--spip-searchform-padding) / 2);
 }
 /* Dans une modale */
 .box_mediabox .formulaire_recherche {
 	z-index: 1; /* focus dans la mediabox */
 }
-/* Dans bandeau outils */
+/* Dans bandeau outils : faire coller l'input aux bords du bandeau, quelque soit sa hauteur*/
 #bando_outils .formulaire_recherche {
+	display: flex;
+	width: 30ch;
 	margin: 0;
 }
+#bando_outils .formulaire_recherche form,
+#bando_outils .formulaire_recherche form > div {
+	display: flex;
+	flex: 1;
+}
 #bando_outils .formulaire_recherche input.text {
+	height: 100%;
 	padding-top: 0.44em; /* à la louche pour obtenir même hauteur que le bando */
 	padding-bottom: 0.44em;
 	border-radius: 0;

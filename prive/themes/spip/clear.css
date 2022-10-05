@@ -27,7 +27,8 @@ hr.clear { visibility: hidden; }
 }
 .clearfix { display: block; }
 
-.offscreen {
+.offscreen,
+.visually-hidden {
   position: absolute;
   width: 1px;
   height: 1px;
