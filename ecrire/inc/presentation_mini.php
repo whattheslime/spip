@@ -261,7 +261,7 @@ function info_copyright() {
 		'info_copyright',
 		[
 			'spip' => "<b>SPIP $version</b> ",
-			'lien_gpl' => '<a href="https://www.gnu.org/licenses/gpl-3.0.html" class="aide popin">' . _T('info_copyright_gpl') . '</a>'
+			'lien_gpl' => '<a href="https://www.gnu.org/licenses/gpl-3.0.html">' . _T('info_copyright_gpl') . '</a>'
 		]
 	)
 	. $secu;
