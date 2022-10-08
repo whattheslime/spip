@@ -44,7 +44,7 @@
 - #5357 Utiliser le terme "Se connecter" valider le formulaire de login
 - #5355 Correction d'un Warning si le débogueur est appelé sans être connecté
 - #5316 Les PDF envoyés avec un CSP Sandbox ne sont pas visibles dans Safari ou Chrome, on fait donc une exception pour ces fichiers
-- #5328 Réparer le lien vers la licence GPL dans le pied des pages du privé
+- #5328 #5368 Réparer le lien vers la licence GPL dans le pied des pages du privé
 - #5326 Utilisation de PHP_AUTH avec d'autres méthodes d'identification que LDAP
 - #5284 Éviter que les titres longs dépassent de leur bloc dans l'espace privé
 - #5329 Rétablir la collecte des doublons par la fonction `traiter_modeles()`
