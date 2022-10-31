@@ -1980,7 +1980,7 @@ function balise_INCLURE_dist($p) {
 	// erreur de syntaxe = fond absent
 	// (2 messages d'erreur SPIP pour le prix d'un, mais pas d'erreur PHP
 	if (!$_contexte) {
-		$contexte = [];
+		$_contexte = [];
 	}
 
 	if (isset($_contexte['fond'])) {
