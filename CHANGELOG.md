@@ -40,6 +40,7 @@
 
 ### Fixed
 
+- #5366 Afficher le langage (si précisé) des blocs de code, dans l’espace privé
 - #5362 Agrandir le formulaire de recherche des listes dans l’espace privé
 - #5357 Utiliser le terme "Se connecter" valider le formulaire de login
 - #5355 Correction d'un Warning si le débogueur est appelé sans être connecté
