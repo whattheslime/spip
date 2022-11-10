@@ -1438,7 +1438,14 @@ function creer_chemin() {
 }
 
 
-function lister_themes_prives() {
+/**
+ * Retourne la liste des thèmes du privé utilisables pour cette session
+ *
+ * @see inscription_nouveau() pour une particularité historique du champ 'prefs'
+ *
+ * @return string[] Nom des thèmes.
+ */
+function lister_themes_prives(): array {
 	static $themes = null;
 	if (is_null($themes)) {
 		// si pas encore definie
@@ -1446,22 +1453,20 @@ function lister_themes_prives() {
 			define('_SPIP_THEME_PRIVE', 'spip');
 		}
 		$themes = [_SPIP_THEME_PRIVE];
-		// lors d'une installation neuve, prefs n'est pas definie.
-		if (isset($GLOBALS['visiteur_session']['prefs'])) {
-			$prefs = $GLOBALS['visiteur_session']['prefs'];
+		// Lors d'une installation neuve, prefs n'est pas definie ; sinon, c'est un tableau sérialisé
+		// FIXME: Aussitôt après une demande d'inscription, $prefs vaut une chaine statut_tmp;
+		$prefs = $GLOBALS['visiteur_session']['prefs'] ?? [];
+		if (is_string($prefs) and (stripos($prefs, 'a:') === 0)) {
+			$prefs = unserialize($prefs);
 		} else {
 			$prefs = [];
 		}
-		if (is_string($prefs)) {
-			$prefs = unserialize($GLOBALS['visiteur_session']['prefs']);
-		}
-		if (
-			((isset($prefs['theme']) and $theme = $prefs['theme'])
-				or (isset($GLOBALS['theme_prive_defaut']) and $theme = $GLOBALS['theme_prive_defaut']))
-			and $theme != _SPIP_THEME_PRIVE
-		) {
+
+		$theme = $prefs['theme'] ?? $GLOBALS['theme_prive_defaut'] ?? null;
+		if ($theme and $theme !== _SPIP_THEME_PRIVE) {
+			// placer le theme choisi en tete
 			array_unshift($themes, $theme);
-		} // placer le theme choisi en tete
+		}
 	}
 
 	return $themes;
