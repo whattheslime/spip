@@ -118,26 +118,29 @@ function vider_date($letexte, $verif_format_date = false): string {
 }
 
 /**
- * Retrouve à partir d'une chaîne les valeurs heures, minutes, secondes
+ * Retrouve à partir d'une chaîne les valeurs heures, minutes, secondes.
  *
- * Retrouve une horaire au format `11:29:55`
+ * Les formats `11:29:55` ou `11:29` sont autorisés.
  *
  * @param string $date
- *     Chaîne de date contenant éventuellement une horaire
+ *     Chaîne de date contenant éventuellement un horaire
  * @return array
- *     - [heures, minutes, secondes] si horaire trouvée
+ *     - [heures, minutes, secondes] si format horaire autorisé
  *     - [0, 0, 0] sinon
  **/
 function recup_heure($date): array {
 
-	static $d = [0, 0, 0];
-	if (!preg_match('#([0-9]{1,2}):([0-9]{1,2}):([0-9]{1,2})#', $date, $r)) {
-		return $d;
+	if (preg_match('#([0-9]{1,2}):([0-9]{1,2})(?::([0-9]{1,2}))?#', $date, $elements)) {
+		array_shift($elements);
+		if (!isset($elements[2])) {
+			$elements[2] = 0;
+		}
+		$heure = $elements;
+	} else {
+		$heure = [0, 0, 0];
 	}
 
-	array_shift($r);
-
-	return $r;
+	return $heure;
 }
 
 /**
