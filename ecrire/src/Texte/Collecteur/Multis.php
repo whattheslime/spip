@@ -194,7 +194,7 @@ class Multis extends AbstractCollecteur {
 							// langue absente, prendre le fr ou une langue précisée (meme comportement que inc/traduire.php)
 							// ou la premiere dispo
 							if (!$l = approcher_langue($trads, $options['lang_defaut'])) {
-								$l = array_values($trads);
+								$l = array_keys($trads);
 								$l = reset($l);
 							}
 
