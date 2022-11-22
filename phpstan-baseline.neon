@@ -6,11 +6,6 @@ parameters:
 			path: ecrire/action/inscrire_auteur.php
 
 		-
-			message: "#^Function fichier_copie_locale\\(\\) should return string but return statement is missing\\.$#"
-			count: 1
-			path: ecrire/inc/distant.php
-
-		-
 			message: "#^Instantiated class csstidy not found\\.$#"
 			count: 1
 			path: ecrire/inc/filtres.php
@@ -36,44 +31,9 @@ parameters:
 			path: ecrire/inc/rechercher.php
 
 		-
-			message: "#^Function calculer_rubriques_if\\(\\) should return bool but return statement is missing\\.$#"
-			count: 1
-			path: ecrire/inc/rubriques.php
-
-		-
-			message: "#^Result of function debug_print_backtrace \\(void\\) is used\\.$#"
-			count: 1
-			path: ecrire/inc/utils.php
-
-		-
 			message: "#^Function analyser_backend not found\\.$#"
 			count: 1
 			path: ecrire/iterateur/data.php
-
-		-
-			message: "#^Function inclure_balise_dynamique\\(\\) should return string but return statement is missing\\.$#"
-			count: 1
-			path: ecrire/public/assembler.php
-
-		-
-			message: "#^Function balise_COMPTEUR_BOUCLE_dist\\(\\) should return Spip\\\\Core\\\\Champ but return statement is missing\\.$#"
-			count: 1
-			path: ecrire/public/balises.php
-
-		-
-			message: "#^Function balise_FILTRE_dist\\(\\) should return Spip\\\\Core\\\\Champ but return statement is missing\\.$#"
-			count: 1
-			path: ecrire/public/balises.php
-
-		-
-			message: "#^Result of function creer_cache \\(void\\) is used\\.$#"
-			count: 1
-			path: ecrire/public/cacher.php
-
-		-
-			message: "#^Result of function calculer_critere_parties \\(void\\) is used\\.$#"
-			count: 1
-			path: ecrire/public/criteres.php
 
 		-
 			message: "#^Function image_du_document not found\\.$#"
@@ -84,54 +44,4 @@ parameters:
 			message: "#^Function vignette_automatique not found\\.$#"
 			count: 1
 			path: ecrire/public/quete.php
-
-		-
-			message: "#^Function spip_mysql_seek\\(\\) should return bool but return statement is missing\\.$#"
-			count: 1
-			path: ecrire/req/mysql.php
-
-		-
-			message: "#^Function spip_mysql_update\\(\\) should return array\\|bool\\|string but return statement is missing\\.$#"
-			count: 1
-			path: ecrire/req/mysql.php
-
-		-
-			message: "#^Result of function mysqli_free_result \\(void\\) is used\\.$#"
-			count: 1
-			path: ecrire/req/mysql.php
-
-		-
-			message: "#^Function spip_pg_selectdb\\(\\) should return bool\\|string but return statement is missing\\.$#"
-			count: 1
-			path: ecrire/req/pg.exp.php
-
-		-
-			message: "#^Function spip_sqlite_selectdb\\(\\) should return bool\\|string but return statement is missing\\.$#"
-			count: 1
-			path: ecrire/req/sqlite_generique.php
-
-		-
-			message: "#^Function spip_sqlite_update\\(\\) should return array\\|bool\\|string but return statement is missing\\.$#"
-			count: 1
-			path: ecrire/req/sqlite_generique.php
-
-		-
-			message: "#^Attribute class SensitiveParameter does not exist\\.$#"
-			count: 3
-			path: ecrire/src/Chiffrer/Chiffrement.php
-
-		-
-			message: "#^Attribute class SensitiveParameter does not exist\\.$#"
-			count: 1
-			path: ecrire/src/Chiffrer/Cles.php
-
-		-
-			message: "#^Attribute class SensitiveParameter does not exist\\.$#"
-			count: 5
-			path: ecrire/src/Chiffrer/Password.php
-
-		-
-			message: "#^Attribute class SensitiveParameter does not exist\\.$#"
-			count: 3
-			path: ecrire/src/Chiffrer/SpipCles.php
 
