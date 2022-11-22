@@ -1875,7 +1875,8 @@ function critere_tri_dist($idb, &$boucles, $crit) {
 function calculer_critere_DEFAUT_dist($idb, &$boucles, $crit) {
 	// double cas particulier {0,1} et {1/2} repere a l'analyse lexicale
 	if (($crit->op == ',') or ($crit->op == '/')) {
-		return calculer_critere_parties($idb, $boucles, $crit);
+		calculer_critere_parties($idb, $boucles, $crit);
+		return;
 	}
 
 	$r = calculer_critere_infixe($idb, $boucles, $crit);
