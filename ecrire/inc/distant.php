@@ -880,8 +880,9 @@ function nom_fichier_copie_locale($source, $extension) {
  *
  * @param string $source
  *      URL de la source distante
- * @return string
- *      Nom du fichier calculé
+ * @return string|null
+ *      - string: Nom du fichier calculé
+ *      - null: Copie locale impossible
  **/
 function fichier_copie_locale($source) {
 	// Si c'est deja local pas de souci
@@ -947,7 +948,9 @@ function fichier_copie_locale($source) {
 	if ($ext and sql_getfetsel('extension', 'spip_types_documents', 'extension=' . sql_quote($ext))) {
 		return nom_fichier_copie_locale($source, $ext);
 	}
+
 	spip_log("pas de copie locale pour $source", 'distant' . _LOG_ERREUR);
+	return null;
 }
 
 
