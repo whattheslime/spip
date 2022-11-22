@@ -349,7 +349,8 @@ function public_cacher_dist($contexte, &$use_cache, &$chemin_cache, &$page, &$la
 
 	// Second appel, destine a l'enregistrement du cache sur le disque
 	if (isset($chemin_cache)) {
-		return creer_cache($page, $chemin_cache);
+		creer_cache($page, $chemin_cache);
+		return;
 	}
 
 	// Toute la suite correspond au premier appel
