@@ -501,7 +501,7 @@ function balise_RECHERCHE_dist($p) {
  *
  * @param Champ $p
  *     Pile au niveau de la balise
- * @return Champ
+ * @return Champ|null
  *     Pile complétée par le code à générer
  **/
 function balise_COMPTEUR_BOUCLE_dist($p) {
@@ -509,6 +509,7 @@ function balise_COMPTEUR_BOUCLE_dist($p) {
 	if ($b === '') {
 		$msg = ['zbug_champ_hors_boucle', ['champ' => zbug_presenter_champ($p)]];
 		erreur_squelette($msg, $p);
+		return null;
 	} else {
 		$p->code = "(\$Numrows['$b']['compteur_boucle'] ?? 0)";
 		$p->boucles[$b]->cptrows = true;
@@ -1757,7 +1758,7 @@ function balise_HTTP_HEADER_dist($p) {
  *
  * @param Champ $p
  *     Pile au niveau de la balise
- * @return Champ
+ * @return Champ|null
  *     Pile complétée par le code à générer
  **/
 function balise_FILTRE_dist($p) {
@@ -1775,6 +1776,8 @@ function balise_FILTRE_dist($p) {
 
 		return $p;
 	}
+
+	return null;
 }
 
 
