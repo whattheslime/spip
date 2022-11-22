@@ -1643,7 +1643,7 @@ function find_in_path($file, $dirname = '', $include = false) {
 			echo '<pre>',
 			'<strong>Erreur Fatale</strong><br />';
 			if (function_exists('debug_print_backtrace')) {
-				echo debug_print_backtrace();
+				debug_print_backtrace();
 			}
 			echo '</pre>';
 			die("Erreur interne: ne peut inclure $dirname$file");
