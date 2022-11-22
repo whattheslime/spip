@@ -389,7 +389,7 @@ function inserer_balise_dynamique($contexte_exec, $contexte_compil) {
  * @param string|array $texte
  * @param bool $echo Faut-il faire echo ou return
  * @param array $contexte_compil contexte de la compilation
- * @return string
+ * @return string|void
  */
 function inclure_balise_dynamique($texte, $echo = true, $contexte_compil = []) {
 	if (is_array($texte)) {
