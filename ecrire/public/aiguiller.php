@@ -110,7 +110,7 @@ function traiter_appels_actions() {
 			!headers_sent()
 			and !ob_get_length()
 		) {
-			http_status(204);
+			http_response_code(204);
 		} // No Content
 		return true;
 	}

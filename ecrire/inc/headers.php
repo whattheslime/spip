@@ -98,7 +98,7 @@ function redirige_par_entete($url, $equiv = '', $status = 302) {
 	}
 	include_spip('inc/lang');
 	if ($status != 302) {
-		http_status($status);
+		http_response_code($status);
 	}
 	echo '<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">', "\n",
 	html_lang_attributes(), '
