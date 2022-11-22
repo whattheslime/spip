@@ -52,8 +52,7 @@ if (!defined('_ECRIRE_INC_VERSION')) {
  *     Infos sur l'objet modifié : statut_ancien, objet, id_objet…
  * @param bool $postdate
  *     true pour recalculer aussi la date du prochain article post-daté
- * @return bool
- *     true si le statut change effectivement
+ * @return void
  **/
 function calculer_rubriques_if($id_rubrique, $modifs, $infos = [], $postdate = false) {
 	$statuts_publies = null;
