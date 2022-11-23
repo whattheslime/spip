@@ -54,7 +54,7 @@
 		<traducteur nom="kent1" lien="https://trad.spip.net/auteur/kent1" />
 		<traducteur nom="Yannick Bailly" lien="https://trad.spip.net/auteur/yannick-bailly" />
 	</langue>
-	<langue code="en" url="https://trad.spip.net/tradlang_module/spip?lang_cible=en" total="651" traduits="650" relire="0" modifs="1" nouveaux="0" pourcent="99.85">
+	<langue code="en" url="https://trad.spip.net/tradlang_module/spip?lang_cible=en" total="651" traduits="650" relire="1" modifs="0" nouveaux="0" pourcent="99.85">
 		<traducteur nom="Alberto" lien="https://trad.spip.net/auteur/alberto" />
 		<traducteur nom="Benitron" lien="https://trad.spip.net/auteur/benitron" />
 		<traducteur nom="cedric" lien="https://trad.spip.net/auteur/fil" />
@@ -65,6 +65,7 @@
 		<traducteur nom="kent1" lien="https://trad.spip.net/auteur/kent1" />
 		<traducteur nom="Loiseau2nuit" lien="https://trad.spip.net/auteur/loiseau2nuit" />
 		<traducteur nom="Paolo" lien="https://trad.spip.net/auteur/paolo" />
+		<traducteur nom="RealET" lien="https://trad.spip.net/auteur/realet" />
 		<traducteur nom="sQuonk" lien="https://trad.spip.net/auteur/squonk" />
 		<traducteur nom="tcharlss" lien="https://trad.spip.net/auteur/drbouvierleduc" />
 	</langue>

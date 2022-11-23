@@ -545,7 +545,7 @@ the site "@nom_site_spip@" (@adresse_login@):',
 	'login_retoursitepublic' => 'back to the public site',
 	'login_sans_cookie' => 'Identification without cookie',
 	'login_securise' => 'Secure login',
-	'login_sinscrire' => 'register', # MODIF
+	'login_sinscrire' => 'Sign up', # RELIRE
 	'login_test_navigateur' => 'testing browser/reconnection',
 	'login_verifiez_navigateur' => '(However, check that your browser did not memorise your password...)',
 
