@@ -538,7 +538,7 @@ Se você não quiser que a sua senha possa ser interceptada na rede, por favor a
 	'login_retoursitepublic' => 'voltar ao site público',
 	'login_sans_cookie' => 'Identificação sem cookie',
 	'login_securise' => 'Login seguro',
-	'login_sinscrire' => 'cadastrar-se', # MODIF
+	'login_sinscrire' => 'Cadastrar-se',
 	'login_test_navigateur' => 'testar navegador/reconexão',
 	'login_verifiez_navigateur' => '(Verifique sempre se o seu navegador não está memorizando a sua senha...)',
 
