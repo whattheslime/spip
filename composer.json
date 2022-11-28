@@ -2,6 +2,7 @@
     "license": "GPL-3.0-only",
     "require": {
         "php": "^7.4 || ^8.0",
+        "ext-json": "*",
         "ext-sodium": "*",
         "ext-xml": "*",
         "ext-zip": "*",
