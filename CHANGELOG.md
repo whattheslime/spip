@@ -18,6 +18,7 @@
 
 ### Changed
 
+- #5086 Le filtre de date `recup_heure()` sait extraire `hh:mm` en plus de `hh:mm:ss`
 - #5046 Le filtre `taille_en_octets()` retourne par défaut des unités cohérentes (en kio, Mio… )
 - #5056 SPIP nécessite certaines dépendances via Composer (son archive zip contiendra le nécessaire)
 - #5056 Les (quelques) classes PHP de SPIP sont déplacées dans `ecrire/src` sous le namespace `Spip`
