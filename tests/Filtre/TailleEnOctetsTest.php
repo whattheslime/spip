@@ -24,106 +24,70 @@ class TailleEnOctetsTest extends TestCase
 	}
 
 	/**
-	 * @dataProvider providerFiltresTailleEnOctets
+	 * @dataProvider providerFiltresTailleEnOctetsBI
 	 */
-	public function testFiltresTailleEnOctets($expected, ...$args): void
+	public function testFiltresTailleEnOctetsBI($source, $expected): void
 	{
-		$actual = taille_en_octets(...$args);
+		$actual = taille_en_octets($source);
+		$this->assertSame($expected, $actual);
+		$this->assertEquals($expected, $actual);
+
+		$actual = taille_en_octets($source, 'BI');
 		$this->assertSame($expected, $actual);
 		$this->assertEquals($expected, $actual);
 	}
 
-	public function providerFiltresTailleEnOctets(): array
+	/**
+	 * @dataProvider providerFiltresTailleEnOctetsSI
+	 */
+	public function testFiltresTailleEnOctetsSI($source, $expected): void
 	{
-		return [
-			0 => [
-				0 => '',
-				1 => 0,
-			],
-			1 => [
-				0 => '',
-				1 => -1,
-			],
-			2 => [
-				0 => '1 octets',
-				1 => 1,
-			],
-			3 => [
-				0 => '2 octets',
-				1 => 2,
-			],
-			4 => [
-				0 => '3 octets',
-				1 => 3,
-			],
-			5 => [
-				0 => '4 octets',
-				1 => 4,
-			],
-			6 => [
-				0 => '5 octets',
-				1 => 5,
-			],
-			7 => [
-				0 => '6 octets',
-				1 => 6,
-			],
-			8 => [
-				0 => '7 octets',
-				1 => 7,
-			],
-			9 => [
-				0 => '10 octets',
-				1 => 10,
-			],
-			10 => [
-				0 => '20 octets',
-				1 => 20,
-			],
-			11 => [
-				0 => '30 octets',
-				1 => 30,
-			],
-			12 => [
-				0 => '50 octets',
-				1 => 50,
-			],
-			13 => [
-				0 => '100 octets',
-				1 => 100,
-			],
-			14 => [
-				0 => '1000 octets',
-				1 => 1000,
-			],
-			15 => [
-				0 => '9.8 ko',
-				1 => 10000,
-			],
-			16 => [
-				0 => '97.7 ko',
-				1 => 100000,
-			],
-			17 => [
-				0 => '976.6 ko',
-				1 => 1000000,
-			],
-			18 => [
-				0 => '9.5 Mo',
-				1 => 10000000,
-			],
-			19 => [
-				0 => '95.4 Mo',
-				1 => 100000000,
-			],
-			20 => [
-				0 => '953.7 Mo',
-				1 => 1000000000,
-			],
-			21 => [
-				0 => '9.31 Go',
-				1 => 10000000000,
-			],
+		$actual = taille_en_octets($source, 'SI');
+		$this->assertSame($expected, $actual);
+		$this->assertEquals($expected, $actual);
+	}
+
+	public function providerFiltresTailleEnOctetsBI(): array
+	{
+		$list = [
+			0 =>'',
+			-1 => '',
+			1 => '1 octets',
+			2 => '2 octets',
+			10 => '10 octets',
+			50 => '50 octets',
+			100 => '100 octets',
+			1000 => '1000 octets',
+			10000 => '9.8 kio',
+			100000 => '97.7 kio',
+			1000000 => '976.6 kio',
+			10000000 => '9.5 Mio',
+			100000000 => '95.4 Mio',
+			1000000000 => '953.7 Mio',
+			10000000000 => '9.31 Gio',
 		];
+		return array_map(null, array_keys($list), array_values($list));
+	}
+
+	public function providerFiltresTailleEnOctetsSI(): array
+	{
+		$list = [
+			0 =>'',
+			-1 => '',
+			1 => '1 octets',
+			2 => '2 octets',
+			10 => '10 octets',
+			50 => '50 octets',
+			100 => '100 octets',
+			1000 => '1 ko',
+			10000 => '10 ko',
+			100000 => '100 ko',
+			1000000 => '1 Mo',
+			10000000 => '10 Mo',
+			100000000 => '100 Mo',
+			1000000000 => '1 Go',
+			10000000000 => '10 Go',
+		];
+		return array_map(null, array_keys($list), array_values($list));
 	}
 }
