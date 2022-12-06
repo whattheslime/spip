@@ -623,6 +623,7 @@ Sie können auf dieser Seite ein neues Passwort eingeben und sich wieder bei der
 	'taille_ko' => '@taille@ kB',
 	'taille_mo' => '@taille@ MB',
 	'taille_octets' => '@taille@ Byte',
+	'taille_octets_bi' => '@taille@ Byte',
 	'texte_actualite_site_1' => 'Wenn Sie sich mit der Oberfläche des Redaktionssystems vertraut gemacht haben, können Sie „',
 	'texte_actualite_site_2' => 'den Expertenmodus aktivieren,',
 	'texte_actualite_site_3' => 'um zusätzliche Funktionen zu nutzen.',

@@ -625,6 +625,7 @@ a znova sa prihlásiť na stránku.
 	'taille_ko' => '@taille@ kB',
 	'taille_mo' => '@taille@ MB',
 	'taille_octets' => '@taille@ byteov',
+	'taille_octets_bi' => '@taille@ byteov',
 	'texte_actualite_site_1' => 'Keď sa zoznámite s rozhraním, kliknite na «',
 	'texte_actualite_site_2' => 'úplné rozhranie',
 	'texte_actualite_site_3' => '» aby ste mali k dispozícií viac funkcií.',

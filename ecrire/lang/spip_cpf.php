@@ -546,6 +546,7 @@ Aprésa, ou i poura mèt in nouvo modpas
 	'taille_ko' => '@taille@ ko',
 	'taille_mo' => '@taille@ Mo',
 	'taille_octets' => '@taille@ bann zokté',
+	'taille_octets_bi' => '@taille@ bann zokté',
 	'texte_actualite_site_1' => 'Kank ou sra pli zabityé èk lo figirwèb, i poura klik sir « ',
 	'texte_actualite_site_2' => 'lintèrfas konplé',
 	'texte_actualite_site_3' => ' » pour giny plid posibilité.',

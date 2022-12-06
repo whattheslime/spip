@@ -547,6 +547,7 @@ dan mengakses situs kembali.
 	'taille_ko' => '@taille@ kb',
 	'taille_mo' => '@taille@ Mb',
 	'taille_octets' => '@taille@ bytes',
+	'taille_octets_bi' => '@taille@ bytes',
 	'texte_actualite_site_1' => 'Ketika anda menjadi familiar dengan tatap muka yang ada, kliklah «',
 	'texte_actualite_site_2' => 'tatap muka lengkap',
 	'texte_actualite_site_3' => '» untuk fitur-fitur yang lebih banyak.',

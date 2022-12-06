@@ -606,6 +606,7 @@ Dir kënnt do e neit Passwuert aginn an Iech um Site umellen.
 	'taille_ko' => '@taille@ kB',
 	'taille_mo' => '@taille@ MB',
 	'taille_octets' => '@taille@ Byte',
+	'taille_octets_bi' => '@taille@ Byte',
 	'texte_actualite_site_1' => 'Wann dir mam Interface familiariséiert sidd, da kënnt der op "',
 	'texte_actualite_site_2' => 'kompletten Interface klicken',
 	'texte_actualite_site_3' => '" fir méi Méiglechkeeten ze weisen.',

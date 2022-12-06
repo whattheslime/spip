@@ -627,6 +627,7 @@ volver a conectarte al sitio.
 	'taille_ko' => '@taille@ KB',
 	'taille_mo' => '@taille@ MB',
 	'taille_octets' => '@taille@ bytes',
+	'taille_octets_bi' => '@taille@ bytes',
 	'texte_actualite_site_1' => 'Una vez que te hayas familiarizado con la interfaz, pincha en «',
 	'texte_actualite_site_2' => 'interfaz completa',
 	'texte_actualite_site_3' => '» que tiene aún más posibilidades.',

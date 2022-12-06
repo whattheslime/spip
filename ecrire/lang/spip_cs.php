@@ -539,6 +539,7 @@ a znovu se ke stránkám připojíte.
 	'taille_ko' => '@taille@ kb',
 	'taille_mo' => '@taille@ Mb',
 	'taille_octets' => '@taille@ bytů',
+	'taille_octets_bi' => '@taille@ bytů',
 	'texte_actualite_site_1' => 'Až se s rozhraním obeznámíte, klepněte na "',
 	'texte_actualite_site_2' => 'úplné rozhraní',
 	'texte_actualite_site_3' => '» ke zpřístupnění více funkcí.',

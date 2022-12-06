@@ -511,6 +511,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'taille_ko' => '@taille@ kb',
 	'taille_mo' => '@taille@ Mb',
 	'taille_octets' => '@taille@ bytes',
+	'taille_octets_bi' => '@taille@ bytes',
 	'texte_actualite_site_1' => 'စာမျက်နှာများနှင့် ရင်းနှီးကျွမ်းဝင်မှုရှိပြီဆိုရင် « ပိုပြီးပြည့်စုံအောင် ပြုလုပ်ရန်',
 	'texte_actualite_site_2' => 'ပြီးပြည့်စုံသော စာမျက်နှာ',
 	'texte_actualite_site_3' => '» ပေါ်တွင်နှိပ်ပါ',

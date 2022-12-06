@@ -530,6 +530,7 @@ Sitix uka arunak ajlltax.Walja sapa mayanaka jach’a qamawita (urunaka, phuqañ
 	'taille_ko' => '@taille@ KB',
 	'taille_mo' => '@taille@ MB',
 	'taille_octets' => '@taille@ bytes',
+	'taille_octets_bi' => '@taille@ bytes',
 	'texte_actualite_site_1' => 'Ajanu ukamp yatistax ukjax, Ukjan limt’am «',
 	'texte_actualite_site_2' => 'ajan phuqata',
 	'texte_actualite_site_3' => '» kunans juk’amp lurasispa.',

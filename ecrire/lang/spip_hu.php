@@ -545,6 +545,7 @@ Akkor újabb jelszót tud beírni
 	'taille_ko' => '@taille@ ko',
 	'taille_mo' => '@taille@ Mo',
 	'taille_octets' => '@taille@ byte',
+	'taille_octets_bi' => '@taille@ byte',
 	'texte_actualite_site_1' => 'Ha barátkozik a felülettel akkor kattintson arra «',
 	'texte_actualite_site_2' => 'teljes felület',
 	'texte_actualite_site_3' => '» több lehetőség megnyítására.',

@@ -536,6 +536,7 @@ Bạn cho vào mật mã mới để vào lại trang web.', # MODIF
 	'taille_ko' => '@taille@ kb',
 	'taille_mo' => '@taille@ Mb',
 	'taille_octets' => '@taille@ bytes',
+	'taille_octets_bi' => '@taille@ bytes',
 	'texte_actualite_site_1' => 'Khi bạn trở nên quen thuộc với cách thức trình bày trong website này, bấm vào «',
 	'texte_actualite_site_2' => 'Xem tất cả',
 	'texte_actualite_site_3' => '» để xem những đặc điểm khác.',

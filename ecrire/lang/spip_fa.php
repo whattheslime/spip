@@ -591,6 +591,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'taille_ko' => '@taille@ kb',
 	'taille_mo' => '@taille@ Mb',
 	'taille_octets' => '@taille@ bits',
+	'taille_octets_bi' => '@taille@ bits',
 	'texte_actualite_site_1' => 'هنگاميكه با نماى سايت بيشتر آشنا شديد ميتوانيد روى ',
 	'texte_actualite_site_2' => 'نماى كامل',
 	'texte_actualite_site_3' => 'براى امكانات بيشتر.',

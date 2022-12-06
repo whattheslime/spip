@@ -625,6 +625,7 @@ kaj ensaluti.
 	'taille_ko' => '@taille@ kb',
 	'taille_mo' => '@taille@ Mb',
 	'taille_octets' => '@taille@ bitokoj',
+	'taille_octets_bi' => '@taille@ bitokoj',
 	'texte_actualite_site_1' => 'Kiam vi estos kutimiĝinta kun la interfaco, vi povos musklaki sur « ',
 	'texte_actualite_site_2' => 'kompleta interfaco',
 	'texte_actualite_site_3' => ' » por malfermi pliajn eblecojn.',

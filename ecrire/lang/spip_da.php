@@ -510,6 +510,7 @@ og igen få adgang til webstedet.', # MODIF
 	'taille_ko' => '@taille@ kb',
 	'taille_mo' => '@taille@ Mb',
 	'taille_octets' => '@taille@ byte',
+	'taille_octets_bi' => '@taille@ byte',
 	'texte_actualite_site_1' => 'Denne side viser webstedets status og giver dig mulighed for at følge dine bidrag. Her kan du både finde dine uafsluttede artikler og de artikler og nyheder, som du inviteres til at tilkendegive din mening om, samt en påmindelse om dine tidligere bidrag.<p><hr><p>Når du er blevet fortrolig med brugergrænsefladen så klik på «',
 	'texte_actualite_site_2' => 'fuld brugergrænseflade',
 	'texte_actualite_site_3' => '» for at få flere funktioner til rådighed.',

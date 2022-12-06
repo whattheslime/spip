@@ -624,6 +624,7 @@ opnieuw verbinding maken met de site
 	'taille_ko' => '@taille@ kB',
 	'taille_mo' => '@taille@ MB',
 	'taille_octets' => '@taille@ bytes',
+	'taille_octets_bi' => '@taille@ bytes',
 	'texte_actualite_site_1' => 'Wanneer je vertrouwd bent met de interface, kan je klikken op «',
 	'texte_actualite_site_2' => 'volledige interface',
 	'texte_actualite_site_3' => '» om meer mogelijkheden te openen.',

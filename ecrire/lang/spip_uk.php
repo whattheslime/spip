@@ -621,6 +621,7 @@ and connect again to the site.
 	'taille_ko' => '@taille@ кб',
 	'taille_mo' => '@taille@ Mb',
 	'taille_octets' => '@taille@ bytes',
+	'taille_octets_bi' => '@taille@ bytes',
 	'texte_actualite_site_1' => 'Коли ви звикнете до інтерфейсу, натисніть “',
 	'texte_actualite_site_2' => 'повний інтерфейс',
 	'texte_actualite_site_3' => '”, який зробить більше функцій доступними.',

@@ -620,6 +620,7 @@ kevreañ en-dro ouzh al lec’hienn.
 	'taille_ko' => '@taille@ ke',
 	'taille_mo' => '@taille@ Me',
 	'taille_octets' => '@taille@ eizhbit',
+	'taille_octets_bi' => '@taille@ eizhbit',
 	'texte_actualite_site_1' => 'Pa viot boas ouzh an etrefas e c’hellot klikañ war «',
 	'texte_actualite_site_2' => 'etrefas klok',
 	'texte_actualite_site_3' => '» evit sevijoù ouzhpenn.',

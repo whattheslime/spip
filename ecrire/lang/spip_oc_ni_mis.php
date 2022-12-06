@@ -621,6 +621,7 @@ e vi recounetà au sit.
 	'taille_ko' => '@taille@ Ko',
 	'taille_mo' => '@taille@ Mo',
 	'taille_octets' => '@taille@ octet',
+	'taille_octets_bi' => '@taille@ octet',
 	'texte_actualite_site_1' => 'Coura serès familharisat embé l’interfaça, pourès clicà sus « ',
 	'texte_actualite_site_2' => 'interfaça coumpleta',
 	'texte_actualite_site_3' => '» per avé mai de poussibilità.',

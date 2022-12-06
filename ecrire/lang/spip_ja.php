@@ -590,6 +590,7 @@ http://mysite.com、あるいは単純にこのサイトの記事番号を与え
 	'taille_ko' => '@taille@ kb',
 	'taille_mo' => '@taille@ Mb',
 	'taille_octets' => '@taille@ バイト',
+	'taille_octets_bi' => '@taille@ バイト',
 	'texte_actualite_site_1' => 'インターフェースに精通した時、「',
 	'texte_actualite_site_2' => '完全なインターフェース',
 	'texte_actualite_site_3' => '」さらに多くの特徴を利用可能にするようにクリックしてください。',

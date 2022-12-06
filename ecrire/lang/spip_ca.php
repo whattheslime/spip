@@ -603,6 +603,7 @@ i tornar-vos a connectar al lloc.
 	'taille_ko' => '@taille@ kB',
 	'taille_mo' => '@taille@ MB',
 	'taille_octets' => '@taille@ bytes',
+	'taille_octets_bi' => '@taille@ bytes',
 	'texte_actualite_site_1' => 'Quan estareu familiaritzats amb la interfície, podreu clicar a «',
 	'texte_actualite_site_2' => 'interfície completa',
 	'texte_actualite_site_3' => '" per obrir més possibilitats.',

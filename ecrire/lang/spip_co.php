@@ -593,6 +593,7 @@ Puderete tandu inserisce un nuvellu password
 	'taille_ko' => '@taille@ ko',
 	'taille_mo' => '@taille@ Mo',
 	'taille_octets' => '@taille@ oct',
+	'taille_octets_bi' => '@taille@ oct',
 	'texte_actualite_site_1' => 'Quand’è vo serete pù pràticu cù l’interfaccia, puderete cliccà nant’à «',
 	'texte_actualite_site_2' => 'interfaccia sana',
 	'texte_actualite_site_3' => '» pè pudè apre di più pussibulità.',

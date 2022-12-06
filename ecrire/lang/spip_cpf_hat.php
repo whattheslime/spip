@@ -538,6 +538,7 @@ ak tounyen déyé konekte sou sit-la.
 	'taille_ko' => '@taille@ ko',
 	'taille_mo' => '@taille@ Mo',
 	'taille_octets' => '@taille@ oktè',
+	'taille_octets_bi' => '@taille@ oktè',
 	'texte_actualite_site_1' => 'Kan w genyen abitid ek lentèfas, w ke kapab piyé sou «',
 	'texte_actualite_site_2' => 'entèfas konplé',
 	'texte_actualite_site_3' => '» pou genyen plis posibilite.',

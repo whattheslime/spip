@@ -635,6 +635,7 @@ e riconnetterti all’area riservata.
 	'taille_ko' => '@taille@ Kb',
 	'taille_mo' => '@taille@ Mb',
 	'taille_octets' => '@taille@ byte',
+	'taille_octets_bi' => '@taille@ byte',
 	'texte_actualite_site_1' => 'Quando avrai maggiore familiarità con l’interfaccia, clicca su «',
 	'texte_actualite_site_2' => 'interfaccia completa',
 	'texte_actualite_site_3' => '» per avere accesso a nuove opzioni.',

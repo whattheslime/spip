@@ -636,6 +636,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'taille_ko' => '@taille@ كيلوبايت',
 	'taille_mo' => '@taille@ ميغابايت',
 	'taille_octets' => '@taille@ بايت',
+	'taille_octets_bi' => '@taille@ بايت',
 	'texte_actualite_site_1' => 'عندما تتأقلم مع واجهة النظام انقر على «',
 	'texte_actualite_site_2' => 'الواجهة الكاملة',
 	'texte_actualite_site_3' => '»  لإتاحة المزيد من الوظائف.',

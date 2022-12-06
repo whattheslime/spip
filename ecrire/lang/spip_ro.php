@@ -600,6 +600,7 @@ Veţi putea după aceea alege o nouă parolă şi veţi putea să vă reconecta�
 	'taille_ko' => '@taille@ ko',
 	'taille_mo' => '@taille@ MB',
 	'taille_octets' => '@taille@ octeţi',
+	'taille_octets_bi' => '@taille@ octeţi',
 	'texte_actualite_site_1' => 'Când veţi fi familiarizat cu interfaţa, puteţi face click pe «',
 	'texte_actualite_site_2' => 'interfaţa completă',
 	'texte_actualite_site_3' => '» pentru a vă deschide mai multe posibilităţi.',

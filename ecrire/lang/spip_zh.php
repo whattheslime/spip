@@ -542,6 +542,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'taille_ko' => '@taille@ kb',
 	'taille_mo' => '@taille@ Mb',
 	'taille_octets' => '@taille@字符',
+	'taille_octets_bi' => '@taille@字符',
 	'texte_actualite_site_1' => '当您认为此界面适合您，您就可以点击«', # MODIF
 	'texte_actualite_site_2' => '完整界西',
 	'texte_actualite_site_3' => '» 使更多特性可用.',

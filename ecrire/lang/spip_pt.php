@@ -610,6 +610,7 @@ Poderá então introduzir uma nova palavra-passe e reconectar-se ao sítio.
 	'taille_ko' => '@taille@ kb',
 	'taille_mo' => '@taille@ Mb',
 	'taille_octets' => ' @taille@ bytes',
+	'taille_octets_bi' => ' @taille@ bytes',
 	'texte_actualite_site_1' => 'Quando estiver familiarizado(a) com a interface, poderá clicar em «',
 	'texte_actualite_site_2' => 'interface completa',
 	'texte_actualite_site_3' => '» para abrir mais possibilidades.',

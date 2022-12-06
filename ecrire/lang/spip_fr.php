@@ -632,12 +632,12 @@ et vous reconnecter au site.
 
 	// T
 	'taille_go' => '@taille@ Go',
-	'taille_ko' => '@taille@ ko',
-	'taille_mo' => '@taille@ Mo',
-	'taille_octets' => '@taille@ octets',
 	'taille_go_bi' => '@taille@ Gio',
+	'taille_ko' => '@taille@ ko',
 	'taille_ko_bi' => '@taille@ kio',
+	'taille_mo' => '@taille@ Mo',
 	'taille_mo_bi' => '@taille@ Mio',
+	'taille_octets' => '@taille@ octets',
 	'taille_octets_bi' => '@taille@ octets',
 	'texte_actualite_site_1' => 'Quand vous serez familiarisé(e) avec l’interface, vous pourrez cliquer sur « ',
 	'texte_actualite_site_2' => 'interface complète',

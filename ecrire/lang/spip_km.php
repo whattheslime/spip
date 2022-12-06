@@ -539,6 +539,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'taille_ko' => '@taille@ គីឡូបៃ',
 	'taille_mo' => '@taille@ មេកាបៃ',
 	'taille_octets' => '@taille@ បៃ',
+	'taille_octets_bi' => '@taille@ បៃ',
 	'texte_actualite_site_1' => '​ពេល​អ្នកស៊ាំ ជាមួយផ្ទាំងប្រទាក់, អ្នកនឹងអាច ចុចលើ «',
 	'texte_actualite_site_2' => 'ផ្ទាំង​ប្រទាក់​ ពេញលេញ',
 	'texte_actualite_site_3' => '» ដើម្បី​ បើកថែម លទ្ធភាព។',

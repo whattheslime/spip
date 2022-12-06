@@ -576,6 +576,7 @@ och koppla upp dig mot sajten igen.
 	'taille_ko' => '@taille@ kb',
 	'taille_mo' => '@taille@ Mb',
 	'taille_octets' => ' @taille@ bytes',
+	'taille_octets_bi' => ' @taille@ bytes',
 	'texte_actualite_site_1' => 'När du vant dig vid gränssnittet, klicka på «',
 	'texte_actualite_site_2' => 'Fullständigt gränssnitt',
 	'texte_actualite_site_3' => '» för att göra fler funktioner tillgängliga.',

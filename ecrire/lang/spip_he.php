@@ -564,6 +564,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'taille_ko' => '@taille@ KB',
 	'taille_mo' => '@taille@ MB',
 	'taille_octets' => '@taille@ בייטים',
+	'taille_octets_bi' => '@taille@ בייטים',
 	'texte_actualite_site_1' => 'כשתתרגל/י בממשק, תוכל/י להקליק על «',
 	'texte_actualite_site_2' => 'ממשק מלא',
 	'texte_actualite_site_3' => '» כדי לפתוח אפשרויות נוספות.',

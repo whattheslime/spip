@@ -587,6 +587,7 @@ pa volver a coneutate al sitiu.
 	'taille_ko' => '@taille@ KB',
 	'taille_mo' => '@taille@ MB',
 	'taille_octets' => '@taille@ bytes',
+	'taille_octets_bi' => '@taille@ bytes',
 	'texte_actualite_site_1' => 'Cuando yá t’afayes cola interfaz, puedes calcar en «',
 	'texte_actualite_site_2' => 'interfaz completa',
 	'texte_actualite_site_3' => '» pa amosar más posibilidáes.',

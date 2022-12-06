@@ -623,6 +623,7 @@ e reconectar-se com o site.
 	'taille_ko' => '@taille@ KB',
 	'taille_mo' => '@taille@ MB',
 	'taille_octets' => ' @taille@ bytes',
+	'taille_octets_bi' => ' @taille@ bytes',
 	'texte_actualite_site_1' => 'Quando você estiver mais familiarizado com a interface, clique em «',
 	'texte_actualite_site_2' => 'interface completa',
 	'texte_actualite_site_3' => '» para abrir mais possibilidades.',

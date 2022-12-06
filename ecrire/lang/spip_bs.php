@@ -499,6 +499,7 @@ Tamo mozete unijeti novu lozinku i ponovo se prijaviti na stranicu.
 	'taille_ko' => '@taille@ kb',
 	'taille_mo' => '@taille@ Mb',
 	'taille_octets' => '@taille@ bit',
+	'taille_octets_bi' => '@taille@ bit',
 	'texte_actualite_site_1' => 'Kada se naviknete na interfejs, kliknite na «',
 	'texte_actualite_site_2' => 'cjelokupni interfejs',
 	'texte_actualite_site_3' => '» za otveranje vise mogucnosti.',

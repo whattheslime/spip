@@ -636,6 +636,7 @@ and log in to the site.
 	'taille_ko' => '@taille@ kb',
 	'taille_mo' => '@taille@ Mb',
 	'taille_octets' => '@taille@ bytes',
+	'taille_octets_bi' => '@taille@ bytes',
 	'texte_actualite_site_1' => 'When you are more familiar with the interface, click on "',
 	'texte_actualite_site_2' => 'full interface',
 	'texte_actualite_site_3' => '" to make more features available.',

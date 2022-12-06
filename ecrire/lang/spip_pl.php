@@ -586,6 +586,7 @@ można ponownie połączyć się ze stroną.
 	'taille_ko' => '@taille@ kb',
 	'taille_mo' => '@taille@ Mb',
 	'taille_octets' => '@taille@ bytes',
+	'taille_octets_bi' => '@taille@ bytes',
 	'texte_actualite_site_1' => 'Kiedy poznasz interfejs, kliknij na «',
 	'texte_actualite_site_2' => 'kompletny interfejs',
 	'texte_actualite_site_3' => '» aby uruchomić więcej możliwości.',

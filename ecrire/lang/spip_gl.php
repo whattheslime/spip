@@ -598,6 +598,7 @@ e reconectar co web.
 	'taille_ko' => '@taille@ KB',
 	'taille_mo' => '@taille@ MB',
 	'taille_octets' => '@taille@ bytes',
+	'taille_octets_bi' => '@taille@ bytes',
 	'texte_actualite_site_1' => 'Cando xa estea familiarizado/a coa interface, poderá premer sobre «',
 	'texte_actualite_site_2' => 'interface completa',
 	'texte_actualite_site_3' => '» para obter máis posibilidades.',

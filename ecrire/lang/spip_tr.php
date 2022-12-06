@@ -547,6 +547,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'taille_ko' => '@taille@ kb',
 	'taille_mo' => '@taille@ Mb',
 	'taille_octets' => '@taille@ bayt',
+	'taille_octets_bi' => '@taille@ bayt',
 	'texte_actualite_site_1' => 'Arayüze alışınca «',
 	'texte_actualite_site_2' => 'Tüm arayüz',
 	'texte_actualite_site_3' => '»’e tıklayarak daha fazla seçeneğe ulaşabilirsiniz.',

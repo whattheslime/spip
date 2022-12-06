@@ -519,6 +519,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'taille_ko' => '@taille@ KB',
 	'taille_mo' => '@taille@ MB',
 	'taille_octets' => '@taille@ байта',
+	'taille_octets_bi' => '@taille@ байта',
 	'texte_actualite_site_1' => 'След като се запознаете с интерфейса, изберете «',
 	'texte_actualite_site_2' => 'пълен интерфейс',
 	'texte_actualite_site_3' => ' » да направите повече свойства активни.',
