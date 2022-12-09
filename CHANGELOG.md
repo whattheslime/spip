@@ -9,6 +9,7 @@
 
 ### Added
 
+- #5380 Classes CSS utilitaires pour placer des éléments en sticky dans l'espace privé
 - #5056 Chargement de l’autoloader de Composer aux points d’entrées de SPIP
 - #5056 Intégration de dépendances à des librairies PHP via composer.json (notamment les polyfill PHP 8.0 8.1 et 8.2 ainsi que le polyfill mbstring)
 - #5323 Ajout de liens de retour vers le site public + déconnexion dans un des écrans d'erreur d'accès à l'espace privé
