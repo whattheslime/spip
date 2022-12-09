@@ -11,6 +11,7 @@ Changelog de SPIP 4.1
 
 ### Fixed
 
+- #5404 Déplacement de rubrique (en SQLite, sans le plugin Brèves)
 - #5316 Les PDF envoyés avec un CSP Sandbox ne sont pas visibles dans Safari ou Chrome, on fait donc une exception pour ces fichiers
 - #5328 #5368 Réparer le lien vers la licence GPL dans le pied des pages du privé
 - #5284 Éviter que les titres longs dépassent de leur bloc dans l'espace privé
