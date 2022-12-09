@@ -11,6 +11,7 @@ Changelog de SPIP 4.1
 
 ### Fixed
 
+- #5379 spip/medias#4873 Pouvoir soumettre le formulaire de recherche privé avec la touche entrée.
 - #5358 Vérifier et caster en `int` les width et height des balises d’image pour les traitements graphiques.
 - #5076 Réparer (mieux) le retour de `lister_objets_lies()` sur les tables qui ont un `rang_lien`
 - #5404 Déplacement de rubrique (en SQLite, sans le plugin Brèves)
