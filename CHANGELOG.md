@@ -11,6 +11,7 @@ Changelog de SPIP 4.1
 
 ### Fixed
 
+- #5358 Vérifier et caster en `int` les width et height des balises d’image pour les traitements graphiques.
 - #5076 Réparer (mieux) le retour de `lister_objets_lies()` sur les tables qui ont un `rang_lien`
 - #5404 Déplacement de rubrique (en SQLite, sans le plugin Brèves)
 - #5316 Les PDF envoyés avec un CSP Sandbox ne sont pas visibles dans Safari ou Chrome, on fait donc une exception pour ces fichiers
