@@ -46,7 +46,7 @@ class CommuterClassTest extends TestCase
 				2 => 'maclasse1 maclasse maclasse2',
 			],
 			3 => [
-				0 => '<span class="maclasse maclasse-prefixe suffixe-maclasse maclasse--bem">toto</span>',
+				0 => "<span class='maclasse maclasse--bem &lt;span class=&#034;maclasse maclasse--bem&#034;&gt;toto&lt;/span&gt;'>toto</span>",
 				1 => '<span class="maclasse maclasse-prefixe suffixe-maclasse maclasse--bem">toto</span>',
 				2 => '<span class="maclasse maclasse-prefixe suffixe-maclasse maclasse--bem">toto</span>',
 			],
