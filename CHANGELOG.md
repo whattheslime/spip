@@ -11,6 +11,7 @@ Changelog de SPIP 4.1
 
 ### Fixed
 
+- #5398 Inclusion manquante lors de certains traitements d’image SVG
 - #5424 Utiliser un délai de 48 h et non pas de 48 jours pour vider les contextes Ajax
 - #5379 spip/medias#4873 Pouvoir soumettre le formulaire de recherche privé avec la touche entrée.
 - #5358 Vérifier et caster en `int` les width et height des balises d’image pour les traitements graphiques.
