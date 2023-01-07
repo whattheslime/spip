@@ -17,12 +17,12 @@ class Templating
 		$this->loader = $loader;
 	}
 
-	public static function fromString(array $options = []): static
+	public static function fromString(array $options = []): self
 	{
 		return new static(new StringLoader($options));
 	}
 
-	public static function fromFile(): static
+	public static function fromFile(): self
 	{
 		return new static(new FileLoader());
 	}
