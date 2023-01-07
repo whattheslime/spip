@@ -85,7 +85,7 @@ function test_maj_timestamp()
 
 	// affichage
 	if ($err) {
-		return '<b>Champ maj sur update</b><dl><dd>' . implode('</dd><dd>', $err) . '</dd></dl>';
+		return "<b>Champ maj sur update</b><dl>\n<dd>" . implode("</dd>\n<dd>", $err) . '</dd></dl>';
 	}
 }
 
@@ -96,7 +96,7 @@ function test_maj_timestamp()
 
 function test_selections()
 {
-	$nb2 = null;
+	$nb_data = null;
 	$err = [];
 	$essais = [];
 	$desc = test_sql_datas();
@@ -104,7 +104,7 @@ function test_selections()
 	// selection simple
 	$res = sql_select('*', 'spip_test_tintin');
 	if (($nb = sql_count($res)) !== $nb_data) {
-		$err[] = "sql_count ({$nb}) ne renvoie pas : {$nb2} elements";
+		$err[] = "1.sql_count ({$nb}) ne renvoie pas : {$nb_data} elements";
 	}
 
 	// selection float
@@ -120,39 +120,39 @@ function test_selections()
 	}
 
 	if (($nb = sql_count($res)) !== $n) {
-		$err[] = "sql_count ({$nb}) ne renvoie pas : {$n} elements";
+		$err[] = "2.sql_count ({$nb}) ne renvoie pas : {$n} elements";
 	}
 
 	// selection REGEXP
 	// ! chiffre en dur !
 	$res = sql_select('*', 'spip_test_tintin', ['un_varchar REGEXP ' . sql_quote('^De')]);
 	if (($nb = sql_count($res)) !== 1) {
-		$err[] = "sql_select comprends mal REGEXP ({$nb} resultats au lieu de 1)";
+		$err[] = "3.sql_select comprends mal REGEXP ({$nb} resultats au lieu de 1)";
 	}
 
 	// selection LIKE
 	// ! chiffre en dur !
 	$res = sql_select('*', 'spip_test_tintin', ['un_varchar LIKE ' . sql_quote('De%')]);
 	if (($nb = sql_count($res)) !== 1) {
-		$err[] = "sql_select comprends mal LIKE ({$nb} resultats au lieu de 1)";
+		$err[] = "4.sql_select comprends mal LIKE ({$nb} resultats au lieu de 1)";
 	}
 
 	// selection array(champs)
 	$res = sql_fetsel(['id_tintin', 'un_varchar'], 'spip_test_tintin');
 	if (! isset($res['id_tintin']) || ! isset($res['un_varchar'])) {
-		$err[] = 'sql_select comprends mal une selection : array(champ1, champ2)';
+		$err[] = '5.sql_select comprends mal une selection : array(champ1, champ2)';
 	}
 
 	// selection array(champs=>alias)
 	$res = sql_fetsel(['id_tintin AS id', 'un_varchar AS vchar'], 'spip_test_tintin');
 	if (! isset($res['id']) || ! isset($res['vchar'])) {
-		$err[] = 'sql_select comprends mal une selection : array(champ1 AS alias1, champ2 AS alias2)';
+		$err[] = '6.sql_select comprends mal une selection : array(champ1 AS alias1, champ2 AS alias2)';
 	}
 
 	// selection avec sql_multi
 	$res = sql_select(['id_milou', sql_multi('grrrr', 'fr')], 'spip_test_milou', '', '', 'multi');
 	if (sql_count($res) !== $nb_data) {
-		$err[] = 'sql_multi mal interprete';
+		$err[] = '7.sql_multi mal interprete';
 	}
 
 	$rs = sql_fetch($res);
@@ -162,7 +162,7 @@ function test_selections()
 	$rs = sql_fetch($res);
 	$id3 = intval($rs['id_milou']);
 	if ($id1 !== 3 && $id2 !== 2 && $id3 !== 1) {
-		$err[] = "sql_multi order by multi rate : ordre ({$id1}, {$id2}, {$id3}) - attendu : (3, 2, 1)";
+		$err[] = "8.sql_multi order by multi rate : ordre ({$id1}, {$id2}, {$id3}) - attendu : (3, 2, 1)";
 	}
 
 	// le bon texte avec multi
@@ -172,7 +172,7 @@ function test_selections()
 	] as $lg => $res) {
 		$multi = sql_getfetsel(sql_multi('grrrr', $lg), 'spip_test_milou', 'id_milou=' . sql_quote(2));
 		if ($multi !== $res) {
-			$err[] = "sql_multi {$lg} mal rendu : retour : " . htmlentities($multi) . ', attendu : ' . htmlentities($res);
+			$err[] = "9.sql_multi {$lg} mal rendu : retour : " . htmlentities($multi) . ', attendu : ' . htmlentities($res);
 		}
 	}
 
@@ -183,7 +183,7 @@ function test_selections()
 	] as $lg => $res) {
 		$multi = sql_getfetsel(sql_multi('alcool', $lg), 'spip_test_haddock', 'id_haddock=' . sql_quote(2));
 		if ($multi !== $res) {
-			$err[] = "sql_multi {$lg} mal rendu : retour : " . htmlentities($multi) . ', attendu : ' . htmlentities($res);
+			$err[] = "10.sql_multi {$lg} mal rendu : retour : " . htmlentities($multi) . ', attendu : ' . htmlentities($res);
 		}
 	}
 
@@ -195,13 +195,13 @@ function test_selections()
 	] as $lg => $res) {
 		$multi = sql_getfetsel(sql_multi('alcool', $lg), 'spip_test_haddock', 'id_haddock=' . sql_quote(4));
 		if ($multi !== $res) {
-			$err[] = "sql_multi [{$lg}] mal rendu : retour : " . htmlentities($multi) . ', attendu : ' . htmlentities($res);
+			$err[] = "11.sql_multi [{$lg}] mal rendu : retour : " . htmlentities($multi) . ', attendu : ' . htmlentities($res);
 		}
 	}
 
 	// affichage
 	if ($err !== []) {
-		return '<b>Selections</b><dl><dd>' . implode('</dd><dd>', $err) . '</dd></dl>';
+		return "<b>Selections</b><dl>\n<dd>" . implode("</dd>\n<dd>", $err) . '</dd></dl>';
 	}
 }
 
@@ -284,7 +284,7 @@ function test_selections_entre_table()
 
 	// affichage
 	if ($err) {
-		return '<b>Selections multi tables</b><dl><dd>' . implode('</dd><dd>', $err) . '</dd></dl>';
+		return "<b>Selections multi tables</b><dl>\n<dd>" . implode("</dd>\n<dd>", $err) . '</dd></dl>';
 	}
 }
 
