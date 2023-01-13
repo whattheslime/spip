@@ -1,3 +1,17 @@
+SPIP-Core v3.2.16 -> v3.2.17 (2023-01-13)
+-----------------------------------------
+
+33ab5bdf8 | glopglop       | 2022-12-22 | fix: délai de 48 h et non pas de 48 jours pour vider les contextes Ajax
+e0422948c | cedric         | 2022-02-03 | Fix #5021 et #5022 : - mieux decouper les chaines y compris dans le cas des simples quote echappes par sqlite - echapp..
+d8a262bba | cedric         | 2022-08-25 | fix: verifier le format de oups avant de le passer à objet_associer
+
+SPIP-plugins-dist v3.2.16 -> v3.2.17 (2023-01-13)
+-------------------------------------------------
+
+Dist | fea5568 | cedric         | 2022-10-20 | fix: ne pas permettre de changer le mot de passe d'un auteur dont le login est vide + passer par `auth_identifier_logi..
+
+
+
 SPIP-Core v3.2.15 -> v3.2.16 (2022-07-21)
 -----------------------------------------
 

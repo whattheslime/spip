@@ -153,6 +153,6 @@
         "path": "squelettes-dist",
         "source": "https://git.spip.net/spip/dist.git",
         "branch": "spip-3.2",
-        "tag": "v3.2.6"
+        "tag": "v3.2.7"
     }
 }
