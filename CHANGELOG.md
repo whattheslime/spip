@@ -2,6 +2,13 @@
 
 Changelog de SPIP 4.1
 
+## Unreleased
+
+### Fixed
+
+- spip/dump#4721 Correction de la sauvegarde Mysql
+
+
 ## 4.1.6 - 2023-01-13
 
 ### Changed
