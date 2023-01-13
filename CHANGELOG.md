@@ -2,7 +2,7 @@
 
 Changelog de SPIP 4.1
 
-## [Unreleased]
+## 4.1.6 - 2023-01-13
 
 ### Changed
 
@@ -28,7 +28,7 @@ Changelog de SPIP 4.1
 - #5016 Collecte des arguments sur les formulaires dans un modèle
 
 
-## [4.1.5] - 2022-07-21
+## 4.1.5 - 2022-07-21
 
 ### Fixed
 
@@ -40,14 +40,14 @@ Changelog de SPIP 4.1
 - #5206 Échouer en minipres si on ne peut pas écrire le fichier des clés lors du login
 - #5213 Prendre en compte le sens du critère `tri` en présence d’un tri `multi`
 
-## [4.1.4] - 2022-07-21
+## 4.1.4 - 2022-07-21
 
 ### Fixed
 
 - #5259 Fatale sur `autoriser` appelé avec un identifiant d’auteur inexistant
 - Installation de SPIP 4.1.3
 
-## [4.1.3] - 2022-07-21
+## 4.1.3 - 2022-07-21
 
 ### Security
 
@@ -80,7 +80,7 @@ Changelog de SPIP 4.1
 - #5194 Améliorer le comportement du bouton "Ajourd'hui" dans le dateur en surlignant le jour courant + ajout option data-todayhighlight sur les input.date + fix option data-clearbtn
 
 
-## [4.1.2] - 2022-05-20
+## 4.1.2 - 2022-05-20
 
 ### Security
 
@@ -142,7 +142,7 @@ Changelog de SPIP 4.1
 - #5110 Depuis #5018, le fichier `prive/transmettre.html` n’a plus lieu d’être.
 
 
-## [4.1.1] - 2022-04-01
+## 4.1.1 - 2022-04-01
 
 ### Added
 
@@ -159,7 +159,7 @@ Changelog de SPIP 4.1
 - Éviter des deprecated (null sur str*) lors de l’utilisation de `#CHEMIN{#ENV{absent}}`
 
 
-## [4.1.0] - 2022-03-25
+## 4.1.0 - 2022-03-25
 
 ### Changed
 
@@ -181,7 +181,7 @@ Changelog de SPIP 4.1
 - #5085 : Réparer le lien Afficher tout dans les paginations des boites de sous-rubriques
 
 
-## [4.1.0-rc] - 2022-03-05
+## 4.1.0-rc - 2022-03-05
 
 ### Added
 
@@ -218,7 +218,7 @@ Changelog de SPIP 4.1
 - `lister_configurer()` et `lister_formulaires_configurer()`, Code mort depuis 11 ans (avant SPIP 3.0)
 
 
-## [4.1.0-beta] - 2022-02-18
+## 4.1.0-beta - 2022-02-18
 
 ### Security
 
@@ -240,7 +240,7 @@ Changelog de SPIP 4.1
 - #5038 suppression de `signaler_conflits_edition()`, code mort depuis SPIP 3.0
 
 
-## [4.1.0-alpha] - 2022-02-08
+## 4.1.0-alpha - 2022-02-08
 
 ### Added
 
