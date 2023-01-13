@@ -1,3 +1,20 @@
+SPIP-Core v4.0.8 -> v4.0.9 (2023-01-13)
+---------------------------------------
+
+88f4242d3 | glopglop       | 2022-12-22 | fix: délai de 48 h et non pas de 48 jours pour vider les contextes Ajax
+55d8f27ef | cedric         | 2022-08-25 | fix: verifier le format de oups avant de le passer à objet_associer
+
+SPIP-plugins-dist v4.0.8 -> v4.0.9 (2023-01-13)
+-----------------------------------------------
+
+Forum  | 3844c01 | bruno          | 2022-08-10 | fix: suivre le changement de comportement de appliquer_filtre
+Medias | 79d876f | bruno          | 2022-08-08 | doc: créditer le jeu d'icône Numix dans le paquet
+SVP    | a3a2e28 | marcimat       | 2022-07-21 | fix: Corriger le bouton "Tout cocher" des plugins à mettre à jour.
+Dist   | b69a765 | cedric         | 2022-10-20 | fix: ne pas permettre de changer le mot de passe d'un auteur dont le login est vide + passer par `auth_identifier_logi..
+Dist   | 9aa5ef5 | bruno          | 2021-11-23 | fix: réparer la fonctionnalité d'embed de document unique (non image) sur les articles vides
+
+
+
 SPIP-Core v4.0.7 -> v4.0.8 (2022-07-21)
 ---------------------------------------
 
