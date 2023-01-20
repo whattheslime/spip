@@ -2,6 +2,12 @@
 
 Changelog de SPIP 4.1
 
+## [Unreleased]
+
+### Fixed
+
+- #5432 Rétablir l'accès à `.well-known/` dans certaines configurations serveur
+
 ## 4.1.7 - 2023-01-13
 
 ### Fixed
