@@ -1,5 +1,7 @@
 # Changelog
 
+Changelog de SPIP 4.2
+
 ## [Unreleased]
 
 ### Security
