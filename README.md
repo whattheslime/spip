@@ -1,33 +1,50 @@
 # Tests pour SPIP
 
-Suite de tests basÈe sur PHPUnit, avec un wrapper pour les tests historiques Ècrits en script PHP standalone ou en squelette HTML
+Suite de tests bas√©e sur PHPUnit, avec un wrapper pour les tests historiques √©crits en script PHP standalone ou en squelette HTML
 
 ## Installation
+
+Placez-vous √† la racine du site.
 
 ```
 git clone https://git.spip.net/spip/tests.git
 cd tests
-composer install
+make tests
 ```
 
-## Lancer tous les tests
+## Commande principale
 
-Lancer
+Lancer tous les tests
+```
+make tests
+```
 
+## Commandes sp√©cifiques
+
+Lancer tous les tests
 ```
 vendor/bin/phpunit --colors tests
 ```
 
-Pour voir le dÈtail de tous les tests lancÈs (y compris leurs noms)
-
+Voir le d√©tail de tous les tests lanc√©s (y compris leurs noms)
 ```
 vendor/bin/phpunit --colors --debug tests
 ```
 
+Lister toutes les suites de tests :
+```
+vendor/bin/phpunit --colors --debug --list-suites
+```
+
+Lister tous les tests :
+```
+vendor/bin/phpunit --colors --debug --list-tests
+```
 
 Pour filtrer les tests et n'en executer que certains :
 ```
 vendor/bin/phpunit --colors --debug tests --filter=unit/propre/
+vendor/bin/phpunit --colors --debug --filter=testCouper
 ```
 
 ## Ajouter des tests
@@ -36,6 +53,6 @@ TODO
 
 ## Legacy
 
-Les tests historiques Ècrits sous forme de PHP ou de squelette HTML sont jouÈs via les 2 composants `LegacyUnitHtmlTest.php` et `LegacyUnitPhpTest.php`
+Les tests historiques √©crits sous forme de PHP ou de squelette HTML sont jou√©s via les 2 composants `LegacyUnitHtmlTest.php` et `LegacyUnitPhpTest.php`
 
-Il est encore possible de lancer dans le navigateur la suite de tests legacy via l'url `monsite.spip/tests/` mais cette mÈthode est deprÈciÈe et ne lancera pas les tests Ècrits directement pour PHPUnit
+Il est encore possible de lancer dans le navigateur la suite de tests legacy via l'url `monsite.spip/tests/` mais cette m√©thode est depr√©ci√©e et ne lancera pas les tests √©crits directement pour PHPUnit
