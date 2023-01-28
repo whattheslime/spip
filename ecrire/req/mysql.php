@@ -39,7 +39,15 @@ if (!defined('_MYSQL_NOPLANES')) {
  *     - false si la connexion a échoué
  *     - tableau décrivant la connexion sinon
  */
-function req_mysql_dist($host, $port, $login, #[\SensitiveParameter] $pass, $db = '', $prefixe = '') {
+function req_mysql_dist(
+	$host,
+	$port,
+	$login,
+	#[\SensitiveParameter]
+	$pass,
+	$db = '',
+	$prefixe = ''
+) {
 	if (!extension_loaded(\mysqli::class)) {
 		return false;
 	}

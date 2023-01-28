@@ -68,7 +68,10 @@ function inc_auth_dist() {
  * @param string $password
  * @return bool
  */
-function auth_controler_password_auteur_connecte(#[\SensitiveParameter] string $password): bool {
+function auth_controler_password_auteur_connecte(
+	#[\SensitiveParameter]
+	string $password
+): bool {
 
 	if (
 		empty($GLOBALS['visiteur_session']['id_auteur'])
@@ -508,7 +511,13 @@ function auth_informer_login($login, $serveur = '') {
  * @param string $serveur
  * @return mixed
  */
-function auth_identifier_login($login, #[\SensitiveParameter] $password, $serveur = '', bool $phpauth = false) {
+function auth_identifier_login(
+	$login,
+	#[\SensitiveParameter]
+	$password,
+	$serveur = '',
+	bool $phpauth = false
+) {
 	$erreur = '';
 	foreach ($GLOBALS['liste_des_authentifications'] as $methode) {
 		if ($auth = charger_fonction($methode, 'auth', true)) {
@@ -673,7 +682,13 @@ function auth_autoriser_modifier_pass($auth_methode, $serveur = '') {
  * @return string
  *  message d'erreur ou chaine vide si pas d'erreur
  */
-function auth_verifier_pass($auth_methode, $login, #[\SensitiveParameter] $new_pass, $id_auteur = 0, $serveur = '') {
+function auth_verifier_pass(
+	$auth_methode, $login,
+	#[\SensitiveParameter]
+	$new_pass,
+	$id_auteur = 0,
+	$serveur = ''
+) {
 	$args = func_get_args();
 	return auth_administrer('verifier_pass', $args, '');
 }
@@ -690,7 +705,14 @@ function auth_verifier_pass($auth_methode, $login, #[\SensitiveParameter] $new_p
  * @return bool
  *  succes ou echec
  */
-function auth_modifier_pass($auth_methode, $login, #[\SensitiveParameter] $new_pass, $id_auteur, $serveur = '') {
+function auth_modifier_pass(
+	$auth_methode,
+	$login,
+	#[\SensitiveParameter]
+	$new_pass,
+	$id_auteur,
+	$serveur = ''
+) {
 	$args = func_get_args();
 	return auth_administrer('modifier_pass', $args);
 }
@@ -737,7 +759,12 @@ function auth_synchroniser_distant(
  * @param string $serveur
  * @return array|bool
  */
-function lire_php_auth($login, #[\SensitiveParameter] $pw, $serveur = '') {
+function lire_php_auth(
+	$login,
+	#[\SensitiveParameter]
+	$pw,
+	$serveur = ''
+) {
 	if (
 		!$login
 		or !$login_base = auth_retrouver_login($login, $serveur)

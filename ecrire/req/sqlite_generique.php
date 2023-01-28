@@ -42,8 +42,16 @@ if (!defined('_ECRIRE_INC_VERSION')) {
  * @param string $sqlite_version
  * @return array|bool
  */
-function req_sqlite_dist($addr, $port, $login, #[\SensitiveParameter] $pass, $db = '', $prefixe = '', $sqlite_version = '')
-{
+function req_sqlite_dist(
+	$addr,
+	$port,
+	$login,
+	#[\SensitiveParameter]
+	$pass,
+	$db = '',
+	$prefixe = '',
+	$sqlite_version = ''
+) {
 	static $last_connect = [];
 
 	// si provient de selectdb
