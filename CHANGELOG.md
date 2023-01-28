@@ -2,6 +2,13 @@
 
 Changelog de SPIP 4.2
 
+## Unreleased
+
+### Fixed
+
+- #5472 Compatibilité PHP 7.4 (attribut SensitiveParameter à la ligne…)
+
+
 ## 4.2.0-alpha - 2023-01-27
 
 ### Security
