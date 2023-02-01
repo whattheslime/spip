@@ -2,6 +2,13 @@
 
 Changelog de SPIP 4.2
 
+### Unreleased
+
+### Fixed
+
+- #5476 Éviter un débordement des colonnes dans l’espace privé
+
+
 ## 4.2.0-alpha2 - 2023-01-28
 
 ### Fixed
