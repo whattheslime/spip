@@ -4,8 +4,13 @@ Changelog de SPIP 4.1
 
 ## [Unreleased]
 
+### Changed
+
+- #5456 Brancher `info_maj()` sur les données de supported-versions
+
 ### Fixed
 
+- #5487 Meilleure gestion de l’affichage des mises à jour
 - #5432 Rétablir l'accès à `.well-known/` dans certaines configurations serveur
 
 ## 4.1.7 - 2023-01-13
