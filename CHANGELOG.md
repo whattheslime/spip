@@ -10,6 +10,7 @@ Changelog de SPIP 4.1
 
 ### Fixed
 
+- #5479 Ne pas injecter le port du proxy dans le http_host du site demandé
 - #5487 Meilleure gestion de l’affichage des mises à jour
 - #5432 Rétablir l'accès à `.well-known/` dans certaines configurations serveur
 
