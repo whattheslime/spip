@@ -2,7 +2,7 @@
 
 Changelog de SPIP 4.1
 
-## [Unreleased]
+## Unreleased
 
 ### Changed
 
@@ -10,8 +10,7 @@ Changelog de SPIP 4.1
 
 ### Fixed
 
-- #5492 Ne pas être trompé par le width et le height d'une image haute densité quand on veut la retailler/reduire
-- #5479 Ne pas injecter le port du proxy dans le http_host du site demandé
+- #5500 Éviter une erreur de squelette quand on passe une valeur `null` à `|inserer_attribut`
 - #5487 Meilleure gestion de l’affichage des mises à jour
 - #5432 Rétablir l'accès à `.well-known/` dans certaines configurations serveur
 
