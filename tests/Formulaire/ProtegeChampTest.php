@@ -35,7 +35,7 @@ class ProtegeChampTest extends TestCase
 				1 => 'i:1;',
 			],
 			1 => [
-				0 => 's:4:"toto";',
+				0 => 's:4:&quot;toto&quot;;',
 				1 => 's:4:"toto";',
 			],
 			2 => [
@@ -47,7 +47,7 @@ class ProtegeChampTest extends TestCase
 				1 => 'b:0;',
 			],
 			4 => [
-				0 => 'a:1:{i:0;s:4:"toto";}',
+				0 => 'a:1:{i:0;s:4:&quot;toto&quot;;}',
 				1 => 'a:1:{i:0;s:4:"toto";}',
 			],
 			5 => [
