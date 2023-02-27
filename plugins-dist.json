@@ -57,7 +57,7 @@
         "path": "plugins-dist/medias",
         "source": "https://git.spip.net/spip/medias.git",
         "branch": "3.2",
-        "tag": "v3.2.7"
+        "tag": "v3.2.9"
     },
     "mots": {
         "path": "plugins-dist/mots",
