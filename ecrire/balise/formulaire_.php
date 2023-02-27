@@ -38,8 +38,7 @@ function protege_champ($texte) {
 	if (is_array($texte)) {
 		$texte = array_map('protege_champ', $texte);
 	} else {
-		// ne pas corrompre une valeur serialize
-		if ((preg_match(',^[abis]:\d+[:;],', $texte) and @unserialize($texte) != false) or is_null($texte)) {
+		if (is_null($texte)) {
 			return $texte;
 		}
 		if (
