@@ -10,6 +10,7 @@ Changelog de SPIP 4.1
 
 ### Fixed
 
+- spip-team/securite#4839 Sanitizer toutes les valeurs passées aux formulaires
 - #5500 Éviter une erreur de squelette quand on passe une valeur `null` à `|inserer_attribut`
 - #5487 Meilleure gestion de l’affichage des mises à jour
 - #5432 Rétablir l'accès à `.well-known/` dans certaines configurations serveur
