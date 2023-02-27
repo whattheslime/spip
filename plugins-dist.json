@@ -15,7 +15,7 @@
         "path": "plugins-dist/bigup",
         "source": "https://git.spip.net/spip/bigup.git",
         "branch": "3.2",
-        "tag": "v3.2.1"
+        "tag": "v3.2.2"
     },
     "compagnon": {
         "path": "plugins-dist/compagnon",
@@ -51,7 +51,7 @@
         "path": "plugins-dist/mediabox",
         "source": "https://git.spip.net/spip/mediabox.git",
         "branch": "3.1",
-        "tag": "v3.1.0"
+        "tag": "v3.1.1"
     },
     "medias": {
         "path": "plugins-dist/medias",
@@ -75,7 +75,7 @@
         "path": "plugins-dist/porte_plume",
         "source": "https://git.spip.net/spip/porte_plume.git",
         "branch": "3.1",
-        "tag": "v3.1.1"
+        "tag": "v3.1.2"
     },
     "revisions": {
         "path": "plugins-dist/revisions",
@@ -93,7 +93,7 @@
         "path": "plugins-dist/sites",
         "source": "https://git.spip.net/spip/sites.git",
         "branch": "4.1",
-        "tag": "v4.1.0"
+        "tag": "v4.1.1"
     },
     "statistiques": {
         "path": "plugins-dist/statistiques",
