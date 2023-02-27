@@ -1,3 +1,10 @@
+SPIP-Core v3.2.17 -> v3.2.18 (2023-02-27)
+-----------------------------------------
+
+d6d9e10e6 | cedric         | 2023-02-27 | fix: Sanitizer toutes les valeurs passées aux formulaires preventivement dans l'écran de sécurité
+5aedf49b8 | cedric         | 2023-02-27 | Fix: Sanitizer toutes les valeurs passées aux formulaires
+
+
 SPIP-Core v3.2.16 -> v3.2.17 (2023-01-13)
 -----------------------------------------
 
