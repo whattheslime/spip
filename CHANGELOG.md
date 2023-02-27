@@ -4,9 +4,14 @@ Changelog de SPIP 4.2
 
 ## Unreleased
 
+### Changed
+
+- Mise à jour des chaînes de langues depuis trad.spip.net
+
 ### Fixed
 
 - Appel d’itérateurs dont le paramètre est un nom d’itérateur natif (bug plugin Critères précédent suivant)
+
 
 ## 4.2.0 - 2023-02-23
 
