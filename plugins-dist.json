@@ -15,7 +15,7 @@
         "path": "plugins-dist/bigup",
         "source": "https://git.spip.net/spip/bigup.git",
         "branch": "3.1",
-        "tag": "v3.1.1"
+        "tag": "v3.1.2"
     },
     "compagnon": {
         "path": "plugins-dist/compagnon",
@@ -27,7 +27,7 @@
         "path": "plugins-dist/compresseur",
         "source": "https://git.spip.net/spip/compresseur.git",
         "branch": "2.0",
-        "tag": "v2.0.5"
+        "tag": "v2.0.6"
     },
     "dump": {
         "path": "plugins-dist/dump",
@@ -57,7 +57,7 @@
         "path": "plugins-dist/medias",
         "source": "https://git.spip.net/spip/medias.git",
         "branch": "4.0",
-        "tag": "v4.0.7"
+        "tag": "v4.0.8"
     },
     "mots": {
         "path": "plugins-dist/mots",
@@ -99,7 +99,7 @@
         "path": "plugins-dist/statistiques",
         "source": "https://git.spip.net/spip/statistiques.git",
         "branch": "3.0",
-        "tag": "v3.0.4"
+        "tag": "v3.0.5"
     },
     "svp": {
         "path": "plugins-dist/svp",
