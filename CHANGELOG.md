@@ -2,6 +2,12 @@
 
 Changelog de SPIP 4.1
 
+## Unreleased
+
+### Fixed
+
+- #5172 Éviter une erreur fatale sur `#INTRODUCTION` d'un objet inexistant
+
 ## 4.1.8 - 2023-02-27
 
 ### Changed
