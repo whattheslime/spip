@@ -105,7 +105,7 @@
         "path": "plugins-dist/svp",
         "source": "https://git.spip.net/spip/svp.git",
         "branch": "2.4",
-        "tag": "v2.4.6"
+        "tag": "v2.4.7"
     },
     "textwheel": {
         "path": "plugins-dist/textwheel",
