@@ -4569,14 +4569,14 @@ function generer_objet_info($id_objet, string $type_objet, string $info, string 
 		($generer = charger_fonction("generer_{$type_objet}_{$info}", '', true))
 		|| ($generer = charger_fonction("generer_{$info}_{$type_objet}", '', true))
 	) {
-		$info_generee = $generer($id_objet, $objets[$type_objet][$id_objet], ...$params);
+		$info_generee = $generer($id_objet, ($objets[$type_objet][$id_objet] ?? []), ...$params);
 	}
 	// Si la fonction generer_objet_TRUC existe, on l'utilise pour formater $info_generee
 	elseif (
 		($generer = charger_fonction("generer_objet_{$info}", '', true))
 		|| ($generer = charger_fonction("generer_{$info}_entite", '', true))
 	) {
-		$info_generee = $generer($id_objet, $type_objet, $objets[$type_objet][$id_objet], ...$params);
+		$info_generee = $generer($id_objet, $type_objet, ($objets[$type_objet][$id_objet] ?? []), ...$params);
 	} // Sinon on prend directement le champ SQL tel quel
 	else {
 		$info_generee = ($objets[$type_objet][$id_objet][$info] ?? '');
