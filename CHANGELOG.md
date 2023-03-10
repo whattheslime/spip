@@ -2,6 +2,12 @@
 
 Changelog de SPIP 4.1
 
+## Unreleased
+
+### Fixed
+
+- #5449 Aligner le comportement du filtre `|image_reduire` sur celui de GD quand on utilse convert
+
 ## 4.1.9 - 2023-02-28
 
 ### Fixed
