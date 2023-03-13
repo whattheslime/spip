@@ -47,36 +47,48 @@ class PropreTest extends TestCase
 	public function providerTextePropre(): array
 	{
 		return [
-			0 => [
+			'vide' => [
 				0 => '',
 				1 => '',
 			],
-			1 => [
-				0 => '0',
+			'null' => [
+				0 => '',
+				1 => null,
+			],
+			'array' => [
+				0 => '',
+				1 => [],
+			],
+			'chaine_zero' => [
+				0 => '<p>0</p>',
 				1 => '0',
 			],
-			2 => [
+			'nombre_zero' => [
+				0 => '<p>0</p>',
+				1 => 0,
+			],
+			'string_1' => [
 				0 => '<p>Un texte avec des <a href="http://spip.net">liens</a> <a href="spip.php?article1" class="spip_in">Article 1</a> <a href="http://www.spip.net" class="spip_out" rel="external">spip</a> <a href="http://www.spip.net" class="spip_url spip_out auto" rel="nofollow external">http://www.spip.net</a></p>',
 				1 => 'Un texte avec des <a href="http://spip.net">liens</a> [Article 1->art1] [spip->http://www.spip.net] http://www.spip.net',
 			],
-			3 => [
+			'string_2'  => [
 				0 => '<p>Un texte avec des entit&eacute;s &amp;&lt;&gt;&quot;</p>',
 				1 => 'Un texte avec des entit&eacute;s &amp;&lt;&gt;&quot;',
 			],
-			4 => [
+			'string_3'  => [
 				0 => '<p>Un texte sans entites &amp;&lt;>"&#8217;</p>',
 				1 => 'Un texte sans entites &<>"\'',
 			],
-			5 => [
+			'string_4'  => [
 				0 => '<h2 class="spip">Des raccourcis</h2>
 <p> <i>italique</i> <strong>gras</strong> <code class="spip_code spip_code_inline" dir="ltr">du code</code></p>',
 				1 => '{{{Des raccourcis}}} {italique} {{gras}} <code>du code</code>',
 			],
-			6 => [
+			'string_5'  => [
 				0 => '<p>Un modele <tt>&lt;modeleinexistant|lien=[-&gt;http://www.spip.net]&gt;</tt></p>',
 				1 => 'Un modele <modeleinexistant|lien=[->http://www.spip.net]>',
 			],
-			7 => [
+			'string_6'  => [
 				0 => '<p><span class="spip-puce ltr"><b>–</b></span>&nbsp;propre</p>',
 				1 => '- propre',
 			],
