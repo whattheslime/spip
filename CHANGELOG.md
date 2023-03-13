@@ -6,6 +6,7 @@ Changelog de SPIP 4.1
 
 ### Fixed
 
+- #5426 Correction des filtres de date lorsque l’entrée ne précise pas le jour tel qu’avec `2023-03`
 - #5449 Aligner le comportement du filtre `|image_reduire` sur celui de GD quand on utilse convert
 
 ## 4.1.9 - 2023-02-28
