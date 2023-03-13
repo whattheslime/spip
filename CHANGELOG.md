@@ -6,6 +6,9 @@ Changelog de SPIP 4.2
 
 ### Security
 
+- spip-team/securite#4840 Éviter `unserialize` dans l’écran de sécurité
+- spip-team/securite#4840 Limiter la profondeur de recursion de `protege_champ`
+- spip-team/securite#4840 Inclure l’écran de sécurité avant l’autoloader
 - spip-team/securite#4841 Limiter l’usage de `#ENV**` dans les formulaires.
 
 ### Added
