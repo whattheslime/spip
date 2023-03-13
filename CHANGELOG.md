@@ -4,6 +4,10 @@ Changelog de SPIP 4.2
 
 ## Unreleased
 
+### Added
+
+- #5301 Permettre de fournir le nom de l’attachement à `spip_livrer_fichier()`
+
 ### Fixed
 
 - #5485 Correction d’erreurs des traitements d’image si la balise `img` n’a pas d’attribut `src`
