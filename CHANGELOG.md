@@ -4,6 +4,11 @@ Changelog de SPIP 4.1
 
 ## Unreleased
 
+### Security
+
+- spip-team/securite#4840 Éviter `unserialize` dans l’écran de sécurité
+- spip-team/securite#4840 Limiter la profondeur de recursion de `protege_champ`
+
 ### Fixed
 
 - #5485 Correction d’erreurs des traitements d’image si la balise `img` n’a pas d’attribut `src`
