@@ -21,7 +21,7 @@ $bootstraps = [];
 foreach (creer_chemin() as $d) {
 	if ($d and
 		is_dir("{$d}tests")
-		and count(glob("{$d}tests/*Test.php"))
+		and (count(glob("{$d}tests/*Test.php")) or count(glob("{$d}tests/*/*Test.php")))
 	) {
 		$bases[] = "{$d}tests";
 
