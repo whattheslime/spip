@@ -42,6 +42,28 @@ class ExtraireBalisesTest extends TestCase
 		$this->assertEquals($expected, $actual);
 	}
 
+	/**
+	 * @dataProvider providerFiltresExtraireBalises
+	 */
+	public function testFiltresExtraireBalise($expected, ...$args): void
+	{
+		// extraire_balise doit renvoyer le premier résultat de extraire_balises
+		// sauf si on fournit un tableau de chaine en entree, ce doit être alors le premier résultat de chaque sous-tableau
+		$first_result = reset($expected);
+		if (is_array($first_result)) {
+			$first_result = [];
+			foreach ($expected as $e) {
+				$first_result[] = (empty($e) ? null : reset($e));
+			}
+			$expected = $first_result;
+		} else {
+			$expected = (empty($expected) ? null : $first_result);
+		}
+		$actual = extraire_balise(...$args);
+		$this->assertSame($expected, $actual);
+		$this->assertEquals($expected, $actual);
+	}
+
 	public function providerFiltresExtraireBalises(): array
 	{
 
@@ -81,6 +103,96 @@ class ExtraireBalisesTest extends TestCase
 			[
 				['<a>chose</a>'],
 				'<a>chose</a>'
+			],
+			[
+				['<a href="truc">chose</a>'],
+				'allo <a href="truc">chose</a>',
+				'a'
+			],
+			[
+				['<a href="truc" />'],
+				'allo <a href="truc" />',
+				'a'
+			],
+			[
+				["<a\nhref='truc' />"],
+				'allo' . "\n" . " <a\nhref='truc' />",
+				'a'
+			],
+			[
+				[['<a href="1">'], ['<a href="2">']],
+				['allo <a href="1">', 'allo <a href="2">'],
+				'a'
+			],
+			[
+				['<a href="truc">chose</a>'],
+				'bonjour <a href="truc">chose</a> machin',
+				'a'
+			],
+			[
+				['<a href="truc">chose</a>', '<A href="truc">machin</a>'],
+				'bonjour <a href="truc">chose</a> machin <A href="truc">machin</a>',
+				'a'
+			],
+			[
+				['<a href="truc">'],
+				'bonjour <a href="truc">chose',
+				'a'
+			],
+			[
+				['<a href="truc"/>'],
+				'<a href="truc"/>chose</a>',
+				'a'
+			],
+			[
+				['<a>chose</a>'],
+				'<a>chose</a>',
+				'a'
+			],
+			[
+				[],
+				'allo <a href="truc">chose</a>',
+				'b'
+			],
+			[
+				[],
+				'allo <a href="truc" />',
+				'b'
+			],
+			[
+				[],
+				'allo' . "\n" . " <a\nhref='truc' />",
+				'b'
+			],
+			[
+				[[], []],
+				['allo <a href="1">', 'allo <a href="2">'],
+				'b'
+			],
+			[
+				[],
+				'bonjour <a href="truc">chose</a> machin',
+				'b'
+			],
+			[
+				[],
+				'bonjour <a href="truc">chose</a> machin <A href="truc">machin</a>',
+				'b'
+			],
+			[
+				[],
+				'bonjour <a href="truc">chose',
+				'b'
+			],
+			[
+				[],
+				'<a href="truc"/>chose</a>',
+				'b'
+			],
+			[
+				[],
+				'<a>chose</a>',
+				'b'
 			]
 		];
 	}
