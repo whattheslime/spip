@@ -13,6 +13,7 @@ Changelog de SPIP 4.2
 
 ### Added
 
+- #5535 Log des dépréciations, via la fonction `trigger_deprecation` (de symfony/deprecations-contracts).
 - #5301 Permettre de fournir le nom de l’attachement à `spip_livrer_fichier()`
 
 ### Fixed
