@@ -1913,7 +1913,7 @@ function generer_objet_url($id, string $entite, string $args = '', string $ancre
  * @see generer_objet_url
  */
 function generer_url_entite($id = 0, $entite = '', $args = '', $ancre = '', $public = null, $type = null) {
-	trigger_deprecation('spip', '4.1', 'Using "%s" is deprecated, use "%s" instead', __FUNCTION__, 'generer_url_entite');
+	trigger_deprecation('spip', '4.1', 'Using "%s" is deprecated, use "%s" instead', __FUNCTION__, 'generer_objet_url');
 	if ($public and is_string($public)) {
 		return generer_objet_url(intval($id), $entite, $args ?: '', $ancre ?: '', true, $type ?? '', $public);
 	}
