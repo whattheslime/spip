@@ -18,20 +18,6 @@ class ExtraireBalisesTest extends TestCase
 		find_in_path('./inc/lang.php', '', true);
 	}
 
-	public function testFiltresExtraireBalisesMediaRss(): void
-	{
-
-		$rss = file_get_contents(dirname(__DIR__) . '/Fixtures/data/dailymotion.rss');
-		if (empty($rss)) {
-			$this->markTestSkipped();
-		}
-
-		$balises_media = extraire_balises($rss, 'media:content');
-		$this->assertIsArray($balises_media);
-		$this->assertEquals(count($balises_media), 40);
-	}
-
-
 	/**
 	 * @dataProvider providerFiltresExtraireBalises
 	 */
@@ -60,6 +46,19 @@ class ExtraireBalisesTest extends TestCase
 		}
 		$actual = extraire_balise(...$args);
 		$this->assertSame($expected, $actual);
+	}
+
+	public function testFiltresExtraireBalisesMediaRss(): void
+	{
+
+		$rss = file_get_contents(dirname(__DIR__) . '/Fixtures/data/dailymotion.rss');
+		if (empty($rss)) {
+			$this->markTestSkipped();
+		}
+
+		$balises_media = extraire_balises($rss, 'media:content');
+		$this->assertIsArray($balises_media);
+		$this->assertEquals(count($balises_media), 40);
 	}
 
 	public static function providerFiltresExtraireBalises(): array
