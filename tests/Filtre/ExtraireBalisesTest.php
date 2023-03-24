@@ -34,6 +34,11 @@ class ExtraireBalisesTest extends TestCase
 	{
 		// extraire_balise doit renvoyer le premier résultat de extraire_balises
 		// sauf si on fournit un tableau de chaine en entree, ce doit être alors le premier résultat de chaque sous-tableau
+		if (count($args) === 3) {
+			$options = array_pop($args);
+			$profondeur = ($options['profondeur'] ?? 1);
+			$args[] = $profondeur;
+		}
 		$first_result = reset($expected);
 		if (is_array($first_result)) {
 			$first_result = [];
@@ -231,6 +236,24 @@ class ExtraireBalisesTest extends TestCase
 				'<div/><div class="message">Hello <div class="inside">World<div>!<div/></div><div/></div><div/></div><div/>',
 				'div',
 				['nb_max' => 1]
+			],
+			'div_3_et_autofermante_5_profondeur_2' =>[
+				['<div class="hello">Hello</div>', '<div class="world">World</div>', '<div>!</div>', '<div/>'],
+				'<div class="message"><div class="hello">Hello</div> <div class="world">World</div><div>!</div> <div/></div>',
+				'div',
+				['profondeur' => '2'],
+			],
+			'div_3_et_autofermante_5_profondeur_3' =>[
+				[],
+				'<div class="message"><div class="hello">Hello</div> <div class="world">World</div><div>!</div> <div/></div>',
+				'div',
+				['profondeur' => '3'],
+			],
+			'div_3_et_autofermante_5_profondeur_3_2' =>[
+				['<div>lo</div>'],
+				'<div class="message"><div class="hello">Hel<div>lo</div></div> <div class="world">World</div><div>!</div> <div/></div>',
+				'div',
+				['profondeur' => '3'],
 			],
 		];
 	}
