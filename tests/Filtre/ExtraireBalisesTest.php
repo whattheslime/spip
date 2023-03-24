@@ -190,7 +190,48 @@ class ExtraireBalisesTest extends TestCase
 				[],
 				'<a>chose</a>',
 				'b'
-			]
+			],
+			'div_2' => [
+				['<div class="message">Hello <div class="inside">World!</div></div>'],
+				'<div class="message">Hello <div class="inside">World!</div></div>',
+				'div'
+			],
+			'div_3' => [
+				['<div class="message">Hello <div class="inside">World<div>!</div></div></div>'],
+				'<div class="message">Hello <div class="inside">World<div>!</div></div></div>',
+				'div'
+			],
+			'div_3_et_autofermante_1' =>[
+				['<div class="message">Hello <div class="inside">World<div>! <div/> </div></div></div>'],
+				'<div class="message">Hello <div class="inside">World<div>! <div/> </div></div></div>',
+				'div'
+			],
+			'div_3_et_autofermante_2' =>[
+				['<div class="message">Hello <div class="inside">World<div>!<div/></div><div/></div></div>'],
+				'<div class="message">Hello <div class="inside">World<div>!<div/></div><div/></div></div>',
+				'div'
+			],
+			'div_3_et_autofermante_3' =>[
+				['<div class="message">Hello <div class="inside">World<div>!<div/></div><div/></div><div/></div>'],
+				'<div class="message">Hello <div class="inside">World<div>!<div/></div><div/></div><div/></div>',
+				'div'
+			],
+			'div_3_et_autofermante_4' =>[
+				['<div class="message">Hello <div class="inside">World<div>!<div/></div><div/></div><div/></div>', '<div/>'],
+				'<div class="message">Hello <div class="inside">World<div>!<div/></div><div/></div><div/></div><div/>',
+				'div'
+			],
+			'div_3_et_autofermante_5' =>[
+				['<div/>', '<div class="message">Hello <div class="inside">World<div>!<div/></div><div/></div><div/></div>', '<div/>'],
+				'<div/><div class="message">Hello <div class="inside">World<div>!<div/></div><div/></div><div/></div><div/>',
+				'div'
+			],
+			'div_3_et_autofermante_5_nbmax' =>[
+				['<div/>'],
+				'<div/><div class="message">Hello <div class="inside">World<div>!<div/></div><div/></div><div/></div><div/>',
+				'div',
+				['nb_max' => 1]
+			],
 		];
 	}
 }
