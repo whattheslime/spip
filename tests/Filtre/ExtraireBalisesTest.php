@@ -52,11 +52,11 @@ class ExtraireBalisesTest extends TestCase
 		if (is_array($first_result)) {
 			$first_result = [];
 			foreach ($expected as $e) {
-				$first_result[] = (empty($e) ? null : reset($e));
+				$first_result[] = (empty($e) ? '' : reset($e));
 			}
 			$expected = $first_result;
 		} else {
-			$expected = (empty($expected) ? null : $first_result);
+			$expected = (empty($expected) ? '' : $first_result);
 		}
 		$actual = extraire_balise(...$args);
 		$this->assertSame($expected, $actual);
