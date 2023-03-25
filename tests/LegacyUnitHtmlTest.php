@@ -22,7 +22,7 @@ use PHPUnit\Framework\TestCase;
 class LegacyUnitHtmlTest extends TestCase
 {
 	/**
-	 * @dataProvider legacyHtmlfileNameProvider
+	 * @dataProvider providerLegacyHtmlfileName
 	 */
 	public function testLegacyUnitHtml($inFname, $output)
 	{
@@ -30,7 +30,7 @@ class LegacyUnitHtmlTest extends TestCase
 		$this->assertEquals($output, $result);
 	}
 
-	public function legacyHtmlfileNameProvider()
+	public static function providerLegacyHtmlfileName()
 	{
 		require_once(__DIR__ . '/legacy/test.inc');
 

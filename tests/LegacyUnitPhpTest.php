@@ -22,7 +22,7 @@ use PHPUnit\Framework\TestCase;
 class LegacyUnitPhpTest extends TestCase
 {
 	/**
-	 * @dataProvider legacyPhpfileNameProvider
+	 * @dataProvider providerLegacyPhpfileName
 	 */
 	public function testLegacyUnitPHP($inFname, $output)
 	{
@@ -34,7 +34,7 @@ class LegacyUnitPhpTest extends TestCase
 		}
 	}
 
-	public function legacyPhpfileNameProvider()
+	public static function providerLegacyPhpfileName()
 	{
 		require_once(__DIR__ . '/legacy/test.inc');
 

@@ -43,7 +43,7 @@ class FormHiddenCase extends TestCase
 		}
 	}
 
-	protected function getIdRubrique(): ?int {
+	protected static function getIdRubrique(): ?int {
 		include_spip('base/abstract_sql');
 		$id_rubrique = sql_getfetsel(
 			'id_rubrique',
@@ -74,7 +74,7 @@ class FormHiddenCase extends TestCase
 
 	public static function providerFormHiddenRubrique(): array
 	{
-		$id = $this->getIdRubrique();
+		$id = self::getIdRubrique();
 		return [
 			0 =>
 			[

@@ -17,17 +17,10 @@ class AntispamTest extends TestCase
 		find_in_path('inc/filtres.php', '', true);
 	}
 
-	/**
-	 * @dataProvider providerFiltresAntispam
-	 */
-	public function testFiltresAntispam($expected, ...$args): void
+	public function testFiltresAntispam(): void
 	{
-		$actual = antispam(...$args);
-		$this->assertSame($expected, $actual);
+		$actual = antispam('email@domain.tld');
+		$this->assertNotContains('@', $actual);
 	}
 
-	public static function providerFiltresAntispam(): array
-	{
-		return [];
-	}
 }
