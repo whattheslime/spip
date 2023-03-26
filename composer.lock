@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "289cf4ae2c374bcd58b08b584e8efed6",
+    "content-hash": "4b2cc590ecd19c7e93467e8dac6f53e8",
     "packages": [
         {
             "name": "algo26-matthias/idna-convert",
@@ -296,17 +296,17 @@
         },
         {
             "name": "spip/composer-installer",
-            "version": "0.5.0",
+            "version": "dev-composer-local",
             "source": {
                 "type": "git",
                 "url": "https://git.spip.net/spip/composer-installer.git",
-                "reference": "779ab95dbed3a25168165cd12756a069e55813fa"
+                "reference": "32c57ce843db5dc3ea6fd753ad882910aeabe1cf"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://get.spip.net/composer/dist/spip/composer-installer/spip-composer-installer-0.5.0-ce8663.zip",
-                "reference": "779ab95dbed3a25168165cd12756a069e55813fa",
-                "shasum": "eee111b0fc245e16130f8b154c9553996034eea0"
+                "url": "https://get.spip.net/composer/dist/spip/composer-installer/spip-composer-installer-dev-composer-local-0be57f.zip",
+                "reference": "32c57ce843db5dc3ea6fd753ad882910aeabe1cf",
+                "shasum": "566e688179af4b089a6b9eb80423d82f2907f1c8"
             },
             "require": {
                 "composer-plugin-api": "^2.3"
@@ -319,7 +319,8 @@
             "extra": {
                 "class": "Spip\\Composer\\SpipInstallerPlugin",
                 "branch-alias": {
-                    "dev-master": "0.5.x-dev"
+                    "dev-main": "0.5.x-dev",
+                    "dev-composer-local": "0.6.x-dev"
                 }
             },
             "autoload": {
@@ -342,7 +343,7 @@
                 }
             ],
             "description": "SPIP Composer Installer Plugin",
-            "time": "2023-03-19T05:15:05+00:00"
+            "time": "2023-03-26T21:32:27+00:00"
         },
         {
             "name": "spip/compresseur",
@@ -394,13 +395,13 @@
             "source": {
                 "type": "git",
                 "url": "https://git.spip.net/spip/dist.git",
-                "reference": "d57b72e6addd48aa1ac188f8f6f6f0e678006fbc"
+                "reference": "f145a828001a6ab1cb2c5f9b13329ffa87e6a350"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://get.spip.net/composer/dist/spip/dist/spip-dist-dev-master-f53554.zip",
-                "reference": "d57b72e6addd48aa1ac188f8f6f6f0e678006fbc",
-                "shasum": "ec3d775bb57f63e39230a26f1d5cb4c08dc41c3b"
+                "url": "https://get.spip.net/composer/dist/spip/dist/spip-dist-dev-master-e329ce.zip",
+                "reference": "f145a828001a6ab1cb2c5f9b13329ffa87e6a350",
+                "shasum": "1266dc9ea317594472d55b7576f0b1439d8d43fe"
             },
             "default-branch": true,
             "type": "spip-plugin",
@@ -420,7 +421,7 @@
                 }
             ],
             "description": "Squelettes par défaut de SPIP 4.0",
-            "time": "2023-03-23T17:02:34+00:00"
+            "time": "2023-03-24T10:03:43+00:00"
         },
         {
             "name": "spip/dump",
@@ -648,13 +649,13 @@
             "source": {
                 "type": "git",
                 "url": "https://git.spip.net/spip/mots.git",
-                "reference": "d81395a7f06241fcaa3f8a160ef3dbee142793a5"
+                "reference": "4d627aa6e6b226cfe10731d86fde74d9a2e93e75"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://get.spip.net/composer/dist/spip/mots/spip-mots-dev-master-407193.zip",
-                "reference": "d81395a7f06241fcaa3f8a160ef3dbee142793a5",
-                "shasum": "554756076f03e224b5f4d5599d1bfb4109387766"
+                "url": "https://get.spip.net/composer/dist/spip/mots/spip-mots-dev-master-a8bcd5.zip",
+                "reference": "4d627aa6e6b226cfe10731d86fde74d9a2e93e75",
+                "shasum": "e89da2176a281052c4e6ab6430987e173eaf4587"
             },
             "require": {
                 "php": "^8.1"
@@ -684,7 +685,7 @@
                 }
             ],
             "description": "Gestion des mots et groupes de mots dans SPIP",
-            "time": "2023-03-23T15:50:48+00:00"
+            "time": "2023-03-24T09:55:05+00:00"
         },
         {
             "name": "spip/plan",
@@ -864,7 +865,7 @@
         },
         {
             "name": "spip/security",
-            "version": "dev-master",
+            "version": "1.5.1",
             "source": {
                 "type": "git",
                 "url": "https://git.spip.net/spip-contrib-outils/securite.git",
@@ -872,11 +873,10 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://get.spip.net/composer/dist/spip/security/spip-security-dev-master-98aa2e.zip",
+                "url": "https://get.spip.net/composer/dist/spip/security/spip-security-1.5.1-98aa2e.zip",
                 "reference": "97d3110947fe39e5cc4a3af057d06929c4ec7fb7",
                 "shasum": "67e2ef4813df7261acd61b9faf98703d50601c95"
             },
-            "default-branch": true,
             "type": "library",
             "extra": {
                 "branch-alias": {
@@ -1037,13 +1037,13 @@
             "source": {
                 "type": "git",
                 "url": "https://git.spip.net/spip/textwheel.git",
-                "reference": "f7358af313725756a24b8e26e97ecbc87b628a02"
+                "reference": "536e1e6ba761ae49252515be1cb8f34026b9e37f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://get.spip.net/composer/dist/spip/tw/spip-tw-dev-master-01efc7.zip",
-                "reference": "f7358af313725756a24b8e26e97ecbc87b628a02",
-                "shasum": "2061f60eb5bc18708844fa71fd68fefe232d40e6"
+                "url": "https://get.spip.net/composer/dist/spip/tw/spip-tw-dev-master-4e73fa.zip",
+                "reference": "536e1e6ba761ae49252515be1cb8f34026b9e37f",
+                "shasum": "52eba8798033eef88e0181c47ff390cc9225cb6a"
             },
             "require": {
                 "php": "^8.1"
@@ -1073,7 +1073,7 @@
                 }
             ],
             "description": "Gestion de la typographie SPIP avec TextWheel",
-            "time": "2023-03-23T16:49:08+00:00"
+            "time": "2023-03-25T16:18:39+00:00"
         },
         {
             "name": "spip/urls",
@@ -1121,7 +1121,7 @@
         },
         {
             "name": "symfony/deprecation-contracts",
-            "version": "dev-main",
+            "version": "v3.2.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/deprecation-contracts.git",
@@ -1136,7 +1136,6 @@
             "require": {
                 "php": ">=8.1"
             },
-            "default-branch": true,
             "type": "library",
             "extra": {
                 "branch-alias": {
@@ -1189,16 +1188,16 @@
         },
         {
             "name": "symfony/polyfill-mbstring",
-            "version": "dev-main",
+            "version": "v1.27.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/polyfill-mbstring.git",
-                "reference": "f9c7affe77a00ae32ca127ca6833d034e6d33f25"
+                "reference": "8ad114f6b39e2c98a8b0e3bd907732c207c2b534"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/polyfill-mbstring/zipball/f9c7affe77a00ae32ca127ca6833d034e6d33f25",
-                "reference": "f9c7affe77a00ae32ca127ca6833d034e6d33f25",
+                "url": "https://api.github.com/repos/symfony/polyfill-mbstring/zipball/8ad114f6b39e2c98a8b0e3bd907732c207c2b534",
+                "reference": "8ad114f6b39e2c98a8b0e3bd907732c207c2b534",
                 "shasum": ""
             },
             "require": {
@@ -1210,11 +1209,10 @@
             "suggest": {
                 "ext-mbstring": "For best performance"
             },
-            "default-branch": true,
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-main": "1.28-dev"
+                    "dev-main": "1.27-dev"
                 },
                 "thanks": {
                     "name": "symfony/polyfill",
@@ -1253,7 +1251,7 @@
                 "shim"
             ],
             "support": {
-                "source": "https://github.com/symfony/polyfill-mbstring/tree/main"
+                "source": "https://github.com/symfony/polyfill-mbstring/tree/v1.27.0"
             },
             "funding": [
                 {
@@ -1269,30 +1267,29 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2023-01-30T17:25:47+00:00"
+            "time": "2022-11-03T14:55:06+00:00"
         },
         {
             "name": "symfony/polyfill-php82",
-            "version": "dev-main",
+            "version": "v1.27.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/polyfill-php82.git",
-                "reference": "a2b9e955680ad91faa73b66c34265d013113e524"
+                "reference": "80ddf7bfa17ef7b06db4e6d007a95bf584e07b44"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/polyfill-php82/zipball/a2b9e955680ad91faa73b66c34265d013113e524",
-                "reference": "a2b9e955680ad91faa73b66c34265d013113e524",
+                "url": "https://api.github.com/repos/symfony/polyfill-php82/zipball/80ddf7bfa17ef7b06db4e6d007a95bf584e07b44",
+                "reference": "80ddf7bfa17ef7b06db4e6d007a95bf584e07b44",
                 "shasum": ""
             },
             "require": {
                 "php": ">=7.1"
             },
-            "default-branch": true,
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-main": "1.28-dev"
+                    "dev-main": "1.27-dev"
                 },
                 "thanks": {
                     "name": "symfony/polyfill",
@@ -1333,7 +1330,7 @@
                 "shim"
             ],
             "support": {
-                "source": "https://github.com/symfony/polyfill-php82/tree/main"
+                "source": "https://github.com/symfony/polyfill-php82/tree/v1.27.0"
             },
             "funding": [
                 {
@@ -1349,7 +1346,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2023-01-26T09:26:14+00:00"
+            "time": "2022-11-10T10:10:54+00:00"
         }
     ],
     "packages-dev": [
@@ -1508,16 +1505,16 @@
         },
         {
             "name": "phpcsstandards/phpcsutils",
-            "version": "dev-develop",
+            "version": "1.0.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/PHPCSStandards/PHPCSUtils.git",
-                "reference": "321702124ed85acf9e836ef059635c06df738208"
+                "reference": "4fd2e30c7465112ca2e3646037bfb9e6f0f4d4f3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/PHPCSStandards/PHPCSUtils/zipball/321702124ed85acf9e836ef059635c06df738208",
-                "reference": "321702124ed85acf9e836ef059635c06df738208",
+                "url": "https://api.github.com/repos/PHPCSStandards/PHPCSUtils/zipball/4fd2e30c7465112ca2e3646037bfb9e6f0f4d4f3",
+                "reference": "4fd2e30c7465112ca2e3646037bfb9e6f0f4d4f3",
                 "shasum": ""
             },
             "require": {
@@ -1533,7 +1530,6 @@
                 "phpunit/phpunit": "^4.8.36 || ^5.7.21 || ^6.0 || ^7.0 || ^8.0 || ^9.3",
                 "yoast/phpunit-polyfills": "^1.0.1"
             },
-            "default-branch": true,
             "type": "phpcodesniffer-standard",
             "extra": {
                 "branch-alias": {
@@ -1579,20 +1575,20 @@
                 "issues": "https://github.com/PHPCSStandards/PHPCSUtils/issues",
                 "source": "https://github.com/PHPCSStandards/PHPCSUtils"
             },
-            "time": "2023-03-20T08:20:45+00:00"
+            "time": "2023-01-05T12:08:37+00:00"
         },
         {
             "name": "phpstan/phpstan",
-            "version": "1.10.x-dev",
+            "version": "1.10.8",
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpstan/phpstan.git",
-                "reference": "37a2c4ecd0f9f8aab1d8682eb8ab976ebca0a572"
+                "reference": "0166aef76e066f0dd2adc2799bdadfa1635711e9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpstan/phpstan/zipball/37a2c4ecd0f9f8aab1d8682eb8ab976ebca0a572",
-                "reference": "37a2c4ecd0f9f8aab1d8682eb8ab976ebca0a572",
+                "url": "https://api.github.com/repos/phpstan/phpstan/zipball/0166aef76e066f0dd2adc2799bdadfa1635711e9",
+                "reference": "0166aef76e066f0dd2adc2799bdadfa1635711e9",
                 "shasum": ""
             },
             "require": {
@@ -1601,7 +1597,6 @@
             "conflict": {
                 "phpstan/phpstan-shim": "*"
             },
-            "default-branch": true,
             "bin": [
                 "phpstan",
                 "phpstan.phar"
@@ -1642,11 +1637,11 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2023-03-23T08:19:33+00:00"
+            "time": "2023-03-24T10:28:16+00:00"
         },
         {
             "name": "spip/coding-standards",
-            "version": "dev-main",
+            "version": "1.3.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/JamesRezo/spip-coding-standards.git",
@@ -1670,7 +1665,6 @@
             "suggest": {
                 "dealerdirect/phpcodesniffer-composer-installer": "^1.0 || This Composer plugin will sort out the PHPCS 'installed_paths' automatically."
             },
-            "default-branch": true,
             "type": "phpcodesniffer-standard",
             "extra": {
                 "branch-alias": {
@@ -1706,7 +1700,7 @@
         },
         {
             "name": "squizlabs/php_codesniffer",
-            "version": "dev-master",
+            "version": "3.7.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/squizlabs/PHP_CodeSniffer.git",
@@ -1727,7 +1721,6 @@
             "require-dev": {
                 "phpunit/phpunit": "^4.0 || ^5.0 || ^6.0 || ^7.0"
             },
-            "default-branch": true,
             "bin": [
                 "bin/phpcs",
                 "bin/phpcbf"
@@ -1764,12 +1757,13 @@
         }
     ],
     "aliases": [],
-    "minimum-stability": "dev",
+    "minimum-stability": "stable",
     "stability-flags": {
         "spip/aide": 20,
         "spip/archiviste": 20,
         "spip/bigup": 20,
         "spip/compagnon": 20,
+        "spip/composer-installer": 20,
         "spip/compresseur": 20,
         "spip/dist": 20,
         "spip/dump": 20,

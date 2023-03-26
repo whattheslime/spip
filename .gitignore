@@ -1,6 +1,7 @@
 # composer & outils
 /vendor/
 /composer.phar
+/composer.local.*
 /phpcs.xml
 /phpstan.neon
 /docker-compose.override.yml
