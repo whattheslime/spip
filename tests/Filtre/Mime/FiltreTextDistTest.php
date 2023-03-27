@@ -24,7 +24,6 @@ class FiltreTextDistTest extends TestCase
 	{
 		$actual = filtre_text_dist(...$args);
 		$this->assertSame($expected, $actual);
-		$this->assertEquals($expected, $actual);
 	}
 
 	public static function providerFiltresMimeFiltreTextDist(): array

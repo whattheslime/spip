@@ -70,7 +70,6 @@ class FormHiddenCase extends TestCase
 	{
 		$actual = form_hidden(...$args);
 		$this->assertSame($expected, $actual);
-		$this->assertEquals($expected, $actual);
 	}
 
 	public static function providerFormHiddenRubrique(): array

@@ -24,7 +24,6 @@ class PluginVersionCompatibleTest extends TestCase
 	{
 		$actual = plugin_version_compatible(...$args);
 		$this->assertSame($expected, $actual);
-		$this->assertEquals($expected, $actual);
 	}
 
 	public static function providerPluginPluginVersionCompatible(): array

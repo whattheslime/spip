@@ -30,7 +30,6 @@ class AffdateMoisAnneeTest extends TestCase
 	{
 		$actual = affdate_mois_annee(...$args);
 		$this->assertSame($expected, $actual);
-		$this->assertEquals($expected, $actual);
 	}
 
 	public static function providerFiltresAffdateMoisAnnee(): array

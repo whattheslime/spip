@@ -24,7 +24,6 @@ class TextebrutTest extends TestCase
 	{
 		$actual = textebrut(...$args);
 		$this->assertSame($expected, $actual);
-		$this->assertEquals($expected, $actual);
 	}
 
 	public static function providerFiltresTextebrut(): array

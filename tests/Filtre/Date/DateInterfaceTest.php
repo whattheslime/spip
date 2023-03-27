@@ -30,7 +30,6 @@ class DateInterfaceTest extends TestCase
 	{
 		$actual = date_interface(...$args);
 		$this->assertSame($expected, $actual);
-		$this->assertEquals($expected, $actual);
 	}
 
 	public static function providerFiltresDateInterface(): array

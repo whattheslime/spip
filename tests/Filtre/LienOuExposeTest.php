@@ -24,7 +24,6 @@ class LienOuExposeTest extends TestCase
 	{
 		$actual = lien_ou_expose(...$args);
 		$this->assertSame($expected, $actual);
-		$this->assertEquals($expected, $actual);
 	}
 
 	public static function providerFiltresLienOuExpose(): array

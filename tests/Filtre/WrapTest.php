@@ -24,7 +24,6 @@ class WrapTest extends TestCase
 	{
 		$actual = wrap(...$args);
 		$this->assertSame($expected, $actual);
-		$this->assertEquals($expected, $actual);
 	}
 
 	public static function providerFiltresWrap(): array

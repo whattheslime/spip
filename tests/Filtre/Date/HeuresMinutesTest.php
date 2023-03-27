@@ -30,7 +30,6 @@ class HeuresMinutesTest extends TestCase
 	{
 		$actual = heures_minutes(...$args);
 		$this->assertSame($expected, $actual);
-		$this->assertEquals($expected, $actual);
 	}
 
 	public static function providerFiltresHeuresMinutes(): array

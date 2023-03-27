@@ -24,7 +24,6 @@ class LargeurTest extends TestCase
 	{
 		$actual = largeur(...$args);
 		$this->assertSame($expected, $actual);
-		$this->assertEquals($expected, $actual);
 	}
 
 	public static function providerFiltresLargeur(): array

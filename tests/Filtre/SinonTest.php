@@ -24,7 +24,6 @@ class SinonTest extends TestCase
 	{
 		$actual = sinon(...$args);
 		$this->assertSame($expected, $actual);
-		$this->assertEquals($expected, $actual);
 	}
 
 	public static function providerFiltresSinon(): array

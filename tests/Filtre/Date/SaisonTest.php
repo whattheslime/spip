@@ -30,7 +30,6 @@ class SaisonTest extends TestCase
 	{
 		$actual = saison(...$args);
 		$this->assertSame($expected, $actual);
-		$this->assertEquals($expected, $actual);
 	}
 
 	public static function providerFiltresSaison(): array

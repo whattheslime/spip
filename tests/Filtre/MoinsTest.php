@@ -24,7 +24,6 @@ class MoinsTest extends TestCase
 	{
 		$actual = moins(...$args);
 		$this->assertSame($expected, $actual);
-		$this->assertEquals($expected, $actual);
 	}
 
 	public static function providerFiltresMoins(): array

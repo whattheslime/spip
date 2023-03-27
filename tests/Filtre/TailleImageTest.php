@@ -24,7 +24,6 @@ class TailleImageTest extends TestCase
 	{
 		$actual = taille_image(...$args);
 		$this->assertSame($expected, $actual);
-		$this->assertEquals($expected, $actual);
 	}
 
 	public static function providerFiltresTailleImage(): array

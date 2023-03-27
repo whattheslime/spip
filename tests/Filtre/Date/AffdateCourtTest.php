@@ -25,7 +25,6 @@ class AffdateCourtTest extends TestCase
 		changer_langue('fr');
 		$actual = affdate_court(...$args);
 		$this->assertSame($expected, $actual);
-		$this->assertEquals($expected, $actual);
 	}
 
 	public static function providerFiltresAffdateCourt(): array

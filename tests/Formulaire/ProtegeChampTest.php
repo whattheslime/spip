@@ -24,7 +24,6 @@ class ProtegeChampTest extends TestCase
 	{
 		$actual = protege_champ(...$args);
 		$this->assertSame($expected, $actual);
-		$this->assertEquals($expected, $actual);
 	}
 
 	public static function providerFormulaireProtegeChamp(): array

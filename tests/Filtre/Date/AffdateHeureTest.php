@@ -30,7 +30,6 @@ class AffdateHeureTest extends TestCase
 	{
 		$actual = affdate_heure(...$args);
 		$this->assertSame($expected, $actual);
-		$this->assertEquals($expected, $actual);
 	}
 
 	public static function providerFiltresAffdateHeure(): array

@@ -24,7 +24,6 @@ class MoisTest extends TestCase
 	{
 		$actual = mois(...$args);
 		$this->assertSame($expected, $actual);
-		$this->assertEquals($expected, $actual);
 	}
 
 	public static function providerFiltresMois(): array

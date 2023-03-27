@@ -30,7 +30,6 @@ class NomJourTest extends TestCase
 	{
 		$actual = nom_jour(...$args);
 		$this->assertSame($expected, $actual);
-		$this->assertEquals($expected, $actual);
 	}
 
 	public static function providerFiltresNomJour(): array

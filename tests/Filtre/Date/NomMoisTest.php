@@ -30,7 +30,6 @@ class NomMoisTest extends TestCase
 	{
 		$actual = nom_mois(...$args);
 		$this->assertSame($expected, $actual);
-		$this->assertEquals($expected, $actual);
 	}
 
 	public static function providerFiltresNomMois(): array

@@ -24,7 +24,6 @@ class SpipHtmlentitiesTest extends TestCase
 	{
 		$actual = spip_htmlentities(...$args);
 		$this->assertSame($expected, $actual);
-		$this->assertEquals($expected, $actual);
 	}
 
 	public static function providerFiltresSpipHtmlentities(): array

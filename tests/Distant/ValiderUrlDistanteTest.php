@@ -24,7 +24,6 @@ class ValiderUrlDistanteTest extends TestCase
 	{
 		$actual = valider_url_distante(...$args);
 		$this->assertSame($expected, $actual);
-		$this->assertEquals($expected, $actual);
 	}
 
 	public static function providerDistantValiderUrlDistante(): array

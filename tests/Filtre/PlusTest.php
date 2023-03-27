@@ -24,7 +24,6 @@ class PlusTest extends TestCase
 	{
 		$actual = plus(...$args);
 		$this->assertSame($expected, $actual);
-		$this->assertEquals($expected, $actual);
 	}
 
 	public static function providerFiltresPlus(): array

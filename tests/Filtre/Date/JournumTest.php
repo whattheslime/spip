@@ -24,7 +24,6 @@ class JournumTest extends TestCase
 	{
 		$actual = journum(...$args);
 		$this->assertSame($expected, $actual);
-		$this->assertEquals($expected, $actual);
 	}
 
 	public static function providerFiltresJournum(): array

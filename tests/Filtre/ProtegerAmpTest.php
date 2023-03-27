@@ -24,7 +24,6 @@ class ProtegerAmpTest extends TestCase
 	{
 		$actual = proteger_amp(...$args);
 		$this->assertSame($expected, $actual);
-		$this->assertEquals($expected, $actual);
 	}
 
 	public static function providerFiltresProtegerAmp(): array

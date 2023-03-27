@@ -39,7 +39,6 @@ class ExtraireBalisesTest extends TestCase
 	{
 		$actual = extraire_balises(...$args);
 		$this->assertSame($expected, $actual);
-		$this->assertEquals($expected, $actual);
 	}
 
 	/**
@@ -61,7 +60,6 @@ class ExtraireBalisesTest extends TestCase
 		}
 		$actual = extraire_balise(...$args);
 		$this->assertSame($expected, $actual);
-		$this->assertEquals($expected, $actual);
 	}
 
 	public static function providerFiltresExtraireBalises(): array

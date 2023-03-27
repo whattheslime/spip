@@ -25,7 +25,6 @@ class ExtraireMultiTest extends TestCase
 	{
 		$actual = extraire_multi(...$args);
 		$this->assertSame($expected, $actual);
-		$this->assertEquals($expected, $actual);
 	}
 
 	public static function providerFiltresExtraireMulti(): array

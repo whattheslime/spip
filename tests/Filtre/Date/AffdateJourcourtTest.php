@@ -30,7 +30,6 @@ class AffdateJourcourtTest extends TestCase
 	{
 		$actual = affdate_jourcourt(...$args);
 		$this->assertSame($expected, $actual);
-		$this->assertEquals($expected, $actual);
 	}
 
 	public static function providerFiltresAffdateJourcourt(): array

@@ -24,7 +24,6 @@ class ProtocoleVerifierTest extends TestCase
 	{
 		$actual = protocole_verifier(...$args);
 		$this->assertSame($expected, $actual);
-		$this->assertEquals($expected, $actual);
 	}
 
 	public static function providerFiltresMiniProtocoleVerifier(): array

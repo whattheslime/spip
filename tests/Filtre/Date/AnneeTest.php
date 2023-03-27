@@ -24,7 +24,6 @@ class AnneeTest extends TestCase
 	{
 		$actual = annee(...$args);
 		$this->assertSame($expected, $actual);
-		$this->assertEquals($expected, $actual);
 	}
 
 	public static function providerFiltresAnnee(): array

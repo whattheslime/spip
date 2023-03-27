@@ -36,7 +36,6 @@ class InterdireScriptLaxisteTest extends TestCase
 	{
 		$actual = interdire_scripts(...$args);
 		$this->assertSame($expected, $actual);
-		$this->assertEquals($expected, $actual);
 	}
 
 	public static function providerTexteInterdireScriptLaxiste(): array

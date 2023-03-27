@@ -24,7 +24,6 @@ class MajTest extends TestCase
 	{
 		$actual = info_maj_versions(...$args);
 		$this->assertSame($expected, $actual);
-		$this->assertEquals($expected, $actual);
 	}
 
 	public static function providerInfoMajVersions(): array

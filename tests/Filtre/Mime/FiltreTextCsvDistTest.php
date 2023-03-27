@@ -30,7 +30,6 @@ class FiltreTextCsvDistTest extends TestCase
 	{
 		$actual = filtre_text_csv_dist(...$args);
 		$this->assertSame($expected, $actual);
-		$this->assertEquals($expected, $actual);
 	}
 
 	public static function providerFiltresMimeFiltreTextCsvDist(): array

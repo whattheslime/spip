@@ -24,7 +24,6 @@ class SpipHtmlspecialcharsTest extends TestCase
 	{
 		$actual = spip_htmlspecialchars(...$args);
 		$this->assertSame($expected, $actual);
-		$this->assertEquals($expected, $actual);
 	}
 
 	public static function providerFiltresSpipHtmlspecialchars(): array

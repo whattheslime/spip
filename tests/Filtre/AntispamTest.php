@@ -24,7 +24,6 @@ class AntispamTest extends TestCase
 	{
 		$actual = antispam(...$args);
 		$this->assertSame($expected, $actual);
-		$this->assertEquals($expected, $actual);
 	}
 
 	public static function providerFiltresAntispam(): array

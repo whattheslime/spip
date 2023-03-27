@@ -24,7 +24,6 @@ class TexteBackendTest extends TestCase
 	{
 		$actual = texte_backend(...$args);
 		$this->assertSame($expected, $actual);
-		$this->assertEquals($expected, $actual);
 	}
 
 	public static function providerFiltresTexteBackend(): array

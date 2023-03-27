@@ -24,7 +24,6 @@ class RecupHeureTest extends TestCase
 	{
 		$actual = recup_heure(...$args);
 		$this->assertSame($expected, $actual);
-		$this->assertEquals($expected, $actual);
 	}
 
 	public static function providerFiltresRecupHeure(): array

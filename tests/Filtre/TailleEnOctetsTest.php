@@ -30,11 +30,9 @@ class TailleEnOctetsTest extends TestCase
 	{
 		$actual = taille_en_octets($source);
 		$this->assertSame($expected, $actual);
-		$this->assertEquals($expected, $actual);
 
 		$actual = taille_en_octets($source, 'BI');
 		$this->assertSame($expected, $actual);
-		$this->assertEquals($expected, $actual);
 	}
 
 	/**
@@ -44,7 +42,6 @@ class TailleEnOctetsTest extends TestCase
 	{
 		$actual = taille_en_octets($source, 'SI');
 		$this->assertSame($expected, $actual);
-		$this->assertEquals($expected, $actual);
 	}
 
 	public static function providerFiltresTailleEnOctetsBI(): array

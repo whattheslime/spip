@@ -24,7 +24,6 @@ class UrlDeTest extends TestCase
 	{
 		$actual = url_de_(...$args);
 		$this->assertSame($expected, $actual);
-		$this->assertEquals($expected, $actual);
 	}
 
 	public static function providerUtilsUrlDe(): array

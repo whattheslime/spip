@@ -24,7 +24,6 @@ class EchapperTagsTest extends TestCase
 	{
 		$actual = echapper_tags(...$args);
 		$this->assertSame($expected, $actual);
-		$this->assertEquals($expected, $actual);
 	}
 
 	public static function providerFiltresEchapperTags(): array

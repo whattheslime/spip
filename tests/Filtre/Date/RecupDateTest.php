@@ -24,7 +24,6 @@ class RecupDateTest extends TestCase
 	{
 		$actual = recup_date(...$args);
 		$this->assertSame($expected, $actual);
-		$this->assertEquals($expected, $actual);
 	}
 
 	public static function providerFiltresRecupDate(): array

@@ -60,7 +60,6 @@ class EchappeHtmlTest extends TestCase
 			__NAMESPACE__ . '\\callback_test_propre_echappe_html_'
 		);
 		$this->assertSame($expected, $actual);
-		$this->assertEquals($expected, $actual);
 	}
 
 	public static function providerPropreEchappeHtml(): array

@@ -24,7 +24,6 @@ class SupprimerTagsTest extends TestCase
 	{
 		$actual = supprimer_tags(...$args);
 		$this->assertSame($expected, $actual);
-		$this->assertEquals($expected, $actual);
 	}
 
 	public static function providerFiltresSupprimerTags(): array

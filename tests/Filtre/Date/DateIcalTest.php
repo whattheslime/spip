@@ -29,7 +29,6 @@ class DateIcalTest extends TestCase
 	{
 		$actual = date_ical(...$args);
 		$this->assertSame($expected, $actual);
-		$this->assertEquals($expected, $actual);
 	}
 
 	public static function providerFiltresDateIcal(): array

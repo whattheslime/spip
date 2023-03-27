@@ -24,7 +24,6 @@ class SpipXmlParseTest extends TestCase
 	{
 		$actual = serialize(spip_xml_parse(...$args));
 		$this->assertSame($expected, $actual);
-		$this->assertEquals($expected, $actual);
 	}
 
 	public static function providerXmlSpipXmlParse(): array

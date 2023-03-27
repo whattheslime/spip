@@ -24,7 +24,6 @@ class MultTest extends TestCase
 	{
 		$actual = mult(...$args);
 		$this->assertSame($expected, $actual);
-		$this->assertEquals($expected, $actual);
 	}
 
 	public static function providerFiltresMult(): array

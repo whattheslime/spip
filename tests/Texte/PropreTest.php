@@ -41,7 +41,6 @@ class PropreTest extends TestCase
 	{
 		$actual = propre(...$args);
 		$this->assertSame($expected, $actual);
-		$this->assertEquals($expected, $actual);
 	}
 
 	public static function providerTextePropre(): array

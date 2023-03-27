@@ -24,7 +24,6 @@ class IdTableObjetTest extends TestCase
 	{
 		$actual = id_table_objet(...$args);
 		$this->assertSame($expected, $actual);
-		$this->assertEquals($expected, $actual);
 	}
 
 	public static function providerConnectSqlIdTableObjet(): array

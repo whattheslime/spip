@@ -24,7 +24,6 @@ class TexteBackendqTest extends TestCase
 	{
 		$actual = texte_backendq(...$args);
 		$this->assertSame($expected, $actual);
-		$this->assertEquals($expected, $actual);
 	}
 
 	public static function providerFiltresTexteBackendq(): array

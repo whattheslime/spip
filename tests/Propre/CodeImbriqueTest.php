@@ -26,7 +26,6 @@ class CodeImbriqueTest extends TestCase
 	{
 		$actual = strlen(propre(...$args)) > 0;
 		$this->assertSame($expected, $actual);
-		$this->assertEquals($expected, $actual);
 	}
 
 	public static function providerPropreCodeImbrique(): array

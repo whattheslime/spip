@@ -24,7 +24,6 @@ class ChercherFiltreTest extends TestCase
 	{
 		$actual = chercher_filtre(...$args);
 		$this->assertSame($expected, $actual);
-		$this->assertEquals($expected, $actual);
 	}
 
 	public static function providerFiltresChercherFiltre(): array

@@ -30,7 +30,6 @@ class NormaliserDateTest extends TestCase
 	{
 		$actual = normaliser_date(...$args);
 		$this->assertSame($expected, $actual);
-		$this->assertEquals($expected, $actual);
 	}
 
 	public static function providerFiltresNormaliserDate(): array

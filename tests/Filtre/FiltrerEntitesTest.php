@@ -24,7 +24,6 @@ class FiltrerEntitesTest extends TestCase
 	{
 		$actual = filtrer_entites(...$args);
 		$this->assertSame($expected, $actual);
-		$this->assertEquals($expected, $actual);
 	}
 
 	public static function providerFiltresFiltrerEntites(): array

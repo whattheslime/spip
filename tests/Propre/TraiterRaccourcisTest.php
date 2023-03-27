@@ -48,7 +48,6 @@ class TraiterRaccourcisTest extends TestCase
 	{
 		$actual = traiter_raccourcis(...$args);
 		$this->assertSame($expected, $actual);
-		$this->assertEquals($expected, $actual);
 	}
 
 	public static function providerPropreTraiterRaccourcis(): array

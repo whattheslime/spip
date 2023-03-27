@@ -31,7 +31,6 @@ class FiltreBaliseImgDistTest extends TestCase
 		$res = $f(...$args);
 		$actual = preg_replace('#\\?\\d+#', '', $res);
 		$this->assertSame($expected, $actual);
-		$this->assertEquals($expected, $actual);
 	}
 
 	public static function providerFiltresFiltreBaliseImgDist(): array

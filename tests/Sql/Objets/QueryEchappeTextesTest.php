@@ -29,7 +29,6 @@ class QueryEchappeTextesTest extends TestCase
 	{
 		$actual = query_echappe_textes(...$args);
 		$this->assertSame($expected, $actual);
-		$this->assertEquals($expected, $actual);
 	}
 
 	public static function providerConnectSqlQueryEchappeTextes(): array

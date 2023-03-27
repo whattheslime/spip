@@ -24,7 +24,6 @@ class ModuloTest extends TestCase
 	{
 		$actual = modulo(...$args);
 		$this->assertSame($expected, $actual);
-		$this->assertEquals($expected, $actual);
 	}
 
 	public static function providerFiltresModulo(): array

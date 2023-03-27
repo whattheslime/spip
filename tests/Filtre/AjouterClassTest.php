@@ -24,7 +24,6 @@ class AjouterClassTest extends TestCase
 	{
 		$actual = ajouter_class(...$args);
 		$this->assertSame($expected, $actual);
-		$this->assertEquals($expected, $actual);
 	}
 
 	public static function providerFiltresAjouterClass(): array

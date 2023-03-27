@@ -24,7 +24,6 @@ class Var2jsTest extends TestCase
 	{
 		$actual = var2js(...$args);
 		$this->assertSame($expected, $actual);
-		$this->assertEquals($expected, $actual);
 	}
 
 	public static function providerJsonVar2js(): array

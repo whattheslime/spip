@@ -24,7 +24,6 @@ class CorrigerEntitesHtmlTest extends TestCase
 	{
 		$actual = corriger_entites_html(...$args);
 		$this->assertSame($expected, $actual);
-		$this->assertEquals($expected, $actual);
 	}
 
 	public static function providerFiltresCorrigerEntitesHtml(): array

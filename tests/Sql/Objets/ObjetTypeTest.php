@@ -24,7 +24,6 @@ class ObjetTypeTest extends TestCase
 	{
 		$actual = objet_type(...$args);
 		$this->assertSame($expected, $actual);
-		$this->assertEquals($expected, $actual);
 	}
 
 	public static function providerConnectSqlObjetType(): array

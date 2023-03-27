@@ -24,7 +24,6 @@ class AppliquerFiltreTest extends TestCase
 	{
 		$actual = appliquer_filtre(...$args);
 		$this->assertSame($expected, $actual);
-		$this->assertEquals($expected, $actual);
 	}
 
 	public static function providerFiltresAppliquerFiltre(): array

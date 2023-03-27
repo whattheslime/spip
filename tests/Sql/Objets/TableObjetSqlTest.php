@@ -24,7 +24,6 @@ class TableObjetSqlTest extends TestCase
 	{
 		$actual = table_objet_sql(...$args);
 		$this->assertSame($expected, $actual);
-		$this->assertEquals($expected, $actual);
 	}
 
 	public static function providerConnectSqlTableObjetSql(): array

@@ -24,7 +24,6 @@ class IdentifiantSlugTest extends TestCase
 	{
 		$actual = identifiant_slug(...$args);
 		$this->assertSame($expected, $actual);
-		$this->assertEquals($expected, $actual);
 	}
 
 	public static function providerFiltresIdentifiantSlug(): array

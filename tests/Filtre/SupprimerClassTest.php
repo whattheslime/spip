@@ -24,7 +24,6 @@ class SupprimerClassTest extends TestCase
 	{
 		$actual = supprimer_class(...$args);
 		$this->assertSame($expected, $actual);
-		$this->assertEquals($expected, $actual);
 	}
 
 	public static function providerFiltresSupprimerClass(): array

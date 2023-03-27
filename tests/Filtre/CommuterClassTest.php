@@ -24,7 +24,6 @@ class CommuterClassTest extends TestCase
 	{
 		$actual = commuter_class(...$args);
 		$this->assertSame($expected, $actual);
-		$this->assertEquals($expected, $actual);
 	}
 
 	public static function providerFiltresCommuterClass(): array

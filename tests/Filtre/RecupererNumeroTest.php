@@ -24,7 +24,6 @@ class RecupererNumeroTest extends TestCase
 	{
 		$actual = recuperer_numero(...$args);
 		$this->assertSame($expected, $actual);
-		$this->assertEquals($expected, $actual);
 	}
 
 	public static function providerFiltresRecupererNumero(): array

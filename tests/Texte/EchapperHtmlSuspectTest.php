@@ -36,7 +36,6 @@ class EchapperHtmlSuspectTest extends TestCase {
 	public function testIsHtmlSafe($expected, ...$args): void {
 		$actual = is_html_safe(...$args);
 		$this->assertSame($expected, $actual);
-		$this->assertEquals($expected, $actual);
 	}
 
 	public static function providerIsHtmlSafe(): array {

@@ -24,7 +24,6 @@ class ViderDateTest extends TestCase
 	{
 		$actual = vider_date(...$args);
 		$this->assertSame($expected, $actual);
-		$this->assertEquals($expected, $actual);
 	}
 
 	public static function providerFiltresViderDate(): array

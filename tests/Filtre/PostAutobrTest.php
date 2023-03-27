@@ -24,7 +24,6 @@ class PostAutobrTest extends TestCase
 	{
 		$actual = post_autobr(...$args);
 		$this->assertSame($expected, $actual);
-		$this->assertEquals($expected, $actual);
 	}
 
 	public static function providerFiltresPostAutobr(): array

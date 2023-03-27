@@ -24,7 +24,6 @@ class UrlToAsciiTest extends TestCase
 	{
 		$actual = url_to_ascii(...$args);
 		$this->assertSame($expected, $actual);
-		$this->assertEquals($expected, $actual);
 	}
 
 	public static function providerDistantUrlToAscii(): array
