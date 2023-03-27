@@ -27,7 +27,7 @@ class SpipHtmlspecialcharsTest extends TestCase
 		$this->assertEquals($expected, $actual);
 	}
 
-	public function providerFiltresSpipHtmlspecialchars(): array
+	public static function providerFiltresSpipHtmlspecialchars(): array
 	{
 		return [
 			0 => [
@@ -82,42 +82,42 @@ paragraphes',
 			],
 			11 => [
 				0 => '',
-				1 => 'Un texte avec des <a href="http://spip.net">liens avec des accents ISO aавд eйикл iоп oф uщь</a> [Article 1 avec des accents ISO aавд eйикл iоп oф uщь->art1] [spip avec des accents ISO aавд eйикл iоп oф uщь->http://www.spip.net] http://www.spip.net',
+				1 => "Un texte avec des <a href=\"http://spip.net\">liens avec des accents ISO a\xE0\xE2\xE4 e\xE9\xE8\xEA\xEB i\xEE\xEF o\xF4 u\xF9\xFC</a> [Article 1 avec des accents ISO a\xE0\xE2\xE4 e\xE9\xE8\xEA\xEB i\xEE\xEF o\xF4 u\xF9\xFC->art1] [spip avec des accents ISO a\xE0\xE2\xE4 e\xE9\xE8\xEA\xEB i\xEE\xEF o\xF4 u\xF9\xFC->http://www.spip.net] http://www.spip.net",
 			],
 			12 => [
 				0 => '',
-				1 => 'Un texte avec des entit&eacute;s &amp;&lt;&gt;&quot; et avec des accents ISO aавд eйикл iоп oф uщь',
+				1 => "Un texte avec des entit&eacute;s &amp;&lt;&gt;&quot; et avec des accents ISO a\xE0\xE2\xE4 e\xE9\xE8\xEA\xEB i\xEE\xEF o\xF4 u\xF9\xFC",
 			],
 			13 => [
 				0 => '',
-				1 => 'Un texte avec des entit&amp;eacute;s echap&amp;eacute; &amp;amp;&amp;lt;&amp;gt;&amp;quot; et avec des accents ISO aавд eйикл iоп oф uщь',
+				1 => "Un texte avec des entit&amp;eacute;s echap&amp;eacute; &amp;amp;&amp;lt;&amp;gt;&amp;quot; et avec des accents ISO a\xE0\xE2\xE4 e\xE9\xE8\xEA\xEB i\xEE\xEF o\xF4 u\xF9\xFC",
 			],
 			14 => [
 				0 => '',
-				1 => 'Un texte avec des entit&#233;s num&#233;riques &#38;&#60;&#62;&quot; et avec des accents ISO aавд eйикл iоп oф uщь',
+				1 => "Un texte avec des entit&#233;s num&#233;riques &#38;&#60;&#62;&quot; et avec des accents ISO a\xE0\xE2\xE4 e\xE9\xE8\xEA\xEB i\xEE\xEF o\xF4 u\xF9\xFC",
 			],
 			15 => [
 				0 => '',
-				1 => 'Un texte avec des entit&amp;#233;s num&amp;#233;riques echap&amp;#233;es &amp;#38;&amp;#60;&amp;#62;&amp;quot; et avec des accents ISO aавд eйикл iоп oф uщь',
+				1 => "Un texte avec des entit&amp;#233;s num&amp;#233;riques echap&amp;#233;es &amp;#38;&amp;#60;&amp;#62;&amp;quot; et avec des accents ISO a\xE0\xE2\xE4 e\xE9\xE8\xEA\xEB i\xEE\xEF o\xF4 u\xF9\xFC",
 			],
 			16 => [
 				0 => '',
-				1 => 'Un texte sans entites &<>"\' et avec des accents ISO aавд eйикл iоп oф uщь',
+				1 => "Un texte sans entites &<>\"\' et avec des accents ISO a\xE0\xE2\xE4 e\xE9\xE8\xEA\xEB i\xEE\xEF o\xF4 u\xF9\xFC",
 			],
 			17 => [
 				0 => '',
-				1 => '{{{Des raccourcis avec des accents ISO aавд eйикл iоп oф uщь}}} {italique avec des accents ISO aавд eйикл iоп oф uщь} {{gras avec des accents ISO aавд eйикл iоп oф uщь}} <code>du code avec des accents ISO aавд eйикл iоп oф uщь</code>',
+				1 => "{{{Des raccourcis avec des accents ISO a\xE0\xE2\xE4 e\xE9\xE8\xEA\xEB i\xEE\xEF o\xF4 u\xF9\xFC}}} {italique avec des accents ISO a\xE0\xE2\xE4 e\xE9\xE8\xEA\xEB i\xEE\xEF o\xF4 u\xF9\xFC} {{gras avec des accents ISO a\xE0\xE2\xE4 e\xE9\xE8\xEA\xEB i\xEE\xEF o\xF4 u\xF9\xFC}} <code>du code avec des accents ISO a\xE0\xE2\xE4 e\xE9\xE8\xEA\xEB i\xEE\xEF o\xF4 u\xF9\xFC</code>",
 			],
 			18 => [
 				0 => '',
-				1 => 'Un modele avec des accents ISO aавд eйикл iоп oф uщь <modeleinexistant|lien=[avec des accents ISO aавд eйикл iоп oф uщь->http://www.spip.net]>',
+				1 => "Un modele avec des accents ISO a\xE0\xE2\xE4 e\xE9\xE8\xEA\xEB i\xEE\xEF o\xF4 u\xF9\xFC <modeleinexistant|lien=[avec des accents ISO a\xE0\xE2\xE4 e\xE9\xE8\xEA\xEB i\xEE\xEF o\xF4 u\xF9\xFC->http://www.spip.net]>",
 			],
 			19 => [
 				0 => '',
-				1 => 'Un texte avec des retour
+				1 => "Un texte avec des retour
 a la ligne et meme des
 
-paragraphes avec des accents ISO aавд eйикл iоп oф uщь',
+paragraphes avec des accents ISO a\xE0\xE2\xE4 e\xE9\xE8\xEA\xEB i\xEE\xEF o\xF4 u\xF9\xFC",
 			],
 			20 => [
 				0 => 'Un texte avec des &lt;a href=&quot;http://spip.net&quot;&gt;liens avec des accents UTF-8 aГ ГўГ¤ eГ©ГЁГЄГ« iГ®ГЇ oГґ uГ№Гј&lt;/a&gt; [Article 1 avec des accents UTF-8 aГ ГўГ¤ eГ©ГЁГЄГ« iГ®ГЇ oГґ uГ№Гј-&gt;art1] [spip avec des accents UTF-8 aГ ГўГ¤ eГ©ГЁГЄГ« iГ®ГЇ oГґ uГ№Гј-&gt;http://www.spip.net] http://www.spip.net',
@@ -224,50 +224,50 @@ paragraphes',
 			],
 			40 => [
 				0 => '',
-				1 => 'Un texte avec des <a href="http://spip.net">liens avec des accents ISO aавд eйикл iоп oф uщь</a> [Article 1 avec des accents ISO aавд eйикл iоп oф uщь->art1] [spip avec des accents ISO aавд eйикл iоп oф uщь->http://www.spip.net] http://www.spip.net',
+				1 => "Un texte avec des <a href=\"http://spip.net\">liens avec des accents ISO a\xE0\xE2\xE4 e\xE9\xE8\xEA\xEB i\xEE\xEF o\xF4 u\xF9\xFC</a> [Article 1 avec des accents ISO a\xE0\xE2\xE4 e\xE9\xE8\xEA\xEB i\xEE\xEF o\xF4 u\xF9\xFC->art1] [spip avec des accents ISO a\xE0\xE2\xE4 e\xE9\xE8\xEA\xEB i\xEE\xEF o\xF4 u\xF9\xFC->http://www.spip.net] http://www.spip.net",
 				2 => ENT_QUOTES,
 			],
 			41 => [
 				0 => '',
-				1 => 'Un texte avec des entit&eacute;s &amp;&lt;&gt;&quot; et avec des accents ISO aавд eйикл iоп oф uщь',
+				1 => "Un texte avec des entit&eacute;s &amp;&lt;&gt;&quot; et avec des accents ISO a\xE0\xE2\xE4 e\xE9\xE8\xEA\xEB i\xEE\xEF o\xF4 u\xF9\xFC",
 				2 => ENT_QUOTES,
 			],
 			42 => [
 				0 => '',
-				1 => 'Un texte avec des entit&amp;eacute;s echap&amp;eacute; &amp;amp;&amp;lt;&amp;gt;&amp;quot; et avec des accents ISO aавд eйикл iоп oф uщь',
+				1 => "Un texte avec des entit&amp;eacute;s echap&amp;eacute; &amp;amp;&amp;lt;&amp;gt;&amp;quot; et avec des accents ISO a\xE0\xE2\xE4 e\xE9\xE8\xEA\xEB i\xEE\xEF o\xF4 u\xF9\xFC",
 				2 => ENT_QUOTES,
 			],
 			43 => [
 				0 => '',
-				1 => 'Un texte avec des entit&#233;s num&#233;riques &#38;&#60;&#62;&quot; et avec des accents ISO aавд eйикл iоп oф uщь',
+				1 => "Un texte avec des entit&#233;s num&#233;riques &#38;&#60;&#62;&quot; et avec des accents ISO a\xE0\xE2\xE4 e\xE9\xE8\xEA\xEB i\xEE\xEF o\xF4 u\xF9\xFC",
 				2 => ENT_QUOTES,
 			],
 			44 => [
 				0 => '',
-				1 => 'Un texte avec des entit&amp;#233;s num&amp;#233;riques echap&amp;#233;es &amp;#38;&amp;#60;&amp;#62;&amp;quot; et avec des accents ISO aавд eйикл iоп oф uщь',
+				1 => "Un texte avec des entit&amp;#233;s num&amp;#233;riques echap&amp;#233;es &amp;#38;&amp;#60;&amp;#62;&amp;quot; et avec des accents ISO a\xE0\xE2\xE4 e\xE9\xE8\xEA\xEB i\xEE\xEF o\xF4 u\xF9\xFC",
 				2 => ENT_QUOTES,
 			],
 			45 => [
 				0 => '',
-				1 => 'Un texte sans entites &<>"\' et avec des accents ISO aавд eйикл iоп oф uщь',
+				1 => "Un texte sans entites &<>\"\' et avec des accents ISO a\xE0\xE2\xE4 e\xE9\xE8\xEA\xEB i\xEE\xEF o\xF4 u\xF9\xFC",
 				2 => ENT_QUOTES,
 			],
 			46 => [
 				0 => '',
-				1 => '{{{Des raccourcis avec des accents ISO aавд eйикл iоп oф uщь}}} {italique avec des accents ISO aавд eйикл iоп oф uщь} {{gras avec des accents ISO aавд eйикл iоп oф uщь}} <code>du code avec des accents ISO aавд eйикл iоп oф uщь</code>',
+				1 => "{{{Des raccourcis avec des accents ISO a\xE0\xE2\xE4 e\xE9\xE8\xEA\xEB i\xEE\xEF o\xF4 u\xF9\xFC}}} {italique avec des accents ISO a\xE0\xE2\xE4 e\xE9\xE8\xEA\xEB i\xEE\xEF o\xF4 u\xF9\xFC} {{gras avec des accents ISO a\xE0\xE2\xE4 e\xE9\xE8\xEA\xEB i\xEE\xEF o\xF4 u\xF9\xFC}} <code>du code avec des accents ISO a\xE0\xE2\xE4 e\xE9\xE8\xEA\xEB i\xEE\xEF o\xF4 u\xF9\xFC</code>",
 				2 => ENT_QUOTES,
 			],
 			47 => [
 				0 => '',
-				1 => 'Un modele avec des accents ISO aавд eйикл iоп oф uщь <modeleinexistant|lien=[avec des accents ISO aавд eйикл iоп oф uщь->http://www.spip.net]>',
+				1 => "Un modele avec des accents ISO a\xE0\xE2\xE4 e\xE9\xE8\xEA\xEB i\xEE\xEF o\xF4 u\xF9\xFC <modeleinexistant|lien=[avec des accents ISO a\xE0\xE2\xE4 e\xE9\xE8\xEA\xEB i\xEE\xEF o\xF4 u\xF9\xFC->http://www.spip.net]>",
 				2 => ENT_QUOTES,
 			],
 			48 => [
 				0 => '',
-				1 => 'Un texte avec des retour
+				1 => "Un texte avec des retour
 a la ligne et meme des
 
-paragraphes avec des accents ISO aавд eйикл iоп oф uщь',
+paragraphes avec des accents ISO a\xE0\xE2\xE4 e\xE9\xE8\xEA\xEB i\xEE\xEF o\xF4 u\xF9\xFC",
 				2 => ENT_QUOTES,
 			],
 			49 => [
@@ -384,50 +384,50 @@ paragraphes',
 			],
 			69 => [
 				0 => '',
-				1 => 'Un texte avec des <a href="http://spip.net">liens avec des accents ISO aавд eйикл iоп oф uщь</a> [Article 1 avec des accents ISO aавд eйикл iоп oф uщь->art1] [spip avec des accents ISO aавд eйикл iоп oф uщь->http://www.spip.net] http://www.spip.net',
+				1 => "Un texte avec des <a href=\"http://spip.net\">liens avec des accents ISO a\xE0\xE2\xE4 e\xE9\xE8\xEA\xEB i\xEE\xEF o\xF4 u\xF9\xFC</a> [Article 1 avec des accents ISO a\xE0\xE2\xE4 e\xE9\xE8\xEA\xEB i\xEE\xEF o\xF4 u\xF9\xFC->art1] [spip avec des accents ISO a\xE0\xE2\xE4 e\xE9\xE8\xEA\xEB i\xEE\xEF o\xF4 u\xF9\xFC->http://www.spip.net] http://www.spip.net",
 				2 => ENT_COMPAT | ENT_HTML401,
 			],
 			70 => [
 				0 => '',
-				1 => 'Un texte avec des entit&eacute;s &amp;&lt;&gt;&quot; et avec des accents ISO aавд eйикл iоп oф uщь',
+				1 => "Un texte avec des entit&eacute;s &amp;&lt;&gt;&quot; et avec des accents ISO a\xE0\xE2\xE4 e\xE9\xE8\xEA\xEB i\xEE\xEF o\xF4 u\xF9\xFC",
 				2 => ENT_COMPAT | ENT_HTML401,
 			],
 			71 => [
 				0 => '',
-				1 => 'Un texte avec des entit&amp;eacute;s echap&amp;eacute; &amp;amp;&amp;lt;&amp;gt;&amp;quot; et avec des accents ISO aавд eйикл iоп oф uщь',
+				1 => "Un texte avec des entit&amp;eacute;s echap&amp;eacute; &amp;amp;&amp;lt;&amp;gt;&amp;quot; et avec des accents ISO a\xE0\xE2\xE4 e\xE9\xE8\xEA\xEB i\xEE\xEF o\xF4 u\xF9\xFC",
 				2 => ENT_COMPAT | ENT_HTML401,
 			],
 			72 => [
 				0 => '',
-				1 => 'Un texte avec des entit&#233;s num&#233;riques &#38;&#60;&#62;&quot; et avec des accents ISO aавд eйикл iоп oф uщь',
+				1 => "Un texte avec des entit&#233;s num&#233;riques &#38;&#60;&#62;&quot; et avec des accents ISO a\xE0\xE2\xE4 e\xE9\xE8\xEA\xEB i\xEE\xEF o\xF4 u\xF9\xFC",
 				2 => ENT_COMPAT | ENT_HTML401,
 			],
 			73 => [
 				0 => '',
-				1 => 'Un texte avec des entit&amp;#233;s num&amp;#233;riques echap&amp;#233;es &amp;#38;&amp;#60;&amp;#62;&amp;quot; et avec des accents ISO aавд eйикл iоп oф uщь',
+				1 => "Un texte avec des entit&amp;#233;s num&amp;#233;riques echap&amp;#233;es &amp;#38;&amp;#60;&amp;#62;&amp;quot; et avec des accents ISO a\xE0\xE2\xE4 e\xE9\xE8\xEA\xEB i\xEE\xEF o\xF4 u\xF9\xFC",
 				2 => ENT_COMPAT | ENT_HTML401,
 			],
 			74 => [
 				0 => '',
-				1 => 'Un texte sans entites &<>"\' et avec des accents ISO aавд eйикл iоп oф uщь',
+				1 => "Un texte sans entites &<>\"\' et avec des accents ISO a\xE0\xE2\xE4 e\xE9\xE8\xEA\xEB i\xEE\xEF o\xF4 u\xF9\xFC",
 				2 => ENT_COMPAT | ENT_HTML401,
 			],
 			75 => [
 				0 => '',
-				1 => '{{{Des raccourcis avec des accents ISO aавд eйикл iоп oф uщь}}} {italique avec des accents ISO aавд eйикл iоп oф uщь} {{gras avec des accents ISO aавд eйикл iоп oф uщь}} <code>du code avec des accents ISO aавд eйикл iоп oф uщь</code>',
+				1 => "{{{Des raccourcis avec des accents ISO a\xE0\xE2\xE4 e\xE9\xE8\xEA\xEB i\xEE\xEF o\xF4 u\xF9\xFC}}} {italique avec des accents ISO a\xE0\xE2\xE4 e\xE9\xE8\xEA\xEB i\xEE\xEF o\xF4 u\xF9\xFC} {{gras avec des accents ISO a\xE0\xE2\xE4 e\xE9\xE8\xEA\xEB i\xEE\xEF o\xF4 u\xF9\xFC}} <code>du code avec des accents ISO a\xE0\xE2\xE4 e\xE9\xE8\xEA\xEB i\xEE\xEF o\xF4 u\xF9\xFC</code>",
 				2 => ENT_COMPAT | ENT_HTML401,
 			],
 			76 => [
 				0 => '',
-				1 => 'Un modele avec des accents ISO aавд eйикл iоп oф uщь <modeleinexistant|lien=[avec des accents ISO aавд eйикл iоп oф uщь->http://www.spip.net]>',
+				1 => "Un modele avec des accents ISO a\xE0\xE2\xE4 e\xE9\xE8\xEA\xEB i\xEE\xEF o\xF4 u\xF9\xFC <modeleinexistant|lien=[avec des accents ISO a\xE0\xE2\xE4 e\xE9\xE8\xEA\xEB i\xEE\xEF o\xF4 u\xF9\xFC->http://www.spip.net]>",
 				2 => ENT_COMPAT | ENT_HTML401,
 			],
 			77 => [
 				0 => '',
-				1 => 'Un texte avec des retour
+				1 => "Un texte avec des retour
 a la ligne et meme des
 
-paragraphes avec des accents ISO aавд eйикл iоп oф uщь',
+paragraphes avec des accents ISO a\xE0\xE2\xE4 e\xE9\xE8\xEA\xEB i\xEE\xEF o\xF4 u\xF9\xFC",
 				2 => ENT_COMPAT | ENT_HTML401,
 			],
 			78 => [
@@ -554,62 +554,62 @@ paragraphes',
 				3 => 'ISO-8859-1',
 			],
 			98 => [
-				0 => 'Un texte avec des &lt;a href=&quot;http://spip.net&quot;&gt;liens avec des accents ISO aавд eйикл iоп oф uщь&lt;/a&gt; [Article 1 avec des accents ISO aавд eйикл iоп oф uщь-&gt;art1] [spip avec des accents ISO aавд eйикл iоп oф uщь-&gt;http://www.spip.net] http://www.spip.net',
-				1 => 'Un texte avec des <a href="http://spip.net">liens avec des accents ISO aавд eйикл iоп oф uщь</a> [Article 1 avec des accents ISO aавд eйикл iоп oф uщь->art1] [spip avec des accents ISO aавд eйикл iоп oф uщь->http://www.spip.net] http://www.spip.net',
+				0 => "Un texte avec des &lt;a href=&quot;http://spip.net&quot;&gt;liens avec des accents ISO a\xE0\xE2\xE4 e\xE9\xE8\xEA\xEB i\xEE\xEF o\xF4 u\xF9\xFC&lt;/a&gt; [Article 1 avec des accents ISO a\xE0\xE2\xE4 e\xE9\xE8\xEA\xEB i\xEE\xEF o\xF4 u\xF9\xFC-&gt;art1] [spip avec des accents ISO a\xE0\xE2\xE4 e\xE9\xE8\xEA\xEB i\xEE\xEF o\xF4 u\xF9\xFC-&gt;http://www.spip.net] http://www.spip.net",
+				1 => "Un texte avec des <a href=\"http://spip.net\">liens avec des accents ISO a\xE0\xE2\xE4 e\xE9\xE8\xEA\xEB i\xEE\xEF o\xF4 u\xF9\xFC</a> [Article 1 avec des accents ISO a\xE0\xE2\xE4 e\xE9\xE8\xEA\xEB i\xEE\xEF o\xF4 u\xF9\xFC->art1] [spip avec des accents ISO a\xE0\xE2\xE4 e\xE9\xE8\xEA\xEB i\xEE\xEF o\xF4 u\xF9\xFC->http://www.spip.net] http://www.spip.net",
 				2 => ENT_COMPAT | ENT_HTML401,
 				3 => 'ISO-8859-1',
 			],
 			99 => [
-				0 => 'Un texte avec des entit&amp;eacute;s &amp;amp;&amp;lt;&amp;gt;&amp;quot; et avec des accents ISO aавд eйикл iоп oф uщь',
-				1 => 'Un texte avec des entit&eacute;s &amp;&lt;&gt;&quot; et avec des accents ISO aавд eйикл iоп oф uщь',
+				0 => "Un texte avec des entit&amp;eacute;s &amp;amp;&amp;lt;&amp;gt;&amp;quot; et avec des accents ISO a\xE0\xE2\xE4 e\xE9\xE8\xEA\xEB i\xEE\xEF o\xF4 u\xF9\xFC",
+				1 => "Un texte avec des entit&eacute;s &amp;&lt;&gt;&quot; et avec des accents ISO a\xE0\xE2\xE4 e\xE9\xE8\xEA\xEB i\xEE\xEF o\xF4 u\xF9\xFC",
 				2 => ENT_COMPAT | ENT_HTML401,
 				3 => 'ISO-8859-1',
 			],
 			100 => [
-				0 => 'Un texte avec des entit&amp;amp;eacute;s echap&amp;amp;eacute; &amp;amp;amp;&amp;amp;lt;&amp;amp;gt;&amp;amp;quot; et avec des accents ISO aавд eйикл iоп oф uщь',
-				1 => 'Un texte avec des entit&amp;eacute;s echap&amp;eacute; &amp;amp;&amp;lt;&amp;gt;&amp;quot; et avec des accents ISO aавд eйикл iоп oф uщь',
+				0 => "Un texte avec des entit&amp;amp;eacute;s echap&amp;amp;eacute; &amp;amp;amp;&amp;amp;lt;&amp;amp;gt;&amp;amp;quot; et avec des accents ISO a\xE0\xE2\xE4 e\xE9\xE8\xEA\xEB i\xEE\xEF o\xF4 u\xF9\xFC",
+				1 => "Un texte avec des entit&amp;eacute;s echap&amp;eacute; &amp;amp;&amp;lt;&amp;gt;&amp;quot; et avec des accents ISO a\xE0\xE2\xE4 e\xE9\xE8\xEA\xEB i\xEE\xEF o\xF4 u\xF9\xFC",
 				2 => ENT_COMPAT | ENT_HTML401,
 				3 => 'ISO-8859-1',
 			],
 			101 => [
-				0 => 'Un texte avec des entit&amp;#233;s num&amp;#233;riques &amp;#38;&amp;#60;&amp;#62;&amp;quot; et avec des accents ISO aавд eйикл iоп oф uщь',
-				1 => 'Un texte avec des entit&#233;s num&#233;riques &#38;&#60;&#62;&quot; et avec des accents ISO aавд eйикл iоп oф uщь',
+				0 => "Un texte avec des entit&amp;#233;s num&amp;#233;riques &amp;#38;&amp;#60;&amp;#62;&amp;quot; et avec des accents ISO a\xE0\xE2\xE4 e\xE9\xE8\xEA\xEB i\xEE\xEF o\xF4 u\xF9\xFC",
+				1 => "Un texte avec des entit&#233;s num&#233;riques &#38;&#60;&#62;&quot; et avec des accents ISO a\xE0\xE2\xE4 e\xE9\xE8\xEA\xEB i\xEE\xEF o\xF4 u\xF9\xFC",
 				2 => ENT_COMPAT | ENT_HTML401,
 				3 => 'ISO-8859-1',
 			],
 			102 => [
-				0 => 'Un texte avec des entit&amp;amp;#233;s num&amp;amp;#233;riques echap&amp;amp;#233;es &amp;amp;#38;&amp;amp;#60;&amp;amp;#62;&amp;amp;quot; et avec des accents ISO aавд eйикл iоп oф uщь',
-				1 => 'Un texte avec des entit&amp;#233;s num&amp;#233;riques echap&amp;#233;es &amp;#38;&amp;#60;&amp;#62;&amp;quot; et avec des accents ISO aавд eйикл iоп oф uщь',
+				0 => "Un texte avec des entit&amp;amp;#233;s num&amp;amp;#233;riques echap&amp;amp;#233;es &amp;amp;#38;&amp;amp;#60;&amp;amp;#62;&amp;amp;quot; et avec des accents ISO a\xE0\xE2\xE4 e\xE9\xE8\xEA\xEB i\xEE\xEF o\xF4 u\xF9\xFC",
+				1 => "Un texte avec des entit&amp;#233;s num&amp;#233;riques echap&amp;#233;es &amp;#38;&amp;#60;&amp;#62;&amp;quot; et avec des accents ISO a\xE0\xE2\xE4 e\xE9\xE8\xEA\xEB i\xEE\xEF o\xF4 u\xF9\xFC",
 				2 => ENT_COMPAT | ENT_HTML401,
 				3 => 'ISO-8859-1',
 			],
 			103 => [
 				0 => "Un texte sans entites &amp;&lt;&gt;&quot;' et avec des accents ISO a\xe0\xe2\xe4 e\xe9\xe8\xea\xeb i\xee\xef o\xf4 u\xf9\xfc",
-				1 => 'Un texte sans entites &<>"\' et avec des accents ISO aавд eйикл iоп oф uщь',
+				1 => "Un texte sans entites &<>\"' et avec des accents ISO a\xE0\xE2\xE4 e\xE9\xE8\xEA\xEB i\xEE\xEF o\xF4 u\xF9\xFC",
 				2 => ENT_COMPAT | ENT_HTML401,
 				3 => 'ISO-8859-1',
 			],
 			104 => [
-				0 => '{{{Des raccourcis avec des accents ISO aавд eйикл iоп oф uщь}}} {italique avec des accents ISO aавд eйикл iоп oф uщь} {{gras avec des accents ISO aавд eйикл iоп oф uщь}} &lt;code&gt;du code avec des accents ISO aавд eйикл iоп oф uщь&lt;/code&gt;',
-				1 => '{{{Des raccourcis avec des accents ISO aавд eйикл iоп oф uщь}}} {italique avec des accents ISO aавд eйикл iоп oф uщь} {{gras avec des accents ISO aавд eйикл iоп oф uщь}} <code>du code avec des accents ISO aавд eйикл iоп oф uщь</code>',
+				0 => "{{{Des raccourcis avec des accents ISO a\xE0\xE2\xE4 e\xE9\xE8\xEA\xEB i\xEE\xEF o\xF4 u\xF9\xFC}}} {italique avec des accents ISO a\xE0\xE2\xE4 e\xE9\xE8\xEA\xEB i\xEE\xEF o\xF4 u\xF9\xFC} {{gras avec des accents ISO a\xE0\xE2\xE4 e\xE9\xE8\xEA\xEB i\xEE\xEF o\xF4 u\xF9\xFC}} &lt;code&gt;du code avec des accents ISO a\xE0\xE2\xE4 e\xE9\xE8\xEA\xEB i\xEE\xEF o\xF4 u\xF9\xFC&lt;/code&gt;",
+				1 => "{{{Des raccourcis avec des accents ISO a\xE0\xE2\xE4 e\xE9\xE8\xEA\xEB i\xEE\xEF o\xF4 u\xF9\xFC}}} {italique avec des accents ISO a\xE0\xE2\xE4 e\xE9\xE8\xEA\xEB i\xEE\xEF o\xF4 u\xF9\xFC} {{gras avec des accents ISO a\xE0\xE2\xE4 e\xE9\xE8\xEA\xEB i\xEE\xEF o\xF4 u\xF9\xFC}} <code>du code avec des accents ISO a\xE0\xE2\xE4 e\xE9\xE8\xEA\xEB i\xEE\xEF o\xF4 u\xF9\xFC</code>",
 				2 => ENT_COMPAT | ENT_HTML401,
 				3 => 'ISO-8859-1',
 			],
 			105 => [
-				0 => 'Un modele avec des accents ISO aавд eйикл iоп oф uщь &lt;modeleinexistant|lien=[avec des accents ISO aавд eйикл iоп oф uщь-&gt;http://www.spip.net]&gt;',
-				1 => 'Un modele avec des accents ISO aавд eйикл iоп oф uщь <modeleinexistant|lien=[avec des accents ISO aавд eйикл iоп oф uщь->http://www.spip.net]>',
+				0 => "Un modele avec des accents ISO a\xE0\xE2\xE4 e\xE9\xE8\xEA\xEB i\xEE\xEF o\xF4 u\xF9\xFC &lt;modeleinexistant|lien=[avec des accents ISO a\xE0\xE2\xE4 e\xE9\xE8\xEA\xEB i\xEE\xEF o\xF4 u\xF9\xFC-&gt;http://www.spip.net]&gt;",
+				1 => "Un modele avec des accents ISO a\xE0\xE2\xE4 e\xE9\xE8\xEA\xEB i\xEE\xEF o\xF4 u\xF9\xFC <modeleinexistant|lien=[avec des accents ISO a\xE0\xE2\xE4 e\xE9\xE8\xEA\xEB i\xEE\xEF o\xF4 u\xF9\xFC->http://www.spip.net]>",
 				2 => ENT_COMPAT | ENT_HTML401,
 				3 => 'ISO-8859-1',
 			],
 			106 => [
-				0 => 'Un texte avec des retour
+				0 => "Un texte avec des retour
 a la ligne et meme des
 
-paragraphes avec des accents ISO aавд eйикл iоп oф uщь',
-				1 => 'Un texte avec des retour
+paragraphes avec des accents ISO a\xE0\xE2\xE4 e\xE9\xE8\xEA\xEB i\xEE\xEF o\xF4 u\xF9\xFC",
+				1 => "Un texte avec des retour
 a la ligne et meme des
 
-paragraphes avec des accents ISO aавд eйикл iоп oф uщь',
+paragraphes avec des accents ISO a\xE0\xE2\xE4 e\xE9\xE8\xEA\xEB i\xEE\xEF o\xF4 u\xF9\xFC",
 				2 => ENT_COMPAT | ENT_HTML401,
 				3 => 'ISO-8859-1',
 			],
@@ -747,58 +747,58 @@ paragraphes',
 			],
 			127 => [
 				0 => '',
-				1 => 'Un texte avec des <a href="http://spip.net">liens avec des accents ISO aавд eйикл iоп oф uщь</a> [Article 1 avec des accents ISO aавд eйикл iоп oф uщь->art1] [spip avec des accents ISO aавд eйикл iоп oф uщь->http://www.spip.net] http://www.spip.net',
+				1 => "Un texte avec des <a href=\"http://spip.net\">liens avec des accents ISO a\xE0\xE2\xE4 e\xE9\xE8\xEA\xEB i\xEE\xEF o\xF4 u\xF9\xFC</a> [Article 1 avec des accents ISO a\xE0\xE2\xE4 e\xE9\xE8\xEA\xEB i\xEE\xEF o\xF4 u\xF9\xFC->art1] [spip avec des accents ISO a\xE0\xE2\xE4 e\xE9\xE8\xEA\xEB i\xEE\xEF o\xF4 u\xF9\xFC->http://www.spip.net] http://www.spip.net",
 				2 => ENT_COMPAT | ENT_HTML401,
 				3 => 'UTF-8',
 			],
 			128 => [
 				0 => '',
-				1 => 'Un texte avec des entit&eacute;s &amp;&lt;&gt;&quot; et avec des accents ISO aавд eйикл iоп oф uщь',
+				1 => "Un texte avec des entit&eacute;s &amp;&lt;&gt;&quot; et avec des accents ISO a\xE0\xE2\xE4 e\xE9\xE8\xEA\xEB i\xEE\xEF o\xF4 u\xF9\xFC",
 				2 => ENT_COMPAT | ENT_HTML401,
 				3 => 'UTF-8',
 			],
 			129 => [
 				0 => '',
-				1 => 'Un texte avec des entit&amp;eacute;s echap&amp;eacute; &amp;amp;&amp;lt;&amp;gt;&amp;quot; et avec des accents ISO aавд eйикл iоп oф uщь',
+				1 => "Un texte avec des entit&amp;eacute;s echap&amp;eacute; &amp;amp;&amp;lt;&amp;gt;&amp;quot; et avec des accents ISO a\xE0\xE2\xE4 e\xE9\xE8\xEA\xEB i\xEE\xEF o\xF4 u\xF9\xFC",
 				2 => ENT_COMPAT | ENT_HTML401,
 				3 => 'UTF-8',
 			],
 			130 => [
 				0 => '',
-				1 => 'Un texte avec des entit&#233;s num&#233;riques &#38;&#60;&#62;&quot; et avec des accents ISO aавд eйикл iоп oф uщь',
+				1 => "Un texte avec des entit&#233;s num&#233;riques &#38;&#60;&#62;&quot; et avec des accents ISO a\xE0\xE2\xE4 e\xE9\xE8\xEA\xEB i\xEE\xEF o\xF4 u\xF9\xFC",
 				2 => ENT_COMPAT | ENT_HTML401,
 				3 => 'UTF-8',
 			],
 			131 => [
 				0 => '',
-				1 => 'Un texte avec des entit&amp;#233;s num&amp;#233;riques echap&amp;#233;es &amp;#38;&amp;#60;&amp;#62;&amp;quot; et avec des accents ISO aавд eйикл iоп oф uщь',
+				1 => "Un texte avec des entit&amp;#233;s num&amp;#233;riques echap&amp;#233;es &amp;#38;&amp;#60;&amp;#62;&amp;quot; et avec des accents ISO a\xE0\xE2\xE4 e\xE9\xE8\xEA\xEB i\xEE\xEF o\xF4 u\xF9\xFC",
 				2 => ENT_COMPAT | ENT_HTML401,
 				3 => 'UTF-8',
 			],
 			132 => [
 				0 => '',
-				1 => 'Un texte sans entites &<>"\' et avec des accents ISO aавд eйикл iоп oф uщь',
+				1 => "Un texte sans entites &<>\"\' et avec des accents ISO a\xE0\xE2\xE4 e\xE9\xE8\xEA\xEB i\xEE\xEF o\xF4 u\xF9\xFC",
 				2 => ENT_COMPAT | ENT_HTML401,
 				3 => 'UTF-8',
 			],
 			133 => [
 				0 => '',
-				1 => '{{{Des raccourcis avec des accents ISO aавд eйикл iоп oф uщь}}} {italique avec des accents ISO aавд eйикл iоп oф uщь} {{gras avec des accents ISO aавд eйикл iоп oф uщь}} <code>du code avec des accents ISO aавд eйикл iоп oф uщь</code>',
+				1 => "{{{Des raccourcis avec des accents ISO a\xE0\xE2\xE4 e\xE9\xE8\xEA\xEB i\xEE\xEF o\xF4 u\xF9\xFC}}} {italique avec des accents ISO a\xE0\xE2\xE4 e\xE9\xE8\xEA\xEB i\xEE\xEF o\xF4 u\xF9\xFC} {{gras avec des accents ISO a\xE0\xE2\xE4 e\xE9\xE8\xEA\xEB i\xEE\xEF o\xF4 u\xF9\xFC}} <code>du code avec des accents ISO a\xE0\xE2\xE4 e\xE9\xE8\xEA\xEB i\xEE\xEF o\xF4 u\xF9\xFC</code>",
 				2 => ENT_COMPAT | ENT_HTML401,
 				3 => 'UTF-8',
 			],
 			134 => [
 				0 => '',
-				1 => 'Un modele avec des accents ISO aавд eйикл iоп oф uщь <modeleinexistant|lien=[avec des accents ISO aавд eйикл iоп oф uщь->http://www.spip.net]>',
+				1 => "Un modele avec des accents ISO a\xE0\xE2\xE4 e\xE9\xE8\xEA\xEB i\xEE\xEF o\xF4 u\xF9\xFC <modeleinexistant|lien=[avec des accents ISO a\xE0\xE2\xE4 e\xE9\xE8\xEA\xEB i\xEE\xEF o\xF4 u\xF9\xFC->http://www.spip.net]>",
 				2 => ENT_COMPAT | ENT_HTML401,
 				3 => 'UTF-8',
 			],
 			135 => [
 				0 => '',
-				1 => 'Un texte avec des retour
+				1 => "Un texte avec des retour
 a la ligne et meme des
 
-paragraphes avec des accents ISO aавд eйикл iоп oф uщь',
+paragraphes avec des accents ISO a\xE0\xE2\xE4 e\xE9\xE8\xEA\xEB i\xEE\xEF o\xF4 u\xF9\xFC",
 				2 => ENT_COMPAT | ENT_HTML401,
 				3 => 'UTF-8',
 			],
