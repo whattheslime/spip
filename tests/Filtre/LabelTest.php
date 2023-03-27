@@ -64,8 +64,8 @@ class LabelTest extends TestCase
 	public static function providerlabelPonctuerInitialeMajuscule(): array
 	{
 		$list = [
-			'bonjour' => 'Bonjour :',
-			'à la bonne heure : ' => 'À la bonne heure :',
+			'bonjour' => 'Bonjour :',
+			'à la bonne heure : ' => 'À la bonne heure :',
 		];
 		return array_map(null, array_keys($list), array_values($list));
 	}

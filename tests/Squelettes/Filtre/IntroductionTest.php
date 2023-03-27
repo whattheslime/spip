@@ -17,8 +17,8 @@ class IntroductionTest extends SquelettesTestCase
 	public function testPresenceFiltre(): void
 	{
 		$introduction = $this->getFilterIntroduction();
-		if (! $introduction !== 'filtre_introduction_dist') {
-			$this->markAsRisky();
+		if ($introduction !== 'filtre_introduction_dist') {
+			$this->markTestIncomplete(sprintf("Careful: filter %s is not 'filtre_introduction_dist'", $introduction));
 		}
 
 		$this->assertEquals('<p>ok</p>', propre('ok'));

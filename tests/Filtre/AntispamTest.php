@@ -20,7 +20,7 @@ class AntispamTest extends TestCase
 	public function testFiltresAntispam(): void
 	{
 		$actual = antispam('email@domain.tld');
-		$this->assertNotContains('@', $actual);
+		$this->assertStringNotContainsString('@', $actual);
 	}
 
 }
