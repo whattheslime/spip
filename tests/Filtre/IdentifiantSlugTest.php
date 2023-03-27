@@ -170,42 +170,42 @@ paragraphes',
 			],
 			34 => [
 				0 => 'un_texte_avec_des_liens_avec_des_accents_iso_a_e_i_o_u_artic',
-				1 => 'Un texte avec des <a href="http://spip.net">liens avec des accents ISO a��� e���� i�� o� u��</a> [Article 1 avec des accents ISO a��� e���� i�� o� u��->art1] [spip avec des accents ISO a��� e���� i�� o� u��->https://www.spip.net] https://www.spip.net',
+				1 => "Un texte avec des <a href=\"http://spip.net\">liens avec des accents ISO a\xE0\xE2\xE4 e\xE9\xE8\xEA\xEB i\xEE\xEF o\xF4 u\xF9\xFC</a> [Article 1 avec des accents ISO a\xE0\xE2\xE4 e\xE9\xE8\xEA\xEB i\xEE\xEF o\xF4 u\xF9\xFC->art1] [spip avec des accents ISO a\xE0\xE2\xE4 e\xE9\xE8\xEA\xEB i\xEE\xEF o\xF4 u\xF9\xFC->https://www.spip.net] https://www.spip.net",
 			],
 			35 => [
 				0 => 'un_texte_avec_des_entites_et_avec_des_accents_iso_a_e_i_o_u',
-				1 => 'Un texte avec des entit&eacute;s &amp;&lt;&gt;&quot; et avec des accents ISO a��� e���� i�� o� u��',
+				1 => "Un texte avec des entit&eacute;s &amp;&lt;&gt;&quot; et avec des accents ISO a\xE0\xE2\xE4 e\xE9\xE8\xEA\xEB i\xEE\xEF o\xF4 u\xF9\xFC",
 			],
 			36 => [
 				0 => 'un_texte_avec_des_entit_eacute_s_echap_eacute_amp_et_avec_de',
-				1 => 'Un texte avec des entit&amp;eacute;s echap&amp;eacute; &amp;amp;&amp;lt;&amp;gt;&amp;quot; et avec des accents ISO a��� e���� i�� o� u��',
+				1 => "Un texte avec des entit&amp;eacute;s echap&amp;eacute; &amp;amp;&amp;lt;&amp;gt;&amp;quot; et avec des accents ISO a\xE0\xE2\xE4 e\xE9\xE8\xEA\xEB i\xEE\xEF o\xF4 u\xF9\xFC",
 			],
 			37 => [
 				0 => 'un_texte_avec_des_entites_numeriques_38_60_62_et_avec_des_ac',
-				1 => 'Un texte avec des entit&#233;s num&#233;riques &#38;&#60;&#62;&quot; et avec des accents ISO a��� e���� i�� o� u��',
+				1 => "Un texte avec des entit&#233;s num&#233;riques &#38;&#60;&#62;&quot; et avec des accents ISO a\xE0\xE2\xE4 e\xE9\xE8\xEA\xEB i\xEE\xEF o\xF4 u\xF9\xFC",
 			],
 			38 => [
 				0 => 'un_texte_avec_des_entites_numeriques_echapees_38_60_62_et_av',
-				1 => 'Un texte avec des entit&amp;#233;s num&amp;#233;riques echap&amp;#233;es &amp;#38;&amp;#60;&amp;#62;&amp;quot; et avec des accents ISO a��� e���� i�� o� u��',
+				1 => "Un texte avec des entit&amp;#233;s num&amp;#233;riques echap&amp;#233;es &amp;#38;&amp;#60;&amp;#62;&amp;quot; et avec des accents ISO a\xE0\xE2\xE4 e\xE9\xE8\xEA\xEB i\xEE\xEF o\xF4 u\xF9\xFC",
 			],
 			39 => [
 				0 => 'un_texte_sans_entites_et_avec_des_accents_iso_a_e_i_o_u',
-				1 => 'Un texte sans entites &<>"\' et avec des accents ISO a��� e���� i�� o� u��',
+				1 => "Un texte sans entites &<>\"' et avec des accents ISO a\xE0\xE2\xE4 e\xE9\xE8\xEA\xEB i\xEE\xEF o\xF4 u\xF9\xFC",
 			],
 			40 => [
 				0 => 'des_raccourcis_avec_des_accents_iso_a_e_i_o_u_italique_avec_',
-				1 => '{{{Des raccourcis avec des accents ISO a��� e���� i�� o� u��}}} {italique avec des accents ISO a��� e���� i�� o� u��} {{gras avec des accents ISO a��� e���� i�� o� u��}} <code>du code avec des accents ISO a��� e���� i�� o� u��</code>',
+				1 => "{{{Des raccourcis avec des accents ISO a\xE0\xE2\xE4 e\xE9\xE8\xEA\xEB i\xEE\xEF o\xF4 u\xF9\xFC}}} {italique avec des accents ISO a\xE0\xE2\xE4 e\xE9\xE8\xEA\xEB i\xEE\xEF o\xF4 u\xF9\xFC} {{gras avec des accents ISO a\xE0\xE2\xE4 e\xE9\xE8\xEA\xEB i\xEE\xEF o\xF4 u\xF9\xFC}} <code>du code avec des accents ISO a\xE0\xE2\xE4 e\xE9\xE8\xEA\xEB i\xEE\xEF o\xF4 u\xF9\xFC</code>",
 			],
 			41 => [
 				0 => 'un_modele_avec_des_accents_iso_a_e_i_o_u_https_www_spip_net',
-				1 => 'Un modele avec des accents ISO a��� e���� i�� o� u�� <modeleinexistant|lien=[avec des accents ISO a��� e���� i�� o� u��->https://www.spip.net]>',
+				1 => "Un modele avec des accents ISO a\xE0\xE2\xE4 e\xE9\xE8\xEA\xEB i\xEE\xEF o\xF4 u\xF9\xFC <modeleinexistant|lien=[avec des accents ISO a\xE0\xE2\xE4 e\xE9\xE8\xEA\xEB i\xEE\xEF o\xF4 u\xF9\xFC->https://www.spip.net]>",
 			],
 			42 => [
 				0 => 'un_texte_avec_des_retour_a_la_ligne_et_meme_des_paragraphes_',
 				1 => 'Un texte avec des retour
 a la ligne et meme des
 
-paragraphes avec des accents ISO a��� e���� i�� o� u��',
+paragraphes avec des accents ISO a\xE0\xE2\xE4 e\xE9\xE8\xEA\xEB i\xEE\xEF o\xF4 u\xF9\xFC',
 			],
 			43 => [
 				0 => 'un_texte_avec_des_liens_avec_des_accents_utf_8_aaaa_eeeee_ii',
