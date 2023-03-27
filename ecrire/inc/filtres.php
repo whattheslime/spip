@@ -513,9 +513,12 @@ function image_filtrer($args) {
 	) {
 		foreach ($tags as $tag) {
 			$class = extraire_attribut($tag[3], 'class');
+			if ($class && str_contains($class, 'no_image_filtrer')) {
+				trigger_deprecation('spip', '3.2', 'Using "%s" class is deprecated, use "%s" class instead', 'no_image_filtrer', 'filtre_inactif');
+			}
 			if (
 				!$class or
-				(strpos($class, 'filtre_inactif') === false
+				(!str_contains($class, 'filtre_inactif')
 					// compat historique a virer en 3.2
 					and !str_contains($class, 'no_image_filtrer'))
 			) {
