@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "4b2cc590ecd19c7e93467e8dac6f53e8",
+    "content-hash": "6e60fb2632e70e22b3d4cf8d32d2b82a",
     "packages": [
         {
             "name": "algo26-matthias/idna-convert",
@@ -296,17 +296,17 @@
         },
         {
             "name": "spip/composer-installer",
-            "version": "dev-composer-local",
+            "version": "0.6.0",
             "source": {
                 "type": "git",
                 "url": "https://git.spip.net/spip/composer-installer.git",
-                "reference": "32c57ce843db5dc3ea6fd753ad882910aeabe1cf"
+                "reference": "02cf919d89abe8ed4060b8d4abfb008bed046b11"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://get.spip.net/composer/dist/spip/composer-installer/spip-composer-installer-dev-composer-local-0be57f.zip",
-                "reference": "32c57ce843db5dc3ea6fd753ad882910aeabe1cf",
-                "shasum": "566e688179af4b089a6b9eb80423d82f2907f1c8"
+                "url": "https://get.spip.net/composer/dist/spip/composer-installer/spip-composer-installer-0.6.0-68d8e7.zip",
+                "reference": "02cf919d89abe8ed4060b8d4abfb008bed046b11",
+                "shasum": "1c1eee7e3ff30ea87e6486f212da7858f14ab442"
             },
             "require": {
                 "composer-plugin-api": "^2.3"
@@ -319,8 +319,7 @@
             "extra": {
                 "class": "Spip\\Composer\\SpipInstallerPlugin",
                 "branch-alias": {
-                    "dev-main": "0.5.x-dev",
-                    "dev-composer-local": "0.6.x-dev"
+                    "dev-main": "0.6.x-dev"
                 }
             },
             "autoload": {
@@ -343,7 +342,7 @@
                 }
             ],
             "description": "SPIP Composer Installer Plugin",
-            "time": "2023-03-26T21:32:27+00:00"
+            "time": "2023-03-27T08:54:28+00:00"
         },
         {
             "name": "spip/compresseur",
@@ -1763,7 +1762,6 @@
         "spip/archiviste": 20,
         "spip/bigup": 20,
         "spip/compagnon": 20,
-        "spip/composer-installer": 20,
         "spip/compresseur": 20,
         "spip/dist": 20,
         "spip/dump": 20,

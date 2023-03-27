@@ -10,7 +10,7 @@
         "spip/archiviste": "^3.0.x-dev",
         "spip/bigup": "^3.3.x-dev",
         "spip/compagnon": "^3.2.x-dev",
-        "spip/composer-installer": "^0.6.x-dev",
+        "spip/composer-installer": "^0.6.0",
         "spip/compresseur": "^2.2.x-dev",
         "spip/dist": "^4.3.x-dev",
         "spip/dump": "^2.2.x-dev",
