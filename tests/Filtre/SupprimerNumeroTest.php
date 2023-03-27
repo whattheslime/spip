@@ -27,7 +27,7 @@ class SupprimerNumeroTest extends TestCase
 		$this->assertEquals($expected, $actual);
 	}
 
-	public function providerFiltresSupprimerNumero(): array
+	public static function providerFiltresSupprimerNumero(): array
 	{
 		return [
 			0 => [

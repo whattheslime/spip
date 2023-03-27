@@ -27,7 +27,7 @@ class EchapperTagsTest extends TestCase
 		$this->assertEquals($expected, $actual);
 	}
 
-	public function providerFiltresEchapperTags(): array
+	public static function providerFiltresEchapperTags(): array
 	{
 		return [
 			0 => [

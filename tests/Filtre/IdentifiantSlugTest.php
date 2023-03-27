@@ -27,7 +27,7 @@ class IdentifiantSlugTest extends TestCase
 		$this->assertEquals($expected, $actual);
 	}
 
-	public function providerFiltresIdentifiantSlug(): array
+	public static function providerFiltresIdentifiantSlug(): array
 	{
 		return [
 			0 => [
@@ -171,42 +171,42 @@ paragraphes',
 			],
 			34 => [
 				0 => 'un_texte_avec_des_liens_avec_des_accents_iso_a_e_i_o_u_artic',
-				1 => 'Un texte avec des <a href="http://spip.net">liens avec des accents ISO aавд eйикл iоп oф uщь</a> [Article 1 avec des accents ISO aавд eйикл iоп oф uщь->art1] [spip avec des accents ISO aавд eйикл iоп oф uщь->https://www.spip.net] https://www.spip.net',
+				1 => 'Un texte avec des <a href="http://spip.net">liens avec des accents ISO aпїЅпїЅпїЅ eпїЅпїЅпїЅпїЅ iпїЅпїЅ oпїЅ uпїЅпїЅ</a> [Article 1 avec des accents ISO aпїЅпїЅпїЅ eпїЅпїЅпїЅпїЅ iпїЅпїЅ oпїЅ uпїЅпїЅ->art1] [spip avec des accents ISO aпїЅпїЅпїЅ eпїЅпїЅпїЅпїЅ iпїЅпїЅ oпїЅ uпїЅпїЅ->https://www.spip.net] https://www.spip.net',
 			],
 			35 => [
 				0 => 'un_texte_avec_des_entites_et_avec_des_accents_iso_a_e_i_o_u',
-				1 => 'Un texte avec des entit&eacute;s &amp;&lt;&gt;&quot; et avec des accents ISO aавд eйикл iоп oф uщь',
+				1 => 'Un texte avec des entit&eacute;s &amp;&lt;&gt;&quot; et avec des accents ISO aпїЅпїЅпїЅ eпїЅпїЅпїЅпїЅ iпїЅпїЅ oпїЅ uпїЅпїЅ',
 			],
 			36 => [
 				0 => 'un_texte_avec_des_entit_eacute_s_echap_eacute_amp_et_avec_de',
-				1 => 'Un texte avec des entit&amp;eacute;s echap&amp;eacute; &amp;amp;&amp;lt;&amp;gt;&amp;quot; et avec des accents ISO aавд eйикл iоп oф uщь',
+				1 => 'Un texte avec des entit&amp;eacute;s echap&amp;eacute; &amp;amp;&amp;lt;&amp;gt;&amp;quot; et avec des accents ISO aпїЅпїЅпїЅ eпїЅпїЅпїЅпїЅ iпїЅпїЅ oпїЅ uпїЅпїЅ',
 			],
 			37 => [
 				0 => 'un_texte_avec_des_entites_numeriques_38_60_62_et_avec_des_ac',
-				1 => 'Un texte avec des entit&#233;s num&#233;riques &#38;&#60;&#62;&quot; et avec des accents ISO aавд eйикл iоп oф uщь',
+				1 => 'Un texte avec des entit&#233;s num&#233;riques &#38;&#60;&#62;&quot; et avec des accents ISO aпїЅпїЅпїЅ eпїЅпїЅпїЅпїЅ iпїЅпїЅ oпїЅ uпїЅпїЅ',
 			],
 			38 => [
 				0 => 'un_texte_avec_des_entites_numeriques_echapees_38_60_62_et_av',
-				1 => 'Un texte avec des entit&amp;#233;s num&amp;#233;riques echap&amp;#233;es &amp;#38;&amp;#60;&amp;#62;&amp;quot; et avec des accents ISO aавд eйикл iоп oф uщь',
+				1 => 'Un texte avec des entit&amp;#233;s num&amp;#233;riques echap&amp;#233;es &amp;#38;&amp;#60;&amp;#62;&amp;quot; et avec des accents ISO aпїЅпїЅпїЅ eпїЅпїЅпїЅпїЅ iпїЅпїЅ oпїЅ uпїЅпїЅ',
 			],
 			39 => [
 				0 => 'un_texte_sans_entites_et_avec_des_accents_iso_a_e_i_o_u',
-				1 => 'Un texte sans entites &<>"\' et avec des accents ISO aавд eйикл iоп oф uщь',
+				1 => 'Un texte sans entites &<>"\' et avec des accents ISO aпїЅпїЅпїЅ eпїЅпїЅпїЅпїЅ iпїЅпїЅ oпїЅ uпїЅпїЅ',
 			],
 			40 => [
 				0 => 'des_raccourcis_avec_des_accents_iso_a_e_i_o_u_italique_avec_',
-				1 => '{{{Des raccourcis avec des accents ISO aавд eйикл iоп oф uщь}}} {italique avec des accents ISO aавд eйикл iоп oф uщь} {{gras avec des accents ISO aавд eйикл iоп oф uщь}} <code>du code avec des accents ISO aавд eйикл iоп oф uщь</code>',
+				1 => '{{{Des raccourcis avec des accents ISO aпїЅпїЅпїЅ eпїЅпїЅпїЅпїЅ iпїЅпїЅ oпїЅ uпїЅпїЅ}}} {italique avec des accents ISO aпїЅпїЅпїЅ eпїЅпїЅпїЅпїЅ iпїЅпїЅ oпїЅ uпїЅпїЅ} {{gras avec des accents ISO aпїЅпїЅпїЅ eпїЅпїЅпїЅпїЅ iпїЅпїЅ oпїЅ uпїЅпїЅ}} <code>du code avec des accents ISO aпїЅпїЅпїЅ eпїЅпїЅпїЅпїЅ iпїЅпїЅ oпїЅ uпїЅпїЅ</code>',
 			],
 			41 => [
 				0 => 'un_modele_avec_des_accents_iso_a_e_i_o_u_https_www_spip_net',
-				1 => 'Un modele avec des accents ISO aавд eйикл iоп oф uщь <modeleinexistant|lien=[avec des accents ISO aавд eйикл iоп oф uщь->https://www.spip.net]>',
+				1 => 'Un modele avec des accents ISO aпїЅпїЅпїЅ eпїЅпїЅпїЅпїЅ iпїЅпїЅ oпїЅ uпїЅпїЅ <modeleinexistant|lien=[avec des accents ISO aпїЅпїЅпїЅ eпїЅпїЅпїЅпїЅ iпїЅпїЅ oпїЅ uпїЅпїЅ->https://www.spip.net]>',
 			],
 			42 => [
 				0 => 'un_texte_avec_des_retour_a_la_ligne_et_meme_des_paragraphes_',
 				1 => 'Un texte avec des retour
 a la ligne et meme des
 
-paragraphes avec des accents ISO aавд eйикл iоп oф uщь',
+paragraphes avec des accents ISO aпїЅпїЅпїЅ eпїЅпїЅпїЅпїЅ iпїЅпїЅ oпїЅ uпїЅпїЅ',
 			],
 			43 => [
 				0 => 'un_texte_avec_des_liens_avec_des_accents_utf_8_aaaa_eeeee_ii',

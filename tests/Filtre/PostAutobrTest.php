@@ -27,13 +27,13 @@ class PostAutobrTest extends TestCase
 		$this->assertEquals($expected, $actual);
 	}
 
-	public function providerFiltresPostAutobr(): array
+	public static function providerFiltresPostAutobr(): array
 	{
 		return [
 			0 => [
-				0 => 'Texte avec un 
+				0 => 'Texte avec un
 _ un retour simple à la ligne.',
-				1 => 'Texte avec un 
+				1 => 'Texte avec un
 un retour simple à la ligne.',
 				2 => '
 _ ',

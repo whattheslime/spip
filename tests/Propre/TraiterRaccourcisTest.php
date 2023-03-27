@@ -51,7 +51,7 @@ class TraiterRaccourcisTest extends TestCase
 		$this->assertEquals($expected, $actual);
 	}
 
-	public function providerPropreTraiterRaccourcis(): array
+	public static function providerPropreTraiterRaccourcis(): array
 	{
 		return [
 			/*

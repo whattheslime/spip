@@ -27,7 +27,7 @@ class PluginVersionCompatibleTest extends TestCase
 		$this->assertEquals($expected, $actual);
 	}
 
-	public function providerPluginPluginVersionCompatible(): array
+	public static function providerPluginPluginVersionCompatible(): array
 	{
 		return [
 			0 => [

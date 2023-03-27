@@ -27,7 +27,7 @@ class TextebrutTest extends TestCase
 		$this->assertEquals($expected, $actual);
 	}
 
-	public function providerFiltresTextebrut(): array
+	public static function providerFiltresTextebrut(): array
 	{
 		// TODO
 		$essais = [];

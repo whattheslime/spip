@@ -27,7 +27,7 @@ class Var2jsTest extends TestCase
 		$this->assertEquals($expected, $actual);
 	}
 
-	public function providerJsonVar2js(): array
+	public static function providerJsonVar2js(): array
 	{
 		return [
 			0 => [

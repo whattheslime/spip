@@ -28,7 +28,7 @@ class SqlInSqliteTest extends TestCase
 		$this->assertEquals($expected, sql_in(...$args));
 	}
 
-	public function providerSqliteSqliIn(): array
+	public static function providerSqliteSqliIn(): array
 	{
 		return [
 			0 =>

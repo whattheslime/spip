@@ -27,7 +27,7 @@ class MultTest extends TestCase
 		$this->assertEquals($expected, $actual);
 	}
 
-	public function providerFiltresMult(): array
+	public static function providerFiltresMult(): array
 	{
 		return [
 			0 => [

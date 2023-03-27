@@ -33,7 +33,7 @@ class EssaisTest extends TestCase
 	}
 
 	/**
-	 * @dataProvider EssaisProvider
+	 * @dataProvider providerEssais
 	 */
 	public function testEssai($test_function, $input, $output)
 	{
@@ -73,7 +73,7 @@ class EssaisTest extends TestCase
 		}
 	}
 
-	public function EssaisProvider()
+	public static function providerEssais()
 	{
 		$dir_base = __DIR__ . '/essais';
 		$essais_files = glob("{{$dir_base}/*.php,{$dir_base}/*/*.php,{$dir_base}/*/*/*.php}", GLOB_BRACE);

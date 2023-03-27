@@ -33,7 +33,7 @@ class AffdateMoisAnneeTest extends TestCase
 		$this->assertEquals($expected, $actual);
 	}
 
-	public function providerFiltresAffdateMoisAnnee(): array
+	public static function providerFiltresAffdateMoisAnnee(): array
 	{
 		return [
 			0 => [

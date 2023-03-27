@@ -33,7 +33,7 @@ class FiltreTextCsvDistTest extends TestCase
 		$this->assertEquals($expected, $actual);
 	}
 
-	public function providerFiltresMimeFiltreTextCsvDist(): array
+	public static function providerFiltresMimeFiltreTextCsvDist(): array
 	{
 		return [
 			0 => [

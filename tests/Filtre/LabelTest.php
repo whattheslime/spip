@@ -24,7 +24,7 @@ class LabelTest extends TestCase
 		changer_langue('fr');
 	}
 
-	public function providerlabelNettoyer(): array
+	public static function providerlabelNettoyer(): array
 	{
 		$list = [
 			'bonjour' => 'bonjour',
@@ -40,7 +40,7 @@ class LabelTest extends TestCase
 		return array_map(null, array_keys($list), array_values($list));
 	}
 
-	public function providerlabelNettoyerInitialeMajuscule(): array
+	public static function providerlabelNettoyerInitialeMajuscule(): array
 	{
 		$list = [
 			'bonjour' => 'Bonjour',
@@ -50,7 +50,7 @@ class LabelTest extends TestCase
 		return array_map(null, array_keys($list), array_values($list));
 	}
 
-	public function providerlabelPonctuer(): array
+	public static function providerlabelPonctuer(): array
 	{
 		$list = [
 			'bonjour' => 'bonjour :',
@@ -61,7 +61,7 @@ class LabelTest extends TestCase
 		return array_map(null, array_keys($list), array_values($list));
 	}
 
-	public function providerlabelPonctuerInitialeMajuscule(): array
+	public static function providerlabelPonctuerInitialeMajuscule(): array
 	{
 		$list = [
 			'bonjour' => 'Bonjour :',

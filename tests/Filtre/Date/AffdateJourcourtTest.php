@@ -33,7 +33,7 @@ class AffdateJourcourtTest extends TestCase
 		$this->assertEquals($expected, $actual);
 	}
 
-	public function providerFiltresAffdateJourcourt(): array
+	public static function providerFiltresAffdateJourcourt(): array
 	{
 		return [
 			0 => [

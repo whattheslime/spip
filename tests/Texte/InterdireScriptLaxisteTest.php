@@ -39,7 +39,7 @@ class InterdireScriptLaxisteTest extends TestCase
 		$this->assertEquals($expected, $actual);
 	}
 
-	public function providerTexteInterdireScriptLaxiste(): array
+	public static function providerTexteInterdireScriptLaxiste(): array
 	{
 		return [[
 			"<script type='text/javascript' src='toto.js'></script>", "<script type='text/javascript' src='toto.js'></script>", ],

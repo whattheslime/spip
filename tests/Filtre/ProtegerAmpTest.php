@@ -27,7 +27,7 @@ class ProtegerAmpTest extends TestCase
 		$this->assertEquals($expected, $actual);
 	}
 
-	public function providerFiltresProtegerAmp(): array
+	public static function providerFiltresProtegerAmp(): array
 	{
 		return [
 			0 => [

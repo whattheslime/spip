@@ -27,7 +27,7 @@ class MoisTest extends TestCase
 		$this->assertEquals($expected, $actual);
 	}
 
-	public function providerFiltresMois(): array
+	public static function providerFiltresMois(): array
 	{
 		return [
 			0 => [

@@ -33,7 +33,7 @@ class NomMoisTest extends TestCase
 		$this->assertEquals($expected, $actual);
 	}
 
-	public function providerFiltresNomMois(): array
+	public static function providerFiltresNomMois(): array
 	{
 		return [
 			0 => [

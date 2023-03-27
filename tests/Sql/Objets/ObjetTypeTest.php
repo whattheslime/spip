@@ -27,7 +27,7 @@ class ObjetTypeTest extends TestCase
 		$this->assertEquals($expected, $actual);
 	}
 
-	public function providerConnectSqlObjetType(): array
+	public static function providerConnectSqlObjetType(): array
 	{
 		return [[
 			0 => 'article',

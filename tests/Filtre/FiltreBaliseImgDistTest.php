@@ -34,10 +34,10 @@ class FiltreBaliseImgDistTest extends TestCase
 		$this->assertEquals($expected, $actual);
 	}
 
-	public function providerFiltresFiltreBaliseImgDist(): array
+	public static function providerFiltresFiltreBaliseImgDist(): array
 	{
 		return [[
-			
+
 
 			0 => "<img src='https://www.spip.net/IMG/logo/siteon0.png' alt='' width='300' height='223' />",
 			1 => 'https://www.spip.net/IMG/logo/siteon0.png',

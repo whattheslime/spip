@@ -27,7 +27,7 @@ class UrlDeTest extends TestCase
 		$this->assertEquals($expected, $actual);
 	}
 
-	public function providerUtilsUrlDe(): array
+	public static function providerUtilsUrlDe(): array
 	{
 		return [
 			0 => [

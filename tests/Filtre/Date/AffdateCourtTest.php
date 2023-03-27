@@ -28,7 +28,7 @@ class AffdateCourtTest extends TestCase
 		$this->assertEquals($expected, $actual);
 	}
 
-	public function providerFiltresAffdateCourt(): array
+	public static function providerFiltresAffdateCourt(): array
 	{
 		return [
 			0 => [

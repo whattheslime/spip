@@ -33,7 +33,7 @@ class JourTest extends TestCase
 		$this->assertEquals($expected, $actual);
 	}
 
-	public function providerFiltresJour(): array
+	public static function providerFiltresJour(): array
 	{
 		return [
 			0 => [

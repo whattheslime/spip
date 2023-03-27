@@ -27,7 +27,7 @@ class MoinsTest extends TestCase
 		$this->assertEquals($expected, $actual);
 	}
 
-	public function providerFiltresMoins(): array
+	public static function providerFiltresMoins(): array
 	{
 		return [
 			0 => [

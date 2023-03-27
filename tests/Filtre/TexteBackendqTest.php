@@ -27,7 +27,7 @@ class TexteBackendqTest extends TestCase
 		$this->assertEquals($expected, $actual);
 	}
 
-	public function providerFiltresTexteBackendq(): array
+	public static function providerFiltresTexteBackendq(): array
 	{
 		return [
 			0 => [

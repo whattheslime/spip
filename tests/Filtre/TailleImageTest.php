@@ -27,7 +27,7 @@ class TailleImageTest extends TestCase
 		$this->assertEquals($expected, $actual);
 	}
 
-	public function providerFiltresTailleImage(): array
+	public static function providerFiltresTailleImage(): array
 	{
 		return [
 			0 => [

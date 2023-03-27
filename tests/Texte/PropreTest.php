@@ -44,7 +44,7 @@ class PropreTest extends TestCase
 		$this->assertEquals($expected, $actual);
 	}
 
-	public function providerTextePropre(): array
+	public static function providerTextePropre(): array
 	{
 		return [
 			'vide' => [

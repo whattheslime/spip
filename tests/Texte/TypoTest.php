@@ -35,7 +35,7 @@ class TypoTest extends TestCase
 		$this->assertEquals($expected, $actual);
 	}
 
-	public function providerTexteTypo(): array
+	public static function providerTexteTypo(): array
 	{
 		return [
 			0 =>

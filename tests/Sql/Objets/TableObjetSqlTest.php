@@ -27,7 +27,7 @@ class TableObjetSqlTest extends TestCase
 		$this->assertEquals($expected, $actual);
 	}
 
-	public function providerConnectSqlTableObjetSql(): array
+	public static function providerConnectSqlTableObjetSql(): array
 	{
 		return [[
 			0 => 'spip_articles',

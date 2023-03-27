@@ -27,7 +27,7 @@ class CommuterClassTest extends TestCase
 		$this->assertEquals($expected, $actual);
 	}
 
-	public function providerFiltresCommuterClass(): array
+	public static function providerFiltresCommuterClass(): array
 	{
 		return [
 			0 => [

@@ -27,7 +27,7 @@ class SpipVersionCompareTest extends TestCase
 		$this->assertEquals($expected, $actual);
 	}
 
-	public function providerPluginSpipVersionCompare(): array
+	public static function providerPluginSpipVersionCompare(): array
 	{
 		return [
 			0 => [

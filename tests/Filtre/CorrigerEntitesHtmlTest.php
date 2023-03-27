@@ -27,7 +27,7 @@ class CorrigerEntitesHtmlTest extends TestCase
 		$this->assertEquals($expected, $actual);
 	}
 
-	public function providerFiltresCorrigerEntitesHtml(): array
+	public static function providerFiltresCorrigerEntitesHtml(): array
 	{
 		return [
 			0 => [

@@ -32,7 +32,7 @@ class DateIcalTest extends TestCase
 		$this->assertEquals($expected, $actual);
 	}
 
-	public function providerFiltresDateIcal(): array
+	public static function providerFiltresDateIcal(): array
 	{
 		return [
 			0 => [

@@ -27,7 +27,7 @@ class NeedProxyTest extends TestCase
 		$this->assertEquals($expected, $actual);
 	}
 
-	public function providerDistantNeedProxy(): array
+	public static function providerDistantNeedProxy(): array
 	{
 		return [
 			0 => [

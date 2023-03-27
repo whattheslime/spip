@@ -64,7 +64,7 @@ class ExtraireBalisesTest extends TestCase
 		$this->assertEquals($expected, $actual);
 	}
 
-	public function providerFiltresExtraireBalises(): array
+	public static function providerFiltresExtraireBalises(): array
 	{
 
 		return [

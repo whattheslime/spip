@@ -29,7 +29,7 @@ class CodeImbriqueTest extends TestCase
 		$this->assertEquals($expected, $actual);
 	}
 
-	public function providerPropreCodeImbrique(): array
+	public static function providerPropreCodeImbrique(): array
 	{
 		return [[true, '({{{Classificar els resultats}}}
 
@@ -45,11 +45,11 @@ A partir d\'[->3369], el criteri {inverse} pot agafar com a paràmetre qualsevol
 
 <html><tt><b>{par num</b> critère<b>}</b></tt></html>
 
-Per exemple: 
+Per exemple:
 
 <cadre><BOUCLE_articles(ARTICLES){id_rubrique}{par date}{inverse}></cadre>
 
-mostra els articles d’una secció classificats segons un ordre cronològic invers (els més recents al començament, els més antics al final), i: 
+mostra els articles d’una secció classificats segons un ordre cronològic invers (els més recents al començament, els més antics al final), i:
 
 <cadre><BOUCLE_articles(ARTICLES){id_rubrique}{par titre}>
 </cadre>
@@ -68,7 +68,7 @@ Per exemple <code>{par date, titre}</code> ordena els resultats per {date} despr
 Amb [->3176] podem especificar diversos criteris <html><tt><b>{par</b> <i>...</i><b>}</b></tt></html> per un boucle per arribar al mateix resultat. Per exemple: <code>{par date} {par titre}</code> és equivalent a l\'exemple anterior.
 
 <blockquote>
-{Comentari:} Quan s\'utilitzen diversos criteris de classificació, el criteri <HTML><TT><B>{inverse}</B></TT></HTML> només s\'aplica al criteri de classificació situat just abans. 
+{Comentari:} Quan s\'utilitzen diversos criteris de classificació, el criteri <HTML><TT><B>{inverse}</B></TT></HTML> només s\'aplica al criteri de classificació situat just abans.
 
 És per això que [->3176] introdueix la notació <HTML><TT><B>{!par ...}</B></TT></HTML> que inversa un criteri de classificació en particular. Per exemple: <code>{!par date} {par num titre}</code> classifica per {date} decreixents, després per números creixents en el mateix {titre} pels resultats que tenen la mateixa {date}.
 </blockquote>
@@ -76,7 +76,7 @@ Amb [->3176] podem especificar diversos criteris <html><tt><b>{par</b> <i>...</i
 
 {{{Comparacions, igualtats}}}
 
-<HTML><TT><B>{</B><I>critère</I> <B> < </B><I>valeur</I><B>}</B></TT></HTML> Comparació amb un valor fixat (es pot utilitzar «>», «<», «=», «>=», «<=». Tots els {criteris de classificació} (tal i com són extrets de la base de dades) poden ser utilitzats igualment per limitar el número de resultats. 
+<HTML><TT><B>{</B><I>critère</I> <B> < </B><I>valeur</I><B>}</B></TT></HTML> Comparació amb un valor fixat (es pot utilitzar «>», «<», «=», «>=», «<=». Tots els {criteris de classificació} (tal i com són extrets de la base de dades) poden ser utilitzats igualment per limitar el número de resultats.
 
 El valor a la dreta de l\'operador pot ser:
 
@@ -86,7 +86,7 @@ El valor a la dreta de l\'operador pot ser:
 mostra només l’article que té el número 5. És útil, per exemple, per ressaltar un article concret a la pàgina d’inici.
 
 <cadre><BOUCLE_art(ARTICLES){id_secteur=2}></cadre>
-mostra els articles del sector número 2. 
+mostra els articles del sector número 2.
 
 - A partir de <span style=\'color: #fa9a00;\'>[SPIP 1.8]</span>, una etiqueta disponible en el context del bucle. Per exemple:
 
@@ -105,7 +105,7 @@ serveix per trobar els articles que tenen el mateix títol que l\'article 5.
 En especial, si volem utilitzar l\'etiqueta {{#ENV}} -- o una altra etiqueta que admeti paràmetres --, hem d\'emprar la notació: <code>{titre = #ENV{titre}}</code> i {{no}}: <code>{titre = [(#ENV{titre})]}</code>.
 </blockquote>
 
-{{Expressions regulars:}} 
+{{Expressions regulars:}}
 
 Molt potent (però força més complexe de manipular), el terme de comparació « == » introdueix una comparació segons una expressió regular. Per exemple:
 
@@ -114,30 +114,30 @@ selecciona els articles el títol dels quals comença per « a » o « A ».
 
 {{Negació:}}
 
-A partir de <span style=\'color: red;\'>[SPIP 1.2]</span> es pot fer servir la notació <html><tt>{xxx != yyy}</tt> i <tt>{xxx !== yyy}</tt></html>, el <html>!</html> corresponent a la negació (operador lògic NOT). 
+A partir de <span style=\'color: red;\'>[SPIP 1.2]</span> es pot fer servir la notació <html><tt>{xxx != yyy}</tt> i <tt>{xxx !== yyy}</tt></html>, el <html>!</html> corresponent a la negació (operador lògic NOT).
 
 <cadre><BOUCLE_art(ARTICLES){id_secteur != 2}></cadre>
 selecciona els articles que no pertanyen al sector número 2.
 
 <cadre><BOUCLE_art(ARTICLES){titre!==^[aA]}></cadre>
-selecciona els articles el títol dels quals {no} comença per « a » o « A ». 
+selecciona els articles el títol dels quals {no} comença per « a » o « A ».
 
 {{{Publicació en funció de la data}}}
 
-Per facilitar l\'ús de les comparacions a les dates, s\'han afegit els criteris següents: 
+Per facilitar l\'ús de les comparacions a les dates, s\'han afegit els criteris següents:
 - <TT>age</TT> i <TT>age_redac</TT> corresponen respectivament a l’antiguitat de la publicació i de la primera publicació d’un article, en dies: <TT><code>{</code>age<30<code>}</code></TT> selecciona els elements publicats des de fa menys d’un mes;
 - els critères <TT>mois</TT>, <TT>mois_redac</TT>, <TT>annee</TT>, <TT>annee_redac</TT> permeten comparar amb valors fixes (per exemple, <code>{annee<=2000}</code> pels elements publicats fins l’any 2000).
 
-Es poden combinar diversos criteris per efectuar seleccions més precises. Per exemple: 
+Es poden combinar diversos criteris per efectuar seleccions més precises. Per exemple:
 
 <cadre><BOUCLE_art(ARTICLES){id_secteur=2}{id_rubrique!=3}{age<30}></cadre>
-mostra els articles del sector 2, excepte els de la secció 3, i publicats des de fa menys de 30 dies. 
+mostra els articles del sector 2, excepte els de la secció 3, i publicats des de fa menys de 30 dies.
 
-{Una astúcia}. El criteri <code>edat</code> és molt pràctic per mostrar els articles o les breus la data dels quals és « posterior » a l’actual, amb valors negatius (a condició d’haver seleccionat, a la Configuració precisa del lloc, la opció « Publicar els articles amb data posterior »). Per exemple, aquest criteri permet de donar èmfasi a futurs esdeveniments: <code>{age<0}</code> selecciona els articles o les breus d’una data posterior (« desprès » d’avui)... 
+{Una astúcia}. El criteri <code>edat</code> és molt pràctic per mostrar els articles o les breus la data dels quals és « posterior » a l’actual, amb valors negatius (a condició d’haver seleccionat, a la Configuració precisa del lloc, la opció « Publicar els articles amb data posterior »). Per exemple, aquest criteri permet de donar èmfasi a futurs esdeveniments: <code>{age<0}</code> selecciona els articles o les breus d’una data posterior (« desprès » d’avui)...
 
-<span style=\'color: red;\'>(SPIP 1.3)</span> {Edat respecte a una data donada}. El criteri edat <code>(age)</code> es calcula en relació a la data d’avui (d’aquesta manera, <code>{age<30}</code> correspon als articles publicats des de fa menys d’un mes respecte a la data d’avui). El criteri <tt><b>age_relatif</b></tt> (edat relativa) compara la data d’un article o d’una breu amb una data «actual»; per exemple, a l’interior d’un bucle ARTICLES, coneixem ja una data per a cada resultat del bucle, per tant, podem seleccionar en relació a aquesta data (i no només en relació amb la data d’avui). 
+<span style=\'color: red;\'>(SPIP 1.3)</span> {Edat respecte a una data donada}. El criteri edat <code>(age)</code> es calcula en relació a la data d’avui (d’aquesta manera, <code>{age<30}</code> correspon als articles publicats des de fa menys d’un mes respecte a la data d’avui). El criteri <tt><b>age_relatif</b></tt> (edat relativa) compara la data d’un article o d’una breu amb una data «actual»; per exemple, a l’interior d’un bucle ARTICLES, coneixem ja una data per a cada resultat del bucle, per tant, podem seleccionar en relació a aquesta data (i no només en relació amb la data d’avui).
 
-Per exemple: 
+Per exemple:
 <cadre>
 <BOUCLE_article_principal(ARTICLES){id_article}>
 
@@ -153,14 +153,14 @@ Per exemple:
 el BOUCLE_suivant mostra un únic article de la mateixa secció, classificat per data, la data de publicació del qual és inferior o igual a la data de l’« article_principal »; és a dir, l’article de la mateixa secció publicat després de l’article principal.
 
 Trobareu informació més àmplia sobre la utilització de les dates a l\'article  que parla sobre «[->2198]».
- 
+
 {{{Presentació d’una part dels resultats}}}
 
 - {{<code>{branche}</code>}} A partir de <span style=\'color: #066;\'>[SPIP 1.8.2]</span>, limita els resultats -- pels bucles que tenen un #ID_RUBRIQUE -- a la branca actual (la secció actual i les subseccions). Per exemple:
 _ <code><BOUCLE_articles(ARTICLES) {branche}></code> ens tornarà tots els articles de la secció actual i de les seves subseccions,
 _ <code><BOUCLE_articles(ARTICLES) {!branche}></code> ens tornarà tots els articles uq no es troben dins de la secció actual o les seves subseccions,
 
-Es pot utilitzar el criteri 
+Es pot utilitzar el criteri
 <HTML><TT><B>{branche?}</B></TT></HTML> {optionnel} per aplicar-lo només si una secció es selecciona dins del context (un bucle englobant o l\'url proporcionada per un id_rubrique). Per exemple:
 _ <code><BOUCLE_articles(ARTICLES) {branche?}></code> ens retornarà tots els articles de la secció actual i de les seves subseccions si hi ha un id_rubrique en el context, sinó, ens torna tots els articles del lloc Web.
 
@@ -179,14 +179,14 @@ A partir de <span style=\'color: red;\'>[SPIP 1.2]</span> i fins a [<span style=
 [#critere_in<-]
 - <HTML><TT><B>{</B><I>xxxx</I><B> IN </B><I>a,b,c,d,...</I><B>}</B></TT></HTML> a partir de <span style=\'color: #fa9a00;\'>[SPIP 1.8]</span>, limita la presentació als resultats que tinguin el criteri {xxxx} igual a {a, b, c} {{o}} {d.} Els resultats són ordenats segons l\'ordre indicat (excepte per demanda explícita d\'un altre criteri d\'ordre). També és possible seleccionar cadenes de caràcters, per exemple amb <code>{titre IN \'Chine\', \'Japon\'}</code>.
 
-Amb 
+Amb
 [->3369],  les etiquetes són reconegudes en els arguments d\'IN, i sobretot l\'etiqueta <TT>ENV</TT>, a la que se li apliquen els filtres d\'anàlisi per assegurar que l\'ordre SQL s\'escriurà bé. De forma derogatòria, Spip verificarà si l\'argument d\' <TT>ENV</TT> apunta cap a una taula (venint per exemple d\'entrades de formulari l\'atribut de les quals <tt>name</tt> s\'acaba per <tt>[]</tt>). Si aquest és el cas, i si els filtres d\'anàlisi han estat desactivats sufixant aquesta etiqueta per una doble estrella, llavors cada element de la taula serà considerat com argument d\'IN, aplicant Spip els filtres de seguretat damunt de cadascun d\'ells.
 
 L\'esquelet estàndard <tt>formulaire_forum_previsu</tt> subministra un exemple d\'ús amb un bucle MOTS que té el criteri <HTML><tt>{id_mot IN #ENV**{ajouter_mot}}</tt></HTML>: aquest bucle selecciona només les paraules clau que pertanyen a un conjunt indicat dinàmicament. Aquí, aquest conjunt haurà estat construit pel formulari de l\'esquelet estàndard <tt>choix_mots</tt>, el qual utilitza atributs <tt>name=ajouter_mot[]</tt>.
 
-- <HTML><TT><B>{</B><I>a</I><B>,</B><I>b</I><B>}</B></TT></HTML> on {a} i {b} són xifres. Aquest criteri permet limitar el número de resultats. {a} indica el resultat a partir del qual es comença la visualització (atenció, el primer resultat porta el número 0 - zero) ; {b} indica el número de resultats mostrats. 
+- <HTML><TT><B>{</B><I>a</I><B>,</B><I>b</I><B>}</B></TT></HTML> on {a} i {b} són xifres. Aquest criteri permet limitar el número de resultats. {a} indica el resultat a partir del qual es comença la visualització (atenció, el primer resultat porta el número 0 - zero) ; {b} indica el número de resultats mostrats.
 
-Per exemple <HTML><TT>{0,10}</TT></HTML> mostra els deu primers resultats; <HTML><TT>{4,2}</TT></HTML> mostra els dos resultats a partir del cinquè (inclòs). 
+Per exemple <HTML><TT>{0,10}</TT></HTML> mostra els deu primers resultats; <HTML><TT>{4,2}</TT></HTML> mostra els dos resultats a partir del cinquè (inclòs).
 
 <HTML><TT><B>{debut_</B><I>xxx</I><B>,</B><I>b</I><B>}</B></TT></HTML> és una variant molt elaborada del criteri anterior. Permet fer començar la limitació dels resultats per una variable passada per l’URL (aquesta variable reemplaça així la {a} que se li indicava anteriorment). És un funcionament una mica complex, però afortunadament no es necessari fer-la servir gaire sovint.
 
@@ -198,7 +198,7 @@ amb un esquelet <TT>(petition.html)</TT> que conté, per exemple:
 
 <cadre><BOUCLE_signatures(SIGNATURES){id_article}{debut_signatures,100}></cadre>
 
-obtindrem la llista de 100 signatures a partir de la 201[[<recorda> el primer resultat té el número 0, per tant el resultat 200 representa realment la signatura número 201]]. Amb l’URL: 
+obtindrem la llista de 100 signatures a partir de la 201[[<recorda> el primer resultat té el número 0, per tant el resultat 200 representa realment la signatura número 201]]. Amb l’URL:
 
 <HTML><TT>spip.php?page=petition&id_article=13&debut_signatures=300</TT></HTML>
 
@@ -208,15 +208,15 @@ obtindríem la llista de 100 signatures a partir de la 301[[<recorda>]].
 
 <code>{0,n-10}</code> mostrarà tots els resultats del bucle excepte els 10 últims.
 
-- <HTML><TT><B>{n-</B><I>a</I><B>,</B><I>b</I><B>}</B></TT></HTML> a partir de <span style=\'color: #fa9a00;\'>[SPIP 1.8]</span>, és el que penja de <code>{a, n-b}</code>. Es limita la publicació a {b} resultats després del {a}<sup>e</sup> resultat del bucle.  
+- <HTML><TT><B>{n-</B><I>a</I><B>,</B><I>b</I><B>}</B></TT></HTML> a partir de <span style=\'color: #fa9a00;\'>[SPIP 1.8]</span>, és el que penja de <code>{a, n-b}</code>. Es limita la publicació a {b} resultats després del {a}<sup>e</sup> resultat del bucle.
 
 Per exemple: <code>{n-20,10}</code> mostrarà 10 resultats partint del 20<sup>è</sup> resultat abans del final del bucle.
 
-- <HTML><TT><B>{</B><I>a</I><B>/</B><I>b</I><B>}</B></TT></HTML> on {a} i {b} són xifres. Aquest criteri permet mostrar una part {a} (proporcionalment) dels resultats en relació al nombre total «porcions» {b}. 
+- <HTML><TT><B>{</B><I>a</I><B>/</B><I>b</I><B>}</B></TT></HTML> on {a} i {b} són xifres. Aquest criteri permet mostrar una part {a} (proporcionalment) dels resultats en relació al nombre total «porcions» {b}.
 
 Per exemple: <HTML><TT>{1/3}</TT></HTML> mostra el primer terç dels resultats. Aquest criteri és útil, sobretot, per presentar llistes en diverses columnes. Per obtenir una visualització en dues columnes, hem de crear un primer bucle, dins d’una cel·la d’una taula, amb el criteri <code>{1/2}</code> (la primera meitat dels resultats); després mostrarem un segon bucle dins una nova cel·la, amb el criteri <code>{2/2}</code> (la segona meitat dels resultats).
 
-{Atenció}. La utilització del [criteri <code>{doublons}</code>->#doublons] amb aquest criteri és perillós. Per exemple: 
+{Atenció}. La utilització del [criteri <code>{doublons}</code>->#doublons] amb aquest criteri és perillós. Per exemple:
 
 <cadre>
 <BOUCLE_prem(ARTICLES){id_rubrique}{1/2}{doublons}>
@@ -227,11 +227,11 @@ Per exemple: <HTML><TT>{1/3}</TT></HTML> mostra el primer terç dels resultats. 
 </BOUCLE_deux>
 </cadre>
 
-no mostrarà tots els articles de la secció! Imaginem, per exemple, que hi ha un total de 20 articles a la nostra secció. El BOUCLE_prem mostrarà la primera meitat dels articles, és a dir els 10 primers, i impedirà (com a conseqüència de <tt><code>{doublons}</code></tt>) de tornar-los a utilitzar. El BOUCLE_deux, per la seva part, recuperarà la segona meitat dels articles d’aquesta secció {que encara no s’han mostrat} pel BOUCLE_prem; o sigui, la meitat dels 10 articles següents, és a dir els 5 últims articles de la secció. Haurem « perdut », per tant, 5 articles en aquesta operació... 
+no mostrarà tots els articles de la secció! Imaginem, per exemple, que hi ha un total de 20 articles a la nostra secció. El BOUCLE_prem mostrarà la primera meitat dels articles, és a dir els 10 primers, i impedirà (com a conseqüència de <tt><code>{doublons}</code></tt>) de tornar-los a utilitzar. El BOUCLE_deux, per la seva part, recuperarà la segona meitat dels articles d’aquesta secció {que encara no s’han mostrat} pel BOUCLE_prem; o sigui, la meitat dels 10 articles següents, és a dir els 5 últims articles de la secció. Haurem « perdut », per tant, 5 articles en aquesta operació...
 
 {{{Visualització {entre} els resultats}}}
 
-<tt>{{<code>{</code>}}"{inter}"{{<code>}</code>}}</tt> permet indicar un codi HTML (aquí, {inter}) inserit {entre} els resultats del bucle. Per exemple, per separar una llista d’autors per una coma, ho farem de la manera següent: 
+<tt>{{<code>{</code>}}"{inter}"{{<code>}</code>}}</tt> permet indicar un codi HTML (aquí, {inter}) inserit {entre} els resultats del bucle. Per exemple, per separar una llista d’autors per una coma, ho farem de la manera següent:
 <cadre><BOUCLE_auteurs(AUTEURS){id_article}{","}></cadre>
 
 {{{Divers}}}

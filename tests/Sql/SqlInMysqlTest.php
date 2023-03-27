@@ -28,7 +28,7 @@ class SqlInMysqlTest extends TestCase
 		$this->assertEquals($expected, sql_in(...$args));
 	}
 
-	public function providerMysqlSqliIn(): array
+	public static function providerMysqlSqliIn(): array
 	{
 		return [
 			0 =>

@@ -27,7 +27,7 @@ class WrapTest extends TestCase
 		$this->assertEquals($expected, $actual);
 	}
 
-	public function providerFiltresWrap(): array
+	public static function providerFiltresWrap(): array
 	{
 		return [
 			0 => [

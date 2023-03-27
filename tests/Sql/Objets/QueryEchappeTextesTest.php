@@ -32,7 +32,7 @@ class QueryEchappeTextesTest extends TestCase
 		$this->assertEquals($expected, $actual);
 	}
 
-	public function providerConnectSqlQueryEchappeTextes(): array
+	public static function providerConnectSqlQueryEchappeTextes(): array
 	{
 		$md5 = substr(md5('uniqid'), 0, 4);
 		return [

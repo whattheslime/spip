@@ -27,7 +27,7 @@ class InsererAttributTest extends TestCase
 		$this->assertEquals($expected, $actual);
 	}
 
-	public function providerFiltresInsererAttribut(): array
+	public static function providerFiltresInsererAttribut(): array
 	{
 		return [
 			0 => [

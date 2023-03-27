@@ -73,7 +73,7 @@ class FormHiddenCase extends TestCase
 		$this->assertEquals($expected, $actual);
 	}
 
-	public function providerFormHiddenRubrique(): array
+	public static function providerFormHiddenRubrique(): array
 	{
 		$id = $this->getIdRubrique();
 		return [

@@ -63,7 +63,7 @@ class EchappeHtmlTest extends TestCase
 		$this->assertEquals($expected, $actual);
 	}
 
-	public function providerPropreEchappeHtml(): array
+	public static function providerPropreEchappeHtml(): array
 	{
 		$essais = [];
 		$marque = '<span class="base64" title="QQ=="></span>';

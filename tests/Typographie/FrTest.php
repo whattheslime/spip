@@ -31,7 +31,7 @@ class FrTest extends TestCase
 		include_spip(static::$root . 'typographie/' . static::$lang);
 	}
 
-	public function providerBase()
+	public static function providerBase()
 	{
 		$list = [
 			'bonjour' => 'bonjour',
@@ -50,7 +50,7 @@ class FrTest extends TestCase
 		$this->assertEquals($expected, $typographie($source));
 	}
 
-	public function providerAddsSpaceOnPonctuation()
+	public static function providerAddsSpaceOnPonctuation()
 	{
 		$list = [
 			'bonjour:' => 'bonjour&nbsp;:',
@@ -70,7 +70,7 @@ class FrTest extends TestCase
 		$this->assertEquals($expected, $typographie($source));
 	}
 
-	public function providerChangeSpaceToNonBreakingSpaceOnPonctuation()
+	public static function providerChangeSpaceToNonBreakingSpaceOnPonctuation()
 	{
 		$list = [
 			'bonjour :' => 'bonjour&nbsp;:',
@@ -90,7 +90,7 @@ class FrTest extends TestCase
 		$this->assertEquals($expected, $typographie($source));
 	}
 
-	public function providerChangeTildeToNonBreakingSpace()
+	public static function providerChangeTildeToNonBreakingSpace()
 	{
 		$list = [
 			'bonjour~toi' => 'bonjour&nbsp;toi',
@@ -108,7 +108,7 @@ class FrTest extends TestCase
 		$this->assertEquals($expected, $typographie($source));
 	}
 
-	public function providerChangeTildeToNonBreakingSpaceOnPonctuation()
+	public static function providerChangeTildeToNonBreakingSpaceOnPonctuation()
 	{
 		$list = [
 			'bonjour~:' => 'bonjour&nbsp;:',
@@ -128,7 +128,7 @@ class FrTest extends TestCase
 		$this->assertEquals($expected, $typographie($source));
 	}
 
-	public function providerKeepNonBreakingSpaceEntity()
+	public static function providerKeepNonBreakingSpaceEntity()
 	{
 		$list = [
 			'bonjour&nbsp;toi' => 'bonjour&nbsp;toi',
@@ -146,7 +146,7 @@ class FrTest extends TestCase
 		$this->assertEquals($expected, $typographie($source));
 	}
 
-	public function providerKeepNonBreakingSpaceUtf()
+	public static function providerKeepNonBreakingSpaceUtf()
 	{
 		$list = [
 			'bonjour toi' => 'bonjour toi',
@@ -166,7 +166,7 @@ class FrTest extends TestCase
 		$this->assertEquals($expected, $typographie($source));
 	}
 
-	public function providerKeepDoubleTwoPoints()
+	public static function providerKeepDoubleTwoPoints()
 	{
 		$list = [
 			'bonjour::' => 'bonjour::',

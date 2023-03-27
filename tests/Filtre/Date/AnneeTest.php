@@ -27,7 +27,7 @@ class AnneeTest extends TestCase
 		$this->assertEquals($expected, $actual);
 	}
 
-	public function providerFiltresAnnee(): array
+	public static function providerFiltresAnnee(): array
 	{
 		return [
 			0 => [

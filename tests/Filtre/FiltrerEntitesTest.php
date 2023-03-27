@@ -27,7 +27,7 @@ class FiltrerEntitesTest extends TestCase
 		$this->assertEquals($expected, $actual);
 	}
 
-	public function providerFiltresFiltrerEntites(): array
+	public static function providerFiltresFiltrerEntites(): array
 	{
 		return [
 			0 => [

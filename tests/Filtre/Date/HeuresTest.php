@@ -27,7 +27,7 @@ class HeuresTest extends TestCase
 		$this->assertEquals($expected, $actual);
 	}
 
-	public function providerFiltresHeures(): array
+	public static function providerFiltresHeures(): array
 	{
 		return [
 			0 => [

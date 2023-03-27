@@ -27,7 +27,7 @@ class AffDateDebutFinTest extends TestCase
 		$this->assertEquals($expected, affdate_debut_fin(...$args));
 	}
 
-	public function providerAffdateDebutFin(): array
+	public static function providerAffdateDebutFin(): array
 	{
 		return [
 			0 =>

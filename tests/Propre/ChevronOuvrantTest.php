@@ -39,7 +39,7 @@ class ChevronOuvrantTest extends TestCase
 		$this->assertEquals($expected, $actual);
 	}
 
-	public function providerPropreChevronOuvrant(): array
+	public static function providerPropreChevronOuvrant(): array
 	{
 		return [
 			0 => [

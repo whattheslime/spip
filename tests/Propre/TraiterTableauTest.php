@@ -32,7 +32,7 @@ class TraiterTableauTest extends TestCase
 		}
 	}
 
-	public function providerPropreTraiterTableau(): array
+	public static function providerPropreTraiterTableau(): array
 	{
 		return [
 			// trois tests un peu identiques sur <br />...

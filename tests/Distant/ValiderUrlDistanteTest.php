@@ -27,7 +27,7 @@ class ValiderUrlDistanteTest extends TestCase
 		$this->assertEquals($expected, $actual);
 	}
 
-	public function providerDistantValiderUrlDistante(): array
+	public static function providerDistantValiderUrlDistante(): array
 	{
 		return [
 			0 => [

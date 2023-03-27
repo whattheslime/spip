@@ -39,7 +39,7 @@ class InterdireScriptParanoTest extends TestCase
 		$this->assertEquals($expected, $actual);
 	}
 
-	public function providerTexteInterdireScriptParano(): array
+	public static function providerTexteInterdireScriptParano(): array
 	{
 		return [[
 			"<code class=\"echappe-js\">&lt;script type='text/javascript' src='toto.js'&gt;&lt;/script&gt;</code>", "<script type='text/javascript' src='toto.js'></script>", ],

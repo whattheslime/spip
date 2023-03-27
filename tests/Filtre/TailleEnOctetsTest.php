@@ -47,7 +47,7 @@ class TailleEnOctetsTest extends TestCase
 		$this->assertEquals($expected, $actual);
 	}
 
-	public function providerFiltresTailleEnOctetsBI(): array
+	public static function providerFiltresTailleEnOctetsBI(): array
 	{
 		$list = [
 			0 =>'',
@@ -69,7 +69,7 @@ class TailleEnOctetsTest extends TestCase
 		return array_map(null, array_keys($list), array_values($list));
 	}
 
-	public function providerFiltresTailleEnOctetsSI(): array
+	public static function providerFiltresTailleEnOctetsSI(): array
 	{
 		$list = [
 			0 =>'',

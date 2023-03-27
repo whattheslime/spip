@@ -33,7 +33,7 @@ class DateInterfaceTest extends TestCase
 		$this->assertEquals($expected, $actual);
 	}
 
-	public function providerFiltresDateInterface(): array
+	public static function providerFiltresDateInterface(): array
 	{
 		return [
 			0 => [

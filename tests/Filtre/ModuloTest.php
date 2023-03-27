@@ -27,7 +27,7 @@ class ModuloTest extends TestCase
 		$this->assertEquals($expected, $actual);
 	}
 
-	public function providerFiltresModulo(): array
+	public static function providerFiltresModulo(): array
 	{
 		return [
 			0 => [

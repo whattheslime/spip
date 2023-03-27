@@ -27,7 +27,7 @@ class HauteurTest extends TestCase
 		$this->assertEquals($expected, $actual);
 	}
 
-	public function providerFiltresHauteur(): array
+	public static function providerFiltresHauteur(): array
 	{
 		return [
 			0 => [

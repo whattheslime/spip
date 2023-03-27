@@ -27,7 +27,7 @@ class ProtocoleVerifierTest extends TestCase
 		$this->assertEquals($expected, $actual);
 	}
 
-	public function providerFiltresMiniProtocoleVerifier(): array
+	public static function providerFiltresMiniProtocoleVerifier(): array
 	{
 		return [
 			0 => [

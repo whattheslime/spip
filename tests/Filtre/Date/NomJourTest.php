@@ -33,7 +33,7 @@ class NomJourTest extends TestCase
 		$this->assertEquals($expected, $actual);
 	}
 
-	public function providerFiltresNomJour(): array
+	public static function providerFiltresNomJour(): array
 	{
 		return [
 			0 => [

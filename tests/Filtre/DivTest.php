@@ -27,7 +27,7 @@ class DivTest extends TestCase
 		$this->assertEquals($expected, $actual);
 	}
 
-	public function providerFiltresDiv(): array
+	public static function providerFiltresDiv(): array
 	{
 		return [
 			0 => [

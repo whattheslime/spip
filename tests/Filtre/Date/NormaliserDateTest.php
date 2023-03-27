@@ -33,7 +33,7 @@ class NormaliserDateTest extends TestCase
 		$this->assertEquals($expected, $actual);
 	}
 
-	public function providerFiltresNormaliserDate(): array
+	public static function providerFiltresNormaliserDate(): array
 	{
 		return [
 			0 => [

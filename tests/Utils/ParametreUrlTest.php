@@ -27,7 +27,7 @@ class ParametreUrlTest extends TestCase
 		$this->assertEquals($expected, $actual);
 	}
 
-	public function providerUtilsParametreUrl(): array
+	public static function providerUtilsParametreUrl(): array
 	{
 		return [
 			0 => [

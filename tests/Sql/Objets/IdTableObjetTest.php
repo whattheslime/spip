@@ -27,7 +27,7 @@ class IdTableObjetTest extends TestCase
 		$this->assertEquals($expected, $actual);
 	}
 
-	public function providerConnectSqlIdTableObjet(): array
+	public static function providerConnectSqlIdTableObjet(): array
 	{
 		return [[
 			0 => 'id_article',

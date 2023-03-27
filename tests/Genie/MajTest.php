@@ -27,7 +27,7 @@ class MajTest extends TestCase
 		$this->assertEquals($expected, $actual);
 	}
 
-	public function providerInfoMajVersions(): array
+	public static function providerInfoMajVersions(): array
 	{
 		return [
 			'version locale inconnue, maj distantes inconnues : ne rien signaler' => [

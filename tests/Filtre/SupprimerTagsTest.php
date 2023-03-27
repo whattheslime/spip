@@ -27,7 +27,7 @@ class SupprimerTagsTest extends TestCase
 		$this->assertEquals($expected, $actual);
 	}
 
-	public function providerFiltresSupprimerTags(): array
+	public static function providerFiltresSupprimerTags(): array
 	{
 		return [
 			0 => [

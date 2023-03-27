@@ -27,7 +27,7 @@ class ProtegeChampTest extends TestCase
 		$this->assertEquals($expected, $actual);
 	}
 
-	public function providerFormulaireProtegeChamp(): array
+	public static function providerFormulaireProtegeChamp(): array
 	{
 		return [
 			0 => [

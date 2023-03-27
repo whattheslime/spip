@@ -39,7 +39,7 @@ class EchapperHtmlSuspectTest extends TestCase {
 		$this->assertEquals($expected, $actual);
 	}
 
-	public function providerIsHtmlSafe(): array {
+	public static function providerIsHtmlSafe(): array {
 		return [
 			'relOK' => [
 				true,

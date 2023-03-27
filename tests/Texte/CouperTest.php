@@ -31,7 +31,7 @@ class CouperTest extends TestCase
 			$this->assertLessThanOrEqual($length_expected, $length_actual);
 	}
 
-	public function providerCouper(): array
+	public static function providerCouper(): array
 	{
 		find_in_path('inc/charsets.php', '', true);
 		find_in_path('inc/filtres.php', '', true);

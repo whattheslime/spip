@@ -27,7 +27,7 @@ class SpipXmlParseTest extends TestCase
 		$this->assertEquals($expected, $actual);
 	}
 
-	public function providerXmlSpipXmlParse(): array
+	public static function providerXmlSpipXmlParse(): array
 	{
 		$essais = [];
 		$xml1 = '<' . <<<CODE_SAMPLE

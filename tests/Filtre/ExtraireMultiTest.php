@@ -28,7 +28,7 @@ class ExtraireMultiTest extends TestCase
 		$this->assertEquals($expected, $actual);
 	}
 
-	public function providerFiltresExtraireMulti(): array
+	public static function providerFiltresExtraireMulti(): array
 	{
 		return [
 			0 => [

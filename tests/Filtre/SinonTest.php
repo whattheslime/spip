@@ -27,7 +27,7 @@ class SinonTest extends TestCase
 		$this->assertEquals($expected, $actual);
 	}
 
-	public function providerFiltresSinon(): array
+	public static function providerFiltresSinon(): array
 	{
 		return [
 			0 => [

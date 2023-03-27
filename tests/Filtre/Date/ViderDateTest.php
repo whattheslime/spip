@@ -27,7 +27,7 @@ class ViderDateTest extends TestCase
 		$this->assertEquals($expected, $actual);
 	}
 
-	public function providerFiltresViderDate(): array
+	public static function providerFiltresViderDate(): array
 	{
 		return [
 			0 => [

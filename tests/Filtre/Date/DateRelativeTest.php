@@ -35,7 +35,7 @@ class DateRelativeTest extends TestCase
 		$this->assertEquals($expected, $actual);
 	}
 
-	public function providerFiltresDateRelative(): array
+	public static function providerFiltresDateRelative(): array
 	{
 		return [
 			0 => [

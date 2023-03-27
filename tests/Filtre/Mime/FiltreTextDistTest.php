@@ -27,7 +27,7 @@ class FiltreTextDistTest extends TestCase
 		$this->assertEquals($expected, $actual);
 	}
 
-	public function providerFiltresMimeFiltreTextDist(): array
+	public static function providerFiltresMimeFiltreTextDist(): array
 	{
 		return [
 			0 => [

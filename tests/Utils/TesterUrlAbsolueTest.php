@@ -27,7 +27,7 @@ class TesterUrlAbsolueTest extends TestCase
 		$this->assertEquals($expected, $actual);
 	}
 
-	public function providerUtilsTesterUrlAbsolue(): array
+	public static function providerUtilsTesterUrlAbsolue(): array
 	{
 		return [
 			0 => [

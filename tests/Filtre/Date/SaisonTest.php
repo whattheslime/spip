@@ -33,7 +33,7 @@ class SaisonTest extends TestCase
 		$this->assertEquals($expected, $actual);
 	}
 
-	public function providerFiltresSaison(): array
+	public static function providerFiltresSaison(): array
 	{
 		return [
 			0 => [

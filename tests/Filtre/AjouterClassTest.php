@@ -27,7 +27,7 @@ class AjouterClassTest extends TestCase
 		$this->assertEquals($expected, $actual);
 	}
 
-	public function providerFiltresAjouterClass(): array
+	public static function providerFiltresAjouterClass(): array
 	{
 		return [
 			0 => [
