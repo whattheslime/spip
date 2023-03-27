@@ -14,16 +14,18 @@ declare(strict_types=1);
 
 namespace Spip\Core\Tests;
 
+use PHPUnit\Framework\Attributes\DataProvider;
+use PHPUnit\Framework\Attributes\Group;
 use PHPUnit\Framework\TestCase;
+
 
 /**
  * LegacyUnitPhpTest test - runs all the unit/ php tests and check the ouput is 'OK'
  */
+#[Group('legacy')]
 class LegacyUnitPhpTest extends TestCase
 {
-	/**
-	 * @dataProvider providerLegacyPhpfileName
-	 */
+	#[DataProvider('providerLegacyPhpfileName')]
 	public function testLegacyUnitPHP($inFname, $output)
 	{
 		$result = $this->legacyPhpRun($inFname);
