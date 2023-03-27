@@ -312,12 +312,12 @@ function image_select($img, $width_min = 0, $height_min = 0, $width_max = 10000,
 	}
 
 	$class = extraire_attribut($img, 'class');
-	$p = strpos((string) $class, 'filtre_inactif');
-	if ($select == false && $p === false) {
+	$p = str_contains((string) $class, 'filtre_inactif');
+	if (!$select && !$p) {
 		$class .= ' filtre_inactif';
 		$img = inserer_attribut($img, 'class', $class);
 	}
-	if ($select == true && $p !== false) {
+	if ($select && $p) {
 		$class = preg_replace(',\s*(filtre_inactif),', '', $class);
 		$img = inserer_attribut($img, 'class', $class);
 	}
