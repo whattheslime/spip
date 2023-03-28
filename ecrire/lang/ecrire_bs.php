@@ -342,7 +342,6 @@ Prevodi su (sa bojom koja ukazuje na njihovo stanje) povezani sa originalnim cla
 	'info_visiteurs' => 'posjetioci',
 	'info_visiteurs_02' => 'Posjetioci javne stranice',
 	'install_echec_annonce' => 'Instalacija vjerovatno nece uspjeti, ili ce rezultirati nefunkcionirajucom stranicom...',
-	'install_extension_mbstring' => 'SPIP ne funkcionise sa:',
 	'install_extension_php_obligatoire' => 'SPIP-u je potrebna php ekstenzija:',
 	'install_select_langue' => 'Izaberite jezik, a zatim kliknite na dugme « sljedece » da bi pokrenuli proces instalacije.',
 	'intem_redacteur' => 'urednik',

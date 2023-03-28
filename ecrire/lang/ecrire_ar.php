@@ -534,7 +534,6 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'install_adresse_base_hebergeur' => 'عنوان قاعدة البيانات التي خصصها لك المضيف',
 	'install_connect_ok' => 'تم فعلاً تعريف قاعدة البيانات باسم جهاز الخدمة @connect@.',
 	'install_echec_annonce' => 'الارجح ان التثبيت سيفشل او يؤدي الى موقع غير سليم...',
-	'install_extension_mbstring' => 'لا يعمل SPIP مع:',
 	'install_extension_php_obligatoire' => 'يتطلب SPIP ملحق php:',
 	'install_login_base_hebergeur' => 'معرّف الدخول الذي خصصه لك المضيف',
 	'install_nom_base_hebergeur' => 'اسم قاعدة البيانات الدي خصصه لك المضيف:',

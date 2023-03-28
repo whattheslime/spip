@@ -506,7 +506,6 @@ Przekłady są połączone z oryginałem, za pomocą koloru wskazującego na ich
 	'install_adresse_base_hebergeur' => 'Adres bazy danych przyznany przez usługodawcę hostingowego',
 	'install_connect_ok' => 'Nowa baza danych została zadeklarowana pod nazwą serwera @connect@.', # RELIRE
 	'install_echec_annonce' => 'Instalacja może się nie powieść lub może się zdażyć, że strona przestanie działać ...',
-	'install_extension_mbstring' => 'SPIP nie działa z:',
 	'install_extension_php_obligatoire' => 'SPIP wymaga rozszerzenia php:',
 	'install_login_base_hebergeur' => 'Login połączenia z bazą danych przyznany przez usługodawcę hostingowego',
 	'install_nom_base_hebergeur' => 'Nazwa bazy danych przyznana przez usługodawcę hostingowego:',

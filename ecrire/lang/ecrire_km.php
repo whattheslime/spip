@@ -392,7 +392,6 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'info_visiteurs' => 'ទស្សនាករ',
 	'info_visiteurs_02' => '​ទស្សនាករ នៃសៃថ៍​សាធារណៈ',
 	'install_echec_annonce' => 'ការ​តំលើង​នេះ ​អាច​នឹងបរាជ័យ, ឬ​ អាចនាំ​ទៅ មួយសៃថ៍ខូច...',
-	'install_extension_mbstring' => 'SPIP គ្មានធ្វើការ ​ជាមួយ ៖',
 	'install_extension_php_obligatoire' => 'SPIP ទាមទារ កន្ទុយ .php ៖',
 	'install_pas_table' => 'មូលដ្ឋានទិន្នន័យ គ្មានទាន់មានតារាង',
 	'install_php_version' => 'កំណែ PHP @version@ មិនគ្រប់សមត្ថភាព (​យ៉ាងអន់ = @minimum@))',

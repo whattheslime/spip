@@ -498,7 +498,6 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'install_adresse_base_hebergeur' => 'データベースURLはプロバイダによって提供されています。',
 	'install_connect_ok' => '新しいデータベースは@connect@と名付けられたサーバーとして設定されています。',
 	'install_echec_annonce' => 'インストールが失敗する恐れがあって、サイトを作動させられないかもしれません。',
-	'install_extension_mbstring' => 'SPIPはこれで作動しません：',
 	'install_extension_php_obligatoire' => 'SPIPにはこのphpの拡張モジュールが必要です：',
 	'install_login_base_hebergeur' => 'ログインはプロバイダによって提供されています。',
 	'install_nom_base_hebergeur' => 'プロバイダによって提供されたデーターベース名は：',

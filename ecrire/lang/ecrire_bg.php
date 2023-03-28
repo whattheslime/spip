@@ -392,7 +392,6 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'info_visiteurs' => 'Посетители',
 	'info_visiteurs_02' => 'Посетители на публичния сайт',
 	'install_echec_annonce' => 'Инсталацията Ви вероятно няма да проработи или сайтът, който правите ще даде лош резултат...',
-	'install_extension_mbstring' => 'СПИП не работи с:',
 	'install_extension_php_obligatoire' => 'СПИП изисква разширение от типа php:',
 	'install_select_langue' => 'Изберете език и след това натиснете бутон по-нататък, за да стартирате процедурата по инсталацията.',
 	'intem_redacteur' => 'редактор',

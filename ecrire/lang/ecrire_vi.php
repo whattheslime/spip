@@ -344,7 +344,6 @@ và hiển ra với những màu khác nhau tùy theo tình trạng bài vở :
 	'info_visiteurs' => 'Khách',
 	'info_visiteurs_02' => 'Khách của website công',
 	'install_echec_annonce' => 'Phần cài đặt này có thể gặp trở ngại, hoặc khiến website hoạt động không hoàn chỉnh...',
-	'install_extension_mbstring' => 'SPIP không hoạt động với:',
 	'install_extension_php_obligatoire' => 'SPIP cần một bộ phận php:',
 	'install_select_langue' => 'Chọn một ngôn ngữ, rồi bấm vào nút "Kế tiếp" để bắt đầu thể thức thiết trí.',
 	'intem_redacteur' => 'chủ bút',

@@ -505,7 +505,6 @@ La tradukoj estas kunligitaj al la originalo, kun koloro kiu indikas ties staton
 	'install_adresse_base_hebergeur' => 'Adreso de la datenbazo atribuita de la retejgastiganto',
 	'install_connect_ok' => '﻿﻿﻿﻿La nova bazo estis bone deklarita kiel servilonomo @connect@.',
 	'install_echec_annonce' => 'Certe la instalado estas malsukcesonta, aŭ naskos ne funkciivan retejon...',
-	'install_extension_mbstring' => 'SPIP ne funkcias per :',
 	'install_extension_php_obligatoire' => 'SPIP postulas la php-kromprogramon :',
 	'install_login_base_hebergeur' => 'Salutnomo atribuita de la retejgastiganto',
 	'install_nom_base_hebergeur' => 'Baznomo atribuita de la retejgastiganto :',

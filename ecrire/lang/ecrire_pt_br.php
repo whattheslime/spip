@@ -504,7 +504,6 @@ As traduções estão associadas ao original, numa côr que indica o seu status:
 	'install_adresse_base_hebergeur' => 'Endereço da base de dados atribuído pelo serviço de hospedagem:',
 	'install_connect_ok' => 'A nova base de dados foi corretamente declarada sob o nome de servidor @connect@.',
 	'install_echec_annonce' => 'A instalação irá, provavelmente, falhar, ou levar a um site que não funciona...',
-	'install_extension_mbstring' => 'O SPIP não funciona com:',
 	'install_extension_php_obligatoire' => 'O SPIP exige a extensão php:',
 	'install_login_base_hebergeur' => 'Login de conexão atribuído pelo serviço de hospedagem:',
 	'install_nom_base_hebergeur' => 'Nome da base atribuído pelo serviço de hospedagem:',

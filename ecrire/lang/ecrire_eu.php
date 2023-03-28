@@ -486,7 +486,6 @@ Itzulpenak originalari asoziatuta daude, bere egoera adierazten duten kolore bat
 	'install_adresse_base_hebergeur' => 'Aterbetzaileak emandako datu-basearen helbidea',
 	'install_connect_ok' => 'Datu-base berria behar bezala deklaratua izan da zerbitzari izen honekin @connect@.',
 	'install_echec_annonce' => 'Instalazioak seguraski huts eginen du, edo martxan izanen ez den gune bat sortuko du...',
-	'install_extension_mbstring' => 'SPIP ez da ibilki hunekin :',
 	'install_extension_php_obligatoire' => 'SPIPek beharesten du php luzapena :',
 	'install_login_base_hebergeur' => 'Aterbetzaileak emandako konexion login-a',
 	'install_nom_base_hebergeur' => 'Aterbetzaileak emandako bassearen izena :',

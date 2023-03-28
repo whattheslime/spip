@@ -484,7 +484,6 @@ U so statutu hè signalatu da u culore di l’icona (scrittore = giallu; amminis
 	'info_visiteurs_02' => 'Visitori di u situ pùbblicu',
 	'install_adresse_base_hebergeur' => 'Indirizzu di a basa di dati attribuitu da l’òspite',
 	'install_echec_annonce' => 'A stallazione hà da fiascà o compie cagiunendu à u situ prublemi di funziunamenti ...',
-	'install_extension_mbstring' => 'SPIP ùn funziona micca cù :',
 	'install_extension_php_obligatoire' => 'SPIP esige l’estensione php :',
 	'install_login_base_hebergeur' => 'Login di cunnessione attribuitu da l’òspite',
 	'install_nom_base_hebergeur' => 'Nome di a basa di dati attribuitu da l’òspite :',

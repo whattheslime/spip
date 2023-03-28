@@ -454,7 +454,6 @@ yaratabilir. Bu da otomatik olarak bir galeri
 	'install_adresse_base_hebergeur' => 'Barındırma firması tarafından atanmış veritabanının adresi',
 	'install_connect_ok' => 'Yeni veri tabanı @connect@ adı olara tanımlanmış.', # RELIRE
 	'install_echec_annonce' => 'Kurulum büyük olasılıkla başarısız olacak veya site çalışmayacak...',
-	'install_extension_mbstring' => 'SPIP belirtilen programla çalışamaz :',
 	'install_extension_php_obligatoire' => 'SPIP için php uzantısı zorunludur :',
 	'install_login_base_hebergeur' => 'Barındırma firması tarafından atanmış kullanıcı ismi',
 	'install_nom_base_hebergeur' => 'Barındırma firması tarafından atanmış veritabanının ismi :',

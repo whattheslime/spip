@@ -500,7 +500,6 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'install_adresse_base_hebergeur' => 'Адрес сервера базы данных вы можете узнать у своего хостера',
 	'install_connect_ok' => 'Была объявлена новая база на сервере @connect@.',
 	'install_echec_annonce' => 'Эта установка вероятно не будет работать, или приведет к неустойчивой работе сайта...',
-	'install_extension_mbstring' => 'SPIP не работает с:',
 	'install_extension_php_obligatoire' => 'SPIP требует php расширений:',
 	'install_login_base_hebergeur' => 'Логин определяется поставщиком услуг',
 	'install_nom_base_hebergeur' => 'Имя базы данных определяется поставщиком услуг:',

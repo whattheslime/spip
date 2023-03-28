@@ -512,7 +512,6 @@ Las traducciones están asociadas al original, en un color que indica su estado:
 	'install_adresse_base_hebergeur' => 'Dirección de la base de datos asignada por el proveedor del alojamiento',
 	'install_connect_ok' => 'La nueva base de datos fue declarada con éxito con el nombre de servidor @connect@.',
 	'install_echec_annonce' => 'La instalación probablemente va a fallar, o creará un sitio que no funcione...',
-	'install_extension_mbstring' => 'SPIP no funciona con:',
 	'install_extension_php_obligatoire' => 'SPIP exige instalar la extensión php:',
 	'install_login_base_hebergeur' => 'Nombre de usuario de conexión asignado por el proveedor del alojamiento',
 	'install_nom_base_hebergeur' => 'Nombre de la base asignada por el proveedor:',

@@ -478,7 +478,6 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'install_adresse_base_hebergeur' => 'آدرس داده ها که توسط میزبان وب اعطا شده',
 	'install_connect_ok' => 'پايگاه داده‌هاي جديد اعلام كرده از سرور با نام @connect@استفاده مي‌كند. ',
 	'install_echec_annonce' => 'نصب احتمالا موفق آميز نخواهد بود يا به يك سايت غير كاربردى خاتمه ميابد...',
-	'install_extension_mbstring' => 'اسپيپ با اين كار نميكند :',
 	'install_extension_php_obligatoire' => 'اسپيپ به فايلهاى php نياز دارد:',
 	'install_login_base_hebergeur' => 'Login ورودی به سایت که توسط میزبان وب داده شده',
 	'install_nom_base_hebergeur' => 'نام پایگاه داده ها که توسط میزبان وب داده شده:',

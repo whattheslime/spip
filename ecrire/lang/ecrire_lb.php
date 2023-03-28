@@ -468,7 +468,6 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'install_adresse_base_hebergeur' => 'Adress vun der Datebank déi dir vum Provider krut',
 	'install_connect_ok' => 'Déi nei Datebank gouf ënnert dem Server-Numm @connect@ bäigefléckt.',
 	'install_echec_annonce' => 'D’Installatioun wäert wahrscheinlech net fonctionnéieren oder zu engem feelerhafte Site féieren...',
-	'install_extension_mbstring' => 'SPIP fonctionnéiert net mat:',
 	'install_extension_php_obligatoire' => 'SPIP brauch d’PHP-Extensioun:',
 	'install_login_base_hebergeur' => 'Login fir d’Verbindung deen dir vum Provider krut',
 	'install_nom_base_hebergeur' => 'Numm vun der Datebank déi dir vum Provider krut:',
