@@ -1660,18 +1660,41 @@ img.aide {
 }
 
 
-@keyframes skew-x-shakeng{
- 0% { transform: skewX(-4deg); }
- 5% { transform: skewX(4deg); }
- 10% { transform: skewX(-4deg); }
- 15% { transform: skewX(4deg); }
- 20% { transform: skewX(-4deg); }
- 25% { transform: skewX(4deg); }
- 30% { transform: skewX(-4deg); }
- 35% { transform: skewX(4deg); }
- 40% { transform: skewX(0deg); }
- 100% { transform: skewX(0deg); }
+@keyframes bounce {
+	0% {
+		transform: translateX(0px);
+		timing-function: ease-in;
+	}
+	37% {
+		transform: translateX(5px);
+		timing-function: ease-out;
+	}
+	55% {
+		transform: translateX(-5px);
+		timing-function: ease-in;
+	}
+	73% {
+		transform: translateX(4px);
+		timing-function: ease-out;
+	}
+	82% {
+		transform: translateX(-4px);
+		timing-function: ease-in;
+	}
+	91% {
+		transform: translateX(2px);
+		timing-function: ease-out;
+	}
+	96% {
+		transform: translateX(-2px);
+		timing-function: ease-in;
+	}
+	100% {
+		transform: translateX(0px);
+		timing-function: ease-in;
+	}
 }
+
 .formulaire_spip.resubmit-noajax {
-  animation: skew-x-shakeng 0.5s;
+	animation: bounce 0.5s;
 }
