@@ -21,6 +21,13 @@
 - Les logos historiques (migrés en documents à partir de SPIP 4.0) ne sont plus utilisés s’il en restait.
 - Nécessite PHP 8.1 minimum
 
+### Fixed
+
+- #5317 Animation plus douce des formulaires resoumis hors ajax
+- #5485 Correction d’erreurs des traitements d’image si la balise `img` n’a pas d’attribut `src`
+- #5426 Correction des filtres de date lorsque l’entrée ne précise pas le jour tel qu’avec `2023-03`
+- #5541 Notices PHP en moins sur la page de contrôle des tâches de fond
+
 ### Deprecated
 
 - Fonction `logo_migrer_en_base()` (utilisable jusqu’en SPIP 5.y pour migrer les logos en documents)
@@ -50,9 +57,3 @@
 - Fonction `_nano_sha256` (utiliser `hash('sha256', $str)`)
 - #5505 Fonctions `verif_butineur()`, `editer_texte_recolle()` et environnement `_texte_trop_long` des formulaires (Inutilisé — servait pour IE !)
 - #5258 Retrait de toute mention à GD1 dans la configuration des vignettes
-
-### Fixed
-
-- #5485 Correction d’erreurs des traitements d’image si la balise `img` n’a pas d’attribut `src`
-- #5426 Correction des filtres de date lorsque l’entrée ne précise pas le jour tel qu’avec `2023-03`
-- #5541 Notices PHP en moins sur la page de contrôle des tâches de fond
