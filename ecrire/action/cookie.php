@@ -88,7 +88,7 @@ function action_cookie_dist($set_cookie_admin = null, $change_session = null) {
 		// puis de passer au login qui diagnostiquera l'echec de cookie
 		// le cas echeant.
 		if ($test_echec_cookie == 'oui') {
-			spip_setcookie('spip_session', 'test_echec_cookie');
+			spip_setcookie('spip_session', 'test_echec_cookie', httponly: true);
 			if ($redirect) {
 				$redirect = parametre_url(
 					parametre_url($redirect_echec, 'var_echec_cookie', 'oui', '&'),
@@ -102,16 +102,17 @@ function action_cookie_dist($set_cookie_admin = null, $change_session = null) {
 			// Suppression cookie d'admin ?
 			if ($set_cookie_admin == 'non') {
 				if ($cook) {
-					spip_setcookie('spip_admin', $cook, [
-						'expires' => time() - 3600 * 24
-					]);
+					spip_setcookie('spip_admin', $cook, time() - 3600 * 24, httponly: true);
 				}
 			} // Ajout de cookie d'admin
 			else {
 				if ($set_cookie_admin && _DUREE_COOKIE_ADMIN) {
-					spip_setcookie('spip_admin', $set_cookie_admin, [
-						'expires' => time() + max(_DUREE_COOKIE_ADMIN, 2 * _RENOUVELLE_ALEA)
-					]);
+					spip_setcookie(
+						'spip_admin',
+						$set_cookie_admin,
+						time() + max(_DUREE_COOKIE_ADMIN, 2 * _RENOUVELLE_ALEA),
+						httponly: true
+					);
 				}
 			}
 		}

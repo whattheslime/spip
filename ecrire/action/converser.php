@@ -63,9 +63,7 @@ function action_converser_changer_langue($update_session) {
 			$GLOBALS['visiteur_session']['lang'] = $lang;
 			$session = charger_fonction('session', 'inc');
 			if ($spip_session = $session($GLOBALS['visiteur_session'])) {
-				spip_setcookie('spip_session', $spip_session, [
-					'expires' => time() + 3600 * 24 * 14
-				]);
+				spip_setcookie('spip_session', $spip_session, time() + 3600 * 24 * 14, httponly: true);
 			}
 		}
 		action_converser_post($lang, true);
@@ -89,9 +87,7 @@ function action_converser_post($lang, $ecrire = false) {
 				'expires' => time() + 365 * 24 * 3600
 			]);
 			if ($ecrire) {
-				spip_setcookie('spip_lang_ecrire', $_COOKIE['spip_lang_ecrire'] = $lang, [
-					'expires' => time() + 365 * 24 * 3600
-				]);
+				spip_setcookie('spip_lang_ecrire', $_COOKIE['spip_lang_ecrire'] = $lang, time() + 365 * 24 * 3600, httponly: true);
 			}
 		}
 	}
