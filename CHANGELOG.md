@@ -16,6 +16,10 @@ Changelog de SPIP 4.2
 - #5535 Log des dépréciations, via la fonction `trigger_deprecation` (de symfony/deprecations-contracts).
 - #5301 Permettre de fournir le nom de l’attachement à `spip_livrer_fichier()`
 
+### Changed
+
+- #5542 Refacto page de contrôle et boîtes des tâches de fond
+
 ### Fixed
 
 - #5317 Animation plus douce des formulaires resoumis hors ajax
