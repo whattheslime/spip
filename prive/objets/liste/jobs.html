@@ -50,7 +50,7 @@
 				[(#DESCRIPTIF|ptobr)]
 				<B_liens><br /><:queue_liens_label|label_ponctuer:>
 				<BOUCLE_liens(jobs_liens) {id_job} {", "}>
-				<a href="[(#ID_OBJET|generer_objet_url_ecrire{#OBJET})]">[(#OBJET|objet_info{texte_objet}|_T)] <:info_numero_abbreviation:>#ID_OBJET</a>
+				<a href="[(#ID_OBJET|generer_objet_url{#OBJET})]">[(#OBJET|objet_info{texte_objet}|_T)] <:info_numero_abbreviation:>#ID_OBJET</a>
 				</BOUCLE_liens>
 			</td>
 			<td class="action">
