@@ -22,6 +22,7 @@ Changelog de SPIP 4.2
 
 ### Fixed
 
+- #5543 Indiquer la bonne fonction dans le message d'erreur de `_imagecreatefrom_func`
 - #5317 Animation plus douce des formulaires resoumis hors ajax
 - #5541 Notices PHP en moins sur la page de contrôle des tâches de fond
 - #5485 Correction d’erreurs des traitements d’image si la balise `img` n’a pas d’attribut `src`
