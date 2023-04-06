@@ -111,7 +111,7 @@
                 "type": "zip",
                 "url": "https://get.spip.net/composer/dist/spip/aide/spip-aide-dev-master-11eebf.zip",
                 "reference": "804ed8d4836a3c42064ffa42812f9d20def79e13",
-                "shasum": "e2ee4154c4971e2f96f5fac17bf04cd826e78b96"
+                "shasum": "0e805f8a3eab7bd30eb7f670bc770ee64dbc26c7"
             },
             "require": {
                 "php": "^8.1"
@@ -155,7 +155,7 @@
                 "type": "zip",
                 "url": "https://get.spip.net/composer/dist/spip/archiviste/spip-archiviste-dev-master-85fff9.zip",
                 "reference": "93493137798eaaf0bd2204e3af3220eb4f9ab7a0",
-                "shasum": "807a305c6b77df2d968d2f3ac955cf0a354fe1f3"
+                "shasum": "eae1c78f9e5f66077609e0f1b10e900f8360f297"
             },
             "require": {
                 "ext-phar": "*",
@@ -218,7 +218,7 @@
                 "type": "zip",
                 "url": "https://get.spip.net/composer/dist/spip/bigup/spip-bigup-dev-master-08d53f.zip",
                 "reference": "31ae00dd99eb9c5c1285eff0f39b1d0b938bb40c",
-                "shasum": "1671d2bf5cdd25deae3a4a3c11a48e54df9a175e"
+                "shasum": "5e9096500fe21891252971422ec5dd69356428e9"
             },
             "require": {
                 "php": "^8.1"
@@ -262,7 +262,7 @@
                 "type": "zip",
                 "url": "https://get.spip.net/composer/dist/spip/compagnon/spip-compagnon-dev-master-f1e7ef.zip",
                 "reference": "3a502f2e79453adc0ff029351092d2978ad2f0d8",
-                "shasum": "8087d9258c7b57b4021e8207027cd7bb8e6c22c4"
+                "shasum": "2dafe1f57dae583be0a3242f22f55526a320b66d"
             },
             "require": {
                 "php": "^8.1"
@@ -296,17 +296,17 @@
         },
         {
             "name": "spip/composer-installer",
-            "version": "0.6.0",
+            "version": "0.6.1",
             "source": {
                 "type": "git",
                 "url": "https://git.spip.net/spip/composer-installer.git",
-                "reference": "02cf919d89abe8ed4060b8d4abfb008bed046b11"
+                "reference": "053ca2507f4ec6149182c797d59a8ab06e89cb25"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://get.spip.net/composer/dist/spip/composer-installer/spip-composer-installer-0.6.0-68d8e7.zip",
-                "reference": "02cf919d89abe8ed4060b8d4abfb008bed046b11",
-                "shasum": "1c1eee7e3ff30ea87e6486f212da7858f14ab442"
+                "url": "https://get.spip.net/composer/dist/spip/composer-installer/spip-composer-installer-0.6.1-0fc675.zip",
+                "reference": "053ca2507f4ec6149182c797d59a8ab06e89cb25",
+                "shasum": "29851c2fb5382e7c45f7fd35243c6113cd890436"
             },
             "require": {
                 "composer-plugin-api": "^2.3"
@@ -342,7 +342,7 @@
                 }
             ],
             "description": "SPIP Composer Installer Plugin",
-            "time": "2023-03-27T08:54:28+00:00"
+            "time": "2023-04-05T12:01:55+00:00"
         },
         {
             "name": "spip/compresseur",
@@ -350,13 +350,13 @@
             "source": {
                 "type": "git",
                 "url": "https://git.spip.net/spip/compresseur.git",
-                "reference": "4ba488547db95f4da0bfd0139d3cfbdbb06771cd"
+                "reference": "f86148d586f39a61aba85a74f7c78224ebbc19d2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://get.spip.net/composer/dist/spip/compresseur/spip-compresseur-dev-master-5f6437.zip",
-                "reference": "4ba488547db95f4da0bfd0139d3cfbdbb06771cd",
-                "shasum": "dcfc906a2f65f3171e45c0b5c88755cc9d77d4c4"
+                "url": "https://get.spip.net/composer/dist/spip/compresseur/spip-compresseur-dev-master-fecd5f.zip",
+                "reference": "f86148d586f39a61aba85a74f7c78224ebbc19d2",
+                "shasum": "fccc31eb9d361c890eac06aa46ef6f84e0dcfdbc"
             },
             "require": {
                 "php": "^8.1"
@@ -386,7 +386,7 @@
                 }
             ],
             "description": "Compression des css et javascript",
-            "time": "2023-03-23T17:40:19+00:00"
+            "time": "2023-03-27T13:58:13+00:00"
         },
         {
             "name": "spip/dist",
@@ -400,7 +400,7 @@
                 "type": "zip",
                 "url": "https://get.spip.net/composer/dist/spip/dist/spip-dist-dev-master-e329ce.zip",
                 "reference": "f145a828001a6ab1cb2c5f9b13329ffa87e6a350",
-                "shasum": "1266dc9ea317594472d55b7576f0b1439d8d43fe"
+                "shasum": "87808ef00cdcfc26737f656f270663ee8239974e"
             },
             "default-branch": true,
             "type": "spip-plugin",
@@ -434,7 +434,7 @@
                 "type": "zip",
                 "url": "https://get.spip.net/composer/dist/spip/dump/spip-dump-dev-master-c423e7.zip",
                 "reference": "fd85f76b632e24735c21f5f623be223f6579dd59",
-                "shasum": "d215c1da4cacbbeb7018cf27daa7994746b08511"
+                "shasum": "5bcb889e20f01a19be178a5a7b52ddc168664f01"
             },
             "require": {
                 "php": "^8.1"
@@ -478,7 +478,7 @@
                 "type": "zip",
                 "url": "https://get.spip.net/composer/dist/spip/forum/spip-forum-dev-master-913e00.zip",
                 "reference": "9f651c1db37e9ff33def205ae07c84201b48678f",
-                "shasum": "e0d8e616d297fdf1321c04cca6796b5a0cfcc765"
+                "shasum": "a434c313289af432aa3655165cd64b746506f4f7"
             },
             "require": {
                 "php": "^8.1"
@@ -522,7 +522,7 @@
                 "type": "zip",
                 "url": "https://get.spip.net/composer/dist/spip/images/spip-images-dev-master-5f65e7.zip",
                 "reference": "f1a32e161f585fe729b8dba78c5a089b1ca4cb73",
-                "shasum": "a14e3b5d1735be4a18ad1392e41e4b0a1a7b6c2e"
+                "shasum": "118ee40b8823c59871da749f9c5de9fd328ee5f3"
             },
             "require": {
                 "php": "^8.1"
@@ -566,7 +566,7 @@
                 "type": "zip",
                 "url": "https://get.spip.net/composer/dist/spip/mediabox/spip-mediabox-dev-master-136bd7.zip",
                 "reference": "acbae3c3b040988941f37fc530412febd82e04c6",
-                "shasum": "cece657f3c396506867f749a9fb888b7b2cfa7b9"
+                "shasum": "9b1696ece46b467ced6c62f8615cbf388c894041"
             },
             "require": {
                 "php": "^8.1"
@@ -610,7 +610,7 @@
                 "type": "zip",
                 "url": "https://get.spip.net/composer/dist/spip/medias/spip-medias-dev-master-23ec4a.zip",
                 "reference": "768415a44968554fb224035831b6496cdfdc75e4",
-                "shasum": "b6921be1329546fcf3d5f763ecaba1586e877dd7"
+                "shasum": "e2e37cb4f4bfe8bb8f95c62bdab5637805c715d1"
             },
             "require": {
                 "php": "^8.1"
@@ -654,7 +654,7 @@
                 "type": "zip",
                 "url": "https://get.spip.net/composer/dist/spip/mots/spip-mots-dev-master-a8bcd5.zip",
                 "reference": "4d627aa6e6b226cfe10731d86fde74d9a2e93e75",
-                "shasum": "e89da2176a281052c4e6ab6430987e173eaf4587"
+                "shasum": "3c427037890590b3416b228b3692c899554113aa"
             },
             "require": {
                 "php": "^8.1"
@@ -698,7 +698,7 @@
                 "type": "zip",
                 "url": "https://get.spip.net/composer/dist/spip/plan/spip-plan-dev-master-507ecf.zip",
                 "reference": "fc452228f93af9e35d21649db875a612692b2917",
-                "shasum": "d22e86c378fcfa293dcc87d430651b5cd5cba75e"
+                "shasum": "600a312bff6aa36e5036f26eb5314336db7f851b"
             },
             "require": {
                 "php": "^8.1"
@@ -736,13 +736,13 @@
             "source": {
                 "type": "git",
                 "url": "https://git.spip.net/spip/porte_plume.git",
-                "reference": "8b9bdbab7c967e816e2a23c918d23c6ec23f46fe"
+                "reference": "fe3d322f237aa78a486e8194dca58a484fadac32"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://get.spip.net/composer/dist/spip/porte-plume/spip-porte-plume-dev-master-79372b.zip",
-                "reference": "8b9bdbab7c967e816e2a23c918d23c6ec23f46fe",
-                "shasum": "34084bf411dbf8c0999a4695b7625450b5a65819"
+                "url": "https://get.spip.net/composer/dist/spip/porte-plume/spip-porte-plume-dev-master-4c65b5.zip",
+                "reference": "fe3d322f237aa78a486e8194dca58a484fadac32",
+                "shasum": "dfba5f72eabfad231b46fac0c6357df1cf264051"
             },
             "require": {
                 "php": "^8.1"
@@ -772,7 +772,7 @@
                 }
             ],
             "description": "Une barre d'outil pour bien écrire",
-            "time": "2023-03-23T16:01:59+00:00"
+            "time": "2023-03-27T14:01:36+00:00"
         },
         {
             "name": "spip/revisions",
@@ -786,7 +786,7 @@
                 "type": "zip",
                 "url": "https://get.spip.net/composer/dist/spip/revisions/spip-revisions-dev-master-78d95e.zip",
                 "reference": "f0b5181ff87b87d42306e7f7adc2613f1b59068f",
-                "shasum": "e409d43944a11df197baaea293dfedb64f597c69"
+                "shasum": "d3cd247490c884dd92e66c0980b0f54aefd2c0e6"
             },
             "require": {
                 "php": "^8.1"
@@ -824,13 +824,13 @@
             "source": {
                 "type": "git",
                 "url": "https://git.spip.net/spip/safehtml.git",
-                "reference": "e1b1864edf13127ea3af2b236982601ee417f2dc"
+                "reference": "2f7fc553a9a77d0707fbea871f0400769bef7199"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://get.spip.net/composer/dist/spip/safehtml/spip-safehtml-dev-master-3ba78d.zip",
-                "reference": "e1b1864edf13127ea3af2b236982601ee417f2dc",
-                "shasum": "9129163de62c864f5f1b89dc889ab60ef85a34b4"
+                "url": "https://get.spip.net/composer/dist/spip/safehtml/spip-safehtml-dev-master-601a9d.zip",
+                "reference": "2f7fc553a9a77d0707fbea871f0400769bef7199",
+                "shasum": "3e1b472ca0eb066534d518d016a5d18267d9e4fc"
             },
             "require": {
                 "php": "^8.1"
@@ -860,7 +860,7 @@
                 }
             ],
             "description": "Protection des forums contre le cross-site scripting",
-            "time": "2023-03-23T16:21:26+00:00"
+            "time": "2023-03-27T14:02:07+00:00"
         },
         {
             "name": "spip/security",
@@ -874,7 +874,7 @@
                 "type": "zip",
                 "url": "https://get.spip.net/composer/dist/spip/security/spip-security-1.5.1-98aa2e.zip",
                 "reference": "97d3110947fe39e5cc4a3af057d06929c4ec7fb7",
-                "shasum": "67e2ef4813df7261acd61b9faf98703d50601c95"
+                "shasum": "956a503cdfff97eee09c5952149a2e5107224a9f"
             },
             "type": "library",
             "extra": {
@@ -899,13 +899,13 @@
             "source": {
                 "type": "git",
                 "url": "https://git.spip.net/spip/sites.git",
-                "reference": "fa2a5191fc23d6696d0ffcd1698eb3a4db186837"
+                "reference": "5493f279c3f7eac3a632235d188ed216f4783edc"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://get.spip.net/composer/dist/spip/sites/spip-sites-dev-master-647d45.zip",
-                "reference": "fa2a5191fc23d6696d0ffcd1698eb3a4db186837",
-                "shasum": "9d420d6b835dc65436fb53b11bf0a1b8c0d4b2c5"
+                "url": "https://get.spip.net/composer/dist/spip/sites/spip-sites-dev-master-68b78c.zip",
+                "reference": "5493f279c3f7eac3a632235d188ed216f4783edc",
+                "shasum": "1df9c0eb4017059aa31ca821c1962bbc0c8ebfa5"
             },
             "require": {
                 "php": "^8.1"
@@ -935,7 +935,7 @@
                 }
             ],
             "description": "Gestion des sites et de la syndication dans SPIP",
-            "time": "2023-03-23T16:28:52+00:00"
+            "time": "2023-03-30T13:07:48+00:00"
         },
         {
             "name": "spip/stats",
@@ -943,13 +943,13 @@
             "source": {
                 "type": "git",
                 "url": "https://git.spip.net/spip/statistiques.git",
-                "reference": "08b393a3618247d129dfda077b23f1e3245033e6"
+                "reference": "0825e4c7def344b4b6a5a45542af091af3cfbf5e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://get.spip.net/composer/dist/spip/stats/spip-stats-dev-master-bcdc8b.zip",
-                "reference": "08b393a3618247d129dfda077b23f1e3245033e6",
-                "shasum": "282cde357222c485644c0641eadfd6ea22db6e3f"
+                "url": "https://get.spip.net/composer/dist/spip/stats/spip-stats-dev-master-6c4ed1.zip",
+                "reference": "0825e4c7def344b4b6a5a45542af091af3cfbf5e",
+                "shasum": "9682e93a77633acb449a01d325271365f9325786"
             },
             "require": {
                 "php": "^8.1"
@@ -979,7 +979,7 @@
                 }
             ],
             "description": "Gestion des statistiques dans SPIP",
-            "time": "2023-03-23T16:35:58+00:00"
+            "time": "2023-03-30T09:09:11+00:00"
         },
         {
             "name": "spip/svp",
@@ -993,7 +993,7 @@
                 "type": "zip",
                 "url": "https://get.spip.net/composer/dist/spip/svp/spip-svp-dev-master-318cdb.zip",
                 "reference": "634168cadc216f73e0c441f235b416a8f2e97f68",
-                "shasum": "b6a24716f9f7bf1bde0a268e0e860702a15d735c"
+                "shasum": "cc410c6a834e129c7976b44b17cbfc38879fccf9"
             },
             "require": {
                 "php": "^8.1"
@@ -1036,13 +1036,13 @@
             "source": {
                 "type": "git",
                 "url": "https://git.spip.net/spip/textwheel.git",
-                "reference": "536e1e6ba761ae49252515be1cb8f34026b9e37f"
+                "reference": "4123cd021216aaa6900a6e76e558e0c2d1b63ddf"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://get.spip.net/composer/dist/spip/tw/spip-tw-dev-master-4e73fa.zip",
-                "reference": "536e1e6ba761ae49252515be1cb8f34026b9e37f",
-                "shasum": "52eba8798033eef88e0181c47ff390cc9225cb6a"
+                "url": "https://get.spip.net/composer/dist/spip/tw/spip-tw-dev-master-002010.zip",
+                "reference": "4123cd021216aaa6900a6e76e558e0c2d1b63ddf",
+                "shasum": "ead2ed58062802f83a8e12c3e015dc977cbfc73d"
             },
             "require": {
                 "php": "^8.1"
@@ -1072,7 +1072,7 @@
                 }
             ],
             "description": "Gestion de la typographie SPIP avec TextWheel",
-            "time": "2023-03-25T16:18:39+00:00"
+            "time": "2023-03-27T13:55:24+00:00"
         },
         {
             "name": "spip/urls",
@@ -1080,13 +1080,13 @@
             "source": {
                 "type": "git",
                 "url": "https://git.spip.net/spip/urls_etendues.git",
-                "reference": "d347742b8ab6154057edb5a590bbc6b4ceca8091"
+                "reference": "4b5462ad23a9b02f2631c8c38fcc277307cb286f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://get.spip.net/composer/dist/spip/urls/spip-urls-dev-master-0f50c2.zip",
-                "reference": "d347742b8ab6154057edb5a590bbc6b4ceca8091",
-                "shasum": "db24edbc65d177933ae76aaf7d840cfc52876262"
+                "url": "https://get.spip.net/composer/dist/spip/urls/spip-urls-dev-master-dcb315.zip",
+                "reference": "4b5462ad23a9b02f2631c8c38fcc277307cb286f",
+                "shasum": "0b3d0641f2ed4a58d2c8651f9e878aa9f9a194c1"
             },
             "require": {
                 "php": "^8.1"
@@ -1116,7 +1116,7 @@
                 }
             ],
             "description": "Gestion des variantes d'URL signifiantes ou non",
-            "time": "2023-03-23T16:55:36+00:00"
+            "time": "2023-04-05T12:55:10+00:00"
         },
         {
             "name": "symfony/deprecation-contracts",
@@ -1433,12 +1433,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/PHPCompatibility/PHPCompatibility.git",
-                "reference": "4576a17265003ec9146daf8cf6e782234259cf6c"
+                "reference": "5fdb06faa21181715841a0a95031e770626af53e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/PHPCompatibility/PHPCompatibility/zipball/4576a17265003ec9146daf8cf6e782234259cf6c",
-                "reference": "4576a17265003ec9146daf8cf6e782234259cf6c",
+                "url": "https://api.github.com/repos/PHPCompatibility/PHPCompatibility/zipball/5fdb06faa21181715841a0a95031e770626af53e",
+                "reference": "5fdb06faa21181715841a0a95031e770626af53e",
                 "shasum": ""
             },
             "require": {
@@ -1500,20 +1500,20 @@
                 "issues": "https://github.com/PHPCompatibility/PHPCompatibility/issues",
                 "source": "https://github.com/PHPCompatibility/PHPCompatibility"
             },
-            "time": "2023-03-18T19:07:01+00:00"
+            "time": "2023-03-28T10:54:08+00:00"
         },
         {
             "name": "phpcsstandards/phpcsutils",
-            "version": "1.0.1",
+            "version": "1.0.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/PHPCSStandards/PHPCSUtils.git",
-                "reference": "4fd2e30c7465112ca2e3646037bfb9e6f0f4d4f3"
+                "reference": "e74812ac026d9f9f18a936d29880b2db3211f89d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/PHPCSStandards/PHPCSUtils/zipball/4fd2e30c7465112ca2e3646037bfb9e6f0f4d4f3",
-                "reference": "4fd2e30c7465112ca2e3646037bfb9e6f0f4d4f3",
+                "url": "https://api.github.com/repos/PHPCSStandards/PHPCSUtils/zipball/e74812ac026d9f9f18a936d29880b2db3211f89d",
+                "reference": "e74812ac026d9f9f18a936d29880b2db3211f89d",
                 "shasum": ""
             },
             "require": {
@@ -1574,20 +1574,20 @@
                 "issues": "https://github.com/PHPCSStandards/PHPCSUtils/issues",
                 "source": "https://github.com/PHPCSStandards/PHPCSUtils"
             },
-            "time": "2023-01-05T12:08:37+00:00"
+            "time": "2023-03-28T16:57:37+00:00"
         },
         {
             "name": "phpstan/phpstan",
-            "version": "1.10.8",
+            "version": "1.10.11",
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpstan/phpstan.git",
-                "reference": "0166aef76e066f0dd2adc2799bdadfa1635711e9"
+                "reference": "8aa62e6ea8b58ffb650e02940e55a788cbc3fe21"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpstan/phpstan/zipball/0166aef76e066f0dd2adc2799bdadfa1635711e9",
-                "reference": "0166aef76e066f0dd2adc2799bdadfa1635711e9",
+                "url": "https://api.github.com/repos/phpstan/phpstan/zipball/8aa62e6ea8b58ffb650e02940e55a788cbc3fe21",
+                "reference": "8aa62e6ea8b58ffb650e02940e55a788cbc3fe21",
                 "shasum": ""
             },
             "require": {
@@ -1636,7 +1636,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2023-03-24T10:28:16+00:00"
+            "time": "2023-04-04T19:17:42+00:00"
         },
         {
             "name": "spip/coding-standards",
