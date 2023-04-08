@@ -732,14 +732,20 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'protocole_ldap' => 'إصدار البروتوكول:',
 
 	// Q
+	'queue_args_fonction_label' => 'المتغيرات التي تم تمريرها إلى الدالة @fonction@',
+	'queue_args_voir' => 'عرض المتغيرات',
 	'queue_executer_maintenant' => 'تنفيذ الآن',
+	'queue_fonction_label' => 'دالة',
 	'queue_info_purger' => 'يمكنك حذف كل الأعمال في الانتظار وتأصيل لائحة الأعمال الدورية',
+	'queue_liens_label' => 'روابط',
 	'queue_nb_jobs_in_queue' => '@nb@ عمل بالانتظار',
 	'queue_next_job_in_nb_sec' => 'العمل القادم خلال @nb@ ثانية',
+	'queue_next_job_scheduled' => 'المهمة التالية',
 	'queue_no_job_in_queue' => 'لا توجد أعمال بالانتظار',
 	'queue_one_job_in_queue' => 'عمل واحد بالانتظار',
 	'queue_priorite_tache' => 'الأفضلية',
 	'queue_purger_queue' => 'تأصيل لائحة الأعمال',
+	'queue_statut_en_cours' => 'جاري',
 	'queue_titre' => 'أعمال الخلفية',
 
 	// R

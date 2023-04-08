@@ -725,14 +725,20 @@ and their status is colour-coded:',
 	'protocole_ldap' => 'Protocol version:',
 
 	// Q
+	'queue_args_fonction_label' => 'Arguments passed to the function @fonction@',
+	'queue_args_voir' => 'Show arguments',
 	'queue_executer_maintenant' => 'Run now',
+	'queue_fonction_label' => 'Function',
 	'queue_info_purger' => 'You can delete all pending tasks and reset the list with periodic tasks',
+	'queue_liens_label' => 'links',
 	'queue_nb_jobs_in_queue' => '@nb@ pending tasks',
 	'queue_next_job_in_nb_sec' => 'Next task in @nb@ s',
+	'queue_next_job_scheduled' => 'Next job',
 	'queue_no_job_in_queue' => 'No pending tasks',
 	'queue_one_job_in_queue' => '1 pending task',
 	'queue_priorite_tache' => 'priority',
 	'queue_purger_queue' => 'Reset the tasks queue',
+	'queue_statut_en_cours' => 'In progress',
 	'queue_titre' => 'Background tasks',
 
 	// R
