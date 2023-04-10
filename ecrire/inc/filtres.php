@@ -1,5 +1,10 @@
 <?php
 
+use Spip\Texte\Collecteur\HtmlTag;
+use Spip\Texte\Collecteur\Idiomes;
+use Spip\Texte\Collecteur\Modeles;
+use Spip\Texte\Collecteur\Multis;
+
 /***************************************************************************\
  *  SPIP, Système de publication pour l'internet                           *
  *                                                                         *
@@ -1560,9 +1565,7 @@ function post_autobr($texte, $delim = "\n_ ") {
 	// echapper les modeles
 	$collecteurModeles = null;
 	if (str_contains($texte, '<')) {
-		include_spip('src/Texte/Collecteur/AbstractCollecteur');
-		include_spip('src/Texte/Collecteur/Modeles');
-		$collecteurModeles = new Spip\Texte\Collecteur\Modeles();
+		$collecteurModeles = new Modeles();
 		$texte = $collecteurModeles->echapper($texte);
 	}
 
@@ -1642,9 +1645,7 @@ function extraire_idiome($letexte, $lang = null, $options = []) {
 		}
 		$options['lang'] = $lang;
 
-		include_spip('src/Texte/Collecteur/AbstractCollecteur');
-		include_spip('src/Texte/Collecteur/Idiomes');
-		$collecteurIdiomes = new Spip\Texte\Collecteur\Idiomes();
+		$collecteurIdiomes = new Idiomes();
 
 		$letexte = $collecteurIdiomes->traiter($letexte, $options);
 	}
@@ -1703,9 +1704,7 @@ function extraire_multi($letexte, $lang = null, $options = []) {
 		}
 		$options['lang'] = $lang;
 
-		include_spip('src/Texte/Collecteur/AbstractCollecteur');
-		include_spip('src/Texte/Collecteur/Multis');
-		$collecteurMultis = new Spip\Texte\Collecteur\Multis();
+		$collecteurMultis = new Multis();
 
 		$letexte = $collecteurMultis->traiter($letexte, $options);
 	}
@@ -2495,7 +2494,7 @@ function extraire_balises($texte, $tag = 'a', $options = []) {
 		return $texte;
 	}
 
-	$htmlTagCollecteur = new \Spip\Texte\Collecteur\HtmlTag($tag);
+	$htmlTagCollecteur = new HtmlTag($tag);
 	$collection = $htmlTagCollecteur->collecter($texte, $options);
 	if (!empty($collection)) {
 		return array_column($collection, 'raw');

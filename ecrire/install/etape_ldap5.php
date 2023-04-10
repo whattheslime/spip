@@ -1,5 +1,7 @@
 <?php
 
+use Spip\Afficher\Minipage\Installation;
+
 /***************************************************************************\
  *  SPIP, Système de publication pour l'internet                           *
  *                                                                         *
@@ -77,7 +79,7 @@ function etape_ldap5_save() {
 }
 
 function etape_ldap5_suite() {
-	$minipage = new Spip\Afficher\Minipage\Installation();
+	$minipage = new Installation();
 	echo $minipage->installDebutPage(['onload' => 'document.getElementById(\'suivant\').focus();return false;']);
 
 	echo info_etape(

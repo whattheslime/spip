@@ -1,5 +1,7 @@
 <?php
 
+use Spip\Afficher\Minipage\Installation;
+
 /***************************************************************************\
  *  SPIP, Système de publication pour l'internet                           *
  *                                                                         *
@@ -38,7 +40,7 @@ function install_etape__dist() {
 			'<div>' . $menu_langues . "</div>\n" .
 			generer_form_ecrire('install', "<input type='hidden' name='etape' value='chmod' />" . bouton_suivant());
 
-		$minipage = new Spip\Afficher\Minipage\Installation();
+		$minipage = new Installation();
 		echo $minipage->page($res);
 	}
 }

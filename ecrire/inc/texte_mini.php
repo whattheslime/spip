@@ -1,5 +1,10 @@
 <?php
 
+use Spip\Texte\Collecteur\Idiomes;
+use Spip\Texte\Collecteur\Liens;
+use Spip\Texte\Collecteur\Modeles;
+use Spip\Texte\Collecteur\Multis;
+
 /***************************************************************************\
  *  SPIP, Système de publication pour l'internet                           *
  *                                                                         *
@@ -571,9 +576,7 @@ function echapper_html_suspect($texte, $options = [], $connect = null, $env = []
 			return $texte;
 		}
 
-		include_spip('src/Texte/Collecteur/AbstractCollecteur');
-		include_spip('src/Texte/Collecteur/Modeles');
-		$collecteurModeles = new Spip\Texte\Collecteur\Modeles();
+		$collecteurModeles = new Modeles();
 		$texte = $collecteurModeles->echapper($texte);
 		$texte = echappe_js($texte);
 
@@ -610,14 +613,10 @@ function echapper_html_suspect($texte, $options = [], $connect = null, $env = []
 			$texte = expanser_liens($texte, $env['connect'] ?? '', $env['env'] ?? []);
 		}
 		else {
-			include_spip('src/Texte/Collecteur/AbstractCollecteur');
-			include_spip('src/Texte/Collecteur/Liens');
-			include_spip('src/Texte/Collecteur/Modeles');
-
-			$collecteurLiens = new Spip\Texte\Collecteur\Liens();
+			$collecteurLiens = new Liens();
 			$texte = $collecteurLiens->echapper($texte, ['sanitize_callback' => 'safehtml']);
 
-			$collecteurModeles = new Spip\Texte\Collecteur\Modeles();
+			$collecteurModeles = new Modeles();
 			$texte = $collecteurModeles->echapper($texte);
 		}
 		$texte = safehtml($texte);
@@ -662,16 +661,12 @@ function safehtml($t) {
 
 	$collecteurIdiomes = null;
 	if (stripos($t, '<:') !== false) {
-		include_spip('src/Texte/Collecteur/AbstractCollecteur');
-		include_spip('src/Texte/Collecteur/Idiomes');
-		$collecteurIdiomes = new Spip\Texte\Collecteur\Idiomes();
+		$collecteurIdiomes = new Idiomes();
 		$t = $collecteurIdiomes->echapper($t);
 	}
 	$collecteurMultis = null;
 	if (stripos($t, '<multi') !== false) {
-		include_spip('src/Texte/Collecteur/AbstractCollecteur');
-		include_spip('src/Texte/Collecteur/Multis');
-		$collecteurMultis = new Spip\Texte\Collecteur\Multis();
+		$collecteurMultis = new Multis();
 		$t = $collecteurMultis->echapper($t, ['sanitize_callback' => 'safehtml']);
 	}
 

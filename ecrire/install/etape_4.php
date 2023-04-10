@@ -1,5 +1,7 @@
 <?php
 
+use Spip\Afficher\Minipage\Installation;
+
 /***************************************************************************\
  *  SPIP, Système de publication pour l'internet                           *
  *                                                                         *
@@ -23,7 +25,7 @@ function install_etape_4_dist() {
 		$rep = sous_repertoire(_DIR_TMP, $rep, true, true);
 	}
 
-	$minipage = new Spip\Afficher\Minipage\Installation();
+	$minipage = new Installation();
 	echo $minipage->installDebutPage(['onload' => 'document.getElementById(\'suivant\').focus();return false;']);
 
 	echo info_progression_etape(4, 'etape_', 'install/');

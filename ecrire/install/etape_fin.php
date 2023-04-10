@@ -1,5 +1,7 @@
 <?php
 
+use Spip\Afficher\Minipage\Installation;
+
 /***************************************************************************\
  *  SPIP, Système de publication pour l'internet                           *
  *                                                                         *
@@ -47,7 +49,7 @@ function install_etape_fin_dist() {
 	if ($msg) {
 		$cible = _T('public:accueil_site');
 		$cible = generer_form_ecrire('accueil', '', '', $cible);
-		$minipage = new Spip\Afficher\Minipage\Installation();
+		$minipage = new Installation();
 		echo $minipage->page($msg . $cible);
 		// ok, deboucher dans l'espace prive
 	} else {

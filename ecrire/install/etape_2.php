@@ -1,5 +1,7 @@
 <?php
 
+use Spip\Afficher\Minipage\Installation;
+
 /***************************************************************************\
  *  SPIP, Système de publication pour l'internet                           *
  *                                                                         *
@@ -50,7 +52,7 @@ function install_etape_2_dist() {
 	$GLOBALS['connexions'][$server_db][$GLOBALS['spip_sql_version']]
 		= $GLOBALS['spip_' . $server_db . '_functions_' . $GLOBALS['spip_sql_version']];
 
-	$minipage = new Spip\Afficher\Minipage\Installation();
+	$minipage = new Installation();
 	echo $minipage->installDebutPage();
 
 

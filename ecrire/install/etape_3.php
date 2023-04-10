@@ -1,5 +1,7 @@
 <?php
 
+use Spip\Afficher\Minipage\Installation;
+
 /***************************************************************************\
  *  SPIP, Système de publication pour l'internet                           *
  *                                                                         *
@@ -385,6 +387,6 @@ function install_etape_3_dist() {
 	}
 
 
-	$minipage = new Spip\Afficher\Minipage\Installation();
+	$minipage = new Installation();
 	echo $minipage->page($res);
 }

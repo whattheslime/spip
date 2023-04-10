@@ -1,5 +1,7 @@
 <?php
 
+use Spip\Afficher\Minipage\Admin;
+
 /***************************************************************************\
  *  SPIP, Système de publication pour l'internet                           *
  *                                                                         *
@@ -46,7 +48,7 @@ function install_debut_html($titre = 'AUTO', $onLoad = '', $all_inline = false) 
 		'titre' => $titre,
 	];
 
-	$minipage = new Spip\Afficher\Minipage\Admin();
+	$minipage = new Admin();
 	return $minipage->installDebutPage($options);
 }
 
@@ -59,7 +61,7 @@ function install_debut_html($titre = 'AUTO', $onLoad = '', $all_inline = false) 
  * @return string Code HTML
  */
 function install_fin_html() {
-	$minipage = new Spip\Afficher\Minipage\Admin();
+	$minipage = new Admin();
 	return $minipage->installFinPage();
 }
 
@@ -116,6 +118,6 @@ function minipres($titre = '', $corps = '', $options = []) {
 
 	$options['titre'] = $titre;
 
-	$minipage = new Spip\Afficher\Minipage\Admin();
+	$minipage = new Admin();
 	return $minipage->page($corps, $options);
 }

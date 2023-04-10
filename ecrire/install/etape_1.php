@@ -1,5 +1,7 @@
 <?php
 
+use Spip\Afficher\Minipage\Installation;
+
 /***************************************************************************\
  *  SPIP, Système de publication pour l'internet                           *
  *                                                                         *
@@ -34,7 +36,7 @@ if (!defined('_ECRIRE_INC_VERSION')) {
  */
 function install_etape_1_dist() {
 
-	$minipage = new Spip\Afficher\Minipage\Installation();
+	$minipage = new Installation();
 	echo $minipage->installDebutPage();
 
 	// stopper en cas de grosse incompatibilite de l'hebergement
