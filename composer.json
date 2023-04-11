@@ -8,7 +8,7 @@
         "algo26-matthias/idna-convert": "^4.0",
         "spip/aide": "^3.2.x-dev",
         "spip/archiviste": "^3.0.x-dev",
-        "spip/bigup": "^3.3.x-dev",
+        "spip/bigup": "^3.3",
         "spip/compagnon": "^3.2.x-dev",
         "spip/composer-installer": "^0.6.0",
         "spip/compresseur": "^2.2.x-dev",

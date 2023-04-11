@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "6e60fb2632e70e22b3d4cf8d32d2b82a",
+    "content-hash": "bad6c6a4468e734b6257eb51a03e007a",
     "packages": [
         {
             "name": "algo26-matthias/idna-convert",
@@ -208,17 +208,17 @@
         },
         {
             "name": "spip/bigup",
-            "version": "dev-master",
+            "version": "3.3.0",
             "source": {
                 "type": "git",
                 "url": "https://git.spip.net/spip/bigup.git",
-                "reference": "31ae00dd99eb9c5c1285eff0f39b1d0b938bb40c"
+                "reference": "897416d8af17e9fe6f49f594ae809f8abfcb73fc"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://get.spip.net/composer/dist/spip/bigup/spip-bigup-dev-master-08d53f.zip",
-                "reference": "31ae00dd99eb9c5c1285eff0f39b1d0b938bb40c",
-                "shasum": "5e9096500fe21891252971422ec5dd69356428e9"
+                "url": "https://get.spip.net/composer/dist/spip/bigup/spip-bigup-3.3.0-be5697.zip",
+                "reference": "897416d8af17e9fe6f49f594ae809f8abfcb73fc",
+                "shasum": "acaf9374fb4fc5943669c9a1a46a2796767d465e"
             },
             "require": {
                 "php": "^8.1"
@@ -230,11 +230,15 @@
                 "rector/rector": "^0.15.23",
                 "spip/coding-standards": "^1.3"
             },
-            "default-branch": true,
             "type": "spip-plugin",
             "extra": {
                 "branch-alias": {
                     "dev-master": "3.3.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Spip\\Bigup\\": "src/"
                 }
             },
             "license": [
@@ -248,7 +252,7 @@
                 }
             ],
             "description": "Téléverser des gros fichiers",
-            "time": "2023-03-23T17:38:54+00:00"
+            "time": "2023-04-11T13:21:59+00:00"
         },
         {
             "name": "spip/compagnon",
@@ -1760,7 +1764,6 @@
     "stability-flags": {
         "spip/aide": 20,
         "spip/archiviste": 20,
-        "spip/bigup": 20,
         "spip/compagnon": 20,
         "spip/compresseur": 20,
         "spip/dist": 20,
