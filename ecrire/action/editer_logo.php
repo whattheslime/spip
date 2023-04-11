@@ -304,6 +304,9 @@ function logo_migrer_en_base($objet, $time_limit) {
  * @deprecated 4.0 MAIS NE PAS SUPPRIMER CAR SERT POUR L'UPGRADE des logos et leur mise en base
  **/
 function type_du_logo($_id_objet) {
+	if ((debug_backtrace(0, 2)[1]['function'] ?? '') !== 'logo_migrer_en_base') {
+		trigger_deprecation('spip', '4.0', 'Using "%s" is deprecated', __FUNCTION__);
+	}
 	$legacy_tables_logos = [
 		'id_article' => 'art',
 		'id_auteur' => 'aut',
