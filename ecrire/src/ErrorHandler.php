@@ -28,7 +28,7 @@ final class ErrorHandler {
 		array_shift($backtrace);
 		do {
 			$t = array_shift($backtrace);
-			$fqdn = $t['class'] . $t['type'] . $t['function'];
+			$fqdn = ($t['class'] ?? '') . ($t['type'] ?? '') . ($t['function'] ?? '');
 		} while (in_array($fqdn, ['trigger_error', 'trigger_deprecation']));
 
 		$errfile = $t['file'];
