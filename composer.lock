@@ -208,17 +208,17 @@
         },
         {
             "name": "spip/bigup",
-            "version": "3.3.0",
+            "version": "3.3.1",
             "source": {
                 "type": "git",
                 "url": "https://git.spip.net/spip/bigup.git",
-                "reference": "897416d8af17e9fe6f49f594ae809f8abfcb73fc"
+                "reference": "853f69e7d716f725c11aefe9adb78473f3ef6e75"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://get.spip.net/composer/dist/spip/bigup/spip-bigup-3.3.0-be5697.zip",
-                "reference": "897416d8af17e9fe6f49f594ae809f8abfcb73fc",
-                "shasum": "acaf9374fb4fc5943669c9a1a46a2796767d465e"
+                "url": "https://get.spip.net/composer/dist/spip/bigup/spip-bigup-3.3.1-1c32f6.zip",
+                "reference": "853f69e7d716f725c11aefe9adb78473f3ef6e75",
+                "shasum": "1095abef7ef0df12f88edd5d9d377505ff2e0948"
             },
             "require": {
                 "php": "^8.1"
@@ -252,7 +252,7 @@
                 }
             ],
             "description": "Téléverser des gros fichiers",
-            "time": "2023-04-11T13:21:59+00:00"
+            "time": "2023-04-16T18:14:50+00:00"
         },
         {
             "name": "spip/compagnon",
@@ -608,13 +608,13 @@
             "source": {
                 "type": "git",
                 "url": "https://git.spip.net/spip/medias.git",
-                "reference": "768415a44968554fb224035831b6496cdfdc75e4"
+                "reference": "cf23536ff5108c2e009e0199c97a39ae363abc36"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://get.spip.net/composer/dist/spip/medias/spip-medias-dev-master-23ec4a.zip",
-                "reference": "768415a44968554fb224035831b6496cdfdc75e4",
-                "shasum": "e2e37cb4f4bfe8bb8f95c62bdab5637805c715d1"
+                "url": "https://get.spip.net/composer/dist/spip/medias/spip-medias-dev-master-dbd708.zip",
+                "reference": "cf23536ff5108c2e009e0199c97a39ae363abc36",
+                "shasum": "e003f080e272369f2378c1f771825c390c5d1d1c"
             },
             "require": {
                 "php": "^8.1"
@@ -644,7 +644,7 @@
                 }
             ],
             "description": "Gestion des medias dans SPIP",
-            "time": "2023-03-23T15:45:27+00:00"
+            "time": "2023-04-13T08:32:51+00:00"
         },
         {
             "name": "spip/mots",
@@ -947,13 +947,13 @@
             "source": {
                 "type": "git",
                 "url": "https://git.spip.net/spip/statistiques.git",
-                "reference": "0825e4c7def344b4b6a5a45542af091af3cfbf5e"
+                "reference": "b423c167a15c91a71f0ef887da48d65f2410267a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://get.spip.net/composer/dist/spip/stats/spip-stats-dev-master-6c4ed1.zip",
-                "reference": "0825e4c7def344b4b6a5a45542af091af3cfbf5e",
-                "shasum": "9682e93a77633acb449a01d325271365f9325786"
+                "url": "https://get.spip.net/composer/dist/spip/stats/spip-stats-dev-master-d0671a.zip",
+                "reference": "b423c167a15c91a71f0ef887da48d65f2410267a",
+                "shasum": "678b985dd40f44f439d3840dfda2f9d86d34dda9"
             },
             "require": {
                 "php": "^8.1"
@@ -983,7 +983,7 @@
                 }
             ],
             "description": "Gestion des statistiques dans SPIP",
-            "time": "2023-03-30T09:09:11+00:00"
+            "time": "2023-04-12T23:27:01+00:00"
         },
         {
             "name": "spip/svp",
@@ -991,13 +991,13 @@
             "source": {
                 "type": "git",
                 "url": "https://git.spip.net/spip/svp.git",
-                "reference": "634168cadc216f73e0c441f235b416a8f2e97f68"
+                "reference": "4cd579dbda40f3d2259dbadd07539e0bd79507ed"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://get.spip.net/composer/dist/spip/svp/spip-svp-dev-master-318cdb.zip",
-                "reference": "634168cadc216f73e0c441f235b416a8f2e97f68",
-                "shasum": "cc410c6a834e129c7976b44b17cbfc38879fccf9"
+                "url": "https://get.spip.net/composer/dist/spip/svp/spip-svp-dev-master-b8a55d.zip",
+                "reference": "4cd579dbda40f3d2259dbadd07539e0bd79507ed",
+                "shasum": "c592223df1a1855fe573cc018155ede35347b439"
             },
             "require": {
                 "php": "^8.1"
@@ -1032,7 +1032,7 @@
                 }
             ],
             "description": "SerVeur d'information et de téléchargement des Plugins",
-            "time": "2023-03-23T16:43:39+00:00"
+            "time": "2023-04-08T10:43:00+00:00"
         },
         {
             "name": "spip/tw",
@@ -1508,16 +1508,16 @@
         },
         {
             "name": "phpcsstandards/phpcsutils",
-            "version": "1.0.2",
+            "version": "1.0.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/PHPCSStandards/PHPCSUtils.git",
-                "reference": "e74812ac026d9f9f18a936d29880b2db3211f89d"
+                "reference": "6b0c2048cc848098a550eb361555c9ef86c1e806"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/PHPCSStandards/PHPCSUtils/zipball/e74812ac026d9f9f18a936d29880b2db3211f89d",
-                "reference": "e74812ac026d9f9f18a936d29880b2db3211f89d",
+                "url": "https://api.github.com/repos/PHPCSStandards/PHPCSUtils/zipball/6b0c2048cc848098a550eb361555c9ef86c1e806",
+                "reference": "6b0c2048cc848098a550eb361555c9ef86c1e806",
                 "shasum": ""
             },
             "require": {
@@ -1578,20 +1578,20 @@
                 "issues": "https://github.com/PHPCSStandards/PHPCSUtils/issues",
                 "source": "https://github.com/PHPCSStandards/PHPCSUtils"
             },
-            "time": "2023-03-28T16:57:37+00:00"
+            "time": "2023-04-15T08:56:57+00:00"
         },
         {
             "name": "phpstan/phpstan",
-            "version": "1.10.11",
+            "version": "1.10.13",
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpstan/phpstan.git",
-                "reference": "8aa62e6ea8b58ffb650e02940e55a788cbc3fe21"
+                "reference": "f07bf8c6980b81bf9e49d44bd0caf2e737614a70"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpstan/phpstan/zipball/8aa62e6ea8b58ffb650e02940e55a788cbc3fe21",
-                "reference": "8aa62e6ea8b58ffb650e02940e55a788cbc3fe21",
+                "url": "https://api.github.com/repos/phpstan/phpstan/zipball/f07bf8c6980b81bf9e49d44bd0caf2e737614a70",
+                "reference": "f07bf8c6980b81bf9e49d44bd0caf2e737614a70",
                 "shasum": ""
             },
             "require": {
@@ -1640,7 +1640,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2023-04-04T19:17:42+00:00"
+            "time": "2023-04-12T19:29:52+00:00"
         },
         {
             "name": "spip/coding-standards",
