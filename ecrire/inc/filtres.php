@@ -4700,23 +4700,24 @@ function generer_objet_info($id_objet, string $type_objet, string $info, string 
 		array_unshift($params, $introduction_longueur);
 	}
 
+	$row = $objets[$type_objet][$id_objet] ?? [];
 	// Si la fonction generer_TYPE_TRUC existe, on l'utilise pour formater $info_generee
 	if ($generer = charger_fonction("generer_{$type_objet}_{$info}", '', true)) {
-		$info_generee = $generer($id_objet, $objets[$type_objet][$id_objet], ...$params);
+		$info_generee = $generer($id_objet, $row, ...$params);
 	}
 	// @deprecated 4.1 generer_TRUC_TYPE
 	elseif ($generer = charger_fonction("generer_{$info}_{$type_objet}", '', true)) {
 		trigger_deprecation('spip', '4.1', 'Using "%s" function naming is deprecated, rename "%s" instead', "generer_{$info}_{$type_objet}", "generer_{$type_objet}_{$info}");
-		$info_generee = $generer($id_objet, $objets[$type_objet][$id_objet], ...$params);
+		$info_generee = $generer($id_objet, $row, ...$params);
 	}
 	// Si la fonction generer_objet_TRUC existe, on l'utilise pour formater $info_generee
 	elseif ($generer = charger_fonction("generer_objet_{$info}", '', true)) {
-		$info_generee = $generer($id_objet, $type_objet, $objets[$type_objet][$id_objet], ...$params);
+		$info_generee = $generer($id_objet, $type_objet, $row, ...$params);
 	}
 	// @deprecated 4.1 generer_TRUC_entite
 	elseif ($generer = charger_fonction("generer_{$info}_entite", '', true)) {
 		trigger_deprecation('spip', '4.1', 'Using "%s" function naming is deprecated, rename "%s" instead', "generer_{$info}_entite", "generer_objet_{$info}");
-		$info_generee = $generer($id_objet, $type_objet, $objets[$type_objet][$id_objet], ...$params);
+		$info_generee = $generer($id_objet, $type_objet, $row, ...$params);
 	}
 	// Sinon on prend directement le champ SQL tel quel
 	else {
