@@ -4809,7 +4809,7 @@ function generer_objet_info($id_objet, string $type_objet, string $info, string 
 		array_unshift($params, $introduction_longueur);
 	}
 
-	$row = $objets[$type_objet][$id_objet] ?? [];
+	$row = ($objets[$type_objet][$id_objet] ?? []) ?: [];
 	// Si la fonction generer_TYPE_TRUC existe, on l'utilise pour formater $info_generee
 	if (
 		$generer = charger_fonction("generer_${type_objet}_${info}", '', true)
