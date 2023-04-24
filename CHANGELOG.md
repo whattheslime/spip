@@ -24,6 +24,7 @@
 
 ### Fixed
 
+- #5580 Recherche et navigation dans le sélecteur de rubriques dépliant
 - #5496 Typage en entrée de certains paramètres des fonctions `generer_*` lorsque l’objet n’existe pas.
 - #5571 Retrouver correctement les anciens itérateurs
 - #5576 Rétablir l'insertion du script de protection sandbox sur la prévisu d'un objet
