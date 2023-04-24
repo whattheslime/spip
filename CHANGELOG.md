@@ -22,6 +22,7 @@ Changelog de SPIP 4.2
 
 ### Fixed
 
+- #5580 Recherche et navigation dans le sélecteur de rubriques dépliant
 - #5496 Typage en entrée de certains paramètres des fonctions `generer_*` lorsque l’objet n’existe pas.
 - #5571 Retrouver correctement les anciens itérateurs
 - #5543 Indiquer la bonne fonction dans le message d'erreur de `_imagecreatefrom_func`
