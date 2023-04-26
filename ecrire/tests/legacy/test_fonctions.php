@@ -210,8 +210,10 @@ function tests_legacy_lister($extension = null)
 {
 	// chercher les bases de tests
 	$bases = [_DIR_TESTS . 'tests/legacy/unit'];
-
 	foreach (creer_chemin() as $d) {
+		if ($d === 'ecrire/') {
+			continue;
+		}
 		if ($d && @is_dir("{$d}tests")) {
 			$bases[] = "{$d}tests";
 		}
