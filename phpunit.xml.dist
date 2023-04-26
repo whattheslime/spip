@@ -1,14 +1,51 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <phpunit xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         bootstrap="vendor/autoload.php"
+         bootstrap="ecrire/tests/bootstrap.php"
          colors="true"
          stopOnFailure="false"
          xsi:noNamespaceSchemaLocation="https://schema.phpunit.de/10.1/phpunit.xsd"
          cacheDirectory=".phpunit.cache"
 >
+  <source>
+    <include>
+      <directory suffix=".php">plugins-dist/spip</directory>
+      <directory suffix=".php">prive</directory>
+      <directory suffix=".php">ecrire</directory>
+      <directory suffix=".php">squelettes-dist</directory>
+    </include>
+    <exclude>
+      <directory suffix=".php">ecrire/tests</directory>
+      <directory suffix=".php">ecrire/lang</directory>
+      <directory suffix=".php">plugins-dist/spip/*/lib</directory>
+      <directory suffix=".php">plugins-dist/spip/*/tests</directory>
+      <directory suffix=".php">plugins-dist/spip/*/lang</directory>
+      <directory suffix=".php">squelettes-dist/lang</directory>
+    </exclude>
+  </source>
+  <coverage>
+    <report>
+        <html outputDirectory=".phpunit.cache/html"/>
+        <text outputFile="php://stdout"/>
+    </report>
+  </coverage>
   <testsuites>
     <testsuite name="spip/spip">
       <directory>./ecrire/tests</directory>
+    </testsuite>
+    <testsuite name="spip/compresseur">
+      <directory>./plugins-dist/spip/compresseur/tests</directory>
+    </testsuite>
+    <testsuite name="spip/images">
+      <directory>./plugins-dist/spip/images/tests</directory>
+    </testsuite>
+    <testsuite name="spip/porte-plume">
+      <directory>./plugins-dist/spip/porte-plume/tests</directory>
+    </testsuite>
+    <testsuite name="spip/sites">
+      <directory>./plugins-dist/spip/sites/tests</directory>
+    </testsuite>
+    <testsuite name="spip/tw">
+      <directory>./plugins-dist/spip/tw/tests</directory>
     </testsuite>
   </testsuites>
 </phpunit>
