@@ -31,36 +31,30 @@ Suite de tests basée sur PHPUnit, avec un wrapper pour les tests historiques é
 Lancer tous les tests
 
 ```bash
-vendor/bin/phpunit --colors tests
+vendor/bin/phpunit
 ```
 
 Voir le détail de tous les tests lancés (y compris leurs noms)
 
 ```bash
-vendor/bin/phpunit --colors --debug tests
+vendor/bin/phpunit --debug
 ```
 
 Lister toutes les suites de tests :
 
 ```bash
-vendor/bin/phpunit --colors --debug --list-suites
+vendor/bin/phpunit --list-suites
 ```
 
 Lister tous les tests :
 
 ```bash
-vendor/bin/phpunit --colors --debug --list-tests
+vendor/bin/phpunit --list-tests
 ```
 
 Pour filtrer les tests et n'en executer que certains :
 
 ```bash
-vendor/bin/phpunit --colors --debug tests --filter=unit/propre/
+vendor/bin/phpunit --colors --debug --filter=unit/propre/
 vendor/bin/phpunit --colors --debug --filter=testCouper
 ```
-
-### Legacy
-
-Les tests historiques écrits sous forme de PHP ou de squelette HTML sont joués via les 2 composants `LegacyUnitHtmlTest.php` et `LegacyUnitPhpTest.php`
-
-Il est encore possible de lancer dans le navigateur la suite de tests legacy via l'url `monsite.spip/tests/` mais cette méthode est depréciée et ne lancera pas les tests écrits directement pour PHPUnit
