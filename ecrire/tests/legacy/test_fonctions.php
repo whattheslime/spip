@@ -125,7 +125,7 @@ function display_error($titre, $call, $result, $expected, $opts = [])
 			}
 
 			// l'enrobage de sortie
-			[$bef, $mid, $end] = explode('@', $out);
+			[$bef, $mid, $end] = explode('@', $out ?? '');
 		}
 
 		$affdiff = true;
@@ -274,7 +274,7 @@ function tests_legacy_lister($extension = null)
 					$nb = 0;
 					do {
 						++$nb;
-						$suffixe = '_' . str_pad($nb, 2, '0', STR_PAD_LEFT);
+						$suffixe = '_' . str_pad(strval($nb), 2, '0', STR_PAD_LEFT);
 					} while (isset($liste_fichiers[$titre . $suffixe]));
 
 					$titre .= $suffixe;

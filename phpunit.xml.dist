@@ -6,11 +6,9 @@
          xsi:noNamespaceSchemaLocation="https://schema.phpunit.de/10.1/phpunit.xsd"
          cacheDirectory=".phpunit.cache"
 >
-  <coverage/>
   <testsuites>
     <testsuite name="spip/spip">
       <directory>./ecrire/tests</directory>
     </testsuite>
   </testsuites>
-  <source/>
 </phpunit>
