@@ -14,6 +14,8 @@ class FormHiddenCase extends TestCase
 {
 	public const TYPE = '';
 
+	protected static ?int $id_rubrique;
+
 	public static function setUpBeforeClass(): void
 	{
 		find_in_path('inc/filtres.php', '', true);
@@ -23,6 +25,7 @@ class FormHiddenCase extends TestCase
 		}
 		$GLOBALS['type_urls'] = static::TYPE;
 		$GLOBALS['profondeur_url'] = 0;
+		self::$id_rubrique = self::getIdRubrique();
 	}
 
 	public static function setTearDownAfterClass(): void
@@ -49,18 +52,19 @@ class FormHiddenCase extends TestCase
 		$id_rubrique = sql_getfetsel(
 			'id_rubrique',
 			'spip_rubriques',
-			['statut = ' . sql_quote('publie')]
+			['statut = ' . sql_quote('publie')],
+			limit: '0, 1',
 		);
 		return $id_rubrique ? (int) $id_rubrique : null;
 	}
 
 	public function testHasRubrique(): void
 	{
-		$id = $this->getIdRubrique();
+		$id = self::$id_rubrique;
 		if (!$id) {
 			$this->markTestSkipped("Needs a published rubrique");
 		}
-		$this->assertNotNull($this->getIdRubrique());
+		$this->assertNotNull($id);
 	}
 
 	/**
@@ -69,13 +73,16 @@ class FormHiddenCase extends TestCase
 	 */
 	public function testFormHiddenRubrique($expected, ...$args): void
 	{
+		$id = self::$id_rubrique;
+		$expected = sprintf($expected, $id);
+		$args[0] = sprintf($args[0], $id);
 		$actual = form_hidden(...$args);
 		$this->assertSame($expected, $actual);
 	}
 
 	public static function providerFormHiddenRubrique(): array
 	{
-		$id = self::getIdRubrique();
+		$id = '%s';
 		return [
 			0 =>
 			[
