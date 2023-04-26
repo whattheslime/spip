@@ -1,0 +1,17 @@
+[(#REM)
+
+	Teste le filtre |liens_ouvrants
+
+]
+
+
+#SET{texte,
+	Ceci est un lien [ouvrant->http://www.spip.net/ar] rondtudiou.
+}
+
+[(#GET{texte}|propre
+	|liens_ouvrants
+	|match{<a\s.*target=('|")_blank('|").*>}
+	|?{OK}
+	|sinon{#GET{texte}|propre})]
+

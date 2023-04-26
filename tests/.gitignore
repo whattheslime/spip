@@ -1,0 +1,9 @@
+.idea
+composer.lock
+/vendor/
+/vendor-bin/*/vendor/
+.phpunit.result.cache
+.phpunit.cache/
+phpunit.xml
+phpunit.xml.bak
+tests/bootstrap_plugins.php

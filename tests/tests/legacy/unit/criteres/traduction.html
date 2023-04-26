@@ -1,0 +1,40 @@
+[(#REM)
+
+	Le critere {traduction} doit donner l'article courant meme s'il n'a
+	aucune traduction, cf.
+	http://thread.gmane.org/gmane.comp.web.spip.devel/20772
+
+]
+#CACHE{0}
+[(#REM) test 1 : un article sans trad]
+<BOUCLE_principale(ARTICLES){id_trad=0}{0,1}>
+<BOUCLE_check(ARTICLES){traduction}>
+	#SET{ok1,1}
+</BOUCLE_check>
+	boucle check: le critere {traduction} a echoue
+	sur un article non traduit (article #ID_ARTICLE) 
+<//B_check>
+</BOUCLE_principale>
+NA Le test 1 requiert un article publie sur le site
+<//B_principale>
+[(#REM) /fin  test 1 ]
+
+
+
+
+[(#REM) test 2 : un article et ses traductions ]
+<BOUCLE_s(ARTICLES){id_trad>0}{0,1}>
+<B_t>
+	#SET{ok2,1}
+<BOUCLE_t(ARTICLES){traduction}> </BOUCLE_t>
+</BOUCLE_s>
+NA	Le test 2 necessite un article publie et traduit
+<//B_s>
+[(#REM) / fin test 2 ]
+
+
+
+[(#REM) Valider les tests et donner le OK ]
+
+[(#GET{ok1}|?{#GET{ok2}}|?{OK})]
+
