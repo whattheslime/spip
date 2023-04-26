@@ -19,9 +19,9 @@ a mis a jour la valeur avec la page reelle]
 <table class='spip liste'>
 [<caption><span class="caption"><strong>(#ENV*{titre,#GRAND_TOTAL|singulier_ou_pluriel{info_1_auteur,info_nb_auteurs}})</strong>
 <span class="recherche">
-	<label for="recherche-#ENV{id}"><:info_rechercher_02:></label>
-	<input type="text" class="recherche" name="recherche" id="recherche-#ENV{id}" value="#ENV{recherche}" />
-	<input type="submit" class="tout_voir" name="tout_voir" value="<:info_tout_afficher:>" />
+	<label for="recherche-#ENV{id}" class="offscreen"><:info_rechercher_02:></label>
+	<input type="text" class="recherche" name="recherche" id="recherche-#ENV{id}" value="#ENV{recherche}" placeholder="<:info_rechercher|attribut_html:>" />
+	<input type="submit" class="tout_voir offscreen" name="tout_voir" value="<:info_tout_afficher|attribut_html:>" />
 </span>
 </span>
 </caption>]
