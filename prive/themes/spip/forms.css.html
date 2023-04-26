@@ -1343,16 +1343,29 @@
 	margin-bottom: var(--spip-box-spacing-y);
 	border-bottom: 1px solid var(--spip-box-sep-color);
 }
+.formulaire_editer_liens .liste-objets-associer .caption {
+	display: flex;
+	align-items: center;
+	gap: 2em;
+}
 .formulaire_editer_liens .liste-objets-associer .caption span.recherche {
 	margin-#LEFT: auto;
 	font-size: 0.9em;
+	flex: 50%;
+	flex-shrink: 1;
+	flex-grow: 1;
+	max-width: 30em;
+	text-align: end;
 }
 .formulaire_editer_liens .liste-objets-associer .caption input.recherche {
 	width: auto;
+	border-radius: 1em;
+	border: 1px solid var(--spip-color-gray-light);
+	padding: .2rem .5rem;
 }
 .formulaire_editer_liens .liste-objets-associer .caption span.recherche .tout_voir {
 	/* font-size: 0.8em; */
-	visibility: hidden;
+	/* .offscreen */
 }
 .formulaire_editer_liens .selecteur.filtre .tout_voir {
 	visibility: visible;
