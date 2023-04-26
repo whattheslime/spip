@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "0ce3ad653197ff4db023c81a0da1c2f9",
+    "content-hash": "a06489ad5272f37df745f85cc4fd15dd",
     "packages": [
         {
             "name": "algo26-matthias/idna-convert",
@@ -98,6 +98,73 @@
                 "source": "https://github.com/jakeasmith/http_build_url"
             },
             "time": "2017-05-01T15:36:40+00:00"
+        },
+        {
+            "name": "james-heinrich/getid3",
+            "version": "v1.9.22",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/JamesHeinrich/getID3.git",
+                "reference": "45f20faa0f0a24489740392c5b512ddcc36deccd"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/JamesHeinrich/getID3/zipball/45f20faa0f0a24489740392c5b512ddcc36deccd",
+                "reference": "45f20faa0f0a24489740392c5b512ddcc36deccd",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.0"
+            },
+            "require-dev": {
+                "php-parallel-lint/php-parallel-lint": "^1.0"
+            },
+            "suggest": {
+                "ext-SimpleXML": "SimpleXML extension is required to analyze RIFF/WAV/BWF audio files (also requires `ext-libxml`).",
+                "ext-com_dotnet": "COM extension is required when loading files larger than 2GB on Windows.",
+                "ext-ctype": "ctype extension is required when loading files larger than 2GB on 32-bit PHP (also on 64-bit PHP on Windows) or executing `getid3_lib::CopyTagsToComments`.",
+                "ext-dba": "DBA extension is required to use the DBA database as a cache storage.",
+                "ext-exif": "EXIF extension is required for graphic modules.",
+                "ext-iconv": "iconv extension is required to work with different character sets (when `ext-mbstring` is not available).",
+                "ext-json": "JSON extension is required to analyze Apple Quicktime videos.",
+                "ext-libxml": "libxml extension is required to analyze RIFF/WAV/BWF audio files.",
+                "ext-mbstring": "mbstring extension is required to work with different character sets.",
+                "ext-mysql": "MySQL extension is required to use the MySQL database as a cache storage (deprecated in PHP 5.5, removed in PHP >= 7.0, use `ext-mysqli` instead).",
+                "ext-mysqli": "MySQLi extension is required to use the MySQL database as a cache storage.",
+                "ext-rar": "RAR extension is required for RAR archive module.",
+                "ext-sqlite3": "SQLite3 extension is required to use the SQLite3 database as a cache storage.",
+                "ext-xml": "XML extension is required for graphic modules to analyze the XML metadata.",
+                "ext-zlib": "Zlib extension is required for archive modules and compressed metadata."
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.9.x-dev"
+                }
+            },
+            "autoload": {
+                "classmap": [
+                    "getid3/"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "GPL-1.0-or-later",
+                "LGPL-3.0-only",
+                "MPL-2.0"
+            ],
+            "description": "PHP script that extracts useful information from popular multimedia file formats",
+            "homepage": "https://www.getid3.org/",
+            "keywords": [
+                "codecs",
+                "php",
+                "tags"
+            ],
+            "support": {
+                "issues": "https://github.com/JamesHeinrich/getID3/issues",
+                "source": "https://github.com/JamesHeinrich/getID3/tree/v1.9.22"
+            },
+            "time": "2022-09-29T16:41:13+00:00"
         },
         {
             "name": "spip/aide",
@@ -260,13 +327,13 @@
             "source": {
                 "type": "git",
                 "url": "https://git.spip.net/spip/compagnon.git",
-                "reference": "3a502f2e79453adc0ff029351092d2978ad2f0d8"
+                "reference": "87a35f584d21e05da78e37148fe50471c4cf13d7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://get.spip.net/composer/dist/spip/compagnon/spip-compagnon-dev-master-f1e7ef.zip",
-                "reference": "3a502f2e79453adc0ff029351092d2978ad2f0d8",
-                "shasum": "2dafe1f57dae583be0a3242f22f55526a320b66d"
+                "url": "https://get.spip.net/composer/dist/spip/compagnon/spip-compagnon-dev-master-b93a78.zip",
+                "reference": "87a35f584d21e05da78e37148fe50471c4cf13d7",
+                "shasum": "4cd70e8610d1246869e242d9e71a45f2333dc19e"
             },
             "require": {
                 "php": "^8.1"
@@ -296,7 +363,7 @@
                 }
             ],
             "description": "Compagnon",
-            "time": "2023-03-23T17:39:08+00:00"
+            "time": "2023-04-24T18:07:24+00:00"
         },
         {
             "name": "spip/composer-installer",
@@ -608,15 +675,16 @@
             "source": {
                 "type": "git",
                 "url": "https://git.spip.net/spip/medias.git",
-                "reference": "cf23536ff5108c2e009e0199c97a39ae363abc36"
+                "reference": "c6c53692a6d30869141c2ce86d650dd2ba735591"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://get.spip.net/composer/dist/spip/medias/spip-medias-dev-master-dbd708.zip",
-                "reference": "cf23536ff5108c2e009e0199c97a39ae363abc36",
-                "shasum": "e003f080e272369f2378c1f771825c390c5d1d1c"
+                "url": "https://get.spip.net/composer/dist/spip/medias/spip-medias-dev-master-a15745.zip",
+                "reference": "c6c53692a6d30869141c2ce86d650dd2ba735591",
+                "shasum": "281fff7acc1838843e92533cfc94e113755e5128"
             },
             "require": {
+                "james-heinrich/getid3": "^1.9",
                 "php": "^8.1"
             },
             "require-dev": {
@@ -644,7 +712,7 @@
                 }
             ],
             "description": "Gestion des medias dans SPIP",
-            "time": "2023-04-13T08:32:51+00:00"
+            "time": "2023-04-16T19:07:13+00:00"
         },
         {
             "name": "spip/mots",
@@ -1728,17 +1796,17 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/PHPCompatibility/PHPCompatibility.git",
-                "reference": "5fdb06faa21181715841a0a95031e770626af53e"
+                "reference": "053e7c33db8cae16d6505fbb4173b815941462d8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/PHPCompatibility/PHPCompatibility/zipball/5fdb06faa21181715841a0a95031e770626af53e",
-                "reference": "5fdb06faa21181715841a0a95031e770626af53e",
+                "url": "https://api.github.com/repos/PHPCompatibility/PHPCompatibility/zipball/053e7c33db8cae16d6505fbb4173b815941462d8",
+                "reference": "053e7c33db8cae16d6505fbb4173b815941462d8",
                 "shasum": ""
             },
             "require": {
                 "php": ">=5.4",
-                "phpcsstandards/phpcsutils": "^1.0",
+                "phpcsstandards/phpcsutils": "^1.0.5",
                 "squizlabs/php_codesniffer": "^3.7.1"
             },
             "replace": {
@@ -1795,20 +1863,20 @@
                 "issues": "https://github.com/PHPCompatibility/PHPCompatibility/issues",
                 "source": "https://github.com/PHPCompatibility/PHPCompatibility"
             },
-            "time": "2023-03-28T10:54:08+00:00"
+            "time": "2023-04-20T23:33:28+00:00"
         },
         {
             "name": "phpcsstandards/phpcsutils",
-            "version": "1.0.4",
+            "version": "1.0.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/PHPCSStandards/PHPCSUtils.git",
-                "reference": "6b0c2048cc848098a550eb361555c9ef86c1e806"
+                "reference": "0cfef5193e68e8ff179333d8ae937db62939b656"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/PHPCSStandards/PHPCSUtils/zipball/6b0c2048cc848098a550eb361555c9ef86c1e806",
-                "reference": "6b0c2048cc848098a550eb361555c9ef86c1e806",
+                "url": "https://api.github.com/repos/PHPCSStandards/PHPCSUtils/zipball/0cfef5193e68e8ff179333d8ae937db62939b656",
+                "reference": "0cfef5193e68e8ff179333d8ae937db62939b656",
                 "shasum": ""
             },
             "require": {
@@ -1869,20 +1937,20 @@
                 "issues": "https://github.com/PHPCSStandards/PHPCSUtils/issues",
                 "source": "https://github.com/PHPCSStandards/PHPCSUtils"
             },
-            "time": "2023-04-15T08:56:57+00:00"
+            "time": "2023-04-17T16:27:27+00:00"
         },
         {
             "name": "phpstan/phpstan",
-            "version": "1.10.13",
+            "version": "1.10.14",
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpstan/phpstan.git",
-                "reference": "f07bf8c6980b81bf9e49d44bd0caf2e737614a70"
+                "reference": "d232901b09e67538e5c86a724be841bea5768a7c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpstan/phpstan/zipball/f07bf8c6980b81bf9e49d44bd0caf2e737614a70",
-                "reference": "f07bf8c6980b81bf9e49d44bd0caf2e737614a70",
+                "url": "https://api.github.com/repos/phpstan/phpstan/zipball/d232901b09e67538e5c86a724be841bea5768a7c",
+                "reference": "d232901b09e67538e5c86a724be841bea5768a7c",
                 "shasum": ""
             },
             "require": {
@@ -1931,7 +1999,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2023-04-12T19:29:52+00:00"
+            "time": "2023-04-19T13:47:27+00:00"
         },
         {
             "name": "phpunit/php-code-coverage",

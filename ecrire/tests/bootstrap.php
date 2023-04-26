@@ -2,11 +2,15 @@
 
 declare(strict_types=1);
 
-/*
+/**
  * Ce fichier s'appelle depuis un test PHPUnit
  * Il permet de démarrer SPIP
- *
  */
+
+// pas en cli ? passe ton chemin ! (ce script est un vilain trou de securite)
+if (php_sapi_name() !== 'cli') {
+	throw new RuntimeException('Operation not allowed.');
+}
 
 // let's go spip
 if (! defined('_SPIP_TEST_INC')) {
@@ -37,11 +41,6 @@ if (! isset($GLOBALS['spip_lang'])) {
 $GLOBALS['taille_des_logs'] = 1024;
 $GLOBALS['delais'] = 0;
 
-// pas admin ? passe ton chemin (ce script est un vilain trou de securite)
-if (! _IS_CLI) {
-	die("Ce test n'est executable qu'en cli");
-}
-
 // afficher toutes les erreurs
 @ini_set('display_errors', 'On');
 @error_reporting(E_ALL);
@@ -61,6 +60,3 @@ function spip_tests_deloger_webmestre() {
 	}
 	$GLOBALS['visiteur_session'] = [];
 }
-
-// inclure les bootstrap.php de chaque suite
-include_once __DIR__ . '/bootstrap_plugins.php';
