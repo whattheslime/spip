@@ -2,10 +2,12 @@
 /vendor/
 /composer.phar
 /composer.local.*
+/phpunit.xml
 /phpcs.xml
 /phpstan.neon
 /docker-compose.override.yml
 /docker-compose.yml
+/.phpunit.cache
 
 # SPIP
 /IMG/
@@ -28,7 +30,6 @@
 /plugins/
 /sites/
 /squelettes/
-/tests/
 /themes/
 
 # IDE

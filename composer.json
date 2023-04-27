@@ -35,13 +35,17 @@
     },
     "require-dev": {
         "dealerdirect/phpcodesniffer-composer-installer": "^1.0",
+        "lolli42/finediff": "^1.0",
         "phpcompatibility/php-compatibility": "10.x-dev",
         "phpstan/phpstan": "^1.10",
-        "spip/coding-standards": "^1.3"
+        "phpunit/phpunit": "^10.1",
+        "spip/coding-standards": "^1.3",
+        "symplify/easy-coding-standard": "^11.3"
     },
     "suggest": {
         "ext-curl": "*",
         "ext-gd": "For image processing",
+        "ext-iconv": "Can be used as fallback when ext-mbstring is not available",
         "ext-mbstring": "Faster than the polyfill for string actions",
         "ext-mysqli": "*",
         "ext-pdo": "*",
@@ -58,9 +62,15 @@
             "Spip\\": "ecrire/src/"
         }
     },
+    "autoload-dev": {
+        "psr-4": {
+            "Spip\\Test\\": "ecrire/tests/"
+        }
+    },
     "archive": {
         "exclude": [
             "!vendor",
+            "phpunit.xml.dist",
             "phpcs.xml.dist",
             "phpstan.neon.dist",
             "phpstan-baseline.neon",

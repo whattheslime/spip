@@ -21,3 +21,40 @@ maintenu par sa communauté avec tendresse.
 
 - [Reporter une faille de sécurité](https://www.spip.net/fr_article6688.html)
 - [SECURITY.md](SECURITY.md)
+
+## Tests pour SPIP
+
+Suite de tests basée sur PHPUnit, avec un wrapper pour les tests historiques écrits en script PHP standalone ou en squelette HTML
+
+### Commandes spécifiques
+
+Lancer tous les tests
+
+```bash
+vendor/bin/phpunit
+```
+
+Voir le détail de tous les tests lancés (y compris leurs noms)
+
+```bash
+vendor/bin/phpunit --debug
+```
+
+Lister toutes les suites de tests :
+
+```bash
+vendor/bin/phpunit --list-suites
+```
+
+Lister tous les tests :
+
+```bash
+vendor/bin/phpunit --list-tests
+```
+
+Pour filtrer les tests et n'en executer que certains :
+
+```bash
+vendor/bin/phpunit --colors --debug --filter=unit/propre/
+vendor/bin/phpunit --colors --debug --filter=testCouper
+```
