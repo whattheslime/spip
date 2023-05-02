@@ -11,8 +11,8 @@
 
 ### Added
 
-- Attributs `data-objet`, `data-id_objet` et `data-objet-source` sur le formulaire d’édition de liens, pour usage en JS à toutes fins utiles.
-- Log des dépréciations, via la fonction `trigger_deprecation` (de symfony/deprecations-contracts).
+- #5586 Attributs `data-objet`, `data-id_objet` et `data-objet-source` sur le formulaire d’édition de liens, pour usage en JS à toutes fins utiles.
+- #5535 Log des dépréciations, via la fonction `trigger_deprecation` (de symfony/deprecations-contracts).
 - Les plugins-dist et le squelettes-dist s'intallent avec composer
 - #5301 Permettre de fournir le nom de l’attachement à `spip_livrer_fichier()`
 
