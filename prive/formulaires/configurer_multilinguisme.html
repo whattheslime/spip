@@ -6,11 +6,9 @@
 	<p><:texte_multilinguisme:></p>
 	<p><:texte_multilinguisme_trad:></p>
 	<form method='post' action='#ENV{action}'><div>
-		[(#REM) declarer les hidden qui declencheront le service du formulaire
-		parametre : url d'action ]
 		#ACTION_FORMULAIRE
-		<input type="hidden" name="multi_objets&#91;&#93;" value="" />
-		<input type="hidden" name="gerer_trad_objets&#91;&#93;" value="" />
+		<input type="hidden" name="multi_objets\[\]" value="" />
+		<input type="hidden" name="gerer_trad_objets\[\]" value="" />
 		<div class="editer-groupe">
 			<div class="fieldset">
 				<fieldset><div class="editer-groupe">
@@ -21,7 +19,7 @@
 							<label>#GET{objets}</label>[
 							<span class='erreur_message'>(#GET{erreurs})</span>
 							]<div class="choix">
-								<input type="checkbox" name="#GET{name}&#91;&#93;" id="#GET{val}#GET{name}_oui" value="#GET{val}"
+								<input type="checkbox" name="#GET{name}\[\]" id="#GET{val}#GET{name}_oui" value="#GET{val}"
 								[(#GET{val}|in_any{#ENV{#GET{name}}}|oui)checked="checked"] /><label for="#GET{val}#GET{name}_oui"><:info_multi_objets{objets=#GET{objets}}:></label>
 							</div>
 						</div>
@@ -41,7 +39,7 @@
 						<div class="editer editer_[(#GET{name})][ (#GET{obli})][ (#GET{erreurs}|oui)erreur]">[
 							<span class='erreur_message'>(#GET{erreurs})</span>
 							]<div class="choix">
-								<input type="checkbox" name="#GET{name}&#91;&#93;" id="#GET{val}#GET{name}_oui" value="#GET{val}"
+								<input type="checkbox" name="#GET{name}\[\]" id="#GET{val}#GET{name}_oui" value="#GET{val}"
 								[(#GET{val}|in_any{#ENV{#GET{name}}}|oui)checked="checked"] /><label for="#GET{val}#GET{name}_oui"><:info_gerer_trad_objets{objets=#GET{objets}}:></label>
 							</div>
 						</div>
@@ -61,7 +59,7 @@
 							<label>#GET{objets}</label>[
 							<span class='erreur_message'>(#GET{erreurs})</span>
 							]<div class="choix">
-								<input type="checkbox" name="#GET{name}&#91;&#93;" id="#GET{val}#GET{name}_oui" value="#GET{val}"
+								<input type="checkbox" name="#GET{name}\[\]" id="#GET{val}#GET{name}_oui" value="#GET{val}"
 								[(#GET{val}|in_any{#ENV{#GET{name}}}|oui)checked="checked"] /><label for="#GET{val}#GET{name}_oui"><:info_multi_objets{objets=#GET{objets}}:></label>
 							</div>
 						</div>
@@ -70,7 +68,7 @@
 						<div class="editer editer_[(#GET{name})][ (#GET{obli})][ (#GET{erreurs}|oui)erreur]">[
 							<span class='erreur_message'>(#GET{erreurs})</span>
 							]<div class="choix">
-								<input type="checkbox" name="#GET{name}&#91;&#93;" id="#GET{val}#GET{name}_oui" value="#GET{val}"
+								<input type="checkbox" name="#GET{name}\[\]" id="#GET{val}#GET{name}_oui" value="#GET{val}"
 								[(#GET{val}|in_any{#ENV{#GET{name}}}|oui)checked="checked"] /><label for="#GET{val}#GET{name}_oui"><:info_gerer_trad_objets{objets=#GET{objets}}:></label>
 							</div>
 						</div>
