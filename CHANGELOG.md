@@ -23,6 +23,7 @@ Changelog de SPIP 4.2
 
 ### Fixed
 
+- Formulaire de configuration du multilinguisme (suite à spip-team/securite#4841)
 - #5584 Présentation de l’input de recherche dans l’ajout d’auteurs liés
 - #5580 Recherche et navigation dans le sélecteur de rubriques dépliant
 - #5496 Typage en entrée de certains paramètres des fonctions `generer_*` lorsque l’objet n’existe pas.
