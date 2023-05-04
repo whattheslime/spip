@@ -11,8 +11,8 @@
 
 ### Added
 
-- #5565 Critère `{collate}`
-- #5565 Critères `{groupby}` et `{groupby_supprimer}`
+- #5565 Critère `{collate}` (remplace `{collecte}`)
+- #5565 Critères `{groupby}` et `{groupby_supprimer}` (remplace `{fusion}` et `{fusion_supprimer}`)
 - #5565 Critère `{having}`
 - #5586 Attributs `data-objet`, `data-id_objet` et `data-objet-source` sur le formulaire d’édition de liens, pour usage en JS à toutes fins utiles.
 - #5535 Log des dépréciations, via la fonction `trigger_deprecation` (de symfony/deprecations-contracts).
@@ -42,8 +42,8 @@
 
 ### Deprecated
 
-- #5565 Critère `{collecte}`
-- #5565 Critères `{fusion}` et `{fusion_supprimer}`
+- #5565 Critère `{collecte}`. Utiliser `{collate}`
+- #5565 Critères `{fusion}` et `{fusion_supprimer}`. Utiliser `{groupby}` et `{groupby_supprimer}`
 - Fonction `logo_migrer_en_base()` (utilisable jusqu’en SPIP 5.y pour migrer les logos en documents)
 - Fonction `spip_sha256` (utiliser `hash('sha256', $str)`)
 
