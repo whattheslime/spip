@@ -1015,13 +1015,13 @@
             "source": {
                 "type": "git",
                 "url": "https://git.spip.net/spip/statistiques.git",
-                "reference": "b423c167a15c91a71f0ef887da48d65f2410267a"
+                "reference": "2cfdbe717bfd966ff9b5dd4d871b9cf715863e2d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://get.spip.net/composer/dist/spip/stats/spip-stats-dev-master-d0671a.zip",
-                "reference": "b423c167a15c91a71f0ef887da48d65f2410267a",
-                "shasum": "678b985dd40f44f439d3840dfda2f9d86d34dda9"
+                "url": "https://get.spip.net/composer/dist/spip/stats/spip-stats-dev-master-5c83d9.zip",
+                "reference": "2cfdbe717bfd966ff9b5dd4d871b9cf715863e2d",
+                "shasum": "99fa3357679c6fa63a955449e92dd979ee69b706"
             },
             "require": {
                 "php": "^8.1"
@@ -1051,7 +1051,7 @@
                 }
             ],
             "description": "Gestion des statistiques dans SPIP",
-            "time": "2023-04-12T23:27:01+00:00"
+            "time": "2023-05-03T15:57:39+00:00"
         },
         {
             "name": "spip/svp",
@@ -1059,13 +1059,13 @@
             "source": {
                 "type": "git",
                 "url": "https://git.spip.net/spip/svp.git",
-                "reference": "4cd579dbda40f3d2259dbadd07539e0bd79507ed"
+                "reference": "51d5a29354d0bdceb3b78fe0b2b3470c3832803b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://get.spip.net/composer/dist/spip/svp/spip-svp-dev-master-b8a55d.zip",
-                "reference": "4cd579dbda40f3d2259dbadd07539e0bd79507ed",
-                "shasum": "c592223df1a1855fe573cc018155ede35347b439"
+                "url": "https://get.spip.net/composer/dist/spip/svp/spip-svp-dev-master-7e95f6.zip",
+                "reference": "51d5a29354d0bdceb3b78fe0b2b3470c3832803b",
+                "shasum": "b42c7e6e0ec871a582355d32534d911c5a92b265"
             },
             "require": {
                 "php": "^8.1"
@@ -1100,7 +1100,7 @@
                 }
             ],
             "description": "SerVeur d'information et de téléchargement des Plugins",
-            "time": "2023-04-08T10:43:00+00:00"
+            "time": "2023-04-24T18:49:36+00:00"
         },
         {
             "name": "spip/tw",
@@ -1796,12 +1796,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/PHPCompatibility/PHPCompatibility.git",
-                "reference": "053e7c33db8cae16d6505fbb4173b815941462d8"
+                "reference": "e69363c385081d127bd5bd010697bea25d15ca43"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/PHPCompatibility/PHPCompatibility/zipball/053e7c33db8cae16d6505fbb4173b815941462d8",
-                "reference": "053e7c33db8cae16d6505fbb4173b815941462d8",
+                "url": "https://api.github.com/repos/PHPCompatibility/PHPCompatibility/zipball/e69363c385081d127bd5bd010697bea25d15ca43",
+                "reference": "e69363c385081d127bd5bd010697bea25d15ca43",
                 "shasum": ""
             },
             "require": {
@@ -1863,7 +1863,7 @@
                 "issues": "https://github.com/PHPCompatibility/PHPCompatibility/issues",
                 "source": "https://github.com/PHPCompatibility/PHPCompatibility"
             },
-            "time": "2023-04-20T23:33:28+00:00"
+            "time": "2023-05-01T14:28:28+00:00"
         },
         {
             "name": "phpcsstandards/phpcsutils",
@@ -2723,16 +2723,16 @@
         },
         {
             "name": "sebastian/diff",
-            "version": "5.0.1",
+            "version": "5.0.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/diff.git",
-                "reference": "aae9a0a43bff37bd5d8d0311426c87bf36153f02"
+                "reference": "912dc2fbe3e3c1e7873313cc801b100b6c68c87b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/diff/zipball/aae9a0a43bff37bd5d8d0311426c87bf36153f02",
-                "reference": "aae9a0a43bff37bd5d8d0311426c87bf36153f02",
+                "url": "https://api.github.com/repos/sebastianbergmann/diff/zipball/912dc2fbe3e3c1e7873313cc801b100b6c68c87b",
+                "reference": "912dc2fbe3e3c1e7873313cc801b100b6c68c87b",
                 "shasum": ""
             },
             "require": {
@@ -2778,7 +2778,7 @@
             "support": {
                 "issues": "https://github.com/sebastianbergmann/diff/issues",
                 "security": "https://github.com/sebastianbergmann/diff/security/policy",
-                "source": "https://github.com/sebastianbergmann/diff/tree/5.0.1"
+                "source": "https://github.com/sebastianbergmann/diff/tree/5.0.3"
             },
             "funding": [
                 {
@@ -2786,7 +2786,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2023-03-23T05:12:41+00:00"
+            "time": "2023-05-01T07:48:21+00:00"
         },
         {
             "name": "sebastian/environment",
