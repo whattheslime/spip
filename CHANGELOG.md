@@ -19,6 +19,7 @@ Changelog de SPIP 4.2
 
 ### Changed
 
+- Mise à jour de Sortable.js (1.14.0 => 1.15.0)
 - #5542 Refacto page de contrôle et boîtes des tâches de fond
 
 ### Fixed
