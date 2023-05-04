@@ -32,11 +32,10 @@
 	</button>
 	<a class="none[ (#ENV{class,''})] refresh" href="[(#ENV{action}|parametre_url{'recherche',''})]"><:info_rechercher:></a>
 </div></form>
-<script type="text/javascript">/*<![CDATA[*/
-function recherche_submit_#ENV{_id_champ,recherche}(){
-$.placeholderLabel.disable_placeholder_fields.apply($(this).parents('form').eq(0));
-var a=$(this).siblings('a.refresh');
+<script type="text/javascript">
+function recherche_submit_#ENV{_id_champ,recherche}() {
+const a = $(this).siblings('a.refresh');
 a.attr('href',parametre_url(a.attr('href'),'recherche',$(this).siblings('input.text').val())).followLink();
 return false;
-}/*]]>*/</script>
+}</script>
 </div>

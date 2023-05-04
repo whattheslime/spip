@@ -1137,7 +1137,6 @@ jQuery(function() {
 	jQuery('form:not(.bouton_action_post)').parents('div.ajax')
 	.formulaire_dyn_ajax();
 	jQuery('div.ajaxbloc').ajaxbloc();
-	jQuery("input[placeholder]:text").placeholderLabel();
 	jQuery('.spip_logo_survol').hover(spip_logo_survol_hover, spip_logo_survol_out);
 	puce_enable_survol.apply(this);
 
@@ -1155,7 +1154,6 @@ onAjaxLoad(function() {
 			jQuery(this).closest('div.ajaxbloc').ajaxbloc();
 		else
 			jQuery('div.ajaxbloc', this).ajaxbloc();
-		jQuery("input[placeholder]:text",this).placeholderLabel();
 		jQuery('.spip_logo_survol',this).hover(spip_logo_survol_hover, spip_logo_survol_out);
 		puce_enable_survol.apply(this);
 	}
