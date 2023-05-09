@@ -381,26 +381,32 @@ function echappe_retour_modeles($letexte, $interdire_scripts = false) {
  *     texte coupé
  **/
 function couper($texte, $taille = 50, $suite = null) {
-	if (!($length = strlen($texte)) or $taille <= 0) {
+	if ($taille <= 0) {
+		return '';
+	}
+	$length = spip_strlen($texte);
+	if (!$length) {
 		return '';
 	}
 	$offset = 400 + 2 * $taille;
 	while (
 		$offset < $length
-		and strlen(preg_replace(',<(!--|\w|/)[^>]+>,Uims', '', substr($texte, 0, $offset))) < $taille
+		&& spip_strlen(preg_replace(',<(!--|\w|/)[^>]+>,Uims', '', spip_substr($texte, 0, $offset))) < $taille
 	) {
-		$offset = 2 * $offset;
+		$offset *= 2;
 	}
 	if (
 		$offset < $length
 		&& ($p_tag_ouvrant = strpos($texte, '<', $offset)) !== null
 	) {
 		$p_tag_fermant = strpos($texte, '>', $offset);
+		// prolonger la coupe jusqu'au tag fermant suivant eventuel
 		if ($p_tag_fermant && ($p_tag_fermant < $p_tag_ouvrant)) {
 			$offset = $p_tag_fermant + 1;
-		} // prolonger la coupe jusqu'au tag fermant suivant eventuel
+		}
 	}
-	$texte = substr($texte, 0, $offset); /* eviter de travailler sur 10ko pour extraire 150 caracteres */
+	// éviter de travailler sur 10ko pour extraire 150 caractères
+	$texte = spip_substr($texte, 0, $offset);
 
 	if (!function_exists('nettoyer_raccourcis_typo')) {
 		include_spip('inc/lien');
