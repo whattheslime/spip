@@ -108,7 +108,7 @@ function inc_importer_csv_dist($file, $options = []) {
 	$options = array_merge($default_options, $options);
 
 
-	$return = false;
+	$return = [];
 	if (
 		@file_exists($file)
 		and $handle = fopen($file, 'r')
@@ -158,5 +158,5 @@ function inc_importer_csv_dist($file, $options = []) {
 		}
 	}
 
-	return $return;
+	return $return ?: false;
 }
