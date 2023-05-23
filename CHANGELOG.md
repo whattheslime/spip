@@ -4,6 +4,8 @@
 
 ### Security
 
+- #5552 Appliquer l’option `httponly` sur la plupart des cookies internes à SPIP
+- #5552 Appliquer l’option `secure` sur les cookies lorsqu’on est en HTTPS
 - spip-team/securite#4840 Éviter `unserialize` dans l’écran de sécurité
 - spip-team/securite#4840 Limiter la profondeur de recursion de `protege_champ`
 - spip-team/securite#4840 Inclure l’écran de sécurité avant l’autoloader
@@ -21,6 +23,7 @@
 
 ### Changed
 
+- #5552 Signature de `spip_setcookie` (reprend la signature de php `setcookie`)
 - Mise à jour de Sortable.js (1.14.0 => 1.15.0)
 - #5542 Refacto page de contrôle et boîtes des tâches de fond
 - #5540 Les fonctions `extraire_balise` et `extraire_balises` peuvent gérer des balises imbriquées
@@ -44,6 +47,7 @@
 
 ### Deprecated
 
+- #5552 Constantes `_COOKIE_SECURE` et `_COOKIE_SECURE_LIST` (utiliser les options `secure` et/ou `httponly` de `spip_setcookie`)
 - #5565 Critère `{collecte}`. Utiliser `{collate}`
 - #5565 Critères `{fusion}` et `{fusion_supprimer}`. Utiliser `{groupby}` et `{groupby_supprimer}`
 - Fonction `logo_migrer_en_base()` (utilisable jusqu’en SPIP 5.y pour migrer les logos en documents)
