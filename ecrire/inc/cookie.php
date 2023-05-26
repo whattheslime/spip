@@ -30,7 +30,7 @@ if (!defined('_ECRIRE_INC_VERSION')) {
  *     Nom du cookie
  * @param string $value
  *     Valeur à stocker
- * @param array $options
+ * @param array{expires: int, path: string, domain: string, secure: bool, samesite: string} $options
  *     Tableau clé => valeur de l’option
  *     - expires = 0 : Date d'expiration du cookie (timestamp)
  *     - path = 'AUTO' : Chemin sur lequel le cookie sera disponible
@@ -40,7 +40,8 @@ if (!defined('_ECRIRE_INC_VERSION')) {
  * @return bool
  *     true si le cookie a été posé, false sinon.
  *
- * @note Anciens paramètres (à la place de $options) (pour rétrocompatibilité)
+ * @note La signature changera en SPIP 5.0 pour reprendre la même signature que PHP.
+ * @note Anciens paramètres (SPIP < 4.0) (à la place de $options) (pour rétrocompatibilité)
  *   param int $expire
  *     Date d'expiration du cookie (timestamp)
  *   param string $path
@@ -52,8 +53,9 @@ if (!defined('_ECRIRE_INC_VERSION')) {
  **/
 function spip_setcookie($name = '', $value = '', $options = []) {
 	static $to_secure_list = ['spip_session'];
-	if (defined('_COOKIE_SECURE_LIST') and is_array(_COOKIE_SECURE_LIST)) {
-		$to_secure_list = array_merge($to_secure_list, _COOKIE_SECURE_LIST);
+	/** @deprecated _COOKIE_SECURE_LIST: Will be deprecated in 5.0 (Use option `'httponly' => true`) */
+	if (defined('_COOKIE_SECURE_LIST') and is_array(constant('_COOKIE_SECURE_LIST'))) {
+		$to_secure_list = array_merge($to_secure_list, constant('_COOKIE_SECURE_LIST'));
 	}
 
 	if (!is_array($options)) {
@@ -74,32 +76,30 @@ function spip_setcookie($name = '', $value = '', $options = []) {
 		if (isset($opt[3])) {
 			$options['secure'] = $opt[3];
 		}
+		if (isset($opt[4])) {
+			$options['httponly'] = $opt[4];
+		}
 	}
 
 	// expires
-	if (!isset($options['expires'])) {
-		$options['expires'] = 0;
+	$options['expires'] ??= 0;
+	if (!isset($options['path']) || $options['path'] === 'AUTO') {
+		$options['path'] = defined('_COOKIE_PATH') ? constant('_COOKIE_PATH') : preg_replace(',^\w+://[^/]*,', '', url_de_base());
 	}
-	if (!isset($options['path']) or $options['path'] === 'AUTO') {
-		if (defined('_COOKIE_PATH')) {
-			$options['path'] = _COOKIE_PATH;
-		} else {
-			$options['path'] = preg_replace(',^\w+://[^/]*,', '', url_de_base());
-		}
+	if (empty($options['domain']) && defined('_COOKIE_DOMAIN') && constant('_COOKIE_DOMAIN')) {
+		$options['domain'] = constant('_COOKIE_DOMAIN');
 	}
-	if (empty($options['domain']) and defined('_COOKIE_DOMAIN') and _COOKIE_DOMAIN) {
-		$options['domain'] = _COOKIE_DOMAIN;
+	$options['secure'] ??= false;
+	$options['secure'] = ($options['secure'] ?: ($_SERVER['HTTPS'] ?? false));
+	if (defined('_COOKIE_SECURE') && constant('_COOKIE_SECURE')) {
+		/** @deprecated Will be deprecated in 5.0 (Use option `'secure' => true`; automatic in HTTPS) */
+		$options['secure'] = true;
 	}
+	$options['httponly'] ??= false;
+	$options['samesite'] = ($options['samesite'] ?? 'Lax') ?: 'Lax';
+
 	if (in_array($name, $to_secure_list)) {
-		if (empty($options['secure']) and defined('_COOKIE_SECURE') and _COOKIE_SECURE) {
-			$options['secure'] = true;
-		}
-		if (empty($options['httponly'])) {
-			$options['httponly'] = true;
-		}
-	}
-	if (empty($options['samesite'])) {
-		$options['samesite'] = 'Lax';
+		$options['httponly'] = true;
 	}
 
 	// in fine renommer le prefixe si besoin
