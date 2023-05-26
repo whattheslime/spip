@@ -24,6 +24,7 @@ Changelog de SPIP 4.2
 
 ### Fixed
 
+- #5603 Déclaration propre du pipeline notifications_destinataires
 - #5573 Éviter un Deprecated sur la fonction d’import CSV
 - #5563 Filtre `couper` erroné dans certains cas avec des caractères utf8 multi bytes.
 - Formulaire de configuration du multilinguisme (suite à spip-team/securite#4841)
