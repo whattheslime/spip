@@ -50,7 +50,6 @@ if (!defined('_ECRIRE_INC_VERSION')) {
  *   param bool $secure
  *     cookie sécurisé ou non ?
  **/
-// function spip_setcookie($name = '', $value = '', $options = []) {
 function spip_setcookie(
 	string $name = '',
 	string $value = '',
