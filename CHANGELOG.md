@@ -6,6 +6,8 @@ Changelog de SPIP 4.2
 
 ### Security
 
+- #5552 Appliquer l’option `httponly` sur la plupart des cookies internes à SPIP
+- #5552 Appliquer l’option `secure` sur les cookies lorsqu’on est en HTTPS
 - spip-team/securite#4840 Éviter `unserialize` dans l’écran de sécurité
 - spip-team/securite#4840 Limiter la profondeur de recursion de `protege_champ`
 - spip-team/securite#4840 Inclure l’écran de sécurité avant l’autoloader
