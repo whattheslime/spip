@@ -30,25 +30,24 @@ if (!defined('_ECRIRE_INC_VERSION')) {
  *     Nom du cookie
  * @param string $value
  *     Valeur à stocker
- * @param array{expires: int, path: string, domain: string, secure: bool, samesite: string} $options
+ * @param int|array{expires: int, path: string, domain: string, secure: bool, samesite: string} $expires_or_options
+ *     int: Date d'expiration du cookie (timestamp)
  *     Tableau clé => valeur de l’option
  *     - expires = 0 : Date d'expiration du cookie (timestamp)
  *     - path = 'AUTO' : Chemin sur lequel le cookie sera disponible
  *     - domain = '' : Domaine à partir duquel le cookie est disponible
  *     - secure = false : cookie sécurisé ou non ?
  *     - samesite = 'Lax' : valeur samesite (Lax, Strict ou None)
+ * @param string $path
+ *     Chemin sur lequel le cookie sera disponible (SPIP < 4.0: $path = 'AUTO')
+ * @param string $domain
+ *     Domaine à partir duquel le cookie est disponible
+ * @param bool $secure
+ *     Indique si le cookie doit être envoyé par le navigateur uniquement en connexion HTTPS (true) ou systématiquement (false)
+ * @param bool $httponly
+ *     Indique si le cookie doit être accessible en Javascript (false) ou non (true)
  * @return bool
  *     true si le cookie a été posé, false sinon.
- *
- * @note Anciens paramètres (à la place de $options) (pour rétrocompatibilité)
- *   param int $expire
- *     Date d'expiration du cookie (timestamp)
- *   param string $path
- *     Chemin sur lequel le cookie sera disponible
- *   param string $domain
- *     Domaine à partir duquel le cookie est disponible
- *   param bool $secure
- *     cookie sécurisé ou non ?
  **/
 function spip_setcookie(
 	string $name = '',
