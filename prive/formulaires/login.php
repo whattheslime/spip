@@ -249,7 +249,10 @@ function formulaires_login_verifier_dist($cible = '', $options = [], $deprecated
 			$erreurs['var_login'] = $auteur;
 		}
 		include_spip('inc/cookie');
-		spip_setcookie('spip_admin', '', time() - 3600);
+		spip_setcookie('spip_admin', '', [
+			'expires' => time() - 3600,
+			'httponly' => true,
+		]);
 		if (strlen($session_password)) {
 			$erreurs['password'] = _T('login_erreur_pass');
 		} else {

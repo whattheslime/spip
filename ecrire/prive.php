@@ -27,7 +27,8 @@ if ($var_auth !== '') {
 		if (is_array($var_auth)) {
 			$var_auth = '../?' . $_SERVER['QUERY_STRING'];
 			spip_setcookie('spip_session', $_COOKIE['spip_session'], [
-				'expires' => time() + 3600 * 24 * 14
+				'expires' => time() + 3600 * 24 * 14,
+				'httponly' => true,
 			]);
 		}
 		include_spip('inc/headers');
