@@ -32,6 +32,7 @@
 
 ### Fixed
 
+- #5603 Déclaration propre du pipeline notifications_destinataires
 - #5563 Filtre `couper` erroné dans certains cas avec des caractères utf8 multi bytes.
 - Formulaire de configuration du multilinguisme (suite à spip-team/securite#4841)
 - #5584 Présentation de l’input de recherche dans l’ajout d’auteurs liés
