@@ -96,6 +96,9 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'repondre_breve' => 'Respondi al tiu fulm-informo',
 	'resultats_recherche' => 'Serĉo-rezultoj',
 	'retour_debut_forums' => 'Reen al forumoj-komenco',
+	'rss_abonnement_titre' => 'Abonu',
+	'rss_abonnement_titre_page' => 'Aboni al',
+	'rss_explication_titre' => 'Kio estas RSS-fluo ?',
 	'rubrique' => 'Rubriko',
 	'rubriques' => 'Rubrikoj',
 
