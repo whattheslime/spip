@@ -26,6 +26,7 @@ Changelog de SPIP 4.2
 
 ### Fixed
 
+- spip/archiviste#4429 Mise à jour archiviste (2.2.0 => 2.2.2)
 - spip-galaxie/trad.spip.net#8 Calcul d’URL de `generer_url_api` sans précision du paramètre `public`
 - #5603 Déclaration propre du pipeline notifications_destinataires
 - #5573 Éviter un Deprecated sur la fonction d’import CSV
