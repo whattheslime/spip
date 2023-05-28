@@ -216,13 +216,13 @@
             "source": {
                 "type": "git",
                 "url": "https://git.spip.net/spip/archiviste.git",
-                "reference": "5c980881bb09741e23b8511780ae661311adf86e"
+                "reference": "ec266acc521365b119594cd217737c611733580b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://get.spip.net/composer/dist/spip/archiviste/spip-archiviste-dev-master-1be186.zip",
-                "reference": "5c980881bb09741e23b8511780ae661311adf86e",
-                "shasum": "3eb75e84894b33571c1aeb20b2c6a873ffafabe5"
+                "url": "https://get.spip.net/composer/dist/spip/archiviste/spip-archiviste-dev-master-8bb655.zip",
+                "reference": "ec266acc521365b119594cd217737c611733580b",
+                "shasum": "5fda7afc2fc7ac670f5aa9f5a363381d0f004580"
             },
             "require": {
                 "ext-phar": "*",
@@ -270,12 +270,13 @@
             "keywords": [
                 "archives",
                 "tar",
+                "tgz",
                 "zip"
             ],
             "support": {
                 "issues": "https://git.spip.net/spip/archiviste/issues"
             },
-            "time": "2023-05-27T16:59:55+00:00"
+            "time": "2023-05-28T10:42:08+00:00"
         },
         {
             "name": "spip/bigup",
