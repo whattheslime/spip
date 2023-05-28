@@ -216,13 +216,13 @@
             "source": {
                 "type": "git",
                 "url": "https://git.spip.net/spip/archiviste.git",
-                "reference": "93493137798eaaf0bd2204e3af3220eb4f9ab7a0"
+                "reference": "5c980881bb09741e23b8511780ae661311adf86e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://get.spip.net/composer/dist/spip/archiviste/spip-archiviste-dev-master-85fff9.zip",
-                "reference": "93493137798eaaf0bd2204e3af3220eb4f9ab7a0",
-                "shasum": "eae1c78f9e5f66077609e0f1b10e900f8360f297"
+                "url": "https://get.spip.net/composer/dist/spip/archiviste/spip-archiviste-dev-master-1be186.zip",
+                "reference": "5c980881bb09741e23b8511780ae661311adf86e",
+                "shasum": "3eb75e84894b33571c1aeb20b2c6a873ffafabe5"
             },
             "require": {
                 "ext-phar": "*",
@@ -232,10 +232,11 @@
             },
             "require-dev": {
                 "dealerdirect/phpcodesniffer-composer-installer": "^1.0",
+                "phpcompatibility/php-compatibility": "^10.x-dev",
                 "phpstan/phpstan": "^1.10",
-                "phpunit/phpunit": "^10.0",
-                "rector/rector": "^0.15.23",
-                "spip/coding-standards": "^1.2"
+                "phpunit/phpunit": "^10.1",
+                "rector/rector": "^0.16",
+                "spip/coding-standards": "^1.3"
             },
             "default-branch": true,
             "type": "spip-plugin",
@@ -251,7 +252,7 @@
             },
             "autoload-dev": {
                 "psr-4": {
-                    "Spip\\Archiver\\Tests\\": "tests/"
+                    "Spip\\Test\\Archiver\\": "tests/"
                 }
             },
             "license": [
@@ -271,7 +272,10 @@
                 "tar",
                 "zip"
             ],
-            "time": "2023-03-23T17:37:40+00:00"
+            "support": {
+                "issues": "https://git.spip.net/spip/archiviste/issues"
+            },
+            "time": "2023-05-27T16:59:55+00:00"
         },
         {
             "name": "spip/bigup",
@@ -631,13 +635,13 @@
             "source": {
                 "type": "git",
                 "url": "https://git.spip.net/spip/mediabox.git",
-                "reference": "acbae3c3b040988941f37fc530412febd82e04c6"
+                "reference": "3b2b6d0c205dbfaeb597ec31e888b13d946bdf1a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://get.spip.net/composer/dist/spip/mediabox/spip-mediabox-dev-master-136bd7.zip",
-                "reference": "acbae3c3b040988941f37fc530412febd82e04c6",
-                "shasum": "9b1696ece46b467ced6c62f8615cbf388c894041"
+                "url": "https://get.spip.net/composer/dist/spip/mediabox/spip-mediabox-dev-master-9b4f3a.zip",
+                "reference": "3b2b6d0c205dbfaeb597ec31e888b13d946bdf1a",
+                "shasum": "25850c6ab68be98a611120ae9645cf4f19e25194"
             },
             "require": {
                 "php": "^8.1"
@@ -667,7 +671,7 @@
                 }
             ],
             "description": "Boîte multimédia",
-            "time": "2023-03-23T17:57:35+00:00"
+            "time": "2023-05-09T08:42:56+00:00"
         },
         {
             "name": "spip/medias",
@@ -852,13 +856,13 @@
             "source": {
                 "type": "git",
                 "url": "https://git.spip.net/spip/revisions.git",
-                "reference": "f0b5181ff87b87d42306e7f7adc2613f1b59068f"
+                "reference": "854fe62a4116bad4fa1c36171639369bdac985d2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://get.spip.net/composer/dist/spip/revisions/spip-revisions-dev-master-78d95e.zip",
-                "reference": "f0b5181ff87b87d42306e7f7adc2613f1b59068f",
-                "shasum": "d3cd247490c884dd92e66c0980b0f54aefd2c0e6"
+                "url": "https://get.spip.net/composer/dist/spip/revisions/spip-revisions-dev-master-d69f09.zip",
+                "reference": "854fe62a4116bad4fa1c36171639369bdac985d2",
+                "shasum": "cfb9bc9d510dae3f70f4f731d15650baa8a41248"
             },
             "require": {
                 "php": "^8.1"
@@ -888,7 +892,7 @@
                 }
             ],
             "description": "Suivi des modifications des objets éditoriaux",
-            "time": "2023-03-23T16:08:46+00:00"
+            "time": "2023-05-25T15:27:48+00:00"
         },
         {
             "name": "spip/safehtml",
@@ -1059,13 +1063,13 @@
             "source": {
                 "type": "git",
                 "url": "https://git.spip.net/spip/svp.git",
-                "reference": "51d5a29354d0bdceb3b78fe0b2b3470c3832803b"
+                "reference": "88995942c643224b926c00e9e3aeba81b97195f9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://get.spip.net/composer/dist/spip/svp/spip-svp-dev-master-7e95f6.zip",
-                "reference": "51d5a29354d0bdceb3b78fe0b2b3470c3832803b",
-                "shasum": "b42c7e6e0ec871a582355d32534d911c5a92b265"
+                "url": "https://get.spip.net/composer/dist/spip/svp/spip-svp-dev-master-68afe8.zip",
+                "reference": "88995942c643224b926c00e9e3aeba81b97195f9",
+                "shasum": "b614cf27cc3ed06daf15bed88ce150df6147e225"
             },
             "require": {
                 "php": "^8.1"
@@ -1100,7 +1104,7 @@
                 }
             ],
             "description": "SerVeur d'information et de téléchargement des Plugins",
-            "time": "2023-04-24T18:49:36+00:00"
+            "time": "2023-05-16T08:24:13+00:00"
         },
         {
             "name": "spip/tw",
@@ -1108,13 +1112,13 @@
             "source": {
                 "type": "git",
                 "url": "https://git.spip.net/spip/textwheel.git",
-                "reference": "4123cd021216aaa6900a6e76e558e0c2d1b63ddf"
+                "reference": "841704de73d5ef1d0aa3707c47df2fe5ca8e4e3c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://get.spip.net/composer/dist/spip/tw/spip-tw-dev-master-002010.zip",
-                "reference": "4123cd021216aaa6900a6e76e558e0c2d1b63ddf",
-                "shasum": "ead2ed58062802f83a8e12c3e015dc977cbfc73d"
+                "url": "https://get.spip.net/composer/dist/spip/tw/spip-tw-dev-master-37113c.zip",
+                "reference": "841704de73d5ef1d0aa3707c47df2fe5ca8e4e3c",
+                "shasum": "118f648c3bb37e0f78ab1ade252221074dfaa738"
             },
             "require": {
                 "php": "^8.1"
@@ -1144,7 +1148,7 @@
                 }
             ],
             "description": "Gestion de la typographie SPIP avec TextWheel",
-            "time": "2023-03-27T13:55:24+00:00"
+            "time": "2023-03-25T16:31:35+00:00"
         },
         {
             "name": "spip/urls",
@@ -1625,16 +1629,16 @@
         },
         {
             "name": "nikic/php-parser",
-            "version": "v4.15.4",
+            "version": "v4.15.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/nikic/PHP-Parser.git",
-                "reference": "6bb5176bc4af8bcb7d926f88718db9b96a2d4290"
+                "reference": "11e2663a5bc9db5d714eedb4277ee300403b4a9e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nikic/PHP-Parser/zipball/6bb5176bc4af8bcb7d926f88718db9b96a2d4290",
-                "reference": "6bb5176bc4af8bcb7d926f88718db9b96a2d4290",
+                "url": "https://api.github.com/repos/nikic/PHP-Parser/zipball/11e2663a5bc9db5d714eedb4277ee300403b4a9e",
+                "reference": "11e2663a5bc9db5d714eedb4277ee300403b4a9e",
                 "shasum": ""
             },
             "require": {
@@ -1675,9 +1679,9 @@
             ],
             "support": {
                 "issues": "https://github.com/nikic/PHP-Parser/issues",
-                "source": "https://github.com/nikic/PHP-Parser/tree/v4.15.4"
+                "source": "https://github.com/nikic/PHP-Parser/tree/v4.15.5"
             },
-            "time": "2023-03-05T19:49:14+00:00"
+            "time": "2023-05-19T20:20:00+00:00"
         },
         {
             "name": "phar-io/manifest",
@@ -1796,12 +1800,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/PHPCompatibility/PHPCompatibility.git",
-                "reference": "e69363c385081d127bd5bd010697bea25d15ca43"
+                "reference": "5f319e4d92aeb657b7f57fc847f0898d60ce3881"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/PHPCompatibility/PHPCompatibility/zipball/e69363c385081d127bd5bd010697bea25d15ca43",
-                "reference": "e69363c385081d127bd5bd010697bea25d15ca43",
+                "url": "https://api.github.com/repos/PHPCompatibility/PHPCompatibility/zipball/5f319e4d92aeb657b7f57fc847f0898d60ce3881",
+                "reference": "5f319e4d92aeb657b7f57fc847f0898d60ce3881",
                 "shasum": ""
             },
             "require": {
@@ -1863,20 +1867,20 @@
                 "issues": "https://github.com/PHPCompatibility/PHPCompatibility/issues",
                 "source": "https://github.com/PHPCompatibility/PHPCompatibility"
             },
-            "time": "2023-05-01T14:28:28+00:00"
+            "time": "2023-05-27T12:29:26+00:00"
         },
         {
             "name": "phpcsstandards/phpcsutils",
-            "version": "1.0.5",
+            "version": "1.0.6",
             "source": {
                 "type": "git",
                 "url": "https://github.com/PHPCSStandards/PHPCSUtils.git",
-                "reference": "0cfef5193e68e8ff179333d8ae937db62939b656"
+                "reference": "ba259eaaefac118648e1263919b9530667ffcf01"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/PHPCSStandards/PHPCSUtils/zipball/0cfef5193e68e8ff179333d8ae937db62939b656",
-                "reference": "0cfef5193e68e8ff179333d8ae937db62939b656",
+                "url": "https://api.github.com/repos/PHPCSStandards/PHPCSUtils/zipball/ba259eaaefac118648e1263919b9530667ffcf01",
+                "reference": "ba259eaaefac118648e1263919b9530667ffcf01",
                 "shasum": ""
             },
             "require": {
@@ -1888,9 +1892,8 @@
                 "ext-filter": "*",
                 "php-parallel-lint/php-console-highlighter": "^1.0",
                 "php-parallel-lint/php-parallel-lint": "^1.3.2",
-                "phpcsstandards/phpcsdevcs": "^1.1.3",
-                "phpunit/phpunit": "^4.8.36 || ^5.7.21 || ^6.0 || ^7.0 || ^8.0 || ^9.3",
-                "yoast/phpunit-polyfills": "^1.0.1"
+                "phpcsstandards/phpcsdevcs": "^1.1.6",
+                "yoast/phpunit-polyfills": "^1.0.5"
             },
             "type": "phpcodesniffer-standard",
             "extra": {
@@ -1937,20 +1940,20 @@
                 "issues": "https://github.com/PHPCSStandards/PHPCSUtils/issues",
                 "source": "https://github.com/PHPCSStandards/PHPCSUtils"
             },
-            "time": "2023-04-17T16:27:27+00:00"
+            "time": "2023-05-27T13:39:12+00:00"
         },
         {
             "name": "phpstan/phpstan",
-            "version": "1.10.14",
+            "version": "1.10.15",
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpstan/phpstan.git",
-                "reference": "d232901b09e67538e5c86a724be841bea5768a7c"
+                "reference": "762c4dac4da6f8756eebb80e528c3a47855da9bd"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpstan/phpstan/zipball/d232901b09e67538e5c86a724be841bea5768a7c",
-                "reference": "d232901b09e67538e5c86a724be841bea5768a7c",
+                "url": "https://api.github.com/repos/phpstan/phpstan/zipball/762c4dac4da6f8756eebb80e528c3a47855da9bd",
+                "reference": "762c4dac4da6f8756eebb80e528c3a47855da9bd",
                 "shasum": ""
             },
             "require": {
@@ -1999,20 +2002,20 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2023-04-19T13:47:27+00:00"
+            "time": "2023-05-09T15:28:01+00:00"
         },
         {
             "name": "phpunit/php-code-coverage",
-            "version": "10.1.1",
+            "version": "10.1.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/php-code-coverage.git",
-                "reference": "884a0da7f9f46f28b2cb69134217fd810b793974"
+                "reference": "db1497ec8dd382e82c962f7abbe0320e4882ee4e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/php-code-coverage/zipball/884a0da7f9f46f28b2cb69134217fd810b793974",
-                "reference": "884a0da7f9f46f28b2cb69134217fd810b793974",
+                "url": "https://api.github.com/repos/sebastianbergmann/php-code-coverage/zipball/db1497ec8dd382e82c962f7abbe0320e4882ee4e",
+                "reference": "db1497ec8dd382e82c962f7abbe0320e4882ee4e",
                 "shasum": ""
             },
             "require": {
@@ -2069,7 +2072,7 @@
             "support": {
                 "issues": "https://github.com/sebastianbergmann/php-code-coverage/issues",
                 "security": "https://github.com/sebastianbergmann/php-code-coverage/security/policy",
-                "source": "https://github.com/sebastianbergmann/php-code-coverage/tree/10.1.1"
+                "source": "https://github.com/sebastianbergmann/php-code-coverage/tree/10.1.2"
             },
             "funding": [
                 {
@@ -2077,20 +2080,20 @@
                     "type": "github"
                 }
             ],
-            "time": "2023-04-17T12:15:40+00:00"
+            "time": "2023-05-22T09:04:27+00:00"
         },
         {
             "name": "phpunit/php-file-iterator",
-            "version": "4.0.1",
+            "version": "4.0.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/php-file-iterator.git",
-                "reference": "fd9329ab3368f59fe1fe808a189c51086bd4b6bd"
+                "reference": "5647d65443818959172645e7ed999217360654b6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/php-file-iterator/zipball/fd9329ab3368f59fe1fe808a189c51086bd4b6bd",
-                "reference": "fd9329ab3368f59fe1fe808a189c51086bd4b6bd",
+                "url": "https://api.github.com/repos/sebastianbergmann/php-file-iterator/zipball/5647d65443818959172645e7ed999217360654b6",
+                "reference": "5647d65443818959172645e7ed999217360654b6",
                 "shasum": ""
             },
             "require": {
@@ -2129,7 +2132,8 @@
             ],
             "support": {
                 "issues": "https://github.com/sebastianbergmann/php-file-iterator/issues",
-                "source": "https://github.com/sebastianbergmann/php-file-iterator/tree/4.0.1"
+                "security": "https://github.com/sebastianbergmann/php-file-iterator/security/policy",
+                "source": "https://github.com/sebastianbergmann/php-file-iterator/tree/4.0.2"
             },
             "funding": [
                 {
@@ -2137,7 +2141,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2023-02-10T16:53:14+00:00"
+            "time": "2023-05-07T09:13:23+00:00"
         },
         {
             "name": "phpunit/php-invoker",
@@ -2322,16 +2326,16 @@
         },
         {
             "name": "phpunit/phpunit",
-            "version": "10.1.2",
+            "version": "10.1.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/phpunit.git",
-                "reference": "6f0cd95be71add539f8fd2be25b2a4a29789000b"
+                "reference": "2379ebafc1737e71cdc84f402acb6b7f04198b9d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/6f0cd95be71add539f8fd2be25b2a4a29789000b",
-                "reference": "6f0cd95be71add539f8fd2be25b2a4a29789000b",
+                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/2379ebafc1737e71cdc84f402acb6b7f04198b9d",
+                "reference": "2379ebafc1737e71cdc84f402acb6b7f04198b9d",
                 "shasum": ""
             },
             "require": {
@@ -2403,7 +2407,7 @@
             "support": {
                 "issues": "https://github.com/sebastianbergmann/phpunit/issues",
                 "security": "https://github.com/sebastianbergmann/phpunit/security/policy",
-                "source": "https://github.com/sebastianbergmann/phpunit/tree/10.1.2"
+                "source": "https://github.com/sebastianbergmann/phpunit/tree/10.1.3"
             },
             "funding": [
                 {
@@ -2419,7 +2423,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2023-04-22T07:38:19+00:00"
+            "time": "2023-05-11T05:16:22+00:00"
         },
         {
             "name": "sebastian/cli-parser",
@@ -3449,16 +3453,16 @@
         },
         {
             "name": "symplify/easy-coding-standard",
-            "version": "11.3.2",
+            "version": "11.3.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/easy-coding-standard/easy-coding-standard.git",
-                "reference": "d4159e06c0970e71a2a58d350160241e7cb3994b"
+                "reference": "c72eb4bdf30e54de2d31aef596f96642ff443741"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/easy-coding-standard/easy-coding-standard/zipball/d4159e06c0970e71a2a58d350160241e7cb3994b",
-                "reference": "d4159e06c0970e71a2a58d350160241e7cb3994b",
+                "url": "https://api.github.com/repos/easy-coding-standard/easy-coding-standard/zipball/c72eb4bdf30e54de2d31aef596f96642ff443741",
+                "reference": "c72eb4bdf30e54de2d31aef596f96642ff443741",
                 "shasum": ""
             },
             "require": {
@@ -3491,7 +3495,7 @@
             ],
             "support": {
                 "issues": "https://github.com/easy-coding-standard/easy-coding-standard/issues",
-                "source": "https://github.com/easy-coding-standard/easy-coding-standard/tree/11.3.2"
+                "source": "https://github.com/easy-coding-standard/easy-coding-standard/tree/11.3.4"
             },
             "funding": [
                 {
@@ -3503,7 +3507,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2023-03-22T15:28:51+00:00"
+            "time": "2023-05-10T14:44:08+00:00"
         },
         {
             "name": "theseer/tokenizer",
