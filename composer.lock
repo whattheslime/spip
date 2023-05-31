@@ -941,17 +941,17 @@
         },
         {
             "name": "spip/security",
-            "version": "1.5.1",
+            "version": "1.5.2",
             "source": {
                 "type": "git",
                 "url": "https://git.spip.net/spip-contrib-outils/securite.git",
-                "reference": "97d3110947fe39e5cc4a3af057d06929c4ec7fb7"
+                "reference": "de503c965196fee4e821ea89f68f2d25550f6f5e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://get.spip.net/composer/dist/spip/security/spip-security-1.5.1-98aa2e.zip",
-                "reference": "97d3110947fe39e5cc4a3af057d06929c4ec7fb7",
-                "shasum": "956a503cdfff97eee09c5952149a2e5107224a9f"
+                "url": "https://get.spip.net/composer/dist/spip/security/spip-security-1.5.2-1363da.zip",
+                "reference": "de503c965196fee4e821ea89f68f2d25550f6f5e",
+                "shasum": "0753d935720442c41ae6995f96440be998ed4848"
             },
             "type": "library",
             "extra": {
@@ -968,7 +968,7 @@
                 }
             ],
             "description": "Protection du site par blocage de certaines attaques",
-            "time": "2023-03-21T00:24:40+00:00"
+            "time": "2023-05-31T10:28:32+00:00"
         },
         {
             "name": "spip/sites",
