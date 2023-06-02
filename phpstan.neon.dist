@@ -1,5 +1,5 @@
 includes:
-	- phpstan-baseline.neon
+    - phpstan-baseline.neon
 
 parameters:
     paths:
@@ -8,4 +8,5 @@ parameters:
     excludePaths:
         analyseAndScan:
             - ecrire/lang
+            - ecrire/tests
     level: 0
