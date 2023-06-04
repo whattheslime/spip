@@ -12,19 +12,9 @@
 namespace Spip\Texte\Collecteur;
 
 /**
- * Extrait une langue des extraits polyglottes (`<multi>`)
+ * Collecter de balises html `<xx> ... </xx>` d'un texte
  *
- * Retrouve les balises `<multi>` d'un texte et remplace son contenu
- * par l'extrait correspondant à la langue demandée.
- *
- * Si la langue demandée n'est pas trouvée dans le multi, ni une langue
- * approchante (exemple `fr` si on demande `fr_TU`), on retourne l'extrait
- * correspondant à la langue par défaut (option 'lang_defaut'), qui est
- * par défaut la langue du site. Et si l'extrait n'existe toujours pas
- * dans cette langue, ça utilisera la première langue utilisée
- * dans la balise `<multi>`.
- *
- * Ne pas mettre de span@lang=fr si on est déjà en fr.
+ * @see extraire_balises()
  */
 class HtmlTag extends AbstractCollecteur {
 	protected static string $markPrefix = 'HTMLTAG';
@@ -50,6 +40,7 @@ class HtmlTag extends AbstractCollecteur {
 	 * @param array $options
 	 *   bool $detecter_presence
 	 *   bool $nb_max
+	 *   int  $profondeur
 	 * @return array
 	 */
 	public function collecter(string $texte, array $options = []): array {
