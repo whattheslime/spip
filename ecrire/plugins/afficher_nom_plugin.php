@@ -25,7 +25,6 @@ function plugins_afficher_nom_plugin_dist(
 	$class_li = 'item',
 	$dir_plugins = _DIR_PLUGINS
 ) {
-	static $id_input = 0;
 	static $versions = [];
 
 	$erreur = false;
@@ -50,12 +49,6 @@ function plugins_afficher_nom_plugin_dist(
 
 	// Cartouche Resume
 	$s .= "<div class='resume'>";
-
-	$prefix = $info['prefix'];
-	$dir = "$dir_plugins$plug_file/lang/$prefix";
-	$desc = plugin_propre($info['description'], $dir);
-	$url_stat = parametre_url($url_page, 'plugin', $dir_plugins . $plug_file);
-
 	$s .= "<strong class='nom'>" . typo($info['nom']) . '</strong>';
 	$s .= " <span class='version'>" . $info['version'] . '</span>';
 	$s .= " <span class='etat'> - " . plugin_etat_en_clair($info['etat']) . '</span>';
