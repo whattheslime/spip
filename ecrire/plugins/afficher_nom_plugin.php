@@ -35,7 +35,8 @@ function plugins_afficher_nom_plugin_dist(
 	$info = $get_infos($plug_file, false, $dir_plugins);
 
 	// numerotons les occurences d'un meme prefix
-	$versions[$info['prefix']] = isset($versions[$info['prefix']]) ? $versions[$info['prefix']] + 1 : '';
+	$versions[$info['prefix']] ??= 0;
+	$versions[$info['prefix']]++;
 	$id = $info['prefix'] . $versions[$info['prefix']];
 
 	$class = $class_li;
