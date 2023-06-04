@@ -32,6 +32,7 @@
 
 ### Fixed
 
+- Erreur Fatale en PHP 8.2 (Operand type) sur `plugins_afficher_nom_plugin_dist()`
 - spip-galaxie/trad.spip.net#8 Calcul d’URL de `generer_url_api` sans précision du paramètre `public`
 - #5603 Déclaration propre du pipeline notifications_destinataires
 - #5563 Filtre `couper` erroné dans certains cas avec des caractères utf8 multi bytes.
