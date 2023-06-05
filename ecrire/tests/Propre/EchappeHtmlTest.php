@@ -48,6 +48,63 @@ class EchappeHtmlTest extends TestCase
 	}
 
 	/**
+	 * @dataProvider providerSimpleEchappeHtml
+	 */
+	public function testSimpleEchappeHtml($expected, ...$args): void
+	{
+		$actual = echappe_html(
+			$args[0],
+			$args[1] ?? '',
+			$args[2] ?? false,
+			$args[3] ?? '',
+			__NAMESPACE__ . '\\callback_test_propre_echappe_html_'
+		);
+		$this->assertSame($expected, $actual);
+	}
+
+	public static function providerSimpleEchappeHtml(): array {
+		find_in_path('inc/texte_mini.php', '', true);
+		$befores = ['', 'Un texte avant', "Un texte avant sur\n\nplusieurs lignes et avec un < pour voir", "Un texte avant sur\n\nplusieurs lignes et avec un > pour voir"];
+		$afters = ['', 'Un texte après', "Un texte après sur\n\nplusieurs lignes et avec un < pour voir", "Un texte après sur\n\nplusieurs lignes et avec un > pour voir"];
+		$insides = ['', 'Un texte dedans', "\nun texte dedans", "un texte dedans\n", "\nun texte dedans\n"];
+		$balises = ['html', 'pre', 'code', 'cadre', 'frame', 'script', 'style', 'svg'];
+		$attrs = ['', 'class="truc"', 'classe="base64"', 'title="truc"'];
+		$pregs = ['', ',<(svg)(\b[^>]*)?>(.*)</\1>,UimsS'];
+		$essais = [];
+
+		$source = 'SIMPLE';
+		$no_transform = true;
+		foreach ($balises as $balise) {
+			foreach ($attrs as $attr) {
+				$cpt = 1;
+				foreach ($insides as $inside) {
+					$html = "<{$balise}". ($attr ? " $attr" : '') .">$inside</$balise>";
+					$code_echappe = \code_echappement($html, $source, $no_transform);
+					foreach ($befores as $before) {
+						foreach ($afters as $after) {
+							$texte = $before . $html . $after;
+							foreach ($pregs as $preg) {
+								// si preg vide et pas balise svg OU si preg ET balise SVG on attend un echappement
+								// sinon on attends le texte d'origine
+								if ($preg ? $balise === 'svg' : $balise !== 'svg') {
+									$expected = $before . $code_echappe . $after;
+								}
+								else {
+									$expected = $texte;
+								}
+								$essais["<{$balise}{$attr}>_$cpt"] = [$expected, $texte, $source, $no_transform, $preg];
+								$cpt++;
+							}
+						}
+					}
+				}
+			}
+		}
+
+		return $essais;
+	}
+
+	/**
 	 * @dataProvider providerPropreEchappeHtml
 	 */
 	public function testPropreEchappeHtml($expected, ...$args): void
