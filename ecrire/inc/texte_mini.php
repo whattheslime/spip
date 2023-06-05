@@ -4,6 +4,7 @@ use Spip\Texte\Collecteur\Idiomes;
 use Spip\Texte\Collecteur\Liens;
 use Spip\Texte\Collecteur\Modeles;
 use Spip\Texte\Collecteur\Multis;
+use Spip\Texte\Collecteur\HtmlTag as CollecteurHtmlTag;
 
 /***************************************************************************\
  *  SPIP, Système de publication pour l'internet                           *
@@ -101,46 +102,28 @@ function spip_balisage_code(string $corps, bool $bloc = false, string $attributs
 
 // XHTML - Preserver les balises-bloc : on liste ici tous les elements
 // dont on souhaite qu'ils provoquent un saut de paragraphe
+defined('_BALISES_BLOCS') || define('_BALISES_BLOCS', implode('|', CollecteurHtmlTag::$listeBalisesBloc));
+defined('_BALISES_BLOCS_REGEXP') || define('_BALISES_BLOCS_REGEXP', ',</?(' . _BALISES_BLOCS . ')[>[:space:]],iS');
 
-if (!defined('_BALISES_BLOCS')) {
-	define(
-		'_BALISES_BLOCS',
-		'address|applet|article|aside|blockquote|button|center|d[ltd]|div|fieldset|fig(ure|caption)|footer|form|h[1-6r]|hgroup|head|header|iframe|li|map|marquee|nav|noscript|object|ol|pre|section|t(able|[rdh]|body|foot|extarea)|ul|script|style'
-	);
-}
-
-if (!defined('_BALISES_BLOCS_REGEXP')) {
-	define('_BALISES_BLOCS_REGEXP', ',</?(' . _BALISES_BLOCS . ')[>[:space:]],iS');
-}
-
-//
-// Echapper les elements perilleux en les passant en base64
-//
-
-// Creer un bloc base64 correspondant a $rempl ; au besoin en marquant
-// une $source differente ; le script detecte automagiquement si ce qu'on
-// echappe est un div ou un span
+/**
+ * Echapper les elements perilleux en les passant en base64
+ *
+ * Creer un bloc base64 correspondant a $rempl ; au besoin en marquant
+ * une $source differente ; le script detecte automagiquement si ce qu'on
+ * echappe est un div ou un span
+ *
+ * @param $rempl
+ * @param $source
+ * @param $no_transform
+ * @param $mode
+ * @return string
+ */
 function code_echappement($rempl, $source = '', $no_transform = false, $mode = null) {
-	if (!strlen($rempl)) {
+	if (!is_string($rempl) or !strlen($rempl)) {
 		return '';
 	}
 
-	// Tester si on echappe en span ou en div
-	if (is_null($mode) or !in_array($mode, ['div', 'span'])) {
-		$mode = preg_match(',</?(' . _BALISES_BLOCS . ')[>[:space:]],iS', $rempl) ? 'div' : 'span';
-	}
-
-	// Decouper en morceaux, base64 a des probleme selon la taille de la pile
-	$taille = 30000;
-	$return = '';
-	for ($i = 0; $i < strlen($rempl); $i += $taille) {
-		// Convertir en base64 et cacher dans un attribut
-		// utiliser les " pour eviter le re-encodage de ' et &#8217
-		$base64 = base64_encode(substr($rempl, $i, $taille));
-		$return .= "<$mode class=\"base64$source\" title=\"$base64\"></$mode>";
-	}
-
-	return $return;
+	return CollecteurHtmlTag::echappementHtmlBase64((string)$rempl, (string)$source, in_array($mode, ['div', 'span']) ? $mode === 'div' : null);
 }
 
 
@@ -303,49 +286,21 @@ function echappe_html(
 	return $letexte;
 }
 
-//
-// Traitement final des echappements
-// Rq: $source sert a faire des echappements "a soi" qui ne sont pas nettoyes
-// par propre() : exemple dans multi et dans typo()
+/**
+ * Traitement final des echappements
+ * Rq: $source sert a faire des echappements "a soi" qui ne sont pas nettoyes
+ * par propre() : exemple dans multi et dans typo()
+ *
+ * @param string $letexte
+ * @param string $source
+ * @param string $filtre
+ * @return array|mixed|string|string[]
+ */
 function echappe_retour($letexte, $source = '', $filtre = '') {
-	if (strpos($letexte, (string) "base64$source")) {
-		# spip_log(spip_htmlspecialchars($letexte));  ## pour les curieux
-		$max_prof = 5;
-		while (
-			strpos($letexte, '<') !== false
-			and
-			preg_match_all(
-				',<(span|div)\sclass=[\'"]base64' . $source . '[\'"]\s(.*)>\s*</\1>,UmsS',
-				$letexte,
-				$regs,
-				PREG_SET_ORDER
-			)
-			and $max_prof--
-		) {
-			foreach ($regs as $reg) {
-				$rempl = base64_decode(extraire_attribut($reg[0], 'title'));
-				// recherche d'attributs supplementaires
-				$at = [];
-				foreach (['lang', 'dir'] as $attr) {
-					if ($a = extraire_attribut($reg[0], $attr)) {
-						$at[$attr] = $a;
-					}
-				}
-				if ($at) {
-					$rempl = '<' . $reg[1] . '>' . $rempl . '</' . $reg[1] . '>';
-					foreach ($at as $attr => $a) {
-						$rempl = inserer_attribut($rempl, $attr, $a);
-					}
-				}
-				if ($filtre) {
-					$rempl = $filtre($rempl);
-				}
-				$letexte = str_replace($reg[0], $rempl, $letexte);
-			}
-		}
+	if (!is_string($letexte) or !strlen($letexte)) {
+		return $letexte;
 	}
-
-	return $letexte;
+	return CollecteurHtmlTag::retablir_depuisHtmlBase64((string)$letexte, (string)$source, (string)$filtre);
 }
 
 // Reinserer le javascript de confiance (venant des modeles)

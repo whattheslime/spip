@@ -15,6 +15,25 @@ abstract class AbstractCollecteur {
 	protected static string $markPrefix = 'COLLECT';
 	protected string $markId;
 
+	public static array $listeBalisesBloc = [
+		'address', 'applet', 'article', 'aside',
+		'blockquote', 'button',
+		'center',
+		'dl', 'dt', 'dd', 'div',
+		'fieldset', 'figure', 'figcaption', 'footer', 'form',
+		'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'hr', 'hgroup', 'head', 'header',
+		'iframe',
+		'li',
+		'map', 'marquee',
+		'nav', 'noscript',
+		'object', 'ol',
+		'pre',
+		'section',
+		'table', 'tr', 'td', 'th', 'tbody', 'foot', 'textarea',
+		'ul',
+		'script', 'style'
+	];
+
 	/**
 	 * Collecteur générique des occurences d'une preg dans un texte avec leurs positions et longueur
 	 * @param string $texte
@@ -152,4 +171,105 @@ abstract class AbstractCollecteur {
 
 		return $texte;
 	}
+
+
+	/**
+	 * Creer un bloc base64 correspondant a $texte ; au besoin en marquant
+	 * une $source differente ;
+	 * si $isBloc n'est pas fourni, le script detecte automagiquement si ce qu'on
+	 * echappe est un div ou un span
+	 *
+	 * @param string $texte
+	 * @param string $source
+	 * @param bool|null $isBloc
+	 * @return string
+	 */
+	static public function echappementHtmlBase64(string $texte, string $source = '', ?bool $isBloc = null) {
+		static $pregBalisesBloc;
+
+		if (empty($texte)) {
+			return '';
+		}
+
+		// Tester si on echappe en span ou en div
+		if ($isBloc === null) {
+			if ($pregBalisesBloc === null) {
+				$pregBalisesBloc = ',</?(' . implode('|', static::$listeBalisesBloc) . ')[>[:space:]],iS';
+			}
+			$isBloc = preg_match($pregBalisesBloc, $texte);
+		}
+		$tag = $isBloc ? 'div' : 'span';
+
+		// Decouper en morceaux, base64 a des probleme selon la taille de la pile
+		$taille = 30000;
+		$return = '';
+		for ($i = 0; $i < strlen($texte); $i += $taille) {
+			// Convertir en base64 et cacher dans un attribut
+			// utiliser les " pour eviter le re-encodage de ' et &#8217
+			$base64 = base64_encode(substr($texte, $i, $taille));
+			$return .= "<$tag class=\"base64$source\" title=\"$base64\"></$tag>";
+		}
+
+		return $return;
+	}
+
+
+	/**
+	 * Rétablir les contenus échappés dans un texte en <(div|span) class="base64..."></(div|span)>
+	 * Rq: $source sert a faire des echappements "a soi" qui ne sont pas nettoyes
+	 * par propre() : exemple dans multi et dans typo()
+	 *
+	 * @param string $texte
+	 * @param string $source
+	 * @param string $filtre
+	 * @return string
+	 *
+	 * @see echappementHtmlBase64()
+	 *
+	 */
+	static public function retablir_depuisHtmlBase64(string $texte, string $source = '', string $filtre = '') {
+		if (strpos($texte, (string) "base64$source")) {
+			# spip_log(spip_htmlspecialchars($texte));  ## pour les curieux
+			$max_prof = 5;
+			$encore = true;
+			while ($encore and strpos($texte, 'base64' . $source) !== false and $max_prof--) {
+				$encore = false;
+				foreach (['span', 'div'] as $tag) {
+					$htmlTagCollecteur = new HtmlTag($tag,
+						"@<{$tag}\s(class=['\"]base64{$source}['\"]\stitle=['\"]([^'\">]*)['\"][^>]*?)(/?)>@isS",
+						"@</{$tag}\b[^>]*>@isS"
+					);
+					$collection = $htmlTagCollecteur->collecter($texte);
+					if (!empty($collection)) {
+						$collection = array_reverse($collection);
+						foreach ($collection as $c) {
+							$title = $c['match'][2];
+							if ($title and $rempl = base64_decode($title, true)) {
+								$encore = true;
+								// recherche d'attributs supplementaires
+								$at = [];
+								foreach (['lang', 'dir'] as $attr) {
+									if ($a = extraire_attribut($c['match'][0], $attr)) {
+										$at[$attr] = $a;
+									}
+								}
+								if ($at) {
+									$rempl = "<$tag>$rempl</$tag>";
+									foreach ($at as $attr => $a) {
+										$rempl = inserer_attribut($rempl, $attr, $a);
+									}
+								}
+								if ($filtre) {
+									$rempl = $filtre($rempl);
+								}
+								$texte = substr_replace($texte, $rempl, $c['pos'], $c['length']);
+							}
+						}
+					}
+				}
+			}
+		}
+		return $texte;
+	}
+
 }
