@@ -60,17 +60,6 @@ class HtmlTag extends AbstractCollecteur {
 		// collecter les balises fermantes
 		$closing = static::collecteur($texte, '', $hasUpperCaseTags ? '</' : '</' . $this->tag, $this->preg_closingtag);
 
-		#var_dump($opening);
-		#var_dump($closing);
-
-		// enlever les closing qui sont avant le premier opening, car ils n'ont pas de sens
-		$first_opening = reset($opening);
-		while (!empty($closing)
-		  and $first_closing = reset($closing)
-		  and $first_closing['pos'] < $first_opening['pos']) {
-			array_shift($closing);
-		}
-
 		$profondeur = ($options['profondeur'] ?? 1);
 		$tags = [];
 		while (!empty($opening)) {
@@ -84,6 +73,13 @@ class HtmlTag extends AbstractCollecteur {
 				$tags[] = $tag;
 			}
 			else {
+				// enlever les closing qui sont avant le premier opening, car ils n'ont pas de sens
+				while (!empty($closing)
+				  and $first_closing = reset($closing)
+				  and $first_closing['pos'] < $first_opening['pos']) {
+					array_shift($closing);
+				}
+
 				$need_closing = 0;
 				$next_closing = reset($closing);
 				$next_opening = reset($opening);
