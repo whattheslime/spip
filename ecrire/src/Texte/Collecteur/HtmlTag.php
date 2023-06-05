@@ -161,4 +161,27 @@ class HtmlTag extends AbstractCollecteur {
 		return $tags;
 	}
 
+	/**
+	 * @param string $texte
+	 * @param string $source
+	 * @param $callback_function
+	 * @param $callback_options
+	 * @return string
+	 */
+	public function echapper_enHtmlBase64(string $texte, string $source = '', $callback_function = null, $callback_options = []) {
+		if ($callback_function) {
+			$tag = $this->tag;
+			$legacy_callback = function($c, $options) use ($tag, $callback_function) {
+				// legacy : renseigner les infos correspondantes aux matchs de l'ancienne regexp
+				$regs = [
+					0 => $c['raw'],
+					1 => $tag,
+					2 => $c['match'][1] . $c['match'][2],
+					3 => $c['innerHtml'],
+				] + $c;
+				return $callback_function($regs, $options);
+			};
+		}
+		return parent::echapper_enHtmlBase64($texte, $source, $callback_function ? $legacy_callback : null, $callback_options);
+	}
 }

@@ -200,7 +200,8 @@ function traiter_echap_script_dist($regs, $options = []) {
 	return $regs[0];
 }
 
-define('_PROTEGE_BLOCS', ',<(html|pre|code|cadre|frame|script|style)(\b[^>]*)?>(.*)</\1>,UimsS');
+defined('_LISTE_PROTEGE_BLOCS') || define('_LISTE_PROTEGE_BLOCS', ['html', 'pre', 'code', 'cadre', 'frame', 'script', 'style']);
+defined('_PROTEGE_BLOCS') || define('_PROTEGE_BLOCS', ',<('.implode('|', _LISTE_PROTEGE_BLOCS).')(\b[^>]*)?>(.*)</\1>,UimsS');
 
 /**
  * pour $source voir commentaire infra (echappe_retour)
@@ -210,7 +211,7 @@ define('_PROTEGE_BLOCS', ',<(html|pre|code|cadre|frame|script|style)(\b[^>]*)?>(
  * @param string $letexte
  * @param string $source
  * @param bool $no_transform
- * @param string $preg
+ * @param ?array $html_tags
  * @param string $callback_prefix
  * @param array $callback_options
  * @return string|string[]
@@ -219,7 +220,7 @@ function echappe_html(
 	$letexte,
 	$source = '',
 	$no_transform = false,
-	$preg = '',
+	$html_tags = null,
 	$callback_prefix = '',
 	$callback_options = []
 ) {
@@ -227,33 +228,36 @@ function echappe_html(
 		return $letexte;
 	}
 
-	if (
-		($preg or str_contains($letexte, '<'))
-		and preg_match_all($preg ?: _PROTEGE_BLOCS, $letexte, $matches, PREG_SET_ORDER)
-	) {
-		foreach ($matches as $regs) {
-			$echap = '';
-			// echappements tels quels ?
-			if ($no_transform) {
-				$echap = $regs[0];
-			} else {
-				// sinon les traiter selon le cas
-				$callback_secure_prefix = ($callback_options['secure_prefix'] ?? '');
-				if (
-					function_exists($f = $callback_prefix . $callback_secure_prefix . 'traiter_echap_' . strtolower($regs[1]))
-					or function_exists($f = $f . '_dist')
-					or ($callback_secure_prefix and (
-						function_exists($f = $callback_prefix . 'traiter_echap_' . strtolower($regs[1]))
-						or function_exists($f = $f . '_dist')
-					))
-				) {
-					$echap = $f($regs, $callback_options);
-				}
-			}
+	$html_tags = $html_tags ?: _LISTE_PROTEGE_BLOCS;
+	// legacy : les appels fournissaient une preg pour repérer les balises HTML
+	if (!is_array($html_tags)) {
+		$t = explode(')', $html_tags ?: _PROTEGE_BLOCS, 2);
+		$t = reset($t);
+		$t = explode('(', $t, 2);
+		$t = end($t);
+		$html_tags = explode('|', $t);
+	}
 
-			$p = strpos($letexte, (string) $regs[0]);
-			$letexte = substr_replace($letexte, code_echappement($echap, $source, $no_transform), $p, strlen($regs[0]));
+	$tags_todo = $html_tags;
+	while (!empty($tags_todo)
+	  and $tag = array_shift($tags_todo)
+	  and str_contains($letexte, '<')) {
+		$htmlTagCollecteur = new CollecteurHtmlTag($tag);
+		$callback_secure_prefix = ($callback_options['secure_prefix'] ?? '');
+		$callback_function = false;
+		if (!$no_transform) {
+			if (
+				function_exists($f = $callback_prefix . $callback_secure_prefix . 'traiter_echap_' . $tag)
+				or function_exists($f = $f . '_dist')
+				or ($callback_secure_prefix and (
+					function_exists($f = $callback_prefix . 'traiter_echap_' . $tag)
+					or function_exists($f = $f . '_dist')
+				))
+			) {
+				$callback_function = $f;
+			}
 		}
+		$letexte = $htmlTagCollecteur->echapper_enHtmlBase64($letexte, $source, $callback_function, $callback_options);
 	}
 
 	if ($no_transform) {
@@ -264,7 +268,7 @@ function echappe_html(
 	// seulement si on a echappe les <script>
 	// (derogatoire car on ne peut pas faire passer < ? ... ? >
 	// dans une callback autonommee
-	if (strpos($preg ?: _PROTEGE_BLOCS, 'script') !== false) {
+	if (in_array('script', $html_tags)) {
 		if (
 			strpos($letexte, '<' . '?') !== false and preg_match_all(
 				',<[?].*($|[?]>),UisS',

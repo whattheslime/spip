@@ -272,4 +272,27 @@ abstract class AbstractCollecteur {
 		return $texte;
 	}
 
+	/**
+	 * @param string $texte
+	 * @param string $source
+	 * @param $callback_function
+	 * @param $callback_options
+	 * @return string
+	 */
+	public function echapper_enHtmlBase64(string $texte, string $source = '', $callback_function = null, $callback_options = []) {
+		$collection = $this->collecter($texte);
+		if (!empty($collection)) {
+			$collection = array_reverse($collection);
+			foreach ($collection as $c) {
+				$echap = $c['raw'];
+				if ($callback_function) {
+					$echap = $callback_function($c, $callback_options);
+				}
+				$echap = self::echappementHtmlBase64($echap, $source);
+				$texte = substr_replace($texte, $echap, $c['pos'], $c['length']);
+			}
+		}
+		return $texte;
+	}
+
 }
