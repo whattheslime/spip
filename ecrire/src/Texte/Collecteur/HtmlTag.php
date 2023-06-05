@@ -83,20 +83,29 @@ class HtmlTag extends AbstractCollecteur {
 				$need_closing = 0;
 				$next_closing = reset($closing);
 				$next_opening = reset($opening);
-				while ($next_opening and $next_closing and $next_opening['pos'] < $next_closing['pos']) {
-					while ($next_opening and $next_opening['pos'] < $next_closing['pos']) {
-						// si pas self closing, il faut un closing de plus
-						if (strpos($next_opening['raw'], '/>', -2) === false) {
-							$need_closing++;
-						}
+				// certaines balises comme <code> neutralisent le contenant, donc tout ce qui est avant le prochain closing doit etre ignoré
+				if (in_array($this->tag, ['code'])) {
+					while ($next_opening and $next_closing and $next_opening['pos'] < $next_closing['pos']) {
 						array_shift($opening);
 						$next_opening = reset($opening);
 					}
-					// il faut depiler les balises fermantes autant de fois que nécessaire et tant qu'on a pas une nouvelle balise ouvrante
-					while ($need_closing and $next_closing and (!$next_opening or $next_closing['pos'] < $next_opening['pos'])) {
-						array_shift($closing);
-						$need_closing--;
-						$next_closing = reset($closing);
+				}
+				else {
+					while ($next_opening and $next_closing and $next_opening['pos'] < $next_closing['pos']) {
+						while ($next_opening and $next_opening['pos'] < $next_closing['pos']) {
+							// si pas self closing, il faut un closing de plus
+							if (strpos($next_opening['raw'], '/>', -2) === false) {
+								$need_closing++;
+							}
+							array_shift($opening);
+							$next_opening = reset($opening);
+						}
+						// il faut depiler les balises fermantes autant de fois que nécessaire et tant qu'on a pas une nouvelle balise ouvrante
+						while ($need_closing and $next_closing and (!$next_opening or $next_closing['pos'] < $next_opening['pos'])) {
+							array_shift($closing);
+							$need_closing--;
+							$next_closing = reset($closing);
+						}
 					}
 				}
 				// si pas de fermeture, c'est une autofermante mal fermée...
