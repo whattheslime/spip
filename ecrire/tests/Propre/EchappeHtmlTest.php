@@ -60,6 +60,10 @@ class EchappeHtmlTest extends TestCase
 			__NAMESPACE__ . '\\callback_test_propre_echappe_html_'
 		);
 		$this->assertSame($expected, $actual);
+
+		// et on teste le retour
+		$retour = echappe_retour($actual, $args[1] ?? '');
+		$this->assertSame($args[0], $retour);
 	}
 
 	public static function providerSimpleEchappeHtml(): array {
