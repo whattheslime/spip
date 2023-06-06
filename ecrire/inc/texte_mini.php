@@ -280,7 +280,7 @@ function echappe_html(
 			foreach ($matches as $regs) {
 				$letexte = str_replace(
 					$regs[0],
-					code_echappement(highlight_string($regs[0], true), $source),
+					CollecteurHtmlTag::echappementHtmlBase64(highlight_string($regs[0], true), $source),
 					$letexte
 				);
 			}
@@ -433,23 +433,25 @@ function couper($texte, $taille = 50, $suite = null) {
 
 
 function protege_js_modeles($t) {
-	if (isset($GLOBALS['visiteur_session'])) {
-		if (preg_match_all(',<script.*?($|</script.),isS', $t, $r, PREG_SET_ORDER)) {
+	if (isset($GLOBALS['visiteur_session']) and strpos($t, '<') !== false) {
+		if (stripos($t, '<script') !== false
+			and preg_match_all(',<script.*?($|</script.),isS', $t, $r, PREG_SET_ORDER)) {
 			if (!defined('_PROTEGE_JS_MODELES')) {
 				include_spip('inc/acces');
 				define('_PROTEGE_JS_MODELES', creer_uniqid());
 			}
 			foreach ($r as $regs) {
-				$t = str_replace($regs[0], code_echappement($regs[0], 'javascript' . _PROTEGE_JS_MODELES), $t);
+				$t = str_replace($regs[0], CollecteurHtmlTag::echappementHtmlBase64($regs[0], 'javascript' . _PROTEGE_JS_MODELES), $t);
 			}
 		}
-		if (preg_match_all(',<\?php.*?($|\?' . '>),isS', $t, $r, PREG_SET_ORDER)) {
+		if (stripos($t, '<'.'?php') !== false
+			and preg_match_all(',<\?php.*?($|\?' . '>),isS', $t, $r, PREG_SET_ORDER)) {
 			if (!defined('_PROTEGE_PHP_MODELES')) {
 				include_spip('inc/acces');
 				define('_PROTEGE_PHP_MODELES', creer_uniqid());
 			}
 			foreach ($r as $regs) {
-				$t = str_replace($regs[0], code_echappement($regs[0], 'php' . _PROTEGE_PHP_MODELES), $t);
+				$t = str_replace($regs[0], CollecteurHtmlTag::echappementHtmlBase64($regs[0], 'php' . _PROTEGE_PHP_MODELES), $t);
 			}
 		}
 	}

@@ -205,11 +205,11 @@ class Multis extends AbstractCollecteur {
 								// il ne faut pas echapper en div si propre produit un seul paragraphe
 								include_spip('inc/texte');
 								$trad_propre = preg_replace(',(^<p[^>]*>|</p>$),Uims', '', (string) propre($trad));
-								$mode = preg_match(',</?(' . _BALISES_BLOCS . ')[>[:space:]],iS', $trad_propre) ? 'div' : 'span';
-								if ($mode === 'div') {
+								$isBloc = preg_match(',</?(' . _BALISES_BLOCS . ')[>[:space:]],iS', $trad_propre);
+								if ($isBloc) {
 									$trad = rtrim((string) $trad) . "\n\n";
 								}
-								$trad = code_echappement($trad, 'multi', false, $mode);
+								$trad = self::echappementHtmlBase64($trad, 'multi', $isBloc);
 								$trad = str_replace("'", '"', (string) inserer_attribut($trad, 'lang', $l));
 								if (lang_dir($l) !== lang_dir($lang)) {
 									$trad = str_replace("'", '"', (string) inserer_attribut($trad, 'dir', lang_dir($l)));

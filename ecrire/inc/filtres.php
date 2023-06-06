@@ -1612,8 +1612,6 @@ function post_autobr($texte, $delim = "\n_ ") {
  *
  * @filtre
  * @uses inc_traduire_dist()
- * @uses code_echappement()
- * @uses echappe_retour()
  *
  * @param string $letexte
  * @param string $lang

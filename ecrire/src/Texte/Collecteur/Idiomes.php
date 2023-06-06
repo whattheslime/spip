@@ -107,7 +107,7 @@ class Idiomes extends AbstractCollecteur {
 
 					// si pas de traduction, on laissera l'écriture de l'idiome entier dans le texte.
 					if (strlen($desc->texte ?? '')) {
-						$trad = code_echappement($desc->texte, 'idiome', false);
+						$trad = self::echappementHtmlBase64($desc->texte, 'idiome');
 						if ($l !== $lang) {
 							$trad = str_replace("'", '"', (string) inserer_attribut($trad, 'lang', $l));
 						}

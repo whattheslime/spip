@@ -198,7 +198,7 @@ class Modeles extends AbstractCollecteur {
 								$modele = $wrap_embed_html($m['raw'], $modele);
 							}
 
-							$rempl = code_echappement($modele, $echap);
+							$rempl = self::echappementHtmlBase64($modele, $echap);
 							$texte = substr_replace($texte, (string) $rempl, $m['pos'] + $offset_pos, $m['length']);
 							$offset_pos += strlen((string) $rempl) - $m['length'];
 						}
