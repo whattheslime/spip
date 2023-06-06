@@ -424,31 +424,24 @@ function couper($texte, $taille = 50, $suite = null) {
 }
 
 
-function protege_js_modeles($t) {
-	if (isset($GLOBALS['visiteur_session']) and strpos($t, '<') !== false) {
-		if (stripos($t, '<script') !== false
-			and preg_match_all(',<script.*?($|</script.),isS', $t, $r, PREG_SET_ORDER)) {
-			if (!defined('_PROTEGE_JS_MODELES')) {
-				include_spip('inc/acces');
-				define('_PROTEGE_JS_MODELES', creer_uniqid());
-			}
-			foreach ($r as $regs) {
-				$t = str_replace($regs[0], CollecteurHtmlTag::echappementHtmlBase64($regs[0], 'javascript' . _PROTEGE_JS_MODELES), $t);
-			}
-		}
-		if (stripos($t, '<'.'?php') !== false
-			and preg_match_all(',<\?php.*?($|\?' . '>),isS', $t, $r, PREG_SET_ORDER)) {
-			if (!defined('_PROTEGE_PHP_MODELES')) {
-				include_spip('inc/acces');
-				define('_PROTEGE_PHP_MODELES', creer_uniqid());
-			}
-			foreach ($r as $regs) {
-				$t = str_replace($regs[0], CollecteurHtmlTag::echappementHtmlBase64($regs[0], 'php' . _PROTEGE_PHP_MODELES), $t);
+function protege_js_modeles($texte) {
+	if (isset($GLOBALS['visiteur_session']) and strpos($texte, '<') !== false) {
+		$tags = [
+			'javascript' => ['tag' => 'script', 'preg' => ',<script.*?($|</script.),isS', 'c' => '_PROTEGE_JS_MODELES'],
+			'php' => ['tag' => '?php', 'preg' => ',<\?php.*?($|\?' . '>),isS', 'c' => '_PROTEGE_PHP_MODELES'],
+		];
+		foreach ($tags as $k => $t) {
+			if (stripos($texte, '<' . $t['tag']) !== false) {
+				if (!defined($t['c'])) {
+					include_spip('inc/acces');
+					define($t['c'], creer_uniqid());
+				}
+				$collecteurHtmlTag = new CollecteurHtmlTag($t['tag'], $t['preg'], '');
+				$texte = $collecteurHtmlTag->echapper_enHtmlBase64($texte, $k . constant($t['c']));
 			}
 		}
 	}
-
-	return $t;
+	return $texte;
 }
 
 
