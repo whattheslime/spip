@@ -267,24 +267,10 @@ function echappe_html(
 	// Echapper le php pour faire joli (ici, c'est pas pour la securite)
 	// seulement si on a echappe les <script>
 	// (derogatoire car on ne peut pas faire passer < ? ... ? >
-	// dans une callback autonommee
+	// dans une callback autonommee + la preg pour collecter est un peu spécifique
 	if (in_array('script', $html_tags ?: CollecteurHtmlTag::$listeBalisesAProteger)) {
-		if (
-			strpos($letexte, '<' . '?') !== false and preg_match_all(
-				',<[?].*($|[?]>),UisS',
-				$letexte,
-				$matches,
-				PREG_SET_ORDER
-			)
-		) {
-			foreach ($matches as $regs) {
-				$letexte = str_replace(
-					$regs[0],
-					CollecteurHtmlTag::echappementHtmlBase64(highlight_string($regs[0], true), $source),
-					$letexte
-				);
-			}
-		}
+		$htmlTagCollecteur = new CollecteurHtmlTag('?', '@<[?].*($|[?]>)@UsS', '');
+		$letexte = $htmlTagCollecteur->echapper_enHtmlBase64($letexte, $source, function ($c, $o) { return highlight_string($c['raw'], true);});
 	}
 
 	return $letexte;

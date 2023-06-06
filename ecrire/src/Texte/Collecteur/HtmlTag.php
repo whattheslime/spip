@@ -51,7 +51,7 @@ class HtmlTag extends AbstractCollecteur {
 		}
 
 		$upperTag = strtoupper($this->tag);
-		$hasUpperCaseTags = (strpos($texte, '<' . $upperTag) !== false or strpos($texte, '</' . $upperTag) !== false);
+		$hasUpperCaseTags = ($upperTag !== $this->tag and (strpos($texte, '<' . $upperTag) !== false or strpos($texte, '</' . $upperTag) !== false));
 
 		// collecter les balises ouvrantes
 		$opening = static::collecteur($texte, '', $hasUpperCaseTags ? '<' : '<' . $this->tag, $this->preg_openingtag, empty($options['detecter_presence']) ? 0 : 1);
