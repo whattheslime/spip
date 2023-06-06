@@ -138,16 +138,13 @@ function traiter_echap_pre_dist($regs, $options = []) {
 	$pre = $regs[3];
 
 	// echapper les < dans <code>
-	// on utilise _PROTEGE_BLOCS pour simplifier le code et la maintenance, mais on est interesse que par <code>
-	if (
-		strpos($pre, '<') !== false
-		and preg_match_all(_PROTEGE_BLOCS, $pre, $matches, PREG_SET_ORDER)
-	) {
-		foreach ($matches as $m) {
-			if ($m[1] === 'code') {
-				$code = '<code' . $m[2] . '>' . spip_htmlspecialchars($m[3]) . '</code>';
-				$pre = str_replace($m[0], $code, $pre);
-			}
+	if (strpos($pre, '<') !== false) {
+		$collecteurCode = new CollecteurHtmlTag('code');
+		$collections = $collecteurCode->collecter($pre);
+		$collections = array_reverse($collections);
+		foreach ($collections as $c) {
+			$code = $c['opening'] . spip_htmlspecialchars($c['innerHtml']) . $c['closing'];
+			$pre = substr_replace($pre, $code, $c['pos'], $c['length']);
 		}
 	}
 	return "<pre>$pre</pre>";
@@ -204,13 +201,13 @@ defined('_PROTEGE_BLOCS') || define('_PROTEGE_BLOCS', ',<('.implode('|', Collect
 
 /**
  * pour $source voir commentaire infra (echappe_retour)
- * pour $no_transform voir le filtre post_autobr dans inc/filtres
- * @see post_autobr()
  *
  * @param string $letexte
  * @param string $source
  * @param bool $no_transform
+ *   déprécié, cet argument ne doit plus être utilisé, utiliser directement Spip\Texte\Collecteur\HtmlTag::proteger_balisesHtml dans ce cas
  * @param ?array $html_tags
+ *   le passage d'une preg au format string est déprécié
  * @param string $callback_prefix
  * @param array $callback_options
  * @return string|string[]
@@ -227,6 +224,10 @@ function echappe_html(
 		return $letexte;
 	}
 
+	if ($no_transform !== false) {
+		trigger_deprecation('spip', '5.0', 'Using "%s" arg is deprecated, use directly "%s" instead.', '$no_transform', 'Spip\Texte\Collecteur\HtmlTag::proteger_balisesHtml', __FUNCTION__);
+	}
+
 	// appels legacy avec un ''
 	if (empty($html_tags)) {
 		$html_tags = null;
@@ -234,6 +235,7 @@ function echappe_html(
 
 	// legacy : les appels fournissaient une preg pour repérer les balises HTML
 	if ($html_tags and !is_array($html_tags)) {
+		trigger_deprecation('spip', '5.0', 'Using a preg for "%s" arg is deprecated, use a tag array instead.', '$html_tags', __FUNCTION__);
 		$t = explode(')', $html_tags, 2);
 		$t = reset($t);
 		$t = explode('(', $t, 2);
