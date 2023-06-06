@@ -1,5 +1,7 @@
 <?php
 
+use Spip\Texte\Collecteur\HtmlTag as CollecteurHtmlTag;
+
 /***************************************************************************\
  *  SPIP, Système de publication pour l'internet                           *
  *                                                                         *
@@ -100,52 +102,38 @@ function produire_image_math($tex) {
  */
 function traiter_math($letexte, $source = '', $defaire_amp = false) {
 
-	$texte_a_voir = $letexte;
-	while (($debut = strpos($texte_a_voir, '<math>')) !== false) {
-		if (!$fin = strpos($texte_a_voir, '</math>')) {
-			$fin = strlen($texte_a_voir);
-		}
+	$collecteurMath = new CollecteurHtmlTag('math', '@<math>(.*)(</math>|$)@iUsS', '');
+	$collection = $collecteurMath->collecter($letexte);
+	$collection = array_reverse($collection);
 
-		$texte_debut = substr($texte_a_voir, 0, $debut);
-		$texte_milieu = substr(
-			$texte_a_voir,
-			$debut + strlen('<math>'),
-			$fin - $debut - strlen('<math>')
-		);
-		$texte_fin = substr(
-			$texte_a_voir,
-			$fin + strlen('</math>'),
-			strlen($texte_a_voir)
-		);
+	foreach ($collection as $c) {
+		$texte_milieu = $c['match'][1];
 
-		// Les doubles $$x^2$$ en mode 'div'
-		while ((preg_match(',[$][$]([^$]+)[$][$],', $texte_milieu, $regs))) {
-			$expression = $regs[1];
-			if ($defaire_amp) {
-				$expression = str_replace('&amp;', '&', $expression);
+		$traitements = [
+			// Les doubles $$x^2$$ en mode 'div'
+			['str' => '$$', 'preg' => ',[$][$]([^$]+)[$][$],', 'pre' => "\n<p class=\"spip\" style=\"text-align: center;\">", "post" => "</p>\n"],
+			// Les simples $x^2$ en mode 'span'
+			['str' => '$', 'preg' => ',[$]([^$]+)[$],'],
+		];
+		foreach ($traitements as $t) {
+			while (
+				strpos($texte_milieu, $t['str']) !== false
+				and (preg_match($t['preg'], $texte_milieu, $regs))) {
+				$expression = $regs[1];
+				if ($defaire_amp) {
+					$expression = str_replace('&amp;', '&', $expression);
+				}
+				$echap = produire_image_math($expression);
+				$echap = ($t['pre'] ?? '') . $echap . ($t['post'] ?? '');
+				$echap = CollecteurHtmlTag::echappementHtmlBase64($echap, $source);
+
+				$pos = strpos($texte_milieu, (string) $regs[0]);
+				$texte_milieu = substr_replace($texte_milieu, $echap, $pos, strlen($regs[0]));
 			}
-			$echap = "\n<p class=\"spip\" style=\"text-align: center;\">" . produire_image_math($expression) . "</p>\n";
-			$pos = strpos($texte_milieu, (string) $regs[0]);
-			$texte_milieu = substr($texte_milieu, 0, $pos)
-				. code_echappement($echap, $source)
-				. substr($texte_milieu, $pos + strlen($regs[0]));
 		}
 
-		// Les simples $x^2$ en mode 'span'
-		while ((preg_match(',[$]([^$]+)[$],', $texte_milieu, $regs))) {
-			$expression = $regs[1];
-			if ($defaire_amp) {
-				$expression = str_replace('&amp;', '&', $expression);
-			}
-			$echap = produire_image_math($expression);
-			$pos = strpos($texte_milieu, (string) $regs[0]);
-			$texte_milieu = substr($texte_milieu, 0, $pos)
-				. code_echappement($echap, $source)
-				. substr($texte_milieu, $pos + strlen($regs[0]));
-		}
-
-		$texte_a_voir = $texte_debut . $texte_milieu . $texte_fin;
+		$letexte = substr_replace($letexte, $texte_milieu, $c['pos'], $c['length']);
 	}
 
-	return $texte_a_voir;
+	return $letexte;
 }
