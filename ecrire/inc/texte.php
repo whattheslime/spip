@@ -1,5 +1,7 @@
 <?php
 
+use Spip\Texte\Collecteur\HtmlTag as CollecteurHtmlTag;
+
 /***************************************************************************\
  *  SPIP, Système de publication pour l'internet                           *
  *                                                                         *
@@ -242,7 +244,7 @@ function typo($letexte, $echapper = true, $connect = null, $env = []) {
 
 	// Echapper les codes <html> etc
 	if ($echapper) {
-		$letexte = echappe_html($letexte, 'TYPO');
+		$letexte = CollecteurHtmlTag::proteger_balisesHtml($letexte, 'TYPO');
 	}
 
 	//
@@ -262,7 +264,7 @@ function typo($letexte, $echapper = true, $connect = null, $env = []) {
 
 	// reintegrer les echappements
 	if ($echapper) {
-		$letexte = echappe_retour($letexte, 'TYPO');
+		$letexte = CollecteurHtmlTag::retablir_depuisHtmlBase64($letexte, 'TYPO');
 	}
 
 	// Dans les appels directs hors squelette, securiser ici aussi

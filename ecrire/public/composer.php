@@ -1,5 +1,7 @@
 <?php
 
+use Spip\Texte\Collecteur\HtmlTag as CollecteurHtmlTag;
+
 /***************************************************************************\
  *  SPIP, Système de publication pour l'internet                           *
  *                                                                         *
@@ -563,7 +565,7 @@ function lang_select_public($lang, $lang_select, $titre = null) {
 		$lang_select !== 'oui'
 		and strlen($titre) > 10
 		and str_contains($titre, '<multi>')
-		and str_contains(echappe_html($titre), '<multi>')
+		and str_contains(CollecteurHtmlTag::proteger_balisesHtml($titre), '<multi>')
 	) {
 		$lang = $GLOBALS['spip_lang'];
 	}
