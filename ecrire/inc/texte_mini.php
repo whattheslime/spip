@@ -200,8 +200,7 @@ function traiter_echap_script_dist($regs, $options = []) {
 	return $regs[0];
 }
 
-defined('_LISTE_PROTEGE_BLOCS') || define('_LISTE_PROTEGE_BLOCS', ['html', 'pre', 'code', 'cadre', 'frame', 'script', 'style']);
-defined('_PROTEGE_BLOCS') || define('_PROTEGE_BLOCS', ',<('.implode('|', _LISTE_PROTEGE_BLOCS).')(\b[^>]*)?>(.*)</\1>,UimsS');
+defined('_PROTEGE_BLOCS') || define('_PROTEGE_BLOCS', ',<('.implode('|', CollecteurHtmlTag::$listeBalisesAProteger).')(\b[^>]*)?>(.*)</\1>,UimsS');
 
 /**
  * pour $source voir commentaire infra (echappe_retour)
@@ -228,24 +227,24 @@ function echappe_html(
 		return $letexte;
 	}
 
-	$html_tags = $html_tags ?: _LISTE_PROTEGE_BLOCS;
+	// appels legacy avec un ''
+	if (empty($html_tags)) {
+		$html_tags = null;
+	}
+
 	// legacy : les appels fournissaient une preg pour repérer les balises HTML
-	if (!is_array($html_tags)) {
-		$t = explode(')', $html_tags ?: _PROTEGE_BLOCS, 2);
+	if ($html_tags and !is_array($html_tags)) {
+		$t = explode(')', $html_tags, 2);
 		$t = reset($t);
 		$t = explode('(', $t, 2);
 		$t = end($t);
 		$html_tags = explode('|', $t);
 	}
 
-	$tags_todo = $html_tags;
-	while (!empty($tags_todo)
-	  and $tag = array_shift($tags_todo)
-	  and str_contains($letexte, '<')) {
-		$htmlTagCollecteur = new CollecteurHtmlTag($tag);
+	$callbacks = [];
+	if (!$no_transform) {
 		$callback_secure_prefix = ($callback_options['secure_prefix'] ?? '');
-		$callback_function = false;
-		if (!$no_transform) {
+		foreach ($html_tags ?: CollecteurHtmlTag::$listeBalisesAProteger as $tag) {
 			if (
 				function_exists($f = $callback_prefix . $callback_secure_prefix . 'traiter_echap_' . $tag)
 				or function_exists($f = $f . '_dist')
@@ -254,11 +253,12 @@ function echappe_html(
 					or function_exists($f = $f . '_dist')
 				))
 			) {
-				$callback_function = $f;
+				$callbacks[$tag] = $f;
 			}
 		}
-		$letexte = $htmlTagCollecteur->echapper_enHtmlBase64($letexte, $source, $callback_function, $callback_options);
 	}
+
+	$letexte = CollecteurHtmlTag::proteger_balisesHtml($letexte, $source, $html_tags, $callbacks, $callback_options);
 
 	if ($no_transform) {
 		return $letexte;
@@ -268,7 +268,7 @@ function echappe_html(
 	// seulement si on a echappe les <script>
 	// (derogatoire car on ne peut pas faire passer < ? ... ? >
 	// dans une callback autonommee
-	if (in_array('script', $html_tags)) {
+	if (in_array('script', $html_tags ?: CollecteurHtmlTag::$listeBalisesAProteger)) {
 		if (
 			strpos($letexte, '<' . '?') !== false and preg_match_all(
 				',<[?].*($|[?]>),UisS',

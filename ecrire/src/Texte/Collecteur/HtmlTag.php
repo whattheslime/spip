@@ -27,6 +27,8 @@ class HtmlTag extends AbstractCollecteur {
 	protected string $preg_closingtag;
 	protected string $tag;
 
+	public static array $listeBalisesAProteger = ['html', 'pre', 'code', 'cadre', 'frame', 'script', 'style'];
+
 	public function __construct(string $tag, ?string $preg_openingtag = null, ?string $preg_closingtag = null) {
 
 		$tag = strtolower($tag);
@@ -178,10 +180,42 @@ class HtmlTag extends AbstractCollecteur {
 					1 => $tag,
 					2 => $c['match'][1] . $c['match'][2],
 					3 => $c['innerHtml'],
+					'tag' => $this->tag,
 				] + $c;
 				return $callback_function($regs, $options);
 			};
 		}
 		return parent::echapper_enHtmlBase64($texte, $source, $callback_function ? $legacy_callback : null, $callback_options);
+	}
+
+
+	/**
+	 * pour $source voir commentaire infra (echappe_retour)
+	 * pour $no_transform voir le filtre post_autobr dans inc/filtres
+	 *
+	 * @param string $texte
+	 * @param string $source
+	 * @param bool $no_transform
+	 * @param ?array $html_tags
+	 * @param string $callback_prefix
+	 * @param array $callback_options
+	 * @return string|string[]
+	 */
+	static public function proteger_balisesHtml(string $texte, string $source = '', ?array $html_tags = null, array $callbacks_function = [], $callback_options = []) {
+		if (empty($texte)) {
+			return $texte;
+		}
+
+		$html_tags = $html_tags ?: self::$listeBalisesAProteger;
+
+		$tags_todo = $html_tags;
+		while (!empty($tags_todo)
+		  and $tag = array_shift($tags_todo)
+		  and str_contains($texte, '<')) {
+			$htmlTagCollecteur = new self($tag);
+			$texte = $htmlTagCollecteur->echapper_enHtmlBase64($texte, $source, $callbacks_function[$tag] ?? null, $callback_options);
+		}
+
+		return $texte;
 	}
 }
