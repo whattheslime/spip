@@ -195,9 +195,10 @@ abstract class AbstractCollecteur {
 	 * @param string $texte
 	 * @param string $source
 	 * @param bool|null $isBloc
+	 * @param array $attributs
 	 * @return string
 	 */
-	static public function echappementHtmlBase64(string $texte, string $source = '', ?bool $isBloc = null) {
+	static public function echappementHtmlBase64(string $texte, string $source = '', ?bool $isBloc = null, $attributs = []) {
 
 		if (empty($texte)) {
 			return '';
@@ -206,6 +207,15 @@ abstract class AbstractCollecteur {
 		// Tester si on echappe en span ou en div
 		$isBloc = $isBloc ?? self::echappementTexteContientBaliseBloc($texte);
 		$tag = $isBloc ? 'div' : 'span';
+		$atts = '';
+		if (!empty($attributs)) {
+			if (!function_exists('attribut_html')) {
+				include_spip('inc/filtres');
+			}
+			foreach ($attributs as $k => $v) {
+				$atts .= " $k=\"" . \attribut_html($v) . '"';
+			}
+		}
 
 		// Decouper en morceaux, base64 a des probleme selon la taille de la pile
 		$taille = 30000;
@@ -214,7 +224,7 @@ abstract class AbstractCollecteur {
 			// Convertir en base64 et cacher dans un attribut
 			// utiliser les " pour eviter le re-encodage de ' et &#8217
 			$base64 = base64_encode(substr($texte, $i, $taille));
-			$return .= "<$tag class=\"base64$source\" title=\"$base64\"></$tag>";
+			$return .= "<$tag class=\"base64$source\" title=\"$base64\"{$atts}></$tag>";
 		}
 
 		return $return;

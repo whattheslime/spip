@@ -170,9 +170,6 @@ class Multis extends AbstractCollecteur {
 				if (!function_exists('approcher_langue')) {
 					include_spip('inc/lang');
 				}
-				if (!function_exists('code_echappement')) {
-					include_spip('inc/texte_mini');
-				}
 
 				$offset_pos = 0;
 				foreach ($multis as $m) {
@@ -209,11 +206,11 @@ class Multis extends AbstractCollecteur {
 								if ($isBloc) {
 									$trad = rtrim((string) $trad) . "\n\n";
 								}
-								$trad = self::echappementHtmlBase64($trad, 'multi', $isBloc);
-								$trad = str_replace("'", '"', (string) inserer_attribut($trad, 'lang', $l));
+								$attributs = ['lang' => $l];
 								if (lang_dir($l) !== lang_dir($lang)) {
-									$trad = str_replace("'", '"', (string) inserer_attribut($trad, 'dir', lang_dir($l)));
+									$attributs['dir'] = lang_dir($l);
 								}
+								$trad = self::echappementHtmlBase64($trad, 'multi', $isBloc, $attributs);
 								if (!$echappe_span) {
 									$trad = echappe_retour($trad, 'multi');
 								}
