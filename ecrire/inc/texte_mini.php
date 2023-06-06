@@ -305,6 +305,7 @@ function echappe_retour_modeles($letexte, $interdire_scripts = false) {
 	$letexte = CollecteurHtmlTag::retablir_depuisHtmlBase64((string)$letexte);
 
 	// Dans les appels directs hors squelette, securiser aussi ici
+	// c'est interdire_scripts() qui rétablit les scripts des modeles echappés avec _PROTEGE_JS_MODELES et _PROTEGE_PHP_MODELES
 	if ($interdire_scripts) {
 		$letexte = interdire_scripts($letexte);
 	}
