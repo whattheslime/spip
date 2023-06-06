@@ -172,6 +172,19 @@ abstract class AbstractCollecteur {
 		return $texte;
 	}
 
+	/**
+	 * Detecter si un texte contient des balises bloc ou non
+	 * @param string $texte
+	 * @return bool
+	 */
+	static public function echappementTexteContientBaliseBloc(string $texte) {
+		static $pregBalisesBloc;
+
+		if ($pregBalisesBloc === null) {
+			$pregBalisesBloc = ',</?(' . implode('|', static::$listeBalisesBloc) . ')[>[:space:]],iS';
+		}
+		return (strpos($texte, '<') !== false and preg_match($pregBalisesBloc, $texte)) ? true : false;
+	}
 
 	/**
 	 * Creer un bloc base64 correspondant a $texte ; au besoin en marquant
@@ -185,19 +198,13 @@ abstract class AbstractCollecteur {
 	 * @return string
 	 */
 	static public function echappementHtmlBase64(string $texte, string $source = '', ?bool $isBloc = null) {
-		static $pregBalisesBloc;
 
 		if (empty($texte)) {
 			return '';
 		}
 
 		// Tester si on echappe en span ou en div
-		if ($isBloc === null) {
-			if ($pregBalisesBloc === null) {
-				$pregBalisesBloc = ',</?(' . implode('|', static::$listeBalisesBloc) . ')[>[:space:]],iS';
-			}
-			$isBloc = preg_match($pregBalisesBloc, $texte);
-		}
+		$isBloc = $isBloc ?? self::echappementTexteContientBaliseBloc($texte);
 		$tag = $isBloc ? 'div' : 'span';
 
 		// Decouper en morceaux, base64 a des probleme selon la taille de la pile

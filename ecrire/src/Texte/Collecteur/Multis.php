@@ -205,7 +205,7 @@ class Multis extends AbstractCollecteur {
 								// il ne faut pas echapper en div si propre produit un seul paragraphe
 								include_spip('inc/texte');
 								$trad_propre = preg_replace(',(^<p[^>]*>|</p>$),Uims', '', (string) propre($trad));
-								$isBloc = preg_match(',</?(' . _BALISES_BLOCS . ')[>[:space:]],iS', $trad_propre);
+								$isBloc = self::echappementTexteContientBaliseBloc($trad_propre);
 								if ($isBloc) {
 									$trad = rtrim((string) $trad) . "\n\n";
 								}
