@@ -77,6 +77,7 @@ class HtmlTag extends AbstractCollecteur {
 				$tag['opening'] = $tag['raw'];
 				$tag['closing'] = '';
 				$tag['innerHtml'] = '';
+				$tag['attributs'] = trim(substr($tag['opening'], strlen($this->tag) + 1, -2));
 				$tags[] = $tag;
 			}
 			else {
@@ -121,6 +122,7 @@ class HtmlTag extends AbstractCollecteur {
 					$tag['opening'] = $tag['raw'];
 					$tag['closing'] = '';
 					$tag['innerHtml'] = '';
+					$tag['attributs'] = trim(substr($tag['opening'], strlen($this->tag) + 1, -1));
 					$tags[] = $tag;
 				}
 				else {
@@ -132,6 +134,7 @@ class HtmlTag extends AbstractCollecteur {
 					$tag['raw'] = substr($texte, $tag['pos'], $tag['length']);
 					$tag['innerHtml'] = $innerHtml;
 					$tag['closing'] = $next_closing['raw'];
+					$tag['attributs'] = trim(substr($tag['opening'], strlen($this->tag) + 1, -1));
 					$tags[] = $tag;
 				}
 			}
