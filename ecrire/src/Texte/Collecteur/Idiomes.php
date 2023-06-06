@@ -115,7 +115,7 @@ class Idiomes extends AbstractCollecteur {
 							$trad = str_replace("'", '"', (string) inserer_attribut($trad, 'dir', lang_dir($l)));
 						}
 						if (!$echappe_span) {
-							$trad = echappe_retour($trad, 'idiome');
+							$trad = self::retablir_depuisHtmlBase64($trad, 'idiome');
 						}
 						$texte = substr_replace($texte, (string) $trad, $idiome['pos'] + $offset_pos, $idiome['length']);
 						$offset_pos += strlen((string) $trad) - $idiome['length'];

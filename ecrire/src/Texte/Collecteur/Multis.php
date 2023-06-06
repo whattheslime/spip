@@ -212,7 +212,7 @@ class Multis extends AbstractCollecteur {
 								}
 								$trad = self::echappementHtmlBase64($trad, 'multi', $isBloc, $attributs);
 								if (!$echappe_span) {
-									$trad = echappe_retour($trad, 'multi');
+									$trad = self::retablir_depuisHtmlBase64($trad, 'multi');
 								}
 							}
 						}

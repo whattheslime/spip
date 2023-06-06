@@ -811,7 +811,9 @@ function entites_html($texte, $tout = false, $quote = true) {
 	include_spip('inc/texte');
 	$flags = ($quote ? ENT_QUOTES : ENT_NOQUOTES);
 	$flags |= ENT_HTML401;
-	$texte = spip_htmlspecialchars(echappe_retour(echappe_html($texte, '', true), '', 'proteger_amp'), $flags);
+	$texte = echappe_html($texte, '', true);
+	$texte = CollecteurHtmlTag::retablir_depuisHtmlBase64($texte, '', 'proteger_amp');
+	$texte = spip_htmlspecialchars($texte, $flags);
 	if ($tout) {
 		return corriger_toutes_entites_html($texte);
 	} else {
@@ -1595,7 +1597,7 @@ function post_autobr($texte, $delim = "\n_ ") {
 		$texte = $collecteurModeles->retablir($texte);
 	}
 
-	$texte = echappe_retour($texte);
+	$texte = CollecteurHtmlTag::retablir_depuisHtmlBase64($texte);
 
 	return $texte . $fin;
 }

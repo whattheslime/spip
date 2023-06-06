@@ -310,7 +310,10 @@ function echappe_retour($letexte, $source = '', $filtre = '') {
 // Reinserer le javascript de confiance (venant des modeles)
 
 function echappe_retour_modeles($letexte, $interdire_scripts = false) {
-	$letexte = echappe_retour($letexte);
+	if (!is_string($letexte) or !strlen($letexte)) {
+		return $letexte;
+	}
+	$letexte = CollecteurHtmlTag::retablir_depuisHtmlBase64((string)$letexte);
 
 	// Dans les appels directs hors squelette, securiser aussi ici
 	if ($interdire_scripts) {
