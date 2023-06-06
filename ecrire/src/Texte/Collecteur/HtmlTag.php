@@ -34,7 +34,7 @@ class HtmlTag extends AbstractCollecteur {
 		$tag = strtolower($tag);
 		$this->tag = $tag;
 		$this->preg_openingtag = ($preg_openingtag ?: "@<{$tag}\b([^>]*?)(/?)>@isS");
-		$this->preg_closingtag = ($preg_closingtag ?: "@</{$tag}\b[^>]*>@isS");
+		$this->preg_closingtag = ($preg_closingtag ?? "@</{$tag}\b[^>]*>@isS");
 	}
 
 	/**
@@ -57,6 +57,11 @@ class HtmlTag extends AbstractCollecteur {
 		$opening = static::collecteur($texte, '', $hasUpperCaseTags ? '<' : '<' . $this->tag, $this->preg_openingtag, empty($options['detecter_presence']) ? 0 : 1);
 		if (!$opening) {
 			return [];
+		}
+
+		// si c'est un tag autofermant ou vide qui se repère avec une seule regexp, on va plus vite
+		if (!$this->preg_closingtag) {
+			return $opening;
 		}
 
 		// collecter les balises fermantes

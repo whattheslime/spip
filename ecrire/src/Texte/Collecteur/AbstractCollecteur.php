@@ -253,8 +253,8 @@ abstract class AbstractCollecteur {
 				$encore = false;
 				foreach (['span', 'div'] as $tag) {
 					$htmlTagCollecteur = new HtmlTag($tag,
-						"@<{$tag}\s(class=['\"]base64{$source}['\"]\stitle=['\"]([^'\">]*)['\"][^>]*?)(/?)>@isS",
-						"@</{$tag}\b[^>]*>@isS"
+						"@<{$tag}\s(class=['\"]base64{$source}['\"]\stitle=['\"]([^'\">]*)['\"][^>]*?)(/?)>\s*</{$tag}>@isS",
+						''
 					);
 					$collection = $htmlTagCollecteur->collecter($texte);
 					if (!empty($collection)) {
