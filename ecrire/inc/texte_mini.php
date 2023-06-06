@@ -129,13 +129,13 @@ function code_echappement($rempl, $source = '', $no_transform = false, $mode = n
 
 // Echapper les <html>...</ html>
 function traiter_echap_html_dist($regs, $options = []) {
-	return $regs[3];
+	return $regs['innerHtml'];
 }
 
 // Echapper les <pre>...</ pre>
 function traiter_echap_pre_dist($regs, $options = []) {
 	// echapper les <code> dans <pre>
-	$pre = $regs[3];
+	$pre = $regs['innerHtml'];
 
 	// echapper les < dans <code>
 	if (strpos($pre, '<') !== false) {
@@ -152,7 +152,8 @@ function traiter_echap_pre_dist($regs, $options = []) {
 
 // Echapper les <code>...</ code>
 function traiter_echap_code_dist($regs, $options = []) {
-	[, , $att, $corps] = $regs;
+	$corps = $regs['innerHtml'];
+	$att = $regs['attributs'];
 
 	// ne pas mettre le <div...> s'il n'y a qu'une ligne
 	if (strpos($corps, "\n") !== false) {
@@ -170,7 +171,7 @@ function traiter_echap_code_dist($regs, $options = []) {
 
 // Echapper les <cadre>...</ cadre> aka <frame>...</ frame>
 function traiter_echap_cadre_dist($regs, $options = []) {
-	$echap = trim(entites_html($regs[3]));
+	$echap = trim(entites_html($regs['innerHtml']));
 	// compter les lignes un peu plus finement qu'avec les \n
 	$lignes = explode("\n", trim($echap));
 	$n = 0;
@@ -189,12 +190,12 @@ function traiter_echap_frame_dist($regs, $options = []) {
 
 function traiter_echap_script_dist($regs, $options = []) {
 	// rendre joli (et inactif) si c'est un script language=php
-	if (preg_match(',<script\b[^>]+php,ims', $regs[0])) {
-		return highlight_string($regs[0], true);
+	if (strpos($regs['opening'], 'php')) {
+		return highlight_string($regs['raw'], true);
 	}
 
 	// Cas normal : le script passe tel quel
-	return $regs[0];
+	return $regs['raw'];
 }
 
 defined('_PROTEGE_BLOCS') || define('_PROTEGE_BLOCS', ',<('.implode('|', CollecteurHtmlTag::$listeBalisesAProteger).')(\b[^>]*)?>(.*)</\1>,UimsS');
