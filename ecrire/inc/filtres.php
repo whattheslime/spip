@@ -1,9 +1,9 @@
 <?php
 
-use Spip\Texte\Collecteur\HtmlTag;
-use Spip\Texte\Collecteur\Idiomes;
-use Spip\Texte\Collecteur\Modeles;
-use Spip\Texte\Collecteur\Multis;
+use Spip\Texte\Collecteur\HtmlTag as CollecteurHtmlTag;
+use Spip\Texte\Collecteur\Idiomes as CollecteurIdiomes;
+use Spip\Texte\Collecteur\Modeles as CollecteurModeles;
+use Spip\Texte\Collecteur\Multis as CollecteurMultis;
 
 /***************************************************************************\
  *  SPIP, Système de publication pour l'internet                           *
@@ -1565,7 +1565,7 @@ function post_autobr($texte, $delim = "\n_ ") {
 	// echapper les modeles
 	$collecteurModeles = null;
 	if (str_contains($texte, '<')) {
-		$collecteurModeles = new Modeles();
+		$collecteurModeles = new CollecteurModeles();
 		$texte = $collecteurModeles->echapper($texte);
 	}
 
@@ -1645,7 +1645,7 @@ function extraire_idiome($letexte, $lang = null, $options = []) {
 		}
 		$options['lang'] = $lang;
 
-		$collecteurIdiomes = new Idiomes();
+		$collecteurIdiomes = new CollecteurIdiomes();
 
 		$letexte = $collecteurIdiomes->traiter($letexte, $options);
 	}
@@ -1704,7 +1704,7 @@ function extraire_multi($letexte, $lang = null, $options = []) {
 		}
 		$options['lang'] = $lang;
 
-		$collecteurMultis = new Multis();
+		$collecteurMultis = new CollecteurMultis();
 
 		$letexte = $collecteurMultis->traiter($letexte, $options);
 	}
@@ -2494,7 +2494,7 @@ function extraire_balises($texte, $tag = 'a', $options = []) {
 		return $texte;
 	}
 
-	$htmlTagCollecteur = new HtmlTag($tag);
+	$htmlTagCollecteur = new CollecteurHtmlTag($tag);
 	$collection = $htmlTagCollecteur->collecter($texte, $options);
 	if (!empty($collection)) {
 		return array_column($collection, 'raw');

@@ -1,9 +1,9 @@
 <?php
 
-use Spip\Texte\Collecteur\Idiomes;
-use Spip\Texte\Collecteur\Liens;
-use Spip\Texte\Collecteur\Modeles;
-use Spip\Texte\Collecteur\Multis;
+use Spip\Texte\Collecteur\Idiomes as CollecteurIdiomes;
+use Spip\Texte\Collecteur\Liens as CollecteurLiens;
+use Spip\Texte\Collecteur\Modeles as CollecteurModeles;
+use Spip\Texte\Collecteur\Multis as CollecteurMultis;
 use Spip\Texte\Collecteur\HtmlTag as CollecteurHtmlTag;
 
 /***************************************************************************\
@@ -541,7 +541,7 @@ function echapper_html_suspect($texte, $options = [], $connect = null, $env = []
 			return $texte;
 		}
 
-		$collecteurModeles = new Modeles();
+		$collecteurModeles = new CollecteurModeles();
 		$texte = $collecteurModeles->echapper($texte);
 		$texte = echappe_js($texte);
 
@@ -578,10 +578,10 @@ function echapper_html_suspect($texte, $options = [], $connect = null, $env = []
 			$texte = expanser_liens($texte, $env['connect'] ?? '', $env['env'] ?? []);
 		}
 		else {
-			$collecteurLiens = new Liens();
+			$collecteurLiens = new CollecteurLiens();
 			$texte = $collecteurLiens->echapper($texte, ['sanitize_callback' => 'safehtml']);
 
-			$collecteurModeles = new Modeles();
+			$collecteurModeles = new CollecteurModeles();
 			$texte = $collecteurModeles->echapper($texte);
 		}
 		$texte = safehtml($texte);
@@ -626,12 +626,12 @@ function safehtml($t) {
 
 	$collecteurIdiomes = null;
 	if (stripos($t, '<:') !== false) {
-		$collecteurIdiomes = new Idiomes();
+		$collecteurIdiomes = new CollecteurIdiomes();
 		$t = $collecteurIdiomes->echapper($t);
 	}
 	$collecteurMultis = null;
 	if (stripos($t, '<multi') !== false) {
-		$collecteurMultis = new Multis();
+		$collecteurMultis = new CollecteurMultis();
 		$t = $collecteurMultis->echapper($t, ['sanitize_callback' => 'safehtml']);
 	}
 
