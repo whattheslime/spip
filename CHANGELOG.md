@@ -6,6 +6,7 @@ Changelog de SPIP 4.1
 
 ### Security
 
+- #5109 #5432 spip-team/securite#4844 Bloquer correctement les fichiers cachés dans le htaccess proposé
 - spip-team/securite#4840 Éviter `unserialize` dans l’écran de sécurité
 - spip-team/securite#4840 Limiter la profondeur de recursion de `protege_champ`
 
