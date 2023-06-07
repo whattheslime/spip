@@ -24,6 +24,7 @@
 
 ### Changed
 
+- Refactor de `echappe_html()` avec un collecteur
 - #5552 Signature de `spip_setcookie` (reprend la signature de php `setcookie`)
 - Mise à jour de Sortable.js (1.14.0 => 1.15.0)
 - #5542 Refacto page de contrôle et boîtes des tâches de fond
