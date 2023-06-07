@@ -180,18 +180,23 @@ class HtmlTag extends AbstractCollecteur {
 	 */
 	public function echapper_enHtmlBase64(string $texte, string $source = '', $callback_function = null, $callback_options = []) {
 		if ($callback_function) {
-			$tag = $this->tag;
-			$legacy_callback = function($c, $options) use ($tag, $callback_function) {
-				// legacy : renseigner les infos correspondantes aux matchs de l'ancienne regexp
-				$regs = [
-					0 => $c['raw'],
-					1 => $tag,
-					2 => $c['match'][1] . $c['match'][2],
-					3 => $c['innerHtml'],
-					'tag' => $this->tag,
-				] + $c;
-				return $callback_function($regs, $options);
-			};
+			$legacy_callback = $callback_function;
+			// si on est dans un cas evident de preg perso, ne pas essayer de mapper le match car on ne sait pas ce qu'il contient
+			// et on aura pas non plus de innerHtml si pas de preg_closingtag
+			if ($this->preg_closingtag) {
+				$tag = $this->tag;
+				$legacy_callback = function($c, $options) use ($tag, $callback_function) {
+					// legacy : renseigner les infos correspondantes aux matchs de l'ancienne regexp
+					$regs = [
+						0 => $c['raw'],
+						1 => $tag,
+						2 => $c['match'][1] . $c['match'][2],
+						3 => $c['innerHtml'],
+						'tag' => $this->tag,
+					] + $c;
+					return $callback_function($regs, $options);
+				};
+			}
 		}
 		return parent::echapper_enHtmlBase64($texte, $source, $callback_function ? $legacy_callback : null, $callback_options);
 	}
