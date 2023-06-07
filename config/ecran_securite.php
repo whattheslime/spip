@@ -5,7 +5,7 @@
  * ------------------
  */
 
-define('_ECRAN_SECURITE', '1.5.0'); // 2023-02-27
+define('_ECRAN_SECURITE', '1.5.3'); // 2023-05-31
 
 /*
  * Documentation : https://www.spip.net/fr_article4200.html
@@ -650,7 +650,7 @@ if (
 }
 
 if (
-	isset($_REQUEST['formulaire_action_args'])
+	isset($_REQUEST['formulaire_action_args']) || isset($_REQUEST['var_login'])
 ) {
 	foreach ($_REQUEST as $k => $v) {
 		if (is_string($v)
@@ -680,15 +680,15 @@ function __ecran_test_if_serialized($data) {
 	if (false !== $semicolon && $semicolon < 3) {return false;}
 	if (false !== $brace && $brace < 4) {return false;}
 	$token = $data[0];
-	if (in_array($token, array('s', 'S'))) {
-		if (false === strpos($data, '"')) {return false;}
-	} elseif (in_array($token, array('a', 'O', 'C', 'o', 'E'))) {
+    if (in_array($token, array('s', 'S', 'a', 'O', 'C', 'o', 'E'))) {
+		if (in_array($token, array('s', 'S')) and false === strpos($data, '"')) {return false;}
 		return (bool)preg_match("/^{$token}:[0-9]+:/s", $data);
 	} elseif (in_array($token, array('b', 'i', 'd'))) {
 		return (bool)preg_match("/^{$token}:[0-9.E+-]+;/", $data);
 	}
 	return false;
 }
+
 
 /*
  * S'il y a une raison de mourir, mourons
