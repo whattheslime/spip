@@ -6,6 +6,7 @@ Changelog de SPIP 4.2
 
 ### Security
 
+- #5109 #5432 spip-team/securite#4844 Bloquer correctement les fichiers cachés dans le htaccess proposé
 - #5552 Appliquer l’option `httponly` sur la plupart des cookies internes à SPIP
 - #5552 Appliquer l’option `secure` sur les cookies lorsqu’on est en HTTPS
 - spip-team/securite#4840 Éviter `unserialize` dans l’écran de sécurité
