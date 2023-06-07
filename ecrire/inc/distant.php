@@ -898,17 +898,31 @@ function nom_fichier_copie_locale($source, $extension) {
 	$d = creer_repertoire_documents('distant'); # IMG/distant/
 	$d = sous_repertoire($d, $extension); # IMG/distant/pdf/
 
-	// on se place tout le temps comme si on etait a la racine
+	// on se place tout le temps comme si on était a la racine
 	if (_DIR_RACINE) {
 		$d = preg_replace(',^' . preg_quote(_DIR_RACINE) . ',', '', $d);
 	}
 
 	$m = md5($source);
 
-	return $d
-	. substr(preg_replace(',[^\w-],', '', basename($source)) . '-' . $m, 0, 12)
-	. substr($m, 0, 4)
-	. ".$extension";
+	$filename =
+		$d
+		. substr(preg_replace(',[^\w-],', '', basename($source, $extension)), 0, 16)
+		. '-' . substr($m, 0, 8)
+		. ".$extension";
+
+	// ancien nommage des fichiers distants : renommer le fichier a la volee si besoin pour eviter de dupliquer les caches
+	$legacy_filename =
+		$d
+		. substr(preg_replace(',[^\w-],', '', basename($source)) . '-' . $m, 0, 12)
+		. substr($m, 0, 4)
+		. ".$extension";
+
+	if (file_exists(_DIR_RACINE . $legacy_filename)) {
+		@rename(_DIR_RACINE . $legacy_filename, $filename);
+	}
+
+	return $filename;
 }
 
 /**
