@@ -77,7 +77,7 @@ parameters:
 
 		-
 			message: "#^Access to an undefined property IterateurDATA\\:\\:\\$command\\.$#"
-			count: 32
+			count: 22
 			path: ecrire/iterateur/data.php
 
 		-
@@ -156,6 +156,11 @@ parameters:
 			path: ecrire/public/quete.php
 
 		-
+			message: "#^Function spip_mysql_repair\\(\\) should return bool\\|string but return statement is missing\\.$#"
+			count: 1
+			path: ecrire/req/mysql.php
+
+		-
 			message: "#^Function spip_mysql_seek\\(\\) should return bool but return statement is missing\\.$#"
 			count: 1
 			path: ecrire/req/mysql.php
@@ -186,22 +191,22 @@ parameters:
 			path: ecrire/req/sqlite_generique.php
 
 		-
-			message: "#^Attribute class SensitiveParameter does not exist\\.$#"
+			message: "#^Class SensitiveParameter is not an Attribute class\\.$#"
 			count: 3
 			path: ecrire/src/Chiffrer/Chiffrement.php
 
 		-
-			message: "#^Attribute class SensitiveParameter does not exist\\.$#"
+			message: "#^Class SensitiveParameter is not an Attribute class\\.$#"
 			count: 1
 			path: ecrire/src/Chiffrer/Cles.php
 
 		-
-			message: "#^Attribute class SensitiveParameter does not exist\\.$#"
+			message: "#^Class SensitiveParameter is not an Attribute class\\.$#"
 			count: 5
 			path: ecrire/src/Chiffrer/Password.php
 
 		-
-			message: "#^Attribute class SensitiveParameter does not exist\\.$#"
+			message: "#^Class SensitiveParameter is not an Attribute class\\.$#"
 			count: 3
 			path: ecrire/src/Chiffrer/SpipCles.php
 
