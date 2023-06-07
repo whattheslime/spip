@@ -2,7 +2,7 @@
 
 Changelog de SPIP 4.1
 
-## Unreleased
+## 4.1.10 - 2023-06-07
 
 ### Security
 
