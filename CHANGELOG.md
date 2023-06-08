@@ -20,6 +20,7 @@
 
 ### Fixed
 
+- #5341 Éviter une fatale sur le retour non booléen des fonctions `autoriser()` pour aider à nettoyer le code
 - #5342 Éviter un warning dans ecrire
 - #4697 Quand une URL de redirection contient une querystring avec des crochets, les encoder pour générer l'URL affichée
 - #5240 Tester la variable  plus tôt pour éviter un warning
