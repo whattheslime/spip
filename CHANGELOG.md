@@ -7,11 +7,11 @@ Changelog de SPIP 4.2
 ### Fixed
 
 - #5240 Tester la variable  plus tôt pour éviter un warning
-- #5451 lien vers l'URL/mail de suivi editorial suivant le format
-- #5446 inconsistance dans l'ux et le label de l'adresse d'inscription au suivi éditorial
+- #5451 Lien vers l'URL/mail de suivi éditorial suivant le format
+- #5446 Inconsistance dans l'UX et le label de l'adresse d'inscription au suivi éditorial
 - #4711 Optimisation pour latex & math
 - #5615 Ne pas considérer un texte malicieux s’il a simplement une entité html
-- #5570 inclusion manquante sur charger_fonction() en echec
+- #5570 Inclusion manquante sur charger_fonction() en échec
 
 ## 4.2.3 - 2023-06-07
 
