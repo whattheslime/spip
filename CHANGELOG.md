@@ -6,6 +6,7 @@ Changelog de SPIP 4.2
 
 ### Fixed
 
+- #5451 lien vers l'URL/mail de suivi editorial suivant le format
 - #4711 Optimisation pour latex & math
 - #5615 Ne pas considérer un texte malicieux s’il a simplement une entité html
 - #5570 inclusion manquante sur charger_fonction() en echec
