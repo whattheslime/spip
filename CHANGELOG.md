@@ -20,6 +20,7 @@
 
 ### Fixed
 
+- #5240 Tester la variable  plus tôt pour éviter un warning
 - #5451 Lien vers l'URL/mail de suivi éditorial suivant le format
 - #5446 Inconsistance dans l'UX et le label de l'adresse d'inscription au suivi éditorial
 - #5528 Éviter des collisions avec les noms de cache des fichiers distants
