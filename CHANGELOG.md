@@ -34,6 +34,7 @@
 
 ### Fixed
 
+- #5570 inclusion manquante sur charger_fonction() en echec
 - Erreur Fatale en PHP 8.2 (Operand type) sur `plugins_afficher_nom_plugin_dist()`
 - spip-galaxie/trad.spip.net#8 Calcul d’URL de `generer_url_api` sans précision du paramètre `public`
 - #5603 Déclaration propre du pipeline notifications_destinataires

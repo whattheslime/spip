@@ -101,6 +101,7 @@ function charger_fonction($nom, $dossier = 'exec', $continue = false) {
 		($inc ? '' : " (fichier $d absent de $dossier)"));
 
 	include_spip('inc/minipres');
+	include_spip('inc/filtres_mini');
 	echo minipres(
 		_T('forum_titre_erreur'),
 		$inc ?
