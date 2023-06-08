@@ -4,7 +4,7 @@
 	[(#CONFIG{adresse_suivi}|strlen|>{3}|et{#CONFIG{adresse_suivi_inscription}|strlen|>{3}})
 		[(#BOITE_OUVRIR{[(#CHEMIN_IMAGE{racine-24.png}|balise_img{'',cadre-icone})]<:ical_titre_mailing:>})]
 		<p><:info_config_suivi_explication:></p>
-		<p class="center"><a href='mailto:#CONFIG{adresse_suivi_inscription}'>#CONFIG{adresse_suivi_inscription}</a></p>
+		<p class="center"><a href='[(#CONFIG{adresse_suivi_inscription}|match{'^https?://'}|?{[(#CONFIG{adresse_suivi_inscription})],[mailto:(#CONFIG{adresse_suivi_inscription})]})]'>#CONFIG{adresse_suivi_inscription}</a></p>
 		#BOITE_FERMER
 	]
 ]
