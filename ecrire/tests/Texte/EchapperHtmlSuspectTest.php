@@ -77,6 +77,10 @@ class EchapperHtmlSuspectTest extends TestCase
 				true,
 				'<:spip:bonjour:> Toto',
 			],
+			'mdash' => [
+				true,
+				"Experimenter en astronomie &mdash; Collaboration amateur<span aria-hidden='true'>·</span>trices-professionnel<span aria-hidden='true'>·</span>les",
+			],
 		];
 	}
 }
