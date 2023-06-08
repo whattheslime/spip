@@ -1904,7 +1904,7 @@ function generer_objet_url($id, string $entite, string $args = '', string $ancre
 	}
 
 	// On a ete gentil mais la ....
-	spip_log("generer_objet_url: entite $entite ($f) inconnue $type $public $connect", _LOG_ERREUR);
+	spip_log("generer_objet_url: entite $entite " . ($public ? "($f)" : '') . " inconnue $type $public $connect", _LOG_ERREUR);
 
 	return '';
 }
