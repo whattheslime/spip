@@ -2,32 +2,18 @@
 
 ## Unreleased
 
-### Security
-
-- #5109 #5432 spip-team/securite#4844 Bloquer correctement les fichiers cachés dans le htaccess proposé
-- #5552 Appliquer l’option `httponly` sur la plupart des cookies internes à SPIP
-- #5552 Appliquer l’option `secure` sur les cookies lorsqu’on est en HTTPS
-- spip-team/securite#4840 Éviter `unserialize` dans l’écran de sécurité
-- spip-team/securite#4840 Limiter la profondeur de recursion de `protege_champ`
-- spip-team/securite#4840 Inclure l’écran de sécurité avant l’autoloader
-- spip-team/securite#4841 Limiter l’usage de `#ENV**` dans les formulaires.
 
 ### Added
 
 - #5565 Critère `{collate}` (remplace `{collecte}`)
 - #5565 Critères `{groupby}` et `{groupby_supprimer}` (remplace `{fusion}` et `{fusion_supprimer}`)
 - #5565 Critère `{having}`
-- #5586 Attributs `data-objet`, `data-id_objet` et `data-objet-source` sur le formulaire d’édition de liens, pour usage en JS à toutes fins utiles.
-- #5535 Log des dépréciations, via la fonction `trigger_deprecation` (de symfony/deprecations-contracts).
 - Les plugins-dist et le squelettes-dist s'intallent avec composer
-- #5301 Permettre de fournir le nom de l’attachement à `spip_livrer_fichier()`
 
 ### Changed
 
 - Refactor de `echappe_html()` avec un collecteur
 - #5552 Signature de `spip_setcookie` (reprend la signature de php `setcookie`)
-- Mise à jour de Sortable.js (1.14.0 => 1.15.0)
-- #5542 Refacto page de contrôle et boîtes des tâches de fond
 - #5540 Les fonctions `extraire_balise` et `extraire_balises` peuvent gérer des balises imbriquées
 - Les logos historiques (migrés en documents à partir de SPIP 4.0) ne sont plus utilisés s’il en restait.
 - Nécessite PHP 8.1 minimum
@@ -36,20 +22,7 @@
 
 - #5615 Ne pas considérer un texte malicieux s’il a simplement une entité html
 - #5570 inclusion manquante sur charger_fonction() en echec
-- Erreur Fatale en PHP 8.2 (Operand type) sur `plugins_afficher_nom_plugin_dist()`
-- spip-galaxie/trad.spip.net#8 Calcul d’URL de `generer_url_api` sans précision du paramètre `public`
-- #5603 Déclaration propre du pipeline notifications_destinataires
-- #5563 Filtre `couper` erroné dans certains cas avec des caractères utf8 multi bytes.
-- Formulaire de configuration du multilinguisme (suite à spip-team/securite#4841)
-- #5584 Présentation de l’input de recherche dans l’ajout d’auteurs liés
-- #5580 Recherche et navigation dans le sélecteur de rubriques dépliant
-- #5496 Typage en entrée de certains paramètres des fonctions `generer_*` lorsque l’objet n’existe pas.
-- #5571 Retrouver correctement les anciens itérateurs
 - #5576 Rétablir l'insertion du script de protection sandbox sur la prévisu d'un objet
-- #5543 Indiquer la bonne fonction dans le message d'erreur de `_imagecreatefrom_func`
-- #5317 Animation plus douce des formulaires resoumis hors ajax
-- #5485 Correction d’erreurs des traitements d’image si la balise `img` n’a pas d’attribut `src`
-- #5426 Correction des filtres de date lorsque l’entrée ne précise pas le jour tel qu’avec `2023-03`
 - #5541 Notices PHP en moins sur la page de contrôle des tâches de fond
 
 ### Deprecated
