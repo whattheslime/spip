@@ -717,9 +717,13 @@ function is_html_safe(string $texte): bool {
 	// simplifier les retour ligne pour etre certain de ce que l'on compare
 	$texte = str_replace("\r\n", "\n", $texte);
 	// safehtml reduit aussi potentiellement les &nbsp;
-	$texte = str_replace("&nbsp;", " ", $texte);
+	$texte = str_replace('&nbsp;', ' ', $texte);
+	// safehtml remplace les entités html
+	if (str_contains($texte, '&') && str_contains($texte, ';')) {
+		$texte = html2unicode($texte, true);
+	}
 	// safehtml remplace les entités numériques
-	if (strpos($texte, '&#') !== false) {
+	if (str_contains($texte, '&#')) {
 		$texte = unicode2charset($texte);
 	}
 
