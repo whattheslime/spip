@@ -2,6 +2,12 @@
 
 Changelog de SPIP 4.2
 
+## Unreleased
+
+### Fixed
+
+- #5570 inclusion manquante sur charger_fonction() en echec
+
 ## 4.2.3 - 2023-06-07
 
 ### Security
