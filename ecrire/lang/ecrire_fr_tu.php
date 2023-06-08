@@ -733,14 +733,20 @@ dans une couleur qui indique leur état :',
 	'protocole_ldap' => 'Version du protocole :',
 
 	// Q
+	'queue_args_fonction_label' => 'Arguments passés à la fonction @fonction@',
+	'queue_args_voir' => 'Voir les arguments',
 	'queue_executer_maintenant' => 'Exécuter maintenant',
+	'queue_fonction_label' => 'Fonction',
 	'queue_info_purger' => 'Tu peux supprimer toutes les tâches de fond en attente et réinitialiser la liste avec les tâches périodiques',
+	'queue_liens_label' => 'Liens',
 	'queue_nb_jobs_in_queue' => '@nb@ tâches en attente',
 	'queue_next_job_in_nb_sec' => 'Prochaine tâche dans @nb@ s',
+	'queue_next_job_scheduled' => 'Prochaine tâche',
 	'queue_no_job_in_queue' => 'Aucune tâche en attente',
 	'queue_one_job_in_queue' => '1 tâche en attente',
 	'queue_priorite_tache' => 'priorité',
 	'queue_purger_queue' => 'Réinitialiser la liste des tâches',
+	'queue_statut_en_cours' => 'En cours',
 	'queue_titre' => 'Tâches de fond',
 
 	// R
