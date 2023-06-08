@@ -20,6 +20,7 @@
 
 ### Fixed
 
+- #5451 lien vers l'URL/mail de suivi editorial suivant le format
 - #5528 Éviter des collisions avec les noms de cache des fichiers distants
 - #5615 Ne pas considérer un texte malicieux s’il a simplement une entité html
 - #5570 inclusion manquante sur charger_fonction() en echec
