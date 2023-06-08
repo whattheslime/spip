@@ -6,6 +6,7 @@ Changelog de SPIP 4.2
 
 ### Fixed
 
+- #5615 Ne pas considérer un texte malicieux s’il a simplement une entité html
 - #5570 inclusion manquante sur charger_fonction() en echec
 
 ## 4.2.3 - 2023-06-07
