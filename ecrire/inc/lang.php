@@ -38,6 +38,10 @@ if (!defined('_ECRIRE_INC_VERSION')) {
  **/
 function changer_langue($lang, $liste_langues = null) {
 
+	if (empty($lang)) {
+		return false;
+	}
+
 	if (is_null($liste_langues)) {
 		$liste_langues = ($GLOBALS['meta']['langues_proposees'] ?? '') . ',' . ($GLOBALS['meta']['langues_multilingue'] ?? '');
 	} else {
@@ -50,9 +54,6 @@ function changer_langue($lang, $liste_langues = null) {
 	// Si la langue demandee n'existe pas, on essaie d'autres variantes
 	// Exemple : 'pt-br' => 'pt_br' => 'pt'
 	$lang = str_replace('-', '_', trim($lang));
-	if (!$lang) {
-		return false;
-	}
 
 	if (
 		strpos($liste_langues, (string) ",$lang,") !== false
