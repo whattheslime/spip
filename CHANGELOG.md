@@ -20,6 +20,7 @@
 
 ### Fixed
 
+- #5342 Éviter un warning dans ecrire
 - #4697 Quand une URL de redirection contient une querystring avec des crochets, les encoder pour générer l'URL affichée
 - #5240 Tester la variable  plus tôt pour éviter un warning
 - #5451 Lien vers l'URL/mail de suivi éditorial suivant le format
