@@ -422,7 +422,20 @@ function lien_article_virtuel($virtuel) {
 		return '';
 	}
 
-	return propre('[->' . $virtuel . ']');
+	$joli = $virtuel;
+	$parts = parse_url($virtuel);
+	if (!empty($parts['query']) and str_contains($parts['query'], ']')) {
+		$query = str_replace(['[', ']'], [urlencode('['), urlencode(']')], $parts['query']);
+		$virtuel = str_replace("?" . $parts['query'], "?$query", $virtuel);
+	}
+	if ($virtuel !== $joli) {
+		$joli = propre('[' . $joli . ' -> ' . $virtuel . ']');
+	}
+	else {
+		$joli = propre('[->' . $virtuel . ']');
+	}
+
+	return $joli;
 }
 
 

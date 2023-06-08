@@ -36,11 +36,12 @@ function formulaires_rediriger_article_charger_dist($id_article, $retour = '') {
 
 
 	include_spip('inc/texte');
+	include_spip('inc/filtres_ecrire');
 
 	return [
 		'redirection' => $redirection,
 		'id' => $id_article,
-		'_afficher_url' => ($redirection ? propre("[->$redirection]") : ''),
+		'_afficher_url' => ($redirection ? lien_article_virtuel($redirection) : ''),
 	];
 }
 
