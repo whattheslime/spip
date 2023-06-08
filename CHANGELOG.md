@@ -6,6 +6,7 @@ Changelog de SPIP 4.2
 
 ### Fixed
 
+- #5240 Tester la variable  plus tôt pour éviter un warning
 - #5451 lien vers l'URL/mail de suivi editorial suivant le format
 - #5446 inconsistance dans l'ux et le label de l'adresse d'inscription au suivi éditorial
 - #4711 Optimisation pour latex & math
