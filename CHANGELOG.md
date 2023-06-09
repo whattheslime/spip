@@ -20,6 +20,7 @@
 
 ### Fixed
 
+- #5104 Éviter une erreur fatale quand un job ne peut pas récupérer les arguments de la callback associée
 - #5341 Éviter une fatale sur le retour non booléen des fonctions `autoriser()` pour aider à nettoyer le code
 - #5342 Éviter un warning dans ecrire
 - #4697 Quand une URL de redirection contient une querystring avec des crochets, les encoder pour générer l'URL affichée
