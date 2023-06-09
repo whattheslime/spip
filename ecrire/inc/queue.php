@@ -240,7 +240,7 @@ function queue_start_job($row) {
 	$args = unserialize($row['args']);
 	if (!is_array($args)) {
 		spip_log('arguments job errones ' . var_export($row, true), 'queue');
-		$args = [];
+		return false;
 	}
 
 	$fonction = $row['fonction'];
