@@ -147,7 +147,7 @@
 #SET{icones, #LISTE{add, new, del, config, edit}}
 <BOUCLE_icones_images(DATA){source table, #GET{icones}}>
 .icone-fonction-#VALEUR:after {
-	background-image: url(#CHEMIN_IMAGE{#VALEUR-xx.svg});
+	background-image: url("#CHEMIN_IMAGE{#VALEUR-xx.svg}");
 }
 </BOUCLE_icones_images>
 
@@ -245,7 +245,7 @@
 
 /* Variante danger (à mutualiser avec boutons.css ?) */
 .icone.danger a {
-	background-image: url(#CHEMIN_IMAGE{rayures-sup.svg});
+	background-image: url("#CHEMIN_IMAGE{rayures-sup.svg}");
 	background-color: transparent;
 }
 .icone.danger b {
@@ -332,7 +332,7 @@
 	padding: 3px;
 	margin: 1px;
 	border: 1px dashed #000;
-	background: #fce8dd url(#CHEMIN_IMAGE{rayures-danger.svg});
+	background: #fce8dd url("#CHEMIN_IMAGE{rayures-danger.svg}");
 }
 
 /* OLDIES anciennes icones issues de php */

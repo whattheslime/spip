@@ -19,8 +19,8 @@
 
 /* Ancien selecteur de rubriques */
 .selecteur_parent{font-size: 90%; width: 99%;} /* appliquee sur le <select> */
-option.selec_rub { background-position: [(#GET{left})] center; background-image: url(#CHEMIN_IMAGE{rubrique-xx.svg}); background-size:12px; background-repeat: no-repeat; padding-#GET{left}: 16px; }
-option.niveau_1 { font-weight: bold; background: #GET{claire}; background-image: url(#CHEMIN_IMAGE{secteur-xx.svg}); background-size: 12px; background-repeat:  no-repeat; color: #444;}
+option.selec_rub { background-position: [(#GET{left})] center; background-image: url("#CHEMIN_IMAGE{rubrique-xx.svg}"); background-size:12px; background-repeat: no-repeat; padding-#GET{left}: 16px; }
+option.niveau_1 { font-weight: bold; background: #GET{claire}; background-image: url("#CHEMIN_IMAGE{secteur-xx.svg}"); background-size: 12px; background-repeat:  no-repeat; color: #444;}
 option.niveau_2 { background:#eee; color: #202020; border-bottom: 1px solid #GET{claire}; }
 option.niveau_3 { background:#eee; color: #404040; }
 option.niveau_4 { background:#eee; color: #606060; }
@@ -32,7 +32,7 @@ option.niveau_6 { background:#eee; color: #a0a0a0; }
 div.petite-racine,
 a.petite-racine {
 	background: [(#ENV{ltr}|choixsiegal{left,1,99})%] no-repeat;
-	background-image: url(#CHEMIN_IMAGE{racine-xx.svg});
+	background-image: url("#CHEMIN_IMAGE{racine-xx.svg}");
 	background-size: 14px;
 	background-position: 5px center;
 	padding-#LEFT: 24px;
@@ -48,7 +48,7 @@ a.petite-racine {
 div.petite-rubrique,
 a.petite-rubrique {
 	background: [(#ENV{ltr}|choixsiegal{left,1,99})%] no-repeat;
-	background-image: url(#CHEMIN_IMAGE{rubrique-xx.svg});
+	background-image: url("#CHEMIN_IMAGE{rubrique-xx.svg}");
 	background-size:14px;
 	background-position: 5px center;
 	padding-#LEFT: 24px;
@@ -57,7 +57,7 @@ a.petite-rubrique {
 div.petit-secteur,
 a.petit-secteur {
 	background: [(#ENV{ltr}|choixsiegal{left,1,99})%] no-repeat;
-	background-image: url(#CHEMIN_IMAGE{secteur-xx.svg});
+	background-image: url("#CHEMIN_IMAGE{secteur-xx.svg}");
 	background-size: 14px;
 	background-position: 5px center;
 	padding-#GET{left}: 24px;
@@ -211,9 +211,9 @@ a.petit-secteur {
 /* Les éléments propres à chaque objet */
 <BOUCLE_objets(DATA){source table, (#NULL|lister_tables_objets_sql)}>
 [(#SET{petite_icone, [(#CHEMIN_IMAGE{#VALEUR{icone_objet}-12.png}|sinon{[(#CHEMIN_IMAGE{#VALEUR{icone_objet}-16.png}|image_reduire{12}|extraire_attribut{src})]})]})]
-ul.item_picked li.#VALEUR{type} {padding-#GET{left}:24px;background-image:url(#GET{petite_icone});background-size:12px;}
-.item_picker .[(#VALEUR{table_objet})] .type_objet {padding-#GET{left}:24px; background:url(#GET{petite_icone}) no-repeat[ (#GET{left}) ]center; background-size:12px;}
-.item_picker .frame ul li.#VALEUR{type} {background:url(#GET{petite_icone}) no-repeat[ (#GET{left}) ]2px;background-size:12px;}
+ul.item_picked li.#VALEUR{type} {padding-#GET{left}:24px;background-image:url("#GET{petite_icone}");background-size:12px;}
+.item_picker .[(#VALEUR{table_objet})] .type_objet {padding-#GET{left}:24px; background:url("#GET{petite_icone}") no-repeat[ (#GET{left}) ]center; background-size:12px;}
+.item_picker .frame ul li.#VALEUR{type} {background:url("#GET{petite_icone}") no-repeat[ (#GET{left}) ]2px;background-size:12px;}
 </BOUCLE_objets>
 
 /* Styles des éléments déjà sélectionnés */
@@ -287,4 +287,3 @@ ul.item_picked.changing {}
 .formulaire_spip li.selecteur_item label {
 	margin-#GET{left}:0;display:block;float:left;padding:2px 0;
 }
-
