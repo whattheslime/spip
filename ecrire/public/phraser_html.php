@@ -57,7 +57,7 @@ define('NOM_DE_BOUCLE', '[0-9]+|[-_][-_.a-zA-Z0-9]*');
  * Écriture alambiquée pour rester compatible avec les hexadecimaux des vieux squelettes */
 define('NOM_DE_CHAMP', '#((' . NOM_DE_BOUCLE . "):)?(([A-F]*[G-Z_][A-Z_0-9]*)|[A-Z_]+)\b(\*{0,2})");
 /** Balise complète [...(#TOTO) ... ] */
-define('CHAMP_ETENDU', '/\[([^\[]*?)\(' . NOM_DE_CHAMP . '([^[)]*\)[^]\[]*)\]/S');
+define('CHAMP_ETENDU', '/\[([^\[]*?)\(' . NOM_DE_CHAMP . '([^)]*\)[^]]*)\]/S');
 
 define('BALISE_INCLURE', '/<INCLU[DR]E[[:space:]]*(\(([^)]*)\))?/S');
 define('BALISE_POLYGLOTTE', ',<multi>(.*)</multi>,Uims');
@@ -475,8 +475,18 @@ function phraser_champs_interieurs($texte, $ligne, $sep, $result) {
 	while (true) {
 		$j = $i;
 		$n = $ligne;
-		while (preg_match(CHAMP_ETENDU, (string) $texte, $match)) {
-			$p = strpos((string) $texte, (string) $match[0]);
+		$search_pos = 0;
+		while (preg_match(CHAMP_ETENDU, (string) $texte, $match, PREG_OFFSET_CAPTURE, $search_pos)) {
+			$poss = array_column($match, 1);
+			$match = array_column($match, 0);
+			// si jamais il y a une sous balise inclue dans la partie 7, alors on est pas dans le champ le plus interieur, on continue le search plus loin
+			if (str_contains($match[7], '[')) {
+				if (preg_match(CHAMP_ETENDU, (string) $texte, $r, 0, $poss[7])) {
+					$search_pos = $poss[7];
+					continue;
+				}
+			}
+			$p = $poss[0];
 			$debut = substr((string) $texte, 0, $p);
 			if ($p) {
 				$result[$i] = $debut;
@@ -506,6 +516,7 @@ function phraser_champs_interieurs($texte, $ligne, $sep, $result) {
 			$result[$i] = $champ;
 			$i++;
 			$texte = substr((string) $texte, $p + strlen($match[0]));
+			$search_pos = 0;
 		}
 		if ($texte !== '') {
 			$result[$i] = $texte;
