@@ -904,13 +904,13 @@ function public_compte_ligne($texte, $debut = 0, $fin = null) {
  * On repere les boucles via <BOUCLE_xxx(
  * et ensuite on regarde son vrai debut soit <B_xxx> soit <BB_xxx>
  *
- * @param $texte
- * @param $id_parent
+ * @param string $texte
+ * @param string $id_parent
  * @param $descr
  * @param int $pos_debut_texte
- * @return array|null
+ * @return ?array
  */
-function public_trouver_premiere_boucle($texte, $id_parent, $descr, $pos_debut_texte = 0) {
+function public_trouver_premiere_boucle(string $texte, string $id_parent, $descr, int $pos_debut_texte = 0): ?array {
 	$premiere_boucle = null;
 	$pos_derniere_boucle_anonyme = $pos_debut_texte;
 
@@ -998,14 +998,15 @@ function public_trouver_premiere_boucle($texte, $id_parent, $descr, $pos_debut_t
  * Trouver la fin de la  boucle (balises </B <//B </BB)
  * en faisant attention aux boucles anonymes qui ne peuvent etre imbriquees
  *
- * @param $texte
- * @param $id_parent
- * @param $boucle
- * @param $pos_debut_texte
- * @param $result
- * @return mixed
+ * @param string $texte
+ * @param string $id_parent
+ * @param array $boucle
+ * @param int $pos_debut_texte
+ * @param object $result
+ * @return array
+ *   la description de la boucle dans un tableau associatif
  */
-function public_trouver_fin_boucle($texte, $id_parent, $boucle, $pos_debut_texte, $result) {
+function public_trouver_fin_boucle(string $texte, string $id_parent, array $boucle, int $pos_debut_texte, $result): array {
 	$id_boucle = $boucle['id_boucle'];
 	$pos_courante = $pos_debut_texte;
 
@@ -1076,7 +1077,7 @@ function public_trouver_fin_boucle($texte, $id_parent, $boucle, $pos_debut_texte
  * @param null|string $boucle_placeholder
  * @param null|object $boucle
  */
-function phraser_boucle_placeholder(&$champ, $boucle_placeholder = null, $boucle = null) {
+function phraser_boucle_placeholder(&$champ, ?string $boucle_placeholder = null, $boucle = null) {
 	static $boucles_connues = [];
 	// si c'est un appel pour memoriser une boucle, memorisons la
 	if (is_string($champ) && !empty($boucle_placeholder) && !empty($boucle)) {
@@ -1103,7 +1104,7 @@ function phraser_boucle_placeholder(&$champ, $boucle_placeholder = null, $boucle
  * @param int $nb_lignes
  * @return string
  */
-function public_generer_boucle_placeholder($id_boucle, &$boucle, $boucle_placeholder, $nb_lignes) {
+function public_generer_boucle_placeholder(string $id_boucle, &$boucle, string $boucle_placeholder, int $nb_lignes): string {
 	$placeholder = "[(#{$boucle_placeholder}{" . $id_boucle . '})' . str_pad('', $nb_lignes, "\n") . ']';
 	//memoriser la boucle a reinjecter
 	$id_boucle = "$id_boucle";
@@ -1111,7 +1112,21 @@ function public_generer_boucle_placeholder($id_boucle, &$boucle, $boucle_placeho
 	return $placeholder;
 }
 
-function public_phraser_html_dist($texte, $id_parent, &$boucles, $descr, $ligne_debut_texte = 1, $boucle_placeholder = null) {
+/**
+ * Analyseur syntaxique des squelettes HTML SPIP
+ * On commence par analyser les boucles, les mémoriser, et les remplacer dans le texte par des placeholder
+ * qui ne genent pas la suite de l'analyse des balises et autres
+ *
+ * @param string $texte
+ * @param string $id_parent
+ * @param array $boucles
+ * @param $descr
+ * @param int $ligne_debut_texte
+ * @param string|null $boucle_placeholder
+ * @return array
+ * @throws JsonException
+ */
+function public_phraser_html_dist(string $texte, string $id_parent, array &$boucles, $descr, int $ligne_debut_texte = 1, ?string $boucle_placeholder = null): array {
 
 	$all_res = [];
 	// definir un placholder pour les boucles dont on est sur d'avoir aucune occurence dans le squelette
