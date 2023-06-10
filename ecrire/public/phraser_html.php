@@ -90,11 +90,11 @@ function phraser_inclure(string $texte, int $ligne, array $result): array {
 		if ($p) {
 			$result = phraser_idiomes($debut, $ligne, $result);
 		}
-		$ligne += substr_count($debut, "\n");
+		$ligne += public_compte_ligne($debut);
 
 		$champ = new Inclure();
 		$champ->ligne = $ligne;
-		$ligne += substr_count((string) $match[0], "\n");
+		$ligne += public_compte_ligne((string) $match[0]);
 		$fichier = $match[2];
 		$champ->texte = $fichier;
 
@@ -149,14 +149,14 @@ function phraser_polyglotte(string $texte, int $ligne, array $result): array {
 				$champ->texte = substr($texte, $pos_prev, $multi['pos'] - $pos_prev);
 				$champ->ligne = $ligne;
 				$result[] = $champ;
-				$ligne += substr_count($champ->texte, "\n");
+				$ligne += public_compte_ligne($champ->texte);
 			}
 
 			$champ = new Polyglotte();
 			$champ->ligne = $ligne;
 			$champ->traductions = $multi['trads'];
 			$result[] = $champ;
-			$ligne += substr_count($multi['raw'], "\n");
+			$ligne += public_compte_ligne($multi['raw']);
 			$pos_prev = $multi['pos'] + $multi['length'];
 		}
 		$texte = substr($texte, $pos_prev);
@@ -205,19 +205,19 @@ function phraser_idiomes(string $texte, int $ligne, array $result): array {
 		if (!$match[3] && (empty($match[5]) || $match[5][0] !== '=')) {
 			$debut = substr($texte, 0, $p + strlen($idiome));
 			$result = phraser_champs($debut, $ligne, $result);
-			$ligne += substr_count($debut, "\n");
+			$ligne += public_compte_ligne($debut);
 			continue;
 		}
 
 		$debut = substr($texte, 0, $p );
 		$result = phraser_champs($debut, $ligne, $result);
-		$ligne += substr_count($debut, "\n");
+		$ligne += public_compte_ligne($debut);
 
 		$texte = substr($texte, $p + strlen($idiome));
 
 		$champ = new Idiome();
 		$champ->ligne = $ligne;
-		$ligne += substr_count($idiome, "\n");
+		$ligne += public_compte_ligne($idiome);
 		// Stocker les arguments de la balise de traduction
 		$args = [];
 		$largs = (string) $match[5];
@@ -275,12 +275,12 @@ function phraser_champs(string $texte, int $ligne, array $result): array {
 		if ($p) {
 			$debut = substr($texte, 0, $p);
 			$result = phraser_polyglotte($debut, $ligne, $result);
-			$ligne += substr_count($debut, "\n");
+			$ligne += public_compte_ligne($debut);
 		}
 
 		$champ = new Champ();
 		$champ->ligne = $ligne;
-		$ligne += substr_count($match[0], "\n");
+		$ligne += public_compte_ligne($match[0]);
 		$champ->nom_boucle = $match[2];
 		$champ->nom_champ = $match[3];
 		$champ->etoile = $match[5];
@@ -527,7 +527,7 @@ function phraser_champs_exterieurs(string $texte, int $ligne, string $sep, array
 		if ($p) {
 			$debut = substr($texte, 0, $p);
 			$res = phraser_inclure($debut, $ligne, $res);
-			$ligne += substr_count($debut, "\n");
+			$ligne += public_compte_ligne($debut);
 		}
 		$res[] = $nested_res[$m[1]];
 		$ligne += strlen($m[2]);
@@ -576,7 +576,7 @@ function phraser_champs_interieurs(string $texte, int $no_ligne, string $sep): a
 
 			$nbl_debut = 0;
 			if ($poss[0]) {
-				$nbl_debut = substr_count($texte, "\n", 0, $poss[0]);
+				$nbl_debut = public_compte_ligne($texte, 0, $poss[0]);
 				$parties[] = substr($texte, 0, $poss[0]);
 			}
 			$nbl += $nbl_debut;
@@ -586,7 +586,7 @@ function phraser_champs_interieurs(string $texte, int $no_ligne, string $sep): a
 			$champ->nom_boucle = $match[3];
 			$champ->nom_champ = $match[4];
 			$champ->etoile = $match[6];
-			$nbl_champ = substr_count($texte, "\n", $poss[0], strlen($match[0]));
+			$nbl_champ = public_compte_ligne($texte, $poss[0], $poss[0] + strlen($match[0]));
 
 			// phraser_args indiquera ou commence apres
 			$pos_apres = 0;
@@ -597,7 +597,7 @@ function phraser_champs_interieurs(string $texte, int $no_ligne, string $sep): a
 
 			$nbl_debut_champ = 0;
 			if (!empty($apres)) {
-				$nbl_debut_champ = substr_count($texte, "\n", $poss[0], $poss[7] + $pos_apres + 1 - $poss[0]);
+				$nbl_debut_champ = public_compte_ligne($texte, $poss[0], $poss[7] + $pos_apres + 1);
 			}
 			$champ->apres = phraser_champs_exterieurs($apres, $nbl + $nbl_debut_champ, $sep, $champs_trouves);
 
