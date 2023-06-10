@@ -453,7 +453,7 @@ function phraser_arg(&$texte, $sep, $result, &$pointeur_champ) {
 function phraser_champs_exterieurs($texte, $ligne, $sep, $nested) {
 	$res = [];
 	while (($p = strpos((string) $texte, (string) "%$sep")) !== false) {
-		if (!preg_match(',^%' . preg_quote((string) $sep, ',') . '([0-9]+)@,', substr((string) $texte, $p), $m)) {
+		if (!preg_match(',^%' . preg_quote((string) $sep, ',') . '([0-9]+)\n*@,', substr((string) $texte, $p), $m)) {
 			break;
 		}
 		$debut = substr((string) $texte, 0, $p);
@@ -522,7 +522,8 @@ function phraser_champs_interieurs(string $texte, int $no_ligne, string $sep) {
 			$champs_trouves[] = $champ;
 			$j = count($champs_trouves)-1;
 			// on remplace ce champ par un placeholder
-			$parties[] = "%$sep$j@"; // TODO : ajouter $nbl_champ retour ligne pour que la partie conserve le nombre de lignes
+			// ajouter $nbl_champ retour ligne pour que la partie conserve le nombre de lignes lors des itérations suivantes
+			$parties[] = ($t="%{$sep}{$j}" . str_repeat("\n", $nbl_champ). "@");
 			$nbl += $nbl_champ;
 
 			$texte = substr($texte, $poss[0] + strlen($match[0]));
