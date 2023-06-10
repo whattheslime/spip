@@ -185,39 +185,58 @@ function phraser_polyglotte($texte, $ligne, $result) {
  * @param array $result
  * @return array
  **/
-function phraser_idiomes($texte, $ligne, $result) {
-	while (preg_match(BALISE_IDIOMES, $texte, $match)) {
+function phraser_idiomes(string $texte, int $ligne, array $result): array {
+
+	while ((($p = strpos($texte, '<:')) !== false)
+		&& preg_match(BALISE_IDIOMES, $texte, $match, PREG_OFFSET_CAPTURE, $p)) {
+
+		$poss = array_column($match, 1);
+		$match = array_column($match, 0);
 		$match = array_pad($match, 8, null);
-		$p = strpos($texte, (string) $match[0]);
-		$ko = (!$match[3] && ($match[5][0] !== '='));
-		$debut = substr($texte, 0, $p + ($ko ? strlen((string) $match[0]) : 0));
-		if ($debut) {
+		$p = $poss[0];
+
+		$idiome = (string) $match[0];
+		// faux idiome ?
+		if (!$match[3] && (empty($match[5]) || $match[5][0] !== '=')) {
+			$debut = substr($texte, 0, $p + strlen($idiome));
 			$result = phraser_champs($debut, $ligne, $result);
-		}
-		$texte = substr($texte, $p + strlen((string) $match[0]));
-		$ligne += substr_count($debut, "\n");
-		if ($ko) {
+			$ligne += substr_count($debut, "\n");
 			continue;
-		} // faux idiome
+		}
+
+		$debut = substr($texte, 0, $p );
+		$result = phraser_champs($debut, $ligne, $result);
+		$ligne += substr_count($debut, "\n");
+
+		$texte = substr($texte, $p + strlen($idiome));
+
 		$champ = new Idiome();
 		$champ->ligne = $ligne;
-		$ligne += substr_count((string) $match[0], "\n");
+		$ligne += substr_count($idiome, "\n");
 		// Stocker les arguments de la balise de traduction
 		$args = [];
-		$largs = $match[5];
-		while (preg_match(BALISE_IDIOMES_ARGS, (string) $largs, $r)) {
+		$largs = (string) $match[5];
+		while (strpos($largs, '=') !== false
+			&& preg_match(BALISE_IDIOMES_ARGS, $largs, $r)) {
 			$args[$r[1]] = phraser_champs($r[2], 0, []);
-			$largs = substr((string) $largs, strlen($r[0]));
+			$largs = substr($largs, strlen($r[0]));
 		}
 		$champ->arg = $args;
+
+		// TODO : supprimer ce strtolower cf https://git.spip.net/spip/spip/issues/2536
 		$champ->nom_champ = strtolower((string) $match[3]);
 		$champ->module = $match[2];
+
 		// pas d'imbrication pour les filtres sur langue
-		$pos_apres = 0;
-		phraser_args($match[7] ?? '', ':', '', [], $champ, $pos_apres);
-		$champ->apres = substr($match[7] ?? '', $pos_apres);
+		$champ->apres = '';
+		if (!is_null($match[7])) {
+			$pos_apres = 0;
+			phraser_args($match[7], ':', '', [], $champ, $pos_apres);
+			$champ->apres = substr($match[7], $pos_apres);
+		}
 		$result[] = $champ;
 	}
+
 	if ($texte !== '') {
 		$result = phraser_champs($texte, $ligne, $result);
 	}
