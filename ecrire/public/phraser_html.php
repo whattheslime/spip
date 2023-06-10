@@ -289,14 +289,16 @@ function phraser_champs_etendus($texte, $ligne, $result) {
  * sert aussi aux arguments des includes et aux criteres de boucles
  * Tres chevelu
  *
+ * @param string $texte
  * @param string $fin
  * @param string $sep
- * @param $result
+ * @param array $result
  * @param $pointeur_champ
+ *   Spip\Compilateur\Noeud\Champ | Spip\Compilateur\Noeud|Inclure | Spip\Compilateur\Noeud\Idiome | Spip\Compilateur\Noeud\Boucle
  * @param int $pos_debut
  * @return array
  */
-function phraser_args(string $texte, $fin, $sep, $result, &$pointeur_champ, &$pos_debut) {
+function phraser_args(string $texte, string $fin, string $sep, array $result, &$pointeur_champ, int &$pos_debut): array {
 	$length = strlen($texte);
 	while ($pos_debut < $length && trim($texte[$pos_debut]) === '') {
 		$pos_debut++;
@@ -449,23 +451,40 @@ function phraser_arg(&$texte, $sep, $result, &$pointeur_champ) {
 	return $result;
 }
 
-
-function phraser_champs_exterieurs($texte, $ligne, $sep, $nested) {
+/**
+ * Reconstruire un tableau de resultat ordonné selon l'ordre d'apparition dans le texte issu de phraser_champs_interieurs()
+ * et phraser les inclure sur les morceaux intermédiaires
+ *
+ * @param string $texte
+ * @param int $ligne
+ * @param string $sep
+ * @param array $nested_res
+ * @return array
+ */
+function phraser_champs_exterieurs(string $texte, int $ligne, string $sep, array $nested_res): array {
 	$res = [];
-	while (($p = strpos((string) $texte, (string) "%$sep")) !== false) {
-		if (!preg_match(',^%' . preg_quote((string) $sep, ',') . '([0-9]+)\n*@,', substr((string) $texte, $p), $m)) {
+	$preg = ',^%' . preg_quote($sep, ',') . '([0-9]+)(\n*)@,';
+	while (($p = strpos($texte, "%$sep")) !== false) {
+		$suite = substr($texte, $p);
+		if (!preg_match($preg, $suite, $m)) {
 			break;
 		}
-		$debut = substr((string) $texte, 0, $p);
-		$texte = substr((string) $texte, $p + strlen($m[0]));
 		if ($p) {
+			$debut = substr($texte, 0, $p);
 			$res = phraser_inclure($debut, $ligne, $res);
+			$ligne += substr_count($debut, "\n");
 		}
-		$ligne += substr_count($debut, "\n");
-		$res[] = $nested[$m[1]];
+		$res[] = $nested_res[$m[1]];
+		$ligne += strlen($m[2]);
+		$texte = substr($suite, strlen($m[0]));
 	}
 
-	return (($texte === '') ? $res : phraser_inclure($texte, $ligne, $res));
+	if ($texte !== '') {
+		$res = phraser_inclure($texte, $ligne, $res);
+	}
+
+	return $res;
+
 }
 
 /**
