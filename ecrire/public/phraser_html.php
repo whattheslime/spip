@@ -279,7 +279,7 @@ function phraser_champs_etendus($texte, $ligne, $result) {
 		$sep .= '#';
 	}
 
-	return array_merge($result, phraser_champs_interieurs($texte, $ligne, $sep, []));
+	return array_merge($result, phraser_champs_interieurs((string)$texte, $ligne, $sep, []));
 }
 
 /**
@@ -468,7 +468,7 @@ function phraser_champs_exterieurs($texte, $ligne, $sep, $nested) {
 	return (($texte === '') ? $res : phraser_inclure($texte, $ligne, $res));
 }
 
-function phraser_champs_interieurs($texte, $ligne, $sep, $result) {
+function phraser_champs_interieurs(string $texte, int $ligne, string $sep, array $parties) {
 	$i = 0; // en fait count($result)
 	$x = '';
 
@@ -476,56 +476,61 @@ function phraser_champs_interieurs($texte, $ligne, $sep, $result) {
 		$j = $i;
 		$n = $ligne;
 		$search_pos = 0;
-		while (preg_match(CHAMP_ETENDU, (string) $texte, $match, PREG_OFFSET_CAPTURE, $search_pos)) {
+
+		while ((($p = strpos($texte, '[', $search_pos)) !== false)
+			&& preg_match(CHAMP_ETENDU, $texte, $match, PREG_OFFSET_CAPTURE, $p)) {
+
 			$poss = array_column($match, 1);
 			$match = array_column($match, 0);
 			// si jamais il y a une sous balise inclue dans la partie 7, alors on est pas dans le champ le plus interieur, on continue le search plus loin
-			if (str_contains($match[7], '[')) {
-				if (preg_match(CHAMP_ETENDU, (string) $texte, $r, 0, $poss[7])) {
-					$search_pos = $poss[7];
-					continue;
-				}
+			if (str_contains($match[7], '[') && preg_match(CHAMP_ETENDU, $texte, $r, 0, $poss[7])) {
+				$search_pos = $poss[7];
+				continue;
 			}
-			$p = $poss[0];
-			$debut = substr((string) $texte, 0, $p);
-			if ($p) {
-				$result[$i] = $debut;
+			if ($poss[0]) {
+				$parties[$i] = substr($texte, 0, $poss[0]);
 				$i++;
 			}
-			$nom = $match[4];
+
 			$champ = new Champ();
 			// ca ne marche pas encore en cas de champ imbrique
-			$champ->ligne = $x ? 0 : ($n + substr_count($debut, "\n"));
+			$champ->ligne = $x ? 0 : ($n + substr_count($texte, "\n", 0, $poss[0]));
 			$champ->nom_boucle = $match[3];
-			$champ->nom_champ = $nom;
+			$champ->nom_champ = $match[4];
 			$champ->etoile = $match[6];
+
 			// phraser_args indiquera ou commence apres
 			$pos_apres = 0;
-			$result = phraser_args($match[7], ')', $sep, $result, $champ, $pos_apres);
+			$parties = phraser_args($match[7], ')', $sep, $parties, $champ, $pos_apres);
 			phraser_vieux($champ);
-			$champ->avant =	phraser_champs_exterieurs($match[1], $n, $sep, $result);
-			$debut = substr($match[7], $pos_apres + 1);
-			if (!empty($debut)) {
-				$n += substr_count(substr((string) $texte, 0, strpos((string) $texte, $debut)), "\n");
+			$champ->avant =	phraser_champs_exterieurs($match[1], $n, $sep, $parties);
+			$apres = substr($match[7], $pos_apres + 1);
+			if (!empty($apres)) {
+				$n += substr_count($texte, "\n", 0, $poss[7] + $pos_apres + 1);
 			}
-			$champ->apres = phraser_champs_exterieurs($debut, $n, $sep, $result);
+			$champ->apres = phraser_champs_exterieurs($apres, $n, $sep, $parties);
 
 			// reinjecter la boucle si c'en est une
 			phraser_boucle_placeholder($champ);
 
-			$result[$i] = $champ;
+			$parties[$i] = $champ;
 			$i++;
-			$texte = substr((string) $texte, $p + strlen($match[0]));
+			$texte = substr($texte, $poss[0] + strlen($match[0]));
 			$search_pos = 0;
 		}
+
+		// il reste un morceau inerte ?
 		if ($texte !== '') {
-			$result[$i] = $texte;
+			$parties[$i] = $texte;
 			$i++;
 		}
+
+		// reprenons tous les morceaux qu'on a mis de côté car ne matchant pas
+		// en neutralisant les balises déjà trouvées, ce qui permettra de trouver les balises englobantes
 		$x = '';
 
 		while ($j < $i) {
-			$z = $result[$j];
+			$z = $parties[$j];
 			// j'aurais besoin de connaitre le nombre de lignes...
 			if (is_object($z)) {
 				$x .= "%$sep$j@";
@@ -537,7 +542,7 @@ function phraser_champs_interieurs($texte, $ligne, $sep, $result) {
 		if (preg_match(CHAMP_ETENDU, $x)) {
 			$texte = $x;
 		} else {
-			return phraser_champs_exterieurs($x, $ligne, $sep, $result);
+			return phraser_champs_exterieurs($x, $ligne, $sep, $parties);
 		}
 	}
 }
