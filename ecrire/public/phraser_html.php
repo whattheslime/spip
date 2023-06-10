@@ -625,6 +625,13 @@ function phraser_champs_interieurs(string $texte, int $no_ligne, string $sep): a
 	return phraser_champs_exterieurs($texte, $no_ligne, $sep, $champs_trouves);
 }
 
+/**
+ * Gerer les derogations de syntaxe historiques
+ * Ne concerne plus que #MODELE et <INCLURE> / #INCLURE
+ *
+ * @param $champ
+ * @return void
+ */
 function phraser_vieux(&$champ) {
 	$nom = $champ->nom_champ;
 	if ($champ->param) {

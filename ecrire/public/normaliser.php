@@ -24,6 +24,13 @@ function phraser_vieux_inclu($p) {
  normaliser_args_inclumodel($p);
 }
 
+/**
+ * Accepte la syntaxe historique {arg1=val1}{arg2=val2}... dans les INCLURE
+ * au lieu de {arg1=val1,arg2=val2,...}
+ *
+ * @param $p
+ * @return void
+ */
 function normaliser_args_inclumodel($p) {
 	$params = $p->param;
 	if (!$params) {
@@ -45,6 +52,12 @@ function normaliser_args_inclumodel($p) {
 	array_unshift($p->param, $args);
 }
 
+
+/**
+ * Trim les arguments de <INCLURE> et repère l'argument spécial fond=
+ * @param $champ
+ * @return void
+ */
 function normaliser_inclure($champ) {
 	normaliser_args_inclumodel($champ);
 	$l = $champ->param[0];
@@ -76,5 +89,5 @@ function normaliser_inclure($champ) {
 			return;
 		}
 	}
-	spip_log('inclure sans fond ni fichier');
+	spip_log('inclure sans fond ni fichier', 'vieilles_def');
 }
