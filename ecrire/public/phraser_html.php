@@ -125,15 +125,28 @@ function phraser_inclure(string $texte, int $ligne, array $result): array {
 	return $result;
 }
 
-function phraser_polyglotte($texte, $ligne, $result) {
+/**
+ * Phraser les <multi>...</multi>
+ * on passe en dernier de toutes les analyses :
+ * a ce stade il ne reste que des morceaux de texte entre balises/boucles, donc une <multi> ne peut pas contenir de balises
+ *
+ * @use Spip\Texte\Collecteur\Multis
+ * @param string $texte
+ * @param int $ligne
+ * @param array $result
+ * @return array
+ */
+function phraser_polyglotte(string $texte, int $ligne, array $result): array {
 
-	if (preg_match_all(BALISE_POLYGLOTTE, (string) $texte, $m, PREG_SET_ORDER)) {
-		foreach ($m as $match) {
-			$p = strpos((string) $texte, (string) $match[0]);
-			$debut = substr((string) $texte, 0, $p);
-			if ($p) {
+	$collecteur = new Spip\Texte\Collecteur\Multis();
+	$multis = $collecteur->collecter($texte);
+
+	if (!empty($multis)) {
+		$pos_prev = 0;
+		foreach ($multis as $multi) {
+			if ($multi['pos'] > $pos_prev) {
 				$champ = new Texte();
-				$champ->texte = $debut;
+				$champ->texte = substr($texte, $pos_prev, $multi['pos'] - $pos_prev);
 				$champ->ligne = $ligne;
 				$result[] = $champ;
 				$ligne += substr_count($champ->texte, "\n");
@@ -141,22 +154,14 @@ function phraser_polyglotte($texte, $ligne, $result) {
 
 			$champ = new Polyglotte();
 			$champ->ligne = $ligne;
-			$ligne += substr_count($match[0], "\n");
-			$lang = '';
-			$bloc = $match[1];
-			$texte = substr((string) $texte, $p + strlen($match[0]));
-			while (preg_match('/^[[:space:]]*([^[{]*)[[:space:]]*[[{]([a-z_]+)[]}](.*)$/si', $bloc, $regs)) {
-				$trad = $regs[1];
-				if ($trad || $lang) {
-					$champ->traductions[$lang] = $trad;
-				}
-				$lang = $regs[2];
-				$bloc = $regs[3];
-			}
-			$champ->traductions[$lang] = $bloc;
+			$champ->traductions = $multi['trads'];
 			$result[] = $champ;
+			$ligne += substr_count($multi['raw'], "\n");
+			$pos_prev = $multi['pos'] + $multi['length'];
 		}
+		$texte = substr($texte, $pos_prev);
 	}
+
 	if ($texte !== '') {
 		$champ = new Texte();
 		$champ->texte = $texte;
