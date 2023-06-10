@@ -258,17 +258,21 @@ function phraser_idiomes(string $texte, int $ligne, array $result): array {
  * @param array $result
  * @return array
  **/
-function phraser_champs($texte, $ligne, $result) {
-	while (preg_match('/' . NOM_DE_CHAMP . '/S', $texte, $match)) {
-		$p = strpos($texte, (string) $match[0]);
-		// texte après la balise
-		$suite = substr($texte, $p + strlen($match[0]));
+function phraser_champs(string $texte, int $ligne, array $result): array {
 
-		$debut = substr($texte, 0, $p);
+	while ((($p = strpos($texte, '#')) !== false)
+		&& preg_match('/' . NOM_DE_CHAMP . '/S', $texte, $match, PREG_OFFSET_CAPTURE, $p)) {
+
+		$poss = array_column($match, 1);
+		$match = array_column($match, 0);
+
+		$p = $poss[0];
 		if ($p) {
+			$debut = substr($texte, 0, $p);
 			$result = phraser_polyglotte($debut, $ligne, $result);
+			$ligne += substr_count($debut, "\n");
 		}
-		$ligne += substr_count($debut, "\n");
+
 		$champ = new Champ();
 		$champ->ligne = $ligne;
 		$ligne += substr_count($match[0], "\n");
@@ -276,7 +280,9 @@ function phraser_champs($texte, $ligne, $result) {
 		$champ->nom_champ = $match[3];
 		$champ->etoile = $match[5];
 
-		if ($suite && $suite[0] == '{') {
+		// texte après la balise
+		$suite = substr($texte, $p + strlen($match[0]));
+		if ($suite && str_starts_with($suite, '{')) {
 			phraser_arg($suite, '', [], $champ);
 			// ce ltrim est une ereur de conception
 			// mais on le conserve par souci de compatibilite
