@@ -279,7 +279,7 @@ function phraser_champs_etendus($texte, $ligne, $result) {
 		$sep .= '#';
 	}
 
-	return array_merge($result, phraser_champs_interieurs((string)$texte, $ligne, $sep, []));
+	return array_merge($result, phraser_champs_interieurs((string)$texte, $ligne, $sep));
 }
 
 /**
@@ -468,15 +468,16 @@ function phraser_champs_exterieurs($texte, $ligne, $sep, $nested) {
 	return (($texte === '') ? $res : phraser_inclure($texte, $ligne, $res));
 }
 
-function phraser_champs_interieurs(string $texte, int $ligne, string $sep, array $parties) {
-	$i = 0; // en fait count($result)
-	$x = '';
+function phraser_champs_interieurs(string $texte, int $no_ligne, string $sep) {
 
-	while (true) {
-		$j = $i;
-		$n = $ligne;
+	$champs_trouves = [];
+	do {
+		$parties = [];
+		$nbl = $no_ligne;
 		$search_pos = 0;
 
+		// trouver tous les champs intérieurs (sans autre champs imbriqués), les analyser, et les remplacer par un placehoder
+		// le $texte est découpé en parties qu'on re-parse ensuite jusqu'à ce qu'on ne trouve plus de nouveaux champs
 		while ((($p = strpos($texte, '[', $search_pos)) !== false)
 			&& preg_match(CHAMP_ETENDU, $texte, $match, PREG_OFFSET_CAPTURE, $p)) {
 
@@ -487,64 +488,55 @@ function phraser_champs_interieurs(string $texte, int $ligne, string $sep, array
 				$search_pos = $poss[7];
 				continue;
 			}
+
+			$nbl_debut = 0;
 			if ($poss[0]) {
-				$parties[$i] = substr($texte, 0, $poss[0]);
-				$i++;
+				$nbl_debut = substr_count($texte, "\n", 0, $poss[0]);
+				$parties[] = substr($texte, 0, $poss[0]);
 			}
+			$nbl += $nbl_debut;
 
 			$champ = new Champ();
-			// ca ne marche pas encore en cas de champ imbrique
-			$champ->ligne = $x ? 0 : ($n + substr_count($texte, "\n", 0, $poss[0]));
+			$champ->ligne = $nbl;
 			$champ->nom_boucle = $match[3];
 			$champ->nom_champ = $match[4];
 			$champ->etoile = $match[6];
+			$nbl_champ = substr_count($texte, "\n", $poss[0], strlen($match[0]));
 
 			// phraser_args indiquera ou commence apres
 			$pos_apres = 0;
-			$parties = phraser_args($match[7], ')', $sep, $parties, $champ, $pos_apres);
+			$champs_trouves = phraser_args($match[7], ')', $sep, $champs_trouves, $champ, $pos_apres);
 			phraser_vieux($champ);
-			$champ->avant =	phraser_champs_exterieurs($match[1], $n, $sep, $parties);
+			$champ->avant =	phraser_champs_exterieurs($match[1], $nbl, $sep, $champs_trouves);
 			$apres = substr($match[7], $pos_apres + 1);
+
+			$nbl_debut_champ = 0;
 			if (!empty($apres)) {
-				$n += substr_count($texte, "\n", 0, $poss[7] + $pos_apres + 1);
+				$nbl_debut_champ = substr_count($texte, "\n", $poss[0], $poss[7] + $pos_apres + 1 - $poss[0]);
 			}
-			$champ->apres = phraser_champs_exterieurs($apres, $n, $sep, $parties);
+			$champ->apres = phraser_champs_exterieurs($apres, $nbl + $nbl_debut_champ, $sep, $champs_trouves);
 
 			// reinjecter la boucle si c'en est une
 			phraser_boucle_placeholder($champ);
 
-			$parties[$i] = $champ;
-			$i++;
+			$champs_trouves[] = $champ;
+			$j = count($champs_trouves)-1;
+			// on remplace ce champ par un placeholder
+			$parties[] = "%$sep$j@"; // TODO : ajouter $nbl_champ retour ligne pour que la partie conserve le nombre de lignes
+			$nbl += $nbl_champ;
+
 			$texte = substr($texte, $poss[0] + strlen($match[0]));
 			$search_pos = 0;
 		}
 
-		// il reste un morceau inerte ?
-		if ($texte !== '') {
-			$parties[$i] = $texte;
-			$i++;
+		// si on a trouvé des morceaux, il faut recommencer
+		if (count($parties)) {
+			// reprenons tous les morceaux qu'on a mis de côté car ne matchant pas (encore)
+			$texte = implode('', $parties) . $texte;
 		}
+	} while (count($parties));
 
-		// reprenons tous les morceaux qu'on a mis de côté car ne matchant pas
-		// en neutralisant les balises déjà trouvées, ce qui permettra de trouver les balises englobantes
-		$x = '';
-
-		while ($j < $i) {
-			$z = $parties[$j];
-			// j'aurais besoin de connaitre le nombre de lignes...
-			if (is_object($z)) {
-				$x .= "%$sep$j@";
-			} else {
-				$x .= $z;
-			}
-			$j++;
-		}
-		if (preg_match(CHAMP_ETENDU, $x)) {
-			$texte = $x;
-		} else {
-			return phraser_champs_exterieurs($x, $ligne, $sep, $parties);
-		}
-	}
+	return phraser_champs_exterieurs($texte, $no_ligne, $sep, $champs_trouves);
 }
 
 function phraser_vieux(&$champ) {
