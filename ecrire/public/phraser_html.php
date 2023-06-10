@@ -468,7 +468,17 @@ function phraser_champs_exterieurs($texte, $ligne, $sep, $nested) {
 	return (($texte === '') ? $res : phraser_inclure($texte, $ligne, $res));
 }
 
-function phraser_champs_interieurs(string $texte, int $no_ligne, string $sep) {
+/**
+ * Parser un texte pour trouver toutes les balises complètes [...(#TRUC)...] en gérant les imbrications possibles
+ * Pour cela on commence par les plus profondes, sans rien dedans,
+ * on les remplace par un placehoder inactif et on recommence jusqu'à ce qu'on ne trouve plus rien
+ *
+ * @param string $texte
+ * @param int $no_ligne
+ * @param string $sep
+ * @return array
+ */
+function phraser_champs_interieurs(string $texte, int $no_ligne, string $sep): array {
 
 	$champs_trouves = [];
 	do {
