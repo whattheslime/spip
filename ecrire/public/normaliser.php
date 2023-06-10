@@ -80,36 +80,6 @@ function phraser_logo_faux_filtres($nom) {
 }
 
 
-// La balise embed_document est a present le modele emb
-
-function phraser_vieux_emb(&$p) {
-	if (!is_array($p->param)) {
-		$p->param = [];
-	}
-
-	// Produire le premier argument {emb}
-	$texte = new Texte();
-	$texte->texte = 'emb';
-	$param = ['', [$texte]];
-
-	// Transformer les filtres en arguments
-	$paramCount = is_countable($p->param) ? count($p->param) : 0;
-	for ($i = 0; $i < $paramCount; $i++) {
-		if ($p->param[$i][0]) {
-			if (!strstr((string) $p->param[$i][0], '=')) {
-				break;
-			}# on a rencontre un vrai filtre, c'est fini
-			$texte = new Texte();
-			$texte->texte = $p->param[$i][0];
-			$param[] = [$texte];
-		}
-		array_shift($p->param);
-	}
-	array_unshift($p->param, $param);
-	spip_log('balise EMBED_DOCUMENT obsolete', 'vieilles_defs');
-	$p->nom_champ = 'MODELE';
-}
-
 // Vieux formulaire de recherch
 
 function phraser_vieux_recherche($p) {
