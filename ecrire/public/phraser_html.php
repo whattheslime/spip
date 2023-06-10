@@ -69,27 +69,37 @@ define('SQL_ARGS', '(\([^)]*\))');
 /** Fonction SQL sur un champ ex: SUM(visites) */
 define('CHAMP_SQL_PLUS_FONC', '`?([A-Z_\/][A-Z_\/0-9.]*)' . SQL_ARGS . '?`?');
 
-function phraser_inclure($texte, $ligne, $result) {
+/**
+ * Parser les <INCLURE> dans le texte
+ * @param string $texte
+ * @param int $ligne
+ * @param array $result
+ * @return array
+ */
+function phraser_inclure(string $texte, int $ligne, array $result): array {
 
-	while (preg_match(BALISE_INCLURE, (string) $texte, $match)) {
+	while ((($p = strpos($texte, '<INC')) !== false)
+		&& preg_match(BALISE_INCLURE, $texte, $match, PREG_OFFSET_CAPTURE, $p)) {
+
+		$poss = array_column($match, 1);
+		$match = array_column($match, 0);
 		$match = array_pad($match, 3, null);
-		$p = strpos((string) $texte, (string) $match[0]);
-		$debut = substr((string) $texte, 0, $p);
+
+		$p = $poss[0];
+		$debut = substr($texte, 0, $p);
 		if ($p) {
 			$result = phraser_idiomes($debut, $ligne, $result);
 		}
 		$ligne += substr_count($debut, "\n");
+
 		$champ = new Inclure();
 		$champ->ligne = $ligne;
 		$ligne += substr_count((string) $match[0], "\n");
 		$fichier = $match[2];
-		# assurer ici la migration .php3 => .php
-		# et de l'ancienne syntaxe INCLURE(page.php3) devenue surperflue
-		if ($fichier && preg_match(',^(.*[.]php)3$,', (string) $fichier, $r)) {
-			$fichier = $r[1];
-		}
-		$champ->texte = ($fichier !== 'page.php') ? $fichier : '';
-		$texte = substr((string) $texte, $p + strlen((string) $match[0]));
+		$champ->texte = $fichier;
+
+		$texte = substr($texte, $p + strlen((string) $match[0]));
+
 		// on assimile {var=val} a une liste de un argument sans fonction
 		$pos_apres = 0;
 		phraser_args($texte, '/>', '', $result, $champ, $pos_apres);
@@ -99,12 +109,20 @@ function phraser_inclure($texte, $ligne, $result) {
 			}
 			normaliser_inclure($champ);
 		}
-		$texte = substr($texte, strpos($texte, '>', $pos_apres) + 1);
-		$texte = preg_replace(',^</INCLU[DR]E>,', '', $texte);
+		$pos_fin = strpos($texte, '>', $pos_apres) + 1;
+		if ( (strpos($texte, '</INCLUDE>', $pos_fin) === $pos_fin)
+			|| (strpos($texte, '</INCLURE>', $pos_fin) === $pos_fin)) {
+			$pos_fin += 10;
+		}
+		$texte = substr($texte, $pos_fin);
 		$result[] = $champ;
 	}
 
-	return (($texte === '') ? $result : phraser_idiomes($texte, $ligne, $result));
+	if ($texte != '') {
+		$result = phraser_idiomes($texte, $ligne, $result);
+	}
+
+	return $result;
 }
 
 function phraser_polyglotte($texte, $ligne, $result) {
