@@ -627,12 +627,7 @@ function phraser_champs_interieurs(string $texte, int $no_ligne, string $sep): a
 
 function phraser_vieux(&$champ) {
 	$nom = $champ->nom_champ;
-	if ($nom == 'EXPOSER') {
-		if (!function_exists('phraser_vieux_exposer')) {
-			include_spip('public/normaliser');
-		}
-		phraser_vieux_exposer($champ);
-	} elseif ($champ->param) {
+	if ($champ->param) {
 		if ($nom == 'FORMULAIRE_RECHERCHE') {
 			if (!function_exists('phraser_vieux_recherche')) {
 				include_spip('public/normaliser');

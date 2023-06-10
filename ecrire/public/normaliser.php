@@ -93,27 +93,6 @@ function phraser_vieux_recherche($p) {
 	}
 }
 
-// Gerer la notation [(#EXPOSER|on,off)]
-function phraser_vieux_exposer($p) {
-	if ($a = $p->fonctions) {
-		preg_match('#([^,]*)(,(.*))?#', (string) $a[0][0], $regs);
-		$args = [];
-		if ($regs[1]) {
-			$a = new Texte();
-			$a->texte = $regs[1];
-			$args = ['', [$a]];
-			if ($regs[3]) {
-				$a = new Texte();
-				$a->texte = $regs[3];
-				$args[] = [$a];
-			}
-		}
-		$p->param[0] = $args;
-		$p->fonctions = [];
-		$p->nom_champ = 'EXPOSE';
-	}
-}
-
 function phraser_vieux_modele($p) {
  normaliser_args_inclumodel($p);
 }
