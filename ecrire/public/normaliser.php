@@ -80,19 +80,6 @@ function phraser_logo_faux_filtres($nom) {
 }
 
 
-// Vieux formulaire de recherch
-
-function phraser_vieux_recherche($p) {
-	if ($p->param[0][0]) {
-		$c = new Texte();
-		$c->texte = $p->param[0][0];
-		$p->param[0][1] = [$c];
-		$p->param[0][0] = '';
-		$p->fonctions = [];
-		spip_log('FORMULAIRE_RECHERCHE avec filtre ' . $c->texte, 'vieilles_defs');
-	}
-}
-
 function phraser_vieux_modele($p) {
  normaliser_args_inclumodel($p);
 }

@@ -628,12 +628,7 @@ function phraser_champs_interieurs(string $texte, int $no_ligne, string $sep): a
 function phraser_vieux(&$champ) {
 	$nom = $champ->nom_champ;
 	if ($champ->param) {
-		if ($nom == 'FORMULAIRE_RECHERCHE') {
-			if (!function_exists('phraser_vieux_recherche')) {
-				include_spip('public/normaliser');
-			}
-			phraser_vieux_recherche($champ);
-		} elseif (preg_match(',^LOGO_[A-Z]+,', (string) $nom)) {
+		if (preg_match(',^LOGO_[A-Z]+,', (string) $nom)) {
 			if (!function_exists('phraser_vieux_logos')) {
 				include_spip('public/normaliser');
 			}
