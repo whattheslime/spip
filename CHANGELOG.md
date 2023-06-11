@@ -12,6 +12,7 @@
 
 ### Changed
 
+- #3637 Phraseur: Accepter des crochets dans la partie optionnelle d’une balise. `[hop] (#REM) [truc]` devient possible.
 - Refactor de `echappe_html()` avec un collecteur
 - #5552 Signature de `spip_setcookie` (reprend la signature de php `setcookie`)
 - #5540 Les fonctions `extraire_balise` et `extraire_balises` peuvent gérer des balises imbriquées
