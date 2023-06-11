@@ -103,7 +103,7 @@ class Multis extends AbstractCollecteur {
 
 	/**
 	 * Recoller ensemble les trads pour reconstituer le texte dans la balise <multi>...</multi>
-	 * @param $trads
+	 * @param array<string,string> $trads
 	 * @return string
 	 */
 	protected function agglomerer_trads($trads) {

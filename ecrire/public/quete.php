@@ -27,8 +27,8 @@ include_spip('base/abstract_sql');
 /**
  * Retourne l'URL de redirection d'un article virtuel, seulement si il est publié
  *
- * @param $id_article
- * @param $connect
+ * @param int $id_article
+ * @param string $connect
  * @return array|bool|null
  */
 function quete_virtuel($id_article, $connect) {
@@ -531,9 +531,9 @@ function quete_logo_document($row, $lien, $align, $mode_logo, $x, $y, string $co
 
 /**
  * Recuperer le HTML du logo d'apres ses infos
- * @param $logo
- * @param $align
- * @param $lien
+ * @param array $logo
+ * @param string $align
+ * @param string $lien
  * @return string
  */
 function quete_html_logo($logo, $align, $lien) {

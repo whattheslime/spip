@@ -485,7 +485,7 @@ function calculer_chaine_jointures(
  * applatit les cles multiples
  * redondance avec split_key() ? a mutualiser
  *
- * @param $keys
+ * @param array $keys
  * @return array
  */
 function trouver_cles_table($keys) {

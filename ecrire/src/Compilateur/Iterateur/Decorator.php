@@ -197,8 +197,8 @@ class Decorator extends FilterIterator
 	/**
 	 * Avancer de $saut pas.
 	 *
-	 * @param $saut
-	 * @param $max
+	 * @param int $saut
+	 * @param int|null $max
 	 *
 	 * @return int
 	 */
@@ -333,7 +333,7 @@ class Decorator extends FilterIterator
 	 * Assembler le tableau de filtres traduits depuis les conditions SQL
 	 * les filtres vides ou null sont ignores.
 	 *
-	 * @param $filtres
+	 * @param array $filtres
 	 * @param string $operateur
 	 *
 	 * @return null|string
@@ -362,7 +362,7 @@ class Decorator extends FilterIterator
 	/**
 	 * Traduire un element du tableau where SQL en un filtre.
 	 *
-	 * @param $v
+	 * @param array|string $v
 	 *
 	 * @return null|array|string
 	 */
@@ -445,10 +445,10 @@ class Decorator extends FilterIterator
 	/**
 	 * Calculer un filtre sur un champ du tableau.
 	 *
-	 * @param $cle
-	 * @param $op
-	 * @param $valeur
-	 * @param false $not
+	 * @param string $cle
+	 * @param string $op
+	 * @param string $valeur
+	 * @param bool $not
 	 *
 	 * @return null|string
 	 */

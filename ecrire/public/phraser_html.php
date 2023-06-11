@@ -318,9 +318,6 @@ function phraser_champs(string $texte, int $ligne, array $result): array {
  * on lui fournir un marqueur $sep qui n'est pas contenu dans le texte et qu'il peut utiliser de manière sure
  * pour remplacer au fur et a mesure les champs imbriques qu'il va trouver
  *
- * @param $texte
- * @param $ligne
- * @param $result
  * @return array|mixed
  */
 function phraser_champs_etendus(string $texte, int $ligne, array $result): array {
@@ -348,8 +345,7 @@ function phraser_champs_etendus(string $texte, int $ligne, array $result): array
  * @param string $fin
  * @param string $sep
  * @param array $result
- * @param $pointeur_champ
- *   Spip\Compilateur\Noeud\Champ | Spip\Compilateur\Noeud|Inclure | Spip\Compilateur\Noeud\Idiome | Spip\Compilateur\Noeud\Boucle
+ * @param Champ|Inclure|Idiome|Boucle $pointeur_champ
  * @param int $pos_debut
  * @return array
  */
@@ -629,7 +625,7 @@ function phraser_champs_interieurs(string $texte, int $no_ligne, string $sep): a
  * Gerer les derogations de syntaxe historiques
  * Ne concerne plus que #MODELE et <INCLURE> / #INCLURE
  *
- * @param $champ
+ * @param Champ|Inclure $champ
  * @return void
  */
 function phraser_vieux(&$champ) {
@@ -871,16 +867,15 @@ function phraser_critere_infixe($arg1, $arg2, $args, $op, $not, $cond) {
 
 /**
  * Compter le nombre de lignes dans une partie texte
- * @param $texte
+ * @param string $texte
  * @param int $debut
- * @param null $fin
+ * @param int|null $fin
  * @return int
  */
 function public_compte_ligne($texte, $debut = 0, $fin = null) {
 	if (is_null($fin)) {
 		return substr_count((string) $texte, "\n", $debut);
-	}
-	else {
+	} else {
 		return substr_count((string) $texte, "\n", $debut, $fin - $debut);
 	}
 }
@@ -893,11 +888,11 @@ function public_compte_ligne($texte, $debut = 0, $fin = null) {
  *
  * @param string $texte
  * @param string $id_parent
- * @param $descr
+ * @param array $descr
  * @param int $pos_debut_texte
  * @return ?array
  */
-function public_trouver_premiere_boucle(string $texte, string $id_parent, $descr, int $pos_debut_texte = 0): ?array {
+function public_trouver_premiere_boucle(string $texte, string $id_parent, array $descr, int $pos_debut_texte = 0): ?array {
 	$premiere_boucle = null;
 	$pos_derniere_boucle_anonyme = $pos_debut_texte;
 
@@ -1086,7 +1081,7 @@ function phraser_boucle_placeholder(&$champ, ?string $boucle_placeholder = null,
 /**
  * Generer une balise placeholder qui prend la place de la boucle pour continuer le parsing des balises
  * @param string $id_boucle
- * @param $boucle
+ * @param Boucle $boucle
  * @param string $boucle_placeholder
  * @param int $nb_lignes
  * @return string
@@ -1106,14 +1101,14 @@ function public_generer_boucle_placeholder(string $id_boucle, &$boucle, string $
  *
  * @param string $texte
  * @param string $id_parent
- * @param array $boucles
- * @param $descr
+ * @param array<string,Boucle> $boucles
+ * @param array $descr
  * @param int $ligne_debut_texte
  * @param string|null $boucle_placeholder
  * @return array
  * @throws JsonException
  */
-function public_phraser_html_dist(string $texte, string $id_parent, array &$boucles, $descr, int $ligne_debut_texte = 1, ?string $boucle_placeholder = null): array {
+function public_phraser_html_dist(string $texte, string $id_parent, array &$boucles, array $descr, int $ligne_debut_texte = 1, ?string $boucle_placeholder = null): array {
 
 	$all_res = [];
 	// definir un placholder pour les boucles dont on est sur d'avoir aucune occurence dans le squelette

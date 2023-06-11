@@ -975,10 +975,10 @@ define('_REGEXP_CONCAT_NON_VIDE', "/^(.*)[.]\s*'[^']+'\s*$/");
 /**
  * @uses choisir_traduction()
  *
- * @param $tableau
- * @param $descr
- * @param $boucles
- * @param $id_boucle
+ * @param array $tableau
+ * @param array $descr
+ * @param array<string,Boucle> $boucles
+ * @param string $id_boucle
  * @return array|false
  */
 function compile_cas($tableau, $descr, &$boucles, $id_boucle) {
@@ -1194,8 +1194,8 @@ function compile_cas($tableau, $descr, &$boucles, $id_boucle) {
 
 /**
  * Concatene 2 parties de code, en simplifiant si l'une des 2 est vides
- * @param $partie1
- * @param $partie2
+ * @param string $partie1
+ * @param string $partie2
  * @return string
  */
 function compile_concatene_parties_codes($partie1, $partie2) {
@@ -1655,9 +1655,9 @@ function compiler_squelette($squelette, $boucles, $nom, $descr, $sourcefile, str
  * et dans ce cas charge la boucle avec cet iterateur.
  * Affichera une erreur dans le cas contraire.
  *
- * @param $boucles Liste des boucles
- * @param $boucle  La boucle parcourue
- * @param $id      L'identifiant de la boucle parcourue
+ * @param array<string,Boucle> $boucles Liste des boucles
+ * @param Boucle $boucle La boucle parcourue
+ * @param string $id L'identifiant de la boucle parcourue
  *
  **/
 function requeteur_php_dist(&$boucles, &$boucle, &$id) {
@@ -1684,9 +1684,9 @@ function requeteur_php_dist(&$boucles, &$boucle, &$id) {
  * et dans ce cas charge la boucle avec cet iterateur.
  * Affichera une erreur dans le cas contraire.
  *
- * @param $boucles Liste des boucles
- * @param $boucle  La boucle parcourue
- * @param $id      L'identifiant de la boucle parcourue
+ * @param array<string,Boucle> $boucles Liste des boucles
+ * @param Boucle $boucle La boucle parcourue
+ * @param string $id L'identifiant de la boucle parcourue
  *
  **/
 function requeteur_data_dist(&$boucles, &$boucle, &$id) {

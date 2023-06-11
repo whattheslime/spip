@@ -151,7 +151,7 @@ abstract class AbstractPage {
 
 	/**
 	 * Ouvre le corps : affiche le header avec un éventuel titre + ouvre le div corps
-	 * @param $options
+	 * @param array options
 	 * @return string
 	 */
 	protected function ouvreCorps($options = []) {
@@ -170,7 +170,7 @@ abstract class AbstractPage {
 
 	/**
 	 * Ferme le corps : affiche le footer par défaut ou custom et ferme le div corps
-	 * @param $options
+	 * @param array $options
 	 * @return string
 	 */
 	protected function fermeCorps($options = []) {

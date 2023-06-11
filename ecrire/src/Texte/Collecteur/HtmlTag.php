@@ -174,8 +174,8 @@ class HtmlTag extends AbstractCollecteur {
 	/**
 	 * @param string $texte
 	 * @param string $source
-	 * @param $callback_function
-	 * @param $callback_options
+	 * @param callable|null $callback_function
+	 * @param array $callback_options
 	 * @return string
 	 */
 	public function echapper_enHtmlBase64(string $texte, string $source = '', $callback_function = null, $callback_options = []) {

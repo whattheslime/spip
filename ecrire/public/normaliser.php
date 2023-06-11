@@ -1,7 +1,7 @@
 <?php
 
 use Spip\Compilateur\Noeud\Champ;
-use Spip\Compilateur\Noeud\Texte;
+use Spip\Compilateur\Noeud\Inclure;
 
 /***************************************************************************\
  *  SPIP, Système de publication pour l'internet                           *
@@ -28,7 +28,7 @@ function phraser_vieux_inclu($p) {
  * Accepte la syntaxe historique {arg1=val1}{arg2=val2}... dans les INCLURE
  * au lieu de {arg1=val1,arg2=val2,...}
  *
- * @param $p
+ * @param Champ|Inclure $p
  * @return void
  */
 function normaliser_args_inclumodel($p) {
@@ -55,7 +55,7 @@ function normaliser_args_inclumodel($p) {
 
 /**
  * Trim les arguments de <INCLURE> et repère l'argument spécial fond=
- * @param $champ
+ * @param Inclure $champ
  * @return void
  */
 function normaliser_inclure($champ) {

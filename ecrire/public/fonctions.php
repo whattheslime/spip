@@ -317,11 +317,11 @@ function calculer_notes() {
  * utilisable en direct dans un formulaire d'edition des liens, mais #RANG doit faire le travail automatiquement
  * [(#ENV{objet_source}|rang_lien{#ID_AUTEUR,#ENV{objet},#ENV{id_objet},#ENV{_objet_lien}})]
  *
- * @param $objet_source
- * @param $ids
- * @param $objet_lie
- * @param $idl
- * @param $objet_lien
+ * @param string $objet_source
+ * @param int $ids
+ * @param string $objet_lie
+ * @param int $idl
+ * @param string $objet_lien
  * @return string
  */
 function retrouver_rang_lien($objet_source, $ids, $objet_lie, $idl, $objet_lien) {
@@ -337,10 +337,10 @@ function retrouver_rang_lien($objet_source, $ids, $objet_lie, $idl, $objet_lien)
  * pour utilisation commune par lister_objets_lies et retrouver_rang_lien dans un formulaire d'edition de liens
  * (evite de multiplier les requetes)
  *
- * @param $objet_source
- * @param $objet
- * @param $id_objet
- * @param $objet_lien
+ * @param string $objet_source
+ * @param string $objet
+ * @param int $id_objet
+ * @param string $objet_lien
  * @return mixed
  * @private
  */
@@ -364,10 +364,10 @@ function lister_objets_liens($objet_source, $objet, $id_objet, $objet_lien) {
  * Calculer la balise #RANG
  * quand ce n'est pas un champ rang :
  * peut etre le num titre, le champ rang_lien ou le rang du lien en edition des liens, a retrouver avec les infos du formulaire
- * @param $titre
- * @param $objet_source
- * @param $id
- * @param $env
+ * @param string $titre
+ * @param string $objet_source
+ * @param int $id
+ * @param array $env
  * @return int|string
  */
 function calculer_rang_smart($titre, $objet_source, $id, $env) {

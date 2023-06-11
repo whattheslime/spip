@@ -105,8 +105,8 @@ function test_cache_squelette($fond, $session_attendue)
 /**
  * Fonction chargee de faire les assertions d'erreur si l'invalideur session n'est pas comme on l'attend
  *
- * @param $chemin_cache
- * @param $page
+ * @param string $chemin_cache
+ * @param array $page
  */
 
 function inc_maj_invalideurs($chemin_cache, $page)

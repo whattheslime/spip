@@ -1138,9 +1138,9 @@ function critere_inverse_dist($idb, &$boucles, $crit) {
 /**
  * {par_ordre_liste champ,#LISTE{...}} pour trier selon une liste
  * en retournant en premier les éléments de la liste
- * @param $idb
- * @param $boucles
- * @param $crit
+ * @param string $idb
+ * @param array<string,Boucle> $boucles
+ * @param Critere $crit
  * @return void|array
  */
 function critere_par_ordre_liste_dist($idb, &$boucles, $crit) {
