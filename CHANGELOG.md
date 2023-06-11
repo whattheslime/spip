@@ -44,6 +44,7 @@
 
 ### Removed
 
+- #5631 Syntaxes des `#LOGO_xx` avec de faux filtres `|left` `|right` `|center` `|bottom` `|top`, `q|lien` `|fichier` (dépréciées depuis SPIP 2.1)
 - Javascript `jquery.placeholder-label` (qui simulait l’attribut placeholder sur des vieux navigateurs)
 - Suppression du test sur [mbstring.overload](https://www.php.net/manual/en/mbstring.configuration.php#ini.mbstring.func-overload) à l'install
 - Suppression de l’usage de la classe `no_image_filtrer` (utiliser la classe `filtre_inactif` qui l’a remplacé)
