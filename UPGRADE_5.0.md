@@ -30,3 +30,29 @@ ou
 ```css
 a[href] { background-image: url("#CHEMIN_IMAGE{img.svg}"); }
 ```
+
+### Suppression de syntaxes dépréciées
+
+Les vieilles syntaxes des `#LOGO_xx` avec de faux filtres `|left` `|right` `|center` `|bottom`, `|top`, `|lien` `|fichier` (dépréciées depuis SPIP 2.1) ne sont plus prises en compte.
+
+#### Avant
+
+```html
+- [(#LOGO_ARTICLE|#URL_ARTICLE)]
+- [(#LOGO_ARTICLE|fichier)]
+- [(#LOGO_ARTICLE|lien)]
+- [(#LOGO_ARTICLE|left)]
+```
+
+#### Après
+
+```html
+- [(#LOGO_ARTICLE{#URL_ARTICLE})]
+- [(#LOGO_ARTICLE**)]
+- [(#LOGO_ARTICLE*)]
+- [(#LOGO_ARTICLE{left})]
+```
+
+Note: les positionnements `left`, `right`, `center`, `bottom`, `top` ajustent simplement une classe CSS.
+
+
