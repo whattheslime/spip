@@ -4778,7 +4778,7 @@ function wrap($texte, $wrap) {
  * les tableaux-listes (qui n'ont que des cles numeriques), sont affiches sous forme de liste separee par des virgules :
  * c'est VOULU !
  *
- * @param $u
+ * @param mixed $u
  * @param string $join
  * @param int $indent
  * @return array|mixed|string

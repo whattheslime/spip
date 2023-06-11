@@ -22,7 +22,7 @@ if (!defined('_ECRIRE_INC_VERSION')) {
 /**
  * Nettoyer les échappements
  *
- * @param $val
+ * @param string $val
  * @return string
  */
 function autosave_clean_value($val) {

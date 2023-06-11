@@ -154,8 +154,8 @@ function cvtmulti_sauver_post($form, $je_suis_poste, &$valeurs) {
 
 /**
  * Charger une etape du cvt multi
- * @param $args
- * @param $valeurs
+ * @param array $args
+ * @param array $valeurs
  * @return array
  */
 function cvtmulti_formulaire_charger_etapes($args, $valeurs) {
@@ -178,7 +178,7 @@ function cvtmulti_formulaire_charger_etapes($args, $valeurs) {
  * Verifier les etapes de saisie
  *
  * @param array $args
- * @param $erreurs
+ * @param array $erreurs
  * @return array
  */
 function cvtmulti_formulaire_verifier_etapes($args, $erreurs) {

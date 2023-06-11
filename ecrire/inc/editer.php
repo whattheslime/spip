@@ -380,8 +380,8 @@ function coupe_trop_long($texte) {
 /**
  * auto-renseigner le titre si il n'existe pas
  *
- * @param $champ_titre
- * @param $champs_contenu
+ * @param string $champ_titre
+ * @param string $champs_contenu
  * @param int $longueur
  */
 function titre_automatique($champ_titre, $champs_contenu, $longueur = null) {

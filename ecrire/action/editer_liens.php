@@ -526,7 +526,7 @@ function lien_ordonner($objet_source, $primary, $table_lien, $id, $objets) {
 /**
  * Une table de lien est-elle triable ?
  * elle doit disposer d'un champ rang_lien pour cela
- * @param $table_lien
+ * @param string $table_lien
  * @return mixed
  */
 function lien_triables($table_lien) {
