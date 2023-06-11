@@ -29,21 +29,21 @@ define('_JQ_PENDING', 0);
  *
  * Les tâches sont ensuites exécutées par date programmée croissant/priorité décroissante
  *
- * @param $function
+ * @param string $function
  *   The function name to call.
- * @param $description
+ * @param string $description
  *   A human-readable description of the queued job.
- * @param $arguments
+ * @param array $arguments
  *   Optional array of arguments to pass to the function.
- * @param $file
+ * @param string $file
  *   Optional file path which needs to be included for $fucntion.
- * @param $no_duplicate
+ * @param bool $no_duplicate
  *   If TRUE, do not add the job to the queue if one with the same function and
  *   arguments already exists.
  *   If 'function_only' test of existence is only on function name (for cron job)
- * @param $time
+ * @param int $time
  *    time for starting the job. If 0, job will start as soon as possible
- * @param $priority
+ * @param int $priority
  *    -10 (low priority) to +10 (high priority), 0 is the default
  * @return int
  *  id of job

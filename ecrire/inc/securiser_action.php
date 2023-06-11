@@ -267,8 +267,8 @@ function calculer_action_auteur($action, $id_auteur = null) {
  * Verifier le hash de signature d'une action
  * toujours exclusivement pour l'auteur en cours
  *
- * @param $action
- * @param $hash
+ * @param string $action
+ * @param string $hash
  * @return bool
  */
 function verifier_action_auteur($action, $hash) {

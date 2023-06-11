@@ -591,12 +591,12 @@ function styliser_modele($modele, $id, $contexte = null) {
 /**
  * Calcule le modele et retourne la mini-page ainsi calculee
  *
- * @param $type string Nom du modele
- * @param $id int
- * @param $params array Paramètres du modèle
- * @param $lien array Informations du lien entourant l'appel du modèle en base de données
- * @param $connect string
- * @param $env array
+ * @param string $type Nom du modele
+ * @param int $id
+ * @param array $params Paramètres du modèle
+ * @param array $lien Informations du lien entourant l'appel du modèle en base de données
+ * @param string $connect
+ * @param array $env
  * @staticvar string $compteur
  * @return string
  */

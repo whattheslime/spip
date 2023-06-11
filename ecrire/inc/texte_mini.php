@@ -112,10 +112,10 @@ defined('_BALISES_BLOCS_REGEXP') || define('_BALISES_BLOCS_REGEXP', ',</?(' . _B
  * une $source differente ; le script detecte automagiquement si ce qu'on
  * echappe est un div ou un span
  *
- * @param $rempl
- * @param $source
- * @param $no_transform
- * @param $mode
+ * @param string $rempl
+ * @param string $source
+ * @param bool $no_transform
+ * @param string|null $mode
  * @return string
  */
 function code_echappement($rempl, $source = '', $no_transform = false, $mode = null) {

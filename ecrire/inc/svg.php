@@ -116,7 +116,7 @@ function svg_lire_attributs($img) {
 /**
  * Convertir l'attribut widht/height d'un SVG en pixels
  * (approximatif eventuellement, du moment qu'on respecte le ratio)
- * @param $dimension
+ * @param string $dimension
  * @return bool|float|int
  */
 function svg_dimension_to_pixels($dimension, $precision = 2) {
@@ -194,8 +194,8 @@ function svg_clip_in_box($svg, $x, $y, $width, $height) {
 /**
  * Redimensionner le SVG via le width/height de la balise
  * @param string $img
- * @param $new_width
- * @param $new_height
+ * @param string $new_width
+ * @param string $new_height
  * @return bool|string
  */
 function svg_redimensionner($img, $new_width, $new_height) {
@@ -361,7 +361,7 @@ function svg_force_viewBox_px($img, $force_width_and_height = false) {
 
 /**
  * Extract all colors in SVG
- * @param $img
+ * @param string $img
  * @return array|mixed
  */
 function svg_extract_couleurs($img) {
@@ -377,8 +377,8 @@ function svg_extract_couleurs($img) {
 /**
  * Redimensionner le SVG via le width/height de la balise
  * @param string $img
- * @param $new_width
- * @param $new_height
+ * @param string $new_width
+ * @param string $new_height
  * @return bool|string
  */
 function svg_recadrer($img, $new_width, $new_height, $offset_width, $offset_height, $background_color = '') {
@@ -438,8 +438,8 @@ function svg_recadrer($img, $new_width, $new_height, $offset_width, $offset_heig
 
 /**
  * Ajouter un background au SVG : un rect pleine taille avec la bonne couleur
- * @param $img
- * @param $background_color
+ * @param string $img
+ * @param string $background_color
  * @return bool|string
  */
 function svg_ajouter_background($img, $background_color) {
@@ -468,8 +468,8 @@ function svg_ajouter_background($img, $background_color) {
 
 /**
  * Ajouter un voile au SVG : un rect pleine taille avec la bonne couleur/opacite, en premier plan
- * @param $img
- * @param $background_color
+ * @param string $img
+ * @param string $background_color
  * @return bool|string
  */
 function svg_ajouter_voile($img, $background_color, $opacity) {
@@ -498,7 +498,7 @@ function svg_ajouter_voile($img, $background_color, $opacity) {
 
 /**
  * Ajouter un background au SVG : un rect pleine taille avec la bonne couleur
- * @param $img
+ * @param string $img
  * @param array $attributs
  * @return bool|string
  */
@@ -577,8 +577,11 @@ function svg_filter_grayscale($img, $intensity) {
 
 /**
  * Filtre sepia en utilisant <filter>
- * @param $img
- * @param $intensity
+ *
+ * FIXME: $intensity unused ?
+ *
+ * @param string $img
+ * @param float $intensity
  * @return bool|string
  */
 function svg_filter_sepia($img, $intensity) {
@@ -588,7 +591,7 @@ function svg_filter_sepia($img, $intensity) {
 
 /**
  * Ajouter un background au SVG : un rect pleine taille avec la bonne couleur
- * @param $img
+ * @param string $img
  * @param array string $HorV
  * @return bool|string
  */
@@ -623,9 +626,9 @@ function svg_flip($img, $HorV) {
  * @param string $img
  * @param int/float $angle
  *   angle en degres
- * @param $center_x
+ * @param float $center_x
  *   centre X de la rotation entre 0 et 1, relatif a la pleine largeur (0=bord gauche, 1=bord droit)
- * @param $center_y
+ * @param float $center_y
  *   centre Y de la rotation entre 0 et 1, relatif a la pleine hauteur (0=bord top, 1=bord bottom)
  * @return bool|string
  */
@@ -649,8 +652,8 @@ function svg_rotate($img, $angle, $center_x, $center_y) {
  * Filtrer les couleurs d'un SVG avec une callback
  * (peut etre lent si beaucoup de couleurs)
  *
- * @param $img
- * @param $callback_filter
+ * @param string $img
+ * @param string $callback_filter
  * @return bool|mixed|string
  */
 function svg_filtrer_couleurs($img, $callback_filter) {

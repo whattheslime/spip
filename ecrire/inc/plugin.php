@@ -659,13 +659,13 @@ function plugin_necessite($n, $liste, $balise = 'necessite') {
  * @uses plugin_version_compatible()
  * @uses plugin_message_incompatibilite()
  *
- * @param $liste
+ * @param array $liste
  *    Liste de description des plugins
- * @param $nom
+ * @param string $nom
  *    Le plugin donc on cherche la presence
- * @param $intervalle
+ * @param string $intervalle
  *    L'éventuelle intervalle de compatibilité de la dépendance. ex: [1.1.0;]
- * @param $balise
+ * @param string $balise
  *    Permet de définir si on teste un utilise ou un nécessite
  * @return string.
  *    Vide si ok,

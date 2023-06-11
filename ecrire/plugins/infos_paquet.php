@@ -18,7 +18,7 @@ if (!defined('_ECRIRE_INC_VERSION')) {
  * et conversion en tableau PHP identique a celui fourni par plugin.xml
  * manque la description
  *
- * @param $desc
+ * @param array $desc
  * @param string $plug
  * @param string $dir_plugins
  * @return array

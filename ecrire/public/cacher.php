@@ -38,7 +38,7 @@ function generer_nom_fichier_cache($contexte, $page) {
  * Attention a modifier simultanement le sanity check de
  * la fonction retire_cache() de inc/invalideur
  *
- * @param $nom_cache
+ * @param string $nom_cache
  * @return string
  */
 function cache_chemin_fichier($nom_cache, $ecrire = false) {
@@ -68,7 +68,7 @@ function cache_chemin_fichier($nom_cache, $ecrire = false) {
  * ecrire le cache dans un casier
  *
  * @param string $nom_cache
- * @param $valeur
+ * @param array $valeur
  * @return bool
  */
 function ecrire_cache($nom_cache, $valeur) {

@@ -721,7 +721,7 @@ function nettoyer_uri($reset = null) {
  *
  * Attention, la regexp doit suivre _CONTEXTE_IGNORE_VARIABLES défini au début de public/assembler.php
  *
- * @param $request_uri
+ * @param string $request_uri
  * @return string
  */
 function nettoyer_uri_var($request_uri) {
@@ -1781,8 +1781,10 @@ function autoriser_sans_cookie($nom, $strict = false) {
 
 /**
  * Charger la fonction de gestion des urls si elle existe
- * @param $quoi : 'page' 'objet' 'decoder' ou objet spip pour lequel on cherche la fonction url par defaut (si type==='defaut')
- * @param $type : type des urls (par defaut la meta type_urls) ou 'defaut' pour trouver la fonction par defaut d'un type d'objet
+ * @param string $quoi
+ *     'page' 'objet' 'decoder' ou objet spip pour lequel on cherche la fonction url par defaut (si type==='defaut')
+ * @param string $type
+ * 		type des urls (par defaut la meta type_urls) ou 'defaut' pour trouver la fonction par defaut d'un type d'objet
  * @return string
  */
 function charger_fonction_url(string $quoi, string $type = '') {
