@@ -314,11 +314,15 @@ function phraser_champs(string $texte, int $ligne, array $result): array {
 }
 
 /**
- * Phraser les champs etendus : c'est phraser_champs_interieurs qui va le faire
- * on lui fournir un marqueur $sep qui n'est pas contenu dans le texte et qu'il peut utiliser de manière sure
- * pour remplacer au fur et a mesure les champs imbriques qu'il va trouver
+ * Phraser les champs etendus
  *
- * @return array|mixed
+ * @note
+ *   C'est `phraser_champs_interieurs()` qui va le faire.
+ *   On lui fournit un marqueur `$sep` qui n'est pas contenu dans le texte
+ *   et qu'il peut utiliser de manière sûre pour remplacer au fur et à mesure
+ *   les champs imbriquées qu'il va trouver
+ *
+ * @see phraser_champs_interieurs()
  */
 function phraser_champs_etendus(string $texte, int $ligne, array $result): array {
 	if ($texte === '') {
@@ -539,9 +543,10 @@ function phraser_champs_exterieurs(string $texte, int $ligne, string $sep, array
 }
 
 /**
- * Parser un texte pour trouver toutes les balises complètes [...(#TRUC)...] en gérant les imbrications possibles
+ * Parser un texte pour trouver toutes les balises complètes `[...(#TRUC)...]` en gérant les imbrications possibles
+ *
  * Pour cela on commence par les plus profondes, sans rien dedans,
- * on les remplace par un placehoder inactif %###N@ ou N indexe un tableau comportant le resultat de leur analyse
+ * on les remplace par un placehoder inactif `%###N@` ou N indexe un tableau comportant le resultat de leur analyse
  * et on recommence jusqu'à ce qu'on ne trouve plus rien
  *
  * @param string $texte
