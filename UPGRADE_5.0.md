@@ -31,13 +31,18 @@ ou
 a[href] { background-image: url("#CHEMIN_IMAGE{img.svg}"); }
 ```
 
-### Suppression de syntaxes dépréciées
 
-Les vieilles syntaxes des `#LOGO_xx` avec de faux filtres `|left` `|right` `|center` `|bottom`, `|top`, `|lien` `|fichier` (dépréciées depuis SPIP 2.1) ne sont plus prises en compte.
+# Suppressions des dépréciations
+
+## Syntaxes de squelettes
+
+### Filtres de `#LOGO_` (dépréciés en 2.1)
+
+Les syntaxes des `#LOGO_xx` avec de faux filtres `|left` `|right` `|center` `|bottom`, `|top`, `|lien` `|fichier` ne sont plus prises en compte.
 
 #### Avant
 
-```html
+```spip
 - [(#LOGO_ARTICLE|#URL_ARTICLE)]
 - [(#LOGO_ARTICLE|fichier)]
 - [(#LOGO_ARTICLE|lien)]
@@ -46,7 +51,7 @@ Les vieilles syntaxes des `#LOGO_xx` avec de faux filtres `|left` `|right` `|cen
 
 #### Après
 
-```html
+```spip
 - [(#LOGO_ARTICLE{#URL_ARTICLE})]
 - [(#LOGO_ARTICLE**)]
 - [(#LOGO_ARTICLE*)]
@@ -55,4 +60,44 @@ Les vieilles syntaxes des `#LOGO_xx` avec de faux filtres `|left` `|right` `|cen
 
 Note: les positionnements `left`, `right`, `center`, `bottom`, `top` ajustent simplement une classe CSS.
 
+### Filtre de `#FORMULAIRE_RECHERCHE|parametre` (déprécié en 2.1)
 
+#### Avant
+
+```spip
+[(#FORMULAIRE_RECHERCHE|param)]
+```
+
+#### Après
+
+```spip
+[(#FORMULAIRE_RECHERCHE{param})]
+```
+
+### Balise `#EXPOSER` (déprécié en 1.8.2)
+
+#### Avant
+
+```spip
+[(#EXPOSER|on,off)]
+```
+
+#### Après
+
+```spip
+[(#EXPOSE{on,off})]
+```
+
+### Balise `#EMBED_DOCUMENT` (déprécié en 2.0)
+
+#### Avant
+
+```spip
+[(#EMBED_DOCUMENT|autostart=true)]
+```
+
+#### Après
+
+```spip
+[(#MODELE{emb, autostart=true})]
+```
