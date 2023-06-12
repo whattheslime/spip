@@ -5,6 +5,7 @@
 .htaccess export-ignore
 docker-compose.override.yml export-ignore
 docker-compose.yml export-ignore
+ecs.php export-ignore
 /lib/ export-ignore
 /plugins/ export-ignore
 /squelettes/ export-ignore
