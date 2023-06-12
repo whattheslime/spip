@@ -1007,12 +1007,13 @@ function lister_toutes_tables($serveur) {
  * @param string $type
  *     Nom de la table SQL (le plus souvent)
  *     Tolère un nom de clé primaire.
- * @param string $serveur
- *     Nom du connecteur
+ * @param string|false $serveur
+ *     - string: Nom du connecteur
+ *     - false: Pas de recherche en bdd
  * @return string
  *     Nom de l'objet
  **/
-function table_objet(string $type, string $serveur = ''): string {
+function table_objet(string $type, $serveur = ''): string {
 
 	if ($type) {
 		$type = preg_replace(',^spip_|^id_|s$,', '', $type);
@@ -1027,6 +1028,7 @@ function table_objet(string $type, string $serveur = ''): string {
 	}
 
 	if ($serveur !== false) {
+		$serveur = (string) $serveur;
 		$t = lister_tables_spip($serveur);
 		$trouver_table = charger_fonction('trouver_table', 'base');
 		$typetrim = rtrim($type, 's') . 's';
@@ -1060,13 +1062,13 @@ function table_objet(string $type, string $serveur = ''): string {
  * @param string $type
  *     Nom ou type de l'objet
  *     Tolère un nom de clé primaire.
- * @param string $serveur
- *     Nom du connecteur
+ * @param string|false $serveur
+ *     - string: Nom du connecteur
+ *     - false: Pas de recherche en bdd
  * @return string
  *     Nom de la table SQL
  **/
-function table_objet_sql(string $type, string $serveur = ''): string {
-
+function table_objet_sql(string $type, $serveur = ''): string {
 	$nom = table_objet($type, $serveur);
 	if (!strlen($nom)) {
 		return '';
@@ -1083,6 +1085,7 @@ function table_objet_sql(string $type, string $serveur = ''): string {
 		if (isset($infos_tables["spip_$nom"])) {
 			$nom = "spip_$nom";
 		} elseif ($serveur !== false) {
+			$serveur = (string) $serveur;
 			$t = lister_tables_spip($serveur);
 			if (isset($t[$nom]) or in_array($nom, $t)) {
 				$trouver_table = charger_fonction('trouver_table', 'base');
@@ -1153,12 +1156,13 @@ function id_table_objet(string $type, string $serveur = ''): ?string {
  * @api
  * @param string $table_objet
  *     Nom de l'objet ou de la table SQL
- * @param string $serveur
- *     Nom du connecteur
+ * @param string|false $serveur
+ *     - string: Nom du connecteur
+ *     - false: Pas de recherche en bdd
  * @return string|null
  *     Type de l'objet
  **/
-function objet_type(string $table_objet, string $serveur = ''): ?string {
+function objet_type(string $table_objet, $serveur = ''): ?string {
 	if (!$table_objet) {
 		return null;
 	}
@@ -1191,6 +1195,7 @@ function objet_type(string $table_objet, string $serveur = ''): ?string {
 		return $type;
 	}
 
+	$serveur = (string) $serveur;
 	// sinon on passe par la cle primaire id_xx pour trouver le type
 	// car le s a la fin est incertain
 	// notamment en cas de pluriel derogatoire
