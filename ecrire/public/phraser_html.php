@@ -863,8 +863,8 @@ function phraser_critere_infixe($arg1, $arg2, $args, $op, $not, $cond) {
 	$args[1][0]->texte = $arg2;
 	$crit = new Critere();
 	$crit->op = $op;
-	$crit->not = $not;
-	$crit->cond = $cond;
+	$crit->not = (bool) $not;
+	$crit->cond = (bool) $cond;
 	$crit->param = $args;
 
 	return $crit;

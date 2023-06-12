@@ -805,6 +805,6 @@ function page_base_href(&$texte) {
 // et demarrent par X-Spip-...
 function envoyer_entetes($entetes) {
 	foreach ($entetes as $k => $v) { #	if (strncmp($k, 'X-Spip-', 7))
-	@header(strlen($v) ? "$k: $v" : $k);
+		@header(strlen((string) $v) ? "$k: $v" : $k);
 	}
 }

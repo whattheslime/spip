@@ -944,7 +944,7 @@ function _L($text, $args = [], $options = []) {
 				if (!empty($options['class'])) {
 					$value = "<span class='" . $options['class'] . "'>$value</span>";
 				}
-				$text = str_replace("@$name@", $value, $text);
+				$text = str_replace("@$name@", (string) $value, (string) $text);
 				unset($args[$name]);
 			}
 		}

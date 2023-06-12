@@ -57,7 +57,7 @@ if (empty($page['process_ins']) || $page['process_ins'] != 'html') {
 		if (!function_exists('numerote_ligne_php')) {
 			function numerote_ligne_php($match) {
 				$GLOBALS['numero_ligne_php']++;
-				return "\n/*" . str_pad($GLOBALS['numero_ligne_php'], 3, '0', STR_PAD_LEFT) . '*/';
+				return "\n/*" . str_pad((string) $GLOBALS['numero_ligne_php'], 3, '0', STR_PAD_LEFT) . '*/';
 			}
 		}
 		$code = '/*001*/' . preg_replace_callback(",\n,", 'numerote_ligne_php', (string) $code);

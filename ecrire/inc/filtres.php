@@ -2811,6 +2811,9 @@ function urls_absolues_css($contenu, $source) {
  *     Chemin du fichier CSS inversé
  **/
 function direction_css($css, $voulue = '') {
+	if (!$css) {
+		return '';
+	}
 	if (!preg_match(',(_rtl)?\.css$,i', $css, $r)) {
 		return $css;
 	}

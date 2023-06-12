@@ -114,7 +114,7 @@ class Sql extends AbstractIterateur implements Iterator
 	public function next(): void {
 		$this->row = sql_fetch($this->sqlresult, $this->command['connect']);
 		++$this->pos;
-		$this->firstseek |= true;
+		$this->firstseek = true;
 	}
 
 	/**

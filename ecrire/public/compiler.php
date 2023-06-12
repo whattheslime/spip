@@ -1336,12 +1336,12 @@ function public_compiler_dist($squelette, $nom, $gram, $sourcefile, string $conn
 		foreach ($boucles as $i => $boucle) {
 			$boucles[$i]->return = preg_replace_callback(
 				",$inerte-(\d+)-,",
-				fn($a) => chr($a[1]),
+				fn ($a) => chr((int) $a[1]),
 				$boucle->return
 			);
 			$boucles[$i]->descr['squelette'] = preg_replace_callback(
 				",$inerte-(\d+)-,",
-				fn($a) => '\\\\' . chr($a[1]),
+				fn ($a) => '\\\\' . chr($a[1]),
 				$boucle->descr['squelette']
 			);
 		}

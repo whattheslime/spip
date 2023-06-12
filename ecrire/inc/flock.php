@@ -46,7 +46,7 @@ $GLOBALS['liste_verrous'] = [];
  *     Chemin du fichier
  * @param string $mode
  *     Mode d'ouverture du fichier (r,w,...)
- * @param string $verrou
+ * @param int $verrou
  *     Type de verrou (avec _SPIP_LOCK_MODE = 1)
  * @return resource|bool
  *     Ressource sur le fichier ouvert, sinon false.
@@ -78,7 +78,7 @@ function spip_fopen_lock($fichier, $mode, $verrou) {
  * @see _SPIP_LOCK_MODE
  * @see spip_fopen_lock()
  *
- * @param string $handle
+ * @param resource $handle
  *     Chemin du fichier
  * @return bool
  *     true si succès, false sinon.
@@ -237,8 +237,8 @@ function ecrire_fichier($fichier, $contenu, $ignorer_echec = false, $truncate = 
 			$id = creer_uniqid();
 			// on ouvre un pointeur sur un fichier temporaire en ecriture +raz
 			if ($fp2 = spip_fopen_lock("$fichier.$id", 'w', LOCK_EX)) {
-				$s = @fwrite($fp2, $contenu, $a = strlen($contenu));
-				$ok = ($s == $a);
+				$s = @fwrite($fp2, (string) $contenu, $a = strlen((string) $contenu));
+				$ok = ($s === $a);
 				spip_fclose_unlock($fp2);
 				spip_fclose_unlock($fp);
 				$fp = null;
