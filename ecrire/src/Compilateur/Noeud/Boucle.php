@@ -84,6 +84,7 @@ class Boucle
 	 * Si oui, aucune erreur ne sera générée si la table demandée n'est pas présente
 	 */
 	public bool $table_optionnelle = false;
+	public string $type_table_optionnelle = '';
 
 	/**
 	 * Nom du fichier de connexion

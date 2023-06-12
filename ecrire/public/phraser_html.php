@@ -1099,7 +1099,8 @@ function public_phraser_html_dist($texte, $id_parent, &$boucles, $descr, $ligne_
 		}
 
 		if ($table_optionnelle) {
-			$result->table_optionnelle = $type;
+			$result->table_optionnelle = true;
+			$result->type_table_optionnelle = $type;
 		}
 
 		// 1ere passe sur les criteres, vu comme des arguments sans fct

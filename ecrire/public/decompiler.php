@@ -27,7 +27,7 @@ function decompiler_boucle($struct, $fmt = '', $prof = 0) {
 	$postaff = decompiler_($struct->postaff, $fmt, $prof);
 
 	$type = $struct->sql_serveur ? "$struct->sql_serveur:" : '';
-	$type .= ($struct->type_requete ?: $struct->table_optionnelle);
+	$type .= ($struct->type_requete ?: $struct->type_table_optionnelle);
 
 	if ($struct->jointures_explicites) {
 		$type .= ' ' . $struct->jointures_explicites;
