@@ -2,7 +2,6 @@
 
 ## Unreleased
 
-
 ### Added
 
 - #5565 Critère `{collate}` (remplace `{collecte}`)
@@ -21,6 +20,7 @@
 
 ### Fixed
 
+- #5636 Correction typage arguments de `objet_type`, `table_objet` et `table_objet_sql`
 - #5104 Éviter une erreur fatale quand un job ne peut pas récupérer les arguments de la callback associée
 - #5341 Éviter une fatale sur le retour non booléen des fonctions `autoriser()` pour aider à nettoyer le code
 - #5342 Éviter un warning dans ecrire
