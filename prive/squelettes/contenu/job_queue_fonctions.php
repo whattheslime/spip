@@ -15,16 +15,10 @@ function job_queue_block_and_watch() {
 
 /**
  * Prévisu d'un appel à une fonction avec ses arguments
- *
- * @param string $function
- * @param string $args
- * @return string
  */
 function job_queue_display_call(string $function, string $args): string {
 	$args = unserialize($args);
-	$args = array_map(function($arg) {
-		return is_scalar($arg) ? $arg : get_debug_type($arg);
-	}, $args);
+	$args = array_map(fn ($arg) => is_scalar($arg) ? $arg : get_debug_type($arg), $args);
 
 	return sprintf('%s(%s)', $function, implode(', ', $args));
 }

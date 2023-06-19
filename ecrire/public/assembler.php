@@ -594,9 +594,7 @@ function styliser_modele($modele, $id, $contexte = null) {
  * @param int $id
  * @param array $params Paramètres du modèle
  * @param array $lien Informations du lien entourant l'appel du modèle en base de données
- * @param string $connect
  * @param array $env
- * @staticvar string $compteur
  * @return string
  */
 function inclure_modele($type, $id, $params, $lien, string $connect = '', $env = []) {

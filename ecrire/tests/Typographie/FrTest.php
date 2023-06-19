@@ -158,7 +158,7 @@ class FrTest extends TestCase
 	/**
 	 * @dataProvider providerKeepNonBreakingSpaceUtf
 	 */
-	public function testKeepNonBreakingSpaceUtf($source, $expected)
+	public function testKeepNonBreakingSpaceUtf($source, $expected): never
 	{
 		$typographie = static::$fnTypographie;
 		// TODO
@@ -179,7 +179,7 @@ class FrTest extends TestCase
 	/**
 	 * @dataProvider providerKeepDoubleTwoPoints
 	 */
-	public function testKeepDoubleTwoPoints($source, $expected)
+	public function testKeepDoubleTwoPoints($source, $expected): never
 	{
 		$typographie = static::$fnTypographie;
 		// TODO

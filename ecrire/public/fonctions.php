@@ -607,7 +607,7 @@ function formate_liste_critere_par_ordre_liste($valeurs, $serveur = '') {
  *     texte traité par le filtre si le filtre existe,
  *     Valeur $defaut sinon.
  **/
-function appliquer_filtre_sinon($arg, $filtre, $args, $defaut = '') {
+function appliquer_filtre_sinon($arg, $filtre, $args, mixed $defaut = '') {
 	// Si c'est un filtre d'image, on utilise image_filtrer()
 	// Attention : les 2 premiers arguments sont inversés dans ce cas
 	if (trouver_filtre_matrice($filtre) && str_starts_with($filtre, 'image_')) {

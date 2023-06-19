@@ -100,7 +100,7 @@ class LabelTest extends TestCase
 	 * @depends testLabelNettoyer
 	 * @dataProvider providerLabelPonctuer
 	 */
-	public function testLabelPonctuer($source, $expected): void
+	public function testLabelPonctuer($source, $expected): never
 	{
 		// TODO
 		$this->markTestSkipped('NIY');

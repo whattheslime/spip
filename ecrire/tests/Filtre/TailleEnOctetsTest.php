@@ -57,11 +57,11 @@ class TailleEnOctetsTest extends TestCase
 			1000 => '1000 octets',
 			10000 => '9.8 kio',
 			100000 => '97.7 kio',
-			1000000 => '976.6 kio',
-			10000000 => '9.5 Mio',
-			100000000 => '95.4 Mio',
-			1000000000 => '953.7 Mio',
-			10000000000 => '9.31 Gio',
+			1_000_000 => '976.6 kio',
+			10_000_000 => '9.5 Mio',
+			100_000_000 => '95.4 Mio',
+			1_000_000_000 => '953.7 Mio',
+			10_000_000_000 => '9.31 Gio',
 		];
 		return array_map(null, array_keys($list), array_values($list));
 	}
@@ -79,11 +79,11 @@ class TailleEnOctetsTest extends TestCase
 			1000 => '1 ko',
 			10000 => '10 ko',
 			100000 => '100 ko',
-			1000000 => '1 Mo',
-			10000000 => '10 Mo',
-			100000000 => '100 Mo',
-			1000000000 => '1 Go',
-			10000000000 => '10 Go',
+			1_000_000 => '1 Mo',
+			10_000_000 => '10 Mo',
+			100_000_000 => '100 Mo',
+			1_000_000_000 => '1 Go',
+			10_000_000_000 => '10 Go',
 		];
 		return array_map(null, array_keys($list), array_values($list));
 	}

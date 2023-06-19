@@ -8,12 +8,10 @@ use Spip\Test\Exception\TemplateCompilationErrorException;
 
 class Template
 {
-	private string $fond;
-
-	public function __construct(string $fond)
-	{
-		$this->fond = $fond;
-	}
+	public function __construct(
+		private readonly string $fond
+	) {
+ 	}
 
 	public function render(array $contexte = [], string $connect = ''): string
 	{

@@ -10,11 +10,9 @@ use Spip\Test\Template\Loader\StringLoader;
 
 class Templating
 {
-	private LoaderInterface $loader;
-
-	public function __construct(LoaderInterface $loader)
-	{
-		$this->loader = $loader;
+	public function __construct(
+		private readonly LoaderInterface $loader
+	) {
 	}
 
 	public static function fromString(array $options = []): self

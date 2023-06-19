@@ -247,7 +247,7 @@ function analyse_resultat_skel($nom, $cache, $corps, $source = '') {
 		$filtres_headers = array_filter(explode('|', $headers['X-Spip-Filtre']));
 		unset($headers['X-Spip-Filtre']);
 	}
-	if ((is_array($filtres[$nom]) || $filtres[$nom] instanceof \Countable ? count($filtres[$nom]) : 0) || count($filtres_headers)) {
+	if ((is_countable($filtres[$nom]) ? count($filtres[$nom]) : 0) || count($filtres_headers)) {
 		include_spip('public/sandbox');
 		$corps = sandbox_filtrer_squelette($skel, $corps, $filtres_headers, $filtres[$nom]);
 
@@ -834,7 +834,7 @@ function calculer_select(
 		if (count($join[$cle]) == 2) {
 			$join[$cle][] = $join[$cle][1];
 		}
-		if ((is_array($join[$cle]) || $join[$cle] instanceof \Countable ? count($join[$cle]) : 0) == 3) {
+		if ((is_countable($join[$cle]) ? count($join[$cle]) : 0) == 3) {
 			$join[$cle][] = '';
 		}
 		[$t, $c, $carr, $and] = $join[$cle];

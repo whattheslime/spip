@@ -174,10 +174,8 @@ abstract class AbstractCollecteur {
 
 	/**
 	 * Detecter si un texte contient des balises bloc ou non
-	 * @param string $texte
-	 * @return bool
 	 */
-	static public function echappementTexteContientBaliseBloc(string $texte) {
+ 	static public function echappementTexteContientBaliseBloc(string $texte): bool {
 		static $pregBalisesBloc;
 
 		if ($pregBalisesBloc === null) {
@@ -191,21 +189,15 @@ abstract class AbstractCollecteur {
 	 * une $source differente ;
 	 * si $isBloc n'est pas fourni, le script detecte automagiquement si ce qu'on
 	 * echappe est un div ou un span
-	 *
-	 * @param string $texte
-	 * @param string $source
-	 * @param bool|null $isBloc
-	 * @param array $attributs
-	 * @return string
 	 */
-	static public function echappementHtmlBase64(string $texte, string $source = '', ?bool $isBloc = null, $attributs = []) {
+	static public function echappementHtmlBase64(string $texte, string $source = '', ?bool $isBloc = null, array $attributs = []): string {
 
-		if (empty($texte)) {
+		if ($texte === '') {
 			return '';
 		}
 
 		// Tester si on echappe en span ou en div
-		$isBloc = $isBloc ?? self::echappementTexteContientBaliseBloc($texte);
+		$isBloc ??= self::echappementTexteContientBaliseBloc($texte);
 		$tag = $isBloc ? 'div' : 'span';
 		$atts = '';
 		if (!empty($attributs)) {
@@ -236,16 +228,10 @@ abstract class AbstractCollecteur {
 	 * Rq: $source sert a faire des echappements "a soi" qui ne sont pas nettoyes
 	 * par propre() : exemple dans multi et dans typo()
 	 *
-	 * @param string $texte
-	 * @param string $source
-	 * @param string $filtre
-	 * @return string
-	 *
 	 * @see echappementHtmlBase64()
-	 *
 	 */
-	static public function retablir_depuisHtmlBase64(string $texte, string $source = '', string $filtre = '') {
-		if (strpos($texte, (string) "base64$source")) {
+ 	static public function retablir_depuisHtmlBase64(string $texte, string $source = '', string $filtre = ''): string {
+		if (str_contains($texte, "base64$source")) {
 			# spip_log(spip_htmlspecialchars($texte));  ## pour les curieux
 			$max_prof = 5;
 			$encore = true;
@@ -290,13 +276,9 @@ abstract class AbstractCollecteur {
 	}
 
 	/**
-	 * @param string $texte
-	 * @param string $source
 	 * @param callable|null $callback_function
-	 * @param array $callback_options
-	 * @return string
 	 */
-	public function echapper_enHtmlBase64(string $texte, string $source = '', $callback_function = null, $callback_options = []) {
+	public function echapper_enHtmlBase64(string $texte, string $source = '', $callback_function = null, array $callback_options = []): string {
 		$collection = $this->collecter($texte);
 		if (!empty($collection)) {
 			$collection = array_reverse($collection);

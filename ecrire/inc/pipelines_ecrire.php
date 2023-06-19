@@ -251,7 +251,7 @@ function f_afficher_blocs_ecrire($flux) {
 function afficher_blocs_ecrire_preparer_marqueur(?string $texte, string $marqueur, string $inserer_avant, string $ouvrir = '', string $fermer = ''): ?string {
 
 	if ($texte) {
-		$encapsuler = (($ouvrir && $fermer) ? true : false);
+		$encapsuler = $ouvrir && $fermer;
 		$marqueur_pos = strpos($texte, $marqueur);
 		$full_marqueur = "$ouvrir$marqueur$fermer";
 

@@ -161,11 +161,6 @@ function urls_decoder_url($url, $fond = '', $contexte = [], $assembler = false) 
 /**
  * Le bloc qui suit sert a faciliter les transitions depuis
  * le mode 'urls-propres' vers les modes 'urls-standard' et 'url-html'
- *
- * @param string $url_propre
- * @param string $entite
- * @param array $contexte
- * @return array|false|string
  */
 function urls_transition_retrouver_anciennes_url_propres(string $url_propre, string $entite, array $contexte = []): array {
 	if ($url_propre) {
@@ -187,11 +182,6 @@ function urls_transition_retrouver_anciennes_url_propres(string $url_propre, str
 /**
  * Le bloc qui suit sert a faciliter les transitions depuis
  * le mode 'urls-html/standard' vers les modes 'urls propres|arbos'
- *
- * @param string $url_propre
- * @param string $entite
- * @param array $contexte
- * @return array|false|string
  */
 function urls_transition_retrouver_anciennes_url_html(string $url, string $entite, array $contexte = []): array {
 	// Migration depuis anciennes URLs ?

@@ -41,10 +41,8 @@ if (!defined('_ECRIRE_INC_VERSION')) {
  *     $arg = interprete_argument_balise(1,$p);
  *     ```
  *
- * @param int $n
- *     Numéro de l'argument
- * @param Champ $p
- *     Pile au niveau de la balise
+ * @param int $n Numéro de l'argument
+ * @param Champ $p Pile au niveau de la balise
  * @return string|null
  *     Code PHP si cet argument est présent, sinon null
  **/
@@ -56,9 +54,9 @@ function interprete_argument_balise(int $n, Champ $p): ?string {
 			$p->boucles,
 			$p->id_boucle
 		);
-	} else {
-		return null;
 	}
+
+	return null;
 }
 
 

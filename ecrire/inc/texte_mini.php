@@ -63,14 +63,8 @@ function definir_puce() {
 
 /**
  * Preparer le markup html pour les extraits de code en ligne ou en bloc
- *
- * @param string $corps
- * @param bool $bloc
- * @param string $attributs
- * @param string $langage
- * @return string
  */
-function spip_balisage_code(string $corps, bool $bloc = false, string $attributs = '', string $langage = '') {
+function spip_balisage_code(string $corps, bool $bloc = false, string $attributs = '', string $langage = ''): string {
 
 	$echap = spip_htmlspecialchars($corps); // il ne faut pas passer dans entites_html, ne pas transformer les &#xxx; du code !
 	$class = 'spip_code ' . ($bloc ? 'spip_code_block' : 'spip_code_inline');
@@ -89,8 +83,7 @@ function spip_balisage_code(string $corps, bool $bloc = false, string $attributs
 		  . '</code>'
 		  . '</pre>'
 		  . '</div>';
-	}
-	else {
+	} else {
 		$echap = str_replace("\t", '&nbsp; &nbsp; &nbsp; &nbsp; ', $echap);
 		$echap = str_replace('  ', ' &nbsp;', $echap);
 		$html = "<code class=\"$class\" dir=\"ltr\"$attributs>" . $echap . '</code>';
@@ -273,7 +266,7 @@ function echappe_html(
 	// dans une callback autonommee + la preg pour collecter est un peu spécifique
 	if (in_array('script', $html_tags ?: CollecteurHtmlTag::$listeBalisesAProteger)) {
 		$htmlTagCollecteur = new CollecteurHtmlTag('?', '@<[?].*($|[?]>)@UsS', '');
-		$letexte = $htmlTagCollecteur->echapper_enHtmlBase64($letexte, $source, function ($c, $o) { return highlight_string($c['raw'], true);});
+		$letexte = $htmlTagCollecteur->echapper_enHtmlBase64($letexte, $source, fn ($c, $o) => highlight_string($c['raw'], true));
 	}
 
 	return $letexte;

@@ -80,7 +80,7 @@ class Decorator extends FilterIterator
 	 * retournes par ->fetch().
 	 */
 	protected $select = [];
-	private Iterator $iter;
+	private readonly Iterator $iter;
 
 	public function __construct(
 		Iterator $iter,

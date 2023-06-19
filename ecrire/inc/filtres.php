@@ -2451,7 +2451,7 @@ function tags2dcsubject($tags) {
 function extraire_balise($texte, $tag = 'a', $profondeur = 1) {
 	$balises = extraire_balises($texte, $tag, ['nb_max' => 1, 'profondeur' => $profondeur]);
 	if (is_array($texte)) {
-		return array_map(function(array $a) {return (empty($a) ? '' : reset($a));}, $balises);
+		return array_map(fn (array $a) => empty($a) ? '' : reset($a), $balises);
 	}
 
 	return (empty($balises) ? '' : reset($balises));

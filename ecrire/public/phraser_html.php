@@ -71,16 +71,13 @@ define('CHAMP_SQL_PLUS_FONC', '`?([A-Z_\/][A-Z_\/0-9.]*)' . SQL_ARGS . '?`?');
 
 /**
  * Parser les <INCLURE> dans le texte
- * @param string $texte
- * @param int $ligne
- * @param array $result
- * @return array
  */
 function phraser_inclure(string $texte, int $ligne, array $result): array {
 
-	while ((($p = strpos($texte, '<INC')) !== false)
-		&& preg_match(BALISE_INCLURE, $texte, $match, PREG_OFFSET_CAPTURE, $p)) {
-
+	while (
+		(($p = strpos($texte, '<INC')) !== false)
+		&& preg_match(BALISE_INCLURE, $texte, $match, PREG_OFFSET_CAPTURE, $p)
+	) {
 		$poss = array_column($match, 1);
 		$match = array_column($match, 0);
 		$match = array_pad($match, 3, null);
@@ -131,10 +128,6 @@ function phraser_inclure(string $texte, int $ligne, array $result): array {
  * a ce stade il ne reste que des morceaux de texte entre balises/boucles, donc une <multi> ne peut pas contenir de balises
  *
  * @use Spip\Texte\Collecteur\Multis
- * @param string $texte
- * @param int $ligne
- * @param array $result
- * @return array
  */
 function phraser_polyglotte(string $texte, int $ligne, array $result): array {
 
@@ -345,13 +338,7 @@ function phraser_champs_etendus(string $texte, int $ligne, array $result): array
  * sert aussi aux arguments des includes et aux criteres de boucles
  * Tres chevelu
  *
- * @param string $texte
- * @param string $fin
- * @param string $sep
- * @param array $result
  * @param Champ|Inclure|Idiome|Boucle $pointeur_champ
- * @param int $pos_debut
- * @return array
  */
 function phraser_args(string $texte, string $fin, string $sep, array $result, &$pointeur_champ, int &$pos_debut): array {
 	$length = strlen($texte);
@@ -509,12 +496,6 @@ function phraser_arg(&$texte, $sep, $result, &$pointeur_champ) {
 /**
  * Reconstruire un tableau de resultat ordonné selon l'ordre d'apparition dans le texte issu de phraser_champs_interieurs()
  * et phraser les inclure sur les morceaux intermédiaires
- *
- * @param string $texte
- * @param int $ligne
- * @param string $sep
- * @param array $nested_res
- * @return array
  */
 function phraser_champs_exterieurs(string $texte, int $ligne, string $sep, array $nested_res): array {
 	$res = [];
@@ -890,12 +871,6 @@ function public_compte_ligne($texte, $debut = 0, $fin = null) {
  * Trouver la boucle qui commence en premier dans un texte
  * On repere les boucles via <BOUCLE_xxx(
  * et ensuite on regarde son vrai debut soit <B_xxx> soit <BB_xxx>
- *
- * @param string $texte
- * @param string $id_parent
- * @param array $descr
- * @param int $pos_debut_texte
- * @return ?array
  */
 function public_trouver_premiere_boucle(string $texte, string $id_parent, array $descr, int $pos_debut_texte = 0): ?array {
 	$premiere_boucle = null;
@@ -1061,7 +1036,6 @@ function public_trouver_fin_boucle(string $texte, string $id_parent, array $bouc
 
 /**
  * @param object|string $champ
- * @param null|string $boucle_placeholder
  * @param null|object $boucle
  */
 function phraser_boucle_placeholder(&$champ, ?string $boucle_placeholder = null, $boucle = null) {
@@ -1085,10 +1059,7 @@ function phraser_boucle_placeholder(&$champ, ?string $boucle_placeholder = null,
 
 /**
  * Generer une balise placeholder qui prend la place de la boucle pour continuer le parsing des balises
- * @param string $id_boucle
  * @param Boucle $boucle
- * @param string $boucle_placeholder
- * @param int $nb_lignes
  * @return string
  */
 function public_generer_boucle_placeholder(string $id_boucle, &$boucle, string $boucle_placeholder, int $nb_lignes): string {
@@ -1104,13 +1075,7 @@ function public_generer_boucle_placeholder(string $id_boucle, &$boucle, string $
  * On commence par analyser les boucles, les mémoriser, et les remplacer dans le texte par des placeholder
  * qui ne genent pas la suite de l'analyse des balises et autres
  *
- * @param string $texte
- * @param string $id_parent
  * @param array<string,Boucle> $boucles
- * @param array $descr
- * @param int $ligne_debut_texte
- * @param string|null $boucle_placeholder
- * @return array
  * @throws JsonException
  */
 function public_phraser_html_dist(string $texte, string $id_parent, array &$boucles, array $descr, int $ligne_debut_texte = 1, ?string $boucle_placeholder = null): array {

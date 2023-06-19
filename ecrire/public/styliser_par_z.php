@@ -28,7 +28,7 @@ if (!defined('_ECRIRE_INC_VERSION')) {
  * @return array Données modifiées du pipeline
  */
 function public_styliser_par_z_dist($flux) {
-	static $prefix_path = null;
+ 	static $prefix_path = null;
 	static $prefix_length;
 	static $z_blocs;
 	static $apl_constant;
@@ -109,7 +109,7 @@ function public_styliser_par_z_dist($flux) {
 				// se brancher sur contenu/xx si il existe
 				// ou si c'est un objet spip, associe a une table, utiliser le fond homonyme
 				if (!isset($disponible[$fond])) {
-					$disponible[$fond] = z_contenu_disponible($prefix_path . $prepend, $z_contenu, $fond, $ext, $echafauder);
+					$disponible[$fond] = z_contenu_disponible($prefix_path . $prepend, $z_contenu, $fond, $ext, (bool) $echafauder);
 				}
 
 				if ($disponible[$fond]) {
@@ -126,7 +126,7 @@ function public_styliser_par_z_dist($flux) {
 					$type = $flux['args']['contexte'][$page];
 				}
 				if (!isset($disponible[$type])) {
-					$disponible[$type] = z_contenu_disponible($prefix_path . $prepend, $z_contenu, $type, $ext, $echafauder);
+					$disponible[$type] = z_contenu_disponible($prefix_path . $prepend, $z_contenu, $type, $ext, (bool) $echafauder);
 				}
 				if (is_string($disponible[$type])) {
 					$flux['data'] = $disponible[$type];
@@ -145,7 +145,7 @@ function public_styliser_par_z_dist($flux) {
 						$z_contenu,
 						'404',
 						$ext,
-						$echafauder
+						(bool) $echafauder
 					));
 				}
 			}
@@ -165,7 +165,7 @@ function public_styliser_par_z_dist($flux) {
 						$type = $flux['args']['contexte'][$page];
 					}
 					if ($type !== 'page' && !isset($disponible[$type])) {
-						$disponible[$type] = z_contenu_disponible($prefix_path . $prepend, $z_contenu, $type, $ext, $echafauder);
+						$disponible[$type] = z_contenu_disponible($prefix_path . $prepend, $z_contenu, $type, $ext, (bool) $echafauder);
 					}
 					if ($type == 'page' || $disponible[$type]) {
 						$flux['data'] = z_trouver_bloc($prefix_path . $prepend, $dir, 'dist', $ext);
@@ -174,11 +174,13 @@ function public_styliser_par_z_dist($flux) {
 			}
 			$squelette = $flux['data'];
 		}
+
 		// layout specifiques par type et compositions :
 		// body-article.html
 		// body-sommaire.html
 		// pour des raisons de perfo, les declinaisons doivent etre dans le
 		// meme dossier que body.html
+		$f = null;
 		if ($fond == 'body' && str_ends_with((string) $squelette, $fond)) {
 			if (
 				isset($flux['args']['contexte']['type-page'])
@@ -195,8 +197,8 @@ function public_styliser_par_z_dist($flux) {
 			&& ($f = find_in_path($prefix_path . $prepend . 'ajax' . ".$ext"))
 		) {
 			$flux['data'] = substr((string) $f, 0, -strlen(".$ext"));
-		} // chercher le fond correspondant a la composition
-		elseif (
+		} elseif (
+			// chercher le fond correspondant a la composition
 			isset($flux['args']['contexte']['composition'])
 			&& (basename($fond) == 'page' || $squelette && str_ends_with((string) $squelette, $fond))
 			&& ($dir = substr($fond, $prefix_length))

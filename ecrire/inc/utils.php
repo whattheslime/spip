@@ -1185,13 +1185,12 @@ function job_queue_link($id_job, $objets) {
  *
  *    - si `true`, force la relecture depuis le fichier
  *    - si int, affecte la static directement avec la valeur
- * @return int
- *
+ * @return int|null
  *  - `0` si un job est à traiter
  *  - `null` si la queue n'est pas encore initialisée
  */
 function queue_sleep_time_to_next_job($force = null) {
-	static $queue_next_job_time = -1;
+ 	static $queue_next_job_time = -1;
 	if ($force === true) {
 		$queue_next_job_time = -1;
 	} elseif ($force) {
@@ -1207,6 +1206,7 @@ function queue_sleep_time_to_next_job($force = null) {
 			$queue_next_job_time = cache_get(_JQ_NEXT_JOB_TIME_FILENAME);
 		} else {
 			$queue_next_job_time = null;
+			$contenu = null;
 			if (lire_fichier(_JQ_NEXT_JOB_TIME_FILENAME, $contenu)) {
 				$queue_next_job_time = intval($contenu);
 			}
@@ -1925,10 +1925,6 @@ function generer_url_entite($id = 0, $entite = '', $args = '', $ancre = '', $pub
 /**
  * Generer l'url vers la page d'edition dans ecrire/
  * @param int|string|null $id
- * @param string $entite
- * @param string $args
- * @param string $ancre
- * @return string
  */
 function generer_objet_url_ecrire_edit($id, string $entite, string $args = '', string $ancre = ''): string {
 	$id = intval($id);
@@ -1992,13 +1988,6 @@ function urlencode_1738($url) {
  * Generer l'url absolue vers un objet
  *
  * @param int|string|null $id
- * @param string $entite
- * @param string $args
- * @param string $ancre
- * @param ?bool $public
- * @param string $type
- * @param string $connect
- * @return string
  */
 function generer_objet_url_absolue($id = 0, string $entite = '', string $args = '', string $ancre = '', ?bool $public = null, string $type = '', string $connect = ''): string {
 	$id = intval($id);
@@ -2805,6 +2794,7 @@ function spip_initialisation_core($pi = null, $pa = null, $ti = null, $ta = null
 	if (_FILE_CONNECT) {
 		if (
 			verifier_visiteur() == '0minirezo'
+			// si c'est un admin sans cookie admin, il faut ignorer le cache chemin !
 			&& !isset($_COOKIE['spip_admin'])
 		) {
 			clear_path_cache();

@@ -8,7 +8,7 @@ use Spip\Test\Exception\TemplateNotFoundException;
 
 class FileLoader implements LoaderInterface
 {
-	private int $rootLen;
+	private readonly int $rootLen;
 
 	public function __construct()
 	{

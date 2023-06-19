@@ -42,9 +42,7 @@ class LegacyUnitPhpTest extends TestCase
 		require_once(__DIR__ . '/legacy/test.inc');
 
 		$liste_fichiers = tests_legacy_lister('php');
-		$liste_fichiers = array_filter($liste_fichiers, function($f) {
-			return str_contains(file_get_contents($f), 'test.inc');
-		});
+		$liste_fichiers = array_filter($liste_fichiers, fn ($f) => str_contains(file_get_contents($f), 'test.inc'));
 		$tests = [];
 		foreach ($liste_fichiers as $k => $fichier) {
 			$tests[$k] = [$fichier, 'OK'];

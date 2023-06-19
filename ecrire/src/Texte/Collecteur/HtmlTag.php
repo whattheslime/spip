@@ -174,13 +174,9 @@ class HtmlTag extends AbstractCollecteur {
 	}
 
 	/**
-	 * @param string $texte
-	 * @param string $source
 	 * @param callable|null $callback_function
-	 * @param array $callback_options
-	 * @return string
 	 */
-	public function echapper_enHtmlBase64(string $texte, string $source = '', $callback_function = null, $callback_options = []) {
+	public function echapper_enHtmlBase64(string $texte, string $source = '', $callback_function = null, array $callback_options = []): string {
 		if ($callback_function) {
 			$legacy_callback = $callback_function;
 			// si on est dans un cas evident de preg perso, ne pas essayer de mapper le match car on ne sait pas ce qu'il contient
@@ -207,18 +203,10 @@ class HtmlTag extends AbstractCollecteur {
 	/**
 	 * pour $source voir commentaire infra (echappe_retour)
 	 * pour $no_transform voir le filtre post_autobr dans inc/filtres
-	 *
-	 * @param string $texte
-	 * @param string $source
-	 * @param bool $no_transform
-	 * @param ?array $html_tags
-	 * @param string $callback_prefix
-	 * @param array $callback_options
-	 * @return string|string[]
 	 */
-	static public function proteger_balisesHtml(string $texte, string $source = '', ?array $html_tags = null, array $callbacks_function = [], $callback_options = []) {
-		if (empty($texte)) {
-			return $texte;
+	static public function proteger_balisesHtml(string $texte, string $source = '', ?array $html_tags = null, array $callbacks_function = [], array $callback_options = []): string {
+		if ($texte === '') {
+			return '';
 		}
 
 		$html_tags = $html_tags ?: self::$listeBalisesAProteger;
