@@ -73,7 +73,7 @@ class LegacyUnitPhpTest extends TestCase
 		}
 
 		$result = rtrim(implode("\n", $output));
-		if (substr($result, 0, 2) === 'NA') {
+		if (str_starts_with($result, 'NA')) {
 			$this->markTestSkipped($result);
 		} elseif (preg_match("#^OK \(?\d+\)?$#", $result)) {
 			$result = 'OK';

@@ -73,7 +73,7 @@ function urls_decoder_url($url, $fond = '', $contexte = [], $assembler = false) 
 		// le decodage des urls se fait toujours par rapport au site public
 		$current_base = url_absolue(_DIR_RACINE ?: './');
 	}
-	if (strncmp($url, $current_base, strlen($current_base)) == 0) {
+	if (str_starts_with($url, $current_base)) {
 		$url = substr($url, strlen($current_base));
 	}
 
@@ -101,7 +101,7 @@ function urls_decoder_url($url, $fond = '', $contexte = [], $assembler = false) 
 	unset($_SERVER['REDIRECT_url_propre']);
 	unset($_ENV['url_propre']);
 	include_spip('inc/filtres_mini');
-	if (strpos($url, '://') === false) {
+	if (!str_contains($url, '://')) {
 		$GLOBALS['profondeur_url'] = substr_count(ltrim(resolve_path("/$url"), '/'), '/');
 	} else {
 		$GLOBALS['profondeur_url'] = max(0, substr_count($url, '/') - substr_count($current_base, '/'));

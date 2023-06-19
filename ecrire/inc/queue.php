@@ -245,7 +245,7 @@ function queue_start_job($row) {
 
 	$fonction = $row['fonction'];
 	if (strlen($inclure = trim($row['inclure']))) {
-		if (substr($inclure, -1) == '/') { // c'est un chemin pour charger_fonction
+		if (str_ends_with($inclure, '/')) { // c'est un chemin pour charger_fonction
 			$f = charger_fonction($fonction, rtrim($inclure, '/'), false);
 			if ($f) {
 				$fonction = $f;
@@ -437,7 +437,7 @@ function queue_error_handler() {
  */
 function queue_is_cron_job($function, $inclure) {
 	static $taches = null;
-	if (strncmp($inclure, 'genie/', 6) == 0) {
+	if (str_starts_with($inclure, 'genie/')) {
 		if (is_null($taches)) {
 			include_spip('inc/genie');
 			$taches = taches_generales();

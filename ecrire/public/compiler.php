@@ -535,7 +535,7 @@ function calculer_boucle_nonrec($id_boucle, &$boucles, $trace) {
 		$fin_lang_select_public = '';
 		// sortir les appels au traducteur (invariants de boucle)
 		if (
-			strpos($return, '?php') === false
+			!str_contains($return, '?php')
 			and preg_match_all("/\W(_T[(]'[^']*'[)])/", $return, $r)
 		) {
 			$i = 1;
@@ -558,7 +558,7 @@ function calculer_boucle_nonrec($id_boucle, &$boucles, $trace) {
 				(($return === "''") ? '' :
 					("\n\t\t" . '$t0 .= ' . $return . ';'))) :
 			("\n\t\t\$t1 " .
-				((strpos($return, '$t1.') === 0) ?
+				((str_starts_with($return, '$t1.')) ?
 					('.=' . substr($return, 4)) :
 					('= ' . $return)) .
 				";\n\t\t" .
@@ -680,7 +680,7 @@ function calculer_requete_sql($boucle) {
 	$init[] = calculer_dec(
 		'limit',
 		(
-			strpos($boucle->limit, 'intval') === false ?
+			!str_contains($boucle->limit, 'intval') ?
 			"'" . ($boucle->limit) . "'" :
 			$boucle->limit
 		)
@@ -947,7 +947,7 @@ function calculer_liste($tableau, $descr, &$boucles, $id_boucle = '') {
 			foreach ($codes as $code) {
 				if (
 					!preg_match("/^'[^']*'$/", $code)
-					or substr($res, -1, 1) !== "'"
+					or !str_ends_with($res, "'")
 				) {
 					$res .= " .\n$tab$code";
 				} else {

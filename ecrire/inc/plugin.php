@@ -213,7 +213,7 @@ function plugin_version_compatible($intervalle, $version, $avec_quoi = '') {
 	}
 
 	$minimum_inc = $intervalle[0] == '[';
-	$maximum_inc = substr($intervalle, -1) == ']';
+	$maximum_inc = str_ends_with($intervalle, ']');
 
 	if (strlen($minimum)) {
 		if ($minimum_inc and spip_version_compare($version, $minimum, '<')) {
@@ -708,7 +708,7 @@ function plugin_message_incompatibilite($intervalle, $version, $nom, $balise) {
 		$type = 'spip';
 	} elseif ($nom === 'PHP') {
 		$type = 'php';
-	} elseif (strncmp($nom, 'PHP:', 4) === 0) {
+	} elseif (str_starts_with($nom, 'PHP:')) {
 		$type = 'extension_php';
 		[, $nom] = explode(':', $nom, 2);
 	}
@@ -718,7 +718,7 @@ function plugin_message_incompatibilite($intervalle, $version, $nom, $balise) {
 		$maximum = $regs[2];
 
 		$minimum_inclus = $intervalle[0] == '[';
-		$maximum_inclus = substr($intervalle, -1) == ']';
+		$maximum_inclus = str_ends_with($intervalle, ']');
 
 		if (strlen($minimum)) {
 			if ($minimum_inclus and spip_version_compare($version, $minimum, '<')) {
@@ -1198,7 +1198,7 @@ function pipeline_matrice_precompile($plugin_valides, $ordre, $pipe_recherche) {
 					$GLOBALS['spip_pipeline'][$nom] = '';
 					}
 					if ($action) {
-						if (strpos($GLOBALS['spip_pipeline'][$nom], (string) "|$prefix$action") === false) {
+						if (!str_contains($GLOBALS['spip_pipeline'][$nom], (string) "|$prefix$action")) {
 							$GLOBALS['spip_pipeline'][$nom] = preg_replace(
 								',(\|\||$),',
 								"|$prefix$action\\1",
@@ -1468,7 +1468,7 @@ function ecrire_fichier_php($nom, $contenu, $comment = '') {
 	// si un fichier existe deja on verifie que son contenu change avant de l'ecraser
 	// si pas de modif on ne touche pas au fichier initial
 	if (file_exists($nom)) {
-		if (substr($nom, -4) == '.php') {
+		if (str_ends_with($nom, '.php')) {
 			$fichier_tmp = substr($nom, 0, -4) . '.tmp.php';
 		}
 		else {

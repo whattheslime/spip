@@ -81,7 +81,7 @@ function f_jQuery_prive($texte) {
  */
 function affichage_final_prive_title_auto($texte) {
 	if (
-		strpos($texte, '<title>') === false
+		!str_contains($texte, '<title>')
 		and
 		(preg_match(',<h1[^>]*>(.+)</h1>,Uims', $texte, $match)
 			or preg_match(',<h[23][^>]*>(.+)</h[23]>,Uims', $texte, $match))
@@ -210,7 +210,7 @@ function f_afficher_blocs_ecrire($flux) {
 				['args' => $flux['args']['contexte'], 'data' => $flux['data']['texte']]
 			);
 		} elseif (
-			strncmp($fond, 'prive/objets/contenu/', 21) == 0
+			str_starts_with($fond, 'prive/objets/contenu/')
 			and $objet = basename($fond)
 			and $objet == substr($fond, 21)
 			and isset($o[$objet])

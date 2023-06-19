@@ -51,7 +51,7 @@ class HtmlTag extends AbstractCollecteur {
 		}
 
 		$upperTag = strtoupper($this->tag);
-		$hasUpperCaseTags = ($upperTag !== $this->tag and (strpos($texte, '<' . $upperTag) !== false or strpos($texte, '</' . $upperTag) !== false));
+		$hasUpperCaseTags = ($upperTag !== $this->tag and (str_contains($texte, '<' . $upperTag) or str_contains($texte, '</' . $upperTag)));
 
 		// collecter les balises ouvrantes
 		$opening = static::collecteur($texte, '', $hasUpperCaseTags ? '<' : '<' . $this->tag, $this->preg_openingtag, empty($options['detecter_presence']) ? 0 : 1);
@@ -72,7 +72,7 @@ class HtmlTag extends AbstractCollecteur {
 		while (!empty($opening)) {
 			$first_opening = array_shift($opening);
 			// self closing ?
-			if (strpos($first_opening['raw'], '/>', -2) !== false) {
+			if (str_contains($first_opening['raw'], '/>')) {
 				$tag = $first_opening;
 				$tag['opening'] = $tag['raw'];
 				$tag['closing'] = '';
@@ -102,7 +102,7 @@ class HtmlTag extends AbstractCollecteur {
 					while ($next_opening and $next_closing and $next_opening['pos'] < $next_closing['pos']) {
 						while ($next_opening and $next_opening['pos'] < $next_closing['pos']) {
 							// si pas self closing, il faut un closing de plus
-							if (strpos($next_opening['raw'], '/>', -2) === false) {
+							if (!str_contains($next_opening['raw'], '/>')) {
 								$need_closing++;
 							}
 							array_shift($opening);

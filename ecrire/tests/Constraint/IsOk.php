@@ -23,7 +23,7 @@ final class IsOk extends Constraint
 	 */
 	protected function matches($other): bool
 	{
-		return substr(strtolower(trim($other)), 0, 2) === 'ok';
+		return str_starts_with(strtolower(trim($other)), 'ok');
 	}
 
 	/**

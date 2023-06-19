@@ -138,7 +138,7 @@ function traiter_echap_pre_dist($regs, $options = []) {
 	$pre = $regs['innerHtml'];
 
 	// echapper les < dans <code>
-	if (strpos($pre, '<') !== false) {
+	if (str_contains($pre, '<')) {
 		$collecteurCode = new CollecteurHtmlTag('code');
 		$collections = $collecteurCode->collecter($pre);
 		$collections = array_reverse($collections);
@@ -156,7 +156,7 @@ function traiter_echap_code_dist($regs, $options = []) {
 	$att = $regs['attributs'];
 
 	// ne pas mettre le <div...> s'il n'y a qu'une ligne
-	if (strpos($corps, "\n") !== false) {
+	if (str_contains($corps, "\n")) {
 		// supprimer les sauts de ligne debut/fin
 		// (mais pas les espaces => ascii art).
 		$corps = preg_replace("/^[\n\r]+|[\n\r]+$/s", '', $corps);
@@ -426,7 +426,7 @@ function couper($texte, $taille = 50, $suite = null) {
 
 
 function protege_js_modeles($texte) {
-	if (isset($GLOBALS['visiteur_session']) and strpos($texte, '<') !== false) {
+	if (isset($GLOBALS['visiteur_session']) and str_contains($texte, '<')) {
 		$tags = [
 			'javascript' => ['tag' => 'script', 'preg' => ',<script.*?($|</script.),isS', 'c' => '_PROTEGE_JS_MODELES'],
 			'php' => ['tag' => '?php', 'preg' => ',<\?php.*?($|\?' . '>),isS', 'c' => '_PROTEGE_PHP_MODELES'],
@@ -447,7 +447,7 @@ function protege_js_modeles($texte) {
 
 
 function echapper_faux_tags($letexte) {
-	if (strpos($letexte, '<') === false) {
+	if (!str_contains($letexte, '<')) {
 		return $letexte;
 	}
 	$textMatches = preg_split(',(</?[a-z!][^<>]*>),', $letexte, -1, PREG_SPLIT_DELIM_CAPTURE);
@@ -508,7 +508,7 @@ function echapper_html_suspect($texte, $options = [], $connect = null, $env = []
 
 	// pas de balise html ou pas d'attribut sur les balises ? c'est OK
 	if (
-		strpos($texte, '<') === false
+		!str_contains($texte, '<')
 		or !str_contains($texte, '=')
 	) {
 		return $texte;
@@ -524,7 +524,7 @@ function echapper_html_suspect($texte, $options = [], $connect = null, $env = []
 		// car sinon on declenche sur les modeles ou ressources
 		if (
 			!$strict and
-			(strpos($texte, 'on') === false or !preg_match(",<\w+.*\bon\w+\s*=,UimsS", $texte))
+			(!str_contains($texte, 'on') or !preg_match(",<\w+.*\bon\w+\s*=,UimsS", $texte))
 		) {
 			return $texte;
 		}
@@ -608,7 +608,7 @@ function safehtml($t) {
 		return $t;
 	}
 	# attention safehtml nettoie deux ou trois caracteres de plus. A voir
-	if (strpos($t, '<') === false) {
+	if (!str_contains($t, '<')) {
 		return str_replace("\x00", '', $t);
 	}
 

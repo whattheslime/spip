@@ -122,8 +122,7 @@ $err = tester_fun('extraire_attribut', $essais);
 // ... pour pouvoir le remplacer correctement
 
 if (
-	strpos('x', (string) inserer_attribut('<a><img src="x"/></a>', 'src', 'y'))
-	!== false) {
+	str_contains('x', (string) inserer_attribut('<a><img src="x"/></a>', 'src', 'y'))) {
 	$err[] = 'erreur remplacement tag interne';
 }
 

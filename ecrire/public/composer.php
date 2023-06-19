@@ -224,10 +224,10 @@ function analyse_resultat_skel($nom, $cache, $corps, $source = '') {
 	}
 	// S'agit-il d'un resultat constant ou contenant du code php
 	$process_ins = (
-		strpos($corps, '<' . '?') === false
+		!str_contains($corps, '<' . '?')
 		or
-		(strpos($corps, '<' . '?xml') !== false and
-			strpos(str_replace('<' . '?xml', '', $corps), '<' . '?') === false)
+		(str_contains($corps, '<' . '?xml') and
+			!str_contains(str_replace('<' . '?xml', '', $corps), '<' . '?'))
 	)
 		? 'html'
 		: 'php';
@@ -256,10 +256,10 @@ function analyse_resultat_skel($nom, $cache, $corps, $source = '') {
 
 		if ($process_ins == 'html') {
 			$skel['process_ins'] = (
-				strpos($corps, '<' . '?') === false
+				!str_contains($corps, '<' . '?')
 				or
-				(strpos($corps, '<' . '?xml') !== false and
-					strpos(str_replace('<' . '?xml', '', $corps), '<' . '?') === false)
+				(str_contains($corps, '<' . '?xml') and
+					!str_contains(str_replace('<' . '?xml', '', $corps), '<' . '?'))
 			)
 				? 'html'
 				: 'php';
@@ -304,7 +304,7 @@ if ($lang_select) lang_select();
  **/
 function synthetiser_balise_dynamique($nom, $args, $file, $context_compil) {
 	if (
-		strncmp($file, '/', 1) !== 0
+		!str_starts_with($file, '/')
 		// pas de lien symbolique sous Windows
 		and !(stristr(PHP_OS, 'WIN') and str_contains($file, ':'))
 	) {

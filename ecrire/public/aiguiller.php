@@ -20,7 +20,7 @@ if (!defined('_ECRIRE_INC_VERSION')) {
 function securiser_redirect_action($redirect) {
 	$redirect ??= '';
 	// cas d'un double urlencode : si un urldecode de l'url n'est pas secure, on retient ca comme redirect
-	if (strpos($redirect, '%') !== false) {
+	if (str_contains($redirect, '%')) {
 		$r2 = urldecode($redirect);
 		if (($r3 = securiser_redirect_action($r2)) !== $r2) {
 			return $r3;
@@ -33,11 +33,11 @@ function securiser_redirect_action($redirect) {
 		// si l'url est une url du site, on la laisse passer sans rien faire
 		// c'est encore le plus simple
 		$base = $GLOBALS['meta']['adresse_site'] . '/';
-		if (strlen($base) and strncmp($redirect, $base, strlen($base)) == 0) {
+		if (strlen($base) and str_starts_with($redirect, $base)) {
 			return $redirect;
 		}
 		$base = url_de_base();
-		if (strlen($base) and strncmp($redirect, $base, strlen($base)) == 0) {
+		if (strlen($base) and str_starts_with($redirect, $base)) {
 			return $redirect;
 		}
 

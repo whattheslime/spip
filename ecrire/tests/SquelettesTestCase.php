@@ -15,7 +15,7 @@ abstract class SquelettesTestCase extends TestCase
 	 */
 	public static function isNa(string $chaine): bool
 	{
-		return substr(strtolower(trim($chaine)), 0, 2) === 'na';
+		return str_starts_with(strtolower(trim($chaine)), 'na');
 	}
 
 	/**

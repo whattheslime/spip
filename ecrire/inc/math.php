@@ -117,7 +117,7 @@ function traiter_math($letexte, $source = '', $defaire_amp = false) {
 		];
 		foreach ($traitements as $t) {
 			while (
-				strpos($texte_milieu, $t['str']) !== false
+				str_contains($texte_milieu, $t['str'])
 				and (preg_match($t['preg'], $texte_milieu, $regs))) {
 				$expression = $regs[1];
 				if ($defaire_amp) {

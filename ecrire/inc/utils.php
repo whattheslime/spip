@@ -49,7 +49,7 @@ if (!defined('_ECRIRE_INC_VERSION')) {
 function charger_fonction($nom, $dossier = 'exec', $continue = false) {
 	static $echecs = [];
 
-	if (strlen($dossier) and substr($dossier, -1) != '/') {
+	if (strlen($dossier) and !str_ends_with($dossier, '/')) {
 		$dossier .= '/';
 	}
 	$f = str_replace('/', '_', $dossier) . $nom;
@@ -572,7 +572,7 @@ function tester_url_absolue($url) {
  */
 function parametre_url($url, $c, $v = null, $sep = '&amp;') {
 	// requete erronnee : plusieurs variable dans $c et aucun $v
-	if (strpos($c, '|') !== false and is_null($v)) {
+	if (str_contains($c, '|') and is_null($v)) {
 		return null;
 	}
 
@@ -609,7 +609,7 @@ function parametre_url($url, $c, $v = null, $sep = '&amp;') {
 			$r = array_pad($r, 3, null);
 			if ($v === null) {
 				// c'est un tableau, on memorise les valeurs
-				if (substr($r[1], -2) == '[]') {
+				if (str_ends_with($r[1], '[]')) {
 					if (!$v_read) {
 						$v_read = [];
 					}
@@ -624,7 +624,7 @@ function parametre_url($url, $c, $v = null, $sep = '&amp;') {
 			}
 			// Ajout. Pour une variable, remplacer au meme endroit,
 			// pour un tableau ce sera fait dans la prochaine boucle
-			elseif (substr($r[1], -2) != '[]') {
+			elseif (!str_ends_with($r[1], '[]')) {
 				$url[$n] = $r[1] . '=' . $u;
 				unset($ajouts[$r[1]]);
 			}
@@ -648,7 +648,7 @@ function parametre_url($url, $c, $v = null, $sep = '&amp;') {
 			if (!is_array($v)) {
 				$url[] = $k . '=' . $u;
 			} else {
-				$id = (substr($k, -2) == '[]') ? $k : ($k . '[]');
+				$id = (str_ends_with($k, '[]')) ? $k : ($k . '[]');
 				foreach ($v as $w) {
 					$url[] = $id . '=' . (is_array($w) ? 'Array' : rawurlencode($w));
 				}
@@ -761,7 +761,7 @@ function self($amp = '&amp;', $root = false) {
 	}
 	// ajouter le cas echeant les variables _POST['id_...']
 	foreach ($_POST as $v => $c) {
-		if (substr($v, 0, 3) == 'id_') {
+		if (str_starts_with($v, 'id_')) {
 			$url = parametre_url($url, $v, $c, '&');
 		}
 	}
@@ -936,7 +936,7 @@ function _L($text, $args = [], $options = []) {
 			include_spip('inc/texte_mini');
 		}
 		foreach ($args as $name => $value) {
-			if (strpos($text, (string) "@$name@") !== false) {
+			if (str_contains($text, (string) "@$name@")) {
 				if ($options['sanitize']) {
 					$value = echapper_html_suspect($value);
 					$value = interdire_scripts($value, -1);
@@ -1365,7 +1365,7 @@ function _chemin($dir_path = null) {
 			$path = _DIR_RACINE . 'squelettes/:' . $path;
 		}
 		foreach (explode(':', $path) as $dir) {
-			if (strlen($dir) and substr($dir, -1) != '/') {
+			if (strlen($dir) and !str_ends_with($dir, '/')) {
 				$dir .= '/';
 			}
 			$path_base[] = $dir;
@@ -1391,7 +1391,7 @@ function _chemin($dir_path = null) {
 		$dirs = (is_array($dir_path) ? $dir_path : explode(':', $dir_path));
 		$dirs = array_reverse($dirs);
 		foreach ($dirs as $dir_path) {
-			if (substr($dir_path, -1) != '/') {
+			if (!str_ends_with($dir_path, '/')) {
 				$dir_path .= '/';
 			}
 			if (!in_array($dir_path, $path_base)) {
@@ -1530,7 +1530,7 @@ function chemin_image($icone) {
 		$icone = substr($icone, 0, $p);
 	}
 	// gerer le cas d'un double appel en evitant de refaire le travail inutilement
-	if (strpos($icone, '/') !== false and file_exists($icone)) {
+	if (str_contains($icone, '/') and file_exists($icone)) {
 		return $icone;
 	}
 
@@ -2086,7 +2086,7 @@ function url_de_base($profondeur = null) {
 
 	if (
 		isset($_SERVER['SCRIPT_URI'])
-		and substr($_SERVER['SCRIPT_URI'], 0, 5) == 'https'
+		and str_starts_with($_SERVER['SCRIPT_URI'], 'https')
 	) {
 		$http = 'https';
 	} elseif (
@@ -2113,7 +2113,7 @@ function url_de_base($profondeur = null) {
 	if (
 		isset($_SERVER['SERVER_PORT'])
 		and $port = $_SERVER['SERVER_PORT']
-		and strpos($host, ':') == false
+		and !str_contains($host, ':')
 	) {
 		if (!defined('_PORT_HTTP_STANDARD')) {
 			define('_PORT_HTTP_STANDARD', '80');
@@ -2168,7 +2168,7 @@ function url_de_($http, $host, $request, $prof = 0) {
 	[$myself] = explode('?', $myself);
 	// vieux mode HTTP qui envoie après le nom de la methode l'URL compléte
 	// protocole, "://", nom du serveur avant le path dans _SERVER["REQUEST_URI"]
-	if (strpos($myself, '://') !== false) {
+	if (str_contains($myself, '://')) {
 		$myself = explode('://', $myself);
 		array_shift($myself);
 		$myself = implode('://', $myself);
@@ -2316,7 +2316,7 @@ function generer_url_public($script = '', $args = '', $no_entities = false, $rel
 			$action = parametre_url($action, _SPIP_PAGE, $script, '&');
 		}
 		if ($args) {
-			$action .= (strpos($action, '?') !== false ? '&' : '?') . $args;
+			$action .= (str_contains($action, '?') ? '&' : '?') . $args;
 		}
 		// ne pas generer une url avec /./?page= en cas d'url absolue et de _SPIP_SCRIPT vide
 		$url = ($rel ? _DIR_RACINE . $action : rtrim(url_de_base(), '/') . preg_replace(',^/[.]/,', '/', "/$action"));
@@ -2456,7 +2456,7 @@ function generer_url_api(string $script, string $path, string $args, bool $no_en
 	if (is_null($public)) {
 		$public = (_DIR_RACINE ? false : true);
 	}
-	if (substr($script, -4) !== '.api') {
+	if (!str_ends_with($script, '.api')) {
 		$script .= '.api';
 	}
 	$url =
@@ -3115,7 +3115,7 @@ function init_var_mode() {
 						and $_SERVER['REQUEST_METHOD'] === 'GET'
 					) {
 						$self = self('&', true);
-						if (strpos($self, 'page=login') === false) {
+						if (!str_contains($self, 'page=login')) {
 							include_spip('inc/headers');
 							$redirect = parametre_url(self('&', true), 'var_mode', $_GET['var_mode'], '&');
 							redirige_par_entete(generer_url_public('login', 'url=' . rawurlencode($redirect), true));

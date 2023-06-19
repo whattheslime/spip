@@ -231,7 +231,7 @@ function tests_legacy_lister($extension = null)
 
 		foreach ($tests as $test) {
 			$t = (string) _request('rech');
-			if (strlen($t) && (strpos($test, $t) === false)) {
+			if (strlen($t) && (!str_contains($test, $t))) {
 				continue;
 			}
 
@@ -256,18 +256,14 @@ function tests_legacy_lister($extension = null)
 
 			$testbasename = basename($test);
 			// ignorer les vrais tests PHPUnit
-			if (strlen($testbasename) > 8 && substr($testbasename, -8) === 'Test.php') {
+			if (strlen($testbasename) > 8 && str_ends_with($testbasename, 'Test.php')) {
 				continue;
 			}
 
-			if (strncmp($testbasename, 'inclus_', 7) !== 0 && substr($testbasename, -14) !== '_fonctions.php' && (strncmp(
-				$testbasename,
-				'NA_',
-				3
-			) !== 0 || _request('var_mode') === 'dev')) {
+			if (!str_starts_with($testbasename, 'inclus_') && !str_ends_with($testbasename, '_fonctions.php') && (!str_starts_with($testbasename, 'NA_') || _request('var_mode') === 'dev')) {
 				$joli = preg_replace('#\.(php|html)$#', '', basename($test));
 				$section = dirname($test);
-				if (strpos($base, _DIR_TESTS) === 0) {
+				if (str_starts_with($base, _DIR_TESTS)) {
 					$section = substr($section, strlen(_DIR_TESTS . '/tests'));
 				}
 

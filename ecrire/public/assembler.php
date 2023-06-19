@@ -755,7 +755,7 @@ function page_base_href(&$texte) {
 		$head = substr($texte, 0, $poshead);
 		$insert = false;
 		$href_base = false;
-		if (strpos($head, '<base') === false) {
+		if (!str_contains($head, '<base')) {
 			$insert = true;
 		} else {
 			// si aucun <base ...> n'a de href il faut en inserer un
@@ -790,10 +790,10 @@ function page_base_href(&$texte) {
 			if (strpos($base, "'") or strpos($base, '"') or strpos($base, '<')) {
 				$base = str_replace(["'",'"','<'], ['%27','%22','%3C'], $base);
 			}
-			if (strpos($texte, "href='#") !== false) {
+			if (str_contains($texte, "href='#")) {
 				$texte = str_replace("href='#", "href='$base#", $texte);
 			}
-			if (strpos($texte, 'href="#') !== false) {
+			if (str_contains($texte, 'href="#')) {
 				$texte = str_replace('href="#', "href=\"$base#", $texte);
 			}
 		}

@@ -146,12 +146,12 @@ function salt_contexte()
 function trace_contexte($contexte)
 {
 	foreach ($contexte as $k => $v) {
-		if (strpos($k, 'date_') === 0 || $k === 'salt') {
+		if (str_starts_with($k, 'date_') || $k === 'salt') {
 			unset($contexte[$k]);
 		}
 	}
 
-	if (isset($contexte['caller']) && strpos($contexte['caller'], 'tests/squelettes/') === 0) {
+	if (isset($contexte['caller']) && str_starts_with($contexte['caller'], 'tests/squelettes/')) {
 		$contexte['caller'] = substr($contexte['caller'], 17);
 	}
 

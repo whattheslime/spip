@@ -29,7 +29,7 @@ function test_dir_plugins_suppl()
 		return 'NA : la constante _DIR_PLUGINS_SUPPL definie dans mes_options.php ne doit contenir qu\'un seul chemin supplementaire ; actuellement sa valeur est "' . _DIR_PLUGINS_SUPPL . '"';
 	}
 
-	if (substr(_DIR_PLUGINS_SUPPL, -1) !== '/') {
+	if (!str_ends_with(_DIR_PLUGINS_SUPPL, '/')) {
 		return 'NA : la constante _DIR_PLUGINS_SUPPL doit terminer par un / ; actuellement sa valeur est "' . _DIR_PLUGINS_SUPPL . '"';
 	}
 	// preparation: verifier qu'il existe au moins un dossier plugin par rep suppl (i.e. contenant un fichier paquet.xml)?

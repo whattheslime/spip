@@ -92,10 +92,10 @@ function notifications_envoyer_mails($emails, $texte, $sujet = '', $from = '', $
 
 	// tester si le mail est deja en html
 	if (
-		strpos($texte, '<') !== false // eviter les tests suivants si possible
+		str_contains($texte, '<') // eviter les tests suivants si possible
 		and $ttrim = trim($texte)
-		and substr($ttrim, 0, 1) == '<'
-		and substr($ttrim, -1, 1) == '>'
+		and str_starts_with($ttrim, '<')
+		and str_ends_with($ttrim, '>')
 		and stripos($ttrim, '</html>') !== false
 	) {
 		if (!strlen($sujet)) {

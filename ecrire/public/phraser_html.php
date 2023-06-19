@@ -221,7 +221,7 @@ function phraser_idiomes(string $texte, int $ligne, array $result): array {
 		// Stocker les arguments de la balise de traduction
 		$args = [];
 		$largs = (string) $match[5];
-		while (strpos($largs, '=') !== false
+		while (str_contains($largs, '=')
 			&& preg_match(BALISE_IDIOMES_ARGS, $largs, $r)) {
 			$args[$r[1]] = phraser_champs($r[2], 0, []);
 			$largs = substr($largs, strlen($r[0]));

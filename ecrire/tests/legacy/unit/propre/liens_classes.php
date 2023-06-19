@@ -26,10 +26,10 @@ if (! $id) {
 
 $p0 = "[->art{$id}]";
 
-if (! ($c = extraire_attribut(propre($p0), 'class')) || strpos($c, 'spip_in') === false || strpos(
+if (! ($c = extraire_attribut(propre($p0), 'class')) || !str_contains($c, 'spip_in') || str_contains(
 	$c,
 	'spip_out'
-) !== false) {
+)) {
 	$err[] = "Classe {$c} errone dans {$p0} : " . PtoBR(propre($p0));
 }
 
@@ -41,10 +41,10 @@ if (! $id) {
 
 $p0 = "[->rub{$id}]";
 
-if (! $c = extraire_attribut(propre($p0), 'class') || strpos($c, 'spip_in') === false || strpos(
+if (! $c = extraire_attribut(propre($p0), 'class') || !str_contains($c, 'spip_in') || str_contains(
 	$c,
 	'spip_out'
-) !== false) {
+)) {
 	$err[] = "Classe {$c} errone dans {$p0} : " . PtoBR(propre($p0));
 }
 
@@ -56,10 +56,10 @@ if (! $id) {
 
 $p0 = "[->site{$id}]";
 
-if (! $c = extraire_attribut(propre($p0), 'class') || strpos($c, 'spip_in') !== false || strpos(
+if (! $c = extraire_attribut(propre($p0), 'class') || str_contains($c, 'spip_in') || !str_contains(
 	$c,
 	'spip_out'
-) === false) {
+)) {
 	$err[] = "Classe {$c} errone dans {$p0} : " . PtoBR(propre($p0));
 }
 
