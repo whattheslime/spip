@@ -38,9 +38,9 @@
         "lolli42/finediff": "^1.0",
         "phpcompatibility/php-compatibility": "10.x-dev",
         "phpstan/phpstan": "^1.10",
-        "phpunit/phpunit": "^10.1",
+        "phpunit/phpunit": "^10.2",
         "spip/coding-standards": "^1.3",
-        "symplify/easy-coding-standard": "^11.3"
+        "symplify/easy-coding-standard": "^11.4"
     },
     "suggest": {
         "ext-curl": "*",
