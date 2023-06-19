@@ -69,12 +69,11 @@ function assembler($fond, string $connect = '') {
 	// pages sont dynamiques)
 	if (
 		isset($_SERVER['HTTP_IF_MODIFIED_SINCE'])
-		and (!defined('_VAR_MODE') or !_VAR_MODE)
-		and $chemin_cache
-		and isset($page['entetes'])
-		and isset($page['entetes']['Cache-Control'])
-		and strstr($page['entetes']['Cache-Control'], 'max-age=')
-		and !strstr($_SERVER['SERVER_SOFTWARE'], 'IIS/')
+		&& (!defined('_VAR_MODE') || !_VAR_MODE)
+		&& $chemin_cache && isset($page['entetes'])
+		&& isset($page['entetes']['Cache-Control'])
+		&& strstr($page['entetes']['Cache-Control'], 'max-age=')
+		&& !strstr($_SERVER['SERVER_SOFTWARE'], 'IIS/')
 	) {
 		$since = preg_replace(
 			'/;.*/',
@@ -147,7 +146,7 @@ function assembler($fond, string $connect = '') {
 			}
 		}
 
-		if ($page and $chemin_cache) {
+		if ($page && $chemin_cache) {
 			$page['cache'] = $chemin_cache;
 		}
 
@@ -160,14 +159,14 @@ function assembler($fond, string $connect = '') {
 			// Si la page est vide, produire l'erreur 404 ou message d'erreur pour les inclusions
 			if (
 				trim($page['texte']) === ''
-				and _VAR_MODE !== 'debug'
-				and !isset($page['entetes']['Location']) // cette page realise une redirection, donc pas d'erreur
+				&& _VAR_MODE !== 'debug'
+				&& !isset($page['entetes']['Location']) // cette page realise une redirection, donc pas d'erreur
 			) {
 				$GLOBALS['contexte']['fond_erreur'] = $fond;
 				$page = message_page_indisponible($page, $GLOBALS['contexte']);
 			}
 			// pas de cache client en mode 'observation'
-			if (defined('_VAR_MODE') and _VAR_MODE) {
+			if (defined('_VAR_MODE') && _VAR_MODE) {
 				$page['entetes']['Cache-Control'] = 'no-cache,must-revalidate';
 				$page['entetes']['Pragma'] = 'no-cache';
 			}
@@ -178,9 +177,7 @@ function assembler($fond, string $connect = '') {
 	// eviter d'etre incoherent en envoyant un lastmodified identique
 	// a celui qu'on a refuse d'honorer plus haut (cf. #655)
 	if (
-		$lastmodified
-		and !isset($_SERVER['HTTP_IF_MODIFIED_SINCE'])
-		and !isset($page['entetes']['Last-Modified'])
+		$lastmodified && !isset($_SERVER['HTTP_IF_MODIFIED_SINCE']) && !isset($page['entetes']['Last-Modified'])
 	) {
 		$page['entetes']['Last-Modified'] = gmdate('D, d M Y H:i:s', $lastmodified) . ' GMT';
 	}
@@ -340,11 +337,11 @@ function public_produire_page_dist(
 	// et on l'enregistre sur le disque
 	if (
 		$chemin_cache
-		and $use_cache > -1
-		and is_array($page)
-		and count($page)
-		and isset($page['entetes']['X-Spip-Cache'])
-		and $page['entetes']['X-Spip-Cache'] > 0
+		&& $use_cache > -1
+		&& is_array($page)
+		&& count($page)
+		&& isset($page['entetes']['X-Spip-Cache'])
+		&& $page['entetes']['X-Spip-Cache'] > 0
 	) {
 		if (is_null($cacher)) {
 			$cacher = charger_fonction('cacher', 'public', true);
@@ -410,12 +407,12 @@ function inclure_balise_dynamique($texte, $echo = true, $contexte_compil = []) {
 		// Faire remonter les entetes
 		if (
 			isset($page['entetes'])
-			and is_array($page['entetes'])
+			&& is_array($page['entetes'])
 		) {
 			// mais pas toutes
 			unset($page['entetes']['X-Spip-Cache']);
 			unset($page['entetes']['Content-Type']);
-			if (isset($GLOBALS['page']) and is_array($GLOBALS['page'])) {
+			if (isset($GLOBALS['page']) && is_array($GLOBALS['page'])) {
 				if (!is_array($GLOBALS['page']['entetes'])) {
 					$GLOBALS['page']['entetes'] = [];
 				}
@@ -426,8 +423,8 @@ function inclure_balise_dynamique($texte, $echo = true, $contexte_compil = []) {
 		// _pipelines au pluriel array('nom_pipeline' => $args...) avec une syntaxe permettant plusieurs pipelines
 		if (
 			isset($page['contexte']['_pipelines'])
-			and is_array($page['contexte']['_pipelines'])
-			and count($page['contexte']['_pipelines'])
+			&& is_array($page['contexte']['_pipelines'])
+			&& count($page['contexte']['_pipelines'])
 		) {
 			foreach ($page['contexte']['_pipelines'] as $pipe => $args) {
 				$args['contexte'] = $page['contexte'];
@@ -443,7 +440,7 @@ function inclure_balise_dynamique($texte, $echo = true, $contexte_compil = []) {
 		}
 	}
 
-	if (defined('_VAR_MODE') and _VAR_MODE == 'debug') {
+	if (defined('_VAR_MODE') && _VAR_MODE == 'debug') {
 		// compatibilite : avant on donnait le numero de ligne ou rien.
 		$ligne = intval($contexte_compil[3] ?? $contexte_compil);
 		$GLOBALS['debug_objets']['resultat'][$ligne] = $texte;
@@ -554,9 +551,11 @@ function styliser_modele($modele, $id, $contexte = null) {
 		$tables_objet = lister_tables_objets_sql();
 		foreach ($tables_objet as $table => $desc) {
 			if (
-				isset($desc['modeles']) and $desc['modeles']
-				and isset($desc['modeles_styliser']) and $desc['modeles_styliser']
-				and function_exists($desc['modeles_styliser'])
+				isset($desc['modeles'])
+				&& $desc['modeles']
+				&& isset($desc['modeles_styliser'])
+				&& $desc['modeles_styliser']
+				&& function_exists($desc['modeles_styliser'])
 			) {
 				$primary = id_table_objet($table);
 				foreach ($desc['modeles'] as $m) {
@@ -569,7 +568,7 @@ function styliser_modele($modele, $id, $contexte = null) {
 	if (isset($styliseurs[$modele])) {
 		$styliseur = $styliseurs[$modele]['callback'];
 		$primary = $styliseurs[$modele]['primary'];
-		if (is_null($id) and $contexte) {
+		if (is_null($id) && $contexte) {
 			if (isset($contexte['id'])) {
 				$id = $contexte['id'];
 			} elseif (isset($contexte[$primary])) {
@@ -632,7 +631,7 @@ function inclure_modele($type, $id, $params, $lien, string $connect = '', $env =
 	}
 
 	// Si ca marche pas en precisant le sous-type, prendre le type
-	if (!$fond and !trouve_modele($fond = $type)) {
+	if (!$fond && !trouve_modele($fond = $type)) {
 		spip_log("Modele $type introuvable", _LOG_INFO_IMPORTANTE);
 
 		return false;
@@ -695,7 +694,7 @@ function inclure_modele($type, $id, $params, $lien, string $connect = '', $env =
 
 	$compteur--;
 
-	return (isset($arg_list['ajax']) and $arg_list['ajax'] == 'ajax')
+	return (isset($arg_list['ajax']) && $arg_list['ajax'] == 'ajax')
 		? encoder_contexte_ajax($contexte, '', $retour)
 		: $retour;
 }
@@ -721,7 +720,7 @@ function evaluer_fond($fond, $contexte = [], string $connect = '') {
 	// pour ne pas faire descendre le flag vers les inclusions appelees
 	if (
 		isset($page['invalideurs'])
-		and isset($page['invalideurs']['session'])
+		&& isset($page['invalideurs']['session'])
 	) {
 		$GLOBALS['cache_utilise_session'] = $page['invalideurs']['session'];
 	}
@@ -737,10 +736,10 @@ function page_base_href(&$texte) {
 			// si la profondeur est superieure a 1
 			// est que ce n'est pas une url page ni une url action
 			// activer par defaut
-		$set_html_base = ((
+			$set_html_base =
 				$GLOBALS['profondeur_url'] >= (_DIR_RESTREINT ? 1 : 2)
-				and _request(_SPIP_PAGE) !== 'login'
-				and !_request('action')) ? true : false);
+				&& _request(_SPIP_PAGE) !== 'login'
+				&& !_request('action');
 		} else {
 			$set_html_base = _SET_HTML_BASE;
 		}
@@ -748,9 +747,10 @@ function page_base_href(&$texte) {
 
 	if (
 		$set_html_base
-		and isset($GLOBALS['html']) and $GLOBALS['html']
-		and $GLOBALS['profondeur_url'] > 0
-		and ($poshead = strpos($texte, '</head>')) !== false
+		&& isset($GLOBALS['html'])
+		&& $GLOBALS['html']
+		&& $GLOBALS['profondeur_url'] > 0
+		&& ($poshead = strpos($texte, '</head>')) !== false
 	) {
 		$head = substr($texte, 0, $poshead);
 		$insert = false;
@@ -787,7 +787,7 @@ function page_base_href(&$texte) {
 			// gerer les ancres
 			$base = $_SERVER['REQUEST_URI'];
 			// pas de guillemets ni < dans l'URL qu'on insere dans le HTML
-			if (strpos($base, "'") or strpos($base, '"') or strpos($base, '<')) {
+			if (str_contains($base, "'") || str_contains($base, '"') || str_contains($base, '<')) {
 				$base = str_replace(["'",'"','<'], ['%27','%22','%3C'], $base);
 			}
 			if (str_contains($texte, "href='#")) {

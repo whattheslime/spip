@@ -118,7 +118,8 @@ function traiter_math($letexte, $source = '', $defaire_amp = false) {
 		foreach ($traitements as $t) {
 			while (
 				str_contains($texte_milieu, $t['str'])
-				and (preg_match($t['preg'], $texte_milieu, $regs))) {
+				&& preg_match($t['preg'], $texte_milieu, $regs)
+			) {
 				$expression = $regs[1];
 				if ($defaire_amp) {
 					$expression = str_replace('&amp;', '&', $expression);

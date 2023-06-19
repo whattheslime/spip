@@ -106,7 +106,7 @@ function echappe_js($t, $class = ' class = "echappe-js"') {
 	foreach (['script', 'iframe'] as $tag) {
 		if (
 			stripos($t, (string) "<$tag") !== false
-			and preg_match_all(',<' . $tag . '.*?($|</' . $tag . '.),isS', $t, $r, PREG_SET_ORDER)
+			&& preg_match_all(',<' . $tag . '.*?($|</' . $tag . '.),isS', $t, $r, PREG_SET_ORDER)
 		) {
 			foreach ($r as $regs) {
 				$t = str_replace(
@@ -151,11 +151,11 @@ function interdire_scripts($arg, $mode_filtre = null) {
 	static $dejavu = [];
 
 	// Attention, si ce n'est pas une chaine, laisser intact
-	if (!$arg or !is_string($arg) or !strstr($arg, '<')) {
+	if (!$arg || !is_string($arg) || !strstr($arg, '<')) {
 		return $arg;
 	}
 
-	if (is_null($mode_filtre) or !in_array($mode_filtre, [-1, 0, 1])) {
+	if (is_null($mode_filtre) || !in_array($mode_filtre, [-1, 0, 1])) {
 		$mode_filtre = $GLOBALS['filtrer_javascript'];
 	}
 
@@ -278,7 +278,7 @@ function typo($letexte, $echapper = true, $connect = null, $env = []) {
 	// https://core.spip.net/issues/4166
 	if (
 		$GLOBALS['filtrer_javascript'] == -1
-		or (isset($env['espace_prive']) and $env['espace_prive'] and $GLOBALS['filtrer_javascript'] <= 0)
+		|| isset($env['espace_prive']) && $env['espace_prive'] && $GLOBALS['filtrer_javascript'] <= 0
 	) {
 		$letexte = echapper_html_suspect($letexte, [], $connect, $env);
 	}
@@ -441,9 +441,9 @@ function propre($t, $connect = null, $env = []) {
 	// https://core.spip.net/issues/4166
 	if (
 		$interdire_script
-		or $GLOBALS['filtrer_javascript'] == -1
-		or (!empty($env['espace_prive']) and $GLOBALS['filtrer_javascript'] <= 0)
-		or (!empty($env['wysiwyg']) and $env['wysiwyg'] and $GLOBALS['filtrer_javascript'] <= 0)
+		|| $GLOBALS['filtrer_javascript'] == -1
+		|| !empty($env['espace_prive']) && $GLOBALS['filtrer_javascript'] <= 0
+		|| !empty($env['wysiwyg']) && $env['wysiwyg'] && $GLOBALS['filtrer_javascript'] <= 0
 	) {
 		$t = echapper_html_suspect($t, ['strict' => false], $connect, $env);
 	}

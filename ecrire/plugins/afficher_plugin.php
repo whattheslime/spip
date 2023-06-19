@@ -78,7 +78,7 @@ function plugins_afficher_plugin_dist(
 			) . '</div>';
 	} else {
 		$cfg = $actif ? plugin_bouton_config($plug_file, $info, $dir_plugins) : '';
-		if (defined('_DEV_VERSION_SPIP_COMPAT') and !plugin_version_compatible($info['compatibilite'], $GLOBALS['spip_version_branche'])) {
+		if (defined('_DEV_VERSION_SPIP_COMPAT') && !plugin_version_compatible($info['compatibilite'], $GLOBALS['spip_version_branche'])) {
 			//$info['slogan'] = _T('plugin_info_non_compatible_spip');
 			$erreur = http_img_pack(
 				'plugin-dis-32.png',
@@ -95,12 +95,12 @@ function plugins_afficher_plugin_dist(
 	$class_li .= ($actif ? ' actif' : '') . ($expose ? ' on' : '');
 
 	return "<li id='$prefix$id' class='$class_li'>"
-	. ((!$checkable and !$checked)
+	. ((!$checkable && !$checked)
 		? '' : plugin_checkbox(++$id_input, $dir_plugins . $plug_file, $checked))
 	. plugin_resume($info, $dir_plugins, $plug_file, $url_page)
 	. $cfg
 	. $erreur
-	. (($dir_plugins !== _DIR_PLUGINS_DIST and plugin_est_installe($plug_file))
+	. (($dir_plugins !== _DIR_PLUGINS_DIST && plugin_est_installe($plug_file))
 		? plugin_desintalle($plug_file, $nom, $dir_plugins) : '')
 	. "<div class='details'>" // pour l'ajax de exec/info_plugin
 	. (!$expose ? '' : affiche_bloc_plugin($plug_file, $info, $dir_plugins))
@@ -113,7 +113,7 @@ function plugin_bouton_config($nom, $infos, $dir) {
 	// il faut donc n'utiliser que des minuscules, par convention
 	$prefix = strtolower($infos['prefix']);
 	// si paquet.xml fournit un squelette, le prendre
-	if (isset($infos['config']) and $infos['config']) {
+	if (isset($infos['config']) && $infos['config']) {
 		return recuperer_fond(
 			"$dir$nom/" . $infos['config'],
 			[
@@ -181,7 +181,7 @@ function plugin_resume($info, $dir_plugins, $plug_file, $url_page) {
 
 	$icon_class = 'icon';
 	$img = '';
-	if (isset($info['logo']) and $i = trim($info['logo'])) {
+	if (isset($info['logo']) && ($i = trim($info['logo']))) {
 		$img = http_img_pack("$dir/$i", '', " width='32' height='32'", '', ['variante_svg_si_possible' => true, 'chemin_image' => false]);
 		if (!extraire_attribut($img, 'src')) {
 			$img = '';
@@ -244,7 +244,7 @@ function plugin_etat_en_clair($etat) {
 
 function plugin_propre($texte, $module = '', $propre = 'propre') {
 	// retirer le retour a la racine du module, car le find_in_path se fait depuis la racine
-	if (_DIR_RACINE and str_starts_with($module, _DIR_RACINE)) {
+	if (_DIR_RACINE && str_starts_with($module, _DIR_RACINE)) {
 		$module = substr($module, strlen(_DIR_RACINE));
 	}
 	if (preg_match('|^\w+_[\w_]+$|', $texte)) {
@@ -278,8 +278,7 @@ function affiche_bloc_plugin($plug_file, $info, $dir_plugins = null) {
 	}
 
 	if (
-		isset($info['documentation'])
-		and $lien = $info['documentation']
+		isset($info['documentation']) && ($lien = $info['documentation'])
 	) {
 		$description .= "<p><em class='site'><a href='$lien' class='spip_out'>" . _T('en_savoir_plus') . '</a></em></p>';
 	}
@@ -340,8 +339,7 @@ function affiche_bloc_plugin($plug_file, $info, $dir_plugins = null) {
 	$infotech[] = $version;
 	$infotech[] = '<dt>' . _T('repertoire_plugins') . '</dt><dd>' . joli_repertoire("$dir_plugins$plug_file") . '</dd>';
 	// source zip le cas echeant
-	$infotech[] = (lire_fichier($dir_plugins . $plug_file . '/install.log', $log)
-		and preg_match(',^source:(.*)$,m', $log, $r))
+	$infotech[] = (lire_fichier($dir_plugins . $plug_file . '/install.log', $log) && preg_match(',^source:(.*)$,m', $log, $r))
 		? '<dt>' . _T('plugin_source') . '</dt><dd>' . trim($r[1]) . '</dd>'
 		: '';
 

@@ -51,7 +51,7 @@ function public_composer_dist($squelette, $mime_type, $gram, $source, string $co
 		return $nom;
 	}
 
-	if (defined('_VAR_MODE') and _VAR_MODE == 'debug') {
+	if (defined('_VAR_MODE') && _VAR_MODE == 'debug') {
 		$GLOBALS['debug_objets']['courant'] = $nom;
 	}
 
@@ -122,15 +122,15 @@ function public_composer_dist($squelette, $mime_type, $gram, $source, string $co
 		}
 	}
 
-	if (defined('_VAR_MODE') and _VAR_MODE == 'debug') {
+	if (defined('_VAR_MODE') && _VAR_MODE == 'debug') {
 		// Tracer ce qui vient d'etre compile
 		$GLOBALS['debug_objets']['code'][$nom . 'tout'] = $code;
 
 		// si c'est ce que demande le debusqueur, lui passer la main
 		if (
 			$GLOBALS['debug_objets']['sourcefile']
-			and (_request('var_mode_objet') == $nom)
-			and (_request('var_mode_affiche') == 'code')
+			&& _request('var_mode_objet') == $nom
+			&& _request('var_mode_affiche') == 'code'
 		) {
 			erreur_squelette();
 		}
@@ -155,7 +155,7 @@ function squelette_traduit($squelette, $sourcefile, $phpfile, $boucles) {
 	}
 
 	$code = '<' . "?php\n" . $code . join('', $boucles) . "\n";
-	if (!defined('_VAR_NOCACHE') or !_VAR_NOCACHE) {
+	if (!defined('_VAR_NOCACHE') || !_VAR_NOCACHE) {
 		ecrire_fichier($phpfile, $code);
 	}
 
@@ -177,11 +177,10 @@ function squelette_obsolete($skel, $squelette) {
 	}
 
 	return (
-		(defined('_VAR_MODE') and in_array(_VAR_MODE, ['recalcul', 'preview', 'debug']))
-		or !@file_exists($skel)
-		or ((@file_exists($squelette) ? @filemtime($squelette) : 0)
-			> ($date = @filemtime($skel)))
-		or ($date_change > $date)
+		defined('_VAR_MODE') && in_array(_VAR_MODE, ['recalcul', 'preview', 'debug'])
+		|| !@file_exists($skel)
+		|| (@file_exists($squelette) ? @filemtime($squelette) : 0) > ($date = @filemtime($skel))
+		|| $date_change > $date
 	);
 }
 
@@ -203,7 +202,7 @@ function analyse_resultat_skel($nom, $cache, $corps, $source = '') {
 	// "a la main" dans les squelettes, mais evidemment sans exhaustivite
 	if (
 		stripos($corps, 'header') !== false
-		and preg_match_all(
+		&& preg_match_all(
 			'/(<[?]php\s+)@?header\s*\(\s*.([^:\'"]*):?\s*([^)]*)[^)]\s*\)\s*[;]?\s*[?]>/ims',
 			$corps,
 			$regs,
@@ -215,7 +214,7 @@ function analyse_resultat_skel($nom, $cache, $corps, $source = '') {
 			# $j = Content-Type, et pas content-TYPE.
 			$j = join('-', array_map('ucwords', explode('-', strtolower($r[2]))));
 
-			if ($j == 'X-Spip-Filtre' and isset($headers[$j])) {
+			if ($j == 'X-Spip-Filtre' && isset($headers[$j])) {
 				$headers[$j] .= '|' . $r[3];
 			} else {
 				$headers[$j] = str_replace(['\\\\',"\\'",'\\"'], ['\\',"'",'"'], $r[3]);
@@ -225,9 +224,7 @@ function analyse_resultat_skel($nom, $cache, $corps, $source = '') {
 	// S'agit-il d'un resultat constant ou contenant du code php
 	$process_ins = (
 		!str_contains($corps, '<' . '?')
-		or
-		(str_contains($corps, '<' . '?xml') and
-			!str_contains(str_replace('<' . '?xml', '', $corps), '<' . '?'))
+		|| str_contains($corps, '<' . '?xml') && !str_contains(str_replace('<' . '?xml', '', $corps), '<' . '?')
 	)
 		? 'html'
 		: 'php';
@@ -246,20 +243,18 @@ function analyse_resultat_skel($nom, $cache, $corps, $source = '') {
 		$filtres[$nom] = pipeline('declarer_filtres_squelettes', ['args' => $skel, 'data' => []]);
 	}
 	$filtres_headers = [];
-	if (isset($headers['X-Spip-Filtre']) and strlen($headers['X-Spip-Filtre'])) {
+	if (isset($headers['X-Spip-Filtre']) && strlen($headers['X-Spip-Filtre'])) {
 		$filtres_headers = array_filter(explode('|', $headers['X-Spip-Filtre']));
 		unset($headers['X-Spip-Filtre']);
 	}
-	if (is_array($filtres[$nom]) || $filtres[$nom] instanceof \Countable ? count($filtres[$nom]) : 0 or count($filtres_headers)) {
+	if ((is_array($filtres[$nom]) || $filtres[$nom] instanceof \Countable ? count($filtres[$nom]) : 0) || count($filtres_headers)) {
 		include_spip('public/sandbox');
 		$corps = sandbox_filtrer_squelette($skel, $corps, $filtres_headers, $filtres[$nom]);
 
 		if ($process_ins == 'html') {
 			$skel['process_ins'] = (
 				!str_contains($corps, '<' . '?')
-				or
-				(str_contains($corps, '<' . '?xml') and
-					!str_contains(str_replace('<' . '?xml', '', $corps), '<' . '?'))
+				|| str_contains($corps, '<' . '?xml') && !str_contains(str_replace('<' . '?xml', '', $corps), '<' . '?')
 			)
 				? 'html'
 				: 'php';
@@ -306,7 +301,7 @@ function synthetiser_balise_dynamique($nom, $args, $file, $context_compil) {
 	if (
 		!str_starts_with($file, '/')
 		// pas de lien symbolique sous Windows
-		and !(stristr(PHP_OS, 'WIN') and str_contains($file, ':'))
+		&& !(stristr(PHP_OS, 'WIN') && str_contains($file, ':'))
 	) {
 		$file = './" . _DIR_RACINE . "' . $file;
 	}
@@ -424,11 +419,11 @@ function executer_balise_dynamique($nom, $args, $context_compil) {
 	$appel_php_depuis_modele = false;
 	if (
 		is_array($context_compil)
-		and !is_numeric($context_compil[3])
-		and empty($context_compil[0])
-		and empty($context_compil[1])
-		and empty($context_compil[2])
-		and empty($context_compil[3])
+		&& !is_numeric($context_compil[3])
+		&& empty($context_compil[0])
+		&& empty($context_compil[1])
+		&& empty($context_compil[2])
+		&& empty($context_compil[3])
 	) {
 		$appel_php_depuis_modele = true;
 	}
@@ -474,10 +469,10 @@ function executer_balise_dynamique($nom, $args, $context_compil) {
 	// sinon se replier sur la generique si elle existe
 	if (!function_exists('balise_' . $nom_balise . '_dyn')) {
 		if (
-			$balise_generique = chercher_balise_generique($nom)
-			and $nom_balise_generique = $balise_generique['nom_generique']
-			and $file = include_spip('balise/' . strtolower($nom_balise_generique))
-			and function_exists('balise_' . $nom_balise_generique . '_dyn')
+			($balise_generique = chercher_balise_generique($nom))
+			&& ($nom_balise_generique = $balise_generique['nom_generique'])
+			&& ($file = include_spip('balise/' . strtolower($nom_balise_generique)))
+			&& function_exists('balise_' . $nom_balise_generique . '_dyn')
 		) {
 			// et lui injecter en premier arg le nom de la balise
 			array_unshift($r, $nom);
@@ -553,8 +548,9 @@ function chercher_balise_generique($nom) {
 function lang_select_public($lang, $lang_select, $titre = null) {
 	// Cas 1. forcer_lang = true et pas de critere {lang_select}
 	if (
-		isset($GLOBALS['forcer_lang']) and $GLOBALS['forcer_lang']
-		and $lang_select !== 'oui'
+		isset($GLOBALS['forcer_lang'])
+		&& $GLOBALS['forcer_lang']
+		&& $lang_select !== 'oui'
 	) {
 		$lang = $GLOBALS['spip_lang'];
 	} // Cas 2. l'objet n'a pas de langue definie (ou definie a '')
@@ -563,9 +559,9 @@ function lang_select_public($lang, $lang_select, $titre = null) {
 	} // Cas 3. l'objet est multilingue !
 	elseif (
 		$lang_select !== 'oui'
-		and strlen($titre) > 10
-		and str_contains($titre, '<multi>')
-		and str_contains(CollecteurHtmlTag::proteger_balisesHtml($titre), '<multi>')
+		&& strlen($titre) > 10
+		&& str_contains($titre, '<multi>')
+		&& str_contains(CollecteurHtmlTag::proteger_balisesHtml($titre), '<multi>')
 	) {
 		$lang = $GLOBALS['spip_lang'];
 	}
@@ -583,7 +579,7 @@ function nettoyer_env_doublons($envd) {
 	foreach ($envd as $table => $liste) {
 		$n = '';
 		foreach (explode(',', $liste) as $val) {
-			if ($a = intval($val) and $val === strval($a)) {
+			if (($a = intval($val)) && $val === strval($a)) {
 				$n .= ',' . $val;
 			}
 		}
@@ -723,7 +719,7 @@ function calculer_select(
 	// IN sur collection vide (ce dernier devrait pouvoir etre fait a la compil)
 	$menage = false;
 	foreach ($where as $k => $v) {
-		if (is_array($v) and count($v)) {
+		if (is_array($v) && count($v)) {
 			if ((count($v) >= 2) && ($v[0] == 'REGEXP') && ($v[2] == "'.*'")) {
 				$op = false;
 			} elseif ((count($v) >= 2) && ($v[0] == 'LIKE') && ($v[2] == "'%'")) {
@@ -734,7 +730,7 @@ function calculer_select(
 		} else {
 			$op = $v;
 		}
-		if ((!$op) or ($op == 1) or ($op == '0=0')) {
+		if (!$op || $op == 1 || $op == '0=0') {
 			unset($where[$k]);
 			$menage = true;
 		}
@@ -783,8 +779,7 @@ function calculer_select(
 					$wherestring = calculer_where_to_string($where[$k]);
 					foreach ($join as $cle => $wj) {
 						if (
-							(is_countable($wj) ? count($wj) : 0) == 4
-							and str_contains($wherestring, (string) "{$cle}.")
+							(is_countable($wj) ? count($wj) : 0) == 4 && str_contains($wherestring, (string) "{$cle}.")
 						) {
 							$i = 0;
 							$wheresub[] = $wj[3];
@@ -818,7 +813,7 @@ function calculer_select(
 	}
 
 	foreach ($having as $k => $v) {
-		if ((!$v) or ($v == 1) or ($v == '0=0')) {
+		if (!$v || $v == 1 || $v == '0=0') {
 			unset($having[$k]);
 		}
 	}
@@ -851,11 +846,11 @@ function calculer_select(
 		$cle_where_lie = "JOIN-$cle";
 		if (
 			!$menage
-			or isset($afrom[$cle])
-			or calculer_jointnul($cle, $select)
-			or calculer_jointnul($cle, array_diff_key($join, [$cle => $join[$cle]]))
-			or calculer_jointnul($cle, $having)
-			or calculer_jointnul($cle, array_diff_key($where_simples, [$cle_where_lie => '']))
+			|| isset($afrom[$cle])
+			|| calculer_jointnul($cle, $select)
+			|| calculer_jointnul($cle, array_diff_key($join, [$cle => $join[$cle]]))
+			|| calculer_jointnul($cle, $having)
+			|| calculer_jointnul($cle, array_diff_key($where_simples, [$cle_where_lie => '']))
 		) {
 			// corriger les references non explicites dans select
 			// ou groupby
@@ -923,13 +918,15 @@ function calculer_select(
 		reset($from);
 		$e = '/\b(' . "$t\\." . join('|' . $t . '\.', $equiv) . ')\b/';
 		if (
-			!(strpos($t, ' ') or // jointure des le depart cf boucle_doc
-				calculer_jointnul($t, $select, $e) or
-				calculer_jointnul($t, $join, $e) or
-				calculer_jointnul($t, $where, $e) or
-				calculer_jointnul($t, $orderby, $e) or
-				calculer_jointnul($t, $groupby, $e) or
-				calculer_jointnul($t, $having, $e))
+			!(
+				strpos($t, ' ')
+				// jointure des le depart cf boucle_doc
+				|| calculer_jointnul($t, $select, $e)
+				|| calculer_jointnul($t, $join, $e)
+				|| calculer_jointnul($t, $where, $e)
+				|| calculer_jointnul($t, $orderby, $e)
+				|| calculer_jointnul($t, $groupby, $e) || calculer_jointnul($t, $having, $e)
+			)
 			&& count($afrom[$t])
 		) {
 			$nfrom = reset($afrom[$t]);
@@ -966,7 +963,7 @@ function calculer_select(
 		}
 		$from = reinjecte_joint($afrom, $from);
 	}
-	if (empty($GLOBALS['debug']) or !is_array($GLOBALS['debug'])) {
+	if (empty($GLOBALS['debug']) || !is_array($GLOBALS['debug'])) {
 		$wasdebug = empty($GLOBALS['debug']) ? false : $GLOBALS['debug'];
 		$GLOBALS['debug'] = [];
 		if ($wasdebug) {
@@ -1066,7 +1063,7 @@ function remplacer_jointnul($cle, $exp, $equiv = '') {
 // calcul du nom du squelette
 function calculer_nom_fonction_squel($skel, $mime_type = 'html', string $connect = '') {
 	// ne pas doublonner les squelette selon qu'ils sont calcules depuis ecrire/ ou depuis la racine
-	if ($l = strlen(_DIR_RACINE) and strncmp($skel, _DIR_RACINE, $l) == 0) {
+	if (($l = strlen(_DIR_RACINE)) && strncmp($skel, _DIR_RACINE, $l) == 0) {
 		$skel = substr($skel, strlen(_DIR_RACINE));
 	}
 

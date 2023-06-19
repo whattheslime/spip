@@ -183,7 +183,7 @@ abstract class AbstractCollecteur {
 		if ($pregBalisesBloc === null) {
 			$pregBalisesBloc = ',</?(' . implode('|', static::$listeBalisesBloc) . ')[>[:space:]],iS';
 		}
-		return (str_contains($texte, '<') and preg_match($pregBalisesBloc, $texte)) ? true : false;
+		return (str_contains($texte, '<') && preg_match($pregBalisesBloc, $texte)) ? true : false;
 	}
 
 	/**
@@ -249,7 +249,7 @@ abstract class AbstractCollecteur {
 			# spip_log(spip_htmlspecialchars($texte));  ## pour les curieux
 			$max_prof = 5;
 			$encore = true;
-			while ($encore and str_contains($texte, 'base64' . $source) and $max_prof--) {
+			while ($encore && str_contains($texte, 'base64' . $source) && $max_prof--) {
 				$encore = false;
 				foreach (['span', 'div'] as $tag) {
 					$htmlTagCollecteur = new HtmlTag($tag,
@@ -261,7 +261,7 @@ abstract class AbstractCollecteur {
 						$collection = array_reverse($collection);
 						foreach ($collection as $c) {
 							$title = $c['match'][2];
-							if ($title and $rempl = base64_decode($title, true)) {
+							if ($title && ($rempl = base64_decode($title, true))) {
 								$encore = true;
 								// recherche d'attributs supplementaires
 								$at = [];

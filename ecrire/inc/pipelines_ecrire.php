@@ -50,8 +50,8 @@ function f_jQuery_prive($texte) {
 	foreach (array_unique($jquery_plugins) as $script) {
 		$script = supprimer_timestamp($script);
 		if (
-			(str_starts_with($script, _DIR_VAR) and file_exists($script))
-			or $script = find_in_path($script)
+			str_starts_with($script, _DIR_VAR) && file_exists($script)
+			|| ($script = find_in_path($script))
 		) {
 			$script = timestamp($script);
 			$x .= "\n<script src=\"$script\" type=\"text/javascript\"></script>\n";
@@ -60,7 +60,7 @@ function f_jQuery_prive($texte) {
 	// inserer avant le premier script externe ou a la fin
 	if (
 		preg_match(',<script[^><]*src=,', $texte, $match)
-		and $p = strpos($texte, (string) $match[0])
+		&& ($p = strpos($texte, (string) $match[0]))
 	) {
 		$texte = substr_replace($texte, $x, $p, 0);
 	} else {
@@ -82,11 +82,9 @@ function f_jQuery_prive($texte) {
 function affichage_final_prive_title_auto($texte) {
 	if (
 		!str_contains($texte, '<title>')
-		and
-		(preg_match(',<h1[^>]*>(.+)</h1>,Uims', $texte, $match)
-			or preg_match(',<h[23][^>]*>(.+)</h[23]>,Uims', $texte, $match))
-		and $match = textebrut(trim($match[1]))
-		and ($p = strpos($texte, '<head>')) !== false
+		&& (preg_match(',<h1[^>]*>(.+)</h1>,Uims', $texte, $match) || preg_match(',<h[23][^>]*>(.+)</h[23]>,Uims', $texte, $match))
+		&& ($match = textebrut(trim($match[1])))
+		&& ($p = strpos($texte, '<head>')) !== false
 	) {
 		if (!$nom_site_spip = textebrut(typo($GLOBALS['meta']['nom_site']))) {
 			$nom_site_spip = _T('info_mon_site_spip');
@@ -159,7 +157,7 @@ function f_afficher_blocs_ecrire($flux) {
 				$exec,
 				$flux['args']['contexte']
 			);
-		} elseif ($fond == "prive/squelettes/hierarchie/$typepage" and $o[$exec]) {
+		} elseif ($fond == "prive/squelettes/hierarchie/$typepage" && $o[$exec]) {
 			// id non defini sur les formulaire de nouveaux objets
 			$id = isset($flux['args']['contexte'][$o[$exec]['id_table_objet']]) ? intval($flux['args']['contexte'][$o[$exec]['id_table_objet']]) : 0;
 			$flux['data']['texte'] = pipeline(
@@ -170,8 +168,8 @@ function f_afficher_blocs_ecrire($flux) {
 			// Préparation du marqueur affiche_milieu
 			// Si c'est la page d'un objet pas en édition, on l'encapsule dans un div
 			$est_page_objet = !empty($o[$exec]['type']);
-			$est_en_edition = (isset($o[$exec]['edition']) and $o[$exec]['edition'] === true);
-			$encapsuler_milieu = ($est_page_objet and !$est_en_edition);
+			$est_en_edition = (isset($o[$exec]['edition']) && $o[$exec]['edition'] === true);
+			$encapsuler_milieu = ($est_page_objet && !$est_en_edition);
 			$flux['data']['texte'] = afficher_blocs_ecrire_preparer_marqueur(
 				$flux['data']['texte'],
 				'<!--affiche_milieu-->',
@@ -181,10 +179,10 @@ function f_afficher_blocs_ecrire($flux) {
 			);
 			if (
 				$o[$exec]
-				and $objet = $o[$exec]['type']
-				and $o[$exec]['edition'] == false
-				and isset($flux['args']['contexte'][$o[$exec]['id_table_objet']])
-				and $id = intval($flux['args']['contexte'][$o[$exec]['id_table_objet']])
+				&& ($objet = $o[$exec]['type'])
+				&& $o[$exec]['edition'] == false
+				&& isset($flux['args']['contexte'][$o[$exec]['id_table_objet']])
+				&& ($id = intval($flux['args']['contexte'][$o[$exec]['id_table_objet']]))
 			) {
 				// inserer le formulaire de traduction
 				$flux['data']['texte'] = str_replace('<!--affiche_milieu-->', recuperer_fond(
@@ -211,10 +209,10 @@ function f_afficher_blocs_ecrire($flux) {
 			);
 		} elseif (
 			str_starts_with($fond, 'prive/objets/contenu/')
-			and $objet = basename($fond)
-			and $objet == substr($fond, 21)
-			and isset($o[$objet])
-			and $o[$objet]
+			&& ($objet = basename($fond))
+			&& $objet == substr($fond, 21)
+			&& isset($o[$objet])
+			&& $o[$objet]
 		) {
 			$id = intval($flux['args']['contexte'][$o[$exec]['id_table_objet']]);
 			$flux['data']['texte'] = pipeline('afficher_contenu_objet', [
@@ -253,7 +251,7 @@ function f_afficher_blocs_ecrire($flux) {
 function afficher_blocs_ecrire_preparer_marqueur(?string $texte, string $marqueur, string $inserer_avant, string $ouvrir = '', string $fermer = ''): ?string {
 
 	if ($texte) {
-		$encapsuler = (($ouvrir and $fermer) ? true : false);
+		$encapsuler = (($ouvrir && $fermer) ? true : false);
 		$marqueur_pos = strpos($texte, $marqueur);
 		$full_marqueur = "$ouvrir$marqueur$fermer";
 
@@ -269,8 +267,8 @@ function afficher_blocs_ecrire_preparer_marqueur(?string $texte, string $marqueu
 		// Il ne faut donc aucun espace blanc en trop.
 		} elseif (
 			$marqueur_pos !== false
-			and $encapsuler
-			and substr($texte, $marqueur_pos - strlen($ouvrir), strlen($ouvrir)) !== $ouvrir
+			&& $encapsuler
+			&& substr($texte, $marqueur_pos - strlen($ouvrir), strlen($ouvrir)) !== $ouvrir
 		) {
 			$texte = substr_replace(
 				$texte,
@@ -295,7 +293,7 @@ function f_queue_affiche_milieu($flux) {
 	$args = $flux['args'];
 	$res = '';
 	foreach ($args as $key => $arg) {
-		if (preg_match(',^id_,', $key) and is_numeric($arg) and $arg = intval($arg)) {
+		if (preg_match(',^id_,', $key) && is_numeric($arg) && ($arg = intval($arg))) {
 			$objet = preg_replace(',^id_,', '', $key);
 			$res .= recuperer_fond(
 				'modeles/object_jobs_list',
@@ -335,7 +333,7 @@ function trouver_objet_exec(?string $exec) {
 		$objet_exec[$exec] = false;
 		$infos = lister_tables_objets_sql();
 		foreach ($infos as $t => $info) {
-			if ($exec === $info['url_edit'] and $info['editable']) {
+			if ($exec === $info['url_edit'] && $info['editable']) {
 				return $objet_exec[$exec] = [
 					'edition' => $exec == $info['url_voir'] ? '' : true,
 					'table_objet_sql' => $t,

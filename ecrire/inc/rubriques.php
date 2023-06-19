@@ -68,9 +68,9 @@ function calculer_rubriques_if($id_rubrique, $modifs, $infos = [], $postdate = f
 	// On recherche quels statuts tester
 	if (
 		isset($infos['objet'])
-		and include_spip('inc/filtres')
-		and $declaration_statut = objet_info($infos['objet'], 'statut')
-		and is_array($declaration_statut)
+		&& include_spip('inc/filtres')
+		&& ($declaration_statut = objet_info($infos['objet'], 'statut'))
+		&& is_array($declaration_statut)
 	) {
 		foreach ($declaration_statut as $champ_statut) {
 			if ($champ_statut['champ'] == 'statut') {
@@ -85,8 +85,8 @@ function calculer_rubriques_if($id_rubrique, $modifs, $infos = [], $postdate = f
 	if (in_array($infos['statut_ancien'], $statuts_publies)) {
 		if (
 			isset($modifs['statut'])
-			or isset($modifs['id_rubrique'])
-			or ($postdate and strtotime($postdate) > time())
+			|| isset($modifs['id_rubrique'])
+			|| $postdate && strtotime($postdate) > time()
 		) {
 			$neuf |= depublier_branche_rubrique_if($id_rubrique);
 		}
@@ -97,7 +97,7 @@ function calculer_rubriques_if($id_rubrique, $modifs, $infos = [], $postdate = f
 		} elseif (isset($modifs['id_rubrique'])) {
 			$neuf |= publier_branche_rubrique($modifs['id_rubrique']);
 		}
-	} elseif (isset($modifs['statut']) and in_array($modifs['statut'], $statuts_publies)) {
+	} elseif (isset($modifs['statut']) && in_array($modifs['statut'], $statuts_publies)) {
 		if ($postdate) {
 			calculer_prochain_postdate(true);
 			$neuf |= (strtotime($postdate) <= time()); // par securite
@@ -205,7 +205,7 @@ function depublier_rubrique_if($id_rubrique, $date = null) {
 
 	// verifier qu'elle existe et est bien publiee
 	$r = sql_fetsel('id_rubrique,statut', 'spip_rubriques', 'id_rubrique=' . intval($id_rubrique));
-	if (!$r or $r['statut'] !== 'publie') {
+	if (!$r || $r['statut'] !== 'publie') {
 		return false;
 	}
 
@@ -395,14 +395,14 @@ function propager_les_secteurs() {
 		$maxiter2 = $maxiter;
 		while (
 			$maxiter2--
-			and $rows = sql_allfetsel(
+			&& ($rows = sql_allfetsel(
 				'A.id_rubrique AS id, R.id_secteur AS id_secteur, R.profondeur+1 as profondeur',
 				'spip_rubriques AS A JOIN spip_rubriques AS R ON A.id_parent = R.id_rubrique',
 				'R.profondeur=' . intval($prof) . ' AND (A.id_secteur <> R.id_secteur OR A.profondeur > R.profondeur+1)',
 				'',
 				'R.id_secteur',
 				'0,100'
-			)
+			))
 		) {
 			$id_secteur = null;
 			$ids = [];
@@ -434,7 +434,7 @@ function propager_les_secteurs() {
 		$maxiter2 = $maxiter;
 		while (
 			$maxiter2--
-			and $rows = sql_allfetsel(
+			&& ($rows = sql_allfetsel(
 				'id_rubrique as id',
 				'spip_rubriques',
 				'profondeur=' . intval($prof + 1) . ' AND id_parent NOT IN (' . sql_get_select(
@@ -445,7 +445,7 @@ function propager_les_secteurs() {
 				'',
 				'',
 				'0,100'
-			)
+			))
 		) {
 			$rows = array_column($rows, 'id');
 			sql_updateq('spip_rubriques', ['profondeur' => $prof + 2], sql_in('id_rubrique', $rows));
@@ -459,7 +459,7 @@ function propager_les_secteurs() {
 			$prof++;
 			$continuer = true;
 		}
-	} while ($continuer and $maxiter--);
+	} while ($continuer && $maxiter--);
 
 	// loger si la table des rubriques semble foireuse
 	// et mettre un id_secteur=0 sur ces rubriques pour eviter toute selection par les boucles
@@ -599,8 +599,8 @@ function calculer_langues_utilisees($serveur = '') {
 		// c'est une table avec des langues
 		if (
 			$desc['exist']
-			and isset($desc['field']['lang'])
-			and isset($desc['field']['langue_choisie'])
+			&& isset($desc['field']['lang'])
+			&& isset($desc['field']['langue_choisie'])
 		) {
 			$boucle = new Boucle();
 			$boucle->show = $desc;
@@ -623,7 +623,7 @@ function calculer_langues_utilisees($serveur = '') {
 
 			if (
 				isset($desc['statut'])
-				and $desc['statut']
+				&& $desc['statut']
 			) {
 				$boucles = [
 					'calculer_langues_utilisees' => $boucle,
@@ -733,11 +733,11 @@ function inc_calcul_branche_in_dist($id) {
 	// jusqu'a epuisement, en se protegeant des references circulaires
 	$maxiter = 10000;
 	while (
-		$maxiter-- and $filles = sql_allfetsel(
+		$maxiter-- && ($filles = sql_allfetsel(
 			'id_rubrique',
 			'spip_rubriques',
 			sql_in('id_parent', $r) . ' AND ' . sql_in('id_rubrique', $r, 'NOT')
-		)
+		))
 	) {
 		$r = join(',', array_column($filles, 'id_rubrique'));
 		$branche .= ',' . $r;
@@ -790,11 +790,11 @@ function inc_calcul_hierarchie_in_dist($id, $tout = true) {
 	$ids_nouveaux_parents = $id;
 	$maxiter = 10000;
 	while (
-		$maxiter-- and $parents = sql_allfetsel(
+		$maxiter-- && ($parents = sql_allfetsel(
 			'id_parent',
 			'spip_rubriques',
 			sql_in('id_rubrique', $ids_nouveaux_parents) . ' AND ' . sql_in('id_parent', $hier, 'NOT')
-		)
+		))
 	) {
 		$ids_nouveaux_parents = join(',', array_column($parents, 'id_parent'));
 		$hier = $ids_nouveaux_parents . (strlen($hier) ? ',' . $hier : '');
@@ -856,7 +856,7 @@ function calculer_prochain_postdate($check = false) {
 		$t = $t['date'];
 		if (
 			!isset($GLOBALS['meta']['date_prochain_postdate'])
-			or $t <> $GLOBALS['meta']['date_prochain_postdate']
+			|| $t <> $GLOBALS['meta']['date_prochain_postdate']
 		) {
 			ecrire_meta('date_prochain_postdate', strtotime($t));
 			ecrire_meta('derniere_modif', time());

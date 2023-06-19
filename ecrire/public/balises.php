@@ -963,7 +963,7 @@ function balise_RANG_dist($p) {
 		$_rang = champ_sql('rang', $p, '', false);
 
 		// si pas trouve de champ sql rang :
-		if (!$_rang or $_rang == "''") {
+		if (!$_rang || $_rang == "''") {
 			$boucle = &$p->boucles[$b];
 
 			// on gere le cas ou #RANG est une extraction du numero dans le titre
@@ -977,7 +977,7 @@ function balise_RANG_dist($p) {
 					// Soit on trouve avec la déclaration de la lang AVANT
 					preg_match(';(?:lang\s*,)\s*(.*?titre)\s*(,|$);', $t, $m)
 					// Soit on prend depuis le début
-					or preg_match(';^(.*?titre)\s*(,|$);', $t, $m)
+					|| preg_match(';^(.*?titre)\s*(,|$);', $t, $m)
 				) {
 					$m = preg_replace(',as\s+titre$,i', '', $m[1]);
 					$m = trim($m);
@@ -1154,7 +1154,7 @@ function balise_PAGINATION_dist($p, $liste = 'true') {
 		$modif,
 		$pas,
 		$liste,
-		((isset($__modele) and $__modele) ? $__modele : "''"),
+		((isset($__modele) && $__modele) ? $__modele : "''"),
 		_q($connect),
 		$code_contexte
 	);
@@ -1519,7 +1519,7 @@ function balise_SESSION_dist($p) {
 function balise_SESSION_SET_dist($p) {
 	$_nom = interprete_argument_balise(1, $p);
 	$_val = interprete_argument_balise(2, $p);
-	if (!$_nom or !$_val) {
+	if (!$_nom || !$_val) {
 		$err_b_s_a = ['zbug_balise_sans_argument', ['balise' => 'SESSION_SET']];
 		erreur_squelette($err_b_s_a, $p);
 	} else {
@@ -1614,8 +1614,8 @@ function balise_CHAMP_SQL_dist($p) {
 
 	if (
 		$p->param
-		and isset($p->param[0][1][0])
-		and $champ = ($p->param[0][1][0]->texte)
+		&& isset($p->param[0][1][0])
+		&& ($champ = ($p->param[0][1][0]->texte))
 	) {
 		$p->code = champ_sql($champ, $p);
 	} else {
@@ -1838,7 +1838,7 @@ function balise_CACHE_dist($p) {
 
 			if (
 				$pa == 'cache-client'
-				and $duree > 0
+				&& $duree > 0
 			) {
 				$code .= ".'<'.'" . '?php header("Cache-Control: max-age='
 					. $duree
@@ -1849,7 +1849,7 @@ function balise_CACHE_dist($p) {
 
 			if (
 				$pa == 'statique'
-				and $duree > 0
+				&& $duree > 0
 			) {
 				$code .= ".'<'.'" . '?php header("X-Spip-Statique: oui"); ?' . "'.'>'";
 			}
@@ -2002,7 +2002,7 @@ function balise_INCLURE_dist($p) {
 
 		// Critere d'inclusion {env} (et {self} pour compatibilite ascendante)
 		$flag_env = false;
-		if (isset($_contexte['env']) or isset($_contexte['self'])) {
+		if (isset($_contexte['env']) || isset($_contexte['self'])) {
 			$flag_env = true;
 			unset($_contexte['env']);
 		}
@@ -2148,7 +2148,7 @@ function balise_SET_dist($p) {
 	$_nom = interprete_argument_balise(1, $p);
 	$_val = interprete_argument_balise(2, $p);
 
-	if (!$_nom or !$_val) {
+	if (!$_nom || !$_val) {
 		$err_b_s_a = ['zbug_balise_sans_argument', ['balise' => 'SET']];
 		erreur_squelette($err_b_s_a, $p);
 	}
@@ -2349,7 +2349,7 @@ function balise_ARRAY_dist($p) {
 	do {
 		$_key = interprete_argument_balise($n++, $p);
 		$_val = interprete_argument_balise($n++, $p);
-		if ($_key and $_val) {
+		if ($_key && $_val) {
 			$_code[] = "$_key => $_val";
 		}
 	} while ($_key && $_val);
@@ -2584,7 +2584,7 @@ function balise_BOUTON_ACTION_dist($p) {
 		$args[] = $_a;
 	}
 	// supprimer les args vides
-	while (end($args) == "''" and count($args) > 2) {
+	while (end($args) == "''" && count($args) > 2) {
 		array_pop($args);
 	}
 	$args = implode(',', $args);

@@ -79,7 +79,7 @@ function supprimer_sessions($id_auteur, $toutes = true, $actives = true) {
 	$nb_files = 0;
 	$nb_max_files = (defined('_MAX_NB_SESSIONS_OUVERTES') ? _MAX_NB_SESSIONS_OUVERTES : 1000);
 	spip_log("supprimer sessions auteur $id_auteur", 'session');
-	if ($toutes or $id_auteur !== $GLOBALS['visiteur_session']['id_auteur']) {
+	if ($toutes || $id_auteur !== $GLOBALS['visiteur_session']['id_auteur']) {
 		if ($dir = opendir(_DIR_SESSIONS)) {
 			$t = $_SERVER['REQUEST_TIME']  - (4 * _RENOUVELLE_ALEA); // 48h par defaut
 			$t_short = $_SERVER['REQUEST_TIME']  - max(_RENOUVELLE_ALEA / 4, 3 * 3600); // 3h par defaut
@@ -88,12 +88,12 @@ function supprimer_sessions($id_auteur, $toutes = true, $actives = true) {
 				$nb_files++;
 				if (preg_match(',^[^\d-]*(-?\d+)_\w{32}\.php[3]?$,', $f, $regs)) {
 					$f = _DIR_SESSIONS . $f;
-					if (($actives and $regs[1] == $id_auteur) or ($t > filemtime($f))) {
+					if ($actives && $regs[1] == $id_auteur || $t > filemtime($f)) {
 						spip_unlink($f);
 					}
 					// si il y a trop de sessions ouvertes, on purge les sessions anonymes de plus de 3H
 					// cf http://core.spip.org/issues/3276
-					elseif ($nb_files > $nb_max_files and !intval($regs[1]) and ($t_short > filemtime($f))) {
+					elseif ($nb_files > $nb_max_files && !intval($regs[1]) && $t_short > filemtime($f)) {
 						spip_unlink($f);
 					}
 				}
@@ -157,7 +157,7 @@ function ajouter_session($auteur) {
 
 		// Si après ça la session est vide alors on supprime l'éventuel fichier et on arrête là
 		if (!$auteur_verif) {
-			if (isset($_COOKIE['spip_session']) and isset($_SESSION[$_COOKIE['spip_session']])) {
+			if (isset($_COOKIE['spip_session']) && isset($_SESSION[$_COOKIE['spip_session']])) {
 				unset($_SESSION[$_COOKIE['spip_session']]);
 			}
 			if (isset($_COOKIE['spip_session'])) {
@@ -169,8 +169,7 @@ function ajouter_session($auteur) {
 	}
 
 	if (
-		!isset($_COOKIE['spip_session'])
-		or !preg_match(',^' . $id_auteur . '_,', $_COOKIE['spip_session'])
+		!isset($_COOKIE['spip_session']) || !preg_match(',^' . $id_auteur . '_,', $_COOKIE['spip_session'])
 	) {
 		$_COOKIE['spip_session'] = $id_auteur . '_' . md5(uniqid(random_int(0, mt_getrandmax()), true));
 	}
@@ -190,8 +189,8 @@ function ajouter_session($auteur) {
 	}
 	if (
 		isset($auteur['prefs'])
-		and is_string($auteur['prefs'])
-		and $prefs = @unserialize($auteur['prefs'])
+		&& is_string($auteur['prefs'])
+		&& ($prefs = @unserialize($auteur['prefs']))
 	) {
 		$auteur['prefs'] = $prefs;
 	}
@@ -225,7 +224,7 @@ function ajouter_session($auteur) {
 	if (!function_exists('autoriser')) {
 		include_spip('inc/autoriser');
 	}
-	if (autoriser('ecrire', '', '', $auteur) and _DUREE_COOKIE_ADMIN) {
+	if (autoriser('ecrire', '', '', $auteur) && _DUREE_COOKIE_ADMIN) {
 		spip_setcookie(
 			'spip_admin',
 			'@' . ($auteur['email'] ?: $auteur['login']),
@@ -298,19 +297,19 @@ function verifier_session($change = false) {
 	// est-ce une session anonyme ?
 	if (!intval($_COOKIE['spip_session'])) {
 		spip_php_session_start();
-		if (!isset($_SESSION[$_COOKIE['spip_session']]) or !is_array($_SESSION[$_COOKIE['spip_session']])) {
+		if (!isset($_SESSION[$_COOKIE['spip_session']]) || !is_array($_SESSION[$_COOKIE['spip_session']])) {
 			return false;
 		}
 		$GLOBALS['visiteur_session'] = $_SESSION[$_COOKIE['spip_session']];
 	} else {
 		// Tester avec alea courant
 		$fichier_session = fichier_session('alea_ephemere', true);
-		if ($fichier_session and @file_exists($fichier_session)) {
+		if ($fichier_session && @file_exists($fichier_session)) {
 			include($fichier_session);
 		} else {
 			// Sinon, tester avec alea precedent
 			$fichier_session = fichier_session('alea_ephemere_ancien', true);
-			if (!$fichier_session or !@file_exists($fichier_session)) {
+			if (!$fichier_session || !@file_exists($fichier_session)) {
 				return false;
 			}
 
@@ -326,7 +325,7 @@ function verifier_session($change = false) {
 	// c'est un auteur SPIP authentifie (tandis qu'un visiteur_session peut
 	// n'etre qu'identifie, sans aucune authentification).
 
-	if (isset($GLOBALS['visiteur_session']['id_auteur']) and $GLOBALS['visiteur_session']['id_auteur']) {
+	if (isset($GLOBALS['visiteur_session']['id_auteur']) && $GLOBALS['visiteur_session']['id_auteur']) {
 		$GLOBALS['auteur_session'] = &$GLOBALS['visiteur_session'];
 	}
 
@@ -361,9 +360,9 @@ function verifier_session($change = false) {
 	// Si la session a ete initiee il y a trop longtemps, elle est annulee
 	if (
 		isset($GLOBALS['visiteur_session'])
-		and defined('_AGE_SESSION_MAX')
-		and _AGE_SESSION_MAX > 0
-		and time() - @$GLOBALS['visiteur_session']['date_session'] > _AGE_SESSION_MAX
+		&& defined('_AGE_SESSION_MAX')
+		&& _AGE_SESSION_MAX > 0
+		&& time() - @$GLOBALS['visiteur_session']['date_session'] > _AGE_SESSION_MAX
 	) {
 		unset($GLOBALS['visiteur_session']);
 
@@ -487,7 +486,7 @@ function actualiser_sessions($auteur, $supprimer_cles = []) {
 
 	// les préférences sont désérialisées, toujours.
 	// [fixme] Le champ 'prefs' sert aussi à l’inscription
-	if (isset($auteur['prefs']) and is_string($auteur['prefs'])) {
+	if (isset($auteur['prefs']) && is_string($auteur['prefs'])) {
 		$auteur['prefs'] = @unserialize($auteur['prefs']);
 		if (!is_array($auteur['prefs'])) {
 			$auteur['prefs'] = [];
@@ -508,7 +507,7 @@ function actualiser_sessions($auteur, $supprimer_cles = []) {
 		// a pu etre supprime entre le preg initial et le moment ou l'on arrive la (concurrence)
 		if (
 			$session !== $fichier_session_courante
-			and @file_exists($session)
+			&& @file_exists($session)
 		) {
 			include $session; # $GLOBALS['visiteur_session'] est alors l'auteur cible
 
@@ -571,7 +570,7 @@ function lister_sessions_auteur($id_auteur, $nb_max = null) {
 	// si ce ne sont pas des sessions anonymes car elles sont alors chacune differentes
 	if (
 		$id_auteur
-		and count($sessions) > $nb_max
+		&& count($sessions) > $nb_max
 	) {
 		// limiter le nombre de sessions ouvertes par un auteur
 		// filemtime sur les sessions

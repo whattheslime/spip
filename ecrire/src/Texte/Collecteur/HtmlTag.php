@@ -51,7 +51,7 @@ class HtmlTag extends AbstractCollecteur {
 		}
 
 		$upperTag = strtoupper($this->tag);
-		$hasUpperCaseTags = ($upperTag !== $this->tag and (str_contains($texte, '<' . $upperTag) or str_contains($texte, '</' . $upperTag)));
+		$hasUpperCaseTags = ($upperTag !== $this->tag && (str_contains($texte, '<' . $upperTag) || str_contains($texte, '</' . $upperTag)));
 
 		// collecter les balises ouvrantes
 		$opening = static::collecteur($texte, '', $hasUpperCaseTags ? '<' : '<' . $this->tag, $this->preg_openingtag, empty($options['detecter_presence']) ? 0 : 1);
@@ -82,9 +82,11 @@ class HtmlTag extends AbstractCollecteur {
 			}
 			else {
 				// enlever les closing qui sont avant le premier opening, car ils n'ont pas de sens
-				while (!empty($closing)
-				  and $first_closing = reset($closing)
-				  and $first_closing['pos'] < $first_opening['pos']) {
+				while (
+					!empty($closing)
+					&& ($first_closing = reset($closing))
+					&& $first_closing['pos'] < $first_opening['pos']
+				) {
 					array_shift($closing);
 				}
 
@@ -93,14 +95,14 @@ class HtmlTag extends AbstractCollecteur {
 				$next_opening = reset($opening);
 				// certaines balises comme <code> neutralisent le contenant, donc tout ce qui est avant le prochain closing doit etre ignoré
 				if (in_array($this->tag, ['code'])) {
-					while ($next_opening and $next_closing and $next_opening['pos'] < $next_closing['pos']) {
+					while ($next_opening && $next_closing && $next_opening['pos'] < $next_closing['pos']) {
 						array_shift($opening);
 						$next_opening = reset($opening);
 					}
 				}
 				else {
-					while ($next_opening and $next_closing and $next_opening['pos'] < $next_closing['pos']) {
-						while ($next_opening and $next_opening['pos'] < $next_closing['pos']) {
+					while ($next_opening && $next_closing && $next_opening['pos'] < $next_closing['pos']) {
+						while ($next_opening && $next_opening['pos'] < $next_closing['pos']) {
 							// si pas self closing, il faut un closing de plus
 							if (!str_contains($next_opening['raw'], '/>')) {
 								$need_closing++;
@@ -109,7 +111,7 @@ class HtmlTag extends AbstractCollecteur {
 							$next_opening = reset($opening);
 						}
 						// il faut depiler les balises fermantes autant de fois que nécessaire et tant qu'on a pas une nouvelle balise ouvrante
-						while ($need_closing and $next_closing and (!$next_opening or $next_closing['pos'] < $next_opening['pos'])) {
+						while ($need_closing && $next_closing && (!$next_opening || $next_closing['pos'] < $next_opening['pos'])) {
 							array_shift($closing);
 							$need_closing--;
 							$next_closing = reset($closing);
@@ -117,7 +119,7 @@ class HtmlTag extends AbstractCollecteur {
 					}
 				}
 				// si pas de fermeture, c'est une autofermante mal fermée...
-				if (!$next_closing or $need_closing) {
+				if (!$next_closing || $need_closing) {
 					$tag = $first_opening;
 					$tag['opening'] = $tag['raw'];
 					$tag['closing'] = '';
@@ -138,10 +140,10 @@ class HtmlTag extends AbstractCollecteur {
 					$tags[] = $tag;
 				}
 			}
-			if ((!empty($options['detecter_presence']) and count($tags))) {
+			if ((!empty($options['detecter_presence']) && count($tags))) {
 				return $tags;
 			}
-			if (($profondeur == 1 and !empty($options['nb_max'])  and count($tags) >= $options['nb_max'])) {
+			if (($profondeur == 1 && !empty($options['nb_max']) && count($tags) >= $options['nb_max'])) {
 				break;
 			}
 		}
@@ -159,7 +161,7 @@ class HtmlTag extends AbstractCollecteur {
 							$tag['pos'] += $offsetPos;
 							$tags[] = $tag;
 						}
-						if (($profondeur == 1 and !empty($options['nb_max'])  and count($tags) >= $options['nb_max'])) {
+						if (($profondeur == 1 && !empty($options['nb_max']) && count($tags) >= $options['nb_max'])) {
 							return $tags;
 						}
 					}
@@ -222,9 +224,11 @@ class HtmlTag extends AbstractCollecteur {
 		$html_tags = $html_tags ?: self::$listeBalisesAProteger;
 
 		$tags_todo = $html_tags;
-		while (!empty($tags_todo)
-		  and $tag = array_shift($tags_todo)
-		  and str_contains($texte, '<')) {
+		while (
+			!empty($tags_todo)
+			&& ($tag = array_shift($tags_todo))
+			&& str_contains($texte, '<')
+		) {
 			$htmlTagCollecteur = new self($tag);
 			$texte = $htmlTagCollecteur->echapper_enHtmlBase64($texte, $source, $callbacks_function[$tag] ?? null, $callback_options);
 		}

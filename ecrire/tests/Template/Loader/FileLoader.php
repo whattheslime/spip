@@ -29,7 +29,7 @@ class FileLoader implements LoaderInterface
 	public function getSourceFile(string $name): string
 	{
 		$filepath = realpath($name);
-		if (!$filepath or !file_exists($filepath)) {
+		if (!$filepath || !file_exists($filepath)) {
 			throw new TemplateNotFoundException($name);
 		}
 

@@ -119,7 +119,7 @@ defined('_BALISES_BLOCS_REGEXP') || define('_BALISES_BLOCS_REGEXP', ',</?(' . _B
  * @return string
  */
 function code_echappement($rempl, $source = '', $no_transform = false, $mode = null) {
-	if (!is_string($rempl) or !strlen($rempl)) {
+	if (!is_string($rempl) || !strlen($rempl)) {
 		return '';
 	}
 
@@ -221,7 +221,7 @@ function echappe_html(
 	$callback_prefix = '',
 	$callback_options = []
 ) {
-	if (!is_string($letexte) or !strlen($letexte)) {
+	if (!is_string($letexte) || !strlen($letexte)) {
 		return $letexte;
 	}
 
@@ -235,7 +235,7 @@ function echappe_html(
 	}
 
 	// legacy : les appels fournissaient une preg pour repérer les balises HTML
-	if ($html_tags and !is_array($html_tags)) {
+	if ($html_tags && !is_array($html_tags)) {
 		trigger_deprecation('spip', '5.0', 'Using a preg for "%s" arg is deprecated, use a tag array instead.', '$html_tags', __FUNCTION__);
 		$t = explode(')', $html_tags, 2);
 		$t = reset($t);
@@ -250,11 +250,11 @@ function echappe_html(
 		foreach ($html_tags ?: CollecteurHtmlTag::$listeBalisesAProteger as $tag) {
 			if (
 				function_exists($f = $callback_prefix . $callback_secure_prefix . 'traiter_echap_' . $tag)
-				or function_exists($f = $f . '_dist')
-				or ($callback_secure_prefix and (
+				|| function_exists($f = $f . '_dist')
+				|| $callback_secure_prefix && (
 					function_exists($f = $callback_prefix . 'traiter_echap_' . $tag)
-					or function_exists($f = $f . '_dist')
-				))
+					|| function_exists($f = $f . '_dist')
+				)
 			) {
 				$callbacks[$tag] = $f;
 			}
@@ -290,7 +290,7 @@ function echappe_html(
  * @return array|mixed|string|string[]
  */
 function echappe_retour($letexte, $source = '', $filtre = '') {
-	if (!is_string($letexte) or !strlen($letexte)) {
+	if (!is_string($letexte) || !strlen($letexte)) {
 		return $letexte;
 	}
 	return CollecteurHtmlTag::retablir_depuisHtmlBase64((string)$letexte, (string)$source, (string)$filtre);
@@ -299,7 +299,7 @@ function echappe_retour($letexte, $source = '', $filtre = '') {
 // Reinserer le javascript de confiance (venant des modeles)
 
 function echappe_retour_modeles($letexte, $interdire_scripts = false) {
-	if (!is_string($letexte) or !strlen($letexte)) {
+	if (!is_string($letexte) || !strlen($letexte)) {
 		return $letexte;
 	}
 	$letexte = CollecteurHtmlTag::retablir_depuisHtmlBase64((string)$letexte);
@@ -426,7 +426,7 @@ function couper($texte, $taille = 50, $suite = null) {
 
 
 function protege_js_modeles($texte) {
-	if (isset($GLOBALS['visiteur_session']) and str_contains($texte, '<')) {
+	if (isset($GLOBALS['visiteur_session']) && str_contains($texte, '<')) {
 		$tags = [
 			'javascript' => ['tag' => 'script', 'preg' => ',<script.*?($|</script.),isS', 'c' => '_PROTEGE_JS_MODELES'],
 			'php' => ['tag' => '?php', 'preg' => ',<\?php.*?($|\?' . '>),isS', 'c' => '_PROTEGE_PHP_MODELES'],
@@ -481,7 +481,7 @@ function echapper_faux_tags($letexte) {
  */
 function echapper_html_suspect($texte, $options = [], $connect = null, $env = []) {
 	static $echapper_html_suspect;
-	if (!$texte or !is_string($texte)) {
+	if (!$texte || !is_string($texte)) {
 		return $texte;
 	}
 
@@ -492,7 +492,7 @@ function echapper_html_suspect($texte, $options = [], $connect = null, $env = []
 	if ($echapper_html_suspect) {
 		// on collecte le tableau d'arg minimal pour ne pas casser un appel a une fonction inc_echapper_html_suspect() selon l'ancienne signature
 		$args = [$texte, $options];
-		if ($connect or !empty($env)) {
+		if ($connect || !empty($env)) {
 			$args[] = $connect;
 		}
 		if (!empty($env)) {
@@ -509,7 +509,7 @@ function echapper_html_suspect($texte, $options = [], $connect = null, $env = []
 	// pas de balise html ou pas d'attribut sur les balises ? c'est OK
 	if (
 		!str_contains($texte, '<')
-		or !str_contains($texte, '=')
+		|| !str_contains($texte, '=')
 	) {
 		return $texte;
 	}
@@ -519,12 +519,11 @@ function echapper_html_suspect($texte, $options = [], $connect = null, $env = []
 		// conserver le comportement historique en cas d'appel court sans env
 		$env['espace_prive'] = test_espace_prive();
 	}
-	if (!empty($env['espace_prive']) or !empty($env['wysiwyg'])) {
+	if (!empty($env['espace_prive']) || !empty($env['wysiwyg'])) {
 		// quand c'est du texte qui passe par propre on est plus coulant tant qu'il y a pas d'attribut du type onxxx=
 		// car sinon on declenche sur les modeles ou ressources
 		if (
-			!$strict and
-			(!str_contains($texte, 'on') or !preg_match(",<\w+.*\bon\w+\s*=,UimsS", $texte))
+			!$strict && (!str_contains($texte, 'on') || !preg_match(",<\w+.*\bon\w+\s*=,UimsS", $texte))
 		) {
 			return $texte;
 		}
@@ -604,7 +603,7 @@ function echapper_html_suspect($texte, $options = [], $connect = null, $env = []
 function safehtml($t) {
 	static $safehtml;
 
-	if (!$t or !is_string($t)) {
+	if (!$t || !is_string($t)) {
 		return $t;
 	}
 	# attention safehtml nettoie deux ou trois caracteres de plus. A voir

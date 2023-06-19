@@ -58,7 +58,7 @@ function notifications_nettoyer_emails(&$emails, $exclure = []) {
 	// filtrer et unifier
 	include_spip('inc/filtres');
 	$emails = array_unique(array_filter(array_map('email_valide', array_map('trim', $emails))));
-	if ($exclure and count($exclure)) {
+	if ($exclure && count($exclure)) {
 		// nettoyer les exclusions d'abord
 		notifications_nettoyer_emails($exclure);
 		// faire un diff
@@ -92,11 +92,11 @@ function notifications_envoyer_mails($emails, $texte, $sujet = '', $from = '', $
 
 	// tester si le mail est deja en html
 	if (
-		str_contains($texte, '<') // eviter les tests suivants si possible
-		and $ttrim = trim($texte)
-		and str_starts_with($ttrim, '<')
-		and str_ends_with($ttrim, '>')
-		and stripos($ttrim, '</html>') !== false
+		str_contains($texte, '<')
+		&& ($ttrim = trim($texte))
+		&& str_starts_with($ttrim, '<')
+		&& str_ends_with($ttrim, '>')
+		&& stripos($ttrim, '</html>') !== false
 	) {
 		if (!strlen($sujet)) {
 			// dans ce cas on ruse un peu : extraire le sujet du title

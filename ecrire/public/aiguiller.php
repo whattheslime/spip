@@ -27,17 +27,17 @@ function securiser_redirect_action($redirect) {
 		}
 	}
 	if (
-		(tester_url_absolue($redirect) or preg_match(',^\w+:,', trim($redirect)))
-		and !defined('_AUTORISER_ACTION_ABS_REDIRECT')
+		(tester_url_absolue($redirect) || preg_match(',^\w+:,', trim($redirect)))
+		&& !defined('_AUTORISER_ACTION_ABS_REDIRECT')
 	) {
 		// si l'url est une url du site, on la laisse passer sans rien faire
 		// c'est encore le plus simple
 		$base = $GLOBALS['meta']['adresse_site'] . '/';
-		if (strlen($base) and str_starts_with($redirect, $base)) {
+		if (strlen($base) && str_starts_with($redirect, $base)) {
 			return $redirect;
 		}
 		$base = url_de_base();
-		if (strlen($base) and str_starts_with($redirect, $base)) {
+		if (strlen($base) && str_starts_with($redirect, $base)) {
 			return $redirect;
 		}
 
@@ -64,9 +64,9 @@ function traiter_appels_actions() {
 		// on le met avant dans la query string au cas ou l'action fait elle meme sa redirection
 		if (
 			($v = _request('var_ajax'))
-			and ($v !== 'form')
-			and ($args = _request('var_ajax_env'))
-			and ($url = _request('redirect'))
+			&& $v !== 'form'
+			&& ($args = _request('var_ajax_env'))
+			&& ($url = _request('redirect'))
 		) {
 			$url = parametre_url($url, 'var_ajax', $v, '&');
 			$url = parametre_url($url, 'var_ajax_env', $args, '&');
@@ -91,8 +91,8 @@ function traiter_appels_actions() {
 			// qui a pu etre defini par l'action
 			if (
 				($v = _request('var_ajax'))
-				and ($v !== 'form')
-				and ($args = _request('var_ajax_env'))
+				&& $v !== 'form'
+				&& ($args = _request('var_ajax_env'))
 			) {
 				$url = parametre_url($url, 'var_ajax', $v, '&');
 				$url = parametre_url($url, 'var_ajax_env', $args, '&');
@@ -105,10 +105,7 @@ function traiter_appels_actions() {
 
 		// attention : avec zlib.output_compression=1 on a vu des cas de ob_get_length() qui renvoi 0
 		// et du coup en renvoi un status 204 a tort (vu sur le menu rubriques notamment)
-		if (
-			!headers_sent()
-			and !ob_get_length()
-		) {
+		if (!headers_sent() && !ob_get_length()) {
 			http_response_code(204);
 		} // No Content
 		return true;
@@ -120,11 +117,11 @@ function traiter_appels_actions() {
 
 function refuser_traiter_formulaire_ajax() {
 	if (
-		$v = _request('var_ajax')
-		and $v == 'form'
-		and $form = _request('formulaire_action')
-		and $args = _request('formulaire_action_args')
-		and decoder_contexte_ajax($args, $form) !== false
+		($v = _request('var_ajax'))
+		&& $v == 'form'
+		&& ($form = _request('formulaire_action'))
+		&& ($args = _request('formulaire_action_args'))
+		&& decoder_contexte_ajax($args, $form) !== false
 	) {
 		// on est bien dans le contexte de traitement d'un formulaire en ajax
 		// mais traiter ne veut pas
@@ -139,15 +136,14 @@ function refuser_traiter_formulaire_ajax() {
 function traiter_appels_inclusions_ajax() {
 	// traiter les appels de bloc ajax (ex: pagination)
 	if (
-		$v = _request('var_ajax')
-		and $v !== 'form'
-		and $args = _request('var_ajax_env')
+		($v = _request('var_ajax'))
+		&& $v !== 'form'
+		&& ($args = _request('var_ajax_env'))
 	) {
 		include_spip('inc/filtres');
 		include_spip('inc/actions');
 		if (
-			$args = decoder_contexte_ajax($args)
-			and $fond = $args['fond']
+			($args = decoder_contexte_ajax($args)) && ($fond = $args['fond'])
 		) {
 			include_spip('public/assembler');
 			$contexte = calculer_contexte();
@@ -189,8 +185,8 @@ function traiter_formulaires_dynamiques($get = false) {
 	$done = true;
 
 	if (
-		!($form = _request('formulaire_action')
-		and $args = _request('formulaire_action_args'))
+		!(($form = _request('formulaire_action'))
+		&& ($args = _request('formulaire_action_args')))
 	) {
 		return false;
 	} // le hit peut continuer normalement
@@ -265,7 +261,7 @@ function traiter_formulaires_dynamiques($get = false) {
 		}
 
 		// accessibilite : si des erreurs mais pas de message general l'ajouter
-		if ((isset($post["erreurs_$form"]) and is_countable($post["erreurs_$form"]) ? count($post["erreurs_$form"]) : 0) and !isset($post["erreurs_$form"]['message_erreur'])) {
+		if (isset($post["erreurs_$form"]) && (is_countable($post["erreurs_$form"]) ? count($post["erreurs_$form"]) : 0) && !isset($post["erreurs_$form"]['message_erreur'])) {
 			$post["erreurs_$form"]['message_erreur'] = singulier_ou_pluriel(
 				is_countable($post["erreurs_$form"]) ? count($post["erreurs_$form"]) : 0,
 				'avis_1_erreur_saisie',
@@ -282,7 +278,7 @@ function traiter_formulaires_dynamiques($get = false) {
 			return true; // on a fini le hit
 		}
 		$retour = '';
-		if (isset($post["erreurs_$form"]) and ((is_countable($post["erreurs_$form"]) ? count($post["erreurs_$form"]) : 0) == 0)) {
+		if (isset($post["erreurs_$form"]) && (is_countable($post["erreurs_$form"]) ? count($post["erreurs_$form"]) : 0) == 0) {
 			$rev = '';
 			if ($traiter = charger_fonction('traiter', "formulaires/$form/", true)) {
 				$rev = $traiter(...$args);
@@ -317,7 +313,7 @@ function traiter_formulaires_dynamiques($get = false) {
 				}
 				// si une redirection est demandee, appeler redirigae_formulaire qui choisira
 				// le bon mode de redirection (302 et on ne revient pas ici, ou javascript et on continue)
-				if (isset($rev['redirect']) and $rev['redirect']) {
+				if (isset($rev['redirect']) && $rev['redirect']) {
 					include_spip('inc/headers');
 					[$masque, $message] = redirige_formulaire($rev['redirect'], '', 'ajaxform');
 					$post["message_ok_$form"] .= $message;

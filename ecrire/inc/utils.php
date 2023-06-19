@@ -49,7 +49,7 @@ if (!defined('_ECRIRE_INC_VERSION')) {
 function charger_fonction($nom, $dossier = 'exec', $continue = false) {
 	static $echecs = [];
 
-	if (strlen($dossier) and !str_ends_with($dossier, '/')) {
+	if (strlen($dossier) && !str_ends_with($dossier, '/')) {
 		$dossier .= '/';
 	}
 	$f = str_replace('/', '_', $dossier) . $nom;
@@ -78,10 +78,9 @@ function charger_fonction($nom, $dossier = 'exec', $continue = false) {
 	// passer en minuscules (cf les balises de formulaires)
 	// et inclure le fichier
 	if (
-		!$inc = include_spip($dossier . ($d = strtolower($nom)))
-		// si le fichier truc/machin/nom.php n'existe pas,
-		// la fonction peut etre definie dans truc/machin.php qui regroupe plusieurs petites fonctions
-		and strlen(dirname($dossier)) and dirname($dossier) != '.'
+		!($inc = include_spip($dossier . ($d = strtolower($nom))))
+		&& strlen(dirname($dossier))
+		&& dirname($dossier) != '.'
 	) {
 		include_spip(substr($dossier, 0, -1));
 	}
@@ -238,8 +237,8 @@ function minipipe($fonc, &$val) {
 	else {
 		if (
 			preg_match('/^(\w*)::(\w*)$/S', $fonc, $regs)
-			and $methode = [$regs[1], $regs[2]]
-			and is_callable($methode)
+			&& ($methode = [$regs[1], $regs[2]])
+			&& is_callable($methode)
 		) {
 			$val = $methode($val);
 		} else {
@@ -311,8 +310,8 @@ function pipeline($action, $val = null) {
 	// array_key_exists pour php 4.1.0
 	if (
 		is_array($val)
-		and count($val) == 2
-		and (array_key_exists('data', $val))
+		&& count($val) == 2
+		&& array_key_exists('data', $val)
 	) {
 		$val = $val['data'];
 	}
@@ -364,7 +363,7 @@ function spip_log($message = null, $name = null) {
 	static $pre = [];
 	static $log;
 	preg_match('/^([a-z_]*)\.?(\d)?$/iS', (string)$name, $regs);
-	if (!isset($regs[1]) or !$logname = $regs[1]) {
+	if (!isset($regs[1]) || !$logname = $regs[1]) {
 		$logname = null;
 	}
 	if (!isset($regs[2])) {
@@ -441,15 +440,15 @@ function _request($var, $c = false) {
 	// dans le charset local...
 	if (
 		defined('_AJAX')
-		and _AJAX
-		and isset($GLOBALS['meta']['charset'])
-		and $GLOBALS['meta']['charset'] != 'utf-8'
-		and is_string($a)
+		&& _AJAX
+		&& isset($GLOBALS['meta']['charset'])
+		&& $GLOBALS['meta']['charset'] != 'utf-8'
 		// check rapide mais pas fiable
-		and preg_match(',[\x80-\xFF],', $a)
+		&& is_string($a)
+		&& preg_match(',[\x80-\xFF],', $a)
 		// check fiable
-		and include_spip('inc/charsets')
-		and is_utf8($a)
+		&& include_spip('inc/charsets')
+		&& is_utf8($a)
 	) {
 		return importer_charset($a, 'utf-8');
 	}
@@ -522,7 +521,7 @@ function spip_sanitize_from_request($value, $key, $sanitize_function = 'entites_
 		return $value;
 	}
 	// si la valeur vient des GET ou POST on la sanitize
-	if (!empty($value) and $value == _request($key)) {
+	if (!empty($value) && $value == _request($key)) {
 		$value = $sanitize_function($value);
 	}
 	return $value;
@@ -542,8 +541,8 @@ function tester_url_absolue($url) {
 	if ($url && preg_match(';^([a-z]{3,7}:)?//;Uims', $url, $m)) {
 		if (
 			isset($m[1])
-			and $p = strtolower(rtrim($m[1], ':'))
-			and in_array($p, ['file', 'php', 'zlib', 'glob', 'phar', 'ssh2', 'rar', 'ogg', 'expect', 'zip'])
+			&& ($p = strtolower(rtrim($m[1], ':')))
+			&& in_array($p, ['file', 'php', 'zlib', 'glob', 'phar', 'ssh2', 'rar', 'ogg', 'expect', 'zip'])
 		) {
 			return false;
 		}
@@ -572,7 +571,7 @@ function tester_url_absolue($url) {
  */
 function parametre_url($url, $c, $v = null, $sep = '&amp;') {
 	// requete erronnee : plusieurs variable dans $c et aucun $v
-	if (str_contains($c, '|') and is_null($v)) {
+	if (str_contains($c, '|') && is_null($v)) {
 		return null;
 	}
 
@@ -639,8 +638,8 @@ function parametre_url($url, $c, $v = null, $sep = '&amp;') {
 	// traiter les parametres pas encore trouves
 	if (
 		$v === null
-		and $args = func_get_args()
-		and count($args) == 2
+		&& ($args = func_get_args())
+		&& count($args) == 2
 	) {
 		return $v_read; // rien trouve ou un tableau
 	} elseif ($testv) {
@@ -751,11 +750,12 @@ function self($amp = '&amp;', $root = false) {
 	$url = nettoyer_uri();
 	if (
 		!$root
-		and (
+		&& (
 			// si pas de profondeur on peut tronquer
 			$GLOBALS['profondeur_url'] < (_DIR_RESTREINT ? 1 : 2)
 			// sinon c'est OK si _SET_HTML_BASE a ete force a false
-			or (defined('_SET_HTML_BASE') and !_SET_HTML_BASE))
+			|| defined('_SET_HTML_BASE') && !_SET_HTML_BASE
+		)
 	) {
 		$url = preg_replace(',^[^?]*/,', '', $url);
 	}
@@ -810,7 +810,7 @@ function test_espace_prive() {
  * @return bool
  */
 function test_plugin_actif($plugin) {
-	return ($plugin and defined('_DIR_PLUGIN_' . strtoupper($plugin))) ? true : false;
+	return ($plugin && defined('_DIR_PLUGIN_' . strtoupper($plugin))) ? true : false;
 }
 
 /**
@@ -876,7 +876,7 @@ function _T($texte, $args = [], $options = []) {
 		$text = $texte;
 
 		// pour les chaines non traduites, assurer un service minimum
-		if (!$GLOBALS['test_i18n'] and (_request('var_mode') != 'traduction')) {
+		if (!$GLOBALS['test_i18n'] && _request('var_mode') != 'traduction') {
 			$n = strpos($text, ':');
 			if ($n !== false) {
 				$text = substr($text, $n + 1);
@@ -919,7 +919,7 @@ function _L($text, $args = [], $options = []) {
 		'sanitize' => true,
 	];
 	// support de l'ancien argument $class
-	if ($options and is_string($options)) {
+	if ($options && is_string($options)) {
 		$options = ['class' => $options];
 	}
 	if (is_array($options)) {
@@ -928,7 +928,7 @@ function _L($text, $args = [], $options = []) {
 		$options = $defaut_options;
 	}
 
-	if (is_array($args) and count($args)) {
+	if (is_array($args) && count($args)) {
 		if (!function_exists('interdire_scripts')) {
 			include_spip('inc/texte');
 		}
@@ -955,7 +955,7 @@ function _L($text, $args = [], $options = []) {
 		}
 	}
 
-	if (($GLOBALS['test_i18n'] or (_request('var_mode') == 'traduction')) and is_null($options['class'])) {
+	if (($GLOBALS['test_i18n'] || _request('var_mode') == 'traduction') && is_null($options['class'])) {
 		return "<span class='debug-traduction-erreur'>$text</span>";
 	} else {
 		return $text;
@@ -974,7 +974,7 @@ function _L($text, $args = [], $options = []) {
  */
 function joli_repertoire($rep) {
 	$a = substr($rep, 0, 1);
-	if ($a <> '.' and $a <> '/') {
+	if ($a <> '.' && $a <> '/') {
 		$rep = (_DIR_RESTREINT ? '' : _DIR_RESTREINT_ABS) . $rep;
 	}
 	$rep = preg_replace(',(^\.\.\/),', '', $rep);
@@ -1039,7 +1039,7 @@ function spip_timer($t = 'rien', $raw = false) {
 function spip_touch($fichier, $duree = 0, $touch = true) {
 	if ($duree) {
 		clearstatcache();
-		if ((@$f = filemtime($fichier)) and ($f >= time() - $duree)) {
+		if (($f = @filemtime($fichier)) && $f >= time() - $duree) {
 			return false;
 		}
 	}
@@ -1093,7 +1093,7 @@ function cron($taches = [], $taches_old = []) {
 	// sinon on ne verifie pas la connexion tout de suite, car si ca se trouve
 	// queue_sleep_time_to_next_job() dira qu'il n'y a rien a faire
 	// et on evite d'ouvrir une connexion pour rien (utilisation de _DIRECT_CRON_FORCE dans mes_options.php)
-	if ($taches and count($taches) and !spip_connect()) {
+	if ($taches && count($taches) && !spip_connect()) {
 		return false;
 	}
 	spip_log('cron !', 'jq' . _LOG_DEBUG);
@@ -1203,7 +1203,7 @@ function queue_sleep_time_to_next_job($force = null) {
 			define('_JQ_NEXT_JOB_TIME_FILENAME', _DIR_TMP . 'job_queue_next.txt');
 		}
 		// utiliser un cache memoire si dispo
-		if (function_exists('cache_get') and defined('_MEMOIZE_MEMORY') and _MEMOIZE_MEMORY) {
+		if (function_exists('cache_get') && defined('_MEMOIZE_MEMORY') && _MEMOIZE_MEMORY) {
 			$queue_next_job_time = cache_get(_JQ_NEXT_JOB_TIME_FILENAME);
 		} else {
 			$queue_next_job_time = null;
@@ -1277,7 +1277,7 @@ function http_script($script, $src = '', $noscript = '') {
 		$noscript = "<noscript>\n\t$noscript\n</noscript>\n";
 	}
 
-	return ($src or $script or $noscript)
+	return ($src || $script || $noscript)
 		? "<script type='text/javascript'$src>$script</script>$noscript"
 		: '';
 }
@@ -1365,7 +1365,7 @@ function _chemin($dir_path = null) {
 			$path = _DIR_RACINE . 'squelettes/:' . $path;
 		}
 		foreach (explode(':', $path) as $dir) {
-			if (strlen($dir) and !str_ends_with($dir, '/')) {
+			if (strlen($dir) && !str_ends_with($dir, '/')) {
 				$dir .= '/';
 			}
 			$path_base[] = $dir;
@@ -1383,7 +1383,7 @@ function _chemin($dir_path = null) {
 		return $path_full;
 	}
 
-	if (is_array($dir_path) or strlen($dir_path)) {
+	if (is_array($dir_path) || strlen($dir_path)) {
 		$tete = '';
 		if (reset($path_base) == _DIR_RACINE . 'squelettes/') {
 			$tete = array_shift($path_base);
@@ -1406,7 +1406,7 @@ function _chemin($dir_path = null) {
 	// Et le(s) dossier(s) des squelettes nommes
 	if (strlen($GLOBALS['dossier_squelettes'])) {
 		foreach (array_reverse(explode(':', $GLOBALS['dossier_squelettes'])) as $d) {
-			array_unshift($path_full, ((isset($d[0]) and $d[0] == '/') ? '' : _DIR_RACINE) . $d . '/');
+			array_unshift($path_full, ((isset($d[0]) && $d[0] == '/') ? '' : _DIR_RACINE) . $d . '/');
 		}
 	}
 
@@ -1457,14 +1457,14 @@ function lister_themes_prives(): array {
 		// Lors d'une installation neuve, prefs n'est pas definie ; sinon, c'est un tableau sérialisé
 		// FIXME: Aussitôt après une demande d'inscription, $prefs vaut une chaine statut_tmp;
 		$prefs = $GLOBALS['visiteur_session']['prefs'] ?? [];
-		if (is_string($prefs) and (stripos($prefs, 'a:') === 0)) {
+		if (is_string($prefs) && stripos($prefs, 'a:') === 0) {
 			$prefs = unserialize($prefs);
 		} else {
 			$prefs = [];
 		}
 
 		$theme = $prefs['theme'] ?? $GLOBALS['theme_prive_defaut'] ?? null;
-		if ($theme and $theme !== _SPIP_THEME_PRIVE) {
+		if ($theme && $theme !== _SPIP_THEME_PRIVE) {
 			// placer le theme choisi en tete
 			array_unshift($themes, $theme);
 		}
@@ -1482,10 +1482,10 @@ function find_in_theme($file, $subdir = '', $include = false) {
 	// si il y a un .svg a la bonne taille (-16.svg) a cote, on l'utilise en remplacement du -16.png
 	if (
 		preg_match(',-(\d+)[.](png|gif|svg)$,', $file, $m)
-		and $file_svg_generique = substr($file, 0, -strlen($m[0])) . '-xx.svg'
-		and $f = find_in_theme("$file_svg_generique")
+		&& ($file_svg_generique = substr($file, 0, -strlen($m[0])) . '-xx.svg')
+		&& ($f = find_in_theme("$file_svg_generique"))
 	) {
-		if ($fsize = substr($f, 0, -6) . $m[1] . '.svg' and file_exists($fsize)) {
+		if (($fsize = substr($f, 0, -6) . $m[1] . '.svg') && file_exists($fsize)) {
 			return $themefiles["$subdir$file"] = $fsize;
 		}
 		else {
@@ -1530,12 +1530,12 @@ function chemin_image($icone) {
 		$icone = substr($icone, 0, $p);
 	}
 	// gerer le cas d'un double appel en evitant de refaire le travail inutilement
-	if (str_contains($icone, '/') and file_exists($icone)) {
+	if (str_contains($icone, '/') && file_exists($icone)) {
 		return $icone;
 	}
 
 	// si c'est un nom d'image complet (article-24.png) essayer de le renvoyer direct
-	if (preg_match(',[.](png|gif|jpg|webp|svg)$,', $icone) and $f = find_in_theme("images/$icone")) {
+	if (preg_match(',[.](png|gif|jpg|webp|svg)$,', $icone) && ($f = find_in_theme("images/$icone"))) {
 		return $f;
 	}
 	// sinon passer par le module de renommage
@@ -1591,7 +1591,7 @@ function find_in_path($file, $dirname = '', $include = false) {
 	static $inc = []; # cf https://git.spip.net/spip/spip/commit/42e4e028e38c839121efaee84308d08aee307eec
 	static $c = '';
 
-	if (!$file and !strlen($file)) {
+	if (!$file && !strlen($file)) {
 		return false;
 	}
 
@@ -1606,7 +1606,7 @@ function find_in_path($file, $dirname = '', $include = false) {
 		if (!$GLOBALS['path_files'][$GLOBALS['path_sig']][$dirname][$file]) {
 			return false;
 		}
-		if ($include and !isset($inc[$dirname][$file])) {
+		if ($include && !isset($inc[$dirname][$file])) {
 			include_once _ROOT_CWD . $GLOBALS['path_files'][$GLOBALS['path_sig']][$dirname][$file];
 			$inc[$dirname][$file] = $inc[''][$dirname . $file] = true;
 		}
@@ -1626,7 +1626,7 @@ function find_in_path($file, $dirname = '', $include = false) {
 		}
 		if ($dirs[$a]) {
 			if (file_exists(_ROOT_CWD . ($a .= $file))) {
-				if ($include and !isset($inc[$dirname][$file])) {
+				if ($include && !isset($inc[$dirname][$file])) {
 					include_once _ROOT_CWD . $a;
 					$inc[$dirname][$file] = $inc[''][$dirname . $file] = true;
 				}
@@ -1705,7 +1705,7 @@ function load_path_cache() {
 function save_path_cache() {
 	if (
 		defined('_SAUVER_CHEMIN')
-		and _SAUVER_CHEMIN
+		&& _SAUVER_CHEMIN
 	) {
 		ecrire_fichier(_CACHE_CHEMIN, serialize($GLOBALS['path_files']));
 	}
@@ -1771,7 +1771,7 @@ function autoriser_sans_cookie($nom, $strict = false) {
 	if (in_array($nom, $autsanscookie)) {
 		if (test_espace_prive()) {
 			include_spip('base/connect_sql');
-			if (!$strict or !spip_connect()) {
+			if (!$strict || !spip_connect()) {
 				return true;
 			}
 		}
@@ -1791,9 +1791,8 @@ function charger_fonction_url(string $quoi, string $type = '') {
 	if ($type === 'defaut') {
 		$objet = objet_type($quoi);
 		if (
-			$f = charger_fonction('generer_' . $objet . '_url', 'urls', true)
-			// deprecated
-			or $f = charger_fonction('generer_url_' . $objet, 'urls', true)
+			($f = charger_fonction('generer_' . $objet . '_url', 'urls', true))
+			|| ($f = charger_fonction('generer_url_' . $objet, 'urls', true)) // deprecated
 		) {
 			return $f;
 		}
@@ -1811,11 +1810,11 @@ function charger_fonction_url(string $quoi, string $type = '') {
 	switch ($quoi) {
 		case 'page':
 			if (
-				 function_exists($f = "urls_{$url_type}_generer_url_page")
-				or function_exists($f .= '_dist')
+				function_exists($f = "urls_{$url_type}_generer_url_page")
+				|| function_exists($f .= '_dist')
 				// ou une fonction custom utilisateur independante du type d'url
-				or function_exists($f = 'generer_url_page')
-				or function_exists($f .= '_dist')
+				|| function_exists($f = 'generer_url_page')
+				|| function_exists($f .= '_dist')
 			) {
 				return $f;
 			}
@@ -1827,7 +1826,7 @@ function charger_fonction_url(string $quoi, string $type = '') {
 			$fquoi = ($quoi === 'objet' ? 'generer_url_objet' : 'decoder_url');
 			if (
 				function_exists($f = "urls_{$url_type}_{$fquoi}")
-				or function_exists($f .= '_dist')
+				|| function_exists($f .= '_dist')
 			) {
 				return $f;
 			}
@@ -1837,7 +1836,7 @@ function charger_fonction_url(string $quoi, string $type = '') {
 				return $f;
 			}
 			// sinon on se rabat sur les urls page si ce n'est pas un type demande explicitement
-			if (!$type and $url_type !== 'page') {
+			if (!$type && $url_type !== 'page') {
 				return charger_fonction_url($quoi, 'page');
 			}
 			return '';
@@ -1894,7 +1893,7 @@ function generer_objet_url($id, string $entite, string $args = '', string $ancre
 		// base distante
 		if (
 			$connect
-			and $g = charger_fonction('connect', 'urls', true)
+			&& ($g = charger_fonction('connect', 'urls', true))
 		) {
 			$f = $g;
 		}
@@ -1917,7 +1916,7 @@ function generer_objet_url($id, string $entite, string $args = '', string $ancre
  */
 function generer_url_entite($id = 0, $entite = '', $args = '', $ancre = '', $public = null, $type = null) {
 	trigger_deprecation('spip', '4.1', 'Using "%s" is deprecated, use "%s" instead', __FUNCTION__, 'generer_objet_url');
-	if ($public and is_string($public)) {
+	if ($public && is_string($public)) {
 		return generer_objet_url(intval($id), $entite, $args ?: '', $ancre ?: '', true, $type ?? '', $public);
 	}
 	return generer_objet_url(intval($id), $entite, $args ?: '', $ancre ?: '', $public, $type ?? '');
@@ -2086,12 +2085,12 @@ function url_de_base($profondeur = null) {
 
 	if (
 		isset($_SERVER['SCRIPT_URI'])
-		and str_starts_with($_SERVER['SCRIPT_URI'], 'https')
+		&& str_starts_with($_SERVER['SCRIPT_URI'], 'https')
 	) {
 		$http = 'https';
 	} elseif (
 		isset($_SERVER['HTTPS'])
-		and test_valeur_serveur($_SERVER['HTTPS'])
+		&& test_valeur_serveur($_SERVER['HTTPS'])
 	) {
 		$http = 'https';
 	}
@@ -2103,7 +2102,7 @@ function url_de_base($profondeur = null) {
 	}
 
 	// si on n'a pas trouvé d'hôte du tout, en dernier recours on utilise adresse_site comme fallback
-	if (is_null($host) and isset($GLOBALS['meta']['adresse_site'])) {
+	if (is_null($host) && isset($GLOBALS['meta']['adresse_site'])) {
 		$host = $GLOBALS['meta']['adresse_site'];
 		if ($scheme = parse_url($host, PHP_URL_SCHEME)) {
 			$http = $scheme;
@@ -2112,8 +2111,8 @@ function url_de_base($profondeur = null) {
 	}
 	if (
 		isset($_SERVER['SERVER_PORT'])
-		and $port = $_SERVER['SERVER_PORT']
-		and !str_contains($host, ':')
+		&& ($port = $_SERVER['SERVER_PORT'])
+		&& !str_contains($host, ':')
 	) {
 		if (!defined('_PORT_HTTP_STANDARD')) {
 			define('_PORT_HTTP_STANDARD', '80');
@@ -2121,10 +2120,10 @@ function url_de_base($profondeur = null) {
 		if (!defined('_PORT_HTTPS_STANDARD')) {
 			define('_PORT_HTTPS_STANDARD', '443');
 		}
-		if ($http == 'http' and !in_array($port, explode(',', _PORT_HTTP_STANDARD))) {
+		if ($http == 'http' && !in_array($port, explode(',', _PORT_HTTP_STANDARD))) {
 			$host .= ":$port";
 		}
-		if ($http == 'https' and !in_array($port, explode(',', _PORT_HTTPS_STANDARD))) {
+		if ($http == 'https' && !in_array($port, explode(',', _PORT_HTTPS_STANDARD))) {
 			$host .= ":$port";
 		}
 	}
@@ -2136,7 +2135,7 @@ function url_de_base($profondeur = null) {
 			$GLOBALS['REQUEST_URI'] = (php_sapi_name() !== 'cli') ? $_SERVER['PHP_SELF'] : '';
 			if (
 				!empty($_SERVER['QUERY_STRING'])
-				and !strpos($_SERVER['REQUEST_URI'], '?')
+				&& !str_contains($_SERVER['REQUEST_URI'], '?')
 			) {
 				$GLOBALS['REQUEST_URI'] .= '?' . $_SERVER['QUERY_STRING'];
 			}
@@ -2225,7 +2224,7 @@ function generer_url_ecrire(?string $script = '', $args = '', $no_entities = fal
 	}
 
 	[$script, $ancre] = array_pad(explode('#', $script), 2, null);
-	if ($script and ($script <> 'accueil' or $rel)) {
+	if ($script && ($script <> 'accueil' || $rel)) {
 		$args = "?exec=$script" . (!$args ? '' : "&$args");
 	} elseif ($args) {
 		$args = "?$args";
@@ -2303,7 +2302,7 @@ function generer_url_public($script = '', $args = '', $no_entities = false, $rel
 	$url = '';
 	if ($f = charger_fonction_url('page')) {
 		$url = $f($script, $args);
-		if ($url and !$rel) {
+		if ($url && !$rel) {
 			include_spip('inc/filtres_mini');
 			$url = url_absolue($url);
 		}
@@ -2388,7 +2387,7 @@ function generer_form_action($script, $corps, $atts = '', $public = false) {
 	// si l'on est dans l'espace prive, on garde dans l'url
 	// l'exec a l'origine de l'action, qui permet de savoir si il est necessaire
 	// ou non de proceder a l'authentification (cas typique de l'install par exemple)
-	$h = (_DIR_RACINE and !$public)
+	$h = (_DIR_RACINE && !$public)
 		? generer_url_ecrire(_request('exec'))
 		: generer_url_public();
 
@@ -2422,7 +2421,7 @@ function generer_url_action($script, $args = '', $no_entities = false, $public =
 	// si l'on est dans l'espace prive, on garde dans l'url
 	// l'exec a l'origine de l'action, qui permet de savoir si il est necessaire
 	// ou non de proceder a l'authentification (cas typique de l'install par exemple)
-	$url = (_DIR_RACINE and !$public)
+	$url = (_DIR_RACINE && !$public)
 		? generer_url_ecrire(_request('exec'))
 		: generer_url_public('', '', false, false);
 	$url = parametre_url($url, 'action', $script);
@@ -2658,7 +2657,7 @@ function spip_initialisation_core($pi = null, $pa = null, $ti = null, $ta = null
 	}
 
 	// Definition des droits d'acces en ecriture
-	if (!defined('_SPIP_CHMOD') and _FILE_CHMOD) {
+	if (!defined('_SPIP_CHMOD') && _FILE_CHMOD) {
 		include_once _FILE_CHMOD;
 	}
 
@@ -2688,7 +2687,7 @@ function spip_initialisation_core($pi = null, $pa = null, $ti = null, $ta = null
 
 	// Sommes-nous dans l'empire du Mal ?
 	// (ou sous le signe du Pingouin, ascendant GNU ?)
-	if (isset($_SERVER['SERVER_SOFTWARE']) and str_contains($_SERVER['SERVER_SOFTWARE'], '(Win')) {
+	if (isset($_SERVER['SERVER_SOFTWARE']) && str_contains($_SERVER['SERVER_SOFTWARE'], '(Win')) {
 		if (!defined('_OS_SERVEUR')) {
 			define('_OS_SERVEUR', 'windows');
 		}
@@ -2749,7 +2748,7 @@ function spip_initialisation_core($pi = null, $pa = null, $ti = null, $ta = null
 		$GLOBALS['REQUEST_URI'] = (php_sapi_name() !== 'cli') ? $_SERVER['PHP_SELF'] : '';
 		if (
 			!empty($_SERVER['QUERY_STRING'])
-			and !strpos($_SERVER['REQUEST_URI'], '?')
+			&& !strpos($_SERVER['REQUEST_URI'], '?')
 		) {
 			$GLOBALS['REQUEST_URI'] .= '?' . $_SERVER['QUERY_STRING'];
 		}
@@ -2780,10 +2779,10 @@ function spip_initialisation_core($pi = null, $pa = null, $ti = null, $ta = null
 		if (
 			!$uri_ref
 			// si on est appele avec un autre ti, on est sans doute en mutu
-			// si jamais c'est de la mutu avec sous rep, on est perdu si on se fie
-			// a spip.php qui est a la racine du spip, et vue qu'on sait pas se reperer
-			// s'en remettre a l'adresse du site. alea jacta est.
-			or $ti !== _NOM_TEMPORAIRES_INACCESSIBLES
+            // si jamais c'est de la mutu avec sous rep, on est perdu si on se fie
+            // a spip.php qui est a la racine du spip, et vue qu'on sait pas se reperer
+            // s'en remettre a l'adresse du site. alea jacta est.
+			|| $ti !== _NOM_TEMPORAIRES_INACCESSIBLES
 		) {
 			if (isset($GLOBALS['meta']['adresse_site'])) {
 				$uri_ref = parse_url($GLOBALS['meta']['adresse_site']);
@@ -2792,7 +2791,7 @@ function spip_initialisation_core($pi = null, $pa = null, $ti = null, $ta = null
 				$uri_ref = '';
 			}
 		}
-		if (!$uri or !$uri_ref) {
+		if (!$uri || !$uri_ref) {
 			$GLOBALS['profondeur_url'] = 0;
 		} else {
 			$GLOBALS['profondeur_url'] = max(
@@ -2806,8 +2805,7 @@ function spip_initialisation_core($pi = null, $pa = null, $ti = null, $ta = null
 	if (_FILE_CONNECT) {
 		if (
 			verifier_visiteur() == '0minirezo'
-			// si c'est un admin sans cookie admin, il faut ignorer le cache chemin !
-			and !isset($_COOKIE['spip_admin'])
+			&& !isset($_COOKIE['spip_admin'])
 		) {
 			clear_path_cache();
 		}
@@ -2926,7 +2924,7 @@ function spip_initialisation_suite() {
 	// les anciens IIS n'acceptent pas les POST sur ecrire/ (#419)
 	// meme pb sur thttpd cf. https://forum.spip.net/fr_184153.html
 	if (!defined('_SPIP_ECRIRE_SCRIPT')) {
-		if (!empty($_SERVER['SERVER_SOFTWARE']) and preg_match(',IIS|thttpd,', $_SERVER['SERVER_SOFTWARE'])) {
+		if (!empty($_SERVER['SERVER_SOFTWARE']) && preg_match(',IIS|thttpd,', $_SERVER['SERVER_SOFTWARE'])) {
 			define('_SPIP_ECRIRE_SCRIPT', 'index.php');
 		} else {
 			define('_SPIP_ECRIRE_SCRIPT', '');
@@ -2944,12 +2942,13 @@ function spip_initialisation_suite() {
 	if (!defined('_AJAX')) {
 		define(
 			'_AJAX',
-			(isset($_SERVER['HTTP_X_REQUESTED_WITH']) # ajax jQuery
-				or !empty($_REQUEST['var_ajax_redir']) # redirection 302 apres ajax jQuery
-				or !empty($_REQUEST['var_ajaxcharset']) # compat ascendante pour plugins
-				or !empty($_REQUEST['var_ajax']) # forms ajax & inclure ajax de spip
+			(
+				isset($_SERVER['HTTP_X_REQUESTED_WITH']) # ajax jQuery
+				|| !empty($_REQUEST['var_ajax_redir']) # redirection 302 apres ajax jQuer
+				|| !empty($_REQUEST['var_ajaxcharset']) # compat ascendante pour plugins
+				|| !empty($_REQUEST['var_ajax']) # forms ajax & inclure ajax de spip
 			)
-			and empty($_REQUEST['var_noajax']) # horrible exception, car c'est pas parce que la requete est ajax jquery qu'il faut tuer tous les formulaires ajax qu'elle contient
+			&& empty($_REQUEST['var_noajax']) # horrible exception, car c'est pas parce que la requete est ajax jquery qu'il faut tuer tous les formulaires ajax qu'elle contient
 		);
 	}
 
@@ -2959,7 +2958,7 @@ function spip_initialisation_suite() {
 	if (!defined('_IMG_GD_MAX_PIXELS')) {
 		define(
 			'_IMG_GD_MAX_PIXELS',
-			(isset($GLOBALS['meta']['max_taille_vignettes']) and $GLOBALS['meta']['max_taille_vignettes'])
+			(isset($GLOBALS['meta']['max_taille_vignettes']) && $GLOBALS['meta']['max_taille_vignettes'])
 			? $GLOBALS['meta']['max_taille_vignettes']
 			: 0
 		);
@@ -3098,7 +3097,7 @@ function init_var_mode() {
 						}
 						$var_mode = array_diff($var_mode, ['debug']);
 					}
-					if (count($var_mode) and !defined('_VAR_MODE')) {
+					if (count($var_mode) && !defined('_VAR_MODE')) {
 						define('_VAR_MODE', reset($var_mode));
 					}
 					if (isset($GLOBALS['visiteur_session']['nom'])) {
@@ -3110,9 +3109,9 @@ function init_var_mode() {
 					// si on n'est pas connecte on se redirige, si on est pas en cli et pas deja en train de se loger
 					if (
 						!$GLOBALS['visiteur_session']
-						and !empty($_SERVER['HTTP_HOST'])
-						and !empty($_SERVER['REQUEST_METHOD'])
-						and $_SERVER['REQUEST_METHOD'] === 'GET'
+						&& !empty($_SERVER['HTTP_HOST'])
+						&& !empty($_SERVER['REQUEST_METHOD'])
+						&& $_SERVER['REQUEST_METHOD'] === 'GET'
 					) {
 						$self = self('&', true);
 						if (!str_contains($self, 'page=login')) {
@@ -3150,7 +3149,7 @@ function spip_desinfecte(&$t, $deep = true) {
 			$t[$key] = str_replace(chr(0), '-', $t[$key]);
 		} // traiter aussi les "texte_plus" de article_edit
 		else {
-			if ($deep and is_array($t[$key]) and $key !== 'GLOBALS') {
+			if ($deep && is_array($t[$key]) && $key !== 'GLOBALS') {
 				spip_desinfecte($t[$key], $deep);
 			}
 		}
@@ -3203,13 +3202,13 @@ function verifier_visiteur() {
 		return 0;
 	}
 
-	$h = (isset($_SERVER['PHP_AUTH_USER']) and !$GLOBALS['ignore_auth_http']);
-	if ($h or isset($_COOKIE['spip_session']) or isset($_COOKIE[$GLOBALS['cookie_prefix'] . '_session'])) {
+	$h = (isset($_SERVER['PHP_AUTH_USER']) && !$GLOBALS['ignore_auth_http']);
+	if ($h || isset($_COOKIE['spip_session']) || isset($_COOKIE[$GLOBALS['cookie_prefix'] . '_session'])) {
 		$session = charger_fonction('session', 'inc');
 		if ($session()) {
 			return $GLOBALS['visiteur_session']['statut'];
 		}
-		if ($h and isset($_SERVER['PHP_AUTH_PW'])) {
+		if ($h && isset($_SERVER['PHP_AUTH_PW'])) {
 			include_spip('inc/auth');
 			$h = lire_php_auth($_SERVER['PHP_AUTH_USER'], $_SERVER['PHP_AUTH_PW']);
 		}
@@ -3256,7 +3255,7 @@ function lang_select($lang = null) {
 	} else {
 		array_push($pile_langues, $GLOBALS['spip_lang']);
 	}
-	if (isset($GLOBALS['spip_lang']) and $lang == $GLOBALS['spip_lang']) {
+	if (isset($GLOBALS['spip_lang']) && $lang == $GLOBALS['spip_lang']) {
 		return $lang;
 	}
 	changer_langue($lang);
@@ -3279,7 +3278,7 @@ function lang_select($lang = null) {
  **/
 function spip_session($force = false) {
 	static $session;
-	if ($force or !isset($session)) {
+	if ($force || !isset($session)) {
 		$s = pipeline(
 			'definir_session',
 			$GLOBALS['visiteur_session']
@@ -3433,7 +3432,7 @@ function recuperer_fond($fond, $contexte = [], $options = [], string $connect = 
 	$texte = '';
 	$pages = [];
 	$lang_select = '';
-	if (!isset($options['etoile']) or !$options['etoile']) {
+	if (!isset($options['etoile']) || !$options['etoile']) {
 		// Si on a inclus sans fixer le critere de lang, on prend la langue courante
 		if (!isset($contexte['lang'])) {
 			$contexte['lang'] = $GLOBALS['spip_lang'];
@@ -3471,7 +3470,7 @@ function recuperer_fond($fond, $contexte = [], $options = [], string $connect = 
 			'args' => ['fond' => $f, 'contexte' => $contexte, 'options' => $options, 'connect' => $connect],
 			'data' => $page
 		]);
-		if (isset($options['ajax']) and $options['ajax']) {
+		if (isset($options['ajax']) && $options['ajax']) {
 			if (!function_exists('encoder_contexte_ajax')) {
 				include_spip('inc/filtres');
 			}
@@ -3487,7 +3486,7 @@ function recuperer_fond($fond, $contexte = [], $options = [], string $connect = 
 			);
 		}
 
-		if (isset($options['raw']) and $options['raw']) {
+		if (isset($options['raw']) && $options['raw']) {
 			$pages[] = $page;
 		} else {
 			$texte .= $options['trim'] ? rtrim($page['texte'] ?? '') : $page['texte'];
@@ -3510,7 +3509,7 @@ function recuperer_fond($fond, $contexte = [], $options = [], string $connect = 
 	if ($lang_select) {
 		lang_select();
 	}
-	if (isset($options['raw']) and $options['raw']) {
+	if (isset($options['raw']) && $options['raw']) {
 		return is_array($fond) ? $pages : reset($pages);
 	} else {
 		return $options['trim'] ? ltrim($texte) : $texte;
@@ -3546,10 +3545,10 @@ function trouver_fond($nom, $dir = '', $pathinfo = false) {
 	}
 	// renvoyer un tableau detaille si $pathinfo==true
 	$p = pathinfo($f);
-	if (!isset($p['extension']) or !$p['extension']) {
+	if (!isset($p['extension']) || !$p['extension']) {
 		$p['extension'] = _EXTENSION_SQUELETTES;
 	}
-	if (!isset($p['extension']) or !$p['filename']) {
+	if (!isset($p['extension']) || !$p['filename']) {
 		$p['filename'] = ($p['basename'] ? substr($p['basename'], 0, -strlen($p['extension']) - 1) : '');
 	}
 	$p['fond'] = ($f ? substr($f, 0, -strlen($p['extension']) - 1) : '');
@@ -3582,13 +3581,13 @@ function tester_url_ecrire($nom) {
 	if (trouver_fond($nom, 'prive/squelettes/contenu/')) {
 		return $exec[$nom] = 'fond';
 	} // echafaudage d'un fond !
-	elseif (include_spip('public/styliser_par_z') and z_echafaudable($nom)) {
+	elseif (include_spip('public/styliser_par_z') && z_echafaudable($nom)) {
 		return $exec[$nom] = 'fond';
 	}
 	// attention, il ne faut pas inclure l'exec ici
 	// car sinon #URL_ECRIRE provoque des inclusions
 	// et des define intrusifs potentiels
-	return $exec[$nom] = ((find_in_path("{$nom}.php", 'exec/') or charger_fonction($nom, 'exec', true)) ? $nom : '');
+	return $exec[$nom] = ((find_in_path("{$nom}.php", 'exec/') || charger_fonction($nom, 'exec', true)) ? $nom : '');
 }
 
 /**
@@ -3598,8 +3597,7 @@ function tester_url_ecrire($nom) {
  *     true si la constante _VERSION_HTML n'est pas définie ou égale à html5
  **/
 function html5_permis() {
-	return (!defined('_VERSION_HTML')
-		or _VERSION_HTML !== 'html4');
+	return (!defined('_VERSION_HTML') || _VERSION_HTML !== 'html4');
 }
 
 /**
@@ -3666,8 +3664,7 @@ function spip_getimagesize($fichier) {
 function avertir_auteurs($nom, $message, $statut = '') {
 	$alertes = $GLOBALS['meta']['message_alertes_auteurs'];
 	if (
-		!$alertes
-		or !is_array($alertes = unserialize($alertes))
+		!$alertes || !is_array($alertes = unserialize($alertes))
 	) {
 		$alertes = [];
 	}
@@ -3734,7 +3731,7 @@ function spip_version_compare($v1, $v2, $op = null) {
 	$etoile = false;
 	foreach ($v1 as $k => $v) {
 		if (!isset($v2[$k])) {
-			$v2[] = ($etoile and (is_numeric($v) or $v == 'pl' or $v == 'p')) ? $v : '0';
+			$v2[] = ($etoile && (is_numeric($v) || $v == 'pl' || $v == 'p')) ? $v : '0';
 		} else {
 			if ($v2[$k] == '*') {
 				$etoile = true;
