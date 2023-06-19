@@ -12,22 +12,19 @@ use PHPUnit\Framework\TestCase;
 
 class MoinsTest extends TestCase
 {
-	public static function setUpBeforeClass(): void
-	{
+	public static function setUpBeforeClass(): void {
 		find_in_path('inc/filtres.php', '', true);
 	}
 
 	/**
 	 * @dataProvider providerFiltresMoins
 	 */
-	public function testFiltresMoins($expected, ...$args): void
-	{
+	public function testFiltresMoins($expected, ...$args): void {
 		$actual = moins(...$args);
 		$this->assertSame($expected, $actual);
 	}
 
-	public static function providerFiltresMoins(): array
-	{
+	public static function providerFiltresMoins(): array {
 		return [
 			0 => [
 				0 => 0,

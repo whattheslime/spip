@@ -12,13 +12,11 @@ use PHPUnit\Framework\TestCase;
 
 class AffdateMoisAnneeTest extends TestCase
 {
-	public static function setUpBeforeClass(): void
-	{
+	public static function setUpBeforeClass(): void {
 		find_in_path('inc/filtres.php', '', true);
 	}
 
-	protected function setUp(): void
-	{
+	protected function setUp(): void {
 		changer_langue('fr');
 		// ce test est en fr
 	}
@@ -26,14 +24,12 @@ class AffdateMoisAnneeTest extends TestCase
 	/**
 	 * @dataProvider providerFiltresAffdateMoisAnnee
 	 */
-	public function testFiltresAffdateMoisAnnee($expected, ...$args): void
-	{
+	public function testFiltresAffdateMoisAnnee($expected, ...$args): void {
 		$actual = affdate_mois_annee(...$args);
 		$this->assertSame($expected, $actual);
 	}
 
-	public static function providerFiltresAffdateMoisAnnee(): array
-	{
+	public static function providerFiltresAffdateMoisAnnee(): array {
 		return [
 			0 => [
 				0 => '2001',

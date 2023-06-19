@@ -12,13 +12,11 @@ use PHPUnit\Framework\TestCase;
 
 class FiltreTextCsvDistTest extends TestCase
 {
-	public static function setUpBeforeClass(): void
-	{
+	public static function setUpBeforeClass(): void {
 		find_in_path('inc/filtres_mime.php', '', true);
 	}
 
-	protected function setUp(): void
-	{
+	protected function setUp(): void {
 		changer_langue('fr');
 		// ce test est en fr
 	}
@@ -26,14 +24,12 @@ class FiltreTextCsvDistTest extends TestCase
 	/**
 	 * @dataProvider providerFiltresMimeFiltreTextCsvDist
 	 */
-	public function testFiltresMimeFiltreTextCsvDist($expected, ...$args): void
-	{
+	public function testFiltresMimeFiltreTextCsvDist($expected, ...$args): void {
 		$actual = filtre_text_csv_dist(...$args);
 		$this->assertSame($expected, $actual);
 	}
 
-	public static function providerFiltresMimeFiltreTextCsvDist(): array
-	{
+	public static function providerFiltresMimeFiltreTextCsvDist(): array {
 		return [
 			0 => [
 				0 => '<table class="table spip">

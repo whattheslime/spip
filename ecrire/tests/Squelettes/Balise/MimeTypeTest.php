@@ -12,8 +12,7 @@ use Spip\Test\Templating;
  */
 class MimeTypeTest extends SquelettesTestCase
 {
-	public function testMimeTypeDocumentJpg()
-	{
+	public function testMimeTypeDocumentJpg() {
 		$templating = Templating::fromString();
 		$result = $templating->render(
 			"<BOUCLE_d(DOCUMENTS){extension IN jpg}{0,1}>

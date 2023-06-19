@@ -12,13 +12,11 @@ use PHPUnit\Framework\TestCase;
 
 class TailleEnOctetsTest extends TestCase
 {
-	public static function setUpBeforeClass(): void
-	{
+	public static function setUpBeforeClass(): void {
 		find_in_path('inc/filtres.php', '', true);
 	}
 
-	protected function setUp(): void
-	{
+	protected function setUp(): void {
 		changer_langue('fr');
 		// ce test est en fr
 	}
@@ -26,8 +24,7 @@ class TailleEnOctetsTest extends TestCase
 	/**
 	 * @dataProvider providerFiltresTailleEnOctetsBI
 	 */
-	public function testFiltresTailleEnOctetsBI($source, $expected): void
-	{
+	public function testFiltresTailleEnOctetsBI($source, $expected): void {
 		$actual = taille_en_octets($source);
 		$this->assertSame($expected, $actual);
 
@@ -38,14 +35,12 @@ class TailleEnOctetsTest extends TestCase
 	/**
 	 * @dataProvider providerFiltresTailleEnOctetsSI
 	 */
-	public function testFiltresTailleEnOctetsSI($source, $expected): void
-	{
+	public function testFiltresTailleEnOctetsSI($source, $expected): void {
 		$actual = taille_en_octets($source, 'SI');
 		$this->assertSame($expected, $actual);
 	}
 
-	public static function providerFiltresTailleEnOctetsBI(): array
-	{
+	public static function providerFiltresTailleEnOctetsBI(): array {
 		$list = [
 			0 => '',
 			-1 => '',
@@ -66,8 +61,7 @@ class TailleEnOctetsTest extends TestCase
 		return array_map(null, array_keys($list), array_values($list));
 	}
 
-	public static function providerFiltresTailleEnOctetsSI(): array
-	{
+	public static function providerFiltresTailleEnOctetsSI(): array {
 		$list = [
 			0 => '',
 			-1 => '',

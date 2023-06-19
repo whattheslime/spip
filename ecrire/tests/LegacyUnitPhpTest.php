@@ -18,7 +18,6 @@ use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\Attributes\Group;
 use PHPUnit\Framework\TestCase;
 
-
 /**
  * LegacyUnitPhpTest test - runs all the unit/ php tests and check the ouput is 'OK'
  */
@@ -27,8 +26,7 @@ use PHPUnit\Framework\TestCase;
 class LegacyUnitPhpTest extends TestCase
 {
 	#[DataProvider('providerLegacyPhpfileName')]
-	public function testLegacyUnitPHP($inFname, $output)
-	{
+	public function testLegacyUnitPHP($inFname, $output) {
 		$result = $this->legacyPhpRun($inFname);
 		if ($result === $output) {
 			$this->assertEquals($output, $result, $result);
@@ -37,8 +35,7 @@ class LegacyUnitPhpTest extends TestCase
 		}
 	}
 
-	public static function providerLegacyPhpfileName()
-	{
+	public static function providerLegacyPhpfileName() {
 		require_once(__DIR__ . '/legacy/test.inc');
 
 		$liste_fichiers = tests_legacy_lister('php');
@@ -51,8 +48,7 @@ class LegacyUnitPhpTest extends TestCase
 		return $tests;
 	}
 
-	protected function legacyPhpRun($inFname)
-	{
+	protected function legacyPhpRun($inFname) {
 		chdir(_SPIP_TEST_INC);
 		if (!is_file('../' . $inFname) || !$realPath = realpath('../' . $inFname)) {
 			$this->fail(
@@ -73,7 +69,7 @@ class LegacyUnitPhpTest extends TestCase
 		$result = rtrim(implode("\n", $output));
 		if (str_starts_with($result, 'NA')) {
 			$this->markTestSkipped($result);
-		} elseif (preg_match("#^OK \(?\d+\)?$#", $result)) {
+		} elseif (preg_match('#^OK \(?\d+\)?$#', $result)) {
 			$result = 'OK';
 		}
 

@@ -12,22 +12,19 @@ use PHPUnit\Framework\TestCase;
 
 class PostAutobrTest extends TestCase
 {
-	public static function setUpBeforeClass(): void
-	{
+	public static function setUpBeforeClass(): void {
 		find_in_path('./inc/filtres.php', '', true);
 	}
 
 	/**
 	 * @dataProvider providerFiltresPostAutobr
 	 */
-	public function testFiltresPostAutobr($expected, ...$args): void
-	{
+	public function testFiltresPostAutobr($expected, ...$args): void {
 		$actual = post_autobr(...$args);
 		$this->assertSame($expected, $actual);
 	}
 
-	public static function providerFiltresPostAutobr(): array
-	{
+	public static function providerFiltresPostAutobr(): array {
 		return [
 			0 => [
 				0 => 'Texte avec un

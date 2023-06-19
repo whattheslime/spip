@@ -12,13 +12,11 @@ use PHPUnit\Framework\TestCase;
 
 class HeuresMinutesTest extends TestCase
 {
-	public static function setUpBeforeClass(): void
-	{
+	public static function setUpBeforeClass(): void {
 		find_in_path('inc/filtres.php', '', true);
 	}
 
-	protected function setUp(): void
-	{
+	protected function setUp(): void {
 		changer_langue('fr');
 		// ce test est en fr
 	}
@@ -26,14 +24,12 @@ class HeuresMinutesTest extends TestCase
 	/**
 	 * @dataProvider providerFiltresHeuresMinutes
 	 */
-	public function testFiltresHeuresMinutes($expected, ...$args): void
-	{
+	public function testFiltresHeuresMinutes($expected, ...$args): void {
 		$actual = heures_minutes(...$args);
 		$this->assertSame($expected, $actual);
 	}
 
-	public static function providerFiltresHeuresMinutes(): array
-	{
+	public static function providerFiltresHeuresMinutes(): array {
 		return [
 			0 => [
 				0 => '12h33min',

@@ -12,22 +12,19 @@ use PHPUnit\Framework\TestCase;
 
 class ValiderUrlDistanteTest extends TestCase
 {
-	public static function setUpBeforeClass(): void
-	{
+	public static function setUpBeforeClass(): void {
 		find_in_path('./inc/distant.php', '', true);
 	}
 
 	/**
 	 * @dataProvider providerDistantValiderUrlDistante
 	 */
-	public function testDistantValiderUrlDistante($expected, ...$args): void
-	{
+	public function testDistantValiderUrlDistante($expected, ...$args): void {
 		$actual = valider_url_distante(...$args);
 		$this->assertSame($expected, $actual);
 	}
 
-	public static function providerDistantValiderUrlDistante(): array
-	{
+	public static function providerDistantValiderUrlDistante(): array {
 		return [
 			0 => [
 				0 => 'http://www.spip.net',

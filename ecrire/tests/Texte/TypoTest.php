@@ -12,13 +12,11 @@ use PHPUnit\Framework\TestCase;
 
 class TypoTest extends TestCase
 {
-	public static function setUpBeforeClass(): void
-	{
+	public static function setUpBeforeClass(): void {
 		find_in_path('inc/texte.php', '', true);
 	}
 
-	protected function setUp(): void
-	{
+	protected function setUp(): void {
 		$GLOBALS['meta']['type_urls'] = 'page';
 		$GLOBALS['type_urls'] = 'page';
 		// ce test est en fr
@@ -28,14 +26,12 @@ class TypoTest extends TestCase
 	/**
 	 * @dataProvider providerTexteTypo
 	 */
-	public function testTexteTypo($expected, ...$args): void
-	{
+	public function testTexteTypo($expected, ...$args): void {
 		$actual = typo(...$args);
 		$this->assertSame($expected, $actual);
 	}
 
-	public static function providerTexteTypo(): array
-	{
+	public static function providerTexteTypo(): array {
 		return [
 			0 =>
 			[
@@ -104,7 +100,7 @@ class TypoTest extends TestCase
 			],
 			11 =>
 			[
-				0 => "{{{Des raccourcis}}} {italique} {{gras}} <code class=\"spip_code spip_code_inline\" dir=\"ltr\">du code</code>",
+				0 => '{{{Des raccourcis}}} {italique} {{gras}} <code class="spip_code spip_code_inline" dir="ltr">du code</code>',
 				1 => '{{{Des raccourcis}}} {italique} {{gras}} <code>du code</code>',
 				2 => true,
 			],

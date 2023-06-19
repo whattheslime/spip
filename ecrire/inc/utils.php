@@ -1190,7 +1190,7 @@ function job_queue_link($id_job, $objets) {
  *  - `null` si la queue n'est pas encore initialisée
  */
 function queue_sleep_time_to_next_job($force = null) {
- 	static $queue_next_job_time = -1;
+	static $queue_next_job_time = -1;
 	if ($force === true) {
 		$queue_next_job_time = -1;
 	} elseif ($force) {
@@ -2768,9 +2768,9 @@ function spip_initialisation_core($pi = null, $pa = null, $ti = null, $ta = null
 		if (
 			!$uri_ref
 			// si on est appele avec un autre ti, on est sans doute en mutu
-            // si jamais c'est de la mutu avec sous rep, on est perdu si on se fie
-            // a spip.php qui est a la racine du spip, et vue qu'on sait pas se reperer
-            // s'en remettre a l'adresse du site. alea jacta est.
+			// si jamais c'est de la mutu avec sous rep, on est perdu si on se fie
+			// a spip.php qui est a la racine du spip, et vue qu'on sait pas se reperer
+			// s'en remettre a l'adresse du site. alea jacta est.
 			|| $ti !== _NOM_TEMPORAIRES_INACCESSIBLES
 		) {
 			if (isset($GLOBALS['meta']['adresse_site'])) {

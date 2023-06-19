@@ -12,22 +12,19 @@ use PHPUnit\Framework\TestCase;
 
 class SupprimerTagsTest extends TestCase
 {
-	public static function setUpBeforeClass(): void
-	{
+	public static function setUpBeforeClass(): void {
 		find_in_path('inc/filtres.php', '', true);
 	}
 
 	/**
 	 * @dataProvider providerFiltresSupprimerTags
 	 */
-	public function testFiltresSupprimerTags($expected, ...$args): void
-	{
+	public function testFiltresSupprimerTags($expected, ...$args): void {
 		$actual = supprimer_tags(...$args);
 		$this->assertSame($expected, $actual);
 	}
 
-	public static function providerFiltresSupprimerTags(): array
-	{
+	public static function providerFiltresSupprimerTags(): array {
 		return [
 			0 => [
 				0 => '',

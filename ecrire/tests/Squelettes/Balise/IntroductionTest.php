@@ -9,8 +9,7 @@ use Spip\Test\Templating;
 
 class IntroductionTest extends SquelettesTestCase
 {
-	protected function getIdArticleLong(): int
-	{
+	protected function getIdArticleLong(): int {
 		include_spip('base/abstract_sql');
 		$id_article = sql_getfetsel(
 			'id_article',
@@ -23,11 +22,10 @@ class IntroductionTest extends SquelettesTestCase
 		return intval($id_article);
 	}
 
-	public function testArticleLongExiste(): void
-	{
+	public function testArticleLongExiste(): void {
 		$templating = Templating::fromString();
 		$id_article = $this->getIdArticleLong();
-		$code = "<BOUCLE_a(ARTICLES){id_article}{tout}>OK</BOUCLE_a>NA<//B_a>";
+		$code = '<BOUCLE_a(ARTICLES){id_article}{tout}>OK</BOUCLE_a>NA<//B_a>';
 		$result = $templating->render($code, ['id_article' => $id_article]);
 		if ($this->isNA($result)) {
 			$this->markTestSkipped($result);
@@ -39,11 +37,10 @@ class IntroductionTest extends SquelettesTestCase
 	/**
 	 * @depends testArticleLongExiste
 	 */
-	public function testCoupeIntroduction(): void
-	{
+	public function testCoupeIntroduction(): void {
 		$templating = Templating::fromString();
 		$id_article = $this->getIdArticleLong();
-		$code = "<BOUCLE_a(ARTICLES){id_article}{tout}{0,1}>#INTRODUCTION</BOUCLE_a>";
+		$code = '<BOUCLE_a(ARTICLES){id_article}{tout}{0,1}>#INTRODUCTION</BOUCLE_a>';
 		$result = $templating->render($code, ['id_article' => $id_article]);
 		$suite = '&nbsp;(...)';
 		$this->assertMatchesRegularExpression('#' . preg_quote($suite . '</p>', '#') . '$#', $result);
@@ -52,16 +49,15 @@ class IntroductionTest extends SquelettesTestCase
 	/**
 	 * @depends testArticleLongExiste
 	 */
-	public function testCoupeIntroductionSuite(): void
-	{
+	public function testCoupeIntroductionSuite(): void {
 		$templating = Templating::fromString();
 		$id_article = $this->getIdArticleLong();
-		$code = "<BOUCLE_a(ARTICLES){id_article}{tout}{0,1}>#INTRODUCTION{…}</BOUCLE_a>";
+		$code = '<BOUCLE_a(ARTICLES){id_article}{tout}{0,1}>#INTRODUCTION{…}</BOUCLE_a>';
 		$result = $templating->render($code, ['id_article' => $id_article]);
 		$suite = '…';
 		$this->assertMatchesRegularExpression('#' . preg_quote($suite . '</p>', '#') . '$#', $result);
 
-		$code = "<BOUCLE_a(ARTICLES){id_article}{tout}{0,1}>#INTRODUCTION{#ENV{suite}}</BOUCLE_a>";
+		$code = '<BOUCLE_a(ARTICLES){id_article}{tout}{0,1}>#INTRODUCTION{#ENV{suite}}</BOUCLE_a>';
 		$result = $templating->render($code, [
 			'id_article' => $id_article,
 			'suite' => $suite,
@@ -72,8 +68,7 @@ class IntroductionTest extends SquelettesTestCase
 	/**
 	 * @depends testCoupeIntroduction
 	 */
-	public function testCoupeIntroductionConstante(): void
-	{
+	public function testCoupeIntroductionConstante(): void {
 		$id_article = $this->getIdArticleLong();
 		$templating = Templating::fromString([
 			'fonctions' => "
@@ -82,7 +77,7 @@ class IntroductionTest extends SquelettesTestCase
 				}
 			",
 		]);
-		$code = "#CACHE{0}<BOUCLE_a(ARTICLES){id_article}{tout}{0,1}>#INTRODUCTION</BOUCLE_a>";
+		$code = '#CACHE{0}<BOUCLE_a(ARTICLES){id_article}{tout}{0,1}>#INTRODUCTION</BOUCLE_a>';
 		$result = $templating->render($code, ['id_article' => $id_article]);
 		$suite = _INTRODUCTION_SUITE;
 		$this->assertMatchesRegularExpression('#' . preg_quote($suite . '</p>', '#') . '$#', $result);

@@ -20,8 +20,7 @@ find_in_path('./inc/plugin.php', '', true);
 // lancer le binz
 echo test_dir_plugins_suppl();
 
-function test_dir_plugins_suppl()
-{
+function test_dir_plugins_suppl() {
 	// preparation: la constante est elle definie et comprend uniquement 1 reps suppl?
 	if (! defined('_DIR_PLUGINS_SUPPL')) {
 		define('_DIR_PLUGINS_SUPPL', _DIR_TMP . 'plug_sup/');
@@ -47,9 +46,11 @@ function test_dir_plugins_suppl()
 	}
 
 	// le rep suppl est vide: creer un dossier de plugin bidon (toto) et y copier un paquet.xml
-	if ((is_countable(scandir(_DIR_RACINE . _DIR_PLUGINS_SUPPL)) ? count(
-		scandir(_DIR_RACINE . _DIR_PLUGINS_SUPPL)
-	) : 0) < 3) {
+	if (
+		(is_countable(scandir(_DIR_RACINE . _DIR_PLUGINS_SUPPL)) ? count(
+			scandir(_DIR_RACINE . _DIR_PLUGINS_SUPPL)
+		) : 0) < 3
+	) {
 		if (! @mkdir(_DIR_RACINE . _DIR_PLUGINS_SUPPL . 'toto')) {
 			nettoyage_plugins_suppl($Ta_effacer);
 			return 'NA probleme de droits d\ecriture 1, impossible de creer un dossier dans "' . _DIR_RACINE . _DIR_PLUGINS_SUPPL . '" necessaire pour ce test';
@@ -84,9 +85,11 @@ function test_dir_plugins_suppl()
 		// tous les sous-dossiers sont scannes et toujours pas de paquet.xml:
 		// creer un dossier bidon et y copier un paquet.xml
 		if (! $existe_paquet) {
-			if (! in_array('toto', scandir(_DIR_RACINE . _DIR_PLUGINS_SUPPL), true) && ! @mkdir(
-				_DIR_RACINE . _DIR_PLUGINS_SUPPL . 'toto'
-			)) {
+			if (
+				! in_array('toto', scandir(_DIR_RACINE . _DIR_PLUGINS_SUPPL), true) && ! @mkdir(
+					_DIR_RACINE . _DIR_PLUGINS_SUPPL . 'toto'
+				)
+			) {
 				nettoyage_plugins_suppl($Ta_effacer);
 				return 'NA probleme de droits d\ecriture 3, impossible de creer un dossier dans "' . _DIR_RACINE . _DIR_PLUGINS_SUPPL . '" necessaire pour ce test';
 			}
@@ -157,9 +160,11 @@ function test_dir_plugins_suppl()
 	// ni dans _DIR_PLUGINS ni dans _DIR_PLUGINS_SUPPL?
 	$Terr = [];
 	foreach ($Tplugins_recups as $rep_plug) {
-		if (! is_dir(_DIR_PLUGINS . $rep_plug) && is_dir(
-			_DIR_RACINE . $rep_plug
-		)) {	// le rep existe mais pas dans _DIR_PLUGINS
+		if (
+			! is_dir(_DIR_PLUGINS . $rep_plug) && is_dir(
+				_DIR_RACINE . $rep_plug
+			)
+		) {	// le rep existe mais pas dans _DIR_PLUGINS
 			$ok = false;
 			foreach ($Treps_suppl as $rep_suppl) {
 				if (substr_count($rep_plug, $rep_suppl) > 0) {
@@ -196,8 +201,7 @@ function test_dir_plugins_suppl()
 }
 
 // nettoyer tous les fichiers et dossiers crees pour ce test
-function nettoyage_plugins_suppl($Ta_supprimer)
-{
+function nettoyage_plugins_suppl($Ta_supprimer) {
 	// inverser l'odre des elements de l'array pour eviter d'essayer d'effacer des reps qui contiennent encore des fichiers
 	arsort($Ta_supprimer);
 	foreach ($Ta_supprimer as $a_suppr) {

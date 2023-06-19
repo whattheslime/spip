@@ -2,8 +2,7 @@
 
 declare(strict_types=1);
 
-function fin_inclure_manquant()
-{
+function fin_inclure_manquant() {
 	$debusquer = charger_fonction('debusquer', 'public');
 	$erreurs = $debusquer('', '', [
 		'erreurs' => 'get',

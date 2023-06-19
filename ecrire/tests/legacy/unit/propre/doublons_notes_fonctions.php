@@ -7,8 +7,7 @@ declare(strict_types=1);
 	On cherche un document, on le met dans la note d'un texte,
 */
 
-function creer_article_a_doublons_notes()
-{
+function creer_article_a_doublons_notes() {
 	$res = sql_query(
 		"SELECT id_document FROM spip_documents WHERE mode NOT IN ('logoon','logooff','vignette') ORDER BY rand() LIMIT 1"
 	);

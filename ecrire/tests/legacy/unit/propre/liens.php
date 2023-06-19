@@ -142,40 +142,52 @@ if (supprimer_tags(propre($p6)) !== ($la_langue === 'eo' ? 'Y' : 'Z')) {
 
 $balises_p7 = extraire_balises(propre($p7), 'a');
 
-if ('http://www.monsite.tld'
-!== $a = extraire_attribut(array_pop($balises_p7), 'href')) {
+if (
+'http://www.monsite.tld'
+	!== $a = extraire_attribut(array_pop($balises_p7), 'href')
+) {
 	$err[] = $a . ': erreur sur le lien ' . $p7;
 }
 
-if ('http://www.monsite.tld'
-!== $a = extraire_attribut(extraire_balise(propre($p8), 'a'), 'href')) {
+if (
+'http://www.monsite.tld'
+	!== $a = extraire_attribut(extraire_balise(propre($p8), 'a'), 'href')
+) {
 	$err[] = $a . ': erreur sur le lien ' . $p8;
 }
 
-if ('http://www.monsite.tld'
-!== $a = extraire_attribut(extraire_balise(propre($p9), 'a'), 'href')) {
+if (
+'http://www.monsite.tld'
+	!== $a = extraire_attribut(extraire_balise(propre($p9), 'a'), 'href')
+) {
 	$err[] = $a . ': erreur sur le lien ' . $p9;
 }
 
-if ('https://www.monsite.tld'
-!== $a = extraire_attribut(extraire_balise(propre($p10), 'a'), 'href')) {
+if (
+'https://www.monsite.tld'
+	!== $a = extraire_attribut(extraire_balise(propre($p10), 'a'), 'href')
+) {
 	$err[] = $a . ': erreur sur le lien ' . $p10;
 }
 
-if ('https://www.monsite.tld'
-!== $a = extraire_attribut(extraire_balise(propre($p10), 'a'), 'href')) {
+if (
+'https://www.monsite.tld'
+	!== $a = extraire_attribut(extraire_balise(propre($p10), 'a'), 'href')
+) {
 	$err[] = $a . ': erreur sur le lien ' . $p10;
 }
 
-if (! in_array(
-	$a = propre($p11),
-	[
+if (
+	! in_array(
+		$a = propre($p11),
+		[
 		'<p><flv|url=http://rezo.net/></p>',
 		'<p><tt>&lt;flv|url=http://rezo.net/&gt;</tt></p>',
 		'<pre>&lt;flv|url=http://rezo.net/&gt;</pre>',
-	],
-	true
-)) {
+		],
+		true
+	)
+) {
 	$err[] = $a . ': erreur sur le modele ' . $p11;
 }
 

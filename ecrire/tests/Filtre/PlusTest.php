@@ -12,22 +12,19 @@ use PHPUnit\Framework\TestCase;
 
 class PlusTest extends TestCase
 {
-	public static function setUpBeforeClass(): void
-	{
+	public static function setUpBeforeClass(): void {
 		find_in_path('inc/filtres.php', '', true);
 	}
 
 	/**
 	 * @dataProvider providerFiltresPlus
 	 */
-	public function testFiltresPlus($expected, ...$args): void
-	{
+	public function testFiltresPlus($expected, ...$args): void {
 		$actual = plus(...$args);
 		$this->assertSame($expected, $actual);
 	}
 
-	public static function providerFiltresPlus(): array
-	{
+	public static function providerFiltresPlus(): array {
 		return [
 			0 => [
 				0 => 0,

@@ -12,22 +12,19 @@ use PHPUnit\Framework\TestCase;
 
 class IdentifiantSlugTest extends TestCase
 {
-	public static function setUpBeforeClass(): void
-	{
+	public static function setUpBeforeClass(): void {
 		find_in_path('./inc/filtres.php', '', true);
 	}
 
 	/**
 	 * @dataProvider providerFiltresIdentifiantSlug
 	 */
-	public function testFiltresIdentifiantSlug($expected, ...$args): void
-	{
+	public function testFiltresIdentifiantSlug($expected, ...$args): void {
 		$actual = identifiant_slug(...$args);
 		$this->assertSame($expected, $actual);
 	}
 
-	public static function providerFiltresIdentifiantSlug(): array
-	{
+	public static function providerFiltresIdentifiantSlug(): array {
 		return [
 			0 => [
 				0 => '1',

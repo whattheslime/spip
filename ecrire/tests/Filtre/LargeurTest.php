@@ -12,22 +12,19 @@ use PHPUnit\Framework\TestCase;
 
 class LargeurTest extends TestCase
 {
-	public static function setUpBeforeClass(): void
-	{
+	public static function setUpBeforeClass(): void {
 		find_in_path('inc/filtres.php', '', true);
 	}
 
 	/**
 	 * @dataProvider providerFiltresLargeur
 	 */
-	public function testFiltresLargeur($expected, ...$args): void
-	{
+	public function testFiltresLargeur($expected, ...$args): void {
 		$actual = largeur(...$args);
 		$this->assertSame($expected, $actual);
 	}
 
-	public static function providerFiltresLargeur(): array
-	{
+	public static function providerFiltresLargeur(): array {
 		return [
 			0 => [
 				0 => 300,

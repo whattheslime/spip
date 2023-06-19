@@ -12,13 +12,11 @@ use PHPUnit\Framework\TestCase;
 
 class DateInterfaceTest extends TestCase
 {
-	public static function setUpBeforeClass(): void
-	{
+	public static function setUpBeforeClass(): void {
 		find_in_path('inc/filtres.php', '', true);
 	}
 
-	protected function setUp(): void
-	{
+	protected function setUp(): void {
 		changer_langue('fr');
 		// ce test est en fr
 	}
@@ -26,14 +24,12 @@ class DateInterfaceTest extends TestCase
 	/**
 	 * @dataProvider providerFiltresDateInterface
 	 */
-	public function testFiltresDateInterface($expected, ...$args): void
-	{
+	public function testFiltresDateInterface($expected, ...$args): void {
 		$actual = date_interface(...$args);
 		$this->assertSame($expected, $actual);
 	}
 
-	public static function providerFiltresDateInterface(): array
-	{
+	public static function providerFiltresDateInterface(): array {
 		return [
 			0 => [
 				0 => '2001 à 12h33min',

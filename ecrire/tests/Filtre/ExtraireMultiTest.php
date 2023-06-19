@@ -12,8 +12,7 @@ use PHPUnit\Framework\TestCase;
 
 class ExtraireMultiTest extends TestCase
 {
-	public static function setUpBeforeClass(): void
-	{
+	public static function setUpBeforeClass(): void {
 		find_in_path('./inc/filtres.php', '', true);
 		find_in_path('./inc/lang.php', '', true);
 	}
@@ -21,14 +20,12 @@ class ExtraireMultiTest extends TestCase
 	/**
 	 * @dataProvider providerFiltresExtraireMulti
 	 */
-	public function testFiltresExtraireMulti($expected, ...$args): void
-	{
+	public function testFiltresExtraireMulti($expected, ...$args): void {
 		$actual = extraire_multi(...$args);
 		$this->assertSame($expected, $actual);
 	}
 
-	public static function providerFiltresExtraireMulti(): array
-	{
+	public static function providerFiltresExtraireMulti(): array {
 		return [
 			0 => [
 				0 => 'english',

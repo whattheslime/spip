@@ -12,27 +12,23 @@ use PHPUnit\Framework\TestCase;
 
 class DateIcalTest extends TestCase
 {
-	public static function setUpBeforeClass(): void
-	{
+	public static function setUpBeforeClass(): void {
 		find_in_path('inc/filtres.php', '', true);
 	}
 
-	protected function setUp(): void
-	{
+	protected function setUp(): void {
 		date_default_timezone_set('UTC');
 	}
 
 	/**
 	 * @dataProvider providerFiltresDateIcal
 	 */
-	public function testFiltresDateIcal($expected, ...$args): void
-	{
+	public function testFiltresDateIcal($expected, ...$args): void {
 		$actual = date_ical(...$args);
 		$this->assertSame($expected, $actual);
 	}
 
-	public static function providerFiltresDateIcal(): array
-	{
+	public static function providerFiltresDateIcal(): array {
 		return [
 			0 => [
 				0 => '20010101T123344Z',

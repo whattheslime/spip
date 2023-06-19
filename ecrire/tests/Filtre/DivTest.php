@@ -12,23 +12,20 @@ use PHPUnit\Framework\TestCase;
 
 class DivTest extends TestCase
 {
-	public static function setUpBeforeClass(): void
-	{
+	public static function setUpBeforeClass(): void {
 		find_in_path('inc/filtres.php', '', true);
 	}
 
 	/**
 	 * @dataProvider providerFiltresDiv
 	 */
-	public function testFiltresDiv($expected, ...$args): void
-	{
+	public function testFiltresDiv($expected, ...$args): void {
 		$actual = div(...$args);
 		//$this->assertSame($expected, $actual);
 		$this->assertEquals($expected, $actual);
 	}
 
-	public static function providerFiltresDiv(): array
-	{
+	public static function providerFiltresDiv(): array {
 		return [
 			0 => [
 				0 => 0,

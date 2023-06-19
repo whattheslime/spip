@@ -12,22 +12,19 @@ use PHPUnit\Framework\TestCase;
 
 class WrapTest extends TestCase
 {
-	public static function setUpBeforeClass(): void
-	{
+	public static function setUpBeforeClass(): void {
 		find_in_path('inc/filtres.php', '', true);
 	}
 
 	/**
 	 * @dataProvider providerFiltresWrap
 	 */
-	public function testFiltresWrap($expected, ...$args): void
-	{
+	public function testFiltresWrap($expected, ...$args): void {
 		$actual = wrap(...$args);
 		$this->assertSame($expected, $actual);
 	}
 
-	public static function providerFiltresWrap(): array
-	{
+	public static function providerFiltresWrap(): array {
 		return [
 			0 => [
 				0 => '<h3>un mot</h3>',

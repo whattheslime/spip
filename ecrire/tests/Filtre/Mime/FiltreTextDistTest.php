@@ -12,22 +12,19 @@ use PHPUnit\Framework\TestCase;
 
 class FiltreTextDistTest extends TestCase
 {
-	public static function setUpBeforeClass(): void
-	{
+	public static function setUpBeforeClass(): void {
 		find_in_path('inc/filtres_mime.php', '', true);
 	}
 
 	/**
 	 * @dataProvider providerFiltresMimeFiltreTextDist
 	 */
-	public function testFiltresMimeFiltreTextDist($expected, ...$args): void
-	{
+	public function testFiltresMimeFiltreTextDist($expected, ...$args): void {
 		$actual = filtre_text_dist(...$args);
 		$this->assertSame($expected, $actual);
 	}
 
-	public static function providerFiltresMimeFiltreTextDist(): array
-	{
+	public static function providerFiltresMimeFiltreTextDist(): array {
 		return [
 			0 => [
 				0 => '<pre></pre>',

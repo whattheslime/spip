@@ -12,22 +12,19 @@ use PHPUnit\Framework\TestCase;
 
 class JournumTest extends TestCase
 {
-	public static function setUpBeforeClass(): void
-	{
+	public static function setUpBeforeClass(): void {
 		find_in_path('inc/filtres.php', '', true);
 	}
 
 	/**
 	 * @dataProvider providerFiltresJournum
 	 */
-	public function testFiltresJournum($expected, ...$args): void
-	{
+	public function testFiltresJournum($expected, ...$args): void {
 		$actual = journum(...$args);
 		$this->assertSame($expected, $actual);
 	}
 
-	public static function providerFiltresJournum(): array
-	{
+	public static function providerFiltresJournum(): array {
 		return [
 			0 => [
 				0 => '0',

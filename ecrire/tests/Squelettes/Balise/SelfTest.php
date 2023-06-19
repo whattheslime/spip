@@ -8,8 +8,7 @@ use Spip\Test\SquelettesTestCase;
 
 class SelfTest extends SquelettesTestCase
 {
-	public function testBaliseSelf(): never
-	{
+	public function testBaliseSelf(): never {
 		$this->assertEqualsCode('./', '#SELF');
 		$this->markTestIncomplete('More tests needed, but requires SPIP evolution with RequestInterface or so');
 	}

@@ -14,13 +14,11 @@ use PHPUnit\Framework\TestCase;
 
 class ChevronOuvrantTest extends TestCase
 {
-	public static function setUpBeforeClass(): void
-	{
+	public static function setUpBeforeClass(): void {
 		find_in_path('inc/texte.php', '', true);
 	}
 
-	protected function setUp(): void
-	{
+	protected function setUp(): void {
 		$GLOBALS['meta']['type_urls'] = 'page';
 		$GLOBALS['type_urls'] = 'page';
 		// initialiser les plugins qui changent les intertitre (Z), et les restaurer juste apres
@@ -32,14 +30,12 @@ class ChevronOuvrantTest extends TestCase
 	/**
 	 * @dataProvider providerPropreChevronOuvrant
 	 */
-	public function testPropreChevronOuvrant($expected, ...$args): void
-	{
+	public function testPropreChevronOuvrant($expected, ...$args): void {
 		$actual = propre(...$args);
 		$this->assertSame($expected, $actual);
 	}
 
-	public static function providerPropreChevronOuvrant(): array
-	{
+	public static function providerPropreChevronOuvrant(): array {
 		return [
 			0 => [
 				0 => '<p>a&lt;b</p>',

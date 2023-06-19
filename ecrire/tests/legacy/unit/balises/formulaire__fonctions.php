@@ -9,8 +9,7 @@ declare(strict_types=1);
  *
  */
 
-function formulaire_inscription_present($page)
-{
+function formulaire_inscription_present($page) {
 	if (trim($page) === '') {
 		return '#FORMULAIRE_{inscription} ne renvoie rien';
 	}

@@ -12,13 +12,11 @@ use PHPUnit\Framework\TestCase;
 
 class SaisonTest extends TestCase
 {
-	public static function setUpBeforeClass(): void
-	{
+	public static function setUpBeforeClass(): void {
 		find_in_path('inc/filtres.php', '', true);
 	}
 
-	protected function setUp(): void
-	{
+	protected function setUp(): void {
 		changer_langue('fr');
 		// ce test est en fr
 	}
@@ -26,14 +24,12 @@ class SaisonTest extends TestCase
 	/**
 	 * @dataProvider providerFiltresSaison
 	 */
-	public function testFiltresSaison($expected, ...$args): void
-	{
+	public function testFiltresSaison($expected, ...$args): void {
 		$actual = saison(...$args);
 		$this->assertSame($expected, $actual);
 	}
 
-	public static function providerFiltresSaison(): array
-	{
+	public static function providerFiltresSaison(): array {
 		return [
 			0 => [
 				0 => '',

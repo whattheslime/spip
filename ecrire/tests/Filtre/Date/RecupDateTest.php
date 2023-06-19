@@ -12,22 +12,19 @@ use PHPUnit\Framework\TestCase;
 
 class RecupDateTest extends TestCase
 {
-	public static function setUpBeforeClass(): void
-	{
+	public static function setUpBeforeClass(): void {
 		find_in_path('inc/filtres.php', '', true);
 	}
 
 	/**
 	 * @dataProvider providerFiltresRecupDate
 	 */
-	public function testFiltresRecupDate($expected, ...$args): void
-	{
+	public function testFiltresRecupDate($expected, ...$args): void {
 		$actual = recup_date(...$args);
 		$this->assertSame($expected, $actual);
 	}
 
-	public static function providerFiltresRecupDate(): array
-	{
+	public static function providerFiltresRecupDate(): array {
 		return [
 			0 => [
 				0 => [

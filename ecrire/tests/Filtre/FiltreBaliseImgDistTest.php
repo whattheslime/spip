@@ -12,16 +12,14 @@ use PHPUnit\Framework\TestCase;
 
 class FiltreBaliseImgDistTest extends TestCase
 {
-	public static function setUpBeforeClass(): void
-	{
+	public static function setUpBeforeClass(): void {
 		find_in_path('./inc/filtres.php', '', true);
 	}
 
 	/**
 	 * @dataProvider providerFiltresFiltreBaliseImgDist
 	 */
-	public function testFiltresFiltreBaliseImgDist($expected, ...$args): void
-	{
+	public function testFiltresFiltreBaliseImgDist($expected, ...$args): void {
 		static $f = null;
 		// chercher la fonction si elle n'existe pas
 		if ($f === null && !function_exists($f = 'filtre_balise_img_dist')) {
@@ -33,8 +31,7 @@ class FiltreBaliseImgDistTest extends TestCase
 		$this->assertSame($expected, $actual);
 	}
 
-	public static function providerFiltresFiltreBaliseImgDist(): array
-	{
+	public static function providerFiltresFiltreBaliseImgDist(): array {
 		return [
 			[
 

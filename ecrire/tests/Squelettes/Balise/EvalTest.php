@@ -8,8 +8,7 @@ use Spip\Test\SquelettesTestCase;
 
 class EvalTest extends SquelettesTestCase
 {
-	public function testBaliseEval(): void
-	{
+	public function testBaliseEval(): void {
 		$this->assertEmptyCode("#EVAL{''}");
 		$this->assertOkCode('#EVAL{"\'ok\'"}');
 		$this->assertEqualsCode('1', '#EVAL{1}');

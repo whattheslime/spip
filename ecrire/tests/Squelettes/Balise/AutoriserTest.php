@@ -8,8 +8,7 @@ use Spip\Test\SquelettesTestCase;
 
 class AutoriserTest extends SquelettesTestCase
 {
-	public function testAutoriserSqueletteOkNiet(): void
-	{
+	public function testAutoriserSqueletteOkNiet(): void {
 		$this->assertOkCode('[(#AUTORISER{ok})ok]');
 		$this->assertOkCode('[(#AUTORISER{niet}|sinon{ok})]');
 		$this->assertOkCode('

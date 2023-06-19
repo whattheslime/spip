@@ -27,8 +27,7 @@ include_spip('base/abstract_sql');
  * Updates
  */
 
-function test_update_data()
-{
+function test_update_data() {
 	$err = [];
 	$essais = [];
 	// ajouter un champ
@@ -51,8 +50,7 @@ function test_update_data()
  * Delete
  */
 
-function test_delete_data()
-{
+function test_delete_data() {
 	$err = [];
 	$essais = [];
 	// supprimer une colonne

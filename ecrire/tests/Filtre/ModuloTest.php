@@ -12,22 +12,19 @@ use PHPUnit\Framework\TestCase;
 
 class ModuloTest extends TestCase
 {
-	public static function setUpBeforeClass(): void
-	{
+	public static function setUpBeforeClass(): void {
 		find_in_path('inc/filtres.php', '', true);
 	}
 
 	/**
 	 * @dataProvider providerFiltresModulo
 	 */
-	public function testFiltresModulo($expected, ...$args): void
-	{
+	public function testFiltresModulo($expected, ...$args): void {
 		$actual = modulo(...$args);
 		$this->assertSame($expected, $actual);
 	}
 
-	public static function providerFiltresModulo(): array
-	{
+	public static function providerFiltresModulo(): array {
 		return [
 			0 => [
 				0 => 0,

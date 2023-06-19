@@ -22,16 +22,17 @@ include_spip('base/abstract_sql');
  * Selections mathematiques
  */
 
-function test_func_mathematiques()
-{
+function test_func_mathematiques() {
 	$err = [];
 	$essais = [];
 	//
-	foreach ([
+	foreach (
+		[
 		'COUNT' => 3,
 		'SUM' => 9000,
 		'AVG' => 3000,
-	] as $func => $attendu) {
+		] as $func => $attendu
+	) {
 		$nb = sql_getfetsel("{$func}(un_int) AS nb", ['spip_test_tintin']);
 		if ($nb != $attendu) {
 			$err[] = "Selection {$func} en echec : attendu : {$attendu}, recu : {$nb}";
@@ -39,7 +40,8 @@ function test_func_mathematiques()
 	}
 
 	//
-	foreach ([
+	foreach (
+		[
 		'EXP(0)' => exp(0),
 		'ROUND(3.56)' => round(3.56),
 		'ROUND(3.5684,2)' => round(3.5684, 2),
@@ -51,9 +53,10 @@ function test_func_mathematiques()
 		'1.5/2' => (1.5 / 2),
 		'2.0/2' => (2.0 / 2),
 		'2/2' => (2 / 2),
-		'md5(8)' => md5("8"),
+		'md5(8)' => md5('8'),
 		'md5(' . sql_quote('a') . ')' => md5('a'),
-	] as $func => $attendu) {
+		] as $func => $attendu
+	) {
 		$nb = sql_getfetsel("{$func} AS nb", ['spip_test_tintin'], ['id_tintin=' . sql_quote(1)]);
 		if ($nb != $attendu) {
 			$err[] = "Selection {$func} en echec : attendu : {$attendu}, recu : {$nb}";
@@ -70,15 +73,16 @@ function test_func_mathematiques()
  * Selections mathematiques
  */
 
-function test_func_strings()
-{
+function test_func_strings() {
 	$err = [];
 	$essais = [];
 	//
-	foreach ([
+	foreach (
+		[
 		'CONCAT(' . sql_quote('cou') . ',' . sql_quote('cou') . ')' => 'coucou',
 		'CONCAT(' . sql_quote('cou,') . ',' . sql_quote('cou') . ')' => 'cou,cou',
-	] as $func => $attendu) {
+		] as $func => $attendu
+	) {
 		$nb = sql_getfetsel("{$func} AS nb", ['spip_test_tintin'], ['id_tintin=' . sql_quote(1)]);
 		if ($nb !== $attendu) {
 			$err[] = "Selection {$func} en echec : attendu : {$attendu}, recu : {$nb}";
@@ -95,8 +99,7 @@ function test_func_strings()
  * retours des fonctions d'erreurs lors d'une requete
  */
 
-function test_func_error()
-{
+function test_func_error() {
 	$err = [];
 
 	// requete sans erreur

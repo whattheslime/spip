@@ -11,8 +11,7 @@ use PHPUnit\Framework\TestCase;
  */
 class AffDateDebutFinTest extends TestCase
 {
-	public static function setUpBeforeClass(): void
-	{
+	public static function setUpBeforeClass(): void {
 		find_in_path('./inc/filtres.php', '', true);
 		// Pour que le tests soit independant de la timezone du serveur
 		ini_set('date.timezone', 'Europe/Paris');
@@ -22,13 +21,11 @@ class AffDateDebutFinTest extends TestCase
 	/**
 	 * @dataProvider providerAffdateDebutFin
 	 */
-	public function testAffdateDebutFin($expected, ...$args): void
-	{
+	public function testAffdateDebutFin($expected, ...$args): void {
 		$this->assertEquals($expected, affdate_debut_fin(...$args));
 	}
 
-	public static function providerAffdateDebutFin(): array
-	{
+	public static function providerAffdateDebutFin(): array {
 		return [
 			0 =>
 			[

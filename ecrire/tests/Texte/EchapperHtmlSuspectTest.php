@@ -12,13 +12,11 @@ use PHPUnit\Framework\TestCase;
 
 class EchapperHtmlSuspectTest extends TestCase
 {
-
 	static $filtrer_javascript;
 	static $lang;
 
 
-	public static function setUpBeforeClass(): void
-	{
+	public static function setUpBeforeClass(): void {
 		find_in_path('inc/texte.php', '', true);
 		static::$filtrer_javascript = $GLOBALS['filtrer_javascript'] ?? null;
 		$GLOBALS['filtrer_javascript'] = -1;
@@ -27,8 +25,7 @@ class EchapperHtmlSuspectTest extends TestCase
 		changer_langue('en');
 	}
 
-	public static function tearDownAfterClass(): void
-	{
+	public static function tearDownAfterClass(): void {
 		$GLOBALS['filtrer_javascript'] = static::$filtrer_javascript;
 		$GLOBALS['spip_lang'] = static::$lang;
 	}
@@ -36,14 +33,12 @@ class EchapperHtmlSuspectTest extends TestCase
 	/**
 	 * @dataProvider providerIsHtmlSafe
 	 */
-	public function testIsHtmlSafe($expected, ...$args): void
-	{
+	public function testIsHtmlSafe($expected, ...$args): void {
 		$actual = is_html_safe(...$args);
 		$this->assertSame($expected, $actual);
 	}
 
-	public static function providerIsHtmlSafe(): array
-	{
+	public static function providerIsHtmlSafe(): array {
 		return [
 			'relOK' => [
 				true,

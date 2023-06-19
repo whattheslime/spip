@@ -86,8 +86,7 @@ if (count($GLOBALS['erreurs_test']) > 0) {
 	echo 'OK';
 }
 
-function test_cache_squelette($fond, $session_attendue)
-{
+function test_cache_squelette($fond, $session_attendue) {
 	unset($GLOBALS['cache_utilise_session']);
 	recuperer_fond($fond, [
 		'assert_session' => ((bool) $session_attendue),
@@ -109,8 +108,7 @@ function test_cache_squelette($fond, $session_attendue)
  * @param array $page
  */
 
-function inc_maj_invalideurs($chemin_cache, $page)
-{
+function inc_maj_invalideurs($chemin_cache, $page) {
 	if (isset($page['contexte']) && isset($page['contexte']['assert_session'])) {
 		$has_session = false;
 		if (isset($page['invalideurs']) && isset($page['invalideurs']['session'])) {
@@ -131,8 +129,7 @@ function inc_maj_invalideurs($chemin_cache, $page)
 	}
 }
 
-function salt_contexte()
-{
+function salt_contexte() {
 	static $deja = [];
 
 	do {
@@ -143,8 +140,7 @@ function salt_contexte()
 	return $salt;
 }
 
-function trace_contexte($contexte)
-{
+function trace_contexte($contexte) {
 	foreach ($contexte as $k => $v) {
 		if (str_starts_with($k, 'date_') || $k === 'salt') {
 			unset($contexte[$k]);

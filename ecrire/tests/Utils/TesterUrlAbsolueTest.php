@@ -12,22 +12,19 @@ use PHPUnit\Framework\TestCase;
 
 class TesterUrlAbsolueTest extends TestCase
 {
-	public static function setUpBeforeClass(): void
-	{
+	public static function setUpBeforeClass(): void {
 		find_in_path('./inc/utils.php', '', true);
 	}
 
 	/**
 	 * @dataProvider providerUtilsTesterUrlAbsolue
 	 */
-	public function testUtilsTesterUrlAbsolue($expected, ...$args): void
-	{
+	public function testUtilsTesterUrlAbsolue($expected, ...$args): void {
 		$actual = tester_url_absolue(...$args);
 		$this->assertSame($expected, $actual);
 	}
 
-	public static function providerUtilsTesterUrlAbsolue(): array
-	{
+	public static function providerUtilsTesterUrlAbsolue(): array {
 		return [
 			0 => [
 				0 => true,

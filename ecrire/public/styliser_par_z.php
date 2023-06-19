@@ -28,7 +28,7 @@ if (!defined('_ECRIRE_INC_VERSION')) {
  * @return array Données modifiées du pipeline
  */
 function public_styliser_par_z_dist($flux) {
- 	static $prefix_path = null;
+	static $prefix_path = null;
 	static $prefix_length;
 	static $z_blocs;
 	static $apl_constant;

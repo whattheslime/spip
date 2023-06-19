@@ -10,48 +10,40 @@ namespace Spip\Test\Propre;
 
 use PHPUnit\Framework\TestCase;
 
-function callback_test_propre_echappe_html_echappe($regs): string
-{
+function callback_test_propre_echappe_html_echappe($regs): string {
 	return 'A';
 }
 
-function callback_test_propre_echappe_html_traiter_echap_html($regs): string
-{
+function callback_test_propre_echappe_html_traiter_echap_html($regs): string {
 	return callback_test_propre_echappe_html_echappe($regs);
 }
 
-function callback_test_propre_echappe_html_traiter_echap_code($regs): string
-{
+function callback_test_propre_echappe_html_traiter_echap_code($regs): string {
 	return callback_test_propre_echappe_html_echappe($regs);
 }
 
-function callback_test_propre_echappe_html_traiter_echap_cadre($regs): string
-{
+function callback_test_propre_echappe_html_traiter_echap_cadre($regs): string {
 	return callback_test_propre_echappe_html_echappe($regs);
 }
 
-function callback_test_propre_echappe_html_traiter_echap_frame($regs): string
-{
+function callback_test_propre_echappe_html_traiter_echap_frame($regs): string {
 	return callback_test_propre_echappe_html_echappe($regs);
 }
 
-function callback_test_propre_echappe_html_traiter_echap_script($regs): string
-{
+function callback_test_propre_echappe_html_traiter_echap_script($regs): string {
 	return callback_test_propre_echappe_html_echappe($regs);
 }
 
 class EchappeHtmlTest extends TestCase
 {
-	public static function setUpBeforeClass(): void
-	{
+	public static function setUpBeforeClass(): void {
 		find_in_path('inc/texte.php', '', true);
 	}
 
 	/**
 	 * @dataProvider providerSimpleEchappeHtml
 	 */
-	public function testSimpleEchappeHtml($expected, ...$args): void
-	{
+	public function testSimpleEchappeHtml($expected, ...$args): void {
 		$actual = echappe_html(
 			$args[0],
 			$args[1] ?? '',
@@ -82,7 +74,7 @@ class EchappeHtmlTest extends TestCase
 			foreach ($attrs as $attr) {
 				$cpt = 1;
 				foreach ($insides as $inside) {
-					$html = "<{$balise}". ($attr ? " $attr" : '') .">$inside</$balise>";
+					$html = "<{$balise}" . ($attr ? " $attr" : '') . ">$inside</$balise>";
 					$code_echappe = \code_echappement($html, $source, $no_transform);
 					foreach ($befores as $before) {
 						foreach ($afters as $after) {
@@ -111,8 +103,7 @@ class EchappeHtmlTest extends TestCase
 	/**
 	 * @dataProvider providerPropreEchappeHtml
 	 */
-	public function testPropreEchappeHtml($expected, ...$args): void
-	{
+	public function testPropreEchappeHtml($expected, ...$args): void {
 		$actual = echappe_html(
 			$args[0],
 			$args[1] ?? '',
@@ -123,8 +114,7 @@ class EchappeHtmlTest extends TestCase
 		$this->assertSame($expected, $actual);
 	}
 
-	public static function providerPropreEchappeHtml(): array
-	{
+	public static function providerPropreEchappeHtml(): array {
 		$essais = [];
 		$marque = '<span class="base64" title="QQ=="></span>';
 		$essais['simple imbriqué'] = [

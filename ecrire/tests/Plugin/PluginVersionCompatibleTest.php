@@ -12,22 +12,19 @@ use PHPUnit\Framework\TestCase;
 
 class PluginVersionCompatibleTest extends TestCase
 {
-	public static function setUpBeforeClass(): void
-	{
+	public static function setUpBeforeClass(): void {
 		find_in_path('./inc/plugin.php', '', true);
 	}
 
 	/**
 	 * @dataProvider providerPluginPluginVersionCompatible
 	 */
-	public function testPluginPluginVersionCompatible($expected, ...$args): void
-	{
+	public function testPluginPluginVersionCompatible($expected, ...$args): void {
 		$actual = plugin_version_compatible(...$args);
 		$this->assertSame($expected, $actual);
 	}
 
-	public static function providerPluginPluginVersionCompatible(): array
-	{
+	public static function providerPluginPluginVersionCompatible(): array {
 		return [
 			0 => [
 				0 => true,

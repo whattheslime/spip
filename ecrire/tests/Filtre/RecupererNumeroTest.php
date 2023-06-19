@@ -12,22 +12,19 @@ use PHPUnit\Framework\TestCase;
 
 class RecupererNumeroTest extends TestCase
 {
-	public static function setUpBeforeClass(): void
-	{
+	public static function setUpBeforeClass(): void {
 		find_in_path('inc/filtres.php', '', true);
 	}
 
 	/**
 	 * @dataProvider providerFiltresRecupererNumero
 	 */
-	public function testFiltresRecupererNumero($expected, ...$args): void
-	{
+	public function testFiltresRecupererNumero($expected, ...$args): void {
 		$actual = recuperer_numero(...$args);
 		$this->assertSame($expected, $actual);
 	}
 
-	public static function providerFiltresRecupererNumero(): array
-	{
+	public static function providerFiltresRecupererNumero(): array {
 		return [
 			0 => [
 				0 => '1',

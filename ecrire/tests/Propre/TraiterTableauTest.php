@@ -8,16 +8,14 @@ use PHPUnit\Framework\TestCase;
 
 class TraiterTableauTest extends TestCase
 {
-	public static function setUpBeforeClass(): void
-	{
+	public static function setUpBeforeClass(): void {
 		find_in_path('inc/texte.php', '', true);
 	}
 
 	/**
 	 * @dataProvider providerPropreTraiterTableau
 	 */
-	public function testPropreTraiterTableau($expected, ...$args): void
-	{
+	public function testPropreTraiterTableau($expected, ...$args): void {
 		$actual = traiter_raccourcis(...$args);
 		if (is_array($expected)) {
 			[$func, $pattern, $result] = $expected;
@@ -32,8 +30,7 @@ class TraiterTableauTest extends TestCase
 		}
 	}
 
-	public static function providerPropreTraiterTableau(): array
-	{
+	public static function providerPropreTraiterTableau(): array {
 		return [
 			// trois tests un peu identiques sur <br />...
 			'caption seul' => [

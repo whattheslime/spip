@@ -12,22 +12,19 @@ use PHPUnit\Framework\TestCase;
 
 class CommuterClassTest extends TestCase
 {
-	public static function setUpBeforeClass(): void
-	{
+	public static function setUpBeforeClass(): void {
 		find_in_path('./inc/filtres.php', '', true);
 	}
 
 	/**
 	 * @dataProvider providerFiltresCommuterClass
 	 */
-	public function testFiltresCommuterClass($expected, ...$args): void
-	{
+	public function testFiltresCommuterClass($expected, ...$args): void {
 		$actual = commuter_class(...$args);
 		$this->assertSame($expected, $actual);
 	}
 
-	public static function providerFiltresCommuterClass(): array
-	{
+	public static function providerFiltresCommuterClass(): array {
 		return [
 			0 => [
 				0 => "<span class='maclasse-prefixe suffixe-maclasse maclasse--bem'>toto</span>",

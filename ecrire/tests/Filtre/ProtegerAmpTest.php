@@ -12,22 +12,19 @@ use PHPUnit\Framework\TestCase;
 
 class ProtegerAmpTest extends TestCase
 {
-	public static function setUpBeforeClass(): void
-	{
+	public static function setUpBeforeClass(): void {
 		find_in_path('inc/filtres.php', '', true);
 	}
 
 	/**
 	 * @dataProvider providerFiltresProtegerAmp
 	 */
-	public function testFiltresProtegerAmp($expected, ...$args): void
-	{
+	public function testFiltresProtegerAmp($expected, ...$args): void {
 		$actual = proteger_amp(...$args);
 		$this->assertSame($expected, $actual);
 	}
 
-	public static function providerFiltresProtegerAmp(): array
-	{
+	public static function providerFiltresProtegerAmp(): array {
 		return [
 			0 => [
 				0 => '',

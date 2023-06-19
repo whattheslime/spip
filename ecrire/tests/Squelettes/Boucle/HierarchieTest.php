@@ -8,8 +8,7 @@ use Spip\Test\SquelettesTestCase;
 
 class HierarchieTest extends SquelettesTestCase
 {
-	public function testBoucleHierarchie()
-	{
+	public function testBoucleHierarchie() {
 		$this->assertOkCode("
 			<BOUCLE_a(RUBRIQUES){0,50}>
 			<BOUCLE_secteur(HIERARCHIE){0,1}>[(#ID_RUBRIQUE|=={#_a:ID_SECTEUR}|?{'',
@@ -23,8 +22,7 @@ class HierarchieTest extends SquelettesTestCase
 		");
 	}
 
-	public function testBoucleHierarchieTout()
-	{
+	public function testBoucleHierarchieTout() {
 		$this->assertOkCode("
 			<BOUCLE_a(RUBRIQUES){tout}{0,50}>
 			<BOUCLE_secteur(HIERARCHIE){statut==.*}{0,1}>[(#ID_RUBRIQUE|=={#_a:ID_SECTEUR}|?{'',

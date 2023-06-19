@@ -12,13 +12,11 @@ use PHPUnit\Framework\TestCase;
 
 class AffdateJourcourtTest extends TestCase
 {
-	public static function setUpBeforeClass(): void
-	{
+	public static function setUpBeforeClass(): void {
 		find_in_path('inc/filtres.php', '', true);
 	}
 
-	protected function setUp(): void
-	{
+	protected function setUp(): void {
 		changer_langue('fr');
 		// ce test est en fr
 	}
@@ -26,14 +24,12 @@ class AffdateJourcourtTest extends TestCase
 	/**
 	 * @dataProvider providerFiltresAffdateJourcourt
 	 */
-	public function testFiltresAffdateJourcourt($expected, ...$args): void
-	{
+	public function testFiltresAffdateJourcourt($expected, ...$args): void {
 		$actual = affdate_jourcourt(...$args);
 		$this->assertSame($expected, $actual);
 	}
 
-	public static function providerFiltresAffdateJourcourt(): array
-	{
+	public static function providerFiltresAffdateJourcourt(): array {
 		return [
 			0 => [
 				0 => '  2001',

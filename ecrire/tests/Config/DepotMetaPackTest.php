@@ -25,8 +25,7 @@ class DepotMetaPackTest extends TestCase
 
 	protected static $serassoc;
 
-	public static function setUpBeforeClass(): void
-	{
+	public static function setUpBeforeClass(): void {
 		self::$savedMeta = $GLOBALS['meta'];
 		self::$assoc = [
 			'one' => 'element 1',
@@ -40,16 +39,14 @@ class DepotMetaPackTest extends TestCase
 		self::$serassoc = serialize(self::$assoc);
 	}
 
-	public static function tearDownAfterClass(): void
-	{
+	public static function tearDownAfterClass(): void {
 		$GLOBALS['meta'] = self::$savedMeta;
 	}
 
 	/**
 	 * lire_config meta
 	 */
-	public function testLireConfig1()
-	{
+	public function testLireConfig1() {
 		include_spip('inc/config');
 		$meta = $GLOBALS['meta'];
 
@@ -100,8 +97,7 @@ class DepotMetaPackTest extends TestCase
 	 *
 	 * @depends testLireConfig1
 	 */
-	public function testEcrireConfig()
-	{
+	public function testEcrireConfig() {
 		/*
 		 * Notes sur l'ecriture :
 		 * - dans le tableau $GLOBALS['meta'], les valeurs transmises
@@ -138,8 +134,7 @@ class DepotMetaPackTest extends TestCase
 	 *
 	 * @depends testEcrireConfig
 	 */
-	public function testLireConfig2()
-	{
+	public function testLireConfig2() {
 		$essais = [];
 		$essais[] = [0, 'metapack::test_cfg_zero'];
 		$essais[] = ['0', 'metapack::test_cfg_zeroc'];
@@ -166,8 +161,7 @@ class DepotMetaPackTest extends TestCase
 	 *
 	 * @depends testLireConfig2
 	 */
-	public function testEffacerConfig()
-	{
+	public function testEffacerConfig() {
 		$essais = [];
 		$essais[] = [true, 'metapack::test_cfg_zero'];
 		$essais[] = [true, 'metapack::test_cfg_zeroc'];
@@ -198,8 +192,7 @@ class DepotMetaPackTest extends TestCase
 	 *
 	 * @depends testEffacerConfig
 	 */
-	public function testLireConfig3()
-	{
+	public function testLireConfig3() {
 		$essais = [];
 		$essais[] = [null, 'metapack::test_cfg_zero'];
 		$essais[] = [null, 'metapack::test_cfg_zeroc'];

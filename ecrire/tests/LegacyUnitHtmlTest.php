@@ -24,16 +24,13 @@ use PHPUnit\Framework\TestCase;
 #[Group('legacy')]
 class LegacyUnitHtmlTest extends TestCase
 {
-
 	#[DataProvider('providerLegacyHtmlfileName')]
-	public function testLegacyUnitHtml($inFname, $output)
-	{
+	public function testLegacyUnitHtml($inFname, $output) {
 		$result = $this->legacyHtmlRun($inFname);
 		$this->assertEquals($output, $result);
 	}
 
-	public static function providerLegacyHtmlfileName()
-	{
+	public static function providerLegacyHtmlfileName() {
 		require_once(__DIR__ . '/legacy/test.inc');
 
 		$liste_fichiers = tests_legacy_lister('html');
@@ -45,8 +42,7 @@ class LegacyUnitHtmlTest extends TestCase
 		return $tests;
 	}
 
-	protected function legacyHtmlRun($inFname)
-	{
+	protected function legacyHtmlRun($inFname) {
 		chdir(_SPIP_TEST_INC);
 		if (!is_file('../' . $inFname)) {
 			$this->fail(
@@ -67,7 +63,7 @@ class LegacyUnitHtmlTest extends TestCase
 		$result = rtrim(implode("\n", $output));
 		if (str_starts_with($result, 'NA')) {
 			$this->markTestSkipped($result);
-		} elseif (preg_match("#^OK \(?\d+\)?$#", $result)) {
+		} elseif (preg_match('#^OK \(?\d+\)?$#', $result)) {
 			$result = 'OK';
 		}
 

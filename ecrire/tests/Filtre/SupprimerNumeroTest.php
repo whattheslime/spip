@@ -12,22 +12,19 @@ use PHPUnit\Framework\TestCase;
 
 class SupprimerNumeroTest extends TestCase
 {
-	public static function setUpBeforeClass(): void
-	{
+	public static function setUpBeforeClass(): void {
 		find_in_path('inc/filtres.php', '', true);
 	}
 
 	/**
 	 * @dataProvider providerFiltresSupprimerNumero
 	 */
-	public function testFiltresSupprimerNumero($expected, ...$args): void
-	{
+	public function testFiltresSupprimerNumero($expected, ...$args): void {
 		$actual = supprimer_numero(...$args);
 		$this->assertSame($expected, $actual);
 	}
 
-	public static function providerFiltresSupprimerNumero(): array
-	{
+	public static function providerFiltresSupprimerNumero(): array {
 		return [
 			0 => [
 				0 => '1.titre',

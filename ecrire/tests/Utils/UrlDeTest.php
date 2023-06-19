@@ -12,22 +12,19 @@ use PHPUnit\Framework\TestCase;
 
 class UrlDeTest extends TestCase
 {
-	public static function setUpBeforeClass(): void
-	{
+	public static function setUpBeforeClass(): void {
 		find_in_path('./inc/utils.php', '', true);
 	}
 
 	/**
 	 * @dataProvider providerUtilsUrlDe
 	 */
-	public function testUtilsUrlDe($expected, ...$args): void
-	{
+	public function testUtilsUrlDe($expected, ...$args): void {
 		$actual = url_de_(...$args);
 		$this->assertSame($expected, $actual);
 	}
 
-	public static function providerUtilsUrlDe(): array
-	{
+	public static function providerUtilsUrlDe(): array {
 		return [
 			0 => [
 				0 => 'http://www.example.org/',

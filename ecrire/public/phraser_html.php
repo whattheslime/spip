@@ -107,8 +107,10 @@ function phraser_inclure(string $texte, int $ligne, array $result): array {
 			normaliser_inclure($champ);
 		}
 		$pos_fin = strpos($texte, '>', $pos_apres) + 1;
-		if ( (strpos($texte, '</INCLUDE>', $pos_fin) === $pos_fin)
-			|| (strpos($texte, '</INCLURE>', $pos_fin) === $pos_fin)) {
+		if (
+			(strpos($texte, '</INCLUDE>', $pos_fin) === $pos_fin)
+			|| (strpos($texte, '</INCLURE>', $pos_fin) === $pos_fin)
+		) {
 			$pos_fin += 10;
 		}
 		$texte = substr($texte, $pos_fin);
@@ -185,9 +187,10 @@ function phraser_polyglotte(string $texte, int $ligne, array $result): array {
  **/
 function phraser_idiomes(string $texte, int $ligne, array $result): array {
 
-	while ((($p = strpos($texte, '<:')) !== false)
-		&& preg_match(BALISE_IDIOMES, $texte, $match, PREG_OFFSET_CAPTURE, $p)) {
-
+	while (
+		(($p = strpos($texte, '<:')) !== false)
+		&& preg_match(BALISE_IDIOMES, $texte, $match, PREG_OFFSET_CAPTURE, $p)
+	) {
 		$poss = array_column($match, 1);
 		$match = array_column($match, 0);
 		$match = array_pad($match, 8, null);
@@ -202,7 +205,7 @@ function phraser_idiomes(string $texte, int $ligne, array $result): array {
 			continue;
 		}
 
-		$debut = substr($texte, 0, $p );
+		$debut = substr($texte, 0, $p);
 		$result = phraser_champs($debut, $ligne, $result);
 		$ligne += public_compte_ligne($debut);
 
@@ -214,8 +217,10 @@ function phraser_idiomes(string $texte, int $ligne, array $result): array {
 		// Stocker les arguments de la balise de traduction
 		$args = [];
 		$largs = (string) $match[5];
-		while (str_contains($largs, '=')
-			&& preg_match(BALISE_IDIOMES_ARGS, $largs, $r)) {
+		while (
+			str_contains($largs, '=')
+			&& preg_match(BALISE_IDIOMES_ARGS, $largs, $r)
+		) {
 			$args[$r[1]] = phraser_champs($r[2], 0, []);
 			$largs = substr($largs, strlen($r[0]));
 		}
@@ -258,9 +263,10 @@ function phraser_idiomes(string $texte, int $ligne, array $result): array {
  **/
 function phraser_champs(string $texte, int $ligne, array $result): array {
 
-	while ((($p = strpos($texte, '#')) !== false)
-		&& preg_match('/' . NOM_DE_CHAMP . '/S', $texte, $match, PREG_OFFSET_CAPTURE, $p)) {
-
+	while (
+		(($p = strpos($texte, '#')) !== false)
+		&& preg_match('/' . NOM_DE_CHAMP . '/S', $texte, $match, PREG_OFFSET_CAPTURE, $p)
+	) {
 		$poss = array_column($match, 1);
 		$match = array_column($match, 0);
 
@@ -520,7 +526,6 @@ function phraser_champs_exterieurs(string $texte, int $ligne, string $sep, array
 	}
 
 	return $res;
-
 }
 
 /**
@@ -545,9 +550,10 @@ function phraser_champs_interieurs(string $texte, int $no_ligne, string $sep): a
 
 		// trouver tous les champs intérieurs (sans autre champs imbriqués), les analyser, et les remplacer par un placehoder
 		// le $texte est découpé en parties qu'on re-parse ensuite jusqu'à ce qu'on ne trouve plus de nouveaux champs
-		while ((($p = strpos($texte, '[', $search_pos)) !== false)
-			&& preg_match(CHAMP_ETENDU, $texte, $match, PREG_OFFSET_CAPTURE, $p)) {
-
+		while (
+			(($p = strpos($texte, '[', $search_pos)) !== false)
+			&& preg_match(CHAMP_ETENDU, $texte, $match, PREG_OFFSET_CAPTURE, $p)
+		) {
 			$poss = array_column($match, 1);
 			$match = array_column($match, 0);
 			// si jamais il y a une sous balise inclue dans la partie 7, alors on est pas dans le champ le plus interieur, on continue le search plus loin
@@ -587,10 +593,10 @@ function phraser_champs_interieurs(string $texte, int $no_ligne, string $sep): a
 			phraser_boucle_placeholder($champ);
 
 			$champs_trouves[] = $champ;
-			$j = count($champs_trouves)-1;
+			$j = count($champs_trouves) - 1;
 			// on remplace ce champ par un placeholder
 			// ajouter $nbl_champ retour ligne pour que la partie conserve le nombre de lignes lors des itérations suivantes
-			$parties[] = ($t="%{$sep}{$j}" . str_repeat("\n", $nbl_champ). "@");
+			$parties[] = ($t = "%{$sep}{$j}" . str_repeat("\n", $nbl_champ) . '@');
 			$nbl += $nbl_champ;
 
 			$texte = substr($texte, $poss[0] + strlen($match[0]));

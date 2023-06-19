@@ -12,22 +12,19 @@ use PHPUnit\Framework\TestCase;
 
 class ChercherFiltreTest extends TestCase
 {
-	public static function setUpBeforeClass(): void
-	{
+	public static function setUpBeforeClass(): void {
 		find_in_path('inc/filtres.php', '', true);
 	}
 
 	/**
 	 * @dataProvider providerFiltresChercherFiltre
 	 */
-	public function testFiltresChercherFiltre($expected, ...$args): void
-	{
+	public function testFiltresChercherFiltre($expected, ...$args): void {
 		$actual = chercher_filtre(...$args);
 		$this->assertSame($expected, $actual);
 	}
 
-	public static function providerFiltresChercherFiltre(): array
-	{
+	public static function providerFiltresChercherFiltre(): array {
 		return [
 			0 => [
 				0 => 'filtre_identite_dist',

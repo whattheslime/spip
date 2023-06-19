@@ -12,22 +12,19 @@ use PHPUnit\Framework\TestCase;
 
 class ProtocoleVerifierTest extends TestCase
 {
-	public static function setUpBeforeClass(): void
-	{
+	public static function setUpBeforeClass(): void {
 		find_in_path('./inc/filtres_mini.php', '', true);
 	}
 
 	/**
 	 * @dataProvider providerFiltresMiniProtocoleVerifier
 	 */
-	public function testFiltresMiniProtocoleVerifier($expected, ...$args): void
-	{
+	public function testFiltresMiniProtocoleVerifier($expected, ...$args): void {
 		$actual = protocole_verifier(...$args);
 		$this->assertSame($expected, $actual);
 	}
 
-	public static function providerFiltresMiniProtocoleVerifier(): array
-	{
+	public static function providerFiltresMiniProtocoleVerifier(): array {
 		return [
 			0 => [
 				0 => true,

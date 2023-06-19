@@ -12,22 +12,19 @@ use PHPUnit\Framework\TestCase;
 
 class TexteBackendTest extends TestCase
 {
-	public static function setUpBeforeClass(): void
-	{
+	public static function setUpBeforeClass(): void {
 		find_in_path('inc/filtres.php', '', true);
 	}
 
 	/**
 	 * @dataProvider providerFiltresTexteBackend
 	 */
-	public function testFiltresTexteBackend($expected, ...$args): void
-	{
+	public function testFiltresTexteBackend($expected, ...$args): void {
 		$actual = texte_backend(...$args);
 		$this->assertSame($expected, $actual);
 	}
 
-	public static function providerFiltresTexteBackend(): array
-	{
+	public static function providerFiltresTexteBackend(): array {
 		return [
 			0 => [
 				0 => '',

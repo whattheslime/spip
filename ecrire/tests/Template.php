@@ -11,19 +11,18 @@ class Template
 	public function __construct(
 		private readonly string $fond
 	) {
- 	}
+	}
 
-	public function render(array $contexte = [], string $connect = ''): string
-	{
+	public function render(array $contexte = [], string $connect = ''): string {
 		$infos = $this->rawRender($contexte, $connect);
 		if (!empty($infos['erreurs'])) {
-			$message = json_encode($infos['erreurs'], \JSON_UNESCAPED_UNICODE|\JSON_PRETTY_PRINT);
+			$message = json_encode($infos['erreurs'], \JSON_UNESCAPED_UNICODE | \JSON_PRETTY_PRINT);
 			if (!$message) {
 				$erreurs = $infos['erreurs'];
 				foreach ($erreurs as &$erreur) {
 					$erreur = reset($erreur);
 				}
-				$message = json_encode($erreurs, \JSON_UNESCAPED_UNICODE|\JSON_PRETTY_PRINT);
+				$message = json_encode($erreurs, \JSON_UNESCAPED_UNICODE | \JSON_PRETTY_PRINT);
 			}
 			throw new TemplateCompilationErrorException($message);
 		}
@@ -34,8 +33,7 @@ class Template
 	 * Appele recuperer_fond avec l'option raw pour obtenir un tableau d'informations que l'on complete avec le nom du fond
 	 * et les erreurs de compilations generees
 	 */
-	public function rawRender(array $contexte = [], string $connect = ''): array
-	{
+	public function rawRender(array $contexte = [], string $connect = ''): array {
 		// vider les erreurs
 		$this->init_compilation_errors();
 
@@ -57,8 +55,7 @@ class Template
 	/**
 	 * Retourne un tableau des erreurs de compilation
 	 */
-	private function get_compilation_errors(): array
-	{
+	private function get_compilation_errors(): array {
 		$debusquer = charger_fonction('debusquer', 'public');
 		$erreurs = $debusquer('', '', [
 			'erreurs' => 'get',
@@ -72,8 +69,7 @@ class Template
 	/**
 	 * Raz les erreurs de compilation
 	 */
-	private function init_compilation_errors(): void
-	{
+	private function init_compilation_errors(): void {
 		$debusquer = charger_fonction('debusquer', 'public');
 		$debusquer('', '', [
 			'erreurs' => 'reset',

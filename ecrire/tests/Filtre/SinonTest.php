@@ -12,22 +12,19 @@ use PHPUnit\Framework\TestCase;
 
 class SinonTest extends TestCase
 {
-	public static function setUpBeforeClass(): void
-	{
+	public static function setUpBeforeClass(): void {
 		find_in_path('inc/filtres.php', '', true);
 	}
 
 	/**
 	 * @dataProvider providerFiltresSinon
 	 */
-	public function testFiltresSinon($expected, ...$args): void
-	{
+	public function testFiltresSinon($expected, ...$args): void {
 		$actual = sinon(...$args);
 		$this->assertSame($expected, $actual);
 	}
 
-	public static function providerFiltresSinon(): array
-	{
+	public static function providerFiltresSinon(): array {
 		return [
 			0 => [
 				0 => '',

@@ -13,33 +13,28 @@ use PHPUnit\Framework\TestCase;
 class InterdireScriptLaxisteTest extends TestCase
 {
 	protected static $save_filtrer_javascript;
-	public static function setUpBeforeClass(): void
-	{
+	public static function setUpBeforeClass(): void {
 		self::$save_filtrer_javascript = $GLOBALS['filtrer_javascript'];
 		find_in_path('inc/texte.php', '', true);
 	}
 
-	public static function tearDownAfterClass(): void
-	{
+	public static function tearDownAfterClass(): void {
 		$GLOBALS['filtrer_javascript'] = self::$save_filtrer_javascript;
 	}
 
-	protected function setUp(): void
-	{
+	protected function setUp(): void {
 		$GLOBALS['filtrer_javascript'] = 1;
 	}
 
 	/**
 	 * @dataProvider providerTexteInterdireScriptLaxiste
 	 */
-	public function testTexteInterdireScriptLaxiste($expected, ...$args): void
-	{
+	public function testTexteInterdireScriptLaxiste($expected, ...$args): void {
 		$actual = interdire_scripts(...$args);
 		$this->assertSame($expected, $actual);
 	}
 
-	public static function providerTexteInterdireScriptLaxiste(): array
-	{
+	public static function providerTexteInterdireScriptLaxiste(): array {
 		return [
 			[
 				"<script type='text/javascript' src='toto.js'></script>", "<script type='text/javascript' src='toto.js'></script>",

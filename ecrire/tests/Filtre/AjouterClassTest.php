@@ -12,22 +12,19 @@ use PHPUnit\Framework\TestCase;
 
 class AjouterClassTest extends TestCase
 {
-	public static function setUpBeforeClass(): void
-	{
+	public static function setUpBeforeClass(): void {
 		find_in_path('./inc/filtres.php', '', true);
 	}
 
 	/**
 	 * @dataProvider providerFiltresAjouterClass
 	 */
-	public function testFiltresAjouterClass($expected, ...$args): void
-	{
+	public function testFiltresAjouterClass($expected, ...$args): void {
 		$actual = ajouter_class(...$args);
 		$this->assertSame($expected, $actual);
 	}
 
-	public static function providerFiltresAjouterClass(): array
-	{
+	public static function providerFiltresAjouterClass(): array {
 		return [
 			0 => [
 				0 => "<span class='maclasse maclasse-prefixe suffixe-maclasse maclasse--bem autreclass'>toto</span>",

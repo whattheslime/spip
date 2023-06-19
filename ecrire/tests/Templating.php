@@ -15,35 +15,29 @@ class Templating
 	) {
 	}
 
-	public static function fromString(array $options = []): self
-	{
+	public static function fromString(array $options = []): self {
 		return new static(new StringLoader($options));
 	}
 
-	public static function fromFile(): self
-	{
+	public static function fromFile(): self {
 		return new static(new FileLoader());
 	}
 
-	public function getLoader(): LoaderInterface
-	{
+	public function getLoader(): LoaderInterface {
 		return $this->loader;
 	}
 
-	public function load(string $name): Template
-	{
+	public function load(string $name): Template {
 		$source = $this->loader->getSourceFile($name);
 		return new Template($source);
 	}
 
-	public function render(string $name, array $contexte = [], string $connect = ''): string
-	{
+	public function render(string $name, array $contexte = [], string $connect = ''): string {
 		return $this->load($name)
 			->render($contexte, $connect);
 	}
 
-	public function rawRender(string $name, array $contexte = [], string $connect = ''): array
-	{
+	public function rawRender(string $name, array $contexte = [], string $connect = ''): array {
 		return $this->load($name)
 			->rawRender($contexte, $connect);
 	}

@@ -29,8 +29,7 @@ $faux_positifs = 0;
 
 $faux_negatifs = 0;
 
-function unitTest($email, $expected, $source = '', $comment = '')
-{
+function unitTest($email, $expected, $source = '', $comment = '') {
 	$diagnosis = email_valide($email);
 	$valid = ($diagnosis !== '');
 	$not = ($valid) ? 'Valide' : 'Non valide';

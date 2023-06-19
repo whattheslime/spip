@@ -7,7 +7,6 @@ namespace Spip;
  * @internal
  */
 final class ErrorHandler {
-
 	static bool $done = false;
 
 	public static function setup(?int $error_level = null): void {

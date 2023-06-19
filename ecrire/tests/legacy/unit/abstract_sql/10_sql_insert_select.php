@@ -30,8 +30,7 @@ include_spip('base/abstract_sql');
  * utilise sql_quote, sql_getfetsel, sql_update et sql_updateq.
  */
 
-function test_maj_timestamp()
-{
+function test_maj_timestamp() {
 	$table = 'spip_test_tintin';
 	$where = 'id_tintin=' . sql_quote(1);
 	$err = [];
@@ -94,8 +93,7 @@ function test_maj_timestamp()
  * -
  */
 
-function test_selections()
-{
+function test_selections() {
 	$nb_data = null;
 	$err = [];
 	$essais = [];
@@ -166,10 +164,12 @@ function test_selections()
 	}
 
 	// le bon texte avec multi
-	foreach ([
+	foreach (
+		[
 		'fr' => 'Crac',
 		'en' => 'Krack',
-	] as $lg => $res) {
+		] as $lg => $res
+	) {
 		$multi = sql_getfetsel(sql_multi('grrrr', $lg), 'spip_test_milou', 'id_milou=' . sql_quote(2));
 		if ($multi !== $res) {
 			$err[] = "9.sql_multi {$lg} mal rendu : retour : " . htmlentities($multi) . ', attendu : ' . htmlentities($res);
@@ -177,10 +177,12 @@ function test_selections()
 	}
 
 	// le bon texte avec multi et accents
-	foreach ([
+	foreach (
+		[
 		'fr' => 'Aérien',
 		'en' => 'Aérieny',
-	] as $lg => $res) {
+		] as $lg => $res
+	) {
 		$multi = sql_getfetsel(sql_multi('alcool', $lg), 'spip_test_haddock', 'id_haddock=' . sql_quote(2));
 		if ($multi !== $res) {
 			$err[] = "10.sql_multi {$lg} mal rendu : retour : " . htmlentities($multi) . ', attendu : ' . htmlentities($res);
@@ -188,11 +190,13 @@ function test_selections()
 	}
 
 	// le bon texte avec multi et debut et fin de chaine
-	foreach ([
+	foreach (
+		[
 		'fr' => 'Un début de chaine : Vinasse, et [la fin]',
 		'en' => 'Un début de chaine : Vinassy, et [la fin]',
 		'de' => 'Un début de chaine : Vinasse, et [la fin]',
-	] as $lg => $res) {
+		] as $lg => $res
+	) {
 		$multi = sql_getfetsel(sql_multi('alcool', $lg), 'spip_test_haddock', 'id_haddock=' . sql_quote(4));
 		if ($multi !== $res) {
 			$err[] = "11.sql_multi [{$lg}] mal rendu : retour : " . htmlentities($multi) . ', attendu : ' . htmlentities($res);
@@ -210,8 +214,7 @@ function test_selections()
  * -
  */
 
-function test_selections_entre_table()
-{
+function test_selections_entre_table() {
 	$err = [];
 	$essais = [];
 	// selection 2 tables

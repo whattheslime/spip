@@ -12,13 +12,11 @@ use PHPUnit\Framework\TestCase;
 
 class PropreTest extends TestCase
 {
-	public static function setUpBeforeClass(): void
-	{
+	public static function setUpBeforeClass(): void {
 		find_in_path('inc/texte.php', '', true);
 	}
 
-	protected function setUp(): void
-	{
+	protected function setUp(): void {
 		$GLOBALS['meta']['type_urls'] = 'page';
 		$GLOBALS['type_urls'] = 'page';
 		changer_langue('fr');
@@ -37,14 +35,12 @@ class PropreTest extends TestCase
 	/**
 	 * @dataProvider providerTextePropre
 	 */
-	public function testTextePropre($expected, ...$args): void
-	{
+	public function testTextePropre($expected, ...$args): void {
 		$actual = propre(...$args);
 		$this->assertSame($expected, $actual);
 	}
 
-	public static function providerTextePropre(): array
-	{
+	public static function providerTextePropre(): array {
 		return [
 			'vide' => [
 				0 => '',

@@ -26,8 +26,7 @@ include_spip('base/abstract_sql');
  * Alter colonne
  */
 
-function test_alter_colonne()
-{
+function test_alter_colonne() {
 	$err = [];
 	$essais = [];
 	$table = 'spip_test_tintin';
@@ -96,8 +95,7 @@ function test_alter_colonne()
  * Renomme table
  */
 
-function test_alter_renomme_table()
-{
+function test_alter_renomme_table() {
 	$err = [];
 	$essais = [];
 	$table = 'spip_test_tintin';
@@ -120,8 +118,7 @@ function test_alter_renomme_table()
  * pointer l'index
  */
 
-function test_alter_index()
-{
+function test_alter_index() {
 	$err = [];
 	$essais = [];
 	$table = 'spip_test_milou';
@@ -181,8 +178,7 @@ function test_alter_index()
  * dezinguer la primary
  */
 
-function test_alter_primary()
-{
+function test_alter_primary() {
 	$err = [];
 	$essais = [];
 	$table = 'spip_test_kirikou';
@@ -230,8 +226,7 @@ function test_alter_primary()
  * Alter colonne
  */
 
-function test_alter_multiple()
-{
+function test_alter_multiple() {
 	$err = [];
 	$essais = [];
 	$table = 'spip_test_milou';

@@ -12,23 +12,19 @@ use PHPUnit\Framework\TestCase;
 
 class TraiterRaccourcisTest extends TestCase
 {
-	public static function setUpBeforeClass(): void
-	{
+	public static function setUpBeforeClass(): void {
 		find_in_path('inc/texte.php', '', true);
 	}
 
-	protected function setUp(): void
-	{
+	protected function setUp(): void {
 		$this->preparePropreTraiterRaccourcis();
 	}
 
-	protected function tearDown(): void
-	{
+	protected function tearDown(): void {
 		$this->preparePropreTraiterRaccourcis(true);
 	}
 
-	public function preparePropreTraiterRaccourcis(bool $revert = false)
-	{
+	public function preparePropreTraiterRaccourcis(bool $revert = false) {
 		static $mem = [null, null];
 		if ($revert) {
 			$GLOBALS['toujours_paragrapher'] = $mem[0];
@@ -44,14 +40,12 @@ class TraiterRaccourcisTest extends TestCase
 	/**
 	 * @dataProvider providerPropreTraiterRaccourcis
 	 */
-	public function testPropreTraiterRaccourcis($expected, ...$args): void
-	{
+	public function testPropreTraiterRaccourcis($expected, ...$args): void {
 		$actual = traiter_raccourcis(...$args);
 		$this->assertSame($expected, $actual);
 	}
 
-	public static function providerPropreTraiterRaccourcis(): array
-	{
+	public static function providerPropreTraiterRaccourcis(): array {
 		return [
 			/*
 			if (!preg_match($c = ",<p\b.*?>titi</p>\n<p\b.*?>toto</p>,",

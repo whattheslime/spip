@@ -12,22 +12,19 @@ use PHPUnit\Framework\TestCase;
 
 class RecupHeureTest extends TestCase
 {
-	public static function setUpBeforeClass(): void
-	{
+	public static function setUpBeforeClass(): void {
 		find_in_path('inc/filtres.php', '', true);
 	}
 
 	/**
 	 * @dataProvider providerFiltresRecupHeure
 	 */
-	public function testFiltresRecupHeure($expected, ...$args): void
-	{
+	public function testFiltresRecupHeure($expected, ...$args): void {
 		$actual = recup_heure(...$args);
 		$this->assertSame($expected, $actual);
 	}
 
-	public static function providerFiltresRecupHeure(): array
-	{
+	public static function providerFiltresRecupHeure(): array {
 		return [
 			// pas d’heure
 			'yyyy-mm-dd #1' => [

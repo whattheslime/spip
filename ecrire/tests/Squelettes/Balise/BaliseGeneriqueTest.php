@@ -9,8 +9,7 @@ use Spip\Test\Templating;
 
 class BaliseGeneriqueTest extends SquelettesTestCase
 {
-	public function testBaliseInexistante(): void
-	{
+	public function testBaliseInexistante(): void {
 		$this->assertEmptyCode('#JENEXISTEPAS');
 		$this->assertEmptyCode('[(#JENEXISTEPAS)]');
 		$this->assertEmptyCode('[avant(#JENEXISTEPAS)apres]');
@@ -21,8 +20,7 @@ class BaliseGeneriqueTest extends SquelettesTestCase
 		$this->assertEqualsCode('avant{rien}apres', '[avant(#JENEXISTEPAS{rien})apres]');
 	}
 
-	public function testBaliseDeclaree(): void
-	{
+	public function testBaliseDeclaree(): void {
 		$templating = Templating::fromString([
 			'fonctions' => '
 				function balise_JEXISTE_dist($p){
@@ -35,8 +33,7 @@ class BaliseGeneriqueTest extends SquelettesTestCase
 		$this->assertOkTemplate($templating, '[(#JEXISTE)]');
 	}
 
-	public function testBaliseDeclareeAvantApres(): void
-	{
+	public function testBaliseDeclareeAvantApres(): void {
 		$templating = Templating::fromString([
 			'fonctions' => '
 				function balise_JEXISTE_dist($p){
@@ -51,8 +48,7 @@ class BaliseGeneriqueTest extends SquelettesTestCase
 		$this->assertEqualsTemplate('', $templating, '[avant(#JEXISTE|non)apres]');
 	}
 
-	public function testBaliseDeclareeEtParams(): void
-	{
+	public function testBaliseDeclareeEtParams(): void {
 		$templating = Templating::fromString([
 			'fonctions' => '
 				function balise_JEXISTE_dist($p){
@@ -69,8 +65,7 @@ class BaliseGeneriqueTest extends SquelettesTestCase
 		$this->assertOkTemplate($templating, '[(#JEXISTE{[(#VAL{[(#SELF)]})]})]');
 	}
 
-	public function testBaliseDeclareeEtParamsUtiles(): void
-	{
+	public function testBaliseDeclareeEtParamsUtiles(): void {
 		$templating = Templating::fromString([
 			'fonctions' => '
 				function balise_ZEXISTE_dist($p){
@@ -91,8 +86,7 @@ class BaliseGeneriqueTest extends SquelettesTestCase
 		$this->assertEmptyTemplate($templating, '[avant(#ZEXISTE{ok}|non)apres]');
 	}
 
-	public function testBaliseSurchargee(): void
-	{
+	public function testBaliseSurchargee(): void {
 		$templating = Templating::fromString([
 			'fonctions' => '
 				function balise_REXISTE_dist($p){

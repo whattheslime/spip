@@ -12,22 +12,19 @@ use PHPUnit\Framework\TestCase;
 
 class ParametreUrlTest extends TestCase
 {
-	public static function setUpBeforeClass(): void
-	{
+	public static function setUpBeforeClass(): void {
 		find_in_path('./inc/utils.php', '', true);
 	}
 
 	/**
 	 * @dataProvider providerUtilsParametreUrl
 	 */
-	public function testUtilsParametreUrl($expected, ...$args): void
-	{
+	public function testUtilsParametreUrl($expected, ...$args): void {
 		$actual = parametre_url(...$args);
 		$this->assertSame($expected, $actual);
 	}
 
-	public static function providerUtilsParametreUrl(): array
-	{
+	public static function providerUtilsParametreUrl(): array {
 		return [
 			0 => [
 				0 => '/ecrire/?exec=exec&amp;id_obj=id_obj&amp;no_val&amp;ajout=valajout',

@@ -12,13 +12,11 @@ use PHPUnit\Framework\TestCase;
 
 class NomMoisTest extends TestCase
 {
-	public static function setUpBeforeClass(): void
-	{
+	public static function setUpBeforeClass(): void {
 		find_in_path('inc/filtres.php', '', true);
 	}
 
-	protected function setUp(): void
-	{
+	protected function setUp(): void {
 		changer_langue('fr');
 		// ce test est en fr
 	}
@@ -26,14 +24,12 @@ class NomMoisTest extends TestCase
 	/**
 	 * @dataProvider providerFiltresNomMois
 	 */
-	public function testFiltresNomMois($expected, ...$args): void
-	{
+	public function testFiltresNomMois($expected, ...$args): void {
 		$actual = nom_mois(...$args);
 		$this->assertSame($expected, $actual);
 	}
 
-	public static function providerFiltresNomMois(): array
-	{
+	public static function providerFiltresNomMois(): array {
 		return [
 			0 => [
 				0 => '',

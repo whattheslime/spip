@@ -9,48 +9,41 @@ use Spip\Test\SquelettesTestCase;
 
 class SquelettesTestCaseTest extends SquelettesTestCase
 {
-	public function testAssertOk(): void
-	{
+	public function testAssertOk(): void {
 		$this->assertOk('ok');
 		$this->assertOk('Ok');
 		$this->assertOk('OK');
 		$this->assertOk('OK NOK NA');
 	}
 
-	public function testAssertOkExceptionNok(): void
-	{
+	public function testAssertOkExceptionNok(): void {
 		$this->expectException(AssertionFailedError::class);
 		$this->assertOk('NOK');
 	}
 
-	public function testAssertOkExceptionNa(): void
-	{
+	public function testAssertOkExceptionNa(): void {
 		$this->expectException(AssertionFailedError::class);
 		$this->assertOk('NA');
 	}
 
-	public function testAssertNotOk()
-	{
+	public function testAssertNotOk() {
 		$this->assertNotOk('nOK');
 		$this->assertNotOk('NOK');
 		$this->assertNotOk('Nok');
 		$this->assertNotOk('Nok OK NA');
 	}
 
-	public function testAssertNotOkExceptionOk(): void
-	{
+	public function testAssertNotOkExceptionOk(): void {
 		$this->expectException(AssertionFailedError::class);
 		$this->assertNotOk('OK');
 	}
 
-	public function testAssertNotOkExceptionNa(): void
-	{
+	public function testAssertNotOkExceptionNa(): void {
 		$this->expectException(AssertionFailedError::class);
 		$this->assertOk('Na');
 	}
 
-	public function testIsNa(): void
-	{
+	public function testIsNa(): void {
 		$this->assertTrue($this->isNa(' NA texte'));
 		$this->assertTrue($this->isNa('na texte'));
 		$this->assertfalse($this->isNa('texte NA'));

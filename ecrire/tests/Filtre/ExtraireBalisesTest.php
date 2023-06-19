@@ -12,8 +12,7 @@ use PHPUnit\Framework\TestCase;
 
 class ExtraireBalisesTest extends TestCase
 {
-	public static function setUpBeforeClass(): void
-	{
+	public static function setUpBeforeClass(): void {
 		find_in_path('./inc/filtres.php', '', true);
 		find_in_path('./inc/lang.php', '', true);
 	}
@@ -21,8 +20,7 @@ class ExtraireBalisesTest extends TestCase
 	/**
 	 * @dataProvider providerFiltresExtraireBalises
 	 */
-	public function testFiltresExtraireBalises($expected, ...$args): void
-	{
+	public function testFiltresExtraireBalises($expected, ...$args): void {
 		$actual = extraire_balises(...$args);
 		$this->assertSame($expected, $actual);
 	}
@@ -30,8 +28,7 @@ class ExtraireBalisesTest extends TestCase
 	/**
 	 * @dataProvider providerFiltresExtraireBalises
 	 */
-	public function testFiltresExtraireBalise($expected, ...$args): void
-	{
+	public function testFiltresExtraireBalise($expected, ...$args): void {
 		// extraire_balise doit renvoyer le premier résultat de extraire_balises
 		// sauf si on fournit un tableau de chaine en entree, ce doit être alors le premier résultat de chaque sous-tableau
 		if (count($args) === 3) {
@@ -53,8 +50,7 @@ class ExtraireBalisesTest extends TestCase
 		$this->assertSame($expected, $actual);
 	}
 
-	public function testFiltresExtraireBalisesMediaRss(): void
-	{
+	public function testFiltresExtraireBalisesMediaRss(): void {
 
 		$rss = file_get_contents(dirname(__DIR__) . '/Fixtures/data/dailymotion.rss');
 		if (empty($rss)) {
@@ -66,8 +62,7 @@ class ExtraireBalisesTest extends TestCase
 		$this->assertEquals(count($balises_media), 40);
 	}
 
-	public static function providerFiltresExtraireBalises(): array
-	{
+	public static function providerFiltresExtraireBalises(): array {
 
 		return [
 			[

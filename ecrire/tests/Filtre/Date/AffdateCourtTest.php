@@ -12,23 +12,20 @@ use PHPUnit\Framework\TestCase;
 
 class AffdateCourtTest extends TestCase
 {
-	public static function setUpBeforeClass(): void
-	{
+	public static function setUpBeforeClass(): void {
 		find_in_path('inc/filtres.php', '', true);
 	}
 
 	/**
 	 * @dataProvider providerFiltresAffdateCourt
 	 */
-	public function testFiltresAffdateCourt($expected, ...$args): void
-	{
+	public function testFiltresAffdateCourt($expected, ...$args): void {
 		changer_langue('fr');
 		$actual = affdate_court(...$args);
 		$this->assertSame($expected, $actual);
 	}
 
-	public static function providerFiltresAffdateCourt(): array
-	{
+	public static function providerFiltresAffdateCourt(): array {
 		return [
 			0 => [
 				0 => ' 2001',

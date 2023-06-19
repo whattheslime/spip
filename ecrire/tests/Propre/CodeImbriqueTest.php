@@ -14,22 +14,19 @@ use PHPUnit\Framework\TestCase;
 
 class CodeImbriqueTest extends TestCase
 {
-	public static function setUpBeforeClass(): void
-	{
+	public static function setUpBeforeClass(): void {
 		find_in_path('inc/texte.php', '', true);
 	}
 
 	/**
 	 * @dataProvider providerPropreCodeImbrique
 	 */
-	public function testPropreCodeImbrique($expected, ...$args): void
-	{
+	public function testPropreCodeImbrique($expected, ...$args): void {
 		$actual = strlen(propre(...$args)) > 0;
 		$this->assertSame($expected, $actual);
 	}
 
-	public static function providerPropreCodeImbrique(): array
-	{
+	public static function providerPropreCodeImbrique(): array {
 		return [[true, '({{{Classificar els resultats}}}
 
 <html><tt><b>{par</b> <i>critère_de_classement</i><b>}</b></tt></html> iIndica l’ordre en què es presenten els resultats. Aquest criteri de classificació correspon a una de les etiquetes extretes de la base de dades per cada tipus de bucle. Per exemple, podrem classificar els articles per la data <code>{per date}</code>, per la data en què han estat redactats  <code>{par date_redac}</code> o per títol <code>{par titre}</code>. (Fixeu-vos que, tot i que les etiquetes es presenten en majúscules, els criteris de classificació es presenten en minúscules.)

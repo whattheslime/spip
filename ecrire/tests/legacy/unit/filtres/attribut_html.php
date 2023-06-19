@@ -23,8 +23,8 @@ $essais[] =
 
 $essais[] =
  [
- 	'L&#039;histoire &#039;tr&#232;s&#039; &#034;folle&#034; des m&#233;tas en iitalik',
- 	'L\'histoire \'tr&egrave;s\' "folle" <strong>des</strong>&nbsp;m&eacute;tas<p>en <em>ii</em>talik</p>',
+	'L&#039;histoire &#039;tr&#232;s&#039; &#034;folle&#034; des m&#233;tas en iitalik',
+	'L\'histoire \'tr&egrave;s\' "folle" <strong>des</strong>&nbsp;m&eacute;tas<p>en <em>ii</em>talik</p>',
  ];
 
 // le a` risque de matcher \s

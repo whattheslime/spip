@@ -191,7 +191,7 @@ function traiter_echap_script_dist($regs, $options = []) {
 	return $regs['raw'];
 }
 
-defined('_PROTEGE_BLOCS') || define('_PROTEGE_BLOCS', ',<('.implode('|', CollecteurHtmlTag::$listeBalisesAProteger).')(\b[^>]*)?>(.*)</\1>,UimsS');
+defined('_PROTEGE_BLOCS') || define('_PROTEGE_BLOCS', ',<(' . implode('|', CollecteurHtmlTag::$listeBalisesAProteger) . ')(\b[^>]*)?>(.*)</\1>,UimsS');
 
 /**
  * pour $source voir commentaire infra (echappe_retour)

@@ -12,22 +12,19 @@ use PHPUnit\Framework\TestCase;
 
 class MoisTest extends TestCase
 {
-	public static function setUpBeforeClass(): void
-	{
+	public static function setUpBeforeClass(): void {
 		find_in_path('inc/filtres.php', '', true);
 	}
 
 	/**
 	 * @dataProvider providerFiltresMois
 	 */
-	public function testFiltresMois($expected, ...$args): void
-	{
+	public function testFiltresMois($expected, ...$args): void {
 		$actual = mois(...$args);
 		$this->assertSame($expected, $actual);
 	}
 
-	public static function providerFiltresMois(): array
-	{
+	public static function providerFiltresMois(): array {
 		return [
 			0 => [
 				0 => '00',

@@ -18,20 +18,17 @@ use PHPUnit\Framework\TestCase;
 
 class EditerLiensTest extends TestCase
 {
-	public static function setUpBeforeClass(): void
-	{
+	public static function setUpBeforeClass(): void {
 		include_spip('action/editer_liens');
 	}
 
-	public static function tearDownAfterClass(): void
-	{
+	public static function tearDownAfterClass(): void {
 		include_spip('base/abstract_sql');
 		sql_delete('spip_auteurs_liens', "objet='spirou'");
 		sql_delete('spip_auteurs_liens', "objet='zorglub'");
 	}
 
-	public function testObjetAssociable()
-	{
+	public function testObjetAssociable() {
 		$essais = [
 			[
 				0 => false,
@@ -64,8 +61,7 @@ class EditerLiensTest extends TestCase
 	/**
 	 * @depends testObjetAssociable
 	 */
-	public function testObjetAssocier()
-	{
+	public function testObjetAssocier() {
 		$essais = [
 			[
 				0 => false,
@@ -145,8 +141,7 @@ class EditerLiensTest extends TestCase
 	/**
 	 * @depends testObjetAssocier
 	 */
-	public function testObjetQualifierLiens()
-	{
+	public function testObjetQualifierLiens() {
 		$essais = [
 			[
 				0 => false,
@@ -223,8 +218,7 @@ class EditerLiensTest extends TestCase
 	/**
 	 * @depends testObjetQualifierLiens
 	 */
-	public function testObjetDissocier()
-	{
+	public function testObjetDissocier() {
 		$essais = [
 			[
 				0 => false,

@@ -175,7 +175,7 @@ abstract class AbstractCollecteur {
 	/**
 	 * Detecter si un texte contient des balises bloc ou non
 	 */
- 	static public function echappementTexteContientBaliseBloc(string $texte): bool {
+	public static function echappementTexteContientBaliseBloc(string $texte): bool {
 		static $pregBalisesBloc;
 
 		if ($pregBalisesBloc === null) {
@@ -190,7 +190,7 @@ abstract class AbstractCollecteur {
 	 * si $isBloc n'est pas fourni, le script detecte automagiquement si ce qu'on
 	 * echappe est un div ou un span
 	 */
-	static public function echappementHtmlBase64(string $texte, string $source = '', ?bool $isBloc = null, array $attributs = []): string {
+	public static function echappementHtmlBase64(string $texte, string $source = '', ?bool $isBloc = null, array $attributs = []): string {
 
 		if ($texte === '') {
 			return '';
@@ -230,7 +230,7 @@ abstract class AbstractCollecteur {
 	 *
 	 * @see echappementHtmlBase64()
 	 */
- 	static public function retablir_depuisHtmlBase64(string $texte, string $source = '', string $filtre = ''): string {
+	public static function retablir_depuisHtmlBase64(string $texte, string $source = '', string $filtre = ''): string {
 		if (str_contains($texte, "base64$source")) {
 			# spip_log(spip_htmlspecialchars($texte));  ## pour les curieux
 			$max_prof = 5;
@@ -238,7 +238,8 @@ abstract class AbstractCollecteur {
 			while ($encore && str_contains($texte, 'base64' . $source) && $max_prof--) {
 				$encore = false;
 				foreach (['span', 'div'] as $tag) {
-					$htmlTagCollecteur = new HtmlTag($tag,
+					$htmlTagCollecteur = new HtmlTag(
+						$tag,
 						"@<{$tag}\s(class=['\"]base64{$source}['\"]\stitle=['\"]([^'\">]*)['\"][^>]*?)(/?)>\s*</{$tag}>@isS",
 						''
 					);
@@ -293,5 +294,4 @@ abstract class AbstractCollecteur {
 		}
 		return $texte;
 	}
-
 }

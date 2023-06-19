@@ -183,7 +183,7 @@ class HtmlTag extends AbstractCollecteur {
 			// et on aura pas non plus de innerHtml si pas de preg_closingtag
 			if ($this->preg_closingtag) {
 				$tag = $this->tag;
-				$legacy_callback = function($c, $options) use ($tag, $callback_function) {
+				$legacy_callback = function ($c, $options) use ($tag, $callback_function) {
 					// legacy : renseigner les infos correspondantes aux matchs de l'ancienne regexp
 					$regs = [
 						0 => $c['raw'],
@@ -204,7 +204,7 @@ class HtmlTag extends AbstractCollecteur {
 	 * pour $source voir commentaire infra (echappe_retour)
 	 * pour $no_transform voir le filtre post_autobr dans inc/filtres
 	 */
-	static public function proteger_balisesHtml(string $texte, string $source = '', ?array $html_tags = null, array $callbacks_function = [], array $callback_options = []): string {
+	public static function proteger_balisesHtml(string $texte, string $source = '', ?array $html_tags = null, array $callbacks_function = [], array $callback_options = []): string {
 		if ($texte === '') {
 			return '';
 		}

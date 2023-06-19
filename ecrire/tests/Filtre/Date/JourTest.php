@@ -12,13 +12,11 @@ use PHPUnit\Framework\TestCase;
 
 class JourTest extends TestCase
 {
-	public static function setUpBeforeClass(): void
-	{
+	public static function setUpBeforeClass(): void {
 		find_in_path('inc/filtres.php', '', true);
 	}
 
-	protected function setUp(): void
-	{
+	protected function setUp(): void {
 		changer_langue('fr');
 		// ce test est en fr
 	}
@@ -26,14 +24,12 @@ class JourTest extends TestCase
 	/**
 	 * @dataProvider providerFiltresJour
 	 */
-	public function testFiltresJour($expected, ...$args): void
-	{
+	public function testFiltresJour($expected, ...$args): void {
 		$actual = jour(...$args);
 		$this->assertSame($expected, $actual);
 	}
 
-	public static function providerFiltresJour(): array
-	{
+	public static function providerFiltresJour(): array {
 		return [
 			0 => [
 				0 => '',

@@ -8,13 +8,11 @@ use Spip\Test\SquelettesTestCase;
 
 class ExposeTest extends SquelettesTestCase
 {
-	public static function setUpBeforeClass(): void
-	{
+	public static function setUpBeforeClass(): void {
 		include_spip('base/abstract_sql');
 	}
 
-	public function testExposerRubrique(): void
-	{
+	public function testExposerRubrique(): void {
 		$id_rubrique = sql_getfetsel('id_rubrique', 'spip_rubriques', [
 			'id_parent=' . sql_quote(0),
 			'statut=' . sql_quote('publie'),
@@ -52,8 +50,7 @@ class ExposeTest extends SquelettesTestCase
 	/**
 	 * @depends testExposerRubrique
 	 */
-	public function testExposerRubriqueInclus(): void
-	{
+	public function testExposerRubriqueInclus(): void {
 		$this->assertOkSquelette(__DIR__ . '/data/balise_expose.html');
 	}
 }

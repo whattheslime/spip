@@ -12,13 +12,11 @@ use PHPUnit\Framework\TestCase;
 
 class DateRelativeTest extends TestCase
 {
-	public static function setUpBeforeClass(): void
-	{
+	public static function setUpBeforeClass(): void {
 		find_in_path('inc/filtres.php', '', true);
 	}
 
-	protected function setUp(): void
-	{
+	protected function setUp(): void {
 		// Pour que le tests soit independant de la timezone du serveur
 		date_default_timezone_set('Europe/Paris');
 		changer_langue('fr');
@@ -28,14 +26,12 @@ class DateRelativeTest extends TestCase
 	/**
 	 * @dataProvider providerFiltresDateRelative
 	 */
-	public function testFiltresDateRelative($expected, ...$args): void
-	{
+	public function testFiltresDateRelative($expected, ...$args): void {
 		$actual = date_relative(...$args);
 		$this->assertSame($expected, $actual);
 	}
 
-	public static function providerFiltresDateRelative(): array
-	{
+	public static function providerFiltresDateRelative(): array {
 		return [
 			0 => [
 				0 => 'dans 1 heure',

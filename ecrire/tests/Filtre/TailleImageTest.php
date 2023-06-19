@@ -12,22 +12,19 @@ use PHPUnit\Framework\TestCase;
 
 class TailleImageTest extends TestCase
 {
-	public static function setUpBeforeClass(): void
-	{
+	public static function setUpBeforeClass(): void {
 		find_in_path('inc/filtres.php', '', true);
 	}
 
 	/**
 	 * @dataProvider providerFiltresTailleImage
 	 */
-	public function testFiltresTailleImage($expected, ...$args): void
-	{
+	public function testFiltresTailleImage($expected, ...$args): void {
 		$actual = taille_image(...$args);
 		$this->assertSame($expected, $actual);
 	}
 
-	public static function providerFiltresTailleImage(): array
-	{
+	public static function providerFiltresTailleImage(): array {
 		return [
 			0 => [
 				0 => [

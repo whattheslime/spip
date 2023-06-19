@@ -12,22 +12,19 @@ use PHPUnit\Framework\TestCase;
 
 class InsererAttributTest extends TestCase
 {
-	public static function setUpBeforeClass(): void
-	{
+	public static function setUpBeforeClass(): void {
 		find_in_path('./inc/filtres.php', '', true);
 	}
 
 	/**
 	 * @dataProvider providerFiltresInsererAttribut
 	 */
-	public function testFiltresInsererAttribut($expected, ...$args): void
-	{
+	public function testFiltresInsererAttribut($expected, ...$args): void {
 		$actual = inserer_attribut(...$args);
 		$this->assertSame($expected, $actual);
 	}
 
-	public static function providerFiltresInsererAttribut(): array
-	{
+	public static function providerFiltresInsererAttribut(): array {
 		return [
 			0 => [
 				0 => "<a href='https://www.spip.net'>SPIP</a>",

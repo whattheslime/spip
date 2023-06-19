@@ -12,22 +12,19 @@ use PHPUnit\Framework\TestCase;
 
 class AnneeTest extends TestCase
 {
-	public static function setUpBeforeClass(): void
-	{
+	public static function setUpBeforeClass(): void {
 		find_in_path('inc/filtres.php', '', true);
 	}
 
 	/**
 	 * @dataProvider providerFiltresAnnee
 	 */
-	public function testFiltresAnnee($expected, ...$args): void
-	{
+	public function testFiltresAnnee($expected, ...$args): void {
 		$actual = annee(...$args);
 		$this->assertSame($expected, $actual);
 	}
 
-	public static function providerFiltresAnnee(): array
-	{
+	public static function providerFiltresAnnee(): array {
 		return [
 			0 => [
 				0 => '2001',

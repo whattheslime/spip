@@ -12,22 +12,19 @@ use PHPUnit\Framework\TestCase;
 
 class SecondesTest extends TestCase
 {
-	public static function setUpBeforeClass(): void
-	{
+	public static function setUpBeforeClass(): void {
 		find_in_path('inc/filtres.php', '', true);
 	}
 
 	/**
 	 * @dataProvider providerFiltresSecondes
 	 */
-	public function testFiltresSecondes($expected, ...$args): void
-	{
+	public function testFiltresSecondes($expected, ...$args): void {
 		$actual = secondes(...$args);
 		$this->assertSame($expected, $actual);
 	}
 
-	public static function providerFiltresSecondes(): array
-	{
+	public static function providerFiltresSecondes(): array {
 		return [
 			0 => [
 				0 => '44',

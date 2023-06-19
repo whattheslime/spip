@@ -5,13 +5,11 @@ declare(strict_types=1);
 // pour FineDiff
 #include_once _SPIP_TEST_INC . '/vendor/autoload.php';
 
-function tests_init_dossier_squelettes()
-{
+function tests_init_dossier_squelettes() {
 	$GLOBALS['dossier_squelettes'] = _DIR_TESTS . 'tests/legacy/squelettes';
 }
 
-function tests_loger_webmestre()
-{
+function tests_loger_webmestre() {
 	// il faut charger une session webmestre
 	include_spip('base/abstract_sql');
 	$webmestre = sql_fetsel('*', 'spip_auteurs', "statut='0minirezo' AND webmestre='oui'", '', 'id_auteur', '0,1');
@@ -25,25 +23,30 @@ function tests_loger_webmestre()
  * ca"=>array(...) si pas d'index, "test {numero}" sera utilise retourne un tableau de textes d'erreur dont le but est
  * d'etre vide :)
  */
-function tester_fun($fun, $essais, $opts = [])
-{
+function tester_fun($fun, $essais, $opts = []) {
 	// pas d'erreur au depart
 	$err = [];
 
 	// let's go !
 	foreach ($essais as $titre => $ess) {
 		switch (is_countable($ess) ? count($ess) : 0) {
-			case 0:	$res = null;
+			case 0:
+				$res = null;
 				break;
-			case 1:	$res = $fun();
+			case 1:
+				$res = $fun();
 				break;
-			case 2:	$res = $fun($ess[1]);
+			case 2:
+				$res = $fun($ess[1]);
 				break;
-			case 3:	$res = $fun($ess[1], $ess[2]);
+			case 3:
+				$res = $fun($ess[1], $ess[2]);
 				break;
-			case 4:	$res = $fun($ess[1], $ess[2], $ess[3]);
+			case 4:
+				$res = $fun($ess[1], $ess[2], $ess[3]);
 				break;
-			case 5:	$res = $fun($ess[1], $ess[2], $ess[3], $ess[4]);
+			case 5:
+				$res = $fun($ess[1], $ess[2], $ess[3], $ess[4]);
 				break;
 			default:
 				$copy = $ess;
@@ -54,8 +57,10 @@ function tester_fun($fun, $essais, $opts = [])
 		$ok = false;
 		$expected = null;
 		$affdiff = true;
-		if (is_array($ess) && is_array($ess[0]) && (isset($ess[0][0])
-			&& is_string($ess[0][0]) && function_exists($ess[0][0]) && isset($ess[0][1]) && isset($ess[0][2]))) {
+		if (
+			is_array($ess) && is_array($ess[0]) && (isset($ess[0][0])
+			&& is_string($ess[0][0]) && function_exists($ess[0][0]) && isset($ess[0][1]) && isset($ess[0][2]))
+		) {
 			$ok = ($ess[0][0]($ess[0][1], $res) === $ess[0][2]);
 			$expected = $ess[0][0] . '(' . sql_quote($ess[0][1]) . ', $res) == ' . sql_quote($ess[0][2]);
 			$affdiff = false;
@@ -87,8 +92,7 @@ function tester_fun($fun, $essais, $opts = [])
 
 class SpipTestFineDiffRenderer extends \cogpowered\FineDiff\Render\Text
 {
-	public function callback($opcode, $from, $offset, $length): string
-	{
+	public function callback($opcode, $from, $offset, $length): string {
 		$content = substr($from, $offset, $length);
 		switch ($opcode) {
 			case 'c':
@@ -101,8 +105,7 @@ class SpipTestFineDiffRenderer extends \cogpowered\FineDiff\Render\Text
 	}
 }
 
-function display_error($titre, $call, $result, $expected, $opts = [])
-{
+function display_error($titre, $call, $result, $expected, $opts = []) {
 	$out = null;
 	static $bef, $mid, $end;
 	static $style;
@@ -118,9 +121,11 @@ function display_error($titre, $call, $result, $expected, $opts = [])
 	} else {
 		if (! isset($bef)) {
 			// options
-			foreach ([
+			foreach (
+				[
 				'out' => '<dt>@</dt><dd class="ei">@</dd>',
-			] as $opt => $def) {
+				] as $opt => $def
+			) {
 				${$opt} = $opts[$opt] ?? $def;
 			}
 
@@ -166,8 +171,7 @@ function display_error($titre, $call, $result, $expected, $opts = [])
 
 if (! function_exists('array_diff_assoc_recursive')) {
 	// http://www.php.net/manual/fr/function.array-diff-assoc.php#73972
-	function array_diff_assoc_recursive($array1, $array2)
-	{
+	function array_diff_assoc_recursive($array1, $array2) {
 		foreach ($array1 as $key => $value) {
 			if (is_array($value)) {
 				if (! isset($array2[$key])) {
@@ -189,8 +193,7 @@ if (! function_exists('array_diff_assoc_recursive')) {
 	}
 }
 
-function test_equality($val1, $val2)
-{
+function test_equality($val1, $val2) {
 	if (is_array($val1) && is_array($val2)) {
 		return ! (is_countable(array_diff_assoc_recursive($val1, $val2)) ? count(
 			array_diff_assoc_recursive($val1, $val2)
@@ -206,8 +209,7 @@ function test_equality($val1, $val2)
 	return $val1 === $val2;
 }
 
-function tests_legacy_lister($extension = null)
-{
+function tests_legacy_lister($extension = null) {
 	// chercher les bases de tests
 	$bases = [_DIR_TESTS . 'tests/legacy/unit'];
 	foreach (creer_chemin() as $d) {

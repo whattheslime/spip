@@ -25,8 +25,7 @@ class DepotMetaTest extends TestCase
 
 	protected static $serassoc;
 
-	public static function setUpBeforeClass(): void
-	{
+	public static function setUpBeforeClass(): void {
 		self::$savedMeta = $GLOBALS['meta'];
 		self::$assoc = [
 			'one' => 'element 1',
@@ -36,16 +35,14 @@ class DepotMetaTest extends TestCase
 		include_spip('inc/config');
 	}
 
-	public static function tearDownAfterClass(): void
-	{
+	public static function tearDownAfterClass(): void {
 		$GLOBALS['meta'] = self::$savedMeta;
 	}
 
 	/**
 	 * expliquer_config
 	 */
-	public function testExpliquerConfig()
-	{
+	public function testExpliquerConfig() {
 		$essais = [];
 		$essais[] = [['meta', null, []], ''];
 		$essais[] = [['meta', '0', []], '0'];
@@ -74,8 +71,7 @@ class DepotMetaTest extends TestCase
 	 *
 	 * @depends testExpliquerConfig
 	 */
-	public function testLireConfig1()
-	{
+	public function testLireConfig1() {
 		$meta = $GLOBALS['meta'];
 
 		// on flingue meta a juste nos donnees
@@ -111,8 +107,7 @@ class DepotMetaTest extends TestCase
 	 *
 	 * @depends testLireConfig1
 	 */
-	public function testEcrireConfig()
-	{
+	public function testEcrireConfig() {
 		/*
 		 * Notes sur l'ecriture :
 		 * - dans le tableau $GLOBALS['meta'], les valeurs transmises
@@ -146,8 +141,7 @@ class DepotMetaTest extends TestCase
 	 *
 	 * @depends testEcrireConfig
 	 */
-	public function testLireConfig2()
-	{
+	public function testLireConfig2() {
 		$essais = [];
 		$essais[] = [0, 'test_cfg_zero'];
 		$essais[] = ['0', 'test_cfg_zeroc'];
@@ -166,8 +160,7 @@ class DepotMetaTest extends TestCase
 	 *
 	 * @depends testLireConfig2
 	 */
-	public function testEffacerConfig()
-	{
+	public function testEffacerConfig() {
 		$essais = [];
 		$essais[] = [true, 'test_cfg_zero'];
 		$essais[] = [true, 'test_cfg_zeroc'];
@@ -187,8 +180,7 @@ class DepotMetaTest extends TestCase
 	 *
 	 * @depends testEffacerConfig
 	 */
-	public function testLireConfig3()
-	{
+	public function testLireConfig3() {
 		$essais = [];
 		$essais[] = [null, 'test_cfg_zero'];
 		$essais[] = [null, 'test_cfg_zeroc'];

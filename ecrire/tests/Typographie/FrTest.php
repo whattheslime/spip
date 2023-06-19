@@ -24,15 +24,13 @@ class FrTest extends TestCase
 
 	protected static $fnTypographie = 'typographie_fr_dist';
 
-	public static function setUpBeforeClass(): void
-	{
+	public static function setUpBeforeClass(): void {
 		include_spip('inc/texte');
 		changer_langue(static::$lang);
 		include_spip(static::$root . 'typographie/' . static::$lang);
 	}
 
-	public static function providerBase()
-	{
+	public static function providerBase() {
 		$list = [
 			'bonjour' => 'bonjour',
 			'bonjour ' => 'bonjour ',
@@ -44,14 +42,12 @@ class FrTest extends TestCase
 	/**
 	 * @dataProvider providerBase
 	 */
-	public function testBase($source, $expected)
-	{
+	public function testBase($source, $expected) {
 		$typographie = static::$fnTypographie;
 		$this->assertEquals($expected, $typographie($source));
 	}
 
-	public static function providerAddsSpaceOnPonctuation()
-	{
+	public static function providerAddsSpaceOnPonctuation() {
 		$list = [
 			'bonjour:' => 'bonjour&nbsp;:',
 			'bonjour;' => 'bonjour&nbsp;;',
@@ -64,14 +60,12 @@ class FrTest extends TestCase
 	/**
 	 * @dataProvider providerAddsSpaceOnPonctuation
 	 */
-	public function testAddsSpaceOnPonctuation($source, $expected)
-	{
+	public function testAddsSpaceOnPonctuation($source, $expected) {
 		$typographie = static::$fnTypographie;
 		$this->assertEquals($expected, $typographie($source));
 	}
 
-	public static function providerChangeSpaceToNonBreakingSpaceOnPonctuation()
-	{
+	public static function providerChangeSpaceToNonBreakingSpaceOnPonctuation() {
 		$list = [
 			'bonjour :' => 'bonjour&nbsp;:',
 			'bonjour ;' => 'bonjour&nbsp;;',
@@ -84,14 +78,12 @@ class FrTest extends TestCase
 	/**
 	 * @dataProvider providerChangeSpaceToNonBreakingSpaceOnPonctuation
 	 */
-	public function testChangeSpaceToNonBreakingSpaceOnPonctuation($source, $expected)
-	{
+	public function testChangeSpaceToNonBreakingSpaceOnPonctuation($source, $expected) {
 		$typographie = static::$fnTypographie;
 		$this->assertEquals($expected, $typographie($source));
 	}
 
-	public static function providerChangeTildeToNonBreakingSpace()
-	{
+	public static function providerChangeTildeToNonBreakingSpace() {
 		$list = [
 			'bonjour~toi' => 'bonjour&nbsp;toi',
 			'bonjour~le~monde' => 'bonjour&nbsp;le&nbsp;monde',
@@ -102,14 +94,12 @@ class FrTest extends TestCase
 	/**
 	 * @dataProvider providerChangeTildeToNonBreakingSpace
 	 */
-	public function testChangeTildeToNonBreakingSpace($source, $expected)
-	{
+	public function testChangeTildeToNonBreakingSpace($source, $expected) {
 		$typographie = static::$fnTypographie;
 		$this->assertEquals($expected, $typographie($source));
 	}
 
-	public static function providerChangeTildeToNonBreakingSpaceOnPonctuation()
-	{
+	public static function providerChangeTildeToNonBreakingSpaceOnPonctuation() {
 		$list = [
 			'bonjour~:' => 'bonjour&nbsp;:',
 			'bonjour~;' => 'bonjour&nbsp;;',
@@ -122,14 +112,12 @@ class FrTest extends TestCase
 	/**
 	 * @dataProvider providerChangeTildeToNonBreakingSpaceOnPonctuation
 	 */
-	public function testChangeTildeToNonBreakingSpaceOnPonctuation($source, $expected)
-	{
+	public function testChangeTildeToNonBreakingSpaceOnPonctuation($source, $expected) {
 		$typographie = static::$fnTypographie;
 		$this->assertEquals($expected, $typographie($source));
 	}
 
-	public static function providerKeepNonBreakingSpaceEntity()
-	{
+	public static function providerKeepNonBreakingSpaceEntity() {
 		$list = [
 			'bonjour&nbsp;toi' => 'bonjour&nbsp;toi',
 			'bonjour&nbsp;toi&nbsp;!' => 'bonjour&nbsp;toi&nbsp;!',
@@ -140,14 +128,12 @@ class FrTest extends TestCase
 	/**
 	 * @dataProvider providerKeepNonBreakingSpaceEntity
 	 */
-	public function testKeepNonBreakingSpaceEntity($source, $expected)
-	{
+	public function testKeepNonBreakingSpaceEntity($source, $expected) {
 		$typographie = static::$fnTypographie;
 		$this->assertEquals($expected, $typographie($source));
 	}
 
-	public static function providerKeepNonBreakingSpaceUtf()
-	{
+	public static function providerKeepNonBreakingSpaceUtf() {
 		$list = [
 			'bonjour toi' => 'bonjour toi',
 			'bonjour toi !' => 'bonjour toi !',
@@ -158,16 +144,14 @@ class FrTest extends TestCase
 	/**
 	 * @dataProvider providerKeepNonBreakingSpaceUtf
 	 */
-	public function testKeepNonBreakingSpaceUtf($source, $expected): never
-	{
+	public function testKeepNonBreakingSpaceUtf($source, $expected): never {
 		$typographie = static::$fnTypographie;
 		// TODO
 		$this->markTestSkipped('NIY');
 		$this->assertEquals($expected, $typographie($source));
 	}
 
-	public static function providerKeepDoubleTwoPoints()
-	{
+	public static function providerKeepDoubleTwoPoints() {
 		$list = [
 			'bonjour::' => 'bonjour::',
 			'::1/128' => '::1/128',
@@ -179,8 +163,7 @@ class FrTest extends TestCase
 	/**
 	 * @dataProvider providerKeepDoubleTwoPoints
 	 */
-	public function testKeepDoubleTwoPoints($source, $expected): never
-	{
+	public function testKeepDoubleTwoPoints($source, $expected): never {
 		$typographie = static::$fnTypographie;
 		// TODO
 		$this->markTestSkipped('NIY');

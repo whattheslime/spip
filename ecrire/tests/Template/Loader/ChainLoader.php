@@ -15,15 +15,13 @@ class ChainLoader implements LoaderInterface
 
 	private array $cache = [];
 
-	public function __construct(array $loaders)
-	{
+	public function __construct(array $loaders) {
 		foreach ($loaders as $loader) {
 			$this->addLoader($loader);
 		}
 	}
 
-	public function exists(string $name): bool
-	{
+	public function exists(string $name): bool {
 		if (isset($this->cache[$name])) {
 			return $this->cache[$name];
 		}
@@ -37,8 +35,7 @@ class ChainLoader implements LoaderInterface
 		return $this->cache[$name] = false;
 	}
 
-	public function getCacheKey(string $name): string
-	{
+	public function getCacheKey(string $name): string {
 		foreach ($this->loaders as $loader) {
 			if (!$loader->exists($name)) {
 				continue;
@@ -50,8 +47,7 @@ class ChainLoader implements LoaderInterface
 		throw new TemplateNotFoundException($name);
 	}
 
-	public function getSourceFile(string $name): string
-	{
+	public function getSourceFile(string $name): string {
 		foreach ($this->loaders as $loader) {
 			if (!$loader->exists($name)) {
 				continue;
@@ -63,8 +59,7 @@ class ChainLoader implements LoaderInterface
 		throw new TemplateNotFoundException($name);
 	}
 
-	private function addLoader(LoaderInterface $loader)
-	{
+	private function addLoader(LoaderInterface $loader) {
 		$this->loaders[] = $loader;
 		$this->cache = [];
 	}

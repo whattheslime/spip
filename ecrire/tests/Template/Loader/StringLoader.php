@@ -12,28 +12,24 @@ class StringLoader implements LoaderInterface
 
 	private array $options = [];
 
-	public function __construct(array $options = [])
-	{
+	public function __construct(array $options = []) {
 		include_spip('inc/flock');
 		$this->cacheDirectory = sous_repertoire(_DIR_CACHE, 'Tests');
 		$this->setOptions($options);
 	}
 
-	public function exists(string $name): bool
-	{
+	public function exists(string $name): bool {
 		return true;
 	}
 
-	public function getCacheKey(string $name): string
-	{
+	public function getCacheKey(string $name): string {
 		return md5($name . serialize($this->options));
 	}
 
 	/**
 	 * Écrit le code du squelette dans un fichier temporaire de cache
 	 */
-	public function getSourceFile(string $name): string
-	{
+	public function getSourceFile(string $name): string {
 		$fond = $this->cacheDirectory . $this->getCacheKey($name);
 		$options = $this->options;
 		$code = $name;
@@ -71,8 +67,7 @@ class StringLoader implements LoaderInterface
 	 *
 	 * @param array $options : param->valeur des options
 	 */
-	private function setOptions(array $options = []): void
-	{
+	private function setOptions(array $options = []): void {
 		$this->options = $options;
 	}
 
@@ -82,8 +77,7 @@ class StringLoader implements LoaderInterface
 	 * @param string $code	Code php
 	 * @return string Code php complet
 	 */
-	private function php(string $code): string
-	{
+	private function php(string $code): string {
 		return '<' . "?php\n" . $code . "\n?" . '>';
 	}
 
@@ -95,8 +89,7 @@ class StringLoader implements LoaderInterface
 	 * @param string $filename	Adresse du fichier a ecrire
 	 * @param string $content	Contenu du fichier
 	 */
-	private function ecrire_fichier(string $filename, string $content): void
-	{
+	private function ecrire_fichier(string $filename, string $content): void {
 		if (file_exists($filename)) {
 			supprimer_fichier($filename);
 		}

@@ -111,7 +111,7 @@ function traiter_math($letexte, $source = '', $defaire_amp = false) {
 
 		$traitements = [
 			// Les doubles $$x^2$$ en mode 'div'
-			['str' => '$$', 'preg' => ',[$][$]([^$]+)[$][$],', 'pre' => "\n<p class=\"spip\" style=\"text-align: center;\">", "post" => "</p>\n"],
+			['str' => '$$', 'preg' => ',[$][$]([^$]+)[$][$],', 'pre' => "\n<p class=\"spip\" style=\"text-align: center;\">", 'post' => "</p>\n"],
 			// Les simples $x^2$ en mode 'span'
 			['str' => '$', 'preg' => ',[$]([^$]+)[$],'],
 		];

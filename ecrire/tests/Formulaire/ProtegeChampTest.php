@@ -12,22 +12,19 @@ use PHPUnit\Framework\TestCase;
 
 class ProtegeChampTest extends TestCase
 {
-	public static function setUpBeforeClass(): void
-	{
+	public static function setUpBeforeClass(): void {
 		find_in_path('./balise/formulaire_.php', '', true);
 	}
 
 	/**
 	 * @dataProvider providerFormulaireProtegeChamp
 	 */
-	public function testFormulaireProtegeChamp($expected, ...$args): void
-	{
+	public function testFormulaireProtegeChamp($expected, ...$args): void {
 		$actual = protege_champ(...$args);
 		$this->assertSame($expected, $actual);
 	}
 
-	public static function providerFormulaireProtegeChamp(): array
-	{
+	public static function providerFormulaireProtegeChamp(): array {
 		return [
 			0 => [
 				0 => 'i:1;',

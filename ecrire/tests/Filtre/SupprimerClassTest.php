@@ -12,22 +12,19 @@ use PHPUnit\Framework\TestCase;
 
 class SupprimerClassTest extends TestCase
 {
-	public static function setUpBeforeClass(): void
-	{
+	public static function setUpBeforeClass(): void {
 		find_in_path('./inc/filtres.php', '', true);
 	}
 
 	/**
 	 * @dataProvider providerFiltresSupprimerClass
 	 */
-	public function testFiltresSupprimerClass($expected, ...$args): void
-	{
+	public function testFiltresSupprimerClass($expected, ...$args): void {
 		$actual = supprimer_class(...$args);
 		$this->assertSame($expected, $actual);
 	}
 
-	public static function providerFiltresSupprimerClass(): array
-	{
+	public static function providerFiltresSupprimerClass(): array {
 		return [
 			0 => [
 				0 => "<span class='maclasse-prefixe suffixe-maclasse maclasse--bem'>toto</span>",

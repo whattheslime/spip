@@ -12,22 +12,19 @@ use PHPUnit\Framework\TestCase;
 
 class NeedProxyTest extends TestCase
 {
-	public static function setUpBeforeClass(): void
-	{
+	public static function setUpBeforeClass(): void {
 		find_in_path('./inc/distant.php', '', true);
 	}
 
 	/**
 	 * @dataProvider providerDistantNeedProxy
 	 */
-	public function testDistantNeedProxy($expected, ...$args): void
-	{
+	public function testDistantNeedProxy($expected, ...$args): void {
 		$actual = need_proxy(...$args);
 		$this->assertSame($expected, $actual);
 	}
 
-	public static function providerDistantNeedProxy(): array
-	{
+	public static function providerDistantNeedProxy(): array {
 		return [
 			0 => [
 				0 => 'http://monproxy.example.org',

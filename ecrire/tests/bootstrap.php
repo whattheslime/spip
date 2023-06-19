@@ -45,8 +45,7 @@ $GLOBALS['delais'] = 0;
 @ini_set('display_errors', 'On');
 @error_reporting(E_ALL);
 
-function spip_tests_loger_webmestre()
-{
+function spip_tests_loger_webmestre() {
 	// il faut charger une session webmestre
 	include_spip('base/abstract_sql');
 	$webmestre = sql_fetsel('*', 'spip_auteurs', "statut='0minirezo' AND webmestre='oui'", '', 'id_auteur', '0,1');

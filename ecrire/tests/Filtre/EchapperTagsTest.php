@@ -12,22 +12,19 @@ use PHPUnit\Framework\TestCase;
 
 class EchapperTagsTest extends TestCase
 {
-	public static function setUpBeforeClass(): void
-	{
+	public static function setUpBeforeClass(): void {
 		find_in_path('inc/filtres.php', '', true);
 	}
 
 	/**
 	 * @dataProvider providerFiltresEchapperTags
 	 */
-	public function testFiltresEchapperTags($expected, ...$args): void
-	{
+	public function testFiltresEchapperTags($expected, ...$args): void {
 		$actual = echapper_tags(...$args);
 		$this->assertSame($expected, $actual);
 	}
 
-	public static function providerFiltresEchapperTags(): array
-	{
+	public static function providerFiltresEchapperTags(): array {
 		return [
 			0 => [
 				0 => '',

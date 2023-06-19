@@ -12,22 +12,19 @@ use PHPUnit\Framework\TestCase;
 
 class Var2jsTest extends TestCase
 {
-	public static function setUpBeforeClass(): void
-	{
+	public static function setUpBeforeClass(): void {
 		find_in_path('./inc/json.php', '', true);
 	}
 
 	/**
 	 * @dataProvider providerJsonVar2js
 	 */
-	public function testJsonVar2js($expected, ...$args): void
-	{
+	public function testJsonVar2js($expected, ...$args): void {
 		$actual = var2js(...$args);
 		$this->assertSame($expected, $actual);
 	}
 
-	public static function providerJsonVar2js(): array
-	{
+	public static function providerJsonVar2js(): array {
 		return [
 			0 => [
 				0 => 'true',

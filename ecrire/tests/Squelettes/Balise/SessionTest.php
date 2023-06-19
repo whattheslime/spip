@@ -8,25 +8,21 @@ use Spip\Test\SquelettesTestCase;
 
 class SessionTest extends SquelettesTestCase
 {
-	public static function setUpBeforeClass(): void
-	{
+	public static function setUpBeforeClass(): void {
 		include_spip('inc/session');
 		spip_tests_loger_webmestre();
 	}
 
-	public static function tearDownAfterClass(): void
-	{
+	public static function tearDownAfterClass(): void {
 		spip_tests_deloger_webmestre();
 	}
 
-	public function testVisiteurSession(): void
-	{
+	public function testVisiteurSession(): void {
 		$id_auteur = session_get('id_auteur');
 		$this->assertEqualsCode("$id_auteur", '[(#SESSION{id_auteur})]');
 	}
 
-	public function testSessionSet(): void
-	{
+	public function testSessionSet(): void {
 		session_set('bonbon', null);
 		$this->assertEqualsCode('1----', '1--#HTTP_HEADER{Content-type: text/html}[(#SESSION{bonbon})]--');
 		$this->assertEqualsCode('2----', '2--#HTTP_HEADER{Content-type: text/html}[(#SESSION_SET{bonbon,caramel})]--');

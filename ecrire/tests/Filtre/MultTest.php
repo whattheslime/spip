@@ -12,22 +12,19 @@ use PHPUnit\Framework\TestCase;
 
 class MultTest extends TestCase
 {
-	public static function setUpBeforeClass(): void
-	{
+	public static function setUpBeforeClass(): void {
 		find_in_path('inc/filtres.php', '', true);
 	}
 
 	/**
 	 * @dataProvider providerFiltresMult
 	 */
-	public function testFiltresMult($expected, ...$args): void
-	{
+	public function testFiltresMult($expected, ...$args): void {
 		$actual = mult(...$args);
 		$this->assertSame($expected, $actual);
 	}
 
-	public static function providerFiltresMult(): array
-	{
+	public static function providerFiltresMult(): array {
 		return [
 			0 => [
 				0 => 0,

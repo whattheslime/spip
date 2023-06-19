@@ -1,4 +1,6 @@
-<?php declare(strict_types=1);
+<?php
+
+declare(strict_types=1);
 
 $test = 'email_valide';
 
@@ -131,8 +133,7 @@ echo '</ul>';
 	<p><strong>^([A-Za-z0-9]|&|+|_|-]){1}([A-Za-z0-9]|&|+|_|-|\.)*@[A-Za-z0-9]([A-Za-z0-9]|-|\.){2,}\.[A-Za-z]{2,4}$</strong></p>
 
 	<?php
-function email_public_valide($adresses)
-{
+function email_public_valide($adresses) {
 	// Si c'est un spammeur autant arreter tout de suite
 	if (preg_match(",[\n\r].*(MIME|multipart|Content-),i", $adresses)) {
 		spip_log("Tentative d'injection de mail : {$adresses}");
@@ -144,10 +145,12 @@ function email_public_valide($adresses)
 		// "Marie Toto <Marie@toto.com>"
 		$adresse = trim(preg_replace(',^[^<>"]*<([^<>"]+)>$,i', '\\1', $v));
 		// RFC 822 non respectée
-		if (! preg_match(
-			'#^([A-Za-z0-9]|\+|&|_|-|]){1}([A-Za-z0-9]|\+|&|_|-|\.)*@[A-Za-z0-9]([A-Za-z0-9]|-|\.){2,}\.[A-Za-z]{2,4}$#',
-			$adresse
-		)) {
+		if (
+			! preg_match(
+				'#^([A-Za-z0-9]|\+|&|_|-|]){1}([A-Za-z0-9]|\+|&|_|-|\.)*@[A-Za-z0-9]([A-Za-z0-9]|-|\.){2,}\.[A-Za-z]{2,4}$#',
+				$adresse
+			)
+		) {
 			return false;
 		}
 	}

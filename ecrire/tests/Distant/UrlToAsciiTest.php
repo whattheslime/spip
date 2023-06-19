@@ -12,22 +12,19 @@ use PHPUnit\Framework\TestCase;
 
 class UrlToAsciiTest extends TestCase
 {
-	public static function setUpBeforeClass(): void
-	{
+	public static function setUpBeforeClass(): void {
 		find_in_path('./inc/distant.php', '', true);
 	}
 
 	/**
 	 * @dataProvider providerDistantUrlToAscii
 	 */
-	public function testDistantUrlToAscii($expected, ...$args): void
-	{
+	public function testDistantUrlToAscii($expected, ...$args): void {
 		$actual = url_to_ascii(...$args);
 		$this->assertSame($expected, $actual);
 	}
 
-	public static function providerDistantUrlToAscii(): array
-	{
+	public static function providerDistantUrlToAscii(): array {
 		return [
 			0 => [
 				0 => 'http://www.spip.net/',

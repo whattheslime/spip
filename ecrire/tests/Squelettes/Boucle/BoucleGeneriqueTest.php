@@ -8,26 +8,22 @@ use Spip\Test\SquelettesTestCase;
 
 class BoucleGeneriqueTest extends SquelettesTestCase
 {
-	public function testBoucleMetaSimple(): void
-	{
+	public function testBoucleMetaSimple(): void {
 		$this->assertNotEmptyCode('<BOUCLE_meta(spip_meta)>#NOM</BOUCLE_meta>');
 		$this->assertOkCode('ok<BOUCLE_meta(spip_meta)> </BOUCLE_meta>');
 		$this->assertOkCode('<BOUCLE_meta(spip_meta)> </BOUCLE_meta>ok');
 	}
 
-	public function testBoucleMetaSimpleRaccourcisFinBoucle(): void
-	{
+	public function testBoucleMetaSimpleRaccourcisFinBoucle(): void {
 		$this->assertOkCode('<BOUCLE_meta(spip_meta) />ok');
 	}
 
-	public function testBoucleMetaSimpleAvantApres(): void
-	{
+	public function testBoucleMetaSimpleAvantApres(): void {
 		$this->assertOkCode('<B_meta>ok<BOUCLE_meta(spip_meta)> </BOUCLE_meta>');
 		$this->assertOkCode('<BOUCLE_meta(spip_meta)> </BOUCLE_meta>ok</B_meta>');
 	}
 
-	public function testBoucleMetaSimpleSinon(): void
-	{
+	public function testBoucleMetaSimpleSinon(): void {
 		$this->assertNotOkCode('<BOUCLE_meta(spip_meta)> </BOUCLE_meta>ok<//B_meta>');
 		$this->assertOkCode('<BOUCLE_meta(spip_meta)> </BOUCLE_meta>ok</B_meta>non<//B_meta>');
 
@@ -38,8 +34,7 @@ class BoucleGeneriqueTest extends SquelettesTestCase
 		$this->assertOkCode('<BOUCLE_meta(spip_meta) />non</B_meta>ok<//B_meta>');
 	}
 
-	public function testBoucleMetaSimpleCritere(): void
-	{
+	public function testBoucleMetaSimpleCritere(): void {
 		$this->assertEqualsCode($GLOBALS['meta']['nom_site'], '<BOUCLE_meta(spip_meta){nom=nom_site}>#VALEUR</BOUCLE_meta>');
 		$this->assertEmptyCode('<BOUCLE_meta(spip_meta){nom=gristinapolitainsic}>#VALEUR</BOUCLE_meta>');
 		$this->assertOkCode('<BOUCLE_meta(spip_meta){nom=gristinapolitainsic}>#VALEUR</BOUCLE_meta>ok<//B_meta>');
@@ -48,8 +43,7 @@ class BoucleGeneriqueTest extends SquelettesTestCase
 	/**
 	 * @link http://trac.rezo.net/trac/spip/ticket/1931
 	 */
-	public function testBoucleVide(): void
-	{
+	public function testBoucleVide(): void {
 		$this->assertOkSquelette(__DIR__ . '/data/boucle_vide.html');
 	}
 }

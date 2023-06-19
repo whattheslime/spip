@@ -17,13 +17,11 @@ if (! defined('_ECRIRE_INC_VERSION')) {
 }
 #securite
 
-function balise_FORMULAIRE_TEST_PHRASEUR($p)
-{
+function balise_FORMULAIRE_TEST_PHRASEUR($p) {
 	return calculer_balise_dynamique($p, 'FORMULAIRE_TEST_PHRASEUR', ['id_rubrique']);
 }
 
-function balise_FORMULAIRE_TEST_PHRASEUR_stat($args, $context_compil)
-{
+function balise_FORMULAIRE_TEST_PHRASEUR_stat($args, $context_compil) {
 	// le denier arg peut contenir l'url sur lequel faire le retour
 	// exemple dans un squelette article.html : [(#FORMULAIRE_FORUM{#SELF})]
 
@@ -33,11 +31,10 @@ function balise_FORMULAIRE_TEST_PHRASEUR_stat($args, $context_compil)
 	return [$idr, $url];
 }
 
-function balise_FORMULAIRE_TEST_PHRASEUR_dyn($id_rubrique, $url)
-{
+function balise_FORMULAIRE_TEST_PHRASEUR_dyn($id_rubrique, $url) {
 	$res = 'OK';
 
-	if (! preg_match("#^\d+$#", $id_rubrique)) {
+	if (! preg_match('#^\d+$#', $id_rubrique)) {
 		$res = 'Erreur id_rubrique non numerique : ' . var_export($id_rubrique, 1);
 	}
 

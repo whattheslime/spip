@@ -12,22 +12,19 @@ use PHPUnit\Framework\TestCase;
 
 class SpipHtmlentitiesTest extends TestCase
 {
-	public static function setUpBeforeClass(): void
-	{
+	public static function setUpBeforeClass(): void {
 		find_in_path('./inc/filtres.php', '', true);
 	}
 
 	/**
 	 * @dataProvider providerFiltresSpipHtmlentities
 	 */
-	public function testFiltresSpipHtmlentities($expected, ...$args): void
-	{
+	public function testFiltresSpipHtmlentities($expected, ...$args): void {
 		$actual = spip_htmlentities(...$args);
 		$this->assertSame($expected, $actual);
 	}
 
-	public static function providerFiltresSpipHtmlentities(): array
-	{
+	public static function providerFiltresSpipHtmlentities(): array {
 		return [
 			0 => [
 				0 => '',

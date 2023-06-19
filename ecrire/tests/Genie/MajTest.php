@@ -12,22 +12,19 @@ use PHPUnit\Framework\TestCase;
 
 class MajTest extends TestCase
 {
-	public static function setUpBeforeClass(): void
-	{
+	public static function setUpBeforeClass(): void {
 		find_in_path('./genie/mise_a_jour.php', '', true);
 	}
 
 	/**
 	 * @dataProvider providerInfoMajVersions
 	 */
-	public function testInfoMajVersions($expected, ...$args): void
-	{
+	public function testInfoMajVersions($expected, ...$args): void {
 		$actual = info_maj_versions(...$args);
 		$this->assertSame($expected, $actual);
 	}
 
-	public static function providerInfoMajVersions(): array
-	{
+	public static function providerInfoMajVersions(): array {
 		return [
 			'version locale inconnue, maj distantes inconnues : ne rien signaler' => [
 				0 => ['mineure' => '', 'majeure' => ''],

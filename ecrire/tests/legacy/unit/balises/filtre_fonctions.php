@@ -9,12 +9,10 @@ declare(strict_types=1);
  *
  */
 
-function strip_non($texte)
-{
+function strip_non($texte) {
 	return str_replace('NON', '', $texte);
 }
 
-function strip_on($texte)
-{
+function strip_on($texte) {
 	return str_replace('ON', '', $texte);
 }

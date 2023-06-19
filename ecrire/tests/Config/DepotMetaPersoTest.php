@@ -25,8 +25,7 @@ class DepotMetaPersoTest extends TestCase
 
 	protected static $serassoc;
 
-	public static function setUpBeforeClass(): void
-	{
+	public static function setUpBeforeClass(): void {
 		self::$savedMeta = $GLOBALS['meta'];
 		self::$assoc = [
 			'one' => 'element 1',
@@ -35,8 +34,7 @@ class DepotMetaPersoTest extends TestCase
 		self::$serassoc = serialize(self::$assoc);
 	}
 
-	public static function tearDownAfterClass(): void
-	{
+	public static function tearDownAfterClass(): void {
 		$GLOBALS['meta'] = self::$savedMeta;
 		unset($GLOBALS['toto']);
 	}
@@ -44,8 +42,7 @@ class DepotMetaPersoTest extends TestCase
 	/**
 	 * lire_config meta
 	 */
-	public function testLireConfig1()
-	{
+	public function testLireConfig1() {
 		include_spip('inc/config');
 		$meta = $GLOBALS['meta'];
 
@@ -91,8 +88,7 @@ class DepotMetaPersoTest extends TestCase
 	 *
 	 * @depends testLireConfig1
 	 */
-	public function testEcrireConfig()
-	{
+	public function testEcrireConfig() {
 		/*
 		 * Notes sur l'ecriture :
 		 * - dans le tableau $GLOBALS['meta'], les valeurs transmises
@@ -130,8 +126,7 @@ class DepotMetaPersoTest extends TestCase
 	 *
 	 * @depends testEcrireConfig
 	 */
-	public function testLireConfig2()
-	{
+	public function testLireConfig2() {
 		$essais = [];
 		$essais[] = [0, '/toto/test_cfg_zero'];
 		$essais[] = ['0', '/toto/test_cfg_zeroc'];
@@ -150,8 +145,7 @@ class DepotMetaPersoTest extends TestCase
 	 *
 	 * @depends testLireConfig2
 	 */
-	public function testEffacerConfig()
-	{
+	public function testEffacerConfig() {
 		$essais = [];
 		$essais[] = [true, '/toto/test_cfg_zero'];
 		$essais[] = [true, '/toto/test_cfg_zeroc'];
@@ -170,8 +164,7 @@ class DepotMetaPersoTest extends TestCase
 	 *
 	 * @depends testEffacerConfig
 	 */
-	public function testLireConfig3()
-	{
+	public function testLireConfig3() {
 		$essais = [];
 		$essais[] = [null, '/toto/test_cfg_zero'];
 		$essais[] = [null, '/toto/test_cfg_zeroc'];

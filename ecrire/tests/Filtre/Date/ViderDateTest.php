@@ -12,22 +12,19 @@ use PHPUnit\Framework\TestCase;
 
 class ViderDateTest extends TestCase
 {
-	public static function setUpBeforeClass(): void
-	{
+	public static function setUpBeforeClass(): void {
 		find_in_path('inc/filtres.php', '', true);
 	}
 
 	/**
 	 * @dataProvider providerFiltresViderDate
 	 */
-	public function testFiltresViderDate($expected, ...$args): void
-	{
+	public function testFiltresViderDate($expected, ...$args): void {
 		$actual = vider_date(...$args);
 		$this->assertSame($expected, $actual);
 	}
 
-	public static function providerFiltresViderDate(): array
-	{
+	public static function providerFiltresViderDate(): array {
 		return [
 			0 => [
 				0 => '2001-00-00 12:33:44',

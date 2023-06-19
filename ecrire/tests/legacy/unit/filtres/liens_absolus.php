@@ -18,22 +18,22 @@ include_spip('inc/filtres');
 
 $essais['lien prive'] =
  [
- 	"bla bla <a href='" . str_replace(
- 		'&amp;',
- 		'&#38;',
- 		generer_url_ecrire('toto', 'truc=machin&chose=bidule', false, false)
- 	) . "'>lien prive</a>",
- 	"bla bla <a href='" . generer_url_ecrire('toto', 'truc=machin&chose=bidule', false, true) . "'>lien prive</a>",
+	"bla bla <a href='" . str_replace(
+		'&amp;',
+		'&#38;',
+		generer_url_ecrire('toto', 'truc=machin&chose=bidule', false, false)
+	) . "'>lien prive</a>",
+	"bla bla <a href='" . generer_url_ecrire('toto', 'truc=machin&chose=bidule', false, true) . "'>lien prive</a>",
  ];
 
 $essais['lien public'] =
  [
- 	"bla bla <a href='" . str_replace(
- 		'&amp;',
- 		'&#38;',
- 		generer_url_public('toto', 'truc=machin&chose=bidule', false, false)
- 	) . "'>lien public</a>",
- 	"bla bla <a href='" . generer_url_public('toto', 'truc=machin&chose=bidule', false, true) . "'>lien public</a>",
+	"bla bla <a href='" . str_replace(
+		'&amp;',
+		'&#38;',
+		generer_url_public('toto', 'truc=machin&chose=bidule', false, false)
+	) . "'>lien public</a>",
+	"bla bla <a href='" . generer_url_public('toto', 'truc=machin&chose=bidule', false, true) . "'>lien public</a>",
  ];
 
 $essais['mailto'] =

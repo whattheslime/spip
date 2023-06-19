@@ -8,28 +8,24 @@ use PHPUnit\Framework\TestCase;
 
 class NotesTest extends TestCase
 {
-	public static function setUpBeforeClass(): void
-	{
+	public static function setUpBeforeClass(): void {
 		include_spip('public/composer');
 		include_spip('inc/notes');
 	}
 
-	protected function setUp(): void
-	{
+	protected function setUp(): void {
 		$this->viderNotes();
 	}
 
-	public function testNoteSimple(): void
-	{
-		$expected = "<p>a<span class=\"spip_note_ref\">&nbsp;[<a href=\"#nb1\" class=\"spip_note\" rel=\"appendix\" title=\"b\" id=\"nh1\">1</a>]</span></p>";
+	public function testNoteSimple(): void {
+		$expected = '<p>a<span class="spip_note_ref">&nbsp;[<a href="#nb1" class="spip_note" rel="appendix" title="b" id="nh1">1</a>]</span></p>';
 		$this->assertEquals($expected, propre('a[[b]]'));
 
 		$expected = "<div id=\"nb1\">\n<p><span class=\"spip_note_ref\">[<a href=\"#nh1\" class=\"spip_note\" title=\"" . _T('info_notes') . " 1\" rev=\"appendix\">1</a>]&nbsp;</span>b</p>\n</div>";
 		$this->assertEquals($expected, calculer_notes());
 	}
 
-	public function testNoteSeule(): void
-	{
+	public function testNoteSeule(): void {
 		$texte = propre('[[Note en bas de page]]');
 		// id de la note en pied de page
 		$this->assertMatchesRegularExpression('/#nb1/', $texte);
@@ -45,8 +41,7 @@ class NotesTest extends TestCase
 		$this->assertMatchesRegularExpression('/Note en bas de page/', $note);
 	}
 
-	public function testNoteSeuleEtTexte(): void
-	{
+	public function testNoteSeuleEtTexte(): void {
 		$texte = propre('Texte avant [[Note en bas de page]] texte apres');
 		$this->assertMatchesRegularExpression('/#nb1/', $texte);
 		$this->assertMatchesRegularExpression('/nh1/', $texte);
@@ -59,8 +54,7 @@ class NotesTest extends TestCase
 		$this->assertMatchesRegularExpression('/Note en bas de page/', $note);
 	}
 
-	public function testNoteDoubleEtTexte(): void
-	{
+	public function testNoteDoubleEtTexte(): void {
 		$texte = propre('Texte avant [[Note en bas de page]] texte apres [[Seconde note en bas de page]]');
 		$this->assertMatchesRegularExpression('/#nb1/', $texte);
 		$this->assertMatchesRegularExpression('/#nb2/', $texte);
@@ -73,8 +67,7 @@ class NotesTest extends TestCase
 	/**
 	 * En ne vidant pas les notes les identifiant des renvois changent
 	 */
-	public function testNoteDoubleDeuxFoisEtDeuxCalculs(): void
-	{
+	public function testNoteDoubleDeuxFoisEtDeuxCalculs(): void {
 		$texte = propre('Texte avant [[Note en bas de page]] texte apres [[Seconde note en bas de page]]');
 		$note = calculer_notes();
 		$texte2 = propre('Autre avant [[Pinguin en bas de page]] autre apres [[Marmotte en bas de page]]');
@@ -94,8 +87,7 @@ class NotesTest extends TestCase
 	/**
 	 * En ne vidant pas les notes les identifiant des renvois changent
 	 */
-	public function testNoteDoubleDeuxFoisEtUnCalcul(): void
-	{
+	public function testNoteDoubleDeuxFoisEtUnCalcul(): void {
 		$texte = propre('Texte avant [[Note en bas de page]] texte apres [[Seconde note en bas de page]]');
 		$texte2 = propre('Autre avant [[Pinguin en bas de page]] autre apres [[Marmotte en bas de page]]');
 		$note = calculer_notes();
@@ -111,8 +103,7 @@ class NotesTest extends TestCase
 		$this->assertMatchesRegularExpression('/Marmotte en bas de page/', $note);
 	}
 
-	public function testNoteDoubleCoupeParModele(): void
-	{
+	public function testNoteDoubleCoupeParModele(): void {
 		$texte = propre('Texte avant [[Note en bas de page]] <img1> [[Seconde note en bas de page]]');
 		$this->assertMatchesRegularExpression('/#nb1/', $texte);
 		$this->assertMatchesRegularExpression('/#nb2/', $texte);
@@ -122,8 +113,7 @@ class NotesTest extends TestCase
 		$this->assertMatchesRegularExpression('/Seconde note en bas de page/', $note);
 	}
 
-	private function viderNotes(): void
-	{
+	private function viderNotes(): void {
 		// attention a cette globale qui pourrait changer dans le temps
 		$notes = charger_fonction('notes', 'inc');
 		$notes('', 'reset_all');

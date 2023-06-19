@@ -12,13 +12,11 @@ use PHPUnit\Framework\TestCase;
 
 class NormaliserDateTest extends TestCase
 {
-	public static function setUpBeforeClass(): void
-	{
+	public static function setUpBeforeClass(): void {
 		find_in_path('inc/filtres.php', '', true);
 	}
 
-	protected function setUp(): void
-	{
+	protected function setUp(): void {
 		// Pour que le tests soit independant de la timezone du serveur
 		date_default_timezone_set('Europe/Paris');
 	}
@@ -26,14 +24,12 @@ class NormaliserDateTest extends TestCase
 	/**
 	 * @dataProvider providerFiltresNormaliserDate
 	 */
-	public function testFiltresNormaliserDate($expected, ...$args): void
-	{
+	public function testFiltresNormaliserDate($expected, ...$args): void {
 		$actual = normaliser_date(...$args);
 		$this->assertSame($expected, $actual);
 	}
 
-	public static function providerFiltresNormaliserDate(): array
-	{
+	public static function providerFiltresNormaliserDate(): array {
 		return [
 			0 => [
 				0 => '2001-01-01 12:33:44',

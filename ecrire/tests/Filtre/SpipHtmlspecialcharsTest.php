@@ -12,22 +12,19 @@ use PHPUnit\Framework\TestCase;
 
 class SpipHtmlspecialcharsTest extends TestCase
 {
-	public static function setUpBeforeClass(): void
-	{
+	public static function setUpBeforeClass(): void {
 		find_in_path('./inc/filtres.php', '', true);
 	}
 
 	/**
 	 * @dataProvider providerFiltresSpipHtmlspecialchars
 	 */
-	public function testFiltresSpipHtmlspecialchars($expected, ...$args): void
-	{
+	public function testFiltresSpipHtmlspecialchars($expected, ...$args): void {
 		$actual = spip_htmlspecialchars(...$args);
 		$this->assertSame($expected, $actual);
 	}
 
-	public static function providerFiltresSpipHtmlspecialchars(): array
-	{
+	public static function providerFiltresSpipHtmlspecialchars(): array {
 		return [
 			0 => [
 				0 => '',

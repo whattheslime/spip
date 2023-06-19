@@ -426,7 +426,7 @@ function lien_article_virtuel($virtuel) {
 	$parts = parse_url($virtuel);
 	if (!empty($parts['query']) && str_contains($parts['query'], ']')) {
 		$query = str_replace(['[', ']'], [urlencode('['), urlencode(']')], $parts['query']);
-		$virtuel = str_replace("?" . $parts['query'], "?$query", $virtuel);
+		$virtuel = str_replace('?' . $parts['query'], "?$query", $virtuel);
 	}
 	if ($virtuel !== $joli) {
 		$joli = propre('[' . $joli . ' -> ' . $virtuel . ']');

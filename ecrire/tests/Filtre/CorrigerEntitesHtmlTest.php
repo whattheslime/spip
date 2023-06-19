@@ -12,22 +12,19 @@ use PHPUnit\Framework\TestCase;
 
 class CorrigerEntitesHtmlTest extends TestCase
 {
-	public static function setUpBeforeClass(): void
-	{
+	public static function setUpBeforeClass(): void {
 		find_in_path('./inc/filtres.php', '', true);
 	}
 
 	/**
 	 * @dataProvider providerFiltresCorrigerEntitesHtml
 	 */
-	public function testFiltresCorrigerEntitesHtml($expected, ...$args): void
-	{
+	public function testFiltresCorrigerEntitesHtml($expected, ...$args): void {
 		$actual = corriger_entites_html(...$args);
 		$this->assertSame($expected, $actual);
 	}
 
-	public static function providerFiltresCorrigerEntitesHtml(): array
-	{
+	public static function providerFiltresCorrigerEntitesHtml(): array {
 		return [
 			0 => [
 				0 => '',

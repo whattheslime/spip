@@ -12,25 +12,22 @@ class FormHiddenCase extends TestCase
 
 	protected static ?int $id_rubrique;
 
-	public static function setUpBeforeClass(): void
-	{
+	public static function setUpBeforeClass(): void {
 		find_in_path('inc/filtres.php', '', true);
 		self::backupUrls();
 		if (!static::TYPE) {
-			throw new \RuntimeException("Subclass needs to define TYPE");
+			throw new \RuntimeException('Subclass needs to define TYPE');
 		}
 		$GLOBALS['type_urls'] = static::TYPE;
 		$GLOBALS['profondeur_url'] = 0;
 		self::$id_rubrique = self::getIdRubrique();
 	}
 
-	public static function setTearDownAfterClass(): void
-	{
+	public static function setTearDownAfterClass(): void {
 		self::backupUrls(true);
 	}
 
-	public static function backupUrls(bool $restore = false): void
-	{
+	public static function backupUrls(bool $restore = false): void {
 		static $type = null;
 		static $profondeur_url = 0;
 		if ($restore) {
@@ -42,8 +39,7 @@ class FormHiddenCase extends TestCase
 		}
 	}
 
-	protected static function getIdRubrique(): ?int
-	{
+	protected static function getIdRubrique(): ?int {
 		include_spip('base/abstract_sql');
 		$id_rubrique = sql_getfetsel(
 			'id_rubrique',
@@ -54,11 +50,10 @@ class FormHiddenCase extends TestCase
 		return $id_rubrique ? (int) $id_rubrique : null;
 	}
 
-	public function testHasRubrique(): void
-	{
+	public function testHasRubrique(): void {
 		$id = self::$id_rubrique;
 		if (!$id) {
-			$this->markTestSkipped("Needs a published rubrique");
+			$this->markTestSkipped('Needs a published rubrique');
 		}
 		$this->assertNotNull($id);
 	}
@@ -67,8 +62,7 @@ class FormHiddenCase extends TestCase
 	 * @depends testHasRubrique
 	 * @dataProvider providerFormHiddenRubrique
 	 */
-	public function testFormHiddenRubrique($expected, ...$args): void
-	{
+	public function testFormHiddenRubrique($expected, ...$args): void {
 		$id = self::$id_rubrique;
 		$expected = sprintf($expected, $id);
 		$args[0] = sprintf($args[0], $id);
@@ -76,8 +70,7 @@ class FormHiddenCase extends TestCase
 		$this->assertSame($expected, $actual);
 	}
 
-	public static function providerFormHiddenRubrique(): array
-	{
+	public static function providerFormHiddenRubrique(): array {
 		$id = '%s';
 		return [
 			0 =>

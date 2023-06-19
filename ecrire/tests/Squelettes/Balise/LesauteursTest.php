@@ -9,8 +9,7 @@ use Spip\Test\Templating;
 
 class LesauteursTest extends SquelettesTestCase
 {
-	public function testLesAuteursRenvoieQqc(): void
-	{
+	public function testLesAuteursRenvoieQqc(): void {
 		$templating = Templating::fromString();
 		$result = $templating->render(
 			"<BOUCLE_a(ARTICLES){id_auteur>0}{0,1}>

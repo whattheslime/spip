@@ -8,14 +8,12 @@ use Spip\Test\SquelettesTestCase;
 
 class IntroductionTest extends SquelettesTestCase
 {
-	public static function setUpBeforeClass(): void
-	{
+	public static function setUpBeforeClass(): void {
 		include_spip('inc/filtres');
 		include_spip('public/composer');
 	}
 
-	public function testPresenceFiltre(): void
-	{
+	public function testPresenceFiltre(): void {
 		$introduction = $this->getFilterIntroduction();
 		if ($introduction !== 'filtre_introduction_dist') {
 			$this->markTestIncomplete(sprintf("Careful: filter %s is not 'filtre_introduction_dist'", $introduction));
@@ -29,8 +27,7 @@ class IntroductionTest extends SquelettesTestCase
 	 * la description seule ressort avec propre() sans passer par couper() or couper() enleve les balises <p> et consoeur,
 	 * il faut en tenir compte dans la coupe du texte, meme si le texte est plus petit
 	 */
-	public function testDescriptifRetourneSiPresent(): void
-	{
+	public function testDescriptifRetourneSiPresent(): void {
 		$introduction = $this->getFilterIntroduction();
 		$this->assertEquals(
 			propre('description petite'),
@@ -41,8 +38,7 @@ class IntroductionTest extends SquelettesTestCase
 	/**
 	 * couper en plus...
 	 */
-	public function testTexteNonCoupeSiPetit(): void
-	{
+	public function testTexteNonCoupeSiPetit(): void {
 		$introduction = $this->getFilterIntroduction();
 		$this->assertEquals(
 			paragrapher(couper(propre('description plus longue'), 100), true),
@@ -50,8 +46,7 @@ class IntroductionTest extends SquelettesTestCase
 		);
 	}
 
-	public function testTexteCoupe(): void
-	{
+	public function testTexteCoupe(): void {
 		$introduction = $this->getFilterIntroduction();
 		$this->assertEquals(
 			paragrapher(couper(propre('description plus longue'), 10), true),
@@ -63,8 +58,7 @@ class IntroductionTest extends SquelettesTestCase
 		);
 	}
 
-	public function testTexteAvecBaliseIntro(): void
-	{
+	public function testTexteAvecBaliseIntro(): void {
 		$introduction = $this->getFilterIntroduction();
 		$this->assertEquals(
 			paragrapher(couper(propre('plus'), 100), true),
@@ -72,8 +66,7 @@ class IntroductionTest extends SquelettesTestCase
 		);
 	}
 
-	private function getFilterIntroduction(): string
-	{
+	private function getFilterIntroduction(): string {
 		return chercher_filtre('introduction');
 	}
 }

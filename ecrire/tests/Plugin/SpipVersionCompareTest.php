@@ -12,22 +12,19 @@ use PHPUnit\Framework\TestCase;
 
 class SpipVersionCompareTest extends TestCase
 {
-	public static function setUpBeforeClass(): void
-	{
+	public static function setUpBeforeClass(): void {
 		find_in_path('./inc/plugin.php', '', true);
 	}
 
 	/**
 	 * @dataProvider providerPluginSpipVersionCompare
 	 */
-	public function testPluginSpipVersionCompare($expected, ...$args): void
-	{
+	public function testPluginSpipVersionCompare($expected, ...$args): void {
 		$actual = spip_version_compare(...$args);
 		$this->assertSame($expected, $actual);
 	}
 
-	public static function providerPluginSpipVersionCompare(): array
-	{
+	public static function providerPluginSpipVersionCompare(): array {
 		return [
 			0 => [
 				0 => false,

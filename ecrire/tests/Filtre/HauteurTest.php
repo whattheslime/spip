@@ -12,22 +12,19 @@ use PHPUnit\Framework\TestCase;
 
 class HauteurTest extends TestCase
 {
-	public static function setUpBeforeClass(): void
-	{
+	public static function setUpBeforeClass(): void {
 		find_in_path('inc/filtres.php', '', true);
 	}
 
 	/**
 	 * @dataProvider providerFiltresHauteur
 	 */
-	public function testFiltresHauteur($expected, ...$args): void
-	{
+	public function testFiltresHauteur($expected, ...$args): void {
 		$actual = hauteur(...$args);
 		$this->assertSame($expected, $actual);
 	}
 
-	public static function providerFiltresHauteur(): array
-	{
+	public static function providerFiltresHauteur(): array {
 		return [
 			0 => [
 				0 => 223,

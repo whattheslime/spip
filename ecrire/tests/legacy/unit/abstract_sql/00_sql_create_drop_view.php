@@ -32,8 +32,7 @@ include_spip('base/abstract_sql');
  * Lecture de la description des tables
  */
 
-function test_show_table()
-{
+function test_show_table() {
 	$tables = test_sql_datas();
 	$essais = [];
 	// lire la structure de la table
