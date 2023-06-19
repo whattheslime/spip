@@ -694,7 +694,7 @@ function trouver_sous_requetes($where) {
  * @param string $table
  * @param string $id
  * @param string $serveur
- * @param bool $requeter
+ * @param bool|array|string $requeter
  * @return resource
  */
 function calculer_select(

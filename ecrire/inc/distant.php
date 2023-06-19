@@ -357,17 +357,18 @@ function prepare_donnees_post($donnees, $boundary = '') {
 			// fabrique une chaine HTTP simple pour un POST
 			$entete = "Content-Type: application/x-www-form-urlencoded\r\n";
 			if (is_array($donnees)) {
-				$chaine = [];
+				$chaines = [];
 				foreach ($donnees as $cle => $valeur) {
 					if (is_array($valeur)) {
 						foreach ($valeur as $val2) {
-							$chaine[] = rawurlencode($cle) . '[]=' . rawurlencode((string) $val2);
+							$chaines[] = rawurlencode($cle) . '[]=' . rawurlencode((string) $val2);
 						}
 					} else {
-						$chaine[] = rawurlencode($cle) . '=' . rawurlencode((string) $valeur);
+						$chaines[] = rawurlencode($cle) . '=' . rawurlencode((string) $valeur);
 					}
 				}
-				$chaine = implode('&', $chaine);
+				$chaine = implode('&', $chaines);
+				unset($chaines);
 			} else {
 				$chaine = $donnees;
 			}

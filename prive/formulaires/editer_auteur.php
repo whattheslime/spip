@@ -441,7 +441,7 @@ function formulaires_editer_auteur_traiter_dist(
 		} elseif (preg_match(',^\w+\|\d+$,', $associer_objet)) {
 			[$objet, $id_objet] = explode('|', $associer_objet);
 		}
-		if ($objet && $id_objet && autoriser('modifier', $objet, $id_objet)) {
+		if ((bool) $objet && (bool) $id_objet && autoriser('modifier', $objet, $id_objet)) {
 			include_spip('action/editer_auteur');
 			auteur_associer($id_auteur, [$objet => $id_objet]);
 			if (isset($res['redirect'])) {

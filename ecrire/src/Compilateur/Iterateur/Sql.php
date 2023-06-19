@@ -70,7 +70,7 @@ class Sql extends AbstractIterateur implements Iterator
 	 *
 	 * @return array
 	 */
-	public function current(): mixed {
+	public function current(): ?array {
 		return $this->row;
 	}
 
@@ -83,10 +83,8 @@ class Sql extends AbstractIterateur implements Iterator
 	 *
 	 * @param int         $n
 	 * @param null|string $continue
-	 *
-	 * @return bool
 	 */
-	public function seek($n = 0, $continue = null) {
+	public function seek($n = 0, $continue = null): bool {
 		if (!sql_seek($this->sqlresult, $n, $this->command['connect'], $continue)) {
 			// SQLite ne sait pas seek(), il faut relancer la query
 			// si la position courante est apres la position visee
@@ -148,10 +146,8 @@ class Sql extends AbstractIterateur implements Iterator
 
 	/**
 	 * Compter le nombre de resultats.
-	 *
-	 * @return int
 	 */
-	public function count() {
+	public function count(): int {
 		if (is_null($this->total)) {
 			if (!$this->sqlresult) {
 				$this->total = 0;
@@ -160,9 +156,9 @@ class Sql extends AbstractIterateur implements Iterator
 				if (in_array('count(*)', $this->command['select'])) {
 					$this->valid();
 					$s = $this->current();
-					$this->total = $s['count(*)'];
+					$this->total = (int) $s['count(*)'];
 				} else {
-					$this->total = sql_count($this->sqlresult, $this->command['connect']);
+					$this->total = (int) sql_count($this->sqlresult, $this->command['connect']);
 				}
 			}
 		}

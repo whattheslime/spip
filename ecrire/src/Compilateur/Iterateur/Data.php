@@ -376,7 +376,6 @@ class Data extends AbstractIterateur implements Iterator
 	 **/
 	protected function select_orderby() {
 		$sortfunc = '';
-		$aleas = 0;
 		foreach ($this->command['orderby'] as $tri) {
 			// virer le / initial pour les criteres de la forme {par /xx}
 			if (preg_match(',^\.?([/\w:_-]+)( DESC)?$,iS', ltrim((string) $tri, '/'), $r)) {
@@ -442,8 +441,6 @@ class Data extends AbstractIterateur implements Iterator
 
 	/**
 	 * L'iterateur est-il encore valide ?
-	 *
-	 * @return bool
 	 */
 	public function valid(): bool {
 		return !is_null($this->cle);
@@ -451,8 +448,6 @@ class Data extends AbstractIterateur implements Iterator
 
 	/**
 	 * Retourner la valeur
-	 *
-	 * @return mixed
 	 */
 	public function current(): mixed {
 		return $this->valeur;
