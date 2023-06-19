@@ -192,9 +192,8 @@ function inscription_nouveau($desc) {
  *
  * @param string $nom
  * @param string $mail
- * @return string
  */
-function test_login($nom, $mail) {
+function test_login($nom, $mail): string {
 	include_spip('inc/charsets');
 	$nom = strtolower((string) translitteration($nom));
 	$login_base = preg_replace('/[^\w\d_]/', '_', $nom);
