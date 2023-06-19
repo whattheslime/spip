@@ -390,11 +390,8 @@ function lire_fichier_securise($fichier, &$contenu, $options = []) {
  * Arrête le script PHP par un exit;
  *
  * @uses minipres() Pour afficher le message
- *
- * @param string $fichier
- *     Chemin du fichier
  **/
-function raler_fichier($fichier) {
+function raler_fichier(string $fichier): never {
 	if (!defined('_SPIP_ECRIRE_SCRIPT')) {
 		spip_initialisation_suite();
 	}
