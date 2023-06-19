@@ -106,7 +106,8 @@ function fast_find_plugin_dirs($dir, $max_prof = 100) {
 	if (@is_dir($dir) && is_readable($dir) && ($d = opendir($dir))) {
 		while (($f = readdir($d)) !== false) {
 			if (
-				$f[0] != '.' && $f != 'CVS' && is_dir($f = "$dir/$f")
+				$f[0] != '.'
+				&& is_dir($f = "$dir/$f")
 			) {
 				$subdirs[] = $f;
 			}

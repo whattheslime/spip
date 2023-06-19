@@ -714,7 +714,6 @@ function preg_files($dir, $pattern = -1 /* AUTO */, $maxfiles = 10000, $recurs =
 		while (($f = readdir($d)) !== false && ($nbfiles < $maxfiles)) {
 			if (
 				$f[0] != '.'
-				&& $f != 'CVS'
 				&& $f != 'remove.txt'
 				&& is_readable($f = "$dir/$f")
 			) {
