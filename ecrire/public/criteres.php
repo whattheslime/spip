@@ -615,7 +615,7 @@ function critere_groupby_dist($idb, &$boucles, $crit) {
  * @param Critere $crit Paramètres du critère dans cette boucle
  * @return void
  */
-function critere_groupby_supprimer_dist($idb, &$boucles, $crit) {
+function critere_groupby_supprimer_dist($idb, &$boucles, $crit): void {
 	$boucles[$idb]->group = [];
 }
 
@@ -642,11 +642,10 @@ function critere_fusion_dist(...$args) {
  * @param string $idb Identifiant de la boucle
  * @param array $boucles AST du squelette
  * @param Critere $crit Paramètres du critère dans cette boucle
- * @return void|array
  */
-function critere_fusion_supprimer_dist(...$args) {
+function critere_fusion_supprimer_dist(...$args): void {
 	trigger_deprecation('spip', '5.0', 'Using "%s" criteria is deprecated, use "%s" criteria instead', 'fusion_supprimer', 'groupby_supprimer');
-	return critere_groupby_supprimer_dist(...$args);
+	critere_groupby_supprimer_dist(...$args);
 }
 
 /**
@@ -681,6 +680,7 @@ function critere_fusion_supprimer_dist(...$args) {
  * @param string $idb Identifiant de la boucle
  * @param array $boucles AST du squelette
  * @param Critere $crit Paramètres du critère dans cette boucle
+ * @return void|array
  */
 function critere_collate_dist($idb, &$boucles, $crit) {
 	if (isset($crit->param[0])) {
@@ -714,6 +714,7 @@ function critere_collate_dist($idb, &$boucles, $crit) {
  * @param string $idb Identifiant de la boucle
  * @param array $boucles AST du squelette
  * @param Critere $crit Paramètres du critère dans cette boucle
+ * @return void|array
  */
 function critere_collecte_dist(...$args) {
 	trigger_deprecation('spip', '5.0', 'Using "%s" criteria is deprecated, use "%s" criteria instead', 'collecte', 'collate');

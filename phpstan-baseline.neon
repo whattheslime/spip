@@ -16,11 +16,6 @@ parameters:
 			path: ecrire/iterateur/data.php
 
 		-
-			message: "#^Result of function critere_groupby_supprimer_dist \\(void\\) is used\\.$#"
-			count: 1
-			path: ecrire/public/criteres.php
-
-		-
 			message: "#^Function image_du_document not found\\.$#"
 			count: 1
 			path: ecrire/public/quete.php
