@@ -70,13 +70,11 @@ class Sql extends AbstractIterateur implements Iterator
 	 *
 	 * @return array
 	 */
-	#[\ReturnTypeWillChange]
-	public function current() {
+	public function current(): mixed {
 		return $this->row;
 	}
 
-	#[\ReturnTypeWillChange]
-	public function key() {
+	public function key(): int {
 		return $this->pos;
 	}
 

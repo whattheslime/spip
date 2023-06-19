@@ -454,25 +454,19 @@ class Data extends AbstractIterateur implements Iterator
 	 *
 	 * @return mixed
 	 */
-	#[\ReturnTypeWillChange]
-	public function current() {
+	public function current(): mixed {
 		return $this->valeur;
 	}
 
 	/**
 	 * Retourner la cle
-	 *
-	 * @return mixed
 	 */
-	#[\ReturnTypeWillChange]
-	public function key() {
+	public function key(): mixed {
 		return $this->cle;
 	}
 
 	/**
 	 * Passer a la valeur suivante
-	 *
-	 * @return void
 	 */
 	public function next(): void {
 		if ($this->valid()) {
@@ -484,10 +478,8 @@ class Data extends AbstractIterateur implements Iterator
 
 	/**
 	 * Compter le nombre total de resultats
-	 *
-	 * @return int
 	 */
-	public function count() {
+	public function count(): int {
 		if (is_null($this->total)) {
 			$this->total = count($this->tableau);
 		}
