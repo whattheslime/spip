@@ -611,7 +611,7 @@ function supprimer_repertoire($dir) {
  * @return string
  *     Chemin du répertoire créé.
  **/
-function sous_repertoire($base, $subdir = '', $nobase = false, $tantpis = false) {
+function sous_repertoire($base, $subdir = '', $nobase = false, $tantpis = false): string {
 	static $dirs = [];
 
 	$base = str_replace('//', '/', $base);
@@ -658,6 +658,7 @@ function sous_repertoire($base, $subdir = '', $nobase = false, $tantpis = false)
 	if ($tantpis) {
 		return '';
 	}
+	// FIXME: throw an Exception…
 	if (!_DIR_RESTREINT) {
 		$base = preg_replace(',^' . _DIR_RACINE . ',', '', $base);
 	}

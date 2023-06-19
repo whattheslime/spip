@@ -6,11 +6,6 @@ parameters:
 			path: ecrire/inc/filtres.php
 
 		-
-			message: "#^Function sous_repertoire\\(\\) should return string but return statement is missing\\.$#"
-			count: 1
-			path: ecrire/inc/flock.php
-
-		-
 			message: "#^Function cache_unlock not found\\.$#"
 			count: 1
 			path: ecrire/inc/rechercher.php
