@@ -6,6 +6,7 @@ Changelog de SPIP 4.2
 
 ### Fixed
 
+- Éviter un `Call to undefined function session_get`
 - #5636 Correction typage arguments de `objet_type`, `table_objet` et `table_objet_sql`
 - #5627 Prévenir une ambiguité de certains squelettes (pour préparer SPIP 5) sur les balises simples utilisant `url(#BALISE)`. Utiliser `url("#BALISE")` ou `url\(#BALISE)`
 - #5104 Éviter une erreur fatale quand un job ne peut pas récupérer les arguments de la callback associée
