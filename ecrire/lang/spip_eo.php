@@ -330,7 +330,7 @@ la retadreso ĉi-sube (alie, via peto estos ignoritaj) :
 	'icone_tous_articles' => 'Ĉiuj viaj artikoloj',
 	'icone_tous_auteur' => 'Ĉiuj aŭtoroj',
 	'icone_tous_visiteur' => 'Ĉiuj vizitantoj',
-	'icone_visiter_site' => 'Vidi la publika spaco',
+	'icone_visiter_site' => 'Vidi la publikan spacon',
 	'icone_voir_en_ligne' => 'Vidi ĉeretigite',
 	'img_indisponible' => 'nedisponebla bildo',
 	'impossible' => 'ne eblas',
