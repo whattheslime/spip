@@ -290,6 +290,7 @@ function formulaires_editer_objet_charger(
 	if ($config_fonc) {
 		$contexte['config'] = $config = $config_fonc($contexte);
 		if (!$lang_default) {
+			include_spip('inc/session');
 			$lang_default = $config['langue'] ?? session_get('lang') ;
 		}
 	}
