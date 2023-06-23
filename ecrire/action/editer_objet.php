@@ -66,12 +66,28 @@ function action_editer_objet_dist($id = null, $objet = null, $set = null) {
 
 /**
  * Appelle toutes les fonctions de modification d'un objet
- * $err est un message d'erreur eventuelle
+ *
+ * Il peut y avoir une fonction propre au type d'objet :
+ * <objet>_modifier dans action/editer_<objet>.php,
+ * qui a dans ce cas la précédence.
+ *
+ * Retourne une chaîne vide en cas de succès,
+ * et déclenche des notifications selon ce qu'on modifie :
+ * <objet>_modifier + objet_modifier et/ou <objet>_instituer + objet_instituer.
+ *
+ * @uses collecter_requests()
+ * @uses objet_modifier_champs()
+ * @uses objet_instituer()
+ *
+ * @pipeline_appel pre_edition : avant la mise à jour en base (via objet_modifier_champs())
+ * @pipeline_appel post_edition : après la mise à jour en base (via objet_modifier_champs())
  *
  * @param string $objet
  * @param int $id
  * @param array|null $set
  * @return mixed|string
+ *   - En cas de succès : (string) chaîne vide
+ *   - En cas d'erreur : (string) message d'erreur
  */
 function objet_modifier($objet, $id, $set = null) {
 	if (($t = objet_type($objet)) !== $objet) {
@@ -156,7 +172,19 @@ function objet_modifier($objet, $id, $set = null) {
 }
 
 /**
- * Insere en base un objet generique
+ * Insère en base un objet générique
+ *
+ * Il peut y avoir une fonction propre au type d'objet :
+ * <objet>_inserer dans action/editer_<objet>.php,
+ * qui a dans ce cas la précédence.
+ *
+ * Retourne le numéro de l'objet en cas de succès,
+ * et déclenche 2 notifications : <objet>_inserer et objet_inserer.
+ *
+ * @uses sql_insertq()
+ *
+ * @pipeline_appel pre_insertion : avant l'enregistrement en base
+ * @pipeline_appel post_insertion : après l'enregistrement en base
  *
  * @param string $objet
  * @param int $id_parent
@@ -165,6 +193,10 @@ function objet_modifier($objet, $id, $set = null) {
  * @global array $GLOBALS ['meta']
  * @global string $GLOBALS ['spip_lang']
  * @return bool|int
+ *   - Succès : (int) numéro de l'objet crée
+ *   - Erreur :
+ *     - (bool) false si sql_insertq() a échoué
+ *     - (int) 0 si le type d'objet n'existe pas ou que la table est mal déclarée
  */
 function objet_inserer($objet, $id_parent = null, $set = null) {
 	$d = null;
