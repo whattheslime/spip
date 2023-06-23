@@ -3,6 +3,7 @@
     <file>./ecrire</file>
     <file>./prive</file>
     <exclude-pattern>ecrire/lang/*</exclude-pattern>
+    <exclude-pattern>ecrire/tests/**/*</exclude-pattern>
 
     <rule ref="SPIP50"/>
 
