@@ -8,22 +8,22 @@ declare(strict_types=1);
  */
 
 // pas en cli ? passe ton chemin ! (ce script est un vilain trou de securite)
-if (php_sapi_name() !== 'cli') {
+if (PHP_SAPI !== 'cli') {
 	throw new RuntimeException('Operation not allowed.');
 }
 
 // let's go spip
-if (! defined('_SPIP_TEST_INC')) {
+if (!defined('_SPIP_TEST_INC')) {
 	define('_SPIP_TEST_INC', dirname(__FILE__, 2));
 }
 
 // si rien defini on va dans le public
 
-if (! defined('_SPIP_TEST_CHDIR')) {
+if (!defined('_SPIP_TEST_CHDIR')) {
 	define('_SPIP_TEST_CHDIR', dirname(_SPIP_TEST_INC));
 }
 
-if (! defined('_DIR_TESTS')) {
+if (!defined('_DIR_TESTS')) {
 	define('_DIR_TESTS', substr(_SPIP_TEST_INC, strlen(_SPIP_TEST_CHDIR) + 1) . '/');
 }
 
@@ -33,7 +33,7 @@ chdir(_SPIP_TEST_CHDIR);
 require_once _SPIP_TEST_CHDIR . '/ecrire/inc_version.php';
 
 // pour notice sur recuperer_fond()
-if (! isset($GLOBALS['spip_lang'])) {
+if (!isset($GLOBALS['spip_lang'])) {
 	include_spip('inc/lang');
 	utiliser_langue_visiteur();
 }

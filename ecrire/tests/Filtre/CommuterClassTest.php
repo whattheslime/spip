@@ -18,7 +18,7 @@ class CommuterClassTest extends TestCase
 	}
 
 	#[DataProvider('providerFiltresCommuterClass')]
- public function testFiltresCommuterClass($expected, ...$args): void {
+	public function testFiltresCommuterClass($expected, ...$args): void {
 		$actual = commuter_class(...$args);
 		$this->assertSame($expected, $actual);
 	}

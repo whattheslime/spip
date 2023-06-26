@@ -18,7 +18,7 @@ class MoisTest extends TestCase
 	}
 
 	#[DataProvider('providerFiltresMois')]
- public function testFiltresMois($expected, ...$args): void {
+	public function testFiltresMois($expected, ...$args): void {
 		$actual = mois(...$args);
 		$this->assertSame($expected, $actual);
 	}

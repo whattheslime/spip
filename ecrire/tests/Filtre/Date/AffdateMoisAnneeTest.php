@@ -23,7 +23,7 @@ class AffdateMoisAnneeTest extends TestCase
 	}
 
 	#[DataProvider('providerFiltresAffdateMoisAnnee')]
- public function testFiltresAffdateMoisAnnee($expected, ...$args): void {
+	public function testFiltresAffdateMoisAnnee($expected, ...$args): void {
 		$actual = affdate_mois_annee(...$args);
 		$this->assertSame($expected, $actual);
 	}

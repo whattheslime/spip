@@ -46,7 +46,7 @@ class DoublonsTest extends SquelettesTestCase
 	}
 
 	#[Depends('testDoublonsAuteurs')]
- public function testDoublonsNommesAuteurs(): void {
+	public function testDoublonsNommesAuteurs(): void {
 		$this->assertOkCode('
 			<BOUCLE_a(AUTEURS){doublons polisson}></BOUCLE_a>
 			<BOUCLE_b(AUTEURS){doublons polisson}{0,1}>Erreur doublons Auteurs</BOUCLE_b>OK<//B_b>

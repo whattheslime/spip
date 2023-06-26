@@ -18,7 +18,7 @@ class LienOuExposeTest extends TestCase
 	}
 
 	#[DataProvider('providerFiltresLienOuExpose')]
- public function testFiltresLienOuExpose($expected, ...$args): void {
+	public function testFiltresLienOuExpose($expected, ...$args): void {
 		$actual = lien_ou_expose(...$args);
 		$this->assertSame($expected, $actual);
 	}

@@ -18,7 +18,7 @@ class FiltrerEntitesTest extends TestCase
 	}
 
 	#[DataProvider('providerFiltresFiltrerEntites')]
- public function testFiltresFiltrerEntites($expected, ...$args): void {
+	public function testFiltresFiltrerEntites($expected, ...$args): void {
 		$actual = filtrer_entites(...$args);
 		$this->assertSame($expected, $actual);
 	}

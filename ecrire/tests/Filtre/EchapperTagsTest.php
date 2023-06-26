@@ -18,7 +18,7 @@ class EchapperTagsTest extends TestCase
 	}
 
 	#[DataProvider('providerFiltresEchapperTags')]
- public function testFiltresEchapperTags($expected, ...$args): void {
+	public function testFiltresEchapperTags($expected, ...$args): void {
 		$actual = echapper_tags(...$args);
 		$this->assertSame($expected, $actual);
 	}

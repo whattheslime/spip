@@ -29,7 +29,7 @@ class ChevronOuvrantTest extends TestCase
 	}
 
 	#[DataProvider('providerPropreChevronOuvrant')]
- public function testPropreChevronOuvrant($expected, ...$args): void {
+	public function testPropreChevronOuvrant($expected, ...$args): void {
 		$actual = propre(...$args);
 		$this->assertSame($expected, $actual);
 	}

@@ -8,7 +8,7 @@ $test = 'liens_classes';
 
 $remonte = __DIR__ . '/';
 
-while (! is_file($remonte . 'test.inc')) {
+while (!is_file($remonte . 'test.inc')) {
 	$remonte .= '../';
 }
 
@@ -20,7 +20,7 @@ include_spip('inc/lang');
 
 $id = sql_getfetsel('id_article', 'spip_articles', "statut='publie'", '', '', '0,1');
 
-if (! $id) {
+if (!$id) {
 	echo 'NA Necessite un article publie<br />';
 }
 
@@ -36,7 +36,7 @@ if (
 
 $id = sql_getfetsel('id_rubrique', 'spip_rubriques', "statut='publie'", '', '', '0,1');
 
-if (! $id) {
+if (!$id) {
 	echo 'NA Necessite une rubrique publiee<br />';
 }
 
@@ -52,7 +52,7 @@ if (
 
 $id = sql_getfetsel('id_syndic', 'spip_syndic', "statut='publie'", '', '', '0,1');
 
-if (! $id) {
+if (!$id) {
 	echo 'NA Necessite un site publie<br />';
 }
 
@@ -61,7 +61,7 @@ $p0 = "[->site{$id}]";
 if (
 	!($c = extraire_attribut(propre($p0), 'class'))
 	|| str_contains($c, 'spip_in')
-	|| !str_contains($c,'spip_out')
+	|| !str_contains($c, 'spip_out')
 ) {
 	$err[] = "Classe {$c} errone dans {$p0} : " . PtoBR(propre($p0));
 }

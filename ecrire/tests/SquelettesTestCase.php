@@ -4,10 +4,10 @@ declare(strict_types=1);
 
 namespace Spip\Test;
 
-use RuntimeException;
 use PHPUnit\Framework\Attributes\UsesClass;
 use PHPUnit\Framework\Constraint\LogicalNot;
 use PHPUnit\Framework\TestCase;
+use RuntimeException;
 use Spip\Test\Constraint\IsOk;
 
 abstract class SquelettesTestCase extends TestCase
@@ -23,7 +23,7 @@ abstract class SquelettesTestCase extends TestCase
 	 * Retourne le chemin relatif depuis la racine de SPIP
 	 */
 	public static function relativePath(string $fullDirectory): string {
-		if (! defined('_SPIP_TEST_CHDIR')) {
+		if (!defined('_SPIP_TEST_CHDIR')) {
 			throw new RuntimeException('_SPIP_TEST_CHDIR needs to be defined');
 		}
 
@@ -71,7 +71,7 @@ abstract class SquelettesTestCase extends TestCase
 		$actual = $templating->render($code, $contexte);
 
 		static::assertOk($actual, $message);
- }
+	}
 
 	/**
 	 * Assertion qui vérifie que le résultat d’un template est vide
@@ -166,7 +166,7 @@ abstract class SquelettesTestCase extends TestCase
 	 */
 	public static function assertOkCode(string $code, array $contexte = [], string $message = ''): void {
 		static::assertOkTemplate(Templating::fromString(), $code, $contexte);
- }
+	}
 
 	/**
 	 * Assertion qui vérifie que le résultat d’un code de squelette n’est pas 'OK'
@@ -224,7 +224,7 @@ abstract class SquelettesTestCase extends TestCase
 	 */
 	public static function assertOkSquelette(string $code, array $contexte = [], string $message = ''): void {
 		static::assertOkTemplate(Templating::fromFile(), $code, $contexte);
- }
+	}
 
 	/**
 	 * Assertion qui vérifie que le résultat d’un fichier de squelette n’est pas 'OK'

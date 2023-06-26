@@ -18,7 +18,7 @@ class TexteBackendTest extends TestCase
 	}
 
 	#[DataProvider('providerFiltresTexteBackend')]
- public function testFiltresTexteBackend($expected, ...$args): void {
+	public function testFiltresTexteBackend($expected, ...$args): void {
 		$actual = texte_backend(...$args);
 		$this->assertSame($expected, $actual);
 	}

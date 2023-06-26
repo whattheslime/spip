@@ -18,7 +18,7 @@ class RecupererNumeroTest extends TestCase
 	}
 
 	#[DataProvider('providerFiltresRecupererNumero')]
- public function testFiltresRecupererNumero($expected, ...$args): void {
+	public function testFiltresRecupererNumero($expected, ...$args): void {
 		$actual = recuperer_numero(...$args);
 		$this->assertSame($expected, $actual);
 	}

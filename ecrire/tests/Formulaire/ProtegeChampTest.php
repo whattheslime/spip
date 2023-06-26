@@ -18,7 +18,7 @@ class ProtegeChampTest extends TestCase
 	}
 
 	#[DataProvider('providerFormulaireProtegeChamp')]
- public function testFormulaireProtegeChamp($expected, ...$args): void {
+	public function testFormulaireProtegeChamp($expected, ...$args): void {
 		$actual = protege_champ(...$args);
 		$this->assertSame($expected, $actual);
 	}

@@ -4,10 +4,10 @@ declare(strict_types=1);
 
 namespace Spip\Test\Filtre\Form;
 
-use RuntimeException;
 use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\Attributes\Depends;
 use PHPUnit\Framework\TestCase;
+use RuntimeException;
 
 class FormHiddenCase extends TestCase
 {
@@ -42,17 +42,6 @@ class FormHiddenCase extends TestCase
 		}
 	}
 
-	protected static function getIdRubrique(): ?int {
-		include_spip('base/abstract_sql');
-		$id_rubrique = sql_getfetsel(
-			'id_rubrique',
-			'spip_rubriques',
-			['statut = ' . sql_quote('publie')],
-			limit: '0, 1',
-		);
-		return $id_rubrique ? (int) $id_rubrique : null;
-	}
-
 	public function testHasRubrique(): void {
 		$id = self::$id_rubrique;
 		if (!$id) {
@@ -62,7 +51,7 @@ class FormHiddenCase extends TestCase
 	}
 
 	#[Depends('testHasRubrique')]
- #[DataProvider('providerFormHiddenRubrique')]
+	#[DataProvider('providerFormHiddenRubrique')]
 	public function testFormHiddenRubrique($expected, ...$args): void {
 		$id = self::$id_rubrique;
 		$expected = sprintf($expected, $id);
@@ -122,5 +111,16 @@ class FormHiddenCase extends TestCase
 				1 => './rubrique' . $id . '.html?calendrier=1&amp;toto=2',
 			],
 		];
+	}
+
+	protected static function getIdRubrique(): ?int {
+		include_spip('base/abstract_sql');
+		$id_rubrique = sql_getfetsel(
+			'id_rubrique',
+			'spip_rubriques',
+			['statut = ' . sql_quote('publie')],
+			limit: '0, 1',
+		);
+		return $id_rubrique ? (int) $id_rubrique : null;
 	}
 }

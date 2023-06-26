@@ -19,8 +19,9 @@ class TraiterModelesTest extends TestCase
 		traiter_modeles($texte);
 		$this->assertNull($GLOBALS['doublons_documents_inclus'] ?? null);
 
-
-		traiter_modeles($texte, ['documents' => ['doc', 'emb', 'img']]);
+		traiter_modeles($texte, [
+			'documents' => ['doc', 'emb', 'img'],
+		]);
 		$this->assertNotEmpty($GLOBALS['doublons_documents_inclus']);
 		$this->assertEquals([1, 2, 3], $GLOBALS['doublons_documents_inclus']);
 	}

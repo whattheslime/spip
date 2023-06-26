@@ -22,7 +22,7 @@ class DateIcalTest extends TestCase
 	}
 
 	#[DataProvider('providerFiltresDateIcal')]
- public function testFiltresDateIcal($expected, ...$args): void {
+	public function testFiltresDateIcal($expected, ...$args): void {
 		$actual = date_ical(...$args);
 		$this->assertSame($expected, $actual);
 	}

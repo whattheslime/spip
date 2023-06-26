@@ -18,7 +18,7 @@ class ModuloTest extends TestCase
 	}
 
 	#[DataProvider('providerFiltresModulo')]
- public function testFiltresModulo($expected, ...$args): void {
+	public function testFiltresModulo($expected, ...$args): void {
 		$actual = modulo(...$args);
 		$this->assertSame($expected, $actual);
 	}

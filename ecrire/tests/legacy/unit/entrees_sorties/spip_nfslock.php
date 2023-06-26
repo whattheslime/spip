@@ -6,7 +6,7 @@ $test = 'spip_nfslock';
 
 $remonte = __DIR__ . '/';
 
-while (! is_file($remonte . 'test.inc')) {
+while (!is_file($remonte . 'test.inc')) {
 	$remonte .= '../';
 }
 
@@ -26,7 +26,7 @@ $birth = false;
 
 $verrou_absent2 = spip_nfslock_test('monfichier', $birth);
 
-if ($verrou && $verrou_ok && ! $verrou_absent && $deverrouille && ! $verrou_absent2) {
+if ($verrou && $verrou_ok && !$verrou_absent && $deverrouille && !$verrou_absent2) {
 	echo 'OK';
 	exit;
 }

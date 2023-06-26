@@ -20,7 +20,7 @@ class AffDateDebutFinTest extends TestCase
 	}
 
 	#[DataProvider('providerAffdateDebutFin')]
- public function testAffdateDebutFin($expected, ...$args): void {
+	public function testAffdateDebutFin($expected, ...$args): void {
 		$this->assertEquals($expected, affdate_debut_fin(...$args));
 	}
 

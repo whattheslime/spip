@@ -18,7 +18,7 @@ class DivTest extends TestCase
 	}
 
 	#[DataProvider('providerFiltresDiv')]
- public function testFiltresDiv($expected, ...$args): void {
+	public function testFiltresDiv($expected, ...$args): void {
 		$actual = div(...$args);
 		//$this->assertSame($expected, $actual);
 		$this->assertEquals($expected, $actual);

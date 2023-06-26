@@ -18,7 +18,7 @@ class ProtocoleVerifierTest extends TestCase
 	}
 
 	#[DataProvider('providerFiltresMiniProtocoleVerifier')]
- public function testFiltresMiniProtocoleVerifier($expected, ...$args): void {
+	public function testFiltresMiniProtocoleVerifier($expected, ...$args): void {
 		$actual = protocole_verifier(...$args);
 		$this->assertSame($expected, $actual);
 	}

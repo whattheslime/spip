@@ -14,6 +14,7 @@ use PHPUnit\Framework\TestCase;
 class InterdireScriptLaxisteTest extends TestCase
 {
 	protected static $save_filtrer_javascript;
+
 	public static function setUpBeforeClass(): void {
 		self::$save_filtrer_javascript = $GLOBALS['filtrer_javascript'];
 		find_in_path('inc/texte.php', '', true);
@@ -28,7 +29,7 @@ class InterdireScriptLaxisteTest extends TestCase
 	}
 
 	#[DataProvider('providerTexteInterdireScriptLaxiste')]
- public function testTexteInterdireScriptLaxiste($expected, ...$args): void {
+	public function testTexteInterdireScriptLaxiste($expected, ...$args): void {
 		$actual = interdire_scripts(...$args);
 		$this->assertSame($expected, $actual);
 	}

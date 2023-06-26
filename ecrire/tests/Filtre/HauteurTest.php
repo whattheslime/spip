@@ -18,7 +18,7 @@ class HauteurTest extends TestCase
 	}
 
 	#[DataProvider('providerFiltresHauteur')]
- public function testFiltresHauteur($expected, ...$args): void {
+	public function testFiltresHauteur($expected, ...$args): void {
 		$actual = hauteur(...$args);
 		$this->assertSame($expected, $actual);
 	}

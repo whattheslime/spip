@@ -25,7 +25,7 @@ class DateRelativeTest extends TestCase
 	}
 
 	#[DataProvider('providerFiltresDateRelative')]
- public function testFiltresDateRelative($expected, ...$args): void {
+	public function testFiltresDateRelative($expected, ...$args): void {
 		$actual = date_relative(...$args);
 		$this->assertSame($expected, $actual);
 	}

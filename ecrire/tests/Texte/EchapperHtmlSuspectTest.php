@@ -13,9 +13,9 @@ use PHPUnit\Framework\TestCase;
 
 class EchapperHtmlSuspectTest extends TestCase
 {
-	static $filtrer_javascript;
-	static $lang;
+	public static $filtrer_javascript;
 
+	public static $lang;
 
 	public static function setUpBeforeClass(): void {
 		find_in_path('inc/texte.php', '', true);
@@ -32,7 +32,7 @@ class EchapperHtmlSuspectTest extends TestCase
 	}
 
 	#[DataProvider('providerIsHtmlSafe')]
- public function testIsHtmlSafe($expected, ...$args): void {
+	public function testIsHtmlSafe($expected, ...$args): void {
 		$actual = is_html_safe(...$args);
 		$this->assertSame($expected, $actual);
 	}
@@ -41,36 +41,21 @@ class EchapperHtmlSuspectTest extends TestCase
 		return [
 			'relOK' => [
 				true,
-				'Voir aussi la page du taxon ️<a class="nom_scientifique" href="http://www.itis.gov/servlet/SingleRpt/SingleRpt?search_topic=TSN&amp;search_value=183813" rel="noreferrer">Acinonyx jubatus</a>. Wikipedia (descriptif rapide).'
+				'Voir aussi la page du taxon ️<a class="nom_scientifique" href="http://www.itis.gov/servlet/SingleRpt/SingleRpt?search_topic=TSN&amp;search_value=183813" rel="noreferrer">Acinonyx jubatus</a>. Wikipedia (descriptif rapide).',
 			],
 			'relInconnu' => [
 				false,
-				'Voir aussi la page du taxon ️<a class="nom_scientifique" href="http://www.itis.gov/servlet/SingleRpt/SingleRpt?search_topic=TSN&amp;search_value=183813" rel="relinconnu">Acinonyx jubatus</a>. Wikipedia (descriptif rapide).'
+				'Voir aussi la page du taxon ️<a class="nom_scientifique" href="http://www.itis.gov/servlet/SingleRpt/SingleRpt?search_topic=TSN&amp;search_value=183813" rel="relinconnu">Acinonyx jubatus</a>. Wikipedia (descriptif rapide).',
 			],
-			'span_lang_fr' => [
-				true,
-				'<span lang="fr">Créer des sélections d’objets ayant un prix</span>',
-			],
+			'span_lang_fr' => [true, '<span lang="fr">Créer des sélections d’objets ayant un prix</span>'],
 			'span_lang_fr_simples_quotes' => [
 				true,
 				'<span lang=\'fr\'>Créer des sélections d’objets ayant un prix</span>',
 			],
-			'entite_unicode' => [
-				true,
-				'<span lang=\'fr\'>Créer des sélections d&#8217;objets ayant un prix</span>',
-			],
-			'multi_safe' => [
-				true,
-				'<multi>[fr]Salut[en]Hey[de]Hallo</multi>',
-			],
-			'multi_malicious' => [
-				false,
-				'<multi><script type="text/javascript">alert()</script></multi>',
-			],
-			'idiome' => [
-				true,
-				'<:spip:bonjour:> Toto',
-			],
+			'entite_unicode' => [true, '<span lang=\'fr\'>Créer des sélections d&#8217;objets ayant un prix</span>'],
+			'multi_safe' => [true, '<multi>[fr]Salut[en]Hey[de]Hallo</multi>'],
+			'multi_malicious' => [false, '<multi><script type="text/javascript">alert()</script></multi>'],
+			'idiome' => [true, '<:spip:bonjour:> Toto'],
 			'mdash' => [
 				true,
 				"Experimenter en astronomie &mdash; Collaboration amateur<span aria-hidden='true'>·</span>trices-professionnel<span aria-hidden='true'>·</span>les",

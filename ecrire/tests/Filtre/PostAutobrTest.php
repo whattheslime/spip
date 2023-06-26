@@ -18,7 +18,7 @@ class PostAutobrTest extends TestCase
 	}
 
 	#[DataProvider('providerFiltresPostAutobr')]
- public function testFiltresPostAutobr($expected, ...$args): void {
+	public function testFiltresPostAutobr($expected, ...$args): void {
 		$actual = post_autobr(...$args);
 		$this->assertSame($expected, $actual);
 	}

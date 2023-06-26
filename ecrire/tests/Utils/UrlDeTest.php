@@ -18,7 +18,7 @@ class UrlDeTest extends TestCase
 	}
 
 	#[DataProvider('providerUtilsUrlDe')]
- public function testUtilsUrlDe($expected, ...$args): void {
+	public function testUtilsUrlDe($expected, ...$args): void {
 		$actual = url_de_(...$args);
 		$this->assertSame($expected, $actual);
 	}

@@ -6,7 +6,7 @@ $test = 'chemin';
 
 $remonte = __DIR__ . '/';
 
-while (! is_file($remonte . 'test.inc')) {
+while (!is_file($remonte . 'test.inc')) {
 	$remonte .= '../';
 }
 

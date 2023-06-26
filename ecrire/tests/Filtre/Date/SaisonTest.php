@@ -23,7 +23,7 @@ class SaisonTest extends TestCase
 	}
 
 	#[DataProvider('providerFiltresSaison')]
- public function testFiltresSaison($expected, ...$args): void {
+	public function testFiltresSaison($expected, ...$args): void {
 		$actual = saison(...$args);
 		$this->assertSame($expected, $actual);
 	}

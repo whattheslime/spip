@@ -34,7 +34,7 @@ class PropreTest extends TestCase
 	}
 
 	#[DataProvider('providerTextePropre')]
- public function testTextePropre($expected, ...$args): void {
+	public function testTextePropre($expected, ...$args): void {
 		$actual = propre(...$args);
 		$this->assertSame($expected, $actual);
 	}
@@ -65,24 +65,24 @@ class PropreTest extends TestCase
 				0 => '<p>Un texte avec des <a href="http://spip.net">liens</a> <a href="spip.php?article1" class="spip_in">Article 1</a> <a href="http://www.spip.net" class="spip_out" rel="external">spip</a> <a href="http://www.spip.net" class="spip_url spip_out auto" rel="nofollow external">http://www.spip.net</a></p>',
 				1 => 'Un texte avec des <a href="http://spip.net">liens</a> [Article 1->art1] [spip->http://www.spip.net] http://www.spip.net',
 			],
-			'string_2'  => [
+			'string_2' => [
 				0 => '<p>Un texte avec des entit&eacute;s &amp;&lt;&gt;&quot;</p>',
 				1 => 'Un texte avec des entit&eacute;s &amp;&lt;&gt;&quot;',
 			],
-			'string_3'  => [
+			'string_3' => [
 				0 => '<p>Un texte sans entites &amp;&lt;>"&#8217;</p>',
 				1 => 'Un texte sans entites &<>"\'',
 			],
-			'string_4'  => [
+			'string_4' => [
 				0 => '<h2 class="spip">Des raccourcis</h2>
 <p> <i>italique</i> <strong>gras</strong> <code class="spip_code spip_code_inline" dir="ltr">du code</code></p>',
 				1 => '{{{Des raccourcis}}} {italique} {{gras}} <code>du code</code>',
 			],
-			'string_5'  => [
+			'string_5' => [
 				0 => '<p>Un modele <tt>&lt;modeleinexistant|lien=[-&gt;http://www.spip.net]&gt;</tt></p>',
 				1 => 'Un modele <modeleinexistant|lien=[->http://www.spip.net]>',
 			],
-			'string_6'  => [
+			'string_6' => [
 				0 => '<p><span class="spip-puce ltr"><b>–</b></span>&nbsp;propre</p>',
 				1 => '- propre',
 			],

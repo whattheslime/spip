@@ -18,7 +18,7 @@ class TailleImageTest extends TestCase
 	}
 
 	#[DataProvider('providerFiltresTailleImage')]
- public function testFiltresTailleImage($expected, ...$args): void {
+	public function testFiltresTailleImage($expected, ...$args): void {
 		$actual = taille_image(...$args);
 		$this->assertSame($expected, $actual);
 	}

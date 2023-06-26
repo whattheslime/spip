@@ -6,6 +6,7 @@ namespace Spip\Test\Exception;
 
 use Exception;
 use Throwable;
+
 class TemplateNotFoundException extends Exception
 {
 	public function __construct($message = '', $code = 0, Throwable $previous = null) {

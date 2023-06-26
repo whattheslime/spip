@@ -23,7 +23,7 @@ class NomJourTest extends TestCase
 	}
 
 	#[DataProvider('providerFiltresNomJour')]
- public function testFiltresNomJour($expected, ...$args): void {
+	public function testFiltresNomJour($expected, ...$args): void {
 		$actual = nom_jour(...$args);
 		$this->assertSame($expected, $actual);
 	}

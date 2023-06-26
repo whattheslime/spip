@@ -18,7 +18,7 @@ class PluginVersionCompatibleTest extends TestCase
 	}
 
 	#[DataProvider('providerPluginPluginVersionCompatible')]
- public function testPluginPluginVersionCompatible($expected, ...$args): void {
+	public function testPluginPluginVersionCompatible($expected, ...$args): void {
 		$actual = plugin_version_compatible(...$args);
 		$this->assertSame($expected, $actual);
 	}

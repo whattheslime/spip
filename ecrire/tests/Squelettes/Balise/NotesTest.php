@@ -12,7 +12,6 @@ class NotesTest extends SquelettesTestCase
 		$this->viderNotes();
 	}
 
-
 	public function testNotesEnVrac(): void {
 		$this->assertOkSquelette(__DIR__ . '/data/notes.html');
 	}

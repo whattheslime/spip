@@ -18,7 +18,7 @@ class RecupHeureTest extends TestCase
 	}
 
 	#[DataProvider('providerFiltresRecupHeure')]
- public function testFiltresRecupHeure($expected, ...$args): void {
+	public function testFiltresRecupHeure($expected, ...$args): void {
 		$actual = recup_heure(...$args);
 		$this->assertSame($expected, $actual);
 	}
@@ -144,7 +144,7 @@ class RecupHeureTest extends TestCase
 				],
 				1 => '2001-03-01 09:12',
 			],
-			'yyyy/mm/dd hh:mm'  => [
+			'yyyy/mm/dd hh:mm' => [
 				0 => [
 					0 => '09',
 					1 => '59',

@@ -18,7 +18,7 @@ class PlusTest extends TestCase
 	}
 
 	#[DataProvider('providerFiltresPlus')]
- public function testFiltresPlus($expected, ...$args): void {
+	public function testFiltresPlus($expected, ...$args): void {
 		$actual = plus(...$args);
 		$this->assertSame($expected, $actual);
 	}

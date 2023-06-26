@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-use cogpowered\FineDiff\Render\Text;
 use cogpowered\FineDiff\Diff;
 use cogpowered\FineDiff\Granularity\Paragraph;
 use cogpowered\FineDiff\Render\Html;
+use cogpowered\FineDiff\Render\Text;
 
 // pour FineDiff
 #include_once _SPIP_TEST_INC . '/vendor/autoload.php';
@@ -77,7 +77,7 @@ function tester_fun($fun, $essais, $opts = []) {
 			'test ' . $GLOBALS['test'] . ' : Essai ' . $GLOBALS['compteur_essai']++ . ($ok ? ' ok' : ' ECHEC'),
 			'testrunner'
 		);
-		if (! $ok) {
+		if (!$ok) {
 			$erritem_args = [];
 			$essCount = count($ess);
 			for ($iarg = 1; $iarg < $essCount; ++$iarg) {
@@ -124,11 +124,11 @@ function display_error($titre, $call, $result, $expected, $opts = []) {
 		$FineDiff->setGranularity(new Paragraph());
 		echo $FineDiff->render($from, var_export($result, true));
 	} else {
-		if (! isset($bef)) {
+		if (!isset($bef)) {
 			// options
 			foreach (
 				[
-				'out' => '<dt>@</dt><dd class="ei">@</dd>',
+					'out' => '<dt>@</dt><dd class="ei">@</dd>',
 				] as $opt => $def
 			) {
 				${$opt} = $opts[$opt] ?? $def;
@@ -174,14 +174,14 @@ function display_error($titre, $call, $result, $expected, $opts = []) {
 	}
 }
 
-if (! function_exists('array_diff_assoc_recursive')) {
+if (!function_exists('array_diff_assoc_recursive')) {
 	// http://www.php.net/manual/fr/function.array-diff-assoc.php#73972
 	function array_diff_assoc_recursive($array1, $array2) {
 		foreach ($array1 as $key => $value) {
 			if (is_array($value)) {
-				if (! isset($array2[$key])) {
+				if (!isset($array2[$key])) {
 					$difference[$key] = $value;
-				} elseif (! is_array($array2[$key])) {
+				} elseif (!is_array($array2[$key])) {
 					$difference[$key] = $value;
 				} else {
 					$new_diff = array_diff_assoc_recursive($value, $array2[$key]);
@@ -189,7 +189,7 @@ if (! function_exists('array_diff_assoc_recursive')) {
 						$difference[$key] = $new_diff;
 					}
 				}
-			} elseif (! array_key_exists($key, $array2) || ! test_equality($array2[$key], $value)) {
+			} elseif (!array_key_exists($key, $array2) || !test_equality($array2[$key], $value)) {
 				$difference[$key] = $value;
 			}
 		}
@@ -200,9 +200,9 @@ if (! function_exists('array_diff_assoc_recursive')) {
 
 function test_equality($val1, $val2) {
 	if (is_array($val1) && is_array($val2)) {
-		return ! (is_countable(array_diff_assoc_recursive($val1, $val2)) ? count(
+		return !(is_countable(array_diff_assoc_recursive($val1, $val2)) ? count(
 			array_diff_assoc_recursive($val1, $val2)
-		) : 0) && ! (is_countable(
+		) : 0) && !(is_countable(
 			array_diff_assoc_recursive($val2, $val1)
 		) ? count(array_diff_assoc_recursive($val2, $val1)) : 0)
 		;
@@ -226,7 +226,7 @@ function tests_legacy_lister($extension = null) {
 		}
 	}
 
-	if (! $extension) {
+	if (!$extension) {
 		$extension = 'php|html';
 	}
 
@@ -267,7 +267,10 @@ function tests_legacy_lister($extension = null) {
 				continue;
 			}
 
-			if (!str_starts_with($testbasename, 'inclus_') && !str_ends_with($testbasename, '_fonctions.php') && (!str_starts_with($testbasename, 'NA_') || _request('var_mode') === 'dev')) {
+			if (!str_starts_with($testbasename, 'inclus_') && !str_ends_with(
+				$testbasename,
+				'_fonctions.php'
+			) && (!str_starts_with($testbasename, 'NA_') || _request('var_mode') === 'dev')) {
 				$joli = preg_replace('#\.(php|html)$#', '', basename($test));
 				$section = dirname($test);
 				if (str_starts_with($base, _DIR_TESTS)) {

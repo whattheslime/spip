@@ -49,7 +49,7 @@ class ExposeTest extends SquelettesTestCase
 	}
 
 	#[Depends('testExposerRubrique')]
- public function testExposerRubriqueInclus(): void {
+	public function testExposerRubriqueInclus(): void {
 		$this->assertOkSquelette(__DIR__ . '/data/balise_expose.html');
 	}
 }

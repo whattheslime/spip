@@ -18,7 +18,7 @@ class NeedProxyTest extends TestCase
 	}
 
 	#[DataProvider('providerDistantNeedProxy')]
- 	public function testDistantNeedProxy($expected, ...$args): void {
+	public function testDistantNeedProxy($expected, ...$args): void {
 		$actual = need_proxy(...$args);
 		$this->assertSame($expected, $actual);
 	}

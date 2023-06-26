@@ -18,7 +18,7 @@ class InsererAttributTest extends TestCase
 	}
 
 	#[DataProvider('providerFiltresInsererAttribut')]
- public function testFiltresInsererAttribut($expected, ...$args): void {
+	public function testFiltresInsererAttribut($expected, ...$args): void {
 		$actual = inserer_attribut(...$args);
 		$this->assertSame($expected, $actual);
 	}

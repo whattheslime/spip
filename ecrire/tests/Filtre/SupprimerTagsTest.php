@@ -18,7 +18,7 @@ class SupprimerTagsTest extends TestCase
 	}
 
 	#[DataProvider('providerFiltresSupprimerTags')]
- public function testFiltresSupprimerTags($expected, ...$args): void {
+	public function testFiltresSupprimerTags($expected, ...$args): void {
 		$actual = supprimer_tags(...$args);
 		$this->assertSame($expected, $actual);
 	}

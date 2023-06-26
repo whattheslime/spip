@@ -25,7 +25,7 @@ class TypoTest extends TestCase
 	}
 
 	#[DataProvider('providerTexteTypo')]
- public function testTexteTypo($expected, ...$args): void {
+	public function testTexteTypo($expected, ...$args): void {
 		$actual = typo(...$args);
 		$this->assertSame($expected, $actual);
 	}
@@ -124,13 +124,13 @@ class TypoTest extends TestCase
 			15 =>
 			[
 				0 => 'Chat&nbsp;!!',
-				1 => 'Chat!!'
+				1 => 'Chat!!',
 			],
 			// et pas apres "(" -- http://trac.rezo.net/trac/spip/changeset/10177
 			'r10177' =>
 			[
 				0 => '(!)',
-				1 => '(!)'
+				1 => '(!)',
 			],
 		];
 	}

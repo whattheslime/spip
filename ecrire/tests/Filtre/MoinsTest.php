@@ -18,7 +18,7 @@ class MoinsTest extends TestCase
 	}
 
 	#[DataProvider('providerFiltresMoins')]
- public function testFiltresMoins($expected, ...$args): void {
+	public function testFiltresMoins($expected, ...$args): void {
 		$actual = moins(...$args);
 		$this->assertSame($expected, $actual);
 	}

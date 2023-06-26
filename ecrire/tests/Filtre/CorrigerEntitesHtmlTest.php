@@ -18,7 +18,7 @@ class CorrigerEntitesHtmlTest extends TestCase
 	}
 
 	#[DataProvider('providerFiltresCorrigerEntitesHtml')]
- public function testFiltresCorrigerEntitesHtml($expected, ...$args): void {
+	public function testFiltresCorrigerEntitesHtml($expected, ...$args): void {
 		$actual = corriger_entites_html(...$args);
 		$this->assertSame($expected, $actual);
 	}

@@ -41,7 +41,7 @@ class FrTest extends TestCase
 	}
 
 	#[DataProvider('providerBase')]
- public function testBase($source, $expected) {
+	public function testBase($source, $expected) {
 		$typographie = static::$fnTypographie;
 		$this->assertEquals($expected, $typographie($source));
 	}
@@ -57,7 +57,7 @@ class FrTest extends TestCase
 	}
 
 	#[DataProvider('providerAddsSpaceOnPonctuation')]
- public function testAddsSpaceOnPonctuation($source, $expected) {
+	public function testAddsSpaceOnPonctuation($source, $expected) {
 		$typographie = static::$fnTypographie;
 		$this->assertEquals($expected, $typographie($source));
 	}
@@ -73,7 +73,7 @@ class FrTest extends TestCase
 	}
 
 	#[DataProvider('providerChangeSpaceToNonBreakingSpaceOnPonctuation')]
- public function testChangeSpaceToNonBreakingSpaceOnPonctuation($source, $expected) {
+	public function testChangeSpaceToNonBreakingSpaceOnPonctuation($source, $expected) {
 		$typographie = static::$fnTypographie;
 		$this->assertEquals($expected, $typographie($source));
 	}
@@ -87,7 +87,7 @@ class FrTest extends TestCase
 	}
 
 	#[DataProvider('providerChangeTildeToNonBreakingSpace')]
- public function testChangeTildeToNonBreakingSpace($source, $expected) {
+	public function testChangeTildeToNonBreakingSpace($source, $expected) {
 		$typographie = static::$fnTypographie;
 		$this->assertEquals($expected, $typographie($source));
 	}
@@ -103,7 +103,7 @@ class FrTest extends TestCase
 	}
 
 	#[DataProvider('providerChangeTildeToNonBreakingSpaceOnPonctuation')]
- public function testChangeTildeToNonBreakingSpaceOnPonctuation($source, $expected) {
+	public function testChangeTildeToNonBreakingSpaceOnPonctuation($source, $expected) {
 		$typographie = static::$fnTypographie;
 		$this->assertEquals($expected, $typographie($source));
 	}
@@ -117,7 +117,7 @@ class FrTest extends TestCase
 	}
 
 	#[DataProvider('providerKeepNonBreakingSpaceEntity')]
- public function testKeepNonBreakingSpaceEntity($source, $expected) {
+	public function testKeepNonBreakingSpaceEntity($source, $expected) {
 		$typographie = static::$fnTypographie;
 		$this->assertEquals($expected, $typographie($source));
 	}
@@ -131,7 +131,7 @@ class FrTest extends TestCase
 	}
 
 	#[DataProvider('providerKeepNonBreakingSpaceUtf')]
- public function testKeepNonBreakingSpaceUtf($source, $expected): never {
+	public function testKeepNonBreakingSpaceUtf($source, $expected): never {
 		$typographie = static::$fnTypographie;
 		// TODO
 		$this->markTestSkipped('NIY');
@@ -148,7 +148,7 @@ class FrTest extends TestCase
 	}
 
 	#[DataProvider('providerKeepDoubleTwoPoints')]
- public function testKeepDoubleTwoPoints($source, $expected): never {
+	public function testKeepDoubleTwoPoints($source, $expected): never {
 		$typographie = static::$fnTypographie;
 		// TODO
 		$this->markTestSkipped('NIY');

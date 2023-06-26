@@ -18,7 +18,7 @@ class SpipHtmlentitiesTest extends TestCase
 	}
 
 	#[DataProvider('providerFiltresSpipHtmlentities')]
- public function testFiltresSpipHtmlentities($expected, ...$args): void {
+	public function testFiltresSpipHtmlentities($expected, ...$args): void {
 		$actual = spip_htmlentities(...$args);
 		$this->assertSame($expected, $actual);
 	}

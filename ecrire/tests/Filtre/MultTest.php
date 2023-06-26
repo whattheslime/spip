@@ -18,7 +18,7 @@ class MultTest extends TestCase
 	}
 
 	#[DataProvider('providerFiltresMult')]
- public function testFiltresMult($expected, ...$args): void {
+	public function testFiltresMult($expected, ...$args): void {
 		$actual = mult(...$args);
 		$this->assertSame($expected, $actual);
 	}
@@ -75,7 +75,6 @@ class MultTest extends TestCase
 				1 => 1000,
 				2 => 10000,
 			],
-
 		];
 	}
 }

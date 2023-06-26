@@ -18,7 +18,7 @@ class UrlToAsciiTest extends TestCase
 	}
 
 	#[DataProvider('providerDistantUrlToAscii')]
- public function testDistantUrlToAscii($expected, ...$args): void {
+	public function testDistantUrlToAscii($expected, ...$args): void {
 		$actual = url_to_ascii(...$args);
 		$this->assertSame($expected, $actual);
 	}

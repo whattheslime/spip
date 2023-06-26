@@ -23,7 +23,7 @@ class DateInterfaceTest extends TestCase
 	}
 
 	#[DataProvider('providerFiltresDateInterface')]
- public function testFiltresDateInterface($expected, ...$args): void {
+	public function testFiltresDateInterface($expected, ...$args): void {
 		$actual = date_interface(...$args);
 		$this->assertSame($expected, $actual);
 	}

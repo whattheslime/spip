@@ -18,7 +18,7 @@ class AjouterClassTest extends TestCase
 	}
 
 	#[DataProvider('providerFiltresAjouterClass')]
- public function testFiltresAjouterClass($expected, ...$args): void {
+	public function testFiltresAjouterClass($expected, ...$args): void {
 		$actual = ajouter_class(...$args);
 		$this->assertSame($expected, $actual);
 	}

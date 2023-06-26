@@ -18,7 +18,7 @@ class ProtegerAmpTest extends TestCase
 	}
 
 	#[DataProvider('providerFiltresProtegerAmp')]
- public function testFiltresProtegerAmp($expected, ...$args): void {
+	public function testFiltresProtegerAmp($expected, ...$args): void {
 		$actual = proteger_amp(...$args);
 		$this->assertSame($expected, $actual);
 	}

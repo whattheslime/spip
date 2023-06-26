@@ -18,7 +18,7 @@ class MajTest extends TestCase
 	}
 
 	#[DataProvider('providerInfoMajVersions')]
- public function testInfoMajVersions($expected, ...$args): void {
+	public function testInfoMajVersions($expected, ...$args): void {
 		$actual = info_maj_versions(...$args);
 		$this->assertSame($expected, $actual);
 	}
@@ -26,7 +26,10 @@ class MajTest extends TestCase
 	public static function providerInfoMajVersions(): array {
 		return [
 			'version locale inconnue, maj distantes inconnues : ne rien signaler' => [
-				0 => ['mineure' => '', 'majeure' => ''],
+				0 => [
+					'mineure' => '',
+					'majeure' => '',
+				],
 				1 => '',
 				2 => [],
 			],

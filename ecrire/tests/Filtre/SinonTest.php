@@ -18,7 +18,7 @@ class SinonTest extends TestCase
 	}
 
 	#[DataProvider('providerFiltresSinon')]
- public function testFiltresSinon($expected, ...$args): void {
+	public function testFiltresSinon($expected, ...$args): void {
 		$actual = sinon(...$args);
 		$this->assertSame($expected, $actual);
 	}

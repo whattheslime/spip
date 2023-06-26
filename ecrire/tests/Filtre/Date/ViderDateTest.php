@@ -18,7 +18,7 @@ class ViderDateTest extends TestCase
 	}
 
 	#[DataProvider('providerFiltresViderDate')]
- public function testFiltresViderDate($expected, ...$args): void {
+	public function testFiltresViderDate($expected, ...$args): void {
 		$actual = vider_date(...$args);
 		$this->assertSame($expected, $actual);
 	}

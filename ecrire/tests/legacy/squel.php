@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 $remonte = __DIR__ . '/';
 
-while (! is_file($remonte . 'test.inc')) {
+while (!is_file($remonte . 'test.inc')) {
 	$remonte .= '../';
 }
 

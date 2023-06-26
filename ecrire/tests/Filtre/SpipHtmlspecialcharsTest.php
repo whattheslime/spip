@@ -18,7 +18,7 @@ class SpipHtmlspecialcharsTest extends TestCase
 	}
 
 	#[DataProvider('providerFiltresSpipHtmlspecialchars')]
- public function testFiltresSpipHtmlspecialchars($expected, ...$args): void {
+	public function testFiltresSpipHtmlspecialchars($expected, ...$args): void {
 		$actual = spip_htmlspecialchars(...$args);
 		$this->assertSame($expected, $actual);
 	}

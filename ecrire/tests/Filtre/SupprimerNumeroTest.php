@@ -18,7 +18,7 @@ class SupprimerNumeroTest extends TestCase
 	}
 
 	#[DataProvider('providerFiltresSupprimerNumero')]
- public function testFiltresSupprimerNumero($expected, ...$args): void {
+	public function testFiltresSupprimerNumero($expected, ...$args): void {
 		$actual = supprimer_numero(...$args);
 		$this->assertSame($expected, $actual);
 	}

@@ -18,7 +18,7 @@ class FiltreBaliseImgDistTest extends TestCase
 	}
 
 	#[DataProvider('providerFiltresFiltreBaliseImgDist')]
- public function testFiltresFiltreBaliseImgDist($expected, ...$args): void {
+	public function testFiltresFiltreBaliseImgDist($expected, ...$args): void {
 		static $f = null;
 		// chercher la fonction si elle n'existe pas
 		if ($f === null && !function_exists($f = 'filtre_balise_img_dist')) {
@@ -33,8 +33,6 @@ class FiltreBaliseImgDistTest extends TestCase
 	public static function providerFiltresFiltreBaliseImgDist(): array {
 		return [
 			[
-
-
 				0 => "<img src='https://www.spip.net/IMG/logo/siteon0.png' alt='' width='300' height='223' />",
 				1 => 'https://www.spip.net/IMG/logo/siteon0.png',
 			],

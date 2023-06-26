@@ -6,7 +6,7 @@ $test = 'email_valide';
 
 $remonte = __DIR__ . '/';
 
-while (! is_file($remonte . 'test.inc')) {
+while (!is_file($remonte . 'test.inc')) {
 	$remonte .= '../';
 }
 
@@ -146,7 +146,7 @@ function email_public_valide($adresses) {
 		$adresse = trim(preg_replace(',^[^<>"]*<([^<>"]+)>$,i', '\\1', $v));
 		// RFC 822 non respectée
 		if (
-			! preg_match(
+			!preg_match(
 				'#^([A-Za-z0-9]|\+|&|_|-|]){1}([A-Za-z0-9]|\+|&|_|-|\.)*@[A-Za-z0-9]([A-Za-z0-9]|-|\.){2,}\.[A-Za-z]{2,4}$#',
 				$adresse
 			)

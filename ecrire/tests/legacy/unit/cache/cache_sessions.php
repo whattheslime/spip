@@ -12,7 +12,7 @@ define('_VAR_MODE', 'recalcul');
 
 $remonte = __DIR__ . '/';
 
-while (! is_file($remonte . 'test.inc')) {
+while (!is_file($remonte . 'test.inc')) {
 	$remonte .= '../';
 }
 
@@ -116,7 +116,7 @@ function inc_maj_invalideurs($chemin_cache, $page) {
 		}
 
 		if ($page['contexte']['assert_session'] && $page['contexte']['assert_session'] !== 'non' || $page['contexte']['assert_session'] === 'oui') {
-			if (! $has_session) {
+			if (!$has_session) {
 				$GLOBALS['erreurs_test'][] = 'ERREUR : PAS de session pour ' . $page['source'] . ' ' . trace_contexte(
 					$page['contexte']
 				);

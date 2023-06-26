@@ -10,7 +10,7 @@ declare(strict_types=1);
 $test = '_DIR_PLUGINS_SUPPL';
 
 $remonte = __DIR__ . '/';
-while (! is_file($remonte . 'test.inc')) {
+while (!is_file($remonte . 'test.inc')) {
 	$remonte .= '../';
 }
 
@@ -22,7 +22,7 @@ echo test_dir_plugins_suppl();
 
 function test_dir_plugins_suppl() {
 	// preparation: la constante est elle definie et comprend uniquement 1 reps suppl?
-	if (! defined('_DIR_PLUGINS_SUPPL')) {
+	if (!defined('_DIR_PLUGINS_SUPPL')) {
 		define('_DIR_PLUGINS_SUPPL', _DIR_TMP . 'plug_sup/');
 	} elseif (substr_count(_DIR_PLUGINS_SUPPL, ':') !== 0) {
 		return 'NA : la constante _DIR_PLUGINS_SUPPL definie dans mes_options.php ne doit contenir qu\'un seul chemin supplementaire ; actuellement sa valeur est "' . _DIR_PLUGINS_SUPPL . '"';
@@ -38,8 +38,8 @@ function test_dir_plugins_suppl() {
 	$existe_paquet = false;
 
 	// le rep suppl n'existe pas; le creer
-	if (! is_dir(_DIR_RACINE . _DIR_PLUGINS_SUPPL)) {
-		if (! @mkdir(_DIR_RACINE . _DIR_PLUGINS_SUPPL)) {
+	if (!is_dir(_DIR_RACINE . _DIR_PLUGINS_SUPPL)) {
+		if (!@mkdir(_DIR_RACINE . _DIR_PLUGINS_SUPPL)) {
 			return 'NA probleme de droits d\'ecriture 0, impossible de creer le dossier de _DIR_PLUGINS_SUPPL: "' . _DIR_PLUGINS_SUPPL . '" necessaire pour ce test';
 		}
 		$Ta_effacer[] = _DIR_RACINE . _DIR_PLUGINS_SUPPL;
@@ -51,13 +51,13 @@ function test_dir_plugins_suppl() {
 			scandir(_DIR_RACINE . _DIR_PLUGINS_SUPPL)
 		) : 0) < 3
 	) {
-		if (! @mkdir(_DIR_RACINE . _DIR_PLUGINS_SUPPL . 'toto')) {
+		if (!@mkdir(_DIR_RACINE . _DIR_PLUGINS_SUPPL . 'toto')) {
 			nettoyage_plugins_suppl($Ta_effacer);
 			return 'NA probleme de droits d\ecriture 1, impossible de creer un dossier dans "' . _DIR_RACINE . _DIR_PLUGINS_SUPPL . '" necessaire pour ce test';
 		}
 		$Ta_effacer[] = _DIR_RACINE . _DIR_PLUGINS_SUPPL . 'toto';
 
-		if (! @copy(_DIR_PLUGINS_DIST . 'dump/paquet.xml', _DIR_RACINE . _DIR_PLUGINS_SUPPL . 'toto/paquet.xml')) {
+		if (!@copy(_DIR_PLUGINS_DIST . 'dump/paquet.xml', _DIR_RACINE . _DIR_PLUGINS_SUPPL . 'toto/paquet.xml')) {
 			nettoyage_plugins_suppl($Ta_effacer);
 			return 'NA probleme de droits d\ecriture 2, impossible de creer un fichier dans "' . _DIR_RACINE . _DIR_PLUGINS_SUPPL . 'toto" necessaire pour ce test';
 		}
@@ -68,7 +68,7 @@ function test_dir_plugins_suppl() {
 	} else {
 		if ($pointeur = opendir(_DIR_RACINE . _DIR_PLUGINS_SUPPL)) {
 			while (false !== ($rep = readdir($pointeur))) {
-				if ($rep === '.' || $rep === '..' || ! is_dir($rep)) {
+				if ($rep === '.' || $rep === '..' || !is_dir($rep)) {
 					continue;
 				} elseif ($pointeur = opendir(_DIR_RACINE . _DIR_PLUGINS_SUPPL . $rep)) {
 					while (false !== ($fichier = readdir($pointeur))) {
@@ -84,9 +84,9 @@ function test_dir_plugins_suppl() {
 
 		// tous les sous-dossiers sont scannes et toujours pas de paquet.xml:
 		// creer un dossier bidon et y copier un paquet.xml
-		if (! $existe_paquet) {
+		if (!$existe_paquet) {
 			if (
-				! in_array('toto', scandir(_DIR_RACINE . _DIR_PLUGINS_SUPPL), true) && ! @mkdir(
+				!in_array('toto', scandir(_DIR_RACINE . _DIR_PLUGINS_SUPPL), true) && !@mkdir(
 					_DIR_RACINE . _DIR_PLUGINS_SUPPL . 'toto'
 				)
 			) {
@@ -95,7 +95,7 @@ function test_dir_plugins_suppl() {
 			}
 			$Ta_effacer[] = _DIR_RACINE . _DIR_PLUGINS_SUPPL . 'toto';
 
-			if (! @copy(_DIR_PLUGINS_DIST . 'dump/paquet.xml', _DIR_RACINE . _DIR_PLUGINS_SUPPL . 'toto/paquet.xml')) {
+			if (!@copy(_DIR_PLUGINS_DIST . 'dump/paquet.xml', _DIR_RACINE . _DIR_PLUGINS_SUPPL . 'toto/paquet.xml')) {
 				nettoyage_plugins_suppl($Ta_effacer);
 				return 'NA probleme de droits d\ecriture 4, impossible de creer un fichier dans "' . _DIR_RACINE . _DIR_PLUGINS_SUPPL . 'toto" necessaire pour ce test';
 			}
@@ -118,16 +118,16 @@ function test_dir_plugins_suppl() {
 		return 'NA : le dossier "' . $rep_non_suppl . '" ne doit pas faire partie des repertoires definis dans _DIR_PLUGINS_SUPPL pour que ce test fonctionne';
 	}
 
-	if (! is_dir($rep_non_suppl)) {
-		if (! @mkdir($rep_non_suppl)) {
+	if (!is_dir($rep_non_suppl)) {
+		if (!@mkdir($rep_non_suppl)) {
 			nettoyage_plugins_suppl($Ta_effacer);
 			return 'NA probleme de droits d\ecriture 5, impossible de creer le dossier "' . $rep_non_suppl . '" necessaire pour ce test';
 		}
 		$Ta_effacer[] = $rep_non_suppl;
 	}
 
-	if (! file_exists($rep_non_suppl . '/paquet.xml')) {
-		if (! @copy(_DIR_PLUGINS_DIST . 'dump/paquet.xml', $rep_non_suppl . '/paquet.xml')) {
+	if (!file_exists($rep_non_suppl . '/paquet.xml')) {
+		if (!@copy(_DIR_PLUGINS_DIST . 'dump/paquet.xml', $rep_non_suppl . '/paquet.xml')) {
 			nettoyage_plugins_suppl($Ta_effacer);
 			return 'NA probleme de droits d\ecriture 6, impossible de creer un fichier dans "' . $rep_non_suppl . '" necessaire pour ce test';
 		}
@@ -141,7 +141,7 @@ function test_dir_plugins_suppl() {
 	$Terr = [];
 	$mess_err = '';
 	foreach ($Ta_retrouver as $rep) {
-		if (! in_array($rep, $Tplugins_recups, true)) {
+		if (!in_array($rep, $Tplugins_recups, true)) {
 			$Terr[] = $rep;
 		}
 	}
@@ -161,9 +161,7 @@ function test_dir_plugins_suppl() {
 	$Terr = [];
 	foreach ($Tplugins_recups as $rep_plug) {
 		if (
-			! is_dir(_DIR_PLUGINS . $rep_plug) && is_dir(
-				_DIR_RACINE . $rep_plug
-			)
+			!is_dir(_DIR_PLUGINS . $rep_plug) && is_dir(_DIR_RACINE . $rep_plug)
 		) {	// le rep existe mais pas dans _DIR_PLUGINS
 			$ok = false;
 			foreach ($Treps_suppl as $rep_suppl) {
@@ -173,7 +171,7 @@ function test_dir_plugins_suppl() {
 				}
 			}
 
-			if (! $ok) {
+			if (!$ok) {
 				$Terr[] = $rep_plug;
 			}
 		}

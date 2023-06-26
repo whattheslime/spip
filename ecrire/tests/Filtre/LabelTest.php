@@ -68,24 +68,24 @@ class LabelTest extends TestCase
 	}
 
 	#[DataProvider('providerLabelNettoyer')]
- public function testLabelNettoyer($source, $expected): void {
+	public function testLabelNettoyer($source, $expected): void {
 		$this->assertEquals($expected, label_nettoyer($source, false));
 	}
 
 	#[Depends('testLabelNettoyer')]
- #[DataProvider('providerLabelNettoyerInitialeMajuscule')]
+	#[DataProvider('providerLabelNettoyerInitialeMajuscule')]
 	public function testLabelNettoyerInitialeMajuscule($source, $expected): void {
 		$this->assertEquals($expected, label_nettoyer($source, true));
 	}
 
 	#[Depends('testLabelNettoyer')]
- #[DataProvider('providerLabelNettoyerInitialeMajuscule')]
+	#[DataProvider('providerLabelNettoyerInitialeMajuscule')]
 	public function testLabelNettoyerInitialeMajusculeParDefaut($source, $expected): void {
 		$this->assertEquals($expected, label_nettoyer($source));
 	}
 
 	#[Depends('testLabelNettoyer')]
- #[DataProvider('providerLabelPonctuer')]
+	#[DataProvider('providerLabelPonctuer')]
 	public function testLabelPonctuer($source, $expected): never {
 		// TODO
 		$this->markTestSkipped('NIY');
@@ -93,13 +93,13 @@ class LabelTest extends TestCase
 	}
 
 	#[Depends('testLabelNettoyer')]
- #[DataProvider('providerLabelPonctuerInitialeMajuscule')]
+	#[DataProvider('providerLabelPonctuerInitialeMajuscule')]
 	public function testLabelPonctuerInitialeMajuscule($source, $expected): void {
 		$this->assertEquals($expected, label_ponctuer($source, true));
 	}
 
 	#[Depends('testLabelNettoyer')]
- #[DataProvider('providerLabelPonctuerInitialeMajuscule')]
+	#[DataProvider('providerLabelPonctuerInitialeMajuscule')]
 	public function testLabelPonctuerInitialeMajusculeParDefaut($source, $expected): void {
 		$this->assertEquals($expected, label_ponctuer($source));
 	}

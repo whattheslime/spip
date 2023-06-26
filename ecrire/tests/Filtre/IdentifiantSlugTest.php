@@ -18,7 +18,7 @@ class IdentifiantSlugTest extends TestCase
 	}
 
 	#[DataProvider('providerFiltresIdentifiantSlug')]
- public function testFiltresIdentifiantSlug($expected, ...$args): void {
+	public function testFiltresIdentifiantSlug($expected, ...$args): void {
 		$actual = identifiant_slug(...$args);
 		$this->assertSame($expected, $actual);
 	}

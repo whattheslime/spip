@@ -18,7 +18,7 @@ class SpipVersionCompareTest extends TestCase
 	}
 
 	#[DataProvider('providerPluginSpipVersionCompare')]
- public function testPluginSpipVersionCompare($expected, ...$args): void {
+	public function testPluginSpipVersionCompare($expected, ...$args): void {
 		$actual = spip_version_compare(...$args);
 		$this->assertSame($expected, $actual);
 	}

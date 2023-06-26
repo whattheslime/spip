@@ -18,7 +18,7 @@ class ParametreUrlTest extends TestCase
 	}
 
 	#[DataProvider('providerUtilsParametreUrl')]
- public function testUtilsParametreUrl($expected, ...$args): void {
+	public function testUtilsParametreUrl($expected, ...$args): void {
 		$actual = parametre_url(...$args);
 		$this->assertSame($expected, $actual);
 	}

@@ -8,7 +8,7 @@ $test = 'sql/sql_insert_select';
 
 $remonte = __DIR__ . '/';
 
-while (! is_file($remonte . 'test.inc')) {
+while (!is_file($remonte . 'test.inc')) {
 	$remonte .= '../';
 }
 
@@ -38,7 +38,7 @@ function test_maj_timestamp() {
 
 	// lecture du timestamp actuel
 	$maj1 = sql_getfetsel('maj', $table, $where);
-	if (! $maj1) {
+	if (!$maj1) {
 		$err[] = "Le champ 'maj' ({$maj1}) n'a vraisemblablement pas recu de timestamp à l'insertion";
 	}
 
@@ -50,7 +50,7 @@ function test_maj_timestamp() {
 	], $where);
 	// comparaison timastamp
 	$maj2 = sql_getfetsel('maj', $table, $where);
-	if (! $maj2 || ! strtotime($maj2)) {
+	if (!$maj2 || !strtotime($maj2)) {
 		$err[] = "Le champ 'maj' ({$maj2}) est incorrect suite à l'update";
 	} elseif ($maj1 === $maj2) {
 		$err[] = "Le champ 'maj' ({$maj2}) n'a vraisemblablement pas été mis a jour lors de l'update";
@@ -58,7 +58,7 @@ function test_maj_timestamp() {
 
 	// comparaison texte
 	$texte2 = sql_getfetsel('un_texte', $table, $where);
-	if (! $texte2 || $texte2 !== $texte) {
+	if (!$texte2 || $texte2 !== $texte) {
 		$err[] = "Le champ 'un_texte' ({$texte2}) n'est pas correctement rempli a l'update";
 	}
 
@@ -70,7 +70,7 @@ function test_maj_timestamp() {
 	], $where);
 	// comparaison timastamp
 	$maj3 = sql_getfetsel('maj', $table, $where);
-	if (! $maj3 || ! strtotime($maj3)) {
+	if (!$maj3 || !strtotime($maj3)) {
 		$err[] = "Le champ 'maj' ({$maj3}) est incorrect suite à l'updateq";
 	} elseif ($maj3 === $maj2) {
 		$err[] = "Le champ 'maj' ({$maj3}) n'a vraisemblablement pas été mis a jour lors de l'updateq";
@@ -78,7 +78,7 @@ function test_maj_timestamp() {
 
 	// comparaison texte
 	$texte3 = sql_getfetsel('un_texte', $table, $where);
-	if (! $texte3 || $texte3 !== $texte) {
+	if (!$texte3 || $texte3 !== $texte) {
 		$err[] = "Le champ 'un_texte' ({$texte2}) n'est pas correctement rempli a l'update";
 	}
 
@@ -137,13 +137,13 @@ function test_selections() {
 
 	// selection array(champs)
 	$res = sql_fetsel(['id_tintin', 'un_varchar'], 'spip_test_tintin');
-	if (! isset($res['id_tintin']) || ! isset($res['un_varchar'])) {
+	if (!isset($res['id_tintin']) || !isset($res['un_varchar'])) {
 		$err[] = '5.sql_select comprends mal une selection : array(champ1, champ2)';
 	}
 
 	// selection array(champs=>alias)
 	$res = sql_fetsel(['id_tintin AS id', 'un_varchar AS vchar'], 'spip_test_tintin');
-	if (! isset($res['id']) || ! isset($res['vchar'])) {
+	if (!isset($res['id']) || !isset($res['vchar'])) {
 		$err[] = '6.sql_select comprends mal une selection : array(champ1 AS alias1, champ2 AS alias2)';
 	}
 
@@ -166,8 +166,8 @@ function test_selections() {
 	// le bon texte avec multi
 	foreach (
 		[
-		'fr' => 'Crac',
-		'en' => 'Krack',
+			'fr' => 'Crac',
+			'en' => 'Krack',
 		] as $lg => $res
 	) {
 		$multi = sql_getfetsel(sql_multi('grrrr', $lg), 'spip_test_milou', 'id_milou=' . sql_quote(2));
@@ -179,8 +179,8 @@ function test_selections() {
 	// le bon texte avec multi et accents
 	foreach (
 		[
-		'fr' => 'Aérien',
-		'en' => 'Aérieny',
+			'fr' => 'Aérien',
+			'en' => 'Aérieny',
 		] as $lg => $res
 	) {
 		$multi = sql_getfetsel(sql_multi('alcool', $lg), 'spip_test_haddock', 'id_haddock=' . sql_quote(2));
@@ -192,9 +192,9 @@ function test_selections() {
 	// le bon texte avec multi et debut et fin de chaine
 	foreach (
 		[
-		'fr' => 'Un début de chaine : Vinasse, et [la fin]',
-		'en' => 'Un début de chaine : Vinassy, et [la fin]',
-		'de' => 'Un début de chaine : Vinasse, et [la fin]',
+			'fr' => 'Un début de chaine : Vinasse, et [la fin]',
+			'en' => 'Un début de chaine : Vinassy, et [la fin]',
+			'de' => 'Un début de chaine : Vinasse, et [la fin]',
 		] as $lg => $res
 	) {
 		$multi = sql_getfetsel(sql_multi('alcool', $lg), 'spip_test_haddock', 'id_haddock=' . sql_quote(4));
@@ -224,7 +224,7 @@ function test_selections_entre_table() {
 		['spip_test_tintin', 'spip_test_milou'],
 		['spip_test_milou.id_tintin=spip_test_tintin.id_tintin']
 	);
-	if (! ($nb = sql_count($res) === 3)) {
+	if (!($nb = sql_count($res) === 3)) {
 		$err[] = "selection sur 2 tables avec where en echec : attendu 3 reponses, présentes : {$nb}";
 	}
 
@@ -238,7 +238,7 @@ function test_selections_entre_table() {
 		],
 		['a.id_tintin=b.id_tintin']
 	);
-	if (! ($nb = sql_count($res) === 3)) {
+	if (!($nb = sql_count($res) === 3)) {
 		$err[] = "From avec alias en echec (3 reponses attendues) - présentes : {$nb}";
 	}
 

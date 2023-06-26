@@ -8,7 +8,7 @@ $test = 'sql/sql_divers';
 
 $remonte = __DIR__ . '/';
 
-while (! is_file($remonte . 'test.inc')) {
+while (!is_file($remonte . 'test.inc')) {
 	$remonte .= '../';
 }
 
@@ -28,9 +28,9 @@ function test_func_mathematiques() {
 	//
 	foreach (
 		[
-		'COUNT' => 3,
-		'SUM' => 9000,
-		'AVG' => 3000,
+			'COUNT' => 3,
+			'SUM' => 9000,
+			'AVG' => 3000,
 		] as $func => $attendu
 	) {
 		$nb = sql_getfetsel("{$func}(un_int) AS nb", ['spip_test_tintin']);
@@ -42,19 +42,19 @@ function test_func_mathematiques() {
 	//
 	foreach (
 		[
-		'EXP(0)' => exp(0),
-		'ROUND(3.56)' => round(3.56),
-		'ROUND(3.5684,2)' => round(3.5684, 2),
-		'SQRT(9)' => 3,
-		//'1/2'=>(0), // Le standard SQL : entier divise par entier = division entiere (pas trouve la reference)
-		'1.0/2' => (1 / 2), // Le standart SQL : reel divise par entier = reel
-		//'4/3'=>1,
-		'ROUND(4.0/3,2)' => round(4 / 3, 2),
-		'1.5/2' => (1.5 / 2),
-		'2.0/2' => (2.0 / 2),
-		'2/2' => (2 / 2),
-		'md5(8)' => md5('8'),
-		'md5(' . sql_quote('a') . ')' => md5('a'),
+			'EXP(0)' => exp(0),
+			'ROUND(3.56)' => round(3.56),
+			'ROUND(3.5684,2)' => round(3.5684, 2),
+			'SQRT(9)' => 3,
+			//'1/2'=>(0), // Le standard SQL : entier divise par entier = division entiere (pas trouve la reference)
+			'1.0/2' => (1 / 2), // Le standart SQL : reel divise par entier = reel
+			//'4/3'=>1,
+			'ROUND(4.0/3,2)' => round(4 / 3, 2),
+			'1.5/2' => (1.5 / 2),
+			'2.0/2' => (2.0 / 2),
+			'2/2' => (2 / 2),
+			'md5(8)' => md5('8'),
+			'md5(' . sql_quote('a') . ')' => md5('a'),
 		] as $func => $attendu
 	) {
 		$nb = sql_getfetsel("{$func} AS nb", ['spip_test_tintin'], ['id_tintin=' . sql_quote(1)]);
@@ -79,8 +79,8 @@ function test_func_strings() {
 	//
 	foreach (
 		[
-		'CONCAT(' . sql_quote('cou') . ',' . sql_quote('cou') . ')' => 'coucou',
-		'CONCAT(' . sql_quote('cou,') . ',' . sql_quote('cou') . ')' => 'cou,cou',
+			'CONCAT(' . sql_quote('cou') . ',' . sql_quote('cou') . ')' => 'coucou',
+			'CONCAT(' . sql_quote('cou,') . ',' . sql_quote('cou') . ')' => 'cou,cou',
 		] as $func => $attendu
 	) {
 		$nb = sql_getfetsel("{$func} AS nb", ['spip_test_tintin'], ['id_tintin=' . sql_quote(1)]);

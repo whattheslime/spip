@@ -18,7 +18,7 @@ class SupprimerClassTest extends TestCase
 	}
 
 	#[DataProvider('providerFiltresSupprimerClass')]
- public function testFiltresSupprimerClass($expected, ...$args): void {
+	public function testFiltresSupprimerClass($expected, ...$args): void {
 		$actual = supprimer_class(...$args);
 		$this->assertSame($expected, $actual);
 	}

@@ -19,7 +19,7 @@ class ExtraireMultiTest extends TestCase
 	}
 
 	#[DataProvider('providerFiltresExtraireMulti')]
- public function testFiltresExtraireMulti($expected, ...$args): void {
+	public function testFiltresExtraireMulti($expected, ...$args): void {
 		$actual = extraire_multi(...$args);
 		$this->assertSame($expected, $actual);
 	}

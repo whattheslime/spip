@@ -18,7 +18,7 @@ class AffdateCourtTest extends TestCase
 	}
 
 	#[DataProvider('providerFiltresAffdateCourt')]
- public function testFiltresAffdateCourt($expected, ...$args): void {
+	public function testFiltresAffdateCourt($expected, ...$args): void {
 		changer_langue('fr');
 		$actual = affdate_court(...$args);
 		$this->assertSame($expected, $actual);

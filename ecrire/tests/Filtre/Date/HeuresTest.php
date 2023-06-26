@@ -18,7 +18,7 @@ class HeuresTest extends TestCase
 	}
 
 	#[DataProvider('providerFiltresHeures')]
- public function testFiltresHeures($expected, ...$args): void {
+	public function testFiltresHeures($expected, ...$args): void {
 		$actual = heures(...$args);
 		$this->assertSame($expected, $actual);
 	}

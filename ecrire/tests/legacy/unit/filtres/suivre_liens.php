@@ -2,13 +2,13 @@
 
 declare(strict_types=1);
 
-if (! (isset($test) && $test)) {
+if (!(isset($test) && $test)) {
 	$test = 'suivre_liens';
 }
 
 $remonte = __DIR__ . '/';
 
-while (! is_file($remonte . 'test.inc')) {
+while (!is_file($remonte . 'test.inc')) {
 	$remonte .= '../';
 }
 

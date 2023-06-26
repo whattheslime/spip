@@ -14,7 +14,7 @@ class TraiterTableauTest extends TestCase
 	}
 
 	#[DataProvider('providerPropreTraiterTableau')]
- public function testPropreTraiterTableau($expected, ...$args): void {
+	public function testPropreTraiterTableau($expected, ...$args): void {
 		$actual = traiter_raccourcis(...$args);
 		if (is_array($expected)) {
 			[$func, $pattern, $result] = $expected;
@@ -75,9 +75,7 @@ class TraiterTableauTest extends TestCase
 | {{Bourg-de-Peage}} | 13,22 | 30 | 50 | 14,67 |',
 			],
 			'thead avec une colonne vide' => [
-				[
-					'preg_match', ',<thead>\s*<tr[^>]*>(:?<th[^>]*>.*</th>){5}\s*</tr>\s*</thead>,Uims', true,
-				],
+				['preg_match', ',<thead>\s*<tr[^>]*>(:?<th[^>]*>.*</th>){5}\s*</tr>\s*</thead>,Uims', true],
 				'|| titre de mon tableau | resume de mon tableau ||
 | | {{Colonne 1}} | {{Colonne 2}} | {{Colonne 3}} | {{Colonne 4}} |
 | {{Bourg-les-Valence}} | 10,39 | 20,14 | 46,02 | 15,99 |
@@ -87,9 +85,7 @@ class TraiterTableauTest extends TestCase
 | {{Bourg-de-Peage}} | 13,22 | 30 | 50 | 14,67 |',
 			],
 			'thead avec une colonne vide et un retour ligne' => [
-				[
-					'preg_match', ',<thead>\s*<tr[^>]*>(:?<th[^>]*>.*</th>){5}\s*</tr>\s*</thead>,Uims', true,
-				],
+				['preg_match', ',<thead>\s*<tr[^>]*>(:?<th[^>]*>.*</th>){5}\s*</tr>\s*</thead>,Uims', true],
 				'|| titre de mon tableau | resume de mon tableau ||
 | | {{Colonne 1}} | {{Colonne 2}} | {{Colonne 3
 _ avec retour ligne}} | {{Colonne 4}} |

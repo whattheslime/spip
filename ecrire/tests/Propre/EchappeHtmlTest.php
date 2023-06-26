@@ -42,7 +42,7 @@ class EchappeHtmlTest extends TestCase
 	}
 
 	#[DataProvider('providerSimpleEchappeHtml')]
- public function testSimpleEchappeHtml($expected, ...$args): void {
+	public function testSimpleEchappeHtml($expected, ...$args): void {
 		$actual = echappe_html(
 			$args[0],
 			$args[1] ?? '',
@@ -59,8 +59,18 @@ class EchappeHtmlTest extends TestCase
 
 	public static function providerSimpleEchappeHtml(): array {
 		find_in_path('inc/texte_mini.php', '', true);
-		$befores = ['', 'Un texte avant', "Un texte avant sur\n\nplusieurs lignes et avec un < pour voir", "Un texte avant sur\n\nplusieurs lignes et avec un > pour voir"];
-		$afters = ['', 'Un texte après', "Un texte après sur\n\nplusieurs lignes et avec un < pour voir", "Un texte après sur\n\nplusieurs lignes et avec un > pour voir"];
+		$befores = [
+			'',
+			'Un texte avant',
+			"Un texte avant sur\n\nplusieurs lignes et avec un < pour voir",
+			"Un texte avant sur\n\nplusieurs lignes et avec un > pour voir",
+		];
+		$afters = [
+			'',
+			'Un texte après',
+			"Un texte après sur\n\nplusieurs lignes et avec un < pour voir",
+			"Un texte après sur\n\nplusieurs lignes et avec un > pour voir",
+		];
 		$insides = ['', 'Un texte dedans', "\nun texte dedans", "un texte dedans\n", "\nun texte dedans\n"];
 		$balises = ['html', 'pre', 'code', 'cadre', 'frame', 'script', 'style', 'svg'];
 		$attrs = ['', 'class="truc"', 'classe="base64"', 'title="truc"'];
@@ -83,8 +93,7 @@ class EchappeHtmlTest extends TestCase
 								// sinon on attends le texte d'origine
 								if ($preg ? $balise === 'svg' : $balise !== 'svg') {
 									$expected = $before . $code_echappe . $after;
-								}
-								else {
+								} else {
 									$expected = $texte;
 								}
 								$essais["<{$balise}{$attr}>_$cpt"] = [$expected, $texte, $source, $no_transform, $preg];
@@ -100,7 +109,7 @@ class EchappeHtmlTest extends TestCase
 	}
 
 	#[DataProvider('providerPropreEchappeHtml')]
- public function testPropreEchappeHtml($expected, ...$args): void {
+	public function testPropreEchappeHtml($expected, ...$args): void {
 		$actual = echappe_html(
 			$args[0],
 			$args[1] ?? '',

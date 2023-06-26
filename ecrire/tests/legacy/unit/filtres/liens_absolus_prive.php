@@ -9,7 +9,7 @@ declare(strict_types=1);
  */
 // let's go ecrire/
 $dir_racine = dirname(__DIR__, 2);
-while (! is_dir($dir_racine . '/ecrire')) {
+while (!is_dir($dir_racine . '/ecrire')) {
 	$dir_racine = dirname($dir_racine);
 }
 

@@ -18,7 +18,7 @@ class ValiderUrlDistanteTest extends TestCase
 	}
 
 	#[DataProvider('providerDistantValiderUrlDistante')]
- public function testDistantValiderUrlDistante($expected, ...$args): void {
+	public function testDistantValiderUrlDistante($expected, ...$args): void {
 		$actual = valider_url_distante(...$args);
 		$this->assertSame($expected, $actual);
 	}

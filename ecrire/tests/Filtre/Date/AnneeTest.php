@@ -18,7 +18,7 @@ class AnneeTest extends TestCase
 	}
 
 	#[DataProvider('providerFiltresAnnee')]
- public function testFiltresAnnee($expected, ...$args): void {
+	public function testFiltresAnnee($expected, ...$args): void {
 		$actual = annee(...$args);
 		$this->assertSame($expected, $actual);
 	}

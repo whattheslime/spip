@@ -18,7 +18,7 @@ class WrapTest extends TestCase
 	}
 
 	#[DataProvider('providerFiltresWrap')]
- public function testFiltresWrap($expected, ...$args): void {
+	public function testFiltresWrap($expected, ...$args): void {
 		$actual = wrap(...$args);
 		$this->assertSame($expected, $actual);
 	}

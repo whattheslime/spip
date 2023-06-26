@@ -8,7 +8,7 @@ function fin_inclure_manquant() {
 		'erreurs' => 'get',
 	]);
 
-	if (! $erreurs && ! (_request('var_mode') === 'debug' && erreur_squelette(false))) {
+	if (!$erreurs && !(_request('var_mode') === 'debug' && erreur_squelette(false))) {
 		return "pas d'erreur declenchee";
 	}
 

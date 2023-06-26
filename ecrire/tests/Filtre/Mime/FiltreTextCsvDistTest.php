@@ -23,7 +23,7 @@ class FiltreTextCsvDistTest extends TestCase
 	}
 
 	#[DataProvider('providerFiltresMimeFiltreTextCsvDist')]
- public function testFiltresMimeFiltreTextCsvDist($expected, ...$args): void {
+	public function testFiltresMimeFiltreTextCsvDist($expected, ...$args): void {
 		$actual = filtre_text_csv_dist(...$args);
 		$this->assertSame($expected, $actual);
 	}

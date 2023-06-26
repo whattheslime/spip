@@ -23,7 +23,7 @@ class AffdateJourcourtTest extends TestCase
 	}
 
 	#[DataProvider('providerFiltresAffdateJourcourt')]
- public function testFiltresAffdateJourcourt($expected, ...$args): void {
+	public function testFiltresAffdateJourcourt($expected, ...$args): void {
 		$actual = affdate_jourcourt(...$args);
 		$this->assertSame($expected, $actual);
 	}

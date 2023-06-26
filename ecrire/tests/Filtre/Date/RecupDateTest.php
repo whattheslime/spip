@@ -18,7 +18,7 @@ class RecupDateTest extends TestCase
 	}
 
 	#[DataProvider('providerFiltresRecupDate')]
- public function testFiltresRecupDate($expected, ...$args): void {
+	public function testFiltresRecupDate($expected, ...$args): void {
 		$actual = recup_date(...$args);
 		$this->assertSame($expected, $actual);
 	}

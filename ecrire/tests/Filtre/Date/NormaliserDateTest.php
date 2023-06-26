@@ -23,7 +23,7 @@ class NormaliserDateTest extends TestCase
 	}
 
 	#[DataProvider('providerFiltresNormaliserDate')]
- public function testFiltresNormaliserDate($expected, ...$args): void {
+	public function testFiltresNormaliserDate($expected, ...$args): void {
 		$actual = normaliser_date(...$args);
 		$this->assertSame($expected, $actual);
 	}

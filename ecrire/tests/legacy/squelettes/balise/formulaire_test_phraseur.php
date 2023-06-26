@@ -12,7 +12,7 @@ declare(strict_types=1);
  *  Pour plus de details voir le fichier COPYING.txt ou l'aide en ligne.   *
 \***************************************************************************/
 
-if (! defined('_ECRIRE_INC_VERSION')) {
+if (!defined('_ECRIRE_INC_VERSION')) {
 	return;
 }
 #securite
@@ -34,7 +34,7 @@ function balise_FORMULAIRE_TEST_PHRASEUR_stat($args, $context_compil) {
 function balise_FORMULAIRE_TEST_PHRASEUR_dyn($id_rubrique, $url) {
 	$res = 'OK';
 
-	if (! preg_match('#^\d+$#', $id_rubrique)) {
+	if (!preg_match('#^\d+$#', $id_rubrique)) {
 		$res = 'Erreur id_rubrique non numerique : ' . var_export($id_rubrique, 1);
 	}
 

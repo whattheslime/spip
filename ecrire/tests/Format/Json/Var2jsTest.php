@@ -18,7 +18,7 @@ class Var2jsTest extends TestCase
 	}
 
 	#[DataProvider('providerJsonVar2js')]
- public function testJsonVar2js($expected, ...$args): void {
+	public function testJsonVar2js($expected, ...$args): void {
 		$actual = var2js(...$args);
 		$this->assertSame($expected, $actual);
 	}

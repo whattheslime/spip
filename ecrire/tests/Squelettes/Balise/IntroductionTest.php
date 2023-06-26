@@ -10,19 +10,6 @@ use Spip\Test\Templating;
 
 class IntroductionTest extends SquelettesTestCase
 {
-	protected function getIdArticleLong(): int {
-		include_spip('base/abstract_sql');
-		$id_article = sql_getfetsel(
-			'id_article',
-			'spip_articles',
-			"descriptif='' AND LENGTH(CONCAT(chapo, texte)) > 520 AND texte!='' AND LENGTH(chapo) > 100",
-			'',
-			'id_article',
-			'0,1'
-		);
-		return intval($id_article);
-	}
-
 	public function testArticleLongExiste(): void {
 		$templating = Templating::fromString();
 		$id_article = $this->getIdArticleLong();
@@ -36,7 +23,7 @@ class IntroductionTest extends SquelettesTestCase
 	}
 
 	#[Depends('testArticleLongExiste')]
- public function testCoupeIntroduction(): void {
+	public function testCoupeIntroduction(): void {
 		$templating = Templating::fromString();
 		$id_article = $this->getIdArticleLong();
 		$code = '<BOUCLE_a(ARTICLES){id_article}{tout}{0,1}>#INTRODUCTION</BOUCLE_a>';
@@ -46,7 +33,7 @@ class IntroductionTest extends SquelettesTestCase
 	}
 
 	#[Depends('testArticleLongExiste')]
- public function testCoupeIntroductionSuite(): void {
+	public function testCoupeIntroductionSuite(): void {
 		$templating = Templating::fromString();
 		$id_article = $this->getIdArticleLong();
 		$code = '<BOUCLE_a(ARTICLES){id_article}{tout}{0,1}>#INTRODUCTION{…}</BOUCLE_a>';
@@ -63,7 +50,7 @@ class IntroductionTest extends SquelettesTestCase
 	}
 
 	#[Depends('testCoupeIntroduction')]
- public function testCoupeIntroductionConstante(): void {
+	public function testCoupeIntroductionConstante(): void {
 		$id_article = $this->getIdArticleLong();
 		$templating = Templating::fromString([
 			'fonctions' => "
@@ -76,5 +63,18 @@ class IntroductionTest extends SquelettesTestCase
 		$result = $templating->render($code, ['id_article' => $id_article]);
 		$suite = _INTRODUCTION_SUITE;
 		$this->assertMatchesRegularExpression('#' . preg_quote($suite . '</p>', '#') . '$#', $result);
+	}
+
+	protected function getIdArticleLong(): int {
+		include_spip('base/abstract_sql');
+		$id_article = sql_getfetsel(
+			'id_article',
+			'spip_articles',
+			"descriptif='' AND LENGTH(CONCAT(chapo, texte)) > 520 AND texte!='' AND LENGTH(chapo) > 100",
+			'',
+			'id_article',
+			'0,1'
+		);
+		return intval($id_article);
 	}
 }

@@ -18,7 +18,7 @@ class FiltreTextDistTest extends TestCase
 	}
 
 	#[DataProvider('providerFiltresMimeFiltreTextDist')]
- public function testFiltresMimeFiltreTextDist($expected, ...$args): void {
+	public function testFiltresMimeFiltreTextDist($expected, ...$args): void {
 		$actual = filtre_text_dist(...$args);
 		$this->assertSame($expected, $actual);
 	}

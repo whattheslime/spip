@@ -39,7 +39,7 @@ class TraiterRaccourcisTest extends TestCase
 	}
 
 	#[DataProvider('providerPropreTraiterRaccourcis')]
- public function testPropreTraiterRaccourcis($expected, ...$args): void {
+	public function testPropreTraiterRaccourcis($expected, ...$args): void {
 		$actual = traiter_raccourcis(...$args);
 		$this->assertSame($expected, $actual);
 	}

@@ -18,7 +18,7 @@ class TesterUrlAbsolueTest extends TestCase
 	}
 
 	#[DataProvider('providerUtilsTesterUrlAbsolue')]
- public function testUtilsTesterUrlAbsolue($expected, ...$args): void {
+	public function testUtilsTesterUrlAbsolue($expected, ...$args): void {
 		$actual = tester_url_absolue(...$args);
 		$this->assertSame($expected, $actual);
 	}

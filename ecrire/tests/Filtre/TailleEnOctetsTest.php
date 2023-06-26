@@ -23,7 +23,7 @@ class TailleEnOctetsTest extends TestCase
 	}
 
 	#[DataProvider('providerFiltresTailleEnOctetsBI')]
- public function testFiltresTailleEnOctetsBI($source, $expected): void {
+	public function testFiltresTailleEnOctetsBI($source, $expected): void {
 		$actual = taille_en_octets($source);
 		$this->assertSame($expected, $actual);
 
@@ -32,7 +32,7 @@ class TailleEnOctetsTest extends TestCase
 	}
 
 	#[DataProvider('providerFiltresTailleEnOctetsSI')]
- public function testFiltresTailleEnOctetsSI($source, $expected): void {
+	public function testFiltresTailleEnOctetsSI($source, $expected): void {
 		$actual = taille_en_octets($source, 'SI');
 		$this->assertSame($expected, $actual);
 	}

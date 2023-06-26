@@ -20,12 +20,20 @@ class BoucleJointuresTest extends SquelettesTestCase
 			$this->markTestSkipped("Pas d'articles dans la base pour tester la jointure id_mot");
 		}
 		$result2 = $templating->render($code2, ['id_mot' => 1]);
-		$this->assertNotEquals($result1, $result2, "La jointure conditionnelle {id_mot?} n'a pas d'effet si un id_mot est dans le contexte");
+		$this->assertNotEquals(
+			$result1,
+			$result2,
+			"La jointure conditionnelle {id_mot?} n'a pas d'effet si un id_mot est dans le contexte"
+		);
 
 		$templating = Templating::fromString();
 		$result1 = $templating->render($code1, []);
 		$result2 = $templating->render($code2, []);
-		$this->assertEquals($result1, $result2, "La jointure conditionnelle {id_mot?} n'est pas neutre en l'absence de id_mot dans le contexte");
+		$this->assertEquals(
+			$result1,
+			$result2,
+			"La jointure conditionnelle {id_mot?} n'est pas neutre en l'absence de id_mot dans le contexte"
+		);
 	}
 
 	public function testJointureArticleIdmot2(): void {
@@ -39,12 +47,20 @@ class BoucleJointuresTest extends SquelettesTestCase
 			$this->markTestSkipped("Pas d'articles dans la base pour tester la jointure id_mot");
 		}
 		$result2 = $templating->render($code2, ['id_mot' => 1]);
-		$this->assertNotEquals($result1, $result2, "La jointure conditionnelle {id_mot?} n'a pas d'effet si un id_mot est dans le contexte");
+		$this->assertNotEquals(
+			$result1,
+			$result2,
+			"La jointure conditionnelle {id_mot?} n'a pas d'effet si un id_mot est dans le contexte"
+		);
 
 		$templating = Templating::fromString();
 		$result1 = $templating->render($code1, []);
 		$result2 = $templating->render($code2, []);
-		$this->assertEquals($result1, $result2, "La jointure conditionnelle {id_mot?} n'est pas neutre en l'absence de id_mot dans le contexte");
+		$this->assertEquals(
+			$result1,
+			$result2,
+			"La jointure conditionnelle {id_mot?} n'est pas neutre en l'absence de id_mot dans le contexte"
+		);
 	}
 
 	public function testJointureArticleIdmot3(): void {
@@ -58,11 +74,19 @@ class BoucleJointuresTest extends SquelettesTestCase
 			$this->markTestSkipped("Pas d'articles dans la base pour tester la jointure id_mot");
 		}
 		$result2 = $templating->render($code2, ['id_mot' => 1]);
-		$this->assertNotEquals($result1, $result2, "La jointure conditionnelle {id_mot?} n'a pas d'effet si un id_mot est dans le contexte");
+		$this->assertNotEquals(
+			$result1,
+			$result2,
+			"La jointure conditionnelle {id_mot?} n'a pas d'effet si un id_mot est dans le contexte"
+		);
 
 		$templating = Templating::fromString();
 		$result1 = $templating->render($code1, []);
 		$result2 = $templating->render($code2, []);
-		$this->assertNotEquals($result1, $result2, "La jointure conditionnelle {id_mot?} n'a pas été conservée en l'absence de id_mot dans le contexte");
+		$this->assertNotEquals(
+			$result1,
+			$result2,
+			"La jointure conditionnelle {id_mot?} n'a pas été conservée en l'absence de id_mot dans le contexte"
+		);
 	}
 }

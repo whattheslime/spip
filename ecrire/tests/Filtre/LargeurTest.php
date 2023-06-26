@@ -18,7 +18,7 @@ class LargeurTest extends TestCase
 	}
 
 	#[DataProvider('providerFiltresLargeur')]
- public function testFiltresLargeur($expected, ...$args): void {
+	public function testFiltresLargeur($expected, ...$args): void {
 		$actual = largeur(...$args);
 		$this->assertSame($expected, $actual);
 	}

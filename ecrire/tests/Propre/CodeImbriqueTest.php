@@ -20,7 +20,7 @@ class CodeImbriqueTest extends TestCase
 	}
 
 	#[DataProvider('providerPropreCodeImbrique')]
- public function testPropreCodeImbrique($expected, ...$args): void {
+	public function testPropreCodeImbrique($expected, ...$args): void {
 		$actual = strlen(propre(...$args)) > 0;
 		$this->assertSame($expected, $actual);
 	}

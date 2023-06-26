@@ -23,7 +23,7 @@ class AffdateHeureTest extends TestCase
 	}
 
 	#[DataProvider('providerFiltresAffdateHeure')]
- public function testFiltresAffdateHeure($expected, ...$args): void {
+	public function testFiltresAffdateHeure($expected, ...$args): void {
 		$actual = affdate_heure(...$args);
 		$this->assertSame($expected, $actual);
 	}

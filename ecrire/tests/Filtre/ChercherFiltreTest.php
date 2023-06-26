@@ -18,7 +18,7 @@ class ChercherFiltreTest extends TestCase
 	}
 
 	#[DataProvider('providerFiltresChercherFiltre')]
- public function testFiltresChercherFiltre($expected, ...$args): void {
+	public function testFiltresChercherFiltre($expected, ...$args): void {
 		$actual = chercher_filtre(...$args);
 		$this->assertSame($expected, $actual);
 	}
