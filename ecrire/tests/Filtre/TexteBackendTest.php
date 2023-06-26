@@ -8,6 +8,7 @@ declare(strict_types=1);
 
 namespace Spip\Test\Filtre;
 
+use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\TestCase;
 
 class TexteBackendTest extends TestCase
@@ -16,10 +17,8 @@ class TexteBackendTest extends TestCase
 		find_in_path('inc/filtres.php', '', true);
 	}
 
-	/**
-	 * @dataProvider providerFiltresTexteBackend
-	 */
-	public function testFiltresTexteBackend($expected, ...$args): void {
+	#[DataProvider('providerFiltresTexteBackend')]
+ public function testFiltresTexteBackend($expected, ...$args): void {
 		$actual = texte_backend(...$args);
 		$this->assertSame($expected, $actual);
 	}

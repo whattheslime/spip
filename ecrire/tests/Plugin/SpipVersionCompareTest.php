@@ -8,6 +8,7 @@ declare(strict_types=1);
 
 namespace Spip\Test\Plugin;
 
+use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\TestCase;
 
 class SpipVersionCompareTest extends TestCase
@@ -16,10 +17,8 @@ class SpipVersionCompareTest extends TestCase
 		find_in_path('./inc/plugin.php', '', true);
 	}
 
-	/**
-	 * @dataProvider providerPluginSpipVersionCompare
-	 */
-	public function testPluginSpipVersionCompare($expected, ...$args): void {
+	#[DataProvider('providerPluginSpipVersionCompare')]
+ public function testPluginSpipVersionCompare($expected, ...$args): void {
 		$actual = spip_version_compare(...$args);
 		$this->assertSame($expected, $actual);
 	}

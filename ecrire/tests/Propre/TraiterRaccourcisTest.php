@@ -8,6 +8,7 @@ declare(strict_types=1);
 
 namespace Spip\Test\Propre;
 
+use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\TestCase;
 
 class TraiterRaccourcisTest extends TestCase
@@ -37,10 +38,8 @@ class TraiterRaccourcisTest extends TestCase
 		}
 	}
 
-	/**
-	 * @dataProvider providerPropreTraiterRaccourcis
-	 */
-	public function testPropreTraiterRaccourcis($expected, ...$args): void {
+	#[DataProvider('providerPropreTraiterRaccourcis')]
+ public function testPropreTraiterRaccourcis($expected, ...$args): void {
 		$actual = traiter_raccourcis(...$args);
 		$this->assertSame($expected, $actual);
 	}

@@ -8,6 +8,7 @@ declare(strict_types=1);
 
 namespace Spip\Test\Filtre\Date;
 
+use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\TestCase;
 
 class AffdateCourtTest extends TestCase
@@ -16,10 +17,8 @@ class AffdateCourtTest extends TestCase
 		find_in_path('inc/filtres.php', '', true);
 	}
 
-	/**
-	 * @dataProvider providerFiltresAffdateCourt
-	 */
-	public function testFiltresAffdateCourt($expected, ...$args): void {
+	#[DataProvider('providerFiltresAffdateCourt')]
+ public function testFiltresAffdateCourt($expected, ...$args): void {
 		changer_langue('fr');
 		$actual = affdate_court(...$args);
 		$this->assertSame($expected, $actual);

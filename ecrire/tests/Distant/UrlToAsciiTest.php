@@ -8,6 +8,7 @@ declare(strict_types=1);
 
 namespace Spip\Test\Distant;
 
+use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\TestCase;
 
 class UrlToAsciiTest extends TestCase
@@ -16,10 +17,8 @@ class UrlToAsciiTest extends TestCase
 		find_in_path('./inc/distant.php', '', true);
 	}
 
-	/**
-	 * @dataProvider providerDistantUrlToAscii
-	 */
-	public function testDistantUrlToAscii($expected, ...$args): void {
+	#[DataProvider('providerDistantUrlToAscii')]
+ public function testDistantUrlToAscii($expected, ...$args): void {
 		$actual = url_to_ascii(...$args);
 		$this->assertSame($expected, $actual);
 	}

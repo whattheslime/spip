@@ -8,6 +8,7 @@ declare(strict_types=1);
 
 namespace Spip\Test\Filtre\Date;
 
+use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\TestCase;
 
 class HeuresMinutesTest extends TestCase
@@ -21,10 +22,8 @@ class HeuresMinutesTest extends TestCase
 		// ce test est en fr
 	}
 
-	/**
-	 * @dataProvider providerFiltresHeuresMinutes
-	 */
-	public function testFiltresHeuresMinutes($expected, ...$args): void {
+	#[DataProvider('providerFiltresHeuresMinutes')]
+ public function testFiltresHeuresMinutes($expected, ...$args): void {
 		$actual = heures_minutes(...$args);
 		$this->assertSame($expected, $actual);
 	}

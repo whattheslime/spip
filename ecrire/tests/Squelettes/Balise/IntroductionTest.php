@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Spip\Test\Squelettes\Balise;
 
+use PHPUnit\Framework\Attributes\Depends;
 use Spip\Test\SquelettesTestCase;
 use Spip\Test\Templating;
 
@@ -34,10 +35,8 @@ class IntroductionTest extends SquelettesTestCase
 		$this->assertOK($result);
 	}
 
-	/**
-	 * @depends testArticleLongExiste
-	 */
-	public function testCoupeIntroduction(): void {
+	#[Depends('testArticleLongExiste')]
+ public function testCoupeIntroduction(): void {
 		$templating = Templating::fromString();
 		$id_article = $this->getIdArticleLong();
 		$code = '<BOUCLE_a(ARTICLES){id_article}{tout}{0,1}>#INTRODUCTION</BOUCLE_a>';
@@ -46,10 +45,8 @@ class IntroductionTest extends SquelettesTestCase
 		$this->assertMatchesRegularExpression('#' . preg_quote($suite . '</p>', '#') . '$#', $result);
 	}
 
-	/**
-	 * @depends testArticleLongExiste
-	 */
-	public function testCoupeIntroductionSuite(): void {
+	#[Depends('testArticleLongExiste')]
+ public function testCoupeIntroductionSuite(): void {
 		$templating = Templating::fromString();
 		$id_article = $this->getIdArticleLong();
 		$code = '<BOUCLE_a(ARTICLES){id_article}{tout}{0,1}>#INTRODUCTION{…}</BOUCLE_a>';
@@ -65,10 +62,8 @@ class IntroductionTest extends SquelettesTestCase
 		$this->assertMatchesRegularExpression('#' . preg_quote($suite . '</p>', '#') . '$#', $result);
 	}
 
-	/**
-	 * @depends testCoupeIntroduction
-	 */
-	public function testCoupeIntroductionConstante(): void {
+	#[Depends('testCoupeIntroduction')]
+ public function testCoupeIntroductionConstante(): void {
 		$id_article = $this->getIdArticleLong();
 		$templating = Templating::fromString([
 			'fonctions' => "

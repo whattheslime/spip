@@ -8,6 +8,7 @@ declare(strict_types=1);
 
 namespace Spip\Test\Filtre;
 
+use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\TestCase;
 
 class IdentifiantSlugTest extends TestCase
@@ -16,10 +17,8 @@ class IdentifiantSlugTest extends TestCase
 		find_in_path('./inc/filtres.php', '', true);
 	}
 
-	/**
-	 * @dataProvider providerFiltresIdentifiantSlug
-	 */
-	public function testFiltresIdentifiantSlug($expected, ...$args): void {
+	#[DataProvider('providerFiltresIdentifiantSlug')]
+ public function testFiltresIdentifiantSlug($expected, ...$args): void {
 		$actual = identifiant_slug(...$args);
 		$this->assertSame($expected, $actual);
 	}

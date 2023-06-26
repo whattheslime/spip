@@ -8,6 +8,7 @@ declare(strict_types=1);
 
 namespace Spip\Test\Filtre;
 
+use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\TestCase;
 
 class ProtegerAmpTest extends TestCase
@@ -16,10 +17,8 @@ class ProtegerAmpTest extends TestCase
 		find_in_path('inc/filtres.php', '', true);
 	}
 
-	/**
-	 * @dataProvider providerFiltresProtegerAmp
-	 */
-	public function testFiltresProtegerAmp($expected, ...$args): void {
+	#[DataProvider('providerFiltresProtegerAmp')]
+ public function testFiltresProtegerAmp($expected, ...$args): void {
 		$actual = proteger_amp(...$args);
 		$this->assertSame($expected, $actual);
 	}

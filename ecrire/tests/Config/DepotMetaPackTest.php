@@ -14,6 +14,7 @@ declare(strict_types=1);
 
 namespace Spip\Test\Config;
 
+use PHPUnit\Framework\Attributes\Depends;
 use PHPUnit\Framework\TestCase;
 
 class DepotMetaPackTest extends TestCase
@@ -94,9 +95,8 @@ class DepotMetaPackTest extends TestCase
 
 	/**
 	 * ecrire_config meta
-	 *
-	 * @depends testLireConfig1
 	 */
+	#[Depends('testLireConfig1')]
 	public function testEcrireConfig() {
 		/*
 		 * Notes sur l'ecriture :
@@ -131,9 +131,8 @@ class DepotMetaPackTest extends TestCase
 
 	/**
 	 * re lire_config meta
-	 *
-	 * @depends testEcrireConfig
 	 */
+	#[Depends('testEcrireConfig')]
 	public function testLireConfig2() {
 		$essais = [];
 		$essais[] = [0, 'metapack::test_cfg_zero'];
@@ -158,9 +157,8 @@ class DepotMetaPackTest extends TestCase
 
 	/**
 	 * effacer_config meta
-	 *
-	 * @depends testLireConfig2
 	 */
+	#[Depends('testLireConfig2')]
 	public function testEffacerConfig() {
 		$essais = [];
 		$essais[] = [true, 'metapack::test_cfg_zero'];
@@ -189,9 +187,8 @@ class DepotMetaPackTest extends TestCase
 
 	/**
 	 * re lire_config meta
-	 *
-	 * @depends testEffacerConfig
 	 */
+	#[Depends('testEffacerConfig')]
 	public function testLireConfig3() {
 		$essais = [];
 		$essais[] = [null, 'metapack::test_cfg_zero'];

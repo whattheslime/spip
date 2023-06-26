@@ -8,6 +8,7 @@ declare(strict_types=1);
 
 namespace Spip\Test\Filtre\Date;
 
+use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\TestCase;
 
 class NormaliserDateTest extends TestCase
@@ -21,10 +22,8 @@ class NormaliserDateTest extends TestCase
 		date_default_timezone_set('Europe/Paris');
 	}
 
-	/**
-	 * @dataProvider providerFiltresNormaliserDate
-	 */
-	public function testFiltresNormaliserDate($expected, ...$args): void {
+	#[DataProvider('providerFiltresNormaliserDate')]
+ public function testFiltresNormaliserDate($expected, ...$args): void {
 		$actual = normaliser_date(...$args);
 		$this->assertSame($expected, $actual);
 	}

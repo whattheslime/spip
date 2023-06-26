@@ -4,6 +4,9 @@ declare(strict_types=1);
 
 namespace Spip\Test\Filtre\Form;
 
+use RuntimeException;
+use PHPUnit\Framework\Attributes\DataProvider;
+use PHPUnit\Framework\Attributes\Depends;
 use PHPUnit\Framework\TestCase;
 
 class FormHiddenCase extends TestCase
@@ -16,7 +19,7 @@ class FormHiddenCase extends TestCase
 		find_in_path('inc/filtres.php', '', true);
 		self::backupUrls();
 		if (!static::TYPE) {
-			throw new \RuntimeException('Subclass needs to define TYPE');
+			throw new RuntimeException('Subclass needs to define TYPE');
 		}
 		$GLOBALS['type_urls'] = static::TYPE;
 		$GLOBALS['profondeur_url'] = 0;
@@ -58,10 +61,8 @@ class FormHiddenCase extends TestCase
 		$this->assertNotNull($id);
 	}
 
-	/**
-	 * @depends testHasRubrique
-	 * @dataProvider providerFormHiddenRubrique
-	 */
+	#[Depends('testHasRubrique')]
+ #[DataProvider('providerFormHiddenRubrique')]
 	public function testFormHiddenRubrique($expected, ...$args): void {
 		$id = self::$id_rubrique;
 		$expected = sprintf($expected, $id);

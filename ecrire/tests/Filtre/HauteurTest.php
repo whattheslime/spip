@@ -8,6 +8,7 @@ declare(strict_types=1);
 
 namespace Spip\Test\Filtre;
 
+use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\TestCase;
 
 class HauteurTest extends TestCase
@@ -16,10 +17,8 @@ class HauteurTest extends TestCase
 		find_in_path('inc/filtres.php', '', true);
 	}
 
-	/**
-	 * @dataProvider providerFiltresHauteur
-	 */
-	public function testFiltresHauteur($expected, ...$args): void {
+	#[DataProvider('providerFiltresHauteur')]
+ public function testFiltresHauteur($expected, ...$args): void {
 		$actual = hauteur(...$args);
 		$this->assertSame($expected, $actual);
 	}

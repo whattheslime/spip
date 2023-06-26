@@ -8,6 +8,7 @@ declare(strict_types=1);
 
 namespace Spip\Test\Filtre;
 
+use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\TestCase;
 
 class TailleImageTest extends TestCase
@@ -16,10 +17,8 @@ class TailleImageTest extends TestCase
 		find_in_path('inc/filtres.php', '', true);
 	}
 
-	/**
-	 * @dataProvider providerFiltresTailleImage
-	 */
-	public function testFiltresTailleImage($expected, ...$args): void {
+	#[DataProvider('providerFiltresTailleImage')]
+ public function testFiltresTailleImage($expected, ...$args): void {
 		$actual = taille_image(...$args);
 		$this->assertSame($expected, $actual);
 	}

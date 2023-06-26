@@ -8,6 +8,7 @@ declare(strict_types=1);
 
 namespace Spip\Test\Utils;
 
+use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\TestCase;
 
 class TesterUrlAbsolueTest extends TestCase
@@ -16,10 +17,8 @@ class TesterUrlAbsolueTest extends TestCase
 		find_in_path('./inc/utils.php', '', true);
 	}
 
-	/**
-	 * @dataProvider providerUtilsTesterUrlAbsolue
-	 */
-	public function testUtilsTesterUrlAbsolue($expected, ...$args): void {
+	#[DataProvider('providerUtilsTesterUrlAbsolue')]
+ public function testUtilsTesterUrlAbsolue($expected, ...$args): void {
 		$actual = tester_url_absolue(...$args);
 		$this->assertSame($expected, $actual);
 	}

@@ -8,6 +8,7 @@ declare(strict_types=1);
 
 namespace Spip\Test\Filtre\Date;
 
+use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\TestCase;
 
 class RecupHeureTest extends TestCase
@@ -16,10 +17,8 @@ class RecupHeureTest extends TestCase
 		find_in_path('inc/filtres.php', '', true);
 	}
 
-	/**
-	 * @dataProvider providerFiltresRecupHeure
-	 */
-	public function testFiltresRecupHeure($expected, ...$args): void {
+	#[DataProvider('providerFiltresRecupHeure')]
+ public function testFiltresRecupHeure($expected, ...$args): void {
 		$actual = recup_heure(...$args);
 		$this->assertSame($expected, $actual);
 	}

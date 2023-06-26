@@ -8,6 +8,7 @@ declare(strict_types=1);
 
 namespace Spip\Test\Format\Json;
 
+use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\TestCase;
 
 class Var2jsTest extends TestCase
@@ -16,10 +17,8 @@ class Var2jsTest extends TestCase
 		find_in_path('./inc/json.php', '', true);
 	}
 
-	/**
-	 * @dataProvider providerJsonVar2js
-	 */
-	public function testJsonVar2js($expected, ...$args): void {
+	#[DataProvider('providerJsonVar2js')]
+ public function testJsonVar2js($expected, ...$args): void {
 		$actual = var2js(...$args);
 		$this->assertSame($expected, $actual);
 	}

@@ -8,6 +8,7 @@ declare(strict_types=1);
 
 namespace Spip\Test\Utils;
 
+use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\TestCase;
 
 class UrlDeTest extends TestCase
@@ -16,10 +17,8 @@ class UrlDeTest extends TestCase
 		find_in_path('./inc/utils.php', '', true);
 	}
 
-	/**
-	 * @dataProvider providerUtilsUrlDe
-	 */
-	public function testUtilsUrlDe($expected, ...$args): void {
+	#[DataProvider('providerUtilsUrlDe')]
+ public function testUtilsUrlDe($expected, ...$args): void {
 		$actual = url_de_(...$args);
 		$this->assertSame($expected, $actual);
 	}

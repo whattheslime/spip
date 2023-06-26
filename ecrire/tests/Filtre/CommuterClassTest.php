@@ -8,6 +8,7 @@ declare(strict_types=1);
 
 namespace Spip\Test\Filtre;
 
+use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\TestCase;
 
 class CommuterClassTest extends TestCase
@@ -16,10 +17,8 @@ class CommuterClassTest extends TestCase
 		find_in_path('./inc/filtres.php', '', true);
 	}
 
-	/**
-	 * @dataProvider providerFiltresCommuterClass
-	 */
-	public function testFiltresCommuterClass($expected, ...$args): void {
+	#[DataProvider('providerFiltresCommuterClass')]
+ public function testFiltresCommuterClass($expected, ...$args): void {
 		$actual = commuter_class(...$args);
 		$this->assertSame($expected, $actual);
 	}

@@ -8,6 +8,7 @@ declare(strict_types=1);
 
 namespace Spip\Test\Distant;
 
+use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\TestCase;
 
 class NeedProxyTest extends TestCase
@@ -16,10 +17,8 @@ class NeedProxyTest extends TestCase
 		find_in_path('./inc/distant.php', '', true);
 	}
 
-	/**
-	 * @dataProvider providerDistantNeedProxy
-	 */
-	public function testDistantNeedProxy($expected, ...$args): void {
+	#[DataProvider('providerDistantNeedProxy')]
+ 	public function testDistantNeedProxy($expected, ...$args): void {
 		$actual = need_proxy(...$args);
 		$this->assertSame($expected, $actual);
 	}

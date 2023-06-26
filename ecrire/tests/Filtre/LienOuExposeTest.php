@@ -8,6 +8,7 @@ declare(strict_types=1);
 
 namespace Spip\Test\Filtre;
 
+use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\TestCase;
 
 class LienOuExposeTest extends TestCase
@@ -16,10 +17,8 @@ class LienOuExposeTest extends TestCase
 		find_in_path('./inc/filtres.php', '', true);
 	}
 
-	/**
-	 * @dataProvider providerFiltresLienOuExpose
-	 */
-	public function testFiltresLienOuExpose($expected, ...$args): void {
+	#[DataProvider('providerFiltresLienOuExpose')]
+ public function testFiltresLienOuExpose($expected, ...$args): void {
 		$actual = lien_ou_expose(...$args);
 		$this->assertSame($expected, $actual);
 	}

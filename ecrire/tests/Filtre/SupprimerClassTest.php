@@ -8,6 +8,7 @@ declare(strict_types=1);
 
 namespace Spip\Test\Filtre;
 
+use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\TestCase;
 
 class SupprimerClassTest extends TestCase
@@ -16,10 +17,8 @@ class SupprimerClassTest extends TestCase
 		find_in_path('./inc/filtres.php', '', true);
 	}
 
-	/**
-	 * @dataProvider providerFiltresSupprimerClass
-	 */
-	public function testFiltresSupprimerClass($expected, ...$args): void {
+	#[DataProvider('providerFiltresSupprimerClass')]
+ public function testFiltresSupprimerClass($expected, ...$args): void {
 		$actual = supprimer_class(...$args);
 		$this->assertSame($expected, $actual);
 	}

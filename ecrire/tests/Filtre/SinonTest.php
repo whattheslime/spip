@@ -8,6 +8,7 @@ declare(strict_types=1);
 
 namespace Spip\Test\Filtre;
 
+use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\TestCase;
 
 class SinonTest extends TestCase
@@ -16,10 +17,8 @@ class SinonTest extends TestCase
 		find_in_path('inc/filtres.php', '', true);
 	}
 
-	/**
-	 * @dataProvider providerFiltresSinon
-	 */
-	public function testFiltresSinon($expected, ...$args): void {
+	#[DataProvider('providerFiltresSinon')]
+ public function testFiltresSinon($expected, ...$args): void {
 		$actual = sinon(...$args);
 		$this->assertSame($expected, $actual);
 	}

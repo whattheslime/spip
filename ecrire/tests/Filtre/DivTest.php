@@ -8,6 +8,7 @@ declare(strict_types=1);
 
 namespace Spip\Test\Filtre;
 
+use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\TestCase;
 
 class DivTest extends TestCase
@@ -16,10 +17,8 @@ class DivTest extends TestCase
 		find_in_path('inc/filtres.php', '', true);
 	}
 
-	/**
-	 * @dataProvider providerFiltresDiv
-	 */
-	public function testFiltresDiv($expected, ...$args): void {
+	#[DataProvider('providerFiltresDiv')]
+ public function testFiltresDiv($expected, ...$args): void {
 		$actual = div(...$args);
 		//$this->assertSame($expected, $actual);
 		$this->assertEquals($expected, $actual);

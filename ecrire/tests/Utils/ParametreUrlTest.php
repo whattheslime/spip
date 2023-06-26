@@ -8,6 +8,7 @@ declare(strict_types=1);
 
 namespace Spip\Test\Utils;
 
+use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\TestCase;
 
 class ParametreUrlTest extends TestCase
@@ -16,10 +17,8 @@ class ParametreUrlTest extends TestCase
 		find_in_path('./inc/utils.php', '', true);
 	}
 
-	/**
-	 * @dataProvider providerUtilsParametreUrl
-	 */
-	public function testUtilsParametreUrl($expected, ...$args): void {
+	#[DataProvider('providerUtilsParametreUrl')]
+ public function testUtilsParametreUrl($expected, ...$args): void {
 		$actual = parametre_url(...$args);
 		$this->assertSame($expected, $actual);
 	}

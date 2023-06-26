@@ -8,6 +8,7 @@ declare(strict_types=1);
 
 namespace Spip\Test\Texte;
 
+use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\TestCase;
 
 class EchapperHtmlSuspectTest extends TestCase
@@ -30,10 +31,8 @@ class EchapperHtmlSuspectTest extends TestCase
 		$GLOBALS['spip_lang'] = static::$lang;
 	}
 
-	/**
-	 * @dataProvider providerIsHtmlSafe
-	 */
-	public function testIsHtmlSafe($expected, ...$args): void {
+	#[DataProvider('providerIsHtmlSafe')]
+ public function testIsHtmlSafe($expected, ...$args): void {
 		$actual = is_html_safe(...$args);
 		$this->assertSame($expected, $actual);
 	}

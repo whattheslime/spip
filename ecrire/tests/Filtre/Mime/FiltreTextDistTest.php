@@ -8,6 +8,7 @@ declare(strict_types=1);
 
 namespace Spip\Test\Filtre\Mime;
 
+use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\TestCase;
 
 class FiltreTextDistTest extends TestCase
@@ -16,10 +17,8 @@ class FiltreTextDistTest extends TestCase
 		find_in_path('inc/filtres_mime.php', '', true);
 	}
 
-	/**
-	 * @dataProvider providerFiltresMimeFiltreTextDist
-	 */
-	public function testFiltresMimeFiltreTextDist($expected, ...$args): void {
+	#[DataProvider('providerFiltresMimeFiltreTextDist')]
+ public function testFiltresMimeFiltreTextDist($expected, ...$args): void {
 		$actual = filtre_text_dist(...$args);
 		$this->assertSame($expected, $actual);
 	}

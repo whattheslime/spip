@@ -8,6 +8,7 @@ declare(strict_types=1);
 
 namespace Spip\Test\Texte;
 
+use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\TestCase;
 
 class PropreTest extends TestCase
@@ -32,10 +33,8 @@ class PropreTest extends TestCase
 		[$GLOBALS['debut_intertitre'], $GLOBALS['spip_raccourcis_typo']] = $mem;
 	}
 
-	/**
-	 * @dataProvider providerTextePropre
-	 */
-	public function testTextePropre($expected, ...$args): void {
+	#[DataProvider('providerTextePropre')]
+ public function testTextePropre($expected, ...$args): void {
 		$actual = propre(...$args);
 		$this->assertSame($expected, $actual);
 	}

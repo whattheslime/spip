@@ -8,6 +8,7 @@ declare(strict_types=1);
 
 namespace Spip\Test\Genie;
 
+use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\TestCase;
 
 class MajTest extends TestCase
@@ -16,10 +17,8 @@ class MajTest extends TestCase
 		find_in_path('./genie/mise_a_jour.php', '', true);
 	}
 
-	/**
-	 * @dataProvider providerInfoMajVersions
-	 */
-	public function testInfoMajVersions($expected, ...$args): void {
+	#[DataProvider('providerInfoMajVersions')]
+ public function testInfoMajVersions($expected, ...$args): void {
 		$actual = info_maj_versions(...$args);
 		$this->assertSame($expected, $actual);
 	}

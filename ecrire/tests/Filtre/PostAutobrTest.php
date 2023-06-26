@@ -8,6 +8,7 @@ declare(strict_types=1);
 
 namespace Spip\Test\Filtre;
 
+use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\TestCase;
 
 class PostAutobrTest extends TestCase
@@ -16,10 +17,8 @@ class PostAutobrTest extends TestCase
 		find_in_path('./inc/filtres.php', '', true);
 	}
 
-	/**
-	 * @dataProvider providerFiltresPostAutobr
-	 */
-	public function testFiltresPostAutobr($expected, ...$args): void {
+	#[DataProvider('providerFiltresPostAutobr')]
+ public function testFiltresPostAutobr($expected, ...$args): void {
 		$actual = post_autobr(...$args);
 		$this->assertSame($expected, $actual);
 	}

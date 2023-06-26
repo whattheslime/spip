@@ -8,6 +8,7 @@ declare(strict_types=1);
 
 namespace Spip\Test\Texte;
 
+use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\TestCase;
 
 class TypoTest extends TestCase
@@ -23,10 +24,8 @@ class TypoTest extends TestCase
 		changer_langue('fr');
 	}
 
-	/**
-	 * @dataProvider providerTexteTypo
-	 */
-	public function testTexteTypo($expected, ...$args): void {
+	#[DataProvider('providerTexteTypo')]
+ public function testTexteTypo($expected, ...$args): void {
 		$actual = typo(...$args);
 		$this->assertSame($expected, $actual);
 	}

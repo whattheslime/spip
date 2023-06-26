@@ -8,6 +8,7 @@ declare(strict_types=1);
 
 namespace Spip\Test\Filtre\Date;
 
+use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\TestCase;
 
 class SaisonTest extends TestCase
@@ -21,10 +22,8 @@ class SaisonTest extends TestCase
 		// ce test est en fr
 	}
 
-	/**
-	 * @dataProvider providerFiltresSaison
-	 */
-	public function testFiltresSaison($expected, ...$args): void {
+	#[DataProvider('providerFiltresSaison')]
+ public function testFiltresSaison($expected, ...$args): void {
 		$actual = saison(...$args);
 		$this->assertSame($expected, $actual);
 	}

@@ -8,6 +8,7 @@ declare(strict_types=1);
 
 namespace Spip\Test\Filtre;
 
+use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\TestCase;
 
 class EchapperTagsTest extends TestCase
@@ -16,10 +17,8 @@ class EchapperTagsTest extends TestCase
 		find_in_path('inc/filtres.php', '', true);
 	}
 
-	/**
-	 * @dataProvider providerFiltresEchapperTags
-	 */
-	public function testFiltresEchapperTags($expected, ...$args): void {
+	#[DataProvider('providerFiltresEchapperTags')]
+ public function testFiltresEchapperTags($expected, ...$args): void {
 		$actual = echapper_tags(...$args);
 		$this->assertSame($expected, $actual);
 	}

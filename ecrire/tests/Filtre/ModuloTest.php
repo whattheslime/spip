@@ -8,6 +8,7 @@ declare(strict_types=1);
 
 namespace Spip\Test\Filtre;
 
+use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\TestCase;
 
 class ModuloTest extends TestCase
@@ -16,10 +17,8 @@ class ModuloTest extends TestCase
 		find_in_path('inc/filtres.php', '', true);
 	}
 
-	/**
-	 * @dataProvider providerFiltresModulo
-	 */
-	public function testFiltresModulo($expected, ...$args): void {
+	#[DataProvider('providerFiltresModulo')]
+ public function testFiltresModulo($expected, ...$args): void {
 		$actual = modulo(...$args);
 		$this->assertSame($expected, $actual);
 	}

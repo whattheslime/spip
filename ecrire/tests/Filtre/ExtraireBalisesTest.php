@@ -8,6 +8,7 @@ declare(strict_types=1);
 
 namespace Spip\Test\Filtre;
 
+use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\TestCase;
 
 class ExtraireBalisesTest extends TestCase
@@ -17,18 +18,14 @@ class ExtraireBalisesTest extends TestCase
 		find_in_path('./inc/lang.php', '', true);
 	}
 
-	/**
-	 * @dataProvider providerFiltresExtraireBalises
-	 */
-	public function testFiltresExtraireBalises($expected, ...$args): void {
+	#[DataProvider('providerFiltresExtraireBalises')]
+ public function testFiltresExtraireBalises($expected, ...$args): void {
 		$actual = extraire_balises(...$args);
 		$this->assertSame($expected, $actual);
 	}
 
-	/**
-	 * @dataProvider providerFiltresExtraireBalises
-	 */
-	public function testFiltresExtraireBalise($expected, ...$args): void {
+	#[DataProvider('providerFiltresExtraireBalises')]
+ public function testFiltresExtraireBalise($expected, ...$args): void {
 		// extraire_balise doit renvoyer le premier résultat de extraire_balises
 		// sauf si on fournit un tableau de chaine en entree, ce doit être alors le premier résultat de chaque sous-tableau
 		if (count($args) === 3) {

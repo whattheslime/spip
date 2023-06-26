@@ -14,6 +14,7 @@ declare(strict_types=1);
 
 namespace Spip\Test\Action;
 
+use PHPUnit\Framework\Attributes\Depends;
 use PHPUnit\Framework\TestCase;
 
 class EditerLiensTest extends TestCase
@@ -58,9 +59,7 @@ class EditerLiensTest extends TestCase
 		}
 	}
 
-	/**
-	 * @depends testObjetAssociable
-	 */
+	#[Depends('testObjetAssociable')]
 	public function testObjetAssocier() {
 		$essais = [
 			[
@@ -138,9 +137,7 @@ class EditerLiensTest extends TestCase
 		}
 	}
 
-	/**
-	 * @depends testObjetAssocier
-	 */
+	#[Depends('testObjetAssocier')]
 	public function testObjetQualifierLiens() {
 		$essais = [
 			[
@@ -215,9 +212,7 @@ class EditerLiensTest extends TestCase
 		}
 	}
 
-	/**
-	 * @depends testObjetQualifierLiens
-	 */
+	#[Depends('testObjetQualifierLiens')]
 	public function testObjetDissocier() {
 		$essais = [
 			[

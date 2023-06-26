@@ -8,6 +8,7 @@ declare(strict_types=1);
 
 namespace Spip\Test\Filtre;
 
+use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\TestCase;
 
 class InsererAttributTest extends TestCase
@@ -16,10 +17,8 @@ class InsererAttributTest extends TestCase
 		find_in_path('./inc/filtres.php', '', true);
 	}
 
-	/**
-	 * @dataProvider providerFiltresInsererAttribut
-	 */
-	public function testFiltresInsererAttribut($expected, ...$args): void {
+	#[DataProvider('providerFiltresInsererAttribut')]
+ public function testFiltresInsererAttribut($expected, ...$args): void {
 		$actual = inserer_attribut(...$args);
 		$this->assertSame($expected, $actual);
 	}

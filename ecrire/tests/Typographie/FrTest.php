@@ -14,6 +14,7 @@ declare(strict_types=1);
 
 namespace Spip\Test\Typographie;
 
+use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\TestCase;
 
 class FrTest extends TestCase
@@ -39,10 +40,8 @@ class FrTest extends TestCase
 		return array_map(null, array_keys($list), array_values($list));
 	}
 
-	/**
-	 * @dataProvider providerBase
-	 */
-	public function testBase($source, $expected) {
+	#[DataProvider('providerBase')]
+ public function testBase($source, $expected) {
 		$typographie = static::$fnTypographie;
 		$this->assertEquals($expected, $typographie($source));
 	}
@@ -57,10 +56,8 @@ class FrTest extends TestCase
 		return array_map(null, array_keys($list), array_values($list));
 	}
 
-	/**
-	 * @dataProvider providerAddsSpaceOnPonctuation
-	 */
-	public function testAddsSpaceOnPonctuation($source, $expected) {
+	#[DataProvider('providerAddsSpaceOnPonctuation')]
+ public function testAddsSpaceOnPonctuation($source, $expected) {
 		$typographie = static::$fnTypographie;
 		$this->assertEquals($expected, $typographie($source));
 	}
@@ -75,10 +72,8 @@ class FrTest extends TestCase
 		return array_map(null, array_keys($list), array_values($list));
 	}
 
-	/**
-	 * @dataProvider providerChangeSpaceToNonBreakingSpaceOnPonctuation
-	 */
-	public function testChangeSpaceToNonBreakingSpaceOnPonctuation($source, $expected) {
+	#[DataProvider('providerChangeSpaceToNonBreakingSpaceOnPonctuation')]
+ public function testChangeSpaceToNonBreakingSpaceOnPonctuation($source, $expected) {
 		$typographie = static::$fnTypographie;
 		$this->assertEquals($expected, $typographie($source));
 	}
@@ -91,10 +86,8 @@ class FrTest extends TestCase
 		return array_map(null, array_keys($list), array_values($list));
 	}
 
-	/**
-	 * @dataProvider providerChangeTildeToNonBreakingSpace
-	 */
-	public function testChangeTildeToNonBreakingSpace($source, $expected) {
+	#[DataProvider('providerChangeTildeToNonBreakingSpace')]
+ public function testChangeTildeToNonBreakingSpace($source, $expected) {
 		$typographie = static::$fnTypographie;
 		$this->assertEquals($expected, $typographie($source));
 	}
@@ -109,10 +102,8 @@ class FrTest extends TestCase
 		return array_map(null, array_keys($list), array_values($list));
 	}
 
-	/**
-	 * @dataProvider providerChangeTildeToNonBreakingSpaceOnPonctuation
-	 */
-	public function testChangeTildeToNonBreakingSpaceOnPonctuation($source, $expected) {
+	#[DataProvider('providerChangeTildeToNonBreakingSpaceOnPonctuation')]
+ public function testChangeTildeToNonBreakingSpaceOnPonctuation($source, $expected) {
 		$typographie = static::$fnTypographie;
 		$this->assertEquals($expected, $typographie($source));
 	}
@@ -125,10 +116,8 @@ class FrTest extends TestCase
 		return array_map(null, array_keys($list), array_values($list));
 	}
 
-	/**
-	 * @dataProvider providerKeepNonBreakingSpaceEntity
-	 */
-	public function testKeepNonBreakingSpaceEntity($source, $expected) {
+	#[DataProvider('providerKeepNonBreakingSpaceEntity')]
+ public function testKeepNonBreakingSpaceEntity($source, $expected) {
 		$typographie = static::$fnTypographie;
 		$this->assertEquals($expected, $typographie($source));
 	}
@@ -141,10 +130,8 @@ class FrTest extends TestCase
 		return array_map(null, array_keys($list), array_values($list));
 	}
 
-	/**
-	 * @dataProvider providerKeepNonBreakingSpaceUtf
-	 */
-	public function testKeepNonBreakingSpaceUtf($source, $expected): never {
+	#[DataProvider('providerKeepNonBreakingSpaceUtf')]
+ public function testKeepNonBreakingSpaceUtf($source, $expected): never {
 		$typographie = static::$fnTypographie;
 		// TODO
 		$this->markTestSkipped('NIY');
@@ -160,10 +147,8 @@ class FrTest extends TestCase
 		return array_map(null, array_keys($list), array_values($list));
 	}
 
-	/**
-	 * @dataProvider providerKeepDoubleTwoPoints
-	 */
-	public function testKeepDoubleTwoPoints($source, $expected): never {
+	#[DataProvider('providerKeepDoubleTwoPoints')]
+ public function testKeepDoubleTwoPoints($source, $expected): never {
 		$typographie = static::$fnTypographie;
 		// TODO
 		$this->markTestSkipped('NIY');

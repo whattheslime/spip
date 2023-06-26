@@ -8,6 +8,7 @@ declare(strict_types=1);
 
 namespace Spip\Test\Filtre;
 
+use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\TestCase;
 
 class MultTest extends TestCase
@@ -16,10 +17,8 @@ class MultTest extends TestCase
 		find_in_path('inc/filtres.php', '', true);
 	}
 
-	/**
-	 * @dataProvider providerFiltresMult
-	 */
-	public function testFiltresMult($expected, ...$args): void {
+	#[DataProvider('providerFiltresMult')]
+ public function testFiltresMult($expected, ...$args): void {
 		$actual = mult(...$args);
 		$this->assertSame($expected, $actual);
 	}

@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Spip\Test\Squelettes\Balise;
 
+use PHPUnit\Framework\Attributes\Depends;
 use Spip\Test\SquelettesTestCase;
 
 class ExposeTest extends SquelettesTestCase
@@ -47,10 +48,8 @@ class ExposeTest extends SquelettesTestCase
 		);
 	}
 
-	/**
-	 * @depends testExposerRubrique
-	 */
-	public function testExposerRubriqueInclus(): void {
+	#[Depends('testExposerRubrique')]
+ public function testExposerRubriqueInclus(): void {
 		$this->assertOkSquelette(__DIR__ . '/data/balise_expose.html');
 	}
 }

@@ -8,6 +8,7 @@ declare(strict_types=1);
 
 namespace Spip\Test\Filtre;
 
+use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\TestCase;
 
 class ExtraireMultiTest extends TestCase
@@ -17,10 +18,8 @@ class ExtraireMultiTest extends TestCase
 		find_in_path('./inc/lang.php', '', true);
 	}
 
-	/**
-	 * @dataProvider providerFiltresExtraireMulti
-	 */
-	public function testFiltresExtraireMulti($expected, ...$args): void {
+	#[DataProvider('providerFiltresExtraireMulti')]
+ public function testFiltresExtraireMulti($expected, ...$args): void {
 		$actual = extraire_multi(...$args);
 		$this->assertSame($expected, $actual);
 	}

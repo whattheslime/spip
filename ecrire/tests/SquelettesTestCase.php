@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace Spip\Test;
 
+use RuntimeException;
+use PHPUnit\Framework\Attributes\UsesClass;
 use PHPUnit\Framework\Constraint\LogicalNot;
 use PHPUnit\Framework\TestCase;
 use Spip\Test\Constraint\IsOk;
@@ -22,7 +24,7 @@ abstract class SquelettesTestCase extends TestCase
 	 */
 	public static function relativePath(string $fullDirectory): string {
 		if (! defined('_SPIP_TEST_CHDIR')) {
-			throw new \RuntimeException('_SPIP_TEST_CHDIR needs to be defined');
+			throw new RuntimeException('_SPIP_TEST_CHDIR needs to be defined');
 		}
 
 		return substr($fullDirectory, strlen(_SPIP_TEST_CHDIR) + 1);
@@ -56,7 +58,6 @@ abstract class SquelettesTestCase extends TestCase
 	 * $templating = new Templating(new FileLoader());
 	 * $this->assertOkTemplate($templating, __DIR__ . '/data/truc.html');
 	 *
-	 * @uses Template
 	 * @param string $code Code ou chemin du squelette
 	 * @param array $contexte Contexte de calcul du squelette
 	 * @param string $message Message pour une eventuelle erreur
@@ -70,7 +71,7 @@ abstract class SquelettesTestCase extends TestCase
 		$actual = $templating->render($code, $contexte);
 
 		static::assertOk($actual, $message);
-	}
+ }
 
 	/**
 	 * Assertion qui vérifie que le résultat d’un template est vide
@@ -159,14 +160,13 @@ abstract class SquelettesTestCase extends TestCase
 	 *
 	 * @example $this->assertOkCode('[(#CONFIG{pasla}|non)ok]');
 	 *
-	 * @uses Template
 	 * @param string $code Code ou chemin du squelette
 	 * @param array $contexte Contexte de calcul du squelette
 	 * @param string $message Message pour une eventuelle erreur
 	 */
 	public static function assertOkCode(string $code, array $contexte = [], string $message = ''): void {
 		static::assertOkTemplate(Templating::fromString(), $code, $contexte);
-	}
+ }
 
 	/**
 	 * Assertion qui vérifie que le résultat d’un code de squelette n’est pas 'OK'
@@ -218,14 +218,13 @@ abstract class SquelettesTestCase extends TestCase
 	 *
 	 * @example $this->assertOkSquelette(__DIR__ . '/data/squelette.html');
 	 *
-	 * @uses Template
 	 * @param string $code Code ou chemin du squelette
 	 * @param array $contexte Contexte de calcul du squelette
 	 * @param string $message Message pour une eventuelle erreur
 	 */
 	public static function assertOkSquelette(string $code, array $contexte = [], string $message = ''): void {
 		static::assertOkTemplate(Templating::fromFile(), $code, $contexte);
-	}
+ }
 
 	/**
 	 * Assertion qui vérifie que le résultat d’un fichier de squelette n’est pas 'OK'

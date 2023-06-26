@@ -10,6 +10,7 @@ declare(strict_types=1);
 
 namespace Spip\Test\Propre;
 
+use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\TestCase;
 
 class ChevronOuvrantTest extends TestCase
@@ -27,10 +28,8 @@ class ChevronOuvrantTest extends TestCase
 		[$GLOBALS['debut_intertitre'], $GLOBALS['spip_raccourcis_typo']] = $mem;
 	}
 
-	/**
-	 * @dataProvider providerPropreChevronOuvrant
-	 */
-	public function testPropreChevronOuvrant($expected, ...$args): void {
+	#[DataProvider('providerPropreChevronOuvrant')]
+ public function testPropreChevronOuvrant($expected, ...$args): void {
 		$actual = propre(...$args);
 		$this->assertSame($expected, $actual);
 	}

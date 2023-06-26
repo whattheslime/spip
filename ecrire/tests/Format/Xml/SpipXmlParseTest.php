@@ -8,6 +8,7 @@ declare(strict_types=1);
 
 namespace Spip\Test\Format\Xml;
 
+use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\TestCase;
 
 class SpipXmlParseTest extends TestCase
@@ -16,9 +17,7 @@ class SpipXmlParseTest extends TestCase
 	find_in_path('inc/xml.php', '', true);
   }
 
-  /**
-   * @dataProvider providerXmlSpipXmlParse
-   */
+  #[DataProvider('providerXmlSpipXmlParse')]
   public function testXmlSpipXmlParse($expected, ...$args): void {
 	$actual = serialize(spip_xml_parse(...$args));
 	$this->assertSame($expected, $actual);

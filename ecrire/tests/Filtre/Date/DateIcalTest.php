@@ -8,6 +8,7 @@ declare(strict_types=1);
 
 namespace Spip\Test\Filtre\Date;
 
+use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\TestCase;
 
 class DateIcalTest extends TestCase
@@ -20,10 +21,8 @@ class DateIcalTest extends TestCase
 		date_default_timezone_set('UTC');
 	}
 
-	/**
-	 * @dataProvider providerFiltresDateIcal
-	 */
-	public function testFiltresDateIcal($expected, ...$args): void {
+	#[DataProvider('providerFiltresDateIcal')]
+ public function testFiltresDateIcal($expected, ...$args): void {
 		$actual = date_ical(...$args);
 		$this->assertSame($expected, $actual);
 	}

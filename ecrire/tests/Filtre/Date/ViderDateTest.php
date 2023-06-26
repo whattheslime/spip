@@ -8,6 +8,7 @@ declare(strict_types=1);
 
 namespace Spip\Test\Filtre\Date;
 
+use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\TestCase;
 
 class ViderDateTest extends TestCase
@@ -16,10 +17,8 @@ class ViderDateTest extends TestCase
 		find_in_path('inc/filtres.php', '', true);
 	}
 
-	/**
-	 * @dataProvider providerFiltresViderDate
-	 */
-	public function testFiltresViderDate($expected, ...$args): void {
+	#[DataProvider('providerFiltresViderDate')]
+ public function testFiltresViderDate($expected, ...$args): void {
 		$actual = vider_date(...$args);
 		$this->assertSame($expected, $actual);
 	}

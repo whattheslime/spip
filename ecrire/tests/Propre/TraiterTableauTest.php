@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Spip\Test\Propre;
 
+use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\TestCase;
 
 class TraiterTableauTest extends TestCase
@@ -12,10 +13,8 @@ class TraiterTableauTest extends TestCase
 		find_in_path('inc/texte.php', '', true);
 	}
 
-	/**
-	 * @dataProvider providerPropreTraiterTableau
-	 */
-	public function testPropreTraiterTableau($expected, ...$args): void {
+	#[DataProvider('providerPropreTraiterTableau')]
+ public function testPropreTraiterTableau($expected, ...$args): void {
 		$actual = traiter_raccourcis(...$args);
 		if (is_array($expected)) {
 			[$func, $pattern, $result] = $expected;

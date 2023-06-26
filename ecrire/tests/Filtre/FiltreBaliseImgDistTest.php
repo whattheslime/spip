@@ -8,6 +8,7 @@ declare(strict_types=1);
 
 namespace Spip\Test\Filtre;
 
+use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\TestCase;
 
 class FiltreBaliseImgDistTest extends TestCase
@@ -16,10 +17,8 @@ class FiltreBaliseImgDistTest extends TestCase
 		find_in_path('./inc/filtres.php', '', true);
 	}
 
-	/**
-	 * @dataProvider providerFiltresFiltreBaliseImgDist
-	 */
-	public function testFiltresFiltreBaliseImgDist($expected, ...$args): void {
+	#[DataProvider('providerFiltresFiltreBaliseImgDist')]
+ public function testFiltresFiltreBaliseImgDist($expected, ...$args): void {
 		static $f = null;
 		// chercher la fonction si elle n'existe pas
 		if ($f === null && !function_exists($f = 'filtre_balise_img_dist')) {

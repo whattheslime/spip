@@ -8,6 +8,7 @@ declare(strict_types=1);
 
 namespace Spip\Test\Filtre\Date;
 
+use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\TestCase;
 
 class DateInterfaceTest extends TestCase
@@ -21,10 +22,8 @@ class DateInterfaceTest extends TestCase
 		// ce test est en fr
 	}
 
-	/**
-	 * @dataProvider providerFiltresDateInterface
-	 */
-	public function testFiltresDateInterface($expected, ...$args): void {
+	#[DataProvider('providerFiltresDateInterface')]
+ public function testFiltresDateInterface($expected, ...$args): void {
 		$actual = date_interface(...$args);
 		$this->assertSame($expected, $actual);
 	}

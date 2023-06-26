@@ -2,6 +2,11 @@
 
 declare(strict_types=1);
 
+use cogpowered\FineDiff\Render\Text;
+use cogpowered\FineDiff\Diff;
+use cogpowered\FineDiff\Granularity\Paragraph;
+use cogpowered\FineDiff\Render\Html;
+
 // pour FineDiff
 #include_once _SPIP_TEST_INC . '/vendor/autoload.php';
 
@@ -90,7 +95,7 @@ function tester_fun($fun, $essais, $opts = []) {
 	return $err;
 }
 
-class SpipTestFineDiffRenderer extends \cogpowered\FineDiff\Render\Text
+class SpipTestFineDiffRenderer extends Text
 {
 	public function callback($opcode, $from, $offset, $length): string {
 		$content = substr($from, $offset, $length);
@@ -114,9 +119,9 @@ function display_error($titre, $call, $result, $expected, $opts = []) {
 
 		$from = var_export($expected, true);
 
-		$FineDiff = new \cogpowered\FineDiff\Diff();
+		$FineDiff = new Diff();
 		$FineDiff->setRenderer(new SpipTestFineDiffRenderer());
-		$FineDiff->setGranularity(new \cogpowered\FineDiff\Granularity\Paragraph());
+		$FineDiff->setGranularity(new Paragraph());
 		echo $FineDiff->render($from, var_export($result, true));
 	} else {
 		if (! isset($bef)) {
@@ -151,8 +156,8 @@ function display_error($titre, $call, $result, $expected, $opts = []) {
 			$style = '';
 		}
 
-		$FineDiff = new \cogpowered\FineDiff\Diff();
-		$FineDiff->setRenderer(new \cogpowered\FineDiff\Render\Html());
+		$FineDiff = new Diff();
+		$FineDiff->setRenderer(new Html());
 		$diff = $FineDiff->render(var_export($expected, true), var_export($result, true));
 
 		return $style

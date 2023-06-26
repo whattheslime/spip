@@ -8,6 +8,7 @@ declare(strict_types=1);
 
 namespace Spip\Test\Texte;
 
+use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\TestCase;
 
 class CouperTest extends TestCase
@@ -17,10 +18,8 @@ class CouperTest extends TestCase
 		find_in_path('inc/filtres.php', '', true);
 	}
 
-	/**
-	 * @dataProvider providerCouper
-	 */
-	public function testCouper($length_expected, $exact, ...$args): void {
+	#[DataProvider('providerCouper')]
+ public function testCouper($length_expected, $exact, ...$args): void {
 		$actual = couper(...$args);
 		$length_actual = spip_strlen(filtrer_entites($actual));
 		if ($exact) {

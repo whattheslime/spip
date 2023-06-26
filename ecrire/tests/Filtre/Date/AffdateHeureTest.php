@@ -8,6 +8,7 @@ declare(strict_types=1);
 
 namespace Spip\Test\Filtre\Date;
 
+use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\TestCase;
 
 class AffdateHeureTest extends TestCase
@@ -21,10 +22,8 @@ class AffdateHeureTest extends TestCase
 		// ce test est en fr
 	}
 
-	/**
-	 * @dataProvider providerFiltresAffdateHeure
-	 */
-	public function testFiltresAffdateHeure($expected, ...$args): void {
+	#[DataProvider('providerFiltresAffdateHeure')]
+ public function testFiltresAffdateHeure($expected, ...$args): void {
 		$actual = affdate_heure(...$args);
 		$this->assertSame($expected, $actual);
 	}

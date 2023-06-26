@@ -8,6 +8,7 @@ declare(strict_types=1);
 
 namespace Spip\Test\Texte;
 
+use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\TestCase;
 
 class InterdireScriptParanoTest extends TestCase
@@ -26,10 +27,8 @@ class InterdireScriptParanoTest extends TestCase
 		$GLOBALS['filtrer_javascript'] = -1;
 	}
 
-	/**
-	 * @dataProvider providerTexteInterdireScriptParano
-	 */
-	public function testTexteInterdireScriptParano($expected, ...$args): void {
+	#[DataProvider('providerTexteInterdireScriptParano')]
+ public function testTexteInterdireScriptParano($expected, ...$args): void {
 		$actual = interdire_scripts(...$args);
 		$this->assertSame($expected, $actual);
 	}

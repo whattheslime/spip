@@ -10,6 +10,7 @@ declare(strict_types=1);
 
 namespace Spip\Test\Propre;
 
+use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\TestCase;
 
 class CodeImbriqueTest extends TestCase
@@ -18,10 +19,8 @@ class CodeImbriqueTest extends TestCase
 		find_in_path('inc/texte.php', '', true);
 	}
 
-	/**
-	 * @dataProvider providerPropreCodeImbrique
-	 */
-	public function testPropreCodeImbrique($expected, ...$args): void {
+	#[DataProvider('providerPropreCodeImbrique')]
+ public function testPropreCodeImbrique($expected, ...$args): void {
 		$actual = strlen(propre(...$args)) > 0;
 		$this->assertSame($expected, $actual);
 	}

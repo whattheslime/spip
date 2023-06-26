@@ -8,6 +8,7 @@ declare(strict_types=1);
 
 namespace Spip\Test\Filtre\Mini;
 
+use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\TestCase;
 
 class ProtocoleVerifierTest extends TestCase
@@ -16,10 +17,8 @@ class ProtocoleVerifierTest extends TestCase
 		find_in_path('./inc/filtres_mini.php', '', true);
 	}
 
-	/**
-	 * @dataProvider providerFiltresMiniProtocoleVerifier
-	 */
-	public function testFiltresMiniProtocoleVerifier($expected, ...$args): void {
+	#[DataProvider('providerFiltresMiniProtocoleVerifier')]
+ public function testFiltresMiniProtocoleVerifier($expected, ...$args): void {
 		$actual = protocole_verifier(...$args);
 		$this->assertSame($expected, $actual);
 	}

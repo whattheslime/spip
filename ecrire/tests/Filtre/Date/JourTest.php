@@ -8,6 +8,7 @@ declare(strict_types=1);
 
 namespace Spip\Test\Filtre\Date;
 
+use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\TestCase;
 
 class JourTest extends TestCase
@@ -21,10 +22,8 @@ class JourTest extends TestCase
 		// ce test est en fr
 	}
 
-	/**
-	 * @dataProvider providerFiltresJour
-	 */
-	public function testFiltresJour($expected, ...$args): void {
+	#[DataProvider('providerFiltresJour')]
+ public function testFiltresJour($expected, ...$args): void {
 		$actual = jour(...$args);
 		$this->assertSame($expected, $actual);
 	}

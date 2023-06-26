@@ -8,6 +8,7 @@ declare(strict_types=1);
 
 namespace Spip\Test\Distant;
 
+use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\TestCase;
 
 class ValiderUrlDistanteTest extends TestCase
@@ -16,10 +17,8 @@ class ValiderUrlDistanteTest extends TestCase
 		find_in_path('./inc/distant.php', '', true);
 	}
 
-	/**
-	 * @dataProvider providerDistantValiderUrlDistante
-	 */
-	public function testDistantValiderUrlDistante($expected, ...$args): void {
+	#[DataProvider('providerDistantValiderUrlDistante')]
+ public function testDistantValiderUrlDistante($expected, ...$args): void {
 		$actual = valider_url_distante(...$args);
 		$this->assertSame($expected, $actual);
 	}

@@ -8,6 +8,7 @@ declare(strict_types=1);
 
 namespace Spip\Test\Propre;
 
+use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\TestCase;
 
 function callback_test_propre_echappe_html_echappe($regs): string {
@@ -40,10 +41,8 @@ class EchappeHtmlTest extends TestCase
 		find_in_path('inc/texte.php', '', true);
 	}
 
-	/**
-	 * @dataProvider providerSimpleEchappeHtml
-	 */
-	public function testSimpleEchappeHtml($expected, ...$args): void {
+	#[DataProvider('providerSimpleEchappeHtml')]
+ public function testSimpleEchappeHtml($expected, ...$args): void {
 		$actual = echappe_html(
 			$args[0],
 			$args[1] ?? '',
@@ -100,10 +99,8 @@ class EchappeHtmlTest extends TestCase
 		return $essais;
 	}
 
-	/**
-	 * @dataProvider providerPropreEchappeHtml
-	 */
-	public function testPropreEchappeHtml($expected, ...$args): void {
+	#[DataProvider('providerPropreEchappeHtml')]
+ public function testPropreEchappeHtml($expected, ...$args): void {
 		$actual = echappe_html(
 			$args[0],
 			$args[1] ?? '',

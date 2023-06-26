@@ -8,6 +8,7 @@ declare(strict_types=1);
 
 namespace Spip\Test\Filtre;
 
+use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\TestCase;
 
 class WrapTest extends TestCase
@@ -16,10 +17,8 @@ class WrapTest extends TestCase
 		find_in_path('inc/filtres.php', '', true);
 	}
 
-	/**
-	 * @dataProvider providerFiltresWrap
-	 */
-	public function testFiltresWrap($expected, ...$args): void {
+	#[DataProvider('providerFiltresWrap')]
+ public function testFiltresWrap($expected, ...$args): void {
 		$actual = wrap(...$args);
 		$this->assertSame($expected, $actual);
 	}

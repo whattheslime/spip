@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Spip\Test\Filtre\Date;
 
+use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\TestCase;
 
 /**
@@ -18,10 +19,8 @@ class AffDateDebutFinTest extends TestCase
 		changer_langue('fr'); // ce test est en fr
 	}
 
-	/**
-	 * @dataProvider providerAffdateDebutFin
-	 */
-	public function testAffdateDebutFin($expected, ...$args): void {
+	#[DataProvider('providerAffdateDebutFin')]
+ public function testAffdateDebutFin($expected, ...$args): void {
 		$this->assertEquals($expected, affdate_debut_fin(...$args));
 	}
 

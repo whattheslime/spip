@@ -8,6 +8,7 @@ declare(strict_types=1);
 
 namespace Spip\Test\Filtre;
 
+use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\TestCase;
 
 class SpipHtmlspecialcharsTest extends TestCase
@@ -16,10 +17,8 @@ class SpipHtmlspecialcharsTest extends TestCase
 		find_in_path('./inc/filtres.php', '', true);
 	}
 
-	/**
-	 * @dataProvider providerFiltresSpipHtmlspecialchars
-	 */
-	public function testFiltresSpipHtmlspecialchars($expected, ...$args): void {
+	#[DataProvider('providerFiltresSpipHtmlspecialchars')]
+ public function testFiltresSpipHtmlspecialchars($expected, ...$args): void {
 		$actual = spip_htmlspecialchars(...$args);
 		$this->assertSame($expected, $actual);
 	}

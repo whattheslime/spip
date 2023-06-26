@@ -14,6 +14,8 @@ declare(strict_types=1);
 
 namespace Spip\Test\Filtre;
 
+use PHPUnit\Framework\Attributes\DataProvider;
+use PHPUnit\Framework\Attributes\Depends;
 use PHPUnit\Framework\TestCase;
 
 class LabelTest extends TestCase
@@ -65,51 +67,39 @@ class LabelTest extends TestCase
 		return array_map(null, array_keys($list), array_values($list));
 	}
 
-	/**
-	 * @dataProvider providerLabelNettoyer
-	 */
-	public function testLabelNettoyer($source, $expected): void {
+	#[DataProvider('providerLabelNettoyer')]
+ public function testLabelNettoyer($source, $expected): void {
 		$this->assertEquals($expected, label_nettoyer($source, false));
 	}
 
-	/**
-	 * @depends testLabelNettoyer
-	 * @dataProvider providerLabelNettoyerInitialeMajuscule
-	 */
+	#[Depends('testLabelNettoyer')]
+ #[DataProvider('providerLabelNettoyerInitialeMajuscule')]
 	public function testLabelNettoyerInitialeMajuscule($source, $expected): void {
 		$this->assertEquals($expected, label_nettoyer($source, true));
 	}
 
-	/**
-	 * @depends testLabelNettoyer
-	 * @dataProvider providerLabelNettoyerInitialeMajuscule
-	 */
+	#[Depends('testLabelNettoyer')]
+ #[DataProvider('providerLabelNettoyerInitialeMajuscule')]
 	public function testLabelNettoyerInitialeMajusculeParDefaut($source, $expected): void {
 		$this->assertEquals($expected, label_nettoyer($source));
 	}
 
-	/**
-	 * @depends testLabelNettoyer
-	 * @dataProvider providerLabelPonctuer
-	 */
+	#[Depends('testLabelNettoyer')]
+ #[DataProvider('providerLabelPonctuer')]
 	public function testLabelPonctuer($source, $expected): never {
 		// TODO
 		$this->markTestSkipped('NIY');
 		$this->assertEquals($expected, label_ponctuer($source, false));
 	}
 
-	/**
-	 * @depends testLabelPonctuer
-	 * @dataProvider providerLabelPonctuerInitialeMajuscule
-	 */
+	#[Depends('testLabelNettoyer')]
+ #[DataProvider('providerLabelPonctuerInitialeMajuscule')]
 	public function testLabelPonctuerInitialeMajuscule($source, $expected): void {
 		$this->assertEquals($expected, label_ponctuer($source, true));
 	}
 
-	/**
-	 * @depends testLabelPonctuer
-	 * @dataProvider providerLabelPonctuerInitialeMajuscule
-	 */
+	#[Depends('testLabelNettoyer')]
+ #[DataProvider('providerLabelPonctuerInitialeMajuscule')]
 	public function testLabelPonctuerInitialeMajusculeParDefaut($source, $expected): void {
 		$this->assertEquals($expected, label_ponctuer($source));
 	}

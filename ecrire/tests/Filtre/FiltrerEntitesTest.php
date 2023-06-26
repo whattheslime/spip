@@ -8,6 +8,7 @@ declare(strict_types=1);
 
 namespace Spip\Test\Filtre;
 
+use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\TestCase;
 
 class FiltrerEntitesTest extends TestCase
@@ -16,10 +17,8 @@ class FiltrerEntitesTest extends TestCase
 		find_in_path('inc/filtres.php', '', true);
 	}
 
-	/**
-	 * @dataProvider providerFiltresFiltrerEntites
-	 */
-	public function testFiltresFiltrerEntites($expected, ...$args): void {
+	#[DataProvider('providerFiltresFiltrerEntites')]
+ public function testFiltresFiltrerEntites($expected, ...$args): void {
 		$actual = filtrer_entites(...$args);
 		$this->assertSame($expected, $actual);
 	}

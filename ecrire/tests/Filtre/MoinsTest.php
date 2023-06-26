@@ -8,6 +8,7 @@ declare(strict_types=1);
 
 namespace Spip\Test\Filtre;
 
+use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\TestCase;
 
 class MoinsTest extends TestCase
@@ -16,10 +17,8 @@ class MoinsTest extends TestCase
 		find_in_path('inc/filtres.php', '', true);
 	}
 
-	/**
-	 * @dataProvider providerFiltresMoins
-	 */
-	public function testFiltresMoins($expected, ...$args): void {
+	#[DataProvider('providerFiltresMoins')]
+ public function testFiltresMoins($expected, ...$args): void {
 		$actual = moins(...$args);
 		$this->assertSame($expected, $actual);
 	}

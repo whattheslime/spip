@@ -8,6 +8,7 @@ declare(strict_types=1);
 
 namespace Spip\Test\Filtre;
 
+use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\TestCase;
 
 class TailleEnOctetsTest extends TestCase
@@ -21,10 +22,8 @@ class TailleEnOctetsTest extends TestCase
 		// ce test est en fr
 	}
 
-	/**
-	 * @dataProvider providerFiltresTailleEnOctetsBI
-	 */
-	public function testFiltresTailleEnOctetsBI($source, $expected): void {
+	#[DataProvider('providerFiltresTailleEnOctetsBI')]
+ public function testFiltresTailleEnOctetsBI($source, $expected): void {
 		$actual = taille_en_octets($source);
 		$this->assertSame($expected, $actual);
 
@@ -32,10 +31,8 @@ class TailleEnOctetsTest extends TestCase
 		$this->assertSame($expected, $actual);
 	}
 
-	/**
-	 * @dataProvider providerFiltresTailleEnOctetsSI
-	 */
-	public function testFiltresTailleEnOctetsSI($source, $expected): void {
+	#[DataProvider('providerFiltresTailleEnOctetsSI')]
+ public function testFiltresTailleEnOctetsSI($source, $expected): void {
 		$actual = taille_en_octets($source, 'SI');
 		$this->assertSame($expected, $actual);
 	}

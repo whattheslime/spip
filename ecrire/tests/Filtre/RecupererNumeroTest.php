@@ -8,6 +8,7 @@ declare(strict_types=1);
 
 namespace Spip\Test\Filtre;
 
+use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\TestCase;
 
 class RecupererNumeroTest extends TestCase
@@ -16,10 +17,8 @@ class RecupererNumeroTest extends TestCase
 		find_in_path('inc/filtres.php', '', true);
 	}
 
-	/**
-	 * @dataProvider providerFiltresRecupererNumero
-	 */
-	public function testFiltresRecupererNumero($expected, ...$args): void {
+	#[DataProvider('providerFiltresRecupererNumero')]
+ public function testFiltresRecupererNumero($expected, ...$args): void {
 		$actual = recuperer_numero(...$args);
 		$this->assertSame($expected, $actual);
 	}

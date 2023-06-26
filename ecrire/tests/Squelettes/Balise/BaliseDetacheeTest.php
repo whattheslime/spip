@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Spip\Test\Squelettes\Balise;
 
+use PHPUnit\Framework\Attributes\Depends;
 use Spip\Test\SquelettesTestCase;
 use Spip\Test\Templating;
 
@@ -13,9 +14,7 @@ class BaliseDetacheeTest extends SquelettesTestCase
 		$this->assertNotEmptyCode('<BOUCLE_meta(spip_meta){nom=nom_site}>#VALEUR</BOUCLE_meta>');
 	}
 
-	/**
-	 * @depends testNecessiteNomSite
-	 */
+	#[Depends('testNecessiteNomSite')]
 	public function testBaliseDetacheeInterne(): void {
 		$templating = Templating::fromString();
 		$expected = $templating->render('<BOUCLE_meta(spip_meta){nom=nom_site}>#VALEUR</BOUCLE_meta>');

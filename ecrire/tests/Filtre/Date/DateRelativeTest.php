@@ -8,6 +8,7 @@ declare(strict_types=1);
 
 namespace Spip\Test\Filtre\Date;
 
+use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\TestCase;
 
 class DateRelativeTest extends TestCase
@@ -23,10 +24,8 @@ class DateRelativeTest extends TestCase
 		// ce test est en fr
 	}
 
-	/**
-	 * @dataProvider providerFiltresDateRelative
-	 */
-	public function testFiltresDateRelative($expected, ...$args): void {
+	#[DataProvider('providerFiltresDateRelative')]
+ public function testFiltresDateRelative($expected, ...$args): void {
 		$actual = date_relative(...$args);
 		$this->assertSame($expected, $actual);
 	}

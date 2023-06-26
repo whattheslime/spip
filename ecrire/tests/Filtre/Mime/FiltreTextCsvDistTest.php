@@ -8,6 +8,7 @@ declare(strict_types=1);
 
 namespace Spip\Test\Filtre\Mime;
 
+use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\TestCase;
 
 class FiltreTextCsvDistTest extends TestCase
@@ -21,10 +22,8 @@ class FiltreTextCsvDistTest extends TestCase
 		// ce test est en fr
 	}
 
-	/**
-	 * @dataProvider providerFiltresMimeFiltreTextCsvDist
-	 */
-	public function testFiltresMimeFiltreTextCsvDist($expected, ...$args): void {
+	#[DataProvider('providerFiltresMimeFiltreTextCsvDist')]
+ public function testFiltresMimeFiltreTextCsvDist($expected, ...$args): void {
 		$actual = filtre_text_csv_dist(...$args);
 		$this->assertSame($expected, $actual);
 	}

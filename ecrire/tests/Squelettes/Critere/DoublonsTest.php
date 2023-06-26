@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Spip\Test\Squelettes\Critere;
 
+use PHPUnit\Framework\Attributes\Depends;
 use Spip\Test\SquelettesTestCase;
 use Spip\Test\Templating;
 
@@ -44,10 +45,8 @@ class DoublonsTest extends SquelettesTestCase
 		');
 	}
 
-	/**
-	 * @depends testDoublonsAuteurs
-	 */
-	public function testDoublonsNommesAuteurs(): void {
+	#[Depends('testDoublonsAuteurs')]
+ public function testDoublonsNommesAuteurs(): void {
 		$this->assertOkCode('
 			<BOUCLE_a(AUTEURS){doublons polisson}></BOUCLE_a>
 			<BOUCLE_b(AUTEURS){doublons polisson}{0,1}>Erreur doublons Auteurs</BOUCLE_b>OK<//B_b>

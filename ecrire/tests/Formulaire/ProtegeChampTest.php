@@ -8,6 +8,7 @@ declare(strict_types=1);
 
 namespace Spip\Test\Formulaire;
 
+use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\TestCase;
 
 class ProtegeChampTest extends TestCase
@@ -16,10 +17,8 @@ class ProtegeChampTest extends TestCase
 		find_in_path('./balise/formulaire_.php', '', true);
 	}
 
-	/**
-	 * @dataProvider providerFormulaireProtegeChamp
-	 */
-	public function testFormulaireProtegeChamp($expected, ...$args): void {
+	#[DataProvider('providerFormulaireProtegeChamp')]
+ public function testFormulaireProtegeChamp($expected, ...$args): void {
 		$actual = protege_champ(...$args);
 		$this->assertSame($expected, $actual);
 	}
