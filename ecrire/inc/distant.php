@@ -290,7 +290,7 @@ function valider_url_distante($url, $known_hosts = []) {
  *
  * @param string|array $donnees
  * @param string $boundary
- * @return list<string,string>
+ * @return array{string,string}
  *   entete,corps
  */
 function prepare_donnees_post($donnees, $boundary = '') {
