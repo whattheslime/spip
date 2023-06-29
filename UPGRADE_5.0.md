@@ -10,6 +10,17 @@ Pour rappel, SPIP 4.x ne contient pas les mises à jour antérieures SPIP 2.0.
 Dit autrement, il faut a minima partir d’un SPIP 3.2 (ou supérieur donc) pour que la migration en SPIP 5.0 de la base de données s’effectue correctement.
 Pour des questions de compatibilité de SPIP 5.0 avec PHP 8.1 minimum, il est conseillé (mais pas obligatoire) de partir au moins d’un SPIP 4.1.
 
+### Déplacement plugins-dist
+
+Les plugins-dist (plugins fournis avec la distribution SPIP et toujours activés) sont maintenant installés via l’outil Composer (ou présents dans l’archive SPIP téléchargée).
+
+Ils sont maintenant placés dans le répertoire `plugins-dist/spip/` avec leur préfixe comme nom de répertoire. Ils étaient auparavant directement à la racine de `plugins-dist/`.
+
+En conséquence, et en fonction de votre méthode de migration vers SPIP 5.0,
+il faudra supprimer les anciens `plugins-dist/` de SPIP 4.2 à la racine s’ils sont présents.
+
+Ainsi, par exemple, le plugin Textwheel était auparavant dans `plugins-dist/textwheel` et se retrouve après mise à jour en SPIP 5.0 dans `plugins-dist/spip/tw` (où `tw` est le préfixe du plugin)
+
 ## Squelettes
 
 ### Parties optionnelles des balises
