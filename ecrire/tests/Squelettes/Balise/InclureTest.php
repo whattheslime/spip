@@ -20,13 +20,13 @@ class InclureTest extends SquelettesTestCase
 		$this->assertEqualsCode(
 			'Hello WorldHello World',
 			'<INCLURE{fond=' . $dir . '/data/texte_hello_world}>'
-				. '<INCLURE{fond=' . $dir . '/data/texte_hello_world}>'
+			. '<INCLURE{fond=' . $dir . '/data/texte_hello_world}>'
 		);
 		$this->assertEqualsCode(
 			'Hello WorldHello World',
 			'
 			 <INCLURE{fond=' . $dir . '/data/texte_hello_world}>'
-				. '<INCLURE{fond=' . $dir . '/data/texte_hello_world}>'
+			. '<INCLURE{fond=' . $dir . '/data/texte_hello_world}>'
 		);
 	}
 
