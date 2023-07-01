@@ -234,6 +234,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'info_administrer_rubrique' => 'يمكنك إدارة هذا القسم',
 	'info_adresse' => 'الى العنوان:',
 	'info_adresse_desinscription' => 'عنوان حذف التسجيل :',
+	'info_adresse_inscription' => 'عنوان التسجيل:',
 	'info_adresse_url' => 'عنوان الموقع العمومي',
 	'info_afficher_par_nb' => 'عرض حسب',
 	'info_aide_en_ligne' => 'تعليمات SPIP الفورية',

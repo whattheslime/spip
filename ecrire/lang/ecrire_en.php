@@ -230,6 +230,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'info_administrer_rubrique' => 'You can manage this section',
 	'info_adresse' => 'to this address:',
 	'info_adresse_desinscription' => 'Unsubscription address:',
+	'info_adresse_inscription' => 'Registration address:',
 	'info_adresse_url' => 'URL of the public site',
 	'info_afficher_par_nb' => 'Show ',
 	'info_aide_en_ligne' => 'SPIP Online Help',
