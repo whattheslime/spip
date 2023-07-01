@@ -35,10 +35,11 @@ function balise_FORMULAIRE_TEST_PHRASEUR_dyn($id_rubrique, $url) {
 	$res = 'OK';
 
 	if (!preg_match('#^\d+$#', $id_rubrique)) {
-		$res = 'Erreur id_rubrique non numerique : ' . var_export($id_rubrique, 1);
+		$res = 'Erreur id_rubrique non numerique : ' . var_export($id_rubrique, true);
 	}
 
-	return ['formulaires/test_phraseur',
+	return [
+		'formulaires/test_phraseur',
 		0,
 		[
 			'result' => $res,
