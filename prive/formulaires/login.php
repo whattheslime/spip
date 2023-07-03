@@ -177,19 +177,20 @@ function formulaires_login_charger_dist($cible = '', $options = [], $deprecated 
  *     - chaîne vide sinon.
  **/
 function login_auth_http() {
-	if (
-		!$GLOBALS['ignore_auth_http']
-		&& _request('var_erreur') == 'cookie'
-		&& (!isset($_COOKIE['spip_session']) || $_COOKIE['spip_session'] != 'test_echec_cookie')
-		&& (preg_match(',apache,', \PHP_SAPI) || preg_match(',^Apache.* PHP,', (string) $_SERVER['SERVER_SOFTWARE']))
-		// Attention dans le cas 'intranet' la proposition de se loger
-		// par auth_http peut conduire a l'echec.
-		&& !(isset($_SERVER['PHP_AUTH_USER']) && isset($_SERVER['PHP_AUTH_PW']))
-	) {
-		return generer_url_action('cookie', '', false, true);
-	} else {
-		return '';
+	if (!$GLOBALS['ignore_auth_http'] && _request('var_erreur') == 'cookie') {
+		include_spip('inc/session');
+		$cookie = lire_cookie_session(true);
+		if ($cookie !== 'test_echec_cookie'
+		  && (preg_match(',apache,', \PHP_SAPI) || preg_match(',^Apache.* PHP,', (string) $_SERVER['SERVER_SOFTWARE']))
+		  // Attention dans le cas 'intranet' la proposition de se loger
+		  // par auth_http peut conduire a l'echec.
+		  && !(isset($_SERVER['PHP_AUTH_USER']) && isset($_SERVER['PHP_AUTH_PW']))
+		) {
+			return generer_url_action('cookie', '', false, true);
+		}
 	}
+
+	return '';
 }
 
 

@@ -3269,14 +3269,14 @@ function lang_select($lang = null) {
 function spip_session($force = false) {
 	static $session;
 	if ($force || !isset($session)) {
-		$s = pipeline(
-			'definir_session',
-			$GLOBALS['visiteur_session']
-				? serialize($GLOBALS['visiteur_session'])
-				. '_' . @$_COOKIE['spip_session']
-				: ''
-		);
-		$session = $s ? substr(md5($s), 0, 8) : '';
+		$s = '';
+		if (!empty($GLOBALS['visiteur_session'])) {
+			include_spip('inc/session');
+			$cookie = lire_cookie_session();
+			$s = serialize($GLOBALS['visiteur_session']) . '_' . ($cookie ?: '');
+		}
+		$s = pipeline('definir_session', $s);
+		$session = ($s ? substr(md5($s), 0, 8) : '');
 	}
 
 	#spip_log('session: '.$session);
