@@ -4,6 +4,10 @@ Changelog de SPIP 4.1
 
 ## Unreleased
 
+### Security
+
+- spip-team/security#4847 Limiter les données d’auteurs d’authentification via une fonction `auth_desensibiliser_session()`
+
 ### Fixed
 
 - Éviter un `Call to undefined function session_get`
