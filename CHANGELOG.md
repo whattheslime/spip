@@ -2,6 +2,10 @@
 
 ## Unreleased
 
+### Security
+
+- spip-team/security#4847 Limiter les données d’auteurs d’authentification via une fonction `auth_desensibiliser_session()`
+
 ### Added
 
 - #5565 Critère `{collate}` (remplace `{collecte}`)
