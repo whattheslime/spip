@@ -72,7 +72,7 @@ function action_logout_dist() {
 		if (isset($_COOKIE['spip_session'])) {
 			$session = charger_fonction('session', 'inc');
 			$session($GLOBALS['visiteur_session']['id_auteur']);
-			set_cookie_session(false);
+			effacer_cookie_session();
 		}
 		// si authentification http, et que la personne est loge,
 		// pour se deconnecter, il faut proposer un nouveau formulaire de connexion http

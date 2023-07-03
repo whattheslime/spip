@@ -170,7 +170,9 @@ function ajouter_session($auteur) {
 		}
 	}
 
-	if ((!$cookie = lire_cookie_session()) || intval($cookie) !== $id_auteur
+	if (
+		(!$cookie = lire_cookie_session())
+		|| intval($cookie) !== $id_auteur
 	) {
 		$cookie = $id_auteur . '_' . md5(uniqid(random_int(0, mt_getrandmax()), true));
 	}
@@ -232,8 +234,8 @@ function ajouter_session($auteur) {
 			time() + max(_DUREE_COOKIE_ADMIN, $duree),
 			httponly: true
 		);
-	} // sinon le supprimer ...
-	else {
+	} else {
+		// sinon le supprimer ...
 		spip_setcookie('spip_admin', '', 1, httponly: true);
 	}
 
@@ -273,62 +275,65 @@ function definir_duree_cookie_session($auteur) {
 
 /**
  * Lire le cookie de session et le valider de façon centralisée
- * @return false|string
  */
-function lire_cookie_session($accepter_test = false) {
+function lire_cookie_session(bool $accepter_test = false): ?string {
 	static $cookie_valide = [];
 	// pas de cookie ?
 	if (!isset($_COOKIE['spip_session'])) {
-		return false;
+		return null;
 	}
 
-	if (!isset($cookie_valide[$_COOKIE['spip_session']])) {
-		// cookie de test ?
-		if ($accepter_test && $_COOKIE['spip_session'] === 'test_echec_cookie') {
-			return 'test_echec_cookie';
-		}
+	if (array_key_exists($_COOKIE['spip_session'], $cookie_valide)) {
+		return $cookie_valide[$_COOKIE['spip_session']];
+	}
+
+	if ($accepter_test && $_COOKIE['spip_session'] === 'test_echec_cookie') {
+		return 'test_echec_cookie';
+	}
+
+	if (!preg_match(",^\d+_[0-9a-f]{32}$,", $_COOKIE['spip_session'])) {
 		// cookie invalide ?
-		elseif (!preg_match(",^\d+_[0-9a-f]{32}$,", $_COOKIE['spip_session'])) {
-			$cookie_valide[$_COOKIE['spip_session']] = false;
-			unset($_COOKIE['spip_session']);
-			return false;
-		}
-		// ok
-		$cookie_valide[$_COOKIE['spip_session']] = $_COOKIE['spip_session'];
+		effacer_cookie_session();
+		return null;
 	}
 
-	return $cookie_valide[$_COOKIE['spip_session']];
+	// ok
+	$cookie_valide[$_COOKIE['spip_session']] = $_COOKIE['spip_session'];
+
+	return $_COOKIE['spip_session'];
+}
+
+/** Annuler le cookie de session */
+function effacer_cookie_session(): void {
+	// supprimer le cookie
+	if (isset($_COOKIE['spip_session'])) {
+		spip_setcookie('spip_session', '', time() - 24 * 3600, httponly: true);
+		unset($_COOKIE['spip_session']);
+	}
 }
 
 /**
- * Prolonger/Changer la valeur/annuler le cookie de session
+ * Prolonger / Changer la valeur du cookie de session
  *
- * @param string|false|null $valeur_cookie
- *   nouveau cookie (string), reset (false), prolonger le cookie existant (null)
+ * @param string|null $valeur_cookie
+ *   nouveau cookie (string), prolonger le cookie existant (null)
  * @param int $expires
  *   timestamp d'expiration
- * @return false|string
  */
-function set_cookie_session($valeur_cookie = null, int $expires = 0) {
-	if (is_null($valeur_cookie)) {
-		$valeur_cookie = lire_cookie_session();
-	}
-	else {
-		// verifier que la valeur est bien valide
+function set_cookie_session(?string $valeur_cookie = null, int $expires = 0): ?string {
+	if ($valeur_cookie !== null) {
+		// vérifié par lire_cookie_session()
 		$_COOKIE['spip_session'] = $valeur_cookie;
-		$valeur_cookie = lire_cookie_session();
 	}
-	if (!$valeur_cookie) {
-		// supprimer le cookie
-		if (isset($_COOKIE['spip_session'])) {
-			spip_setcookie('spip_session', '', time() - 24 * 3600, httponly: true);
-		}
-		unset($_COOKIE['spip_session']);
-	}
-	else {
-		// set le cookie
+
+	$valeur_cookie = lire_cookie_session();
+
+	if ($valeur_cookie === null) {
+		effacer_cookie_session();
+	} else {
 		spip_setcookie('spip_session', $valeur_cookie, $expires, httponly: true);
 	}
+
 	return $valeur_cookie;
 }
 
@@ -460,7 +465,7 @@ function session_get($nom) {
  * @uses terminer_actualiser_sessions() Ajoute la fonction en fin de hit.
  *
  * @param string $nom
- * @param null $val
+ * @param mixed $val
  * @return void|array
  */
 function session_set($nom, $val = null) {
@@ -536,7 +541,7 @@ function actualiser_sessions($auteur, $supprimer_cles = []) {
 	if ($id_auteur == $id_auteur_courant) {
 		$auteur = array_merge($GLOBALS['visiteur_session'], $auteur);
 		ajouter_session($auteur);
-		if ($id_auteur and $cookie = lire_cookie_session()) {
+		if ($id_auteur && ($cookie = lire_cookie_session())) {
 			$fichier_session_courante = chemin_fichier_session('alea_ephemere', $cookie);
 		}
 	}
