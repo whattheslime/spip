@@ -610,16 +610,12 @@ function lister_sessions_auteur($id_auteur, $nb_max = null) {
  * @param array $auteur
  * @return array
  */
-function preparer_ecriture_session($auteur) {
+function preparer_ecriture_session(array $auteur): array {
+
 	$row = $auteur;
 
-	// ne pas enregistrer ces elements de securite
-	// dans le fichier de session
-	unset($auteur['pass']);
-	unset($auteur['htpass']);
-	unset($auteur['low_sec']);
-	unset($auteur['alea_actuel']);
-	unset($auteur['alea_futur']);
+	// ne pas enregistrer ces elements de securite dans le fichier de session
+	$auteur = auth_desensibiliser_session($auteur);
 
 	$auteur = pipeline('preparer_fichier_session', ['args' => ['row' => $row], 'data' => $auteur]);
 
