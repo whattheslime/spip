@@ -618,6 +618,7 @@ function preparer_ecriture_session(array $auteur): array {
 	$row = $auteur;
 
 	// ne pas enregistrer ces elements de securite dans le fichier de session
+	include_spip('inc/auth');
 	$auteur = auth_desensibiliser_session($auteur);
 
 	$auteur = pipeline('preparer_fichier_session', ['args' => ['row' => $row], 'data' => $auteur]);
