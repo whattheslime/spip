@@ -175,14 +175,12 @@ function caracteriser_auteur($id_auteur = null) {
 	static $caracterisation = [];
 
 	if (is_null($id_auteur) && !isset($GLOBALS['visiteur_session']['id_auteur'])) {
+		include_spip('inc/session');
 		// si l'auteur courant n'est pas connu alors qu'il peut demander une action
 		// c'est une connexion par php_auth ou 1 instal, on se rabat sur le cookie.
 		// S'il n'avait pas le droit de realiser cette action, le hash sera faux.
-		if (
-			isset($_COOKIE['spip_session'])
-			&& preg_match('/^(\d+)/', $_COOKIE['spip_session'], $r)
-		) {
-			return [$r[1], ''];
+		if ($cookie = lire_cookie_session()) {
+			return [intval($cookie), ''];
 			// Necessaire aux forums anonymes.
 			// Pour le reste, ca echouera.
 		} else {

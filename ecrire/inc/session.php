@@ -157,10 +157,10 @@ function ajouter_session($auteur) {
 
 		// Si après ça la session est vide alors on supprime l'éventuel fichier et on arrête là
 		if (!$auteur_verif) {
-			if (isset($_COOKIE['spip_session']) && isset($_SESSION[$_COOKIE['spip_session']])) {
-				unset($_SESSION[$_COOKIE['spip_session']]);
-			}
-			if (isset($_COOKIE['spip_session'])) {
+			if ($cookie = lire_cookie_session()) {
+				if (isset($_SESSION[$cookie])) {
+					unset($_SESSION[$cookie]);
+				}
 				unset($_COOKIE['spip_session']);
 			}
 
@@ -168,10 +168,9 @@ function ajouter_session($auteur) {
 		}
 	}
 
-	if (
-		!isset($_COOKIE['spip_session']) || !preg_match(',^' . $id_auteur . '_,', $_COOKIE['spip_session'])
+	if ((!$cookie = lire_cookie_session()) || intval($cookie) !== $id_auteur
 	) {
-		$_COOKIE['spip_session'] = $id_auteur . '_' . md5(uniqid(random_int(0, mt_getrandmax()), true));
+		$cookie = $_COOKIE['spip_session'] = $id_auteur . '_' . md5(uniqid(random_int(0, mt_getrandmax()), true));
 	}
 
 	// Maintenant on sait qu'on a des choses à écrire
@@ -200,7 +199,7 @@ function ajouter_session($auteur) {
 	// les sessions anonymes sont stockees dans $_SESSION
 	if (!$id_auteur) {
 		spip_php_session_start();
-		$_SESSION[$_COOKIE['spip_session']] = preparer_ecriture_session($auteur);
+		$_SESSION[$cookie] = preparer_ecriture_session($auteur);
 	} else {
 		$fichier_session = fichier_session('alea_ephemere');
 		if (!ecrire_fichier_session($fichier_session, $auteur)) {
@@ -217,7 +216,7 @@ function ajouter_session($auteur) {
 	// poser le cookie de session SPIP
 	include_spip('inc/cookie');
 	$duree = definir_duree_cookie_session($auteur);
-	spip_setcookie('spip_session', $_COOKIE['spip_session'], time() + $duree, httponly: true);
+	spip_setcookie('spip_session', $cookie, time() + $duree, httponly: true);
 	spip_log("ajoute session $fichier_session cookie $duree", 'session');
 
 	// Si on est admin, poser le cookie de correspondance
@@ -239,7 +238,7 @@ function ajouter_session($auteur) {
 	# on en profite pour purger les vieilles sessions anonymes abandonnees
 	# supprimer_sessions(0, true, false);
 
-	return $_COOKIE['spip_session'];
+	return $cookie;
 }
 
 /**
@@ -270,6 +269,27 @@ function definir_duree_cookie_session($auteur) {
 	return (int)(_RENOUVELLE_ALEA * $coef);
 }
 
+function lire_cookie_session() {
+	static $cookie_valide = [];
+	// pas de cookie ?
+	if (!isset($_COOKIE['spip_session'])) {
+		return false;
+	}
+
+	if (!isset($cookie_valide[$_COOKIE['spip_session']])) {
+		// cookie invalide ?
+		if (!preg_match(",^\d+_[0-9a-f]{32}$,", $_COOKIE['spip_session'])) {
+			$cookie_valide[$_COOKIE['spip_session']] = false;
+			unset($_COOKIE['spip_session']);
+			return false;
+		}
+		// ok
+		$cookie_valide[$_COOKIE['spip_session']] = $_COOKIE['spip_session'];
+	}
+
+	return $cookie_valide[$_COOKIE['spip_session']];
+}
+
 /**
  * Vérifie si le cookie spip_session indique une session valide
  *
@@ -288,19 +308,19 @@ function definir_duree_cookie_session($auteur) {
  */
 function verifier_session($change = false) {
 	// si pas de cookie, c'est fichu
-	if (!isset($_COOKIE['spip_session'])) {
+	if (!$cookie = lire_cookie_session()) {
 		return false;
 	}
 
 	$fichier_session = '';
 
 	// est-ce une session anonyme ?
-	if (!intval($_COOKIE['spip_session'])) {
+	if (!intval($cookie)) {
 		spip_php_session_start();
-		if (!isset($_SESSION[$_COOKIE['spip_session']]) || !is_array($_SESSION[$_COOKIE['spip_session']])) {
+		if (!isset($_SESSION[$cookie]) || !is_array($_SESSION[$cookie])) {
 			return false;
 		}
-		$GLOBALS['visiteur_session'] = $_SESSION[$_COOKIE['spip_session']];
+		$GLOBALS['visiteur_session'] = $_SESSION[$cookie];
 	} else {
 		// Tester avec alea courant
 		$fichier_session = fichier_session('alea_ephemere', true);
@@ -347,7 +367,7 @@ function verifier_session($change = false) {
 		}
 	} else {
 		if ($change) {
-			spip_log("rejoue session $fichier_session " . $_COOKIE['spip_session'], 'session');
+			spip_log("rejoue session $fichier_session $cookie", 'session');
 			if ($fichier_session) {
 				spip_unlink($fichier_session);
 			}
