@@ -101,7 +101,9 @@ function supprimer_sessions($id_auteur, $toutes = true, $actives = true) {
 		}
 	} else {
 		verifier_session();
-		spip_unlink(fichier_session('alea_ephemere', true));
+		if ($cookie = lire_cookie_session()) {
+			spip_unlink(fichier_session('alea_ephemere', $cookie, true));
+		}
 	}
 
 	// forcer le recalcul de la session courante
@@ -201,7 +203,7 @@ function ajouter_session($auteur) {
 		spip_php_session_start();
 		$_SESSION[$cookie] = preparer_ecriture_session($auteur);
 	} else {
-		$fichier_session = fichier_session('alea_ephemere');
+		$fichier_session = fichier_session('alea_ephemere', $cookie);
 		if (!ecrire_fichier_session($fichier_session, $auteur)) {
 			spip_log('Echec ecriture fichier session ' . $fichier_session, 'session' . _LOG_HS);
 			include_spip('inc/minipres');
@@ -323,12 +325,12 @@ function verifier_session($change = false) {
 		$GLOBALS['visiteur_session'] = $_SESSION[$cookie];
 	} else {
 		// Tester avec alea courant
-		$fichier_session = fichier_session('alea_ephemere', true);
+		$fichier_session = fichier_session('alea_ephemere', $cookie, true);
 		if ($fichier_session && @file_exists($fichier_session)) {
 			include($fichier_session);
 		} else {
 			// Sinon, tester avec alea precedent
-			$fichier_session = fichier_session('alea_ephemere_ancien', true);
+			$fichier_session = fichier_session('alea_ephemere_ancien', $cookie,true);
 			if (!$fichier_session || !@file_exists($fichier_session)) {
 				return false;
 			}
@@ -494,8 +496,8 @@ function actualiser_sessions($auteur, $supprimer_cles = []) {
 	if ($id_auteur == $id_auteur_courant) {
 		$auteur = array_merge($GLOBALS['visiteur_session'], $auteur);
 		ajouter_session($auteur);
-		if ($id_auteur) {
-			$fichier_session_courante = fichier_session('alea_ephemere');
+		if ($id_auteur and $cookie = lire_cookie_session()) {
+			$fichier_session_courante = fichier_session('alea_ephemere', $cookie);
 		}
 	}
 
@@ -677,10 +679,11 @@ function ecrire_fichier_session($fichier, $auteur) {
  * Calculer le nom du fichier session
  *
  * @param string $alea
+ * @param string $cookie
  * @param bool $tantpis
  * @return string
  */
-function fichier_session($alea, $tantpis = false) {
+function fichier_session($alea, string $cookie_session, bool $tantpis = false) {
 
 	include_spip('inc/acces');
 	charger_aleas();
@@ -695,9 +698,8 @@ function fichier_session($alea, $tantpis = false) {
 		return ''; // echec mais $tanpis
 	} else {
 		$repertoire = sous_repertoire(_DIR_SESSIONS, '', false, $tantpis);
-		$c = $_COOKIE['spip_session'];
-
-		return $repertoire . intval($c) . '_' . md5($c . ' ' . $GLOBALS['meta'][$alea]) . '.php';
+		$id_auteur = intval($cookie_session);
+		return $repertoire . $id_auteur . '_' . md5($cookie_session . ' ' . $GLOBALS['meta'][$alea]) . '.php';
 	}
 }
 
