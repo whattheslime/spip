@@ -1279,7 +1279,7 @@ function http_script($script, $src = '', $noscript = '') {
 	}
 
 	return ($src or $script or $noscript)
-		? "<script type='text/javascript'$src>$script</script>$noscript"
+		? "<script$src>$script</script>$noscript"
 		: '';
 }
 

@@ -99,7 +99,7 @@ function formulaires_editer_objet_traiter(
 		$res['message_ok'] = _T('info_modification_enregistree');
 		if ($retour) {
 			if (strncmp($retour, 'javascript:', 11) == 0) {
-				$res['message_ok'] .= '<script type="text/javascript">' . substr($retour, 11) . '</script>';
+				$res['message_ok'] .= '<script>' . substr($retour, 11) . '</script>';
 				$res['editable'] = true;
 			} else {
 				$res['redirect'] = parametre_url($retour, $id_table_objet, $id);
