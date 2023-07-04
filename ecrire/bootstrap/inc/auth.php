@@ -1,5 +1,7 @@
 <?php
 
+use Spip\Auth\SessionCookie;
+
 /**
  * Indique si on est dans l'espace prive
  *
@@ -122,9 +124,8 @@ function spip_session($force = false) {
 	if ($force || !isset($session)) {
 		$s = '';
 		if (!empty($GLOBALS['visiteur_session'])) {
-			include_spip('inc/session');
-			$cookie = lire_cookie_session();
-			$s = serialize($GLOBALS['visiteur_session']) . '_' . ($cookie ?: '');
+			$cookie = (string) (new SessionCookie())->get();
+			$s = serialize($GLOBALS['visiteur_session']) . '_' . $cookie;
 		}
 		$s = pipeline('definir_session', $s);
 		$session = ($s ? substr(md5($s), 0, 8) : '');
