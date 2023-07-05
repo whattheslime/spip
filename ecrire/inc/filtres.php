@@ -920,13 +920,13 @@ function corriger_caracteres($texte) {
  * @filtre
  * @link https://www.spip.net/4287
  *
- * @param string $texte
+ * @param string|null $texte
  *     texte à transformer
  * @return string
  *     texte encodé pour XML
  */
-function texte_backend(string $texte): string {
-	if ($texte === '') {
+function texte_backend(?string $texte): string {
+	if ($texte === null || $texte === '') {
 		return '';
 	}
 
@@ -974,12 +974,12 @@ function texte_backend(string $texte): string {
  * @uses texte_backend()
  * @filtre
  *
- * @param string $texte
+ * @param string|null $texte
  *     texte à transformer
  * @return string
  *     texte encodé et quote pour XML
  */
-function texte_backendq(string $texte): string {
+function texte_backendq(?string $texte): string {
 	return addslashes(texte_backend($texte));
 }
 
@@ -1002,7 +1002,7 @@ function texte_backendq(string $texte): string {
  *     Texte sans son numéro éventuel
  **/
 function supprimer_numero(?string $texte): string {
-	if ($texte === null) {
+	if ($texte === null || $texte === '') {
 		return '';
 	}
 	return preg_replace(
@@ -1032,18 +1032,19 @@ function supprimer_numero(?string $texte): string {
  *     Numéro de titre, sinon chaîne vide
  **/
 function recuperer_numero(?string $texte): string {
-	if (
-		$texte and
-		preg_match(
+	if ($texte === null || $texte === '') {
+		return '';
+	}
+	if (preg_match(
 			',^[[:space:]]*([0-9]+)([.)]|' . chr(194) . '?' . chr(176) . ')[[:space:]]+,S',
 			$texte,
 			$regs
 		)
 	) {
-		return strval($regs[1]);
-	} else {
-		return '';
+		return (string) $regs[1];
 	}
+
+	return '';
 }
 
 /**
@@ -1070,7 +1071,7 @@ function recuperer_numero(?string $texte): string {
  *     texte ou tableau de textes converti
  **/
 function supprimer_tags($texte, $rempl = '') {
-	if ($texte === null) {
+	if ($texte === null || $texte === '') {
 		return '';
 	}
 	$texte = preg_replace(',<(!--|\w|/|!\[endif|!\[if)[^>]*>,US', $rempl, $texte);
@@ -1125,6 +1126,9 @@ function echapper_tags($texte, $rempl = '') {
  *     texte converti
  **/
 function textebrut($texte) {
+	if ($texte === null || $texte === '') {
+		return '';
+	}
 	$u = $GLOBALS['meta']['pcre_u'];
 	$texte = preg_replace('/\s+/S' . $u, ' ', $texte);
 	$texte = preg_replace('/<(p|br)( [^>]*)?' . '>/iS', "\n\n", $texte);
@@ -1152,6 +1156,9 @@ function textebrut($texte) {
  *     texte avec liens ouvrants
  **/
 function liens_ouvrants($texte) {
+	if ($texte === null || $texte === '') {
+		return '';
+	}
 	if (
 		preg_match_all(
 			",(<a\s+[^>]*https?://[^>]*class=[\"']spip_(out|url)\b[^>]+>),imsS",
@@ -1178,6 +1185,9 @@ function liens_ouvrants($texte) {
  * @return string
  */
 function liens_nofollow($texte) {
+	if ($texte === null || $texte === '') {
+		return '';
+	}
 	if (stripos($texte, '<a') === false) {
 		return $texte;
 	}
@@ -1212,6 +1222,9 @@ function liens_nofollow($texte) {
  *     texte sans paraghaphes
  **/
 function PtoBR($texte) {
+	if ($texte === null || $texte === '') {
+		return '';
+	}
 	$u = $GLOBALS['meta']['pcre_u'];
 	$texte = preg_replace('@</p>@iS', "\n", $texte);
 	$texte = preg_replace("@<p\b.*>@UiS", '<br />', $texte);
@@ -1270,7 +1283,7 @@ function lignes_longues($texte) {
  * @return string texte en majuscule
  */
 function majuscules($texte) {
-	if (!strlen($texte)) {
+	if ($texte === null || $texte === '') {
 		return '';
 	}
 
@@ -1368,7 +1381,7 @@ function taille_en_octets($octets, $systeme = 'BI') {
  *     texte prêt pour être utilisé en attribut HTML
  **/
 function attribut_html(?string $texte, $textebrut = true): string {
-	if ($texte === null) {
+	if ($texte === null || $texte === '') {
 		return '';
 	}
 	$u = $GLOBALS['meta']['pcre_u'];
@@ -1402,7 +1415,7 @@ function attribut_html(?string $texte, $textebrut = true): string {
  *     URL ou chaîne vide
  **/
 function vider_url(?string $url, $entites = true): string {
-	if ($url === null) {
+	if ($url === null || $url === '') {
 		return '';
 	}
 	# un message pour abs_url
@@ -1489,9 +1502,9 @@ function sinon($texte, $sinon = '') {
 		return $texte;
 	} elseif (is_scalar($texte) and strlen($texte)) {
 		return $texte;
-	} else {
-		return $sinon;
 	}
+
+	return $sinon;
 }
 
 /**
@@ -1558,6 +1571,9 @@ function choixsiegal($a1, $a2, $v, $f) {
  * @return string
  **/
 function filtrer_ical($texte) {
+	if ($texte === null || $texte === '') {
+		return '';
+	}
 	#include_spip('inc/charsets');
 	$texte = html2unicode($texte);
 	$texte = unicode2charset(charset2unicode($texte, $GLOBALS['meta']['charset']), 'utf-8');

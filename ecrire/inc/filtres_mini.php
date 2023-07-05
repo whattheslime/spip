@@ -179,11 +179,14 @@ function protocole_verifier($url_absolue, $protocoles_autorises = ['http','https
  * @uses url_absolue()
  * @link https://www.spip.net/4126
  *
- * @param string $texte texte
+ * @param string|null $texte texte
  * @param string $base URL de base de destination (par défaut ce sera l'URL de notre site)
  * @return string texte avec des URLs absolues
  **/
 function liens_absolus($texte, $base = '') {
+	if ($texte === null || $texte === '') {
+		return '';
+	}
 	if (preg_match_all(',(<(a|link|image|img|script)\s[^<>]*(href|src)=[^<>]*>),imsS', $texte, $liens, PREG_SET_ORDER)) {
 		if (!function_exists('extraire_attribut')) {
 			include_spip('inc/filtres');
