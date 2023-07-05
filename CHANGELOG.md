@@ -24,6 +24,7 @@
 
 ### Fixed
 
+- #5569 Les filtres de transformation de texte acceptent une valeur null
 - Éviter un `Call to undefined function session_get`
 - #5636 Correction typage arguments de `objet_type`, `table_objet` et `table_objet_sql`
 - #5104 Éviter une erreur fatale quand un job ne peut pas récupérer les arguments de la callback associée
