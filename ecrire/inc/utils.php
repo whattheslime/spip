@@ -1309,12 +1309,15 @@ function http_script($script, $src = '', $noscript = '') {
  *     ```
  *
  * @filtre
- * @param string $texte
- *     Texte à échapper
+ * @param string|null $texte
+ *     texte à échapper
  * @return string
  *     Texte échappé
  **/
-function texte_script(string $texte): string {
+function texte_script(?string $texte): string {
+	if ($texte === null || $texte === '') {
+		return '';
+	}
 	return str_replace('\'', '\\\'', str_replace('\\', '\\\\', $texte));
 }
 

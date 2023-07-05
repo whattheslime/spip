@@ -378,8 +378,8 @@ function mathml2unicode($texte) {
  *     Note: l'argument $forcer est obsolete : il visait a ne pas
  *     convertir les accents iso-8859-1
  *
- * @param string $texte
- *     Texte à convertir
+ * @param string|null $texte
+ *     texte à convertir
  * @param string $charset
  *     Charset actuel du texte
  *     Par défaut (AUTO), le charset est celui du site.
@@ -389,7 +389,11 @@ function mathml2unicode($texte) {
 function charset2unicode($texte, $charset = 'AUTO' /* $forcer: obsolete*/) {
 	static $trans;
 
-	if ($charset == 'AUTO') {
+	if ($texte === null || $texte === '') {
+		return '';
+	}
+
+	if ($charset === 'AUTO') {
 		$charset = lire_config('charset', _DEFAULT_CHARSET);
 	}
 
