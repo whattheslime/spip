@@ -10,6 +10,7 @@ Changelog de SPIP 4.1
 
 ### Fixed
 
+- #5569 Les filtres de transformation de texte acceptent une valeur null
 - Éviter un `Call to undefined function session_get`
 
 ## 4.1.10 - 2023-06-07
