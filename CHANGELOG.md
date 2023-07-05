@@ -10,6 +10,7 @@ Changelog de SPIP 4.2
 
 ### Fixed
 
+- #5569 Les filtres de transformation de texte acceptent une valeur null
 - Éviter un `Call to undefined function session_get`
 - #5636 Correction typage arguments de `objet_type`, `table_objet` et `table_objet_sql`
 - #5627 Prévenir une ambiguité de certains squelettes (pour préparer SPIP 5) sur les balises simples utilisant `url(#BALISE)`. Utiliser `url("#BALISE")` ou `url\(#BALISE)`
