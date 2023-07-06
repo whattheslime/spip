@@ -106,7 +106,7 @@ function charger_fonction($nom, $dossier = 'exec', $continue = false) {
 		_T('forum_titre_erreur'),
 		$inc ?
 			_T('fonction_introuvable', ['fonction' => '<code>' . spip_htmlentities($f) . '</code>'])
-			. '<br />'
+			. '<br>'
 			. _T('fonction_introuvable', ['fonction' => '<code>' . spip_htmlentities($g) . '</code>'])
 			:
 			_T('fichier_introuvable', ['fichier' => '<code>' . spip_htmlentities($d) . '</code>']),
@@ -1651,7 +1651,7 @@ function find_in_path($file, $dirname = '', $include = false) {
 		spip_log("include_spip $dirname$file non trouve");
 		if ($include === 'required') {
 			echo '<pre>',
-			'<strong>Erreur Fatale</strong><br />';
+			'<strong>Erreur Fatale</strong><br>';
 			if (function_exists('debug_print_backtrace')) {
 				debug_print_backtrace();
 			}
@@ -2371,10 +2371,10 @@ function generer_form_ecrire($script, $corps, $atts = '', $submit = '') {
 	. "' "
 	. ($atts ?: " method='post'")
 	. "><div>\n"
-	. "<input type='hidden' name='exec' value='$script1' />"
+	. "<input type='hidden' name='exec' value='$script1'>"
 	. $corps
 	. (!$submit ? '' :
-		("<div style='text-align: " . $GLOBALS['spip_lang_right'] . "'><input class='fondo submit btn' type='submit' value=\"" . entites_html($submit) . '" /></div>'))
+		("<div style='text-align: " . $GLOBALS['spip_lang_right'] . "'><input class='fondo submit btn' type='submit' value=\"" . entites_html($submit) . '"></div>'))
 	. "</div></form>\n";
 }
 
@@ -2405,7 +2405,7 @@ function generer_form_action($script, $corps, $atts = '', $public = false) {
 	$atts .
 	">\n" .
 	'<div>' .
-	"\n<input type='hidden' name='action' value='$script' />" .
+	"\n<input type='hidden' name='action' value='$script'>" .
 	$corps .
 	'</div></form>';
 }

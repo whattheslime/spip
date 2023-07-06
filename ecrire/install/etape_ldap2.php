@@ -79,20 +79,20 @@ function install_etape_ldap2_dist() {
 			info_progression_etape(2, 'etape_ldap', 'install/')
 		),  _T('info_connexion_ldap_ok');
 		echo generer_form_ecrire('install', (
-			"\n<input type='hidden' name='etape' value='ldap3' />"
-			. "\n<input type='hidden' name='adresse_ldap' value=\"" . spip_htmlspecialchars($adresse_ldap) . '" />'
-			. "\n<input type='hidden' name='port_ldap' value=\"" . spip_htmlspecialchars($port_ldap) . '" />'
-			. "\n<input type='hidden' name='login_ldap' value=\"" . spip_htmlspecialchars($login_ldap) . '" />'
-			. "\n<input type='hidden' name='pass_ldap' value=\"" . spip_htmlspecialchars($pass_ldap) . '" />'
-			. "\n<input type='hidden' name='protocole_ldap' value=\"" . spip_htmlspecialchars($protocole_ldap) . '" />'
-			. "\n<input type='hidden' name='tls_ldap' value=\"" . spip_htmlspecialchars($tls_ldap) . '" />'
+			"\n<input type='hidden' name='etape' value='ldap3'>"
+			. "\n<input type='hidden' name='adresse_ldap' value=\"" . spip_htmlspecialchars($adresse_ldap) . '">'
+			. "\n<input type='hidden' name='port_ldap' value=\"" . spip_htmlspecialchars($port_ldap) . '">'
+			. "\n<input type='hidden' name='login_ldap' value=\"" . spip_htmlspecialchars($login_ldap) . '">'
+			. "\n<input type='hidden' name='pass_ldap' value=\"" . spip_htmlspecialchars($pass_ldap) . '">'
+			. "\n<input type='hidden' name='protocole_ldap' value=\"" . spip_htmlspecialchars($protocole_ldap) . '">'
+			. "\n<input type='hidden' name='tls_ldap' value=\"" . spip_htmlspecialchars($tls_ldap) . '">'
 			. bouton_suivant()));
 	} else {
 		echo info_etape(_T('titre_connexion_ldap')), info_progression_etape(1, 'etape_ldap', 'install/', true),
 			"<div class='error'><p>" . _T('avis_connexion_ldap_echec_1') . '</p>',
 			'<p>' . _T('avis_connexion_ldap_echec_2') .
-			"<br />\n" . _T('avis_connexion_ldap_echec_3') .
-			'<br /><br />' . $erreur . '<b> ?</b></p></div>';
+			"<br>\n" . _T('avis_connexion_ldap_echec_3') .
+			'<br><br>' . $erreur . '<b> ?</b></p></div>';
 	}
 
 	echo $minipage->installFinPage();

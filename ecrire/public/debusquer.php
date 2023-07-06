@@ -123,7 +123,7 @@ function public_debusquer_dist($message = '', $lieu = '', $opt = []) {
 	$self = parametre_url($self, 'var_mode', 'debug');
 
 	$res = debusquer_bandeau($tableau_des_erreurs)
-		. '<br />'
+		. '<br>'
 		. debusquer_squelette($fonc, $mode, $self);
 
 	if (!_DIR_RESTREINT or headers_sent()) {
@@ -357,25 +357,25 @@ function debusquer_requete($message) {
 
 	// Erreur systeme
 	if (is_numeric($errno) and $errno > 0 and $errno < 200) {
-		$retour = '<tt><br /><br /><blink>'
+		$retour = '<tt><br><br><blink>'
 			. _T('info_erreur_systeme', ['errsys' => $errno])
-			. "</blink><br />\n<b>"
+			. "</blink><br>\n<b>"
 			. _T(
 				'info_erreur_systeme2',
 				['script' => generer_url_ecrire('base_repair')]
 			)
-			. '</b><br />';
+			. '</b><br>';
 		spip_log("Erreur systeme $errno");
 
 		return [$retour, ''];
 	}
 
 	// Requete erronee
-	$err = '<b>' . _T('avis_erreur_mysql') . " $errno</b><br /><tt>\n"
+	$err = '<b>' . _T('avis_erreur_mysql') . " $errno</b><br><tt>\n"
 		. spip_htmlspecialchars($msg)
-		. "\n<br /><span style='color: red'><b>"
+		. "\n<br><span style='color: red'><b>"
 		. spip_htmlspecialchars($query)
-		. '</b></span></tt><br />';
+		. '</b></span></tt><br>';
 
 	//. aider('erreur_mysql');
 
@@ -476,15 +476,15 @@ function ancre_texte($texte, $fautifs = [], $nocpt = false) {
 	}
 
 	$s = preg_replace(
-		',<(\w[^<>]*)>([^<]*)<br />([^<]*)</\1>,',
-		'<\1>\2</\1><br />' . "\n" . '<\1>\3</\1>',
+		',<(\w[^<>]*)>([^<]*)<br>([^<]*)</\1>,',
+		'<\1>\2</\1><br>' . "\n" . '<\1>\3</\1>',
 		$s
 	);
 
 
-	$tableau = explode('<br />', $s);
+	$tableau = explode('<br>', $s);
 
-	$format = "<span style='float:left;display:block;width:50px;height:1px'><a id='L%d' style='background-color: white; visibility: " . ($nocpt ? 'hidden' : 'visible') . ";%s' href='#T%s' title=\"%s\">%0" . strval(@strlen(count($tableau))) . "d</a></span> %s<br />\n";
+	$format = "<span style='float:left;display:block;width:50px;height:1px'><a id='L%d' style='background-color: white; visibility: " . ($nocpt ? 'hidden' : 'visible') . ";%s' href='#T%s' title=\"%s\">%0" . strval(@strlen(count($tableau))) . "d</a></span> %s<br>\n";
 
 	$format10 = str_replace('white', 'lightgrey', $format);
 	$formaterr = 'color: red;';
@@ -557,7 +557,7 @@ function debusquer_squelette($fonc, $mode, $self) {
 			}
 		} else {
 			if (strlen(trim($res))) {
-				return "<img src='" . chemin_image('debug-xx.svg') . "' alt='afficher-masquer le debug' id='spip-debug-toggle' onclick=\"var x = document.getElementById('spip-debug'); (x.style.display == '' ? x.style.display = 'none' : x.style.display = '');\" /><div id='spip-debug'>$res</div>";
+				return "<img src='" . chemin_image('debug-xx.svg') . "' alt='afficher-masquer le debug' id='spip-debug-toggle' onclick=\"var x = document.getElementById('spip-debug'); (x.style.display == '' ? x.style.display = 'none' : x.style.display = '');\"><div id='spip-debug'>$res</div>";
 			} else {
 				// cas de l'appel sur erreur: montre la page
 				return $GLOBALS['debug_objets']['resultat']['tout'] ?? '';
@@ -581,7 +581,7 @@ function debusquer_squelette($fonc, $mode, $self) {
 	}
 
 	return !trim($texte) ? '' : (
-		"<img src='" . chemin_image('debug-xx.svg') . "' alt='afficher-masquer le debug' id='spip-debug-toggle' onclick=\"var x = document.getElementById('spip-debug'); (x.style.display == '' ? x.style.display = 'none' : x.style.display = '');\" /><div id='spip-debug'>$res"
+		"<img src='" . chemin_image('debug-xx.svg') . "' alt='afficher-masquer le debug' id='spip-debug-toggle' onclick=\"var x = document.getElementById('spip-debug'); (x.style.display == '' ? x.style.display = 'none' : x.style.display = '');\"><div id='spip-debug'>$res"
 		. "<div id='debug_boucle'><fieldset$id><legend>"
 		. "<a href='" . $self . '#f_' . substr($fonc, 0, 37) . "'> &#8593; "
 		. ($legend ?: $mode)
@@ -661,7 +661,7 @@ function emboite_texte($res, $fonc = '', $self = '') {
 		$rf = reference_boucle_debug($fermant, $fonc, $self);
 		$ro = reference_boucle_debug($ouvrant, $fonc, $self);
 		$err = $msg .
-			"<a href='#L" . $fermant . "'>$fermant</a>$rf<br />" .
+			"<a href='#L" . $fermant . "'>$fermant</a>$rf<br>" .
 			"<a href='#L" . $ouvrant . "'>$ouvrant</a>$ro";
 
 		return [ancre_texte($texte, [[$ouvrant], [$fermant]]), $err];
@@ -731,7 +731,7 @@ function debusquer_navigation_squelettes($self) {
 			. "'>"
 			. _T('zbug_calcul')
 			. '</a></legend>'
-			. (!$temps ? '' : ("\n<span style='display:block;float:" . $GLOBALS['spip_lang_right'] . "'>$temps</span><br />"))
+			. (!$temps ? '' : ("\n<span style='display:block;float:" . $GLOBALS['spip_lang_right'] . "'>$temps</span><br>"))
 			. debusquer_contexte($contexte[$sourcefile])
 		. (!$nav ? '' : ("<table width='100%'>\n$nav</table>\n"))
 		. "</fieldset>\n";
@@ -818,7 +818,7 @@ function debusquer_source($objet, $affiche) {
 				$brut_sql .= '<h3>' . ($num == 1 ? $num . ' sur ' . sql_count($ress_req) : $num) . '</h3>';
 				$brut_sql .= '<p>';
 				foreach ($retours_sql as $key => $val) {
-					$brut_sql .= '<strong>' . $key . '</strong> => ' . spip_htmlspecialchars(couper($val, 150)) . "<br />\n";
+					$brut_sql .= '<strong>' . $key . '</strong> => ' . spip_htmlspecialchars(couper($val, 150)) . "<br>\n";
 				}
 				$brut_sql .= '</p>';
 			}
@@ -829,7 +829,7 @@ function debusquer_source($objet, $affiche) {
 			//  ne pas afficher les $contexte_inclus
 			$view = preg_replace(',<\?php.+\?[>],Uims', '', $view);
 			if ($view) {
-				$res2 .= "\n<br /><fieldset>" . interdire_scripts($view) . '</fieldset>';
+				$res2 .= "\n<br><fieldset>" . interdire_scripts($view) . '</fieldset>';
 			}
 		}
 	} elseif ($affiche == 'code') {
@@ -861,10 +861,10 @@ function debusquer_entete($titre, $corps) {
 		_T('admin_debug') . ' ' . spip_htmlspecialchars($titre) . ' (' .
 		supprimer_tags(corriger_typo($GLOBALS['meta']['nom_site']))) .
 	")</title>\n" .
-	($c = $GLOBALS['meta']['charset']) ? "<meta charset='$c' />\n" : '' .
+	($c = $GLOBALS['meta']['charset']) ? "<meta charset='$c'>\n" : '' .
 	http_script('', 'jquery.js')
 	. "<link rel='stylesheet' href='" . url_absolue(find_in_path('spip_admin.css'))
-	. "' type='text/css' />" .
+	. "' type='text/css'>" .
 	"</head>\n" .
 	"<body style='margin:0 10px;'>\n" .
 	"<div id='spip-debug-header'>" .

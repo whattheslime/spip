@@ -57,7 +57,7 @@ function install_etape_ldap3_dist() {
 						$res .= ' checked="checked"';
 						$checked = true;
 					}
-					$res .= ' />';
+					$res .= '>';
 					$res .= "<label for='tab$n'>" . spip_htmlspecialchars($names[$j]) . "</label></li>\n";
 				}
 			}
@@ -65,18 +65,18 @@ function install_etape_ldap3_dist() {
 		$res .= '</ul>';
 		$res .= _T('info_ou') . ' ';
 	}
-	$res .= "<br />\n<input name=\"base_ldap\" value=\"\" type='radio' id='manuel'";
+	$res .= "<br>\n<input name=\"base_ldap\" value=\"\" type='radio' id='manuel'";
 	if (!$checked) {
 		$res .= ' checked="checked"';
 		$checked = true;
 	}
 
-	$res .= ' />'
+	$res .= '>'
 		. "\n<label for='manuel'>" . _T('entree_chemin_acces') . '</label> '
 		. "\n<fieldset>"
-		. "<input type='text' name='base_ldap_text' class='text' value=\"$base_ldap_text\" size='40' />"
+		. "<input type='text' name='base_ldap_text' class='text' value=\"$base_ldap_text\" size='40'>"
 		. "\n</fieldset>"
-		. "\n<input type='hidden' name='etape' value='ldap4' />"
+		. "\n<input type='hidden' name='etape' value='ldap4'>"
 		. install_propager(['adresse_ldap', 'port_ldap', 'login_ldap', 'pass_ldap', 'protocole_ldap', 'tls_ldap'])
 		. bouton_suivant();
 

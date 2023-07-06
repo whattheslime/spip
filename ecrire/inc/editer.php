@@ -139,7 +139,7 @@ function formulaires_editer_objet_verifier($type, $id = 'new', $oblis = []) {
 				if (!isset($erreurs[$champ])) {
 					$erreurs[$champ] = '';
 				}
-				$erreurs[$champ] .= _T('alerte_modif_info_concourante') . "<br /><textarea readonly='readonly' class='forml'>" . entites_html($conflit['base']) . '</textarea>';
+				$erreurs[$champ] .= _T('alerte_modif_info_concourante') . "<br><textarea readonly='readonly' class='forml'>" . entites_html($conflit['base']) . '</textarea>';
 			}
 		}
 	}
@@ -314,14 +314,14 @@ function formulaires_editer_objet_charger(
 		unset($contexte['lang']);
 	}
 
-	$contexte['_hidden'] = "<input type='hidden' name='editer_$type' value='oui' />\n" .
+	$contexte['_hidden'] = "<input type='hidden' name='editer_$type' value='oui'>\n" .
 		(!$lier_trad ? '' :
 			("\n<input type='hidden' name='lier_trad' value='" .
 				$lier_trad .
-				"' />" .
+				"'>" .
 				"\n<input type='hidden' name='changer_lang' value='" .
 				$lang_default .
-				"' />"))
+				"'>"))
 		. $hidden
 		. ($md5 ?? '');
 
@@ -398,13 +398,13 @@ function editer_texte_recolle($texte, $att_text) {
 	}
 
 	include_spip('inc/barre');
-	$textes_supplement = "<br /><span style='color: red'>" . _T('info_texte_long') . "</span>\n";
+	$textes_supplement = "<br><span style='color: red'>" . _T('info_texte_long') . "</span>\n";
 	$nombre = 0;
 
 	while (strlen($texte) > 29 * 1024) {
 		$nombre++;
 		[$texte1, $texte] = coupe_trop_long($texte);
-		$textes_supplement .= '<br />' .
+		$textes_supplement .= '<br>' .
 			"<textarea id='texte$nombre' name='texte_plus[$nombre]'$att_text>$texte1</textarea>\n";
 	}
 
@@ -491,7 +491,7 @@ function controles_md5(array $data, string $prefixe = 'ctr_', string $format = '
 
 		switch ($format) {
 			case 'html':
-				$ctr[$k] = "<input type='hidden' value='$m' name='$k' />";
+				$ctr[$k] = "<input type='hidden' value='$m' name='$k'>";
 				break;
 			default:
 				$ctr[$k] = $m;
@@ -717,6 +717,6 @@ function display_conflit_champ($x) {
 	if (strstr($x, "\n") or strlen($x) > 80) {
 		return "<textarea style='width:99%; height:10em;'>" . entites_html($x) . "</textarea>\n";
 	} else {
-		return "<input type='text' size='40' style='width:99%' value=\"" . entites_html($x) . "\" />\n";
+		return "<input type='text' size='40' style='width:99%' value=\"" . entites_html($x) . "\">\n";
 	}
 }

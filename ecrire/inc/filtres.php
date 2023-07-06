@@ -496,7 +496,7 @@ function image_filtrer($args) {
 			return file_exists($path);
 		};
 		if ($is_local_file($is_file) or tester_url_absolue($is_file)) {
-			$res = $filtre("<img src='$is_file' />", ...$args);
+			$res = $filtre("<img src='$is_file'>", ...$args);
 			statut_effacer_images_temporaires(false); // desactiver pour les appels hors compilo
 			return $res;
 		}
@@ -539,7 +539,7 @@ function image_filtrer($args) {
 					if ($mouseover = extraire_attribut($reduit, 'onmouseover')) {
 						if (preg_match(",this[.]src=['\"]([^'\"]+)['\"],ims", $mouseover, $match)) {
 							$srcover = $match[1];
-							$srcover_filter = $filtre("<img src='" . $match[1] . "' />", ...$args);
+							$srcover_filter = $filtre("<img src='" . $match[1] . "'>", ...$args);
 							$srcover_filter = extraire_attribut($srcover_filter, 'src');
 							$reduit = str_replace($srcover, $srcover_filter, $reduit);
 						}
@@ -559,7 +559,7 @@ function image_filtrer($args) {
  * Pour les filtres `largeur` et `hauteur` `taille_image` et `poids_image`
  *
  * @param string $img
- *     Balise HTML `<img ... />` ou chemin de l'image (qui peut être une URL distante).
+ *     Balise HTML `<img ...>` ou chemin de l'image (qui peut être une URL distante).
  * @return array
  *     largeur
  *     hauteur
@@ -663,7 +663,7 @@ function infos_image($img, $force_refresh = false) {
  * Pour les filtres `largeur` et `hauteur`
  *
  * @param string $img
- *     Balise HTML `<img ... />` ou chemin de l'image (qui peut être une URL distante).
+ *     Balise HTML `<img ...>` ou chemin de l'image (qui peut être une URL distante).
  * @return array
  *     largeur
  *     hauteur
@@ -688,7 +688,7 @@ function taille_image($img, $force_refresh = false) {
  * @see  hauteur()
  *
  * @param string $img
- *     Balise HTML `<img ... />` ou chemin de l'image (qui peut être une URL distante).
+ *     Balise HTML `<img ...>` ou chemin de l'image (qui peut être une URL distante).
  * @return int|null
  *     Largeur en pixels, NULL ou 0 si aucune image.
  **/
@@ -710,7 +710,7 @@ function largeur($img) {
  * @see  largeur()
  *
  * @param string $img
- *     Balise HTML `<img ... />` ou chemin de l'image (qui peut être une URL distante).
+ *     Balise HTML `<img ...>` ou chemin de l'image (qui peut être une URL distante).
  * @return int|null
  *     Hauteur en pixels, NULL ou 0 si aucune image.
  **/
@@ -1227,8 +1227,8 @@ function PtoBR($texte) {
 	}
 	$u = $GLOBALS['meta']['pcre_u'];
 	$texte = preg_replace('@</p>@iS', "\n", $texte);
-	$texte = preg_replace("@<p\b.*>@UiS", '<br />', $texte);
-	$texte = preg_replace('@^\s*<br />@S' . $u, '', $texte);
+	$texte = preg_replace("@<p\b.*>@UiS", '<br>', $texte);
+	$texte = preg_replace('@^\s*<br>@S' . $u, '', $texte);
 
 	return $texte;
 }
@@ -2032,9 +2032,9 @@ function inserer_attribut(?string $balise, string $attribut, ?string $val, bool 
 		// Remplacer l'ancien attribut du meme nom
 		$balise = $r[1] . $insert . $r[5];
 	} else {
-		// preferer une balise " />" (comme <img />)
+		// preferer une balise ">" (comme <img>)
 		if (preg_match(',/>,', $balise)) {
-			$balise = preg_replace(',\s?/>,S', $insert . ' />', $balise, 1);
+			$balise = preg_replace(',\s?/>,S', $insert . '>', $balise, 1);
 		} // sinon une balise <a ...> ... </a>
 		else {
 			$balise = preg_replace(',\s?>,S', $insert . '>', $balise, 1);
@@ -2444,7 +2444,7 @@ function enclosure2microformat($e) {
  *
  * Passe un texte ayant des liens avec microformat
  * `<a rel="enclosure" href="fichier" ...>fichier</a>`
- * au format RSS `<enclosure url="fichier" ... />`.
+ * au format RSS `<enclosure url="fichier" ...>`.
  *
  * @filtre
  * @see enclosure2microformat() Pour l'inverse
@@ -2466,7 +2466,7 @@ function microformat2enclosure($tags) {
 				. ($url ? ' url="' . spip_htmlspecialchars($url) . '"' : '')
 				. ($type ? ' type="' . spip_htmlspecialchars($type) . '"' : '')
 				. ($length ? ' length="' . $length . '"' : '')
-				. ' />';
+				. '>';
 		}
 	}
 
@@ -2874,7 +2874,7 @@ function urls_absolues_css($contenu, $source) {
  * @filtre
  * @example
  *     ```
- *     [<link rel="stylesheet" href="(#CHEMIN{css/perso.css}|direction_css)" type="text/css" />]
+ *     [<link rel="stylesheet" href="(#CHEMIN{css/perso.css}|direction_css)" type="text/css">]
  *     ```
  * @param string $css
  *     Chemin vers le fichier CSS
@@ -3283,7 +3283,7 @@ function env_to_params($env, $ignore_params = []) {
 	if ($env) {
 		foreach ($env as $i => $j) {
 			if (is_string($j) and !in_array($i, $ignore_params)) {
-				$texte .= "<param name='" . attribut_html($i) . "'\n\tvalue='" . attribut_html($j) . "' />";
+				$texte .= "<param name='" . attribut_html($i) . "'\n\tvalue='" . attribut_html($j) . "'>";
 			}
 		}
 	}
@@ -3475,7 +3475,7 @@ function http_img_pack($img, $alt, $atts = '', $title = '', $options = []) {
 	return "<img src='" . attribut_html($img_file) . "'$alt"
 	. ($title ? ' title="' . attribut_html($title) . '"' : '')
 	. ' ' . ltrim($atts)
-	. ' />';
+	. '>';
 }
 
 /**
@@ -3570,7 +3570,7 @@ function helper_filtre_balise_img_svg_size($img, $size) {
  * @uses http_img_pack()
  *
  * @param string $img
- *   chemin vers un fichier ou balise `<img src='...' />` (generee par un filtre image par exemple)
+ *   chemin vers un fichier ou balise `<img src='...'>` (generee par un filtre image par exemple)
  * @param string $alt
  *   texte alternatif ; une valeur nulle pour explicitement ne pas avoir de balise alt sur l'image (au lieu d'un alt vide)
  * @param string $class
@@ -3776,7 +3776,7 @@ function filtre_foreach_dist($tableau, $modele = 'foreach') {
  * @uses filtre_balise_svg_dist()
  * 
  * @param string $img
- *   chemin vers un fichier ou balise `<img src='...' />` (generee par un filtre image par exemple)
+ *   chemin vers un fichier ou balise `<img src='...'>` (generee par un filtre image par exemple)
  * @param string $alt
  *   texte alternatif ; une valeur nulle pour explicitement ne pas avoir de balise alt sur l'image (au lieu d'un alt vide)
  * @param string $class
@@ -4992,7 +4992,7 @@ function wrap($texte, $wrap) {
  *
  * Les textes sont retournes avec simplement mise en forme typo
  *
- * le $join sert a separer les items d'un tableau, c'est en general un \n ou <br /> selon si on fait du html ou du texte
+ * le $join sert a separer les items d'un tableau, c'est en general un \n ou <br> selon si on fait du html ou du texte
  * les tableaux-listes (qui n'ont que des cles numeriques), sont affiches sous forme de liste separee par des virgules :
  * c'est VOULU !
  *
@@ -5001,7 +5001,7 @@ function wrap($texte, $wrap) {
  * @param int $indent
  * @return array|mixed|string
  */
-function filtre_print_dist($u, $join = '<br />', $indent = 0) {
+function filtre_print_dist($u, $join = '<br>', $indent = 0) {
 	if (is_string($u)) {
 		$u = typo($u);
 

@@ -182,7 +182,7 @@ function interdire_scripts($arg, $mode_filtre = null) {
 			break;
 	}
 
-	// pas de <base href /> svp !
+	// pas de <base href> svp !
 	$t = preg_replace(',<(base\b),iS', '&lt;\1', $t);
 
 	// Reinserer les echappements des modeles

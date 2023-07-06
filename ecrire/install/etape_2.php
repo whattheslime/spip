@@ -78,7 +78,7 @@ function install_etape_2_dist() {
 
 		$hidden = (defined('_SPIP_CHMOD')
 				? ''
-				: ("\n<input type='hidden' name='chmod' value='" . spip_htmlspecialchars($chmod) . "' />"))
+				: ("\n<input type='hidden' name='chmod' value='" . spip_htmlspecialchars($chmod) . "'>"))
 			. predef_ou_cache($adresse_db . ($port ? ':' . $port : ''), $login_db, $pass_db, $server_db);
 
 		echo install_etape_2_form($hidden, $checked, $res, 3);
@@ -110,7 +110,7 @@ function install_etape_2_bases($login_db, $server_db) {
 			$checked,
 			"<label for='choix_db'><b>"
 			. _T('texte_choix_base_2')
-			. '</b><br />'
+			. '</b><br>'
 			. _T('texte_choix_base_3')
 			. '</label>'
 			. "<ul>\n<li>"
@@ -138,7 +138,7 @@ function install_etape_2_bases($login_db, $server_db) {
 		if ($ok) {
 			$res .= _T('avis_lecture_noms_bases_3')
 				. '<ul>'
-				. '<li><input name="choix_db" value="' . $test_base . "\" type='radio' id='stand' checked='checked' />"
+				. '<li><input name="choix_db" value="' . $test_base . "\" type='radio' id='stand' checked='checked'>"
 				. "<label for='stand'>" . $test_base . "</label></li>\n"
 				. '</ul>'
 				. '<p>' . _T('info_ou') . ' ';
@@ -151,7 +151,7 @@ function install_etape_2_bases($login_db, $server_db) {
 
 function install_etape_2_form($hidden, $checked, $res, $etape) {
 	return generer_form_ecrire('install', (
-		"\n<input type='hidden' name='etape' value='$etape' />"
+		"\n<input type='hidden' name='etape' value='$etape'>"
 		. $hidden
 		. (defined('_INSTALL_NAME_DB')
 			? '<h3>' . _T('install_nom_base_hebergeur') . ' <tt>' . _INSTALL_NAME_DB . '</tt>' . '</h3>'
@@ -159,8 +159,8 @@ function install_etape_2_form($hidden, $checked, $res, $etape) {
 			. $res
 			. "\n<input name=\"choix_db\" value=\"new_spip\" type='radio' id='nou'"
 			. ($checked ? '' : " checked='checked'")
-			. " />\n<label for='nou'>" . _T('info_creer_base') . "</label></p>\n<p>"
-			. "\n<input type='text' name='table_new' class='text' value=\"spip\" size='20' /></p></fieldset>\n"
+			. ">\n<label for='nou'>" . _T('info_creer_base') . "</label></p>\n<p>"
+			. "\n<input type='text' name='table_new' class='text' value=\"spip\" size='20'></p></fieldset>\n"
 		)
 
 		. ((defined('_INSTALL_TABLE_PREFIX')
@@ -170,7 +170,7 @@ function install_etape_2_form($hidden, $checked, $res, $etape) {
 			. "<p><label for='table_prefix'>" . _T('info_table_prefix') . '</label></p><p>'
 			. "\n<input type='text' id='tprefix' name='tprefix' class='text' value='"
 			. 'spip' # valeur par defaut
-			. "' size='20' /></p></fieldset>"
+			. "' size='20'></p></fieldset>"
 		)
 
 		. bouton_suivant()));

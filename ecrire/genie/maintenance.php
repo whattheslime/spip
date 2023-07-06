@@ -107,8 +107,8 @@ function verifier_crash_tables() {
 function message_crash_tables() {
 	if ($crash = verifier_crash_tables()) {
 		return
-			'<strong>' . _T('texte_recuperer_base') . '</strong><br />'
-			. ' <tt>' . join(', ', $crash) . '</tt><br />'
+			'<strong>' . _T('texte_recuperer_base') . '</strong><br>'
+			. ' <tt>' . join(', ', $crash) . '</tt><br>'
 			. generer_form_ecrire(
 				'base_repair',
 				_T('texte_crash_base'),

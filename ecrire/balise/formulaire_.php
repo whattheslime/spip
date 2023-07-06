@@ -268,8 +268,8 @@ function balise_FORMULAIRE__contexte($form, $args) {
 		$securiser_action = charger_fonction('securiser_action', 'inc');
 		$secu = $securiser_action(reset($valeurs['_action']), end($valeurs['_action']), '', -1);
 		$valeurs['_hidden'] = (isset($valeurs['_hidden']) ? $valeurs['_hidden'] : '') .
-			"<input type='hidden' name='arg' value='" . $secu['arg'] . "' />"
-			. "<input type='hidden' name='hash' value='" . $secu['hash'] . "' />";
+			"<input type='hidden' name='arg' value='" . $secu['arg'] . "'>"
+			. "<input type='hidden' name='hash' value='" . $secu['hash'] . "'>";
 	}
 	*/
 

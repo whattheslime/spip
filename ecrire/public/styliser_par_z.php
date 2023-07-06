@@ -399,13 +399,13 @@ function prive_echafauder_dist($exec, $table, $table_sql, $desc_exec, $ext) {
 	elseif ($type = $desc_exec and !str_contains($type, '/')) {
 		$dir = z_blocs(test_espace_prive());
 		$dir = reset($dir);
-		$scaffold = "<INCLURE{fond=prive/echafaudage/$dir/objets,objet=" . $type . ',env} />';
+		$scaffold = "<INCLURE{fond=prive/echafaudage/$dir/objets,objet=" . $type . ',env}>';
 	}
 	// morceau d'objet : on fournit le fond de sibstitution dans $desc_exec
 	// et objet et tire de $table
 	elseif ($fond = $desc_exec) {
 		$dir = md5(dirname($fond));
-		$scaffold = "<INCLURE{fond=$fond,objet=" . objet_type($table) . ',env} />';
+		$scaffold = "<INCLURE{fond=$fond,objet=" . objet_type($table) . ',env}>';
 	}
 
 	$base_dir = sous_repertoire(_DIR_CACHE, 'scaffold', false);

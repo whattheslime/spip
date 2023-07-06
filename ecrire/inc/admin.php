@@ -211,7 +211,7 @@ function debut_admin($script, $action = '', $corps = '') {
 
 				return '';
 			}
-			$corps .= '<input type="hidden" name="validation_admin" value="' . $signal . '" />';
+			$corps .= '<input type="hidden" name="validation_admin" value="' . $signal . '">';
 			$suivant = _T('bouton_valider');
 			$js = '';
 		} else {
@@ -229,7 +229,7 @@ function debut_admin($script, $action = '', $corps = '') {
 				. "<span id='signal' class='formo'>" . $signal . '</span>'
 				. "<input type='hidden' id='fichier' name='fichier' value='"
 				. $signal
-				. "' />"
+				. "'>"
 				. _T('info_creer_repertoire_2', ['repertoire' => joli_repertoire($dir)])
 				. '</fieldset>';
 
@@ -293,7 +293,7 @@ function copy_request($script, $suite, $submit = '') {
 		if (!in_array($n, ['fichier', 'exec', 'validation_admin']) and !is_array($c)) {
 			$suite .= "\n<input type='hidden' name='" . spip_htmlspecialchars($n) . "' value='" .
 				entites_html($c) .
-				"'  />";
+				"' >";
 		}
 	}
 

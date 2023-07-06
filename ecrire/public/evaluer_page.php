@@ -62,7 +62,7 @@ if (empty($page['process_ins']) or $page['process_ins'] != 'html') {
 		}
 		$code = '/*001*/' . preg_replace_callback(",\n,", 'numerote_ligne_php', $code);
 		$code = trim(highlight_string($code, true));
-		erreur_squelette('L' . $e->getLine() . ': ' . $e->getMessage() . '<br />' . $code, [$page['source'],'',$e->getFile(),'',$GLOBALS['spip_lang']]);
+		erreur_squelette('L' . $e->getLine() . ': ' . $e->getMessage() . '<br>' . $code, [$page['source'],'',$e->getFile(),'',$GLOBALS['spip_lang']]);
 		$page['texte'] = '<!-- Erreur -->';
 	}
 	ob_end_clean();

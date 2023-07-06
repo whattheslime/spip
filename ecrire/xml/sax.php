@@ -79,7 +79,7 @@ function xml_finElement($phraseur, $name, $fusion_bal = false) {
 	$phraseur->depth = substr($phraseur->depth, 2);
 	$t = preg_replace("/[\n\t ]+$/", "\n" . $phraseur->depth, $t);
 
-	// fusion <balise></balise> en <balise />.
+	// fusion <balise></balise> en <balise>.
 	// ATTENTION,  certains clients http croient que fusion ==> pas d'atttributs
 	// en particulier pour les balises Script et A.
 	// en presence d'attributs ne le faire que si la DTD est dispo et d'accord
@@ -88,7 +88,7 @@ function xml_finElement($phraseur, $name, $fusion_bal = false) {
 	if ($t || (($ouv != $name) and !$fusion_bal)) {
 		$phraseur->res .= ($ouv ? ('<' . $ouv . '>') : '') . $t . '</' . $name . '>';
 	} else {
-		$phraseur->res .= ($ouv ? ('<' . $ouv . ' />') : ('</' . $name . '>'));
+		$phraseur->res .= ($ouv ? ('<' . $ouv . '>') : ('</' . $name . '>'));
 	}
 }
 
@@ -130,7 +130,7 @@ function xml_parsestring($phraseur, $data) {
 		coordonnees_erreur(
 			$phraseur,
 			xml_error_string(xml_get_error_code($phraseur->sax))
-			. "<br />\n" .
+			. "<br>\n" .
 			(!$phraseur->depth ? '' :
 				('(' .
 					_T('erreur_balise_non_fermee') .
@@ -140,7 +140,7 @@ function xml_parsestring($phraseur, $data) {
 					_T('ligne') .
 					' ' .
 					$phraseur->reperes[$phraseur->depth] .
-			") <br />\n"))
+			") <br>\n"))
 		);
 	}
 }

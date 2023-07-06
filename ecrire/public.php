@@ -159,9 +159,9 @@ if (isset($GLOBALS['_INC_PUBLIC']) and $GLOBALS['_INC_PUBLIC']) {
 		include_spip('inc/autoriser');
 		$err = _T('zbug_erreur_execution_page');
 		if (autoriser('webmestre')) {
-			$err .= "\n<hr />\n"
+			$err .= "\n<hr>\n"
 				. highlight_string($page['codephp'], true)
-				. "\n<hr />\n";
+				. "\n<hr>\n";
 		}
 		$msg = [$err];
 		erreur_squelette($msg);

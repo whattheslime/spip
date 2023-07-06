@@ -47,7 +47,7 @@ function exec_upgrade_dist() {
 			)
 			. generer_form_ecrire(
 				'upgrade',
-				"<input type='hidden' name='reinstall' value='non' />",
+				"<input type='hidden' name='reinstall' value='non'>",
 				'',
 				_T('bouton_relancer_installation')
 			)
@@ -78,7 +78,7 @@ function exec_upgrade_dist() {
 			$commentaire = _T('texte_mise_a_niveau_base_1');
 		}
 
-		$commentaire .= '<br />[' . $GLOBALS['meta']['version_installee'] . '/' . $GLOBALS['spip_version_base'] . ']';
+		$commentaire .= '<br>[' . $GLOBALS['meta']['version_installee'] . '/' . $GLOBALS['spip_version_base'] . ']';
 
 		$_POST['reinstall'] = 'non'; // pour copy_request dans admin
 		include_spip('inc/headers');

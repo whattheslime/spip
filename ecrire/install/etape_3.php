@@ -266,13 +266,13 @@ function install_premier_auteur(
 		)
 	)
 	. generer_form_ecrire('install', (
-		"\n<input type='hidden' name='etape' value='3b' />"
+		"\n<input type='hidden' name='etape' value='3b'>"
 		. $hidden
 		. fieldset(
 			_T('info_identification_publique'),
 			[
 				'nom' => [
-					'label' => '<b>' . _T('entree_signature') . "</b><br />\n" . _T('entree_nom_pseudo_1') . "\n",
+					'label' => '<b>' . _T('entree_signature') . "</b><br>\n" . _T('entree_nom_pseudo_1') . "\n",
 					'valeur' => $nom,
 					'required' => $auteur_obligatoire,
 				],
@@ -287,7 +287,7 @@ function install_premier_auteur(
 			_T('entree_identifiants_connexion'),
 			[
 				'login' => [
-					'label' => '<b>' . _T('entree_login') . "</b><br />\n" . _T(
+					'label' => '<b>' . _T('entree_login') . "</b><br>\n" . _T(
 						'info_login_trop_court_car_pluriel',
 						['nb' => _LOGIN_TROP_COURT]
 					) . "\n",
@@ -295,7 +295,7 @@ function install_premier_auteur(
 					'required' => $auteur_obligatoire,
 				],
 				'pass' => [
-					'label' => '<b>' . _T('entree_mot_passe') . "</b><br />\n" . _T(
+					'label' => '<b>' . _T('entree_mot_passe') . "</b><br>\n" . _T(
 						'info_passe_trop_court_car_pluriel',
 						['nb' => _PASS_LONGUEUR_MINI]
 					) . "\n",
@@ -303,7 +303,7 @@ function install_premier_auteur(
 					'required' => $auteur_obligatoire,
 				],
 				'pass_verif' => [
-					'label' => '<b>' . _T('info_confirmer_passe') . "</b><br />\n",
+					'label' => '<b>' . _T('info_confirmer_passe') . "</b><br>\n",
 					'valeur' => $pass,
 					'required' => $auteur_obligatoire,
 				]
@@ -373,7 +373,7 @@ function install_etape_3_dist() {
 
 		$hidden = predef_ou_cache($adresse_db, $login_db, $pass_db, $server_db)
 			. (defined('_INSTALL_NAME_DB') ? ''
-				: "\n<input type='hidden' name='sel_db' value=\"" . spip_htmlspecialchars($sel_db) . '" />');
+				: "\n<input type='hidden' name='sel_db' value=\"" . spip_htmlspecialchars($sel_db) . '">');
 
 		$auteur_obligatoire = ($ldap_present ? 0 : !sql_countsel('spip_auteurs', '', '', '', $server_db));
 

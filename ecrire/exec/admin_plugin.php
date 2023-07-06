@@ -192,7 +192,7 @@ function admin_plug_args($quoi, $erreur, $format) {
 	if ($corps) {
 		$corps .= "\n<div class='boutons' style='display:none;'>"
 			. "<input type='submit' class='submit save' value='" . _T('bouton_enregistrer')
-			. "' />"
+			. "'>"
 			. '</div>';
 	}
 
@@ -265,7 +265,7 @@ function affiche_les_plugins_verrouilles($actifs) {
 		. debut_cadre_trait_couleur('', true, '', _T('plugins_liste_dist'), 'liste_plugins_dist')
 		. '<p>'
 		. _T('plugin_info_plugins_dist_1', ['plugins_dist' => joli_repertoire(_DIR_PLUGINS_DIST)])
-		. '<br />' . _T('plugin_info_plugins_dist_2')
+		. '<br>' . _T('plugin_info_plugins_dist_2')
 		. '</p>'
 		. $liste
 		. fin_cadre_trait_couleur()

@@ -208,7 +208,7 @@ function tester_compatibilite_hebergement() {
 	// et surtout pas ce mbstring.overload (has been DEPRECATED as of PHP 7.2.0, and REMOVED as of PHP 8.0.0)
 	if ($a = @ini_get('mbstring.func_overload')) {
 		$err[] = _T('install_extension_mbstring')
-			. "mbstring.func_overload=$a - <a href='http://www.php.net/mb_string'>mb_string</a>.<br /><small>";
+			. "mbstring.func_overload=$a - <a href='http://www.php.net/mb_string'>mb_string</a>.<br><small>";
 	}
 
 	if ($err) {
@@ -246,7 +246,7 @@ function bouton_suivant($code = '') {
 
 	return "\n<p class='boutons suivant'><input id='" . $id . "' type='submit'\nvalue=\"" .
 	$code .
-	" >>\" /></p>\n";
+	" >>\"></p>\n";
 }
 
 function info_progression_etape($en_cours, $phase, $dir, $erreur = false) {
@@ -322,13 +322,13 @@ function fieldset_champs($champs = []) {
 					. "/>\n";
 				$fieldset .= "<label for='$nom-$valeur'>" . $label . "</label>\n";
 			}
-			$fieldset .= "<br />\n";
+			$fieldset .= "<br>\n";
 		} else {
 			$fieldset .= "<label for='" . $nom . "'>" . $contenu['label'] . "</label>\n";
 			$fieldset .= '<input ' . $class . "type='" . $type . "' id='" . $nom . "' name='" . $nom . "'\nvalue='" . $contenu['valeur'] . "'"
 				. (preg_match(',^(pass|login),', $nom) ? " autocomplete='off'" : '')
 				. ((isset($contenu['required']) and $contenu['required']) ? " required='required'" : '')
-				. " />\n";
+				. ">\n";
 		}
 	}
 
@@ -379,7 +379,7 @@ function install_connexion_form(
 	$server_db = (is_string($predef[0])) ? $predef[0] : '';
 
 	return generer_form_ecrire('install', (
-		"\n<input type='hidden' name='etape' value='$etape' />"
+		"\n<input type='hidden' name='etape' value='$etape'>"
 		. $hidden
 		. (_request('echec') ?
 			('<p><b>' . _T('avis_connexion_echec_1') .
@@ -421,7 +421,7 @@ function install_connexion_form(
 		});')
 
 		. ($server_db
-			? '<input type="hidden" name="server_db" value="' . $server_db . '" />'
+			? '<input type="hidden" name="server_db" value="' . $server_db . '">'
 			. (($predef[0])
 				? ('<h3>' . _T('install_serveur_hebergeur') . '</h3>')
 				: '')
@@ -431,7 +431,7 @@ function install_connexion_form(
 				. '<p class="explication">'
 				. _T('install_types_db_connus')
 				// Passer l'avertissement SQLIte en  commentaire, on pourra facilement le supprimer par la suite sans changer les traductions.
-				// . "<br /><small>(". _T('install_types_db_connus_avertissement') .')</small>'
+				// . "<br><small>(". _T('install_types_db_connus_avertissement') .')</small>'
 				. '</p>'
 				. "\n<div class='p'>\n<ul>\n"
 				. join("\n", install_select_serveur())
@@ -492,20 +492,20 @@ function install_connexion_form(
 function predef_ou_cache($adresse_db, $login_db, $pass_db, $server_db) {
 	return ((defined('_INSTALL_HOST_DB'))
 		? ''
-		: "\n<input type='hidden' name='adresse_db'  value=\"" . spip_htmlspecialchars($adresse_db) . '" />'
+		: "\n<input type='hidden' name='adresse_db'  value=\"" . spip_htmlspecialchars($adresse_db) . '">'
 	)
 	. ((defined('_INSTALL_USER_DB'))
 		? ''
-		: "\n<input type='hidden' name='login_db' value=\"" . spip_htmlspecialchars($login_db) . '" />'
+		: "\n<input type='hidden' name='login_db' value=\"" . spip_htmlspecialchars($login_db) . '">'
 	)
 	. ((defined('_INSTALL_PASS_DB'))
 		? ''
-		: "\n<input type='hidden' name='pass_db' value=\"" . spip_htmlspecialchars($pass_db) . '" />'
+		: "\n<input type='hidden' name='pass_db' value=\"" . spip_htmlspecialchars($pass_db) . '">'
 	)
 
 	. ((defined('_INSTALL_SERVER_DB'))
 		? ''
-		: "\n<input type='hidden' name='server_db' value=\"" . spip_htmlspecialchars($server_db) . '" />'
+		: "\n<input type='hidden' name='server_db' value=\"" . spip_htmlspecialchars($server_db) . '">'
 	);
 }
 
@@ -535,9 +535,9 @@ function install_etape_liste_bases($server_db, $login_db, $disabled = []) {
 			(($nom == $login_db) or
 				($GLOBALS['table_prefix'] == $nom))
 		) {
-			$checked = "<input$base checked='checked' />\n$label";
+			$checked = "<input$base checked='checked'>\n$label";
 		} else {
-			$bases[] = "<input$base />\n$label";
+			$bases[] = "<input$base>\n$label";
 		}
 	}
 
@@ -557,7 +557,7 @@ function install_propager($hidden) {
 	$res = '';
 	foreach ($hidden as $k) {
 		$v = spip_htmlentities(_request($k));
-		$res .= "<input type='hidden' name='$k' value='$v' />";
+		$res .= "<input type='hidden' name='$k' value='$v'>";
 	}
 
 	return $res;

@@ -152,7 +152,7 @@ function redirige_formulaire($url, $equiv = '', $format = 'message') {
 				// on renvoie un lien masque qui sera traite par ajaxCallback.js
 				'<a href="' . quote_amp($url) . '" name="ajax_redirect"  style="display:none;">' . _T('navigateur_pas_redirige') . '</a>',
 				// et un message au cas ou
-				'<br /><a href="' . quote_amp($url) . '">' . _T('navigateur_pas_redirige') . '</a>'
+				'<br><a href="' . quote_amp($url) . '">' . _T('navigateur_pas_redirige') . '</a>'
 			];
 		} else // format message texte, tout en js inline
 		{
@@ -160,7 +160,7 @@ function redirige_formulaire($url, $equiv = '', $format = 'message') {
 				// ie poste les formulaires dans une iframe, il faut donc rediriger son parent
 				"<script>if (parent.window){parent.window.document.location.replace(\"$url\");} else {document.location.replace(\"$url\");}</script>"
 				. http_img_pack('loader.svg', '', " class='loader'")
-				. '<br />'
+				. '<br>'
 				. '<a href="' . quote_amp($url) . '">' . _T('navigateur_pas_redirige') . '</a>';
 		}
 	}

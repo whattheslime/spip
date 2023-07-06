@@ -43,7 +43,7 @@ if (!defined('_ECRIRE_INC_VERSION')) {
  * `taches_generales_cron`.
  *
  * On peut également directement en déclarer avec la balise `genie` d'un paquet.xml
- * de plugin, tel que `<genie nom="nom_de_la_tache" periode="86400" />`
+ * de plugin, tel que `<genie nom="nom_de_la_tache" periode="86400">`
  *
  * @package SPIP\Core\Genie
  **/

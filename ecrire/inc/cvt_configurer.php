@@ -50,7 +50,7 @@ function cvtconf_formulaire_charger($flux) {
 					var_dump($flux['data']);
 				}
 				// reinjecter pour la trace au traitement
-				$flux['data']['_hidden'] = "<input type='hidden' name='var_mode' value='configurer' />";
+				$flux['data']['_hidden'] = "<input type='hidden' name='var_mode' value='configurer'>";
 			}
 		}
 	}
@@ -234,7 +234,7 @@ function cvtconf_configurer_stocker($form, $valeurs, $store) {
 	foreach ($store as $k => $v) {
 		ecrire_config("$stockage$table$prefixe$casier$k", $v);
 		if (_request('var_mode') == 'configurer' and autoriser('webmestre')) {
-			$trace .= "<br />table $table : " . $prefixe . $k . " = $v;";
+			$trace .= "<br>table $table : " . $prefixe . $k . " = $v;";
 		}
 	}
 

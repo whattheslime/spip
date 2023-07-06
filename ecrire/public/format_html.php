@@ -20,7 +20,7 @@ function format_boucle_html($preaff, $avant, $nom, $type, $crit, $corps, $apres,
 	$altern = $altern ? "$altern<//B$nom>" : '';
 	$postaff = $postaff ? "$postaff</BB$nom>" : '';
 	if (!$corps) {
-		$corps = ' />';
+		$corps = '>';
 	} else {
 		$corps = ">$corps</BOUCLE$nom>";
 	}

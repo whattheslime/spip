@@ -675,7 +675,7 @@ function plugin_controler_necessite($liste, $nom, $intervalle, $balise) {
 	if (isset($liste[$nom]) and plugin_version_compatible($intervalle, $liste[$nom]['version'])) {
 		return '';
 	}
-	// Si l'on a un <utilise="plugin non actif" />, ne pas renvoyer d'erreur
+	// Si l'on a un <utilise="plugin non actif">, ne pas renvoyer d'erreur
 	if ($balise === 'utilise' and !isset($liste[$nom])) {
 		return '';
 	}
@@ -762,7 +762,7 @@ function plugin_controler_lib($lib, $url) {
 	/* Feature sortie du core, voir STP
 	 * if ($url) {
 		include_spip('inc/charger_plugin');
-		$url = '<br />'	. bouton_telechargement_plugin($url, 'lib');
+		$url = '<br>'	. bouton_telechargement_plugin($url, 'lib');
 	}*/
 	return _T('plugin_necessite_lib', ['lib' => $lib]) . " <a href='$url'>$url</a>";
 }
