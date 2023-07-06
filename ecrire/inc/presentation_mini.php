@@ -57,7 +57,7 @@ function debut_gauche() {
  * @return string Code HTML
  */
 function fin_gauche() {
- return "</div></div><br class = 'nettoyeur' />";
+ return "</div></div><br class = 'nettoyeur'>";
 }
 
 /**
@@ -182,7 +182,7 @@ function html_tests_js() {
 			'_TESTER_NOSCRIPT',
 			"<noscript>\n<div style='display:none;'><img src='"
 			. generer_url_ecrire('test_ajax', 'js=-1')
-			. "' width='1' height='1' alt='' /></div></noscript>\n"
+			. "' width='1' height='1' alt=''></div></noscript>\n"
 		);
 	}
 

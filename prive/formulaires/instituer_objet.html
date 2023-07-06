@@ -32,7 +32,7 @@
 							id="instituer_#ENV{_objet}_#ENV{_id_objet}_choix_#CLE"
 							[(#ENV{#GET{name}}|=={#CLE}|oui)selected="selected"]
 							value="#CLE"
-						/>
+						>
 						<label for="instituer_#ENV{_objet}_#ENV{_id_objet}_choix_#CLE">
 							<span class="statut">
 								[<span class="statut-icone">(#CLE|puce_statut{#ENV{_objet}})</span>]
