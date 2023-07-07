@@ -21,7 +21,6 @@
 ### Fixed
 
 - #5528 Éviter des collisions avec les noms de cache des fichiers distants
-- #5576 Rétablir l'insertion du script de protection sandbox sur la prévisu d'un objet
 
 ### Deprecated
 
