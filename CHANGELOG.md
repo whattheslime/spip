@@ -4,7 +4,7 @@
 
 ### Security
 
-- spip-team/security#4847 Limiter les données d’auteurs d’authentification via une fonction `auth_desensibiliser_session()`
+- spip-team/security#4847 Limiter les données d’authentification des auteurs via une fonction `auth_desensibiliser_session()`
 
 ### Added
 
@@ -29,14 +29,14 @@
 - #5636 Correction typage arguments de `objet_type`, `table_objet` et `table_objet_sql`
 - #5104 Éviter une erreur fatale quand un job ne peut pas récupérer les arguments de la callback associée
 - #5341 Éviter une fatale sur le retour non booléen des fonctions `autoriser()` pour aider à nettoyer le code
-- #5342 Éviter un warning dans ecrire
+- #5342 Éviter un warning dans ecrire quand un lien pointe vers un document inexistant
 - #4697 Quand une URL de redirection contient une querystring avec des crochets, les encoder pour générer l'URL affichée
 - #5240 Tester la variable  plus tôt pour éviter un warning
 - #5451 Lien vers l'URL/mail de suivi éditorial suivant le format
 - #5446 Inconsistance dans l'UX et le label de l'adresse d'inscription au suivi éditorial
 - #5528 Éviter des collisions avec les noms de cache des fichiers distants
 - #5615 Ne pas considérer un texte malicieux s’il a simplement une entité html
-- #5570 Inclusion manquante sur charger_fonction() en échec
+- #5570 Éviter une fatale en utilisant `charger_fonction()`, sur une fonction inexistante, dans un fichier d’options
 - #5576 Rétablir l'insertion du script de protection sandbox sur la prévisu d'un objet
 - #5541 Notices PHP en moins sur la page de contrôle des tâches de fond
 
