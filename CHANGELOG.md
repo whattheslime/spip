@@ -6,7 +6,7 @@ Changelog de SPIP 4.1
 
 ### Security
 
-- spip-team/security#4847 Limiter les données d’auteurs d’authentification via une fonction `auth_desensibiliser_session()`
+- spip-team/security#4847 Limiter les données d’authentification des auteurs via une fonction `auth_desensibiliser_session()`
 
 ### Fixed
 
