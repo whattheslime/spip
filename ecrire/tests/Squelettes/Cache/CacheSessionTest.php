@@ -11,17 +11,35 @@ use Spip\Test\SquelettesTestCase;
 class CacheSessionTest extends SquelettesTestCase
 {
 	private static array $errors = [];
+	private static string $squelettes;
 
 	public static function setUpBeforeClass(): void {
-		$GLOBALS['dossier_squelettes'] = self::relativePath(__DIR__ . '/data/squelettes');
+		self::$squelettes = self::relativePath(__DIR__ . '/data/squelettes');
+		$GLOBALS['dossier_squelettes'] = self::$squelettes;
 		$GLOBALS['delais'] = 3600; // See boostrap.php qui met delais = 0 (inhibe le cache)
+		include_spip('inc/invalideur');
+		purger_repertoire(_DIR_CACHE . 'calcul/', ['subdir' => true]);
+	}
+
+	public static function tearDownAfterClass(): void {
+		$GLOBALS['dossier_squelettes'] = '';
+		$GLOBALS['delais'] = 0;
 	}
 
 	protected function setUp(): void {
 		$this->resetErrors();
 	}
 
+	public function testVerifierPathMajInvalideurs(): void {
+		$this->assertEquals(self::$squelettes, $GLOBALS['dossier_squelettes'] ?? null);
+		$this->assertTrue(file_exists(__DIR__ . '/data/squelettes/inc/maj_invalideurs.php'));
+		$this->assertNotFalse(find_in_path('inc/maj_invalideurs.php'));
+		$this->assertNotFalse(include_spip('inc/maj_invalideurs'));
+		$this->assertEquals('inc_maj_invalideurs', charger_fonction('maj_invalideurs', 'inc', true));
+	}
+
 	/** Vérifier qu’on sait attraper les données de cache */
+	#[Depends('testVerifierPathMajInvalideurs')]
 	#[DataProvider('providerVerifierCaptureMajInvalideurs')]
 	public function testVerifierCaptureMajInvalideurs(int $expectedCountErrors, string $squelette, bool $session_attendue): void {
 		$this->runWithSquelette($squelette, $session_attendue);
@@ -31,7 +49,7 @@ class CacheSessionTest extends SquelettesTestCase
 	public static function providerVerifierCaptureMajInvalideurs(): array {
 		return [
 			[0, 'inclure/A_session_wo', false],
-			[1, 'inclure/A_session_wo', true],
+			[2, 'inclure/A_session_wo', true],
 			[2, 'inclure/A_session_w', false],
 			[0, 'inclure/A_session_w', true],
 		];
