@@ -285,6 +285,7 @@ function inclure_page($fond, $contexte, string $connect = '') {
 	} else {
 		$use_cache = -1;
 	}
+
 	// $res = message d'erreur : on sort de la
 	if ($res) {
 		return ['texte' => $res];
@@ -799,10 +800,13 @@ function page_base_href(&$texte) {
 }
 
 
-// Envoyer les entetes, en retenant ceux qui sont a usage interne
-// et demarrent par X-Spip-...
+/**
+ * Envoyer les entetes (headers)
+ *
+ * Ceux spécifiques à SPIP commencent par X-Spip
+ */
 function envoyer_entetes($entetes) {
-	foreach ($entetes as $k => $v) { #	if (strncmp($k, 'X-Spip-', 7))
+	foreach ($entetes as $k => $v) {
 		@header(strlen((string) $v) ? "$k: $v" : $k);
 	}
 }
