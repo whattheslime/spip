@@ -225,7 +225,7 @@ function spip_nfslock($fichier, $max_age = 0) {
  * @see spip_nfslock()
  *
  * @param string $fichier Chemin du fichier
- * @param bool $birth Timestamp de l'heure de création du verrou
+ * @param int $birth Timestamp de l'heure de création du verrou
  * @param int $max_age Age maximum du verrou
  * @param bool $test Mode de test
  * return bool true si déverrouillé, false sinon
@@ -314,7 +314,7 @@ function spip_nfsunlock($fichier, $birth, $max_age = 0, $test = false) {
  * @see spip_nfsunlock() about lost and stolen locks.
  *
  * @param string $fichier Chemin du fichier
- * @param bool $birth Timestamp de l'heure de création du verrou
+ * @param int $birth Timestamp de l'heure de création du verrou
  * @param int $max_age Age maximum du verrou
  * return bool true si déverrouillé, false sinon
  */
