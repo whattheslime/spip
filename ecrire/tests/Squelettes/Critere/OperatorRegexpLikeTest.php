@@ -23,9 +23,8 @@ class OperatorRegexpLikeTest extends SquelettesTestCase
 	private function getArticleIdTitle(): array {
 		$result = $this->getArticle();
 		[$id_article, $starts_with] = explode(':', trim($result));
-		$id_article = (int) $id_article;
 		return [
-			'id_article' => $id_article,
+			'id_article' => (int) $id_article,
 			'starts_with' => $starts_with
 		];
 	}
