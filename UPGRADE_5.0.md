@@ -64,13 +64,70 @@ a[href] { background-image: url("#CHEMIN_IMAGE{img.svg}"); }
 
 Les éléments suivants sont dépréciés et seront supprimés dans une future version.
 
+## Syntaxes de squelettes
+
+
+### Critère `{collecte}` (déprécié en 5.0)
+
+Utiliser `{collate}`
+
+#### Avant
+
+```spip
+<BOUCLE_a(ARTICLES) {par titre} {collecte utf8_spanish_ci} {"<br />"}>...
+```
+
+#### Après
+
+```spip
+<BOUCLE_a(ARTICLES) {par titre} {collate utf8_spanish_ci} {"<br />"}>...
+```
+
+### Critères `{fusion}` (déprécié en 5.0)
+
+Utiliser `{groupby}`
+
+#### Avant
+
+```spip
+<BOUCLE_extrait(ARTICLES){fusion id_rubrique}>...
+```
+
+#### Après
+
+```spip
+<BOUCLE_extrait(ARTICLES){groupby id_rubrique}>...
+```
+
+### Critères `{fusion_supprimer}` (déprécié en 5.0)
+
+Utiliser `{groupby_supprimer}`
+
+#### Avant
+
+```spip
+<BOUCLE_facette_annee(ARTICLES){id_mot=27}{fusion_supprimer}{fusion YEAR(date)}>
+    [(#DATE|annee)]<br />
+</BOUCLE_facette_annee>
+```
+
+#### Après
+
+```spip
+<BOUCLE_facette_annee(ARTICLES){id_mot=27}{groupby_supprimer}{groupby YEAR(date)}>
+    [(#DATE|annee)]<br />
+</BOUCLE_facette_annee>
+```
+
+
 ## Fonctions PHP
 
 Dans certains cas parfois utilisées en filtres de squelettes également.
 
-### Fonctions `extraire_multi` et `extraire_idiome`: 3è paramètre `$options` déprécié si booléen
+### Fonctions `extraire_multi` et `extraire_idiome`
 
-Le paramètre `$options` de ces fonctions doit être un `array`.
+Le 3è paramètre `$options` déprécié si booléen.
+Ce paramètre `$options` doit être un `array`.
 
 #### Avant
 
@@ -85,6 +142,36 @@ $idiome = extraire_idiome($texte, 'en', true);
 $multi = extraire_multi($texte, 'en', ['echappe_span' => true]);
 $idiome = extraire_idiome($texte, 'en', ['echappe_span' => true]);
 ```
+
+### Fonction `spip_setcookie`
+
+La fonction `spip_setcookie()` reprend les arguments de la fonction php [`setcookie`](https://www.php.net/manual/fr/function.setcookie.php).
+
+Les constantes `_COOKIE_SECURE` et `_COOKIE_SECURE_LIST` sont dépréciées au profit des options
+`secure` (activée par défaut en HTTPS) et `httponly` de la fonction
+
+#### Exemple
+
+```php
+spip_setcookie('mon_cookie', 'ma valeur', time() + 3600, httponly: true);
+```
+
+### Fonction `spip_sha256` (dépréciée en 5.0)
+
+Utiliser la fonction native `hash`
+
+#### Avant
+
+```php
+$hash = spip_sha256('mon contenu');
+```
+
+#### Après
+
+```php
+$hash = hash('sha256', 'mon contenu');
+```
+
 
 # Suppressions des éléments dépréciés
 
@@ -158,58 +245,6 @@ Note: les positionnements `left`, `right`, `center`, `bottom`, `top` ajustent si
 [(#MODELE{emb, autostart=true})]
 ```
 
-### Critère `{collecte}` (déprécié en 5.0)
-
-Utiliser `{collate}`
-
-#### Avant
-
-```spip
-<BOUCLE_a(ARTICLES) {par titre} {collecte utf8_spanish_ci} {"<br />"}>...
-```
-
-#### Après
-
-```spip
-<BOUCLE_a(ARTICLES) {par titre} {collate utf8_spanish_ci} {"<br />"}>...
-```
-
-### Critères `{fusion}` (déprécié en 5.0)
-
-Utiliser `{groupby}`
-
-#### Avant
-
-```spip
-<BOUCLE_extrait(ARTICLES){fusion id_rubrique}>...
-```
-
-#### Après
-
-```spip
-<BOUCLE_extrait(ARTICLES){groupby id_rubrique}>...
-```
-
-### Critères `{fusion_supprimer}` (déprécié en 5.0)
-
-Utiliser `{groupby_supprimer}`
-
-#### Avant
-
-```spip
-<BOUCLE_facette_annee(ARTICLES){id_mot=27}{fusion_supprimer}{fusion YEAR(date)}>
-    [(#DATE|annee)]<br />
-</BOUCLE_facette_annee>
-```
-
-#### Après
-
-```spip
-<BOUCLE_facette_annee(ARTICLES){id_mot=27}{groupby_supprimer}{groupby YEAR(date)}>
-    [(#DATE|annee)]<br />
-</BOUCLE_facette_annee>
-```
-
 ### Filtre `foreach`
 
 Le filtre déprécié `foreach` est supprimé. Utiliser une boucle `DATA`.
@@ -253,35 +288,6 @@ La boucle `POUR` dépréciée est supprimée. Utiliser une boucle `DATA`.
 ## Fonctions PHP
 
 Dans certains cas parfois utilisées en filtres de squelettes également.
-
-### Fonction `spip_setcookie`
-
-La fonction `spip_setcookie()` reprend les arguments de la fonction php [`setcookie`](https://www.php.net/manual/fr/function.setcookie.php).
-
-Les constantes `_COOKIE_SECURE` et `_COOKIE_SECURE_LIST` sont dépréciées au profit des options
-`secure` (activée par défaut en HTTPS) et `httponly` de la fonction
-
-#### Exemple
-
-```php
-spip_setcookie('mon_cookie', 'ma valeur', time() + 3600, httponly: true);
-```
-
-### Fonction `spip_sha256` (dépréciée en 5.0)
-
-Utiliser la fonction native `hash`
-
-#### Avant
-
-```php
-$hash = spip_sha256('mon contenu');
-```
-
-#### Après
-
-```php
-$hash = hash('sha256', 'mon contenu');
-```
 
 ### Fonction `http_status`
 
