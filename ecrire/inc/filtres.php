@@ -1635,9 +1635,9 @@ function post_autobr($texte, $delim = "\n_ ") {
  * @param string $lang
  *     Langue à retrouver (si vide, utilise la langue en cours).
  * @param array $options Options {
- * @type bool $echappe_span
+ *     @var bool $echappe_span
  *         True pour échapper les balises span (false par défaut)
- * @type string $lang_defaut
+ *     @var string $lang_defaut
  *         Code de langue : permet de définir la langue utilisée par défaut,
  *         en cas d'absence de traduction dans la langue demandée.
  *         Par défaut la langue du site.
@@ -1654,6 +1654,7 @@ function extraire_idiome($letexte, $lang = null, $options = []) {
 		}
 		// Compatibilité avec le prototype de fonction précédente qui utilisait un boolean
 		if (is_bool($options)) {
+			trigger_deprecation('spip', '5.0', 'Using boolean $options parameter in "%s()" function is deprecated. Use %s array parameter instead.', __FUNCTION__, '[\'echappe_span\' => ' . var_export($options, true) . ']');
 			$options = ['echappe_span' => $options];
 		}
 		if (!isset($options['echappe_span'])) {
@@ -1690,9 +1691,9 @@ function extraire_idiome($letexte, $lang = null, $options = []) {
  * @param string $lang
  *     Langue à retrouver (si vide, utilise la langue en cours).
  * @param array $options Options {
- * @type bool $echappe_span
+ *     @var bool $echappe_span
  *         True pour échapper les balises span (false par défaut)
- * @type string $lang_defaut
+ *     @var string $lang_defaut
  *         Code de langue : permet de définir la langue utilisée par défaut,
  *         en cas d'absence de traduction dans la langue demandée.
  *         Par défaut la langue du site.
@@ -1710,6 +1711,7 @@ function extraire_multi($letexte, $lang = null, $options = []) {
 
 		// Compatibilité avec le prototype de fonction précédente qui utilisait un boolean
 		if (is_bool($options)) {
+			trigger_deprecation('spip', '5.0', 'Using boolean $options parameter in "%s()" function is deprecated. Use %s array parameter instead.', __FUNCTION__, '[\'echappe_span\' => ' . var_export($options, true) . ']');
 			$options = ['echappe_span' => $options, 'lang_defaut' => _LANGUE_PAR_DEFAUT];
 		}
 		if (!isset($options['echappe_span'])) {

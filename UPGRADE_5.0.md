@@ -60,8 +60,35 @@ ou
 a[href] { background-image: url("#CHEMIN_IMAGE{img.svg}"); }
 ```
 
+# Nouvelles dépréciations
 
-# Suppressions des dépréciations
+Les éléments suivants sont dépréciés et seront supprimés dans une future version.
+
+## Fonctions PHP
+
+Dans certains cas parfois utilisées en filtres de squelettes également.
+
+### Fonctions `extraire_multi` et `extraire_idiome`: 3è paramètre `$options` déprécié si booléen
+
+Le paramètre `$options` de ces fonctions doit être un `array`.
+
+#### Avant
+
+```php
+$multi = extraire_multi($texte, 'en', true);
+$idiome = extraire_idiome($texte, 'en', true);
+```
+
+#### Après
+
+```php
+$multi = extraire_multi($texte, 'en', ['echappe_span' => true]);
+$idiome = extraire_idiome($texte, 'en', ['echappe_span' => true]);
+```
+
+# Suppressions des éléments dépréciés
+
+Les éléments suivants ont été supprimés et doivent être adaptés si ce n’est pas encore le cas.
 
 ## Syntaxes de squelettes
 

@@ -330,11 +330,11 @@ function corriger_typo($letexte, $lang = '') {
 	}
 
 	// trouver les blocs idiomes et les traiter à part
-	$letexte = extraire_idiome($ei = $letexte, $lang, true);
+	$letexte = extraire_idiome($ei = $letexte, $lang, ['echappe_span' => true]);
 	$ei = ($ei !== $letexte);
 
 	// trouver les blocs multi et les traiter a part
-	$letexte = extraire_multi($em = $letexte, $lang, true);
+	$letexte = extraire_multi($em = $letexte, $lang, ['echappe_span' => true]);
 	$em = ($em !== $letexte);
 
 	// Charger & appliquer les fonctions de typographie
@@ -370,7 +370,7 @@ function corriger_typo($letexte, $lang = '') {
  * Ne fait rien ici. Voir plugin Textwheel
  *
  * @param string $letexte
- * @param null $forcer
+ * @param bool $forcer
  * @return string
  */
 function paragrapher($letexte, $forcer = true) {
