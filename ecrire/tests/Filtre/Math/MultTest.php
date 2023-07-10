@@ -3,27 +3,27 @@
 declare(strict_types=1);
 
 /**
- * Test unitaire de la fonction modulo du fichier inc/filtres.php
+ * Test unitaire de la fonction mult du fichier inc/filtres.php
  */
 
-namespace Spip\Test\Filtre;
+namespace Spip\Test\Filtre\Math;
 
 use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\TestCase;
 
-class ModuloTest extends TestCase
+class MultTest extends TestCase
 {
 	public static function setUpBeforeClass(): void {
 		find_in_path('inc/filtres.php', '', true);
 	}
 
-	#[DataProvider('providerFiltresModulo')]
-	public function testFiltresModulo($expected, ...$args): void {
-		$actual = modulo(...$args);
+	#[DataProvider('providerFiltresMult')]
+	public function testFiltresMult($expected, ...$args): void {
+		$actual = mult(...$args);
 		$this->assertSame($expected, $actual);
 	}
 
-	public static function providerFiltresModulo(): array {
+	public static function providerFiltresMult(): array {
 		return [
 			0 => [
 				0 => 0,
@@ -43,36 +43,36 @@ class ModuloTest extends TestCase
 			3 => [
 				0 => 0,
 				1 => 0,
-				2 => 2,
+				2 => 10000,
 			],
 			4 => [
 				0 => 0,
-				1 => 0,
-				2 => 10000,
+				1 => -1,
+				2 => 0,
 			],
 			5 => [
-				0 => -1,
+				0 => 1,
 				1 => -1,
-				2 => 10000,
+				2 => -1,
 			],
 			6 => [
-				0 => 2,
-				1 => 2,
-				2 => 1000,
+				0 => -1,
+				1 => -1,
+				2 => 1,
 			],
 			7 => [
-				0 => 5,
-				1 => 5,
-				2 => 30,
+				0 => 484,
+				1 => 11,
+				2 => 44,
 			],
 			8 => [
-				0 => 2,
-				1 => 30,
-				2 => 4,
+				0 => 1_000_000,
+				1 => 100,
+				2 => 10000,
 			],
 			9 => [
-				0 => 0,
-				1 => 10000,
+				0 => 10_000_000,
+				1 => 1000,
 				2 => 10000,
 			],
 		];
