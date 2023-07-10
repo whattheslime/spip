@@ -172,6 +172,33 @@ $hash = spip_sha256('mon contenu');
 $hash = hash('sha256', 'mon contenu');
 ```
 
+### Fonction `abs_url` (dépréciée en 5.0)
+
+Utiliser `url_absolue` ou `liens_absolus` selon.
+
+#### Avant
+
+```php
+$texte = abs_url($texte);
+$url = abs_url($url);
+```
+
+```spip
+[(#TEXTE|abs_url)]
+[(#URL_ARTICLE|abs_url)]
+```
+
+#### Après
+
+```php
+$texte = liens_absolus($texte);
+$url = url_absolue($url);
+```
+
+```spip
+[(#TEXTE|liens_absolus)]
+[(#URL_ARTICLE|url_absolue)]
+```
 
 # Suppressions des éléments dépréciés
 

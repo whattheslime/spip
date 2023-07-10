@@ -25,6 +25,7 @@
 
 ### Deprecated
 
+- Filtre/fonction `abs_url`. Utiliser `url_absolue` ou `liens_absolus` selon.
 - Dans les fonctions `extraire_idiome` et `extraire_multi`, le 3è paramètre `$options` de type `bool` est déprécié. Utiliser un array `['echappe_span' => true]`
 - #5552 Constantes `_COOKIE_SECURE` et `_COOKIE_SECURE_LIST` (utiliser les options `secure` et/ou `httponly` de `spip_setcookie`)
 - #5565 Critère `{collecte}`. Utiliser `{collate}`

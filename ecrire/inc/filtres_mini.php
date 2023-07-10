@@ -212,6 +212,8 @@ function liens_absolus($texte, $base = '') {
  * Transforme une URL ou des liens en URL ou liens absolus
  *
  * @filtre
+ * @deprecated 5.0 Uses `url_absolue` or `liens_absolus`.
+ *
  * @link https://www.spip.net/4128
  * @global string $mode_abs_url Pour connaître le mode (url ou texte)
  *
@@ -220,6 +222,7 @@ function liens_absolus($texte, $base = '') {
  * @return string texte ou URL (en absolus)
  **/
 function abs_url($texte, $base = '') {
+	trigger_deprecation('spip', '5.0', sprintf('Using "%s" is deprecated. Use "%s" or "%s"', __FUNCTION__, 'url_absolue', 'liens_absolus'));
 	if ($GLOBALS['mode_abs_url'] == 'url') {
 		return url_absolue($texte, $base);
 	} else {
