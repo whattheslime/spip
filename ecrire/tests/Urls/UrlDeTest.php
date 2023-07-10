@@ -6,7 +6,7 @@ declare(strict_types=1);
  * Test unitaire de la fonction url_de_ du fichier ./inc/utils.php
  */
 
-namespace Spip\Test\Utils;
+namespace Spip\Test\Urls;
 
 use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\TestCase;
