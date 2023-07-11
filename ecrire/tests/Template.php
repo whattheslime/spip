@@ -44,10 +44,15 @@ class Template
 		], $connect);
 		$infos['texte'] = trim($infos['texte']);
 
-		// on ajoute des infos supplementaires a celles retournees
-		$path = pathinfo($infos['source']);
-		$infos['fond'] = $path['dirname'] . '/' . $path['filename']; // = $fond;
-		$infos['erreurs'] = $this->get_compilation_errors();
+		if (!empty($infos['source'])) {
+			// on ajoute des infos supplementaires a celles retournees
+			$path = pathinfo($infos['source']);
+			$infos['fond'] = $path['dirname'] . '/' . $path['filename']; // = $fond;
+			$infos['erreurs'] = $this->get_compilation_errors();
+		} else {
+			// on a été interrompu par un minipres ?
+			throw new \Exception('Calcul de ' . $this->fond . ' interrompue (minipres?)' . "\n\n" . $infos['texte']);
+		}
 
 		return $infos;
 	}
