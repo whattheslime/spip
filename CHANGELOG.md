@@ -2,6 +2,12 @@
 
 Changelog de SPIP 4.2
 
+## Unreleased
+
+### Fixed
+
+- #5669 Contenu principal toujours en pleine largeur sur petits écrans
+
 ## 4.2.4 - 2023-07-07
 
 ### Security
