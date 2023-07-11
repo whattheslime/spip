@@ -3,11 +3,7 @@
 // extrait automatiquement de https://trad.spip.net/tradlang_module/spip?lang_cible=gl
 // ** ne pas modifier le fichier **
 
-if (!defined('_ECRIRE_INC_VERSION')) {
-	return;
-}
-
-$GLOBALS[$GLOBALS['idx_lang']] = array(
+return [
 
 	// A
 	'access_interface_graphique' => 'Voltar á interface gráfica completa',
@@ -698,5 +694,5 @@ e reconectar co web.
 	'zxml_survoler' => 'sobrevoar para ver os correctos',
 	'zxml_valeur_attribut' => 'valor do atributo',
 	'zxml_vide_balise' => 'baliza baleira',
-	'zxml_vu' => 'vista previa'
-);
+	'zxml_vu' => 'vista previa',
+];

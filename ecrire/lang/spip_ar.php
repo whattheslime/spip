@@ -3,11 +3,7 @@
 // extrait automatiquement de https://trad.spip.net/tradlang_module/spip?lang_cible=ar
 // ** ne pas modifier le fichier **
 
-if (!defined('_ECRIRE_INC_VERSION')) {
-	return;
-}
-
-$GLOBALS[$GLOBALS['idx_lang']] = array(
+return [
 
 	// A
 	'access_interface_graphique' => 'عودة إلى الواجهة الرسومية الكاملة',
@@ -749,5 +745,5 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'zxml_survoler' => 'الحوم لعرض الصحيح',
 	'zxml_valeur_attribut' => 'قيمة الخاصية',
 	'zxml_vide_balise' => 'علامة فارغة',
-	'zxml_vu' => 'ظهر مسبقاً'
-);
+	'zxml_vu' => 'ظهر مسبقاً',
+];

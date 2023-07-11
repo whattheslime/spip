@@ -3,11 +3,7 @@
 // extrait automatiquement de https://trad.spip.net/tradlang_module/spip?lang_cible=fa
 // ** ne pas modifier le fichier **
 
-if (!defined('_ECRIRE_INC_VERSION')) {
-	return;
-}
-
-$GLOBALS[$GLOBALS['idx_lang']] = array(
+return [
 
 	// A
 	'access_interface_graphique' => 'بازگشت به نماى كامل سايت',
@@ -683,5 +679,5 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'zxml_survoler' => 'برای دیدن جوابهای صحیح نوک فلش را روی آنها بگذارید',
 	'zxml_valeur_attribut' => 'ارزش مشخصه ها',
 	'zxml_vide_balise' => 'TAG خالی',
-	'zxml_vu' => 'قبلأ دیده شده'
-);
+	'zxml_vu' => 'قبلأ دیده شده',
+];

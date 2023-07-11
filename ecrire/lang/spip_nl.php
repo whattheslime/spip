@@ -3,11 +3,7 @@
 // extrait automatiquement de https://trad.spip.net/tradlang_module/spip?lang_cible=nl
 // ** ne pas modifier le fichier **
 
-if (!defined('_ECRIRE_INC_VERSION')) {
-	return;
-}
-
-$GLOBALS[$GLOBALS['idx_lang']] = array(
+return [
 
 	// A
 	'access_interface_graphique' => 'Terug naar de volledig grafische interface',
@@ -727,5 +723,5 @@ opnieuw verbinding maken met de site
 	'zxml_survoler' => 'beweeg hierover voor de correcties',
 	'zxml_valeur_attribut' => 'waarde van de eigenschap',
 	'zxml_vide_balise' => 'leeg baken',
-	'zxml_vu' => 'eerder gezien'
-);
+	'zxml_vu' => 'eerder gezien',
+];

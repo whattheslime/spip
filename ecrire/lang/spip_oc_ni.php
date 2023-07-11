@@ -3,11 +3,7 @@
 // extrait automatiquement de https://trad.spip.net/tradlang_module/spip?lang_cible=oc_ni
 // ** ne pas modifier le fichier **
 
-if (!defined('_ECRIRE_INC_VERSION')) {
-	return;
-}
-
-$GLOBALS[$GLOBALS['idx_lang']] = array(
+return [
 
 	// A
 	'access_interface_graphique' => 'Tornar à l’interfaça grafica completa',
@@ -644,5 +640,5 @@ e vos tornar connectar au sit.
 	'zxml_survoler' => 'susvolar per veire lu corrèctes',
 	'zxml_valeur_attribut' => 'valor de l’atribut',
 	'zxml_vide_balise' => 'balise vuèia',
-	'zxml_vu' => 'vist adés'
-);
+	'zxml_vu' => 'vist adés',
+];

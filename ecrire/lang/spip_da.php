@@ -3,11 +3,7 @@
 // extrait automatiquement de https://trad.spip.net/tradlang_module/spip?lang_cible=da
 // ** ne pas modifier le fichier **
 
-if (!defined('_ECRIRE_INC_VERSION')) {
-	return;
-}
-
-$GLOBALS[$GLOBALS['idx_lang']] = array(
+return [
 
 	// A
 	'admin_modifier_article' => 'Rediger artikel',
@@ -570,5 +566,5 @@ og igen få adgang til webstedet.', # MODIF
 	'zbug_inversion_ordre_inexistant' => 'inversion d’un ordre inexistant', # MODIF
 	'zbug_pagination_sans_critere' => '#PAGINATION sans critère {pagination} ou employé dans une boucle recursive', # MODIF
 	'zbug_parametres_inclus_incorrects' => 'Paramètres d’inclusion incorrects', # MODIF
-	'zbug_serveur_indefini' => 'serveur SQL indéfini' # MODIF
-);
+	'zbug_serveur_indefini' => 'serveur SQL indéfini', # MODIF
+];

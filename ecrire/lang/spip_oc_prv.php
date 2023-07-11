@@ -3,11 +3,7 @@
 // extrait automatiquement de https://trad.spip.net/tradlang_module/spip?lang_cible=oc_prv
 // ** ne pas modifier le fichier **
 
-if (!defined('_ECRIRE_INC_VERSION')) {
-	return;
-}
-
-$GLOBALS[$GLOBALS['idx_lang']] = array(
+return [
 
 	// A
 	'access_interface_graphique' => 'Tornar a l’interfàcia grafica completa',
@@ -581,5 +577,5 @@ e vos tornar connectar au sit.
 	'zbug_parametres_inclus_incorrects' => 'Paramètres d’inclusion incorrèctes', # MODIF
 	'zbug_resultat' => 'resultat',
 	'zbug_serveur_indefini' => 'servidor SQL indefinit', # MODIF
-	'zbug_table_inconnue' => 'Taula SQL «@table@» inconeguda'
-);
+	'zbug_table_inconnue' => 'Taula SQL «@table@» inconeguda',
+];

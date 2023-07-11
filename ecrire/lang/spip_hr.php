@@ -3,11 +3,7 @@
 // extrait automatiquement de https://trad.spip.net/tradlang_module/spip?lang_cible=hr
 // ** ne pas modifier le fichier **
 
-if (!defined('_ECRIRE_INC_VERSION')) {
-	return;
-}
-
-$GLOBALS[$GLOBALS['idx_lang']] = array(
+return [
 
 	// A
 	'access_interface_graphique' => 'Natrag u potpuni grafički interface',
@@ -709,5 +705,5 @@ SPIP. <br /><br /><b>Uopćeno rečeno, izričito vam savjetujemo da izmjene prep
 	'zxml_survoler' => 'da biste vidjeli ispravne, postavite kursor iznad ',
 	'zxml_valeur_attribut' => 'vrijednost svojstva',
 	'zxml_vide_balise' => 'prazna oznaka',
-	'zxml_vu' => 'već viđeno'
-);
+	'zxml_vu' => 'već viđeno',
+];

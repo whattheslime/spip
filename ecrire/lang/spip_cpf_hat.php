@@ -3,11 +3,7 @@
 // extrait automatiquement de https://trad.spip.net/tradlang_module/spip?lang_cible=cpf_hat
 // ** ne pas modifier le fichier **
 
-if (!defined('_ECRIRE_INC_VERSION')) {
-	return;
-}
-
-$GLOBALS[$GLOBALS['idx_lang']] = array(
+return [
 
 	// A
 	'access_interface_graphique' => 'Tounen dèyé si lentèfas gwafik konple',
@@ -613,5 +609,5 @@ lès plitò jestyon paj sa-yo pou wèbmèt prensipal sou sit-la.</b>', # MODIF
 	'zbug_parametres_inclus_incorrects' => 'Paramèt pou enklizyon se pa korek', # MODIF
 	'zbug_resultat' => 'rézilta',
 	'zbug_serveur_indefini' => 'sèvè SQL ki pa defini', # MODIF
-	'zbug_table_inconnue' => 'Tab SQL « @table@ » se pa koni'
-);
+	'zbug_table_inconnue' => 'Tab SQL « @table@ » se pa koni',
+];

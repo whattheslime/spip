@@ -3,11 +3,7 @@
 // extrait automatiquement de https://trad.spip.net/tradlang_module/spip?lang_cible=eu
 // ** ne pas modifier le fichier **
 
-if (!defined('_ECRIRE_INC_VERSION')) {
-	return;
-}
-
-$GLOBALS[$GLOBALS['idx_lang']] = array(
+return [
 
 	// A
 	'access_interface_graphique' => 'Interfaz grafiko osora itzuli',
@@ -696,5 +692,5 @@ Modu orokorrean, orrialde hauetako kudeaketa zure guneko web arduradun nagusiari
 	'zxml_survoler' => 'survoler pour voir les corrects',
 	'zxml_valeur_attribut' => 'atributuaren balorea',
 	'zxml_vide_balise' => 'etiketa hutsa',
-	'zxml_vu' => 'jadanik ikusia'
-);
+	'zxml_vu' => 'jadanik ikusia',
+];

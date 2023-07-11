@@ -3,11 +3,7 @@
 // extrait automatiquement de https://trad.spip.net/tradlang_module/spip?lang_cible=cpf
 // ** ne pas modifier le fichier **
 
-if (!defined('_ECRIRE_INC_VERSION')) {
-	return;
-}
-
-$GLOBALS[$GLOBALS['idx_lang']] = array(
+return [
 
 	// A
 	'access_interface_graphique' => 'Artoun si lintèrfas grafik konplé',
@@ -619,5 +615,5 @@ aou lès lazéstyon do bann paz-la pou lo wèbmèt prinsipal.</b>', # MODIF
 	'zbug_parametres_inclus_incorrects' => 'Bann paramèt pou linklizyon lé pa korèk', # MODIF
 	'zbug_resultat' => 'rézilta',
 	'zbug_serveur_indefini' => 'servèr SQL la lé pa défini', # MODIF
-	'zbug_table_inconnue' => 'Lo tab SQL « @table@ »  la , li lé pa konu'
-);
+	'zbug_table_inconnue' => 'Lo tab SQL « @table@ »  la , li lé pa konu',
+];

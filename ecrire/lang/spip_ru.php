@@ -3,11 +3,7 @@
 // extrait automatiquement de https://trad.spip.net/tradlang_module/spip?lang_cible=ru
 // ** ne pas modifier le fichier **
 
-if (!defined('_ECRIRE_INC_VERSION')) {
-	return;
-}
-
-$GLOBALS[$GLOBALS['idx_lang']] = array(
+return [
 
 	// A
 	'access_interface_graphique' => 'Возврат к полному интерфейсу',
@@ -725,5 +721,5 @@ and connect again to the site.
 	'zxml_survoler' => 'чтобы увидеть правильные, наведите курсор',
 	'zxml_valeur_attribut' => 'значение атрибута',
 	'zxml_vide_balise' => 'пустой тег',
-	'zxml_vu' => 'уже просматривалось'
-);
+	'zxml_vu' => 'уже просматривалось',
+];

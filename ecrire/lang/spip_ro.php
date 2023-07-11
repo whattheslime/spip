@@ -3,11 +3,7 @@
 // extrait automatiquement de https://trad.spip.net/tradlang_module/spip?lang_cible=ro
 // ** ne pas modifier le fichier **
 
-if (!defined('_ECRIRE_INC_VERSION')) {
-	return;
-}
-
-$GLOBALS[$GLOBALS['idx_lang']] = array(
+return [
 
 	// A
 	'access_interface_graphique' => 'Întoarcere la interfaţa grafică completă',
@@ -696,5 +692,5 @@ Veţi putea după aceea alege o nouă parolă şi veţi putea să vă reconecta�
 	'zxml_survoler' => 'planaţi pentru a vedea corect',
 	'zxml_valeur_attribut' => 'valoarea atributului',
 	'zxml_vide_balise' => 'baliză (tag) vidă',
-	'zxml_vu' => 'văzut înainte'
-);
+	'zxml_vu' => 'văzut înainte',
+];

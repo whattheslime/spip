@@ -3,11 +3,7 @@
 // extrait automatiquement de https://trad.spip.net/tradlang_module/spip?lang_cible=eo
 // ** ne pas modifier le fichier **
 
-if (!defined('_ECRIRE_INC_VERSION')) {
-	return;
-}
-
-$GLOBALS[$GLOBALS['idx_lang']] = array(
+return [
 
 	// A
 	'access_interface_graphique' => 'Reen al kompleta grafika interfaco',
@@ -733,5 +729,5 @@ sub la respondeco de la ĉefa retejestro .</b>',
 	'zxml_survoler' => 'superflugi por ekvidi korektaĵojn',
 	'zxml_valeur_attribut' => 'atributa valoro',
 	'zxml_vide_balise' => 'malplena marko',
-	'zxml_vu' => 'antaŭe vidita'
-);
+	'zxml_vu' => 'antaŭe vidita',
+];

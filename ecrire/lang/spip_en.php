@@ -3,11 +3,7 @@
 // extrait automatiquement de https://trad.spip.net/tradlang_module/spip?lang_cible=en
 // ** ne pas modifier le fichier **
 
-if (!defined('_ECRIRE_INC_VERSION')) {
-	return;
-}
-
-$GLOBALS[$GLOBALS['idx_lang']] = array(
+return [
 
 	// A
 	'access_interface_graphique' => 'Back to the full graphic interface',
@@ -749,5 +745,5 @@ and log in to the site.
 	'zxml_survoler' => 'to see the correct ones, hover with the cursor',
 	'zxml_valeur_attribut' => 'attribute value',
 	'zxml_vide_balise' => 'empty tag',
-	'zxml_vu' => 'seen before'
-);
+	'zxml_vu' => 'seen before',
+];

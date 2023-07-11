@@ -745,5 +745,5 @@ et vous reconnecter au site.
 	'zxml_survoler' => 'survoler pour voir les corrects',
 	'zxml_valeur_attribut' => 'valeur de l’attribut',
 	'zxml_vide_balise' => 'balise vide',
-	'zxml_vu' => 'vu auparavant'
+	'zxml_vu' => 'vu auparavant',
 ];

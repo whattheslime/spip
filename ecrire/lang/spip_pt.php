@@ -3,11 +3,7 @@
 // extrait automatiquement de https://trad.spip.net/tradlang_module/spip?lang_cible=pt
 // ** ne pas modifier le fichier **
 
-if (!defined('_ECRIRE_INC_VERSION')) {
-	return;
-}
-
-$GLOBALS[$GLOBALS['idx_lang']] = array(
+return [
 
 	// A
 	'access_interface_graphique' => 'Voltar à interface gráfica completa',
@@ -710,5 +706,5 @@ Poderá então introduzir uma nova palavra-passe e reconectar-se ao sítio.
 	'zxml_survoler' => 'para visualizar os correctos, mover o rato por cima',
 	'zxml_valeur_attribut' => 'valor do atributo',
 	'zxml_vide_balise' => 'tag vazia',
-	'zxml_vu' => 'visualizado antes'
-);
+	'zxml_vu' => 'visualizado antes',
+];

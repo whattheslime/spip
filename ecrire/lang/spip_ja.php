@@ -3,11 +3,7 @@
 // extrait automatiquement de https://trad.spip.net/tradlang_module/spip?lang_cible=ja
 // ** ne pas modifier le fichier **
 
-if (!defined('_ECRIRE_INC_VERSION')) {
-	return;
-}
-
-$GLOBALS[$GLOBALS['idx_lang']] = array(
+return [
 
 	// A
 	'access_interface_graphique' => 'グラフィカルインターフェースに戻る',
@@ -684,5 +680,5 @@ http://mysite.com、あるいは単純にこのサイトの記事番号を与え
 	'zxml_survoler' => '正しいのを表すには、カーソルをその上に移動してください。',
 	'zxml_valeur_attribut' => '属性の値',
 	'zxml_vide_balise' => '空白のタグ',
-	'zxml_vu' => '先ほど見た'
-);
+	'zxml_vu' => '先ほど見た',
+];

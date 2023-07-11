@@ -3,11 +3,7 @@
 // extrait automatiquement de https://trad.spip.net/tradlang_module/spip?lang_cible=cs
 // ** ne pas modifier le fichier **
 
-if (!defined('_ECRIRE_INC_VERSION')) {
-	return;
-}
-
-$GLOBALS[$GLOBALS['idx_lang']] = array(
+return [
 
 	// A
 	'access_interface_graphique' => 'Zpět do kompletního grafického rozhraní',
@@ -614,5 +610,5 @@ a znovu se ke stránkám připojíte.
 	'zbug_parametres_inclus_incorrects' => 'Nesprávné parametry inkluze', # MODIF
 	'zbug_resultat' => 'výsledky',
 	'zbug_serveur_indefini' => 'Nedefinovaný server SQL', # MODIF
-	'zbug_table_inconnue' => 'Neznámá tabulka SQL "@table@"'
-);
+	'zbug_table_inconnue' => 'Neznámá tabulka SQL "@table@"',
+];
