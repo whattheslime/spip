@@ -21,6 +21,7 @@
 ### Fixed
 
 - #5528 Éviter des collisions avec les noms de cache des fichiers distants
+- #5669 Contenu principal toujours en pleine largeur sur petits écrans
 
 ### Deprecated
 
