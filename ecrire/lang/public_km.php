@@ -3,11 +3,7 @@
 // extrait automatiquement de https://trad.spip.net/tradlang_module/public?lang_cible=km
 // ** ne pas modifier le fichier **
 
-if (!defined('_ECRIRE_INC_VERSION')) {
-	return;
-}
-
-$GLOBALS[$GLOBALS['idx_lang']] = array(
+return [
 
 	// A
 	'accueil_site' => 'ទំព័រដើម នៃសៃថ៍', # MODIF
@@ -113,5 +109,5 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	// V
 	'ver_imprimer' => 'កំណែ ​ដែលត្រូវបោះពុម្ភ',
 	'voir_en_ligne' => '​អាន លើអិនរើណែត',
-	'voir_squelette' => 'មើលគ្រោងឆ្អឹង នៃទំព័រនេះ'
-);
+	'voir_squelette' => 'មើលគ្រោងឆ្អឹង នៃទំព័រនេះ',
+];

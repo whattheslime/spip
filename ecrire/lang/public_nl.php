@@ -3,11 +3,7 @@
 // extrait automatiquement de https://trad.spip.net/tradlang_module/public?lang_cible=nl
 // ** ne pas modifier le fichier **
 
-if (!defined('_ECRIRE_INC_VERSION')) {
-	return;
-}
-
-$GLOBALS[$GLOBALS['idx_lang']] = array(
+return [
 
 	// A
 	'accueil_site' => 'Homepagina',
@@ -117,5 +113,5 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	// V
 	'ver_imprimer' => 'Afdrukversie',
 	'voir_en_ligne' => 'Online bekijken',
-	'voir_squelette' => 'het skelet van deze bladzijde bekijken'
-);
+	'voir_squelette' => 'het skelet van deze bladzijde bekijken',
+];

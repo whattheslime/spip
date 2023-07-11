@@ -3,11 +3,7 @@
 // extrait automatiquement de https://trad.spip.net/tradlang_module/public?lang_cible=oc_va
 // ** ne pas modifier le fichier **
 
-if (!defined('_ECRIRE_INC_VERSION')) {
-	return;
-}
-
-$GLOBALS[$GLOBALS['idx_lang']] = array(
+return [
 
 	// A
 	'accueil_site' => 'Acuelh dau sit', # MODIF
@@ -103,5 +99,5 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 
 	// V
 	'ver_imprimer' => 'Version d’estampar',
-	'voir_en_ligne' => 'Veètz en linha'
-);
+	'voir_en_ligne' => 'Veètz en linha',
+];

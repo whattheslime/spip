@@ -3,11 +3,7 @@
 // extrait automatiquement de https://trad.spip.net/tradlang_module/public?lang_cible=bs
 // ** ne pas modifier le fichier **
 
-if (!defined('_ECRIRE_INC_VERSION')) {
-	return;
-}
-
-$GLOBALS[$GLOBALS['idx_lang']] = array(
+return [
 
 	// A
 	'accueil_site' => 'Pocetna stranica', # MODIF
@@ -103,5 +99,5 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 
 	// V
 	'ver_imprimer' => 'Verzija za printanje',
-	'voir_en_ligne' => 'Pogledati online'
-);
+	'voir_en_ligne' => 'Pogledati online',
+];

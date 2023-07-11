@@ -117,5 +117,5 @@ return [
 	// V
 	'ver_imprimer' => 'Version à imprimer',
 	'voir_en_ligne' => 'Voir en ligne',
-	'voir_squelette' => 'voir le squelette de cette page'
+	'voir_squelette' => 'voir le squelette de cette page',
 ];

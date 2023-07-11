@@ -3,11 +3,7 @@
 // extrait automatiquement de https://trad.spip.net/tradlang_module/public?lang_cible=co
 // ** ne pas modifier le fichier **
 
-if (!defined('_ECRIRE_INC_VERSION')) {
-	return;
-}
-
-$GLOBALS[$GLOBALS['idx_lang']] = array(
+return [
 
 	// A
 	'accueil_site' => 'Accogliu di u situ', # MODIF
@@ -117,5 +113,5 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	// V
 	'ver_imprimer' => 'Versione da stampà',
 	'voir_en_ligne' => 'Vede in ligna',
-	'voir_squelette' => 'vede u mudellu di sta pàgina'
-);
+	'voir_squelette' => 'vede u mudellu di sta pàgina',
+];

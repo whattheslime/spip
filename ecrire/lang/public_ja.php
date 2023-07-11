@@ -3,11 +3,7 @@
 // extrait automatiquement de https://trad.spip.net/tradlang_module/public?lang_cible=ja
 // ** ne pas modifier le fichier **
 
-if (!defined('_ECRIRE_INC_VERSION')) {
-	return;
-}
-
-$GLOBALS[$GLOBALS['idx_lang']] = array(
+return [
 
 	// A
 	'accueil_site' => 'ホーム',
@@ -122,5 +118,5 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	// V
 	'ver_imprimer' => '印刷用のバージョン',
 	'voir_en_ligne' => 'オンラインで見る',
-	'voir_squelette' => 'ページのテンプレートを見る'
-);
+	'voir_squelette' => 'ページのテンプレートを見る',
+];

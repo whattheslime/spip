@@ -3,11 +3,7 @@
 // extrait automatiquement de https://trad.spip.net/tradlang_module/public?lang_cible=fon
 // ** ne pas modifier le fichier **
 
-if (!defined('_ECRIRE_INC_VERSION')) {
-	return;
-}
-
-$GLOBALS[$GLOBALS['idx_lang']] = array(
+return [
 
 	// A
 	'accueil_site' => 'Hɔntogbo', # MODIF
@@ -104,5 +100,5 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	// V
 	'ver_imprimer' => 'Zin wema',
 	'voir_en_ligne' => 'kpɔn Gblogbloji',
-	'voir_squelette' => 'Sɛ titomɛ wema élɔ tɔn do '
-);
+	'voir_squelette' => 'Sɛ titomɛ wema élɔ tɔn do ',
+];
