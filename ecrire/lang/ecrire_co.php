@@ -3,11 +3,7 @@
 // extrait automatiquement de https://trad.spip.net/tradlang_module/ecrire_?lang_cible=co
 // ** ne pas modifier le fichier **
 
-if (!defined('_ECRIRE_INC_VERSION')) {
-	return;
-}
-
-$GLOBALS[$GLOBALS['idx_lang']] = array(
+return [
 
 	// A
 	'activer_plugin' => 'Attivà u plugin',
@@ -829,5 +825,5 @@ U so statutu hè signalatu da u culore di l’icona (scrittore = giallu; amminis
 	'utf8_convert_erreur_orig' => 'Errore : u ghjocu di caràtteri @charset@ ùn hè presente.',
 
 	// V
-	'version' => 'Versione :'
-);
+	'version' => 'Versione :',
+];

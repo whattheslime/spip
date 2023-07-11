@@ -3,11 +3,7 @@
 // extrait automatiquement de https://trad.spip.net/tradlang_module/ecrire_?lang_cible=hu
 // ** ne pas modifier le fichier **
 
-if (!defined('_ECRIRE_INC_VERSION')) {
-	return;
-}
-
-$GLOBALS[$GLOBALS['idx_lang']] = array(
+return [
 
 	// A
 	'activer_plugin' => 'Plugin aktiválása',
@@ -607,5 +603,5 @@ dans le cache SPIP. Ez például eröltethet az összes oldal frissítését, ha
 	'utf8_convert_erreur_orig' => 'Hiba : a @charset@ karaktertábla nincs támogatva.',
 
 	// V
-	'version' => 'Verzió :'
-);
+	'version' => 'Verzió :',
+];

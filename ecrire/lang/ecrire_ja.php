@@ -3,11 +3,7 @@
 // extrait automatiquement de https://trad.spip.net/tradlang_module/ecrire_?lang_cible=ja
 // ** ne pas modifier le fichier **
 
-if (!defined('_ECRIRE_INC_VERSION')) {
-	return;
-}
-
-$GLOBALS[$GLOBALS['idx_lang']] = array(
+return [
 
 	// A
 	'activer_plugin' => 'プラグインを有効にする',
@@ -859,5 +855,5 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'utf8_convert_erreur_orig' => 'エラー：その文字セット@charset@は、対応されません。',
 
 	// V
-	'version' => 'バージョン:'
-);
+	'version' => 'バージョン:',
+];

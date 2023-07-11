@@ -3,11 +3,7 @@
 // extrait automatiquement de https://trad.spip.net/tradlang_module/ecrire_?lang_cible=vi
 // ** ne pas modifier le fichier **
 
-if (!defined('_ECRIRE_INC_VERSION')) {
-	return;
-}
-
-$GLOBALS[$GLOBALS['idx_lang']] = array(
+return [
 
 	// A
 	'aide_non_disponible' => 'Phần giúp đỡ này chưa được dịch sang ngôn ngữ này.',
@@ -544,5 +540,5 @@ Bạn có thể cho phép cảnh báo hay không:',
 	'trad_article_traduction' => 'Tất cả ấn bản của bài này:',
 	'trad_delier' => 'Đừng nối bài này qua bản dịch', # MODIF
 	'trad_lier' => 'Bài này là bản dịch của bài số',
-	'trad_new' => 'Dịch bài này' # MODIF
-);
+	'trad_new' => 'Dịch bài này', # MODIF
+];

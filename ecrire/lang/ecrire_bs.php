@@ -3,11 +3,7 @@
 // extrait automatiquement de https://trad.spip.net/tradlang_module/ecrire_?lang_cible=bs
 // ** ne pas modifier le fichier **
 
-if (!defined('_ECRIRE_INC_VERSION')) {
-	return;
-}
-
-$GLOBALS[$GLOBALS['idx_lang']] = array(
+return [
 
 	// A
 	'aide_non_disponible' => 'Pomoc nije dostupna',
@@ -537,5 +533,5 @@ Prevodi su (sa bojom koja ukazuje na njihovo stanje) povezani sa originalnim cla
 	'trad_article_traduction' => 'Sve verzije ovog clanka:',
 	'trad_delier' => 'Ne vezati vise ovaj clanak za ove prevode', # MODIF
 	'trad_lier' => 'Ovaj clanak je prevod clanka broj:',
-	'trad_new' => 'Napisati novi prevod ovog clanka' # MODIF
-);
+	'trad_new' => 'Napisati novi prevod ovog clanka', # MODIF
+];

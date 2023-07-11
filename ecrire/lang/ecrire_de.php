@@ -3,11 +3,7 @@
 // extrait automatiquement de https://trad.spip.net/tradlang_module/ecrire_?lang_cible=de
 // ** ne pas modifier le fichier **
 
-if (!defined('_ECRIRE_INC_VERSION')) {
-	return;
-}
-
-$GLOBALS[$GLOBALS['idx_lang']] = array(
+return [
 
 	// A
 	'activer_plugin' => 'Plugin aktivieren',
@@ -883,5 +879,5 @@ Wenn das Problem weiter besteht, nehmen Sie bitte Kontakt mit Ihrem Provider auf
 	'utf8_convert_erreur_orig' => 'Fehler: Der Zeichensatz @charset@ wird nicht unterstützt.',
 
 	// V
-	'version' => 'Version:'
-);
+	'version' => 'Version:',
+];

@@ -3,11 +3,7 @@
 // extrait automatiquement de https://trad.spip.net/tradlang_module/ecrire_?lang_cible=zh
 // ** ne pas modifier le fichier **
 
-if (!defined('_ECRIRE_INC_VERSION')) {
-	return;
-}
-
-$GLOBALS[$GLOBALS['idx_lang']] = array(
+return [
 
 	// A
 	'aide_non_disponible' => '这部分在线帮助尚无中文版本.',
@@ -605,5 +601,5 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'trad_article_traduction' => '这篇文章的所有版本:',
 	'trad_delier' => '取消这篇文章到它的译文的链接', # MODIF
 	'trad_lier' => '该篇文章译自文章No.',
-	'trad_new' => '为该篇文章写一篇新译文' # MODIF
-);
+	'trad_new' => '为该篇文章写一篇新译文', # MODIF
+];

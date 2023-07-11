@@ -3,11 +3,7 @@
 // extrait automatiquement de https://trad.spip.net/tradlang_module/ecrire_?lang_cible=nl
 // ** ne pas modifier le fichier **
 
-if (!defined('_ECRIRE_INC_VERSION')) {
-	return;
-}
-
-$GLOBALS[$GLOBALS['idx_lang']] = array(
+return [
 
 	// A
 	'activer_plugin' => 'Plugin activeren',
@@ -890,5 +886,5 @@ Dit kan handig zijn als je veel pagina’s hebt gewijzigd, de layout of de struc
 	'utf8_convert_erreur_orig' => 'Fout : de karakterset @charset@ wordt niet ondersteund.',
 
 	// V
-	'version' => 'Versie:'
-);
+	'version' => 'Versie:',
+];

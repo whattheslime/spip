@@ -3,11 +3,7 @@
 // extrait automatiquement de https://trad.spip.net/tradlang_module/ecrire_?lang_cible=fon
 // ** ne pas modifier le fichier **
 
-if (!defined('_ECRIRE_INC_VERSION')) {
-	return;
-}
-
-$GLOBALS[$GLOBALS['idx_lang']] = array(
+return [
 
 	// A
 	'aide_non_disponible' => 'Akpaxwé élɔ sín àlɔgɔ kó sɔgbè ɖò àtɛ ɔ jí ɖò gbè é lɔ mɛ a ',
@@ -519,5 +515,5 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'trad_article_traduction' => 'wàlɔ wépká é lɔ tɔn lɛ bí',
 	'trad_delier' => 'yé má cá wépká é lɔ ɖó tìnmɛ é lɔ wú ó', # MODIF
 	'trad_lier' => 'kò nyí tìnmɛ wékpá ɖévó tɔn :',
-	'trad_new' => 'Lɛ wlán tìnmɛ wékpá ɖévó tɔn' # MODIF
-);
+	'trad_new' => 'Lɛ wlán tìnmɛ wékpá ɖévó tɔn', # MODIF
+];

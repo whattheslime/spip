@@ -3,11 +3,7 @@
 // extrait automatiquement de https://trad.spip.net/tradlang_module/ecrire_?lang_cible=oc_ni
 // ** ne pas modifier le fichier **
 
-if (!defined('_ECRIRE_INC_VERSION')) {
-	return;
-}
-
-$GLOBALS[$GLOBALS['idx_lang']] = array(
+return [
 
 	// A
 	'activer_plugin' => 'Activar lo plugin',
@@ -761,5 +757,5 @@ s’avètz bravament modificat lo grafisme ò l’estructura dau sit.',
 	'utf8_convert_erreur_orig' => 'Error: lo juèc de caractèrs @charset@ es pas suportat.',
 
 	// V
-	'version' => 'Version:'
-);
+	'version' => 'Version:',
+];

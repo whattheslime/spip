@@ -3,11 +3,7 @@
 // extrait automatiquement de https://trad.spip.net/tradlang_module/ecrire_?lang_cible=cpf
 // ** ne pas modifier le fichier **
 
-if (!defined('_ECRIRE_INC_VERSION')) {
-	return;
-}
-
-$GLOBALS[$GLOBALS['idx_lang']] = array(
+return [
 
 	// A
 	'activer_plugin' => 'Fé zoué lo plugin',
@@ -611,5 +607,5 @@ Mé vèy byin, lopsyon-la, li lé pa aktivé otomatikman pou anpès lafisaz inn 
 	'utf8_convert_erreur_orig' => 'Larlik : lansanm karaktèr @charset@ li lé pa siporté.',
 
 	// V
-	'version' => 'Vesyon :'
-);
+	'version' => 'Vesyon :',
+];

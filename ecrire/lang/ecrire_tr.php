@@ -3,11 +3,7 @@
 // extrait automatiquement de https://trad.spip.net/tradlang_module/ecrire_?lang_cible=tr
 // ** ne pas modifier le fichier **
 
-if (!defined('_ECRIRE_INC_VERSION')) {
-	return;
-}
-
-$GLOBALS[$GLOBALS['idx_lang']] = array(
+return [
 
 	// A
 	'activer_plugin' => 'Plugin’i etkinleştir',
@@ -805,5 +801,5 @@ SQL’in, kazayla zarar gören tablolarını onarma yeteneği vardır. Burada bu
 	'utf8_convert_erreur_orig' => 'Hata : @charset@ karakter seti desteklenmiyor.',
 
 	// V
-	'version' => 'Sürüm :'
-);
+	'version' => 'Sürüm :',
+];

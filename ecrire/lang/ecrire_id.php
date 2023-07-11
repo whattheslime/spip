@@ -3,11 +3,7 @@
 // extrait automatiquement de https://trad.spip.net/tradlang_module/ecrire_?lang_cible=id
 // ** ne pas modifier le fichier **
 
-if (!defined('_ECRIRE_INC_VERSION')) {
-	return;
-}
-
-$GLOBALS[$GLOBALS['idx_lang']] = array(
+return [
 
 	// A
 	'activer_plugin' => 'Aktifkan plugin',
@@ -642,5 +638,5 @@ anda memasukkan modifikasi yang penting di grafik atau struktur situs.',
 	'utf8_convert_erreur_orig' => 'Kesalahan: set karakter @charset@ tidak didukung.',
 
 	// V
-	'version' => 'Versi:'
-);
+	'version' => 'Versi:',
+];

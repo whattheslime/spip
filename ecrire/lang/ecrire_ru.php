@@ -3,11 +3,7 @@
 // extrait automatiquement de https://trad.spip.net/tradlang_module/ecrire_?lang_cible=ru
 // ** ne pas modifier le fichier **
 
-if (!defined('_ECRIRE_INC_VERSION')) {
-	return;
-}
-
-$GLOBALS[$GLOBALS['idx_lang']] = array(
+return [
 
 	// A
 	'activer_plugin' => 'Включить плагин',
@@ -872,5 +868,5 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'utf8_convert_erreur_orig' => 'Ошибка: набор символов @charset@ не поддерживается.',
 
 	// V
-	'version' => 'Версия:'
-);
+	'version' => 'Версия:',
+];

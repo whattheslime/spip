@@ -3,11 +3,7 @@
 // extrait automatiquement de https://trad.spip.net/tradlang_module/ecrire_?lang_cible=lb
 // ** ne pas modifier le fichier **
 
-if (!defined('_ECRIRE_INC_VERSION')) {
-	return;
-}
-
-$GLOBALS[$GLOBALS['idx_lang']] = array(
+return [
 
 	// A
 	'activer_plugin' => 'De Plugin aktivéieren',
@@ -810,5 +806,5 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'utf8_convert_erreur_orig' => 'Fehler: de Character-Set @charset@ gëtt net ënnerstëtzt.',
 
 	// V
-	'version' => 'Versioun:'
-);
+	'version' => 'Versioun:',
+];

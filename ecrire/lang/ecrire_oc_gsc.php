@@ -3,11 +3,7 @@
 // extrait automatiquement de https://trad.spip.net/tradlang_module/ecrire_?lang_cible=oc_gsc
 // ** ne pas modifier le fichier **
 
-if (!defined('_ECRIRE_INC_VERSION')) {
-	return;
-}
-
-$GLOBALS[$GLOBALS['idx_lang']] = array(
+return [
 
 	// A
 	'aide_non_disponible' => 'Aquera part de l’ajuda en linha n’ei pas enqüèra disponibla tà aquesta lenga.',
@@ -593,5 +589,5 @@ s’avetz modificat de bèth pro lo grafisme o l’estructura deu sit.',
 	'trad_article_traduction' => 'Totas las versions d’aqueth article:',
 	'trad_delier' => 'Non ligar plus aqueste article a las soas arreviradas ', # MODIF
 	'trad_lier' => 'Aqueste article qu’ei ua arrevirada de l’article numèro:',
-	'trad_new' => 'Escríver ua arrevirada navèra d’aqueste article' # MODIF
-);
+	'trad_new' => 'Escríver ua arrevirada navèra d’aqueste article', # MODIF
+];

@@ -3,11 +3,7 @@
 // extrait automatiquement de https://trad.spip.net/tradlang_module/ecrire_?lang_cible=uk
 // ** ne pas modifier le fichier **
 
-if (!defined('_ECRIRE_INC_VERSION')) {
-	return;
-}
-
-$GLOBALS[$GLOBALS['idx_lang']] = array(
+return [
 
 	// A
 	'activer_plugin' => 'Активувати плагін',
@@ -862,5 +858,5 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'utf8_convert_erreur_orig' => 'Помилка: набір символів @charset@ не підтримується.',
 
 	// V
-	'version' => 'Версія:'
-);
+	'version' => 'Версія:',
+];

@@ -3,11 +3,7 @@
 // extrait automatiquement de https://trad.spip.net/tradlang_module/ecrire_?lang_cible=ast
 // ** ne pas modifier le fichier **
 
-if (!defined('_ECRIRE_INC_VERSION')) {
-	return;
-}
-
-$GLOBALS[$GLOBALS['idx_lang']] = array(
+return [
 
 	// A
 	'activer_plugin' => 'Activar el plugin',
@@ -827,5 +823,5 @@ vienes de facer cambéos importantes nel grafismu o na estructura del sitiu.',
 	'utf8_convert_erreur_orig' => 'Error: el xuegu de carautéres @charset@ nun ta soportáu.',
 
 	// V
-	'version' => 'Versión:'
-);
+	'version' => 'Versión:',
+];

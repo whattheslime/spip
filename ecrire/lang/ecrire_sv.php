@@ -3,11 +3,7 @@
 // extrait automatiquement de https://trad.spip.net/tradlang_module/ecrire_?lang_cible=sv
 // ** ne pas modifier le fichier **
 
-if (!defined('_ECRIRE_INC_VERSION')) {
-	return;
-}
-
-$GLOBALS[$GLOBALS['idx_lang']] = array(
+return [
 
 	// A
 	'activer_plugin' => 'Aktivera insticksmodulen',
@@ -582,5 +578,5 @@ gjort viktiga förändringar i sajtens utseende eller struktur.',
 	'utf8_convert_erreur_orig' => 'Fel: teckenkodningen @charset@ stöds inte.',
 
 	// V
-	'version' => 'Version:'
-);
+	'version' => 'Version:',
+];

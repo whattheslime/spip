@@ -3,11 +3,7 @@
 // extrait automatiquement de https://trad.spip.net/tradlang_module/ecrire_?lang_cible=pl
 // ** ne pas modifier le fichier **
 
-if (!defined('_ECRIRE_INC_VERSION')) {
-	return;
-}
-
-$GLOBALS[$GLOBALS['idx_lang']] = array(
+return [
 
 	// A
 	'activer_plugin' => 'Aktywuj wtyczkę',
@@ -895,5 +891,5 @@ odświeżyć tylko jedną stronę, zrób to z obszaru publicznego, używając pr
 	'utf8_convert_erreur_orig' => 'Błąd : kodowanie @charset@ nie jest wspierane.',
 
 	// V
-	'version' => 'Wersja :'
-);
+	'version' => 'Wersja :',
+];

@@ -3,11 +3,7 @@
 // extrait automatiquement de https://trad.spip.net/tradlang_module/ecrire_?lang_cible=br
 // ** ne pas modifier le fichier **
 
-if (!defined('_ECRIRE_INC_VERSION')) {
-	return;
-}
-
-$GLOBALS[$GLOBALS['idx_lang']] = array(
+return [
 
 	// A
 	'activer_plugin' => 'Gweredekaat al lugant',
@@ -897,5 +893,5 @@ adstaliañ SPIP hag adkrouiñ un diaz titouroù nevez hag ur moned merour kenta�
 	'utf8_convert_erreur_orig' => 'Fazi : n’eo ket skoret ar strobad arouezennoù @charset@',
 
 	// V
-	'version' => 'Stumm :'
-);
+	'version' => 'Stumm :',
+];

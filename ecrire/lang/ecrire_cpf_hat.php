@@ -3,11 +3,7 @@
 // extrait automatiquement de https://trad.spip.net/tradlang_module/ecrire_?lang_cible=cpf_hat
 // ** ne pas modifier le fichier **
 
-if (!defined('_ECRIRE_INC_VERSION')) {
-	return;
-}
-
-$GLOBALS[$GLOBALS['idx_lang']] = array(
+return [
 
 	// A
 	'activer_plugin' => 'Aktiv plegin an',
@@ -612,5 +608,5 @@ Bagay-la pémè, pa egsanp, fòse rekalkil tout paj sa-yo, apré plizyè gro cha
 	'trad_article_traduction' => 'Tout versyon pou atik la :',
 	'trad_delier' => 'Retire lyen ansanm atik la ak tout tradidksyon', # MODIF
 	'trad_lier' => 'Atik la se tradiksyon atik nimewo :',
-	'trad_new' => 'Ekri tradiksyon ankò pou atik la' # MODIF
-);
+	'trad_new' => 'Ekri tradiksyon ankò pou atik la', # MODIF
+];

@@ -938,5 +938,5 @@ avez fait des modifications importantes de graphisme ou de structure du site.',
 	'utf8_convert_erreur_orig' => 'Erreur : le jeu de caractères @charset@ n’est pas supporté.',
 
 	// V
-	'version' => 'Version :'
+	'version' => 'Version :',
 ];

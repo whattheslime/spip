@@ -3,11 +3,7 @@
 // extrait automatiquement de https://trad.spip.net/tradlang_module/ecrire_?lang_cible=oc_lnc
 // ** ne pas modifier le fichier **
 
-if (!defined('_ECRIRE_INC_VERSION')) {
-	return;
-}
-
-$GLOBALS[$GLOBALS['idx_lang']] = array(
+return [
 
 	// A
 	'activer_plugin' => 'Activar l’ajuston',
@@ -654,5 +650,5 @@ s’avètz bravament modificat lo grafisme o l’estructura del sit.',
 	'utf8_convert_erreur_orig' => 'Error : lo jòc de caractèrs @charset@ es pas suportat.',
 
 	// V
-	'version' => 'Version :'
-);
+	'version' => 'Version :',
+];

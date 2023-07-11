@@ -3,11 +3,7 @@
 // extrait automatiquement de https://trad.spip.net/tradlang_module/ecrire_?lang_cible=cs
 // ** ne pas modifier le fichier **
 
-if (!defined('_ECRIRE_INC_VERSION')) {
-	return;
-}
-
-$GLOBALS[$GLOBALS['idx_lang']] = array(
+return [
 
 	// A
 	'activer_plugin' => 'Aktivovat plugin',
@@ -633,5 +629,5 @@ změny grafického uspořádání nebo struktury vašeho webu.',
 	'utf8_convert_erreur_orig' => 'Chyba: jazyková sada @charset@ není podporována.',
 
 	// V
-	'version' => 'Verze:'
-);
+	'version' => 'Verze:',
+];

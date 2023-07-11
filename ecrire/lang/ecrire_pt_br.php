@@ -3,11 +3,7 @@
 // extrait automatiquement de https://trad.spip.net/tradlang_module/ecrire_?lang_cible=pt_br
 // ** ne pas modifier le fichier **
 
-if (!defined('_ECRIRE_INC_VERSION')) {
-	return;
-}
-
-$GLOBALS[$GLOBALS['idx_lang']] = array(
+return [
 
 	// A
 	'activer_plugin' => 'Ativar o plugin',
@@ -876,5 +872,5 @@ Se o problema persistir, contate o seu serviço de hospedagem.</p>',
 	'utf8_convert_erreur_orig' => 'Erro: o conjunto de caracteres @charset@ não é suportado.',
 
 	// V
-	'version' => 'Versão:'
-);
+	'version' => 'Versão:',
+];

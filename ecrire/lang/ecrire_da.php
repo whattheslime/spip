@@ -3,11 +3,7 @@
 // extrait automatiquement de https://trad.spip.net/tradlang_module/ecrire_?lang_cible=da
 // ** ne pas modifier le fichier **
 
-if (!defined('_ECRIRE_INC_VERSION')) {
-	return;
-}
-
-$GLOBALS[$GLOBALS['idx_lang']] = array(
+return [
 
 	// A
 	'aide_non_disponible' => 'Denne del af online-hjælpen er endnu ikke tilgængelig på dansk.',
@@ -557,5 +553,5 @@ i en farve, der angiver deres status:',
 	'trad_article_traduction' => 'Alle udgaver af denne artikel :',
 	'trad_delier' => 'Afbryd forbindelsen mellem denne artikel og oversættelserne', # MODIF
 	'trad_lier' => 'Denne artikel er en oversættelse af artikel nummer :',
-	'trad_new' => 'Lav en ny oversættelse af denne artikel' # MODIF
-);
+	'trad_new' => 'Lav en ny oversættelse af denne artikel', # MODIF
+];
