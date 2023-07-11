@@ -62,6 +62,40 @@ a[href] { background-image: url("#CHEMIN_IMAGE{img.svg}"); }
 
 # Nouvelles dépréciations
 
+## Gestion des traductions
+
+### Fichiers de langue avec `$GLOBALS` (déprécié en 5.0)
+
+Les fichiers de langue peuplant une variable globale sont dépréciés.
+Retourner directement le tableau PHP.
+Note: Cette syntaxe est valide à partir de SPIP 4.1
+
+#### avant
+
+
+```php
+<?php
+if (!defined('_ECRIRE_INC_VERSION')) {
+	return;
+}
+
+$GLOBALS[$GLOBALS['idx_lang']] = array(
+	'mots_description' => 'Mots et Groupes de mots',
+	'mots_slogan' => 'Gestion des mots et groupes de mots dans SPIP'
+);
+```
+
+#### Après
+
+```php
+<?php
+return [
+	'mots_description' => 'Mots et Groupes de mots',
+	'mots_slogan' => 'Gestion des mots et groupes de mots dans SPIP'
+];
+```
+
+
 Les éléments suivants sont dépréciés et seront supprimés dans une future version.
 
 ## Syntaxes de squelettes

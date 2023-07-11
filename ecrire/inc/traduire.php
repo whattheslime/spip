@@ -149,6 +149,7 @@ function lire_fichier_langue(string $fichier): array {
 	$GLOBALS['idx_lang'] = $idx_lang_before;
 	if (!is_array($idx_lang)) {
 		if (isset($GLOBALS[$idx_lang_tmp]) && is_array($GLOBALS[$idx_lang_tmp])) {
+			trigger_deprecation('spip', '5.0', sprintf('Lang file "%s" populating a GLOBALS is deprecated. Return an array instead.', $fichier));
 			$idx_lang = $GLOBALS[$idx_lang_tmp];
 		} else {
 			$idx_lang = [];
