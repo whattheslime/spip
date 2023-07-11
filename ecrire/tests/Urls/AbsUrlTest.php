@@ -2,10 +2,6 @@
 
 declare(strict_types=1);
 
-/**
- * Test unitaire de la fonction tester_url_absolue du fichier ./inc/utils.php
- */
-
 namespace Spip\Test\Urls;
 
 use PHPUnit\Framework\Attributes\DataProvider;
