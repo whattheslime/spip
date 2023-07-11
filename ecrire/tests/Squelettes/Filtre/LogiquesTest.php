@@ -73,4 +73,9 @@ class LogiquesTest extends SquelettesTestCase
 		$this->assertOkCode('[(#VAL{1}|xor{#VAL{0}})ok]');
 		$this->assertOkCode('[(#VAL{0}|xor{#VAL{1}})ok]');
 	}
+
+	public function testSinon(): void {
+		$this->assertOkCode('[(#VAL|sinon{a}|=={a}|oui)ok]');
+		$this->assertOkCode('[(#VAL|non|sinon{a}|=={" "}|oui)ok]');
+	}
 }
