@@ -5,7 +5,7 @@ if (!defined('_ECRIRE_INC_VERSION')) {
 	return;
 }
 
-$GLOBALS[$GLOBALS['idx_lang']] = array(
+return [
 
 	// A
 	'accueil_site' => 'Accueil',
@@ -121,4 +121,4 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'ver_imprimer' => 'Version à imprimer',
 	'voir_en_ligne' => 'Voir en ligne',
 	'voir_squelette' => 'voir le squelette de cette page'
-);
+];
