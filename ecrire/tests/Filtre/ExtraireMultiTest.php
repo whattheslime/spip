@@ -55,31 +55,31 @@ class ExtraireMultiTest extends TestCase
 				0 => 'english',
 				1 => '<multi>[fr]francais[en]english[de]deutsch</multi>',
 				2 => 'en',
-				3 => true,
+				3 => ['echappe_span' => true],
 			],
 			6 => [
 				0 => 'deutsch',
 				1 => '<multi>[fr]francais[en]english[de]deutsch</multi>',
 				2 => 'de',
-				3 => true,
+				3 => ['echappe_span' => true],
 			],
 			7 => [
 				0 => 'francais',
 				1 => '<multi>[fr]francais[en]english[de]deutsch</multi>',
 				2 => 'fr',
-				3 => true,
+				3 => ['echappe_span' => true],
 			],
 			8 => [
 				0 => '<span class="base64multi" title="ZnJhbmNhaXM=" lang="fr"></span>',
 				1 => '<multi>[fr]francais[en]english[de]deutsch</multi>',
 				2 => 'it',
-				3 => true,
+				3 => ['echappe_span' => true],
 			],
 			9 => [
 				0 => '<span class="base64multi" title="ZnJhbmNhaXM=" lang="fr" dir="ltr"></span>',
 				1 => '<multi>[fr]francais[en]english[de]deutsch</multi>',
 				2 => 'ar',
-				3 => true,
+				3 => ['echappe_span' => true],
 			],
 		];
 	}
