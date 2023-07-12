@@ -6,6 +6,7 @@ Changelog de SPIP 4.2
 
 ### Fixed
 
+- #5681 Reset la pagination quand on change de mode ou de sens de tri
 - #5669 Contenu principal toujours en pleine largeur sur petits écrans
 
 ## 4.2.4 - 2023-07-07
