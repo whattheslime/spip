@@ -410,10 +410,12 @@ function calculer_rang_smart($titre, $objet_source, $id, $env) {
  * @param array|string|int $liste_tri_sens_defaut
  *     Soit la liste des sens de tri par défaut pour chaque champ
  *     Soit une valeur par défaut pour tous les champs (1, -1, inverse)
+ * @param string $nom_boucle
+ *     Nom de la boucle
  * @return string
  *     HTML avec un lien cliquable
  */
-function calculer_balise_tri(string $champ_ou_sens, string $libelle, string $classe, string $tri_nom, string $tri_champ, string $tri_sens, $liste_tri_sens_defaut): string {
+function calculer_balise_tri(string $champ_ou_sens, string $libelle, string $classe, string $tri_nom, string $tri_champ, string $tri_sens, $liste_tri_sens_defaut, string $nom_boucle): string {
 
 	$url = self('&');
 	$tri_sens = (int) $tri_sens;
@@ -476,6 +478,9 @@ function calculer_balise_tri(string $champ_ou_sens, string $libelle, string $cla
 	if ($champ_ou_sens === $tri_champ) {
 		$classe .= ' item-tri_actif';
 	}
+
+	// reset la pagination quand on change de mode ou de sens de tri
+	$url = parametre_url($url, 'debut'.$nom_boucle, 0);
 
 	// Lien
 	$balise = lien_ou_expose($url, $libelle, false, $classe);
