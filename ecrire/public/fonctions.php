@@ -480,7 +480,7 @@ function calculer_balise_tri(string $champ_ou_sens, string $libelle, string $cla
 	}
 
 	// reset la pagination quand on change de mode ou de sens de tri
-	$url = parametre_url($url, 'debut'.$nom_boucle, 0);
+	$url = parametre_url($url, 'debut'.$nom_boucle, '');
 
 	// Lien
 	$balise = lien_ou_expose($url, $libelle, false, $classe);
