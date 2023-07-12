@@ -2713,7 +2713,7 @@ function balise_TRI_dist($p, $liste = 'true') {
 
 	$_class = interprete_argument_balise(3, $p) ?? "''";
 
-	$nom_boucle = "'$b'";
+	$nom_boucle = $boucle->modificateur['debut_nom'];
 
 	$p->code = "calculer_balise_tri($_champ_ou_sens, $_libelle, $_class, $_tri_nom, $_tri_champ, $_tri_sens, $_tri_liste_sens_defaut, $nom_boucle)";
 
