@@ -479,8 +479,11 @@ function calculer_balise_tri(string $champ_ou_sens, string $libelle, string $cla
 		$classe .= ' item-tri_actif';
 	}
 
-	// reset la pagination quand on change de mode ou de sens de tri
-	$url = parametre_url($url, 'debut'.$nom_boucle, '');
+	// Si on n'est pas en mode "Tout afficher" de la pagination
+	if (parametre_url($url, 'debut' . $nom_boucle) !== '-1') {
+		// reset la pagination quand on change de mode ou de sens de tri
+		$url = parametre_url($url, 'debut' . $nom_boucle, '');
+	}
 
 	// Lien
 	$balise = lien_ou_expose($url, $libelle, false, $classe);
