@@ -2048,7 +2048,7 @@ function test_valeur_serveur($truc) {
  *     racine de SPIP : par exemple, sur ecrire/ elle vaut 1, sur sedna/ 1, et à
  *     la racine 0. Sur url/perso/ elle vaut 2
  *
- * @param int|boo|array $profondeur
+ * @param int|bool|array $profondeur
  *    - si non renseignée : retourne l'url pour la profondeur $GLOBALS['profondeur_url']
  *    - si int : indique que l'on veut l'url pour la profondeur indiquée
  *    - si bool : retourne le tableau static complet
