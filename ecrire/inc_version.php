@@ -112,10 +112,7 @@ if (!defined('_NOM_CONFIG')) {
 }
 
 // Son emplacement absolu si on le trouve
-if (
-	@file_exists($f = _ROOT_RACINE . _NOM_PERMANENTS_INACCESSIBLES . _NOM_CONFIG . '.php')
-	|| @file_exists($f = _ROOT_RESTREINT . _NOM_CONFIG . '.php')
-) {
+if (@file_exists($f = _ROOT_RACINE . _NOM_PERMANENTS_INACCESSIBLES . _NOM_CONFIG . '.php')) {
 	/** Emplacement absolu du fichier d'option */
 	define('_FILE_OPTIONS', $f);
 } else {
