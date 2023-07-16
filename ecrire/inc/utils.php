@@ -2609,16 +2609,13 @@ function spip_initialisation_core($pi = null, $pa = null, $ti = null, $ta = null
 	}
 
 	// Le fichier de connexion a la base de donnees
-	// tient compte des anciennes versions (inc_connect...)
 	if (!defined('_FILE_CONNECT_INS')) {
 		define('_FILE_CONNECT_INS', 'connect');
 	}
 	if (!defined('_FILE_CONNECT')) {
 		define(
 			'_FILE_CONNECT',
-			(@is_readable($f = _DIR_CONNECT . _FILE_CONNECT_INS . '.php') ? $f
-			: (@is_readable($f = _DIR_RESTREINT . 'inc_connect.php') ? $f
-			: false))
+			@is_readable($f = _DIR_CONNECT . _FILE_CONNECT_INS . '.php') ? $f : false
 		);
 	}
 
@@ -2629,8 +2626,7 @@ function spip_initialisation_core($pi = null, $pa = null, $ti = null, $ta = null
 	if (!defined('_FILE_CHMOD')) {
 		define(
 			'_FILE_CHMOD',
-			(@is_readable($f = _DIR_CHMOD . _FILE_CHMOD_INS . '.php') ? $f
-			: false)
+			@is_readable($f = _DIR_CHMOD . _FILE_CHMOD_INS . '.php') ? $f : false
 		);
 	}
 
