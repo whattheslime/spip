@@ -20,6 +20,7 @@
 
 ### Fixed
 
+- #5694 Correction de `recuperer_url()` avec une URL contenant "user:pass" qui étaient doublement encodés
 - #5695 Décoration du cadre des taches de fond (job) associées à un objet éditorial dans l’espace privé
 - #5681 Reset la pagination quand on change de mode ou de sens de tri
 - #5528 Éviter des collisions avec les noms de cache des fichiers distants
