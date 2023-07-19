@@ -1249,7 +1249,8 @@ function init_http($method, $url, $refuse_gz = false, $referer = '', $datas = ''
 		$noproxy = $scheme . '://';
 	}
 	if (isset($t['user'])) {
-		$user = [$t['user'], $t['pass']];
+		// user et pass doivent être passés en urlencodé dans l'URL, on redecode ici
+		$user = [urldecode($t['user']), urldecode($t['pass'])];
 	}
 
 	if (!isset($t['port']) || !($port = $t['port'])) {
@@ -1426,11 +1427,11 @@ function lance_requete(
 		. "Host: $host_port\r\n"
 		. 'User-Agent: ' . _INC_DISTANT_USER_AGENT . "\r\n"
 		. ($refuse_gz ? '' : ('Accept-Encoding: ' . _INC_DISTANT_CONTENT_ENCODING . "\r\n"))
-		. (!$site ? '' : "Referer: $site/$referer\r\n")
-		. (!$date ? '' : 'If-Modified-Since: ' . (gmdate('D, d M Y H:i:s', $date) . " GMT\r\n"))
-		. (!$user ? '' : ('Authorization: Basic ' . base64_encode($user) . "\r\n"))
-		. (!$proxy_user ? '' : "Proxy-Authorization: Basic $proxy_user\r\n")
-		. (!strpos($vers, '1.1') ? '' : "Keep-Alive: 300\r\nConnection: keep-alive\r\n");
+		. ($site ? "Referer: $site/$referer\r\n" : '')
+		. ($date ? 'If-Modified-Since: ' . (gmdate('D, d M Y H:i:s', $date) . " GMT\r\n") : '')
+		. ($user ? 'Authorization: Basic ' . base64_encode(urldecode($user)) . "\r\n" : '')
+		. ($proxy_user ? "Proxy-Authorization: Basic $proxy_user\r\n" : '')
+		. (strpos($vers, '1.1') ? "Keep-Alive: 300\r\nConnection: keep-alive\r\n" : '');
 
 #	spip_log("Requete\n$req", 'distant');
 	fputs($f, $req);
