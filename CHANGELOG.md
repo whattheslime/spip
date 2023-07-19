@@ -6,6 +6,7 @@ Changelog de SPIP 4.2
 
 ### Fixed
 
+- #5695 Décoration du cadre des taches de fond (job) associées à un objet éditorial dans l’espace privé
 - #5681 Reset la pagination quand on change de mode ou de sens de tri
 - #5669 Contenu principal toujours en pleine largeur sur petits écrans
 
