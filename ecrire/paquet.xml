@@ -26,7 +26,6 @@
 
 	<pipeline nom="accueil_encours" action="" />
 	<pipeline nom="accueil_informations" action="" />
-	<pipeline nom="affichage_final" action="f_surligne" inclure="inc/pipelines.php" />
 	<pipeline nom="affichage_final" action="f_tidy" />
 	<pipeline nom="affichage_final" action="f_admin" />
 	<pipeline nom="affichage_final" action="f_queue" />

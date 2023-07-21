@@ -66,44 +66,6 @@ function f_jQuery($texte) {
 	return $x . $texte;
 }
 
-
-/**
- * Traiter var_recherche ou le referrer pour surligner les mots
- *
- * Surligne les mots de la recherche (si var_recherche est présent)
- * ou des réferers (si la constante _SURLIGNE_RECHERCHE_REFERERS est
- * définie à true) dans un texte HTML
- *
- * Cette fonction est appelée par le pipeline affichage_final
- *
- * @pipeline affichage_final
- *
- * @param string $texte Contenu de la page envoyée au navigateur
- * @return string         Contenu de la page envoyée au navigateur
- **/
-function f_surligne($texte) {
-	if (!$GLOBALS['html']) {
-		return $texte;
-	}
-	$rech = _request('var_recherche');
-	if (
-		!$rech
-		&& (!defined('_SURLIGNE_RECHERCHE_REFERERS') || !_SURLIGNE_RECHERCHE_REFERERS || !isset($_SERVER['HTTP_REFERER']))
-	) {
-		return $texte;
-	}
-	include_spip('inc/surligne');
-
-	if (isset($_SERVER['HTTP_REFERER'])) {
-		$_SERVER['HTTP_REFERER'] = preg_replace(',[^\w\,/#&;:-]+,', ' ', (string) $_SERVER['HTTP_REFERER']);
-	}
-	if ($rech) {
-		$rech = preg_replace(',[^\w\,/#&;:-]+,', ' ', (string) $rech);
-	}
-
-	return surligner_mots($texte, $rech);
-}
-
 /**
  * Indente un code HTML
  *
