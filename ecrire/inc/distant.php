@@ -1006,6 +1006,8 @@ function recuperer_infos_distantes($source, $options = []) {
 	$headers = $reponse['headers'] ?? '';
 	$a['body'] = $reponse['page'] ?? '';
 	if ($headers) {
+		$mime_type = distant_trouver_mime_type_selon_headers($source, $headers);
+		
 		if (!$extension = distant_trouver_extension_selon_headers($source, $headers)) {
 			return false;
 		}
@@ -1087,19 +1089,26 @@ function recuperer_infos_distantes($source, $options = []) {
 /**
  * @param string $source
  * @param string $headers
- * @return false|mixed
+ * @return string
  */
-function distant_trouver_extension_selon_headers($source, $headers) {
-	if (preg_match(",\nContent-Type: *([^[:space:];]*),i", "\n$headers", $regs)) {
-		$mime_type = (trim($regs[1]));
-	} else {
-		$mime_type = '';
-	} // inconnu
+function distant_trouver_mime_type_selon_headers($source, $headers) {
+	$mime_type = preg_match(",\nContent-Type: *([^[:space:];]*),i", "\n$headers", $regs) ? trim($regs[1]) : ''; // inconnu
 
 	// Appliquer les alias
 	while (isset($GLOBALS['mime_alias'][$mime_type])) {
 		$mime_type = $GLOBALS['mime_alias'][$mime_type];
 	}
+	
+	return $mime_type;
+}
+	
+/**
+ * @param string $source
+ * @param string $headers
+ * @return false|mixed
+ */
+function distant_trouver_extension_selon_headers($source, $headers) {
+	$mime_type = distant_trouver_mime_type_selon_headers($source, $headers);
 
 	// pour corriger_extension()
 	include_spip('inc/documents');
