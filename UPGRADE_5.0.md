@@ -29,6 +29,10 @@ La constante `_ID_WEBMESTRES` (dépréciée en SPIP 2.1) n’est plus utilisée 
 
 Si vous déclariez cette constante (dans `config/mes_options.php` par exemple), il convient de l’enlever et de déclarer les autrices et auteurs webmestres en conséquence depuis l’interface privée de SPIP en tant que webmestre (ou via le champ `webmestre` de la table `spip_auteurs` directement dans la base de données).
 
+## Suppression / déplacement de fonctionnalités
+
+- Le surlignage des mots de recherche est déplacé dans [le nouveau plugin Surligne](https://git.spip.net/spip-contrib-extensions/surligne)
+
 ## Squelettes
 
 ### Parties optionnelles des balises
