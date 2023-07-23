@@ -649,10 +649,9 @@ function _image_trouver_extension_pertinente($path) {
 }
 
 /**
- * @param string $mime
- * @return string
+ * Retourne une extension d’image depuis un mime-type
  */
-function _image_trouver_extension_depuis_mime($mime) {
+function _image_trouver_extension_depuis_mime(string $mime): string {
 	return match (strtolower($mime)) {
 		'image/png', 'image/x-png' => 'png',
 		'image/jpg', 'image/jpeg', 'image/pjpeg' => 'jpeg',

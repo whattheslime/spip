@@ -122,8 +122,7 @@ function copie_locale($source, $mode = 'auto', $local = null, $taille_max = null
 		if (!$res || !$res['length'] && $res['status'] != 304) {
 			spip_log("copie_locale : Echec recuperation $source sur $localrac_tmp status : " . ($res ? $res['status'] : '-'), 'distant' . _LOG_INFO_IMPORTANTE);
 			@unlink($localrac_tmp);
-		}
-		else {
+		} else {
 			spip_log("copie_locale : recuperation $source sur $localrac_tmp OK | taille " . $res['length'] . ' status ' . $res['status'], 'distant');
 		}
 		if (!$res || !$res['length']) {
@@ -1024,7 +1023,7 @@ function recuperer_infos_distantes($source, $options = []) {
 	$a['body'] = $reponse['page'] ?? '';
 	if ($headers) {
 		$mime_type = distant_trouver_mime_type_selon_headers($source, $headers);
-		
+
 		if (!$extension = distant_trouver_extension_selon_headers($source, $headers)) {
 			return false;
 		}
@@ -1106,27 +1105,25 @@ function recuperer_infos_distantes($source, $options = []) {
 }
 
 /**
- * @param string $source
- * @param string $headers
- * @return string
+ * Retrouver un mime type depuis les headers
  */
-function distant_trouver_mime_type_selon_headers($source, $headers) {
+function distant_trouver_mime_type_selon_headers(string $source, string $headers): string {
 	$mime_type = preg_match(",\nContent-Type: *([^[:space:];]*),i", "\n$headers", $regs) ? trim($regs[1]) : ''; // inconnu
 
 	// Appliquer les alias
 	while (isset($GLOBALS['mime_alias'][$mime_type])) {
 		$mime_type = $GLOBALS['mime_alias'][$mime_type];
 	}
-	
+
 	return $mime_type;
 }
-	
+
 /**
- * @param string $source
- * @param string $headers
- * @return false|mixed
+ * Retrouver une extension de fichier depuis les headers
+ *
+ * @return false|string
  */
-function distant_trouver_extension_selon_headers($source, $headers) {
+function distant_trouver_extension_selon_headers(string $source, string $headers) {
 	$mime_type = distant_trouver_mime_type_selon_headers($source, $headers);
 
 	// pour corriger_extension()
