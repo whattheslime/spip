@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "e9835aa40b9e9c23fa1f818fafc1b0eb",
+    "content-hash": "786e95db6557c5da89d90ba6ce70c4da",
     "packages": [
         {
             "name": "algo26-matthias/idna-convert",
@@ -167,6 +167,208 @@
             "time": "2023-10-19T13:18:49+00:00"
         },
         {
+            "name": "psr/clock",
+            "version": "1.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/php-fig/clock.git",
+                "reference": "e41a24703d4560fd0acb709162f73b8adfc3aa0d"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/php-fig/clock/zipball/e41a24703d4560fd0acb709162f73b8adfc3aa0d",
+                "reference": "e41a24703d4560fd0acb709162f73b8adfc3aa0d",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^7.0 || ^8.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Psr\\Clock\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "PHP-FIG",
+                    "homepage": "https://www.php-fig.org/"
+                }
+            ],
+            "description": "Common interface for reading the clock.",
+            "homepage": "https://github.com/php-fig/clock",
+            "keywords": [
+                "clock",
+                "now",
+                "psr",
+                "psr-20",
+                "time"
+            ],
+            "support": {
+                "issues": "https://github.com/php-fig/clock/issues",
+                "source": "https://github.com/php-fig/clock/tree/1.0.0"
+            },
+            "time": "2022-11-25T14:36:26+00:00"
+        },
+        {
+            "name": "psr/container",
+            "version": "2.0.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/php-fig/container.git",
+                "reference": "c71ecc56dfe541dbd90c5360474fbc405f8d5963"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/php-fig/container/zipball/c71ecc56dfe541dbd90c5360474fbc405f8d5963",
+                "reference": "c71ecc56dfe541dbd90c5360474fbc405f8d5963",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=7.4.0"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "2.0.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Psr\\Container\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "PHP-FIG",
+                    "homepage": "https://www.php-fig.org/"
+                }
+            ],
+            "description": "Common Container Interface (PHP FIG PSR-11)",
+            "homepage": "https://github.com/php-fig/container",
+            "keywords": [
+                "PSR-11",
+                "container",
+                "container-interface",
+                "container-interop",
+                "psr"
+            ],
+            "support": {
+                "issues": "https://github.com/php-fig/container/issues",
+                "source": "https://github.com/php-fig/container/tree/2.0.2"
+            },
+            "time": "2021-11-05T16:47:00+00:00"
+        },
+        {
+            "name": "psr/log",
+            "version": "3.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/php-fig/log.git",
+                "reference": "fe5ea303b0887d5caefd3d431c3e61ad47037001"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/php-fig/log/zipball/fe5ea303b0887d5caefd3d431c3e61ad47037001",
+                "reference": "fe5ea303b0887d5caefd3d431c3e61ad47037001",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=8.0.0"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "3.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Psr\\Log\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "PHP-FIG",
+                    "homepage": "https://www.php-fig.org/"
+                }
+            ],
+            "description": "Common interface for logging libraries",
+            "homepage": "https://github.com/php-fig/log",
+            "keywords": [
+                "log",
+                "psr",
+                "psr-3"
+            ],
+            "support": {
+                "source": "https://github.com/php-fig/log/tree/3.0.0"
+            },
+            "time": "2021-07-14T16:46:02+00:00"
+        },
+        {
+            "name": "psr/simple-cache",
+            "version": "3.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/php-fig/simple-cache.git",
+                "reference": "764e0b3939f5ca87cb904f570ef9be2d78a07865"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/php-fig/simple-cache/zipball/764e0b3939f5ca87cb904f570ef9be2d78a07865",
+                "reference": "764e0b3939f5ca87cb904f570ef9be2d78a07865",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=8.0.0"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "3.0.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Psr\\SimpleCache\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "PHP-FIG",
+                    "homepage": "https://www.php-fig.org/"
+                }
+            ],
+            "description": "Common interfaces for simple caching",
+            "keywords": [
+                "cache",
+                "caching",
+                "psr",
+                "psr-16",
+                "simple-cache"
+            ],
+            "support": {
+                "source": "https://github.com/php-fig/simple-cache/tree/3.0.0"
+            },
+            "time": "2021-10-29T13:26:27+00:00"
+        },
+        {
             "name": "spip/aide",
             "version": "dev-master",
             "source": {
@@ -327,6 +529,81 @@
             "time": "2023-06-10T06:44:03+00:00"
         },
         {
+            "name": "spip/cache",
+            "version": "dev-main",
+            "source": {
+                "type": "git",
+                "url": "https://git.spip.net/spip/cache.git",
+                "reference": "0f75dd12c252fd80070fc9791fd7a8d094ea7634"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://get.spip.net/composer/dist/spip/cache/spip-cache-dev-main-a15471.zip",
+                "reference": "0f75dd12c252fd80070fc9791fd7a8d094ea7634",
+                "shasum": "948b00044e085902610bef9de3d42be9c112b42e"
+            },
+            "require": {
+                "psr/clock": "^1.0",
+                "psr/simple-cache": "^3.0",
+                "spip/filesystem": "^1.0.x-dev",
+                "spip/hasher": "^1.0.x-dev",
+                "symfony/clock": "^6.3"
+            },
+            "provide": {
+                "psr/simple-cache-implementation": "1.0 || 2.0 || 3.0"
+            },
+            "require-dev": {
+                "dealerdirect/phpcodesniffer-composer-installer": "^1.0",
+                "phpcompatibility/php-compatibility": "^10.0.x-dev",
+                "phpstan/phpstan": "^1.10",
+                "phpunit/phpunit": "^10.2",
+                "spip/coding-standards": "^1.3",
+                "symfony/var-dumper": "^6.3"
+            },
+            "default-branch": true,
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-main": "1.0.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Spip\\Component\\Cache\\": "src/"
+                }
+            },
+            "autoload-dev": {
+                "psr-4": {
+                    "Spip\\Test\\Component\\Cache\\": "tests/"
+                }
+            },
+            "scripts": {
+                "analyse": [
+                    "phpstan"
+                ],
+                "cs-fix": [
+                    "phpcbf"
+                ],
+                "test": [
+                    "phpunit --colors --no-coverage"
+                ],
+                "test-coverage": [
+                    "@php -d xdebug.mode=coverage vendor/bin/phpunit --colors"
+                ],
+                "test-cs": [
+                    "phpcs"
+                ]
+            },
+            "license": [
+                "MIT"
+            ],
+            "description": "SPIP Cache Management",
+            "keywords": [
+                "cache"
+            ],
+            "time": "2023-07-27T13:36:37+00:00"
+        },
+        {
             "name": "spip/compagnon",
             "version": "dev-master",
             "source": {
@@ -471,13 +748,13 @@
             "source": {
                 "type": "git",
                 "url": "https://git.spip.net/spip/dist.git",
-                "reference": "499d569b1e8a704b7a687cc65f88bb0df63e9927"
+                "reference": "564a428f54bb647c421ac00291f8d857dca64fb6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://get.spip.net/composer/dist/spip/dist/spip-dist-dev-master-4d9062.zip",
-                "reference": "499d569b1e8a704b7a687cc65f88bb0df63e9927",
-                "shasum": "fe5db888a5aa8ddf8cd92473c748338cd208599b"
+                "url": "https://get.spip.net/composer/dist/spip/dist/spip-dist-dev-master-3bf842.zip",
+                "reference": "564a428f54bb647c421ac00291f8d857dca64fb6",
+                "shasum": "163eb3b6075f5789ed9bba8883804cf0001ea804"
             },
             "default-branch": true,
             "type": "spip-plugin",
@@ -497,7 +774,7 @@
                 }
             ],
             "description": "Squelettes par défaut de SPIP 4.0",
-            "time": "2023-10-24T19:55:34+00:00"
+            "time": "2023-12-18T13:16:00+00:00"
         },
         {
             "name": "spip/dump",
@@ -544,6 +821,65 @@
             "time": "2023-07-11T23:27:24+00:00"
         },
         {
+            "name": "spip/filesystem",
+            "version": "dev-main",
+            "source": {
+                "type": "git",
+                "url": "https://git.spip.net/spip/filesystem.git",
+                "reference": "a097764d521211f506cab663d5544f898f87b61c"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://get.spip.net/composer/dist/spip/filesystem/spip-filesystem-dev-main-05fd77.zip",
+                "reference": "a097764d521211f506cab663d5544f898f87b61c",
+                "shasum": "d363c482d911a7a23ed974eba2fc63a00a420866"
+            },
+            "require": {
+                "symfony/filesystem": "^6.3",
+                "symfony/finder": "^6.3",
+                "symfony/lock": "^6.3"
+            },
+            "require-dev": {
+                "phpstan/phpstan": "^1.10",
+                "phpunit/phpunit": "^10.2"
+            },
+            "default-branch": true,
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-main": "1.0.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Spip\\Component\\Filesystem\\": "src/"
+                }
+            },
+            "autoload-dev": {
+                "psr-4": {
+                    "Spip\\Test\\Component\\Filesystem\\": "tests/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "JamesRezo",
+                    "email": "james@rezo.net"
+                }
+            ],
+            "description": "SPIP File Management",
+            "homepage": "https://git.spip.net/spip/filesystem",
+            "keywords": [
+                "filesystem"
+            ],
+            "support": {
+                "issues": "https://git.spip.net/spip/filesystem/issues"
+            },
+            "time": "2023-07-27T09:42:45+00:00"
+        },
+        {
             "name": "spip/forum",
             "version": "dev-master",
             "source": {
@@ -586,6 +922,80 @@
             ],
             "description": "Gestion des forums privés et publics dans SPIP",
             "time": "2023-07-12T05:45:01+00:00"
+        },
+        {
+            "name": "spip/hasher",
+            "version": "dev-main",
+            "source": {
+                "type": "git",
+                "url": "https://git.spip.net/spip/hasher.git",
+                "reference": "8e5aa5ecfa3f701bb32d5ff9a4577d452d2f3119"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://get.spip.net/composer/dist/spip/hasher/spip-hasher-dev-main-a510b5.zip",
+                "reference": "8e5aa5ecfa3f701bb32d5ff9a4577d452d2f3119",
+                "shasum": "2d82ea21fdf3af24f1d48e0bafe75c8ac988e5fc"
+            },
+            "require": {
+                "php": "^8.1"
+            },
+            "require-dev": {
+                "dealerdirect/phpcodesniffer-composer-installer": "^1.0",
+                "dragon-code/benchmark": "^2.5",
+                "fakerphp/faker": "^1.23",
+                "phpcompatibility/php-compatibility": "^10.0.x-dev",
+                "phpstan/phpstan": "^1.10",
+                "phpunit/phpunit": "^10.2",
+                "spip/coding-standards": "^1.3"
+            },
+            "default-branch": true,
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-main": "1.0.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Spip\\Component\\Hasher\\": "src/"
+                }
+            },
+            "autoload-dev": {
+                "psr-4": {
+                    "Spip\\Benchmark\\Component\\Hasher\\": "benchmark/",
+                    "Spip\\Test\\Component\\Hasher\\": "tests/"
+                }
+            },
+            "scripts": {
+                "analyse": [
+                    "phpstan"
+                ],
+                "cs-fix": [
+                    "phpcbf"
+                ],
+                "test": [
+                    "phpunit --colors --no-coverage"
+                ],
+                "test-benchmark": [
+                    "@php benchmark/stringify.php",
+                    "@php benchmark/hasher.php"
+                ],
+                "test-coverage": [
+                    "@php -d xdebug.mode=coverage vendor/bin/phpunit --colors"
+                ],
+                "test-cs": [
+                    "phpcs"
+                ]
+            },
+            "license": [
+                "MIT"
+            ],
+            "description": "Hash Interface",
+            "keywords": [
+                "cache"
+            ],
+            "time": "2023-07-29T07:50:49+00:00"
         },
         {
             "name": "spip/images",
@@ -688,13 +1098,13 @@
             "source": {
                 "type": "git",
                 "url": "https://git.spip.net/spip/medias.git",
-                "reference": "80bbc4cb2ea77d79f67e74dc58dd60d0c90c071f"
+                "reference": "fd228e30adb9a01ec2ec59c9762a4f744efd31ff"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://get.spip.net/composer/dist/spip/medias/spip-medias-dev-master-40ae61.zip",
-                "reference": "80bbc4cb2ea77d79f67e74dc58dd60d0c90c071f",
-                "shasum": "0ae6246d786451804067049b7044a6cd18dff686"
+                "url": "https://get.spip.net/composer/dist/spip/medias/spip-medias-dev-master-faf343.zip",
+                "reference": "fd228e30adb9a01ec2ec59c9762a4f744efd31ff",
+                "shasum": "61ced18df37ac4e9b7020c155b33127019d60a1a"
             },
             "require": {
                 "james-heinrich/getid3": "^1.9",
@@ -725,7 +1135,7 @@
                 }
             ],
             "description": "Gestion des medias dans SPIP",
-            "time": "2023-11-24T12:00:03+00:00"
+            "time": "2023-12-18T13:10:37+00:00"
         },
         {
             "name": "spip/mots",
@@ -770,6 +1180,75 @@
             ],
             "description": "Gestion des mots et groupes de mots dans SPIP",
             "time": "2023-07-11T17:18:41+00:00"
+        },
+        {
+            "name": "spip/path",
+            "version": "dev-main",
+            "source": {
+                "type": "git",
+                "url": "https://git.spip.net/spip/path.git",
+                "reference": "7ded0ba63ebb28f523df0ddef677e08fad316fe0"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://get.spip.net/composer/dist/spip/path/spip-path-dev-main-3faf2e.zip",
+                "reference": "7ded0ba63ebb28f523df0ddef677e08fad316fe0",
+                "shasum": "186572272ee9ccdc22a6c5b0483de62fac8e1891"
+            },
+            "require": {
+                "psr/container": "^2.0",
+                "spip/cache": "^1.0.x-dev",
+                "spip/filesystem": "^1.0.x-dev",
+                "spip/hasher": "^1.0.x-dev",
+                "symfony/filesystem": "^6.3"
+            },
+            "require-dev": {
+                "dealerdirect/phpcodesniffer-composer-installer": "^1.0",
+                "phpcompatibility/php-compatibility": "^10.0.x-dev",
+                "phpstan/phpstan": "^1.10",
+                "phpunit/phpunit": "^10.2",
+                "spip/coding-standards": "^1.3",
+                "symfony/var-dumper": "^6.3"
+            },
+            "default-branch": true,
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-main": "1.0.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Spip\\Component\\Path\\": "src/"
+                }
+            },
+            "autoload-dev": {
+                "psr-4": {
+                    "Spip\\Test\\Component\\Path\\": "tests/"
+                }
+            },
+            "scripts": {
+                "analyse": [
+                    "phpstan"
+                ],
+                "cs-fix": [
+                    "phpcbf"
+                ],
+                "test": [
+                    "phpunit --colors --no-coverage"
+                ],
+                "test-coverage": [
+                    "@php -d xdebug.mode=coverage vendor/bin/phpunit --colors"
+                ],
+                "test-cs": [
+                    "phpcs"
+                ]
+            },
+            "license": [
+                "MIT"
+            ],
+            "description": "SPIP Path Component",
+            "time": "2023-07-28T16:41:46+00:00"
         },
         {
             "name": "spip/plan",
@@ -1072,13 +1551,13 @@
             "source": {
                 "type": "git",
                 "url": "https://git.spip.net/spip/svp.git",
-                "reference": "23c05f4c97793f9d2e9e65da3fd94eac8b9eed40"
+                "reference": "7dad753e623d930d5a7d2e693fdf8dd3437fc99b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://get.spip.net/composer/dist/spip/svp/spip-svp-dev-master-16562c.zip",
-                "reference": "23c05f4c97793f9d2e9e65da3fd94eac8b9eed40",
-                "shasum": "b4404b23fd48e230b4bbe17435335a8e7f82f690"
+                "url": "https://get.spip.net/composer/dist/spip/svp/spip-svp-dev-master-904e96.zip",
+                "reference": "7dad753e623d930d5a7d2e693fdf8dd3437fc99b",
+                "shasum": "579c5a3a1c60f0816fd0dc7d88753977ddc2a29c"
             },
             "require": {
                 "php": "^8.1"
@@ -1113,7 +1592,7 @@
                 }
             ],
             "description": "SerVeur d'information et de téléchargement des Plugins",
-            "time": "2023-11-02T00:27:06+00:00"
+            "time": "2023-12-18T13:11:49+00:00"
         },
         {
             "name": "spip/tw",
@@ -1121,13 +1600,13 @@
             "source": {
                 "type": "git",
                 "url": "https://git.spip.net/spip/textwheel.git",
-                "reference": "1ba906ddf2498ef5a3acca950fd07735f5f7c482"
+                "reference": "1a0d891bc21509cbb29103f0cf5038d78eabe9b9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://get.spip.net/composer/dist/spip/tw/spip-tw-dev-master-5d0b22.zip",
-                "reference": "1ba906ddf2498ef5a3acca950fd07735f5f7c482",
-                "shasum": "48a87d07a48e7f291ed09ae86a38961408e81504"
+                "url": "https://get.spip.net/composer/dist/spip/tw/spip-tw-dev-master-6c3338.zip",
+                "reference": "1a0d891bc21509cbb29103f0cf5038d78eabe9b9",
+                "shasum": "d5dd127ad5c52c68cd331401fe12d5987bb2d3cc"
             },
             "require": {
                 "php": "^8.1"
@@ -1157,7 +1636,7 @@
                 }
             ],
             "description": "Gestion de la typographie SPIP avec TextWheel",
-            "time": "2023-11-16T16:51:56+00:00"
+            "time": "2023-12-18T13:13:52+00:00"
         },
         {
             "name": "spip/urls",
@@ -1202,6 +1681,80 @@
             ],
             "description": "Gestion des variantes d'URL signifiantes ou non",
             "time": "2023-07-11T23:28:12+00:00"
+        },
+        {
+            "name": "symfony/clock",
+            "version": "v6.4.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/symfony/clock.git",
+                "reference": "48102bcc56b26d453c7f5e7f72829abc9df25a16"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/symfony/clock/zipball/48102bcc56b26d453c7f5e7f72829abc9df25a16",
+                "reference": "48102bcc56b26d453c7f5e7f72829abc9df25a16",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=8.1",
+                "psr/clock": "^1.0",
+                "symfony/polyfill-php83": "^1.28"
+            },
+            "provide": {
+                "psr/clock-implementation": "1.0"
+            },
+            "type": "library",
+            "autoload": {
+                "files": [
+                    "Resources/now.php"
+                ],
+                "psr-4": {
+                    "Symfony\\Component\\Clock\\": ""
+                },
+                "exclude-from-classmap": [
+                    "/Tests/"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Nicolas Grekas",
+                    "email": "p@tchwork.com"
+                },
+                {
+                    "name": "Symfony Community",
+                    "homepage": "https://symfony.com/contributors"
+                }
+            ],
+            "description": "Decouples applications from the system clock",
+            "homepage": "https://symfony.com",
+            "keywords": [
+                "clock",
+                "psr20",
+                "time"
+            ],
+            "support": {
+                "source": "https://github.com/symfony/clock/tree/v6.4.0"
+            },
+            "funding": [
+                {
+                    "url": "https://symfony.com/sponsor",
+                    "type": "custom"
+                },
+                {
+                    "url": "https://github.com/fabpot",
+                    "type": "github"
+                },
+                {
+                    "url": "https://tidelift.com/funding/github/packagist/symfony/symfony",
+                    "type": "tidelift"
+                }
+            ],
+            "time": "2023-10-13T14:46:14+00:00"
         },
         {
             "name": "symfony/deprecation-contracts",
@@ -1269,6 +1822,294 @@
                 }
             ],
             "time": "2023-05-23T14:45:45+00:00"
+        },
+        {
+            "name": "symfony/filesystem",
+            "version": "v6.4.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/symfony/filesystem.git",
+                "reference": "952a8cb588c3bc6ce76f6023000fb932f16a6e59"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/symfony/filesystem/zipball/952a8cb588c3bc6ce76f6023000fb932f16a6e59",
+                "reference": "952a8cb588c3bc6ce76f6023000fb932f16a6e59",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=8.1",
+                "symfony/polyfill-ctype": "~1.8",
+                "symfony/polyfill-mbstring": "~1.8"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Symfony\\Component\\Filesystem\\": ""
+                },
+                "exclude-from-classmap": [
+                    "/Tests/"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Fabien Potencier",
+                    "email": "fabien@symfony.com"
+                },
+                {
+                    "name": "Symfony Community",
+                    "homepage": "https://symfony.com/contributors"
+                }
+            ],
+            "description": "Provides basic utilities for the filesystem",
+            "homepage": "https://symfony.com",
+            "support": {
+                "source": "https://github.com/symfony/filesystem/tree/v6.4.0"
+            },
+            "funding": [
+                {
+                    "url": "https://symfony.com/sponsor",
+                    "type": "custom"
+                },
+                {
+                    "url": "https://github.com/fabpot",
+                    "type": "github"
+                },
+                {
+                    "url": "https://tidelift.com/funding/github/packagist/symfony/symfony",
+                    "type": "tidelift"
+                }
+            ],
+            "time": "2023-07-26T17:27:13+00:00"
+        },
+        {
+            "name": "symfony/finder",
+            "version": "v6.4.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/symfony/finder.git",
+                "reference": "11d736e97f116ac375a81f96e662911a34cd50ce"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/symfony/finder/zipball/11d736e97f116ac375a81f96e662911a34cd50ce",
+                "reference": "11d736e97f116ac375a81f96e662911a34cd50ce",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=8.1"
+            },
+            "require-dev": {
+                "symfony/filesystem": "^6.0|^7.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Symfony\\Component\\Finder\\": ""
+                },
+                "exclude-from-classmap": [
+                    "/Tests/"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Fabien Potencier",
+                    "email": "fabien@symfony.com"
+                },
+                {
+                    "name": "Symfony Community",
+                    "homepage": "https://symfony.com/contributors"
+                }
+            ],
+            "description": "Finds files and directories via an intuitive fluent interface",
+            "homepage": "https://symfony.com",
+            "support": {
+                "source": "https://github.com/symfony/finder/tree/v6.4.0"
+            },
+            "funding": [
+                {
+                    "url": "https://symfony.com/sponsor",
+                    "type": "custom"
+                },
+                {
+                    "url": "https://github.com/fabpot",
+                    "type": "github"
+                },
+                {
+                    "url": "https://tidelift.com/funding/github/packagist/symfony/symfony",
+                    "type": "tidelift"
+                }
+            ],
+            "time": "2023-10-31T17:30:12+00:00"
+        },
+        {
+            "name": "symfony/lock",
+            "version": "v6.4.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/symfony/lock.git",
+                "reference": "49c2d0ae4777d118edb13f23d0b4f125d7302cb3"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/symfony/lock/zipball/49c2d0ae4777d118edb13f23d0b4f125d7302cb3",
+                "reference": "49c2d0ae4777d118edb13f23d0b4f125d7302cb3",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=8.1",
+                "psr/log": "^1|^2|^3",
+                "symfony/deprecation-contracts": "^2.5|^3"
+            },
+            "conflict": {
+                "doctrine/dbal": "<2.13",
+                "symfony/cache": "<6.2"
+            },
+            "require-dev": {
+                "doctrine/dbal": "^2.13|^3|^4",
+                "predis/predis": "^1.1|^2.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Symfony\\Component\\Lock\\": ""
+                },
+                "exclude-from-classmap": [
+                    "/Tests/"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Jérémy Derussé",
+                    "email": "jeremy@derusse.com"
+                },
+                {
+                    "name": "Symfony Community",
+                    "homepage": "https://symfony.com/contributors"
+                }
+            ],
+            "description": "Creates and manages locks, a mechanism to provide exclusive access to a shared resource",
+            "homepage": "https://symfony.com",
+            "keywords": [
+                "cas",
+                "flock",
+                "locking",
+                "mutex",
+                "redlock",
+                "semaphore"
+            ],
+            "support": {
+                "source": "https://github.com/symfony/lock/tree/v6.4.0"
+            },
+            "funding": [
+                {
+                    "url": "https://symfony.com/sponsor",
+                    "type": "custom"
+                },
+                {
+                    "url": "https://github.com/fabpot",
+                    "type": "github"
+                },
+                {
+                    "url": "https://tidelift.com/funding/github/packagist/symfony/symfony",
+                    "type": "tidelift"
+                }
+            ],
+            "time": "2023-11-21T09:41:01+00:00"
+        },
+        {
+            "name": "symfony/polyfill-ctype",
+            "version": "v1.28.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/symfony/polyfill-ctype.git",
+                "reference": "ea208ce43cbb04af6867b4fdddb1bdbf84cc28cb"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/symfony/polyfill-ctype/zipball/ea208ce43cbb04af6867b4fdddb1bdbf84cc28cb",
+                "reference": "ea208ce43cbb04af6867b4fdddb1bdbf84cc28cb",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=7.1"
+            },
+            "provide": {
+                "ext-ctype": "*"
+            },
+            "suggest": {
+                "ext-ctype": "For best performance"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-main": "1.28-dev"
+                },
+                "thanks": {
+                    "name": "symfony/polyfill",
+                    "url": "https://github.com/symfony/polyfill"
+                }
+            },
+            "autoload": {
+                "files": [
+                    "bootstrap.php"
+                ],
+                "psr-4": {
+                    "Symfony\\Polyfill\\Ctype\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Gert de Pagter",
+                    "email": "BackEndTea@gmail.com"
+                },
+                {
+                    "name": "Symfony Community",
+                    "homepage": "https://symfony.com/contributors"
+                }
+            ],
+            "description": "Symfony polyfill for ctype functions",
+            "homepage": "https://symfony.com",
+            "keywords": [
+                "compatibility",
+                "ctype",
+                "polyfill",
+                "portable"
+            ],
+            "support": {
+                "source": "https://github.com/symfony/polyfill-ctype/tree/v1.28.0"
+            },
+            "funding": [
+                {
+                    "url": "https://symfony.com/sponsor",
+                    "type": "custom"
+                },
+                {
+                    "url": "https://github.com/fabpot",
+                    "type": "github"
+                },
+                {
+                    "url": "https://tidelift.com/funding/github/packagist/symfony/symfony",
+                    "type": "tidelift"
+                }
+            ],
+            "time": "2023-01-26T09:26:14+00:00"
         },
         {
             "name": "symfony/polyfill-mbstring",
@@ -1354,6 +2195,89 @@
             "time": "2023-07-28T09:04:16+00:00"
         },
         {
+            "name": "symfony/polyfill-php80",
+            "version": "v1.28.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/symfony/polyfill-php80.git",
+                "reference": "6caa57379c4aec19c0a12a38b59b26487dcfe4b5"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/symfony/polyfill-php80/zipball/6caa57379c4aec19c0a12a38b59b26487dcfe4b5",
+                "reference": "6caa57379c4aec19c0a12a38b59b26487dcfe4b5",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=7.1"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-main": "1.28-dev"
+                },
+                "thanks": {
+                    "name": "symfony/polyfill",
+                    "url": "https://github.com/symfony/polyfill"
+                }
+            },
+            "autoload": {
+                "files": [
+                    "bootstrap.php"
+                ],
+                "psr-4": {
+                    "Symfony\\Polyfill\\Php80\\": ""
+                },
+                "classmap": [
+                    "Resources/stubs"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Ion Bazan",
+                    "email": "ion.bazan@gmail.com"
+                },
+                {
+                    "name": "Nicolas Grekas",
+                    "email": "p@tchwork.com"
+                },
+                {
+                    "name": "Symfony Community",
+                    "homepage": "https://symfony.com/contributors"
+                }
+            ],
+            "description": "Symfony polyfill backporting some PHP 8.0+ features to lower PHP versions",
+            "homepage": "https://symfony.com",
+            "keywords": [
+                "compatibility",
+                "polyfill",
+                "portable",
+                "shim"
+            ],
+            "support": {
+                "source": "https://github.com/symfony/polyfill-php80/tree/v1.28.0"
+            },
+            "funding": [
+                {
+                    "url": "https://symfony.com/sponsor",
+                    "type": "custom"
+                },
+                {
+                    "url": "https://github.com/fabpot",
+                    "type": "github"
+                },
+                {
+                    "url": "https://tidelift.com/funding/github/packagist/symfony/symfony",
+                    "type": "tidelift"
+                }
+            ],
+            "time": "2023-01-26T09:26:14+00:00"
+        },
+        {
             "name": "symfony/polyfill-php82",
             "version": "v1.28.0",
             "source": {
@@ -1431,6 +2355,86 @@
                 }
             ],
             "time": "2023-08-25T17:27:25+00:00"
+        },
+        {
+            "name": "symfony/polyfill-php83",
+            "version": "v1.28.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/symfony/polyfill-php83.git",
+                "reference": "b0f46ebbeeeda3e9d2faebdfbf4b4eae9b59fa11"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/symfony/polyfill-php83/zipball/b0f46ebbeeeda3e9d2faebdfbf4b4eae9b59fa11",
+                "reference": "b0f46ebbeeeda3e9d2faebdfbf4b4eae9b59fa11",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=7.1",
+                "symfony/polyfill-php80": "^1.14"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-main": "1.28-dev"
+                },
+                "thanks": {
+                    "name": "symfony/polyfill",
+                    "url": "https://github.com/symfony/polyfill"
+                }
+            },
+            "autoload": {
+                "files": [
+                    "bootstrap.php"
+                ],
+                "psr-4": {
+                    "Symfony\\Polyfill\\Php83\\": ""
+                },
+                "classmap": [
+                    "Resources/stubs"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Nicolas Grekas",
+                    "email": "p@tchwork.com"
+                },
+                {
+                    "name": "Symfony Community",
+                    "homepage": "https://symfony.com/contributors"
+                }
+            ],
+            "description": "Symfony polyfill backporting some PHP 8.3+ features to lower PHP versions",
+            "homepage": "https://symfony.com",
+            "keywords": [
+                "compatibility",
+                "polyfill",
+                "portable",
+                "shim"
+            ],
+            "support": {
+                "source": "https://github.com/symfony/polyfill-php83/tree/v1.28.0"
+            },
+            "funding": [
+                {
+                    "url": "https://symfony.com/sponsor",
+                    "type": "custom"
+                },
+                {
+                    "url": "https://github.com/fabpot",
+                    "type": "github"
+                },
+                {
+                    "url": "https://tidelift.com/funding/github/packagist/symfony/symfony",
+                    "type": "tidelift"
+                }
+            ],
+            "time": "2023-08-16T06:22:46+00:00"
         }
     ],
     "packages-dev": [
@@ -3699,15 +4703,19 @@
     "stability-flags": {
         "spip/aide": 20,
         "spip/archiviste": 20,
+        "spip/cache": 20,
         "spip/compagnon": 20,
         "spip/compresseur": 20,
         "spip/dist": 20,
         "spip/dump": 20,
+        "spip/filesystem": 20,
         "spip/forum": 20,
+        "spip/hasher": 20,
         "spip/images": 20,
         "spip/mediabox": 20,
         "spip/medias": 20,
         "spip/mots": 20,
+        "spip/path": 20,
         "spip/plan": 20,
         "spip/porte-plume": 20,
         "spip/revisions": 20,
