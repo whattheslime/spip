@@ -21,7 +21,7 @@ if (defined('_ECRIRE_INC_VERSION')) {
 	return;
 }
 
-require_once __DIR__ . '/bootstrap/initial_config.php';
+require_once __DIR__ . '/bootstrap/config/initial.php';
 
 // inclure l'ecran de securite si il n'a pas été inclus en prepend php
 if (
@@ -34,7 +34,7 @@ if (
 // et on peut lancer l'autoloader
 require_once dirname(__DIR__) . '/vendor/autoload.php';
 
-require_once __DIR__ . '/bootstrap/globals_config.php';
+require_once __DIR__ . '/bootstrap/config/globals.php';
 require_once __DIR__ . '/bootstrap/proxy.php';
 require_once __DIR__ . '/bootstrap/mitigation.php';
 
@@ -70,8 +70,7 @@ $spip_version_affichee = "$spip_version_branche";
 //
 // Charger les fonctions liees aux serveurs Http et Sql.
 //
-require_once _ROOT_RESTREINT . 'inc/utils.php';
-require_once _ROOT_RESTREINT . 'base/connect_sql.php';
+require_once __DIR__ . '/bootstrap/functions.php';
 
 // Definition personnelles eventuelles
 

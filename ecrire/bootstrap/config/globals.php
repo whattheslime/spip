@@ -32,6 +32,8 @@ global
 	$mysql_rappel_connexion,
 	$mysql_rappel_nom_base,
 	$nombre_de_logs,
+	$path_sig,
+	$path_files,
 	$plugins,
 	$puce,
 	$source_vignettes,
@@ -210,3 +212,9 @@ $meta = $connect_id_rubrique = [];
 // version de l'interface a la base
 $spip_sql_version = 1;
 
+
+// chercher un fichier $file dans le SPIP_PATH
+// si on donne un sous-repertoire en 2e arg optionnel, il FAUT le / final
+// si 3e arg vrai, on inclut si ce n'est fait.
+$path_sig = '';
+$path_files = null;
