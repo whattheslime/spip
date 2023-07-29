@@ -327,31 +327,31 @@ function public_cacher_dist($contexte, &$use_cache, &$cache_key, &$page, &$lastm
 
 	// Faut-il effacer des pages invalidees (en particulier ce cache-ci) ?
 	// ne le faire que si la base est disponible
+	$invalider = false;
 	if (isset($GLOBALS['meta']['invalider']) && spip_connect()) {
-		include_spip('inc/invalideur');
-		retire_caches($cache_key);
-		# API invalideur inutile
-		cache_instance()->delete($cache_key);
-		if (isset($cache_key_session) && $cache_key_session) {
-			supprimer_fichier(_DIR_CACHE . $cache_key_session);
-		}
+		$invalider = true;
 	}
 
 	// Si un calcul, recalcul [ou preview, mais c'est recalcul] est demande,
 	// on supprime le cache
 	if (
-		defined('_VAR_MODE') &&
-		_VAR_MODE &&
-		(isset($_COOKIE['spip_session']) ||
-			isset($_COOKIE['spip_admin']) ||
-			@file_exists(_ACCESS_FILE_NAME))
+		defined('_VAR_MODE')
+		&& _VAR_MODE
+		&& (
+			isset($_COOKIE['spip_session'])
+			|| isset($_COOKIE['spip_admin'])
+			|| @file_exists(_ACCESS_FILE_NAME)
+		)
 	) {
 		$page = ['contexte_implicite' => $contexte_implicite]; // ignorer le cache deja lu
+		$invalider = true;
+	}
+	if ($invalider) {
 		include_spip('inc/invalideur');
 		retire_caches($cache_key); # API invalideur inutile
-		supprimer_fichier(_DIR_CACHE . $cache_key);
+		cache_instance()->delete($cache_key);
 		if (isset($cache_key_session) && $cache_key_session) {
-			supprimer_fichier(_DIR_CACHE . $cache_key_session);
+			cache_instance()->delete($cache_key_session);
 		}
 	}
 
