@@ -216,8 +216,9 @@ function retire_cache($cache) {
 // la meta est toujours false ; mais evitons un bug si elle est appellee
 function inc_retire_caches_dist($chemin = '') {
 	if (isset($GLOBALS['meta']['invalider_caches'])) {
+		# concurrence
 		effacer_meta('invalider_caches');
-	} # concurrence
+	}
 }
 
 #######################################################################

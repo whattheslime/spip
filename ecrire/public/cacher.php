@@ -11,31 +11,35 @@
 
 use Psr\SimpleCache\CacheInterface;
 use Spip\Component\Cache\Adapter\LimitedFilesystem;
+use Spip\Component\Hasher\Hash32;
 
 if (!defined('_ECRIRE_INC_VERSION')) {
 	return;
 }
 
 /**
- * Le format souhaite : tmp/cache/ab/cd
- * soit au maximum 16^4 fichiers dans 256 repertoires
- * Attention a modifier simultanement le sanity check de
- * la fonction retire_cache() de inc/invalideur
+ * Returns a PSR-16 Simple Cache Instance
  *
- * @param array $contexte
- * @param array $page
- * @return string
+ * @internal Temporary fonction until DI in SPIP
  */
-function generer_nom_fichier_cache($contexte, $page) {
-	$u = md5(var_export([$contexte, $page], true));
-
-	return $u . '.cache';
-}
-
 function cache_instance(): CacheInterface {
 	static $cache = null;
 	return $cache ??= new LimitedFilesystem('calcul', _DIR_CACHE);
 }
+
+/**
+ * Retourne un nom (identifiant) pour le cache
+ * 
+ * @param array $contexte
+ * @param array $page
+ * @return string
+ */
+function generer_nom_fichier_cache($contexte, $page): string {
+	static $hasher = null;
+	$hasher ??= new Hash32();
+	return $hasher->hash([$contexte, $page]) . '.cache';
+}
+
 
 /**
  * ecrire le cache dans un casier
@@ -58,8 +62,11 @@ function lire_cache($nom_cache): mixed {
 	return cache_instance()->get($nom_cache);
 }
 
-// Parano : on signe le cache, afin d'interdire un hack d'injection
-// dans notre memcache
+/**
+ * Signature du cache
+ *
+ * Parano : on signe le cache, afin d'interdire un hack d'injection dans notre memcache
+ */
 function cache_signature(&$page) {
 	if (!isset($GLOBALS['meta']['cache_signature'])) {
 		include_spip('inc/acces');
@@ -70,7 +77,7 @@ function cache_signature(&$page) {
 		);
 	}
 
-	return crc32($GLOBALS['meta']['cache_signature'] . $page['texte']);
+	return (new Hash32())->hash($GLOBALS['meta']['cache_signature'] . $page['texte']);
 }
 
 /**
