@@ -9,6 +9,9 @@
  *  Ce programme est un logiciel libre distribué sous licence GNU/GPL.     *
 \***************************************************************************/
 
+use Psr\SimpleCache\CacheInterface;
+use Spip\Component\Cache\Adapter\LimitedFilesystem;
+
 if (!defined('_ECRIRE_INC_VERSION')) {
 	return;
 }
@@ -29,39 +32,9 @@ function generer_nom_fichier_cache($contexte, $page) {
 	return $u . '.cache';
 }
 
-/**
- * Calcule le chemin hashe du fichier cache
- * Le format souhaite : tmp/cache/ab/cd
- * soit au maximum 16^4 fichiers dans 256 repertoires
- * mais la longueur est configurable via un define qui permer d'avoir une taille de 16^_CACHE_PROFONDEUR_STOCKAGE
- *
- * Attention a modifier simultanement le sanity check de
- * la fonction retire_cache() de inc/invalideur
- *
- * @param string $nom_cache
- * @return string
- */
-function cache_chemin_fichier($nom_cache, $ecrire = false) {
-	static $l1, $l2;
-	if (is_null($l1)) {
-		$length = (defined('_CACHE_PROFONDEUR_STOCKAGE') ? min(8, max(_CACHE_PROFONDEUR_STOCKAGE, 2)) : 4);
-		$l1 = (int) floor($length / 2);
-		$l2 = $length - $l1;
-	}
-	$d = substr((string) $nom_cache, 0, $l1);
-	$u = substr((string) $nom_cache, $l1, $l2);
-
-	if ($ecrire) {
-		$rep = sous_repertoire(_DIR_CACHE, '', false, true);
-		$rep = sous_repertoire($rep, 'calcul/', false, true);
-		$rep = sous_repertoire($rep, $d, false, true);
-	}
-	else {
-		// en lecture on essaye pas de creer les repertoires, on va au plus vite
-		$rep = _DIR_CACHE . "calcul/$d/";
-	}
-
-	return $rep . $u . '.cache';
+function cache_instance(): CacheInterface {
+	static $cache = null;
+	return $cache ??= new LimitedFilesystem('calcul', _DIR_CACHE);
 }
 
 /**
@@ -71,29 +44,18 @@ function cache_chemin_fichier($nom_cache, $ecrire = false) {
  * @param array $valeur
  * @return bool
  */
-function ecrire_cache($nom_cache, $valeur) {
-	return ecrire_fichier(cache_chemin_fichier($nom_cache, true), serialize(['nom_cache' => $nom_cache, 'valeur' => $valeur]));
+function ecrire_cache($nom_cache, $valeur): bool {
+	return cache_instance()->set($nom_cache, ['nom_cache' => $nom_cache, 'valeur' => $valeur]);
 }
 
 /**
  * lire le cache depuis un casier
  *
  * @param string $nom_cache
- * @return mixed
+ * @return null|mixed null: probably cache miss
  */
-function lire_cache($nom_cache) {
-	$tmp = [];
-	if (
-		file_exists($f = cache_chemin_fichier($nom_cache))
-		&& lire_fichier($f, $tmp)
-		&& ($tmp = unserialize($tmp))
-		&& $tmp['nom_cache'] == $nom_cache
-		&& isset($tmp['valeur'])
-	) {
-		return $tmp['valeur'];
-	}
-
-	return false;
+function lire_cache($nom_cache): mixed {
+	return cache_instance()->get($nom_cache);
 }
 
 // Parano : on signe le cache, afin d'interdire un hack d'injection
@@ -397,7 +359,7 @@ function public_cacher_dist($contexte, &$use_cache, &$chemin_cache, &$page, &$la
 		include_spip('inc/invalideur');
 		retire_caches($chemin_cache);
 		# API invalideur inutile
-		supprimer_fichier(_DIR_CACHE . $chemin_cache);
+		cache_instance()->delete($chemin_cache);
 		if (isset($chemin_cache_session) && $chemin_cache_session) {
 			supprimer_fichier(_DIR_CACHE . $chemin_cache_session);
 		}
