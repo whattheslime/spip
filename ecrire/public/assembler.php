@@ -24,7 +24,7 @@ if (!defined('_ECRIRE_INC_VERSION')) {
 
 function assembler($fond, string $connect = '') {
 
-	$chemin_cache = null;
+	$cache_key = null;
 	$lastmodified = null;
 	$res = null;
 	// flag_preserver est modifie ici, et utilise en globale
@@ -43,7 +43,7 @@ function assembler($fond, string $connect = '') {
 	// Les quatre derniers parametres sont modifies par la fonction:
 	// emplacement, validite, et, s'il est valide, contenu & age
 	if ($cacher) {
-		$res = $cacher($GLOBALS['contexte'], $GLOBALS['use_cache'], $chemin_cache, $page, $lastmodified);
+		$res = $cacher($GLOBALS['contexte'], $GLOBALS['use_cache'], $cache_key, $page, $lastmodified);
 	} else {
 		$GLOBALS['use_cache'] = -1;
 	}
@@ -52,7 +52,7 @@ function assembler($fond, string $connect = '') {
 		return ['texte' => $res];
 	}
 
-	if (!$chemin_cache || !$lastmodified) {
+	if (!$cache_key || !$lastmodified) {
 		$lastmodified = time();
 	}
 
@@ -65,7 +65,7 @@ function assembler($fond, string $connect = '') {
 	if (
 		isset($_SERVER['HTTP_IF_MODIFIED_SINCE'])
 		&& (!defined('_VAR_MODE') || !_VAR_MODE)
-		&& $chemin_cache && isset($page['entetes'])
+		&& $cache_key && isset($page['entetes'])
 		&& isset($page['entetes']['Cache-Control'])
 		&& strstr($page['entetes']['Cache-Control'], 'max-age=')
 		&& !strstr($_SERVER['SERVER_SOFTWARE'], 'IIS/')
@@ -124,7 +124,7 @@ function assembler($fond, string $connect = '') {
 				$fond,
 				$GLOBALS['contexte'],
 				$GLOBALS['use_cache'],
-				$chemin_cache,
+				$cache_key,
 				null,
 				$page,
 				$lastmodified,
@@ -141,8 +141,8 @@ function assembler($fond, string $connect = '') {
 			}
 		}
 
-		if ($page && $chemin_cache) {
-			$page['cache'] = $chemin_cache;
+		if ($page && $cache_key) {
+			$page['cache'] = $cache_key;
 		}
 
 		auto_content_type($page);
@@ -269,7 +269,7 @@ function auto_content_type($page) {
 
 function inclure_page($fond, $contexte, string $connect = '') {
 	$use_cache = null;
-	$chemin_cache = null;
+	$cache_key = null;
 	$lastinclude = null;
 	$res = null;
 	static $cacher, $produire_page;
@@ -286,7 +286,7 @@ function inclure_page($fond, $contexte, string $connect = '') {
 	// Les quatre derniers parametres sont modifies par la fonction:
 	// emplacement, validite, et, s'il est valide, contenu & age
 	if ($cacher) {
-		$res = $cacher($contexte, $use_cache, $chemin_cache, $page, $lastinclude);
+		$res = $cacher($contexte, $use_cache, $cache_key, $page, $lastinclude);
 	} else {
 		$use_cache = -1;
 	}
@@ -303,7 +303,7 @@ function inclure_page($fond, $contexte, string $connect = '') {
 		if (is_null($produire_page)) {
 			$produire_page = charger_fonction('produire_page', 'public');
 		}
-		$page = $produire_page($fond, $contexte, $use_cache, $chemin_cache, $contexte, $page, $lastinclude, $connect);
+		$page = $produire_page($fond, $contexte, $use_cache, $cache_key, $contexte, $page, $lastinclude, $connect);
 	}
 	// dans tous les cas, mettre a jour $GLOBALS['lastmodified']
 	$GLOBALS['lastmodified'] = max(($GLOBALS['lastmodified'] ?? 0), $lastinclude);
@@ -318,7 +318,7 @@ function inclure_page($fond, $contexte, string $connect = '') {
  * @param string $fond
  * @param array $contexte
  * @param int $use_cache
- * @param string $chemin_cache
+ * @param string $cache_key
  * @param array $contexte_cache
  * @param array $page
  * @param int $lastinclude
@@ -329,7 +329,7 @@ function public_produire_page_dist(
 	$fond,
 	$contexte,
 	$use_cache,
-	$chemin_cache,
+	$cache_key,
 	$contexte_cache,
 	&$page,
 	&$lastinclude,
@@ -339,10 +339,10 @@ function public_produire_page_dist(
 	if (!$parametrer) {
 		$parametrer = charger_fonction('parametrer', 'public');
 	}
-	$page = $parametrer($fond, $contexte, $chemin_cache, $connect);
+	$page = $parametrer($fond, $contexte, $cache_key, $connect);
 	// et on l'enregistre sur le disque
 	if (
-		$chemin_cache
+		$cache_key
 		&& $use_cache > -1
 		&& is_array($page)
 		&& count($page)
@@ -354,7 +354,7 @@ function public_produire_page_dist(
 		}
 		$lastinclude = time();
 		if ($cacher) {
-			$cacher($contexte_cache, $use_cache, $chemin_cache, $page, $lastinclude);
+			$cacher($contexte_cache, $use_cache, $cache_key, $page, $lastinclude);
 		} else {
 			$use_cache = -1;
 		}

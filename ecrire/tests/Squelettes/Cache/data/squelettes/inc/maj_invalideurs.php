@@ -5,10 +5,10 @@ use Spip\Test\Squelettes\Balise\CacheSessionTest;
 /**
  * Fonction chargée de faire les assertions d'erreur si l'invalideur session n'est pas comme on l'attend
  *
- * @param string $chemin_cache
+ * @param string $cache_key
  * @param array $page
  */
- function inc_maj_invalideurs($chemin_cache, $page): void {
+ function inc_maj_invalideurs($cache_key, $page): void {
 	if (!isset($page['contexte']['assert_session'])) {
 		return;
 	}

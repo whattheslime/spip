@@ -28,38 +28,28 @@ function cache_instance(): CacheInterface {
 }
 
 /**
- * Retourne un nom (identifiant) pour le cache
- * 
- * @param array $contexte
- * @param array $page
- * @return string
+ * Returns a key cache (id) for this data
  */
-function generer_nom_fichier_cache($contexte, $page): string {
+function cache_key(array $contexte, array $page): string {
 	static $hasher = null;
 	$hasher ??= new Hash32();
 	return $hasher->hash([$contexte, $page]) . '.cache';
 }
 
-
 /**
- * ecrire le cache dans un casier
- *
- * @param string $nom_cache
- * @param array $valeur
- * @return bool
+ * Écrire le cache dans un casier
  */
-function ecrire_cache($nom_cache, $valeur): bool {
-	return cache_instance()->set($nom_cache, ['nom_cache' => $nom_cache, 'valeur' => $valeur]);
+function ecrire_cache(string $cache_key, array $valeur): bool {
+	return cache_instance()->set($cache_key, ['cache_key' => $cache_key, 'valeur' => $valeur]);
 }
 
 /**
  * lire le cache depuis un casier
  *
- * @param string $nom_cache
  * @return null|mixed null: probably cache miss
  */
-function lire_cache($nom_cache): mixed {
-	return cache_instance()->get($nom_cache);
+function lire_cache(string $cache_key): mixed {
+	return cache_instance()->get($cache_key);
 }
 
 /**
@@ -67,7 +57,7 @@ function lire_cache($nom_cache): mixed {
  *
  * Parano : on signe le cache, afin d'interdire un hack d'injection dans notre memcache
  */
-function cache_signature(&$page) {
+function cache_signature(&$page): string {
 	if (!isset($GLOBALS['meta']['cache_signature'])) {
 		include_spip('inc/acces');
 		ecrire_meta(
@@ -81,15 +71,14 @@ function cache_signature(&$page) {
 }
 
 /**
- * Faut-il compresser ce cache ? A partir de 16ko ca vaut le coup
+ * Faut-il compresser ce cache ?
+ *
+ * A partir de 16ko ca vaut le coup
  * (pas de passage par reference car on veut conserver la version non compressee
  * pour l'afficher)
  * on positionne un flag gz si on comprime, pour savoir si on doit decompresser ou pas
- *
- * @param array $page
- * @return array
  */
-function gzip_page($page) {
+function gzip_page(array $page): array {
 	if (function_exists('gzcompress') && strlen((string) $page['texte']) > 16 * 1024) {
 		$page['gz'] = true;
 		$page['texte'] = gzcompress((string) $page['texte']);
@@ -102,14 +91,12 @@ function gzip_page($page) {
 
 /**
  * Faut-il decompresser ce cache ?
+ *
  * (passage par reference pour alleger)
  * on met a jour le flag gz quand on decompresse, pour ne pas risquer
  * de decompresser deux fois de suite un cache (ce qui echoue)
- *
- * @param array $page
- * @return void
  */
-function gunzip_page(&$page) {
+function gunzip_page(array &$page): void {
 	if ($page['gz']) {
 		$page['texte'] = gzuncompress($page['texte']);
 		$page['gz'] = false; // ne pas gzuncompress deux fois une meme page
@@ -117,17 +104,16 @@ function gunzip_page(&$page) {
 }
 
 /**
- * gestion des delais d'expiration du cache...
+ * Gestion des delais d'expiration du cache...
+ *
  * $page passee par reference pour accelerer
  *
- * @param array $page
- * @param int $date
  * @return int
- * 1 si il faut mettre le cache a jour
- * 0 si le cache est valide
- * -1 si il faut calculer sans stocker en cache
+ *  - 1 si il faut mettre le cache a jour
+ *  - 0 si le cache est valide
+ *  - -1 si il faut calculer sans stocker en cache
  */
-function cache_valide(&$page, $date) {
+function cache_valide(array &$page, int $date): int {
 	$now = $_SERVER['REQUEST_TIME'];
 
 	// Apparition d'un nouvel article post-date ?
@@ -198,13 +184,14 @@ function cache_valide(&$page, $date) {
 
 /**
  * Creer le fichier cache
+ * 
  * Passage par reference de $page par souci d'economie
  *
  * @param array $page
- * @param string $chemin_cache
+ * @param string $cache_key
  * @return void
  */
-function creer_cache(&$page, &$chemin_cache) {
+function creer_cache(&$page, &$cache_key) {
 
 	// Ne rien faire si on est en preview, debug, ou si une erreur
 	// grave s'est presentee (compilation du squelette, MySQL, etc)
@@ -217,8 +204,7 @@ function creer_cache(&$page, &$chemin_cache) {
 		return;
 	}
 
-	// Si la page c1234 a un invalideur de session 'zz', sauver dans
-	// 'tmp/cache/MD5(chemin_cache)_zz'
+	// Si la page a un invalideur de session, utiliser un cache_key spécifique
 	if (
 		isset($page['invalideurs'])
 		&& isset($page['invalideurs']['session'])
@@ -226,16 +212,16 @@ function creer_cache(&$page, &$chemin_cache) {
 		// on verifie que le contenu du chemin cache indique seulement
 		// "cache sessionne" ; sa date indique la date de validite
 		// des caches sessionnes
-		if (!$tmp = lire_cache($chemin_cache)) {
-			spip_log('Creation cache sessionne ' . $chemin_cache);
+		if (!$tmp = lire_cache($cache_key)) {
+			spip_log('Creation cache sessionne ' . $cache_key);
 			$tmp = [
 				'invalideurs' => ['session' => ''],
 				'lastmodified' => $_SERVER['REQUEST_TIME']
 			];
-			ecrire_cache($chemin_cache, $tmp);
+			ecrire_cache($cache_key, $tmp);
 		}
-		$chemin_cache = generer_nom_fichier_cache(
-			['chemin_cache' => $chemin_cache],
+		$cache_key = cache_key(
+			['cache_key' => $cache_key],
 			['session' => $page['invalideurs']['session']]
 		);
 	}
@@ -251,14 +237,14 @@ function creer_cache(&$page, &$chemin_cache) {
 	$pagez['sig'] = cache_signature($pagez);
 
 	// l'enregistrer, compresse ou non...
-	$ok = ecrire_cache($chemin_cache, $pagez);
+	$ok = ecrire_cache($cache_key, $pagez);
 
-	spip_log((_IS_BOT ? 'Bot:' : '') . "Creation du cache $chemin_cache pour "
+	spip_log((_IS_BOT ? 'Bot:' : '') . "Creation du cache $cache_key pour "
 		. $page['entetes']['X-Spip-Cache'] . ' secondes' . ($ok ? '' : ' (erreur!)'), _LOG_INFO);
 
 	// Inserer ses invalideurs
 	include_spip('inc/invalideur');
-	maj_invalideurs($chemin_cache, $page);
+	maj_invalideurs($cache_key, $page);
 }
 
 
@@ -285,6 +271,7 @@ function nettoyer_petit_cache($prefix, $duree = 300) {
 
 /**
  * Interface du gestionnaire de cache
+ *
  * Si son 3e argument est non vide, elle passe la main a creer_cache
  * Sinon, elle recoit un contexte (ou le construit a partir de REQUEST_URI)
  * et affecte les 4 autres parametres recus par reference:
@@ -292,7 +279,7 @@ function nettoyer_petit_cache($prefix, $duree = 300) {
  *     -1 s'il faut calculer la page sans la mettre en cache
  *      0 si on peut utiliser un cache existant
  *      1 s'il faut calculer la page et la mettre en cache
- * - chemin_cache qui est le chemin d'acces au fichier ou vide si pas cachable
+ * - cache_key est un identifiant pour ce cache, ou vide si pas cachable
  * - page qui est le tableau decrivant la page, si le cache la contenait
  * - lastmodified qui vaut la date de derniere modif du fichier.
  * Elle retourne '' si tout va bien
@@ -300,19 +287,19 @@ function nettoyer_petit_cache($prefix, $duree = 300) {
  *
  * @param array $contexte
  * @param int $use_cache
- * @param string $chemin_cache
+ * @param string $cache_key
  * @param array $page
  * @param int $lastmodified
  * @return string|void
  */
-function public_cacher_dist($contexte, &$use_cache, &$chemin_cache, &$page, &$lastmodified) {
+function public_cacher_dist($contexte, &$use_cache, &$cache_key, &$page, &$lastmodified) {
 
 	# fonction de cache minimale : dire "non on ne met rien en cache"
 	# $use_cache = -1; return;
 
 	// Second appel, destine a l'enregistrement du cache sur le disque
-	if (isset($chemin_cache)) {
-		creer_cache($page, $chemin_cache);
+	if (isset($cache_key)) {
+		creer_cache($page, $cache_key);
 		return;
 	}
 
@@ -326,18 +313,18 @@ function public_cacher_dist($contexte, &$use_cache, &$chemin_cache, &$page, &$la
 	) {
 		$use_cache = -1;
 		$lastmodified = 0;
-		$chemin_cache = '';
+		$cache_key = '';
 		$page = [];
 
 		return;
 	}
 
 	// Controler l'existence d'un cache nous correspondant
-	$chemin_cache = generer_nom_fichier_cache($contexte, $page);
+	$cache_key = cache_key($contexte, $page);
 	$lastmodified = 0;
 
 	// charger le cache s'il existe (et si il a bien le bon hash = anticollision)
-	if (!$page = lire_cache($chemin_cache)) {
+	if (!$page = lire_cache($cache_key)) {
 		$page = [];
 	}
 
@@ -346,12 +333,12 @@ function public_cacher_dist($contexte, &$use_cache, &$chemin_cache, &$page, &$la
 		isset($page['invalideurs'])
 		&& isset($page['invalideurs']['session'])
 	) {
-		$chemin_cache_session = generer_nom_fichier_cache(
-			['chemin_cache' => $chemin_cache],
+		$cache_key_session = cache_key(
+			['cache_key' => $cache_key],
 			['session' => spip_session()]
 		);
 		if (
-			($page_session = lire_cache($chemin_cache_session)) && $page_session['lastmodified'] >= $page['lastmodified']
+			($page_session = lire_cache($cache_key_session)) && $page_session['lastmodified'] >= $page['lastmodified']
 		) {
 			$page = $page_session;
 		} else {
@@ -364,11 +351,11 @@ function public_cacher_dist($contexte, &$use_cache, &$chemin_cache, &$page, &$la
 	// ne le faire que si la base est disponible
 	if (isset($GLOBALS['meta']['invalider']) && spip_connect()) {
 		include_spip('inc/invalideur');
-		retire_caches($chemin_cache);
+		retire_caches($cache_key);
 		# API invalideur inutile
-		cache_instance()->delete($chemin_cache);
-		if (isset($chemin_cache_session) && $chemin_cache_session) {
-			supprimer_fichier(_DIR_CACHE . $chemin_cache_session);
+		cache_instance()->delete($cache_key);
+		if (isset($cache_key_session) && $cache_key_session) {
+			supprimer_fichier(_DIR_CACHE . $cache_key_session);
 		}
 	}
 
@@ -383,10 +370,10 @@ function public_cacher_dist($contexte, &$use_cache, &$chemin_cache, &$page, &$la
 	) {
 		$page = ['contexte_implicite' => $contexte_implicite]; // ignorer le cache deja lu
 		include_spip('inc/invalideur');
-		retire_caches($chemin_cache); # API invalideur inutile
-		supprimer_fichier(_DIR_CACHE . $chemin_cache);
-		if (isset($chemin_cache_session) && $chemin_cache_session) {
-			supprimer_fichier(_DIR_CACHE . $chemin_cache_session);
+		retire_caches($cache_key); # API invalideur inutile
+		supprimer_fichier(_DIR_CACHE . $cache_key);
+		if (isset($cache_key_session) && $cache_key_session) {
+			supprimer_fichier(_DIR_CACHE . $cache_key_session);
 		}
 	}
 
@@ -423,7 +410,7 @@ function public_cacher_dist($contexte, &$use_cache, &$chemin_cache, &$page, &$la
 			gunzip_page($page);
 			$use_cache = 0;
 		} else {
-			spip_log("Erreur base de donnees, impossible utiliser $chemin_cache");
+			spip_log("Erreur base de donnees, impossible utiliser $cache_key");
 			include_spip('inc/minipres');
 
 			return minipres(_T('info_travaux_titre'), _T('titre_probleme_technique'), ['status' => 503]);
@@ -431,7 +418,7 @@ function public_cacher_dist($contexte, &$use_cache, &$chemin_cache, &$page, &$la
 	}
 
 	if ($use_cache < 0) {
-		$chemin_cache = '';
+		$cache_key = '';
 	}
 
 	return;
