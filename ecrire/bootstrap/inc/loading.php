@@ -282,6 +282,13 @@ function trouver_fond($nom, $dir = '', $pathinfo = false) {
 		return $f;
 	}
 	// renvoyer un tableau detaille si $pathinfo==true
+	if ($f === null) {
+		return [
+			'extension' => _EXTENSION_SQUELETTES,
+			'filename' => '',
+			'fond' => ''
+		];
+	}
 	$p = pathinfo($f);
 	if (!isset($p['extension']) || !$p['extension']) {
 		$p['extension'] = _EXTENSION_SQUELETTES;

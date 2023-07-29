@@ -1,5 +1,75 @@
 <?php
 
+use Spip\Component\Cache\Adapter\FlatFilesystem;
+use Spip\Component\Path\AggregatorInterface;
+use Spip\Component\Path\Enum\Group;
+use Spip\Component\Path\GroupAggregator;
+use Spip\Component\Path\Loader;
+use Symfony\Component\Filesystem\Path;
+
+/**
+ * Return unique Aggregator class
+ *
+ * @param null|array $add List of «plugins» directories to add
+ */
+function spip_paths(
+	null|array $add = null,
+): AggregatorInterface {
+	static $paths = null;
+	static $last_dossier_squelettes = null;
+
+	$dossier_squelettes = $GLOBALS['dossier_squelettes'] ?? null;
+
+	if ($paths === null) {
+		$paths = new GroupAggregator(Group::cases(), _ROOT_CWD);
+		$paths = $paths->with(Group::App, [
+			_DIR_RACINE,
+			_DIR_RACINE . 'squelettes-dist/',
+			_DIR_RACINE . 'prive/',
+			_DIR_RESTREINT,
+		]);
+
+		if (@is_dir(_DIR_RACINE . 'squelettes')) {
+			$paths = $paths->with(Group::Templates, [_DIR_RACINE . 'squelettes']);
+		}
+	}
+
+	if ($add !== null) {
+		$paths = $paths->prepend(Group::Plugins, $add);
+	}
+
+	if ($last_dossier_squelettes !== $dossier_squelettes) {
+		// Et le(s) dossier(s) des squelettes nommes
+		if ($dossier_squelettes !== '') {
+			$ds = explode(':', $dossier_squelettes);
+			foreach ($ds as $key => $directory) {
+				if (!str_starts_with($directory, '/')) {
+					$ds[$key] = _DIR_RACINE . $directory;
+				}
+			}
+			$paths = $paths->with(Group::ExtraTemplates, $ds);
+		}
+	}
+
+	return $paths;
+}
+
+function spip_paths_loader(): Loader {
+	static $loaders = [];
+	static $cache = null;
+
+	if ($cache === null) {
+		$cache = new FlatFilesystem('paths', Path::makeAbsolute(_DIR_CACHE, _ROOT_CWD));
+		if (_request('var_mode')) {
+			$cache->clear();
+		}
+	}
+
+	$paths = spip_paths();
+
+	return $loaders[$paths->getHash()] ??= new Loader($paths, $cache);
+}
+
 /**
  * Gestion des chemins (ou path) de recherche de fichiers par SPIP
  *
@@ -26,100 +96,29 @@
  *     - prive/
  *     - ecrire/
  *
- * @param string|array $dir_path
+ * @param string|array|null $dir_path
  *     - Répertoire(s) à empiler au path
- *     - '' provoque un recalcul des chemins.
  * @return array
  *     Liste des chemins, par ordre de priorité.
  **/
-function _chemin($dir_path = null) {
-	static $path_base = null;
-	static $path_full = null;
-	if ($path_base == null) {
-		// Chemin standard depuis l'espace public
-		$path = defined('_SPIP_PATH') ? _SPIP_PATH :
-			_DIR_RACINE . ':' .
-			_DIR_RACINE . 'squelettes-dist/:' .
-			_DIR_RACINE . 'prive/:' .
-			_DIR_RESTREINT;
-		// Ajouter squelettes/
-		if (@is_dir(_DIR_RACINE . 'squelettes')) {
-			$path = _DIR_RACINE . 'squelettes/:' . $path;
-		}
-		foreach (explode(':', $path) as $dir) {
-			if (strlen($dir) && !str_ends_with($dir, '/')) {
-				$dir .= '/';
-			}
-			$path_base[] = $dir;
-		}
-		$path_full = $path_base;
-		// Et le(s) dossier(s) des squelettes nommes
-		if (strlen($GLOBALS['dossier_squelettes'])) {
-			foreach (array_reverse(explode(':', $GLOBALS['dossier_squelettes'])) as $d) {
-				array_unshift($path_full, ($d[0] == '/' ? '' : _DIR_RACINE) . $d . '/');
-			}
-		}
-		$GLOBALS['path_sig'] = md5(serialize($path_full));
-	}
-	if ($dir_path === null) {
-		return $path_full;
-	}
-
+function _chemin(string|array|null $dir_path = null): array {
 	if (is_array($dir_path) || strlen($dir_path)) {
-		$tete = '';
-		if (reset($path_base) == _DIR_RACINE . 'squelettes/') {
-			$tete = array_shift($path_base);
-		}
-		$dirs = (is_array($dir_path) ? $dir_path : explode(':', $dir_path));
-		$dirs = array_reverse($dirs);
-		foreach ($dirs as $dir_path) {
-			if (!str_ends_with($dir_path, '/')) {
-				$dir_path .= '/';
-			}
-			if (!in_array($dir_path, $path_base)) {
-				array_unshift($path_base, $dir_path);
-			}
-		}
-		if (strlen($tete)) {
-			array_unshift($path_base, $tete);
-		}
-	}
-	$path_full = $path_base;
-	// Et le(s) dossier(s) des squelettes nommes
-	if (strlen($GLOBALS['dossier_squelettes'])) {
-		foreach (array_reverse(explode(':', $GLOBALS['dossier_squelettes'])) as $d) {
-			array_unshift($path_full, ((isset($d[0]) && $d[0] == '/') ? '' : _DIR_RACINE) . $d . '/');
-		}
+		spip_paths(add: is_array($dir_path) ? $dir_path : explode(':', $dir_path));
 	}
 
-	$GLOBALS['path_sig'] = md5(serialize($path_full));
-
-	return $path_full;
+	return creer_chemin();
 }
 
 /**
  * Retourne la liste des chemins connus de SPIP, dans l'ordre de priorité
  *
- * Recalcule la liste si le nom ou liste de dossier squelettes a changé.
- *
- * @uses _chemin()
- *
  * @return array Liste de chemins
  **/
-function creer_chemin() {
-	$path_a = _chemin();
-	static $c = '';
-
-	// on calcule le chemin si le dossier skel a change
-	if ($c != $GLOBALS['dossier_squelettes']) {
-		// assurer le non plantage lors de la montee de version :
-		$c = $GLOBALS['dossier_squelettes'];
-		$path_a = _chemin(''); // forcer un recalcul du chemin
-	}
-
-	return $path_a;
+function creer_chemin(): array {
+	$dirs = spip_paths()->getDirectories();
+	// canal historique: avec / sauf si ''
+	return array_map(fn ($dir) => $dir === '' ? $dir : $dir . DIRECTORY_SEPARATOR, $dirs);
 }
-
 
 /**
  * Retourne la liste des thèmes du privé utilisables pour cette session
@@ -261,129 +260,45 @@ function chemin_image($icone) {
  *     - string : chemin du fichier trouvé
  *     - false : fichier introuvable
  **/
-function find_in_path($file, $dirname = '', $include = false) {
-	static $dirs = [];
-	static $inc = []; # cf https://git.spip.net/spip/spip/commit/42e4e028e38c839121efaee84308d08aee307eec
-	static $c = '';
+function find_in_path(string $file, string $dirname = '', bool|string $include = false): ?string {
 
-	if (!$file && !strlen($file)) {
-		return false;
+	$loader = spip_paths_loader();
+
+	if ($dirname) {
+		$file = rtrim($dirname, '/') . '/' . $file;
 	}
 
-	// on calcule le chemin si le dossier skel a change
-	if ($c != $GLOBALS['dossier_squelettes']) {
-		// assurer le non plantage lors de la montee de version :
-		$c = $GLOBALS['dossier_squelettes'];
-		creer_chemin(); // forcer un recalcul du chemin et la mise a jour de path_sig
+	$path = $loader->get($file);
+
+	if ($path !== null && str_starts_with($path, _ROOT_RACINE)) {
+		$path = _DIR_RACINE . substr($path, strlen(_ROOT_RACINE));
 	}
 
-	if (isset($GLOBALS['path_files'][$GLOBALS['path_sig']][$dirname][$file])) {
-		if (!$GLOBALS['path_files'][$GLOBALS['path_sig']][$dirname][$file]) {
-			return false;
-		}
-		if ($include && !isset($inc[$dirname][$file])) {
-			include_once _ROOT_CWD . $GLOBALS['path_files'][$GLOBALS['path_sig']][$dirname][$file];
-			$inc[$dirname][$file] = $inc[''][$dirname . $file] = true;
-		}
-
-		return $GLOBALS['path_files'][$GLOBALS['path_sig']][$dirname][$file];
+	if ($include === false) {
+		return $path;
 	}
 
-	$a = strrpos($file, '/');
-	if ($a !== false) {
-		$dirname .= substr($file, 0, ++$a);
-		$file = substr($file, $a);
+	if ($include === true) {
+		return $path !== null ? $loader->include($file) : null;
 	}
 
-	foreach (creer_chemin() as $dir) {
-		if (!isset($dirs[$a = $dir . $dirname])) {
-			$dirs[$a] = (is_dir(_ROOT_CWD . $a) || !$a);
-		}
-		if ($dirs[$a]) {
-			if (file_exists(_ROOT_CWD . ($a .= $file))) {
-				if ($include && !isset($inc[$dirname][$file])) {
-					include_once _ROOT_CWD . $a;
-					$inc[$dirname][$file] = $inc[''][$dirname . $file] = true;
-				}
-				if (!defined('_SAUVER_CHEMIN')) {
-					// si le chemin n'a pas encore ete charge, ne pas lever le flag, ne pas cacher
-					if (is_null($GLOBALS['path_files'])) {
-						return $a;
-					}
-					define('_SAUVER_CHEMIN', true);
-				}
-
-				return $GLOBALS['path_files'][$GLOBALS['path_sig']][$dirname][$file] = $GLOBALS['path_files'][$GLOBALS['path_sig']][''][$dirname . $file] = $a;
-			}
-		}
+	if ($include === 'required') {
+		return $loader->require($file);
 	}
 
-	if ($include) {
-		spip_log("include_spip $dirname$file non trouve");
-		if ($include === 'required') {
-			echo '<pre>',
-			'<strong>Erreur Fatale</strong><br />';
-			if (function_exists('debug_print_backtrace')) {
-				debug_print_backtrace();
-			}
-			echo '</pre>';
-			die("Erreur interne: ne peut inclure $dirname$file");
-		}
-	}
-
-	if (!defined('_SAUVER_CHEMIN')) {
-		// si le chemin n'a pas encore ete charge, ne pas lever le flag, ne pas cacher
-		if (is_null($GLOBALS['path_files'])) {
-			return false;
-		}
-		define('_SAUVER_CHEMIN', true);
-	}
-
-	return $GLOBALS['path_files'][$GLOBALS['path_sig']][$dirname][$file] = $GLOBALS['path_files'][$GLOBALS['path_sig']][''][$dirname . $file] = false;
+	throw new \InvalidArgumentException(sprintf('$include argument with "%s" value is incorrect.', $include));
 }
 
 function clear_path_cache() {
-	$GLOBALS['path_files'] = [];
-	spip_unlink(_CACHE_CHEMIN);
+	spip_paths_loader()->getCache()->clear();
 }
 
 function load_path_cache() {
-	// charger le path des plugins
-	if (@is_readable(_CACHE_PLUGINS_PATH)) {
-		include_once(_CACHE_PLUGINS_PATH);
-	}
-	$GLOBALS['path_files'] = [];
-	// si le visiteur est admin,
-	// on ne recharge pas le cache pour forcer sa mise a jour
-	if (
-		// la session n'est pas encore chargee a ce moment, on ne peut donc pas s'y fier
-		//AND (!isset($GLOBALS['visiteur_session']['statut']) OR $GLOBALS['visiteur_session']['statut']!='0minirezo')
-		// utiliser le cookie est un pis aller qui marche 'en general'
-		// on blinde par un second test au moment de la lecture de la session
-		// !isset($_COOKIE[$GLOBALS['cookie_prefix'].'_admin'])
-		// et en ignorant ce cache en cas de recalcul explicite
-		!_request('var_mode')
-	) {
-		// on essaye de lire directement sans verrou pour aller plus vite
-		if ($contenu = spip_file_get_contents(_CACHE_CHEMIN)) {
-			// mais si semble corrompu on relit avec un verrou
-			if (!$GLOBALS['path_files'] = unserialize($contenu)) {
-				lire_fichier(_CACHE_CHEMIN, $contenu);
-				if (!$GLOBALS['path_files'] = unserialize($contenu)) {
-					$GLOBALS['path_files'] = [];
-				}
-			}
-		}
-	}
+
 }
 
 function save_path_cache() {
-	if (
-		defined('_SAUVER_CHEMIN')
-		&& _SAUVER_CHEMIN
-	) {
-		ecrire_fichier(_CACHE_CHEMIN, serialize($GLOBALS['path_files']));
-	}
+
 }
 
 /**

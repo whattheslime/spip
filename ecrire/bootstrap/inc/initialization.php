@@ -109,7 +109,7 @@ function spip_initialisation_core($pi = null, $pa = null, $ti = null, $ta = null
 	if (!isset($GLOBALS['test_dirs'])) {
 		// Pas $pi car il est bon de le mettre hors ecriture apres intstall
 		// il sera rajoute automatiquement si besoin a l'etape 2 de l'install
-	$GLOBALS['test_dirs'] = [$pa, $ti, $ta];
+		$GLOBALS['test_dirs'] = [$pa, $ti, $ta];
 	}
 
 	// Declaration des fichiers
@@ -240,8 +240,10 @@ function spip_initialisation_core($pi = null, $pa = null, $ti = null, $ta = null
 	// systematique du noyau ou une baisse de perfs => a etudier)
 	include_once _ROOT_RESTREINT . 'inc/flock.php';
 
-	// charger tout de suite le path et son cache
-	load_path_cache();
+	// charger le path des plugins
+	if (@is_readable(_CACHE_PLUGINS_PATH)) {
+		include_once(_CACHE_PLUGINS_PATH);
+	}
 
 	// *********** traiter les variables ************
 
