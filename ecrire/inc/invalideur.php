@@ -195,22 +195,6 @@ function purger_repertoire($dir, $options = []) {
 // Destruction des fichiers caches invalides
 //
 
-// Securite : est sur que c'est un cache
-function retire_cache($cache) {
-
-	if (
-		preg_match(
-			',^([0-9a-f]/)?(\d+/)?[0-9a-f]+\.cache(\.gz)?$,i',
-			(string) $cache
-		)
-	) {
-		// supprimer le fichier (de facon propre)
-		supprimer_fichier(_DIR_CACHE . $cache);
-	} else {
-		spip_log("Nom de fichier cache incorrect : $cache");
-	}
-}
-
 // Supprimer les caches marques "x"
 // A priori dans cette version la fonction ne sera pas appelee, car
 // la meta est toujours false ; mais evitons un bug si elle est appellee
