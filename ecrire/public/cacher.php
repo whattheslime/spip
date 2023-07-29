@@ -184,7 +184,7 @@ function cache_valide(array &$page, int $date): int {
 
 /**
  * Creer le fichier cache
- * 
+ *
  * Passage par reference de $page par souci d'economie
  *
  * @param array $page
@@ -246,28 +246,6 @@ function creer_cache(&$page, &$cache_key) {
 	include_spip('inc/invalideur');
 	maj_invalideurs($cache_key, $page);
 }
-
-
-/**
- * purger un petit cache (tidy ou recherche) qui ne doit pas contenir de
- * vieux fichiers ; (cette fonction ne sert que dans des plugins obsoletes)
- *
- * @param string $prefix
- * @param int $duree
- * @return void
- */
-function nettoyer_petit_cache($prefix, $duree = 300) {
-	// determiner le repertoire a purger : 'tmp/CACHE/rech/'
-	$dircache = sous_repertoire(_DIR_CACHE, $prefix);
-	if (spip_touch($dircache . 'purger_' . $prefix, $duree, true)) {
-		foreach (preg_files($dircache, '[.]txt$') as $f) {
-			if ($_SERVER['REQUEST_TIME'] - (@file_exists($f) ? @filemtime($f) : 0) > $duree) {
-				spip_unlink($f);
-			}
-		}
-	}
-}
-
 
 /**
  * Interface du gestionnaire de cache
