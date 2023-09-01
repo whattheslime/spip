@@ -2,6 +2,10 @@
 
 Changelog de SPIP 4.1
 
+## 4.1.12 - 2023-09-01
+
+- Cf. plugin SVP
+
 ## 4.1.11 - 2023-07-07
 
 ### Security
