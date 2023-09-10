@@ -20,6 +20,7 @@
 
 ### Fixed
 
+- #5725 Lorsque l'on a plus de dix fois un appel à un modèle inexistant, ne pas bloquer les appels suivants
 - #5699 Retrouver le mime_type dans `recuperer_infos_distantes()` et en cascade les infos d'images
 - #5694 Correction de `recuperer_url()` avec une URL contenant "user:pass" qui étaient doublement encodés
 - #5695 Décoration du cadre des taches de fond (job) associées à un objet éditorial dans l’espace privé
