@@ -2,6 +2,12 @@
 
 Changelog de SPIP 4.2
 
+## Unreleased
+
+### Fixed
+
+- #5725 Lorsque l'on a plus de dix fois un appel à un modèle inexistant, ne pas bloquer les appels suivants
+
 ## 4.2.5 - 2023-09-01
 
 ### Fixed
