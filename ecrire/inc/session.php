@@ -83,7 +83,6 @@ function supprimer_sessions($id_auteur, $toutes = true, $actives = true) {
 		if ($dir = opendir(_DIR_SESSIONS)) {
 			$t = $_SERVER['REQUEST_TIME']  - (4 * _RENOUVELLE_ALEA); // 48h par defaut
 			$t_short = $_SERVER['REQUEST_TIME']  - max(_RENOUVELLE_ALEA / 4, 3 * 3600); // 3h par defaut
-			$t = time() - (4 * _RENOUVELLE_ALEA);
 			while (($f = readdir($dir)) !== false) {
 				$nb_files++;
 				if (preg_match(',^[^\d-]*(-?\d+)_\w{32}\.php[3]?$,', $f, $regs)) {
