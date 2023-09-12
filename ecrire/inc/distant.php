@@ -1050,6 +1050,7 @@ function recuperer_infos_distantes($source, $options = []) {
 	// S'il s'agit d'une image pas trop grosse ou d'un fichier html, on va aller
 	// recharger le document en GET et recuperer des donnees supplementaires...
 	include_spip('inc/filtres_images_lib_mini');
+	include_spip('inc/documents');
 	if (
 		str_starts_with($mime_type, 'image/')
 		&& ($extension = _image_trouver_extension_depuis_mime($mime_type))
@@ -1064,7 +1065,7 @@ function recuperer_infos_distantes($source, $options = []) {
 			$a = recuperer_infos_distantes($source, $options);
 		} else {
 			if ($a['body']) {
-				$a['extension'] = $extension;
+				$a['extension'] = corriger_extension($extension);
 				$a['fichier'] = _DIR_RACINE . nom_fichier_copie_locale($source, $extension);
 				ecrire_fichier($a['fichier'], $a['body']);
 				$size_image = @spip_getimagesize($a['fichier']);
