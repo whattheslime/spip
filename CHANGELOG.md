@@ -20,6 +20,7 @@
 
 ### Fixed
 
+- #5723 Corrige le renseignement des images JPG distantes pour bien toujours unifier avec l'extension "jpg" et non "jpeg"
 - #5725 Lorsque l'on a plus de dix fois un appel à un modèle inexistant, ne pas bloquer les appels suivants
 - #5528 Éviter des collisions avec les noms de cache des fichiers distants
 
