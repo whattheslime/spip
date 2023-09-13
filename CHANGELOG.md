@@ -6,6 +6,7 @@ Changelog de SPIP 4.2
 
 ### Fixed
 
+- #5723 Corrige le renseignement des images JPG distantes pour bien toujours unifier avec l'extension "jpg" et non "jpeg"
 - #5725 Lorsque l'on a plus de dix fois un appel à un modèle inexistant, ne pas bloquer les appels suivants
 
 ## 4.2.5 - 2023-09-01
