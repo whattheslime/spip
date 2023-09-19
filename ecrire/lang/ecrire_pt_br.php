@@ -227,6 +227,7 @@ Estas informações deverão ser fornecidas pelo administrador do sistema ou da 
 	'info_administrer_rubrique' => 'Você pode administrar esta seção',
 	'info_adresse' => 'no endereço:',
 	'info_adresse_desinscription' => 'Endereço da desinscrição:',
+	'info_adresse_inscription' => 'Endereço de inscrição:',
 	'info_adresse_url' => 'Endereço (URL) do site público',
 	'info_afficher_par_nb' => 'Exibir por',
 	'info_aide_en_ligne' => 'Ajuda online SPIP',
@@ -698,14 +699,20 @@ As traduções estão associadas ao original, numa côr que indica o seu status:
 	'protocole_ldap' => 'Versão do protocolo:',
 
 	// Q
+	'queue_args_fonction_label' => 'Argumentos passados à função @fonction@',
+	'queue_args_voir' => 'Ver os argumentos',
 	'queue_executer_maintenant' => 'Executar agora',
+	'queue_fonction_label' => 'Função',
 	'queue_info_purger' => 'Você pode excluir todas as tarefas de fundo em espera e reinicializar a lista com as tarefas periódicas',
+	'queue_liens_label' => 'Links',
 	'queue_nb_jobs_in_queue' => '@nb@ tarefas em espera',
 	'queue_next_job_in_nb_sec' => 'Próxima tarefa em @nb@ s',
+	'queue_next_job_scheduled' => 'Próxima tarefa',
 	'queue_no_job_in_queue' => 'Nenhum tarefa em espera',
 	'queue_one_job_in_queue' => '1 tarefa em espera',
 	'queue_priorite_tache' => 'prioridade',
 	'queue_purger_queue' => 'Reiniciar a lista de tarefas',
+	'queue_statut_en_cours' => 'Em curso',
 	'queue_titre' => 'Tarefas de fundo',
 
 	// R
