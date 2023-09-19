@@ -616,8 +616,11 @@ e reconectar-se com o site.
 
 	// T
 	'taille_go' => '@taille@ GB',
+	'taille_go_bi' => '@taille@ GB',
 	'taille_ko' => '@taille@ KB',
+	'taille_ko_bi' => '@taille@ kB',
 	'taille_mo' => '@taille@ MB',
+	'taille_mo_bi' => '@taille@ MB',
 	'taille_octets' => ' @taille@ bytes',
 	'taille_octets_bi' => ' @taille@ bytes',
 	'texte_actualite_site_1' => 'Quando você estiver mais familiarizado com a interface, clique em «',
