@@ -407,7 +407,12 @@ function auteur_verifier_jeton($jeton) {
 	$auteurs = sql_allfetsel('*', 'spip_auteurs', 'cookie_oubli LIKE ' . sql_quote($public . '%'));
 	foreach ($auteurs as $auteur) {
 		$jeton_chiffre = substr((string) $auteur['cookie_oubli'], 8);
-		$_jeton = Chiffrement::dechiffrer($jeton_chiffre, SpipCles::secret_du_site());
+		try {
+			$_jeton = Chiffrement::dechiffrer($jeton_chiffre, SpipCles::secret_du_site());
+		} catch (\Exception $e) {
+			spip_log('Échec du déchiffrage du jeton d’auteur: ' . $e->getMessage(), 'chiffrer.' . _LOG_ERREUR);
+			return false;
+		}
 		if ($_jeton && hash_equals($jeton, $_jeton)) {
 			return $auteur;
 		}
