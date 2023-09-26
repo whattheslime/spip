@@ -22,6 +22,7 @@ Changelog de SPIP 4.4
 
 ### Fixed
 
+- #3919 Réparer l'ajout de la configuration LDAP lors de l'installation
 - #3928 Les emails des auteurs sont masqués par défaut
 - !6024 Éviter notice dans `init_http` en cas de "seriously malformed URLs"
 - #5983 (retour partiel sur #5667) Générer des contenus éditoriaux aussi compatibles xhtml (sur `br` et `img`)
