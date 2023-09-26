@@ -30,15 +30,59 @@ function etape_ldap5_save() {
 
 	ecrire_meta('ldap_statut_import', _request('statut_ldap'));
 
-	lire_fichier(_FILE_CONNECT_TMP, $conn);
-
-	if ($p = strpos((string) $conn, "'');")) {
-		ecrire_fichier(
-			_FILE_CONNECT_TMP,
-			substr((string) $conn, 0, $p + 1)
-			. _FILE_LDAP
-			. substr((string) $conn, $p + 1)
+	$conn_db = analyse_fichier_connection(_FILE_CONNECT_TMP);
+	if ($conn_db) {
+		[$adresse_db, $login_db, $pass_db, $sel_db, $server_db, $table_prefix, $auth, $charset] = $conn_db;
+		// il faudrait peut-être contrôler que $auth est bien vide ''
+		if (preg_match(',(.*):(.*),', (string) $adresse_db, $r)) {
+			[, $adresse_db, $port] = $r;
+		} else {
+			$port = '';
+		}
+		$auth_new = _FILE_LDAP;
+		// Ceci est nécessaire car on ne maitrise pas ce qui est ajouté au
+		// fichier de configuration
+		$orig_config = install_connexion(
+			$adresse_db,
+			$port,
+			$login_db,
+			$pass_db,
+			$sel_db,
+			$server_db,
+			$table_prefix,
+			$auth,
+			$charset
 		);
+		$new_config = install_connexion(
+			$adresse_db,
+			$port,
+			$login_db,
+			$pass_db,
+			$sel_db,
+			$server_db,
+			$table_prefix,
+			$auth_new,
+			$charset
+		);
+
+		lire_fichier(_FILE_CONNECT_TMP, $conn);
+		// on ne peut pas directement utiliser preg_replace pour ajouter
+		// $auth_new car on n'est pas censé connaître le format de la ligne de
+		// connexion ici
+		$new_conn = str_replace(
+			$orig_config,
+			$new_config,
+			$conn,
+			$count
+		);
+		// on ne casse pas le fichier de connexion si quelque chose se passe
+		// mal, peut-être faudrait-il afficher une erreur
+		if ($count == 1) {
+			ecrire_fichier(
+				_FILE_CONNECT_TMP,
+				$new_conn
+			);
+		}
 	}
 
 	$adresse_ldap = addcslashes((string) _request('adresse_ldap'), "'\\");
