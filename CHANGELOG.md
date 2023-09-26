@@ -20,6 +20,7 @@
 
 ### Fixed
 
+- #3919 Réparer l'ajout de la configuration LDAP lors de l'installation
 - #5733 Ne pas générer d’erreur fatale sur les jetons d’auteurs présents au format antérieurs à SPIP 4.2
 - #5723 Corrige le renseignement des images JPG distantes pour bien toujours unifier avec l'extension "jpg" et non "jpeg"
 - #5725 Lorsque l'on a plus de dix fois un appel à un modèle inexistant, ne pas bloquer les appels suivants
