@@ -104,7 +104,7 @@ function load_charset($charset = 'AUTO') {
  * Vérifier qu'on peut utiliser mb_string avec notre charset
  *
  * Les fonctions mb_* sont tout le temps présentes avec symfony/polyfill-mbstring
- * 
+ *
  * @return bool
  *     true si notre charset est utilisable par mb_strsing
  **/
@@ -255,10 +255,13 @@ function corriger_caracteres_windows($texte, $charset = 'AUTO', $charset_cible =
  *     texte converti
  **/
 function html2unicode($texte, $secure = false) {
+	static $trans = [];
+	if ($texte === null || $texte === '') {
+		return '';
+	}
 	if (strpos($texte, '&') === false) {
 		return $texte;
 	}
-	static $trans = [];
 	if (!$trans) {
 		load_charset('html');
 		foreach ($GLOBALS['CHARSET']['html'] as $key => $val) {
@@ -796,8 +799,8 @@ function translitteration_rapide($texte, $charset = 'AUTO', $complexe = ''): str
 	if ($charset == 'AUTO') {
 		$charset = $GLOBALS['meta']['charset'];
 	}
-	if (!strlen($texte)) {
-		return $texte;
+	if ($texte === null || $texte === '') {
+		return '';
 	}
 
 	$table_translit = 'translit' . $complexe;
@@ -834,6 +837,9 @@ function translitteration_rapide($texte, $charset = 'AUTO', $complexe = ''): str
  * @return string
  */
 function translitteration($texte, $charset = 'AUTO', $complexe = ''): string {
+	if ($texte === null || $texte === '') {
+		return '';
+	}
 	// 0. Supprimer les caracteres illegaux
 	include_spip('inc/filtres');
 	$texte = corriger_caracteres($texte);
