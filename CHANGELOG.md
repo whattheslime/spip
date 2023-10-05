@@ -2,7 +2,7 @@
 
 Changelog de SPIP 4.2
 
-## Unreleased
+## 4.2.6 - 2023-10-05
 
 ### Fixed
 
