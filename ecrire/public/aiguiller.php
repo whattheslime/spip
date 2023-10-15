@@ -323,6 +323,10 @@ function traiter_formulaires_dynamiques($get = false) {
 					$post["message_ok_$form"] .= $message;
 					$retour .= $masque;
 				}
+				// Si multiétape, puisqu'on a tout fait, on peut recommencer à zéro
+				if (_request('_etapes')) {
+					set_request('_etape', null);
+				}
 			}
 		}
 		// si le formulaire a ete soumis en ajax, on le renvoie direct !
