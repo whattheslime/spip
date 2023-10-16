@@ -2,6 +2,12 @@
 
 Changelog de SPIP 4.2
 
+## Unreleased
+
+### Fixed
+
+- #5754 boutons de gestion du logo en btn_mini et supprimer en btn_secondaire
+
 ## 4.2.6 - 2023-10-05
 
 ### Fixed
