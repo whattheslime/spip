@@ -20,6 +20,7 @@
 
 ### Fixed
 
+- #5754 boutons de gestion du logo en btn_mini et supprimer en btn_secondaire
 - #5732 Éviter une notice sur la recherche de certain·es auteurs ou autrices
 - #5733 Ne pas générer d’erreur fatale sur les jetons d’auteurs présents au format antérieurs à SPIP 4.2
 - #5723 Corrige le renseignement des images JPG distantes pour bien toujours unifier avec l'extension "jpg" et non "jpeg"
