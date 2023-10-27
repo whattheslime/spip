@@ -367,6 +367,9 @@ function auteur_instituer($id_auteur, $c, $force_webmestre = false) {
 		[
 			'args' => [
 				'table' => 'spip_auteurs',
+				'table_objet' => 'auteurs',
+				'spip_table_objet' => 'spip_auteurs',
+				'objet' => 'auteur',
 				'id_objet' => $id_auteur,
 				'action' => 'instituer',
 				'statut_ancien' => $statut_ancien,
@@ -431,6 +434,9 @@ function auteur_instituer($id_auteur, $c, $force_webmestre = false) {
 		[
 			'args' => [
 				'table' => 'spip_auteurs',
+				'table_objet' => 'auteurs',
+				'spip_table_objet' => 'spip_auteurs',
+				'objet' => 'auteur',
 				'id_objet' => $id_auteur,
 				'action' => 'instituer',
 				'statut_ancien' => $statut_ancien,

@@ -372,6 +372,7 @@ function objet_instituer($objet, $id, $c, $calcul_rub = true) {
 	}
 
 	$table_sql = table_objet_sql($objet);
+	$table_objet = table_objet($objet);
 	$trouver_table = charger_fonction('trouver_table', 'base');
 	$desc = $trouver_table($table_sql);
 	if (!$desc || !isset($desc['field'])) {
@@ -468,6 +469,9 @@ function objet_instituer($objet, $id, $c, $calcul_rub = true) {
 		[
 			'args' => [
 				'table' => $table_sql,
+				'table_objet' => $table_objet,
+				'spip_table_objet' => $table_sql,
+				'objet' => $objet,
 				'id_objet' => $id,
 				'action' => 'instituer',
 				'statut_ancien' => $statut_ancien,
@@ -504,6 +508,9 @@ function objet_instituer($objet, $id, $c, $calcul_rub = true) {
 		[
 			'args' => [
 				'table' => $table_sql,
+				'table_objet' => $table_objet,
+				'spip_table_objet' => $table_sql,
+				'objet' => $objet,
 				'id_objet' => $id,
 				'action' => 'instituer',
 				'statut_ancien' => $statut_ancien,

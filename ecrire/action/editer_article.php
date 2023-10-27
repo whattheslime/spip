@@ -372,6 +372,9 @@ function article_instituer($id_article, $c, $calcul_rub = true) {
 		[
 			'args' => [
 				'table' => 'spip_articles',
+				'table_objet' => 'articles',
+				'spip_table_objet' => 'spip_articles',
+				'objet' => 'article',
 				'id_objet' => $id_article,
 				'action' => 'instituer',
 				'statut_ancien' => $statut_ancien,
@@ -406,6 +409,9 @@ function article_instituer($id_article, $c, $calcul_rub = true) {
 		[
 			'args' => [
 				'table' => 'spip_articles',
+				'table_objet' => 'articles',
+				'spip_table_objet' => 'spip_articles',
+				'objet' => 'article',
 				'id_objet' => $id_article,
 				'action' => 'instituer',
 				'statut_ancien' => $statut_ancien,
