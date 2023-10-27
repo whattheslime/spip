@@ -6,6 +6,7 @@ Changelog de SPIP 4.2
 
 ### Fixed
 
+- #5758 Pipelines `pre_edition` et `post_edition`: lors d'institution, transmettre aussi les infos `objet`, `table_objet`, `spip_table_objet`.
 - #5754 Boutons de gestion du logo en `btn_mini` et supprimer en `btn_secondaire`
 
 ## 4.2.6 - 2023-10-05
