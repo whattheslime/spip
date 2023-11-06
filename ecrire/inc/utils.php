@@ -719,21 +719,41 @@ function nettoyer_uri($reset = null) {
  * Nettoie une request_uri des paramètres var_xxx
  *
  * Attention, la regexp doit suivre _CONTEXTE_IGNORE_VARIABLES défini au début de public/assembler.php
+ * @uses _CONTEXTE_IGNORE_LISTE_VARIABLES
  *
  * @param string $request_uri
  * @return string
  */
 function nettoyer_uri_var($request_uri) {
+	static $preg_nettoyer;
+	if (!defined('_CONTEXTE_IGNORE_LISTE_VARIABLES')) {
+		define('_CONTEXTE_IGNORE_LISTE_VARIABLES', ['^var_', '^PHPSESSID$', '^fbclid$', '^utm_']);
+	}
+	if (empty($preg_nettoyer)) {
+		$preg_nettoyer_vars = _CONTEXTE_IGNORE_LISTE_VARIABLES;
+		foreach ($preg_nettoyer_vars as &$var) {
+			if (str_starts_with($var, '^')) {
+				$var = substr($var, 1);
+			} else {
+				$var = '[^=&]*' . $var;
+			}
+			if (str_ends_with($var, '$')) {
+				$var = substr($var, 0, -1);
+			} else {
+				$var .= '[^=&]*';
+			}
+		}
+		$preg_nettoyer = ',([?&])(' . implode('|', $preg_nettoyer_vars) . ')=[^&]*(&|$),i';
+	}
+	if (empty($request_uri)) {
+		return $request_uri;
+	}
 	$uri1 = $request_uri;
 	do {
 		$uri = $uri1;
-		$uri1 = preg_replace(
-			',([?&])(var_[^=&]*|PHPSESSID|fbclid|utm_[^=&]*)=[^&]*(&|$),i',
-			'\1',
-			$uri
-		);
+		$uri1 = preg_replace($preg_nettoyer, '\1', $uri);
 	} while ($uri <> $uri1);
-	return preg_replace(',[?&]$,', '', $uri1);
+	return rtrim($uri1, '?&');
 }
 
 

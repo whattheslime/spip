@@ -22,11 +22,6 @@ if (!defined('_ECRIRE_INC_VERSION')) {
 	return;
 }
 
-// En cas de modification, il faut aussi actualiser la regexp de nettoyer_uri_var() dans inc/utils.php
-if (!defined('_CONTEXTE_IGNORE_VARIABLES')) {
-	define('_CONTEXTE_IGNORE_VARIABLES', '/(^var_|^PHPSESSID$|^fbclid$|^utm_)/');
-}
-
 function assembler($fond, string $connect = '') {
 
 	$chemin_cache = null;
@@ -193,6 +188,9 @@ function assembler($fond, string $connect = '') {
 /**
  * Calcul le contexte de la page
  *
+ * @uses _CONTEXTE_IGNORE_LISTE_VARIABLES
+ * @see nettoyer_uri_var()
+ *
  * lors du calcul d'une page spip etablit le contexte a partir
  * des variables $_GET et $_POST, purgees des fausses variables var_*
  *
@@ -203,15 +201,22 @@ function assembler($fond, string $connect = '') {
  * @return array Un tableau du contexte de la page
  */
 function calculer_contexte() {
+	static $preg_ignore_variables;
+	if (empty($preg_ignore_variables)) {
+		if (!defined('_CONTEXTE_IGNORE_LISTE_VARIABLES')) {
+			nettoyer_uri_var('');
+		}
+		$preg_ignore_variables = '/(' . implode('|',_CONTEXTE_IGNORE_LISTE_VARIABLES) . ')/';
+	}
 
 	$contexte = [];
 	foreach ($_GET as $var => $val) {
-		if (!preg_match(_CONTEXTE_IGNORE_VARIABLES, $var)) {
+		if (!preg_match($preg_ignore_variables, $var)) {
 			$contexte[$var] = $val;
 		}
 	}
 	foreach ($_POST as $var => $val) {
-		if (!preg_match(_CONTEXTE_IGNORE_VARIABLES, $var)) {
+		if (!preg_match($preg_ignore_variables, $var)) {
 			$contexte[$var] = $val;
 		}
 	}
