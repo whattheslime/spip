@@ -51,7 +51,7 @@ if (!defined('_ECRIRE_INC_VERSION')) {
  * @param bool $postdate
  *     true pour recalculer aussi la date du prochain article post-daté
  */
-function calculer_rubriques_if($id_rubrique, $modifs, $infos = [], $postdate = false) {
+function calculer_rubriques_if(int $id_rubrique, $modifs, $infos = [], $postdate = false) {
 	$statuts_publies = null;
 	$neuf = false;
 	$date_ancienne = sql_getfetsel('date', 'spip_rubriques', "id_rubrique=$id_rubrique");
