@@ -640,6 +640,20 @@ function inclure_modele($type, $id, $params, $lien, string $connect = '', $env =
 	$fond = 'modeles/' . $fond;
 	// Creer le contexte
 	$contexte = $env;
+	// securiser le contexte des modèles : tout ce qui arrive de _request() doit être sanitizé
+	foreach ($contexte as $k => &$v) {
+		if (!is_null(_request($k)) && (!is_scalar($v) || (_request($k) === $v))) {
+			include_spip('inc/texte_mini');
+			if (is_scalar($v)) {
+				$v = spip_securise_valeur_env_modele($v);
+			} else {
+				array_walk_recursive($v, function (&$value, $index) {
+					$value = spip_securise_valeur_env_modele($value);
+				});
+			}
+		}
+	}
+
 	$contexte['dir_racine'] = _DIR_RACINE; # eviter de mixer un cache racine et un cache ecrire (meme si pour l'instant les modeles ne sont pas caches, le resultat etant different il faut que le contexte en tienne compte
 
 	// Le numero du modele est mis dans l'environnement
@@ -698,6 +712,28 @@ function inclure_modele($type, $id, $params, $lien, string $connect = '', $env =
 	return (isset($arg_list['ajax']) and $arg_list['ajax'] == 'ajax')
 		? encoder_contexte_ajax($contexte, '', $retour)
 		: $retour;
+}
+
+/**
+ * Sanitizer une valeur venant de _request() et passée à un modèle :
+ * on laisse passer les null, bool et numeriques (id et pagination),
+ * les @+nombre (pagination indirecte)
+ * ou sinon le \w + espace et tirets uniquement, pour les tris/sens tri etc
+ * mais rien de compliqué suceptible d'être interprété
+ *
+ * @param $valeur
+ * @return array|float|int|mixed|string|string[]|null
+ */
+function spip_securise_valeur_env_modele($valeur) {
+	if (is_numeric($valeur) || is_bool($valeur) || is_null($valeur)) {
+		return $valeur;
+	}
+	$valeur = (string)$valeur;
+	if (str_starts_with($valeur, '@') && is_numeric(substr($valeur, 1))) {
+		return $valeur;
+	}
+	// on laisse passer que les \w, les espaces et les -, le reste est supprimé
+	return preg_replace(",[^\w\s-],", "", $valeur);
 }
 
 // Un inclure_page qui marche aussi pour l'espace prive
