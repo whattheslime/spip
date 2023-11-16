@@ -716,9 +716,11 @@ function nettoyer_uri($reset = null) {
 }
 
 /**
- * Nettoie une request_uri des paramètres var_xxx
+ * Nettoie une URI de certains paramètres (var_xxx, utm_xxx, etc.)
  *
- * Attention, la regexp doit suivre _CONTEXTE_IGNORE_VARIABLES défini au début de public/assembler.php
+ * La regexp des paramètres nettoyés est calculée à partir de la constante `_CONTEXTE_IGNORE_LISTE_VARIABLES`
+ * (qui peut être redéfinie dans mes_options.php)
+ *
  * @uses _CONTEXTE_IGNORE_LISTE_VARIABLES
  *
  * @param string $request_uri
@@ -727,6 +729,7 @@ function nettoyer_uri($reset = null) {
 function nettoyer_uri_var($request_uri) {
 	static $preg_nettoyer;
 	if (!defined('_CONTEXTE_IGNORE_LISTE_VARIABLES')) {
+		/** @var array<string> Liste (regexp) de noms de variables à ignorer d’une URI */
 		define('_CONTEXTE_IGNORE_LISTE_VARIABLES', ['^var_', '^PHPSESSID$', '^fbclid$', '^utm_']);
 	}
 	if (empty($preg_nettoyer)) {
