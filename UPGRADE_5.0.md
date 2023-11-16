@@ -238,6 +238,26 @@ $url = url_absolue($url);
 [(#URL_ARTICLE|url_absolue)]
 ```
 
+# Renommage / changement de configurations
+
+## Nettoyage des paramètres d’URI
+
+Une configuration (certainement très peu surchargée) a été modifiée et renommée :
+- Introduction de la constante `_CONTEXTE_IGNORE_LISTE_VARIABLES`.
+- Suppression de la constante `_CONTEXTE_IGNORE_VARIABLES`.
+
+#### Avant
+
+```php
+define('_CONTEXTE_IGNORE_VARIABLES', '/(^var_|^PHPSESSID$|^fbclid$|^utm_)/');
+```
+
+#### Après
+
+```php
+define('_CONTEXTE_IGNORE_LISTE_VARIABLES', ['^var_', '^PHPSESSID$', '^fbclid$', '^utm_']);
+```
+
 # Suppressions des éléments dépréciés
 
 Les éléments suivants ont été supprimés et doivent être adaptés si ce n’est pas encore le cas.
