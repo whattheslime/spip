@@ -11,6 +11,7 @@
 
 ### Changed
 
+- #5765 Nettoyage des paramètres d’URI : la constante `_CONTEXTE_IGNORE_LISTE_VARIABLES` remplace `_CONTEXTE_IGNORE_VARIABLES` supprimée.
 - #3637 Phraseur: Accepter des crochets dans la partie optionnelle d’une balise. `[hop] (#REM) [truc]` devient possible.
 - Refactor de `echappe_html()` avec un collecteur
 - #5552 Signature de `spip_setcookie` (reprend la signature de php `setcookie`)
@@ -41,6 +42,7 @@
 
 ### Removed
 
+- #5765 Constante `_CONTEXTE_IGNORE_VARIABLES` (string), utiliser `_CONTEXTE_IGNORE_LISTE_VARIABLES` (array)
 - #5701 Retrait de la fonctionnalité de surlignage des résultats de la recherche. Cf. plugin Surligne https://git.spip.net/spip-contrib-extensions/surligne
 - #5688 Ne plus chercher d’eventuels fichiers `ecrire/mes_options.php` ou `ecrire/inc_connect.php` (ils sont dans `config/mes_options.php` ou `config/connect.php`)
 - #5654 Migration BDD < SPIP 4.0 (il faut partir d’un SPIP 3.2 minimum pour migrer en SPIP 5.0)
