@@ -10,6 +10,8 @@ Changelog de SPIP 4.4
 - Mise à jour de l’écran de sécurité en version 1.6.3
 
 ### Added
+
+- #5766 Pipeline `ajouter_menus_args`, en complément au pipeline `ajouter_menus`, qui transmet les arguments de `definir_barre_boutons()`
 - !6064 Polyfill pour PHP 8.3 & 8.4
 - !6051 Purger les variables de `var_nullify` du contexte dans `traiter_appels_inclusions_ajax`
 - !6044 balise #PARAM pour récupérer les paramètres du container de services (Cf [UPGRADE_5.0.md](UPGRADE_5.0.md#Constantes_PHP))
