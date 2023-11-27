@@ -54,6 +54,7 @@
 	<pipeline nom="base_admin_repair" action="" />
 	<pipeline nom="boite_infos" action="f_boite_infos" inclure="inc/pipelines_ecrire.php" />
 	<pipeline nom="ajouter_menus" action="" />
+	<pipeline nom="ajouter_menus_args" action="" />
 	<pipeline nom="ajouter_onglets" action="" />
 	<pipeline nom="body_prive" action="" />
 	<pipeline nom="calculer_rubriques" action="" />
