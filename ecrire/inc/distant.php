@@ -591,6 +591,9 @@ function recuperer_url($url, $options = []) {
 		if (isset($res['location'])) {
 			$result['location'] = $res['location'];
 		}
+		if (isset($res['content_length'])) {
+			$result['content_length'] = $res['content_length'];
+		}
 	}
 
 	// on ne veut que les entetes
@@ -610,7 +613,13 @@ function recuperer_url($url, $options = []) {
 
 	// si on a pas deja recuperer le contenu par une methode detournee
 	if (!$result['length']) {
-		$res = recuperer_body($handle, $options['taille_max'], $gz ?: $copy);
+		$taille_max = $options['taille_max'];
+		if (isset($result['content_length'])
+		  && !empty($result['content_length'])
+		  && ($result['content_length'] < $taille_max)) {
+			$taille_max = $result['content_length'];
+		}
+		$res = recuperer_body($handle, $taille_max, $gz ?: $copy);
 		fclose($handle);
 		if ($copy) {
 			$result['length'] = $res;
@@ -762,7 +771,10 @@ function recuperer_body($handle, $taille_max = _INC_DISTANT_MAX_SIZE, $fichier =
 
 	$max_longueur_morceaux = 16384;
 	while (!feof($handle) && $taille < $taille_max) {
+		// ne pas lire plus que ce qu'on a besoin (ou que la longueur annoncée du document)
+		$max_longueur_morceaux = min($max_longueur_morceaux, $taille_max - $taille);
 		$res = fread($handle, $max_longueur_morceaux);
+
 		// si feof ne trig pas mais on est à la fin, fread retourne false
 		if ($res === false) {
 			break;
@@ -780,12 +792,22 @@ function recuperer_body($handle, $taille_max = _INC_DISTANT_MAX_SIZE, $fichier =
 
 		// si on a un morceau plus court que taille maxi mais que feof ne trig pas
 		// reduire le timeout par precaution, car on a surement atteint la fin et le prochain fread va sinon durer 10s
-		if (($taille_morceau < $max_longueur_morceaux)
-			&& !feof($handle)
-			&& (_INC_DISTANT_CONNECT_TIMEOUT > 1)) {
-			@stream_set_timeout($handle, 1);
+		if (($taille_morceau < $max_longueur_morceaux) && !feof($handle)) {
+
+			// si les informations du stream nous indiquent qu'il n'y a plus rien à lire, on sort
+			$metadata = @stream_get_meta_data($handle);
+			if ($metadata && isset($metadata['unread_bytes']) && ($metadata['unread_bytes'] === 0)) {
+				break;
+			}
+
+			// sinon on reduit le timeout pour eviter de rester bloqué à attendre un serveur qui
+			// n'implémente pas le connection:close correctement
+			if (_INC_DISTANT_CONNECT_TIMEOUT > 1) {
+				@stream_set_timeout($handle, 1);
+			}
 		}
 	}
+
 	if ($fp) {
 		spip_fclose_unlock($fp);
 		spip_unlink($fichier);
@@ -828,10 +850,13 @@ function recuperer_entetes_complets($handle, $if_modified_since = false) {
 		$result['headers'][] = $s . "\n";
 		preg_match(',^([^:]*): *(.*)$,i', $s, $r);
 		[, $d, $v] = $r;
-		if (strtolower(trim($d)) == 'location' and $result['status'] >= 300 and $result['status'] < 400) {
+		$d = strtolower(trim($d));
+		if ( $d === 'location' && $result['status'] >= 300 && $result['status'] < 400) {
 			$result['location'] = $v;
-		} elseif ($d == 'Last-Modified') {
+		} elseif ($d === 'last-modified') {
 			$result['last_modified'] = strtotime($v);
+		} elseif ($d === 'content-length' and strlen(trim($v))) {
+			$result['content_length'] = intval($v);
 		}
 	}
 	if (
