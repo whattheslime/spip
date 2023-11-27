@@ -608,7 +608,7 @@ function recuperer_url($url, $options = []) {
 		$gz = (_DIR_TMP . md5(uniqid(random_int(0, mt_getrandmax()))) . '.tmp.gz');
 	}
 
-	// si on a pas deja recuperer le contenu par une methode detournee
+	// si on n'a pas deja récupéré le contenu par une methode detournée
 	if (!$result['length']) {
 		$taille_max = $options['taille_max'];
 		if (isset($result['content_length'])
@@ -793,7 +793,7 @@ function recuperer_body($handle, $taille_max = _INC_DISTANT_MAX_SIZE, $fichier =
 		}
 
 		// si on a un morceau plus court que taille maxi mais que feof ne trig pas
-		// reduire le timeout par precaution, car on a surement atteint la fin et le prochain fread va sinon durer 10s
+		// reduire le timeout par précaution, car on a sûrement atteint la fin et le prochain fread va sinon durer 10s
 		if (($taille_morceau < $max_longueur_morceaux) && !feof($handle)) {
 
 			// si les informations du stream nous indiquent qu'il n'y a plus rien à lire, on sort
@@ -802,7 +802,7 @@ function recuperer_body($handle, $taille_max = _INC_DISTANT_MAX_SIZE, $fichier =
 				break;
 			}
 
-			// sinon on reduit le timeout pour eviter de rester bloqué à attendre un serveur qui
+			// sinon on réduit le timeout pour éviter de rester bloqué à attendre un serveur qui
 			// n'implémente pas le connection:close correctement
 			if (_INC_DISTANT_CONNECT_TIMEOUT > 1) {
 				@stream_set_timeout($handle, 1);
