@@ -436,7 +436,8 @@ function url_to_ascii($url_idn) {
  *     int last_modified : timestamp de derniere modification
  *     string location : url de redirection envoyee par la page
  *     string url : url reelle de la page recuperee
- *     int length : taille du contenu ou du fichier
+ *     int length : taille du contenu ou du fichier récupéré
+ *     int content_length : (optionnel) taille annoncée par le serveur distant dans ses headers (si annoncée)
  *
  *     string file : nom du fichier si enregistre dans un fichier
  */
