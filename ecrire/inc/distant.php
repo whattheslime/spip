@@ -761,14 +761,31 @@ function recuperer_body($handle, $taille_max = _INC_DISTANT_MAX_SIZE, $fichier =
 		}
 		$result = 0; // on renvoie la taille du fichier
 	}
+
+	$max_longueur_morceaux = 16384;
 	while (!feof($handle) && $taille < $taille_max) {
-		$res = fread($handle, 16384);
-		$taille += strlen($res);
+		$res = fread($handle, $max_longueur_morceaux);
+		// si feof ne trig pas mais on est à la fin, fread retourne false
+		if ($res === false) {
+			break;
+		}
+
+		$taille_morceau = strlen($res);
+		$taille += $taille_morceau;
+
 		if ($fp) {
 			fwrite($fp, $res);
 			$result = $taille;
 		} else {
 			$result .= $res;
+		}
+
+		// si on a un morceau plus court que taille maxi mais que feof ne trig pas
+		// reduire le timeout par precaution, car on a surement atteint la fin et le prochain fread va sinon durer 10s
+		if (($taille_morceau < $max_longueur_morceaux)
+			&& !feof($handle)
+			&& (_INC_DISTANT_CONNECT_TIMEOUT > 1)) {
+			@stream_set_timeout($handle, 1);
 		}
 	}
 	if ($fp) {
