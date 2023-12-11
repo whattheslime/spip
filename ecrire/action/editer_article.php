@@ -194,7 +194,7 @@ function article_inserer($id_rubrique, $set = null) {
 			explode(',', $GLOBALS['meta']['multi_objets'])
 		)
 	) {
-		lang_select($GLOBALS['visiteur_session']['lang']);
+		lang_select($GLOBALS['visiteur_session']['lang'] ?? '');
 		if (
 			in_array(
 				$GLOBALS['spip_lang'],
