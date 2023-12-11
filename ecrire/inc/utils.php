@@ -3642,20 +3642,24 @@ function formats_image_acceptables($gd = null, $svg_allowed = true) {
  * @return array|bool
  */
 function spip_getimagesize($fichier) {
-	if (!$imagesize = @getimagesize($fichier)) {
-		include_spip('inc/svg');
-		if ($attrs = svg_lire_attributs($fichier)) {
-			[$width, $height, $viewbox] = svg_getimagesize_from_attr($attrs);
-			$imagesize = [
-				$width,
-				$height,
-				IMAGETYPE_SVG,
-				"width=\"{$width}\" height=\"{$height}\"",
-				'mime' => 'image/svg+xml'
-			];
-		}
+	if (file_exists($fichier) && ($imagesize = @getimagesize($fichier))) {
+		return $imagesize;
 	}
-	return $imagesize;
+
+	include_spip('inc/svg');
+	if ($attrs = svg_lire_attributs($fichier)) {
+		[$width, $height, $viewbox] = svg_getimagesize_from_attr($attrs);
+		$imagesize = [
+			$width,
+			$height,
+			IMAGETYPE_SVG,
+			"width=\"{$width}\" height=\"{$height}\"",
+			'mime' => 'image/svg+xml'
+		];
+		return $imagesize;
+	}
+
+	return false;
 }
 
 /**
