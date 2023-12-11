@@ -245,7 +245,7 @@ function objet_inserer($objet, $id_parent = null, $set = null) {
 			explode(',', (string) $GLOBALS['meta']['multi_objets'])
 		)
 	) {
-		lang_select($GLOBALS['visiteur_session']['lang']);
+		lang_select($GLOBALS['visiteur_session']['lang'] ?? '');
 		if (
 			in_array(
 				$GLOBALS['spip_lang'],
