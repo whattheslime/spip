@@ -55,6 +55,7 @@ function svg_charger($fichier, $maxlen = null) {
 		return $fichier;
 	}
 	if (!file_exists($fichier)) {
+		include_spip('inc/filtres');
 		$fichier  = supprimer_timestamp($fichier);
 		if (!file_exists($fichier)) {
 			return false;
