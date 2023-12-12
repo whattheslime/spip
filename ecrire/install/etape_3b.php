@@ -75,11 +75,14 @@ function install_etape_3b_dist() {
 		$email = (importer_charset($email, _DEFAULT_CHARSET));
 
 		include_spip('auth/spip');
-		// prelablement, creer le champ webmestre si il n'existe pas (install neuve
-		// sur une vieille base
+		// prelablement, creer le champ webmestre si il n'existe pas (install neuve sur une vieille base)
 		$t = sql_showtable('spip_auteurs', true);
 		if (!isset($t['field']['webmestre'])) {
 			@sql_alter("TABLE spip_auteurs ADD webmestre varchar(3)  DEFAULT 'non' NOT NULL");
+		}
+		// prelablement, creer le champ backup_cles si il n'existe pas (install neuve sur une vieille base)
+		if (!isset($t['field']['backup_cles'])) {
+			@sql_alter("TABLE spip_auteurs ADD backup_cles mediumtext DEFAULT '' NOT NULL");
 		}
 
 		// il faut avoir une cle des auth valide pour creer un nouvel auteur webmestre
