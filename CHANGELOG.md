@@ -23,10 +23,6 @@
 
 - #5758 Pipelines `pre_edition` et `post_edition`: lors d'institution, transmettre aussi les infos `objet`, `table_objet`, `spip_table_objet`.
 - #5754 Boutons de gestion du logo en `btn_mini` et supprimer en `btn_secondaire`
-- #5732 Éviter une notice sur la recherche de certain·es auteurs ou autrices
-- #5733 Ne pas générer d’erreur fatale sur les jetons d’auteurs présents au format antérieurs à SPIP 4.2
-- #5723 Corrige le renseignement des images JPG distantes pour bien toujours unifier avec l'extension "jpg" et non "jpeg"
-- #5725 Lorsque l'on a plus de dix fois un appel à un modèle inexistant, ne pas bloquer les appels suivants
 - #5528 Éviter des collisions avec les noms de cache des fichiers distants
 
 ### Deprecated
