@@ -135,7 +135,7 @@ function chrono_requete($temps) {
 		}
 		foreach ($explain as $j => $v) {
 			$explain[$j] = "<tr><th>$j</th><td>"
-				. str_replace(';', '<br />', $v)
+				. str_replace(';', '<br />', (string) $v)
 				. '</td></tr>';
 		}
 		$e = "<table class='explain'>"
