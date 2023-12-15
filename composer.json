@@ -6,7 +6,7 @@
         "ext-xml": "*",
         "ext-zip": "*",
         "algo26-matthias/idna-convert": "^4.0",
-        "spip/aide": "^3.2.x-dev",
+        "spip/aide": "^3.3.x-dev",
         "spip/archiviste": "^3.0.x-dev",
         "spip/bigup": "^3.3",
         "spip/compagnon": "^3.2.x-dev",
