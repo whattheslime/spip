@@ -21,6 +21,7 @@
 
 ### Fixed
 
+- #5769 Si la lecture d'un stream ne trig jamais feof, se fier à `fread()===null`` et réduire le timeout pour éviter de dégrader trop les perfs
 - #5779 Éviter fatale en PHP 8.2 sur `objet_inserer` et `article_inserer` sans être authentifié.
 - #5756 Ne pas avoir un bouton "annuler le job" qui ressemble à un bouton "fermer la notification" + une classe en trop
 - #5786 Installation: corriger la création du webmestre depuis une vieille base.
