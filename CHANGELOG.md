@@ -22,7 +22,7 @@
 ### Fixed
 
 - #5760 Éviter un warning si `spip_getimagesize()` est appelée sur un fichier non présent
-- #5758 Pipelines `pre_edition` et `post_edition`: lors d'institution, transmettre aussi les infos `objet`, `table_objet`, `spip_table_objet`.
+- #5758 Pipelines `pre_edition` et `post_edition`: lors d'institution, transmettre aussi les infos `objet`, `table_objet`, `spip_table_objet`
 - #5752 Formulaire multiétapes: si tout est bien passé, recommencer à zéro et pas à la dernière étape
 - #5754 Boutons de gestion du logo en `btn_mini` et supprimer en `btn_secondaire`
 - #5528 Éviter des collisions avec les noms de cache des fichiers distants
