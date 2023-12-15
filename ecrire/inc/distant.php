@@ -637,6 +637,11 @@ function recuperer_url($url, $options = []) {
 	// Decompresser au besoin
 	if ($gz) {
 		$result['page'] = implode('', gzfile($gz));
+		$result['length'] = strlen($result['page']);
+		// et annuler le content-length qui correspond à la version gzip
+		if (isset($result['content_length'])) {
+			unset($result['content_length']);
+		}
 		supprimer_fichier($gz);
 	}
 
@@ -772,7 +777,7 @@ function recuperer_body($handle, $taille_max = _INC_DISTANT_MAX_SIZE, $fichier =
 		$result = 0; // on renvoie la taille du fichier
 	}
 
-	$max_longueur_morceaux = 16384;
+	$max_longueur_morceaux = 8192;
 	while (!feof($handle) && $taille < $taille_max) {
 		// ne pas lire plus que ce qu'on a besoin (ou que la longueur annoncée du document)
 		$max_longueur_morceaux = min($max_longueur_morceaux, $taille_max - $taille);
@@ -793,22 +798,6 @@ function recuperer_body($handle, $taille_max = _INC_DISTANT_MAX_SIZE, $fichier =
 			$result .= $res;
 		}
 
-		// si on a un morceau plus court que taille maxi mais que feof ne trig pas
-		// reduire le timeout par précaution, car on a sûrement atteint la fin et le prochain fread va sinon durer 10s
-		if (($taille_morceau < $max_longueur_morceaux) && !feof($handle)) {
-
-			// si les informations du stream nous indiquent qu'il n'y a plus rien à lire, on sort
-			$metadata = @stream_get_meta_data($handle);
-			if ($metadata && isset($metadata['unread_bytes']) && ($metadata['unread_bytes'] === 0)) {
-				break;
-			}
-
-			// sinon on réduit le timeout pour éviter de rester bloqué à attendre un serveur qui
-			// n'implémente pas le connection:close correctement
-			if (_INC_DISTANT_CONNECT_TIMEOUT > 1) {
-				@stream_set_timeout($handle, 1);
-			}
-		}
 	}
 
 	if ($fp) {
