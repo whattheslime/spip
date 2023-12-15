@@ -6,6 +6,7 @@ Changelog de SPIP 4.2
 
 ### Fixed
 
+- #5779 Éviter fatale en PHP 8.2 sur `objet_inserer` et `article_inserer` sans être authentifié.
 - #5756 Ne pas avoir un bouton "annuler le job" qui ressemble à un bouton "fermer la notification" + une classe en trop
 - #5786 Installation: corriger la création du webmestre depuis une vieille base.
 - #5752 Formulaire multiétapes: si tout est bien passé, recommencer à zéro et pas à la dernière étape
