@@ -2,6 +2,10 @@
 
 ## Unreleased
 
+### Security
+
+- spip-team/securite#4849 Éviter une XSS via l’appel de certains modèles
+
 ### Added
 
 - #5565 Critère `{collate}` (remplace `{collecte}`)
