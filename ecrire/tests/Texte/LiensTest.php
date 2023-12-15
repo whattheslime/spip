@@ -45,7 +45,7 @@ class LiensTest extends TestCase
 	}
 
 	#[DataProvider('providerLiensClassCss')]
-	public function testLiensClassCss(string $table, ?string $short) {
+	public function testLiensClassCss(string $table, ?string $short, bool $in) {
 		$id = sql_getfetsel(id_table_objet($table), $table, "statut='publie'", limit: '0,1');
 		$type = objet_type($table);
 		if (!$id) {
@@ -60,8 +60,13 @@ class LiensTest extends TestCase
 			$classes = extraire_attribut($propre, 'class');
 			$err = sprintf('Classe CSS "%s" errone dans "%s". Propre: "%s"', (string) $classes, $case, $propre);
 			$this->assertNotNull($classes, $err);
-			$this->assertStringContainsString('spip_in', $classes, $err);
-			$this->assertStringNotContainsString('spip_out', $classes, $err);
+			if ($in) {
+				$this->assertStringContainsString('spip_in', $classes, $err);
+				$this->assertStringNotContainsString('spip_out', $classes, $err);
+			} else {
+				$this->assertStringContainsString('spip_out', $classes, $err);
+				$this->assertStringNotContainsString('spip_in', $classes, $err);
+			}
 		}
 	}
 
@@ -70,14 +75,17 @@ class LiensTest extends TestCase
 			'article' => [
 				'table' => 'spip_articles',
 				'short' => 'art',
+				'in' => true
 			],
 			'rubrique' => [
 				'table' => 'spip_rubriques',
 				'short' => 'rub',
+				'in' => true
 			],
 			'site' => [
 				'table' => 'spip_syndic',
 				'short' => null,
+				'in' => false
 			],
 		];
 	}
