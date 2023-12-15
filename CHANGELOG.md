@@ -21,6 +21,7 @@
 
 ### Fixed
 
+- #5786 Installation: corriger la création du webmestre depuis une vieille base.
 - #5760 Éviter un warning si `spip_getimagesize()` est appelée sur un fichier non présent
 - #5758 Pipelines `pre_edition` et `post_edition`: lors d'institution, transmettre aussi les infos `objet`, `table_objet`, `spip_table_objet`
 - #5752 Formulaire multiétapes: si tout est bien passé, recommencer à zéro et pas à la dernière étape
