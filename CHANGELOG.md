@@ -6,6 +6,7 @@ Changelog de SPIP 4.2
 
 ### Fixed
 
+- #5528 Éviter des collisions avec les noms de cache des fichiers distants
 - #5789 Traitement identique du paramètre type dans `autoriser_exception` et `autoriser`
 - #5769 Si la lecture d'un stream ne trig jamais feof, se fier à `fread()===null`` et réduire le timeout pour éviter de dégrader trop les perfs
 - #5779 Éviter fatale en PHP 8.2 sur `objet_inserer` et `article_inserer` sans être authentifié.
