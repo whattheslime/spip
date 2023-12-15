@@ -6,6 +6,7 @@ Changelog de SPIP 4.2
 
 ### Fixed
 
+- #5786 Installation: corriger la création du webmestre depuis une vieille base.
 - #5752 Formulaire multiétapes: si tout est bien passé, recommencer à zéro et pas à la dernière étape
 - #5760 Éviter un warning si `spip_getimagesize()` est appelée sur un fichier non présent
 - #5788 Éviter un warning avec var_profile=1
