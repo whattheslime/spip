@@ -530,7 +530,7 @@ function echapper_html_suspect($texte, $options = [], $connect = null, $env = []
 		// car un raccourci peut etre utilisé pour faire un lien malin
 		// et un raccourci est potentiellement modifié par safehtml, ce qui fait un faux positif dans is_html_safe
 		if (!empty($options['expanser_liens'])) {
-			$texte_to_check = expanser_liens($texte_to_check, $env['connect'] ?? '', $env['env'] ?? []);
+			$texte_to_check = expanser_liens($texte_to_check, $connect, $env);
 		}
 		if (!is_html_safe($texte_to_check)) {
 			$texte = $options['texte_source_affiche'] ?? $texte;
@@ -555,7 +555,7 @@ function echapper_html_suspect($texte, $options = [], $connect = null, $env = []
 	else {
 		$collecteurLiens = $collecteurModeles = null;
 		if (!empty($options['expanser_liens'])) {
-			$texte = expanser_liens($texte, $env['connect'] ?? '', $env['env'] ?? []);
+			$texte = expanser_liens($texte, $connect, $env);
 		}
 		else {
 			$collecteurLiens = new CollecteurLiens();
