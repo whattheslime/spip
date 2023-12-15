@@ -21,6 +21,7 @@
 
 ### Fixed
 
+- #5756 Ne pas avoir un bouton "annuler le job" qui ressemble à un bouton "fermer la notification" + une classe en trop
 - #5786 Installation: corriger la création du webmestre depuis une vieille base.
 - #5760 Éviter un warning si `spip_getimagesize()` est appelée sur un fichier non présent
 - #5758 Pipelines `pre_edition` et `post_edition`: lors d'institution, transmettre aussi les infos `objet`, `table_objet`, `spip_table_objet`
