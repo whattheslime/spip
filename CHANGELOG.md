@@ -6,6 +6,7 @@ Changelog de SPIP 4.2
 
 ### Fixed
 
+- #5752 Formulaire multiétapes: si tout est bien passé, recommencer à zéro et pas à la dernière étape
 - #5760 Éviter un warning si `spip_getimagesize()` est appelée sur un fichier non présent
 - #5788 Éviter un warning avec var_profile=1
 - #5758 Pipelines `pre_edition` et `post_edition`: lors d'institution, transmettre aussi les infos `objet`, `table_objet`, `spip_table_objet`.
