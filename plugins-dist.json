@@ -2,8 +2,8 @@
     "aide": {
         "path": "plugins-dist/aide",
         "source": "https://git.spip.net/spip/aide.git",
-        "branch": "3.1",
-        "tag": "v3.1.1"
+        "branch": "3.2",
+        "tag": "v3.2.0"
     },
     "archiviste": {
         "path": "plugins-dist/archiviste",
