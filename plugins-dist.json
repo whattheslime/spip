@@ -3,7 +3,7 @@
         "path": "plugins-dist/aide",
         "source": "https://git.spip.net/spip/aide.git",
         "branch": "3.2",
-        "tag": "v3.2.0"
+        "tag": "v3.2.1"
     },
     "archiviste": {
         "path": "plugins-dist/archiviste",
@@ -57,7 +57,7 @@
         "path": "plugins-dist/medias",
         "source": "https://git.spip.net/spip/medias.git",
         "branch": "4.1",
-        "tag": "v4.1.3"
+        "tag": "v4.1.4"
     },
     "mots": {
         "path": "plugins-dist/mots",
@@ -105,13 +105,13 @@
         "path": "plugins-dist/svp",
         "source": "https://git.spip.net/spip/svp.git",
         "branch": "3.1",
-        "tag": "v3.1.5"
+        "tag": "v3.1.6"
     },
     "textwheel": {
         "path": "plugins-dist/textwheel",
         "source": "https://git.spip.net/spip/textwheel.git",
         "branch": "3.1",
-        "tag": "v3.1.4"
+        "tag": "v3.1.5"
     },
     "urls_etendues": {
         "path": "plugins-dist/urls_etendues",
@@ -123,6 +123,6 @@
         "path": "squelettes-dist",
         "source": "https://git.spip.net/spip/dist.git",
         "branch": "4.2",
-        "tag": "v4.2.0"
+        "tag": "v4.2.1"
     }
 }
