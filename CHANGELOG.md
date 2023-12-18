@@ -2,10 +2,6 @@
 
 ## Unreleased
 
-### Security
-
-- spip-team/securite#4849 Éviter une XSS via l’appel de certains modèles
-
 ### Added
 
 - #5565 Critère `{collate}` (remplace `{collecte}`)
@@ -24,18 +20,6 @@
 - Nécessite PHP 8.1 minimum
 
 ### Fixed
-
-- #5777 Si le texte est sécurisé pour cause de html suspect ne pas perdre le contexte des modèles
-- #5789 Traitement identique du paramètre type dans `autoriser_exception` et `autoriser`
-- #5769 Si la lecture d'un stream ne trig jamais feof, se fier à `fread()===null`` et réduire le timeout pour éviter de dégrader trop les perfs
-- #5779 Éviter fatale en PHP 8.2 sur `objet_inserer` et `article_inserer` sans être authentifié.
-- #5756 Ne pas avoir un bouton "annuler le job" qui ressemble à un bouton "fermer la notification" + une classe en trop
-- #5786 Installation: corriger la création du webmestre depuis une vieille base.
-- #5760 Éviter un warning si `spip_getimagesize()` est appelée sur un fichier non présent
-- #5758 Pipelines `pre_edition` et `post_edition`: lors d'institution, transmettre aussi les infos `objet`, `table_objet`, `spip_table_objet`
-- #5752 Formulaire multiétapes: si tout est bien passé, recommencer à zéro et pas à la dernière étape
-- #5754 Boutons de gestion du logo en `btn_mini` et supprimer en `btn_secondaire`
-- #5528 Éviter des collisions avec les noms de cache des fichiers distants
 
 ### Deprecated
 
