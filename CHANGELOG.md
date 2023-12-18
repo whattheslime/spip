@@ -2,6 +2,13 @@
 
 Changelog de SPIP 4.1
 
+## Unreleased
+
+### Security
+
+- spip-team/securite#4849 Éviter une XSS via l’appel de certains modèles
+
+
 ## 4.1.12 - 2023-09-01
 
 - Cf. plugin SVP
