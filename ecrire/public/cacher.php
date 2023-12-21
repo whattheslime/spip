@@ -49,7 +49,7 @@ function ecrire_cache(string $cache_key, array $valeur): bool {
  * @return null|mixed null: probably cache miss
  */
 function lire_cache(string $cache_key): mixed {
-	return cache_instance()->get($cache_key);
+	return cache_instance()->get($cache_key)['valeur'] ?? null;
 }
 
 /**
