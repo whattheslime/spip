@@ -269,7 +269,7 @@ function find_in_path(string $file, string $dirname = '', bool|string $include =
 	}
 
 	$path = $loader->get($file);
-
+	// find in path retourne des chemins relatif, si possible
 	if ($path !== null && str_starts_with($path, _ROOT_RACINE)) {
 		$path = _DIR_RACINE . substr($path, strlen(_ROOT_RACINE));
 	}
@@ -279,11 +279,14 @@ function find_in_path(string $file, string $dirname = '', bool|string $include =
 	}
 
 	if ($include === true) {
-		return $path !== null ? $loader->include($file) : null;
+		if ($path === null) {
+			return null;
+		}
+		return $loader->include($file) ? $path : null;
 	}
 
 	if ($include === 'required') {
-		return $loader->require($file);
+		return $loader->require($file) ? $path : null;
 	}
 
 	throw new \InvalidArgumentException(sprintf('$include argument with "%s" value is incorrect.', $include));
