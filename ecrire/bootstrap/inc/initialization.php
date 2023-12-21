@@ -195,10 +195,10 @@ function spip_initialisation_core($pi = null, $pa = null, $ti = null, $ta = null
 		define('_DEFAULT_CHARSET', 'utf-8');
 	}
 	if (!defined('_ROOT_PLUGINS')) {
-		define('_ROOT_PLUGINS', _ROOT_RACINE . 'plugins/');
+		define('_ROOT_PLUGINS', _ROOT_RACINE . 'plugins' . DIRECTORY_SEPARATOR);
 	}
 	if (!defined('_ROOT_PLUGINS_DIST')) {
-		define('_ROOT_PLUGINS_DIST', _ROOT_RACINE . 'plugins-dist/');
+		define('_ROOT_PLUGINS_DIST', _ROOT_RACINE . 'plugins-dist' . DIRECTORY_SEPARATOR);
 	}
 	if (!defined('_ROOT_PLUGINS_SUPPL') && defined('_DIR_PLUGINS_SUPPL') && _DIR_PLUGINS_SUPPL) {
 		define('_ROOT_PLUGINS_SUPPL', _ROOT_RACINE . str_replace(_DIR_RACINE, '', _DIR_PLUGINS_SUPPL));

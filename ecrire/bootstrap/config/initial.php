@@ -26,9 +26,9 @@ define('_DIR_RESTREINT', (is_dir(_DIR_RESTREINT_ABS) ? _DIR_RESTREINT_ABS : ''))
 define('_DIR_RACINE', _DIR_RESTREINT ? '' : '../');
 
 /** chemin absolu vers la racine */
-define('_ROOT_RACINE', dirname(__DIR__, 3) . '/');
+define('_ROOT_RACINE', dirname(__DIR__, 3) . DIRECTORY_SEPARATOR);
 /** chemin absolu vers le repertoire de travail */
-define('_ROOT_CWD', getcwd() . '/');
+define('_ROOT_CWD', getcwd() . DIRECTORY_SEPARATOR);
 /** chemin absolu vers ecrire */
 define('_ROOT_RESTREINT', _ROOT_CWD . _DIR_RESTREINT);
 
@@ -61,7 +61,7 @@ if (!defined('_NOM_IMG_PACK')) {
 define('_DIR_IMG_PACK', (_DIR_RACINE . 'prive/' . _NOM_IMG_PACK));
 
 /** le chemin php (absolu) vers les images standard (pour hebergement centralise) */
-define('_ROOT_IMG_PACK', dirname(__DIR__, 3) . '/prive/' . _NOM_IMG_PACK);
+define('_ROOT_IMG_PACK', dirname(__DIR__, 3) . DIRECTORY_SEPARATOR . 'prive' . DIRECTORY_SEPARATOR . _NOM_IMG_PACK);
 
 if (!defined('_JAVASCRIPT')) {
 	/** Nom du repertoire des  bibliotheques JavaScript */
