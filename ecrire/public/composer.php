@@ -451,9 +451,9 @@ function executer_balise_dynamique($nom, $args, $context_compil) {
 	// même si la fonction dynamique est déclarée dans un fichier de fonctions.
 	// Attention sous windows, getFileName() retourne un antislash.
 	$reflector = new ReflectionFunction($fonction_balise);
-	$file = str_replace('\\', '/', $reflector->getFileName());
-	if (strncmp($file, str_replace('\\', '/', _ROOT_RACINE), strlen(_ROOT_RACINE)) === 0) {
-		$file = substr($file, strlen(_ROOT_RACINE));
+	$file = $reflector->getFileName();
+	if (str_starts_with($file, _ROOT_RACINE)) {
+		$file = str_replace(\DIRECTORY_SEPARATOR, '/', substr($file, strlen(_ROOT_RACINE)));
 	}
 
 	// Y a-t-il une fonction de traitement des arguments ?
