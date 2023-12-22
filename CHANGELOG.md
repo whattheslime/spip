@@ -4,6 +4,7 @@
 
 ### Added
 
+- #5806 Gestion des chemins (path) & leur cache réécrit en utilisant une librairie `spip/path`
 - #5565 Critère `{collate}` (remplace `{collecte}`)
 - #5565 Critères `{groupby}` et `{groupby_supprimer}` (remplace `{fusion}` et `{fusion_supprimer}`)
 - #5565 Critère `{having}`
