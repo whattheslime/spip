@@ -19,7 +19,7 @@ maintenu par sa communauté avec tendresse.
 
 ## Politique de sécurité
 
-- [Reporter une faille de sécurité](https://www.spip.net/fr_article6688.html)
+- [Signaler une faille de sécurité](https://www.spip.net/fr_article6688.html)
 - [SECURITY.md](SECURITY.md)
 
 ## Tests pour SPIP
