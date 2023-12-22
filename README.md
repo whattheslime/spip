@@ -24,7 +24,7 @@ maintenu par sa communauté avec tendresse.
 
 ## Tests pour SPIP
 
-Suite de tests basée sur PHPUnit, avec un wrapper pour les tests historiques écrits en script PHP standalone ou en squelette HTML
+Suite de tests basée sur PHPUnit
 
 ### Commandes spécifiques
 
@@ -37,7 +37,7 @@ vendor/bin/phpunit
 Voir le détail de tous les tests lancés (y compris leurs noms)
 
 ```bash
-vendor/bin/phpunit --debug
+vendor/bin/phpunit --display-deprecations --display-errors --display-notices --display-warnings
 ```
 
 Lister toutes les suites de tests :
@@ -55,6 +55,6 @@ vendor/bin/phpunit --list-tests
 Pour filtrer les tests et n'en executer que certains :
 
 ```bash
-vendor/bin/phpunit --colors --debug --filter=unit/propre/
-vendor/bin/phpunit --colors --debug --filter=testCouper
+vendor/bin/phpunit --colors --filter=unit/propre/
+vendor/bin/phpunit --colors --filter=testCouper
 ```
