@@ -8,7 +8,7 @@ maintenu par sa communauté avec tendresse.
 - [Configuration requise](https://www.spip.net/fr_article4351.html)
 - [Versions maintenues](https://www.spip.net/fr_article6500.html)
 - [Téléchargement](https://www.spip.net/fr_download)
-- [Installation](https://www.spip.net/fr_article6431.html)
+- [Installation](https://www.spip.net/fr_rubrique151.html)
 
 ## Communauté & contributions
 
