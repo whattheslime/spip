@@ -69,6 +69,6 @@ class DoublonsNotesTest extends SquelettesTestCase
 		} else {
 			sql_updateq('spip_articles', $data, ['id_article = -1']);
 		}
-		return $id_document;
+		return (int) $id_document;
 	}
 }
