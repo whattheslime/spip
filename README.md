@@ -90,6 +90,6 @@ vendor/bin/phpunit --list-tests
 Pour filtrer les tests et n'en executer que certains :
 
 ```bash
-vendor/bin/phpunit --colors --filter=unit/propre/
+vendor/bin/phpunit --colors ecrire/tests/Sql/
 vendor/bin/phpunit --colors --filter=testCouper
 ```
