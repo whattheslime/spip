@@ -22,6 +22,41 @@ maintenu par sa communauté avec tendresse.
 - [Signaler une faille de sécurité](https://www.spip.net/fr_article6688.html)
 - [SECURITY.md](SECURITY.md)
 
+## Installation
+
+### Installation classique
+
+```bash
+git clone https://git.spip.net/spip/spip/
+composer install
+```
+
+Mise à jour
+
+```bash
+git pull
+composer install
+```
+
+### Installation de développement (plugins-dist via git)
+
+```bash
+git clone https://git.spip.net/spip/spip/
+composer install
+composer local mode-dev
+rm -rf plugins-dist
+composer local install
+```
+
+Mise à jour
+
+```bash
+git pull
+rm composer.local.*
+composer local mode-dev
+composer local install
+```
+
 ## Tests pour SPIP
 
 Suite de tests basée sur PHPUnit
