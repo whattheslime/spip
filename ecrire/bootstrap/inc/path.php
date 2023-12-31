@@ -102,7 +102,7 @@ function spip_paths_loader(): Loader {
  *     Liste des chemins, par ordre de priorité.
  **/
 function _chemin(string|array|null $dir_path = null): array {
-	if (is_array($dir_path) || strlen($dir_path)) {
+	if (is_array($dir_path) || (is_string($dir_path) && strlen($dir_path))) {
 		spip_paths(add: is_array($dir_path) ? $dir_path : explode(':', $dir_path));
 	}
 
