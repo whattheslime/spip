@@ -5302,13 +5302,15 @@ function identifiant_slug($texte, $type = '', $options = []) {
 	// On remplace tout ce qui n'est pas un mot par un séparateur
 	$texte = preg_replace(',[\W_]+,ms', (string) $separateur, $texte);
 
-	// nettoyer les doubles occurences du separateur si besoin
-	while (str_contains($texte, (string) "$separateur$separateur")) {
-		$texte = str_replace("$separateur$separateur", $separateur, $texte);
-	}
+	if ($separateur) {
+		// nettoyer les doubles occurences du separateur si besoin
+		while (str_contains($texte, (string) "$separateur$separateur")) {
+			$texte = str_replace("$separateur$separateur", $separateur, $texte);
+		}
 
-	// pas de separateur au debut ni a la fin
-	$texte = trim($texte, $separateur);
+		// pas de separateur au debut ni a la fin
+		$texte = trim($texte, $separateur);
+	}
 
 	// en minuscules
 	$texte = strtolower($texte);
