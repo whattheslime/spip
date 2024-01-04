@@ -24,6 +24,8 @@
 
 ### Fixed
 
+- #5818 HTML valide pour le formulaire `configurer_redacteurs`
+
 ### Deprecated
 
 - Fichiers de langue peuplant une variable globale. Retourner directement un array (valide à partir de SPIP 4.1)
