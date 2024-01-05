@@ -2,6 +2,12 @@
 
 Changelog de SPIP 4.2
 
+## Unreleased
+
+### Fixed
+
+- #5810 Éviter à `identifiant_slug()` des traitements inutiles quand le séparateur est vide
+
 ## 4.2.8 - 2024-01-11
 
 ### Fixed
