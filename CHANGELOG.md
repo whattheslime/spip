@@ -25,6 +25,7 @@
 
 ### Fixed
 
+- #5810 Éviter à `identifiant_slug()` des traitements inutiles quand le séparateur est vide
 - #5818 HTML valide pour le formulaire `configurer_redacteurs`
 
 ### Deprecated
