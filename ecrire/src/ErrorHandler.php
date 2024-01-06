@@ -33,7 +33,7 @@ final class ErrorHandler {
 		$errfile = $t['file'];
 		$errline = $t['line'];
 
-		spip_log(sprintf('%s in %s on line %s', $errstr, $errfile, $errline), 'deprecated.' . _LOG_INFO);
+		spip_logger('deprecated')->info(sprintf('%s in %s on line %s', $errstr, $errfile, $errline));
 		return false;
 	}
 }

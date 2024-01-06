@@ -1,25 +1,100 @@
 <?php
 
+use Monolog\Level;
+use Psr\Log\LoggerInterface;
+use Spip\Component\Filesystem\Filesystem;
+use Spip\Component\Logger\Config;
+use Spip\Component\Logger\Factory;
+use Spip\Component\Logger\LineFormatter;
+
+/**
+ * Obtenir un logger compatible Psr\Log
+ *
+ * @api
+ * @example
+ * ```
+ * spip_logger()->notice('mon message');
+ *
+ * $logger = spip_logger();
+ * $logger->info('mon message');
+ * $logger->debug('mon debug');
+ *
+ * $logger = spip_logger('mysql');
+ * $logger->info('mon message sur le canal mysql');
+ * $logger->debug('mon debug sur le canal mysql');
+ * ```
+ */
+function spip_logger(?string $name = null): LoggerInterface {
+	/* @var array<string,LoggerInterface> */
+	static $loggers = [];
+	/* @var ?Factory */
+	static $loggerFactory = null;
+
+	$name ??= 'spip';
+
+	if ($loggerFactory === null) {
+		$spipToMonologLevels = [
+			Level::Emergency, // _LOG_HS
+			Level::Alert,     // _LOG_ALERTE_ROUGE
+			Level::Critical,  // _LOG_CRITIQUE
+			Level::Error,     // _LOG_ERREUR
+			Level::Warning,   // _LOG_AVERTISSEMENT
+			Level::Notice,    // _LOG_INFO_IMPORTANTE
+			Level::Info,      // _LOG_INFO
+			Level::Debug,     // _LOG_DEBUG
+		];
+
+		$config = [
+			'siteDir' => _ROOT_RACINE,
+			'filesystem' => new Filesystem(),
+			// max log par hit
+			'max_log' => defined('_MAX_LOG') ? constant('_MAX_LOG') : null,
+			// pour indiquer le chemin du fichier qui envoie le log
+			'fileline' => defined('_LOG_FILELINE') ? constant('_LOG_FILELINE') : null,
+			// échappement des log
+			'brut' => defined('_LOG_BRUT') ? constant('_LOG_BRUT') : null,
+			// à quel level on commence à logguer
+			'max_level' => defined('_LOG_FILTRE_GRAVITE') ? $spipToMonologLevels[constant('_LOG_FILTRE_GRAVITE')] ?? Level::Info : Level::Info,
+			// rotation: nombre de fichiers
+			'max_files' => $GLOBALS['nombre_de_logs'] ??= 4,
+			// rotation: taille max d’un fichier
+			'max_size' => ($GLOBALS['taille_des_logs'] ??= 100) * 1024,
+			// chemin du fichier de log
+			'log_path' => (function() {
+				$log_dir = defined('_DIR_LOG') ? str_replace(_DIR_RACINE, '', constant('_DIR_LOG')) : 'tmp/log/';
+				$log_file = defined('_FILE_LOG') ? constant('_FILE_LOG') : 'spip';
+				$log_suffix = defined('_FILE_LOG_SUFFIX') ? constant('_FILE_LOG_SUFFIX') : '.log';
+
+				$log_file = str_replace('spip', '%s', $log_file);
+				return sprintf('%s%s%s', $log_dir, $log_file, $log_suffix);
+			})(),
+		];
+		$env = getenv('APP_ENV') ?? 'prod';
+		if ($env === 'dev') {
+			$config = [
+				...$config,
+				'fileline' => true,
+				'max_level' => Level::Debug,
+			];
+		}
+		$config = array_filter($config);
+
+		$loggerFactory = new Factory(new Config(...$config), new LineFormatter());
+		unset($args, $env, $spipToMonologLevels);
+	}
+
+    return $loggers[$name] ??= $loggerFactory->createFromFilename($name);
+}
+
+
 /**
  * Enregistrement des événements
  *
- * Signature : `spip_log(message[,niveau|type|type.niveau])`
- *
- * Le niveau de log par défaut est la valeur de la constante `_LOG_INFO`
- *
- * Les différents niveaux possibles sont :
- *
- * - `_LOG_HS` : écrira 'HS' au début de la ligne logguée
- * - `_LOG_ALERTE_ROUGE` : 'ALERTE'
- * - `_LOG_CRITIQUE` :  'CRITIQUE'
- * - `_LOG_ERREUR` : 'ERREUR'
- * - `_LOG_AVERTISSEMENT` : 'WARNING'
- * - `_LOG_INFO_IMPORTANTE` : '!INFO'
- * - `_LOG_INFO` : 'info'
- * - `_LOG_DEBUG` : 'debug'
+ * Signature : `spip_log(message, ?name)`
  *
  * @example
  *   ```
+ *   # Les appels ci-dessous sont "deprecated" depuis 5.0
  *   spip_log($message)
  *   spip_log($message, 'recherche')
  *   spip_log($message, _LOG_DEBUG)
@@ -28,50 +103,73 @@
  *
  * @api
  * @link https://programmer.spip.net/spip_log
- * @uses inc_log_dist()
+ * @see spip_logger()
+ * @deprecated 5.0 Utiliser spip_logger()
  *
- * @param string $message
- *     Message à loger
- * @param string|int $name
- *
- *     - int indique le niveau de log, tel que `_LOG_DEBUG`
- *     - string indique le type de log
- *     - `string.int` indique les 2 éléments.
- *     Cette dernière notation est controversée mais le 3ème
- *     paramètre est planté pour cause de compatibilité ascendante.
+ * @param mixed           $message Message à consigner
+ * @param int|string|null $name    Nom du fichier de log, "spip" par défaut
  */
-function spip_log($message = null, $name = null) {
-	static $pre = [];
-	static $log;
-	preg_match('/^([a-z_]*)\.?(\d)?$/iS', (string)$name, $regs);
-	if (!isset($regs[1]) || !$logname = $regs[1]) {
-		$logname = null;
-	}
+function spip_log($message, $name = null): void
+{
+    static $spipToMonologLevels = [
+		Level::Emergency, // _LOG_HS
+		Level::Alert,     // _LOG_ALERTE_ROUGE
+		Level::Critical,  // _LOG_CRITIQUE
+		Level::Error,     // _LOG_ERREUR
+		Level::Warning,   // _LOG_AVERTISSEMENT
+		Level::Notice,    // _LOG_INFO_IMPORTANTE
+		Level::Info,      // _LOG_INFO
+		Level::Debug,     // _LOG_DEBUG
+    ];
+
+	# Éviter de trop polluer les logs de dépréciation
+	static $deprecated = [];
+
+    preg_match('/^([a-z_]*)\.?(\d)?$/iS', (string) $name, $regs);
+    $logFile = 'spip';
+    if (isset($regs[1]) && strlen($regs[1])) {
+        $logFile = $regs[1];
+    }
+
 	if (!isset($regs[2])) {
-		$niveau = _LOG_INFO;
-	}
-	else {
-		$niveau = intval($regs[2]);
+		$level = Level::Info;
+	} else {
+		$level = $spipToMonologLevels[intval($regs[2])] ?? Level::Info;
 	}
 
-	if ($niveau <= (defined('_LOG_FILTRE_GRAVITE') ? _LOG_FILTRE_GRAVITE : _LOG_INFO_IMPORTANTE)) {
-		if (!$pre) {
-			$pre = [
-				_LOG_HS => 'HS:',
-				_LOG_ALERTE_ROUGE => 'ALERTE:',
-				_LOG_CRITIQUE => 'CRITIQUE:',
-				_LOG_ERREUR => 'ERREUR:',
-				_LOG_AVERTISSEMENT => 'WARNING:',
-				_LOG_INFO_IMPORTANTE => '!INFO:',
-				_LOG_INFO => 'info:',
-				_LOG_DEBUG => 'debug:'
-			];
-			$log = charger_fonction('log', 'inc');
+	$logger = spip_logger($logFile);
+	$logger->log($level, preg_replace(
+        "/\n*$/",
+        "\n",
+        is_string($message) ? $message : print_r($message, true)
+    ));
+
+
+	if (!array_key_exists($logFile, $deprecated)) {
+		$deprecated[$logFile] = true;
+		if ($logFile === 'spip') {
+			trigger_deprecation(
+				'spip',
+				'5.0',
+				sprintf(
+					'spip_log(\'message\') function is deprecated ; use spip_logger().'
+					. ' Example: spip_logger()->info(\'message\').',
+					$logFile,
+					$logFile,
+				)
+			);
+		} else {
+			trigger_deprecation(
+				'spip',
+				'5.0',
+				sprintf(
+					'spip_log(\'message\', \'%s\') function is deprecated ; use spip_logger().'
+					. ' Example: spip_logger(\'%s\')->info(\'message\').',
+					$logFile,
+					$logFile,
+				)
+			);
 		}
-		if (!is_string($message)) {
-			$message = print_r($message, true);
-		}
-		$log($pre[$niveau] . ' ' . $message, $logname);
 	}
 }
 
