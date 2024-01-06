@@ -36,7 +36,7 @@ return [
 	'avis_erreur_fonction_contexte' => 'Programming error. This function cannot be called in this context.',
 	'avis_erreur_mysql' => 'SQL error',
 	'avis_erreur_sauvegarde' => 'Error in backup (@type@ @id_objet@)!',
-	'avis_erreur_visiteur' => 'Problem entering the private area',
+	'avis_erreur_visiteur' => 'Problem entering the back-office',
 	'avis_nb_erreurs_saisie' => 'Your entry contains @nb@ errors, please check your information.',
 
 	// B
@@ -514,13 +514,13 @@ the site "@nom_site_spip@" (@adresse_login@):',
 	'lien_voir_auteur' => 'Check this author',
 	'ligne' => 'Line',
 	'login' => 'Connection',
-	'login_acces_prive' => 'access to the private area',
+	'login_acces_prive' => 'access to the back-office',
 	'login_autre_identifiant' => 'use a different ID',
 	'login_cookie_accepte' => 'Please configure your browser to accept them for this site.',
 	'login_cookie_oblige' => 'For secure identification, your browser must accept cookies.',
 	'login_deconnexion_ok' => 'Logged out.',
 	'login_erreur_pass' => 'Wrong password.',
-	'login_espace_prive' => 'private area',
+	'login_espace_prive' => 'back-office',
 	'login_identifiant_inconnu' => 'The identifier "@login@" is unknown.',
 	'login_login' => 'Login:',
 	'login_login2' => 'Login or e-mail address:',
@@ -579,7 +579,7 @@ the site "@nom_site_spip@" (@adresse_login@):',
 	'pass_erreur_non_enregistre' => '<b>Error :</b> the address <tt>@email_oubli@</tt> is not registered on this site.',
 	'pass_erreur_non_valide' => '<b>Error :</b> the e-mail <tt>@email_oubli@</tt> is not valid!',
 	'pass_erreur_probleme_technique' => '<b>Error :</b> this e-mail could not be sent due to a technical problem.',
-	'pass_espace_prive_bla' => 'The private area of this site is open to
+	'pass_espace_prive_bla' => 'The back-office of this site is open to
 visitors after registration. Once you have registered,
 you can review the articles in progress,
 submit articles and participate in forums.',
@@ -649,7 +649,7 @@ and log in to the site.
    Note this reference carefully, try the upgrade procedure again,
    and check afterwards that the images still appear
       in the articles.',
-	'texte_erreur_visiteur' => 'You have tried to enter the private area using an unauthorised login.',
+	'texte_erreur_visiteur' => 'You have tried to enter the back-office using an unauthorised login.',
 	'texte_inc_auth_1' => 'You used the login
   <b>@auth_login@</b>, but it does not exist in the database.
   Try to',
