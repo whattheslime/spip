@@ -112,9 +112,9 @@ elseif (isset($GLOBALS['meta']['admin'])) {
 			&& !(isset($GLOBALS['visiteur_session'])
 			&& $GLOBALS['visiteur_session']['statut'] == '0minirezo')
 	) {
-		spip_log('Quand la meta admin vaut ' .
+		spip_logger()->info('Quand la meta admin vaut ' .
 			$GLOBALS['meta']['admin'] .
-			' seul un admin peut se connecter et sans AJAX.' .
+			' seul un·e admin peut se connecter et sans AJAX.' .
 			' En cas de probleme, detruire cette meta.');
 		die(_T('info_travaux_texte'));
 	}
@@ -124,7 +124,7 @@ elseif (isset($GLOBALS['meta']['admin'])) {
 			$var_f = "base_$var_f";
 		}
 		if ($var_f !== $exec) {
-			spip_log("Le script $var_f lance par auteur$n se substitue a l'exec $exec");
+			spip_logger()->info("Le script $var_f lance par auteur$n se substitue a l'exec $exec");
 			$exec = $var_f;
 			set_request('exec', $exec);
 		}

@@ -77,7 +77,7 @@ function action_tester_dist() {
 		$vignette = _ROOT_IMG_PACK . 'test.jpg';
 		$dest = _DIR_VAR . 'test-jpg.jpg';
 		$commande = "$jpegtopnm_command $vignette | " . _PNMSCALE_COMMAND . " -width 10 | $pnmtojpeg_command > $dest";
-		spip_log($commande);
+		spip_logger()->info($commande);
 		exec($commande);
 		if (($taille = @getimagesize($dest)) && $taille[1] == 10) {
 			$netpbm_formats[] = 'jpg';
@@ -87,7 +87,7 @@ function action_tester_dist() {
 		$vignette = _ROOT_IMG_PACK . 'test.gif';
 		$dest = _DIR_VAR . 'test-gif.jpg';
 		$commande = "$giftopnm_command $vignette | " . _PNMSCALE_COMMAND . " -width 10 | $pnmtojpeg_command > $dest";
-		spip_log($commande);
+		spip_logger()->info($commande);
 		exec($commande);
 		if (($taille = @getimagesize($dest)) && $taille[1] == 10) {
 			$netpbm_formats[] = 'gif';
@@ -97,7 +97,7 @@ function action_tester_dist() {
 		$vignette = _ROOT_IMG_PACK . 'test.png';
 		$dest = _DIR_VAR . 'test-gif.jpg';
 		$commande = "$pngtopnm_command $vignette | " . _PNMSCALE_COMMAND . " -width 10 | $pnmtojpeg_command > $dest";
-		spip_log($commande);
+		spip_logger()->info($commande);
 		exec($commande);
 		if (($taille = @getimagesize($dest)) && $taille[1] == 10) {
 			$netpbm_formats[] = 'png';

@@ -1129,7 +1129,7 @@ function plugins_amorcer_plugins_actifs() {
 	if (@is_readable(_CACHE_PLUGINS_OPT)) {
 		include_once(_CACHE_PLUGINS_OPT);
 	} else {
-		spip_log('pipelines desactives: impossible de produire ' . _CACHE_PLUGINS_OPT);
+		spip_logger()->info('pipelines desactives: impossible de produire ' . _CACHE_PLUGINS_OPT);
 	}
 }
 
@@ -1215,7 +1215,7 @@ function pipeline_matrice_precompile($plugin_valides, $ordre, $pipe_recherche) {
 					if (charger_fonction($nom, 'genie', true)) {
 						$prepend_code['taches_generales_cron'] .= "\$val['$nom'] = $periode;\n";
 					} else {
-						spip_log("Fonction genie_$nom introuvable", _LOG_ERREUR);
+						spip_logger()->error("Fonction genie_$nom introuvable");
 					}
 				}
 			}

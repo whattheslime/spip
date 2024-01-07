@@ -201,7 +201,7 @@ function queue_genie_replan_job($function, $period, $last = 0, $time = null, $pr
 	if (!$last) {
 		$last = $time - $period;
 	}
-	spip_log("replan_job $function $period $last $time $priority", 'queue');
+	spip_logger('queue')->info("replan_job $function $period $last $time $priority");
 	include_spip('inc/queue');
 	// on replanifie un job cron
 	// uniquement si il n'y en a pas deja un avec le meme nom

@@ -71,7 +71,7 @@ function inc_recherche_to_array_dist($recherche, $options = []) {
 	// Recherche fulltext
 	foreach ($champs as $champ => $poids) {
 		if (is_array($champ)) {
-			spip_log('requetes imbriquees interdites');
+			spip_logger()->info('requetes imbriquees interdites');
 		} else {
 			if (!str_contains((string) $champ, '.')) {
 				$champ = "t.$champ";

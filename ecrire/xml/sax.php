@@ -287,7 +287,7 @@ function analyser_doctype($data) {
 				}
 			}
 		}
-		spip_log('Dtd pas vu pour ' . substr($data, 0, 100));
+		spip_logger()->info('Dtd pas vu pour ' . substr($data, 0, 100));
 
 		return [];
 	}

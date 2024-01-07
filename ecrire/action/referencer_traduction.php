@@ -58,7 +58,7 @@ function action_referencer_traduction_dist($objet, $id_objet, $id_trad) {
 			"$id_table_objet=" . (int) $id_trad . " AND NOT($id_table_objet=" . (int) $id_objet . ')'
 		);
 		if ($id_lier === null) {
-			spip_log("echec lien de trad vers objet $objet/$id_objet incorrect ($id_trad)");
+			spip_logger()->info("echec lien de trad vers objet $objet/$id_objet incorrect ($id_trad)");
 
 			return false;
 		}

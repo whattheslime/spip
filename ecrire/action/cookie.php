@@ -58,7 +58,7 @@ function action_cookie_dist($set_cookie_admin = null, $change_session = null) {
 	if ($change_session == 'oui') {
 		$session = charger_fonction('session', 'inc');
 		$session(true);
-		spip_log('statut 204 pour ' . $_SERVER['REQUEST_URI']);
+		spip_logger()->info('statut 204 pour ' . $_SERVER['REQUEST_URI']);
 		http_response_code(204); // No Content
 		return;
 	}

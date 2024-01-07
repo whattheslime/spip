@@ -445,7 +445,7 @@ function filtre_debug(mixed $val, $key = null) {
 		echo "<div class='spip_debug'>\n", $debug, "</div>\n";
 	}
 
-	spip_log($debug, 'debug');
+	spip_logger('debug')->info($debug);
 
 	return $val;
 }
@@ -3862,11 +3862,10 @@ function encoder_contexte_ajax($c, $form = '', $emboite = null, $ajaxid = '') {
 		$max_len = _CACHE_CONTEXTES_AJAX_SUR_LONGUEUR;
 		if ($len > $max_len) {
 			$cache_contextes_ajax = true;
-			spip_log(
+			spip_logger()->warning(
 				'Contextes AJAX forces en fichiers !'
 				. ' Cela arrive lorsque la valeur du contexte'
 				. " depasse la longueur maximale autorisee ($max_len). Ici : $len.",
-				_LOG_AVERTISSEMENT
 			);
 		}
 		// Sinon si Suhosin est actif et a une la valeur maximale des variables en GET...
@@ -3875,12 +3874,12 @@ function encoder_contexte_ajax($c, $form = '', $emboite = null, $ajaxid = '') {
 			&& $max_len < $len
 		) {
 			$cache_contextes_ajax = true;
-			spip_log('Contextes AJAX forces en fichiers !'
+			spip_logger()->warning('Contextes AJAX forces en fichiers !'
 				. ' Cela arrive lorsque la valeur du contexte'
 				. ' depasse la longueur maximale autorisee par Suhosin'
 				. " ($max_len) dans 'suhosin.get.max_value_length'. Ici : $len."
 				. ' Vous devriez modifier les parametres de Suhosin'
-				. ' pour accepter au moins 1024 caracteres.', _LOG_AVERTISSEMENT);
+				. ' pour accepter au moins 1024 caracteres.');
 		}
 	}
 

@@ -163,7 +163,7 @@ class Data extends AbstractIterateur implements Iterator
 		// Si a ce stade on n'a pas de table, il y a un bug
 		if (!is_array($this->tableau)) {
 			$this->err = true;
-			spip_log('erreur datasource ' . var_export($command, true));
+			spip_logger()->info('erreur datasource ' . var_export($command, true));
 		}
 
 		// {datapath query.results}
@@ -364,7 +364,7 @@ class Data extends AbstractIterateur implements Iterator
 			} else {
 				$this->tableau = [];
 				$this->err = true;
-				spip_log("datapath '$base' absent");
+				spip_logger()->info("datapath '$base' absent");
 			}
 		}
 	}

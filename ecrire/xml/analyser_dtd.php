@@ -54,7 +54,7 @@ function charger_dtd($grammaire, $avail, $rotlvl) {
 				$dtc->peres[$k] = $v;
 			}
 
-			spip_log("Analyser DTD $avail $grammaire (" . spip_timer('dtd') . ') ' . (is_countable($dtc->macros) ? count($dtc->macros) : 0) . ' macros, ' . (is_countable($dtc->elements) ? count($dtc->elements) : 0) . ' elements, ' . (is_countable($dtc->attributs) ? count($dtc->attributs) : 0) . " listes d'attributs, " . (is_countable($dtc->entites) ? count($dtc->entites) : 0) . ' entites');
+			spip_logger()->info("Analyser DTD $avail $grammaire (" . spip_timer('dtd') . ') ' . (is_countable($dtc->macros) ? count($dtc->macros) : 0) . ' macros, ' . (is_countable($dtc->elements) ? count($dtc->elements) : 0) . ' elements, ' . (is_countable($dtc->attributs) ? count($dtc->attributs) : 0) . " listes d'attributs, " . (is_countable($dtc->entites) ? count($dtc->entites) : 0) . ' entites');
 			#	$r = $dtc->regles; ksort($r);foreach($r as $l => $v) {$t=array_keys($dtc->attributs[$l]);echo "<b>$l</b> '$v' ", count($t), " attributs: ", join (', ',$t);$t=$dtc->peres[$l];echo "<br />",count($t), " peres: ", @join (', ',$t), "<br />\n";}exit;
 			ecrire_fichier($file, serialize($dtc), true);
 		}
@@ -128,11 +128,11 @@ function analyser_dtd($loc, $avail, &$dtc) {
 
 	$dtd = ltrim($dtd);
 	if (!$dtd) {
-		spip_log("DTD '$loc' ($file) inaccessible");
+		spip_logger()->info("DTD '$loc' ($file) inaccessible");
 
 		return false;
 	} else {
-		spip_log("analyse de la DTD $loc ");
+		spip_logger()->info("analyse de la DTD $loc ");
 	}
 
 	while ($dtd) {
@@ -154,7 +154,7 @@ function analyser_dtd($loc, $avail, &$dtc) {
 			};
 		}
 		if (!is_string($r)) {
-			spip_log("erreur $r dans la DTD  " . substr($dtd, 0, 80) . '.....');
+			spip_logger()->info("erreur $r dans la DTD  " . substr($dtd, 0, 80) . '.....');
 
 			return false;
 		}
@@ -233,7 +233,7 @@ function analyser_dtd_notation($dtd, &$dtc, $grammaire) {
 	if (!preg_match('/^<!NOTATION.*?>\s*(.*)$/s', (string) $dtd, $m)) {
 		return -8;
 	}
-	spip_log('analyser_dtd_notation a ecrire');
+	spip_logger()->info('analyser_dtd_notation a ecrire');
 
 	return $m[1];
 }
@@ -249,7 +249,7 @@ function analyser_dtd_entity($dtd, &$dtc, $grammaire) {
 		return $dtd;
 	}
 	if (isset($dtc->entites[$nom])) {
-		spip_log("redefinition de l'entite $nom");
+		spip_logger()->info("redefinition de l'entite $nom");
 	}
 	if ($k6) {
 		return $k6 . $dtd;
@@ -303,7 +303,7 @@ function analyser_dtd_element($dtd, &$dtc, $grammaire) {
 	$nom = expanserEntite($nom, $dtc->macros);
 
 	if (isset($dtc->elements[$nom])) {
-		spip_log("redefinition de l'element $nom dans la DTD");
+		spip_logger()->info("redefinition de l'element $nom dans la DTD");
 
 		return -4;
 	}
@@ -385,7 +385,7 @@ function expanserEntite($val, $macros = []) {
 			$ent = $m[1];
 			// il peut valoir ""
 			if (!isset($macros[$ent])) {
-				spip_log("Entite $ent inconnu");
+				spip_logger()->info("Entite $ent inconnu");
 			} else {
 				if (!isset($vu[$ent])) {
 					$vu[$ent] = 0;

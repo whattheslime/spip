@@ -106,7 +106,7 @@ function inc_envoyer_mail_dist($destinataire, $sujet, $corps, $from = '', $heade
 
 	$email_envoi = $GLOBALS['meta']['email_envoi'];
 	if (!email_valide($email_envoi)) {
-		spip_log('Meta email_envoi invalide. Le mail sera probablement vu comme spam.');
+		spip_logger()->info('Meta email_envoi invalide. Le mail sera probablement vu comme spam.');
 		$email_envoi = $destinataire;
 	}
 
@@ -163,7 +163,7 @@ function inc_envoyer_mail_dist($destinataire, $sujet, $corps, $from = '', $heade
 		$sujet = preg_replace("@\r*\n@", "\r\n", $sujet);
 	}
 
-	spip_log("mail $destinataire\n$sujet\n$headers", 'mails');
+	spip_logger('mails')->info("mail $destinataire\n$sujet\n$headers");
 	// mode TEST : forcer l'email
 	if (defined('_TEST_EMAIL_DEST')) {
 		if (!_TEST_EMAIL_DEST) {

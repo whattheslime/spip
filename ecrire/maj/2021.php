@@ -44,7 +44,7 @@ $GLOBALS['maj'][2022_02_23_03] = [
  **/
 function maj2021_supprimer_toutes_sessions_si_aucun_backup_cles() {
 	if (!sql_countsel('spip_auteurs', "webmestre='oui' AND backup_cles!=''")) {
-		spip_log('supprimer sessions auteur', 'maj');
+		spip_logger('maj')->info('supprimer sessions auteur');
 		if ($dir = opendir(_DIR_SESSIONS)) {
 			while (($f = readdir($dir)) !== false) {
 				spip_unlink(_DIR_SESSIONS . $f);

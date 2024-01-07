@@ -124,10 +124,10 @@ function queue_add_job(
 	if (defined('_JQ_INSERT_CHECK_ARGS') && $id_job) {
 		$args = sql_getfetsel('args', 'spip_jobs', 'id_job=' . intval($id_job));
 		if ($args !== $arguments) {
-			spip_log('arguments job errones / longueur ' . strlen($args) . ' vs ' . strlen($arguments) . ' / valeur : ' . var_export(
-				$arguments,
-				true
-			), 'queue');
+			spip_logger('queue')->info(
+				'arguments job errones / longueur ' . strlen($args) . ' vs ' . strlen($arguments) . ' / valeur : '
+				. var_export($arguments, true)
+			);
 		}
 	}
 
@@ -234,10 +234,12 @@ function queue_unlink_job($id_job) {
  */
 function queue_start_job($row) {
 
+	$logger = spip_logger('queue');
+
 	// deserialiser les arguments
 	$args = unserialize($row['args']);
 	if (!is_array($args)) {
-		spip_log('arguments job errones ' . var_export($row, true), 'queue');
+		$logger->info('arguments job errones ' . var_export($row, true));
 		return false;
 	}
 
@@ -254,14 +256,14 @@ function queue_start_job($row) {
 	}
 
 	if (!function_exists($fonction)) {
-		spip_log("fonction $fonction ($inclure) inexistante " . var_export($row, true), 'queue');
+		$logger->info("fonction $fonction ($inclure) inexistante " . var_export($row, true));
 
 		return false;
 	}
 
-	spip_log('queue [' . $row['id_job'] . "]: $fonction() start", 'queue');
+	$logger->info('queue [' . $row['id_job'] . "]: $fonction() start");
 	$res = $fonction(...$args);
-	spip_log('queue [' . $row['id_job'] . "]: $fonction() end", 'queue');
+	$logger->info('queue [' . $row['id_job'] . "]: $fonction() end");
 
 	return $res;
 }
@@ -291,15 +293,16 @@ function queue_start_job($row) {
  */
 function queue_schedule($force_jobs = null) {
 	$time = time();
+	$logger = spip_logger('jq');
 	if (defined('_DEBUG_BLOCK_QUEUE')) {
-		spip_log('_DEBUG_BLOCK_QUEUE : schedule stop', 'jq' . _LOG_DEBUG);
+		$logger->debug('_DEBUG_BLOCK_QUEUE : schedule stop');
 
 		return;
 	}
 
 	// rien a faire si le prochain job est encore dans le futur
 	if (queue_sleep_time_to_next_job() > 0 && (!$force_jobs || !count($force_jobs))) {
-		spip_log('queue_sleep_time_to_next_job', 'jq' . _LOG_DEBUG);
+		$logger->debug('queue_sleep_time_to_next_job');
 
 		return;
 	}
@@ -320,7 +323,7 @@ function queue_schedule($force_jobs = null) {
 	}
 	$end_time = $time + _JQ_MAX_JOBS_TIME_TO_EXECUTE;
 
-	spip_log("JQ schedule $time / $end_time", 'jq' . _LOG_DEBUG);
+	$logger->debug("JQ schedule $time / $end_time");
 
 	if (!defined('_JQ_MAX_JOBS_EXECUTE')) {
 		define('_JQ_MAX_JOBS_EXECUTE', 200);
@@ -347,7 +350,7 @@ function queue_schedule($force_jobs = null) {
 			$nbj++;
 			// il faut un verrou, a base de sql_delete
 			if (sql_delete('spip_jobs', 'id_job=' . intval($row['id_job']) . ' AND status=' . intval(_JQ_SCHEDULED))) {
-				#spip_log("JQ schedule job ".$nbj." OK",'jq');
+				#$logger->info("JQ schedule job ".$nbj." OK");
 				// on reinsert dans la base aussitot avec un status=_JQ_PENDING
 				$row['status'] = _JQ_PENDING;
 				$row['date'] = date('Y-m-d H:i:s', $time);
@@ -361,13 +364,13 @@ function queue_schedule($force_jobs = null) {
 				queue_close_job($row, $time, $result);
 			}
 		}
-		spip_log('JQ schedule job end time ' . $time, 'jq' . _LOG_DEBUG);
+		$logger->debug('JQ schedule job end time ' . $time);
 	} while ($nbj < _JQ_MAX_JOBS_EXECUTE && $row && $time < $end_time);
-	spip_log('JQ schedule end time ' . time(), 'jq' . _LOG_DEBUG);
+	$logger->debug('JQ schedule end time ' . time());
 
 	if ($row = array_shift($res)) {
 		queue_update_next_job_time(0); // on sait qu'il y a encore des jobs a lancer ASAP
-		spip_log('JQ encore !', 'jq' . _LOG_DEBUG);
+		$logger->debug('JQ encore !');
 	} else {
 		queue_update_next_job_time();
 	}
@@ -482,7 +485,7 @@ function queue_update_next_job_time($next_time = null) {
 	if (is_array($res)) {
 		foreach ($res as $row) {
 			queue_close_job($row, $time);
-			spip_log('queue_close_job car _JQ_PENDING depuis +180s : ' . print_r($row, true), 'job_mort' . _LOG_ERREUR);
+			spip_logger('job_mort')->error('queue_close_job car _JQ_PENDING depuis +180s : ' . print_r($row, true));
 		}
 	}
 

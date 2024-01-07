@@ -289,7 +289,7 @@ function balise_URL_PAGE_dist($p) {
 		$code = "generer_url_public($code, $args$noentities)";
 	}
 	$p->code = $code;
-	spip_log("Calcul url page : connect vaut $s ca donne :" . $p->code . " args $args", _LOG_INFO);
+	spip_logger()->info("Calcul url page : connect vaut $s ca donne :" . $p->code . " args $args");
 
 	#$p->interdire_scripts = true;
 	return $p;

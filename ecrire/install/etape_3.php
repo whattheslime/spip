@@ -20,6 +20,8 @@ include_spip('base/abstract_sql');
 
 function install_bases($adresse_db, $login_db, $pass_db, $server_db, $choix_db, $sel_db, $chmod_db) {
 
+	$logger = spip_logger();
+
 	// Prefix des tables :
 	// S'il n'est pas defini par mes_options/inc/mutualiser, on va le creer
 	// a partir de ce qui est envoye a l'installation
@@ -54,12 +56,12 @@ function install_bases($adresse_db, $login_db, $pass_db, $server_db, $choix_db, 
 			$ok = sql_create_base($sel_db, $server_db);
 			if (!$ok) {
 				$re = "Impossible de creer la base $re";
-				spip_log($re);
+				$logger->info($re);
 				return '<p>' . _T('avis_connexion_erreur_creer_base') . "</p><!--\n$re\n-->";
 			}
 		} else {
 			$re = "Le nom de la base doit correspondre a $re";
-			spip_log($re);
+			$logger->info($re);
 
 			return '<p>' . _T('avis_connexion_erreur_nom_base') . "</p><!--\n$re\n-->";
 		}
@@ -98,10 +100,10 @@ function install_bases($adresse_db, $login_db, $pass_db, $server_db, $choix_db, 
 				$charset['charset'];
 			$charsetbase = $charset['charset'];
 		} else {
-			spip_log(_DEFAULT_CHARSET . ' inconnu du serveur SQL');
+			$logger->info(_DEFAULT_CHARSET . ' inconnu du serveur SQL');
 			$charsetbase = 'standard';
 		}
-		spip_log("Creation des tables. Codage $charsetbase");
+		$logger->info("Creation des tables. Codage $charsetbase");
 		creer_base($server_db); // AT LAST
 		// memoriser avec quel charset on l'a creee
 
@@ -139,7 +141,7 @@ function install_bases($adresse_db, $login_db, $pass_db, $server_db, $choix_db, 
 		}
 	} else {
 		// pour recreer les tables disparues au besoin
-		spip_log('Table des Meta deja la. Verification des autres.');
+		$logger->info('Table des Meta deja la. Verification des autres.');
 		creer_base($server_db);
 		$fupdateq = sql_serveur('updateq', $server_db);
 
@@ -157,7 +159,7 @@ function install_bases($adresse_db, $login_db, $pass_db, $server_db, $choix_db, 
 				'',
 				$server_db
 			);
-			spip_log('nouvelle version installee: ' . $GLOBALS['spip_version_base']);
+			$logger->info('nouvelle version installee: ' . $GLOBALS['spip_version_base']);
 		}
 		// eliminer la derniere operation d'admin mal terminee
 		// notamment la mise a jour

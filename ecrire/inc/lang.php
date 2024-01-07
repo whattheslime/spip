@@ -350,7 +350,7 @@ function utiliser_langue_site($liste_langues = null) {
 	}
 	// en theorie là, la globale est définie, sinon c'est un problème.
 	if (!isset($GLOBALS['spip_lang'])) {
-		spip_log('La globale spip_lang est indéfinie dans utiliser_langue_site() !', _LOG_ERREUR);
+		spip_logger()->error('La globale spip_lang est indéfinie dans utiliser_langue_site() !');
 	}
 
 	return $GLOBALS['spip_lang'];

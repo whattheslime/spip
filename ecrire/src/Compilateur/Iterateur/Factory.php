@@ -13,6 +13,7 @@ use Exception;
 class Factory
 {
 	public static function create($iterateur, $command, $info = null) {
+		$logger = spip_logger(); // FIXME: inject it.
 		$iter = null;
 		// cas des SI {si expression} analises tres tot
 		// pour eviter le chargement de tout iterateur
@@ -42,8 +43,8 @@ class Factory
 				try {
 					$iter = new $iterateur(...$a);
 				} catch (Exception $e) {
-					spip_log("Erreur de chargement de l'iterateur {$iterateur}");
-					spip_log($e->getMessage());
+					$logger->info("Erreur de chargement de l'iterateur {$iterateur}");
+					$logger->info($e->getMessage());
 					$iter = new EmptyIterator();
 				}
 			}

@@ -73,7 +73,7 @@ function liste_serveurs() {
 			if (function_exists($v) && $v()) {
 				$options[$s] = "install_select_type_$s";
 			} else {
-				spip_log("$s: portage indisponible");
+				spip_logger()->info("$s: portage indisponible");
 			}
 		}
 	}

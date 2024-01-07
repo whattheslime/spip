@@ -32,7 +32,7 @@ function exec_base_delete_all_dist() {
 		$res = base_lister_toutes_tables('', [], [], true);
 		if (!$res) {
 			include_spip('inc/minipres');
-			spip_log('Erreur base de donnees');
+			spip_logger()->info('Erreur base de donnees');
 			echo minipres(
 				_T('info_travaux_titre'),
 				_T('titre_probleme_technique') . '<p><tt>' . sql_errno() . ' ' . sql_error() . '</tt></p>'

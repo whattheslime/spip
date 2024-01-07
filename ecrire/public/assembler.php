@@ -636,7 +636,7 @@ function inclure_modele($type, $id, $params, $lien, string $connect = '', $env =
 
 	// Si ca marche pas en precisant le sous-type, prendre le type
 	if (!$fond && !trouve_modele($fond = $type)) {
-		spip_log("Modele $type introuvable", _LOG_INFO_IMPORTANTE);
+		spip_logger()->notice("Modele $type introuvable");
 		$compteur--;
 		return false;
 	}

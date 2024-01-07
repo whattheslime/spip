@@ -142,12 +142,12 @@ function public_parametrer_dist($fond, $contexte = '', $cache = '', string $conn
 		$infos = presenter_contexte(array_filter($contexte));
 
 		$profile = spip_timer($a);
-		spip_log("calcul ($profile) [$skel] $infos"
+		spip_logger()->info("calcul ($profile) [$skel] $infos"
 			. ' (' . strlen((string) $page['texte']) . ' octets)');
 
 		if (defined('_CALCUL_PROFILER') && (int) $profile > _CALCUL_PROFILER) {
-			spip_log("calcul ($profile) [$skel] $infos"
-				. ' (' . strlen((string) $page['texte']) . ' octets) | ' . $_SERVER['REQUEST_URI'], 'profiler' . _LOG_AVERTISSEMENT);
+			spip_logger('profiler')->notice("calcul ($profile) [$skel] $infos"
+				. ' (' . strlen((string) $page['texte']) . ' octets) | ' . $_SERVER['REQUEST_URI']);
 		}
 
 		if ($debug) {

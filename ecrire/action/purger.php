@@ -45,7 +45,7 @@ function action_purger_dist($arg = null) {
 
 	include_spip('inc/invalideur');
 
-	spip_log("purger $arg");
+	spip_logger()->info("purger $arg");
 
 	switch ($arg) {
 		case 'inhibe_cache':

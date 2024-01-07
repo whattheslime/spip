@@ -118,7 +118,7 @@ function urls_decoder_url($url, $fond = '', $contexte = [], $assembler = false) 
 				$url_redirect = '';
 			} // securite pour eviter une redirection infinie
 			if ($assembler && strlen($url_redirect)) {
-				spip_log("Redirige $url vers $url_redirect");
+				spip_logger()->info("Redirige $url vers $url_redirect");
 				include_spip('inc/headers');
 				redirige_par_entete($url_redirect, '', 301);
 			}

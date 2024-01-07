@@ -32,7 +32,7 @@ function genie_mise_a_jour_dist($t) {
 
 	mise_a_jour_ecran_securite();
 
-	spip_log('Verification version SPIP : ' . ($maj ?: 'version a jour'), 'verifie_maj');
+	spip_logger('verifie_maj')->info('Verification version SPIP : ' . ($maj ?: 'version a jour'));
 
 	return 1;
 }
@@ -165,7 +165,7 @@ function info_maj_cache(): ?array {
 	try {
 		$json = json_decode((string) $contenu, true, 512, JSON_THROW_ON_ERROR);
 	} catch (JsonException $e) {
-		spip_log('Failed to parse Json data : ' . $e->getMessage(), 'verifie_maj');
+		spip_logger('verifie_maj')->info('Failed to parse Json data : ' . $e->getMessage());
 		return null;
 	}
 

@@ -196,7 +196,7 @@ function liste_plugin_actifs() {
 	}
 	if (!is_array($liste = unserialize($liste))) {
 		// compatibilite pre 1.9.2, mettre a jour la meta
-		spip_log("MAJ meta plugin vieille version : $liste", 'plugin');
+		spip_logger('plugin')->info("MAJ meta plugin vieille version : $liste");
 		$new = true;
 		[, $liste] = liste_plugin_valides(explode(',', (string) $liste));
 	} else {

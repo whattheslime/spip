@@ -99,7 +99,7 @@ function f_tidy($texte) {
 		}
 
 		if (!$f = charger_fonction($GLOBALS['xhtml'], 'inc', true)) {
-			spip_log("tidy absent, l'indenteur SPIP le remplace");
+			spip_logger()->info("tidy absent, l'indenteur SPIP le remplace");
 			$f = charger_fonction('sax', 'xml');
 		}
 

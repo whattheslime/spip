@@ -77,9 +77,9 @@ function formulaires_oubli_verifier_dist() {
 		$erreurs['oubli'] = $r;
 	} else {
 		if (!$r[1]) {
-			spip_log("demande de reinitialisation de mot de passe pour $email non enregistre sur le site", 'oubli');
+			spip_logger('oubli')->info("demande de reinitialisation de mot de passe pour $email non enregistre sur le site");
 		} elseif ($r[1]['statut'] == '5poubelle' || $r[1]['pass'] == '') {
-			spip_log("demande de reinitialisation de mot de passe pour $email sans acces (poubelle ou pass vide)", 'oubli');
+			spip_logger('oubli')->info("demande de reinitialisation de mot de passe pour $email sans acces (poubelle ou pass vide)");
 		}
 	}
 

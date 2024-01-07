@@ -1990,7 +1990,7 @@ function balise_INCLURE_dist($p) {
 			$f = $r[1];
 			unset($_contexte['fond']);
 		} else {
-			spip_log('compilation de #INCLURE a revoir');
+			spip_logger()->info('compilation de #INCLURE a revoir');
 		}
 
 		// #INCLURE{doublons}

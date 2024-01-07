@@ -41,7 +41,7 @@ function cron($taches = [], $taches_old = []) {
 	if ($taches && count($taches) && !spip_connect()) {
 		return false;
 	}
-	spip_log('cron !', 'jq' . _LOG_DEBUG);
+	spip_logger('jq')->debug('cron !');
 	if ($genie = charger_fonction('genie', 'inc', true)) {
 		return $genie($taches);
 	}

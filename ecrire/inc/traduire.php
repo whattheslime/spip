@@ -126,7 +126,7 @@ function charger_langue($lang, $module = 'spip') {
 				$GLOBALS[$var] = &$GLOBALS['i18n_' . $module . '_' . $l];
 			}
 			$GLOBALS['lang_' . $var] = $l;
-			#spip_log("module de langue : {$module}_$l.php", 'traduire');
+			#spip_logger('traduire')->info("module de langue : {$module}_$l.php");
 			break;
 		}
 	}
@@ -153,7 +153,7 @@ function lire_fichier_langue(string $fichier): array {
 			$idx_lang = $GLOBALS[$idx_lang_tmp];
 		} else {
 			$idx_lang = [];
-			spip_log(sprintf('Fichier de langue incorrect : %s', $fichier), _LOG_ERREUR);
+			spip_logger()->error(sprintf('Fichier de langue incorrect : %s', $fichier));
 		}
 		unset($GLOBALS[$idx_lang_tmp]);
 	}

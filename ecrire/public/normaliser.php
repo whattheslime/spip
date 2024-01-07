@@ -89,5 +89,5 @@ function normaliser_inclure($champ) {
 			return;
 		}
 	}
-	spip_log('inclure sans fond ni fichier', 'vieilles_def');
+	spip_logger('vieilles_def')->info('inclure sans fond ni fichier');
 }

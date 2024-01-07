@@ -481,7 +481,7 @@ function _image_valeurs_trans($img, $effet, $forcer_format = false, $fonction_cr
 	}
 	if ($creer && !@file_exists($fichier)) {
 		if (!@file_exists("$fichier.src")) {
-			spip_log("Image absente : $fichier", 'images' . _LOG_ERREUR);
+			spip_logger('images')->error("Image absente : $fichier");
 
 			return false;
 		}
@@ -490,9 +490,8 @@ function _image_valeurs_trans($img, $effet, $forcer_format = false, $fonction_cr
 	}
 
 	if ($creer) {
-		spip_log(
+		spip_logger('images')->error(
 			'filtre image ' . ($fonction_creation ? reset($fonction_creation) : '') . "[$effet] sur $fichier",
-			'images' . _LOG_DEBUG
 		);
 	}
 
@@ -642,7 +641,7 @@ function _image_trouver_extension_pertinente($path) {
 
 	$_terminaison = _image_trouver_extension_depuis_mime($mime);
 	if ($_terminaison && $_terminaison !== $terminaison) {
-		spip_log("Mauvaise extension du fichier : $path . Son type mime est : $mime", 'images.' . _LOG_INFO_IMPORTANTE);
+		spip_logger('images')->notice("Mauvaise extension du fichier : $path . Son type mime est : $mime");
 		$terminaison = $_terminaison;
 	}
 	return $terminaison;
@@ -680,13 +679,13 @@ function _image_trouver_extension_depuis_mime(string $mime): string {
  */
 function _imagecreatefrom_func(string $func, string $filename) {
 	if (!function_exists($func)) {
-		spip_log("GD indisponible : $func inexistante. Traitement $filename impossible.", _LOG_CRITIQUE);
+		spip_logger('images')->critical("GD indisponible : $func inexistante. Traitement $filename impossible.");
 		erreur_squelette("GD indisponible : $func inexistante. Traitement $filename impossible.");
 		return null;
 	}
 	$img = @$func($filename);
 	if (!$img) {
-		spip_log("Erreur lecture $func $filename", _LOG_CRITIQUE);
+		spip_logger('images')->critical("Erreur lecture $func $filename");
 		erreur_squelette("Erreur lecture $func $filename");
 		$img = imagecreate(10, 10);
 	}
@@ -1343,7 +1342,7 @@ function _image_creer_vignette($valeurs, $maxWidth, $maxHeight, $process = 'AUTO
 		$destWidth = $maxWidth;
 		$destHeight = $maxHeight;
 	} else {
-		spip_log("echec $process sur $image");
+		spip_logger('images')->info("echec $process sur $image");
 
 		return;
 	}
@@ -1385,10 +1384,10 @@ function _image_creer_vignette($valeurs, $maxWidth, $maxHeight, $process = 'AUTO
 			],
 			(string) _RESIZE_COMMAND
 		);
-		spip_log($commande);
+		spip_logger('images')->info($commande);
 		exec($commande);
 		if (!@file_exists($vignette)) {
-			spip_log("echec convert sur $vignette");
+			spip_logger('images')->info("echec convert sur $vignette");
 
 			return;  // echec commande
 		}
@@ -1397,7 +1396,7 @@ function _image_creer_vignette($valeurs, $maxWidth, $maxHeight, $process = 'AUTO
 	// php5 imagemagick
 	elseif ($process == 'imagick') {
 		if (!class_exists(\Imagick::class)) {
-			spip_log('Classe Imagick absente !', _LOG_ERREUR);
+			spip_logger('images')->error('Classe Imagick absente !');
 
 			return;
 		}
@@ -1420,7 +1419,7 @@ function _image_creer_vignette($valeurs, $maxWidth, $maxHeight, $process = 'AUTO
 		$imagick->writeImage($vignette);
 
 		if (!@file_exists($vignette)) {
-			spip_log("echec imagick sur $vignette");
+			spip_logger('images')->info("echec imagick sur $vignette");
 
 			return;
 		}
@@ -1445,7 +1444,7 @@ function _image_creer_vignette($valeurs, $maxWidth, $maxHeight, $process = 'AUTO
 				spip_unlink($vignette);
 			}
 			if (!@file_exists($vignette)) {
-				spip_log("echec netpbm-jpg sur $vignette");
+				spip_logger('images')->info("echec netpbm-jpg sur $vignette");
 
 				return;
 			}
@@ -1457,7 +1456,7 @@ function _image_creer_vignette($valeurs, $maxWidth, $maxHeight, $process = 'AUTO
 					spip_unlink($vignette);
 				}
 				if (!@file_exists($vignette)) {
-					spip_log("echec netpbm-gif sur $vignette");
+					spip_logger('images')->info("echec netpbm-gif sur $vignette");
 
 					return;
 				}
@@ -1469,7 +1468,7 @@ function _image_creer_vignette($valeurs, $maxWidth, $maxHeight, $process = 'AUTO
 						spip_unlink($vignette);
 					}
 					if (!@file_exists($vignette)) {
-						spip_log("echec netpbm-png sur $vignette");
+						spip_logger('images')->info("echec netpbm-png sur $vignette");
 
 						return;
 					}
@@ -1481,18 +1480,18 @@ function _image_creer_vignette($valeurs, $maxWidth, $maxHeight, $process = 'AUTO
 	// gd ou gd2
 	elseif ($process === 'gd2') {
 		if (!function_exists('gd_info')) {
-			spip_log('Librairie GD absente !', _LOG_ERREUR);
+			spip_logger('images')->error('Librairie GD absente !');
 
 			return;
 		}
 		if (_IMG_GD_MAX_PIXELS && $srcWidth * $srcHeight > _IMG_GD_MAX_PIXELS) {
-			spip_log('vignette gd2 impossible : ' . $srcWidth * $srcHeight . 'pixels');
+			spip_logger('images')->info('vignette gd2 impossible : ' . $srcWidth * $srcHeight . 'pixels');
 
 			return;
 		}
 		$destFormat = $format_sortie;
 		if (!$destFormat) {
-			spip_log("pas de format pour $image");
+			spip_logger('images')->info("pas de format pour $image");
 
 			return;
 		}
@@ -1503,7 +1502,7 @@ function _image_creer_vignette($valeurs, $maxWidth, $maxHeight, $process = 'AUTO
 		}
 		$srcImage = @$fonction_imagecreatefrom($image);
 		if (!$srcImage) {
-			spip_log('echec gd2');
+			spip_logger('images')->info('echec gd2');
 
 			return;
 		}
@@ -1739,7 +1738,7 @@ function process_image_reduire($fonction, $img, $taille, $taille_y, $force, $pro
 	}
 
 	if (!is_array($image) || !$image['largeur'] || !$image['hauteur']) {
-		spip_log("image_reduire_src:pas de version locale de $img ou extension non prise en charge");
+		spip_logger('images')->info("image_reduire_src:pas de version locale de $img ou extension non prise en charge");
 		// on peut resizer en mode html si on dispose des elements
 		[$srcw, $srch] = taille_image($img);
 		if ($srcw && $srch) {

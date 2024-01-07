@@ -37,7 +37,7 @@ function inc_email_valide_dist($adresses) {
 
 	// Si c'est un spammeur autant arreter tout de suite
 	if (preg_match(",[\n\r].*(MIME|multipart|Content-),i", $adresses)) {
-		spip_log("Tentative d'injection de mail : $adresses");
+		spip_logger()->info("Tentative d'injection de mail : $adresses");
 
 		return false;
 	}

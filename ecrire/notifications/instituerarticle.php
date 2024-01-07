@@ -18,7 +18,7 @@ function notifications_instituerarticle_dist($quoi, $id_article, $options) {
 
 	// ne devrait jamais se produire
 	if ($options['statut'] == $options['statut_ancien']) {
-		spip_log('statut inchange', 'notifications');
+		spip_logger('notifications')->info('statut inchange');
 
 		return;
 	}

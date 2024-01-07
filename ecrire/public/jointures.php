@@ -671,7 +671,7 @@ function trouver_jointure_champ($champ, &$boucle, $jointures = false, $cond = fa
 			return $cle;
 		}
 	}
-	spip_log("trouver_jointure_champ: $champ inconnu");
+	spip_logger()->info("trouver_jointure_champ: $champ inconnu");
 
 	return '';
 }

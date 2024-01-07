@@ -628,8 +628,7 @@ function init_var_mode() {
 						define('_VAR_MODE', reset($var_mode));
 					}
 					if (isset($GLOBALS['visiteur_session']['nom'])) {
-						spip_log($GLOBALS['visiteur_session']['nom']
-							. ' ' . _VAR_MODE);
+						spip_logger()->info($GLOBALS['visiteur_session']['nom'] . ' ' . _VAR_MODE);
 					}
 				} // pas autorise ?
 				else {

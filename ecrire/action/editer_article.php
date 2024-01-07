@@ -64,7 +64,7 @@ function action_editer_article_dist($arg = null) {
 	}
 
 	if ($err) {
-		spip_log("echec editeur article: $err", _LOG_ERREUR);
+		spip_logger()->error("echec editeur article: $err");
 	}
 
 	return [$id_article, $err];
@@ -328,7 +328,7 @@ function article_instituer($id_article, $c, $calcul_rub = true) {
 		} elseif (autoriser('modifier', 'article', $id_article) && $s != 'publie') {
 			$statut = $champs['statut'] = $s;
 		} else {
-			spip_log("editer_article $id_article refus " . implode(' ', $c));
+			spip_logger()->info("editer_article $id_article refus " . implode(' ', $c));
 		}
 
 		// En cas de publication, fixer la date a "maintenant"

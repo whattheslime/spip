@@ -39,7 +39,7 @@ function logo_supprimer($objet, $id_objet, $etat) {
 	if ($logo) {
 		# TODO : deprecated, a supprimer -> anciens logos IMG/artonxx.png pas en base
 		if ((is_countable($logo) ? count($logo) : 0) < 6) {
-			spip_log('Supprimer ancien logo ' . json_encode($logo, JSON_THROW_ON_ERROR), 'logo');
+			spip_logger('logo')->info('Supprimer ancien logo ' . json_encode($logo, JSON_THROW_ON_ERROR));
 			spip_unlink($logo[0]);
 		}
 		elseif (
@@ -82,7 +82,7 @@ function logo_modifier($objet, $id_objet, $etat, $source) {
 
 	$mode = preg_replace(',\W,', '', $etat);
 	if (!$mode) {
-		spip_log("logo_modifier : etat $etat invalide", 'logo');
+		spip_logger('logo')->info("logo_modifier : etat $etat invalide");
 
 		return 'etat invalide';
 	}
@@ -93,7 +93,7 @@ function logo_modifier($objet, $id_objet, $etat, $source) {
 	$erreur = '';
 
 	if (!$source) {
-		spip_log('spip_image_ajouter : source inconnue', 'logo');
+		spip_logger('logo')->info('spip_image_ajouter : source inconnue');
 
 		return 'source inconnue';
 	}
@@ -107,7 +107,7 @@ function logo_modifier($objet, $id_objet, $etat, $source) {
 			$tmp_name = $f;
 		}
 		if (!$tmp_name) {
-			spip_log('spip_image_ajouter : source inconnue', 'logo');
+			spip_logger('logo')->info('spip_image_ajouter : source inconnue');
 
 			return 'source inconnue';
 		}
@@ -140,7 +140,7 @@ function logo_modifier($objet, $id_objet, $etat, $source) {
 
 	if (!is_numeric($id_document)) {
 		$erreur = ($id_document ?: 'Erreur inconnue');
-		spip_log("Erreur ajout logo : $erreur pour source=" . json_encode($source, JSON_THROW_ON_ERROR), 'logo');
+		spip_logger('logo')->info("Erreur ajout logo : $erreur pour source=" . json_encode($source, JSON_THROW_ON_ERROR));
 		return $erreur;
 	}
 
@@ -224,7 +224,7 @@ function logo_migrer_en_base($objet, $time_limit) {
 		}
 
 		$count = (is_countable($files) ? count($files) : 0);
-		spip_log("logo_migrer_en_base $objet $mode : " . $count . ' logos restant', 'maj' . _LOG_INFO_IMPORTANTE);
+		spip_logger('maj')->notice("logo_migrer_en_base $objet $mode : " . $count . ' logos restant');
 
 		$deja = [];
 		foreach ($files as $file) {
@@ -268,7 +268,7 @@ function logo_migrer_en_base($objet, $time_limit) {
 
 			$count--;
 			if ($count % 250 === 0) {
-				spip_log("logo_migrer_en_base $objet $mode : " . $count . ' logos restant', 'maj' . _LOG_INFO_IMPORTANTE);
+				spip_logger('maj')->notice("logo_migrer_en_base $objet $mode : " . $count . ' logos restant');
 			}
 
 			if ($time_limit && time() > $time_limit) {

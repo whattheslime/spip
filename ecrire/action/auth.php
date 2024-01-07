@@ -28,7 +28,7 @@ function action_auth_dist() {
 	$arg = $securiser_action();
 
 	if (!preg_match(',^(\w+)[/](.+)$,', (string) $arg, $r)) {
-		spip_log("action_auth_dist $arg pas compris");
+		spip_logger()->info("action_auth_dist $arg pas compris");
 	} else {
 		$auth_methode = $r[1];
 		$login = $r[2];

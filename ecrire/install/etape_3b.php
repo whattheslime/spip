@@ -99,7 +99,7 @@ function install_etape_3b_dist() {
 					$echec = _T('avis_connexion_erreur_fichier_cle_manquant_1');
 					echouer_etape_3b($echec);
 				}
-				spip_log("Les cles secretes ont ete restaurées avec le backup du webmestre #$id_auteur", 'auth' . _LOG_INFO_IMPORTANTE);
+				spip_logger('auth')->notice("Les cles secretes ont ete restaurées avec le backup du webmestre #$id_auteur");
 				$cles->save();
 			}
 
@@ -148,7 +148,7 @@ function install_etape_3b_dist() {
 		include_spip('inc/auth');
 		$auteur = auth_identifier_login($login, $pass);
 		if (!$auteur || !auth_loger($auteur)) {
-			spip_log("login automatique impossible $auth_spip $session" . (is_countable($row) ? count($row) : 0));
+			$logger->info("login automatique impossible $auth_spip $session" . (is_countable($row) ? count($row) : 0));
 		}
 	}
 

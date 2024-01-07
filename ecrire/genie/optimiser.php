@@ -95,16 +95,17 @@ function optimiser_base_une_table() {
 		$tables[] = array_shift($row);
 	}
 
-	spip_log('optimiser_base_une_table ' . json_encode($tables, JSON_THROW_ON_ERROR), 'genie' . _LOG_DEBUG);
+	$logger = spip_logger('genie');
+	$logger->debug('optimiser_base_une_table ' . json_encode($tables, JSON_THROW_ON_ERROR));
 	if ($tables) {
 		$table_op = (int) (lire_config('optimiser_table', 0) + 1) % count($tables);
 		ecrire_config('optimiser_table', $table_op);
 		$q = $tables[$table_op];
-		spip_log("optimiser_base_une_table : debut d'optimisation de la table $q", 'genie' . _LOG_DEBUG);
+		$logger->debug("optimiser_base_une_table : debut d'optimisation de la table $q");
 		if (sql_optimize($q)) {
-			spip_log("optimiser_base_une_table : fin d'optimisation de la table $q", 'genie' . _LOG_DEBUG);
+			$logger->debug("optimiser_base_une_table : fin d'optimisation de la table $q");
 		} else {
-			spip_log("optimiser_base_une_table : Pas d'optimiseur necessaire", 'genie' . _LOG_DEBUG);
+			$logger->debug("optimiser_base_une_table : Pas d'optimiseur necessaire");
 		}
 	}
 }
@@ -140,7 +141,7 @@ function optimiser_sansref($table, $id, $sel, $and = '') {
 
 	if ($in) {
 		sql_delete($table, sql_in($id, array_keys($in)) . ($and ? " AND $and" : ''));
-		spip_log("optimiser_sansref: Numeros des entrees $id supprimees dans la table $table: " . implode(', ', array_keys($in)), 'genie' . _LOG_DEBUG);
+		spip_logger('genie')->debug("optimiser_sansref: Numeros des entrees $id supprimees dans la table $table: " . implode(', ', array_keys($in)));
 	}
 
 	return count($in);
@@ -241,5 +242,5 @@ function optimiser_base_disparus($attente = 86400) {
 	]);
 
 
-	spip_log("optimiser_base_disparus : {$n} lien(s) mort(s)", 'genie' . _LOG_DEBUG);
+	spip_logger('genie')->debug("optimiser_base_disparus : {$n} lien(s) mort(s)");
 }

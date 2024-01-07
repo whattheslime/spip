@@ -47,9 +47,10 @@ function enregistre_modif_plugin() {
 		}
 	}
 
-	spip_log("Changement des plugins actifs par l'auteur " . $GLOBALS['visiteur_session']['id_auteur'] . ': ' . implode(
-		',',
-		$plugin
+	spip_logger()->info(sprintf(
+		'Changement des plugins actifs par l’auteur %s: %s',
+		$GLOBALS['visiteur_session']['id_auteur'],
+		implode(',', $plugin)
 	));
 	ecrire_plugin_actifs($plugin);
 

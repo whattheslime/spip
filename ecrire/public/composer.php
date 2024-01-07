@@ -64,7 +64,7 @@ function public_composer_dist($squelette, $mime_type, $gram, $source, string $co
 		#  AND lire_fichier ($phpfile, $skel_code,
 		#  array('critique' => 'oui', 'phpcheck' => 'oui'))){
 		## eval('?'.'>'.$skel_code);
-		#	 spip_log($skel_code, 'comp')
+		#	 spip_logger('comp')->info($skel_code);
 		#}
 	}
 

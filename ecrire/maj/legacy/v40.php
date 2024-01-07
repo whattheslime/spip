@@ -60,16 +60,15 @@ function maj_timestamp_mysql($tables = null) {
 			$fields_corrected = _mysql_remplacements_definitions_table($desc['field']);
 			$d = array_diff($desc['field'], $fields_corrected);
 			if ($d) {
-				spip_log("Table $table TIMESTAMP incorrect", 'maj');
+				spip_logger('maj')->info("Table $table TIMESTAMP incorrect");
 				foreach ($desc['field'] as $field => $type) {
 					if ($desc['field'][$field] !== $fields_corrected[$field]) {
-						spip_log("Adaptation TIMESTAMP table $table", 'maj.' . _LOG_INFO_IMPORTANTE);
+						spip_logger('maj')->notice("Adaptation TIMESTAMP table $table");
 						sql_alter("table $table change $field $field " . $fields_corrected[$field]);
 						$trouver_table('');
 						$new_desc = $trouver_table($table);
-						spip_log(
+						spip_logger('maj')->notice(
 							"Apres conversion $table : " . var_export($new_desc['field'], true),
-							'maj.' . _LOG_INFO_IMPORTANTE
 						);
 					}
 				}

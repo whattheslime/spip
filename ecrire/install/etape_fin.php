@@ -30,7 +30,7 @@ function install_etape_fin_dist() {
 
 	$f = str_replace(_FILE_TMP_SUFFIX, '.php', (string) _FILE_CONNECT_TMP);
 	if (file_exists(_FILE_CONNECT_TMP)) {
-		spip_log("renomme $f");
+		spip_logger()->info("renomme $f");
 		if (!@rename(_FILE_CONNECT_TMP, $f) && @copy(_FILE_CONNECT_TMP, $f)) {
 			@spip_unlink(_FILE_CONNECT_TMP);
 		}

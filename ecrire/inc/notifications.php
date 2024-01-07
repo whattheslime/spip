@@ -37,9 +37,9 @@ function inc_notifications_dist($quoi, $id = 0, $options = []) {
 	pipeline('notifications', ['args' => ['quoi' => $quoi, 'id' => $id, 'options' => $options]]);
 
 	if ($notification = charger_fonction($quoi, 'notifications', true)) {
-		spip_log("$notification($quoi,$id"
+		spip_logger('notifications')->info("$notification($quoi,$id"
 			. ($options ? ',' . serialize($options) : '')
-			. ')', 'notifications');
+			. ')');
 		$notification($quoi, $id, $options);
 	}
 }

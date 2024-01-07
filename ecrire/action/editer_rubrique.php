@@ -266,7 +266,7 @@ function rubrique_instituer($id_rubrique, $c) {
 		$id_parent = (int) $id_parent;
 		$filles = calcul_branche_in($id_rubrique);
 		if (str_contains(",$id_parent,", (string) ",$filles,")) {
-			spip_log("La rubrique $id_rubrique ne peut etre fille de sa descendante $id_parent");
+			spip_logger()->info("La rubrique $id_rubrique ne peut etre fille de sa descendante $id_parent");
 		} else {
 			$s = sql_fetsel('id_parent, statut', 'spip_rubriques', "id_rubrique=$id_rubrique");
 			$old_parent = $s['id_parent'];
@@ -279,7 +279,7 @@ function rubrique_instituer($id_rubrique, $c) {
 				)
 			) {
 				if ($s['statut'] != 'prepa') {
-					spip_log("deplacement de $id_rubrique vers $id_parent refuse a " . $GLOBALS['visiteur_session']['id_auteur'] . ' ' . $GLOBALS['visiteur_session']['statut']);
+					spip_logger()->info("deplacement de $id_rubrique vers $id_parent refuse a " . $GLOBALS['visiteur_session']['id_auteur'] . ' ' . $GLOBALS['visiteur_session']['statut']);
 				}
 			} elseif (editer_rubrique_breves($id_rubrique, $id_parent, $c)) {
 				$statut_ancien = $s['statut'];

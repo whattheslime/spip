@@ -232,7 +232,7 @@ abstract class AbstractCollecteur {
 	 */
 	public static function retablir_depuisHtmlBase64(string $texte, string $source = '', string $filtre = ''): string {
 		if (str_contains($texte, "base64$source")) {
-			# spip_log(spip_htmlspecialchars($texte));  ## pour les curieux
+			# spip_logger()->info(spip_htmlspecialchars($texte));  ## pour les curieux
 			$max_prof = 5;
 			$encore = true;
 			while ($encore && str_contains($texte, 'base64' . $source) && $max_prof--) {

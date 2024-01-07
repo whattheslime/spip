@@ -93,7 +93,7 @@ function action_api_transmettre_dist($arg = null) {
 
 	$res = ltrim((string) $res['texte']);
 	if (empty($res)) {
-		spip_log("$arg $qs resultat vide", 'transmettre' . _LOG_INFO_IMPORTANTE);
+		spip_logger('transmettre')->notice("$arg $qs resultat vide");
 	}
 
 	echo $res;

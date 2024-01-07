@@ -36,7 +36,7 @@ function minipipe($fonc, &$val) {
 		) {
 			$val = $methode($val);
 		} else {
-			spip_log("Erreur - '$fonc' non definie !");
+			spip_logger()->info("Erreur - '$fonc' non definie !");
 		}
 	}
 
@@ -81,7 +81,7 @@ function pipeline($action, $val = null) {
 			// de chargement des plugins et des pipelines
 			actualise_plugins_actifs();
 			if (!($ok = @is_readable($charger))) {
-				spip_log("fichier $charger pas cree");
+				spip_logger()->info("fichier $charger pas cree");
 			}
 		}
 
@@ -94,9 +94,9 @@ function pipeline($action, $val = null) {
 	$fonc = 'execute_pipeline_' . strtolower($action);
 	if (function_exists($fonc)) {
 		$val = $fonc($val);
-	} // plantage ?
-	else {
-		spip_log("fonction $fonc absente : pipeline desactive", _LOG_ERREUR);
+	} else {
+		// plantage ?
+		spip_logger()->error("fonction $fonc absente : pipeline desactive");
 	}
 
 	// si le flux est une table avec 2 cle args&data

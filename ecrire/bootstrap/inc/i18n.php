@@ -138,7 +138,7 @@ function _L($text, $args = [], $options = []) {
 		// Si des variables n'ont pas ete inserees, le signaler
 		// (chaines de langues pas a jour)
 		if ($args) {
-			spip_log("$f:  variables inutilisees " . join(', ', array_keys($args)), _LOG_DEBUG);
+			spip_logger()->debug("$f:  variables inutilisees " . join(', ', array_keys($args)));
 		}
 	}
 

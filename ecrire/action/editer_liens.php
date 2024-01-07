@@ -59,7 +59,7 @@ function objet_associable($objet) {
 		return [$primary, $l];
 	}
 
-	spip_log("Objet $objet non associable : ne dispose pas d'une cle primaire $primary OU d'une table liens $l");
+	spip_logger()->info("Objet $objet non associable : ne dispose pas d'une cle primaire $primary OU d'une table liens $l");
 
 	return false;
 }
@@ -211,7 +211,7 @@ function objet_trouver_liens($objets_source, $objets_lies, $cond = null) {
  * @return int
  */
 function objet_optimiser_liens($objets_source, $objets_lies) {
-	spip_log('objet_optimiser_liens : ' . json_encode($objets_source, JSON_THROW_ON_ERROR) . ', ' . json_encode($objets_lies, JSON_THROW_ON_ERROR), 'genie' . _LOG_DEBUG);
+	spip_logger('genie')->debug('objet_optimiser_liens : ' . json_encode($objets_source, JSON_THROW_ON_ERROR) . ', ' . json_encode($objets_lies, JSON_THROW_ON_ERROR));
 	return objet_traiter_liaisons('lien_optimise', $objets_source, $objets_lies);
 }
 
@@ -317,7 +317,7 @@ function objet_traiter_liaisons($operation, $objets_source, $objets_lies, $set =
 			foreach ($ids as $id) {
 				$res = $operation($objet, $primary, $l, $id, $objets_lies, $set);
 				if ($res === false) {
-					spip_log("objet_traiter_liaisons [Echec] : $operation sur $objet/$primary/$l/$id", _LOG_ERREUR);
+					spip_logger()->error("objet_traiter_liaisons [Echec] : $operation sur $objet/$primary/$l/$id");
 					$echec = true;
 				} else {
 					$modifs = ($modifs ? (is_array($res) ? array_merge($modifs, $res) : $modifs + $res) : $res);
@@ -790,9 +790,8 @@ function lien_optimise($objet_source, $primary, $table_lien, $id, $objets) {
 					);
 					if ($e != false) {
 						$dels += $e;
-						spip_log(
-							'lien_optimise: Entree ' . $row['id'] . '/' . $row['id_objet'] . "/$type supprimee dans la table $table_lien",
-							'genie' . _LOG_INFO_IMPORTANTE
+						spip_logger('genie')->notice(
+							'lien_optimise: Entree ' . $row['id'] . '/' . $row['id_objet'] . "/$type supprimee dans la table $table_lien"
 						);
 					}
 				}

@@ -317,9 +317,8 @@ function recherche_en_base($recherche = '', $tables = null, $options = [], $serv
 		##var_dump($results[$table]);
 
 
-		spip_log(
+		spip_logger('recherche')->info(
 			"recherche $table ($recherche) : " . (is_countable($results[$table]) ? count($results[$table]) : 0) . ' resultats ' . spip_timer('rech'),
-			'recherche'
 		);
 
 		if (isset($lock)) {

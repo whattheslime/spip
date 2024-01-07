@@ -45,7 +45,7 @@ function produire_image_math($tex) {
 
 	// Aller chercher l'image sur le serveur
 	if (!@file_exists($fichier) && $server) {
-		spip_log($url = $server . '?' . rawurlencode((string) $tex));
+		spip_logger()->info($url = $server . '?' . rawurlencode((string) $tex));
 		include_spip('inc/distant');
 		recuperer_url($url, ['file' => $fichier]);
 	}

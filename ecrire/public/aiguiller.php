@@ -195,26 +195,26 @@ function traiter_formulaires_dynamiques($get = false) {
 	$sign = _request('formulaire_action_sign');
 	if (!empty($GLOBALS['visiteur_session']['id_auteur'])) {
 		if (empty($sign)) {
-			spip_log("signature ajax form incorrecte : $form (formulaire non signe mais on a une session)", 'formulaires' . _LOG_ERREUR);
+			spip_logger('formulaires')->error("signature ajax form incorrecte : $form (formulaire non signe mais on a une session)");
 			return false;
 		}
 		$securiser_action = charger_fonction('securiser_action', 'inc');
 		$secu = $securiser_action($form, $args, '', -1);
 		if ($sign !== $secu['hash']) {
-			spip_log("signature ajax form incorrecte : $form (formulaire signe mais ne correspond pas a la session)", 'formulaires' . _LOG_ERREUR);
+			spip_logger('formulaires')->error("signature ajax form incorrecte : $form (formulaire signe mais ne correspond pas a la session)");
 			return false;
 		}
 	}
 	else {
 		if (!empty($sign)) {
-			spip_log("signature ajax form incorrecte : $form (formulaire signe mais pas de session)", 'formulaires' . _LOG_ERREUR);
+			spip_logger('formulaires')->error("signature ajax form incorrecte : $form (formulaire signe mais pas de session)");
 			return false;
 		}
 	}
 
 	include_spip('inc/filtres');
 	if (($args = decoder_contexte_ajax($args, $form)) === false) {
-		spip_log("signature ajax form incorrecte : $form (encodage corrompu)", 'formulaires' . _LOG_ERREUR);
+		spip_logger('formulaires')->error("signature ajax form incorrecte : $form (encodage corrompu)");
 
 		return false; // continuons le hit comme si de rien etait
 	} else {

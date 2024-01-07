@@ -169,7 +169,7 @@ function debusquer_compose_message($msg) {
 	$fond = $GLOBALS['fond'] ?? '';
 	// une erreur critique sort $message en array
 	$debug = is_array($msg) ? $msg[1] : $msg;
-	spip_log('Debug: ' . $debug . ' (' . $fond . ')');
+	spip_logger()->info('Debug: ' . $debug . ' (' . $fond . ')');
 
 	return $msg;
 }
@@ -253,7 +253,7 @@ function debusquer_loger_erreur($msg, $lieu) {
 	if ($ligne) {
 		$msg .= " L$ligne";
 	}
-	spip_log($msg, 'debusquer' . _LOG_ERREUR);
+	spip_logger('debusquer')->error($msg);
 }
 
 
@@ -364,7 +364,7 @@ function debusquer_requete($message) {
 				['script' => generer_url_ecrire('base_repair')]
 			)
 			. '</b><br />';
-		spip_log("Erreur systeme $errno");
+			spip_logger()->info("Erreur systeme $errno");
 
 		return [$retour, ''];
 	}
@@ -629,7 +629,7 @@ function emboite_texte($res, $fonc = '', $self = '') {
 		foreach ($errs as $r) {
 			$i++;
 			[$msg, $ligne, $col] = $r;
-			#spip_log("$r = list($msg, $ligne, $col");
+			#spip_logger()->info("$r = [$msg, $ligne, $col]");
 			if (isset($encore2[$msg])) {
 				$ref = ++$encore2[$msg];
 			} else {

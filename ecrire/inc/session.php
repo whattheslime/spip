@@ -78,7 +78,7 @@ function supprimer_sessions($id_auteur, $toutes = true, $actives = true) {
 
 	$nb_files = 0;
 	$nb_max_files = (defined('_MAX_NB_SESSIONS_OUVERTES') ? _MAX_NB_SESSIONS_OUVERTES : 1000);
-	spip_log("supprimer sessions auteur $id_auteur", 'session');
+	spip_logger('session')->info("supprimer sessions auteur $id_auteur");
 	if ($toutes || $id_auteur !== $GLOBALS['visiteur_session']['id_auteur']) {
 		if ($dir = opendir(_DIR_SESSIONS)) {
 			$t = $_SERVER['REQUEST_TIME']  - (4 * _RENOUVELLE_ALEA); // 48h par defaut
@@ -206,7 +206,7 @@ function ajouter_session($auteur) {
 	} else {
 		$fichier_session = chemin_fichier_session('alea_ephemere', $cookie);
 		if (!ecrire_fichier_session($fichier_session, $auteur)) {
-			spip_log('Echec ecriture fichier session ' . $fichier_session, 'session' . _LOG_HS);
+			spip_logger('session')->emergency('Echec ecriture fichier session ' . $fichier_session);
 			include_spip('inc/minipres');
 			echo minipres();
 			exit;
@@ -220,7 +220,7 @@ function ajouter_session($auteur) {
 	include_spip('inc/cookie');
 	$duree = definir_duree_cookie_session($auteur);
 	$cookie = set_cookie_session($cookie, time() + $duree);
-	spip_log("ajoute session $fichier_session cookie $duree", 'session');
+	spip_logger('session')->info("ajoute session $fichier_session cookie $duree");
 
 	// Si on est admin, poser le cookie de correspondance
 	if (!function_exists('autoriser')) {
@@ -381,7 +381,7 @@ function verifier_session($change = false) {
 
 			// Renouveler la session avec l'alea courant
 			include($fichier_session);
-			spip_log('renouvelle session ' . $GLOBALS['visiteur_session']['id_auteur'], 'session');
+			spip_logger('session')->info('renouvelle session ' . $GLOBALS['visiteur_session']['id_auteur']);
 			spip_unlink($fichier_session);
 			ajouter_session($GLOBALS['visiteur_session']);
 		}
@@ -408,12 +408,12 @@ function verifier_session($change = false) {
 			ajouter_session($GLOBALS['visiteur_session']);
 		} else {
 			if ($change) {
-				spip_log('session non rejouee, vol de cookie ?', 'session');
+				spip_logger('session')->info('session non rejouee, vol de cookie ?');
 			}
 		}
 	} else {
 		if ($change) {
-			spip_log("rejoue session $fichier_session $cookie", 'session');
+			spip_logger('session')->info("rejoue session $fichier_session $cookie");
 			if ($fichier_session) {
 				spip_unlink($fichier_session);
 			}
@@ -727,7 +727,7 @@ function chemin_fichier_session(string $alea, string $cookie_session, bool $tant
 
 	if (empty($GLOBALS['meta'][$alea])) {
 		if (!$tantpis) {
-			spip_log("fichier session ($tantpis): $alea indisponible", 'session');
+			spip_logger('session')->info("fichier session ($tantpis): $alea indisponible");
 			include_spip('inc/minipres');
 			echo minipres();
 		}

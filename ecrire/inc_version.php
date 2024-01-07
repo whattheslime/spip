@@ -204,4 +204,4 @@ if (!headers_sent() && _HEADER_COMPOSED_BY) {
 }
 
 $methode = ($_SERVER['REQUEST_METHOD'] ?? ((php_sapi_name() == 'cli') ? 'cli' : ''));
-spip_log($methode . ' ' . self() . ' - ' . _FILE_CONNECT, _LOG_DEBUG);
+spip_logger()->debug($methode . ' ' . self() . ' - ' . _FILE_CONNECT);

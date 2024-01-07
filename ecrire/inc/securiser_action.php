@@ -239,7 +239,7 @@ function _action_get_alea(string $alea): string {
 			if (empty($GLOBALS['meta'][$alea])) {
 				include_spip('inc/minipres');
 				echo minipres();
-				spip_log("$alea indisponible");
+				spip_logger()->info("$alea indisponible");
 				exit;
 			}
 		}

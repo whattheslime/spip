@@ -170,7 +170,7 @@ function formulaires_mot_de_passe_traiter_dist($id_auteur = null, $jeton = null)
 			include_spip('inc/auth');
 			$auth = auth_identifier_login($row['login'], $oubli);
 			if (!is_array($auth)) {
-				spip_log('Erreur identification ' . $row['login'] . " après changement de mot de passe: $auth", _LOG_ERREUR);
+				spip_logger()->error('Erreur identification ' . $row['login'] . " après changement de mot de passe: $auth");
 			}
 			elseif ($auth['id_auteur'] == $id_auteur) {
 				auth_loger($auth);

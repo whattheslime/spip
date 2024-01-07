@@ -171,7 +171,7 @@ function decompiler_criteres($boucle, $fmt = '', $prof = 0) {
 						$r = $d($p, $fmt, (0 - $prof));
 						$res2[] = [$p->type, $r];
 					} else {
-						spip_log("critere $i / $k mal forme");
+						spip_logger()->info("critere $i / $k mal forme");
 					}
 				}
 				$args[] = $res2;

@@ -80,8 +80,9 @@ function verifier_crash_tables() {
 		#$crash[] = 'test';
 		if ($crash) {
 			ecrire_meta('message_crash_tables', serialize($crash));
-			spip_log('crash des tables', 'err');
-			spip_log($crash, 'err');
+			$logger = spip_logger('err');
+			$logger->info('crash des tables');
+			$logger->info($crash);
 		} else {
 			effacer_meta('message_crash_tables');
 		}

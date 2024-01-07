@@ -38,13 +38,13 @@ class ValidateurXML
 		// controler les filles illegitimes, ca suffit
 		$depth = $this->depth;
 		$ouvrant = $this->ouvrant;
-		#spip_log("trouve $name apres " . $ouvrant[$depth]);
+		#spip_logger()->info("trouve $name apres " . $ouvrant[$depth]);
 		if (isset($ouvrant[$depth]) && preg_match('/^\s*(\w+)/', (string) $ouvrant[$depth], $r)) {
 			$pere = $r[1];
-			#spip_log("pere $pere");
+			#spip_logger()->info("pere $pere");
 			if (isset($this->dtc->elements[$pere])) {
 				$fils = $this->dtc->elements[$pere];
-				#spip_log("rejeton $name fils " . @join(',',$fils));
+				#spip_logger()->info("rejeton $name fils " . @join(',',$fils));
 				if (!($p = @in_array($name, $fils)) && ($p = strpos((string) $name, ':'))) {
 					$p = substr((string) $name, $p + 1);
 					$p = @in_array($p, $fils);
@@ -113,7 +113,7 @@ class ValidateurXML
 					$this->$f($phraseur, $name, $val, $bal);
 				}
 			}
-			#		else spip_log("$type type d'attribut inconnu");
+			#		else spip_logger()->info("$type type d'attribut inconnu");
 		}
 	}
 

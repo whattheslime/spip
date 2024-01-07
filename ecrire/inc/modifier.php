@@ -97,7 +97,7 @@ function collecter_requests($include_list, $exclude_list = [], $set = null, $tou
  */
 function objet_modifier_champs($objet, $id_objet, $options, $c = null, $serveur = '') {
 	if (!$id_objet = (int) $id_objet) {
-		spip_log('Erreur $id_objet non defini', 'warn');
+		spip_logger('warn')->info('Erreur $id_objet non defini');
 
 		return _T('erreur_technique_enregistrement_impossible');
 	}
@@ -112,7 +112,7 @@ function objet_modifier_champs($objet, $id_objet, $options, $c = null, $serveur 
 
 	// Appels incomplets (sans $c)
 	if (!is_array($c)) {
-		spip_log('erreur appel objet_modifier_champs(' . $objet . '), manque $c');
+		spip_logger()->info('erreur appel objet_modifier_champs(' . $objet . '), manque $c');
 
 		return _T('erreur_technique_enregistrement_impossible');
 	}
@@ -264,9 +264,8 @@ function objet_modifier_champs($objet, $id_objet, $options, $c = null, $serveur 
 			// si un champ n'a pas ete correctement enregistre, loger et retourner une erreur
 			// c'est un cas exceptionnel
 			if ($liste !== []) {
-				spip_log(
+				spip_logger('modifier')->critical(
 					"Erreur enregistrement en base $objet/$id_objet champs :" . var_export($conflits, true),
-					'modifier.' . _LOG_CRITIQUE
 				);
 
 				return _T(

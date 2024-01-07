@@ -119,11 +119,12 @@ function copie_locale($source, $mode = 'auto', $local = null, $taille_max = null
 			['file' => $localrac_tmp, 'taille_max' => $taille_max, 'if_modified_since' => $t ? filemtime($localrac) : '']
 		);
 
+		$logger = spip_logger('distant');
 		if (!$res || !$res['length'] && $res['status'] != 304) {
-			spip_log("copie_locale : Echec recuperation $source sur $localrac_tmp status : " . ($res ? $res['status'] : '-'), 'distant' . _LOG_INFO_IMPORTANTE);
+			$logger->notice("copie_locale : Echec recuperation $source sur $localrac_tmp status : " . ($res ? $res['status'] : '-'));
 			@unlink($localrac_tmp);
 		} else {
-			spip_log("copie_locale : recuperation $source sur $localrac_tmp OK | taille " . $res['length'] . ' status ' . $res['status'], 'distant');
+			$logger->info("copie_locale : recuperation $source sur $localrac_tmp OK | taille " . $res['length'] . ' status ' . $res['status']);
 		}
 		if (!$res || !$res['length']) {
 			// si $t c'est sans doute juste un not-modified-since
@@ -136,7 +137,7 @@ function copie_locale($source, $mode = 'auto', $local = null, $taille_max = null
 			&& is_callable($callback_valider_url)
 			&& !$callback_valider_url($res['url'])
 		) {
-			spip_log('copie_locale : url finale ' . $res['url'] . " non valide, on refuse le fichier $localrac_tmp", 'distant' . _LOG_INFO_IMPORTANTE);
+			$logger->notice('copie_locale : url finale ' . $res['url'] . " non valide, on refuse le fichier $localrac_tmp");
 			@unlink($localrac_tmp);
 			return $t ? $local : false;
 		}
@@ -466,7 +467,8 @@ function recuperer_url($url, $options = []) {
 		$options['taille_max'] = $copy ? _COPIE_LOCALE_MAX_SIZE : _INC_DISTANT_MAX_SIZE;
 	}
 
-	spip_log('recuperer_url ' . $options['methode'] . " sur $url", 'distant' . _LOG_DEBUG);
+	$logger = spip_logger('distant');
+	$logger->debug('recuperer_url ' . $options['methode'] . " sur $url");
 
 	// Ajout des en-têtes spécifiques si besoin
 	$formatted_data = '';
@@ -526,7 +528,7 @@ function recuperer_url($url, $options = []) {
 		$options['if_modified_since']
 	);
 	if (!$handle) {
-		spip_log("ECHEC init_http $url", 'distant' . _LOG_ERREUR);
+		$logger->error("ECHEC init_http $url");
 
 		return false;
 	}
@@ -556,7 +558,7 @@ function recuperer_url($url, $options = []) {
 					'status' => 200,
 				];
 			} else {
-				spip_log("ECHEC chinoiserie $url", 'distant' . _LOG_ERREUR);
+				$logger->error("ECHEC chinoiserie $url");
 				return false;
 			}
 		} elseif ($res['location'] && $options['follow_location']) {
@@ -573,11 +575,11 @@ function recuperer_url($url, $options = []) {
 				$options['methode'] = 'GET';
 				$options['datas'] = '';
 			}
-			spip_log('recuperer_url recommence ' . $options['methode'] . " sur $url", 'distant' . _LOG_DEBUG);
+			$logger->debug('recuperer_url recommence ' . $options['methode'] . " sur $url");
 
 			return recuperer_url($url, $options);
 		} elseif ($res['status'] !== 200) {
-			spip_log('HTTP status ' . $res['status'] . " pour $url", 'distant');
+			$logger->info('HTTP status ' . $res['status'] . " pour $url");
 		}
 		$result['status'] = $res['status'];
 		if (isset($res['headers'])) {
@@ -596,7 +598,7 @@ function recuperer_url($url, $options = []) {
 
 	// on ne veut que les entetes
 	if (!$options['taille_max'] || $options['methode'] == 'HEAD' || $result['status'] == '304') {
-		spip_log('RESULTAT recuperer_url ' . $options['methode'] . " sur $url : " . json_encode($result, JSON_THROW_ON_ERROR), 'distant' . _LOG_DEBUG);
+		$logger->debug('RESULTAT recuperer_url ' . $options['methode'] . " sur $url : " . json_encode($result, JSON_THROW_ON_ERROR));
 		return $result;
 	}
 
@@ -655,10 +657,10 @@ function recuperer_url($url, $options = []) {
 		$trace = json_decode(json_encode($result, JSON_THROW_ON_ERROR), true, 512, JSON_THROW_ON_ERROR);
 	} catch (JsonException $e) {
 		$trace = [];
-		spip_log('Failed to parse Json data : ' . $e->getMessage(), _LOG_ERREUR);
+		$logger->error('Failed to parse Json data : ' . $e->getMessage());
 	}
 	$trace['page'] = '...';
-	spip_log('RESULTAT recuperer_url ' . $options['methode'] . " sur $url : " . json_encode($trace, JSON_THROW_ON_ERROR), 'distant' . _LOG_DEBUG);
+	$logger->debug('RESULTAT recuperer_url ' . $options['methode'] . " sur $url : " . json_encode($trace, JSON_THROW_ON_ERROR));
 
 	return $result;
 }
@@ -996,7 +998,7 @@ function fichier_copie_locale($source) {
 		return nom_fichier_copie_locale($source, $ext);
 	}
 
-	spip_log("pas de copie locale pour $source", 'distant' . _LOG_ERREUR);
+	spip_logger('distant')->error("pas de copie locale pour $source");
 	return null;
 }
 
@@ -1069,7 +1071,7 @@ function recuperer_infos_distantes($source, $options = []) {
 
 	// Echec avec HEAD, on tente avec GET
 	if (!$a && !$taille_max) {
-		spip_log("tenter GET $source", 'distant');
+		spip_logger('distant')->info("tenter GET $source");
 		$options['taille_max'] = _INC_DISTANT_MAX_SIZE;
 		$a = recuperer_infos_distantes($source, $options);
 	}
@@ -1198,11 +1200,11 @@ function distant_trouver_extension_selon_headers(string $source, string $headers
 	}
 
 	if ($t) {
-		spip_log("mime-type $mime_type ok, extension " . $t['extension'], 'distant');
+		spip_logger('distant')->info("mime-type $mime_type ok, extension " . $t['extension']);
 		return $t['extension'];
 	} else {
 		# par defaut on retombe sur '.bin' si c'est autorise
-		spip_log("mime-type $mime_type inconnu", 'distant');
+		spip_logger('distant')->info("mime-type $mime_type inconnu");
 		$t = sql_fetsel('extension', 'spip_types_documents', "extension='bin'");
 		if (!$t) {
 			return false;
@@ -1330,7 +1332,7 @@ function init_http($method, $url, $refuse_gz = false, $referer = '', $datas = ''
 			&& (!isset($GLOBALS['inc_distant_allow_fopen']) || $GLOBALS['inc_distant_allow_fopen'])
 		) {
 			$f = @fopen($url, 'rb');
-			spip_log("connexion vers $url par simple fopen", 'distant');
+			spip_logger('distant')->info("connexion vers $url par simple fopen");
 			$fopen = true;
 		} else {
 			// echec total
@@ -1416,6 +1418,8 @@ function lance_requete(
 		$first_port = $port;
 	}
 
+	$logger = spip_logger('distant');
+	$logger_connect = spip_logger('connect');
 	if ($connect) {
 		$streamContext = stream_context_create([
 			'ssl' => [
@@ -1433,9 +1437,9 @@ function lance_requete(
 			STREAM_CLIENT_CONNECT,
 			$streamContext
 		);
-		spip_log("Recuperer $path sur $first_host:$first_port par $f (via CONNECT)", 'connect');
+		$logger_connect->info("Recuperer $path sur $first_host:$first_port par $f (via CONNECT)");
 		if (!$f) {
-			spip_log("Erreur connexion $errno $errstr", 'distant' . _LOG_ERREUR);
+			$logger->error("Erreur connexion $errno $errstr");
 			return $errno;
 		}
 		stream_set_timeout($f, _INC_DISTANT_CONNECT_TIMEOUT);
@@ -1448,7 +1452,7 @@ function lance_requete(
 			|| ($res = explode(' ', $res)) === []
 			|| $res[1] !== '200'
 		) {
-			spip_log("Echec CONNECT sur $first_host:$first_port", 'connect' . _LOG_INFO_IMPORTANTE);
+			$logger_connect->notice("Echec CONNECT sur $first_host:$first_port");
 			fclose($f);
 
 			return false;
@@ -1457,15 +1461,15 @@ function lance_requete(
 		stream_set_blocking($f, true);
 		// envoyer le handshake
 		stream_socket_enable_crypto($f, true, STREAM_CRYPTO_METHOD_SSLv23_CLIENT);
-		spip_log("OK CONNECT sur $first_host:$first_port", 'connect');
+		$logger_connect->info("OK CONNECT sur $first_host:$first_port");
 	} else {
 		$ntry = 3;
 		do {
 			$f = @fsockopen($first_host, $first_port, $errno, $errstr, _INC_DISTANT_CONNECT_TIMEOUT);
 		} while (!$f && $ntry-- && $errno !== 110 && sleep(1));
-		spip_log("Recuperer $path sur $first_host:$first_port par $f");
+		$logger->info("Recuperer $path sur $first_host:$first_port par $f");
 		if (!$f) {
-			spip_log("Erreur connexion $errno $errstr", 'distant' . _LOG_ERREUR);
+			$logger->error("Erreur connexion $errno $errstr");
 
 			return $errno;
 		}
@@ -1488,7 +1492,7 @@ function lance_requete(
 		. ($proxy_user ? "Proxy-Authorization: Basic $proxy_user\r\n" : '')
 		. (strpos($vers, '1.1') ? "Keep-Alive: 300\r\nConnection: keep-alive\r\n" : '');
 
-#	spip_log("Requete\n$req", 'distant');
+#	$logger->info("Requete\n$req");
 	fwrite($f, $req);
 	fwrite($f, $datas ?: "\r\n");
 

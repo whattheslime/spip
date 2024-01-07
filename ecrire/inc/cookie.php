@@ -104,7 +104,7 @@ function spip_setcookie(
 		$name = $GLOBALS['cookie_prefix'] . '_' . substr($name, 5);
 	}
 
-	#spip_log("cookie('$name', '$value', " . json_encode($options, true) . ")", "cookies");
+	#spip_logger('cookies')->info("cookie('$name', '$value', " . json_encode($options, true) . ")");
 	$a = @setcookie($name, $value, $options);
 
 	spip_cookie_envoye(true);

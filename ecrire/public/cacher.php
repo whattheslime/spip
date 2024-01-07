@@ -123,7 +123,7 @@ function cache_valide(array &$page, int $date): int {
 		&& isset($GLOBALS['meta']['date_prochain_postdate'])
 		&& $now > $GLOBALS['meta']['date_prochain_postdate']
 	) {
-		spip_log('Un article post-date invalide le cache');
+		spip_logger()->info('Un article post-date invalide le cache');
 		include_spip('inc/rubriques');
 		calculer_prochain_postdate(true);
 	}
@@ -213,7 +213,7 @@ function creer_cache(&$page, &$cache_key) {
 		// "cache sessionne" ; sa date indique la date de validite
 		// des caches sessionnes
 		if (!$tmp = lire_cache($cache_key)) {
-			spip_log('Creation cache sessionne ' . $cache_key);
+			spip_logger()->info('Creation cache sessionne ' . $cache_key);
 			$tmp = [
 				'invalideurs' => ['session' => ''],
 				'lastmodified' => $_SERVER['REQUEST_TIME']
@@ -239,8 +239,8 @@ function creer_cache(&$page, &$cache_key) {
 	// l'enregistrer, compresse ou non...
 	$ok = ecrire_cache($cache_key, $pagez);
 
-	spip_log((_IS_BOT ? 'Bot:' : '') . "Creation du cache $cache_key pour "
-		. $page['entetes']['X-Spip-Cache'] . ' secondes' . ($ok ? '' : ' (erreur!)'), _LOG_INFO);
+	spip_logger()->info((_IS_BOT ? 'Bot:' : '') . "Creation du cache $cache_key pour "
+		. $page['entetes']['X-Spip-Cache'] . ' secondes' . ($ok ? '' : ' (erreur!)'));
 
 	// Inserer ses invalideurs
 	include_spip('inc/invalideur');
@@ -388,7 +388,7 @@ function public_cacher_dist($contexte, &$use_cache, &$cache_key, &$page, &$lastm
 			gunzip_page($page);
 			$use_cache = 0;
 		} else {
-			spip_log("Erreur base de donnees, impossible utiliser $cache_key");
+			spip_logger()->info("Erreur base de donnees, impossible utiliser $cache_key");
 			include_spip('inc/minipres');
 
 			return minipres(_T('info_travaux_titre'), _T('titre_probleme_technique'), ['status' => 503]);

@@ -144,7 +144,7 @@ function publier_branche_rubrique($id_rubrique) {
 		$id_rubrique = $id_parent;
 	}
 
-#	spip_log(" publier_branche_rubrique($id_rubrique $id_pred");
+#	spip_logger()->info(" publier_branche_rubrique($id_rubrique $id_pred");
 	return $id_pred != $id_rubrique;
 }
 
@@ -165,7 +165,7 @@ function publier_branche_rubrique($id_rubrique) {
 function depublier_branche_rubrique_if($id_rubrique) {
 	$date = date('Y-m-d H:i:s'); // figer la date
 
-	#	spip_log("depublier_branche_rubrique($id_rubrique ?");
+	#	spip_logger()->info("depublier_branche_rubrique($id_rubrique ?");
 	$id_pred = $id_rubrique;
 	while ($id_pred) {
 		if (!depublier_rubrique_if($id_pred, $date)) {
@@ -246,7 +246,7 @@ function depublier_rubrique_if($id_rubrique, $date = null) {
 
 	sql_updateq('spip_rubriques', ['statut' => 'prepa'], 'id_rubrique=' . intval($id_rubrique));
 
-#		spip_log("depublier_rubrique $id_pred");
+#		spip_logger()->info("depublier_rubrique $id_pred");
 	return true;
 }
 
@@ -464,9 +464,8 @@ function propager_les_secteurs() {
 	// loger si la table des rubriques semble foireuse
 	// et mettre un id_secteur=0 sur ces rubriques pour eviter toute selection par les boucles
 	if (sql_countsel('spip_rubriques', 'profondeur>' . intval($prof + 1))) {
-		spip_log(
+		spip_logger()->critical(
 			'Les rubriques de profondeur>' . ($prof + 1) . ' semblent suspectes (branches morte ou reference circulaire dans les parents)',
-			_LOG_CRITIQUE
 		);
 		sql_update('spip_rubriques', ['id_secteur' => 0], 'profondeur>' . intval($prof + 1));
 	}
@@ -653,7 +652,7 @@ function calculer_langues_utilisees($serveur = '') {
 	$langues = array_filter(array_keys($langues));
 	sort($langues);
 	$langues = join(',', $langues);
-	spip_log("langues utilisees: $langues");
+	spip_logger()->info("langues utilisees: $langues");
 
 	return $langues;
 }
@@ -866,7 +865,7 @@ function calculer_prochain_postdate($check = false) {
 		ecrire_meta('derniere_modif', time());
 	}
 
-	spip_log("prochain postdate: $t");
+	spip_logger()->info("prochain postdate: $t");
 }
 
 /**

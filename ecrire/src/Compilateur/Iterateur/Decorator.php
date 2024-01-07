@@ -5,6 +5,7 @@ namespace Spip\Compilateur\Iterateur;
 use Exception;
 use FilterIterator;
 use Iterator;
+use Psr\Log\LoggerInterface;
 
 class Decorator extends FilterIterator
 {
@@ -75,6 +76,8 @@ class Decorator extends FilterIterator
 	 */
 	protected $max = 100000;
 
+	protected LoggerInterface $logger;
+
 	/**
 	 * Liste des champs a inserer dans les $row
 	 * retournes par ->fetch().
@@ -89,6 +92,7 @@ class Decorator extends FilterIterator
 		/** Infos du compilateur */
 		protected array $info
 	) {
+		$this->logger = spip_logger(); // FIXME: inject it.
 		parent::__construct($iter);
 		parent::rewind(); // remettre a la premiere position (bug? connu de FilterIterator)
 
@@ -135,8 +139,8 @@ class Decorator extends FilterIterator
 				return $this->iter->{$nom}();
 			} catch (Exception) {
 				// #GETCHILDREN sur un fichier de DirectoryIterator ...
-				spip_log("Methode {$nom} en echec sur " . $this->iter::class);
-				spip_log("Cela peut être normal : retour d'une ligne de resultat ne pouvant pas calculer cette methode");
+				$this->logger->info("Methode {$nom} en echec sur " . $this->iter::class);
+				$this->logger->info("Cela peut être normal : retour d'une ligne de resultat ne pouvant pas calculer cette methode");
 
 				return '';
 			}
@@ -489,7 +493,7 @@ class Decorator extends FilterIterator
 						$op = '';
 					} else {
 						if (!in_array($op, ['<', '<=', '>', '>='])) {
-							spip_log('operateur non reconnu ' . $op); // [todo] mettre une erreur de squelette
+							$this->logger->info('operateur non reconnu ' . $op); // [todo] mettre une erreur de squelette
 							$op = '';
 						}
 					}

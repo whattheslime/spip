@@ -136,13 +136,13 @@ function index_pile(
 	if (strlen($explicite)) {
 		// Recherche d'un champ dans un etage superieur
 		while (($idb !== $explicite) && ($idb !== '')) {
-			#	spip_log("Cherchexpl: $nom_champ '$explicite' '$idb' '$i'");
+			#	spip_logger()->info("Cherchexpl: $nom_champ '$explicite' '$idb' '$i'");
 			$i++;
 			$idb = $boucles[$idb]->id_parent;
 		}
 	}
 
-	#	spip_log("Cherche: $nom_champ a partir de '$idb'");
+	#	spip_logger()->info("Cherche: $nom_champ a partir de '$idb'");
 	$nom_champ = strtolower($nom_champ);
 	$conditionnel = [];
 	// attention: entre la boucle nommee 0, "" et le tableau vide,
@@ -172,7 +172,7 @@ function index_pile(
 		}
 
 		if ($remonte_pile) {
-			#	spip_log("On remonte vers $i");
+			#	spip_logger()->info("On remonte vers $i");
 			// Sinon on remonte d'un cran
 			$idb = $boucles[$idb]->id_parent;
 			$i++;
@@ -181,7 +181,7 @@ function index_pile(
 		}
 	}
 
-	#	spip_log("Pas vu $nom_champ");
+	#	spip_logger()->info("Pas vu $nom_champ");
 	// esperons qu'il y sera
 	// ou qu'on a fourni une valeur par "defaut" plus pertinent
 	return index_compose($conditionnel, $defaut);
@@ -384,7 +384,7 @@ function index_exception(&$boucle, $desc, $nom_champ, $excep) {
 					$l = (preg_split('/\s*,\s*/', $k));
 					$k = $desc['key']['PRIMARY KEY'];
 					if (!in_array($k, $l)) {
-						spip_log("jointure impossible $e " . implode(',', $l));
+						spip_logger()->info("jointure impossible $e " . implode(',', $l));
 
 						return ['', ''];
 					}
@@ -747,7 +747,7 @@ function balise_distante_interdite($p) {
 	$nom = $p->id_boucle;
 
 	if ($nom && trouver_nom_serveur_distant($p)) {
-		spip_log($nom . ':' . $p->nom_champ . ' ' . _T('zbug_distant_interdit'));
+		spip_logger()->info($nom . ':' . $p->nom_champ . ' ' . _T('zbug_distant_interdit'));
 
 		return false;
 	}

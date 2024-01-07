@@ -66,7 +66,7 @@ function action_editer_auteur_dist($arg = null) {
 	}
 
 	if ($err) {
-		spip_log("echec editeur auteur: $err", _LOG_ERREUR);
+		spip_logger()->error("echec editeur auteur: $err");
 	}
 
 	return [$id_auteur, $err];

@@ -29,5 +29,5 @@ function inc_journal_dist($phrase, $opt = []) {
 	if ($opt) {
 		$phrase .= ' :: ' . str_replace("\n", ' ', implode(', ', $opt));
 	}
-	spip_log($phrase, 'journal');
+	spip_logger('journal')->info($phrase);
 }

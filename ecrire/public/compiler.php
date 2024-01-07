@@ -463,7 +463,7 @@ define('CODE_CORPS_BOUCLE', '%s
 	}%s
 	if (defined("_BOUCLE_PROFILER")
 	AND 1000*($timer = (time()+(float)microtime())-$timer) > _BOUCLE_PROFILER)
-		spip_log(intval(1000*$timer)."ms %s","profiler"._LOG_AVERTISSEMENT);
+		spip_logger("profiler")->warning(intval(1000*$timer)."ms %s");
 	return $t0;');
 
 /**
@@ -1079,7 +1079,7 @@ function compile_cas($tableau, $descr, &$boucles, $id_boucle) {
 							$code .= "\n. $postaff";
 						}
 						if ($avant <> "''" || $apres <> "''") {
-							spip_log("boucle $nom toujours vide, code superflu dans $descr[sourcefile]");
+							spip_logger()->info("boucle $nom toujours vide, code superflu dans $descr[sourcefile]");
 						}
 						$avant = $apres = $altern = "''";
 					} else {
@@ -1627,7 +1627,7 @@ function compiler_squelette($squelette, $boucles, $nom, $descr, $sourcefile, str
 }';
 
 	$secondes = spip_timer('calcul_skel');
-	spip_log("COMPIL ($secondes) [$sourcefile] $nom.php");
+	spip_logger()->info("COMPIL ($secondes) [$sourcefile] $nom.php");
 	// $connect n'est pas sûr : on nettoie
 	$connect = preg_replace(',[^\w],', '', $connect);
 

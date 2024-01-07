@@ -70,7 +70,7 @@ function balise_ID_LOGO__dist($p) {
 		$code = "table_valeur($doc, 'id_vignette')";
 	} elseif ($connect) {
 		$code = "''";
-		spip_log('Les logos distants ne sont pas prevus');
+		spip_logger()->info('Les logos distants ne sont pas prevus');
 	} else {
 		$champ_logo = 'id';
 		$code = generer_code_logo($id_objet, $_id_objet, $type, '', "''", $p, $suite_logo, $champ_logo);

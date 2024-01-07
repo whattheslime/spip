@@ -82,7 +82,7 @@ function creer_repertoire_documents($ext) {
 	$rep = sous_repertoire(_DIR_IMG, $ext);
 
 	if (!$ext || !$rep) {
-		spip_log("creer_repertoire_documents '$rep' interdit");
+		spip_logger()->info("creer_repertoire_documents '$rep' interdit");
 		exit;
 	}
 
@@ -280,7 +280,7 @@ function check_upload_error($error, $msg = '', $return = false) {
 		return false;
 	}
 
-	spip_log("Erreur upload $error -- cf. http://php.net/manual/fr/features.file-upload.errors.php");
+	spip_logger()->info("Erreur upload $error -- cf. http://php.net/manual/fr/features.file-upload.errors.php");
 
 	switch ($error) {
 		case 4: /* UPLOAD_ERR_NO_FILE */
@@ -314,7 +314,7 @@ function check_upload_error($error, $msg = '', $return = false) {
 			break;
 	}
 
-	spip_log("erreur upload $error");
+	spip_logger()->info("erreur upload $error");
 	if ($return) {
 		return $msg;
 	}

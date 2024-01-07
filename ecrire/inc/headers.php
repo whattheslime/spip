@@ -114,7 +114,7 @@ function redirige_par_entete($url, $equiv = '', $status = 302) {
 	_T('navigateur_pas_redirige'),
 	'</a></body></html>';
 
-	spip_log("redirige $status: $url");
+	spip_logger()->info("redirige $status: $url");
 
 	exit;
 }
@@ -145,7 +145,7 @@ function redirige_formulaire($url, $equiv = '', $format = 'message') {
 			$url = url_de_base() . $url;
 		}
 		$url = str_replace('&amp;', '&', (string) $url);
-		spip_log("redirige formulaire ajax: $url");
+		spip_logger()->info("redirige formulaire ajax: $url");
 		include_spip('inc/filtres');
 		if ($format == 'ajaxform') {
 			return [
@@ -190,7 +190,7 @@ function redirige_url_ecrire($script = '', $args = '', $equiv = '') {
 // Retourne ce qui va bien pour que le navigateur ne mette pas la page en cache
 function http_no_cache() {
 	if (headers_sent()) {
-		spip_log('http_no_cache arrive trop tard');
+		spip_logger()->info('http_no_cache arrive trop tard');
 
 		return;
 	}

@@ -124,7 +124,7 @@ function formulaires_inscription_verifier_dist($mode = '', $options = [], $retou
 						}
 					}
 				}
-				spip_log($row['id_auteur'] . ' veut se resinscrire');
+				spip_logger()->info($row['id_auteur'] . ' veut se resinscrire');
 			}
 		}
 	}

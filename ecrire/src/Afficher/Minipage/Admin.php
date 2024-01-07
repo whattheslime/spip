@@ -122,7 +122,7 @@ class Admin extends Page {
 				$footer = bouton_action(_T('public:accueil_site'), $GLOBALS['meta']['adresse_site'] ?? '');
 			}
 
-			spip_log($nom . " $titre " . $_SERVER['REQUEST_URI'], 'minipres');
+			spip_logger('minipres')->info($nom . " $titre " . $_SERVER['REQUEST_URI']);
 
 			$options['footer'] = $footer;
 			if (empty($corps)) {

@@ -38,7 +38,7 @@ function action_session_dist() {
 	) {
 		include_spip('inc/session');
 		session_set('session_' . $var, $val = _request('val'));
-		#spip_log("autosave:$var:$val",'autosave');
+		#spip_logger('autosave')->info("autosave:$var:$val");
 	}
 
 	# TODO: mode lecture de session ; n'afficher que ce qu'il faut

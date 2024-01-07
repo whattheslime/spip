@@ -57,7 +57,7 @@ function xml_indenter_dist($page, $apply = false) {
 	if (!$f->err) {
 		return $f->entete . $f->res;
 	}
-	spip_log('indentation impossible ' . (is_countable($f->err) ? count($f->err) : 0) . ' erreurs de validation');
+	spip_logger()->info('indentation impossible ' . (is_countable($f->err) ? count($f->err) : 0) . ' erreurs de validation');
 
 	return $f->entete . $f->page;
 }

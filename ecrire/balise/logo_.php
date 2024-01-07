@@ -119,7 +119,7 @@ function balise_LOGO__dist($p) {
 		}
 	} elseif ($connect) {
 		$code = "''";
-		spip_log('Les logos distants ne sont pas prevus');
+		spip_logger()->info('Les logos distants ne sont pas prevus');
 	} else {
 		// pour generer_code_logo
 		include_spip('balise/id_logo_');

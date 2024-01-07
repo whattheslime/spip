@@ -145,7 +145,7 @@ function inc_json_to_array_dist($data) {
 		$json = json_decode($data, true, 512, JSON_THROW_ON_ERROR);
 	} catch (JsonException $e) {
 		$json = null;
-		spip_log('Failed to parse Json data : ' . $e->getMessage(), _LOG_INFO);
+		spip_logger()->info('Failed to parse Json data : ' . $e->getMessage());
 	}
 	return is_array($json) ? (array) $json : [];
 }

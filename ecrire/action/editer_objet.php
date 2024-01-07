@@ -91,7 +91,7 @@ function action_editer_objet_dist($id = null, $objet = null, $set = null) {
  */
 function objet_modifier($objet, $id, $set = null) {
 	if (($t = objet_type($objet)) !== $objet) {
-		spip_log("objet_modifier: appel avec type $objet invalide au lieu de $t", 'editer' . _LOG_INFO_IMPORTANTE);
+		spip_logger('editer')->notice("objet_modifier: appel avec type $objet invalide au lieu de $t");
 		$objet = $t;
 	}
 	if (
@@ -104,7 +104,7 @@ function objet_modifier($objet, $id, $set = null) {
 	$trouver_table = charger_fonction('trouver_table', 'base');
 	$desc = $trouver_table($table_sql);
 	if (!$desc || !isset($desc['field'])) {
-		spip_log("Objet $objet inconnu dans objet_modifier", 'editer' . _LOG_ERREUR);
+		spip_logger('editer')->error("Objet $objet inconnu dans objet_modifier");
 
 		return _L("Erreur objet $objet inconnu");
 	}
@@ -199,7 +199,7 @@ function objet_modifier($objet, $id, $set = null) {
 function objet_inserer($objet, $id_parent = null, $set = null) {
 	$d = null;
 	if (($t = objet_type($objet)) !== $objet) {
-		spip_log("objet_inserer: appel avec type $objet invalide au lieu de $t", 'editer' . _LOG_INFO_IMPORTANTE);
+		spip_logger('editer')->notice("objet_inserer: appel avec type $objet invalide au lieu de $t");
 		$objet = $t;
 	}
 	if (
@@ -362,7 +362,7 @@ function objet_inserer($objet, $id_parent = null, $set = null) {
  */
 function objet_instituer($objet, $id, $c, $calcul_rub = true) {
 	if (($t = objet_type($objet)) !== $objet) {
-		spip_log("objet_instituer: appel avec type $objet invalide au lieu de $t", 'editer' . _LOG_INFO_IMPORTANTE);
+		spip_logger('editer')->notice("objet_instituer: appel avec type $objet invalide au lieu de $t");
 		$objet = $t;
 	}
 	if (
@@ -419,7 +419,7 @@ function objet_instituer($objet, $id, $c, $calcul_rub = true) {
 			if ($s != 'publie' && autoriser('modifier', $objet, $id)) {
 				$statut = $champs['statut'] = $s;
 			} else {
-				spip_log("editer_objet $objet #$id refus " . json_encode($c, JSON_THROW_ON_ERROR), 'editer' . _LOG_INFO_IMPORTANTE);
+				spip_logger('editer')->notice("editer_objet $objet #$id refus " . json_encode($c, JSON_THROW_ON_ERROR));
 			}
 		}
 
@@ -647,7 +647,7 @@ function objet_editer_heritage($objet, $id, $id_rubrique, $statut, $champs, $con
  */
 function objet_lire($objet, $valeur_id, $options = []) {
 	if (($t = objet_type($objet)) !== $objet) {
-		spip_log("objet_lire: appel avec type $objet invalide au lieu de $t", 'editer' . _LOG_INFO_IMPORTANTE);
+		spip_logger('editer')->notice("objet_lire: appel avec type $objet invalide au lieu de $t");
 		$objet = $t;
 	}
 

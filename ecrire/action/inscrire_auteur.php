@@ -410,7 +410,7 @@ function auteur_verifier_jeton($jeton) {
 		try {
 			$_jeton = Chiffrement::dechiffrer($jeton_chiffre, SpipCles::secret_du_site());
 		} catch (\Exception $e) {
-			spip_log('Échec du déchiffrage du jeton d’auteur: ' . $e->getMessage(), 'chiffrer.' . _LOG_ERREUR);
+			spip_logger('chiffrer')->error('Échec du déchiffrage du jeton d’auteur: ' . $e->getMessage());
 			return false;
 		}
 		if ($_jeton && hash_equals($jeton, $_jeton)) {

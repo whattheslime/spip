@@ -76,7 +76,7 @@ function charger_fonction($nom, $dossier = 'exec', $continue = false) {
 	}
 
 	// Echec : message d'erreur
-	spip_log("fonction $nom ($f ou $g) indisponible" .
+	spip_logger()->info("fonction $nom ($f ou $g) indisponible" .
 		($inc ? '' : " (fichier $d absent de $dossier)"));
 
 	include_spip('inc/minipres');

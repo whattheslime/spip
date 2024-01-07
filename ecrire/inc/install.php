@@ -124,7 +124,7 @@ function analyse_fichier_connection(string $file): array {
 			return $regs;
 		}
 	}
-	spip_log("$file n'est pas un fichier de connexion");
+	spip_logger()->info("$file n'est pas un fichier de connexion");
 
 	return [];
 }
@@ -335,7 +335,7 @@ function install_select_serveur() {
 				$options[$s] = "<li><input type='radio' id='$s' value='$s' name='server_db'$checked>"
 					. "<label for='$s'>" . ($titre ?: $s) . '</label></li>';
 			} else {
-				spip_log("$s: portage indisponible");
+				spip_logger()->info("$s: portage indisponible");
 			}
 		}
 	}

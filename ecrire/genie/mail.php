@@ -58,7 +58,7 @@ function genie_mail_dist($t) {
 		notifications_envoyer_mails($adresse_neuf, $page['texte'], '', '', $headers);
 		ecrire_meta('dernier_envoi_neuf', date('Y-m-d H:i:s', $now));
 	} else {
-		spip_log("mail nouveautes : rien de neuf depuis $jours_neuf jours");
+		spip_logger()->info("mail nouveautes : rien de neuf depuis $jours_neuf jours");
 	}
 
 	return 1;
