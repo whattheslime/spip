@@ -2,6 +2,12 @@
 
 Changelog de SPIP 4.2
 
+## Unreleased
+
+### Fixed
+
+- #5818 HTML valide pour le formulaire `configurer_redacteurs`
+
 ## 4.2.7 - 2023-12-18
 
 ### Security
