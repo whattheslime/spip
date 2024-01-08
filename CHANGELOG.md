@@ -4,6 +4,7 @@
 
 ### Added
 
+- #5824 Logger `spip_logger()` impplémentant `Psr\Log\LoggerInterface` (PSR-3) via une librairie `spip/logger` qui utilise Monolog
 - #5807 Cache des squelettes réécrit en utilisant une librairie `spip/cache` (PSR-16)
 - #5806 Gestion des chemins (path) & leur cache réécrit en utilisant une librairie `spip/path`
 - #5565 Critère `{collate}` (remplace `{collecte}`)
@@ -28,6 +29,7 @@
 
 ### Deprecated
 
+- #5824 Fonction `spip_log()`. Utiliser `spip_logger()` qui retourne une instance impplémentant `Psr\Log\LoggerInterface`
 - Fichiers de langue peuplant une variable globale. Retourner directement un array (valide à partir de SPIP 4.1)
 - Filtre/fonction `abs_url`. Utiliser `url_absolue` ou `liens_absolus` selon.
 - Dans les fonctions `extraire_idiome` et `extraire_multi`, le 3è paramètre `$options` de type `bool` est déprécié. Utiliser un array `['echappe_span' => true]`
