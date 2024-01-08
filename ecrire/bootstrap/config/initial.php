@@ -106,11 +106,35 @@ if (!defined('_IS_CLI')) {
 }
 
 // Definir les niveaux de log
-defined('_LOG_HS') || define('_LOG_HS', 0);
-defined('_LOG_ALERTE_ROUGE') || define('_LOG_ALERTE_ROUGE', 1);
-defined('_LOG_CRITIQUE') || define('_LOG_CRITIQUE', 2);
-defined('_LOG_ERREUR') || define('_LOG_ERREUR', 3);
-defined('_LOG_AVERTISSEMENT') || define('_LOG_AVERTISSEMENT', 4);
-defined('_LOG_INFO_IMPORTANTE') || define('_LOG_INFO_IMPORTANTE', 5);
-defined('_LOG_INFO') || define('_LOG_INFO', 6);
-defined('_LOG_DEBUG') || define('_LOG_DEBUG', 7);
+if (!defined('_LOG_HS')) {
+	/** @deprecated 5.0 Utiliser spip_logger()->emergency() */
+	define('_LOG_HS', 0);
+}
+if (!defined('_LOG_ALERTE_ROUGE')) {
+	/** @deprecated 5.0 Utiliser spip_logger()->alert() */
+	define('_LOG_ALERTE_ROUGE', 1);
+}
+if (!defined('_LOG_CRITIQUE')) {
+	/** @deprecated 5.0 Utiliser spip_logger()->critical() */
+	define('_LOG_CRITIQUE', 2);
+}
+if (!defined('_LOG_ERREUR')) {
+	/** @deprecated 5.0 Utiliser spip_logger()->error() */
+	define('_LOG_ERREUR', 3);
+}
+if (!defined('_LOG_AVERTISSEMENT')) {
+	/** @deprecated 5.0 Utiliser spip_logger()->warning() */
+	define('_LOG_AVERTISSEMENT', 4);
+}
+if (!defined('_LOG_INFO_IMPORTANTE')) {
+	/** @deprecated 5.0 Utiliser spip_logger()->notice() */
+	define('_LOG_INFO_IMPORTANTE', 5);
+}
+if (!defined('_LOG_INFO')) {
+	/** @deprecated 5.0 Utiliser spip_logger()->info() */
+	define('_LOG_INFO', 6);
+}
+if (!defined('_LOG_DEBUG')) {
+	/** @deprecated 5.0 Utiliser spip_logger()->debug() */
+	define('_LOG_DEBUG', 7);
+}
