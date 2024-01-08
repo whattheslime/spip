@@ -100,7 +100,7 @@
             "spip/composer-installer": true
         },
         "platform": {
-            "php": "8.1.17"
+            "php": "8.1.27"
         }
     },
     "extra": {
