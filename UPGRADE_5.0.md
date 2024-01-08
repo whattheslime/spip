@@ -162,6 +162,76 @@ Utiliser `{groupby_supprimer}`
 
 Dans certains cas parfois utilisées en filtres de squelettes également.
 
+### Fonction `spip_log`
+
+La fonction très courante `spip_log` est dépréciée au profit de la fonction `spip_logger`,
+qui retourne une instance de [`Psr/Log/LoggerInterface`](https://www.php-fig.org/psr/psr-3/#3-psrlogloggerinterface).
+
+Les constantes de niveau de log associées, comme `_LOG_ERREUR` sont aussi dépréciées.
+
+La constante (configuration) `_LOG_FILTRE_GRAVITE` prend pour valeur un `Psr\Log\LogLevel::*`
+
+#### Avant
+
+```php
+spip_log('message defaut (info)');
+spip_log('message d’erreur', _LOG_ERREUR);
+
+# ensemble des hiérarchies de log
+spip_log('message debug', _LOG_DEBUG);
+spip_log('message info', _LOG_INFO);
+spip_log('message info importante', _LOG_INFO_IMPORTANTE);
+spip_log('message avertissement', _LOG_AVERTISSEMENT);
+spip_log('message erreur', _LOG_ERREUR);
+spip_log('message critique', _LOG_CRITIQUE);
+spip_log('message alerte', _LOG_ALERTE_ROUGE);
+spip_log('message hs', _LOG_HS);
+
+# écriture dans un autre fichier de log
+spip_log('message A', 'saisies');
+spip_log('message B', 'saisies' . _LOG_ERREUR);
+spip_log('message C', 'saisies.' . _LOG_DEBUG);
+
+# niveau de log variable
+$level = _LOG_ERREUR;
+spip_log('message level variable', $level);
+
+# niveau de gravité de logs écrits (mes_options.php)
+define(`_LOG_FILTRE_GRAVITE`, _LOG_DEBUG);
+```
+
+#### Après
+
+```php
+spip_logger()->info('message defaut (info)');
+spip_logger()->error('message d’erreur');
+
+# ensemble des hiérarchies de log
+$logger = spip_logger();
+$logger->debug('message debug');
+$logger->info('message info');
+$logger->notice('message info importante');
+$logger->warning('message avertissement');
+$logger->error('message erreur');
+$logger->critical('message critique');
+$logger->alert('message alerte');
+$logger->emergency('message hs');
+
+# écriture dans un autre fichier de log
+spip_logger('saisies')->info('message A');
+
+$logger = spip_logger('saisies');
+$logger->error('message B');
+$logger->debug('message C');
+
+# niveau de log variable
+$level = Psr\Log\LogLevel::ERROR;
+spip_logger()->log($level, 'message level variable');
+
+# niveau de gravité de logs écrits (mes_options.php)
+define(`_LOG_FILTRE_GRAVITE`, Psr\Log\LogLevel::DEBUG);
+```
+
 ### Fonctions `extraire_multi` et `extraire_idiome`
 
 Le 3è paramètre `$options` déprécié si booléen.
