@@ -194,25 +194,6 @@ function liste_plugin_actifs() {
 	if (!$liste) {
 		return [];
 	}
-	if (!is_array($liste = unserialize($liste))) {
-		// compatibilite pre 1.9.2, mettre a jour la meta
-		spip_logger('plugin')->info("MAJ meta plugin vieille version : $liste");
-		$new = true;
-		[, $liste] = liste_plugin_valides(explode(',', (string) $liste));
-	} else {
-		$new = false;
-		// compat au moment d'une migration depuis version anterieure
-		// si pas de dir_type, alors c'est _DIR_PLUGINS
-		foreach ($liste as $prefix => $infos) {
-			if (!isset($infos['dir_type'])) {
-				$liste[$prefix]['dir_type'] = '_DIR_PLUGINS';
-				$new = true;
-			}
-		}
-	}
-	if ($new) {
-		ecrire_meta('plugin', serialize($liste));
-	}
-
-	return $liste;
+	$liste = unserialize($liste);
+	return is_array($liste) ? $liste : [];
 }
