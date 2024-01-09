@@ -2,6 +2,7 @@
 
 use Monolog\Level;
 use Psr\Log\LoggerInterface;
+use Psr\Log\LogLevel;
 use Spip\Component\Filesystem\Filesystem;
 use Spip\Component\Logger\Config;
 use Spip\Component\Logger\Factory;
@@ -54,7 +55,29 @@ function spip_logger(?string $name = null): LoggerInterface {
 			// échappement des log
 			'brut' => defined('_LOG_BRUT') ? constant('_LOG_BRUT') : null,
 			// à quel level on commence à logguer
-			'max_level' => defined('_LOG_FILTRE_GRAVITE') ? $spipToMonologLevels[constant('_LOG_FILTRE_GRAVITE')] ?? Level::Info : Level::Info,
+			'max_level' => (function() use ($spipToMonologLevels): Level {
+				if (!defined('_LOG_FILTRE_GRAVITE')) {
+					return Level::Notice;
+				}
+				$level = constant('_LOG_FILTRE_GRAVITE');
+				if ($level instanceof Level) {
+					return $level;
+				}
+				if (isset($spipToMonologLevels[$level])) {
+					return $spipToMonologLevels[$level];
+				}
+				return match($level) {
+					LogLevel::EMERGENCY => Level::Emergency,
+					LogLevel::ALERT => Level::Alert,
+					LogLevel::CRITICAL => Level::Critical,
+					LogLevel::CRITICAL => Level::Error,
+					LogLevel::CRITICAL => Level::Warning,
+					LogLevel::CRITICAL => Level::Notice,
+					LogLevel::CRITICAL => Level::Info,
+					LogLevel::CRITICAL => Level::Debug,
+					default => Level::Notice,
+				};
+			})(),
 			// rotation: nombre de fichiers
 			'max_files' => $GLOBALS['nombre_de_logs'] ??= 4,
 			// rotation: taille max d’un fichier

@@ -9,6 +9,7 @@
  *  Ce programme est un logiciel libre distribué sous licence GNU/GPL.     *
 \***************************************************************************/
 
+use Psr\Log\LogLevel;
 use Spip\ErrorHandler;
 
 /**
@@ -120,8 +121,11 @@ if (@is_readable(_CACHE_PLUGINS_OPT) && @is_readable(_CACHE_PLUGINS_PATH)) {
 spip_initialisation_suite();
 
 if (!defined('_LOG_FILTRE_GRAVITE')) {
-	/** niveau maxi d'enregistrement des logs */
-	define('_LOG_FILTRE_GRAVITE', _LOG_INFO_IMPORTANTE);
+	/**
+	 * Niveau maxi d'enregistrement des logs
+	 * @var LogLevel::*
+	*/
+	define('_LOG_FILTRE_GRAVITE', LogLevel::NOTICE);
 }
 
 if (!defined('_OUTILS_DEVELOPPEURS')) {

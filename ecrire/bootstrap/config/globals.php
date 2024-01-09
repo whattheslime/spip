@@ -67,8 +67,6 @@ global
 $nombre_de_logs = 4;
 $taille_des_logs = 100;
 
-// on peut definir _LOG_FILTRE_GRAVITE dans mes_options.php
-
 // Prefixe des tables dans la base de donnees
 // (a modifier pour avoir plusieurs sites SPIP dans une seule base)
 $table_prefix = 'spip';
