@@ -148,7 +148,7 @@ function install_etape_3b_dist() {
 		include_spip('inc/auth');
 		$auteur = auth_identifier_login($login, $pass);
 		if (!$auteur || !auth_loger($auteur)) {
-			$logger->info("login automatique impossible $auth_spip $session" . (is_countable($row) ? count($row) : 0));
+			spip_logger()->info("login automatique impossible $auth_spip $session" . (is_countable($row) ? count($row) : 0));
 		}
 	}
 
