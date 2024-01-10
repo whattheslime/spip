@@ -28,14 +28,14 @@ maintenu par sa communauté avec tendresse.
 
 ```bash
 git clone https://git.spip.net/spip/spip/
-composer install
+composer install --no-dev
 ```
 
 Mise à jour
 
 ```bash
 git pull
-composer install
+composer install --no-dev
 ```
 
 ### Installation de développement (plugins-dist via git)
