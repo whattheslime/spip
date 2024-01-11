@@ -22,7 +22,7 @@
         "spip/images": "^4.2.x-dev",
         "spip/logger": "^1.0",
         "spip/mediabox": "^3.2.x-dev",
-        "spip/medias": "^4.2.x-dev",
+        "spip/medias": "^4.3.x-dev",
         "spip/mots": "^4.2.x-dev",
         "spip/path": "^1.0.x-dev",
         "spip/plan": "^4.2.x-dev",
