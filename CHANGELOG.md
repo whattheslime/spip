@@ -27,7 +27,6 @@
 
 - #5825 Ne pas mettre l'adresse du site entre parenthèses dans les mails envoyés par SPIP
 - #5810 Éviter à `identifiant_slug()` des traitements inutiles quand le séparateur est vide
-- #5818 HTML valide pour le formulaire `configurer_redacteurs`
 
 ### Deprecated
 
