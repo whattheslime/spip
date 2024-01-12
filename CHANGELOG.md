@@ -2,6 +2,10 @@
 
 Changelog de SPIP 4.1
 
+## 4.1.15 - 2024-01-12
+
+- Cf. plugin Bigup
+
 ## 4.1.14 - 2024-01-11
 
 - Cf. plugin Bigup
