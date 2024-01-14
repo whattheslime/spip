@@ -101,7 +101,7 @@ return [
 	'date_de_mois_8' => '@j@ @nommois@',
 	'date_de_mois_9' => '@j@ @nommois@',
 	'date_demain' => 'morgen',
-	'date_fmt_heures_minutes' => '@h@ Uhr @m@ Minuten',
+	'date_fmt_heures_minutes' => '@h@h@m@min',
 	'date_fmt_heures_minutes_court' => '@h@:@m@',
 	'date_fmt_jour' => '@nomjour@ @jour@',
 	'date_fmt_jour_heure' => '@jour@ um @heure@',
@@ -262,8 +262,8 @@ wird Ihre Adresse beibehalten):
 	'form_forum_message_auto' => '(automatisch erzeugte Nachricht)',
 	'form_forum_pass' => 'Passwort:',
 	'form_forum_probleme_mail' => 'E-Mail Problem: Zugangsdaten können nicht verschickt werden.',
-	'form_forum_voici1' => 'Hier sind Ihre Zugangsdaten für die Teilnahme an der Website "@nom_site_spip@" (@adresse_site@):',
-	'form_forum_voici2' => 'Hier sind Ihre Zugangsdaten um Artikel für die Website "@nom_site_spip@" (@adresse_login@) vorzuschlagen:',
+	'form_forum_voici1' => 'Hier sind Ihre Zugangsdaten für die Teilnahme an der Website "@nom_site_spip@" (@adresse_site@):', # MODIF
+	'form_forum_voici2' => 'Hier sind Ihre Zugangsdaten um Artikel für die Website "@nom_site_spip@" (@adresse_login@) vorzuschlagen:', # MODIF
 	'form_indiquer_email' => 'Bitte geben Sie Ihre E-Mail-Adresse an.',
 	'form_indiquer_nom' => 'Bitte geben Sie Ihren Namen an.',
 	'form_indiquer_nom_site' => 'Bitte geben Sie den Namen Ihrer Website an.',
@@ -586,7 +586,7 @@ anmelden zu können, rufen Sie bitte diese Adresse in Ihrem Webbrowser auf:
     @sendcookie@
 
 Sie können auf dieser Seite ein neues Passwort eingeben und sich wieder bei der Website einloggen.
-',
+', # MODIF
 	'pass_mot_oublie' => 'Passwort vergessen',
 	'pass_nouveau_enregistre' => 'Ihr neues Passwort wurde gespeichert.',
 	'pass_nouveau_pass' => 'Neues Passwort',
