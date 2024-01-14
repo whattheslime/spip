@@ -247,8 +247,8 @@ return [
 	'form_forum_message_auto' => '(què hè un messagiu autumàticu)',
 	'form_forum_pass' => 'password :',
 	'form_forum_probleme_mail' => 'Problemu di mail : Ùn pò micca esse mandatu u còdice.',
-	'form_forum_voici1' => 'Eccu i vostri còdici da pudè participà à a vita di u situ "@nom_site_spip@" (@adresse_site@) :',
-	'form_forum_voici2' => 'Eccu i vostri còdici da pudè prupone artìculi nant’à u situ "@nom_site_spip@" (@adresse_login@) :',
+	'form_forum_voici1' => 'Eccu i vostri còdici da pudè participà à a vita di u situ "@nom_site_spip@" (@adresse_site@) :', # MODIF
+	'form_forum_voici2' => 'Eccu i vostri còdici da pudè prupone artìculi nant’à u situ "@nom_site_spip@" (@adresse_login@) :', # MODIF
 	'form_indiquer_email' => 'Rinsignate puru u vostru indirizzu email.',
 	'form_indiquer_nom' => 'Rinsignate puru u vostru nome.',
 	'form_indiquer_nom_site' => 'Rinsignate puru u nome di u vostru situ.',
@@ -558,7 +558,7 @@ Andate puru à l’indirizzu  :
 Puderete tandu inserisce un nuvellu password 
 è cusì cunnette vi torna à u situ.
 
-',
+', # MODIF
 	'pass_mot_oublie' => 'Password dimenticatu',
 	'pass_nouveau_enregistre' => 'Hè statu arregistratu u vostru password.',
 	'pass_nouveau_pass' => 'Nuvellu password',

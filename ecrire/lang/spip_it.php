@@ -263,9 +263,9 @@ indirizzo qui sotto. (Altrimenti la tua richiesta sarà ignorata.):
 	'form_forum_pass' => 'password:',
 	'form_forum_probleme_mail' => 'Problema di posta: l’ID non può essere inviato.',
 	'form_forum_voici1' => 'Ecco i dati per poter partecipare ai forum
- del sito"@nom_site_spip@" (@adresse_site@):',
+ del sito"@nom_site_spip@" (@adresse_site@):', # MODIF
 	'form_forum_voici2' => 'Ecco i dati per poter proporre degli articoli sul sito
-"@nom_site_spip@" (@adresse_login@):',
+"@nom_site_spip@" (@adresse_login@):', # MODIF
 	'form_indiquer_email' => 'Indica il tuo indirizzo email.',
 	'form_indiquer_nom' => 'Indica il tuo nome.',
 	'form_indiquer_nom_site' => 'Indica il nome del tuo sito.',
@@ -598,7 +598,7 @@ Clicca su questo link:
 Potrai quindi inserire una nuova password 
 e riconnetterti all’area riservata.
 
-',
+', # MODIF
 	'pass_mot_oublie' => 'Password dimenticata',
 	'pass_nouveau_enregistre' => 'La nuova password è stata salvata.',
 	'pass_nouveau_pass' => 'Nuova password',

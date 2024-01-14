@@ -255,9 +255,9 @@ Pediu para alterar o seu endereço e-mail. Para confirmar o seu novo endereço, 
 	'form_forum_message_auto' => '(esta é uma mensagem automática)',
 	'form_forum_pass' => 'palavra-passe',
 	'form_forum_probleme_mail' => 'Problema de mail :o identificador não pôde ser enviado',
-	'form_forum_voici1' => 'Aqui estão os seus dados para poder aceder ao sítio Internet do  "@nom_site_spip@" (@adresse_site@):',
+	'form_forum_voici1' => 'Aqui estão os seus dados para poder aceder ao sítio Internet do  "@nom_site_spip@" (@adresse_site@):', # MODIF
 	'form_forum_voici2' => 'Eis os seus identificadores para propor artigos no
- sítio "@nom_site_spip@" (@adresse_login@):',
+ sítio "@nom_site_spip@" (@adresse_login@):', # MODIF
 	'form_indiquer_email' => 'Por favor indique o seu endereço email.',
 	'form_indiquer_nom' => 'Por favor indique o seu nome.',
 	'form_indiquer_nom_site' => 'Por favor indique o nome do seu sítio.',
@@ -573,7 +573,7 @@ Por favor vá ao seguinte endereço :
     @sendcookie@
 
 Poderá então introduzir uma nova palavra-passe e reconectar-se ao sítio.
-',
+', # MODIF
 	'pass_mot_oublie' => 'Palavra-passe esquecida',
 	'pass_nouveau_enregistre' => 'A sua nova palavra-passe foi registada',
 	'pass_nouveau_pass' => 'Nova palavra-passe',

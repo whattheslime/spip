@@ -259,8 +259,8 @@ Para confirmar o seu novo endereço, basta acessar o endereço abaixo (cas contr
 	'form_forum_message_auto' => '(esta é uma mensagem automática)',
 	'form_forum_pass' => 'senha:',
 	'form_forum_probleme_mail' => 'Problema de e-mail: o identificador não pôde ser enviado.',
-	'form_forum_voici1' => 'Estes são os seus identificadores para que você possa participar da vida do site "@nom_site_spip@" (@adresse_site@):',
-	'form_forum_voici2' => 'Estes são os seus identificadores para que você possa propor matérias ao site "@nom_site_spip@" (@adresse_login@):',
+	'form_forum_voici1' => 'Estes são os seus identificadores para que você possa participar da vida do site "@nom_site_spip@" (@adresse_site@):', # MODIF
+	'form_forum_voici2' => 'Estes são os seus identificadores para que você possa propor matérias ao site "@nom_site_spip@" (@adresse_login@):', # MODIF
 	'form_indiquer_email' => 'Por favor, informe o seu endereço de e-mail.',
 	'form_indiquer_nom' => 'Por favor, informe o seu nome.',
 	'form_indiquer_nom_site' => 'Por favor, informe o nome do seu site.',
@@ -586,7 +586,7 @@ clique por favor no endereço a seguir:
 Você poderá então cadastrar uma nova senha
 e reconectar-se com o site.
 
-',
+', # MODIF
 	'pass_mot_oublie' => 'Senha esquecida',
 	'pass_nouveau_enregistre' => 'Sua nova senha foi cadastrada.',
 	'pass_nouveau_pass' => 'Nova senha',

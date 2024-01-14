@@ -260,8 +260,8 @@ la retadreso ĉi-sube (alie, via peto estos ignoritaj) :
 	'form_forum_message_auto' => '(tio estas aŭtomata mesaĝo)',
 	'form_forum_pass' => 'pasvorto :',
 	'form_forum_probleme_mail' => 'Retpoŝta problemo : la ensalutilo ne sendeblas.',
-	'form_forum_voici1' => 'Jen viaj ensalutiloj por partopreni la vivon de la retejo "@nom_site_spip@" (@adresse_site@) :',
-	'form_forum_voici2' => 'Jen estas viaj ensalutiloj por proponi artikolojn ĉe la retejo "@nom_site_spip@" (@adresse_login@) :',
+	'form_forum_voici1' => 'Jen viaj ensalutiloj por partopreni la vivon de la retejo "@nom_site_spip@" (@adresse_site@) :', # MODIF
+	'form_forum_voici2' => 'Jen estas viaj ensalutiloj por proponi artikolojn ĉe la retejo "@nom_site_spip@" (@adresse_login@) :', # MODIF
 	'form_indiquer_email' => 'Bonvolu indiki vian retpoŝtadreson.',
 	'form_indiquer_nom' => 'Bonvolu indiki vian nomon.',
 	'form_indiquer_nom_site' => 'Bonvolu indiki la nomon de via retejo.',
@@ -588,7 +588,7 @@ Bonvolu iri al la jena adreso :
 Vi povos tiam entajpi novan pasvorton
 kaj ensaluti.
 
-',
+', # MODIF
 	'pass_mot_oublie' => 'Pasvorto forgesita',
 	'pass_nouveau_enregistre' => 'Via nova pasvorto estas registrita.',
 	'pass_nouveau_pass' => 'Nova pasvorto',

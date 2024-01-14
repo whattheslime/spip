@@ -213,8 +213,8 @@ return [
 	'form_forum_pass' => 'kata sandi:',
 	'form_forum_probleme_mail' => 'Permasalahan e-mail: pengidentifikasi tidak dapat dikirim.',
 	'form_forum_voici1' => 'Ini pengidentifikasi anda  untuk berpartisipasi dalam kehidupan situs
-"@nom_site_spip@" (@adresse_site@):',
-	'form_forum_voici2' => 'Ini pengidentifikasi anda untuk mengirimkan artikel untuk situs "@nom_site_spip@" (@adresse_login@):',
+"@nom_site_spip@" (@adresse_site@):', # MODIF
+	'form_forum_voici2' => 'Ini pengidentifikasi anda untuk mengirimkan artikel untuk situs "@nom_site_spip@" (@adresse_login@):', # MODIF
 	'form_indiquer_email' => 'Silakan masukkan alamat e-mail anda.',
 	'form_indiquer_nom' => 'Silakan masukkan nama anda.',
 	'form_indiquer_nom_site' => 'Silakan masukkan nama situs anda.',
@@ -512,7 +512,7 @@ Silakan kunjungi alamat berikut:
 
 Anda dapat memasukkan kata sandi baru
 dan mengakses situs kembali.
-',
+', # MODIF
 	'pass_mot_oublie' => 'Kata sandi lupa',
 	'pass_nouveau_enregistre' => 'Kata sandi baru anda telah disimpan.',
 	'pass_nouveau_pass' => 'Kata sandi baru',

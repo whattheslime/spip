@@ -246,9 +246,9 @@ jeśli tego nie uczynisz próba zmiany adresu zostanie anulowana:
 	'form_forum_pass' => 'hasło:',
 	'form_forum_probleme_mail' => 'Problem z pocztą: Twój identyfikator nie może zostać wysłany.',
 	'form_forum_voici1' => 'Oto Twóje dane, które pozwolą Ci wziąć udział w rozwoju serwisu
-"@nom_site_spip@" (@adresse_site@):',
+"@nom_site_spip@" (@adresse_site@):', # MODIF
 	'form_forum_voici2' => 'Oto Twój identyfikator do proponowania artykułów w
-serwisie "@nom_site_spip@" (@adresse_login@):',
+serwisie "@nom_site_spip@" (@adresse_login@):', # MODIF
 	'form_indiquer_email' => 'Proszę wpisać swój adres e-mail.',
 	'form_indiquer_nom' => 'Proszę wpisać swoje nazwisko.',
 	'form_indiquer_nom_site' => 'Proszę wpisać nazwę swoich stron\\y.',
@@ -551,7 +551,7 @@ Proszę wejść na stronę:
 
 Po wpisaniu nowego hasła
 można ponownie połączyć się ze stroną.
-',
+', # MODIF
 	'pass_mot_oublie' => 'Zapomniane hasło',
 	'pass_nouveau_enregistre' => 'Twoje nowe hasło zostało zapisane.',
 	'pass_nouveau_pass' => 'Nowe hasło',

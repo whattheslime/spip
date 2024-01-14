@@ -188,9 +188,9 @@ return [
 	'form_forum_pass' => 'парола:',
 	'form_forum_probleme_mail' => 'Проблем с електронната пощя: грешка при изпращане на идентификатора.',
 	'form_forum_voici1' => 'Това са Вашите идентификатори за участие във форумите на сайта
-@nom_site_spip@ (@adresse_site@):',
+@nom_site_spip@ (@adresse_site@):', # MODIF
 	'form_forum_voici2' => 'Това са Вашите идентификатори за изпращане на статии
-на сайта @nom_site_spip@ (@adresse_login@):',
+на сайта @nom_site_spip@ (@adresse_login@):', # MODIF
 	'form_indiquer_email' => 'Попълнете електронния си адрес.',
 	'form_indiquer_nom' => 'Попълнете името си.',
 	'form_indiquer_nom_site' => 'Попълнете името на Вашия сайт.',
@@ -487,7 +487,7 @@ return [
 
 След това можете да смените паролата
 и да се свържете към сайта отново.
-',
+', # MODIF
 	'pass_mot_oublie' => 'Забравена парола',
 	'pass_nouveau_enregistre' => 'Новата Ви парола бе запазена.',
 	'pass_nouveau_pass' => 'Нова парола',

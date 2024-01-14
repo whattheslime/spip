@@ -249,8 +249,8 @@ http://mysite.com、あるいは単純にこのサイトの記事番号を与え
 	'form_forum_message_auto' => '(自動送信メッセージです)',
 	'form_forum_pass' => 'パスワード：',
 	'form_forum_probleme_mail' => 'メールエラー：ＩＤを送ることが出来ませんでした。',
-	'form_forum_voici1' => 'サイトの生活に協力するために、この個人ＩＤを使ってください。"@nom_site_spip@" (@adresse_site@)：',
-	'form_forum_voici2' => '当サイトに記事を提出するために、この個人ＩＤを使ってください。 "@nom_site_spip@" (@adresse_login@)：',
+	'form_forum_voici1' => 'サイトの生活に協力するために、この個人ＩＤを使ってください。"@nom_site_spip@" (@adresse_site@)：', # MODIF
+	'form_forum_voici2' => '当サイトに記事を提出するために、この個人ＩＤを使ってください。 "@nom_site_spip@" (@adresse_login@)：', # MODIF
 	'form_indiquer_email' => 'メールアドレスを入力して下さい。',
 	'form_indiquer_nom' => 'お名前を入力して下さい。',
 	'form_indiquer_nom_site' => 'あなたのサイトの名前を入力して下さい。',
@@ -553,7 +553,7 @@ http://mysite.com、あるいは単純にこのサイトの記事番号を与え
 	'pass_espace_prive_bla' => '管理エリアは、登録済みの訪問者に開かれています。登録されたら、記事の閲覧、記事の投稿、フォーラムへの参加が可能になります。',
 	'pass_forum_bla' => '登録された訪問者用のフォーラムに介入させてもらうように願いました。',
 	'pass_indiquez_cidessous' => '登録されたメールアドレスを下に入力してください。アクセスが再び出来るように、取り扱い説明をメールで送信します。',
-	'pass_mail_passcookie' => '(自動メッセージ)サイト@nom_site_spip@(@adresse_site@)へのアクセスを取り戻すように、次のアドレスに行ってください：@sendcookie@。それで新しいパスワードを入力すると再接続ができます。',
+	'pass_mail_passcookie' => '(自動メッセージ)サイト@nom_site_spip@(@adresse_site@)へのアクセスを取り戻すように、次のアドレスに行ってください：@sendcookie@。それで新しいパスワードを入力すると再接続ができます。', # MODIF
 	'pass_mot_oublie' => 'パスワードを忘れました。',
 	'pass_nouveau_enregistre' => '新しいパスワードが登録されました。',
 	'pass_nouveau_pass' => '新規パスワード',

@@ -263,9 +263,9 @@ sera ignorée) :
 	'form_forum_message_auto' => '(ceci est un message automatique)',
 	'form_forum_pass' => 'mot de passe :',
 	'form_forum_probleme_mail' => 'Problème de mail : l’identifiant ne peut pas être envoyé.',
-	'form_forum_voici1' => 'Voici tes identifiants pour pouvoir participer à la vie du site "@nom_site_spip@" (@adresse_site@) :',
+	'form_forum_voici1' => 'Voici tes identifiants pour pouvoir participer à la vie du site "@nom_site_spip@" (@adresse_site@) :', # MODIF
 	'form_forum_voici2' => 'Voici tes identifiants pour proposer des articles sur
-le site "@nom_site_spip@" (@adresse_login@) :',
+le site "@nom_site_spip@" (@adresse_login@) :', # MODIF
 	'form_indiquer_email' => 'Indique ton adresse email.',
 	'form_indiquer_nom' => 'Indique ton nom.',
 	'form_indiquer_nom_site' => 'Indique le nom de ton site.',
@@ -599,7 +599,7 @@ Rends toi à l’adresse suivante :
 Tu pourras alors entrer un nouveau mot de passe
 et te reconnecter au site.
 
-',
+', # MODIF
 	'pass_mot_oublie' => 'Mot de passe oublié',
 	'pass_nouveau_enregistre' => 'Ton nouveau mot de passe a été enregistré.',
 	'pass_nouveau_pass' => 'Nouveau mot de passe',

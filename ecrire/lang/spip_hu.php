@@ -211,9 +211,9 @@ return [
 	'form_forum_message_auto' => '(ez egy automatikus üzenet)',
 	'form_forum_pass' => 'jelszó:',
 	'form_forum_probleme_mail' => 'E-mail probléma : az azonosító nem küldhető el.',
-	'form_forum_voici1' => 'Az azonosítója, amivel részt vehet a(z) "@nom_site_spip@" (@adresse_site@) oldal életében:',
+	'form_forum_voici1' => 'Az azonosítója, amivel részt vehet a(z) "@nom_site_spip@" (@adresse_site@) oldal életében:', # MODIF
 	'form_forum_voici2' => 'Íme az azonosítói javasolt cikkek küldéséhez a(z)
- "@nom_site_spip@" (@adresse_login@) oldalra:',
+ "@nom_site_spip@" (@adresse_login@) oldalra:', # MODIF
 	'form_indiquer_email' => 'Kérjük, adja meg e-mail címét.',
 	'form_indiquer_nom' => 'Kérjük, adja meg a nevét.',
 	'form_indiquer_nom_site' => 'Kérjük, adja meg honlapjának címét.',
@@ -510,7 +510,7 @@ Menjen a következő címre :
 Akkor újabb jelszót tud beírni
 és újra csatlakozhat a honlapra.
 
-',
+', # MODIF
 	'pass_mot_oublie' => 'Elfelejtett jelszó',
 	'pass_nouveau_enregistre' => 'Az új jelszava fel lett véve.',
 	'pass_nouveau_pass' => 'Új jelszó',

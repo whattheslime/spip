@@ -261,9 +261,9 @@ sera ignourada) :
 	'form_forum_message_auto' => '(acò es un message automàticou)',
 	'form_forum_pass' => 'mot de passa :',
 	'form_forum_probleme_mail' => 'Proublèma d’e-mail : l’identificant noun pòu estre mandat.',
-	'form_forum_voici1' => 'Vèqui lu vouòstre identificant pèr poudé participà à la vida dóu sit "@nom_site_spip@" (@adresse_site@) :',
+	'form_forum_voici1' => 'Vèqui lu vouòstre identificant pèr poudé participà à la vida dóu sit "@nom_site_spip@" (@adresse_site@) :', # MODIF
 	'form_forum_voici2' => 'Vèqui lu vouòstre identificant pèr proupausà d’article 
- sus lou sit "@nom_site_spip@" (@adresse_login@) :',
+ sus lou sit "@nom_site_spip@" (@adresse_login@) :', # MODIF
 	'form_indiquer_email' => 'Vourguès endicà la vouòstra adressa e-mail.',
 	'form_indiquer_nom' => 'Vourguès endicà lou vouòstre noum.',
 	'form_indiquer_nom_site' => 'Vourguès endicà lou noum dóu vouòstre sit.',
@@ -584,7 +584,7 @@ Vourguès anà a l’adressa seguenta:
 Pouràs intrà un mot de passa nouvèu
 e vi recounetà au sit.
 
-',
+', # MODIF
 	'pass_mot_oublie' => 'Mot de passa denembrat',
 	'pass_nouveau_enregistre' => 'Lou vouòstre nouvèu mot de passa es estat registrat.',
 	'pass_nouveau_pass' => 'Mot de passa nouvèu',

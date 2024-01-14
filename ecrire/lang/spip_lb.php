@@ -257,8 +257,8 @@ Fir är nei Adress ze bestätegen, surft op dës URL (soss gëtt är Ufro ignor�
 	'form_forum_message_auto' => '(dëst ass eng automatesch Äntwert)',
 	'form_forum_pass' => 'Passwuert:',
 	'form_forum_probleme_mail' => 'Problem mam Email: de Login ka net verschéckt ginn.',
-	'form_forum_voici1' => 'Hei ass är Identifikatioun fir beim Site "@nom_site_spip@" (@adresse_site@) matzemaachen:',
-	'form_forum_voici2' => 'Hei ass är Identifikatioun fir Artikelen um Site "@nom_site_spip@" (@adresse_login@) virzeschloen:',
+	'form_forum_voici1' => 'Hei ass är Identifikatioun fir beim Site "@nom_site_spip@" (@adresse_site@) matzemaachen:', # MODIF
+	'form_forum_voici2' => 'Hei ass är Identifikatioun fir Artikelen um Site "@nom_site_spip@" (@adresse_login@) virzeschloen:', # MODIF
 	'form_indiquer_email' => 'Gidd w.e.g. är Email-Adress un.',
 	'form_indiquer_nom' => 'Gidd w.e.g. äre Numm un.',
 	'form_indiquer_nom_site' => 'Gidd w.e.g. de Numm vun ärem Site un.',
@@ -569,7 +569,7 @@ erëm ze kréien, surft op dës URL:
 
 Dir kënnt do e neit Passwuert aginn an Iech um Site umellen.
 
-',
+', # MODIF
 	'pass_mot_oublie' => 'Passwuert vergiess',
 	'pass_nouveau_enregistre' => 'Äert neit Passwuert ass gespäichert.',
 	'pass_nouveau_pass' => 'Neit Passwuert',

@@ -183,8 +183,8 @@ return [
 	'form_forum_message_auto' => '(ovo je automatska poruka)',
 	'form_forum_pass' => 'lozinka:',
 	'form_forum_probleme_mail' => 'Problem sa e-mail adresom. Identifikator nije poslan.',
-	'form_forum_voici1' => 'Ovo su identifikatori za vase ucesce u aktivnosti stranice "@nom_site_spip@" (@adresse_site@/) :',
-	'form_forum_voici2' => 'Ovo su vasi identifikatori za postavljanje clanaka na stranici "@nom_site_spip@" (@adresse_site@/ecrire/) :',
+	'form_forum_voici1' => 'Ovo su identifikatori za vase ucesce u aktivnosti stranice "@nom_site_spip@" (@adresse_site@/) :', # MODIF
+	'form_forum_voici2' => 'Ovo su vasi identifikatori za postavljanje clanaka na stranici "@nom_site_spip@" (@adresse_site@/ecrire/) :', # MODIF
 	'form_indiquer_email' => 'Naznacite vasu e-mail adresu.',
 	'form_indiquer_nom' => 'Naznacite vase ime.',
 	'form_indiquer_nom_site' => 'Naznacite ime vase stranice.',
@@ -468,7 +468,7 @@ Idite na sljedecu adresu:
 
 Tamo mozete unijeti novu lozinku i ponovo se prijaviti na stranicu.
 
-',
+', # MODIF
 	'pass_mot_oublie' => 'Zaboravili ste lozinku',
 	'pass_nouveau_enregistre' => 'Vasa nova lozinka je registrovana.',
 	'pass_nouveau_pass' => 'Nova lozinka',

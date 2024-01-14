@@ -211,9 +211,9 @@ Uk lurasinsti jutir imañ q’ipinaka jikitawa.&lt;/p&gt;
 	'form_forum_pass' => 'Imt’awi:',
 	'form_forum_probleme_mail' => 'Aruskipayirix jan waliwa: janiw uñacht’ayirix apayañjamakiti',
 	'form_forum_voici1' => 'Esta es tu identificación para participar
-en los foros del sitio \\&quot;@nom_site_spip@\\&quot; (@adresse_site@):',
+en los foros del sitio \\&quot;@nom_site_spip@\\&quot; (@adresse_site@):', # MODIF
 	'form_forum_voici2' => 'Esta es tu identificación para proponer artículos
-en el sitio \\&quot;@nom_site_spip@\\&quot; (@adresse_login@):   ',
+en el sitio \\&quot;@nom_site_spip@\\&quot; (@adresse_login@):   ', # MODIF
 	'form_indiquer_email' => 'Utjawi aruskipayirimat uñachayam',
 	'form_indiquer_nom' => 'Sutim uñachayam',
 	'form_indiquer_nom_site' => 'Web qamawimat suti uñachayam',
@@ -497,7 +497,7 @@ Sitix uka arunak ajlltax.Walja sapa mayanaka jach’a qamawita (urunaka, phuqañ
 	'pass_espace_prive_bla' => 'Aka qamawinx ch’usawx jark’atax jist’aratawa, mä qillqawi ukhamata. Qillqataxtaxa ukjax yatxatasmaw qillqatanakax qillqasiski ukanaka, qillqatanak amtaña ukhamarak taqi aruskipañanakan arsusiñamaw.',
 	'pass_forum_bla' => 'Mä aruskipañan qillqat jaqinakampi jupanakampiki ukan arsusiñ mayistawa.',
 	'pass_indiquez_cidessous' => 'Ukatxa aruskipayirin utjawip kuna sutimpis nayraqatax qillqayasta uk uñachayam. Mä yatiyaw qatuqata kunamtix mantawjam kutiqayasita uka.',
-	'pass_mail_passcookie' => '(Akax mä justup qamawiwa) Qamawir mantawx kutiqayasiñatakix  @nom_site_spip@  (@adresse_site@) arkir utjawir saraña: @sendcookie@ Ukar mä machaq imt’aw jumaw uskusma ukatxa mayamp qamawir chinusita.',
+	'pass_mail_passcookie' => '(Akax mä justup qamawiwa) Qamawir mantawx kutiqayasiñatakix  @nom_site_spip@  (@adresse_site@) arkir utjawir saraña: @sendcookie@ Ukar mä machaq imt’aw jumaw uskusma ukatxa mayamp qamawir chinusita.', # MODIF
 	'pass_mot_oublie' => 'Imt’aw armata',
 	'pass_nouveau_enregistre' => 'Machaq imt’awimax qillqatawa.',
 	'pass_nouveau_pass' => 'Machaq imt’awi',

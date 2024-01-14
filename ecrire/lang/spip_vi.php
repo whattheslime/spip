@@ -210,9 +210,9 @@ return [
 	'form_forum_pass' => 'mật mã:',
 	'form_forum_probleme_mail' => 'Có vấn đề với email: Tên gọi (ID) không gửi đi được.',
 	'form_forum_voici1' => 'Đây là tên gọi của bạn để tham gia vào các diễn đàn
-"@nom_site_spip@" (@adresse_site@):',
+"@nom_site_spip@" (@adresse_site@):', # MODIF
 	'form_forum_voici2' => 'Đây là tên gọi của bạn để nộp bài vào trang web 
-"@nom_site_spip@"(@adresse_login@):',
+"@nom_site_spip@"(@adresse_login@):', # MODIF
 	'form_indiquer_email' => 'Xin cho vào địa chỉ email của bạn.',
 	'form_indiquer_nom' => 'Xin cho vào tên bạn.',
 	'form_indiquer_nom_site' => 'Xin cho vào tên của website bạn.',

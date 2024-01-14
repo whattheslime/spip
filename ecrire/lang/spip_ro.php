@@ -249,9 +249,9 @@ adresa de mai jos (în caz contrat cererea dumneavoastră va fi ignorată) :
 	'form_forum_pass' => 'parola :',
 	'form_forum_probleme_mail' => 'Problemă de email : identificatorul nu poate fi trimis.',
 	'form_forum_voici1' => 'Iată identificatorii dumneavoastră pentru a participa la activitatea
-site-ului "@nom_site_spip@" (@adresse_site@) :',
+site-ului "@nom_site_spip@" (@adresse_site@) :', # MODIF
 	'form_forum_voici2' => 'Iată identificatorii dvs. pentru a putea propune articole pe
-site-ul "@nom_site_spip@" (@adresse_login@):',
+site-ul "@nom_site_spip@" (@adresse_login@):', # MODIF
 	'form_indiquer_email' => 'Vă rugăm sa indicaţi adresa dumneavoastră de email.',
 	'form_indiquer_nom' => 'Va rugăm să indicaţi numele dumneavoastră.',
 	'form_indiquer_nom_site' => 'Vă rugăm să indicaţi adresa site-ul dumneavoastră de web.',
@@ -565,7 +565,7 @@ Vă rugăm să vizitaţi adresa următoare :
 
 Veţi putea după aceea alege o nouă parolă şi veţi putea să vă reconectaţi la site.
 
-',
+', # MODIF
 	'pass_mot_oublie' => 'Parolă uitată',
 	'pass_nouveau_enregistre' => 'Noua dumneavoastră parolă a fost înregistrată.',
 	'pass_nouveau_pass' => 'Parolă nouă',

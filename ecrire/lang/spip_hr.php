@@ -257,9 +257,9 @@ Kako biste potvrdili svoju novu adresu, potrebno je samo pristupiti niže navede
 	'form_forum_pass' => 'lozinka:',
 	'form_forum_probleme_mail' => 'Problem sa mailom: lozinka Vam nije mogla biti poslana.',
 	'form_forum_voici1' => 'Ovdje su Vaši osobni podaci za pristup web stranicama
-"@nom_site_spip@" (@adresse_site@):',
+"@nom_site_spip@" (@adresse_site@):', # MODIF
 	'form_forum_voici2' => 'Ovdje su Vaši osobni podaci za pisanje članaka na web stranicama
-"@nom_site_spip@" (@adresse_login@):',
+"@nom_site_spip@" (@adresse_login@):', # MODIF
 	'form_indiquer_email' => 'Unesite Vašu mail adresu.',
 	'form_indiquer_nom' => 'Unesite Vaše ime.',
 	'form_indiquer_nom_site' => 'Unesite ime Vaših web stranica.',
@@ -576,7 +576,7 @@ idite na slijedeću adresu:
 
 Tada možete unijeti novu lozinku i
 ponovo dobiti pristup web stranicama.
-',
+', # MODIF
 	'pass_mot_oublie' => 'lozinka zaboravljena',
 	'pass_nouveau_enregistre' => 'Vaša nova lozinka je upamćena.',
 	'pass_nouveau_pass' => 'nova lozinka',

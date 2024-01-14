@@ -253,8 +253,8 @@ return [
 	'form_forum_message_auto' => '(اين يك پيام خودكار است) ',
 	'form_forum_pass' => 'كلمه ورود',
 	'form_forum_probleme_mail' => 'اشكال در ايميل : نميتوان كلمه شناسايى را فرستاد',
-	'form_forum_voici1' => 'كلمه شناسايي تان براى شركت در امور روزمره ی سایت"@nom_site_spip@" (@adresse_site@) :',
-	'form_forum_voici2' => 'اينهم كلمه شناسايي تان براى پيشنهاد مقالات در سايت "@nom_site_spip@" (@adresse_login@) :',
+	'form_forum_voici1' => 'كلمه شناسايي تان براى شركت در امور روزمره ی سایت"@nom_site_spip@" (@adresse_site@) :', # MODIF
+	'form_forum_voici2' => 'اينهم كلمه شناسايي تان براى پيشنهاد مقالات در سايت "@nom_site_spip@" (@adresse_login@) :', # MODIF
 	'form_indiquer_email' => 'خواهشمند است آدرس ايميل تان را مشخص كنيد ',
 	'form_indiquer_nom' => '.خواهشمند است نام تان را مشخص كنيد',
 	'form_indiquer_nom_site' => '.خواهشمند است نام سايت تان را مشخص كنيد',
@@ -554,7 +554,7 @@ return [
 	'pass_forum_bla' => 'شما درخواست شركت در سخنگاه مختص بازديدكنندگان ثبت شده را كرديد',
 	'pass_indiquez_cidessous' => 'آدرس ايميلى كه با آن ثبت شده ايد را مشخص كنيد. شما ايميلى دريافت خواهيد كرد كه شامل راهنماى ورودتان ميباشد',
 	'pass_mail_passcookie' => 'اين يك پيام خودكار است.براى دسترسى به سايت@nom_site_spip@ (@adresse_site@)خواهشمند است به اين آدرس مراجعه كنيد :  @sendcookie@
-شما ميتوانيد كلمه ورودى ديگرى را وارد كنيد و دوباره به سايت وصل شويد',
+شما ميتوانيد كلمه ورودى ديگرى را وارد كنيد و دوباره به سايت وصل شويد', # MODIF
 	'pass_mot_oublie' => 'كلمه ورود فراموش شده',
 	'pass_nouveau_enregistre' => 'كلمه ورودى جديدتان ثبت شد.',
 	'pass_nouveau_pass' => 'كلمه ورودى جديد',

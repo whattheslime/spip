@@ -210,9 +210,9 @@ return [
 	'form_forum_pass' => 'Heslo:',
 	'form_forum_probleme_mail' => 'Problémy s elektronickou poštou: Odeslání identifikačních údajů se nezdařilo.',
 	'form_forum_voici1' => 'Zde jsou identifikační údaje umožňující účast na aktivitách tohoto webu
-"@nom_site_spip@" (@adresse_site@):',
+"@nom_site_spip@" (@adresse_site@):', # MODIF
 	'form_forum_voici2' => 'Zde jsou identifikační údaje, které vám umožní publikovat články
-na webu "@nom_site_spip@" (@adresse_login@):',
+na webu "@nom_site_spip@" (@adresse_login@):', # MODIF
 	'form_indiquer_email' => 'Zadejte svůj e-mail.',
 	'form_indiquer_nom' => 'Zadejte své jméno.',
 	'form_indiquer_nom_site' => 'Zadejte název svého webu.',
@@ -508,7 +508,7 @@ získáte přechodem na adresu:
 Tam zadáte nové heslo
 a znovu se ke stránkám připojíte.
 
-',
+', # MODIF
 	'pass_mot_oublie' => 'Zapomenuté heslo',
 	'pass_nouveau_enregistre' => 'Nové heslo bylo zapsáno.',
 	'pass_nouveau_pass' => 'Nové heslo',

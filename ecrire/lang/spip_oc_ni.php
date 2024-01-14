@@ -217,9 +217,9 @@ return [
 	'form_forum_pass' => 'mòt de santa Clara :',
 	'form_forum_probleme_mail' => 'Problèma d’e-mail : si pòu pas mandar l’identificant.',
 	'form_forum_voici1' => 'Vètz lu voastres identificants per poder participar à la vida
-dau sit "@nom_site_spip@" (@adresse_site@) :',
+dau sit "@nom_site_spip@" (@adresse_site@) :', # MODIF
 	'form_forum_voici2' => 'Vètz lu voastres identificants per prepauar d’articles 
- sus lo sit "@nom_site_spip@" (@adresse_login@) :',
+ sus lo sit "@nom_site_spip@" (@adresse_login@) :', # MODIF
 	'form_indiquer_email' => 'Vorgatz indicar la voastra adreça e-mail.',
 	'form_indiquer_nom' => 'Vorgatz indicar lo voastre nom.',
 	'form_indiquer_nom_site' => 'Vorgatz indicar lo nom dau voastre sit.',
@@ -520,7 +520,7 @@ Vorgatz anar à l’adreça seguenta:
 Podretz intrar un mòt de santa Clara novèu
 e vos tornar connectar au sit.
 
-',
+', # MODIF
 	'pass_mot_oublie' => 'Mòt de santa Clara oblidat',
 	'pass_nouveau_enregistre' => 'Lo voastre novèu mòt de santa Clara es estat registrat.',
 	'pass_nouveau_pass' => 'Mòt de santa Clara novèu',

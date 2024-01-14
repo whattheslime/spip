@@ -256,8 +256,8 @@ Zure helbide berria baieztatzeko ondoko helbidea bisita ezazu.
 	'form_forum_message_auto' => '(Hau mezu automatikoa da)',
 	'form_forum_pass' => 'Pasahitza :',
 	'form_forum_probleme_mail' => 'Posta elektronikoarekiko arazoa: identifikadorea ezinda igorri.',
-	'form_forum_voici1' => 'Hona hemen zure identifikadoreak,"@nom_site_spip@" (@adresse_site@) gunearen foroetan parte hartzeko:',
-	'form_forum_voici2' => 'Hona hemen zure identifikadoreak, artikuluak ,"@nom_site_spip@" (@adresse_login@) gunean proposatzeko:',
+	'form_forum_voici1' => 'Hona hemen zure identifikadoreak,"@nom_site_spip@" (@adresse_site@) gunearen foroetan parte hartzeko:', # MODIF
+	'form_forum_voici2' => 'Hona hemen zure identifikadoreak, artikuluak ,"@nom_site_spip@" (@adresse_login@) gunean proposatzeko:', # MODIF
 	'form_indiquer_email' => 'Zure posta elektronikoaren heldibea adierazi.',
 	'form_indiquer_nom' => 'Zure izena adierazi.',
 	'form_indiquer_nom_site' => 'Zure webgunearen izena adierazi.',
@@ -566,7 +566,7 @@ Zure sarbidea berreskuratzeko  @nom_site_spip@ gunerarako (@adresse_site@)
 
 Hurrengo helbidera joan: @sendcookie@
 
-Orduan pasahitza berri bat jarri eta gunera berriz konektatzen ahalko zara. ',
+Orduan pasahitza berri bat jarri eta gunera berriz konektatzen ahalko zara. ', # MODIF
 	'pass_mot_oublie' => 'Pasahitza ahaztua',
 	'pass_nouveau_enregistre' => 'Zure pasahitz berria erregistratua izan da.',
 	'pass_nouveau_pass' => 'Pasahitz berria',

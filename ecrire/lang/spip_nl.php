@@ -261,9 +261,9 @@ Om je nieuwe adres te bevestigen, dien je op onderstaande link te klikken
 	'form_forum_pass' => 'wachtwoord:',
 	'form_forum_probleme_mail' => 'Probleem met e-mail: de logingegevens konden niet worden verstuurd.',
 	'form_forum_voici1' => 'Dit zijn je nieuwe logingegevens om een bijdrage te kunnen leveren aan de website
- "@nom_site_spip@" (@adresse_site@):',
+ "@nom_site_spip@" (@adresse_site@):', # MODIF
 	'form_forum_voici2' => 'Hierbij je logingegevens om artikelen voor te kunnen stellen op
-de website "@nom_site_spip@" (@adresse_login@):',
+de website "@nom_site_spip@" (@adresse_login@):', # MODIF
 	'form_indiquer_email' => 'Vul hier je e-mailadres in.',
 	'form_indiquer_nom' => 'Vul hier je naam in.',
 	'form_indiquer_nom_site' => 'Geef de naam van je site op.',
@@ -587,7 +587,7 @@ Ga naar het volgende adres:
 Je kan er een nieuw wachtwoord invoeren en 
 opnieuw verbinding maken met de site
 
-',
+', # MODIF
 	'pass_mot_oublie' => 'Wachtwoord vergeten?',
 	'pass_nouveau_enregistre' => 'Je nieuwe wachtwoord is genoteerd.',
 	'pass_nouveau_pass' => 'Nieuw wachtwoord',

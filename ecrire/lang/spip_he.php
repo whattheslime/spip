@@ -223,9 +223,9 @@ return [
 	'form_forum_pass' => 'סיסמה:',
 	'form_forum_probleme_mail' => '.בעיית דוא"ל: שם המשתמש לא יכול להישלח',
 	'form_forum_voici1' => 'הנה הפרטים שלך כדי להשתתף לחיי האתר
-"@nom_site_spip@" (@adresse_site@):',
+"@nom_site_spip@" (@adresse_site@):', # MODIF
 	'form_forum_voici2' => 'הנה הפרטים שלך כדי להציע מאמרים על
-האתר "@nom_site_spip@" (@adresse_login@) :',
+האתר "@nom_site_spip@" (@adresse_login@) :', # MODIF
 	'form_indiquer_email' => 'רשום את כתובת הדוא"ל.',
 	'form_indiquer_nom' => 'רשום את שמך.',
 	'form_indiquer_nom_site' => 'רשום את שם האתר שלך.',
@@ -529,7 +529,7 @@ return [
 אז ינתן לך לבחור סיסמה חדשה
 ולהתחבר שוב לאתר
 
-',
+', # MODIF
 	'pass_mot_oublie' => 'שכחתי את הסיסמה',
 	'pass_nouveau_enregistre' => 'הסיסמה החדשה שלך נרשמה.',
 	'pass_nouveau_pass' => 'סיסמה חדשה',

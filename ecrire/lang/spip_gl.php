@@ -246,8 +246,8 @@ sera ignorada) :
 	'form_forum_pass' => 'chave:',
 	'form_forum_probleme_mail' => 'Problema co correo: non se lle puido enviar o identificador.',
 	'form_forum_voici1' => 'Velaquí os seus datos identificadores para participar na vida
-do web "@nom_site_spip@" (@adresse_site@):',
-	'form_forum_voici2' => 'Estes son os datos que precisa para propor artigos en "@nom_site_spip@" (@adresse_login@):',
+do web "@nom_site_spip@" (@adresse_site@):', # MODIF
+	'form_forum_voici2' => 'Estes son os datos que precisa para propor artigos en "@nom_site_spip@" (@adresse_login@):', # MODIF
 	'form_indiquer_email' => 'Indique o seu enderezo de correo-e.',
 	'form_indiquer_nom' => 'Indica o teu nome.',
 	'form_indiquer_nom_site' => 'Indique o nome do seu web.',
@@ -563,7 +563,7 @@ Diríxase ao seguinte enderezo:
 Daquela, poderá elixir unha nova chave
 e reconectar co web.
 
-',
+', # MODIF
 	'pass_mot_oublie' => 'Chave esquecida',
 	'pass_nouveau_enregistre' => 'A súa nova chave foi rexistrada.',
 	'pass_nouveau_pass' => 'Nova chave',

@@ -211,8 +211,8 @@ return [
 	'form_forum_message_auto' => '(bu otomatik bir iletidir)',
 	'form_forum_pass' => 'şifre :',
 	'form_forum_probleme_mail' => 'E-posta sorunu : tanımlayıcı gönderilemiyor.',
-	'form_forum_voici1' => '"@nom_site_spip@" (@adresse_site@) site yaşamına katılabilmek için tanımlayıcılarınız :',
-	'form_forum_voici2' => '"@nom_site_spip@" (@adresse_login@) sitesinde makale yayınlayabilmeniz için gereken kimlik bilgileriniz :',
+	'form_forum_voici1' => '"@nom_site_spip@" (@adresse_site@) site yaşamına katılabilmek için tanımlayıcılarınız :', # MODIF
+	'form_forum_voici2' => '"@nom_site_spip@" (@adresse_login@) sitesinde makale yayınlayabilmeniz için gereken kimlik bilgileriniz :', # MODIF
 	'form_indiquer_email' => 'Lütfen e-posta adresinizi belirtiniz.',
 	'form_indiquer_nom' => 'Lütfen isminizi belirtiniz.',
 	'form_indiquer_nom_site' => 'Lütfen sitenizin ismini belirtiniz.',
@@ -512,7 +512,7 @@ return [
 
  @sendcookie@
  O zaman yeni bir şifre girebilecek
- ve tekrar siteye bağlanabileceksiniz.  ',
+ ve tekrar siteye bağlanabileceksiniz.  ', # MODIF
 	'pass_mot_oublie' => 'Şifreyi unuttum',
 	'pass_nouveau_enregistre' => 'Yeni şifreniz kaydedildi.',
 	'pass_nouveau_pass' => 'Yeni şifre',

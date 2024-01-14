@@ -262,10 +262,10 @@ return [
 	'form_forum_pass' => 'пароль:',
 	'form_forum_probleme_mail' => 'Ошибка почты: не удалось выслать идентификатор.',
 	'form_forum_voici1' => 'Данные для доступа к сайту
-«@nom_site_spip@» (@adresse_site@):',
+«@nom_site_spip@» (@adresse_site@):', # MODIF
 	'form_forum_voici2' => 'Данные для доступа на сайт 
 (возможность отправлять свои статьи) «@nom_site_spip@»
-(@adresse_login@):',
+(@adresse_login@):', # MODIF
 	'form_indiquer_email' => 'Пожалуйста, укажите ваш e-mail.',
 	'form_indiquer_nom' => 'Введите ваше имя.',
 	'form_indiquer_nom_site' => 'Пожалуйста, введите название вашего сайта.',
@@ -591,7 +591,7 @@ Please go to the following address:
 
 You can then enter a new password
 and connect again to the site.
-',
+', # MODIF
 	'pass_mot_oublie' => 'забытый пароль',
 	'pass_nouveau_enregistre' => 'Новый пароль сохранен.',
 	'pass_nouveau_pass' => 'Новый пароль',

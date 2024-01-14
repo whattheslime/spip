@@ -255,9 +255,9 @@ Per confirmar la nova adreça, només heu de connectar-vos a l’adreça que hi 
 	'form_forum_message_auto' => '(això és un missatge automàtic)',
 	'form_forum_pass' => 'contrasenya:',
 	'form_forum_probleme_mail' => 'Problema d’adreça electrònica: l’identificador no es pot enviar.',
-	'form_forum_voici1' => 'Aquí teniu els identificadors per poder participar als fòrums del lloc Web "@nom_site_spip@" (@adresse_site@):',
+	'form_forum_voici1' => 'Aquí teniu els identificadors per poder participar als fòrums del lloc Web "@nom_site_spip@" (@adresse_site@):', # MODIF
 	'form_forum_voici2' => 'Aquests són els identificadors per poder proposar articles en aquest lloc
-"@nom_site_spip@" (@adresse_login@):',
+"@nom_site_spip@" (@adresse_login@):', # MODIF
 	'form_indiquer_email' => 'Indiqueu la vostra adreça electrònica.',
 	'form_indiquer_nom' => 'Indiqueu el vostre nom.',
 	'form_indiquer_nom_site' => 'Indiqueu el nom del vostre lloc.',
@@ -567,7 +567,7 @@ Aneu a l’adreça següent:
 Llavors podreu entrar una nova contrasenya
 i tornar-vos a connectar al lloc.
 
-',
+', # MODIF
 	'pass_mot_oublie' => 'Contrasenya oblidada',
 	'pass_nouveau_enregistre' => 'La vostra nova contrasenya ha estat registrada.',
 	'pass_nouveau_pass' => 'Nova contrasenya',

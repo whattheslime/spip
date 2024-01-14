@@ -261,9 +261,9 @@ na adresu nižšie (inak bude vaša požiadavka ignorovaná):
 	'form_forum_pass' => 'Heslo:',
 	'form_forum_probleme_mail' => 'Problém s mejlom: prihlasovací údaj sa nepodarilo odoslať.',
 	'form_forum_voici1' => 'Tu sú vaše prihlasovacie údaje. Teraz sa môžete zúčastňovať na dianí na stránke
-"@nom_site_spip@" (@adresse_site@):',
+"@nom_site_spip@" (@adresse_site@):', # MODIF
 	'form_forum_voici2' => 'Tu sú vaše prihlasovacie údaje na posielanie údajov na
-stránku "@nom_site_spip@" (@adresse_login@):',
+stránku "@nom_site_spip@" (@adresse_login@):', # MODIF
 	'form_indiquer_email' => 'Prosím, zadajte svoju e-mailovú adresu.',
 	'form_indiquer_nom' => 'Zadajte, prosím, svoje meno.',
 	'form_indiquer_nom_site' => 'Prosím, zadajte názov svojej stránky.',
@@ -588,7 +588,7 @@ prosím, choďte na túto adresu:
 
 Potom môžete zadať nové heslo
 a znova sa prihlásiť na stránku.
-',
+', # MODIF
 	'pass_mot_oublie' => 'Zabudnuté heslo',
 	'pass_nouveau_enregistre' => 'Vaše nové heslo bolo uložené.',
 	'pass_nouveau_pass' => 'Nové heslo',

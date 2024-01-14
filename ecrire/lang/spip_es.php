@@ -262,9 +262,9 @@ En caso contrario, la solicitud será ignorada.
 	'form_forum_pass' => 'contraseña:',
 	'form_forum_probleme_mail' => 'Problema con el correo electrónico: no se puede enviar el identificador.',
 	'form_forum_voici1' => 'Esta es tu identificación para participar
-en los foros del sitio "@nom_site_spip@" (@adresse_site@):',
+en los foros del sitio "@nom_site_spip@" (@adresse_site@):', # MODIF
 	'form_forum_voici2' => 'Esta es tu identificación para proponer artículos
-en el sitio "@nom_site_spip@" (@adresse_login@):',
+en el sitio "@nom_site_spip@" (@adresse_login@):', # MODIF
 	'form_indiquer_email' => 'Indica tu dirección de correo electrónico.',
 	'form_indiquer_nom' => 'Indica tu nombre.',
 	'form_indiquer_nom_site' => 'Indica el nombre de tu sitio Web.',
@@ -591,7 +591,7 @@ Ir a la siguiente dirección:
 Ahí podrás poner una nueva contraseña y
 volver a conectarte al sitio.
 
-',
+', # MODIF
 	'pass_mot_oublie' => 'Contraseña olvidada',
 	'pass_nouveau_enregistre' => 'Tu nueva contraseña fue registrada.',
 	'pass_nouveau_pass' => 'Nueva contraseña',

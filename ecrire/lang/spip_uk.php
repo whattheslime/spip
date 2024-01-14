@@ -258,8 +258,8 @@ return [
 	'form_forum_message_auto' => '(це повідомлення було відправлено автоматично)',
 	'form_forum_pass' => 'пароль:',
 	'form_forum_probleme_mail' => 'Помилка пошти: не вдалося вислати ідентифікатор.',
-	'form_forum_voici1' => 'Дані для доступу до сайту „@nom_site_spip@” (@adresse_site@):',
-	'form_forum_voici2' => 'Дані для доступу до сайту (можливість відправляти свої статті) „@nom_site_spip@” (@adresse_login@):',
+	'form_forum_voici1' => 'Дані для доступу до сайту „@nom_site_spip@” (@adresse_site@):', # MODIF
+	'form_forum_voici2' => 'Дані для доступу до сайту (можливість відправляти свої статті) „@nom_site_spip@” (@adresse_login@):', # MODIF
 	'form_indiquer_email' => 'Будь ласка, вкажіть свій e-mail.',
 	'form_indiquer_nom' => 'Введіть ваше ім’я.',
 	'form_indiquer_nom_site' => 'Будь ласка, введіть назву вашого сайту.',
@@ -584,7 +584,7 @@ Please go to the following address:
 
 You can then enter a new password
 and connect again to the site.
-',
+', # MODIF
 	'pass_mot_oublie' => 'забутий пароль',
 	'pass_nouveau_enregistre' => 'Новий пароль збережено.',
 	'pass_nouveau_pass' => 'Новий пароль',

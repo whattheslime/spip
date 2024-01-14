@@ -224,9 +224,9 @@ För att bekräfta din nya adress måste du gå till
 	'form_forum_pass' => 'lösenord:',
 	'form_forum_probleme_mail' => 'Epost problem: användaruppgifterna kunde inte skickas.',
 	'form_forum_voici1' => 'Här är dina användaruppgifter för att kunna kan delta i sajtens liv
-"@nom_site_spip@" (@adresse_site@):',
+"@nom_site_spip@" (@adresse_site@):', # MODIF
 	'form_forum_voici2' => 'Här är dina användaruppgifter för att skriva artiklar
- för sajten "@nom_site_spip@" (@adresse_login@):',
+ för sajten "@nom_site_spip@" (@adresse_login@):', # MODIF
 	'form_indiquer_email' => 'Var god ange in din epost-adress.',
 	'form_indiquer_nom' => 'Var god ange in ditt namn.',
 	'form_indiquer_nom_site' => 'Var god och ange din sajts namn',
@@ -541,7 +541,7 @@ var vänlig gå till följande webbadress:
 
 Du kan där fylla i ett nytt lösenord
 och koppla upp dig mot sajten igen.
-',
+', # MODIF
 	'pass_mot_oublie' => 'Bortglömt lösenord',
 	'pass_nouveau_enregistre' => 'Ditt nya lösenord har sparats.',
 	'pass_nouveau_pass' => 'Nytt lösenord',

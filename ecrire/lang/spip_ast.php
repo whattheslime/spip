@@ -233,9 +233,9 @@ s’encaboxará) :
 	'form_forum_pass' => 'contraseña:',
 	'form_forum_probleme_mail' => 'Problema col corréu: nun pudo mandase la identificación.',
 	'form_forum_voici1' => 'Esta ye la to identificación pa que puedas participar dafechu
-nel sitiu "@nom_site_spip@" (@adresse_site@):',
+nel sitiu "@nom_site_spip@" (@adresse_site@):', # MODIF
 	'form_forum_voici2' => 'Esta ye la to identificación pa proponer artículos nel
-sitiu "@nom_site_spip@" (@adresse_login@):',
+sitiu "@nom_site_spip@" (@adresse_login@):', # MODIF
 	'form_indiquer_email' => 'Pon les tos señes de corréu electrónicu.',
 	'form_indiquer_nom' => 'Indica el to nome.',
 	'form_indiquer_nom_site' => 'Indica el nome del to sitiu Web.',
@@ -552,7 +552,7 @@ Ties que dir a les siguientes señes:
 Agora vas poder escoyer una contraseña nueva
 pa volver a coneutate al sitiu.
 
-',
+', # MODIF
 	'pass_mot_oublie' => 'Contraseña escaecida',
 	'pass_nouveau_enregistre' => 'La nueva contraseña quedó rexistrada.',
 	'pass_nouveau_pass' => 'Contraseña nueva',

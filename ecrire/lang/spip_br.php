@@ -262,8 +262,8 @@ Evit gwiriekaat ho postel nevez, n’ho peus nemet kevreañ d’ar chomlec’h a
 	'form_forum_message_auto' => '(ur gemennadenn emgefre eo homañ)',
 	'form_forum_pass' => 'ger-tremen :',
 	'form_forum_probleme_mail' => 'Kudenn postel : n’haller ket kas an titouroù.',
-	'form_forum_voici1' => 'Setu ho titouroù evit gallout kemer perzh e buhez "@nom_site_spip@" (@adresse_site@) :',
-	'form_forum_voici2' => 'Setu ho titouroù evit gallout kinnig pennadoù war "@nom_site_spip@" (@adresse_login@) :',
+	'form_forum_voici1' => 'Setu ho titouroù evit gallout kemer perzh e buhez "@nom_site_spip@" (@adresse_site@) :', # MODIF
+	'form_forum_voici2' => 'Setu ho titouroù evit gallout kinnig pennadoù war "@nom_site_spip@" (@adresse_login@) :', # MODIF
 	'form_indiquer_email' => 'Skrivit ho postel mar plij.',
 	'form_indiquer_nom' => 'Skrivit hoc’h anv mar plij.',
 	'form_indiquer_nom_site' => 'Skrivit anv ho lec’hienn.',
@@ -583,7 +583,7 @@ Kit d’ar chomlec’h-mañ :
 Neuze e c’hellot merkañ ur ger-tremen nevez ha
 kevreañ en-dro ouzh al lec’hienn.
 
-', # Connecter : gwelloc'h eo ober gant kevreañ zo muioc'h en implij gant an dud. Kevreañ ouzh ar genrouedad hag all.
+', # Connecter : gwelloc'h eo ober gant kevreañ zo muioc'h en implij gant an dud. Kevreañ ouzh ar genrouedad hag all. MODIF
 	'pass_mot_oublie' => 'Ankouaet ar ger-tremen',
 	'pass_nouveau_enregistre' => 'Enrollet eo bet ho ker-tremen nevez.',
 	'pass_nouveau_pass' => 'Ger-tremen nevez',

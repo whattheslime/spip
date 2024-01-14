@@ -183,9 +183,9 @@ return [
 	'form_forum_pass' => 'mot de santa Clara:',
 	'form_forum_probleme_mail' => 'Problèma d’e-mail: se pòt pas mandar l’identificant.',
 	'form_forum_voici1' => 'Vaicí vòstreis identificants per poder participar ai forums
-dau sit "@nom_site_spip@" (@adresse_site@):',
+dau sit "@nom_site_spip@" (@adresse_site@):', # MODIF
 	'form_forum_voici2' => 'Vaquí vòstreis identificants per prepausar d’articles 
- sus lo sit "@nom_site_spip@" (@adresse_login@):',
+ sus lo sit "@nom_site_spip@" (@adresse_login@):', # MODIF
 	'form_indiquer_email' => 'Vougatz indicar vòstra adreiça e-mail.',
 	'form_indiquer_nom' => 'Vougatz indicar vòstre nom.',
 	'form_indiquer_nom_site' => 'Vougatz indicar lo nom de vòstre sit.',
@@ -480,7 +480,7 @@ Vougatz anar a l’adreiça seguenta:
 Alora poiretz intrar un mot de santa Clara novèu
 e vos tornar connectar au sit.
 
-',
+', # MODIF
 	'pass_mot_oublie' => 'Mot de santa Clara demembrat',
 	'pass_nouveau_enregistre' => 'Vòstre mot de santa Clara novèu es estat registrat.',
 	'pass_nouveau_pass' => 'Mot de santa Clara novèu',

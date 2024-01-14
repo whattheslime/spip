@@ -223,8 +223,8 @@ return [
 	'form_forum_message_auto' => '(sa lé inn modékri otomatik)',
 	'form_forum_pass' => 'modpas :',
 	'form_forum_probleme_mail' => 'Astèr, nana inn larlik èk out imèl : lo kod-lidantité i giny pa èt anvwayé.',
-	'form_forum_voici1' => 'Ala out bann kod-lidantité pou mèt ansanm ek vi lo sit"@nom_site_spip@" (@adresse_site@) :',
-	'form_forum_voici2' => 'Ala out bann kod-lidantité pou ou i propoz bann zartik si lo sitwèb "@nom_site_spip@" (@adresse_login@) :',
+	'form_forum_voici1' => 'Ala out bann kod-lidantité pou mèt ansanm ek vi lo sit"@nom_site_spip@" (@adresse_site@) :', # MODIF
+	'form_forum_voici2' => 'Ala out bann kod-lidantité pou ou i propoz bann zartik si lo sitwèb "@nom_site_spip@" (@adresse_login@) :', # MODIF
 	'form_indiquer_email' => 'Mersi inskri out ladrès imèl.',
 	'form_indiquer_nom' => 'Mersi mèt isi out non.',
 	'form_indiquer_nom_site' => 'Mersi mèt isi lo non out sitwèb.',
@@ -515,7 +515,7 @@ Mersi rand aou sir ladrès la :
 
 Aprésa, ou i poura mèt in nouvo modpas
  pou rakost lo sitwèb.
-',
+', # MODIF
 	'pass_mot_oublie' => 'Modpas oubliyé',
 	'pass_nouveau_enregistre' => 'Out nouvo modpas la fin dèt anroziztré.',
 	'pass_nouveau_pass' => 'Nouvo modpas',
