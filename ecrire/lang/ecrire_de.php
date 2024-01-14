@@ -227,6 +227,7 @@ return [
 	'info_administrer_rubrique' => 'Sie können diese Rubrik verwalten',
 	'info_adresse' => 'an Adresse:',
 	'info_adresse_desinscription' => 'Adresse für die Abmeldung:',
+	'info_adresse_inscription' => 'Anmeldeadresse:',
 	'info_adresse_url' => 'Adresse (URL) der öffentlichen Website',
 	'info_afficher_par_nb' => 'Anzeigen nach',
 	'info_aide_en_ligne' => 'SPIP Online-Hilfe',
@@ -703,14 +704,20 @@ in einer Farbe, die den Status anzeigt :',
 	'protocole_ldap' => 'Version des Protokolls:',
 
 	// Q
+	'queue_args_fonction_label' => 'An die Funktion @fonction@ übergebene Argumente',
+	'queue_args_voir' => 'Argumente anzeigen',
 	'queue_executer_maintenant' => 'Jetzt ausführen',
+	'queue_fonction_label' => 'Funktion',
 	'queue_info_purger' => 'Sie können alle anstehenden Aufgaben löschen und so die Liste der regelmäßigen Aufgaben neu einlesen.',
+	'queue_liens_label' => 'Links',
 	'queue_nb_jobs_in_queue' => '@nb@ Aufgaben in der Warteschlange',
 	'queue_next_job_in_nb_sec' => 'Nächste Aufgabe in @nb@ s',
+	'queue_next_job_scheduled' => 'Nächste Aufgabe',
 	'queue_no_job_in_queue' => 'Keine Aufgaben in der Warteschlange',
 	'queue_one_job_in_queue' => '1 Aufgabe in der Warteschlange',
 	'queue_priorite_tache' => 'Rangfolge',
 	'queue_purger_queue' => 'Aufgabenliste löschen',
+	'queue_statut_en_cours' => 'In Bearbeitung',
 	'queue_titre' => 'Hintergrundprozesse',
 
 	// R
