@@ -262,10 +262,10 @@ the address below. (Otherwise your request will be ignored.):
 	'form_forum_message_auto' => '(this is an automated message)',
 	'form_forum_pass' => 'password:',
 	'form_forum_probleme_mail' => 'Mail problem: the identifier could not be sent.',
-	'form_forum_voici1' => 'Here are your identifiers. You may now participate on the site
-"@nom_site_spip@" (@adresse_site@):', # MODIF
+	'form_forum_voici1' => 'Here are your identifiers. You may now participate in the life of the site
+"@nom_site_spip@" @adresse_site@:',
 	'form_forum_voici2' => 'Here are your identifiers for submitting articles to
-the site "@nom_site_spip@" (@adresse_login@):', # MODIF
+the site "@nom_site_spip@" @adresse_login@:',
 	'form_indiquer_email' => 'Please enter your email address.',
 	'form_indiquer_nom' => 'Please enter your name.',
 	'form_indiquer_nom_site' => 'Please enter the name of your site.',
@@ -590,16 +590,15 @@ registered. You
 will receive an email explaining how you
 can retrieve your password.',
 	'pass_mail_passcookie' => '(this is an automated message)
-
 To recover your access to the site
-@nom_site_spip@ (@adresse_site@)
+@nom_site_spip@ @adresse_site@
 
 Please go to the following address:
     @sendcookie@
 
 You can then enter a new password
 and log in to the site.
-', # MODIF
+',
 	'pass_mot_oublie' => 'Password forgotten',
 	'pass_nouveau_enregistre' => 'Your new password has been recorded.',
 	'pass_nouveau_pass' => 'New password',

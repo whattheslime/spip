@@ -262,9 +262,9 @@ return [
 	'form_forum_pass' => 'كلمة السر:',
 	'form_forum_probleme_mail' => 'مشكلة بريد إلكتروني: لا يمكن إرسال بيانات الدخول.',
 	'form_forum_voici1' => 'هذه هي بياناتك للاشتراك في نشاط
-الموقع  "@nom_site_spip@" (@adresse_site@):', # MODIF
+الموقع  "@nom_site_spip@" @adresse_site@:',
 	'form_forum_voici2' => 'هذه هي بياناتك لاقتراح مقالات
-للموقع  "@nom_site_spip@" (@adresse_login@):', # MODIF
+للموقع  "@nom_site_spip@" @adresse_login@:',
 	'form_indiquer_email' => 'الرجاء إدخال عنوانك الإلكتروني.',
 	'form_indiquer_nom' => 'الرجاء إدخال اسمك.',
 	'form_indiquer_nom_site' => 'الرجاء إدخال إسم موقعك.',
@@ -590,7 +590,7 @@ return [
 استعادة دخولك.',
 	'pass_mail_passcookie' => '(هذه رسالة آلية)
 لاستعادة دخولك إلى الموقع
-@nom_site_spip@  (@adresse_site@)
+@nom_site_spip@  @adresse_site@
 
 الرجاء الذهاب إلى العنوان التالي:
 
@@ -599,7 +599,7 @@ return [
 يمكنك عندها إدخال كلمة سر جديدة
 وإعادة الاتصال بالموقع.
 
-', # MODIF
+',
 	'pass_mot_oublie' => 'نسيان كلمة السر',
 	'pass_nouveau_enregistre' => 'تم تسجيل كلمة سرك الجديدة.',
 	'pass_nouveau_pass' => 'كلمة السر الجديدة',
