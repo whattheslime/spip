@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "7841886d32fe2e2f4699bd60654ded78",
+    "content-hash": "923e8924c669ee7a520154b981211449",
     "packages": [
         {
             "name": "algo26-matthias/idna-convert",
@@ -583,17 +583,17 @@
         },
         {
             "name": "spip/bigup",
-            "version": "3.3.3",
+            "version": "3.3.4",
             "source": {
                 "type": "git",
                 "url": "https://git.spip.net/spip/bigup.git",
-                "reference": "fbb272307128a30141baf4762954fa2c244300c1"
+                "reference": "60089a6fc7e65bc243c03eaf87bbf7c78eae7f83"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://get.spip.net/composer/dist/spip/bigup/spip-bigup-3.3.3-d4a949.zip",
-                "reference": "fbb272307128a30141baf4762954fa2c244300c1",
-                "shasum": "8b24ebdd51674b33a4de1ba3b35580ac07b6d24d"
+                "url": "https://get.spip.net/composer/dist/spip/bigup/spip-bigup-3.3.4-1a8c39.zip",
+                "reference": "60089a6fc7e65bc243c03eaf87bbf7c78eae7f83",
+                "shasum": "8db7a019f6ade6d4aeeba4279996ad2b182279f5"
             },
             "require": {
                 "php": "^8.1"
@@ -627,7 +627,7 @@
                 }
             ],
             "description": "Téléverser des gros fichiers",
-            "time": "2024-01-08T10:24:30+00:00"
+            "time": "2024-01-12T09:56:27+00:00"
         },
         {
             "name": "spip/cache",
@@ -850,13 +850,13 @@
             "source": {
                 "type": "git",
                 "url": "https://git.spip.net/spip/dist.git",
-                "reference": "564a428f54bb647c421ac00291f8d857dca64fb6"
+                "reference": "349662a86a94ec0959cd015ff0cd59ec06083d28"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://get.spip.net/composer/dist/spip/dist/spip-dist-dev-master-3bf842.zip",
-                "reference": "564a428f54bb647c421ac00291f8d857dca64fb6",
-                "shasum": "163eb3b6075f5789ed9bba8883804cf0001ea804"
+                "url": "https://get.spip.net/composer/dist/spip/dist/spip-dist-dev-master-a1d889.zip",
+                "reference": "349662a86a94ec0959cd015ff0cd59ec06083d28",
+                "shasum": "efe857d27633d902446b6641f01bf7e1e61023df"
             },
             "default-branch": true,
             "type": "spip-plugin",
@@ -876,7 +876,7 @@
                 }
             ],
             "description": "Squelettes par défaut de SPIP 4.0",
-            "time": "2023-12-18T13:16:00+00:00"
+            "time": "2024-01-09T19:19:42+00:00"
         },
         {
             "name": "spip/dump",
@@ -987,13 +987,13 @@
             "source": {
                 "type": "git",
                 "url": "https://git.spip.net/spip/forum.git",
-                "reference": "86fb113d0139f204c06756fd8cb9026cf7467e6f"
+                "reference": "23b2607c41bc70bd5bd1856fb5fb9de31890e387"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://get.spip.net/composer/dist/spip/forum/spip-forum-dev-master-06de45.zip",
-                "reference": "86fb113d0139f204c06756fd8cb9026cf7467e6f",
-                "shasum": "889a667bab001c1dabaf76ba5ed9b5a8b229af16"
+                "url": "https://get.spip.net/composer/dist/spip/forum/spip-forum-dev-master-65bc6c.zip",
+                "reference": "23b2607c41bc70bd5bd1856fb5fb9de31890e387",
+                "shasum": "39d6c9a3a5bcea0e861cfc208cc5ef4753c926f9"
             },
             "require": {
                 "php": "^8.1"
@@ -1023,7 +1023,7 @@
                 }
             ],
             "description": "Gestion des forums privés et publics dans SPIP",
-            "time": "2024-01-05T13:44:56+00:00"
+            "time": "2024-01-11T15:04:52+00:00"
         },
         {
             "name": "spip/hasher",
@@ -1258,13 +1258,13 @@
             "source": {
                 "type": "git",
                 "url": "https://git.spip.net/spip/medias.git",
-                "reference": "ddf52e78d873ed415ca7ad7439ff3f65f14adc14"
+                "reference": "095ef0fc3e4360b7c004fd05292c55189ecfc914"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://get.spip.net/composer/dist/spip/medias/spip-medias-dev-master-4809bc.zip",
-                "reference": "ddf52e78d873ed415ca7ad7439ff3f65f14adc14",
-                "shasum": "d72ef58077298b48262ea1801bde245416925472"
+                "url": "https://get.spip.net/composer/dist/spip/medias/spip-medias-dev-master-a6d880.zip",
+                "reference": "095ef0fc3e4360b7c004fd05292c55189ecfc914",
+                "shasum": "44ba0ac0df253bd52049756c23b1fa6ea78919b6"
             },
             "require": {
                 "james-heinrich/getid3": "^1.9",
@@ -1281,7 +1281,7 @@
             "type": "spip-plugin",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "4.2.x-dev"
+                    "dev-master": "4.3.x-dev"
                 }
             },
             "license": [
@@ -1295,7 +1295,7 @@
                 }
             ],
             "description": "Gestion des medias dans SPIP",
-            "time": "2024-01-05T18:46:55+00:00"
+            "time": "2024-01-11T15:05:56+00:00"
         },
         {
             "name": "spip/mots",
@@ -1624,13 +1624,13 @@
             "source": {
                 "type": "git",
                 "url": "https://git.spip.net/spip/sites.git",
-                "reference": "52cb60b0f109dc759ea8ca42e937abfdb228e524"
+                "reference": "2c6579088ce7a506a15a16225ff6e80767a1a519"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://get.spip.net/composer/dist/spip/sites/spip-sites-dev-master-efd92d.zip",
-                "reference": "52cb60b0f109dc759ea8ca42e937abfdb228e524",
-                "shasum": "ebeddc5ed537141dc0fbc9a41c8e4438b9904366"
+                "url": "https://get.spip.net/composer/dist/spip/sites/spip-sites-dev-master-f51a7b.zip",
+                "reference": "2c6579088ce7a506a15a16225ff6e80767a1a519",
+                "shasum": "2b31c785c83416c7b17e44902a3a2a6308e2e5de"
             },
             "require": {
                 "php": "^8.1"
@@ -1660,7 +1660,7 @@
                 }
             ],
             "description": "Gestion des sites et de la syndication dans SPIP",
-            "time": "2023-12-26T09:10:10+00:00"
+            "time": "2024-01-11T15:08:48+00:00"
         },
         {
             "name": "spip/stats",
@@ -1668,13 +1668,13 @@
             "source": {
                 "type": "git",
                 "url": "https://git.spip.net/spip/statistiques.git",
-                "reference": "3c27138ac47d7e2c1ace731c9f528a65f71336e0"
+                "reference": "6d92ff8f9b46320f3e0d9fed593c0e733e9bdbee"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://get.spip.net/composer/dist/spip/stats/spip-stats-dev-master-8bde55.zip",
-                "reference": "3c27138ac47d7e2c1ace731c9f528a65f71336e0",
-                "shasum": "730ed95ffb8e3a2739f9e9a13a1add31e24693c3"
+                "url": "https://get.spip.net/composer/dist/spip/stats/spip-stats-dev-master-95205b.zip",
+                "reference": "6d92ff8f9b46320f3e0d9fed593c0e733e9bdbee",
+                "shasum": "652c2275bf2e9c4b0cd9ea0be354b5397cc8adc5"
             },
             "require": {
                 "php": "^8.1"
@@ -1704,7 +1704,7 @@
                 }
             ],
             "description": "Gestion des statistiques dans SPIP",
-            "time": "2023-10-05T09:22:02+00:00"
+            "time": "2024-01-11T15:09:38+00:00"
         },
         {
             "name": "spip/svp",
@@ -2984,16 +2984,16 @@
         },
         {
             "name": "phpcsstandards/php_codesniffer",
-            "version": "3.8.0",
+            "version": "3.8.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/PHPCSStandards/PHP_CodeSniffer.git",
-                "reference": "5805f7a4e4958dbb5e944ef1e6edae0a303765e7"
+                "reference": "14f5fff1e64118595db5408e946f3a22c75807f7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/PHPCSStandards/PHP_CodeSniffer/zipball/5805f7a4e4958dbb5e944ef1e6edae0a303765e7",
-                "reference": "5805f7a4e4958dbb5e944ef1e6edae0a303765e7",
+                "url": "https://api.github.com/repos/PHPCSStandards/PHP_CodeSniffer/zipball/14f5fff1e64118595db5408e946f3a22c75807f7",
+                "reference": "14f5fff1e64118595db5408e946f3a22c75807f7",
                 "shasum": ""
             },
             "require": {
@@ -3003,11 +3003,11 @@
                 "php": ">=5.4.0"
             },
             "require-dev": {
-                "phpunit/phpunit": "^4.0 || ^5.0 || ^6.0 || ^7.0 || ^8.0 || ^9.0"
+                "phpunit/phpunit": "^4.0 || ^5.0 || ^6.0 || ^7.0 || ^8.0 || ^9.3.4"
             },
             "bin": [
-                "bin/phpcs",
-                "bin/phpcbf"
+                "bin/phpcbf",
+                "bin/phpcs"
             ],
             "type": "library",
             "extra": {
@@ -3060,7 +3060,7 @@
                     "type": "open_collective"
                 }
             ],
-            "time": "2023-12-08T12:32:31+00:00"
+            "time": "2024-01-11T20:47:48+00:00"
         },
         {
             "name": "phpcsstandards/phpcsutils",
@@ -3152,16 +3152,16 @@
         },
         {
             "name": "phpstan/phpstan",
-            "version": "1.10.55",
+            "version": "1.10.56",
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpstan/phpstan.git",
-                "reference": "9a88f9d18ddf4cf54c922fbeac16c4cb164c5949"
+                "reference": "27816a01aea996191ee14d010f325434c0ee76fa"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpstan/phpstan/zipball/9a88f9d18ddf4cf54c922fbeac16c4cb164c5949",
-                "reference": "9a88f9d18ddf4cf54c922fbeac16c4cb164c5949",
+                "url": "https://api.github.com/repos/phpstan/phpstan/zipball/27816a01aea996191ee14d010f325434c0ee76fa",
+                "reference": "27816a01aea996191ee14d010f325434c0ee76fa",
                 "shasum": ""
             },
             "require": {
@@ -3210,7 +3210,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2024-01-08T12:32:40+00:00"
+            "time": "2024-01-15T10:43:00+00:00"
         },
         {
             "name": "phpunit/php-code-coverage",
@@ -3535,16 +3535,16 @@
         },
         {
             "name": "phpunit/phpunit",
-            "version": "10.5.5",
+            "version": "10.5.7",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/phpunit.git",
-                "reference": "ed21115d505b4b4f7dc7b5651464e19a2c7f7856"
+                "reference": "e5c5b397a95cb0db013270a985726fcae93e61b8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/ed21115d505b4b4f7dc7b5651464e19a2c7f7856",
-                "reference": "ed21115d505b4b4f7dc7b5651464e19a2c7f7856",
+                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/e5c5b397a95cb0db013270a985726fcae93e61b8",
+                "reference": "e5c5b397a95cb0db013270a985726fcae93e61b8",
                 "shasum": ""
             },
             "require": {
@@ -3616,7 +3616,7 @@
             "support": {
                 "issues": "https://github.com/sebastianbergmann/phpunit/issues",
                 "security": "https://github.com/sebastianbergmann/phpunit/security/policy",
-                "source": "https://github.com/sebastianbergmann/phpunit/tree/10.5.5"
+                "source": "https://github.com/sebastianbergmann/phpunit/tree/10.5.7"
             },
             "funding": [
                 {
@@ -3632,7 +3632,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2023-12-27T15:13:52+00:00"
+            "time": "2024-01-14T16:40:30+00:00"
         },
         {
             "name": "sebastian/cli-parser",
@@ -4610,16 +4610,16 @@
         },
         {
             "name": "squizlabs/php_codesniffer",
-            "version": "3.8.0",
+            "version": "3.8.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/PHPCSStandards/PHP_CodeSniffer.git",
-                "reference": "5805f7a4e4958dbb5e944ef1e6edae0a303765e7"
+                "reference": "14f5fff1e64118595db5408e946f3a22c75807f7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/PHPCSStandards/PHP_CodeSniffer/zipball/5805f7a4e4958dbb5e944ef1e6edae0a303765e7",
-                "reference": "5805f7a4e4958dbb5e944ef1e6edae0a303765e7",
+                "url": "https://api.github.com/repos/PHPCSStandards/PHP_CodeSniffer/zipball/14f5fff1e64118595db5408e946f3a22c75807f7",
+                "reference": "14f5fff1e64118595db5408e946f3a22c75807f7",
                 "shasum": ""
             },
             "require": {
@@ -4629,11 +4629,11 @@
                 "php": ">=5.4.0"
             },
             "require-dev": {
-                "phpunit/phpunit": "^4.0 || ^5.0 || ^6.0 || ^7.0 || ^8.0 || ^9.0"
+                "phpunit/phpunit": "^4.0 || ^5.0 || ^6.0 || ^7.0 || ^8.0 || ^9.3.4"
             },
             "bin": [
-                "bin/phpcs",
-                "bin/phpcbf"
+                "bin/phpcbf",
+                "bin/phpcs"
             ],
             "type": "library",
             "extra": {
@@ -4686,7 +4686,7 @@
                     "type": "open_collective"
                 }
             ],
-            "time": "2023-12-08T12:32:31+00:00"
+            "time": "2024-01-11T20:47:48+00:00"
         },
         {
             "name": "symfony/var-dumper",
