@@ -764,51 +764,55 @@ function lien_optimise($objet_source, $primary, $table_lien, $id, $objets) {
 		foreach ($id_objets as $id_objet) {
 			$where = lien_where($primary, $id, $objet, $id_objet);
 			# les liens vers un objet inexistant
-			$r = sql_select('DISTINCT objet', $table_lien, $where);
-			while ($t = sql_fetch($r)) {
-				$type = $t['objet'];
+			$r = sql_allfetsel('DISTINCT objet', $table_lien, $where);
+			$r = array_filter(array_column($r, 'objet'));
+			foreach ($r as $type) {
 				$spip_table_objet = table_objet_sql($type);
-				$id_table_objet = id_table_objet($type);
-				$res = sql_select(
-					"L.$primary AS id,L.id_objet",
-					// la condition de jointure inclue L.objet='xxx' pour ne joindre que les bonnes lignes
-					// du coups toutes les lignes avec un autre objet ont un id_xxx=NULL puisque LEFT JOIN
-					// il faut les eliminier en repetant la condition dans le where L.objet='xxx'
-					"$table_lien AS L
-									LEFT JOIN $spip_table_objet AS O
-										ON (O.$id_table_objet=L.id_objet AND L.objet=" . sql_quote($type) . ')',
-					'L.objet=' . sql_quote($type) . " AND O.$id_table_objet IS NULL"
-				);
-				// sur une cle primaire composee, pas d'autres solutions que de virer un a un
-				while ($row = sql_fetch($res)) {
-					if ($primary === 'id_document' && in_array($type, ['site', 'rubrique']) && !(int) $row['id_objet']) {
-						continue; // gaffe, c'est le logo du site ou des rubriques!
-					}
-					$e = sql_delete(
-						$table_lien,
-						["$primary=" . $row['id'], 'id_objet=' . $row['id_objet'], 'objet=' . sql_quote($type)]
+				if (sql_table_exists($spip_table_objet)) {
+					$id_table_objet = id_table_objet($type);
+					$res = sql_select(
+						"L.$primary AS id,L.id_objet",
+						// la condition de jointure inclue L.objet='xxx' pour ne joindre que les bonnes lignes
+						// du coups toutes les lignes avec un autre objet ont un id_xxx=NULL puisque LEFT JOIN
+						// il faut les eliminier en repetant la condition dans le where L.objet='xxx'
+						"$table_lien AS L
+										LEFT JOIN $spip_table_objet AS O
+											ON (O.$id_table_objet=L.id_objet AND L.objet=" . sql_quote($type) . ')',
+						'L.objet=' . sql_quote($type) . " AND O.$id_table_objet IS NULL"
 					);
-					if ($e != false) {
-						$dels += $e;
-						spip_logger('genie')->notice(
-							'lien_optimise: Entree ' . $row['id'] . '/' . $row['id_objet'] . "/$type supprimee dans la table $table_lien"
+					// sur une cle primaire composee, pas d'autres solutions que de virer un a un
+					while ($row = sql_fetch($res)) {
+						if ($primary === 'id_document' && in_array($type, ['site', 'rubrique']) && !(int) $row['id_objet']) {
+							continue; // gaffe, c'est le logo du site ou des rubriques!
+						}
+						$e = sql_delete(
+							$table_lien,
+							["$primary=" . $row['id'], 'id_objet=' . $row['id_objet'], 'objet=' . sql_quote($type)]
 						);
+						if ($e != false) {
+							$dels += $e;
+							spip_logger('genie')->notice(
+								'lien_optimise: Entree ' . $row['id'] . '/' . $row['id_objet'] . "/$type supprimee dans la table $table_lien"
+							);
+						}
 					}
 				}
 			}
 
 			# les liens depuis un objet inexistant
 			$table_source = table_objet_sql($objet_source);
-			// filtrer selon $id, $objet, $id_objet eventuellement fournis
-			// (en general '*' pour chaque)
-			$where = lien_where("L.$primary", $id, $objet, $id_objet);
-			$where[] = "O.$primary IS NULL";
-			$res = sql_select(
-				"L.$primary AS id",
-				"$table_lien AS L LEFT JOIN $table_source AS O ON L.$primary=O.$primary",
-				$where
-			);
-			$dels += optimiser_sansref($table_lien, $primary, $res);
+			if (sql_table_exists($table_source)) {
+				// filtrer selon $id, $objet, $id_objet eventuellement fournis
+				// (en general '*' pour chaque)
+				$where = lien_where("L.$primary", $id, $objet, $id_objet);
+				$where[] = "O.$primary IS NULL";
+				$res = sql_select(
+					"L.$primary AS id",
+					"$table_lien AS L LEFT JOIN $table_source AS O ON L.$primary=O.$primary",
+					$where
+				);
+				$dels += optimiser_sansref($table_lien, $primary, $res);
+			}
 		}
 	}
 
