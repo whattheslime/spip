@@ -6,6 +6,7 @@ Changelog de SPIP 4.2
 
 ### Fixed
 
+- #5837 Éviter une erreur SQL sur l’optimisation des liens vers des objets éditoriaux disparus
 - #5810 Éviter à `identifiant_slug()` des traitements inutiles quand le séparateur est vide
 
 ## 4.2.8 - 2024-01-11
