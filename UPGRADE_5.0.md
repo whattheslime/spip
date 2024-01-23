@@ -400,6 +400,24 @@ Note: les positionnements `left`, `right`, `center`, `bottom`, `top` ajustent si
 [(#MODELE{emb, autostart=true})]
 ```
 
+### Filtre `icone`
+
+Le filtre `icone` est supprimé. Utiliser `icone_verticale` (ou `icone_horizontale`)
+
+#### Avant
+
+```spip
+[(#URL_ECRIRE{article_edit,id_article=#ID_ARTICLE}
+  |icone{Éditer,article-24.png,#LANG_RIGHT,edit,ajax})]
+```
+
+#### Après
+
+```spip
+[(#URL_ECRIRE{article_edit,id_article=#ID_ARTICLE}
+  |icone_verticale{Éditer,article,edit,right ajax})]
+```
+
 ### Filtre `foreach`
 
 Le filtre déprécié `foreach` est supprimé. Utiliser une boucle `DATA`.
