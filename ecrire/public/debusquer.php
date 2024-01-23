@@ -69,7 +69,6 @@ defined('_DEBUG_MAX_SQUELETTE_ERREURS') || define('_DEBUG_MAX_SQUELETTE_ERREURS'
  *     - true si $opt 'erreurs' = 'reset'
  **/
 function public_debusquer_dist($message = '', $lieu = '', $opt = []) {
-	static $should_log;
 	static $tableau_des_erreurs = [];
 
 	// Pour des tests unitaires, pouvoir récupérer les erreurs générées
@@ -84,10 +83,6 @@ function public_debusquer_dist($message = '', $lieu = '', $opt = []) {
 		}
 	}
 
-	if (is_null($should_log)) {
-		$should_log = (empty($GLOBALS['visiteur_session']) || !include_spip('inc/autoriser') || !autoriser('debug'));
-	}
-
 	// Erreur ou appel final ?
 	if ($message) {
 		$message = debusquer_compose_message($message);
@@ -98,10 +93,8 @@ function public_debusquer_dist($message = '', $lieu = '', $opt = []) {
 		if (is_object($lieu) && (!isset($lieu->code) || !$lieu->code)) {
 			$lieu->code = "''";
 		}
-		// loger si personne ne verra l'erreur
-		if ($should_log) {
-			debusquer_loger_erreur($message, $lieu);
-		}
+		// loger
+		debusquer_loger_erreur($message, $lieu);
 		// forcer l'appel au debusqueur en cas de boucles infernales
 		$urgence = (_DEBUG_MAX_SQUELETTE_ERREURS && (is_countable($tableau_des_erreurs) ? count($tableau_des_erreurs) : 0) > _DEBUG_MAX_SQUELETTE_ERREURS);
 		if (!$urgence) {
