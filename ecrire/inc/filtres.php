@@ -4365,38 +4365,6 @@ function filtre_bouton_action_horizontal_dist($lien, $texte, $fond, $fonction = 
 }
 
 /**
- * Filtre `icone` pour compatibilité mappé sur `icone_base`
- *
- * @uses icone_base()
- * @see  filtre_icone_verticale_dist()
- *
- * @filtre
- * @deprecated 3.1
- * @see Utiliser le filtre `icone_verticale`
- *
- * @param string $lien
- *     URL du lien
- * @param string $texte
- *     texte du lien
- * @param string $fond
- *     Nom de l'image utilisée
- * @param string $align
- *     classe CSS d'alignement (`left`, `right`, `center`)
- * @param string $fonction
- *     Fonction du lien (`edit`, `new`, `del`)
- * @param string $class
- *     classe CSS à ajouter
- * @param string $javascript
- *     Javascript ajouté sur le lien
- * @return string
- *     Code HTML du lien
- */
-function filtre_icone_dist($lien, $texte, $fond, $align = '', $fonction = '', $class = '', $javascript = '') {
-	return icone_base($lien, $texte, $fond, $fonction, "verticale $align $class", $javascript);
-}
-
-
-/**
  * Explose un texte en tableau suivant un séparateur
  *
  * @note
