@@ -495,7 +495,7 @@ $url = generer_url_ecrire_objet(3, 'article');
 [(#ID_ARTICLE|generer_url_ecrire_objet{article})]
 ```
 
-### Après
+#### Après
 
 ```php
 $url = generer_objet_url_ecrire(3, 'article');
@@ -518,3 +518,27 @@ Sont supprimées et remplacées (renommées) par
 - `generer_objet_lien`
 - `generer_objet_introduction`
 - `generer_objet_info`
+
+
+### Fonction de liste `inc_lister_objets_dist`
+
+La fonction dépréciée depuis SPIP 3.1 est supprimée au profit d’inclusions directe de squelettes
+
+#### Avant
+
+```spip
+$lister_objets = charger_fonction('lister_objets', 'inc');
+$html = $lister_objets('breves', [
+	'id_rubrique' => $id_rubrique,
+]);
+```
+
+#### Après
+
+```spip
+$html = recuperer_fond('prive/objets/liste/breves', [
+	'id_rubrique' => $id_rubrique,
+],[
+	'ajax' => true
+]);
+```
