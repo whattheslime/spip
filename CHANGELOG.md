@@ -60,6 +60,7 @@
 - Filtre `icone` (utiliser probablement le filtre `icone_verticale`)
 - Filtre `foreach` (utiliser une boucle `<BOUCLE_x(DATA){source table, #GET{tableau}}>...`)
 - Action `super_cron` (utiliser l’action `cron`, tel que `spip.php?action=cron`)
+- Fonction `inc_lister_objets_dist` (utiliser `recuperer_fond('prive/objets/liste/xxx')`)
 - Fonction `critere_par_joint` (utiliser `calculer_critere_par_champ` si besoin)
 - Fonction `http_status` (utiliser `http_response_code`)
 - Fonction `generer_url_ecrire_objet` (utiliser `generer_objet_url_ecrire`)
