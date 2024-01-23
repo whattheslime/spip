@@ -57,6 +57,7 @@
 - Suppression de l’usage de la classe `no_image_filtrer` (utiliser la classe `filtre_inactif` qui l’a remplacé)
 - Fichier `plugins-dist.json` (on utilise `composer.json` maintenant)
 - Boucle `POUR` (utiliser une boucle DATA tel que `<BOUCLE_x(DATA){source tableau, ...}>`)
+- Filtre `icone` (utiliser probablement le filtre `icone_verticale`)
 - Filtre `foreach` (utiliser une boucle `<BOUCLE_x(DATA){source table, #GET{tableau}}>...`)
 - Action `super_cron` (utiliser l’action `cron`, tel que `spip.php?action=cron`)
 - Fonction `critere_par_joint` (utiliser `calculer_critere_par_champ` si besoin)
