@@ -25,6 +25,7 @@
 
 ### Fixed
 
+- #5839 Masquer le bouton de changement de statut par défaut
 - #5833 Toujours loger une erreur de squelette
 - #5837 Éviter une erreur SQL sur l’optimisation des liens vers des objets éditoriaux disparus
 - #5825 Ne pas mettre l'adresse du site entre parenthèses dans les mails envoyés par SPIP
