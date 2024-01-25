@@ -38,20 +38,23 @@
 			</div>
 			<!--extra-->
 			[(#ENV{editable})
-			<p class='boutons'><span class='image_loading'>&nbsp;</span>
+			<p class='boutons js-bouton-statut'><span class='image_loading'>&nbsp;</span>
 				<input type='submit' class='btn submit' value='<:bouton_changer:>' /></p>
 		</div></form>
 		]
 	</div>
 </div>
 <script type="text/javascript">
+	// masquer le bouton avant la fin du chargement de la page
+	document.getElementsByClassName('js-bouton-statut')[0].style.display = 'none';
+	// mettre à jour la visibilité du bouton
 	function update_select(statut_default){
 		var selected = this.options[this.selectedIndex];
 		var boutons = jQuery(this).attr('style',jQuery(selected).attr('style')).closest('form').find('.boutons');
 		if (selected.value!=statut_default)
-			boutons.css('visibility','visible').show('fast');
+			boutons.css('display','block');
 		else
-			boutons.css('visibility','hidden')
+			boutons.css('display', 'none')
 	}
 	jQuery(function($){
 		$(".formulaire_#FORM .show select")
