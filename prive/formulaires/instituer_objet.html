@@ -53,32 +53,43 @@
 <script type="text/javascript">
 	;(function($){
 		[(#REM) Seulement si éditable et que sans erreur, on masque le form par défaut ]
-		[(#ENV**{erreurs}|non|et{#ENV{editable}})
+		[(#ENV{editable}|oui)
 			var form = $('.formulaire_#FORM-#ENV{_objet}-#ENV{_id_objet}');
 
-			// On masque au départ le form pour modifier
-			form.toggleClass('none-js');
 
 			// Un bouton pour afficher le form pour modifier
-			var bouton_modifier = $('<button class="btn_mini btn_secondaire float-end" aria-expanded="false"><:bouton_changer:></button>')
-				.click(function() {
-					form.slideDown().removeClass('none-js');
-					$(this).slideUp().attr('aria-expanded', 'true');
-				});
+			var bouton_modifier_annuler = $('<div class="bouton_modifier_annuler float-end"></div>')
+				.append(
+					$('<button class="btn_mini btn_secondaire btn_modifier" aria-expanded="false"><:bouton_changer:></button>')
+					.click(function() {
+						form.slideDown().closest('.instituer_objet').removeClass('form-closed');
+						/*$(this).slideUp().attr('aria-expanded', 'true');*/
+					})
+				).append(
+					$('<button class="btn_mini btn_secondaire btn_annuler"><:bouton_annuler:></button>')
+					.click(function() {
+						form.slideUp().closest('.instituer_objet').addClass('form-closed');
+						/*bouton_modifier.slideDown().attr('aria-expanded', 'false');*/
+						return false;
+					})
+				)
+			;
 
 			// On ajoute ce bouton dynamiquement
-			$('.instituer_objet .statut_old .label').after(bouton_modifier);
+			$('.instituer_objet .statut_old .label').after(bouton_modifier_annuler);
 
-			// Un bouton Annuler
-			var bouton_annuler = $('<button class="btn_secondaire"><:bouton_annuler:></button>')
-				.click(function() {
-					form.slideUp().addClass('none-js');
-					bouton_modifier.slideDown().attr('aria-expanded', 'false');
-					return false;
-				});
-
-			// On ajoute ce bouton à l'intérieur du form
-			form.find('.boutons \[type=submit\]').wrap('<div class="groupe-btns"></div>').parent().prepend(bouton_annuler);
+			[(#ENV**{erreurs}|non)
+				// On masque au départ le form pour modifier
+				form.closest('.instituer_objet').addClass('form-closed');
+			][(#ENV**{erreurs}|oui)
+				form.css('display','block');
+			]
 		]
 	})(jQuery);
 </script>
+<style>
+	.instituer_objet .bouton_modifier_annuler .btn_modifier {display: none;}
+	.instituer_objet.form-closed .bouton_modifier_annuler .btn_modifier {display: inline-block;}
+	.instituer_objet.form-closed .bouton_modifier_annuler .btn_annuler {display: none;}
+	.instituer_objet.form-closed .formulaire_instituer {display: none}
+</style>
