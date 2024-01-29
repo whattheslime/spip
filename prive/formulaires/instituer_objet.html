@@ -1,7 +1,7 @@
 <div class="instituer_objet[ (#PUBLIE{#ENV{_objet}, #ENV{_id_objet}})objet_publie]">
 	[(#REM) Dans tous les cas on commence par afficher le statut actuel ]
 	<div class="statut_old">
-		<strong class="label">Statut [(#ENV{_aide}|oui)#AIDER{#ENV{_aide}}]</strong>
+		<strong class="label">[(#ENV{_label}|_T)][(#ENV{_aide}|oui)#AIDER{#ENV{_aide}}]</strong>
 		<div class="statut">
 			[(#ENV{statut}|puce_statut{#ENV{_objet}})]
 			[(#ENV{_statuts}|table_valeur{#ENV{statut}}|_T)]
@@ -24,7 +24,7 @@
 			<div class="editer-groupe">
 				<fieldset class="editer editer_[(#GET{name})] statut_#ENV{#GET{name}}[ (#GET{obli})][ (#GET{erreurs}|oui)erreur]">
 					[<span class='erreur_message'>(#GET{erreurs})</span>]
-					<legend class="label">Choix du statut</legend>
+					<legend class="label">Changer vers :</legend>
 					<BOUCLE_choix(DATA){source table, #ENV{_statuts}}{cle != #ENV{statut}}>
 					<div class="choix">
 						<input
@@ -82,7 +82,7 @@
 
 			// On ajoute ce bouton dynamiquement
 			$('.instituer_objet .statut_old .label').after(bouton_modifier);
-			
+
 			// Un bouton Annuler
 			var bouton_annuler = $('<button class="btn_secondaire"><:bouton_annuler:></button>')
 				.click(function() {
@@ -90,7 +90,7 @@
 					bouton_modifier.slideDown().attr('aria-expanded', 'false');
 					return false;
 				});
-			
+
 			// On ajoute ce bouton à l'intérieur du form
 			form.find('.boutons \[type=submit\]').wrap('<div class="groupe-btns"></div>').parent().prepend(bouton_annuler);
 		]
