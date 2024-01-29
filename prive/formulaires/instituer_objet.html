@@ -51,20 +51,6 @@
 </div>
 
 <script type="text/javascript">
-	//~ function update_select(statut_default){
-		//~ var selected = this.options[this.selectedIndex];
-		//~ var boutons = jQuery(this).attr('style',jQuery(selected).attr('style')).closest('form').find('.boutons');
-		//~ if (selected.value!=statut_default)
-			//~ boutons.css('visibility','visible').show('fast');
-		//~ else
-			//~ boutons.css('visibility','hidden')
-	//~ }
-	//~ jQuery(function($){
-		//~ $(".formulaire_#FORM .show select")
-			//~ .each(function(){update_select.apply(this,['#ENV{#GET{name}}']);})
-			//~ .on('change',function(){update_select.apply(this,['#ENV{#GET{name}}']);})
-			//~ .on('keyup',function(){update_select.apply(this,['#ENV{#GET{name}}']);});
-	//~ });
 	;(function($){
 		[(#REM) Seulement si éditable et que sans erreur, on masque le form par défaut ]
 		[(#ENV**{erreurs}|non|et{#ENV{editable}})
