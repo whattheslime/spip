@@ -688,7 +688,7 @@ function phraser_criteres($params, &$result) {
 				// et mettre son reliquat eventuel
 				// Recopier pour ne pas alterer le texte source
 				// utile au debusqueur
-				if ($m[4]) {
+				if (strlen($m[4])) {
 					// une maniere tres sale de supprimer les "' autour de {critere "xxx","yyy"}
 					if (preg_match(',^(["\'])(.*)\1$,', $m[4])) {
 						$c = null;
