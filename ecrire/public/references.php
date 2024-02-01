@@ -489,9 +489,10 @@ function calculer_balise(string $nom, Champ $p): Champ {
 
 	// S'agit-t-il d'une balise_XXXX[_dist]() ?
 	if ($f = charger_fonction($nom, 'balise', true)) {
-		$p->balise_calculee = true;
 		$res = $f($p);
+		// la balise peut retourner un null pour passer la main à la version générique
 		if ($res !== null && is_object($res)) {
+			$p->balise_calculee = true;
 			return $res;
 		}
 	}
@@ -499,7 +500,9 @@ function calculer_balise(string $nom, Champ $p): Champ {
 	// Certaines des balises comportant un _ sont generiques
 	if ($balise_generique = chercher_balise_generique($nom)) {
 		$res = $balise_generique['fonction_generique']($p);
+		// la balise peut retourner un null pour dire qu'elle fait rien mais c'est un peu plus tiré par les cheveux...
 		if ($res !== null && is_object($res)) {
+			$p->balise_calculee = true;
 			return $res;
 		}
 	}
