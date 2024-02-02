@@ -104,7 +104,7 @@ function formulaires_instituer_objet_charger_dist($objet, $id_objet, $retour = '
 		'_id_objet' => $id_objet,
 		'_statuts' => $statuts,
 		'_publiable' => $publiable,
-		'_label' => $desc['texte_changer_statut'] ?? 'texte_article_statut',
+		'_label' => 'info_statut',
 		'_aide' => $desc['aide_changer_statut'] ?? '',
 		'_hidden' => "<input type='hidden' name='statut_old' value='" . $v['statut'] . "' />",
 	];
@@ -131,6 +131,7 @@ function formulaires_instituer_objet_charger_dist($objet, $id_objet, $retour = '
  */
 function formulaires_instituer_objet_verifier_dist($objet, $id_objet, $retour = '', $editable = true) {
 	$erreurs = [];
+
 	// charger le contenu de l'objet
 	// dont son champ statut
 	$v = formulaires_editer_objet_charger($objet, $id_objet, 0, 0, '', '');
@@ -151,9 +152,8 @@ function formulaires_instituer_objet_verifier_dist($objet, $id_objet, $retour = 
 		$l = lister_statuts_proposes($desc, $publiable);
 		$statut = _request('statut');
 		if (empty($statut)) {
-			$erreurs['statut'] = _L('Choisissez un nouveau statut');
-		}
-		elseif (
+			$erreurs['statut'] = _T('instituer_erreur_statut_a_definir');
+		} elseif (
 			!isset($l[$statut])
 			or !autoriser('instituer', $objet, $id_objet, '', ['statut' => $statut])
 		) {
@@ -179,7 +179,6 @@ function formulaires_instituer_objet_verifier_dist($objet, $id_objet, $retour = 
  *     Retour des traitements
  */
 function formulaires_instituer_objet_traiter_dist($objet, $id_objet, $retour = '', $editable = true) {
-
 	$c = ['statut' => _request('statut')];
 	// si on a envoye une 'date_posterieure', l'enregistrer
 	// todo dans le HTML

@@ -1551,78 +1551,118 @@
 /* formulaire_instituer */
 .infos .instituer_objet {
 	border: 0px;
-	margin:[(#ENV{margin-bottom}|strmult{0.5})em] 0;
+	margin: var(--spip-form-spacing-y) 0 calc(var(--spip-form-spacing-y) * 2);
 }
-.infos .instituer_objet .statut_old .statut {
-	margin-left: calc(var(--spip-form-spacing-x) * -1);
-	margin-right: calc(var(--spip-form-spacing-x) * -1);
-	margin-top: calc(var(--spip-form-spacing-y) / 2);
+.infos .instituer_objet .statut {
+	margin: 0 calc(var(--spip-form-spacing-x) * -1);
 	padding: calc(var(--spip-form-spacing-y) / 2) var(--spip-form-spacing-x);
-	/*background-color: var(--spip-color-theme-lightest);*/
+	display: flex !important;
+	flex-direction: row;
+	align-items: center;
+	gap: var(--spip-spacing-x);
+	gap: .5em;
+	width: 100%;
+  	box-sizing: content-box;
 }
-.infos .instituer_objet.objet_publie .statut_old .statut {
+.infos .instituer_objet .statut_actuel .statut {
+	margin-top: calc(var(--spip-form-spacing-y) / 2);
+}
+
+.infos .instituer_objet.objet_publie .statut_actuel .statut {
 	color: hsl(var(--spip-color-success--h), var(--spip-color-success--s), 15%);
 	background-color: hsl(var(--spip-color-success--h), 55%, 90%);
 }
-.infos .formulaire_instituer,
-.infos .formulaire_instituer .show {
-	margin-left: calc(var(--spip-box-spacing-x) * -1);
-	margin-right: calc(var(--spip-box-spacing-x) * -1);
+.infos .instituer_objet .statut .statut-icone {
+	line-height: 1;
+	margin: 0 4px;
+	flex-direction: row;
+	align-items: center;
+	display: flex;
 }
+.infos .instituer_objet .statut .statut-icone img {
+	width: 16px;
+  	height: 16px;
+	margin: 0;
+}
+
+.infos .instituer_objet .statut_actuel .btn_modifier {display: none;}
+.infos .instituer_objet.form-closed .statut_actuel .btn_modifier {display: inline-block;}
+.infos .instituer_objet.form-closed .formulaire_instituer {display: none;}
+
 .infos .formulaire_instituer {
-	background-color: var(--spip-color-gray-lightest);
+	background-color: var(--spip-color-white);
 	border: 0;
 	border-radius: 0;
 	box-shadow: none;
-	margin-bottom: 0;
-	margin-top: 0;
+	margin: 0 calc(var(--spip-box-spacing-x) * -1);
+	border-top: 1px solid var(--spip-box-border-color);
+	border-bottom: 1px solid var(--spip-box-border-color);
 }
 .infos .formulaire_instituer .reponse_formulaire {
 	display: none;
 }
-.infos .formulaire_instituer .show {
+.infos .instituer_objet .formulaire_instituer .editer_statut legend {
 	display: block;
-	padding: var(--spip-form-spacing-y) var(--spip-form-spacing-x);
-	background-color: var(--spip-color-gray-lightest);
+	width: 100% !important;
+	margin-left: calc(-1 * var(--spip-form-spacing-x)) !important;
+	margin-right: calc(-1 * var(--spip-form-spacing-x)) !important;
+	padding-left: var(--spip-form-spacing-x) !important;
+	padding-right: var(--spip-form-spacing-x) !important;
+	box-sizing: content-box;
+	background-color: var(--spip-color-white);
 }
-.infos .formulaire_instituer .show select {
+.infos .instituer_objet .formulaire_instituer .editer_statut div.choix {
 	border: 0;
+	margin-left: calc(-1 * var(--spip-form-spacing-x));
+	margin-right: calc(-1 * var(--spip-form-spacing-x));
+
+	display: flex;
+	align-items: center;
+
+	border-radius: 0 !important;
+	padding: 0;
 }
-.infos .formulaire_instituer .show select,
-.infos .formulaire_instituer .show option {
-	background-repeat: no-repeat;
-	background-position: 6px center;
-	background-size: 12px;
+
+.infos .instituer_objet .formulaire_instituer .editer_statut .choix .radio {
+	flex-shrink: 0;
+	margin-bottom: 0;
+
+	opacity: 0;
+	width: 1em;
+	height: 1em;
+	position: absolute;
+	left: .5em;
+	top: .4em;
+}
+.infos .instituer_objet .formulaire_instituer .editer_statut div.choix label {
+	font-weight: normal;
+	flex-grow: 1;
+	padding: 0 var(--spip-form-spacing-x);
+	margin-left: 0;
+	margin-right: 0;
+}
+.infos .instituer_objet .formulaire_instituer .editer_statut div.choix input.radio:hover + label {
 	background-color: var(--spip-color-gray-lightest);
-	color: inherit;
 }
-.infos .formulaire_instituer .show img {
-	border: 1px solid white;
+.infos .instituer_objet .formulaire_instituer .editer_statut div.choix input.radio:checked + label {
+	font-weight: bold;
+	background-color: var(--spip-color-gray-lighter);
 }
-.infos .formulaire_instituer .boutons {
-	background: none;
-	border-top: 0;
+.infos .instituer_objet .formulaire_instituer .editer_statut div.choix input.radio:focus-visible + label {
+	background-color: var(--spip-color-gray-light);
 }
-.infos .formulaire_instituer .statut_prepa .show {
-	background-color: #fff;
+.infos .instituer_objet .formulaire_instituer .editer_statut div.choix label img {
+	transition: transform .2s;
+	transform: scale(.8);
 }
-.infos .formulaire_instituer .statut_prop .show {
-	background-color: #f89058;
+.infos .instituer_objet .formulaire_instituer .editer_statut div.choix input.radio:checked + label img {
+	transform: scale(1.2);
 }
-.infos .formulaire_instituer .statut_publie .show {
-	background-color: #9dba00;
+.infos .instituer_objet .formulaire_instituer .boutons {
+	padding-top: 0;
+	background-color: transparent;
 }
-.infos .formulaire_instituer .statut_poubelle .show {
-	background-color: #000;
-	color:#fff;
-}
-.infos .formulaire_instituer .statut_poubelle .show select,
-.infos .formulaire_instituer .statut_poubelle .show option {
-	color:#333;
-}
-.infos .formulaire_instituer .statut_refuse .show {
-	background-color: #ff0000;
-}
+
 
 /* Menu favoris */
 .formulaire_configurer_preferences_menus .menus_favoris input.text {
