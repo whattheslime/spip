@@ -1,10 +1,11 @@
 <div class="instituer_objet[ (#PUBLIE{#ENV{_objet}, #ENV{_id_objet}})objet_publie]">
 	[(#REM) Dans tous les cas on commence par afficher le statut actuel ]
-	<div class="statut_old">
+
+	<div class="statut_actuel">
 		<strong class="label">[(#ENV{_label}|_T)][(#ENV{_aide}|oui)#AIDER{#ENV{_aide}}]</strong>
-		<div class="statut">
-			[(#ENV{statut}|puce_statut{#ENV{_objet}})]
-			[(#ENV{_statuts}|table_valeur{#ENV{statut}}|_T)]
+		<div class="statut statut--#ENV{statut}">
+			[<span class="statut-icone">(#ENV{statut}|puce_statut{#ENV{_objet}})</span>]
+			[<span class="statut-label">(#ENV{_statuts}|table_valeur{#ENV{statut}}|_T)</span>]
 		</div>
 	</div>
 
@@ -16,15 +17,13 @@
 		[<p class="reponse_formulaire reponse_formulaire_ok" role="status">(#ENV**{message_ok})</p>]
 		[<p class="reponse_formulaire reponse_formulaire_erreur" role="alert">(#ENV*{message_erreur})</p>]
 		<form method='post' action='#ENV{action}'><div>
-			[(#REM) declarer les hidden qui declencheront le service du formulaire
-			parametre : url d'action ]
 			#ACTION_FORMULAIRE
 
 			#SET{name,statut}#SET{obli,'obligatoire'}#SET{erreurs,#ENV**{erreurs}|table_valeur{#GET{name}}}
 			<div class="editer-groupe">
 				<fieldset class="editer editer_[(#GET{name})] statut_#ENV{#GET{name}}[ (#GET{obli})][ (#GET{erreurs}|oui)erreur]">
+					<legend class="label"><:info_modifier_statut:></legend>
 					[<span class='erreur_message'>(#GET{erreurs})</span>]
-					<legend class="label">Changer vers :</legend>
 					<BOUCLE_choix(DATA){source table, #ENV{_statuts}}{cle != #ENV{statut}}>
 					<div class="choix">
 						<input
@@ -35,16 +34,23 @@
 							value="#CLE"
 						/>
 						<label for="instituer_#ENV{_objet}_#ENV{_id_objet}_choix_#CLE">
-							[(#CLE|puce_statut{#ENV{_objet}})]
-							[(#VALEUR|_T)]
+							<span class="statut">
+								[<span class="statut-icone">(#CLE|puce_statut{#ENV{_objet}})</span>]
+								[<span class="statut-label">(#VALEUR|_T)</span>]
+							</span>
 						</label>
 					</div>
 					</BOUCLE_choix>
 				</fieldset>
 			</div>
 			<!--extra-->
-			<p class='boutons'><span class='image_loading'>&nbsp;</span>
-				<input type='submit' class='btn submit' value='<:bouton_changer:>' /></p>
+			<div class='boutons'>
+				<span class='image_loading'>&nbsp;</span>
+				<div class="groupe-btns">
+					<button type='button' class='btn submit btn_secondaire' name='annuler'><:bouton_annuler:></button>
+					<button type='submit' class='btn submit' name='changer'><:bouton_changer:></button>
+				</div>
+			</div>
 		</div></form>
 	</div>
 	]
@@ -56,27 +62,21 @@
 		[(#ENV{editable}|oui)
 			var form = $('.formulaire_#FORM-#ENV{_objet}-#ENV{_id_objet}');
 
-
 			// Un bouton pour afficher le form pour modifier
-			var bouton_modifier_annuler = $('<div class="bouton_modifier_annuler float-end"></div>')
-				.append(
-					$('<button class="btn_mini btn_secondaire btn_modifier" aria-expanded="false"><:bouton_changer:></button>')
-					.click(function() {
-						form.slideDown().closest('.instituer_objet').removeClass('form-closed');
-						/*$(this).slideUp().attr('aria-expanded', 'true');*/
-					})
-				).append(
-					$('<button class="btn_mini btn_secondaire btn_annuler"><:bouton_annuler:></button>')
-					.click(function() {
-						form.slideUp().closest('.instituer_objet').addClass('form-closed');
-						/*bouton_modifier.slideDown().attr('aria-expanded', 'false');*/
-						return false;
-					})
-				)
+			var bouton_modifier =
+				$('<button class="btn_mini btn_secondaire btn_modifier float-end" aria-expanded="false"><:bouton_changer:></button>')
+				.click(function() {
+					form.slideDown().closest('.instituer_objet').removeClass('form-closed');
+					/*$(this).slideUp().attr('aria-expanded', 'true');*/
+				})
 			;
 
 			// On ajoute ce bouton dynamiquement
-			$('.instituer_objet .statut_old .label').after(bouton_modifier_annuler);
+			$('.instituer_objet .statut_actuel .label').after(bouton_modifier);
+			$('.instituer_objet button\[name=annuler\]').on('click', function() {
+				form.find('input\[type=radio\]:checked').prop('checked', false);
+				form.slideUp().closest('.instituer_objet').addClass('form-closed');
+			});
 
 			[(#ENV**{erreurs}|non)
 				// On masque au départ le form pour modifier
@@ -87,25 +87,3 @@
 		]
 	})(jQuery);
 </script>
-<style type="text/css">
-	.instituer_objet .bouton_modifier_annuler .btn_modifier {display: none;}
-	.instituer_objet.form-closed .bouton_modifier_annuler .btn_modifier {display: inline-block;}
-	.instituer_objet.form-closed .bouton_modifier_annuler .btn_annuler {display: none;}
-	.instituer_objet.form-closed .formulaire_instituer {display: none;}
-	.instituer_objet .formulaire_instituer .editer_statut div.choix {
-		border: 0;
-		margin-left: calc(-1 * var(--spip-form-spacing-x));
-		margin-right: calc(-1 * var(--spip-form-spacing-x));
-		padding-left: var(--spip-form-spacing-x);
-		padding-right: var(--spip-form-spacing-x);
-	}
-	.instituer_objet .formulaire_instituer .editer_statut div.choix label {
-		font-weight: normal;
-	}
-	.instituer_objet .formulaire_instituer .editer_statut div.choix input.radio:checked + label {
-		font-weight: bold;
-	}
-	.instituer_objet .formulaire_instituer .boutons {
-		padding-top: 0;
-	}
-</style>
