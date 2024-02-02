@@ -174,7 +174,7 @@
 	<langue code="tr" url="https://trad.spip.net/tradlang_module/public?lang_cible=tr" total="83" traduits="71" relire="0" modifs="3" nouveaux="9" pourcent="85.54">
 		<traducteur nom="alexis" lien="https://trad.spip.net/auteur/alexis" />
 	</langue>
-	<langue code="uk" url="https://trad.spip.net/tradlang_module/public?lang_cible=uk" total="83" traduits="78" relire="0" modifs="0" nouveaux="5" pourcent="93.98">
+	<langue code="uk" url="https://trad.spip.net/tradlang_module/public?lang_cible=uk" total="83" traduits="83" relire="0" modifs="0" nouveaux="0" pourcent="100.00">
 		<traducteur nom="olly" lien="https://trad.spip.net/auteur/olly" />
 		<traducteur nom="Serge Markitanenko" lien="https://trad.spip.net/auteur/serge-markitanenko" />
 	</langue>
