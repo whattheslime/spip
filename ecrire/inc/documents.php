@@ -46,6 +46,8 @@ function set_spip_doc(?string $fichier): string {
  * @return bool|string
  */
 function get_spip_doc(?string $fichier) {
+	$fichier_demande = $fichier;
+	
 	if ($fichier === null) {
 		return false;
 	}
@@ -63,6 +65,8 @@ function get_spip_doc(?string $fichier) {
 	if (strncmp($fichier, _DIR_IMG, strlen(_DIR_IMG)) !== 0) {
 		$fichier = _DIR_IMG . $fichier;
 	}
+	
+	$fichier = pipeline('get_spip_doc', ['args' => ['fichier' => $fichier_demande], 'data' => $fichier]);
 
 	// fichier normal
 	return $fichier;
