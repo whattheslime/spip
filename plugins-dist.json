@@ -15,7 +15,7 @@
         "path": "plugins-dist/bigup",
         "source": "https://git.spip.net/spip/bigup.git",
         "branch": "3.2",
-        "tag": "v3.2.7"
+        "tag": "v3.2.8"
     },
     "compagnon": {
         "path": "plugins-dist/compagnon",
@@ -45,7 +45,7 @@
         "path": "plugins-dist/forum",
         "source": "https://git.spip.net/spip/forum.git",
         "branch": "3.1",
-        "tag": "v3.1.3"
+        "tag": "v3.1.4"
     },
     "mediabox": {
         "path": "plugins-dist/mediabox",
@@ -57,13 +57,13 @@
         "path": "plugins-dist/medias",
         "source": "https://git.spip.net/spip/medias.git",
         "branch": "4.2",
-        "tag": "v4.2.0"
+        "tag": "v4.2.1"
     },
     "mots": {
         "path": "plugins-dist/mots",
         "source": "https://git.spip.net/spip/mots.git",
         "branch": "4.1",
-        "tag": "v4.1.3"
+        "tag": "v4.1.4"
     },
     "plan": {
         "path": "plugins-dist/plan",
@@ -81,7 +81,7 @@
         "path": "plugins-dist/revisions",
         "source": "https://git.spip.net/spip/revisions.git",
         "branch": "3.1",
-        "tag": "v3.1.3"
+        "tag": "v3.1.4"
     },
     "safehtml": {
         "path": "plugins-dist/safehtml",
@@ -93,7 +93,7 @@
         "path": "plugins-dist/sites",
         "source": "https://git.spip.net/spip/sites.git",
         "branch": "4.1",
-        "tag": "v4.1.4"
+        "tag": "v4.1.5"
     },
     "statistiques": {
         "path": "plugins-dist/statistiques",
