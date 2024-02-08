@@ -4,6 +4,7 @@
 
 ### Added
 
+- #196 Améliorer l’ergonomie du formulaire instituer (changement de statut d’un objet éditorial)
 - #3432 Notifier par email les webmestres du site lorsque SPIP dispose d’une mise à jour
 - #5824 Logger `spip_logger()` impplémentant `Psr\Log\LoggerInterface` (PSR-3) via une librairie `spip/logger` qui utilise Monolog
 - #5807 Cache des squelettes réécrit en utilisant une librairie `spip/cache` (PSR-16)
