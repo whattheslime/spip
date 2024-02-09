@@ -555,6 +555,11 @@ the site "@nom_site_spip@" @adresse_login@:',
 
 	// N
 	'navigateur_pas_redirige' => 'If you are not automatically redirected, click here to continue.',
+	'notification_mise_a_jour' => 'Hello,
+
+	The site @adresse_site@ can be upgraded to the newest SPIP version.
+
+	To avoid security problems, it is important to keep your site up to date.',
 	'numero' => 'Number',
 
 	// O
