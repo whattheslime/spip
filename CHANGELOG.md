@@ -26,12 +26,7 @@
 
 ### Fixed
 
-- #5847 Analyser correctement le `0` dans le premier paramètre de critère tel que dans `{enum 0,3}`
-- #5849 Traitement des balises dynamiques génériques (tel que `#FORMULAIRE_xx`) dans les boucles DATA
-- #5833 Toujours loger une erreur de squelette
-- #5837 Éviter une erreur SQL sur l’optimisation des liens vers des objets éditoriaux disparus
 - #5825 Ne pas mettre l'adresse du site entre parenthèses dans les mails envoyés par SPIP
-- #5810 Éviter à `identifiant_slug()` des traitements inutiles quand le séparateur est vide
 
 ### Deprecated
 
