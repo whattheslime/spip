@@ -26,6 +26,7 @@
 
 ### Fixed
 
+- #5853 Meilleur affichage des pages «Minipres» avec des contenus imprévus
 - #5825 Ne pas mettre l'adresse du site entre parenthèses dans les mails envoyés par SPIP
 
 ### Deprecated
