@@ -2,6 +2,12 @@
 
 Changelog de SPIP 4.2
 
+## Unreleased
+
+### Fixed
+
+- #5853 Meilleur affichage des pages «Minipres» avec des contenus imprévus
+
 ## 4.2.9 - 2024-02-08
 
 ### Fixed
