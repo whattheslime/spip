@@ -117,7 +117,7 @@ function format_suite_html($args) {
 			// forcer la notation pleine
 			if (
 				$c1 == '}' && str_starts_with(ltrim((string) $texte2), '|')
-				|| preg_match('/[\w\d_*]/', $c1) && preg_match('/^[\w\d_*{|]/', (string) $texte2)
+				|| preg_match('/[\w*]/', $c1) && preg_match('/^[\w*{|]/', (string) $texte2)
 			) {
 				$args[$i][0] = '[(' . $texte . ')]';
 			}

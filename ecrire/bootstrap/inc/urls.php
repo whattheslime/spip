@@ -83,7 +83,7 @@ function parametre_url($url, $c, $v = null, $sep = '&amp;') {
 	// preparer la regexp de maniere securisee
 	$regexp = explode('|', $c);
 	foreach ($regexp as $r => $e) {
-		$regexp[$r] = str_replace('[]', '\[\]', preg_replace(',[^\w\d\[\]-],', '', $e));
+		$regexp[$r] = str_replace('[]', '\[\]', preg_replace(',[^\w\[\]-],', '', $e));
 	}
 	$regexp = ',^(' . implode('|', $regexp) . '[[]?[]]?)(=.*)?$,';
 	$ajouts = array_flip(explode('|', $c));

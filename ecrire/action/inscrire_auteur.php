@@ -196,12 +196,12 @@ function inscription_nouveau($desc) {
 function test_login($nom, $mail): string {
 	include_spip('inc/charsets');
 	$nom = strtolower((string) translitteration($nom));
-	$login_base = preg_replace('/[^\w\d_]/', '_', $nom);
+	$login_base = preg_replace('/[^\w]/', '_', $nom);
 
 	// il faut eviter que le login soit vraiment trop court
 	if (strlen($login_base) < 3) {
 		$mail = strtolower((string) translitteration(preg_replace('/@.*/', '', $mail)));
-		$login_base = preg_replace('/[^\w\d]/', '_', $mail);
+		$login_base = preg_replace('/[^\w]/', '_', $mail);
 	}
 	if (strlen($login_base) < 3) {
 		$login_base = 'user';
