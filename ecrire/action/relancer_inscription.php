@@ -28,14 +28,14 @@ function action_relancer_inscription_dist() {
 	$securiser_action = charger_fonction('securiser_action', 'inc');
 	$id_auteur = $securiser_action();
 
-	if (intval($id_auteur) and autoriser('relancer', 'inscription')) {
-		$auteur = sql_fetsel('prefs, email, nom, statut', 'spip_auteurs', "id_auteur=$id_auteur");
-		if ($auteur['statut'] == 'nouveau') {
+	if ((int) $id_auteur && autoriser('relancer', 'inscription')) {
+		$auteur = sql_fetsel('prefs, email, nom, statut', 'spip_auteurs', "(id_auteur=$id_auteur) AND (email!='') AND (statut='nouveau')");
+		if ($auteur) {
 			include_spip('action/inscrire_auteur');
 			action_inscrire_auteur_dist($auteur['prefs'], $auteur['email'], $auteur['nom'], ['force_nouveau' => true]);
 		}
-	} elseif ($id_auteur === '*' and autoriser('relancer', 'inscription')) {
-		$auteurs = sql_allfetsel('prefs, email, nom', 'spip_auteurs', "statut='nouveau'");
+	} elseif ($id_auteur === '*' && autoriser('relancer', 'inscription')) {
+		$auteurs = sql_allfetsel('prefs, email, nom', 'spip_auteurs', "(statut='nouveau') AND (email!='')");
 		if (is_array($auteurs)) {
 			include_spip('action/inscrire_auteur');
 			while ($row = array_pop($auteurs)) {
