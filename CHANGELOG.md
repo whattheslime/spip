@@ -6,6 +6,7 @@ Changelog de SPIP 4.2
 
 ### Fixed
 
+- #5863 Ne pas envoyer de mail de relance inscription aux auteurs sans mail
 - #5853 Meilleur affichage des pages «Minipres» avec des contenus imprévus
 
 ## 4.2.9 - 2024-02-08
