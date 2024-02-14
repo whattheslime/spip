@@ -11,7 +11,7 @@
 [(#SESSION{id_auteur}|=={#ID_AUTEUR}|et{#AUTORISER{webmestre}|non}|et{#AUTORISER{etrewebmestre}|oui})
 	[(#BOUTON_ACTION{<:info_admin_etre_webmestre:>,[(#URL_ACTION_AUTEUR{etre_webmestre,[(#EVAL{'time()'})],#SELF})]})]
 ]
-[(#STATUT|=={nouveau}|et{#AUTORISER{relancer,inscription}}|oui)
+[(#STATUT|=={nouveau}|et{#EMAIL}|et{#AUTORISER{relancer,inscription}}|oui)
 [(#BOUTON_ACTION{<:bouton_relancer_inscription:>,[(#URL_ACTION_AUTEUR{relancer_inscription,#ID_AUTEUR,#SELF})],'bloc actualiser'})]
 ]
 <INCLURE{fond=prive/objets/infos/inc-auteur-rubriques,id_auteur,statut} />
