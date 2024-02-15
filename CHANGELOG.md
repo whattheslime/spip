@@ -6,6 +6,7 @@ Changelog de SPIP 4.2
 
 ### Fixed
 
+- #5865 Limiter le nombre d’objets en mémoire dans `generer_objet_info()`
 - #5863 Ne pas envoyer de mail de relance inscription aux auteurs sans mail
 - #5853 Meilleur affichage des pages «Minipres» avec des contenus imprévus
 
