@@ -8,16 +8,16 @@
     "packages": [
         {
             "name": "algo26-matthias/idna-convert",
-            "version": "v4.0.1",
+            "version": "v4.0.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/algo26-matthias/idna-convert.git",
-                "reference": "047d7ff45b13be72f73b39be2b54ba0fe20b06bd"
+                "reference": "254938fb52b8bd34053401695d749f0e73fbb503"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/algo26-matthias/idna-convert/zipball/047d7ff45b13be72f73b39be2b54ba0fe20b06bd",
-                "reference": "047d7ff45b13be72f73b39be2b54ba0fe20b06bd",
+                "url": "https://api.github.com/repos/algo26-matthias/idna-convert/zipball/254938fb52b8bd34053401695d749f0e73fbb503",
+                "reference": "254938fb52b8bd34053401695d749f0e73fbb503",
                 "shasum": ""
             },
             "require": {
@@ -58,9 +58,9 @@
             ],
             "support": {
                 "issues": "https://github.com/algo26-matthias/idna-convert/issues",
-                "source": "https://github.com/algo26-matthias/idna-convert/tree/v4.0.1"
+                "source": "https://github.com/algo26-matthias/idna-convert/tree/v4.0.2"
             },
-            "time": "2023-09-15T18:26:56+00:00"
+            "time": "2024-02-14T13:30:05+00:00"
         },
         {
             "name": "jakeasmith/http_build_url",
@@ -635,19 +635,19 @@
             "source": {
                 "type": "git",
                 "url": "https://git.spip.net/spip/cache.git",
-                "reference": "1756ff357a3005d0c1661093fa2fa3aba3d9a2b2"
+                "reference": "a503509a5801b9c34db6b0f7d20bca3830bfdc81"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://get.spip.net/composer/dist/spip/cache/spip-cache-dev-main-920f05.zip",
-                "reference": "1756ff357a3005d0c1661093fa2fa3aba3d9a2b2",
-                "shasum": "d1b03350c057921572c1dc345fee21f11afc3243"
+                "url": "https://get.spip.net/composer/dist/spip/cache/spip-cache-dev-main-6867a7.zip",
+                "reference": "a503509a5801b9c34db6b0f7d20bca3830bfdc81",
+                "shasum": "ee3977852b2955469a896f5ad37b1d1c1067e4cc"
             },
             "require": {
                 "php": "^8.1",
                 "psr/clock": "^1.0",
                 "psr/simple-cache": "^3.0",
-                "spip/filesystem": "^1.0.x-dev",
+                "spip/filesystem": "^1.1.x-dev",
                 "spip/hasher": "^1.0.x-dev",
                 "symfony/clock": "^6.4"
             },
@@ -703,7 +703,7 @@
             "keywords": [
                 "cache"
             ],
-            "time": "2024-01-05T21:34:10+00:00"
+            "time": "2024-02-02T16:19:03+00:00"
         },
         {
             "name": "spip/compagnon",
@@ -928,13 +928,13 @@
             "source": {
                 "type": "git",
                 "url": "https://git.spip.net/spip/filesystem.git",
-                "reference": "158716205fbf9e7cb6b74565aca2b2f1d147e0a1"
+                "reference": "5d0f5e5656685852cb6ee37e7a9a48e364cdd7ae"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://get.spip.net/composer/dist/spip/filesystem/spip-filesystem-dev-main-07a3e0.zip",
-                "reference": "158716205fbf9e7cb6b74565aca2b2f1d147e0a1",
-                "shasum": "1fdd519b4c13ab7be2a861ad8732d121b8861792"
+                "url": "https://get.spip.net/composer/dist/spip/filesystem/spip-filesystem-dev-main-cca6a5.zip",
+                "reference": "5d0f5e5656685852cb6ee37e7a9a48e364cdd7ae",
+                "shasum": "102a5908941553b12462e3a7b629ae0353f61685"
             },
             "require": {
                 "php": "^8.1",
@@ -949,7 +949,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-main": "1.0.x-dev"
+                    "dev-main": "1.1.x-dev"
                 }
             },
             "autoload": {
@@ -979,7 +979,7 @@
             "support": {
                 "issues": "https://git.spip.net/spip/filesystem/issues"
             },
-            "time": "2024-01-05T21:46:43+00:00"
+            "time": "2024-02-02T14:04:21+00:00"
         },
         {
             "name": "spip/forum",
@@ -987,13 +987,13 @@
             "source": {
                 "type": "git",
                 "url": "https://git.spip.net/spip/forum.git",
-                "reference": "64a31699b9cc564e11214a2b66cf90c1566332a8"
+                "reference": "4212acd0d8b96d554b53dbd66b585720d38c7d01"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://get.spip.net/composer/dist/spip/forum/spip-forum-dev-master-2ea15b.zip",
-                "reference": "64a31699b9cc564e11214a2b66cf90c1566332a8",
-                "shasum": "faa46f07588d660217203e591fe2a49b207a9d41"
+                "url": "https://get.spip.net/composer/dist/spip/forum/spip-forum-dev-master-a5db81.zip",
+                "reference": "4212acd0d8b96d554b53dbd66b585720d38c7d01",
+                "shasum": "fbbaedbfd95f7fb0352dffd25cc3820f26e415fe"
             },
             "require": {
                 "php": "^8.1"
@@ -1023,7 +1023,7 @@
                 }
             ],
             "description": "Gestion des forums privés et publics dans SPIP",
-            "time": "2024-01-23T16:44:41+00:00"
+            "time": "2024-02-10T16:51:46+00:00"
         },
         {
             "name": "spip/hasher",
@@ -1152,22 +1152,22 @@
         },
         {
             "name": "spip/logger",
-            "version": "1.0.1",
+            "version": "1.0.2",
             "source": {
                 "type": "git",
                 "url": "https://git.spip.net/spip/logger.git",
-                "reference": "f629242b7e6316471fb0db57e16ad113f992e36c"
+                "reference": "21b5ee322215ae03aa667f5ca9c45111d6af42f6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://get.spip.net/composer/dist/spip/logger/spip-logger-1.0.1-93f15c.zip",
-                "reference": "f629242b7e6316471fb0db57e16ad113f992e36c",
-                "shasum": "35f35d9836d269d2ea761ffec2d9c072cfc538d2"
+                "url": "https://get.spip.net/composer/dist/spip/logger/spip-logger-1.0.2-74d5a7.zip",
+                "reference": "21b5ee322215ae03aa667f5ca9c45111d6af42f6",
+                "shasum": "6d43bd78666648c8c5d26e31eadfd7996ef85402"
             },
             "require": {
                 "monolog/monolog": "^3.5",
                 "php": "^8.1",
-                "spip/filesystem": "^1.0"
+                "spip/filesystem": "^1.1"
             },
             "require-dev": {
                 "phpstan/phpstan": "^1.10",
@@ -1206,7 +1206,7 @@
             "support": {
                 "issues": "https://git.spip.net/spip/logger/issues"
             },
-            "time": "2024-01-10T10:37:23+00:00"
+            "time": "2024-02-01T14:03:40+00:00"
         },
         {
             "name": "spip/mediabox",
@@ -1214,13 +1214,13 @@
             "source": {
                 "type": "git",
                 "url": "https://git.spip.net/spip/mediabox.git",
-                "reference": "5b757fee68d2e8de37a2f382aa091a0deca10546"
+                "reference": "ea926fc435659ba34a2bfba0316a980bf2ace79d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://get.spip.net/composer/dist/spip/mediabox/spip-mediabox-dev-master-5053c7.zip",
-                "reference": "5b757fee68d2e8de37a2f382aa091a0deca10546",
-                "shasum": "bb1c88e4f313ddedb134f7e07b240d969a97b87c"
+                "url": "https://get.spip.net/composer/dist/spip/mediabox/spip-mediabox-dev-master-addfb3.zip",
+                "reference": "ea926fc435659ba34a2bfba0316a980bf2ace79d",
+                "shasum": "6903b158d009d23e8de5a3f255618632e606e710"
             },
             "require": {
                 "php": "^8.1"
@@ -1250,7 +1250,7 @@
                 }
             ],
             "description": "Boîte multimédia",
-            "time": "2023-07-07T18:04:21+00:00"
+            "time": "2024-01-30T00:30:15+00:00"
         },
         {
             "name": "spip/medias",
@@ -1258,13 +1258,13 @@
             "source": {
                 "type": "git",
                 "url": "https://git.spip.net/spip/medias.git",
-                "reference": "b698da72010419d6905ddcac2ecc5a89d68fd87f"
+                "reference": "ec1d2d3f1c05d4180a0ef7c91a907f3d146ed779"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://get.spip.net/composer/dist/spip/medias/spip-medias-dev-master-0bc84f.zip",
-                "reference": "b698da72010419d6905ddcac2ecc5a89d68fd87f",
-                "shasum": "40f0dd0881e7cabd8acae6b271df0c1e3d509e60"
+                "url": "https://get.spip.net/composer/dist/spip/medias/spip-medias-dev-master-e9606f.zip",
+                "reference": "ec1d2d3f1c05d4180a0ef7c91a907f3d146ed779",
+                "shasum": "ef38ac67b1667cb6329ecf3a7b4274348d3d41e9"
             },
             "require": {
                 "james-heinrich/getid3": "^1.9",
@@ -1295,7 +1295,7 @@
                 }
             ],
             "description": "Gestion des medias dans SPIP",
-            "time": "2024-01-23T16:31:51+00:00"
+            "time": "2024-02-10T16:52:50+00:00"
         },
         {
             "name": "spip/mots",
@@ -1303,13 +1303,13 @@
             "source": {
                 "type": "git",
                 "url": "https://git.spip.net/spip/mots.git",
-                "reference": "a6b52f89e6cdc62c347dac1cc3a27975e7154256"
+                "reference": "a5f3ebe47b6b19044719835220d34b88fdd72e81"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://get.spip.net/composer/dist/spip/mots/spip-mots-dev-master-d63fc2.zip",
-                "reference": "a6b52f89e6cdc62c347dac1cc3a27975e7154256",
-                "shasum": "b5baa9b83b1ed02857ee06d61069c8505b0421bf"
+                "url": "https://get.spip.net/composer/dist/spip/mots/spip-mots-dev-master-7999fe.zip",
+                "reference": "a5f3ebe47b6b19044719835220d34b88fdd72e81",
+                "shasum": "31f7d43360e9e35229b547504a3a7cb092d71bb0"
             },
             "require": {
                 "php": "^8.1"
@@ -1339,7 +1339,7 @@
                 }
             ],
             "description": "Gestion des mots et groupes de mots dans SPIP",
-            "time": "2024-01-23T16:50:49+00:00"
+            "time": "2024-02-10T16:53:31+00:00"
         },
         {
             "name": "spip/path",
@@ -1347,19 +1347,19 @@
             "source": {
                 "type": "git",
                 "url": "https://git.spip.net/spip/path.git",
-                "reference": "43ae84ff8b52199c33c45efc8a0e23e97ceba068"
+                "reference": "d90263b96ba0e649895f4f531ad08325ae04b850"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://get.spip.net/composer/dist/spip/path/spip-path-dev-main-366053.zip",
-                "reference": "43ae84ff8b52199c33c45efc8a0e23e97ceba068",
-                "shasum": "260aa63ba18100873f559c202e968946227b9c42"
+                "url": "https://get.spip.net/composer/dist/spip/path/spip-path-dev-main-810235.zip",
+                "reference": "d90263b96ba0e649895f4f531ad08325ae04b850",
+                "shasum": "e8bbcf070a992cc9fd3ac0df569b18313e36896b"
             },
             "require": {
                 "php": "^8.1",
                 "psr/container": "^2.0",
                 "spip/cache": "^1.0.x-dev",
-                "spip/filesystem": "^1.0.x-dev",
+                "spip/filesystem": "^1.1.x-dev",
                 "spip/hasher": "^1.0.x-dev",
                 "symfony/filesystem": "^6.4"
             },
@@ -1409,7 +1409,7 @@
                 "MIT"
             ],
             "description": "SPIP Path Component",
-            "time": "2024-01-05T21:35:25+00:00"
+            "time": "2024-02-02T16:18:42+00:00"
         },
         {
             "name": "spip/plan",
@@ -1461,13 +1461,13 @@
             "source": {
                 "type": "git",
                 "url": "https://git.spip.net/spip/porte_plume.git",
-                "reference": "4f12584a90523e65e3363acef61fc0a6160e5a30"
+                "reference": "79974814d87f34015654ecf92459a691959c2b15"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://get.spip.net/composer/dist/spip/porte-plume/spip-porte-plume-dev-master-8d5b98.zip",
-                "reference": "4f12584a90523e65e3363acef61fc0a6160e5a30",
-                "shasum": "7b07d192b07c5083e6a5eca858904cb133053ede"
+                "url": "https://get.spip.net/composer/dist/spip/porte-plume/spip-porte-plume-dev-master-f587a1.zip",
+                "reference": "79974814d87f34015654ecf92459a691959c2b15",
+                "shasum": "28b12d13fc47b50067c6b84cd14c772cd9095365"
             },
             "require": {
                 "php": "^8.1"
@@ -1497,7 +1497,7 @@
                 }
             ],
             "description": "Une barre d'outil pour bien écrire",
-            "time": "2023-09-19T23:27:13+00:00"
+            "time": "2024-01-30T00:30:22+00:00"
         },
         {
             "name": "spip/revisions",
@@ -1505,13 +1505,13 @@
             "source": {
                 "type": "git",
                 "url": "https://git.spip.net/spip/revisions.git",
-                "reference": "a4c63d1c85cf11ae29e7afe91f37447b027f8176"
+                "reference": "6dd9c82f16667562c5bf1e6bb24ae7393c7afaf6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://get.spip.net/composer/dist/spip/revisions/spip-revisions-dev-master-69a6ee.zip",
-                "reference": "a4c63d1c85cf11ae29e7afe91f37447b027f8176",
-                "shasum": "424bebec11105c8c6977e21973854a07bffee604"
+                "url": "https://get.spip.net/composer/dist/spip/revisions/spip-revisions-dev-master-20a1c9.zip",
+                "reference": "6dd9c82f16667562c5bf1e6bb24ae7393c7afaf6",
+                "shasum": "19886e82e5e998bc21d1638a34196b2f6d2af3ef"
             },
             "require": {
                 "php": "^8.1"
@@ -1541,7 +1541,7 @@
                 }
             ],
             "description": "Suivi des modifications des objets éditoriaux",
-            "time": "2024-01-19T12:19:51+00:00"
+            "time": "2024-02-10T16:54:25+00:00"
         },
         {
             "name": "spip/safehtml",
@@ -1624,13 +1624,13 @@
             "source": {
                 "type": "git",
                 "url": "https://git.spip.net/spip/sites.git",
-                "reference": "2c6579088ce7a506a15a16225ff6e80767a1a519"
+                "reference": "347af07a9dc1d3e5f8ac8add5d5f2a87910ec69e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://get.spip.net/composer/dist/spip/sites/spip-sites-dev-master-f51a7b.zip",
-                "reference": "2c6579088ce7a506a15a16225ff6e80767a1a519",
-                "shasum": "2b31c785c83416c7b17e44902a3a2a6308e2e5de"
+                "url": "https://get.spip.net/composer/dist/spip/sites/spip-sites-dev-master-b5d7a9.zip",
+                "reference": "347af07a9dc1d3e5f8ac8add5d5f2a87910ec69e",
+                "shasum": "ea549ebe182c1f2f665820540d5f0767f5941d09"
             },
             "require": {
                 "php": "^8.1"
@@ -1660,7 +1660,7 @@
                 }
             ],
             "description": "Gestion des sites et de la syndication dans SPIP",
-            "time": "2024-01-11T15:08:48+00:00"
+            "time": "2024-02-10T16:55:09+00:00"
         },
         {
             "name": "spip/stats",
@@ -1712,13 +1712,13 @@
             "source": {
                 "type": "git",
                 "url": "https://git.spip.net/spip/svp.git",
-                "reference": "7dad753e623d930d5a7d2e693fdf8dd3437fc99b"
+                "reference": "2a33ab720745aa95c2fecf3eb6c71c623b6ea17e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://get.spip.net/composer/dist/spip/svp/spip-svp-dev-master-904e96.zip",
-                "reference": "7dad753e623d930d5a7d2e693fdf8dd3437fc99b",
-                "shasum": "579c5a3a1c60f0816fd0dc7d88753977ddc2a29c"
+                "url": "https://get.spip.net/composer/dist/spip/svp/spip-svp-dev-master-de6144.zip",
+                "reference": "2a33ab720745aa95c2fecf3eb6c71c623b6ea17e",
+                "shasum": "95a32bbb999b36199812eb25fbaf3922f77dea93"
             },
             "require": {
                 "php": "^8.1"
@@ -1753,7 +1753,7 @@
                 }
             ],
             "description": "SerVeur d'information et de téléchargement des Plugins",
-            "time": "2023-12-18T13:11:49+00:00"
+            "time": "2024-01-30T00:30:26+00:00"
         },
         {
             "name": "spip/tw",
@@ -1805,13 +1805,13 @@
             "source": {
                 "type": "git",
                 "url": "https://git.spip.net/spip/urls_etendues.git",
-                "reference": "88def6a5ad92f1c7c84a6235a67228ef468accad"
+                "reference": "7bc9616b63712f7e4f378c2a4800a7fface3abbd"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://get.spip.net/composer/dist/spip/urls/spip-urls-dev-master-2697de.zip",
-                "reference": "88def6a5ad92f1c7c84a6235a67228ef468accad",
-                "shasum": "e667e08b405d84938802ca6e8ea8a6ca1b553211"
+                "url": "https://get.spip.net/composer/dist/spip/urls/spip-urls-dev-master-ae7376.zip",
+                "reference": "7bc9616b63712f7e4f378c2a4800a7fface3abbd",
+                "shasum": "5bd9700a4f7d24a23077c964831cbd244ccb0772"
             },
             "require": {
                 "php": "^8.1"
@@ -1841,20 +1841,20 @@
                 }
             ],
             "description": "Gestion des variantes d'URL signifiantes ou non",
-            "time": "2023-07-11T23:28:12+00:00"
+            "time": "2024-01-30T00:30:29+00:00"
         },
         {
             "name": "symfony/clock",
-            "version": "v6.4.2",
+            "version": "v6.4.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/clock.git",
-                "reference": "0639710e65f73cc504167958ea29be6de5c7177a"
+                "reference": "f48770105c544001da00b8d745873a628e0de198"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/clock/zipball/0639710e65f73cc504167958ea29be6de5c7177a",
-                "reference": "0639710e65f73cc504167958ea29be6de5c7177a",
+                "url": "https://api.github.com/repos/symfony/clock/zipball/f48770105c544001da00b8d745873a628e0de198",
+                "reference": "f48770105c544001da00b8d745873a628e0de198",
                 "shasum": ""
             },
             "require": {
@@ -1899,7 +1899,7 @@
                 "time"
             ],
             "support": {
-                "source": "https://github.com/symfony/clock/tree/v6.4.2"
+                "source": "https://github.com/symfony/clock/tree/v6.4.3"
             },
             "funding": [
                 {
@@ -1915,7 +1915,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2023-12-27T00:32:33+00:00"
+            "time": "2024-01-23T14:51:35+00:00"
         },
         {
             "name": "symfony/deprecation-contracts",
@@ -1986,16 +1986,16 @@
         },
         {
             "name": "symfony/filesystem",
-            "version": "v6.4.0",
+            "version": "v6.4.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/filesystem.git",
-                "reference": "952a8cb588c3bc6ce76f6023000fb932f16a6e59"
+                "reference": "7f3b1755eb49297a0827a7575d5d2b2fd11cc9fb"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/filesystem/zipball/952a8cb588c3bc6ce76f6023000fb932f16a6e59",
-                "reference": "952a8cb588c3bc6ce76f6023000fb932f16a6e59",
+                "url": "https://api.github.com/repos/symfony/filesystem/zipball/7f3b1755eb49297a0827a7575d5d2b2fd11cc9fb",
+                "reference": "7f3b1755eb49297a0827a7575d5d2b2fd11cc9fb",
                 "shasum": ""
             },
             "require": {
@@ -2029,7 +2029,7 @@
             "description": "Provides basic utilities for the filesystem",
             "homepage": "https://symfony.com",
             "support": {
-                "source": "https://github.com/symfony/filesystem/tree/v6.4.0"
+                "source": "https://github.com/symfony/filesystem/tree/v6.4.3"
             },
             "funding": [
                 {
@@ -2045,20 +2045,20 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2023-07-26T17:27:13+00:00"
+            "time": "2024-01-23T14:51:35+00:00"
         },
         {
             "name": "symfony/lock",
-            "version": "v6.4.2",
+            "version": "v6.4.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/lock.git",
-                "reference": "e7be7af2ad07f645bb0c9f4533b5b6c46eba1f79"
+                "reference": "1cabf3cc775b1aa6008ebd471fa773444af4e956"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/lock/zipball/e7be7af2ad07f645bb0c9f4533b5b6c46eba1f79",
-                "reference": "e7be7af2ad07f645bb0c9f4533b5b6c46eba1f79",
+                "url": "https://api.github.com/repos/symfony/lock/zipball/1cabf3cc775b1aa6008ebd471fa773444af4e956",
+                "reference": "1cabf3cc775b1aa6008ebd471fa773444af4e956",
                 "shasum": ""
             },
             "require": {
@@ -2108,7 +2108,7 @@
                 "semaphore"
             ],
             "support": {
-                "source": "https://github.com/symfony/lock/tree/v6.4.2"
+                "source": "https://github.com/symfony/lock/tree/v6.4.3"
             },
             "funding": [
                 {
@@ -2124,20 +2124,20 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2023-12-19T09:12:31+00:00"
+            "time": "2024-01-23T14:51:35+00:00"
         },
         {
             "name": "symfony/polyfill-ctype",
-            "version": "v1.28.0",
+            "version": "v1.29.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/polyfill-ctype.git",
-                "reference": "ea208ce43cbb04af6867b4fdddb1bdbf84cc28cb"
+                "reference": "ef4d7e442ca910c4764bce785146269b30cb5fc4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/polyfill-ctype/zipball/ea208ce43cbb04af6867b4fdddb1bdbf84cc28cb",
-                "reference": "ea208ce43cbb04af6867b4fdddb1bdbf84cc28cb",
+                "url": "https://api.github.com/repos/symfony/polyfill-ctype/zipball/ef4d7e442ca910c4764bce785146269b30cb5fc4",
+                "reference": "ef4d7e442ca910c4764bce785146269b30cb5fc4",
                 "shasum": ""
             },
             "require": {
@@ -2151,9 +2151,6 @@
             },
             "type": "library",
             "extra": {
-                "branch-alias": {
-                    "dev-main": "1.28-dev"
-                },
                 "thanks": {
                     "name": "symfony/polyfill",
                     "url": "https://github.com/symfony/polyfill"
@@ -2190,7 +2187,7 @@
                 "portable"
             ],
             "support": {
-                "source": "https://github.com/symfony/polyfill-ctype/tree/v1.28.0"
+                "source": "https://github.com/symfony/polyfill-ctype/tree/v1.29.0"
             },
             "funding": [
                 {
@@ -2206,20 +2203,20 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2023-01-26T09:26:14+00:00"
+            "time": "2024-01-29T20:11:03+00:00"
         },
         {
             "name": "symfony/polyfill-mbstring",
-            "version": "v1.28.0",
+            "version": "v1.29.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/polyfill-mbstring.git",
-                "reference": "42292d99c55abe617799667f454222c54c60e229"
+                "reference": "9773676c8a1bb1f8d4340a62efe641cf76eda7ec"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/polyfill-mbstring/zipball/42292d99c55abe617799667f454222c54c60e229",
-                "reference": "42292d99c55abe617799667f454222c54c60e229",
+                "url": "https://api.github.com/repos/symfony/polyfill-mbstring/zipball/9773676c8a1bb1f8d4340a62efe641cf76eda7ec",
+                "reference": "9773676c8a1bb1f8d4340a62efe641cf76eda7ec",
                 "shasum": ""
             },
             "require": {
@@ -2233,9 +2230,6 @@
             },
             "type": "library",
             "extra": {
-                "branch-alias": {
-                    "dev-main": "1.28-dev"
-                },
                 "thanks": {
                     "name": "symfony/polyfill",
                     "url": "https://github.com/symfony/polyfill"
@@ -2273,7 +2267,7 @@
                 "shim"
             ],
             "support": {
-                "source": "https://github.com/symfony/polyfill-mbstring/tree/v1.28.0"
+                "source": "https://github.com/symfony/polyfill-mbstring/tree/v1.29.0"
             },
             "funding": [
                 {
@@ -2289,20 +2283,20 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2023-07-28T09:04:16+00:00"
+            "time": "2024-01-29T20:11:03+00:00"
         },
         {
             "name": "symfony/polyfill-php80",
-            "version": "v1.28.0",
+            "version": "v1.29.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/polyfill-php80.git",
-                "reference": "6caa57379c4aec19c0a12a38b59b26487dcfe4b5"
+                "reference": "87b68208d5c1188808dd7839ee1e6c8ec3b02f1b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/polyfill-php80/zipball/6caa57379c4aec19c0a12a38b59b26487dcfe4b5",
-                "reference": "6caa57379c4aec19c0a12a38b59b26487dcfe4b5",
+                "url": "https://api.github.com/repos/symfony/polyfill-php80/zipball/87b68208d5c1188808dd7839ee1e6c8ec3b02f1b",
+                "reference": "87b68208d5c1188808dd7839ee1e6c8ec3b02f1b",
                 "shasum": ""
             },
             "require": {
@@ -2310,9 +2304,6 @@
             },
             "type": "library",
             "extra": {
-                "branch-alias": {
-                    "dev-main": "1.28-dev"
-                },
                 "thanks": {
                     "name": "symfony/polyfill",
                     "url": "https://github.com/symfony/polyfill"
@@ -2356,7 +2347,7 @@
                 "shim"
             ],
             "support": {
-                "source": "https://github.com/symfony/polyfill-php80/tree/v1.28.0"
+                "source": "https://github.com/symfony/polyfill-php80/tree/v1.29.0"
             },
             "funding": [
                 {
@@ -2372,20 +2363,20 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2023-01-26T09:26:14+00:00"
+            "time": "2024-01-29T20:11:03+00:00"
         },
         {
             "name": "symfony/polyfill-php82",
-            "version": "v1.28.0",
+            "version": "v1.29.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/polyfill-php82.git",
-                "reference": "7716bea9c86776fb3362d6b52fe1fc9471056a49"
+                "reference": "559d488c38784112c78b9bf17c5ce8366a265643"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/polyfill-php82/zipball/7716bea9c86776fb3362d6b52fe1fc9471056a49",
-                "reference": "7716bea9c86776fb3362d6b52fe1fc9471056a49",
+                "url": "https://api.github.com/repos/symfony/polyfill-php82/zipball/559d488c38784112c78b9bf17c5ce8366a265643",
+                "reference": "559d488c38784112c78b9bf17c5ce8366a265643",
                 "shasum": ""
             },
             "require": {
@@ -2393,9 +2384,6 @@
             },
             "type": "library",
             "extra": {
-                "branch-alias": {
-                    "dev-main": "1.28-dev"
-                },
                 "thanks": {
                     "name": "symfony/polyfill",
                     "url": "https://github.com/symfony/polyfill"
@@ -2435,7 +2423,7 @@
                 "shim"
             ],
             "support": {
-                "source": "https://github.com/symfony/polyfill-php82/tree/v1.28.0"
+                "source": "https://github.com/symfony/polyfill-php82/tree/v1.29.0"
             },
             "funding": [
                 {
@@ -2451,20 +2439,20 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2023-08-25T17:27:25+00:00"
+            "time": "2024-01-29T20:11:03+00:00"
         },
         {
             "name": "symfony/polyfill-php83",
-            "version": "v1.28.0",
+            "version": "v1.29.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/polyfill-php83.git",
-                "reference": "b0f46ebbeeeda3e9d2faebdfbf4b4eae9b59fa11"
+                "reference": "86fcae159633351e5fd145d1c47de6c528f8caff"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/polyfill-php83/zipball/b0f46ebbeeeda3e9d2faebdfbf4b4eae9b59fa11",
-                "reference": "b0f46ebbeeeda3e9d2faebdfbf4b4eae9b59fa11",
+                "url": "https://api.github.com/repos/symfony/polyfill-php83/zipball/86fcae159633351e5fd145d1c47de6c528f8caff",
+                "reference": "86fcae159633351e5fd145d1c47de6c528f8caff",
                 "shasum": ""
             },
             "require": {
@@ -2473,9 +2461,6 @@
             },
             "type": "library",
             "extra": {
-                "branch-alias": {
-                    "dev-main": "1.28-dev"
-                },
                 "thanks": {
                     "name": "symfony/polyfill",
                     "url": "https://github.com/symfony/polyfill"
@@ -2515,7 +2500,7 @@
                 "shim"
             ],
             "support": {
-                "source": "https://github.com/symfony/polyfill-php83/tree/v1.28.0"
+                "source": "https://github.com/symfony/polyfill-php83/tree/v1.29.0"
             },
             "funding": [
                 {
@@ -2531,7 +2516,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2023-08-16T06:22:46+00:00"
+            "time": "2024-01-29T20:11:03+00:00"
         }
     ],
     "packages-dev": [
@@ -2615,16 +2600,16 @@
         },
         {
             "name": "lolli42/finediff",
-            "version": "1.0.2",
+            "version": "1.0.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/lolli42/FineDiff.git",
-                "reference": "f72cd968b663fc09bc73ef0ab5a3288583d0d59d"
+                "reference": "8d535de757062fed8412833f5eede7064595ca5b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/lolli42/FineDiff/zipball/f72cd968b663fc09bc73ef0ab5a3288583d0d59d",
-                "reference": "f72cd968b663fc09bc73ef0ab5a3288583d0d59d",
+                "url": "https://api.github.com/repos/lolli42/FineDiff/zipball/8d535de757062fed8412833f5eede7064595ca5b",
+                "reference": "8d535de757062fed8412833f5eede7064595ca5b",
                 "shasum": ""
             },
             "require": {
@@ -2636,8 +2621,8 @@
             },
             "require-dev": {
                 "friendsofphp/php-cs-fixer": "^3.4",
-                "phpstan/phpstan": "^1.6",
-                "phpunit/phpunit": "^8 || ^9"
+                "phpstan/phpstan": "^1.9.14",
+                "phpunit/phpunit": "^8.5.33 || ^9.6.11 || ^10.3.2"
             },
             "type": "library",
             "autoload": {
@@ -2674,9 +2659,9 @@
             ],
             "support": {
                 "issues": "https://github.com/lolli42/FineDiff/issues",
-                "source": "https://github.com/lolli42/FineDiff/tree/1.0.2"
+                "source": "https://github.com/lolli42/FineDiff/tree/1.0.3"
             },
-            "time": "2022-05-23T07:44:28+00:00"
+            "time": "2024-02-06T13:56:20+00:00"
         },
         {
             "name": "myclabs/deep-copy",
@@ -2912,18 +2897,18 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/PHPCompatibility/PHPCompatibility.git",
-                "reference": "34a67f7eb4ec715df26d90429ea8cce88e0b38ff"
+                "reference": "e5cd2e244097fb62c5ac8f1153a26a73c3a50438"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/PHPCompatibility/PHPCompatibility/zipball/34a67f7eb4ec715df26d90429ea8cce88e0b38ff",
-                "reference": "34a67f7eb4ec715df26d90429ea8cce88e0b38ff",
+                "url": "https://api.github.com/repos/PHPCompatibility/PHPCompatibility/zipball/e5cd2e244097fb62c5ac8f1153a26a73c3a50438",
+                "reference": "e5cd2e244097fb62c5ac8f1153a26a73c3a50438",
                 "shasum": ""
             },
             "require": {
                 "php": ">=5.4",
-                "phpcsstandards/phpcsutils": "^1.0.5",
-                "squizlabs/php_codesniffer": "^3.7.1"
+                "phpcsstandards/phpcsutils": "^1.0.9",
+                "squizlabs/php_codesniffer": "^3.8.0"
             },
             "replace": {
                 "wimg/php-compatibility": "*"
@@ -2980,7 +2965,21 @@
                 "security": "https://github.com/PHPCompatibility/PHPCompatibility/security/policy",
                 "source": "https://github.com/PHPCompatibility/PHPCompatibility"
             },
-            "time": "2023-12-04T17:28:03+00:00"
+            "funding": [
+                {
+                    "url": "https://github.com/PHPCompatibility",
+                    "type": "github"
+                },
+                {
+                    "url": "https://github.com/jrfnl",
+                    "type": "github"
+                },
+                {
+                    "url": "https://opencollective.com/php_codesniffer",
+                    "type": "open_collective"
+                }
+            ],
+            "time": "2024-02-12T16:57:44+00:00"
         },
         {
             "name": "phpcsstandards/phpcsutils",
@@ -3072,16 +3071,16 @@
         },
         {
             "name": "phpstan/phpstan",
-            "version": "1.10.56",
+            "version": "1.10.58",
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpstan/phpstan.git",
-                "reference": "27816a01aea996191ee14d010f325434c0ee76fa"
+                "reference": "a23518379ec4defd9e47cbf81019526861623ec2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpstan/phpstan/zipball/27816a01aea996191ee14d010f325434c0ee76fa",
-                "reference": "27816a01aea996191ee14d010f325434c0ee76fa",
+                "url": "https://api.github.com/repos/phpstan/phpstan/zipball/a23518379ec4defd9e47cbf81019526861623ec2",
+                "reference": "a23518379ec4defd9e47cbf81019526861623ec2",
                 "shasum": ""
             },
             "require": {
@@ -3130,7 +3129,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2024-01-15T10:43:00+00:00"
+            "time": "2024-02-12T20:02:57+00:00"
         },
         {
             "name": "phpunit/php-code-coverage",
@@ -3455,16 +3454,16 @@
         },
         {
             "name": "phpunit/phpunit",
-            "version": "10.5.9",
+            "version": "10.5.10",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/phpunit.git",
-                "reference": "0bd663704f0165c9e76fe4f06ffa6a1ca727fdbe"
+                "reference": "50b8e314b6d0dd06521dc31d1abffa73f25f850c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/0bd663704f0165c9e76fe4f06ffa6a1ca727fdbe",
-                "reference": "0bd663704f0165c9e76fe4f06ffa6a1ca727fdbe",
+                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/50b8e314b6d0dd06521dc31d1abffa73f25f850c",
+                "reference": "50b8e314b6d0dd06521dc31d1abffa73f25f850c",
                 "shasum": ""
             },
             "require": {
@@ -3536,7 +3535,7 @@
             "support": {
                 "issues": "https://github.com/sebastianbergmann/phpunit/issues",
                 "security": "https://github.com/sebastianbergmann/phpunit/security/policy",
-                "source": "https://github.com/sebastianbergmann/phpunit/tree/10.5.9"
+                "source": "https://github.com/sebastianbergmann/phpunit/tree/10.5.10"
             },
             "funding": [
                 {
@@ -3552,7 +3551,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2024-01-22T14:35:40+00:00"
+            "time": "2024-02-04T09:07:51+00:00"
         },
         {
             "name": "sebastian/cli-parser",
@@ -4610,16 +4609,16 @@
         },
         {
             "name": "symfony/var-dumper",
-            "version": "v6.4.2",
+            "version": "v6.4.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/var-dumper.git",
-                "reference": "68d6573ec98715ddcae5a0a85bee3c1c27a4c33f"
+                "reference": "0435a08f69125535336177c29d56af3abc1f69da"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/var-dumper/zipball/68d6573ec98715ddcae5a0a85bee3c1c27a4c33f",
-                "reference": "68d6573ec98715ddcae5a0a85bee3c1c27a4c33f",
+                "url": "https://api.github.com/repos/symfony/var-dumper/zipball/0435a08f69125535336177c29d56af3abc1f69da",
+                "reference": "0435a08f69125535336177c29d56af3abc1f69da",
                 "shasum": ""
             },
             "require": {
@@ -4675,7 +4674,7 @@
                 "dump"
             ],
             "support": {
-                "source": "https://github.com/symfony/var-dumper/tree/v6.4.2"
+                "source": "https://github.com/symfony/var-dumper/tree/v6.4.3"
             },
             "funding": [
                 {
@@ -4691,7 +4690,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2023-12-28T19:16:56+00:00"
+            "time": "2024-01-23T14:53:30+00:00"
         },
         {
             "name": "symplify/easy-coding-standard",
