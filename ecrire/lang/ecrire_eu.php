@@ -427,6 +427,7 @@ Ostapen zuzkitzaile batzuek mail-bidalketa desaktibatzen dute bere zerbitzarieta
 	'info_sites_proxy' => 'Proxy bat erabili',
 	'info_sites_trouves' => 'Aurkitutako guneak',
 	'info_sous_titre' => 'Azpititulua :',
+	'info_statut' => 'Egoera',
 	'info_statut_administrateur' => 'Administratzailea',
 	'info_statut_auteur' => 'Egile honen estatusa:',
 	'info_statut_auteur_2' => 'Nor naizen',

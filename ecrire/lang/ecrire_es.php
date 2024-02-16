@@ -452,6 +452,7 @@ Los idiomas que ya se utilizan en el sitio (al principio de la lista) no pueden 
 	'info_sites_proxy' => 'Utilizar un proxy',
 	'info_sites_trouves' => 'Sitios hallados',
 	'info_sous_titre' => 'Subtítulo',
+	'info_statut' => 'Estatuto',
 	'info_statut_administrateur' => 'Administrador/a',
 	'info_statut_auteur' => 'Estatus de este autor o autora:',
 	'info_statut_auteur_2' => 'Soy',

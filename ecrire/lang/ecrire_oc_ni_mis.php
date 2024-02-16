@@ -442,6 +442,7 @@ Aqueli informacioun vi devon poudé estre prouvedi da l’aministratour dóu sis
 	'info_sites_proxy' => 'Utilisà un proxy',
 	'info_sites_trouves' => 'Sit trouvat',
 	'info_sous_titre' => 'Souta-titre :',
+	'info_statut' => 'Estatut',
 	'info_statut_administrateur' => 'Aministratour',
 	'info_statut_auteur' => 'Estatut d’aquel autour :',
 	'info_statut_auteur_2' => 'Siéu',

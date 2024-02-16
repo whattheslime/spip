@@ -460,6 +460,7 @@ In caso affermativo, i visitatori potranno iscriversi grazie ad un modulo automa
 	'info_sites_proxy' => 'Utilizza un proxy',
 	'info_sites_trouves' => 'Siti trovati',
 	'info_sous_titre' => 'Sottotitolo:',
+	'info_statut' => 'Stato',
 	'info_statut_administrateur' => 'Amministratore',
 	'info_statut_auteur' => 'Status di questo autore:',
 	'info_statut_auteur_2' => 'Io sono',

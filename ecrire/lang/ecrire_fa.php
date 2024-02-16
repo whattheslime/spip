@@ -420,6 +420,7 @@ return [
 	'info_sites_proxy' => 'از پروكسى استفاده كنيد',
 	'info_sites_trouves' => 'سايت هاى پيدا شده',
 	'info_sous_titre' => ':عنوان فرعى',
+	'info_statut' => 'وضعيت',
 	'info_statut_administrateur' => 'گرداننده سايت',
 	'info_statut_auteur' => 'وضعيت اين نويسنده:',
 	'info_statut_auteur_2' => 'من هستم',

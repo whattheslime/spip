@@ -449,6 +449,7 @@ Ihr Status wird durch die Farbe ihres Symbols angezeigt (Redakteur = gelb; Admin
 	'info_sites_proxy' => 'HTTP-Proxy verwenden',
 	'info_sites_trouves' => 'Gefundene Websites',
 	'info_sous_titre' => 'Untertitel:',
+	'info_statut' => 'Status',
 	'info_statut_administrateur' => 'Administrator',
 	'info_statut_auteur' => 'Status des Autors:',
 	'info_statut_auteur_2' => 'Ich bin',

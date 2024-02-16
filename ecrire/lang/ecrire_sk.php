@@ -451,6 +451,7 @@ cez verejne prístupnú stránku? Ak s tým súhlasíte, návštevníci sa bud
 	'info_sites_proxy' => 'Pomocou proxy',
 	'info_sites_trouves' => 'Nájdené stránky',
 	'info_sous_titre' => 'Podtitulok:',
+	'info_statut' => 'Stav',
 	'info_statut_administrateur' => 'Administrátor',
 	'info_statut_auteur' => 'Funkcia tohto autora:',
 	'info_statut_auteur_2' => 'Som',
