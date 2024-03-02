@@ -23,6 +23,8 @@ return [
 	'annuler' => 'Ezeztatu',
 	'antispam_champ_vide' => 'Otoi, ez ezer ezarri eremu hunetan :',
 	'articles_recents' => 'Azken artikuluak',
+	'attention_champ_mini_nb_caractères' => 'Adi! @nb@karaktere minimoetan',
+	'avis_1_erreur_saisie' => 'Akats bat dago zure sartu dituzun informazioetan. Otoiz, egiaztatu informazioa.',
 	'avis_archive_incorrect' => 'Artxibo-fitxategia ez da Spip motakoa.',
 	'avis_archive_invalide' => 'artxibo-fitxategia ez da zuzena',
 	'avis_attention' => 'Adi egon!',
@@ -35,6 +37,7 @@ return [
 	'avis_erreur_mysql' => 'SQL errorea',
 	'avis_erreur_sauvegarde' => 'Errorea (@type@@id_objet@) ! babes-kopia egiterakoan. ',
 	'avis_erreur_visiteur' => 'Eremu pribatura sartzeko arazoa',
+	'avis_nb_erreurs_saisie' => '@nb@ akats badira sartu dituzun informazioetan. Otoiz, egiaztatu informazioa.',
 
 	// B
 	'barre_a_accent_grave' => 'Azentu kamutsadun A maiuskula tartekatu',
@@ -102,8 +105,8 @@ return [
 	'date_fmt_heures_minutes_court' => '@h@h@m@',
 	'date_fmt_jour' => '@nomjour@ @jour@',
 	'date_fmt_jour_heure' => '@jour@@heure@-etan',
-	'date_fmt_jour_heure_debut_fin' => '@jour@-an @heure_debut@-tik @heure_fin@-ra', # MODIF
-	'date_fmt_jour_heure_debut_fin_abbr' => '@dtstart@@jour@-an @heure_debut@@dtabbr@-tik @dtstart@@heure_fin@@dtend@-ra', # MODIF
+	'date_fmt_jour_heure_debut_fin' => '@jour@-an @heure_debut@-tik @heure_fin@-ra',
+	'date_fmt_jour_heure_debut_fin_abbr' => '@dtstart@@jour@-an @heure_debut@@dtabbr@-tik @dtstart@@heure_fin@@dtend@-ra',
 	'date_fmt_jour_mois' => '@nommois@ren @jour@a',
 	'date_fmt_jour_mois_annee' => '@annee@(e)ko @nommois@ren @jour@a',
 	'date_fmt_mois_annee' => '@annee@-ko @nommois@',
@@ -113,6 +116,7 @@ return [
 	'date_fmt_periode_abbr' => '@dtart@@date_debut@@dtabbr@-tik @dtend@@date_fin@@dtabbr@-ra',
 	'date_fmt_periode_from' => 'Noiztik',
 	'date_fmt_periode_to' => 'Nora',
+	'date_fmt_saison_annee' => '@annee@-ko @saison@',
 	'date_heures' => 'orduak',
 	'date_hier' => 'atzo',
 	'date_il_y_a' => 'orain dela @delai@',
@@ -225,13 +229,15 @@ Eragiketa hori egin eta gero, gauza izango zara',
 	'envoi_via_le_site' => 'Gunearen bitartez egindako bidalpena',
 	'erreur' => 'Errorea',
 	'erreur_balise_non_fermee' => 'ez itxitako azken etiketa :',
+	'erreur_technique_ajaxform' => 'Atx! Aurreikus ez zegoen akats batek eragotzi du formularioa aurkeztea. Berriro saia zaitezke.',
 	'erreur_technique_enregistrement_champs' => 'Arazo tekniko batek @champs@ eremuaren grabaketa trabatu du.',
 	'erreur_technique_enregistrement_impossible' => 'Arazo tekniko batek grabaketa trabatu du.',
 	'erreur_texte' => 'errore',
 	'etape' => 'Etapa',
 
 	// F
-	'fichier_introuvable' => '@fichier@ aurkitzeko moduan ez dagoen artxiboa', # MODIF
+	'fichier_introuvable' => '@fichier@ fitxategia ezin aurkitua da.',
+	'fonction_introuvable' => '@fonction@() funtzioa ez da aurkitu.',
 	'form_auteur_confirmation' => 'Zure helbide elektronikoa baiezta ezazu',
 	'form_auteur_email_modifie' => 'Zure helbide elektronikoa aldatu da.',
 	'form_auteur_envoi_mail_confirmation' => 'Baieztapen e-maila bat bidalia izan da  @email@ helbidera. Mezu hartan idatzitako helbidea bisitatu beharku duzu zure helbidea baieztatzeko.',
@@ -256,8 +262,8 @@ Zure helbide berria baieztatzeko ondoko helbidea bisita ezazu.
 	'form_forum_message_auto' => '(Hau mezu automatikoa da)',
 	'form_forum_pass' => 'Pasahitza :',
 	'form_forum_probleme_mail' => 'Posta elektronikoarekiko arazoa: identifikadorea ezinda igorri.',
-	'form_forum_voici1' => 'Hona hemen zure identifikadoreak,"@nom_site_spip@" (@adresse_site@) gunearen foroetan parte hartzeko:', # MODIF
-	'form_forum_voici2' => 'Hona hemen zure identifikadoreak, artikuluak ,"@nom_site_spip@" (@adresse_login@) gunean proposatzeko:', # MODIF
+	'form_forum_voici1' => 'Hona hemen zure identifikadoreak,"@nom_site_spip@" (@adresse_site@) gunearen bizian parte hartzeko:',
+	'form_forum_voici2' => 'Hona hemen zure identifikadoreak, artikuluak "@nom_site_spip@" (@adresse_login@) gunean proposatzeko:',
 	'form_indiquer_email' => 'Zure posta elektronikoaren heldibea adierazi.',
 	'form_indiquer_nom' => 'Zure izena adierazi.',
 	'form_indiquer_nom_site' => 'Zure webgunearen izena adierazi.',
@@ -274,6 +280,10 @@ Zure helbide berria baieztatzeko ondoko helbidea bisita ezazu.
 	'form_prop_non_enregistre' => 'Zure proposamena ez zen erregistratu.',
 	'form_prop_sujet' => 'Gai',
 	'form_prop_url_site' => 'Gunearen (URL) helbidea',
+	'format_date_attendu' => 'Data bat ezarri jj/mm/aaaa formatuan.',
+	'format_date_incorrecte' => 'Data edo haren formatua ez da zuzena',
+	'format_heure_attendu' => 'Ordu bat sartu hh: mm formatuan.',
+	'format_heure_incorrecte' => 'Ordua edo haren formatua ez da zuzena',
 	'forum_non_inscrit' => 'Ez zaude inskribaturik, edota emandako helbidea edo pasahitza ez dira zuzenak.',
 	'forum_par_auteur' => '@auteur@-k',
 	'forum_titre_erreur' => 'Errore...',
@@ -356,7 +366,7 @@ Zure helbide berria baieztatzeko ondoko helbidea bisita ezazu.
 	'info_copyright' => '@spip@ software librea da, @lien_gpl@ banatua.',
 	'info_copyright_doc' => 'Argibide gehiago izateko, jo helbide honetara: <a href="@spipnet@">http://www.spip.net/eu</a>.',
 	'info_copyright_gpl' => 'GPL lizentziarekin',
-	'info_cours_edition' => 'Bukatu gabe utzi dituzun artikuluak', # MODIF
+	'info_cours_edition' => 'Aldatzen ari',
 	'info_creer_repertoire' => 'Fitxategi edo karpeta bat sortu behar duzu, eta hari izen hau jarri :',
 	'info_creer_repertoire_2' => '<b>@repertoire@</b>, azpidirektorioan, eta ondotik :',
 	'info_creer_vignette' => 'miniaturaren sorkuntza automatikoa',
@@ -376,8 +386,8 @@ Zure helbide berria baieztatzeko ondoko helbidea bisita ezazu.
 	'info_erreur_requete' => 'Errorea eskabidean:',
 	'info_erreur_squelette2' => 'Ez dago <b>@fichier@</b> eskeletorik erabilgarri...',
 	'info_erreur_systeme' => 'Akatsa sistema (errno @errsys@)',
-	'info_erreur_systeme2' => 'Disko gogorra beteta edo datubasea hondatuta egon daiteke.
-Basea konpontzen saiatu, edo zure ostalaitzea kontaktatu.', # MODIF
+	'info_erreur_systeme2' => 'Disko gogorra beteta edo datu-basea hondatuta egon daiteke.<br />
+<span style="color:red;"><a href=\'@script@\'>Datu-basea konpontzen saiatu</a>, edo zure ostatatzaile kontaktatu.</span>',
 	'info_fini' => 'Bukatuta!',
 	'info_format_image' => 'Miniaturendako erabil daitezkeen irudi-formatuak @gd_formats@.',
 	'info_format_non_defini' => 'formatua ez dago definitua',
@@ -426,6 +436,7 @@ Azpimarratu gabeko hizkuntzetarako, elementuak gunearen hizkuntza nagusian agert
 	'info_nouveaux_messages' => '@total_messages@ MEZU BERRI BADITUZU',
 	'info_numero_abbreviation' => 'Zk ',
 	'info_obligatoire' => 'Informazio hori beharrezkoa da',
+	'info_page_actuelle' => 'Oraiko orria',
 	'info_pense_bete' => 'Buruz ikasteko oroigarria',
 	'info_petit_ecran' => 'Pantaila txikia',
 	'info_petition_close' => 'Hetsitako petizioa',
@@ -456,7 +467,7 @@ Azpimarratu gabeko hizkuntzetarako, elementuak gunearen hizkuntza nagusian agert
 	'info_sites_un' => 'Gune 1',
 	'info_supprimer_vignette' => 'miniatura hau kendu',
 	'info_symbole_bleu' => 'Sinbolo <b>URDIN</b>ak oroigarri pertsonal bat adierazten du, hau da zerbait gogoratzeko modu bat.',
-	'info_symbole_jaune' => 'Sinbolo <b>hori</b>ak denentzako iragarpen bat adierazten du: gunearen administratzaileek bakarrik alda dezakete, eta idazle guztiek ikus dezakete.',
+	'info_symbole_jaune' => 'Sinbolo <b>hori</b>ak denentzako iragarpen bat adierazten du: gunearen administratzaileek bakarrik alda dezakete, eta idazlari guztiek ikus dezakete.',
 	'info_symbole_vert' => 'Sinbolo <b>berdeak</b> guneko beste pertsonekin trukatutako mezuak adierazten ditu.',
 	'info_telecharger_nouveau_logo' => 'Logo berri bat igo:',
 	'info_telecharger_ordinateur' => 'Zure ordenagailutik igo :',
@@ -477,9 +488,15 @@ Azpimarratu gabeko hizkuntzetarako, elementuak gunearen hizkuntza nagusian agert
 	// L
 	'label_ajout_id_rapide' => 'Laster gehitu',
 	'label_poids_fichier' => 'Tamaina',
+	'label_ponctuer' => '@label@:',
 	'lien_afficher_icones_seuls' => 'Ikurrak soilik erakutsi',
 	'lien_afficher_texte_icones' => 'Ikurrak eta testua erakutsi',
 	'lien_afficher_texte_seul' => 'Testua soilik erakutsi',
+	'lien_aller_a_la_derniere_page' => 'Azken orrira joan',
+	'lien_aller_a_la_page_nb' => '@nb@ orrira joan',
+	'lien_aller_a_la_page_precedente' => 'Aitzineko orrira joan',
+	'lien_aller_a_la_page_suivante' => 'Ondoko orrira joan',
+	'lien_aller_a_la_premiere_page' => 'Lehen orrira joan',
 	'lien_liberer' => 'Askatu',
 	'lien_liberer_tous' => 'artikulu hauek askatu',
 	'lien_nouvea_pense_bete' => 'Oroigarri berria',
@@ -516,22 +533,29 @@ Zure pasahitza sarean atzeman ahal izatea nahi ez baduzu, JavaScript-a aktibatu 
 	'login_pass2' => 'Pasahitza :',
 	'login_preferez_refuser' => '"Cookiak" errefusatzea nahiago baduzu, beste konexio modu bat dago (gutxiz seguruagoa) zure eskura :',
 	'login_recharger' => 'Orrialde hau berriz kargatu',
-	'login_rester_identifie' => 'Egun batzuetan identifikatuta geratu', # MODIF
+	'login_rester_identifie' => 'Nitaz oroitu',
 	'login_retour_public' => 'Eremu publikora itzuli',
 	'login_retour_site' => 'Eremu publikora itzuli',
 	'login_retoursitepublic' => 'eremu publikora itzuli',
+	'login_sans_cookie' => 'Identifikazioa cookie-rik gabe',
 	'login_securise' => 'Login segurua',
-	'login_sinscrire' => 'inskribatu', # MODIF
+	'login_sinscrire' => 'Izena eman',
 	'login_test_navigateur' => 'nabigatzaile proba/berkonexioa',
 	'login_verifiez_navigateur' => '(Hala ere,zure nabigatzaileak zure pasahitza memorizatu ez duela egiaztatu...)',
 
 	// M
 	'masquer_colonne' => 'Zutabe hau maskatu',
 	'masquer_trad' => 'Itzulpenak ezkutatu',
+	'message_nouveaux_identifiants_echec' => 'Identifikatzaile berrien kudeaketa ezinezkoa da.',
+	'message_nouveaux_identifiants_echec_envoi' => 'Konexio identifikatzaile berriak ezin izan dira bidali.',
+	'message_nouveaux_identifiants_ok' => 'Konexio identifikatzaile berriak @email@ helbidera igorri dira.',
 	'module_fichiers_langues' => 'Hizkuntza-fitxategiak',
 
 	// N
 	'navigateur_pas_redirige' => 'Zure nabigatzaileak ez bazaitu automatikoki berriz eramaten, hemen klikatu jarraitzeko.',
+	'notification_mise_a_jour' => 'Agur,
+@adresse_site@ webgunea SPIP bertsio berri batera eguneratu daiteke.
+Segurtasun arazoengatik, garrantzitsua da zure webgunea eguneratua izatea.',
 	'numero' => 'Zenbakia',
 
 	// O
@@ -561,21 +585,22 @@ Behin erregistratuta, idazteko bidean dauden artikuluak kontsultatu, artikuluak 
 	'pass_forum_bla' => 'pertsona erregistratuei mugatutako foro batean parte hartzea eskatu duzu.',
 	'pass_indiquez_cidessous' => 'Lehen erregistratuta zinen helbide elektronikoa adierzai.
 Zure sarbidea berreskuratzeko jarraitu behar duzun prozesua adierazten duen mezu bat jasoko duzu.',
-	'pass_mail_passcookie' => '(hau mezu automatikohau da)
-Zure sarbidea berreskuratzeko  @nom_site_spip@ gunerarako (@adresse_site@)
+	'pass_mail_passcookie' => '(hau mezu automatikoa da)
+Zure sarbidea berreskuratzeko @nom_site_spip@ gunerako (@adresse_site@)
 
-Hurrengo helbidera joan: @sendcookie@
+Hurrengo helbidera joan: 
+@sendcookie@
 
-Orduan pasahitza berri bat jarri eta gunera berriz konektatzen ahalko zara. ', # MODIF
+Orduan pasahitza berri bat jartzen ahalko duzu eta gunera berriz konektatzen ahalko zara. ',
 	'pass_mot_oublie' => 'Pasahitza ahaztua',
 	'pass_nouveau_enregistre' => 'Zure pasahitz berria erregistratua izan da.',
 	'pass_nouveau_pass' => 'Pasahitz berria',
 	'pass_ok' => 'OK',
 	'pass_oubli_mot' => 'Pasahitza ahaztu dut',
-	'pass_procedure_changer' => 'Pasahitza aldatu aitzin, zure nortasuna baieztatu behar dugu. Horregatik zure kontuari lotutako helbide elektronikoa jakinarazi behar diguzu.', # MODIF
+	'pass_procedure_changer' => 'Zure pasahitza aldatzeko, eskerrik asko zure kontuari lotutako helbide elektronikoa adierazteagatik.',
 	'pass_quitter_fenetre' => 'Leiho honetatik irten',
 	'pass_rappel_login' => 'Gogoan izan: zure identifikatzailea (logina) hau da : «@login@».',
-	'pass_recevoir_mail' => 'Gunerako sarbidea nola berreskuratzen ahal duzun zehazten duen mezu bat jasoko duzu.', # MODIF
+	'pass_recevoir_mail' => 'Zure pasahitzaren berrezartze lotura bat igorria izan zaizu zure helbide elektronikoan (baliozkoa bada).',
 	'pass_retour_public' => 'Itzuli eremu publikora',
 	'pass_rien_a_faire_ici' => 'Hemen ez dago ezer egitekorik.',
 	'pass_vousinscrire' => 'Gune honetan izena eman',
@@ -596,8 +621,11 @@ Orduan pasahitza berri bat jarri eta gunera berriz konektatzen ahalko zara. ', #
 
 	// T
 	'taille_go' => '@taille@ Go',
+	'taille_go_bi' => '@taille@ Gio',
 	'taille_ko' => '@taille@ KB',
+	'taille_ko_bi' => '@taille@ kio',
 	'taille_mo' => '@taille@ MB',
+	'taille_mo_bi' => '@taille@ Mio',
 	'taille_octets' => '@taille@ byte',
 	'taille_octets_bi' => '@taille@ byte',
 	'texte_actualite_site_1' => 'Behin interfazera ohitua zarenean, klikatu «',
@@ -633,17 +661,22 @@ Modu orokorrean, orrialde hauetako kudeaketa zure guneko web arduradun nagusiari
 	'titre_image_auteur_supprime' => 'Egile ezabatuta',
 	'titre_image_redacteur' => 'Baimenik gabeko idazlaria',
 	'titre_image_redacteur_02' => 'Idazlaria',
+	'titre_image_selecteur' => 'Zerrenda erakutsi',
 	'titre_image_visiteur' => 'Bisitaria',
 	'titre_joindre_document' => 'Dokumentu bat erantsi',
 	'titre_mots_cles' => 'Gako-hitzak',
-	'titre_probleme_technique' => 'ADI EGON: arazo tekniko bat dela eta (SQL zerbitzaria) ezin da tokiaren atal honetara sartu',
+	'titre_probleme_technique' => 'ADI EGON: arazo tekniko bat dela eta (SQL zerbitzaria) ezin da webgunearen atal honetara sartu',
 	'titre_publier_document' => 'Atal honetan dokumentu bat argitaratu',
 	'titre_signatures_attente' => 'Baldazio baten behako sinadurak',
 	'titre_signatures_confirmees' => 'Baieztatutako sinadurak',
 	'titre_statistiques' => 'Gunearen estatistikak',
 	'titre_titre_document' => 'Dokumentuaren izenburua',
 	'todo' => 'etortzekoak',
+	'trad_definir_reference' => '"@titre@" hautatu itzulpenen erreferentzia gisa',
 	'trad_reference' => '(erreferentziazko artikulua)',
+
+	// U
+	'upload_limit' => 'Fitxategi hau handiegia da zerbitzariarentzat; <i>upload</i> formatuan onartutako gehienezko tamaina @max@ da.',
 
 	// Z
 	'zbug_balise_b_aval' => ': B begiztako baliza aurrerago',
@@ -653,9 +686,11 @@ Modu orokorrean, orrialde hauetako kudeaketa zure guneko web arduradun nagusiari
 	'zbug_boucle_recursive_undef' => 'zehaztu gabeko begizta errekurtsiboa',
 	'zbug_calcul' => 'kalkulua',
 	'zbug_champ_hors_boucle' => '@champ@ eremua begiztaren kanpoan',
+	'zbug_champ_hors_critere' => '@champ@ eremua @critere@ irizpideetatik at',
 	'zbug_champ_hors_motif' => '@champ@ eremua @motif@ arrazoiko begizta baten kanpoan',
 	'zbug_code' => 'kodea',
 	'zbug_critere_inconnu' => '@critere@ irizpide ezezaguna',
+	'zbug_critere_sur_table_sans_cle_primaire' => '{@critere@} giltza primario atomikorik gabeko mahai batean',
 	'zbug_distant_interdit' => 'kanpoko debekatua',
 	'zbug_doublon_table_sans_cle_primaire' => 'Errepikak lehen mailako giltza atomiko gabeko mahai batean',
 	'zbug_doublon_table_sans_index' => 'Errepikak indizerik gabeko mahai batean',
@@ -665,6 +700,7 @@ Modu orokorrean, orrialde hauetako kudeaketa zure guneko web arduradun nagusiari
 	'zbug_erreur_compilation' => 'Konpilazio errorea',
 	'zbug_erreur_execution_page' => 'Orrialdearen exekuzio errorea',
 	'zbug_erreur_filtre' => 'Errorea: « @filtre@ » iragazkia ez dago mugaturik',
+	'zbug_erreur_filtre_nbarg_min' => '@filtre@ irazkia: @nb@ argumentu eskas dira',
 	'zbug_erreur_meme_parent' => '{meme_parent} irizpidea (FORUMS) edo (RUBRIQUES) begiztetan bakarrik aplikatzen da',
 	'zbug_erreur_squelette' => 'Errorea(k) eskeletoan',
 	'zbug_hors_compilation' => 'Konpilaziotik at',

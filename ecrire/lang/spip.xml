@@ -90,9 +90,9 @@
 		<traducteur nom="eddie" lien="https://trad.spip.net/auteur/eddie" />
 		<traducteur nom="kent1" lien="https://trad.spip.net/auteur/kent1" />
 	</langue>
-	<langue code="eu" url="https://trad.spip.net/tradlang_module/spip?lang_cible=eu" total="656" traduits="613" relire="0" modifs="12" nouveaux="31" pourcent="93.45">
+	<langue code="eu" url="https://trad.spip.net/tradlang_module/spip?lang_cible=eu" total="656" traduits="656" relire="0" modifs="0" nouveaux="0" pourcent="100.00">
 		<traducteur nom="Ixab" lien="https://trad.spip.net/auteur/ixab" />
-		<traducteur nom="otalazt" lien="https://trad.spip.net/auteur/otalazt" />
+		<traducteur nom="otalazt" lien="https://trad.spip.net/auteur/otalazt-7232" />
 	</langue>
 	<langue code="fa" url="https://trad.spip.net/tradlang_module/spip?lang_cible=fa" total="656" traduits="618" relire="0" modifs="11" nouveaux="27" pourcent="94.21">
 		<traducteur nom="Davood Hossein" lien="https://trad.spip.net/auteur/davood-hossein" />
