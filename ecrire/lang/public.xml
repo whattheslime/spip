@@ -63,8 +63,8 @@
 	<langue code="et" url="https://trad.spip.net/tradlang_module/public?lang_cible=et" total="83" traduits="67" relire="0" modifs="0" nouveaux="16" pourcent="80.72">
 		<traducteur nom="kent1" lien="https://trad.spip.net/auteur/kent1" />
 	</langue>
-	<langue code="eu" url="https://trad.spip.net/tradlang_module/public?lang_cible=eu" total="83" traduits="78" relire="0" modifs="0" nouveaux="5" pourcent="93.98">
-		<traducteur nom="otalazt" lien="https://trad.spip.net/auteur/otalazt" />
+	<langue code="eu" url="https://trad.spip.net/tradlang_module/public?lang_cible=eu" total="83" traduits="83" relire="0" modifs="0" nouveaux="0" pourcent="100.00">
+		<traducteur nom="otalazt" lien="https://trad.spip.net/auteur/otalazt-7232" />
 	</langue>
 	<langue code="fa" url="https://trad.spip.net/tradlang_module/public?lang_cible=fa" total="83" traduits="78" relire="0" modifs="0" nouveaux="5" pourcent="93.98">
 		<traducteur nom="Davood Hossein" lien="https://trad.spip.net/auteur/davood-hossein" />

@@ -6,7 +6,7 @@
 return [
 
 	// A
-	'accueil_site' => 'Ataria',
+	'accueil_site' => 'Harrera',
 	'article' => 'Artikulu',
 	'articles' => 'Artikuluak',
 	'articles_auteur' => 'Egile honen artikuluak',
@@ -53,7 +53,7 @@ return [
 	'hierarchie_site' => 'Gunearen hierarkia',
 
 	// J
-	'jours' => 'Egun',
+	'jours' => 'egun',
 
 	// L
 	'lien_connecter' => 'Konektatu',
@@ -92,6 +92,11 @@ return [
 	'repondre_breve' => 'Berri-laburrari erantzun',
 	'resultats_recherche' => 'Bilaketaren emaitzak',
 	'retour_debut_forums' => 'Foroen hasierara itzuli',
+	'rss_abonnement' => 'Kopiatu URL hau zure agregatzailean:',
+	'rss_abonnement_titre' => 'Harpidetu',
+	'rss_abonnement_titre_page' => 'Harpidetu honi:',
+	'rss_explication' => 'RSS hari batek webgune baten eguneratze informazioa biltzen du. Billeteen edo iruzkinen edukia edo horien laburpen bat eskaintzen du, baita bertsio osoen esteka bat eta beste zenbait informazio ere. Hari hori RSS agregatzaile batek irakurtzeko bokazioa du.',
+	'rss_explication_titre' => 'Zer da RSS hari bat?',
 	'rubrique' => 'Atal',
 	'rubriques' => 'Atalak',
 
