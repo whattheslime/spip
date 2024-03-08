@@ -443,8 +443,8 @@ $liste_des_authentifications = [
 // pour specifier les versions de SPIP necessaires
 // il faut s'en tenir a un nombre de decimales fixe
 // ex : 2.0.0, 2.0.0-dev, 2.0.0-beta, 2.0.0-beta2
-$spip_version_branche = '4.2.9';
-define('_SPIP_VERSION_ID', 40209);
+$spip_version_branche = '4.2.10';
+define('_SPIP_VERSION_ID', 40210);
 define('_SPIP_EXTRA_VERSION', '');
 
 // cette version dev accepte tous les plugins compatible avec la version ci-dessous
