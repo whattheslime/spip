@@ -8,8 +8,8 @@ Changelog de SPIP 4.2
 
 - #5876 Préserver l'alignement vertical des labels des icones horizontales
 - #5865 Limiter le nombre d’objets en mémoire dans `generer_objet_info()`
-- #5863 Ne pas envoyer de mail de relance inscription aux auteurs sans mail
-- #5853 Meilleur affichage des pages «Minipres» avec des contenus imprévus
+- !5863 Ne pas envoyer de mail de relance inscription aux auteurs sans mail
+- !5853 Meilleur affichage des pages «Minipres» avec des contenus imprévus
 
 ## 4.2.9 - 2024-02-08
 
@@ -41,7 +41,7 @@ Changelog de SPIP 4.2
 - #5769 Si la lecture d'un stream ne trig jamais feof, se fier à `fread()===null`` et réduire le timeout pour éviter de dégrader trop les perfs
 - #5779 Éviter fatale en PHP 8.2 sur `objet_inserer` et `article_inserer` sans être authentifié.
 - #5756 Ne pas avoir un bouton "annuler le job" qui ressemble à un bouton "fermer la notification" + une classe en trop
-- #5786 Installation: corriger la création du webmestre depuis une vieille base.
+- !5786 Installation: corriger la création du webmestre depuis une vieille base.
 - #5752 Formulaire multiétapes: si tout est bien passé, recommencer à zéro et pas à la dernière étape
 - #5760 Éviter un warning si `spip_getimagesize()` est appelée sur un fichier non présent
 - #5788 Éviter un warning avec var_profile=1
@@ -62,8 +62,8 @@ Changelog de SPIP 4.2
 ### Fixed
 
 - #5699 Retrouver le mime_type dans `recuperer_infos_distantes()` et en cascade les infos d'images
-- #5694 Correction de `recuperer_url()` avec une URL contenant "user:pass" qui étaient doublement encodés
-- #5695 Décoration du cadre des taches de fond (job) associées à un objet éditorial dans l’espace privé
+- !5694 Correction de `recuperer_url()` avec une URL contenant "user:pass" qui étaient doublement encodés
+- !5695 Décoration du cadre des taches de fond (job) associées à un objet éditorial dans l’espace privé
 - #5681 Reset la pagination quand on change de mode ou de sens de tri
 - #5669 Contenu principal toujours en pleine largeur sur petits écrans
 
@@ -71,14 +71,14 @@ Changelog de SPIP 4.2
 
 ### Security
 
-- spip-team/security#4847 Limiter les données d’authentification des auteurs via une fonction `auth_desensibiliser_session()`
+- spip-team/securite#4847 Limiter les données d’authentification des auteurs via une fonction `auth_desensibiliser_session()`
 
 ### Fixed
 
-- #5569 Les filtres de transformation de texte acceptent une valeur null
+- !5569 Les filtres de transformation de texte acceptent une valeur null
 - Éviter un `Call to undefined function session_get`
 - #5636 Correction typage arguments de `objet_type`, `table_objet` et `table_objet_sql`
-- #5627 Prévenir une ambiguité de certains squelettes (pour préparer SPIP 5) sur les balises simples utilisant `url(#BALISE)`. Utiliser `url("#BALISE")` ou `url\(#BALISE)`
+- !5627 Prévenir une ambiguité de certains squelettes (pour préparer SPIP 5) sur les balises simples utilisant `url(#BALISE)`. Utiliser `url("#BALISE")` ou `url\(#BALISE)`
 - #5104 Éviter une erreur fatale quand un job ne peut pas récupérer les arguments de la callback associée
 - #5341 Éviter une fatale sur le retour non booléen des fonctions `autoriser()` pour aider à nettoyer le code
 - #5342 Éviter un warning dans ecrire quand un lien pointe vers un document inexistant
@@ -104,8 +104,8 @@ Changelog de SPIP 4.2
 
 ### Added
 
-- #5586 Attributs `data-objet`, `data-id_objet` et `data-objet-source` sur le formulaire d’édition de liens, pour usage en JS à toutes fins utiles.
-- #5535 Log des dépréciations, via la fonction `trigger_deprecation` (de symfony/deprecations-contracts).
+- !5586 Attributs `data-objet`, `data-id_objet` et `data-objet-source` sur le formulaire d’édition de liens, pour usage en JS à toutes fins utiles.
+- !5535 Log des dépréciations, via la fonction `trigger_deprecation` (de symfony/deprecations-contracts).
 - #5301 Permettre de fournir le nom de l’attachement à `spip_livrer_fichier()`
 
 ### Changed
@@ -122,7 +122,7 @@ Changelog de SPIP 4.2
 - #5563 Filtre `couper` erroné dans certains cas avec des caractères utf8 multi bytes.
 - Formulaire de configuration du multilinguisme (suite à spip-team/securite#4841)
 - #5584 Présentation de l’input de recherche dans l’ajout d’auteurs liés
-- #5580 Recherche et navigation dans le sélecteur de rubriques dépliant
+- !5580 Recherche et navigation dans le sélecteur de rubriques dépliant
 - #5496 Typage en entrée de certains paramètres des fonctions `generer_*` lorsque l’objet n’existe pas.
 - #5571 Retrouver correctement les anciens itérateurs
 - #5543 Indiquer la bonne fonction dans le message d'erreur de `_imagecreatefrom_func`
@@ -137,7 +137,7 @@ Changelog de SPIP 4.2
 ### Fixed
 
 - #5172 Éviter une erreur fatale sur `#INTRODUCTION` d'un objet inexistant
-- #5513 Éviter une erreur fatale sur le critère `datapath` d’une boucle DATA lorsqu’il ne trouve pas de données.
+- !5513 Éviter une erreur fatale sur le critère `datapath` d’une boucle DATA lorsqu’il ne trouve pas de données.
 
 ## 4.2.1 - 2023-02-27
 
@@ -184,32 +184,32 @@ Changelog de SPIP 4.2
 
 ### Added
 
-- #5452 #5469 Classes `Spip\Afficher\Minipage\Page` et `Spip\Afficher\Minipage\Admin` pour l’affichage des mini pages
+- !5452 #5469 Classes `Spip\Afficher\Minipage\Page` et `Spip\Afficher\Minipage\Admin` pour l’affichage des mini pages
 - #3719 Permettre l’édition d’un logo (comme un document) dans l’interface privé
 - #3719 Balise `#ID_LOGO_` (tel que `#ID_LOGO_ARTICLE`) retourne l’identifiant du document utilisé pour le logo d’un objet
 - #4874 Normaliser et appeler l'API de notifications systématiquement sur la modification des contenus éditoriaux
-- #5380 Classes CSS utilitaires pour placer des éléments en sticky dans l'espace privé
+- !5380 Classes CSS utilitaires pour placer des éléments en sticky dans l'espace privé
 - #5056 Chargement de l’autoloader de Composer aux points d’entrées de SPIP
 - #5056 Intégration de dépendances à des librairies PHP via composer.json (notamment les polyfill PHP 8.0 8.1 et 8.2 ainsi que le polyfill mbstring)
 - #5323 Ajout de liens de retour vers le site public + déconnexion dans un des écrans d'erreur d'accès à l'espace privé
-- #5302 Afficher la langue des utilisateurs sur leur page et permettre aussi de l'éditer
-- #5271 Fonction `is_html_safe()`
+- !5302 Afficher la langue des utilisateurs sur leur page et permettre aussi de l'éditer
+- !5271 Fonction `is_html_safe()`
 - #4877 La balise `#TRI` permet d'alterner le sens du critère `tri`
 
 ### Changed
 
-- #5452 #5469 Styles CSS et balisage HTML des mini pages (minipres) et de l’installation
+- !5452 #5469 Styles CSS et balisage HTML des mini pages (minipres) et de l’installation
 - #5456 Brancher `info_maj()` sur les données de supported-versions
-- #5433 Déplacement des 2 formulaires oubli et mot_de_passe dans le core
+- !5433 Déplacement des 2 formulaires oubli et mot_de_passe dans le core
 - #5402 Déplacement du `#FORMULAIRE_INSCRIPTION` directement dans le core
 - #5086 Le filtre de date `recup_heure()` sait extraire `hh:mm` en plus de `hh:mm:ss`
 - #5046 Le filtre `taille_en_octets()` retourne par défaut des unités cohérentes (en kio, Mio… )
 - #5056 SPIP nécessite certaines dépendances via Composer (son archive zip contiendra le nécessaire)
 - #5056 Les (quelques) classes PHP de SPIP sont déplacées dans `ecrire/src` sous le namespace `Spip`
-- #5361 Image `loader.svg` dans un style plus moderne
-- #5351 Balisage html généré par la balise raccourci `<code>`
-- #5321 Refactoring de la collecte et echappement des liens
-- #5271 Refactoring de la mise en sécurité des textes dans ecrire et public
+- !5361 Image `loader.svg` dans un style plus moderne
+- !5351 Balisage html généré par la balise raccourci `<code>`
+- !5321 Refactoring de la collecte et echappement des liens
+- !5271 Refactoring de la mise en sécurité des textes dans ecrire et public
 - #5189 Ne plus forcer l'Engine MySQL à l'installation
 - #5272 Compatibilité avec PHP 8.2
 - #5025 Prise en charge de l'utf8 pour le filtre `|match` en appliquant par défaut le modificateur u (PCRE_UTF8)
@@ -217,10 +217,10 @@ Changelog de SPIP 4.2
 - #5203 La balise `#CHAMP_SQL` peut expliciter une jointure tel que `#CHAMP_SQL{rubrique.titre}`
 - #5156 Les squelettes des formulaires d’édition (`formulaires/editer_xxx.html`) ne reçoivent plus l’ensemble du contenu de `spip_meta` dans l’entrée d’environnement `config`. Utiliser `#CONFIG` dedans si besoin pour cela. Seules les données spécifiques au formulaire sont transmises (par les fonctions `xxx_edit_config()`)
 - Ne pas insérer de balise de fermeture PHP dans le fichier `config/connect.php`
-- #5082 Ne pas autoriser à refuser ses propres articles en tant que rédacteur ou rédactrice.
+- !5082 Ne pas autoriser à refuser ses propres articles en tant que rédacteur ou rédactrice.
 - #5042 Introduction de `README.md` et `LICENSE` (en remplacement de `INSTALL.txt` et `COPYING.txt`)
 - #4881 suppression des globales `flag_*` et adaptation ou nettoyage en conséquence du code.
-- #5108 `id_table_objet()` typé comme `objet_type()` que la fonction appelle
+- !5108 `id_table_objet()` typé comme `objet_type()` que la fonction appelle
 
 ### Fixed
 
@@ -228,11 +228,11 @@ Changelog de SPIP 4.2
 - #5432 Rétablir l'accès à `.well-known/` dans certaines configurations serveur
 - #5449 Aligner le comportement du filtre `|image_reduire` sur celui de GD quand on utilse convert
 - #5430 Correction du chargement des boucles DATA.
-- #5422 correction du filtre `|couper` dans les cas aux limites
+- !5422 correction du filtre `|couper` dans les cas aux limites
 - #5366 spip/dist#4857 Les blocs de code avec des lignes trop longues retournent à la ligne dans l’espace privé (comme dans le public)
 - #5418 Le filtre `modifier_class` accèpte tous les caractères
 - #5357 Intitulé plus explicite du formulaire d’inscription
-- #5423 Ajouter les headers `Last-Modified` et `Etag` quand on livre un fichier
+- !5423 Ajouter les headers `Last-Modified` et `Etag` quand on livre un fichier
 - #5035 Éviter une erreur unserialize dans `lister_themes_prives()`
 - #5358 Vérifier et caster en `int` les width et height des balises d’image pour les traitements graphiques.
 - #5405 Nécessiter l’extension PHP json.
@@ -240,7 +240,7 @@ Changelog de SPIP 4.2
 - #5362 Agrandir le formulaire de recherche des listes dans l’espace privé
 - #5357 Utiliser le terme "Se connecter" valider le formulaire de login
 - #5355 Correction d'un Warning si le débogueur est appelé sans être connecté
-- #5326 Utilisation de PHP_AUTH avec d'autres méthodes d'identification que LDAP
+- !5326 Utilisation de PHP_AUTH avec d'autres méthodes d'identification que LDAP
 - #5329 Rétablir la collecte des doublons par la fonction `traiter_modeles()`
 - spip-contrib-extensions/mailsubscribers#23 La séléction de la langue du visiteur doit se limiter à la config `langues_multilingue` dans le public
 - spip/medias#4905 Utiliser une déclaration moins prioritaire pour les traitements sur les champs
@@ -250,7 +250,7 @@ Changelog de SPIP 4.2
 
 ### Deprecated
 
-- #5452 Fonction `minipres()` au profit de `Spip\Afficher\Minipage\Admin` ou `Spip\Afficher\Minipage\Page`
+- !5452 Fonction `minipres()` au profit de `Spip\Afficher\Minipage\Admin` ou `Spip\Afficher\Minipage\Page`
 - #5056 Les classes de nœud du compilateur (Champ, Boucle, Critere...) sont déplacées dans le namespace `Spip\Compilateur\Noeud\` (l’appel sans namespace est déprécié)
 
 ### Removed
