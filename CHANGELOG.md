@@ -4,6 +4,7 @@
 
 ### Added
 
+- #5690 Afficher un encart pour signaler les nouvelles versions dans toutes les pages de l'espace privé pour les webmestres, et un bouton pointant vers `spip_loader` s'il est présent
 - !196 Améliorer l’ergonomie du formulaire instituer (changement de statut d’un objet éditorial)
 - #3432 Notifier par email les webmestres du site lorsque SPIP dispose d’une mise à jour
 - !5824 Logger `spip_logger()` impplémentant `Psr\Log\LoggerInterface` (PSR-3) via une librairie `spip/logger` qui utilise Monolog
