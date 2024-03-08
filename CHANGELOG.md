@@ -2,6 +2,12 @@
 
 Changelog de SPIP 4.2
 
+## Unreleased
+
+### Fixed
+
+- #5861 Ne pas désactiver le clic sur les `.editer.disabled`
+
 ## 4.2.10 - 2024-03-08
 
 ### Fixed
