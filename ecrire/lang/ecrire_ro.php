@@ -45,6 +45,7 @@ return [
 	'bouton_effacer_tout' => 'Ştergeţi TOTUL',
 	'bouton_envoyer_message' => 'Mesajul definitiv: trimiteţi',
 	'bouton_fermer' => 'Închideţi',
+	'bouton_mettre_a_jour' => 'Aduceţi la zi',
 	'bouton_mettre_a_jour_base' => 'Aduceţi la zi baza de date',
 	'bouton_modifier' => 'Modificaţi',
 	'bouton_radio_afficher' => 'Afişaţi',

@@ -52,6 +52,7 @@ return [
 	'bouton_effacer_tout' => 'Delete ALL',
 	'bouton_envoyer_message' => 'Message complete: send',
 	'bouton_fermer' => 'Close',
+	'bouton_mettre_a_jour' => 'Update',
 	'bouton_mettre_a_jour_base' => 'Update the database',
 	'bouton_modifier' => 'Modify',
 	'bouton_radio_afficher' => 'Show',

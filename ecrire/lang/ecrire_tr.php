@@ -41,6 +41,7 @@ return [
 	'bouton_desinstaller' => 'Sil',
 	'bouton_effacer_tout' => 'HEPSİNİ sil',
 	'bouton_envoyer_message' => 'İletinin son hali : yolla',
+	'bouton_mettre_a_jour' => 'Güncelle',
 	'bouton_modifier' => 'Değiştir',
 	'bouton_radio_afficher' => 'Göster ',
 	'bouton_radio_apparaitre_liste_redacteurs_connectes' => 'Bağlı yazarlar listesinde görün',

@@ -53,6 +53,7 @@ return [
 	'bouton_effacer_tout' => 'ALLES löschen',
 	'bouton_envoyer_message' => 'Nachricht fertig: Senden',
 	'bouton_fermer' => 'Schließen',
+	'bouton_mettre_a_jour' => 'Auf den neuesten Stand bringen',
 	'bouton_mettre_a_jour_base' => 'Datenbank updaten',
 	'bouton_modifier' => 'Ändern',
 	'bouton_radio_afficher' => 'Anzeigen',

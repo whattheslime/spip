@@ -48,6 +48,7 @@ return [
 	'bouton_effacer_tout' => 'Удалить ВСЕ',
 	'bouton_envoyer_message' => 'Отправить сообщение',
 	'bouton_fermer' => 'Закрыть',
+	'bouton_mettre_a_jour' => 'Обновить',
 	'bouton_mettre_a_jour_base' => 'Обновить базу данных',
 	'bouton_modifier' => 'Изменить',
 	'bouton_radio_afficher' => 'Показать',

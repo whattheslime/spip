@@ -48,6 +48,7 @@ return [
 	'bouton_effacer_tout' => 'Forviŝi ĈION',
 	'bouton_envoyer_message' => 'Definitiva mesaĝo : sendi',
 	'bouton_fermer' => 'Fermi',
+	'bouton_mettre_a_jour' => 'Ĝisdatigi',
 	'bouton_mettre_a_jour_base' => 'Ĝisdatigi la datumbazo',
 	'bouton_modifier' => 'Modifi',
 	'bouton_radio_afficher' => 'Afiŝi',

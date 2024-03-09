@@ -53,6 +53,7 @@ return [
 	'bouton_effacer_tout' => 'حذف الكل',
 	'bouton_envoyer_message' => 'صيغة نهائية : إرسال',
 	'bouton_fermer' => 'إغلاق',
+	'bouton_mettre_a_jour' => 'تحديث',
 	'bouton_mettre_a_jour_base' => 'تحديث قاعدة البيانات',
 	'bouton_modifier' => 'تغيير',
 	'bouton_radio_afficher' => 'إظهار',

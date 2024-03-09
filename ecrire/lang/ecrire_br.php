@@ -49,6 +49,7 @@ return [
 	'bouton_effacer_tout' => 'Diverkañ PEP TRA',
 	'bouton_envoyer_message' => 'Kemennadenn ziwezhañ: kas',
 	'bouton_fermer' => 'Serriñ',
+	'bouton_mettre_a_jour' => 'Hizivaat',
 	'bouton_mettre_a_jour_base' => 'Hizivaat an diaz roadennoù',
 	'bouton_modifier' => 'Kemmañ',
 	'bouton_radio_afficher' => 'Diskwel',

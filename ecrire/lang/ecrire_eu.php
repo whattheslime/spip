@@ -52,6 +52,7 @@ return [
 	'bouton_effacer_tout' => 'Ezabatu DENA!',
 	'bouton_envoyer_message' => 'Behin-betiko mezua: igorri',
 	'bouton_fermer' => 'Hetsi',
+	'bouton_mettre_a_jour' => 'Gaurkotu',
 	'bouton_mettre_a_jour_base' => 'Datu-basea eguneratu',
 	'bouton_modifier' => 'Aldatu',
 	'bouton_radio_afficher' => 'Erakutsi',

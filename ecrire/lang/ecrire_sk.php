@@ -49,6 +49,7 @@ return [
 	'bouton_effacer_tout' => 'Zmazať VŠETKO',
 	'bouton_envoyer_message' => 'Správa dokončená: poslať',
 	'bouton_fermer' => 'Zatvoriť',
+	'bouton_mettre_a_jour' => 'Aktualizovať',
 	'bouton_mettre_a_jour_base' => 'Aktualizovať databázu',
 	'bouton_modifier' => 'Zmeniť',
 	'bouton_radio_afficher' => 'Zobraziť',

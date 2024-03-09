@@ -49,6 +49,7 @@ desactivada per raons de seguretat (cosa normal en molts proveïdors d’hostatg
 	'bouton_effacer_tout' => 'Esborrar-ho TOT',
 	'bouton_envoyer_message' => 'Missatge definitiu : enviar',
 	'bouton_fermer' => 'Tancar',
+	'bouton_mettre_a_jour' => 'Actualització',
 	'bouton_mettre_a_jour_base' => 'Actualització de la base de dades',
 	'bouton_modifier' => 'Modificar',
 	'bouton_radio_afficher' => 'Mostrar',

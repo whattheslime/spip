@@ -42,6 +42,7 @@ return [
 	'bouton_desinstaller' => 'Avinstallera',
 	'bouton_effacer_tout' => 'Radera ALLA',
 	'bouton_envoyer_message' => 'Färdigt meddelande: skicka',
+	'bouton_mettre_a_jour' => 'Uppdatera',
 	'bouton_modifier' => 'Ändra',
 	'bouton_radio_afficher' => 'Visa',
 	'bouton_radio_apparaitre_liste_redacteurs_connectes' => 'Synas i listan över anslutna redaktörere',

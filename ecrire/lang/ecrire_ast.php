@@ -43,6 +43,7 @@ return [
 	'bouton_effacer_tout' => 'Desaniciar TOO',
 	'bouton_envoyer_message' => 'Mensaxe definitivu: unviar',
 	'bouton_fermer' => 'Zarrar',
+	'bouton_mettre_a_jour' => 'Actualizar',
 	'bouton_modifier' => 'Camudar',
 	'bouton_radio_afficher' => 'Amosar',
 	'bouton_radio_apparaitre_liste_redacteurs_connectes' => 'Apaecer na llista de redactores coneutaos',

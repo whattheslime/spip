@@ -43,6 +43,7 @@ return [
 	'bouton_effacer_tout' => 'Borrar TODO',
 	'bouton_envoyer_message' => 'Mensaxe definitiva: enviar',
 	'bouton_fermer' => 'Cerrar',
+	'bouton_mettre_a_jour' => 'Actualizar',
 	'bouton_mettre_a_jour_base' => 'Actualizar a base de datos',
 	'bouton_modifier' => 'Modificar',
 	'bouton_radio_afficher' => 'Mostrar',

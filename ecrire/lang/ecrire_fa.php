@@ -47,6 +47,7 @@ return [
 	'bouton_effacer_tout' => 'همه را پاك كنيد',
 	'bouton_envoyer_message' => 'پيام آماده : بفرستيد',
 	'bouton_fermer' => 'بستن',
+	'bouton_mettre_a_jour' => 'روزآمدسازي',
 	'bouton_mettre_a_jour_base' => 'به هنگام سازي پايگاه داده‌ها',
 	'bouton_modifier' => 'اصلاح كنيد',
 	'bouton_radio_afficher' => 'نشان دهيد',

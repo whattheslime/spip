@@ -49,6 +49,7 @@ return [
 	'bouton_effacer_tout' => 'ALLES wissen',
 	'bouton_envoyer_message' => 'Definitief bericht: versturen',
 	'bouton_fermer' => 'Sluiten',
+	'bouton_mettre_a_jour' => 'Bijwerken',
 	'bouton_mettre_a_jour_base' => 'Database update',
 	'bouton_modifier' => 'Wijzigen',
 	'bouton_radio_afficher' => 'Weergeven',

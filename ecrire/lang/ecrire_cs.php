@@ -39,6 +39,7 @@ return [
 	'bouton_desactive_tout' => 'Vše vypnout',
 	'bouton_effacer_tout' => 'Odstranit vše',
 	'bouton_envoyer_message' => 'Konečná zpráva: odeslat',
+	'bouton_mettre_a_jour' => 'Aktualizovat',
 	'bouton_modifier' => 'Změnit',
 	'bouton_radio_afficher' => 'Zobrazit',
 	'bouton_radio_apparaitre_liste_redacteurs_connectes' => 'Zobrazit v seznamu připojených redaktorů',
