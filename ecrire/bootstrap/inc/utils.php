@@ -22,6 +22,9 @@ function test_plugin_actif($plugin) {
  * @return string
  */
 function joli_repertoire($rep) {
+	if ($rep === '' || $rep === null) {
+		return '';
+	}
 	$a = substr($rep, 0, 1);
 	if ($a <> '.' && $a <> '/') {
 		$rep = (_DIR_RESTREINT ? '' : _DIR_RESTREINT_ABS) . $rep;
