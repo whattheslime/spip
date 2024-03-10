@@ -5557,6 +5557,9 @@ function label_nettoyer(string $text, bool $ucfirst = true): string {
  * @exemple `<:info_maximum|label_ponctuer:>`
  */
 function label_ponctuer(string $text, bool $ucfirst = true): string {
+	if ($text === '') {
+		return '';
+	}
 	$label = label_nettoyer($text, $ucfirst);
 	return _T('label_ponctuer', ['label' => $label]);
 }
