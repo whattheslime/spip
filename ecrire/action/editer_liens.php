@@ -662,7 +662,7 @@ function lien_rang_where($table_lien, $primary, $id_source, $objet, $id_objet, $
  */
 function lien_delete($objet_source, $primary, $table_lien, $id, $objets, $cond = null) {
 
-	$retire = [];
+	$retires = [];
 	$dels = 0;
 	$echec = false;
 	if (is_null($cond)) {
@@ -719,7 +719,7 @@ function lien_delete($objet_source, $primary, $table_lien, $id, $objets, $cond =
 					} else {
 						$echec = true;
 					}
-					$retire[] = [
+					$retires[] = [
 						'source' => [$objet_source => $l[$primary]],
 						'lien' => [$l['objet'] => $id_o],
 						'type' => $l['objet'],
@@ -740,10 +740,12 @@ function lien_delete($objet_source, $primary, $table_lien, $id, $objets, $cond =
 	}
 	// si on a supprime des liens, on reordonne les liens concernes
 	if ($dels) {
-		lien_ordonner($objet_source, $primary, $table_lien, $id, $objets);
+		foreach ($retires as $retire) {
+			lien_ordonner($objet_source, $primary, $table_lien, $id, [$retire['type'] => [$retire['id']]]);
+		}
 	}
 
-	pipeline('trig_supprimer_objets_lies', $retire);
+	pipeline('trig_supprimer_objets_lies', $retires);
 
 	return ($echec ? false : $dels);
 }
