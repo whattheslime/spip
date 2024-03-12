@@ -249,7 +249,8 @@ function charger_fonction_url(string $quoi, string $type = '') {
 			if (!$type && $url_type !== 'page') {
 				return charger_fonction_url($quoi, 'page');
 			}
-			return '';
+			// si on arrive ici c'est qu'il manque une fonction de traitement : lever une erreur
+			throw new \Exception(sprintf('Missing a url function for type %s : %s', $url_type, "urls_{$url_type}_{$fquoi}()"));
 	}
 }
 
