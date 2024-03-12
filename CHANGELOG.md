@@ -17,7 +17,6 @@
 
 ### Changed
 
-- #5876 Préserver l'alignement vertical des labels des icones horizontales
 - !5708 Découpage des fichiers de démarrage de SPIP (non surchargeables) dans `ecrire/boostrap`
 - !5765 Nettoyage des paramètres d’URI : la constante `_CONTEXTE_IGNORE_LISTE_VARIABLES` remplace `_CONTEXTE_IGNORE_VARIABLES` supprimée.
 - #3637 Phraseur: Accepter des crochets dans la partie optionnelle d’une balise. `[hop] (#REM) [truc]` devient possible.
@@ -30,9 +29,6 @@
 ### Fixed
 
 - #5861 Ne pas désactiver le clic sur les `.editer.disabled`
-- #5865 Limiter le nombre d’objets en mémoire dans `generer_objet_info()`
-- !5863 Ne pas envoyer de mail de relance inscription aux auteurs sans mail
-- !5853 Meilleur affichage des pages «Minipres» avec des contenus imprévus
 - #5825 Ne pas mettre l'adresse du site entre parenthèses dans les mails envoyés par SPIP
 
 ### Deprecated
