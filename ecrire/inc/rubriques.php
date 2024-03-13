@@ -839,7 +839,15 @@ function calculer_prochain_postdate($check = false) {
 			publier_branche_rubrique($row['id']);
 		}
 
-		pipeline('trig_calculer_prochain_postdate', '');
+		// Poser un mutex le temps de l'éxécution de trig_calculer_prochain_postdate
+		$fichier = _DIR_TMP . "postdate.lock";
+		if(!jeune_fichier($fichier,30)){
+			ecrire_fichier($fichier, 'lock '.date('Y-m-d H:i:s'),true);
+			pipeline('trig_calculer_prochain_postdate', '');
+			supprimer_fichier($fichier);
+		} else {
+			spip_logger()->notice("trig_calculer_prochain_postdate déjà en cours d'éxécution");
+		}
 	}
 
 	$t = sql_fetsel(
