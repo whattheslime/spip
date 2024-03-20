@@ -6,6 +6,7 @@ Changelog de SPIP 4.2
 
 ### Fixed
 
+- #5878 Éviter une concurrence possible sur le pipeline `trig_calculer_prochain_postdate`
 - #5861 Ne pas désactiver le clic sur les `.editer.disabled`
 
 ## 4.2.10 - 2024-03-08
