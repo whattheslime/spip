@@ -6,6 +6,7 @@ Changelog de SPIP 4.2
 
 ### Fixed
 
+- !5885 Lien de prévisualisation sur les objets génériques
 - !5884 Corriger et optimiser la suppression de liens ayant des rangs
 - #5801 `label_ponctuer('')` retourne une chaine vide
 - #5878 Éviter une concurrence possible sur le pipeline `trig_calculer_prochain_postdate`
