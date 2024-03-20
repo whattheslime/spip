@@ -85,6 +85,12 @@ class LabelTest extends TestCase
 	}
 
 	#[Depends('testLabelNettoyer')]
+	public function testLabelPonctuerEmpty(): void {
+		$this->assertEquals('', label_ponctuer('', false));
+		$this->assertEquals('', label_ponctuer('', true));
+	}
+
+	#[Depends('testLabelNettoyer')]
 	#[DataProvider('providerLabelPonctuer')]
 	public function testLabelPonctuer($source, $expected): never {
 		// TODO
