@@ -28,6 +28,7 @@
 
 ### Fixed
 
+- #5801 `label_ponctuer('')` retourne une chaine vide
 - #5878 Éviter une concurrence possible sur le pipeline `trig_calculer_prochain_postdate`
 - #5861 Ne pas désactiver le clic sur les `.editer.disabled`
 - #5825 Ne pas mettre l'adresse du site entre parenthèses dans les mails envoyés par SPIP
