@@ -64,8 +64,8 @@ function genie_maintenance_dist($t) {
  */
 function verifier_crash_tables() {
 	if (spip_connect()) {
-		include_spip('base/serial');
-		include_spip('base/auxiliaires');
+		include_spip('base/objets');
+		lister_tables_objets_sql();
 		$crash = [];
 		foreach (['tables_principales', 'tables_auxiliaires'] as $com) {
 			foreach ($GLOBALS[$com] as $table => $desc) {

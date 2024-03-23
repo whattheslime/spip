@@ -1143,7 +1143,8 @@ function spip_pg_replace_multi($table, $tab_couples, $desc = [], $serveur = '', 
 
 function spip_pg_sequence($table, $raw = false) {
 
-	include_spip('base/serial');
+	include_spip('base/objets');
+	lister_tables_objets_sql();
 	if (!isset($GLOBALS['tables_principales'][$table])) {
 		return false;
 	}

@@ -19,7 +19,8 @@ if (!defined('_ECRIRE_INC_VERSION')) {
 	return;
 }
 
-include_spip('base/serial');
+include_spip('base/objets');
+lister_tables_objets_sql();
 
 /**
  * Si un fichier n'a pas été servi (fileatime) depuis plus d'une heure, on se sent
