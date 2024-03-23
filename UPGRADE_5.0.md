@@ -38,6 +38,7 @@ Si vous déclariez cette constante (dans `config/mes_options.php` par exemple), 
 ### Parties optionnelles des balises
 
 Il devient possible d’utiliser des crochets dans les parties optionnelles des balises. Ainsi :
+
 - `[avant] (#VAL{texte})]` écrit `avant] texte`
 - `[(#VAL{texte}) [après]` écrit `texte [après`
 - `[avant] (#VAL{texte}) [après]` écrit `avant] texte [après`
@@ -76,16 +77,15 @@ Note: Cette syntaxe est valide à partir de SPIP 4.1
 
 #### avant
 
-
 ```php
 <?php
 if (!defined('_ECRIRE_INC_VERSION')) {
-	return;
+  return;
 }
 
 $GLOBALS[$GLOBALS['idx_lang']] = array(
-	'mots_description' => 'Mots et Groupes de mots',
-	'mots_slogan' => 'Gestion des mots et groupes de mots dans SPIP'
+  'mots_description' => 'Mots et Groupes de mots',
+  'mots_slogan' => 'Gestion des mots et groupes de mots dans SPIP'
 );
 ```
 
@@ -94,16 +94,14 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 ```php
 <?php
 return [
-	'mots_description' => 'Mots et Groupes de mots',
-	'mots_slogan' => 'Gestion des mots et groupes de mots dans SPIP'
+  'mots_description' => 'Mots et Groupes de mots',
+  'mots_slogan' => 'Gestion des mots et groupes de mots dans SPIP'
 ];
 ```
-
 
 Les éléments suivants sont dépréciés et seront supprimés dans une future version.
 
 ## Syntaxes de squelettes
-
 
 ### Critère `{collecte}` (déprécié en 5.0)
 
@@ -156,7 +154,6 @@ Utiliser `{groupby_supprimer}`
     [(#DATE|annee)]<br />
 </BOUCLE_facette_annee>
 ```
-
 
 ## Fonctions PHP
 
@@ -313,6 +310,7 @@ $url = url_absolue($url);
 ## Nettoyage des paramètres d’URI
 
 Une configuration (certainement très peu surchargée) a été modifiée et renommée :
+
 - Introduction de la constante `_CONTEXTE_IGNORE_LISTE_VARIABLES`.
 - Suppression de la constante `_CONTEXTE_IGNORE_VARIABLES`.
 
@@ -331,6 +329,11 @@ define('_CONTEXTE_IGNORE_LISTE_VARIABLES', ['^var_', '^PHPSESSID$', '^fbclid$', 
 # Suppressions des éléments dépréciés
 
 Les éléments suivants ont été supprimés et doivent être adaptés si ce n’est pas encore le cas.
+
+## Fichiers base/serial.php et base/auxiliaires.php
+
+- les appels à ces fichiers, via `include_spip('base/serial');` par exemple, seront sans effet.
+  Ils sont à remplacer par l'appel à la fonction `lister_tables_objets_sql();`.
 
 ## Syntaxes de squelettes
 
@@ -436,7 +439,6 @@ Le filtre déprécié `foreach` est supprimé. Utiliser une boucle `DATA`.
 </BOUCLE_liste>
 ```
 
-
 ### Boucle `POUR`
 
 La boucle `POUR` dépréciée est supprimée. Utiliser une boucle `DATA`.
@@ -456,7 +458,6 @@ La boucle `POUR` dépréciée est supprimée. Utiliser une boucle `DATA`.
 - #CLE : #VALEUR <br />
 </BOUCLE_liste>
 ```
-
 
 ## Fonctions PHP
 
@@ -478,7 +479,6 @@ http_status(404);
 ```php
 http_response_code(404);
 ```
-
 
 ### Fonction `generer_url_ecrire_objet`
 
@@ -519,7 +519,6 @@ Sont supprimées et remplacées (renommées) par
 - `generer_objet_introduction`
 - `generer_objet_info`
 
-
 ### Fonction de liste `inc_lister_objets_dist`
 
 La fonction dépréciée depuis SPIP 3.1 est supprimée au profit d’inclusions directe de squelettes
@@ -529,7 +528,7 @@ La fonction dépréciée depuis SPIP 3.1 est supprimée au profit d’inclusions
 ```spip
 $lister_objets = charger_fonction('lister_objets', 'inc');
 $html = $lister_objets('breves', [
-	'id_rubrique' => $id_rubrique,
+  'id_rubrique' => $id_rubrique,
 ]);
 ```
 
@@ -537,8 +536,8 @@ $html = $lister_objets('breves', [
 
 ```spip
 $html = recuperer_fond('prive/objets/liste/breves', [
-	'id_rubrique' => $id_rubrique,
+  'id_rubrique' => $id_rubrique,
 ],[
-	'ajax' => true
+  'ajax' => true
 ]);
 ```
