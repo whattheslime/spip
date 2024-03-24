@@ -54,10 +54,10 @@ utiliser_langue_visiteur();
 // forcer la langue de l'utilisateur pour les squelettes
 $forcer_lang = true;
 
-
 if (
 	(_request('action') || _request('var_ajax') || _request('formulaire_action'))
-	&& !autoriser_sans_cookie($exec)
+	// pour converser à l'install il faut déroger à autoriser_sans_cookie et passer dans l'aiguilleur
+	&& (!autoriser_sans_cookie($exec) || ($exec === 'install' && _request('action') === 'converser'))
 ) {
 	// Charger l'aiguilleur qui va mettre sur la bonne voie les traitements derogatoires
 	include_spip('public/aiguiller');
