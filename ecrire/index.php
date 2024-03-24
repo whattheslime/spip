@@ -54,23 +54,23 @@ utiliser_langue_visiteur();
 // forcer la langue de l'utilisateur pour les squelettes
 $forcer_lang = true;
 
-
-if (_request('action') or _request('var_ajax') or _request('formulaire_action')) {
-	if (!autoriser_sans_cookie($exec)) {
-		// Charger l'aiguilleur qui va mettre sur la bonne voie les traitements derogatoires
-		include_spip('public/aiguiller');
-		if (
-			// cas des appels actions ?action=xxx
-			traiter_appels_actions()
-			or
-			// cas des hits ajax sur les inclusions ajax
-			traiter_appels_inclusions_ajax()
-			or
-			// cas des formulaires charger/verifier/traiter
-			traiter_formulaires_dynamiques()
-		) {
-			exit;
-		} // le hit est fini !
+if (
+	(_request('action') || _request('var_ajax') || _request('formulaire_action'))
+	// pour converser à l'install il faut déroger à autoriser_sans_cookie et passer dans l'aiguilleur
+	&& (!autoriser_sans_cookie($exec) || ($exec === 'install' && _request('action') === 'converser'))
+) {
+	// Charger l'aiguilleur qui va mettre sur la bonne voie les traitements derogatoires
+	include_spip('public/aiguiller');
+	if (
+		// cas des appels actions ?action=xxx
+		traiter_appels_actions()
+		// cas des hits ajax sur les inclusions ajax
+		|| traiter_appels_inclusions_ajax()
+		// cas des formulaires charger/verifier/traiter
+		|| traiter_formulaires_dynamiques()
+	) {
+		// le hit est fini !
+		exit;
 	}
 }
 // securiser les redirect du back-office
