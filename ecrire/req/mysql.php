@@ -190,7 +190,7 @@ function spip_mysql_set_charset($charset, $serveur = '', $requeter = true) {
 function spip_mysql_get_charset($charset = [], $serveur = '', $requeter = true) {
 	$connexion = &$GLOBALS['connexions'][$serveur ? strtolower($serveur) : 0];
 	$connexion['last'] = $c = 'SHOW CHARACTER SET'
-		. (!$charset ? '' : (' LIKE ' . _q($charset['charset'])));
+		. (!$charset ? '' : (' LIKE ' . _q($charset['charset'] . '%')));
 
 	return spip_mysql_fetch(mysqli_query($connexion['link'], $c), null, $serveur);
 }
