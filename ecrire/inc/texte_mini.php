@@ -312,7 +312,7 @@ function echappe_retour_modeles($letexte, $interdire_scripts = false) {
  *
  * Il essaie de ne pas couper les mots et enlève le formatage du texte.
  * Si le texte original est plus long que l’extrait coupé, alors des points
- * de suite sont ajoutés à l'extrait, tel que ` (...)`.
+ * de suite sont ajoutés à l'extrait, tel que ` (…)`.
  *
  * @note
  *     Les points de suite ne sont pas ajoutés sur les extraits
@@ -380,7 +380,7 @@ function couper($texte, $taille = 50, $suite = null) {
 	} else {
 		// points de suite
 		if (is_null($suite)) {
-			$suite = (defined('_COUPER_SUITE') ? _COUPER_SUITE : '&nbsp;(...)');
+			$suite = (defined('_COUPER_SUITE') ? _COUPER_SUITE : '&nbsp;(…)');
 		}
 		$taille_suite = spip_strlen(filtrer_entites($suite));
 
@@ -393,7 +393,7 @@ function couper($texte, $taille = 50, $suite = null) {
 		$court = preg_replace('/(^|([^\s ])[\s ]+)([\s ]|[^\s ]+)?$/D' . $u, "\\2", $long);
 		$points = $suite;
 
-		// trop court ? ne pas faire de (...)
+		// trop court ? ne pas faire de (…)
 		if (spip_strlen($court) < max(0.75 * $taille, 2)) {
 			$points = '';
 			$long = spip_substr($texte, 0, $taille + 1);
