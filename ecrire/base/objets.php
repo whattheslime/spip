@@ -1209,7 +1209,7 @@ function objet_type(string $table_objet, string|false $serveur = ''): ?string {
 }
 
 /**
- * Determininer si un objet est publie ou non
+ * Determiner si un objet est publie ou non
  *
  * On se base pour cela sur sa declaration de statut
  * pour des cas particuliers non declarables, on permet de fournir une fonction
