@@ -6,6 +6,7 @@ Changelog de SPIP 4.2
 
 ### Fixed
 
+- #5441 Le filtre `couper` utilise par défaut de vrais points de suspensions `…`
 - #5889 #5391 Le plan déroulant s’affiche dans la langue de l’espace privé
 - !5885 Lien de prévisualisation sur les objets génériques
 - !5884 Corriger et optimiser la suppression de liens ayant des rangs
