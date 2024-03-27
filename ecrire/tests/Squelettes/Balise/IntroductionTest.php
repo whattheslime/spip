@@ -28,7 +28,7 @@ class IntroductionTest extends SquelettesTestCase
 		$id_article = $this->getIdArticleLong();
 		$code = '<BOUCLE_a(ARTICLES){id_article}{tout}{0,1}>#INTRODUCTION</BOUCLE_a>';
 		$result = $templating->render($code, ['id_article' => $id_article]);
-		$suite = '&nbsp;(...)';
+		$suite = '&nbsp;(…)';
 		$this->assertMatchesRegularExpression('#' . preg_quote($suite . '</p>', '#') . '$#', $result);
 	}
 
