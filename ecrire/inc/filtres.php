@@ -3770,6 +3770,51 @@ function filtre_foreach_dist($tableau, $modele = 'foreach') {
 
 
 /**
+ * Génère une balise HTML `img` ou un `svg` inline suivant le nom du fichier.
+ * 
+ * @uses filtre_balise_img_dist()
+ * @uses filtre_balise_svg_dist()
+ * 
+ * @param string $img
+ *   chemin vers un fichier ou balise `<img src='...' />` (generee par un filtre image par exemple)
+ * @param string $alt
+ *   texte alternatif ; une valeur nulle pour explicitement ne pas avoir de balise alt sur l'image (au lieu d'un alt vide)
+ * @param string $class
+ *   attribut class ; null par defaut (ie si img est une balise, son attribut class sera inchange. pas de class inseree
+ * @param string|int $size
+ *   taille imposee
+ *     @2x : pour imposer une densite x2 (widht et height seront divisees par 2)
+ *     largeur : pour une image carree
+ *     largeurx* : pour imposer uniquement la largeur (un attribut height sera aussi ajoute, mais calcule automatiquement pour respecter le ratio initial de l'image)
+ *     largeurxhauteur pour fixer les 2 dimensions
+ * @return string
+ *     Code HTML de la balise IMG
+ */
+function filtre_balise_img_svg_dist($src, $alt = '', $class = null, $size = null) {
+	$balise = '';
+
+	// Récupérer le chemin si c'est déjà un tag <img>
+	if (str_starts_with(ltrim($src), '<img')) {
+		$src = extraire_attribut($src, 'src');
+	}
+
+	// Retrouver l'extension
+	$src = supprimer_timestamp($src);
+	$extension = strtolower(pathinfo($src, PATHINFO_EXTENSION));
+
+	// Si c'est un svg, on embed
+	if ($extension === 'svg') {
+		$balise = filtrer('balise_svg', $src, $alt, $class, $size);
+	// Sinon, balise_img si pas déjà le cas
+	} else {
+		$balise = filtrer('balise_img', $src, $alt, $class, $size);
+	}
+
+	return $balise;
+}
+
+
+/**
  * Obtient des informations sur les plugins actifs
  *
  * @filtre
