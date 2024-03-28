@@ -3694,20 +3694,27 @@ function filtre_balise_svg_dist($img, $alt = '', $class = null, $size = null) {
  */
 function filtre_balise_img_svg_dist($src, $alt = '', $class = null, $size = null) {
 	$balise = '';
+	$deja_svg = false;
 
-	// Récupérer le chemin si c'est déjà un tag <img>
+	// Récupérer le chemin seul si c'est déjà un tag <img>
 	if (str_starts_with(ltrim($src), '<img')) {
 		$src = extraire_attribut($src, 'src');
 	}
+	// Mais laisser tel quel si c'est déjà un svg inline
+	elseif (str_contains($src, '<svg')) {
+		$deja_svg = true;
+	}
 
-	// Retrouver l'extension
-	$src = supprimer_timestamp($src);
-	$extension = strtolower(pathinfo($src, PATHINFO_EXTENSION));
+	// Retrouver l'extension si c'est un chemin
+	if (!$deja_svg) {
+		$src = supprimer_timestamp($src);
+		$extension = strtolower(pathinfo($src, PATHINFO_EXTENSION));
+	}
 
-	// Si c'est un svg, on embed
-	if ($extension === 'svg') {
+	// Si c'est un svg, en code ou en chemin, on embed
+	if ($deja_svg || $extension === 'svg') {
 		$balise = filtrer('balise_svg', $src, $alt, $class, $size);
-	// Sinon, balise_img si pas déjà le cas
+	// Sinon, balise_img pour tous les autres cas
 	} else {
 		$balise = filtrer('balise_img', $src, $alt, $class, $size);
 	}
