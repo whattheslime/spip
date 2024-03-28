@@ -3597,10 +3597,8 @@ function filtre_balise_img_dist($img, $alt = '', $class = null, $size = null) {
  *     Code HTML de la balise SVG
  */
 function filtre_balise_svg_dist($img, $alt = '', $class = null, $size = null) {
-
-	$svg = null;
 	$img = trim($img);
-	$img_file = $img;
+	$svg = $img_file = $img;
 	if (!str_contains($img, '<svg')) {
 		if ($p = strpos($img_file, '?')) {
 			$img_file = substr($img_file, 0, $p);
