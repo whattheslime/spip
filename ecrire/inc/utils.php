@@ -973,6 +973,9 @@ function _L($text, $args = [], $options = []) {
  * @return string
  */
 function joli_repertoire($rep) {
+	if ($rep === '' || $rep === null) {
+		return '';
+	}
 	$a = substr($rep, 0, 1);
 	if ($a <> '.' and $a <> '/') {
 		$rep = (_DIR_RESTREINT ? '' : _DIR_RESTREINT_ABS) . $rep;
