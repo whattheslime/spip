@@ -18,6 +18,7 @@ Changelog de SPIP 4.3
 
 ### Fixed
 
+- #5897 Icône Tâches de fond qui n'évoque pas les bases de données
 - !5264 Refactoring de ecrire_fichier
 - #4209 Combinaison des critères pagination et limit
 - #4921 Ne pas conserver un double des fichiers calculés inchangés (`#PRODUIRE_FOND`)
