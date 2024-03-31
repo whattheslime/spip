@@ -43,11 +43,17 @@ function exec_demande_mise_a_jour_dist() {
 	echo $commencer_page('', '', '', '', true, false, false);
 
 	echo debut_grand_cadre();
-	echo boite_ouvrir(_T('info_message_technique'), 'notice');
-	echo '<p>' . _T('info_procedure_maj_version') . '</p>',
-		'<p>' . _T('info_administrateur_site_01') . '</p>';
-	echo bouton_action(_T('bouton_mettre_a_jour_base'), generer_url_ecrire('upgrade', 'reinstall=non'));
-	echo boite_fermer();
+	if ($GLOBALS['spip_version_base'] < $GLOBALS['meta']['version_installee'] ?? 0) {
+		echo boite_ouvrir(_T('info_erreur_version_base_plus_recente'), 'error');
+		echo '<p>'._T('info_version_base_plus_recente').'</p>';
+		echo boite_fermer();
+	} else {
+		echo boite_ouvrir(_T('info_message_technique'), 'notice');
+		echo '<p>' . _T('info_procedure_maj_version') . '</p>',
+			'<p>' . _T('info_administrateur_site_01') . '</p>';
+		echo bouton_action(_T('bouton_mettre_a_jour_base'), generer_url_ecrire('upgrade', 'reinstall=non'));
+		echo boite_fermer();
+	}
 	// masquer les erreurs sql sur cette page car proviennent de la base pas a jour !
 	echo '<style type="text/css">#debug-nav {display: none;}</style>';
 	echo fin_grand_cadre();
