@@ -119,15 +119,17 @@ function maj_base($version_cible = 0, $redirect = '', $debut_page = true) {
 		"Version anterieure: $version_installee. Courante: " . $GLOBALS['spip_version_base'],
 		'maj.' . _LOG_INFO_IMPORTANTE
 	);
-	if (!$version_installee or ($GLOBALS['spip_version_base'] < $version_installee)) {
-		sql_replace(
-			'spip_meta',
-			[
-				'nom' => 'version_installee',
-				'valeur' => $GLOBALS['spip_version_base'],
-				'impt' => 'non'
-			]
-		);
+	if (!$version_installee || $GLOBALS['spip_version_base'] < $version_installee) {
+		if (!$version_installee) {
+			sql_replace(
+				'spip_meta',
+				[
+					'nom' => 'version_installee',
+					'valeur' => $GLOBALS['spip_version_base'],
+					'impt' => 'non'
+				]
+			);
+		}
 		return false;
 	}
 	if (!upgrade_test()) {

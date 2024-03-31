@@ -429,6 +429,8 @@ exige d’avoir un accès FTP au site Web.</p>',
 	'info_procedez_par_etape' => 'procédez étape par étape',
 	'info_procedure_maj_version' => 'la procédure de mise à jour doit être lancée afin d’adapter
 	la base de données à la nouvelle version de SPIP.',
+	'info_version_base_plus_recente' => 'La version de SPIP en base de données est plus récente que celle que vous utilisez. Cette opération n\'est pas supportée, mettez à jour votre installation.',
+	'info_erreur_version_base_plus_recente' => 'Erreur d\'installation',
 	'info_proxy_ok' => 'Test du proxy réussi.',
 	'info_ps' => 'P.-S.',
 	'info_publier' => 'publier',
