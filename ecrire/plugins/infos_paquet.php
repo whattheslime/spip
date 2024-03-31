@@ -86,7 +86,7 @@ function plugins_infos_paquet($desc, $plug = '', $dir_plugins = _DIR_PLUGINS) {
 
 /**
  * Verifier le presence des fichiers remarquables
- * options/actions/administrations et peupler la description du plugin en consequence
+ * options/actions/administrations et le logo et peupler la description du plugin en consequence
  *
  * @param array $tree
  * @param string $dir
@@ -98,6 +98,15 @@ function paquet_readable_files(&$tree, $dir) {
 	$tree['options'] = (is_readable($dir . $f = ($prefix . '_options.php'))) ? [$f] : [];
 	$tree['fonctions'] = (is_readable($dir . $f = ($prefix . '_fonctions.php'))) ? [$f] : [];
 	$tree['install'] = (is_readable($dir . $f = ($prefix . '_administrations.php'))) ? [$f] : [];
+
+	// Traitement du logo : si il n'est pas précisé on regarde si un fichier prefix.svg existe à la racine.
+	// Si oui, on prend ce fichier : cela permet de ne plus insérer l'attribut logo dans le paquet.xml
+	if (
+		empty($tree['logo'])
+		&& is_readable($dir . $f = ($prefix . '.svg'))
+	) {
+		$tree['logo'] = $f;
+	}
 }
 
 /**
