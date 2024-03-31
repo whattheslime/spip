@@ -320,11 +320,8 @@ return [
 		publication et des validations d’articles. Indiquer une ou plusieurs adresses, séparées par des virgules.',
 	'info_fichiers_authent' => 'Fichiers d’authentification « .htpasswd »',
 	'info_forums_abo_invites' => 'Votre site comporte des forums sur abonnement ; les visiteurs sont donc invités à s’enregistrer sur le site public.',
-	'info_gauche_admin_tech' => '<b>Cette page est uniquement accessible aux responsables du site.</b><p> Elle donne accès aux différentes
-fonctions de maintenance technique. Certaines d’entre elles donnent lieu à un processus d’authentification spécifique, qui
-exige d’avoir un accès FTP au site Web.</p>',
-	'info_gauche_admin_vider' => '<b>Cette page est uniquement accessible aux responsables du site.</b><p> Elle donne accès aux différentes
-fonctions de maintenance technique. Certaines d’entre elles donnent lieu à un processus d’authentification spécifique, qui
+	'info_gauche_admin_bdd' => '<b>Cette page est uniquement accessible aux responsables du site.</b><p> Elle donne accès aux différentes
+fonctions de gestion des bases de données. Certaines d’entre elles donnent lieu à un processus d’authentification spécifique, qui
 exige d’avoir un accès FTP au site Web.</p>',
 	'info_gauche_auteurs' => 'Vous trouverez ici tous les auteurs du site.
  Leur statut est indiqué par la couleur de leur icone (administrateur = vert ; rédacteur = jaune).',
@@ -890,8 +887,7 @@ avez fait des modifications importantes de graphisme ou de structure du site.',
 		intempestifs.',
 	'texte_vide' => 'vide',
 	'texte_vider_cache' => 'Vider le cache',
-	'titre_admin_tech' => 'Maintenance technique',
-	'titre_admin_vider' => 'Maintenance technique',
+	'titre_admin_bdd' => 'Bases de données',
 	'titre_ajouter_un_auteur' => 'Ajouter un auteur',
 	'titre_ajouter_un_mot' => 'Ajouter un mot-clé',
 	'titre_cadre_afficher_article' => 'Afficher les articles',

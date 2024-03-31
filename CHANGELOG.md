@@ -19,6 +19,7 @@
 
 ### Changed
 
+- #4657 Renommage de `admin_tech` en `admin_bdd` et des chaînes de langue afférentes
 - #5906 Ne pas appliquer des traitements dans `email_valide()` si aucune adresse n'est transmise
 - #4994 Dans un plugin, si l’attribut logo d’un `paquet.xml` est absent, et qu’il existe un fichier `{prefixe}.svg` dans le plugin, il est utilisé comme logo
 - !5708 Découpage des fichiers de démarrage de SPIP (non surchargeables) dans `ecrire/boostrap`

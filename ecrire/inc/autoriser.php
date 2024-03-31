@@ -1799,9 +1799,9 @@ function autoriser_adminplugin_menu_dist(string $faire, string $type, $id, array
 }
 
 /**
- * Autorisation de voir le menu admin_tech
+ * Autorisation de voir le menu admin_bdd
  *
- * Il faut avoir accès à la page admin_tech
+ * Il faut avoir accès à la page admin_bdd, et donc le droit de détruire la BDD (rien que cela)
  *
  * @see autoriser()
  *
@@ -1812,7 +1812,7 @@ function autoriser_adminplugin_menu_dist(string $faire, string $type, $id, array
  * @param array $opt Options de cette autorisation
  * @return bool true s'il a le droit, false sinon
  **/
-function autoriser_admintech_menu_dist(string $faire, string $type, $id, array $qui, array $opt): bool {
+function autoriser_adminbdd_menu_dist(string $faire, string $type, $id, array $qui, array $opt): bool {
 	return autoriser('detruire', $type, $id, $qui, $opt);
 }
 

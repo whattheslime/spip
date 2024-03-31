@@ -159,7 +159,7 @@
 	<menu nom="menu_squelette" titre="icone_squelette" icone="images/menu-squelette.svg" action="navigation" parametres="menu=menu_squelette" />
 	<menu nom="menu_administration" titre="icone_administration" icone="images/menu-administration.svg" action="navigation" parametres="menu=menu_administration" />
 	<menu nom="admin_vider" titre="onglet_vider_cache" parent="menu_administration" icone="images/cache-empty-16.png" />
-	<menu nom="admin_maintenir" titre="titre_admin_tech" parent="menu_administration" icone="images/base-maintenance-16.png" action="admin_tech" />
+	<menu nom="admin_bdd" titre="titre_admin_bdd" parent="menu_administration" icone="images/base-maintenance-16.png" action="admin_bdd" />
 	<menu nom="job_queue" titre="queue_titre" parent="menu_administration" icone="images/queue-process-16.png" />
 	<menu nom="phpinfos" titre="phpinfo" parent="menu_administration" icone="images/php-16.png" action="info" />
 	<menu nom="menu_configuration" titre="icone_configuration" icone="images/menu-configuration.svg" action="navigation" parametres="menu=menu_configuration" />

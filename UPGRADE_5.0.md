@@ -326,6 +326,16 @@ define('_CONTEXTE_IGNORE_VARIABLES', '/(^var_|^PHPSESSID$|^fbclid$|^utm_)/');
 define('_CONTEXTE_IGNORE_LISTE_VARIABLES', ['^var_', '^PHPSESSID$', '^fbclid$', '^utm_']);
 ```
 
+
+## Renommage de la page privé `?exec=admin_tech` en `?exec=admin_bdd`
+
+La page `?exec=admin_tech` devient `?exec=admin_bdd` et se concentre uniquement sur ce qui est gestion des bases de données (ajout, réparation, suppression, effacement).
+
+Par conséquent, il faut adapter :
+ - les liens vers la page
+ - les éventuelles pipelines qui la modifie (en se demandant dans ce cas la pertinence de créer une nouvelle page plutôt que d'insérer du contenu dans cette page)
+
+
 # Suppressions des éléments dépréciés
 
 Les éléments suivants ont été supprimés et doivent être adaptés si ce n’est pas encore le cas.
