@@ -397,7 +397,8 @@
 	cursor: pointer;
 }
 .formulaire_spip .editer > label,
-.formulaire_spip .editer > .label,
+/* @deprecated SPIP 5.0 .label */ .formulaire_spip .editer > .label,
+.formulaire_spip .editer > .editer-label,
 .formulaire_spip .editer.gauche > label {
 	display: block;
 	margin-bottom: calc(var(--spip-form-spacing-y) / 4);
@@ -407,7 +408,8 @@
 	font-weight: inherit;
 	line-height: 1.3; /* légèrement inférieure au texte normal */
 }
-.formulaire_spip fieldset.editer > .label {
+/* @deprecated SPIP 5.0 .label */ .formulaire_spip fieldset.editer > .label,
+.formulaire_spip fieldset.editer > .editer-label {
 	transform: translateY(33%); /* remettre à peu près au niveau de la ligne */
 }
 /* Responsive : passer les labels à gauche + variantes */
@@ -417,21 +419,24 @@
 		padding-#LEFT: calc(var(--spip-form-label-width) + (var(--spip-form-spacing-x) * 2)); /* largeur + marge gauche+droite */
 	}
 	.formulaire_spip .editer > label,
-	.formulaire_spip .editer > .label,
+	/* @deprecated SPIP 5.0 .label */ .formulaire_spip .editer > .label,
+	.formulaire_spip .editer > .editer-label,
 	.formulaire_spip .editer.gauche > label {
 		float: var(--spip-left);
 		width: var(--spip-form-label-width);
 		margin-#LEFT: calc((var(--spip-form-label-width) + var(--spip-form-spacing-x)) * -1); /* inverse largeur + marge */
 		padding: calc(var(--spip-form-input-padding-y) + 1px) 0 0; /* décaler pour aligner avec texte input → padding + border */
 	}
-	.formulaire_spip fieldset.editer > .label {
+	/* @deprecated SPIP 5.0 .label */ .formulaire_spip fieldset.editer > .label,
+	.formulaire_spip fieldset.editer > .editer-label {
 		transform: none;
 	}
 	/* Labels plus longs */
 	.formulaire_spip .editer.long_label {
 		padding-#LEFT: calc(var(--spip-form-label-long-width) + (var(--spip-form-spacing-x) * 2)); /* largeur + marge gauche+droite */
 	}
-	.formulaire_spip .editer.long_label > .label,
+	/* @deprecated SPIP 5.0 .label */ .formulaire_spip .editer.long_label > .label,
+	.formulaire_spip .editer.long_label > .editer-label,
 	.formulaire_spip .editer.long_label > label {
 		width: var(--spip-form-label-long-width);
 		margin-#LEFT: calc((var(--spip-form-label-long-width) + var(--spip-form-spacing-x)) * -1); /* inverse largeur + marge */
@@ -448,7 +453,8 @@
 		padding-#LEFT: var(--spip-form-spacing-x);
 	}
 	.formulaire_spip .editer.pleine_largeur > label,
-	.formulaire_spip .editer.pleine_largeur > .label, /* fieldsets avec legend.label */
+	/* @deprecated SPIP 5.0 .label */ .formulaire_spip .editer.pleine_largeur > .label, /* fieldsets avec legend.label */
+	.formulaire_spip .editer.pleine_largeur > .editer-label, /* fieldsets avec legend.editer-label */
 	.formulaire_spip .editer-groupe.deux_colonnes > .editer > label,
 	.formulaire_spip .editer_parent label,
 	.formulaire_spip .editer_groupe_mot label,
@@ -463,7 +469,8 @@
 		margin-#LEFT: 0;
 		padding: 0;
 	}
-	.formulaire_spip fieldset.editer.pleine_largeur > .label {
+	/* @deprecated SPIP 5.0 .label */ .formulaire_spip fieldset.editer.pleine_largeur > .label,
+	.formulaire_spip fieldset.editer.pleine_largeur > .editer-label {
 		transform: translateY(33%); /* remettre à peu au niveau de la ligne */
 	}
 }
@@ -515,7 +522,7 @@
 }
 
 /* Légendes */
-.formulaire_spip fieldset legend:not(.label),
+/* @deprecated SPIP 5.0 .label */ .formulaire_spip fieldset legend:not(.label):not(.editer-label),
 .formulaire_spip fieldset .legend {
 	padding: var(--spip-form-input-padding-y) var(--spip-form-input-padding-x);
 	background-color: var(--spip-color-gray-lightest);
@@ -645,7 +652,8 @@
 
 /* Espacements entre inputs et labels (à affiner) */
 .formulaire_spip .choix > label,
-.formulaire_spip .choix > .label {
+/* @deprecated SPIP 5.0 .label */ .formulaire_spip .choix > .label,
+.formulaire_spip .choix > .editer-label {
 	margin: 0 0.5em;
 }
 /* Espacement entre .choix inline successifs */
@@ -693,7 +701,8 @@
 
 /* Champs obligatoires */
 .formulaire_spip .editer.obligatoire label,
-.formulaire_spip .editer.obligatoire .label,
+/* @deprecated SPIP 5.0 .label */ .formulaire_spip .editer.obligatoire .label,
+.formulaire_spip .editer.obligatoire .editer-label,
 .formulaire_spip .editer.obligatoire.gauche label {
 	color: var(--spip-color-black);
 	font-weight: bold;
@@ -1072,7 +1081,8 @@
 	padding-#LEFT: var(--spip-form-spacing-x);
 }
 .lat .formulaire_spip .editer label,
-.lat .formulaire_spip .editer .label {
+/* @deprecated SPIP 5.0 .label */ .lat .formulaire_spip .editer .label,
+.lat .formulaire_spip .editer .editer-label {
 	text-transform: none;
 	display: block;
 	float: none;

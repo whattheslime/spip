@@ -2,7 +2,7 @@
 	[(#REM) Dans tous les cas on commence par afficher le statut actuel ]
 
 	<div class="statut_actuel">
-		<strong class="label">[(#ENV{_label}|_T)][(#ENV{_aide}|oui)#AIDER{#ENV{_aide}}]</strong>
+		<strong class="editer-label">[(#ENV{_label}|_T)][(#ENV{_aide}|oui)#AIDER{#ENV{_aide}}]</strong>
 		<div class="statut statut--#ENV{statut}">
 			[<span class="statut-icone">(#ENV{statut}|puce_statut{#ENV{_objet}})</span>]
 			[<span class="statut-label">(#ENV{_statuts}|table_valeur{#ENV{statut}}|_T)</span>]
@@ -22,7 +22,7 @@
 			#SET{name,statut}#SET{obli,'obligatoire'}#SET{erreurs,#ENV**{erreurs}|table_valeur{#GET{name}}}
 			<div class="editer-groupe">
 				<fieldset class="editer editer_[(#GET{name})] statut_#ENV{#GET{name}}[ (#GET{obli})][ (#GET{erreurs}|oui)erreur]">
-					<legend class="label"><:info_modifier_statut:></legend>
+					<legend class="editer-label"><:info_modifier_statut:></legend>
 					[<span class='erreur_message'>(#GET{erreurs})</span>]
 					<BOUCLE_choix(DATA){source table, #ENV{_statuts}}{cle != #ENV{statut}}>
 					<div class="choix">
