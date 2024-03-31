@@ -2,7 +2,7 @@
 
 ## Préliminaires
 
-SPIP 5.0 nécessite PHP 8.1 minimum.
+SPIP 5.0 nécessite PHP 8.2 minimum.
 
 ### Migration BDD
 
@@ -10,7 +10,7 @@ SPIP 5.0 ne contient pas les mises à jour de BDD antérieures à SPIP 4.0.
 Pour rappel, SPIP 4.x ne contient pas les mises à jour antérieures SPIP 2.0.
 
 Dit autrement, il faut a minima partir d’un SPIP 3.2 (ou supérieur donc) pour que la migration en SPIP 5.0 de la base de données s’effectue correctement.
-Pour des questions de compatibilité de SPIP 5.0 avec PHP 8.1 minimum, il est conseillé (mais pas obligatoire) de partir au moins d’un SPIP 4.1.
+Pour des questions de compatibilité de SPIP 5.0 avec PHP 8.2 minimum, il est conseillé (mais pas obligatoire) de partir au moins d’un SPIP 4.1.
 
 ### Déplacement plugins-dist
 

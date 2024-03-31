@@ -1,6 +1,16 @@
 parameters:
 	ignoreErrors:
 		-
+			message: "#^Call to function unset\\(\\) contains undefined variable \\$args\\.$#"
+			count: 1
+			path: ecrire/bootstrap/inc/logging.php
+
+		-
+			message: "#^Call to sprintf contains 0 placeholders, 2 values given\\.$#"
+			count: 1
+			path: ecrire/bootstrap/inc/logging.php
+
+		-
 			message: "#^Instantiated class csstidy not found\\.$#"
 			count: 1
 			path: ecrire/inc/filtres.php

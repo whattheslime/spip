@@ -48,8 +48,8 @@ define('_SPIP_VERSION_ID', 50000);
 define('_SPIP_EXTRA_VERSION', '-dev');
 
 /** version PHP minimum exigee (cf. inc/utils) */
-define('_PHP_MIN', '8.1.0');
-define('_PHP_MAX', '8.2.99');
+define('_PHP_MIN', '8.2.0');
+define('_PHP_MAX', '8.4.99');
 
 // cette version dev accepte tous les plugins compatible avec la version ci-dessous
 // a supprimer en phase beta/rc/release
