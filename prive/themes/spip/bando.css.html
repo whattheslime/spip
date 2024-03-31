@@ -203,7 +203,7 @@
 
 /* Items <li> */
 .bando-haut .deroulant__item {
-	flex: 0 1; /* effectif à la racine uniquement, plus bas le conteneur est en display:block */
+	flex: auto 1; /* effectif à la racine uniquement, plus bas le conteneur est en display:block */
 	display: block; /* block obligé, cf. notes */
 }
 
@@ -507,6 +507,12 @@
 }
 
 /* Menus « rapides » */
+.bando-outils {
+	color: var(--spip-color-gray-dark);
+}
+.bando-outils .deroulant__lien img + .libelle {
+	margin-left: 0.25em;
+}
 .bando-outils .rapides__lien {
 	flex: 0 0 auto;
 	align-items: center;

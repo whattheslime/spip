@@ -125,16 +125,26 @@
 
 				[(#REM) Boutons de création rapide ]
 				<B_creer>
-					<ul class="rapides rapides_creer creer">
-						<BOUCLE_creer(DATA){source table, #GET{boutons}} {cle=outils_rapides}>
-						<BOUCLE_creersous(DATA){source table, #VALEUR{sousmenu}}{par position}>
-						[<li class="rapides__item">
-							<a
-								href="[(#VALEUR{url}|sinon{#CLE}|bandeau_creer_url{#VALEUR{urlArg},#GET{contexte}})]"
-								title="[(#VALEUR{libelle}|_T|attribut_html)]"
-								class="rapides__lien bando2_#CLE"><span class="libelle">(#VALEUR{libelle}|_T)</span></a>
-						</li>]
-						</BOUCLE_creersous></BOUCLE_creer>
+					<ul class="deroulant deroulant_creer" data-racine>
+						<li class="deroulant__item">
+							<a class="deroulant__lien bando2_creer" href="#URL_ECRIRE{creer}">
+								[(#CHEMIN_IMAGE{ouvrir-24.png}|balise_img{'', picto picto_creer})]
+								<span class="libelle">Créer</span>
+							</a>
+							
+							<ul class="deroulant__sous-menu" data-profondeur="1">
+								<BOUCLE_creer(DATA){source table, #GET{boutons}} {cle=outils_rapides}>
+								<BOUCLE_creersous(DATA){source table, #VALEUR{sousmenu}}{par position}>
+								[<li class="deroulant__item">
+									<a
+										href="[(#VALEUR{url}|sinon{#CLE}|bandeau_creer_url{#VALEUR{urlArg},#GET{contexte}})]"
+										title="[(#VALEUR{libelle}|_T|attribut_html)]"
+										class="deroulant__lien bando2_#CLE"><span class="libelle">(#VALEUR{libelle}|_T)</span></a>
+								</li>]
+								</BOUCLE_creersous></BOUCLE_creer>
+							</ul>
+							
+						</li>
 					</ul>
 				</B_creer>
 
