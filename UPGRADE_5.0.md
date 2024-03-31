@@ -525,7 +525,7 @@ La fonction dépréciée depuis SPIP 3.1 est supprimée au profit d’inclusions
 
 #### Avant
 
-```spip
+```php
 $lister_objets = charger_fonction('lister_objets', 'inc');
 $html = $lister_objets('breves', [
   'id_rubrique' => $id_rubrique,
@@ -534,7 +534,7 @@ $html = $lister_objets('breves', [
 
 #### Après
 
-```spip
+```php
 $html = recuperer_fond('prive/objets/liste/breves', [
   'id_rubrique' => $id_rubrique,
 ],[
