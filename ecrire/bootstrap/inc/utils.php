@@ -21,7 +21,7 @@ function test_plugin_actif($plugin) {
  * @param string $rep Chemin d’un répertoire
  * @return string
  */
-function joli_repertoire($rep) {
+function joli_repertoire(?string $rep): string {
 	if ($rep === '' || $rep === null) {
 		return '';
 	}
