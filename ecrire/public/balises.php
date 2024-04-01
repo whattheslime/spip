@@ -609,7 +609,7 @@ function balise_POPULARITE_ABSOLUE_dist($p) {
  *     Pile complétée par le code à générer
  **/
 function balise_POPULARITE_SITE_dist($p) {
-	$p->code = 'ceil($GLOBALS["meta"][\'popularite_total\'])';
+	$p->code = 'ceil($GLOBALS["meta"][\'popularite_total\'] ?? 0)';
 	$p->interdire_scripts = false;
 
 	return $p;
@@ -633,7 +633,7 @@ function balise_POPULARITE_SITE_dist($p) {
  *     Pile complétée par le code à générer
  **/
 function balise_POPULARITE_MAX_dist($p) {
-	$p->code = 'ceil($GLOBALS["meta"][\'popularite_max\'])';
+	$p->code = 'ceil($GLOBALS["meta"][\'popularite_max\'] ?? 0)';
 	$p->interdire_scripts = false;
 
 	return $p;
@@ -1042,7 +1042,7 @@ function balise_RANG_dist($p) {
 function balise_POPULARITE_dist($p) {
 	$_popularite = champ_sql('popularite', $p);
 	$p->code = "(ceil(min(100, 100 * $_popularite
-	/ max(1 , 0 + \$GLOBALS['meta']['popularite_max']))))";
+	/ max(1 , 0 + (\$GLOBALS['meta']['popularite_max'] ?? 0)))))";
 	$p->interdire_scripts = false;
 
 	return $p;
