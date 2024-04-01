@@ -6,6 +6,7 @@ Changelog de SPIP 4.2
 
 ### Fixed
 
+- #5660 le filtre `balise_svg` retourne un svg inline si c’est déjà ce qui lui est transmis
 - #5809 `joli_repertoire('')` renvoie une chaîne vide
 - #5474 Centrer verticalement le contenu des messages affichés par `minipage`
 - #5441 Le filtre `couper` utilise par défaut de vrais points de suspensions `…`
