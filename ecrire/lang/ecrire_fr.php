@@ -195,6 +195,7 @@ return [
 	'icone_mes_preferences' => 'Mes préférences',
 	'icone_modifier_article' => 'Modifier cet article',
 	'icone_modifier_rubrique' => 'Modifier cette rubrique',
+	'icone_outils_rapides' => 'Créer',
 	'icone_publication' => 'Publication',
 	'icone_relancer_signataire' => 'Relancer le signataire',
 	'icone_retour' => 'Retour',
