@@ -188,7 +188,8 @@ class Sql extends AbstractIterateur implements Iterator
 				$count_total_from_query = true;
 			}
 		}
-		$this->sqlresult = calculer_select(
+
+		$requete = preparer_calculer_select(
 			$v['select'],
 			$v['from'],
 			$v['type'],
@@ -204,28 +205,11 @@ class Sql extends AbstractIterateur implements Iterator
 			$this->info
 		);
 
+		$this->sqlresult = executer_calculer_select($requete);
 		$this->err = !$this->sqlresult;
+
 		if ($count_total_from_query && !$this->err) {
-			$query = calculer_select(
-				$v['select'],
-				$v['from'],
-				$v['type'],
-				$v['where'],
-				$v['join'],
-				$v['groupby'],
-				$v['orderby'],
-				'',
-				$v['having'],
-				$v['table'],
-				$v['id'],
-				$v['connect'],
-				false
-			);
-			$query_parts = explode('FROM', $query, 2);
-			$query = 'SELECT count(*) FROM ' . end($query_parts);
-			$res = sql_query($query, $v['connect']);
-			$row = sql_fetch($res);
-			$this->total = reset($row);
+			$this->total = compter_calculer_select($requete);
 		}
 		$this->firstseek = false;
 		$this->pos = -1;
