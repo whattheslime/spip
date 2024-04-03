@@ -677,6 +677,12 @@ function trouver_sous_requetes($where) {
 	return [$where_simples, $where_sous];
 }
 
+/**
+ * @see preparer_calculer_select()
+ */
+function calculer_select(...$args) {
+	return executer_calculer_select(preparer_calculer_select(...$args));
+}
 
 /**
  * Calcule une requête et l’exécute
@@ -699,7 +705,7 @@ function trouver_sous_requetes($where) {
  * @param bool $requeter
  * @return resource
  */
-function calculer_select(
+function preparer_calculer_select(
 	$select = [],
 	$from = [],
 	$from_type = [],
@@ -971,21 +977,53 @@ function calculer_select(
 			$GLOBALS['debug']['debug'] = true;
 		}
 	}
-	$GLOBALS['debug']['aucasou'] = [$table, $id, $serveur, $requeter];
+
+	$requete = [
+		'select' => $select,
+		'from' => $from,
+		'where' => $where,
+		'groupby' => $groupby,
+		'orderby' => array_filter($orderby),
+		'limit' => $limit,
+		'having' => $having,
+		'serveur' => $serveur,
+		'requeter' => $requeter,
+		'debug' => [$table, $id, $serveur, $requeter]
+	];
+	return $requete;
+}
+
+function executer_calculer_select($requete) {
+	$GLOBALS['debug']['aucasou'] = $requete['debug'];
 	$r = sql_select(
-		$select,
-		$from,
-		$where,
-		$groupby,
-		array_filter($orderby),
-		$limit,
-		$having,
-		$serveur,
-		$requeter
+		$requete['select'],
+		$requete['from'],
+		$requete['where'],
+		$requete['groupby'],
+		$requete['orderby'],
+		$requete['limit'],
+		$requete['having'],
+		$requete['serveur'],
+		$requete['requeter']
 	);
 	unset($GLOBALS['debug']['aucasou']);
 
 	return $r;
+}
+
+function compter_calculer_select($requete) {
+	$GLOBALS['debug']['aucasou'] = $requete['debug'];
+	$count = sql_countsel(
+		$requete['from'],
+		$requete['where'],
+		$requete['groupby'],
+		$requete['having'],
+		$requete['serveur'],
+		$requete['requeter']
+	);
+	unset($GLOBALS['debug']['aucasou']);
+
+	return $count;
 }
 
 /**
