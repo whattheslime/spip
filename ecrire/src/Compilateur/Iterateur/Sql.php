@@ -179,6 +179,15 @@ class Sql extends AbstractIterateur implements Iterator
 	protected function select() {
 		$this->row = null;
 		$v = &$this->command;
+		$limit = $v['limit'];
+		$count_total_from_query = false;
+		if (empty($v['limit']) && !empty($v['pagination'])) {
+			[$debut, $nombre] = $v['pagination'];
+			if ($debut === null || is_numeric($debut)) {
+				$limit = '0,' . (intval($debut) + intval($nombre));
+				$count_total_from_query = true;
+			}
+		}
 		$this->sqlresult = calculer_select(
 			$v['select'],
 			$v['from'],
@@ -187,14 +196,37 @@ class Sql extends AbstractIterateur implements Iterator
 			$v['join'],
 			$v['groupby'],
 			$v['orderby'],
-			$v['limit'],
+			$limit,
 			$v['having'],
 			$v['table'],
 			$v['id'],
 			$v['connect'],
 			$this->info
 		);
+
 		$this->err = !$this->sqlresult;
+		if ($count_total_from_query && !$this->err) {
+			$query = calculer_select(
+				$v['select'],
+				$v['from'],
+				$v['type'],
+				$v['where'],
+				$v['join'],
+				$v['groupby'],
+				$v['orderby'],
+				'',
+				$v['having'],
+				$v['table'],
+				$v['id'],
+				$v['connect'],
+				false
+			);
+			$query_parts = explode('FROM', $query, 2);
+			$query = 'SELECT count(*) FROM ' . end($query_parts);
+			$res = sql_query($query, $v['connect']);
+			$row = sql_fetch($res);
+			$this->total = reset($row);
+		}
 		$this->firstseek = false;
 		$this->pos = -1;
 
