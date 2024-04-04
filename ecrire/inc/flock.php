@@ -251,7 +251,7 @@ function ecrire_fichier($fichier, $contenu, $ignorer_echec = false, $truncate = 
 				}
 			}
 			// precaution en cas d'echec du rename
-			if (!_TEST_FILE_EXISTS or @file_exists("$fichier.$id")) {
+			if (!_TEST_FILE_EXISTS || @file_exists("$fichier.$id")) {
 				@unlink("$fichier.$id");
 			}
 		}
@@ -266,7 +266,7 @@ function ecrire_fichier($fichier, $contenu, $ignorer_echec = false, $truncate = 
 			$l = file_put_contents($fichier, $contenu, $truncate ? LOCK_EX : LOCK_EX | FILE_APPEND);
 			$ok = ($l === $longueur_a_ecrire);
 			if ($truncate) {
-				spip_logger('flock')->notice("ecrire_fichier: operation atomique via rename() impossible, fallback non atomique via file_put_contents" . ($ok ? 'OK' : 'Fail'));
+				spip_logger('flock')->notice('ecrire_fichier: operation atomique via rename() impossible, fallback non atomique via file_put_contents' . ($ok ? 'OK' : 'Fail'));
 			}
 			if (!$ok) {
 				// derniere tentative : on sait que file_put_contents marche dans le dossier considere
@@ -275,7 +275,7 @@ function ecrire_fichier($fichier, $contenu, $ignorer_echec = false, $truncate = 
 				$l = file_put_contents($fichier, $contenu, $truncate ? LOCK_EX : LOCK_EX | FILE_APPEND);
 				$ok = ($l === $longueur_a_ecrire);
 				if ($truncate) {
-					spip_logger('flock')->notice("ecrire_fichier: operation atomique via rename() impossible, fallback non atomique via tempo + file_put_contents : " . ($ok ? 'OK' : 'Fail'));
+					spip_logger('flock')->notice('ecrire_fichier: operation atomique via rename() impossible, fallback non atomique via tempo + file_put_contents : ' . ($ok ? 'OK' : 'Fail'));
 				}
 			}
 		}
