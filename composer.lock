@@ -1803,12 +1803,12 @@
             "source": {
                 "type": "git",
                 "url": "https://git.spip.net/spip/svp.git",
-                "reference": "228bb73516edea78ae90fb56c82faaee8f68403d"
+                "reference": "63d9970cc658444832b1015d38d31375525ca275"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://git.spip.net/api/v4/projects/spip%2Fsvp/repository/archive.zip?sha=228bb73516edea78ae90fb56c82faaee8f68403d",
-                "reference": "228bb73516edea78ae90fb56c82faaee8f68403d",
+                "url": "https://git.spip.net/api/v4/projects/spip%2Fsvp/repository/archive.zip?sha=63d9970cc658444832b1015d38d31375525ca275",
+                "reference": "63d9970cc658444832b1015d38d31375525ca275",
                 "shasum": ""
             },
             "require": {
@@ -1848,7 +1848,7 @@
                 "source": "https://git.spip.net/spip/svp/-/tree/master",
                 "issues": "https://git.spip.net/spip/svp/-/issues"
             },
-            "time": "2024-03-31T18:54:49+02:00"
+            "time": "2024-04-01T02:30:02+02:00"
         },
         {
             "name": "spip/tw",
@@ -2089,16 +2089,16 @@
         },
         {
             "name": "symfony/filesystem",
-            "version": "v6.4.3",
+            "version": "v6.4.6",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/filesystem.git",
-                "reference": "7f3b1755eb49297a0827a7575d5d2b2fd11cc9fb"
+                "reference": "9919b5509ada52cc7f66f9a35c86a4a29955c9d3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/filesystem/zipball/7f3b1755eb49297a0827a7575d5d2b2fd11cc9fb",
-                "reference": "7f3b1755eb49297a0827a7575d5d2b2fd11cc9fb",
+                "url": "https://api.github.com/repos/symfony/filesystem/zipball/9919b5509ada52cc7f66f9a35c86a4a29955c9d3",
+                "reference": "9919b5509ada52cc7f66f9a35c86a4a29955c9d3",
                 "shasum": ""
             },
             "require": {
@@ -2132,7 +2132,7 @@
             "description": "Provides basic utilities for the filesystem",
             "homepage": "https://symfony.com",
             "support": {
-                "source": "https://github.com/symfony/filesystem/tree/v6.4.3"
+                "source": "https://github.com/symfony/filesystem/tree/v6.4.6"
             },
             "funding": [
                 {
@@ -2148,20 +2148,20 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2024-01-23T14:51:35+00:00"
+            "time": "2024-03-21T19:36:20+00:00"
         },
         {
             "name": "symfony/lock",
-            "version": "v6.4.3",
+            "version": "v6.4.6",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/lock.git",
-                "reference": "1cabf3cc775b1aa6008ebd471fa773444af4e956"
+                "reference": "53f0dbf55871774bf42773ed478b7106486b8b98"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/lock/zipball/1cabf3cc775b1aa6008ebd471fa773444af4e956",
-                "reference": "1cabf3cc775b1aa6008ebd471fa773444af4e956",
+                "url": "https://api.github.com/repos/symfony/lock/zipball/53f0dbf55871774bf42773ed478b7106486b8b98",
+                "reference": "53f0dbf55871774bf42773ed478b7106486b8b98",
                 "shasum": ""
             },
             "require": {
@@ -2211,7 +2211,7 @@
                 "semaphore"
             ],
             "support": {
-                "source": "https://github.com/symfony/lock/tree/v6.4.3"
+                "source": "https://github.com/symfony/lock/tree/v6.4.6"
             },
             "funding": [
                 {
@@ -2227,7 +2227,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2024-01-23T14:51:35+00:00"
+            "time": "2024-03-19T09:23:21+00:00"
         },
         {
             "name": "symfony/polyfill-ctype",
@@ -3007,18 +3007,18 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/PHPCompatibility/PHPCompatibility.git",
-                "reference": "4a01c7de34641ebe02419117ca7b33c44b2eee38"
+                "reference": "88e77dff171bdd843969a4297ebe52f9f849275a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/PHPCompatibility/PHPCompatibility/zipball/4a01c7de34641ebe02419117ca7b33c44b2eee38",
-                "reference": "4a01c7de34641ebe02419117ca7b33c44b2eee38",
+                "url": "https://api.github.com/repos/PHPCompatibility/PHPCompatibility/zipball/88e77dff171bdd843969a4297ebe52f9f849275a",
+                "reference": "88e77dff171bdd843969a4297ebe52f9f849275a",
                 "shasum": ""
             },
             "require": {
                 "php": ">=5.4",
                 "phpcsstandards/phpcsutils": "^1.0.9",
-                "squizlabs/php_codesniffer": "^3.8.0"
+                "squizlabs/php_codesniffer": "^3.9.0"
             },
             "replace": {
                 "wimg/php-compatibility": "*"
@@ -3089,7 +3089,7 @@
                     "type": "open_collective"
                 }
             ],
-            "time": "2024-03-25T15:36:40+00:00"
+            "time": "2024-04-02T20:53:47+00:00"
         },
         {
             "name": "phpcsstandards/phpcsutils",
@@ -4728,16 +4728,16 @@
         },
         {
             "name": "symfony/var-dumper",
-            "version": "v6.4.4",
+            "version": "v6.4.6",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/var-dumper.git",
-                "reference": "b439823f04c98b84d4366c79507e9da6230944b1"
+                "reference": "95bd2706a97fb875185b51ecaa6112ec184233d4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/var-dumper/zipball/b439823f04c98b84d4366c79507e9da6230944b1",
-                "reference": "b439823f04c98b84d4366c79507e9da6230944b1",
+                "url": "https://api.github.com/repos/symfony/var-dumper/zipball/95bd2706a97fb875185b51ecaa6112ec184233d4",
+                "reference": "95bd2706a97fb875185b51ecaa6112ec184233d4",
                 "shasum": ""
             },
             "require": {
@@ -4793,7 +4793,7 @@
                 "dump"
             ],
             "support": {
-                "source": "https://github.com/symfony/var-dumper/tree/v6.4.4"
+                "source": "https://github.com/symfony/var-dumper/tree/v6.4.6"
             },
             "funding": [
                 {
@@ -4809,7 +4809,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2024-02-15T11:23:52+00:00"
+            "time": "2024-03-19T11:56:30+00:00"
         },
         {
             "name": "symplify/easy-coding-standard",
