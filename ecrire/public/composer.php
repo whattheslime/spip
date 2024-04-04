@@ -701,7 +701,7 @@ function calculer_select(...$args) {
  * @param string $id
  * @param string $serveur
  * @param bool|array|string $requeter
- * @return resource
+ * @return array{select: array, from: array, where: array, orderby: string, having: array, serveur: string, requeter: bool|array|string, debug: array }
  */
 function preparer_calculer_select(
 	$select = [],
@@ -718,7 +718,6 @@ function preparer_calculer_select(
 	$serveur = '',
 	$requeter = true
 ) {
-
 	// retirer les criteres vides:
 	// {X ?} avec X absent de l'URL
 	// {par #ENV{X}} avec X absent de l'URL
@@ -977,7 +976,7 @@ function preparer_calculer_select(
 		}
 	}
 
-	$requete = [
+	return [
 		'select' => $select,
 		'from' => $from,
 		'where' => $where,
@@ -989,7 +988,6 @@ function preparer_calculer_select(
 		'requeter' => $requeter,
 		'debug' => [$table, $id, $serveur, $requeter]
 	];
-	return $requete;
 }
 
 function executer_calculer_select(array $requete) {
