@@ -141,7 +141,7 @@ function public_parametrer_dist($fond, $contexte = '', $cache = '', string $conn
 		// spip_log: un joli contexte
 		$infos = presenter_contexte(array_filter($contexte));
 
-		$profile = spip_timer($a);
+		$profile = spip_timer($a, true);
 		spip_logger()->info("calcul ($profile) [$skel] $infos"
 			. ' (' . strlen((string) $page['texte']) . ' octets)');
 
@@ -156,6 +156,8 @@ function public_parametrer_dist($fond, $contexte = '', $cache = '', string $conn
 			$GLOBALS['debug_objets']['resultat'][$fonc . 'tout'] = $t;
 			$GLOBALS['debug_objets']['courant'] = $courant;
 			$GLOBALS['debug_objets']['profile'][$sourcefile] = $profile;
+			$GLOBALS['debug_objets']['profile_total'][$sourcefile] = ($GLOBALS['debug_objets']['profile_total'][$sourcefile] ?? 0) + $profile;
+			$GLOBALS['debug_objets']['profile_nb'][$sourcefile] = ($GLOBALS['debug_objets']['profile_nb'][$sourcefile] ?? 0) + 1;
 			if (
 				$GLOBALS['debug_objets']['sourcefile']
 				&& _request('var_mode_objet') == $fonc
