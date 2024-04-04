@@ -18,7 +18,6 @@
 
 ### Changed
 
-- #5898 PHP MIN à 8.2
 - !5708 Découpage des fichiers de démarrage de SPIP (non surchargeables) dans `ecrire/boostrap`
 - !5765 Nettoyage des paramètres d’URI : la constante `_CONTEXTE_IGNORE_LISTE_VARIABLES` remplace `_CONTEXTE_IGNORE_VARIABLES` supprimée.
 - #3637 Phraseur: Accepter des crochets dans la partie optionnelle d’une balise. `[hop] (#REM) [truc]` devient possible.
@@ -26,7 +25,7 @@
 - #5552 Signature de `spip_setcookie` (reprend la signature de php `setcookie`)
 - !5540 Les fonctions `extraire_balise` et `extraire_balises` peuvent gérer des balises imbriquées
 - Les logos historiques (migrés en documents à partir de SPIP 4.0) ne sont plus utilisés s’il en restait.
-- Nécessite PHP 8.1 minimum
+- #5898 Nécessite PHP 8.2 minimum
 
 ### Fixed
 
