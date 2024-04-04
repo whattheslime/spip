@@ -705,12 +705,14 @@ function debusquer_navigation_squelettes($self) {
 		if (!empty($GLOBALS['debug_objets']['profile'][$sourcefile])) {
 			$t = debusquer_format_millisecondes($GLOBALS['debug_objets']['profile'][$sourcefile]);
 			$temps = _T('zbug_profile', ['time' => $t]);
-			if (!empty($GLOBALS['debug_objets']['profile_nb'][$sourcefile])) {
+			if (!empty($GLOBALS['debug_objets']['profile_nb'][$sourcefile])
+			  and $GLOBALS['debug_objets']['profile_nb'][$sourcefile] > 1) {
 				$temps .= ' | ' . _T('zbug_profile_nb', ['nb' => $GLOBALS['debug_objets']['profile_nb'][$sourcefile]]);
-			}
-			if (!empty($GLOBALS['debug_objets']['profile_total'][$sourcefile])) {
-				$t = debusquer_format_millisecondes($GLOBALS['debug_objets']['profile_total'][$sourcefile]);
-				$temps .= ' | ' . _T('zbug_profile_total', ['time' => $t]);
+
+				if (!empty($GLOBALS['debug_objets']['profile_total'][$sourcefile])) {
+					$t = debusquer_format_millisecondes($GLOBALS['debug_objets']['profile_total'][$sourcefile]);
+					$temps .= ' | ' . _T('zbug_profile_total', ['time' => $t]);
+				}
 			}
 		}
 
