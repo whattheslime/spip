@@ -31,6 +31,7 @@
 
 ### Fixed
 
+- !5264 Refactoring de ecrire_fichier
 - #5809 `joli_repertoire('')` renvoie une chaîne vide
 - #5474 Centrer verticalement le contenu des messages affichés par `minipage`
 - #5441 Le filtre `couper` utilise par défaut de vrais points de suspensions `…`
