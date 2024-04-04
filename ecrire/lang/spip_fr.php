@@ -729,6 +729,8 @@ et vous reconnecter au site.
 	'zbug_pagination_sans_critere' => 'Balise #PAGINATION sans critère {pagination} ou employé dans une boucle récursive',
 	'zbug_parametres_inclus_incorrects' => 'Paramètre d’inclusion incorrect : @param@',
 	'zbug_profile' => 'Temps de calcul : @time@',
+	'zbug_profile_total' => 'Temps total : @time@',
+	'zbug_profile_nb' => 'Nb calcul : @nb@',
 	'zbug_resultat' => 'résultat',
 	'zbug_serveur_indefini' => 'Serveur SQL indéfini',
 	'zbug_statistiques' => 'Statistiques des requêtes SQL classées par durée',
