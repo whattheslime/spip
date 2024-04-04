@@ -164,27 +164,31 @@ function picker_identifie_id_rapide($ref, $rubriques_ou_objets = false, $article
 	else {
 		// Si la référence ne correspond à rien, c'est fini
 		if (!($match = typer_raccourci($ref))) {
-			return json_export(false);
+			return json_encode(false);
 		}
 		// Sinon on récupère les infos utiles
 		[$type, , $id, , , , ] = array_pad($match, 7, null);
 
 		// On regarde si le type trouvé fait partie des objets sélectionnables
 		if (!in_array(table_objet($type), $objets)) {
-			return json_export(false);
+			return json_encode(false);
 		}
 	}
 
 	// Maintenant que tout est bon, on cherche les informations sur cet objet
 	include_spip('inc/filtres');
 	if (!$titre = generer_objet_info($id, $type, 'titre')) {
-		return json_export(false);
+		return json_encode(false);
 	}
 
 	// On simplifie le texte
+	if ($GLOBALS['meta']['charset'] !== 'utf-8') {
+		include_spip('inc/charsets');
+		$titre = unicode_to_utf_8(charset2unicode($titre));
+	}
 	$titre = attribut_html($titre);
 
-	return json_export(['type' => $type, 'id' => "$type|$id", 'titre' => $titre]);
+	return json_encode(['type' => $type, 'id' => "$type|$id", 'titre' => $titre], JSON_THROW_ON_ERROR);
 }
 
 /**
