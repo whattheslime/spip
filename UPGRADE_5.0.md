@@ -541,3 +541,22 @@ $html = recuperer_fond('prive/objets/liste/breves', [
   'ajax' => true
 ]);
 ```
+
+### Fonctions `json_export` et `var2js`
+
+Les fonctions `json_export` et `var2js`, équivalentes historiques à `json_encode`, sont supprimées.
+
+#### Avant
+
+```php
+include_spip('inc/json');
+$json = json_export($data);
+// ou
+$json = var2js($data);
+```
+
+### Après
+
+```php
+$json = json_encode($data);
+```
