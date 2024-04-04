@@ -992,7 +992,7 @@ function preparer_calculer_select(
 	return $requete;
 }
 
-function executer_calculer_select($requete) {
+function executer_calculer_select(array $requete) {
 	$GLOBALS['debug']['aucasou'] = $requete['debug'];
 	$r = sql_select(
 		$requete['select'],
@@ -1010,7 +1010,7 @@ function executer_calculer_select($requete) {
 	return $r;
 }
 
-function compter_calculer_select($requete) {
+function compter_calculer_select(array $requete): int {
 	$GLOBALS['debug']['aucasou'] = $requete['debug'];
 	$count = sql_countsel(
 		$requete['from'],
