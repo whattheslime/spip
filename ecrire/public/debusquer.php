@@ -681,6 +681,17 @@ function count_occ($regs) {
 	return $encore;
 }
 
+function debusquer_format_millisecondes($t) {
+	if ($t < 1000) {
+		$s = '';
+	} else {
+		$s = sprintf('%d ', $x = floor($t / 1000));
+		$t -= ($x * 1000);
+	}
+
+	return $s . sprintf($s ? '%07.3f ms' : '%.3f ms', $t);
+}
+
 function debusquer_navigation_squelettes($self) {
 
 	$res = '';
@@ -689,11 +700,19 @@ function debusquer_navigation_squelettes($self) {
 	$t_skel = _T('squelette');
 	foreach ($GLOBALS['debug_objets']['sourcefile'] as $nom => $sourcefile) {
 		$self2 = parametre_url($self, 'var_mode_objet', $nom);
-		$nav = !$boucles ? '' : debusquer_navigation_boucles($boucles, $nom, $self, $sourcefile);
-		$temps = !isset($GLOBALS['debug_objets']['profile'][$sourcefile]) ? '' : _T(
-			'zbug_profile',
-			['time' => $GLOBALS['debug_objets']['profile'][$sourcefile]]
-		);
+		$nav = $boucles ? debusquer_navigation_boucles($boucles, $nom, $self, $sourcefile) : '';
+		$temps = '';
+		if (!empty($GLOBALS['debug_objets']['profile'][$sourcefile])) {
+			$t = debusquer_format_millisecondes($GLOBALS['debug_objets']['profile'][$sourcefile]);
+			$temps = _T('zbug_profile', ['time' => $t]);
+			if (!empty($GLOBALS['debug_objets']['profile_nb'][$sourcefile])) {
+				$temps .= ' | ' . _T('zbug_profile_nb', ['nb' => $GLOBALS['debug_objets']['profile_nb'][$sourcefile]]);
+			}
+			if (!empty($GLOBALS['debug_objets']['profile_total'][$sourcefile])) {
+				$t = debusquer_format_millisecondes($GLOBALS['debug_objets']['profile_total'][$sourcefile]);
+				$temps .= ' | ' . _T('zbug_profile_total', ['time' => $t]);
+			}
+		}
 
 		$res .= "<fieldset id='f_" . $nom . "'><legend>"
 			. $t_skel

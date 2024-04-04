@@ -140,9 +140,9 @@ function public_parametrer_dist($fond, $contexte = '', $cache = '', string $conn
 		// spip_log: un joli contexte
 		$infos = presenter_contexte(array_filter($contexte));
 
-		$profile = spip_timer($a);
+		$profile = spip_timer($a, true);
 		spip_log("calcul ($profile) [$skel] $infos"
-			. ' (' . strlen($page['texte']) . ' octets)');
+			. ' (' . strlen((string) $page['texte']) . ' octets)');
 
 		if (defined('_CALCUL_PROFILER') and intval($profile) > _CALCUL_PROFILER) {
 			spip_log("calcul ($profile) [$skel] $infos"
@@ -155,6 +155,8 @@ function public_parametrer_dist($fond, $contexte = '', $cache = '', string $conn
 			$GLOBALS['debug_objets']['resultat'][$fonc . 'tout'] = $t;
 			$GLOBALS['debug_objets']['courant'] = $courant;
 			$GLOBALS['debug_objets']['profile'][$sourcefile] = $profile;
+			$GLOBALS['debug_objets']['profile_total'][$sourcefile] = ($GLOBALS['debug_objets']['profile_total'][$sourcefile] ?? 0) + $profile;
+			$GLOBALS['debug_objets']['profile_nb'][$sourcefile] = ($GLOBALS['debug_objets']['profile_nb'][$sourcefile] ?? 0) + 1;
 			if (
 				$GLOBALS['debug_objets']['sourcefile']
 				and (_request('var_mode_objet') == $fonc)
