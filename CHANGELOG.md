@@ -4,6 +4,7 @@
 
 ### Added
 
+- !5913 Débugueur: Afficher le nombre d’occurrences et temps total des inclusions de squelettes
 - #5660 Nouveau filtre |balise_img_svg pour insérer une image ou un SVG inline sans savoir d'avance le format
 - #5690 Afficher un encart pour signaler les nouvelles versions dans toutes les pages de l'espace privé pour les webmestres, et un bouton pointant vers `spip_loader` s'il est présent
 - !196 Améliorer l’ergonomie du formulaire instituer (changement de statut d’un objet éditorial)
