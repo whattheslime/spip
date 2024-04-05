@@ -6,6 +6,7 @@ Changelog de SPIP 4.2
 
 ### Fixed
 
+- #5884 Lever une erreur explicite si `charger_fonction_url()` ne trouve pas de fonction adaptée
 - #4213 Ne pas permettre d'installer une version de SPIP plus ancienne que la version déjà installée en BDD
 - #4897 Éviter un warning sur les balise popularité, si la popularité n’est pas encore calculée
 - #5660 le filtre `balise_svg` retourne un svg inline si c’est déjà ce qui lui est transmis
