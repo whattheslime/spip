@@ -31,19 +31,7 @@
 
 ### Fixed
 
-- #5884 Lever une erreur explicite si `charger_fonction_url()` ne trouve pas de fonction adaptée
-- #4213 Ne pas permettre d'installer une version de SPIP plus ancienne que la version déjà installée en BDD
-- #4897 Éviter un warning sur les balise popularité, si la popularité n’est pas encore calculée
 - !5264 Refactoring de ecrire_fichier
-- #5809 `joli_repertoire('')` renvoie une chaîne vide
-- #5474 Centrer verticalement le contenu des messages affichés par `minipage`
-- #5441 Le filtre `couper` utilise par défaut de vrais points de suspensions `…`
-- #5889 #5391 Le plan déroulant s’affiche dans la langue de l’espace privé
-- !5885 Lien de prévisualisation sur les objets génériques
-- !5884 Corriger et optimiser la suppression de liens ayant des rangs
-- #5801 `label_ponctuer('')` retourne une chaine vide
-- #5878 Éviter une concurrence possible sur le pipeline `trig_calculer_prochain_postdate`
-- #5861 Ne pas désactiver le clic sur les `.editer.disabled`
 - #5825 Ne pas mettre l'adresse du site entre parenthèses dans les mails envoyés par SPIP
 
 ### Deprecated
