@@ -31,6 +31,7 @@
 
 ### Fixed
 
+- #4897 Éviter un warning sur les balise popularité, si la popularité n’est pas encore calculée
 - !5264 Refactoring de ecrire_fichier
 - #5809 `joli_repertoire('')` renvoie une chaîne vide
 - #5474 Centrer verticalement le contenu des messages affichés par `minipage`
