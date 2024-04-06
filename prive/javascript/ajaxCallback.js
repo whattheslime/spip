@@ -687,7 +687,7 @@ jQuery.spip.makeAjaxUrl = function(href,ajax_env,origin){
 			var arg;
 			for(var n=0;n<args.length;n++){
 				arg = args[n].split('=');
-				arg = arg[0];
+				arg = decodeURIComponent(arg[0]);
 				p = arg.indexOf('[');
 				if (p!==-1)
 					arg = arg.substring(0,p);
