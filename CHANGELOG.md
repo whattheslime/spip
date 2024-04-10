@@ -6,6 +6,7 @@ Changelog de SPIP 4.2
 
 ### Fixed
 
+- #5909 Rétablir les autorisations calculées avec id_auteur=0
 - #5906 Ne pas appliquer des traitements dans `email_valide()` si aucune adresse n'est transmise
 
 ## 4.2.11 - 2024-04-05
