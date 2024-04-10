@@ -181,7 +181,7 @@ function formulaires_editer_auteur_verifier_dist(
 		$erreurs['nom'] = _T('info_nom_pas_conforme');
 	}
 
-	if ($email = _request('email')) {
+	if ($email = trim(_request('email'))) {
 		include_spip('inc/filtres');
 		include_spip('inc/autoriser');
 		// un redacteur qui modifie son email n'a pas le droit de le vider si il y en avait un
