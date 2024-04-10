@@ -162,7 +162,7 @@ function autoriser_dist(string $faire, ?string $type = '', $id = null, $qui = nu
 	} elseif (is_numeric($qui)) {
 		$qui = sql_fetsel('*', 'spip_auteurs', 'id_auteur=' . $qui);
 		if (!$qui) {
-			return false;
+			$qui = ['statut' => '', 'id_auteur' => 0, 'webmestre' => 'non'];
 		}
 	}
 
