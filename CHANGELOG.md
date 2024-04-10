@@ -32,6 +32,7 @@
 
 ### Fixed
 
+- #5909 Retablir les autorisations calculées avec id_auteur=0
 - #5897 Icône Tâches de fond qui n'évoque pas les bases de données
 - !5264 Refactoring de ecrire_fichier
 - #5825 Ne pas mettre l'adresse du site entre parenthèses dans les mails envoyés par SPIP
