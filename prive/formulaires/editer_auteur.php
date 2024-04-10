@@ -212,13 +212,11 @@ function formulaires_editer_auteur_verifier_dist(
 				if (
 					sql_countsel(
 						'spip_auteurs',
-						'email=' . sql_quote($email)
+						[
+							'email = ' . sql_quote($email),
+							'id_auteur <> '.intval($id_auteur)
+						]
 					) > 0
-					&& $id_auteur != ($id_auteur_ancien = sql_getfetsel(
-						'id_auteur',
-						'spip_auteurs',
-						'email=' . sql_quote($email)
-					))
 				) {
 					$erreurs['email'] = _T('erreur_email_deja_existant');
 				}
