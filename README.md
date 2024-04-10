@@ -15,6 +15,7 @@ maintenu par sa communauté avec tendresse.
 - [Charte](https://www.spip.net/fr_article6431.html)
 - [Entraide et discussions](https://discuter.spip.net)
 - [Forge Git](https://git.spip.net) (tickets, pull requests)
+- [Règles de contribution](https://www.spip.net/fr_article825.html#Regles-de-contribution)
 - [Espace de traduction](https://trad.spip.net)
 
 ## Politique de sécurité
