@@ -486,7 +486,9 @@ function auteur_regenerer_identifiants($id_auteur, $notifier = true, $contexte =
 		$set['pass'] = creer_pass_aleatoire(max(_PASS_LONGUEUR_MINI, 16));
 
 		include_spip('action/editer_auteur');
-		auteur_modifier($id_auteur, $set);
+		if (auteur_modifier($id_auteur, $set) !== '') {
+			return '';
+		}
 
 		$row = sql_fetsel('*', 'spip_auteurs', 'id_auteur=' . intval($id_auteur));
 		include_spip('inc/filtres');
