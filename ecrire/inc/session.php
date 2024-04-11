@@ -387,15 +387,6 @@ function verifier_session($change = false) {
 		}
 	}
 
-	// Compatibilite ascendante : auteur_session est visiteur_session si
-	// c'est un auteur SPIP authentifie (tandis qu'un visiteur_session peut
-	// n'etre qu'identifie, sans aucune authentification).
-
-	if (isset($GLOBALS['visiteur_session']['id_auteur']) && $GLOBALS['visiteur_session']['id_auteur']) {
-		$GLOBALS['auteur_session'] = &$GLOBALS['visiteur_session'];
-	}
-
-
 	// Si l'adresse IP change, inc/presentation mettra une balise image
 	// avec un URL de rappel demandant a changer le nom de la session.
 	// Seul celui qui a l'IP d'origine est rejoue

@@ -5,7 +5,6 @@
  */
 
 global
-	$auteur_session,
 	$connect_id_rubrique,
 	$connect_statut,
 	$connect_toutes_rubriques,
@@ -204,7 +203,7 @@ $liste_des_authentifications = [
 # $table_des_traitements['TITRE'][]= 'typo(supprimer_numero(%s), "TYPO", $connect)';
 
 // ** Securite **
-$visiteur_session = $auteur_session = $connect_statut = $connect_toutes_rubriques = $hash_recherche = $hash_recherche_strict = $ldap_present = '';
+$visiteur_session = $connect_statut = $connect_toutes_rubriques = $hash_recherche = $hash_recherche_strict = $ldap_present = '';
 $meta = $connect_id_rubrique = [];
 
 // version de l'interface a la base
