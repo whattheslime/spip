@@ -72,7 +72,7 @@
 			;
 
 			// On ajoute ce bouton dynamiquement
-			$('.instituer_objet .statut_actuel .label').after(bouton_modifier);
+			$('.instituer_objet .statut_actuel .editer-label').after(bouton_modifier);
 			$('.instituer_objet button\[name=annuler\]').on('click', function() {
 				form.find('input\[type=radio\]:checked').prop('checked', false);
 				form.slideUp().closest('.instituer_objet').addClass('form-closed');
