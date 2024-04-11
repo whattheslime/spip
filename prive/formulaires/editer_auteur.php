@@ -210,14 +210,13 @@ function formulaires_editer_auteur_verifier_dist(
 			} else {
 				#Un auteur existe deja avec cette adresse ? et n'est pas le user courant.
 				if (
-					(sql_countsel(
+					sql_countsel(
 						'spip_auteurs',
-						'email=' . sql_quote($email)
-					) > 0) and ($id_auteur != ($id_auteur_ancien = sql_getfetsel(
-						'id_auteur',
-						'spip_auteurs',
-						'email=' . sql_quote($email)
-					)))
+						[
+							'email = ' . sql_quote($email),
+							'id_auteur <> '.intval($id_auteur)
+						]
+					) > 0
 				) {
 					$erreurs['email'] = _T('erreur_email_deja_existant');
 				}
