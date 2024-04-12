@@ -34,6 +34,7 @@
 
 ### Fixed
 
+- #5179 Lors de la génération d'un nouveau mot de passe pour un auteur, ne pas envoyer d'email si SPIP n'a pas pu le modifier
 - #5751 `#debug-nav` passe par dessus (en z-index) `#spip-debug`
 - #5916 Éviter un débordement du contenu des explications dans les formulaires de l'espace privé
 - !5936 Éviter une erreur fatale sur la sécurisation d’une action sans hash
