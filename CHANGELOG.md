@@ -66,6 +66,7 @@
 
 ### Removed
 
+- #5199 Retrait de toutes les références à la globale `auteur_session`
 - #5917 Retrait de toutes les références à NETPBM
 - #5885 fonction `formulaire_recherche()`
 - #5803 Fichier `ecrire/inc/json.php` et les vieilles fonctions de compatibilité json `json_export` et `var2js` : utiliser `json_encode` natif.
