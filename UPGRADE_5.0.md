@@ -567,8 +567,26 @@ $json = json_export($data);
 $json = var2js($data);
 ```
 
-### Après
+#### Après
 
 ```php
 $json = json_encode($data);
+```
+
+## Variables globales
+
+### `auteur_session`
+
+La globale `auteur_session` est supprimée, utilisez `visiteur_session` à la place.
+
+#### Avant
+
+```php
+$GLOBALS['auteur_session'];
+```
+
+#### Après
+
+```php
+$GLOBALS['visiteur_session'];
 ```
