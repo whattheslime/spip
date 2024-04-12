@@ -20,6 +20,7 @@ Changelog de SPIP 4.3
 
 ### Fixed
 
+- #5179 Lors de la génération d'un nouveau mot de passe pour un auteur, ne pas envoyer d'email si SPIP n'a pas pu le modifier
 - #5751 `#debug-nav` passe par dessus (en z-index) `#spip-debug`
 - #5897 Icône Tâches de fond qui n'évoque pas les bases de données
 - !5264 Refactoring de ecrire_fichier
