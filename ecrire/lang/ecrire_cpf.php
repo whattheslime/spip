@@ -210,9 +210,6 @@ inn liv-zimaz (sédir inn galri).',
 	'info_facilite_suivi_activite' => 'Pou swiv fasilman laktivité léditoryal sir lo sit, SPIP i pé anvwa inn zanons dann fil-imèl pou tout bann zitilizatèr anrozistré. Zanons komsa i kadr tout bann dommand pou lapiblikasyon oubyinsa bann konfirmasyon do dernyé bann zartik.', # MODIF
 	'info_fichiers_authent' => 'Bann fisyé pou lotantifikasyon « .htpasswd »',
 	'info_forums_abo_invites' => 'Out sit néna bann forom si labonman ; Ifo bann vizitèr li inskri azot si lo sit piblik.',
-	'info_gauche_admin_tech' => '<b>Pazwèb-la, lé sèlman ouvèr pour inndé responsab lo sit.</b><p> Li donn laksé sir bann fonksyon pou lantrotyen tèknik. Nana désertin sak i domann aou fé zwé inn prosésus spésial pou lotantifikasyon. Dann ka-la inn laksé FTP lé
-néséser pou sanz inn sizé sir lo sit.', # MODIF
-	'info_gauche_admin_vider' => '<b>Pazwèb-la, lé sèlman ouvèr pou inndé responsab lo sit.</b><p> Li donn laksé sir bann fonksyon pou lantrotyen tèknik. Nana désertin sak i domann aou fé zwé inn prosésus spésyal pou lotantifikasyon. Dann ka-la inn laksé FTP lé néséser pou sanz inn sizé sir lo sit.', # MODIF
 	'info_gauche_auteurs' => 'Ou va trouv tèrla tout bann lotèr lo sitwèb.
  Bann drwa pou bann dalon lé kadré èk la koulèr likonn azot (komandèr= vèr ;lotèr = zonn).',
 	'info_gauche_auteurs_exterieurs' => 'Bann lotèr-déor, sak nana pwinn laksé sir lo sitwèb, lé présizé èk inn likonn blé ; bann lotèr dégréné lé kadré èk inn korbéy.', # MODIF
@@ -567,8 +564,6 @@ Si lo larlik-la i rest touzour, ifo koz do sa èk out léberzèr.<p>', # MODIF
 Mé vèy byin, lopsyon-la, li lé pa aktivé otomatikman pou anpès lafisaz inn lavizman abizif.',
 	'texte_vide' => 'vid',
 	'texte_vider_cache' => 'Dévid lo kas',
-	'titre_admin_tech' => 'Lantrotyin tèknik',
-	'titre_admin_vider' => 'Lantrotyin tèknik',
 	'titre_cadre_afficher_article' => 'Afis bann zartik',
 	'titre_cadre_afficher_traductions' => 'Afis léta bann tradiksyon pou lalang-la.',
 	'titre_cadre_ajouter_auteur' => 'AZOUT INN LOTÈR :',

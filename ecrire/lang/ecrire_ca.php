@@ -296,8 +296,6 @@ desactivada per raons de seguretat (cosa normal en molts proveïdors d’hostatg
 	'info_facilite_suivi_activite' => 'Per tal de facilitat el seguiment de l’activitat editorial, SPIP pot fer arribar per correu electrònic, per exemple a una llista de correu dels redactors, l’avís de les peticions de publicació i de les validacions dels articles.', # MODIF
 	'info_fichiers_authent' => 'Fitxers d’autentificació « .htpasswd »',
 	'info_forums_abo_invites' => 'El seu lloc Web proporciona fòrums pels abonats; en el lloc públic els visitants són convidats a enregistrar-se.',
-	'info_gauche_admin_tech' => '<b>Només els responsables del lloc tenen accés a aquesta pàgina.</b><p> Dóna accés a les diferents funcions de manteniment tècnic. Algunes d’aquestes necessiten un procés d’autenticació específic que requereix disposar d’un accés FTP al lloc Web.</p>',
-	'info_gauche_admin_vider' => '<b>Només els responsables del lloc tenen accés a aquesta pàgina.</b><p> Dóna accés a les diferents funcions de manteniment tècnic. Algunes d’aquestes necessiten un procés d’autenticació específic que requereix disposar d’un accés FTP al lloc Web.</p>',
 	'info_gauche_auteurs' => 'Aquí hi trobareu tots els autors del lloc.
  El seu estat s’indica pel color de la seva icona (administrador = verd; redactor = groc).',
 	'info_gauche_auteurs_exterieurs' => 'Els autors externs, sense accés al lloc web, estan indicats amb una icona blava;
@@ -804,8 +802,6 @@ que es vol testar.',
 Aquesta opció està desactivada per defecte amb la finalitat d’evitar mostrar  missatges d’advertència intempestius.',
 	'texte_vide' => 'buit',
 	'texte_vider_cache' => 'buidar la memòria cau',
-	'titre_admin_tech' => 'Manteniment tècnic',
-	'titre_admin_vider' => 'Manteniment tècnic',
 	'titre_ajouter_un_auteur' => 'Afegir un autor',
 	'titre_ajouter_un_mot' => 'Afegir una paraula clau',
 	'titre_cadre_afficher_article' => 'Afegir els articles',

@@ -315,12 +315,6 @@ return [
 		publication et des validations d’articles.', # MODIF
 	'info_fichiers_authent' => 'Fichiers d’authentification « .htpasswd »',
 	'info_forums_abo_invites' => 'Votre site comporte des forums sur abonnement ; les visiteuses sont donc invitées à s’enregistrer sur le site public.',
-	'info_gauche_admin_tech' => '<b>Cette page est uniquement accessible aux responsables du site.</b><p> Elle donne accès aux différentes
-fonctions de maintenance technique. Certaines d’entre elles donnent lieu à un processus d’authentification spécifique, qui
-exige d’avoir un accès FTP au site Web.</p>',
-	'info_gauche_admin_vider' => '<b>Cette page est uniquement accessible aux responsables du site.</b><p> Elle donne accès aux différentes
-fonctions de maintenance technique. Certaines d’entre elles donnent lieu à un processus d’authentification spécifique, qui
-exige d’avoir un accès FTP au site Web.</p>',
 	'info_gauche_auteurs' => 'Vous trouverez ici toutes les autrices du site.
  Leur statut est indiqué par la couleur de leur icone (administratrice = vert ; rédactrice = jaune).',
 	'info_gauche_auteurs_exterieurs' => 'Les autrices extérieures, sans accès au site, sont indiquées par une icone bleue ;
@@ -871,8 +865,6 @@ avez fait des modifications importantes de graphisme ou de structure du site.',
 		intempestifs.',
 	'texte_vide' => 'vide',
 	'texte_vider_cache' => 'Vider le cache',
-	'titre_admin_tech' => 'Maintenance technique',
-	'titre_admin_vider' => 'Maintenance technique',
 	'titre_ajouter_un_auteur' => 'Ajouter une autrice',
 	'titre_ajouter_un_mot' => 'Ajouter un mot-clé',
 	'titre_cadre_afficher_article' => 'Afficher les articles',

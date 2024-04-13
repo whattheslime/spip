@@ -299,9 +299,6 @@ return [
 	'info_facilite_suivi_activite' => 'Om de opvolging en redactie van artikelen te vergemakkelijken, kan SPIP mails versturen -bijvoorbeeld naar een mailinglist van redacteurs- met de aankondiging van vragen voor publicatie of goedgekeurde publicaties.', # MODIF
 	'info_fichiers_authent' => 'Verificatiebestand ".htpasswd"',
 	'info_forums_abo_invites' => 'Je site bevat forums met abonnement; bezoekers worden dus op de publieke site verzocht zich in te schrijven.',
-	'info_gauche_admin_tech' => '<b>Deze pagina is enkel toegankelijk voor beheerders van de site.</b><p> Ze geeft toegang tot allerlei technische onderhoudstaken. Voor het uitvoeren van sommige taken zijn een afzonderlijke aanmelding en toegang tot je site via FTP nodig.</p>',
-	'info_gauche_admin_vider' => '<b>Deze pagina is alleen beschikbaar voor beheerders.</b><p> Het biedt toegang tot diverse
- technische onderhoudsfuncties. Sommige vereisen een specifiek verificatieproces, dat nodig is voor FTP-toegang tot de website.</p>',
 	'info_gauche_auteurs' => 'Je vindt hier alle auteurs van de site.
  Hun status is te herkennen aan de kleur van het icoontje (beheerder = groen; redacteur = geel).',
 	'info_gauche_auteurs_exterieurs' => 'Externe auteurs, zonder toegang tot de site, zijn aangeduid met een blauw icoontje,
@@ -834,8 +831,6 @@ Dit kan handig zijn als je veel pagina’s hebt gewijzigd, de layout of de struc
  scherm verschijnen.',
 	'texte_vide' => 'leeg',
 	'texte_vider_cache' => 'Cache leegmaken',
-	'titre_admin_tech' => 'Technisch onderhoud',
-	'titre_admin_vider' => 'Technisch onderhoud',
 	'titre_ajouter_un_auteur' => 'Voeg een auteur toe',
 	'titre_ajouter_un_mot' => 'Voeg een trefwoord toe',
 	'titre_cadre_afficher_article' => 'Artikelen tonen',

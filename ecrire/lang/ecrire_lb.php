@@ -282,8 +282,6 @@ return [
 	'info_facilite_suivi_activite' => 'Fir déi editorial Aktivitéiten ze verfollegen, ka SPIP d’Demande fir Artikelen ze verëffentlechen oder d’Bestätegungen un eng Mailingslëscht vun de Redakteren schécken.', # MODIF
 	'info_fichiers_authent' => 'Authentifikatiouns-Fichieren ".htpasswd"',
 	'info_forums_abo_invites' => 'Äre Site huet Forume wou een sech umelle muss; d’Visiteuren ginn also agelueden sech ze enregistréieren.',
-	'info_gauche_admin_tech' => '<b>Dës Säit ass fir déi Responsabel vum Site reservéiert.</b><p>Si erlaabt technesch Maintenance-Aarbechten. Fir verschidde vun deene Prozeduren muss een sech iwwer FTP identifizéieren kënnen.</p>',
-	'info_gauche_admin_vider' => '<b>Dës Säit ass fir déi Responsabel vum Site reservéiert.</b><p>Si erlaabt technesch Maintenance-Aarbechten. Fir verschidde vun deene Prozeduren muss een sech iwwer FTP identifizéieren kënnen.</p>',
 	'info_gauche_auteurs' => 'Hei fannt dir all d’Auteur’en vum Site. Hiren Zoustand ass duerch d’Faarf ugewisen (Admin = gréng; Redakter = giel).',
 	'info_gauche_auteurs_exterieurs' => 'Déi extern Auteuren ouni Zougang zum internen Deel sinn duerch eng blo Ikon markéiert, déi geläschten Auteuren duerch eng Dreckskëscht.',
 	'info_gauche_messagerie' => 'D’Messagerie erlaabt Iech Messagen un d’Redakteren ze schécken, privat Notizen ze maachen oder Annoncen op d’Startsäit vum privaten Deel ze setzen (wann dir Administrateur sidd).',
@@ -754,8 +752,6 @@ return [
 	'texte_travail_collaboratif' => 'Wann öfters e puer Redakteren un deem selwechten Artikel schaffen, kann de System déi rezent "oppen" Artikele weisen fir gläichzäiteg Ännerungen ze verhënneren. Dës Optioun ass par défaut ausgeschalt fir net andauernd Warnungen ze weisen.',
 	'texte_vide' => 'eidel',
 	'texte_vider_cache' => 'De Cache läschen',
-	'titre_admin_tech' => 'Maintenance',
-	'titre_admin_vider' => 'Maintenance',
 	'titre_ajouter_un_auteur' => 'En Auteur bäiflécken',
 	'titre_ajouter_un_mot' => 'E Schlësselwuert bäiflécken',
 	'titre_cadre_afficher_article' => 'D’Artikele weisen',

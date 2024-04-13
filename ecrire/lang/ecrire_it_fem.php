@@ -264,8 +264,6 @@ per esempio ad una mailing-list delle redattrici, l’annuncio delle domande di
 pubblicazione e di convalida degli articoli.', # MODIF
 	'info_fichiers_authent' => 'File d’autenticazione ".htpasswd"',
 	'info_forums_abo_invites' => 'Il sito comprende dei forum accessibili solo a utenti registrate. Nel sito pubblico è quindi presente una pagina d’iscrizione.',
-	'info_gauche_admin_tech' => '<b>Questa pagina è accessibile solo alle responsabili del sito.</b><p> Permette l’accesso alle diverse funzioni di manutenzione tecnica. Alcune di esse richiedono una procedura di identificazione specifica, tramite accesso FTP.</p>', # RELIRE
-	'info_gauche_admin_vider' => '<b>Questa pagina è accessibile solo alle responsabili del sito.</b><p> Permette l’accesso alle diverse funzioni di manutenzione tecnica. Alcune di esse richiedono una procedura di identificazione specifica, tramite accesso FTP.</p>', # RELIRE
 	'info_gauche_auteurs' => 'Elenco di tutte le autrici del sito.
 Il loro status è indicato dal colore dell’icona (redattrice = giallo; amministratrice = verde).',
 	'info_gauche_auteurs_exterieurs' => 'Le autrici esterne, senza accesso al sito, sono indicate da un’icona blu;
@@ -710,8 +708,6 @@ Questa opzione è disattivata di default
 per evitare di generare messaggi d’avvertimento intempestivi.',
 	'texte_vide' => 'vuoto',
 	'texte_vider_cache' => 'Svuota la cache',
-	'titre_admin_tech' => 'Manutenzione tecnica',
-	'titre_admin_vider' => 'Manutenzione tecnica',
 	'titre_cadre_afficher_article' => 'Visualizza gli articoli',
 	'titre_cadre_afficher_traductions' => 'Visualizzare lo stato delle traduzioni per le seguenti lingue:',
 	'titre_cadre_ajouter_auteur' => 'AGGIUNGI UN’AUTRICE: ',

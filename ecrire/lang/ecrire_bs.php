@@ -190,8 +190,6 @@ return [
 	'info_facilite_suivi_activite' => 'U svrhu posmatranja  editorijalne aktivnosti stranice, SPIP moze elektronskom postom  (npr. mailing listom urednika) proslijedjivati najave zahtijeva za publikaciju i ovjeru clanaka.', # MODIF
 	'info_fichiers_authent' => 'Dokument autentifikacije « .htpasswd »',
 	'info_forums_abo_invites' => 'Vasa stranica obudhvata i forume za clanove; posjetioci se pozivaju na registraciju u javnom  prostoru stanice.',
-	'info_gauche_admin_tech' => '<b>Ova strana je dostupna samo osobama odgovornim za web stranicu.</b><p> Ona daje pristup raznim funkcijama tehnickog odrzavanja. Neke od njih pruzaju  mogucnost specificne autentifikacije, koja zahtijeva pristup FTP-u web stranice.</p>', # MODIF
-	'info_gauche_admin_vider' => '<b>Ova strana je dostupna samo osobama odgovornim za web stranicu.</b><p> Ona daje pristup raznim funkcijama tehnickog odrzavanja. Neke od njih pruzaju mogucnost specificne autentifikacije, koja zahtijeva pristup FTP-u web stranice.</p>', # MODIF
 	'info_gauche_auteurs' => 'Ovdje cete pronaci sve autore ove web stranice. Njihov status je naznacen bojom njihove ikone (administrator = zelena; urednik = zuta).',
 	'info_gauche_auteurs_exterieurs' => 'Vanjski autori bez pristupa stranici su oznaceni plavom ikonom, a izbrisani autori sa ikonicom korpe za smece.', # MODIF
 	'info_gauche_messagerie' => 'Servis za slanje poruka vam omogucuje razmjenu poruka medju piscima, cuvanje biljeske (za licnu upotrebu) ili, ako ste administrator, postavljanje najava na pocetnu stranicu u privatnom prostoru.',
@@ -499,8 +497,6 @@ Prevodi su (sa bojom koja ukazuje na njihovo stanje) povezani sa originalnim cla
 	'texte_travail_collaboratif' => 'Ako je uobicajeno da vise urednika radi na istom clanku, sistem moze postavljati posljednje « otvarane » clanke, da bi se izbjegle simultane izmjene. Ova opcija je standardno iskljucena, da bi se izbjeglo postavljanje neodgovarajucih poruka upozorenja.',
 	'texte_vide' => 'prazno',
 	'texte_vider_cache' => 'Isprazniti kes',
-	'titre_admin_tech' => 'Tehnicko odrzavanje',
-	'titre_admin_vider' => 'Tehnicko odrzavanje',
 	'titre_cadre_afficher_article' => 'Prikazi clanke',
 	'titre_cadre_afficher_traductions' => 'Prikazi stanje prevoda za sljedece jezike:',
 	'titre_cadre_ajouter_auteur' => 'DODATI AUTORA:',

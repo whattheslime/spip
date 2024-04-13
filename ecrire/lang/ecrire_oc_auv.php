@@ -192,8 +192,6 @@ L’administrator dau sistèma o de la ret vos deu poder fornir
 	'info_facilite_suivi_activite' => 'Per facilitar lo segut de l’activitat editoriala dau sit, SPIP vos pòt fornir per e-mail, per exemple a una lista de corrèir daus redactors, l’anonci de las demandas de publicacion e de las validacions d’articles.', # MODIF
 	'info_fichiers_authent' => 'Fichèirs d’autentificacion « .htpasswd »',
 	'info_forums_abo_invites' => 'Vòstre sit web ofrís de forums per los abonats; dins lo sit public los vesitaires son convidats a se registrar.',
-	'info_gauche_admin_tech' => '<b>A aquela pagina, mas los responsables dau sit lai pòdon accedir.</b><p> Permet de trobar las diferentas foncions de mantenença tecnica. Quauques unas implican un procès d’autentificacion especific, que necessita un accès FTP vèrs lo sit web.</p>', # MODIF
-	'info_gauche_admin_vider' => '<b>A aquela pagina, mas los responsables dau sit lai pòdon accedir.</b><p> Permet de trobar las diferentas foncions de mantenença tecnica. Quauques unas implican un procès d’autentificacion especific, que necessita un accès FTP vèrs lo sit web.</p>', # MODIF
 	'info_gauche_auteurs' => 'Trobaretz aicí totes los autors dau sit. La color de las icònas n’indica l’estatut (administrator = verd; redactor = jaune).',
 	'info_gauche_auteurs_exterieurs' => 'Los autors exteriors, sens accès vèrs lo sit, son indicats amb una icòna blava; los autors esfaçats amb un bordilhèir.', # MODIF
 	'info_gauche_messagerie' => 'La messatjariá vos permet d’eschamjar de messatges entre redactors, de servar de mementos (per vòstre usatge personau) o d’afichar d’anoncis sus la pagina d’acuèlh de l’espaci privat (se sètz administrator/tritz).',
@@ -556,8 +554,6 @@ s’avètz bravament modificat lo grafisme o l’estructura dau sit.',
   intempestius.',
 	'texte_vide' => 'voide',
 	'texte_vider_cache' => 'Voidar l’escondedor',
-	'titre_admin_tech' => 'Mantenença tecnica',
-	'titre_admin_vider' => 'Mantenença tecnica',
 	'titre_cadre_afficher_article' => 'Afichar los articles',
 	'titre_cadre_afficher_traductions' => 'Afichar l’estat de las reviradas per las lengas seguentas:',
 	'titre_cadre_ajouter_auteur' => 'APONDRE UN AUTOR:',

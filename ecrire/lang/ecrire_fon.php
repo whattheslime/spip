@@ -189,8 +189,6 @@ return [
 	'info_facilite_suivi_activite' => 'bíbɛ xóxókplé sɔ yì', # MODIF
 	'info_fichiers_authent' => 'xó xókplé ',
 	'info_forums_abo_invites' => 'jōnɔ lɛ ní ná nyíkɔ.',
-	'info_gauche_admin_tech' => 'wémà é lɔ Tìtòtɔ lɛ kɛɖɛ wɛ síwú dàlɔmɛ', # MODIF
-	'info_gauche_admin_vider' => 'wémà é lɔ Tìtòtɔ lɛ kɛɖɛ wɛ síwú dàlɔmɛ', # MODIF
 	'info_gauche_auteurs' => 'Dò fyɔ, mí ná mɔ Tìtòtɔ gblogblojí ɔ tɔn lɛ .',
 	'info_gauche_auteurs_exterieurs' => 'Dò fyɔ, mí ná mɔ Tìtòtɔ gblogblojí ɔ tɔn lɛ .', # MODIF
 	'info_gauche_messagerie' => 'Winwlántɛnmɛ nɔ ná bɔ nyɔwlántɔ síwú nɔ ɖɔxó ɖó kpɔ.',
@@ -481,8 +479,6 @@ return [
 	'texte_travail_collaboratif' => 'Sùpípù ɔ tìtómɛ nù jíjlá tɔn ɖê minirézo kéjé bó lɛ vlɔnkán nú bíbló gblògblòjí uZine tɔn ɔ. Mì sɔ kɛ mí ɖò àcɛ wàlɔ GPl tɔn mɛ. Mī zé bò zán bó dó bló gblògblòjí lɛ̂ ná : é síwú nyí mì tɔn ɖé sú kàbí gbɛtá ɖé tɔn, kàbí tòxóɖɔgbɛ ɖé tɔn, àló àjɔwíwá wú.Gblògblòjí é lɔ̂, é wɛ nyí  Wěmàxòkplé sùpípù tɔn ɖò tájí. Mí ná lɛ mɔ àlɔwlí gégé ɖê ná ɖɔn mî yì gblògblòjí ɖê jí kplékplé lɛ̂ nɔ tîn ɖè ɔ ',
 	'texte_vide' => 'jɛ vɔ',
 	'texte_vider_cache' => 'gbàv i ɔ jɛ vɔ',
-	'titre_admin_tech' => 'wàlɔ zɔ',
-	'titre_admin_vider' => 'wàlɔ zɔ',
 	'titre_cadre_afficher_article' => 'xlɛ wékpá lɛ',
 	'titre_cadre_afficher_traductions' => 'mi xlɛ ɖê gbè lɛ tìnmɛ gbɔn wɛ é :',
 	'titre_cadre_ajouter_auteur' => 'mi gɔ nyɔwlántɔ ɖòkpó ná :',

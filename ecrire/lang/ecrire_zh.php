@@ -196,12 +196,6 @@ return [
   确认的声明.', # MODIF
 	'info_fichiers_authent' => '认证文件 ".htpasswd"',
 	'info_forums_abo_invites' => '您的网站包含要求注册的公共论坛；所以公共网站的访客将被要求注册。',
-	'info_gauche_admin_tech' => '<b>只有管理者才有权访问这页.</b><p> 它提供多种多种
-维护任务. 它们有一些需更高的认证
-(通过FTP访问站点).', # MODIF
-	'info_gauche_admin_vider' => '<b>只有管理者才有权访问这页.</b><p> 它提供多种维护任务
-. 它们有一些需更高的认证
-(通过FTP访问站点).', # MODIF
 	'info_gauche_auteurs' => '你将找到站点所有的作者.
  每一个的状态用路标的颜色标识(作者 = 绿色; 管理员 = 黄色).', # MODIF
 	'info_gauche_auteurs_exterieurs' => '外部作者用蓝色图标标识, 不能访问站点; 通过垃圾箱删除作者.', # MODIF
@@ -567,8 +561,6 @@ return [
   不可用.',
 	'texte_vide' => '清空',
 	'texte_vider_cache' => '清空缓存',
-	'titre_admin_tech' => '技术维护',
-	'titre_admin_vider' => '技术维护',
 	'titre_cadre_afficher_article' => '显示文章:',
 	'titre_cadre_afficher_traductions' => '显示语言的翻译状态.',
 	'titre_cadre_ajouter_auteur' => '加作者:',

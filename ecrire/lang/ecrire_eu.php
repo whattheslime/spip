@@ -312,9 +312,6 @@ Seguritate hobetzeko, konfigurazio hau aldatu behar zenuke, edo @constantes@ kon
 	'info_facilite_suivi_activite' => 'Jarduera editorialaren jarraipena errazteko, SPIP-ekkorreo elektronikoaren bidez bidali ahal dizkio, adibidez erredaktoreen zerrenda bati,artikuluen baliaztapen eta argitarapenen eskaeren iragarkiak.',
 	'info_fichiers_authent' => '« .htpasswd » autentifikazio-fitxategiak',
 	'info_forums_abo_invites' => 'Zure guneak harpidetza beharrezkoa egiten dituen foroak hartzen ditu ; beraz, bisitariak gune publikoan erregistratzera gonbidatuta daude.',
-	'info_gauche_admin_tech' => '<b>Orrialde honetan gunearen arduradunak baizik ezin dira sartu.</b><p>Mantentze teknikoaren funtzio guztietan sartzeko aukera ematen du. 
-Horietako batzuk baimentzeko prozesu berezi bat egin behar dute, gunearen FTP sarrerak eskatzen dituenak.</p>',
-	'info_gauche_admin_vider' => 'Orrialde honetan gunearen arduradunak baizik ezin dira sartu.<b><p>Mantentze teknikoaren funtzio guztietan sartzeko aukera ematen du. Horietako batzuk baimentzeko prozesu berezi bat egin behar dute, gunearen FTP sarrerak eskatzen dituenak.',
 	'info_gauche_auteurs' => 'Guneko egile guztiak ageri dira hemen. 
 Ikonoaren koloreak egile bakoitzaren egoera adierazten du (administralari = berdea; idazlaria = horia).',
 	'info_gauche_auteurs_exterieurs' => 'Kanpoko egileak, gunean sartzeko baimenik ez dutenak, ikono urdin batez adieraziak dira; ezabatuak izan direnak, berriz, ikono grisa baten bidez.',
@@ -833,8 +830,6 @@ Arazoa berriro gertatzen baldin bada, zure aterbetzailearekin harremanetan jar z
 	'texte_travail_collaboratif' => 'Sarritan erredaktore batbaino gehiago artikulu berberan lan egiten dute, sistemak duela gutxi "irekiak" izandiren artikuluak erakutsi ahal du, aldi bereko aldaketak saihesteko. Aukera hau,kontrakoa egin ezean, desaktibatuta dago ezorduko abisu mezuak saihesteko.',
 	'texte_vide' => 'Hutsik',
 	'texte_vider_cache' => 'Kache-a hustu',
-	'titre_admin_tech' => 'Mantentze-lan teknikoa',
-	'titre_admin_vider' => 'Mantentze-lan teknikoa',
 	'titre_ajouter_un_auteur' => 'Egile bat gehitu',
 	'titre_ajouter_un_mot' => 'gako-hitz bat gehitu',
 	'titre_cadre_afficher_article' => 'Artikuluak erakutsi',

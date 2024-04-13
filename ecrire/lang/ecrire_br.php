@@ -312,8 +312,6 @@ ar skeudennoù enframmet. Evel-se e c’heller krouiñ, da skouer,
   ar goulennoù embann ha kadarnaat ar pennadoù.', # MODIF
 	'info_fichiers_authent' => 'Restroù gwiriekaat « .htpasswd »',
 	'info_forums_abo_invites' => 'Foromoù dre goumanant zo war ho lec’hienn ; pedet e vez ar weladennerien d’en em enrollañ war lodenn foran al lec’hienn neuze.',
-	'info_gauche_admin_tech' => '<b>N’eus nemet an dud e-karg eus al lec’hienn a c’hall mont war ar bajenn-mañ.</b><p> Warni e reer al labourioù kempenn. Evit traoù zo ez eus ezhomm eus un argerzh testeniekaat dibar a c’houlenn kaout ur moned FTP ouzh al lec’hienn.</p>',
-	'info_gauche_admin_vider' => '<b>N’eus nemet an dud e-karg a c’hall mont war ar bajenn-mañ.</b><p>Warni e reer al labourioù kempenn. Evit traoù zo ez eus ezhomm eus un argerzh testeniekaat dibar a c’houlenn kaout ur moned FTP ouzh al lec’hienn.</p>',
 	'info_gauche_auteurs' => 'Amañ e kavot an holl dud a skriv war al lec’hienn.
  Diouzh liv o skeudennig e c’hellit gouzout o c’harg resis (merour=gwer; skridaozer=melen).',
 	'info_gauche_auteurs_exterieurs' => 'E glaz emañ diskouezet ar skridaozerien diavaez, hep moned ouzh al lec’hienn ;
@@ -840,8 +838,6 @@ adstaliañ SPIP hag adkrouiñ un diaz titouroù nevez hag ur moned merour kenta�
   Diweredekaet eo an dibarzh-mañ dre ziouer kuit da gaout kemennoù diwall a-hed an amzer.',
 	'texte_vide' => 'goullo',
 	'texte_vider_cache' => 'Goullonderiñ ar grubuilh',
-	'titre_admin_tech' => 'Trezalc’h teknikel',
-	'titre_admin_vider' => 'Trezalc’h teknikel',
 	'titre_ajouter_un_auteur' => 'Ouzhpennañ un aozer',
 	'titre_ajouter_un_mot' => 'Ouzhpennañ ur ger-alc’hwez',
 	'titre_cadre_afficher_article' => 'Diskouez ar pennadoù',

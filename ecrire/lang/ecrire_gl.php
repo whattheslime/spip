@@ -277,8 +277,6 @@ return [
   de publicación e de validacións dos artigos.', # MODIF
 	'info_fichiers_authent' => 'Ficheiros de autenticación «.htpasswd»',
 	'info_forums_abo_invites' => 'O seu web dispón de foros para se aboar ; os visitantes están invitados a se rexistrar neles na parte pública do web.',
-	'info_gauche_admin_tech' => '<b>Esta páxina é unicamente accessible para o equipo de xestión do web.</b><p> Dálle acceso a diferentes funcións de mantemento técnico. Algunhas delas dan lugar a procesos de autenticación específicos, que esixen ter un acceso por FTP ao web.</p>',
-	'info_gauche_admin_vider' => '<b>Esta páxina é unicamente accesible para o equipo de xestión do web.</b><p> Dálle acceso a diferentes funcións de mantemento técnico. Algunhas delas dan lugar a procesos de autenticación específicos, que esixeb ter un acceso por FTP ao web.</p>',
 	'info_gauche_auteurs' => 'Aquí atoparás a todos os autores do web.
   O seu status indícase coa cor da súa ícona (xestor = verde; redactor = amarela).',
 	'info_gauche_auteurs_exterieurs' => 'Os colaboradores exteriores, sen acceso ao web, indícanse por unha ícona azul;
@@ -780,8 +778,6 @@ estes ficheiros).</p>', # MODIF
   desactivada por defecto para evitar mostrar mensaxes de aviso intempestivas.',
 	'texte_vide' => 'baleiro',
 	'texte_vider_cache' => 'Baleirar a memoria caché',
-	'titre_admin_tech' => 'Mantemento técnico',
-	'titre_admin_vider' => 'Mantemento técnico',
 	'titre_ajouter_un_auteur' => 'Engadir un autor',
 	'titre_ajouter_un_mot' => 'Engadir unha palabra-clave',
 	'titre_cadre_afficher_article' => 'Mostrar os artigos',

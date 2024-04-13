@@ -311,8 +311,6 @@ Estas informações deverão ser fornecidas pelo administrador do sistema ou da 
 	'info_facilite_suivi_activite' => 'Para facilitar o acompanhamento da atividade editorial do site, o SPIP pode avisar por e-mail, por exemplo para uma mailing-list de redatores, os avisos dos pedidos de publicação e das validações das matérias. Informe um ou mais endereços, separados por vírgula.',
 	'info_fichiers_authent' => 'Arquivos de autenticação «.htpasswd»',
 	'info_forums_abo_invites' => 'O seu site comporta fóruns por assinatura; os visitantes são convidados a se registrar no site público.',
-	'info_gauche_admin_tech' => '<b>Esta página é acessível apenas aos responsáveis pelo site.</b><p>Ela dá acesso às diferentes funções de manutenção técnica. Algumas dessas funções possuem um processo específico de autenticação que exige acesso FTP ao website.</p>',
-	'info_gauche_admin_vider' => '<b>Esta página é acessível apenas aos responsáveis pelo site.</b><p> Ela dá acesso às diferentes funções de manutenção técnica. Algumas dessas funções possuem um processo específico de autenticação que exige acesso FTP ao website.</p>',
 	'info_gauche_auteurs' => 'Aqui, você encontra todos os autores do site.
 Os status dos autores é indicado pela côr dos ícones (administrador = verde; redator = amarelo).',
 	'info_gauche_auteurs_exterieurs' => 'Os autores externos, sem acesso ao site, são indicados por um ícone azul;
@@ -826,8 +824,6 @@ Se o problema persistir, contate o seu serviço de hospedagem.</p>',
 	'texte_travail_collaboratif' => 'Se é frequente acontecer de mais de um redator trabalhar em uma mesma matéria, o sistema pode exibir as matérias recentemente "abertas", de modo a evitar modificações concorrentes. Esta opção está desativada por padrão, para evitar a exibição de mensagens de aviso desnecessárias.',
 	'texte_vide' => 'vazia',
 	'texte_vider_cache' => 'Esvaziar o cache',
-	'titre_admin_tech' => 'Manutenção técnica',
-	'titre_admin_vider' => 'Manutenção técnica',
 	'titre_ajouter_un_auteur' => 'Incluir um autor',
 	'titre_ajouter_un_mot' => 'Incluir uma palavra-chave',
 	'titre_cadre_afficher_article' => 'Exibir as matérias',

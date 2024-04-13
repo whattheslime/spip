@@ -314,8 +314,6 @@ Essas informações devem poder ser fornecidas pelo administrador do sistema ou 
  publicação e das validações de artigos.', # MODIF
 	'info_fichiers_authent' => 'Ficheiros de autenticação « .htpasswd »',
 	'info_forums_abo_invites' => 'O seu sítio contém fóruns por assinatura; os visitantes são convidados a registar-se no sítio público.',
-	'info_gauche_admin_tech' => '<b>Esta página está acessível apenas aos responsáveis pelo site.</b><p> Ela dá acesso às diferentes funções de manutenção técnica. Algumas dessas funções possuem um processo específico de autenticação que exige acesso FTP ao sítio.</p>',
-	'info_gauche_admin_vider' => '<b>Esta página é acessível apenas aos responsáveis pelo sítio.</b><p> Ela dá acesso às diferentes funções de manutenção técnica. Algumas dessas funções possuem um processo específico de autenticação que exige acesso FTP ao sítio web</p>',
 	'info_gauche_auteurs' => 'Encontrará aqui todos os autores do sítio.
 Os estatuto dos autores é indicado pela cor dos ícones (administrador = verde; redactor = amarelo).',
 	'info_gauche_auteurs_exterieurs' => 'Os autores externos, sem acesso ao sítio, são indicados por um ícone azul;
@@ -861,8 +859,6 @@ a fim de evitar as modificações simultâneas.
  intempestivas.',
 	'texte_vide' => 'vazio',
 	'texte_vider_cache' => 'Esvaziar a cache',
-	'titre_admin_tech' => 'Manutenção técnica',
-	'titre_admin_vider' => 'Manutenção técnica',
 	'titre_ajouter_un_auteur' => 'Adicionar um autor',
 	'titre_ajouter_un_mot' => 'Adicionar uma palavra-chave',
 	'titre_cadre_afficher_article' => 'Exibir os artigos',

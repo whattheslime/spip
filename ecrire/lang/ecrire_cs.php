@@ -212,10 +212,6 @@ return [
   na webu. ', # MODIF
 	'info_fichiers_authent' => 'Autentifikační soubor ".htpasswd"',
 	'info_forums_abo_invites' => 'Na vašem webu existují diskusní skupiny vyhrazené přihlášeným účastníkům; návštěvníci se musí tedy zaregistrovat na veřejné části webu.',
-	'info_gauche_admin_tech' => '<b>Tato stránka je vyhrazena těm, kdo za web odpovídají.</b><p> Umožňuje přístup k funkcím
-pro technickou údržbu. Některé z nich spouští autentifikaci, jež vyžaduje FTP přístup k webu.</p>', # MODIF
-	'info_gauche_admin_vider' => '<b>Tato stránka je vyhrazena těm, kdo za web odpovídají.</b><p> Umožňuje přístup k funkcím
-pro technickou údržbu. Některé z nich spouští autentifikaci, jež vyžaduje FTP přístup k webu.</p>', # MODIF
 	'info_gauche_auteurs' => 'Zde jsou uvedeni všichni autoři webu.
  Jsou rozlišeni barvou ikony (správce = zelená; redaktor = žlutá).',
 	'info_gauche_auteurs_exterieurs' => 'Externí autoři bez přístupu k webu jsou označeni modrou ikonou;
@@ -589,8 +585,6 @@ změny grafického uspořádání nebo struktury vašeho webu.',
   zobrazování zbytečných varovných hlášení.',
 	'texte_vide' => 'vyprázdnit',
 	'texte_vider_cache' => 'Vyprázdnit cache',
-	'titre_admin_tech' => 'Technická údržba',
-	'titre_admin_vider' => 'Technická údržba',
 	'titre_cadre_afficher_article' => 'Zobrazit články',
 	'titre_cadre_afficher_traductions' => 'Zobrazit stav překladu v následujících jazycích:',
 	'titre_cadre_ajouter_auteur' => 'PŘIDAT AUTORA:',

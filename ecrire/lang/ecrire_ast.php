@@ -274,12 +274,6 @@ return [
   publicación y les validaciones d’artículos.', # MODIF
 	'info_fichiers_authent' => 'Archivos d’autentificación «.htpasswd»',
 	'info_forums_abo_invites' => 'Esti sitiu tien foros pa abonaos; poro a los visiteurs se-yos encamienta que se rexistren nel sitiu públicu.',
-	'info_gauche_admin_tech' => '<b>Esta páxina namái ye accesible pa los responsables del sitiu.</b><p> Equí ta l’accesu a les diferentes
-funciones de mantenimientu téunicu. Delles llancen un procesu d’identificación específicu, pal que
-fai falta tener accesu per FTP al sirvidor del sitiu Web.</p>',
-	'info_gauche_admin_vider' => '<b>Esta páxina namái ye accesible pa los responsables del sitiu.</b><p> Equí ta l’accesu a les diferentes
-funciones de mantenimientu téunicu. Delles llancen un procesu d’identificación específicu, pal que
-fai falta tener accesu per FTP al sirvidor del sitiu Web.</p>',
 	'info_gauche_auteurs' => 'Equí s’alcuentren tolos autores del sitiu.
  El so estatutu vien indicáu pola color de l’iconu (alministrador = verde; redactor = mariellu).',
 	'info_gauche_auteurs_exterieurs' => 'Los autores esternos, ensin accesu al sitiu, vienen indicaos con un iconu azul;
@@ -773,8 +767,6 @@ vienes de facer cambéos importantes nel grafismu o na estructura del sitiu.',
   intempestivos.',
 	'texte_vide' => 'vacíu',
 	'texte_vider_cache' => 'Vaciar la caché',
-	'titre_admin_tech' => 'Mantenimientu técnicu',
-	'titre_admin_vider' => 'Mantenimientu técnicu',
 	'titre_ajouter_un_auteur' => 'Amestar un autor',
 	'titre_ajouter_un_mot' => 'Amestar una pallabra-clave',
 	'titre_cadre_afficher_article' => 'Amosar los artículos',

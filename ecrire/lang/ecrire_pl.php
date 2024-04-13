@@ -300,10 +300,6 @@ return [
   o sprawdzenie i publikację artykułów.', # MODIF
 	'info_fichiers_authent' => 'Plik uwierzytelniający « .htpasswd »',
 	'info_forums_abo_invites' => 'Twoja strona zawiera formularze dostępne po zalogowaniu, zatem odwiedzający powinni się zarejestrować na stronie publicznej.',
-	'info_gauche_admin_tech' => 'Ta strona jest dostępna tylko dla osób kierujących witryną.</b><p>
-Daje dostęp do różnych funkcje konserwacji technicznej. Niektóre spośród nich wymagają specjalnego uwierzytelnienia, które można uzyskać jedynie poprzez FTP.</p>',
-	'info_gauche_admin_vider' => '<b>Ta strona jest dostępna jedynie dla głównych administratorów.</b>
-<p> Daje dostęp do funkcji typowo technicznych. Niektóre spośród nich wymagają specjalnego uwierzytelnienia, które można uzyskać jedynie poprzez FTP.</p>',
 	'info_gauche_auteurs' => 'Znajdziesz tutaj informacje o wszystkich autorach serwisu.
  Ich kompetencje są zaznaczone kolorem ikony (redaktor = zielonym; administrator = żółtym).',
 	'info_gauche_auteurs_exterieurs' => 'Autorzy zewnętrzni, bez dostępu do strefy publicznej, są zaznaczeni niebieską ikoną ;
@@ -837,8 +833,6 @@ odświeżyć tylko jedną stronę, zrób to z obszaru publicznego, używając pr
   w celu wyeliminowania niepotrzebnych komunikatów.',
 	'texte_vide' => 'pusty',
 	'texte_vider_cache' => 'Opróżnij cache',
-	'titre_admin_tech' => 'Konserwacja techniczna',
-	'titre_admin_vider' => 'Konserwacja techniczna',
 	'titre_ajouter_un_auteur' => 'Dodaj autora',
 	'titre_ajouter_un_mot' => 'Dodaj słowo kluczowe',
 	'titre_cadre_afficher_article' => 'Pokaż artykuły:',

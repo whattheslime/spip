@@ -315,11 +315,6 @@ immagini inserite. Ciò permette ad esempio di creare in automatico una galleria
 Indicare uno o più indirizzi, separati da virgole.',
 	'info_fichiers_authent' => 'File d’autenticazione ".htpasswd"',
 	'info_forums_abo_invites' => 'Il sito comprende dei forum accessibili solo a utenti registrati. Nel sito pubblico è quindi presente una pagina d’iscrizione.',
-	'info_gauche_admin_tech' => '<b>Questa pagina è accessibile solo ai responsabili del sito.</b><p> Permette l’accesso alle diverse funzioni
- di manutenzione tecnica. Alcune di esse richiedono una specifica procedura di identificazione, 
-eseguibile grazie a un accesso FTP.</p>',
-	'info_gauche_admin_vider' => '<b>Questa pagina è accessibile solo ai responsabili del sito.</b><p> Permette l’accesso alle diverse funzioni di manutenzione tecnica.
- Alcune di esse richiedono una specifica procedura di identificazione, eseguibile grazie ad un accesso FTP.</p>',
 	'info_gauche_auteurs' => 'Elenco di tutti gli autori del sito.
 Il loro status è indicato dal colore dell’icona (redattore = giallo; amministratore = verde).',
 	'info_gauche_auteurs_exterieurs' => 'Gli autori esterni, senza accesso al sito, sono indicati da un’icona blu;
@@ -857,8 +852,6 @@ Questa opzione è disattivata di default
 per evitare di generare messaggi d’avvertimento intempestivi.',
 	'texte_vide' => 'vuoto',
 	'texte_vider_cache' => 'Svuota la cache',
-	'titre_admin_tech' => 'Manutenzione tecnica',
-	'titre_admin_vider' => 'Manutenzione tecnica',
 	'titre_ajouter_un_auteur' => 'Aggiungi un autore',
 	'titre_ajouter_un_mot' => 'Aggiungi una parola chiave',
 	'titre_cadre_afficher_article' => 'Visualizza gli articoli',

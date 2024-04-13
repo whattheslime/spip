@@ -316,12 +316,6 @@ return [
   of publication requests and article validations. Enter one or more adresses separated by commas.',
 	'info_fichiers_authent' => 'Authentication file ".htpasswd"',
 	'info_forums_abo_invites' => 'Your site contains forums by subscription; visitors may register for them on the public site.',
-	'info_gauche_admin_tech' => '<b>Only webmasters have access to this page.</b><p> It provides access to various
-maintenance tasks. Some of them require a specific authentication process
-via FTP.</p>',
-	'info_gauche_admin_vider' => '<b>Only webmasters have access to this page.</b><p> It provides access to various
-maintenance tasks. Some of them require a specific authentication process
-via FTP.</p>',
 	'info_gauche_auteurs' => 'All the site authors are listed here.
  The status of each is indicated by the colour of their icon (administrator = green; editor = yellow).',
 	'info_gauche_auteurs_exterieurs' => 'Visiting authors, without any access to the site, are indicated by a blue icon; deleted authors by a grey icon.',
@@ -879,8 +873,6 @@ significant modifications to the site’s graphics or structure.',
   messages.',
 	'texte_vide' => 'empty',
 	'texte_vider_cache' => 'Empty the cache',
-	'titre_admin_tech' => 'Technical maintenance',
-	'titre_admin_vider' => 'Technical maintenance',
 	'titre_ajouter_un_auteur' => 'Add an author',
 	'titre_ajouter_un_mot' => 'Add a keyword',
 	'titre_cadre_afficher_article' => 'Show the articles:',

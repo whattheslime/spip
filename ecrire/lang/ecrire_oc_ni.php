@@ -260,9 +260,6 @@ Aqueli informacions vos devon poder èstre provesidi per l’administrator dau s
 	'info_facilite_suivi_activite' => 'Per facilitar lo seguit de l’activitat editoriala dau sit, SPIP vos pòu fornir per e-mail, per exemple à una mailing-list dei redactors, l’anonça dei demandas de publicacion e de validacion d’articles.', # MODIF
 	'info_fichiers_authent' => 'Fichiers d’autentificacion « .htpasswd »',
 	'info_forums_abo_invites' => 'Lo voastre sit web poarge de fòros per lu abonats; dins lo sit public lu visitaires son convidats de si registrar.',
-	'info_gauche_admin_tech' => '<b>A-n-aquela pàgina, son que lu responsables dau sit que la poadon accedir.</b><p> Dona accès ai diferenti foncions de mantenença tecnica. D’unas d’entre eli implicon un procèssus d’autentificacion especific, que
- necessita d’aver un accès FTP au sit web.</p>',
-	'info_gauche_admin_vider' => '<b>A-n-aquela pàgina, son que lu responsables dau sit que la poadon accedir.</b><p> Dona accès ai diferenti foncions de mantenença tecnica. D’unas d’entre eli implicon un procèssus d’autentificacion especific, que necessita d’aver un accès FTP au sit web.</p>',
 	'info_gauche_auteurs' => 'Trobaretz aquí toi lu autors dau sit.
  Lo sieu estatut es indicat per la color dei icònas sieui (administrator : verd; redactor : jaune).',
 	'info_gauche_auteurs_exterieurs' => 'Lu autors exteriors, sensa accès au sit, son indicats per una icòna blu; lu autors escafats per icòna grisa.',
@@ -708,8 +705,6 @@ s’avètz bravament modificat lo grafisme ò l’estructura dau sit.',
   intempestius.',
 	'texte_vide' => 'vuèi',
 	'texte_vider_cache' => 'Vuar l’amagador',
-	'titre_admin_tech' => 'Mantenença tecnica',
-	'titre_admin_vider' => 'Mantenença tecnica',
 	'titre_ajouter_un_auteur' => 'Ajustar un autor',
 	'titre_ajouter_un_mot' => 'Ajustar un mòt-clau',
 	'titre_cadre_afficher_article' => 'Afichar lu articles',

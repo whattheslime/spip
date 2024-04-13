@@ -210,8 +210,6 @@ Tout informasyon-nan,  komandèr-sistèm ou komandèr-rézo li dwa donn a w.',
  voye tout domann osnon konfimasyon pou fè parèt yon atik pa egsanp nan list-limèl pou redaktè.', # MODIF
 	'info_fichiers_authent' => 'Fichye yo pou lotantifikasyon « .htpasswd »',
 	'info_forums_abo_invites' => 'Sit w genyen fowom sou abonman ; vizitè   se invite enskri ali sou sit piblik.',
-	'info_gauche_admin_tech' => '<b>Responsab sit-la selman kapab fè lekti paj-la.</b><p> Li pèrmè laksé pou diféran fonksyon teknik pou swen sit sa-a. Genyen fonksyon sa-yo ki doman yon otantifikasyon espesifik ki doman yon laksé FTP pou sitweb-la.</p>', # MODIF
-	'info_gauche_admin_vider' => '<b>Responsab sit-la selman kapab fè lekti paj-la.</b><p> Li pèrmè laksé pou diféran fonksyon teknik pou swen sit sa-a. Genyen fonksyon sa-yo ki doman yon otantifikasyon espesifik ki doman yon laksé FTP pou sitweb-la.</p>', # MODIF
 	'info_gauche_auteurs' => 'Isit, genyen tout zotè sit sa-a.
 Koulè imaj rannkont stati yo (komandè = vèr; redaktè = jon).',
 	'info_gauche_auteurs_exterieurs' => 'Tout lòtè andèyò, ki genyen pa aksè sit-la, se afiche pa yon ikòn blè ;
@@ -574,8 +572,6 @@ Bagay-la pémè, pa egsanp, fòse rekalkil tout paj sa-yo, apré plizyè gro cha
 ',
 	'texte_vide' => 'vid',
 	'texte_vider_cache' => 'Vide kach-la',
-	'titre_admin_tech' => 'Swen teknik',
-	'titre_admin_vider' => 'Swen teknik',
 	'titre_cadre_afficher_article' => 'Fè parèt atik yo',
 	'titre_cadre_afficher_traductions' => 'Fè parèt kouman se tradiksyon yo pou tout lanng swivan :',
 	'titre_cadre_ajouter_auteur' => 'KREYE YON LOTE :',

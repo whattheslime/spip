@@ -300,10 +300,6 @@ Tamen vi povas malŝalti ĝin.',
 	'info_facilite_suivi_activite' => 'Por faciligi la kontrolon de la reteja ĉefartikola aktiveco, SPIP povas transdoni per retmesaĝoj - ekzemple al dissendlisto de redaktantoj - la anoncon pri publikig-petoj kaj validig-petoj de artikoloj.', # MODIF
 	'info_fichiers_authent' => 'Aŭtentokontrolaj dosieroj « .htpasswd »',
 	'info_forums_abo_invites' => 'Via retejo enhavas forumojn alireblajn nur per abono ; vizitantoj estas invititaj al registriĝo ĉe la publika retejo.',
-	'info_gauche_admin_tech' => '<b>Nur respondeculoj de la retejo rajtas aliri tiun paĝon.</b><p>Ĝi ebligas aliron al la diversaj funkcioj pri teknika bontenado. Iuj el ili okazigas specifan aŭtentigan procezon, kiu
-postulas disponi je FTP-alirrajto al la retejo.</p>',
-	'info_gauche_admin_vider' => '<b>Nur respondeculoj de la retejo rajtas aliri tiun paĝon.</b><p>Ĝi ebligas aliron al la diversaj funkcioj pri teknika bontenado. Iuj el ili okazigas specifan aŭtentigan procezon, kiu
-postulas disponi je FTP-alirrajto al la retejo.</p>',
 	'info_gauche_auteurs' => 'Vi trovos ĉi tie ĉiujn aŭtorojn de la retejo. Ilia statuso estas indikita per koloro de sia piktogramo (mastrumanto = verda, redaktanto = flava).',
 	'info_gauche_auteurs_exterieurs' => 'La eksteraj aŭtoroj, sen alireblo al la retejo, estas indikitaj per blua piktogramo ;
  la aŭtoroj forviŝitaj per griza piktogramo.',
@@ -849,8 +845,6 @@ faris gravajn ŝanĝojn en la grafiko aŭ strukturo de la retejo.',
   averto-mesaĝojn.',
 	'texte_vide' => 'malplena',
 	'texte_vider_cache' => 'Malplenigi la staplon',
-	'titre_admin_tech' => 'Teknika bontenado',
-	'titre_admin_vider' => 'Teknika bontenado',
 	'titre_ajouter_un_auteur' => 'Aldoni aŭtoron',
 	'titre_ajouter_un_mot' => 'Aldoni ŝlosilvorton',
 	'titre_cadre_afficher_article' => 'Afiŝi la artikolojn',

@@ -311,8 +311,6 @@ return [
 	'info_facilite_suivi_activite' => 'Um die editorische Arbeit zu erleichtern kann SPIP Veröffentlichungsvorschläge und Freischaltungen z.B. an eine Mailing-Liste der Redakteure schicken. Geben Sie eine oder mehrere Adressen an, die durch Kommata getrennt sind. ',
 	'info_fichiers_authent' => '“.htpasswd” Dateien',
 	'info_forums_abo_invites' => 'Ihre Website hat Foren für eingetragene Teilnehmer. Ihre Leser werden aus diesem Gund aufgefordert, sich bei Ihrer Website anzumelden.',
-	'info_gauche_admin_tech' => '<b>Diese Seite ist nur für den Verantwortlichen der Website zugänglich.</b><p>Sie erlaubt bestimmte technische Wartungsvorgänge auszulösen. Für manche Funktionen ist die Authentifizierung per FTP Voraussetzung.',
-	'info_gauche_admin_vider' => '<b>Diese Seite ist nur für den Verantwortlichen der Website zugänglich.</b><p>Sie erlaubt bestimmte technische Wartungsvorgänge auszulösen. Für manche Funktionen ist die Authentifizierung per FTP Voraussetzung.',
 	'info_gauche_auteurs' => 'Hier sehen Sie alle Autoren der Website.
 Ihr Status wird durch die Farbe ihres Symbols angezeigt (Redakteur = gelb; Administrator = grün). ',
 	'info_gauche_auteurs_exterieurs' => 'Externe Autoren ohne Zugang zum Redaktionssystem werden mit einem blauen Symbol gekennzeichnet, gelöschte Autoren haben eine Mülltonne als Symbol.',
@@ -834,8 +832,6 @@ Wenn das Problem weiter besteht, nehmen Sie bitte Kontakt mit Ihrem Provider auf
 	'texte_travail_collaboratif' => 'Wenn es öfter vorkommt, dass mehrere Redakteure gemeinsam an Artikeln arbeiten, kann SPIP die vor kurzem „geöffneten“ Artikel anzeigen, um gleichzeitige Änderungen vorzubeugen. Diese Funktion ist normalerweise abgeschaltet, um störende Meldungen zu reduzieren.',
 	'texte_vide' => 'leer',
 	'texte_vider_cache' => 'Cache leeren',
-	'titre_admin_tech' => 'Wartung',
-	'titre_admin_vider' => 'Wartung',
 	'titre_ajouter_un_auteur' => 'Autor hinzufügen',
 	'titre_ajouter_un_mot' => 'Schlagwort hinzufügen',
 	'titre_cadre_afficher_article' => 'Artikel anzeigen',

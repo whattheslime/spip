@@ -192,8 +192,6 @@ return [
 	'info_exportation_base' => 'eksporter database til @archive@',
 	'info_facilite_suivi_activite' => 'For at lette opfølgning på webstedets redaktionelle aktiviteter sender SPIP e-mails med anmodning om offentliggørelse og godkendelse til f.eks. redaktørens adresseliste.', # MODIF
 	'info_fichiers_authent' => 'Adgangskontrolfil ".htpasswd"',
-	'info_gauche_admin_tech' => '<b>Kun administratorer har adgang til denne side.</b><p> Den giver adgang til forskellige tekniske vedligeholdelsesopgaver. Nogle af dem giver anledning til en særlig adgangskontrol, der kræver FTP-adgang til siden.', # MODIF
-	'info_gauche_admin_vider' => '<b>Kun administratorer har adgang til denne side.</b><p> Den giver adgang til forskellige tekniske vedligeholdelsesopgaver. Nogle af dem giver anledning til en særlig adgangskontrol, der kræver FTP-adgang til siden.', # MODIF
 	'info_gauche_auteurs' => 'Her finder du alle webstedets forfattere. Status på hver enkelt fremgår af farven på ikonet (redaktør = grøn, administrator = gul).',
 	'info_gauche_auteurs_exterieurs' => 'Udenforstående forfattere uden adgang til webstedet vises med et blåt symbol; slettede forfattere repræsenteres af en papirkurv.', # MODIF
 	'info_gauche_messagerie' => 'Meddelelsessystemet giver mulighed for at udveksle meddelelser mellem redaktører, for at gemme huskesedler (til personlig brug) 
@@ -519,8 +517,6 @@ i en farve, der angiver deres status:',
 		slået fra for at undgå utidige advarselsmeddelelser.',
 	'texte_vide' => 'tom',
 	'texte_vider_cache' => 'Tøm cachen',
-	'titre_admin_tech' => 'Teknisk vedligeholdelse',
-	'titre_admin_vider' => 'Teknisk vedligeholdelse',
 	'titre_cadre_afficher_article' => 'Vis artikler som er',
 	'titre_cadre_afficher_traductions' => 'Vis oversættelsesstatus for følgende sprog:',
 	'titre_cadre_ajouter_auteur' => 'TILFØJ FORFATTER:',

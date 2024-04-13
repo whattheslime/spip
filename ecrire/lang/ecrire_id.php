@@ -211,8 +211,6 @@ return [
   sebagai contoh permohonan publikasi dan validasi artikel.', # MODIF
 	'info_fichiers_authent' => 'Berkas ototentikasi ".htpasswd"',
 	'info_forums_abo_invites' => 'Situs anda berisikan forum-forum berlangganan; pengunjung dapat mendaftarkan diri pada forum-forum tersebut di situs umum.',
-	'info_gauche_admin_tech' => '<b>Hanya administrator yang memiliki akses ke halaman ini.</b><p> Halaman ini memberikan akses ke berbagai tugas pemeliharaan teknis. Beberapa di antaranya memerlukan proses ototentikasi tersendiri yang membutuhkan akses FTP ke situs web.</p>', # MODIF
-	'info_gauche_admin_vider' => '<b>Hanya administrator yang memiliki akses ke halaman ini.</b><p> Halaman ini memberikan akses ke berbagai tugas pemeliharaan teknis. Beberapa di antaranya memerlukan proses ototentikasi tersendiri yang membutuhkan akses FTP ke situs web.</p>', # MODIF
 	'info_gauche_auteurs' => 'Anda akan menemukan seluruh penulis situs di sini.
  Status dari setiap penulis ditunjukkan oleh warna icon (administrator = hijau; editor = kuning).',
 	'info_gauche_auteurs_exterieurs' => 'Penulis eksternal, tanpa akses ke situs, ditunjukkan oleh icon biru; penulis yang dihapus oleh icon warna keranjang sampah.', # MODIF
@@ -597,8 +595,6 @@ anda memasukkan modifikasi yang penting di grafik atau struktur situs.',
   Opsi ini dinonaktifkan secara standar untuk menghindri pesan-pesan peringatan yang tidak perlu.',
 	'texte_vide' => 'kosong',
 	'texte_vider_cache' => 'Kosongkan cache',
-	'titre_admin_tech' => 'Pemeliharaan teknis',
-	'titre_admin_vider' => 'Pemeliharaan teknis',
 	'titre_cadre_afficher_article' => 'Tampilkan artikel:',
 	'titre_cadre_afficher_traductions' => 'Tampikan status terjemahan dari bahasa-bahasa berikut:',
 	'titre_cadre_ajouter_auteur' => 'TAMBAH SEORANG PENULIS:',

@@ -284,10 +284,6 @@ return [
 		pubblicazione è cunvalidazione d’artìculi.', # MODIF
 	'info_fichiers_authent' => 'Schedari d’autentificazione ".htpasswd"',
 	'info_forums_abo_invites' => 'U vostru situ cumporta fori accessìbuli solu à l’abbunati. Per ciò esiste una pàgina d’iscrizzione in u situ pùbblicu.',
-	'info_gauche_admin_tech' => '<b>Sta pàgina hè accessìbule solu à i rispunsèvuli di u situ.</b><p> 
-		Certe funzioni richerenu un specìficu prucedimentu d’identificazione, è necessiteghjanu per forza un accessu FTP à u situ.</p>', # MODIF
-	'info_gauche_admin_vider' => '<b>Sta pàgina hè accessìbule solu à i rispunsèvuli di u situ.</b><p> 
-		Certe funzioni richerenu un specìficu prucedimentu d’identificazione, è necessiteghjanu per forza un accessu FTP à u situ.</p>', # MODIF
 	'info_gauche_auteurs' => 'Truverete quì tutti l’autori di u situ.
 U so statutu hè signalatu da u culore di l’icona (scrittore = giallu; amministratore = verde).',
 	'info_gauche_auteurs_exterieurs' => 'L’autori esterni, senza accessu à u situ, sò signalati da un’icona turchina ;
@@ -775,8 +771,6 @@ U so statutu hè signalatu da u culore di l’icona (scrittore = giallu; amminis
 		creà micca messagi d’avertimentu in quantità.',
 	'texte_vide' => 'viotu',
 	'texte_vider_cache' => 'Sviutà u cache',
-	'titre_admin_tech' => 'Mantenimentu tècnicu',
-	'titre_admin_vider' => 'Mantenimentu tècnicu',
 	'titre_ajouter_un_auteur' => 'Aghjunghje un autore',
 	'titre_cadre_afficher_article' => 'Vede l’artìculi',
 	'titre_cadre_afficher_traductions' => 'Vede u statu di e traduzzioni per e seguenti lingue :',

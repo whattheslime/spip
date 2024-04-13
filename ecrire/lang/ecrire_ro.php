@@ -272,8 +272,6 @@ return [
 	'info_facilite_suivi_activite' => 'Pentru a uşura urmărirea activităţii editoriale a site-ului, SPIP poate trimite prin email cererile de publicare şi de validare a articolelor. De exemplu, destinatarul poate fi o listă de distribuţie a redacţiei.', # MODIF
 	'info_fichiers_authent' => 'Fişiere de autentificare « .htpasswd »',
 	'info_forums_abo_invites' => 'Site-ul dumneavoastră are forum-uri cu abonament ; vizitatorii sunt, aşadar, invitaţi să se înregistreze pe site-ul public.',
-	'info_gauche_admin_tech' => '<b>Această pagină este accesibilă doar responsabililor acestui site</b><br /> Ea dă acces la diverse funcţii de întreţinere tehnică. Unele dintre aceste funcţii cer un proces de autentificare specific, de exemplu să aveţi un acces FTP la site-ul Web.', # MODIF
-	'info_gauche_admin_vider' => '<b>Această pagină este accesibilă doar responsabililor acestui site</b><br /> Ea dă acces la diverse funcţii de întreţinere tehnică. Unele dintre aceste funcţii cer un proces de autentificare specific, de exemplu să aveţi un acces FTP la site-ul Web.', # MODIF
 	'info_gauche_auteurs' => 'Găsiţi aici toţi autorii acestui site.
  Starea lor este indicată prin codul de culori al iconiţei asociate (administrator = verde; redactor = galben).',
 	'info_gauche_auteurs_exterieurs' => 'Autorii existenţi, fără acces la site, sunt indicaţi cu ajutorul unei iconiţe albastre ;
@@ -716,8 +714,6 @@ avez fait des modifications importantes de graphisme ou de structure du site.',
   pentru a evita afişarea de mesaje intempensive de avertisment.',
 	'texte_vide' => 'gol',
 	'texte_vider_cache' => 'Goliţi tamponul',
-	'titre_admin_tech' => 'Întreţinere tehnică',
-	'titre_admin_vider' => 'Întreţinere tehnică',
 	'titre_cadre_afficher_article' => 'Afişaţi articolele',
 	'titre_cadre_afficher_traductions' => 'Afişaţi starea traducerilor pentru limbile următoare :',
 	'titre_cadre_ajouter_auteur' => 'ADĂUGAŢI UN AUTOR :',

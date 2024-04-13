@@ -303,12 +303,6 @@ return [
  o požiadavkách na publikovanie a schválení článkov, napr. do elektronickej konferencie redaktorov.', # MODIF
 	'info_fichiers_authent' => 'Autentifikačný súbor „.htpasswd“',
 	'info_forums_abo_invites' => 'Na vašej stránke sú diskusné fóra, ktoré vyžadujú registráciu. Návštevníci sa môžu zaregistrovať na verejne prístupnej stránke.',
-	'info_gauche_admin_tech' => '<b>K tejto stránke majú prístup len webmasteri.</b><p> Poskytuje prístup k rôznym
-funkciám údržby. Niektoré z nich si vyžadujú špeciálne prihlásenie
-cez FTP.</p>',
-	'info_gauche_admin_vider' => '<b>Na túto stránku majú prístup iba webmasteri.</b><p> Poskytuje prístup
-k rôznym funkciám údržby. Niektoré z nich si vyžadujú špeciálne prihlásenie
-cez FTP.</p>',
 	'info_gauche_auteurs' => 'Tu nájdete všetkých autorov stránky.
  Funkcia každého z nich je označená farbou ikony (administrátor = zelená, redaktor = žltá).',
 	'info_gauche_auteurs_exterieurs' => 'Externí autori bez prístupu na stránku sú označení modrou ikonou, odstránení autori sivou ikonou.',
@@ -852,8 +846,6 @@ v cache SPIPu. To si vynúti obnovenie každej stránky vášho webu, čo je u�
  s varovaniami.',
 	'texte_vide' => 'prázdny ',
 	'texte_vider_cache' => 'Vyprázdniť cache',
-	'titre_admin_tech' => 'Technická údržba',
-	'titre_admin_vider' => 'Technická údržba',
 	'titre_ajouter_un_auteur' => 'Pridať autora',
 	'titre_ajouter_un_mot' => 'Pridať kľúčové slovo',
 	'titre_cadre_afficher_article' => 'Zobraziť články:',

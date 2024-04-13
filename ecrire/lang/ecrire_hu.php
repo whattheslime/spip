@@ -205,8 +205,6 @@ return [
 	'info_facilite_suivi_activite' => 'Ahhoz, hogy könnyebben lehessen figyelemmel követni a honlap szerkesztői tevékenységét, SPIP emailen küldheti például a publikálási, ill. cikkjóváhagyási kéréseket egy szerzői levelezőlistára.', # MODIF
 	'info_fichiers_authent' => 'Azonosítási fájlok « .htpasswd »',
 	'info_forums_abo_invites' => 'A honlapja beiratkozásos fórumokat tartalmaz ; tehát a látogatók beíratkozhatnak a nyilvános részen.',
-	'info_gauche_admin_tech' => '<b>Ez az oldal csak a honlap gazdai részére elérhető.</b><p> A különböző műszaki karbantartási feladatokra ad lehetőséget. Ezek közül néhany igényel olyan specifikus azonosítási eljárást, ami a honlaphoz FTP elérést követel.</p>', # MODIF
-	'info_gauche_admin_vider' => '<b>Ez az oldal csak a honlap gazdai részére elérhető.</b><p> A különböző műszaki karbantartási feladatokra ad lehetőséget. Ezek közül néhany igényel olyan specifikus azonosítási eljárást, ami a honlaphoz FTP elérést követel.</p>', # MODIF
 	'info_gauche_auteurs' => 'Itt található a honlap összes szerzője.
  Saját státuszuk az ikon színe szerint van jelölve ( adminisztrátor = zöld; szerző = sárga).',
 	'info_gauche_auteurs_exterieurs' => 'A külső szerzők, melyek nem férhetnek a honlaphoz, kék ikonnal vannak jelölve ;
@@ -563,8 +561,6 @@ dans le cache SPIP. Ez például eröltethet az összes oldal frissítését, ha
 ',
 	'texte_vide' => 'üres',
 	'texte_vider_cache' => 'A cache ürítése',
-	'titre_admin_tech' => 'Műszaki karbantartás',
-	'titre_admin_vider' => 'Műszaki karbantartás',
 	'titre_cadre_afficher_article' => 'Cikkek megjelenítése',
 	'titre_cadre_afficher_traductions' => 'A fordítások állápotának megjelenítése a következő nyelvekről :',
 	'titre_cadre_ajouter_auteur' => 'ÚJ SZERZŐ :',

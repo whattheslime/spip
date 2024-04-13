@@ -190,8 +190,6 @@ return [
 	'info_facilite_suivi_activite' => 'Để làm nhẹ công việc của Ban Biên Tập, SPIP gửi bằng email các thông báo xin phép đăng và chấp thuận bài vở (đến mailing list của chủ bút chẳng hạn) ', # MODIF
 	'info_fichiers_authent' => 'Hồ sơ xác nhận ".htpasswd"',
 	'info_forums_abo_invites' => 'Trang web có các diễn đàn cần ghi danh; khách có thể vào ghi danh ở trang công cộng.',
-	'info_gauche_admin_tech' => '<b>Chỉ có quản trị viên được phép vào trang này.</b><p> Nơi đây cho phép bạn thực hiện một số công việc bảo trì. Một số việc cần phải có chứng nhận đặc biệt, cần phải dùng FTP để vào trang web.</p>', # MODIF
-	'info_gauche_admin_vider' => '<b>Chỉ có quản trị viên được phép vào trang này.</b><p> Nơi đây cho phép bạn thực hiện một số công việc bảo trì. Một số việc cần phải có chứng nhận đặc biệt, và cần phải dùng FTP để vào trang web.</p>', # MODIF
 	'info_gauche_auteurs' => 'Danh sách tất cả tác giả được liệt kê nơi đây. Trách nhiệm của mỗi người được biểu hiện qua màu của icon (chủ bút=màu xanh lá cây; quản lý=màu vàng).',
 	'info_gauche_auteurs_exterieurs' => 'Các tác giả bên ngoài (không được phép vào trang web) được biểu hiện bằng icon màu xanh dương; Tác giả nào bị xóa tên được biểu hiện bằng icon thùng rác.', # MODIF
 	'info_gauche_messagerie' => 'Phương tiện thư tín cho phép bạn trao đổi thư tín giữa các chủ bút với nhau, lưu trữ bản ghi nhớ (để sử dụng riêng) hoặc hiển thị thông báo trên trang nhà của vùng riêng (nếu bạn là người quản trị).',
@@ -506,8 +504,6 @@ và hiển ra với những màu khác nhau tùy theo tình trạng bài vở :
 Bạn có thể cho phép cảnh báo hay không:',
 	'texte_vide' => 'Trống rỗng',
 	'texte_vider_cache' => 'Dọn sạch cache',
-	'titre_admin_tech' => 'Bảo trì kỹ thuật',
-	'titre_admin_vider' => 'Bảo trì kỹ thuật',
 	'titre_cadre_afficher_article' => 'Liệt kê những bài',
 	'titre_cadre_afficher_traductions' => 'Cho xem tình trạng dịch thuật của ngôn ngữ này.',
 	'titre_cadre_ajouter_auteur' => 'THÊM MỘT TÁC GIẢ:',

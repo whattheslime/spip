@@ -192,8 +192,6 @@ L’administrator deu sistèma o de l’arret que’vs deu poder hornir
 	'info_facilite_suivi_activite' => 'Tà facilitar lo seguit de l’activitat editoriau deu sit, SPIP que’vs pòt hornir per e-mail, per exemple a ua lista de corrièr deus redactors, l’anonci de las demandas de publicacion e de las validacions d’articles.', # MODIF
 	'info_fichiers_authent' => 'Fichièrs d’autentificacion « .htpasswd »',
 	'info_forums_abo_invites' => 'Lo vòste sit web que horneish  forums entaus abonats; dens lo sit public los vesitaires que son convidats a registrà’s.',
-	'info_gauche_admin_tech' => '<b>A aquera pagina, sonque los responsables deu sit qu’i pòden accedir.</b><p> Que permet de trobar las diferentas foncions de mantienença tecnica. Daubuas qu’implican un procès d’autentificacion especific que necessita un accès FTP au sit web.', # MODIF
-	'info_gauche_admin_vider' => '<b>A aquera pagina, sonque los responsables deu sit qu’i pòden accedir.</b><p> Que permet de trobar las diferentas foncions de mantienença tecnica. Daubuas qu’implican un procès d’autentificacion especific que necessita un accès FTP au sit web.', # MODIF
 	'info_gauche_auteurs' => 'Que trobaratz ací tots los autors deu sit. La color de las icònas que n’indica l’estatut (administrator = verd; redactor = jaune).',
 	'info_gauche_auteurs_exterieurs' => 'Los autors exteriors, shens accès au sit, que son indicats per ua icòna blava; los autors esfaçats per ua caisha de las dèishas.', # MODIF
 	'info_gauche_messagerie' => 'La messatjaria que’vs permet d’escambiar messatges entre redactors, de servar mementos (tau vòste usatge personau) o d’afichar anoncis sus la pagina d’arcuelh de l’espaci privat (s’ètz administrator/tritz).',
@@ -555,8 +553,6 @@ s’avetz modificat de bèth pro lo grafisme o l’estructura deu sit.',
   intempestius.',
 	'texte_vide' => 'vueid',
 	'texte_vider_cache' => 'Vueidar l’esconeder',
-	'titre_admin_tech' => 'Mantienença tecnica',
-	'titre_admin_vider' => 'Mantienença tecnica',
 	'titre_cadre_afficher_article' => 'Afichar los articles',
 	'titre_cadre_afficher_traductions' => 'Afichar l’estat de las arreviradas tà las lengas seguentas:',
 	'titre_cadre_ajouter_auteur' => 'AJUSTAR UN AUTOR:',
