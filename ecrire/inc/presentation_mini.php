@@ -273,6 +273,8 @@ function info_copyright() {
  *
  * @see formulaires_recherche_ecrire_charger_dist()
  *
+ * @deprecated 4.2 Utiliser `#FORMULAIRE_RECHERCHE_ECRIRE`
+ *
  * @param string $page Nom de la page exec
  * @param string $complement Code HTML supplémentaire
  * @return string             Code HTML
@@ -280,7 +282,7 @@ function info_copyright() {
 function formulaire_recherche($page, $complement = '') {
 	$recherche = _request('recherche');
 	$recherche_aff = entites_html($recherche);
-	if (!strlen($recherche)) {
+	if (!strlen((string) $recherche)) {
 		$recherche_aff = _T('info_rechercher');
 		$onfocus = " onfocus=\"this.value='';\"";
 	} else {
