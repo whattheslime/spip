@@ -444,7 +444,6 @@ function actualise_metas($liste_meta) {
 			'creer_htaccess',
 			'gd_formats_read',
 			'gd_formats',
-			'netpbm_formats',
 			'formats_graphiques',
 			'image_process',
 			'plugin_header',

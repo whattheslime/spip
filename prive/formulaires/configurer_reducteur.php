@@ -68,9 +68,6 @@ function formulaires_configurer_reducteur_traiter_dist() {
 				case 'gd2':
 					$formats_graphiques = $GLOBALS['meta']['gd_formats_read'];
 					break;
-				case 'netpbm':
-					$formats_graphiques = $GLOBALS['meta']['netpbm_formats'];
-					break;
 				case 'convert':
 				case 'imagick':
 					$formats_graphiques = 'gif,jpg,png,webp';
@@ -108,14 +105,13 @@ function formulaires_configurer_reducteur_traiter_dist() {
  * une URL pour tester la librairie
  *
  * @param string $process
- *     Code de la libriairie, parmi gd2, netpbm, imagick ou convert
+ *     Code de la libriairie, parmi gd2, imagick ou convert
  * @return string
  *     URL d'action pour tester la librairie graphique en créant une vignette
  **/
 function url_vignette_choix(string $process): string {
 	$ok = match ($process) {
 		'gd2' => function_exists('ImageCreateTrueColor'),
-		'netpbm' => !(defined('_PNMSCALE_COMMAND') && _PNMSCALE_COMMAND == ''),
 		'imagick' => method_exists(\Imagick::class, 'readImage'),
 		'convert' => !(defined('_CONVERT_COMMAND') && _CONVERT_COMMAND == ''),
 		default => false,

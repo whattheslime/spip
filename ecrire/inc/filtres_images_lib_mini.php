@@ -1305,7 +1305,7 @@ function _image_ecrire_tag($valeurs, $surcharge = []) {
  * @param int $maxHeight
  *     Hauteur maximum en px de la miniateure à réaliser
  * @param string $process
- *     Librairie graphique à utiliser (gd1, gd2, netpbm, convert, imagick).
+ *     Librairie graphique à utiliser (gd1, gd2, convert, imagick).
  *     AUTO utilise la librairie sélectionnée dans la configuration.
  * @param bool $force
  * @return array|null
@@ -1425,56 +1425,6 @@ function _image_creer_vignette($valeurs, $maxWidth, $maxHeight, $process = 'AUTO
 		}
 		// remettre le chemin relatif car c'est ce qu'attend SPIP pour la suite (en particlier action/tester)
 		$vignette = $destination . '.' . $format_sortie;
-	}
-
-	// netpbm
-	elseif ($process == 'netpbm') {
-		if (!defined('_PNMSCALE_COMMAND')) {
-			define('_PNMSCALE_COMMAND', 'pnmscale');
-		} // Securite : mes_options.php peut preciser le chemin absolu
-		if (_PNMSCALE_COMMAND == '') {
-			return;
-		}
-		$vignette = $destination . '.' . $format_sortie;
-		$pnmtojpeg_command = str_replace('pnmscale', 'pnmtojpeg', (string) _PNMSCALE_COMMAND);
-		if ($format == 'jpg') {
-			$jpegtopnm_command = str_replace('pnmscale', 'jpegtopnm', (string) _PNMSCALE_COMMAND);
-			exec("$jpegtopnm_command $image | " . _PNMSCALE_COMMAND . " -width $destWidth | $pnmtojpeg_command > $vignette");
-			if (!($s = @filesize($vignette))) {
-				spip_unlink($vignette);
-			}
-			if (!@file_exists($vignette)) {
-				spip_logger('images')->info("echec netpbm-jpg sur $vignette");
-
-				return;
-			}
-		} else {
-			if ($format == 'gif') {
-				$giftopnm_command = str_replace('pnmscale', 'giftopnm', (string) _PNMSCALE_COMMAND);
-				exec("$giftopnm_command $image | " . _PNMSCALE_COMMAND . " -width $destWidth | $pnmtojpeg_command > $vignette");
-				if (!($s = @filesize($vignette))) {
-					spip_unlink($vignette);
-				}
-				if (!@file_exists($vignette)) {
-					spip_logger('images')->info("echec netpbm-gif sur $vignette");
-
-					return;
-				}
-			} else {
-				if ($format == 'png') {
-					$pngtopnm_command = str_replace('pnmscale', 'pngtopnm', (string) _PNMSCALE_COMMAND);
-					exec("$pngtopnm_command $image | " . _PNMSCALE_COMMAND . " -width $destWidth | $pnmtojpeg_command > $vignette");
-					if (!($s = @filesize($vignette))) {
-						spip_unlink($vignette);
-					}
-					if (!@file_exists($vignette)) {
-						spip_logger('images')->info("echec netpbm-png sur $vignette");
-
-						return;
-					}
-				}
-			}
-		}
 	}
 
 	// gd ou gd2
@@ -1694,7 +1644,7 @@ function process_image_svg_identite($image) {
  *     Hauteur désirée
  * @param bool $force
  * @param string $process
- *     Librairie graphique à utiliser (gd2, netpbm, convert, imagick).
+ *     Librairie graphique à utiliser (gd2, convert, imagick).
  *     AUTO utilise la librairie sélectionnée dans la configuration.
  * @return string
  *     Code HTML de la balise img produite
@@ -1706,9 +1656,7 @@ function process_image_reduire($fonction, $img, $taille, $taille_y, $force, $pro
 	}
 	# determiner le format de sortie
 	$format_sortie = false; // le choix par defaut sera bon
-	if ($process === 'netpbm') {
-		$format_sortie = 'jpg';
-	} elseif ($process === 'gd2') {
+	if ($process === 'gd2') {
 		$image = _image_valeurs_trans($img, "reduire-{$taille}-{$taille_y}", $format_sortie, $fonction, false, _SVG_SUPPORTED);
 		// on verifie que l'extension choisie est bonne (en principe oui)
 		$gd_formats = formats_image_acceptables(true);

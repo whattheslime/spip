@@ -23,14 +23,6 @@
 					name="image_process_\[#GET{process}\]">
 				[(#GET{process}|strtoupper)]
 				</button>]
-				#SET{process,netpbm}
-				[<button
-					type="submit"
-					class="btn btn_secondaire vignette_reducteur[(#ENV{image_process}|=={#GET{process}}|oui)on]"
-					style="background-image:url((#GET{process}|url_vignette_choix));"
-					name="image_process_\[#GET{process}\]">
-				[(#GET{process}|strtoupper)]
-				</button>]
 				#SET{process,imagick}
 				[<button
 					type="submit"

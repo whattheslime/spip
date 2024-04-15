@@ -23,7 +23,7 @@ if (!defined('_ECRIRE_INC_VERSION')) {
  * Tester les capacités du serveur à utiliser une librairie graphique
  *
  * L'argument transmis dans la clé `arg` est le type de librairie parmi
- * gd2, netpbm, imagick ou convert
+ * gd2, imagick ou convert
  *
  * L'action crée une vignette en utilisant la librairie indiquée puis
  * redirige sur l'image ainsi créée (sinon sur une image d'echec).
@@ -53,61 +53,10 @@ function action_tester_dist() {
 		$gd_formats = implode(',', $gd_formats);
 		ecrire_meta('gd_formats_read', $gd_formats);
 		ecrire_meta('gd_formats', $gd_formats);
-	} elseif ($arg == 'netpbm') {
-		// verifier les formats netpbm
-		if (!defined('_PNMSCALE_COMMAND')) {
-			define('_PNMSCALE_COMMAND', 'pnmscale');
-		} // Securite : mes_options.php peut preciser le chemin absolu
-		if (_PNMSCALE_COMMAND == '') {
-			return;
-		}
-		$netpbm_formats = [];
-
-		$jpegtopnm_command = str_replace(
-			'pnmscale',
-			'jpegtopnm',
-			(string) _PNMSCALE_COMMAND
-		);
-		$pnmtojpeg_command = str_replace(
-			'pnmscale',
-			'pnmtojpeg',
-			(string) _PNMSCALE_COMMAND
-		);
-
-		$vignette = _ROOT_IMG_PACK . 'test.jpg';
-		$dest = _DIR_VAR . 'test-jpg.jpg';
-		$commande = "$jpegtopnm_command $vignette | " . _PNMSCALE_COMMAND . " -width 10 | $pnmtojpeg_command > $dest";
-		spip_logger()->info($commande);
-		exec($commande);
-		if (($taille = @getimagesize($dest)) && $taille[1] == 10) {
-			$netpbm_formats[] = 'jpg';
-		}
-		$giftopnm_command = str_replace('pnmscale', 'giftopnm', (string) _PNMSCALE_COMMAND);
-		$pnmtojpeg_command = str_replace('pnmscale', 'pnmtojpeg', (string) _PNMSCALE_COMMAND);
-		$vignette = _ROOT_IMG_PACK . 'test.gif';
-		$dest = _DIR_VAR . 'test-gif.jpg';
-		$commande = "$giftopnm_command $vignette | " . _PNMSCALE_COMMAND . " -width 10 | $pnmtojpeg_command > $dest";
-		spip_logger()->info($commande);
-		exec($commande);
-		if (($taille = @getimagesize($dest)) && $taille[1] == 10) {
-			$netpbm_formats[] = 'gif';
-		}
-
-		$pngtopnm_command = str_replace('pnmscale', 'pngtopnm', (string) _PNMSCALE_COMMAND);
-		$vignette = _ROOT_IMG_PACK . 'test.png';
-		$dest = _DIR_VAR . 'test-gif.jpg';
-		$commande = "$pngtopnm_command $vignette | " . _PNMSCALE_COMMAND . " -width 10 | $pnmtojpeg_command > $dest";
-		spip_logger()->info($commande);
-		exec($commande);
-		if (($taille = @getimagesize($dest)) && $taille[1] == 10) {
-			$netpbm_formats[] = 'png';
-		}
-
-		ecrire_meta('netpbm_formats', implode(',', $netpbm_formats ?: []));
 	}
 
 	// et maintenant envoyer la vignette de tests
-	if (in_array($arg, ['gd2', 'imagick', 'convert', 'netpbm'])) {
+	if (in_array($arg, ['gd2', 'imagick', 'convert'])) {
 		include_spip('inc/filtres');
 		include_spip('inc/filtres_images_mini');
 		$taille_preview = 150;
