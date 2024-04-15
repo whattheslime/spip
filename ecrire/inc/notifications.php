@@ -139,7 +139,7 @@ function notifications_envoyer_mails($emails, $texte, $sujet = '', $from = '', $
 		$texte = trim(implode("\n", $texte));
 	}
 
-	$envoyer_mail = charger_fonction('envoyer_mail', 'inc');
+	include_spip('inc/envoyer_mail');
 	foreach ($emails as $email) {
 		// passer dans un pipeline qui permet un ajout eventuel
 		// (url de suivi des notifications par exemple)
@@ -177,7 +177,7 @@ function notifications_envoyer_mails($emails, $texte, $sujet = '', $from = '', $
  * @return string
  */
 function email_notification_objet($id_objet, $type_objet, $modele) {
-	$envoyer_mail = charger_fonction('envoyer_mail', 'inc'); // pour nettoyer_titre_email
+	include_spip('inc/envoyer_mail'); // pour nettoyer_titre_email
 	$id_type = id_table_objet($type_objet);
 
 	return recuperer_fond($modele, [$id_type => $id_objet, 'id' => $id_objet]);
@@ -195,7 +195,7 @@ function email_notification_objet($id_objet, $type_objet, $modele) {
  * @return string
  */
 function email_notification_article($id_article, $modele) {
-	$envoyer_mail = charger_fonction('envoyer_mail', 'inc'); // pour nettoyer_titre_email
+	include_spip('inc/envoyer_mail'); // pour nettoyer_titre_email
 
 	return recuperer_fond($modele, ['id_article' => $id_article]);
 }
