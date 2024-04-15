@@ -1305,7 +1305,7 @@ function _image_ecrire_tag($valeurs, $surcharge = []) {
  * @param int $maxHeight
  *     Hauteur maximum en px de la miniateure à réaliser
  * @param string $process
- *     Librairie graphique à utiliser (gd1, gd2, convert, imagick).
+ *     Librairie graphique à utiliser (gd2, convert, imagick).
  *     AUTO utilise la librairie sélectionnée dans la configuration.
  * @param bool $force
  * @return array|null
