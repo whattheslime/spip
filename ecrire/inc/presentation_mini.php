@@ -268,30 +268,3 @@ function info_copyright() {
 	)
 	. $secu;
 }
-
-/**
- * Retourne un formulaire de recherche pour l'espace privé
- *
- * Préférez l'usage en squelettes via la balise `#FORMULAIRE_RECHERCHE_ECRIRE`.
- *
- * @see formulaires_recherche_ecrire_charger_dist()
- *
- * @param string $page Nom de la page exec
- * @param string $complement Code HTML supplémentaire
- * @return string             Code HTML
- **/
-function formulaire_recherche($page, $complement = '') {
-	$recherche = _request('recherche');
-	$recherche_aff = entites_html($recherche);
-	if (!strlen((string) $recherche)) {
-		$recherche_aff = _T('info_rechercher');
-		$onfocus = " onfocus=\"this.value='';\"";
-	} else {
-		$onfocus = '';
-	}
-
-	$form = '<input type="text" size="10" value="' . $recherche_aff . '" name="recherche" class="recherche" accesskey="r"' . $onfocus . ' />';
-	$form .= "<input type='image' src='" . chemin_image('rechercher-20.png') . "' name='submit' class='submit' alt='" . _T('info_rechercher') . "' />";
-
-	return "<div class='spip_recherche'>" . generer_form_ecrire($page, $form . $complement, " method='get'") . '</div>';
-}
