@@ -19,7 +19,7 @@ function formulaires_configurer_identite_charger_dist() {
 	lire_metas();
 
 	$valeurs = [];
-	foreach (['nom_site', 'adresse_site', 'slogan_site', 'descriptif_site', 'email_webmaster'] as $k) {
+	foreach (['nom_site', 'adresse_site', 'slogan_site', 'descriptif_site', 'email_webmaster', 'timezone'] as $k) {
 		$valeurs[$k] = $GLOBALS['meta'][$k] ?? '';
 	}
 
@@ -53,7 +53,7 @@ function formulaires_configurer_identite_traiter_dist() {
 	set_request('adresse_site', appliquer_adresse_site(_request('adresse_site')));
 
 	include_spip('inc/meta');
-	foreach (['nom_site', 'slogan_site', 'descriptif_site', 'email_webmaster'] as $k) {
+	foreach (['nom_site', 'slogan_site', 'descriptif_site', 'email_webmaster', 'timezone'] as $k) {
 		ecrire_meta($k, _request($k));
 	}
 
