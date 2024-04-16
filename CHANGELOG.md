@@ -34,6 +34,7 @@
 
 ### Fixed
 
+- #4209 Combinaison des critères pagination et limit
 - #5714 Optimisation des boucles avec pagination, en forçant une clause limit automatique dessus
 - #4921 Ne pas conserver un double des fichiers calculés inchangés (`#PRODUIRE_FOND`)
 - #5910 Mieux tester l'unicité de l'email avec `_INTERDIRE_AUTEUR_MEME_EMAIL`
