@@ -9,6 +9,7 @@
 		parametre : url d'action ]
 		#ACTION_FORMULAIRE
 		<div class="editer-groupe">
+			<input type="submit" class="hidden" value="<:bouton_enregistrer|attribut_html:>" aria-hidden="true" />
 			#SET{name,suivi_edito}#SET{erreurs,#ENV*{erreurs/#GET{name}}}
 			<div class="editer editer_[(#GET{name})][ (#GET{obli})][ (#GET{erreurs}|oui)erreur]">
 				<label><:info_suivi_activite:></label>[
