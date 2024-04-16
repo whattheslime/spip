@@ -259,8 +259,8 @@ Para confirmar o seu novo endereço, basta acessar o endereço abaixo (cas contr
 	'form_forum_message_auto' => '(esta é uma mensagem automática)',
 	'form_forum_pass' => 'senha:',
 	'form_forum_probleme_mail' => 'Problema de e-mail: o identificador não pôde ser enviado.',
-	'form_forum_voici1' => 'Estes são os seus identificadores para que você possa participar da vida do site "@nom_site_spip@" (@adresse_site@):', # MODIF
-	'form_forum_voici2' => 'Estes são os seus identificadores para que você possa propor matérias ao site "@nom_site_spip@" (@adresse_login@):', # MODIF
+	'form_forum_voici1' => 'Estes são os seus dados de conexão para poder participar da vida do site "@nom_site_spip@" (@adresse_site@):',
+	'form_forum_voici2' => 'Estes são os seus dados de conexão para propor matérias para o site "@nom_site_spip@" (@adresse_login@):',
 	'form_indiquer_email' => 'Por favor, informe o seu endereço de e-mail.',
 	'form_indiquer_nom' => 'Por favor, informe o seu nome.',
 	'form_indiquer_nom_site' => 'Por favor, informe o nome do seu site.',
@@ -548,6 +548,12 @@ Se você não quiser que a sua senha possa ser interceptada na rede, por favor a
 
 	// N
 	'navigateur_pas_redirige' => 'Se o seu navegador não o redirecionar, clique aqui para continuar.',
+	'notification_mise_a_jour' => 'Olá,
+
+	O site @adresse_site@ pode ser atualizado para uma versão mais nova do SPIP.
+
+	Por questões de segurança, é importante manter o seu site atualizado.
+',
 	'numero' => 'Número',
 
 	// O
@@ -579,14 +585,14 @@ Se você não quiser que a sua senha possa ser interceptada na rede, por favor a
 Para recuperar o seu acesso ao site
 @nom_site_spip@ (@adresse_site@)
 
-clique por favor no endereço a seguir:
+Acesse o endereço a seguir:
 
     @sendcookie@
 
 Você poderá então cadastrar uma nova senha
 e reconectar-se com o site.
 
-', # MODIF
+',
 	'pass_mot_oublie' => 'Senha esquecida',
 	'pass_nouveau_enregistre' => 'Sua nova senha foi cadastrada.',
 	'pass_nouveau_pass' => 'Nova senha',
@@ -703,6 +709,8 @@ Tente se',
 	'zbug_pagination_sans_critere' => 'Tag #PAGINATION sem critério {pagination} ou usada dentro de uma boucle recursiva',
 	'zbug_parametres_inclus_incorrects' => 'Parâmetro de inclusão incorreto: @param@',
 	'zbug_profile' => 'Tempo de processamento: @time@',
+	'zbug_profile_nb' => 'Nb cállculo: @nb@',
+	'zbug_profile_total' => 'Tempo total: @time@',
 	'zbug_resultat' => 'resultado',
 	'zbug_serveur_indefini' => 'Sevidor SQL não definido',
 	'zbug_statistiques' => 'Estatísticas das requisições SQL classificadas por duração',
