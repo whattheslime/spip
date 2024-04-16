@@ -31,7 +31,6 @@ function inc_informer_dist($id, $col, $exclus, $rac, $type, $do = 'aff') {
 	$res = '';
 	if (
 		$type === 'rubrique'
-		&& (int) ($GLOBALS['visiteur_session']['prefs']['display'] ?? 0) !== 1
 		&& isset($GLOBALS['meta']['image_process'])
 		&& $GLOBALS['meta']['image_process'] !== 'non'
 	) {

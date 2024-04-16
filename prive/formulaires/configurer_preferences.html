@@ -8,53 +8,6 @@
 		parametre : url d'action ]
 		#ACTION_FORMULAIRE
 		<div class="editer-groupe">
-			#SET{name,display_navigation}#SET{erreurs,#ENV{erreurs/#GET{name}}}#SET{obli,''}
-			<div class="editer editer_[(#GET{name})][ (#GET{obli})][ (#GET{erreurs}|oui)erreur]">
-				<label><:label_texte_et_icones_navigation:></label>[
-				<span class='erreur_message'>(#GET{erreurs})</span>
-				]<div class="choix">
-					<input type='radio' class='radio' name='#GET{name}' id='[(#GET{name})]_1'[(#ENV{#GET{name}}|=={navigation_sans_icone}|oui)checked="checked" ]value="navigation_sans_icone"
-					onchange="if (this.checked) jQuery('body').addClass('navigation_sans_icone').removeClass('navigation_avec_icones'); else jQuery('body').removeClass('navigation_sans_icone').addClass('navigation_avec_icones');"/>
-					<label for="[(#GET{name})]_1"><:lien_afficher_texte_seul:></label>
-				</div>
-				<div class="choix">
-					<input type='radio' class='radio' name='#GET{name}' id='[(#GET{name})]_2'[(#ENV{#GET{name}}|=={navigation_sans_icone}|non)checked="checked" ]value="navigation_avec_icones"
-					onchange="if (!this.checked) jQuery('body').addClass('navigation_sans_icone').removeClass('navigation_avec_icones'); else jQuery('body').removeClass('navigation_sans_icone').addClass('navigation_avec_icones');"/>
-					<label for="[(#GET{name})]_2"><:lien_afficher_texte_icones:></label>
-				</div>
-			</div>
-			#SET{name,display}#SET{erreurs,#ENV{erreurs/#GET{name}}}#SET{obli,''}
-			<div class="editer editer_[(#GET{name})][ (#GET{obli})][ (#GET{erreurs}|oui)erreur]">
-				<label><:label_texte_et_icones_page:></label>[
-				<span class='erreur_message'>(#GET{erreurs})</span>
-				]<div class="choix">
-					<input type='radio' class='radio' name='#GET{name}' id='[(#GET{name})]_1'[(#ENV{#GET{name}}|=={1}|oui)checked="checked" ]value="1"
-					onchange="jQuery('body').removeClass('icones_texte').removeClass('icones_img_texte').removeClass('icones_img');
-					if (jQuery('#[(#GET{name})]_1').prop('checked')) jQuery('body').addClass('icones_texte')
-					else if (jQuery('#[(#GET{name})]_2').prop('checked')) jQuery('body').addClass('icones_img_texte')
-					else jQuery('body').addClass('icones_img');"
-					/>
-					<label for="[(#GET{name})]_1"><:lien_afficher_texte_seul:></label>
-				</div>
-				<div class="choix">
-					<input type='radio' class='radio' name='#GET{name}' id='[(#GET{name})]_2'[(#ENV{#GET{name}}|=={2}|oui)checked="checked" ]value="2"
-					onchange="jQuery('body').removeClass('icones_texte').removeClass('icones_img_texte').removeClass('icones_img');
-					if (jQuery('#[(#GET{name})]_1').prop('checked')) jQuery('body').addClass('icones_texte')
-					else if (jQuery('#[(#GET{name})]_2').prop('checked')) jQuery('body').addClass('icones_img_texte')
-					else jQuery('body').addClass('icones_img');"
-					/>
-					<label for="[(#GET{name})]_2"><:lien_afficher_texte_icones:></label>
-				</div>
-				<div class="choix">
-					<input type='radio' class='radio' name='#GET{name}' id='[(#GET{name})]_3'[(#ENV{#GET{name}}|=={3}|oui)checked="checked" ]value="3"
-					onchange="jQuery('body').removeClass('icones_texte').removeClass('icones_img_texte').removeClass('icones_img');
-					if (jQuery('#[(#GET{name})]_1').prop('checked')) jQuery('body').addClass('icones_texte')
-					else if (jQuery('#[(#GET{name})]_2').prop('checked')) jQuery('body').addClass('icones_img_texte')
-					else jQuery('body').addClass('icones_img');"
-					/>
-					<label for="[(#GET{name})]_3"><:lien_afficher_icones_seuls:></label>
-				</div>
-			</div>
 			#SET{name,couleur}#SET{erreurs,#ENV{erreurs/#GET{name}}}#SET{obli,''}
 			<div class="editer editer_[(#GET{name})][ (#GET{obli})][ (#GET{erreurs}|oui)erreur]">
 				<label><:titre_changer_couleur_interface:></label>[
