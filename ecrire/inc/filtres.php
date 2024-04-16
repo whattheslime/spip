@@ -5199,7 +5199,12 @@ function produire_fond_statique($fond, $contexte = [], $options = [], string $co
 			$comment .= "}\n   md5:" . md5($contenu) . " */\n";
 		}
 		// et ecrire le fichier si il change
-		ecrire_fichier_calcule_si_modifie($filename, $comment . $contenu, false, true);
+		if (ecrire_fichier_calcule_si_modifie($filename, $comment . $contenu) !== false) {
+			// on garde une trace de la derniere date de calcul
+			// un touch pourrait suffire mais il faut nettoyer les vieux fichiers .last qui contiennent une copie du fichier
+			// cf https://git.spip.net/spip/spip/-/issues/4921
+			file_put_contents($filename . '.last', '');
+		}
 	}
 
 	return timestamp($filename);
