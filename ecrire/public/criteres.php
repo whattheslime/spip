@@ -294,7 +294,7 @@ function critere_pagination_dist($idb, &$boucles, $crit) {
 	$command[\'pagination\'] = array((isset($Pile[0][' . $debut . ']) ? $Pile[0][' . $debut . '] : null), ' . $pas . ');';
 
 	$boucle->total_parties = $pas;
-	calculer_parties($boucles, $idb, $partie, 'p+');
+	calculer_parties($boucles, $idb, $partie, 'p+', $pas);
 	// ajouter la cle primaire dans le select pour pouvoir gerer la pagination referencee par @id
 	// sauf si pas de primaire, ou si primaire composee
 	// dans ce cas, on ne sait pas gerer une pagination indirecte
@@ -1287,7 +1287,7 @@ function calculer_critere_parties($idb, &$boucles, $crit) {
 		$boucle->limit = $a11 . ',' . $a21;
 	} else {
 		// 3 dans {1/3}, {2,3} ou {1,n-3}
-		$boucle->total_parties = ($a21 != 'n') ? $a21 : $a22;
+		$total_parties = ($a21 != 'n') ? $a21 : $a22;
 		// 2 dans {2/3}, {2,5}, {n-2,1}
 		$partie = ($a11 != 'n') ? $a11 : $a12;
 		$mode = (($op == '/') ? '/' :
@@ -1299,7 +1299,7 @@ function calculer_critere_parties($idb, &$boucles, $crit) {
 				. ".','."
 				. (is_numeric($a21) ? "'$a21'" : $a21);
 		} else {
-			calculer_parties($boucles, $idb, $partie, $mode);
+			calculer_parties($boucles, $idb, $partie, $mode, $total_parties);
 		}
 	}
 }
@@ -1326,10 +1326,14 @@ function calculer_critere_parties($idb, &$boucles, $crit) {
  *       -- qu'il faut soustraire debut du total {n-3,x}. 3 étant $debut
  *       -- qu'il faut raccourcir la fin {x,n-3} de 3 elements. 3 étant $total_parties
  *     - le signe p indique une pagination
+ * @param string $total_parties Valeur ou code pour trouver la fin (j dans {i,j})
  * @return void
  **/
-function calculer_parties(&$boucles, $id_boucle, $debut, $mode) {
-	$total_parties = $boucles[$id_boucle]->total_parties;
+function calculer_parties(&$boucles, $id_boucle, $debut, $mode, $total_parties = null) {
+	// @deprecated, compatibilite
+	if (is_null($total_parties)) {
+		$total_parties = $boucles[$id_boucle]->total_parties;
+	}
 
 	preg_match(',([+-/p])([+-/])?,', $mode, $regs);
 	[, $op1, $op2] = array_pad($regs, 3, null);
