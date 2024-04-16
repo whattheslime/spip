@@ -1329,8 +1329,8 @@ function calculer_critere_parties($idb, &$boucles, $crit) {
  * @param string $total_parties Valeur ou code pour trouver la fin (j dans {i,j})
  * @return void
  **/
-function calculer_parties(&$boucles, $id_boucle, $debut, $mode, $total_parties = null) {
-	// @deprecated, compatibilite
+function calculer_parties(&$boucles, $id_boucle, $debut, $mode, ?string $total_parties = null) {
+	// @deprecated 5.0 compatibilite
 	if (is_null($total_parties)) {
 		$total_parties = $boucles[$id_boucle]->total_parties;
 	}
