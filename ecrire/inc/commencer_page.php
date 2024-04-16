@@ -156,22 +156,12 @@ function init_body($rubrique = 'accueil', $sous_rubrique = 'accueil', $id_rubriq
  * @return string Classes CSS (séparées par des espaces)
  */
 function init_body_class() {
-	$display_modes = [
-		0 => 'icones_img_texte' // défaut.
-		/*init*/,
-		1 => 'icones_texte',
-		2 => 'icones_img_texte',
-		3 => 'icones_img'
-	];
 
 	$prefs = $GLOBALS['visiteur_session']['prefs'] ?? [];
 
-	$display_mode = $display_modes[intval($prefs['display'] ?? 0)] ?? $display_modes[0];
-	$spip_display_navigation = isset($prefs['display_navigation']) ? spip_sanitize_classname($prefs['display_navigation']) : 'navigation_avec_icones';
-
 	$couleur = intval($prefs['couleur'] ?? 2);
 
-	$classes = "spip-theme-colors-$couleur $spip_display_navigation $display_mode";
+	$classes = "spip-theme-colors-$couleur";
 	return spip_sanitize_classname($classes);
 }
 

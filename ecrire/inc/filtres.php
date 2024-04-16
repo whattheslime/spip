@@ -4607,11 +4607,10 @@ function bando_images_background() {
 
 	$res = '';
 	foreach ($boutons as $page => $detail) {
-		$selecteur = (in_array($page, ['outils_rapides', 'outils_collaboratifs']) ? '' : '.navigation_avec_icones ');
 		foreach ($detail->sousmenu as $souspage => $sousdetail) {
 			if ($sousdetail->icone and strlen(trim($sousdetail->icone))) {
 				$img = http_img_variante_svg_si_possible($sousdetail->icone);
-				$res .= "\n$selecteur.bando2_$souspage {background-image:url($img);}";
+				$res .= "\n.bando2_$souspage {background-image:url($img);}";
 			}
 		}
 	}
