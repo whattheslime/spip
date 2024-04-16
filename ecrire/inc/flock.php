@@ -333,10 +333,13 @@ function ecrire_fichier_securise($fichier, $contenu, $ecrire_quand_meme = false,
  * @param string $fichier
  * @param string $contenu
  * @param bool $force
- * @return bool
+ * @return ?bool
+ *   false en cas d'erreur
+ *   true en cas d'ecriture suite à modification
+ *   null si fichier inchangé car pas de modif
  */
-function ecrire_fichier_calcule_si_modifie($fichier, $contenu, $force = false, $use_copy = false) {
-	$fichier_tmp = $fichier . '.last';
+function ecrire_fichier_calcule_si_modifie($fichier, $contenu, $force = false) {
+	$fichier_tmp = $fichier . '.tmp.' . uniqid();
 	if (!ecrire_fichier($fichier_tmp, $contenu, true)) {
 		return false;
 	}
@@ -345,16 +348,13 @@ function ecrire_fichier_calcule_si_modifie($fichier, $contenu, $force = false, $
 		|| !file_exists($fichier)
 		|| md5_file($fichier) !== md5_file($fichier_tmp)
 	) {
-		if ($use_copy) {
-			@copy($fichier_tmp, $fichier);
-		}
-		else {
-			@rename($fichier_tmp, $fichier);
-		}
+		@rename($fichier_tmp, $fichier);
 		// eviter que PHP ne reserve le vieux timestamp
 		clearstatcache(true, $fichier);
+		return true;
 	}
-	return true;
+	@unlink($fichier_tmp);
+	return null;
 }
 
 
