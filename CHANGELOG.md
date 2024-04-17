@@ -34,6 +34,7 @@
 
 ### Fixed
 
+- #5916 Éviter un débordement du contenu des explications dans les formulaires de l'espace privé
 - !5936 Éviter une erreur fatale sur la sécurisation d’une action sans hash
 - #4209 Combinaison des critères pagination et limit
 - #5714 Optimisation des boucles avec pagination, en forçant une clause limit automatique dessus
