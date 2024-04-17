@@ -195,7 +195,24 @@ abstract class AbstractPage {
 	 * @return string Code HTML
 	 */
 	protected function fermeBody() {
-		return "\n\t</div>\n</body>\n</html>";
+		$debugTrace = "";
+		if (defined('_DEBUG_MINIPRES') && _DEBUG_MINIPRES) {
+			ob_start();
+			debug_print_backtrace();
+			$debugTrace = ob_get_contents();
+			ob_end_clean();
+			$debugTrace = "<div class='precode debug-trace'><pre class='spip_code spip_code_block'><code>" . spip_htmlentities($debugTrace) . "</code></pre></div>\n";
+			$debugTrace .= <<<css
+<style>
+.spip_code {background-color: rgba(255,255,255, 0.45);}
+.spip_code {font-size:0.9em;border-radius: 0.125em;text-shadow: 0 0 1px #fff;}
+.spip_code.spip_code_block {width: 100%;box-sizing:border-box;padding:1.5em;overflow: auto;}
+.precode {position:relative;}
+</style>
+css;
+
+		}
+		return "\n\t</div>\n$debugTrace</body>\n</html>";
 	}
 
 
