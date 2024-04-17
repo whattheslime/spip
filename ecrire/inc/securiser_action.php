@@ -54,9 +54,9 @@ function inc_securiser_action_dist($action = '', $arg = '', $redirect = '', $mod
 	if ($action) {
 		return securiser_action_auteur($action, $arg, $redirect, $mode, $att, $public);
 	} else {
-		$arg = _request('arg');
-		$hash = _request('hash');
-		$action = _request('action') ?: _request('formulaire_action');
+		$arg = _request('arg') ?? '';
+		$hash = _request('hash') ?? '';
+		$action = _request('action') ?: (_request('formulaire_action') ?? '');
 		if ($a = verifier_action_auteur("$action-$arg", $hash)) {
 			return $arg;
 		}
