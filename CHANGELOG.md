@@ -20,4 +20,5 @@ Changelog de SPIP 4.3
 
 ### Deprecated
 
+- #4857 Deprecier la classe `.label` au profit de `.editer-label` dans les formulaires
 - #5885 fonction `formulaire_recherche()`
