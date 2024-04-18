@@ -6,6 +6,7 @@ Changelog de SPIP 4.2
 
 ### Fixed
 
+- #5751 `#debug-nav` passe par dessus (en z-index) `#spip-debug`
 - #5916 Éviter un débordement du contenu des explications dans les formulaires de l'espace privé
 - !5936 Éviter une erreur fatale sur la sécurisation d’une action sans hash
 - #5910 Mieux tester l'unicité de l'email avec `_INTERDIRE_AUTEUR_MEME_EMAIL`
