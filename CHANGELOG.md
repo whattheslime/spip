@@ -8,8 +8,11 @@ Changelog de SPIP 4.3
 
 - !196 Améliorer l’ergonomie du formulaire instituer (changement de statut d’un objet éditorial)
 
-### Fixed
+### Changed
 
+- #5540 Les fonctions `extraire_balise` et `extraire_balises` peuvent gérer des balises imbriquées
+
+### Fixed
 
 - !5264 Refactoring de ecrire_fichier
 - #4209 Combinaison des critères pagination et limit
