@@ -4,6 +4,10 @@ Changelog de SPIP 4.3
 
 ## Unreleased
 
+### Added
+
+- !196 Améliorer l’ergonomie du formulaire instituer (changement de statut d’un objet éditorial)
+
 ### Fixed
 
 - #4209 Combinaison des critères pagination et limit
