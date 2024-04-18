@@ -4799,7 +4799,6 @@ function generer_objet_lien(int $id_objet, string $objet, int $longueur = 80, st
  * @return string
  */
 function wrap($texte, $wrap) {
-	$balises = extraire_balises($wrap);
 	if (preg_match_all(",<([a-z]\w*)\b[^>]*>,UimsS", $wrap, $regs, PREG_PATTERN_ORDER)) {
 		$texte = $wrap . $texte;
 		$regs = array_reverse($regs[1]);
