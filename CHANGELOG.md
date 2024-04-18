@@ -6,6 +6,7 @@ Changelog de SPIP 4.3
 
 ### Added
 
+- #5454 Ajouter une option `find_all_in_path()` pour renvoyer tous les fichiers répondant à un pattern
 - #5660 Nouveau filtre |balise_img_svg pour insérer une image ou un SVG inline sans savoir d'avance le format
 - #5690 Afficher un encart pour signaler les nouvelles versions dans toutes les pages de l'espace privé pour les webmestres, et un bouton pointant vers `spip_loader` s'il est présent
 - #3432 Notifier par email les webmestres du site lorsque SPIP dispose d’une mise à jour
