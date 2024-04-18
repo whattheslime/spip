@@ -4944,7 +4944,6 @@ function generer_lien_entite($id_objet, $objet, $longueur = 80, $connect = null)
  * @return string
  */
 function wrap($texte, $wrap) {
-	$balises = extraire_balises($wrap);
 	if (preg_match_all(",<([a-z]\w*)\b[^>]*>,UimsS", $wrap, $regs, PREG_PATTERN_ORDER)) {
 		$texte = $wrap . $texte;
 		$regs = array_reverse($regs[1]);
