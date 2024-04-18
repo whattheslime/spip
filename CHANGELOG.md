@@ -14,6 +14,7 @@ Changelog de SPIP 4.3
 
 ### Changed
 
+- #4994 Dans un plugin, si l’attribut logo d’un `paquet.xml` est absent, et qu’il existe un fichier `{prefixe}.svg` dans le plugin, il est utilisé comme logo
 - !5540 Les fonctions `extraire_balise` et `extraire_balises` peuvent gérer des balises imbriquées
 
 ### Fixed
