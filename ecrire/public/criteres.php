@@ -1357,9 +1357,10 @@ function calculer_critere_parties($idb, &$boucles, $crit) {
  * @return void
  **/
 function calculer_parties(&$boucles, $id_boucle, $debut, $mode, ?string $total_parties = null) {
-	// @deprecated 5.0 compatibilite
+	// @deprecated 4.3 Transmettre la valeur correcte de total_parties à la fonction.
 	if (is_null($total_parties)) {
 		$total_parties = $boucles[$id_boucle]->total_parties;
+		trigger_deprecation('spip', '4.3', 'Using "%s" with "%s" argument value NULL is deprecated', __FUNCTION__, 'total_parties');
 	}
 
 	preg_match(',([+-/p])([+-/])?,', $mode, $regs);
