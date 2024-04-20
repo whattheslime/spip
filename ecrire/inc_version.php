@@ -504,6 +504,11 @@ spip_initialisation_core(
 	(_DIR_RACINE . _NOM_TEMPORAIRES_ACCESSIBLES)
 );
 
+// timezone
+include_spip('inc/config');
+if ($timezone = lire_config('timezone')) {
+	date_default_timezone_set($timezone);
+}
 
 // chargement des plugins : doit arriver en dernier
 // car dans les plugins on peut inclure inc-version
@@ -575,16 +580,6 @@ if (
 	$t = preg_replace(',\W,', '_', $t);
 	if ($v = _request($t)) {
 		session_set($t, $v);
-	}
-}
-
-// timezone
-if (function_exists('date_default_timezone_set')) {
-	if (!function_exists('lire_config')) {
-		include_spip('inc/config');
-	}
-	if (($timezone = lire_config('timezone')) && $timezone != '') {
-		date_default_timezone_set($timezone);
 	}
 }
 
