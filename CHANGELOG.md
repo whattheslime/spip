@@ -34,7 +34,7 @@
 
 ### Fixed
 
-- #5751 `#debug-nav`passe par dessus (en z-index) `#spip-debug`
+- #5751 `#debug-nav` passe par dessus (en z-index) `#spip-debug`
 - #5916 Éviter un débordement du contenu des explications dans les formulaires de l'espace privé
 - !5936 Éviter une erreur fatale sur la sécurisation d’une action sans hash
 - #4209 Combinaison des critères pagination et limit
