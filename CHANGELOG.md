@@ -65,6 +65,7 @@
 
 ### Removed
 
+- #5917 Retrait de toutes les références à NETPBM
 - #5885 fonction `formulaire_recherche()`
 - #5803 Fichier `ecrire/inc/json.php` et les vieilles fonctions de compatibilité json `json_export` et `var2js` : utiliser `json_encode` natif.
 - !5890 Fichiers `ecrire/base/serial.php` et `ecrire/base/auxiliaires.php`, appeler la fonction de `base/objets` à la place.
