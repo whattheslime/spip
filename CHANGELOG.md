@@ -20,6 +20,7 @@ Changelog de SPIP 4.3
 
 ### Fixed
 
+- #5751 `#debug-nav` passe par dessus (en z-index) `#spip-debug`
 - #5897 Icône Tâches de fond qui n'évoque pas les bases de données
 - !5264 Refactoring de ecrire_fichier
 - #4209 Combinaison des critères pagination et limit
