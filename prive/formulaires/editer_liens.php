@@ -371,7 +371,7 @@ function formulaires_editer_liens_traiter_dist($a, $b, $c, $options = []) {
 
 
 /**
- * Retrouver l'action de liaision demandée
+ * Retrouver l'action de liaison demandée
  *
  * Les formulaires envoient une action dans un tableau ajouter_lien
  * ou supprimer_lien
