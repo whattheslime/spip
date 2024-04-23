@@ -4,6 +4,7 @@
 
 ### Added
 
+- #5439 Le formulaire d’identité du site permet de configurer la `timezone` utilisée
 - #4766 Le menu de création rapide passe en menu déroulant avec des labels explicites
 - #5459 La constante `_DEBUG_MINIPRES` définie à `true` active l’affichage d’un debug visible lorsqu’une erreur de type `Minipage` survient
 - #5454 Ajouter une option `find_all_in_path()` pour renvoyer tous les fichiers répondant à un pattern
