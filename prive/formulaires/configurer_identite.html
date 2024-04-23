@@ -41,7 +41,7 @@
 	  	#SET{name,timezone}#SET{erreurs,#ENV*{erreurs/#GET{name}}}#SET{obli,''}
 		<div class="editer editer_[(#GET{name})][ (#GET{obli})][ (#GET{erreurs}|oui)erreur]">
 			<label for="#GET{name}"><:label_choisir_timezone:></label>
-			<select name="#GET{name}" id="#GET{name}">
+			<select name="#GET{name}" id="#GET{name}" class="select2">
 				<option value="">-</option>
 			<BOUCLE_zones(DATA){source tableau,#EVAL{timezone_identifiers_list()}}>
 				<option value="#VALEUR"[(#ENV{#GET{name}}|=={#VALEUR}|oui)selected="selected"]>#VALEUR</option>
