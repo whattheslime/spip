@@ -121,11 +121,12 @@ function taches_generales($taches_generales = []) {
 
 	// nouveautes
 	if (
-		isset($GLOBALS['meta']['adresse_neuf']) and $GLOBALS['meta']['adresse_neuf']
-		and $GLOBALS['meta']['jours_neuf']
-		and ($GLOBALS['meta']['quoi_de_neuf'] == 'oui')
+		isset($GLOBALS['meta']['adresse_neuf'])
+		&& $GLOBALS['meta']['adresse_neuf']
+		&& (int) $GLOBALS['meta']['jours_neuf']
+		&& $GLOBALS['meta']['quoi_de_neuf'] == 'oui'
 	) {
-		$taches_generales['mail'] = 3600 * 24 * $GLOBALS['meta']['jours_neuf'];
+		$taches_generales['mail'] = 3600 * 24 * (int) $GLOBALS['meta']['jours_neuf'];
 	}
 
 	// maintenance (ajax, verifications diverses)
