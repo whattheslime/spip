@@ -33,6 +33,7 @@ Si vous déclariez cette constante (dans `config/mes_options.php` par exemple), 
 
 - Le surlignage des mots de recherche est déplacé dans [le nouveau plugin Surligne](https://git.spip.net/spip-contrib-extensions/surligne)
 - la fonction `formulaire_recherche()` est supprimée. Utiliser la balise `#FORMULAIRE_RECHERCHE_ECRIRE`.
+- NETPBM n'est plus disponible pour la génération des vignettes.
 
 ## Squelettes
 
