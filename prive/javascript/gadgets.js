@@ -105,8 +105,7 @@ jQuery(function(){
 		jQuery('#bando_navigation ul li>ul').css({'top':hauteur});
 	});
 
-	jQuery('#bando_navigation .deroulant > li').menuFocus();
-	jQuery('#bando_outils .deroulant > li').menuFocus();
+	jQuery('#bando_haut .deroulant > li').menuFocus();
 
 	jQuery('#bandeau_haut #formRecherche input').on('hover touchstart', function(){
 		jQuery('#bandeau_haut ul.actif').trigger('mouseout');

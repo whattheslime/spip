@@ -9,8 +9,7 @@
 	2. Bandeau liens d'évitement
 	3. Bandeau identité
 	4. Bandeau de navigation principale
-	5. Bandeau d'outils
-	6. Autres
+	5. Autres
 
 	<style>
 ]
@@ -36,7 +35,7 @@
 	/* Outils */
 	--spip-bando-outils-spacing-x: 0.33rem;
 	--spip-bando-outils-spacing-y: 0.25rem;
-	--spip-bando-outils-icon-size: 16px;
+	--spip-bando-outils-icon-size: 1em;
 	/* Menus déroulants */
 	--spip-deroulant-spacing-x: 0.33rem;
 	--spip-deroulant-spacing-y: 0.5rem;
@@ -50,7 +49,7 @@
 		/* Outils */
 		--spip-bando-outils-spacing-x: 0.5rem;
 		--spip-bando-outils-spacing-y: 0.33rem;
-		--spip-bando-outils-icon-size: 20px;
+		--spip-bando-outils-icon-size: 1.3em;
 		/* Menus déroulants */
 		--spip-deroulant-spacing-x: 0.5rem;
 		--spip-deroulant-spacing-y: 0.66rem;
@@ -77,6 +76,7 @@
 .bando-haut {
 	position: relative;
 	z-index: 1001;
+	border-bottom: 1px solid var(--spip-color-theme);
 }
 .bando-haut a {
 	text-decoration: none;
@@ -198,6 +198,7 @@
 .bando-haut .deroulant {
 	display: flex;
 	flex-flow: row wrap;
+	align-items: center;
 	line-height: 1.2;
 }
 
@@ -205,6 +206,7 @@
 .bando-haut .deroulant__item {
 	flex: auto 1; /* effectif à la racine uniquement, plus bas le conteneur est en display:block */
 	display: block; /* block obligé, cf. notes */
+	position: relative;
 }
 
 /* Liens <a> */
@@ -216,6 +218,9 @@
 	color: inherit;
 	transition: all 0.1s;
 	position: relative;
+}
+.bando-id .deroulant__lien img,  .bando-id .deroulant__lien svg{
+	margin-#RIGHT: 0.5em;
 }
 .bando-haut .deroulant__lien .libelle {
 	flex: 1 1 100%;
@@ -231,8 +236,8 @@
 	outline: none;
 	box-shadow: inset 0 0 0 1px var(--spip-color-theme);
 }
-/* Liens des sous-menus : prévoir les icônes à gauche en background */
-.bando-haut .deroulant__sous-menu .deroulant__lien {
+/* Liens des sous-menus : prévoir les icônes à gauche en background pour ceux qui n'ont pas déjà une image en HTML */
+.navigation_avec_icones .bando-haut .deroulant__sous-menu .deroulant__lien:not(:has(img), :has(svg)) {
 	padding-#LEFT: calc(var(--spip-deroulant-icon-size) + (var(--spip-deroulant-spacing-x) * 2));
 	background-position: var(--spip-left) var(--spip-deroulant-spacing-x) center;
 	background-size: var(--spip-deroulant-icon-size);
@@ -266,6 +271,12 @@
 	z-index: 100;
 	#LEFT: auto;
 	opacity: 1;
+}
+/* Ajustements pour le menu perso tout à droite */
+.deroulant_infos_perso .deroulant__item:focus-within > .deroulant__sous-menu,
+.deroulant_infos_perso .deroulant__item.actif > .deroulant__sous-menu,
+.deroulant_infos_perso .deroulant__item.actif_tempo > .deroulant__sous-menu {
+	#RIGHT: 0;
 }
 /* Ajustements arrondis */
 .bando-haut .deroulant__sous-menu[data-profondeur="1"] {
@@ -353,13 +364,17 @@
 .bando-id {
 	z-index: 10;
 	position: relative;
-	overflow: hidden;
-	background: var(--spip-color-theme-lightest);
+	font-size: 0.9em;
+	background: var(--spip-color-theme-light);
 	color: var(--spip-color-gray-darkest);
 }
 .bando-id .largeur {
 	display: flex;
 	flex-flow: row wrap;
+}
+.bando-id img, .bando-id svg {
+	max-height: 1.3em;
+	width: auto;
 }
 /* Menu liens */
 .bando-id .menu-simple {
@@ -372,6 +387,9 @@
 .bando-id a:focus {
 	color: var(--spip-color-theme-dark);
 }
+.bando-id .picto_identite {
+	filter: saturate(0);
+}
 .bando-id svg.picto-lang {
 	height: 1.3em;
 	width: auto;
@@ -381,14 +399,42 @@
 .bando-id svg.picto-lang path {
 	fill: inherit; /* forcer la main (?) */
 }
+.bando-id .deroulant__item_plan .picto {
+	margin-right: 0;
+}
+.bando-id .deroulant__item_collaborer:not(:last-child) {
+	margin-inline-end: calc(-1 * var(--spip-deroulant-spacing-x));
+}
+.bando-id .deroulant__item_collaborer .deroulant__lien {
+	flex: 0 0 auto;
+	align-items: center;
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: var(--spip-bando-outils-icon-size);
+	padding-left: calc(2 * var(--spip-deroulant-spacing-x));
+	padding-right: calc(2 * var(--spip-deroulant-spacing-x));
+}
+.bando-id .deroulant__item_collaborer .deroulant__lien .libelle {
+	visibility: hidden;
+	display: block;
+	height: var(--spip-bando-outils-icon-size);
+	width: var(--spip-bando-outils-icon-size);
+	overflow: hidden;
+}
+.bando-id .deroulant__item_aide .deroulant__lien {
+	border-left: 1px solid var(--spip-color-theme-lighter);
+	border-right: 1px solid var(--spip-color-theme-lighter);
+	padding-left: 1em;
+	padding-right: 1em;
+}
 /* Responsive */
 @media (min-width: 580px) {
-	.bando-id .largeur {
-		justify-content: space-between;
+	.bando-id .largeur > *:not(:first-child) {
+		margin-left: auto;
 	}
-	.bando-id .menu-simple {
-		flex: 0 1 auto;
-		flex-wrap: nowrap;
+	.bando-id .largeur .formulaire_recherche,
+	.bando-id .largeur .deroulant_infos_perso {
+		margin-left: 0;
 	}
 }
 
@@ -463,130 +509,39 @@
 	border-top: 1px solid var(--spip-color-gray-lighter);
 }
 
-/**
- * =================
- * 5. Bandeau outils
- * =================
- *
- * Outils après le menu principal
- * Voir aussi 1.2 pour les styles mutualisés du menu déroulant
- */
-
-
-.bando-outils {
-	width: 100%;
-	background: var(--spip-color-theme-light);
-}
-
-/* Layout */
-.bando-outils > .largeur,
-.bando-outils .outils,
-.bando-outils .rapides,
-.bando-outils .rapides__item,
-.bando-outils .rapides__lien {
-	display: flex;
-}
-.bando-outils .largeur {
-	flex-flow: row wrap;
-	justify-content: flex-start;
-}
-.bando-outils .outils {
-	flex: 1 0 100%;
-}
-@media (min-width: 768px) {
-	.bando-outils .largeur {
-		flex-flow: row nowrap;
-		justify-content: space-between;
-	}
-	.bando-outils .outils {
-		flex: 0 1 auto;
-	}
-}
-
-/* Menus « rapides » */
-.bando-outils {
-	color: var(--spip-color-gray-dark);
-}
-.bando-outils .deroulant[data-racine] > .deroulant__item > .deroulant__lien {
-	color: var(--spip-color-gray-darkest);
-}
-.bando-outils .picto {
-	width: var(--spip-bando-outils-icon-size);
-	height: auto;
-}
-.bando-outils .deroulant__lien img + .libelle {
-	margin-left: 0.25em;
-}
-.bando-outils .rapides__lien {
-	flex: 0 0 auto;
-	align-items: center;
-	padding: var(--spip-bando-outils-spacing-y) var(--spip-bando-outils-spacing-x);
-	background-position: center;
-	background-repeat: no-repeat;
-	background-size: var(--spip-bando-outils-icon-size);
-}
-.bando-outils .rapides__lien:hover,
-.bando-outils .rapides__lien:focus {
-	background-color: var(--spip-color-theme-lighter);
-}
-.bando-outils .rapides__lien:focus {
-	outline: none;
-	box-shadow: inset 0 0 0 1px var(--spip-color-theme);
-}
-.bando-outils .rapides__item .libelle {
-	visibility: hidden;
-	display: block;
-	height: var(--spip-bando-outils-icon-size);
-	width: var(--spip-bando-outils-icon-size);
-	overflow: hidden;
-}
-.bando-outils .rapides_collaborer {
-	margin-#RIGHT: 1em;
-}
-
 
 /* Plan déroulant : ressérer, icônes customs, ouverture latérale */
-.deroulant.deroulant_rubriques {
-	--spip-deroulant-spacing-y: var(--spip-bando-outils-spacing-y);
-	--spip-deroulant-spacing-x: var(--spip-bando-outils-spacing-x);
-	--spip-deroulant-icon-size: 14px;
-	margin-#RIGHT: 1em;
-}
-/* 1ère entrée : aligner sur les icônes des outils */
-.deroulant_rubriques .deroulant__item_plan {
-	flex: 1 0 auto;
-}
-.deroulant_rubriques .deroulant__item_plan > .deroulant__lien {
+.deroulant__item_plan > .deroulant__lien {
 	height: 100%;
 }
-.deroulant_rubriques .deroulant__item_plan .image_loading {
+.deroulant__item_plan .image_loading {
 	float: var(--spip-right);
 }
 /* Sous-menus s'ouvrant latéralement */
-.deroulant_rubriques .deroulant__sous-menu .deroulant__item {
+.deroulant__item_plan .deroulant__sous-menu .deroulant__item {
 	position: relative;
 	width: var(--spip-deroulant-col-width);
 }
-.deroulant_rubriques .deroulant__item_parent.actif > .deroulant__sous-menu,
+.deroulant__item_plan .deroulant__item_parent.actif > .deroulant__sous-menu,
 .deroulant_rubriques .deroulant__item_parent.actif_tempo > .deroulant__sous-menu {
 	#LEFT: 4em; /* Décalage arbitraire pas trop grand */
 }
 /* Lien tout voir sans icône */
-.deroulant_rubriques .deroulant__item_tout > .deroulant__lien {
+.deroulant__item_plan .deroulant__item_tout > .deroulant__lien {
 	background-image: none !important;
 }
 /* Icônes secteur / rubriques selon la profondeur */
-.deroulant_rubriques .deroulant__lien[data-profondeur="1"] {
+.deroulant__item_plan .deroulant__lien[data-profondeur="1"] {
 	background-image: url("#CHEMIN_IMAGE{secteur-xx.svg}");
 }
-.deroulant_rubriques [data-profondeur="2"] .deroulant__lien {
+.deroulant__item_plan [data-profondeur="2"] .deroulant__lien {
 	background-image: url("#CHEMIN_IMAGE{rubrique-xx.svg}");
 }
 /* picto pour indiquer les items dépliants */
-.deroulant_rubriques .deroulant__item_parent > .deroulant__lien {
+.deroulant__item_plan .deroulant__item_parent > .deroulant__lien {
 	position: relative;
 }
-.deroulant_rubriques .deroulant__item_parent > .deroulant__lien:after {
+.deroulant__item_plan .deroulant__item_parent > .deroulant__lien:after {
 	content: '';
 	display: block;
 	width: var(--spip-deroulant-icon-size);
