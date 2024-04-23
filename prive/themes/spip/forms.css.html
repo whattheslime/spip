@@ -1507,22 +1507,28 @@
 	z-index: 1; /* focus dans la mediabox */
 }
 /* Dans bandeau outils : faire coller l'input aux bords du bandeau, quelque soit sa hauteur*/
-#bando_outils .formulaire_recherche {
+#bando_haut .formulaire_recherche {
+	--spip-searchform-padding: 0.66rem;
 	display: flex;
 	width: 30ch;
-	margin: 0;
+	margin-top: 0;
+	margin-bottom: 0;
+	border-left: 1px solid var(--spip-color-theme-light);
+	border-right: 1px solid var(--spip-color-theme-light);
+	border-radius: 0;
 }
-#bando_outils .formulaire_recherche form,
-#bando_outils .formulaire_recherche form > div {
+#bando_haut .formulaire_recherche form,
+#bando_haut .formulaire_recherche form > div {
 	display: flex;
 	flex: 1;
 }
-#bando_outils .formulaire_recherche input.text {
+#bando_haut .formulaire_recherche input.text {
 	height: 100%;
 	padding-top: 0.44em; /* à la louche pour obtenir même hauteur que le bando */
 	padding-bottom: 0.44em;
 	border-radius: 0;
-	background-color:hsla(0, 0%, 100%, 0.33);
+	background-color:hsla(0, 0%, 100%, 0.5);
+	font-size: 1em;
 }
 
 /* formulaire_traduire */
