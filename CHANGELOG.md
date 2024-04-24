@@ -66,6 +66,7 @@
 
 ### Removed
 
+- #4750 Retrait des options d'affichage des icones dans les préférences
 - #5199 Retrait de toutes les références à la globale `auteur_session`
 - #5917 Retrait de toutes les références à NETPBM
 - #5885 fonction `formulaire_recherche()`
