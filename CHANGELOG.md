@@ -38,5 +38,6 @@ Changelog de SPIP 4.3
 
 ### Deprecated
 
+- #5199 La globale `auteur_session` (dépréciée depuis SPIP 2.0 !) sera supprimée en SPIP 5.0. Utiliser `visiteur_session`.
 - #4857 Deprecier la classe `.label` au profit de `.editer-label` dans les formulaires
 - #5885 fonction `formulaire_recherche()`
