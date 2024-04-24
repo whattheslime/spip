@@ -328,8 +328,8 @@ function verifier_session($change = false) {
 	// Compatibilite ascendante : auteur_session est visiteur_session si
 	// c'est un auteur SPIP authentifie (tandis qu'un visiteur_session peut
 	// n'etre qu'identifie, sans aucune authentification).
-
 	if (isset($GLOBALS['visiteur_session']['id_auteur']) and $GLOBALS['visiteur_session']['id_auteur']) {
+		/** @deprecated 2.0 auteur_session will be removed in 5.0 */
 		$GLOBALS['auteur_session'] = &$GLOBALS['visiteur_session'];
 	}
 
