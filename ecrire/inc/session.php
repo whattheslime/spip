@@ -595,7 +595,6 @@ function actualiser_sessions($auteur, $supprimer_cles = []) {
 
 	if ($id_auteur == $id_auteur_courant) {
 		$GLOBALS['visiteur_session'] = $auteur;
-		$GLOBALS['auteur_session'] = &$GLOBALS['visiteur_session'];
 	} else {
 		// restaurer l'auteur courant
 		$GLOBALS['visiteur_session'] = $sauve;
