@@ -414,9 +414,6 @@ return [
 	'infos_vos_pense_bete' => 'Hatırlatmalarınız', # MODIF
 
 	// L
-	'lien_afficher_icones_seuls' => 'Sadece ikonları görüntüle',
-	'lien_afficher_texte_icones' => 'ikonları ve metni görüntüle',
-	'lien_afficher_texte_seul' => 'Sadece metni görüntüle',
 	'lien_liberer' => 'Serbest bırak',
 	'lien_liberer_tous' => 'Bu makaleleri serbest bırak', # MODIF
 	'lien_nouvea_pense_bete' => 'YENİ HATIRLATMA',

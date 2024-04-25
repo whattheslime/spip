@@ -419,9 +419,6 @@ return [
 	'infos_vos_pense_bete' => 'ការក្រើនរំលឹក ​របស់​អ្នក', # MODIF
 
 	// L
-	'lien_afficher_icones_seuls' => 'បង្ហាញ​តែ​រូបតំណាង​ប៉ុណ្ណោះ',
-	'lien_afficher_texte_icones' => 'បង្ហាញចេញ ​រូបតំណាង និង​អត្ថបទ',
-	'lien_afficher_texte_seul' => 'បង្ហាញ​តែ​ អត្ថបទ',
 	'lien_liberer' => 'រំដោះ',
 	'lien_liberer_tous' => 'រំដោះ​អត្ថបទ​ទាំងនេះ', # MODIF
 	'lien_nouvea_pense_bete' => 'ការក្រើនរំលឹក​ថ្មី',

@@ -477,9 +477,6 @@ Kako biste potvrdili svoju novu adresu, potrebno je samo pristupiti niže navede
 	// L
 	'label_ajout_id_rapide' => 'Brzo dodavanje',
 	'label_poids_fichier' => 'Veličina',
-	'lien_afficher_icones_seuls' => 'prikazati samo sličice',
-	'lien_afficher_texte_icones' => 'prikazati sličice i tekst',
-	'lien_afficher_texte_seul' => 'prikazati samo tekst',
 	'lien_liberer' => 'odobriti',
 	'lien_liberer_tous' => 'odobriti ove članke',
 	'lien_nouvea_pense_bete' => 'NOVA BILJEŠKA',

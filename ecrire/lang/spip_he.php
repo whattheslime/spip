@@ -428,9 +428,6 @@ return [
 	'infos_vos_pense_bete' => 'התזכירים שלך', # MODIF
 
 	// L
-	'lien_afficher_icones_seuls' => 'הצג צלמיות בלבד',
-	'lien_afficher_texte_icones' => 'הצג צלמיות וטקסט',
-	'lien_afficher_texte_seul' => 'הצג טקסט בלבד',
 	'lien_liberer' => 'שחרור',
 	'lien_liberer_tous' => 'שחרור מאמרים אלו', # MODIF
 	'lien_nouvea_pense_bete' => 'תזכיר חדש',

@@ -385,9 +385,6 @@ dau sit "@nom_site_spip@" (@adresse_site@):', # MODIF
 	'infos_vos_pense_bete' => 'Vòstrei mementos', # MODIF
 
 	// L
-	'lien_afficher_icones_seuls' => 'Afichar ren que leis icònas ',
-	'lien_afficher_texte_icones' => 'Afichar leis icònas e lo tèxt',
-	'lien_afficher_texte_seul' => 'Afichar ren que lo tèxt ',
 	'lien_liberer' => 'liberar',
 	'lien_liberer_tous' => 'liberar aqueleis articles', # MODIF
 	'lien_nouvea_pense_bete' => 'MEMENTO NÒU',

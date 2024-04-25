@@ -390,9 +390,6 @@ return [
 	'infos_vos_pense_bete' => 'Лични бележки', # MODIF
 
 	// L
-	'lien_afficher_icones_seuls' => 'Показване само на икони',
-	'lien_afficher_texte_icones' => 'Показване икони и текст',
-	'lien_afficher_texte_seul' => 'Показване само на текст',
 	'lien_liberer' => 'освобождаване',
 	'lien_liberer_tous' => 'освобождаване на статиите', # MODIF
 	'lien_nouvea_pense_bete' => 'НОВА БЕЛЕЖКА',

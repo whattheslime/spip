@@ -420,9 +420,6 @@ di ciascuna di queste cartelle. La procedura è spiegata in dettaglio nella guid
 	'infos_vos_pense_bete' => 'I tuoi memo', # MODIF
 
 	// L
-	'lien_afficher_icones_seuls' => 'Mostra solo le icone',
-	'lien_afficher_texte_icones' => 'Mostra le icone e il testo',
-	'lien_afficher_texte_seul' => 'Mostra solo il testo',
 	'lien_liberer' => 'libera',
 	'lien_liberer_tous' => 'liberare questi articoli', # MODIF
 	'lien_nouvea_pense_bete' => 'NUOVO MEMO',

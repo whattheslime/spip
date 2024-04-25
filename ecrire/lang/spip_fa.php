@@ -472,9 +472,6 @@ return [
 	// L
 	'label_ajout_id_rapide' => 'افزودن سريع',
 	'label_poids_fichier' => 'اندازه',
-	'lien_afficher_icones_seuls' => 'فقط آيكونها را نشان دهيد',
-	'lien_afficher_texte_icones' => 'آيكونها و متن را نشان دهيد',
-	'lien_afficher_texte_seul' => 'فقط متن را نشان دهيد',
 	'lien_liberer' => 'آزاد كنيد',
 	'lien_liberer_tous' => 'نشر مقالات',
 	'lien_nouvea_pense_bete' => 'يادداشت جديد',

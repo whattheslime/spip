@@ -450,9 +450,6 @@ sitiu "@nom_site_spip@" (@adresse_login@):', # MODIF
 	'infos_vos_pense_bete' => 'Los tos recordatorios',
 
 	// L
-	'lien_afficher_icones_seuls' => 'Amosar namái los iconos',
-	'lien_afficher_texte_icones' => 'Amosar los iconos y el testu',
-	'lien_afficher_texte_seul' => 'Amosar sólo el testu',
 	'lien_liberer' => 'lliberar',
 	'lien_liberer_tous' => 'lliberar estos artículos', # MODIF
 	'lien_nouvea_pense_bete' => 'RECORDATORIU NUEVU',

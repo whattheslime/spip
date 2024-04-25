@@ -373,9 +373,6 @@ return [
 	'infos_vos_pense_bete' => 'tàmɛ lìn àgúɖágɔ', # MODIF
 
 	// L
-	'lien_afficher_icones_seuls' => 'jònɔ',
-	'lien_afficher_texte_icones' => 'xlɛ wémà lɛ',
-	'lien_afficher_texte_seul' => 'xlɛ wémà lɛ',
 	'lien_liberer' => 'mi sɔ jó',
 	'lien_liberer_tous' => 'mi sɔ wékpá lɛ  jó', # MODIF
 	'lien_nouvea_pense_bete' => 'lìn tàmɛ àgúɖàgɔ',

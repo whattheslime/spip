@@ -440,9 +440,6 @@ För att bekräfta din nya adress måste du gå till
 	'infos_vos_pense_bete' => 'Din meddelanden', # MODIF
 
 	// L
-	'lien_afficher_icones_seuls' => 'Visa bara ikoner',
-	'lien_afficher_texte_icones' => 'Visa ikoner och text',
-	'lien_afficher_texte_seul' => 'Visa enbart text',
 	'lien_liberer' => 'version',
 	'lien_liberer_tous' => 'frigör artiklarna', # MODIF
 	'lien_nouvea_pense_bete' => 'Nytt memo',

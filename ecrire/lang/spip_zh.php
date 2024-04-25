@@ -419,9 +419,6 @@ return [
 	'infos_vos_pense_bete' => '备注', # MODIF
 
 	// L
-	'lien_afficher_icones_seuls' => '只显示图片',
-	'lien_afficher_texte_icones' => '显示文本和图片',
-	'lien_afficher_texte_seul' => '只显示正文',
 	'lien_liberer' => '发表',
 	'lien_liberer_tous' => '释放这些文章', # MODIF
 	'lien_nouvea_pense_bete' => '新备注',

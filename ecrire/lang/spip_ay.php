@@ -417,9 +417,6 @@ Sitix uka arunak ajlltax.Walja sapa mayanaka jach’a qamawita (urunaka, phuqañ
 	'infos_vos_pense_bete' => 'Amtatanakama', # MODIF
 
 	// L
-	'lien_afficher_icones_seuls' => 'Jisk’a saltanakak uñachayaña',
-	'lien_afficher_texte_icones' => 'Jisk’a saltanakampi sawutanakampi uñachayaña',
-	'lien_afficher_texte_seul' => 'Sawuk uñachayaña',
 	'lien_liberer' => 'Antutjaña',
 	'lien_liberer_tous' => 'aka qillqatanak antutjaña', # MODIF
 	'lien_nouvea_pense_bete' => 'Machaq amtawirinaka',

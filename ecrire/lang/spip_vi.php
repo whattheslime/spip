@@ -412,9 +412,6 @@ return [
 	'infos_vos_pense_bete' => 'Bản ghi nhớ của bạn', # MODIF
 
 	// L
-	'lien_afficher_icones_seuls' => 'Xem icon mà thôi',
-	'lien_afficher_texte_icones' => 'Xem icon và chữ',
-	'lien_afficher_texte_seul' => 'Xem chữ mà thôi',
 	'lien_liberer' => 'phổ biến',
 	'lien_liberer_tous' => 'Gỡ bỏ những bài này', # MODIF
 	'lien_nouvea_pense_bete' => 'GHI NHỚ MỚI',

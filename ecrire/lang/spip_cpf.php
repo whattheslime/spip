@@ -424,9 +424,6 @@ return [
 	'infos_vos_pense_bete' => 'Out bann gardantèt', # MODIF
 
 	// L
-	'lien_afficher_icones_seuls' => 'Afis sèlman bann zikon',
-	'lien_afficher_texte_icones' => 'Afis bann zikon èk lo tèks',
-	'lien_afficher_texte_seul' => 'Afis sèlman lo tèks',
 	'lien_liberer' => 'Maronn',
 	'lien_liberer_tous' => 'maronn tout bann zartik-la', # MODIF
 	'lien_nouvea_pense_bete' => 'NOUVO GARDANTÈT',

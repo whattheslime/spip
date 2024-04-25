@@ -475,9 +475,6 @@ Per confirmar la nova adreça, només heu de connectar-vos a l’adreça que hi 
 	// L
 	'label_ajout_id_rapide' => 'Afegit ràpid',
 	'label_poids_fichier' => 'Mida',
-	'lien_afficher_icones_seuls' => 'Mostrar només les icones',
-	'lien_afficher_texte_icones' => 'Mostrar les icones i el text',
-	'lien_afficher_texte_seul' => 'Mostrar només el text',
 	'lien_liberer' => 'alliberar',
 	'lien_liberer_tous' => 'alliberar aquests articles',
 	'lien_nouvea_pense_bete' => 'NOU RECORDATORI',

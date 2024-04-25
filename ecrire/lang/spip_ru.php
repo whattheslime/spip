@@ -484,9 +484,6 @@ return [
 	// L
 	'label_ajout_id_rapide' => 'Быстрое добавление',
 	'label_poids_fichier' => 'Размер',
-	'lien_afficher_icones_seuls' => 'Показывать только иконки',
-	'lien_afficher_texte_icones' => 'Показывать иконки и текст',
-	'lien_afficher_texte_seul' => 'Показывать только текст',
 	'lien_liberer' => 'версия',
 	'lien_liberer_tous' => 'освободить эти статьи',
 	'lien_nouvea_pense_bete' => 'НОВАЯ ЗАМЕТКА',

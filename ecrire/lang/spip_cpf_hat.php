@@ -412,9 +412,6 @@ sit "@nom_site_spip@" (@adresse_login@) :', # MODIF
 	'infos_vos_pense_bete' => 'Mesaj yo pou w raple-w', # MODIF
 
 	// L
-	'lien_afficher_icones_seuls' => 'Afiche ikòn yo sèlman',
-	'lien_afficher_texte_icones' => 'Afiche ikòn ak tèks',
-	'lien_afficher_texte_seul' => 'Fè parèt kisa se tèks sèlman',
 	'lien_liberer' => 'mawonn',
 	'lien_liberer_tous' => 'Mawonn tout atik sa-yo', # MODIF
 	'lien_nouvea_pense_bete' => 'NOUVO RAPLE-W',

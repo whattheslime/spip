@@ -467,9 +467,6 @@ site-ul "@nom_site_spip@" (@adresse_login@):', # MODIF
 
 	// L
 	'label_poids_fichier' => 'Mărime',
-	'lien_afficher_icones_seuls' => 'Afişaţi doar iconiţe',
-	'lien_afficher_texte_icones' => 'Afişaţi iconiţe şi text',
-	'lien_afficher_texte_seul' => 'Afişaţi doar text',
 	'lien_liberer' => 'eliberaţi',
 	'lien_liberer_tous' => 'Eliberaţi toate articolele',
 	'lien_nouvea_pense_bete' => 'CIORNĂ NOUĂ',

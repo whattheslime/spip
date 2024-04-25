@@ -414,9 +414,6 @@ return [
 	'infos_vos_pense_bete' => 'Memo anda', # MODIF
 
 	// L
-	'lien_afficher_icones_seuls' => 'Tampilkan icon saja',
-	'lien_afficher_texte_icones' => 'Tampilkan icon dan teks',
-	'lien_afficher_texte_seul' => 'Tampilkan teks saja',
 	'lien_liberer' => 'rilis',
 	'lien_liberer_tous' => 'bebaskan artikel-artikel ini', # MODIF
 	'lien_nouvea_pense_bete' => 'MEMO BARU',

@@ -420,9 +420,6 @@ dau sit "@nom_site_spip@" (@adresse_site@) :', # MODIF
 	'infos_vos_pense_bete' => 'Li voastri nòtas de renembrança ',
 
 	// L
-	'lien_afficher_icones_seuls' => 'Far paréisser li icònas unicament',
-	'lien_afficher_texte_icones' => 'Far paréisser li icònas e lo tèxt',
-	'lien_afficher_texte_seul' => 'Far paréisser lo tèxt solet',
 	'lien_liberer' => 'liberar',
 	'lien_liberer_tous' => 'Liberar tot',
 	'lien_nouvea_pense_bete' => 'NOVÈLA NÒTA DE RENEMBRANÇA ',

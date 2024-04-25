@@ -484,9 +484,6 @@ de website "@nom_site_spip@" (@adresse_login@):', # MODIF
 	// L
 	'label_ajout_id_rapide' => 'Snelle toevoeging',
 	'label_poids_fichier' => 'Afmeting',
-	'lien_afficher_icones_seuls' => 'Toon alleen icoontjes',
-	'lien_afficher_texte_icones' => 'Toon icoontjes en tekst',
-	'lien_afficher_texte_seul' => 'Toon alleen tekst',
 	'lien_liberer' => 'vrijgeven',
 	'lien_liberer_tous' => 'Alles vrijgeven',
 	'lien_nouvea_pense_bete' => 'NIEUWE MEMO',

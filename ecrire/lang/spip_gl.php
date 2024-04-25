@@ -463,9 +463,6 @@ do web "@nom_site_spip@" (@adresse_site@):', # MODIF
 	'infos_vos_pense_bete' => 'As súas notas',
 
 	// L
-	'lien_afficher_icones_seuls' => 'Amosar só as iconas',
-	'lien_afficher_texte_icones' => 'Amosar as iconas e o texto',
-	'lien_afficher_texte_seul' => 'Amosar só o texto',
 	'lien_liberer' => 'liberar',
 	'lien_liberer_tous' => 'Liberalos todos',
 	'lien_nouvea_pense_bete' => 'NOVA NOTA',

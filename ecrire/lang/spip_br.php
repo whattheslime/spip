@@ -483,9 +483,6 @@ Evit gwiriekaat ho postel nevez, n’ho peus nemet kevreañ d’ar chomlec’h a
 	// L
 	'label_ajout_id_rapide' => 'Ouzhpennet buan',
 	'label_poids_fichier' => 'Ment',
-	'lien_afficher_icones_seuls' => 'Diskouez ar skeudennigoù hepken',
-	'lien_afficher_texte_icones' => 'Diskouez ar skeudennigoù hag an destenn',
-	'lien_afficher_texte_seul' => 'Diskouez an destenn hepken',
 	'lien_liberer' => 'dieubiñ',
 	'lien_liberer_tous' => 'Dinaskañ an holl',
 	'lien_nouvea_pense_bete' => 'NOTENNIG-EÑVOR NEVEZ',

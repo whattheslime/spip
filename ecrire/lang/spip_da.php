@@ -398,9 +398,6 @@ return [
 	'infos_vos_pense_bete' => 'Dine memoer', # MODIF
 
 	// L
-	'lien_afficher_icones_seuls' => 'Vis kun piktogrammer',
-	'lien_afficher_texte_icones' => 'Vis piktogrammer og tekst',
-	'lien_afficher_texte_seul' => 'Vis kun tekst',
 	'lien_liberer' => 'frigiv',
 	'lien_liberer_tous' => 'frigiv disse artikler', # MODIF
 	'lien_nouvea_pense_bete' => 'NYT MEMO',

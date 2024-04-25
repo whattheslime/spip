@@ -401,9 +401,6 @@ return [
 	'infos_vos_pense_bete' => 'သင့်မှတ်တမ်းများ', # MODIF
 
 	// L
-	'lien_afficher_icones_seuls' => 'ရုပ်ပုံသက်သက်ကိုပြပေးပါ',
-	'lien_afficher_texte_icones' => 'စာသားကိုပြပေးပါ',
-	'lien_afficher_texte_seul' => 'စာသားသက်သက်ကိုပြပေးပါ',
 	'lien_liberer' => 'လွှင့်သည်',
 	'lien_liberer_tous' => 'ဤဆောင်းပါးများကို အခမဲ့ရနိုင်ပါသည်', # MODIF
 	'lien_nouvea_pense_bete' => 'မှတ်ချက်အသစ်',

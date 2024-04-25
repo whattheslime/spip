@@ -481,9 +481,6 @@ sera ignourada) :
 	// L
 	'label_ajout_id_rapide' => 'Ajountamen rapide',
 	'label_poids_fichier' => 'Tàia',
-	'lien_afficher_icones_seuls' => 'Afichà li icona souleti',
-	'lien_afficher_texte_icones' => 'Afichà li icona e lou test',
-	'lien_afficher_texte_seul' => 'Afichà lou test soulet',
 	'lien_liberer' => 'liberà',
 	'lien_liberer_tous' => 'Liberà tout',
 	'lien_nouvea_pense_bete' => 'NOUVÈLA NOTA DE RENEMBRANÇA ',

@@ -382,9 +382,6 @@ return [
 	'infos_vos_pense_bete' => 'Vase biljeske', # MODIF
 
 	// L
-	'lien_afficher_icones_seuls' => 'Prikazi samo ikone',
-	'lien_afficher_texte_icones' => 'Prikazi ikone i tekst',
-	'lien_afficher_texte_seul' => 'Prikazi samo tekst',
 	'lien_liberer' => 'izdanje',
 	'lien_liberer_tous' => 'izdaj ove clanke', # MODIF
 	'lien_nouvea_pense_bete' => 'NOVA BILJESKA',

@@ -468,9 +468,6 @@ http://mysite.com、あるいは単純にこのサイトの記事番号を与え
 	// L
 	'label_ajout_id_rapide' => 'クイック追加',
 	'label_poids_fichier' => 'サイズ',
-	'lien_afficher_icones_seuls' => 'アイコンのみ表示する',
-	'lien_afficher_texte_icones' => 'アイコンとテキスト表示する',
-	'lien_afficher_texte_seul' => 'テキストのみ表示する',
 	'lien_liberer' => 'リリーズする',
 	'lien_liberer_tous' => '全てリリーズする',
 	'lien_nouvea_pense_bete' => '新規メモ',

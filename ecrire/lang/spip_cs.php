@@ -412,9 +412,6 @@ na webu "@nom_site_spip@" (@adresse_login@):', # MODIF
 	'infos_vos_pense_bete' => 'Vaše poznámky', # MODIF
 
 	// L
-	'lien_afficher_icones_seuls' => 'Zobrazit pouze ikony',
-	'lien_afficher_texte_icones' => 'Zobrazit ikony a text',
-	'lien_afficher_texte_seul' => 'Zobrazit pouze text',
 	'lien_liberer' => 'verze',
 	'lien_liberer_tous' => 'uvolnit tyto články', # MODIF
 	'lien_nouvea_pense_bete' => 'NOVÁ POZNÁMKA',

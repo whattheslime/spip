@@ -452,9 +452,6 @@ serwisie "@nom_site_spip@" (@adresse_login@):', # MODIF
 	'infos_vos_pense_bete' => 'Twoje notatki', # MODIF
 
 	// L
-	'lien_afficher_icones_seuls' => 'Pokazuj tylko ikonki',
-	'lien_afficher_texte_icones' => 'POkazuj ikonki i tekst',
-	'lien_afficher_texte_seul' => 'Pokazuj tylko tekst',
 	'lien_liberer' => 'uwolnij',
 	'lien_liberer_tous' => 'uwolnij artykuły', # MODIF
 	'lien_nouvea_pense_bete' => 'NOWA NOTATKA',

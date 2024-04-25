@@ -483,9 +483,6 @@ stránku "@nom_site_spip@" (@adresse_login@):', # MODIF
 	// L
 	'label_ajout_id_rapide' => 'Rýchlo pridať',
 	'label_poids_fichier' => 'Veľkosť',
-	'lien_afficher_icones_seuls' => 'Zobraziť iba ikonky',
-	'lien_afficher_texte_icones' => 'Zobraziť ikonky a text',
-	'lien_afficher_texte_seul' => 'Zobraziť iba text',
 	'lien_liberer' => 'Odstrániť',
 	'lien_liberer_tous' => 'Odstrániť všetky',
 	'lien_nouvea_pense_bete' => 'NOVÁ PRIPOMIENKA',

@@ -463,9 +463,6 @@ return [
 
 	// L
 	'label_poids_fichier' => 'Taglia',
-	'lien_afficher_icones_seuls' => 'Fà cumparisce solu l’icone',
-	'lien_afficher_texte_icones' => 'Fà cumparisce l’icone cù u testu',
-	'lien_afficher_texte_seul' => 'Fà cumparisce solu u testu',
 	'lien_liberer' => 'liberà',
 	'lien_liberer_tous' => 'liberà st’artìculi', # MODIF
 	'lien_nouvea_pense_bete' => 'NUVELLU MEMENTU',

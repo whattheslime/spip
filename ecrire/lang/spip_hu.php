@@ -414,9 +414,6 @@ return [
 	'infos_vos_pense_bete' => 'Az Ön emlékeztetői', # MODIF
 
 	// L
-	'lien_afficher_icones_seuls' => 'Csak az ikonok megjelenítése',
-	'lien_afficher_texte_icones' => 'Ikonok és szöveg megjelenítése',
-	'lien_afficher_texte_seul' => 'Csak a szöveg megjelenítése',
 	'lien_liberer' => 'szabadítani',
 	'lien_liberer_tous' => 'a cikkek szabadítása', # MODIF
 	'lien_nouvea_pense_bete' => 'ÚJ EMLÉKEZTETŐ',
