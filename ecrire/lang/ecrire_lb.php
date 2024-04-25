@@ -525,8 +525,6 @@ return [
 	'label_nom_fichier_connect' => 'Gidd de Numm vun dësem Server un',
 	'label_slogan_site' => 'Slogan vum Site',
 	'label_taille_ecran' => 'Breet vum Bildschierm', # MODIF
-	'label_texte_et_icones_navigation' => 'Navigatiouns-Menü',
-	'label_texte_et_icones_page' => 'Uweisen an der Säit',
 	'ldap_correspondance' => 'verierft vum Feld @champ@',
 	'ldap_correspondance_1' => 'Verierwen vun den LDAP-Felder',
 	'ldap_correspondance_2' => 'Gidd de Numm vum LDAP-Feld un deen zu jiddwer SPIP-Feld gehéiert. Loosst eidel fir net auszefëllen, trennt mat Leerzeechen oder Komma fir e puer LDAP-Felder ze probéieren.',

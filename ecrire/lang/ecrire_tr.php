@@ -510,7 +510,6 @@ yaratabilir. Bu da otomatik olarak bir galeri
 	'label_nom_fichier_connect' => 'Bu sunucunun adını girin', # RELIRE
 	'label_slogan_site' => '
 Site sloganı', # RELIRE
-	'label_texte_et_icones_navigation' => 'Navigasyon menüsü', # RELIRE
 	'lien_ajouter_auteur' => 'Bu yazarın ekle',
 	'lien_ajouter_une_rubrique' => 'Bu bölüm ekle', # RELIRE
 	'lien_email' => 'e-posta ',

@@ -561,8 +561,6 @@ La tradukoj estas kunligitaj al la originalo, kun koloro kiu indikas ties staton
 	'label_nom_fichier_connect' => 'Indiku la nomon uzita por tiu servilo',
 	'label_slogan_site' => 'Devizo de la retejo',
 	'label_taille_ecran' => 'Larĝo de la ekrano',
-	'label_texte_et_icones_navigation' => 'Naviga menuo',
-	'label_texte_et_icones_page' => 'Afiŝado en paĝo',
 	'ldap_correspondance' => 'heredado de la kampo @champ@',
 	'ldap_correspondance_1' => 'Heredadoj de LDAP-kampoj',
 	'ldap_correspondance_2' => 'Por ĉiuj jenaj SPIP-kampoj, indiki la nomo de la rilata LDAP-kampo. Lasi malplenan por ne plenigis ĝin, apartigi per spacoj aŭ komoj por provi plurajn LDAP-kampoj.',

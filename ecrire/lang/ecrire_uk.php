@@ -561,8 +561,6 @@ return [
 	'label_nom_fichier_connect' => 'Відображати ім’я серверу',
 	'label_slogan_site' => 'Слоган сайту',
 	'label_taille_ecran' => 'Ширина робочої області',
-	'label_texte_et_icones_navigation' => 'Головне меню',
-	'label_texte_et_icones_page' => 'Відоображення сторінки',
 	'ldap_correspondance' => 'наслідувати поле @champ@',
 	'ldap_correspondance_1' => 'Наслідувати поля LDAP',
 	'ldap_correspondance_2' => 'Вкажіть відповідне LDAP поле для кожного з даних полей. Залиште їх порожніми, якщо ви не хочете, щоб вони заповнювались. Декілька LDAP полей розділяються пробілом або комою.',

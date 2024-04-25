@@ -555,8 +555,6 @@ return [
 	'label_nom_fichier_connect' => 'サーバー名を記入してください。',
 	'label_slogan_site' => 'サイトの標語',
 	'label_taille_ecran' => '画面の幅',
-	'label_texte_et_icones_navigation' => 'ナビゲーションメニュー',
-	'label_texte_et_icones_page' => 'ページ上に表示する',
 	'ldap_correspondance' => 'フィールド@champ@を継承する',
 	'ldap_correspondance_1' => 'フィールドLDAPを継承する',
 	'ldap_correspondance_2' => 'これらの各SPIPフィールドに、対応するLDAPフィールドの名前を入力します。入力したくない場合、空白のままに残し、スペースやコンマで区切って複数のLDAPフィールドを試してください。',

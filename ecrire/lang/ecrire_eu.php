@@ -574,8 +574,6 @@ Itzulpenak originalari asoziatuta daude, bere egoera adierazten duten kolore bat
 	'label_nom_fichier_connect' => 'Zerbitzari honendako erabilitako izena ezar ezazu',
 	'label_slogan_site' => 'Gunearen lema',
 	'label_taille_ecran' => 'Pantailaren zabalera',
-	'label_texte_et_icones_navigation' => 'Nabigazio menua',
-	'label_texte_et_icones_page' => 'Orria erakutsi',
 	'ldap_correspondance' => '@champ@ eremuaren jaurantsia',
 	'ldap_correspondance_1' => 'LDAP eremuen jaraunspena',
 	'ldap_correspondance_2' => 'Ondoko SPIP eremu bakoitzarentzat, ezar ezazu LDAP eremuaren izena.

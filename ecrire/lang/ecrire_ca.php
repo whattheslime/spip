@@ -552,8 +552,6 @@ amb un color que indica el seu estat:',
 	'label_nom_fichier_connect' => 'Indiqueu el nom utilitzat per aquest servidor',
 	'label_slogan_site' => 'Eslògan del lloc',
 	'label_taille_ecran' => 'Amplada de la pantalla', # MODIF
-	'label_texte_et_icones_navigation' => 'Menú de navegació',
-	'label_texte_et_icones_page' => 'Visualització a la pàgina',
 	'ldap_correspondance' => 'herència del camp @champ@',
 	'ldap_correspondance_1' => 'Herència dels camps LDAP',
 	'ldap_correspondance_2' => 'Per cadascun dels camps següents d’SPIP, indiqueu el nom del camp LDAP corresponent. Deixeu-lo buit per no omplir-lo, separeu-lo amb espais o comes per assajar diversos camps LDAP.',

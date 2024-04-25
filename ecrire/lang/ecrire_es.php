@@ -574,8 +574,6 @@ Las traducciones están asociadas al original, en un color que indica su estado:
 	'label_nom_fichier_connect' => 'Indica el nombre utilizado para este servidor',
 	'label_slogan_site' => 'Eslogan del sitio',
 	'label_taille_ecran' => 'Ancho de pantalla',
-	'label_texte_et_icones_navigation' => 'Menú de navegación',
-	'label_texte_et_icones_page' => 'Aparencia en la página',
 	'ldap_correspondance' => 'herencia del campo @champ@',
 	'ldap_correspondance_1' => 'Herencia de los campos LDAP',
 	'ldap_correspondance_2' => 'Por cada uno de los campos SPIP siguientes, indicar el nombre del campo LDAP correspondiente. Dejar vacío para no indicar ninguno, y separar con espacios o comas para que se prueben varios campos LDAP.',

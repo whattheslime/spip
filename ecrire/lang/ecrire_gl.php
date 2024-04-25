@@ -533,8 +533,6 @@ cunha cor que indica o seu estado :',
 	'label_nom_fichier_connect' => 'Indique o nome utilizado polo servidor',
 	'label_slogan_site' => 'Lema do sitio',
 	'label_taille_ecran' => 'Largura de pantalla', # MODIF
-	'label_texte_et_icones_navigation' => 'Menú de navegación',
-	'label_texte_et_icones_page' => 'Presentación na páxina',
 	'ldap_correspondance' => 'herdanza do campo @champ@',
 	'ldap_correspondance_1' => 'Herdanza dos campos LDAP',
 	'ldap_correspondance_2' => 'Para cadanseu campo SPIP, indique o nome do campo LDAP correspondente. Deixe baleiro para non os cubrir, separar por espazos ou comas para probar varios campos LDAP.',

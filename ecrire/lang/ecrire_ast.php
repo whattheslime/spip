@@ -524,8 +524,6 @@ con una color que indica el estáu:',
 	'label_choix_langue' => 'Escueye la to llingua',
 	'label_slogan_site' => 'Eslogan del sitiu',
 	'label_taille_ecran' => 'Tamañu de la pantalla', # MODIF
-	'label_texte_et_icones_navigation' => 'Menú de navegación',
-	'label_texte_et_icones_page' => 'Presentación na páxina',
 	'ldap_correspondance' => 'herencia del campu @champ@',
 	'ldap_correspondance_1' => 'Herencia de campos LDAP',
 	'ldap_correspondance_2' => 'Pa caún de los campos SPIP siguientes, conseñar el nome del campu LDAP correspondiente. Dexar balero pa nun llenalu, separtar con espacios o comes pa tentar dellos campos LDAP.',

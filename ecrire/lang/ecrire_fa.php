@@ -537,8 +537,6 @@ return [
 	'label_nom_fichier_connect' => 'اعلام نام مورد استفاده براي اين سرور ',
 	'label_slogan_site' => 'شعار سايت',
 	'label_taille_ecran' => 'پهناي پرده‌ي نمايش', # MODIF
-	'label_texte_et_icones_navigation' => 'منوي ناوبري ',
-	'label_texte_et_icones_page' => 'صفحه‌ي نمايش ',
 	'ldap_correspondance' => 'ميدان موروثي @champ@',
 	'ldap_correspondance_1' => 'ميدان‌هاي موروثي LDAP',
 	'ldap_correspondance_2' => 'براي هر يك از ميدان‌هاي بعدي اسپيپ، نام متناسب با ميدان LDAP را وارد كنيد. اگر نمي‌خواهيد پر كنيد آن را خالي بگذاريد، براي پركردن چندين ميدان LDAP  با كاما يا فاصله جداشان كنيد.',

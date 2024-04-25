@@ -561,8 +561,6 @@ Przekłady są połączone z oryginałem, za pomocą koloru wskazującego na ich
 	'label_nom_fichier_connect' => 'Podaj nazwę dla tego serwera',
 	'label_slogan_site' => 'Slogan witryny internetowej',
 	'label_taille_ecran' => 'Szerokość ekranu',
-	'label_texte_et_icones_navigation' => 'Menu nawigacyjne',
-	'label_texte_et_icones_page' => 'Wyświetlanie stron',
 	'ldap_correspondance' => 'dziedziczy z pola @champ@', # RELIRE
 	'ldap_correspondance_1' => 'dziedziczy z pól LDAP', # RELIRE
 	'ldap_correspondance_2' => 'Dla każdego z poniższych pól SPIP należy podać nazwę odpowiedniego pola LDAP. Pozostaw puste, aby je nie wypełnić, oddziel je spacjami lub przecinkami, aby wypróbować wiele pól LDAP.', # RELIRE

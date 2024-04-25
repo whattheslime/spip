@@ -597,8 +597,6 @@ return [
 	'label_nom_fichier_connect' => 'أدخل الاسم الذي يستخدمه هذا الخادم',
 	'label_slogan_site' => 'شعار الموقع',
 	'label_taille_ecran' => 'عرض الشاشة',
-	'label_texte_et_icones_navigation' => 'قائمة التصفح',
-	'label_texte_et_icones_page' => 'عرض في الصفحة',
 	'ldap_correspondance' => 'استلام من الحقل @champ@',
 	'ldap_correspondance_1' => 'استلام حقول LDAP',
 	'ldap_correspondance_2' => 'لكل من حقول SPIP التالية، حدد اسم حقل LDAP المناسب. يمكن ترك حقل فارغ، استخدام المسافات او الفواصل لتجربة عدة حقول LDAP.',
