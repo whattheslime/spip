@@ -21,7 +21,7 @@ return [
 	'avis_connexion_echec_3' => '<b>N.B.</b> En moitos servidores, terá que <b>pedir</b> a activación do seu acceso á base SQL antes de podela usar. Se non dá conectado, verifique ter dado ese paso.',
 	'avis_connexion_ldap_echec_1' => 'A conexión ao servidor LDAP fallou.',
 	'avis_connexion_ldap_echec_2' => 'Volva á páxina anterior, e verifique as informacións introducidas.',
-	'avis_connexion_ldap_echec_3' => 'Como alternativa, non empregue o sistema LDAP para importar redactores.',
+	'avis_connexion_ldap_echec_3' => 'Como alternativa, non empregue o sistema LDAP para importar redactores.', # MODIF
 	'avis_deplacement_rubrique' => 'Atención! Este tema contén @contient_breves@ breve@scb@: se a(s) quere desprazar, confírmeo aquí.',
 	'avis_erreur_connexion_mysql' => 'Erro de conexión SQL',
 	'avis_espace_interdit' => '<b>Espazo prohibido</b> <div>SPIP xa está instalado.</div>',
@@ -47,10 +47,10 @@ return [
 	'bouton_mettre_a_jour_base' => 'Actualizar a base de datos',
 	'bouton_modifier' => 'Modificar',
 	'bouton_radio_afficher' => 'Mostrar',
-	'bouton_radio_apparaitre_liste_redacteurs_connectes' => 'Aparecer na lista de redactores conectados',
+	'bouton_radio_apparaitre_liste_redacteurs_connectes' => 'Aparecer na lista de redactores conectados', # MODIF
 	'bouton_radio_envoi_annonces_adresse' => 'Enviar os anuncios ao enderezo:',
 	'bouton_radio_envoi_liste_nouveautes' => 'Enviar a lista de novidades',
-	'bouton_radio_non_apparaitre_liste_redacteurs_connectes' => 'Non aparecer na lista de redactores que publica',
+	'bouton_radio_non_apparaitre_liste_redacteurs_connectes' => 'Non aparecer na lista de redactores que publica', # MODIF
 	'bouton_radio_non_envoi_annonces_editoriales' => 'Non enviar as novidades editoriais',
 	'bouton_redirection' => 'REDIRECCIÓN',
 	'bouton_relancer_installation' => 'Relanzar a instalación',
@@ -60,7 +60,7 @@ return [
 	'bouton_vider_cache' => 'Baleirar a memoria caché',
 
 	// C
-	'cache_modifiable_webmestre' => 'Este parámetro é modificábel polo webmáster do web.',
+	'cache_modifiable_webmestre' => 'Este parámetro é modificábel polo webmáster do web.', # MODIF
 	'calendrier_synchro' => 'Se usa un programa de axenda compatible <b>iCal</b>, poderá sincronizalo coas informacións deste web.',
 	'config_activer_champs' => 'Activar os seguintes campos',
 	'config_choix_base_sup' => 'escolla unha base de datos deste servidor',
@@ -96,7 +96,7 @@ return [
 	'entree_contenu_rubrique' => '(Contido do tema en poucas palabras.)',
 	'entree_identifiants_connexion' => 'O seu identificador de conexión...',
 	'entree_informations_connexion_ldap' => 'Escriba neste formulario os datos de conexión á túa guía LDAP.
-  Estes datos pódellos facilitar o grupo de xestión do sistema, ou da rede.',
+  Estes datos pódellos facilitar o grupo de xestión do sistema, ou da rede.', # MODIF
 	'entree_infos_perso' => 'Quen é?',
 	'entree_interieur_rubrique' => 'Dentro do tema:',
 	'entree_liens_sites' => '<b>Ligazón de hipertexto</b> (referencia, web para visitar...)',
@@ -184,14 +184,14 @@ return [
 	'info_activer_cookie' => 'Pode activar unha <b>cookie de correspondencia</b>, co cal poderá pasar facilmente do web público ao web privado.',
 	'info_admin_etre_webmestre' => 'Concederme os dereitos de administrador',
 	'info_admin_je_suis_webmestre' => 'Son o/a <b>webmáster</b>',
-	'info_admin_statuer_webmestre' => 'Dar a este administrador dereitos de webmáster',
-	'info_admin_webmestre' => 'Este administrdor é <b>webmáster</b>',
-	'info_administrateur' => 'Xestión',
-	'info_administrateur_1' => 'Xestión',
+	'info_admin_statuer_webmestre' => 'Dar a este administrador dereitos de webmáster', # MODIF
+	'info_admin_webmestre' => 'Este administrdor é <b>webmáster</b>', # MODIF
+	'info_administrateur' => 'Xestión', # MODIF
+	'info_administrateur_1' => 'Xestión', # MODIF
 	'info_administrateur_2' => 'do web (<i>úsese con sentidiño</i>)',
-	'info_administrateur_site_01' => 'Se pertences ó equipo de xestión,',
+	'info_administrateur_site_01' => 'Se pertences ó equipo de xestión,', # MODIF
 	'info_administrateur_site_02' => 'preme nesta ligazón',
-	'info_administrateurs' => 'Xestión',
+	'info_administrateurs' => 'Xestión', # MODIF
 	'info_administrer_rubrique' => 'Podes administrar este tema',
 	'info_adresse' => 'ó enderezo:',
 	'info_adresse_url' => 'Enderezo (URL) do web público',
@@ -228,7 +228,7 @@ return [
 	'info_chapeau' => 'Cabeceira',
 	'info_chapeau_2' => 'Cabeceira:',
 	'info_chemin_acces_1' => 'Opcións: <b>Camiño de acceso ao anuario</b>',
-	'info_chemin_acces_2' => 'En adiante, terá que configurar a vía de acceso ás informacións na guía. Esta información é indispensable para ler os perfís de redactores gardados na guía.',
+	'info_chemin_acces_2' => 'En adiante, terá que configurar a vía de acceso ás informacións na guía. Esta información é indispensable para ler os perfís de redactores gardados na guía.', # MODIF
 	'info_chemin_acces_annuaire' => 'Opcións: <b>Camiño de acceso ao anuario</b>',
 	'info_choix_base' => 'Terceira etapa:',
 	'info_classement_1' => '<sup>o</sup> en @liste@',
@@ -276,12 +276,12 @@ return [
   a unha lista de enderezos do equipo de redacción, avisos das peticións
   de publicación e de validacións dos artigos.', # MODIF
 	'info_fichiers_authent' => 'Ficheiros de autenticación «.htpasswd»',
-	'info_forums_abo_invites' => 'O seu web dispón de foros para se aboar ; os visitantes están invitados a se rexistrar neles na parte pública do web.',
+	'info_forums_abo_invites' => 'O seu web dispón de foros para se aboar ; os visitantes están invitados a se rexistrar neles na parte pública do web.', # MODIF
 	'info_gauche_auteurs' => 'Aquí atoparás a todos os autores do web.
-  O seu status indícase coa cor da súa ícona (xestor = verde; redactor = amarela).',
+  O seu status indícase coa cor da súa ícona (xestor = verde; redactor = amarela).', # MODIF
 	'info_gauche_auteurs_exterieurs' => 'Os colaboradores exteriores, sen acceso ao web, indícanse por unha ícona azul;
   os autores que foron eliminados, por unha papeleira.', # MODIF
-	'info_gauche_messagerie' => 'A mensaxería permíteche intercambiar mensaxes entre o equipo de redacción, gardar notas (para o teu uso persoal) ou mostrar os anuncios na páxina de entrada do espazo privado (se estás no equipo de xestión).',
+	'info_gauche_messagerie' => 'A mensaxería permíteche intercambiar mensaxes entre o equipo de redacción, gardar notas (para o teu uso persoal) ou mostrar os anuncios na páxina de entrada do espazo privado (se estás no equipo de xestión).', # MODIF
 	'info_gauche_statistiques_referers' => 'Esta páxina presenta a lista de <i>referentes</i>,
   ou sexa, os enderezos con ligazóns apuntando a este mesmo web, únicamente para onte e para hoxe; esta lista ponse a cero a cada 24 horas.',
 	'info_gauche_visiteurs_enregistres' => 'aquí atoparás as visitas rexistradas
@@ -296,14 +296,14 @@ return [
 	'info_image_process' => 'Probe a seleccionar o mellor método de fabricación de viñetas premendo sobre a imaxe correspondente.',
 	'info_images_auto' => 'Imaxes calculadas automaticamente',
 	'info_informations_personnelles' => 'Datos persoais',
-	'info_inscription_automatique' => 'Rexistro automático de novos redactores',
+	'info_inscription_automatique' => 'Rexistro automático de novos redactores', # MODIF
 	'info_jeu_caractere' => 'Xogo de caracteres do web',
 	'info_jours' => 'días',
 	'info_laisser_champs_vides' => 'deixar estes campos baleiros)',
 	'info_langues' => 'Idiomas do web',
 	'info_ldap_ok' => 'A autentificación LDAP foi instalada.',
 	'info_lien_hypertexte' => 'Ligazón de hipertexto:',
-	'info_liste_redacteurs_connectes' => 'Lista de redactores conectados',
+	'info_liste_redacteurs_connectes' => 'Lista de redactores conectados', # MODIF
 	'info_login_existant' => 'Este identificador xa existe.',
 	'info_login_trop_court' => 'Identificador curto de máis.',
 	'info_logos' => 'Os logos',
@@ -326,7 +326,7 @@ return [
 	'info_moyenne' => 'mediana:',
 	'info_multi_cet_article' => 'Lingua deste artigo :',
 	'info_multi_langues_choisies' => 'Quere seleccionar despois as linguas dispoñibles dos redactores de seu web.
-  As linguas xa utilizadas no seu web (fixadas ao principio) non poden ser desactivadas.',
+  As linguas xa utilizadas no seu web (fixadas ao principio) non poden ser desactivadas.', # MODIF
 	'info_multi_objets' => '@objets@ : activar o menú de idioma',
 	'info_multi_secteurs' => '... soamente para as seccións situadas na raíz ?',
 	'info_nb_articles' => '@nb@ artigos',
@@ -352,8 +352,8 @@ return [
 	'info_nouvelle_traduction' => 'Nova tradución :',
 	'info_numero_article' => 'ARTIGO NÚMERO:',
 	'info_obligatoire_02' => '[Obrigatorio]', # MODIF
-	'info_option_accepter_visiteurs' => 'Aceptar a inscrición de visitantes do web público',
-	'info_option_ne_pas_accepter_visiteurs' => 'Rexeitar a inscrición de visitantes',
+	'info_option_accepter_visiteurs' => 'Aceptar a inscrición de visitantes do web público', # MODIF
+	'info_option_ne_pas_accepter_visiteurs' => 'Rexeitar a inscrición de visitantes', # MODIF
 	'info_options_avancees' => 'OPCIÓNS AVANZADAS',
 	'info_ou' => 'ou...',
 	'info_page_interdite' => 'Páxina prohibida',
@@ -378,7 +378,7 @@ return [
 	'info_ps' => 'PS.',
 	'info_publier' => 'publicar',
 	'info_publies' => 'Os teus artigos publicados en liña',
-	'info_question_accepter_visiteurs' => 'Se os esqueletos do seu web prevén o rexistro de visitantes sen acceso á parte web privada, active a opción aquí abaixo :',
+	'info_question_accepter_visiteurs' => 'Se os esqueletos do seu web prevén o rexistro de visitantes sen acceso á parte web privada, active a opción aquí abaixo :', # MODIF
 	'info_question_inscription_nouveaux_redacteurs' => 'Aceptará as inscricións de novos redactores
   desde o web público? De aceptalos, os visitantes poderanse rexistrar cun
   formulario automatizado e accederán ao espazo privado para
@@ -399,7 +399,7 @@ return [
 	'info_refuses' => 'Os teus artigos rexeitados',
 	'info_reglage_ldap' => 'Opcións: <b>Axustes da importación LDAP</b>',
 	'info_renvoi_article' => '<b>Redirección.</b> Este artigo reenví á páxina:',
-	'info_reserve_admin' => 'Só o equipo de xestión pode modificar este enderezo.',
+	'info_reserve_admin' => 'Só o equipo de xestión pode modificar este enderezo.', # MODIF
 	'info_restreindre_rubrique' => 'Restrinxir a xestión ó tema:',
 	'info_resultat_recherche' => 'Resultados da procura:',
 	'info_rubriques' => 'temas',
@@ -418,13 +418,13 @@ return [
 	'info_sites_proxy' => 'Empregar un proxy',
 	'info_sites_trouves' => 'Webs atopados',
 	'info_sous_titre' => 'Subtítulo:',
-	'info_statut_administrateur' => 'Equipo de xestión',
+	'info_statut_administrateur' => 'Equipo de xestión', # MODIF
 	'info_statut_auteur' => 'Categoría deste autor:',
 	'info_statut_auteur_a_confirmer' => 'Inscrición para confirmar',
 	'info_statut_auteur_autre' => 'Outro estatuto :',
 	'info_statut_redacteur' => 'Redactor/a',
-	'info_statut_utilisateurs_1' => 'Categoría por defecto de redactores importados',
-	'info_statut_utilisateurs_2' => 'Escolla a categoría que han ter as persoas presentes na guía LDAP cando se conecten por primeira vez. Máis tarde poderás trocar este valor caso por caso.',
+	'info_statut_utilisateurs_1' => 'Categoría por defecto de redactores importados', # MODIF
+	'info_statut_utilisateurs_2' => 'Escolla a categoría que han ter as persoas presentes na guía LDAP cando se conecten por primeira vez. Máis tarde poderás trocar este valor caso por caso.', # MODIF
 	'info_suivi_activite' => 'Seguimento da actividade editorial',
 	'info_surtitre' => 'Sobretítulo:',
 	'info_syndication_integrale_1' => 'O seu web propón ficheiros de subscrición (ver « <a href="@url@">@titre@</a> »).',
@@ -468,7 +468,7 @@ cunha cor que indica o seu estado :',
 	'info_visiteur_2' => 'do web público',
 	'info_visiteurs' => 'Visitantes',
 	'info_visiteurs_02' => 'Visitantes do web público',
-	'info_webmestre_forces' => 'Os/as webmásters actuais están definidos en <tt>@file_options@</tt>.',
+	'info_webmestre_forces' => 'Os/as webmásters actuais están definidos en <tt>@file_options@</tt>.', # MODIF
 	'install_adresse_base_hebergeur' => 'Enderezo da base de datos atribuída polo aloxador',
 	'install_connect_ok' => 'A nova base está correctamente declarada co nome do servidor @connect@.',
 	'install_echec_annonce' => 'A instalación probabelmente vai pechar ou lanzar un sitio non funcional...',
@@ -493,10 +493,10 @@ cunha cor que indica o seu estado :',
 	'intitule_licence' => 'Licenza',
 	'item_accepter_inscriptions' => 'Aceptar as inscricións',
 	'item_activer_messages_avertissement' => 'Activar as mensaxes de aviso',
-	'item_administrateur_2' => 'Equipo de xestión',
+	'item_administrateur_2' => 'Equipo de xestión', # MODIF
 	'item_afficher_calendrier' => 'Mostrar no calendario',
 	'item_autoriser_syndication_integrale' => 'Difundir integramente os artigos nos ficheiros de subscrición',
-	'item_choix_administrateurs' => 'o equipo de xestión',
+	'item_choix_administrateurs' => 'o equipo de xestión', # MODIF
 	'item_choix_generation_miniature' => 'Crear automaticamente as miniaturas das imaxes.',
 	'item_choix_non_generation_miniature' => 'Non crear miniaturas das imaxes.',
 	'item_choix_redacteurs' => 'o equipo de redacción',
@@ -664,18 +664,18 @@ cunha cor que indica o seu estado :',
 	'texte_admin_effacer_01' => 'Este comando elimina <i>todo</i> o contido da base de datos,
 		incluindo <i>todos</i> os accesos dos equipos de xestión e de redacción.
 		Logo de executa.lo, terás que lanzar de novo a instalación do SPIP para crear unha
-		nova base e un novo acceso de administración.',
+		nova base e un novo acceso de administración.', # MODIF
 	'texte_adresse_annuaire_1' => '(Se a súa guía/directorio foi aloxada na mesma máquina ca este
   web, seguramente será «localhost».)',
 	'texte_ajout_auteur' => '@ seguinte autor/a foi engadido ao artigo:',
 	'texte_annuaire_ldap_1' => 'Se ten acceso a unha guía (LDAP), pódea empregar para importar
-  automaticamente usuarios con SPIP.',
+  automaticamente usuarios con SPIP.', # MODIF
 	'texte_article_statut' => 'Este artigo está:',
 	'texte_article_virtuel' => 'Artigo virtual',
 	'texte_article_virtuel_reference' => '<b>Artigo virtual:</b> artigo referido no teu web SPIP,
   mais redirixido cara a outro URL. Para eliminar a redirección, elimina o URL aquí.',
 	'texte_aucun_resultat_auteur' => 'Ningún resultado de "@cherche_auteur@"',
-	'texte_auteur_messagerie' => 'Este web pode indicar permanentemente a lista de redactores que están conectados nun intre, o que lle permite intercambiar mensaxes en directo (cando a mensaxería habilitada). Pode decidir non aparecer nesta lista (será «invisible» para os demais).',
+	'texte_auteur_messagerie' => 'Este web pode indicar permanentemente a lista de redactores que están conectados nun intre, o que lle permite intercambiar mensaxes en directo (cando a mensaxería habilitada). Pode decidir non aparecer nesta lista (será «invisible» para os demais).', # MODIF
 	'texte_auteurs' => 'A AUTORÍA',
 	'texte_choix_base_1' => 'Elixe a túa base:',
 	'texte_choix_base_2' => 'O servidor SQL contén varias bases de datos.',
@@ -717,7 +717,7 @@ estes ficheiros).</p>', # MODIF
   por exemplo «<tt>uid=maricarmen, ou=users, dc=meu-dominio, dc=com</tt>».)',
 	'texte_login_precaution' => 'Atención! Este é o identificador co que se conectou.
   Empregue este formulario con precaución...',
-	'texte_messagerie_agenda' => 'A mensaxería permítelles aos redactores do web comunicarse entre eles directamente no espazo privado do web. Está asociado a unha axenda.',
+	'texte_messagerie_agenda' => 'A mensaxería permítelles aos redactores do web comunicarse entre eles directamente no espazo privado do web. Está asociado a unha axenda.', # MODIF
 	'texte_mise_a_niveau_base_1' => 'Acaba de por ao día os ficheiros do SPIP.
   Agora ten que actualizar a base de datos do web.',
 	'texte_modifier_article' => 'Modificar o artigo:',
@@ -773,7 +773,7 @@ estes ficheiros).</p>', # MODIF
   artigo ao mesmo tempo, o sistema pode mostrar os artigos 
   «abertos» recentemente, por mor de evitar as 
   modificacións simultáneas. Esta opción está 
-  desactivada por defecto para evitar mostrar mensaxes de aviso intempestivas.',
+  desactivada por defecto para evitar mostrar mensaxes de aviso intempestivas.', # MODIF
 	'texte_vide' => 'baleiro',
 	'texte_vider_cache' => 'Baleirar a memoria caché',
 	'titre_ajouter_un_auteur' => 'Engadir un autor',

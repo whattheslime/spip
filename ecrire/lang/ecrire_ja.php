@@ -22,12 +22,12 @@ return [
 	'avis_connexion_echec_2' => '前のページに戻って、入力された情報を確認してください。',
 	'avis_connexion_echec_3' => '<b>注意</b>多くのサーバーには、データーベースにアクセス権を要求していただいた上でご利用になります。接続が出来なければ、アクセス権を確認してください。',
 	'avis_connexion_erreur_creer_base' => 'データーベース作成は失敗です。',
-	'avis_connexion_erreur_fichier_cle_manquant_1' => 'インストールは、ウェブマスターがキーとパスワードのバックアップをとって行う必要があります。',
-	'avis_connexion_erreur_fichier_cle_manquant_2' => 'インストールはウェブマスターがキーのバックアップをとって行う必要があります',
+	'avis_connexion_erreur_fichier_cle_manquant_1' => 'インストールは、ウェブマスターがキーとパスワードのバックアップをとって行う必要があります。', # MODIF
+	'avis_connexion_erreur_fichier_cle_manquant_2' => 'インストールはウェブマスターがキーのバックアップをとって行う必要があります', # MODIF
 	'avis_connexion_erreur_nom_base' => 'データーベース名には、文字、数字、およびハイフンのみ使ってください。',
 	'avis_connexion_ldap_echec_1' => 'LDAPサーバへの接続は失敗しました。',
 	'avis_connexion_ldap_echec_2' => '前のページに戻って、与えられている情報を確認してください。',
-	'avis_connexion_ldap_echec_3' => 'ユーザのインポートのためにLDAPサポートを利用しないでください。',
+	'avis_connexion_ldap_echec_3' => 'ユーザのインポートのためにLDAPサポートを利用しないでください。', # MODIF
 	'avis_deplacement_rubrique' => '注意！このセクションには、ニュースが@contient_breves@件入っています。移す場合
 は、確認ボックスをチェックしてください。',
 	'avis_erreur_connexion_mysql' => 'SQL接続のエラー',
@@ -56,10 +56,10 @@ return [
 	'bouton_mettre_a_jour_base' => 'データベースを更新する',
 	'bouton_modifier' => '修正',
 	'bouton_radio_afficher' => '表示',
-	'bouton_radio_apparaitre_liste_redacteurs_connectes' => '接続されている著者のリストに表示する',
+	'bouton_radio_apparaitre_liste_redacteurs_connectes' => '接続されている著者のリストに表示する', # MODIF
 	'bouton_radio_envoi_annonces_adresse' => 'アナウンスを送信するアドレス：',
 	'bouton_radio_envoi_liste_nouveautes' => '最新のニュースリストを送信する',
-	'bouton_radio_non_apparaitre_liste_redacteurs_connectes' => '接続されている著者のリストに表示しない',
+	'bouton_radio_non_apparaitre_liste_redacteurs_connectes' => '接続されている著者のリストに表示しない', # MODIF
 	'bouton_radio_non_envoi_annonces_editoriales' => '編集の発表を送信しない',
 	'bouton_redirection' => 'リダイレクト',
 	'bouton_reinitialiser_aux_valeurs_par_defaut' => 'デフォルトにリセットする',
@@ -73,7 +73,7 @@ return [
 	'bouton_vider_cache' => 'キャッシュを空白にする。',
 
 	// C
-	'cache_modifiable_webmestre' => 'この設定はウェブマスターが修正出来ます。',
+	'cache_modifiable_webmestre' => 'この設定はウェブマスターが修正出来ます。', # MODIF
 	'calendrier_synchro' => '<b>iCal</b>互換のカレンダーを使用する場合、当サイトの情報と同期することが出来ます',
 	'config_activer_champs' => 'フィルドを有効にしてください。',
 	'config_choix_base_sup' => 'データーベースを選んでください。',
@@ -115,7 +115,7 @@ return [
 	'entree_contenu_rubrique' => '（セクションの内容を短く入力してください。）',
 	'entree_identifiants_connexion' => 'あなたの接続ＩＤ…',
 	'entree_identifiants_connexion_2' => 'あなたの接続ＩＤ…',
-	'entree_informations_connexion_ldap' => 'このフォームには、システムまたはネットワーク管理者よりのLDAP接続情報を入力してください。',
+	'entree_informations_connexion_ldap' => 'このフォームには、システムまたはネットワーク管理者よりのLDAP接続情報を入力してください。', # MODIF
 	'entree_infos_perso' => 'あなたは誰ですか？',
 	'entree_infos_perso_2' => 'どんな著者ですか？',
 	'entree_interieur_rubrique' => 'セクションの中に：',
@@ -213,14 +213,14 @@ return [
 	'info_activer_menu_developpement' => '開発メニューを表示する',
 	'info_admin_etre_webmestre' => 'ウェブマスターのアクセス権を与えてもらう。',
 	'info_admin_je_suis_webmestre' => '私は<b>ウェブマスター</b>です。',
-	'info_admin_statuer_webmestre' => 'この管理者にウェブマスターのアクセス権を与える。',
-	'info_admin_webmestre' => 'この管理者は<b>ウェブマスター</b>です。',
-	'info_administrateur' => '管理者',
-	'info_administrateur_1' => '管理者',
+	'info_admin_statuer_webmestre' => 'この管理者にウェブマスターのアクセス権を与える。', # MODIF
+	'info_admin_webmestre' => 'この管理者は<b>ウェブマスター</b>です。', # MODIF
+	'info_administrateur' => '管理者', # MODIF
+	'info_administrateur_1' => '管理者', # MODIF
 	'info_administrateur_2' => 'サイトについて（<b>注意して使って</b>）',
-	'info_administrateur_site_01' => 'サイトの管理者であれば',
+	'info_administrateur_site_01' => 'サイトの管理者であれば', # MODIF
 	'info_administrateur_site_02' => 'このリンクをクリックしてください。',
-	'info_administrateurs' => '管理者',
+	'info_administrateurs' => '管理者', # MODIF
 	'info_administrer_rubrique' => 'あなたはこのセクションを管理することができる',
 	'info_adresse' => 'そのアドレスへ：',
 	'info_adresse_desinscription' => '登録解除するには：',
@@ -260,7 +260,7 @@ return [
 	'info_chapeau' => '飾り',
 	'info_chapeau_2' => '序説：',
 	'info_chemin_acces_1' => 'オプション：<b>ディレクトリのアクセス・パス</b>',
-	'info_chemin_acces_2' => 'ディレクトリ内（名簿）の情報にアクセス・パスを設定してください。この情報は、ディレクトリに保存されているユーザープロファイルを読み取るために必要です。',
+	'info_chemin_acces_2' => 'ディレクトリ内（名簿）の情報にアクセス・パスを設定してください。この情報は、ディレクトリに保存されているユーザープロファイルを読み取るために必要です。', # MODIF
 	'info_chemin_acces_annuaire' => 'オプション : <b>ディレクトリのアクセス・パス',
 	'info_choix_base' => '３番目のステップ：',
 	'info_classement_1' => ' @liste@ の外',
@@ -295,7 +295,7 @@ return [
 	'info_ecrire_article' => '記事を作成する前に、最低セクションを１つ作らなければなりません。',
 	'info_email_envoi' => '送信者のメールアドレス（任意）',
 	'info_email_envoi_txt' => 'e-mailを送るのに使っている送り主のe-mailアドレスを入力してください（デフォルトで、受信者のアドレスは送信者のアドレスが入力してあります :',
-	'info_email_webmestre' => 'ウェブマスターのメールアドレス（任意）',
+	'info_email_webmestre' => 'ウェブマスターのメールアドレス（任意）', # MODIF
 	'info_envoi_email_automatique' => 'メールの自動送信',
 	'info_envoyer_maintenant' => '今送信する',
 	'info_etape_suivante' => '次のステップに進む',
@@ -303,12 +303,12 @@ return [
 	'info_etape_suivante_2' => '次のステップに移ることが出来ます。',
 	'info_exceptions_proxy' => 'プロキシの例外',
 	'info_exportation_base' => '@archive@へデータベースを移す。',
-	'info_facilite_suivi_activite' => 'サイトの管理を容易にするために、SPIPは、著者のメーリングリストへ「記事の確認と記事の公開」を依頼するメールを送信することができます。一つまたは複数のアドレスをカンマで区切って入力します。',
+	'info_facilite_suivi_activite' => 'サイトの管理を容易にするために、SPIPは、著者のメーリングリストへ「記事の確認と記事の公開」を依頼するメールを送信することができます。一つまたは複数のアドレスをカンマで区切って入力します。', # MODIF
 	'info_fichiers_authent' => '認証ファイル「.htpasswd」',
-	'info_forums_abo_invites' => 'サイトは購読者用の掲示板を持っています。参加するために、訪問者は公開サイトで、購読するように招かれています。',
-	'info_gauche_auteurs' => 'サイトの全著者が表示されています。管理者は緑のアイコン、編集者は黄色いアイコンで示されています。',
+	'info_forums_abo_invites' => 'サイトは購読者用の掲示板を持っています。参加するために、訪問者は公開サイトで、購読するように招かれています。', # MODIF
+	'info_gauche_auteurs' => 'サイトの全著者が表示されています。管理者は緑のアイコン、編集者は黄色いアイコンで示されています。', # MODIF
 	'info_gauche_auteurs_exterieurs' => 'サイトへのアクセス権のない外部の著者は、青いアイコンで示し、削除された著者はゴミ箱のアイコンで示されています。',
-	'info_gauche_messagerie' => '内部メールを使用すると、著者間のメッセージを交換したり、リマインダー（個人使用）を保管したりします。管理者は管理エリアのホームページに告知を表示することが出来ます。',
+	'info_gauche_messagerie' => '内部メールを使用すると、著者間のメッセージを交換したり、リマインダー（個人使用）を保管したりします。管理者は管理エリアのホームページに告知を表示することが出来ます。', # MODIF
 	'info_gauche_statistiques_referers' => 'このページは、<b>参照</b>、つまり、当サイトへのリンクを持っているサイトのリス
 トを表示しています。このリストは24時間ごとにリセットされます。',
 	'info_gauche_visiteurs_enregistres' => 'ここでサイトのパブリックなエリアで登録された訪問者たちを探せるでしょう（寄付による掲示板）。',
@@ -321,7 +321,7 @@ return [
 	'info_images_auto' => '画像の自動制作',
 	'info_informations_personnelles' => '５番目のステップ：<b>個人情報</b>',
 	'info_inscription' => '登録された日付：',
-	'info_inscription_automatique' => '新規編集者の自動登録',
+	'info_inscription_automatique' => '新規編集者の自動登録', # MODIF
 	'info_jeu_caractere' => 'サイトの文字コード',
 	'info_jours' => '日',
 	'info_laisser_champs_vides' => 'これらのフィールドを空白のままにしておく事が出来ます。）',
@@ -329,7 +329,7 @@ return [
 	'info_ldap_ok' => 'LDAP認証はインストールされています。',
 	'info_lien_hypertexte' => 'リンク：',
 	'info_liste_nouveautes_envoyee' => '新らしい公開物のリストが送信されました。',
-	'info_liste_redacteurs_connectes' => '接続している編集者のリスト',
+	'info_liste_redacteurs_connectes' => '接続している編集者のリスト', # MODIF
 	'info_login_existant' => 'このＩＤは既に使われています。',
 	'info_login_trop_court' => 'ログインＩＤが短すぎます。',
 	'info_login_trop_court_car_pluriel' => 'ログインには少なくとも@nb@文字を含める必要があります。',
@@ -348,7 +348,7 @@ return [
 	'info_mon_site_spip' => '私のSPIPサイト',
 	'info_moyenne' => '平均：',
 	'info_multi_cet_article' => 'この記事の言語：',
-	'info_multi_langues_choisies' => 'あなたのサイトのエディターが利用できる言語を下で選んでください。もうすでにあなたのサイト内で（リストの上で）使われている言語は無効に出来ません。',
+	'info_multi_langues_choisies' => 'あなたのサイトのエディターが利用できる言語を下で選んでください。もうすでにあなたのサイト内で（リストの上で）使われている言語は無効に出来ません。', # MODIF
 	'info_multi_objets' => '@objets@：言語メニューを有効にする',
 	'info_multi_secteurs' => '... ルートにあるセクションだけ有効にしますか？',
 	'info_nb_articles' => '記事@nb@件',
@@ -374,8 +374,8 @@ return [
 	'info_nouvelle_traduction' => '新規翻訳：',
 	'info_numero_article' => '記事番号：',
 	'info_obligatoire_02' => '［必須］',
-	'info_option_accepter_visiteurs' => '公開サイトから、訪問者の登録を受け取る',
-	'info_option_ne_pas_accepter_visiteurs' => '訪問者の登録を断る',
+	'info_option_accepter_visiteurs' => '公開サイトから、訪問者の登録を受け取る', # MODIF
+	'info_option_ne_pas_accepter_visiteurs' => '訪問者の登録を断る', # MODIF
 	'info_options_avancees' => '詳細オプション',
 	'info_ou' => '又は...',
 	'info_page_interdite' => 'ページ禁止',
@@ -393,15 +393,15 @@ return [
 	'info_post_scriptum' => '追伸',
 	'info_post_scriptum_2' => '追伸：',
 	'info_pour' => 'for',
-	'info_preview_texte' => '「提案済み」のステータスがある様々な編集物をプレビューすることが出来、および自分が著者のある記事を見ることができます。この機能は、管理者、編集者、または誰でも利用するのですか？',
+	'info_preview_texte' => '「提案済み」のステータスがある様々な編集物をプレビューすることが出来、および自分が著者のある記事を見ることができます。この機能は、管理者、編集者、または誰でも利用するのですか？', # MODIF
 	'info_procedez_par_etape' => '一方一方して進んでください。',
 	'info_procedure_maj_version' => '新しいバージョンのSPIPに順応させるために、データベースをアップグレードするべきです。',
 	'info_proxy_ok' => 'プロキシテストの成功。',
 	'info_ps' => '追伸',
 	'info_publier' => '公開',
 	'info_publies' => '公開された私の記事',
-	'info_question_accepter_visiteurs' => 'サイトのテンプレートがプライベートエリアに入らないで、訪問者の登録を提案したら、以下のオプションを有効にしてください：',
-	'info_question_inscription_nouveaux_redacteurs' => '公開サイトより新規著者の登録を受け入れますか。<br/>そうであれば、ご訪問者はフォームを使って自動で登録ができます。管理エリアに入ってご自分の記事を提出します。<br/><div class = "notice">登録プロセスで、ご訪問者は管理エリアに入るためにアクセスコードをもたらすメールを受信します。<br/>プロバイダーによっては、メールの自動送信が無効にされることがあります。 その場合、自動登録は不可能です。</div>',
+	'info_question_accepter_visiteurs' => 'サイトのテンプレートがプライベートエリアに入らないで、訪問者の登録を提案したら、以下のオプションを有効にしてください：', # MODIF
+	'info_question_inscription_nouveaux_redacteurs' => '公開サイトより新規著者の登録を受け入れますか。<br/>そうであれば、ご訪問者はフォームを使って自動で登録ができます。管理エリアに入ってご自分の記事を提出します。<br/><div class = "notice">登録プロセスで、ご訪問者は管理エリアに入るためにアクセスコードをもたらすメールを受信します。<br/>プロバイダーによっては、メールの自動送信が無効にされることがあります。 その場合、自動登録は不可能です。</div>', # MODIF
 	'info_qui_edite' => '@nom_auteur_modif@が@date_diff@分前に中味を編集しました。',
 	'info_racine_site' => 'サイトのルート',
 	'info_recharger_page' => 'ちょっとしてからこのページを再読込してください。',
@@ -418,7 +418,7 @@ return [
 	'info_refuses' => '記事は拒絶されました。',
 	'info_reglage_ldap' => 'オプション：<b>LDAPインポートの設定</b>',
 	'info_renvoi_article' => '<b>リダイレクション</b>この記事はそのページを参照します：',
-	'info_reserve_admin' => '管理者しかこのアドレスの変更が出来ません。',
+	'info_reserve_admin' => '管理者しかこのアドレスの変更が出来ません。', # MODIF
 	'info_restreindre_rubrique' => '管理はこのセクションに制限されています：',
 	'info_resultat_recherche' => '検索結果：',
 	'info_rubriques' => 'セクション',
@@ -437,14 +437,14 @@ return [
 	'info_sites_proxy' => 'プロキシ使用',
 	'info_sites_trouves' => '見つかったサイト',
 	'info_sous_titre' => 'サブタイトル:',
-	'info_statut_administrateur' => '管理者です。',
+	'info_statut_administrateur' => '管理者です。', # MODIF
 	'info_statut_auteur' => '管理者のステータス：',
 	'info_statut_auteur_2' => '私は、',
 	'info_statut_auteur_a_confirmer' => '確認されるべきの登録',
 	'info_statut_auteur_autre' => 'その他のステータス：',
 	'info_statut_redacteur' => 'エディターです。',
-	'info_statut_utilisateurs_1' => '読み込まれたユーザーの標準のステータス',
-	'info_statut_utilisateurs_2' => 'LDAPディレクトリ内のユーザーが初めてログインする時には、ユーザー用のステータスを選択してください。その後、各ユーザーのステータスを管理することができます。',
+	'info_statut_utilisateurs_1' => '読み込まれたユーザーの標準のステータス', # MODIF
+	'info_statut_utilisateurs_2' => 'LDAPディレクトリ内のユーザーが初めてログインする時には、ユーザー用のステータスを選択してください。その後、各ユーザーのステータスを管理することができます。', # MODIF
 	'info_suivi_activite' => '編集活動に従うこと',
 	'info_surtitre' => 'トップタイトル：',
 	'info_syndication_integrale_1' => '当サイトは参照ファイルを提供します。（「<a href=\\"@url@\\">@titre@</a>」を見てください。）',
@@ -488,7 +488,7 @@ return [
 	'info_visiteur_2' => '公開サイトの',
 	'info_visiteurs' => '訪問者',
 	'info_visiteurs_02' => '公開サイトの訪問者数',
-	'info_webmestre_forces' => 'ウェブマスターは<b>@file_options@</b>に設定されています。',
+	'info_webmestre_forces' => 'ウェブマスターは<b>@file_options@</b>に設定されています。', # MODIF
 	'install_adresse_base_hebergeur' => 'データベースURLはプロバイダによって提供されています。',
 	'install_connect_ok' => '新しいデータベースは@connect@と名付けられたサーバーとして設定されています。',
 	'install_echec_annonce' => 'インストールが失敗する恐れがあって、サイトを作動させられないかもしれません。',
@@ -515,10 +515,10 @@ return [
 	'intitule_licence' => 'ライセンス',
 	'item_accepter_inscriptions' => '登録を受け取る',
 	'item_activer_messages_avertissement' => '警告メッセージを有効にする',
-	'item_administrateur_2' => '管理者です。',
+	'item_administrateur_2' => '管理者です。', # MODIF
 	'item_afficher_calendrier' => 'カレンダー上に表示',
 	'item_autoriser_syndication_integrale' => '参照フィードに記事全体を含める',
-	'item_choix_administrateurs' => '管理者',
+	'item_choix_administrateurs' => '管理者', # MODIF
 	'item_choix_generation_miniature' => '画像のサムネイルを自動製作する',
 	'item_choix_non_generation_miniature' => '画像のサムネイルを製作しない',
 	'item_choix_redacteurs' => '編集者',
@@ -715,15 +715,15 @@ return [
 	'taille_repertoire_cache' => '現在のキャッシュサイズ',
 	'text_article_propose_publication' => 'この記事は公開のために提出されています。',
 	'texte_acces_ldap_anonyme_1' => '次のフィールドは空白のままにすることができます。ただし、一部のLDAPサーバーは匿名アクセスを受け入れません。その場合、名簿内の情報を検索するには、ログインＩＤを指定する必要があります。',
-	'texte_admin_effacer_01' => 'このコマンドは、データベースの内容を<b>すべて</b>消去します、管理者や全編集者のアクセス権を含めて。行なった上で、SPIPを再インストールし、新規データベースと最初の管理者アクセス権を再作成する必要があります。',
+	'texte_admin_effacer_01' => 'このコマンドは、データベースの内容を<b>すべて</b>消去します、管理者や全編集者のアクセス権を含めて。行なった上で、SPIPを再インストールし、新規データベースと最初の管理者アクセス権を再作成する必要があります。', # MODIF
 	'texte_adresse_annuaire_1' => 'ディレクトリがウェブサイトと同じコンピュータにインストールされていれば、おそらく「localhost」です。',
 	'texte_ajout_auteur' => '次の著者が記事に追加されました：',
-	'texte_annuaire_ldap_1' => 'LDAP名簿にアクセスがあれば、SPIPでユーザを自動的にインポートすることができます。',
+	'texte_annuaire_ldap_1' => 'LDAP名簿にアクセスがあれば、SPIPでユーザを自動的にインポートすることができます。', # MODIF
 	'texte_article_statut' => '記事のステータス：',
 	'texte_article_virtuel' => '仮想記事',
 	'texte_article_virtuel_reference' => '<b>仮想記事：</b>SPIPサイト内に記事が参照されているが、ほかのURLへとリダイレクトしているリダイレクションを取り消すには、上のURLを削除して下さい。',
 	'texte_aucun_resultat_auteur' => '「@cherche_auteur@」には、検索結果なし',
-	'texte_auteur_messagerie' => '接続中の著者は表示されています。その著者とライブメッセージを交換できます。このリストに自分を表示しないようにすると、他のユーザーには隠れます。',
+	'texte_auteur_messagerie' => '接続中の著者は表示されています。その著者とライブメッセージを交換できます。このリストに自分を表示しないようにすると、他のユーザーには隠れます。', # MODIF
 	'texte_auteurs' => '著者',
 	'texte_choix_base_1' => 'データベースを選択してください：',
 	'texte_choix_base_2' => 'SQLサーバーはいくつかのデータベースを含んでいます。',
@@ -749,7 +749,7 @@ return [
 	'texte_effacer_statistiques' => '統計情報を削除する',
 	'texte_en_cours_validation' => '確認のために以下の記事とニュースが提出されました。掲示板を通してご意見を述べてください。',
 	'texte_enrichir_mise_a_jour' => '「上のショートカット」を使用すると、テキストのレイアウトを充実させることができます。',
-	'texte_fichier_authent' => '<p>SPIPは@dossier@フォルダーに特別なファイル.htpasswdと.htpasswd-adminを作成する必要がありますか？</p><p>これらのファイルを使用したら、サイトの他のエリア（外部統計プログラムなど）に作成者や管理者だけへのアクセスが制限されます。</p><p>このようなファイルを必要としなければ、デフォルトである「ファイル作成なし」オプションにしておくことができます。</p>',
+	'texte_fichier_authent' => '<p>SPIPは@dossier@フォルダーに特別なファイル.htpasswdと.htpasswd-adminを作成する必要がありますか？</p><p>これらのファイルを使用したら、サイトの他のエリア（外部統計プログラムなど）に作成者や管理者だけへのアクセスが制限されます。</p><p>このようなファイルを必要としなければ、デフォルトである「ファイル作成なし」オプションにしておくことができます。</p>', # MODIF
 	'texte_informations_personnelles_1' => 'SPIPはこのサイト用あなたの個人アカウントを作成します。',
 	'texte_informations_personnelles_2' => '（注：再インストールの場合、以前のアクセスがまだ有効していたら、',
 	'texte_introductif_article' => '（記事の紹介文章）',
@@ -758,7 +758,7 @@ return [
 	'texte_jeu_caractere_4' => 'これは現在のデータに対応していない場合（バックアップからデータベースを修復した後に発生する可能性があります）、別の文字セットを指定することも出来ます。設定したください：',
 	'texte_login_ldap_1' => '匿名アクセスのために空白のままに残すか、完全なパスを入力します（例えば、「<code>uid=Kantaro, ou=users, dc=my-domain, dc=com</code>」）',
 	'texte_login_precaution' => '警告！これはあなたが現在使っているログインＩＤです。注意してこのフォームを使用してください。',
-	'texte_messagerie_agenda' => 'メッセージングシステムによって、著者などは管理エリアで直接通信することができます。それにカレンダーにリンクされています。',
+	'texte_messagerie_agenda' => 'メッセージングシステムによって、著者などは管理エリアで直接通信することができます。それにカレンダーにリンクされています。', # MODIF
 	'texte_mise_a_niveau_base_1' => 'SPIPファイルを更新されました。データベースをアップグレードする必要もあります。',
 	'texte_modifier_article' => '記事を修正する：',
 	'texte_multilinguisme' => '複雑なナビゲーションでオブジェクトを複数の言語で管理する場合は、サイトの構成によって、このオブジェクト用の言語選択メニューを追加できます。',
@@ -794,7 +794,7 @@ return [
 	'texte_titre_02' => '件名:',
 	'texte_titre_obligatoire' => '［必須］<b>タイトル</b>',
 	'texte_travail_article' => '@nom_auteur_modif@はこの記事を@date_diff@分前に編集しました。',
-	'texte_travail_collaboratif' => '数人の著者が同じ記事をよく編集する場合、SPIPは、同時に記事の変更を避けるために、「最近開いた記事」を表示する事ができます。このオプションは、不要な警告メッセージを表示しないように、デフォルトでは無効になっています。',
+	'texte_travail_collaboratif' => '数人の著者が同じ記事をよく編集する場合、SPIPは、同時に記事の変更を避けるために、「最近開いた記事」を表示する事ができます。このオプションは、不要な警告メッセージを表示しないように、デフォルトでは無効になっています。', # MODIF
 	'texte_vide' => '空白にする',
 	'texte_vider_cache' => 'キャッシュを空白にする',
 	'titre_ajouter_un_auteur' => '著者を追加する',

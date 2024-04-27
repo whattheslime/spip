@@ -17,7 +17,7 @@ return [
 	'avis_connexion_echec_3' => '<b>N.B.</b> Na nekim serverima, trebate <b>traziti</b> aktiviranje pristupa SQL bazi prije nego je mozete koristiti. Ako se ne mozete konektovati provjerite da li ste trazili pomenutu aktivaciju.', # MODIF
 	'avis_connexion_ldap_echec_1' => 'Konekcija na LDAP server nije uspjela.',
 	'avis_connexion_ldap_echec_2' => 'Vratite se na prethodnu stranicu i provjerite unesene podatke.',
-	'avis_connexion_ldap_echec_3' => 'Ne koristite podrsku LDAP kao alternativu za importovanje korisnika.',
+	'avis_connexion_ldap_echec_3' => 'Ne koristite podrsku LDAP kao alternativu za importovanje korisnika.', # MODIF
 	'avis_deplacement_rubrique' => 'Paznja! Ova rubrika sadrzi @contient_breves@ kratke poruke: Ako je zelite premjestiti, oznacite  ovo polje kao potvrdu.',
 	'avis_erreur_connexion_mysql' => 'Greska u SQL konekciji', # MODIF
 	'avis_espace_interdit' => '<b>Zabranjen prostor</b><p>SPIP je  vec instaliran.</p>', # MODIF
@@ -36,10 +36,10 @@ return [
 	'bouton_envoyer_message' => 'Definitivna poruka: posalji',
 	'bouton_modifier' => 'Izmijeni',
 	'bouton_radio_afficher' => 'Prikazi',
-	'bouton_radio_apparaitre_liste_redacteurs_connectes' => 'Prikazi u listi prisutnih urednika',
+	'bouton_radio_apparaitre_liste_redacteurs_connectes' => 'Prikazi u listi prisutnih urednika', # MODIF
 	'bouton_radio_envoi_annonces_adresse' => 'Posalji najave na adresu:',
 	'bouton_radio_envoi_liste_nouveautes' => 'Posalji listu novosti',
-	'bouton_radio_non_apparaitre_liste_redacteurs_connectes' => 'Ne prikazuj u listi urednika',
+	'bouton_radio_non_apparaitre_liste_redacteurs_connectes' => 'Ne prikazuj u listi urednika', # MODIF
 	'bouton_radio_non_envoi_annonces_editoriales' => 'Ne salji editorijalne najave',
 	'bouton_redirection' => 'PREUSMJERI',
 	'bouton_relancer_installation' => 'Ponovo pokreni instalaciju',
@@ -49,7 +49,7 @@ return [
 	'bouton_vider_cache' => 'Isprazni kes',
 
 	// C
-	'cache_modifiable_webmestre' => 'Webmaster stranice moze promijeniti ovaj parametar.',
+	'cache_modifiable_webmestre' => 'Webmaster stranice moze promijeniti ovaj parametar.', # MODIF
 	'calendrier_synchro' => 'Ako koristite neki kompaktibilni kalendarski software <b>iCal</b>, mozete ga uskladiti sa informacijama ove stranice.',
 
 	// D
@@ -67,7 +67,7 @@ return [
 	'entree_cle_pgp' => 'Vas PGP kljuc',
 	'entree_contenu_rubrique' => '(Sadrzaj ove rubrike, u nekoliko  rijeci.)',
 	'entree_identifiants_connexion' => 'Identifikatori vase konekcije...',
-	'entree_informations_connexion_ldap' => 'U ovaj formular unesite informacije o konekciji sa LDAP direktorijem. Administrator mreze ili mreza ce vam pruziti te informacije.',
+	'entree_informations_connexion_ldap' => 'U ovaj formular unesite informacije o konekciji sa LDAP direktorijem. Administrator mreze ili mreza ce vam pruziti te informacije.', # MODIF
 	'entree_infos_perso' => 'Ko ste?',
 	'entree_interieur_rubrique' => 'U rubrici:',
 	'entree_liens_sites' => '<b>Hiperlink</b> (Reference, web stranice za posjetiti...)', # MODIF
@@ -120,12 +120,12 @@ return [
 	'impossible_modifier_pass_auteur' => 'Impossible de modifier le mot de passe.', # MODIF
 	'info_1_article' => '1. clanak',
 	'info_activer_cookie' => 'Mozete aktivirati jedan <b> cookie za administraciu </b>, koji ce vam dozvoliti lak prelaz iz javnog u privati prostor.',
-	'info_administrateur' => 'Administrator',
-	'info_administrateur_1' => 'Administrator',
+	'info_administrateur' => 'Administrator', # MODIF
+	'info_administrateur_1' => 'Administrator', # MODIF
 	'info_administrateur_2' => 'stranice (<i>pazljiva  upotreba</i>)',
-	'info_administrateur_site_01' => 'Ako ste administrator stranice',
+	'info_administrateur_site_01' => 'Ako ste administrator stranice', # MODIF
 	'info_administrateur_site_02' => 'kliknite ovaj link',
-	'info_administrateurs' => 'Administratori',
+	'info_administrateurs' => 'Administratori', # MODIF
 	'info_administrer_rubrique' => 'Mozete biti administrator ove rubrike',
 	'info_adresse' => 'na adresu:',
 	'info_adresse_url' => 'URL adresa stranice za javnost',
@@ -152,7 +152,7 @@ return [
 	'info_chapeau' => 'Uvod',
 	'info_chapeau_2' => 'Uvod:',
 	'info_chemin_acces_1' => 'Opcije: <b>Putanja pristupa u direktorij</b>', # MODIF
-	'info_chemin_acces_2' => 'Od sada cete morati konfigurisati putanju pristupa informacijama iz direktorija. Ova informacija je neophodna za citanje profila korisnika koji su pohranjeni u direktoriju.',
+	'info_chemin_acces_2' => 'Od sada cete morati konfigurisati putanju pristupa informacijama iz direktorija. Ova informacija je neophodna za citanje profila korisnika koji su pohranjeni u direktoriju.', # MODIF
 	'info_chemin_acces_annuaire' => 'Opcije : <b>Putanja pristupa u direktorij', # MODIF
 	'info_choix_base' => 'Treca etapa :',
 	'info_classement_1' => '<sup>er</sup> iz @liste@',
@@ -189,10 +189,10 @@ return [
 	'info_exportation_base' => 'eksportuj baze u @archive@',
 	'info_facilite_suivi_activite' => 'U svrhu posmatranja  editorijalne aktivnosti stranice, SPIP moze elektronskom postom  (npr. mailing listom urednika) proslijedjivati najave zahtijeva za publikaciju i ovjeru clanaka.', # MODIF
 	'info_fichiers_authent' => 'Dokument autentifikacije « .htpasswd »',
-	'info_forums_abo_invites' => 'Vasa stranica obudhvata i forume za clanove; posjetioci se pozivaju na registraciju u javnom  prostoru stanice.',
-	'info_gauche_auteurs' => 'Ovdje cete pronaci sve autore ove web stranice. Njihov status je naznacen bojom njihove ikone (administrator = zelena; urednik = zuta).',
+	'info_forums_abo_invites' => 'Vasa stranica obudhvata i forume za clanove; posjetioci se pozivaju na registraciju u javnom  prostoru stanice.', # MODIF
+	'info_gauche_auteurs' => 'Ovdje cete pronaci sve autore ove web stranice. Njihov status je naznacen bojom njihove ikone (administrator = zelena; urednik = zuta).', # MODIF
 	'info_gauche_auteurs_exterieurs' => 'Vanjski autori bez pristupa stranici su oznaceni plavom ikonom, a izbrisani autori sa ikonicom korpe za smece.', # MODIF
-	'info_gauche_messagerie' => 'Servis za slanje poruka vam omogucuje razmjenu poruka medju piscima, cuvanje biljeske (za licnu upotrebu) ili, ako ste administrator, postavljanje najava na pocetnu stranicu u privatnom prostoru.',
+	'info_gauche_messagerie' => 'Servis za slanje poruka vam omogucuje razmjenu poruka medju piscima, cuvanje biljeske (za licnu upotrebu) ili, ako ste administrator, postavljanje najava na pocetnu stranicu u privatnom prostoru.', # MODIF
 	'info_gauche_statistiques_referers' => 'Ova strana predstavlja  listu <i>referenci</i>, sto znaci stranice koje sadrze linkove  sa vasom licnom stranicom, ali samo za jucer i danas; ova lista se vraca na nulu svaka 20 sata.',
 	'info_gauche_visiteurs_enregistres' => 'Ovdje mozete pronaci posjetioce koji su registrovani na javnoj stranici (forumi za clanove).',
 	'info_generation_miniatures_images' => 'Obradjivanje minijaturnih slika',
@@ -202,14 +202,14 @@ return [
 	'info_image_process' => 'Izaberite najbolju metodu pravljenja vinjeta tako sto cete kliknuti na odgovarajucu sliku.',
 	'info_images_auto' => 'Automatski izracunate slike',
 	'info_informations_personnelles' => 'Peta etapa: <b>Licne informacije</b>', # MODIF
-	'info_inscription_automatique' => 'Automatsko upisivanje novih urednika',
+	'info_inscription_automatique' => 'Automatsko upisivanje novih urednika', # MODIF
 	'info_jeu_caractere' => 'Set karaktera stranice',
 	'info_jours' => 'dani',
 	'info_laisser_champs_vides' => 'ostavi ova polja prazna)',
 	'info_langues' => 'Jezici stranice',
 	'info_ldap_ok' => 'LDAP autentifikacija je instalirana.',
 	'info_lien_hypertexte' => 'Hiperlink:',
-	'info_liste_redacteurs_connectes' => 'Lista konektovanih urednika',
+	'info_liste_redacteurs_connectes' => 'Lista konektovanih urednika', # MODIF
 	'info_login_existant' => 'Ovaj login vec postoji.',
 	'info_login_trop_court' => 'Ovaj login je prekratak.',
 	'info_maximum' => 'maksimalno:',
@@ -224,7 +224,7 @@ return [
 	'info_mon_site_spip' => 'Moja SPIP stranica',
 	'info_moyenne' => 'prosjek:',
 	'info_multi_cet_article' => 'Jezik ovog clanka:',
-	'info_multi_langues_choisies' => 'Izaberite jezike koji ce biti na raspolaganju urednicima vase stranice. Jezici koji se vec koriste na vasoj stranici, ne mogu se iskluciti.',
+	'info_multi_langues_choisies' => 'Izaberite jezike koji ce biti na raspolaganju urednicima vase stranice. Jezici koji se vec koriste na vasoj stranici, ne mogu se iskluciti.', # MODIF
 	'info_multi_secteurs' => '... samo za rubrike koje se nalaze na root-u?',
 	'info_nom' => 'Ime',
 	'info_nom_destinataire' => 'Ime primaoca',
@@ -242,8 +242,8 @@ return [
 	'info_nouvelle_traduction' => 'Novi prevod:',
 	'info_numero_article' => 'CLANAK BROJ:',
 	'info_obligatoire_02' => '[Obavezno]', # MODIF
-	'info_option_accepter_visiteurs' => 'Prihvati upisivanje posjetioca na javnoj stranici',
-	'info_option_ne_pas_accepter_visiteurs' => 'Odbij upisivanje posjetioca',
+	'info_option_accepter_visiteurs' => 'Prihvati upisivanje posjetioca na javnoj stranici', # MODIF
+	'info_option_ne_pas_accepter_visiteurs' => 'Odbij upisivanje posjetioca', # MODIF
 	'info_options_avancees' => 'NAPREDNE OPCIJE',
 	'info_ou' => 'ili...',
 	'info_page_interdite' => 'Ova strana je zabranjena',
@@ -262,7 +262,7 @@ return [
 	'info_procedure_maj_version' => 'Potrebno je pokrenuti update, da bi se baza podataka prikljucila novoj verziji SPIP-a.',
 	'info_ps' => 'P.S.:', # MODIF
 	'info_publier' => 'objavi moje clanke',
-	'info_question_accepter_visiteurs' => 'Ako obrasci vase stranice ukljucuju upisivanje posjetioca bez pristupa u  privatnu stranicu, aktivirajte sljedecu opciju:',
+	'info_question_accepter_visiteurs' => 'Ako obrasci vase stranice ukljucuju upisivanje posjetioca bez pristupa u  privatnu stranicu, aktivirajte sljedecu opciju:', # MODIF
 	'info_question_inscription_nouveaux_redacteurs' => 'Da li prihvatate upisivanje novih urednika u javnom prostoru  stranice? Ako prihvatate, posjetioci ce se moci registrovati putem automatskog formulara, a zatim ce moci pristupiti privatnom prostoru i predlagati svoje clanke. <blockquote><i>Tokom faze upisivanja, korisnici ce primiti  automatski e-mail sa kodom za pristup u privatnu stranicu. Neki kompjuteri sprecavaju slanje mailova putem njihovih servera: u tom slucaju ce automatsko upisivanje biti nemoguce.', # MODIF
 	'info_qui_edite' => '@nom_auteur_modif@ a travaillé sur ce contenu il y a @date_diff@ minutes', # MODIF
 	'info_racine_site' => 'Korjen stranice',
@@ -277,7 +277,7 @@ return [
 	'info_refuses' => 'Vasi odbijeni clanci',
 	'info_reglage_ldap' => 'Opcije: namijestanje LDAP importa</b>', # MODIF
 	'info_renvoi_article' => '<b>Preusmjerenje.</b> Ovaj clanak se preusmjerava na stranicu:', # MODIF
-	'info_reserve_admin' => 'Samo administratori mogu izmijeniti ovu adresu.',
+	'info_reserve_admin' => 'Samo administratori mogu izmijeniti ovu adresu.', # MODIF
 	'info_restreindre_rubrique' => 'Ograniciti uredjivanje rubrike:',
 	'info_resultat_recherche' => 'Rezultati pretrage:',
 	'info_rubriques' => 'Rubrike',
@@ -296,11 +296,11 @@ return [
 	'info_sites_proxy' => 'Koristi proxy',
 	'info_sites_trouves' => 'Pronadjene stranice',
 	'info_sous_titre' => 'Podnaslov:',
-	'info_statut_administrateur' => 'Administrator',
+	'info_statut_administrateur' => 'Administrator', # MODIF
 	'info_statut_auteur' => 'Status ovog autora:', # MODIF
 	'info_statut_redacteur' => 'Urednik',
-	'info_statut_utilisateurs_1' => 'Standardni status importovanih korisnika',
-	'info_statut_utilisateurs_2' => 'Izaberita koji status ce imati osobe koje su prisutne u LDAP direktoriju, kada se konektuju  prvi put. Kasnije ce te biti u mogucnosti da status svakog autora individualno izmijenite.',
+	'info_statut_utilisateurs_1' => 'Standardni status importovanih korisnika', # MODIF
+	'info_statut_utilisateurs_2' => 'Izaberita koji status ce imati osobe koje su prisutne u LDAP direktoriju, kada se konektuju  prvi put. Kasnije ce te biti u mogucnosti da status svakog autora individualno izmijenite.', # MODIF
 	'info_suivi_activite' => 'Pracenje urednicke aktivnosti',
 	'info_surtitre' => 'Nadnaslov:',
 	'info_taille_maximale_vignette' => 'Maksimalna velicina vinjeta  koje uredjuje sistem:',
@@ -341,9 +341,9 @@ Prevodi su (sa bojom koja ukazuje na njihovo stanje) povezani sa originalnim cla
 	'intem_redacteur' => 'urednik',
 	'item_accepter_inscriptions' => 'Prihvati upise',
 	'item_activer_messages_avertissement' => 'Aktiviraj poruke upozorenja',
-	'item_administrateur_2' => 'administrator',
+	'item_administrateur_2' => 'administrator', # MODIF
 	'item_afficher_calendrier' => 'Prikazati u kalendaru',
-	'item_choix_administrateurs' => 'administratori',
+	'item_choix_administrateurs' => 'administratori', # MODIF
 	'item_choix_generation_miniature' => 'Automatski uredi minijature slika.',
 	'item_choix_non_generation_miniature' => 'Ne uredjuj minijature slika.',
 	'item_choix_redacteurs' => 'urednici',
@@ -421,15 +421,15 @@ Prevodi su (sa bojom koja ukazuje na njihovo stanje) povezani sa originalnim cla
 	'taille_repertoire_cache' => 'Aktuelna velicina kesa',
 	'text_article_propose_publication' => 'Clanak predlozen za objavljivanje. Ne oklijevajte da date vase misljenje u forumu dodanom ovom clanku (na dnu ove strane).', # MODIF
 	'texte_acces_ldap_anonyme_1' => 'Neki LDAP serveri ne prihvataju ni jedan anonimni pristup. U tom slucaju je potrebno odrediti identifikatora za inicijalni pristup, da bi zatim postojala mogucnost pretrage informacija u direktoriju. U vecini slucajeva, sljedeca polja mogu ostati prazna',
-	'texte_admin_effacer_01' => 'Ova komanda ce izbrisati <i>sav</i> sadrzaj baze podataka, ukljucujuci <i>sve</i> pristupe urednika i administratora. Prije nego je pokrenete,  trebate pokrenuti reinstalaciju pristupa SPIP-u da biste kreirali novu bazu, kao i prvi pristup administratora.',
+	'texte_admin_effacer_01' => 'Ova komanda ce izbrisati <i>sav</i> sadrzaj baze podataka, ukljucujuci <i>sve</i> pristupe urednika i administratora. Prije nego je pokrenete,  trebate pokrenuti reinstalaciju pristupa SPIP-u da biste kreirali novu bazu, kao i prvi pristup administratora.', # MODIF
 	'texte_adresse_annuaire_1' => '(Ako je vas direktorij instaliran na istoj masini kao ova web stranica, vjerovatno se radi o localhost-u.)',
 	'texte_ajout_auteur' => 'Sljedeci autor je dodan clanku:',
-	'texte_annuaire_ldap_1' => 'Ako imate pristup jednom (LDAP) direktoriju, mozete ga koristiti za automatsko importovanje korisnika u SPIP.',
+	'texte_annuaire_ldap_1' => 'Ako imate pristup jednom (LDAP) direktoriju, mozete ga koristiti za automatsko importovanje korisnika u SPIP.', # MODIF
 	'texte_article_statut' => 'Ovaj clanak je:',
 	'texte_article_virtuel' => 'Virtuelni clanak',
 	'texte_article_virtuel_reference' => '<b>Virtuelni clanak:</b> clanak je preporucen na vasoj SPIP stranici, ali apreusmjeren na drugi URL. Da bi ste sprijecili preusmjeravanje, izbrisite nize prikazani URL.',
 	'texte_aucun_resultat_auteur' => 'Nema rezultata za"@cherche_auteur@"',
-	'texte_auteur_messagerie' => 'Ova stranica vam moze permanentno ukazivati na listu konektovanih urednika, sto vam omogucuje online razmjenu poruka. Mozete odluciti da se ne pojavljujete na ovoj listi (nevidljivi ste za druge korisnike).',
+	'texte_auteur_messagerie' => 'Ova stranica vam moze permanentno ukazivati na listu konektovanih urednika, sto vam omogucuje online razmjenu poruka. Mozete odluciti da se ne pojavljujete na ovoj listi (nevidljivi ste za druge korisnike).', # MODIF
 	'texte_auteurs' => 'AUTORI',
 	'texte_choix_base_1' => 'Izaberite vasu bazu:',
 	'texte_choix_base_2' => 'SQL server sadrzi vise baza podataka.', # MODIF
@@ -494,7 +494,7 @@ Prevodi su (sa bojom koja ukazuje na njihovo stanje) povezani sa originalnim cla
 	'texte_titre_02' => 'Naslov:',
 	'texte_titre_obligatoire' => '<b>Naslov</b> [Obavezan]', # MODIF
 	'texte_travail_article' => '@nom_auteur_modif@ ostaje @date_diff@ minuta za rad na ovom clanku',
-	'texte_travail_collaboratif' => 'Ako je uobicajeno da vise urednika radi na istom clanku, sistem moze postavljati posljednje « otvarane » clanke, da bi se izbjegle simultane izmjene. Ova opcija je standardno iskljucena, da bi se izbjeglo postavljanje neodgovarajucih poruka upozorenja.',
+	'texte_travail_collaboratif' => 'Ako je uobicajeno da vise urednika radi na istom clanku, sistem moze postavljati posljednje « otvarane » clanke, da bi se izbjegle simultane izmjene. Ova opcija je standardno iskljucena, da bi se izbjeglo postavljanje neodgovarajucih poruka upozorenja.', # MODIF
 	'texte_vide' => 'prazno',
 	'texte_vider_cache' => 'Isprazniti kes',
 	'titre_cadre_afficher_article' => 'Prikazi clanke',

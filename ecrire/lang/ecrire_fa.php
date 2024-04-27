@@ -23,7 +23,7 @@ return [
 	'avis_connexion_erreur_nom_base' => 'نام پايگاه نمي‌تواند چيزي جز حروف، ارقام و خط تيره باشد',
 	'avis_connexion_ldap_echec_1' => 'LDAP.ارتباط با سرور ال دى ا پى برقرار نشد                ',
 	'avis_connexion_ldap_echec_2' => 'به صفحه پيش برگرديد و ببينيد اطلاعاتي را كه داده ايد صحيح ميباشند',
-	'avis_connexion_ldap_echec_3' => 'از سيستم ال دى ا پى به طور پى در پى براى ورود كاربران استفاده نكنيد',
+	'avis_connexion_ldap_echec_3' => 'از سيستم ال دى ا پى به طور پى در پى براى ورود كاربران استفاده نكنيد', # MODIF
 	'avis_deplacement_rubrique' => 'توجه ! اين بخش داراى@contient_breves@ brève@scb@ ميباشد : خواهشمند است درصورت جابجائي آن، علامت مربوطه را تائيد كنيد ',
 	'avis_erreur_connexion_mysql' => 'خطاى اتصال SQL   ',
 	'avis_espace_interdit' => '<b>بخش ممنوع</b><p> اسپيپ قبلأ نصب شده', # MODIF
@@ -51,10 +51,10 @@ return [
 	'bouton_mettre_a_jour_base' => 'به هنگام سازي پايگاه داده‌ها',
 	'bouton_modifier' => 'اصلاح كنيد',
 	'bouton_radio_afficher' => 'نشان دهيد',
-	'bouton_radio_apparaitre_liste_redacteurs_connectes' => 'در فهرست نويسندگانى كه به اسپيپ وصل هستند ظاهر شود',
+	'bouton_radio_apparaitre_liste_redacteurs_connectes' => 'در فهرست نويسندگانى كه به اسپيپ وصل هستند ظاهر شود', # MODIF
 	'bouton_radio_envoi_annonces_adresse' => ':خبرها را به اين آدرس بفرستيد',
 	'bouton_radio_envoi_liste_nouveautes' => 'فهرست تازه ها را بفرستيد:',
-	'bouton_radio_non_apparaitre_liste_redacteurs_connectes' => 'در فهرست نويسندها نمايان نشود',
+	'bouton_radio_non_apparaitre_liste_redacteurs_connectes' => 'در فهرست نويسندها نمايان نشود', # MODIF
 	'bouton_radio_non_envoi_annonces_editoriales' => 'خبرهاى مربوط به سر مقاله ها را نفرستيد',
 	'bouton_redirection' => 'هدايت دوباره',
 	'bouton_relancer_installation' => 'دوباره نصب كنيد',
@@ -64,7 +64,7 @@ return [
 	'bouton_vider_cache' => 'فايل موقت را خالى كنيد',
 
 	// C
-	'cache_modifiable_webmestre' => 'اين پارامترها توسط وب مستر سايت ميتواند اصلاح شود.',
+	'cache_modifiable_webmestre' => 'اين پارامترها توسط وب مستر سايت ميتواند اصلاح شود.', # MODIF
 	'calendrier_synchro' => ' درصورت استفاده از نرم افزارهاى روزشمار ويژه<b>iCal</b>, ميتوانيد آنرا با مطالب اين سايت منطبق كنيد',
 	'config_activer_champs' => 'بخشهای زیر را فعال کنید',
 	'config_choix_base_sup' => 'يك پايگاه روي اين سرور تعيين كنيد',
@@ -106,7 +106,7 @@ return [
 	'entree_identifiants_connexion_2' => 'شناسه‌ي ارتباط',
 	'entree_informations_connexion_ldap' => 'LDAP     خواهشمند است، اطلاعات مربوط به ارتباط به راهنماى  ال دى ا پى را در اين پرسشنامه وارد كنيد.
  اين ااطلاعات ميبايد توسط گرداننده  سيستم 
-يا شبكه به شما داده شود',
+يا شبكه به شما داده شود', # MODIF
 	'entree_infos_perso' => ' كى هستيد؟',
 	'entree_infos_perso_2' => 'نويسنده كيست؟',
 	'entree_interieur_rubrique' => ': در داخل اين بخش',
@@ -199,14 +199,14 @@ return [
 	'info_activer_cookie' => ' شما ميتوانيد  كوكى مكاتبه  را فعال نماپيد اينكار به شما اجازه خواهد داد كه براحتى از سايت همگانى به سايت خصوصى برويد',
 	'info_admin_etre_webmestre' => 'دادن حق وب مستر به من',
 	'info_admin_je_suis_webmestre' => 'من <b>webmestre</b> هستم',
-	'info_admin_statuer_webmestre' => 'تفويض حق وب مستري به اين مدير',
-	'info_admin_webmestre' => 'اين مدير <b>webmestre</b> است',
-	'info_administrateur' => 'گردانند سايت',
-	'info_administrateur_1' => 'گرداننده  ',
+	'info_admin_statuer_webmestre' => 'تفويض حق وب مستري به اين مدير', # MODIF
+	'info_admin_webmestre' => 'اين مدير <b>webmestre</b> است', # MODIF
+	'info_administrateur' => 'گردانند سايت', # MODIF
+	'info_administrateur_1' => 'گرداننده  ', # MODIF
 	'info_administrateur_2' => '(<i>با احتياط استفاده كنيد </i>) سايت ',
-	'info_administrateur_site_01' => 'اگر شما از گردانند گان سايت هستيد، خواهشمند است',
+	'info_administrateur_site_01' => 'اگر شما از گردانند گان سايت هستيد، خواهشمند است', # MODIF
 	'info_administrateur_site_02' => 'روى اين پيوند كليك كنيد',
-	'info_administrateurs' => 'گردانند گان سايت',
+	'info_administrateurs' => 'گردانند گان سايت', # MODIF
 	'info_administrer_rubrique' => 'شما ميتوانيد اين بخش را اداره كنيد',
 	'info_adresse' => ': به آدرس',
 	'info_adresse_desinscription' => 'نساني قطع آبونمان: ',
@@ -244,7 +244,7 @@ return [
 	'info_chapeau' => 'سر متن',
 	'info_chapeau_2' => ':سر متن',
 	'info_chemin_acces_1' => 'گزینش: <b>مسير ورود به راهنما</b>',
-	'info_chemin_acces_2' => 'شما بايد پس از اين مسير دسترسى به اطلاعات را در راهنما تنظيم كنيد. اين اطلاعات براى شناسائى كاربرانى كه در راهنما هستند ضرورى ميباشد',
+	'info_chemin_acces_2' => 'شما بايد پس از اين مسير دسترسى به اطلاعات را در راهنما تنظيم كنيد. اين اطلاعات براى شناسائى كاربرانى كه در راهنما هستند ضرورى ميباشد', # MODIF
 	'info_chemin_acces_annuaire' => 'گزینش : <b>مسير ورود به راهنما',
 	'info_choix_base' => ': سومين مرحله',
 	'info_classement_1' => '<sup>ين</sup>در @liste@',
@@ -279,7 +279,7 @@ return [
 	'info_ecrire_article' => 'پيش از نوشتن مقاله، شما ميبايد دست كم يك بخش درست كنيد.',
 	'info_email_envoi' => 'آدرس ايميل برای ارسال (اختياری)',
 	'info_email_envoi_txt' => 'آدرس مورد استفاده تان را برای ارسال ايميل در اينجا درج کنيد  (وگرنه از آدرس گيرنده استفاده خواهد شد)',
-	'info_email_webmestre' => 'آدرس ايميل وب مستر ',
+	'info_email_webmestre' => 'آدرس ايميل وب مستر ', # MODIF
 	'info_envoi_email_automatique' => 'ارسال نامه ها بطور خودكار',
 	'info_envoyer_maintenant' => 'الان بفرستيد',
 	'info_etape_suivante' => 'به مرحله بعدى برويد',
@@ -289,10 +289,10 @@ return [
 	'info_exportation_base' => 'صدور پايگاه به@archive@',
 	'info_facilite_suivi_activite' => 'براى آسان شدن مداوم فعاليت تحريريه، سيستم  ميتواند براى مثال، خبر درخواستهاى انتشار و اعتبار مقالات را به فهرست پيكهاى نويسند گان بفرستد', # MODIF
 	'info_fichiers_authent' => 'فايل هاى تأئيدى« .htpasswd »',
-	'info_forums_abo_invites' => 'سايتتان داراى سخنگاه براى مشتركين ميباشد: از بازديد كنندگان دعوت ميشود كه در قسمت همگانى سايت ثبت نام  كنند.',
-	'info_gauche_auteurs' => 'شما نام تمام نگارند گان را در اينجا خواهيد يافت. نوع مسئوليتشان با رنگهاى ايكونها مشخص شده است (نگارنده=آيكون سبز، گردانند سايت=آيكون زرد )',
+	'info_forums_abo_invites' => 'سايتتان داراى سخنگاه براى مشتركين ميباشد: از بازديد كنندگان دعوت ميشود كه در قسمت همگانى سايت ثبت نام  كنند.', # MODIF
+	'info_gauche_auteurs' => 'شما نام تمام نگارند گان را در اينجا خواهيد يافت. نوع مسئوليتشان با رنگهاى ايكونها مشخص شده است (نگارنده=آيكون سبز، گردانند سايت=آيكون زرد )', # MODIF
 	'info_gauche_auteurs_exterieurs' => 'نويسندگان بازديدكننده، بدون دسترسي به سايت، با علامت آبي مشخص شده‌اند؛ نويسندگان حذف شده با علامت خاكتسري. ',
-	'info_gauche_messagerie' => 'پيام گير بشما اجازه رد و بدل پيام را با ديگر نويسند گان، نگهدارى يادداشتها (براى استفاده شخصى ) همچنين اعلان خبر در صفحه پذيرش را (در صورتى كه از گردانند گان سايت باشيد )ميدهد.',
+	'info_gauche_messagerie' => 'پيام گير بشما اجازه رد و بدل پيام را با ديگر نويسند گان، نگهدارى يادداشتها (براى استفاده شخصى ) همچنين اعلان خبر در صفحه پذيرش را (در صورتى كه از گردانند گان سايت باشيد )ميدهد.', # MODIF
 	'info_gauche_statistiques_referers' => 'اين صفحه, فهرست سايتهاى مرجع را ارائه ميدهد، بعبارتى سايتهايى كه داراى پيوند با سايت شما هستند، (فقط براى ديروز و امروز) : در واقع اين فهرست هر ٢٤ ساعت يكبار نو ميشود',
 	'info_gauche_visiteurs_enregistres' => 'شما, در اينجا, همه بازديد كنند گان ثبت شده در قسمت همگانى را خواهيد يافت  (براى مشتركين).',
 	'info_generation_miniatures_images' => 'ساخت تصاوير كوچك شده',
@@ -304,7 +304,7 @@ return [
 	'info_images_auto' => 'تصاوير بطور خودكار محاسبه شده اند',
 	'info_informations_personnelles' => 'اطلاعات شخصى',
 	'info_inscription' => 'ثبت شده در ',
-	'info_inscription_automatique' => 'ثبت نام خوكار نويسند گان جديد',
+	'info_inscription_automatique' => 'ثبت نام خوكار نويسند گان جديد', # MODIF
 	'info_jeu_caractere' => 'انتخاب نوع و شكل حروف سايت',
 	'info_jours' => 'روز',
 	'info_laisser_champs_vides' => 'اين قسمتها را خالى بگذاريد)',
@@ -312,7 +312,7 @@ return [
 	'info_ldap_ok' => 'گواهى درستى LDAP مستقر شده',
 	'info_lien_hypertexte' => ': پيوند هايپرتكست',
 	'info_liste_nouveautes_envoyee' => 'فهرست تازه‌ها ارسال شده است',
-	'info_liste_redacteurs_connectes' => 'فهرست نويسنده گان روى خط',
+	'info_liste_redacteurs_connectes' => 'فهرست نويسنده گان روى خط', # MODIF
 	'info_login_existant' => '.موجود ميباشد login اين',
 	'info_login_trop_court' => 'بيش از اندازه كوتاه Login .',
 	'info_login_trop_court_car_pluriel' => 'لاگين بايد دست كم @nb@ كاراكتر داشته باشد.',
@@ -331,7 +331,7 @@ return [
 	'info_mon_site_spip' => 'SPIP سايت من',
 	'info_moyenne' => ': متوسط',
 	'info_multi_cet_article' => ' زبان اين مقاله :',
-	'info_multi_langues_choisies' => 'خواهشمند است كه زبانهاى موجود براى نويسند گان سايتتان را در زير انتخاب كنيد. زبانهاى از پيش استفاده شده نميتوانند غير فعال شوند.',
+	'info_multi_langues_choisies' => 'خواهشمند است كه زبانهاى موجود براى نويسند گان سايتتان را در زير انتخاب كنيد. زبانهاى از پيش استفاده شده نميتوانند غير فعال شوند.', # MODIF
 	'info_multi_objets' => '@objets@ :فعال‌سازي منوي زبان',
 	'info_multi_secteurs' => '...تنها براى بخشهاى واقع در ريشه؟',
 	'info_nb_articles' => '@nb@ مقاله',
@@ -357,8 +357,8 @@ return [
 	'info_nouvelle_traduction' => 'برگردان جديد',
 	'info_numero_article' => ': مقاله شماره',
 	'info_obligatoire_02' => '(اجباري)', # MODIF
-	'info_option_accepter_visiteurs' => 'پذيرفتن ثبت نام بازديد كنندگان سايت همگانى',
-	'info_option_ne_pas_accepter_visiteurs' => 'رد ثبت نام بازديدكنندگان',
+	'info_option_accepter_visiteurs' => 'پذيرفتن ثبت نام بازديد كنندگان سايت همگانى', # MODIF
+	'info_option_ne_pas_accepter_visiteurs' => 'رد ثبت نام بازديدكنندگان', # MODIF
 	'info_options_avancees' => 'گزينش هاى پيشرفته',
 	'info_ou' => '...يا',
 	'info_page_interdite' => 'صفحه ممنوع',
@@ -383,8 +383,8 @@ return [
 	'info_ps' => 'P.-S.',
 	'info_publier' => 'منتشر کنید',
 	'info_publies' => 'مقاله هاى منتشر شده تان روى تارنما',
-	'info_question_accepter_visiteurs' => 'اگر اسكلت سايتتان ثبت شمار بازديدكنندگان  را بى آنكه اجازه ى ورود به قسمت خصوصى سايت را داشته باشند را  داراست خواهشمند است گزينه ى زير را فعال كنيد:',
-	'info_question_inscription_nouveaux_redacteurs' => 'آيا ثبت نام نويسند گان جديد را از سايت همگانى قبول ميكنيد؟ اگر ميكنيد، كاربران ميتوانند با پر كردن يك پرسشنامه ثبت نام كنند و به محوطه خصوصى راه يابند. آنها ميتوانند مقالاتشان را مطرح كنند <blockquote><i>در هنگام ثبت نام كاربران يك ايميل دريافت خواهند كرد كه شامل كد ورودي شان به سايت خصوصى خواهد بود. تعدادى از ميزبانان، ارسال ايميل را از سرورها غير فعال كرده اند: دراينصورت ثبت نام خودكار غير ممكن خواهد بود..</i></blockquote>',
+	'info_question_accepter_visiteurs' => 'اگر اسكلت سايتتان ثبت شمار بازديدكنندگان  را بى آنكه اجازه ى ورود به قسمت خصوصى سايت را داشته باشند را  داراست خواهشمند است گزينه ى زير را فعال كنيد:', # MODIF
+	'info_question_inscription_nouveaux_redacteurs' => 'آيا ثبت نام نويسند گان جديد را از سايت همگانى قبول ميكنيد؟ اگر ميكنيد، كاربران ميتوانند با پر كردن يك پرسشنامه ثبت نام كنند و به محوطه خصوصى راه يابند. آنها ميتوانند مقالاتشان را مطرح كنند <blockquote><i>در هنگام ثبت نام كاربران يك ايميل دريافت خواهند كرد كه شامل كد ورودي شان به سايت خصوصى خواهد بود. تعدادى از ميزبانان، ارسال ايميل را از سرورها غير فعال كرده اند: دراينصورت ثبت نام خودكار غير ممكن خواهد بود..</i></blockquote>', # MODIF
 	'info_qui_edite' => '@nom_auteur_modif@ روي اين مطلب @date_diff@ كار كرده است.',
 	'info_racine_site' => 'ريشه سايت',
 	'info_recharger_page' => 'خواهشمند است اين صفحه را تا چند لحظه بعد دوباره شارژ كنيد',
@@ -400,7 +400,7 @@ return [
 	'info_refuses' => 'مقاله هايتان كه پذيرفته نشده اند',
 	'info_reglage_ldap' => ' گزينش :<b> تنظيم ورود LDAP</b>',
 	'info_renvoi_article' => 'تغییر محل. اين مقاله به این صفحه برمیگردد:',
-	'info_reserve_admin' => 'تنها گردانندگان سايت حق اصلاح اين آدرس را دارند',
+	'info_reserve_admin' => 'تنها گردانندگان سايت حق اصلاح اين آدرس را دارند', # MODIF
 	'info_restreindre_rubrique' => ':محدوديت در اداره بخش',
 	'info_resultat_recherche' => ':نتيجه جستجو',
 	'info_rubriques' => 'بخش ها',
@@ -420,14 +420,14 @@ return [
 	'info_sites_trouves' => 'سايت هاى پيدا شده',
 	'info_sous_titre' => ':عنوان فرعى',
 	'info_statut' => 'وضعيت',
-	'info_statut_administrateur' => 'گرداننده سايت',
+	'info_statut_administrateur' => 'گرداننده سايت', # MODIF
 	'info_statut_auteur' => 'وضعيت اين نويسنده:',
 	'info_statut_auteur_2' => 'من هستم',
 	'info_statut_auteur_a_confirmer' => 'ثبت نام تائید شود',
 	'info_statut_auteur_autre' => 'وضعیت دیگر:',
 	'info_statut_redacteur' => 'نويسنده',
-	'info_statut_utilisateurs_1' => 'وضعيت كاربران ورودى',
-	'info_statut_utilisateurs_2' => 'وضعيت اشخاص حاضر در راهنماى ال دى ا پى را كه براى اولين بار به سايت ميپيوندند مشخص كنيد. شما ميتوانيد پس از آن  براى هر نويسنده آنرا مورد به مورد اصلاح كنيد',
+	'info_statut_utilisateurs_1' => 'وضعيت كاربران ورودى', # MODIF
+	'info_statut_utilisateurs_2' => 'وضعيت اشخاص حاضر در راهنماى ال دى ا پى را كه براى اولين بار به سايت ميپيوندند مشخص كنيد. شما ميتوانيد پس از آن  براى هر نويسنده آنرا مورد به مورد اصلاح كنيد', # MODIF
 	'info_suivi_activite' => 'دنباله سر مقاله',
 	'info_surtitre' => ':سر عنوان',
 	'info_syndication_integrale_1' => 'سایتتان فایلهای syndication را پیشنهاد میکند (voir « <a href="@url@">@titre@</a> »). ',
@@ -470,7 +470,7 @@ return [
 	'info_visiteur_2' => 'سايت همگانى',
 	'info_visiteurs' => 'بازديد كنندگان',
 	'info_visiteurs_02' => 'بازديد كنندگان سايت همگانى',
-	'info_webmestre_forces' => 'وب مستر‌ها در حال حاضر در <  tt>@file_options@</tt تعريف مي‌شوند.',
+	'info_webmestre_forces' => 'وب مستر‌ها در حال حاضر در <  tt>@file_options@</tt تعريف مي‌شوند.', # MODIF
 	'install_adresse_base_hebergeur' => 'آدرس داده ها که توسط میزبان وب اعطا شده',
 	'install_connect_ok' => 'پايگاه داده‌هاي جديد اعلام كرده از سرور با نام @connect@استفاده مي‌كند. ',
 	'install_echec_annonce' => 'نصب احتمالا موفق آميز نخواهد بود يا به يك سايت غير كاربردى خاتمه ميابد...',
@@ -497,10 +497,10 @@ return [
 	'intitule_licence' => 'مجوز',
 	'item_accepter_inscriptions' => 'ثبت نامها را بپذيريد',
 	'item_activer_messages_avertissement' => 'پيامهاى اخطار را فعال كنيد',
-	'item_administrateur_2' => 'گرداننده سايت',
+	'item_administrateur_2' => 'گرداننده سايت', # MODIF
 	'item_afficher_calendrier' => 'در بخش تقويم نمايش دهيد',
 	'item_autoriser_syndication_integrale' => 'پخش کامل مقاله ها در فایل های syndication',
-	'item_choix_administrateurs' => 'گردانندگان سايت',
+	'item_choix_administrateurs' => 'گردانندگان سايت', # MODIF
 	'item_choix_generation_miniature' => '.تصاوير كوچك را بطور خودكار بسازيد',
 	'item_choix_non_generation_miniature' => '.تصاوير كوچك را بطور خودكار نسازيد',
 	'item_choix_redacteurs' => 'نويسندگان',
@@ -683,15 +683,15 @@ return [
 	'taille_repertoire_cache' => 'اندازه ى فايل پنهان',
 	'text_article_propose_publication' => ' مقاله‌ى پيشنهادى براى انتشار.',
 	'texte_acces_ldap_anonyme_1' => 'تعدادى از سرورهاى ال دى اپى ورود بدون نام را نميپذيرند. در اينصورت شما بايد يك نام شناسايى را مشخص كنيد تا بتوانيد به اطلاعات راهنما دسترسى داشته باشيد. در بيشتر موارد ميادين بعدى را ميتوان خالى گذاشت.',
-	'texte_admin_effacer_01' => 'اين فرمان محتوى داده پى ها، همچنين دسترسى نويسندگان و گردانندگان به سايت را كاملأ پاك خواهد كرد، در صورت اجراى آن شما بايد اسپيپ را دوباره نصب كنيد تا بتوانيد پايگاه جديدى همراه با حق استفاده براى گردانندگان را داشته باشيد.',
+	'texte_admin_effacer_01' => 'اين فرمان محتوى داده پى ها، همچنين دسترسى نويسندگان و گردانندگان به سايت را كاملأ پاك خواهد كرد، در صورت اجراى آن شما بايد اسپيپ را دوباره نصب كنيد تا بتوانيد پايگاه جديدى همراه با حق استفاده براى گردانندگان را داشته باشيد.', # MODIF
 	'texte_adresse_annuaire_1' => 'اگر راهنماتان در همان رايانه اى نصب شده كه سايت تارنما، احتمالا مربوط است به :«localhost» ',
 	'texte_ajout_auteur' => 'نام نويسنده بعدى به مقاله اضافه شد :',
-	'texte_annuaire_ldap_1' => 'اگر شما به راهنماى ال دى ا پى دسترسى داريد، ميتوانيد بطور خودكار كاربران را به اسپيپ اضافه كنيد',
+	'texte_annuaire_ldap_1' => 'اگر شما به راهنماى ال دى ا پى دسترسى داريد، ميتوانيد بطور خودكار كاربران را به اسپيپ اضافه كنيد', # MODIF
 	'texte_article_statut' => 'اين مقاله :',
 	'texte_article_virtuel' => 'مقاله مجازى',
 	'texte_article_virtuel_reference' => ' <b>مقاله مجازى :</b> مقاله پيوندى شما در سايت اسپيپ است، اما شما ميتوانيد آنرا به آدرس ديگرى هدايت كنيد.براى اينكار بايد آدرس زيرى را حذف كنيد (URL)',
 	'texte_aucun_resultat_auteur' => 'جستجوى بى نتيجه براى"@cherche_auteur@"',
-	'texte_auteur_messagerie' => ' اين سايت ميتواند ليست نويسندگان متصل به سايت را بطور دائم نشان دهد اين بشما امكان رد و بدل كردن پيام را بطور مستقيم ميدهد. شما همچنين ميتوانيد گزينش «نامرئي» را انتخاب كنيد',
+	'texte_auteur_messagerie' => ' اين سايت ميتواند ليست نويسندگان متصل به سايت را بطور دائم نشان دهد اين بشما امكان رد و بدل كردن پيام را بطور مستقيم ميدهد. شما همچنين ميتوانيد گزينش «نامرئي» را انتخاب كنيد', # MODIF
 	'texte_auteurs' => 'نويسندگان',
 	'texte_choix_base_1' => 'پايگاه تان را انتخاب كنيد :',
 	'texte_choix_base_2' => 'سرور اس كيوال حاوى چند داده پى است.',
@@ -728,7 +728,7 @@ return [
 	'texte_jeu_caractere_4' => 'اگر این نویسه ها با سایت شما مطابق نیست (برای مثال پس از بازسازی داده پی ها) یا اینکه شما مایل به بکارگیری نویسه های دیگری هستید آنرا در اینجا مشخص کنید:',
 	'texte_login_ldap_1' => '(براى ورود بى نام، خالى بگذاريد، يا تمام مسير را درج كنيد، براى مثال« <tt>uid=dupont, ou=users, dc=mon-domaine, dc=com</tt> ».)',
 	'texte_login_precaution' => 'توجه ! شما با اين كد متصل شديد. از اين پرسشنامه با احتياط استفاده كنيد.',
-	'texte_messagerie_agenda' => 'يك سامانه‌ي پيام‌دهي به نويسندگان سايت امكان مي‌دهد تا در قسمت شخصي به صورت مستقيم با يكديگر ارتباط برقرار كنند. اين سامانه به تقويم نيز لينك مي‌شود. ',
+	'texte_messagerie_agenda' => 'يك سامانه‌ي پيام‌دهي به نويسندگان سايت امكان مي‌دهد تا در قسمت شخصي به صورت مستقيم با يكديگر ارتباط برقرار كنند. اين سامانه به تقويم نيز لينك مي‌شود. ', # MODIF
 	'texte_mise_a_niveau_base_1' => 'شما فايلهاى اسپيپ را نو كرديد.
 اكنون بايد داده پى هاى سايت را ميزان كنيد.
  ',
@@ -772,7 +772,7 @@ return [
 	'texte_travail_article' => '@nom_auteur_modif@ بروى اين مقاله @date_diff@ پيش كار كرده است.',
 	'texte_travail_collaboratif' => 'اين امكان وجود دارد كه يك مقاله توسط چند نويسنده نوشته شده باشد. اسپيپ ميتواند مقالات تازه وارد شده را نشان دهد تا از تغييرات همزمان جلوگيرى كند.
 اين گزينش معمولا غير فعال ميباشد تا از اعلان خبرهاى بيموقع جلوگيرى كند.
-',
+', # MODIF
 	'texte_vide' => 'خالى',
 	'texte_vider_cache' => 'فايل هاى موقت را خالى كنيد',
 	'titre_ajouter_un_auteur' => 'افزودن يك مؤلف',

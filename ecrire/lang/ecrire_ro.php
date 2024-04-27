@@ -21,7 +21,7 @@ return [
 	'avis_connexion_echec_3' => '<b>Nota Bene</b> Pe multe servere, trebuie să <b>cereţi</b> activarea accesului la baza de date inainte de a o putea utiliza. Dacă nu reuşiţi să vă conectaţi, verificaţi că aţi efectuat această operaţie.',
 	'avis_connexion_ldap_echec_1' => 'Conexiunea la serverul LDAP a eşuat.',
 	'avis_connexion_ldap_echec_2' => 'Reveniţi la pagina anterioară şi verificaţi datele completate.',
-	'avis_connexion_ldap_echec_3' => 'Ca alternativă, importaţi utilizatorii fără să folosiţi suportul LDAP.',
+	'avis_connexion_ldap_echec_3' => 'Ca alternativă, importaţi utilizatorii fără să folosiţi suportul LDAP.', # MODIF
 	'avis_deplacement_rubrique' => 'Atenţie! În această rubrică se găsesc @contient_breves@ ştiri@scb@: dacă o deplasaţi, bifaţi această casetă de confirmare.',
 	'avis_erreur_connexion_mysql' => 'Eroare de conexiune SQL',
 	'avis_espace_interdit' => '<b>Spaţiu interzis</b> <div>SPIP este déjà instalat</div>.',
@@ -49,10 +49,10 @@ return [
 	'bouton_mettre_a_jour_base' => 'Aduceţi la zi baza de date',
 	'bouton_modifier' => 'Modificaţi',
 	'bouton_radio_afficher' => 'Afişaţi',
-	'bouton_radio_apparaitre_liste_redacteurs_connectes' => 'Apariţie în lista redactorilor conectaţi',
+	'bouton_radio_apparaitre_liste_redacteurs_connectes' => 'Apariţie în lista redactorilor conectaţi', # MODIF
 	'bouton_radio_envoi_annonces_adresse' => 'Trimiteţi anunţurile la adresa :',
 	'bouton_radio_envoi_liste_nouveautes' => 'Trimiteţi lista de noutăţi',
-	'bouton_radio_non_apparaitre_liste_redacteurs_connectes' => 'Nu apăreţi în lista redactorilor',
+	'bouton_radio_non_apparaitre_liste_redacteurs_connectes' => 'Nu apăreţi în lista redactorilor', # MODIF
 	'bouton_radio_non_envoi_annonces_editoriales' => 'Nu trimiteţi anunţuri editoriale',
 	'bouton_redirection' => 'REDIRIJARE',
 	'bouton_relancer_installation' => 'Relansaţi instalarea',
@@ -62,7 +62,7 @@ return [
 	'bouton_vider_cache' => 'Goliţi memoria tampon',
 
 	// C
-	'cache_modifiable_webmestre' => 'Acest parametru est modificabil de către webmaster-ul acestui site.',
+	'cache_modifiable_webmestre' => 'Acest parametru est modificabil de către webmaster-ul acestui site.', # MODIF
 	'calendrier_synchro' => 'Dacă folosiţi un soft de agendă compatibil <b>iCal</b>, puteţi să-l sincronizaţi cu informaţiile de pe site.',
 	'config_activer_champs' => 'Activaţi câmpurile următoare',
 	'config_choix_base_sup' => 'indicaţi o bază pe acest server',
@@ -99,7 +99,7 @@ return [
 	'entree_contenu_rubrique' => '(Conţinutul rubricii în câteva cuvinte.)',
 	'entree_identifiants_connexion' => 'Identificatorii dumneavoastră de acces...',
 	'entree_informations_connexion_ldap' => 'Vă rugăm să furnizaţi în acest formular informaţiile de conectare la anuarul LDAP.
- Aceste informaţii ar trebui să poată fi furnizate de către administratorul dumneavoastră de sistem sau reţea.',
+ Aceste informaţii ar trebui să poată fi furnizate de către administratorul dumneavoastră de sistem sau reţea.', # MODIF
 	'entree_infos_perso' => 'Cine sunteţi dumneavoastra ?',
 	'entree_interieur_rubrique' => 'În interiorul rubricii :',
 	'entree_liens_sites' => '<b>Legătură hipertext</b> (referinţă, site de vizitat...)',
@@ -187,14 +187,14 @@ return [
  permite să treceţi cu uşurinţă de la site-ul public la site-ul privat.',
 	'info_admin_etre_webmestre' => 'Daţi-mi drepturi de webmaster',
 	'info_admin_je_suis_webmestre' => 'Sunt <b>webmaster</b>',
-	'info_admin_statuer_webmestre' => 'Daţi acestui administrator drepturi de webmaster',
-	'info_admin_webmestre' => 'Acest administrator este <b>webmaster</b>',
-	'info_administrateur' => 'Administrator',
-	'info_administrateur_1' => 'Administrator',
+	'info_admin_statuer_webmestre' => 'Daţi acestui administrator drepturi de webmaster', # MODIF
+	'info_admin_webmestre' => 'Acest administrator este <b>webmaster</b>', # MODIF
+	'info_administrateur' => 'Administrator', # MODIF
+	'info_administrateur_1' => 'Administrator', # MODIF
 	'info_administrateur_2' => 'al site-ului (<i>utilizaţi cu prudenţă</i>)',
-	'info_administrateur_site_01' => 'Dacă sunteţi administrator al site-ului, vă rugăm',
+	'info_administrateur_site_01' => 'Dacă sunteţi administrator al site-ului, vă rugăm', # MODIF
 	'info_administrateur_site_02' => ' să faceţi click pe această legatură',
-	'info_administrateurs' => 'Administratori',
+	'info_administrateurs' => 'Administratori', # MODIF
 	'info_administrer_rubrique' => 'Puteţi administra această rubrică',
 	'info_adresse' => 'la adresa :',
 	'info_adresse_url' => 'Adresa (URL) a site-ului public',
@@ -228,7 +228,7 @@ return [
 	'info_chapeau' => 'Introducere',
 	'info_chapeau_2' => 'Introducere :',
 	'info_chemin_acces_1' => 'Opţiuni: <b>Calea de acces în anuar</b>',
-	'info_chemin_acces_2' => 'Trebuie ca acum să configuraţi calea de acces la informaţiile din anuar. Această informaţie este indispensabilă pentru lectura profilului utilizatorilor memoraţi în anuar.',
+	'info_chemin_acces_2' => 'Trebuie ca acum să configuraţi calea de acces la informaţiile din anuar. Această informaţie este indispensabilă pentru lectura profilului utilizatorilor memoraţi în anuar.', # MODIF
 	'info_chemin_acces_annuaire' => 'Opţiuni: <b>Calea de acces în anuar</b>',
 	'info_choix_base' => 'Cea de-a treia etapă :',
 	'info_classement_1' => 'pe @liste@',
@@ -271,12 +271,12 @@ return [
 	'info_exportation_base' => 'exportul bazei de date către @archive@',
 	'info_facilite_suivi_activite' => 'Pentru a uşura urmărirea activităţii editoriale a site-ului, SPIP poate trimite prin email cererile de publicare şi de validare a articolelor. De exemplu, destinatarul poate fi o listă de distribuţie a redacţiei.', # MODIF
 	'info_fichiers_authent' => 'Fişiere de autentificare « .htpasswd »',
-	'info_forums_abo_invites' => 'Site-ul dumneavoastră are forum-uri cu abonament ; vizitatorii sunt, aşadar, invitaţi să se înregistreze pe site-ul public.',
+	'info_forums_abo_invites' => 'Site-ul dumneavoastră are forum-uri cu abonament ; vizitatorii sunt, aşadar, invitaţi să se înregistreze pe site-ul public.', # MODIF
 	'info_gauche_auteurs' => 'Găsiţi aici toţi autorii acestui site.
- Starea lor este indicată prin codul de culori al iconiţei asociate (administrator = verde; redactor = galben).',
+ Starea lor este indicată prin codul de culori al iconiţei asociate (administrator = verde; redactor = galben).', # MODIF
 	'info_gauche_auteurs_exterieurs' => 'Autorii existenţi, fără acces la site, sunt indicaţi cu ajutorul unei iconiţe albastre ;
   iar autorii şterşi - printr-o iconiţă ce simbolizează un coş de gunoi.', # MODIF
-	'info_gauche_messagerie' => 'Mesageria vă permite să schimbaţi mesaje între redactori, să conservaţi ciorne (pentru folosul dumneavoastră personal) sau pentru a afişa anunţuri pe pagina de gardă a spaţiului privat (dacă sunteţi administrator).',
+	'info_gauche_messagerie' => 'Mesageria vă permite să schimbaţi mesaje între redactori, să conservaţi ciorne (pentru folosul dumneavoastră personal) sau pentru a afişa anunţuri pe pagina de gardă a spaţiului privat (dacă sunteţi administrator).', # MODIF
 	'info_gauche_statistiques_referers' => 'Această pagină prezintă lista <i>referers</i>, adică a site-urilor care conţin legături către acest site, doar pentru ieri şi astăzi ; această listă este re-iniţializată la fiecare 24 de ore.',
 	'info_gauche_visiteurs_enregistres' => 'Veţi găsi aici vizitatorii înregistraţi
 în spaţiul public al site-ului (forum-urile pe bază de abonament).',
@@ -289,14 +289,14 @@ return [
 	'info_image_process' => 'Vă rugăm să selecţionaţi cea mai bună metodă de generare a viniételor făcând click pe imaginea corespunzătoare.',
 	'info_images_auto' => 'Imagini calculate automat',
 	'info_informations_personnelles' => 'Informaţii personale',
-	'info_inscription_automatique' => 'Înscrierea automatică a noi redactori',
+	'info_inscription_automatique' => 'Înscrierea automatică a noi redactori', # MODIF
 	'info_jeu_caractere' => 'Setul de caractere al site-ului',
 	'info_jours' => 'zile',
 	'info_laisser_champs_vides' => ' lăsaţi aceste câmpuri goale)',
 	'info_langues' => 'Limbile site-ului',
 	'info_ldap_ok' => 'Autentificarea LDAP a fost instalată.',
 	'info_lien_hypertexte' => 'Legătură hipertext :',
-	'info_liste_redacteurs_connectes' => 'Lista redactorilor conectaţi',
+	'info_liste_redacteurs_connectes' => 'Lista redactorilor conectaţi', # MODIF
 	'info_login_existant' => 'Acest login există déjà.',
 	'info_login_trop_court' => 'Login prea scurt.',
 	'info_logos' => 'Logo-urile',
@@ -318,7 +318,7 @@ return [
 	'info_moyenne' => 'medie :',
 	'info_multi_cet_article' => 'Limba acestui articol :',
 	'info_multi_langues_choisies' => 'Vă rugăm să selecţionaţi aici limbile aflate la dispoziţia redactorilor site-ului dumneavoastră.
-  Limbile deja folosite în cadrul site-ului (afişate primele) nu pot fi dezactivate.',
+  Limbile deja folosite în cadrul site-ului (afişate primele) nu pot fi dezactivate.', # MODIF
 	'info_multi_secteurs' => '... doar pentru rubricile situate sub rădăcină ?',
 	'info_nom' => 'Nume',
 	'info_nom_destinataire' => 'Numele destinatarului',
@@ -336,8 +336,8 @@ return [
 	'info_nouvelle_traduction' => 'Traducere nouă :',
 	'info_numero_article' => 'ARTICOL NUMĂRUL :',
 	'info_obligatoire_02' => '[Obligatorie]', # MODIF
-	'info_option_accepter_visiteurs' => 'Acceptaţi înscrierea vizitatorilor site-ului public',
-	'info_option_ne_pas_accepter_visiteurs' => 'Refuzaţi înscrierea vizitatorilor',
+	'info_option_accepter_visiteurs' => 'Acceptaţi înscrierea vizitatorilor site-ului public', # MODIF
+	'info_option_ne_pas_accepter_visiteurs' => 'Refuzaţi înscrierea vizitatorilor', # MODIF
 	'info_options_avancees' => 'OPŢIUNI AVANSATE',
 	'info_ou' => 'sau...',
 	'info_page_interdite' => 'Pagină interzisă',
@@ -362,7 +362,7 @@ return [
 	'info_ps' => 'P.S.',
 	'info_publier' => 'publicaţi',
 	'info_publies' => 'Articolele dumneavoatră publicate în direct',
-	'info_question_accepter_visiteurs' => 'Dacă scheletele site-ului dumneavoastră prevăd înregistrarea vizitatorilor fără acces la spaţiul privat, vă rugăm să activaţi opţiunea de mai jos :',
+	'info_question_accepter_visiteurs' => 'Dacă scheletele site-ului dumneavoastră prevăd înregistrarea vizitatorilor fără acces la spaţiul privat, vă rugăm să activaţi opţiunea de mai jos :', # MODIF
 	'info_question_inscription_nouveaux_redacteurs' => 'Acceptaţi înscrierea de noi redactori
   în partea publică a site-ului ? Dacă acceptaţi, vizitatorii vor putea să se înscrie
   cu ajutorul unui formular automatizat şi vor putea avea acces la spaţiul privat pentru a propune
@@ -384,7 +384,7 @@ return [
 	'info_refuses' => 'Articolele dumneavoastră refuzate',
 	'info_reglage_ldap' => 'Opţiuni : <b>Reglajele importului LDAP</b>',
 	'info_renvoi_article' => '<b>Redirijare.</b> Acest articol trimite la pagina:',
-	'info_reserve_admin' => 'Doar administratorii pot modifica această adresă.',
+	'info_reserve_admin' => 'Doar administratorii pot modifica această adresă.', # MODIF
 	'info_restreindre_rubrique' => 'Restrângeţi gestiunea la rubrica:',
 	'info_resultat_recherche' => 'Rezultatele căutării :',
 	'info_rubriques' => 'Rubrici',
@@ -402,13 +402,13 @@ return [
 	'info_sites_proxy' => 'Utilizaţi un proxy',
 	'info_sites_trouves' => 'Site-uri găsite',
 	'info_sous_titre' => 'Subtitlu :',
-	'info_statut_administrateur' => 'Administrator',
+	'info_statut_administrateur' => 'Administrator', # MODIF
 	'info_statut_auteur' => 'Starea acestui autor :',
 	'info_statut_auteur_a_confirmer' => 'Inscriere de confirmat',
 	'info_statut_auteur_autre' => 'Alt statut :',
 	'info_statut_redacteur' => 'Redactor',
-	'info_statut_utilisateurs_1' => 'Starea implicită a utilizatorilor importaţi',
-	'info_statut_utilisateurs_2' => 'Alegeţi starea implicită care este atribuită persoanelor care sunt prezente în anuarul LDAP atunci când se vor conecta pentru prima dată. Veţi putea modifica mai târziu această valoare caz după caz, pentru fiecare autor.',
+	'info_statut_utilisateurs_1' => 'Starea implicită a utilizatorilor importaţi', # MODIF
+	'info_statut_utilisateurs_2' => 'Alegeţi starea implicită care este atribuită persoanelor care sunt prezente în anuarul LDAP atunci când se vor conecta pentru prima dată. Veţi putea modifica mai târziu această valoare caz după caz, pentru fiecare autor.', # MODIF
 	'info_suivi_activite' => 'Urmărirea activităţii editoriale',
 	'info_surtitre' => 'Supratitlu :',
 	'info_syndication_integrale_1' => 'Site-ul dumneavoastră propune fişiere de sindicalizare (vedeţi « <a href="@url@">@titre@</a> »).',
@@ -471,10 +471,10 @@ cu o culoare care le indică starea :',
 	'intitule_licence' => 'Licenţă',
 	'item_accepter_inscriptions' => 'Acceptaţi înscrierile',
 	'item_activer_messages_avertissement' => 'Activaţi mesajele de avertisment',
-	'item_administrateur_2' => 'administrator',
+	'item_administrateur_2' => 'administrator', # MODIF
 	'item_afficher_calendrier' => 'Afişaţi în calendar',
 	'item_autoriser_syndication_integrale' => 'Difuzaţi integralitatea articolelor în fişierele de sindicalizare',
-	'item_choix_administrateurs' => 'administratorii',
+	'item_choix_administrateurs' => 'administratorii', # MODIF
 	'item_choix_generation_miniature' => 'Generaţi în mod automat miniaturile imaginilor.',
 	'item_choix_non_generation_miniature' => 'Nu generaţi miniaturile imaginilor.',
 	'item_choix_redacteurs' => 'redactorii',
@@ -608,15 +608,15 @@ cu o culoare care le indică starea :',
 	'texte_acces_ldap_anonyme_1' => 'Anumite server-e LDAP nu acceptă accesul anonim. În acest caz va trebui să specificaţi un identificator de acces iniţial pentru a putea recupera datele din anuar. În majoritatea cazurilor, însă, aceste câmpuri pot fi lăsate goale.',
 	'texte_admin_effacer_01' => 'Această comandă şterge <i>tot</i> conţinutul bazei de date,
 incluzând <i>toate</i> informaţiile referitoare la redactori sau administratori. După execuţia acestei comenzi va trebui să relansaţi procedura de
-reinstalare a SPIP pentru a recrea o nouă bază de date cât şi un nou acces administrator.',
+reinstalare a SPIP pentru a recrea o nouă bază de date cât şi un nou acces administrator.', # MODIF
 	'texte_adresse_annuaire_1' => '(Dacă anuarul este instalat pe aceeaşi maşină ca şi site-ul Web, este vorba probabil de «localhost».)',
 	'texte_ajout_auteur' => 'Autorul următor a fost adăugat la articol :',
-	'texte_annuaire_ldap_1' => 'Dacă avezi un acces la un anuar LDAP, puteţi să îl folosiţi pentru a importa în mod automat utilizatorii SPIP.',
+	'texte_annuaire_ldap_1' => 'Dacă avezi un acces la un anuar LDAP, puteţi să îl folosiţi pentru a importa în mod automat utilizatorii SPIP.', # MODIF
 	'texte_article_statut' => 'Acest articol este :',
 	'texte_article_virtuel' => 'Articol virtual',
 	'texte_article_virtuel_reference' => '<b>Articol virtual :</b> articol referenţiat pe site-ul dumneavoastră SPIP, dar redirijat către un alt URL. Pentru a şterge redirijarea, ştergeţi URL-ul.',
 	'texte_aucun_resultat_auteur' => 'Nici un rezultat pentru "@cherche_auteur@"',
-	'texte_auteur_messagerie' => 'Acest site vă poate indica în permanenţă lista redactorilor conectaţi, ceea ce vă permite schimbul de mesaje în direct. Puteţi decide să nu apăreţi în această listă (sunteţi « invizibil » pentru ceilalţi utilizatori).',
+	'texte_auteur_messagerie' => 'Acest site vă poate indica în permanenţă lista redactorilor conectaţi, ceea ce vă permite schimbul de mesaje în direct. Puteţi decide să nu apăreţi în această listă (sunteţi « invizibil » pentru ceilalţi utilizatori).', # MODIF
 	'texte_auteurs' => 'AUTORII',
 	'texte_choix_base_1' => 'Alegeţi baza dumneavoastră :',
 	'texte_choix_base_2' => 'Server-ul SQL conţine mai multe baze de date.',
@@ -657,7 +657,7 @@ reinstalare a SPIP pentru a recrea o nouă bază de date cât şi un nou acces a
 	'texte_login_ldap_1' => '(Lăsaţi gol pentru un acces anonim, sau introduceţi o cale completă, de exemplu: « <tt>uid=ionescu, ou=utilizatori, dc=domeniul-meu, dc=ro</tt> ».)',
 	'texte_login_precaution' => 'Atenţie ! Acesta este login-ul cu care sunteţi conectat acum.
  Utilizaţi acest formular cu precauţie...',
-	'texte_messagerie_agenda' => 'O mesagerie permite redactorilor site-ului să comunice între ei direct în spaţiul privat al site-ului. O mesagerie este asociată unei agende.',
+	'texte_messagerie_agenda' => 'O mesagerie permite redactorilor site-ului să comunice între ei direct în spaţiul privat al site-ului. O mesagerie este asociată unei agende.', # MODIF
 	'texte_mise_a_niveau_base_1' => 'Tocmai aţi adus la zi fişierele SPIP.
  Trebuie ca acum să aduceţi la zi şi baza de date a site-ului.',
 	'texte_modifier_article' => 'Modificaţi articolul :',
@@ -711,7 +711,7 @@ avez fait des modifications importantes de graphisme ou de structure du site.',
   poate afişa articolele « deschise » recent
   pentru a evita modificări simultane ale aceluiaşi articol.
   Această opţiune este dezactivată în mod implicit
-  pentru a evita afişarea de mesaje intempensive de avertisment.',
+  pentru a evita afişarea de mesaje intempensive de avertisment.', # MODIF
 	'texte_vide' => 'gol',
 	'texte_vider_cache' => 'Goliţi tamponul',
 	'titre_cadre_afficher_article' => 'Afişaţi articolele',

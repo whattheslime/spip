@@ -24,7 +24,7 @@ return [
 	'avis_connexion_erreur_nom_base' => 'V názve databázy môžu byť len písmená, čísla a spojovníky',
 	'avis_connexion_ldap_echec_1' => 'Pripojenie k serveru LDAP zlyhalo.',
 	'avis_connexion_ldap_echec_2' => 'Vráťte sa na predchádzajúcu stránku a skontrolujte údaje, ktoré ste uviedli.',
-	'avis_connexion_ldap_echec_3' => 'Prípadne nevyužívajte podporu LDAP na import používateľov.',
+	'avis_connexion_ldap_echec_3' => 'Prípadne nevyužívajte podporu LDAP na import používateľov.', # MODIF
 	'avis_deplacement_rubrique' => 'Pozor! V tejto rubrike je @contient_breves@ novinka @scb@: ak ju presuniete, potvrďte to, prosím,  označením tohto políčka.',
 	'avis_erreur_connexion_mysql' => 'Chyba pripojenia k SQL',
 	'avis_espace_interdit' => '<b>Zakázaná zóna</b> <div>SPIP je už nainštalovaný.</div>',
@@ -53,10 +53,10 @@ return [
 	'bouton_mettre_a_jour_base' => 'Aktualizovať databázu',
 	'bouton_modifier' => 'Zmeniť',
 	'bouton_radio_afficher' => 'Zobraziť',
-	'bouton_radio_apparaitre_liste_redacteurs_connectes' => 'Zobraziť v zozname redaktorov online',
+	'bouton_radio_apparaitre_liste_redacteurs_connectes' => 'Zobraziť v zozname redaktorov online', # MODIF
 	'bouton_radio_envoi_annonces_adresse' => 'Poslať oznamy na adresu:',
 	'bouton_radio_envoi_liste_nouveautes' => 'Poslať zoznam aktualizácií noviniek',
-	'bouton_radio_non_apparaitre_liste_redacteurs_connectes' => 'Nezobraziť v zozname redaktorov online',
+	'bouton_radio_non_apparaitre_liste_redacteurs_connectes' => 'Nezobraziť v zozname redaktorov online', # MODIF
 	'bouton_radio_non_envoi_annonces_editoriales' => 'Neposielať oznamy z redakcie',
 	'bouton_redirection' => 'PRESMEROVANIE',
 	'bouton_reinitialiser_aux_valeurs_par_defaut' => 'Obnoviť predvolené nastavenia',
@@ -68,7 +68,7 @@ return [
 	'bouton_vider_cache' => 'Vyprázdniť cache',
 
 	// C
-	'cache_modifiable_webmestre' => 'Tento parameter môže webmaster zmeniť.',
+	'cache_modifiable_webmestre' => 'Tento parameter môže webmaster zmeniť.', # MODIF
 	'calendrier_synchro' => 'Ak používate aplikáciu kalendá­ra kompatibilnú s <b>iCalom,</b> môžete ju synchronizovať s údajmi z tejto stránky.',
 	'config_activer_champs' => 'Aktivovať nasledujúce polia',
 	'config_choix_base_sup' => 'Vyberte databázu na tomto serveri',
@@ -108,7 +108,7 @@ return [
 	'entree_contenu_rubrique' => '(Stručný obsah tejto rubriky.)',
 	'entree_identifiants_connexion' => 'Vaše prihlasovacie údaje...',
 	'entree_identifiants_connexion_2' => 'Prihlasovacie údaje',
-	'entree_informations_connexion_ldap' => 'Do tohto formulára, prosím, uveďte údaje na pripojenie k LDAP, ktoré vám poskytol správca systému alebo siete.',
+	'entree_informations_connexion_ldap' => 'Do tohto formulára, prosím, uveďte údaje na pripojenie k LDAP, ktoré vám poskytol správca systému alebo siete.', # MODIF
 	'entree_infos_perso' => 'Kto ste?',
 	'entree_infos_perso_2' => 'Kto je autor?',
 	'entree_interieur_rubrique' => 'V rubrike:',
@@ -205,14 +205,14 @@ return [
 	'info_activer_menu_developpement' => 'Zobraziť menu Vývoj',
 	'info_admin_etre_webmestre' => 'Prideliť mi práva administrátora webu',
 	'info_admin_je_suis_webmestre' => 'Som <b>webmaster</b>',
-	'info_admin_statuer_webmestre' => 'Dať tomuto administrátorovi práva webmastera',
-	'info_admin_webmestre' => 'Tento administrátor je <b>webmaster</b>',
-	'info_administrateur' => 'Administrátor',
-	'info_administrateur_1' => 'Administrátor',
+	'info_admin_statuer_webmestre' => 'Dať tomuto administrátorovi práva webmastera', # MODIF
+	'info_admin_webmestre' => 'Tento administrátor je <b>webmaster</b>', # MODIF
+	'info_administrateur' => 'Administrátor', # MODIF
+	'info_administrateur_1' => 'Administrátor', # MODIF
 	'info_administrateur_2' => 'stránky (<i>používajte opatrne</i>)',
-	'info_administrateur_site_01' => 'Ak ste administrátorom stránky,  nechajte, prosím,',
+	'info_administrateur_site_01' => 'Ak ste administrátorom stránky,  nechajte, prosím,', # MODIF
 	'info_administrateur_site_02' => 'kliknite na tento odkaz',
-	'info_administrateurs' => 'Administrátori',
+	'info_administrateurs' => 'Administrátori', # MODIF
 	'info_administrer_rubrique' => 'Môžete riadiť túto rubriku',
 	'info_adresse' => 'na túto adresu:',
 	'info_adresse_desinscription' => 'Adresa na odhlásenie',
@@ -255,7 +255,7 @@ return [
 	'info_chapeau' => 'Perex',
 	'info_chapeau_2' => 'Perex:',
 	'info_chemin_acces_1' => 'Možnosti: <b>Prístupová cesta do priečinka</b>',
-	'info_chemin_acces_2' => 'Teraz musíte nastaviť prístupovú cestu k priečinku s údajmi. Tento údaj je dôležitý na čítanie vizitiek používateľov uložených v tomto priečinku.',
+	'info_chemin_acces_2' => 'Teraz musíte nastaviť prístupovú cestu k priečinku s údajmi. Tento údaj je dôležitý na čítanie vizitiek používateľov uložených v tomto priečinku.', # MODIF
 	'info_chemin_acces_annuaire' => 'Možnosti: <b>Prístupová cesta do priečinka</b>',
 	'info_choix_base' => '3. krok:',
 	'info_classement_1' => '. do @liste@',
@@ -290,7 +290,7 @@ return [
 	'info_ecrire_article' => 'Predtým, ako napíšete nejaké články, musíte vytvoriť aspoň jednu rubriku.',
 	'info_email_envoi' => 'E-mailová adresa odosielateľa (nepovinné)',
 	'info_email_envoi_txt' => 'Zadajte e-mailovú adresu odosielateľa, ktorá sa bude používať  pri posielaní mejlov (podľa pôvodného nastavenia sa adresa príjemcu používa ako adresa odosielateľa):',
-	'info_email_webmestre' => 'E-mailová adresa webmastera',
+	'info_email_webmestre' => 'E-mailová adresa webmastera', # MODIF
 	'info_envoi_email_automatique' => 'Posielanie automatických e-mailov',
 	'info_envoyer_maintenant' => 'Poslať teraz',
 	'info_etape_suivante' => 'Prejsť na ďalší krok',
@@ -302,11 +302,11 @@ return [
   môže SPIP e-mailom posielať oznamy
  o požiadavkách na publikovanie a schválení článkov, napr. do elektronickej konferencie redaktorov.', # MODIF
 	'info_fichiers_authent' => 'Autentifikačný súbor „.htpasswd“',
-	'info_forums_abo_invites' => 'Na vašej stránke sú diskusné fóra, ktoré vyžadujú registráciu. Návštevníci sa môžu zaregistrovať na verejne prístupnej stránke.',
+	'info_forums_abo_invites' => 'Na vašej stránke sú diskusné fóra, ktoré vyžadujú registráciu. Návštevníci sa môžu zaregistrovať na verejne prístupnej stránke.', # MODIF
 	'info_gauche_auteurs' => 'Tu nájdete všetkých autorov stránky.
- Funkcia každého z nich je označená farbou ikony (administrátor = zelená, redaktor = žltá).',
+ Funkcia každého z nich je označená farbou ikony (administrátor = zelená, redaktor = žltá).', # MODIF
 	'info_gauche_auteurs_exterieurs' => 'Externí autori bez prístupu na stránku sú označení modrou ikonou, odstránení autori sivou ikonou.',
-	'info_gauche_messagerie' => 'Odkazovač vám umožní posielať správy v rámci redakcie, ukladať si pri­pomienky (pre osobnú potrebu) alebo zobrazovať oznamy na úvodnej stránke súkromnej zóny (ak ste administrátor).',
+	'info_gauche_messagerie' => 'Odkazovač vám umožní posielať správy v rámci redakcie, ukladať si pri­pomienky (pre osobnú potrebu) alebo zobrazovať oznamy na úvodnej stránke súkromnej zóny (ak ste administrátor).', # MODIF
 	'info_gauche_statistiques_referers' => 'Na tejto stránke je zoznam <i>refererov,</i> t.j. stránok, na ktorých sú odkazy na vašu vlastnú stránku zo včerajška a dneška. Tento zoznam sa obnovuje každých 24 hodín.',
 	'info_gauche_visiteurs_enregistres' => 'tu nájdete návštevníkov zaregistrovaných v súkromnej zóne stránky (diskusné fóra vyžadujúce registráciu).',
 	'info_generation_miniatures_images' => 'Generovanie obrázkov miniatúr',
@@ -320,7 +320,7 @@ return [
 	'info_images_auto' => 'Obrázky sa obnovia automaticky',
 	'info_informations_personnelles' => 'Osobné údaje',
 	'info_inscription' => 'Registrácia',
-	'info_inscription_automatique' => 'Automatická registrácia nových redaktorov',
+	'info_inscription_automatique' => 'Automatická registrácia nových redaktorov', # MODIF
 	'info_jeu_caractere' => 'Znaková sada stránky',
 	'info_jours' => 'dní',
 	'info_laisser_champs_vides' => 'tieto polia nechajte prázdne)',
@@ -328,7 +328,7 @@ return [
 	'info_ldap_ok' => 'Autentifikácia cez LDAP je nainštalovaná.',
 	'info_lien_hypertexte' => 'Hypertextový odkaz:',
 	'info_liste_nouveautes_envoyee' => 'Zoznam noviniek bol odoslaný',
-	'info_liste_redacteurs_connectes' => 'Zoznam redaktorov online',
+	'info_liste_redacteurs_connectes' => 'Zoznam redaktorov online', # MODIF
 	'info_login_existant' => 'Toto prihlasovacie meno už existuje.',
 	'info_login_trop_court' => 'Prihlasovacie meno je príliš krátke.',
 	'info_login_trop_court_car_pluriel' => 'Prihlasovacie meno musí mať aspoň @nb@ znakov.',
@@ -352,7 +352,7 @@ return [
 	'info_moyenne' => 'priemer:',
 	'info_multi_cet_article' => 'Jazyk tohto článku:',
 	'info_multi_langues_choisies' => 'Prosím, vyberte jazyky, ktoré majú byť dostupné pre redaktorov vašej stránky.
-  Jazyky, ktoré sa už na vašej stránke používajú (v hornej časti zoznamu), sa nedajú deaktivovať.',
+  Jazyky, ktoré sa už na vašej stránke používajú (v hornej časti zoznamu), sa nedajú deaktivovať.', # MODIF
 	'info_multi_objets' => '@objets@: aktivovať menu pre jazyky',
 	'info_multi_secteurs' => '... iba pre rubriky v koreňovom adresári?',
 	'info_nb_articles' => 'Článkov: @nb@ ',
@@ -378,8 +378,8 @@ return [
 	'info_nouvelle_traduction' => 'Nový preklad:',
 	'info_numero_article' => 'ČLÁNOK ČÍSLO:',
 	'info_obligatoire_02' => ' (povinné)', # MODIF
-	'info_option_accepter_visiteurs' => 'Povoliť registráciu návštevníkov cez verejne prístupnú stránku',
-	'info_option_ne_pas_accepter_visiteurs' => 'Deaktivovať registráciu návštevníkov',
+	'info_option_accepter_visiteurs' => 'Povoliť registráciu návštevníkov cez verejne prístupnú stránku', # MODIF
+	'info_option_ne_pas_accepter_visiteurs' => 'Deaktivovať registráciu návštevníkov', # MODIF
 	'info_options_avancees' => 'ROZŠÍRENÉ MOŽNOSTI',
 	'info_ou' => 'alebo...',
 	'info_page_interdite' => 'Zakázaná stránka',
@@ -397,20 +397,20 @@ return [
 	'info_post_scriptum' => 'Post scriptum',
 	'info_post_scriptum_2' => 'Post scriptum:',
 	'info_pour' => 'pre',
-	'info_preview_texte' => 'Môžete si pozrieť ukážky rôznych redakčných objektov stránky v štádiu „návrhu“, ako aj tie, ktoré sa upravujú, pokiaľ ste ich autorom. Má byť táto funkcia vyhradená pre administrátorov, redaktorov alebo má byť dostupná pre všetkých?',
+	'info_preview_texte' => 'Môžete si pozrieť ukážky rôznych redakčných objektov stránky v štádiu „návrhu“, ako aj tie, ktoré sa upravujú, pokiaľ ste ich autorom. Má byť táto funkcia vyhradená pre administrátorov, redaktorov alebo má byť dostupná pre všetkých?', # MODIF
 	'info_procedez_par_etape' => 'prosím, postupujte krok za krokom',
 	'info_procedure_maj_version' => 'Na prispôsobenie databázy SPIPu novej verzii sa musí spustiť upgrade.',
 	'info_proxy_ok' => 'Test proxy úspešný.',
 	'info_ps' => 'P.S.',
 	'info_publier' => 'Publikovať',
 	'info_publies' => 'Vaše články publikované online',
-	'info_question_accepter_visiteurs' => 'Ak šablóna vašej stránky umožňuje návštevníkom zaregistrovať sa bez vstupu do súkromnej zóny, prosím, aktivujte túto možnosť:',
+	'info_question_accepter_visiteurs' => 'Ak šablóna vašej stránky umožňuje návštevníkom zaregistrovať sa bez vstupu do súkromnej zóny, prosím, aktivujte túto možnosť:', # MODIF
 	'info_question_inscription_nouveaux_redacteurs' => 'Chcete povoliť novým redaktorom registráciu 
 cez verejne prístupnú stránku? Ak s tým súhlasíte, návštevníci sa budú môcť zaregistrovať pomocou automatického formulára a potom mať prístup do súkromnej zóny
   a písať vlastné články. <div>Počas registrácie
   dostanú používatelia automatický e-mail,
   ktorý im poskytne prístupový kód do súkromnej zóny.
-  Niektorí poskytovatelia webhostingu zakazujú posielanie e-mailov zo svojich serverov. V takom prípade sa automatická registrácia nedá zaviesť.</div>',
+  Niektorí poskytovatelia webhostingu zakazujú posielanie e-mailov zo svojich serverov. V takom prípade sa automatická registrácia nedá zaviesť.</div>', # MODIF
 	'info_qui_edite' => '@nom_auteur_modif@ pracoval(a) na tomto texte @date_diff@ minút(y)',
 	'info_racine_site' => 'Koreňový adresár stránky',
 	'info_recharger_page' => 'Prosím, počkajte chvíľu a potom spustite túto stránku znova.',
@@ -427,7 +427,7 @@ cez verejne prístupnú stránku? Ak s tým súhlasíte, návštevníci sa bud
 	'info_refuses' => 'Vaše zamietnuté články',
 	'info_reglage_ldap' => 'Možnosti: <b>Prispôsobenie importu LDAP</b>',
 	'info_renvoi_article' => '<b>Presmerovanie.</b> Tento článok vás presmeruje na:',
-	'info_reserve_admin' => 'Túto adresu môžu zmeniť iba administrátori.',
+	'info_reserve_admin' => 'Túto adresu môžu zmeniť iba administrátori.', # MODIF
 	'info_restreindre_rubrique' => 'Obmedziť riadenie na rubriku:',
 	'info_resultat_recherche' => 'Výsledky vyhľadávania:',
 	'info_rubriques' => 'Rubriky',
@@ -447,14 +447,14 @@ cez verejne prístupnú stránku? Ak s tým súhlasíte, návštevníci sa bud
 	'info_sites_trouves' => 'Nájdené stránky',
 	'info_sous_titre' => 'Podtitulok:',
 	'info_statut' => 'Stav',
-	'info_statut_administrateur' => 'Administrátor',
+	'info_statut_administrateur' => 'Administrátor', # MODIF
 	'info_statut_auteur' => 'Funkcia tohto autora:',
 	'info_statut_auteur_2' => 'Som',
 	'info_statut_auteur_a_confirmer' => 'Registrácia na potvrdenie',
 	'info_statut_auteur_autre' => 'Iná funkcia:',
 	'info_statut_redacteur' => 'Redaktor',
-	'info_statut_utilisateurs_1' => 'Predvolená funkcia importovaných používateľov',
-	'info_statut_utilisateurs_2' => 'Vyberte funkciu, ktorá sa má priradiť ľuďom v priečinku LDAP, keď sa pripoja prvýkrát. Túto hodnotu môžete neskôr zmeniť pre každého jedného autora.',
+	'info_statut_utilisateurs_1' => 'Predvolená funkcia importovaných používateľov', # MODIF
+	'info_statut_utilisateurs_2' => 'Vyberte funkciu, ktorá sa má priradiť ľuďom v priečinku LDAP, keď sa pripoja prvýkrát. Túto hodnotu môžete neskôr zmeniť pre každého jedného autora.', # MODIF
 	'info_suivi_activite' => 'Sledovať redakčnú činnosť',
 	'info_surtitre' => 'Nadtitulok:',
 	'info_syndication_integrale_1' => 'Vaša stránka ponúka syndikačné súbory (pozri <a href="@url@">@titre@</a>).',
@@ -500,7 +500,7 @@ a stav ich spracovania je označený farbou:',
 	'info_visiteur_2' => 'na verejne prístupnú stránku',
 	'info_visiteurs' => 'Návštevníci',
 	'info_visiteurs_02' => 'Návštevníci verejne prístupnej stránky',
-	'info_webmestre_forces' => 'Správcovia webu sú momentálne zapísaní v súbore <tt>@file_options@</tt>.',
+	'info_webmestre_forces' => 'Správcovia webu sú momentálne zapísaní v súbore <tt>@file_options@</tt>.', # MODIF
 	'install_adresse_base_hebergeur' => 'Adresa databázy priradená poskytovateľom hostingu',
 	'install_connect_ok' => 'Nová databáza bola deklarovaná pomocou názvu servera @connect@.',
 	'install_echec_annonce' => 'Táto inštalácia sa pravdepodobne nepodarí, alebo poškodí vašu stránku.',
@@ -527,10 +527,10 @@ a stav ich spracovania je označený farbou:',
 	'intitule_licence' => 'Licencia',
 	'item_accepter_inscriptions' => 'Povoliť registráciu',
 	'item_activer_messages_avertissement' => 'Aktivovať správy s upozorneniami',
-	'item_administrateur_2' => 'administrátor',
+	'item_administrateur_2' => 'administrátor', # MODIF
 	'item_afficher_calendrier' => 'Zobraziť v kalendári',
 	'item_autoriser_syndication_integrale' => 'Do syndikačných kanálov zaradiť celé články',
-	'item_choix_administrateurs' => 'administrátorov',
+	'item_choix_administrateurs' => 'administrátorov', # MODIF
 	'item_choix_generation_miniature' => 'Generovať miniatúry automaticky.',
 	'item_choix_non_generation_miniature' => 'Negenerovať miniatúry.',
 	'item_choix_redacteurs' => 'redaktori',
@@ -727,15 +727,15 @@ a stav ich spracovania je označený farbou:',
 	'texte_acces_ldap_anonyme_1' => 'Niektoré servery LDAP nepovoľujú žiaden anonymný prístup. V tomto prípade musíte určiť prvý prístupový údaj na vyhľadávania v priečinku v budúcnosti. Vo väčšine prípadov však tieto polia môžu ostať prázdne.',
 	'texte_admin_effacer_01' => 'Tento príkaz vymaže <i>celý</i> obsah databázy,
 vrátane <i>všetkých</i> prístupových údajov  redaktorov a administrátorov. Po jeho vykonaní musíte
-preinštalovať SPIP, vytvoriť novú databázu a nový účet pre administrátora.',
+preinštalovať SPIP, vytvoriť novú databázu a nový účet pre administrátora.', # MODIF
 	'texte_adresse_annuaire_1' => '(Ak je váš priečinok nainštalovaný na rovnakom počítači ako internetová stránka, je to pravdepodobne "localhost".)',
 	'texte_ajout_auteur' => 'K článku bol pridaný tento autor:',
-	'texte_annuaire_ldap_1' => 'Ak máte prístup k priečinkovému serveru LDAP, môžete ho využiť na automatické nahrávanie používateľov do SPIPu.',
+	'texte_annuaire_ldap_1' => 'Ak máte prístup k priečinkovému serveru LDAP, môžete ho využiť na automatické nahrávanie používateľov do SPIPu.', # MODIF
 	'texte_article_statut' => 'Stav článku:',
 	'texte_article_virtuel' => 'Virtuálny článok',
 	'texte_article_virtuel_reference' => '<b>Virtuálny článok:</b> článok na vašej stránke v SPIPe, ktorý presmeruje na inú internetovú adresu. Ak chcete odstrániť presmerovanie, odstráňte internetovú adresu.',
 	'texte_aucun_resultat_auteur' => 'Žiadne výsledky pre reťazec „@cherche_auteur@“.',
-	'texte_auteur_messagerie' => 'Táto stránka dokáže aktualizovať zoznam redaktorov online v reálnom čase, čo  umožňuje ostatným používateľom kontaktovať vás. Môžete sa rozhodnúť, že sa v tomto zozname neobjavíte (potom budete pre ostatných „neviditeľný“).',
+	'texte_auteur_messagerie' => 'Táto stránka dokáže aktualizovať zoznam redaktorov online v reálnom čase, čo  umožňuje ostatným používateľom kontaktovať vás. Môžete sa rozhodnúť, že sa v tomto zozname neobjavíte (potom budete pre ostatných „neviditeľný“).', # MODIF
 	'texte_auteurs' => 'AUTORI',
 	'texte_choix_base_1' => 'Vyberte si databázu:',
 	'texte_choix_base_2' => 'Server SQL obsahuje niekoľko databáz.',
@@ -772,7 +772,7 @@ preinštalovať SPIP, vytvoriť novú databázu a nový účet pre administrát
   (napr. externý štatistický program).</p><p>
   Ak to nepotrebujete, môžete nechať túto možnosť
   s predvolenou hodnotou (žiadne 
-  vytváranie súborov).</p>',
+  vytváranie súborov).</p>', # MODIF
 	'texte_informations_personnelles_1' => 'Systém vám teraz vytvorí osobný účet pre túto stránku.',
 	'texte_informations_personnelles_2' => '(Poznámka: ide o preinštaláciu, ak vám stále funguje prístup ',
 	'texte_introductif_article' => '(Úvodný text článku.)',
@@ -782,7 +782,7 @@ preinštalovať SPIP, vytvoriť novú databázu a nový účet pre administrát
 	'texte_login_ldap_1' => '(Nevypĺňajte pri anonymnom prístupe alebo zadajte celé umiestnenie, napr. „<tt>uid=smith, ou=používatelia, dc=moja-doména, dc=com</tt>“.)',
 	'texte_login_precaution' => 'Pozor! Toto je prihlasovacie meno, ktoré momentálne používate.
  Používajte tento formulár obozretne.',
-	'texte_messagerie_agenda' => 'Odkazovač umožňuje autorom tejto stránky komunikovať priamo v súkromnej zóne. Je prepojený s kalendárom.',
+	'texte_messagerie_agenda' => 'Odkazovač umožňuje autorom tejto stránky komunikovať priamo v súkromnej zóne. Je prepojený s kalendárom.', # MODIF
 	'texte_mise_a_niveau_base_1' => 'Práve ste aktualizovali súbory SPIPu.
  Teraz musíte aktualizovať databázu
  stránky.',
@@ -841,7 +841,7 @@ v cache SPIPu. To si vynúti obnovenie každej stránky vášho webu, čo je u�
 	'texte_travail_article' => '@nom_auteur_modif@ pracoval(a) na tomto článku pred @date_diff@ minútami',
 	'texte_travail_collaboratif' => 'Ak niekoľko redaktorov často (spolu)pracuje na rovnakom článku, systém môže označiť nedávno „otvorené“ články, aby sa predišlo tomu, že ich budú upravovať v tom istom čase viacerí ľudia.
   Táto možnosť je v prvotných nastaveniach vypnutá, aby sa predišlo zbytočným správam
- s varovaniami.',
+ s varovaniami.', # MODIF
 	'texte_vide' => 'prázdny ',
 	'texte_vider_cache' => 'Vyprázdniť cache',
 	'titre_ajouter_un_auteur' => 'Pridať autora',

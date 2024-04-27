@@ -20,7 +20,7 @@ return [
 	'avis_connexion_echec_3' => '<b>Not:</b> Bir çok sunucuda, SQL veritabanı kullanabilmek için aktive edilmesini <b>talep etmeniz</b> gerekir. Eğer bağlanamıyorsanız bunu talep edip etmediğinizi kontrol edin.',
 	'avis_connexion_ldap_echec_1' => 'LDAP sunucusuna bağlantı başarısız.',
 	'avis_connexion_ldap_echec_2' => 'Bir önceki sayfaya dönüp verdiğiniz bilgileri kontrol edin.',
-	'avis_connexion_ldap_echec_3' => 'Buna alternatif olarak, kullanıcı ithal etmek için LDAP sunucusunu kullanmayın.',
+	'avis_connexion_ldap_echec_3' => 'Buna alternatif olarak, kullanıcı ithal etmek için LDAP sunucusunu kullanmayın.', # MODIF
 	'avis_deplacement_rubrique' => 'Dikkat ! Bu bölüm @contient_breves@ kısa haber @scb@ içeriyor: eğer yerini değiştiriyorsanız (taşıyorsanız) lütfen bu onay kutucuğunu işaretleyin.',
 	'avis_erreur_connexion_mysql' => 'SQL bağlantısı hatası',
 	'avis_espace_interdit' => '<b>Yasak alan</b> <div>SPIP zaten kurulu.</div>',
@@ -44,10 +44,10 @@ return [
 	'bouton_mettre_a_jour' => 'Güncelle',
 	'bouton_modifier' => 'Değiştir',
 	'bouton_radio_afficher' => 'Göster ',
-	'bouton_radio_apparaitre_liste_redacteurs_connectes' => 'Bağlı yazarlar listesinde görün',
+	'bouton_radio_apparaitre_liste_redacteurs_connectes' => 'Bağlı yazarlar listesinde görün', # MODIF
 	'bouton_radio_envoi_annonces_adresse' => 'Duyuruları bu adrese yolla :',
 	'bouton_radio_envoi_liste_nouveautes' => 'Yenilikler listesini yolla ',
-	'bouton_radio_non_apparaitre_liste_redacteurs_connectes' => 'Yazarlar listesinde görünme',
+	'bouton_radio_non_apparaitre_liste_redacteurs_connectes' => 'Yazarlar listesinde görünme', # MODIF
 	'bouton_radio_non_envoi_annonces_editoriales' => 'Editör duyurularını gönderme',
 	'bouton_redirection' => 'YÖNLENDİRME',
 	'bouton_relancer_installation' => 'Kurulumu tekrar başlat',
@@ -57,7 +57,7 @@ return [
 	'bouton_vider_cache' => 'Önbelleği boşalt',
 
 	// C
-	'cache_modifiable_webmestre' => 'Bu parametreler site yöneticisi tarafından değiştirilebilir.',
+	'cache_modifiable_webmestre' => 'Bu parametreler site yöneticisi tarafından değiştirilebilir.', # MODIF
 	'calendrier_synchro' => 'iCal uyumlu bir günlük uygulama yazılımı kullanıyorsanız onu bu sitedeki bilgilerle eşzamanlaştırabilirsiniz. ',
 	'config_activer_champs' => 'Şu alanları aktive et',
 	'config_choix_base_sup' => 'Bu sunucuda bir veri tabanı belirt',
@@ -91,7 +91,7 @@ return [
 	'entree_cle_pgp' => 'PGP anahtarınız',
 	'entree_contenu_rubrique' => '(Bir kaç sözcükle bölüm içeriği.)',
 	'entree_identifiants_connexion' => 'Bağlantı tanımlayıcılarınız...',
-	'entree_informations_connexion_ldap' => 'Lütfen bu forma LDAP rehberine bağlantı için kullandığınız bilgileri giriniz. Bu bilgiler size sistem ya da ağ yöneticisi tarafından verilebilir.',
+	'entree_informations_connexion_ldap' => 'Lütfen bu forma LDAP rehberine bağlantı için kullandığınız bilgileri giriniz. Bu bilgiler size sistem ya da ağ yöneticisi tarafından verilebilir.', # MODIF
 	'entree_infos_perso' => 'Kimsiniz ?',
 	'entree_interieur_rubrique' => 'Bölüm içerisinde :',
 	'entree_liens_sites' => '<b>Hipermetin bağı</b> (atıflar, ziyaret edilecek site...)',
@@ -162,13 +162,13 @@ return [
 	'info_activer_cookie' => 'Bir <b>yazışma kurabiyesi</b> çalıştırabilirsiniz,
  bu sizin kolayca kamu sitesinden özel siteye geçmenizi sağlar.',
 	'info_admin_etre_webmestre' => 'Kendime webmaster yetkileri ver', # RELIRE
-	'info_admin_statuer_webmestre' => 'Bu yönetici’ne webmaster yetkileri ver', # RELIRE
-	'info_administrateur' => 'Yönetici',
-	'info_administrateur_1' => 'Yönetici',
+	'info_admin_statuer_webmestre' => 'Bu yönetici’ne webmaster yetkileri ver', # MODIF
+	'info_administrateur' => 'Yönetici', # MODIF
+	'info_administrateur_1' => 'Yönetici', # MODIF
 	'info_administrateur_2' => 'sitenindir (<i>dikkatli kullanınız</i>)',
-	'info_administrateur_site_01' => 'Eğer site yöneticisiyseniz, lütfen',
+	'info_administrateur_site_01' => 'Eğer site yöneticisiyseniz, lütfen', # MODIF
 	'info_administrateur_site_02' => 'bu bağlantıya tıklayınız',
-	'info_administrateurs' => 'Yöneticiler',
+	'info_administrateurs' => 'Yöneticiler', # MODIF
 	'info_administrer_rubrique' => 'Bu bölümü yönetebilirsiniz',
 	'info_adresse' => 'şu adresteki :',
 	'info_adresse_url' => 'Kamusal sitenin adresi (URL) ',
@@ -203,7 +203,7 @@ yaratabilir. Bu da otomatik olarak bir galeri
 	'info_chapeau' => 'Giriş',
 	'info_chapeau_2' => 'Giriş :',
 	'info_chemin_acces_1' => 'Seçenekler : <b>Rehbere erişim yolu</b>',
-	'info_chemin_acces_2' => 'Artık dizindeki bilgilere erişim yolunu düzenlemeniz gerekiyor. Bu bilgi dizinde bulundurulan kullanıcı profillerini okumak için şarttır. ',
+	'info_chemin_acces_2' => 'Artık dizindeki bilgilere erişim yolunu düzenlemeniz gerekiyor. Bu bilgi dizinde bulundurulan kullanıcı profillerini okumak için şarttır. ', # MODIF
 	'info_chemin_acces_annuaire' => 'Seçenekler : <b>Rehbere erişim yolu',
 	'info_choix_base' => 'Üçüncü aşama :',
 	'info_classement_1' => '@liste@’den     inci',
@@ -238,7 +238,7 @@ yaratabilir. Bu da otomatik olarak bir galeri
 	'info_ecrire_article' => 'Makale yazmadam önce en az bir bölüm yaratmanız gerekir.',
 	'info_email_envoi' => 'Gönderi e-posta adresi (seçimlik)',
 	'info_email_envoi_txt' => 'E-postaları göndermek için kullanılacak adresi burada belirtiniz (yoksa, gönderi adresi olarak alıcı adresi kullanılacaktır) :',
-	'info_email_webmestre' => 'Webmaster e-posta adresi', # RELIRE
+	'info_email_webmestre' => 'Webmaster e-posta adresi', # MODIF
 	'info_envoi_email_automatique' => 'Otomatik e-posta gönderme',
 	'info_envoyer_maintenant' => 'Şimdi gönder',
 	'info_etape_suivante' => 'Bir sonraki aşamaya geç',
@@ -250,10 +250,10 @@ yaratabilir. Bu da otomatik olarak bir galeri
                                    SPIP, e-posta ile, örneğin, yayınlama taleplerinin  ve makale
                                    onaylarının duyurusunu editörlerin bir gönderi listesine yollayabilir.', # MODIF
 	'info_fichiers_authent' => ' « .htpasswd » tasdik dosyaları',
-	'info_forums_abo_invites' => 'Siteniz abone yöntemiyle çalışan forumlar bulunduruyor ; dolayısıyla ziyaretçiler kamu sitesine kaydolmaya davet edilirler.',
-	'info_gauche_auteurs' => 'Burada tüm site yazarlarını bulacaksınız. Statüleri simgelerinin rengi ile belirtilmiştir (yönetici = yeşil; yazı işleri = sarı).',
+	'info_forums_abo_invites' => 'Siteniz abone yöntemiyle çalışan forumlar bulunduruyor ; dolayısıyla ziyaretçiler kamu sitesine kaydolmaya davet edilirler.', # MODIF
+	'info_gauche_auteurs' => 'Burada tüm site yazarlarını bulacaksınız. Statüleri simgelerinin rengi ile belirtilmiştir (yönetici = yeşil; yazı işleri = sarı).', # MODIF
 	'info_gauche_auteurs_exterieurs' => 'Siteye erişimi olmayan dış yazarlar, mavi bir simgeyle belirtilmiştir ; silinen yazarlar ise gri bir simgeyle belirtilmiştir.',
-	'info_gauche_messagerie' => 'Mesajlaşma sizin yazarlar ile ileti alışverişinde bulunmanızı, hatırlatmaları saklamanızı (kişisel amaçlı) veya özel alanın erişim sayfasına duyuru koymanızı sağlar (yöneticiyseniz).',
+	'info_gauche_messagerie' => 'Mesajlaşma sizin yazarlar ile ileti alışverişinde bulunmanızı, hatırlatmaları saklamanızı (kişisel amaçlı) veya özel alanın erişim sayfasına duyuru koymanızı sağlar (yöneticiyseniz).', # MODIF
 	'info_gauche_statistiques_referers' => 'Bu sayfa atıflar listesini, yani sizin sitenize yönlendiren bağlar bulunduran sitelerin listesini sunar, ancak sadece dün ve bugün içindir ; bu liste her 24 saatte bir sıfırlanır.',
 	'info_gauche_visiteurs_enregistres' => 'Burada sitenin kamu alanına kaydolan 
                                         ziyaretçileri bulacaksınız (abonelik yöntemiyle yönetilen forumlar).',
@@ -268,14 +268,14 @@ yaratabilir. Bu da otomatik olarak bir galeri
 	'info_images_auto' => 'Otomatik olarak hesaplanan resimler',
 	'info_informations_personnelles' => 'Kişisel bilgiler',
 	'info_inscription' => 'Kayıt tarihi', # RELIRE
-	'info_inscription_automatique' => 'Yeni yazarların otomatik kaydı',
+	'info_inscription_automatique' => 'Yeni yazarların otomatik kaydı', # MODIF
 	'info_jeu_caractere' => 'Sitedeki yazı tipi',
 	'info_jours' => 'Günler',
 	'info_laisser_champs_vides' => 'Bu alanları boş bırakınız.)',
 	'info_langues' => 'Sitenin dilleri',
 	'info_ldap_ok' => 'LDAP tasdiki kuruldu.',
 	'info_lien_hypertexte' => 'Hipermetin bağı :',
-	'info_liste_redacteurs_connectes' => 'Bağlanan yazarlar',
+	'info_liste_redacteurs_connectes' => 'Bağlanan yazarlar', # MODIF
 	'info_login_existant' => 'Bu kullanıcı ismi zaten var.',
 	'info_login_trop_court' => 'Kullanıcı ismi çok kısa.',
 	'info_login_trop_court_car_pluriel' => 'Kullanıcı adı en az @nb@ karakter olmalıdır.', # RELIRE
@@ -299,7 +299,7 @@ yaratabilir. Bu da otomatik olarak bir galeri
 	'info_moyenne' => 'Ortalama :',
 	'info_multi_cet_article' => 'Bu makalenin dili :',
 	'info_multi_langues_choisies' => 'Lütfen aşağıda sitenizdeki yazarların kullanabileceği dilleri seçiniz.
-    Sitenizde daha önce kullanılan (ve görüntülenen) diller iptal edilemez. ',
+    Sitenizde daha önce kullanılan (ve görüntülenen) diller iptal edilemez. ', # MODIF
 	'info_multi_objets' => '@objets@ : dil menüsünü etkinleştir', # RELIRE
 	'info_multi_secteurs' => 'Sadece kök dizinde yer alan bölümler için mi ?',
 	'info_nb_articles' => '@nb@ makale', # RELIRE
@@ -324,8 +324,8 @@ yaratabilir. Bu da otomatik olarak bir galeri
 	'info_nouvelle_traduction' => 'Yeni çeviri :',
 	'info_numero_article' => 'MAKALE N° :',
 	'info_obligatoire_02' => '(Zorunlu)', # MODIF
-	'info_option_accepter_visiteurs' => 'Kamu sitesi ziyaretçilerinin kaydını kabul et',
-	'info_option_ne_pas_accepter_visiteurs' => 'Ziyaretçi kayıdını reddet',
+	'info_option_accepter_visiteurs' => 'Kamu sitesi ziyaretçilerinin kaydını kabul et', # MODIF
+	'info_option_ne_pas_accepter_visiteurs' => 'Ziyaretçi kayıdını reddet', # MODIF
 	'info_options_avancees' => 'GELİŞMİŞ SEÇENEKLER',
 	'info_ou' => 'Veya ...',
 	'info_page_interdite' => 'Yasaklanmış sayfa',
@@ -343,7 +343,7 @@ yaratabilir. Bu da otomatik olarak bir galeri
 	'info_post_scriptum' => ' Not :',
 	'info_post_scriptum_2' => ' Not :',
 	'info_pour' => ' Için',
-	'info_preview_texte' => 'Siteyi en azından « önerildi » statüsüne sahip olan tüm makale ve haberler yayınlanmış gibi önizlemeye almak olanaklıdır. Bu olanak sadece yöneticilere mi, tüm yazarlara mı, açık olmalı yoksa hiç kimseye açık olmamalı mı ?', # RELIRE
+	'info_preview_texte' => 'Siteyi en azından « önerildi » statüsüne sahip olan tüm makale ve haberler yayınlanmış gibi önizlemeye almak olanaklıdır. Bu olanak sadece yöneticilere mi, tüm yazarlara mı, açık olmalı yoksa hiç kimseye açık olmamalı mı ?', # MODIF
 	'info_procedez_par_etape' => 'Aşama aşama ilerleyiniz',
 	'info_procedure_maj_version' => 'Veritabanını yeni SPIP sürümüne uyarlamak için
               seviye yükseltme işlemi başlatılmalı.',
@@ -351,7 +351,7 @@ yaratabilir. Bu da otomatik olarak bir galeri
 	'info_ps' => 'Not :',
 	'info_publier' => 'Yayınla',
 	'info_publies' => 'Çevrimiçi yayınlanan makaleleriniz',
-	'info_question_accepter_visiteurs' => 'Eğer sitenizin iskeleti özel alana erişimi olmayan ziyaretçilerin kaydını öngörüyorsa, aşağıdaki seçeneği çalıştırınız :',
+	'info_question_accepter_visiteurs' => 'Eğer sitenizin iskeleti özel alana erişimi olmayan ziyaretçilerin kaydını öngörüyorsa, aşağıdaki seçeneği çalıştırınız :', # MODIF
 	'info_question_inscription_nouveaux_redacteurs' => 'Kamu sitesinden yeni editörlerin kaydolmasını kabul ediyor musunuz ?
     Eğer kabul ediyorsanız, ziyaretçiler otomatik
     bir form ile kaydolabilecek ve kendi makalelerini
@@ -375,7 +375,7 @@ yaratabilir. Bu da otomatik olarak bir galeri
 	'info_refuses' => 'Reddedilen makaleleriniz',
 	'info_reglage_ldap' => 'Seçenekler : <b>LDAP ithalinin ayarlanması.</b>',
 	'info_renvoi_article' => '<b>Yönlendirme.</b> Bu makalenin bizi şu sayfaya yönlendirir:',
-	'info_reserve_admin' => 'Bu adresi sadece yöneticiler değiştirebilir.',
+	'info_reserve_admin' => 'Bu adresi sadece yöneticiler değiştirebilir.', # MODIF
 	'info_restreindre_rubrique' => 'Yönetimi bu bölümle sınırla:',
 	'info_resultat_recherche' => 'Arama sonucu :',
 	'info_rubriques' => 'Bölümler',
@@ -394,13 +394,13 @@ yaratabilir. Bu da otomatik olarak bir galeri
 	'info_sites_proxy' => 'Vekil kullan',
 	'info_sites_trouves' => 'Bulunan siteler',
 	'info_sous_titre' => 'Alt-başlık :',
-	'info_statut_administrateur' => 'Yönetici',
+	'info_statut_administrateur' => 'Yönetici', # MODIF
 	'info_statut_auteur' => 'Bu yazarın statüsü :',
 	'info_statut_auteur_a_confirmer' => 'Onaylanacak kayıt',
 	'info_statut_auteur_autre' => 'Diğer statü :',
 	'info_statut_redacteur' => 'Yazar',
-	'info_statut_utilisateurs_1' => 'İthal edilen kullanıcıların varsayılan statüsü',
-	'info_statut_utilisateurs_2' => 'LDAP dizininde mevcut olan kişilere ilk defa bağlantı kurduklarında verilen statüyü seçiniz. Sonradan bu statüyü her bir yazar için tek tek değiştirebilirsiniz.',
+	'info_statut_utilisateurs_1' => 'İthal edilen kullanıcıların varsayılan statüsü', # MODIF
+	'info_statut_utilisateurs_2' => 'LDAP dizininde mevcut olan kişilere ilk defa bağlantı kurduklarında verilen statüyü seçiniz. Sonradan bu statüyü her bir yazar için tek tek değiştirebilirsiniz.', # MODIF
 	'info_suivi_activite' => 'Yayın etkinliklerini izleme',
 	'info_surtitre' => 'Üst başlık :',
 	'info_syndication_integrale_1' => 'Siteniz paylaşım dosyaları öneriyor  (bkz « <a href="@url@">@titre@</a> »).',
@@ -445,7 +445,7 @@ yaratabilir. Bu da otomatik olarak bir galeri
 	'info_visiteur_2' => 'ziyaretçisi',
 	'info_visiteurs' => 'Ziyaretçiler',
 	'info_visiteurs_02' => 'Kamu sitesi ziyaretçileri ',
-	'info_webmestre_forces' => 'Webmasterler <tt>@file_options@</tt> dosyasında tanımlanır.', # RELIRE
+	'info_webmestre_forces' => 'Webmasterler <tt>@file_options@</tt> dosyasında tanımlanır.', # MODIF
 	'install_adresse_base_hebergeur' => 'Barındırma firması tarafından atanmış veritabanının adresi',
 	'install_connect_ok' => 'Yeni veri tabanı @connect@ adı olara tanımlanmış.', # RELIRE
 	'install_echec_annonce' => 'Kurulum büyük olasılıkla başarısız olacak veya site çalışmayacak...',
@@ -471,10 +471,10 @@ yaratabilir. Bu da otomatik olarak bir galeri
 	'intitule_licence' => 'Lisans',
 	'item_accepter_inscriptions' => 'Kayıtları kabul et',
 	'item_activer_messages_avertissement' => 'Uyarı iletilerini etkinleştir',
-	'item_administrateur_2' => 'yönetici',
+	'item_administrateur_2' => 'yönetici', # MODIF
 	'item_afficher_calendrier' => 'Takvimde görüntüle',
 	'item_autoriser_syndication_integrale' => 'Makaleleri paylaşım dosyalarında oldukları gibi yayınla',
-	'item_choix_administrateurs' => 'Yöneticiler ',
+	'item_choix_administrateurs' => 'Yöneticiler ', # MODIF
 	'item_choix_generation_miniature' => 'Resimlerin minyatürlerini otomatik olarak üret',
 	'item_choix_non_generation_miniature' => 'Resimlerin minyatürlerini otomatik olarak üretme',
 	'item_choix_redacteurs' => 'Yazarlar',
@@ -655,15 +655,15 @@ Site sloganı', # RELIRE
   yazarlar ve yönetici erişimleri dahil, <i>tüm</i> içeriğini siler.
   Bu komuttan sonra, yeni bir veritabanı ve bir yönetici 
   erişimi yaratmak üzere SPIP’i 
-  yeniden yüklemelisiniz. ',
+  yeniden yüklemelisiniz. ', # MODIF
 	'texte_adresse_annuaire_1' => '(Eğer dizininiz bu Web sitesi ile aynı makinaya yüklenmiş ise, muhtemelen bir yerel hizmet bilgisayarı «localhost» sözkonusudur.)',
 	'texte_ajout_auteur' => 'Makaleye şu yazar eklendi :',
-	'texte_annuaire_ldap_1' => 'Eğer bir (LDAP) dizinine erişiminiz varsa, onu SPIP’e otomatik olarak kullanıcı ithal etmek için  kullanabilirsiniz. ',
+	'texte_annuaire_ldap_1' => 'Eğer bir (LDAP) dizinine erişiminiz varsa, onu SPIP’e otomatik olarak kullanıcı ithal etmek için  kullanabilirsiniz. ', # MODIF
 	'texte_article_statut' => 'Bu makale :',
 	'texte_article_virtuel' => 'Sanal makale',
 	'texte_article_virtuel_reference' => '<b>Sanal makale :</b> SPIP sitenizde atıfta bulunulan ancak başka bir URL’ye yönlendirilmiş bir makaledir. Yeniden yönlendirmeyi iptâl etmek için yukarıdaki URL’yi siliniz.',
 	'texte_aucun_resultat_auteur' => '"@cherche_auteur@" için hiçbir sonuç yok.',
-	'texte_auteur_messagerie' => 'Bu site size bağlı olan yazarların listesini sürekli olarak belirtebilir, bu da sizin doğrudan ileti alışverişinde bulunmanızı sağlar.  Bu listede görünmemeyi seçebilirsiniz (bu durumda diğer kullanıcılara « görünmez »sinizdir).',
+	'texte_auteur_messagerie' => 'Bu site size bağlı olan yazarların listesini sürekli olarak belirtebilir, bu da sizin doğrudan ileti alışverişinde bulunmanızı sağlar.  Bu listede görünmemeyi seçebilirsiniz (bu durumda diğer kullanıcılara « görünmez »sinizdir).', # MODIF
 	'texte_auteurs' => 'YAZARLAR',
 	'texte_choix_base_1' => 'Veritabanınızı seçiniz :',
 	'texte_choix_base_2' => 'SQL sunucusu bir çok veritabanı içeriyor.',
@@ -693,7 +693,7 @@ Site sloganı', # RELIRE
 	'texte_enrichir_mise_a_jour' => 'Metninizin sayfa düzenini « tipografi kısaltmaları » kullanarak zenginleştirebilirsiniz.',
 	'texte_fichier_authent' => '<b>SPIP’in, <tt>.htpasswd</tt> ve <tt>.htpasswd-admin</tt> özel dosyalarını  @dossier@ dizininde yaratması gerekir mi?</b> 
 <p>Bu dosyalar sizin, sitenizin başka yerlerine sadece yazar ve yöneticilerin erişmesini sınırlamanızı sağlayabilir (örneğin, dışsal istatistik programı).</p>
-<p> Bunun bir yararı olmadığını düşünüyorsanız bu seçeneği varsayılan değerinde bırakabilirsiniz (dosya yaratma işlemi yapılmaz).</p>',
+<p> Bunun bir yararı olmadığını düşünüyorsanız bu seçeneği varsayılan değerinde bırakabilirsiniz (dosya yaratma işlemi yapılmaz).</p>', # MODIF
 	'texte_informations_personnelles_1' => 'Sistem şimdi size kişiselleştirilmiş bir erişim (hesap) yaratacaktır.',
 	'texte_informations_personnelles_2' => '(Not : eğer yeniden kurulum sözkonusu ise ve erişiminiz halen çalışıyorsa, yapabileceğiniz :',
 	'texte_introductif_article' => '(Makalenin giriş metni.)',
@@ -703,7 +703,7 @@ Site sloganı', # RELIRE
 	'texte_login_ldap_1' => '(Ya anonim bir erişim için boş bırakınız ya da tüm yolu belirtiniz, örneğin; « uid=dupont, ou=users, dc=mon-domaine, dc=com ».)',
 	'texte_login_precaution' => 'Dikkat ! Bu şu anki bağlantı için kullanılan kullanıcı ismidir.
  Bu formu dikkatli kullanınız...',
-	'texte_messagerie_agenda' => 'Mesajlaşma, site yazarlarına özel alanda kendi aralarında direkt olarak haberleşme olnağı tanır. Mesajlaşma bir ajandaya bağlıdır.',
+	'texte_messagerie_agenda' => 'Mesajlaşma, site yazarlarına özel alanda kendi aralarında direkt olarak haberleşme olnağı tanır. Mesajlaşma bir ajandaya bağlıdır.', # MODIF
 	'texte_mise_a_niveau_base_1' => 'SPIP dosyalarını güncelleştirmiş bulunuyorsunuz. Şimdi sitenin veritabanını aynı seviyeye yükseltmeniz gerekir.',
 	'texte_modifier_article' => 'Makaleyi değiştir :',
 	'texte_multilinguisme' => 'Eğer karmaşık gezintili, bir kaç dilde makaleler yönetmek istiyorsanız makalelere ve/veya bölümlere sitenizin düzenine göre bir dil seçeneği mönüsü ekleyebilirsiniz.',
@@ -744,7 +744,7 @@ SQL’in, kazayla zarar gören tablolarını onarma yeteneği vardır. Burada bu
 	'texte_titre_02' => 'Başlık :',
 	'texte_titre_obligatoire' => '<b>Başlık</b> [Zorunlu]',
 	'texte_travail_article' => '@nom_auteur_modif@ bu makale üzerinde @date_diff@ dakika önce çalıştı',
-	'texte_travail_collaboratif' => 'Bir kaç yazarın aynı makalede çalışıyor olması sıkça rastlansa da, sistem eşzamanlı değişiklikleri önlemek amacıyla yeni « açılmış » olan makaleleri görüntüleyebilir.  Bu seçenek geçici uyarı iletilerinin görüntülenmesine engel olmak üzere  başlangıçta engellenmiştir.',
+	'texte_travail_collaboratif' => 'Bir kaç yazarın aynı makalede çalışıyor olması sıkça rastlansa da, sistem eşzamanlı değişiklikleri önlemek amacıyla yeni « açılmış » olan makaleleri görüntüleyebilir.  Bu seçenek geçici uyarı iletilerinin görüntülenmesine engel olmak üzere  başlangıçta engellenmiştir.', # MODIF
 	'texte_vide' => 'Boş ',
 	'texte_vider_cache' => 'Önbelleği boşalt',
 	'titre_ajouter_un_auteur' => 'Yazar ekle', # RELIRE

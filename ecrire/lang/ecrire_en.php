@@ -22,12 +22,12 @@ return [
 	'avis_connexion_echec_2' => 'Go back to the previous page, and check the information you provided.',
 	'avis_connexion_echec_3' => '<b>N.B.</b> On many servers, you must <b>request</b> activation of your access to the SQL database before you can use it. If you cannot connect to your database, check that activation has been done.',
 	'avis_connexion_erreur_creer_base' => 'The database could not be created.',
-	'avis_connexion_erreur_fichier_cle_manquant_1' => 'Installation must be performed by a webmaster with a backup of the keys and their password',
-	'avis_connexion_erreur_fichier_cle_manquant_2' => 'Installation must be performed by a webmaster with a backup of the keys',
+	'avis_connexion_erreur_fichier_cle_manquant_1' => 'Installation must be performed by a webmaster with a backup of the keys and their password', # MODIF
+	'avis_connexion_erreur_fichier_cle_manquant_2' => 'Installation must be performed by a webmaster with a backup of the keys', # MODIF
 	'avis_connexion_erreur_nom_base' => 'The database’s name should only contain letters, digits and hyphens.',
 	'avis_connexion_ldap_echec_1' => 'Connection to the LDAP server failed.',
 	'avis_connexion_ldap_echec_2' => 'Go back to the previous page, and check the information you provided.',
-	'avis_connexion_ldap_echec_3' => 'Alternatively, do not use LDAP support to import users.',
+	'avis_connexion_ldap_echec_3' => 'Alternatively, do not use LDAP support to import users.', # MODIF
 	'avis_deplacement_rubrique' => 'Warning! This section contains @contient_breves@ news item@scb@: if you move it, please check this box to confirm.',
 	'avis_erreur_connexion_mysql' => 'SQL connection error',
 	'avis_erreur_creation_compte' => 'Failure during account initialisation',
@@ -56,10 +56,10 @@ return [
 	'bouton_mettre_a_jour_base' => 'Update the database',
 	'bouton_modifier' => 'Modify',
 	'bouton_radio_afficher' => 'Show',
-	'bouton_radio_apparaitre_liste_redacteurs_connectes' => 'Appear in the list of editors online',
+	'bouton_radio_apparaitre_liste_redacteurs_connectes' => 'Appear in the list of editors online', # MODIF
 	'bouton_radio_envoi_annonces_adresse' => 'Send announcements to:',
 	'bouton_radio_envoi_liste_nouveautes' => 'Send news update list',
-	'bouton_radio_non_apparaitre_liste_redacteurs_connectes' => 'Do not appear in the list of editors online',
+	'bouton_radio_non_apparaitre_liste_redacteurs_connectes' => 'Do not appear in the list of editors online', # MODIF
 	'bouton_radio_non_envoi_annonces_editoriales' => 'Do not send any editorial announcements',
 	'bouton_redirection' => 'REDIRECT',
 	'bouton_reinitialiser_aux_valeurs_par_defaut' => 'Reset to default values',
@@ -73,7 +73,7 @@ return [
 	'bouton_vider_cache' => 'Empty the cache',
 
 	// C
-	'cache_modifiable_webmestre' => 'This parameter can be modified by the webmaster.',
+	'cache_modifiable_webmestre' => 'This parameter can be modified by the webmaster.', # MODIF
 	'calendrier_synchro' => 'If you use a calendar application compatible with <b>iCal</b>, you can synchronise it with information from this site.',
 	'config_activer_champs' => 'Activate the following fields',
 	'config_choix_base_sup' => 'Choose a database on this server',
@@ -118,7 +118,7 @@ return [
 	'entree_contenu_rubrique' => '(Brief description of the content of this section.)',
 	'entree_identifiants_connexion' => 'Your connection identifiers...',
 	'entree_identifiants_connexion_2' => 'Connection identifiers',
-	'entree_informations_connexion_ldap' => 'Please fill this form with the LDAP connection information provided by your system or network administrator.',
+	'entree_informations_connexion_ldap' => 'Please fill this form with the LDAP connection information provided by your system or network administrator.', # MODIF
 	'entree_infos_perso' => 'Who are you?',
 	'entree_infos_perso_2' => 'Who is the author?',
 	'entree_interieur_rubrique' => 'In the section:',
@@ -216,14 +216,14 @@ return [
 	'info_activer_menu_developpement' => 'Show the Development menu',
 	'info_admin_etre_webmestre' => 'Give me web administrator rights',
 	'info_admin_je_suis_webmestre' => 'I am a <b>webmaster</b>',
-	'info_admin_statuer_webmestre' => 'Give webmaster rights to this administrator ',
-	'info_admin_webmestre' => 'This administrator is <b>webmaster</b>',
-	'info_administrateur' => 'Administrator',
-	'info_administrateur_1' => 'Administrator',
+	'info_admin_statuer_webmestre' => 'Give webmaster rights to this administrator ', # MODIF
+	'info_admin_webmestre' => 'This administrator is <b>webmaster</b>', # MODIF
+	'info_administrateur' => 'Administrator', # MODIF
+	'info_administrateur_1' => 'Administrator', # MODIF
 	'info_administrateur_2' => 'of the site (<i>use with caution</i>)',
-	'info_administrateur_site_01' => 'If you are a site administrator, please',
+	'info_administrateur_site_01' => 'If you are a site administrator, please', # MODIF
 	'info_administrateur_site_02' => 'click on this link',
-	'info_administrateurs' => 'Administrators',
+	'info_administrateurs' => 'Administrators', # MODIF
 	'info_administrer_rubrique' => 'You can manage this section',
 	'info_adresse' => 'to this address:',
 	'info_adresse_desinscription' => 'Unsubscription address:',
@@ -267,7 +267,7 @@ return [
 	'info_chapeau' => 'Introduction',
 	'info_chapeau_2' => 'Introduction:',
 	'info_chemin_acces_1' => 'Options: <b>Access path in directory</b>',
-	'info_chemin_acces_2' => 'You must now configure the access path to the directory information. This information is essential to read the user profiles stored in the directory.',
+	'info_chemin_acces_2' => 'You must now configure the access path to the directory information. This information is essential to read the user profiles stored in the directory.', # MODIF
 	'info_chemin_acces_annuaire' => 'Options: <b>Access path in directory</b>',
 	'info_choix_base' => 'Third step:',
 	'info_classement_1' => ' out of @liste@',
@@ -302,7 +302,7 @@ return [
 	'info_ecrire_article' => 'Before writing any articles, you must create at least one section.',
 	'info_email_envoi' => 'Sender’s email address (optional)',
 	'info_email_envoi_txt' => 'Enter the sender’s email address used for sending emails (by default, the recipient’s address is used as the sender’s address) :',
-	'info_email_webmestre' => 'Webmaster’s email address',
+	'info_email_webmestre' => 'Webmaster’s email address', # MODIF
 	'info_envoi_email_automatique' => 'Automated mailing',
 	'info_envoyer_maintenant' => 'Send now',
 	'info_erreur_version_base_plus_recente' => 'Installation error',
@@ -313,13 +313,13 @@ return [
 	'info_exportation_base' => 'export database to @archive@',
 	'info_facilite_suivi_activite' => 'To simplify monitoring of the site’s editorial;
   activities, SPIP can send rmail notifications, e.g. to an editors’ mailing list,
-  of publication requests and article validations. Enter one or more adresses separated by commas.',
+  of publication requests and article validations. Enter one or more adresses separated by commas.', # MODIF
 	'info_fichiers_authent' => 'Authentication file ".htpasswd"',
-	'info_forums_abo_invites' => 'Your site contains forums by subscription; visitors may register for them on the public site.',
+	'info_forums_abo_invites' => 'Your site contains forums by subscription; visitors may register for them on the public site.', # MODIF
 	'info_gauche_auteurs' => 'All the site authors are listed here.
- The status of each is indicated by the colour of their icon (administrator = green; editor = yellow).',
+ The status of each is indicated by the colour of their icon (administrator = green; editor = yellow).', # MODIF
 	'info_gauche_auteurs_exterieurs' => 'Visiting authors, without any access to the site, are indicated by a blue icon; deleted authors by a grey icon.',
-	'info_gauche_messagerie' => 'Internal messaging lets you exchange messages between editors, keep memos (for personal use) or, display announcements on the admin area’s homepage (if you are an administrator).',
+	'info_gauche_messagerie' => 'Internal messaging lets you exchange messages between editors, keep memos (for personal use) or, display announcements on the admin area’s homepage (if you are an administrator).', # MODIF
 	'info_gauche_statistiques_referers' => 'This page displays the list of <i>referrers</i>, i.e. websites containing links to your own site, for yesterday and today. The list is reset every 24 hours.',
 	'info_gauche_visiteurs_enregistres' => 'You will find here the visitors registered
  for the public area of the site (subscription-only forums).',
@@ -334,7 +334,7 @@ return [
 	'info_images_auto' => 'Images calculated automatically',
 	'info_informations_personnelles' => 'Personal information',
 	'info_inscription' => 'Registered on',
-	'info_inscription_automatique' => 'Automatic registration for new editors',
+	'info_inscription_automatique' => 'Automatic registration for new editors', # MODIF
 	'info_jeu_caractere' => 'Character set for the site',
 	'info_jours' => 'days',
 	'info_laisser_champs_vides' => 'leave these fields empty)',
@@ -342,7 +342,7 @@ return [
 	'info_ldap_ok' => 'LDAP authentication is installed.',
 	'info_lien_hypertexte' => 'Hyperlink:',
 	'info_liste_nouveautes_envoyee' => 'The news update list has been sent',
-	'info_liste_redacteurs_connectes' => 'List of editors online',
+	'info_liste_redacteurs_connectes' => 'List of editors online', # MODIF
 	'info_login_existant' => 'This login already exists.',
 	'info_login_trop_court' => 'Login too short.',
 	'info_login_trop_court_car_pluriel' => 'Your login must contain at least @nb@ characters.',
@@ -366,7 +366,7 @@ return [
 	'info_moyenne' => 'average:',
 	'info_multi_cet_article' => 'Language for this article:',
 	'info_multi_langues_choisies' => 'Please select the languages to be made available to the editors of your site.
-  Languages already used on your site (at the top of the list) cannot be disabled.',
+  Languages already used on your site (at the top of the list) cannot be disabled.', # MODIF
 	'info_multi_objets' => '@objets@: activate the language menu',
 	'info_multi_secteurs' => '... only for root-level sections?',
 	'info_nb_articles' => '@nb@ articles',
@@ -393,8 +393,8 @@ return [
 	'info_nouvelle_traduction' => 'New translation:',
 	'info_numero_article' => 'ARTICLE NUMBER:',
 	'info_obligatoire_02' => '(Required)',
-	'info_option_accepter_visiteurs' => 'Allow visitor registration via the public site',
-	'info_option_ne_pas_accepter_visiteurs' => 'Disable visitor registration',
+	'info_option_accepter_visiteurs' => 'Allow visitor registration via the public site', # MODIF
+	'info_option_ne_pas_accepter_visiteurs' => 'Disable visitor registration', # MODIF
 	'info_options_avancees' => 'ADVANCED OPTIONS',
 	'info_ou' => 'or...',
 	'info_page_interdite' => 'Forbidden page',
@@ -412,7 +412,7 @@ return [
 	'info_post_scriptum' => 'Postscript',
 	'info_post_scriptum_2' => 'Postscript:',
 	'info_pour' => 'for',
-	'info_preview_texte' => 'It is possible to preview the site’s  various editorial elements with at least the "submitted" status, as well as the"editing in progress" elements of which you are the author. Should this preview mode be restricted to administrators, open to all authors, or disabled completely?',
+	'info_preview_texte' => 'It is possible to preview the site’s  various editorial elements with at least the "submitted" status, as well as the"editing in progress" elements of which you are the author. Should this preview mode be restricted to administrators, open to all authors, or disabled completely?', # MODIF
 	'info_procedez_par_etape' => 'please proceed step by step',
 	'info_procedure_maj_version' => 'the upgrade procedure must be run to adapt
  the database to this new version of SPIP.',
@@ -420,7 +420,7 @@ return [
 	'info_ps' => 'P.S.',
 	'info_publier' => 'publish',
 	'info_publies' => 'Your articles published online',
-	'info_question_accepter_visiteurs' => 'If your website’s templates allows visitors to register with no access to the admin area, please activate the following option:',
+	'info_question_accepter_visiteurs' => 'If your website’s templates allows visitors to register with no access to the admin area, please activate the following option:', # MODIF
 	'info_question_inscription_nouveaux_redacteurs' => 'Do you wish to allow new editors to register
  from the public website? If you agree with this, visitors will be able to  register
   using an automatic form, and then access the admin area to
@@ -428,7 +428,7 @@ return [
   giving them their access code for the admin area. Some
   service providers disallow sending emails from their
   servers: in that case, automated registration is not
-  possible.</div>',
+  possible.</div>', # MODIF
 	'info_qui_edite' => '@nom_auteur_modif@ worked on the contents @date_diff@ minutes ago',
 	'info_racine_site' => 'Site root',
 	'info_recharger_page' => 'Please wait a few moments, then reload this page.',
@@ -445,7 +445,7 @@ return [
 	'info_refuses' => 'Your rejected articles ',
 	'info_reglage_ldap' => 'Options: <b>Adjusting LDAP import</b>',
 	'info_renvoi_article' => '<b>Redirection.</b> This article redirects to:',
-	'info_reserve_admin' => 'Only administrators can modify this address.',
+	'info_reserve_admin' => 'Only administrators can modify this address.', # MODIF
 	'info_restreindre_rubrique' => 'Restrict management to section:',
 	'info_resultat_recherche' => 'Search results:',
 	'info_rubriques' => 'Sections',
@@ -465,14 +465,14 @@ return [
 	'info_sites_trouves' => 'Sites found',
 	'info_sous_titre' => 'Subtitle:',
 	'info_statut' => 'Status',
-	'info_statut_administrateur' => 'Administrator',
+	'info_statut_administrateur' => 'Administrator', # MODIF
 	'info_statut_auteur' => 'This author’s status:',
 	'info_statut_auteur_2' => 'I am',
 	'info_statut_auteur_a_confirmer' => 'Registration to be confirmed',
 	'info_statut_auteur_autre' => 'Other status:',
 	'info_statut_redacteur' => 'Editor',
-	'info_statut_utilisateurs_1' => 'Default status for imported users',
-	'info_statut_utilisateurs_2' => 'Choose the status to be attributed to persons present in the LDAP directory when they connect for the first time. You can modify this value for each individual author later on.',
+	'info_statut_utilisateurs_1' => 'Default status for imported users', # MODIF
+	'info_statut_utilisateurs_2' => 'Choose the status to be attributed to persons present in the LDAP directory when they connect for the first time. You can modify this value for each individual author later on.', # MODIF
 	'info_suivi_activite' => 'Follow editorial activity',
 	'info_surtitre' => 'Top title:',
 	'info_syndication_integrale_1' => 'Your site provides syndication files (see "<a href="@url@">@titre@</a>").',
@@ -519,7 +519,7 @@ and their status is colour-coded:',
 	'info_visiteur_2' => 'to the public site',
 	'info_visiteurs' => 'Visitors',
 	'info_visiteurs_02' => 'Public site visitors',
-	'info_webmestre_forces' => 'The web administrators are currently defined in <tt>@file_options@</tt>.',
+	'info_webmestre_forces' => 'The web administrators are currently defined in <tt>@file_options@</tt>.', # MODIF
 	'install_adresse_base_hebergeur' => 'Database address attributed by the hosting provider',
 	'install_connect_ok' => 'The new database has been declared using the server name @connect@.',
 	'install_echec_annonce' => 'This installation will probably fail, or damage your site.',
@@ -549,10 +549,10 @@ and their status is colour-coded:',
 	'intitule_licence' => 'Licence',
 	'item_accepter_inscriptions' => 'Allow registration',
 	'item_activer_messages_avertissement' => 'Activate warning messages',
-	'item_administrateur_2' => 'administrator',
+	'item_administrateur_2' => 'administrator', # MODIF
 	'item_afficher_calendrier' => 'Display in calendar',
 	'item_autoriser_syndication_integrale' => 'Include entire articles in syndication feeds',
-	'item_choix_administrateurs' => 'administrators',
+	'item_choix_administrateurs' => 'administrators', # MODIF
 	'item_choix_generation_miniature' => 'Generate thumbnails automatically.',
 	'item_choix_non_generation_miniature' => 'Do not generate thumbnails.',
 	'item_choix_redacteurs' => 'editors',
@@ -757,15 +757,15 @@ and their status is colour-coded:',
 	'texte_acces_ldap_anonyme_1' => 'Some LDAP servers do not allow anonymous access. In this case you must indicate an initial access identifier for future directory searches. However, in most cases the following fields can be left empty.',
 	'texte_admin_effacer_01' => 'This command deletes <i>all</i> content in the database,
 including <i>all</i> the access parameters for editors and administrators. After using it, you must
-reinstall SPIP, create a new database and a new administrator account.',
+reinstall SPIP, create a new database and a new administrator account.', # MODIF
 	'texte_adresse_annuaire_1' => '(If your directory is installed on the same machine as your website, it is probably «localhost».)',
 	'texte_ajout_auteur' => 'The following author was added to the article:',
-	'texte_annuaire_ldap_1' => 'If you have access to a LDAP directory server, you can use it to import users automatically into SPIP.',
+	'texte_annuaire_ldap_1' => 'If you have access to a LDAP directory server, you can use it to import users automatically into SPIP.', # MODIF
 	'texte_article_statut' => 'Article status:',
 	'texte_article_virtuel' => 'Virtual article',
 	'texte_article_virtuel_reference' => '<b>Virtual article:</b> an article on your SPIP website which redirects to another URL. To remove redirection, delete the URL.',
 	'texte_aucun_resultat_auteur' => 'No results for "@cherche_auteur@".',
-	'texte_auteur_messagerie' => 'This site can update the list of editors online in real time, which allows you to be contacted by other users. You can opt not to appear in this list (you are then "invisible" to other users).',
+	'texte_auteur_messagerie' => 'This site can update the list of editors online in real time, which allows you to be contacted by other users. You can opt not to appear in this list (you are then "invisible" to other users).', # MODIF
 	'texte_auteurs' => 'THE AUTHORS',
 	'texte_choix_base_1' => 'Select your database:',
 	'texte_choix_base_2' => 'The SQL server contains several databases.',
@@ -797,7 +797,7 @@ reinstall SPIP, create a new database and a new administrator account.',
 	'texte_enrichir_mise_a_jour' => 'You can enrich the layout of your text by using "typographical shortcuts".',
 	'texte_fichier_authent' => '<b>Should SPIP create the special files <tt>.htpasswd</tt>
   and <tt>.htpasswd-admin</tt> in the directory @dossier@?</b>
-<p>These files can be used to restrict access to authors and administrators to other parts of your site (for instance, external statistical programme).</p><p>If you have no need of such files, you can keep this option with its default value (no file creation).</p>',
+<p>These files can be used to restrict access to authors and administrators to other parts of your site (for instance, external statistical programme).</p><p>If you have no need of such files, you can keep this option with its default value (no file creation).</p>', # MODIF
 	'texte_informations_personnelles_1' => 'The system will now  create your personal account for this site.',
 	'texte_informations_personnelles_2' => '(Note: if it is a reinstallation, if your former access is still working, you can',
 	'texte_introductif_article' => '(Introductory text for the article.)',
@@ -807,7 +807,7 @@ reinstall SPIP, create a new database and a new administrator account.',
 	'texte_login_ldap_1' => '(Keep empty for anonymous access or enter complete path, for instance «<tt>uid=smith, ou=users, dc=my-domain, dc=com</tt>».)',
 	'texte_login_precaution' => 'Warning! This is the login which you are currently using.
  Use this form with caution...',
-	'texte_messagerie_agenda' => 'A messaging system lets website’s authors communicate directly into the admin area. It is linked to a calendar.',
+	'texte_messagerie_agenda' => 'A messaging system lets website’s authors communicate directly into the admin area. It is linked to a calendar.', # MODIF
 	'texte_mise_a_niveau_base_1' => 'You have just updated SPIP files.
  Now you must upgrade the site
  database.',
@@ -868,7 +868,7 @@ significant modifications to the site’s graphics or structure.',
 	'texte_travail_article' => '@nom_auteur_modif@ edited this article @date_diff@ minutes ago',
 	'texte_travail_collaboratif' => 'If several editors often work on the same article, the system can mark recently "opened" articles in order to avoid multiple simultaneous editing.
   This option is disabled by default to avoid displaying unnecessary warning
-  messages.',
+  messages.', # MODIF
 	'texte_vide' => 'empty',
 	'texte_vider_cache' => 'Empty the cache',
 	'titre_ajouter_un_auteur' => 'Add an author',

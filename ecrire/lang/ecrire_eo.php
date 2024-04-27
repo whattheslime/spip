@@ -24,7 +24,7 @@ return [
 	'avis_connexion_erreur_nom_base' => 'La nomo de la datumbazo enhaveblas nur literoj, ciferoj kaj haltostrekoj',
 	'avis_connexion_ldap_echec_1' => 'Konektiĝo al LDAP-servilo malsukcesis.',
 	'avis_connexion_ldap_echec_2' => 'Revenu al la antaŭa paĝo, kaj kontrolu la entajpitajn datenojn. ',
-	'avis_connexion_ldap_echec_3' => 'Eventuale, provu ne uzi LDAP-materialon por importi uzantojn.',
+	'avis_connexion_ldap_echec_3' => 'Eventuale, provu ne uzi LDAP-materialon por importi uzantojn.', # MODIF
 	'avis_deplacement_rubrique' => 'Atentu ! Tiu ĉi rubriko enhavas @contient_breves@ fulm-informon @scb@ : se vi translokas ĝin, bonvolu noĉi tiun por-konfirman noĉujon. ',
 	'avis_erreur_connexion_mysql' => 'SQL-konekta eraro ',
 	'avis_espace_interdit' => '<b>Malpermesata aliro</b> <div>SPIP jam estas instalita.</div>',
@@ -52,10 +52,10 @@ return [
 	'bouton_mettre_a_jour_base' => 'Ĝisdatigi la datumbazo',
 	'bouton_modifier' => 'Modifi',
 	'bouton_radio_afficher' => 'Afiŝi',
-	'bouton_radio_apparaitre_liste_redacteurs_connectes' => 'Aperi en la listo de konektitaj redaktantoj',
+	'bouton_radio_apparaitre_liste_redacteurs_connectes' => 'Aperi en la listo de konektitaj redaktantoj', # MODIF
 	'bouton_radio_envoi_annonces_adresse' => 'Sendi la anoncojn al jena adreso :',
 	'bouton_radio_envoi_liste_nouveautes' => 'Sendi la novaĵoj-liston',
-	'bouton_radio_non_apparaitre_liste_redacteurs_connectes' => 'Ne aperi en la listo de redaktantoj',
+	'bouton_radio_non_apparaitre_liste_redacteurs_connectes' => 'Ne aperi en la listo de redaktantoj', # MODIF
 	'bouton_radio_non_envoi_annonces_editoriales' => 'Ne sendi anoncojn pri ĉefartikoloj',
 	'bouton_redirection' => 'ALIDIREKTIGO',
 	'bouton_reinitialiser_aux_valeurs_par_defaut' => 'Restarigi laŭ defaŭltaj valoroj',
@@ -67,7 +67,7 @@ return [
 	'bouton_vider_cache' => 'Malplenigi la staplon',
 
 	// C
-	'cache_modifiable_webmestre' => 'Tiun parametron povas modifi la retejestro.',
+	'cache_modifiable_webmestre' => 'Tiun parametron povas modifi la retejestro.', # MODIF
 	'calendrier_synchro' => 'Se vi uzas temp-organizan bitvaron kongruan kun <b>iCal</b> formato, vi povas ĝisdatigi tiun lastan laŭ la datenoj de tiu ĉi retejo.',
 	'config_activer_champs' => 'Ŝalti la jenajn kampojn',
 	'config_choix_base_sup' => 'indiki datumbazon ĉe tiu ĉi servilo',
@@ -107,7 +107,7 @@ return [
 	'entree_contenu_rubrique' => '(Enhavo de la rubriko per kelkaj vortoj.)',
 	'entree_identifiants_connexion' => 'Viaj ensalutiloj...',
 	'entree_identifiants_connexion_2' => 'Ensalutiloj',
-	'entree_informations_connexion_ldap' => 'En tiun formularon, bonvolu entajpi informojn por konekti al via LDAP-dosierujilo. Tiujn informojn disponigu al vi la sistema aŭ reta mastrumanto.',
+	'entree_informations_connexion_ldap' => 'En tiun formularon, bonvolu entajpi informojn por konekti al via LDAP-dosierujilo. Tiujn informojn disponigu al vi la sistema aŭ reta mastrumanto.', # MODIF
 	'entree_infos_perso' => 'Kiu vi estas ?',
 	'entree_infos_perso_2' => 'Kiu estas la aŭtoro ?',
 	'entree_interieur_rubrique' => 'En la rubriko :',
@@ -205,14 +205,14 @@ Tamen vi povas malŝalti ĝin.',
 	'info_activer_menu_developpement' => 'Montri la menuon Programado',
 	'info_admin_etre_webmestre' => 'Doni al mi la rajtoj de retejestro',
 	'info_admin_je_suis_webmestre' => 'Mi estas <b>retejestro</b>',
-	'info_admin_statuer_webmestre' => 'Doni al tiu mastrumanto la rajtoj de retejestro',
-	'info_admin_webmestre' => 'Tiu mastrumanto estas <b>retejestro</b>',
-	'info_administrateur' => 'Mastrumanto',
-	'info_administrateur_1' => 'Mastrumanto',
+	'info_admin_statuer_webmestre' => 'Doni al tiu mastrumanto la rajtoj de retejestro', # MODIF
+	'info_admin_webmestre' => 'Tiu mastrumanto estas <b>retejestro</b>', # MODIF
+	'info_administrateur' => 'Mastrumanto', # MODIF
+	'info_administrateur_1' => 'Mastrumanto', # MODIF
 	'info_administrateur_2' => 'de la retejo (<i>uzi singarde</i>)',
-	'info_administrateur_site_01' => 'Se vi estas mastrumanto de la retejo, bonvolu',
+	'info_administrateur_site_01' => 'Se vi estas mastrumanto de la retejo, bonvolu', # MODIF
 	'info_administrateur_site_02' => 'musklaki ĉi-tiun ligilon',
-	'info_administrateurs' => 'Mastrumantoj',
+	'info_administrateurs' => 'Mastrumantoj', # MODIF
 	'info_administrer_rubrique' => 'Vi povas mastrumi tiun rubrikon',
 	'info_adresse' => 'ĉe la adreso :',
 	'info_adresse_desinscription' => 'Adreso de malregistriĝo',
@@ -254,7 +254,7 @@ Tamen vi povas malŝalti ĝin.',
 	'info_chapeau' => 'Ĉapo',
 	'info_chapeau_2' => 'Ĉapo :',
 	'info_chemin_acces_1' => 'Opcioj : <b>Alirvojo en la LDAP-dosierujilo</b>',
-	'info_chemin_acces_2' => 'Ekde nun vi devas konfiguri la alirvojon al la LDAP-dosierujilo. Tiu informo estas nepre necesa por legi la profilojn de uzantoj stokataj en la dosierujilo.',
+	'info_chemin_acces_2' => 'Ekde nun vi devas konfiguri la alirvojon al la LDAP-dosierujilo. Tiu informo estas nepre necesa por legi la profilojn de uzantoj stokataj en la dosierujilo.', # MODIF
 	'info_chemin_acces_annuaire' => 'Opcioj : <b>Aliro en la LDAP-dosierujilo',
 	'info_choix_base' => 'Tria etapo : ',
 	'info_classement_1' => '<sup>a</sup> en @liste@',
@@ -289,7 +289,7 @@ Tamen vi povas malŝalti ĝin.',
 	'info_ecrire_article' => 'Antaŭ ol ekhavi la eblon skribi artikolojn, vi devas krei almenaŭ unu rubrikon.',
 	'info_email_envoi' => 'retpoŝtadreso por sendo (nedeviga)',
 	'info_email_envoi_txt' => 'Indiku ĉi tie la adreson uzotan por sendi poŝtmesaĝojn (defaŭlte, la ricev-adreso estos uzata) :',
-	'info_email_webmestre' => 'Retpoŝtadreso de la retejestro',
+	'info_email_webmestre' => 'Retpoŝtadreso de la retejestro', # MODIF
 	'info_envoi_email_automatique' => 'Aŭtomata retleteroj-dissendado',
 	'info_envoyer_maintenant' => 'Sendu nun',
 	'info_etape_suivante' => 'Ek al posta etapo',
@@ -299,11 +299,11 @@ Tamen vi povas malŝalti ĝin.',
 	'info_exportation_base' => 'Eksporto de la datenbazo al @archive@',
 	'info_facilite_suivi_activite' => 'Por faciligi la kontrolon de la reteja ĉefartikola aktiveco, SPIP povas transdoni per retmesaĝoj - ekzemple al dissendlisto de redaktantoj - la anoncon pri publikig-petoj kaj validig-petoj de artikoloj.', # MODIF
 	'info_fichiers_authent' => 'Aŭtentokontrolaj dosieroj « .htpasswd »',
-	'info_forums_abo_invites' => 'Via retejo enhavas forumojn alireblajn nur per abono ; vizitantoj estas invititaj al registriĝo ĉe la publika retejo.',
-	'info_gauche_auteurs' => 'Vi trovos ĉi tie ĉiujn aŭtorojn de la retejo. Ilia statuso estas indikita per koloro de sia piktogramo (mastrumanto = verda, redaktanto = flava).',
+	'info_forums_abo_invites' => 'Via retejo enhavas forumojn alireblajn nur per abono ; vizitantoj estas invititaj al registriĝo ĉe la publika retejo.', # MODIF
+	'info_gauche_auteurs' => 'Vi trovos ĉi tie ĉiujn aŭtorojn de la retejo. Ilia statuso estas indikita per koloro de sia piktogramo (mastrumanto = verda, redaktanto = flava).', # MODIF
 	'info_gauche_auteurs_exterieurs' => 'La eksteraj aŭtoroj, sen alireblo al la retejo, estas indikitaj per blua piktogramo ;
  la aŭtoroj forviŝitaj per griza piktogramo.',
-	'info_gauche_messagerie' => 'La mesaĝilo ebligas al vi interŝanĝi mesaĝojn inter aŭtoroj, konservi memorigilojn (por via propra uzado) aŭ afiŝi anoncojn ĉe la hejmpaĝo de la privata spaco (se vi estas mastrumanto).',
+	'info_gauche_messagerie' => 'La mesaĝilo ebligas al vi interŝanĝi mesaĝojn inter aŭtoroj, konservi memorigilojn (por via propra uzado) aŭ afiŝi anoncojn ĉe la hejmpaĝo de la privata spaco (se vi estas mastrumanto).', # MODIF
 	'info_gauche_statistiques_referers' => 'Tiu paĝo prezentas la liston de la  <i>referencoj</i>, tio estas retejoj enhavantaj ligilojn al via propra retejo, nur koncerne hieraŭ kaj hodiaŭ : tiu listo estas prastatigita ĉiujn 24 horojn.',
 	'info_gauche_visiteurs_enregistres' => 'Vi trovos ĉi tie la vizitantojn registritajn
  en la publika spaco de la retejo (forumoj laŭ abono).',
@@ -316,7 +316,7 @@ Tamen vi povas malŝalti ĝin.',
 	'info_images_auto' => 'Bildoj aŭtomate komputitaj',
 	'info_informations_personnelles' => 'Personaj datenoj',
 	'info_inscription' => 'Registriĝado je',
-	'info_inscription_automatique' => 'Aŭtomata registriĝado de novaj redaktantoj',
+	'info_inscription_automatique' => 'Aŭtomata registriĝado de novaj redaktantoj', # MODIF
 	'info_jeu_caractere' => 'Litertiparo de la retejo',
 	'info_jours' => 'tagoj',
 	'info_laisser_champs_vides' => 'lasi tiujn tajpujojn malplenaj)',
@@ -324,7 +324,7 @@ Tamen vi povas malŝalti ĝin.',
 	'info_ldap_ok' => 'La LDAP-aŭtentokontrolilo estas instalita.',
 	'info_lien_hypertexte' => 'Hiperligilo :',
 	'info_liste_nouveautes_envoyee' => 'La listo de novaĵoj estis sendita',
-	'info_liste_redacteurs_connectes' => 'Listo de la konektitaj redaktantoj',
+	'info_liste_redacteurs_connectes' => 'Listo de la konektitaj redaktantoj', # MODIF
 	'info_login_existant' => 'Tiu salutnomo jam ekzistas.',
 	'info_login_trop_court' => 'Tro mallonga salutnomo.',
 	'info_login_trop_court_car_pluriel' => 'La salutnomo devas enhavi almenaŭ @nb@ signojn.',
@@ -345,7 +345,7 @@ Tamen vi povas malŝalti ĝin.',
 	'info_moyenne' => 'meznombro :',
 	'info_multi_cet_article' => 'Lingvo de tiu ĉi artikolo :',
 	'info_multi_langues_choisies' => 'Bonvolu elekti ĉi-sube la lingvojn, kiujn vi volas disponigi al la redaktantoj de via retejo.
-  Vi ne povas malaktivigi la lingvojn jam uzatajn (unue afiŝitajn) ĉe via retejo.',
+  Vi ne povas malaktivigi la lingvojn jam uzatajn (unue afiŝitajn) ĉe via retejo.', # MODIF
 	'info_multi_objets' => '@objets@ : aktivigi la lingvomenuon',
 	'info_multi_secteurs' => '... ĉu nur por la rubrikoj situantaj ĉe la radiko ?',
 	'info_nb_articles' => '@nb@ artikoloj',
@@ -371,8 +371,8 @@ Tamen vi povas malŝalti ĝin.',
 	'info_nouvelle_traduction' => 'Nova tradukaĵo :',
 	'info_numero_article' => 'ARTIKOLO NUMERO :',
 	'info_obligatoire_02' => '(deviga)', # MODIF
-	'info_option_accepter_visiteurs' => 'Permesi registriĝojn de vizitantoj el la publika spaco',
-	'info_option_ne_pas_accepter_visiteurs' => 'Rifuzi registriĝon de vizitantoj',
+	'info_option_accepter_visiteurs' => 'Permesi registriĝojn de vizitantoj el la publika spaco', # MODIF
+	'info_option_ne_pas_accepter_visiteurs' => 'Rifuzi registriĝon de vizitantoj', # MODIF
 	'info_options_avancees' => 'PLENDETALAJ AGORDOJ',
 	'info_ou' => 'aŭ...',
 	'info_page_interdite' => 'Malpermesata paĝo',
@@ -390,7 +390,7 @@ Tamen vi povas malŝalti ĝin.',
 	'info_post_scriptum' => 'Postskribo',
 	'info_post_scriptum_2' => 'Postskribo :',
 	'info_pour' => 'por',
-	'info_preview_texte' => 'Eblas antaŭrigardi la diversajn redakteblajn elementojn, kiuj havas almenaŭ la statuson „Proponita“, kaj ankaŭ la elementojn, kiujn vi estas redaktanta. Ĉu tio eblu nur al mastrumantoj, al ĉiuj redaktantoj, aŭ al neniu ?',
+	'info_preview_texte' => 'Eblas antaŭrigardi la diversajn redakteblajn elementojn, kiuj havas almenaŭ la statuson „Proponita“, kaj ankaŭ la elementojn, kiujn vi estas redaktanta. Ĉu tio eblu nur al mastrumantoj, al ĉiuj redaktantoj, aŭ al neniu ?', # MODIF
 	'info_procedez_par_etape' => 'procedu etapon post etapo',
 	'info_procedure_maj_version' => 'la ĝisdatiga proceduro devas esti lanĉita por adapti
  la datenbazon al la nova versio de SPIP.',
@@ -398,7 +398,7 @@ Tamen vi povas malŝalti ĝin.',
 	'info_ps' => 'P.S.',
 	'info_publier' => 'publikigi',
 	'info_publies' => 'Viaj artikoloj rete publikigitaj',
-	'info_question_accepter_visiteurs' => 'Se viaj skeletoj ebligas registradon de vizitantoj, kiuj ne rajtas aliri la privatan spacon, bonvolu aktivigi la ĉi-suban opcion :',
+	'info_question_accepter_visiteurs' => 'Se viaj skeletoj ebligas registradon de vizitantoj, kiuj ne rajtas aliri la privatan spacon, bonvolu aktivigi la ĉi-suban opcion :', # MODIF
 	'info_question_inscription_nouveaux_redacteurs' => 'Ĉu vi akceptas la registriĝadon de novaj redaktantoj ekde
   la publika spaco ? Se vi akceptas tion, la vizitantoj povos registriĝi
   per aŭtomata aliĝilo kaj tiam aliros al la privata spaco por
@@ -406,7 +406,7 @@ Tamen vi povas malŝalti ĝin.',
   la uzantoj ricevos aŭtomate senditan retmesaĝon kun siaj
   alir-kodoj al la privata spaco. Iuj
   retejgastigantoj malaktivigas la sendadon de retleteroj el siaj
-  serviloj : tiukaze la aŭtomata aliĝo ne eblos.</div>',
+  serviloj : tiukaze la aŭtomata aliĝo ne eblos.</div>', # MODIF
 	'info_qui_edite' => '@nom_auteur_modif@ laboris pri tiu ĉi enhavo antaŭ @date_diff@ minutoj',
 	'info_racine_site' => 'Radiko de la retejo',
 	'info_recharger_page' => 'Bonvolu refreŝigi tiun ĉi paĝon post momento.',
@@ -423,7 +423,7 @@ Tamen vi povas malŝalti ĝin.',
 	'info_refuses' => 'Viaj rifuzitaj artikoloj',
 	'info_reglage_ldap' => 'Opcioj : <b>Agordo de la LDAP-elŝuto</b>',
 	'info_renvoi_article' => '<b>Alidirektigo.</b> Tiu artikolo alidirektas al la paĝo :',
-	'info_reserve_admin' => 'Nur la mastrumantoj povas modifi tiun ĉi adreson.',
+	'info_reserve_admin' => 'Nur la mastrumantoj povas modifi tiun ĉi adreson.', # MODIF
 	'info_restreindre_rubrique' => 'Limigi la mastrumadon al la rubriko :',
 	'info_resultat_recherche' => 'Serĉo-rezultoj :',
 	'info_rubriques' => 'Rubrikoj',
@@ -442,14 +442,14 @@ Tamen vi povas malŝalti ĝin.',
 	'info_sites_proxy' => 'Uzi prokuran servilon',
 	'info_sites_trouves' => 'Retejoj trovitaj',
 	'info_sous_titre' => 'Subtitolo :',
-	'info_statut_administrateur' => 'Mastrumanto',
+	'info_statut_administrateur' => 'Mastrumanto', # MODIF
 	'info_statut_auteur' => 'Statuso de tiu ĉi aŭtoro :',
 	'info_statut_auteur_2' => 'Mi estas',
 	'info_statut_auteur_a_confirmer' => 'Konfirmenda registropeto',
 	'info_statut_auteur_autre' => 'Alia statuso :',
 	'info_statut_redacteur' => 'Redaktanto',
-	'info_statut_utilisateurs_1' => 'Defaŭlta statuso de la importitaj uzantoj',
-	'info_statut_utilisateurs_2' => 'Elektu la statuson atribuotan al la personoj ĉeestantaj en LDAP-dosierujilo, kiam ili unuafoje konektiĝas. Poste vi povos modifi tiun valoron por ĉiu aŭtoro laŭkaze.',
+	'info_statut_utilisateurs_1' => 'Defaŭlta statuso de la importitaj uzantoj', # MODIF
+	'info_statut_utilisateurs_2' => 'Elektu la statuson atribuotan al la personoj ĉeestantaj en LDAP-dosierujilo, kiam ili unuafoje konektiĝas. Poste vi povos modifi tiun valoron por ĉiu aŭtoro laŭkaze.', # MODIF
 	'info_suivi_activite' => 'Superrigardo de la redakta agado',
 	'info_surtitre' => 'Surtitolo :',
 	'info_syndication_integrale_1' => 'Via retejo proponas abondosierojn (vidu « <a href="@url@">@titre@</a> »).',
@@ -494,7 +494,7 @@ La tradukoj estas kunligitaj al la originalo, kun koloro kiu indikas ties staton
 	'info_visiteur_2' => 'de la publika spaco',
 	'info_visiteurs' => 'Vizitantoj',
 	'info_visiteurs_02' => 'Vizitantoj de la publika spaco',
-	'info_webmestre_forces' => 'La retejestroj nune estas difinita en <tt>@file_options@</tt>.',
+	'info_webmestre_forces' => 'La retejestroj nune estas difinita en <tt>@file_options@</tt>.', # MODIF
 	'install_adresse_base_hebergeur' => 'Adreso de la datenbazo atribuita de la retejgastiganto',
 	'install_connect_ok' => '﻿﻿﻿﻿La nova bazo estis bone deklarita kiel servilonomo @connect@.',
 	'install_echec_annonce' => 'Certe la instalado estas malsukcesonta, aŭ naskos ne funkciivan retejon...',
@@ -521,10 +521,10 @@ La tradukoj estas kunligitaj al la originalo, kun koloro kiu indikas ties staton
 	'intitule_licence' => 'Licenco',
 	'item_accepter_inscriptions' => 'Akcepti la registropetojn',
 	'item_activer_messages_avertissement' => 'Aktivigi la averto-mesaĝojn',
-	'item_administrateur_2' => 'mastrumanto',
+	'item_administrateur_2' => 'mastrumanto', # MODIF
 	'item_afficher_calendrier' => 'Afiŝi en la kalendaro',
 	'item_autoriser_syndication_integrale' => 'Disponigi la tuton de la artikoloj en la abondosieroj',
-	'item_choix_administrateurs' => 'la mastrumantoj',
+	'item_choix_administrateurs' => 'la mastrumantoj', # MODIF
 	'item_choix_generation_miniature' => 'Aŭtomatigi miniaturigadon de la bildoj.',
 	'item_choix_non_generation_miniature' => 'Ne generi bildajn miniaturojn.',
 	'item_choix_redacteurs' => 'la redaktantoj',
@@ -724,15 +724,15 @@ La tradukoj estas kunligitaj al la originalo, kun koloro kiu indikas ties staton
 	'texte_acces_ldap_anonyme_1' => 'Iuj LDAP-serviloj ne akceptas sennoman aliron. Tiukaze, necesas difini identecnomon por serĉi informojn en dosierujilo. Plejofte tamen, la sekvantaj tajpujoj povas resti malplenaj.',
 	'texte_admin_effacer_01' => 'Tiu komando forviŝas <i>la tutan</i> enhavon de la datenbazo,
 inkluzive de <i>ĉiuj</i> alirrajtoj de redaktantoj kaj mastrumantoj. Post ties efektivigo, vi devos lanĉi la
-SPIP-reinstalon por rekrei novan bazon kaj unuan mastrumulan alirrajton.',
+SPIP-reinstalon por rekrei novan bazon kaj unuan mastrumulan alirrajton.', # MODIF
 	'texte_adresse_annuaire_1' => '(Se via adresaro estas instalita ĉe la sama maŝino kiel la retejo, temas verŝajne pri « localhost ».)',
 	'texte_ajout_auteur' => 'La jena aŭtoro estis aldonita al la artikolo :',
-	'texte_annuaire_ldap_1' => 'Se vi havas aliron al dosierujilo (LDAP), vi povas uzi ĝin por aŭtomate importi uzantojn sub SPIP.',
+	'texte_annuaire_ldap_1' => 'Se vi havas aliron al dosierujilo (LDAP), vi povas uzi ĝin por aŭtomate importi uzantojn sub SPIP.', # MODIF
 	'texte_article_statut' => 'Tiu artikolo estas :',
 	'texte_article_virtuel' => 'Virtuala artikolo',
 	'texte_article_virtuel_reference' => '<b>Virtuala artikolo :</b> artikolo referencigita ĉe via SPIP-retejo, sed alidirektita al alia retadreso. Por forigi la alidirekton, forviŝu la ĉi supran URL-n.',
 	'texte_aucun_resultat_auteur' => 'Neniu rezulto por "@cherche_auteur@"',
-	'texte_auteur_messagerie' => 'Tiu retejo povas konstante indiki la liston de la konektitaj redaktantoj. Tio ebligas al vi rekte interŝanĝi mesaĝojn. Vi povas decidi ne aperi en tia listo (vi estas « nevidebla » al la aliaj uzantoj).',
+	'texte_auteur_messagerie' => 'Tiu retejo povas konstante indiki la liston de la konektitaj redaktantoj. Tio ebligas al vi rekte interŝanĝi mesaĝojn. Vi povas decidi ne aperi en tia listo (vi estas « nevidebla » al la aliaj uzantoj).', # MODIF
 	'texte_auteurs' => 'LA AŬTOROJ',
 	'texte_choix_base_1' => 'Elektu vian datenbazon :',
 	'texte_choix_base_2' => 'La SQL-servilo enhavas plurajn datenbazojn.',
@@ -764,7 +764,7 @@ SPIP-reinstalon por rekrei novan bazon kaj unuan mastrumulan alirrajton.',
 	'texte_enrichir_mise_a_jour' => 'Vi povas pliriĉigi la enpaĝigon de via teksto uzante « tipografiajn rapidklavojn ».',
 	'texte_fichier_authent' => '<b>Ĉu SPIP kreu la specialajn dosierojn <tt>.htpasswd</tt> kaj <tt>.htpasswd-admin</tt> en dosierujo @dossier@ ?</b>
 <p>Tiuj dosieroj ebligas limigi la alirrajton de aŭtoroj kaj administrantoj en aliaj lokoj de via retejo (ekzemple, ekstera statistik-programo).</p>
-<p>Se tio ne utilas al vi, vi povas lasi tiun opcion je ĝia defaŭlta valoro (neniu dosier-kreo).</p>',
+<p>Se tio ne utilas al vi, vi povas lasi tiun opcion je ĝia defaŭlta valoro (neniu dosier-kreo).</p>', # MODIF
 	'texte_informations_personnelles_1' => 'La sistemo kreos por vi nun personan alireblon al la retejo.',
 	'texte_informations_personnelles_2' => '(Noto : se temas pri reinstalo kaj se via aliro daŭre funkcias, vi povas',
 	'texte_introductif_article' => '(Enkonduka teksto al la artikolo.)',
@@ -774,7 +774,7 @@ SPIP-reinstalon por rekrei novan bazon kaj unuan mastrumulan alirrajton.',
 	'texte_login_ldap_1' => 'Lasu malplena por sennoma aliro, aŭ entajpu la kompletan vojon, ekzemple « <tt>uid=nomo, ou=uzanto, dc=mia-domajno, dc=com</tt> ».)',
 	'texte_login_precaution' => 'Atentu ! Tio ĉi estas la salutnomo laŭ kiu vi ensalutis.
  Uzu tiun ĉi formularon prudente...',
-	'texte_messagerie_agenda' => 'Mesaĝado permesas al retejaj redaktantoj komuniki inter si rekte en la privata spaco de la retejo. Ĝi estas asociita kun agendo.',
+	'texte_messagerie_agenda' => 'Mesaĝado permesas al retejaj redaktantoj komuniki inter si rekte en la privata spaco de la retejo. Ĝi estas asociita kun agendo.', # MODIF
 	'texte_mise_a_niveau_base_1' => 'Vi ĵus ĝisdatigis la SPIP-dosierojn.
  Necesas nun alniveligi la datenbazon
  de la retejo.',
@@ -840,7 +840,7 @@ faris gravajn ŝanĝojn en la grafiko aŭ strukturo de la retejo.',
   por eviti la sammomentajn modifojn.
   Tiu opcio estas defaŭlte malaktivigita
   por eviti maloportunajn
-  averto-mesaĝojn.',
+  averto-mesaĝojn.', # MODIF
 	'texte_vide' => 'malplena',
 	'texte_vider_cache' => 'Malplenigi la staplon',
 	'titre_ajouter_un_auteur' => 'Aldoni aŭtoron',

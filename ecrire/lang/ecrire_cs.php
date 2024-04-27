@@ -20,7 +20,7 @@ return [
 	'avis_connexion_echec_3' => '<b>Pozn.:</b> V mnoha případech musíte nejprve <b>požádat</b> o aktivaci přístupu k databázi SQL a teprve potém ji můžete používat. Nemůžete-li se připojit, zkontrolujte, zda jste tento požadavek opravdu zadali.', # MODIF
 	'avis_connexion_ldap_echec_1' => 'Selhalo připojení k serveru LDAP.',
 	'avis_connexion_ldap_echec_2' => 'Vraťte se na předchozí stránku a zkontrolujte zadané údaje.',
-	'avis_connexion_ldap_echec_3' => 'Případně při importu uživatelů nepoužívejte podporu LDAP.',
+	'avis_connexion_ldap_echec_3' => 'Případně při importu uživatelů nepoužívejte podporu LDAP.', # MODIF
 	'avis_deplacement_rubrique' => 'Upozornění! V této sekci je celkem @contient_breves@ vložených novinek: potvrďte jejich přesun zaškrtnutím tohoto políčka.',
 	'avis_erreur_connexion_mysql' => 'Chyba připojení SQL', # MODIF
 	'avis_espace_interdit' => '<b>Zakázaná oblast</b><p>Systém SPIP je již nainstalován.', # MODIF
@@ -42,10 +42,10 @@ return [
 	'bouton_mettre_a_jour' => 'Aktualizovat',
 	'bouton_modifier' => 'Změnit',
 	'bouton_radio_afficher' => 'Zobrazit',
-	'bouton_radio_apparaitre_liste_redacteurs_connectes' => 'Zobrazit v seznamu připojených redaktorů',
+	'bouton_radio_apparaitre_liste_redacteurs_connectes' => 'Zobrazit v seznamu připojených redaktorů', # MODIF
 	'bouton_radio_envoi_annonces_adresse' => 'Odesílat oznámení na adresu:',
 	'bouton_radio_envoi_liste_nouveautes' => 'Zasílat seznam novinek',
-	'bouton_radio_non_apparaitre_liste_redacteurs_connectes' => 'Nezobrazovat v seznamu redaktorů',
+	'bouton_radio_non_apparaitre_liste_redacteurs_connectes' => 'Nezobrazovat v seznamu redaktorů', # MODIF
 	'bouton_radio_non_envoi_annonces_editoriales' => 'Nezasílat redaktorská oznámení',
 	'bouton_redirection' => 'PŘESMĚROVÁNÍ',
 	'bouton_relancer_installation' => 'Znovu spustit instalaci',
@@ -55,7 +55,7 @@ return [
 	'bouton_vider_cache' => 'Vyprázdnit cache',
 
 	// C
-	'cache_modifiable_webmestre' => 'Tento parametr může měnit správce webu.',
+	'cache_modifiable_webmestre' => 'Tento parametr může měnit správce webu.', # MODIF
 	'calendrier_synchro' => 'Používáte-li kompatibilní kalendář <b>iCal</b>, můžete jej synchnizovat s údaji na tomto webu.',
 
 	// D
@@ -74,7 +74,7 @@ return [
 	'entree_contenu_rubrique' => '(Stručný obsah sekce.)',
 	'entree_identifiants_connexion' => 'Vaše přihlašovací údaje pro připojení...',
 	'entree_informations_connexion_ldap' => 'Zde zadejte údaje pro připojení k adresáří LDAP.
- Tyto údaje by vám měl sdělit správce systému nebo sítě.',
+ Tyto údaje by vám měl sdělit správce systému nebo sítě.', # MODIF
 	'entree_infos_perso' => 'Kdo jste?',
 	'entree_interieur_rubrique' => 'Uvnitř sekce:',
 	'entree_liens_sites' => '<b>Hypertextový odkaz</b> (odkaz, web, který se má navštívit...)', # MODIF
@@ -137,12 +137,12 @@ return [
 	'info_1_article' => '1 článek',
 	'info_activer_cookie' => 'Můžete nastavit <b>administrátorské cookie</b>, které vám dovolí
  snadno přecházet mezi prohlížením webu a jeho editací.',
-	'info_administrateur' => 'Správce',
-	'info_administrateur_1' => 'Správce',
+	'info_administrateur' => 'Správce', # MODIF
+	'info_administrateur_1' => 'Správce', # MODIF
 	'info_administrateur_2' => 'webu (<i>používat opatrně</i>)',
-	'info_administrateur_site_01' => 'Jste-li správcem webu, ',
+	'info_administrateur_site_01' => 'Jste-li správcem webu, ', # MODIF
 	'info_administrateur_site_02' => 'klepněte na tento odkaz',
-	'info_administrateurs' => 'Administrátoři',
+	'info_administrateurs' => 'Administrátoři', # MODIF
 	'info_administrer_rubrique' => 'Máte právo správy této sekce',
 	'info_adresse' => 'na adrese:',
 	'info_adresse_url' => 'Adresa URL veřejného webu',
@@ -171,7 +171,7 @@ return [
 	'info_chapeau' => 'Stříška',
 	'info_chapeau_2' => 'Stříška:',
 	'info_chemin_acces_1' => 'Volitelný údaj: <b>Přístup k adresáři</b>', # MODIF
-	'info_chemin_acces_2' => 'Musíte nastavit přístup k údajům v adresáři. Tento údaj je nezbytný pro čtení uživatelských profilů, které jsou v něm uloženy.',
+	'info_chemin_acces_2' => 'Musíte nastavit přístup k údajům v adresáři. Tento údaj je nezbytný pro čtení uživatelských profilů, které jsou v něm uloženy.', # MODIF
 	'info_chemin_acces_annuaire' => 'Volitelný údaj: <b>Cesta k adresáři', # MODIF
 	'info_choix_base' => 'Třetí krok:',
 	'info_classement_1' => 'z @liste@',
@@ -211,12 +211,12 @@ return [
   a o schválení článků. Tím se ulehčí sledování publikační činnosti
   na webu. ', # MODIF
 	'info_fichiers_authent' => 'Autentifikační soubor ".htpasswd"',
-	'info_forums_abo_invites' => 'Na vašem webu existují diskusní skupiny vyhrazené přihlášeným účastníkům; návštěvníci se musí tedy zaregistrovat na veřejné části webu.',
+	'info_forums_abo_invites' => 'Na vašem webu existují diskusní skupiny vyhrazené přihlášeným účastníkům; návštěvníci se musí tedy zaregistrovat na veřejné části webu.', # MODIF
 	'info_gauche_auteurs' => 'Zde jsou uvedeni všichni autoři webu.
- Jsou rozlišeni barvou ikony (správce = zelená; redaktor = žlutá).',
+ Jsou rozlišeni barvou ikony (správce = zelená; redaktor = žlutá).', # MODIF
 	'info_gauche_auteurs_exterieurs' => 'Externí autoři bez přístupu k webu jsou označeni modrou ikonou;
   odstranění autoři symbolem odpadkového koše.', # MODIF
-	'info_gauche_messagerie' => 'Systém zpráv umožňuje zasílat zprávy mezi redaktory, ukládat interní poznámky a zveřejňovat oznámení na hlavní stánce interní části webu (jste-li správce).',
+	'info_gauche_messagerie' => 'Systém zpráv umožňuje zasílat zprávy mezi redaktory, ukládat interní poznámky a zveřejňovat oznámení na hlavní stánce interní části webu (jste-li správce).', # MODIF
 	'info_gauche_statistiques_referers' => 'Na této stránce je seznam <i>referencí</i>, to je webů, ze kterých vede odkaz na váš vlastní web. Údaje jsou pouze za včerejšek a dnešek. Seznam se každých 24 hodin vynuluje.',
 	'info_gauche_visiteurs_enregistres' => 'Zde naleznete návštěvníky zaregistrované
  ve veřejné části webu (diskusní skupiny, do kterých je nutno se přihlásit).',
@@ -229,14 +229,14 @@ return [
 	'info_image_process' => 'Nejlepší metodu tvorby náhledů zvolíte klepnutím na příslušný obrázek.',
 	'info_images_auto' => 'Automaticky vypočtěné obrázky',
 	'info_informations_personnelles' => 'Pátý krok: <b>Osobní údaje</b>', # MODIF
-	'info_inscription_automatique' => 'Automatický zápis nových redaktorů',
+	'info_inscription_automatique' => 'Automatický zápis nových redaktorů', # MODIF
 	'info_jeu_caractere' => 'Znaková sada webu',
 	'info_jours' => 'dny',
 	'info_laisser_champs_vides' => 'tato pole ponechte prázdná)',
 	'info_langues' => 'Jazyk webu',
 	'info_ldap_ok' => 'Byla nainstalována autentifikace LDAP.',
 	'info_lien_hypertexte' => 'Hypertextový odkaz:',
-	'info_liste_redacteurs_connectes' => 'Seznam připojených redaktorů',
+	'info_liste_redacteurs_connectes' => 'Seznam připojených redaktorů', # MODIF
 	'info_login_existant' => 'Toto uživatelské jméno již existuje.',
 	'info_login_trop_court' => 'Uživatelské jeméno je příliš krátké.',
 	'info_maximum' => 'maximum:',
@@ -256,7 +256,7 @@ return [
 	'info_moyenne' => 'střed / průměr:',
 	'info_multi_cet_article' => 'Jazyk článku:',
 	'info_multi_langues_choisies' => 'Dále zvolte jazyk, který bude k dispozici redaktorům tohoto webu.
-  Jazyky, které se již v rámci webu používají (zobrazené na počátku), nelze vypnout.',
+  Jazyky, které se již v rámci webu používají (zobrazené na počátku), nelze vypnout.', # MODIF
 	'info_multi_secteurs' => '... pouze u sekcí v kořenovém adresáři?',
 	'info_nom' => 'Jméno',
 	'info_nom_destinataire' => 'Jméno příjemce',
@@ -274,8 +274,8 @@ return [
 	'info_nouvelle_traduction' => 'Nový překlad:',
 	'info_numero_article' => 'ČLÁNEK Č.:',
 	'info_obligatoire_02' => '[povinný údaj]', # MODIF
-	'info_option_accepter_visiteurs' => 'Schválit přihlášení návštěvníků veřejného webu',
-	'info_option_ne_pas_accepter_visiteurs' => 'Odmítnout přihlášky návštěvníků',
+	'info_option_accepter_visiteurs' => 'Schválit přihlášení návštěvníků veřejného webu', # MODIF
+	'info_option_ne_pas_accepter_visiteurs' => 'Odmítnout přihlášky návštěvníků', # MODIF
 	'info_options_avancees' => 'ROZŠÍŘENÉ MOŽNOSTI',
 	'info_ou' => 'nebo...',
 	'info_page_interdite' => 'Zakázaná stránka',
@@ -299,7 +299,7 @@ return [
 	'info_ps' => 'P.S.',
 	'info_publier' => 'zveřejnit',
 	'info_publies' => 'Vaše články publikované online',
-	'info_question_accepter_visiteurs' => 'Pokud šablona vašeho webu vyžaduje přihlášení návštěvníků bez přístupu do privátní části, aktivujte tuto možnost zde:',
+	'info_question_accepter_visiteurs' => 'Pokud šablona vašeho webu vyžaduje přihlášení návštěvníků bez přístupu do privátní části, aktivujte tuto možnost zde:', # MODIF
 	'info_question_inscription_nouveaux_redacteurs' => 'Mohou se noví redaktoři přihlašovat z veřejné části webu?
   Pokud ano, návštěvníci se mohou přihlašovat pomocí automatického formuláře
   a získají přístup do privátní části. Budou tak moci navrhovat své vlastní
@@ -322,7 +322,7 @@ return [
 	'info_refuses' => 'Vaše odmítnuté články',
 	'info_reglage_ldap' => 'Možnost: <b>Nastavení importu LDAP</b>', # MODIF
 	'info_renvoi_article' => '<b>Přesměrování.</b> Tento článek odkazuje na stránku:', # MODIF
-	'info_reserve_admin' => 'Pouze administrátoři smějí modifikovat tuto adresu.',
+	'info_reserve_admin' => 'Pouze administrátoři smějí modifikovat tuto adresu.', # MODIF
 	'info_restreindre_rubrique' => 'Omezit správu sekce :',
 	'info_resultat_recherche' => 'Výsledky vyhledávání:',
 	'info_rubriques' => 'Sekce',
@@ -341,13 +341,13 @@ return [
 	'info_sites_proxy' => 'Používat proxy',
 	'info_sites_trouves' => 'Nalezené weby',
 	'info_sous_titre' => 'Dílčí nadpis:',
-	'info_statut_administrateur' => 'Správce',
+	'info_statut_administrateur' => 'Správce', # MODIF
 	'info_statut_auteur' => 'Statut autora:', # MODIF
 	'info_statut_auteur_a_confirmer' => 'Registrace k potvrzení',
 	'info_statut_auteur_autre' => 'Další status:',
 	'info_statut_redacteur' => 'Redaktor',
-	'info_statut_utilisateurs_1' => 'Standardní statut importovaných uživatelů',
-	'info_statut_utilisateurs_2' => 'Zadejte statut, který mají osoby uvedené v adresáři LDAP, když se poprvé připojí. Tuto hodnotu můžete u každého jednotlivého autora následně změnit.',
+	'info_statut_utilisateurs_1' => 'Standardní statut importovaných uživatelů', # MODIF
+	'info_statut_utilisateurs_2' => 'Zadejte statut, který mají osoby uvedené v adresáři LDAP, když se poprvé připojí. Tuto hodnotu můžete u každého jednotlivého autora následně změnit.', # MODIF
 	'info_suivi_activite' => 'Sledování redaktorské činnosti',
 	'info_surtitre' => 'Nadřízený nadpis:',
 	'info_syndication_integrale_1' => 'Váš web nabízí soubory pro syndikaci (viz <a href="@url@">@titre@</a>”).',
@@ -391,10 +391,10 @@ ukazuje jejich stav:',
 	'intem_redacteur' => 'redaktor',
 	'item_accepter_inscriptions' => 'Schválit přihlášky',
 	'item_activer_messages_avertissement' => 'Zapnout upozornění',
-	'item_administrateur_2' => 'správce',
+	'item_administrateur_2' => 'správce', # MODIF
 	'item_afficher_calendrier' => 'Zobrazit v kalendáři',
 	'item_autoriser_syndication_integrale' => 'Vložit kompletní články do syndikačních souborů',
-	'item_choix_administrateurs' => 'administrátoři',
+	'item_choix_administrateurs' => 'administrátoři', # MODIF
 	'item_choix_generation_miniature' => 'Automaticky generovat náhledy obrázků.',
 	'item_choix_non_generation_miniature' => 'Negenerovat náhledy obrázků.',
 	'item_choix_redacteurs' => 'redaktoři',
@@ -475,15 +475,15 @@ ukazuje jejich stav:',
 	'texte_acces_ldap_anonyme_1' => 'Některé servery LDAP odmítají anonymní přístup. V takovém případě je třeba definovat identifikační údaje pro přístup, aby bylo možno hledat v adresáři. Přesto je však většinou možné nechat následující pole nevyplněná.',
 	'texte_admin_effacer_01' => 'Tímto příkazem odstraníte <i>veškerý</i> obsah databáze,
 včetně <i>veškerých</i> přístupů redaktorů a správců. Pokud jej spustíte, musíte následně znovu nainstalovat
-systém SPIP, abyste vytvořili novou databázi a první přístup pro správce.',
+systém SPIP, abyste vytvořili novou databázi a první přístup pro správce.', # MODIF
 	'texte_adresse_annuaire_1' => '(Máte-li adresář uložen na stejném počítači jako tento web, jedná se nejspíše o "localhost".)',
 	'texte_ajout_auteur' => 'K článku byl doplněn tento autor:',
-	'texte_annuaire_ldap_1' => 'Máte-li přístup k adresáři (LDAP), můžete jej použít k automatickému importu uživatelů do systému SPIP.',
+	'texte_annuaire_ldap_1' => 'Máte-li přístup k adresáři (LDAP), můžete jej použít k automatickému importu uživatelů do systému SPIP.', # MODIF
 	'texte_article_statut' => 'Tento článek je:',
 	'texte_article_virtuel' => 'Virtuální článek',
 	'texte_article_virtuel_reference' => '<b>Virtuální článek:</b> znamená článek, na nějž je na vašem webu SPIP odkaz. Ten je však přesměrován na jinou adresu URL. Chcete-li přesměrování zrušit, odstraňte níže uvedenou adresu URL.',
 	'texte_aucun_resultat_auteur' => 'Vyhledávání"@cherche_auteur@" nepřineslo žádné výsledky',
-	'texte_auteur_messagerie' => 'Na tomto webu lze mít neustále zobrazený seznam připojených redaktorů. To umožňuje přímou výměnu zpráv. Na uvedeném seznamu nemusíte figurovat (pro ostatní uživatele jste "neviditelní").',
+	'texte_auteur_messagerie' => 'Na tomto webu lze mít neustále zobrazený seznam připojených redaktorů. To umožňuje přímou výměnu zpráv. Na uvedeném seznamu nemusíte figurovat (pro ostatní uživatele jste "neviditelní").', # MODIF
 	'texte_auteurs' => 'AUTOŘI',
 	'texte_choix_base_1' => 'Zvolte databázi:',
 	'texte_choix_base_2' => 'Na serveru SQL je několik databází.', # MODIF
@@ -582,7 +582,7 @@ změny grafického uspořádání nebo struktury vašeho webu.',
   redaktorů, může systém zobrazit články "otevřené"
   v poslední době. Tím se předejde souběžným úpravám.
   Tato možnost je standardně vypnuta, aby se předešlo
-  zobrazování zbytečných varovných hlášení.',
+  zobrazování zbytečných varovných hlášení.', # MODIF
 	'texte_vide' => 'vyprázdnit',
 	'texte_vider_cache' => 'Vyprázdnit cache',
 	'titre_cadre_afficher_article' => 'Zobrazit články',

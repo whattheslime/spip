@@ -19,7 +19,7 @@ return [
 	'avis_connexion_echec_3' => '<b>Megjegyzés:</b> Sok szerver esetén, <b>kérni kell</b> a SQL adatbázishoz való hozzáférés aktválását, mielőbb használhassa. Amennyiben nem tud csatlakozni, ellenőrizze, ha ez az eljárás megtörtént-e.', # MODIF
 	'avis_connexion_ldap_echec_1' => 'Az LDAP szerverhez való csatlakozás sikertelen.',
 	'avis_connexion_ldap_echec_2' => 'Menjen az elöző oldalra, és ellenőrizze a beírt adatokat.',
-	'avis_connexion_ldap_echec_3' => 'Alternatív módon, ne használja az LDAP támogatást felhasználók importálására.',
+	'avis_connexion_ldap_echec_3' => 'Alternatív módon, ne használja az LDAP támogatást felhasználók importálására.', # MODIF
 	'avis_deplacement_rubrique' => 'Vigyázat ! Ez a rovat @contient_breves@ hírt tartalmaz : ha át akarja helyezni, ezt a megerősítési jelölőkockát kell jelölni.',
 	'avis_erreur_connexion_mysql' => 'SQL-es csatlakozási hiba', # MODIF
 	'avis_espace_interdit' => '<b>Tiltott zóna</b><p>SPIP már telepítve van.', # MODIF
@@ -40,10 +40,10 @@ return [
 	'bouton_envoyer_message' => 'Végleges üzenet: küldés',
 	'bouton_modifier' => 'Módosítás',
 	'bouton_radio_afficher' => 'Megjelenítés',
-	'bouton_radio_apparaitre_liste_redacteurs_connectes' => 'Szerepelni a csatlakozott szerzők listában',
+	'bouton_radio_apparaitre_liste_redacteurs_connectes' => 'Szerepelni a csatlakozott szerzők listában', # MODIF
 	'bouton_radio_envoi_annonces_adresse' => 'Küldeni a hírdetéseket a következő címre :',
 	'bouton_radio_envoi_liste_nouveautes' => 'Küldeni az újdongágok listáját',
-	'bouton_radio_non_apparaitre_liste_redacteurs_connectes' => 'Nem szerepelni a szerzők listában',
+	'bouton_radio_non_apparaitre_liste_redacteurs_connectes' => 'Nem szerepelni a szerzők listában', # MODIF
 	'bouton_radio_non_envoi_annonces_editoriales' => 'Ne legyen szerkesztői hírküldés',
 	'bouton_redirection' => 'ÁTIRÁNYÍTÁS',
 	'bouton_relancer_installation' => 'Telepítés újrakezdése',
@@ -53,7 +53,7 @@ return [
 	'bouton_vider_cache' => 'A "cache" ürítése',
 
 	// C
-	'cache_modifiable_webmestre' => 'Ezt a paramétert a honlap gazdája módosíthatja.',
+	'cache_modifiable_webmestre' => 'Ezt a paramétert a honlap gazdája módosíthatja.', # MODIF
 	'calendrier_synchro' => 'Amennyiben egy <b>iCal</b>-val kompatibilis szoftvert használ, lehet szinkronizálni e honlap információival.',
 
 	// D
@@ -72,7 +72,7 @@ return [
 	'entree_contenu_rubrique' => '(Rovat tartalma pár szóban.)',
 	'entree_identifiants_connexion' => 'A csatlakozási azonosítói...',
 	'entree_informations_connexion_ldap' => 'Ezen az űrlapon írja be az Ön LDAP szerver csatlakozási információkat.
- Ezek az információ szerezhetők a rendszer, vagy a hálozat adminisztrátorától.',
+ Ezek az információ szerezhetők a rendszer, vagy a hálozat adminisztrátorától.', # MODIF
 	'entree_infos_perso' => 'Kicsoda Ön ?',
 	'entree_interieur_rubrique' => 'Melyik rovatba kerüljön :',
 	'entree_liens_sites' => '<b>Hiperhívatkozás</b> (referencia, látógatható honlap...)', # MODIF
@@ -134,12 +134,12 @@ return [
 	'impossible_modifier_pass_auteur' => 'Impossible de modifier le mot de passe.', # MODIF
 	'info_1_article' => '1 cikk',
 	'info_activer_cookie' => 'Egy <b>hivatkozási sütit</b> (cookie) lehet aktiválni, melynek segítségével könnyen át tud menni a nyilvános részről a privát részre.',
-	'info_administrateur' => 'Adminisztrátor',
-	'info_administrateur_1' => 'Adminisztrátor',
+	'info_administrateur' => 'Adminisztrátor', # MODIF
+	'info_administrateur_1' => 'Adminisztrátor', # MODIF
 	'info_administrateur_2' => 'honlap (<i>óvatosan használja</i>)',
-	'info_administrateur_site_01' => 'Amennyiben Ön a honlap adminisztrátora, legyen szíves',
+	'info_administrateur_site_01' => 'Amennyiben Ön a honlap adminisztrátora, legyen szíves', # MODIF
 	'info_administrateur_site_02' => 'kattintani erre a linkre',
-	'info_administrateurs' => 'Adminisztrátorok',
+	'info_administrateurs' => 'Adminisztrátorok', # MODIF
 	'info_administrer_rubrique' => 'Ezt a rubrikát Ön adminisztrálhatja',
 	'info_adresse' => 'ezen a címen :',
 	'info_adresse_url' => 'A nyilvános honlap címe (URL)',
@@ -167,7 +167,7 @@ return [
 	'info_chapeau' => 'Bevezető',
 	'info_chapeau_2' => 'Bevezető :',
 	'info_chemin_acces_1' => 'Opciók : <b>Elérési út a címtárban</b>', # MODIF
-	'info_chemin_acces_2' => 'Mostántól a címtárban a információk elérési utját kell konfigurálni. Ez az adat nélkülözhetetlen ahhoz, hogy olvashatóak legyenek a felhaszálói profilok a címtárban.',
+	'info_chemin_acces_2' => 'Mostántól a címtárban a információk elérési utját kell konfigurálni. Ez az adat nélkülözhetetlen ahhoz, hogy olvashatóak legyenek a felhaszálói profilok a címtárban.', # MODIF
 	'info_chemin_acces_annuaire' => 'Opciók : <b>Elérési út a címtárban', # MODIF
 	'info_choix_base' => 'Harmadik lépés :',
 	'info_classement_1' => '<sup>.</sup> összesen @liste@',
@@ -204,12 +204,12 @@ return [
 	'info_exportation_base' => 'Adatbázis exportálása @archive@ felé',
 	'info_facilite_suivi_activite' => 'Ahhoz, hogy könnyebben lehessen figyelemmel követni a honlap szerkesztői tevékenységét, SPIP emailen küldheti például a publikálási, ill. cikkjóváhagyási kéréseket egy szerzői levelezőlistára.', # MODIF
 	'info_fichiers_authent' => 'Azonosítási fájlok « .htpasswd »',
-	'info_forums_abo_invites' => 'A honlapja beiratkozásos fórumokat tartalmaz ; tehát a látogatók beíratkozhatnak a nyilvános részen.',
+	'info_forums_abo_invites' => 'A honlapja beiratkozásos fórumokat tartalmaz ; tehát a látogatók beíratkozhatnak a nyilvános részen.', # MODIF
 	'info_gauche_auteurs' => 'Itt található a honlap összes szerzője.
- Saját státuszuk az ikon színe szerint van jelölve ( adminisztrátor = zöld; szerző = sárga).',
+ Saját státuszuk az ikon színe szerint van jelölve ( adminisztrátor = zöld; szerző = sárga).', # MODIF
 	'info_gauche_auteurs_exterieurs' => 'A külső szerzők, melyek nem férhetnek a honlaphoz, kék ikonnal vannak jelölve ;
 a törölt szerzők pedig kukával vannak jelölve.', # MODIF
-	'info_gauche_messagerie' => 'A levelezés lehetővé tesz szerzők közti üzenetcserét, emlékeztetők (saját használatra) megtartását, vagy hírdetések megjelenítését a privát rész főoldalán (amennyiben Ön adminisztrátor).',
+	'info_gauche_messagerie' => 'A levelezés lehetővé tesz szerzők közti üzenetcserét, emlékeztetők (saját használatra) megtartását, vagy hírdetések megjelenítését a privát rész főoldalán (amennyiben Ön adminisztrátor).', # MODIF
 	'info_gauche_statistiques_referers' => 'Ez az oldal a <i>referers</i> listáját mutat, vagyis olyan honlapokat, melyeken az Ön honlapjához hivatkozó linkek találhatók, de csak a tegnapi és a mai napra : ez a lista nullázva van 24 óra után.',
 	'info_gauche_visiteurs_enregistres' => 'Itt találhatók a honlap nyilvános részén regisztrált látogatók (beíratkozásos fórumok).',
 	'info_generation_miniatures_images' => 'Bélyegképek generálása a képekről',
@@ -219,14 +219,14 @@ a törölt szerzők pedig kukával vannak jelölve.', # MODIF
 	'info_image_process' => 'Válasszon a bélyegképek legjobb készítesi modszerét azzal, hogy kattintson a megfelelő képre.',
 	'info_images_auto' => 'Automatikusan kalkulált képek',
 	'info_informations_personnelles' => 'Ötödik lépés : <b>Személyes adatok</b>', # MODIF
-	'info_inscription_automatique' => 'Új szerzők automatikus beiratkozása',
+	'info_inscription_automatique' => 'Új szerzők automatikus beiratkozása', # MODIF
 	'info_jeu_caractere' => 'A honlap karakter táblája',
 	'info_jours' => 'nap',
 	'info_laisser_champs_vides' => 'hagyja üresen ezeket a mezőket)',
 	'info_langues' => 'A honlap nyelvei',
 	'info_ldap_ok' => 'Az LDAP azonosítás telepítve van.',
 	'info_lien_hypertexte' => 'Hiperhivatkozás :',
-	'info_liste_redacteurs_connectes' => 'Jelenleg csatlakozott szerzők listája',
+	'info_liste_redacteurs_connectes' => 'Jelenleg csatlakozott szerzők listája', # MODIF
 	'info_login_existant' => 'Ez a login már létezik.',
 	'info_login_trop_court' => 'A login túl rövid.',
 	'info_maximum' => 'A legtöbb :',
@@ -242,7 +242,7 @@ a törölt szerzők pedig kukával vannak jelölve.', # MODIF
 	'info_moyenne' => 'Átlagosan :',
 	'info_multi_cet_article' => 'A cikk nyelve :',
 	'info_multi_langues_choisies' => 'Lejjebb jelölje ki a szerzők által használható nyelveket.
-  A honlapján már használt nyelveket (elsőknek jelennek meg) nem lehet inaktiválni.',
+  A honlapján már használt nyelveket (elsőknek jelennek meg) nem lehet inaktiválni.', # MODIF
 	'info_multi_secteurs' => '... csak a gyökérben található rovatok esetén ?',
 	'info_nom' => 'Név',
 	'info_nom_destinataire' => 'Címzett neve',
@@ -261,8 +261,8 @@ a törölt szerzők pedig kukával vannak jelölve.', # MODIF
 	'info_nouvelle_traduction' => 'Új fordítás :',
 	'info_numero_article' => 'CIKK SZÁMA :',
 	'info_obligatoire_02' => '[Kötelező]', # MODIF
-	'info_option_accepter_visiteurs' => 'A látogatói beíratkozás engedélyezése ',
-	'info_option_ne_pas_accepter_visiteurs' => 'Látogatói beíratkozás tiltása',
+	'info_option_accepter_visiteurs' => 'A látogatói beíratkozás engedélyezése ', # MODIF
+	'info_option_ne_pas_accepter_visiteurs' => 'Látogatói beíratkozás tiltása', # MODIF
 	'info_options_avancees' => 'B?VÍTETT OPCIÓK',
 	'info_ou' => 'vagy...',
 	'info_page_interdite' => 'Tiltott oldal',
@@ -283,7 +283,7 @@ a törölt szerzők pedig kukával vannak jelölve.', # MODIF
 	'info_ps' => 'U.Í',
 	'info_publier' => 'publikál',
 	'info_publies' => 'Az Ön publikált cikkei',
-	'info_question_accepter_visiteurs' => 'Amennyiben a honlapja vázaiban a látógatók beíratkozhatnak privát részre való hozzáférés nélkül, akkor a lenti opciót kell kijelölni :',
+	'info_question_accepter_visiteurs' => 'Amennyiben a honlapja vázaiban a látógatók beíratkozhatnak privát részre való hozzáférés nélkül, akkor a lenti opciót kell kijelölni :', # MODIF
 	'info_question_inscription_nouveaux_redacteurs' => 'Elfogadja-e az új szerzők beíratkozását a nyilvanos honlapról ? Amennyiben elfogadja, akkor a látogatók beíratkozhatnak
   egy automatizált űrlapon és majd hozzáférnek a privát részre, saját cikkei javaslattételére. <blockquote><i>A beíratkozási fázis során,
 a felhasználók automatikus emailt kapnak,
@@ -301,7 +301,7 @@ a felhasználók automatikus emailt kapnak,
 	'info_refuses' => 'Az Ön elutasított cikkei',
 	'info_reglage_ldap' => 'Opciók: <b>LDAP importálás beállítása</b>', # MODIF
 	'info_renvoi_article' => '<b>Átirányítás.</b> Ez a cikk erre az oldalra hivatkozik:', # MODIF
-	'info_reserve_admin' => 'Csak az adminisztrátork módosíthatják ezt a címet.',
+	'info_reserve_admin' => 'Csak az adminisztrátork módosíthatják ezt a címet.', # MODIF
 	'info_restreindre_rubrique' => 'Korlátozni a kezelést a következő rubrikára :',
 	'info_resultat_recherche' => 'Keresés eredményei :',
 	'info_rubriques' => 'Rovatok',
@@ -320,13 +320,13 @@ a felhasználók automatikus emailt kapnak,
 	'info_sites_proxy' => 'Proxy használata',
 	'info_sites_trouves' => 'Talált honlapok',
 	'info_sous_titre' => 'Alcím :',
-	'info_statut_administrateur' => 'Adminisztrátor',
+	'info_statut_administrateur' => 'Adminisztrátor', # MODIF
 	'info_statut_auteur' => 'A szerző státusza :', # MODIF
 	'info_statut_auteur_a_confirmer' => 'Megerősítendő beíratkozás',
 	'info_statut_auteur_autre' => 'Egyéb státusz :',
 	'info_statut_redacteur' => 'Szerző',
-	'info_statut_utilisateurs_1' => 'Az importált felhasználók alapértelmezett státusza',
-	'info_statut_utilisateurs_2' => 'Válassza azt a státuszt, ami lesz hozzárendelve az LDAP címtárban lévő személyekhez, ha csatlakoznak legelőször. Később ez az érték egyénileg lesz módosítható.',
+	'info_statut_utilisateurs_1' => 'Az importált felhasználók alapértelmezett státusza', # MODIF
+	'info_statut_utilisateurs_2' => 'Válassza azt a státuszt, ami lesz hozzárendelve az LDAP címtárban lévő személyekhez, ha csatlakoznak legelőször. Később ez az érték egyénileg lesz módosítható.', # MODIF
 	'info_suivi_activite' => 'A szerkesztői tevékenység követése',
 	'info_surtitre' => 'Előcím :',
 	'info_syndication_integrale_1' => 'Az Őn honlapja szidikálási (RSS) fájlokat javasol (lásd « <a href="@url@">@titre@</a> »).',
@@ -370,10 +370,10 @@ ami állapotát jelzi :',
 	'intem_redacteur' => 'szerző',
 	'item_accepter_inscriptions' => 'Elfogadni a beíratkozásokat',
 	'item_activer_messages_avertissement' => 'A figyelmeztető üzenetek aktiválása',
-	'item_administrateur_2' => 'adminisztrátor',
+	'item_administrateur_2' => 'adminisztrátor', # MODIF
 	'item_afficher_calendrier' => 'Megjelenítés a naptárban',
 	'item_autoriser_syndication_integrale' => 'A cikkek teljes tartalma a szindikálási fájlokban',
-	'item_choix_administrateurs' => 'az adminisztrátorok',
+	'item_choix_administrateurs' => 'az adminisztrátorok', # MODIF
 	'item_choix_generation_miniature' => 'Bélyegképek automatikus létrehozása.',
 	'item_choix_non_generation_miniature' => 'A bélyegképeket nem kell létrehozni.',
 	'item_choix_redacteurs' => 'a szerzők',
@@ -454,15 +454,15 @@ ami állapotát jelzi :',
 	'texte_acces_ldap_anonyme_1' => 'Bizonyos LDAP szerverek nem fogadják el a névtelen hozzáférést. Ilyen esetben egy azonosítót kell jelezni ahhoz, hogy lehessen keresni adatokat a címtárban. Legtöbb esetben azonban, a következő mezők üresen maradhatnak.',
 	'texte_admin_effacer_01' => 'Ez a parancs az adatbázis <i>egész</i> tartalmát törli,
 bele értve az <i>összes</i> szerzői, illetve adminisztrátori hozzáférést. Miután futtata, akkor indítani kell az
-SPIP újratélépítését egy újabb adatbázis létrehozására, valamint egy első adminisztrátori hozzáférést.',
+SPIP újratélépítését egy újabb adatbázis létrehozására, valamint egy első adminisztrátori hozzáférést.', # MODIF
 	'texte_adresse_annuaire_1' => '(Ha az Ön címtára ugyanazon a gépen van telepítve, mint ez a honlap, akkor valószínűleg «localhost»-ról van szó.)',
 	'texte_ajout_auteur' => 'A következő szerző lett hozzátéve a cikkhez :',
-	'texte_annuaire_ldap_1' => 'A címtárhoz van hozzáférése (LDAP), akkor ezt az SPIP-be való a felhasználók automatikus importálására használhatja.',
+	'texte_annuaire_ldap_1' => 'A címtárhoz van hozzáférése (LDAP), akkor ezt az SPIP-be való a felhasználók automatikus importálására használhatja.', # MODIF
 	'texte_article_statut' => 'Ez a cikk :',
 	'texte_article_virtuel' => 'Virtuális cikk',
 	'texte_article_virtuel_reference' => '<b>Virtuális cikk :</b> SPIP honlapján felvett cikk, de másik URL felé átirányítva. Az átirányítás megszüntetésére törölje a fenti URL-t.',
 	'texte_aucun_resultat_auteur' => 'Nincs találat erre "@cherche_auteur@"',
-	'texte_auteur_messagerie' => 'A honlap állandóan jelezheti a csatlakozott szerzők listáját, ami közvetlen üzenetcserét tesz lehetővé.  Úgy is döntheti, hogy nem szerepel a listában (Ön "láthatatlan" a többi felhasználók számára).',
+	'texte_auteur_messagerie' => 'A honlap állandóan jelezheti a csatlakozott szerzők listáját, ami közvetlen üzenetcserét tesz lehetővé.  Úgy is döntheti, hogy nem szerepel a listában (Ön "láthatatlan" a többi felhasználók számára).', # MODIF
 	'texte_auteurs' => 'A SZERZŐ',
 	'texte_choix_base_1' => 'Válassza az adatbázist :',
 	'texte_choix_base_2' => 'A SQL szerver több adatbázist tartalmaz.', # MODIF
@@ -558,7 +558,7 @@ dans le cache SPIP. Ez például eröltethet az összes oldal frissítését, ha
   az egyidejű módosítások elkerülésére.
   Ez az opció nincs aktiválva eleve
  a váratlan figyelmeztető üzenetek elkerülésére.
-',
+', # MODIF
 	'texte_vide' => 'üres',
 	'texte_vider_cache' => 'A cache ürítése',
 	'titre_cadre_afficher_article' => 'Cikkek megjelenítése',

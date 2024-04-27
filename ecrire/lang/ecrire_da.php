@@ -17,7 +17,7 @@ return [
 	'avis_connexion_echec_3' => '<b>NB:</b> På mange servere skal du <b>anmode om</b> at få åbnet adgang til en SQL-database, før du kan bruge den. Hvis du ikke kan etablere en forbindelse, så kontroller venligst at du har indgivet denne anmodning.', # MODIF
 	'avis_connexion_ldap_echec_1' => 'Ingen forbindelse til LDAP-serveren',
 	'avis_connexion_ldap_echec_2' => 'Gå tilbage til sidste side og kontroller de oplysninger, du har indtastet.',
-	'avis_connexion_ldap_echec_3' => 'Alternativt kan du vælge ikke at benytte LDAP til at importere brugere.',
+	'avis_connexion_ldap_echec_3' => 'Alternativt kan du vælge ikke at benytte LDAP til at importere brugere.', # MODIF
 	'avis_deplacement_rubrique' => 'Advarsel! Dette afsnit indeholder @contient_breves@ nyheder@scb@: Hvis du vil flytte den, så afkryds venligst her for at bekræfte.',
 	'avis_erreur_connexion_mysql' => 'Fejl i forbindelse til SQL',
 	'avis_espace_interdit' => '<b>Forbudt område</b><p>SPIP er allerede installeret.', # MODIF
@@ -37,10 +37,10 @@ return [
 	'bouton_envoyer_message' => 'Send færdig meddelelse',
 	'bouton_modifier' => 'Ret',
 	'bouton_radio_afficher' => 'Vis',
-	'bouton_radio_apparaitre_liste_redacteurs_connectes' => 'Medtag i listen over tilknyttede redaktører',
+	'bouton_radio_apparaitre_liste_redacteurs_connectes' => 'Medtag i listen over tilknyttede redaktører', # MODIF
 	'bouton_radio_envoi_annonces_adresse' => 'Send nyheder til adressen:',
 	'bouton_radio_envoi_liste_nouveautes' => 'Send seneste nyhedsliste',
-	'bouton_radio_non_apparaitre_liste_redacteurs_connectes' => 'Medtag ikke i listen over tilknyttede redaktører',
+	'bouton_radio_non_apparaitre_liste_redacteurs_connectes' => 'Medtag ikke i listen over tilknyttede redaktører', # MODIF
 	'bouton_radio_non_envoi_annonces_editoriales' => 'Send ingen redaktionelle nyheder',
 	'bouton_redirection' => 'VIDERESTIL',
 	'bouton_relancer_installation' => 'Gentag installationen',
@@ -67,7 +67,7 @@ return [
 	'entree_cle_pgp' => 'Din PGP nøgle',
 	'entree_contenu_rubrique' => '(Kort beskrivelse af afsnittets indhold.)',
 	'entree_identifiants_connexion' => 'Dine opkoblingsinformationer...',
-	'entree_informations_connexion_ldap' => 'Udfyld denne side med LDAP opkoblingsinformation. Du kan indhente oplysningerne hos din system- eller netværskadministrator.',
+	'entree_informations_connexion_ldap' => 'Udfyld denne side med LDAP opkoblingsinformation. Du kan indhente oplysningerne hos din system- eller netværskadministrator.', # MODIF
 	'entree_infos_perso' => 'Hvem er du?',
 	'entree_interieur_rubrique' => 'I afsnit:',
 	'entree_liens_sites' => '<b>Hypertekst link</b> (henvisning, websted...)',
@@ -121,12 +121,12 @@ return [
 	'impossible_modifier_pass_auteur' => 'Impossible de modifier le mot de passe.', # MODIF
 	'info_1_article' => '1 artikel',
 	'info_activer_cookie' => 'Du kan installere en <b>administrationscookie</b>, som tillader dig at skifte nemt mellem det offentlige websted og dit private afsnit.',
-	'info_administrateur' => 'Administrator',
-	'info_administrateur_1' => 'Administrator',
+	'info_administrateur' => 'Administrator', # MODIF
+	'info_administrateur_1' => 'Administrator', # MODIF
 	'info_administrateur_2' => 'af webstedet (<i>anvend med forsigtighed</i>)',
-	'info_administrateur_site_01' => 'Hvis du er webstedsadministrator, så',
+	'info_administrateur_site_01' => 'Hvis du er webstedsadministrator, så', # MODIF
 	'info_administrateur_site_02' => 'klik på dette link',
-	'info_administrateurs' => 'Administratorer',
+	'info_administrateurs' => 'Administratorer', # MODIF
 	'info_administrer_rubrique' => 'Du kan administrere dette afsnit',
 	'info_adresse' => 'til adressen:',
 	'info_adresse_url' => 'Dit offentlige websteds URL',
@@ -155,7 +155,7 @@ return [
 	'info_chapeau' => 'Hoved',
 	'info_chapeau_2' => 'Indledning:',
 	'info_chemin_acces_1' => 'Valgmuligheder: <b>Adgangsvej til katalog</b>',
-	'info_chemin_acces_2' => 'Du skal nu konfigurere adgangsvejen til kataloginformationen. Dette er vigtigt for at kunne læse de brugerprofiler, som ligger i kataloget.',
+	'info_chemin_acces_2' => 'Du skal nu konfigurere adgangsvejen til kataloginformationen. Dette er vigtigt for at kunne læse de brugerprofiler, som ligger i kataloget.', # MODIF
 	'info_chemin_acces_annuaire' => 'Valgmuligheder: <b>Adgangsvej til katalog</b>',
 	'info_choix_base' => 'Tredje skrift:',
 	'info_classement_1' => '<sup>.</sup> af @liste@',
@@ -192,10 +192,10 @@ return [
 	'info_exportation_base' => 'eksporter database til @archive@',
 	'info_facilite_suivi_activite' => 'For at lette opfølgning på webstedets redaktionelle aktiviteter sender SPIP e-mails med anmodning om offentliggørelse og godkendelse til f.eks. redaktørens adresseliste.', # MODIF
 	'info_fichiers_authent' => 'Adgangskontrolfil ".htpasswd"',
-	'info_gauche_auteurs' => 'Her finder du alle webstedets forfattere. Status på hver enkelt fremgår af farven på ikonet (redaktør = grøn, administrator = gul).',
+	'info_gauche_auteurs' => 'Her finder du alle webstedets forfattere. Status på hver enkelt fremgår af farven på ikonet (redaktør = grøn, administrator = gul).', # MODIF
 	'info_gauche_auteurs_exterieurs' => 'Udenforstående forfattere uden adgang til webstedet vises med et blåt symbol; slettede forfattere repræsenteres af en papirkurv.', # MODIF
 	'info_gauche_messagerie' => 'Meddelelsessystemet giver mulighed for at udveksle meddelelser mellem redaktører, for at gemme huskesedler (til personlig brug) 
-	eller for at vise annonceringer i det private område (hvis du er administrator).',
+	eller for at vise annonceringer i det private område (hvis du er administrator).', # MODIF
 	'info_gauche_statistiques_referers' => 'Denne side viser en oversigt over <i>henvisende sider</i>, dvs. websteder der har linket til dit websted alene i dag. Faktisk nulstilles oversigten med 24 timers mellemrum.',
 	'info_gauche_visiteurs_enregistres' => 'Her finder du de besøgende, der er tilmeldt til webstedets offentlige afsnit (fora med tilmelding).',
 	'info_generation_miniatures_images' => 'Dannelse af piktogrammer',
@@ -204,14 +204,14 @@ return [
 	'info_identification_publique' => 'Din offentlige identitet...',
 	'info_image_process' => 'Vælg den bedste metode til at skabe miniaturebilleder ved at klikke på det korresponderende billede.',
 	'info_informations_personnelles' => 'Femte trin: <b>Personlig information</b>',
-	'info_inscription_automatique' => 'Automatisk registrering af nye redaktører',
+	'info_inscription_automatique' => 'Automatisk registrering af nye redaktører', # MODIF
 	'info_jeu_caractere' => 'Webstedets tegnsæt',
 	'info_jours' => 'dage',
 	'info_laisser_champs_vides' => 'efterlad disse felter tomme)',
 	'info_langues' => 'Webstedets sprog',
 	'info_ldap_ok' => 'LDAP adgangskontrol er installeret.',
 	'info_lien_hypertexte' => 'Hypertekst link:',
-	'info_liste_redacteurs_connectes' => 'Oversigt over tilknyttede reaktører',
+	'info_liste_redacteurs_connectes' => 'Oversigt over tilknyttede reaktører', # MODIF
 	'info_login_existant' => 'Dette login findes allerede.',
 	'info_login_trop_court' => 'Login for kort.',
 	'info_maximum' => 'maksimum:',
@@ -227,7 +227,7 @@ return [
 	'info_multi_cet_article' => 'Denne artikel er på:',
 	'info_multi_langues_choisies' => 'Vælg de sprog der skal være til rådighed for redaktører på webstedet.
   Sprog der allerede er i brug på webstedet (de øverste på listen) kan ikke fravælges.
- ',
+ ', # MODIF
 	'info_multi_secteurs' => 'Kun for afsnit placeret i roden ?',
 	'info_nom' => 'Navn',
 	'info_nom_destinataire' => 'Navn på modtager',
@@ -282,7 +282,7 @@ return [
 	'info_refuses' => 'Dine artikler er afvist',
 	'info_reglage_ldap' => 'Muligheder: <b>Konfigurere LDAP understøttelse</b>',
 	'info_renvoi_article' => '<b>Viderestilling.</b> Denne artikel henviser til siden:',
-	'info_reserve_admin' => 'Kun administratorer kan ændre denne adresse.',
+	'info_reserve_admin' => 'Kun administratorer kan ændre denne adresse.', # MODIF
 	'info_restreindre_rubrique' => 'Begræns administrationsrettigheder til dette afsnit:',
 	'info_resultat_recherche' => 'Søgeresultater:',
 	'info_rubriques' => 'Afsnit',
@@ -301,11 +301,11 @@ return [
 	'info_sites_proxy' => 'Brug proxy',
 	'info_sites_trouves' => 'Websteder fundet',
 	'info_sous_titre' => 'Underrubrik:',
-	'info_statut_administrateur' => 'Administrator',
+	'info_statut_administrateur' => 'Administrator', # MODIF
 	'info_statut_auteur' => 'Denne forfatters status:', # MODIF
 	'info_statut_redacteur' => 'Redaktør',
-	'info_statut_utilisateurs_1' => 'Importerede brugeres standardstatus',
-	'info_statut_utilisateurs_2' => 'Vælg den status som skal tildeles personerne i LDAP kataloget, når de logger ind første gang. Senere kan du ændre værdien for hver forfatter fra sag til sag.',
+	'info_statut_utilisateurs_1' => 'Importerede brugeres standardstatus', # MODIF
+	'info_statut_utilisateurs_2' => 'Vælg den status som skal tildeles personerne i LDAP kataloget, når de logger ind første gang. Senere kan du ændre værdien for hver forfatter fra sag til sag.', # MODIF
 	'info_suivi_activite' => 'Opfølgning på redaktionelle aktiviteter',
 	'info_surtitre' => 'Hovedoverskrift:',
 	'info_taille_maximale_vignette' => 'Max. størrelse på piktogram dannet af systemet:',
@@ -345,9 +345,9 @@ i en farve, der angiver deres status:',
 	'intem_redacteur' => 'redaktør',
 	'item_accepter_inscriptions' => 'Tillad tilmeldinger',
 	'item_activer_messages_avertissement' => 'Tillad advarselsmeddelelser',
-	'item_administrateur_2' => 'administrator',
+	'item_administrateur_2' => 'administrator', # MODIF
 	'item_afficher_calendrier' => 'Vis i kalenderen',
-	'item_choix_administrateurs' => 'administratorer',
+	'item_choix_administrateurs' => 'administratorer', # MODIF
 	'item_choix_generation_miniature' => 'Dan miniaturepiktogrammer automatisk.',
 	'item_choix_non_generation_miniature' => 'Dan ikke miniaturebilleder.',
 	'item_choix_redacteurs' => 'redaktører',
@@ -415,15 +415,15 @@ i en farve, der angiver deres status:',
 	'texte_acces_ldap_anonyme_1' => 'Nogle LDAP-servere tillader ikke anonym adgang. I så fald må du angive en brugeridentifikation for senere at kunne søge efter information i kataloget. Men i de fleste tilfælde kan du lade de følgende felter stå tomme.',
 	'texte_admin_effacer_01' => 'Denne kommando sletter <i>hele</i> indholdet i databasen,
 	herunder <i>hele</i> opsætningen for redaktører og administratorer. Når du har udført den, bør du 
-	geninstallere SPIP for at danne en ny database og åbne op for den første administratoradgang.',
+	geninstallere SPIP for at danne en ny database og åbne op for den første administratoradgang.', # MODIF
 	'texte_adresse_annuaire_1' => '(Hvis dit katalog findes på samme server som webstedet, er det formentlig «localhost».)',
 	'texte_ajout_auteur' => 'Følgende forfatter har bidraget til artiklen:',
-	'texte_annuaire_ldap_1' => 'Hvis du har adgang til et LDAP-katalog, kan du anvende det til automatisk at importere brugere i SPIP.',
+	'texte_annuaire_ldap_1' => 'Hvis du har adgang til et LDAP-katalog, kan du anvende det til automatisk at importere brugere i SPIP.', # MODIF
 	'texte_article_statut' => 'Denne artikel er:',
 	'texte_article_virtuel' => 'Virtuel artikel',
 	'texte_article_virtuel_reference' => '<b>Virtuel artikel:</b> fremstår som en artikel på dit websted, men viderestiller til en anden URL. Slet URL’en for at fjerne viderestillingen.',
 	'texte_aucun_resultat_auteur' => 'Ingen resultater til "@cherche_auteur@".',
-	'texte_auteur_messagerie' => 'Dette websted kan løbende holde øje med, hvilke redaktører der er logget ind. Dette muliggør realtidsudveksling af meddelelser (hvis udveksling af meddelser ovenfor er fravalgt, vedligeholdes oversigten over redaktører, der er online, heller ikke). Du kan vælge ikke at være synlig i oversigten (du er så «usynlig» for andre brugere).',
+	'texte_auteur_messagerie' => 'Dette websted kan løbende holde øje med, hvilke redaktører der er logget ind. Dette muliggør realtidsudveksling af meddelelser (hvis udveksling af meddelser ovenfor er fravalgt, vedligeholdes oversigten over redaktører, der er online, heller ikke). Du kan vælge ikke at være synlig i oversigten (du er så «usynlig» for andre brugere).', # MODIF
 	'texte_auteurs' => 'FORFATTERNE',
 	'texte_choix_base_1' => 'Vælg database:',
 	'texte_choix_base_2' => 'SQL server indeholder et antal databaser.',
@@ -514,7 +514,7 @@ i en farve, der angiver deres status:',
 	'texte_travail_article' => '@nom_auteur_modif@ har arbejdet på denne artikel for @date_diff@ minutter siden',
 	'texte_travail_collaboratif' => 'Hvis det sker hyppigt at flere redaktører arbejder på samme artikel, kan systemet
 		vise «åbne» artikler for at undgå samtidige ændringer. Denne indstilling er som standard
-		slået fra for at undgå utidige advarselsmeddelelser.',
+		slået fra for at undgå utidige advarselsmeddelelser.', # MODIF
 	'texte_vide' => 'tom',
 	'texte_vider_cache' => 'Tøm cachen',
 	'titre_cadre_afficher_article' => 'Vis artikler som er',

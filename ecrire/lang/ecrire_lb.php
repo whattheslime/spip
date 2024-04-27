@@ -23,7 +23,7 @@ return [
 	'avis_connexion_erreur_nom_base' => 'De Numm vun der Datebank däerf nëmme Buschtawen, Zuelen oder Bindestrécher hunn',
 	'avis_connexion_ldap_echec_1' => 'D’Verbindung mam LDAP-Server huet net fonctionnéiert.',
 	'avis_connexion_ldap_echec_2' => 'Gidd op déi läscht Säit zeréck a kontrolléiert d’Informatiounen.',
-	'avis_connexion_ldap_echec_3' => 'Alternativ benotzt keng LDAP-Ënnerstetzung fir d’Benotzer ze verwalten.',
+	'avis_connexion_ldap_echec_3' => 'Alternativ benotzt keng LDAP-Ënnerstetzung fir d’Benotzer ze verwalten.', # MODIF
 	'avis_deplacement_rubrique' => 'Opgepasst! Dës Rubrik huet @contient_breves@ brève@scb@: wann der se réckelt, klickt dëst Bestätegungs-Feld un.',
 	'avis_erreur_connexion_mysql' => 'Fehler bei der SQL-Verbindung',
 	'avis_espace_interdit' => '<b>Gespaarten Deel</b><p>SPIP ass schon installéiert.</p>', # MODIF
@@ -48,10 +48,10 @@ return [
 	'bouton_mettre_a_jour_base' => 'Datebank upassen',
 	'bouton_modifier' => 'Änneren',
 	'bouton_radio_afficher' => 'Weisen',
-	'bouton_radio_apparaitre_liste_redacteurs_connectes' => 'Op d’Lëscht vun den ugemellte Redaktere kommen',
+	'bouton_radio_apparaitre_liste_redacteurs_connectes' => 'Op d’Lëscht vun den ugemellte Redaktere kommen', # MODIF
 	'bouton_radio_envoi_annonces_adresse' => 'D’Annonce schécken op d’Adress:',
 	'bouton_radio_envoi_liste_nouveautes' => 'D’Lëscht mat de Neiegkeeten schécken',
-	'bouton_radio_non_apparaitre_liste_redacteurs_connectes' => 'Net op d’Lëscht vun de Redaktere kommen',
+	'bouton_radio_non_apparaitre_liste_redacteurs_connectes' => 'Net op d’Lëscht vun de Redaktere kommen', # MODIF
 	'bouton_radio_non_envoi_annonces_editoriales' => 'Keng editorial Neiegkeete schécken',
 	'bouton_redirection' => 'ËMLEEDUNG',
 	'bouton_relancer_installation' => 'D’Ariichte nei ufänken',
@@ -61,7 +61,7 @@ return [
 	'bouton_vider_cache' => 'De Cache läschen',
 
 	// C
-	'cache_modifiable_webmestre' => 'Dëse Parameter ka vum Webmaster geännert ginn.',
+	'cache_modifiable_webmestre' => 'Dëse Parameter ka vum Webmaster geännert ginn.', # MODIF
 	'calendrier_synchro' => 'Wann dir en <b>iCal</b>-kompatibelen Agenda benotzt, da kënnt dir d’Informatioune mat dësem Site synchroniséieren.',
 	'config_activer_champs' => 'Folgend Felder aschalten',
 	'config_choix_base_sup' => 'eng Datebank op dësem Server uginn',
@@ -101,7 +101,7 @@ return [
 	'entree_contenu_rubrique' => '(Inhalt vun der Rubrik an e puer Wierder.)',
 	'entree_identifiants_connexion' => 'Är Zougangs-Informatiounen...',
 	'entree_identifiants_connexion_2' => 'Identifikatioun',
-	'entree_informations_connexion_ldap' => 'Gidd an dëse Formulaire d’Informatiounen vun ärer LDAP-Verbindung an. Dës Informatioune kritt dir vum Administrateur vum System oder vum Netzwierk.',
+	'entree_informations_connexion_ldap' => 'Gidd an dëse Formulaire d’Informatiounen vun ärer LDAP-Verbindung an. Dës Informatioune kritt dir vum Administrateur vum System oder vum Netzwierk.', # MODIF
 	'entree_infos_perso' => 'Wie sidd Dir?',
 	'entree_infos_perso_2' => 'Wien ass den Auteur?',
 	'entree_interieur_rubrique' => 'An der Rubrik:',
@@ -193,14 +193,14 @@ return [
 	'info_activer_cookie' => 'Dir kënnt e <b>Cookie</b> aktivéieren, deen iech erlaabt einfach vum ëffentlechen op de private Site ze wiesselen.',
 	'info_admin_etre_webmestre' => 'Mir Webmaster-Rechter ginn',
 	'info_admin_je_suis_webmestre' => 'Ech si <b>Webmaster</b>',
-	'info_admin_statuer_webmestre' => 'Dësem Admin Webmaster-Rechter ginn',
-	'info_admin_webmestre' => 'Dësen Admin ass <b>Webmaster</b>',
-	'info_administrateur' => 'Administrateur',
-	'info_administrateur_1' => 'Administrateur',
+	'info_admin_statuer_webmestre' => 'Dësem Admin Webmaster-Rechter ginn', # MODIF
+	'info_admin_webmestre' => 'Dësen Admin ass <b>Webmaster</b>', # MODIF
+	'info_administrateur' => 'Administrateur', # MODIF
+	'info_administrateur_1' => 'Administrateur', # MODIF
 	'info_administrateur_2' => 'vum Site (<i>oppassen beim benotzen)',
-	'info_administrateur_site_01' => 'Wann dir Administrateur vum Site sidd, ',
+	'info_administrateur_site_01' => 'Wann dir Administrateur vum Site sidd, ', # MODIF
 	'info_administrateur_site_02' => 'klickt op dëse Link',
-	'info_administrateurs' => 'Administrateuren',
+	'info_administrateurs' => 'Administrateuren', # MODIF
 	'info_administrer_rubrique' => 'Dir kënnt dës Rubrik verwalten',
 	'info_adresse' => 'op der Adress:',
 	'info_adresse_url' => 'Adress (URL) vum ëffentleche Site',
@@ -236,7 +236,7 @@ return [
 	'info_chapeau' => 'Chapo',
 	'info_chapeau_2' => 'Chapo:',
 	'info_chemin_acces_1' => 'Optiounen: <b>Wee an der Lëscht</b>',
-	'info_chemin_acces_2' => 'Dir musst de Wee op d’Informatiounen an der Lëscht uginn. Dës Informatioun ass néideg fir de Profil vun de Benotzer aus der Lëscht ze liesen.',
+	'info_chemin_acces_2' => 'Dir musst de Wee op d’Informatiounen an der Lëscht uginn. Dës Informatioun ass néideg fir de Profil vun de Benotzer aus der Lëscht ze liesen.', # MODIF
 	'info_chemin_acces_annuaire' => 'Optiounen: <b>Wee an der Lëscht</b>',
 	'info_choix_base' => 'Drëtte Schrëtt:',
 	'info_classement_1' => '. an @liste@',
@@ -271,7 +271,7 @@ return [
 	'info_ecrire_article' => 'Ier dier kënnt en Artikel schreiwen, musst dier op mannst eng Rubrik bäiflécken.',
 	'info_email_envoi' => 'Adress vum Absender (optional)',
 	'info_email_envoi_txt' => 'Gitt d’Adress un fir Email’en ze schécken (als Default gëtt d’Adress vum Destinataire benotzt):',
-	'info_email_webmestre' => 'Email-Adress vum Webmaster',
+	'info_email_webmestre' => 'Email-Adress vum Webmaster', # MODIF
 	'info_envoi_email_automatique' => 'Automatescht Schécken vun Emailen',
 	'info_envoyer_maintenant' => 'Elo schécken',
 	'info_etape_suivante' => 'Weider bei de nächste Schrëtt',
@@ -281,10 +281,10 @@ return [
 	'info_exportation_base' => 'Export vun der Datebank op @archive@',
 	'info_facilite_suivi_activite' => 'Fir déi editorial Aktivitéiten ze verfollegen, ka SPIP d’Demande fir Artikelen ze verëffentlechen oder d’Bestätegungen un eng Mailingslëscht vun de Redakteren schécken.', # MODIF
 	'info_fichiers_authent' => 'Authentifikatiouns-Fichieren ".htpasswd"',
-	'info_forums_abo_invites' => 'Äre Site huet Forume wou een sech umelle muss; d’Visiteuren ginn also agelueden sech ze enregistréieren.',
-	'info_gauche_auteurs' => 'Hei fannt dir all d’Auteur’en vum Site. Hiren Zoustand ass duerch d’Faarf ugewisen (Admin = gréng; Redakter = giel).',
+	'info_forums_abo_invites' => 'Äre Site huet Forume wou een sech umelle muss; d’Visiteuren ginn also agelueden sech ze enregistréieren.', # MODIF
+	'info_gauche_auteurs' => 'Hei fannt dir all d’Auteur’en vum Site. Hiren Zoustand ass duerch d’Faarf ugewisen (Admin = gréng; Redakter = giel).', # MODIF
 	'info_gauche_auteurs_exterieurs' => 'Déi extern Auteuren ouni Zougang zum internen Deel sinn duerch eng blo Ikon markéiert, déi geläschten Auteuren duerch eng Dreckskëscht.',
-	'info_gauche_messagerie' => 'D’Messagerie erlaabt Iech Messagen un d’Redakteren ze schécken, privat Notizen ze maachen oder Annoncen op d’Startsäit vum privaten Deel ze setzen (wann dir Administrateur sidd).',
+	'info_gauche_messagerie' => 'D’Messagerie erlaabt Iech Messagen un d’Redakteren ze schécken, privat Notizen ze maachen oder Annoncen op d’Startsäit vum privaten Deel ze setzen (wann dir Administrateur sidd).', # MODIF
 	'info_gauche_statistiques_referers' => 'Dës Säit weist d’Lëscht vun de <i>Referer</i>, déi Siten wou e Link op ären Site geklickt gouf, awer nëmmen fir haut: dës Lëscht gëtt all 24 Stonnen op Null gesat.',
 	'info_gauche_visiteurs_enregistres' => 'Hei sinn déi ageschriwwe Visiteuren vum ëffentlechen Deel (Forumen op Abonnement).',
 	'info_generation_miniatures_images' => 'Miniature vun de Biller maachen',
@@ -295,7 +295,7 @@ return [
 	'info_image_process' => 'Wielt déi bescht Method fir Vignetten ze maachen an deem dier op d’Bild klickt.',
 	'info_images_auto' => 'Automatesch gerechent Biller',
 	'info_informations_personnelles' => 'Perséinlech Informatiounen',
-	'info_inscription_automatique' => 'Nei Redakteren automatesch aschreiwen',
+	'info_inscription_automatique' => 'Nei Redakteren automatesch aschreiwen', # MODIF
 	'info_jeu_caractere' => 'Buschtawe-Code vum Site',
 	'info_jours' => 'Deeg',
 	'info_laisser_champs_vides' => 'dës Felder eidel loossen)',
@@ -303,7 +303,7 @@ return [
 	'info_ldap_ok' => 'D’Umeldung iwwer LDAP ass installéiert.',
 	'info_lien_hypertexte' => 'Link:',
 	'info_liste_nouveautes_envoyee' => 'D’Lëscht vun den Ännerunge gouf verschéckt',
-	'info_liste_redacteurs_connectes' => 'Lëscht vun den ugemellte Redakteren',
+	'info_liste_redacteurs_connectes' => 'Lëscht vun den ugemellte Redakteren', # MODIF
 	'info_login_existant' => 'Dëse Login gëtt et schon.',
 	'info_login_trop_court' => 'De Login ass ze kuerz.',
 	'info_login_trop_court_car_pluriel' => 'De Login muss mindestens @nb@ Zeechen hunn.',
@@ -322,7 +322,7 @@ return [
 	'info_mon_site_spip' => 'Mäi SPIP-Site',
 	'info_moyenne' => 'Duerchschnëtt',
 	'info_multi_cet_article' => 'Sprooch vun dësem Artikel:',
-	'info_multi_langues_choisies' => 'Wielt hei d’Sproochen aus déi d’Redaktere vun ärem Site kënne benotzen. Déi schonns gebrauchte Sproochen (als éischt ugewisen) kënnen net ausgeschalt ginn.',
+	'info_multi_langues_choisies' => 'Wielt hei d’Sproochen aus déi d’Redaktere vun ärem Site kënne benotzen. Déi schonns gebrauchte Sproochen (als éischt ugewisen) kënnen net ausgeschalt ginn.', # MODIF
 	'info_multi_objets' => '@objets@: de Sprooch-Menü aschalten',
 	'info_multi_secteurs' => '... nëmme fir d’Haapt-Rubriken?',
 	'info_nb_articles' => '@nb@ Artikelen',
@@ -347,8 +347,8 @@ return [
 	'info_nouvelle_traduction' => 'Nei Iwwersetzung:',
 	'info_numero_article' => 'ARTIKEL NUMMER:',
 	'info_obligatoire_02' => '(obligatoresch)', # MODIF
-	'info_option_accepter_visiteurs' => 'D’Aschreiwung vu Visiteuren unhuelen',
-	'info_option_ne_pas_accepter_visiteurs' => 'D’Aschreiwung vu Visiteuren refuséieren',
+	'info_option_accepter_visiteurs' => 'D’Aschreiwung vu Visiteuren unhuelen', # MODIF
+	'info_option_ne_pas_accepter_visiteurs' => 'D’Aschreiwung vu Visiteuren refuséieren', # MODIF
 	'info_options_avancees' => 'FORTGESCHRATTEN OPTIOUNEN',
 	'info_ou' => 'oder...',
 	'info_page_interdite' => 'Säit gespaart',
@@ -373,8 +373,8 @@ return [
 	'info_ps' => 'P.S.',
 	'info_publier' => 'verëffentlechen',
 	'info_publies' => 'Är verëffentlecht Artikelen',
-	'info_question_accepter_visiteurs' => 'Wann är Skeletter d’Aschreiwen vu Visiteuren ouni Zougang op de privaten Deel virgesinn, da schalt d’Optioun hei drënner an:',
-	'info_question_inscription_nouveaux_redacteurs' => 'Acceptéiert dier d’Aschreiwe vu neie Redakteren direkt vum ëffentleche Site? Wa jo, da kënnen d’Visiteuren sech iwwer en automatesche Formulaire aschreiwen an esou Zougang op de privaten Deel kréien fir hir Artikelen ze proposéieren. <div class="notice">Während der Aschreiwungs-Phase kréien d’Benotzer automatesch en Email mat hiren Zougangs-Informatiounen. Verschidde Provideren verbidden d’Schécken vun Email vun hire Serveuren aus: an deem Fall ass automatescht Aschreiwen onméiglech.</div>',
+	'info_question_accepter_visiteurs' => 'Wann är Skeletter d’Aschreiwen vu Visiteuren ouni Zougang op de privaten Deel virgesinn, da schalt d’Optioun hei drënner an:', # MODIF
+	'info_question_inscription_nouveaux_redacteurs' => 'Acceptéiert dier d’Aschreiwe vu neie Redakteren direkt vum ëffentleche Site? Wa jo, da kënnen d’Visiteuren sech iwwer en automatesche Formulaire aschreiwen an esou Zougang op de privaten Deel kréien fir hir Artikelen ze proposéieren. <div class="notice">Während der Aschreiwungs-Phase kréien d’Benotzer automatesch en Email mat hiren Zougangs-Informatiounen. Verschidde Provideren verbidden d’Schécken vun Email vun hire Serveuren aus: an deem Fall ass automatescht Aschreiwen onméiglech.</div>', # MODIF
 	'info_qui_edite' => 'Den Auteur @nom_auteur_modif@ huet virun @date_diff@ Minutten un dësem Inhalt geschafft',
 	'info_racine_site' => 'Ufank vum Site',
 	'info_recharger_page' => 'Lued dës Säit an e puer Sekonne nei.',
@@ -390,7 +390,7 @@ return [
 	'info_refuses' => 'Är refuséiert Artikelen',
 	'info_reglage_ldap' => 'Optiounen: <b>Astelle vum LDAP-Import</b>',
 	'info_renvoi_article' => '<b>Ëmleedung.</b> Dësen Artikel weist op d’Säit:',
-	'info_reserve_admin' => 'Nëmmen d’Administrateure kënnen dës Adress änneren.',
+	'info_reserve_admin' => 'Nëmmen d’Administrateure kënnen dës Adress änneren.', # MODIF
 	'info_restreindre_rubrique' => 'D’Verwalten aschränken op d’Rubrik:',
 	'info_resultat_recherche' => 'Resultater vun der Sich:',
 	'info_rubriques' => 'Rubriken',
@@ -409,14 +409,14 @@ return [
 	'info_sites_proxy' => 'Proxy benotzen',
 	'info_sites_trouves' => 'Site fonnt',
 	'info_sous_titre' => 'Ënnertitel:',
-	'info_statut_administrateur' => 'Administrateur',
+	'info_statut_administrateur' => 'Administrateur', # MODIF
 	'info_statut_auteur' => 'Zoustand vun dësem Auteur:',
 	'info_statut_auteur_2' => 'Ech sinn',
 	'info_statut_auteur_a_confirmer' => 'Umeldung ze bestätegen',
 	'info_statut_auteur_autre' => 'Aneren Zoustand:',
 	'info_statut_redacteur' => 'Redakter',
-	'info_statut_utilisateurs_1' => 'Default-Zoustand vun den importéierten Auteuren',
-	'info_statut_utilisateurs_2' => 'Wielt den Zoustand vun de Persounen aus dem LDAP-Annuaire déi sech fir d’éischt umellen. Dier kënnt duerno dës Valeur pro Auteur änneren.',
+	'info_statut_utilisateurs_1' => 'Default-Zoustand vun den importéierten Auteuren', # MODIF
+	'info_statut_utilisateurs_2' => 'Wielt den Zoustand vun de Persounen aus dem LDAP-Annuaire déi sech fir d’éischt umellen. Dier kënnt duerno dës Valeur pro Auteur änneren.', # MODIF
 	'info_suivi_activite' => 'Verfolge vun der editorialer Aktivitéit',
 	'info_surtitre' => 'Iwwertitel:',
 	'info_syndication_integrale_1' => 'Äre Site proposéiert Verlinkungs-Fichier’en (kuckt op "<a href="@url@">@titre@</a>").',
@@ -458,7 +458,7 @@ return [
 	'info_visiteur_2' => 'vum ëffentleche Site',
 	'info_visiteurs' => 'Visiteuren',
 	'info_visiteurs_02' => 'Visiteure vum ëffentleche Site',
-	'info_webmestre_forces' => 'D’Webmasteren sinn an <tt>@file_options@</tt> definéiert.',
+	'info_webmestre_forces' => 'D’Webmasteren sinn an <tt>@file_options@</tt> definéiert.', # MODIF
 	'install_adresse_base_hebergeur' => 'Adress vun der Datebank déi dir vum Provider krut',
 	'install_connect_ok' => 'Déi nei Datebank gouf ënnert dem Server-Numm @connect@ bäigefléckt.',
 	'install_echec_annonce' => 'D’Installatioun wäert wahrscheinlech net fonctionnéieren oder zu engem feelerhafte Site féieren...',
@@ -485,10 +485,10 @@ return [
 	'intitule_licence' => 'Lizenz',
 	'item_accepter_inscriptions' => 'Aschreiwungen unhuelen',
 	'item_activer_messages_avertissement' => 'Warnungen aschalten',
-	'item_administrateur_2' => 'Administrateur',
+	'item_administrateur_2' => 'Administrateur', # MODIF
 	'item_afficher_calendrier' => 'Am Kalenner weisen',
 	'item_autoriser_syndication_integrale' => 'D’Artikelen ganz an d’Verlinkungs-Fichieren iwwerdroen',
-	'item_choix_administrateurs' => 'd’Administrateuren',
+	'item_choix_administrateurs' => 'd’Administrateuren', # MODIF
 	'item_choix_generation_miniature' => 'Automatesch Miniature vun de Biller maachen.',
 	'item_choix_non_generation_miniature' => 'Keng Miniature vun de Biller maachen.',
 	'item_choix_redacteurs' => 'd’Redakteren',
@@ -669,15 +669,15 @@ return [
 	'taille_repertoire_cache' => 'Gréisst vum Cache-Dossier',
 	'text_article_propose_publication' => 'Fir d’Verëffentlechung virgeschloen Artikel.',
 	'texte_acces_ldap_anonyme_1' => 'Verschidden LDAP-Serveren erlabe keen anonymen Zougang. An deem Fall musst dir en initialen Zougang uginn fir Informatiounen am Annuaire kënnen ze sichen. An deenen meeschte Fäll kënnt dier dës Felder eidel loossen.',
-	'texte_admin_effacer_01' => 'Dës Prozedur läscht <i>alles</i> aus der Datebank, och <i>all</i> Zougäng vun de Redakteren an Administrateuren. Duerno musst dir SPIP nei installéieren fir eng nei Datebank an den éischten Admin-Zougang bäizeflécken.',
+	'texte_admin_effacer_01' => 'Dës Prozedur läscht <i>alles</i> aus der Datebank, och <i>all</i> Zougäng vun de Redakteren an Administrateuren. Duerno musst dir SPIP nei installéieren fir eng nei Datebank an den éischten Admin-Zougang bäizeflécken.', # MODIF
 	'texte_adresse_annuaire_1' => '(Wann ären Annuaire op därselwechter Maschinn installéiert ass, dann ass et hei wahrscheinlech "localhost".)',
 	'texte_ajout_auteur' => 'Dësen Auteur gouf beim Artikel bäigefléckt:',
-	'texte_annuaire_ldap_1' => 'Wann dir Zougang zu engem Annuaire (LDAP) hutt, da kënnt dir e benotzen fir automatesch d’Benotzer vu SPIP ze importéieren.',
+	'texte_annuaire_ldap_1' => 'Wann dir Zougang zu engem Annuaire (LDAP) hutt, da kënnt dir e benotzen fir automatesch d’Benotzer vu SPIP ze importéieren.', # MODIF
 	'texte_article_statut' => 'Dësen Artikel ass:',
 	'texte_article_virtuel' => 'Virtuellen Artikel',
 	'texte_article_virtuel_reference' => '<b>Virtuellen Artikel:</b> am SPIP agedroen, mais op eng aner URL ëmgeleet. Fir d’Ëmleedung ze läschen, läscht d’URL hei driwwer.',
 	'texte_aucun_resultat_auteur' => 'Kee Resultat fir "@cherche_auteur@"',
-	'texte_auteur_messagerie' => 'De Site kann Iech dauernd d’Lëscht vun den ugemellten Redaktere weisen, fir dat dier hinnen direkt Messagen kënnt schécken. Dir kënnt entscheeden net an der Lëscht ze sinn (dir sidd "onsiichtbar" fir déi aner Benotzer).',
+	'texte_auteur_messagerie' => 'De Site kann Iech dauernd d’Lëscht vun den ugemellten Redaktere weisen, fir dat dier hinnen direkt Messagen kënnt schécken. Dir kënnt entscheeden net an der Lëscht ze sinn (dir sidd "onsiichtbar" fir déi aner Benotzer).', # MODIF
 	'texte_auteurs' => 'D’AUTEUREN',
 	'texte_choix_base_1' => 'Wielt är Datebank:',
 	'texte_choix_base_2' => 'Den SQL-Server huet e puer Datebanken.',
@@ -711,7 +711,7 @@ return [
 	'texte_jeu_caractere_4' => 'Wann dat net der Realitéit vun ären Daten entsprécht (z.B. no enger Restauratioun vun der Datebank), oder wann dir <em>dësen Site nei ufänkt</em> an dir ob en aneren Character-Set ëmschalten wëllt, dann gitt en elo hie un:',
 	'texte_login_ldap_1' => '(Eidel loossen fir en anonymen Zougang,  oder de kompletten Wee uginn, z.B. " <tt>uid=muller, ou=users, dc=domain, dc=com</tt> ".)',
 	'texte_login_precaution' => 'Opgepasst! Dëst ass de Login mat dem dier ugemellt sidd. Benotzt dëse Formulaire virsiichteg...',
-	'texte_messagerie_agenda' => 'Eng Messagerie erlaabt de Redakteren vum Site direkt am privaten Deel mateneen ze schwätzen. Si ass en Deel vum Agenda.',
+	'texte_messagerie_agenda' => 'Eng Messagerie erlaabt de Redakteren vum Site direkt am privaten Deel mateneen ze schwätzen. Si ass en Deel vum Agenda.', # MODIF
 	'texte_mise_a_niveau_base_1' => 'Dir hutt eng Upassung vun de SPIP-Fichier’en gemaach. Elo muss d’Datebank ugepasst ginn.',
 	'texte_modifier_article' => 'Den Artikel änneren:',
 	'texte_multilinguisme' => 'Wann dir Objekter a méi Sprooche mat enger komplexer Navigatioun wëllt benotzen, da kënnt dir e Menü fir d’Sproochwiel bei den Objekter aschalten.',
@@ -747,7 +747,7 @@ return [
 	'texte_titre_02' => 'Titel:',
 	'texte_titre_obligatoire' => '<b>Titel</b> [Obligatoresch]',
 	'texte_travail_article' => '@nom_auteur_modif@ huet un dësem Artikel virun @date_diff@ Minutte geschafft',
-	'texte_travail_collaboratif' => 'Wann öfters e puer Redakteren un deem selwechten Artikel schaffen, kann de System déi rezent "oppen" Artikele weisen fir gläichzäiteg Ännerungen ze verhënneren. Dës Optioun ass par défaut ausgeschalt fir net andauernd Warnungen ze weisen.',
+	'texte_travail_collaboratif' => 'Wann öfters e puer Redakteren un deem selwechten Artikel schaffen, kann de System déi rezent "oppen" Artikele weisen fir gläichzäiteg Ännerungen ze verhënneren. Dës Optioun ass par défaut ausgeschalt fir net andauernd Warnungen ze weisen.', # MODIF
 	'texte_vide' => 'eidel',
 	'texte_vider_cache' => 'De Cache läschen',
 	'titre_ajouter_un_auteur' => 'En Auteur bäiflécken',

@@ -22,12 +22,12 @@ return [
 	'avis_connexion_echec_2' => 'Reviens à la page précédente, et vérifie les informations que tu as fournies.',
 	'avis_connexion_echec_3' => '<b>N.B.</b> Sur de nombreux serveurs, tu dois <b>demander</b> l’activation de ton accès à la base de données avant de pouvoir l’utiliser. Si tu ne peux pas te connecter, vérifie que tu as effectué cette démarche.',
 	'avis_connexion_erreur_creer_base' => 'La base de données n’a pas pu être créée.',
-	'avis_connexion_erreur_fichier_cle_manquant_1' => 'L’installation doit être faite par un webmestre avec un backup des clés et son mot de passe',
-	'avis_connexion_erreur_fichier_cle_manquant_2' => 'L’installation doit être faite par un webmestre avec un backup des clés',
+	'avis_connexion_erreur_fichier_cle_manquant_1' => 'L’installation doit être faite par un webmestre avec un backup des clés et son mot de passe', # MODIF
+	'avis_connexion_erreur_fichier_cle_manquant_2' => 'L’installation doit être faite par un webmestre avec un backup des clés', # MODIF
 	'avis_connexion_erreur_nom_base' => 'Le nom de la base ne peut contenir que des lettres, des chiffres et des tirets',
 	'avis_connexion_ldap_echec_1' => 'La connexion au serveur LDAP a échoué.',
 	'avis_connexion_ldap_echec_2' => 'Reviens à la page précédente, et vérifie les informations que tu as fournies.',
-	'avis_connexion_ldap_echec_3' => 'Alternativement, n’utilise pas le support LDAP pour importer des utilisateurs.',
+	'avis_connexion_ldap_echec_3' => 'Alternativement, n’utilise pas le support LDAP pour importer des utilisateurs.', # MODIF
 	'avis_deplacement_rubrique' => 'Attention ! Cette rubrique contient @contient_breves@ brève@scb@ : si tu la déplaces, coche cette case de confirmation.',
 	'avis_erreur_connexion_mysql' => 'Erreur de connexion SQL',
 	'avis_erreur_creation_compte' => 'Échec lors de l’initialisation du compte',
@@ -56,10 +56,10 @@ return [
 	'bouton_mettre_a_jour_base' => 'Mettre à jour la base de données',
 	'bouton_modifier' => 'Modifier',
 	'bouton_radio_afficher' => 'Afficher',
-	'bouton_radio_apparaitre_liste_redacteurs_connectes' => 'Apparaître dans la liste des rédacteurs connectés',
+	'bouton_radio_apparaitre_liste_redacteurs_connectes' => 'Apparaître dans la liste des rédacteurs connectés', # MODIF
 	'bouton_radio_envoi_annonces_adresse' => 'Envoyer les annonces à l’adresse :',
 	'bouton_radio_envoi_liste_nouveautes' => 'Envoyer la liste des nouveautés',
-	'bouton_radio_non_apparaitre_liste_redacteurs_connectes' => 'Ne pas apparaître dans la liste des rédacteurs',
+	'bouton_radio_non_apparaitre_liste_redacteurs_connectes' => 'Ne pas apparaître dans la liste des rédacteurs', # MODIF
 	'bouton_radio_non_envoi_annonces_editoriales' => 'Ne pas envoyer d’annonces éditoriales',
 	'bouton_redirection' => 'REDIRECTION',
 	'bouton_reinitialiser_aux_valeurs_par_defaut' => 'Réinitialiser aux valeurs par défaut',
@@ -73,7 +73,7 @@ return [
 	'bouton_vider_cache' => 'Vider le cache',
 
 	// C
-	'cache_modifiable_webmestre' => 'Ce paramètre est modifiable par le webmestre du site.',
+	'cache_modifiable_webmestre' => 'Ce paramètre est modifiable par le webmestre du site.', # MODIF
 	'calendrier_synchro' => 'Si tu utilises un logiciel d’agenda compatible <b>iCal</b>, tu peux le synchroniser avec les informations de ce site.',
 	'config_activer_champs' => 'Activer les champs suivants',
 	'config_choix_base_sup' => 'indiquer une base sur ce serveur',
@@ -120,7 +120,7 @@ return [
 	'entree_identifiants_connexion_2' => 'Identifiants de connexion',
 	'entree_informations_connexion_ldap' => 'Entre dans ce formulaire les informations de connexion à ton annuaire LDAP.
 	Ces informations doivent pouvoir t’être fournies par l’administrateur du système,
-	ou du réseau.',
+	ou du réseau.', # MODIF
 	'entree_infos_perso' => 'Qui es-tu ?',
 	'entree_infos_perso_2' => 'Qui est l’auteur ?',
 	'entree_interieur_rubrique' => 'À l’intérieur de la rubrique :',
@@ -219,14 +219,14 @@ return [
 	'info_activer_menu_developpement' => 'Afficher le menu Développement',
 	'info_admin_etre_webmestre' => 'Me donner les droits de webmestre',
 	'info_admin_je_suis_webmestre' => 'Je suis <b>webmestre</b>',
-	'info_admin_statuer_webmestre' => 'Donner à cet administrateur les droits de webmestre',
-	'info_admin_webmestre' => 'Cet administrateur est <b>webmestre</b>',
-	'info_administrateur' => 'Administrateur',
-	'info_administrateur_1' => 'Administrateur',
+	'info_admin_statuer_webmestre' => 'Donner à cet administrateur les droits de webmestre', # MODIF
+	'info_admin_webmestre' => 'Cet administrateur est <b>webmestre</b>', # MODIF
+	'info_administrateur' => 'Administrateur', # MODIF
+	'info_administrateur_1' => 'Administrateur', # MODIF
 	'info_administrateur_2' => 'du site (<i>utilise avec précaution</i>)',
-	'info_administrateur_site_01' => 'Si tu es administrateur du site, ',
+	'info_administrateur_site_01' => 'Si tu es administrateur du site, ', # MODIF
 	'info_administrateur_site_02' => 'clique sur ce lien',
-	'info_administrateurs' => 'Administrateurs',
+	'info_administrateurs' => 'Administrateurs', # MODIF
 	'info_administrer_rubrique' => 'Tu peux administrer cette rubrique',
 	'info_adresse' => 'à l’adresse :',
 	'info_adresse_desinscription' => 'Adresse de désinscription :',
@@ -269,7 +269,7 @@ return [
 	'info_chapeau' => 'Chapeau',
 	'info_chapeau_2' => 'Chapeau :',
 	'info_chemin_acces_1' => 'Options : <b>Chemin d’accès dans l’annuaire</b>',
-	'info_chemin_acces_2' => 'Tu dois désormais configurer le chemin d’accès aux informations dans l’annuaire. Cette information est indispensable pour lire les profils utilisateurs stockés dans l’annuaire.',
+	'info_chemin_acces_2' => 'Tu dois désormais configurer le chemin d’accès aux informations dans l’annuaire. Cette information est indispensable pour lire les profils utilisateurs stockés dans l’annuaire.', # MODIF
 	'info_chemin_acces_annuaire' => 'Options : <b>Chemin d’accès dans l’annuaire',
 	'info_choix_base' => 'Troisième étape :',
 	'info_classement_1' => '<sup>er</sup> sur @liste@',
@@ -304,7 +304,7 @@ return [
 	'info_ecrire_article' => 'Avant de pouvoir écrire des articles, tu dois créer au moins une rubrique.',
 	'info_email_envoi' => 'Adresse email d’envoi (optionnel)',
 	'info_email_envoi_txt' => 'Indique ici l’adresse à utiliser pour envoyer les emails (à défaut, l’adresse destinataire sera utilisée comme adresse d’envoi) :',
-	'info_email_webmestre' => 'Adresse e-mail du webmestre',
+	'info_email_webmestre' => 'Adresse e-mail du webmestre', # MODIF
 	'info_envoi_email_automatique' => 'Envoi de mails automatique',
 	'info_envoyer_maintenant' => 'Envoyer maintenant',
 	'info_etape_suivante' => 'Passer à l’étape suivante',
@@ -315,14 +315,14 @@ return [
 	'info_facilite_suivi_activite' => 'Afin de faciliter le suivi de l’activité
 		éditoriale du site, SPIP peut faire parvenir par mail, par exemple
 		à une mailing-list des rédacteurs, l’annonce des demandes de
-		publication et des validations d’articles. Indiquer une ou plusieurs adresses, séparées par des virgules.',
+		publication et des validations d’articles. Indiquer une ou plusieurs adresses, séparées par des virgules.', # MODIF
 	'info_fichiers_authent' => 'Fichiers d’authentification « .htpasswd »',
-	'info_forums_abo_invites' => 'Ton site comporte des forums sur abonnement ; les visiteurs sont donc invités à s’enregistrer sur le site public.',
+	'info_forums_abo_invites' => 'Ton site comporte des forums sur abonnement ; les visiteurs sont donc invités à s’enregistrer sur le site public.', # MODIF
 	'info_gauche_auteurs' => 'Tu trouveras ici tous les auteurs du site.
- Leur statut est indiqué par la couleur de leur icone (administrateur = vert ; rédacteur = jaune).',
+ Leur statut est indiqué par la couleur de leur icone (administrateur = vert ; rédacteur = jaune).', # MODIF
 	'info_gauche_auteurs_exterieurs' => 'Les auteurs extérieurs, sans accès au site, sont indiqués par une icone bleue ;
 		les auteurs effacés par une icone grise.',
-	'info_gauche_messagerie' => 'La messagerie te permet d’échanger des messages entre rédacteurs, de conserver des pense-bêtes (pour ton usage personnel) ou d’afficher des annonces sur la page d’accueil de l’espace privé (si tu es administrateur).',
+	'info_gauche_messagerie' => 'La messagerie te permet d’échanger des messages entre rédacteurs, de conserver des pense-bêtes (pour ton usage personnel) ou d’afficher des annonces sur la page d’accueil de l’espace privé (si tu es administrateur).', # MODIF
 	'info_gauche_statistiques_referers' => 'Cette page présente la liste des <i>referers</i>, c’est-à-dire des sites contenant des liens menant vers ton propre site, uniquement pour hier et aujourd’hui : cette liste est remise à zéro toutes les 24 heures.',
 	'info_gauche_visiteurs_enregistres' => 'Tu trouveras ici les visiteurs enregistrés
 	dans l’espace public du site (forums sur abonnement).',
@@ -337,7 +337,7 @@ return [
 	'info_images_auto' => 'Images calculées automatiquement',
 	'info_informations_personnelles' => 'Informations personnelles',
 	'info_inscription' => 'Inscription le',
-	'info_inscription_automatique' => 'Inscription automatique de nouveaux rédacteurs',
+	'info_inscription_automatique' => 'Inscription automatique de nouveaux rédacteurs', # MODIF
 	'info_jeu_caractere' => 'Jeu de caractères du site',
 	'info_jours' => 'jours',
 	'info_laisser_champs_vides' => 'laisser ces champs vides)',
@@ -345,7 +345,7 @@ return [
 	'info_ldap_ok' => 'L’authentification LDAP est installée.',
 	'info_lien_hypertexte' => 'Lien hypertexte :',
 	'info_liste_nouveautes_envoyee' => 'La liste des nouveautés a été envoyée',
-	'info_liste_redacteurs_connectes' => 'Liste des rédacteurs connectés',
+	'info_liste_redacteurs_connectes' => 'Liste des rédacteurs connectés', # MODIF
 	'info_login_existant' => 'Ce login existe déjà.',
 	'info_login_trop_court' => 'Login trop court.',
 	'info_login_trop_court_car_pluriel' => 'Le login doit contenir au moins @nb@ caractères.',
@@ -369,7 +369,7 @@ return [
 	'info_moyenne' => 'moyenne :',
 	'info_multi_cet_article' => 'Langue de cet article :',
 	'info_multi_langues_choisies' => 'Sélectionne ci-après les langues à disposition des rédacteurs de ton site.
-		Les langues déjà utilisées dans ton site (affichées en premier) ne peuvent pas être désactivées.',
+		Les langues déjà utilisées dans ton site (affichées en premier) ne peuvent pas être désactivées.', # MODIF
 	'info_multi_objets' => '@objets@ : activer le menu de langue',
 	'info_multi_secteurs' => '... seulement pour les rubriques situées à la racine ?',
 	'info_nb_articles' => '@nb@ articles',
@@ -396,8 +396,8 @@ return [
 	'info_nouvelle_traduction' => 'Nouvelle traduction :',
 	'info_numero_article' => 'ARTICLE NUMÉRO :',
 	'info_obligatoire_02' => '(obligatoire)',
-	'info_option_accepter_visiteurs' => 'Accepter l’inscription de visiteurs du site public',
-	'info_option_ne_pas_accepter_visiteurs' => 'Refuser l’inscription des visiteurs',
+	'info_option_accepter_visiteurs' => 'Accepter l’inscription de visiteurs du site public', # MODIF
+	'info_option_ne_pas_accepter_visiteurs' => 'Refuser l’inscription des visiteurs', # MODIF
 	'info_options_avancees' => 'OPTIONS AVANCÉES',
 	'info_ou' => 'ou...',
 	'info_page_interdite' => 'Page interdite',
@@ -415,7 +415,7 @@ return [
 	'info_post_scriptum' => 'Post-Scriptum',
 	'info_post_scriptum_2' => 'Post-scriptum :',
 	'info_pour' => 'pour',
-	'info_preview_texte' => 'Il est possible de prévisualiser le site comme si tous les articles et les brèves (ayant au moins le statut « proposé ») étaient publiés. Cette possibilité doit-elle être ouverte aux administrateurs seulement, à tous les rédacteurs, ou à personne ?',
+	'info_preview_texte' => 'Il est possible de prévisualiser le site comme si tous les articles et les brèves (ayant au moins le statut « proposé ») étaient publiés. Cette possibilité doit-elle être ouverte aux administrateurs seulement, à tous les rédacteurs, ou à personne ?', # MODIF
 	'info_procedez_par_etape' => 'procéde étape par étape',
 	'info_procedure_maj_version' => 'la procédure de mise à jour doit être lancée afin d’adapter
 	la base de données à la nouvelle version de SPIP.',
@@ -423,7 +423,7 @@ return [
 	'info_ps' => 'P.-S.',
 	'info_publier' => 'publier',
 	'info_publies' => 'Tes articles publiés en ligne',
-	'info_question_accepter_visiteurs' => 'Si les squelettes de ton site prévoient l’enregistrement de visiteurs sans accès à l’espace privé, active l’option ci-dessous :',
+	'info_question_accepter_visiteurs' => 'Si les squelettes de ton site prévoient l’enregistrement de visiteurs sans accès à l’espace privé, active l’option ci-dessous :', # MODIF
 	'info_question_inscription_nouveaux_redacteurs' => 'Acceptes-tu les inscriptions de nouveaux rédacteurs à
   partir du site public ? Si tu acceptes, les visiteurs pourront s’inscrire
   depuis un formulaire automatisé et accéderont alors à l’espace privé pour
@@ -432,7 +432,7 @@ return [
   leur fournissant leurs codes d’accès au site privé. Certains
   hébergeurs désactivent l’envoi de mails depuis leurs
   serveurs : dans ce cas, l’inscription automatique est
-  impossible.</div>',
+  impossible.</div>', # MODIF
 	'info_qui_edite' => '@nom_auteur_modif@ a travaillé sur ce contenu il y a @date_diff@ minutes',
 	'info_racine_site' => 'Racine du site',
 	'info_recharger_page' => 'Recharger cette page dans quelques instants.',
@@ -449,7 +449,7 @@ return [
 	'info_refuses' => 'Tes articles refusés',
 	'info_reglage_ldap' => 'Options : <b>Réglage de l’importation LDAP</b>',
 	'info_renvoi_article' => '<b>Redirection.</b> Cet article renvoie à la page :',
-	'info_reserve_admin' => 'Seuls les administrateurs peuvent modifier cette adresse.',
+	'info_reserve_admin' => 'Seuls les administrateurs peuvent modifier cette adresse.', # MODIF
 	'info_restreindre_rubrique' => 'Restreindre la gestion à la rubrique :',
 	'info_resultat_recherche' => 'Résultats de la recherche :',
 	'info_rubriques' => 'Rubriques',
@@ -468,14 +468,14 @@ return [
 	'info_sites_proxy' => 'Utiliser un proxy',
 	'info_sites_trouves' => 'Sites trouvés',
 	'info_sous_titre' => 'Soustitre :',
-	'info_statut_administrateur' => 'Administrateur',
+	'info_statut_administrateur' => 'Administrateur', # MODIF
 	'info_statut_auteur' => 'Statut de cet auteur :',
 	'info_statut_auteur_2' => 'Je suis',
 	'info_statut_auteur_a_confirmer' => 'Inscription à confirmer',
 	'info_statut_auteur_autre' => 'Autre statut :',
 	'info_statut_redacteur' => 'Rédacteur',
-	'info_statut_utilisateurs_1' => 'Statut par défaut des utilisateurs importés',
-	'info_statut_utilisateurs_2' => 'Choisis le statut qui est attribué aux personnes présentes dans l’annuaire LDAP lorsqu’elles se connectent pour la première fois. Tu pourras par la suite modifier cette valeur pour chaque auteur au cas par cas.',
+	'info_statut_utilisateurs_1' => 'Statut par défaut des utilisateurs importés', # MODIF
+	'info_statut_utilisateurs_2' => 'Choisis le statut qui est attribué aux personnes présentes dans l’annuaire LDAP lorsqu’elles se connectent pour la première fois. Tu pourras par la suite modifier cette valeur pour chaque auteur au cas par cas.', # MODIF
 	'info_suivi_activite' => 'Suivi de l’activité éditoriale',
 	'info_surtitre' => 'Surtitre :',
 	'info_syndication_integrale_1' => 'Ton site propose des fichiers de syndication (voir « <a href="@url@">@titre@</a> »).',
@@ -521,7 +521,7 @@ dans une couleur qui indique leur état :',
 	'info_visiteur_2' => 'du site public',
 	'info_visiteurs' => 'Visiteurs',
 	'info_visiteurs_02' => 'Visiteurs du site public',
-	'info_webmestre_forces' => 'Les webmestres sont actuellement définis dans <tt>@file_options@</tt>.',
+	'info_webmestre_forces' => 'Les webmestres sont actuellement définis dans <tt>@file_options@</tt>.', # MODIF
 	'install_adresse_base_hebergeur' => 'Adresse de la base de données attribuée par l’hébergeur',
 	'install_connect_ok' => 'La nouvelle base a bien été déclarée sous le nom de serveur @connect@.',
 	'install_echec_annonce' => 'L’installation va probablement échouer, ou aboutir à un site non fonctionnel...',
@@ -550,10 +550,10 @@ dans une couleur qui indique leur état :',
 	'intitule_licence' => 'Licence',
 	'item_accepter_inscriptions' => 'Accepter les inscriptions',
 	'item_activer_messages_avertissement' => 'Activer les messages d’avertissement',
-	'item_administrateur_2' => 'administrateur',
+	'item_administrateur_2' => 'administrateur', # MODIF
 	'item_afficher_calendrier' => 'Afficher dans le calendrier',
 	'item_autoriser_syndication_integrale' => 'Diffuser l’intégralité des articles dans les fichiers de syndication',
-	'item_choix_administrateurs' => 'les administrateurs',
+	'item_choix_administrateurs' => 'les administrateurs', # MODIF
 	'item_choix_generation_miniature' => 'Générer automatiquement les miniatures des images.',
 	'item_choix_non_generation_miniature' => 'Ne pas générer de miniatures des images.',
 	'item_choix_redacteurs' => 'les rédacteurs',
@@ -758,15 +758,15 @@ dans une couleur qui indique leur état :',
 	'texte_acces_ldap_anonyme_1' => 'Certains serveurs LDAP n’acceptent aucun accès anonyme. Dans ce cas il faut spécifier un identifiant d’accès initial afin de pouvoir ensuite rechercher des informations dans l’annuaire. Dans la plupart des cas néanmoins, les champs suivants pourront être laissés vides.',
 	'texte_admin_effacer_01' => 'Cette commande efface <i>tout</i> le contenu de la base de données,
 y compris <i>tous</i> les accès rédacteurs et administrateurs. Après l’avoir exécutée, tu devras lancer la
-réinstallation de SPIP pour recréer une nouvelle base ainsi qu’un premier accès administrateur.',
+réinstallation de SPIP pour recréer une nouvelle base ainsi qu’un premier accès administrateur.', # MODIF
 	'texte_adresse_annuaire_1' => '(Si ton annuaire est installé sur la même machine que ce site Web, il s’agit probablement de « localhost ».)',
 	'texte_ajout_auteur' => 'L’auteur suivant a été ajouté à l’article :',
-	'texte_annuaire_ldap_1' => 'Si tu as accès à un annuaire (LDAP), tu peux l’utiliser pour importer automatiquement des utilisateurs sous SPIP.',
+	'texte_annuaire_ldap_1' => 'Si tu as accès à un annuaire (LDAP), tu peux l’utiliser pour importer automatiquement des utilisateurs sous SPIP.', # MODIF
 	'texte_article_statut' => 'Cet article est :',
 	'texte_article_virtuel' => 'Article virtuel',
 	'texte_article_virtuel_reference' => '<b>Article virtuel :</b> article référencé dans ton site SPIP, mais redirigé vers une autre URL. Pour supprimer la redirection, efface l’URL ci-dessus.',
 	'texte_aucun_resultat_auteur' => 'Aucun résultat pour "@cherche_auteur@"',
-	'texte_auteur_messagerie' => 'Ce site peut t’indiquer en permanence la liste des rédacteurs connectés, ce qui te permet d’échanger des messages en direct. Tu peux décider de ne pas apparaître dans cette liste (tu es « invisible » pour les autres utilisateurs).',
+	'texte_auteur_messagerie' => 'Ce site peut t’indiquer en permanence la liste des rédacteurs connectés, ce qui te permet d’échanger des messages en direct. Tu peux décider de ne pas apparaître dans cette liste (tu es « invisible » pour les autres utilisateurs).', # MODIF
 	'texte_auteurs' => 'LES AUTEURS',
 	'texte_choix_base_1' => 'Choisis ta base :',
 	'texte_choix_base_2' => 'Le serveur SQL contient plusieurs bases de données.',
@@ -798,7 +798,7 @@ réinstallation de SPIP pour recréer une nouvelle base ainsi qu’un premier ac
 	'texte_enrichir_mise_a_jour' => 'Tu peux enrichir la mise en page de ton texte en utilisant des « raccourcis typographiques ».',
 	'texte_fichier_authent' => '<b>SPIP doit-il créer les fichiers spéciaux <tt>.htpasswd</tt> et <tt>.htpasswd-admin</tt> dans le répertoire @dossier@ ?</b>
 <p>Ces fichiers peuvent te servir à restreindre l’accès aux auteurs et administrateurs en d’autres endroits de ton site (programme externe de statistiques, par exemple).</p>
-<p>Si tu n’en as pas l’utilité, tu peux laisser cette option à sa valeur par défaut (pas de création des fichiers).</p>',
+<p>Si tu n’en as pas l’utilité, tu peux laisser cette option à sa valeur par défaut (pas de création des fichiers).</p>', # MODIF
 	'texte_informations_personnelles_1' => 'Le système va maintenant te créer un accès personnalisé au site.',
 	'texte_informations_personnelles_2' => '(Note : il s’agit d’une réinstallation, si ton accès marche toujours tu peux',
 	'texte_introductif_article' => '(Texte introductif de l’article.)',
@@ -808,7 +808,7 @@ réinstallation de SPIP pour recréer une nouvelle base ainsi qu’un premier ac
 	'texte_login_ldap_1' => '(Laisser vide pour un accès anonyme, ou entrer le chemin complet, par exemple « <tt>uid=dupont, ou=users, dc=mon-domaine, dc=com</tt> ».)',
 	'texte_login_precaution' => 'Attention ! Ceci est le login sous lequel tu es connecté actuellement.
 	Utilise ce formulaire avec précaution...',
-	'texte_messagerie_agenda' => 'Une messagerie permet aux rédacteurs du site de communiquer entre eux directement dans l’espace privé du site. Elle est associée à un agenda.',
+	'texte_messagerie_agenda' => 'Une messagerie permet aux rédacteurs du site de communiquer entre eux directement dans l’espace privé du site. Elle est associée à un agenda.', # MODIF
 	'texte_mise_a_niveau_base_1' => 'Tu viens de mettre à jour les fichiers SPIP.
 	Il faut maintenant mettre à niveau la base de données
 	du site.',
@@ -872,7 +872,7 @@ as fait des modifications importantes de graphisme ou de structure du site.',
 		afin d’éviter les modifications simultanées.
 		Cette option est désactivée par défaut
 		afin d’éviter d’afficher des messages d’avertissement
-		intempestifs.',
+		intempestifs.', # MODIF
 	'texte_vide' => 'vide',
 	'texte_vider_cache' => 'Vider le cache',
 	'titre_ajouter_un_auteur' => 'Ajouter un auteur',
