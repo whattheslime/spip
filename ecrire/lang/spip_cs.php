@@ -220,7 +220,7 @@ na webu "@nom_site_spip@" (@adresse_login@):', # MODIF
 	'form_pet_signature_pasprise' => 'Váš podpis nebyl zohledněn.',
 	'form_prop_confirmer_envoi' => 'Potvrďte odeslání',
 	'form_prop_description' => 'Popis/poznámka',
-	'form_prop_enregistre' => 'Váš návrh byl zaregistrován. Po kontrole správci tohoto webu bude zvěřejněn online.',
+	'form_prop_enregistre' => 'Váš návrh byl zaregistrován. Po kontrole správci tohoto webu bude zvěřejněn online.', # MODIF
 	'form_prop_envoyer' => 'Odeslat zprávu',
 	'form_prop_indiquer_email' => 'Zadejte platnou elektronickou adresu',
 	'form_prop_indiquer_nom_site' => 'Zadejte název webu.',
@@ -300,7 +300,7 @@ na webu "@nom_site_spip@" (@adresse_login@):', # MODIF
 	'info_authentification_ftp' => 'Autentifikace (pomocí FTP).',
 	'info_breves_2' => 'novinky',
 	'info_connexion_refusee' => 'Spojení bylo odepřeno',
-	'info_contact_developpeur' => 'Kontaktujte vývojáře.',
+	'info_contact_developpeur' => 'Kontaktujte vývojáře.', # MODIF
 	'info_contenance' => 'Tyto stránky obsahují:',
 	'info_contribution' => 'příspěvky do diskusní skupiny', # MODIF
 	'info_copyright' => '@spip@ je freeware distribuovaný @lien_gpl@.',
@@ -334,7 +334,7 @@ na webu "@nom_site_spip@" (@adresse_login@):', # MODIF
 	'info_impossible_lire_page' => '<b>Chyba!</b> Stránku nelze číst <tt><html>@test_proxy@</html></tt> přes proxy bránu <tt>', # MODIF
 	'info_installation_systeme_publication' => 'Instalace publikačního systému ...',
 	'info_installer_documents' => 'Všechny dokumenty ve složce @upload@ lze nainstalovat automaticky.',
-	'info_installer_ftp' => 'Jako správce můžete instalovat (pomocí FTP) soubory do složky @upload@ a následně je odtamtud můžete přímo vybírat.',
+	'info_installer_ftp' => 'Jako správce můžete instalovat (pomocí FTP) soubory do složky @upload@ a následně je odtamtud můžete přímo vybírat.', # MODIF
 	'info_installer_images' => 'Obrázky lze instalovat ve formátu JPEG, GIF a PNG.',
 	'info_installer_images_dossier' => 'Nainstalujte obrázky do složky @upload@, abyste je odtamtud mohli vybírat.',
 	'info_interface_complete' => 'úplné rozhraní',
@@ -360,8 +360,8 @@ na webu "@nom_site_spip@" (@adresse_login@):', # MODIF
 	'info_multi_herit' => 'Výchozí jazyk',
 	'info_multi_langues_soulignees' => 'Jazyky <u>zobrazené podtrženě</u> mají přeloženo celé rozhraní. Pokue je zvolíte, bude automaticky přeložena celá řada položek veřejných stráneki(data, formuláře). U jazyků, které nejsou podtrženy, budou tyto položky zobrazeny v hlavním jazyce stránek.', # MODIF
 	'info_multilinguisme' => 'Vícejazyčné',
-	'info_nom_non_utilisateurs_connectes' => 'Vaše jméno není uvedeno na seznamu připojených uživatelů.',
-	'info_nom_utilisateurs_connectes' => 'Vaše jméno je uvedeno na seznamu připojených uživatelů.',
+	'info_nom_non_utilisateurs_connectes' => 'Vaše jméno není uvedeno na seznamu připojených uživatelů.', # MODIF
+	'info_nom_utilisateurs_connectes' => 'Vaše jméno je uvedeno na seznamu připojených uživatelů.', # MODIF
 	'info_nombre_en_ligne' => 'Aktuálně online:',
 	'info_non_resultat' => 'Źádné výsledky pro "@cherche_mot@"',
 	'info_non_utilisation_messagerie' => 'Nepoužíváte systém pro interní zasílání zpráv v rámci těchto stránek.',
@@ -480,16 +480,16 @@ na webu "@nom_site_spip@" (@adresse_login@):', # MODIF
 	'pass_choix_pass' => 'Zadejte nové heslo:',
 	'pass_erreur' => 'Chyba',
 	'pass_erreur_acces_refuse' => '<b>Chyba:</b> K těmto stránkám již nemáte přístup.',
-	'pass_erreur_code_inconnu' => '<b>Chyba:</b> Zadané kódy neodpovídají žádnému návštěvníkovi, který má k těmto stránkám přístup.',
+	'pass_erreur_code_inconnu' => '<b>Chyba:</b> Zadané kódy neodpovídají žádnému návštěvníkovi, který má k těmto stránkám přístup.', # MODIF
 	'pass_erreur_non_enregistre' => '<b>Chyba:</b> Adresa <tt>@email_oubli@</tt> není na těchto stránkách zaregistrována.',
 	'pass_erreur_non_valide' => '<b>Chyba:</b> Neplatný e-mail <tt>@email_oubli@</tt>!',
 	'pass_erreur_probleme_technique' => '<b>Chyba:</b> Z technických důvodů nebylo možné e-mail odeslat.',
 	'pass_espace_prive_bla' => 'Neveřejná oblast stránek je návštěvníkům
 přístupná po registraci. Jakmile se zaregistrujete,
 budete moci korigovat rozpracované články,
-předkládat články ke schválení a budete se moci účastnit diskusních skupin.',
+předkládat články ke schválení a budete se moci účastnit diskusních skupin.', # MODIF
 	'pass_forum_bla' => 'Požádali jste o účast v diskusní skupině,
-která je vyhrazena registrovaným uživatelům.',
+která je vyhrazena registrovaným uživatelům.', # MODIF
 	'pass_indiquez_cidessous' => 'Dále zadejte elektronickou adresu, pod kterou
 jste již zaregistrováni. Obdržíte
 e-mail, kde bude vysvětleno, jak
@@ -556,7 +556,7 @@ a znovu se ke stránkám připojíte.
   fungování webu. Měnit tato nastavení by měli jenom uživatelé, kteří dobře vědí,
  jak systém SPIP funguje. <br /><br /><b>Obecně
  platí, že s těmito stránkami by měl pracovat pouze hlavní správce vašeho webu.</b>', # MODIF
-	'texte_inc_meta_1' => 'Při pokusu o zápis do souboru  <code>@fichier@</code> došlo k systémové chybě. Jakožto správce webu',
+	'texte_inc_meta_1' => 'Při pokusu o zápis do souboru  <code>@fichier@</code> došlo k systémové chybě. Jakožto správce webu', # MODIF
 	'texte_inc_meta_2' => 'zkontrolujte oprávnění k zápisu ',
 	'texte_inc_meta_3' => 'do adresáře <code>@repertoire@</code>.',
 	'texte_statut_en_cours_redaction' => 'rozpracované úpravy',
@@ -568,7 +568,7 @@ a znovu se ke stránkám připojíte.
 	'titre_cadre_raccourcis' => 'KLÁVESOVÉ ZKRATKY:',
 	'titre_changer_couleur_interface' => 'Změna barvy rozhraní',
 	'titre_image_admin_article' => 'Máte možnost správy tohoto článku',
-	'titre_image_administrateur' => 'Správce',
+	'titre_image_administrateur' => 'Správce', # MODIF
 	'titre_image_aide' => 'Nápověda k položce',
 	'titre_image_auteur_supprime' => 'Autor odstraněn',
 	'titre_image_redacteur' => 'Redaktor bez přístupu',

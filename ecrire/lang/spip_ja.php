@@ -258,7 +258,7 @@ http://mysite.com、あるいは単純にこのサイトの記事番号を与え
 	'form_pet_signature_pasprise' => 'あなたの署名は無視されました。',
 	'form_prop_confirmer_envoi' => '送信します。',
 	'form_prop_description' => '説明/コメント',
-	'form_prop_enregistre' => 'ご提案は登録されており、当サイトの管理者による検証した上で公開されます。',
+	'form_prop_enregistre' => 'ご提案は登録されており、当サイトの管理者による検証した上で公開されます。', # MODIF
 	'form_prop_envoyer' => 'メッセージを送る',
 	'form_prop_indiquer_email' => '有効なメールアドレスを入力して下さい。',
 	'form_prop_indiquer_nom_site' => 'サイトの名前を入力して下さい。',
@@ -345,7 +345,7 @@ http://mysite.com、あるいは単純にこのサイトの記事番号を与え
 	'info_breves_nb' => 'ニュース@nb@件',
 	'info_breves_un' => 'ニュース 1 件',
 	'info_connexion_refusee' => '接続が拒否されました。',
-	'info_contact_developpeur' => '開発者と連絡して下さい。',
+	'info_contact_developpeur' => '開発者と連絡して下さい。', # MODIF
 	'info_contenance' => '当サイトの内容：',
 	'info_contribution' => '掲示板の投稿',
 	'info_copyright' => '@spip@は、@lien_gpl@で配布されるフリーソフトです。',
@@ -382,7 +382,7 @@ http://mysite.com、あるいは単純にこのサイトの記事番号を与え
 	'info_impossible_lire_page' => '<b>エラー！</b>プロキシ経由で<code><html>@test_proxy@</html></code>ページを読むことが出来ませんでした。',
 	'info_installation_systeme_publication' => '出版システムインストール…',
 	'info_installer_documents' => '@upload@フォルダーにあるすべてのファイルを自動的にインストール出来ます。',
-	'info_installer_ftp' => '管理者なら@upload@フォルダーに（FTPで）ファイルを置いておけば、後でここから直接そのファイルを選択できるようになります。',
+	'info_installer_ftp' => '管理者なら@upload@フォルダーに（FTPで）ファイルを置いておけば、後でここから直接そのファイルを選択できるようになります。', # MODIF
 	'info_installer_images' => 'JPEG、GIF、PNGフォーマットの画像をインストール出来ます。',
 	'info_installer_images_dossier' => '@upload@フォルダにインストールしたファイルをここで選択することが出来ます。',
 	'info_interface_complete' => '完全なインターフェース',
@@ -410,8 +410,8 @@ http://mysite.com、あるいは単純にこのサイトの記事番号を与え
 	'info_multi_herit' => 'デフォルト言語',
 	'info_multi_langues_soulignees' => '<u>下線が引かれている言語は</u> インターフェースが翻訳されています。その言語を選んだら、公開のサイトの多くの要素（日付、形式など）は自動的に翻訳されます。下線が引かれていない言語は、サイトのメイン言語で現れます。',
 	'info_multilinguisme' => '多言語',
-	'info_nom_non_utilisateurs_connectes' => 'お名前は接続しているユーザーのリストに現れない。',
-	'info_nom_utilisateurs_connectes' => 'お名前は接続しているユーザーのリストに現れる。',
+	'info_nom_non_utilisateurs_connectes' => 'お名前は接続しているユーザーのリストに現れない。', # MODIF
+	'info_nom_utilisateurs_connectes' => 'お名前は接続しているユーザーのリストに現れる。', # MODIF
 	'info_nombre_en_ligne' => '今オンライン:',
 	'info_non_resultat' => '「@cherche_mot@」に関する結果はありません。',
 	'info_non_utilisation_messagerie' => 'サイトの内部のメッセージ交換を使用していない。',
@@ -447,8 +447,8 @@ http://mysite.com、あるいは単純にこのサイトの記事番号を与え
 	'info_sites_un' => 'サイト１件',
 	'info_supprimer_vignette' => 'サムネイルを削除する',
 	'info_symbole_bleu' => '<b>青色</b>は、<b>メモ</b>、つまり個人的なメッセージを表します：',
-	'info_symbole_jaune' => '<b>黄色</b>は、<b>全著者向きの告知</b>を表します。つまり著者は皆読み、それに管理者は編集も出来ます。',
-	'info_symbole_vert' => '<b>緑色</b>は、サイトの<b>その他のユーザー</b>と交換されるメッセージを表します。',
+	'info_symbole_jaune' => '<b>黄色</b>は、<b>全著者向きの告知</b>を表します。つまり著者は皆読み、それに管理者は編集も出来ます。', # MODIF
+	'info_symbole_vert' => '<b>緑色</b>は、サイトの<b>その他のユーザー</b>と交換されるメッセージを表します。', # MODIF
 	'info_telecharger_nouveau_logo' => '新規ロゴをアップロードする：',
 	'info_telecharger_ordinateur' => '当コンピュータよりアップロードする：',
 	'info_tous_resultats_enregistres' => '［すべての結果は登録されます。］',
@@ -543,12 +543,12 @@ http://mysite.com、あるいは単純にこのサイトの記事番号を与え
 	'pass_choix_pass' => '新しいパスワードを決めてください：',
 	'pass_erreur' => 'エラー',
 	'pass_erreur_acces_refuse' => '<b>エラー：</b> もはや、このサイトへのアクセスが拒否されました。',
-	'pass_erreur_code_inconnu' => '<b>エラー：</b> このコードは、このサイトにアクセスするどの訪問者にも対応していません。',
+	'pass_erreur_code_inconnu' => '<b>エラー：</b> このコードは、このサイトにアクセスするどの訪問者にも対応していません。', # MODIF
 	'pass_erreur_non_enregistre' => '<b>エラー：</b> アドレス <tt>@email_oubli@</tt> は登録されていません。',
 	'pass_erreur_non_valide' => '<b>エラー：</b> そのアドレス<tt>@email_oubli@</tt> は有効ではありません。',
 	'pass_erreur_probleme_technique' => '<b>エラー：</b> このメールは、技術的な問題によって送信が出来ませんでした。',
-	'pass_espace_prive_bla' => '管理エリアは、登録済みの訪問者に開かれています。登録されたら、記事の閲覧、記事の投稿、フォーラムへの参加が可能になります。',
-	'pass_forum_bla' => '登録された訪問者用のフォーラムに介入させてもらうように願いました。',
+	'pass_espace_prive_bla' => '管理エリアは、登録済みの訪問者に開かれています。登録されたら、記事の閲覧、記事の投稿、フォーラムへの参加が可能になります。', # MODIF
+	'pass_forum_bla' => '登録された訪問者用のフォーラムに介入させてもらうように願いました。', # MODIF
 	'pass_indiquez_cidessous' => '登録されたメールアドレスを下に入力してください。アクセスが再び出来るように、取り扱い説明をメールで送信します。',
 	'pass_mail_passcookie' => '(自動メッセージ)サイト@nom_site_spip@(@adresse_site@)へのアクセスを取り戻すように、次のアドレスに行ってください：@sendcookie@。それで新しいパスワードを入力すると再接続ができます。', # MODIF
 	'pass_mot_oublie' => 'パスワードを忘れました。',
@@ -595,7 +595,7 @@ http://mysite.com、あるいは単純にこのサイトの記事番号を与え
 	'texte_inc_auth_2' => 'ブラウザを再起動した後、',
 	'texte_inc_auth_3' => 'もう一度接続をしてください。',
 	'texte_inc_config' => 'このページの変更は、サイトの作動に大きな影響を与えます。 SPIPの操作に慣れるまで設定を変更しないことをお勧めします。<br/>基本的には、これらのページの設定変更を管理者に任せておくことを強くお勧めします。',
-	'texte_inc_meta_1' => 'ファイル<code>@file@</ code>の書き込みながら、エラーが発生しました。',
+	'texte_inc_meta_1' => 'ファイル<code>@file@</ code>の書き込みながら、エラーが発生しました。', # MODIF
 	'texte_inc_meta_2' => 'サイト管理者として、',
 	'texte_inc_meta_3' => '<code>@directory@</ code>フォルダの書き込み権を確認してください。',
 	'texte_statut_en_cours_redaction' => '編集中',
@@ -607,7 +607,7 @@ http://mysite.com、あるいは単純にこのサイトの記事番号を与え
 	'titre_cadre_raccourcis' => 'ショートカット：',
 	'titre_changer_couleur_interface' => 'インターフェースの色を変える',
 	'titre_image_admin_article' => 'この記事を管理することになりました。',
-	'titre_image_administrateur' => '管理者',
+	'titre_image_administrateur' => '管理者', # MODIF
 	'titre_image_aide' => 'この項目に関するのヘルプ',
 	'titre_image_auteur_supprime' => '著者は削除された',
 	'titre_image_redacteur' => 'アクセス無しの編集者',

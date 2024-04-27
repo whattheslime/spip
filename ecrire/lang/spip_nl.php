@@ -271,7 +271,7 @@ de website "@nom_site_spip@" (@adresse_login@):', # MODIF
 	'form_pet_signature_pasprise' => 'Met je naam wordt geen rekening gehouden.',
 	'form_prop_confirmer_envoi' => 'Bevestig de verzending',
 	'form_prop_description' => 'Beschrijving / commentaar',
-	'form_prop_enregistre' => 'Je voorstel is geregistreerd. Het zal online verschijnen nadat de beheerder van de website het heeft goedgekeurd.',
+	'form_prop_enregistre' => 'Je voorstel is geregistreerd. Het zal online verschijnen nadat de beheerder van de website het heeft goedgekeurd.', # MODIF
 	'form_prop_envoyer' => 'Een bericht verzenden',
 	'form_prop_indiquer_email' => 'Geef een geldig e-mailadres op',
 	'form_prop_indiquer_nom_site' => 'Vul de naam van de website in',
@@ -358,7 +358,7 @@ de website "@nom_site_spip@" (@adresse_login@):', # MODIF
 	'info_breves_nb' => '@nb@ nieuwsflitsen',
 	'info_breves_un' => '1 nieuwsflits',
 	'info_connexion_refusee' => 'Verbinding geweigerd',
-	'info_contact_developpeur' => 'Gelieve een ontwikkelaar te contacteren.',
+	'info_contact_developpeur' => 'Gelieve een ontwikkelaar te contacteren.', # MODIF
 	'info_contenance' => 'Deze site bevat:',
 	'info_contribution' => 'bijdragen',
 	'info_copyright' => '@spip@ is vrije software @lien_gpl@ distributie.',
@@ -395,7 +395,7 @@ de website "@nom_site_spip@" (@adresse_login@):', # MODIF
 	'info_impossible_lire_page' => '<b>Fout!</b> Kan de pagina <tt><html>@test_proxy@</html></tt> niet lezen via de proxy',
 	'info_installation_systeme_publication' => 'Installatie van het publicatiesysteem...',
 	'info_installer_documents' => 'Je kan alle documenten in de map @upload@ automatisch toevoegen.',
-	'info_installer_ftp' => 'Een beheerder kan (via FTP) bestanden in de map @upload@ bewaren en ze vervolgens hier meteen selecteren.',
+	'info_installer_ftp' => 'Een beheerder kan (via FTP) bestanden in de map @upload@ bewaren en ze vervolgens hier meteen selecteren.', # MODIF
 	'info_installer_images' => 'Afbeelden kunnen toegevoegd worden in JPG, GIF en PNG formaat.',
 	'info_installer_images_dossier' => 'Afbeeldingen bewaren in de map @upload@ om ze hier te selecteren.',
 	'info_interface_complete' => 'Volledige interface',
@@ -423,8 +423,8 @@ de website "@nom_site_spip@" (@adresse_login@):', # MODIF
 	'info_multi_herit' => 'Standaardtaal',
 	'info_multi_langues_soulignees' => 'In de <u>onderstreepte talen</u> zijn de teksten van de interface gedeeltelijk of volledig vertaald. Als je een van deze talen kiest, worden heel wat gegevens (data, formulieren) van de publieke site automatisch vertaald. Voor de niet-onderstreepte talen zullen deze gegevens in de hoofdtaal van de site verschijnen.',
 	'info_multilinguisme' => 'Meertaligheid',
-	'info_nom_non_utilisateurs_connectes' => 'Je naam komt niet in de lijst van de redacteuren die online zijn.',
-	'info_nom_utilisateurs_connectes' => 'Je naam komt in de lijst van de redacteuren die online zijn.',
+	'info_nom_non_utilisateurs_connectes' => 'Je naam komt niet in de lijst van de redacteuren die online zijn.', # MODIF
+	'info_nom_utilisateurs_connectes' => 'Je naam komt in de lijst van de redacteuren die online zijn.', # MODIF
 	'info_nombre_en_ligne' => 'Momenteel online:',
 	'info_non_resultat' => 'Geen enkel resultaat voor "@cherche_mot@"',
 	'info_non_utilisation_messagerie' => 'Je gebruikt het interne berichtensysteem van deze site niet.',
@@ -463,8 +463,8 @@ de website "@nom_site_spip@" (@adresse_login@):', # MODIF
 	'info_sites_un' => '1 website',
 	'info_supprimer_vignette' => 'De mini-afbeelding verwijderen',
 	'info_symbole_bleu' => 'Het <b>blauwe</b> symbool wijst op een <b>memo</b>: dat wil zeggen een bericht voor persoonlijk gebruik.',
-	'info_symbole_jaune' => 'Het <b>gele</b> symbool wijst op een <b>aankondiging voor alle redacteurs</b>: te wijzigen door alle beheerders en zichtbaar voor alle redacteurs.',
-	'info_symbole_vert' => 'Het <b>groene</b> symbool wijst op <b>uitgewisselde berichten met andere gebruikers</b> van deze site.',
+	'info_symbole_jaune' => 'Het <b>gele</b> symbool wijst op een <b>aankondiging voor alle redacteurs</b>: te wijzigen door alle beheerders en zichtbaar voor alle redacteurs.', # MODIF
+	'info_symbole_vert' => 'Het <b>groene</b> symbool wijst op <b>uitgewisselde berichten met andere gebruikers</b> van deze site.', # MODIF
 	'info_telecharger_nouveau_logo' => 'Een nieuw logo opladen:',
 	'info_telecharger_ordinateur' => 'Opladen vanaf je computer:',
 	'info_tous_resultats_enregistres' => '[alle resultaten zijn opgenomen]',
@@ -563,14 +563,14 @@ de website "@nom_site_spip@" (@adresse_login@):', # MODIF
 	'pass_choix_pass' => 'Kies je nieuwe wachtwoord:',
 	'pass_erreur' => 'Fout',
 	'pass_erreur_acces_refuse' => '<b>Fout:</b> je hebt geen toegang meer tot deze site.',
-	'pass_erreur_code_inconnu' => '<b>Fout:</b> deze code komt niet overeen met die van een bezoeker met toegangsrechten tot deze site.',
+	'pass_erreur_code_inconnu' => '<b>Fout:</b> deze code komt niet overeen met die van een bezoeker met toegangsrechten tot deze site.', # MODIF
 	'pass_erreur_non_enregistre' => '<b>Fout:</b> het adres <tt>@email_oubli@</tt> is niet geregistreerd op deze site.',
 	'pass_erreur_non_valide' => '<b>Fout:</b> het e-mailadres <tt>@email_oubli@</tt> is niet geldig!',
 	'pass_erreur_probleme_technique' => '<b>Fout:</b> de e-mail kon niet worden verzonden wegens een technisch probleem.',
 	'pass_espace_prive_bla' => 'Het privé gedeelte van deze site is alleen
 toegankelijk voor bezoekers na registratie. Eenmaal geregistreerd,
-kan je artikelen ter redactie inzien, zelf artikelen toevoegen en deelnemen aan de forums.',
-	'pass_forum_bla' => 'Je hebt gevraagd om deel te nemen aan een forum dat gereserveerd is voor geregistreerde gebruikers.',
+kan je artikelen ter redactie inzien, zelf artikelen toevoegen en deelnemen aan de forums.', # MODIF
+	'pass_forum_bla' => 'Je hebt gevraagd om deel te nemen aan een forum dat gereserveerd is voor geregistreerde gebruikers.', # MODIF
 	'pass_indiquez_cidessous' => 'Vul hieronder het e-mailadres in waarmee je je eerder hebt geregistreerd. Je
 zult een e-mail ontvangen met uitleg over hoe je opnieuw toegang kan krijgen tot de site.',
 	'pass_mail_passcookie' => '(dit is een automatisch gegenereerd bericht)
@@ -638,7 +638,7 @@ opnieuw verbinding maken met de site
  je aan hier niets aan te wijzigen tot je voldoende bekend
  bent met het functioneren van het SPIP systeem.
  <br /><br /><b>Laat het beheer van deze pagina over aan de webmaster van de site.</b>',
-	'texte_inc_meta_1' => 'Het systeem merkt een fout bij het wegschrijven van het bestand <code>@fichier@</code>. Gelieve, als beheerder van de site,',
+	'texte_inc_meta_1' => 'Het systeem merkt een fout bij het wegschrijven van het bestand <code>@fichier@</code>. Gelieve, als beheerder van de site,', # MODIF
 	'texte_inc_meta_2' => 'de schrijfrechten na te kijken',
 	'texte_inc_meta_3' => 'op de map <code>@repertoire@</code>.',
 	'texte_statut_en_cours_redaction' => 'in redactie',
@@ -650,7 +650,7 @@ opnieuw verbinding maken met de site
 	'titre_cadre_raccourcis' => 'SNELKOPPELINGEN:',
 	'titre_changer_couleur_interface' => 'Kleur van de interface wijzigen',
 	'titre_image_admin_article' => 'Je kan dit artikel beheren',
-	'titre_image_administrateur' => 'Beheerder',
+	'titre_image_administrateur' => 'Beheerder', # MODIF
 	'titre_image_aide' => 'Help over dit onderwerp',
 	'titre_image_auteur_supprime' => 'Auteur gewist',
 	'titre_image_redacteur' => 'Redacteur zonder toegang',

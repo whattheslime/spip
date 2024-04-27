@@ -271,7 +271,7 @@ Zure helbide berria baieztatzeko ondoko helbidea bisita ezazu.
 	'form_pet_signature_pasprise' => 'Zure sinadura ez da kontuan hartua izan.',
 	'form_prop_confirmer_envoi' => 'Bidalketa baieztatu',
 	'form_prop_description' => 'Deskripzio/oharra',
-	'form_prop_enregistre' => 'Zure proposamena erregistraturik dago, gune honen arduradunek onartu ondoren agerian linean izango da.',
+	'form_prop_enregistre' => 'Zure proposamena erregistraturik dago, gune honen arduradunek onartu ondoren agerian linean izango da.', # MODIF
 	'form_prop_envoyer' => 'Mezu bat igorri',
 	'form_prop_indiquer_email' => 'Posta elektronikoaren helbide onargarri bat adieraz ezazu',
 	'form_prop_indiquer_nom_site' => 'Gunearen izena aipatu',
@@ -360,7 +360,7 @@ Zure helbide berria baieztatzeko ondoko helbidea bisita ezazu.
 	'info_breves_nb' => '@nb@ berri-labur',
 	'info_breves_un' => 'Berri-labur 1',
 	'info_connexion_refusee' => 'Konexioa errefusatu da',
-	'info_contact_developpeur' => 'Programatzaile batekin kontaktuan jarri behar duzu.',
+	'info_contact_developpeur' => 'Programatzaile batekin kontaktuan jarri behar duzu.', # MODIF
 	'info_contenance' => 'Gune honek duena :',
 	'info_contribution' => 'foroko ekarpenak',
 	'info_copyright' => '@spip@ software librea da, @lien_gpl@ banatua.',
@@ -397,7 +397,7 @@ Zure helbide berria baieztatzeko ondoko helbidea bisita ezazu.
 	'info_impossible_lire_page' => 'Errorea ! Ezinezkoa @test_proxy@ orrialdea irakurtzea"proxy"-aren bidez ',
 	'info_installation_systeme_publication' => 'Argitarapen sistemaren instalazioa...',
 	'info_installer_documents' => '@upload@ direktorioan dauden dokumentu guztiak automatikoki instalatzen ahal dituzu.',
-	'info_installer_ftp' => 'Administrazio eskubideekin, @upload@ karpetan fitxategiak instala ditzakezu (FTP bidez), ondotik zuzenean hemen hautatu ahal izateko.',
+	'info_installer_ftp' => 'Administrazio eskubideekin, @upload@ karpetan fitxategiak instala ditzakezu (FTP bidez), ondotik zuzenean hemen hautatu ahal izateko.', # MODIF
 	'info_installer_images' => 'JPEG, GIF eta PNG formatudun irudiak ezar ditzakezu.',
 	'info_installer_images_dossier' => 'Irudiak instalatu @upload@ karpetan gero zuzenean hemen hautatu ahal izateko.',
 	'info_interface_complete' => 'Interfaze osoa',
@@ -427,8 +427,8 @@ Zure helbide berria baieztatzeko ondoko helbidea bisita ezazu.
 Hizkuntzak horiek hautatzen badituzu, eremu publikoko elementu batzuk (datak, inprimakiak) automatikoki itzuliko dira.
 Azpimarratu gabeko hizkuntzetarako, elementuak gunearen hizkuntza nagusian agertuko dira.',
 	'info_multilinguisme' => 'Hizkuntzaniztasuna',
-	'info_nom_non_utilisateurs_connectes' => 'Zure izena ez da ageri konektatutako pertsonen zerrendan',
-	'info_nom_utilisateurs_connectes' => 'Zure izena konektatuta dauden pertsonen zerrendan ageri da.',
+	'info_nom_non_utilisateurs_connectes' => 'Zure izena ez da ageri konektatutako pertsonen zerrendan', # MODIF
+	'info_nom_utilisateurs_connectes' => 'Zure izena konektatuta dauden pertsonen zerrendan ageri da.', # MODIF
 	'info_nombre_en_ligne' => 'Une honetan linean :',
 	'info_non_resultat' => '"@cherche_mot@" bilaketak ez du emaitzik eman',
 	'info_non_utilisation_messagerie' => 'Ez erabili barne-mezularitza.',
@@ -467,8 +467,8 @@ Azpimarratu gabeko hizkuntzetarako, elementuak gunearen hizkuntza nagusian agert
 	'info_sites_un' => 'Gune 1',
 	'info_supprimer_vignette' => 'miniatura hau kendu',
 	'info_symbole_bleu' => 'Sinbolo <b>URDIN</b>ak oroigarri pertsonal bat adierazten du, hau da zerbait gogoratzeko modu bat.',
-	'info_symbole_jaune' => 'Sinbolo <b>hori</b>ak denentzako iragarpen bat adierazten du: gunearen administratzaileek bakarrik alda dezakete, eta idazlari guztiek ikus dezakete.',
-	'info_symbole_vert' => 'Sinbolo <b>berdeak</b> guneko beste pertsonekin trukatutako mezuak adierazten ditu.',
+	'info_symbole_jaune' => 'Sinbolo <b>hori</b>ak denentzako iragarpen bat adierazten du: gunearen administratzaileek bakarrik alda dezakete, eta idazlari guztiek ikus dezakete.', # MODIF
+	'info_symbole_vert' => 'Sinbolo <b>berdeak</b> guneko beste pertsonekin trukatutako mezuak adierazten ditu.', # MODIF
 	'info_telecharger_nouveau_logo' => 'Logo berri bat igo:',
 	'info_telecharger_ordinateur' => 'Zure ordenagailutik igo :',
 	'info_tous_resultats_enregistres' => '[emaitza guztiak grabatuak dira]',
@@ -573,13 +573,13 @@ Segurtasun arazoengatik, garrantzitsua da zure webgunea eguneratua izatea.',
 	'pass_choix_pass' => 'pasahitz berria aukeratu:',
 	'pass_erreur' => 'Errorea',
 	'pass_erreur_acces_refuse' => 'Errorea: dagoeneko ez duzu gune honetan sartzeko baimenik.',
-	'pass_erreur_code_inconnu' => '<b>Errorea :</b> kode hau ez dagokio gune honetan sartu ahal den bisitari bakar bati ere.',
+	'pass_erreur_code_inconnu' => '<b>Errorea :</b> kode hau ez dagokio gune honetan sartu ahal den bisitari bakar bati ere.', # MODIF
 	'pass_erreur_non_enregistre' => '<b>Errorea :</b> @email_oubli@ helbidea ez dago erregistratuta gune honetan.',
 	'pass_erreur_non_valide' => '<b>Errorea :</b> @email_oubli@ helbide hau ez da zuzena.',
 	'pass_erreur_probleme_technique' => '<b>Errorea :</b> arazo tekniko bat dela eta, mezua ezin izanda bidali.',
 	'pass_espace_prive_bla' => 'Gune honetako eremu pribatua zabalik dago, inskripzio baten bitartez. 
-Behin erregistratuta, idazteko bidean dauden artikuluak kontsultatu, artikuluak proposatu eta foro guztietan parte hartzen ahalko duzu.',
-	'pass_forum_bla' => 'pertsona erregistratuei mugatutako foro batean parte hartzea eskatu duzu.',
+Behin erregistratuta, idazteko bidean dauden artikuluak kontsultatu, artikuluak proposatu eta foro guztietan parte hartzen ahalko duzu.', # MODIF
+	'pass_forum_bla' => 'pertsona erregistratuei mugatutako foro batean parte hartzea eskatu duzu.', # MODIF
 	'pass_indiquez_cidessous' => 'Lehen erregistratuta zinen helbide elektronikoa adierzai.
 Zure sarbidea berreskuratzeko jarraitu behar duzun prozesua adierazten duen mezu bat jasoko duzu.',
 	'pass_mail_passcookie' => '(hau mezu automatikoa da)
@@ -641,7 +641,7 @@ Saiatu berriro beste login batekin.',
 	'texte_inc_config' => 'Orrialde hauetan egindako aldaketek zure gunearen funtzionamenduan eragin nabaria dute.
 SPIP sistemaren funtzionamendura ohituta ez zauden bitartean, parte ez hartzea gomendatzen dizugu.
 Modu orokorrean, orrialde hauetako kudeaketa zure guneko web arduradun nagusiari uztea biziki gomendatzen da.',
-	'texte_inc_meta_1' => 'Sistemak errore bat aurkitu du <code>@fichier@</code> artxiboa idaztean. Webgunearen administratzailea zarenez,',
+	'texte_inc_meta_1' => 'Sistemak errore bat aurkitu du <code>@fichier@</code> artxiboa idaztean. Webgunearen administratzailea zarenez,', # MODIF
 	'texte_inc_meta_2' => 'idazteko baimenak egiaztatu barik',
 	'texte_inc_meta_3' => '<code>@repertoire@</code> direktorioarena',
 	'texte_statut_en_cours_redaction' => 'Idazteko bidean',
@@ -653,7 +653,7 @@ Modu orokorrean, orrialde hauetako kudeaketa zure guneko web arduradun nagusiari
 	'titre_cadre_raccourcis' => 'Lasterbideak',
 	'titre_changer_couleur_interface' => 'Interfaz-eko kolorea aldatu',
 	'titre_image_admin_article' => 'Artikulu hau kudea dezakezu',
-	'titre_image_administrateur' => 'Administratzailea',
+	'titre_image_administrateur' => 'Administratzailea', # MODIF
 	'titre_image_aide' => 'Osagai honi buruzko laguntza',
 	'titre_image_auteur_supprime' => 'Egile ezabatuta',
 	'titre_image_redacteur' => 'Baimenik gabeko idazlaria',

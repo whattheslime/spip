@@ -221,7 +221,7 @@ return [
 	'form_pet_signature_pasprise' => 'Az Ön aláírása nincs figyelembe véve.',
 	'form_prop_confirmer_envoi' => 'Erősítse meg a küldést',
 	'form_prop_description' => 'Leírás/hozzászólás',
-	'form_prop_enregistre' => 'A javaslatát felvettük. Nyilvánosan akkor fog megjelenni, miután e honlap adminisztrátorai jóváhagyták.',
+	'form_prop_enregistre' => 'A javaslatát felvettük. Nyilvánosan akkor fog megjelenni, miután e honlap adminisztrátorai jóváhagyták.', # MODIF
 	'form_prop_envoyer' => 'Üzenetküldés',
 	'form_prop_indiquer_email' => 'Kérjük, érvényes e-mail címet adjon meg',
 	'form_prop_indiquer_nom_site' => 'Kérjük, adja meg a honlap nevét.',
@@ -301,7 +301,7 @@ return [
 	'info_authentification_ftp' => 'Autentifikálás (FTP-vel).',
 	'info_breves_2' => 'hírek',
 	'info_connexion_refusee' => 'Csatlakozás tagadva',
-	'info_contact_developpeur' => 'Keressen egy fejlesztőt.',
+	'info_contact_developpeur' => 'Keressen egy fejlesztőt.', # MODIF
 	'info_contenance' => 'A honlap tartalmazza :',
 	'info_contribution' => 'Fórumi hozzászólások', # MODIF
 	'info_copyright' => '@spip@ egy szabad szoftver, letölthető: @lien_gpl@.',
@@ -335,7 +335,7 @@ return [
 	'info_impossible_lire_page' => '<b>Hiba !</b> Az opdal nem olvasható  <tt><html>@test_proxy@</html></tt> a proxyn keresztül <tt>', # MODIF
 	'info_installation_systeme_publication' => 'A publikálási rendszer telepítése...',
 	'info_installer_documents' => 'Automatikusan telepítheti az összes dokumentumot, amit tartalmaz az @upload@ nevű mappa.',
-	'info_installer_ftp' => 'Mint adminisztrátor, az @upload@ mappába másolhat (FTP-vel) fájlokat, és később közvetlenül kijelölheti őket itt.',
+	'info_installer_ftp' => 'Mint adminisztrátor, az @upload@ mappába másolhat (FTP-vel) fájlokat, és később közvetlenül kijelölheti őket itt.', # MODIF
 	'info_installer_images' => 'JPEG, GIF és PNG tipusú képek telepíthetők.',
 	'info_installer_images_dossier' => 'Képeket másolni a @upload@ mappába ahhoz, hogy itt lehessen kijelölni.',
 	'info_interface_complete' => 'teljes felület',
@@ -361,8 +361,8 @@ return [
 	'info_multi_herit' => 'Alapértelmezett nyelv',
 	'info_multi_langues_soulignees' => 'Az <u>aláhuzott nyelveknek</u> van fordítása a felület összes szövegére. Ha ezeket jelöli ki, akkor a nyilvános honlap számos elemei (dátumok, űrlapok) lesznek automatikusan lefordítva. A nem aláhúzott nyelvekre pedig azok az elemek a honlap alapnyelvén fognak megjelenni.', # MODIF
 	'info_multilinguisme' => 'Többnyelvűség',
-	'info_nom_non_utilisateurs_connectes' => 'Az Ön neve nem szerepel a jelenleg csatlakozott felhasználók listájában',
-	'info_nom_utilisateurs_connectes' => 'Az Ön neve szerepel a jelenleg csatlakozott felhasználók listájában.',
+	'info_nom_non_utilisateurs_connectes' => 'Az Ön neve nem szerepel a jelenleg csatlakozott felhasználók listájában', # MODIF
+	'info_nom_utilisateurs_connectes' => 'Az Ön neve szerepel a jelenleg csatlakozott felhasználók listájában.', # MODIF
 	'info_nombre_en_ligne' => 'Jelenleg a vonalon :',
 	'info_non_resultat' => 'Nincs találat erre "@cherche_mot@"',
 	'info_non_utilisation_messagerie' => 'Nem használja a honlap belső levelezését.',
@@ -486,15 +486,15 @@ return [
 	'pass_choix_pass' => 'Legyen szíves választani az új jelszavát :',
 	'pass_erreur' => 'Hiba',
 	'pass_erreur_acces_refuse' => '<b>Hiba :</b> már nincs hozzáférése arra a honlapra.',
-	'pass_erreur_code_inconnu' => '<b>Hiba :</b> ez a kód a honlap egyik engedélyezett felhasználójanak sem felel meg.',
+	'pass_erreur_code_inconnu' => '<b>Hiba :</b> ez a kód a honlap egyik engedélyezett felhasználójanak sem felel meg.', # MODIF
 	'pass_erreur_non_enregistre' => '<b>Hiba :</b> a cím <tt>@email_oubli@</tt> nincs felvéve ezen a honlapon.',
 	'pass_erreur_non_valide' => '<b>Hiba :</b> ez az email <tt>@email_oubli@</tt> érvénytelen !',
 	'pass_erreur_probleme_technique' => '<b>Hiba :</b> műszaki okból, az email nem küldhető el.',
 	'pass_espace_prive_bla' => 'A privát rész nyított a
   látógatók részére, miután beíratkoztak. Ha be van iratkozva,
  akkor megtekintheti a szerkesztés alatti cikkeket,
- javasolhat cikkeket és részt vehet a fórumokban.',
-	'pass_forum_bla' => 'Hozzászólást kért olyan fórumon, ami a beiratkozott látógatóknak van fenntartva.',
+ javasolhat cikkeket és részt vehet a fórumokban.', # MODIF
+	'pass_forum_bla' => 'Hozzászólást kért olyan fórumon, ami a beiratkozott látógatóknak van fenntartva.', # MODIF
 	'pass_indiquez_cidessous' => 'Lejjebb jelezze az email címet, amivel beíratkozott az imént. Olyan
    emailt fog kapni, ami mutatja az eljárást az Ön hozzáférésének visszaszerzésére.',
 	'pass_mail_passcookie' => '(Ez egy automatikus üzenet)
@@ -561,7 +561,7 @@ Próbáljon', # MODIF
  honlap működését. Javasoljuk, hogy ne  avatkozzon bele, amig Ön nem járátos
  az SPIP működésében. <br /><br /><b>Általában nagyon tanácsos bízni ezeket az oldalakat
  a honlap fő webmesterére.</b>', # MODIF
-	'texte_inc_meta_1' => 'A rendszer hibát észlelt a <code>@fichier@</code> fájl írásákor. Mint honlap adminisztrátor, legyen szíves',
+	'texte_inc_meta_1' => 'A rendszer hibát észlelt a <code>@fichier@</code> fájl írásákor. Mint honlap adminisztrátor, legyen szíves', # MODIF
 	'texte_inc_meta_2' => 'ellenőrizni a irási jogokat',
 	'texte_inc_meta_3' => 'a <code>@repertoire@</code> nevű mappán.',
 	'texte_statut_en_cours_redaction' => 'szerkesztés alatt',
@@ -573,7 +573,7 @@ Próbáljon', # MODIF
 	'titre_cadre_raccourcis' => 'GYORS HIVATKOZÁSOK :',
 	'titre_changer_couleur_interface' => 'Felület színe változtatása',
 	'titre_image_admin_article' => 'Ezt a cikket Ön adminisztrálhatja',
-	'titre_image_administrateur' => 'Adminisztrátor',
+	'titre_image_administrateur' => 'Adminisztrátor', # MODIF
 	'titre_image_aide' => 'Súgó erről a részről',
 	'titre_image_auteur_supprime' => 'Szerző törölve',
 	'titre_image_redacteur' => 'Hozzáférés nélküli szerző',

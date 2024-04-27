@@ -222,7 +222,7 @@ return [
 	'form_pet_signature_pasprise' => 'Tanda tangan anda tidak dihiraukan.',
 	'form_prop_confirmer_envoi' => 'Konfirmasi dispatch',
 	'form_prop_description' => 'Deskripsi/komentar',
-	'form_prop_enregistre' => 'Proposal anda telah disimpan, dan akan muncul secara online setelah divalidasi oleh administrator situs ini.',
+	'form_prop_enregistre' => 'Proposal anda telah disimpan, dan akan muncul secara online setelah divalidasi oleh administrator situs ini.', # MODIF
 	'form_prop_envoyer' => 'Kirim sebuah pesan',
 	'form_prop_indiquer_email' => 'Silakan masukkan alamat e-mail yang sah',
 	'form_prop_indiquer_nom_site' => 'Silakan masukkan nama situs.',
@@ -302,7 +302,7 @@ return [
 	'info_authentification_ftp' => 'Ototentikasi (dengan FTP).',
 	'info_breves_2' => 'berita',
 	'info_connexion_refusee' => 'Koneksi ditolak',
-	'info_contact_developpeur' => 'Silakan hubungi pengembang.',
+	'info_contact_developpeur' => 'Silakan hubungi pengembang.', # MODIF
 	'info_contenance' => 'Situs ini berisikan:',
 	'info_contribution' => 'kontribusi forum', # MODIF
 	'info_copyright' => '@spip@ adalah piranti lunak bebas yang didistribusi @lien_gpl@.',
@@ -336,7 +336,7 @@ return [
 	'info_impossible_lire_page' => '<b>Kesalahan!</b> Halaman tidak dapat dibaca <tt><html>@test_proxy@</html></tt> melalui proxy <tt>',
 	'info_installation_systeme_publication' => 'Instalasi sistem publikasi ...',
 	'info_installer_documents' => 'Anda dapat menginstal secara otomatis semua dokumen yang berada dalam direktori @upload@.',
-	'info_installer_ftp' => 'Sebagai administrator, anda dapat menginstal (dengan FTP) berkas-berkas dalam direktori @upload@ agar dapat memilih berkas langsung dari sini nantinya.',
+	'info_installer_ftp' => 'Sebagai administrator, anda dapat menginstal (dengan FTP) berkas-berkas dalam direktori @upload@ agar dapat memilih berkas langsung dari sini nantinya.', # MODIF
 	'info_installer_images' => 'Anda dapat menginstal gambar dengan format JPEG, GIF atau PNG.',
 	'info_installer_images_dossier' => 'Instal gambar dalam direktori @upload@ agar dapat dipilih di sini.',
 	'info_interface_complete' => 'tatap muka lengkap',
@@ -362,8 +362,8 @@ return [
 	'info_multi_herit' => 'Bahasa standar',
 	'info_multi_langues_soulignees' => '<u>Bahasa yang digarisbawahi</u> menyediakan terjemahan untuk semua teks tatap muka. Jika anda memilih bahasa-bahasa ini, sebagian besar elemen situs umum (tanggal-tanggal, formulir-formulir) akan diterjemahkan secara otomatis. Untuk bahasa yang tidak bergaris bawah, elemen-elemen tersebut akan muncul dalam bahasa utama situs.', # MODIF
 	'info_multilinguisme' => 'Multi bahasa',
-	'info_nom_non_utilisateurs_connectes' => 'Nama anda tidak muncul di daftar pengguna yang terkoneksi.',
-	'info_nom_utilisateurs_connectes' => 'Nama anda muncul dalam daftar pengguna yang terkoneksi.',
+	'info_nom_non_utilisateurs_connectes' => 'Nama anda tidak muncul di daftar pengguna yang terkoneksi.', # MODIF
+	'info_nom_utilisateurs_connectes' => 'Nama anda muncul dalam daftar pengguna yang terkoneksi.', # MODIF
 	'info_nombre_en_ligne' => 'Online sekarang:',
 	'info_non_resultat' => 'Tidak ada hasil untuk "@cherche_mot@"',
 	'info_non_utilisation_messagerie' => 'Anda tidak sedang menggunakan sistem pesan pribadi situs ini.',
@@ -395,8 +395,8 @@ return [
 	'info_selectionner_fichier_2' => 'Pilih sebuah berkas:',
 	'info_supprimer_vignette' => 'hapus gambar kecil',
 	'info_symbole_bleu' => 'Simbol <b>biru</B> menandakan sebuah <b>memo</B>: yakni sebuah pesan untuk penggunaan pribadi anda.',
-	'info_symbole_jaune' => 'Simbol <b>kuning</B> menandakan sebuah <b>pengumuman untuk semua edtor</B>: dapat diedit oleh semua administrator, dan muncul pada semua editor.',
-	'info_symbole_vert' => 'Simbol <b>hijau</B> menandakan <b>pesan yang diperoleh dari pengguna lainnya</B> di situs.',
+	'info_symbole_jaune' => 'Simbol <b>kuning</B> menandakan sebuah <b>pengumuman untuk semua edtor</B>: dapat diedit oleh semua administrator, dan muncul pada semua editor.', # MODIF
+	'info_symbole_vert' => 'Simbol <b>hijau</B> menandakan <b>pesan yang diperoleh dari pengguna lainnya</B> di situs.', # MODIF
 	'info_telecharger_nouveau_logo' => 'Unggah logo baru:',
 	'info_telecharger_ordinateur' => 'Unggah dari komputer anda:',
 	'info_tous_resultats_enregistres' => '[semua hasil disimpan]',
@@ -485,16 +485,16 @@ return [
 	'pass_choix_pass' => 'Silakan pilih kata sandi baru anda:',
 	'pass_erreur' => 'Kesalahan',
 	'pass_erreur_acces_refuse' => '<b>Kesalahan:</b> anda tidak memiliki akses ke situs ini lagi.',
-	'pass_erreur_code_inconnu' => '<b>Kesalahan:</b> kode ini tidak sesuai dengan pengunjung yang memiliki hak akses ke situs ini.',
+	'pass_erreur_code_inconnu' => '<b>Kesalahan:</b> kode ini tidak sesuai dengan pengunjung yang memiliki hak akses ke situs ini.', # MODIF
 	'pass_erreur_non_enregistre' => '<b>Kesalahan:</b> alamat <tt>@email_oubli@</tt> tidak terdaftar di situs ini.',
 	'pass_erreur_non_valide' => '<b>Kesalahan:</b> e-mail <tt>@email_oubli@</tt> tidak sah!',
 	'pass_erreur_probleme_technique' => '<b>Kesalahan:</b> e-mail ini tidak dapat dikirim karena persoalan teknis.',
 	'pass_espace_prive_bla' => 'Area pribadi situs ini terbuka untuk
 pengunjung setelah registrasi. Sekali terdaftar,
 anda dapat mengulas artikel yang sedang diproses,
-mengirim artikel dan berpartisipasi dalam semua forum.',
+mengirim artikel dan berpartisipasi dalam semua forum.', # MODIF
 	'pass_forum_bla' => 'Anda memohon untuk berpartisipasi dalam forum
-yang diperuntukkan untuk pengunjung terdaftar.',
+yang diperuntukkan untuk pengunjung terdaftar.', # MODIF
 	'pass_indiquez_cidessous' => 'Masukkan di bawah alamat e-mail yang anda
 gunakan mendaftar dahulu. Anda akan
 menerima sebuah e-mail yang menjelaskan bagaimana anda
@@ -566,7 +566,7 @@ dan mengakses situs kembali.
 	telah mengenal sistem SPIP dengan baik. <P align="justify"><b>Biasanya,
 	pekerjaan ini dapat anda serahkan kepada webmaster yang tentunya
 	lebih paham SPIP daripada anda.</b>',
-	'texte_inc_meta_1' => 'Sistem mengalami kesulitan ketika mencoba melakukan penulisan terhadap berkas <code>@fichier@</code>. Sebagai administrator situs, silakan',
+	'texte_inc_meta_1' => 'Sistem mengalami kesulitan ketika mencoba melakukan penulisan terhadap berkas <code>@fichier@</code>. Sebagai administrator situs, silakan', # MODIF
 	'texte_inc_meta_2' => 'verifikasi hak akses tulis',
 	'texte_inc_meta_3' => 'direktori <code>@repertoire@</code>.',
 	'texte_statut_en_cours_redaction' => 'pengeditan dalam proses',
@@ -578,7 +578,7 @@ dan mengakses situs kembali.
 	'titre_cadre_raccourcis' => 'JALAN PINTAS:',
 	'titre_changer_couleur_interface' => 'Mengubah warna tatap muka',
 	'titre_image_admin_article' => 'Anda dapat mengelola artikel ini',
-	'titre_image_administrateur' => 'Administrator',
+	'titre_image_administrateur' => 'Administrator', # MODIF
 	'titre_image_aide' => 'Bantuan pada item ini',
 	'titre_image_auteur_supprime' => 'Penulis dihapus',
 	'titre_image_redacteur' => 'Editor tanpa akses',

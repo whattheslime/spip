@@ -267,7 +267,7 @@ Kako biste potvrdili svoju novu adresu, potrebno je samo pristupiti niže navede
 	'form_pet_signature_pasprise' => 'Vaš potpis je ignoriran.',
 	'form_prop_confirmer_envoi' => 'Potvrditi odašiljanje',
 	'form_prop_description' => 'opis / komentar',
-	'form_prop_enregistre' => 'Vaš prijedlog je upamćen, i bit će objavljen nakon što ga provjeri administrator ovih web stranica.',
+	'form_prop_enregistre' => 'Vaš prijedlog je upamćen, i bit će objavljen nakon što ga provjeri administrator ovih web stranica.', # MODIF
 	'form_prop_envoyer' => 'poslati poruku',
 	'form_prop_indiquer_email' => 'Unesite ispravnu mail adresu',
 	'form_prop_indiquer_nom_site' => 'Unesite ime web stranica.',
@@ -352,7 +352,7 @@ Kako biste potvrdili svoju novu adresu, potrebno je samo pristupiti niže navede
 	'info_breves_nb' => '@nb@ kratke vijesti',
 	'info_breves_un' => '1 kratke vijesti',
 	'info_connexion_refusee' => 'priključenje odbijeno',
-	'info_contact_developpeur' => 'Stupite u vezu s programerom.',
+	'info_contact_developpeur' => 'Stupite u vezu s programerom.', # MODIF
 	'info_contenance' => 'Ove stranice sadrže:',
 	'info_contribution' => 'forumski prilozi',
 	'info_copyright' => '@spip@ je besplatan softver u smislu @lien_gpl@.',
@@ -389,7 +389,7 @@ Kako biste potvrdili svoju novu adresu, potrebno je samo pristupiti niže navede
 	'info_impossible_lire_page' => '<b>Greška!</b> Stranica <tt><html>@test_proxy@</html></tt> nije mogla biti pročitana preko proxy - računala',
 	'info_installation_systeme_publication' => 'instalacija redakcijskog sistema...',
 	'info_installer_documents' => 'Možete automatski instalirati sve dokumente koji se nalaze u direktoriju @upload@.',
-	'info_installer_ftp' => 'Kao administrator, možete (pomoću FTP) snimiti datoteke u direktorij @upload@, da biste ih poslije ovdje birali.',
+	'info_installer_ftp' => 'Kao administrator, možete (pomoću FTP) snimiti datoteke u direktorij @upload@, da biste ih poslije ovdje birali.', # MODIF
 	'info_installer_images' => 'Možete instalirati slike u formatima JPEG, GIF ili PNG.',
 	'info_installer_images_dossier' => 'Snimite slike u direktorij @upload@ da bi ste ih poslije ovdje mogli odabrati.',
 	'info_interface_complete' => 'cjelokupni interface',
@@ -417,8 +417,8 @@ Kako biste potvrdili svoju novu adresu, potrebno je samo pristupiti niže navede
 	'info_multi_herit' => 'uobičajeni jezik',
 	'info_multi_langues_soulignees' => '<u>Podvučeni jezici</u> sadrže potpun prijevod svih djelova sučelja. Odaberete li jedan od tih jezika, mnogi dijelovi javnog dijela weba će biti pisani tim jezikom (datumi, obrasci). Pri odabiru jezika koji nisu podvučeni će ti dijelovi biti pisani na glavnom jeziku weba.',
 	'info_multilinguisme' => 'višejezično',
-	'info_nom_non_utilisateurs_connectes' => 'Vaše ime se ne pojavljuje u listi spojenih korisnika.',
-	'info_nom_utilisateurs_connectes' => 'Vaše ime se pojavljuje u listi spojenih korisnika.',
+	'info_nom_non_utilisateurs_connectes' => 'Vaše ime se ne pojavljuje u listi spojenih korisnika.', # MODIF
+	'info_nom_utilisateurs_connectes' => 'Vaše ime se pojavljuje u listi spojenih korisnika.', # MODIF
 	'info_nombre_en_ligne' => 'trenutačno spojeni korisnici:',
 	'info_non_resultat' => 'nema rezultata za "@cherche_mot@"',
 	'info_non_utilisation_messagerie' => 'Vi ne koristite interne poruke na ovim web stranicama.',
@@ -456,8 +456,8 @@ Kako biste potvrdili svoju novu adresu, potrebno je samo pristupiti niže navede
 	'info_sites_un' => '1 web stranica',
 	'info_supprimer_vignette' => 'obrisati sličicu',
 	'info_symbole_bleu' => 'Simbol <b>plave boje</b> označava <b>bilješku</b>: tojest poruku za Vašu osobnu upotrebu.',
-	'info_symbole_jaune' => 'Simbol <b>žute boje</b> označava <b>objavu svim autorima</b>: mogu je mijenjati svi administratori, a vidljiva je za sve autore.',
-	'info_symbole_vert' => 'Simbol <b>zelene boje</b> označava <b>poruke razmjenjene sa drugim korisnicima</b> web sajta.',
+	'info_symbole_jaune' => 'Simbol <b>žute boje</b> označava <b>objavu svim autorima</b>: mogu je mijenjati svi administratori, a vidljiva je za sve autore.', # MODIF
+	'info_symbole_vert' => 'Simbol <b>zelene boje</b> označava <b>poruke razmjenjene sa drugim korisnicima</b> web sajta.', # MODIF
 	'info_telecharger_nouveau_logo' => 'otpremiti novi logotip:',
 	'info_telecharger_ordinateur' => 'otpremiti sa Vašeg računala:',
 	'info_tous_resultats_enregistres' => '[svi rezultati su obuhvaćeni]',
@@ -550,15 +550,15 @@ Kako biste potvrdili svoju novu adresu, potrebno je samo pristupiti niže navede
 	'pass_choix_pass' => 'unesite Vašu novu lozinku:',
 	'pass_erreur' => 'greška',
 	'pass_erreur_acces_refuse' => '<b>greška:</b> Vi nemate više pristup ovim web stranicama.',
-	'pass_erreur_code_inconnu' => '<b>greška:</b> ova oznaka ne odgovara niti jednom korisniku ovih web stranica.',
+	'pass_erreur_code_inconnu' => '<b>greška:</b> ova oznaka ne odgovara niti jednom korisniku ovih web stranica.', # MODIF
 	'pass_erreur_non_enregistre' => '<b>greška:</b> adresa <tt>@email_oubli@</tt> nije registrirana na ovim web stranicama.',
 	'pass_erreur_non_valide' => '<b>greška:</b> mail adresa <tt>@email_oubli@</tt> je neispravna!',
 	'pass_erreur_probleme_technique' => '<b>greška:</b> ovaj mail nije mogao biti poslan zbog tehničkih poteškoća.',
 	'pass_espace_prive_bla' => 'Redakcijski sistem je otvoren samo za registrirane korisnike.
 Kad se registrirate, možete pregledati članke u obradi,
-pisati nove članke i sudjelovati u svim forumima.',
+pisati nove članke i sudjelovati u svim forumima.', # MODIF
 	'pass_forum_bla' => 'Zatražili ste sudjelovanje u forumu koji je
-rezerviran samo za registrirane korisnike.',
+rezerviran samo za registrirane korisnike.', # MODIF
 	'pass_indiquez_cidessous' => 'Unesite dolje mail adresu sa kojom se ste
 ranije registrirali. Nakon toga ćete
 dobiti mail sa uputama kako da ponovo
@@ -624,7 +624,7 @@ Nakon toga provjerite da li se slike pojavljuju u člancima.',
 	'texte_inc_auth_3' => ', nakon što ste zatvorili i ponovno pokrenuli Vaš browser.',
 	'texte_inc_config' => 'Izmjene u slijedećim podešavanjima imaju veliki utjecaj na funkcioniranje ovih web stranica. Savjetujemo Vam da ništa ne mijenjate, osim ako dobro poznajete ustrojstvo programa
 SPIP. <br /><br /><b>Uopćeno rečeno, izričito vam savjetujemo da izmjene prepustite glavnom administratoru web stranica.</b>',
-	'texte_inc_meta_1' => 'Dogodila se greška prilikom pokušaja pisanja datoteke <code>@fichier@</code>. Ako ste Vi administrator, molim da',
+	'texte_inc_meta_1' => 'Dogodila se greška prilikom pokušaja pisanja datoteke <code>@fichier@</code>. Ako ste Vi administrator, molim da', # MODIF
 	'texte_inc_meta_2' => 'dozvole pristupa',
 	'texte_inc_meta_3' => 'za direktorij <code>@repertoire@</code>.',
 	'texte_statut_en_cours_redaction' => 'obrada u toku',
@@ -636,7 +636,7 @@ SPIP. <br /><br /><b>Uopćeno rečeno, izričito vam savjetujemo da izmjene prep
 	'titre_cadre_raccourcis' => 'PREČACI:',
 	'titre_changer_couleur_interface' => 'promjena boje interface-a',
 	'titre_image_admin_article' => 'Vi možete upravljati ovim člankom',
-	'titre_image_administrateur' => 'administrator',
+	'titre_image_administrateur' => 'administrator', # MODIF
 	'titre_image_aide' => 'pomoć za ovu stavku',
 	'titre_image_auteur_supprime' => 'autor obrisan',
 	'titre_image_redacteur' => 'autor bez pristupa',

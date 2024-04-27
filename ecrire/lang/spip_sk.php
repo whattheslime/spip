@@ -271,7 +271,7 @@ stránku "@nom_site_spip@" (@adresse_login@):', # MODIF
 	'form_pet_signature_pasprise' => 'Váš podpis bol ignorovaný.',
 	'form_prop_confirmer_envoi' => 'Potvrdiť odoslanie',
 	'form_prop_description' => 'Opis/komentár',
-	'form_prop_enregistre' => 'Váš návrh bol uložený. Online sa zobrazí po schválení administrátorom tejto stránky.',
+	'form_prop_enregistre' => 'Váš návrh bol uložený. Online sa zobrazí po schválení administrátorom tejto stránky.', # MODIF
 	'form_prop_envoyer' => 'Poslať správu',
 	'form_prop_indiquer_email' => 'Prosím, zadajte platnú e-mailovú adresu',
 	'form_prop_indiquer_nom_site' => 'Prosím, zadajte názov stránky.',
@@ -358,7 +358,7 @@ stránku "@nom_site_spip@" (@adresse_login@):', # MODIF
 	'info_breves_nb' => '@nb@ noviniek',
 	'info_breves_un' => '1 novinka',
 	'info_connexion_refusee' => 'Pripojenie zamietnuté',
-	'info_contact_developpeur' => 'Prosím, kontaktujte vývojára.',
+	'info_contact_developpeur' => 'Prosím, kontaktujte vývojára.', # MODIF
 	'info_contenance' => 'Táto stránka obsahuje:',
 	'info_contribution' => 'príspevky',
 	'info_copyright' => '@spip@ je slobodný softvér distribuovaný @lien_gpl@',
@@ -395,7 +395,7 @@ stránku "@nom_site_spip@" (@adresse_login@):', # MODIF
 	'info_impossible_lire_page' => '<b>Chyba!</b> Stránka <tt><html>@test_proxy@</html></tt> sa nedá zobraziť cez proxy',
 	'info_installation_systeme_publication' => 'Inštaluje sa publikačný systém...',
 	'info_installer_documents' => 'Všetky dokumenty v priečinku @upload@ si môžete nainštalovať automaticky.',
-	'info_installer_ftp' => 'Ako administrátor môžete (cez FTP) nainštalovať súbory do priečinka @upload@, aby ste ich potom mohli vyberať priamo odtiaľ.',
+	'info_installer_ftp' => 'Ako administrátor môžete (cez FTP) nainštalovať súbory do priečinka @upload@, aby ste ich potom mohli vyberať priamo odtiaľ.', # MODIF
 	'info_installer_images' => 'Môžete si nainštalovať obrázky formátov JPEG, GIF a PNG.',
 	'info_installer_images_dossier' => 'Obrázky nainštalujte do priečinka @upload@, ak ich odtiaľ chcete vyberať.',
 	'info_interface_complete' => 'Úplné rozhranie',
@@ -423,8 +423,8 @@ stránku "@nom_site_spip@" (@adresse_login@):', # MODIF
 	'info_multi_herit' => 'Predvolený jazyk',
 	'info_multi_langues_soulignees' => '<u>Podčiarknuté jazyky</u> poskytujú preklad všetkých alebo takmer všetkých textov rozhrania. Ak si vyberiete niektorý z týchto jazykov, mnohé prvky verejne prístupnej stránky (dátumy, formuláre) sa preložia automaticky. Ak si vyberiete niektorý z jazykov, ktoré nie sú podčiarknuté, tieto prvky sa zobrazia v hlavnom jazyku stránky.',
 	'info_multilinguisme' => 'Viacjazyčnosť',
-	'info_nom_non_utilisateurs_connectes' => 'Vaše meno sa nezobrazuje v zozname používateľov online.',
-	'info_nom_utilisateurs_connectes' => 'Vaše meno sa zobrazuje v zozname používateľov online.',
+	'info_nom_non_utilisateurs_connectes' => 'Vaše meno sa nezobrazuje v zozname používateľov online.', # MODIF
+	'info_nom_utilisateurs_connectes' => 'Vaše meno sa zobrazuje v zozname používateľov online.', # MODIF
 	'info_nombre_en_ligne' => 'Prihlásení:',
 	'info_non_resultat' => 'Žiadne výsledky pre reťazec "@cherche_mot@"',
 	'info_non_utilisation_messagerie' => 'Nepoužívate súkromný odkazovať na tejto stránke.',
@@ -462,8 +462,8 @@ stránku "@nom_site_spip@" (@adresse_login@):', # MODIF
 	'info_sites_un' => '1 stránka',
 	'info_supprimer_vignette' => 'Odstrániť miniatúru',
 	'info_symbole_bleu' => '<b>Modrá</b> označuje <b>pripo­­mien­ku,</b> čiže odkaz pre vašu osobnú potrebu.',
-	'info_symbole_jaune' => '<b>Žltá</b> označuje <b>oznam všetkým redaktorom:</b> môžu ho upravovať všetci administrátori a uvidia ho všetci redaktori.',
-	'info_symbole_vert' => ' <b>Zelená</b> označuje <b>správy, ktoré ste si vymenili s ostatnými používateľmi</b> stránky.',
+	'info_symbole_jaune' => '<b>Žltá</b> označuje <b>oznam všetkým redaktorom:</b> môžu ho upravovať všetci administrátori a uvidia ho všetci redaktori.', # MODIF
+	'info_symbole_vert' => ' <b>Zelená</b> označuje <b>správy, ktoré ste si vymenili s ostatnými používateľmi</b> stránky.', # MODIF
 	'info_telecharger_nouveau_logo' => 'Nahrať nové logo:',
 	'info_telecharger_ordinateur' => 'Nahrať z vášho počítača:',
 	'info_tous_resultats_enregistres' => '[všetky výsledky sa ukladajú]',
@@ -561,16 +561,16 @@ stránku "@nom_site_spip@" (@adresse_login@):', # MODIF
 	'pass_choix_pass' => 'Prosím, zvoľte si nové heslo:',
 	'pass_erreur' => 'Chyba',
 	'pass_erreur_acces_refuse' => '<b>Chyba:</b> k tejto stránke už viac nemáte prístup.',
-	'pass_erreur_code_inconnu' => '<b>Chyba:</b> tento kód sa nezhoduje s kódom žiadneho návštevníka s prístupovými právami na túto stránku.',
+	'pass_erreur_code_inconnu' => '<b>Chyba:</b> tento kód sa nezhoduje s kódom žiadneho návštevníka s prístupovými právami na túto stránku.', # MODIF
 	'pass_erreur_non_enregistre' => '<b>Chyba:</b> adresa <tt>@email_oubli@</tt> nie je zaregistrovaná na tejto stránke.',
 	'pass_erreur_non_valide' => '<b>Chyba:</b> e-mail <tt>@email_oubli@</tt> nie je platný!',
 	'pass_erreur_probleme_technique' => '<b>Chyba:</b> tento e-mail sa nepodarilo poslať kvôli technickému problému.',
 	'pass_espace_prive_bla' => 'Súkromná zóna tejto stránky je
  pre návštevníkov prístupná po registrácii. Keď sa zaregistrujete,
 budete si môcť prezerať články, ktoré sa
- upravujú, posielať články a diskutovať na diskusných fórach.',
+ upravujú, posielať články a diskutovať na diskusných fórach.', # MODIF
 	'pass_forum_bla' => 'Požiadali ste o účasť v diskusnom fóre
-vyhradenom pre zaregistrovaných návštevníkov.',
+vyhradenom pre zaregistrovaných návštevníkov.', # MODIF
 	'pass_indiquez_cidessous' => 'Zadajte e-mailovú adresu, s ktorou ste sa
  predtým zaregistrovali.
 Dostanete e-mail, ktorý vám vysvetlí, ako si
@@ -644,7 +644,7 @@ a znova sa prihlásiť na stránku.
  ako SPIP funguje. <br /><br /><b>
  Vo všeobecnosti sa veľmi odporúča
  nechať tieto zmeny na hlavného webmastera stránky.</b>',
-	'texte_inc_meta_1' => 'Pri pokuse o zápis do súboru <code>@fichier@</code> nastala chyba. Ako administrátor, prosím,',
+	'texte_inc_meta_1' => 'Pri pokuse o zápis do súboru <code>@fichier@</code> nastala chyba. Ako administrátor, prosím,', # MODIF
 	'texte_inc_meta_2' => 'skontrolujte právo zápisu',
 	'texte_inc_meta_3' => 'u priečinka <code>@repertoire@.</code>',
 	'texte_statut_en_cours_redaction' => 'upravuje sa',
@@ -656,7 +656,7 @@ a znova sa prihlásiť na stránku.
 	'titre_cadre_raccourcis' => 'SKRATKY:',
 	'titre_changer_couleur_interface' => 'Zmena farby rozhrania',
 	'titre_image_admin_article' => 'Môžete upravovať tento článok',
-	'titre_image_administrateur' => 'Administrátor',
+	'titre_image_administrateur' => 'Administrátor', # MODIF
 	'titre_image_aide' => 'Pomoc k tomuto prvku',
 	'titre_image_auteur_supprime' => 'Odstránený autor',
 	'titre_image_redacteur' => 'Redaktor bez prístupu',

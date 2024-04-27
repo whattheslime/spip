@@ -184,7 +184,7 @@ return [
 	'form_pet_signature_pasprise' => 'mī kó yígbè nú àlɔɖówěmámɛ mī tɔn á',
 	'form_prop_confirmer_envoi' => 'mī kò sɛ ɖó hún, mī lɛ vɔ ɖɔ nú mí',
 	'form_prop_description' => 'ɖìɖèxlɛ/ xóvánkán',
-	'form_prop_enregistre' => 'Xógbè mī tɔn kó nyí wiwlíhɛntɔ, nú gblogblo ɔ jí sín gán lɛ sɔ kɛn ní ɔ, é ná tɔn tà ',
+	'form_prop_enregistre' => 'Xógbè mī tɔn kó nyí wiwlíhɛntɔ, nú gblogblo ɔ jí sín gán lɛ sɔ kɛn ní ɔ, é ná tɔn tà ', # MODIF
 	'form_prop_envoyer' => 'sɛ wɛn ɖòkpó ɖó',
 	'form_prop_indiquer_email' => 'bó na e-mailù ɖágbé',
 	'form_prop_indiquer_nom_site' => 'Mì gblogblo ɔ jí sín nyíkɔ.',
@@ -263,7 +263,7 @@ return [
 	'info_authentification_ftp' => 'Acɛ yíyí (FTP).',
 	'info_breves_2' => 'xó kléwún lɛ',
 	'info_connexion_refusee' => 'cácáɖó ɔ sɔgbè á',
-	'info_contact_developpeur' => 'mi sɔ àlɔ tìtòtɔ ɔ.',
+	'info_contact_developpeur' => 'mi sɔ àlɔ tìtòtɔ ɔ.', # MODIF
 	'info_contenance' => 'gblogblojí  élɔ ɖó:',
 	'info_contribution' => 'àlɔɖó kplékplé ɔ tɔn ', # MODIF
 	'info_copyright' => '@spip@ Azɔwànúmɛɖémákpàcɛná  @lien_gpl@',
@@ -321,8 +321,8 @@ return [
 	'info_multi_herit' => 'Gbè ɖébú',
 	'info_multi_langues_soulignees' => 'Nú mi sɔ gbè ɖé ɔ  é jɛ ɖɔ yè ná tínmɛ.', # MODIF
 	'info_multilinguisme' => 'Gbèguèguè',
-	'info_nom_non_utilisateurs_connectes' => 'nyíkɔ tɔn ɖò mɛ ɖò kánnú lɛ jí á.',
-	'info_nom_utilisateurs_connectes' => 'nyíkɔ mi tɔn nɔ tɔn  ɖò mɛ ɖò kánnú lɛ jí .',
+	'info_nom_non_utilisateurs_connectes' => 'nyíkɔ tɔn ɖò mɛ ɖò kánnú lɛ jí á.', # MODIF
+	'info_nom_utilisateurs_connectes' => 'nyíkɔ mi tɔn nɔ tɔn  ɖò mɛ ɖò kánnú lɛ jí .', # MODIF
 	'info_nombre_en_ligne' => 'é ló kânú dìn:',
 	'info_non_resultat' => 'Xógbè ɖébú ɖè á"@cherche_mot@"',
 	'info_non_utilisation_messagerie' => 'mi ɖò Winwlántɛnmɛ gblogblojí ɔ tɔn bà wɛ.',
@@ -437,13 +437,13 @@ return [
 	'pass_choix_pass' => 'Mi sɔ càvì ɖévó :',
 	'pass_erreur' => 'klɛn àfɔ ',
 	'pass_erreur_acces_refuse' => 'klɛn àfɔ  mi sɔ yí gblogbloé lɔ jí á',
-	'pass_erreur_code_inconnu' => 'mi sɔ yí gblogbloé lɔ jí á',
+	'pass_erreur_code_inconnu' => 'mi sɔ yí gblogbloé lɔ jí á', # MODIF
 	'pass_erreur_non_enregistre' => 'klɛn àfɔ  l’adresse <tt>@email_oubli@</tt> ɖò fí á.',
 	'pass_erreur_non_valide' => 'klɛn àfɔ <tt>@email_oubli@</tt> ɖò fí á !',
 	'pass_erreur_probleme_technique' => 'klɛn àfɔ  ɖò fí á',
 	'pass_espace_prive_bla' => 'yé hùn fí nú mɛ bí á
- ',
-	'pass_forum_bla' => 'mi byɔ ɖɔ é mi ná ɖɔ xó ɖò kplékplé ɔ mɛ.',
+ ', # MODIF
+	'pass_forum_bla' => 'mi byɔ ɖɔ é mi ná ɖɔ xó ɖò kplékplé ɔ mɛ.', # MODIF
 	'pass_indiquez_cidessous' => 'mi sɔ e-mailú mi tɔn xlɛ 
 .',
 	'pass_mail_passcookie' => 'Wɛn é lɔ wɛn càcà wɛ 
@@ -498,7 +498,7 @@ Nú mi ná ɖó mɔ nɔtɛn gblogblojí  é lɔ tɔn  mi yì
 	'titre_cadre_raccourcis' => 'xàsádó:',
 	'titre_changer_couleur_interface' => 'ɖyɔ ŋtùn nú àtɛ ɔ',
 	'titre_image_admin_article' => 'Mi hɛn ɔ mi ná tò wékpá é lɔ ',
-	'titre_image_administrateur' => 'Tìtòtɔ',
+	'titre_image_administrateur' => 'Tìtòtɔ', # MODIF
 	'titre_image_aide' => 'Mi yí àlɔdó ɖò fí',
 	'titre_image_auteur_supprime' => 'nyɔwlántɔn ɖê yé sùnsùn',
 	'titre_image_redacteur' => 'nyɔwlántɔn  mà ɖò àcɛ',

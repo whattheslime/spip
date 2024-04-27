@@ -271,7 +271,7 @@ sera ignourada) :
 	'form_pet_signature_pasprise' => 'La vouòstra firma es pas pilhada en conte.',
 	'form_prop_confirmer_envoi' => 'Counfirmà l’espedissioun',
 	'form_prop_description' => 'Descricioun/coumentari',
-	'form_prop_enregistre' => 'La vouòstra proupòsta es registrada, apareisserà en ligna après validacioun dei respounsable dóu sit.',
+	'form_prop_enregistre' => 'La vouòstra proupòsta es registrada, apareisserà en ligna après validacioun dei respounsable dóu sit.', # MODIF
 	'form_prop_envoyer' => 'Mandà un message',
 	'form_prop_indiquer_email' => 'Vourguès endicà una adressa e-mail valida',
 	'form_prop_indiquer_nom_site' => 'Vourguès endicà lou noum dóu sit.',
@@ -356,7 +356,7 @@ sera ignourada) :
 	'info_breves_nb' => '@nb@ brèva',
 	'info_breves_un' => '1 brèva',
 	'info_connexion_refusee' => 'Counessioun refusada',
-	'info_contact_developpeur' => 'Vourguès countatà un desfouloupaire.',
+	'info_contact_developpeur' => 'Vourguès countatà un desfouloupaire.', # MODIF
 	'info_contenance' => 'Aqueu sit couten :',
 	'info_contribution' => 'countribucioun',
 	'info_copyright' => '@spip@ es un lougiciau lìberou distribuit @lien_gpl@.',
@@ -393,7 +393,7 @@ sera ignourada) :
 	'info_impossible_lire_page' => '<b>Errour !</b> Empoussible de legì la pàgina <tt><html>@test_proxy@</html></tt> pèr lou proxy <tt>',
 	'info_installation_systeme_publication' => 'Instalacioun dóu sistema de publicacioun...',
 	'info_installer_documents' => 'Poudès instalà automaticamen toui lu doucumen contengut en lou doussié @upload@.',
-	'info_installer_ftp' => 'En la mesura doun sias aministratour, poudès instalà (per FTP) de fichié en lou doussié @upload@ pi lu seleciounà aquì.',
+	'info_installer_ftp' => 'En la mesura doun sias aministratour, poudès instalà (per FTP) de fichié en lou doussié @upload@ pi lu seleciounà aquì.', # MODIF
 	'info_installer_images' => 'Poudès instalà d’image ai fourmat JPEG, GIF e PNG.',
 	'info_installer_images_dossier' => 'Instalà d’image en lou doussié @upload@ per lu poudé seleciounà aquí.',
 	'info_interface_complete' => 'interfaça coumpleta',
@@ -421,8 +421,8 @@ sera ignourada) :
 	'info_multi_herit' => 'Lenga predefinida',
 	'info_multi_langues_soulignees' => 'Li <u>lenga soulignadi</u> beneficioun d’una traducioun toutala o parciala dei test de l’interfaça. Se seleciounès aqueli lenga, touplen d’elemen dóu sit public (data, fourmulari) seran traduch automaticamen. Per li lenga noun soulignadi, aquelu elemen apareisseran en la lenga principala dóu sit.',
 	'info_multilinguisme' => 'Multilenguisme',
-	'info_nom_non_utilisateurs_connectes' => 'Lou vouòstre noum noun aparèisse en la lista dei utilisaire counetat.',
-	'info_nom_utilisateurs_connectes' => 'Lou vouòstre noum aparèisse en la lista dei utilisaire counetat.',
+	'info_nom_non_utilisateurs_connectes' => 'Lou vouòstre noum noun aparèisse en la lista dei utilisaire counetat.', # MODIF
+	'info_nom_utilisateurs_connectes' => 'Lou vouòstre noum aparèisse en la lista dei utilisaire counetat.', # MODIF
 	'info_nombre_en_ligne' => 'Ahura en ligna :',
 	'info_non_resultat' => 'Minga de resultat per "@cherche_mot@"',
 	'info_non_utilisation_messagerie' => 'Noun utilisas la messagerìa interna d’estou sit.',
@@ -460,8 +460,8 @@ sera ignourada) :
 	'info_sites_un' => '1 sit',
 	'info_supprimer_vignette' => 'suprimà la vigneta',
 	'info_symbole_bleu' => 'Lou sìmbolou <b>blu</b> marca una <b>nota de renembrança</b> : es a dire un message dau vouòstre usage persounal.',
-	'info_symbole_jaune' => 'Lou sìmbolou <b>jaune</b> marca un <b>anounci per toui lu redatour </b>: lu aministratour la pouòdon moudificà, cada redatour la pòu veire.',
-	'info_symbole_vert' => 'Lou sìmbolou <b>vert</b> marca lu <b>message cambiat embé d’autre utilisaire</b> dóu sit.',
+	'info_symbole_jaune' => 'Lou sìmbolou <b>jaune</b> marca un <b>anounci per toui lu redatour </b>: lu aministratour la pouòdon moudificà, cada redatour la pòu veire.', # MODIF
+	'info_symbole_vert' => 'Lou sìmbolou <b>vert</b> marca lu <b>message cambiat embé d’autre utilisaire</b> dóu sit.', # MODIF
 	'info_telecharger_nouveau_logo' => 'Telecargà un  nouvèu logo :',
 	'info_telecharger_ordinateur' => 'Telecargà dau vouòstre ourdinatour :',
 	'info_tous_resultats_enregistres' => '[toui lu resultat soun registrat]',
@@ -556,16 +556,16 @@ sera ignourada) :
 	'pass_choix_pass' => 'Vourguès chausì lou vouòstre nouvèu mot de passa :',
 	'pass_erreur' => 'Errour',
 	'pass_erreur_acces_refuse' => '<b>Errour :</b> poudès plus achèdre en aqueu sit.',
-	'pass_erreur_code_inconnu' => '<b>Errour :</b> aquestou code courrespouònde a mìnga de visitaire qu’an achès en estou sit.',
+	'pass_erreur_code_inconnu' => '<b>Errour :</b> aquestou code courrespouònde a mìnga de visitaire qu’an achès en estou sit.', # MODIF
 	'pass_erreur_non_enregistre' => '<b>Errour :</b> l’adressa <tt>@email_oubli@</tt> noun es registrada soubre stou sit.',
 	'pass_erreur_non_valide' => '<b>Errour :</b> aquel e-mail <tt>@email_oubli@</tt> noun es valid !',
 	'pass_erreur_probleme_technique' => '<b>Errour :</b> per l’encausa d’un proublema tècnicou, l’e-mail noun si pòu estre mandat. ',
 	'pass_espace_prive_bla' => 'L’espaci privat d’estou sit es dubèrt ai
   visitaire que si soun inscrich. Un còu registrat,
   pourès counsultà lu article en cours de redacioun,
-  proupausà d’article nouvèu e participà a toui lu fòrou.',
+  proupausà d’article nouvèu e participà a toui lu fòrou.', # MODIF
 	'pass_forum_bla' => 'Avès demandat d’intervenì en un fòrou
-  reservat ai visitaire registrat.',
+  reservat ai visitaire registrat.', # MODIF
 	'pass_indiquez_cidessous' => 'Endicàs aquì souta l’adressa e-mail qu’avès
  			prechendetemen registrat.
 			Receverès un e-mail que v’endiquerà couma
@@ -640,7 +640,7 @@ e vi recounetà au sit.
  familiarisat au founciounamen dóu sistèma SPIP. <br /><br /><b>
  En general, es fouòrça counseiat
  de laissà la carga d’aqueli pàgina au webmestre principal dóu vouòstre sit.</b>',
-	'texte_inc_meta_1' => 'Lou sistèma a rescountrat un errour dóu tems de l’escritura dóu fichié <code>@fichier@</code>. Vourguès, couma aministratour dóu sit,',
+	'texte_inc_meta_1' => 'Lou sistèma a rescountrat un errour dóu tems de l’escritura dóu fichié <code>@fichier@</code>. Vourguès, couma aministratour dóu sit,', # MODIF
 	'texte_inc_meta_2' => 'verificà lu drech d’escritura',
 	'texte_inc_meta_3' => 'sus lou repertori <code>@repertoire@</code>.',
 	'texte_statut_en_cours_redaction' => 'en cours de redacioun',
@@ -652,7 +652,7 @@ e vi recounetà au sit.
 	'titre_cadre_raccourcis' => 'ESCOURCHA :',
 	'titre_changer_couleur_interface' => 'Changià la coulou de l’interfaça',
 	'titre_image_admin_article' => 'Poudès aministrà aquel article',
-	'titre_image_administrateur' => 'Aministratour',
+	'titre_image_administrateur' => 'Aministratour', # MODIF
 	'titre_image_aide' => 'D’ajuda sus aquel elemen',
 	'titre_image_auteur_supprime' => 'Autour suprimat',
 	'titre_image_redacteur' => 'Redatour sensa achès',

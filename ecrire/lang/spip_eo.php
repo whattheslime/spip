@@ -269,7 +269,7 @@ la retadreso ĉi-sube (alie, via peto estos ignoritaj) :
 	'form_pet_signature_pasprise' => 'Via subskribo ne estas registrita.',
 	'form_prop_confirmer_envoi' => 'Konfirmi la sendon',
 	'form_prop_description' => 'Priskribo/komento',
-	'form_prop_enregistre' => 'Via kontribuo estas registrita, ĝi aperos ĉerete post validigo de la respondeculoj de la retejo.',
+	'form_prop_enregistre' => 'Via kontribuo estas registrita, ĝi aperos ĉerete post validigo de la respondeculoj de la retejo.', # MODIF
 	'form_prop_envoyer' => 'Sendi mesaĝon',
 	'form_prop_indiquer_email' => 'Bonvolu indiki validan retpoŝtadreson',
 	'form_prop_indiquer_nom_site' => 'Bonvolu indiki la nomon de la retejo.',
@@ -356,7 +356,7 @@ la retadreso ĉi-sube (alie, via peto estos ignoritaj) :
 	'info_breves_nb' => '@nb@ fulm-informoj',
 	'info_breves_un' => '1 fulm-informo',
 	'info_connexion_refusee' => 'Konektiĝo rifuzata',
-	'info_contact_developpeur' => 'Bonvolu kontakti programiston.',
+	'info_contact_developpeur' => 'Bonvolu kontakti programiston.', # MODIF
 	'info_contenance' => 'Tiu retejo enhavas :',
 	'info_contribution' => 'kontribuaĵoj',
 	'info_copyright' => '@spip@ estas libera programo distribuata @lien_gpl@.',
@@ -394,7 +394,7 @@ aŭ kontaktu vian retgastiganton.</span>',
 	'info_impossible_lire_page' => '<b>Eraro !</b> Ne eblas legi la paĝon <tt> <html>@test_proxy@</html> </tt> tra la prokura servilo <tt>',
 	'info_installation_systeme_publication' => 'Instalo de la publikiga sistemo...',
 	'info_installer_documents' => 'Vi povas aŭtomate instali ĉiujn dokumentojn troviĝantajn en la dosiero @upload@.',
-	'info_installer_ftp' => 'Kiel mastrumanto, vi povas instali (FTP-e) dosierojn en la dosierujon @upload@ kaj poste rekte selekti ilin ĉi tie.',
+	'info_installer_ftp' => 'Kiel mastrumanto, vi povas instali (FTP-e) dosierojn en la dosierujon @upload@ kaj poste rekte selekti ilin ĉi tie.', # MODIF
 	'info_installer_images' => 'Vi povas instali bildojn je la formatoj JPEG, GIF kaj PNG.',
 	'info_installer_images_dossier' => 'Instali bildojn en la dosierujon @upload@ por povi ilin selekti ĉi tie.',
 	'info_interface_complete' => 'kompleta interfaco',
@@ -422,8 +422,8 @@ aŭ kontaktu vian retgastiganton.</span>',
 	'info_multi_herit' => 'Defaŭlta lingvo',
 	'info_multi_langues_soulignees' => 'Por la <u>substrekitaj lingvoj</u>, ĉiuj tekstoj de la interfaco estas tute aŭ parte tradukitaj. Kiam vi elektas tiujn lingvojn, multaj elementoj de la publika retejo (datenoj, formularoj) estos aŭtomate tradukitaj. Por la nesubstrekitaj lingvoj, tiuj elementoj afiŝiĝos en la ĉefa lingvo de la retejo.',
 	'info_multilinguisme' => 'Multlingvismo',
-	'info_nom_non_utilisateurs_connectes' => 'Via nomo ne aperas en la listo de la ensalutintaj uzantoj.',
-	'info_nom_utilisateurs_connectes' => 'Via nomo aperas en la listo de la ensalutintaj uzantoj.',
+	'info_nom_non_utilisateurs_connectes' => 'Via nomo ne aperas en la listo de la ensalutintaj uzantoj.', # MODIF
+	'info_nom_utilisateurs_connectes' => 'Via nomo aperas en la listo de la ensalutintaj uzantoj.', # MODIF
 	'info_nombre_en_ligne' => 'Nun ensalutintaj :',
 	'info_non_resultat' => 'Neniu rezulto por "@cherche_mot@"',
 	'info_non_utilisation_messagerie' => 'Vi ne uzas la internan mesaĝilon de tiu retejo.',
@@ -461,8 +461,8 @@ aŭ kontaktu vian retgastiganton.</span>',
 	'info_sites_un' => '1 retejo',
 	'info_supprimer_vignette' => 'forigi la vinjeton',
 	'info_symbole_bleu' => 'La <b>blua</b> simbolo indikas <b>memorigilon</b> : tio estas al vi persone adresata memoriga mesaĝo.',
-	'info_symbole_jaune' => 'La <b>flava</b> simbolo indikas <b>anoncon al ĉiuj redaktantoj</b> : modifebla de ĉiuj mastrumantoj, kaj videbla de ĉiuj redaktantoj.',
-	'info_symbole_vert' => 'La <b>verda</b> simbolo indikas la <b>mesaĝojn interŝanĝitajn kun aliaj uzantoj</b> de la retejo.',
+	'info_symbole_jaune' => 'La <b>flava</b> simbolo indikas <b>anoncon al ĉiuj redaktantoj</b> : modifebla de ĉiuj mastrumantoj, kaj videbla de ĉiuj redaktantoj.', # MODIF
+	'info_symbole_vert' => 'La <b>verda</b> simbolo indikas la <b>mesaĝojn interŝanĝitajn kun aliaj uzantoj</b> de la retejo.', # MODIF
 	'info_telecharger_nouveau_logo' => 'Alŝuti novan vinjeton :',
 	'info_telecharger_ordinateur' => 'Alŝuti ekde via komputilo :',
 	'info_tous_resultats_enregistres' => '[ĉiuj rezultoj estas registritaj]',
@@ -560,16 +560,16 @@ aŭ kontaktu vian retgastiganton.</span>',
 	'pass_choix_pass' => 'Bonvolu elekti vian novan pasvorton :',
 	'pass_erreur' => 'Eraro',
 	'pass_erreur_acces_refuse' => '<b>Eraro :</b> vi ne plu havas aliron al tiu retejo.',
-	'pass_erreur_code_inconnu' => '<b>Eraro :</b> tiu kodo kongruas kun neniu el la vizitantoj rajtantaj aliri tiun ĉi retejon.',
+	'pass_erreur_code_inconnu' => '<b>Eraro :</b> tiu kodo kongruas kun neniu el la vizitantoj rajtantaj aliri tiun ĉi retejon.', # MODIF
 	'pass_erreur_non_enregistre' => '<b>Eraro :</b> la retpoŝtadreso <tt>@email_oubli@</tt> ne estas registrita ĉi tie.',
 	'pass_erreur_non_valide' => '<b>Eraro :</b> tiu retpoŝtadreso <tt>@email_oubli@</tt> ne validas !',
 	'pass_erreur_probleme_technique' => '<b>Eraro :</b> pro teknika problemo, la retmesaĝo ne povas esti sendata.',
 	'pass_espace_prive_bla' => 'La privata spaco de tiu ĉi retejo estas malfermita al
   vizitantoj, post ties registriĝo. Tio farita, vi povos
   konsulti la redaktatajn artikolojn, proponi artikolojn
-  kaj partopreni en ĉiuj forumoj.',
+  kaj partopreni en ĉiuj forumoj.', # MODIF
 	'pass_forum_bla' => 'Vi petis por kontribui en forumo
-  rezervita al registritaj vizitantoj.',
+  rezervita al registritaj vizitantoj.', # MODIF
 	'pass_indiquez_cidessous' => 'Indiku ĉi-sube la retpoŝtadreson laŭ kiu vi
    antaŭe registriĝis. Vi
    ricevos retmesaĝon kiu indikos al vi kion fari por
@@ -644,7 +644,7 @@ en la artikoloj.',
  kutimiĝinta pri la funkciado de la SPIP-sistemo. <br /><br /><b>Pli
  ĝenerale, estas tre konsilinde lasi la mastrumadon de tiuj ĉi paĝoj
 sub la respondeco de la ĉefa retejestro .</b>',
-	'texte_inc_meta_1' => 'La sistemo detektis eraron dum skribado de la dosiero <code>@fichier@</code>. Bonvolu, kiel mastrumanto de la retejo,',
+	'texte_inc_meta_1' => 'La sistemo detektis eraron dum skribado de la dosiero <code>@fichier@</code>. Bonvolu, kiel mastrumanto de la retejo,', # MODIF
 	'texte_inc_meta_2' => 'kontroli la skriborajtojn',
 	'texte_inc_meta_3' => 'en la dosierujo <code>@repertoire@</code>.',
 	'texte_statut_en_cours_redaction' => 'Redaktataj',
@@ -656,7 +656,7 @@ sub la respondeco de la ĉefa retejestro .</b>',
 	'titre_cadre_raccourcis' => 'RAPIDAJ ALIROJ :',
 	'titre_changer_couleur_interface' => 'Ŝanĝi la koloron de la interfaco',
 	'titre_image_admin_article' => 'Vi povas mastrumi tiun ĉi artikolon',
-	'titre_image_administrateur' => 'Mastrumanto',
+	'titre_image_administrateur' => 'Mastrumanto', # MODIF
 	'titre_image_aide' => 'Helpo pri tiu elemento',
 	'titre_image_auteur_supprime' => 'Aŭtoro forigita',
 	'titre_image_redacteur' => 'Redaktanto sen alireblo',

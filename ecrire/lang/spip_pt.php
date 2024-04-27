@@ -265,7 +265,7 @@ Pediu para alterar o seu endereço e-mail. Para confirmar o seu novo endereço, 
 	'form_pet_signature_pasprise' => 'A sua assinatura não está tomada em conta.',
 	'form_prop_confirmer_envoi' => 'Confirmar o envio',
 	'form_prop_description' => 'Descrição/comentário',
-	'form_prop_enregistre' => 'A sua proposta foi registada. Aparecerá online após a validação pelos responsáveis deste sítio.',
+	'form_prop_enregistre' => 'A sua proposta foi registada. Aparecerá online após a validação pelos responsáveis deste sítio.', # MODIF
 	'form_prop_envoyer' => 'Enviar uma mensagem',
 	'form_prop_indiquer_email' => 'Por favor indique um endereço email válido',
 	'form_prop_indiquer_nom_site' => 'Por favor indique o nome do sítio.',
@@ -350,7 +350,7 @@ Pediu para alterar o seu endereço e-mail. Para confirmar o seu novo endereço, 
 	'info_breves_nb' => '@nb@ notícias',
 	'info_breves_un' => '1 notícia',
 	'info_connexion_refusee' => 'Ligação recusada',
-	'info_contact_developpeur' => 'Por favor contacte um programador',
+	'info_contact_developpeur' => 'Por favor contacte um programador', # MODIF
 	'info_contenance' => 'Este sítio contém:',
 	'info_contribution' => 'contribuições de fórum',
 	'info_copyright' => '@spip@ é um software livre distribuído @lien_gpl@.',
@@ -387,7 +387,7 @@ Pediu para alterar o seu endereço e-mail. Para confirmar o seu novo endereço, 
 	'info_impossible_lire_page' => '<b>Erro !</b> Impossível ler a página<tt><html>@test_proxy@</html></tt> através do proxy <tt>',
 	'info_installation_systeme_publication' => 'Instalação do sistema de publicação',
 	'info_installer_documents' => 'Pode instalar automaticamente todos os documentos contidos na pasta @upload@.',
-	'info_installer_ftp' => 'Como administrador, pode instalar (por FTP) ficheiros na pasta @upload@ para depois seleccioná-los directamente aqui.',
+	'info_installer_ftp' => 'Como administrador, pode instalar (por FTP) ficheiros na pasta @upload@ para depois seleccioná-los directamente aqui.', # MODIF
 	'info_installer_images' => 'Pode instalar imagens nos formatos JPEG, GIF e PNG.',
 	'info_installer_images_dossier' => 'Instalar imagens na pasta @upload@ para poder seleccioná-los aqui.',
 	'info_interface_complete' => 'Interface completa',
@@ -415,8 +415,8 @@ Pediu para alterar o seu endereço e-mail. Para confirmar o seu novo endereço, 
 	'info_multi_herit' => 'Idioma por defeito',
 	'info_multi_langues_soulignees' => 'Os <u>idiomas sublinhadas</u> beneficiam de uma tradução de todos os textos da interface. Se seleccionar esses idiomas, muitos elementos do sítio público (datas, formulários) serão automaticamente traduzidos. Para os idiomas não sublinhadas, esses elementos aparecerão no idioma principal do sítio.',
 	'info_multilinguisme' => 'Multilinguismo',
-	'info_nom_non_utilisateurs_connectes' => 'O seu nome não aparece na lista dos utilizadores ligados.',
-	'info_nom_utilisateurs_connectes' => 'O seu nome aparece na lista dos utilizadores ligados.',
+	'info_nom_non_utilisateurs_connectes' => 'O seu nome não aparece na lista dos utilizadores ligados.', # MODIF
+	'info_nom_utilisateurs_connectes' => 'O seu nome aparece na lista dos utilizadores ligados.', # MODIF
 	'info_nombre_en_ligne' => 'Actualmente online :',
 	'info_non_resultat' => 'Nenhum resultado para "@cherche_mot@"',
 	'info_non_utilisation_messagerie' => 'Não utiliza o correio interno deste sítio.',
@@ -454,8 +454,8 @@ Pediu para alterar o seu endereço e-mail. Para confirmar o seu novo endereço, 
 	'info_sites_un' => '1 sítio',
 	'info_supprimer_vignette' => 'suprimir a miniatura',
 	'info_symbole_bleu' => 'O símbolo <b>azul</b> indica um<b>memorando </b>: isto é uma mensagem para o seu uso pessoal.',
-	'info_symbole_jaune' => 'O símbolo<b>amarelo</b> indica um <b>anúncio a todos os redactores</b> : modificável por todos os administradores, e visível por todos os redactores.',
-	'info_symbole_vert' => 'O símbolo<b>verde</b> indica as <b>mensagens trocadas com outros utilizadores</b> do sítio.',
+	'info_symbole_jaune' => 'O símbolo<b>amarelo</b> indica um <b>anúncio a todos os redactores</b> : modificável por todos os administradores, e visível por todos os redactores.', # MODIF
+	'info_symbole_vert' => 'O símbolo<b>verde</b> indica as <b>mensagens trocadas com outros utilizadores</b> do sítio.', # MODIF
 	'info_telecharger_nouveau_logo' => 'Telecarregar um novo logotipo :',
 	'info_telecharger_ordinateur' => 'Telecarregar do seu computador :',
 	'info_tous_resultats_enregistres' => '[todos os  resultados estão registados]',
@@ -549,15 +549,15 @@ Pediu para alterar o seu endereço e-mail. Para confirmar o seu novo endereço, 
 	'pass_choix_pass' => 'Por favor escolha a sua nova palavra-passe',
 	'pass_erreur' => 'Erro',
 	'pass_erreur_acces_refuse' => '<b>Erro :</b> já não tem acesso a este sítio.',
-	'pass_erreur_code_inconnu' => '<b>Erro :</b> este código não corresponde a nenhum dos visitantes com acesso a este sítio.',
+	'pass_erreur_code_inconnu' => '<b>Erro :</b> este código não corresponde a nenhum dos visitantes com acesso a este sítio.', # MODIF
 	'pass_erreur_non_enregistre' => '<b>Erro :</b> o endereço <tt>@email_oubli@</tt> não está registado neste sítio. ',
 	'pass_erreur_non_valide' => '<b>Erro :</b> este email <tt>@email_oubli@</tt> não é válido !  ',
 	'pass_erreur_probleme_technique' => '<b>Erro :</b> por causa de um problema técnico, o email não pôde ser enviado.',
 	'pass_espace_prive_bla' => 'O espaço privado deste sítio está aberto aos
  visitantes, após inscrição. Uma vez registado poderá consultar os artigos em curso de redacção,
-propor artigos e participar em todos os fóruns.',
+propor artigos e participar em todos os fóruns.', # MODIF
 	'pass_forum_bla' => 'Pediu para intervir num fórum
- reservado aos visitadores registados.',
+ reservado aos visitadores registados.', # MODIF
 	'pass_indiquez_cidessous' => 'Indique abaixo o endereço email sob o qual se registou. Receberá
  um mail que indicará o procedimento a seguir para
         recuperar o seu acesso.',
@@ -626,7 +626,7 @@ Poderá então introduzir uma nova palavra-passe e reconectar-se ao sítio.
  funcionamento do seu sítio. Recomendamos que não intervenha enquanto não estiver familiarizado com o funcionamento do sistema SPIP. <br /><br /><b> Em
  geral, é fortemente recomendado
  deixar a responsabilidade dessas páginas ao webmaster principal do seu sítio. <b>',
-	'texte_inc_meta_1' => 'O sistema encontrou um erro durante a escrita do arquivo <code>@fichier@</code>. Como administrador do sítio, por favor,',
+	'texte_inc_meta_1' => 'O sistema encontrou um erro durante a escrita do arquivo <code>@fichier@</code>. Como administrador do sítio, por favor,', # MODIF
 	'texte_inc_meta_2' => 'verificar as permissões de escrita',
 	'texte_inc_meta_3' => 'no directório <code>@repertoire@</code>.',
 	'texte_statut_en_cours_redaction' => 'em curso de redacção',
@@ -638,7 +638,7 @@ Poderá então introduzir uma nova palavra-passe e reconectar-se ao sítio.
 	'titre_cadre_raccourcis' => 'ATALHOS :',
 	'titre_changer_couleur_interface' => 'Mudar a cor da interface',
 	'titre_image_admin_article' => 'Pode administrar este artigo',
-	'titre_image_administrateur' => 'Administrador',
+	'titre_image_administrateur' => 'Administrador', # MODIF
 	'titre_image_aide' => 'Ajuda sobre este elemento',
 	'titre_image_auteur_supprime' => 'Autor eliminado',
 	'titre_image_redacteur' => 'Redactor sem acesso',

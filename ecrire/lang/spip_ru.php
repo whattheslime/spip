@@ -273,7 +273,7 @@ return [
 	'form_pet_signature_pasprise' => 'Ваша подпись проигнорирована.',
 	'form_prop_confirmer_envoi' => 'Подтвердить отправку',
 	'form_prop_description' => 'Описание/комментарий',
-	'form_prop_enregistre' => 'Ваше предложение было записано и будет online после подтверждения администраторами сайта.',
+	'form_prop_enregistre' => 'Ваше предложение было записано и будет online после подтверждения администраторами сайта.', # MODIF
 	'form_prop_envoyer' => 'Отправить сообщение',
 	'form_prop_indiquer_email' => 'Пожалуйста, укажите корректный e-mail ',
 	'form_prop_indiquer_nom_site' => 'Укажите название сайта.',
@@ -358,7 +358,7 @@ return [
 	'info_breves_nb' => '@nb@ новостей',
 	'info_breves_un' => '1 новость',
 	'info_connexion_refusee' => 'Подключение запрещено',
-	'info_contact_developpeur' => 'Свяжитесь с разработчиками.',
+	'info_contact_developpeur' => 'Свяжитесь с разработчиками.', # MODIF
 	'info_contenance' => 'Этот сайт содержит:',
 	'info_contribution' => 'вложения в форум',
 	'info_copyright' => '@spip@ - это бесплатное программное обеспечение, распространяемое @lien_gpl@.',
@@ -396,7 +396,7 @@ return [
 	'info_impossible_lire_page' => '<b>Ошибка!</b> Страницу <tt><html>@test_proxy@</html></tt> нельзя получить через прокси сервер',
 	'info_installation_systeme_publication' => 'Установка SPIP ...',
 	'info_installer_documents' => 'Вы можете разместить файлы в папку @upload@, и они будут добавлены автоматически.',
-	'info_installer_ftp' => 'Вы можете переписать файлы по FTP в папку @upload@, чтобы использовать их в дальнейшей работе. ',
+	'info_installer_ftp' => 'Вы можете переписать файлы по FTP в папку @upload@, чтобы использовать их в дальнейшей работе. ', # MODIF
 	'info_installer_images' => 'Вы можете добавлять изображения в форматах JPEG, GIF или PNG.',
 	'info_installer_images_dossier' => 'Добавьте изображения в папку  @upload@ для использования их в этом меню.',
 	'info_interface_complete' => 'полный интерфейс',
@@ -424,8 +424,8 @@ return [
 	'info_multi_herit' => 'Язык по умолчанию',
 	'info_multi_langues_soulignees' => 'Если название <u>языка подчеркнуто</u>, то это значит, что есть перевод административной части SPIP на этот язык. При выборе других языков все системные сообщения будут выводиться на основном языке сайта.',
 	'info_multilinguisme' => 'Многоязычность',
-	'info_nom_non_utilisateurs_connectes' => 'Не показывать меня в списке пользователей online.',
-	'info_nom_utilisateurs_connectes' => 'Показывать меня в списке пользователей online.',
+	'info_nom_non_utilisateurs_connectes' => 'Не показывать меня в списке пользователей online.', # MODIF
+	'info_nom_utilisateurs_connectes' => 'Показывать меня в списке пользователей online.', # MODIF
 	'info_nombre_en_ligne' => 'Сейчас  на сайте:',
 	'info_non_resultat' => 'Ничего не найдено по запросу «@cherche_mot@»',
 	'info_non_utilisation_messagerie' => 'Система личных сообщений отключена на этом сайте.',
@@ -463,8 +463,8 @@ return [
 	'info_sites_un' => '1 сайт',
 	'info_supprimer_vignette' => 'удалить миниатюру',
 	'info_symbole_bleu' => '<b>Синий</b> символ  указывает на <b>заметку</b> - сообщение для вашего личного использования.',
-	'info_symbole_jaune' => '<b>Желтый</b> символ - <b> объявление всем редакторам </b>: объявление может редактировать любой администратор и его видят все редактора.',
-	'info_symbole_vert' => '<b>Зеленый</b> символ - <b> переписка с другими пользователями </b> сайта.',
+	'info_symbole_jaune' => '<b>Желтый</b> символ - <b> объявление всем редакторам </b>: объявление может редактировать любой администратор и его видят все редактора.', # MODIF
+	'info_symbole_vert' => '<b>Зеленый</b> символ - <b> переписка с другими пользователями </b> сайта.', # MODIF
 	'info_telecharger_nouveau_logo' => 'Загрузить новое лого:',
 	'info_telecharger_ordinateur' => 'Загрузить с вашего компьютера:',
 	'info_tous_resultats_enregistres' => '[все результаты записаны]',
@@ -557,16 +557,16 @@ return [
 	'pass_choix_pass' => 'Введите новый пароль:',
 	'pass_erreur' => 'Ошибка',
 	'pass_erreur_acces_refuse' => '<b>Ошибка:</b> у вас больше нет доступа к этому сайту.',
-	'pass_erreur_code_inconnu' => '<b>Ошибка: </b> этот код не дает прав на доступ к этой части сайта.',
+	'pass_erreur_code_inconnu' => '<b>Ошибка: </b> этот код не дает прав на доступ к этой части сайта.', # MODIF
 	'pass_erreur_non_enregistre' => '<b>Ошибка:</b> адрес <tt>@email_oubli@</tt> не зарегистрирован на этом сайте.',
 	'pass_erreur_non_valide' => '<b>Ошибка:</b> e-mail <tt>@email_oubli@</tt> неправильный!',
 	'pass_erreur_probleme_technique' => '<b>Ошибка:</b> это письмо не может быть отправлено по техническим причинам.',
 	'pass_espace_prive_bla' => 'Вы можете войти в административную (приватную) часть сайта 
 после регистрации. После регистрации 
 вы можете создавать статьи 
-и участвовать во всех обсуждениях.',
+и участвовать во всех обсуждениях.', # MODIF
 	'pass_forum_bla' => 'Вы отправили запрос для  участия в 
-форуме, который доступен только для зарегистрированных пользователей.',
+форуме, который доступен только для зарегистрированных пользователей.', # MODIF
 	'pass_indiquez_cidessous' => 'Введите ниже адрес электронной почты, который вы использовали для регистрации. Вам будет отправлено письмо с дальнейшими инструкциями.',
 	'pass_mail_passcookie' => '(это письмо отправлено автоматически)
 
@@ -639,7 +639,7 @@ and connect again to the site.
 Настоятельно рекомендуем менять настройки только в том случае, если вы четко представляете,
  какие изменения это повлечет.
 <b>Вы можете запросить консультацию у разработчика Вашего сайта по настройкам системы.</b>',
-	'texte_inc_meta_1' => 'Система вызвала  ошибку при попытке записи в файл <code>@fichier@</code>. Обратитесь к администратору сайта, чтобы',
+	'texte_inc_meta_1' => 'Система вызвала  ошибку при попытке записи в файл <code>@fichier@</code>. Обратитесь к администратору сайта, чтобы', # MODIF
 	'texte_inc_meta_2' => 'проверить права доступа на запись',
 	'texte_inc_meta_3' => ' в папке <code>@repertoire@</code>.',
 	'texte_statut_en_cours_redaction' => 'готовится',
@@ -651,7 +651,7 @@ and connect again to the site.
 	'titre_cadre_raccourcis' => 'БЫСТРЫЙ ПЕРЕХОД:',
 	'titre_changer_couleur_interface' => 'Изменение цвета интерфейса',
 	'titre_image_admin_article' => 'Вы можете администрировать эту статью ',
-	'titre_image_administrateur' => 'Администратор',
+	'titre_image_administrateur' => 'Администратор', # MODIF
 	'titre_image_aide' => 'Помощь',
 	'titre_image_auteur_supprime' => 'Автор удален',
 	'titre_image_redacteur' => 'Редактор без доступа',

@@ -272,7 +272,7 @@ return [
 	'form_pet_signature_pasprise' => 'تم تجاهل توقيعك.',
 	'form_prop_confirmer_envoi' => 'تأكيد الإرسال',
 	'form_prop_description' => 'وصف/تعليق',
-	'form_prop_enregistre' => 'تم تسجيل اقتراحك، سوف يظهر بعد تصديقه من قبل مسئولي هذا الموقع.',
+	'form_prop_enregistre' => 'تم تسجيل اقتراحك، سوف يظهر بعد تصديقه من قبل مسئولي هذا الموقع.', # MODIF
 	'form_prop_envoyer' => 'ابعث برسالة',
 	'form_prop_indiquer_email' => 'الرجاء إدخال عنوان بريد إلكتروني صالح',
 	'form_prop_indiquer_nom_site' => 'الرجاء إدخال اسم الموقع.',
@@ -361,7 +361,7 @@ return [
 	'info_breves_nb' => '@nb@ خبر',
 	'info_breves_un' => 'خبر واحد',
 	'info_connexion_refusee' => 'رفض الاتصال',
-	'info_contact_developpeur' => 'الرجاء الاتصال بمطوّر.',
+	'info_contact_developpeur' => 'الرجاء الاتصال بمطوّر.', # MODIF
 	'info_contenance' => 'هذا الموقع يحتوي على:',
 	'info_contribution' => 'مشاركة منتديات',
 	'info_copyright' => '@spip@ برنامج حر موزع @lien_gpl@.',
@@ -398,7 +398,7 @@ return [
 	'info_impossible_lire_page' => '<b>خطأ!</b> لا يمكن قراءة الصفحة <tt><html>@test_proxy@</html></tt> عبر الجهاز الوكيل',
 	'info_installation_systeme_publication' => 'تثبيت نظام النشر...',
 	'info_installer_documents' => 'يمكنك تثبيت كل المستندات الموجودة في المجلد @upload@ آلياً.',
-	'info_installer_ftp' => 'بصفتك مديراً، يمكنك تثبيت (بواسطة بروتوكول FTP) ملفات في المجلد@upload@  من أجل تحديدهم في ما بعد مباشرة من هنا.',
+	'info_installer_ftp' => 'بصفتك مديراً، يمكنك تثبيت (بواسطة بروتوكول FTP) ملفات في المجلد@upload@  من أجل تحديدهم في ما بعد مباشرة من هنا.', # MODIF
 	'info_installer_images' => 'يمكنك تثبيت صور بتنسيقات JPEG  وGIF  وPNG.',
 	'info_installer_images_dossier' => 'تثبيت صور في المجلد @upload@  للتمكن من تحديدها هنا.',
 	'info_interface_complete' => 'واجهة كاملة',
@@ -426,8 +426,8 @@ return [
 	'info_multi_herit' => 'اللغة الافتراضية',
 	'info_multi_langues_soulignees' => '<u>اللغات التي تحتها خط</u> تتمتع بترجمة كاملة او جزئية لكل نصوص الواجهة. فإذا حددت هذه اللغات، سيتم ترجمة العديد من عناصر الموقع العمومي (التواريخ والاستمارات) آلياً. أما بالنسبة للغات التي ليس تحتها خط، فستظهر هذه العناصر في لغة الموقع الأساسية.',
 	'info_multilinguisme' => 'تعدد اللغات',
-	'info_nom_non_utilisateurs_connectes' => 'اسمك لا يظهر في قائمة المستخدمين المتصلين.',
-	'info_nom_utilisateurs_connectes' => 'اسمك يظهر في قائمة المستخدمين المتصلين.',
+	'info_nom_non_utilisateurs_connectes' => 'اسمك لا يظهر في قائمة المستخدمين المتصلين.', # MODIF
+	'info_nom_utilisateurs_connectes' => 'اسمك يظهر في قائمة المستخدمين المتصلين.', # MODIF
 	'info_nombre_en_ligne' => 'متصل حالياً:',
 	'info_non_resultat' => 'لا توجد نتائج لـ "@cherche_mot@"',
 	'info_non_utilisation_messagerie' => 'أنت لا تستخدم المراسلة الداخلية في هذا الموقع.',
@@ -466,8 +466,8 @@ return [
 	'info_sites_un' => 'موقع واحد',
 	'info_supprimer_vignette' => 'حذف المصغر',
 	'info_symbole_bleu' => 'الرمز <b>أزرق</b> يرمز إلى <b>مذكرة</b>: أي رسالة لاستخدامك الشخصي.',
-	'info_symbole_jaune' => 'الرمز <b>أصفر</b> يرمز إلى <b>إعلان لجميع المحررين</b>: يمكن لجميع المدراء تحريره وهو ظاهر لجميع المحررين.',
-	'info_symbole_vert' => 'الرمز <b>أخضر</b>  يرمز إلى <b>الرسائل المتبادلة بين مستخدمي</b> الموقع.',
+	'info_symbole_jaune' => 'الرمز <b>أصفر</b> يرمز إلى <b>إعلان لجميع المحررين</b>: يمكن لجميع المدراء تحريره وهو ظاهر لجميع المحررين.', # MODIF
+	'info_symbole_vert' => 'الرمز <b>أخضر</b>  يرمز إلى <b>الرسائل المتبادلة بين مستخدمي</b> الموقع.', # MODIF
 	'info_telecharger_nouveau_logo' => 'تحميل رمز جديد:',
 	'info_telecharger_ordinateur' => 'تحميل من جهازك:',
 	'info_tous_resultats_enregistres' => '[تم تسجيل كل النتائج]',
@@ -577,16 +577,16 @@ return [
 	'pass_choix_pass' => 'الرجاء اختيار كلمة السر الجديدة:',
 	'pass_erreur' => 'خطأ',
 	'pass_erreur_acces_refuse' => '<b>خطأ:< b> لم تعد تملك حق الدخول إلى هذا الموقع.',
-	'pass_erreur_code_inconnu' => '<b>خطأ:< b> هذا المعرّف لا يتناسب مع أي من الزوار الذين يتمتعون بحق الدخول إلى هذا الموقع.',
+	'pass_erreur_code_inconnu' => '<b>خطأ:< b> هذا المعرّف لا يتناسب مع أي من الزوار الذين يتمتعون بحق الدخول إلى هذا الموقع.', # MODIF
 	'pass_erreur_non_enregistre' => '<b>خطأ:< b>  العنوان <tt>@email_oubli@</tt> ليس مسجلاً في هذا الموقع.',
 	'pass_erreur_non_valide' => '<b>خطأ:< b>  العنوان <tt>@email_oubli@</tt> ليس صالحاً.',
 	'pass_erreur_probleme_technique' => '<b>خطأ:< b>  لم يتم بعث هذه الرسالة بسبب مشكلة تقنية.',
 	'pass_espace_prive_bla' => 'المجال الخاص لهذا الموقع مفتوح
 للزوار بعد تسجيلهم. بعد تسجيلك
 يمكنك مراجعة المقالات قيد التحرير
-واقتراح مقالات والمشاركة في كل المنتديات.',
+واقتراح مقالات والمشاركة في كل المنتديات.', # MODIF
 	'pass_forum_bla' => 'طلبت المشاركة في منتدى
-محصور بالزوار المسجلين.',
+محصور بالزوار المسجلين.', # MODIF
 	'pass_indiquez_cidessous' => 'قم بإدخال العنوان الإلكتروني الذي 
 تسجلت بواستطه سابقاً.
 ستحصل على رسالة تفسر لك كيفية
@@ -664,7 +664,7 @@ return [
 التأقلم مع نظام SPIP  للنشر. <br /><br /><b>بشكل
 عام، ننصحك
 بحصر التعامل مع هذه الصفحات بالمسؤول الأساسي عن تصميم الموقع.</b>',
-	'texte_inc_meta_1' => 'واجه النظام خطأً خلال كتابة الملف <code>@fichier@</code>. بصفتك أحد مدراء الموقع، الرجاء',
+	'texte_inc_meta_1' => 'واجه النظام خطأً خلال كتابة الملف <code>@fichier@</code>. بصفتك أحد مدراء الموقع، الرجاء', # MODIF
 	'texte_inc_meta_2' => 'التأكد من حقوق الكتابة',
 	'texte_inc_meta_3' => 'الخاصة بالدليل <code>@repertoire@</code>. ',
 	'texte_statut_en_cours_redaction' => 'قيد التحرير',
@@ -676,7 +676,7 @@ return [
 	'titre_cadre_raccourcis' => 'اختصارات:',
 	'titre_changer_couleur_interface' => 'تغيير لون الواجهة',
 	'titre_image_admin_article' => 'أنت مخول إدارة هذا المقال',
-	'titre_image_administrateur' => 'مدير',
+	'titre_image_administrateur' => 'مدير', # MODIF
 	'titre_image_aide' => 'تعليمات حول هذا العنصر',
 	'titre_image_auteur_supprime' => 'مؤلف محذوف',
 	'titre_image_redacteur' => 'محرر دون إذن دخول',

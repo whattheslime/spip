@@ -259,7 +259,7 @@ site-ul "@nom_site_spip@" (@adresse_login@):', # MODIF
 	'form_pet_signature_pasprise' => 'Semnătura dumneavoastră nu a fost luată în considerare.',
 	'form_prop_confirmer_envoi' => 'Confirmaţi trimiterea',
 	'form_prop_description' => 'Descriere/comentariu',
-	'form_prop_enregistre' => 'Propunerea dumneavoastră a fost înregistrată, ea va fi publicată după validarea ei de către responsabilii acestui site.',
+	'form_prop_enregistre' => 'Propunerea dumneavoastră a fost înregistrată, ea va fi publicată după validarea ei de către responsabilii acestui site.', # MODIF
 	'form_prop_envoyer' => 'Trimiteţi un mesaj',
 	'form_prop_indiquer_email' => 'Vă rugăm să indicaţi o adresă de email valabilă',
 	'form_prop_indiquer_nom_site' => 'Va rugăm să indicaţi numele site-ului.',
@@ -344,7 +344,7 @@ site-ul "@nom_site_spip@" (@adresse_login@):', # MODIF
 	'info_breves_nb' => '@nb@ ştiri',
 	'info_breves_un' => '1 ştire',
 	'info_connexion_refusee' => 'Conexiune refuzată',
-	'info_contact_developpeur' => 'Vă rugăm să contactaţi un dezvoltator.',
+	'info_contact_developpeur' => 'Vă rugăm să contactaţi un dezvoltator.', # MODIF
 	'info_contenance' => 'Acest site conţine :',
 	'info_contribution' => 'contribuţii',
 	'info_copyright' => '@spip@ este un program liber distribuit @lien_gpl@.',
@@ -380,7 +380,7 @@ site-ul "@nom_site_spip@" (@adresse_login@):', # MODIF
 	'info_impossible_lire_page' => '<b>Eroare !</b> Imposibil de citit pagina <tt><html>@test_proxy@</html></tt> prin intermediul proxy-ului',
 	'info_installation_systeme_publication' => 'Instalarea sistemului de publicare...',
 	'info_installer_documents' => 'Puteţi instala în mod automat toate documentele conţinute în directorul @upload@.',
-	'info_installer_ftp' => 'Ca administrator, puteţi să instalaţi (prin FTP) fişiere în directorul @upload@ pentru ca mai apoi să le selecţionaţi direct aici.',
+	'info_installer_ftp' => 'Ca administrator, puteţi să instalaţi (prin FTP) fişiere în directorul @upload@ pentru ca mai apoi să le selecţionaţi direct aici.', # MODIF
 	'info_installer_images' => 'Puteţi instala imagini în formatele JPEG, GIF şi PNG.',
 	'info_installer_images_dossier' => 'Instalaţi imagini în directorul @upload@ pentru a putea să le selecţionaţi aici.',
 	'info_interface_complete' => 'interfaţa completă',
@@ -408,8 +408,8 @@ site-ul "@nom_site_spip@" (@adresse_login@):', # MODIF
 	'info_multi_herit' => 'Limba implicită',
 	'info_multi_langues_soulignees' => '<u>Limbile subliniate</u> beneficiază de o traducere a tuturor textelor interfeţei. Dacă veţi selecţiona o astfel de limbă, numeroase elemente ale site-ului public (date, formulare) vor fi traduse în mod automat. Pentru limbile nesubliniate, aceste elemente vor apare în limba principală a site-ului.', # MODIF
 	'info_multilinguisme' => 'Multilingvism',
-	'info_nom_non_utilisateurs_connectes' => 'Numele dumneavoastră nu apare în lista utilizatorilor conectaţi.',
-	'info_nom_utilisateurs_connectes' => 'Numele dumneavoastră apare în lista utilizatorilor conectaţi.',
+	'info_nom_non_utilisateurs_connectes' => 'Numele dumneavoastră nu apare în lista utilizatorilor conectaţi.', # MODIF
+	'info_nom_utilisateurs_connectes' => 'Numele dumneavoastră apare în lista utilizatorilor conectaţi.', # MODIF
 	'info_nombre_en_ligne' => 'Acum în linie :',
 	'info_non_resultat' => 'Nici un rezultat pentru "@cherche_mot@"',
 	'info_non_utilisation_messagerie' => 'Nu puteţi utiliza mesageria internă a acestui site.',
@@ -447,8 +447,8 @@ site-ul "@nom_site_spip@" (@adresse_login@):', # MODIF
 	'info_sites_un' => '1 site',
 	'info_supprimer_vignette' => ' suprimaţi vinieta',
 	'info_symbole_bleu' => 'Simbolul <b>albastru</b> indică o <b>ciornă</b>: adică un mesaj pentru folosinţa dumneavoastră personală.',
-	'info_symbole_jaune' => 'Simbolul <b>galben</b> indică un <b>anunţ către toţi redactorii</b> : modificabil de către toţi administratorii şi vizibil pentru toţi redactorii.',
-	'info_symbole_vert' => 'Simbolul <b>verde</b> indică un <b>mesaj schimbat cu ceilalţi utilizatori</b> ai site-ului.',
+	'info_symbole_jaune' => 'Simbolul <b>galben</b> indică un <b>anunţ către toţi redactorii</b> : modificabil de către toţi administratorii şi vizibil pentru toţi redactorii.', # MODIF
+	'info_symbole_vert' => 'Simbolul <b>verde</b> indică un <b>mesaj schimbat cu ceilalţi utilizatori</b> ai site-ului.', # MODIF
 	'info_telecharger_nouveau_logo' => 'Încărcaţi o nouă viniétă :',
 	'info_telecharger_ordinateur' => 'Încărcaţi de pe calculatorul dumneavoastră :',
 	'info_tous_resultats_enregistres' => '[toate rezultatele sunt înregistrate]',
@@ -540,16 +540,16 @@ site-ul "@nom_site_spip@" (@adresse_login@):', # MODIF
 	'pass_choix_pass' => 'Vă rugăm să alegeţi noua dumneavoastră parolă :',
 	'pass_erreur' => 'Eroare',
 	'pass_erreur_acces_refuse' => '<b>Eroare :</b> nu mai aveţi acces la acest site.',
-	'pass_erreur_code_inconnu' => '<b>Eroare :</b> acest cod nu corespunde nici unui vizitator având acces la site.',
+	'pass_erreur_code_inconnu' => '<b>Eroare :</b> acest cod nu corespunde nici unui vizitator având acces la site.', # MODIF
 	'pass_erreur_non_enregistre' => '<b>Eroare :</b> adresa <tt>@email_oubli@</tt> nu este înregistrată pe acest site.',
 	'pass_erreur_non_valide' => '<b>Eroare :</b> acest email <tt>@email_oubli@</tt> nu este valabil !',
 	'pass_erreur_probleme_technique' => '<b>Eroare :</b> din cauza unei probleme tehnice, email-ul nu a putut fi trimis.',
 	'pass_espace_prive_bla' => 'Spaţiul privat al acestui site este deschis
   vizitatorilor după înscriere. Odată înregistrat
   veţi putea consulta articolele în curs de editare,
-  veţi putea propune articole şi veţi putea participa la toate forum-urile.',
+  veţi putea propune articole şi veţi putea participa la toate forum-urile.', # MODIF
 	'pass_forum_bla' => 'Aţi cerut să interveniţi pe un forum
-  rezervat vizitatorilor înregistraţi.',
+  rezervat vizitatorilor înregistraţi.', # MODIF
 	'pass_indiquez_cidessous' => 'Vă rugăm să indicați adresa de email cu care v-aţi înregistrat în trecut.
 Veţi primi un email care vă va indica paşii necesari recuperării accesului la site.',
 	'pass_mail_passcookie' => '(acesta este un mesaj automatic)
@@ -613,7 +613,7 @@ Veţi putea după aceea alege o nouă parolă şi veţi putea să vă reconecta�
 	'texte_inc_auth_3' => ', după ce, eventual, aţi părăsit şi redemarat navigatorul de web.',
 	'texte_inc_config' => 'Modificările efectuate în aceste pagini au influenţă directă asupra funcţionării site-ului. Vă recomandăm să nu interveniţi atât timp cât nu sunteţi familiarizat cu funcţionarea sistemului SPIP. <br /><br /><b>În
  general, este recomandat să lăsaţi aceste pagini în sarcina webmaster-ului principal al acestui site.</b>',
-	'texte_inc_meta_1' => 'Sistemul a întâlnit o eroare la scrierea fişierului <code>@fichier@</code>. Vă rugam ca, în calitate de administrator al acestui site,',
+	'texte_inc_meta_1' => 'Sistemul a întâlnit o eroare la scrierea fişierului <code>@fichier@</code>. Vă rugam ca, în calitate de administrator al acestui site,', # MODIF
 	'texte_inc_meta_2' => 'să verificaţi drepturile de scriere',
 	'texte_inc_meta_3' => 'în directorul <code>@repertoire@</code>.',
 	'texte_statut_en_cours_redaction' => 'în curs de redactare',
@@ -625,7 +625,7 @@ Veţi putea după aceea alege o nouă parolă şi veţi putea să vă reconecta�
 	'titre_cadre_raccourcis' => 'SCURTĂTURI :',
 	'titre_changer_couleur_interface' => 'Schimbă culoarea interfeţei',
 	'titre_image_admin_article' => 'Puteţi administra acest articol',
-	'titre_image_administrateur' => 'Administrator',
+	'titre_image_administrateur' => 'Administrator', # MODIF
 	'titre_image_aide' => 'Ajutor despre acest element',
 	'titre_image_auteur_supprime' => 'Autor suprimat',
 	'titre_image_redacteur' => 'Redactor fără acces',

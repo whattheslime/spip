@@ -271,7 +271,7 @@ wird Ihre Adresse beibehalten):
 	'form_pet_signature_pasprise' => 'Ihre Signatur wird nicht berücksichtigt.',
 	'form_prop_confirmer_envoi' => 'Endgültig senden',
 	'form_prop_description' => 'Beschreibung/Kommentar',
-	'form_prop_enregistre' => 'Ihr Vorschlag wurde gespeichert und wird nach Freigabe durch die Redaktion der Website angezeigt.',
+	'form_prop_enregistre' => 'Ihr Vorschlag wurde gespeichert und wird nach Freigabe durch die Redaktion der Website angezeigt.', # MODIF
 	'form_prop_envoyer' => 'Nachricht senden',
 	'form_prop_indiquer_email' => 'Bitte geben Sie eine gültige E-Mail Adresse an',
 	'form_prop_indiquer_nom_site' => 'Bitte geben Sie den Namen der Website an.',
@@ -360,7 +360,7 @@ wird Ihre Adresse beibehalten):
 	'info_breves_nb' => '@nb@ Meldungen',
 	'info_breves_un' => '1 Meldung',
 	'info_connexion_refusee' => 'Die Verbindung wurde verweigert.',
-	'info_contact_developpeur' => 'Bitte kontaktieren Sie einen der Entwickler.',
+	'info_contact_developpeur' => 'Bitte kontaktieren Sie einen der Entwickler.', # MODIF
 	'info_contenance' => 'Diese Website enthält:',
 	'info_contribution' => 'Beiträge',
 	'info_copyright' => '@spip@ ist freie Software im Sinne der @lien_gpl@.',
@@ -397,7 +397,7 @@ wird Ihre Adresse beibehalten):
 	'info_impossible_lire_page' => '<b>Fehler!</b> Die Seite <tt><html>@test_proxy@</html></tt> ist nicht über den Proxy erreichbar',
 	'info_installation_systeme_publication' => 'Installation von SPIP ...',
 	'info_installer_documents' => 'Sie können alle Dokumente im Verzeichnis @upload@ automatisch installieren.',
-	'info_installer_ftp' => 'Als Administrator können Sie Dateien (per FTP) direkt in das Verzeichnis <i>@upload@</i> kopieren und sie hier auswählen.',
+	'info_installer_ftp' => 'Als Administrator können Sie Dateien (per FTP) direkt in das Verzeichnis <i>@upload@</i> kopieren und sie hier auswählen.', # MODIF
 	'info_installer_images' => 'Sie können Bilder in den Formaten JPEG, GIF und PNG verwenden.',
 	'info_installer_images_dossier' => 'Bilder ins Verzeichnis @upload@ kopieren um sie hier auswählen zu können.',
 	'info_interface_complete' => 'Expertenmodus',
@@ -425,8 +425,8 @@ wird Ihre Adresse beibehalten):
 	'info_multi_herit' => 'Standardsprache',
 	'info_multi_langues_soulignees' => 'Die Texte des Interface sind in die <u>unterstrichenen Sprachen</u> ganz oder teilweise übersetzt. Wenn Sie eine von ihnen wählen, werden viele Elemente der Website automatisch übersetzt (Datumsangaben, Formulare usw.). In den nicht unterstrichenen Sprachen werden diese Elemente in der Hauptsprache der Website angezeigt.',
 	'info_multilinguisme' => 'Mehrsprachigkeit',
-	'info_nom_non_utilisateurs_connectes' => 'Ihr Name wird nicht in der Liste der zur Zeit eingelogten Nutzer angezeigt.',
-	'info_nom_utilisateurs_connectes' => 'Ihr Name wird in der Liste der angemeldeten Nutzer angezeigt.',
+	'info_nom_non_utilisateurs_connectes' => 'Ihr Name wird nicht in der Liste der zur Zeit eingelogten Nutzer angezeigt.', # MODIF
+	'info_nom_utilisateurs_connectes' => 'Ihr Name wird in der Liste der angemeldeten Nutzer angezeigt.', # MODIF
 	'info_nombre_en_ligne' => 'Zur Zeit online:',
 	'info_non_resultat' => 'Keine Fundstellen für “@cherche_mot@”',
 	'info_non_utilisation_messagerie' => 'Sie nehmen nicht am Nachrichtensystem der Website teil.',
@@ -465,8 +465,8 @@ wird Ihre Adresse beibehalten):
 	'info_sites_un' => '1 Website',
 	'info_supprimer_vignette' => 'Icon löschen',
 	'info_symbole_bleu' => 'Das <b>blaue</b> Symbol bedeutet <b>Merkzettel</b>, d.h. eine Nachricht nur zu Ihrer eigenen Verwendung.',
-	'info_symbole_jaune' => 'Das <b>gelbe</b> Symbol bedeutet <b>Ankündigung an alle Redakteure</b> (für alle Redakteure sichtbar, Änderung nur durch Administratoren)',
-	'info_symbole_vert' => 'Das <b>grüne</b> Symbol bezeichnet Nachrichten an <b>andere Benutzer</b> der Website.',
+	'info_symbole_jaune' => 'Das <b>gelbe</b> Symbol bedeutet <b>Ankündigung an alle Redakteure</b> (für alle Redakteure sichtbar, Änderung nur durch Administratoren)', # MODIF
+	'info_symbole_vert' => 'Das <b>grüne</b> Symbol bezeichnet Nachrichten an <b>andere Benutzer</b> der Website.', # MODIF
 	'info_telecharger_nouveau_logo' => 'Neues Logo hochladen:',
 	'info_telecharger_ordinateur' => 'Von Ihrem Computer hochladen:',
 	'info_tous_resultats_enregistres' => ' [alle Ergebnisse sind erfasst]',
@@ -567,12 +567,12 @@ wird Ihre Adresse beibehalten):
 	'pass_choix_pass' => 'Bitte geben Sie Ihr neues Passwort ein:',
 	'pass_erreur' => 'Fehler',
 	'pass_erreur_acces_refuse' => '<b>Fehler:</b> Sie haben keinen Zugang mehr zur Website.',
-	'pass_erreur_code_inconnu' => '<b>Fehler:</b> Angabe entspricht keinem Benutzer mit Zugang zu dieser Website.',
+	'pass_erreur_code_inconnu' => '<b>Fehler:</b> Angabe entspricht keinem Benutzer mit Zugang zu dieser Website.', # MODIF
 	'pass_erreur_non_enregistre' => '<b>Fehler:</b> Die Adresse <tt>@email_oubli@</tt> ist nicht bekannt.',
 	'pass_erreur_non_valide' => '<b>Fehler:</b> Diese E-Mail Adresse <tt>@email_oubli@</tt> ist ungültig!',
 	'pass_erreur_probleme_technique' => '<b>Fehler:</b> E-Mail kann aufgrund eines technischen Problems nicht gesendet werden.',
-	'pass_espace_prive_bla' => 'Das Redaktionssystem dieser Website ist für Besucher zugänglich, die sich angemeldet haben. Nach erfolgreicher Anmeldung können Sie an Artikeln mitarbeiten, eigene Artikel vorschlagen und an allen Diskussionsforen teilnehmen.',
-	'pass_forum_bla' => 'Sie möchten in einem Forum für eingetragene Besucher der Website schreiben.',
+	'pass_espace_prive_bla' => 'Das Redaktionssystem dieser Website ist für Besucher zugänglich, die sich angemeldet haben. Nach erfolgreicher Anmeldung können Sie an Artikeln mitarbeiten, eigene Artikel vorschlagen und an allen Diskussionsforen teilnehmen.', # MODIF
+	'pass_forum_bla' => 'Sie möchten in einem Forum für eingetragene Besucher der Website schreiben.', # MODIF
 	'pass_indiquez_cidessous' => 'Bitte geben Sie die E-Mail Adresse an, mit der Sie sich ursprünglich eingetragen haben. Sie erhalten dann eine Mail mit allen erforderlichen Schritten um wieder Zugang zu bekommen.',
 	'pass_mail_passcookie' => '(Diese Nachricht wurde automatisch erzeugt)
 
@@ -634,7 +634,7 @@ Sie können auf dieser Seite ein neues Passwort eingeben und sich wieder bei der
 	'texte_inc_auth_2' => 'sich erneut anzumelden',
 	'texte_inc_auth_3' => ', nachdem Sie u.U. Ihren Webbrowser neu gestartet haben.',
 	'texte_inc_config' => 'Die hier möglichten Einstellungen beeinflussen das grundsätzliche Verhalten Ihrer Website. Wir raten dringend, sie nur zu ändern, wenn Sie vollständig mit der Funktionsweise von SPIP vertraut sind.<br /><br /><b>Es ist ebenfalls mehr als ratsam, diese Einstellungen nur von Ihrem Haupt-Administrator vornehmen zu lassen.</b>',
-	'texte_inc_meta_1' => 'Das System konnte die Datei <code>@fichier@</code> nicht speichern. Bitte prüfen Sie als Administrator ',
+	'texte_inc_meta_1' => 'Das System konnte die Datei <code>@fichier@</code> nicht speichern. Bitte prüfen Sie als Administrator ', # MODIF
 	'texte_inc_meta_2' => 'die Berechtigungen',
 	'texte_inc_meta_3' => 'für das Verzeichnis <code>@repertoire@</code>.',
 	'texte_statut_en_cours_redaction' => 'in Bearbeitung',
@@ -646,7 +646,7 @@ Sie können auf dieser Seite ein neues Passwort eingeben und sich wieder bei der
 	'titre_cadre_raccourcis' => 'SCHNELLZUGANG:',
 	'titre_changer_couleur_interface' => 'Farbe der Oberfläche ändern',
 	'titre_image_admin_article' => 'Sie können diesen Artikel verwalten',
-	'titre_image_administrateur' => 'Administrator',
+	'titre_image_administrateur' => 'Administrator', # MODIF
 	'titre_image_aide' => 'Hilfe zu diesem Element',
 	'titre_image_auteur_supprime' => 'gelöschter Autor',
 	'titre_image_redacteur' => 'Redakteur ohne Systemzugang',

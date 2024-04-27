@@ -234,7 +234,7 @@ För att bekräfta din nya adress måste du gå till
 	'form_pet_signature_pasprise' => 'Din underskrift har ignorerats.',
 	'form_prop_confirmer_envoi' => 'Bekräfta',
 	'form_prop_description' => 'Beskrivning/kommentar',
-	'form_prop_enregistre' => 'Ditt förslag har sparats, det kommer att visas online när det har godkänts av en administratör för denna sajt.',
+	'form_prop_enregistre' => 'Ditt förslag har sparats, det kommer att visas online när det har godkänts av en administratör för denna sajt.', # MODIF
 	'form_prop_envoyer' => 'Skicka ett meddelande',
 	'form_prop_indiquer_email' => 'Var god och ange en giltig epost-adress',
 	'form_prop_indiquer_nom_site' => 'Var god och ange sajtens namn',
@@ -318,7 +318,7 @@ För att bekräfta din nya adress måste du gå till
 	'info_breves_nb' => '@nb@ nyheter',
 	'info_breves_un' => '1 nyhet',
 	'info_connexion_refusee' => 'Anslutning nekad',
-	'info_contact_developpeur' => 'Var god och ta kontakt med en utvecklare',
+	'info_contact_developpeur' => 'Var god och ta kontakt med en utvecklare', # MODIF
 	'info_contenance' => 'Sajten innehåller:',
 	'info_contribution' => 'bidrag till forumen', # MODIF
 	'info_copyright' => '@spip@ är fri programvara och distribueras @lien_gpl@.',
@@ -354,7 +354,7 @@ För att bekräfta din nya adress måste du gå till
 	'info_impossible_lire_page' => '<b>Fel!</b> Sidan <tt><html>@test_proxy@</html></tt>  kan inte läsas genom proxyservern',
 	'info_installation_systeme_publication' => 'Installation av publicerings-system ...',
 	'info_installer_documents' => 'Du kan automatiskt installera alla dokument som finns i katalogen @upload@.',
-	'info_installer_ftp' => 'Som administratör, kan du ladda upp filer (via FTP) till mappen @upload@ för att senare kunna välja dem därifrån.',
+	'info_installer_ftp' => 'Som administratör, kan du ladda upp filer (via FTP) till mappen @upload@ för att senare kunna välja dem därifrån.', # MODIF
 	'info_installer_images' => 'Du kan använda bilder i formaten JPEG, GIF och PNG.',
 	'info_installer_images_dossier' => 'Ladda upp biilerna i katalogen @upload@ för att senare välja dem därifrån.',
 	'info_interface_complete' => 'komplett gränssnitt',
@@ -382,8 +382,8 @@ För att bekräfta din nya adress måste du gå till
 	'info_multi_herit' => 'Förvalt språk',
 	'info_multi_langues_soulignees' => 'För de <u>understrukna språken</u> tillhandahåller SPIP en översättning av all text i gränssnittet. Om du väljer dessa språk, kommer många delar av den publika delen (datum, formulär) att översättas automatiskt. För de språk som inte är understrukna, kommer de delarna att vara i sajtens huvudspråk.', # MODIF
 	'info_multilinguisme' => 'Flerspråkig',
-	'info_nom_non_utilisateurs_connectes' => 'Ditt namn visas inte i listan över anslutna användare.',
-	'info_nom_utilisateurs_connectes' => 'Ditt namn visas i listan över anslutna användare.',
+	'info_nom_non_utilisateurs_connectes' => 'Ditt namn visas inte i listan över anslutna användare.', # MODIF
+	'info_nom_utilisateurs_connectes' => 'Ditt namn visas i listan över anslutna användare.', # MODIF
 	'info_nombre_en_ligne' => 'Online nu:',
 	'info_non_resultat' => 'Inga ressultat för "@cherche_mot@"',
 	'info_non_utilisation_messagerie' => 'Du använder inte sajtens initerna meddelande-system',
@@ -421,8 +421,8 @@ För att bekräfta din nya adress måste du gå till
 	'info_sites_un' => '1 sida',
 	'info_supprimer_vignette' => 'radera ikonen',
 	'info_symbole_bleu' => 'En <b>blå</b> symbol visar ett <b>meddelande</b>: ett personligt meddelande.',
-	'info_symbole_jaune' => 'En <b>gul</b> symbol visar ett <b>meddelande till alla redaktörer</b>: det kan editeras av alla administratörer, och är synligt för alla redaktörer.',
-	'info_symbole_vert' => 'En <b>grön</b> symbol visar <b>meddelanden från och till andra användare</b> på sajten.',
+	'info_symbole_jaune' => 'En <b>gul</b> symbol visar ett <b>meddelande till alla redaktörer</b>: det kan editeras av alla administratörer, och är synligt för alla redaktörer.', # MODIF
+	'info_symbole_vert' => 'En <b>grön</b> symbol visar <b>meddelanden från och till andra användare</b> på sajten.', # MODIF
 	'info_telecharger_nouveau_logo' => 'Ladda upp en ny logotype:',
 	'info_telecharger_ordinateur' => 'Ladda upp från din dator:',
 	'info_tous_resultats_enregistres' => '[alla resultat är sparade]',
@@ -514,16 +514,16 @@ För att bekräfta din nya adress måste du gå till
 	'pass_choix_pass' => 'Var vänlig, välj ett nytt lösenord:',
 	'pass_erreur' => 'Fel',
 	'pass_erreur_acces_refuse' => '<b>Fel:</b> du har inte tillträde till den här sajten längre.',
-	'pass_erreur_code_inconnu' => '<b>Fel:</b> Den här identiteten finns inte bland de som har tillgång till den här sajten.',
+	'pass_erreur_code_inconnu' => '<b>Fel:</b> Den här identiteten finns inte bland de som har tillgång till den här sajten.', # MODIF
 	'pass_erreur_non_enregistre' => '<b>Fel :</b> adressen <tt>@email_oubli@</tt> är inte registrerad på den här sajten.',
 	'pass_erreur_non_valide' => '<b>Fel :</b> mejladressen <tt>@email_oubli@</tt> är inte giltig!',
 	'pass_erreur_probleme_technique' => '<b>Fel :</b> mejlet kunde inte sändas på grund av ett tekniskt problem.',
 	'pass_espace_prive_bla' => 'Den privata delen är öppen för besökare
 efter registrering. efter att du registrerat dig,
 kan du se artiklarna under redigering,
-lämna in artiklar och delta i alla forum.',
+lämna in artiklar och delta i alla forum.', # MODIF
 	'pass_forum_bla' => 'Du har begärt att få ta del av ett forum
-som är reserverat för registrerade besökare.',
+som är reserverat för registrerade besökare.', # MODIF
 	'pass_indiquez_cidessous' => 'Skriv in mejladressen som du använde 
 vid registreringen här under
 Du kommer att få ett mejl som förklarar
@@ -594,7 +594,7 @@ och koppla upp dig mot sajten igen.
  sajtens funktion. Vi rekommenderar att du inte gör något innan du bekantat dig med funktionaliteten i SPIP. <br /><br /><b>I
  allmänhet, rekommenderas starkt
  att lämna ansvaret för dessa sidor  till sajtens huvudsakliga webbmaster. <b>',
-	'texte_inc_meta_1' => 'Ett fel inträffade då systemet skrev <code>@fichier@</code>. Som administratör, var vänlig,',
+	'texte_inc_meta_1' => 'Ett fel inträffade då systemet skrev <code>@fichier@</code>. Som administratör, var vänlig,', # MODIF
 	'texte_inc_meta_2' => 'Kontrollera skrivrättigheterna',
 	'texte_inc_meta_3' => 'i katalogen <code>@repertoire@</code>.',
 	'texte_statut_en_cours_redaction' => 'under redaktion',
@@ -606,7 +606,7 @@ och koppla upp dig mot sajten igen.
 	'titre_cadre_raccourcis' => 'GENVÄGAR:',
 	'titre_changer_couleur_interface' => 'Byter färg på gränssnittet',
 	'titre_image_admin_article' => 'Du kan redigera den här artikeln',
-	'titre_image_administrateur' => 'Administratör',
+	'titre_image_administrateur' => 'Administratör', # MODIF
 	'titre_image_aide' => 'Hjälp för den här saken',
 	'titre_image_auteur_supprime' => 'Redaktören raderad',
 	'titre_image_redacteur' => 'Redaktör utan behörighet',

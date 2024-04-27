@@ -265,7 +265,7 @@ Per confirmar la nova adreça, només heu de connectar-vos a l’adreça que hi 
 	'form_pet_signature_pasprise' => 'La seva signatura no s’ha tingut en compte.',
 	'form_prop_confirmer_envoi' => 'Confirmar l’enviament',
 	'form_prop_description' => 'Descripció/commentari',
-	'form_prop_enregistre' => 'La seva proposta ha estat registrada, apareixerà en línia després de ser validada pels responsables d’aquest lloc.',
+	'form_prop_enregistre' => 'La seva proposta ha estat registrada, apareixerà en línia després de ser validada pels responsables d’aquest lloc.', # MODIF
 	'form_prop_envoyer' => 'Enviar un missatge',
 	'form_prop_indiquer_email' => 'Indiqueu una adreça electrònica vàlida',
 	'form_prop_indiquer_nom_site' => 'Indiqueu el nom del lloc.',
@@ -350,7 +350,7 @@ Per confirmar la nova adreça, només heu de connectar-vos a l’adreça que hi 
 	'info_breves_nb' => '@nb@ breus',
 	'info_breves_un' => '1 breu',
 	'info_connexion_refusee' => 'Connexió denegada',
-	'info_contact_developpeur' => 'Contacteu amb un desenvolupador.',
+	'info_contact_developpeur' => 'Contacteu amb un desenvolupador.', # MODIF
 	'info_contenance' => 'Aquest lloc conté:',
 	'info_contribution' => 'contribucions',
 	'info_copyright' => '@spip@ és programari lliure distribuït @lien_gpl@.',
@@ -387,7 +387,7 @@ Per confirmar la nova adreça, només heu de connectar-vos a l’adreça que hi 
 	'info_impossible_lire_page' => '<b>Error!</b> Impossible llegir la pàgina <tt><html>@test_proxy@</html></tt> per mitjà del proxy',
 	'info_installation_systeme_publication' => 'Instal·lació del sistema de publicació...',
 	'info_installer_documents' => 'Podeu instal·lar automàticament tots els documents que hi ha dins la carpeta @upload@.',
-	'info_installer_ftp' => 'En tan que administrador, podeu instal·lar (per FTP) els fitxers a la carpeta @upload@ per a continuació seleccionar-los directament aquí.',
+	'info_installer_ftp' => 'En tan que administrador, podeu instal·lar (per FTP) els fitxers a la carpeta @upload@ per a continuació seleccionar-los directament aquí.', # MODIF
 	'info_installer_images' => 'Podeu instal·lar imatges amb els formats JPEG, GIF i PNG.',
 	'info_installer_images_dossier' => 'Instal·lar imatges a la carpeta @upload@ per poder-les seleccionar aquí.',
 	'info_interface_complete' => 'interfície completa',
@@ -415,8 +415,8 @@ Per confirmar la nova adreça, només heu de connectar-vos a l’adreça que hi 
 	'info_multi_herit' => 'Idioma per defecte',
 	'info_multi_langues_soulignees' => 'Les <u>llengües subratllades</u> es beneficien d’una traducció de tots els textos de la interfície. Si seleccioneu aquestes llengües, molts elements del lloc públic (dates, formularis) es traduiran automàticament. En les llengües no subratllades, aquests elements es mostraran en la llengua principal del lloc.',
 	'info_multilinguisme' => 'Multilingüisme',
-	'info_nom_non_utilisateurs_connectes' => 'El vostre nom no apareix a la llista d’usuaris/àries connectats/des.',
-	'info_nom_utilisateurs_connectes' => 'El vostre nom apareix a la llista dels usuaris connectats.',
+	'info_nom_non_utilisateurs_connectes' => 'El vostre nom no apareix a la llista d’usuaris/àries connectats/des.', # MODIF
+	'info_nom_utilisateurs_connectes' => 'El vostre nom apareix a la llista dels usuaris connectats.', # MODIF
 	'info_nombre_en_ligne' => 'Actualment en línia:',
 	'info_non_resultat' => 'Cap resultat per "@cherche_mot@"',
 	'info_non_utilisation_messagerie' => 'No feu servir la missatgeria interna d’aquest lloc.',
@@ -454,8 +454,8 @@ Per confirmar la nova adreça, només heu de connectar-vos a l’adreça que hi 
 	'info_sites_un' => '1 lloc',
 	'info_supprimer_vignette' => 'suprimir la icona',
 	'info_symbole_bleu' => 'El símbol <b>blau</b> indica un <b>recordatori</b>: és a dir un missatge per a ús personal.',
-	'info_symbole_jaune' => 'El símbol <b>groc</b> indica un <b>avís a tots els redactors</b> : modificable per tots els administradors i visible per tots els redactors.',
-	'info_symbole_vert' => 'El símbol <b>vert</b> indica els <b>missatges intercanviats amb altres usuaris</b> del lloc Web.',
+	'info_symbole_jaune' => 'El símbol <b>groc</b> indica un <b>avís a tots els redactors</b> : modificable per tots els administradors i visible per tots els redactors.', # MODIF
+	'info_symbole_vert' => 'El símbol <b>vert</b> indica els <b>missatges intercanviats amb altres usuaris</b> del lloc Web.', # MODIF
 	'info_telecharger_nouveau_logo' => 'Carregar un nou logotip:',
 	'info_telecharger_ordinateur' => 'Carregar des del vostre ordinador:',
 	'info_tous_resultats_enregistres' => '[tots els resultats són registrats]',
@@ -546,12 +546,12 @@ Per confirmar la nova adreça, només heu de connectar-vos a l’adreça que hi 
 	'pass_choix_pass' => 'Escolliu la vostra nova contrasenya:',
 	'pass_erreur' => 'Error',
 	'pass_erreur_acces_refuse' => '<b>Error:</b> ja no teniu accés en aquest lloc.',
-	'pass_erreur_code_inconnu' => '<b>Error:</b> aquest codi no correspon a cap dels visitants que tenen accés a aquest lloc.',
+	'pass_erreur_code_inconnu' => '<b>Error:</b> aquest codi no correspon a cap dels visitants que tenen accés a aquest lloc.', # MODIF
 	'pass_erreur_non_enregistre' => '<b>Error:</b> l’adreça <tt>@email_oubli@</tt> no està registrada en aquest lloc.',
 	'pass_erreur_non_valide' => '<b>Error:</b> aquest correu electrònic <tt>@email_oubli@</tt> no és vàlid!',
 	'pass_erreur_probleme_technique' => '<b>Error:</b> per culpa d’un problema tècnic, el correu electrònic no s’ha pogut enviar.',
-	'pass_espace_prive_bla' => 'L’espai privat d’aquest lloc està obert als visitants, un cop s’han inscrit. Una vegada registrats, podeu consultar els articles en procés de redacció, proposar articles i participar en tots els fòrums. ',
-	'pass_forum_bla' => 'Heu demanat d’intervenir en un fòrum reservat als visitants registrats.',
+	'pass_espace_prive_bla' => 'L’espai privat d’aquest lloc està obert als visitants, un cop s’han inscrit. Una vegada registrats, podeu consultar els articles en procés de redacció, proposar articles i participar en tots els fòrums. ', # MODIF
+	'pass_forum_bla' => 'Heu demanat d’intervenir en un fòrum reservat als visitants registrats.', # MODIF
 	'pass_indiquez_cidessous' => 'Indiqueu a sota l’adreça electrònica amb la que us heu registrat anteriorment. Rebreu un correu electrònic indicant-vos els passos a seguir per recuperar el vostre accés. ',
 	'pass_mail_passcookie' => '(aquest és un missatge automàtic)
 Per recuperar el vostre accés al lloc
@@ -616,7 +616,7 @@ i tornar-vos a connectar al lloc.
  funcionament del vostre lloc Web. Us recomanem no tocar res fins que no estigueu familiaritzats amb el funcionament del sistema SPIP. <br /><br /><b> En general
 ,  es molt aconsellable
  deixar la càrrega d’aquestes pàgines al webmestre principal del vostre lloc Web.</b>',
-	'texte_inc_meta_1' => 'El sistema ha trobat un error durant l’escriptura del fitxer <code>@fichier@</code>.Si us plau, ja que sou l’administrador/a del lloc web,',
+	'texte_inc_meta_1' => 'El sistema ha trobat un error durant l’escriptura del fitxer <code>@fichier@</code>.Si us plau, ja que sou l’administrador/a del lloc web,', # MODIF
 	'texte_inc_meta_2' => 'verifiqueu els drets d’escriptura',
 	'texte_inc_meta_3' => 'del directori <code>@repertoire@</code>.',
 	'texte_statut_en_cours_redaction' => 'en curs de redacció',
@@ -628,7 +628,7 @@ i tornar-vos a connectar al lloc.
 	'titre_cadre_raccourcis' => 'DRECERES',
 	'titre_changer_couleur_interface' => 'Canviar el color de l’interficie',
 	'titre_image_admin_article' => 'Vosté pot administrar aquest article',
-	'titre_image_administrateur' => 'Administrador/a',
+	'titre_image_administrateur' => 'Administrador/a', # MODIF
 	'titre_image_aide' => 'De l’ajuda sobre aquest element',
 	'titre_image_auteur_supprime' => 'Autor/a suprimit/da',
 	'titre_image_redacteur' => 'Redactor/a sense accés',

@@ -256,7 +256,7 @@ do web "@nom_site_spip@" (@adresse_site@):', # MODIF
 	'form_prop_confirmer_envoi' => 'Confirmar o envío',
 	'form_prop_description' => 'Descrición/comentario',
 	'form_prop_enregistre' => 'A súa proposta foi rexistrada, estará en liña en canto sexa
-  validada polo equipo de xestión deste web.',
+  validada polo equipo de xestión deste web.', # MODIF
 	'form_prop_envoyer' => 'Enviar unha mensaxe',
 	'form_prop_indiquer_email' => 'Indique un enderezo de correo-e. correcto',
 	'form_prop_indiquer_nom_site' => 'Indique o nome do web.',
@@ -341,7 +341,7 @@ do web "@nom_site_spip@" (@adresse_site@):', # MODIF
 	'info_breves_nb' => '@nb@ breves',
 	'info_breves_un' => '1 breve',
 	'info_connexion_refusee' => 'Conexión rexeitada',
-	'info_contact_developpeur' => 'Tes que contactar cun desenrolador.',
+	'info_contact_developpeur' => 'Tes que contactar cun desenrolador.', # MODIF
 	'info_contenance' => 'Este web contén:',
 	'info_contribution' => 'contribucións no foro', # MODIF
 	'info_copyright' => '@spip@ é un programa libre distribuído @lien_gpl@.',
@@ -377,7 +377,7 @@ do web "@nom_site_spip@" (@adresse_site@):', # MODIF
 	'info_impossible_lire_page' => '<b>Erro!</b> Foi imposible ler a páxina <tt><html>@test_proxy@</html></tt> a través do proxy <tt>',
 	'info_installation_systeme_publication' => 'Instalación do sistema de publicación...',
 	'info_installer_documents' => 'Pode instalar automaticamente todos os documentos contidos no cartafol ou directorio @upload@.',
-	'info_installer_ftp' => 'Como administrador, pode instalar (por FTP) os ficheiros no cartafol  /@upload@ para despois podelos seleccionar directamente aquí.',
+	'info_installer_ftp' => 'Como administrador, pode instalar (por FTP) os ficheiros no cartafol  /@upload@ para despois podelos seleccionar directamente aquí.', # MODIF
 	'info_installer_images' => 'Podes instalar imaxes nos formatos PNG, JPEG e GIF.',
 	'info_installer_images_dossier' => 'Instalar imaxes no cartafol @upload@ para poder seleccionalas aquí.',
 	'info_interface_complete' => 'Interface completa',
@@ -405,8 +405,8 @@ do web "@nom_site_spip@" (@adresse_site@):', # MODIF
 	'info_multi_herit' => 'Lingua predeterminada',
 	'info_multi_langues_soulignees' => 'As <u>linguas subliñadas</u> benefícianse dunha tradución de todos os textos da interface. Se vostede selecciona estas linguas, haberá numerosos elementos do web público (datos, formularios)que serán automaticamente traducidos. Para as linguas non subliñadas, estes elementos aparecerán na lingua principal do web.', # MODIF
 	'info_multilinguisme' => 'Multilingüismo',
-	'info_nom_non_utilisateurs_connectes' => 'O seu nome non aparece na lista de persoas conectadas.',
-	'info_nom_utilisateurs_connectes' => 'O seu nome aparece na lista de persoas conectadas.',
+	'info_nom_non_utilisateurs_connectes' => 'O seu nome non aparece na lista de persoas conectadas.', # MODIF
+	'info_nom_utilisateurs_connectes' => 'O seu nome aparece na lista de persoas conectadas.', # MODIF
 	'info_nombre_en_ligne' => 'Actualmente en liña:',
 	'info_non_resultat' => 'Non hai ningún resultado con "@cherche_mot@"',
 	'info_non_utilisation_messagerie' => 'Non está empregando a mensaxería interna deste web.',
@@ -444,8 +444,8 @@ do web "@nom_site_spip@" (@adresse_site@):', # MODIF
 	'info_sites_un' => '1 web',
 	'info_supprimer_vignette' => 'suprimir a viñeta',
 	'info_symbole_bleu' => 'O símbolo <b>azul</b> indica unha <b>nota</b>: ou sexa, unha mensaxe para o seu uso persoal.',
-	'info_symbole_jaune' => 'O símbolo <b>amarelo</b> indica un <b>anuncio para todo o equipo de redacción</b> : modificable polo equipo de xestión, e visible por toda a redacción.',
-	'info_symbole_vert' => 'O símbolo <b>verde</b> indica as <b>mensaxes intercambiadas con outros usuarios</b> do web.',
+	'info_symbole_jaune' => 'O símbolo <b>amarelo</b> indica un <b>anuncio para todo o equipo de redacción</b> : modificable polo equipo de xestión, e visible por toda a redacción.', # MODIF
+	'info_symbole_vert' => 'O símbolo <b>verde</b> indica as <b>mensaxes intercambiadas con outros usuarios</b> do web.', # MODIF
 	'info_telecharger_nouveau_logo' => 'Cargar un novo logo:',
 	'info_telecharger_ordinateur' => 'Cargar dende a súa computadora:',
 	'info_tous_resultats_enregistres' => '[todos os resultados foron rexistrados]',
@@ -536,15 +536,15 @@ do web "@nom_site_spip@" (@adresse_site@):', # MODIF
 	'pass_choix_pass' => 'Elixa súa nova chave:',
 	'pass_erreur' => 'Erro',
 	'pass_erreur_acces_refuse' => '<b>Erro:</b> xa non ten acceso a este web.',
-	'pass_erreur_code_inconnu' => '<b>Erro:</b> este código non se corresponde con ninguén con acceso a este web.',
+	'pass_erreur_code_inconnu' => '<b>Erro:</b> este código non se corresponde con ninguén con acceso a este web.', # MODIF
 	'pass_erreur_non_enregistre' => '<b>Erro:</b> o enderezo <tt>@email_oubli@</tt> non foi rexistrado neste web.',
 	'pass_erreur_non_valide' => '<b>Erro:</b> o correo-e. <tt>@email_oubli@</tt> non é válido!',
 	'pass_erreur_probleme_technique' => '<b>Erro:</b> debido a un problema técnico, a mensaxe de correo non puido ser enviada.',
 	'pass_espace_prive_bla' => 'O espazo privado deste web está aberto ás
   visitas, logo de se rexistrar. Unha vez que se rexistre,
   poderá consultar os artigos en proceso de redacción,
-  propor novos artigos e participar en todos os foros.',
-	'pass_forum_bla' => 'Solicitou participar nun foro reservado para os visitantes rexistrados.',
+  propor novos artigos e participar en todos os foros.', # MODIF
+	'pass_forum_bla' => 'Solicitou participar nun foro reservado para os visitantes rexistrados.', # MODIF
 	'pass_indiquez_cidessous' => 'Indique aquí embaixo o enderezo do correo co que se
   rexistrara no seu momento. Recibirá un correo indicándolle os pasos a seguir para
   recuperar o seu acceso.',
@@ -615,7 +615,7 @@ e reconectar co web.
   un pouco ao tanto do funcionamento do sistema SPIP.
   <br /><br /><b>En xeral, é moi recomendábel que estas páxinas sexan
   xestionadas polo/a webmáster principal do web.</b>',
-	'texte_inc_meta_1' => 'O sistema encontrou un erro tras a escritura do ficheiro <code>@fichier@</code>. Revíseo co perfil de administrador/a do web.',
+	'texte_inc_meta_1' => 'O sistema encontrou un erro tras a escritura do ficheiro <code>@fichier@</code>. Revíseo co perfil de administrador/a do web.', # MODIF
 	'texte_inc_meta_2' => 'Comprobar os permisos de escritura',
 	'texte_inc_meta_3' => 'no cartafol <code>@repertoire@</code>.',
 	'texte_statut_en_cours_redaction' => 'en proceso de redacción',
@@ -627,7 +627,7 @@ e reconectar co web.
 	'titre_cadre_raccourcis' => 'ATALLOS:',
 	'titre_changer_couleur_interface' => 'Trocar a cor da interface',
 	'titre_image_admin_article' => 'Podes administrar este artigo',
-	'titre_image_administrateur' => 'Xestión',
+	'titre_image_administrateur' => 'Xestión', # MODIF
 	'titre_image_aide' => 'Axuda sobre este elemento',
 	'titre_image_auteur_supprime' => 'Autor/a suprimido',
 	'titre_image_redacteur' => 'Redactor/a sen acceso',

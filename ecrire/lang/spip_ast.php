@@ -243,7 +243,7 @@ sitiu "@nom_site_spip@" (@adresse_login@):', # MODIF
 	'form_pet_signature_pasprise' => 'La to firma nun se tuvo en cuenta.',
 	'form_prop_confirmer_envoi' => 'Confirmar l’unvíu',
 	'form_prop_description' => 'Descripción/comentariu',
-	'form_prop_enregistre' => 'La to propuesta quedó rexistrada, apaecerá en llínia tres de la validación polos responsables d’esti sitiu.',
+	'form_prop_enregistre' => 'La to propuesta quedó rexistrada, apaecerá en llínia tres de la validación polos responsables d’esti sitiu.', # MODIF
 	'form_prop_envoyer' => 'Unviar un mensaxe',
 	'form_prop_indiquer_email' => 'Hai qu’indicar unes señes d’email válides',
 	'form_prop_indiquer_nom_site' => 'Hai qu’indicar el nome del sitiu.',
@@ -328,7 +328,7 @@ sitiu "@nom_site_spip@" (@adresse_login@):', # MODIF
 	'info_breves_nb' => '@nb@ breves',
 	'info_breves_un' => '1 breve',
 	'info_connexion_refusee' => 'Conexón refugada',
-	'info_contact_developpeur' => 'Ponte en contautu con un desendolcador.',
+	'info_contact_developpeur' => 'Ponte en contautu con un desendolcador.', # MODIF
 	'info_contenance' => 'Esti sitiu contien:',
 	'info_contribution' => 'contribuciones del foru', # MODIF
 	'info_copyright' => '@spip@ ye un programa llibre distribuyíu @lien_gpl@.',
@@ -364,7 +364,7 @@ sitiu "@nom_site_spip@" (@adresse_login@):', # MODIF
 	'info_impossible_lire_page' => '<b>¡Fallu!</b> Nun ye posible lleer la páxina <tt><html>@test_proxy@</html></tt> al traviés del proxy ',
 	'info_installation_systeme_publication' => 'Instalación del sistema d’espublizamientu...',
 	'info_installer_documents' => 'Puedes instalar automáticamente tolos documentos contenios nel direutoriu @upload@.',
-	'info_installer_ftp' => 'Como alministrador, puedes instalar ficheros (per FTP) nel direutoriu @upload@ pa poder lluéu seleicionalos direutamente equí.',
+	'info_installer_ftp' => 'Como alministrador, puedes instalar ficheros (per FTP) nel direutoriu @upload@ pa poder lluéu seleicionalos direutamente equí.', # MODIF
 	'info_installer_images' => 'Puedes instalar imaxes nos formatos JPEG, GIF y PNG.',
 	'info_installer_images_dossier' => 'Instalar imáxenes nel direutoriu @upload@ pa poder seleicionales equí.',
 	'info_interface_complete' => 'interfaz completa',
@@ -392,8 +392,8 @@ sitiu "@nom_site_spip@" (@adresse_login@):', # MODIF
 	'info_multi_herit' => 'Llíngua por omisión',
 	'info_multi_langues_soulignees' => 'Les <u>llíngües solliñáes</u> beneficiense de la traducción de tolos testos de la interfaz. Si seleiciones estes llíngües, van traducise automáticamente abondos elementos del sitiu públicu (feches, formularios). Pa les llíngües non solliñáes, estos elementos apaecerán na llingua principal del sitiu.', # MODIF
 	'info_multilinguisme' => 'Multillingüismu',
-	'info_nom_non_utilisateurs_connectes' => 'El to nome nun apaez na llista d’usuarios coneutaos.',
-	'info_nom_utilisateurs_connectes' => 'El to nome apaez na llista d’usuarios coneutáos.',
+	'info_nom_non_utilisateurs_connectes' => 'El to nome nun apaez na llista d’usuarios coneutaos.', # MODIF
+	'info_nom_utilisateurs_connectes' => 'El to nome apaez na llista d’usuarios coneutáos.', # MODIF
 	'info_nombre_en_ligne' => 'En llinia agora:',
 	'info_non_resultat' => 'Dengún resultáu pa "@cherche_mot@"',
 	'info_non_utilisation_messagerie' => 'Nun tas usando la mensaxería interna d’esti sitiu.',
@@ -431,8 +431,8 @@ sitiu "@nom_site_spip@" (@adresse_login@):', # MODIF
 	'info_sites_un' => '1 sitiu',
 	'info_supprimer_vignette' => 'desaniciar la viñeta',
 	'info_symbole_bleu' => 'La marca <b>azul</b> indica un <b>recordatoriu</b>: ye un mensaxe pal to usu personal.',
-	'info_symbole_jaune' => 'La marca <b>mariella</b> indica una <b>anuncia pa tolos redactores</b>: puede modificase por tolos alministradores, y ye visible por tolos redactores.',
-	'info_symbole_vert' => 'La marca <b>verde</b> indica los <b>mensaxes intercambeaos con otros usuarios</b> del sitiu.',
+	'info_symbole_jaune' => 'La marca <b>mariella</b> indica una <b>anuncia pa tolos redactores</b>: puede modificase por tolos alministradores, y ye visible por tolos redactores.', # MODIF
+	'info_symbole_vert' => 'La marca <b>verde</b> indica los <b>mensaxes intercambeaos con otros usuarios</b> del sitiu.', # MODIF
 	'info_telecharger_nouveau_logo' => 'Subir un logo nuevu:',
 	'info_telecharger_ordinateur' => 'Subir dende’l to ordenador:',
 	'info_tous_resultats_enregistres' => '[tolos resultaos tan grabaos]',
@@ -524,16 +524,16 @@ sitiu "@nom_site_spip@" (@adresse_login@):', # MODIF
 	'pass_choix_pass' => 'Escueye la nueva contraseña:',
 	'pass_erreur' => 'Error',
 	'pass_erreur_acces_refuse' => '<b>Error:</b> ya nun tienes accesu a esti sitiu.',
-	'pass_erreur_code_inconnu' => '<b>Error:</b> esti códigu nun correspuende a dengún visitante que tenga accesu a esti sitiu.',
+	'pass_erreur_code_inconnu' => '<b>Error:</b> esti códigu nun correspuende a dengún visitante que tenga accesu a esti sitiu.', # MODIF
 	'pass_erreur_non_enregistre' => '<b>Error:</b> les señes <tt>@email_oubli@</tt> nun tan rexistráes n’esti sitiu.',
 	'pass_erreur_non_valide' => '<b>Error:</b> ¡estes señes <tt>@email_oubli@</tt> nun son válides!',
 	'pass_erreur_probleme_technique' => '<b>Error:</b> por cuenta d’un problema téunicu, nun pudo mandase l’email.',
 	'pass_espace_prive_bla' => 'L’espaciu priváu d’esti sitiu ta abiertu pa lo
   visitantes tres d’inscribise. Desque te rexistres,
   vas poder consultar los artículos en cursu de redaición,
-  proponer artículos y participar en tolos foros.',
+  proponer artículos y participar en tolos foros.', # MODIF
 	'pass_forum_bla' => 'Pedisti intervenir nun foru acutao
-  pa los visitantes rexistraos.',
+  pa los visitantes rexistraos.', # MODIF
 	'pass_indiquez_cidessous' => 'Escribe embaxo les señes d’email coles que
    teas rexistráu. Vas recibir un email
    nel que te indicamos los pasos a dar
@@ -605,7 +605,7 @@ Intenta',
  funcionamientu del to sitiu. Encamentámos-te de nun tocales demientres que nun tes
  familiarizáu col funcionamientu del sistema SPIP. <br /><br /><b>Más en xeneral, encamentamos
  dexar que s’encargue d’estes páxines el webmaster principal del sitiu.</b>',
-	'texte_inc_meta_1' => 'El sistema atopó un error mientres s’escribía el ficheru <code>@fichier@</code>. Como alministrador del sitiu,',
+	'texte_inc_meta_1' => 'El sistema atopó un error mientres s’escribía el ficheru <code>@fichier@</code>. Como alministrador del sitiu,', # MODIF
 	'texte_inc_meta_2' => 'hai que verificar los permisos d’escritura',
 	'texte_inc_meta_3' => 'nel direutoriu <code>@repertoire@</code>.',
 	'texte_statut_en_cours_redaction' => 'en cursu de redaición',
@@ -617,7 +617,7 @@ Intenta',
 	'titre_cadre_raccourcis' => 'ATAYOS:',
 	'titre_changer_couleur_interface' => 'Cambear la color de l’interfaz',
 	'titre_image_admin_article' => 'Puedes alministrar esti artículu',
-	'titre_image_administrateur' => 'Alministrador',
+	'titre_image_administrateur' => 'Alministrador', # MODIF
 	'titre_image_aide' => 'Aida so esti elementu',
 	'titre_image_auteur_supprime' => 'Autor desaniciáu',
 	'titre_image_redacteur' => 'Redactor ensin accesu',
