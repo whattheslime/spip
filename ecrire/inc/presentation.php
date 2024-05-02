@@ -30,6 +30,7 @@ include_spip('inc/filtres_boites');
 include_spip('inc/filtres_alertes');
 
 function debut_cadre($style, $icone = '', $fonction = '', $titre = '', $id = '', $class = '', $padding = true) {
+	trigger_deprecation('spip', '4.3', 'Using "%s" is deprecated', __FUNCTION__);
 	$fond = null;
 	$style_mapping = [
 		'r' => 'simple',
@@ -72,6 +73,7 @@ function debut_cadre($style, $icone = '', $fonction = '', $titre = '', $id = '',
 }
 
 function fin_cadre() {
+ trigger_deprecation('spip', '4.3', 'Using "%s" is deprecated', __FUNCTION__);
  return boite_fermer();
 }
 
@@ -84,10 +86,12 @@ function debut_cadre_relief(
 	$id = '',
 	$class = ''
 ) {
+	trigger_deprecation('spip', '4.3', 'Using "%s" is deprecated', __FUNCTION__);
 	return debut_cadre('r', $icone, $fonction, $titre, $id, $class);
 }
 
 function fin_cadre_relief() {
+ trigger_deprecation('spip', '4.3', 'Using "%s" is deprecated', __FUNCTION__);
  return fin_cadre();
 }
 
@@ -99,10 +103,12 @@ function debut_cadre_enfonce(
 	$id = '',
 	$class = ''
 ) {
+	trigger_deprecation('spip', '4.3', 'Using "%s" is deprecated', __FUNCTION__);
 	return debut_cadre('e', $icone, $fonction, $titre, $id, $class);
 }
 
 function fin_cadre_enfonce() {
+ trigger_deprecation('spip', '4.3', 'Using "%s" is deprecated', __FUNCTION__);
  return fin_cadre();
 }
 
@@ -114,10 +120,12 @@ function debut_cadre_sous_rub(
 	$id = '',
 	$class = ''
 ) {
+	trigger_deprecation('spip', '4.3', 'Using "%s" is deprecated', __FUNCTION__);
 	return debut_cadre('sous_rub', $icone, $fonction, $titre, $id, $class);
 }
 
 function fin_cadre_sous_rub() {
+ trigger_deprecation('spip', '4.3', 'Using "%s" is deprecated', __FUNCTION__);
  return fin_cadre();
 }
 
@@ -129,10 +137,12 @@ function debut_cadre_couleur(
 	$id = '',
 	$class = ''
 ) {
+	trigger_deprecation('spip', '4.3', 'Using "%s" is deprecated', __FUNCTION__);
 	return debut_cadre('couleur', $icone, $fonction, $titre, $id, $class);
 }
 
 function fin_cadre_couleur() {
+ trigger_deprecation('spip', '4.3', 'Using "%s" is deprecated', __FUNCTION__);
  return fin_cadre();
 }
 
@@ -144,18 +154,22 @@ function debut_cadre_trait_couleur(
 	$id = '',
 	$class = ''
 ) {
+	trigger_deprecation('spip', '4.3', 'Using "%s" is deprecated', __FUNCTION__);
 	return debut_cadre('trait-couleur', $icone, $fonction, $titre, $id, $class);
 }
 
 function fin_cadre_trait_couleur() {
+ trigger_deprecation('spip', '4.3', 'Using "%s" is deprecated', __FUNCTION__);
  return fin_cadre();
 }
 
 function debut_boite_alerte() {
+ trigger_deprecation('spip', '4.3', 'Using "%s" is deprecated', __FUNCTION__);
  return debut_cadre('alerte', '', '', '', '', '');
 }
 
 function fin_boite_alerte() {
+ trigger_deprecation('spip', '4.3', 'Using "%s" is deprecated', __FUNCTION__);
  return fin_cadre();
 }
 
@@ -164,6 +178,7 @@ function debut_boite_info() {
 }
 
 function fin_boite_info() {
+ trigger_deprecation('spip', '4.3', 'Using "%s" is deprecated', __FUNCTION__);
  return fin_cadre();
 }
 
@@ -184,6 +199,7 @@ function gros_titre(
 // La boite des raccourcis
 // Se place a droite si l'ecran est en mode panoramique.
 function bloc_des_raccourcis($bloc) {
+	trigger_deprecation('spip', '4.3', 'Using "%s" is deprecated', __FUNCTION__);
 	return creer_colonne_droite()
 	. boite_ouvrir(_T('titre_cadre_raccourcis'), 'raccourcis') . $bloc . boite_fermer();
 }
