@@ -3688,8 +3688,8 @@ function filtre_balise_svg_dist($img, $alt = '', $class = null, $size = null) {
 	$balise_svg = $match[0];
 	$balise_svg_source = $balise_svg;
 
-	// entete XML à supprimer
-	$svg = preg_replace(',^\s*<\?xml[^>]*\?' . '>,', '', $svg);
+	include_spip('inc/svg');
+	$svg = svg_nettoyer($svg);
 
 	// IE est toujours mon ami
 	$balise_svg = inserer_attribut($balise_svg, 'focusable', 'false');
@@ -3771,10 +3771,10 @@ function filtre_foreach_dist($tableau, $modele = 'foreach') {
 
 /**
  * Génère une balise HTML `img` ou un `svg` inline suivant le nom du fichier.
- * 
+ *
  * @uses filtre_balise_img_dist()
  * @uses filtre_balise_svg_dist()
- * 
+ *
  * @param string $img
  *   chemin vers un fichier ou balise `<img src='...'>` (generee par un filtre image par exemple)
  * @param string $alt
