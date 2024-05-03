@@ -115,6 +115,30 @@ function svg_lire_attributs($img) {
 }
 
 /**
+ * Nettoyer le code d'une balise <svg> pour en retirer le marqueur utf8-bom, l'entête xml et les commentaires
+ * @param string $img
+ * @return string
+ */
+function svg_nettoyer($svg) {
+
+	// Supprime le marqueur utf8-bom du contenu s'il est présent
+	if (str_starts_with($svg, "\xEF\xBB\xBF")) {
+		$svg = substr($svg, 3);
+	}
+	// Supprimer l'entete xml si besoin
+	if ((($pos = strpos($svg, '<svg')) !== 0) && $pos) {
+		$svg = substr($svg, $pos);
+	}
+	if (!str_contains($svg, 'http://www.w3.org/2000/svg')) {
+		$svg = str_replace('<svg', '<svg xmlns="http://www.w3.org/2000/svg"', $svg);
+	}
+	// Supprimer les commentaires
+	$svg = preg_replace(',<!--.*-->,Us', '', $svg);
+
+	return $svg;
+}
+
+/**
  * Convertir l'attribut widht/height d'un SVG en pixels
  * (approximatif eventuellement, du moment qu'on respecte le ratio)
  * @param string $dimension
