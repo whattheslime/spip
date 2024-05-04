@@ -1,13 +1,13 @@
 <?php
 
-/***************************************************************************\
- *  SPIP, Système de publication pour l'internet                           *
- *                                                                         *
- *  Copyright © avec tendresse depuis 2001                                 *
- *  Arnaud Martin, Antoine Pitrou, Philippe Rivière, Emmanuel Saint-James  *
- *                                                                         *
- *  Ce programme est un logiciel libre distribué sous licence GNU/GPL.     *
-\***************************************************************************/
+/**
+ * SPIP, Système de publication pour l'internet
+ *
+ * Copyright © avec tendresse depuis 2001
+ * Arnaud Martin, Antoine Pitrou, Philippe Rivière, Emmanuel Saint-James
+ *
+ * Ce programme est un logiciel libre distribué sous licence GNU/GPL.
+ */
 
 /**
  * Gestion des rôles
@@ -45,7 +45,7 @@ if (!defined('_ECRIRE_INC_VERSION')) {
  * @return bool|array
  *     false si rôles indisponibles on non déclarés
  *     array : description des roles applicables dans 3 index : colonne, titres, roles
- **/
+ */
 function roles_presents($objet, $objet_destination = '') {
 	$desc = lister_tables_objets_sql(table_objet_sql($objet));
 
@@ -107,7 +107,7 @@ function roles_presents($objet, $objet_destination = '') {
  *     Objet sur quoi on veut lier
  * @return string
  *     Nom de la colonne, sinon vide
- **/
+ */
 function roles_colonne($objet, $objet_destination) {
 	if ($roles = roles_presents($objet, $objet_destination)) {
 		return $roles['colonne'];
@@ -133,7 +133,7 @@ function roles_colonne($objet, $objet_destination) {
  * @return array
  *     Liste (role, colonne, (array)condition) si role possible
  *     Liste ('', '', array()) sinon.
- **/
+ */
 function roles_trouver_dans_qualif($objet, $objet_destination, $qualif = []) {
 	// si des rôles sont possibles, on les utilise
 	$role = $colonne_role = ''; # role défini
@@ -169,7 +169,7 @@ function roles_trouver_dans_qualif($objet, $objet_destination, $qualif = []) {
  *     pas de rôle par défaut si aucun n'est défini.
  * @return array
  *     Liste (Tableau de conditions where complété du role, Colonne du role, role utilisé)
- **/
+ */
 function roles_creer_condition_role($objet_source, $objet, $cond, $tous_si_absent = false) {
 	// role par défaut, colonne
 	[$role_defaut, $colonne_role] = roles_trouver_dans_qualif($objet_source, $objet);

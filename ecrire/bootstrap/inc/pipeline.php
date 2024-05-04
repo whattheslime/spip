@@ -22,7 +22,7 @@
  *     Les paramètres du pipeline, son environnement
  * @return string|array $val
  *     Les paramètres du pipeline modifiés
- **/
+ */
 function minipipe($fonc, &$val) {
 	// fonction
 	if (function_exists($fonc)) {

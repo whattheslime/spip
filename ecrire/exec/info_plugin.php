@@ -1,9 +1,12 @@
 <?php
 
 /**
- * Gestion d'affichage d'un descriptif de plugin en ajax
+ * SPIP, Système de publication pour l'internet
  *
- * @package SPIP\Core\Exec
+ * Copyright © avec tendresse depuis 2001
+ * Arnaud Martin, Antoine Pitrou, Philippe Rivière, Emmanuel Saint-James
+ *
+ * Ce programme est un logiciel libre distribué sous licence GNU/GPL.
  */
 
 if (!defined('_ECRIRE_INC_VERSION')) {

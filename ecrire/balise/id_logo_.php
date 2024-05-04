@@ -1,19 +1,19 @@
 <?php
 
-/***************************************************************************\
- *  SPIP, Système de publication pour l'internet                           *
- *                                                                         *
- *  Copyright © avec tendresse depuis 2001                                 *
- *  Arnaud Martin, Antoine Pitrou, Philippe Rivière, Emmanuel Saint-James  *
- *                                                                         *
- *  Ce programme est un logiciel libre distribué sous licence GNU/GPL.     *
-\***************************************************************************/
+/**
+ * SPIP, Système de publication pour l'internet
+ *
+ * Copyright © avec tendresse depuis 2001
+ * Arnaud Martin, Antoine Pitrou, Philippe Rivière, Emmanuel Saint-James
+ *
+ * Ce programme est un logiciel libre distribué sous licence GNU/GPL.
+ */
 
 /**
  * Fonctions génériques pour les balises `#LOGO_XXXX`
  *
  * @package SPIP\Core\Compilateur\Balises
- **/
+ */
 
 if (!defined('_ECRIRE_INC_VERSION')) {
 	return;
@@ -106,7 +106,7 @@ function balise_ID_LOGO__dist($p) {
  *     Indique un type de champ à retourner (fichier, src, titre, descriptif, credits, id, alt)
  * @return string
  *     Code compilé retournant le chemin du logo ou le code HTML du logo.
- **/
+ */
 function generer_code_logo($id_objet, $_id_objet, $type, $align, $_lien, $p, $suite, string $champ = ''): string {
 	$onoff = 'ON';
 	$_id_rubrique = "''";

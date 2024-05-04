@@ -5,7 +5,7 @@
  *
  * @see  queue_affichage_cron()
  * @uses cron()
- **/
+ */
 function action_cron() {
 	include_spip('inc/headers');
 	http_response_code(204); // No Content

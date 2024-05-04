@@ -1,13 +1,13 @@
 <?php
 
-/***************************************************************************\
- *  SPIP, Système de publication pour l'internet                           *
- *                                                                         *
- *  Copyright © avec tendresse depuis 2001                                 *
- *  Arnaud Martin, Antoine Pitrou, Philippe Rivière, Emmanuel Saint-James  *
- *                                                                         *
- *  Ce programme est un logiciel libre distribué sous licence GNU/GPL.     *
-\***************************************************************************/
+/**
+ * SPIP, Système de publication pour l'internet
+ *
+ * Copyright © avec tendresse depuis 2001
+ * Arnaud Martin, Antoine Pitrou, Philippe Rivière, Emmanuel Saint-James
+ *
+ * Ce programme est un logiciel libre distribué sous licence GNU/GPL.
+ */
 
 /**
  * Réparation de la base de données
@@ -32,7 +32,7 @@ if (!defined('_ECRIRE_INC_VERSION')) {
  *
  * @param string $titre Inutilisé
  * @param string $reprise Inutilisé
- **/
+ */
 function base_repair_dist($titre = '', $reprise = '') {
 
 	$res = admin_repair_tables();
@@ -59,7 +59,7 @@ function base_repair_dist($titre = '', $reprise = '') {
  *
  * @return string
  *     Code HTML expliquant les actions réalisées
- **/
+ */
 function admin_repair_tables() {
 
 	$repair = sql_serveur('repair', '', true);

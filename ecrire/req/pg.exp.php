@@ -1,13 +1,13 @@
 <?php
 
-/* *************************************************************************\
- *  SPIP, Système de publication pour l'internet                           *
- *                                                                         *
- *  Copyright © avec tendresse depuis 2001                                 *
- *  Arnaud Martin, Antoine Pitrou, Philippe Rivière, Emmanuel Saint-James  *
- *                                                                         *
- *  Ce programme est un logiciel libre distribué sous licence GNU/GPL.     *
-\***************************************************************************/
+/**
+ * SPIP, Système de publication pour l'internet
+ *
+ * Copyright © avec tendresse depuis 2001
+ * Arnaud Martin, Antoine Pitrou, Philippe Rivière, Emmanuel Saint-James
+ *
+ * Ce programme est un logiciel libre distribué sous licence GNU/GPL.
+ */
 
 /**
  * Ce fichier contient les fonctions gerant
@@ -475,7 +475,7 @@ function spip_pg_explain($query, $serveur = '', $requeter = true) {
  * @return bool|string
  *     - Nom de la base en cas de succès.
  *     - False en cas d'erreur.
- **/
+ */
 function spip_pg_selectdb($db, $serveur = '', $requeter = true) {
 	// se connecter a la base indiquee
 	// avec les identifiants connus
@@ -1296,7 +1296,7 @@ function spip_pg_drop_view($view, $exist = false, $serveur = '', $requeter = tru
  *     false pour retourner le texte de la requête.
  * @return ressource
  *     Ressource à utiliser avec sql_fetch()
- **/
+ */
 function spip_pg_showbase($match, $serveur = '', $requeter = true) {
 	$connexion = &$GLOBALS['connexions'][$serveur ? strtolower($serveur) : 0];
 	$link = $connexion['link'];
@@ -1460,7 +1460,7 @@ function spip_pg_set_connect_charset($charset, $serveur = '', $requeter = true) 
  * @param string $serveur nom de la connexion
  * @param bool $requeter effectuer la requete ? sinon retourner son code
  * @return bool|string true / false / requete
- **/
+ */
 function spip_pg_optimize($table, $serveur = '', $requeter = true) {
 	return spip_pg_query('VACUUM ' . $table, $serveur, $requeter);
 }

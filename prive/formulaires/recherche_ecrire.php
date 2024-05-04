@@ -1,19 +1,19 @@
 <?php
 
-/***************************************************************************\
- *  SPIP, Système de publication pour l'internet                           *
- *                                                                         *
- *  Copyright © avec tendresse depuis 2001                                 *
- *  Arnaud Martin, Antoine Pitrou, Philippe Rivière, Emmanuel Saint-James  *
- *                                                                         *
- *  Ce programme est un logiciel libre distribué sous licence GNU/GPL.     *
-\***************************************************************************/
+/**
+ * SPIP, Système de publication pour l'internet
+ *
+ * Copyright © avec tendresse depuis 2001
+ * Arnaud Martin, Antoine Pitrou, Philippe Rivière, Emmanuel Saint-James
+ *
+ * Ce programme est un logiciel libre distribué sous licence GNU/GPL.
+ */
 
 /**
  * Gestion du formulaire de recherche pour l'espace privé
  *
  * @package SPIP\Core\Formulaires
- **/
+ */
 
 if (!defined('_ECRIRE_INC_VERSION')) {
 	return;
@@ -30,7 +30,7 @@ if (!defined('_ECRIRE_INC_VERSION')) {
  * @param string $class
  *     Classe CSS supplémentaire appliquée sur le formulaire
  * @return array Environnement du formulaire
- **/
+ */
 function formulaires_recherche_ecrire_charger_dist($action = '', $class = '') {
 	$lang = $GLOBALS['spip_lang'] != $GLOBALS['meta']['langue_site'] ? $GLOBALS['spip_lang'] : '';
 

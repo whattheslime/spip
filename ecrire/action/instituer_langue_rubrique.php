@@ -1,19 +1,19 @@
 <?php
 
-/***************************************************************************\
- *  SPIP, Système de publication pour l'internet                           *
- *                                                                         *
- *  Copyright © avec tendresse depuis 2001                                 *
- *  Arnaud Martin, Antoine Pitrou, Philippe Rivière, Emmanuel Saint-James  *
- *                                                                         *
- *  Ce programme est un logiciel libre distribué sous licence GNU/GPL.     *
-\***************************************************************************/
+/**
+ * SPIP, Système de publication pour l'internet
+ *
+ * Copyright © avec tendresse depuis 2001
+ * Arnaud Martin, Antoine Pitrou, Philippe Rivière, Emmanuel Saint-James
+ *
+ * Ce programme est un logiciel libre distribué sous licence GNU/GPL.
+ */
 
 /**
  * Action des changements de langue des rubriques
  *
  * @package SPIP\Core\Edition
- **/
+ */
 
 if (!defined('_ECRIRE_INC_VERSION')) {
 	return;
@@ -21,7 +21,7 @@ if (!defined('_ECRIRE_INC_VERSION')) {
 
 /**
  * Modifie la langue d'une rubrique
- **/
+ */
 function action_instituer_langue_rubrique_dist() {
 
 	$securiser_action = charger_fonction('securiser_action', 'inc');

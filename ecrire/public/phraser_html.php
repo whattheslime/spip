@@ -1,13 +1,13 @@
 <?php
 
-/***************************************************************************\
- *  SPIP, Système de publication pour l'internet                           *
- *                                                                         *
- *  Copyright © avec tendresse depuis 2001                                 *
- *  Arnaud Martin, Antoine Pitrou, Philippe Rivière, Emmanuel Saint-James  *
- *                                                                         *
- *  Ce programme est un logiciel libre distribué sous licence GNU/GPL.     *
-\***************************************************************************/
+/**
+ * SPIP, Système de publication pour l'internet
+ *
+ * Copyright © avec tendresse depuis 2001
+ * Arnaud Martin, Antoine Pitrou, Philippe Rivière, Emmanuel Saint-James
+ *
+ * Ce programme est un logiciel libre distribué sous licence GNU/GPL.
+ */
 
 use Spip\Compilateur\Noeud\Boucle;
 use Spip\Compilateur\Noeud\Champ;
@@ -24,7 +24,7 @@ use Spip\Compilateur\Noeud\Texte;
  * il est chargé par un include calculé pour permettre différentes syntaxes en entrée
  *
  * @package SPIP\Core\Compilateur\Phraseur
- **/
+ */
 
 if (!defined('_ECRIRE_INC_VERSION')) {
 	return;
@@ -184,7 +184,7 @@ function phraser_polyglotte(string $texte, int $ligne, array $result): array {
  * @param int $ligne
  * @param array $result
  * @return array
- **/
+ */
 function phraser_idiomes(string $texte, int $ligne, array $result): array {
 
 	while (
@@ -260,7 +260,7 @@ function phraser_idiomes(string $texte, int $ligne, array $result): array {
  * @param int $ligne
  * @param array $result
  * @return array
- **/
+ */
 function phraser_champs(string $texte, int $ligne, array $result): array {
 
 	while (
@@ -659,7 +659,7 @@ function phraser_vieux(&$champ) {
  *     Description de la boucle
  *     Elle sera complété de la liste de ses critères
  * @return void
- **/
+ */
 function phraser_criteres($params, &$result) {
 
 	$err_ci = ''; // indiquera s'il y a eu une erreur

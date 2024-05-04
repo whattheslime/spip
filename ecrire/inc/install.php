@@ -1,19 +1,19 @@
 <?php
 
-/***************************************************************************\
- *  SPIP, Système de publication pour l'internet                           *
- *                                                                         *
- *  Copyright © avec tendresse depuis 2001                                 *
- *  Arnaud Martin, Antoine Pitrou, Philippe Rivière, Emmanuel Saint-James  *
- *                                                                         *
- *  Ce programme est un logiciel libre distribué sous licence GNU/GPL.     *
-\***************************************************************************/
+/**
+ * SPIP, Système de publication pour l'internet
+ *
+ * Copyright © avec tendresse depuis 2001
+ * Arnaud Martin, Antoine Pitrou, Philippe Rivière, Emmanuel Saint-James
+ *
+ * Ce programme est un logiciel libre distribué sous licence GNU/GPL.
+ */
 
 /**
  * Gestion de l'installation de SPIP
  *
  * @package SPIP\Core\Installation
- **/
+ */
 
 if (!defined('_ECRIRE_INC_VERSION')) {
 	return;
@@ -40,7 +40,7 @@ if (!defined('_ECRIRE_INC_VERSION')) {
  * @param string $texte
  *     Code source du fichier (sans l'ouverture/fermeture PHP)
  * @return void
- **/
+ */
 function install_fichier_connexion($nom, $texte) {
 	$texte = '<' . "?php\n"
 		. "if (!defined(\"_ECRIRE_INC_VERSION\")) return;\n"
@@ -73,7 +73,7 @@ function install_fichier_connexion($nom, $texte) {
  * @return string
  *     texte du fichier de connexion
  *
- **/
+ */
 function install_connexion($adr, $port, $login, #[\SensitiveParameter] $pass, $base, $type, $pref, $ldap = '', $charset = '') {
 	$adr = addcslashes($adr, "'\\");
 	$port = addcslashes($port, "'\\");
@@ -102,7 +102,7 @@ function install_connexion($adr, $port, $login, #[\SensitiveParameter] $pass, $b
  *     Chemin du fichier de connexion à analyser
  * @return array
  *     Tableau des informations sur la connexion
- **/
+ */
 function analyse_fichier_connection(string $file): array {
 	if (!file_exists($file)) {
 		return [];
@@ -141,7 +141,7 @@ function analyse_fichier_connection(string $file): array {
  *     Exclure un connecteur particulier (nom du fichier)
  * @return array
  *     Liste des noms de connecteurs
- **/
+ */
 function bases_referencees($exclu = '') {
 	$tables = [];
 	foreach (preg_files(_DIR_CONNECT, '.php$') as $f) {
@@ -218,7 +218,7 @@ function info_etape($titre, $complement = '') {
  *
  * @param string $code texte du bouton
  * @return string Code HTML du bouton
- **/
+ */
 function bouton_suivant($code = '') {
 	if ($code == '') {
 		$code = _T('bouton_suivant');

@@ -1,13 +1,13 @@
 <?php
 
-/***************************************************************************\
- *  SPIP, Système de publication pour l'internet                           *
- *                                                                         *
- *  Copyright © avec tendresse depuis 2001                                 *
- *  Arnaud Martin, Antoine Pitrou, Philippe Rivière, Emmanuel Saint-James  *
- *                                                                         *
- *  Ce programme est un logiciel libre distribué sous licence GNU/GPL.     *
-\***************************************************************************/
+/**
+ * SPIP, Système de publication pour l'internet
+ *
+ * Copyright © avec tendresse depuis 2001
+ * Arnaud Martin, Antoine Pitrou, Philippe Rivière, Emmanuel Saint-James
+ *
+ * Ce programme est un logiciel libre distribué sous licence GNU/GPL.
+ */
 
 /**
  * Gestion de la recherche ajax du mini navigateur de rubriques
@@ -15,7 +15,7 @@
  * Cette possibilité de recherche apparaît s'il y a beaucoup de rubriques dans le site.
  *
  * @package SPIP\Core\Rechercher
- **/
+ */
 
 if (!defined('_ECRIRE_INC_VERSION')) {
 	return;
@@ -29,7 +29,7 @@ include_spip('inc/texte');
  *
  * @uses exec_rechercher_args() Formate le rendu de la recherche.
  * @uses ajax_retour()
- **/
+ */
 function exec_rechercher_dist() {
 	$id = (int) _request('id');
 	$exclus = (int) _request('exclus');
@@ -52,7 +52,7 @@ function exec_rechercher_dist() {
  * @param string|bool $rac
  * @param string $do
  * @return string
- **/
+ */
 function exec_rechercher_args($id, $type, $exclus, $rac, $do) {
 	if (!$do) {
 		$do = 'aff';
@@ -128,7 +128,7 @@ function exec_rechercher_args($id, $type, $exclus, $rac, $do) {
  * @param string $type
  * @param string $do
  * @return string
- **/
+ */
 function proposer_item($ids, $titles, $rac, $type, $do) {
 
 	if (!$ids) {

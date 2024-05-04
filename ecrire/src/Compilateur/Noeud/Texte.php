@@ -4,7 +4,7 @@ namespace Spip\Compilateur\Noeud;
 
 /**
  * Description d'un texte.
- **/
+ */
 class Texte
 {
 	/** Type de noeud */

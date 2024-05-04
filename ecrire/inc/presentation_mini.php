@@ -1,19 +1,19 @@
 <?php
 
-/***************************************************************************\
- *  SPIP, Système de publication pour l'internet                           *
- *                                                                         *
- *  Copyright © avec tendresse depuis 2001                                 *
- *  Arnaud Martin, Antoine Pitrou, Philippe Rivière, Emmanuel Saint-James  *
- *                                                                         *
- *  Ce programme est un logiciel libre distribué sous licence GNU/GPL.     *
-\***************************************************************************/
+/**
+ * SPIP, Système de publication pour l'internet
+ *
+ * Copyright © avec tendresse depuis 2001
+ * Arnaud Martin, Antoine Pitrou, Philippe Rivière, Emmanuel Saint-James
+ *
+ * Ce programme est un logiciel libre distribué sous licence GNU/GPL.
+ */
 
 /**
  * Fonctions d'affichage pour l'espace privé (hors squelettes)
  *
  * @package SPIP\Core\Affichage
- **/
+ */
 if (!defined('_ECRIRE_INC_VERSION')) {
 	return;
 }
@@ -104,7 +104,7 @@ function debut_droite() {
  *     Session de l'auteur. Sera prise sur l'auteur connecté si non indiquée.
  * @return string
  *     Code HTML
- **/
+ */
 function liste_objets_bloques($exec, $contexte = [], $auteur = null): string {
 	$res = '';
 	include_spip('inc/config');
@@ -143,7 +143,7 @@ function liste_objets_bloques($exec, $contexte = [], $auteur = null): string {
  * @see f_queue() Pour l'appel au cron
  *
  * @return string Code HTML
- **/
+ */
 function fin_page() {
 	include_spip('inc/pipelines');
 	// avec &var_profile=1 on a le tableau de mesures SQL
@@ -174,7 +174,7 @@ function fin_page() {
  * @see verifier_session()
  *
  * @return string Code HTML
- **/
+ */
 function html_tests_js() {
 	if (_SPIP_AJAX && !defined('_TESTER_NOSCRIPT')) {
 		// pour le pied de page (deja defini si on est validation XML)
@@ -198,7 +198,7 @@ function html_tests_js() {
  * Retourne la liste des mises à jour de SPIP possibles
  *
  * @return string texte présentant la liste des mises à jour existantes
- **/
+ */
 function info_maj_spip() {
 
 	$maj = $GLOBALS['meta']['info_maj_spip'] ?? null;
@@ -227,7 +227,7 @@ function info_maj_spip() {
  * pour le pied de page de l'espace privé
  *
  * @return string Code HTML
- **/
+ */
 function info_copyright() {
 
 	$version = $GLOBALS['spip_version_affichee'];

@@ -1,13 +1,13 @@
 <?php
 
-/***************************************************************************\
- *  SPIP, Système de publication pour l'internet                           *
- *                                                                         *
- *  Copyright © avec tendresse depuis 2001                                 *
- *  Arnaud Martin, Antoine Pitrou, Philippe Rivière, Emmanuel Saint-James  *
- *                                                                         *
- *  Ce programme est un logiciel libre distribué sous licence GNU/GPL.     *
-\***************************************************************************/
+/**
+ * SPIP, Système de publication pour l'internet
+ *
+ * Copyright © avec tendresse depuis 2001
+ * Arnaud Martin, Antoine Pitrou, Philippe Rivière, Emmanuel Saint-James
+ *
+ * Ce programme est un logiciel libre distribué sous licence GNU/GPL.
+ */
 
 use Spip\Compilateur\Noeud\Champ;
 
@@ -24,7 +24,7 @@ use Spip\Compilateur\Noeud\Champ;
  * répertoire ecrire/balise/
  *
  * @package SPIP\Core\Compilateur\Balises
- **/
+ */
 
 if (!defined('_ECRIRE_INC_VERSION')) {
 	return;
@@ -45,7 +45,7 @@ if (!defined('_ECRIRE_INC_VERSION')) {
  * @param Champ $p Pile au niveau de la balise
  * @return string|null
  *     Code PHP si cet argument est présent, sinon null
- **/
+ */
 function interprete_argument_balise(int $n, Champ $p): ?string {
 	if (($p->param) && (!$p->param[0][0]) && ((is_countable($p->param[0]) ? count($p->param[0]) : 0) > $n)) {
 		return calculer_liste(
@@ -74,7 +74,7 @@ function interprete_argument_balise(int $n, Champ $p): ?string {
  *     Pile au niveau de la balise
  * @return Champ
  *     Pile complétée par le code à générer
- **/
+ */
 function balise_NOM_SITE_SPIP_dist($p) {
 	$p->code = "\$GLOBALS['meta']['nom_site']";
 
@@ -93,7 +93,7 @@ function balise_NOM_SITE_SPIP_dist($p) {
  *     Pile au niveau de la balise
  * @return Champ
  *     Pile complétée par le code à générer
- **/
+ */
 function balise_EMAIL_WEBMASTER_dist($p) {
 	$p->code = "\$GLOBALS['meta']['email_webmaster']";
 
@@ -112,7 +112,7 @@ function balise_EMAIL_WEBMASTER_dist($p) {
  *     Pile au niveau de la balise
  * @return Champ
  *     Pile complétée par le code à générer
- **/
+ */
 function balise_DESCRIPTIF_SITE_SPIP_dist($p) {
 	$p->code = "\$GLOBALS['meta']['descriptif_site']";
 
@@ -136,7 +136,7 @@ function balise_DESCRIPTIF_SITE_SPIP_dist($p) {
  *     Pile au niveau de la balise
  * @return Champ
  *     Pile complétée par le code à générer
- **/
+ */
 function balise_CHARSET_dist($p) {
 	$p->code = "\$GLOBALS['meta']['charset']";
 
@@ -164,7 +164,7 @@ function balise_CHARSET_dist($p) {
  *     Pile au niveau de la balise
  * @return Champ
  *     Pile complétée par le code à générer
- **/
+ */
 function balise_LANG_LEFT_dist($p) {
 	$_lang = champ_sql('lang', $p);
 	$p->code = "lang_dir($_lang, 'left','right')";
@@ -188,7 +188,7 @@ function balise_LANG_LEFT_dist($p) {
  *     Pile au niveau de la balise
  * @return Champ
  *     Pile complétée par le code à générer
- **/
+ */
 function balise_LANG_RIGHT_dist($p) {
 	$_lang = champ_sql('lang', $p);
 	$p->code = "lang_dir($_lang, 'right','left')";
@@ -217,7 +217,7 @@ function balise_LANG_RIGHT_dist($p) {
  *     Pile au niveau de la balise
  * @return Champ
  *     Pile complétée par le code à générer
- **/
+ */
 function balise_LANG_DIR_dist($p) {
 	$_lang = champ_sql('lang', $p);
 	$p->code = "lang_dir($_lang, 'ltr','rtl')";
@@ -238,7 +238,7 @@ function balise_LANG_DIR_dist($p) {
  *     Pile au niveau de la balise
  * @return Champ
  *     Pile complétée par le code à générer
- **/
+ */
 function balise_PUCE_dist($p) {
 	$p->code = 'definir_puce()';
 	$p->interdire_scripts = false;
@@ -425,7 +425,7 @@ function balise_SPIP_VERSION_dist($p) {
  *     Pile au niveau de la balise
  * @return Champ
  *     Pile complétée par le code à générer
- **/
+ */
 function balise_NOM_SITE_dist($p) {
 	if (!$p->etoile) {
 		$p->code = 'supprimer_numero(calculer_url(' .
@@ -453,7 +453,7 @@ function balise_NOM_SITE_dist($p) {
  *     Pile au niveau de la balise
  * @return Champ
  *     Pile complétée par le code à générer
- **/
+ */
 function balise_NOTES_dist($p) {
 	// Recuperer les notes
 	$p->code = 'calculer_notes()';
@@ -479,7 +479,7 @@ function balise_NOTES_dist($p) {
  *     Pile au niveau de la balise
  * @return Champ
  *     Pile complétée par le code à générer
- **/
+ */
 function balise_RECHERCHE_dist($p) {
 	$p->code = 'entites_html(_request("recherche"))';
 	$p->interdire_scripts = false;
@@ -500,7 +500,7 @@ function balise_RECHERCHE_dist($p) {
  *     Pile au niveau de la balise
  * @return Champ|null
  *     Pile complétée par le code à générer
- **/
+ */
 function balise_COMPTEUR_BOUCLE_dist($p) {
 	$b = index_boucle_mere($p);
 	if ($b === '') {
@@ -529,7 +529,7 @@ function balise_COMPTEUR_BOUCLE_dist($p) {
  *     Pile au niveau de la balise
  * @return Champ
  *     Pile complétée par le code à générer
- **/
+ */
 function balise_TOTAL_BOUCLE_dist($p) {
 	$b = index_boucle_mere($p);
 	if ($b === '') {
@@ -559,7 +559,7 @@ function balise_TOTAL_BOUCLE_dist($p) {
  *     Pile au niveau de la balise
  * @return Champ
  *     Pile complétée par le code à générer
- **/
+ */
 function balise_POINTS_dist($p) {
 	return rindex_pile($p, 'points', 'recherche');
 }
@@ -580,7 +580,7 @@ function balise_POINTS_dist($p) {
  *     Pile au niveau de la balise
  * @return Champ
  *     Pile complétée par le code à générer
- **/
+ */
 function balise_POPULARITE_ABSOLUE_dist($p) {
 	$p->code = 'ceil(' .
 		champ_sql('popularite', $p) .
@@ -605,7 +605,7 @@ function balise_POPULARITE_ABSOLUE_dist($p) {
  *     Pile au niveau de la balise
  * @return Champ
  *     Pile complétée par le code à générer
- **/
+ */
 function balise_POPULARITE_SITE_dist($p) {
 	$p->code = 'ceil($GLOBALS["meta"][\'popularite_total\'] ?? 0)';
 	$p->interdire_scripts = false;
@@ -629,7 +629,7 @@ function balise_POPULARITE_SITE_dist($p) {
  *     Pile au niveau de la balise
  * @return Champ
  *     Pile complétée par le code à générer
- **/
+ */
 function balise_POPULARITE_MAX_dist($p) {
 	$p->code = 'ceil($GLOBALS["meta"][\'popularite_max\'] ?? 0)';
 	$p->interdire_scripts = false;
@@ -658,7 +658,7 @@ function balise_POPULARITE_MAX_dist($p) {
  *     Pile au niveau de la balise
  * @return Champ
  *     Pile complétée par le code à générer
- **/
+ */
 function balise_VALEUR_dist($p) {
 	$b = $p->nom_boucle ?: $p->id_boucle;
 	$p->code = index_pile($p->id_boucle, 'valeur', $p->boucles, $b);
@@ -695,7 +695,7 @@ function balise_VALEUR_dist($p) {
  *     Pile au niveau de la balise
  * @return Champ
  *     Pile complétée par le code à générer
- **/
+ */
 function balise_EXPOSE_dist($p) {
 	$on = "'on'";
 	$off = "''";
@@ -722,7 +722,7 @@ function balise_EXPOSE_dist($p) {
  *     texte à afficher si l'élément n'est pas exposé (code à écrire tel que "''")
  * @return Champ
  *     Pile complétée par le code à générer
- **/
+ */
 function calculer_balise_expose($p, $on, $off) {
 	$b = index_boucle($p);
 	if (empty($p->boucles[$b]->primary)) {
@@ -790,7 +790,7 @@ function calculer_balise_expose($p, $on, $off) {
  *     Pile au niveau de la balise
  * @return Champ
  *     Pile complétée par le code à générer
- **/
+ */
 function balise_INTRODUCTION_dist($p) {
 
 	$type_objet = $p->type_requete;
@@ -850,7 +850,7 @@ function balise_INTRODUCTION_dist($p) {
  *     Pile au niveau de la balise
  * @return Champ
  *     Pile complétée par le code à générer
- **/
+ */
 function balise_LANG_dist($p) {
 	$_lang = champ_sql('lang', $p);
 	if (!$p->etoile) {
@@ -1036,7 +1036,7 @@ function balise_RANG_dist($p) {
  *     Pile au niveau de la balise
  * @return Champ
  *     Pile complétée par le code à générer
- **/
+ */
 function balise_POPULARITE_dist($p) {
 	$_popularite = champ_sql('popularite', $p);
 	$p->code = "(ceil(min(100, 100 * $_popularite
@@ -1185,7 +1185,7 @@ function balise_PAGINATION_dist($p, $liste = 'true') {
  *     Pile au niveau de la balise
  * @return Champ
  *     Pile complétée par le code à générer
- **/
+ */
 function balise_ANCRE_PAGINATION_dist($p) {
 	if ($f = charger_fonction('PAGINATION', 'balise', true)) {
 		return $f($p, $liste = 'false');
@@ -1210,7 +1210,7 @@ function balise_ANCRE_PAGINATION_dist($p) {
  *     Pile au niveau de la balise
  * @return Champ
  *     Pile complétée par le code à générer
- **/
+ */
 function balise_GRAND_TOTAL_dist($p) {
 	$b = index_boucle_mere($p);
 	if ($b === '') {
@@ -1248,7 +1248,7 @@ function balise_GRAND_TOTAL_dist($p) {
  *     Pile au niveau de la balise
  * @return Champ
  *     Pile complétée par le code à générer
- **/
+ */
 function balise_SELF_dist($p) {
 	$p->code = 'self()';
 	$p->interdire_scripts = false;
@@ -1278,7 +1278,7 @@ function balise_SELF_dist($p) {
  *     Pile au niveau de la balise
  * @return Champ
  *     Pile complétée par le code à générer
- **/
+ */
 function balise_CHEMIN_dist($p) {
 	$arg = interprete_argument_balise(1, $p);
 	if (!$arg) {
@@ -1313,7 +1313,7 @@ function balise_CHEMIN_dist($p) {
  *     Pile au niveau de la balise
  * @return Champ
  *     Pile complétée par le code à générer
- **/
+ */
 function balise_CHEMIN_IMAGE_dist($p) {
 	$arg = interprete_argument_balise(1, $p);
 	if (!$arg) {
@@ -1359,7 +1359,7 @@ function balise_CHEMIN_IMAGE_dist($p) {
  *     Par defaut prend dans le contexte du squelette.
  * @return Champ
  *     Pile completée du code PHP d'exécution de la balise
- **/
+ */
 function balise_ENV_dist($p, $src = null) {
 
 	// cle du tableau desiree
@@ -1482,7 +1482,7 @@ function balise_CONNECT_dist($p) {
  *     Pile au niveau de la balise.
  * @return Champ
  *     Pile completée du code PHP d'exécution de la balise
- **/
+ */
 function balise_SESSION_dist($p) {
 	$p->descr['session'] = true;
 
@@ -1513,7 +1513,7 @@ function balise_SESSION_dist($p) {
  *     Pile au niveau de la balise.
  * @return Champ
  *     Pile completée du code PHP d'exécution de la balise
- **/
+ */
 function balise_SESSION_SET_dist($p) {
 	$_nom = interprete_argument_balise(1, $p);
 	$_val = interprete_argument_balise(2, $p);
@@ -1555,7 +1555,7 @@ function balise_SESSION_SET_dist($p) {
  *     Pile au niveau de la balise.
  * @return Champ
  *     Pile completée du code PHP d'exécution de la balise
- **/
+ */
 function balise_EVAL_dist($p) {
 	$php = interprete_argument_balise(1, $p);
 	if ($php) {
@@ -1607,7 +1607,7 @@ function balise_EVAL_dist($p) {
  *     Pile au niveau de la balise
  * @return Champ
  *     Pile complétée par le code à générer
- **/
+ */
 function balise_CHAMP_SQL_dist($p) {
 
 	if (
@@ -1646,7 +1646,7 @@ function balise_CHAMP_SQL_dist($p) {
  *     Pile au niveau de la balise
  * @return Champ
  *     Pile complétée par le code à générer
- **/
+ */
 function balise_VAL_dist($p) {
 	$p->code = interprete_argument_balise(1, $p) ?? '';
 	if (!strlen($p->code)) {
@@ -1681,7 +1681,7 @@ function balise_VAL_dist($p) {
  *     Pile au niveau de la balise
  * @return Champ
  *     Pile complétée par le code à générer
- **/
+ */
 function balise_REM_dist($p) {
 	$p->code = "''";
 	$p->interdire_scripts = false;
@@ -1720,7 +1720,7 @@ function balise_NULL_dist($p) {
  *     Pile au niveau de la balise
  * @return Champ
  *     Pile complétée par le code à générer
- **/
+ */
 function balise_HTTP_HEADER_dist($p) {
 
 	$header = interprete_argument_balise(1, $p);
@@ -1757,7 +1757,7 @@ function balise_HTTP_HEADER_dist($p) {
  *     Pile au niveau de la balise
  * @return Champ|null
  *     Pile complétée par le code à générer
- **/
+ */
 function balise_FILTRE_dist($p) {
 	if ($p->param) {
 		$args = [];
@@ -1807,7 +1807,7 @@ function balise_FILTRE_dist($p) {
  *     Pile au niveau de la balise
  * @return Champ
  *     Pile complétée par le code à générer
- **/
+ */
 function balise_CACHE_dist($p) {
 
 	if ($p->param) {
@@ -1930,7 +1930,7 @@ function balise_INSERT_HEAD_CSS_dist($p) {
  *     Pile au niveau de la balise
  * @return Champ
  *     Pile complétée par le code à générer
- **/
+ */
 function balise_INCLUDE_dist($p) {
 	if (function_exists('balise_INCLURE')) {
 		return balise_INCLURE($p);
@@ -1968,7 +1968,7 @@ function balise_INCLUDE_dist($p) {
  *     Pile au niveau de la balise
  * @return Champ
  *     Pile complétée par le code à générer
- **/
+ */
 function balise_INCLURE_dist($p) {
 	$id_boucle = $p->id_boucle;
 	// la lang n'est pas passe de facon automatique par argumenter
@@ -2054,7 +2054,7 @@ function balise_INCLURE_dist($p) {
  *     Pile au niveau de la balise
  * @return Champ
  *     Pile complétée par le code à générer
- **/
+ */
 function balise_MODELE_dist($p) {
 
 	$_contexte = argumenter_inclure($p->param, true, $p, $p->boucles, $p->id_boucle, false);
@@ -2141,7 +2141,7 @@ function balise_MODELE_dist($p) {
  *     Pile au niveau de la balise
  * @return Champ
  *     Pile complétée par le code à générer
- **/
+ */
 function balise_SET_dist($p) {
 	$_nom = interprete_argument_balise(1, $p);
 	$_val = interprete_argument_balise(2, $p);
@@ -2185,7 +2185,7 @@ function balise_SET_dist($p) {
  *     Pile au niveau de la balise
  * @return Champ
  *     Pile complétée par le code à générer
- **/
+ */
 function balise_GET_dist($p) {
 	$p->interdire_scripts = false; // le contenu vient de #SET, donc il est de confiance
 	if (function_exists('balise_ENV')) {
@@ -2213,7 +2213,7 @@ function balise_GET_dist($p) {
  *     Pile au niveau de la balise
  * @return Champ
  *     Pile complétée par le code à générer
- **/
+ */
 function balise_DOUBLONS_dist($p) {
 	if ($type = interprete_argument_balise(1, $p)) {
 		if ($famille = interprete_argument_balise(2, $p)) {
@@ -2251,7 +2251,7 @@ function balise_DOUBLONS_dist($p) {
  *     Pile au niveau de la balise
  * @return Champ
  *     Pile complétée par le code à générer
- **/
+ */
 function balise_PIPELINE_dist($p) {
 	$_pipe = interprete_argument_balise(1, $p);
 	if (!$_pipe) {
@@ -2287,7 +2287,7 @@ function balise_PIPELINE_dist($p) {
  *     Pile au niveau de la balise
  * @return Champ
  *     Pile complétée par le code à générer
- **/
+ */
 function balise_EDIT_dist($p) {
 	$p->code = "''";
 	$p->interdire_scripts = false;
@@ -2313,7 +2313,7 @@ function balise_EDIT_dist($p) {
  *     Pile au niveau de la balise
  * @return Champ
  *     Pile complétée par le code à générer
- **/
+ */
 function balise_TOTAL_UNIQUE_dist($p) {
 	$_famille = interprete_argument_balise(1, $p);
 	$_famille = $_famille ?: "''";
@@ -2340,7 +2340,7 @@ function balise_TOTAL_UNIQUE_dist($p) {
  *     Pile au niveau de la balise
  * @return Champ
  *     Pile complétée par le code à générer
- **/
+ */
 function balise_ARRAY_dist($p) {
 	$_code = [];
 	$n = 1;
@@ -2413,7 +2413,7 @@ function balise_LISTE_dist($p) {
  *     Pile au niveau de la balise
  * @return Champ
  *     Pile complétée par le code à générer
- **/
+ */
 function balise_AUTORISER_dist($p) {
 	$_code = [];
 	$p->descr['session'] = true; // faire un cache par session
@@ -2451,7 +2451,7 @@ function balise_AUTORISER_dist($p) {
  *     Pile au niveau de la balise
  * @return Champ
  *     Pile complétée par le code à générer
- **/
+ */
 function balise_PLUGIN_dist($p) {
 	$plugin = interprete_argument_balise(1, $p);
 	$plugin = isset($plugin) ? str_replace('\'', '"', $plugin) : '""';
@@ -2480,7 +2480,7 @@ function balise_PLUGIN_dist($p) {
  *     Pile au niveau de la balise
  * @return Champ
  *     Pile complétée par le code à générer
- **/
+ */
 function balise_AIDER_dist($p) {
 	$_motif = interprete_argument_balise(1, $p);
 	$p->code = "((\$aider=charger_fonction('aide','inc',true))?\$aider($_motif):'')";
@@ -2508,7 +2508,7 @@ function balise_AIDER_dist($p) {
  *     Pile au niveau de la balise
  * @return Champ
  *     Pile complétée par le code à générer
- **/
+ */
 function balise_ACTION_FORMULAIRE($p) {
 	if (!$_url = interprete_argument_balise(1, $p)) {
 		$_url = "(\$Pile[0]['action'] ?? '')";
@@ -2864,7 +2864,7 @@ function balise_LARGEUR_ECRAN_dist($p) {
  *     Pile au niveau de la balise
  * @return Champ
  *     Pile complétée par le code à générer
- **/
+ */
 function balise_CONST_dist($p) {
 	$_const = interprete_argument_balise(1, $p);
 	if (!strlen($_const ?? '')) {

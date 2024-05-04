@@ -1,13 +1,13 @@
 <?php
 
-/***************************************************************************\
- *  SPIP, Système de publication pour l'internet                           *
- *                                                                         *
- *  Copyright © avec tendresse depuis 2001                                 *
- *  Arnaud Martin, Antoine Pitrou, Philippe Rivière, Emmanuel Saint-James  *
- *                                                                         *
- *  Ce programme est un logiciel libre distribué sous licence GNU/GPL.     *
-\***************************************************************************/
+/**
+ * SPIP, Système de publication pour l'internet
+ *
+ * Copyright © avec tendresse depuis 2001
+ * Arnaud Martin, Antoine Pitrou, Philippe Rivière, Emmanuel Saint-James
+ *
+ * Ce programme est un logiciel libre distribué sous licence GNU/GPL.
+ */
 
 use Spip\Compilateur\Noeud\Boucle;
 
@@ -15,7 +15,7 @@ use Spip\Compilateur\Noeud\Boucle;
  * Fonctions relatives aux objets éditoriaux et SQL
  *
  * @package SPIP\Core\SQL\Tables
- **/
+ */
 
 if (!defined('_ECRIRE_INC_VERSION')) {
 	return;
@@ -31,7 +31,7 @@ if (!defined('_ECRIRE_INC_VERSION')) {
  * @param array $valeur
  *     Sous tableau à merger dans la clé.
  * @return void
- **/
+ */
 function array_set_merge(&$table, $index, $valeur) {
 	$table[$index] = isset($table[$index]) ? array_merge($table[$index], $valeur) : $valeur;
 }
@@ -498,7 +498,7 @@ function lister_tables_objets_sql(?string $table_sql = null, $desc = []) {
  * @param array $tables_principales
  *     Description des tables principales déjà déclarées
  * @return void
- **/
+ */
 function base_serial(&$tables_principales) {
 
 	$spip_jobs = [
@@ -531,7 +531,7 @@ function base_serial(&$tables_principales) {
  * @param array $tables_auxiliaires
  *     Description des tables auxiliaires déjà déclarées
  * @return void
- **/
+ */
 function base_auxiliaires(&$tables_auxiliaires) {
 	$spip_resultats = [
 		'recherche' => "char(16) DEFAULT '' NOT NULL",
@@ -825,7 +825,7 @@ function renseigner_table_objet_interfaces($table_sql, &$infos) {
  * @api
  * @return array
  *     Liste et descriptions des tables principales
- **/
+ */
 function lister_tables_principales() {
 	static $done = false;
 	if (!$done || !(is_countable($GLOBALS['tables_principales']) ? count($GLOBALS['tables_principales']) : 0)) {
@@ -842,7 +842,7 @@ function lister_tables_principales() {
  * @api
  * @return array
  *     Liste et descriptions des tables auxiliaires
- **/
+ */
 function lister_tables_auxiliaires() {
 	static $done = false;
 	if (!$done || !(is_countable($GLOBALS['tables_auxiliaires']) ? count($GLOBALS['tables_auxiliaires']) : 0)) {
@@ -944,7 +944,7 @@ function lister_types_surnoms() {
  *     Nom du fichier de connexion à la base de données
  * @return array
  *     Couples (nom de la table SQL => même nom, sans 'spip_' devant)
- **/
+ */
 function lister_tables_spip($serveur = '') {
 	static $tables = [];
 	if (!isset($tables[$serveur])) {
@@ -974,7 +974,7 @@ function lister_tables_spip($serveur = '') {
  *     Nom du fichier de connexion à la base de données
  * @return array
  *     Couples (nom de la table SQL => même nom)
- **/
+ */
 function lister_toutes_tables($serveur) {
 	static $tables = [];
 	if (!isset($tables[$serveur])) {
@@ -1006,7 +1006,7 @@ function lister_toutes_tables($serveur) {
  *     - false: Pas de recherche en bdd
  * @return string
  *     Nom de l'objet
- **/
+ */
 function table_objet(string $type, string|false $serveur = ''): string {
 
 	if ($type) {
@@ -1058,7 +1058,7 @@ function table_objet(string $type, string|false $serveur = ''): string {
  *     - false: Pas de recherche en bdd
  * @return string
  *     Nom de la table SQL
- **/
+ */
 function table_objet_sql(string $type, string|false $serveur = ''): string {
 	$nom = table_objet($type, $serveur);
 	if (!strlen($nom)) {
@@ -1103,7 +1103,7 @@ function table_objet_sql(string $type, string|false $serveur = ''): string {
  *     Nom du connecteur
  * @return string|null
  *     Nom de la clé primaire
- **/
+ */
 function id_table_objet(string $type, string $serveur = ''): ?string {
 	static $trouver_table = null;
 	$type = objet_type($type, $serveur);
@@ -1150,7 +1150,7 @@ function id_table_objet(string $type, string $serveur = ''): ?string {
  *     - false: Pas de recherche en bdd
  * @return string|null
  *     Type de l'objet
- **/
+ */
 function objet_type(string $table_objet, string|false $serveur = ''): ?string {
 	if (!$table_objet) {
 		return null;

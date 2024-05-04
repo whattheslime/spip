@@ -1,12 +1,13 @@
 <?php
 
 /**
- * Déclaration des correspondances entre charsets cp1251 (cyrillic) et unicode
+ * SPIP, Système de publication pour l'internet
  *
- * @link http://czyborra.com/charsets/cyrillic.html
+ * Copyright © avec tendresse depuis 2001
+ * Arnaud Martin, Antoine Pitrou, Philippe Rivière, Emmanuel Saint-James
  *
- * @package SPIP\Core\Charsets
- **/
+ * Ce programme est un logiciel libre distribué sous licence GNU/GPL.
+ */
 
 $GLOBALS['CHARSET']['cp1251'] = [
 	0x80 => 0x0402,

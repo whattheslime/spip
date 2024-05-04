@@ -4,7 +4,7 @@ namespace Spip\Compilateur\Noeud;
 
 /**
  * Description d'une chaîne de langue
- **/
+ */
 class Idiome
 {
 	/** Type de noeud */

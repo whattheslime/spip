@@ -10,10 +10,10 @@ abstract class AbstractIterateur
 	 * Calcul du total des elements
 	 *
 	 * @var int|null
-	 **/
+	 */
 	public $total = null;
 
-	/** Erreur presente ? **/
+	/** Erreur presente ? */
 	public bool $err = false;
 
 	public function __construct(

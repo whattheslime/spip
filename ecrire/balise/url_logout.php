@@ -1,19 +1,19 @@
 <?php
 
-/***************************************************************************\
- *  SPIP, Système de publication pour l'internet                           *
- *                                                                         *
- *  Copyright © avec tendresse depuis 2001                                 *
- *  Arnaud Martin, Antoine Pitrou, Philippe Rivière, Emmanuel Saint-James  *
- *                                                                         *
- *  Ce programme est un logiciel libre distribué sous licence GNU/GPL.     *
-\***************************************************************************/
+/**
+ * SPIP, Système de publication pour l'internet
+ *
+ * Copyright © avec tendresse depuis 2001
+ * Arnaud Martin, Antoine Pitrou, Philippe Rivière, Emmanuel Saint-James
+ *
+ * Ce programme est un logiciel libre distribué sous licence GNU/GPL.
+ */
 
 /**
  * Ce fichier gère la balise dynamique `#URL_LOGOUT`
  *
  * @package SPIP\Core\Compilateur\Balises
- **/
+ */
 
 if (!defined('_ECRIRE_INC_VERSION')) {
 	return;
@@ -33,7 +33,7 @@ if (!defined('_ECRIRE_INC_VERSION')) {
  *     Pile au niveau de la balise
  * @return Champ
  *     Pile complétée du code compilé
- **/
+ */
 function balise_URL_LOGOUT($p) {
 	return calculer_balise_dynamique($p, 'URL_LOGOUT', []);
 }
@@ -65,7 +65,7 @@ function balise_URL_LOGOUT_stat($args, $context_compil) {
  *     URL de destination après déconnexion
  * @return string
  *     URL de déconnexion ou chaîne vide.
- **/
+ */
 function balise_URL_LOGOUT_dyn($cible) {
 
 	if (empty($GLOBALS['visiteur_session']['login']) && empty($GLOBALS['visiteur_session']['statut'])) {

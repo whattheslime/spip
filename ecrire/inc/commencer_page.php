@@ -1,19 +1,19 @@
 <?php
 
-/***************************************************************************\
- *  SPIP, Système de publication pour l'internet                           *
- *                                                                         *
- *  Copyright © avec tendresse depuis 2001                                 *
- *  Arnaud Martin, Antoine Pitrou, Philippe Rivière, Emmanuel Saint-James  *
- *                                                                         *
- *  Ce programme est un logiciel libre distribué sous licence GNU/GPL.     *
-\***************************************************************************/
+/**
+ * SPIP, Système de publication pour l'internet
+ *
+ * Copyright © avec tendresse depuis 2001
+ * Arnaud Martin, Antoine Pitrou, Philippe Rivière, Emmanuel Saint-James
+ *
+ * Ce programme est un logiciel libre distribué sous licence GNU/GPL.
+ */
 
 /**
  * Présentation de l'interface privee (exec PHP), début du HTML
  *
  * @package SPIP\Core\Presentation
- **/
+ */
 
 if (!defined('_ECRIRE_INC_VERSION')) {
 	return;
@@ -40,7 +40,7 @@ if (!defined('_ECRIRE_INC_VERSION')) {
  * @param bool $minipres ?
  * @param bool $alertes ?
  * @return string Code HTML
- **/
+ */
 function inc_commencer_page_dist(
 	$titre = '',
 	$rubrique = 'accueil',

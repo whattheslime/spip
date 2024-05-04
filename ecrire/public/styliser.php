@@ -1,13 +1,13 @@
 <?php
 
-/***************************************************************************\
- *  SPIP, Système de publication pour l'internet                           *
- *                                                                         *
- *  Copyright © avec tendresse depuis 2001                                 *
- *  Arnaud Martin, Antoine Pitrou, Philippe Rivière, Emmanuel Saint-James  *
- *                                                                         *
- *  Ce programme est un logiciel libre distribué sous licence GNU/GPL.     *
-\***************************************************************************/
+/**
+ * SPIP, Système de publication pour l'internet
+ *
+ * Copyright © avec tendresse depuis 2001
+ * Arnaud Martin, Antoine Pitrou, Philippe Rivière, Emmanuel Saint-James
+ *
+ * Ce programme est un logiciel libre distribué sous licence GNU/GPL.
+ */
 
 /**
  * Gestion de la sélection d'un squelette depuis son nom parmi les
@@ -16,7 +16,7 @@
  * Recherche par exemple `contenu\xx` et en absence utilisera `contenu\dist`
  *
  * @package SPIP\Core\Public\Styliser
- **/
+ */
 
 if (!defined('_ECRIRE_INC_VERSION')) {
 	return;
@@ -107,7 +107,7 @@ function public_styliser_dist($fond, $contexte, $lang = '', string $connect = ''
  *     Données du pipeline styliser
  * @return array
  *     Données du pipeline styliser
- **/
+ */
 function styliser_par_objets($flux) {
 	if (
 		test_espace_prive()

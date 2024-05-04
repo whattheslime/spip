@@ -1,19 +1,19 @@
 <?php
 
-/***************************************************************************\
- *  SPIP, Système de publication pour l'internet                           *
- *                                                                         *
- *  Copyright © avec tendresse depuis 2001                                 *
- *  Arnaud Martin, Antoine Pitrou, Philippe Rivière, Emmanuel Saint-James  *
- *                                                                         *
- *  Ce programme est un logiciel libre distribué sous licence GNU/GPL.     *
-\***************************************************************************/
+/**
+ * SPIP, Système de publication pour l'internet
+ *
+ * Copyright © avec tendresse depuis 2001
+ * Arnaud Martin, Antoine Pitrou, Philippe Rivière, Emmanuel Saint-James
+ *
+ * Ce programme est un logiciel libre distribué sous licence GNU/GPL.
+ */
 
 /**
  * Ce fichier definit les boucles standard de SPIP
  *
  * @package SPIP\Core\Compilateur\Boucles
- **/
+ */
 
 if (!defined('_ECRIRE_INC_VERSION')) {
 	return;
@@ -29,7 +29,7 @@ if (!defined('_ECRIRE_INC_VERSION')) {
  *     AST du squelette
  * @return string
  *     Code PHP compilé de la boucle
- **/
+ */
 function boucle_DEFAUT_dist($id_boucle, &$boucles) {
 	return calculer_boucle($id_boucle, $boucles);
 }
@@ -48,7 +48,7 @@ function boucle_DEFAUT_dist($id_boucle, &$boucles) {
  *     AST du squelette
  * @return string
  *     Code PHP compilé de la boucle
- **/
+ */
 function boucle_BOUCLE_dist($id_boucle, &$boucles) {
 	return calculer_boucle($id_boucle, $boucles);
 }
@@ -78,7 +78,7 @@ function boucle_BOUCLE_dist($id_boucle, &$boucles) {
  *     AST du squelette
  * @return string
  *     Code PHP compilé de la boucle
- **/
+ */
 function boucle_HIERARCHIE_dist($id_boucle, &$boucles) {
 	$boucle = &$boucles[$id_boucle];
 	$id_table = $boucle->id_table . '.id_rubrique';

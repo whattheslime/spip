@@ -121,7 +121,7 @@ function spip_touch($fichier, $duree = 0, $touch = true) {
  *     Contenu de la balise  `<noscript>`
  * @return string
  *     Balise HTML `<script>` et son contenu
- **/
+ */
 function http_script($script, $src = '', $noscript = '') {
 	static $done = [];
 
@@ -176,7 +176,7 @@ function http_script($script, $src = '', $noscript = '') {
  *     texte à échapper
  * @return string
  *     texte échappé
- **/
+ */
 function texte_script(?string $texte): string {
 	if ($texte === null || $texte === '') {
 		return '';
@@ -194,7 +194,7 @@ function texte_script(?string $texte): string {
  *     La valeur de la variable d'environnement
  * @return bool
  *     true si la valeur est considérée active ; false sinon.
- **/
+ */
 function test_valeur_serveur($truc) {
 	if (!$truc) {
 		return false;
@@ -246,7 +246,7 @@ function exec_info_dist() {
  *
  * @return bool
  *     true si la constante _VERSION_HTML n'est pas définie ou égale à html5
- **/
+ */
 function html5_permis() {
 	return (!defined('_VERSION_HTML') || _VERSION_HTML !== 'html4');
 }
@@ -352,7 +352,7 @@ function avertir_auteurs($nom, $message, $statut = '') {
  * @return int|bool
  *    Sans operateur : int. -1 pour inferieur, 0 pour egal, 1 pour superieur
  *    Avec operateur : bool.
- **/
+ */
 function spip_version_compare($v1, $v2, $op = null) {
 	$v1 = strtolower(preg_replace(',([0-9])[\s.-]?(dev|alpha|a|beta|b|rc|pl|p),i', '\\1.\\2', $v1));
 	$v2 = strtolower(preg_replace(',([0-9])[\s.-]?(dev|alpha|a|beta|b|rc|pl|p),i', '\\1.\\2', $v2));

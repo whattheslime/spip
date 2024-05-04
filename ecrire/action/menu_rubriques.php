@@ -1,19 +1,19 @@
 <?php
 
-/***************************************************************************\
- *  SPIP, Système de publication pour l'internet                           *
- *                                                                         *
- *  Copyright © avec tendresse depuis 2001                                 *
- *  Arnaud Martin, Antoine Pitrou, Philippe Rivière, Emmanuel Saint-James  *
- *                                                                         *
- *  Ce programme est un logiciel libre distribué sous licence GNU/GPL.     *
-\***************************************************************************/
+/**
+ * SPIP, Système de publication pour l'internet
+ *
+ * Copyright © avec tendresse depuis 2001
+ * Arnaud Martin, Antoine Pitrou, Philippe Rivière, Emmanuel Saint-James
+ *
+ * Ce programme est un logiciel libre distribué sous licence GNU/GPL.
+ */
 
 /**
  * Gestion de l'action d'affichage du navigateur de rubrique du bandeau
  *
  * @package SPIP\Core\Rubriques
- **/
+ */
 
 if (!defined('_ECRIRE_INC_VERSION')) {
 	return;
@@ -31,7 +31,7 @@ include_spip('inc/filtres');
  *
  * @return string
  *     Code HTML présentant la liste des rubriques
- **/
+ */
 function action_menu_rubriques_dist() {
 
 	// si pas acces a ecrire, pas acces au menu
@@ -81,7 +81,7 @@ function action_menu_rubriques_dist() {
  *
  * @return string
  *     Code HTML présentant la liste des rubriques
- **/
+ */
 function menu_rubriques($complet = true) {
 	$ret = '<li class="deroulant__item deroulant__item_tout toutsite" data-profondeur="1">'
 		. '<a class="deroulant__lien" href="' . generer_url_ecrire('plan') . '" data-profondeur="1">'
@@ -139,7 +139,7 @@ function menu_rubriques($complet = true) {
  *
  * @return string
  *     Code HTML présentant la liste des rubriques
- **/
+ */
 function bandeau_rubrique($id_rubrique, $titre_rubrique, $zdecal, $profondeur = 1) {
 	static $zmax = 6;
 	$profondeur_next = $profondeur + 1;
@@ -197,7 +197,7 @@ function bandeau_rubrique($id_rubrique, $titre_rubrique, $zdecal, $profondeur = 
  *     Cache des rubriques
  * @return array
  *     Liste des rubriques enfants de la rubrique (et leur titre)
- **/
+ */
 function extraire_article($id_p, $t) {
 	return array_key_exists($id_p, $t) ? $t[$id_p] : [];
 }
@@ -212,7 +212,7 @@ function extraire_article($id_p, $t) {
  * - stocké également dans la globale `db_art_cache`
  *
  * @return bool true.
- **/
+ */
 function gen_liste_rubriques() {
 
 	$cache = null;

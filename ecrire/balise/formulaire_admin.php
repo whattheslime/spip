@@ -1,19 +1,19 @@
 <?php
 
-/***************************************************************************\
- *  SPIP, Système de publication pour l'internet                           *
- *                                                                         *
- *  Copyright © avec tendresse depuis 2001                                 *
- *  Arnaud Martin, Antoine Pitrou, Philippe Rivière, Emmanuel Saint-James  *
- *                                                                         *
- *  Ce programme est un logiciel libre distribué sous licence GNU/GPL.     *
-\***************************************************************************/
+/**
+ * SPIP, Système de publication pour l'internet
+ *
+ * Copyright © avec tendresse depuis 2001
+ * Arnaud Martin, Antoine Pitrou, Philippe Rivière, Emmanuel Saint-James
+ *
+ * Ce programme est un logiciel libre distribué sous licence GNU/GPL.
+ */
 
 /**
  * Ce fichier gère la balise dynamique `#FORMULAIRE_ADMIN`
  *
  * @package SPIP\Core\Formulaires
- **/
+ */
 
 if (!defined('_ECRIRE_INC_VERSION')) {
 	return;
@@ -39,7 +39,7 @@ if (!defined('_ECRIRE_INC_VERSION')) {
  *     Pile au niveau de la balise
  * @return Champ
  *     Pile complétée du code compilé
- **/
+ */
 function balise_FORMULAIRE_ADMIN($p) {
 	return calculer_balise_dynamique($p, 'FORMULAIRE_ADMIN', []);
 }
@@ -80,7 +80,7 @@ function balise_FORMULAIRE_ADMIN_stat($args, $context_compil) {
  *     Informations sur la page contenant une erreur de compilation
  * @return array|string
  *     Liste : Chemin du squelette, durée du cache, contexte
- **/
+ */
 function balise_FORMULAIRE_ADMIN_dyn($float = '', $debug = '') {
 
 	static $dejafait = false;
@@ -156,7 +156,7 @@ function balise_FORMULAIRE_ADMIN_dyn($float = '', $debug = '') {
  *
  * @return array
  *     Tableau de l'environnement calculé
- **/
+ */
 function admin_objet() {
 	include_spip('inc/urls');
 	$env = [];
@@ -213,7 +213,7 @@ function admin_objet() {
  * @return string|array
  *     - Chaine vide si on est déjà en prévisu ou si pas de previsualisation possible
  *     - Tableau d'un élément sinon.
- **/
+ */
 function admin_preview($type, $id, $desc = null) {
 	if (defined('_VAR_PREVIEW') && _VAR_PREVIEW) {
 		return '';
@@ -247,7 +247,7 @@ function admin_preview($type, $id, $desc = null) {
  *
  * @return string
  *     Code de langue
- **/
+ */
 function admin_lang() {
 	$alang = '';
 	if (!empty($_COOKIE['spip_admin'])) {
@@ -274,7 +274,7 @@ function admin_lang() {
  * Retourne une URL vers un validateur
  *
  * @return string
- **/
+ */
 function admin_valider() {
 
 	return ((!isset($GLOBALS['xhtml']) || $GLOBALS['xhtml'] !== 'true') ?
@@ -288,7 +288,7 @@ function admin_valider() {
  * Retourne une URL vers le mode debug, si l'utilisateur a le droit, et si c'est utile
  *
  * @return string
- **/
+ */
 function admin_debug() {
 	return (
 		(isset($GLOBALS['forcer_debug']) && $GLOBALS['forcer_debug']

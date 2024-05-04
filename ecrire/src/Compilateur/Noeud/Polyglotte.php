@@ -6,7 +6,7 @@ namespace Spip\Compilateur\Noeud;
  * Description d'un texte polyglotte.
  *
  * a.k.a. <multi>
- **/
+ */
 class Polyglotte
 {
 	/** Type de noeud */

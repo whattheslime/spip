@@ -1,19 +1,19 @@
 <?php
 
-/***************************************************************************\
- *  SPIP, Système de publication pour l'internet                           *
- *                                                                         *
- *  Copyright © avec tendresse depuis 2001                                 *
- *  Arnaud Martin, Antoine Pitrou, Philippe Rivière, Emmanuel Saint-James  *
- *                                                                         *
- *  Ce programme est un logiciel libre distribué sous licence GNU/GPL.     *
-\***************************************************************************/
+/**
+ * SPIP, Système de publication pour l'internet
+ *
+ * Copyright © avec tendresse depuis 2001
+ * Arnaud Martin, Antoine Pitrou, Philippe Rivière, Emmanuel Saint-James
+ *
+ * Ce programme est un logiciel libre distribué sous licence GNU/GPL.
+ */
 
 /**
  * Filtres d'URL et de liens
  *
  * @package SPIP\Core\Filtres\Liens
- **/
+ */
 
 if (!defined('_ECRIRE_INC_VERSION')) {
 	return;
@@ -32,7 +32,7 @@ if (!defined('_ECRIRE_INC_VERSION')) {
  *
  * @param string $url URL
  * @return string URL nettoyée
- **/
+ */
 function resolve_path($url) {
 	[$url, $query] = array_pad(explode('?', $url, 2), 2, null);
 	while (
@@ -65,7 +65,7 @@ function resolve_path($url) {
  * @param string $url URL de base
  * @param string $lien Lien ajouté à l'URL
  * @return string URL complète.
- **/
+ */
 function suivre_lien($url, $lien) {
 
 	$mot = null;
@@ -122,7 +122,7 @@ function suivre_lien($url, $lien) {
  * @param string $url URL
  * @param string $base URL de base de destination (par défaut ce sera l'URL de notre site)
  * @return string texte ou URL (en absolus)
- **/
+ */
 function url_absolue($url, $base = '') {
 	$url = trim((string) $url);
 	if (strlen($url = trim($url)) == 0) {
@@ -178,7 +178,7 @@ function protocole_verifier($url_absolue, $protocoles_autorises = ['http','https
  * @param string|null $texte texte
  * @param string $base URL de base de destination (par défaut ce sera l'URL de notre site)
  * @return string texte avec des URLs absolues
- **/
+ */
 function liens_absolus($texte, $base = '') {
 	if ($texte === null || $texte === '') {
 		return '';
@@ -220,7 +220,7 @@ function liens_absolus($texte, $base = '') {
  * @param string $texte texte ou URL
  * @param string $base URL de base de destination (par défaut ce sera l'URL de notre site)
  * @return string texte ou URL (en absolus)
- **/
+ */
 function abs_url($texte, $base = '') {
 	trigger_deprecation('spip', '5.0', sprintf('Using "%s" is deprecated. Use "%s" or "%s"', __FUNCTION__, 'url_absolue', 'liens_absolus'));
 	if ($GLOBALS['mode_abs_url'] == 'url') {

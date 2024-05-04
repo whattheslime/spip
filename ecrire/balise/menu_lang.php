@@ -1,19 +1,19 @@
 <?php
 
-/***************************************************************************\
- *  SPIP, Système de publication pour l'internet                           *
- *                                                                         *
- *  Copyright © avec tendresse depuis 2001                                 *
- *  Arnaud Martin, Antoine Pitrou, Philippe Rivière, Emmanuel Saint-James  *
- *                                                                         *
- *  Ce programme est un logiciel libre distribué sous licence GNU/GPL.     *
-\***************************************************************************/
+/**
+ * SPIP, Système de publication pour l'internet
+ *
+ * Copyright © avec tendresse depuis 2001
+ * Arnaud Martin, Antoine Pitrou, Philippe Rivière, Emmanuel Saint-James
+ *
+ * Ce programme est un logiciel libre distribué sous licence GNU/GPL.
+ */
 
 /**
  * Ce fichier gère la balise dynamique `#MENU_LANG`
  *
  * @package SPIP\Core\Compilateur\Balises
- **/
+ */
 
 if (!defined('_ECRIRE_INC_VERSION')) {
 	return;
@@ -34,7 +34,7 @@ if (!defined('_ECRIRE_INC_VERSION')) {
  *     Pile au niveau de la balise
  * @return Champ
  *     Pile complétée du code compilé
- **/
+ */
 function balise_MENU_LANG($p) {
 	return calculer_balise_dynamique($p, 'MENU_LANG', ['lang']);
 }
@@ -73,7 +73,7 @@ function balise_MENU_LANG_stat($args, $context_compil) {
  *     Langue par défaut
  * @return array
  *     Liste : Chemin du squelette, durée du cache, contexte
- **/
+ */
 function balise_MENU_LANG_dyn($opt) {
 	include_spip('balise/menu_lang_ecrire');
 

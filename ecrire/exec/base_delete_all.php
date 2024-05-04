@@ -1,13 +1,13 @@
 <?php
 
-/***************************************************************************\
- *  SPIP, Système de publication pour l'internet                           *
- *                                                                         *
- *  Copyright © avec tendresse depuis 2001                                 *
- *  Arnaud Martin, Antoine Pitrou, Philippe Rivière, Emmanuel Saint-James  *
- *                                                                         *
- *  Ce programme est un logiciel libre distribué sous licence GNU/GPL.     *
-\***************************************************************************/
+/**
+ * SPIP, Système de publication pour l'internet
+ *
+ * Copyright © avec tendresse depuis 2001
+ * Arnaud Martin, Antoine Pitrou, Philippe Rivière, Emmanuel Saint-James
+ *
+ * Ce programme est un logiciel libre distribué sous licence GNU/GPL.
+ */
 
 /**
  * Gestion d'affichage de la page de destruction des tables de SPIP
@@ -21,7 +21,7 @@ if (!defined('_ECRIRE_INC_VERSION')) {
 
 /**
  * Exec de la page de destruction des tables de SPIP
- **/
+ */
 function exec_base_delete_all_dist() {
 	include_spip('inc/autoriser');
 	if (!autoriser('detruire')) {

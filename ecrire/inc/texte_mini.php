@@ -1,25 +1,26 @@
 <?php
 
+/**
+ * SPIP, Système de publication pour l'internet
+ *
+ * Copyright © avec tendresse depuis 2001
+ * Arnaud Martin, Antoine Pitrou, Philippe Rivière, Emmanuel Saint-James
+ *
+ * Ce programme est un logiciel libre distribué sous licence GNU/GPL.
+ */
+
 use Spip\Texte\Collecteur\Idiomes as CollecteurIdiomes;
 use Spip\Texte\Collecteur\Liens as CollecteurLiens;
 use Spip\Texte\Collecteur\Modeles as CollecteurModeles;
 use Spip\Texte\Collecteur\Multis as CollecteurMultis;
 use Spip\Texte\Collecteur\HtmlTag as CollecteurHtmlTag;
 
-/***************************************************************************\
- *  SPIP, Système de publication pour l'internet                           *
- *                                                                         *
- *  Copyright © avec tendresse depuis 2001                                 *
- *  Arnaud Martin, Antoine Pitrou, Philippe Rivière, Emmanuel Saint-James  *
- *                                                                         *
- *  Ce programme est un logiciel libre distribué sous licence GNU/GPL.     *
-\***************************************************************************/
 
 /**
  * Gestion des textes et échappements (fonctions d'usages fréquents)
  *
  * @package SPIP\Core\Texte
- **/
+ */
 
 if (!defined('_ECRIRE_INC_VERSION')) {
 	return;
@@ -41,7 +42,7 @@ include_spip('inc/lang');
  *
  * @return string
  *     Code HTML de la puce
- **/
+ */
 function definir_puce() {
 
 	// Attention au sens, qui n'est pas defini de la meme facon dans
@@ -329,7 +330,7 @@ function echappe_retour_modeles($letexte, $interdire_scripts = false) {
  *     Points de suite ajoutés.
  * @return string
  *     texte coupé
- **/
+ */
 function couper($texte, $taille = 50, $suite = null) {
 	if ($taille <= 0) {
 		return '';
@@ -592,7 +593,7 @@ function echapper_html_suspect($texte, $options = [], $connect = null, $env = []
  *      texte à sécuriser
  * @return string
  *      texte sécurisé
- **/
+ */
 function safehtml($t) {
 	static $safehtml;
 
@@ -684,7 +685,7 @@ function is_html_safe(string $texte): bool {
  *     Message de remplacement pour chaque image enlevée
  * @return string
  *     texte sans les modèles d'image
- **/
+ */
 function supprime_img($letexte, $message = null) {
 	if ($message === null) {
 		$message = '(' . _T('img_indisponible') . ')';

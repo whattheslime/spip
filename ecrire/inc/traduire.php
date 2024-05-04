@@ -1,13 +1,13 @@
 <?php
 
-/***************************************************************************\
- *  SPIP, Système de publication pour l'internet                           *
- *                                                                         *
- *  Copyright © avec tendresse depuis 2001                                 *
- *  Arnaud Martin, Antoine Pitrou, Philippe Rivière, Emmanuel Saint-James  *
- *                                                                         *
- *  Ce programme est un logiciel libre distribué sous licence GNU/GPL.     *
-\***************************************************************************/
+/**
+ * SPIP, Système de publication pour l'internet
+ *
+ * Copyright © avec tendresse depuis 2001
+ * Arnaud Martin, Antoine Pitrou, Philippe Rivière, Emmanuel Saint-James
+ *
+ * Ce programme est un logiciel libre distribué sous licence GNU/GPL.
+ */
 
 use Spip\I18n\Description;
 
@@ -15,7 +15,7 @@ use Spip\I18n\Description;
  * Outils pour la traduction et recherche de traductions
  *
  * @package SPIP\Core\Traductions
- **/
+ */
 
 if (!defined('_ECRIRE_INC_VERSION')) {
 	return;
@@ -63,7 +63,7 @@ function find_langs_in_path($file, $dirname = 'lang') {
  *     Paramètre optionnel uniquement si le module est `local`
  * @return array
  *     Liste des fichiers touvés pour ce module et cette langue.
- **/
+ */
 function chercher_module_lang($module, $lang = '') {
 	if ($lang) {
 		$lang = '_' . $lang;
@@ -101,7 +101,7 @@ function chercher_module_lang($module, $lang = '') {
  * @param string $lang Code de langue
  * @param string $module Nom du module de langue
  * @return void
- **/
+ */
 function charger_langue($lang, $module = 'spip') {
 	static $langs = [];
 	$var = 'i18n_' . $module . '_' . $lang;
@@ -175,7 +175,7 @@ function lire_fichier_langue(string $fichier): array {
  *
  * @param array $fichiers
  *    Liste des chemins de fichiers de langue à surcharger.
- **/
+ */
 function surcharger_langue($fichiers) {
 	static $surcharges = [];
 	if (!isset($GLOBALS['idx_lang'])) {
@@ -238,7 +238,7 @@ function surcharger_langue($fichiers) {
  * @return string|Description
  *     - string : Traduction demandée. Chaîne vide si aucune traduction trouvée.
  *     - Description : traduction et description (texte, module, langue)
- **/
+ */
 function inc_traduire_dist($ori, $lang, $raw = false) {
 	static $deja_vu = [];
 	static $local = [];

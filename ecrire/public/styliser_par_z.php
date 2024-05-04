@@ -1,13 +1,13 @@
 <?php
 
-/***************************************************************************\
- *  SPIP, Système de publication pour l'internet                           *
- *                                                                         *
- *  Copyright © avec tendresse depuis 2001                                 *
- *  Arnaud Martin, Antoine Pitrou, Philippe Rivière, Emmanuel Saint-James  *
- *                                                                         *
- *  Ce programme est un logiciel libre distribué sous licence GNU/GPL.     *
-\***************************************************************************/
+/**
+ * SPIP, Système de publication pour l'internet
+ *
+ * Copyright © avec tendresse depuis 2001
+ * Arnaud Martin, Antoine Pitrou, Philippe Rivière, Emmanuel Saint-James
+ *
+ * Ce programme est un logiciel libre distribué sous licence GNU/GPL.
+ */
 
 /**
  * Gestion de la sélection d'un squelette depuis son nom parmi les
@@ -16,7 +16,7 @@
  * Recherche par exemple `contenu\xx` et en absence utilisera `contenu\dist`
  *
  * @package SPIP\Core\Public\Styliser
- **/
+ */
 if (!defined('_ECRIRE_INC_VERSION')) {
 	return;
 }
@@ -263,7 +263,7 @@ function z_contenu_disponible($prefix_path, $z_contenu, $type, $ext, $echafauder
  *   Un chemin de squelette
  * @return bool
  *   `true` si on peut l'utiliser, `false` sinon.
- **/
+ */
 function z_fond_valide($squelette) {
 	return !_ZCORE_EXCLURE_PATH || !preg_match(',(' . _ZCORE_EXCLURE_PATH . ')/,', $squelette);
 }

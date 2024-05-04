@@ -1,19 +1,19 @@
 <?php
 
-/***************************************************************************\
- *  SPIP, Système de publication pour l'internet                           *
- *                                                                         *
- *  Copyright © avec tendresse depuis 2001                                 *
- *  Arnaud Martin, Antoine Pitrou, Philippe Rivière, Emmanuel Saint-James  *
- *                                                                         *
- *  Ce programme est un logiciel libre distribué sous licence GNU/GPL.     *
-\***************************************************************************/
+/**
+ * SPIP, Système de publication pour l'internet
+ *
+ * Copyright © avec tendresse depuis 2001
+ * Arnaud Martin, Antoine Pitrou, Philippe Rivière, Emmanuel Saint-James
+ *
+ * Ce programme est un logiciel libre distribué sous licence GNU/GPL.
+ */
 
 /**
  * Gestion des meta de configuration
  *
  * @package SPIP\Core\Configuration
- **/
+ */
 
 if (!defined('_ECRIRE_INC_VERSION')) {
 	return;
@@ -122,7 +122,7 @@ function lire_metas($table = 'meta') {
  *      Date de modification du fichier à appliquer si indiqué (timestamp)
  * @param string $table
  *      Table SQL d'enregistrement des meta.
- **/
+ */
 function touch_meta($antidate = false, $table = 'meta') {
 	$file = cache_meta($table);
 	if (!$antidate || !@touch($file, $antidate)) {
@@ -153,7 +153,7 @@ function touch_meta($antidate = false, $table = 'meta') {
  *     Nom de la meta
  * @param string $table
  *     Table SQL d'enregistrement de la meta.
- **/
+ */
 function effacer_meta($nom, $table = 'meta') {
 	// section critique sur le cache:
 	// l'invalider avant et apres la MAJ de la BD
@@ -188,7 +188,7 @@ function effacer_meta($nom, $table = 'meta') {
  *     'oui' ou 'non'
  * @param string $table
  *     Table SQL d'enregistrement de la meta.
- **/
+ */
 function ecrire_meta($nom, $valeur, $importable = null, $table = 'meta') {
 
 	static $touch = [];
@@ -248,7 +248,7 @@ function ecrire_meta($nom, $valeur, $importable = null, $table = 'meta') {
  *     Table SQL d'enregistrement des meta.
  * @return string
  *     Nom du fichier cache
- **/
+ */
 function cache_meta($table = 'meta') {
 	return ($table == 'meta') ? _FILE_META : (_DIR_CACHE . $table . '.php');
 }

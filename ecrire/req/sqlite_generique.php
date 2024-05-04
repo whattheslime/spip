@@ -1,13 +1,13 @@
 <?php
 
-/* *************************************************************************\
- *  SPIP, Système de publication pour l'internet                           *
- *                                                                         *
- *  Copyright © avec tendresse depuis 2001                                 *
- *  Arnaud Martin, Antoine Pitrou, Philippe Rivière, Emmanuel Saint-James  *
- *                                                                         *
- *  Ce programme est un logiciel libre distribué sous licence GNU/GPL.     *
-\***************************************************************************/
+/**
+ * SPIP, Système de publication pour l'internet
+ *
+ * Copyright © avec tendresse depuis 2001
+ * Arnaud Martin, Antoine Pitrou, Philippe Rivière, Emmanuel Saint-James
+ *
+ * Ce programme est un logiciel libre distribué sous licence GNU/GPL.
+ */
 
 use Spip\Sql\Sqlite\Sqlite;
 use Spip\Sql\Sqlite\PDOStatement;
@@ -501,7 +501,7 @@ function spip_sqlite_create(
  * @param string $option Options
  *
  * @return bool true si la base est créee.
- **/
+ */
 function spip_sqlite_create_base($nom, $serveur = '', $option = true) {
 	$f = $nom . '.sqlite';
 	if (!str_contains($nom, '/')) {
@@ -670,7 +670,7 @@ function spip_sqlite_count($r, $serveur = '', $requeter = true) {
  *     - string texte de la requête si demandé
  *     - int Nombre de lignes
  *     - false si la requête a échouée
- **/
+ */
 function spip_sqlite_countsel(
 	$from = [],
 	$where = [],
@@ -711,7 +711,7 @@ function spip_sqlite_countsel(
  *     - int : nombre de suppressions réalisées,
  *     - texte de la requête si demandé,
  *     - false en cas d'erreur.
- **/
+ */
 function spip_sqlite_delete($table, $where = '', $serveur = '', $requeter = true) {
 	$res = spip_sqlite_query(
 		_sqlite_calculer_expression('DELETE FROM', $table, ',')
@@ -811,7 +811,7 @@ function spip_sqlite_drop_index($nom, $table, $serveur = '', $requeter = true) {
  *     Nom de la connexion
  * @return string
  *     Erreur eventuelle
- **/
+ */
 function spip_sqlite_error($query = '', $serveur = '') {
 	$link = _sqlite_link($serveur);
 
@@ -863,7 +863,7 @@ function _sqlite_last_error_from_link($link) {
  *    0 pas d'erreur
  *    1 ou autre erreur (en sqlite 2)
  *    'HY000/1' : numéro de l'erreur SQLState / numéro d'erreur interne SQLite (en sqlite 3)
- **/
+ */
 function spip_sqlite_errno($serveur = '') {
 	$link = _sqlite_link($serveur);
 
@@ -968,7 +968,7 @@ function spip_sqlite_fetch($r, $t = '', $serveur = '', $requeter = true) {
  * @param string $serveur Nom de la connexion
  * @param bool $requeter Inutilisé
  * @return bool True si déplacement réussi, false sinon.
- **/
+ */
 function spip_sqlite_seek($r, $row_number, $serveur = '', $requeter = true) {
 	// encore un truc de bien fichu : PDO ne PEUT PAS faire de seek ou de rewind...
 	return false;
@@ -1019,7 +1019,7 @@ function spip_sqlite_get_charset($charset = [], $serveur = '', $requeter = true)
  *     Chaine hexadecimale
  * @return string
  *     Valeur hexadécimale pour SQLite
- **/
+ */
 function spip_sqlite_hex($v) {
 	return hexdec($v);
 }
@@ -1041,7 +1041,7 @@ function spip_sqlite_hex($v) {
  *     Inutilisé
  * @return string
  *     Expression de requête SQL
- **/
+ */
 function spip_sqlite_in($val, $valeurs, $not = '', $serveur = '', $requeter = true) {
 	return "($val $not IN ($valeurs))";
 }
@@ -1068,7 +1068,7 @@ function spip_sqlite_in($val, $valeurs, $not = '', $serveur = '', $requeter = tr
  *     - texte de la requête si demandé,
  *     - false en cas d'erreur,
  *     - Tableau de description de la requête et du temps d'exécution, si var_profile activé
- **/
+ */
 function spip_sqlite_insert($table, $champs, $valeurs, $desc = [], $serveur = '', $requeter = true) {
 
 	$query = "INSERT INTO $table " . ($champs ? "$champs VALUES $valeurs" : 'DEFAULT VALUES');
@@ -1107,7 +1107,7 @@ function spip_sqlite_insert($table, $champs, $valeurs, $desc = [], $serveur = ''
  *     - texte de la requête si demandé,
  *     - false en cas d'erreur,
  *     - Tableau de description de la requête et du temps d'exécution, si var_profile activé
- **/
+ */
 function spip_sqlite_insertq($table, $couples = [], $desc = [], $serveur = '', $requeter = true) {
 	if (!$desc) {
 		$desc = description_table($table, $serveur);
@@ -1152,7 +1152,7 @@ function spip_sqlite_insertq($table, $couples = [], $desc = [], $serveur = '', $
  *     - true en cas de succès,
  *     - texte de la requête si demandé,
  *     - false en cas d'erreur.
- **/
+ */
 function spip_sqlite_insertq_multi($table, $tab_couples = [], $desc = [], $serveur = '', $requeter = true) {
 	$retour = null;
 	$nb = null;
@@ -1232,7 +1232,7 @@ function spip_sqlite_insertq_multi($table, $tab_couples = [], $desc = [], $serve
  *     Inutilisé
  * @return bool
  *     Toujours true.
- **/
+ */
 function spip_sqlite_preferer_transaction($serveur = '', $requeter = true) {
 	return true;
 }
@@ -1249,7 +1249,7 @@ function spip_sqlite_preferer_transaction($serveur = '', $requeter = true) {
  *     true pour exécuter la requête ou false pour retourner le texte de la requête
  * @return bool|string
  *     string si texte de la requête demandé, true sinon
- **/
+ */
 function spip_sqlite_demarrer_transaction($serveur = '', $requeter = true) {
 	if (!$requeter) {
 		return 'BEGIN TRANSACTION';
@@ -1268,7 +1268,7 @@ function spip_sqlite_demarrer_transaction($serveur = '', $requeter = true) {
  *     true pour exécuter la requête ou false pour retourner le texte de la requête
  * @return bool|string
  *     string si texte de la requête demandé, true sinon
- **/
+ */
 function spip_sqlite_terminer_transaction($serveur = '', $requeter = true) {
 	if (!$requeter) {
 		return 'COMMIT';
@@ -1288,7 +1288,7 @@ function spip_sqlite_terminer_transaction($serveur = '', $requeter = true) {
  *     Inutilisé
  * @return array
  *     Liste des noms de bases
- **/
+ */
 function spip_sqlite_listdbs($serveur = '', $requeter = true) {
 	_sqlite_init();
 
@@ -1340,7 +1340,7 @@ function spip_sqlite_multi($objet, $lang) {
  * @param string $serveur nom de la connexion
  * @param bool $requeter effectuer la requete ? sinon retourner son code
  * @return bool|string true / false / requete
- **/
+ */
 function spip_sqlite_optimize($table, $serveur = '', $requeter = true) {
 	static $do = false;
 	if ($requeter && $do) {
@@ -1390,7 +1390,7 @@ function spip_sqlite_quote($v, $type = '') {
  *     Utité utilisée (DAY, MONTH, YEAR, ...)
  * @return string
  *     Expression SQL
- **/
+ */
 function spip_sqlite_date_proche($champ, $interval, $unite) {
 	$op = (($interval <= 0) ? '>' : '<');
 
@@ -1481,7 +1481,7 @@ function spip_sqlite_repair($table, $serveur = '', $requeter = true) {
  *     - true si réussite
  *     - texte de la requête si demandé,
  *     - false en cas d'erreur.
- **/
+ */
 function spip_sqlite_replace($table, $couples, $desc = [], $serveur = '', $requeter = true) {
 	if (!$desc) {
 		$desc = description_table($table, $serveur);
@@ -1528,7 +1528,7 @@ function spip_sqlite_replace($table, $couples, $desc = [], $serveur = '', $reque
  *     - true si réussite
  *     - texte de la requête si demandé,
  *     - false en cas d'erreur.
- **/
+ */
 function spip_sqlite_replace_multi($table, $tab_couples, $desc = [], $serveur = '', $requeter = true) {
 
 	$retour = null;
@@ -1619,7 +1619,7 @@ function spip_sqlite_select(
  * @return bool|string
  *     - Nom de la base en cas de success.
  *     - False en cas d'erreur.
- **/
+ */
 function spip_sqlite_selectdb($db, $serveur = '', $requeter = true) {
 	_sqlite_init();
 
@@ -1678,7 +1678,7 @@ function spip_sqlite_set_charset($charset, $serveur = '', $requeter = true) {
  *     false pour retourner le texte de la requête.
  * @return PDOStatement|bool|string|array
  *     Ressource à utiliser avec sql_fetch()
- **/
+ */
 function spip_sqlite_showbase($match, $serveur = '', $requeter = true) {
 	// type est le type d'entrée : table / index / view
 	// on ne retourne que les tables (?) et non les vues...
@@ -1713,7 +1713,7 @@ function spip_sqlite_showbase($match, $serveur = '', $requeter = true) {
  * @return bool|string
  *     - true si la table existe, false sinon
  *     - string : requete sql, si $requeter = true
- **/
+ */
 function spip_sqlite_table_exists(string $table, $serveur = '', $requeter = true) {
 	$r = spip_sqlite_query(
 		'SELECT name FROM sqlite_master WHERE'

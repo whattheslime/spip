@@ -1,19 +1,19 @@
 <?php
 
-/***************************************************************************\
- *  SPIP, Système de publication pour l'internet                           *
- *                                                                         *
- *  Copyright © avec tendresse depuis 2001                                 *
- *  Arnaud Martin, Antoine Pitrou, Philippe Rivière, Emmanuel Saint-James  *
- *                                                                         *
- *  Ce programme est un logiciel libre distribué sous licence GNU/GPL.     *
-\***************************************************************************/
+/**
+ * SPIP, Système de publication pour l'internet
+ *
+ * Copyright © avec tendresse depuis 2001
+ * Arnaud Martin, Antoine Pitrou, Philippe Rivière, Emmanuel Saint-James
+ *
+ * Ce programme est un logiciel libre distribué sous licence GNU/GPL.
+ */
 
 /**
  * Outils pour lecture de XML
  *
  * @package SPIP\Core\XML
- **/
+ */
 
 if (!defined('_ECRIRE_INC_VERSION')) {
 	return;
@@ -44,7 +44,7 @@ if (!defined('_ECRIRE_INC_VERSION')) {
  * @return array|bool
  *     - array : l'arbre XML,
  *     - false si l'arbre xml ne peut être créé ou est vide
- **/
+ */
 function spip_xml_load($fichier, $strict = true, $clean = true, $taille_max = 1_048_576, $datas = '', $profondeur = -1) {
 	$contenu = '';
 	if (tester_url_absolue($fichier)) {
@@ -80,7 +80,7 @@ if (!defined('_SPIP_XML_TAG_SPLIT')) {
  * @return array|bool
  *     - array : l'arbre XML,
  *     - false si l'arbre xml ne peut être créé ou est vide
- **/
+ */
 function spip_xml_parse(&$texte, $strict = true, $clean = true, $profondeur = -1) {
 	$out = [];
 	// enlever les commentaires
@@ -246,7 +246,7 @@ function spip_xml_decompose_tag($tag) {
  * @param bool $init ?
  * @return bool
  *     false si aucun élément ne valide l'expression régulière, true sinon.
- **/
+ */
 function spip_xml_match_nodes($regexp, &$arbre, &$matches, $init = true) {
 	if ($init) {
 		$matches = [];

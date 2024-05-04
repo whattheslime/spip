@@ -1,13 +1,13 @@
 <?php
 
-/***************************************************************************\
- *  SPIP, Système de publication pour l'internet                           *
- *                                                                         *
- *  Copyright © avec tendresse depuis 2001                                 *
- *  Arnaud Martin, Antoine Pitrou, Philippe Rivière, Emmanuel Saint-James  *
- *                                                                         *
- *  Ce programme est un logiciel libre distribué sous licence GNU/GPL.     *
-\***************************************************************************/
+/**
+ * SPIP, Système de publication pour l'internet
+ *
+ * Copyright © avec tendresse depuis 2001
+ * Arnaud Martin, Antoine Pitrou, Philippe Rivière, Emmanuel Saint-James
+ *
+ * Ce programme est un logiciel libre distribué sous licence GNU/GPL.
+ */
 
 use Algo26\IdnaConvert\ToIdn;
 
@@ -15,7 +15,7 @@ use Algo26\IdnaConvert\ToIdn;
  * Ce fichier gère l'obtention de données distantes
  *
  * @package SPIP\Core\Distant
- **/
+ */
 if (!defined('_ECRIRE_INC_VERSION')) {
 	return;
 }
@@ -884,7 +884,7 @@ function recuperer_entetes_complets($handle, $if_modified_since = false) {
  *     Extension du fichier
  * @return string
  *     Nom du fichier pour copie locale
- **/
+ */
 function nom_fichier_copie_locale($source, $extension) {
 	include_spip('inc/documents');
 
@@ -932,7 +932,7 @@ function nom_fichier_copie_locale($source, $extension) {
  * @return string|null
  *      - string: Nom du fichier calculé
  *      - null: Copie locale impossible
- **/
+ */
 function fichier_copie_locale($source) {
 	// Si c'est deja local pas de souci
 	if (!tester_url_absolue($source)) {
@@ -1025,7 +1025,7 @@ function fichier_copie_locale($source) {
  *     - 'extension' = chaine
  *     - 'fichier' = chaine
  *     - 'mime_type' = chaine
- **/
+ */
 function recuperer_infos_distantes($source, $options = []) {
 
 	// pas la peine de perdre son temps

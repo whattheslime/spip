@@ -1,24 +1,25 @@
 <?php
 
+/**
+ * SPIP, Système de publication pour l'internet
+ *
+ * Copyright © avec tendresse depuis 2001
+ * Arnaud Martin, Antoine Pitrou, Philippe Rivière, Emmanuel Saint-James
+ *
+ * Ce programme est un logiciel libre distribué sous licence GNU/GPL.
+ */
+
 use Spip\Texte\Collecteur\HtmlTag as CollecteurHtmlTag;
 use Spip\Texte\Collecteur\Idiomes as CollecteurIdiomes;
 use Spip\Texte\Collecteur\Modeles as CollecteurModeles;
 use Spip\Texte\Collecteur\Multis as CollecteurMultis;
 
-/***************************************************************************\
- *  SPIP, Système de publication pour l'internet                           *
- *                                                                         *
- *  Copyright © avec tendresse depuis 2001                                 *
- *  Arnaud Martin, Antoine Pitrou, Philippe Rivière, Emmanuel Saint-James  *
- *                                                                         *
- *  Ce programme est un logiciel libre distribué sous licence GNU/GPL.     *
-\***************************************************************************/
 
 /**
  * Déclaration de filtres pour les squelettes
  *
  * @package SPIP\Core\Filtres
- **/
+ */
 if (!defined('_ECRIRE_INC_VERSION')) {
 	return;
 }
@@ -55,7 +56,7 @@ function charger_filtre($fonc, $default = 'filtre_identite_dist') {
  *
  * @param string $texte texte
  * @return string texte
- **/
+ */
 function filtre_identite_dist($texte) {
  return $texte;
 }
@@ -149,7 +150,7 @@ function chercher_filtre($fonc, $default = null) {
  * @return string
  *     texte traité par le filtre si le filtre existe,
  *     Chaîne vide sinon.
- **/
+ */
 function appliquer_filtre(mixed $arg, $filtre) {
 	$args = func_get_args();
 	return appliquer_filtre_sinon($arg, $filtre, $args, '');
@@ -175,7 +176,7 @@ function appliquer_filtre(mixed $arg, $filtre) {
  * @return string
  *     texte traité par le filtre si le filtre existe,
  *     texte d'origine sinon
- **/
+ */
 function appliquer_si_filtre(mixed $arg, $filtre) {
 	$args = func_get_args();
 	return appliquer_filtre_sinon($arg, $filtre, $args, $arg);
@@ -192,7 +193,7 @@ function appliquer_si_filtre(mixed $arg, $filtre) {
  *
  * @return string
  *     Version de SPIP
- **/
+ */
 function spip_version() {
 	$version = $GLOBALS['spip_version_affichee'];
 	if ($vcs_version = version_vcs_courante(_DIR_RACINE)) {
@@ -247,7 +248,7 @@ function version_vcs_courante($dir, $raw = false) {
  * @return array|null
  *      null si aucune info trouvée
  *      array ['branch' => xx, 'commit' => yy] sinon.
- **/
+ */
 function decrire_version_git($dir) {
 	$c = null;
 	$hash = null;
@@ -313,7 +314,7 @@ $GLOBALS['spip_matrice']['filtre_audio_x_pn_realaudio'] = 'inc/filtres_mime.php'
  *     Nom du filtre à appliquer
  * @return string
  *     Code HTML retourné par le filtre
- **/
+ */
 function filtrer($filtre) {
 	$tous = func_get_args();
 	if (trouver_filtre_matrice($filtre) && str_starts_with($filtre, 'image_')) {
@@ -475,7 +476,7 @@ function filtre_debug(mixed $val, $key = null) {
  *     - les suivants sont les arguments du filtre image souhaité.
  * @return string
  *     texte qui a reçu les filtres
- **/
+ */
 function image_filtrer($args) {
 	$filtre = array_shift($args); # enlever $filtre
 	$texte = array_shift($args);
@@ -565,7 +566,7 @@ function image_filtrer($args) {
  *     largeur
  *     hauteur
  *     poids
- **/
+ */
 function infos_image($img, $force_refresh = false) {
 
 	static $largeur_img = [], $hauteur_img = [], $poids_img = [];
@@ -669,7 +670,7 @@ function infos_image($img, $force_refresh = false) {
  *     largeur
  *     hauteur
  *     poids
- **/
+ */
 function poids_image($img, $force_refresh = false) {
 	$infos = infos_image($img, $force_refresh);
 	return $infos['poids'];
@@ -692,7 +693,7 @@ function taille_image($img, $force_refresh = false) {
  *     Balise HTML `<img ... />` ou chemin de l'image (qui peut être une URL distante).
  * @return int|null
  *     Largeur en pixels, NULL ou 0 si aucune image.
- **/
+ */
 function largeur($img) {
 	if (!$img) {
 		return;
@@ -714,7 +715,7 @@ function largeur($img) {
  *     Balise HTML `<img ... />` ou chemin de l'image (qui peut être une URL distante).
  * @return int|null
  *     Hauteur en pixels, NULL ou 0 si aucune image.
- **/
+ */
 function hauteur($img) {
 	if (!$img) {
 		return;
@@ -739,7 +740,7 @@ function hauteur($img) {
  * @see corriger_toutes_entites_html()
  * @param string $texte
  * @return string
- **/
+ */
 function corriger_entites_html($texte) {
 	if (!str_contains($texte, '&amp;')) {
 		return $texte;
@@ -758,7 +759,7 @@ function corriger_entites_html($texte) {
  * @see corriger_entites_html()
  * @param string $texte
  * @return string
- **/
+ */
 function corriger_toutes_entites_html($texte) {
 	if (!str_contains($texte, '&amp;')) {
 		return $texte;
@@ -772,7 +773,7 @@ function corriger_toutes_entites_html($texte) {
  *
  * @param string $texte
  * @return string
- **/
+ */
 function proteger_amp($texte) {
 	return str_replace('&', '&amp;', $texte);
 }
@@ -835,7 +836,7 @@ function entites_html($texte, $tout = false, $quote = true) {
  *     texte à convertir
  * @return string
  *     texte converti
- **/
+ */
 function filtrer_entites(?string $texte): string {
 	$texte ??= '';
 	if (!str_contains($texte, '&')) {
@@ -881,7 +882,7 @@ if (!function_exists('filtre_filtrer_entites_dist')) {
  *
  * @param string|array $texte
  * @return string|array
- **/
+ */
 function supprimer_caracteres_illegaux($texte) {
 	static $from = "\x0\x1\x2\x3\x4\x5\x6\x7\x8\xB\xC\xE\xF\x10\x11\x12\x13\x14\x15\x16\x17\x18\x19\x1A\x1B\x1C\x1D\x1E\x1F";
 	static $to = null;
@@ -904,7 +905,7 @@ function supprimer_caracteres_illegaux($texte) {
  *
  * @param string|array $texte
  * @return string|array
- **/
+ */
 function corriger_caracteres($texte) {
 	$texte = corriger_caracteres_windows($texte);
 
@@ -999,7 +1000,7 @@ function texte_backendq(?string $texte): string {
  *     Texte
  * @return string
  *     Texte sans son numéro éventuel
- **/
+ */
 function supprimer_numero(?string $texte): string {
 	if ($texte === null || $texte === '') {
 		return '';
@@ -1029,7 +1030,7 @@ function supprimer_numero(?string $texte): string {
  *     Texte
  * @return string
  *     Numéro de titre, sinon chaîne vide
- **/
+ */
 function recuperer_numero(?string $texte): string {
 	if ($texte === null || $texte === '') {
 		return '';
@@ -1068,7 +1069,7 @@ function recuperer_numero(?string $texte): string {
  *     Inutilisé.
  * @return string|array
  *     texte ou tableau de textes converti
- **/
+ */
 function supprimer_tags($texte, $rempl = '') {
 	if ($texte === null || $texte === '') {
 		return '';
@@ -1100,7 +1101,7 @@ function supprimer_tags($texte, $rempl = '') {
  *     Inutilisé.
  * @return string
  *     texte converti
- **/
+ */
 function echapper_tags($texte, $rempl = '') {
 	return preg_replace('/<([^>]*)>/', "&lt;\\1&gt;", $texte);
 }
@@ -1121,7 +1122,7 @@ function echapper_tags($texte, $rempl = '') {
  *     texte à convertir
  * @return string
  *     texte converti
- **/
+ */
 function textebrut($texte) {
 	if ($texte === null || $texte === '') {
 		return '';
@@ -1151,7 +1152,7 @@ function textebrut($texte) {
  *     texte avec des liens
  * @return string
  *     texte avec liens ouvrants
- **/
+ */
 function liens_ouvrants($texte) {
 	if ($texte === null || $texte === '') {
 		return '';
@@ -1217,7 +1218,7 @@ function liens_nofollow($texte) {
  *     texte à transformer
  * @return string
  *     texte sans paraghaphes
- **/
+ */
 function PtoBR($texte) {
 	if ($texte === null || $texte === '') {
 		return '';
@@ -1341,7 +1342,7 @@ function taille_en_octets($octets, $systeme = 'BI') {
  *     Passe le texte en texte brut (enlève les balises html) ?
  * @return string
  *     texte prêt pour être utilisé en attribut HTML
- **/
+ */
 function attribut_html(?string $texte, $textebrut = true): string {
 	if ($texte === null || $texte === '') {
 		return '';
@@ -1375,7 +1376,7 @@ function attribut_html(?string $texte, $textebrut = true): string {
  *     `true` pour échapper les entités HTML.
  * @return string
  *     URL ou chaîne vide
- **/
+ */
 function vider_url(?string $url, $entites = true): string {
 	if ($url === null || $url === '') {
 		return '';
@@ -1398,7 +1399,7 @@ function vider_url(?string $url, $entites = true): string {
  *
  * @param string $texte Adresse email
  * @return string Adresse email maquillée
- **/
+ */
 function antispam($texte) {
 	include_spip('inc/acces');
 	$masque = creer_pass_aleatoire(3);
@@ -1433,7 +1434,7 @@ function antispam($texte) {
  *     Nom de l'argument calculé
  * @return bool
  *     True si on a le droit d'accès, false sinon.
- **/
+ */
 function filtre_securiser_acces_dist($id_auteur, $cle, $dir, $op = '', $args = '') {
 	include_spip('inc/acces');
 	return securiser_acces_low_sec($id_auteur, $cle, $op ? "$dir $op $args" : $dir);
@@ -1458,7 +1459,7 @@ function filtre_securiser_acces_dist($id_auteur, $cle, $dir, $op = '', $args = '
  *     Contenu a retourner si le contenu de reference est vide
  * @return mixed
  *     Retourne $texte, sinon $sinon.
- **/
+ */
 function sinon(mixed $texte, mixed $sinon = '') {
 	if ($texte) {
 		return $texte;
@@ -1488,7 +1489,7 @@ function sinon(mixed $texte, mixed $sinon = '') {
  * @param mixed $pasvide
  *     Ce qui est retourné sinon
  * @return mixed
- **/
+ */
 function choixsivide(mixed $a, mixed $vide, mixed $pasvide) {
 	return $a ? $pasvide : $vide;
 }
@@ -1512,7 +1513,7 @@ function choixsivide(mixed $a, mixed $vide, mixed $pasvide) {
  * @param mixed $f
  *     Ce qui est retourné sinon
  * @return mixed
- **/
+ */
 function choixsiegal(mixed $a1, mixed $a2, mixed $v, mixed $f) {
 	return ($a1 == $a2) ? $v : $f;
 }
@@ -1531,7 +1532,7 @@ function choixsiegal(mixed $a1, mixed $a2, mixed $v, mixed $f) {
  *
  * @param string $texte
  * @return string
- **/
+ */
 function filtrer_ical($texte) {
 	if ($texte === null || $texte === '') {
 		return '';
@@ -1564,7 +1565,7 @@ function filtrer_ical($texte) {
  * @param string $delim
  *      Ce par quoi sont remplacés les sauts
  * @return string
- **/
+ */
 function post_autobr($texte, $delim = "\n_ ") {
 	if (!function_exists('echappe_html')) {
 		include_spip('inc/texte_mini');
@@ -1645,7 +1646,7 @@ function post_autobr($texte, $delim = "\n_ ") {
  *         exacte n'a pas été trouvée.
  * }
  * @return string
- **/
+ */
 function extraire_idiome($letexte, $lang = null, $options = []) {
 
 	if ($letexte && str_contains($letexte, '<:')) {
@@ -1701,7 +1702,7 @@ function extraire_idiome($letexte, $lang = null, $options = []) {
  *         exacte n'a pas été trouvée.
  * }
  * @return string
- **/
+ */
 function extraire_multi($letexte, $lang = null, $options = []) {
 
 	if ($letexte && stripos($letexte, '<multi') !== false) {
@@ -1780,7 +1781,7 @@ function filtre_initiale($nom) {
  *      - int : si l'on demande le nombre d'éléments
  *      - array (interne) : si on dépile
  *      - null (interne) : si on empile
- **/
+ */
 function unique($donnee, $famille = '', $cpt = false) {
 	static $mem = [];
 	// permettre de vider la pile et de la restaurer
@@ -1836,7 +1837,7 @@ function unique($donnee, $famille = '', $cpt = false) {
  *     Liste des éléments à alterner
  * @return mixed
  *     Une des valeurs en fonction du compteur.
- **/
+ */
 function alterner($i, ...$args) {
 	// recuperer les arguments (attention fonctions un peu space)
 	$num = count($args);
@@ -1875,7 +1876,7 @@ function alterner($i, ...$args) {
  *       (si 1er argument tableau)
  *     - Tableau complet (si 2e argument)
  *     - null lorsque l’attribut n’existe pas.
- **/
+ */
 function extraire_attribut($balise, $attribut, $complet = false) {
 	if (is_array($balise)) {
 		array_walk(
@@ -1952,7 +1953,7 @@ function extraire_attribut($balise, $attribut, $complet = false) {
  *     True pour vider l'attribut. Une chaîne vide pour `$val` fera pareil.
  * @return string
  *     Code html modifié
- **/
+ */
 function inserer_attribut(?string $balise, string $attribut, ?string $val, bool $proteger = true, bool $vider = false): string {
 
 	if ($balise === null || $balise === '') {
@@ -2001,7 +2002,7 @@ function inserer_attribut(?string $balise, string $attribut, ?string $val, bool 
  * @param ?string $balise Code HTML de l'élément
  * @param string $attribut Nom de l'attribut à enlever
  * @return string Code HTML sans l'attribut
- **/
+ */
 function vider_attribut(?string $balise, string $attribut): string {
 	return inserer_attribut($balise, $attribut, '', false, true);
 }
@@ -2129,7 +2130,7 @@ function strize($f, $a, $b) {
  * @param int $a
  * @param int $b
  * @return int $a+$b
- **/
+ */
 function plus($a, $b) {
 	return $a + $b;
 }
@@ -2152,7 +2153,7 @@ function strplus($a, $b) {
  * @param int $a
  * @param int $b
  * @return int $a-$b
- **/
+ */
 function moins($a, $b) {
 	return $a - $b;
 }
@@ -2176,7 +2177,7 @@ function strmoins($a, $b) {
  * @param int $a
  * @param int $b
  * @return int $a*$b
- **/
+ */
 function mult($a, $b) {
 	return $a * $b;
 }
@@ -2200,7 +2201,7 @@ function strmult($a, $b) {
  * @param int $a
  * @param int $b
  * @return int $a/$b (ou 0 si $b est nul)
- **/
+ */
 function div($a, $b) {
 	return $b ? $a / $b : 0;
 }
@@ -2225,7 +2226,7 @@ function strdiv($a, $b) {
  * @param int $mod
  * @param int $add
  * @return int ($nb % $mod) + $add
- **/
+ */
 function modulo($nb, $mod, $add = 0) {
 	return ($mod ? $nb % $mod : 0) + $add;
 }
@@ -2240,7 +2241,7 @@ function modulo($nb, $mod, $add = 0) {
  * @return bool
  *      - false si pas conforme,
  *      - true sinon
- **/
+ */
 function nom_acceptable($nom) {
 	$remp2 = [];
 	$remp1 = [];
@@ -2275,7 +2276,7 @@ function nom_acceptable($nom) {
  *      - false si une des adresses n'est pas conforme,
  *      - la normalisation de la dernière adresse donnée sinon
  *      - renvoie un tableau si l'entree est un tableau
- **/
+ */
 function email_valide($adresses) {
 	if (is_array($adresses)) {
 		$adresses = array_map('email_valide', $adresses);
@@ -2295,7 +2296,7 @@ function email_valide($adresses) {
  *
  * @param string $tags texte
  * @return string texte
- **/
+ */
 function afficher_enclosures($tags) {
 	$s = [];
 	foreach (extraire_balises($tags, 'a') as $tag) {
@@ -2332,7 +2333,7 @@ function afficher_enclosures($tags) {
  * @param string $tags texte
  * @param string $rels Attribut `rel` à capturer (ou plusieurs séparés par des virgules)
  * @return string Liens trouvés
- **/
+ */
 function afficher_tags($tags, $rels = 'tag,directory') {
 	$s = [];
 	foreach (extraire_balises($tags, 'a') as $tag) {
@@ -2362,7 +2363,7 @@ function afficher_tags($tags, $rels = 'tag,directory') {
  *
  * @param string $e Tag RSS `<enclosure>`
  * @return string Tag HTML `<a>` avec microformat.
- **/
+ */
 function enclosure2microformat($e) {
 	if (!$url = filtrer_entites(extraire_attribut($e, 'url') ?? '')) {
 		$url = filtrer_entites(extraire_attribut($e, 'href') ?? '');
@@ -2394,7 +2395,7 @@ function enclosure2microformat($e) {
  *
  * @param string $tags texte HTML ayant des tag `<a>` avec microformat
  * @return string Tags RSS `<enclosure>`.
- **/
+ */
 function microformat2enclosure($tags) {
 	$enclosures = [];
 	foreach (extraire_balises($tags, 'a') as $e) {
@@ -2427,7 +2428,7 @@ function microformat2enclosure($tags) {
  *
  * @param string $tags texte
  * @return string Tags RSS Atom `<dc:subject>`.
- **/
+ */
 function tags2dcsubject($tags) {
 	$subjects = '';
 	foreach (extraire_balises($tags, 'a') as $e) {
@@ -2465,7 +2466,7 @@ function tags2dcsubject($tags) {
  * @return string|array
  *     - Code html de la première occurence de la balise trouvée, sinon chaine vide
  *     - Tableau de résultats, si tableau en entrée.
- **/
+ */
 function extraire_balise($texte, $tag = 'a', $profondeur = 1) {
 	$balises = extraire_balises($texte, $tag, ['nb_max' => 1, 'profondeur' => $profondeur]);
 	if (is_array($texte)) {
@@ -2498,7 +2499,7 @@ function extraire_balise($texte, $tag = 'a', $profondeur = 1) {
  * @return array
  *     - Liste des codes html des occurrences de la balise, sinon tableau vide
  *     - Tableau de résultats, si tableau en entrée.
- **/
+ */
 function extraire_balises($texte, $tag = 'a', $options = []) {
 	if (is_array($texte)) {
 		array_walk(
@@ -2545,7 +2546,7 @@ function extraire_balises($texte, $tag = 'a', $options = []) {
  *     - ' ' si la valeur cherchée est dans le tableau
  *     - '' si la valeur n'est pas dans le tableau
  *     - `$def` si on n'a pas transmis de tableau
- **/
+ */
 function in_any($val, $vals, $def = '') {
 	if (!is_array($vals) && $vals && ($v = unserialize($vals))) {
 		$vals = $v;
@@ -2570,7 +2571,7 @@ function in_any($val, $vals, $def = '') {
  *     Expression mathématique `nombre operateur nombre` comme `3*2`
  * @return int
  *     Résultat du calcul
- **/
+ */
 function valeur_numerique($expr) {
 	$a = 0;
 	if (preg_match(',^\d+(\s*[+*-]\s*\d+)*$,S', trim($expr))) {
@@ -2594,7 +2595,7 @@ function valeur_numerique($expr) {
  * @param int $c
  * @return int
  *      Retourne `$a*$b/$c`
- **/
+ */
 function regledetrois($a, $b, $c) {
 	return round($a * $b / $c);
 }
@@ -2617,7 +2618,7 @@ function regledetrois($a, $b, $c) {
  *
  * @param ?string $action URL
  * @return string Suite de champs input hidden
- **/
+ */
 function form_hidden(?string $action = ''): string {
 	$action ??= '';
 
@@ -2711,7 +2712,7 @@ function form_hidden(?string $action = ''): string {
  *    - null si $array n'est pas un tableau,
  *    - false si le tableau est vide
  *    - la première valeur du tableau sinon.
- **/
+ */
 function filtre_reset($array) {
 	return is_array($array) ? reset($array) : null;
 }
@@ -2732,7 +2733,7 @@ function filtre_reset($array) {
  *    - null si $array n'est pas un tableau,
  *    - false si le tableau est vide
  *    - la dernière valeur du tableau sinon.
- **/
+ */
 function filtre_end($array) {
 	return is_array($array) ? end($array) : null;
 }
@@ -2752,7 +2753,7 @@ function filtre_end($array) {
  *     - '' si $array n'est pas un tableau ou si echec.
  *     - le tableau complété de la valeur sinon.
  *
- **/
+ */
 function filtre_push($array, mixed $val) {
 	if (!is_array($array) || !array_push($array, $val)) {
 		return '';
@@ -2775,7 +2776,7 @@ function filtre_push($array, mixed $val) {
  * @return bool
  *     - `false` si `$array` n'est pas un tableau
  *     - `true` si la valeur existe dans le tableau, `false` sinon.
- **/
+ */
 function filtre_find($array, mixed $val) {
 	return (is_array($array) && in_array($val, $array));
 }
@@ -2792,7 +2793,7 @@ function filtre_find($array, mixed $val) {
  *     Chemin du fichier CSS
  * @return string
  *     Contenu avec urls en absolus
- **/
+ */
 function urls_absolues_css($contenu, $source) {
 	$path = suivre_lien(url_absolue($source), './');
 
@@ -2827,7 +2828,7 @@ function urls_absolues_css($contenu, $source) {
  *
  * @return string
  *     Chemin du fichier CSS inversé
- **/
+ */
 function direction_css($css, $voulue = '') {
 	if (!$css) {
 		return '';
@@ -2966,7 +2967,7 @@ function direction_css($css, $voulue = '') {
  * @return string
  *     - Chemin du fichier CSS transformé (si source lisible et mise en cache réussie)
  *     - Chemin ou URL du fichier CSS source sinon.
- **/
+ */
 function url_absolue_css($css) {
 	if (!preg_match(',\.css$,i', $css, $r)) {
 		return $css;
@@ -3040,7 +3041,7 @@ function url_absolue_css($css) {
  *
  * @return mixed
  *     Valeur trouvée ou valeur par défaut.
- **/
+ */
 function table_valeur(mixed $table, $cle, mixed $defaut = '', $conserver_null = false) {
 	foreach (explode('/', $cle) as $k) {
 		$table = (is_string($table) ? @unserialize($table) : $table);
@@ -3090,7 +3091,7 @@ function table_valeur(mixed $table, $cle, mixed $defaut = '', $conserver_null = 
  *     - false : l'expression n'a pas été trouvée
  *     - true : expression trouvée, mais pas la parenthèse capturante
  *     - string : expression trouvée.
- **/
+ */
 function filtre_match_dist(?string $texte, $expression, $modif = 'UuimsS', $capte = 0) {
 	if ((int) $modif && $capte == 0) {
 		$capte = $modif;
@@ -3132,7 +3133,7 @@ function filtre_match_dist(?string $texte, $expression, $modif = 'UuimsS', $capt
  *     Modificateurs pour l'expression régulière.
  * @return string
  *     Texte
- **/
+ */
 function replace(?string $texte, string $expression, string $replace = '', string $modif = 'UimsS'): string {
 	if (null === $texte) {
 		return '';
@@ -3156,7 +3157,7 @@ function replace(?string $texte, string $expression, string $replace = '', strin
  *     Le texte
  * @return string
  *     Le texte
- **/
+ */
 function traiter_doublons_documents(&$doublons, $letexte) {
 
 	// Verifier dans le texte & les notes (pas beau, helas)
@@ -3189,7 +3190,7 @@ function traiter_doublons_documents(&$doublons, $letexte) {
  *
  * @param mixed $texte
  * @return string Chaîne vide
- **/
+ */
 function vide(mixed $texte) {
 	return '';
 }
@@ -3218,7 +3219,7 @@ function vide(mixed $texte) {
  *      Permet de compléter les clés ignorées du tableau.
  * @return string
  *      Code HTML résultant
- **/
+ */
 function env_to_params($env, $ignore_params = []) {
 	$ignore_params = array_merge(
 		['id', 'lang', 'id_document', 'date', 'date_redac', 'align', 'fond', '', 'recurs', 'emb', 'dir_racine'],
@@ -3257,7 +3258,7 @@ function env_to_params($env, $ignore_params = []) {
  *      Permet de compléter les clés ignorées du tableau.
  * @return string
  *      Code HTML résultant
- **/
+ */
 function env_to_attributs($env, $ignore_params = []) {
 	$ignore_params = array_merge(
 		['id', 'lang', 'id_document', 'date', 'date_redac', 'align', 'fond', '', 'recurs', 'emb', 'dir_racine'],
@@ -3291,7 +3292,7 @@ function env_to_attributs($env, $ignore_params = []) {
  *
  * @param array $args
  * @return string Chaînes concaténés
- **/
+ */
 function concat(...$args): string {
 	return implode('', $args);
 }
@@ -3311,7 +3312,7 @@ function concat(...$args): string {
  *     - si true, considère que c'est un fichier js à chercher `javascript/`
  * @return string
  *     Contenu du ou des fichiers, concaténé
- **/
+ */
 function charge_scripts($files, $script = true) {
 	$flux = '';
 	foreach (is_array($files) ? $files : explode('|', $files) as $file) {
@@ -3740,7 +3741,7 @@ function filtre_balise_img_svg_dist($src, $alt = '', $class = null, $size = null
  *         - est_actif : renvoie true s'il est actif, false sinon
  *         - x : retourne l'information x du plugin si présente (et plugin actif)
  *         - tout : retourne toutes les informations du plugin actif
- **/
+ */
 function filtre_info_plugin_dist($plugin, $type_info, $reload = false) {
 	include_spip('inc/plugin');
 	$plugin = strtoupper($plugin);
@@ -4023,7 +4024,7 @@ function decoder_contexte_ajax($c, $form = '') {
  *    Une clé sera calculée si non transmise
  * @return string
  *    Message décrypté ou encrypté
- **/
+ */
 function _xor($message, $key = null) {
 	if (is_null($key)) {
 		if (!function_exists('calculer_cle_action')) {
@@ -4298,7 +4299,7 @@ function prepare_icone_base($type, $lien, $texte, $fond, $fonction = '', $class 
  *     Javascript ajouté sur le lien
  * @return string
  *     Code HTML du lien
- **/
+ */
 function icone_base($lien, $texte, $fond, $fonction = '', $class = '', $javascript = '') {
 	return prepare_icone_base('lien', $lien, $texte, $fond, $fonction, $class, $javascript);
 }
@@ -4333,7 +4334,7 @@ function icone_base($lien, $texte, $fond, $fonction = '', $class = '', $javascri
  *     Javascript ajouté sur le lien
  * @return string
  *     Code HTML du lien
- **/
+ */
 function filtre_icone_verticale_dist($lien, $texte, $fond, $fonction = '', $class = '', $javascript = '') {
 	return icone_base($lien, $texte, $fond, $fonction, "verticale $class", $javascript);
 }
@@ -4378,7 +4379,7 @@ function filtre_icone_verticale_dist($lien, $texte, $fond, $fonction = '', $clas
  *     Javascript ajouté sur le lien
  * @return string
  *     Code HTML du lien
- **/
+ */
 function filtre_icone_horizontale_dist($lien, $texte, $fond, $fonction = '', $class = '', $javascript = '') {
 	return icone_base($lien, $texte, $fond, $fonction, "horizontale $class", $javascript);
 }
@@ -4409,7 +4410,7 @@ function filtre_icone_horizontale_dist($lien, $texte, $fond, $fonction = '', $cl
  *     Message de confirmation à ajouter en javascript sur le bouton
  * @return string
  *     Code HTML du lien
- **/
+ */
 function filtre_bouton_action_horizontal_dist($lien, $texte, $fond, $fonction = '', $class = '', $confirm = '') {
 	return prepare_icone_base('bouton', $lien, $texte, $fond, $fonction, $class, $confirm);
 }

@@ -1,15 +1,16 @@
 <?php
 
+/**
+ * SPIP, Système de publication pour l'internet
+ *
+ * Copyright © avec tendresse depuis 2001
+ * Arnaud Martin, Antoine Pitrou, Philippe Rivière, Emmanuel Saint-James
+ *
+ * Ce programme est un logiciel libre distribué sous licence GNU/GPL.
+ */
+
 use Spip\Afficher\Minipage\Installation;
 
-/***************************************************************************\
- *  SPIP, Système de publication pour l'internet                           *
- *                                                                         *
- *  Copyright © avec tendresse depuis 2001                                 *
- *  Arnaud Martin, Antoine Pitrou, Philippe Rivière, Emmanuel Saint-James  *
- *                                                                         *
- *  Ce programme est un logiciel libre distribué sous licence GNU/GPL.     *
-\***************************************************************************/
 
 if (!defined('_ECRIRE_INC_VERSION')) {
 	return;
@@ -56,7 +57,7 @@ function install_etape_2_dist() {
 	echo $minipage->installDebutPage();
 
 
-// prenons toutes les dispositions possibles pour que rien ne s'affiche !
+	// prenons toutes les dispositions possibles pour que rien ne s'affiche !
 
 	/*
 	 * /!\ sqlite3/PDO : erreur sur join(', ', $link)

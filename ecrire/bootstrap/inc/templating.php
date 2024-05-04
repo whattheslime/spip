@@ -16,7 +16,7 @@
  * @return null|string
  *     - Rien dans la plupart des cas
  *     - string si $message à false.
- **/
+ */
 function erreur_squelette($message = '', $lieu = '') {
 	$debusquer = charger_fonction('debusquer', 'public');
 	if (is_array($lieu)) {

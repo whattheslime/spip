@@ -1,19 +1,19 @@
 <?php
 
-/***************************************************************************\
- *  SPIP, Système de publication pour l'internet                           *
- *                                                                         *
- *  Copyright © avec tendresse depuis 2001                                 *
- *  Arnaud Martin, Antoine Pitrou, Philippe Rivière, Emmanuel Saint-James  *
- *                                                                         *
- *  Ce programme est un logiciel libre distribué sous licence GNU/GPL.     *
-\***************************************************************************/
+/**
+ * SPIP, Système de publication pour l'internet
+ *
+ * Copyright © avec tendresse depuis 2001
+ * Arnaud Martin, Antoine Pitrou, Philippe Rivière, Emmanuel Saint-James
+ *
+ * Ce programme est un logiciel libre distribué sous licence GNU/GPL.
+ */
 
 /**
  * Gestion de l'installation des plugins
  *
  * @package SPIP\Core\Plugins
- **/
+ */
 
 
 if (!defined('_ECRIRE_INC_VERSION')) {
@@ -188,7 +188,7 @@ function spip_plugin_install($action, $infos, $version_cible) {
  *   l’ancien format en tableau sérialisé pour être conforme au nouveau fonctionnement (SPIP >= 1.9.2)
  *
  * @return array Tableau des plugins actifs
- **/
+ */
 function liste_plugin_actifs() {
 	$liste = $GLOBALS['meta']['plugin'] ?? '';
 	if (!$liste) {

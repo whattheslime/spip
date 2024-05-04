@@ -1,19 +1,19 @@
 <?php
 
-/***************************************************************************\
- *  SPIP, Système de publication pour l'internet                           *
- *                                                                         *
- *  Copyright © avec tendresse depuis 2001                                 *
- *  Arnaud Martin, Antoine Pitrou, Philippe Rivière, Emmanuel Saint-James  *
- *                                                                         *
- *  Ce programme est un logiciel libre distribué sous licence GNU/GPL.     *
-\***************************************************************************/
+/**
+ * SPIP, Système de publication pour l'internet
+ *
+ * Copyright © avec tendresse depuis 2001
+ * Arnaud Martin, Antoine Pitrou, Philippe Rivière, Emmanuel Saint-James
+ *
+ * Ce programme est un logiciel libre distribué sous licence GNU/GPL.
+ */
 
 /**
  * Utilitaires indispensables autour des serveurs SQL
  *
  * @package SPIP\Core\SQL
- **/
+ */
 if (!defined('_ECRIRE_INC_VERSION')) {
 	return;
 }
@@ -38,7 +38,7 @@ require_once _ROOT_RESTREINT . 'base/objets.php';
  * @return bool|array
  *     - false si la connexion a échouée,
  *     - tableau décrivant la connexion sinon
- **/
+ */
 function spip_connect($serveur = '', $version = '') {
 
 	$serveur = is_string($serveur) ? strtolower($serveur) : '';
@@ -165,7 +165,7 @@ function spip_connect($serveur = '', $version = '') {
  * Log la dernière erreur SQL présente sur la connexion indiquée
  *
  * @param string $serveur Nom du connecteur de bdd utilisé
- **/
+ */
 function spip_sql_erreur($serveur = '') {
 	$connexion = spip_connect($serveur);
 	$e = sql_errno($serveur);
@@ -192,7 +192,7 @@ function spip_sql_erreur($serveur = '') {
  *     - string : nom de la fonction à utiliser,
  *     - false : si la connexion a échouée
  *     - array : description de la connexion, si l'instruction sql est indisponible pour cette connexion
- **/
+ */
 function spip_connect_sql($version, $ins = '', $serveur = '', $continue = false) {
 	$desc = spip_connect($serveur, $version);
 	if (
@@ -329,7 +329,7 @@ function spip_connect_db(
  *     - false si pas de charset connu pour la connexion
  *     - -1 charset non renseigné
  *     - nom du charset sinon
- **/
+ */
 function spip_connect_main($connexion, $charset_sql_connexion = '') {
 	if ($GLOBALS['spip_connect_version'] < 0.1 && _DIR_RESTREINT) {
 		include_spip('inc/headers');
@@ -370,7 +370,7 @@ function spip_connect_main($connexion, $charset_sql_connexion = '') {
  *
  * @param int|float|string|array $a Valeur à échapper
  * @return string Valeur échappée.
- **/
+ */
 function _q($a): string {
 	if (is_numeric($a)) {
 		return (string) $a;
@@ -502,7 +502,7 @@ function query_reinjecte_textes($query, $textes) {
  * @return bool|mixed
  *     - false si on ne peut pas exécuter la requête
  *     - indéfini sinon.
- **/
+ */
 function spip_query($query, $serveur = '') {
 
 	$f = spip_connect_sql($GLOBALS['spip_sql_version'], 'query', $serveur, true);

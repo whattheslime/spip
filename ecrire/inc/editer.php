@@ -1,19 +1,19 @@
 <?php
 
-/***************************************************************************\
- *  SPIP, Système de publication pour l'internet                           *
- *                                                                         *
- *  Copyright © avec tendresse depuis 2001                                 *
- *  Arnaud Martin, Antoine Pitrou, Philippe Rivière, Emmanuel Saint-James  *
- *                                                                         *
- *  Ce programme est un logiciel libre distribué sous licence GNU/GPL.     *
-\***************************************************************************/
+/**
+ * SPIP, Système de publication pour l'internet
+ *
+ * Copyright © avec tendresse depuis 2001
+ * Arnaud Martin, Antoine Pitrou, Philippe Rivière, Emmanuel Saint-James
+ *
+ * Ce programme est un logiciel libre distribué sous licence GNU/GPL.
+ */
 
 /**
  * Fonctions d'aide à l'édition d'objets éditoriaux.
  *
  * @package SPIP\Core\Edition
- **/
+ */
 
 if (!defined('_ECRIRE_INC_VERSION')) {
 	return;
@@ -56,7 +56,7 @@ include_spip('base/abstract_sql');
  *     du formulaire.
  * @return array
  *     Retour des traitements.
- **/
+ */
 function formulaires_editer_objet_traiter(
 	$type,
 	$id = 'new',
@@ -129,7 +129,7 @@ function formulaires_editer_objet_traiter(
  *     Liste de champs obligatoires : ils doivent avoir un contenu posté.
  * @return array
  *     Tableau des erreurs
- **/
+ */
 function formulaires_editer_objet_verifier($type, $id = 'new', $oblis = []) {
 	$erreurs = [];
 	if ((int) $id) {
@@ -196,7 +196,7 @@ function formulaires_editer_objet_verifier($type, $id = 'new', $oblis = []) {
  *     du formulaire.
  * @return array
  *     Environnement du formulaire.
- **/
+ */
 function formulaires_editer_objet_charger(
 	$type,
 	$id = 'new',
@@ -445,7 +445,7 @@ function inc_titrer_contenu_dist($champs_contenu, $c = null, $longueur = 50) {
  * @return string|array
  *      - string (avec format html) : contrôles dans des input hidden
  *      - array sinon couples ('$prefixe$colonne => md5)
- **/
+ */
 function controles_md5(array $data, string $prefixe = 'ctr_', string $format = 'html') {
 	$ctr = [];
 	foreach ($data as $key => $val) {
@@ -499,7 +499,7 @@ function controles_md5(array $data, string $prefixe = 'ctr_', string $format = '
  *     la valeur un tableau avec 2 index :
  *     - base : le contenu du champ en base
  *     - post : le contenu posté
- **/
+ */
 function controler_contenu($type, $id, $options = [], $c = false, $serveur = '') {
 	include_spip('inc/filtres');
 
@@ -602,7 +602,7 @@ function controler_contenu($type, $id, $options = [], $c = false, $serveur = '')
  *     la valeur un tableau avec 2 index :
  *     - base : le contenu du champ en base
  *     - post : le contenu posté
- **/
+ */
 function controler_md5(&$champs, $ctr, $type, $id, $serveur, $prefix = 'ctr_') {
 	$spip_table_objet = table_objet_sql($type);
 	$id_table_objet = id_table_objet($type);

@@ -13,7 +13,7 @@
  * @return mixed|null
  *     - null si la clé n'a pas été trouvée
  *     - la valeur de la clé sinon.
- **/
+ */
 function _request($var, $c = false) {
 
 	if (is_array($c)) {
@@ -62,7 +62,7 @@ function _request($var, $c = false) {
  * @return array|bool
  *     - array $c complété si un $c est transmis,
  *     - false sinon
- **/
+ */
 function set_request($var, $val = null, $c = false) {
 	if (is_array($c)) {
 		unset($c[$var]);

@@ -1,13 +1,13 @@
 <?php
 
-/***************************************************************************\
- *  SPIP, Système de publication pour l'internet                           *
- *                                                                         *
- *  Copyright © avec tendresse depuis 2001                                 *
- *  Arnaud Martin, Antoine Pitrou, Philippe Rivière, Emmanuel Saint-James  *
- *                                                                         *
- *  Ce programme est un logiciel libre distribué sous licence GNU/GPL.     *
-\***************************************************************************/
+/**
+ * SPIP, Système de publication pour l'internet
+ *
+ * Copyright © avec tendresse depuis 2001
+ * Arnaud Martin, Antoine Pitrou, Philippe Rivière, Emmanuel Saint-James
+ *
+ * Ce programme est un logiciel libre distribué sous licence GNU/GPL.
+ */
 
 /**
  * Gestion de l'API de modification/suppression des logos
@@ -302,7 +302,7 @@ function logo_migrer_en_base($objet, $time_limit) {
  * @return string
  *     Type du logo
  * @deprecated 4.0 MAIS NE PAS SUPPRIMER CAR SERT POUR L'UPGRADE des logos et leur mise en base
- **/
+ */
 function type_du_logo($_id_objet) {
 	if ((debug_backtrace(0, 2)[1]['function'] ?? '') !== 'logo_migrer_en_base') {
 		trigger_deprecation('spip', '4.0', 'Using "%s" is deprecated', __FUNCTION__);

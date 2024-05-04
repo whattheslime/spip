@@ -1,19 +1,19 @@
 <?php
 
-/***************************************************************************\
- *  SPIP, Système de publication pour l'internet                           *
- *                                                                         *
- *  Copyright © avec tendresse depuis 2001                                 *
- *  Arnaud Martin, Antoine Pitrou, Philippe Rivière, Emmanuel Saint-James  *
- *                                                                         *
- *  Ce programme est un logiciel libre distribué sous licence GNU/GPL.     *
-\***************************************************************************/
+/**
+ * SPIP, Système de publication pour l'internet
+ *
+ * Copyright © avec tendresse depuis 2001
+ * Arnaud Martin, Antoine Pitrou, Philippe Rivière, Emmanuel Saint-James
+ *
+ * Ce programme est un logiciel libre distribué sous licence GNU/GPL.
+ */
 
 /**
  * Affichage des boutons d'administration
  *
  * @package SPIP\Core\Administration
- **/
+ */
 
 if (!defined('_ECRIRE_INC_VERSION')) {
 	return;
@@ -31,7 +31,7 @@ if (!defined('_ECRIRE_INC_VERSION')) {
  *     Contenu HTML de la page qui va être envoyée au navigateur
  * @return string
  *     Contenu HTML, avec boutons d'administrations et sa CSS
- **/
+ */
 function affiche_boutons_admin($contenu) {
 	include_spip('inc/filtres');
 

@@ -1,10 +1,13 @@
 <?php
 
 /**
- * Déclaration des correspondances entre charsets iso-8859-1 et unicode
+ * SPIP, Système de publication pour l'internet
  *
- * @package SPIP\Core\Charsets
- **/
+ * Copyright © avec tendresse depuis 2001
+ * Arnaud Martin, Antoine Pitrou, Philippe Rivière, Emmanuel Saint-James
+ *
+ * Ce programme est un logiciel libre distribué sous licence GNU/GPL.
+ */
 
 $GLOBALS['CHARSET']['iso-8859-1'] = [
 

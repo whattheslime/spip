@@ -1,19 +1,19 @@
 <?php
 
-/***************************************************************************\
- *  SPIP, Système de publication pour l'internet                           *
- *                                                                         *
- *  Copyright © avec tendresse depuis 2001                                 *
- *  Arnaud Martin, Antoine Pitrou, Philippe Rivière, Emmanuel Saint-James  *
- *                                                                         *
- *  Ce programme est un logiciel libre distribué sous licence GNU/GPL.     *
-\***************************************************************************/
+/**
+ * SPIP, Système de publication pour l'internet
+ *
+ * Copyright © avec tendresse depuis 2001
+ * Arnaud Martin, Antoine Pitrou, Philippe Rivière, Emmanuel Saint-James
+ *
+ * Ce programme est un logiciel libre distribué sous licence GNU/GPL.
+ */
 
 /**
  * Gestion du formulaire de d'édition de rubrique
  *
  * @package SPIP\Core\Rubriques\Formulaires
- **/
+ */
 
 if (!defined('_ECRIRE_INC_VERSION')) {
 	return;
@@ -44,7 +44,7 @@ include_spip('inc/editer');
  *     Contenu HTML ajouté en même temps que les champs cachés du formulaire.
  * @return array
  *     Environnement du formulaire
- **/
+ */
 function formulaires_editer_rubrique_charger_dist(
 	$id_rubrique = 'new',
 	$id_parent = 0,
@@ -142,7 +142,7 @@ function formulaires_editer_rubrique_identifier_dist(
  *     Contenu HTML ajouté en même temps que les champs cachés du formulaire.
  * @return array
  *     Erreurs du formulaire
- **/
+ */
 function formulaires_editer_rubrique_verifier_dist(
 	$id_rubrique = 'new',
 	$id_parent = 0,
@@ -195,7 +195,7 @@ function formulaires_editer_rubrique_verifier_dist(
  *     Contenu HTML ajouté en même temps que les champs cachés du formulaire.
  * @return array
  *     Retour des traitements
- **/
+ */
 function formulaires_editer_rubrique_traiter_dist(
 	$id_rubrique = 'new',
 	$id_parent = 0,

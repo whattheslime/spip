@@ -1,19 +1,19 @@
 <?php
 
-/***************************************************************************\
- *  SPIP, Système de publication pour l'internet                           *
- *                                                                         *
- *  Copyright © avec tendresse depuis 2001                                 *
- *  Arnaud Martin, Antoine Pitrou, Philippe Rivière, Emmanuel Saint-James  *
- *                                                                         *
- *  Ce programme est un logiciel libre distribué sous licence GNU/GPL.     *
-\***************************************************************************/
+/**
+ * SPIP, Système de publication pour l'internet
+ *
+ * Copyright © avec tendresse depuis 2001
+ * Arnaud Martin, Antoine Pitrou, Philippe Rivière, Emmanuel Saint-James
+ *
+ * Ce programme est un logiciel libre distribué sous licence GNU/GPL.
+ */
 
 /**
  * Gestion des emails et de leur envoi
  *
  * @package SPIP\Core\Mail
- **/
+ */
 if (!defined('_ECRIRE_INC_VERSION')) {
 	return;
 }
@@ -28,7 +28,7 @@ if (!defined('_ECRIRE_INC_VERSION')) {
  * @return bool|string
  *      - false si une des adresses n'est pas conforme,
  *      - la normalisation de la dernière adresse donnée sinon
- **/
+ */
 function inc_email_valide_dist($adresses) {
 	// eviter d'injecter n'importe quoi dans preg_match
 	if (!$adresses or !is_string($adresses)) {

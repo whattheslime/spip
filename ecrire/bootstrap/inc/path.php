@@ -100,7 +100,7 @@ function spip_paths_loader(): Loader {
  *     - Répertoire(s) à empiler au path
  * @return array
  *     Liste des chemins, par ordre de priorité.
- **/
+ */
 function _chemin(string|array|null $dir_path = null): array {
 	if (is_array($dir_path) || (is_string($dir_path) && strlen($dir_path))) {
 		spip_paths(add: is_array($dir_path) ? $dir_path : explode(':', $dir_path));
@@ -113,7 +113,7 @@ function _chemin(string|array|null $dir_path = null): array {
  * Retourne la liste des chemins connus de SPIP, dans l'ordre de priorité
  *
  * @return array Liste de chemins
- **/
+ */
 function creer_chemin(): array {
 	$dirs = spip_paths()->getDirectories();
 	// canal historique: avec / sauf si ''
@@ -204,7 +204,7 @@ function find_in_theme($file, $subdir = '', $include = false) {
  * @return string
  *     Chemin complet de l'icone depuis la racine si l'icone est trouée,
  *     sinon chaîne vide.
- **/
+ */
 function chemin_image($icone) {
 	static $icone_renommer;
 	if ($p = strpos($icone, '?')) {
@@ -259,7 +259,7 @@ function chemin_image($icone) {
  * @return string|bool
  *     - string : chemin du fichier trouvé
  *     - false : fichier introuvable
- **/
+ */
 function find_in_path(string $file, string $dirname = '', bool|string $include = false): ?string {
 
 	$loader = spip_paths_loader();

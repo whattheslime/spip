@@ -1,13 +1,13 @@
 <?php
 
-/***************************************************************************\
- *  SPIP, Système de publication pour l'internet                           *
- *                                                                         *
- *  Copyright © avec tendresse depuis 2001                                 *
- *  Arnaud Martin, Antoine Pitrou, Philippe Rivière, Emmanuel Saint-James  *
- *                                                                         *
- *  Ce programme est un logiciel libre distribué sous licence GNU/GPL.     *
-\***************************************************************************/
+/**
+ * SPIP, Système de publication pour l'internet
+ *
+ * Copyright © avec tendresse depuis 2001
+ * Arnaud Martin, Antoine Pitrou, Philippe Rivière, Emmanuel Saint-James
+ *
+ * Ce programme est un logiciel libre distribué sous licence GNU/GPL.
+ */
 
 if (!defined('_ECRIRE_INC_VERSION')) {
 	return;
@@ -19,7 +19,7 @@ if (!defined('_ECRIRE_INC_VERSION')) {
  * @note
  *     Faudrait faire deux classes car pour la première passe
  *     on a les memes methodes et variables que l'indenteur
- **/
+ */
 class ValidateurXML
 {
 	public function validerElement($phraseur, $name, $attrs) {
@@ -301,7 +301,7 @@ class ValidateurXML
 	 * Constructeur
 	 *
 	 * @param array $process ?
-	 **/
+	 */
 	public function __construct($process = []) {
 		if (is_array($process)) {
 			$this->process = $process;
@@ -340,7 +340,7 @@ class ValidateurXML
  * Retourne une structure ValidateurXML, dont le champ "err" est un tableau
  * ayant comme entrees des sous-tableaux [message, ligne, colonne]
  *
- **/
+ */
 function xml_valider_dist($page, $apply = false, $process = false, $doctype = '', $charset = null) {
 	$f = new ValidateurXML($process);
 	$sax = charger_fonction('sax', 'xml');

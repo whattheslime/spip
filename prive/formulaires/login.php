@@ -1,19 +1,19 @@
 <?php
 
-/***************************************************************************\
- *  SPIP, Système de publication pour l'internet                           *
- *                                                                         *
- *  Copyright © avec tendresse depuis 2001                                 *
- *  Arnaud Martin, Antoine Pitrou, Philippe Rivière, Emmanuel Saint-James  *
- *                                                                         *
- *  Ce programme est un logiciel libre distribué sous licence GNU/GPL.     *
-\***************************************************************************/
+/**
+ * SPIP, Système de publication pour l'internet
+ *
+ * Copyright © avec tendresse depuis 2001
+ * Arnaud Martin, Antoine Pitrou, Philippe Rivière, Emmanuel Saint-James
+ *
+ * Ce programme est un logiciel libre distribué sous licence GNU/GPL.
+ */
 
 /**
  * Gestion du formulaire d'identification / de connexion à SPIP
  *
  * @package SPIP\Core\Formulaires
- **/
+ */
 
 if (!defined('_ECRIRE_INC_VERSION')) {
 	return;
@@ -28,7 +28,7 @@ include_spip('base/abstract_sql');
  * @param string $cible URL
  * @return bool
  *     true si espace privé, false sinon.
- **/
+ */
 function is_url_prive($cible) {
 	include_spip('inc/filtres_mini');
 	$path = parse_url(tester_url_absolue($cible) ? $cible : url_absolue($cible));
@@ -57,7 +57,7 @@ function is_url_prive($cible) {
  *
  * @return array
  *     Environnement du formulaire
- **/
+ */
 function formulaires_login_charger_dist($cible = '', $options = [], $deprecated = null) {
 	$erreur = _request('var_erreur');
 
@@ -175,7 +175,7 @@ function formulaires_login_charger_dist($cible = '', $options = [], $deprecated 
  * @return string
  *     - Si connection possible en HTTP : URL pour réaliser cette identification,
  *     - chaîne vide sinon.
- **/
+ */
 function login_auth_http() {
 	if (!$GLOBALS['ignore_auth_http'] && _request('var_erreur') == 'cookie') {
 		include_spip('inc/session');
@@ -213,7 +213,7 @@ function login_auth_http() {
  * @param null $deprecated
  * @return array
  *     Erreurs du formulaire
- **/
+ */
 function formulaires_login_verifier_dist($cible = '', $options = [], $deprecated = null) {
 
 	$erreurs = [];
@@ -286,7 +286,7 @@ function formulaires_login_verifier_dist($cible = '', $options = [], $deprecated
  * @return array
  *     - Erreur si un connecté n'a pas le droit d'acceder à l'espace privé
  *     - tableau vide sinon.
- **/
+ */
 function login_autoriser() {
 	include_spip('inc/autoriser');
 	if (!autoriser('ecrire')) {
@@ -321,7 +321,7 @@ function login_autoriser() {
  * @param null $deprecated
  * @return array
  *     Retours du traitement
- **/
+ */
 function formulaires_login_traiter_dist($cible = '', $options = [], $deprecated = null) {
 	$res = [];
 

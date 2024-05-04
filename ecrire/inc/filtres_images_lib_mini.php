@@ -1,13 +1,13 @@
 <?php
 
-/* *************************************************************************\
- *  SPIP, Système de publication pour l'internet                           *
- *                                                                         *
- *  Copyright © avec tendresse depuis 2001                                 *
- *  Arnaud Martin, Antoine Pitrou, Philippe Rivière, Emmanuel Saint-James  *
- *                                                                         *
- *  Ce programme est un logiciel libre distribué sous licence GNU/GPL.     *
-\***************************************************************************/
+/**
+ * SPIP, Système de publication pour l'internet
+ *
+ * Copyright © avec tendresse depuis 2001
+ * Arnaud Martin, Antoine Pitrou, Philippe Rivière, Emmanuel Saint-James
+ *
+ * Ce programme est un logiciel libre distribué sous licence GNU/GPL.
+ */
 
 /**
  * Ce fichier contient les fonctions utilisées
@@ -1035,7 +1035,7 @@ function _image_gd_output($img, $valeurs, $qualite = _IMG_GD_QUALITE, $fonction 
  *
  * @param string $fichier_manquant
  *     Chemin vers le fichier manquant
- **/
+ */
 function reconstruire_image_intermediaire($fichier_manquant) {
 	$source = null;
 	$reconstruire = [];
@@ -1076,7 +1076,7 @@ function reconstruire_image_intermediaire($fichier_manquant) {
  *
  * @param string $fichier
  *     Chemin du fichier d'image calculé
- **/
+ */
 function ramasse_miettes($fichier) {
 	$source = null;
 	if (
@@ -1120,7 +1120,7 @@ function ramasse_miettes($fichier) {
  *     Code HTML de l'image
  * @return string
  *     Code HTML de l'image
- **/
+ */
 function image_graver($img) {
 	// appeler le filtre post_image_filtrer qui permet de faire
 	// des traitements auto a la fin d'une serie de filtres
@@ -1173,7 +1173,7 @@ function image_graver($img) {
  *     False extrait celui présent dans la balise
  * @return string
  *     Code html modifié de la balise.
- **/
+ */
 function _image_tag_changer_taille($tag, $width, $height, $style = false) {
 	if ($style === false) {
 		$style = extraire_attribut($tag, 'style');
@@ -1224,7 +1224,7 @@ function _image_tag_changer_taille($tag, $width, $height, $style = false) {
  *     tel que 'style', 'width', 'height'
  * @return string
  *     Retourne le code HTML de l'image
- **/
+ */
 function _image_ecrire_tag($valeurs, $surcharge = []) {
 	$valeurs = pipeline('image_ecrire_tag_preparer', $valeurs);
 
@@ -1310,7 +1310,7 @@ function _image_ecrire_tag($valeurs, $surcharge = []) {
  * @param bool $force
  * @return array|null
  *     Description de l'image, sinon null.
- **/
+ */
 function _image_creer_vignette($valeurs, $maxWidth, $maxHeight, $process = 'AUTO', $force = false) {
 	$srcHeight = null;
 	$retour = [];
@@ -1541,7 +1541,7 @@ function _image_creer_vignette($valeurs, $maxWidth, $maxHeight, $process = 'AUTO
  * @param int $maxWidth Largeur maximum souhaitée
  * @param int $maxHeight Hauteur maximum souhaitée
  * @return array Liste [ largeur, hauteur, ratio de réduction ]
- **/
+ */
 function _image_ratio(int $srcWidth, int $srcHeight, int $maxWidth, int $maxHeight): array {
 	$ratioWidth = $srcWidth / $maxWidth;
 	$ratioHeight = $srcHeight / $maxHeight;
@@ -1579,7 +1579,7 @@ function _image_ratio(int $srcWidth, int $srcHeight, int $maxWidth, int $maxHeig
  * @param int $maxWidth Largeur maximum souhaitée
  * @param int $maxHeight Hauteur maximum souhaitée
  * @return array Liste [ largeur, hauteur, ratio de réduction ]
- **/
+ */
 function ratio_passe_partout(int $srcWidth, int $srcHeight, int $maxWidth, int $maxHeight): array {
 	$ratioWidth = $srcWidth / $maxWidth;
 	$ratioHeight = $srcHeight / $maxHeight;
@@ -1648,7 +1648,7 @@ function process_image_svg_identite($image) {
  *     AUTO utilise la librairie sélectionnée dans la configuration.
  * @return string
  *     Code HTML de la balise img produite
- **/
+ */
 function process_image_reduire($fonction, $img, $taille, $taille_y, $force, $process = 'AUTO') {
 	$image = false;
 	if ($process == 'AUTO' && isset($GLOBALS['meta']['image_process'])) {

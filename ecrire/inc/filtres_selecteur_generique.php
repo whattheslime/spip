@@ -1,10 +1,13 @@
 <?php
 
 /**
- * Filtres pour les sélecteurs d'objets
+ * SPIP, Système de publication pour l'internet
  *
- * @package SPIP\Core\Filtres\Selecteurs
- **/
+ * Copyright © avec tendresse depuis 2001
+ * Arnaud Martin, Antoine Pitrou, Philippe Rivière, Emmanuel Saint-James
+ *
+ * Ce programme est un logiciel libre distribué sous licence GNU/GPL.
+ */
 
 if (!defined('_ECRIRE_INC_VERSION')) {
 	return;
@@ -95,7 +98,7 @@ function selecteur_lister_objets($includelist = [], $excludelist = []) {
  *     Type de valeur à recuperer tel que `rubrique`, `article`
  * @return array
  *     liste des couples (objets => id_objet) ou liste des identifiants d'un type d'objet.
- **/
+ */
 function picker_selected($selected, $type = '') {
 	$select = [];
 	$type = preg_replace(',\W,', '', $type);

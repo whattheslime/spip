@@ -1,19 +1,19 @@
 <?php
 
-/***************************************************************************\
- *  SPIP, Système de publication pour l'internet                           *
- *                                                                         *
- *  Copyright © avec tendresse depuis 2001                                 *
- *  Arnaud Martin, Antoine Pitrou, Philippe Rivière, Emmanuel Saint-James  *
- *                                                                         *
- *  Ce programme est un logiciel libre distribué sous licence GNU/GPL.     *
-\***************************************************************************/
+/**
+ * SPIP, Système de publication pour l'internet
+ *
+ * Copyright © avec tendresse depuis 2001
+ * Arnaud Martin, Antoine Pitrou, Philippe Rivière, Emmanuel Saint-James
+ *
+ * Ce programme est un logiciel libre distribué sous licence GNU/GPL.
+ */
 
 /**
  * Fonctions pour l'affichage des informations de plugins
  *
  * @package SPIP\Core\Plugins
- **/
+ */
 
 if (!defined('_ECRIRE_INC_VERSION')) {
 	return;
@@ -233,7 +233,7 @@ function plugin_desintalle($plug_file, $nom, $dir_plugins = null) {
  *     Le type d'état (stable, test, ...)
  * @return string
  *     Traduction de l'état dans la langue en cours
- **/
+ */
 function plugin_etat_en_clair($etat) {
 	if (!in_array($etat, ['stable', 'test', 'experimental'])) {
 		$etat = 'developpement';

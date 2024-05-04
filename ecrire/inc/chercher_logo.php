@@ -1,19 +1,19 @@
 <?php
 
-/***************************************************************************\
- *  SPIP, Système de publication pour l'internet                           *
- *                                                                         *
- *  Copyright © avec tendresse depuis 2001                                 *
- *  Arnaud Martin, Antoine Pitrou, Philippe Rivière, Emmanuel Saint-James  *
- *                                                                         *
- *  Ce programme est un logiciel libre distribué sous licence GNU/GPL.     *
-\***************************************************************************/
+/**
+ * SPIP, Système de publication pour l'internet
+ *
+ * Copyright © avec tendresse depuis 2001
+ * Arnaud Martin, Antoine Pitrou, Philippe Rivière, Emmanuel Saint-James
+ *
+ * Ce programme est un logiciel libre distribué sous licence GNU/GPL.
+ */
 
 /**
  * Recherche de logo
  *
  * @package SPIP\Core\Logos
- **/
+ */
 if (!defined('_ECRIRE_INC_VERSION')) {
 	return;
 }
@@ -31,7 +31,7 @@ if (!defined('_ECRIRE_INC_VERSION')) {
  * @return array
  *     - Liste (chemin complet du fichier, répertoire de logos, nom du logo, extension du logo, date de modification[, doc])
  *     - array vide aucun logo trouvé.
- **/
+ */
 function inc_chercher_logo_dist(int $id, string $_id_objet, string $mode = 'on', bool $compat_old_logos = false): array {
 
 	$mode = preg_replace(',\W,', '', $mode);

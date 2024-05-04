@@ -1,21 +1,22 @@
 <?php
 
+/**
+ * SPIP, Système de publication pour l'internet
+ *
+ * Copyright © avec tendresse depuis 2001
+ * Arnaud Martin, Antoine Pitrou, Philippe Rivière, Emmanuel Saint-James
+ *
+ * Ce programme est un logiciel libre distribué sous licence GNU/GPL.
+ */
+
 use Psr\Log\LogLevel;
 
-/***************************************************************************\
- *  SPIP, Système de publication pour l'internet                           *
- *                                                                         *
- *  Copyright © avec tendresse depuis 2001                                 *
- *  Arnaud Martin, Antoine Pitrou, Philippe Rivière, Emmanuel Saint-James  *
- *                                                                         *
- *  Ce programme est un logiciel libre distribué sous licence GNU/GPL.     *
-\***************************************************************************/
 
 /**
  * Gestion de l'obtention des descriptions de tables SQL
  *
  * @package SPIP\Core\SQL\Tables
- **/
+ */
 if (!defined('_ECRIRE_INC_VERSION')) {
 	return;
 }
@@ -67,7 +68,7 @@ include_spip('base/objets');
  *     - Toutes les autres informations des objets éditoriaux si la table est l'un d'eux.
  *
  *
- **/
+ */
 function base_trouver_table_dist($nom, $serveur = '', $table_spip = true, array $options = []) {
 	$desc_cache = null;
 	static $nom_cache_desc_sql = [];

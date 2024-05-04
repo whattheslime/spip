@@ -1,13 +1,13 @@
 <?php
 
-/***************************************************************************\
- *  SPIP, Système de publication pour l'internet                           *
- *                                                                         *
- *  Copyright © avec tendresse depuis 2001                                 *
- *  Arnaud Martin, Antoine Pitrou, Philippe Rivière, Emmanuel Saint-James  *
- *                                                                         *
- *  Ce programme est un logiciel libre distribué sous licence GNU/GPL.     *
-\***************************************************************************/
+/**
+ * SPIP, Système de publication pour l'internet
+ *
+ * Copyright © avec tendresse depuis 2001
+ * Arnaud Martin, Antoine Pitrou, Philippe Rivière, Emmanuel Saint-James
+ *
+ * Ce programme est un logiciel libre distribué sous licence GNU/GPL.
+ */
 
 /**
  * Gestion de l'action testant une librairie graphique
@@ -27,7 +27,7 @@ if (!defined('_ECRIRE_INC_VERSION')) {
  *
  * L'action crée une vignette en utilisant la librairie indiquée puis
  * redirige sur l'image ainsi créée (sinon sur une image d'echec).
- **/
+ */
 function action_tester_dist() {
 	$arg = _request('arg');
 

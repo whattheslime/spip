@@ -1,15 +1,16 @@
 <?php
 
+/**
+ * SPIP, Système de publication pour l'internet
+ *
+ * Copyright © avec tendresse depuis 2001
+ * Arnaud Martin, Antoine Pitrou, Philippe Rivière, Emmanuel Saint-James
+ *
+ * Ce programme est un logiciel libre distribué sous licence GNU/GPL.
+ */
+
 use Spip\Afficher\Minipage\Installation;
 
-/***************************************************************************\
- *  SPIP, Système de publication pour l'internet                           *
- *                                                                         *
- *  Copyright © avec tendresse depuis 2001                                 *
- *  Arnaud Martin, Antoine Pitrou, Philippe Rivière, Emmanuel Saint-James  *
- *                                                                         *
- *  Ce programme est un logiciel libre distribué sous licence GNU/GPL.     *
-\***************************************************************************/
 
 /**
  * Affichage de l'écran d'installation (étape 1 : tests des répertoires
@@ -73,7 +74,7 @@ function install_etape_1_dist() {
 	echo info_progression_etape(1, 'etape_', 'install/');
 
 	// ces deux chaines de langues doivent etre reecrites
-#	echo info_etape(_T('info_connexion_mysql'), _T('texte_connexion_mysql').aide ("install1", true));
+	#	echo info_etape(_T('info_connexion_mysql'), _T('texte_connexion_mysql').aide ("install1", true));
 	echo info_etape(_T('info_connexion_base_donnee'));
 	echo install_connexion_form($db, $login, $pass, $predef, "\n<input type='hidden' name='chmod' value='$chmod' />", 2);
 	echo $minipage->installFinPage();

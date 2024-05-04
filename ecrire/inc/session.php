@@ -1,13 +1,13 @@
 <?php
 
-/***************************************************************************\
- *  SPIP, Système de publication pour l'internet                           *
- *                                                                         *
- *  Copyright © avec tendresse depuis 2001                                 *
- *  Arnaud Martin, Antoine Pitrou, Philippe Rivière, Emmanuel Saint-James  *
- *                                                                         *
- *  Ce programme est un logiciel libre distribué sous licence GNU/GPL.     *
-\***************************************************************************/
+/**
+ * SPIP, Système de publication pour l'internet
+ *
+ * Copyright © avec tendresse depuis 2001
+ * Arnaud Martin, Antoine Pitrou, Philippe Rivière, Emmanuel Saint-James
+ *
+ * Ce programme est un logiciel libre distribué sous licence GNU/GPL.
+ */
 
 /**
  * Gestion de l'authentification par sessions
@@ -780,7 +780,7 @@ function hash_env() {
  * @link http://php.net/manual/fr/function.session-start.php
  * @uses is_php_session_started()
  * @return bool True si une session PHP est ouverte.
- **/
+ */
 function spip_php_session_start() {
 	if (!is_php_session_started()) {
 		return session_start();
@@ -794,7 +794,7 @@ function spip_php_session_start() {
  *
  * @link http://php.net/manual/fr/function.session-status.php#113468
  * @return bool true si une session PHP est active
- **/
+ */
 function is_php_session_started() {
 	if (php_sapi_name() !== 'cli') {
 		return session_status() === PHP_SESSION_ACTIVE ? true : false;

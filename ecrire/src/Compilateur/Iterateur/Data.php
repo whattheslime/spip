@@ -310,7 +310,7 @@ class Data extends AbstractIterateur implements Iterator
 	 *
 	 * @see critere_DATA_liste_dist()
 	 *
-	 **/
+	 */
 	protected function select_liste() {
 		# s'il n'y a qu'une valeur dans la liste, sans doute une #BALISE
 		if (!isset($this->command['liste'][1])) {
@@ -327,7 +327,7 @@ class Data extends AbstractIterateur implements Iterator
 	 * Retourne un tableau donne depuis un critere liste
 	 * Critere {enum Xmin, Xmax}
 	 *
-	 **/
+	 */
 	protected function select_enum() {
 		# s'il n'y a qu'une valeur dans la liste, sans doute une #BALISE
 		if (!isset($this->command['enum'][1])) {
@@ -354,7 +354,7 @@ class Data extends AbstractIterateur implements Iterator
 	 * extraire le chemin "query.results" du tableau de donnees
 	 * {datapath query.results}
 	 *
-	 **/
+	 */
 	protected function select_datapath() {
 		$base = reset($this->command['datapath']);
 		if (strlen($base = ltrim(trim((string) $base), '/'))) {
@@ -373,7 +373,7 @@ class Data extends AbstractIterateur implements Iterator
 	 * Ordonner les resultats
 	 * {par x}
 	 *
-	 **/
+	 */
 	protected function select_orderby() {
 		$sortfunc = '';
 		foreach ($this->command['orderby'] as $tri) {
@@ -422,7 +422,7 @@ class Data extends AbstractIterateur implements Iterator
 	 * Grouper les resultats
 	 * {fusion /x/y/z}
 	 *
-	 **/
+	 */
 	protected function select_groupby() {
 		// virer le / initial pour les criteres de la forme {fusion /xx}
 		if (strlen($fusion = ltrim((string) $this->command['groupby'][0], '/'))) {

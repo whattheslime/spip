@@ -1,13 +1,13 @@
 <?php
 
-/***************************************************************************\
- *  SPIP, Système de publication pour l'internet                           *
- *                                                                         *
- *  Copyright © avec tendresse depuis 2001                                 *
- *  Arnaud Martin, Antoine Pitrou, Philippe Rivière, Emmanuel Saint-James  *
- *                                                                         *
- *  Ce programme est un logiciel libre distribué sous licence GNU/GPL.     *
-\***************************************************************************/
+/**
+ * SPIP, Système de publication pour l'internet
+ *
+ * Copyright © avec tendresse depuis 2001
+ * Arnaud Martin, Antoine Pitrou, Philippe Rivière, Emmanuel Saint-James
+ *
+ * Ce programme est un logiciel libre distribué sous licence GNU/GPL.
+ */
 
 use Spip\Compilateur\Noeud\Boucle;
 
@@ -52,7 +52,7 @@ if (!defined('_ECRIRE_INC_VERSION')) {
  * @param bool $postdate
  *     true pour recalculer aussi la date du prochain article post-daté
  * @return void
- **/
+ */
 function calculer_rubriques_if($id_rubrique, $modifs, $infos = [], $postdate = false) {
 	$statuts_publies = null;
 	$neuf = false;
@@ -267,7 +267,7 @@ function depublier_rubrique_if($id_rubrique, $date = null) {
  * @uses calculer_prochain_postdate()
  *
  * @return void
- **/
+ */
 function calculer_rubriques() {
 
 	calculer_rubriques_publiees();
@@ -295,7 +295,7 @@ function calculer_rubriques() {
  * @pipeline_appel calculer_rubriques
  *
  * @return void
- **/
+ */
 function calculer_rubriques_publiees() {
 
 	// Mettre les compteurs a zero
@@ -365,7 +365,7 @@ function calculer_rubriques_publiees() {
  * @pipeline_appel trig_propager_les_secteurs
  *
  * @return void
- **/
+ */
 function propager_les_secteurs() {
 	// Profondeur 0
 	// Toutes les rubriques racines sont de profondeur 0
@@ -495,7 +495,7 @@ function propager_les_secteurs() {
  *
  * @return bool
  *     true si un changement a eu lieu
- **/
+ */
 function calculer_langues_rubriques_etape() {
 	$s = sql_select(
 		'A.id_rubrique AS id_rubrique, R.lang AS lang',
@@ -530,7 +530,7 @@ function calculer_langues_rubriques_etape() {
  * @pipeline_appel trig_calculer_langues_rubriques
  *
  * @return void
- **/
+ */
 function calculer_langues_rubriques() {
 
 	// rubriques (recursivite)
@@ -579,7 +579,7 @@ function calculer_langues_rubriques() {
  *    Nom du connecteur à la base de données
  * @return string
  *    Liste des langues utilisées séparées par des virgules
- **/
+ */
 function calculer_langues_utilisees($serveur = '') {
 	include_spip('public/interfaces');
 	include_spip('public/compiler');
@@ -823,7 +823,7 @@ function inc_calcul_hierarchie_in_dist($id, $tout = true) {
  * @param bool $check
  *     true pour affecter le statut des rubriques concernées.
  * @return void
- **/
+ */
 function calculer_prochain_postdate($check = false) {
 	include_spip('base/abstract_sql');
 	if ($check) {

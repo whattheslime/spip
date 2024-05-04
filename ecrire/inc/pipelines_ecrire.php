@@ -1,19 +1,19 @@
 <?php
 
-/***************************************************************************\
- *  SPIP, Système de publication pour l'internet                           *
- *                                                                         *
- *  Copyright © avec tendresse depuis 2001                                 *
- *  Arnaud Martin, Antoine Pitrou, Philippe Rivière, Emmanuel Saint-James  *
- *                                                                         *
- *  Ce programme est un logiciel libre distribué sous licence GNU/GPL.     *
-\***************************************************************************/
+/**
+ * SPIP, Système de publication pour l'internet
+ *
+ * Copyright © avec tendresse depuis 2001
+ * Arnaud Martin, Antoine Pitrou, Philippe Rivière, Emmanuel Saint-James
+ *
+ * Ce programme est un logiciel libre distribué sous licence GNU/GPL.
+ */
 
 /**
  * Fonctions déclarées dans des pipelines (espace privé)
  *
  * @package SPIP\Core\Pipelines
- **/
+ */
 if (!defined('_ECRIRE_INC_VERSION')) {
 	return;
 }
@@ -32,7 +32,7 @@ if (!defined('_ECRIRE_INC_VERSION')) {
  *
  * @param string $texte Contenu qui sera inséré dans le head HTML
  * @return string          Contenu complété des scripts javascripts, dont jQuery
- **/
+ */
 function f_jQuery_prive($texte) {
 	$x = '';
 	$jquery_plugins = pipeline(

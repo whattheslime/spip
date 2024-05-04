@@ -1,13 +1,13 @@
 <?php
 
-/***************************************************************************\
- *  SPIP, Système de publication pour l'internet                           *
- *                                                                         *
- *  Copyright © avec tendresse depuis 2001                                 *
- *  Arnaud Martin, Antoine Pitrou, Philippe Rivière, Emmanuel Saint-James  *
- *                                                                         *
- *  Ce programme est un logiciel libre distribué sous licence GNU/GPL.     *
-\***************************************************************************/
+/**
+ * SPIP, Système de publication pour l'internet
+ *
+ * Copyright © avec tendresse depuis 2001
+ * Arnaud Martin, Antoine Pitrou, Philippe Rivière, Emmanuel Saint-James
+ *
+ * Ce programme est un logiciel libre distribué sous licence GNU/GPL.
+ */
 
 if (!defined('_ECRIRE_INC_VERSION')) {
 	return;
@@ -46,7 +46,7 @@ if (!defined('_ECRIRE_INC_VERSION')) {
  * de plugin, tel que `<genie nom="nom_de_la_tache" periode="86400" />`
  *
  * @package SPIP\Core\Genie
- **/
+ */
 
 
 /**
@@ -72,7 +72,7 @@ if (!defined('_ECRIRE_INC_VERSION')) {
  *     Tâches dont on force maintenant l'exécution le plus tôt possible.
  *     Sinon, prendra la tâche la plus prioritaire.
  * @return
- **/
+ */
 function inc_genie_dist($taches = []) {
 	include_spip('inc/queue');
 

@@ -1,13 +1,13 @@
 <?php
 
-/***************************************************************************\
- *  SPIP, Système de publication pour l'internet                           *
- *                                                                         *
- *  Copyright © avec tendresse depuis 2001                                 *
- *  Arnaud Martin, Antoine Pitrou, Philippe Rivière, Emmanuel Saint-James  *
- *                                                                         *
- *  Ce programme est un logiciel libre distribué sous licence GNU/GPL.     *
-\***************************************************************************/
+/**
+ * SPIP, Système de publication pour l'internet
+ *
+ * Copyright © avec tendresse depuis 2001
+ * Arnaud Martin, Antoine Pitrou, Philippe Rivière, Emmanuel Saint-James
+ *
+ * Ce programme est un logiciel libre distribué sous licence GNU/GPL.
+ */
 
 /**
  * Formulaire de configuration des préférences auteurs dans l'espace privé
@@ -17,7 +17,7 @@
  * sous forme sérialisée.
  *
  * @package SPIP\Core\Formulaires
- **/
+ */
 
 if (!defined('_ECRIRE_INC_VERSION')) {
 	return;
@@ -28,7 +28,7 @@ if (!defined('_ECRIRE_INC_VERSION')) {
  *
  * @return array
  *     Environnement du formulaire
- **/
+ */
 function formulaires_configurer_preferences_charger_dist() {
 	// travailler sur des meta fraiches
 	include_spip('inc/meta');
@@ -56,7 +56,7 @@ function formulaires_configurer_preferences_charger_dist() {
  *
  * @return array
  *     Retours des traitements
- **/
+ */
 function formulaires_configurer_preferences_traiter_dist() {
 
 	if ($couleur = _request('couleur')) {

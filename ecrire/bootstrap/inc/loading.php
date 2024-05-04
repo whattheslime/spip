@@ -133,7 +133,7 @@ function include_once_check($file) {
  * @return string|bool
  *     - false : fichier introuvable
  *     - string : chemin du fichier trouvé
- **/
+ */
 function include_spip($f, $include = true) {
 	return find_in_path($f . '.php', '', $include);
 }
@@ -153,7 +153,7 @@ function include_spip($f, $include = true) {
  * @return string|bool
  *     - false : fichier introuvable
  *     - string : chemin du fichier trouvé
- **/
+ */
 function require_spip($f) {
 	return find_in_path($f . '.php', '', 'required');
 }
@@ -315,7 +315,7 @@ function trouver_fond($nom, $dir = '', $pathinfo = false) {
  *    ou une url distante [directement sur spip.net]
  * @return
  *    Lien sur une icone d'aide
- **/
+ */
 function aider($aide = '', $distante = false) {
 	$aider = charger_fonction('aide', 'inc', true);
 
@@ -338,7 +338,7 @@ function aider($aide = '', $distante = false) {
  *     Nom de la page
  * @return string
  *     Nom de l'exec, sinon chaîne vide.
- **/
+ */
 function tester_url_ecrire($nom) {
 	static $exec = [];
 	if (isset($exec[$nom])) {

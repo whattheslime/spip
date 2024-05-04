@@ -1,13 +1,13 @@
 <?php
 
-/***************************************************************************\
- *  SPIP, Système de publication pour l'internet                           *
- *                                                                         *
- *  Copyright © avec tendresse depuis 2001                                 *
- *  Arnaud Martin, Antoine Pitrou, Philippe Rivière, Emmanuel Saint-James  *
- *                                                                         *
- *  Ce programme est un logiciel libre distribué sous licence GNU/GPL.     *
-\***************************************************************************/
+/**
+ * SPIP, Système de publication pour l'internet
+ *
+ * Copyright © avec tendresse depuis 2001
+ * Arnaud Martin, Antoine Pitrou, Philippe Rivière, Emmanuel Saint-James
+ *
+ * Ce programme est un logiciel libre distribué sous licence GNU/GPL.
+ */
 
 /**
  * Gestion des drapeaux d'édition
@@ -27,7 +27,7 @@
  * (en cas de communication orale c'est plus pratique)
  *
  * @package SPIP\Core\Drapeaux\Edition
- **/
+ */
 if (!defined('_ECRIRE_INC_VERSION')) {
 	return;
 }
@@ -42,7 +42,7 @@ if (!defined('_ECRIRE_INC_VERSION')) {
  * @return array
  *     Tableau des éléments édités actuellement, par objet et auteur, du type :
  *     `[ type d'objet ][id_objet][id_auteur][nom de l'auteur] = time()`
- **/
+ */
 function lire_tableau_edition() {
 	$edition = @unserialize($GLOBALS['meta']['drapeau_edition']);
 	if (!$edition) {
@@ -94,7 +94,7 @@ function lire_tableau_edition() {
  * @param array $edition
  *     Tableau des éléments édités actuellement, par objet et auteur, du type :
  *     `[ type d'objet ][id_objet][id_auteur][nom de l'auteur] = time()`
- **/
+ */
 function ecrire_tableau_edition($edition) {
 	ecrire_meta('drapeau_edition', serialize($edition));
 }

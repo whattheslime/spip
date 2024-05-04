@@ -1,15 +1,16 @@
 <?php
 
+/**
+ * SPIP, Système de publication pour l'internet
+ *
+ * Copyright © avec tendresse depuis 2001
+ * Arnaud Martin, Antoine Pitrou, Philippe Rivière, Emmanuel Saint-James
+ *
+ * Ce programme est un logiciel libre distribué sous licence GNU/GPL.
+ */
+
 use Spip\Texte\Collecteur\Multis;
 
-/***************************************************************************\
- *  SPIP, Système de publication pour l'internet                           *
- *                                                                         *
- *  Copyright © avec tendresse depuis 2001                                 *
- *  Arnaud Martin, Antoine Pitrou, Philippe Rivière, Emmanuel Saint-James  *
- *                                                                         *
- *  Ce programme est un logiciel libre distribué sous licence GNU/GPL.     *
-\***************************************************************************/
 
 /**
  * Ce fichier déclare des fonctions étendant les fonctions natives de SQLite
@@ -346,7 +347,7 @@ function _sqlite_func_preg_replace($quoi, $cherche, $remplace) {
  * @param string $quoi le texte contenant ou non un multi
  * @param string $lang la langue a extraire
  * @return string, l'extrait trouve.
- **/
+ */
 function _sqlite_func_extraire_multi($quoi, $lang) {
 	if (str_contains($quoi, '<')) {
 		$collecteurMultis = new Multis();

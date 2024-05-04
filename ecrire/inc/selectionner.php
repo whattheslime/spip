@@ -1,19 +1,19 @@
 <?php
 
-/***************************************************************************\
- *  SPIP, Système de publication pour l'internet                           *
- *                                                                         *
- *  Copyright © avec tendresse depuis 2001                                 *
- *  Arnaud Martin, Antoine Pitrou, Philippe Rivière, Emmanuel Saint-James  *
- *                                                                         *
- *  Ce programme est un logiciel libre distribué sous licence GNU/GPL.     *
-\***************************************************************************/
+/**
+ * SPIP, Système de publication pour l'internet
+ *
+ * Copyright © avec tendresse depuis 2001
+ * Arnaud Martin, Antoine Pitrou, Philippe Rivière, Emmanuel Saint-James
+ *
+ * Ce programme est un logiciel libre distribué sous licence GNU/GPL.
+ */
 
 /**
  * Gestion le l'affichage du sélecteur de rubrique AJAX
  *
  * @package SPIP\Core\Rubriques
- **/
+ */
 
 if (!defined('_ECRIRE_INC_VERSION')) {
 	return;
@@ -42,7 +42,7 @@ include_spip('inc/filtres');
  *     Type d'action
  * @return string
  *     Code HTML
- **/
+ */
 function inc_selectionner_dist($sel, $idom = '', $exclus = 0, $aff_racine = false, $recur = true, $do = 'aff') {
 
 	if ($recur) {
@@ -109,7 +109,7 @@ function inc_selectionner_dist($sel, $idom = '', $exclus = 0, $aff_racine = fals
  * @param string $url_init
  * @return string
  *     Code HTML
- **/
+ */
 function construire_selectionner_hierarchie($idom, $liste, $racine, $url, $name, $url_init = '') {
 
 	$idom1 = $idom . '_champ_recherche';
@@ -172,7 +172,7 @@ function construire_selectionner_hierarchie($idom, $liste, $racine, $url, $name,
  * @param int $id_rubrique
  * @return array
  *     Liste de tous les id_parent de la rubrique
- **/
+ */
 function mini_hier($id_rubrique) {
 
 	$liste = $id_rubrique;

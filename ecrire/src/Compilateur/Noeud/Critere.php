@@ -6,7 +6,7 @@ namespace Spip\Compilateur\Noeud;
  * Description d'un critère de boucle.
  *
  * Sous-noeud de Boucle
- **/
+ */
 class Critere {
 	/** Type de noeud */
 	public string $type = 'critere';

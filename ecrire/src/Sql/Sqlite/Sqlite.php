@@ -5,7 +5,7 @@ namespace Spip\Sql\Sqlite;
 /**
  * Gère l'envoi et la réception de requêtes à SQLite, qui peuvent être
  * encadrées de transactions.
- **/
+ */
 class Sqlite
 {
 	/** @var Requeteur[] Liste des instances de requêteurs créés */
@@ -24,7 +24,7 @@ class Sqlite
 	 *    Nom du connecteur
 	 * @return Requeteur
 	 *    Instance unique du requêteur
-	 **/
+	 */
 	public static function requeteur($serveur) {
 		if (!isset(static::$requeteurs[$serveur])) {
 			static::$requeteurs[$serveur] = new Requeteur($serveur);
@@ -56,7 +56,7 @@ class Sqlite
 	 * Démarre une transaction
 	 *
 	 * @param string $serveur Nom de la connexion
-	 **/
+	 */
 	public static function demarrer_transaction($serveur) {
 		Sqlite::executer_requete('BEGIN TRANSACTION', $serveur);
 		Sqlite::$transaction_en_cours[$serveur] = true;
@@ -68,7 +68,7 @@ class Sqlite
 	 * @param string $query Requête
 	 * @param string $serveur Nom de la connexion
 	 * @param null|bool $tracer Demander des statistiques (temps) ?
-	 **/
+	 */
 	public static function executer_requete($query, $serveur, $tracer = null) {
 		$requeteur = Sqlite::requeteur($serveur);
 
@@ -80,7 +80,7 @@ class Sqlite
 	 *
 	 * @param string $serveur Nom de la connexion
 	 * return int                Identifiant
-	 **/
+	 */
 	public static function last_insert_id($serveur) {
 		$requeteur = Sqlite::requeteur($serveur);
 
@@ -91,7 +91,7 @@ class Sqlite
 	 * Annule une transaction
 	 *
 	 * @param string $serveur Nom de la connexion
-	 **/
+	 */
 	public static function annuler_transaction($serveur) {
 		Sqlite::executer_requete('ROLLBACK', $serveur);
 		Sqlite::$transaction_en_cours[$serveur] = false;
@@ -101,7 +101,7 @@ class Sqlite
 	 * Termine une transaction
 	 *
 	 * @param string $serveur Nom de la connexion
-	 **/
+	 */
 	public static function finir_transaction($serveur) {
 		// si pas de transaction en cours, ne rien faire et le dire
 		if (

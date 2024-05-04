@@ -1,19 +1,19 @@
 <?php
 
-/***************************************************************************\
- *  SPIP, Système de publication pour l'internet                           *
- *                                                                         *
- *  Copyright © avec tendresse depuis 2001                                 *
- *  Arnaud Martin, Antoine Pitrou, Philippe Rivière, Emmanuel Saint-James  *
- *                                                                         *
- *  Ce programme est un logiciel libre distribué sous licence GNU/GPL.     *
-\***************************************************************************/
+/**
+ * SPIP, Système de publication pour l'internet
+ *
+ * Copyright © avec tendresse depuis 2001
+ * Arnaud Martin, Antoine Pitrou, Philippe Rivière, Emmanuel Saint-James
+ *
+ * Ce programme est un logiciel libre distribué sous licence GNU/GPL.
+ */
 
 /**
  * Gestion de l'API autoriser et fonctions d'autorisations de SPIP
  *
  * @package SPIP\Core\Autorisations
- **/
+ */
 if (!defined('_ECRIRE_INC_VERSION')) {
 	return;
 }
@@ -306,7 +306,7 @@ function autoriser_type(?string $type = ''): string {
  * @param array $qui Description de l'auteur demandant l'autorisation
  * @param array $opt Options de cette autorisation
  * @return bool true s'il a le droit, false sinon
- **/
+ */
 function autoriser_defaut_dist(string $faire, string $type, $id, array $qui, array $opt): bool {
 	return $qui['statut'] === '0minirezo' && !$qui['restreint'];
 }
@@ -342,7 +342,7 @@ function autoriser_loger_dist(string $faire, string $type, $id, array $qui, arra
  * @param array $qui Description de l'auteur demandant l'autorisation
  * @param array $opt Options de cette autorisation
  * @return bool true s'il a le droit, false sinon
- **/
+ */
 function autoriser_ecrire_dist(string $faire, string $type, $id, array $qui, array $opt): bool {
 	return isset($qui['statut']) && in_array($qui['statut'], ['0minirezo', '1comite']);
 }
@@ -361,7 +361,7 @@ function autoriser_ecrire_dist(string $faire, string $type, $id, array $qui, arr
  * @param array $qui Description de l'auteur demandant l'autorisation
  * @param array $opt Options de cette autorisation
  * @return bool true s'il a le droit, false sinon
- **/
+ */
 function autoriser_creer_dist(string $faire, string $type, $id, array $qui, array $opt): bool {
 	return in_array($qui['statut'], ['0minirezo', '1comite']);
 }
@@ -380,7 +380,7 @@ function autoriser_creer_dist(string $faire, string $type, $id, array $qui, arra
  * @param array $qui Description de l'auteur demandant l'autorisation
  * @param array $opt Options de cette autorisation
  * @return bool true s'il a le droit, false sinon
- **/
+ */
 function autoriser_previsualiser_dist(string $faire, string $type, $id, array $qui, array $opt): bool {
 
 	// Le visiteur a-t-il un statut prevu par la config ?
@@ -484,7 +484,7 @@ function test_previsualiser_objet_champ(string $type = '', $id = null, array $qu
  * @param array $qui Description de l'auteur demandant l'autorisation
  * @param array $opt Options de cette autorisation
  * @return bool true s'il a le droit, false sinon
- **/
+ */
 function autoriser_changerlangue_dist(string $faire, string $type, $id, array $qui, array $opt): bool {
 	$multi_objets = explode(',', (string) lire_config('multi_objets'));
 	$gerer_trad_objets = explode(',', (string) lire_config('gerer_trad_objets'));
@@ -542,7 +542,7 @@ function autoriser_changerlangue_dist(string $faire, string $type, $id, array $q
  * @param array $qui Description de l'auteur demandant l'autorisation
  * @param array $opt Options de cette autorisation
  * @return bool true s'il a le droit, false sinon
- **/
+ */
 function autoriser_changertraduction_dist(string $faire, string $type, $id, array $qui, array $opt): bool {
 	return autoriser('modifier', $type, $id, $qui, $opt);
 }
@@ -558,7 +558,7 @@ function autoriser_changertraduction_dist(string $faire, string $type, $id, arra
  * @param array $qui Description de l'auteur demandant l'autorisation
  * @param array $opt Options de cette autorisation
  * @return bool true s'il a le droit, false sinon
- **/
+ */
 function autoriser_dater_dist(string $faire, string $type, $id, array $qui, array $opt): bool {
 	$table = table_objet($type);
 	$trouver_table = charger_fonction('trouver_table', 'base');
@@ -608,7 +608,7 @@ function autoriser_dater_dist(string $faire, string $type, $id, array $qui, arra
  * @param array $qui Description de l'auteur demandant l'autorisation
  * @param array $opt Options de cette autorisation
  * @return bool true s'il a le droit, false sinon
- **/
+ */
 function autoriser_instituer_dist(string $faire, string $type, $id, array $qui, array $opt): bool {
 	return autoriser('modifier', $type, $id, $qui, $opt);
 }
@@ -626,7 +626,7 @@ function autoriser_instituer_dist(string $faire, string $type, $id, array $qui, 
  * @param array $qui Description de l'auteur demandant l'autorisation
  * @param array $opt Options de cette autorisation
  * @return bool true s'il a le droit, false sinon
- **/
+ */
 function autoriser_rubrique_publierdans_dist(string $faire, string $type, $id, array $qui, array $opt): bool {
 	return
 		$qui['statut'] === '0minirezo'
@@ -646,7 +646,7 @@ function autoriser_rubrique_publierdans_dist(string $faire, string $type, $id, a
  * @param array $qui Description de l'auteur demandant l'autorisation
  * @param array $opt Options de cette autorisation
  * @return bool true s'il a le droit, false sinon
- **/
+ */
 function autoriser_rubrique_creer_dist(string $faire, string $type, $id, array $qui, array $opt): bool {
 	if (!empty($opt['id_parent'])) {
 		return autoriser('creerrubriquedans', 'rubrique', $opt['id_parent'], $qui);
@@ -669,7 +669,7 @@ function autoriser_rubrique_creer_dist(string $faire, string $type, $id, array $
  * @param array $qui Description de l'auteur demandant l'autorisation
  * @param array $opt Options de cette autorisation
  * @return bool true s'il a le droit, false sinon
- **/
+ */
 function autoriser_rubrique_creerrubriquedans_dist(string $faire, string $type, $id, array $qui, array $opt): bool {
 	return
 		($id || $qui['statut'] === '0minirezo' && !$qui['restreint']) && autoriser('voir', 'rubrique', $id) && autoriser('publierdans', 'rubrique', $id);
@@ -688,7 +688,7 @@ function autoriser_rubrique_creerrubriquedans_dist(string $faire, string $type, 
  * @param array $qui Description de l'auteur demandant l'autorisation
  * @param array $opt Options de cette autorisation
  * @return bool true s'il a le droit, false sinon
- **/
+ */
 function autoriser_rubrique_creerarticledans_dist(string $faire, string $type, $id, array $qui, array $opt): bool {
 	return
 		$id
@@ -710,7 +710,7 @@ function autoriser_rubrique_creerarticledans_dist(string $faire, string $type, $
  * @param array $qui Description de l'auteur demandant l'autorisation
  * @param array $opt Options de cette autorisation
  * @return bool true s'il a le droit, false sinon
- **/
+ */
 function autoriser_rubrique_modifier_dist(string $faire, string $type, $id, array $qui, array $opt): bool {
 	return autoriser('publierdans', 'rubrique', $id, $qui, $opt);
 }
@@ -728,7 +728,7 @@ function autoriser_rubrique_modifier_dist(string $faire, string $type, $id, arra
  * @param array $qui Description de l'auteur demandant l'autorisation
  * @param array $opt Options de cette autorisation
  * @return bool true s'il a le droit, false sinon
- **/
+ */
 function autoriser_rubrique_supprimer_dist(string $faire, string $type, $id, array $qui, array $opt): bool {
 	if (!$id = (int) $id) {
 		return false;
@@ -770,7 +770,7 @@ function autoriser_rubrique_supprimer_dist(string $faire, string $type, $id, arr
  * @param array $qui Description de l'auteur demandant l'autorisation
  * @param array $opt Options de cette autorisation
  * @return bool true s'il a le droit, false sinon
- **/
+ */
 function autoriser_article_modifier_dist(string $faire, string $type, $id, array $qui, array $opt): bool {
 	if (!$id) {
 		return false;
@@ -801,7 +801,7 @@ function autoriser_article_modifier_dist(string $faire, string $type, $id, array
  * @param array $qui Description de l'auteur demandant l'autorisation
  * @param array $opt Options de cette autorisation
  * @return bool true s'il a le droit, false sinon
- **/
+ */
 function autoriser_article_creer_dist(string $faire, string $type, $id, array $qui, array $opt): bool {
 	if (!empty($opt['id_parent'])) {
 		// creerarticledans rappelle autoriser(creer,article) sans id, donc on verifiera condition du else aussi
@@ -867,7 +867,7 @@ function autoriser_article_voir_dist(string $faire, string $type, $id, array $qu
  * @param array $qui Description de l'auteur demandant l'autorisation
  * @param array $opt Options de cette autorisation
  * @return bool true s'il a le droit, false sinon
- **/
+ */
 function autoriser_voir_dist(string $faire, string $type, $id, array $qui, array $opt): bool {
 	# securite, mais on aurait pas du arriver ici !
 	if (
@@ -906,7 +906,7 @@ function autoriser_voir_dist(string $faire, string $type, $id, array $qui, array
  * @param array $qui Description de l'auteur demandant l'autorisation
  * @param array $opt Options de cette autorisation
  * @return bool true s'il a le droit, false sinon
- **/
+ */
 function autoriser_webmestre_dist(string $faire, string $type, $id, array $qui, array $opt): bool {
 	return
 		$qui['webmestre'] === 'oui'
@@ -927,7 +927,7 @@ function autoriser_webmestre_dist(string $faire, string $type, $id, array $qui, 
  * @param array $qui Description de l'auteur demandant l'autorisation
  * @param array $opt Options de cette autorisation
  * @return bool true s'il a le droit, false sinon
- **/
+ */
 function autoriser_configurer_dist(string $faire, string $type, $id, array $qui, array $opt): bool {
 	return $qui['statut'] === '0minirezo' && !$qui['restreint'];
 }
@@ -945,7 +945,7 @@ function autoriser_configurer_dist(string $faire, string $type, $id, array $qui,
  * @param array $qui Description de l'auteur demandant l'autorisation
  * @param array $opt Options de cette autorisation
  * @return bool true s'il a le droit, false sinon
- **/
+ */
 function autoriser_sauvegarder_dist(string $faire, string $type, $id, array $qui, array $opt): bool {
 	return $qui['statut'] === '0minirezo';
 }
@@ -963,7 +963,7 @@ function autoriser_sauvegarder_dist(string $faire, string $type, $id, array $qui
  * @param array $qui Description de l'auteur demandant l'autorisation
  * @param array $opt Options de cette autorisation
  * @return bool true s'il a le droit, false sinon
- **/
+ */
 function autoriser_detruire_dist(string $faire, string $type, $id, array $qui, array $opt): bool {
 	return autoriser('webmestre', null, 0, $qui, $opt);
 }
@@ -982,7 +982,7 @@ function autoriser_detruire_dist(string $faire, string $type, $id, array $qui, a
  * @param array $qui Description de l'auteur demandant l'autorisation
  * @param array $opt Options de cette autorisation
  * @return bool true s'il a le droit, false sinon
- **/
+ */
 function autoriser_auteur_previsualiser_dist(string $faire, string $type, $id, array $qui, array $opt): bool {
 	// les admins peuvent "previsualiser" une page auteur
 	if (
@@ -1027,7 +1027,7 @@ function autoriser_auteur_previsualiser_dist(string $faire, string $type, $id, a
  * @param array $qui Description de l'auteur demandant l'autorisation
  * @param array $opt Options de cette autorisation
  * @return bool true s'il a le droit, false sinon
- **/
+ */
 function autoriser_auteur_creer_dist(string $faire, string $type, $id, array $qui, array $opt): bool {
 	return ($qui['statut'] === '0minirezo');
 }
@@ -1048,7 +1048,7 @@ function autoriser_auteur_creer_dist(string $faire, string $type, $id, array $qu
  * @param array $qui Description de l'auteur demandant l'autorisation
  * @param array $opt Options de cette autorisation
  * @return bool true s'il a le droit, false sinon
- **/
+ */
 function autoriser_auteur_modifier_dist(string $faire, string $type, $id, array $qui, array $opt): bool {
 	$id = (int) $id;
 
@@ -1122,7 +1122,7 @@ function autoriser_auteur_modifier_dist(string $faire, string $type, $id, array 
  * @param array $qui Description de l'auteur demandant l'autorisation
  * @param array $opt Options de cette autorisation
  * @return bool true s'il a le droit, false sinon
- **/
+ */
 function autoriser_associerauteurs_dist(string $faire, string $type, $id, array $qui, array $opt): bool {
 	return autoriser('modifier', $type, $id, $qui, $opt);
 }
@@ -1141,7 +1141,7 @@ function autoriser_associerauteurs_dist(string $faire, string $type, $id, array 
  * @param array $qui Description de l'auteur demandant l'autorisation
  * @param array $opt Options de cette autorisation
  * @return bool true s'il a le droit, false sinon
- **/
+ */
 function autoriser_chargerftp_dist(string $faire, string $type, $id, array $qui, array $opt): bool {
 	return $qui['statut'] === '0minirezo';
 }
@@ -1159,7 +1159,7 @@ function autoriser_chargerftp_dist(string $faire, string $type, $id, array $qui,
  * @param array $qui Description de l'auteur demandant l'autorisation
  * @param array $opt Options de cette autorisation
  * @return bool true s'il a le droit, false sinon
- **/
+ */
 function autoriser_debug_dist(string $faire, string $type, $id, array $qui, array $opt): bool {
 	return $qui['statut'] === '0minirezo';
 }
@@ -1176,7 +1176,7 @@ function autoriser_debug_dist(string $faire, string $type, $id, array $qui, arra
  * @param int $id_auteur Identifiant de l'auteur
  * @param bool $raz Recalculer le résultat connu pour cet auteur
  * @return array          Liste des rubriques
- **/
+ */
 function liste_rubriques_auteur($id_auteur, $raz = false) {
 	static $restreint = [];
 
@@ -1240,7 +1240,7 @@ function liste_rubriques_auteur($id_auteur, $raz = false) {
  * @param array $qui Description de l'auteur demandant l'autorisation
  * @param array $opt Options de cette autorisation
  * @return bool true s'il a le droit, false sinon
- **/
+ */
 function autoriser_rubrique_previsualiser_dist(string $faire, string $type, $id, array $qui, array $opt): bool {
 	return autoriser('previsualiser');
 }
@@ -1258,7 +1258,7 @@ function autoriser_rubrique_previsualiser_dist(string $faire, string $type, $id,
  * @param array $qui Description de l'auteur demandant l'autorisation
  * @param array $opt Options de cette autorisation
  * @return bool true s'il a le droit, false sinon
- **/
+ */
 function autoriser_rubrique_iconifier_dist(string $faire, string $type, $id, array $qui, array $opt): bool {
 	return autoriser('publierdans', 'rubrique', $id, $qui, $opt);
 }
@@ -1276,7 +1276,7 @@ function autoriser_rubrique_iconifier_dist(string $faire, string $type, $id, arr
  * @param array $qui Description de l'auteur demandant l'autorisation
  * @param array $opt Options de cette autorisation
  * @return bool true s'il a le droit, false sinon
- **/
+ */
 function autoriser_auteur_iconifier_dist(string $faire, string $type, $id, array $qui, array $opt): bool {
 	$id = (int) $id;
 	return ($id == $qui['id_auteur'] || $qui['statut'] === '0minirezo' && !$qui['restreint']);
@@ -1295,7 +1295,7 @@ function autoriser_auteur_iconifier_dist(string $faire, string $type, $id, array
  * @param array $qui Description de l'auteur demandant l'autorisation
  * @param array $opt Options de cette autorisation
  * @return bool true s'il a le droit, false sinon
- **/
+ */
 function autoriser_iconifier_dist(string $faire, string $type, $id, array $qui, array $opt): bool {
 	// par defaut, on a le droit d'iconifier si on a le droit de modifier
 	return autoriser('modifier', $type, $id, $qui, $opt);
@@ -1316,7 +1316,7 @@ function autoriser_iconifier_dist(string $faire, string $type, $id, array $qui, 
  * @param array $qui Description de l'auteur demandant l'autorisation
  * @param array $opt Options de cette autorisation
  * @return true
- **/
+ */
 function autoriser_ok_dist(string $faire, string $type, $id, array $qui, array $opt): bool {
 	return true;
 }
@@ -1335,7 +1335,7 @@ function autoriser_ok_dist(string $faire, string $type, $id, array $qui, array $
  * @param array $qui Description de l'auteur demandant l'autorisation
  * @param array $opt Options de cette autorisation
  * @return false
- **/
+ */
 function autoriser_niet_dist(string $faire, string $type, $id, array $qui, array $opt): bool {
 	return false;
 }
@@ -1353,7 +1353,7 @@ function autoriser_niet_dist(string $faire, string $type, $id, array $qui, array
  * @param array $qui Description de l'auteur demandant l'autorisation
  * @param array $opt Options de cette autorisation
  * @return bool true s'il a le droit, false sinon
- **/
+ */
 function autoriser_base_reparer_dist(string $faire, string $type, $id, array $qui, array $opt): bool {
 	return autoriser('detruire') && !_request('reinstall');
 }
@@ -1371,7 +1371,7 @@ function autoriser_base_reparer_dist(string $faire, string $type, $id, array $qu
  * @param array $qui Description de l'auteur demandant l'autorisation
  * @param array $opt Options de cette autorisation
  * @return true
- **/
+ */
 function autoriser_infosperso_dist(string $faire, string $type, $id, array $qui, array $opt): bool {
 	return true;
 }
@@ -1389,7 +1389,7 @@ function autoriser_infosperso_dist(string $faire, string $type, $id, array $qui,
  * @param array $qui Description de l'auteur demandant l'autorisation
  * @param array $opt Options de cette autorisation
  * @return true
- **/
+ */
 function autoriser_langage_configurer_dist(string $faire, string $type, $id, array $qui, array $opt): bool {
 	return true;
 }
@@ -1407,7 +1407,7 @@ function autoriser_langage_configurer_dist(string $faire, string $type, $id, arr
  * @param array $qui Description de l'auteur demandant l'autorisation
  * @param array $opt Options de cette autorisation
  * @return bool true s'il a le droit, false sinon
- **/
+ */
 function autoriser_configurerlangage_dist(string $faire, string $type, $id, array $qui, array $opt): bool {
 	return autoriser('configurer', '_langage', $id, $qui, $opt);
 }
@@ -1425,7 +1425,7 @@ function autoriser_configurerlangage_dist(string $faire, string $type, $id, arra
  * @param array $qui Description de l'auteur demandant l'autorisation
  * @param array $opt Options de cette autorisation
  * @return true
- **/
+ */
 function autoriser_preferences_configurer_dist(string $faire, string $type, $id, array $qui, array $opt): bool {
 	return true;
 }
@@ -1443,7 +1443,7 @@ function autoriser_preferences_configurer_dist(string $faire, string $type, $id,
  * @param array $qui Description de l'auteur demandant l'autorisation
  * @param array $opt Options de cette autorisation
  * @return bool true s'il a le droit, false sinon
- **/
+ */
 function autoriser_configurerpreferences_dist(string $faire, string $type, $id, array $qui, array $opt): bool {
 	return autoriser('configurer', '_preferences', $id, $qui, $opt);
 }
@@ -1461,7 +1461,7 @@ function autoriser_configurerpreferences_dist(string $faire, string $type, $id, 
  * @param array $qui Description de l'auteur demandant l'autorisation
  * @param array $opt Options de cette autorisation
  * @return bool true s'il a le droit, false sinon
- **/
+ */
 function autoriser_menudeveloppement_menugrandeentree_dist(string $faire, string $type, $id, array $qui, array $opt): bool {
 	return (isset($GLOBALS['visiteur_session']['prefs']['activer_menudev']) && $GLOBALS['visiteur_session']['prefs']['activer_menudev'] === 'oui');
 }
@@ -1480,7 +1480,7 @@ function autoriser_menudeveloppement_menugrandeentree_dist(string $faire, string
  * @param array $qui Description de l'auteur demandant l'autorisation
  * @param array $opt Options de cette autorisation
  * @return true
- **/
+ */
 function autoriser_menugrandeentree_dist(string $faire, string $type, $id, array $qui, array $opt): bool {
 	return true;
 }
@@ -1498,7 +1498,7 @@ function autoriser_menugrandeentree_dist(string $faire, string $type, $id, array
  * @param array $qui Description de l'auteur demandant l'autorisation
  * @param array $opt Options de cette autorisation
  * @return true
- **/
+ */
 function autoriser_auteurs_voir_dist(string $faire, string $type, $id, array $qui, array $opt): bool {
 	return true;
 }
@@ -1516,7 +1516,7 @@ function autoriser_auteurs_voir_dist(string $faire, string $type, $id, array $qu
  * @param array $qui Description de l'auteur demandant l'autorisation
  * @param array $opt Options de cette autorisation
  * @return bool true s'il a le droit, false sinon
- **/
+ */
 function autoriser_auteurs_menu_dist(string $faire, string $type, $id, array $qui, array $opt): bool {
 	return autoriser('voir', '_auteurs', $id, $qui, $opt);
 }
@@ -1534,7 +1534,7 @@ function autoriser_auteurs_menu_dist(string $faire, string $type, $id, array $qu
  * @param array $qui Description de l'auteur demandant l'autorisation
  * @param array $opt Options de cette autorisation
  * @return true
- **/
+ */
 function autoriser_articles_voir_dist(string $faire, string $type, $id, array $qui, array $opt): bool {
 	return true;
 }
@@ -1552,7 +1552,7 @@ function autoriser_articles_voir_dist(string $faire, string $type, $id, array $q
  * @param array $qui Description de l'auteur demandant l'autorisation
  * @param array $opt Options de cette autorisation
  * @return bool true s'il a le droit, false sinon
- **/
+ */
 function autoriser_articles_menu_dist(string $faire, string $type, $id, array $qui, array $opt): bool {
 	return autoriser('voir', '_articles', $id, $qui, $opt);
 }
@@ -1570,7 +1570,7 @@ function autoriser_articles_menu_dist(string $faire, string $type, $id, array $q
  * @param array $qui Description de l'auteur demandant l'autorisation
  * @param array $opt Options de cette autorisation
  * @return true
- **/
+ */
 function autoriser_rubriques_voir_dist(string $faire, string $type, $id, array $qui, array $opt): bool {
 	return true;
 }
@@ -1588,7 +1588,7 @@ function autoriser_rubriques_voir_dist(string $faire, string $type, $id, array $
  * @param array $qui Description de l'auteur demandant l'autorisation
  * @param array $opt Options de cette autorisation
  * @return bool true s'il a le droit, false sinon
- **/
+ */
 function autoriser_rubriques_menu_dist(string $faire, string $type, $id, array $qui, array $opt): bool {
 	return autoriser('voir', '_rubriques', $id, $qui, $opt);
 }
@@ -1606,7 +1606,7 @@ function autoriser_rubriques_menu_dist(string $faire, string $type, $id, array $
  * @param array $qui Description de l'auteur demandant l'autorisation
  * @param array $opt Options de cette autorisation
  * @return bool true s'il a le droit, false sinon
- **/
+ */
 function autoriser_articlecreer_menu_dist(string $faire, string $type, $id, array $qui, array $opt): bool {
 	return verifier_table_non_vide();
 }
@@ -1627,7 +1627,7 @@ function autoriser_articlecreer_menu_dist(string $faire, string $type, $id, arra
  * @param array $qui Description de l'auteur demandant l'autorisation
  * @param array $opt Options de cette autorisation
  * @return bool true s'il a le droit, false sinon
- **/
+ */
 function autoriser_auteurcreer_menu_dist(string $faire, string $type, $id, array $qui, array $opt): bool {
 	return autoriser('creer', 'auteur', $id, $qui, $opt);
 }
@@ -1645,7 +1645,7 @@ function autoriser_auteurcreer_menu_dist(string $faire, string $type, $id, array
  * @param array $qui Description de l'auteur demandant l'autorisation
  * @param array $opt Options de cette autorisation
  * @return bool true s'il a le droit, false sinon
- **/
+ */
 function autoriser_visiteurs_menu_dist(string $faire, string $type, $id, array $qui, array $opt): bool {
 	include_spip('base/abstract_sql');
 	return
@@ -1667,7 +1667,7 @@ function autoriser_visiteurs_menu_dist(string $faire, string $type, $id, array $
  * @param array $qui Description de l'auteur demandant l'autorisation
  * @param array $opt Options de cette autorisation
  * @return bool true s'il a le droit, false sinon
- **/
+ */
 function autoriser_suiviedito_menu_dist(string $faire, string $type, $id, array $qui, array $opt): bool {
 	return $qui['statut'] === '0minirezo';
 }
@@ -1685,7 +1685,7 @@ function autoriser_suiviedito_menu_dist(string $faire, string $type, $id, array 
  * @param array $qui Description de l'auteur demandant l'autorisation
  * @param array $opt Options de cette autorisation
  * @return bool true s'il a le droit, false sinon
- **/
+ */
 function autoriser_synchro_menu_dist(string $faire, string $type, $id, array $qui, array $opt): bool {
 	return $qui['statut'] === '0minirezo';
 }
@@ -1703,7 +1703,7 @@ function autoriser_synchro_menu_dist(string $faire, string $type, $id, array $qu
  * @param array $qui Description de l'auteur demandant l'autorisation
  * @param array $opt Options de cette autorisation
  * @return bool true s'il a le droit, false sinon
- **/
+ */
 function autoriser_configurerinteractions_menu_dist(string $faire, string $type, $id, array $qui, array $opt): bool {
 	return autoriser('configurer', '_interactions', $id, $qui, $opt);
 }
@@ -1721,7 +1721,7 @@ function autoriser_configurerinteractions_menu_dist(string $faire, string $type,
  * @param array $qui Description de l'auteur demandant l'autorisation
  * @param array $opt Options de cette autorisation
  * @return bool true s'il a le droit, false sinon
- **/
+ */
 function autoriser_configurerlangue_menu_dist(string $faire, string $type, $id, array $qui, array $opt): bool {
 	return autoriser('configurer', '_langue', $id, $qui, $opt);
 }
@@ -1739,7 +1739,7 @@ function autoriser_configurerlangue_menu_dist(string $faire, string $type, $id, 
  * @param array $qui Description de l'auteur demandant l'autorisation
  * @param array $opt Options de cette autorisation
  * @return bool true s'il a le droit, false sinon
- **/
+ */
 function autoriser_configurermultilinguisme_menu_dist(string $faire, string $type, $id, array $qui, array $opt): bool {
 	return autoriser('configurer', '_multilinguisme', $id, $qui, $opt);
 }
@@ -1757,7 +1757,7 @@ function autoriser_configurermultilinguisme_menu_dist(string $faire, string $typ
  * @param array $qui Description de l'auteur demandant l'autorisation
  * @param array $opt Options de cette autorisation
  * @return bool true s'il a le droit, false sinon
- **/
+ */
 function autoriser_configurercontenu_menu_dist(string $faire, string $type, $id, array $qui, array $opt): bool {
 	return autoriser('configurer', '_contenu', $id, $qui, $opt);
 }
@@ -1775,7 +1775,7 @@ function autoriser_configurercontenu_menu_dist(string $faire, string $type, $id,
  * @param array $qui Description de l'auteur demandant l'autorisation
  * @param array $opt Options de cette autorisation
  * @return bool true s'il a le droit, false sinon
- **/
+ */
 function autoriser_configureravancees_menu_dist(string $faire, string $type, $id, array $qui, array $opt): bool {
 	return autoriser('configurer', '_avancees', $id, $qui, $opt);
 }
@@ -1793,7 +1793,7 @@ function autoriser_configureravancees_menu_dist(string $faire, string $type, $id
  * @param array $qui Description de l'auteur demandant l'autorisation
  * @param array $opt Options de cette autorisation
  * @return bool true s'il a le droit, false sinon
- **/
+ */
 function autoriser_adminplugin_menu_dist(string $faire, string $type, $id, array $qui, array $opt): bool {
 	return autoriser('configurer', '_plugins', $id, $qui, $opt);
 }
@@ -1811,7 +1811,7 @@ function autoriser_adminplugin_menu_dist(string $faire, string $type, $id, array
  * @param array $qui Description de l'auteur demandant l'autorisation
  * @param array $opt Options de cette autorisation
  * @return bool true s'il a le droit, false sinon
- **/
+ */
 function autoriser_adminbdd_menu_dist(string $faire, string $type, $id, array $qui, array $opt): bool {
 	return autoriser('detruire', $type, $id, $qui, $opt);
 }
@@ -1829,7 +1829,7 @@ function autoriser_adminbdd_menu_dist(string $faire, string $type, $id, array $q
  * @param array $qui Description de l'auteur demandant l'autorisation
  * @param array $opt Options de cette autorisation
  * @return bool true s'il a le droit, false sinon
- **/
+ */
 function autoriser_queue_purger_dist(string $faire, string $type, $id, array $qui, array $opt): bool {
 	return autoriser('webmestre');
 }
@@ -1849,7 +1849,7 @@ function autoriser_queue_purger_dist(string $faire, string $type, $id, array $qu
  * @param array $qui Description de l'auteur demandant l'autorisation
  * @param array $opt Options de cette autorisation
  * @return bool true s'il a le droit, false sinon
- **/
+ */
 function autoriser_echafauder_dist(string $faire, string $type, $id, array $qui, array $opt): bool {
 	if (test_espace_prive()) {
 		return (bool) (int) $qui['id_auteur'];
@@ -1969,7 +1969,7 @@ function autoriser_inscrireauteur_dist($faire, $quoi, $id, $qui, $opt) {
  * @param array $qui Description de l'auteur demandant l'autorisation
  * @param array $opt Options de cette autorisation
  * @return bool true s'il a le droit, false sinon
- **/
+ */
 function autoriser_inscription_relancer_dist(string $faire, string $type, $id, array $qui, array $opt): bool {
 	return $qui['statut'] === '0minirezo' && !$qui['restreint'];
 }
@@ -1987,7 +1987,7 @@ function autoriser_inscription_relancer_dist(string $faire, string $type, $id, a
  * @param array $qui Description de l'auteur demandant l'autorisation
  * @param array $opt Options de cette autorisation
  * @return bool true s'il a le droit, false sinon
- **/
+ */
 function autoriser_phpinfos_dist(string $faire, string $type, $id, array $qui, array $opt): bool {
 	return autoriser('webmestre');
 }

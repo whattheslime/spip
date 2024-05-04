@@ -1,19 +1,19 @@
 <?php
 
-/***************************************************************************\
- *  SPIP, Système de publication pour l'internet                           *
- *                                                                         *
- *  Copyright © avec tendresse depuis 2001                                 *
- *  Arnaud Martin, Antoine Pitrou, Philippe Rivière, Emmanuel Saint-James  *
- *                                                                         *
- *  Ce programme est un logiciel libre distribué sous licence GNU/GPL.     *
-\***************************************************************************/
+/**
+ * SPIP, Système de publication pour l'internet
+ *
+ * Copyright © avec tendresse depuis 2001
+ * Arnaud Martin, Antoine Pitrou, Philippe Rivière, Emmanuel Saint-James
+ *
+ * Ce programme est un logiciel libre distribué sous licence GNU/GPL.
+ */
 
 /**
  * Gestion des cookies
  *
  * @package SPIP\Core\Cookies
- **/
+ */
 
 if (!defined('_ECRIRE_INC_VERSION')) {
 	return;
@@ -48,7 +48,7 @@ if (!defined('_ECRIRE_INC_VERSION')) {
  *     Indique si le cookie doit être accessible en Javascript (false) ou non (true)
  * @return bool
  *     true si le cookie a été posé, false sinon.
- **/
+ */
 function spip_setcookie(
 	string $name = '',
 	string $value = '',
@@ -123,7 +123,7 @@ function spip_setcookie(
  * @param bool|string $set
  *     true pour déclarer les cookies comme envoyés
  * @return bool
- **/
+ */
 function spip_cookie_envoye($set = '') {
 	static $envoye = false;
 	if ($set) {
@@ -147,7 +147,7 @@ function spip_cookie_envoye($set = '') {
  *
  * @param string $cookie_prefix
  *     Préfixe des cookies de SPIP
- **/
+ */
 function recuperer_cookies_spip($cookie_prefix) {
 	$prefix_long = strlen($cookie_prefix);
 
@@ -180,7 +180,7 @@ function recuperer_cookies_spip($cookie_prefix) {
  * @see  html_tests_js()
  * @uses spip_setcookie()
  *
- **/
+ */
 function exec_test_ajax_dist() {
 	switch (_request('js')) {
 		// on est appele par <noscript>

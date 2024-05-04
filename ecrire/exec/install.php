@@ -1,13 +1,13 @@
 <?php
 
-/***************************************************************************\
- *  SPIP, Système de publication pour l'internet                           *
- *                                                                         *
- *  Copyright © avec tendresse depuis 2001                                 *
- *  Arnaud Martin, Antoine Pitrou, Philippe Rivière, Emmanuel Saint-James  *
- *                                                                         *
- *  Ce programme est un logiciel libre distribué sous licence GNU/GPL.     *
-\***************************************************************************/
+/**
+ * SPIP, Système de publication pour l'internet
+ *
+ * Copyright © avec tendresse depuis 2001
+ * Arnaud Martin, Antoine Pitrou, Philippe Rivière, Emmanuel Saint-James
+ *
+ * Ce programme est un logiciel libre distribué sous licence GNU/GPL.
+ */
 
 /**
  * Affichage des étapes d'installation de SPIP
@@ -39,7 +39,7 @@ define('_FILE_TMP', '_install');
  *   Affiche l'écran d'accueil de l'installation,
  *   si aucune étape n'est encore définie.
  *
- **/
+ */
 function exec_install_dist() {
 	$etape = _request('etape');
 	$deja = (_FILE_CONNECT && analyse_fichier_connection(_FILE_CONNECT));

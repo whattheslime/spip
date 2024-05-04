@@ -1,13 +1,13 @@
 <?php
 
-/***************************************************************************\
- *  SPIP, Système de publication pour l'internet                           *
- *                                                                         *
- *  Copyright © avec tendresse depuis 2001                                 *
- *  Arnaud Martin, Antoine Pitrou, Philippe Rivière, Emmanuel Saint-James  *
- *                                                                         *
- *  Ce programme est un logiciel libre distribué sous licence GNU/GPL.     *
-\***************************************************************************/
+/**
+ * SPIP, Système de publication pour l'internet
+ *
+ * Copyright © avec tendresse depuis 2001
+ * Arnaud Martin, Antoine Pitrou, Philippe Rivière, Emmanuel Saint-James
+ *
+ * Ce programme est un logiciel libre distribué sous licence GNU/GPL.
+ */
 
 /**
  * Fonctions d'appel aux serveurs SQL presentes dans le code compile
@@ -15,7 +15,7 @@
  * NB : à l'exception des fonctions pour les balises dynamiques
  *
  * @package SPIP\Core\Compilateur\Quetes
- **/
+ */
 
 if (!defined('_ECRIRE_INC_VERSION')) {
 	return;
@@ -416,7 +416,7 @@ function quete_logo($cle_objet, $onoff, $id, $id_rubrique, $flag = false) {
  * @param string $mode
  * 		"on" ou "off" suivant le logo normal ou survol
  * @return bool|array
- **/
+ */
 function quete_logo_objet($id_objet, $objet, $mode) {
 	static $chercher_logo;
 	if (is_null($chercher_logo)) {

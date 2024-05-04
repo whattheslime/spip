@@ -1,13 +1,13 @@
 <?php
 
 /**
- * Déclaration des correspondances entre charsets cp1250 (europe centrale et de l'est) et unicode
+ * SPIP, Système de publication pour l'internet
  *
- * @author Mathieu Lutfy
- * @link http://www.unicode.org/Public/MAPPINGS/VENDORS/MICSFT/WINDOWS/CP1250.TXT
+ * Copyright © avec tendresse depuis 2001
+ * Arnaud Martin, Antoine Pitrou, Philippe Rivière, Emmanuel Saint-James
  *
- * @package SPIP\Core\Charsets
- **/
+ * Ce programme est un logiciel libre distribué sous licence GNU/GPL.
+ */
 
 $GLOBALS['CHARSET']['cp1250'] = [
 	0x80 => 0x20AC,

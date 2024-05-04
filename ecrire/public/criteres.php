@@ -1,13 +1,13 @@
 <?php
 
-/***************************************************************************\
- *  SPIP, Système de publication pour l'internet                           *
- *                                                                         *
- *  Copyright © avec tendresse depuis 2001                                 *
- *  Arnaud Martin, Antoine Pitrou, Philippe Rivière, Emmanuel Saint-James  *
- *                                                                         *
- *  Ce programme est un logiciel libre distribué sous licence GNU/GPL.     *
-\***************************************************************************/
+/**
+ * SPIP, Système de publication pour l'internet
+ *
+ * Copyright © avec tendresse depuis 2001
+ * Arnaud Martin, Antoine Pitrou, Philippe Rivière, Emmanuel Saint-James
+ *
+ * Ce programme est un logiciel libre distribué sous licence GNU/GPL.
+ */
 
 use Spip\Compilateur\Noeud\Boucle;
 use Spip\Compilateur\Noeud\Critere;
@@ -17,7 +17,7 @@ use Spip\Compilateur\Noeud\Texte;
  * Définition des {criteres} d'une boucle
  *
  * @package SPIP\Core\Compilateur\Criteres
- **/
+ */
 
 if (!defined('_ECRIRE_INC_VERSION')) {
 	return;
@@ -27,7 +27,7 @@ if (!defined('_ECRIRE_INC_VERSION')) {
  * Une Regexp repérant une chaine produite par le compilateur,
  * souvent utilisée pour faire de la concaténation lors de la compilation
  * plutôt qu'à l'exécution, i.e. pour remplacer 'x'.'y' par 'xy'
- **/
+ */
 define('_CODE_QUOTE', ",^(\n//[^\n]*\n)? *'(.*)' *$,");
 
 
@@ -43,7 +43,7 @@ define('_CODE_QUOTE', ",^(\n//[^\n]*\n)? *'(.*)' *$,");
  * @param array $boucles AST du squelette
  * @param Critere $crit Paramètres du critère dans cette boucle
  * @return void
- **/
+ */
 function critere_racine_dist($idb, &$boucles, $crit) {
 
 	$not = $crit->not;
@@ -66,7 +66,7 @@ function critere_racine_dist($idb, &$boucles, $crit) {
  * @param array $boucles AST du squelette
  * @param Critere $crit Paramètres du critère dans cette boucle
  * @return void|array
- **/
+ */
 function critere_exclus_dist($idb, &$boucles, $crit) {
 	$not = $crit->not;
 	$boucle = &$boucles[$idb];
@@ -94,7 +94,7 @@ function critere_exclus_dist($idb, &$boucles, $crit) {
  * @param array $boucles AST du squelette
  * @param Critere $crit Paramètres du critère dans cette boucle
  * @return void|array
- **/
+ */
 function critere_doublons_dist($idb, &$boucles, $crit) {
 	$boucle = &$boucles[$idb];
 	$primary = $boucle->primary;
@@ -181,7 +181,7 @@ function critere_doublons_dist($idb, &$boucles, $crit) {
  * @param array $boucles AST du squelette
  * @param Critere $crit Paramètres du critère dans cette boucle
  * @return void
- **/
+ */
 function critere_lang_select_dist($idb, &$boucles, $crit) {
 	if (!isset($crit->param[1][0]) || !($param = $crit->param[1][0]->texte)) {
 		$param = 'oui';
@@ -210,7 +210,7 @@ function critere_lang_select_dist($idb, &$boucles, $crit) {
  * @param array $boucles AST du squelette
  * @param Critere $crit Paramètres du critère dans cette boucle
  * @return void
- **/
+ */
 function critere_debut_dist($idb, &$boucles, $crit) {
 	[$un, $deux] = $crit->param;
 	$un = $un[0]->texte;
@@ -251,7 +251,7 @@ function critere_debut_dist($idb, &$boucles, $crit) {
  * @param array $boucles AST du squelette
  * @param Critere $crit Paramètres du critère dans cette boucle
  * @return void
- **/
+ */
 function critere_pagination_dist($idb, &$boucles, $crit) {
 
 	$boucle = &$boucles[$idb];
@@ -325,7 +325,7 @@ function critere_pagination_dist($idb, &$boucles, $crit) {
  * @param array $boucles AST du squelette
  * @param Critere $crit Paramètres du critère dans cette boucle
  * @return void
- **/
+ */
 function critere_recherche_dist($idb, &$boucles, $crit) {
 
 	$boucle = &$boucles[$idb];
@@ -385,7 +385,7 @@ function critere_recherche_dist($idb, &$boucles, $crit) {
  * @param array $boucles AST du squelette
  * @param Critere $crit Paramètres du critère dans cette boucle
  * @return void
- **/
+ */
 function critere_traduction_dist($idb, &$boucles, $crit) {
 	$boucle = &$boucles[$idb];
 	$prim = $boucle->primary;
@@ -421,7 +421,7 @@ function critere_traduction_dist($idb, &$boucles, $crit) {
  * @param array $boucles AST du squelette
  * @param Critere $crit Paramètres du critère dans cette boucle
  * @return void
- **/
+ */
 function critere_origine_traduction_dist($idb, &$boucles, $crit) {
 	$boucle = &$boucles[$idb];
 	$prim = $boucle->primary;
@@ -447,7 +447,7 @@ function critere_origine_traduction_dist($idb, &$boucles, $crit) {
  * @param array $boucles AST du squelette
  * @param Critere $crit Paramètres du critère dans cette boucle
  * @return void|array
- **/
+ */
 function critere_meme_parent_dist($idb, &$boucles, $crit) {
 
 	$boucle = &$boucles[$idb];
@@ -488,7 +488,7 @@ function critere_meme_parent_dist($idb, &$boucles, $crit) {
  * @param array $boucles AST du squelette
  * @param Critere $crit Paramètres du critère dans cette boucle
  * @return void
- **/
+ */
 function critere_branche_dist($idb, &$boucles, $crit) {
 
 	$not = $crit->not;
@@ -535,7 +535,7 @@ function critere_branche_dist($idb, &$boucles, $crit) {
  * @param array $boucles AST du squelette
  * @param Critere $crit Paramètres du critère dans cette boucle
  * @return void
- **/
+ */
 function critere_logo_dist($idb, &$boucles, $crit) {
 
 	$boucle = &$boucles[$idb];
@@ -1300,7 +1300,7 @@ function critere_agenda_dist($idb, &$boucles, $crit) {
  * @param array $boucles AST du squelette
  * @param Critere $crit Paramètres du critère dans cette boucle
  * @return void
- **/
+ */
 function calculer_critere_parties($idb, &$boucles, $crit) {
 	$boucle = &$boucles[$idb];
 	$a1 = $crit->param[0];
@@ -1355,7 +1355,7 @@ function calculer_critere_parties($idb, &$boucles, $crit) {
  *     - le signe p indique une pagination
  * @param string $total_parties Valeur ou code pour trouver la fin (j dans {i,j})
  * @return void
- **/
+ */
 function calculer_parties(&$boucles, $id_boucle, $debut, $mode, ?string $total_parties = null) {
 	// @deprecated 4.3 Transmettre la valeur correcte de total_parties à la fonction.
 	if (is_null($total_parties)) {
@@ -1432,7 +1432,7 @@ function calculer_parties(&$boucles, $id_boucle, $debut, $mode, ?string $total_p
  * @param array $boucles AST du squelette
  * @param array $param Paramètre à analyser (soit a, soit b dans {a,b} ou {a/b})
  * @return array          Valeur de l'élément (peut être une expression PHP), Nombre soustrait
- **/
+ */
 function calculer_critere_parties_aux($idb, &$boucles, $param) {
 	if ($param[0]->type != 'texte') {
 		$a1 = calculer_liste([$param[0]], $idb, $boucles, $boucles[$idb]->id_parent);
@@ -1478,7 +1478,7 @@ function calculer_critere_parties_aux($idb, &$boucles, $param) {
  * @return string|array
  *     string : Chaine vide sans erreur
  *     array : Erreur sur un des critères
- **/
+ */
 function calculer_criteres($idb, &$boucles) {
 	$msg = '';
 	$boucle = $boucles[$idb];
@@ -1555,7 +1555,7 @@ function kwote($lisp, $serveur = '', $type = '') {
  * @param array $boucles AST du squelette
  * @param Critere $crit Paramètres du critère dans cette boucle
  * @return void|array
- **/
+ */
 function critere_IN_dist($idb, &$boucles, $crit) {
 	$r = calculer_critere_infixe($idb, $boucles, $crit);
 	if (!$r) {
@@ -1935,7 +1935,7 @@ function critere_tri_dist($idb, &$boucles, $crit) {
  * @param array $boucles AST du squelette
  * @param Critere $crit Paramètres du critère dans cette boucle
  * @return void|array
- **/
+ */
 function calculer_critere_DEFAUT_dist($idb, &$boucles, $crit) {
 	// double cas particulier {0,1} et {1/2} repere a l'analyse lexicale
 	if ($crit->op == ',' || $crit->op == '/') {
@@ -1969,7 +1969,7 @@ function calculer_critere_DEFAUT_dist($idb, &$boucles, $crit) {
  * @param array $args Description du critère
  *                        Cf. retour de calculer_critere_infixe()
  * @return void
- **/
+ */
 function calculer_critere_DEFAUT_args($idb, &$boucles, $crit, $args) {
 	[$arg, $op, $val, $col, $where_complement] = $args;
 
@@ -2062,7 +2062,7 @@ function calculer_critere_DEFAUT_args($idb, &$boucles, $crit, $args) {
  *     - $where_complement
  *
  *     Chaîne vide si on ne trouve pas le champ...
- **/
+ */
 function calculer_critere_infixe($idb, &$boucles, $crit) {
 
 	$boucle = &$boucles[$idb];
@@ -2244,7 +2244,7 @@ function calculer_critere_infixe($idb, &$boucles, $crit) {
  *     - array $desc
  *
  *     Chaîne vide si on ne trouve pas le champ par jointure...
- **/
+ */
 function calculer_critere_infixe_externe($boucle, $crit, $op, $desc, $col, $col_alias, $table) {
 
 	$where = '';
@@ -2334,7 +2334,7 @@ function calculer_critere_infixe_externe($boucle, $crit, $op, $desc, $col, $col_
  *     - operateur (=),
  *     - table.champ,
  *     - valeur
- **/
+ */
 function primary_doublee($decompose, $table) {
 	$e1 = reset($decompose);
 	$e2 = "sql_quote('" . end($decompose) . "')";
@@ -2488,7 +2488,7 @@ function calculer_lien_externe_init(&$boucle, $joints, $col, $desc, $cond, $chec
  * @return bool
  *     true si le champ est trouvé quelque part dans $where
  *     false sinon.
- **/
+ */
 function trouver_champ($champ, $where) {
 	if (!is_array($where)) {
 		return preg_match($champ, $where);
@@ -2524,7 +2524,7 @@ function trouver_champ($champ, $where) {
  *         Liste de codes PHP obtenant les valeurs des comparaisons (ex: id_article sur la boucle parente)
  *         Souvent un tableau d'un seul élément.
  *     - string $args_sql  Suite des arguments du critère. ?
- **/
+ */
 function calculer_critere_infixe_ops($idb, &$boucles, $crit) {
 	// cas d'une valeur comparee a elle-meme ou son referent
 	if ((is_countable($crit->param) ? count($crit->param) : 0) == 0) {
@@ -2664,7 +2664,7 @@ function calculer_vieux_in($params) {
  *     sinon liste
  *     - expression SQL de calcul de la date,
  *     - nom de la colonne de date (si le calcul n'est pas relatif)
- **/
+ */
 function calculer_critere_infixe_date($idb, &$boucles, $col) {
 	if (!preg_match(',^((age|jour|mois|annee)_relatif|date|mois|annee|jour|heure|age)(_[a-z_]+)?$,', $col, $regs)) {
 		return '';
@@ -2767,7 +2767,7 @@ function calculer_critere_infixe_date($idb, &$boucles, $col) {
  * @return string
  *     Expression SQL calculant le nombre de jours écoulé entre une valeur
  *     de colonne SQL et une date.
- **/
+ */
 function calculer_param_date($date_compare, $date_orig) {
 	if (preg_match(",'\" *\.(.*)\. *\"',", $date_compare, $r)) {
 		$init = "'\" . (\$x = $r[1]) . \"'";

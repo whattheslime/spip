@@ -1,13 +1,13 @@
 <?php
 
-/***************************************************************************\
- *  SPIP, Système de publication pour l'internet                           *
- *                                                                         *
- *  Copyright © avec tendresse depuis 2001                                 *
- *  Arnaud Martin, Antoine Pitrou, Philippe Rivière, Emmanuel Saint-James  *
- *                                                                         *
- *  Ce programme est un logiciel libre distribué sous licence GNU/GPL.     *
-\***************************************************************************/
+/**
+ * SPIP, Système de publication pour l'internet
+ *
+ * Copyright © avec tendresse depuis 2001
+ * Arnaud Martin, Antoine Pitrou, Philippe Rivière, Emmanuel Saint-James
+ *
+ * Ce programme est un logiciel libre distribué sous licence GNU/GPL.
+ */
 
 use Spip\Compilateur\Noeud\Boucle;
 use Spip\Compilateur\Noeud\Contexte;
@@ -17,7 +17,7 @@ use Spip\Compilateur\Noeud\Texte;
  * Fichier principal du compilateur de squelettes
  *
  * @package SPIP\Core\Compilateur\Compilation
- **/
+ */
 
 if (!defined('_ECRIRE_INC_VERSION')) {
 	return;
@@ -167,7 +167,7 @@ define('CODE_RECUPERER_FOND', 'recuperer_fond(%s, %s, array(%s), %s)');
  *     Identifiant de la boucle contenant l'inclure
  * @return string
  *     Code PHP appelant l'inclusion
- **/
+ */
 function calculer_inclure($p, &$boucles, $id_boucle) {
 
 	$_options = [];
@@ -419,7 +419,7 @@ function calculer_boucle($id_boucle, &$boucles) {
  *    les afficher dans le débugueur ultérieurement
  * @return string
  *    Code PHP compilé de la boucle récursive
- **/
+ */
 function calculer_boucle_rec($id_boucle, &$boucles, $trace) {
 	$nom = $boucles[$id_boucle]->param[0];
 
@@ -445,7 +445,7 @@ function calculer_boucle_rec($id_boucle, &$boucles, $trace) {
  * - %s6: restauration de la langue
  * - %s7: liberation de la ressource, en tenant compte du serveur SQL
  * - %s8: code de trace eventuel avant le retour
- **/
+ */
 define('CODE_CORPS_BOUCLE', '%s
 	if (defined("_BOUCLE_PROFILER")) $timer = time()+(float)microtime();
 	$t0 = "";
@@ -479,7 +479,7 @@ define('CODE_CORPS_BOUCLE', '%s
  *    les afficher dans le débugueur ultérieurement
  * @return string
  *    Code PHP compilé de la boucle récursive
- **/
+ */
 function calculer_boucle_nonrec($id_boucle, &$boucles, $trace) {
 
 	$code_sep = null;
@@ -662,7 +662,7 @@ function calculer_boucle_nonrec($id_boucle, &$boucles, $trace) {
  *     AST de la boucle
  * @return string
  *     Code PHP compilé définissant les informations de requête
- **/
+ */
 function calculer_requete_sql($boucle) {
 	$init = [];
 	$init[] = calculer_dec('table', "'" . $boucle->id_table . "'");
@@ -721,7 +721,7 @@ function calculer_requete_sql($boucle) {
  * @return string
  *     Informations du contexte séparés par des virgules,
  *     qui peut être utilisé pour la production d'un tableau array()
- **/
+ */
 function memoriser_contexte_compil($p) {
 	return join(',', [
 		_q($p->descr['sourcefile'] ?? ''),
@@ -745,7 +745,7 @@ function memoriser_contexte_compil($p) {
  *     Tableau des informations du contexte
  * @return Contexte
  *     Objet Contexte
- **/
+ */
 function reconstruire_contexte_compil($context_compil) {
 	if (!is_array($context_compil)) {
 		return $context_compil;
@@ -784,7 +784,7 @@ function reconstruire_contexte_compil($context_compil) {
  *    - index 0 : Code pour une affectation statique. Si non rempli, la propriété devra
  *                être ré-affectée à chaque appel de la boucle.
  *    - index 1 : Code de l'affectation
- **/
+ */
 function calculer_dec($nom, $val) {
 	$static = 'if (!isset($command[\'' . $nom . '\'])) ';
 	// si une variable apparait dans le calcul de la clause
@@ -821,7 +821,7 @@ function calculer_dec($nom, $val) {
  *     Les données dont on veut construire un équivalent de var_export
  * @return string
  *     Expression PHP décrivant un texte ou un tableau
- **/
+ */
 function calculer_dump_array($a) {
 	if (!is_array($a)) {
 		return $a;
@@ -858,7 +858,7 @@ function calculer_dump_join($a) {
  *     Description de la boucle
  * @return string
  *     Code PHP construisant un tableau des alias et noms des tables du FROM
- **/
+ */
 function calculer_from(&$boucle) {
 	$res = '';
 	foreach ($boucle->from as $k => $v) {
@@ -876,7 +876,7 @@ function calculer_from(&$boucle) {
  *     Description de la boucle
  * @return string
  *     Code PHP construisant un tableau des alias et type de jointure du FROM
- **/
+ */
 function calculer_from_type(&$boucle) {
 	$res = '';
 	foreach ($boucle->from_type as $k => $v) {
@@ -1660,7 +1660,7 @@ function compiler_squelette($squelette, $boucles, $nom, $descr, $sourcefile, str
  * @param Boucle $boucle La boucle parcourue
  * @param string $id L'identifiant de la boucle parcourue
  *
- **/
+ */
 function requeteur_php_dist(&$boucles, &$boucle, &$id) {
 	if (class_exists($boucle->type_requete)) {
 		$g = charger_fonction('php', 'iterateur');
@@ -1689,7 +1689,7 @@ function requeteur_php_dist(&$boucles, &$boucle, &$id) {
  * @param Boucle $boucle La boucle parcourue
  * @param string $id L'identifiant de la boucle parcourue
  *
- **/
+ */
 function requeteur_data_dist(&$boucles, &$boucle, &$id) {
 	include_spip('iterateur/data');
 	if ($h = charger_fonction($boucle->type_requete . '_to_array', 'inc', true)) {

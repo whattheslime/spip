@@ -1,13 +1,13 @@
 <?php
 
-/***************************************************************************\
- *  SPIP, Système de publication pour l'internet                           *
- *                                                                         *
- *  Copyright © avec tendresse depuis 2001                                 *
- *  Arnaud Martin, Antoine Pitrou, Philippe Rivière, Emmanuel Saint-James  *
- *                                                                         *
- *  Ce programme est un logiciel libre distribué sous licence GNU/GPL.     *
-\***************************************************************************/
+/**
+ * SPIP, Système de publication pour l'internet
+ *
+ * Copyright © avec tendresse depuis 2001
+ * Arnaud Martin, Antoine Pitrou, Philippe Rivière, Emmanuel Saint-James
+ *
+ * Ce programme est un logiciel libre distribué sous licence GNU/GPL.
+ */
 
 /**
  * Gestion d'affichage des pages privées en squelette
@@ -47,7 +47,7 @@ include_spip('inc/commencer_page');
  * Fonction appelée en cas d'arrêt de php sur une erreur
  *
  * @todo supprimer cette fonction vide ?
- **/
+ */
 function shutdown_error() {
 	// si on arrive ici avec un tampon non ferme : erreur fatale
 	/*	if (ob_get_level()){

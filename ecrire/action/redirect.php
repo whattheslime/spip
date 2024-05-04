@@ -1,20 +1,20 @@
 <?php
 
-/***************************************************************************\
- *  SPIP, Système de publication pour l'internet                           *
- *                                                                         *
- *  Copyright © avec tendresse depuis 2001                                 *
- *  Arnaud Martin, Antoine Pitrou, Philippe Rivière, Emmanuel Saint-James  *
- *                                                                         *
- *  Ce programme est un logiciel libre distribué sous licence GNU/GPL.     *
-\***************************************************************************/
+/**
+ * SPIP, Système de publication pour l'internet
+ *
+ * Copyright © avec tendresse depuis 2001
+ * Arnaud Martin, Antoine Pitrou, Philippe Rivière, Emmanuel Saint-James
+ *
+ * Ce programme est un logiciel libre distribué sous licence GNU/GPL.
+ */
 
 /**
  * Gestion de redirection publique à la volée d'un objet éditorial en
  * recalculant au passage son URL
  *
  * @package SPIP\Core\Redirections
- **/
+ */
 
 if (!defined('_ECRIRE_INC_VERSION')) {
 	return;
@@ -33,7 +33,7 @@ if (!defined('_ECRIRE_INC_VERSION')) {
  *      |parametre_url{var_mode,calcul}
  *      |icone_horizontale{<:icone_voir_en_ligne:>,racine})]
  *   ```
- **/
+ */
 function action_redirect_dist() {
 	$type = _request('type');
 	$id = (int) _request('id');

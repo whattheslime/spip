@@ -1,19 +1,19 @@
 <?php
 
-/***************************************************************************\
- *  SPIP, Système de publication pour l'internet                           *
- *                                                                         *
- *  Copyright © avec tendresse depuis 2001                                 *
- *  Arnaud Martin, Antoine Pitrou, Philippe Rivière, Emmanuel Saint-James  *
- *                                                                         *
- *  Ce programme est un logiciel libre distribué sous licence GNU/GPL.     *
-\***************************************************************************/
+/**
+ * SPIP, Système de publication pour l'internet
+ *
+ * Copyright © avec tendresse depuis 2001
+ * Arnaud Martin, Antoine Pitrou, Philippe Rivière, Emmanuel Saint-James
+ *
+ * Ce programme est un logiciel libre distribué sous licence GNU/GPL.
+ */
 
 /**
  * Gestion du formulaire d'édition de liens
  *
  * @package SPIP\Core\Formulaires
- **/
+ */
 if (!defined('_ECRIRE_INC_VERSION')) {
 	return;
 }
@@ -420,7 +420,7 @@ function lien_verifier_action($k, $v) {
  *   Action du lien
  * @return array
  *   Liste des qualifs pour chaque lien. Tableau vide s'il n'y en a pas.
- **/
+ */
 function lien_retrouver_qualif($objet_lien, $lien) {
 	// un role est défini dans la liaison
 	$defs = explode('-', $lien);
@@ -493,7 +493,7 @@ function lien_retrouver_qualif($objet_lien, $lien) {
  * @param array|string $idl Identifiants pour l'objet lié
  * @param array $qualifs
  * @return void
- **/
+ */
 function lien_ajouter_liaisons($objet_source, $ids, $objet_lien, $idl, $qualifs) {
 
 	// retrouver la colonne de roles s'il y en a a lier

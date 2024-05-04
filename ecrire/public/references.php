@@ -1,13 +1,13 @@
 <?php
 
-/***************************************************************************\
- *  SPIP, Système de publication pour l'internet                           *
- *                                                                         *
- *  Copyright © avec tendresse depuis 2001                                 *
- *  Arnaud Martin, Antoine Pitrou, Philippe Rivière, Emmanuel Saint-James  *
- *                                                                         *
- *  Ce programme est un logiciel libre distribué sous licence GNU/GPL.     *
-\***************************************************************************/
+/**
+ * SPIP, Système de publication pour l'internet
+ *
+ * Copyright © avec tendresse depuis 2001
+ * Arnaud Martin, Antoine Pitrou, Philippe Rivière, Emmanuel Saint-James
+ *
+ * Ce programme est un logiciel libre distribué sous licence GNU/GPL.
+ */
 
 use Spip\Compilateur\Noeud\Boucle;
 use Spip\Compilateur\Noeud\Champ;
@@ -16,7 +16,7 @@ use Spip\Compilateur\Noeud\Champ;
  * Fonctions de recherche et de reservation dans l'arborescence des boucles
  *
  * @package SPIP\Core\Compilateur\References
- **/
+ */
 if (!defined('_ECRIRE_INC_VERSION')) {
 	return;
 }
@@ -236,7 +236,7 @@ function index_compose($conditionnel, $defaut) {
  *     Le nom du champ véritable est une expression pour le SELECT de
  *     la boucle tel que "rubriques.titre" ou "mots.titre AS titre_mot".
  *     Les éléments de la liste sont vides si on ne trouve rien.
- **/
+ */
 function index_tables_en_pile($idb, $nom_champ, &$boucles, &$joker) {
 
 	$r = $boucles[$idb]->type_requete;
@@ -356,7 +356,7 @@ function index_tables_en_pile($idb, $nom_champ, &$boucles, &$joker) {
  * @return array
  *     Liste (nom du champ alias, nom du champ). Le nom du champ alias
  *     est une expression pour le SELECT de la boucle du style "mots.titre AS titre_mot"
- **/
+ */
 function index_exception(&$boucle, $desc, $nom_champ, $excep) {
 	static $trouver_table;
 	if (!$trouver_table) {
@@ -446,7 +446,7 @@ function champ_sql($champ, $p, $defaut = null, $remonte_pile = true) {
  *     AST au niveau de la balise
  * @return string
  *     Code PHP pour d'exécution de la balise et de ses filtres
- **/
+ */
 function calculer_champ($p) {
 	$p = calculer_balise($p->nom_champ, $p);
 
@@ -484,7 +484,7 @@ function calculer_champ($p) {
  *     AST au niveau de la balise
  * @return Champ
  *     Pile complétée par le code PHP pour l'exécution de la balise et de ses filtres
- **/
+ */
 function calculer_balise(string $nom, Champ $p): Champ {
 
 	// S'agit-t-il d'une balise_XXXX[_dist]() ?
@@ -534,7 +534,7 @@ function calculer_balise(string $nom, Champ $p): Champ {
  *     AST au niveau de la balise
  * @return string
  *     Code PHP pour d'exécution de la balise et de ses filtres
- **/
+ */
 function calculer_balise_DEFAUT_dist($nom, $p) {
 
 	// ca pourrait etre un champ SQL homonyme,
@@ -608,7 +608,7 @@ define('CODE_EXECUTER_BALISE_MODELE', "executer_balise_dynamique_dans_un_modele(
  *     Liste de données supplémentaires à transmettre au code d'exécution.
  * @return Champ
  *     Balise complétée de son code d'exécution
- **/
+ */
 function calculer_balise_dynamique($p, $nom, $l, $supp = []) {
 
 	if (!balise_distante_interdite($p)) {
@@ -684,7 +684,7 @@ function calculer_balise_dynamique($p, $nom, $l, $supp = []) {
  *     Nom de la balise
  * @return array
  *     Liste des codes PHP d'éxecution des balises collectées
- **/
+ */
 function collecter_balise_dynamique(array $l, Champ &$p, string $nom): array {
 	$args = [];
 	foreach ($l as $c) {
@@ -709,7 +709,7 @@ function collecter_balise_dynamique(array $l, Champ &$p, string $nom): array {
  *     AST positionné sur la balise
  * @return string
  *     Nom de la connexion
- **/
+ */
 function trouver_nom_serveur_distant($p) {
 	$nom = $p->id_boucle;
 	if (
@@ -745,7 +745,7 @@ function trouver_nom_serveur_distant($p) {
  *
  *     - true : La balise est autorisée
  *     - false : La balise est interdite car le serveur est distant
- **/
+ */
 function balise_distante_interdite($p) {
 	$nom = $p->id_boucle;
 
@@ -948,7 +948,7 @@ function compose_filtres_args($p, $args, $sep) {
  * @param array $boucles AST du squelette
  * @param null|string $defaut
  * @return
- **/
+ */
 function calculer_argument_precedent($idb, $nom_champ, &$boucles, $defaut = null) {
 
 	// si recursif, forcer l'extraction du champ SQL mais ignorer le code

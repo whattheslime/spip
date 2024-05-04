@@ -1,13 +1,13 @@
 <?php
 
-/***************************************************************************\
- *  SPIP, Système de publication pour l'internet                           *
- *                                                                         *
- *  Copyright © avec tendresse depuis 2001                                 *
- *  Arnaud Martin, Antoine Pitrou, Philippe Rivière, Emmanuel Saint-James  *
- *                                                                         *
- *  Ce programme est un logiciel libre distribué sous licence GNU/GPL.     *
-\***************************************************************************/
+/**
+ * SPIP, Système de publication pour l'internet
+ *
+ * Copyright © avec tendresse depuis 2001
+ * Arnaud Martin, Antoine Pitrou, Philippe Rivière, Emmanuel Saint-James
+ *
+ * Ce programme est un logiciel libre distribué sous licence GNU/GPL.
+ */
 
 /**
  * Gestion des mises à jour de SPIP, version >= 2021000000
@@ -16,7 +16,7 @@
  * indexé par la date du changement YYYYMMDDXX
  *
  * @package SPIP\Core\SQL\Upgrade
- **/
+ */
 if (!defined('_ECRIRE_INC_VERSION')) {
 	return;
 }
@@ -41,7 +41,7 @@ $GLOBALS['maj'][2022_02_23_03] = [
  * Obligera tous les auteurs à se reconnecter :
  * - le webmestre qui fait la mise a jour génèrera une cle avec un backup
  * - les autres auteurs vont tous regénérer un mot de passe plus sécure au premier login
- **/
+ */
 function maj2021_supprimer_toutes_sessions_si_aucun_backup_cles() {
 	if (!sql_countsel('spip_auteurs', "webmestre='oui' AND backup_cles!=''")) {
 		spip_logger('maj')->info('supprimer sessions auteur');

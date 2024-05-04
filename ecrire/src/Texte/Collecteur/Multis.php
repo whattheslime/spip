@@ -1,13 +1,13 @@
 <?php
 
-/***************************************************************************\
- *  SPIP, Système de publication pour l'internet                           *
- *                                                                         *
- *  Copyright © avec tendresse depuis 2001                                 *
- *  Arnaud Martin, Antoine Pitrou, Philippe Rivière, Emmanuel Saint-James  *
- *                                                                         *
- *  Ce programme est un logiciel libre distribué sous licence GNU/GPL.     *
- * \***************************************************************************/
+/**
+ * SPIP, Système de publication pour l'internet
+ *
+ * Copyright © avec tendresse depuis 2001
+ * Arnaud Martin, Antoine Pitrou, Philippe Rivière, Emmanuel Saint-James
+ *
+ * Ce programme est un logiciel libre distribué sous licence GNU/GPL.
+ */
 
 namespace Spip\Texte\Collecteur;
 
@@ -79,7 +79,7 @@ class Multis extends AbstractCollecteur {
 	 *     Le contenu intérieur d'un bloc multi
 	 * @return array [code de langue => texte]
 	 *     Peut retourner un code de langue vide, lorsqu'un texte par défaut est indiqué.
-	 **/
+	 */
 	protected function extraire_trads($bloc) {
 		$trads = [];
 

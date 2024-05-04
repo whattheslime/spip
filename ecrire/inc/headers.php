@@ -1,19 +1,19 @@
 <?php
 
-/***************************************************************************\
- *  SPIP, Système de publication pour l'internet                           *
- *                                                                         *
- *  Copyright © avec tendresse depuis 2001                                 *
- *  Arnaud Martin, Antoine Pitrou, Philippe Rivière, Emmanuel Saint-James  *
- *                                                                         *
- *  Ce programme est un logiciel libre distribué sous licence GNU/GPL.     *
-\***************************************************************************/
+/**
+ * SPIP, Système de publication pour l'internet
+ *
+ * Copyright © avec tendresse depuis 2001
+ * Arnaud Martin, Antoine Pitrou, Philippe Rivière, Emmanuel Saint-James
+ *
+ * Ce programme est un logiciel libre distribué sous licence GNU/GPL.
+ */
 
 /**
  * Gestion des headers et redirections
  *
  * @package SPIP\Core\Headers
- **/
+ */
 
 if (!defined('_ECRIRE_INC_VERSION')) {
 	return;
@@ -35,7 +35,7 @@ if (!defined('_ECRIRE_INC_VERSION')) {
  * @param string $url URL de redirection
  * @param string $equiv ?
  * @param int $status Code de redirection (301 ou 302)
- **/
+ */
 function redirige_par_entete($url, $equiv = '', $status = 302) {
 	if (!in_array($status, [301, 302])) {
 		$status = 302;
@@ -182,7 +182,7 @@ function redirige_formulaire($url, $equiv = '', $format = 'message') {
  *     Arguments à transmettre. Exemple `etape=1&autre=oui`
  * @param string $equiv
  * @return void
- **/
+ */
 function redirige_url_ecrire($script = '', $args = '', $equiv = '') {
 	return redirige_par_entete(generer_url_ecrire($script, $args, true), $equiv);
 }

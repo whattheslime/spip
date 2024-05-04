@@ -1,13 +1,13 @@
 <?php
 
-/***************************************************************************\
- *  SPIP, Système de publication pour l'internet                           *
- *                                                                         *
- *  Copyright © avec tendresse depuis 2001                                 *
- *  Arnaud Martin, Antoine Pitrou, Philippe Rivière, Emmanuel Saint-James  *
- *                                                                         *
- *  Ce programme est un logiciel libre distribué sous licence GNU/GPL.     *
-\***************************************************************************/
+/**
+ * SPIP, Système de publication pour l'internet
+ *
+ * Copyright © avec tendresse depuis 2001
+ * Arnaud Martin, Antoine Pitrou, Philippe Rivière, Emmanuel Saint-James
+ *
+ * Ce programme est un logiciel libre distribué sous licence GNU/GPL.
+ */
 
 /**
  * Gestion d'une sécurisation des squelettes
@@ -19,7 +19,7 @@
  * - de refuser l'inclusion de fichier PHP dans les squelettes
  *
  * @package SPIP\Core\Compilateur\Sandbox
- **/
+ */
 
 if (!defined('_ECRIRE_INC_VERSION')) {
 	return;
@@ -198,7 +198,7 @@ function sandbox_filtrer_squelette($skel, $corps, $filtres) {
  * @return string|array
  *     - string : hash de substitution du code php lorsque `$r` est un array
  *     - array : Liste( liste des codes PHP, liste des substitutions )
- **/
+ */
 function echapper_php_callback($r = null) {
 	static $src = [];
 	static $dst = [];

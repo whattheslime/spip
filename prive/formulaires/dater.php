@@ -1,19 +1,19 @@
 <?php
 
-/***************************************************************************\
- *  SPIP, Système de publication pour l'internet                           *
- *                                                                         *
- *  Copyright © avec tendresse depuis 2001                                 *
- *  Arnaud Martin, Antoine Pitrou, Philippe Rivière, Emmanuel Saint-James  *
- *                                                                         *
- *  Ce programme est un logiciel libre distribué sous licence GNU/GPL.     *
-\***************************************************************************/
+/**
+ * SPIP, Système de publication pour l'internet
+ *
+ * Copyright © avec tendresse depuis 2001
+ * Arnaud Martin, Antoine Pitrou, Philippe Rivière, Emmanuel Saint-James
+ *
+ * Ce programme est un logiciel libre distribué sous licence GNU/GPL.
+ */
 
 /**
  * Gestion du formulaire de date
  *
  * @package SPIP\Core\Formulaires
- **/
+ */
 
 if (!defined('_ECRIRE_INC_VERSION')) {
 	return;
@@ -41,7 +41,7 @@ if (!defined('_ECRIRE_INC_VERSION')) {
  *     - class : une classe ajoutable au formulaire pour le distinguer si on a plusieurs occurences
  * @return array|false
  *     Environnement du formulaire
- **/
+ */
 function formulaires_dater_charger_dist($objet, $id_objet, $retour = '', $options = []) {
 
 	$jour = null;
@@ -189,7 +189,7 @@ function formulaires_dater_charger_dist($objet, $id_objet, $retour = '', $option
  *     Séparateur
  * @return string
  *     Date formatée tel que `02/10/2012`
- **/
+ */
 function dater_formater_saisie_jour($jour, $mois, $annee, $sep = '/') {
 	$annee = str_pad($annee, 4, '0', STR_PAD_LEFT);
 	if ((int) $jour) {
@@ -221,7 +221,7 @@ function dater_formater_saisie_jour($jour, $mois, $annee, $sep = '/') {
  *     Options.
  * @return string
  *     Hash du formulaire
- **/
+ */
 function formulaires_dater_identifier_dist($objet, $id_objet, $retour = '', $options = []) {
 	return serialize([$objet, $id_objet]);
 }

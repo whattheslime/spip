@@ -1,20 +1,20 @@
 <?php
 
-/***************************************************************************\
- *  SPIP, Système de publication pour l'internet                           *
- *                                                                         *
- *  Copyright © avec tendresse depuis 2001                                 *
- *  Arnaud Martin, Antoine Pitrou, Philippe Rivière, Emmanuel Saint-James  *
- *                                                                         *
- *  Ce programme est un logiciel libre distribué sous licence GNU/GPL.     *
-\***************************************************************************/
+/**
+ * SPIP, Système de publication pour l'internet
+ *
+ * Copyright © avec tendresse depuis 2001
+ * Arnaud Martin, Antoine Pitrou, Philippe Rivière, Emmanuel Saint-James
+ *
+ * Ce programme est un logiciel libre distribué sous licence GNU/GPL.
+ */
 
 /**
  * Gestion du sélecteur de rubrique pour les objets éditoriaux s'insérant
  * dans une hiérarchie de rubriques
  *
  * @package SPIP\Core\Rubriques
- **/
+ */
 
 if (!defined('_ECRIRE_INC_VERSION')) {
 	return;
@@ -52,7 +52,7 @@ if (!defined('_SPIP_SELECT_RUBRIQUES')) {
  *     Type d'action
  * @return string
  *     Code HTML du sélecteur
- **/
+ */
 function inc_chercher_rubrique_dist($id_rubrique, $type, $restreint, $idem = 0, $do = 'aff') {
 	if (sql_countsel('spip_rubriques') < 1) {
 		return '';
@@ -83,7 +83,7 @@ $GLOBALS['selecteur_rubrique'] = 'inc_chercher_rubrique_dist';
  *     Profondeur de la rubrique
  * @return array
  *     Liste (classe CSS, styles en ligne, Espaces insécables)
- **/
+ */
 function style_menu_rubriques($i) {
 
 	$espace = '';
@@ -118,7 +118,7 @@ function style_menu_rubriques($i) {
  *     Type de l'objet à placer.
  * @return string
  *     Code HTML du sélecteur
- **/
+ */
 function sous_menu_rubriques($id_rubrique, $root, $niv, &$data, &$enfants, $exclus, $restreint, $type) {
 	static $decalage_secteur;
 
@@ -189,7 +189,7 @@ function sous_menu_rubriques($id_rubrique, $root, $niv, &$data, &$enfants, $excl
  *     En mode rubrique, identifiant de soi-même
  * @return string
  *     Code HTML du sélecteur
- **/
+ */
 function selecteur_rubrique_html($id_rubrique, $type, $restreint, $idem = 0) {
 	$enfants = [];
 	$data = [];
@@ -336,7 +336,7 @@ function selecteur_rubrique_ajax($id_rubrique, $type, $restreint, $idem = 0, $do
  *     Valeur actuelle du champ
  * @return string
  *     Code HTML du sélecteur de rubrique AJAX
- **/
+ */
 function construire_selecteur($url, $js, $idom, $name, $init = '', $id = 0) {
 	$icone = (str_contains($idom, 'auteur')) ? 'auteur-24.png' : 'rechercher-20.png';
 	// si icone de recherche on embed le svg

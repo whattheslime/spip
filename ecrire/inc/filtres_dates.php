@@ -1,19 +1,19 @@
 <?php
 
-/***************************************************************************\
- *  SPIP, Système de publication pour l'internet                           *
- *                                                                         *
- *  Copyright © avec tendresse depuis 2001                                 *
- *  Arnaud Martin, Antoine Pitrou, Philippe Rivière, Emmanuel Saint-James  *
- *                                                                         *
- *  Ce programme est un logiciel libre distribué sous licence GNU/GPL.     *
-\***************************************************************************/
+/**
+ * SPIP, Système de publication pour l'internet
+ *
+ * Copyright © avec tendresse depuis 2001
+ * Arnaud Martin, Antoine Pitrou, Philippe Rivière, Emmanuel Saint-James
+ *
+ * Ce programme est un logiciel libre distribué sous licence GNU/GPL.
+ */
 
 /**
  * Déclaration de filtres de dates pour les squelettes
  *
  * @package SPIP\Core\Filtres
- **/
+ */
 if (!defined('_ECRIRE_INC_VERSION')) {
 	return;
 }
@@ -34,7 +34,7 @@ if (!defined('_ECRIRE_INC_VERSION')) {
  * @return string
  *     - une date au format datetime
  *     - une chaîne vide si la date est considérée nulle
- **/
+ */
 function normaliser_date($date, $forcer_jour = false): string {
 	$date = vider_date($date);
 	if ($date) {
@@ -69,7 +69,7 @@ function normaliser_date($date, $forcer_jour = false): string {
  * @return string
  *     - La date entrée (si elle n'est pas considérée comme nulle)
  *     - Une chaine vide
- **/
+ */
 function vider_date($letexte, $verif_format_date = false): string {
 	$letexte ??= '';
 	if (
@@ -99,7 +99,7 @@ function vider_date($letexte, $verif_format_date = false): string {
  * @return array
  *     - [heures, minutes, secondes] si format horaire autorisé
  *     - [0, 0, 0] sinon
- **/
+ */
 function recup_heure($date): array {
 
 	if (preg_match('#(\d{1,2}):(\d{1,2})(?::(\d{1,2}))?#', $date, $elements)) {
@@ -124,7 +124,7 @@ function recup_heure($date): array {
  *
  * @param string $numdate La date à extraire
  * @return string heures, sinon 0
- **/
+ */
 function heures($numdate): string {
 	$heures = null;
 	$date_array = recup_heure($numdate);
@@ -144,7 +144,7 @@ function heures($numdate): string {
  *
  * @param string $numdate La date à extraire
  * @return string minutes, sinon 0
- **/
+ */
 function minutes($numdate): string {
 	$minutes = null;
 	$date_array = recup_heure($numdate);
@@ -164,7 +164,7 @@ function minutes($numdate): string {
  *
  * @param string $numdate La date à extraire
  * @return string secondes, sinon 0
- **/
+ */
 function secondes($numdate): string {
 	$secondes = null;
 	$date_array = recup_heure($numdate);
@@ -189,7 +189,7 @@ function secondes($numdate): string {
  *	- si vide,  précise l'unité des minutes : 12h10min
  *	- si 'abbr' ne précise pas l'unité des minutes : 12h10
  * @return string L'heure formatée dans la langue en cours.
- **/
+ */
 function heures_minutes($numdate, $forme = ''): string {
 	if ($forme !== 'abbr') {
 		return _T('date_fmt_heures_minutes', ['h' => heures($numdate), 'm' => minutes($numdate)]);
@@ -218,7 +218,7 @@ function heures_minutes($numdate, $forme = ''): string {
  *     True pour tout le temps renseigner un jour ou un mois (le 1) s'il
  *     ne sont pas indiqués dans la date.
  * @return array [année, mois, jour, heures, minutes, secondes] ou []
- **/
+ */
 function recup_date($numdate, $forcer_jour = true): array {
 	if (!$numdate) {
 		return [];
@@ -295,7 +295,7 @@ function recup_date($numdate, $forcer_jour = true): array {
  *     Par défaut +/- 12h.
  * @return string
  *     La date relative ou complète
- **/
+ */
 function date_interface($date, $decalage_maxi = 43200 /* 12*3600 */): string {
 	return sinon(
 		date_relative($date, $decalage_maxi),
@@ -330,7 +330,7 @@ function date_interface($date, $decalage_maxi = 43200 /* 12*3600 */): string {
  * @return string
  *     - La date relative
  *     - "" si pas de date ou si elle dépasse le décalage maximum indiqué.
- **/
+ */
 function date_relative($date, $decalage_maxi = 0, $ref_date = null): string {
 
 	if (!$date) {
@@ -421,7 +421,7 @@ function date_relative($date, $decalage_maxi = 0, $ref_date = null): string {
  * @return string
  *     - La date relative
  *     - "" si pas de date ou si elle dépasse le décalage maximum indiqué.
- **/
+ */
 function date_relativecourt($date, $decalage_maxi = 0): string {
 
 	if (!$date) {
@@ -655,7 +655,7 @@ function affdate_base($numdate, $vue, $options = []): string {
  *     - '' : le nom complet (par défaut)
  * @return string
  *     Nom du jour
- **/
+ */
 function nom_jour($numdate, $forme = ''): string {
 	if ($forme !== 'abbr' && $forme !== 'initiale') {
 		$forme = '';
@@ -681,7 +681,7 @@ function nom_jour($numdate, $forme = ''): string {
  *     Une écriture de date
  * @return string
  *     Numéro du jour
- **/
+ */
 function jour($numdate): string {
 	return affdate_base($numdate, 'jour');
 }
@@ -699,7 +699,7 @@ function jour($numdate): string {
  *     Une écriture de date
  * @return string
  *     Numéro du jour
- **/
+ */
 function journum($numdate): string {
 	return affdate_base($numdate, 'journum');
 }
@@ -717,7 +717,7 @@ function journum($numdate): string {
  *     Une écriture de date
  * @return string
  *     Numéro du mois (sur 2 chiffres)
- **/
+ */
 function mois($numdate): string {
 	return  affdate_base($numdate, 'mois');
 }
@@ -741,7 +741,7 @@ function mois($numdate): string {
  *     - '' : le nom complet (par défaut)
  * @return string
  *     Nom du mois
- **/
+ */
 function nom_mois($numdate, $forme = ''): string {
 	if ($forme !== 'abbr') {
 		$forme = '';
@@ -763,7 +763,7 @@ function nom_mois($numdate, $forme = ''): string {
  *     Une écriture de date
  * @return string
  *     Année (sur 4 chiffres)
- **/
+ */
 function annee($numdate): string {
 	return affdate_base($numdate, 'annee');
 }
@@ -793,7 +793,7 @@ function annee($numdate): string {
  *     Nom optionnel de l'hémisphère (sud ou nord) ; par défaut nord
  * @return string
  *     La date formatée
- **/
+ */
 function saison($numdate, $hemisphere = 'nord'): string {
 	if ($hemisphere !== 'sud') {
 		$hemisphere = 'nord';
@@ -826,7 +826,7 @@ function saison($numdate, $hemisphere = 'nord'): string {
  *     Nom optionnel de l'hémisphère (sud ou nord) ; par défaut nord
  * @return string
  *     La date formatée
- **/
+ */
 function saison_annee($numdate, $hemisphere = 'nord'): string {
 	if ($hemisphere !== 'sud') {
 		$hemisphere = 'nord';
@@ -858,7 +858,7 @@ function saison_annee($numdate, $hemisphere = 'nord'): string {
  *     Type de format souhaité ou expression pour `strtotime()` tel que `Y-m-d h:i:s`
  * @return string
  *     La date formatée
- **/
+ */
 function affdate($numdate, $format = 'entier'): string {
 	return affdate_base($numdate, $format);
 }
@@ -885,7 +885,7 @@ function affdate($numdate, $format = 'entier'): string {
  *     L'année de comparaison, utilisera l'année en cours si omis.
  * @return string
  *     La date formatée
- **/
+ */
 function affdate_court($numdate, $annee_courante = null): string {
 	return affdate_base($numdate, 'court', ['annee_courante' => $annee_courante]);
 }
@@ -912,7 +912,7 @@ function affdate_court($numdate, $annee_courante = null): string {
  *     L'année de comparaison, utilisera l'année en cours si omis.
  * @return string
  *     La date formatée
- **/
+ */
 function affdate_jourcourt($numdate, $annee_courante = null): string {
 	return affdate_base($numdate, 'jourcourt', ['annee_courante' => $annee_courante]);
 }
@@ -930,7 +930,7 @@ function affdate_jourcourt($numdate, $annee_courante = null): string {
  *     Une écriture de date
  * @return string
  *     La date formatée
- **/
+ */
 function affdate_mois_annee($numdate): string {
 	return affdate_base($numdate, 'mois_annee');
 }
@@ -948,7 +948,7 @@ function affdate_mois_annee($numdate): string {
  *     Une écriture de date
  * @return string
  *     La date formatée, sinon ''
- **/
+ */
 function affdate_heure($numdate): string {
 	$date_array = recup_date($numdate);
 	if (!$date_array) {
@@ -1116,7 +1116,7 @@ function affdate_debut_fin($date_debut, $date_fin, $horaire = 'oui', $forme = ''
  *     Ajouter autant de minutes à la date
  * @return string
  *     Date au format ical
- **/
+ */
 function date_ical($date, $addminutes = 0): string {
 	[$heures, $minutes, $secondes] = recup_heure($date);
 	[$annee, $mois, $jour] = recup_date($date);
@@ -1143,7 +1143,7 @@ function date_ical($date, $addminutes = 0): string {
  *     Une écriture de date
  * @return string
  *     La date formatée
- **/
+ */
 function date_iso($date_heure): string {
 	$date = recup_date($date_heure);
 	$annee = $date[0] ?? null;
@@ -1173,7 +1173,7 @@ function date_iso($date_heure): string {
  *     Une écriture de date
  * @return string
  *     La date formatée
- **/
+ */
 function date_822($date_heure): string {
 	[$annee, $mois, $jour] = recup_date($date_heure);
 	[$heures, $minutes, $secondes] = recup_heure($date_heure);
@@ -1193,7 +1193,7 @@ function date_822($date_heure): string {
  *     Si vide, utilise la date actuelle.
  * @return string
  *     Date au format `Ymd`
- **/
+ */
 function date_anneemoisjour($d): string {
 	if (!$d) {
 		$d = date('Y-m-d');
@@ -1213,7 +1213,7 @@ function date_anneemoisjour($d): string {
  *     Si vide, utilise la date actuelle.
  * @return string
  *     Date au format `Ym`
- **/
+ */
 function date_anneemois($d): string {
 	if (!$d) {
 		$d = date('Y-m-d');
@@ -1233,7 +1233,7 @@ function date_anneemois($d): string {
  * @param int $jour
  * @return string
  *     Date au lundi de la même semaine au format `Ymd`
- **/
+ */
 function date_debut_semaine($annee, $mois, $jour): string {
 	$w_day = date('w', mktime(0, 0, 0, $mois, $jour, $annee));
 	if ($w_day == 0) {
@@ -1255,7 +1255,7 @@ function date_debut_semaine($annee, $mois, $jour): string {
  * @param int $jour
  * @return string
  *     Date au dimanche de la même semaine au format `Ymd`
- **/
+ */
 function date_fin_semaine($annee, $mois, $jour): string {
 	$w_day = date('w', mktime(0, 0, 0, $mois, $jour, $annee));
 	if ($w_day == 0) {

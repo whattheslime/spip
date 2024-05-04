@@ -1,13 +1,13 @@
 <?php
 
-/***************************************************************************\
- *  SPIP, Système de publication pour l'internet                           *
- *                                                                         *
- *  Copyright © avec tendresse depuis 2001                                 *
- *  Arnaud Martin, Antoine Pitrou, Philippe Rivière, Emmanuel Saint-James  *
- *                                                                         *
- *  Ce programme est un logiciel libre distribué sous licence GNU/GPL.     *
-\***************************************************************************/
+/**
+ * SPIP, Système de publication pour l'internet
+ *
+ * Copyright © avec tendresse depuis 2001
+ * Arnaud Martin, Antoine Pitrou, Philippe Rivière, Emmanuel Saint-James
+ *
+ * Ce programme est un logiciel libre distribué sous licence GNU/GPL.
+ */
 
 /**
  * Des fonctions diverses utilisees lors du calcul d'une page ; ces fonctions
@@ -19,7 +19,7 @@
  * Ce ne sont pas des filtres à part entière, il n'est donc pas logique de les retrouver dans inc/filtres
  *
  * @package SPIP\Core\Compilateur\Composer
- **/
+ */
 
 if (!defined('_ECRIRE_INC_VERSION')) {
 	return;
@@ -52,7 +52,7 @@ include_spip('inc/texte');
  *     points de suite si on coupe (par defaut _INTRODUCTION_SUITE et sinon &nbsp;(...)
  * @return string
  *     Introduction calculée
- **/
+ */
 function filtre_introduction_dist($descriptif, $texte, $longueur, $connect, $suite = null) {
 	// Si un descriptif est envoye, on l'utilise directement
 	if (strlen($descriptif)) {
@@ -155,7 +155,7 @@ function filtre_introduction_dist($descriptif, $texte, $longueur, $connect, $sui
  *     Environnement à transmettre au modèle
  * @return string
  *     Code HTML de la pagination
- **/
+ */
 function filtre_pagination_dist(
 	$total,
 	$nom,
@@ -231,7 +231,7 @@ function filtre_pagination_dist(
  *     Nombre d'éléments par page
  * @return int[]
  *     Liste (première page, dernière page).
- **/
+ */
 function filtre_bornes_pagination_dist($courante, $nombre, $max = 10) {
 	if ($max <= 0 || $max >= $nombre) {
 		return [1, $nombre];
@@ -274,7 +274,7 @@ function filtre_pagination_affiche_texte_lien_page_dist($type_pagination, $numer
  *     Nom de la clé primaire de l'objet
  * @return string
  *     Liste des identifiants ayant un logo (séparés par une virgule)
- **/
+ */
 function lister_objets_avec_logos($type) {
 
 	$objet = objet_type($type);
@@ -299,7 +299,7 @@ function lister_objets_avec_logos($type) {
  *
  * @return string
  *     Code HTML des notes
- **/
+ */
 function calculer_notes() {
 	$r = '';
 	if ($notes = charger_fonction('notes', 'inc', true)) {
@@ -614,7 +614,7 @@ function formate_liste_critere_par_ordre_liste($valeurs, $serveur = '') {
  * @return string
  *     texte traité par le filtre si le filtre existe,
  *     Valeur $defaut sinon.
- **/
+ */
 function appliquer_filtre_sinon($arg, $filtre, $args, mixed $defaut = '') {
 	// Si c'est un filtre d'image, on utilise image_filtrer()
 	// Attention : les 2 premiers arguments sont inversés dans ce cas

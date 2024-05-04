@@ -1,21 +1,22 @@
 <?php
 
+/**
+ * SPIP, Système de publication pour l'internet
+ *
+ * Copyright © avec tendresse depuis 2001
+ * Arnaud Martin, Antoine Pitrou, Philippe Rivière, Emmanuel Saint-James
+ *
+ * Ce programme est un logiciel libre distribué sous licence GNU/GPL.
+ */
+
 use Spip\Texte\Collecteur\HtmlTag as CollecteurHtmlTag;
 
-/***************************************************************************\
- *  SPIP, Système de publication pour l'internet                           *
- *                                                                         *
- *  Copyright © avec tendresse depuis 2001                                 *
- *  Arnaud Martin, Antoine Pitrou, Philippe Rivière, Emmanuel Saint-James  *
- *                                                                         *
- *  Ce programme est un logiciel libre distribué sous licence GNU/GPL.     *
-\***************************************************************************/
 
 /**
  * Gestion des textes et raccourcis SPIP
  *
  * @package SPIP\Core\Texte
- **/
+ */
 
 if (!defined('_ECRIRE_INC_VERSION')) {
 	return;
@@ -24,9 +25,8 @@ if (!defined('_ECRIRE_INC_VERSION')) {
 include_spip('inc/texte_mini');
 include_spip('inc/lien');
 
-/*************************************************************************************************************************
+/**
  * Fonctions inutilisees en dehors de inc/texte
- *
  */
 
 /**
@@ -90,7 +90,7 @@ function traiter_raccourcis($letexte) {
 	return $letexte;
 }
 
-/*************************************************************************************************************************
+/**
  * Fonctions utilisees en dehors de inc/texte
  */
 
@@ -145,7 +145,7 @@ function echappe_js($t, $class = ' class = "echappe-js"') {
  *     utilise la valeur de la globale filtrer_javascript si non fourni
  * @return string
  *     Code protégé
- **/
+ */
 function interdire_scripts($arg, $mode_filtre = null) {
 	// on memorise le resultat sur les arguments non triviaux
 	static $dejavu = [];
@@ -222,7 +222,7 @@ function interdire_scripts($arg, $mode_filtre = null) {
  *     Environnement (pour les calculs de modèles)
  * @return string $t
  *     texte transformé
- **/
+ */
 function typo($letexte, $echapper = true, $connect = null, $env = []) {
 	// Plus vite !
 	if (!$letexte) {
@@ -384,7 +384,7 @@ function paragrapher($letexte, $forcer = true) {
  *
  * @param string $letexte texte
  * @return string texte
- **/
+ */
 function traiter_retours_chariots($letexte) {
 	$letexte = preg_replace(",\r\n?,S", "\n", $letexte);
 	$letexte = preg_replace(',<p[>[:space:]],iS', "\n\n\\0", $letexte);
@@ -414,7 +414,7 @@ function traiter_retours_chariots($letexte) {
  *     Environnement (pour les calculs de modèles)
  * @return string $t
  *     texte transformé
- **/
+ */
 function propre($t, $connect = null, $env = []) {
 	// les appels directs a cette fonction depuis le php de l'espace
 	// prive etant historiquement ecrits sans argment $connect

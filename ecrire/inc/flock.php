@@ -1,19 +1,19 @@
 <?php
 
-/***************************************************************************\
- *  SPIP, Système de publication pour l'internet                           *
- *                                                                         *
- *  Copyright © avec tendresse depuis 2001                                 *
- *  Arnaud Martin, Antoine Pitrou, Philippe Rivière, Emmanuel Saint-James  *
- *                                                                         *
- *  Ce programme est un logiciel libre distribué sous licence GNU/GPL.     *
-\***************************************************************************/
+/**
+ * SPIP, Système de publication pour l'internet
+ *
+ * Copyright © avec tendresse depuis 2001
+ * Arnaud Martin, Antoine Pitrou, Philippe Rivière, Emmanuel Saint-James
+ *
+ * Ce programme est un logiciel libre distribué sous licence GNU/GPL.
+ */
 
 /**
  * Gestion de recherche et d'écriture de répertoire ou fichiers
  *
  * @package SPIP\Core\Flock
- **/
+ */
 
 if (!defined('_ECRIRE_INC_VERSION')) {
 	return;
@@ -50,7 +50,7 @@ $GLOBALS['liste_verrous'] = [];
  *     Type de verrou (avec _SPIP_LOCK_MODE = 1)
  * @return resource|bool
  *     Ressource sur le fichier ouvert, sinon false.
- **/
+ */
 function spip_fopen_lock($fichier, $mode, $verrou) {
 	if (_SPIP_LOCK_MODE == 1) {
 		if ($fl = @fopen($fichier, $mode)) {
@@ -82,7 +82,7 @@ function spip_fopen_lock($fichier, $mode, $verrou) {
  *     Chemin du fichier
  * @return bool
  *     true si succès, false sinon.
- **/
+ */
 function spip_fclose_unlock($handle) {
 	if (_SPIP_LOCK_MODE == 1) {
 		@flock($handle, LOCK_UN);
@@ -103,7 +103,7 @@ function spip_fclose_unlock($handle) {
  *     Chemin du fichier
  * @return string
  *     Contenu du fichier
- **/
+ */
 function spip_file_get_contents($fichier) {
 	if (!str_ends_with($fichier, '.gz')) {
 		if (function_exists('file_get_contents')) {
@@ -144,7 +144,7 @@ function spip_file_get_contents($fichier) {
  *     - 'phpcheck' => 'oui' : vérifie qu'on a bien du php
  * @return bool
  *     true si l'opération a réussie, false sinon.
- **/
+ */
 function lire_fichier($fichier, &$contenu, $options = []) {
 	$contenu = '';
 	// inutile car si le fichier n'existe pas, le lock va renvoyer false juste apres
@@ -212,7 +212,7 @@ function lire_fichier($fichier, &$contenu, $options = []) {
  *     Écriture avec troncation ?
  * @return bool
  *     - true si l’écriture s’est déroulée sans problème.
- **/
+ */
 function ecrire_fichier($fichier, $contenu, $ignorer_echec = false, $truncate = true) {
 
 	#spip_timer('ecrire_fichier');
@@ -389,7 +389,7 @@ function lire_fichier_securise($fichier, &$contenu, $options = []) {
  * Arrête le script PHP par un exit;
  *
  * @uses minipres() Pour afficher le message
- **/
+ */
 function raler_fichier(string $fichier): never {
 	if (!defined('_SPIP_ECRIRE_SCRIPT')) {
 		spip_initialisation_suite();
@@ -609,7 +609,7 @@ function supprimer_repertoire($dir) {
  *     true pour ne pas raler en cas de non création du répertoire
  * @return string
  *     Chemin du répertoire créé.
- **/
+ */
 function sous_repertoire($base, $subdir = '', $nobase = false, $tantpis = false): string {
 	static $dirs = [];
 
@@ -693,7 +693,7 @@ function sous_repertoire($base, $subdir = '', $nobase = false, $tantpis = false)
  *     false pour ne pas descendre dans les sous répertoires
  * @return array
  *     Chemins des fichiers trouvés.
- **/
+ */
 function preg_files($dir, $pattern = -1 /* AUTO */, $maxfiles = 10000, $recurs = []) {
 	$nbfiles = 0;
 	if ($pattern == -1) {

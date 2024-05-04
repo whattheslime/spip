@@ -1,19 +1,19 @@
 <?php
 
-/***************************************************************************\
- *  SPIP, Système de publication pour l'internet                           *
- *                                                                         *
- *  Copyright © avec tendresse depuis 2001                                 *
- *  Arnaud Martin, Antoine Pitrou, Philippe Rivière, Emmanuel Saint-James  *
- *                                                                         *
- *  Ce programme est un logiciel libre distribué sous licence GNU/GPL.     *
-\***************************************************************************/
+/**
+ * SPIP, Système de publication pour l'internet
+ *
+ * Copyright © avec tendresse depuis 2001
+ * Arnaud Martin, Antoine Pitrou, Philippe Rivière, Emmanuel Saint-James
+ *
+ * Ce programme est un logiciel libre distribué sous licence GNU/GPL.
+ */
 
 /**
  * Gestion des optimisations de la base de données en cron
  *
  * @package SPIP\Core\Genie\Optimiser
- **/
+ */
 
 if (!defined('_ECRIRE_INC_VERSION')) {
 	return;
@@ -31,7 +31,7 @@ include_spip('inc/config');
  *     Timestamp de la date de dernier appel de la tâche
  * @return int
  *     Timestamp de la date du prochain appel de la tâche
- **/
+ */
 function genie_optimiser_dist($t) {
 
 	optimiser_base_une_table();
@@ -66,7 +66,7 @@ function optimiser_caches_contextes() {
  * @param int $attente
  *     Attente entre 2 exécutions de la tache en secondes
  * @return void
- **/
+ */
 function optimiser_base($attente = 86400) {
 	optimiser_base_disparus($attente);
 }
@@ -82,7 +82,7 @@ function optimiser_base($attente = 86400) {
  * @see sql_optimize()
  *
  * @global int $GLOBALS ['meta']['optimiser_table']
- **/
+ */
 function optimiser_base_une_table() {
 
 	$tables = [];
@@ -131,7 +131,7 @@ function optimiser_base_une_table() {
  *     Condition AND à appliquer en plus sur la requête de suppression
  * @return int
  *     Nombre de suppressions
- **/
+ */
 function optimiser_sansref($table, $id, $sel, $and = '') {
 	$in = [];
 	while ($row = sql_fetch($sel)) {
@@ -163,7 +163,7 @@ function optimiser_sansref($table, $id, $sel, $and = '') {
  * @param int $attente
  *     Attente entre 2 exécutions de la tache en secondes
  * @return void
- **/
+ */
 function optimiser_base_disparus($attente = 86400) {
 
 	# format = 20060610110141, si on veut forcer une optimisation tout de suite

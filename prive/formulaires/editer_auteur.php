@@ -1,10 +1,13 @@
 <?php
 
 /**
- * Gestion du formulaire de d'édition de rubrique
+ * SPIP, Système de publication pour l'internet
  *
- * @package SPIP\Core\Auteurs\Formulaires
- **/
+ * Copyright © avec tendresse depuis 2001
+ * Arnaud Martin, Antoine Pitrou, Philippe Rivière, Emmanuel Saint-James
+ *
+ * Ce programme est un logiciel libre distribué sous licence GNU/GPL.
+ */
 
 if (!defined('_ECRIRE_INC_VERSION')) {
 	return;
@@ -36,7 +39,7 @@ include_spip('inc/session');
  *     Contenu HTML ajouté en même temps que les champs cachés du formulaire.
  * @return array
  *     Environnement du formulaire
- **/
+ */
 function formulaires_editer_auteur_charger_dist(
 	$id_auteur = 'new',
 	$retour = '',
@@ -148,7 +151,7 @@ function auteurs_edit_config(array $row): array {
  *     Contenu HTML ajouté en même temps que les champs cachés du formulaire.
  * @return array
  *     Erreurs des saisies
- **/
+ */
 function formulaires_editer_auteur_verifier_dist(
 	$id_auteur = 'new',
 	$retour = '',
@@ -321,7 +324,7 @@ function formulaires_editer_auteur_verifier_dist(
  *     Contenu HTML ajouté en même temps que les champs cachés du formulaire.
  * @return array
  *     Retour des traitements
- **/
+ */
 function formulaires_editer_auteur_traiter_dist(
 	$id_auteur = 'new',
 	$retour = '',

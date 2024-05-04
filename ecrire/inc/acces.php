@@ -1,19 +1,19 @@
 <?php
 
-/***************************************************************************\
- *  SPIP, Système de publication pour l'internet                           *
- *                                                                         *
- *  Copyright © avec tendresse depuis 2001                                 *
- *  Arnaud Martin, Antoine Pitrou, Philippe Rivière, Emmanuel Saint-James  *
- *                                                                         *
- *  Ce programme est un logiciel libre distribué sous licence GNU/GPL.     *
-\***************************************************************************/
+/**
+ * SPIP, Système de publication pour l'internet
+ *
+ * Copyright © avec tendresse depuis 2001
+ * Arnaud Martin, Antoine Pitrou, Philippe Rivière, Emmanuel Saint-James
+ *
+ * Ce programme est un logiciel libre distribué sous licence GNU/GPL.
+ */
 
 /**
  * Gestion des nombres aléatoires et de certains accès au site
  *
  * @package SPIP\Core\Authentification
- **/
+ */
 
 if (!defined('_ECRIRE_INC_VERSION')) {
 	return;
@@ -28,7 +28,7 @@ if (!defined('_ECRIRE_INC_VERSION')) {
  *     Clé pour un salage supplémentaire
  * @return string
  *     Mot de passe
- **/
+ */
 function creer_pass_aleatoire($longueur = 16, $sel = '') {
 	$seed = (int)round(((float)microtime() + 1) * time());
 
@@ -128,7 +128,7 @@ function charger_aleas() {
 
 /**
  * Renouveller l'alea (utilisé pour sécuriser les scripts du répertoire `action/`)
- **/
+ */
 function renouvelle_alea() {
 	charger_aleas();
 	ecrire_meta('alea_ephemere_ancien', @$GLOBALS['meta']['alea_ephemere'], 'non');
@@ -153,7 +153,7 @@ function renouvelle_alea() {
  *     Identifiant de l'auteur
  * @return string
  *     Clé de sécurité.
- **/
+ */
 function low_sec($id_auteur) {
 	// Pas d'id_auteur : low_sec
 	if (!$id_auteur = (int) $id_auteur) {
@@ -232,7 +232,7 @@ function generer_url_api_low_sec(string $script, string $format, string $fond, s
  *     Action désirée
  * @return string
  *     Clé
- **/
+ */
 function afficher_low_sec($id_auteur, $action = '') {
 	return substr(md5($action . low_sec($id_auteur)), 0, 8);
 }
@@ -250,7 +250,7 @@ function afficher_low_sec($id_auteur, $action = '') {
  *     Action désirée
  * @return bool
  *     true si les clés corresponde, false sinon
- **/
+ */
 function verifier_low_sec($id_auteur, #[\SensitiveParameter] $cle, $action = '') {
 	return ($cle == afficher_low_sec($id_auteur, $action));
 }
@@ -260,7 +260,7 @@ function verifier_low_sec($id_auteur, #[\SensitiveParameter] $cle, $action = '')
  *
  * @param int $id_auteur
  *     Identifiant de l'auteur
- **/
+ */
 function effacer_low_sec($id_auteur) {
 	if (!$id_auteur = (int) $id_auteur) {
 		return;
@@ -281,7 +281,7 @@ function effacer_low_sec($id_auteur) {
  * @return null|void
  *     - null si pas de htpasswd à créer, ou si LDAP
  *     - void sinon.
- **/
+ */
 function ecrire_acces() {
 	$htaccess = _DIR_RESTREINT . _ACCESS_FILE_NAME;
 	$htpasswd = _DIR_TMP . _AUTH_USER_FILE;

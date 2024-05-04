@@ -1,20 +1,20 @@
 <?php
 
-/***************************************************************************\
- *  SPIP, Système de publication pour l'internet                           *
- *                                                                         *
- *  Copyright © avec tendresse depuis 2001                                 *
- *  Arnaud Martin, Antoine Pitrou, Philippe Rivière, Emmanuel Saint-James  *
- *                                                                         *
- *  Ce programme est un logiciel libre distribué sous licence GNU/GPL.     *
-\***************************************************************************/
+/**
+ * SPIP, Système de publication pour l'internet
+ *
+ * Copyright © avec tendresse depuis 2001
+ * Arnaud Martin, Antoine Pitrou, Philippe Rivière, Emmanuel Saint-James
+ *
+ * Ce programme est un logiciel libre distribué sous licence GNU/GPL.
+ */
 
 /**
  * Gestion des puces de statut sur les objets
  * ainsi que des puces de changement rapide de statut.
  *
  * @package SPIP\Core\PuceStatut
- **/
+ */
 
 if (!defined('_ECRIRE_INC_VERSION')) {
 	return;
@@ -27,7 +27,7 @@ if (!defined('_ACTIVER_PUCE_RAPIDE')) {
 	 * Peut ralentir un site sur des listes très longues.
 	 *
 	 * @var bool
-	 **/
+	 */
 	define('_ACTIVER_PUCE_RAPIDE', true);
 }
 
@@ -320,7 +320,7 @@ function puce_statut_rubrique_dist($id, $statut, $id_rubrique, $type, $ajax = ''
  *     Indique si l'on peut changer le statut, ou si on l'affiche simplement
  * @return string
  *     Code HTML de l'image de puce de statut à insérer (et du menu de changement si présent)
- **/
+ */
 function puce_statut_changement_rapide(
 	$id,
 	$statut,

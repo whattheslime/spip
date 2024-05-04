@@ -119,7 +119,7 @@ class Requeteur
 	 * Obtient l'identifiant de la dernière ligne insérée ou modifiée
 	 *
 	 * @return string|false
-	 **/
+	 */
 	public function last_insert_id() {
 		return $this->link->lastInsertId();
 	}

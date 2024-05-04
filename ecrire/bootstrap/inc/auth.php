@@ -116,7 +116,7 @@ function verifier_visiteur() {
  * @param bool $force
  * @return string
  *     Identifiant de la session
- **/
+ */
 function spip_session($force = false) {
 	static $session;
 	if ($force || !isset($session)) {

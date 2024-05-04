@@ -1,22 +1,23 @@
 <?php
 
+/**
+ * SPIP, Système de publication pour l'internet
+ *
+ * Copyright © avec tendresse depuis 2001
+ * Arnaud Martin, Antoine Pitrou, Philippe Rivière, Emmanuel Saint-James
+ *
+ * Ce programme est un logiciel libre distribué sous licence GNU/GPL.
+ */
+
 use Spip\Texte\Collecteur\HtmlTag as CollecteurHtmlTag;
 
-/***************************************************************************\
- *  SPIP, Système de publication pour l'internet                           *
- *                                                                         *
- *  Copyright © avec tendresse depuis 2001                                 *
- *  Arnaud Martin, Antoine Pitrou, Philippe Rivière, Emmanuel Saint-James  *
- *                                                                         *
- *  Ce programme est un logiciel libre distribué sous licence GNU/GPL.     *
-\***************************************************************************/
 
 /**
  * Compose un squelette : compile le squelette au besoin et vérifie
  * la validité du code compilé
  *
  * @package SPIP\Core\Compilateur\Composer
- **/
+ */
 
 if (!defined('_ECRIRE_INC_VERSION')) {
 	return;
@@ -296,7 +297,7 @@ if ($lang_select) lang_select();
  *     Tableau d'informations sur la compilation
  * @return string
  *     Code PHP pour inclure le squelette de la balise dynamique
- **/
+ */
 function synthetiser_balise_dynamique($nom, $args, $file, $context_compil) {
 	if (
 		!str_starts_with($file, '/')
@@ -341,7 +342,7 @@ function synthetiser_balise_dynamique($nom, $args, $file, $context_compil) {
  *
  *    - Code PHP créant le tableau des arguments à transmettre,
  *    - ou texte entre quote `'` (si `$v` était une chaîne)
- **/
+ */
 function argumenter_squelette($v) {
 
 	if (is_object($v)) {
@@ -409,7 +410,7 @@ function executer_balise_dynamique_dans_un_modele(...$args) {
  *     Tableau d'informations sur la compilation
  * @return string
  *     Code PHP d'exécutant l'inclusion du squelette (ou texte) de la balise dynamique
- **/
+ */
 function executer_balise_dynamique($nom, $args, $context_compil) {
 	/** @var string Nom de la balise à charger (balise demandée ou balise générique) */
 	$nom_balise = $nom;
@@ -544,7 +545,7 @@ function chercher_balise_generique($nom) {
  * @param null|string $titre
  *     Titre de l'objet
  * @return null;
- **/
+ */
 function lang_select_public($lang, $lang_select, $titre = null) {
 	// Cas 1. forcer_lang = true et pas de critere {lang_select}
 	if (
@@ -607,7 +608,7 @@ function nettoyer_env_doublons($envd) {
  *     Description d'une condition WHERE de boucle (ou une partie de cette description)
  * @return string|bool
  *     Opérateur trouvé (SELF ou SUBSELECT) sinon false.
- **/
+ */
 function match_self($w) {
 	if (is_string($w)) {
 		return false;
@@ -637,7 +638,7 @@ function match_self($w) {
  * @return array|string
  *     Tableau de description du WHERE dont la description de sous-requête
  *     est remplacée par son code.
- **/
+ */
 function remplace_sous_requete($w, $sousrequete) {
 	if (is_array($w)) {
 		if (in_array(reset($w), ['SELF', 'SUBSELECT'])) {
@@ -660,7 +661,7 @@ function remplace_sous_requete($w, $sousrequete) {
  *     Liste de 2 tableaux :
  *     - Conditions simples (ne possédant pas de sous requêtes)
  *     - Conditions avec des sous requêtes
- **/
+ */
 function trouver_sous_requetes($where) {
 	$where_simples = [];
 	$where_sous = [];

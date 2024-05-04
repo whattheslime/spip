@@ -1,19 +1,19 @@
 <?php
 
-/***************************************************************************\
- *  SPIP, Système de publication pour l'internet                           *
- *                                                                         *
- *  Copyright © avec tendresse depuis 2001                                 *
- *  Arnaud Martin, Antoine Pitrou, Philippe Rivière, Emmanuel Saint-James  *
- *                                                                         *
- *  Ce programme est un logiciel libre distribué sous licence GNU/GPL.     *
-\***************************************************************************/
+/**
+ * SPIP, Système de publication pour l'internet
+ *
+ * Copyright © avec tendresse depuis 2001
+ * Arnaud Martin, Antoine Pitrou, Philippe Rivière, Emmanuel Saint-James
+ *
+ * Ce programme est un logiciel libre distribué sous licence GNU/GPL.
+ */
 
 /**
  * Fonctions génériques pour les balises formulaires
  *
  * @package SPIP\Core\Formulaires
- **/
+ */
 if (!defined('_ECRIRE_INC_VERSION')) {
 	return;
 }
@@ -65,7 +65,7 @@ function protege_champ(mixed $valeur, $max_prof = 128) {
  * @return string|bool
  *     - string : chemin du squelette
  *     - false : pas de squelette trouvé
- **/
+ */
 function existe_formulaire($form) {
 	$form = str_starts_with($form, 'FORMULAIRE_') ? strtolower(substr($form, 11)) : strtolower($form);
 
@@ -117,7 +117,7 @@ function test_formulaire_inclus_par_modele() {
  *     Description de la balise formulaire
  * @return Champ
  *     Description complétée du code compilé appelant la balise dynamique
- **/
+ */
 function balise_FORMULAIRE__dist($p) {
 
 	// Cas d'un #FORMULAIRE_TOTO inexistant : renvoyer la chaine vide.
@@ -175,7 +175,7 @@ function balise_FORMULAIRE__dyn($form, ...$args) {
  * @return array|string
  *     array: contexte d'environnement à envoyer au squelette
  *     string: Formulaire non applicable (message d’explication)
- **/
+ */
 function balise_FORMULAIRE__contexte($form, $args) {
 	// tester si ce formulaire vient d'etre poste (memes arguments)
 	// pour ne pas confondre 2 #FORMULAIRES_XX identiques sur une meme page

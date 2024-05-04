@@ -1,13 +1,13 @@
 <?php
 
-/***************************************************************************\
- *  SPIP, Système de publication pour l'internet                           *
- *                                                                         *
- *  Copyright © avec tendresse depuis 2001                                 *
- *  Arnaud Martin, Antoine Pitrou, Philippe Rivière, Emmanuel Saint-James  *
- *                                                                         *
- *  Ce programme est un logiciel libre distribué sous licence GNU/GPL.     *
-\***************************************************************************/
+/**
+ * SPIP, Système de publication pour l'internet
+ *
+ * Copyright © avec tendresse depuis 2001
+ * Arnaud Martin, Antoine Pitrou, Philippe Rivière, Emmanuel Saint-James
+ *
+ * Ce programme est un logiciel libre distribué sous licence GNU/GPL.
+ */
 
 /**
  * Gestion de l'action testant, pour la librairie graphique GD2, la taille
@@ -32,7 +32,7 @@ include_spip('inc/headers');
  *     Sortie du buffer
  * @return string
  *     Sortie du buffer
- **/
+ */
 function action_tester_taille_error_handler($output) {
 	// on est ici, donc echec lors de la creation de l'image
 	if (!empty($GLOBALS['redirect'])) {
@@ -54,7 +54,7 @@ function action_tester_taille_error_handler($output) {
  * maximum de taille à tester tel que '3000' (maximum) ou '3000-5000'
  * (minimum-maximum)
  *
- **/
+ */
 function action_tester_taille_dist() {
 
 	if (!autoriser('configurer')) {

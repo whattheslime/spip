@@ -1,13 +1,13 @@
 <?php
 
-/***************************************************************************\
- *  SPIP, Système de publication pour l'internet                           *
- *                                                                         *
- *  Copyright © avec tendresse depuis 2001                                 *
- *  Arnaud Martin, Antoine Pitrou, Philippe Rivière, Emmanuel Saint-James  *
- *                                                                         *
- *  Ce programme est un logiciel libre distribué sous licence GNU/GPL.     *
-\***************************************************************************/
+/**
+ * SPIP, Système de publication pour l'internet
+ *
+ * Copyright © avec tendresse depuis 2001
+ * Arnaud Martin, Antoine Pitrou, Philippe Rivière, Emmanuel Saint-James
+ *
+ * Ce programme est un logiciel libre distribué sous licence GNU/GPL.
+ */
 
 use Spip\Admin\Bouton;
 
@@ -15,7 +15,7 @@ use Spip\Admin\Bouton;
  * Ce fichier gère le bandeau supérieur de l'espace privé
  *
  * @package SPIP\Core\Bandeau
- **/
+ */
 
 if (!defined('_ECRIRE_INC_VERSION')) {
 	return;
@@ -36,7 +36,7 @@ include_spip('inc/boutons');
  *     S'il n'est pas transmis, on prend `$_GET`
  * @return array
  *     contexte
- **/
+ */
 function definir_barre_contexte($contexte = null) {
 	if (is_null($contexte)) {
 		$contexte = $_GET;

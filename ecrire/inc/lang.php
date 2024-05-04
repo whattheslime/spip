@@ -1,19 +1,19 @@
 <?php
 
-/***************************************************************************\
- *  SPIP, Système de publication pour l'internet                           *
- *                                                                         *
- *  Copyright © avec tendresse depuis 2001                                 *
- *  Arnaud Martin, Antoine Pitrou, Philippe Rivière, Emmanuel Saint-James  *
- *                                                                         *
- *  Ce programme est un logiciel libre distribué sous licence GNU/GPL.     *
-\***************************************************************************/
+/**
+ * SPIP, Système de publication pour l'internet
+ *
+ * Copyright © avec tendresse depuis 2001
+ * Arnaud Martin, Antoine Pitrou, Philippe Rivière, Emmanuel Saint-James
+ *
+ * Ce programme est un logiciel libre distribué sous licence GNU/GPL.
+ */
 
 /**
  * Gestion des langues et choix de langue
  *
  * @package SPIP\Core\Langue
- **/
+ */
 if (!defined('_ECRIRE_INC_VERSION')) {
 	return;
 }
@@ -35,7 +35,7 @@ if (!defined('_ECRIRE_INC_VERSION')) {
  * @return string|bool
  *     string : La langue qui a été utilisée si trouvée
  *     false : aucune langue ne correspondait à la demande
- **/
+ */
 function changer_langue($lang, $liste_langues = null) {
 
 	if (empty($lang)) {
@@ -116,7 +116,7 @@ function approcher_langue($trads, $lang = '') {
  *     Code de langue
  * @return string
  *     Nom de la langue, sinon son code.
- **/
+ */
 function traduire_nom_langue($lang) {
 	include_spip('inc/lang_liste');
 	include_spip('inc/charsets');
@@ -288,7 +288,7 @@ function liste_options_langues($nom_select) {
  * si necessaire vers l'URL xxxx?lang=ll
  *
  * @return void
- **/
+ */
 function verifier_lang_url() {
 
 	// quelle langue est demandee ?
@@ -339,7 +339,7 @@ function verifier_lang_url() {
  *     liste des langues valides
  * @return string
  *     La langue sélectionnée
- **/
+ */
 function utiliser_langue_site($liste_langues = null) {
 	// s'il existe une langue du site (en gros tout le temps en théorie)
 	if (
@@ -369,7 +369,7 @@ function utiliser_langue_site($liste_langues = null) {
  *     liste des langues valides
  * @return string
  *     La langue utilisée
- **/
+ */
 function utiliser_langue_visiteur($liste_langues = null) {
 
 	// si on est dans l'espace public et pas de $liste_langues : se limiter a la config langues_multilingue si définie
@@ -428,7 +428,7 @@ function match_langue($chaine) {
  * dans les fichiers de lang
  *
  * @return void
- **/
+ */
 function init_langues() {
 
 	// liste des langues dans les meta, sauf a l'install
@@ -474,7 +474,7 @@ function init_langues() {
  *
  * @return string
  *     Code html de la balise <html>
- **/
+ */
 function html_lang_attributes() {
 	$lang = $GLOBALS['spip_lang'];
 	$dir = lang_dir($lang);

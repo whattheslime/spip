@@ -256,7 +256,7 @@ function nettoyer_uri_var($request_uri) {
  * @param bool $root
  * @return string
  *    URL vers soi-même
- **/
+ */
 function self($amp = '&amp;', $root = false) {
 	$url = nettoyer_uri();
 	if (
@@ -641,7 +641,7 @@ function url_de_($http, $host, $request, $prof = 0) {
  *     - true : l’URL sera relavive.
  *     - string : on transmet l'url à la fonction
  * @return string URL
- **/
+ */
 function generer_url_ecrire(?string $script = '', $args = '', $no_entities = false, $rel = false) {
 	$script ??= '';
 	if (!$rel) {
@@ -682,7 +682,7 @@ function generer_url_ecrire(?string $script = '', $args = '', $no_entities = fal
  *     Script par défaut
  * @return string
  *     Nom du fichier (constante _SPIP_SCRIPT), sinon nom par défaut
- **/
+ */
 function get_spip_script($default = '') {
 	if (!defined('_SPIP_SCRIPT')) {
 		return 'spip.php';
@@ -719,7 +719,7 @@ function get_spip_script($default = '') {
  * @param string $action
  *     - Fichier d'exécution public (spip.php par défaut)
  * @return string URL
- **/
+ */
 function generer_url_public($script = '', $args = '', $no_entities = false, $rel = true, $action = '') {
 	// si le script est une action (spip_pass, spip_inscription),
 	// standardiser vers la nouvelle API

@@ -1,13 +1,13 @@
 <?php
 
-/***************************************************************************\
- *  SPIP, Système de publication pour l'internet                           *
- *                                                                         *
- *  Copyright © avec tendresse depuis 2001                                 *
- *  Arnaud Martin, Antoine Pitrou, Philippe Rivière, Emmanuel Saint-James  *
- *                                                                         *
- *  Ce programme est un logiciel libre distribué sous licence GNU/GPL.     *
-\***************************************************************************/
+/**
+ * SPIP, Système de publication pour l'internet
+ *
+ * Copyright © avec tendresse depuis 2001
+ * Arnaud Martin, Antoine Pitrou, Philippe Rivière, Emmanuel Saint-James
+ *
+ * Ce programme est un logiciel libre distribué sous licence GNU/GPL.
+ */
 
 /**
  * Mise à jour de la base de données
@@ -25,7 +25,7 @@ if (!defined('_UPGRADE_TIME_OUT')) {
 	 * avant que la durée d'exécution du script provoque un timeout
 	 *
 	 * @var int
-	 **/
+	 */
 	define('_UPGRADE_TIME_OUT', 20);
 }
 
@@ -480,7 +480,7 @@ function serie_alter($serie, $q = [], $meta = '', $table = 'meta', $redirect = '
  * Vérifie qu'il est possible d'ajouter une colonne à une table SQL
  *
  * @return bool True si possible.
- **/
+ */
 function upgrade_test() {
 	sql_drop_table('spip_test', true);
 	sql_create('spip_test', ['a' => 'int']);

@@ -167,7 +167,7 @@ function _L($text, $args = [], $options = []) {
  *     - null : Pour restituer la dernière langue mémorisée.
  * @return string
  *     - string Langue utilisée.
- **/
+ */
 function lang_select($lang = null) {
 	static $pile_langues = [];
 	if (!function_exists('changer_langue')) {

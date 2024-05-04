@@ -1,13 +1,13 @@
 <?php
 
-/***************************************************************************\
- *  SPIP, Système de publication pour l'internet                           *
- *                                                                         *
- *  Copyright © avec tendresse depuis 2001                                 *
- *  Arnaud Martin, Antoine Pitrou, Philippe Rivière, Emmanuel Saint-James  *
- *                                                                         *
- *  Ce programme est un logiciel libre distribué sous licence GNU/GPL.     *
-\***************************************************************************/
+/**
+ * SPIP, Système de publication pour l'internet
+ *
+ * Copyright © avec tendresse depuis 2001
+ * Arnaud Martin, Antoine Pitrou, Philippe Rivière, Emmanuel Saint-James
+ *
+ * Ce programme est un logiciel libre distribué sous licence GNU/GPL.
+ */
 
 /**
  * Fonctions génériques pour les balises `#URL_XXXX`
@@ -15,7 +15,7 @@
  * Les balises `URL_$type` sont génériques, sauf quelques cas particuliers.
  *
  * @package SPIP\Core\Compilateur\Balises
- **/
+ */
 
 if (!defined('_ECRIRE_INC_VERSION')) {
 	return;
@@ -34,7 +34,7 @@ if (!defined('_ECRIRE_INC_VERSION')) {
  *     Pile au niveau de la balise
  * @return string
  *     Code compilé
- **/
+ */
 function generer_generer_url($type, $p) {
 	$_id = interprete_argument_balise(1, $p);
 
@@ -70,7 +70,7 @@ function generer_generer_url($type, $p) {
  *     Code compilé permettant d'obtenir l'identifiant de l'objet
  * @return string
  *     Code compilé
- **/
+ */
 function generer_generer_url_arg($type, $p, $_id) {
 	if ($s = trouver_nom_serveur_distant($p)) {
 		// si une fonction de generation des url a ete definie pour ce connect l'utiliser

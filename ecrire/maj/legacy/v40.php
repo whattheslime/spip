@@ -1,13 +1,13 @@
 <?php
 
-/***************************************************************************\
- *  SPIP, Système de publication pour l'internet                           *
- *                                                                         *
- *  Copyright © avec tendresse depuis 2001                                 *
- *  Arnaud Martin, Antoine Pitrou, Philippe Rivière, Emmanuel Saint-James  *
- *                                                                         *
- *  Ce programme est un logiciel libre distribué sous licence GNU/GPL.     *
-\***************************************************************************/
+/**
+ * SPIP, Système de publication pour l'internet
+ *
+ * Copyright © avec tendresse depuis 2001
+ * Arnaud Martin, Antoine Pitrou, Philippe Rivière, Emmanuel Saint-James
+ *
+ * Ce programme est un logiciel libre distribué sous licence GNU/GPL.
+ */
 
 /**
  * Gestion des mises à jour de bdd de SPIP
@@ -17,7 +17,7 @@
  * À partir de 2021, les numéros d'upgrade sont de la forme YYYYMMDD00 où 00 est un incrément.
  *
  * @package SPIP\Core\SQL\Upgrade
- **/
+ */
 if (!defined('_ECRIRE_INC_VERSION')) {
 	return;
 }
@@ -31,7 +31,7 @@ $GLOBALS['maj'][24379] = [['maj_timestamp_mysql']];
  *
  * @uses base_lister_toutes_tables()
  * @uses _mysql_remplacements_definitions_table()
- **/
+ */
 function maj_timestamp_mysql($tables = null) {
 
 	include_spip('base/dump');

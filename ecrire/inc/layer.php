@@ -1,13 +1,13 @@
 <?php
 
-/***************************************************************************\
- *  SPIP, Système de publication pour l'internet                           *
- *                                                                         *
- *  Copyright © avec tendresse depuis 2001                                 *
- *  Arnaud Martin, Antoine Pitrou, Philippe Rivière, Emmanuel Saint-James  *
- *                                                                         *
- *  Ce programme est un logiciel libre distribué sous licence GNU/GPL.     *
-\***************************************************************************/
+/**
+ * SPIP, Système de publication pour l'internet
+ *
+ * Copyright © avec tendresse depuis 2001
+ * Arnaud Martin, Antoine Pitrou, Philippe Rivière, Emmanuel Saint-James
+ *
+ * Ce programme est un logiciel libre distribué sous licence GNU/GPL.
+ */
 
 if (!defined('_ECRIRE_INC_VERSION')) {
 	return;
@@ -23,7 +23,7 @@ if (!defined('_ECRIRE_INC_VERSION')) {
  * @param string $ids id que prendra la partie pliée ou dépliée
  * @param string $style_cadre classe CSS que prendra le cadre
  * @return string Code HTML du cadre dépliable
- **/
+ */
 function cadre_depliable($icone, $titre, $deplie, $contenu, $ids = '', $style_cadre = 'r') {
 	$bouton = bouton_block_depliable($titre, $deplie, $ids);
 

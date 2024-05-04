@@ -1,13 +1,13 @@
 <?php
 
-/***************************************************************************\
- *  SPIP, Système de publication pour l'internet                           *
- *                                                                         *
- *  Copyright © avec tendresse depuis 2001                                 *
- *  Arnaud Martin, Antoine Pitrou, Philippe Rivière, Emmanuel Saint-James  *
- *                                                                         *
- *  Ce programme est un logiciel libre distribué sous licence GNU/GPL.     *
-\***************************************************************************/
+/**
+ * SPIP, Système de publication pour l'internet
+ *
+ * Copyright © avec tendresse depuis 2001
+ * Arnaud Martin, Antoine Pitrou, Philippe Rivière, Emmanuel Saint-James
+ *
+ * Ce programme est un logiciel libre distribué sous licence GNU/GPL.
+ */
 
 /**
  * Gestion des charsets et des conversions
@@ -17,7 +17,7 @@
  * propose des fonctions émulant la librairie mb si elle est absente
  *
  * @package SPIP\Core\Texte\Charsets
- **/
+ */
 
 // securité
 if (!defined('_ECRIRE_INC_VERSION')) {
@@ -62,7 +62,7 @@ init_charset();
  * @return string|bool
  *     - Nom du charset
  *     - false si le charset n'est pas décrit dans le répertoire charsets/
- **/
+ */
 function load_charset($charset = 'AUTO') {
 	if ($charset == 'AUTO') {
 		$charset = $GLOBALS['meta']['charset'];
@@ -107,7 +107,7 @@ function load_charset($charset = 'AUTO') {
  *
  * @return bool
  *     true si notre charset est utilisable par mb_strsing
- **/
+ */
 function init_mb_string(): bool {
 	static $mb;
 
@@ -134,7 +134,7 @@ function init_mb_string(): bool {
  *
  * @return bool
  *     true si iconv fonctionne correctement
- **/
+ */
 function test_iconv(): bool {
 	static $iconv_ok;
 
@@ -164,7 +164,7 @@ function test_iconv(): bool {
  *     Charset de destination (unicode par défaut)
  * @return string|array
  *     texte corrigé
- **/
+ */
 function corriger_caracteres_windows($texte, $charset = 'AUTO', $charset_cible = 'unicode') {
 	static $trans;
 
@@ -249,7 +249,7 @@ function corriger_caracteres_windows($texte, $charset = 'AUTO', $charset_cible =
  *     true pour *ne pas convertir* les caracteres malins &lt; &amp; etc.
  * @return string
  *     texte converti
- **/
+ */
 function html2unicode(string $texte, bool $secure = false): string {
 	static $trans = [];
 
@@ -288,7 +288,7 @@ function html2unicode(string $texte, bool $secure = false): string {
  *     texte à convertir
  * @return string
  *     texte converti
- **/
+ */
 function mathml2unicode($texte) {
 	static $trans;
 	if (!$trans) {
@@ -319,7 +319,7 @@ function mathml2unicode($texte) {
  *     Par défaut (AUTO), le charset est celui du site.
  * @return string
  *     texte converti en unicode
- **/
+ */
 function charset2unicode(?string $texte, string $charset = 'AUTO' /* $forcer: obsolete*/) {
 	static $trans;
 
@@ -405,7 +405,7 @@ function charset2unicode(?string $texte, string $charset = 'AUTO' /* $forcer: ob
  *     Par défaut (AUTO), le charset sera celui du site.
  * @return string
  *     texte transformé dans le charset souhaité
- **/
+ */
 function unicode2charset($texte, $charset = 'AUTO') {
 	static $CHARSET_REVERSE = [];
 	static $trans = [];
@@ -458,7 +458,7 @@ function unicode2charset($texte, $charset = 'AUTO') {
  *     Par défaut (AUTO), le charset d'origine est celui du site.
  * @return string
  *     texte transformé dans le charset site
- **/
+ */
 function importer_charset($texte, $charset = 'AUTO') {
 	$s = null;
 	static $trans = [];
@@ -505,7 +505,7 @@ function importer_charset($texte, $charset = 'AUTO') {
  *    texte UTF-8 à transformer
  * @return string
  *    texte transformé en unicode
- **/
+ */
 function utf_8_to_unicode($source) {
 
 	// mb_string : methode rapide
@@ -609,7 +609,7 @@ function utf_8_to_unicode($source) {
  *    texte UTF-8 à transformer
  * @return string
  *    texte transformé en unicode
- **/
+ */
 function utf_32_to_unicode($source) {
 
 	// mb_string : methode rapide
@@ -652,7 +652,7 @@ function utf_32_to_unicode($source) {
  *    Numéro de l'entité unicode
  * @return string
  *    Caractère utf8 si trouvé, '' sinon
- **/
+ */
 function caractere_utf_8($num) {
 	$num = (int) $num;
 	if ($num < 128) {
@@ -678,7 +678,7 @@ function caractere_utf_8($num) {
  *     texte à convertir
  * @return string
  *     texte converti
- **/
+ */
 function unicode_to_utf_8($texte) {
 
 	// 1. Entites &#128; et suivantes
@@ -726,7 +726,7 @@ function unicode_to_utf_8($texte) {
  *     texte à convertir
  * @return string
  *     texte converti
- **/
+ */
 function unicode_to_javascript($texte) {
 	$vu = [];
 	while (preg_match(',&#0*(\d+);,S', $texte, $regs) && !isset($vu[$regs[1]])) {
@@ -746,7 +746,7 @@ function unicode_to_javascript($texte) {
  *     texte à convertir
  * @return string
  *     texte converti
- **/
+ */
 function javascript_to_unicode($texte) {
 	while (preg_match(',%u([0-9A-F][0-9A-F][0-9A-F][0-9A-F]),', $texte, $regs)) {
 		$texte = str_replace($regs[0], '&#' . hexdec($regs[1]) . ';', $texte);
@@ -762,7 +762,7 @@ function javascript_to_unicode($texte) {
  *     texte à convertir
  * @return string
  *     texte converti
- **/
+ */
 function javascript_to_binary($texte) {
 	while (preg_match(',%([0-9A-F][0-9A-F]),', $texte, $regs)) {
 		$texte = str_replace($regs[0], chr(hexdec($regs[1])), $texte);
@@ -887,7 +887,7 @@ function translitteration_chiffree(string $car): string {
  *    texte dont on vérifie la présence du BOM
  * @return bool
  *    true s'il a un BOM
- **/
+ */
 function bom_utf8($texte): bool {
 	return (substr($texte, 0, 3) === chr(0xEF) . chr(0xBB) . chr(0xBF));
 }
@@ -904,7 +904,7 @@ function bom_utf8($texte): bool {
  *     texte dont on vérifie qu'il est de l'utf-8
  * @return bool
  *     true si c'est le cas
- **/
+ */
 function is_utf8($string): bool {
 	return !strlen(
 		preg_replace(
@@ -930,7 +930,7 @@ function is_utf8($string): bool {
  *     texte dont on vérifie qu'il est de l'ascii
  * @return bool
  *     true si c'est le cas
- **/
+ */
 function is_ascii($string): bool {
 	return !strlen(
 		preg_replace(
@@ -954,7 +954,7 @@ function is_ascii($string): bool {
  *     Éventuels headers HTTP liés à cette page
  * @return string
  *     texte transcodé dans le charset du site
- **/
+ */
 function transcoder_page($texte, $headers = ''): string {
 
 	// Si tout est < 128 pas la peine d'aller plus loin
@@ -1022,7 +1022,7 @@ function transcoder_page($texte, $headers = ''): string {
  * @param null|int $length Longueur ou fin
  * @return string
  *     Le texte coupé
- **/
+ */
 function spip_substr($c, $start = 0, $length = null) {
 	if ($GLOBALS['meta']['charset'] !== 'utf-8') {
 		if ($length) {

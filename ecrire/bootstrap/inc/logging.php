@@ -203,7 +203,7 @@ function spip_log($message, $name = null): void
  * @uses inc_journal_dist()
  * @param string $phrase texte du journal
  * @param array $opt Tableau d'options
- **/
+ */
 function journal($phrase, $opt = []) {
 	$journal = charger_fonction('journal', 'inc');
 	$journal($phrase, $opt);

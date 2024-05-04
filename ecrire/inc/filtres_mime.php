@@ -1,13 +1,13 @@
 <?php
 
-/***************************************************************************\
- *  SPIP, Système de publication pour l'internet                           *
- *                                                                         *
- *  Copyright © avec tendresse depuis 2001                                 *
- *  Arnaud Martin, Antoine Pitrou, Philippe Rivière, Emmanuel Saint-James  *
- *                                                                         *
- *  Ce programme est un logiciel libre distribué sous licence GNU/GPL.     *
-\***************************************************************************/
+/**
+ * SPIP, Système de publication pour l'internet
+ *
+ * Copyright © avec tendresse depuis 2001
+ * Arnaud Martin, Antoine Pitrou, Philippe Rivière, Emmanuel Saint-James
+ *
+ * Ce programme est un logiciel libre distribué sous licence GNU/GPL.
+ */
 
 /**
  * Déclaration de filtres permettent l'incrustation d'un document selon son type Mime
@@ -18,7 +18,7 @@
  * @see \appliquer_filtre()
  *
  * @package SPIP\Core\Filtres\Mime
- **/
+ */
 
 if (!defined('_ECRIRE_INC_VERSION')) {
 	return;
@@ -36,7 +36,7 @@ include_spip('inc/filtres');
  * @filtre
  * @param string $t Contenu
  * @return string Rien.
- **/
+ */
 function filtre_image_dist($t) {
 	return '';
 }
@@ -49,7 +49,7 @@ function filtre_image_dist($t) {
  * @filtre
  * @param string $t Contenu
  * @return string Rien.
- **/
+ */
 function filtre_audio_dist($t) {
 	return '';
 }
@@ -62,7 +62,7 @@ function filtre_audio_dist($t) {
  * @filtre
  * @param string $t Contenu
  * @return string Rien.
- **/
+ */
 function filtre_video_dist($t) {
 	return '';
 }
@@ -75,7 +75,7 @@ function filtre_video_dist($t) {
  * @filtre
  * @param string $t Contenu
  * @return string Rien.
- **/
+ */
 function filtre_application_dist($t) {
 	return '';
 }
@@ -88,7 +88,7 @@ function filtre_application_dist($t) {
  * @filtre
  * @param string $t Contenu
  * @return string Rien.
- **/
+ */
 function filtre_message_dist($t) {
 	return '';
 }
@@ -101,7 +101,7 @@ function filtre_message_dist($t) {
  * @filtre
  * @param string $t Contenu
  * @return string Rien.
- **/
+ */
 function filtre_multipart_dist($t) {
 	return '';
 }
@@ -114,7 +114,7 @@ function filtre_multipart_dist($t) {
  * @filtre
  * @param string $t Contenu
  * @return string Contenu échappé.
- **/
+ */
 function filtre_text_dist($t) {
 	static $t1 = ['&', '<', '>'];
 	static $t2 = ['&amp;', '&lt;', '&gt;'];
@@ -132,7 +132,7 @@ function filtre_text_dist($t) {
  *     texte CSV
  * @return string
  *     Tableau (formaté en SPIP)
- **/
+ */
 function filtre_text_csv_dist($t) {
 	include_spip('inc/csv');
 	[$entete, $lignes, $caption] = analyse_csv($t);
@@ -160,7 +160,7 @@ function filtre_text_csv_dist($t) {
  * @filtre
  * @param string $t Code html
  * @return string Code html sécurisé ou texte échappé
- **/
+ */
 function filtre_text_html_dist($t) {
 	if (!preg_match(',^(.*?)<body[^>]*>(.*)</body>,is', $t, $r)) {
 		return appliquer_filtre($t, 'text/plain');
@@ -199,7 +199,7 @@ function filtre_text_html_dist($t) {
  * @filtre
  * @param string $id
  * @return string Code HTML des balises `<param>`
- **/
+ */
 function filtre_audio_x_pn_realaudio($id) {
 	return "
 	<param name='controls' value='PositionSlider' />

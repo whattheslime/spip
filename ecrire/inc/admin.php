@@ -1,19 +1,19 @@
 <?php
 
-/***************************************************************************\
- *  SPIP, Système de publication pour l'internet                           *
- *                                                                         *
- *  Copyright © avec tendresse depuis 2001                                 *
- *  Arnaud Martin, Antoine Pitrou, Philippe Rivière, Emmanuel Saint-James  *
- *                                                                         *
- *  Ce programme est un logiciel libre distribué sous licence GNU/GPL.     *
-\***************************************************************************/
+/**
+ * SPIP, Système de publication pour l'internet
+ *
+ * Copyright © avec tendresse depuis 2001
+ * Arnaud Martin, Antoine Pitrou, Philippe Rivière, Emmanuel Saint-James
+ *
+ * Ce programme est un logiciel libre distribué sous licence GNU/GPL.
+ */
 
 /**
  * Gestion d'administration d'un SPIP
  *
  * @package SPIP\Core\Admin
- **/
+ */
 
 if (!defined('_ECRIRE_INC_VERSION')) {
 	return;
@@ -42,7 +42,7 @@ if (!defined('_ECRIRE_INC_VERSION')) {
  * @return string
  *     Code HTML de la page (pour vérifier les droits),
  *     sinon code HTML de la page après le traitement effectué.
- **/
+ */
 function inc_admin_dist($script, $titre, $comment = '', $anonymous = false) {
 	$reprise = true;
 	if (
@@ -137,7 +137,7 @@ function admin_verifie_session($script, $anonymous = false) {
  *
  * @return string
  *     Chemin du répertoire.
- **/
+ */
 function dir_admin() {
 	if (autoriser('configurer')) {
 		return _DIR_TMP;
@@ -158,7 +158,7 @@ function dir_admin() {
  *     Préfixe au nom du fichier calculé
  * @return string
  *     Nom du fichier
- **/
+ */
 function fichier_admin($action, $pref = 'admin_') {
 	return $pref .
 	substr(md5($action . (time() & ~2047) . $GLOBALS['visiteur_session']['login']), 0, 10);
@@ -185,7 +185,7 @@ function fichier_admin($action, $pref = 'admin_') {
  * @return string
  *     Code HTML de la page (pour vérifier les droits),
  *     sinon chaîne vide si déjà fait.
- **/
+ */
 function debut_admin($script, $action = '', $corps = '') {
 	if (
 		!$action
@@ -265,7 +265,7 @@ function debut_admin($script, $action = '', $corps = '') {
  *
  * @param string $action
  *     Nom de l'action (en base) qui a été exécutée
- **/
+ */
 function fin_admin($action) {
 	$signal = dir_admin() . fichier_admin($action);
 	spip_unlink($signal);
@@ -290,7 +290,7 @@ function fin_admin($action) {
  *     texte du bouton de validation
  * @return string
  *     Code HTML du formulaire
- **/
+ */
 function copy_request($script, $suite, $submit = '') {
 	include_spip('inc/filtres');
 	foreach ([...$_POST, ...$_GET] as $n => $c) {

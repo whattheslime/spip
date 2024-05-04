@@ -19,7 +19,7 @@
  *     Si indiqué, un bouton de soumission est créé avec texte sa valeur.
  * @return string
  *     Code HTML du formulaire
- **/
+ */
 function generer_form_ecrire($script, $corps, $atts = '', $submit = '') {
 
 	$script1 = explode('&', $script);

@@ -1,13 +1,13 @@
 <?php
 
-/***************************************************************************\
- *  SPIP, Système de publication pour l'internet                           *
- *                                                                         *
- *  Copyright © avec tendresse depuis 2001                                 *
- *  Arnaud Martin, Antoine Pitrou, Philippe Rivière, Emmanuel Saint-James  *
- *                                                                         *
- *  Ce programme est un logiciel libre distribué sous licence GNU/GPL.     *
-\***************************************************************************/
+/**
+ * SPIP, Système de publication pour l'internet
+ *
+ * Copyright © avec tendresse depuis 2001
+ * Arnaud Martin, Antoine Pitrou, Philippe Rivière, Emmanuel Saint-James
+ *
+ * Ce programme est un logiciel libre distribué sous licence GNU/GPL.
+ */
 
 /**
  * Ce fichier contient les fonctions simples
@@ -368,7 +368,7 @@ function image_select($img, $width_min = 0, $height_min = 0, $width_max = 10000,
  *     AUTO utilise la librairie sélectionnée dans la configuration.
  * @return string
  *     Code HTML de l'image ou du texte.
- **/
+ */
 function image_passe_partout(
 	$img,
 	$taille_x = -1,
@@ -449,7 +449,7 @@ function image_passe_partout(
  *     AUTO utilise la librairie sélectionnée dans la configuration.
  * @return string
  *     Code HTML de l'image ou du texte.
- **/
+ */
 function image_reduire(
 	$img,
 	$taille = -1,
@@ -497,7 +497,7 @@ function image_reduire(
  * recadre une image uniquement si GD2 et image_recadre (plugin activé) existe
  * sinon retourne le image_passe_partout usuel
  *
- **/
+ */
 function image_recadre_avec_fallback(
 	$im,
 	$width,
@@ -524,7 +524,7 @@ function image_recadre_avec_fallback(
  * @param bool $force
  * @return string
  *     Code HTML de l'image ou du texte.
- **/
+ */
 function image_reduire_par($img, $val = 1, $force = false) {
 	// PHP 7+ type hint
 	$img = (string)$img;

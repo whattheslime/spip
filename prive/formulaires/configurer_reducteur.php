@@ -1,20 +1,20 @@
 <?php
 
-/***************************************************************************\
- *  SPIP, Système de publication pour l'internet                           *
- *                                                                         *
- *  Copyright © avec tendresse depuis 2001                                 *
- *  Arnaud Martin, Antoine Pitrou, Philippe Rivière, Emmanuel Saint-James  *
- *                                                                         *
- *  Ce programme est un logiciel libre distribué sous licence GNU/GPL.     *
-\***************************************************************************/
+/**
+ * SPIP, Système de publication pour l'internet
+ *
+ * Copyright © avec tendresse depuis 2001
+ * Arnaud Martin, Antoine Pitrou, Philippe Rivière, Emmanuel Saint-James
+ *
+ * Ce programme est un logiciel libre distribué sous licence GNU/GPL.
+ */
 
 /**
  * Formulaire de configuration pour choisir la librairie graphique
  * et les tailles de redimensionnement des vignettes
  *
  * @package SPIP\Core\Formulaires
- **/
+ */
 
 if (!defined('_ECRIRE_INC_VERSION')) {
 	return;
@@ -25,7 +25,7 @@ if (!defined('_ECRIRE_INC_VERSION')) {
  *
  * @return array
  *     Environnement du formulaire
- **/
+ */
 function formulaires_configurer_reducteur_charger_dist() {
 	$valeurs = [];
 	foreach (
@@ -53,7 +53,7 @@ function formulaires_configurer_reducteur_charger_dist() {
  *
  * @return array
  *     Retours des traitements
- **/
+ */
 function formulaires_configurer_reducteur_traiter_dist() {
 	$res = ['editable' => true];
 
@@ -108,7 +108,7 @@ function formulaires_configurer_reducteur_traiter_dist() {
  *     Code de la libriairie, parmi gd2, imagick ou convert
  * @return string
  *     URL d'action pour tester la librairie graphique en créant une vignette
- **/
+ */
 function url_vignette_choix(string $process): string {
 	$ok = match ($process) {
 		'gd2' => function_exists('ImageCreateTrueColor'),

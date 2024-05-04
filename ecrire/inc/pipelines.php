@@ -1,19 +1,19 @@
 <?php
 
-/***************************************************************************\
- *  SPIP, Système de publication pour l'internet                           *
- *                                                                         *
- *  Copyright © avec tendresse depuis 2001                                 *
- *  Arnaud Martin, Antoine Pitrou, Philippe Rivière, Emmanuel Saint-James  *
- *                                                                         *
- *  Ce programme est un logiciel libre distribué sous licence GNU/GPL.     *
-\***************************************************************************/
+/**
+ * SPIP, Système de publication pour l'internet
+ *
+ * Copyright © avec tendresse depuis 2001
+ * Arnaud Martin, Antoine Pitrou, Philippe Rivière, Emmanuel Saint-James
+ *
+ * Ce programme est un logiciel libre distribué sous licence GNU/GPL.
+ */
 
 /**
  * Fonctions déclarées dans des pipelines (espace public)
  *
  * @package SPIP\Core\Pipelines
- **/
+ */
 if (!defined('_ECRIRE_INC_VERSION')) {
 	return;
 }
@@ -42,7 +42,7 @@ if (test_espace_prive()) {
  *
  * @param string $texte Contenu qui sera inséré dans le head HTML
  * @return string          Contenu qui sera inséré dans le head HTML
- **/
+ */
 function f_jQuery($texte) {
 	$x = '';
 	$jquery_plugins = pipeline(
@@ -78,7 +78,7 @@ function f_jQuery($texte) {
  *
  * @param string $texte Contenu de la page envoyée au navigateur
  * @return string         Contenu de la page envoyée au navigateur
- **/
+ */
 function f_tidy($texte) {
 	/**
 	 * Indentation à faire ?
@@ -123,7 +123,7 @@ function f_tidy($texte) {
  *
  * @param string $texte Contenu de la page envoyée au navigateur
  * @return string         Contenu de la page envoyée au navigateur
- **/
+ */
 function f_insert_head($texte) {
 	if (!$GLOBALS['html']) {
 		return $texte;
@@ -156,7 +156,7 @@ function f_insert_head($texte) {
  *
  * @param string $texte Contenu de la page envoyée au navigateur
  * @return string         Contenu de la page envoyée au navigateur
- **/
+ */
 function f_admin($texte) {
 	if (defined('_VAR_PREVIEW') && _VAR_PREVIEW && $GLOBALS['html']) {
 		include_spip('inc/filtres'); // pour http_img_pack
@@ -201,7 +201,7 @@ function f_admin($texte) {
  *
  * @param  array $flux Description et contenu de l'inclusion
  * @return array $flux  Description et contenu de l'inclusion
- **/
+ */
 function f_recuperer_fond($flux) {
 	if (!test_espace_prive()) {
 		return $flux;

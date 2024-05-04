@@ -1,13 +1,13 @@
 <?php
 
-/***************************************************************************\
- *  SPIP, Système de publication pour l'internet                           *
- *                                                                         *
- *  Copyright © avec tendresse depuis 2001                                 *
- *  Arnaud Martin, Antoine Pitrou, Philippe Rivière, Emmanuel Saint-James  *
- *                                                                         *
- *  Ce programme est un logiciel libre distribué sous licence GNU/GPL.     *
-\***************************************************************************/
+/**
+ * SPIP, Système de publication pour l'internet
+ *
+ * Copyright © avec tendresse depuis 2001
+ * Arnaud Martin, Antoine Pitrou, Philippe Rivière, Emmanuel Saint-James
+ *
+ * Ce programme est un logiciel libre distribué sous licence GNU/GPL.
+ */
 
 /**
  * Gestion d'affichage de l'administration des plugins
@@ -78,7 +78,7 @@ function exec_admin_plugin_dist($retour = '') {
  *     Erreur éventuelle à afficher
  * @param string $format
  *     Format d'affichage (liste ou arborescence)
- **/
+ */
 function admin_plug_args($quoi, $erreur, $format) {
 	$lpf = null;
 	$lcpas = null;
@@ -251,7 +251,7 @@ function admin_plug_args($quoi, $erreur, $format) {
  *     Liste des plugins actifs
  * @return string
  *     Code HTML
- **/
+ */
 function affiche_les_plugins_verrouilles($actifs) {
 	if ((!$liste = liste_plugin_files(_DIR_PLUGINS_DIST))) {
 		return '';

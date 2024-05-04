@@ -1,19 +1,19 @@
 <?php
 
-/***************************************************************************\
- *  SPIP, Système de publication pour l'internet                           *
- *                                                                         *
- *  Copyright © avec tendresse depuis 2001                                 *
- *  Arnaud Martin, Antoine Pitrou, Philippe Rivière, Emmanuel Saint-James  *
- *                                                                         *
- *  Ce programme est un logiciel libre distribué sous licence GNU/GPL.     *
-\***************************************************************************/
+/**
+ * SPIP, Système de publication pour l'internet
+ *
+ * Copyright © avec tendresse depuis 2001
+ * Arnaud Martin, Antoine Pitrou, Philippe Rivière, Emmanuel Saint-James
+ *
+ * Ce programme est un logiciel libre distribué sous licence GNU/GPL.
+ */
 
 /**
  * Gestion du cache et des invalidations de cache
  *
  * @package SPIP\Core\Cache
- **/
+ */
 
 if (!defined('_ECRIRE_INC_VERSION')) {
 	return;
@@ -38,7 +38,7 @@ if (!defined('_AGE_CACHE_ATIME')) {
  * on y va donc à l'estime !
  *
  * @return int Taille approximative en octets
- **/
+ */
 function taille_du_cache() {
 	# check dirs until we reach > 500 files
 	$t = 0;
@@ -89,7 +89,7 @@ function taille_du_cache() {
  *     Condition d'invalidation
  * @param bool $modif
  *     Inutilisé
- **/
+ */
 function inc_suivre_invalideur_dist($cond, $modif = true) {
 	if (!$modif) {
 		return;
@@ -137,7 +137,7 @@ function inc_suivre_invalideur_dist($cond, $modif = true) {
  *     - limit : nombre maximum de suppressions
  * @return int
  *     Nombre de fichiers supprimés
- **/
+ */
 function purger_repertoire($dir, $options = []) {
 	if (!is_dir($dir) || !is_readable($dir)) {
 		return 0;

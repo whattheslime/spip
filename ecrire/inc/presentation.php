@@ -1,19 +1,19 @@
 <?php
 
-/***************************************************************************\
- *  SPIP, Système de publication pour l'internet                           *
- *                                                                         *
- *  Copyright © avec tendresse depuis 2001                                 *
- *  Arnaud Martin, Antoine Pitrou, Philippe Rivière, Emmanuel Saint-James  *
- *                                                                         *
- *  Ce programme est un logiciel libre distribué sous licence GNU/GPL.     *
-\***************************************************************************/
+/**
+ * SPIP, Système de publication pour l'internet
+ *
+ * Copyright © avec tendresse depuis 2001
+ * Arnaud Martin, Antoine Pitrou, Philippe Rivière, Emmanuel Saint-James
+ *
+ * Ce programme est un logiciel libre distribué sous licence GNU/GPL.
+ */
 
 /**
  * Fonctions pour l'affichage privé des pages exec PHP
  *
  * @package SPIP\Core\Presentation
- **/
+ */
 if (!defined('_ECRIRE_INC_VERSION')) {
 	return;
 }
@@ -173,7 +173,7 @@ function fin_boite_info() {
  * @param string $titre Le titre en question
  * @param string $ze_logo Une image de logo
  * @return string Code PHP.
- **/
+ */
 function gros_titre(
 	$titre,
 	$ze_logo = ''
@@ -236,7 +236,7 @@ function onglet($texte, $lien, $onglet_ref, $onglet, $icone = '') {
  *     Javascript ajouté sur le lien
  * @return string
  *     Code HTML du lien
- **/
+ */
 function icone_verticale($texte, $lien, $fond, $fonction = '', $align = '', $javascript = '') {
 	// cas d'ajax_action_auteur: faut defaire le boulot
 	// (il faudrait fusionner avec le cas $javascript)
@@ -268,7 +268,7 @@ function icone_verticale($texte, $lien, $fond, $fonction = '', $align = '', $jav
  *     Javascript ajouté sur le lien
  * @return string
  *     Code HTML du lien
- **/
+ */
 function icone_horizontale($texte, $lien, $fond, $fonction = '', $dummy = '', $javascript = '') {
 	$retour = '';
 	// cas d'ajax_action_auteur: faut defaire le boulot

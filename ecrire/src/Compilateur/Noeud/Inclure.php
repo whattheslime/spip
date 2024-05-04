@@ -4,7 +4,7 @@ namespace Spip\Compilateur\Noeud;
 
 /**
  * Description d'une inclusion de squelette.
- **/
+ */
 class Inclure
 {
 	/** Type de noeud */

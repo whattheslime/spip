@@ -1,19 +1,19 @@
 <?php
 
-/***************************************************************************\
- *  SPIP, Système de publication pour l'internet                           *
- *                                                                         *
- *  Copyright © avec tendresse depuis 2001                                 *
- *  Arnaud Martin, Antoine Pitrou, Philippe Rivière, Emmanuel Saint-James  *
- *                                                                         *
- *  Ce programme est un logiciel libre distribué sous licence GNU/GPL.     *
-\***************************************************************************/
+/**
+ * SPIP, Système de publication pour l'internet
+ *
+ * Copyright © avec tendresse depuis 2001
+ * Arnaud Martin, Antoine Pitrou, Philippe Rivière, Emmanuel Saint-James
+ *
+ * Ce programme est un logiciel libre distribué sous licence GNU/GPL.
+ */
 
 /**
  * Gestion des puces d'action rapide
  *
  * @package SPIP\Core\Puce_statut
- **/
+ */
 
 if (!defined('_ECRIRE_INC_VERSION')) {
 	return;
@@ -28,7 +28,7 @@ include_spip('inc/presentation');
  * et appelle la fonction de traitement de cet exec.
  *
  * @uses exec_puce_statut_args()
- **/
+ */
 function exec_puce_statut_dist(): void {
 	exec_puce_statut_args(_request('id'), _request('type'));
 }
@@ -47,7 +47,7 @@ function exec_puce_statut_dist(): void {
  *     Identifiant de l'objet
  * @param string $type
  *     Type d'objet
- **/
+ */
 function exec_puce_statut_args($id, $type): void {
 	$id = (int) $id;
 	if (

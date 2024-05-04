@@ -1,15 +1,16 @@
 <?php
 
+/**
+ * SPIP, Système de publication pour l'internet
+ *
+ * Copyright © avec tendresse depuis 2001
+ * Arnaud Martin, Antoine Pitrou, Philippe Rivière, Emmanuel Saint-James
+ *
+ * Ce programme est un logiciel libre distribué sous licence GNU/GPL.
+ */
+
 use Spip\Compilateur\Noeud\Contexte;
 
-/***************************************************************************\
- *  SPIP, Système de publication pour l'internet                           *
- *                                                                         *
- *  Copyright © avec tendresse depuis 2001                                 *
- *  Arnaud Martin, Antoine Pitrou, Philippe Rivière, Emmanuel Saint-James  *
- *                                                                         *
- *  Ce programme est un logiciel libre distribué sous licence GNU/GPL.     *
-\***************************************************************************/
 
 if (!defined('_ECRIRE_INC_VERSION')) {
 	return;
@@ -67,7 +68,7 @@ defined('_DEBUG_MAX_SQUELETTE_ERREURS') || define('_DEBUG_MAX_SQUELETTE_ERREURS'
  *     - string si $message à false.
  *     - array si $opt 'erreurs' = 'get'
  *     - true si $opt 'erreurs' = 'reset'
- **/
+ */
 function public_debusquer_dist($message = '', $lieu = '', $opt = []) {
 	static $tableau_des_erreurs = [];
 
@@ -188,7 +189,7 @@ function debusquer_bandeau($erreurs) {
  *
  * @param array|string $env
  * @return string Code HTML
- **/
+ */
 function debusquer_contexte($env) {
 	if (is_string($env) && is_array($env_tab = @unserialize($env))) {
 		$env = $env_tab;
@@ -332,7 +333,7 @@ function debusquer_navigation($tableau, $caption = [], $id = 'debug-nav') {
  * @return string|array
  *    Retourne le texte de l'erreur a afficher
  *    ou un tableau si l'erreur est critique
- **/
+ */
 function debusquer_requete($message) {
 	[$errno, $msg, $query] = $message;
 

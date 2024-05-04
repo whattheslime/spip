@@ -1,19 +1,19 @@
 <?php
 
-/***************************************************************************\
- *  SPIP, Système de publication pour l'internet                           *
- *                                                                         *
- *  Copyright © avec tendresse depuis 2001                                 *
- *  Arnaud Martin, Antoine Pitrou, Philippe Rivière, Emmanuel Saint-James  *
- *                                                                         *
- *  Ce programme est un logiciel libre distribué sous licence GNU/GPL.     *
-\***************************************************************************/
+/**
+ * SPIP, Système de publication pour l'internet
+ *
+ * Copyright © avec tendresse depuis 2001
+ * Arnaud Martin, Antoine Pitrou, Philippe Rivière, Emmanuel Saint-James
+ *
+ * Ce programme est un logiciel libre distribué sous licence GNU/GPL.
+ */
 
 /**
  * Gestion de l'activation des plugins
  *
  * @package SPIP\Core\Plugins
- **/
+ */
 
 if (!defined('_ECRIRE_INC_VERSION')) {
 	return;
@@ -184,7 +184,7 @@ define('_EXTRAIRE_INTERVALLE', ',^[\[\(\]]([0-9.a-zRC\s\-]*)[;]([0-9.a-zRC\s\-\*
  *    avec SPIP.
  * @return bool
  *    True si dans l'intervalle, false sinon.
- **/
+ */
 function plugin_version_compatible($intervalle, $version, $avec_quoi = '') {
 
 	if (!strlen($intervalle)) {
@@ -628,7 +628,7 @@ function plugin_donne_erreurs($raw = false, $raz = true) {
  * @return array
  *    Tableau des messages d'erreurs reçus. Il sera vide si tout va bien.
  *
- **/
+ */
 function plugin_necessite($n, $liste, $balise = 'necessite') {
 	$msg = [];
 	foreach ($n as $need) {
@@ -664,7 +664,7 @@ function plugin_necessite($n, $liste, $balise = 'necessite') {
  * @return string.
  *    Vide si ok,
  *    Message d'erreur lorsque la dépendance est absente.
- **/
+ */
 function plugin_controler_necessite($liste, $nom, $intervalle, $balise) {
 	if (isset($liste[$nom]) && plugin_version_compatible($intervalle, $liste[$nom]['version'])) {
 		return '';
@@ -771,7 +771,7 @@ function plugin_controler_lib($lib, $url) {
  * @param bool $pipe_recherche ?
  * @return bool
  *     true si il y a eu des modifications sur la liste des plugins actifs, false sinon
- **/
+ */
 function actualise_plugins_actifs($pipe_recherche = false) {
 	return ecrire_plugin_actifs('', $pipe_recherche, 'force');
 }
@@ -797,7 +797,7 @@ function actualise_plugins_actifs($pipe_recherche = false) {
  *     - force  : ?
  * @return bool
  *     true si il y a eu des modifications sur la liste des plugins actifs, false sinon
- **/
+ */
 function ecrire_plugin_actifs($plugin, $pipe_recherche = false, $operation = 'raz') {
 
 	// creer le repertoire cache/ si necessaire ! (installation notamment)
@@ -1397,7 +1397,7 @@ function plugin_est_installe($plug_path) {
  * de la table meta. Cette meta ne contient que les noms des plugins qui ont une version_base.
  *
  * @uses plugins_installer_dist()
- **/
+ */
 function plugin_installes_meta() {
 	if (isset($GLOBALS['fichier_php_compile_recent'])) {
 		// attendre eventuellement l'invalidation du cache opcode

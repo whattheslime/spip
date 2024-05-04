@@ -1,13 +1,13 @@
 <?php
 
-/***************************************************************************\
- *  SPIP, Système de publication pour l'internet                           *
- *                                                                         *
- *  Copyright © avec tendresse depuis 2001                                 *
- *  Arnaud Martin, Antoine Pitrou, Philippe Rivière, Emmanuel Saint-James  *
- *                                                                         *
- *  Ce programme est un logiciel libre distribué sous licence GNU/GPL.     *
-\***************************************************************************/
+/**
+ * SPIP, Système de publication pour l'internet
+ *
+ * Copyright © avec tendresse depuis 2001
+ * Arnaud Martin, Antoine Pitrou, Philippe Rivière, Emmanuel Saint-James
+ *
+ * Ce programme est un logiciel libre distribué sous licence GNU/GPL.
+ */
 
 /**
  * Analyse de fichiers CSV
@@ -29,7 +29,7 @@ if (!defined('_ECRIRE_INC_VERSION')) {
  *     - Liste des noms des colonnes
  *     - Liste des valeurs de chaque ligne et chaque colonne
  *     - Titre du tableau (si une seule colonne)
- **/
+ */
 function analyse_csv($t) {
 
 	// Quel est le séparateur ?

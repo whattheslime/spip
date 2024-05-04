@@ -1,13 +1,13 @@
 <?php
 
-/***************************************************************************\
- *  SPIP, Système de publication pour l'internet                           *
- *                                                                         *
- *  Copyright © avec tendresse depuis 2001                                 *
- *  Arnaud Martin, Antoine Pitrou, Philippe Rivière, Emmanuel Saint-James  *
- *                                                                         *
- *  Ce programme est un logiciel libre distribué sous licence GNU/GPL.     *
-\***************************************************************************/
+/**
+ * SPIP, Système de publication pour l'internet
+ *
+ * Copyright © avec tendresse depuis 2001
+ * Arnaud Martin, Antoine Pitrou, Philippe Rivière, Emmanuel Saint-James
+ *
+ * Ce programme est un logiciel libre distribué sous licence GNU/GPL.
+ */
 
 /**
  * Fonctions de base pour la sauvegarde
@@ -35,7 +35,7 @@ include_fichiers_fonctions();
  *
  * @param int $rub
  * @return string
- **/
+ */
 function base_dump_meta_name($rub) {
 	return $meta = "status_dump_{$rub}_" . abs($GLOBALS['visiteur_session']['id_auteur']);
 }
@@ -50,7 +50,7 @@ function base_dump_meta_name($rub) {
  *
  * @param string $meta
  * @return string
- **/
+ */
 function base_dump_dir($meta) {
 	include_spip('inc/documents');
 	// determine upload va aussi initialiser l'index "restreint"
