@@ -22,12 +22,12 @@ return [
 	'avis_connexion_echec_2' => 'Go back to the previous page, and check the information you provided.',
 	'avis_connexion_echec_3' => '<b>N.B.</b> On many servers, you must <b>request</b> activation of your access to the SQL database before you can use it. If you cannot connect to your database, check that activation has been done.',
 	'avis_connexion_erreur_creer_base' => 'The database could not be created.',
-	'avis_connexion_erreur_fichier_cle_manquant_1' => 'Installation must be performed by a webmaster with a backup of the keys and their password', # MODIF
-	'avis_connexion_erreur_fichier_cle_manquant_2' => 'Installation must be performed by a webmaster with a backup of the keys', # MODIF
+	'avis_connexion_erreur_fichier_cle_manquant_1' => 'Installation must be performed by a web-master or a web-mistress with a backup of the keys and their password',
+	'avis_connexion_erreur_fichier_cle_manquant_2' => 'Installation must be performed by a web-master or a web-mistress with a backup of the keys',
 	'avis_connexion_erreur_nom_base' => 'The database’s name should only contain letters, digits and hyphens.',
 	'avis_connexion_ldap_echec_1' => 'Connection to the LDAP server failed.',
 	'avis_connexion_ldap_echec_2' => 'Go back to the previous page, and check the information you provided.',
-	'avis_connexion_ldap_echec_3' => 'Alternatively, do not use LDAP support to import users.', # MODIF
+	'avis_connexion_ldap_echec_3' => 'Alternatively, do not use LDAP support to import accounts.',
 	'avis_deplacement_rubrique' => 'Warning! This section contains @contient_breves@ news item@scb@: if you move it, please check this box to confirm.',
 	'avis_erreur_connexion_mysql' => 'SQL connection error',
 	'avis_erreur_creation_compte' => 'Failure during account initialisation',
@@ -56,10 +56,10 @@ return [
 	'bouton_mettre_a_jour_base' => 'Update the database',
 	'bouton_modifier' => 'Modify',
 	'bouton_radio_afficher' => 'Show',
-	'bouton_radio_apparaitre_liste_redacteurs_connectes' => 'Appear in the list of editors online', # MODIF
+	'bouton_radio_apparaitre_liste_redacteurs_connectes' => 'Appear in the list of persons on-line',
 	'bouton_radio_envoi_annonces_adresse' => 'Send announcements to:',
 	'bouton_radio_envoi_liste_nouveautes' => 'Send news update list',
-	'bouton_radio_non_apparaitre_liste_redacteurs_connectes' => 'Do not appear in the list of editors online', # MODIF
+	'bouton_radio_non_apparaitre_liste_redacteurs_connectes' => 'Do not appear in the list of persons on-line',
 	'bouton_radio_non_envoi_annonces_editoriales' => 'Do not send any editorial announcements',
 	'bouton_redirection' => 'REDIRECT',
 	'bouton_reinitialiser_aux_valeurs_par_defaut' => 'Reset to default values',
@@ -73,7 +73,7 @@ return [
 	'bouton_vider_cache' => 'Empty the cache',
 
 	// C
-	'cache_modifiable_webmestre' => 'This parameter can be modified by the webmaster.', # MODIF
+	'cache_modifiable_webmestre' => 'This parameter can be modified by the web-master or the web-mistress.',
 	'calendrier_synchro' => 'If you use a calendar application compatible with <b>iCal</b>, you can synchronise it with information from this site.',
 	'config_activer_champs' => 'Activate the following fields',
 	'config_choix_base_sup' => 'Choose a database on this server',
@@ -118,7 +118,8 @@ return [
 	'entree_contenu_rubrique' => '(Brief description of the content of this section.)',
 	'entree_identifiants_connexion' => 'Your connection identifiers...',
 	'entree_identifiants_connexion_2' => 'Connection identifiers',
-	'entree_informations_connexion_ldap' => 'Please fill this form with the LDAP connection information provided by your system or network administrator.', # MODIF
+	'entree_informations_connexion_ldap' => 'Please fill this form with the LDAP connection information.
+	These informations should be provided by your system or network admin.',
 	'entree_infos_perso' => 'Who are you?',
 	'entree_infos_perso_2' => 'Who is the author?',
 	'entree_interieur_rubrique' => 'In the section:',
@@ -216,14 +217,14 @@ return [
 	'info_activer_menu_developpement' => 'Show the Development menu',
 	'info_admin_etre_webmestre' => 'Give me web administrator rights',
 	'info_admin_je_suis_webmestre' => 'I am a <b>webmaster</b>',
-	'info_admin_statuer_webmestre' => 'Give webmaster rights to this administrator ', # MODIF
-	'info_admin_webmestre' => 'This administrator is <b>webmaster</b>', # MODIF
-	'info_administrateur' => 'Administrator', # MODIF
-	'info_administrateur_1' => 'Administrator', # MODIF
+	'info_admin_statuer_webmestre' => 'Give web-master (web-mistress) rights to this admin',
+	'info_admin_webmestre' => 'This admin is <b>webmaster</b>',
+	'info_administrateur' => 'Admin',
+	'info_administrateur_1' => 'Admin',
 	'info_administrateur_2' => 'of the site (<i>use with caution</i>)',
-	'info_administrateur_site_01' => 'If you are a site administrator, please', # MODIF
+	'info_administrateur_site_01' => 'If you are a site admin, please',
 	'info_administrateur_site_02' => 'click on this link',
-	'info_administrateurs' => 'Administrators', # MODIF
+	'info_administrateurs' => 'Admin',
 	'info_administrer_rubrique' => 'You can manage this section',
 	'info_adresse' => 'to this address:',
 	'info_adresse_desinscription' => 'Unsubscription address:',
@@ -267,7 +268,7 @@ return [
 	'info_chapeau' => 'Introduction',
 	'info_chapeau_2' => 'Introduction:',
 	'info_chemin_acces_1' => 'Options: <b>Access path in directory</b>',
-	'info_chemin_acces_2' => 'You must now configure the access path to the directory information. This information is essential to read the user profiles stored in the directory.', # MODIF
+	'info_chemin_acces_2' => 'You must now configure the access path to the directory information. This information is essential to read the data stored in the directory.',
 	'info_chemin_acces_annuaire' => 'Options: <b>Access path in directory</b>',
 	'info_choix_base' => 'Third step:',
 	'info_classement_1' => ' out of @liste@',
@@ -302,7 +303,7 @@ return [
 	'info_ecrire_article' => 'Before writing any articles, you must create at least one section.',
 	'info_email_envoi' => 'Sender’s email address (optional)',
 	'info_email_envoi_txt' => 'Enter the sender’s email address used for sending emails (by default, the recipient’s address is used as the sender’s address) :',
-	'info_email_webmestre' => 'Webmaster’s email address', # MODIF
+	'info_email_webmestre' => 'Web-master’s or web-mistress email address',
 	'info_envoi_email_automatique' => 'Automated mailing',
 	'info_envoyer_maintenant' => 'Send now',
 	'info_erreur_version_base_plus_recente' => 'Installation error',
@@ -311,11 +312,11 @@ return [
 	'info_etape_suivante_2' => 'You can move on to the next step.',
 	'info_exceptions_proxy' => 'Exceptions for the proxy',
 	'info_exportation_base' => 'export database to @archive@',
-	'info_facilite_suivi_activite' => 'To simplify monitoring of the site’s editorial;
-  activities, SPIP can send rmail notifications, e.g. to an editors’ mailing list,
-  of publication requests and article validations. Enter one or more adresses separated by commas.', # MODIF
+	'info_facilite_suivi_activite' => 'To simplify monitoring of the site’s editorial
+  activities, SPIP can send by e-mail, e.g. to a mailing list,
+  notifications of publication requests and articles validations. Enter one or more addresses separated by commas.',
 	'info_fichiers_authent' => 'Authentication file ".htpasswd"',
-	'info_forums_abo_invites' => 'Your site contains forums by subscription; visitors may register for them on the public site.', # MODIF
+	'info_forums_abo_invites' => 'Your site contains forums by subscription; visitors may register for them on the public site.',
 	'info_gauche_auteurs' => 'All the site authors are listed here.
  The status of each is indicated by the colour of their icon (administrator = green; editor = yellow).', # MODIF
 	'info_gauche_auteurs_exterieurs' => 'Visiting authors, without any access to the site, are indicated by a blue icon; deleted authors by a grey icon.',
