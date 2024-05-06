@@ -5,7 +5,6 @@
 ### Added
 
 - #5439 Le formulaire d’identité du site permet de configurer la `timezone` utilisée
-- #4766 Le menu de création rapide passe en menu déroulant avec des labels explicites
 - #5459 La constante `_DEBUG_MINIPRES` définie à `true` active l’affichage d’un debug visible lorsqu’une erreur de type `Minipage` survient
 - #5454 Ajouter une option `find_all_in_path()` pour renvoyer tous les fichiers répondant à un pattern
 - !5913 Débugueur: Afficher le nombre d’occurrences et temps total des inclusions de squelettes
@@ -23,6 +22,8 @@
 
 ### Changed
 
+- #5922 Le bandeau de navigation de l’espace privé est réduit en hauteur (2 lignes au lieu de 3)
+- #4766 Le menu de création rapide passe en menu déroulant avec des labels explicites
 - #3145 Écriture plus inclusive de certaines formulations
 - #4657 Renommage de `admin_tech` en `admin_bdd` et des chaînes de langue afférentes
 - #5906 Ne pas appliquer des traitements dans `email_valide()` si aucune adresse n'est transmise
