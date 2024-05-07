@@ -39,6 +39,7 @@
 
 ### Fixed
 
+- #5750 Éviter que les identifiants se retrouvent sur deux lignes
 - #5911 Supprimer le DOCTYPE et les commentaires des SVG dans le filtre `balise_svg`
 - #5667 Améliorer la conformité HTML5
 - #5903 Corriger des paginations ajax ayant des données d’environnement tabulaires
