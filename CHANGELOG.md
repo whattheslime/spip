@@ -58,7 +58,8 @@
 
 ### Deprecated
 
-- #4857 Deprecier la classe `.label` au profit de `.editer-label` dans les formulaires
+- #3581 Déprécier les fonctions désuettes de `ecrire/inc/presentation`
+- #4857 Déprécier la classe `.label` au profit de `.editer-label` dans les formulaires
 - !5824 Fonction `spip_log()`. Utiliser `spip_logger()` qui retourne une instance impplémentant `Psr\Log\LoggerInterface`
 - Fichiers de langue peuplant une variable globale. Retourner directement un array (valide à partir de SPIP 4.1)
 - Filtre/fonction `abs_url`. Utiliser `url_absolue` ou `liens_absolus` selon.
