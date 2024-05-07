@@ -25,6 +25,7 @@ Changelog de SPIP 4.3
 
 ### Fixed
 
+- #5911 Supprimer le DOCTYPE et les commentaires des SVG dans le filtre `balise_svg`
 - #5667 Améliorer la conformité HTML5
 - #5903 Corriger des paginations ajax ayant des données d’environnement tabulaires
 - #5918 Éviter une erreur sur la validation du formulaire de configuration des annonces de nouveautés
