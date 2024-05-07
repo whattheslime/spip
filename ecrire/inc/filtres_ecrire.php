@@ -569,7 +569,6 @@ function filtre_afficher_enfant_rub_dist($id_rubrique) {
  * @return string
  */
 function afficher_plus_info($lien, $titre = '+', $titre_lien = '') {
-	trigger_deprecation('spip', '4.3', 'Using "%s" is deprecated', __FUNCTION__);
 	$titre = attribut_html($titre);
 	$icone = "\n<a href='$lien' title='$titre' class='plus_info'>" .
 		http_img_pack('information-16.png', $titre) . '</a>';
