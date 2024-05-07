@@ -10,7 +10,7 @@ Changelog de SPIP 4.3
 - #5459 La constante `_DEBUG_MINIPRES` définie à `true` active l’affichage d’un debug visible lorsqu’une erreur de type `Minipage` survient
 - !5913 Débugueur: Afficher le nombre d’occurrences et temps total des inclusions de squelettes
 - #5454 Ajouter une option `find_all_in_path()` pour renvoyer tous les fichiers répondant à un pattern
-- #5660 Nouveau filtre |balise_img_svg pour insérer une image ou un SVG inline sans savoir d'avance le format
+- #5660 Nouveau filtre `|balise_img_svg` pour insérer une image ou un SVG inline sans savoir d'avance le format
 - #5690 Afficher un encart pour signaler les nouvelles versions dans toutes les pages de l'espace privé pour les webmestres, et un bouton pointant vers `spip_loader` s'il est présent
 - #3432 Notifier par email les webmestres du site lorsque SPIP dispose d’une mise à jour
 - !196 Améliorer l’ergonomie du formulaire instituer (changement de statut d’un objet éditorial)
@@ -25,29 +25,17 @@ Changelog de SPIP 4.3
 
 ### Fixed
 
-- #5750 Éviter que les identifiants se retrouvent sur deux lignes
-- #5911 Supprimer le DOCTYPE et les commentaires des SVG dans le filtre `balise_svg`
 - #5667 Améliorer la conformité HTML5
-- #5903 Corriger des paginations ajax ayant des données d’environnement tabulaires
-- #5918 Éviter une erreur sur la validation du formulaire de configuration des annonces de nouveautés
-- #5179 Lors de la génération d'un nouveau mot de passe pour un auteur, ne pas envoyer d'email si SPIP n'a pas pu le modifier
-- #5751 `#debug-nav` passe par dessus (en z-index) `#spip-debug`
 - #5897 Icône Tâches de fond qui n'évoque pas les bases de données
 - !5264 Refactoring de ecrire_fichier
 - #4209 Combinaison des critères pagination et limit
 - #4921 Ne pas conserver un double des fichiers calculés inchangés (`#PRODUIRE_FOND`)
-- #5916 Éviter un débordement du contenu des explications dans les formulaires de l'espace privé
-- !5936 Éviter une erreur fatale sur la sécurisation d’une action sans hash
-- #5910 Mieux tester l'unicité de l'email avec `_INTERDIRE_AUTEUR_MEME_EMAIL`
-- #5909 Rétablir les autorisations calculées avec id_auteur=0
-- #5906 Ne pas appliquer des traitements dans `email_valide()` si aucune adresse n'est transmise
 
 ### Deprecated
 
 - #3581 Déprécier les fonctions désuettes de `ecrire/inc/presentation`
 - #5199 La globale `auteur_session` (dépréciée depuis SPIP 2.0 !) sera supprimée en SPIP 5.0. Utiliser `visiteur_session`.
 - #4857 Déprécier la classe `.label` au profit de `.editer-label` dans les formulaires
-- #5885 fonction `formulaire_recherche()`
 
 ### Removed
 
