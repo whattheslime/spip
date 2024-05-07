@@ -53,7 +53,7 @@ define('_PHP_MAX', '8.4.99');
 
 // cette version dev accepte tous les plugins compatible avec la version ci-dessous
 // a supprimer en phase beta/rc/release
-# define('_DEV_VERSION_SPIP_COMPAT', '4.2.99');
+# define('_DEV_VERSION_SPIP_COMPAT', '4.4.99');
 // version des signatures de fonctions PHP
 // (= date de leur derniere modif cassant la compatibilite et/ou necessitant un recalcul des squelettes)
 $spip_version_code = 2023_07_15;
