@@ -377,7 +377,8 @@ function argumenter_squelette($v) {
  * @return string
  */
 function executer_balise_dynamique_dans_un_modele(...$args) {
-	if (test_espace_prive()) {
+	// TODO : utiliser un objet de configuration général au lieu d'une globale
+	if (test_espace_prive() || !empty($GLOBALS['_FORCER_EXECUTER_DIRECTEMENT_BALISE_DYNAMIQUE'])) {
 		return executer_balise_dynamique(...$args);
 	}
 	else {
