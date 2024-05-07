@@ -39,6 +39,7 @@
 
 ### Fixed
 
+- #5667 Améliorer la conformité HTML5
 - #5903 Corriger des paginations ajax ayant des données d’environnement tabulaires
 - #5918 Éviter une erreur sur la validation du formulaire de configuration des annonces de nouveautés
 - #5179 Lors de la génération d'un nouveau mot de passe pour un auteur, ne pas envoyer d'email si SPIP n'a pas pu le modifier
