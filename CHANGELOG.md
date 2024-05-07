@@ -6,6 +6,7 @@ Changelog de SPIP 4.2
 
 ### Fixed
 
+- #5750 Éviter que les identifiants se retrouvent sur deux lignes
 - #5911 Supprimer le DOCTYPE et les commentaires des SVG dans le filtre `balise_svg`
 - #5903 Corriger des paginations ajax ayant des données d’environnement tabulaires
 - #5918 Éviter une erreur sur la validation du formulaire de configuration des annonces de nouveautés
