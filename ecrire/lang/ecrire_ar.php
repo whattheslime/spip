@@ -22,12 +22,12 @@ return [
 	'avis_connexion_echec_2' => 'عد الى الصفحة السابقة وتأكد من صحة المعلومات التي أدخلتها.',
 	'avis_connexion_echec_3' => '<b>ملاحظة</b> في العديد من اجهزة الخدمة، عليك <b>بطلب</b> تفعيل الدخول الى قاعدة البيانات قبل التمكن من استخدامها. اذا لم تتمكن من الاتصال بالقاعدة، تأكد من انك نفذت هذه الخطوة.',
 	'avis_connexion_erreur_creer_base' => 'لم يتم إنشاء قاعدة البيانات',
-	'avis_connexion_erreur_fichier_cle_manquant_1' => 'المشرف على الموقع هو الذي ينفذ التثبيت مع نسخة احتياطية للمفاتيح وكلمة السر الخاصة به ', # MODIF
-	'avis_connexion_erreur_fichier_cle_manquant_2' => 'المشرف على الموقع هو الذي ينفذ التثبيت مع نسخة احتياطية للمفاتيح', # MODIF
+	'avis_connexion_erreur_fichier_cle_manquant_1' => 'المشرف او المشرقة على الموقع هم الذين ينفذون التثبيت مع نسخة احتياطية للمفاتيح وكلمة السر الخاصة بهم ',
+	'avis_connexion_erreur_fichier_cle_manquant_2' => 'المشرف او المشرفة على الموقع هم الذين ينفذون التثبيت مع نسخة احتياطية للمفاتيح',
 	'avis_connexion_erreur_nom_base' => 'لا يجب ان يحتوي اسم القاعدة الا احرف وأرقام',
 	'avis_connexion_ldap_echec_1' => 'الاتصال بخادم LDAP فشل.',
 	'avis_connexion_ldap_echec_2' => 'عد الى الصفحة السابقة وتأكد من صحة المعلومات التي أدخلتها.',
-	'avis_connexion_ldap_echec_3' => 'وإلا، لا تستخدم دعم LDAP لجلب المستخدمين.', # MODIF
+	'avis_connexion_ldap_echec_3' => 'وإلا، لا تستخدم دعم LDAP لجلب الحسابات.',
 	'avis_deplacement_rubrique' => 'تحذير! يحتوي هذا القسم على @contient_breves@ خبر@scb@: إذا قمت بنقله، الرجاء تأشير هذا الخيار لتأكيد طلبك.',
 	'avis_erreur_connexion_mysql' => 'خطأ اتصالي SQL',
 	'avis_erreur_creation_compte' => 'فشل خلال تأصيل الحساب',
@@ -57,10 +57,10 @@ return [
 	'bouton_mettre_a_jour_base' => 'تحديث قاعدة البيانات',
 	'bouton_modifier' => 'تغيير',
 	'bouton_radio_afficher' => 'إظهار',
-	'bouton_radio_apparaitre_liste_redacteurs_connectes' => 'الظهور في قائمة المحررين المتصلين', # MODIF
+	'bouton_radio_apparaitre_liste_redacteurs_connectes' => 'الظهور في قائمة الأشخاص المتصلين',
 	'bouton_radio_envoi_annonces_adresse' => 'إرسال الإعلانات الى العنوان:',
 	'bouton_radio_envoi_liste_nouveautes' => 'إرسال قائمة بالأخبار',
-	'bouton_radio_non_apparaitre_liste_redacteurs_connectes' => 'عدم الظهور في قائمة المحررين', # MODIF
+	'bouton_radio_non_apparaitre_liste_redacteurs_connectes' => 'عدم الظهور في قائمة الأشخاص المتصلين',
 	'bouton_radio_non_envoi_annonces_editoriales' => 'عدم إرسال أي إعلان تحرير',
 	'bouton_redirection' => 'إعادة توجيه',
 	'bouton_reinitialiser_aux_valeurs_par_defaut' => 'إعادة التأصيل الى القيم القياسية',
@@ -74,7 +74,7 @@ return [
 	'bouton_vider_cache' => 'تفريغ ذاكرة كاش',
 
 	// C
-	'cache_modifiable_webmestre' => 'يتم تعديل هذه القيمة من قبل مسؤول الموقع.', # MODIF
+	'cache_modifiable_webmestre' => 'يتم تعديل هذه القيمة من قبل مسؤول او مسؤولة الموقع.',
 	'calendrier_synchro' => 'اذا كنت تستخدم برنامج ادارة مواعيد يتوافق مع <b>iCal</b>، يمكنك ان تطابقه مع نشاط هذا الموقع التحريري.',
 	'config_activer_champs' => 'تفعيل الحقول التالية',
 	'config_choix_base_sup' => 'تحديد قاعدة في هذا الخادم',
@@ -120,8 +120,8 @@ return [
 	'entree_identifiants_connexion' => 'بيانات إتصالك...',
 	'entree_identifiants_connexion_2' => 'بيانات الاتصال',
 	'entree_informations_connexion_ldap' => 'الرجاء إدخال معلومات الاتصال بدليل LDAP في هذه الاستمارة.
-من المفترض أن تكون حصلت على هذه المعلومات من المسؤول عن نظامك
-أو شبكتك.', # MODIF
+من المفترض أن تكون حصلت على هذه المعلومات من المسؤول او المسؤؤلة عن نظامك
+أو شبكتك.',
 	'entree_infos_perso' => 'عرّف بنفسك :',
 	'entree_infos_perso_2' => 'من هو المؤلف؟',
 	'entree_interieur_rubrique' => 'في القسم:	',
@@ -196,6 +196,7 @@ return [
 	'icone_mes_preferences' => 'تفضيلاتي',
 	'icone_modifier_article' => 'تعديل هذا المقال',
 	'icone_modifier_rubrique' => 'تعديل هذا القسم',
+	'icone_outils_rapides' => 'إنشاء',
 	'icone_publication' => 'نشر',
 	'icone_relancer_signataire' => 'تذكير الموقع',
 	'icone_retour' => 'رجوع',
@@ -220,14 +221,14 @@ return [
 	'info_activer_menu_developpement' => 'عرض قائمة التطوير',
 	'info_admin_etre_webmestre' => 'إعطائي حقوق المشرف',
 	'info_admin_je_suis_webmestre' => 'أنا <b>مشرف</b>',
-	'info_admin_statuer_webmestre' => 'اعطاء حقوق مسؤول الموقع لهذا المدير', # MODIF
-	'info_admin_webmestre' => 'هذا المدير هو <b>مسؤول الموقع</b>', # MODIF
-	'info_administrateur' => 'مدير', # MODIF
-	'info_administrateur_1' => 'مدير', # MODIF
+	'info_admin_statuer_webmestre' => 'إعطاء حقوق مسؤول(ة) الموقع لهذا الشخص',
+	'info_admin_webmestre' => 'هذا المدير او هذه المديرة هم <b>مسؤولو الموقع</b>',
+	'info_administrateur' => 'مدير(ة)',
+	'info_administrateur_1' => 'مدير(ة)',
 	'info_administrateur_2' => 'الموقع (إستخدمه بحذر)',
-	'info_administrateur_site_01' => 'اذا كنت احد مدراء هذا الموقع، الرجاء', # MODIF
+	'info_administrateur_site_01' => 'اذا كنتم احد مدراء او مديرات هذا الموقع، الرجاء',
 	'info_administrateur_site_02' => 'نقر هذه الوصلة',
-	'info_administrateurs' => 'مدراء', # MODIF
+	'info_administrateurs' => 'مدراء او مديرات',
 	'info_administrer_rubrique' => 'يمكنك إدارة هذا القسم',
 	'info_adresse' => 'الى العنوان:',
 	'info_adresse_desinscription' => 'عنوان حذف التسجيل :',
@@ -271,7 +272,7 @@ return [
 	'info_chapeau' => 'المقدمة',
 	'info_chapeau_2' => 'المقدمة:',
 	'info_chemin_acces_1' => 'خيارات: <b>مسار الدخول في الدليل</b>',
-	'info_chemin_acces_2' => 'من الآن، عليك بإعداد مسار الدخول الى معلومات الدليل. هذه المعلومات أساسية لقراءة بيانات المستخدمين المحفوظة في الدليل.', # MODIF
+	'info_chemin_acces_2' => 'من الآن، عليكم بإعداد مسار الدخول إلى معلومات الدليل. هذه المعلومات أساسية لقراءة البيانات المحفوظة في الدليل.',
 	'info_chemin_acces_annuaire' => 'خيارات: <b>مسار الدخول في الدليل</b>',
 	'info_choix_base' => 'الخطوة الثالثة: ',
 	'info_classement_1' => ' من أصل @liste@ مقال',
@@ -306,7 +307,7 @@ return [
 	'info_ecrire_article' => 'قبل التمكن من كتابة مقالات، يجب عليك إنشاء قسم واحد على الأقل.',
 	'info_email_envoi' => 'العنوان الالكتروني للارسال (اختياري)',
 	'info_email_envoi_txt' => 'ادخل هنا العنوان المطلوب استخدامه لبعث الرسائل (والا، سيتم استخدام عنوان المرسل اليه كعنوان ارسال):',
-	'info_email_webmestre' => 'عنوان بريد المشرف على الموقع', # MODIF
+	'info_email_webmestre' => 'عنوان بريد المشرف(ة) على الموقع',
 	'info_envoi_email_automatique' => 'إرسال البريد الآلي',
 	'info_envoyer_maintenant' => 'إرسال الآن',
 	'info_erreur_version_base_plus_recente' => 'خطأ في التثبيت',
@@ -316,15 +317,17 @@ return [
 	'info_exceptions_proxy' => 'استثناءات للجهاز الوكيل',
 	'info_exportation_base' => 'نقل قاعدة البيانات الى @archive@',
 	'info_facilite_suivi_activite' => 'لتسهيل متابعة أنشطة تحرير
-الموقع، يرسل SPIP عبر البريد الى لائحة احد المحررين البريدية مثلاً،
-الإعلان عن طلبات النشر وتصديق المقالات. يمكن ادخال عنوان او اكثر تفصل بينها فواصل.', # MODIF
+الموقع، يرسل SPIP عبر البريد إلى لائحة بريدية مثلاً،
+الإعلان عن طلبات النشر وتصديق المقالات. يمكن إدخال عنوان او اكثر تفصل بينها فواصل.',
 	'info_fichiers_authent' => 'ملف التحقق «.htpasswd»',
-	'info_forums_abo_invites' => 'يحتوي موقعك على منتديات بالاشتراك. يشترك الزوار اذاً من الموقع العمومي.', # MODIF
-	'info_gauche_auteurs' => 'ستجد هنا جميع مؤلفي الموقع.
-يدل لون رمز كل مؤلف على وضعه (مدير = أخضر؛ محرر = أصفر).', # MODIF
+	'info_forums_abo_invites' => 'يحتوي موقعك على منتديات بالاشتراك. يمكن للزوار إذاً فتح حسابات من الموقع العمومي.',
+	'info_gauche_admin_bdd' => '<b>هذه الصفحة متاحة لمسؤولي الموقع فقط.</b><p> تتيح الوصول إلى مختلف وظائف إدارة قواعد البيانات. ويتطلب بعض هذه الوظائف عملية تعريف 
+من خلال الدخول بواسطة FTP إلى الموقع.</p>',
+	'info_gauche_auteurs' => 'ستجدون هنا جميع مؤلفي الموقع.
+يدل لون رمزهم على وضعهم (مدير(ة) = أخضر؛ محرر(ة) = أصفر).',
 	'info_gauche_auteurs_exterieurs' => 'المؤلفون الخارجيون، الذين لا يتمتعون بحق الدخول الى الموقع، معرّفون برمز أزرق؛
 اما المؤلفون المحذوفون فبرمز رمادي.',
-	'info_gauche_messagerie' => 'تتيح المراسلة تبادل الرسائل بين المحررين والحفاظ على المذكرات (لاستخدامك الشخصي) وعرض الإعلانات في الصفحة الرئيسية للمجال الخاص (إذا كنت مديراً).', # MODIF
+	'info_gauche_messagerie' => 'تتيح المراسلة تبادل الرسائل بين الحسابات والحفاظ على المذكرات (لاستخدامكم الشخصي) وعرض الإعلانات في الصفحة الرئيسية للمجال الخاص (إذا كنتم مديراً او مديرة).',
 	'info_gauche_statistiques_referers' => 'تعرض هذه الصفحة قائمة <i>مواقع المصدر</i>، أي المواقع التي تحتوي على وصلات تقود الى موقعك، fبين البارحة واليوم فقط: فيتم تأصيل هذه القائمة كل 24 ساعة.',
 	'info_gauche_visiteurs_enregistres' => 'ستجد هنا الزوار المسجلين
 في مجال الموقع العام (المنتديات بالاشتراك).',
@@ -339,7 +342,7 @@ return [
 	'info_images_auto' => 'يتم حساب هذه الصور آلياً',
 	'info_informations_personnelles' => 'المعلومات الشخصية',
 	'info_inscription' => 'التسجيل في',
-	'info_inscription_automatique' => 'تسجيل آلي للمحررين الجدد', # MODIF
+	'info_inscription_automatique' => 'تسجيل آلي لحسابات جديدة',
 	'info_jeu_caractere' => 'طقم حروف الموقع',
 	'info_jours' => 'يوم',
 	'info_laisser_champs_vides' => 'ترك هذه الحقول فارغة)',
@@ -347,7 +350,7 @@ return [
 	'info_ldap_ok' => 'تم تثبيت تحقق LDAP .',
 	'info_lien_hypertexte' => 'وصلة هايبرتكست:',
 	'info_liste_nouveautes_envoyee' => 'تم إرسال لائحة جديد الموقع',
-	'info_liste_redacteurs_connectes' => 'قائمة المحررين المتصلين', # MODIF
+	'info_liste_redacteurs_connectes' => 'قائمة الأشخاص المتصلين',
 	'info_login_existant' => 'هذا المعرّف موجود سابقاً.',
 	'info_login_trop_court' => 'معرّف الدخول قصيز جداً.',
 	'info_login_trop_court_car_pluriel' => 'يجب ان يحتوي المعرّف @nb@ أحرف على الأقل.',
@@ -371,8 +374,8 @@ return [
 	'info_mon_site_spip' => 'موقع SPIP',
 	'info_moyenne' => 'المتوسط:',
 	'info_multi_cet_article' => 'لغة هذا المقال:',
-	'info_multi_langues_choisies' => 'الرجاء تحديد ادناه اللغات التي ستكون متوافرة لمحرري موقعك.
-  لا يمكن ايقاف اللغات المستخدمة حالياً في موقعك (والظاهرة في اول القائمة).', # MODIF
+	'info_multi_langues_choisies' => 'الرجاء تحديد أدناة اللغات التي ستكون متوافرة للتحرير.
+  لا يمكن تعطيل اللغات المستخدمة حالياً في موقعكم (والظاهرة في أعلى القائمة).',
 	'info_multi_objets' => '@objets@: تفعيل قائمة اللغات',
 	'info_multi_secteurs' => '... للأقسام الموجودة في اصل الموقع فقط ',
 	'info_nb_articles' => '@nb@ مقال',
@@ -399,8 +402,8 @@ return [
 	'info_nouvelle_traduction' => 'ترجمة جديدة:',
 	'info_numero_article' => 'المقال رقم:',
 	'info_obligatoire_02' => '(إجباري)',
-	'info_option_accepter_visiteurs' => 'قبول تسجيل الزوار من الموقع العمومي', # MODIF
-	'info_option_ne_pas_accepter_visiteurs' => 'رفض تسجيل الزوار من الموقع العمومي', # MODIF
+	'info_option_accepter_visiteurs' => 'قبول إنشاء حسابات زائرة من الموقع العمومي',
+	'info_option_ne_pas_accepter_visiteurs' => 'رفض إنشاء حسابات زائرة من الموقع العمومي',
 	'info_options_avancees' => 'الخيارات المتطورة',
 	'info_ou' => 'أو...',
 	'info_page_interdite' => 'صفحة محظورة',
@@ -418,7 +421,7 @@ return [
 	'info_post_scriptum' => 'الملحق',
 	'info_post_scriptum_2' => 'الملحق:',
 	'info_pour' => 'لـ',
-	'info_preview_texte' => 'من الممكن تفعيل العرض المسبق للعناصر التحريرية التي تتمتع على الاقل بوضعية «مقترح»، إضافة الى العناصر «قيد التحرير» العائدة للمؤلف المتصل. هل تتاح هذه الوظيفة للمدراء فقط او لجميع المحررين او تُعطل؟', # MODIF
+	'info_preview_texte' => 'من الممكن تفعيل العرض المسبق للعناصر التحريرية التي تتمتع على الأفل بوضعية «مقترح»، إضافة إلى العناصر «قيد التحرير» العائدة للمؤلف(ة) المتصل(ة). لأي أشخاص يجب إتاحة هذه الوظيفة؟',
 	'info_procedez_par_etape' => 'الرجاء إتباع الخطوة خطوة ',
 	'info_procedure_maj_version' => 'يجب تنفيذ عملية الترقية لتكييف
 قاعدة البيانات مع إصدار SPIP الجديد.',
@@ -426,16 +429,16 @@ return [
 	'info_ps' => 'ملاحظة',
 	'info_publier' => 'نشر',
 	'info_publies' => 'مقالاتك المنشورة',
-	'info_question_accepter_visiteurs' => 'اذا كانت صفحات موقعك النموذجية تفسح المجال للزوار الذين لا يتمتعون بحق الدخول الى المجال الخاص لتسجيل انفسهم، قم بتفعيل الخيار التالي:', # MODIF
-	'info_question_inscription_nouveaux_redacteurs' => 'هل تسمح بتسجيل محررين جدد من
-الموقع العمومي؟ إذا وافقت، سيتمكن الزوار من التسجيل
-عبر إستمارة آلية والدخول الى المجال الخاص
+	'info_question_accepter_visiteurs' => 'اذا كانت صفحات موقعكم النموذجية تفسح المجال إنشاء حسابات دون حق الدخول إلى المجال الخاص، يمكن تفعيل الخيار التالي:',
+	'info_question_inscription_nouveaux_redacteurs' => 'هل تسمحون بتسجيلات جديدة من
+الموقع العمومي؟ إذا وافقتم، سيتمكن الزوار من التسجيل
+عبر استمارة آلية والدخول إلى المجال الخاص
 لعرض مقالاتهم. <div class="notice">خلال عملية التسجيل،
-يحصل المستخدمون على رسالة آلية
-تزودهم ببيانات الدخول الى المجال الخاص. إلا ان بعض
- خدام المواقع يعطلون إرسال البريد الآلي في
+يحصل الأشخاص على رسالة آلية
+تزودهم ببيانات الدخول إلى المجال الخاص. إلا ان بعض
+ مضيفي المواقع يعطلون إرسال البريد الآلي في
 أجهزتهم: في هذه الحال، لا يمكن تفعيل
-التسجيل الآلي.</div>', # MODIF
+التسجيل الآلي.</div>',
 	'info_qui_edite' => '@nom_auteur_modif@ عمل على هذا المحتوى منذ @date_diff@ دقيقة ',
 	'info_racine_site' => 'أصل الموقع',
 	'info_recharger_page' => 'الرجاء إعادة تحميل الصفحة بعد لحظات.',
@@ -452,7 +455,7 @@ return [
 	'info_refuses' => 'مقالاتك المرفوضة',
 	'info_reglage_ldap' => 'خيارات: <b>ضبط جلب LDAP </b>',
 	'info_renvoi_article' => '<b>إعادة توجيه.</b> هذا المقال يحيل الى الصفحة: ',
-	'info_reserve_admin' => 'المدراء وحدهم يمكنهم تغيير هذا العنوان.', # MODIF
+	'info_reserve_admin' => 'المدراء او المديرات وحدهم يمكنهم تغيير هذا العنوان.',
 	'info_restreindre_rubrique' => 'حصر الإدارة في القسم:',
 	'info_resultat_recherche' => 'نتائج البحث:',
 	'info_rubriques' => 'الأقسام',
@@ -472,14 +475,14 @@ return [
 	'info_sites_trouves' => 'المواقع التي عثر عليها',
 	'info_sous_titre' => 'العنوان الفرعي:',
 	'info_statut' => 'الوضع',
-	'info_statut_administrateur' => 'مدير', # MODIF
+	'info_statut_administrateur' => 'مدير(ة)',
 	'info_statut_auteur' => 'وضع هذا المؤلف:',
 	'info_statut_auteur_2' => 'أنا',
 	'info_statut_auteur_a_confirmer' => 'التسجيل المطلوب التأكد منه',
 	'info_statut_auteur_autre' => 'وضعية اخرى:',
 	'info_statut_redacteur' => 'محرر',
-	'info_statut_utilisateurs_1' => 'الوضع الافتراضي للمستخدمين المجلوبين', # MODIF
-	'info_statut_utilisateurs_2' => 'قم باختيار الوضع المخصص للأشخاص الموجودين في دليل LDAP عندما سيتصلون للمرة الأولى. لاحقاً، يمكنك تغيير هذه القيمة لكل مؤلف على حدى.', # MODIF
+	'info_statut_utilisateurs_1' => 'الوضع الافتراضي للحسابات المجلوبة',
+	'info_statut_utilisateurs_2' => 'قوموا باختيار الوضع المخصص للأشخاص الموجودين في دليل LDAP عندما سيتصلون للمرة الأولى. لاحقاً، يمكنكم تغيير هذه القيمة لكل شخص على حدى.',
 	'info_suivi_activite' => 'متابعة أنشطة التحرير',
 	'info_surtitre' => 'عنوان المدخل:',
 	'info_syndication_integrale_1' => 'يقدم موقعك ملفات ترخيص (انظر «<a href="@url@">@titre@</a>»).',
@@ -526,7 +529,7 @@ return [
 	'info_visiteur_2' => 'للموقع العمومي',
 	'info_visiteurs' => 'الزوار',
 	'info_visiteurs_02' => 'زوار الموقع العمومي',
-	'info_webmestre_forces' => 'المشرفون محددون حالياً في <tt>@file_options@</tt>.', # MODIF
+	'info_webmestre_forces' => 'المشرفون او المشرفات محددون حالياً في <tt>@file_options@</tt>.',
 	'install_adresse_base_hebergeur' => 'عنوان قاعدة البيانات التي خصصها لك المضيف',
 	'install_connect_ok' => 'تم فعلاً تعريف قاعدة البيانات باسم جهاز الخدمة @connect@.',
 	'install_echec_annonce' => 'الارجح ان التثبيت سيفشل او يؤدي الى موقع غير سليم...',
@@ -556,10 +559,10 @@ return [
 	'intitule_licence' => 'الرخصة',
 	'item_accepter_inscriptions' => 'السماح بالتسجيل',
 	'item_activer_messages_avertissement' => 'تفعيل رسائل التحذير',
-	'item_administrateur_2' => 'مدير', # MODIF
+	'item_administrateur_2' => 'مدير(ة)',
 	'item_afficher_calendrier' => 'إظهار في الروزنامة',
 	'item_autoriser_syndication_integrale' => 'نشر كامل المقالات في ملفات الترخيص',
-	'item_choix_administrateurs' => 'المدراء', # MODIF
+	'item_choix_administrateurs' => 'المدراء او المديرات',
 	'item_choix_generation_miniature' => 'إنشاء مصغرات عن الصور آلياً.',
 	'item_choix_non_generation_miniature' => 'عدم إنشاء مصغرات عن الصور.',
 	'item_choix_redacteurs' => 'المحررون',
@@ -592,6 +595,7 @@ return [
 	'label_bando_outils' => 'شريط الأدوات',
 	'label_bando_outils_afficher' => 'عرض الأدوات',
 	'label_bando_outils_masquer' => 'إخفاء الأدوات',
+	'label_choisir_timezone' => 'المنطقة الزمنية للموقع',
 	'label_choix_langue' => 'حدد لغتك',
 	'label_langue' => 'اللغة',
 	'label_nom_fichier_connect' => 'أدخل الاسم الذي يستخدمه هذا الخادم',
@@ -762,17 +766,17 @@ return [
 	'taille_repertoire_cache' => 'حجم دليل الذاكرة المخبأة',
 	'text_article_propose_publication' => 'مقال معروض للنشر.',
 	'texte_acces_ldap_anonyme_1' => 'بعض خدام LDAP تمنع الدخول المغفل. في هذه الحال عليك بإدخال بيانات دخول أولية لتتمكن من البحث عن معلومات في الدليل لاحقاً. إلا أنه، في معظم الأحيان، يمكن ترك الحقول التالية فارغة.',
-	'texte_admin_effacer_01' => 'يقوم هذا الأمر بحذف  كامل محتوى قاعدة البيانات،
-بما في ذلك كل  وسائط الوصول للمحررين والمدراء. بعد تنفيذه، يتحتم عليك
-إعادة تثبيت SPIP لإعادة إنتاج قاعدة جديدة ووسيط دخول أول مدير.', # MODIF
+	'texte_admin_effacer_01' => 'يقوم هذا الأمر بحذف <b>كامل</b> محتوى قاعدة البيانات،
+بما في ذلك <b>كل</b> وسائط الوصول الى المجال الخص. بعد تنفيذه، يتحتم عليكم
+إعادة تثبيت SPIP لإعادة إنتاج قاعدة جديدة وأول حساب دخول.',
 	'texte_adresse_annuaire_1' => 'إذا كان دليلك مثبت على الجهاز نفسه الذي يحتوي موقعك، فإنه على الأرجح «localhost»)).',
 	'texte_ajout_auteur' => 'تمت إضافة المؤلف التالي الى المقال:',
-	'texte_annuaire_ldap_1' => 'إذا كان لديك إمكتان وصول الى دليل LDAP، يمكنك استخدامه لجلب المستخدمين آلياً الى SPIP.', # MODIF
+	'texte_annuaire_ldap_1' => 'إذا كان لديكم إمكان وصول إلى دليل LDAP، يمكنكم استخدامه لجلب الحسابات آلياً إلى SPIP.',
 	'texte_article_statut' => 'هذا المقال:',
 	'texte_article_virtuel' => 'مقال إفتراضي',
 	'texte_article_virtuel_reference' => '<b>مقال إفتراضي: <b/>مقال مبوّب في موقع SPIP لديك، لكنه موجه الى عنوان آخر. لإلغاء التوجيه، قم بحذف العنوان أعلاه.',
 	'texte_aucun_resultat_auteur' => 'لا توجد نتائج لـ "@cherche_auteur@"',
-	'texte_auteur_messagerie' => 'يمكن لهذا الموقع رصد قائمة المحررين المتصلين بشكل دائم مما يتيح لك تبادل الرسائل في الوقت الحقيقي. يمكنك التقرير بعدم الظهور في هذه القائمة (وبالتالي تكون «مخفياً» بالنسبة للمستخدمين الآخرين).', # MODIF
+	'texte_auteur_messagerie' => 'يقوم المجال الخاص برصد قائمة الأشخاص المتصلين بشكل دائم مما يتيح لكم تبادل الرسائل في الوقت الحقيقي. يمكنكم التقرير بعدم الظهور في هذه القائمة (وبالتالي تكونون «مخفيين» بالنسبة للآخرين).',
 	'texte_auteurs' => 'المؤلفون',
 	'texte_choix_base_1' => 'حدد قاعدة بياناتك:',
 	'texte_choix_base_2' => 'يحتوي خادم SQL على عدة قواعد بيانات.',
@@ -804,12 +808,12 @@ return [
 	'texte_enrichir_mise_a_jour' => 'يمكنك استخدام «إختصارات الكتابة» لتحسين مظهر مادتك.',
 	'texte_fichier_authent' => '<b>هل يقوم SPIP بإنشاء الملفات الخاصة<tt>.htpasswd</tt>
 و<tt>.htpasswd-admin</tt> في المجلد @dossier@؟</b>
-<p>تستخدم هذه الملفات للحد من دخول المؤلفين
- والمدراء الى اجزاء اخرى من الموقع
+<p>تستخدم هذه الملفات للحد من دخول الأشخاص المتصلين
+ إلى أجزاء أخرى من الموقع
 (تطبيقات إحصائية خارجية مثلاً).</p><p>
-إذا كنت لا تحتاج الى هذه الملفات يمكنك الإبقاء على القيمة
+إذا كنتم لا تحتاجون إلى هذه الملفات يمكنكم الإبقاء على القيمة
 الافتراضية لهذا الخيار (عدم إنشاء 
-الملفات).</p>', # MODIF
+الملفات).</p>',
 	'texte_informations_personnelles_1' => 'سيزودك النظام الآن بدخول شخصي الى الموقع.',
 	'texte_informations_personnelles_2' => '(ملاحظة: هذه إعادة تثبيت، اذا كان دخولك لا يزال يعمل، يمكنك',
 	'texte_introductif_article' => '(نص تقديمي للمقال)',
@@ -819,7 +823,7 @@ return [
 	'texte_login_ldap_1' => ')أتركه فارغاً للدخول المغفل أو قم بإدخال المسار الكامل، مثلاً «<tt>uid=salim, ou=users, dc=mon-domaine, dc=com</tt>»).',
 	'texte_login_precaution' => 'تحذير! هذا هو المعرّف الذي تتصل من خلاله الآن.
 إستخدم هذه الاستمارة بحذر...',
-	'texte_messagerie_agenda' => 'يتيح نظام مراسلة لمحرري الموقع التواصل بين بعضهم مباشرة في المجال الخاص. وهو مرتبط بالمفكرة.', # MODIF
+	'texte_messagerie_agenda' => 'يتيح نظام المراسلة تبادل الرسائل في المجال الخاص. وهو مرتبط بالمفكرة.',
 	'texte_mise_a_niveau_base_1' => 'لقد قمت بتحديث ملفات SPIP.
 يجب الآن تحديث قاعدة بيانات
 الموقع.',
@@ -878,14 +882,15 @@ return [
 	'texte_titre_obligatoire' => '<b>العنوان</b> [إجباري]',
 	'texte_travail_article' => '@nom_auteur_modif@ تعامل مع هذا المقال منذ @date_diff@ دقيقة',
 	'texte_travail_collaboratif' => 'كثيراً ما يحدث أن يتعاون
-عدة محررين في تحرير المقال نفسه، فيمكن
+عدة أشخاص في تحرير المقال نفسه، فيمكن
 للنظام أن يعرض المقالات «المفتوحة» حديثاً
 بهدف تجنب إدخال تعديلات متزامنة عليها.
 هذا الخيار متوقف افتراضياً
 لتجنب عرض رسائل تحذير
-مفاجئة.', # MODIF
+مفاجئة.',
 	'texte_vide' => 'فارغ',
 	'texte_vider_cache' => 'تفريغ الذاكرة المخبأة',
+	'titre_admin_bdd' => 'قواعد البيانات',
 	'titre_ajouter_un_auteur' => 'إضافة مؤلف',
 	'titre_ajouter_un_mot' => 'إضافة مفتاح',
 	'titre_cadre_afficher_article' => 'إظهار المقالات',
