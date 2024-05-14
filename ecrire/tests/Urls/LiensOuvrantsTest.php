@@ -43,19 +43,15 @@ class LiensOuvrantsTest extends TestCase
 	public static function providerNonAttendus(): array {
 		return [
 			'non spip #1' => [
-				'expected' => null,
 				'text' => '<a href="https://www.spip.net/">link</a>',
 			],
 			'non spip #2' => [
-				'expected' => null,
 				'text' => '<a href="https://www.spip.net/" class="spip_in">link</a>',
 			],
 			'non spip #3' => [
-				'expected' => null,
 				'text' => '<a href="https://www.spip.net/" class="spip_outside">link</a>',
 			],
 			'non spip #4' => [
-				'expected' => null,
 				'text' => '<a href="https://www.spip.net/" class="spip_urls">link</a>',
 			],
 		];
