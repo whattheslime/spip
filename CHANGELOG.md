@@ -4,14 +4,6 @@
 
 ### Added
 
-- #5439 Le formulaire d’identité du site permet de configurer la `timezone` utilisée
-- #5459 La constante `_DEBUG_MINIPRES` définie à `true` active l’affichage d’un debug visible lorsqu’une erreur de type `Minipage` survient
-- #5454 Ajouter une option `find_all_in_path()` pour renvoyer tous les fichiers répondant à un pattern
-- !5913 Débugueur: Afficher le nombre d’occurrences et temps total des inclusions de squelettes
-- #5660 Nouveau filtre |balise_img_svg pour insérer une image ou un SVG inline sans savoir d'avance le format
-- #5690 Afficher un encart pour signaler les nouvelles versions dans toutes les pages de l'espace privé pour les webmestres, et un bouton pointant vers `spip_loader` s'il est présent
-- !196 Améliorer l’ergonomie du formulaire instituer (changement de statut d’un objet éditorial)
-- #3432 Notifier par email les webmestres du site lorsque SPIP dispose d’une mise à jour
 - !5824 Logger `spip_logger()` impplémentant `Psr\Log\LoggerInterface` (PSR-3) via une librairie `spip/logger` qui utilise Monolog
 - !5807 Cache des squelettes réécrit en utilisant une librairie `spip/cache` (PSR-16)
 - !5806 Gestion des chemins (path) & leur cache réécrit en utilisant une librairie `spip/path`
@@ -22,18 +14,13 @@
 
 ### Changed
 
-- #5922 Le bandeau de navigation de l’espace privé est réduit en hauteur (2 lignes au lieu de 3)
-- #4766 Le menu de création rapide passe en menu déroulant avec des labels explicites
-- #3145 Écriture plus inclusive de certaines formulations
 - #4657 Renommage de `admin_tech` en `admin_bdd` et des chaînes de langue afférentes
 - #5906 Ne pas appliquer des traitements dans `email_valide()` si aucune adresse n'est transmise
-- #4994 Dans un plugin, si l’attribut logo d’un `paquet.xml` est absent, et qu’il existe un fichier `{prefixe}.svg` dans le plugin, il est utilisé comme logo
 - !5708 Découpage des fichiers de démarrage de SPIP (non surchargeables) dans `ecrire/boostrap`
 - !5765 Nettoyage des paramètres d’URI : la constante `_CONTEXTE_IGNORE_LISTE_VARIABLES` remplace `_CONTEXTE_IGNORE_VARIABLES` supprimée.
 - #3637 Phraseur: Accepter des crochets dans la partie optionnelle d’une balise. `[hop] (#REM) [truc]` devient possible.
 - Refactor de `echappe_html()` avec un collecteur
 - #5552 Signature de `spip_setcookie` (reprend la signature de php `setcookie`)
-- !5540 Les fonctions `extraire_balise` et `extraire_balises` peuvent gérer des balises imbriquées
 - Les logos historiques (migrés en documents à partir de SPIP 4.0) ne sont plus utilisés s’il en restait.
 - #5898 Nécessite PHP 8.2 minimum
 
@@ -41,26 +28,19 @@
 
 - #5750 Éviter que les identifiants se retrouvent sur deux lignes
 - #5911 Supprimer le DOCTYPE et les commentaires des SVG dans le filtre `balise_svg`
-- #5667 Améliorer la conformité HTML5
 - #5903 Corriger des paginations ajax ayant des données d’environnement tabulaires
 - #5918 Éviter une erreur sur la validation du formulaire de configuration des annonces de nouveautés
 - #5179 Lors de la génération d'un nouveau mot de passe pour un auteur, ne pas envoyer d'email si SPIP n'a pas pu le modifier
 - #5751 `#debug-nav` passe par dessus (en z-index) `#spip-debug`
 - #5916 Éviter un débordement du contenu des explications dans les formulaires de l'espace privé
 - !5936 Éviter une erreur fatale sur la sécurisation d’une action sans hash
-- #4209 Combinaison des critères pagination et limit
 - #5714 Optimisation des boucles avec pagination, en forçant une clause limit automatique dessus
-- #4921 Ne pas conserver un double des fichiers calculés inchangés (`#PRODUIRE_FOND`)
 - #5910 Mieux tester l'unicité de l'email avec `_INTERDIRE_AUTEUR_MEME_EMAIL`
 - #5909 Retablir les autorisations calculées avec id_auteur=0
-- #5897 Icône Tâches de fond qui n'évoque pas les bases de données
-- !5264 Refactoring de ecrire_fichier
 - #5825 Ne pas mettre l'adresse du site entre parenthèses dans les mails envoyés par SPIP
 
 ### Deprecated
 
-- #3581 Déprécier les fonctions désuettes de `ecrire/inc/presentation`
-- #4857 Déprécier la classe `.label` au profit de `.editer-label` dans les formulaires
 - !5824 Fonction `spip_log()`. Utiliser `spip_logger()` qui retourne une instance impplémentant `Psr\Log\LoggerInterface`
 - Fichiers de langue peuplant une variable globale. Retourner directement un array (valide à partir de SPIP 4.1)
 - Filtre/fonction `abs_url`. Utiliser `url_absolue` ou `liens_absolus` selon.
@@ -73,7 +53,6 @@
 
 ### Removed
 
-- #4750 Retrait des options d'affichage des icones dans les préférences
 - #5199 Retrait de toutes les références à la globale `auteur_session`
 - #5917 Retrait de toutes les références à NETPBM
 - #5885 fonction `formulaire_recherche()`
