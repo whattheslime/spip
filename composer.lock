@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "713a774c38bd7ef1717324de6b7ea84f",
+    "content-hash": "a33079f1a208c59898155e4a5b5d34ab",
     "packages": [
         {
             "name": "algo26-matthias/idna-convert",
@@ -1197,12 +1197,12 @@
             "source": {
                 "type": "git",
                 "url": "https://git.spip.net/spip/filtres_images.git",
-                "reference": "a990b67de865e9f9c0330c3e5238fe03800a1e47"
+                "reference": "233a243196dfc72cfc93243f7149a214ef4910d7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://git.spip.net/api/v4/projects/spip%2Ffiltres_images/repository/archive.zip?sha=a990b67de865e9f9c0330c3e5238fe03800a1e47",
-                "reference": "a990b67de865e9f9c0330c3e5238fe03800a1e47",
+                "url": "https://git.spip.net/api/v4/projects/spip%2Ffiltres_images/repository/archive.zip?sha=233a243196dfc72cfc93243f7149a214ef4910d7",
+                "reference": "233a243196dfc72cfc93243f7149a214ef4910d7",
                 "shasum": ""
             },
             "require": {
@@ -1221,7 +1221,7 @@
             "type": "spip-plugin",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "4.2.x-dev"
+                    "dev-master": "4.3.x-dev"
                 }
             },
             "autoload-dev": {
@@ -1244,7 +1244,7 @@
                 "source": "https://git.spip.net/spip/filtres_images/-/tree/master",
                 "issues": "https://git.spip.net/spip/filtres_images/-/issues"
             },
-            "time": "2024-05-05T01:21:09+02:00"
+            "time": "2024-05-14T15:59:59+02:00"
         },
         {
             "name": "spip/logger",

@@ -19,7 +19,7 @@
         "spip/filesystem": "^1.2.x-dev",
         "spip/forum": "^3.2.x-dev",
         "spip/hasher": "^1.0.x-dev",
-        "spip/images": "^4.2.x-dev",
+        "spip/images": "^4.3.x-dev",
         "spip/logger": "^1.0",
         "spip/mediabox": "^3.2.x-dev",
         "spip/medias": "^4.4.x-dev",
