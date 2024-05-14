@@ -15,7 +15,6 @@
 ### Changed
 
 - #4657 Renommage de `admin_tech` en `admin_bdd` et des chaînes de langue afférentes
-- #5906 Ne pas appliquer des traitements dans `email_valide()` si aucune adresse n'est transmise
 - !5708 Découpage des fichiers de démarrage de SPIP (non surchargeables) dans `ecrire/boostrap`
 - !5765 Nettoyage des paramètres d’URI : la constante `_CONTEXTE_IGNORE_LISTE_VARIABLES` remplace `_CONTEXTE_IGNORE_VARIABLES` supprimée.
 - #3637 Phraseur: Accepter des crochets dans la partie optionnelle d’une balise. `[hop] (#REM) [truc]` devient possible.
@@ -26,17 +25,7 @@
 
 ### Fixed
 
-- #5750 Éviter que les identifiants se retrouvent sur deux lignes
-- #5911 Supprimer le DOCTYPE et les commentaires des SVG dans le filtre `balise_svg`
-- #5903 Corriger des paginations ajax ayant des données d’environnement tabulaires
-- #5918 Éviter une erreur sur la validation du formulaire de configuration des annonces de nouveautés
-- #5179 Lors de la génération d'un nouveau mot de passe pour un auteur, ne pas envoyer d'email si SPIP n'a pas pu le modifier
-- #5751 `#debug-nav` passe par dessus (en z-index) `#spip-debug`
-- #5916 Éviter un débordement du contenu des explications dans les formulaires de l'espace privé
-- !5936 Éviter une erreur fatale sur la sécurisation d’une action sans hash
 - #5714 Optimisation des boucles avec pagination, en forçant une clause limit automatique dessus
-- #5910 Mieux tester l'unicité de l'email avec `_INTERDIRE_AUTEUR_MEME_EMAIL`
-- #5909 Retablir les autorisations calculées avec id_auteur=0
 - #5825 Ne pas mettre l'adresse du site entre parenthèses dans les mails envoyés par SPIP
 
 ### Deprecated
