@@ -38,8 +38,7 @@
     "filtres_images": {
         "path": "plugins-dist/filtres_images",
         "source": "https://git.spip.net/spip/filtres_images.git",
-        "branch": "4.1",
-        "tag": "v4.1.2"
+        "branch": "4.2"
     },
     "forum": {
         "path": "plugins-dist/forum",
