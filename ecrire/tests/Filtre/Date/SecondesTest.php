@@ -8,6 +8,7 @@ declare(strict_types=1);
 
 namespace Spip\Test\Filtre\Date;
 
+use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\TestCase;
 
 class SecondesTest extends TestCase
@@ -16,9 +17,7 @@ class SecondesTest extends TestCase
 		find_in_path('inc/filtres.php', '', true);
 	}
 
-	/**
-	 * @dataProvider providerFiltresSecondes
-	 */
+	#[DataProvider('providerFiltresSecondes')]
 	public function testFiltresSecondes($expected, ...$args): void {
 		$actual = secondes(...$args);
 		$this->assertSame($expected, $actual);

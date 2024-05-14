@@ -37,9 +37,7 @@ class BaliseDetacheeTest extends SquelettesTestCase
 		);
 	}
 
-	/**
-	 * @depends testBaliseDetacheeInterne
-	 */
+	#[Depends('testBaliseDetacheeInterne')]
 	public function testBaliseDetacheeComplexe(): void {
 		$this->assertOkSquelette(__DIR__ . '/data/balise_detachee.html');
 	}
