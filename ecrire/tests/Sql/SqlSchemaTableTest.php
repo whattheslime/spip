@@ -19,6 +19,7 @@ class SqlSchemaTableTest extends TestCase
 	public function testDropTablesSetup($table, $desc, $data): void
 	{
 		$this->assertTrue(sql_drop_table($table, true));
+
 	}
 
 	#[Depends('testDropTablesSetup')]
@@ -43,11 +44,12 @@ class SqlSchemaTableTest extends TestCase
 		// la structure doit avoir le meme nombre de champs et de cle
 		// attention : la primary key DOIT etre dans les cle aussi
 		$_desc = sql_showtable($table);
+
 		$this->assertCount(count($desc['field']), $_desc['field']);
 		$this->assertCount($desc['nb_key_attendues'], $_desc['key']);
 	}
 
-	#[Depends('testCreateTables')]
+	#[Depends('testShowTable')]
 	#[DataProvider('providerTablesData')]
 	public function testInsertData($table, $desc, $data) {
 		$this->assertNotFalse(sql_insertq_multi($table, $data));
@@ -99,7 +101,7 @@ class SqlSchemaTableTest extends TestCase
 			'un_texte' => $texte,
 		], $where2);
 
-		// comparaison timastamp
+		// comparaison timestamp
 		$maj_updateq = sql_getfetsel('maj', $table, $where2);
 		$this->assertNotEmpty($maj_updateq, "Le champ 'maj' est vide à l’updateq");
 		$this->assertNotFalse(strtotime($maj_updateq), "Le champ 'maj' est incorrect à l’updateq");
@@ -337,6 +339,12 @@ class SqlSchemaTableTest extends TestCase
 	 * Update de data
 	 */
 	#[Depends('testInsertData')]
+	#[Depends('testMajTimestamp')]
+	#[Depends('testSelections')]
+	#[Depends('testSelectionsMulti')]
+	#[Depends('testSelectionsEntreTable')]
+	#[Depends('testMathFunctions')]
+	#[Depends('testStringFunctions')]
 	public function testUpdateData() {
 		// ajouter un champ
 		$nb = sql_getfetsel('un_bigint', 'spip_test_tintin', 'id_tintin=' . sql_quote(1));
@@ -350,9 +358,9 @@ class SqlSchemaTableTest extends TestCase
 	/**
 	 * Delete de data
 	 */
-	#[Depends('testInsertData')]
+	#[Depends('testUpdateData')]
 
-	public function test_delete_data() {
+	public function testDeleteData() {
 		$nb = sql_countsel('spip_test_tintin');
 		// supprimer une ligne
 		sql_delete('spip_test_tintin', 'id_tintin=' . sql_quote(1));
@@ -366,7 +374,7 @@ class SqlSchemaTableTest extends TestCase
 	/**
 	 * Alter colonne
 	 */
-	#[Depends('testCreateTables')]
+	#[Depends('testDeleteData')]
 	function testAlterColumns() {
 		$table = 'spip_test_tintin';
 
@@ -417,7 +425,7 @@ class SqlSchemaTableTest extends TestCase
 	/**
 	 * Renomme table
 	 */
-	#[Depends('testCreateTables')]
+	#[Depends('testAlterColumns')]
 
 	public function testAlterRenameTable() {
 
@@ -441,7 +449,7 @@ class SqlSchemaTableTest extends TestCase
 	/**
 	 * pointer l'index
 	 */
-	#[Depends('testCreateTables')]
+	#[Depends('testAlterRenameTable')]
 
 	public function testAlterIndex() {
 		$table = 'spip_test_milou';
@@ -481,8 +489,7 @@ class SqlSchemaTableTest extends TestCase
 	/**
 	 * dezinguer la primary
 	 */
-	#[Depends('testCreateTables')]
-
+	#[Depends('testAlterIndex')]
 	public function testAlterPrimary() {
 		$table = 'spip_test_kirikou';
 		sql_drop_table($table, true);
@@ -520,8 +527,7 @@ class SqlSchemaTableTest extends TestCase
 	/**
 	 * Alter colonne
 	 */
-	#[Depends('testAlterColumns')]
-	#[Depends('testAlterIndex')]
+	#[Depends('testAlterPrimary')]
 
 	function testAlterMultiple() {
 		$table = 'spip_test_milou';
@@ -544,7 +550,7 @@ class SqlSchemaTableTest extends TestCase
 		$this->assertArrayHasKey('KEY abc', $desc['key'], 'sql_alter rate ADD multiples');
 	}
 
-	#[Depends('testCreateTables')]
+	#[Depends('testAlterMultiple')]
 	#[DataProvider('providerTablesData')]
 	public function testDropTables($table, $desc, $data): void
 	{
