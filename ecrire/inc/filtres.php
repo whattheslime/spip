@@ -1977,10 +1977,15 @@ function inserer_attribut(?string $balise, string $attribut, ?string $val, bool 
 		// Remplacer l'ancien attribut du meme nom
 		$balise = $r[1] . $insert . $r[5];
 	} else {
-		// preferer une balise " />" (comme <img />)
-		if (preg_match(',/>,', $balise)) {
-			$balise = preg_replace(',\s?/>,S', $insert . '>', $balise, 1);
-		} // sinon une balise <a ...> ... </a>
+		// préférer une balise autofermante " />" (comme <img />)
+		if (str_contains($balise, '/>')) {
+			$balise = preg_replace(',\s?/>,S', $insert . ' />', $balise, 1);
+		}
+		// preferer une balise img
+		elseif ($attribut === 'alt' && str_contains($balise, '<img')) {
+			$balise = preg_replace(',(<img[^>]*)>,S', '$1' . $insert . '>', $balise, 1);
+		}
+		// sinon une balise <a ...> ... </a>
 		else {
 			$balise = preg_replace(',\s?>,S', $insert . '>', $balise, 1);
 		}
@@ -1988,6 +1993,8 @@ function inserer_attribut(?string $balise, string $attribut, ?string $val, bool 
 
 	return $balise;
 }
+
+
 
 /**
  * Supprime un attribut HTML
