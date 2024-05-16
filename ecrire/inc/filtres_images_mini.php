@@ -510,10 +510,11 @@ function image_recadre_avec_fallback(
 	$position = 'focus',
 	$background_color = 'white'
 ) {
+	$im = image_passe_partout($im, $width, $height);
 	if (function_exists('image_recadre') && ($GLOBALS['meta']['image_process'] ?? '') === 'gd2') {
-		return image_reduire(image_recadre($im, $width . ':' . $height, '-', $position, $background_color), $width, $height);
-	} else { return image_passe_partout($im, $width, $height);
+		$im = image_recadre($im, $width . ':' . $height, '-', $position, $background_color);
 	}
+	return $im;
 }
 
 /**
