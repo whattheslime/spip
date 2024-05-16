@@ -138,7 +138,9 @@ function svg_nettoyer($svg) {
 		$svg = str_replace('<svg', '<svg xmlns="http://www.w3.org/2000/svg"', $svg);
 	}
 	// Supprimer les commentaires
-	$svg = preg_replace(',<!--.*-->,Us', '', $svg);
+	if (str_contains($svg, '<!--')) {
+		$svg = preg_replace(',<!--.*-->,Us', '', $svg);
+	}
 
 	return $svg;
 }
