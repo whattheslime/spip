@@ -2,6 +2,12 @@
 
 Changelog de SPIP 4.2
 
+## Unreleased
+
+### Fixed
+
+- !5962 Petite optimisation sur `svg_nettoyer()`
+
 ## 4.2.12 - 2024-05-07
 
 ### Fixed
