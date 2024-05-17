@@ -18,26 +18,26 @@
 [(#REM|styles_inline_page_login_pass)]
 </head>
 <body class="page_login[ (#ENV{body_class})]">
+	<div class="contenu_login">
+		<h1>#NOM_SITE_SPIP</h1>
+		[(#REM)
+			Est-ce qu'on se connecte a l'espace prive ou pas ?
+		][
+		(#ENV**{url}|non
+		|ou{[(#ENV**{url}|match{^/?(.*/)?#CONST{_DIR_RESTREINT_ABS}})]})
+		<h3 class="spip"><:login_acces_prive:></h3>
+		#MENU_LANG_ECRIRE
+		]
 
-	<h1>#NOM_SITE_SPIP</h1>
-	[(#REM)
-		Est-ce qu'on se connecte a l'espace prive ou pas ?
-	][
-	(#ENV**{url}|non
-	|ou{[(#ENV**{url}|match{^/?(.*/)?#CONST{_DIR_RESTREINT_ABS}})]})
-	<h3 class="spip"><:login_acces_prive:></h3>
-	#MENU_LANG_ECRIRE
-	]
+		[(#FORMULAIRE_LOGIN{#ENV{url}|sinon{#URL_ECRIRE{accueil}}})]
+		<p class="retour">
+			[<a href="#URL_PAGE{identifiants,focus=nom_inscription}&amp;mode=(#URL_SITE_SPIP|tester_config{1comite})"><:login_sinscrire:></a> | ]
+			<a href="#URL_SITE_SPIP/"><:login_retoursitepublic:></a>
+		</p>
+		[<p class="generator">
+			<a href="https://www.spip.net/" title="<:site_realise_avec_spip:>">(#CHEMIN{spip.svg}|balise_svg)</a>
+		</p>]
 
-	[(#FORMULAIRE_LOGIN{#ENV{url}|sinon{#URL_ECRIRE{accueil}}})]
-	<p class="retour">
-		[<a href="#URL_PAGE{identifiants,focus=nom_inscription}&amp;mode=(#URL_SITE_SPIP|tester_config{1comite})"><:login_sinscrire:></a> | ]
-		<a href="#URL_SITE_SPIP/"><:login_retoursitepublic:></a>
-	</p>
-	[<p class="generator">
-		<a href="https://www.spip.net/" title="<:site_realise_avec_spip:>">(#CHEMIN{spip.svg}|balise_svg)</a>
-	</p>]
-
-
+	</div>
 </body>
 </html>
