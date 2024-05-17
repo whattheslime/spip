@@ -3,6 +3,8 @@
 ## Unreleased
 
 ### Added
+
+- #5933 les actions `ajouter_lien` et `supprimer_lien` peuvent gérer un qualificatif
 - !6064 Polyfill pour PHP 8.3 & 8.4
 - !6051 Purger les variables de `var_nullify` du contexte dans `traiter_appels_inclusions_ajax`
 - !6044 balise #PARAM pour récupérer les paramètres du container de services (Cf [UPGRADE_5.0.md](UPGRADE_5.0.md#Constantes_PHP))
