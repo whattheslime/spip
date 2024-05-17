@@ -17,13 +17,56 @@ class InsererAttributTest extends TestCase
 		find_in_path('./inc/filtres.php', '', true);
 	}
 
-	#[DataProvider('providerFiltresInsererAttribut')]
-	public function testFiltresInsererAttribut($expected, ...$args): void {
+	#[DataProvider('providerFiltresInsererAttributTitleSimples')]
+	public function testFiltresInsererAttributTitleSimples($expected, ...$args): void {
 		$actual = inserer_attribut(...$args);
 		$this->assertSame($expected, $actual);
 	}
 
-	public static function providerFiltresInsererAttribut(): array {
+	#[DataProvider('providerFiltresInsererAttributTitleEntites')]
+	public function testFiltresInsererAttributTitleEntites($expected, ...$args): void {
+		$actual = inserer_attribut(...$args);
+		$this->assertSame($expected, $actual);
+	}
+
+	#[DataProvider('providerFiltresInsererAttributTitleRaccourcis')]
+	public function testFiltresInsererAttributTitleRaccourcis($expected, ...$args): void {
+		$actual = inserer_attribut(...$args);
+		$this->assertSame($expected, $actual);
+	}
+
+	#[DataProvider('providerFiltresInsererAttributTitleRemplacementsSimples')]
+	public function testFiltresInsererAttributTitleRemplacementsSimples($expected, ...$args): void {
+		$actual = inserer_attribut(...$args);
+		$this->assertSame($expected, $actual);
+	}
+
+	#[DataProvider('providerFiltresInsererAttributTitleRemplacementsEntites')]
+	public function testFiltresInsererAttributTitleRemplacementsEntites($expected, ...$args): void {
+		$actual = inserer_attribut(...$args);
+		$this->assertSame($expected, $actual);
+	}
+
+	#[DataProvider('providerFiltresInsererAttributTitleRemplacementsRaccourcis')]
+	public function testFiltresInsererAttributTitleRemplacementsRaccourcis($expected, ...$args): void {
+		$actual = inserer_attribut(...$args);
+		$this->assertSame($expected, $actual);
+	}
+
+
+	#[DataProvider('providerFiltresInsererAttributLienImgSimples')]
+	public function testFiltresInsererAttributLienImgSimples($expected, ...$args): void {
+		$actual = inserer_attribut(...$args);
+		$this->assertSame($expected, $actual);
+	}
+
+	#[DataProvider('providerFiltresInsererAttributAutres')]
+	public function testFiltresInsererAttributAutres($expected, ...$args): void {
+		$actual = inserer_attribut(...$args);
+		$this->assertSame($expected, $actual);
+	}
+
+	public static function providerFiltresInsererAttributTitleSimples(): array {
 		return [
 			0 => [
 				0 => "<a href='https://www.spip.net'>SPIP</a>",
@@ -89,95 +132,100 @@ class InsererAttributTest extends TestCase
 				4 => false,
 				5 => false,
 			],
-			8 => [
+		];
+	}
+
+	public static function providerFiltresInsererAttributTitleEntites(): array {
+		return [
+			0 => [
 				0 => "<a href='https://www.spip.net' title='Un texte avec des &lt;a href=&#034;http://spip.net&#034;&gt;liens&lt;/a&gt; [Article 1-&gt;art1] [spip-&gt;https://www.spip.net] https://www.spip.net'>SPIP</a>",
 				1 => "<a href='https://www.spip.net'>SPIP</a>",
 				2 => 'title',
 				3 => 'Un texte avec des <a href="http://spip.net">liens</a> [Article 1->art1] [spip->https://www.spip.net] https://www.spip.net',
+				4 => true,
+				5 => true,
+			],
+			1 => [
+				0 => "<a href='https://www.spip.net' title='Un texte avec des &lt;a href=&#034;http://spip.net&#034;&gt;liens&lt;/a&gt; [Article 1-&gt;art1] [spip-&gt;https://www.spip.net] https://www.spip.net'>SPIP</a>",
+				1 => "<a href='https://www.spip.net'>SPIP</a>",
+				2 => 'title',
+				3 => 'Un texte avec des <a href="http://spip.net">liens</a> [Article 1->art1] [spip->https://www.spip.net] https://www.spip.net',
+				4 => true,
+				5 => false,
+			],
+			2 => [
+				0 => '<a href=\'https://www.spip.net\' title=\'Un texte avec des <a href="http://spip.net">liens</a> [Article 1->art1] [spip->https://www.spip.net] https://www.spip.net\'>SPIP</a>',
+				1 => "<a href='https://www.spip.net'>SPIP</a>",
+				2 => 'title',
+				3 => 'Un texte avec des <a href="http://spip.net">liens</a> [Article 1->art1] [spip->https://www.spip.net] https://www.spip.net',
+				4 => false,
+				5 => true,
+			],
+			3 => [
+				0 => '<a href=\'https://www.spip.net\' title=\'Un texte avec des <a href="http://spip.net">liens</a> [Article 1->art1] [spip->https://www.spip.net] https://www.spip.net\'>SPIP</a>',
+				1 => "<a href='https://www.spip.net'>SPIP</a>",
+				2 => 'title',
+				3 => 'Un texte avec des <a href="http://spip.net">liens</a> [Article 1->art1] [spip->https://www.spip.net] https://www.spip.net',
+				4 => false,
+				5 => false,
+			],
+			4 => [
+				0 => "<a href='https://www.spip.net' title='Un texte avec des entit&#233;s &#38;&lt;&gt;&#034;'>SPIP</a>",
+				1 => "<a href='https://www.spip.net'>SPIP</a>",
+				2 => 'title',
+				3 => 'Un texte avec des entit&eacute;s &amp;&lt;&gt;&#034;',
+				4 => true,
+				5 => true,
+			],
+			5 => [
+				0 => "<a href='https://www.spip.net' title='Un texte avec des entit&#233;s &#38;&lt;&gt;&#034;'>SPIP</a>",
+				1 => "<a href='https://www.spip.net'>SPIP</a>",
+				2 => 'title',
+				3 => 'Un texte avec des entit&eacute;s &amp;&lt;&gt;&#034;',
+				4 => true,
+				5 => false,
+			],
+			6 => [
+				0 => "<a href='https://www.spip.net' title='Un texte avec des entit&eacute;s &amp;&lt;&gt;&#034;'>SPIP</a>",
+				1 => "<a href='https://www.spip.net'>SPIP</a>",
+				2 => 'title',
+				3 => 'Un texte avec des entit&eacute;s &amp;&lt;&gt;&#034;',
+				4 => false,
+				5 => true,
+			],
+			7 => [
+				0 => "<a href='https://www.spip.net' title='Un texte avec des entit&eacute;s &amp;&lt;&gt;&#034;'>SPIP</a>",
+				1 => "<a href='https://www.spip.net'>SPIP</a>",
+				2 => 'title',
+				3 => 'Un texte avec des entit&eacute;s &amp;&lt;&gt;&#034;',
+				4 => false,
+				5 => false,
+			],
+			8 => [
+				0 => "<a href='https://www.spip.net' title='Un texte sans entites &#38;&lt;&gt;&#034;&#039;'>SPIP</a>",
+				1 => "<a href='https://www.spip.net'>SPIP</a>",
+				2 => 'title',
+				3 => 'Un texte sans entites &<>"\'',
 				4 => true,
 				5 => true,
 			],
 			9 => [
-				0 => "<a href='https://www.spip.net' title='Un texte avec des &lt;a href=&#034;http://spip.net&#034;&gt;liens&lt;/a&gt; [Article 1-&gt;art1] [spip-&gt;https://www.spip.net] https://www.spip.net'>SPIP</a>",
+				0 => "<a href='https://www.spip.net' title='Un texte sans entites &#38;&lt;&gt;&#034;&#039;'>SPIP</a>",
 				1 => "<a href='https://www.spip.net'>SPIP</a>",
 				2 => 'title',
-				3 => 'Un texte avec des <a href="http://spip.net">liens</a> [Article 1->art1] [spip->https://www.spip.net] https://www.spip.net',
+				3 => 'Un texte sans entites &<>"\'',
 				4 => true,
 				5 => false,
 			],
 			10 => [
-				0 => '<a href=\'https://www.spip.net\' title=\'Un texte avec des <a href="http://spip.net">liens</a> [Article 1->art1] [spip->https://www.spip.net] https://www.spip.net\'>SPIP</a>',
+				0 => '<a href=\'https://www.spip.net\' title=\'Un texte sans entites &<>"&#039;\'>SPIP</a>',
 				1 => "<a href='https://www.spip.net'>SPIP</a>",
 				2 => 'title',
-				3 => 'Un texte avec des <a href="http://spip.net">liens</a> [Article 1->art1] [spip->https://www.spip.net] https://www.spip.net',
+				3 => 'Un texte sans entites &<>"\'',
 				4 => false,
 				5 => true,
 			],
 			11 => [
-				0 => '<a href=\'https://www.spip.net\' title=\'Un texte avec des <a href="http://spip.net">liens</a> [Article 1->art1] [spip->https://www.spip.net] https://www.spip.net\'>SPIP</a>',
-				1 => "<a href='https://www.spip.net'>SPIP</a>",
-				2 => 'title',
-				3 => 'Un texte avec des <a href="http://spip.net">liens</a> [Article 1->art1] [spip->https://www.spip.net] https://www.spip.net',
-				4 => false,
-				5 => false,
-			],
-			12 => [
-				0 => "<a href='https://www.spip.net' title='Un texte avec des entit&#233;s &#38;&lt;&gt;&#034;'>SPIP</a>",
-				1 => "<a href='https://www.spip.net'>SPIP</a>",
-				2 => 'title',
-				3 => 'Un texte avec des entit&eacute;s &amp;&lt;&gt;&#034;',
-				4 => true,
-				5 => true,
-			],
-			13 => [
-				0 => "<a href='https://www.spip.net' title='Un texte avec des entit&#233;s &#38;&lt;&gt;&#034;'>SPIP</a>",
-				1 => "<a href='https://www.spip.net'>SPIP</a>",
-				2 => 'title',
-				3 => 'Un texte avec des entit&eacute;s &amp;&lt;&gt;&#034;',
-				4 => true,
-				5 => false,
-			],
-			14 => [
-				0 => "<a href='https://www.spip.net' title='Un texte avec des entit&eacute;s &amp;&lt;&gt;&#034;'>SPIP</a>",
-				1 => "<a href='https://www.spip.net'>SPIP</a>",
-				2 => 'title',
-				3 => 'Un texte avec des entit&eacute;s &amp;&lt;&gt;&#034;',
-				4 => false,
-				5 => true,
-			],
-			15 => [
-				0 => "<a href='https://www.spip.net' title='Un texte avec des entit&eacute;s &amp;&lt;&gt;&#034;'>SPIP</a>",
-				1 => "<a href='https://www.spip.net'>SPIP</a>",
-				2 => 'title',
-				3 => 'Un texte avec des entit&eacute;s &amp;&lt;&gt;&#034;',
-				4 => false,
-				5 => false,
-			],
-			16 => [
-				0 => "<a href='https://www.spip.net' title='Un texte sans entites &#38;&lt;&gt;&#034;&#039;'>SPIP</a>",
-				1 => "<a href='https://www.spip.net'>SPIP</a>",
-				2 => 'title',
-				3 => 'Un texte sans entites &<>"\'',
-				4 => true,
-				5 => true,
-			],
-			17 => [
-				0 => "<a href='https://www.spip.net' title='Un texte sans entites &#38;&lt;&gt;&#034;&#039;'>SPIP</a>",
-				1 => "<a href='https://www.spip.net'>SPIP</a>",
-				2 => 'title',
-				3 => 'Un texte sans entites &<>"\'',
-				4 => true,
-				5 => false,
-			],
-			18 => [
-				0 => '<a href=\'https://www.spip.net\' title=\'Un texte sans entites &<>"&#039;\'>SPIP</a>',
-				1 => "<a href='https://www.spip.net'>SPIP</a>",
-				2 => 'title',
-				3 => 'Un texte sans entites &<>"\'',
-				4 => false,
-				5 => true,
-			],
-			19 => [
 				0 => '<a href=\'https://www.spip.net\' title=\'Un texte sans entites &<>"&#039;\'>SPIP</a>',
 				1 => "<a href='https://www.spip.net'>SPIP</a>",
 				2 => 'title',
@@ -185,7 +233,13 @@ class InsererAttributTest extends TestCase
 				4 => false,
 				5 => false,
 			],
-			20 => [
+		];
+	}
+
+
+	public static function providerFiltresInsererAttributTitleRaccourcis(): array {
+		return [
+			0 => [
 				0 => "<a href='https://www.spip.net' title='{{{Des raccourcis}}} {italique} {{gras}} &lt;code&gt;du code&lt;/code&gt;'>SPIP</a>",
 				1 => "<a href='https://www.spip.net'>SPIP</a>",
 				2 => 'title',
@@ -193,7 +247,7 @@ class InsererAttributTest extends TestCase
 				4 => true,
 				5 => true,
 			],
-			21 => [
+			1 => [
 				0 => "<a href='https://www.spip.net' title='{{{Des raccourcis}}} {italique} {{gras}} &lt;code&gt;du code&lt;/code&gt;'>SPIP</a>",
 				1 => "<a href='https://www.spip.net'>SPIP</a>",
 				2 => 'title',
@@ -201,7 +255,7 @@ class InsererAttributTest extends TestCase
 				4 => true,
 				5 => false,
 			],
-			22 => [
+			2 => [
 				0 => "<a href='https://www.spip.net' title='{{{Des raccourcis}}} {italique} {{gras}} <code>du code</code>'>SPIP</a>",
 				1 => "<a href='https://www.spip.net'>SPIP</a>",
 				2 => 'title',
@@ -209,7 +263,7 @@ class InsererAttributTest extends TestCase
 				4 => false,
 				5 => true,
 			],
-			23 => [
+			3 => [
 				0 => "<a href='https://www.spip.net' title='{{{Des raccourcis}}} {italique} {{gras}} <code>du code</code>'>SPIP</a>",
 				1 => "<a href='https://www.spip.net'>SPIP</a>",
 				2 => 'title',
@@ -217,7 +271,7 @@ class InsererAttributTest extends TestCase
 				4 => false,
 				5 => false,
 			],
-			24 => [
+			4 => [
 				0 => "<a href='https://www.spip.net' title='Un modele &lt;modeleinexistant|lien=[-&gt;https://www.spip.net]&gt;'>SPIP</a>",
 				1 => "<a href='https://www.spip.net'>SPIP</a>",
 				2 => 'title',
@@ -225,7 +279,7 @@ class InsererAttributTest extends TestCase
 				4 => true,
 				5 => true,
 			],
-			25 => [
+			5 => [
 				0 => "<a href='https://www.spip.net' title='Un modele &lt;modeleinexistant|lien=[-&gt;https://www.spip.net]&gt;'>SPIP</a>",
 				1 => "<a href='https://www.spip.net'>SPIP</a>",
 				2 => 'title',
@@ -233,7 +287,7 @@ class InsererAttributTest extends TestCase
 				4 => true,
 				5 => false,
 			],
-			26 => [
+			6 => [
 				0 => "<a href='https://www.spip.net' title='Un modele <modeleinexistant|lien=[->https://www.spip.net]>'>SPIP</a>",
 				1 => "<a href='https://www.spip.net'>SPIP</a>",
 				2 => 'title',
@@ -241,7 +295,7 @@ class InsererAttributTest extends TestCase
 				4 => false,
 				5 => true,
 			],
-			27 => [
+			7 => [
 				0 => "<a href='https://www.spip.net' title='Un modele <modeleinexistant|lien=[->https://www.spip.net]>'>SPIP</a>",
 				1 => "<a href='https://www.spip.net'>SPIP</a>",
 				2 => 'title',
@@ -249,7 +303,7 @@ class InsererAttributTest extends TestCase
 				4 => false,
 				5 => false,
 			],
-			28 => [
+			8 => [
 				0 => '<a href=\'https://www.spip.net\' title=\'Un texte avec des retour
 a la ligne et meme des paragraphes\'>SPIP</a>',
 				1 => "<a href='https://www.spip.net'>SPIP</a>",
@@ -261,7 +315,7 @@ paragraphes',
 				4 => true,
 				5 => true,
 			],
-			29 => [
+			9 => [
 				0 => '<a href=\'https://www.spip.net\' title=\'Un texte avec des retour
 a la ligne et meme des paragraphes\'>SPIP</a>',
 				1 => "<a href='https://www.spip.net'>SPIP</a>",
@@ -273,7 +327,7 @@ paragraphes',
 				4 => true,
 				5 => false,
 			],
-			30 => [
+			10 => [
 				0 => '<a href=\'https://www.spip.net\' title=\'Un texte avec des retour
 a la ligne et meme des
 
@@ -287,7 +341,7 @@ paragraphes',
 				4 => false,
 				5 => true,
 			],
-			31 => [
+			11 => [
 				0 => '<a href=\'https://www.spip.net\' title=\'Un texte avec des retour
 a la ligne et meme des
 
@@ -301,7 +355,13 @@ paragraphes',
 				4 => false,
 				5 => false,
 			],
-			32 => [
+		];
+	}
+
+
+	public static function providerFiltresInsererAttributTitleRemplacementsSimples(): array {
+		return [
+			9 => [
 				0 => "<a href='https://www.spip.net'>SPIP</a>",
 				1 => "<a href='https://www.spip.net' title='Simplement'>SPIP</a>",
 				2 => 'title',
@@ -309,7 +369,7 @@ paragraphes',
 				4 => true,
 				5 => true,
 			],
-			33 => [
+			1 => [
 				0 => "<a href='https://www.spip.net' title=''>SPIP</a>",
 				1 => "<a href='https://www.spip.net' title='Simplement'>SPIP</a>",
 				2 => 'title',
@@ -317,7 +377,7 @@ paragraphes',
 				4 => true,
 				5 => false,
 			],
-			34 => [
+			2 => [
 				0 => "<a href='https://www.spip.net'>SPIP</a>",
 				1 => "<a href='https://www.spip.net' title='Simplement'>SPIP</a>",
 				2 => 'title',
@@ -325,7 +385,7 @@ paragraphes',
 				4 => false,
 				5 => true,
 			],
-			35 => [
+			3 => [
 				0 => "<a href='https://www.spip.net' title=''>SPIP</a>",
 				1 => "<a href='https://www.spip.net' title='Simplement'>SPIP</a>",
 				2 => 'title',
@@ -333,7 +393,7 @@ paragraphes',
 				4 => false,
 				5 => false,
 			],
-			36 => [
+			4 => [
 				0 => "<a href='https://www.spip.net' title='0'>SPIP</a>",
 				1 => "<a href='https://www.spip.net' title='Simplement'>SPIP</a>",
 				2 => 'title',
@@ -341,7 +401,7 @@ paragraphes',
 				4 => true,
 				5 => true,
 			],
-			37 => [
+			5 => [
 				0 => "<a href='https://www.spip.net' title='0'>SPIP</a>",
 				1 => "<a href='https://www.spip.net' title='Simplement'>SPIP</a>",
 				2 => 'title',
@@ -349,7 +409,7 @@ paragraphes',
 				4 => true,
 				5 => false,
 			],
-			38 => [
+			6 => [
 				0 => "<a href='https://www.spip.net' title='0'>SPIP</a>",
 				1 => "<a href='https://www.spip.net' title='Simplement'>SPIP</a>",
 				2 => 'title',
@@ -357,7 +417,7 @@ paragraphes',
 				4 => false,
 				5 => true,
 			],
-			39 => [
+			7 => [
 				0 => "<a href='https://www.spip.net' title='0'>SPIP</a>",
 				1 => "<a href='https://www.spip.net' title='Simplement'>SPIP</a>",
 				2 => 'title',
@@ -365,7 +425,12 @@ paragraphes',
 				4 => false,
 				5 => false,
 			],
-			40 => [
+		];
+	}
+
+	public static function providerFiltresInsererAttributTitleRemplacementsEntites(): array {
+		return [
+			0 => [
 				0 => "<a href='https://www.spip.net' title='Un texte avec des &lt;a href=&#034;http://spip.net&#034;&gt;liens&lt;/a&gt; [Article 1-&gt;art1] [spip-&gt;https://www.spip.net] https://www.spip.net'>SPIP</a>",
 				1 => "<a href='https://www.spip.net' title='Simplement'>SPIP</a>",
 				2 => 'title',
@@ -373,7 +438,7 @@ paragraphes',
 				4 => true,
 				5 => true,
 			],
-			41 => [
+			1 => [
 				0 => "<a href='https://www.spip.net' title='Un texte avec des &lt;a href=&#034;http://spip.net&#034;&gt;liens&lt;/a&gt; [Article 1-&gt;art1] [spip-&gt;https://www.spip.net] https://www.spip.net'>SPIP</a>",
 				1 => "<a href='https://www.spip.net' title='Simplement'>SPIP</a>",
 				2 => 'title',
@@ -381,7 +446,7 @@ paragraphes',
 				4 => true,
 				5 => false,
 			],
-			42 => [
+			2 => [
 				0 => '<a href=\'https://www.spip.net\' title=\'Un texte avec des <a href="http://spip.net">liens</a> [Article 1->art1] [spip->https://www.spip.net] https://www.spip.net\'>SPIP</a>',
 				1 => "<a href='https://www.spip.net' title='Simplement'>SPIP</a>",
 				2 => 'title',
@@ -389,7 +454,7 @@ paragraphes',
 				4 => false,
 				5 => true,
 			],
-			43 => [
+			3 => [
 				0 => '<a href=\'https://www.spip.net\' title=\'Un texte avec des <a href="http://spip.net">liens</a> [Article 1->art1] [spip->https://www.spip.net] https://www.spip.net\'>SPIP</a>',
 				1 => "<a href='https://www.spip.net' title='Simplement'>SPIP</a>",
 				2 => 'title',
@@ -397,7 +462,7 @@ paragraphes',
 				4 => false,
 				5 => false,
 			],
-			44 => [
+			4 => [
 				0 => "<a href='https://www.spip.net' title='Un texte avec des entit&#233;s &#38;&lt;&gt;&#034;'>SPIP</a>",
 				1 => "<a href='https://www.spip.net' title='Simplement'>SPIP</a>",
 				2 => 'title',
@@ -405,7 +470,7 @@ paragraphes',
 				4 => true,
 				5 => true,
 			],
-			45 => [
+			5 => [
 				0 => "<a href='https://www.spip.net' title='Un texte avec des entit&#233;s &#38;&lt;&gt;&#034;'>SPIP</a>",
 				1 => "<a href='https://www.spip.net' title='Simplement'>SPIP</a>",
 				2 => 'title',
@@ -413,7 +478,7 @@ paragraphes',
 				4 => true,
 				5 => false,
 			],
-			46 => [
+			6 => [
 				0 => "<a href='https://www.spip.net' title='Un texte avec des entit&eacute;s &amp;&lt;&gt;&#034;'>SPIP</a>",
 				1 => "<a href='https://www.spip.net' title='Simplement'>SPIP</a>",
 				2 => 'title',
@@ -421,7 +486,7 @@ paragraphes',
 				4 => false,
 				5 => true,
 			],
-			47 => [
+			7 => [
 				0 => "<a href='https://www.spip.net' title='Un texte avec des entit&eacute;s &amp;&lt;&gt;&#034;'>SPIP</a>",
 				1 => "<a href='https://www.spip.net' title='Simplement'>SPIP</a>",
 				2 => 'title',
@@ -429,7 +494,7 @@ paragraphes',
 				4 => false,
 				5 => false,
 			],
-			48 => [
+			8 => [
 				0 => "<a href='https://www.spip.net' title='Un texte sans entites &#38;&lt;&gt;&#034;&#039;'>SPIP</a>",
 				1 => "<a href='https://www.spip.net' title='Simplement'>SPIP</a>",
 				2 => 'title',
@@ -437,7 +502,7 @@ paragraphes',
 				4 => true,
 				5 => true,
 			],
-			49 => [
+			9 => [
 				0 => "<a href='https://www.spip.net' title='Un texte sans entites &#38;&lt;&gt;&#034;&#039;'>SPIP</a>",
 				1 => "<a href='https://www.spip.net' title='Simplement'>SPIP</a>",
 				2 => 'title',
@@ -445,7 +510,7 @@ paragraphes',
 				4 => true,
 				5 => false,
 			],
-			50 => [
+			10 => [
 				0 => '<a href=\'https://www.spip.net\' title=\'Un texte sans entites &<>"&#039;\'>SPIP</a>',
 				1 => "<a href='https://www.spip.net' title='Simplement'>SPIP</a>",
 				2 => 'title',
@@ -453,7 +518,7 @@ paragraphes',
 				4 => false,
 				5 => true,
 			],
-			51 => [
+			11 => [
 				0 => '<a href=\'https://www.spip.net\' title=\'Un texte sans entites &<>"&#039;\'>SPIP</a>',
 				1 => "<a href='https://www.spip.net' title='Simplement'>SPIP</a>",
 				2 => 'title',
@@ -461,7 +526,12 @@ paragraphes',
 				4 => false,
 				5 => false,
 			],
-			52 => [
+		];
+	}
+
+	public static function providerFiltresInsererAttributTitleRemplacementsRaccourcis(): array {
+		return [
+			0 => [
 				0 => "<a href='https://www.spip.net' title='{{{Des raccourcis}}} {italique} {{gras}} &lt;code&gt;du code&lt;/code&gt;'>SPIP</a>",
 				1 => "<a href='https://www.spip.net' title='Simplement'>SPIP</a>",
 				2 => 'title',
@@ -469,7 +539,7 @@ paragraphes',
 				4 => true,
 				5 => true,
 			],
-			53 => [
+			1 => [
 				0 => "<a href='https://www.spip.net' title='{{{Des raccourcis}}} {italique} {{gras}} &lt;code&gt;du code&lt;/code&gt;'>SPIP</a>",
 				1 => "<a href='https://www.spip.net' title='Simplement'>SPIP</a>",
 				2 => 'title',
@@ -477,7 +547,7 @@ paragraphes',
 				4 => true,
 				5 => false,
 			],
-			54 => [
+			2 => [
 				0 => "<a href='https://www.spip.net' title='{{{Des raccourcis}}} {italique} {{gras}} <code>du code</code>'>SPIP</a>",
 				1 => "<a href='https://www.spip.net' title='Simplement'>SPIP</a>",
 				2 => 'title',
@@ -485,7 +555,7 @@ paragraphes',
 				4 => false,
 				5 => true,
 			],
-			55 => [
+			3 => [
 				0 => "<a href='https://www.spip.net' title='{{{Des raccourcis}}} {italique} {{gras}} <code>du code</code>'>SPIP</a>",
 				1 => "<a href='https://www.spip.net' title='Simplement'>SPIP</a>",
 				2 => 'title',
@@ -493,7 +563,7 @@ paragraphes',
 				4 => false,
 				5 => false,
 			],
-			56 => [
+			4 => [
 				0 => "<a href='https://www.spip.net' title='Un modele &lt;modeleinexistant|lien=[-&gt;https://www.spip.net]&gt;'>SPIP</a>",
 				1 => "<a href='https://www.spip.net' title='Simplement'>SPIP</a>",
 				2 => 'title',
@@ -501,7 +571,7 @@ paragraphes',
 				4 => true,
 				5 => true,
 			],
-			57 => [
+			5 => [
 				0 => "<a href='https://www.spip.net' title='Un modele &lt;modeleinexistant|lien=[-&gt;https://www.spip.net]&gt;'>SPIP</a>",
 				1 => "<a href='https://www.spip.net' title='Simplement'>SPIP</a>",
 				2 => 'title',
@@ -509,7 +579,7 @@ paragraphes',
 				4 => true,
 				5 => false,
 			],
-			58 => [
+			6 => [
 				0 => "<a href='https://www.spip.net' title='Un modele <modeleinexistant|lien=[->https://www.spip.net]>'>SPIP</a>",
 				1 => "<a href='https://www.spip.net' title='Simplement'>SPIP</a>",
 				2 => 'title',
@@ -517,7 +587,7 @@ paragraphes',
 				4 => false,
 				5 => true,
 			],
-			59 => [
+			7 => [
 				0 => "<a href='https://www.spip.net' title='Un modele <modeleinexistant|lien=[->https://www.spip.net]>'>SPIP</a>",
 				1 => "<a href='https://www.spip.net' title='Simplement'>SPIP</a>",
 				2 => 'title',
@@ -525,7 +595,7 @@ paragraphes',
 				4 => false,
 				5 => false,
 			],
-			60 => [
+			8 => [
 				0 => '<a href=\'https://www.spip.net\' title=\'Un texte avec des retour
 a la ligne et meme des paragraphes\'>SPIP</a>',
 				1 => "<a href='https://www.spip.net' title='Simplement'>SPIP</a>",
@@ -537,7 +607,7 @@ paragraphes',
 				4 => true,
 				5 => true,
 			],
-			61 => [
+			9 => [
 				0 => '<a href=\'https://www.spip.net\' title=\'Un texte avec des retour
 a la ligne et meme des paragraphes\'>SPIP</a>',
 				1 => "<a href='https://www.spip.net' title='Simplement'>SPIP</a>",
@@ -549,7 +619,7 @@ paragraphes',
 				4 => true,
 				5 => false,
 			],
-			62 => [
+			10 => [
 				0 => '<a href=\'https://www.spip.net\' title=\'Un texte avec des retour
 a la ligne et meme des
 
@@ -563,7 +633,7 @@ paragraphes',
 				4 => false,
 				5 => true,
 			],
-			63 => [
+			11 => [
 				0 => '<a href=\'https://www.spip.net\' title=\'Un texte avec des retour
 a la ligne et meme des
 
@@ -577,7 +647,20 @@ paragraphes',
 				4 => false,
 				5 => false,
 			],
-			64 => [
+		];
+	}
+
+	public static function providerFiltresInsererAttributLienImgSimples(): array {
+		return [
+			0 => [
+				0 => "<a href='https://www.spip.net'><img src='https://www.spip.net/IMG/logo/siteon0.png' /></a>",
+				1 => "<a href='https://www.spip.net'><img src='https://www.spip.net/IMG/logo/siteon0.png' /></a>",
+				2 => 'alt',
+				3 => '',
+				4 => true,
+				5 => true,
+			],
+			1 => [
 				0 => "<a href='https://www.spip.net'><img src='https://www.spip.net/IMG/logo/siteon0.png'></a>",
 				1 => "<a href='https://www.spip.net'><img src='https://www.spip.net/IMG/logo/siteon0.png'></a>",
 				2 => 'alt',
@@ -585,7 +668,7 @@ paragraphes',
 				4 => true,
 				5 => true,
 			],
-			65 => [
+			2 => [
 				0 => "<a href='https://www.spip.net'><img src='https://www.spip.net/IMG/logo/siteon0.png' alt=''></a>",
 				1 => "<a href='https://www.spip.net'><img src='https://www.spip.net/IMG/logo/siteon0.png'></a>",
 				2 => 'alt',
@@ -593,7 +676,15 @@ paragraphes',
 				4 => true,
 				5 => false,
 			],
-			66 => [
+			3 => [
+				0 => "<a href='https://www.spip.net'><img src='https://www.spip.net/IMG/logo/siteon0.png' alt='' /></a>",
+				1 => "<a href='https://www.spip.net'><img src='https://www.spip.net/IMG/logo/siteon0.png' /></a>",
+				2 => 'alt',
+				3 => '',
+				4 => true,
+				5 => false,
+			],
+			4 => [
 				0 => "<a href='https://www.spip.net'><img src='https://www.spip.net/IMG/logo/siteon0.png'></a>",
 				1 => "<a href='https://www.spip.net'><img src='https://www.spip.net/IMG/logo/siteon0.png'></a>",
 				2 => 'alt',
@@ -601,7 +692,15 @@ paragraphes',
 				4 => false,
 				5 => true,
 			],
-			67 => [
+			5 => [
+				0 => "<a href='https://www.spip.net'><img src='https://www.spip.net/IMG/logo/siteon0.png' /></a>",
+				1 => "<a href='https://www.spip.net'><img src='https://www.spip.net/IMG/logo/siteon0.png' /></a>",
+				2 => 'alt',
+				3 => '',
+				4 => false,
+				5 => true,
+			],
+			6 => [
 				0 => "<a href='https://www.spip.net'><img src='https://www.spip.net/IMG/logo/siteon0.png' alt=''></a>",
 				1 => "<a href='https://www.spip.net'><img src='https://www.spip.net/IMG/logo/siteon0.png'></a>",
 				2 => 'alt',
@@ -609,7 +708,17 @@ paragraphes',
 				4 => false,
 				5 => false,
 			],
-			68 => [
+			7 => [
+				0 => "<a href='https://www.spip.net'><img src='https://www.spip.net/IMG/logo/siteon0.png' alt='' /></a>",
+				1 => "<a href='https://www.spip.net'><img src='https://www.spip.net/IMG/logo/siteon0.png' /></a>",
+				2 => 'alt',
+				3 => '',
+				4 => false,
+				5 => false,
+			],
+
+
+			8 => [
 				0 => "<a href='https://www.spip.net'><img src='https://www.spip.net/IMG/logo/siteon0.png' alt='0'></a>",
 				1 => "<a href='https://www.spip.net'><img src='https://www.spip.net/IMG/logo/siteon0.png'></a>",
 				2 => 'alt',
@@ -617,7 +726,7 @@ paragraphes',
 				4 => true,
 				5 => true,
 			],
-			69 => [
+			9 => [
 				0 => "<a href='https://www.spip.net'><img src='https://www.spip.net/IMG/logo/siteon0.png' alt='0'></a>",
 				1 => "<a href='https://www.spip.net'><img src='https://www.spip.net/IMG/logo/siteon0.png'></a>",
 				2 => 'alt',
@@ -625,7 +734,7 @@ paragraphes',
 				4 => true,
 				5 => false,
 			],
-			70 => [
+			10 => [
 				0 => "<a href='https://www.spip.net'><img src='https://www.spip.net/IMG/logo/siteon0.png' alt='0'></a>",
 				1 => "<a href='https://www.spip.net'><img src='https://www.spip.net/IMG/logo/siteon0.png'></a>",
 				2 => 'alt',
@@ -633,7 +742,7 @@ paragraphes',
 				4 => false,
 				5 => true,
 			],
-			71 => [
+			11 => [
 				0 => "<a href='https://www.spip.net'><img src='https://www.spip.net/IMG/logo/siteon0.png' alt='0'></a>",
 				1 => "<a href='https://www.spip.net'><img src='https://www.spip.net/IMG/logo/siteon0.png'></a>",
 				2 => 'alt',
@@ -641,6 +750,11 @@ paragraphes',
 				4 => false,
 				5 => false,
 			],
+		];
+	}
+
+	public static function providerFiltresInsererAttributAutres(): array {
+		return [
 			72 => [
 				0 => "<a href='https://www.spip.net'><img src='https://www.spip.net/IMG/logo/siteon0.png' alt='Un texte avec des &lt;a href=&#034;http://spip.net&#034;&gt;liens&lt;/a&gt; [Article 1-&gt;art1] [spip-&gt;https://www.spip.net] https://www.spip.net'></a>",
 				1 => "<a href='https://www.spip.net'><img src='https://www.spip.net/IMG/logo/siteon0.png'></a>",
@@ -1132,6 +1246,12 @@ paragraphes',
 			128 => [
 				0 => "<input value='&lt;span style=&#034;color:red;&#034;&gt;ho&lt;/span&gt;'>",
 				1 => '<input>',
+				2 => 'value',
+				3 => '<span style="color:red;">ho</span>',
+			],
+			129 => [
+				0 => "<input value='&lt;span style=&#034;color:red;&#034;&gt;ho&lt;/span&gt;' />",
+				1 => '<input />',
 				2 => 'value',
 				3 => '<span style="color:red;">ho</span>',
 			],
