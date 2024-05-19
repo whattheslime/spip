@@ -692,12 +692,12 @@
             "version": "dev-main",
             "source": {
                 "type": "git",
-                "url": "https://git.spip.net/spip/cache.git",
+                "url": "https://git.spip.net/spip-league/cache.git",
                 "reference": "a503509a5801b9c34db6b0f7d20bca3830bfdc81"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://git.spip.net/api/v4/projects/spip%2Fcache/repository/archive.zip?sha=a503509a5801b9c34db6b0f7d20bca3830bfdc81",
+                "url": "https://git.spip.net/api/v4/projects/spip-league%2Fcache/repository/archive.zip?sha=a503509a5801b9c34db6b0f7d20bca3830bfdc81",
                 "reference": "a503509a5801b9c34db6b0f7d20bca3830bfdc81",
                 "shasum": ""
             },
@@ -762,8 +762,8 @@
                 "cache"
             ],
             "support": {
-                "source": "https://git.spip.net/spip/cache/-/tree/main",
-                "issues": "https://git.spip.net/spip/cache/-/issues"
+                "source": "https://git.spip.net/spip-league/cache/-/tree/main",
+                "issues": "https://git.spip.net/spip-league/cache/-/issues"
             },
             "time": "2024-02-02T17:19:03+01:00"
         },
@@ -820,12 +820,12 @@
             "version": "0.6.1",
             "source": {
                 "type": "git",
-                "url": "https://git.spip.net/spip/composer-installer.git",
+                "url": "https://git.spip.net/spip-league/composer-installer.git",
                 "reference": "053ca2507f4ec6149182c797d59a8ab06e89cb25"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://git.spip.net/api/v4/projects/spip%2Fcomposer-installer/repository/archive.zip?sha=053ca2507f4ec6149182c797d59a8ab06e89cb25",
+                "url": "https://git.spip.net/api/v4/projects/spip-league%2Fcomposer-installer/repository/archive.zip?sha=053ca2507f4ec6149182c797d59a8ab06e89cb25",
                 "reference": "053ca2507f4ec6149182c797d59a8ab06e89cb25",
                 "shasum": ""
             },
@@ -864,8 +864,8 @@
             ],
             "description": "SPIP Composer Installer Plugin",
             "support": {
-                "source": "https://git.spip.net/spip/composer-installer/-/tree/0.6.1",
-                "issues": "https://git.spip.net/spip/composer-installer/-/issues"
+                "source": "https://git.spip.net/spip-league/composer-installer/-/tree/0.6.1",
+                "issues": "https://git.spip.net/spip-league/composer-installer/-/issues"
             },
             "time": "2023-04-05T14:01:55+02:00"
         },
@@ -875,12 +875,12 @@
             "source": {
                 "type": "git",
                 "url": "https://git.spip.net/spip/compresseur.git",
-                "reference": "d065a8e352a47cb46062032a570bfe27d2fa5a97"
+                "reference": "2c04c40a43bb4286e48419474371e248f4042c7e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://git.spip.net/api/v4/projects/spip%2Fcompresseur/repository/archive.zip?sha=d065a8e352a47cb46062032a570bfe27d2fa5a97",
-                "reference": "d065a8e352a47cb46062032a570bfe27d2fa5a97",
+                "url": "https://git.spip.net/api/v4/projects/spip%2Fcompresseur/repository/archive.zip?sha=2c04c40a43bb4286e48419474371e248f4042c7e",
+                "reference": "2c04c40a43bb4286e48419474371e248f4042c7e",
                 "shasum": ""
             },
             "require": {
@@ -917,7 +917,7 @@
                 "source": "https://git.spip.net/spip/compresseur/-/tree/master",
                 "issues": "https://git.spip.net/spip/compresseur/-/issues"
             },
-            "time": "2024-05-05T01:44:32+02:00"
+            "time": "2024-05-17T10:32:34+02:00"
         },
         {
             "name": "spip/dist",
@@ -1010,12 +1010,12 @@
             "version": "dev-main",
             "source": {
                 "type": "git",
-                "url": "https://git.spip.net/spip/filesystem.git",
+                "url": "https://git.spip.net/spip-league/filesystem.git",
                 "reference": "87af5429446c68bc3df5efa89ea5a2a11850de18"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://git.spip.net/api/v4/projects/spip%2Ffilesystem/repository/archive.zip?sha=87af5429446c68bc3df5efa89ea5a2a11850de18",
+                "url": "https://git.spip.net/api/v4/projects/spip-league%2Ffilesystem/repository/archive.zip?sha=87af5429446c68bc3df5efa89ea5a2a11850de18",
                 "reference": "87af5429446c68bc3df5efa89ea5a2a11850de18",
                 "shasum": ""
             },
@@ -1061,7 +1061,7 @@
             ],
             "support": {
                 "issues": "https://git.spip.net/spip/filesystem/issues",
-                "source": "https://git.spip.net/spip/filesystem/-/tree/main"
+                "source": "https://git.spip.net/spip-league/filesystem/-/tree/main"
             },
             "time": "2024-04-15T16:28:14+02:00"
         },
@@ -1071,12 +1071,12 @@
             "source": {
                 "type": "git",
                 "url": "https://git.spip.net/spip/forum.git",
-                "reference": "88085c801bdaf9a99a7f8655e3e13f7908ef1018"
+                "reference": "4bd5491fb7c1252a5fa4c07f460c9f788923785a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://git.spip.net/api/v4/projects/spip%2Fforum/repository/archive.zip?sha=88085c801bdaf9a99a7f8655e3e13f7908ef1018",
-                "reference": "88085c801bdaf9a99a7f8655e3e13f7908ef1018",
+                "url": "https://git.spip.net/api/v4/projects/spip%2Fforum/repository/archive.zip?sha=4bd5491fb7c1252a5fa4c07f460c9f788923785a",
+                "reference": "4bd5491fb7c1252a5fa4c07f460c9f788923785a",
                 "shasum": ""
             },
             "require": {
@@ -1111,19 +1111,19 @@
                 "source": "https://git.spip.net/spip/forum/-/tree/master",
                 "issues": "https://git.spip.net/spip/forum/-/issues"
             },
-            "time": "2024-05-07T11:33:59+02:00"
+            "time": "2024-05-13T02:30:03+02:00"
         },
         {
             "name": "spip/hasher",
             "version": "dev-main",
             "source": {
                 "type": "git",
-                "url": "https://git.spip.net/spip/hasher.git",
+                "url": "https://git.spip.net/spip-league/hasher.git",
                 "reference": "da4506e7de272ff0d6045cc5d2ebb743d2feb3a0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://git.spip.net/api/v4/projects/spip%2Fhasher/repository/archive.zip?sha=da4506e7de272ff0d6045cc5d2ebb743d2feb3a0",
+                "url": "https://git.spip.net/api/v4/projects/spip-league%2Fhasher/repository/archive.zip?sha=da4506e7de272ff0d6045cc5d2ebb743d2feb3a0",
                 "reference": "da4506e7de272ff0d6045cc5d2ebb743d2feb3a0",
                 "shasum": ""
             },
@@ -1186,8 +1186,8 @@
                 "cache"
             ],
             "support": {
-                "source": "https://git.spip.net/spip/hasher/-/tree/main",
-                "issues": "https://git.spip.net/spip/hasher/-/issues"
+                "source": "https://git.spip.net/spip-league/hasher/-/tree/main",
+                "issues": "https://git.spip.net/spip-league/hasher/-/issues"
             },
             "time": "2024-04-15T15:59:15+02:00"
         },
@@ -1197,12 +1197,12 @@
             "source": {
                 "type": "git",
                 "url": "https://git.spip.net/spip/filtres_images.git",
-                "reference": "233a243196dfc72cfc93243f7149a214ef4910d7"
+                "reference": "97a2661be63d582d5cec2e986fa164c68a3c9c46"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://git.spip.net/api/v4/projects/spip%2Ffiltres_images/repository/archive.zip?sha=233a243196dfc72cfc93243f7149a214ef4910d7",
-                "reference": "233a243196dfc72cfc93243f7149a214ef4910d7",
+                "url": "https://git.spip.net/api/v4/projects/spip%2Ffiltres_images/repository/archive.zip?sha=97a2661be63d582d5cec2e986fa164c68a3c9c46",
+                "reference": "97a2661be63d582d5cec2e986fa164c68a3c9c46",
                 "shasum": ""
             },
             "require": {
@@ -1244,19 +1244,19 @@
                 "source": "https://git.spip.net/spip/filtres_images/-/tree/master",
                 "issues": "https://git.spip.net/spip/filtres_images/-/issues"
             },
-            "time": "2024-05-14T15:59:59+02:00"
+            "time": "2024-05-16T16:09:22+02:00"
         },
         {
             "name": "spip/logger",
             "version": "1.0.2",
             "source": {
                 "type": "git",
-                "url": "https://git.spip.net/spip/logger.git",
+                "url": "https://git.spip.net/spip-league/logger.git",
                 "reference": "21b5ee322215ae03aa667f5ca9c45111d6af42f6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://git.spip.net/api/v4/projects/spip%2Flogger/repository/archive.zip?sha=21b5ee322215ae03aa667f5ca9c45111d6af42f6",
+                "url": "https://git.spip.net/api/v4/projects/spip-league%2Flogger/repository/archive.zip?sha=21b5ee322215ae03aa667f5ca9c45111d6af42f6",
                 "reference": "21b5ee322215ae03aa667f5ca9c45111d6af42f6",
                 "shasum": ""
             },
@@ -1301,7 +1301,7 @@
             ],
             "support": {
                 "issues": "https://git.spip.net/spip/logger/issues",
-                "source": "https://git.spip.net/spip/logger/-/tree/1.0.2"
+                "source": "https://git.spip.net/spip-league/logger/-/tree/1.0.2"
             },
             "time": "2024-02-01T15:03:40+01:00"
         },
@@ -1359,12 +1359,12 @@
             "source": {
                 "type": "git",
                 "url": "https://git.spip.net/spip/medias.git",
-                "reference": "6d4907e3b69296e3178a2bb7d61558bbed6e000f"
+                "reference": "0f230cd482c7a88b345e81fd059eabdaf23b6365"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://git.spip.net/api/v4/projects/spip%2Fmedias/repository/archive.zip?sha=6d4907e3b69296e3178a2bb7d61558bbed6e000f",
-                "reference": "6d4907e3b69296e3178a2bb7d61558bbed6e000f",
+                "url": "https://git.spip.net/api/v4/projects/spip%2Fmedias/repository/archive.zip?sha=0f230cd482c7a88b345e81fd059eabdaf23b6365",
+                "reference": "0f230cd482c7a88b345e81fd059eabdaf23b6365",
                 "shasum": ""
             },
             "require": {
@@ -1400,7 +1400,7 @@
                 "source": "https://git.spip.net/spip/medias/-/tree/master",
                 "issues": "https://git.spip.net/spip/medias/-/issues"
             },
-            "time": "2024-05-07T14:51:22+02:00"
+            "time": "2024-05-07T15:07:38+02:00"
         },
         {
             "name": "spip/mots",
@@ -1455,12 +1455,12 @@
             "version": "dev-main",
             "source": {
                 "type": "git",
-                "url": "https://git.spip.net/spip/path.git",
+                "url": "https://git.spip.net/spip-league/path.git",
                 "reference": "51eeacec266d3cc65b349557cd856eb076269241"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://git.spip.net/api/v4/projects/spip%2Fpath/repository/archive.zip?sha=51eeacec266d3cc65b349557cd856eb076269241",
+                "url": "https://git.spip.net/api/v4/projects/spip-league%2Fpath/repository/archive.zip?sha=51eeacec266d3cc65b349557cd856eb076269241",
                 "reference": "51eeacec266d3cc65b349557cd856eb076269241",
                 "shasum": ""
             },
@@ -1519,8 +1519,8 @@
             ],
             "description": "SPIP Path Component",
             "support": {
-                "source": "https://git.spip.net/spip/path/-/tree/main",
-                "issues": "https://git.spip.net/spip/path/-/issues"
+                "source": "https://git.spip.net/spip-league/path/-/tree/main",
+                "issues": "https://git.spip.net/spip-league/path/-/issues"
             },
             "time": "2024-04-15T17:30:44+02:00"
         },
@@ -1805,12 +1805,12 @@
             "source": {
                 "type": "git",
                 "url": "https://git.spip.net/spip/statistiques.git",
-                "reference": "efd14d9633749be89750d4a7112b82d1dcf571b2"
+                "reference": "6f2a97504ec26893c3c9adf9ec9df3e7fcc85fd8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://git.spip.net/api/v4/projects/spip%2Fstatistiques/repository/archive.zip?sha=efd14d9633749be89750d4a7112b82d1dcf571b2",
-                "reference": "efd14d9633749be89750d4a7112b82d1dcf571b2",
+                "url": "https://git.spip.net/api/v4/projects/spip%2Fstatistiques/repository/archive.zip?sha=6f2a97504ec26893c3c9adf9ec9df3e7fcc85fd8",
+                "reference": "6f2a97504ec26893c3c9adf9ec9df3e7fcc85fd8",
                 "shasum": ""
             },
             "require": {
@@ -1845,7 +1845,7 @@
                 "source": "https://git.spip.net/spip/statistiques/-/tree/master",
                 "issues": "https://git.spip.net/spip/statistiques/-/issues"
             },
-            "time": "2024-05-04T23:48:18+02:00"
+            "time": "2024-05-13T02:30:04+02:00"
         },
         {
             "name": "spip/svp",
@@ -1853,12 +1853,12 @@
             "source": {
                 "type": "git",
                 "url": "https://git.spip.net/spip/svp.git",
-                "reference": "36c0ad425c74a94e386832a574bf5fa61fc8956f"
+                "reference": "36a1646a1ba9b7f9c8e8de0b3f014bb4cfd5d239"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://git.spip.net/api/v4/projects/spip%2Fsvp/repository/archive.zip?sha=36c0ad425c74a94e386832a574bf5fa61fc8956f",
-                "reference": "36c0ad425c74a94e386832a574bf5fa61fc8956f",
+                "url": "https://git.spip.net/api/v4/projects/spip%2Fsvp/repository/archive.zip?sha=36a1646a1ba9b7f9c8e8de0b3f014bb4cfd5d239",
+                "reference": "36a1646a1ba9b7f9c8e8de0b3f014bb4cfd5d239",
                 "shasum": ""
             },
             "require": {
@@ -1898,7 +1898,7 @@
                 "source": "https://git.spip.net/spip/svp/-/tree/master",
                 "issues": "https://git.spip.net/spip/svp/-/issues"
             },
-            "time": "2024-05-07T11:01:44+02:00"
+            "time": "2024-05-08T11:44:13+02:00"
         },
         {
             "name": "spip/tw",
@@ -3292,16 +3292,16 @@
         },
         {
             "name": "phpstan/phpstan",
-            "version": "1.10.67",
+            "version": "1.11.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpstan/phpstan.git",
-                "reference": "16ddbe776f10da6a95ebd25de7c1dbed397dc493"
+                "reference": "e524358f930e41a2b4cca1320e3b04fc26b39e0b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpstan/phpstan/zipball/16ddbe776f10da6a95ebd25de7c1dbed397dc493",
-                "reference": "16ddbe776f10da6a95ebd25de7c1dbed397dc493",
+                "url": "https://api.github.com/repos/phpstan/phpstan/zipball/e524358f930e41a2b4cca1320e3b04fc26b39e0b",
+                "reference": "e524358f930e41a2b4cca1320e3b04fc26b39e0b",
                 "shasum": ""
             },
             "require": {
@@ -3346,7 +3346,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2024-04-16T07:22:02+00:00"
+            "time": "2024-05-15T08:00:59+00:00"
         },
         {
             "name": "phpunit/php-code-coverage",
