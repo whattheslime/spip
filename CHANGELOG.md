@@ -6,6 +6,7 @@ Changelog de SPIP 4.3
 
 ### Fixed
 
+- !5969 Correction de coquille sur la meta charset (suite à la conformité HTML5)
 - !5962 Petite optimisation sur `svg_nettoyer()`
 - #5714 Optimisation des boucles avec pagination, en forçant une clause limit automatique dessus
 
