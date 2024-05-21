@@ -2,7 +2,7 @@
 Appel au script php en attendant de reecrire le head ici
 ]
 [<title>(#ENV{titre,''})</title>
-][<meta charset=(#CONFIG{charset})">
+][<meta charset="(#CONFIG{charset})">
 ]<script>
 var url_menu_rubrique="[(#VAL{menu_rubriques}|generer_url_action{[date=(#CONFIG{date_calcul_rubriques})],1})]";
 (function(H){H.className=H.className.replace(/\bno-js\b/,'js')})(document.documentElement);
