@@ -1906,12 +1906,12 @@
             "source": {
                 "type": "git",
                 "url": "https://git.spip.net/spip/textwheel.git",
-                "reference": "8c9b699d625f32c25163f685336d0ae1e17fdee2"
+                "reference": "e0b944843b386bc0e41361c7038b667493f1cf5c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://git.spip.net/api/v4/projects/spip%2Ftextwheel/repository/archive.zip?sha=8c9b699d625f32c25163f685336d0ae1e17fdee2",
-                "reference": "8c9b699d625f32c25163f685336d0ae1e17fdee2",
+                "url": "https://git.spip.net/api/v4/projects/spip%2Ftextwheel/repository/archive.zip?sha=e0b944843b386bc0e41361c7038b667493f1cf5c",
+                "reference": "e0b944843b386bc0e41361c7038b667493f1cf5c",
                 "shasum": ""
             },
             "require": {
@@ -1943,10 +1943,10 @@
             ],
             "description": "Gestion de la typographie SPIP avec TextWheel",
             "support": {
-                "source": "https://git.spip.net/spip/textwheel/-/tree/master",
+                "source": "https://git.spip.net/spip/textwheel/-/tree/fix_tests",
                 "issues": "https://git.spip.net/spip/textwheel/-/issues"
             },
-            "time": "2024-05-04T23:02:55+02:00"
+            "time": "2024-05-14T16:25:35+02:00"
         },
         {
             "name": "spip/urls",
@@ -3204,22 +3204,22 @@
         },
         {
             "name": "phpcsstandards/phpcsutils",
-            "version": "1.0.11",
+            "version": "1.0.12",
             "source": {
                 "type": "git",
                 "url": "https://github.com/PHPCSStandards/PHPCSUtils.git",
-                "reference": "c457da9dabb60eb7106dd5e3c05132b1a6539c6a"
+                "reference": "87b233b00daf83fb70f40c9a28692be017ea7c6c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/PHPCSStandards/PHPCSUtils/zipball/c457da9dabb60eb7106dd5e3c05132b1a6539c6a",
-                "reference": "c457da9dabb60eb7106dd5e3c05132b1a6539c6a",
+                "url": "https://api.github.com/repos/PHPCSStandards/PHPCSUtils/zipball/87b233b00daf83fb70f40c9a28692be017ea7c6c",
+                "reference": "87b233b00daf83fb70f40c9a28692be017ea7c6c",
                 "shasum": ""
             },
             "require": {
                 "dealerdirect/phpcodesniffer-composer-installer": "^0.4.1 || ^0.5 || ^0.6.2 || ^0.7 || ^1.0",
                 "php": ">=5.4",
-                "squizlabs/php_codesniffer": "^3.9.0 || 4.0.x-dev@dev"
+                "squizlabs/php_codesniffer": "^3.10.0 || 4.0.x-dev@dev"
             },
             "require-dev": {
                 "ext-filter": "*",
@@ -3288,7 +3288,7 @@
                     "type": "open_collective"
                 }
             ],
-            "time": "2024-04-24T11:47:18+00:00"
+            "time": "2024-05-20T13:34:27+00:00"
         },
         {
             "name": "phpstan/phpstan",
@@ -4755,16 +4755,16 @@
         },
         {
             "name": "squizlabs/php_codesniffer",
-            "version": "3.9.2",
+            "version": "3.10.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/PHPCSStandards/PHP_CodeSniffer.git",
-                "reference": "aac1f6f347a5c5ac6bc98ad395007df00990f480"
+                "reference": "57e09801c2fbae2d257b8b75bebb3deeb7e9deb2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/PHPCSStandards/PHP_CodeSniffer/zipball/aac1f6f347a5c5ac6bc98ad395007df00990f480",
-                "reference": "aac1f6f347a5c5ac6bc98ad395007df00990f480",
+                "url": "https://api.github.com/repos/PHPCSStandards/PHP_CodeSniffer/zipball/57e09801c2fbae2d257b8b75bebb3deeb7e9deb2",
+                "reference": "57e09801c2fbae2d257b8b75bebb3deeb7e9deb2",
                 "shasum": ""
             },
             "require": {
@@ -4831,7 +4831,7 @@
                     "type": "open_collective"
                 }
             ],
-            "time": "2024-04-23T20:25:34+00:00"
+            "time": "2024-05-20T08:11:32+00:00"
         },
         {
             "name": "symfony/var-dumper",
