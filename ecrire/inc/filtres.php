@@ -5524,3 +5524,16 @@ function filtre_objet_lister_enfants_dist($objet, $id_objet) {
 function filtre_objet_lister_enfants_par_type_dist($objet, $id_objet) {
 	return helper_filtre_objet_lister_enfants_ou_parents($objet, $id_objet, 'objet_lister_enfants_par_type');
 }
+
+/**
+ * Surcharge de la fonction propre() pour les squelettes
+ * 
+ * Permet d'appliquer la fonction propre() manuellement dans les squelettes avec les bons dés-échappements.
+ */
+function filtre_propre_dist(&$Pile, $texte) {
+	$env = &$Pile[0];
+	$texte = propre($texte, '', $env);
+	$texte = interdire_scripts($texte);
+	
+	return $texte;
+}
