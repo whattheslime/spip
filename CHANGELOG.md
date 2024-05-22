@@ -2,6 +2,12 @@
 
 Changelog de SPIP 4.1
 
+## Unreleased
+
+### Security
+
+- Écran de sécurité en version 1.16.0
+
 ## 4.1.15 - 2024-01-12
 
 - Cf. plugin Bigup
