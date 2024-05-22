@@ -5,7 +5,7 @@
  * ------------------
  */
 
-define('_ECRAN_SECURITE', '1.5.3'); // 2023-05-31
+define('_ECRAN_SECURITE', '1.6.0'); // 2024-05-21
 
 /*
  * Documentation : https://www.spip.net/fr_article4200.html
@@ -307,13 +307,15 @@ if (isset($_SERVER['REQUEST_URI'])) {
 	}
 }
 
+$__request = array_merge($_POST, $_GET);
+
 /*
  * Pas d'inscription abusive
  */
 if (
-	isset($_REQUEST['mode']) and isset($_REQUEST['page'])
-	and !in_array($_REQUEST['mode'], array("6forum", "1comite"))
-	and $_REQUEST['page'] == "identifiants"
+	isset($__request['mode']) and isset($__request['page'])
+	and !in_array($__request['mode'], array("6forum", "1comite"))
+	and $__request['page'] == "identifiants"
 ) {
 	$ecran_securite_raison = "identifiants";
 }
@@ -322,14 +324,14 @@ if (
  * Agenda joue à l'injection php
  */
 if (
-	isset($_REQUEST['partie_cal'])
-	and $_REQUEST['partie_cal'] !== htmlentities((string)$_REQUEST['partie_cal'])
+	isset($__request['partie_cal'])
+	and $__request['partie_cal'] !== htmlentities((string)$__request['partie_cal'])
 ) {
 	$ecran_securite_raison = "partie_cal";
 }
 if (
-	isset($_REQUEST['echelle'])
-	and $_REQUEST['echelle'] !== htmlentities((string)$_REQUEST['echelle'])
+	isset($__request['echelle'])
+	and $__request['echelle'] !== htmlentities((string)$__request['echelle'])
 ) {
 	$ecran_securite_raison = "echelle";
 }
@@ -338,66 +340,68 @@ if (
  * Espace privé
  */
 if (
-	isset($_REQUEST['exec'])
-	and !preg_match(',^[\w-]+$,', (string)$_REQUEST['exec'])
+	isset($__request['exec'])
+	and !preg_match(',^[\w-]+$,', (string)$__request['exec'])
 ) {
 	$ecran_securite_raison = "exec";
 }
 if (
-	isset($_REQUEST['cherche_auteur'])
-	and preg_match(',[<],', (string)$_REQUEST['cherche_auteur'])
+	isset($__request['cherche_auteur'])
+	and preg_match(',[<],', (string)$__request['cherche_auteur'])
 ) {
 	$ecran_securite_raison = "cherche_auteur";
 }
 if (
-	isset($_REQUEST['exec'])
-	and $_REQUEST['exec'] == 'auteurs'
-	and isset($_REQUEST['recherche'])
-	and preg_match(',[<],', (string)$_REQUEST['recherche'])
+	isset($__request['exec'])
+	and $__request['exec'] == 'auteurs'
+	and isset($__request['recherche'])
+	and preg_match(',[<],', (string)$__request['recherche'])
 ) {
 	$ecran_securite_raison = "recherche";
 }
 if (
-	isset($_REQUEST['exec'])
-	and $_REQUEST['exec'] == 'info_plugin'
-	and isset($_REQUEST['plugin'])
-	and preg_match(',[<],', (string)$_REQUEST['plugin'])
+	isset($__request['exec'])
+	and $__request['exec'] == 'info_plugin'
+	and isset($__request['plugin'])
+	and preg_match(',[<],', (string)$__request['plugin'])
 ) {
 	$ecran_securite_raison = "plugin";
 }
 if (
-	isset($_REQUEST['exec'])
-	and $_REQUEST['exec'] == 'puce_statut'
-	and isset($_REQUEST['id'])
-	and !intval($_REQUEST['id'])
+	isset($__request['exec'])
+	and $__request['exec'] == 'puce_statut'
+	and isset($__request['id'])
+	and !intval($__request['id'])
 ) {
 	$ecran_securite_raison = "puce_statut";
 }
 if (
-	isset($_REQUEST['action'])
-	and $_REQUEST['action'] == 'configurer'
+	isset($__request['action'])
+	and $__request['action'] == 'configurer'
 ) {
 	if (
 		@file_exists('inc_version.php')
 		or @file_exists('ecrire/inc_version.php')
 	) {
-		function action_configurer() {
-			include_spip('inc/autoriser');
-			if (!autoriser('configurer', _request('configuration'))) {
-				include_spip('inc/minipres');
-				echo minipres(_T('info_acces_interdit'));
-				exit;
+		if (!function_exists('action_configurer')) {
+			function action_configurer() {
+				include_spip('inc/autoriser');
+				if (!autoriser('configurer', _request('configuration'))) {
+					include_spip('inc/minipres');
+					echo minipres(_T('info_acces_interdit'));
+					exit;
+				}
+				require _DIR_RESTREINT . 'action/configurer.php';
+				action_configurer_dist();
 			}
-			require _DIR_RESTREINT . 'action/configurer.php';
-			action_configurer_dist();
 		}
 	}
 }
 if (
-	isset($_REQUEST['action'])
-	and $_REQUEST['action'] == 'ordonner_liens_documents'
-	and isset($_REQUEST['ordre'])
-	and is_string($_REQUEST['ordre'])
+	isset($__request['action'])
+	and $__request['action'] == 'ordonner_liens_documents'
+	and isset($__request['ordre'])
+	and is_string($__request['ordre'])
 ) {
 	$ecran_securite_raison = "ordre a la chaine";
 }
@@ -408,8 +412,8 @@ if (
  */
 if (strpos(
 	(function_exists('get_magic_quotes_gpc') and @get_magic_quotes_gpc())
-		? stripslashes(serialize($_REQUEST))
-		: serialize($_REQUEST),
+		? stripslashes(serialize($__request))
+		: serialize($__request),
 	chr(0)
 ) !== false) {
 	$ecran_securite_raison = "%00";
@@ -419,8 +423,8 @@ if (strpos(
  * Bloque les requêtes fond=formulaire_
  */
 if (
-	isset($_REQUEST['fond'])
-	and preg_match(',^formulaire_,i', $_REQUEST['fond'])
+	isset($__request['fond'])
+	and preg_match(',^formulaire_,i', $__request['fond'])
 ) {
 	$ecran_securite_raison = "fond=formulaire_";
 }
@@ -428,7 +432,7 @@ if (
 /*
  * Bloque les requêtes du type ?GLOBALS[type_urls]=toto (bug vieux php)
  */
-if (isset($_REQUEST['GLOBALS'])) {
+if (isset($__request['GLOBALS'])) {
 	$ecran_securite_raison = "GLOBALS[GLOBALS]";
 }
 
@@ -439,10 +443,10 @@ if (isset($_REQUEST['GLOBALS'])) {
  */
 if (_IS_BOT) {
 	if (
-		(isset($_REQUEST['echelle']) and isset($_REQUEST['partie_cal']) and isset($_REQUEST['type']))
+		(isset($__request['echelle']) and isset($__request['partie_cal']) and isset($__request['type']))
 		or (strpos((string)$_SERVER['REQUEST_URI'], 'debut_') and preg_match(',[?&]debut_.*&debut_,', (string)$_SERVER['REQUEST_URI']))
-		or (isset($_REQUEST['calendrier_annee']) and strpos((string)$_SERVER['REQUEST_URI'], 'debut_'))
-		or (isset($_REQUEST['calendrier_annee']) and preg_match(',[?&]calendrier_annee=.*&calendrier_annee=,', (string)$_SERVER['REQUEST_URI']))
+		or (isset($__request['calendrier_annee']) and strpos((string)$_SERVER['REQUEST_URI'], 'debut_'))
+		or (isset($__request['calendrier_annee']) and preg_match(',[?&]calendrier_annee=.*&calendrier_annee=,', (string)$_SERVER['REQUEST_URI']))
 	) {
 		$ecran_securite_raison = "robot agenda/double pagination";
 	}
@@ -452,16 +456,16 @@ if (_IS_BOT) {
  * Bloque une vieille page de tests de CFG (<1.11)
  * Bloque un XSS sur une page inexistante
  */
-if (isset($_REQUEST['page'])) {
-	if ($_REQUEST['page'] == 'test_cfg') {
+if (isset($__request['page'])) {
+	if ($__request['page'] == 'test_cfg') {
 		$ecran_securite_raison = "test_cfg";
 	}
-	if ($_REQUEST['page'] !== htmlspecialchars((string)$_REQUEST['page'])) {
+	if ($__request['page'] !== htmlspecialchars((string)$__request['page'])) {
 		$ecran_securite_raison = "xsspage";
 	}
 	if (
-		$_REQUEST['page'] == '404'
-		and isset($_REQUEST['erreur'])
+		$__request['page'] == '404'
+		and isset($__request['erreur'])
 	) {
 		$ecran_securite_raison = "xss404";
 	}
@@ -471,7 +475,7 @@ if (isset($_REQUEST['page'])) {
  * XSS par array
  */
 foreach (array('var_login') as $var) {
-	if (isset($_REQUEST[$var]) and is_array($_REQUEST[$var])) {
+	if (isset($__request[$var]) and is_array($__request[$var])) {
 		$ecran_securite_raison = "xss " . $var;
 	}
 }
@@ -496,15 +500,15 @@ if (isset($_POST['tmp_lkojfghx3'])) {
 /*
  * Outils XML mal sécurisés < 2.0.9
  */
-if (isset($_REQUEST['transformer_xml'])) {
+if (isset($__request['transformer_xml'])) {
 	$ecran_securite_raison = "transformer_xml";
 }
 
 /*
  * Outils XML mal sécurisés again
  */
-if (isset($_REQUEST['var_url']) and $_REQUEST['var_url'] and isset($_REQUEST['exec']) and $_REQUEST['exec'] == 'valider_xml') {
-	$url = trim($_REQUEST['var_url']);
+if (isset($__request['var_url']) and $__request['var_url'] and isset($__request['exec']) and $__request['exec'] == 'valider_xml') {
+	$url = trim($__request['var_url']);
 	if (
 		strncmp($url, '/', 1) == 0
 		or (($p = strpos($url, '..')) !== false and strpos($url, '..', $p + 3) !== false)
@@ -519,14 +523,14 @@ if (isset($_REQUEST['var_url']) and $_REQUEST['var_url'] and isset($_REQUEST['ex
  * Sauvegarde mal securisée < 2.0.9
  */
 if (
-	isset($_REQUEST['nom_sauvegarde'])
-	and strstr((string)$_REQUEST['nom_sauvegarde'], '/')
+	isset($__request['nom_sauvegarde'])
+	and strstr((string)$__request['nom_sauvegarde'], '/')
 ) {
 	$ecran_securite_raison = 'nom_sauvegarde manipulee';
 }
 if (
-	isset($_REQUEST['znom_sauvegarde'])
-	and strstr((string)$_REQUEST['znom_sauvegarde'], '/')
+	isset($__request['znom_sauvegarde'])
+	and strstr((string)$__request['znom_sauvegarde'], '/')
 ) {
 	$ecran_securite_raison = 'znom_sauvegarde manipulee';
 }
@@ -537,8 +541,8 @@ if (
  * on vérifie 'page' pour ne pas bloquer ... drupal
  */
 if (
-	isset($_REQUEST['op']) and isset($_REQUEST['page'])
-	and $_REQUEST['op'] !== preg_replace('/[^\\-\w]/', '', $_REQUEST['op'])
+	isset($__request['op']) and isset($__request['page'])
+	and $__request['op'] !== preg_replace('/[^\\-\w]/', '', $__request['op'])
 ) {
 	$ecran_securite_raison = 'op';
 }
@@ -560,8 +564,8 @@ if (count($_FILES)) {
  * et Contact trop laxiste avec une variable externe
  * on bloque pas le post pour eviter de perdre des donnees mais on unset la variable et c'est tout
  */
-if (isset($_REQUEST['pj_enregistrees_nom']) and $_REQUEST['pj_enregistrees_nom']) {
-	unset($_REQUEST['pj_enregistrees_nom']);
+if (isset($__request['pj_enregistrees_nom']) and $__request['pj_enregistrees_nom']) {
+	unset($__request['pj_enregistrees_nom']);
 	unset($_GET['pj_enregistrees_nom']);
 	unset($_POST['pj_enregistrees_nom']);
 }
@@ -570,8 +574,8 @@ if (isset($_REQUEST['pj_enregistrees_nom']) and $_REQUEST['pj_enregistrees_nom']
  * reinstall=oui un peu trop permissif
  */
 if (
-	isset($_REQUEST['reinstall'])
-	and $_REQUEST['reinstall'] == 'oui'
+	isset($__request['reinstall'])
+	and $__request['reinstall'] == 'oui'
 ) {
 	$ecran_securite_raison = 'reinstall=oui';
 }
@@ -579,7 +583,7 @@ if (
 /*
  * Pas d'action pendant l'install
  */
-if (isset($_REQUEST['exec']) and $_REQUEST['exec'] === 'install' and isset($_REQUEST['action'])) {
+if (isset($__request['exec']) and $__request['exec'] === 'install' and isset($__request['action'])) {
 	$ecran_securite_raison = 'install&action impossibles';
 }
 
@@ -602,8 +606,8 @@ if (isset($_SERVER['HTTP_X_FORWARDED_HOST'])) {
 /*
  * Pas d'erreur dans l'erreur
  */
-if (isset($_REQUEST['var_erreur']) and isset($_REQUEST['page']) and $_REQUEST['page'] === 'login') {
-	if (strlen($_REQUEST['var_erreur']) !== strcspn($_REQUEST['var_erreur'], '<>')) {
+if (isset($__request['var_erreur']) and isset($__request['page']) and $__request['page'] === 'login') {
+	if (strlen($__request['var_erreur']) !== strcspn($__request['var_erreur'], '<>')) {
 		$ecran_securite_raison = 'var_erreur incorrecte';
 	}
 }
@@ -614,11 +618,11 @@ if (isset($_REQUEST['var_erreur']) and isset($_REQUEST['page']) and $_REQUEST['p
  */
 if (
 	(isset($_SERVER['REQUEST_URI']) and strpos($_SERVER['REQUEST_URI'], "ecrire/") !== false)
-	or isset($_REQUEST['var_memotri'])
+	or isset($__request['var_memotri'])
 ) {
-	$zzzz = implode("", array_keys($_REQUEST));
+	$zzzz = implode("", array_keys($__request));
 	if (strlen($zzzz) != strcspn($zzzz, '<>"\'')) {
-		$ecran_securite_raison = 'Cle incorrecte en $_REQUEST';
+		$ecran_securite_raison = 'Cle incorrecte en $__request';
 	}
 }
 
@@ -626,14 +630,14 @@ if (
  * Injection par connect
  */
 if (
-	isset($_REQUEST['connect'])
+	isset($__request['connect'])
 	// cas qui permettent de sortir d'un commentaire PHP
 	and (
-		strpos($_REQUEST['connect'], "?") !== false
-		or strpos($_REQUEST['connect'], "<") !== false
-		or strpos($_REQUEST['connect'], ">") !== false
-		or strpos($_REQUEST['connect'], "\n") !== false
-		or strpos($_REQUEST['connect'], "\r") !== false
+		strpos($__request['connect'], "?") !== false
+		or strpos($__request['connect'], "<") !== false
+		or strpos($__request['connect'], ">") !== false
+		or strpos($__request['connect'], "\n") !== false
+		or strpos($__request['connect'], "\r") !== false
 	)
 ) {
 	$ecran_securite_raison = "malformed connect argument";
@@ -644,51 +648,52 @@ if (
  * _oups donc
  */
 if (
-	isset($_REQUEST['_oups'])
-	and base64_decode($_REQUEST['_oups'], true) === false) {
+	isset($__request['_oups'])
+	and base64_decode($__request['_oups'], true) === false) {
 	$ecran_securite_raison = "malformed _oups argument";
 }
 
 if (
-	isset($_REQUEST['formulaire_action_args']) || isset($_REQUEST['var_login'])
+	isset($__request['formulaire_action_args']) || isset($__request['var_login'])
 ) {
-	foreach ($_REQUEST as $k => $v) {
+	foreach ($__request as $k => $v) {
 		if (is_string($v)
 		  and strpbrk($v, "&\"'<>") !== false
 		  and preg_match(',^[abis]:\d+[:;],', $v)
 		  and __ecran_test_if_serialized($v)
 		) {
-			$_REQUEST[$k] = htmlspecialchars($v, ENT_QUOTES);
-			if (isset($_POST[$k])) $_POST[$k] = $_REQUEST[$k];
-			if (isset($_GET[$k])) $_GET[$k] = $_REQUEST[$k];
+			$__request[$k] = htmlspecialchars($v, ENT_QUOTES);
+			if (isset($_POST[$k])) $_POST[$k] = $__request[$k];
+			if (isset($_GET[$k])) $_GET[$k] = $__request[$k];
 		}
 	}
 }
 /**
  * Version simplifiée de https://developer.wordpress.org/reference/functions/is_serialized/
  */
-function __ecran_test_if_serialized($data) {
-	$data = trim($data);
-	if ('N;' === $data) {return true;}
-	if (strlen($data) < 4) {return false;}
-	if (':' !== $data[1]) {return false;}
-	$semicolon = strpos($data, ';');
-	$brace = strpos($data, '}');
-	// Either ; or } must exist.
-	if (false === $semicolon && false === $brace) {return false;}
-	// But neither must be in the first X characters.
-	if (false !== $semicolon && $semicolon < 3) {return false;}
-	if (false !== $brace && $brace < 4) {return false;}
-	$token = $data[0];
-    if (in_array($token, array('s', 'S', 'a', 'O', 'C', 'o', 'E'))) {
-		if (in_array($token, array('s', 'S')) and false === strpos($data, '"')) {return false;}
-		return (bool)preg_match("/^{$token}:[0-9]+:/s", $data);
-	} elseif (in_array($token, array('b', 'i', 'd'))) {
-		return (bool)preg_match("/^{$token}:[0-9.E+-]+;/", $data);
+if (!function_exists('__ecran_test_if_serialized')) {
+	function __ecran_test_if_serialized($data) {
+		$data = trim($data);
+		if ('N;' === $data) {return true;}
+		if (strlen($data) < 4) {return false;}
+		if (':' !== $data[1]) {return false;}
+		$semicolon = strpos($data, ';');
+		$brace = strpos($data, '}');
+		// Either ; or } must exist.
+		if (false === $semicolon && false === $brace) {return false;}
+		// But neither must be in the first X characters.
+		if (false !== $semicolon && $semicolon < 3) {return false;}
+		if (false !== $brace && $brace < 4) {return false;}
+		$token = $data[0];
+		if (in_array($token, array('s', 'S', 'a', 'O', 'C', 'o', 'E'))) {
+			if (in_array($token, array('s', 'S')) and false === strpos($data, '"')) {return false;}
+			return (bool)preg_match("/^{$token}:[0-9]+:/s", $data);
+		} elseif (in_array($token, array('b', 'i', 'd'))) {
+			return (bool)preg_match("/^{$token}:[0-9.E+-]+;/", $data);
+		}
+		return false;
 	}
-	return false;
 }
-
 
 /*
  * S'il y a une raison de mourir, mourons
@@ -756,3 +761,5 @@ if (
 	header("Connection: close");
 	die("<html><title>Status 429: Too Many Requests</title><body><h1>Status 429</h1><p>Too Many Requests (try again soon)</p></body></html>");
 }
+
+unset($__request);
