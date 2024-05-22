@@ -4,6 +4,10 @@ Changelog de SPIP 4.3
 
 ## Unreleased
 
+### Security
+
+- Mise à jour de l’écran de sécurité en version 1.16.0
+
 ### Fixed
 
 - !5969 Correction de coquille sur la meta charset (suite à la conformité HTML5)
