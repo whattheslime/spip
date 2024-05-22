@@ -4,6 +4,10 @@ Changelog de SPIP 4.2
 
 ## Unreleased
 
+### Security
+
+- Écran de sécurité en version 1.16.0
+
 ### Fixed
 
 - !5962 Petite optimisation sur `svg_nettoyer()`
