@@ -5526,14 +5526,14 @@ function filtre_objet_lister_enfants_par_type_dist($objet, $id_objet) {
 }
 
 /**
- * Surcharge de la fonction propre() pour les squelettes
- * 
- * Permet d'appliquer la fonction propre() manuellement dans les squelettes avec les bons dés-échappements.
+ * Filtre `propre()` pour les squelettes
+ *
+ * Permet d'appliquer la fonction `propre()` manuellement dans les squelettes avec les bons dés-échappements.
  */
 function filtre_propre_dist(&$Pile, $texte) {
 	$env = &$Pile[0];
 	$texte = propre($texte, '', $env);
 	$texte = interdire_scripts($texte);
-	
+
 	return $texte;
 }
