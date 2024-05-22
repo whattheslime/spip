@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "a33079f1a208c59898155e4a5b5d34ab",
+    "content-hash": "6d5ff760b1b7147261614797f4c1ec51",
     "packages": [
         {
             "name": "algo26-matthias/idna-convert",
@@ -1718,16 +1718,16 @@
         },
         {
             "name": "spip/security",
-            "version": "1.5.3",
+            "version": "1.6.0",
             "source": {
                 "type": "git",
                 "url": "https://git.spip.net/spip-contrib-outils/securite.git",
-                "reference": "3337f1bec25be75a5685566ad5259a07ccb3c85c"
+                "reference": "7b297f4daeee4d095222783040a83450d1564db9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://git.spip.net/api/v4/projects/spip-contrib-outils%2Fsecurite/repository/archive.zip?sha=3337f1bec25be75a5685566ad5259a07ccb3c85c",
-                "reference": "3337f1bec25be75a5685566ad5259a07ccb3c85c",
+                "url": "https://git.spip.net/api/v4/projects/spip-contrib-outils%2Fsecurite/repository/archive.zip?sha=7b297f4daeee4d095222783040a83450d1564db9",
+                "reference": "7b297f4daeee4d095222783040a83450d1564db9",
                 "shasum": ""
             },
             "type": "library",
@@ -1746,10 +1746,10 @@
             ],
             "description": "Protection du site par blocage de certaines attaques",
             "support": {
-                "source": "https://git.spip.net/spip-contrib-outils/securite/-/tree/1.5.3",
+                "source": "https://git.spip.net/spip-contrib-outils/securite/-/tree/1.6.0",
                 "issues": "https://git.spip.net/spip-contrib-outils/securite/-/issues"
             },
-            "time": "2023-05-31T18:00:44+02:00"
+            "time": "2024-05-22T11:49:58+02:00"
         },
         {
             "name": "spip/sites",

@@ -29,7 +29,7 @@
         "spip/porte-plume": "^3.2.x-dev",
         "spip/revisions": "^3.2.x-dev",
         "spip/safehtml": "^3.2.x-dev",
-        "spip/security": "^1.5",
+        "spip/security": "^1.6",
         "spip/sites": "^4.2.x-dev",
         "spip/stats": "^3.2.x-dev",
         "spip/svp": "^3.2.x-dev",
