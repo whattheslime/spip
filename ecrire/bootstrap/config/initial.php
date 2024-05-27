@@ -56,8 +56,6 @@ if (!defined('_NOM_IMG_PACK')) {
 	/** Nom du dossier images */
 	define('_NOM_IMG_PACK', 'images/');
 }
-/** le chemin http (relatif) vers les images standard */
-define('_DIR_IMG_PACK', (_DIR_RACINE . 'prive/' . _NOM_IMG_PACK));
 
 /** le chemin php (absolu) vers les images standard (pour hebergement centralise) */
 define('_ROOT_IMG_PACK', dirname(__DIR__, 3) . DIRECTORY_SEPARATOR . 'prive' . DIRECTORY_SEPARATOR . _NOM_IMG_PACK);
