@@ -60,7 +60,7 @@ function action_tester_dist() {
 		include_spip('inc/filtres');
 		include_spip('inc/filtres_images_mini');
 		$taille_preview = 150;
-		$image = _image_valeurs_trans(_DIR_IMG_PACK . 'test_image.jpg', "reduire-$taille_preview-$taille_preview", 'jpg');
+		$image = _image_valeurs_trans(_DIR_RACINE . 'prive/' . _NOM_IMG_PACK . 'test_image.jpg', "reduire-$taille_preview-$taille_preview", 'jpg');
 
 		$image['fichier_dest'] = _DIR_VAR . "test_$arg";
 
