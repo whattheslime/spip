@@ -925,12 +925,12 @@
             "source": {
                 "type": "git",
                 "url": "https://git.spip.net/spip/dist.git",
-                "reference": "e10422524d40a9ea2d125ec4012398f206424fa6"
+                "reference": "41dd3fb228afb20fb79e0d97f3fecb35cc770f3b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://git.spip.net/api/v4/projects/spip%2Fdist/repository/archive.zip?sha=e10422524d40a9ea2d125ec4012398f206424fa6",
-                "reference": "e10422524d40a9ea2d125ec4012398f206424fa6",
+                "url": "https://git.spip.net/api/v4/projects/spip%2Fdist/repository/archive.zip?sha=41dd3fb228afb20fb79e0d97f3fecb35cc770f3b",
+                "reference": "41dd3fb228afb20fb79e0d97f3fecb35cc770f3b",
                 "shasum": ""
             },
             "default-branch": true,
@@ -955,7 +955,7 @@
                 "source": "https://git.spip.net/spip/dist/-/tree/master",
                 "issues": "https://git.spip.net/spip/dist/-/issues"
             },
-            "time": "2024-04-18T16:00:47+02:00"
+            "time": "2024-05-28T16:14:33+02:00"
         },
         {
             "name": "spip/dump",
@@ -1359,12 +1359,12 @@
             "source": {
                 "type": "git",
                 "url": "https://git.spip.net/spip/medias.git",
-                "reference": "0f230cd482c7a88b345e81fd059eabdaf23b6365"
+                "reference": "b85e9c2c7747a6db18a2206ce62c893c1f3cabb3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://git.spip.net/api/v4/projects/spip%2Fmedias/repository/archive.zip?sha=0f230cd482c7a88b345e81fd059eabdaf23b6365",
-                "reference": "0f230cd482c7a88b345e81fd059eabdaf23b6365",
+                "url": "https://git.spip.net/api/v4/projects/spip%2Fmedias/repository/archive.zip?sha=b85e9c2c7747a6db18a2206ce62c893c1f3cabb3",
+                "reference": "b85e9c2c7747a6db18a2206ce62c893c1f3cabb3",
                 "shasum": ""
             },
             "require": {
@@ -1400,7 +1400,7 @@
                 "source": "https://git.spip.net/spip/medias/-/tree/master",
                 "issues": "https://git.spip.net/spip/medias/-/issues"
             },
-            "time": "2024-05-07T15:07:38+02:00"
+            "time": "2024-05-28T15:57:02+02:00"
         },
         {
             "name": "spip/mots",
@@ -1578,12 +1578,12 @@
             "source": {
                 "type": "git",
                 "url": "https://git.spip.net/spip/porte_plume.git",
-                "reference": "68588faa9e9e23bd7194a9b3aa6cabefe0834392"
+                "reference": "6a552006b70173ac39322b94b0e826612213709c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://git.spip.net/api/v4/projects/spip%2Fporte_plume/repository/archive.zip?sha=68588faa9e9e23bd7194a9b3aa6cabefe0834392",
-                "reference": "68588faa9e9e23bd7194a9b3aa6cabefe0834392",
+                "url": "https://git.spip.net/api/v4/projects/spip%2Fporte_plume/repository/archive.zip?sha=6a552006b70173ac39322b94b0e826612213709c",
+                "reference": "6a552006b70173ac39322b94b0e826612213709c",
                 "shasum": ""
             },
             "require": {
@@ -1618,7 +1618,7 @@
                 "source": "https://git.spip.net/spip/porte_plume/-/tree/master",
                 "issues": "https://git.spip.net/spip/porte_plume/-/issues"
             },
-            "time": "2024-05-05T00:27:13+02:00"
+            "time": "2024-05-28T14:37:48+02:00"
         },
         {
             "name": "spip/revisions",
@@ -1943,7 +1943,7 @@
             ],
             "description": "Gestion de la typographie SPIP avec TextWheel",
             "support": {
-                "source": "https://git.spip.net/spip/textwheel/-/tree/fix_tests",
+                "source": "https://git.spip.net/spip/textwheel/-/tree/master",
                 "issues": "https://git.spip.net/spip/textwheel/-/issues"
             },
             "time": "2024-05-14T16:25:35+02:00"
@@ -3292,16 +3292,16 @@
         },
         {
             "name": "phpstan/phpstan",
-            "version": "1.11.1",
+            "version": "1.11.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpstan/phpstan.git",
-                "reference": "e524358f930e41a2b4cca1320e3b04fc26b39e0b"
+                "reference": "0d5d4294a70deb7547db655c47685d680e39cfec"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpstan/phpstan/zipball/e524358f930e41a2b4cca1320e3b04fc26b39e0b",
-                "reference": "e524358f930e41a2b4cca1320e3b04fc26b39e0b",
+                "url": "https://api.github.com/repos/phpstan/phpstan/zipball/0d5d4294a70deb7547db655c47685d680e39cfec",
+                "reference": "0d5d4294a70deb7547db655c47685d680e39cfec",
                 "shasum": ""
             },
             "require": {
@@ -3346,7 +3346,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2024-05-15T08:00:59+00:00"
+            "time": "2024-05-24T13:23:04+00:00"
         },
         {
             "name": "phpunit/php-code-coverage",
@@ -4755,16 +4755,16 @@
         },
         {
             "name": "squizlabs/php_codesniffer",
-            "version": "3.10.0",
+            "version": "3.10.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/PHPCSStandards/PHP_CodeSniffer.git",
-                "reference": "57e09801c2fbae2d257b8b75bebb3deeb7e9deb2"
+                "reference": "8f90f7a53ce271935282967f53d0894f8f1ff877"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/PHPCSStandards/PHP_CodeSniffer/zipball/57e09801c2fbae2d257b8b75bebb3deeb7e9deb2",
-                "reference": "57e09801c2fbae2d257b8b75bebb3deeb7e9deb2",
+                "url": "https://api.github.com/repos/PHPCSStandards/PHP_CodeSniffer/zipball/8f90f7a53ce271935282967f53d0894f8f1ff877",
+                "reference": "8f90f7a53ce271935282967f53d0894f8f1ff877",
                 "shasum": ""
             },
             "require": {
@@ -4831,7 +4831,7 @@
                     "type": "open_collective"
                 }
             ],
-            "time": "2024-05-20T08:11:32+00:00"
+            "time": "2024-05-22T21:24:41+00:00"
         },
         {
             "name": "symfony/var-dumper",
