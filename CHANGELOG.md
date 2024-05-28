@@ -10,6 +10,7 @@ Changelog de SPIP 4.3
 
 ### Fixed
 
+- #5667 Correction de `inserer_attribut()` sur un cas dérogatoire : l’attribut `alt` d’une balise `<img>` (même non autofermante)
 - !5969 Correction de coquille sur la meta charset (suite à la conformité HTML5)
 - !5962 Petite optimisation sur `svg_nettoyer()`
 - #5714 Optimisation des boucles avec pagination, en forçant une clause limit automatique dessus
