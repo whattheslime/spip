@@ -462,7 +462,7 @@ function bouton_spip_rss($op, $args = [], $lang = '', $title = 'RSS') {
 	$clic = http_img_pack('rss-16.png', 'RSS', '', $title);
 
 	$url = generer_url_api_low_sec('transmettre', 'rss', $op, '', http_build_query($args), false, true);
-	return "<a style='float: " . $GLOBALS['spip_lang_right'] . ";' href='$url'>$clic</a>";
+	return "<a style='float: " . $GLOBALS['spip_lang_right'] . ";' href='" . attribut_url($url) . "'>$clic</a>";
 }
 
 
@@ -574,13 +574,13 @@ function filtre_afficher_enfant_rub_dist($id_rubrique) {
  */
 function afficher_plus_info($lien, $titre = '+', $titre_lien = '') {
 	$titre = attribut_html($titre);
-	$icone = "\n<a href='$lien' title='$titre' class='plus_info'>" .
+	$icone = "\n<a href='" . attribut_url($lien) . "' title='" . attribut_html($titre) . "' class='plus_info'>" .
 		http_img_pack('information-16.png', $titre) . '</a>';
 
 	if (!$titre_lien) {
 		return $icone;
 	} else {
-		return $icone . "\n<a href='$lien'>$titre_lien</a>";
+		return $icone . "\n<a href='" . attribut_url($lien) . "'>$titre_lien</a>";
 	}
 }
 

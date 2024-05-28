@@ -2465,7 +2465,7 @@ function enclosure2microformat($e) {
 	$fichier = basename($url);
 
 	return '<a rel="enclosure"'
-	. ($url ? ' href="' . spip_htmlspecialchars($url) . '"' : '')
+	. ($url ? ' href="' . attribut_url($url) . '"' : '')
 	. ($type ? ' type="' . spip_htmlspecialchars($type) . '"' : '')
 	. ($length ? ' title="' . spip_htmlspecialchars($length) . '"' : '')
 	. '>' . $fichier . '</a>';
@@ -4262,7 +4262,7 @@ function lien_ou_expose($url, $libelle = null, $on = false, $class = '', $title 
 		$att .= 'class="' . ($class ? attribut_html($class) . ' ' : '') . (defined('_LIEN_OU_EXPOSE_CLASS_ON') ? _LIEN_OU_EXPOSE_CLASS_ON : 'on') . '"';
 	} else {
 		$bal = 'a';
-		$att = "href='$url'"
+		$att = "href='" . attribut_url($url) . "'"
 			. ($title ? " title='" . attribut_html($title) . "'" : '')
 			. ($class ? " class='" . attribut_html($class) . "'" : '')
 			. ($rel ? " rel='" . attribut_html($rel) . "'" : '')
@@ -4409,7 +4409,7 @@ function prepare_icone_base($type, $lien, $texte, $fond, $fonction = '', $class 
 	// Markup final
 	if ($type == 'lien') {
 		return "<span class='icone $class_lien'>"
-		. "<a href='$lien'$title$ajax$javascript>"
+		. "<a href='" . attribut_url($lien) . "'$title$ajax$javascript>"
 		. $icone
 		. "<b>$texte</b>"
 		. "</a></span>\n";
@@ -4983,7 +4983,7 @@ function generer_objet_lien(int $id_objet, string $objet, int $longueur = 80, st
 	}
 	$url = generer_objet_url($id_objet, $objet, '', '', null, '', $connect);
 
-	return "<a href='$url' class='$objet'>" . couper($titre, $longueur) . '</a>';
+	return "<a href='" . attribut_url($url) . "' class='$objet'>" . couper($titre, $longueur) . '</a>';
 }
 
 /**
