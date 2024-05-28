@@ -548,6 +548,8 @@ function echapper_html_suspect($texte, $options = [], $connect = null, $env = []
 		}
 		return $echapper_html_suspect(...$args);
 	}
+	// ne pas garder un connect null pour la suite
+	$connect ??= '';
 
 	if (is_bool($options)) {
 		$options = ['strict' => $options];
