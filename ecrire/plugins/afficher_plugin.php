@@ -196,7 +196,7 @@ function plugin_resume($info, $dir_plugins, $plug_file, $url_page) {
 	$i = "<div class='$icon_class'><a href='$url' rel='info'>$img</a></div>";
 
 	return "<div class='resume'>"
-	. "<h3><a href='$url' rel='info'>"
+	. "<h3><a href='" . attribut_url($url) . "' rel='info'>"
 	. $nom
 	. '</a></h3>'
 	. " <span class='version'>" . $info['version'] . '</span>'
@@ -219,7 +219,7 @@ function plugin_desintalle($plug_file, $nom, $dir_plugins = null) {
 	$file = basename($plug_file);
 
 	return "<div class='actions'>[" .
-	"<a href='$action'
+	"<a href='" . attribut_url($action) . "'
 		onclick='return confirm(\"$text $nom ?\\n$text2\")'>"
 	. $text
 	. '</a>]</div>';
@@ -282,7 +282,7 @@ function affiche_bloc_plugin($plug_file, $info, $dir_plugins = null) {
 		isset($info['documentation'])
 		and $lien = $info['documentation']
 	) {
-		$description .= "<p><em class='site'><a href='$lien' class='spip_out'>" . _T('en_savoir_plus') . '</a></em></p>';
+		$description .= "<p><em class='site'><a href='" . attribut_url($lien) . "' class='spip_out'>" . _T('en_savoir_plus') . '</a></em></p>';
 	}
 	$s .= "<dd class='desc'>" . $description . "</dd>\n";
 
@@ -371,7 +371,7 @@ function formater_credits($infos, $sep = ', ') {
 		$texte .=
 			(!is_array($_credit))
 				? PtoBR(propre($_credit))
-				: ($_credit['url'] ? '<a href="' . $_credit['url'] . '">' : '') .
+				: ($_credit['url'] ? '<a href="' . attribut_url($_credit['url']) . '">' : '') .
 				$_credit['nom'] .
 				($_credit['url'] ? '</a>' : '');
 	}

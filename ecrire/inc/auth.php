@@ -123,7 +123,7 @@ function auth_echec($raison) {
 			_T('avis_erreur_connexion'),
 			'<br /><br /><p>'
 			. _T('texte_inc_auth_1', ['auth_login' => $raison['login']])
-			. " <a href='$h'>"
+			. " <a href='" . attribut_url($h) . "'>"
 			. _T('texte_inc_auth_2')
 			. '</a>'
 			. _T('texte_inc_auth_3')
@@ -802,13 +802,13 @@ function ask_php_auth($pb, $raison, $retour = '', $url = '', $re = '', $lien = '
 	$public = generer_url_public();
 	$ecrire = generer_url_ecrire();
 	$retour = $retour ?: _T('icone_retour');
-	$corps .= "<p>$raison</p>[<a href='$public'>$retour</a>] ";
+	$corps .= "<p>$raison</p>[<a href='" . attribut_url($public) . "'>$retour</a>] ";
 	if ($url) {
-		$corps .= "[<a href='" . generer_url_action('cookie', "essai_auth_http=oui&$url") . "'>$re</a>]";
+		$corps .= "[<a href='" . attribut_url(generer_url_action('cookie', "essai_auth_http=oui&$url")) . "'>$re</a>]";
 	}
 
 	if ($lien) {
-		$corps .= " [<a href='$ecrire'>" . _T('login_espace_prive') . '</a>]';
+		$corps .= " [<a href='" . attribut_url($ecrire) . "'>" . _T('login_espace_prive') . '</a>]';
 	}
 	include_spip('inc/minipres');
 	echo minipres($pb, $corps);
