@@ -2037,7 +2037,7 @@ function inserer_attribut(?string $balise, string $attribut, ?string $val, bool 
 			$balise = preg_replace(',\s?/>,S', $insert . ' />', $balise, 1);
 		}
 		// preferer une balise img
-		elseif ($attribut === 'alt' && str_contains($balise, '<img')) {
+		elseif (str_contains($balise, '<img')) {
 			$balise = preg_replace(',(<img[^>]*)>,S', '$1' . $insert . '>', $balise, 1);
 		}
 		// sinon une balise <a ...> ... </a>
