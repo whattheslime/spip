@@ -6,6 +6,7 @@ Changelog de SPIP 4.2
 
 ### Security
 
+- spip-team/securite#4853 Pouvoir rendre statique les modèles de formulaires dans certains contextes
 - Écran de sécurité en version 1.16.0
 
 ### Fixed
