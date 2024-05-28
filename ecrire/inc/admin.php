@@ -297,7 +297,7 @@ function copy_request($script, $suite, $submit = '') {
 		if (!in_array($n, ['fichier', 'exec', 'validation_admin']) && !is_array($c)) {
 			$suite .= "\n<input type='hidden' name='" . spip_htmlspecialchars($n) . "' value='" .
 				entites_html($c) .
-				"'  />";
+				"' >";
 		}
 	}
 

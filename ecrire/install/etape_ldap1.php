@@ -67,7 +67,7 @@ function install_etape_ldap1_dist() {
 					'valeur' => $adresse_ldap
 				],
 				'port_ldap' => [
-					'label' => _T('entree_port_annuaire') . '<br />' . _T('texte_port_annuaire'),
+					'label' => _T('entree_port_annuaire') . '<br>' . _T('texte_port_annuaire'),
 					'valeur' => $port_ldap
 				],
 				'tls_ldap' => [

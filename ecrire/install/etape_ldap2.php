@@ -99,8 +99,8 @@ function install_etape_ldap2_dist() {
 		echo info_etape(_T('titre_connexion_ldap')), info_progression_etape(1, 'etape_ldap', 'install/', true),
 			"<div class='error'><p>" . _T('avis_connexion_ldap_echec_1') . '</p>',
 			'<p>' . _T('avis_connexion_ldap_echec_2') .
-			"<br />\n" . _T('avis_connexion_ldap_echec_3') .
-			'<br /><br />' . $erreur . '<b> ?</b></p></div>';
+			"<br>\n" . _T('avis_connexion_ldap_echec_3') .
+			'<br><br>' . $erreur . '<b> ?</b></p></div>';
 	}
 
 	echo $minipage->installFinPage();

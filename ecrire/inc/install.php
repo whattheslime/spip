@@ -300,7 +300,7 @@ function fieldset_champs($champs = []) {
 					. "/>\n";
 				$fieldset .= "<label for='$nom-$valeur'>" . $label . "</label>\n";
 			}
-			$fieldset .= "<br />\n";
+			$fieldset .= "<br>\n";
 		} else {
 			$fieldset .= "<label for='" . $nom . "'>" . $contenu['label'] . "</label>\n";
 			$fieldset .= '<input ' . $class . "type='" . $type . "' id='" . $nom . "' name='" . $nom . "'\nvalue='" . $contenu['valeur'] . "'"
@@ -400,7 +400,7 @@ function install_connexion_form($db, $login, #[\SensitiveParameter] $pass, $pred
 				. '<p class="explication">'
 				. _T('install_types_db_connus')
 				// Passer l'avertissement SQLIte en  commentaire, on pourra facilement le supprimer par la suite sans changer les traductions.
-				// . "<br /><small>(". _T('install_types_db_connus_avertissement') .')</small>'
+				// . "<br><small>(". _T('install_types_db_connus_avertissement') .')</small>'
 				. '</p>'
 				. "\n<div class='p'>\n<ul>\n"
 				. implode("\n", install_select_serveur())
@@ -506,7 +506,7 @@ function install_etape_liste_bases($server_db, $login_db, $disabled = []) {
 		) {
 			$checked = "<input$base checked='checked'>\n$label";
 		} else {
-			$bases[] = "<input$base />\n$label";
+			$bases[] = "<input$base>\n$label";
 		}
 	}
 

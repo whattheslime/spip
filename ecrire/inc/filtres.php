@@ -561,7 +561,7 @@ function image_filtrer($args) {
  * Pour les filtres `largeur` et `hauteur` `taille_image` et `poids_image`
  *
  * @param string $img
- *     Balise HTML `<img ... />` ou chemin de l'image (qui peut être une URL distante).
+ *     Balise HTML `<img ...>` ou chemin de l'image (qui peut être une URL distante).
  * @return array
  *     largeur
  *     hauteur
@@ -665,7 +665,7 @@ function infos_image($img, $force_refresh = false) {
  * Pour les filtres `largeur` et `hauteur`
  *
  * @param string $img
- *     Balise HTML `<img ... />` ou chemin de l'image (qui peut être une URL distante).
+ *     Balise HTML `<img ...>` ou chemin de l'image (qui peut être une URL distante).
  * @return array
  *     largeur
  *     hauteur
@@ -690,7 +690,7 @@ function taille_image($img, $force_refresh = false) {
  * @see  hauteur()
  *
  * @param string $img
- *     Balise HTML `<img ... />` ou chemin de l'image (qui peut être une URL distante).
+ *     Balise HTML `<img ...>` ou chemin de l'image (qui peut être une URL distante).
  * @return int|null
  *     Largeur en pixels, NULL ou 0 si aucune image.
  */
@@ -712,7 +712,7 @@ function largeur($img) {
  * @see  largeur()
  *
  * @param string $img
- *     Balise HTML `<img ... />` ou chemin de l'image (qui peut être une URL distante).
+ *     Balise HTML `<img ...>` ou chemin de l'image (qui peut être une URL distante).
  * @return int|null
  *     Hauteur en pixels, NULL ou 0 si aucune image.
  */
@@ -1225,9 +1225,9 @@ function PtoBR($texte) {
 	}
 	$u = $GLOBALS['meta']['pcre_u'];
 	$texte = preg_replace('@</p>@iS', "\n", $texte);
-	$texte = preg_replace("@<p\b.*>@UiS", '<br />', $texte);
+	$texte = preg_replace("@<p\b.*>@UiS", '<br>', $texte);
 
-	return preg_replace('@^\s*<br />@S' . $u, '', $texte);
+	return preg_replace('@^\s*<br>@S' . $u, '', $texte);
 }
 
 /**
@@ -3710,7 +3710,7 @@ function filtre_balise_svg_dist($img, $alt = '', $class = null, $size = null) {
  * @uses filtre_balise_svg_dist()
  *
  * @param string $img
- *   chemin vers un fichier ou balise `<img src='...' />` (generee par un filtre image par exemple)
+ *   chemin vers un fichier ou balise `<img src='...'>` (generee par un filtre image par exemple)
  * @param string $alt
  *   texte alternatif ; une valeur nulle pour explicitement ne pas avoir de balise alt sur l'image (au lieu d'un alt vide)
  * @param string $class
@@ -4851,7 +4851,7 @@ function wrap($texte, $wrap) {
  *
  * Les textes sont retournes avec simplement mise en forme typo
  *
- * le $join sert a separer les items d'un tableau, c'est en general un \n ou <br /> selon si on fait du html ou du texte
+ * le $join sert a separer les items d'un tableau, c'est en general un \n ou <br> selon si on fait du html ou du texte
  * les tableaux-listes (qui n'ont que des cles numeriques), sont affiches sous forme de liste separee par des virgules :
  * c'est VOULU !
  *
@@ -4860,7 +4860,7 @@ function wrap($texte, $wrap) {
  * @param int $indent
  * @return array|mixed|string
  */
-function filtre_print_dist($u, $join = '<br />', $indent = 0) {
+function filtre_print_dist($u, $join = '<br>', $indent = 0) {
 	if (is_string($u)) {
 		return typo($u);
 	}

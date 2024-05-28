@@ -113,7 +113,7 @@ function install_etape_2_bases($login_db, $server_db) {
 			$checked,
 			"<label for='choix_db'><b>"
 			. _T('texte_choix_base_2')
-			. '</b><br />'
+			. '</b><br>'
 			. _T('texte_choix_base_3')
 			. '</label>'
 			. "<ul>\n<li>"

@@ -235,7 +235,7 @@ function cvtconf_configurer_stocker($form, $valeurs, $store) {
 	foreach ($store as $k => $v) {
 		ecrire_config("$stockage$table$prefixe$casier$k", $v);
 		if (_request('var_mode') == 'configurer' && autoriser('webmestre')) {
-			$trace .= "<br />table $table : " . $prefixe . $k . " = $v;";
+			$trace .= "<br>table $table : " . $prefixe . $k . " = $v;";
 		}
 	}
 

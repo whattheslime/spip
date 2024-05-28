@@ -2628,7 +2628,7 @@ function balise_SLOGAN_SITE_SPIP_dist($p) {
  * @example
  *     ```
  *     [(#HTML5) required="required"]
- *     <input[ (#HTML5|?{type="email",type="text"})] ... />
+ *     <input[ (#HTML5|?{type="email",type="text"})] ...>
  *     ```
  *
  * @param Champ $p

@@ -132,7 +132,7 @@ function exec_rechercher_args($id, $type, $exclus, $rac, $do) {
 function proposer_item($ids, $titles, $rac, $type, $do) {
 
 	if (!$ids) {
-		return "<br /><br /><div style='padding: 5px; color: red;'><b>"
+		return "<br><br><div style='padding: 5px; color: red;'><b>"
 		. spip_htmlentities($type)
 		. '</b> :  ' . _T('avis_aucun_resultat') . '</div>';
 	}

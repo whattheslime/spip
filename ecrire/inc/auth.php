@@ -111,7 +111,7 @@ function auth_echec($raison) {
 			_T('avis_erreur_connexion'),
 			_T('avis_erreur_visiteur')
 				// Lien vers le site public
-				. '<br /><a href="' . attribut_url(url_de_base()) . '">' . _T('login_retour_public') . '</a>'
+				. '<br><a href="' . attribut_url(url_de_base()) . '">' . _T('login_retour_public') . '</a>'
 				// Si la personne est connectée, lien de déconnexion ramenant vers la page de login
 				. ($est_connecte ? ' | <a href="' . generer_url_public('', 'action=logout&amp;logout=prive') . '">' . _T('icone_deconnecter') . '</a>' : '')
 		);
@@ -120,7 +120,7 @@ function auth_echec($raison) {
 		$h = $raison['site'];
 		$raison = minipres(
 			_T('avis_erreur_connexion'),
-			'<br /><br /><p>'
+			'<br><br><p>'
 			. _T('texte_inc_auth_1', ['auth_login' => $raison['login']])
 			. " <a href='" . attribut_url($h) . "'>"
 			. _T('texte_inc_auth_2')

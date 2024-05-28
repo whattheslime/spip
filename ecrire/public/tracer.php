@@ -98,7 +98,7 @@ function trace_query_chrono($dt, $query, $result, $serveur = '') {
 	$tt += $dt;
 	$nb++;
 
-	$q = preg_replace('/([a-z)`])\s+([A-Z])/', "$1\n<br />$2", spip_htmlentities($query));
+	$q = preg_replace('/([a-z)`])\s+([A-Z])/', "$1\n<br>$2", spip_htmlentities($query));
 	$e = sql_explain($query, $serveur);
 	$r = str_replace('Resource id ', '', (is_object($result) ? $result::class : $result));
 	$GLOBALS['tableau_des_temps'][] = [$dt, $nb, $boucle, $q, $e, $r, $contexte];
@@ -135,7 +135,7 @@ function chrono_requete($temps) {
 		}
 		foreach ($explain as $j => $v) {
 			$explain[$j] = "<tr><th>$j</th><td>"
-				. str_replace(';', '<br />', (string) $v)
+				. str_replace(';', '<br>', (string) $v)
 				. '</td></tr>';
 		}
 		$e = "<table class='explain'>"
@@ -167,7 +167,7 @@ function chrono_requete($temps) {
 		$t[$v[2]][] = "<span class='spip-debug-arg'> "
 			. "<a title='$titre' href='$href'>$i</a>"
 			. '</span>'
-			. ((count($t[$v[2]]) % 10 == 9) ? '<br />' : '');
+			. ((count($t[$v[2]]) % 10 == 9) ? '<br>' : '');
 		$i++;
 	}
 

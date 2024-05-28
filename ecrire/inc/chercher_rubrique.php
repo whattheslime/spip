@@ -257,7 +257,7 @@ function selecteur_rubrique_html($id_rubrique, $type, $restreint, $idem = 0) {
 
 	# message pour neuneus (a supprimer ?)
 #	if ($type != 'auteur' AND $type != 'breve')
-#		$r .= "\n<br />"._T('texte_rappel_selection_champs');
+#		$r .= "\n<br>"._T('texte_rappel_selection_champs');
 
 	return $r;
 }

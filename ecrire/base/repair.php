@@ -109,7 +109,7 @@ function admin_repair_tables() {
 			&& !str_contains($msg, ' OK ')
 		) {
 			$class = " class='notice'";
-			$m .= '<br /><tt>' . spip_htmlentities($msg) . "</tt>\n";
+			$m .= '<br><tt>' . spip_htmlentities($msg) . "</tt>\n";
 		} else {
 			$m .= ' ' . _T('texte_table_ok');
 		}

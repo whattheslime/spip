@@ -61,7 +61,7 @@ function install_etape_ldap4_dist() {
 				_T('info_statut_utilisateurs_1'),
 				[
 					'statut_ldap' => [
-						'label' => _T('info_statut_utilisateurs_2') . '<br />',
+						'label' => _T('info_statut_utilisateurs_2') . '<br>',
 						'valeur' => $statut_ldap,
 						'alternatives' => $statuts
 					]
@@ -78,9 +78,9 @@ function install_etape_ldap4_dist() {
 
 function liste_statuts_ldap() {
 	$recom = [
-		'info_administrateurs' => ('<b>' . _T('info_administrateur_1') . '</b> ' . _T('info_administrateur_2') . '<br />'),
-		'info_redacteurs' => ('<b>' . _T('info_redacteur_1') . '</b> ' . _T('info_redacteur_2') . '<br />'),
-		'info_visiteurs' => ('<b>' . _T('info_visiteur_1') . '</b> ' . _T('info_visiteur_2') . '<br />')
+		'info_administrateurs' => ('<b>' . _T('info_administrateur_1') . '</b> ' . _T('info_administrateur_2') . '<br>'),
+		'info_redacteurs' => ('<b>' . _T('info_redacteur_1') . '</b> ' . _T('info_redacteur_2') . '<br>'),
+		'info_visiteurs' => ('<b>' . _T('info_visiteur_1') . '</b> ' . _T('info_visiteur_2') . '<br>')
 	];
 
 	$res = [];
@@ -99,10 +99,10 @@ function install_ldap_correspondances() {
 		$nom = 'ldap_' . $champ;
 		$val = is_array($v) ? implode(',', $v) : (string) $v;
 		$champs[$nom] = [
-			'label' => _T('ldap_correspondance', ['champ' => "<tt>$champ</tt>"]) . '<br />',
+			'label' => _T('ldap_correspondance', ['champ' => "<tt>$champ</tt>"]) . '<br>',
 			'valeur' => $val
 		];
 	}
 
-	return $champs ? fieldset(_T('ldap_correspondance_1'), $champs, '', _T('ldap_correspondance_2') . '<br /><br />') : '';
+	return $champs ? fieldset(_T('ldap_correspondance_1'), $champs, '', _T('ldap_correspondance_2') . '<br><br>') : '';
 }

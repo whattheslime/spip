@@ -309,7 +309,7 @@ function check_upload_error($error, $msg = '', $return = false) {
 		default: /* autre */
 			if (!$msg) {
 				$msg = _T('pass_erreur') . ' ' . $error
-					. '<br />' . propre('[->http://php.net/manual/fr/features.file-upload.errors.php]');
+					. '<br>' . propre('[->http://php.net/manual/fr/features.file-upload.errors.php]');
 			}
 			break;
 	}

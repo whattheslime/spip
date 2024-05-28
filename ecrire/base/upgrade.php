@@ -390,7 +390,7 @@ function maj_while($installee, $cible, $maj, $meta = '', $table = 'meta', $redir
 			if ($meta) {
 				ecrire_meta($meta, $installee = $v, 'oui', $table);
 			}
-			echo (_IS_CLI ? "\n" : '<br />');
+			echo (_IS_CLI ? "\n" : '<br>');
 		}
 		if (time() >= _TIME_OUT) {
 			relance_maj($meta, $table, $redirect);

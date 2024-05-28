@@ -289,7 +289,7 @@ function couleur_eclaircir($couleur, $coeff = 0.5) {
  * dans la fonction image_filtrer
  *
  * @param string $img
- *    Un tag html `<img src=... />`.
+ *    Un tag html `<img src=...>`.
  * @param int $width_min
  *    Largeur minimale de l'image à traiter (0 par défaut)
  * @param int $height_min
@@ -299,7 +299,7 @@ function couleur_eclaircir($couleur, $coeff = 0.5) {
  * @param int $height_max
  *    Hauteur minimale de l'image à traiter (10000 par défaut)
  * @return
- *    Le tag html `<img src=... />` avec une class `filtre_inactif` ou pas
+ *    Le tag html `<img src=...>` avec une class `filtre_inactif` ou pas
  */
 function image_select($img, $width_min = 0, $height_min = 0, $width_max = 10000, $height_max = 1000) {
 	if (!$img) {

@@ -68,7 +68,7 @@ function install_etape_ldap3_dist() {
 		$res .= '</ul>';
 		$res .= _T('info_ou') . ' ';
 	}
-	$res .= "<br />\n<input name=\"base_ldap\" value=\"\" type='radio' id='manuel'";
+	$res .= "<br>\n<input name=\"base_ldap\" value=\"\" type='radio' id='manuel'";
 	if (!$checked) {
 		$res .= ' checked="checked"';
 		$checked = true;

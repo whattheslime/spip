@@ -269,7 +269,7 @@ function statut_effacer_images_temporaires($stat) {
  * @uses reconstruire_image_intermediaire()
  *
  * @param string $img
- *     Chemin de l'image ou balise html `<img src=... />`.
+ *     Chemin de l'image ou balise html `<img src=...>`.
  * @param string $effet
  *     Les nom et paramètres de l'effet à apporter sur l'image
  *     (par exemple : reduire-300-200).

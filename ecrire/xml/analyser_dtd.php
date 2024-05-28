@@ -55,7 +55,7 @@ function charger_dtd($grammaire, $avail, $rotlvl) {
 			}
 
 			spip_logger()->info("Analyser DTD $avail $grammaire (" . spip_timer('dtd') . ') ' . (is_countable($dtc->macros) ? count($dtc->macros) : 0) . ' macros, ' . (is_countable($dtc->elements) ? count($dtc->elements) : 0) . ' elements, ' . (is_countable($dtc->attributs) ? count($dtc->attributs) : 0) . " listes d'attributs, " . (is_countable($dtc->entites) ? count($dtc->entites) : 0) . ' entites');
-			#	$r = $dtc->regles; ksort($r);foreach($r as $l => $v) {$t=array_keys($dtc->attributs[$l]);echo "<b>$l</b> '$v' ", count($t), " attributs: ", join (', ',$t);$t=$dtc->peres[$l];echo "<br />",count($t), " peres: ", @join (', ',$t), "<br />\n";}exit;
+			#	$r = $dtc->regles; ksort($r);foreach($r as $l => $v) {$t=array_keys($dtc->attributs[$l]);echo "<b>$l</b> '$v' ", count($t), " attributs: ", join (', ',$t);$t=$dtc->peres[$l];echo "<br>",count($t), " peres: ", @join (', ',$t), "<br>\n";}exit;
 			ecrire_fichier($file, serialize($dtc), true);
 		}
 	}

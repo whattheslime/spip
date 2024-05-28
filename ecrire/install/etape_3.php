@@ -269,7 +269,7 @@ function install_premier_auteur($email, $login, $nom, #[\SensitiveParameter] $pa
 			_T('info_identification_publique'),
 			[
 				'nom' => [
-					'label' => '<b>' . _T('entree_signature') . "</b><br />\n" . _T('entree_nom_pseudo_1') . "\n",
+					'label' => '<b>' . _T('entree_signature') . "</b><br>\n" . _T('entree_nom_pseudo_1') . "\n",
 					'valeur' => $nom,
 					'required' => $auteur_obligatoire,
 				],
@@ -284,7 +284,7 @@ function install_premier_auteur($email, $login, $nom, #[\SensitiveParameter] $pa
 			_T('entree_identifiants_connexion'),
 			[
 				'login' => [
-					'label' => '<b>' . _T('entree_login') . "</b><br />\n" . _T(
+					'label' => '<b>' . _T('entree_login') . "</b><br>\n" . _T(
 						'info_login_trop_court_car_pluriel',
 						['nb' => _LOGIN_TROP_COURT]
 					) . "\n",
@@ -292,7 +292,7 @@ function install_premier_auteur($email, $login, $nom, #[\SensitiveParameter] $pa
 					'required' => $auteur_obligatoire,
 				],
 				'pass' => [
-					'label' => '<b>' . _T('entree_mot_passe') . "</b><br />\n" . _T(
+					'label' => '<b>' . _T('entree_mot_passe') . "</b><br>\n" . _T(
 						'info_passe_trop_court_car_pluriel',
 						['nb' => _PASS_LONGUEUR_MINI]
 					) . "\n",
@@ -300,7 +300,7 @@ function install_premier_auteur($email, $login, $nom, #[\SensitiveParameter] $pa
 					'required' => $auteur_obligatoire,
 				],
 				'pass_verif' => [
-					'label' => '<b>' . _T('info_confirmer_passe') . "</b><br />\n",
+					'label' => '<b>' . _T('info_confirmer_passe') . "</b><br>\n",
 					'valeur' => $pass,
 					'required' => $auteur_obligatoire,
 				]

@@ -73,7 +73,7 @@ function plugins_afficher_plugin_dist(
 			_T('plugin_impossible_activer', ['plugin' => $nom])
 		)
 			. "<div class='erreur'>" . implode(
-				'<br />',
+				'<br>',
 				$GLOBALS['erreurs_activation_raw'][$dir_plugins . $plug_file]
 			) . '</div>';
 	} else {
@@ -169,7 +169,7 @@ function plugin_resume($info, $dir_plugins, $plug_file, $url_page) {
 	$dir = "$dir_plugins$plug_file";
 	$slogan = PtoBR(plugin_propre($info['slogan'], "$dir/lang/paquet-$prefix"));
 	// une seule ligne dans le slogan : couper si besoin
-	if (($p = strpos($slogan, '<br />')) !== false) {
+	if (($p = strpos($slogan, '<br>')) !== false) {
 		$slogan = substr($slogan, 0, $p);
 	}
 	// couper par securite

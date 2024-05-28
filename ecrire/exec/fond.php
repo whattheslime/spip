@@ -56,7 +56,7 @@ function shutdown_error() {
 				ob_end_flush();
 
 			var_dump(error_get_last());
-			#echo "<hr />"."Erreur fatale (memoire ?)<hr />";
+			#echo "<hr>"."Erreur fatale (memoire ?)<hr>";
 			@flush();
 		}*/
 }

@@ -756,7 +756,7 @@ function plugin_controler_lib($lib, $url) {
 	/* Feature sortie du core, voir STP
 	 * if ($url) {
 		include_spip('inc/charger_plugin');
-		$url = '<br />'	. bouton_telechargement_plugin($url, 'lib');
+		$url = '<br>'	. bouton_telechargement_plugin($url, 'lib');
 	}*/
 	return _T('plugin_necessite_lib', ['lib' => $lib]) . " <a href='" . attribut_url($url) . "'>$url</a>";
 }

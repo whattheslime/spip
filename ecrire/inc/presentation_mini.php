@@ -219,7 +219,7 @@ function info_maj_spip() {
 	array_shift($maj);
 	$maj = implode('|', $maj);
 
-	return "$maj<br />";
+	return "$maj<br>";
 }
 
 /**
@@ -256,7 +256,7 @@ function info_copyright() {
 
 	// et la version de l'ecran de securite
 	$secu = defined('_ECRAN_SECURITE')
-		? '<br />' . _T('ecran_securite', ['version' => _ECRAN_SECURITE])
+		? '<br>' . _T('ecran_securite', ['version' => _ECRAN_SECURITE])
 		: '';
 
 	return _T(
