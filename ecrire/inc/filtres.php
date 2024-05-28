@@ -2778,7 +2778,7 @@ function form_hidden(?string $action = ''): string {
 				? ''
 				: ' value="' . entites_html($val) . '"'
 			)
-			. ' type="hidden"' . "\n/>";
+			. ' type="hidden"' . "\n>";
 	}
 
 	return join('', $hidden);

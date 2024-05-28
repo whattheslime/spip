@@ -138,7 +138,7 @@ function base_saisie_tables($name, $tables, $exclude = [], $post = null, $serveu
 		$res[$k] = "<input type='checkbox' value='$t' name='$name"
 			. "[]' id='$name$k'"
 			. ($check ? " checked='checked'" : '')
-			. "/>\n"
+			. ">\n"
 			. "<label for='$name$k'>$t</label>"
 			. ' ('
 			. sinon(

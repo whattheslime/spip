@@ -319,7 +319,7 @@ function fieldset_champs($champs = []) {
 				$fieldset .= "<input type='radio' name='" . $nom .
 					"' id='$nom-$valeur' value='$valeur'"
 					. (($valeur == $contenu['valeur']) ? "\nchecked='checked'" : '')
-					. "/>\n";
+					. ">\n";
 				$fieldset .= "<label for='$nom-$valeur'>" . $label . "</label>\n";
 			}
 			$fieldset .= "<br>\n";
