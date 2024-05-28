@@ -140,7 +140,7 @@ function chercher_rubrique(
 	if ($actionable) {
 		if (str_contains($form, '<select')) {
 			$form .= "<div style='text-align: " . $GLOBALS['spip_lang_right'] . ";'>"
-				. '<input class="fondo submit btn" type="submit" value="' . _T('bouton_choisir') . '"/>'
+				. '<input class="fondo submit btn" type="submit" value="' . _T('bouton_choisir') . '">'
 				. '</div>';
 		}
 		$form = "<input type='hidden' name='editer_$objet' value='oui'>\n" . $form;

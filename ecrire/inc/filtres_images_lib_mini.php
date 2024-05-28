@@ -314,7 +314,7 @@ function _image_valeurs_trans($img, $effet, $forcer_format = false, $fonction_cr
 			$source = $img;
 			$img = "<img src='$source'>";
 		} else {
-			// pas d'attribut src sur cette balise <img../>
+			// pas d'attribut src sur cette balise <img..>
 			return false;
 		}
 	} elseif (

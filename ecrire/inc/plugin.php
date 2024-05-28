@@ -1236,7 +1236,7 @@ function pipeline_matrice_precompile($plugin_valides, $ordre, $pipe_recherche) {
 					if (isset($style['media']) && strlen($style['media'])) {
 						$code .= ' media="' . addslashes($style['media']) . '"';
 					}
-					$code .= "/>';\n";
+					$code .= ">';\n";
 					if ($style['type'] != 'prive') {
 						$prepend_code['insert_head_css'] .= $code;
 					}
