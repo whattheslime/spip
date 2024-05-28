@@ -1400,6 +1400,32 @@ function attribut_html(?string $texte, $textebrut = true): string {
 
 
 /**
+ * Rend une URL utilisable sans dommage comme attribut d'une balise HTML
+ *
+ * @example `<a href="[(#URL_ARTICLE|attribut_url)]">#TITRE</a>`
+ *
+ * @filtre
+ *
+ * @param ?string $texte
+ *     texte à mettre en attribut
+ * @return string
+ *     texte prêt pour être utilisé en attribut HTML
+ */
+function attribut_url(?string $texte): string {
+	if ($texte === null || $texte === '') {
+		return '';
+	}
+	$texte = entites_html($texte, false, false);
+	$texte = str_replace(["'", '"'], ['&#039;', '&#034;'], $texte);
+	return preg_replace(
+		['/&(amp;|#38;)/', '/&(?![A-Za-z]{0,4}\w{2,3};|#[0-9]{2,5};)/'],
+		['&', '&amp;'],
+		$texte
+	);
+}
+
+
+/**
  * Vider les URL nulles
  *
  * - Vide les URL vides comme `http://` ou `mailto:` (sans rien d'autre)
