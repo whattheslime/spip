@@ -4759,7 +4759,7 @@ function bouton_action($libelle, $url, $class = '', $confirm = '', $title = '', 
 		$class_form = 'ajax';
 		$class = str_replace('ajax', '', $class);
 	}
-	$class_btn = 'submit ' . trim($class);
+	$class_btn = 'submit ' . attribut_html(trim($class));
 
 	if ($confirm) {
 		$confirm = 'confirm("' . attribut_html($confirm) . '")';
@@ -4770,9 +4770,11 @@ function bouton_action($libelle, $url, $class = '', $confirm = '', $title = '', 
 		}
 	}
 	$onclick = $callback ? " onclick='return " . addcslashes($callback, "'") . "'" : '';
-	$title = $title ? " title='$title'" : '';
+	$title = $title ? " title='".attribut_html($title) . "'" : '';
 
-	return "<form class='bouton_action_post $class_form' method='post' action='$url'><div>" . form_hidden($url)
+	return "<form class='bouton_action_post $class_form' method='post' action='"
+	. attribut_url($url)."'><div>"
+	. form_hidden($url)
 	. "<button type='submit' class='$class_btn'$title$onclick>$libelle</button></div></form>";
 }
 
