@@ -60,6 +60,12 @@ class InsererAttributTest extends TestCase
 		$this->assertSame($expected, $actual);
 	}
 
+	#[DataProvider('providerFiltresInsererAttributLienImgAutres')]
+	public function testFiltresInsererAttributLienImgAutres($expected, ...$args): void {
+		$actual = inserer_attribut(...$args);
+		$this->assertSame($expected, $actual);
+	}
+
 	#[DataProvider('providerFiltresInsererAttributAutres')]
 	public function testFiltresInsererAttributAutres($expected, ...$args): void {
 		$actual = inserer_attribut(...$args);
@@ -746,6 +752,109 @@ paragraphes',
 				0 => "<a href='https://www.spip.net'><img src='https://www.spip.net/IMG/logo/siteon0.png' alt='0'></a>",
 				1 => "<a href='https://www.spip.net'><img src='https://www.spip.net/IMG/logo/siteon0.png'></a>",
 				2 => 'alt',
+				3 => '0',
+				4 => false,
+				5 => false,
+			],
+		];
+	}
+
+	public static function providerFiltresInsererAttributLienImgAutres(): array {
+		return [
+			0 => [
+				0 => "<a href='https://www.spip.net'><img src='https://www.spip.net/IMG/logo/siteon0.png' /></a>",
+				1 => "<a href='https://www.spip.net'><img src='https://www.spip.net/IMG/logo/siteon0.png' /></a>",
+				2 => 'data-truc',
+				3 => '',
+				4 => true,
+				5 => true,
+			],
+			1 => [
+				0 => "<a href='https://www.spip.net'><img src='https://www.spip.net/IMG/logo/siteon0.png'></a>",
+				1 => "<a href='https://www.spip.net'><img src='https://www.spip.net/IMG/logo/siteon0.png'></a>",
+				2 => 'data-truc',
+				3 => '',
+				4 => true,
+				5 => true,
+			],
+			2 => [
+				0 => "<a href='https://www.spip.net'><img src='https://www.spip.net/IMG/logo/siteon0.png' data-truc=''></a>",
+				1 => "<a href='https://www.spip.net'><img src='https://www.spip.net/IMG/logo/siteon0.png'></a>",
+				2 => 'data-truc',
+				3 => '',
+				4 => true,
+				5 => false,
+			],
+			3 => [
+				0 => "<a href='https://www.spip.net'><img src='https://www.spip.net/IMG/logo/siteon0.png' data-truc='' /></a>",
+				1 => "<a href='https://www.spip.net'><img src='https://www.spip.net/IMG/logo/siteon0.png' /></a>",
+				2 => 'data-truc',
+				3 => '',
+				4 => true,
+				5 => false,
+			],
+			4 => [
+				0 => "<a href='https://www.spip.net'><img src='https://www.spip.net/IMG/logo/siteon0.png'></a>",
+				1 => "<a href='https://www.spip.net'><img src='https://www.spip.net/IMG/logo/siteon0.png'></a>",
+				2 => 'data-truc',
+				3 => '',
+				4 => false,
+				5 => true,
+			],
+			5 => [
+				0 => "<a href='https://www.spip.net'><img src='https://www.spip.net/IMG/logo/siteon0.png' /></a>",
+				1 => "<a href='https://www.spip.net'><img src='https://www.spip.net/IMG/logo/siteon0.png' /></a>",
+				2 => 'data-truc',
+				3 => '',
+				4 => false,
+				5 => true,
+			],
+			6 => [
+				0 => "<a href='https://www.spip.net'><img src='https://www.spip.net/IMG/logo/siteon0.png' data-truc=''></a>",
+				1 => "<a href='https://www.spip.net'><img src='https://www.spip.net/IMG/logo/siteon0.png'></a>",
+				2 => 'data-truc',
+				3 => '',
+				4 => false,
+				5 => false,
+			],
+			7 => [
+				0 => "<a href='https://www.spip.net'><img src='https://www.spip.net/IMG/logo/siteon0.png' data-truc='' /></a>",
+				1 => "<a href='https://www.spip.net'><img src='https://www.spip.net/IMG/logo/siteon0.png' /></a>",
+				2 => 'data-truc',
+				3 => '',
+				4 => false,
+				5 => false,
+			],
+
+
+			8 => [
+				0 => "<a href='https://www.spip.net'><img src='https://www.spip.net/IMG/logo/siteon0.png' data-truc='0'></a>",
+				1 => "<a href='https://www.spip.net'><img src='https://www.spip.net/IMG/logo/siteon0.png'></a>",
+				2 => 'data-truc',
+				3 => '0',
+				4 => true,
+				5 => true,
+			],
+			9 => [
+				0 => "<a href='https://www.spip.net'><img src='https://www.spip.net/IMG/logo/siteon0.png' data-truc='0'></a>",
+				1 => "<a href='https://www.spip.net'><img src='https://www.spip.net/IMG/logo/siteon0.png'></a>",
+				2 => 'data-truc',
+				3 => '0',
+				4 => true,
+				5 => false,
+			],
+			10 => [
+				0 => "<a href='https://www.spip.net'><img src='https://www.spip.net/IMG/logo/siteon0.png' data-truc='0'></a>",
+				1 => "<a href='https://www.spip.net'><img src='https://www.spip.net/IMG/logo/siteon0.png'></a>",
+				2 => 'data-truc',
+				3 => '0',
+				4 => false,
+				5 => true,
+			],
+			11 => [
+				0 => "<a href='https://www.spip.net'><img src='https://www.spip.net/IMG/logo/siteon0.png' data-truc='0'></a>",
+				1 => "<a href='https://www.spip.net'><img src='https://www.spip.net/IMG/logo/siteon0.png'></a>",
+				2 => 'data-truc',
 				3 => '0',
 				4 => false,
 				5 => false,
