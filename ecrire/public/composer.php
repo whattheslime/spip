@@ -909,18 +909,18 @@ function preparer_calculer_select(
 	if (count($afrom)) {
 		// Regarder si la table principale ne sert finalement a rien comme dans
 		//<BOUCLE3(MOTS){id_article}{id_mot}> class='on'</BOUCLE3>
-		//<BOUCLE2(MOTS){id_article}>#TOTAL_BOUCLE<//B2>
-		//<BOUCLE5(RUBRIQUES){id_mot}{tout}>#TOTAL_BOUCLE<//B5>
+		//<BOUCLE2(MOTS){id_article} />#TOTAL_BOUCLE<//B2>
+		//<BOUCLE5(RUBRIQUES){id_mot}{tout} />#TOTAL_BOUCLE<//B5>
 		// ou dans
-		//<BOUCLE8(HIERARCHIE){id_rubrique}{tout}{type='Squelette'}{inverse}{0,1}{lang_select=non}>#TOTAL_BOUCLE<//B8>
+		//<BOUCLE8(HIERARCHIE){id_rubrique}{tout}{type='Squelette'}{inverse}{0,1}{lang_select=non} />#TOTAL_BOUCLE<//B8>
 		// qui comporte plusieurs jointures
 		// ou dans
-		// <BOUCLE6(ARTICLES){id_mot=2}{statut==.*}>#TOTAL_BOUCLE<//B6>
-		// <BOUCLE7(ARTICLES){id_mot>0}{statut?}>#TOTAL_BOUCLE<//B7>
+		// <BOUCLE6(ARTICLES){id_mot=2}{statut==.*} />#TOTAL_BOUCLE<//B6>
+		// <BOUCLE7(ARTICLES){id_mot>0}{statut?} />#TOTAL_BOUCLE<//B7>
 		// penser a regarder aussi la clause orderby pour ne pas simplifier abusivement
 		// <BOUCLE9(ARTICLES){recherche truc}{par titre}>#ID_ARTICLE</BOUCLE9>
 		// penser a regarder aussi la clause groubpy pour ne pas simplifier abusivement
-		// <BOUCLE10(EVENEMENTS){id_rubrique}>#TOTAL_BOUCLE<//B10>
+		// <BOUCLE10(EVENEMENTS){id_rubrique} />#TOTAL_BOUCLE<//B10>
 
 		$t = key($from);
 		$c = current($from);

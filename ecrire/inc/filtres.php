@@ -2477,7 +2477,7 @@ function enclosure2microformat($e) {
  *
  * Passe un texte ayant des liens avec microformat
  * `<a rel="enclosure" href="fichier" ...>fichier</a>`
- * au format RSS `<enclosure url="fichier" ...>`.
+ * au format RSS `<enclosure url="fichier" ... />`.
  *
  * @filtre
  * @see enclosure2microformat() Pour l'inverse
@@ -2499,7 +2499,7 @@ function microformat2enclosure($tags) {
 				. ($url ? ' url="' . spip_htmlspecialchars($url) . '"' : '')
 				. ($type ? ' type="' . spip_htmlspecialchars($type) . '"' : '')
 				. ($length ? ' length="' . $length . '"' : '')
-				. '>';
+				. ' />';
 		}
 	}
 

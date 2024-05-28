@@ -79,7 +79,7 @@ function xml_finElement($phraseur, $name, $fusion_bal = false) {
 	$phraseur->depth = substr($phraseur->depth, 2);
 	$t = preg_replace("/[\n\t ]+$/", "\n" . $phraseur->depth, $t);
 
-	// fusion <balise></balise> en <balise>.
+	// fusion <balise></balise> en <balise />.
 	// ATTENTION,  certains clients http croient que fusion ==> pas d'atttributs
 	// en particulier pour les balises Script et A.
 	// en presence d'attributs ne le faire que si la DTD est dispo et d'accord
@@ -88,7 +88,7 @@ function xml_finElement($phraseur, $name, $fusion_bal = false) {
 	if ($t || (($ouv != $name) and !$fusion_bal)) {
 		$phraseur->res .= ($ouv ? ('<' . $ouv . '>') : '') . $t . '</' . $name . '>';
 	} else {
-		$phraseur->res .= ($ouv ? ('<' . $ouv . '>') : ('</' . $name . '>'));
+		$phraseur->res .= ($ouv ? ('<' . $ouv . ' />') : ('</' . $name . '>'));
 	}
 }
 

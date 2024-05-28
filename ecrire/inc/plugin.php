@@ -675,7 +675,7 @@ function plugin_controler_necessite($liste, $nom, $intervalle, $balise) {
 	if (isset($liste[$nom]) and plugin_version_compatible($intervalle, $liste[$nom]['version'])) {
 		return '';
 	}
-	// Si l'on a un <utilise="plugin non actif">, ne pas renvoyer d'erreur
+	// Si l'on a un <utilise="plugin non actif" />, ne pas renvoyer d'erreur
 	if ($balise === 'utilise' and !isset($liste[$nom])) {
 		return '';
 	}

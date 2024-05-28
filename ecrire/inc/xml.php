@@ -186,7 +186,7 @@ function spip_xml_aplatit($arbre, $separateur = ' ') {
 						$tagf = $tagf[0];
 						$s .= "<$tag>$f</$tagf>";
 					} else {
-						$s .= "<$tag>";
+						$s .= "<$tag />";
 					}
 				} else {
 					$s .= spip_xml_aplatit($feuille);

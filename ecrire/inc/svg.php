@@ -235,7 +235,7 @@ function svg_insert_shapes($svg, $shapes, $start = true) {
  * @return string
  */
 function svg_clip_in_box($svg, $x, $y, $width, $height) {
-	$rect = "<rect x=\"$x\" y=\"$y\" width=\"$width\" height=\"$height\">";
+	$rect = "<rect x=\"$x\" y=\"$y\" width=\"$width\" height=\"$height\" />";
 	$id = 'clip-' . substr(md5($rect . strlen($svg)), 0, 8);
 	$clippath = "<clipPath id=\"$id\">$rect</clipPath>";
 	$g = "<g clip-path=\"url(#$id)\">";
