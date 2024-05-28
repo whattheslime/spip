@@ -2,6 +2,10 @@
 
 ## Unreleased
 
+### Security
+
+- spip-team/securite#4853 Pouvoir rendre statique les modèles de formulaires dans certains contextes
+
 ### Added
 
 - !5824 Logger `spip_logger()` impplémentant `Psr\Log\LoggerInterface` (PSR-3) via une librairie `spip/logger` qui utilise Monolog
