@@ -1274,9 +1274,6 @@ function _image_tag_changer_taille($tag, $width, $height, $style = false) {
 function _image_ecrire_tag($valeurs, $surcharge = []) {
 	$valeurs = pipeline('image_ecrire_tag_preparer', $valeurs);
 
-	// fermer les tags img pas bien fermes;
-	$tag = str_replace('>', '/>', str_replace('/>', '>', $valeurs['tag']));
-
 	// le style
 	$style = $valeurs['style'];
 	if (isset($surcharge['style'])) {
