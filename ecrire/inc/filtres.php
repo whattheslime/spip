@@ -504,7 +504,7 @@ function image_filtrer($args) {
 			return file_exists($path);
 		};
 		if ($is_local_file($is_file) || tester_url_absolue($is_file)) {
-			$res = $filtre("<img src='$is_file'>", ...$args);
+			$res = $filtre("<img src='" . attribut_url($is_file) . "'>", ...$args);
 			statut_effacer_images_temporaires(false); // desactiver pour les appels hors compilo
 			return $res;
 		}
@@ -3453,7 +3453,7 @@ function http_img_pack($img, $alt, $atts = '', $title = '', $options = []) {
 	else {
 		$alt = " alt='" . attribut_html($title) . "'";
 	}
-	return "<img src='" . attribut_html($img_file) . "'$alt"
+	return "<img src='" . attribut_url($img_file) . "'$alt"
 	. ($title ? ' title="' . attribut_html($title) . '"' : '')
 	. ' ' . ltrim($atts)
 	. '>';
