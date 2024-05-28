@@ -128,7 +128,7 @@ abstract class AbstractPage {
 			$css = "<style type='text/css'>$inline</style>";
 			foreach ($files as $name) {
 				$file = timestamp(direction_css($name));
-				$css .= "<link rel='stylesheet' href='" . attribut_html($file) . "' type='text/css'>\n";
+				$css .= "<link rel='stylesheet' href='" . attribut_url($file) . "' type='text/css'>\n";
 			}
 			if (!empty($options['css'])) {
 				$css .= "<style type='text/css'>" . $options['css'] . '</style>';
@@ -157,7 +157,7 @@ abstract class AbstractPage {
 	protected function ouvreCorps($options = []) {
 		$url_site = url_de_base();
 		$header = "<header>\n" .
-			'<h1><a href="' . attribut_html($url_site) . '">' . interdire_scripts($GLOBALS['meta']['nom_site'] ?? '') . "</a></h1>\n";
+			'<h1><a href="' . attribut_url($url_site) . '">' . interdire_scripts($GLOBALS['meta']['nom_site'] ?? '') . "</a></h1>\n";
 
 		$titre = ($options['titre'] ?? '');
 		if ($titre) {
@@ -179,7 +179,7 @@ abstract class AbstractPage {
 		if (isset($options['footer'])) {
 			$footer = $options['footer'];
 		} else {
-			$footer = '<a href="' . attribut_html($url_site) . '">' . _T('retour') . "</a>\n";
+			$footer = '<a href="' . attribut_url($url_site) . '">' . _T('retour') . "</a>\n";
 		}
 		if (!empty($footer)) {
 			$footer = "<footer>\n{$footer}</footer>";

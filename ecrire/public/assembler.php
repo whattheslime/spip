@@ -706,7 +706,7 @@ function inclure_modele($type, $id, $params, $lien, string $connect = '', $env =
 		);
 	} else {
 		if ($lien) {
-			$retour = '<a href="' . $lien['href'] . '" class="' . $lien['class'] . '">' . $retour . '</a>';
+			$retour = '<a href="' . attribut_url($lien['href']) . '" class="' . attribut_html($lien['class']) . '">' . $retour . '</a>';
 		}
 	}
 

@@ -327,7 +327,7 @@ function check_upload_error($error, $msg = '', $return = false) {
 	include_spip('inc/minipres');
 	echo minipres(
 		$msg,
-		"<div style='text-align: " . $GLOBALS['spip_lang_right'] . "'><a href='" . rawurldecode((string) $GLOBALS['redirect']) . "'><button type='button'>" . _T('ecrire:bouton_suivant') . '</button></a></div>'
+		"<div style='text-align: " . $GLOBALS['spip_lang_right'] . "'><a href='" . attribut_url(rawurldecode((string) $GLOBALS['redirect'])) . "'><button type='button'>" . _T('ecrire:bouton_suivant') . '</button></a></div>'
 	);
 	exit;
 }
