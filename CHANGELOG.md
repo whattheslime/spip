@@ -25,6 +25,7 @@
 
 ### Fixed
 
+- #5667 Correction de `inserer_attribut()` sur un cas dérogatoire : l’attribut `alt` d’une balise `<img>` (même non autofermante)
 - !5962 Petite optimisation sur `svg_nettoyer()`
 - #5714 Optimisation des boucles avec pagination, en forçant une clause limit automatique dessus
 - #5825 Ne pas mettre l'adresse du site entre parenthèses dans les mails envoyés par SPIP
