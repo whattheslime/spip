@@ -4,10 +4,12 @@
 
 ### Security
 
+- spip-team/securite#4853 Appliquer un filtre `attribut_url()` aux endroits pertinents
 - spip-team/securite#4853 Pouvoir rendre statique les modèles de formulaires dans certains contextes
 
 ### Added
 
+- spip-team/securite#4853 Filtre `attribut_url()` pour formatter des attributs `href` et `src`
 - !5824 Logger `spip_logger()` impplémentant `Psr\Log\LoggerInterface` (PSR-3) via une librairie `spip/logger` qui utilise Monolog
 - !5807 Cache des squelettes réécrit en utilisant une librairie `spip/cache` (PSR-16)
 - !5806 Gestion des chemins (path) & leur cache réécrit en utilisant une librairie `spip/path`
