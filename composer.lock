@@ -1071,12 +1071,12 @@
             "source": {
                 "type": "git",
                 "url": "https://git.spip.net/spip/forum.git",
-                "reference": "4bd5491fb7c1252a5fa4c07f460c9f788923785a"
+                "reference": "a4101fd0c6836b537f2879e1e191a80ae8973bcc"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://git.spip.net/api/v4/projects/spip%2Fforum/repository/archive.zip?sha=4bd5491fb7c1252a5fa4c07f460c9f788923785a",
-                "reference": "4bd5491fb7c1252a5fa4c07f460c9f788923785a",
+                "url": "https://git.spip.net/api/v4/projects/spip%2Fforum/repository/archive.zip?sha=a4101fd0c6836b537f2879e1e191a80ae8973bcc",
+                "reference": "a4101fd0c6836b537f2879e1e191a80ae8973bcc",
                 "shasum": ""
             },
             "require": {
@@ -1111,7 +1111,7 @@
                 "source": "https://git.spip.net/spip/forum/-/tree/master",
                 "issues": "https://git.spip.net/spip/forum/-/issues"
             },
-            "time": "2024-05-13T02:30:03+02:00"
+            "time": "2024-05-28T16:25:12+02:00"
         },
         {
             "name": "spip/hasher",
