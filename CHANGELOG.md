@@ -9,6 +9,7 @@
 
 ### Added
 
+- #5912 Filtre `|propre` qui applique `propre()` & `safehtml()` (cela permet de dés-échapper le code de confiance des modèles).
 - spip-team/securite#4853 Filtre `attribut_url()` pour formatter des attributs `href` et `src`
 - !5824 Logger `spip_logger()` impplémentant `Psr\Log\LoggerInterface` (PSR-3) via une librairie `spip/logger` qui utilise Monolog
 - !5807 Cache des squelettes réécrit en utilisant une librairie `spip/cache` (PSR-16)
