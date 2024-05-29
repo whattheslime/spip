@@ -31,6 +31,7 @@
 
 ### Fixed
 
+- #5805 Éviter une fatale depuis `echapper_html_suspect()`, qui initialisait une valeur de `connect` incorrecte.
 - #5667 Correction de `inserer_attribut()` sur un cas dérogatoire : les balises `<img>` (même non autofermante)
 - !5962 Petite optimisation sur `svg_nettoyer()`
 - #5714 Optimisation des boucles avec pagination, en forçant une clause limit automatique dessus
