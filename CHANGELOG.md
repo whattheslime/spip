@@ -12,6 +12,7 @@ Changelog de SPIP 4.3
 
 ### Added
 
+- #5912 Filtre `|propre` qui applique `propre()` & `safehtml()` (cela permet de dés-échapper le code de confiance des modèles).
 - spip-team/securite#4853 Filtre `attribut_url()` pour formatter des attributs `href` et `src`
 
 ### Fixed
