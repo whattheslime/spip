@@ -16,6 +16,7 @@ Changelog de SPIP 4.2
 
 ### Fixed
 
+- #5805 Éviter une fatale depuis `echapper_html_suspect()`, qui initialisait une valeur de `connect` incorrecte.
 - !5962 Petite optimisation sur `svg_nettoyer()`
 
 ## 4.2.12 - 2024-05-07
