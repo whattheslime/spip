@@ -32,6 +32,7 @@
 
 ### Fixed
 
+- #5939 #5156 Rétablir la possibilité de masquer chertains champs des formulaires d’articles et de rubriques via le pipeline `formulaire_charger`
 - #5805 Éviter une fatale depuis `echapper_html_suspect()`, qui initialisait une valeur de `connect` incorrecte.
 - #5667 Correction de `inserer_attribut()` sur un cas dérogatoire : les balises `<img>` (même non autofermante)
 - !5962 Petite optimisation sur `svg_nettoyer()`
