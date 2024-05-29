@@ -16,6 +16,7 @@ Changelog de SPIP 4.3
 
 ### Fixed
 
+- #5667 Corriger la conformité HTML5 (quelques fonctions n’auraient pas du être modifiées)
 - #5805 Éviter une fatale depuis `echapper_html_suspect()`, qui initialisait une valeur de `connect` incorrecte.
 - #5667 Correction de `inserer_attribut()` sur un cas dérogatoire : les balises `<img>` (même non autofermante)
 - !5969 Correction de coquille sur la meta charset (suite à la conformité HTML5)
