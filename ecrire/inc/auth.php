@@ -102,6 +102,7 @@ function auth_controler_password_auteur_connecte(
 function auth_echec($raison) {
 	include_spip('inc/minipres');
 	include_spip('inc/headers');
+	include_spip('inc/filtres');
 	// pas authentifie. Pourquoi ?
 	if (is_string($raison)) {
 		// redirection vers une page d'authentification
