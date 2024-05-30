@@ -8,16 +8,16 @@ Changelog de SPIP 4.3
 
 - spip-team/securite#4853 Appliquer un filtre `attribut_url()` aux endroits pertinents
 - spip-team/securite#4853 Pouvoir rendre statique les modèles de formulaires dans certains contextes
-- Mise à jour de l’écran de sécurité en version 1.16.0
+- Mise à jour de l’écran de sécurité en version 1.6.0
 
 ### Added
 
 - #5912 Filtre `|propre` qui applique `propre()` & `safehtml()` (cela permet de dés-échapper le code de confiance des modèles).
-- spip-team/securite#4853 Filtre `attribut_url()` pour formatter des attributs `href` et `src`
+- spip-team/securite#4853 Filtre `attribut_url()` pour formater des attributs `href` et `src`
 
 ### Fixed
 
-- #5939 #5156 Rétablir la possibilité de masquer chertains champs des formulaires d’articles et de rubriques via le pipeline `formulaire_charger`
+- #5939 #5156 Rétablir la possibilité de masquer certains champs des formulaires d’articles et de rubriques via le pipeline `formulaire_charger`
 - #5667 Corriger la conformité HTML5 (quelques fonctions n’auraient pas du être modifiées)
 - #5805 Éviter une fatale depuis `echapper_html_suspect()`, qui initialisait une valeur de `connect` incorrecte.
 - #5667 Correction de `inserer_attribut()` sur un cas dérogatoire : les balises `<img>` (même non autofermante)
