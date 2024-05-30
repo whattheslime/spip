@@ -8,11 +8,11 @@ Changelog de SPIP 4.1
 
 - spip-team/securite#4853 Appliquer un filtre `attribut_url()` aux endroits pertinents
 - spip-team/securite#4853 Pouvoir rendre statique les modèles de formulaires dans certains contextes
-- Écran de sécurité en version 1.16.0
+- Écran de sécurité en version 1.6.0
 
 ### Added
 
-- spip-team/securite#4853 Filtre `attribut_url()` pour formatter des attributs `href` et `src`
+- spip-team/securite#4853 Filtre `attribut_url()` pour formater des attributs `href` et `src`
 
 ## 4.1.15 - 2024-01-12
 
