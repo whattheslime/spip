@@ -5,7 +5,7 @@
  * ------------------
  */
 
-define('_ECRAN_SECURITE', '1.6.0'); // 2024-05-21
+define('_ECRAN_SECURITE', '1.6.1'); // 2024-05-30
 
 /*
  * Documentation : https://www.spip.net/fr_article4200.html
@@ -566,6 +566,7 @@ if (count($_FILES)) {
  */
 if (isset($__request['pj_enregistrees_nom']) and $__request['pj_enregistrees_nom']) {
 	unset($__request['pj_enregistrees_nom']);
+	unset($_REQUEST['pj_enregistrees_nom']);
 	unset($_GET['pj_enregistrees_nom']);
 	unset($_POST['pj_enregistrees_nom']);
 }
@@ -643,31 +644,6 @@ if (
 	$ecran_securite_raison = "malformed connect argument";
 }
 
-
-/*
- * _oups donc
- */
-if (
-	isset($__request['_oups'])
-	and base64_decode($__request['_oups'], true) === false) {
-	$ecran_securite_raison = "malformed _oups argument";
-}
-
-if (
-	isset($__request['formulaire_action_args']) || isset($__request['var_login'])
-) {
-	foreach ($__request as $k => $v) {
-		if (is_string($v)
-		  and strpbrk($v, "&\"'<>") !== false
-		  and preg_match(',^[abis]:\d+[:;],', $v)
-		  and __ecran_test_if_serialized($v)
-		) {
-			$__request[$k] = htmlspecialchars($v, ENT_QUOTES);
-			if (isset($_POST[$k])) $_POST[$k] = $__request[$k];
-			if (isset($_GET[$k])) $_GET[$k] = $__request[$k];
-		}
-	}
-}
 /**
  * Version simplifiée de https://developer.wordpress.org/reference/functions/is_serialized/
  */
@@ -694,6 +670,32 @@ if (!function_exists('__ecran_test_if_serialized')) {
 		return false;
 	}
 }
+
+/*
+ * _oups donc
+ */
+if (
+	isset($__request['_oups'])
+	and base64_decode($__request['_oups'], true) === false) {
+	$ecran_securite_raison = "malformed _oups argument";
+}
+
+if (
+	isset($__request['formulaire_action_args']) || isset($__request['var_login'])
+) {
+	foreach ($__request as $k => $v) {
+		if (is_string($v)
+		  and strpbrk($v, "&\"'<>") !== false
+		  and preg_match(',^[abis]:\d+[:;],', $v)
+		  and __ecran_test_if_serialized($v)
+		) {
+			$__request[$k] = $_REQUEST[$k] = htmlspecialchars($v, ENT_QUOTES);
+			if (isset($_POST[$k])) $_POST[$k] = $__request[$k];
+			if (isset($_GET[$k])) $_GET[$k] = $__request[$k];
+		}
+	}
+}
+
 
 /*
  * S'il y a une raison de mourir, mourons
