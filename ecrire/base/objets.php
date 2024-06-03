@@ -674,6 +674,9 @@ function renseigner_table_objet_sql($table_sql, &$infos) {
 		$infos['type_surnoms'] = [];
 	}
 
+	if (!isset($infos['table_objet_sql'])) {
+		$infos['table_objet_sql'] = $table_sql;
+	}
 	if (!isset($infos['table_objet'])) {
 		$infos['table_objet'] = preg_replace(',^spip_,', '', $table_sql);
 	}
