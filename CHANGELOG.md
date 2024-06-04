@@ -2,6 +2,12 @@
 
 Changelog de SPIP 4.2
 
+## Unreleased
+
+### Fixed
+
+- #5953 Les modèles de formulaires doivent être encadrés d’une balise `div` (retiré par erreur dans !5956 pour spip-team/securite#4853)
+
 ## 4.2.13 - 2024-05-29
 
 ### Security
