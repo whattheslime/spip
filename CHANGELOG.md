@@ -2,15 +2,8 @@
 
 ## Unreleased
 
-### Security
-
-- spip-team/securite#4853 Appliquer un filtre `attribut_url()` aux endroits pertinents
-- spip-team/securite#4853 Pouvoir rendre statique les modèles de formulaires dans certains contextes
-
 ### Added
 
-- #5912 Filtre `|propre` qui applique `propre()` & `safehtml()` (cela permet de dés-échapper le code de confiance des modèles).
-- spip-team/securite#4853 Filtre `attribut_url()` pour formatter des attributs `href` et `src`
 - !5824 Logger `spip_logger()` impplémentant `Psr\Log\LoggerInterface` (PSR-3) via une librairie `spip/logger` qui utilise Monolog
 - !5807 Cache des squelettes réécrit en utilisant une librairie `spip/cache` (PSR-16)
 - !5806 Gestion des chemins (path) & leur cache réécrit en utilisant une librairie `spip/path`
@@ -32,11 +25,6 @@
 
 ### Fixed
 
-- #5939 #5156 Rétablir la possibilité de masquer chertains champs des formulaires d’articles et de rubriques via le pipeline `formulaire_charger`
-- #5805 Éviter une fatale depuis `echapper_html_suspect()`, qui initialisait une valeur de `connect` incorrecte.
-- #5667 Correction de `inserer_attribut()` sur un cas dérogatoire : les balises `<img>` (même non autofermante)
-- !5962 Petite optimisation sur `svg_nettoyer()`
-- #5714 Optimisation des boucles avec pagination, en forçant une clause limit automatique dessus
 - #5825 Ne pas mettre l'adresse du site entre parenthèses dans les mails envoyés par SPIP
 
 ### Deprecated
