@@ -10,6 +10,7 @@ Changelog de SPIP 4.3
 
 ### Fixed
 
+- !5981 Ne pas afficher qu’une mise à jour est disponible alors qu’elle vient d’être faite !
 - #5953 Les modèles de formulaires doivent être encadrés d’une balise `div` (retiré par erreur dans !5956 pour spip-team/securite#4853)
 
 ## 4.3.0-alpha2 - 2024-05-29
