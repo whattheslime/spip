@@ -320,6 +320,8 @@ function mise_a_jour_affiche_milieu($flux) {
 	if (
 		($GLOBALS['meta']['info_maj_spip'] ?? '')
 		&& autoriser('webmestre')
+		&& include_spip('inc/presentation_mini')
+		&& info_maj_spip()
 	) {
 		$notice = recuperer_fond('prive/squelettes/inclure/mise_a_jour', []);
 		if (strlen(trim($notice))) {
