@@ -26,6 +26,7 @@
 
 ### Fixed
 
+- #5178 Englober la page login d’une `div.contenu_login` pour pouvoir être ciblée spécifiquement en CSS lorsque chargée dans une modale
 - !5981 Ne pas afficher qu’une mise à jour est disponible alors qu’elle vient d’être faite !
 - #5953 Les modèles de formulaires doivent être encadrés d’une balise `div` (retiré par erreur dans !5956 pour spip-team/securite#4853)
 - #5825 Ne pas mettre l'adresse du site entre parenthèses dans les mails envoyés par SPIP
