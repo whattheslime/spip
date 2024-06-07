@@ -1,6 +1,8 @@
 # Changelog
 
-Changelog de SPIP 4.3
+Changelog de SPIP 4.4
+
+## Unreleased
 
 ## 4.3.0-beta - 2024-06-07
 
