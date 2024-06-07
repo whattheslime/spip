@@ -8,6 +8,10 @@ Changelog de SPIP 4.3
 
 - Mise à jour de l’écran de sécurité en version 1.6.1
 
+### Added
+
+- #5774 Pipeline `get_spip_doc` pour manipuler le résultat natif de la fonction `get_spip_doc()`
+
 ### Fixed
 
 - !5981 Ne pas afficher qu’une mise à jour est disponible alors qu’elle vient d’être faite !
