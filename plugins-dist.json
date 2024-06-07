@@ -45,7 +45,7 @@
         "path": "plugins-dist/forum",
         "source": "https://git.spip.net/spip/forum.git",
         "branch": "3.1",
-        "tag": "v3.1.6"
+        "tag": "v3.1.7"
     },
     "mediabox": {
         "path": "plugins-dist/mediabox",
@@ -105,7 +105,7 @@
         "path": "plugins-dist/svp",
         "source": "https://git.spip.net/spip/svp.git",
         "branch": "3.1",
-        "tag": "v3.1.9"
+        "tag": "v3.1.10"
     },
     "textwheel": {
         "path": "plugins-dist/textwheel",
