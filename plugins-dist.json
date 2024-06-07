@@ -45,7 +45,7 @@
         "path": "plugins-dist/forum",
         "source": "https://git.spip.net/spip/forum.git",
         "branch": "3.0",
-        "tag": "v3.0.6"
+        "tag": "v3.0.7"
     },
     "mediabox": {
         "path": "plugins-dist/mediabox",
