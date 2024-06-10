@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "6d5ff760b1b7147261614797f4c1ec51",
+    "content-hash": "a481065b220b2878ab8a8ecc889147e7",
     "packages": [
         {
             "name": "algo26-matthias/idna-convert",
@@ -637,16 +637,16 @@
         },
         {
             "name": "spip/bigup",
-            "version": "3.3.4",
+            "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "https://git.spip.net/spip/bigup.git",
-                "reference": "60089a6fc7e65bc243c03eaf87bbf7c78eae7f83"
+                "reference": "7d71119707a321ab2251c089f62833eac9ff702c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://git.spip.net/api/v4/projects/spip%2Fbigup/repository/archive.zip?sha=60089a6fc7e65bc243c03eaf87bbf7c78eae7f83",
-                "reference": "60089a6fc7e65bc243c03eaf87bbf7c78eae7f83",
+                "url": "https://git.spip.net/api/v4/projects/spip%2Fbigup/repository/archive.zip?sha=7d71119707a321ab2251c089f62833eac9ff702c",
+                "reference": "7d71119707a321ab2251c089f62833eac9ff702c",
                 "shasum": ""
             },
             "require": {
@@ -659,6 +659,7 @@
                 "rector/rector": "^0.15.23",
                 "spip/coding-standards": "^1.3"
             },
+            "default-branch": true,
             "type": "spip-plugin",
             "extra": {
                 "branch-alias": {
@@ -682,10 +683,10 @@
             ],
             "description": "Téléverser des gros fichiers",
             "support": {
-                "source": "https://git.spip.net/spip/bigup/-/tree/3.3.4",
+                "source": "https://git.spip.net/spip/bigup/-/tree/master",
                 "issues": "https://git.spip.net/spip/bigup/-/issues"
             },
-            "time": "2024-01-12T10:56:41+01:00"
+            "time": "2024-05-22T12:28:44+02:00"
         },
         {
             "name": "spip/cache",
@@ -1860,12 +1861,12 @@
             "source": {
                 "type": "git",
                 "url": "https://git.spip.net/spip/svp.git",
-                "reference": "36a1646a1ba9b7f9c8e8de0b3f014bb4cfd5d239"
+                "reference": "f8eb2ed5f4009fa2636dfd09a255dc0ca8af2891"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://git.spip.net/api/v4/projects/spip%2Fsvp/repository/archive.zip?sha=36a1646a1ba9b7f9c8e8de0b3f014bb4cfd5d239",
-                "reference": "36a1646a1ba9b7f9c8e8de0b3f014bb4cfd5d239",
+                "url": "https://git.spip.net/api/v4/projects/spip%2Fsvp/repository/archive.zip?sha=f8eb2ed5f4009fa2636dfd09a255dc0ca8af2891",
+                "reference": "f8eb2ed5f4009fa2636dfd09a255dc0ca8af2891",
                 "shasum": ""
             },
             "require": {
@@ -1905,7 +1906,7 @@
                 "source": "https://git.spip.net/spip/svp/-/tree/master",
                 "issues": "https://git.spip.net/spip/svp/-/issues"
             },
-            "time": "2024-05-08T11:44:13+02:00"
+            "time": "2024-06-07T10:07:05+02:00"
         },
         {
             "name": "spip/tw",
@@ -3066,18 +3067,18 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/PHPCompatibility/PHPCompatibility.git",
-                "reference": "96072c30924c80d20d74f1762cfd706754b17638"
+                "reference": "5a0ad8d5abab6fc6898a3d7d4f804729229e3962"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/PHPCompatibility/PHPCompatibility/zipball/96072c30924c80d20d74f1762cfd706754b17638",
-                "reference": "96072c30924c80d20d74f1762cfd706754b17638",
+                "url": "https://api.github.com/repos/PHPCompatibility/PHPCompatibility/zipball/5a0ad8d5abab6fc6898a3d7d4f804729229e3962",
+                "reference": "5a0ad8d5abab6fc6898a3d7d4f804729229e3962",
                 "shasum": ""
             },
             "require": {
                 "php": ">=5.4",
-                "phpcsstandards/phpcsutils": "^1.0.9",
-                "squizlabs/php_codesniffer": "^3.9.0"
+                "phpcsstandards/phpcsutils": "^1.0.12",
+                "squizlabs/php_codesniffer": "^3.10.0"
             },
             "replace": {
                 "wimg/php-compatibility": "*"
@@ -3148,7 +3149,7 @@
                     "type": "open_collective"
                 }
             ],
-            "time": "2024-04-30T23:24:59+00:00"
+            "time": "2024-06-07T09:46:11+00:00"
         },
         {
             "name": "phpcsstandards/phpcsutils",
@@ -4978,6 +4979,7 @@
     "stability-flags": {
         "spip/aide": 20,
         "spip/archiviste": 20,
+        "spip/bigup": 20,
         "spip/cache": 20,
         "spip/compagnon": 20,
         "spip/compresseur": 20,
