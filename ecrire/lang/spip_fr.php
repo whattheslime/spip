@@ -553,9 +553,9 @@ le site "@nom_site_spip@" @adresse_login@ :',
 	'navigateur_pas_redirige' => 'Si votre navigateur n’est pas redirigé, cliquez ici pour continuer.',
 	'notification_mise_a_jour' => 'Bonjour,
 
-	Le site @adresse_site@ peut être mis à jour vers une nouvelle version de SPIP.
+Le site @adresse_site@ peut être mis à jour vers une nouvelle version de SPIP.
 
-	Pour des questions de sécurité, il est important de garder votre site à jour.
+Pour des questions de sécurité, il est important de garder votre site à jour.
 ',
 	'numero' => 'Numéro',
 
