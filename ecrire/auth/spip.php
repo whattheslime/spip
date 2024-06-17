@@ -35,7 +35,7 @@ function auth_spip_dist($login, #[\SensitiveParameter] $pass, $serveur = '', $ph
 
 	$methode = null;
 	// retrouver le login
-	$login = auth_spip_retrouver_login($login);
+	$login = auth_spip_retrouver_login($login, $serveur);
 	// login inconnu, n'allons pas plus loin
 	if (!$login) {
 		return [];
