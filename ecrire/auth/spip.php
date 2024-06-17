@@ -36,7 +36,8 @@ function auth_spip_dist(
 	#[\SensitiveParameter]
 	$pass,
 	$serveur = '',
-	$phpauth = false
+	$phpauth = false,
+	string $fichier_cles = ''
 ) {
 
 	// retrouver le login
@@ -73,7 +74,7 @@ function auth_spip_dist(
 		return [];
 	}
 
-	$cles = SpipCles::instance();
+	$cles = SpipCles::instance($fichier_cles);
 	$secret = $cles->getSecretAuth();
 
 	$hash = null;
@@ -119,11 +120,11 @@ function auth_spip_dist(
 					else {
 						spip_log("Echec restauration des cles : verifier les droits d'ecriture ?", 'auth' . _LOG_ERREUR);
 						// et on echoue car on ne veut pas que la situation reste telle quelle
-						raler_fichier(_DIR_ETC . 'cles.php');
+						raler_fichier($fichier_cles ?: _DIR_ETC . 'cles.php');
 					}
 				}
 				else {
-					spip_log('Pas de cle secrete disponible (fichier config/cle.php absent ?) mais le backup du webmestre #' . $row['id_auteur'] . " n'est pas valide", 'auth' . _LOG_ERREUR);
+					spip_log('Pas de cle secrete disponible (fichier ' . ($fichier_cles ?: 'config/cle.php') . ' absent ?) mais le backup du webmestre #' . $row['id_auteur'] . " n'est pas valide", 'auth' . _LOG_ERREUR);
 					sql_updateq('spip_auteurs', ['backup_cles' => ''], 'id_auteur=' . intval($row['id_auteur']));
 				}
 			}
@@ -189,7 +190,8 @@ function auth_spip_dist(
 			);
 
 			// si on a change le htpass car changement d'algo, regenerer les fichiers htpasswd
-			if (isset($set['htpass'])) {
+			// sauf si connexion distante
+			if (isset($set['htpass']) && empty($serveur)) {
 				ecrire_acces();
 			}
 		}
