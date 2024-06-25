@@ -263,9 +263,9 @@ sera ignorée) :
 	'form_forum_message_auto' => '(ceci est un message automatique)',
 	'form_forum_pass' => 'mot de passe :',
 	'form_forum_probleme_mail' => 'Problème de mail : l’identifiant ne peut pas être envoyé.',
-	'form_forum_voici1' => 'Voici tes identifiants pour pouvoir participer à la vie du site "@nom_site_spip@" (@adresse_site@) :', # MODIF
+	'form_forum_voici1' => 'Voici tes identifiants pour pouvoir participer à la vie du site "@nom_site_spip@" @adresse_site@ :',
 	'form_forum_voici2' => 'Voici tes identifiants pour proposer des articles sur
-le site "@nom_site_spip@" (@adresse_login@) :', # MODIF
+le site "@nom_site_spip@" @adresse_login@ :',
 	'form_indiquer_email' => 'Indique ton adresse email.',
 	'form_indiquer_nom' => 'Indique ton nom.',
 	'form_indiquer_nom_site' => 'Indique le nom de ton site.',
@@ -273,7 +273,7 @@ le site "@nom_site_spip@" (@adresse_login@) :', # MODIF
 	'form_pet_signature_pasprise' => 'Ta signature n’est pas prise en compte.',
 	'form_prop_confirmer_envoi' => 'Confirmer l’envoi',
 	'form_prop_description' => 'Description/commentaire',
-	'form_prop_enregistre' => 'Ta proposition est enregistrée, elle apparaîtra en ligne après validation par les responsables de ce site.', # MODIF
+	'form_prop_enregistre' => 'Ta proposition est enregistrée, elle apparaîtra en ligne après validation par les responsables.',
 	'form_prop_envoyer' => 'Envoyer un message',
 	'form_prop_indiquer_email' => 'Indiquer une adresse email valide',
 	'form_prop_indiquer_nom_site' => 'Indiquer le nom du site.',
@@ -552,6 +552,12 @@ le site "@nom_site_spip@" (@adresse_login@) :', # MODIF
 
 	// N
 	'navigateur_pas_redirige' => 'Si votre navigateur n’est pas redirigé, cliquez ici pour continuer.',
+	'notification_mise_a_jour' => 'Bonjour,
+
+	Le site @adresse_site@ peut être mis à jour vers une nouvelle version de SPIP.
+
+	Pour des questions de sécurité, il est important de garder ton site à jour.
+',
 	'numero' => 'Numéro',
 
 	// O
@@ -588,15 +594,15 @@ le site "@nom_site_spip@" (@adresse_login@) :', # MODIF
 			récupérer ton accès.',
 	'pass_mail_passcookie' => '(ceci est un message automatique)
 Pour retrouver ton accès au site
-@nom_site_spip@ (@adresse_site@)
-Rends toi à l’adresse suivante :
+@nom_site_spip@ @adresse_site@
+Rends-toi à l’adresse suivante :
 
     @sendcookie@
 
 Tu pourras alors entrer un nouveau mot de passe
 et te reconnecter au site.
 
-', # MODIF
+',
 	'pass_mot_oublie' => 'Mot de passe oublié',
 	'pass_nouveau_enregistre' => 'Ton nouveau mot de passe a été enregistré.',
 	'pass_nouveau_pass' => 'Nouveau mot de passe',
@@ -723,6 +729,8 @@ et te reconnecter au site.
 	'zbug_pagination_sans_critere' => '#PAGINATION sans critère {pagination} ou employé dans une boucle récursive',
 	'zbug_parametres_inclus_incorrects' => 'Paramètre d’inclusion incorrect : @param@',
 	'zbug_profile' => 'Temps de calcul : @time@',
+	'zbug_profile_nb' => 'Nb calcul : @nb@',
+	'zbug_profile_total' => 'Temps total : @time@',
 	'zbug_resultat' => 'résultat',
 	'zbug_serveur_indefini' => 'serveur SQL indéfini',
 	'zbug_statistiques' => 'Statistiques des requêtes SQL classées par durée',

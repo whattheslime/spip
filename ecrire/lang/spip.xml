@@ -107,7 +107,7 @@
 		<traducteur nom="touti" lien="https://trad.spip.net/auteur/touti" />
 		<traducteur nom="1138" lien="https://trad.spip.net/auteur/1138" />
 	</langue>
-	<langue code="fr_tu" url="https://trad.spip.net/tradlang_module/spip?lang_cible=fr_tu" total="655" traduits="637" relire="0" modifs="15" nouveaux="3" pourcent="97.25">
+	<langue code="fr_tu" url="https://trad.spip.net/tradlang_module/spip?lang_cible=fr_tu" total="655" traduits="644" relire="0" modifs="11" nouveaux="0" pourcent="98.32">
 		<traducteur nom="beatnick" lien="https://trad.spip.net/auteur/beatnick" />
 		<traducteur nom="Cerf" lien="https://trad.spip.net/auteur/cerf" />
 		<traducteur nom="Matthieu Marcillaud" lien="https://trad.spip.net/auteur/matthieu-marcillaud" />
