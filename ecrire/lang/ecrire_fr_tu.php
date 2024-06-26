@@ -53,6 +53,7 @@ return [
 	'bouton_effacer_tout' => 'Effacer TOUT',
 	'bouton_envoyer_message' => 'Message définitif : envoyer',
 	'bouton_fermer' => 'Fermer',
+	'bouton_mettre_a_jour' => 'Mettre à jour',
 	'bouton_mettre_a_jour_base' => 'Mettre à jour la base de données',
 	'bouton_modifier' => 'Modifier',
 	'bouton_radio_afficher' => 'Afficher',
@@ -195,6 +196,7 @@ return [
 	'icone_mes_preferences' => 'Mes préférences',
 	'icone_modifier_article' => 'Modifier cet article',
 	'icone_modifier_rubrique' => 'Modifier cette rubrique',
+	'icone_outils_rapides' => 'Créer',
 	'icone_publication' => 'Publication',
 	'icone_relancer_signataire' => 'Relancer le signataire',
 	'icone_retour' => 'Retour',
@@ -230,6 +232,7 @@ return [
 	'info_administrer_rubrique' => 'Tu peux administrer cette rubrique',
 	'info_adresse' => 'à l’adresse :',
 	'info_adresse_desinscription' => 'Adresse de désinscription :',
+	'info_adresse_inscription' => 'Adresse d’inscription :',
 	'info_adresse_url' => 'Adresse (URL) du site public',
 	'info_afficher_par_nb' => 'Afficher par',
 	'info_aide_en_ligne' => 'Aide en ligne SPIP',
@@ -307,6 +310,7 @@ return [
 	'info_email_webmestre' => 'Adresse e-mail du webmestre', # MODIF
 	'info_envoi_email_automatique' => 'Envoi de mails automatique',
 	'info_envoyer_maintenant' => 'Envoyer maintenant',
+	'info_erreur_version_base_plus_recente' => 'Erreur d’installation',
 	'info_etape_suivante' => 'Passer à l’étape suivante',
 	'info_etape_suivante_1' => 'Tu peux passer à l’étape suivante.',
 	'info_etape_suivante_2' => 'Tu peux passer à l’étape suivante.',
@@ -318,6 +322,9 @@ return [
 		publication et des validations d’articles. Indiquer une ou plusieurs adresses, séparées par des virgules.', # MODIF
 	'info_fichiers_authent' => 'Fichiers d’authentification « .htpasswd »',
 	'info_forums_abo_invites' => 'Ton site comporte des forums sur abonnement ; les visiteurs sont donc invités à s’enregistrer sur le site public.', # MODIF
+	'info_gauche_admin_bdd' => '<b>Cette page est uniquement accessible aux responsables du site.</b><p> Elle donne accès aux différentes
+fonctions de gestion des bases de données. Certaines d’entre elles donnent lieu à un processus d’authentification spécifique, qui
+exige d’avoir un accès FTP au site Web.</p>',
 	'info_gauche_auteurs' => 'Tu trouveras ici tous les auteurs du site.
  Leur statut est indiqué par la couleur de leur icone (administrateur = vert ; rédacteur = jaune).', # MODIF
 	'info_gauche_auteurs_exterieurs' => 'Les auteurs extérieurs, sans accès au site, sont indiqués par une icone bleue ;
@@ -364,6 +371,7 @@ return [
 	'info_modification_enregistree' => 'Ta modification a été enregistrée',
 	'info_modifier_auteur' => 'Modifier l’auteur :',
 	'info_modifier_rubrique' => 'Modifier la rubrique :',
+	'info_modifier_statut' => 'Modifier le statut',
 	'info_modifier_titre' => 'Modifier : @titre@',
 	'info_mon_site_spip' => 'Mon site SPIP',
 	'info_moyenne' => 'moyenne :',
@@ -468,6 +476,7 @@ return [
 	'info_sites_proxy' => 'Utiliser un proxy',
 	'info_sites_trouves' => 'Sites trouvés',
 	'info_sous_titre' => 'Soustitre :',
+	'info_statut' => 'Statut',
 	'info_statut_administrateur' => 'Administrateur', # MODIF
 	'info_statut_auteur' => 'Statut de cet auteur :',
 	'info_statut_auteur_2' => 'Je suis',
@@ -516,12 +525,13 @@ dans une couleur qui indique leur état :',
 	'info_url_test_proxy' => 'URL de test',
 	'info_urlref' => 'Lien hypertexte :',
 	'info_utilisation_spip' => 'Tu peux maintenant commencer à utiliser le système de publication assistée...',
+	'info_version_base_plus_recente' => 'La version de SPIP en base de données est plus récente que celle que vous utilisez. Cette opération n’est pas supportée, mettez à jour votre installation.',
 	'info_visites_par_mois' => 'Affichage par mois :',
 	'info_visiteur_1' => 'Visiteur',
 	'info_visiteur_2' => 'du site public',
 	'info_visiteurs' => 'Visiteurs',
 	'info_visiteurs_02' => 'Visiteurs du site public',
-	'info_webmestre_forces' => 'Les webmestres sont actuellement définis dans <tt>@file_options@</tt>.', # MODIF
+	'info_webmestre_forces' => '<code>@file_options@</code> définit actuellement les webmestres.',
 	'install_adresse_base_hebergeur' => 'Adresse de la base de données attribuée par l’hébergeur',
 	'install_connect_ok' => 'La nouvelle base a bien été déclarée sous le nom de serveur @connect@.',
 	'install_echec_annonce' => 'L’installation va probablement échouer, ou aboutir à un site non fonctionnel...',
@@ -545,15 +555,16 @@ dans une couleur qui indique leur état :',
 	'install_types_db_connus' => 'SPIP sait utiliser <b>MySQL</b> (le plus répandu) et <b>SQLite</b>.',
 	'install_types_db_connus_avertissement' => 'Le support de <b>PostgreSQL</b> est également proposé à titre experimental',
 	'instituer_erreur_statut_a_change' => 'Le statut a déjà été modifié',
+	'instituer_erreur_statut_a_definir' => 'Choisir un nouveau statut',
 	'instituer_erreur_statut_non_autorise' => 'Tu ne peux pas choisir ce statut',
 	'intem_redacteur' => 'rédacteur',
 	'intitule_licence' => 'Licence',
 	'item_accepter_inscriptions' => 'Accepter les inscriptions',
 	'item_activer_messages_avertissement' => 'Activer les messages d’avertissement',
-	'item_administrateur_2' => 'administrateur', # MODIF
+	'item_administrateur_2' => 'administrateur',
 	'item_afficher_calendrier' => 'Afficher dans le calendrier',
 	'item_autoriser_syndication_integrale' => 'Diffuser l’intégralité des articles dans les fichiers de syndication',
-	'item_choix_administrateurs' => 'les administrateurs', # MODIF
+	'item_choix_administrateurs' => 'les administrateurs',
 	'item_choix_generation_miniature' => 'Générer automatiquement les miniatures des images.',
 	'item_choix_non_generation_miniature' => 'Ne pas générer de miniatures des images.',
 	'item_choix_redacteurs' => 'les rédacteurs',
@@ -586,6 +597,7 @@ dans une couleur qui indique leur état :',
 	'label_bando_outils' => 'Barre d’outils',
 	'label_bando_outils_afficher' => 'Afficher les outils',
 	'label_bando_outils_masquer' => 'Masquer les outils',
+	'label_choisir_timezone' => 'Fuseau horaire du site',
 	'label_choix_langue' => 'Choisis ta langue',
 	'label_langue' => 'Langue',
 	'label_nom_fichier_connect' => 'Indiques le nom utilisé pour ce serveur',
@@ -761,7 +773,7 @@ y compris <i>tous</i> les accès rédacteurs et administrateurs. Après l’avoi
 réinstallation de SPIP pour recréer une nouvelle base ainsi qu’un premier accès administrateur.', # MODIF
 	'texte_adresse_annuaire_1' => '(Si ton annuaire est installé sur la même machine que ce site Web, il s’agit probablement de « localhost ».)',
 	'texte_ajout_auteur' => 'L’auteur suivant a été ajouté à l’article :',
-	'texte_annuaire_ldap_1' => 'Si tu as accès à un annuaire (LDAP), tu peux l’utiliser pour importer automatiquement des utilisateurs sous SPIP.', # MODIF
+	'texte_annuaire_ldap_1' => 'Si tu as accès à un annuaire (LDAP), tu peux l’utiliser pour importer automatiquement des utilisateurs sous SPIP.',
 	'texte_article_statut' => 'Cet article est :',
 	'texte_article_virtuel' => 'Article virtuel',
 	'texte_article_virtuel_reference' => '<b>Article virtuel :</b> article référencé dans ton site SPIP, mais redirigé vers une autre URL. Pour supprimer la redirection, efface l’URL ci-dessus.',
@@ -875,6 +887,7 @@ as fait des modifications importantes de graphisme ou de structure du site.',
 		intempestifs.', # MODIF
 	'texte_vide' => 'vide',
 	'texte_vider_cache' => 'Vider le cache',
+	'titre_admin_bdd' => 'Bases de données',
 	'titre_ajouter_un_auteur' => 'Ajouter un auteur',
 	'titre_ajouter_un_mot' => 'Ajouter un mot-clé',
 	'titre_cadre_afficher_article' => 'Afficher les articles',
