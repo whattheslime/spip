@@ -6,6 +6,7 @@ Changelog de SPIP 4.3
 
 ### Fixed
 
+- #5965 La balise `#FILTRE` gère le cas de filtres nécessitant la pile de contexte en argument.
 - !5983 Pas de tabulations dans le mail de notification de mises à jour
 - #5178 Englober la page login d’une `div.contenu_login` pour pouvoir être ciblée spécifiquement en CSS lorsque chargée dans une modale
 
