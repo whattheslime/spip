@@ -65,23 +65,17 @@ function sandbox_composer_filtre($fonc, $code, $arglist, &$p, $nb_arg_droite = 1
 	// le filtre est defini sous forme de fonction ou de methode
 	// par ex. dans inc_texte, inc_filtres ou mes_fonctions
 	elseif ($f = chercher_filtre($fonc)) {
-		// cas particulier : le filtre |set doit acceder a la $Pile
-		// proto: filtre_set(&$Pile, $val, $args...)
-		if (strpbrk($f, ':')) { // Class::method
-			$refl = new ReflectionMethod($f);
-		} else {
-			$refl = new ReflectionFunction($f);
-		}
-		$refs = $refl->getParameters();
-		if (isset($refs[0]) and $refs[0]->name == 'Pile') {
+		$args = analyser_arguments_filtre($f);
+		if ($args['Pile']) {
 			$code = "$f(\$Pile,$code$arglist)";
 			$nb_arg_gauche = 2; // la balise à laquelle s'applique le filtre + $Pile
 		} else {
 			$code = "$f($code$arglist)";
 			$nb_arg_gauche = 1; // la balise à laquelle s'applique le filtre
 		}
+
 		$nb_args_f = $nb_arg_gauche + $nb_arg_droite;
-		$min_f = $refl->getNumberOfRequiredParameters();
+		$min_f = $args['NumberOfRequiredParameters'];
 		if (($nb_args_f < $min_f)) {
 			$msg_args = ['filtre' => texte_script($fonc), 'nb' => $min_f - $nb_args_f];
 			erreur_squelette([ 'zbug_erreur_filtre_nbarg_min', $msg_args], $p);
@@ -94,6 +88,31 @@ function sandbox_composer_filtre($fonc, $code, $arglist, &$p, $nb_arg_droite = 1
 	}
 
 	return $code;
+}
+
+/**
+ * Analyser les arguments d’un filtre
+ *
+ * Notamment, la fonction contient elle un paramètre `$Pile` en première position ?
+ *
+ * Certains filtres demandent à recevoir le contexte du squelette,
+ * par exemple le filtre `|set`
+ *
+ * @param string $function Nom du filtre
+ * @return array{
+ * 	  Pile: bool,
+ *    NumberOfRequiredParameters: int,
+ *    Reflection: ReflectionFunctionAbstract,
+ * }
+ */
+function analyser_arguments_filtre(string $function): array {
+	$refl = strpbrk((string) $function, ':') ? new ReflectionMethod($function) : new ReflectionFunction($function);
+	$refs = $refl->getParameters();
+	return [
+		'Pile' => isset($refs[0]) && $refs[0]->name == 'Pile',
+		'NumberOfRequiredParameters' => $refl->getNumberOfRequiredParameters(),
+		'Reflection' => $refl,
+	];
 }
 
 // Calculer un <INCLURE(xx.php)>
@@ -183,8 +202,14 @@ function sandbox_filtrer_squelette($skel, $corps, $filtres) {
 	foreach ($series_filtres as $filtres) {
 		if (is_countable($filtres) ? count($filtres) : 0) {
 			foreach ($filtres as $filtre) {
-				if ($filtre and $f = chercher_filtre($filtre)) {
-					$corps = $f($corps);
+				if ($filtre && ($f = chercher_filtre($filtre))) {
+					$args = analyser_arguments_filtre($f);
+					if ($args['Pile']) {
+						$Pile = [0 => []];
+						$corps = $f($Pile, $corps);
+					} else {
+						$corps = $f($corps);
+					}
 				}
 			}
 		}
