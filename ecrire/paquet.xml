@@ -90,6 +90,7 @@
 	<pipeline nom="image_preparer_filtre" action="" />
 	<pipeline nom="image_ecrire_tag_preparer" action="" />
 	<pipeline nom="image_ecrire_tag_finir" action="" />
+	<pipeline nom="image_extensions_logos" action="" />
 	<pipeline nom="insert_head" action="" />
 	<pipeline nom="insert_head_css" action="" />
 	<pipeline nom="jquery_plugins" action="" />

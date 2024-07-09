@@ -556,6 +556,13 @@ function _image_valeurs_trans($img, $effet, $forcer_format = false, $fonction_cr
 	return $ret;
 }
 
+/**
+ * Extensions d’images acceptées en tant que logos
+ */
+function _image_extensions_logos(): array {
+	$extensions = pipeline('image_extensions_logos', ['args' => [], 'data' => ['jpg', 'png', 'svg', 'gif', 'webp']]);
+	return $extensions;
+}
 
 /**
  * @param string $quoi
@@ -564,7 +571,7 @@ function _image_valeurs_trans($img, $effet, $forcer_format = false, $fonction_cr
 function _image_extensions_acceptees_en_entree() {
 	static $extensions = null;
 	if (empty($extensions)) {
-		$extensions = ['png', 'gif', 'jpg', 'jpeg'];
+		$extensions = _image_extensions_logos();
 		if (!empty($GLOBALS['meta']['gd_formats'])) {
 			// action=tester renseigne gd_formats et detecte le support de webp
 			$extensions = array_merge(explode(',', $GLOBALS['meta']['gd_formats']));
@@ -575,7 +582,6 @@ function _image_extensions_acceptees_en_entree() {
 			}
 			$extensions = array_unique($extensions);
 		}
-		$extensions[] = 'svg'; // on le supporte toujours avec des fonctions specifiques
 	}
 
 	return $extensions;
