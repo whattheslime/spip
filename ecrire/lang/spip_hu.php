@@ -3,11 +3,7 @@
 // extrait automatiquement de https://trad.spip.net/tradlang_module/spip?lang_cible=hu
 // ** ne pas modifier le fichier **
 
-if (!defined('_ECRIRE_INC_VERSION')) {
-	return;
-}
-
-$GLOBALS[$GLOBALS['idx_lang']] = array(
+return [
 
 	// A
 	'access_interface_graphique' => 'Vissza a teljes grafikus felületre',
@@ -643,5 +639,5 @@ Próbáljon', # MODIF
 	'zxml_survoler' => 'a helyesek megjelenítéséhez mozgassa föléjük az egeret',
 	'zxml_valeur_attribut' => 'tulajdonság értéke',
 	'zxml_vide_balise' => 'üres tag',
-	'zxml_vu' => 'látva ezelőtt:'
-);
+	'zxml_vu' => 'látva ezelőtt:',
+];

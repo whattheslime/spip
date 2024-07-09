@@ -3,11 +3,7 @@
 // extrait automatiquement de https://trad.spip.net/tradlang_module/spip?lang_cible=ay
 // ** ne pas modifier le fichier **
 
-if (!defined('_ECRIRE_INC_VERSION')) {
-	return;
-}
-
-$GLOBALS[$GLOBALS['idx_lang']] = array(
+return [
 
 	// A
 	'access_interface_graphique' => 'Phuqata ajanu apnaqawir kuttaña',
@@ -611,5 +607,5 @@ Sitix uka arunak ajlltax.Walja sapa mayanaka jach’a qamawita (urunaka, phuqañ
 	'zxml_survoler' => 'akar pasaña walik qillqatanak uñjañataki',
 	'zxml_valeur_attribut' => 'uñt’awi',
 	'zxml_vide_balise' => 'ch’usa chimpu',
-	'zxml_vu' => 'nayra uñjata '
-);
+	'zxml_vu' => 'nayra uñjata ',
+];

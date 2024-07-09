@@ -3,11 +3,7 @@
 // extrait automatiquement de https://trad.spip.net/tradlang_module/public?lang_cible=uk
 // ** ne pas modifier le fichier **
 
-if (!defined('_ECRIRE_INC_VERSION')) {
-	return;
-}
-
-$GLOBALS[$GLOBALS['idx_lang']] = array(
+return [
 
 	// A
 	'accueil_site' => 'Головна',
@@ -117,5 +113,5 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	// V
 	'ver_imprimer' => 'Версія для друку',
 	'voir_en_ligne' => 'Див. онлайн',
-	'voir_squelette' => 'Показати шаблон сторінки'
-);
+	'voir_squelette' => 'Показати шаблон сторінки',
+];

@@ -3,11 +3,7 @@
 // extrait automatiquement de https://trad.spip.net/tradlang_module/spip?lang_cible=km
 // ** ne pas modifier le fichier **
 
-if (!defined('_ECRIRE_INC_VERSION')) {
-	return;
-}
-
-$GLOBALS[$GLOBALS['idx_lang']] = array(
+return [
 
 	// A
 	'access_interface_graphique' => 'ត្រលប់​ទៅ ផ្ទាំង​ប្រទាក់​ក្រាហ្វិក​ពេញលេញ​',
@@ -628,5 +624,5 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'zxml_survoler' => 'ហោះហើរ ដើម្បីមើល ការត្រឹមត្រូវ',
 	'zxml_valeur_attribut' => 'តំលៃ នៃសេចក្តីកំណត់',
 	'zxml_vide_balise' => 'ប្លាក​ទទេ',
-	'zxml_vu' => 'បានឃើញ ​ពី​មុន'
-);
+	'zxml_vu' => 'បានឃើញ ​ពី​មុន',
+];

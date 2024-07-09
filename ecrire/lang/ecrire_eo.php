@@ -3,11 +3,7 @@
 // extrait automatiquement de https://trad.spip.net/tradlang_module/ecrire_?lang_cible=eo
 // ** ne pas modifier le fichier **
 
-if (!defined('_ECRIRE_INC_VERSION')) {
-	return;
-}
-
-$GLOBALS[$GLOBALS['idx_lang']] = array(
+return [
 
 	// A
 	'activer_plugin' => 'Aktivigi la kromprogramon',
@@ -908,5 +904,5 @@ faris gravajn ŝanĝojn en la grafiko aŭ strukturo de la retejo.',
 	'utf8_convert_erreur_orig' => 'Eraro : la litertiparo @charset@ ne estas eltenata.',
 
 	// V
-	'version' => 'Versio :'
-);
+	'version' => 'Versio :',
+];

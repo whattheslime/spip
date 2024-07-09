@@ -3,11 +3,7 @@
 // extrait automatiquement de https://trad.spip.net/tradlang_module/public?lang_cible=ro
 // ** ne pas modifier le fichier **
 
-if (!defined('_ECRIRE_INC_VERSION')) {
-	return;
-}
-
-$GLOBALS[$GLOBALS['idx_lang']] = array(
+return [
 
 	// A
 	'accueil_site' => 'Prima pagină', # MODIF
@@ -116,5 +112,5 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	// V
 	'ver_imprimer' => 'Versiunea imprimabilă',
 	'voir_en_ligne' => 'Vedeţi în direct',
-	'voir_squelette' => 'vedeţi scheletul acestei pagini'
-);
+	'voir_squelette' => 'vedeţi scheletul acestei pagini',
+];

@@ -3,11 +3,7 @@
 // extrait automatiquement de https://trad.spip.net/tradlang_module/public?lang_cible=ay
 // ** ne pas modifier le fichier **
 
-if (!defined('_ECRIRE_INC_VERSION')) {
-	return;
-}
-
-$GLOBALS[$GLOBALS['idx_lang']] = array(
+return [
 
 	// A
 	'accueil_site' => 'Uñnaq qamawita', # MODIF
@@ -104,5 +100,5 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	// V
 	'ver_imprimer' => 'Uñjat liq’suñataki',
 	'voir_en_ligne' => 'Naktata uñjaña',
-	'voir_squelette' => 'Aka laphi uñnaqan ch’aka ch’aka uñjaña'
-);
+	'voir_squelette' => 'Aka laphi uñnaqan ch’aka ch’aka uñjaña',
+];

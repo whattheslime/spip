@@ -3,11 +3,7 @@
 // extrait automatiquement de https://trad.spip.net/tradlang_module/ecrire_?lang_cible=ay
 // ** ne pas modifier le fichier **
 
-if (!defined('_ECRIRE_INC_VERSION')) {
-	return;
-}
-
-$GLOBALS[$GLOBALS['idx_lang']] = array(
+return [
 
 	// A
 	'activer_plugin' => 'Plugin uk naktayaña
@@ -210,5 +206,5 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 ',
 	'info_gauche_statistiques_referers' => 'Aka Web qamawix tantanak uñicht’ayi &lt;i&gt;referers&lt;/i&gt;, qamawinakan chinunak utjkis ukhamarak juman qamawimar apapxi, masurutakiki ukhamarak jichhurutakiki; aka tantaxa sapa pä tunka urasanaka ch’usaru uskuña.',
 	'info_gauche_visiteurs_enregistres' => 'Akanxa jach’a qamaw utan qillqatanakakiw jikxatasi (aruskipañawinak qillqayasiyampi)',
-	'info_identification_publique' => 'Uñacht’ayawima...'
-);
+	'info_identification_publique' => 'Uñacht’ayawima...',
+];

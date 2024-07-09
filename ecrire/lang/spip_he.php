@@ -3,11 +3,7 @@
 // extrait automatiquement de https://trad.spip.net/tradlang_module/spip?lang_cible=he
 // ** ne pas modifier le fichier **
 
-if (!defined('_ECRIRE_INC_VERSION')) {
-	return;
-}
-
-$GLOBALS[$GLOBALS['idx_lang']] = array(
+return [
 
 	// A
 	'access_interface_graphique' => 'חזרה לממשק הגראפי השלם',
@@ -666,5 +662,5 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'zxml_survoler' => 'לעלעל על מנת לראות את הנכונים',
 	'zxml_valeur_attribut' => 'ערך התכונה',
 	'zxml_vide_balise' => 'סימן עריכה ריק',
-	'zxml_vu' => 'נראה קודם'
-);
+	'zxml_vu' => 'נראה קודם',
+];

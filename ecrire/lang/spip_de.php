@@ -3,11 +3,7 @@
 // extrait automatiquement de https://trad.spip.net/tradlang_module/spip?lang_cible=de
 // ** ne pas modifier le fichier **
 
-if (!defined('_ECRIRE_INC_VERSION')) {
-	return;
-}
-
-$GLOBALS[$GLOBALS['idx_lang']] = array(
+return [
 
 	// A
 	'access_interface_graphique' => 'Zurück zur vollständigen grafischen Oberfläche',
@@ -725,5 +721,5 @@ Sie können auf dieser Seite ein neues Passwort eingeben und sich wieder bei der
 	'zxml_survoler' => 'Mouseover zeigt korrekte',
 	'zxml_valeur_attribut' => 'Attributwert',
 	'zxml_vide_balise' => 'leerer Tag',
-	'zxml_vu' => 'bereits gesehen'
-);
+	'zxml_vu' => 'bereits gesehen',
+];

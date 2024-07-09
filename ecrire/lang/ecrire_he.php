@@ -3,11 +3,7 @@
 // extrait automatiquement de https://trad.spip.net/tradlang_module/ecrire_?lang_cible=he
 // ** ne pas modifier le fichier **
 
-if (!defined('_ECRIRE_INC_VERSION')) {
-	return;
-}
-
-$GLOBALS[$GLOBALS['idx_lang']] = array(
+return [
 
 	// A
 	'activer_plugin' => 'החלף את ה-PLUGIN',
@@ -392,5 +388,5 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'trad_new' => 'כתיבת תרגום חדש של המאמר',
 
 	// V
-	'version' => 'מספר :'
-);
+	'version' => 'מספר :',
+];

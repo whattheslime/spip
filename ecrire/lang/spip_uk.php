@@ -3,11 +3,7 @@
 // extrait automatiquement de https://trad.spip.net/tradlang_module/spip?lang_cible=uk
 // ** ne pas modifier le fichier **
 
-if (!defined('_ECRIRE_INC_VERSION')) {
-	return;
-}
-
-$GLOBALS[$GLOBALS['idx_lang']] = array(
+return [
 
 	// A
 	'access_interface_graphique' => 'Повернення до повного інтерфейсу',
@@ -713,5 +709,5 @@ and connect again to the site.
 	'zxml_survoler' => 'щоб побачити правильні, наведіть курсор',
 	'zxml_valeur_attribut' => 'значення атрибута',
 	'zxml_vide_balise' => 'пустий тег',
-	'zxml_vu' => 'вже проглядалося'
-);
+	'zxml_vu' => 'вже проглядалося',
+];

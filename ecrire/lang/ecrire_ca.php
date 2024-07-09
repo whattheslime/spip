@@ -3,11 +3,7 @@
 // extrait automatiquement de https://trad.spip.net/tradlang_module/ecrire_?lang_cible=ca
 // ** ne pas modifier le fichier **
 
-if (!defined('_ECRIRE_INC_VERSION')) {
-	return;
-}
-
-$GLOBALS[$GLOBALS['idx_lang']] = array(
+return [
 
 	// A
 	'activer_plugin' => 'Activar el connector',
@@ -861,5 +857,5 @@ Aquesta opció està desactivada per defecte amb la finalitat d’evitar mostrar
 	'utf8_convert_erreur_orig' => 'Error: no es permet l’ús del joc de caràcters @charset@.',
 
 	// V
-	'version' => 'Versió:'
-);
+	'version' => 'Versió:',
+];

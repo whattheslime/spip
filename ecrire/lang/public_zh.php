@@ -3,11 +3,7 @@
 // extrait automatiquement de https://trad.spip.net/tradlang_module/public?lang_cible=zh
 // ** ne pas modifier le fichier **
 
-if (!defined('_ECRIRE_INC_VERSION')) {
-	return;
-}
-
-$GLOBALS[$GLOBALS['idx_lang']] = array(
+return [
 
 	// A
 	'accueil_site' => '主页', # MODIF
@@ -114,5 +110,5 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 
 	// V
 	'ver_imprimer' => '打印版本',
-	'voir_en_ligne' => '在线预览'
-);
+	'voir_en_ligne' => '在线预览',
+];

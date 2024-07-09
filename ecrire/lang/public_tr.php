@@ -3,11 +3,7 @@
 // extrait automatiquement de https://trad.spip.net/tradlang_module/public?lang_cible=tr
 // ** ne pas modifier le fichier **
 
-if (!defined('_ECRIRE_INC_VERSION')) {
-	return;
-}
-
-$GLOBALS[$GLOBALS['idx_lang']] = array(
+return [
 
 	// A
 	'accueil_site' => 'Ana sayfa', # MODIF
@@ -113,5 +109,5 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	// V
 	'ver_imprimer' => 'Basılacak sürüm',
 	'voir_en_ligne' => 'Çevrimiçi görüntüle',
-	'voir_squelette' => 'bu sayfanın iskeletini göster'
-);
+	'voir_squelette' => 'bu sayfanın iskeletini göster',
+];

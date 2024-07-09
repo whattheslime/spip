@@ -3,11 +3,7 @@
 // extrait automatiquement de https://trad.spip.net/tradlang_module/spip?lang_cible=oc_ni_mis
 // ** ne pas modifier le fichier **
 
-if (!defined('_ECRIRE_INC_VERSION')) {
-	return;
-}
-
-$GLOBALS[$GLOBALS['idx_lang']] = array(
+return [
 
 	// A
 	'access_interface_graphique' => 'Retour a l’interfaça gràfica coumpleta',
@@ -726,5 +722,5 @@ e vi recounetà au sit.
 	'zxml_survoler' => 'survolà per veire lu courret',
 	'zxml_valeur_attribut' => 'valour de l’atribut',
 	'zxml_vide_balise' => 'balisa vuèia',
-	'zxml_vu' => 'vist adé'
-);
+	'zxml_vu' => 'vist adé',
+];

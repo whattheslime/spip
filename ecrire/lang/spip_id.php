@@ -3,11 +3,7 @@
 // extrait automatiquement de https://trad.spip.net/tradlang_module/spip?lang_cible=id
 // ** ne pas modifier le fichier **
 
-if (!defined('_ECRIRE_INC_VERSION')) {
-	return;
-}
-
-$GLOBALS[$GLOBALS['idx_lang']] = array(
+return [
 
 	// A
 	'access_interface_graphique' => 'Kembali ke tatap muka grafis lengkap',
@@ -640,5 +636,5 @@ dan mengakses situs kembali.
 	'zxml_survoler' => 'untuk melihat entri yang benar, cukup letakkan kursor di atasnya',
 	'zxml_valeur_attribut' => 'nilai atribut',
 	'zxml_vide_balise' => 'tag kosong',
-	'zxml_vu' => 'dilihat sebelumnya'
-);
+	'zxml_vu' => 'dilihat sebelumnya',
+];

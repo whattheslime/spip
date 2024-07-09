@@ -3,11 +3,7 @@
 // extrait automatiquement de https://trad.spip.net/tradlang_module/ecrire_?lang_cible=my
 // ** ne pas modifier le fichier **
 
-if (!defined('_ECRIRE_INC_VERSION')) {
-	return;
-}
-
-$GLOBALS[$GLOBALS['idx_lang']] = array(
+return [
 
 	// A
 	'activer_plugin' => 'ထပ်ထည့်သည့် pluginကို အ​တည်ပြုရန်',
@@ -572,5 +568,5 @@ proxy လိပ်စာကို အောက်တွင်​ဖော်ပ�
 	'utf8_convert_erreur_orig' => 'အမှား- အက္ခရာထားရှိမှု @charset@ ကို သုံး၍မရပါ',
 
 	// V
-	'version' => 'မူကွဲ'
-);
+	'version' => 'မူကွဲ',
+];

@@ -3,11 +3,7 @@
 // extrait automatiquement de https://trad.spip.net/tradlang_module/spip?lang_cible=vi
 // ** ne pas modifier le fichier **
 
-if (!defined('_ECRIRE_INC_VERSION')) {
-	return;
-}
-
-$GLOBALS[$GLOBALS['idx_lang']] = array(
+return [
 
 	// A
 	'access_interface_graphique' => 'Trở lại giao diện ảnh ',
@@ -603,5 +599,5 @@ Nếu bạn đem vào những hình ảnh trong dạng  @gd_formats@, chúng s�
 	'zbug_table_inconnue' => 'Unknown SQL table "@table@"',
 	'zxml_inconnu_id' => 'chi tiết ID không biết',
 	'zxml_survoler' => 'để xem chi tiết đúng, di chuyển con chuột lên trên',
-	'zxml_vu' => 'đã thấy trước đây'
-);
+	'zxml_vu' => 'đã thấy trước đây',
+];

@@ -3,11 +3,7 @@
 // extrait automatiquement de https://trad.spip.net/tradlang_module/public?lang_cible=pl
 // ** ne pas modifier le fichier **
 
-if (!defined('_ECRIRE_INC_VERSION')) {
-	return;
-}
-
-$GLOBALS[$GLOBALS['idx_lang']] = array(
+return [
 
 	// A
 	'accueil_site' => 'Strona główna', # MODIF
@@ -117,5 +113,5 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	// V
 	'ver_imprimer' => 'Wersja do druku',
 	'voir_en_ligne' => 'Zobacz on-line',
-	'voir_squelette' => 'zobacz szkielet/template strony'
-);
+	'voir_squelette' => 'zobacz szkielet/template strony',
+];

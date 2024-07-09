@@ -3,11 +3,7 @@
 // extrait automatiquement de https://trad.spip.net/tradlang_module/spip?lang_cible=my
 // ** ne pas modifier le fichier **
 
-if (!defined('_ECRIRE_INC_VERSION')) {
-	return;
-}
-
-$GLOBALS[$GLOBALS['idx_lang']] = array(
+return [
 
 	// A
 	'access_interface_graphique' => 'ရုပ်ပုံစာမျက်နှာသို့ ပြန်သွားပါ',
@@ -584,5 +580,5 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'zxml_survoler' => 'မှန်ကန်​သည့်အရာကိုတွေ့ရှိရန် ကာဆာကို အ​ပေါ်တွင်တင်ပါ',
 	'zxml_valeur_attribut' => 'အပိုင်းအစတန်ဖိုး',
 	'zxml_vide_balise' => 'တေးမှတ်ချက် မရှိပါ',
-	'zxml_vu' => 'တွေ့ရှိပြီးပြီ'
-);
+	'zxml_vu' => 'တွေ့ရှိပြီးပြီ',
+];
