@@ -4,7 +4,6 @@
 
 ### Added
 
-- #5774 Pipeline `get_spip_doc` pour manipuler le résultat natif de la fonction `get_spip_doc()`
 - !5824 Logger `spip_logger()` impplémentant `Psr\Log\LoggerInterface` (PSR-3) via une librairie `spip/logger` qui utilise Monolog
 - !5807 Cache des squelettes réécrit en utilisant une librairie `spip/cache` (PSR-16)
 - !5806 Gestion des chemins (path) & leur cache réécrit en utilisant une librairie `spip/path`
@@ -27,8 +26,6 @@
 ### Fixed
 
 - #5178 Englober la page login d’une `div.contenu_login` pour pouvoir être ciblée spécifiquement en CSS lorsque chargée dans une modale
-- !5981 Ne pas afficher qu’une mise à jour est disponible alors qu’elle vient d’être faite !
-- #5953 Les modèles de formulaires doivent être encadrés d’une balise `div` (retiré par erreur dans !5956 pour spip-team/securite#4853)
 - #5825 Ne pas mettre l'adresse du site entre parenthèses dans les mails envoyés par SPIP
 
 ### Deprecated
