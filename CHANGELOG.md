@@ -6,6 +6,7 @@ Changelog de SPIP 4.3
 
 ### Fixed
 
+- !5983 Pas de tabulations dans le mail de notification de mises à jour
 - #5178 Englober la page login d’une `div.contenu_login` pour pouvoir être ciblée spécifiquement en CSS lorsque chargée dans une modale
 
 ## 4.3.0-beta - 2024-06-07
