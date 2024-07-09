@@ -3,11 +3,7 @@
 // extrait automatiquement de https://trad.spip.net/tradlang_module/ecrire_?lang_cible=eu
 // ** ne pas modifier le fichier **
 
-if (!defined('_ECRIRE_INC_VERSION')) {
-	return;
-}
-
-$GLOBALS[$GLOBALS['idx_lang']] = array(
+return [
 
 	// A
 	'activer_plugin' => 'Gehigarria aktibatu',
@@ -827,5 +823,5 @@ Arazoa berriro gertatzen baldin bada, zure aterbetzailearekin harremanetan jar z
 	'trad_new' => 'Artikulu honen itzulpen berria idatzi',
 
 	// V
-	'version' => 'Bertsioa :'
-);
+	'version' => 'Bertsioa :',
+];

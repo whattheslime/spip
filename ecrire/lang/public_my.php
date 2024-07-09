@@ -3,11 +3,7 @@
 // extrait automatiquement de https://trad.spip.net/tradlang_module/public?lang_cible=my
 // ** ne pas modifier le fichier **
 
-if (!defined('_ECRIRE_INC_VERSION')) {
-	return;
-}
-
-$GLOBALS[$GLOBALS['idx_lang']] = array(
+return [
 
 	// A
 	'accueil_site' => 'ပင်မစာမျက်နှာ', # MODIF
@@ -104,5 +100,5 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	// V
 	'ver_imprimer' => 'ထုတ်ဝေရန်အ​သင့် မူကွဲပုံစံ',
 	'voir_en_ligne' => 'အွန်လိုင်းတွင် ကြည့်ပါ',
-	'voir_squelette' => 'ٍဤစာမျက်နှာ ပုံစံခွက်ကိုပြပါ'
-);
+	'voir_squelette' => 'ٍဤစာမျက်နှာ ပုံစံခွက်ကိုပြပါ',
+];

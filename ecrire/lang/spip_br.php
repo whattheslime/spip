@@ -3,11 +3,7 @@
 // extrait automatiquement de https://trad.spip.net/tradlang_module/spip?lang_cible=br
 // ** ne pas modifier le fichier **
 
-if (!defined('_ECRIRE_INC_VERSION')) {
-	return;
-}
-
-$GLOBALS[$GLOBALS['idx_lang']] = array(
+return [
 
 	// A
 	'access_interface_graphique' => 'Distreiñ d’an etrefas grafek klok', # Gwelloc'h e vije ober gant etrefas evit treiñ interface; heñveldra, grafek zo kalz komprenusoc'h eget kevregañ. Dreist-holl e vez komprenet gant an holl hag en implij emañ gant kalz a dud
@@ -723,5 +719,5 @@ Aliet oc’h da chom hep kemmañ tra ebet e-keit ha n’oc’h ket boas ouzh SPI
 	'zxml_survoler' => 'tremen buan da welet ar re zo reizh',
 	'zxml_valeur_attribut' => 'talvoudegezh ar perzh',
 	'zxml_vide_balise' => 'balizenn c’houllo',
-	'zxml_vu' => 'bet gwelet a-raok'
-);
+	'zxml_vu' => 'bet gwelet a-raok',
+];

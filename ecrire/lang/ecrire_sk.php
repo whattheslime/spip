@@ -3,11 +3,7 @@
 // extrait automatiquement de https://trad.spip.net/tradlang_module/ecrire_?lang_cible=sk
 // ** ne pas modifier le fichier **
 
-if (!defined('_ECRIRE_INC_VERSION')) {
-	return;
-}
-
-$GLOBALS[$GLOBALS['idx_lang']] = array(
+return [
 
 	// A
 	'activer_plugin' => 'Aktivovať zásuvný modul',
@@ -909,5 +905,5 @@ v cache SPIPu. To si vynúti obnovenie každej stránky vášho webu, čo je u�
 	'utf8_convert_erreur_orig' => 'Chyba: znaková sada @charset@ nie je podporovaná.',
 
 	// V
-	'version' => 'Verzia:'
-);
+	'version' => 'Verzia:',
+];

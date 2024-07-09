@@ -3,11 +3,7 @@
 // extrait automatiquement de https://trad.spip.net/tradlang_module/public?lang_cible=eu
 // ** ne pas modifier le fichier **
 
-if (!defined('_ECRIRE_INC_VERSION')) {
-	return;
-}
-
-$GLOBALS[$GLOBALS['idx_lang']] = array(
+return [
 
 	// A
 	'accueil_site' => 'Ataria',
@@ -117,5 +113,5 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	// V
 	'ver_imprimer' => 'Inprimatzeko bertsioa',
 	'voir_en_ligne' => 'Linean ikusi',
-	'voir_squelette' => 'Orri hunen eskeletoa ikusi'
-);
+	'voir_squelette' => 'Orri hunen eskeletoa ikusi',
+];

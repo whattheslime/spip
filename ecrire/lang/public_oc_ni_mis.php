@@ -3,11 +3,7 @@
 // extrait automatiquement de https://trad.spip.net/tradlang_module/public?lang_cible=oc_ni_mis
 // ** ne pas modifier le fichier **
 
-if (!defined('_ECRIRE_INC_VERSION')) {
-	return;
-}
-
-$GLOBALS[$GLOBALS['idx_lang']] = array(
+return [
 
 	// A
 	'accueil_site' => 'Acuèlh',
@@ -117,5 +113,5 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	// V
 	'ver_imprimer' => 'Versioun d’estampà',
 	'voir_en_ligne' => 'Veire en ligna',
-	'voir_squelette' => 'Veire l’esquelètrou d’aquela pàgina'
-);
+	'voir_squelette' => 'Veire l’esquelètrou d’aquela pàgina',
+];

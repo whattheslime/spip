@@ -3,11 +3,7 @@
 // extrait automatiquement de https://trad.spip.net/tradlang_module/spip?lang_cible=it
 // ** ne pas modifier le fichier **
 
-if (!defined('_ECRIRE_INC_VERSION')) {
-	return;
-}
-
-$GLOBALS[$GLOBALS['idx_lang']] = array(
+return [
 
 	// A
 	'access_interface_graphique' => 'Ritorna all’interfaccia grafica completa',
@@ -742,5 +738,5 @@ funzionamento del sito. Non intervenire finché non conosci bene i meccanismi de
 	'zxml_survoler' => 'passarci sopra col mouse per vedere i corretti',
 	'zxml_valeur_attribut' => 'valore dell’attributo',
 	'zxml_vide_balise' => 'tag vuoto',
-	'zxml_vu' => 'visto in precedenza'
-);
+	'zxml_vu' => 'visto in precedenza',
+];

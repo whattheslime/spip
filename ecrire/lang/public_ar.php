@@ -3,11 +3,7 @@
 // extrait automatiquement de https://trad.spip.net/tradlang_module/public?lang_cible=ar
 // ** ne pas modifier le fichier **
 
-if (!defined('_ECRIRE_INC_VERSION')) {
-	return;
-}
-
-$GLOBALS[$GLOBALS['idx_lang']] = array(
+return [
 
 	// A
 	'accueil_site' => 'الصفحة الرئيسية',
@@ -122,5 +118,5 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	// V
 	'ver_imprimer' => 'نسخة للطباعة',
 	'voir_en_ligne' => 'عرض مباشر',
-	'voir_squelette' => 'عرض الصفحة النموذجية لهذه الصفحة'
-);
+	'voir_squelette' => 'عرض الصفحة النموذجية لهذه الصفحة',
+];

@@ -3,11 +3,7 @@
 // extrait automatiquement de https://trad.spip.net/tradlang_module/spip?lang_cible=zh
 // ** ne pas modifier le fichier **
 
-if (!defined('_ECRIRE_INC_VERSION')) {
-	return;
-}
-
-$GLOBALS[$GLOBALS['idx_lang']] = array(
+return [
 
 	// A
 	'access_interface_graphique' => '返回完整显示模式',
@@ -601,5 +597,5 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'zbug_erreur_boucle_syntaxe' => '句法中出现错误的环', # MODIF
 	'zbug_erreur_filtre' => '错误: 过滤<b>« @filtre@ »</b>未定义', # MODIF
 	'zbug_info_erreur_squelette' => '站点错误',
-	'zbug_table_inconnue' => 'SQL表格 « @table@ » 未知'
-);
+	'zbug_table_inconnue' => 'SQL表格 « @table@ » 未知',
+];

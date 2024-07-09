@@ -3,11 +3,7 @@
 // extrait automatiquement de https://trad.spip.net/tradlang_module/public?lang_cible=da
 // ** ne pas modifier le fichier **
 
-if (!defined('_ECRIRE_INC_VERSION')) {
-	return;
-}
-
-$GLOBALS[$GLOBALS['idx_lang']] = array(
+return [
 
 	// A
 	'accueil_site' => 'Hjemmeside', # MODIF
@@ -103,5 +99,5 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	// V
 	'ver_imprimer' => 'Printbar version',
 	'voir_en_ligne' => 'Se online',
-	'voir_squelette' => 'Hent skabelonen til denne side'
-);
+	'voir_squelette' => 'Hent skabelonen til denne side',
+];

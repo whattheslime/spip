@@ -3,11 +3,7 @@
 // extrait automatiquement de https://trad.spip.net/tradlang_module/ecrire_?lang_cible=gl
 // ** ne pas modifier le fichier **
 
-if (!defined('_ECRIRE_INC_VERSION')) {
-	return;
-}
-
-$GLOBALS[$GLOBALS['idx_lang']] = array(
+return [
 
 	// A
 	'activer_plugin' => 'Activar o módulo',
@@ -837,5 +833,5 @@ estes ficheiros).</p>', # MODIF
 	'utf8_convert_erreur_orig' => 'Erro : o xogo de carácteres @charset@ non está soportado.',
 
 	// V
-	'version' => 'Versión :'
-);
+	'version' => 'Versión :',
+];

@@ -3,11 +3,7 @@
 // extrait automatiquement de https://trad.spip.net/tradlang_module/spip?lang_cible=fon
 // ** ne pas modifier le fichier **
 
-if (!defined('_ECRIRE_INC_VERSION')) {
-	return;
-}
-
-$GLOBALS[$GLOBALS['idx_lang']] = array(
+return [
 
 	// A
 	'access_interface_graphique' => 'Lɛkɔ yì atɛ bi jí',
@@ -542,5 +538,5 @@ Nú mi ná ɖó mɔ nɔtɛn gblogblojí  é lɔ tɔn  mi yì
 	'zbug_parametres_inclus_incorrects' => ' wàlɔ yíyìɖémɛ  ɔ tɔn lɛ jlɔ à ', # MODIF
 	'zbug_resultat' => 'Gbètà',
 	'zbug_serveur_indefini' => 'Mɔxwìtíxwìtítàtɔ SQL tɔn ê mà tɛɖɛ é jì a ', # MODIF
-	'zbug_table_inconnue' => 'Tìtòmɛ  SQL « @table@ »yè mà tùn'
-);
+	'zbug_table_inconnue' => 'Tìtòmɛ  SQL « @table@ »yè mà tùn',
+];

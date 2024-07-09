@@ -3,11 +3,7 @@
 // extrait automatiquement de https://trad.spip.net/tradlang_module/public?lang_cible=cpf_hat
 // ** ne pas modifier le fichier **
 
-if (!defined('_ECRIRE_INC_VERSION')) {
-	return;
-}
-
-$GLOBALS[$GLOBALS['idx_lang']] = array(
+return [
 
 	// A
 	'accueil_site' => 'Akey sit la', # MODIF
@@ -104,5 +100,5 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	// V
 	'ver_imprimer' => 'Vèsyon pou enprime',
 	'voir_en_ligne' => 'Gad an liy',
-	'voir_squelette' => 'kou je sou léskelèt paj-la'
-);
+	'voir_squelette' => 'kou je sou léskelèt paj-la',
+];

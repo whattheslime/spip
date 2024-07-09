@@ -3,11 +3,7 @@
 // extrait automatiquement de https://trad.spip.net/tradlang_module/ecrire_?lang_cible=fr_fem
 // ** ne pas modifier le fichier **
 
-if (!defined('_ECRIRE_INC_VERSION')) {
-	return;
-}
-
-$GLOBALS[$GLOBALS['idx_lang']] = array(
+return [
 
 	// A
 	'activer_plugin' => 'Activer le plugin',
@@ -931,5 +927,5 @@ avez fait des modifications importantes de graphisme ou de structure du site.',
 	'utf8_convert_erreur_orig' => 'Erreur : le jeu de caractères @charset@ n’est pas supporté.',
 
 	// V
-	'version' => 'Version :'
-);
+	'version' => 'Version :',
+];

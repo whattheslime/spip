@@ -3,11 +3,7 @@
 // extrait automatiquement de https://trad.spip.net/tradlang_module/spip?lang_cible=sv
 // ** ne pas modifier le fichier **
 
-if (!defined('_ECRIRE_INC_VERSION')) {
-	return;
-}
-
-$GLOBALS[$GLOBALS['idx_lang']] = array(
+return [
 
 	// A
 	'access_interface_graphique' => 'Tillbaka till det kompletta grafiska gränssnittet',
@@ -677,5 +673,5 @@ och koppla upp dig mot sajten igen.
 	'zxml_survoler' => 'för att se de rätta, håll muspekaren ovenför',
 	'zxml_valeur_attribut' => 'värde för attribut',
 	'zxml_vide_balise' => 'tom tagg',
-	'zxml_vu' => 'tidigare sedd'
-);
+	'zxml_vu' => 'tidigare sedd',
+];

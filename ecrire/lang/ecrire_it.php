@@ -3,11 +3,7 @@
 // extrait automatiquement de https://trad.spip.net/tradlang_module/ecrire_?lang_cible=it
 // ** ne pas modifier le fichier **
 
-if (!defined('_ECRIRE_INC_VERSION')) {
-	return;
-}
-
-$GLOBALS[$GLOBALS['idx_lang']] = array(
+return [
 
 	// A
 	'activer_plugin' => 'Attiva l’estensione',
@@ -915,5 +911,5 @@ per evitare di generare messaggi d’avvertimento intempestivi.',
 	'utf8_convert_erreur_orig' => 'Errore: il set di caratteri @charset@ non è supportato.',
 
 	// V
-	'version' => 'Versione:'
-);
+	'version' => 'Versione:',
+];

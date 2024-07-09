@@ -3,11 +3,7 @@
 // extrait automatiquement de https://trad.spip.net/tradlang_module/ecrire_?lang_cible=oc_lms
 // ** ne pas modifier le fichier **
 
-if (!defined('_ECRIRE_INC_VERSION')) {
-	return;
-}
-
-$GLOBALS[$GLOBALS['idx_lang']] = array(
+return [
 
 	// A
 	'aide_non_disponible' => 'Quela part de l’ajuda en linha es pas enquera disponibla per questa lenga.',
@@ -595,5 +591,5 @@ s’avetz bravament modificat lo grafisme o l’estructura dau sit.',
 	'trad_article_traduction' => 'Totas las versions de quel article:',
 	'trad_delier' => 'Pas mai liar queste article a sas reviradas ', # MODIF
 	'trad_lier' => 'Queste article es una revirada de l’article numero:',
-	'trad_new' => 'Escriure una revirada novela de queste article' # MODIF
-);
+	'trad_new' => 'Escriure una revirada novela de queste article', # MODIF
+];

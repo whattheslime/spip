@@ -3,11 +3,7 @@
 // extrait automatiquement de https://trad.spip.net/tradlang_module/public?lang_cible=he
 // ** ne pas modifier le fichier **
 
-if (!defined('_ECRIRE_INC_VERSION')) {
-	return;
-}
-
-$GLOBALS[$GLOBALS['idx_lang']] = array(
+return [
 
 	// A
 	'accueil_site' => 'ראשי', # MODIF
@@ -113,5 +109,5 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	// V
 	'ver_imprimer' => 'גירסה להדפסה',
 	'voir_en_ligne' => 'לתוכן מקוון',
-	'voir_squelette' => 'לראות את השלד של דף זה'
-);
+	'voir_squelette' => 'לראות את השלד של דף זה',
+];

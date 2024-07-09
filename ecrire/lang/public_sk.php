@@ -3,11 +3,7 @@
 // extrait automatiquement de https://trad.spip.net/tradlang_module/public?lang_cible=sk
 // ** ne pas modifier le fichier **
 
-if (!defined('_ECRIRE_INC_VERSION')) {
-	return;
-}
-
-$GLOBALS[$GLOBALS['idx_lang']] = array(
+return [
 
 	// A
 	'accueil_site' => 'Úvodná stránka',
@@ -117,5 +113,5 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	// V
 	'ver_imprimer' => 'Verzia pre tlač',
 	'voir_en_ligne' => 'Zobraziť online',
-	'voir_squelette' => 'Zobraziť šablónu tejto stránky'
-);
+	'voir_squelette' => 'Zobraziť šablónu tejto stránky',
+];

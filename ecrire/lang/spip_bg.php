@@ -3,11 +3,7 @@
 // extrait automatiquement de https://trad.spip.net/tradlang_module/spip?lang_cible=bg
 // ** ne pas modifier le fichier **
 
-if (!defined('_ECRIRE_INC_VERSION')) {
-	return;
-}
-
-$GLOBALS[$GLOBALS['idx_lang']] = array(
+return [
 
 	// A
 	'access_interface_graphique' => 'Обратно към пълния графичен интерфейс',
@@ -587,5 +583,5 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'zbug_parametres_inclus_incorrects' => 'Погрешни параметри за включване', # MODIF
 	'zbug_resultat' => 'резултат',
 	'zbug_serveur_indefini' => 'неопределен сървър SQL', # MODIF
-	'zbug_table_inconnue' => 'Непозната таблица от типа SQL: "@table@"'
-);
+	'zbug_table_inconnue' => 'Непозната таблица от типа SQL: "@table@"',
+];

@@ -3,11 +3,7 @@
 // extrait automatiquement de https://trad.spip.net/tradlang_module/ecrire_?lang_cible=km
 // ** ne pas modifier le fichier **
 
-if (!defined('_ECRIRE_INC_VERSION')) {
-	return;
-}
-
-$GLOBALS[$GLOBALS['idx_lang']] = array(
+return [
 
 	// A
 	'activer_plugin' => '​ធ្វើ​អោយសកម្ម plugin',
@@ -620,5 +616,5 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'utf8_convert_erreur_orig' => 'កំហុស ៖ មិនគាំទ្រ កញ្ចប់អក្សរ @charset@។',
 
 	// V
-	'version' => 'កំណែ ៖'
-);
+	'version' => 'កំណែ ៖',
+];

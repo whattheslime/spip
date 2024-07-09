@@ -3,11 +3,7 @@
 // extrait automatiquement de https://trad.spip.net/tradlang_module/public?lang_cible=cpf
 // ** ne pas modifier le fichier **
 
-if (!defined('_ECRIRE_INC_VERSION')) {
-	return;
-}
-
-$GLOBALS[$GLOBALS['idx_lang']] = array(
+return [
 
 	// A
 	'accueil_site' => 'Lakey lo sit', # MODIF
@@ -104,5 +100,5 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	// V
 	'ver_imprimer' => 'Vèrsyon pou inprimé',
 	'voir_en_ligne' => 'Anon vwar an liyn',
-	'voir_squelette' => 'Apiy po télésarz léskélet lapaz-la'
-);
+	'voir_squelette' => 'Apiy po télésarz léskélet lapaz-la',
+];

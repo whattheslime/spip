@@ -3,11 +3,7 @@
 // extrait automatiquement de https://trad.spip.net/tradlang_module/ecrire_?lang_cible=ro
 // ** ne pas modifier le fichier **
 
-if (!defined('_ECRIRE_INC_VERSION')) {
-	return;
-}
-
-$GLOBALS[$GLOBALS['idx_lang']] = array(
+return [
 
 	// A
 	'activer_plugin' => 'Activaţi plugin-ul',
@@ -768,5 +764,5 @@ avez fait des modifications importantes de graphisme ou de structure du site.',
 	'utf8_convert_erreur_orig' => 'Eroare : codarea @charset@ nu este suportată.',
 
 	// V
-	'version' => 'Versiune :'
-);
+	'version' => 'Versiune :',
+];

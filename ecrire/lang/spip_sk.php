@@ -3,11 +3,7 @@
 // extrait automatiquement de https://trad.spip.net/tradlang_module/spip?lang_cible=sk
 // ** ne pas modifier le fichier **
 
-if (!defined('_ECRIRE_INC_VERSION')) {
-	return;
-}
-
-$GLOBALS[$GLOBALS['idx_lang']] = array(
+return [
 
 	// A
 	'access_interface_graphique' => 'Späť na úplné grafické rozhranie',
@@ -730,5 +726,5 @@ a znova sa prihlásiť na stránku.
 	'zxml_survoler' => 'Ak chcete vidieť správne, prejdite kurzorom',
 	'zxml_valeur_attribut' => 'hodnota atribútu',
 	'zxml_vide_balise' => 'prázdny tag',
-	'zxml_vu' => 'zobrazené predtým'
-);
+	'zxml_vu' => 'zobrazené predtým',
+];

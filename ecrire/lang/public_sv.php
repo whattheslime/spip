@@ -3,11 +3,7 @@
 // extrait automatiquement de https://trad.spip.net/tradlang_module/public?lang_cible=sv
 // ** ne pas modifier le fichier **
 
-if (!defined('_ECRIRE_INC_VERSION')) {
-	return;
-}
-
-$GLOBALS[$GLOBALS['idx_lang']] = array(
+return [
 
 	// A
 	'accueil_site' => 'Hemsida', # MODIF
@@ -113,5 +109,5 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	// V
 	'ver_imprimer' => 'Utskrifts-version',
 	'voir_en_ligne' => 'Se online',
-	'voir_squelette' => 'visa sidans mall'
-);
+	'voir_squelette' => 'visa sidans mall',
+];

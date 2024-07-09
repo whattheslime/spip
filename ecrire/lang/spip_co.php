@@ -3,11 +3,7 @@
 // extrait automatiquement de https://trad.spip.net/tradlang_module/spip?lang_cible=co
 // ** ne pas modifier le fichier **
 
-if (!defined('_ECRIRE_INC_VERSION')) {
-	return;
-}
-
-$GLOBALS[$GLOBALS['idx_lang']] = array(
+return [
 
 	// A
 	'access_interface_graphique' => 'Ritornu à l’interfaccia gràfica sana',
@@ -693,5 +689,5 @@ Puderete tandu inserisce un nuvellu password
 	'zxml_survoler' => 'passà sopra cù u topu pè vede quelli curretti',
 	'zxml_valeur_attribut' => 'valore di l’attributu',
 	'zxml_vide_balise' => 'balisa viota',
-	'zxml_vu' => 'vistu prima'
-);
+	'zxml_vu' => 'vistu prima',
+];

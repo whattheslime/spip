@@ -3,11 +3,7 @@
 // extrait automatiquement de https://trad.spip.net/tradlang_module/spip?lang_cible=bs
 // ** ne pas modifier le fichier **
 
-if (!defined('_ECRIRE_INC_VERSION')) {
-	return;
-}
-
-$GLOBALS[$GLOBALS['idx_lang']] = array(
+return [
 
 	// A
 	'access_interface_graphique' => 'Nazad na kompletno graficki interfejs',
@@ -563,5 +559,5 @@ Obratite paznu na ovu referencu, ponovo pokusajte nadogradnju i na kraju provjer
 	'zbug_parametres_inclus_incorrects' => 'Pogresni parametri ukljucivanja', # MODIF
 	'zbug_resultat' => 'rezultat',
 	'zbug_serveur_indefini' => 'nedefinisan SQL server', # MODIF
-	'zbug_table_inconnue' => 'Nedefinisana SQL  tabela « @table@ »'
-);
+	'zbug_table_inconnue' => 'Nedefinisana SQL  tabela « @table@ »',
+];

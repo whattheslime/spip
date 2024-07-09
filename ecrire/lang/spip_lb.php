@@ -3,11 +3,7 @@
 // extrait automatiquement de https://trad.spip.net/tradlang_module/spip?lang_cible=lb
 // ** ne pas modifier le fichier **
 
-if (!defined('_ECRIRE_INC_VERSION')) {
-	return;
-}
-
-$GLOBALS[$GLOBALS['idx_lang']] = array(
+return [
 
 	// A
 	'access_interface_graphique' => 'Zeréck bei de komplette grapheschen Interface',
@@ -699,5 +695,5 @@ Probéiert ',
 	'zxml_survoler' => 'driwwer fléien fir déi Richteg ze gesinn',
 	'zxml_valeur_attribut' => 'Valeur vum Attribut',
 	'zxml_vide_balise' => 'Eidelen Tag',
-	'zxml_vu' => 'virdru gesinn'
-);
+	'zxml_vu' => 'virdru gesinn',
+];

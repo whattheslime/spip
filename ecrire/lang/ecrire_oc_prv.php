@@ -3,11 +3,7 @@
 // extrait automatiquement de https://trad.spip.net/tradlang_module/ecrire_?lang_cible=oc_prv
 // ** ne pas modifier le fichier **
 
-if (!defined('_ECRIRE_INC_VERSION')) {
-	return;
-}
-
-$GLOBALS[$GLOBALS['idx_lang']] = array(
+return [
 
 	// A
 	'activer_plugin' => 'Activar l’ajuston',
@@ -613,5 +609,5 @@ s’avètz bravament modificat lo grafisme o l’estructura dau sit.',
 	'trad_new' => 'Escriure una revirada novèla d’aquest article', # MODIF
 
 	// V
-	'version' => 'Version :'
-);
+	'version' => 'Version :',
+];

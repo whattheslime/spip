@@ -3,11 +3,7 @@
 // extrait automatiquement de https://trad.spip.net/tradlang_module/spip?lang_cible=pl
 // ** ne pas modifier le fichier **
 
-if (!defined('_ECRIRE_INC_VERSION')) {
-	return;
-}
-
-$GLOBALS[$GLOBALS['idx_lang']] = array(
+return [
 
 	// A
 	'access_interface_graphique' => 'Powrót do pełnego interfejsu graficznego',
@@ -679,5 +675,5 @@ a następnie sprawdź czy obrazki pojawiają się zawsze w artykułach.',
 	'zxml_survoler' => 'najedź wskaźnikiem aby zobaczyć poprawne',
 	'zxml_valeur_attribut' => 'wartość artybutu',
 	'zxml_vide_balise' => 'pusty znacznik',
-	'zxml_vu' => 'widziany wcześniej'
-);
+	'zxml_vu' => 'widziany wcześniej',
+];

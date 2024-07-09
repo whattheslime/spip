@@ -1,11 +1,7 @@
 <?php
 // This is a SPIP language file  --  Ceci est un fichier langue de SPIP
 // Fichier source, a modifier dans https://git.spip.net/spip/spip.git
-if (!defined('_ECRIRE_INC_VERSION')) {
-	return;
-}
-
-$GLOBALS[$GLOBALS['idx_lang']] = array(
+return [
 
 	// A
 	'activer_plugin' => 'Activer le plugin',
@@ -951,5 +947,5 @@ avez fait des modifications importantes de graphisme ou de structure du site.',
 	'utf8_convert_erreur_orig' => 'Erreur : le jeu de caractères @charset@ n’est pas supporté.',
 
 	// V
-	'version' => 'Version :'
-);
+	'version' => 'Version :',
+];

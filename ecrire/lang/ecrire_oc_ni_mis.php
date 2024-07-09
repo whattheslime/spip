@@ -3,11 +3,7 @@
 // extrait automatiquement de https://trad.spip.net/tradlang_module/ecrire_?lang_cible=oc_ni_mis
 // ** ne pas modifier le fichier **
 
-if (!defined('_ECRIRE_INC_VERSION')) {
-	return;
-}
-
-$GLOBALS[$GLOBALS['idx_lang']] = array(
+return [
 
 	// A
 	'activer_plugin' => 'Ativà lou plugin',
@@ -900,5 +896,5 @@ s’avès fach dei moudificacioun empourtanti de grafisme o d’estrutura dóu s
 	'utf8_convert_erreur_orig' => 'Errour : lou juèc de caractèr @charset@ es pas supourtat.',
 
 	// V
-	'version' => 'Versioun:'
-);
+	'version' => 'Versioun:',
+];
