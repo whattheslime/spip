@@ -15,7 +15,6 @@ global
 	$dossier_squelettes,
 	$exceptions_des_tables,
 	$filtrer_javascript,
-	$formats_logos,
 	$hash_recherche_strict,
 	$hash_recherche,
 	$help_server,
@@ -142,8 +141,6 @@ $traiter_math = 'tex';
 // Appliquer un indenteur XHTML aux espaces public et/ou prive ?
 $xhtml = false;
 $xml_indent = false;
-
-$formats_logos = ['jpg', 'png', 'svg', 'gif', 'webp'];
 
 // Controler les dates des item dans les flux RSS ?
 $controler_dates_rss = true;
