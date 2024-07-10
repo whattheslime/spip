@@ -50,7 +50,7 @@
 	<langue code="en_hx" url="https://trad.spip.net/tradlang_module/public?lang_cible=en_hx" total="83" traduits="64" relire="1" modifs="3" nouveaux="15" pourcent="77.11">
 		<traducteur nom="kent1" lien="https://trad.spip.net/auteur/kent1" />
 	</langue>
-	<langue code="eo" url="https://trad.spip.net/tradlang_module/public?lang_cible=eo" total="83" traduits="78" relire="0" modifs="0" nouveaux="5" pourcent="93.98">
+	<langue code="eo" url="https://trad.spip.net/tradlang_module/public?lang_cible=eo" total="83" traduits="81" relire="0" modifs="0" nouveaux="2" pourcent="97.59">
 		<traducteur nom="Matthieu Marcillaud" lien="https://trad.spip.net/auteur/matthieu-marcillaud" />
 	</langue>
 	<langue code="es" url="https://trad.spip.net/tradlang_module/public?lang_cible=es" total="83" traduits="83" relire="0" modifs="0" nouveaux="0" pourcent="100.00">
@@ -63,8 +63,8 @@
 	<langue code="et" url="https://trad.spip.net/tradlang_module/public?lang_cible=et" total="83" traduits="67" relire="0" modifs="0" nouveaux="16" pourcent="80.72">
 		<traducteur nom="kent1" lien="https://trad.spip.net/auteur/kent1" />
 	</langue>
-	<langue code="eu" url="https://trad.spip.net/tradlang_module/public?lang_cible=eu" total="83" traduits="78" relire="0" modifs="0" nouveaux="5" pourcent="93.98">
-		<traducteur nom="otalazt" lien="https://trad.spip.net/auteur/otalazt" />
+	<langue code="eu" url="https://trad.spip.net/tradlang_module/public?lang_cible=eu" total="83" traduits="83" relire="0" modifs="0" nouveaux="0" pourcent="100.00">
+		<traducteur nom="otalazt" lien="https://trad.spip.net/auteur/otalazt-7232" />
 	</langue>
 	<langue code="fa" url="https://trad.spip.net/tradlang_module/public?lang_cible=fa" total="83" traduits="78" relire="0" modifs="0" nouveaux="5" pourcent="93.98">
 		<traducteur nom="Davood Hossein" lien="https://trad.spip.net/auteur/davood-hossein" />
@@ -174,7 +174,7 @@
 	<langue code="tr" url="https://trad.spip.net/tradlang_module/public?lang_cible=tr" total="83" traduits="71" relire="0" modifs="3" nouveaux="9" pourcent="85.54">
 		<traducteur nom="alexis" lien="https://trad.spip.net/auteur/alexis" />
 	</langue>
-	<langue code="uk" url="https://trad.spip.net/tradlang_module/public?lang_cible=uk" total="83" traduits="78" relire="0" modifs="0" nouveaux="5" pourcent="93.98">
+	<langue code="uk" url="https://trad.spip.net/tradlang_module/public?lang_cible=uk" total="83" traduits="83" relire="0" modifs="0" nouveaux="0" pourcent="100.00">
 		<traducteur nom="olly" lien="https://trad.spip.net/auteur/olly" />
 		<traducteur nom="Serge Markitanenko" lien="https://trad.spip.net/auteur/serge-markitanenko" />
 	</langue>
