@@ -2,6 +2,12 @@
 
 Changelog de SPIP 4.2
 
+## Unreleased
+
+### Fixed
+
+- !5985 Correction du nombre total de pages des paginations de l’espace privé (sur le dernier item sur les listes longues)
+
 ## 4.2.14 - 2024-06-07
 
 ### Security
