@@ -6,6 +6,7 @@ Changelog de SPIP 4.2
 
 ### Fixed
 
+- !5984 Corriger l’authentification SPIP sur un serveur distant
 - !5985 Correction du nombre total de pages des paginations de l’espace privé (sur le dernier item sur les listes longues)
 
 ## 4.2.14 - 2024-06-07
