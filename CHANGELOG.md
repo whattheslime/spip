@@ -6,6 +6,7 @@ Changelog de SPIP 4.2
 
 ### Fixed
 
+- !5982 Utiliser le modèle de pagination privé sur la liste des articles de même rubrique de l’espace privé
 - !5984 Corriger l’authentification SPIP sur un serveur distant
 - !5985 Correction du nombre total de pages des paginations de l’espace privé (sur le dernier item sur les listes longues)
 
