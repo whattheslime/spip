@@ -4,8 +4,13 @@ Changelog de SPIP 4.3
 
 ## Unreleased
 
+### Changed
+
+- Chaînes de langues de ecrire/lang/ dans le nouveau format (sans globale).
+
 ### Fixed
 
+- Mise à jour des chaînes de langues
 - !5982 Utiliser le modèle de pagination privé sur la liste des articles de même rubrique de l’espace privé
 - !5984 Corriger l’authentification SPIP sur un serveur distant
 - !5985 Correction du nombre total de pages des paginations de l’espace privé (sur le dernier item sur les listes longues)
