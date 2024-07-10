@@ -557,7 +557,7 @@ le site "@nom_site_spip@" @adresse_login@ :',
 	Le site @adresse_site@ peut être mis à jour vers une nouvelle version de SPIP.
 
 	Pour des questions de sécurité, il est important de garder ton site à jour.
-',
+', # MODIF
 	'numero' => 'Numéro',
 
 	// O

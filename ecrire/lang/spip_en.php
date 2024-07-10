@@ -556,7 +556,7 @@ the site "@nom_site_spip@" @adresse_login@:',
 
 	The site @adresse_site@ can be upgraded to the newest SPIP version.
 
-	To avoid security problems, it is important to keep your site up to date.',
+	To avoid security problems, it is important to keep your site up to date.', # MODIF
 	'numero' => 'Number',
 
 	// O

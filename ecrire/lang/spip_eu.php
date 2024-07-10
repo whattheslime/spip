@@ -552,7 +552,7 @@ Zure pasahitza sarean atzeman ahal izatea nahi ez baduzu, JavaScript-a aktibatu 
 	'navigateur_pas_redirige' => 'Zure nabigatzaileak ez bazaitu automatikoki berriz eramaten, hemen klikatu jarraitzeko.',
 	'notification_mise_a_jour' => 'Agur,
 @adresse_site@ webgunea SPIP bertsio berri batera eguneratu daiteke.
-Segurtasun arazoengatik, garrantzitsua da zure webgunea eguneratua izatea.',
+Segurtasun arazoengatik, garrantzitsua da zure webgunea eguneratua izatea.', # MODIF
 	'numero' => 'Zenbakia',
 
 	// O

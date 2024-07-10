@@ -550,7 +550,7 @@ Se você não quiser que a sua senha possa ser interceptada na rede, por favor a
 	O site @adresse_site@ pode ser atualizado para uma versão mais nova do SPIP.
 
 	Por questões de segurança, é importante manter o seu site atualizado.
-',
+', # MODIF
 	'numero' => 'Número',
 
 	// O
