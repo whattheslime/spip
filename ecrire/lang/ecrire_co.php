@@ -22,7 +22,7 @@ return [
  prima di pudè lu aduprà. Sè vo ùn ci la fate à cunnette vi, verificate puru chè vo avete fattu sta dumanda.',
 	'avis_connexion_ldap_echec_1' => 'Hè fiascata a cunnessione à u servore LDAP.',
 	'avis_connexion_ldap_echec_2' => 'Turnate à a pàgina di nanzu è verificate l’infurmazioni date. ',
-	'avis_connexion_ldap_echec_3' => 'O sinnò, ùn aduprate micca u supportu LDAP per impurtà utilizatori.',
+	'avis_connexion_ldap_echec_3' => 'O sinnò, ùn aduprate micca u supportu LDAP per impurtà utilizatori.', # MODIF
 	'avis_deplacement_rubrique' => 'Attenti ! Sta rùbbrica cuntene @contient_breves@ dispacciu/i : Sè vo a spiazzate, spuntate puru sta casella da cunfirmà.',
 	'avis_erreur_connexion_mysql' => 'Errore di cunnessione SQL',
 	'avis_espace_interdit' => '<b>Spaziu interdettu</b> <div>Hè digià stallatu SPIP.</div>',
@@ -47,10 +47,10 @@ return [
 	'bouton_fermer' => 'Chjode',
 	'bouton_modifier' => 'Mudificà',
 	'bouton_radio_afficher' => 'Vede',
-	'bouton_radio_apparaitre_liste_redacteurs_connectes' => 'Cumparisce frà a lista di i scrittori cunnessi',
+	'bouton_radio_apparaitre_liste_redacteurs_connectes' => 'Cumparisce frà a lista di i scrittori cunnessi', # MODIF
 	'bouton_radio_envoi_annonces_adresse' => 'Mandà l’annunci à l’indirizzu :',
 	'bouton_radio_envoi_liste_nouveautes' => 'Mandà a lista di e nuvità',
-	'bouton_radio_non_apparaitre_liste_redacteurs_connectes' => 'Ùn cumparisce micca frà a lista di i scrittori cunnessi ',
+	'bouton_radio_non_apparaitre_liste_redacteurs_connectes' => 'Ùn cumparisce micca frà a lista di i scrittori cunnessi ', # MODIF
 	'bouton_radio_non_envoi_annonces_editoriales' => 'Ùn mandà micca annunci editoriali ',
 	'bouton_redirection' => 'RINDIRIZZAMENTU',
 	'bouton_relancer_installation' => 'Rilancià a stallazione',
@@ -60,7 +60,7 @@ return [
 	'bouton_vider_cache' => 'Sviutà u cache',
 
 	// C
-	'cache_modifiable_webmestre' => 'Stu paràmetru pò esse mudificatu da u webmaestru di u situ.',
+	'cache_modifiable_webmestre' => 'Stu paràmetru pò esse mudificatu da u webmaestru di u situ.', # MODIF
 	'calendrier_synchro' => 'Sè vo usate un prugrammu di almanaccu chì si pò accuppià cù <b>iCal</b>, ne pudete puru apparinà i dati cù l’infurmazioni di stu situ',
 	'config_activer_champs' => 'Attivà i seguenti campi',
 	'config_choix_base_sup' => 'indettà una basa di dati nant’à stu servore',
@@ -100,7 +100,7 @@ return [
 	'entree_identifiants_connexion' => 'I vostri còdici persunali di cunnessione ...',
 	'entree_identifiants_connexion_2' => 'Identificativi di cunnessione',
 	'entree_informations_connexion_ldap' => 'Rinsignate in stu furmulariu i dati di cunnessione à u vostu annuariu LDAP.
-	St’infurmazioni sò da dumandà à l’amministratore di u sistema o di a rete.',
+	St’infurmazioni sò da dumandà à l’amministratore di u sistema o di a rete.', # MODIF
 	'entree_infos_perso' => 'Quale site ?',
 	'entree_infos_perso_2' => 'Quale hè l’autore ?',
 	'entree_interieur_rubrique' => 'Dentru a rùbrica :',
@@ -187,14 +187,14 @@ return [
 	di passà senza straziu da u situ pùbblicu à u situ privatu.',
 	'info_admin_etre_webmestre' => 'Dammi i diritti di webmaestru',
 	'info_admin_je_suis_webmestre' => 'Sò u <b>webmaestru</b>',
-	'info_admin_statuer_webmestre' => 'Dà à st’amministratore tutti i diritti di webmaestru',
-	'info_admin_webmestre' => 'St’amministratore hè <b>webmaestru</b>',
-	'info_administrateur' => 'Amministratore',
-	'info_administrateur_1' => 'Amministratore',
+	'info_admin_statuer_webmestre' => 'Dà à st’amministratore tutti i diritti di webmaestru', # MODIF
+	'info_admin_webmestre' => 'St’amministratore hè <b>webmaestru</b>', # MODIF
+	'info_administrateur' => 'Amministratore', # MODIF
+	'info_administrateur_1' => 'Amministratore', # MODIF
 	'info_administrateur_2' => 'di u situ (<i>da usà cù assai cura</i>)',
-	'info_administrateur_site_01' => 'Sè vo site amministratore di u situ,',
+	'info_administrateur_site_01' => 'Sè vo site amministratore di u situ,', # MODIF
 	'info_administrateur_site_02' => 'cliccate puru quì',
-	'info_administrateurs' => 'Amministratori',
+	'info_administrateurs' => 'Amministratori', # MODIF
 	'info_administrer_rubrique' => 'Pudete puru amministrà sta rùbbrica',
 	'info_adresse' => 'à l’indirizzu :',
 	'info_adresse_url' => 'Indirizzu (URL) di u situ pùbblicu',
@@ -232,7 +232,7 @@ return [
 	'info_chapeau_2' => 'Cappellu :',
 	'info_chemin_acces_1' => 'Opzioni : <b>Percorsu d’accessu à i dati in l’annuariu</b>',
 	'info_chemin_acces_2' => 'Ci hè necessità avà di cunfigurà u percorsu d’accessu à i dati in l’annuariu. St’infurmazione hè indispensèvule per pudè ci 
-		leghje i prufili-utilizatori.',
+		leghje i prufili-utilizatori.', # MODIF
 	'info_chemin_acces_annuaire' => 'Opzioni : <b>Percorsu d’accessu à i dati in l’annuariu',
 	'info_choix_base' => 'Terza tappa : ',
 	'info_classement_1' => '<sup>o</sup> nant’à @liste@',
@@ -283,17 +283,15 @@ return [
 		prucede à invii d’email, per esempiu à una mailing-list di i scrittori, l’annunciu di e dumande di 
 		pubblicazione è cunvalidazione d’artìculi.', # MODIF
 	'info_fichiers_authent' => 'Schedari d’autentificazione ".htpasswd"',
-	'info_forums_abo_invites' => 'U vostru situ cumporta fori accessìbuli solu à l’abbunati. Per ciò esiste una pàgina d’iscrizzione in u situ pùbblicu.',
+	'info_forums_abo_invites' => 'U vostru situ cumporta fori accessìbuli solu à l’abbunati. Per ciò esiste una pàgina d’iscrizzione in u situ pùbblicu.', # MODIF
 	'info_gauche_admin_tech' => '<b>Sta pàgina hè accessìbule solu à i rispunsèvuli di u situ.</b><p> 
 		Certe funzioni richerenu un specìficu prucedimentu d’identificazione, è necessiteghjanu per forza un accessu FTP à u situ.</p>', # MODIF
-	'info_gauche_admin_vider' => '<b>Sta pàgina hè accessìbule solu à i rispunsèvuli di u situ.</b><p> 
-		Certe funzioni richerenu un specìficu prucedimentu d’identificazione, è necessiteghjanu per forza un accessu FTP à u situ.</p>', # MODIF
 	'info_gauche_auteurs' => 'Truverete quì tutti l’autori di u situ.
-U so statutu hè signalatu da u culore di l’icona (scrittore = giallu; amministratore = verde).',
+U so statutu hè signalatu da u culore di l’icona (scrittore = giallu; amministratore = verde).', # MODIF
 	'info_gauche_auteurs_exterieurs' => 'L’autori esterni, senza accessu à u situ, sò signalati da un’icona turchina ;
 		l’autori sguassati da una rumènzula.', # MODIF
 	'info_gauche_messagerie' => 'A messageria vi permette di scambià messagi trà scrittori, di tene vi certi mementi(à usu propriu persunale) 
-  o di pubblicà annunci in a pàgina d’accogliu di u spaziu privatu (sè vo site amministratore).',
+  o di pubblicà annunci in a pàgina d’accogliu di u spaziu privatu (sè vo site amministratore).', # MODIF
 	'info_gauche_statistiques_referers' => 'sta pàgina dà una lista di i <i>referers</i>, vale à dì i siti chì cuntenenu lee versu u vostru situ. Vale sta 
 		lista solu per eri è oghje , chì Vene sviutata ogni 24 ore.',
 	'info_gauche_visiteurs_enregistres' => 'Truverete quì i visitori arregistrati in u spaziu pùbblicu di u situ (foru pè l’abbunati).',
@@ -307,7 +305,7 @@ U so statutu hè signalatu da u culore di l’icona (scrittore = giallu; amminis
 	funzioni gràfiche. Sè vo vulete aduprà le quantunque, cuntattate u rispunsèvule tècnicu, dumandendu li di stallà l’estensioni "GD" o "Imagick".</i>', # MODIF
 	'info_images_auto' => 'Imàgini create in autumàticu',
 	'info_informations_personnelles' => 'Infurmazioni persunale',
-	'info_inscription_automatique' => 'Iscrizzione autumàtica di nuvelli scrittori',
+	'info_inscription_automatique' => 'Iscrizzione autumàtica di nuvelli scrittori', # MODIF
 	'info_jeu_caractere' => 'Ghjocu di caràtteri di u situ',
 	'info_jours' => 'ghjorni',
 	'info_laisser_champs_vides' => 'lascià sti campi vioti)',
@@ -316,7 +314,7 @@ U so statutu hè signalatu da u culore di l’icona (scrittore = giallu; amminis
 	'info_lien_hypertexte' => 'Lea ipertestu :',
 	'info_liste_nouveautes_envoyee' => 'Hè stata mandata a lista di e nuvità.
 ',
-	'info_liste_redacteurs_connectes' => 'Lista di i scrittori cunnessi',
+	'info_liste_redacteurs_connectes' => 'Lista di i scrittori cunnessi', # MODIF
 	'info_login_existant' => 'Stu login esiste digià.',
 	'info_login_trop_court' => 'Login troppu cortu.',
 	'info_logos' => 'I logo',
@@ -337,7 +335,7 @@ U so statutu hè signalatu da u culore di l’icona (scrittore = giallu; amminis
 	'info_moyenne' => 'media : ',
 	'info_multi_cet_article' => 'Lingua di st’artìculu :',
 	'info_multi_langues_choisies' => 'Sceglite puru avanti e lingue disposte à i scrittori di u situ.
-		E lingue digià aduprate in u situ (venenu e prime) ùn ponu esse disattivate.',
+		E lingue digià aduprate in u situ (venenu e prime) ùn ponu esse disattivate.', # MODIF
 	'info_multi_secteurs' => '... solu per e rùbriche cullucate à a {ràdica} di u situ ?',
 	'info_nb_articles' => '@nb@ artìculi',
 	'info_nb_auteurs' => '@nb@ autori',
@@ -361,8 +359,8 @@ U so statutu hè signalatu da u culore di l’icona (scrittore = giallu; amminis
 	'info_nouvelle_traduction' => 'Nuvella traduzzione :',
 	'info_numero_article' => 'ARTÌCULU NÙMERU :',
 	'info_obligatoire_02' => '[Ubbligatoriu]', # MODIF
-	'info_option_accepter_visiteurs' => 'Accettà l’iscrizzione di visitori di u situ pùbblicu',
-	'info_option_ne_pas_accepter_visiteurs' => 'Rifiutà l’iscrizzione di i visitori',
+	'info_option_accepter_visiteurs' => 'Accettà l’iscrizzione di visitori di u situ pùbblicu', # MODIF
+	'info_option_ne_pas_accepter_visiteurs' => 'Rifiutà l’iscrizzione di i visitori', # MODIF
 	'info_options_avancees' => 'OPZIONI AVANZATE ',
 	'info_ou' => 'o... ',
 	'info_page_interdite' => 'Pagina riservata',
@@ -388,7 +386,7 @@ U so statutu hè signalatu da u culore di l’icona (scrittore = giallu; amminis
 	'info_publier' => 'pubblicà',
 	'info_publies' => 'I vostri artìculi pubblicati',
 	'info_question_accepter_visiteurs' => 'Sè i mudelli di pàgina di u vostru situ privedenu l’arregistramentu d’utilizatori senza accessu à u spaziu privatu, 
-		attivate puru a funziunalità quì sottu :',
+		attivate puru a funziunalità quì sottu :', # MODIF
 	'info_question_inscription_nouveaux_redacteurs' => 'Accettate l’iscrizzioni di nuvelli scrittori
 	da u situ pùbblicu ? In stu casu, i visitori si puderanu iscrive usendu un furmulariu autumàticu
 	è accede tandu à u spaziu privatu per prupone i so propri artìculi.
@@ -408,7 +406,7 @@ U so statutu hè signalatu da u culore di l’icona (scrittore = giallu; amminis
 	'info_refuses' => 'I to artìculi rifiutati',
 	'info_reglage_ldap' => 'Opzioni : <b>Paràmetri per l’impurtazione LDAP</b>',
 	'info_renvoi_article' => '<b>Rindirizzamentu.</b> St’artìculu rimanda à a pàgina :',
-	'info_reserve_admin' => 'Solu l’amministratori ponu mudificà st’indirizzu.',
+	'info_reserve_admin' => 'Solu l’amministratori ponu mudificà st’indirizzu.', # MODIF
 	'info_restreindre_rubrique' => 'Limità a gestione à a rùbbrica :',
 	'info_resultat_recherche' => 'Risultati di a ricerca :',
 	'info_rubriques' => 'Rùbriche',
@@ -427,15 +425,15 @@ U so statutu hè signalatu da u culore di l’icona (scrittore = giallu; amminis
 	'info_sites_proxy' => 'Aduprà un proxy',
 	'info_sites_trouves' => 'Siti trovi',
 	'info_sous_titre' => 'Sottutìtulu :',
-	'info_statut_administrateur' => 'Amministratore',
+	'info_statut_administrateur' => 'Amministratore', # MODIF
 	'info_statut_auteur' => 'Statutu di st’autore :',
 	'info_statut_auteur_2' => 'Eo sò',
 	'info_statut_auteur_a_confirmer' => 'Iscrizzione da cunfirmà',
 	'info_statut_auteur_autre' => 'Altru statutu :',
 	'info_statut_redacteur' => 'Scrittore',
-	'info_statut_utilisateurs_1' => 'Statutu predefinitu di l’utilizatori impurtati',
+	'info_statut_utilisateurs_1' => 'Statutu predefinitu di l’utilizatori impurtati', # MODIF
 	'info_statut_utilisateurs_2' => 'Sceglite u statutu da attribuisce à e persone presenti in l’annuariu LDAP quandu pè a prima volta si cunnettenu. 
-  Puderete in sèguitu mudificà stu paràmetru per ogni sìngulu autore.',
+  Puderete in sèguitu mudificà stu paràmetru per ogni sìngulu autore.', # MODIF
 	'info_suivi_activite' => 'Guardia di l’attività editoriale',
 	'info_surtitre' => 'Sopratìtulu :',
 	'info_syndication_integrale_1' => 'U vostru situ prupone schedari di sindicazione (vede « <a href="@url@">@titre@</a> »).',
@@ -503,10 +501,10 @@ U so statutu hè signalatu da u culore di l’icona (scrittore = giallu; amminis
 	'intitule_licence' => 'Licenza',
 	'item_accepter_inscriptions' => 'Accettà l’iscrizzioni',
 	'item_activer_messages_avertissement' => 'Attivà i messagi d’avertimentu',
-	'item_administrateur_2' => 'amministratore',
+	'item_administrateur_2' => 'amministratore', # MODIF
 	'item_afficher_calendrier' => 'Pubblicà in l’almanaccu',
 	'item_autoriser_syndication_integrale' => 'Sparghje a versione sana sana di l’artìculi in i schedari di sindicazione',
-	'item_choix_administrateurs' => 'l’amministratori',
+	'item_choix_administrateurs' => 'l’amministratori', # MODIF
 	'item_choix_generation_miniature' => 'Creà in autumàticu e figurette di l’imàgini.',
 	'item_choix_non_generation_miniature' => 'Ùn creà micca e figurette di l’imàgini.',
 	'item_choix_redacteurs' => 'i scrittori',
@@ -669,10 +667,10 @@ U so statutu hè signalatu da u culore di l’icona (scrittore = giallu; amminis
 		Ma sia cum’ella sia, i seguenti campi puderanu esse lasciati vioti.',
 	'texte_admin_effacer_01' => 'Sta cumanda sguassa u cuntenutu <i>sanu sanu</i> di a basa di dati, 
 	compresi <i>tutti</i> i login di i scrittori è amministratori. Dopu avè la eseguita, vi tuccherà à rilancià a prucedura di stallazione 
-	per turnà à creà una nova basa di dati è un primu ID amministrativu.',
+	per turnà à creà una nova basa di dati è un primu ID amministrativu.', # MODIF
 	'texte_adresse_annuaire_1' => '(S’ellu hè stallatu l’annuariu nant’à listessa màcchina chè stu situ web, à colpu sicuru deve esse "localhost".)',
 	'texte_ajout_auteur' => 'Hè statu aghjuntu à l’artìculu u seguente autore :',
-	'texte_annuaire_ldap_1' => 'Sè vo avete accessu à un annuariu (LDAP), u pudete puru aduprà da impurtà in autumàticu utilizatori sottu SPIP.',
+	'texte_annuaire_ldap_1' => 'Sè vo avete accessu à un annuariu (LDAP), u pudete puru aduprà da impurtà in autumàticu utilizatori sottu SPIP.', # MODIF
 	'texte_article_statut' => 'St’artìculu hè :',
 	'texte_article_virtuel' => 'Artìculu virtuale',
 	'texte_article_virtuel_reference' => '<b>Artìculu virtuale :</b> artìculu riferitu in u vostru situ SPIP, ma rindirizzatu versu un’altru URL. 
@@ -680,7 +678,7 @@ U so statutu hè signalatu da u culore di l’icona (scrittore = giallu; amminis
 	'texte_aucun_resultat_auteur' => 'Nisun risultatu per "@cherche_auteur@"',
 	'texte_auteur_messagerie' => 'Stu situ vi pò furnisce in permanenza a lista di i scrittori cunnessi, cusì vi permette 
   di scambià messagi in tempu reale. Pudete puru decide d’ùn cumparisce micca in quella lista (vale à dì 
-  chì state invisìbule da l’altri utilizatori).',
+  chì state invisìbule da l’altri utilizatori).', # MODIF
 	'texte_auteurs' => 'L’AUTORI',
 	'texte_choix_base_1' => 'Sceglite a basa di dati :',
 	'texte_choix_base_2' => 'U servore SQL cuntene parechje base di dati.',
@@ -724,7 +722,7 @@ U so statutu hè signalatu da u culore di l’icona (scrittore = giallu; amminis
 	dc=u-mo-duminiu, dc=com</tt> ».)',
 	'texte_login_precaution' => 'Attenti ! Questu hè u login cun chì site cunnessu avà. Aduprate stu furmulariu cù assai cura ...',
 	'texte_messagerie_agenda' => 'A messageria permette à i scrittori di u situ di cumunicà frà elli direttamente in u spaziu privatu. 
-			A messageria hè assuciata à un agenda..',
+			A messageria hè assuciata à un agenda..', # MODIF
 	'texte_mise_a_niveau_base_1' => 'Avete aghjurnatu u schedariu SPIP. Vi tocca avà à aghjurnà a basa di dati.',
 	'texte_modifier_article' => 'Mudificà l’artìculu :',
 	'texte_multilinguisme' => 'Sè vo vulete gestisce artìculi in parechje lingue, con un sistema di navigazione cumplessu, pudete puru aghjunghje un menù
@@ -775,11 +773,10 @@ U so statutu hè signalatu da u culore di l’icona (scrittore = giallu; amminis
 	'texte_travail_article' => '@nom_auteur_modif@ hà travagliatu nant’à st’artìculu @date_diff@ minuti fà',
 	'texte_travail_collaboratif' => 'S’ella accade à spessu chì parechji scrittori travaglinu nant’à listessu artìculu, u sistema pò signalà l’artìculi 
 		«aperti» di pocu, di modu ch’elle ùn sianu fatte parechje mudìfiche à listessu tempu. Sta scelta hè predefinita disattivata per ùn 
-		creà micca messagi d’avertimentu in quantità.',
+		creà micca messagi d’avertimentu in quantità.', # MODIF
 	'texte_vide' => 'viotu',
 	'texte_vider_cache' => 'Sviutà u cache',
 	'titre_admin_tech' => 'Mantenimentu tècnicu',
-	'titre_admin_vider' => 'Mantenimentu tècnicu',
 	'titre_ajouter_un_auteur' => 'Aghjunghje un autore',
 	'titre_cadre_afficher_article' => 'Vede l’artìculi',
 	'titre_cadre_afficher_traductions' => 'Vede u statu di e traduzzioni per e seguenti lingue :',

@@ -1,6 +1,6 @@
 <?php
 // This is a SPIP language file  --  Ceci est un fichier langue de SPIP
-// extrait automatiquement de https://trad.spip.net/tradlang_module/public?lang_cible=uk
+// extrait automatiquement de https://trad.spip.net/tradlang_module/public_?lang_cible=uk
 // ** ne pas modifier le fichier **
 
 return [
@@ -92,6 +92,11 @@ return [
 	'repondre_breve' => 'Залишити коментар ',
 	'resultats_recherche' => 'Результати пошуку',
 	'retour_debut_forums' => 'Усі форуми',
+	'rss_abonnement' => 'ДОдайте цей URL у ваш RSS агрегатор:',
+	'rss_abonnement_titre' => 'Підписатися',
+	'rss_abonnement_titre_page' => 'Підписатися на',
+	'rss_explication' => 'RSS фід передає інформацію про оновлення на сайті. Він передає вміст статей чи коментарів, а також посилання на повні версії та деяку іншу інформацію. Цей потік повинен бути прочитаний агрегатором RSS.',
+	'rss_explication_titre' => 'Що таке RSS фід?',
 	'rubrique' => 'Розділ',
 	'rubriques' => 'Розділи',
 

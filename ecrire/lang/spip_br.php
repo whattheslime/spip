@@ -1,6 +1,6 @@
 <?php
 // This is a SPIP language file  --  Ceci est un fichier langue de SPIP
-// extrait automatiquement de https://trad.spip.net/tradlang_module/spip?lang_cible=br
+// extrait automatiquement de https://trad.spip.net/tradlang_module/spip_?lang_cible=br
 // ** ne pas modifier le fichier **
 
 return [
@@ -271,7 +271,7 @@ Evit gwiriekaat ho postel nevez, n’ho peus nemet kevreañ d’ar chomlec’h a
 	'form_pet_signature_pasprise' => 'N’eus ket bet dalc’het kont eus ho sinadur.',
 	'form_prop_confirmer_envoi' => 'Kadarnaat ar c’has',
 	'form_prop_description' => 'Deskrivadur/evezhiadenn',
-	'form_prop_enregistre' => 'Enrollet eo bet ho kinnig. Embannet e vo goude bezañ bet asantet gant tud e-karg eus al lec’hienn-mañ.',
+	'form_prop_enregistre' => 'Enrollet eo bet ho kinnig. Embannet e vo goude bezañ bet asantet gant tud e-karg eus al lec’hienn-mañ.', # MODIF
 	'form_prop_envoyer' => 'Kas ur gemenadenn',
 	'form_prop_indiquer_email' => 'Merkit ur postel reizh mar plij',
 	'form_prop_indiquer_nom_site' => 'Merkit anv al lec’hienn.',
@@ -358,7 +358,7 @@ Evit gwiriekaat ho postel nevez, n’ho peus nemet kevreañ d’ar chomlec’h a
 	'info_breves_nb' => '@nb@ pennadoù-berr',
 	'info_breves_un' => '1 pennadig',
 	'info_connexion_refusee' => 'Kevreañ nac’het',
-	'info_contact_developpeur' => 'Kit e darempred gant un diorroer.',
+	'info_contact_developpeur' => 'Kit e darempred gant un diorroer.', # MODIF
 	'info_contenance' => 'El lec’hienn-mañ ez eus :',
 	'info_contribution' => 'kenaozadurioù',
 	'info_copyright' => 'Ur meziant dieub eo @spip@, dasparzhet @lien_gpl@.',
@@ -395,7 +395,7 @@ Evit gwiriekaat ho postel nevez, n’ho peus nemet kevreañ d’ar chomlec’h a
 	'info_impossible_lire_page' => '<b>Fazi !</b> Dibosupl eo lenn ar bajenn <tt><html>@test_proxy@</html></tt> dre ar proksi',
 	'info_installation_systeme_publication' => 'O staliañ ar reizhiad embann...',
 	'info_installer_documents' => 'Gallout a rit staliañ en un doare emgefreek an holl deulioù zo en teuliad @upload@.',
-	'info_installer_ftp' => 'Dre ma’z oc’h merour e c’hellit staliañ restroù (dre FTP) en teuliad @upload@ deoc’h da c’hallout ober ganto amañ da c’houde.',
+	'info_installer_ftp' => 'Dre ma’z oc’h merour e c’hellit staliañ restroù (dre FTP) en teuliad @upload@ deoc’h da c’hallout ober ganto amañ da c’houde.', # MODIF
 	'info_installer_images' => 'Er furmadoù JPEG, GIF ha PNG e c’hellit staliañ skeudennoù.',
 	'info_installer_images_dossier' => 'Staliañ skeudennoù en teuliad @upload@ evit gallout o diuzañ amañ.',
 	'info_interface_complete' => 'Etrefas klok',
@@ -423,8 +423,8 @@ Evit gwiriekaat ho postel nevez, n’ho peus nemet kevreañ d’ar chomlec’h a
 	'info_multi_herit' => 'Yezh dre ziouer',
 	'info_multi_langues_soulignees' => 'Ar <u>yezhoù islinennet</u> zo bet troet holl destennoù an etrefas enne. Ma tibabit ar yezhoù-se e vo troet ul lodenn vat eus elfennoù al lec’hienn (deiziadoù, furmskridoù, hag all) en un doare otomatek. Evit ar yezhoù n’int ket islinennet e vo an elfennoù-se e yezh pennañ al lec’hienn.',
 	'info_multilinguisme' => 'Liesyezhegezh',
-	'info_nom_non_utilisateurs_connectes' => 'N’emañ ket hoc’h  anv war roll an implijerien kevreet.',
-	'info_nom_utilisateurs_connectes' => 'Gwelet e vez hoc’h anv war roll an implijerien kevreet.',
+	'info_nom_non_utilisateurs_connectes' => 'N’emañ ket hoc’h  anv war roll an implijerien kevreet.', # MODIF
+	'info_nom_utilisateurs_connectes' => 'Gwelet e vez hoc’h anv war roll an implijerien kevreet.', # MODIF
 	'info_nombre_en_ligne' => 'Bremañ war al lec’hienn :',
 	'info_non_resultat' => 'Disoc’h ebet evit "@cherche_mot@"',
 	'info_non_utilisation_messagerie' => 'N’implijit ket postelerezh diabarzh al lec’hienn-mañ.',
@@ -462,8 +462,8 @@ Evit gwiriekaat ho postel nevez, n’ho peus nemet kevreañ d’ar chomlec’h a
 	'info_sites_un' => '1 lec’hienn',
 	'info_supprimer_vignette' => 'diverkañ ar skeudennig',
 	'info_symbole_bleu' => 'Talvezout a ra an arouez <b>glas</b> evit un <b>notennig-eñvor</b>: da lavaret eo ur gemennadenn evidoc’h hepken.',
-	'info_symbole_jaune' => 'Talvezout a ra an arouez <b>melen</b> evit ur <b>c’hemenn d’an holl skridaozerien</b> : a c’hell bezañ kemmet gant ur merour ha lennet gant an holl skridaozerien.',
-	'info_symbole_vert' => 'Talvezout a ra an arouez <b>gwer</b> evit ar <b>c’hemennadennoù bet eskemmet etre implijerien all</b> al lec’hienn.',
+	'info_symbole_jaune' => 'Talvezout a ra an arouez <b>melen</b> evit ur <b>c’hemenn d’an holl skridaozerien</b> : a c’hell bezañ kemmet gant ur merour ha lennet gant an holl skridaozerien.', # MODIF
+	'info_symbole_vert' => 'Talvezout a ra an arouez <b>gwer</b> evit ar <b>c’hemennadennoù bet eskemmet etre implijerien all</b> al lec’hienn.', # MODIF
 	'info_telecharger_nouveau_logo' => 'Pellgargañ ul logo nevez :',
 	'info_telecharger_ordinateur' => 'Pellgargañ adal hoc’h urzhiataer :',
 	'info_tous_resultats_enregistres' => '[enrollet e vez an holl discoc’hoù]',
@@ -563,13 +563,13 @@ Evit gwiriekaat ho postel nevez, n’ho peus nemet kevreañ d’ar chomlec’h a
 	'pass_choix_pass' => 'Dibabit ho ker-tremen nevez :',
 	'pass_erreur' => 'Fazi',
 	'pass_erreur_acces_refuse' => '<b>Fazi :</b> n’hoc’h ket aotreet da zont war al lec’hienn-mañ ken.',
-	'pass_erreur_code_inconnu' => '<b>Fazi :</b> ne glot ar c’hod-mañ gant gweladenner ebet a c’hall mont war al lec’hienn-mañ.',
+	'pass_erreur_code_inconnu' => '<b>Fazi :</b> ne glot ar c’hod-mañ gant gweladenner ebet a c’hall mont war al lec’hienn-mañ.', # MODIF
 	'pass_erreur_non_enregistre' => '<b>Fazi :</b>n’eo ket enrollet ar chomlec’h <tt>@email_oubli@</tt> war al lec’hienn-mañ.',
 	'pass_erreur_non_valide' => '<b>Fazi :</b> n’eo ket reizh ar postel <tt>@email_oubli@</tt> !',
 	'pass_erreur_probleme_technique' => '<b>Fazi :</b> abalamout d’u gudenn deknikel, ne c’hell ket ar postel bezañ kaset.',
 	'pass_espace_prive_bla' => 'Dav eo bezañ enskrivet a-raok gallout tizhout lodenn brevez al lec’hienn.
-  P aviot enrollet e c’hellot lenn ar pennadoù meeur o skrivañ, kinnig pennadoù, ha kemer perzh er foromoù.',
-	'pass_forum_bla' => 'Goulennet hoc’h eus gallout kemer perzh war ur forom n’hall nemet an implijerien enrollet skrivañ warnañ.',
+  P aviot enrollet e c’hellot lenn ar pennadoù meeur o skrivañ, kinnig pennadoù, ha kemer perzh er foromoù.', # MODIF
+	'pass_forum_bla' => 'Goulennet hoc’h eus gallout kemer perzh war ur forom n’hall nemet an implijerien enrollet skrivañ warnañ.', # MODIF
 	'pass_indiquez_cidessous' => 'Skrivit amañ dindan ar postel a oa bet implijet ganeoc’h evit en em enrollañ.
    Ur postel a vo kaset deoc’h ennañ an titouroù ret evit gallout dont en-dro war al lec’hienn.',
 	'pass_mail_passcookie' => '(ur gemennadenn emgefre eo homañ)
@@ -583,7 +583,7 @@ Kit d’ar chomlec’h-mañ :
 Neuze e c’hellot merkañ ur ger-tremen nevez ha
 kevreañ en-dro ouzh al lec’hienn.
 
-', # Connecter : gwelloc'h eo ober gant kevreañ zo muioc'h en implij gant an dud. Kevreañ ouzh ar genrouedad hag all.
+', # Connecter : gwelloc'h eo ober gant kevreañ zo muioc'h en implij gant an dud. Kevreañ ouzh ar genrouedad hag all. MODIF
 	'pass_mot_oublie' => 'Ankouaet ar ger-tremen',
 	'pass_nouveau_enregistre' => 'Enrollet eo bet ho ker-tremen nevez.',
 	'pass_nouveau_pass' => 'Ger-tremen nevez',
@@ -637,7 +637,7 @@ kevreañ en-dro ouzh al lec’hienn.
 	'texte_inc_config' => '>Ul levezon vras o deus kemmoù ar bajenn-mañ war mont en-dro hollek al lec’hienn.
 Aliet oc’h da chom hep kemmañ tra ebet e-keit ha n’oc’h ket boas ouzh SPIP.
  <br /><br /><b>Aliet oc’h da lezel webmestr pennañ al lec’hienn ober war-dro ar pajennoù-mañ.</b>',
-	'texte_inc_meta_1' => 'Ur fazi zo bet en ur skrivañ war ar restr <code>@fichier@</code>. Dre ma’z oc’h merour al lec’hienn e rankit ',
+	'texte_inc_meta_1' => 'Ur fazi zo bet en ur skrivañ war ar restr <code>@fichier@</code>. Dre ma’z oc’h merour al lec’hienn e rankit ', # MODIF
 	'texte_inc_meta_2' => 'Gwiriañ ar gwirioù da skrivañ ',
 	'texte_inc_meta_3' => 'war ar c’havlec’h <code>@repertoire@</code>.',
 	'texte_statut_en_cours_redaction' => 'o skridaozañ',
@@ -649,7 +649,7 @@ Aliet oc’h da chom hep kemmañ tra ebet e-keit ha n’oc’h ket boas ouzh SPI
 	'titre_cadre_raccourcis' => 'BERRADENNOÙ :',
 	'titre_changer_couleur_interface' => 'Kemm liv an etrefas',
 	'titre_image_admin_article' => 'Gallout a rit merañ ar pennad-mañ',
-	'titre_image_administrateur' => 'Merour',
+	'titre_image_administrateur' => 'Merour', # MODIF
 	'titre_image_aide' => 'Skoazell diwar-benn an elfenn-mañ',
 	'titre_image_auteur_supprime' => 'Skridaozer bet diverket',
 	'titre_image_redacteur' => 'Skridaozer hep aotre moned',

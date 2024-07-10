@@ -17,7 +17,7 @@ return [
 	'avis_connexion_echec_3' => '<b>T.B.</b> Trong một số server, bạn phải <b>yêu cầu</b> quyền được sử dụng SQL database trước khi dùng. Nếu bạn không nối vào được, hãy xem lại coi bạn có yêu cầu chưa.', # MODIF
 	'avis_connexion_ldap_echec_1' => 'Không nối vào LDAP server được.',
 	'avis_connexion_ldap_echec_2' => 'Trở lại trang trước và xem lại các dữ kiện đã cung cấp.',
-	'avis_connexion_ldap_echec_3' => 'Một cách khác, đừng dùng LDAP support để đem tên người dùng vào.',
+	'avis_connexion_ldap_echec_3' => 'Một cách khác, đừng dùng LDAP support để đem tên người dùng vào.', # MODIF
 	'avis_deplacement_rubrique' => 'LƯU Ý! Đề mục này chứa @contient_breves@ các tin ngắn @scb@: nếu bạn dời nó đi, xin đánh dấu vào ô này để xác nhận.',
 	'avis_erreur_connexion_mysql' => 'Có Lỗi-không nối với SQL',
 	'avis_espace_interdit' => '<b>Vùng cấm địa</b><p>SPIP đã được thiết trí rồi.', # MODIF
@@ -36,10 +36,10 @@ return [
 	'bouton_envoyer_message' => 'Tin thư đầy đủ: Gửi đi ',
 	'bouton_modifier' => 'Thay đổi',
 	'bouton_radio_afficher' => 'Hiển thị',
-	'bouton_radio_apparaitre_liste_redacteurs_connectes' => 'Hiện tên ra',
+	'bouton_radio_apparaitre_liste_redacteurs_connectes' => 'Hiện tên ra', # MODIF
 	'bouton_radio_envoi_annonces_adresse' => 'Gửi thông báo đến địa chỉ:',
 	'bouton_radio_envoi_liste_nouveautes' => 'Gửi các tin tức mới nhất',
-	'bouton_radio_non_apparaitre_liste_redacteurs_connectes' => 'Không hiện tên ra  ',
+	'bouton_radio_non_apparaitre_liste_redacteurs_connectes' => 'Không hiện tên ra  ', # MODIF
 	'bouton_radio_non_envoi_annonces_editoriales' => 'Đừng gửi bất cứ thông báo xã luận nào',
 	'bouton_redirection' => 'CHUYỂN TỚI',
 	'bouton_relancer_installation' => 'Thiết trí lại',
@@ -49,7 +49,7 @@ return [
 	'bouton_vider_cache' => 'Làm sạch cache',
 
 	// C
-	'cache_modifiable_webmestre' => 'Webmaster có thể điều chỉnh các thông số này.',
+	'cache_modifiable_webmestre' => 'Webmaster có thể điều chỉnh các thông số này.', # MODIF
 	'calendrier_synchro' => 'Nếu bạn có thiết trí nhu liệu nhật ký tương ứng với <b>iCal</b>, bạn có thể đồng bộ hóa nó với trang web.',
 
 	// D
@@ -67,7 +67,7 @@ return [
 	'entree_cle_pgp' => 'Khóa PGP của bạn',
 	'entree_contenu_rubrique' => '(Mô tả ngắn gọn nội dung của đề mục)',
 	'entree_identifiants_connexion' => 'Tên gọi lúc nối vào của bạn...',
-	'entree_informations_connexion_ldap' => 'Xin điền vào mẫu này với các dữ kiện móc nối LDAP. Bạn sẽ được người quản lý mạng hoặc hệ điều hành cho biết các dữ kiện này.',
+	'entree_informations_connexion_ldap' => 'Xin điền vào mẫu này với các dữ kiện móc nối LDAP. Bạn sẽ được người quản lý mạng hoặc hệ điều hành cho biết các dữ kiện này.', # MODIF
 	'entree_infos_perso' => 'Bạn là ai?',
 	'entree_interieur_rubrique' => 'Trong đề mục:',
 	'entree_liens_sites' => '<b>Điểm nối hypertext</b> (tham khảo, website đến viếng...)',
@@ -121,12 +121,12 @@ return [
 	'impossible_modifier_pass_auteur' => 'Impossible de modifier le mot de passe.', # MODIF
 	'info_1_article' => '1 bài',
 	'info_activer_cookie' => 'Bạn có thể cho chạy <b>administration cookie</b> để bạn có thể qua lại giữa trang web công cộng và khu vực riêng.',
-	'info_administrateur' => 'Quản lý',
-	'info_administrateur_1' => 'Quản lý',
+	'info_administrateur' => 'Quản lý', # MODIF
+	'info_administrateur_1' => 'Quản lý', # MODIF
 	'info_administrateur_2' => 'của trang web (<i>sử dụng cẩn thận</i>)',
-	'info_administrateur_site_01' => 'Nếu bạn là quản trị viên của website, xin',
+	'info_administrateur_site_01' => 'Nếu bạn là quản trị viên của website, xin', # MODIF
 	'info_administrateur_site_02' => 'Bấm vào điểm nối này',
-	'info_administrateurs' => 'Những người quản lý',
+	'info_administrateurs' => 'Những người quản lý', # MODIF
 	'info_administrer_rubrique' => 'Bạn có thể quản trị đề mục này',
 	'info_adresse' => 'đến địa chỉ:',
 	'info_adresse_url' => 'Địa chỉ trang web của bạn',
@@ -152,7 +152,7 @@ return [
 	'info_chapeau' => 'Dẫn nhập',
 	'info_chapeau_2' => 'Dẫn nhập:',
 	'info_chemin_acces_1' => ' Chọn lựa: <b>ngõ vào trong thư mục</b>',
-	'info_chemin_acces_2' => 'Từ đây trở đi, bạn phải cấu tạo lối vào thông tin thư mục. Dữ kiện này cần thiết để đọc hồ sơ người sử dụng trong danh bạ.',
+	'info_chemin_acces_2' => 'Từ đây trở đi, bạn phải cấu tạo lối vào thông tin thư mục. Dữ kiện này cần thiết để đọc hồ sơ người sử dụng trong danh bạ.', # MODIF
 	'info_chemin_acces_annuaire' => 'Chọn lựa: <b>ngõ vào trong thư mục</b>',
 	'info_choix_base' => 'Bước thứ ba:',
 	'info_classement_1' => ' trong số @liste@',
@@ -189,12 +189,11 @@ return [
 	'info_exportation_base' => 'Đem database ra ngoài vào @archive@',
 	'info_facilite_suivi_activite' => 'Để làm nhẹ công việc của Ban Biên Tập, SPIP gửi bằng email các thông báo xin phép đăng và chấp thuận bài vở (đến mailing list của chủ bút chẳng hạn) ', # MODIF
 	'info_fichiers_authent' => 'Hồ sơ xác nhận ".htpasswd"',
-	'info_forums_abo_invites' => 'Trang web có các diễn đàn cần ghi danh; khách có thể vào ghi danh ở trang công cộng.',
+	'info_forums_abo_invites' => 'Trang web có các diễn đàn cần ghi danh; khách có thể vào ghi danh ở trang công cộng.', # MODIF
 	'info_gauche_admin_tech' => '<b>Chỉ có quản trị viên được phép vào trang này.</b><p> Nơi đây cho phép bạn thực hiện một số công việc bảo trì. Một số việc cần phải có chứng nhận đặc biệt, cần phải dùng FTP để vào trang web.</p>', # MODIF
-	'info_gauche_admin_vider' => '<b>Chỉ có quản trị viên được phép vào trang này.</b><p> Nơi đây cho phép bạn thực hiện một số công việc bảo trì. Một số việc cần phải có chứng nhận đặc biệt, và cần phải dùng FTP để vào trang web.</p>', # MODIF
-	'info_gauche_auteurs' => 'Danh sách tất cả tác giả được liệt kê nơi đây. Trách nhiệm của mỗi người được biểu hiện qua màu của icon (chủ bút=màu xanh lá cây; quản lý=màu vàng).',
+	'info_gauche_auteurs' => 'Danh sách tất cả tác giả được liệt kê nơi đây. Trách nhiệm của mỗi người được biểu hiện qua màu của icon (chủ bút=màu xanh lá cây; quản lý=màu vàng).', # MODIF
 	'info_gauche_auteurs_exterieurs' => 'Các tác giả bên ngoài (không được phép vào trang web) được biểu hiện bằng icon màu xanh dương; Tác giả nào bị xóa tên được biểu hiện bằng icon thùng rác.', # MODIF
-	'info_gauche_messagerie' => 'Phương tiện thư tín cho phép bạn trao đổi thư tín giữa các chủ bút với nhau, lưu trữ bản ghi nhớ (để sử dụng riêng) hoặc hiển thị thông báo trên trang nhà của vùng riêng (nếu bạn là người quản trị).',
+	'info_gauche_messagerie' => 'Phương tiện thư tín cho phép bạn trao đổi thư tín giữa các chủ bút với nhau, lưu trữ bản ghi nhớ (để sử dụng riêng) hoặc hiển thị thông báo trên trang nhà của vùng riêng (nếu bạn là người quản trị).', # MODIF
 	'info_gauche_statistiques_referers' => 'Trang này liệt kê danh sách <i>referrers</i>, tức là các trang có chứa điểm nối đến trang của bạn, chỉ cho hôm nay mà thôi: thật ra danh sách này được soạn mỗi 24 giờ.',
 	'info_gauche_visiteurs_enregistres' => 'Danh sách những người khách ghi danh trong vùng công cộng của trang web (theo diễn đàn)',
 	'info_generation_miniatures_images' => 'Hình mẫu xem trước (thumbnail)',
@@ -205,14 +204,14 @@ return [
 	'info_image_process2' => '<b>N.B.</b> <i>Nếu bạn không thấy hình nào cả có nghĩa là máy chủ chưa được thiết trí để sử dụng hình. Nếu bạn muốn dùng hình, liên lạc với nhóm phụ trách kỹ thuật của công ty cung cấp dịch vụ để yêu cầu có extension «GD» hay «Imagick».</i>', # MODIF
 	'info_images_auto' => 'Hình được tự tính',
 	'info_informations_personnelles' => 'Bước thứ năm: <b>Dữ kiện cá nhân</b>',
-	'info_inscription_automatique' => 'Tự động ghi danh các chủ bút mới',
+	'info_inscription_automatique' => 'Tự động ghi danh các chủ bút mới', # MODIF
 	'info_jeu_caractere' => 'Bảng mã của website',
 	'info_jours' => 'ngày',
 	'info_laisser_champs_vides' => 'để trống những phần này)',
 	'info_langues' => 'Ngôn ngữ của website',
 	'info_ldap_ok' => 'Đặc điểm xác nhận LDAP được thiết trí.',
 	'info_lien_hypertexte' => 'Điểm kết nối:',
-	'info_liste_redacteurs_connectes' => 'Danh sách các chủ bút đang nối vào',
+	'info_liste_redacteurs_connectes' => 'Danh sách các chủ bút đang nối vào', # MODIF
 	'info_login_existant' => 'Login này đã có.',
 	'info_login_trop_court' => 'Login ngắn quá.',
 	'info_maximum' => 'tối đa:',
@@ -228,7 +227,7 @@ return [
 	'info_moyenne' => 'trung bình: ',
 	'info_multi_cet_article' => 'Bài tiếng:',
 	'info_multi_langues_choisies' => 'Xin chọn ngôn ngữ có sẵn cho các chủ bút.
-  Ngôn ngữ đã dùng cho trang web thì không tắt được.',
+  Ngôn ngữ đã dùng cho trang web thì không tắt được.', # MODIF
 	'info_multi_secteurs' => '... chỉ dành cho các đề mục ở gốc trang web ?',
 	'info_nom' => 'Tên',
 	'info_nom_destinataire' => 'Tên người nhận',
@@ -246,8 +245,8 @@ return [
 	'info_nouvelle_traduction' => 'Bản dịch mới:',
 	'info_numero_article' => 'SỐ THỨ TỰ BÀI:',
 	'info_obligatoire_02' => '[Bắt buộc] ', # MODIF
-	'info_option_accepter_visiteurs' => 'Cho phép khách ghi danh từ trang công cộng',
-	'info_option_ne_pas_accepter_visiteurs' => 'Từ chối khách ghi danh',
+	'info_option_accepter_visiteurs' => 'Cho phép khách ghi danh từ trang công cộng', # MODIF
+	'info_option_ne_pas_accepter_visiteurs' => 'Từ chối khách ghi danh', # MODIF
 	'info_options_avancees' => 'ĐẶC TÍNH PHỤ TRỘI',
 	'info_ou' => 'hoặc... ',
 	'info_page_interdite' => 'Trang cấm vào',
@@ -267,7 +266,7 @@ return [
 	'info_ps' => 'Tái bút.', # MODIF
 	'info_publier' => 'đăng tải',
 	'info_publies' => 'Bài của bạn được đăng online',
-	'info_question_accepter_visiteurs' => 'Nếu trang web cho phép khách ghi danh mà không cần phải vào vùng riêng, thì xin hãy mở lên những chọn lựa sau:',
+	'info_question_accepter_visiteurs' => 'Nếu trang web cho phép khách ghi danh mà không cần phải vào vùng riêng, thì xin hãy mở lên những chọn lựa sau:', # MODIF
 	'info_question_inscription_nouveaux_redacteurs' => 'Bạn có cho phép ghi danh các chủ bút mới từ website công cộng không? Nếu đồng ý, khách có thể ghi danh qua một mẫu tự động, và sẽ được phép vào vùng riêng của họ để soạn bài. <blockquote><i>Trong quá trình ghi danh, người dùng sẽ nhận được email cho biết login/mật mã vào chỗ riêng của họ. Một số máy chủ tắt đặc điểm này: trong trường hợp đó, ghi danh tự động không dùng được.</i>', # MODIF
 	'info_racine_site' => 'Gốc của website',
 	'info_recharger_page' => 'Xin nạp lại trang này trong giây lát.',
@@ -281,7 +280,7 @@ return [
 	'info_refuses' => 'Bài của bạn bị từ chối',
 	'info_reglage_ldap' => 'Chọn lựa: <b>Điều chỉnh việc nhập LDAP</b>',
 	'info_renvoi_article' => '<b>Chuyển hướng.</b> Bài này nối đến trang: ',
-	'info_reserve_admin' => 'Chỉ có quản trị viên mới có thể sửa đổi địa chỉ này.',
+	'info_reserve_admin' => 'Chỉ có quản trị viên mới có thể sửa đổi địa chỉ này.', # MODIF
 	'info_restreindre_rubrique' => 'Giới hạn việc quản trị trong đề mục:',
 	'info_resultat_recherche' => 'Kết quả tìm kiếm:',
 	'info_rubriques' => 'Đề mục',
@@ -300,11 +299,11 @@ return [
 	'info_sites_proxy' => 'Dùng một proxy',
 	'info_sites_trouves' => 'Tìm thấy website',
 	'info_sous_titre' => 'Tựa đề phụ:',
-	'info_statut_administrateur' => 'Quản trị viên',
+	'info_statut_administrateur' => 'Quản trị viên', # MODIF
 	'info_statut_auteur' => 'Quyền hạn của tác giả:', # MODIF
 	'info_statut_redacteur' => 'Chủ bút',
-	'info_statut_utilisateurs_1' => 'Trạng thái định sẵn của người dùng được đưa vào',
-	'info_statut_utilisateurs_2' => 'Chọn trạng thái cho những người liệt kê trong thư mục LDAP khi họ nối vào lần đầu. Về sau, bạn có thể sửa đổi trị giá này cho từng tác giả theo từng trường hợp một.',
+	'info_statut_utilisateurs_1' => 'Trạng thái định sẵn của người dùng được đưa vào', # MODIF
+	'info_statut_utilisateurs_2' => 'Chọn trạng thái cho những người liệt kê trong thư mục LDAP khi họ nối vào lần đầu. Về sau, bạn có thể sửa đổi trị giá này cho từng tác giả theo từng trường hợp một.', # MODIF
 	'info_suivi_activite' => 'Thông tin cho Ban Biên Tập',
 	'info_surtitre' => 'Đầu đề:',
 	'info_taille_maximale_vignette' => 'Kích thước tối đa của hình mẫu:',
@@ -347,9 +346,9 @@ và hiển ra với những màu khác nhau tùy theo tình trạng bài vở :
 	'intem_redacteur' => 'chủ bút',
 	'item_accepter_inscriptions' => 'Cho phép ghi danh',
 	'item_activer_messages_avertissement' => 'Cho phép cảnh báo',
-	'item_administrateur_2' => 'quản lý',
+	'item_administrateur_2' => 'quản lý', # MODIF
 	'item_afficher_calendrier' => 'Hiện ra trong lịch',
-	'item_choix_administrateurs' => 'quản trị viên',
+	'item_choix_administrateurs' => 'quản trị viên', # MODIF
 	'item_choix_generation_miniature' => 'Tự động tạo ra các hình mẫu.',
 	'item_choix_non_generation_miniature' => 'Đừng tạo ra hình mẫu.',
 	'item_choix_redacteurs' => 'chủ bút',
@@ -419,15 +418,15 @@ và hiển ra với những màu khác nhau tùy theo tình trạng bài vở :
 	'taille_repertoire_cache' => 'Khổ hiện thời của cache',
 	'text_article_propose_publication' => 'Bài nộp để chuẩn bị phát hành. Xin đừng ngần ngại cho ý kiến của bạn qua diễn đàn đính kèm theo bài này (ở cuối trang).', # MODIF
 	'texte_acces_ldap_anonyme_1' => 'Một số server LDAP không cho phép vào ẩn danh. Trong trường hợp này bạn phải dùng một ký danh đầu tiên để có thể đi tìm tòi dữ kiện trong danh bạ sau đó. Tuy nhiên, trong hầu hết trường hợp, những khoảng sau đây có thể để trống.',
-	'texte_admin_effacer_01' => 'Mệnh lệnh này xóa <i>tất cả</i> nội dung của database, luôn cả login/mật mã của các chủ bút và quản lý. Sau khi chạy mệnh lệnh này xong, bạn nên thiết trí lại SPIP để tái lập lại một database mới cùng với login/mật mã của quản trị viên đầu tiên.',
+	'texte_admin_effacer_01' => 'Mệnh lệnh này xóa <i>tất cả</i> nội dung của database, luôn cả login/mật mã của các chủ bút và quản lý. Sau khi chạy mệnh lệnh này xong, bạn nên thiết trí lại SPIP để tái lập lại một database mới cùng với login/mật mã của quản trị viên đầu tiên.', # MODIF
 	'texte_adresse_annuaire_1' => '(Nếu ngăn của bạn được thiết trí trên cùng máy với website của bạn, tên nó thường là «localhost».)',
 	'texte_ajout_auteur' => 'Tác giả sau đây được thêm vào cho bài: ',
-	'texte_annuaire_ldap_1' => 'Nếu bạn vào được một danh bạ (LDAP), bạn có thể dùng nó để nhập vào tự động những người sử dụng trong SPIP.',
+	'texte_annuaire_ldap_1' => 'Nếu bạn vào được một danh bạ (LDAP), bạn có thể dùng nó để nhập vào tự động những người sử dụng trong SPIP.', # MODIF
 	'texte_article_statut' => 'Tình trạng bài vở:',
 	'texte_article_virtuel' => 'Bài ảo',
 	'texte_article_virtuel_reference' => '<b>Bài ảo:</b> chỉ vào một bài khác trong SPIP của bạn, nhưng chuyển qua một địa chỉ khác. Để loại bỏ việc chuyển qua, xóa địa chỉ URL trên.',
 	'texte_aucun_resultat_auteur' => 'Không có kết quả cho "@cherche_auteur@".',
-	'texte_auteur_messagerie' => 'Website này có thể giám sát liên tục danh sách những chủ bút đang vào, và cho phép bạn trao đổi thư tín ngay lập tức (nếu hệ thư tín bị tắt thì danh sách các chủ bút đang vào cũng bị tắt theo). Bạn có thể chọn không xuất hiện trong danh sách này (đối với những người khác, bạn sẽ «vô hình»).',
+	'texte_auteur_messagerie' => 'Website này có thể giám sát liên tục danh sách những chủ bút đang vào, và cho phép bạn trao đổi thư tín ngay lập tức (nếu hệ thư tín bị tắt thì danh sách các chủ bút đang vào cũng bị tắt theo). Bạn có thể chọn không xuất hiện trong danh sách này (đối với những người khác, bạn sẽ «vô hình»).', # MODIF
 	'texte_auteurs' => 'TÁC GIẢ',
 	'texte_choix_base_1' => 'Chọn database của bạn:',
 	'texte_choix_base_2' => 'Server SQL chứa nhiều database.',
@@ -505,11 +504,10 @@ và hiển ra với những màu khác nhau tùy theo tình trạng bài vở :
 	'texte_titre_obligatoire' => '<b>Tựa đề</b> [Bắt buộc] ',
 	'texte_travail_article' => '@nom_auteur_modif@ đã soạn/bổ túc bài này cách đây @date_diff@ phút',
 	'texte_travail_collaboratif' => 'Nếu có nhiều người cùng soạn/sửa đổi một bài, hệ thống có thể cho thấy những bài đang được «làm việc» để tránh trường hợp sửa đổi cùng một lúc. 
-Bạn có thể cho phép cảnh báo hay không:',
+Bạn có thể cho phép cảnh báo hay không:', # MODIF
 	'texte_vide' => 'Trống rỗng',
 	'texte_vider_cache' => 'Dọn sạch cache',
 	'titre_admin_tech' => 'Bảo trì kỹ thuật',
-	'titre_admin_vider' => 'Bảo trì kỹ thuật',
 	'titre_cadre_afficher_article' => 'Liệt kê những bài',
 	'titre_cadre_afficher_traductions' => 'Cho xem tình trạng dịch thuật của ngôn ngữ này.',
 	'titre_cadre_ajouter_auteur' => 'THÊM MỘT TÁC GIẢ:',

@@ -25,7 +25,7 @@ return [
 	'avis_connexion_erreur_nom_base' => 'Le nom de la base ne peut contenir que des lettres, des chiffres et des tirets',
 	'avis_connexion_ldap_echec_1' => 'La connexion au serveur LDAP a échoué.',
 	'avis_connexion_ldap_echec_2' => 'Revenez à la page précédente, et vérifiez les informations que vous avez fournies.',
-	'avis_connexion_ldap_echec_3' => 'Alternativement, n’utilisez pas le support LDAP pour importer des utilisatrices.',
+	'avis_connexion_ldap_echec_3' => 'Alternativement, n’utilisez pas le support LDAP pour importer des utilisatrices.', # MODIF
 	'avis_deplacement_rubrique' => 'Attention ! Cette rubrique contient @contient_breves@ brève@scb@ : si vous la déplacez, veuillez cocher cette case de confirmation.',
 	'avis_erreur_connexion_mysql' => 'Erreur de connexion SQL',
 	'avis_espace_interdit' => '<b>Espace interdit</b> <div>SPIP est déjà installé.</div>',
@@ -53,10 +53,10 @@ return [
 	'bouton_mettre_a_jour_base' => 'Mettre à jour la base de données',
 	'bouton_modifier' => 'Modifier',
 	'bouton_radio_afficher' => 'Afficher',
-	'bouton_radio_apparaitre_liste_redacteurs_connectes' => 'Apparaître dans la liste des rédactrices connectées',
+	'bouton_radio_apparaitre_liste_redacteurs_connectes' => 'Apparaître dans la liste des rédactrices connectées', # MODIF
 	'bouton_radio_envoi_annonces_adresse' => 'Envoyer les annonces à l’adresse :',
 	'bouton_radio_envoi_liste_nouveautes' => 'Envoyer la liste des nouveautés',
-	'bouton_radio_non_apparaitre_liste_redacteurs_connectes' => 'Ne pas apparaître dans la liste des rédactrices',
+	'bouton_radio_non_apparaitre_liste_redacteurs_connectes' => 'Ne pas apparaître dans la liste des rédactrices', # MODIF
 	'bouton_radio_non_envoi_annonces_editoriales' => 'Ne pas envoyer d’annonces éditoriales',
 	'bouton_redirection' => 'REDIRECTION',
 	'bouton_reinitialiser_aux_valeurs_par_defaut' => 'Réinitialiser aux valeurs par défaut',
@@ -70,7 +70,7 @@ return [
 	'bouton_vider_cache' => 'Vider le cache',
 
 	// C
-	'cache_modifiable_webmestre' => 'Ce paramètre est modifiable par la webmestre du site.',
+	'cache_modifiable_webmestre' => 'Ce paramètre est modifiable par la webmestre du site.', # MODIF
 	'calendrier_synchro' => 'Si vous utilisez un logiciel d’agenda compatible <b>iCal</b>, vous pouvez le synchroniser avec les informations de ce site.',
 	'config_activer_champs' => 'Activer les champs suivants',
 	'config_choix_base_sup' => 'indiquer une base sur ce serveur',
@@ -117,7 +117,7 @@ return [
 	'entree_identifiants_connexion_2' => 'Identifiants de connexion',
 	'entree_informations_connexion_ldap' => 'Veuillez entrer dans ce formulaire les informations de connexion à votre annuaire LDAP.
 	Ces informations doivent pouvoir vous être fournies par l’administratrice du système,
-	ou du réseau.',
+	ou du réseau.', # MODIF
 	'entree_infos_perso' => 'Qui êtes-vous ?',
 	'entree_infos_perso_2' => 'Qui est l’autrice ?',
 	'entree_interieur_rubrique' => 'À l’intérieur de la rubrique :',
@@ -216,14 +216,14 @@ return [
 	'info_activer_menu_developpement' => 'Afficher le menu Développement',
 	'info_admin_etre_webmestre' => 'Me donner les droits de webmestre',
 	'info_admin_je_suis_webmestre' => 'Je suis <b>webmestre</b>',
-	'info_admin_statuer_webmestre' => 'Donner à cette administratrice les droits de webmestre',
-	'info_admin_webmestre' => 'Cette administratrice est <b>webmestre</b>',
-	'info_administrateur' => 'Administratrice',
-	'info_administrateur_1' => 'Administratrice',
+	'info_admin_statuer_webmestre' => 'Donner à cette administratrice les droits de webmestre', # MODIF
+	'info_admin_webmestre' => 'Cette administratrice est <b>webmestre</b>', # MODIF
+	'info_administrateur' => 'Administratrice', # MODIF
+	'info_administrateur_1' => 'Administratrice', # MODIF
 	'info_administrateur_2' => 'du site (<i>utilisez avec précaution</i>)',
-	'info_administrateur_site_01' => 'Si vous êtes administratrice du site, veuillez',
+	'info_administrateur_site_01' => 'Si vous êtes administratrice du site, veuillez', # MODIF
 	'info_administrateur_site_02' => 'cliquer sur ce lien',
-	'info_administrateurs' => 'Administratrices',
+	'info_administrateurs' => 'Administratrices', # MODIF
 	'info_administrer_rubrique' => 'Vous pouvez administrer cette rubrique',
 	'info_adresse' => 'à l’adresse :',
 	'info_adresse_desinscription' => 'Adresse de désinscription :',
@@ -266,7 +266,7 @@ return [
 	'info_chapeau' => 'Chapeau',
 	'info_chapeau_2' => 'Chapeau :',
 	'info_chemin_acces_1' => 'Options : <b>Chemin d’accès dans l’annuaire</b>',
-	'info_chemin_acces_2' => 'Vous devez désormais configurer le chemin d’accès aux informations dans l’annuaire. Cette information est indispensable pour lire les profils utilisatrices stockés dans l’annuaire.',
+	'info_chemin_acces_2' => 'Vous devez désormais configurer le chemin d’accès aux informations dans l’annuaire. Cette information est indispensable pour lire les profils utilisatrices stockés dans l’annuaire.', # MODIF
 	'info_chemin_acces_annuaire' => 'Options : <b>Chemin d’accès dans l’annuaire</b>',
 	'info_choix_base' => 'Troisième étape :',
 	'info_classement_1' => '<sup>er</sup> sur @liste@',
@@ -301,7 +301,7 @@ return [
 	'info_ecrire_article' => 'Avant de pouvoir écrire des articles, vous devez créer au moins une rubrique.',
 	'info_email_envoi' => 'Adresse email d’envoi (optionnel)',
 	'info_email_envoi_txt' => 'Indiquez ici l’adresse à utiliser pour envoyer les emails (à défaut, l’adresse destinataire sera utilisée comme adresse d’envoi) :',
-	'info_email_webmestre' => 'Adresse e-mail de la webmestre',
+	'info_email_webmestre' => 'Adresse e-mail de la webmestre', # MODIF
 	'info_envoi_email_automatique' => 'Envoi de mails automatique',
 	'info_envoyer_maintenant' => 'Envoyer maintenant',
 	'info_etape_suivante' => 'Passer à l’étape suivante',
@@ -314,18 +314,15 @@ return [
 		à une mailing-list des rédactrices, l’annonce des demandes de
 		publication et des validations d’articles.', # MODIF
 	'info_fichiers_authent' => 'Fichiers d’authentification « .htpasswd »',
-	'info_forums_abo_invites' => 'Votre site comporte des forums sur abonnement ; les visiteuses sont donc invitées à s’enregistrer sur le site public.',
+	'info_forums_abo_invites' => 'Votre site comporte des forums sur abonnement ; les visiteuses sont donc invitées à s’enregistrer sur le site public.', # MODIF
 	'info_gauche_admin_tech' => '<b>Cette page est uniquement accessible aux responsables du site.</b><p> Elle donne accès aux différentes
 fonctions de maintenance technique. Certaines d’entre elles donnent lieu à un processus d’authentification spécifique, qui
 exige d’avoir un accès FTP au site Web.</p>',
-	'info_gauche_admin_vider' => '<b>Cette page est uniquement accessible aux responsables du site.</b><p> Elle donne accès aux différentes
-fonctions de maintenance technique. Certaines d’entre elles donnent lieu à un processus d’authentification spécifique, qui
-exige d’avoir un accès FTP au site Web.</p>',
 	'info_gauche_auteurs' => 'Vous trouverez ici toutes les autrices du site.
- Leur statut est indiqué par la couleur de leur icone (administratrice = vert ; rédactrice = jaune).',
+ Leur statut est indiqué par la couleur de leur icone (administratrice = vert ; rédactrice = jaune).', # MODIF
 	'info_gauche_auteurs_exterieurs' => 'Les autrices extérieures, sans accès au site, sont indiquées par une icone bleue ;
 		les autrices effacées par une icone grise.',
-	'info_gauche_messagerie' => 'La messagerie vous permet d’échanger des messages entre rédactrices, de conserver des pense-bêtes (pour votre usage personnel) ou d’afficher des annonces sur la page d’accueil de l’espace privé (si vous êtes administratrice).',
+	'info_gauche_messagerie' => 'La messagerie vous permet d’échanger des messages entre rédactrices, de conserver des pense-bêtes (pour votre usage personnel) ou d’afficher des annonces sur la page d’accueil de l’espace privé (si vous êtes administratrice).', # MODIF
 	'info_gauche_statistiques_referers' => 'Cette page présente la liste des <i>referers</i>, c’est-à-dire des sites contenant des liens menant vers votre propre site, uniquement pour hier et aujourd’hui ; cette liste est remise à zéro toutes les 24 heures.',
 	'info_gauche_visiteurs_enregistres' => 'Vous trouverez ici les visiteuses enregistrées
 	dans l’espace public du site (forums sur abonnement).',
@@ -341,7 +338,7 @@ exige d’avoir un accès FTP au site Web.</p>',
 	'info_images_auto' => 'Images calculées automatiquement',
 	'info_informations_personnelles' => 'Informations personnelles',
 	'info_inscription' => 'Inscription le',
-	'info_inscription_automatique' => 'Inscription automatique de nouvelles rédactrices',
+	'info_inscription_automatique' => 'Inscription automatique de nouvelles rédactrices', # MODIF
 	'info_jeu_caractere' => 'Jeu de caractères du site',
 	'info_jours' => 'jours',
 	'info_laisser_champs_vides' => 'laisser ces champs vides)',
@@ -349,7 +346,7 @@ exige d’avoir un accès FTP au site Web.</p>',
 	'info_ldap_ok' => 'L’authentification LDAP est installée.',
 	'info_lien_hypertexte' => 'Lien hypertexte :',
 	'info_liste_nouveautes_envoyee' => 'La liste des nouveautés a été envoyée',
-	'info_liste_redacteurs_connectes' => 'Liste des rédactrices connectées',
+	'info_liste_redacteurs_connectes' => 'Liste des rédactrices connectées', # MODIF
 	'info_login_existant' => 'Ce login existe déjà.',
 	'info_login_trop_court' => 'Login trop court.',
 	'info_login_trop_court_car_pluriel' => 'Le login doit contenir au moins @nb@ caractères.',
@@ -373,7 +370,7 @@ exige d’avoir un accès FTP au site Web.</p>',
 	'info_moyenne' => 'moyenne :',
 	'info_multi_cet_article' => 'Langue de cet article :',
 	'info_multi_langues_choisies' => 'Veuillez sélectionner ci-après les langues à disposition des rédactrices de votre site.
-		Les langues déjà utilisées dans votre site (affichées en premier) ne peuvent pas être désactivées.',
+		Les langues déjà utilisées dans votre site (affichées en premier) ne peuvent pas être désactivées.', # MODIF
 	'info_multi_objets' => '@objets@ : activer le menu de langue',
 	'info_multi_secteurs' => '... seulement pour les rubriques situées à la racine ?',
 	'info_nb_articles' => '@nb@ articles',
@@ -400,8 +397,8 @@ exige d’avoir un accès FTP au site Web.</p>',
 	'info_nouvelle_traduction' => 'Nouvelle traduction :',
 	'info_numero_article' => 'ARTICLE NUMÉRO :',
 	'info_obligatoire_02' => '(obligatoire)',
-	'info_option_accepter_visiteurs' => 'Accepter l’inscription de visiteuses du site public',
-	'info_option_ne_pas_accepter_visiteurs' => 'Refuser l’inscription des visiteuses',
+	'info_option_accepter_visiteurs' => 'Accepter l’inscription de visiteuses du site public', # MODIF
+	'info_option_ne_pas_accepter_visiteurs' => 'Refuser l’inscription des visiteuses', # MODIF
 	'info_options_avancees' => 'OPTIONS AVANCÉES',
 	'info_ou' => 'ou...',
 	'info_page_interdite' => 'Page interdite',
@@ -419,7 +416,7 @@ exige d’avoir un accès FTP au site Web.</p>',
 	'info_post_scriptum' => 'Post-Scriptum',
 	'info_post_scriptum_2' => 'Post-scriptum :',
 	'info_pour' => 'pour',
-	'info_preview_texte' => 'Il est possible de prévisualiser le site comme si tous les articles et les brèves (ayant au moins le statut « proposé ») étaient publiés. Cette possibilité doit-elle être ouverte aux administratrices seulement, à toutes les rédactrices, ou à personne ?',
+	'info_preview_texte' => 'Il est possible de prévisualiser le site comme si tous les articles et les brèves (ayant au moins le statut « proposé ») étaient publiés. Cette possibilité doit-elle être ouverte aux administratrices seulement, à toutes les rédactrices, ou à personne ?', # MODIF
 	'info_procedez_par_etape' => 'procédez étape par étape',
 	'info_procedure_maj_version' => 'la procédure de mise à jour doit être lancée afin d’adapter
 	la base de données à la nouvelle version de SPIP.',
@@ -427,7 +424,7 @@ exige d’avoir un accès FTP au site Web.</p>',
 	'info_ps' => 'P.-S.',
 	'info_publier' => 'publier',
 	'info_publies' => 'Vos articles publiés en ligne',
-	'info_question_accepter_visiteurs' => 'Si les squelettes de votre site prévoient l’enregistrement de visiteuses sans accès à l’espace privé, veuillez activer l’option ci-dessous :',
+	'info_question_accepter_visiteurs' => 'Si les squelettes de votre site prévoient l’enregistrement de visiteuses sans accès à l’espace privé, veuillez activer l’option ci-dessous :', # MODIF
 	'info_question_inscription_nouveaux_redacteurs' => 'Acceptez-vous les inscriptions de nouvelles rédactrices à
   partir du site public ? Si vous acceptez, les visiteuses pourront s’inscrire
   depuis un formulaire automatisé et accéderont alors à l’espace privé pour
@@ -436,7 +433,7 @@ exige d’avoir un accès FTP au site Web.</p>',
   leur fournissant leurs codes d’accès au site privé. Certains
   hébergeurs désactivent l’envoi de mails depuis leurs
   serveurs : dans ce cas, l’inscription automatique est
-  impossible.</div>',
+  impossible.</div>', # MODIF
 	'info_qui_edite' => '@nom_auteur_modif@ a travaillé sur ce contenu il y a @date_diff@ minutes',
 	'info_racine_site' => 'Racine du site',
 	'info_recharger_page' => 'Veuillez recharger cette page dans quelques instants.',
@@ -453,7 +450,7 @@ exige d’avoir un accès FTP au site Web.</p>',
 	'info_refuses' => 'Vos articles refusés',
 	'info_reglage_ldap' => 'Options : <b>Réglage de l’importation LDAP</b>',
 	'info_renvoi_article' => '<b>Redirection.</b> Cet article renvoie à la page :',
-	'info_reserve_admin' => 'Seuls les administratrices peuvent modifier cette adresse.',
+	'info_reserve_admin' => 'Seuls les administratrices peuvent modifier cette adresse.', # MODIF
 	'info_restreindre_rubrique' => 'Restreindre la gestion à la rubrique :',
 	'info_resultat_recherche' => 'Résultats de la recherche :',
 	'info_rubriques' => 'Rubriques',
@@ -472,14 +469,14 @@ exige d’avoir un accès FTP au site Web.</p>',
 	'info_sites_proxy' => 'Utiliser un proxy',
 	'info_sites_trouves' => 'Sites trouvés',
 	'info_sous_titre' => 'Soustitre :',
-	'info_statut_administrateur' => 'Administratrice',
+	'info_statut_administrateur' => 'Administratrice', # MODIF
 	'info_statut_auteur' => 'Statut de cette autrice :',
 	'info_statut_auteur_2' => 'Je suis',
 	'info_statut_auteur_a_confirmer' => 'Inscription à confirmer',
 	'info_statut_auteur_autre' => 'Autre statut :',
 	'info_statut_redacteur' => 'Rédactrice',
-	'info_statut_utilisateurs_1' => 'Statut par défaut des utilisatrices importées',
-	'info_statut_utilisateurs_2' => 'Choisissez le statut qui est attribué aux personnes présentes dans l’annuaire LDAP lorsqu’elles se connectent pour la première fois. Vous pourrez par la suite modifier cette valeur pour chaque autrice au cas par cas.',
+	'info_statut_utilisateurs_1' => 'Statut par défaut des utilisatrices importées', # MODIF
+	'info_statut_utilisateurs_2' => 'Choisissez le statut qui est attribué aux personnes présentes dans l’annuaire LDAP lorsqu’elles se connectent pour la première fois. Vous pourrez par la suite modifier cette valeur pour chaque autrice au cas par cas.', # MODIF
 	'info_suivi_activite' => 'Suivi de l’activité éditoriale',
 	'info_surtitre' => 'Surtitre :',
 	'info_syndication_integrale_1' => 'Votre site propose des fichiers de syndication (voir « <a href="@url@">@titre@</a> »).',
@@ -525,7 +522,7 @@ dans une couleur qui indique leur état :',
 	'info_visiteur_2' => 'du site public',
 	'info_visiteurs' => 'Visiteuses',
 	'info_visiteurs_02' => 'Visiteuses du site public',
-	'info_webmestre_forces' => 'Les webmestres sont actuellement définies dans <tt>@file_options@</tt>.',
+	'info_webmestre_forces' => 'Les webmestres sont actuellement définies dans <tt>@file_options@</tt>.', # MODIF
 	'install_adresse_base_hebergeur' => 'Adresse de la base de données attribuée par l’hébergeur',
 	'install_connect_ok' => 'La nouvelle base a bien été déclarée sous le nom de serveur @connect@.',
 	'install_echec_annonce' => 'L’installation va probablement échouer, ou aboutir à un site non fonctionnel...',
@@ -553,10 +550,10 @@ dans une couleur qui indique leur état :',
 	'intitule_licence' => 'Licence',
 	'item_accepter_inscriptions' => 'Accepter les inscriptions',
 	'item_activer_messages_avertissement' => 'Activer les messages d’avertissement',
-	'item_administrateur_2' => 'administratrice',
+	'item_administrateur_2' => 'administratrice', # MODIF
 	'item_afficher_calendrier' => 'Afficher dans le calendrier',
 	'item_autoriser_syndication_integrale' => 'Diffuser l’intégralité des articles dans les fichiers de syndication',
-	'item_choix_administrateurs' => 'les administratrices',
+	'item_choix_administrateurs' => 'les administratrices', # MODIF
 	'item_choix_generation_miniature' => 'Générer automatiquement les miniatures des images.',
 	'item_choix_non_generation_miniature' => 'Ne pas générer de miniatures des images.',
 	'item_choix_redacteurs' => 'les rédactrices',
@@ -756,15 +753,15 @@ dans une couleur qui indique leur état :',
 	'texte_acces_ldap_anonyme_1' => 'Certains serveurs LDAP n’acceptent aucun accès anonyme. Dans ce cas il faut spécifier un identifiant d’accès initial afin de pouvoir ensuite rechercher des informations dans l’annuaire. Dans la plupart des cas néanmoins, les champs suivants pourront être laissés vides.',
 	'texte_admin_effacer_01' => 'Cette commande efface <i>tout</i> le contenu de la base de données,
 y compris <i>tous</i> les accès rédactrices et administratrices. Après l’avoir exécutée, vous devrez lancer la
-réinstallation de SPIP pour recréer une nouvelle base ainsi qu’un premier accès administratrice.',
+réinstallation de SPIP pour recréer une nouvelle base ainsi qu’un premier accès administratrice.', # MODIF
 	'texte_adresse_annuaire_1' => '(Si votre annuaire est installé sur la même machine que ce site Web, il s’agit probablement de « localhost ».)',
 	'texte_ajout_auteur' => 'L’autrice suivante a été ajoutée à l’article :',
-	'texte_annuaire_ldap_1' => 'Si vous avez accès à un annuaire (LDAP), vous pouvez l’utiliser pour importer automatiquement des utilisatrices sous SPIP.',
+	'texte_annuaire_ldap_1' => 'Si vous avez accès à un annuaire (LDAP), vous pouvez l’utiliser pour importer automatiquement des utilisatrices sous SPIP.', # MODIF
 	'texte_article_statut' => 'Cet article est :',
 	'texte_article_virtuel' => 'Article virtuel',
 	'texte_article_virtuel_reference' => '<b>Article virtuel :</b> article référencé dans votre site SPIP, mais redirigé vers une autre URL. Pour supprimer la redirection, effacez l’URL ci-dessus.',
 	'texte_aucun_resultat_auteur' => 'Aucun résultat pour "@cherche_auteur@"',
-	'texte_auteur_messagerie' => 'Ce site peut vous indiquer en permanence la liste des rédactrices connectées, ce qui vous permet d’échanger des messages en direct. Vous pouvez décider de ne pas apparaître dans cette liste (vous êtes « invisible » pour les autres utilisatrices).',
+	'texte_auteur_messagerie' => 'Ce site peut vous indiquer en permanence la liste des rédactrices connectées, ce qui vous permet d’échanger des messages en direct. Vous pouvez décider de ne pas apparaître dans cette liste (vous êtes « invisible » pour les autres utilisatrices).', # MODIF
 	'texte_auteurs' => 'LES AUTRICES',
 	'texte_choix_base_1' => 'Choisissez votre base :',
 	'texte_choix_base_2' => 'Le serveur SQL contient plusieurs bases de données.',
@@ -796,7 +793,7 @@ réinstallation de SPIP pour recréer une nouvelle base ainsi qu’un premier ac
 	'texte_enrichir_mise_a_jour' => 'Vous pouvez enrichir la mise en page de votre texte en utilisant des « raccourcis typographiques ».',
 	'texte_fichier_authent' => '<b>SPIP doit-il créer les fichiers spéciaux <tt>.htpasswd</tt> et <tt>.htpasswd-admin</tt> dans le répertoire @dossier@ ?</b>
 <p>Ces fichiers peuvent vous servir à restreindre l’accès aux autrices et administratrices en d’autres endroits de votre site (programme externe de statistiques, par exemple).</p>
-<p>Si vous n’en avez pas l’utilité, vous pouvez laisser cette option à sa valeur par défaut (pas de création des fichiers).</p>',
+<p>Si vous n’en avez pas l’utilité, vous pouvez laisser cette option à sa valeur par défaut (pas de création des fichiers).</p>', # MODIF
 	'texte_informations_personnelles_1' => 'Le système va maintenant vous créer un accès personnalisé au site.',
 	'texte_informations_personnelles_2' => '(Note : il s’agit d’une réinstallation, si votre accès marche toujours vous pouvez',
 	'texte_introductif_article' => '(Texte introductif de l’article.)',
@@ -806,7 +803,7 @@ réinstallation de SPIP pour recréer une nouvelle base ainsi qu’un premier ac
 	'texte_login_ldap_1' => '(Laisser vide pour un accès anonyme, ou entrer le chemin complet, par exemple « <tt>uid=dupont, ou=users, dc=mon-domaine, dc=com</tt> ».)',
 	'texte_login_precaution' => 'Attention ! Ceci est le login sous lequel vous êtes connectée actuellement.
 	Utilisez ce formulaire avec précaution...',
-	'texte_messagerie_agenda' => 'Une messagerie permet aux rédactrices du site de communiquer entre elles directement dans l’espace privé du site. Elle est associée à un agenda.',
+	'texte_messagerie_agenda' => 'Une messagerie permet aux rédactrices du site de communiquer entre elles directement dans l’espace privé du site. Elle est associée à un agenda.', # MODIF
 	'texte_mise_a_niveau_base_1' => 'Vous venez de mettre à jour les fichiers SPIP.
 	Il faut maintenant mettre à niveau la base de données
 	du site.',
@@ -870,11 +867,10 @@ avez fait des modifications importantes de graphisme ou de structure du site.',
 		afin d’éviter les modifications simultanées.
 		Cette option est désactivée par défaut
 		afin d’éviter d’afficher des messages d’avertissement
-		intempestifs.',
+		intempestifs.', # MODIF
 	'texte_vide' => 'vide',
 	'texte_vider_cache' => 'Vider le cache',
 	'titre_admin_tech' => 'Maintenance technique',
-	'titre_admin_vider' => 'Maintenance technique',
 	'titre_ajouter_un_auteur' => 'Ajouter une autrice',
 	'titre_ajouter_un_mot' => 'Ajouter un mot-clé',
 	'titre_cadre_afficher_article' => 'Afficher les articles',

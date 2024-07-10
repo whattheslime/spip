@@ -17,7 +17,7 @@ return [
 	'avis_connexion_echec_3' => 'Do atɛ gege ji ɔ, mi do na byɔ cavi mi tɔn é mi na byɔ mysql mɛ ɔ, co e na wazɔ. Nu mi sin wu tɛ dowu ɔ, mi kpɔ ɖɔ miɖè afɔ e nɛ a ji.', # MODIF
 	'avis_connexion_ldap_echec_1' => 'Cacadó do LDAP ɔ gblé',
 	'avis_connexion_ldap_echec_2' => 'Mi bo lɛ kɔ  yi wekpa gudo tɔ̂n ji bo kpɔn ɖɔ xogbè mi tɔn mi sɛdo lɛ ',
-	'avis_connexion_ldap_echec_3' => 'Mi ma zan LDAP bo do ylɔ zizantɔ lɛ do zɛnzɛn o',
+	'avis_connexion_ldap_echec_3' => 'Mi ma zan LDAP bo do ylɔ zizantɔ lɛ do zɛnzɛn o', # MODIF
 	'avis_deplacement_rubrique' => 'vlɛ! @contient_breves@ brève@scb@ ɖé lɛ̂ do akpa é lɔ mɛ : n sɛ sinɔ, mi tɛnkpɔn bo sɔ xlɛ tɔn do fi.',
 	'avis_erreur_connexion_mysql' => 'afɔkiklɛn do cacado mysql tɔn mɛ ',
 	'avis_espace_interdit' => 'acɛku Yé ko  ze supipu do fi nɛ', # MODIF
@@ -36,10 +36,10 @@ return [
 	'bouton_envoyer_message' => 'wɛn gudogudotɔn : sɛdo',
 	'bouton_modifier' => 'ɖyɔ',
 	'bouton_radio_afficher' => 'mi xlɛ',
-	'bouton_radio_apparaitre_liste_redacteurs_connectes' => 'ɖo xlɛ ɖo ɖiɖè nyɔwlantɔ̂é ɖo kan ji lɛ',
+	'bouton_radio_apparaitre_liste_redacteurs_connectes' => 'ɖo xlɛ ɖo ɖiɖè nyɔwlantɔ̂é ɖo kan ji lɛ', # MODIF
 	'bouton_radio_envoi_annonces_adresse' => 'Mi sɛ xojla do',
 	'bouton_radio_envoi_liste_nouveautes' => 'mi  kplé xogbè yɔyɔ lɛ̂ do ',
-	'bouton_radio_non_apparaitre_liste_redacteurs_connectes' => 'mi ma ɖo xlɛ ɖo ɖiɖè nyɔwlantɔ  tɔn mɛ o ',
+	'bouton_radio_non_apparaitre_liste_redacteurs_connectes' => 'mi ma ɖo xlɛ ɖo ɖiɖè nyɔwlantɔ  tɔn mɛ o ', # MODIF
 	'bouton_radio_non_envoi_annonces_editoriales' => 'mi ma sɛ gbètàxojla do',
 	'bouton_redirection' => 'mi lɛ vɔ jlɛ',
 	'bouton_relancer_installation' => 'Mi lɛ vɔ  afɔɖotè ɔ blo',
@@ -49,7 +49,7 @@ return [
 	'bouton_vider_cache' => 'bɛ simɛ',
 
 	// C
-	'cache_modifiable_webmestre' => 'mɛ lò mɔɔjí ɔ hɛn ɔ é ná vɔ ɖiɖèmɛ bló',
+	'cache_modifiable_webmestre' => 'mɛ lò mɔɔjí ɔ hɛn ɔ é ná vɔ ɖiɖèmɛ bló', # MODIF
 	'calendrier_synchro' => 'Nú jó ná zán gbèta, mi siwú xò bí kplé ',
 
 	// D
@@ -67,7 +67,7 @@ return [
 	'entree_cle_pgp' => 'cávì PGP',
 	'entree_contenu_rubrique' => 'mī ɖɔ xó é ɖò akpaxwé ɔ mɛ ɔ ɖó kléwunmɛ',
 	'entree_identifiants_connexion' => 'mī zé mì xlɛ',
-	'entree_informations_connexion_ldap' => 'mī zé mì xlɛ',
+	'entree_informations_connexion_ldap' => 'mī zé mì xlɛ', # MODIF
 	'entree_infos_perso' => 'mɛ cé ká ɖyè ',
 	'entree_interieur_rubrique' => 'ɖò akpaxwé ɔ mɛ',
 	'entree_liens_sites' => 'cacadó gblògblòjí ɔ tɔn',
@@ -121,12 +121,12 @@ return [
 	'impossible_modifier_pass_auteur' => 'Impossible de modifier le mot de passe.', # MODIF
 	'info_1_article' => 'wěkpá ɖòkpó',
 	'info_activer_cookie' => 'Mi sí wlán xógbè é sɔgbèbɔ mi ná dó jɛ àgun dévómɛ.',
-	'info_administrateur' => ' tìtòtɔ ',
-	'info_administrateur_1' => 'tìtòtɔ',
+	'info_administrateur' => ' tìtòtɔ ', # MODIF
+	'info_administrateur_1' => 'tìtòtɔ', # MODIF
 	'info_administrateur_2' => 'gblogblojí  yè z kpó yɛyì',
-	'info_administrateur_site_01' => 'nú mi nyí tìtòtɔ  gblogblojí tɔn ɔ mi kɛnklyɛn bó',
+	'info_administrateur_site_01' => 'nú mi nyí tìtòtɔ  gblogblojí tɔn ɔ mi kɛnklyɛn bó', # MODIF
 	'info_administrateur_site_02' => 'mi zín fí',
-	'info_administrateurs' => 'tìtòtɔ lɛ',
+	'info_administrateurs' => 'tìtòtɔ lɛ', # MODIF
 	'info_administrer_rubrique' => 'mi hɛn ɔ mi ná to àkpáxwé é lɔ ',
 	'info_adresse' => 'nɔtɛn',
 	'info_adresse_url' => 'nɔtɛn gblogblojí ɔ tɔn ',
@@ -152,7 +152,7 @@ return [
 	'info_chapeau' => 'gbàkún',
 	'info_chapeau_2' => 'gbàkún:',
 	'info_chemin_acces_1' => 'àlì yé ná dó byɔ mɛ ɔ',
-	'info_chemin_acces_2' => 'àlì yé ná dó byɔ mɛ ɔ.',
+	'info_chemin_acces_2' => 'àlì yé ná dó byɔ mɛ ɔ.', # MODIF
 	'info_chemin_acces_annuaire' => 'àlì yé ná dó byɔ mɛ ɔ',
 	'info_choix_base' => 'Nɔtɛn àtɔn gɔ̂:',
 	'info_classement_1' => ' @listù@',
@@ -188,12 +188,11 @@ return [
 	'info_exportation_base' => 'bíbɛ xóxókplé sɔ yì',
 	'info_facilite_suivi_activite' => 'bíbɛ xóxókplé sɔ yì', # MODIF
 	'info_fichiers_authent' => 'xó xókplé ',
-	'info_forums_abo_invites' => 'jōnɔ lɛ ní ná nyíkɔ.',
+	'info_forums_abo_invites' => 'jōnɔ lɛ ní ná nyíkɔ.', # MODIF
 	'info_gauche_admin_tech' => 'wémà é lɔ Tìtòtɔ lɛ kɛɖɛ wɛ síwú dàlɔmɛ', # MODIF
-	'info_gauche_admin_vider' => 'wémà é lɔ Tìtòtɔ lɛ kɛɖɛ wɛ síwú dàlɔmɛ', # MODIF
-	'info_gauche_auteurs' => 'Dò fyɔ, mí ná mɔ Tìtòtɔ gblogblojí ɔ tɔn lɛ .',
+	'info_gauche_auteurs' => 'Dò fyɔ, mí ná mɔ Tìtòtɔ gblogblojí ɔ tɔn lɛ .', # MODIF
 	'info_gauche_auteurs_exterieurs' => 'Dò fyɔ, mí ná mɔ Tìtòtɔ gblogblojí ɔ tɔn lɛ .', # MODIF
-	'info_gauche_messagerie' => 'Winwlántɛnmɛ nɔ ná bɔ nyɔwlántɔ síwú nɔ ɖɔxó ɖó kpɔ.',
+	'info_gauche_messagerie' => 'Winwlántɛnmɛ nɔ ná bɔ nyɔwlántɔ síwú nɔ ɖɔxó ɖó kpɔ.', # MODIF
 	'info_gauche_statistiques_referers' => 'wémà é lɔ Tìtòtɔ lɛ kɛɖɛ wɛ síwú dàlɔmɛ',
 	'info_gauche_visiteurs_enregistres' => 'jōnɔ bíbà sín akɔnŋtà',
 	'info_generation_miniatures_images' => 'Nú títɛ lɛ ɖê yē zé bló gbètákɛn ná',
@@ -203,14 +202,14 @@ return [
 	'info_image_process' => 'Mi cyán wàlɔ ɖàgbè lɛ.',
 	'info_image_process2' => 'Mi cyán wàlɔ ɖàgbè lɛ', # MODIF
 	'info_informations_personnelles' => 'Tɛnnɔtɛn àtɔ̂n gɔ̂',
-	'info_inscription_automatique' => 'nyíkɔníná nyɔwlántɔ lɛ tɔn',
+	'info_inscription_automatique' => 'nyíkɔníná nyɔwlántɔ lɛ tɔn', # MODIF
 	'info_jeu_caractere' => 'Wékwín àjì gblogbloji',
 	'info_jours' => 'Azán lɛ',
 	'info_laisser_champs_vides' => 'Mi jò tɛnmɛ dó',
 	'info_langues' => 'Gbè gblogblojí ɔ tɔn',
 	'info_ldap_ok' => 'jíjlɛmɛ.',
 	'info_lien_hypertexte' => 'càcàdó :',
-	'info_liste_redacteurs_connectes' => 'nyɔwlátɔ é ɖò kânú é',
+	'info_liste_redacteurs_connectes' => 'nyɔwlátɔ é ɖò kânú é', # MODIF
 	'info_login_existant' => 'nyíkɔ é lɔ kòɖè.',
 	'info_login_trop_court' => 'nyíkɔ̂ hwè.',
 	'info_maximum' => 'Bísésé:',
@@ -225,7 +224,7 @@ return [
 	'info_mon_site_spip' => 'gblogblojí supipu tɔn cè',
 	'info_moyenne' => 'Tɛntímɛ:',
 	'info_multi_cet_article' => 'Gbè wékpá é lɔ tɔn :',
-	'info_multi_langues_choisies' => 'Mi kɛnklɛn bó sɔ gbè é jló myɔ',
+	'info_multi_langues_choisies' => 'Mi kɛnklɛn bó sɔ gbè é jló myɔ', # MODIF
 	'info_multi_secteurs' => 'Akpáxwé é lò ɖòkɔ lɛ kɛɖɛ a ?',
 	'info_nom' => 'E wó',
 	'info_nom_destinataire' => 'nyíkɔ mɛ ná yí ɔ tɔn',
@@ -243,8 +242,8 @@ return [
 	'info_nouvelle_traduction' => 'Tínmɛ ɖévó:',
 	'info_numero_article' => 'Wékpá nùméló:',
 	'info_obligatoire_02' => '[dódó]', # MODIF
-	'info_option_accepter_visiteurs' => 'Mi yí gbè nú jònɔ é ná nyíkɔ lɛ ',
-	'info_option_ne_pas_accepter_visiteurs' => 'Mi gbɛ nyíkɔ jónɔ é lɔ tɔn ',
+	'info_option_accepter_visiteurs' => 'Mi yí gbè nú jònɔ é ná nyíkɔ lɛ ', # MODIF
+	'info_option_ne_pas_accepter_visiteurs' => 'Mi gbɛ nyíkɔ jónɔ é lɔ tɔn ', # MODIF
 	'info_options_avancees' => 'wàlɔ é ɖrɛn àfɔ ',
 	'info_ou' => 'fítɛ...',
 	'info_page_interdite' => 'àlì sú',
@@ -263,7 +262,7 @@ return [
 	'info_procedure_maj_version' => 'wàlɔ ɖòkpó ɖòkpó.',
 	'info_ps' => 'P.S',
 	'info_publies' => 'yè sɔ kɛn ná',
-	'info_question_accepter_visiteurs' => 'Nɛ nyí ɖɔ tìtòmɛ mi tɔn bà ɖɔ é mi ná wlí jōnɔ lɛ hɛn ɔ :',
+	'info_question_accepter_visiteurs' => 'Nɛ nyí ɖɔ tìtòmɛ mi tɔn bà ɖɔ é mi ná wlí jōnɔ lɛ hɛn ɔ :', # MODIF
 	'info_question_inscription_nouveaux_redacteurs' => 'Mi yí gbè nú nyɔwántɔ yɔyɔ lɛ à.', # MODIF
 	'info_racine_site' => 'gblogblojí ɔ sín dɔ',
 	'info_recharger_page' => 'mi lɛ vɔ jlɔ wémà é lɔ ɖò cɛjú ywɛywɛmɛ.',
@@ -277,7 +276,7 @@ return [
 	'info_refuses' => 'Wékpá mi tɔn yè gbɛ ɔ',
 	'info_reglage_ldap' => 'wàlɔ  : jlɔjlɔ tɛnme',
 	'info_renvoi_article' => 'wàlɔ.Wékpá sɛ yí ê:',
-	'info_reserve_admin' => 'Tìtòtɔ lɛ kɛɖɛ jɛn sín ɖyɔ nɔtɛn ɔ.',
+	'info_reserve_admin' => 'Tìtòtɔ lɛ kɛɖɛ jɛn sín ɖyɔ nɔtɛn ɔ.', # MODIF
 	'info_restreindre_rubrique' => 'Mi ɖè tìtò àkpáxwé ɔ tɔn kpò :',
 	'info_resultat_recherche' => 'Xógbè yè mɔ lɛ :',
 	'info_rubriques' => 'àkpáxwé',
@@ -296,11 +295,11 @@ return [
 	'info_sites_proxy' => 'Mi zán  proxy',
 	'info_sites_trouves' => 'gblogblojí ɖê mɔ lɛ',
 	'info_sous_titre' => 'xótákpɛví:',
-	'info_statut_administrateur' => 'Tìtòtɔ',
+	'info_statut_administrateur' => 'Tìtòtɔ', # MODIF
 	'info_statut_auteur' => 'Nyɔwlán sín tìtòmɛ:', # MODIF
 	'info_statut_redacteur' => 'Nyɔwlántɔ',
-	'info_statut_utilisateurs_1' => 'nɔtè kpòhùn',
-	'info_statut_utilisateurs_2' => 'mi cyán nɔtè mɛ̂ ɖò LDAP sín wěmámɛ é nú yé sɔ yéɖé xlɛ ɔ núkɔnnúkɔntɔ̂n..',
+	'info_statut_utilisateurs_1' => 'nɔtè kpòhùn', # MODIF
+	'info_statut_utilisateurs_2' => 'mi cyán nɔtè mɛ̂ ɖò LDAP sín wěmámɛ é nú yé sɔ yéɖé xlɛ ɔ núkɔnnúkɔntɔ̂n..', # MODIF
 	'info_suivi_activite' => 'mi ɖò wěgbó ɔ  wàlɔ kpɔn wɛ',
 	'info_surtitre' => 'xótá ɖàxó :',
 	'info_taille_maximale_vignette' => 'jlɛjlɛmɛ ɖìdè lɛ tɔn :',
@@ -339,9 +338,9 @@ return [
 	'intem_redacteur' => 'nyɔwlántɔ',
 	'item_accepter_inscriptions' => 'mi yígbè nú nyíkɔnáná lɛ',
 	'item_activer_messages_avertissement' => 'mi jɛ sɛn dó jí',
-	'item_administrateur_2' => 'Tìtótɔ ',
+	'item_administrateur_2' => 'Tìtótɔ ', # MODIF
 	'item_afficher_calendrier' => 'Mi ɖè kalánɖlyé lɛ xlɛ',
-	'item_choix_administrateurs' => 'Tìtótɔ lɛ',
+	'item_choix_administrateurs' => 'Tìtótɔ lɛ', # MODIF
 	'item_choix_generation_miniature' => 'Mi tò ɖéxlɛ lɛ cíkícíkí.',
 	'item_choix_non_generation_miniature' => 'Mi mà tò ɖéxlɛ lɛ cíkícíkí.',
 	'item_choix_redacteurs' => 'nyɔwlántɔ lɛ',
@@ -410,15 +409,15 @@ return [
 	'taille_repertoire_cache' => 'gbàví ɔ jɛ vɔ',
 	'text_article_propose_publication' => 'mi kɛnklɛ̂n bó ná lìnlìn mi tɔn ɖé wúɖò kplékplé yé sɔ ɖó dò wɔ mɛ.', # MODIF
 	'texte_acces_ldap_anonyme_1' => 'mi kɛnklɛ̂n bó ná lìnlìn mi tɔn ɖé wúɖò kplékplé yé sɔ ɖó dò wɔ mɛ',
-	'texte_admin_effacer_01' => 'mi ná sɔ mɔ àlì gégéréinstallation de SPIP pour recréer une nouvelle base ainsi qu’un premier accès administrateur.',
+	'texte_admin_effacer_01' => 'mi ná sɔ mɔ àlì gégéréinstallation de SPIP pour recréer une nouvelle base ainsi qu’un premier accès administrateur.', # MODIF
 	'texte_adresse_annuaire_1' => 'mi ná sɔ mɔ àlì gégé «localhost».)',
 	'texte_ajout_auteur' => 'mi ná sɔ mɔ àlì gégé :',
-	'texte_annuaire_ldap_1' => 'mi ná sɔ mɔ àlì gégé.',
+	'texte_annuaire_ldap_1' => 'mi ná sɔ mɔ àlì gégé.', # MODIF
 	'texte_article_statut' => ':',
 	'texte_article_virtuel' => 'wékpá é lɔ',
 	'texte_article_virtuel_reference' => 'wékpá é lɔ.',
 	'texte_aucun_resultat_auteur' => 'xógbè lɛ "@cherche_auteur@"',
-	'texte_auteur_messagerie' => 'nyɔwlántɔ lɛ .',
+	'texte_auteur_messagerie' => 'nyɔwlántɔ lɛ .', # MODIF
 	'texte_auteurs' => 'nyɔwlántɔ lɛ ',
 	'texte_choix_base_1' => 'mi sɔ xóxòkplégbàví mi tɔn :',
 	'texte_choix_base_2' => 'mɔ SQL nɔ hɛnxóxòkplégbàví',
@@ -479,11 +478,10 @@ return [
 	'texte_titre_02' => 'xótá :',
 	'texte_titre_obligatoire' => 'xótá[dódó]',
 	'texte_travail_article' => '@nom_auteur_modif@ é wàzɔ ɖó wékpá é lɔ wú @date_diff@ cɛjú',
-	'texte_travail_collaboratif' => 'Sùpípù ɔ tìtómɛ nù jíjlá tɔn ɖê minirézo kéjé bó lɛ vlɔnkán nú bíbló gblògblòjí uZine tɔn ɔ. Mì sɔ kɛ mí ɖò àcɛ wàlɔ GPl tɔn mɛ. Mī zé bò zán bó dó bló gblògblòjí lɛ̂ ná : é síwú nyí mì tɔn ɖé sú kàbí gbɛtá ɖé tɔn, kàbí tòxóɖɔgbɛ ɖé tɔn, àló àjɔwíwá wú.Gblògblòjí é lɔ̂, é wɛ nyí  Wěmàxòkplé sùpípù tɔn ɖò tájí. Mí ná lɛ mɔ àlɔwlí gégé ɖê ná ɖɔn mî yì gblògblòjí ɖê jí kplékplé lɛ̂ nɔ tîn ɖè ɔ ',
+	'texte_travail_collaboratif' => 'Sùpípù ɔ tìtómɛ nù jíjlá tɔn ɖê minirézo kéjé bó lɛ vlɔnkán nú bíbló gblògblòjí uZine tɔn ɔ. Mì sɔ kɛ mí ɖò àcɛ wàlɔ GPl tɔn mɛ. Mī zé bò zán bó dó bló gblògblòjí lɛ̂ ná : é síwú nyí mì tɔn ɖé sú kàbí gbɛtá ɖé tɔn, kàbí tòxóɖɔgbɛ ɖé tɔn, àló àjɔwíwá wú.Gblògblòjí é lɔ̂, é wɛ nyí  Wěmàxòkplé sùpípù tɔn ɖò tájí. Mí ná lɛ mɔ àlɔwlí gégé ɖê ná ɖɔn mî yì gblògblòjí ɖê jí kplékplé lɛ̂ nɔ tîn ɖè ɔ ', # MODIF
 	'texte_vide' => 'jɛ vɔ',
 	'texte_vider_cache' => 'gbàv i ɔ jɛ vɔ',
 	'titre_admin_tech' => 'wàlɔ zɔ',
-	'titre_admin_vider' => 'wàlɔ zɔ',
 	'titre_cadre_afficher_article' => 'xlɛ wékpá lɛ',
 	'titre_cadre_afficher_traductions' => 'mi xlɛ ɖê gbè lɛ tìnmɛ gbɔn wɛ é :',
 	'titre_cadre_ajouter_auteur' => 'mi gɔ nyɔwlántɔ ɖòkpó ná :',

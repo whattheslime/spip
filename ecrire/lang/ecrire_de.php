@@ -22,12 +22,12 @@ return [
 	'avis_connexion_echec_2' => 'Kehren Sie zur vorigen Seite zurück und überprüfen sie ihre Eingaben.',
 	'avis_connexion_echec_3' => '<b>N.B.</b> Bei vielen Servern müssen Sie Ihre Datenbank ausdrücklich <b>freischalten lassen</b> um sie nutzen zu können. Falls die Verbindung wieder fehlschlägt, stellen Sie bitte sicher, dass Ihre Datenbank freigeschaltet wurde.',
 	'avis_connexion_erreur_creer_base' => 'Die Datenbank konnte nicht erstellt werden.',
-	'avis_connexion_erreur_fichier_cle_manquant_1' => 'Die Installation muss von einem Webmaster mit einem Backup der Schlüssel und seinem Passwort durchgeführt werden',
-	'avis_connexion_erreur_fichier_cle_manquant_2' => 'Die Installation muss von einem Webmaster mit einem Backup der Schlüssel durchgeführt werden',
+	'avis_connexion_erreur_fichier_cle_manquant_1' => 'Die Installation muss von einem Webmaster mit einem Backup der Schlüssel und seinem Passwort durchgeführt werden', # MODIF
+	'avis_connexion_erreur_fichier_cle_manquant_2' => 'Die Installation muss von einem Webmaster mit einem Backup der Schlüssel durchgeführt werden', # MODIF
 	'avis_connexion_erreur_nom_base' => 'Der Datenbankname darf nur Buchstaben, Ziffern und Bindestriche "-" enthalten.',
 	'avis_connexion_ldap_echec_1' => 'Die Verbindung zum LDAP-Server ist fehlgeschlagen.',
 	'avis_connexion_ldap_echec_2' => 'Kehren Sie zur vorigen Seite zurück und überprüfen sie ihre Eingaben.',
-	'avis_connexion_ldap_echec_3' => 'Sie können Benutzer auch ohne LDAP-Support importieren.',
+	'avis_connexion_ldap_echec_3' => 'Sie können Benutzer auch ohne LDAP-Support importieren.', # MODIF
 	'avis_deplacement_rubrique' => 'Achtung! diese Rubrik enthält @contient_breves@ Meldungen@scb@: wenn Sie Rubrik verschieben wollen, markieren Sie bitte zur Bestätigung dieses Kästchen.',
 	'avis_erreur_connexion_mysql' => 'SQL-Verbindungsfehler',
 	'avis_erreur_creation_compte' => 'Konto konnte nicht initialisiert werden',
@@ -53,13 +53,14 @@ return [
 	'bouton_effacer_tout' => 'ALLES löschen',
 	'bouton_envoyer_message' => 'Nachricht fertig: Senden',
 	'bouton_fermer' => 'Schließen',
+	'bouton_mettre_a_jour' => 'Auf den neuesten Stand bringen',
 	'bouton_mettre_a_jour_base' => 'Datenbank updaten',
 	'bouton_modifier' => 'Ändern',
 	'bouton_radio_afficher' => 'Anzeigen',
-	'bouton_radio_apparaitre_liste_redacteurs_connectes' => 'Auf der Liste angemeldeter Redakteure anzeigen',
+	'bouton_radio_apparaitre_liste_redacteurs_connectes' => 'Auf der Liste angemeldeter Redakteure anzeigen', # MODIF
 	'bouton_radio_envoi_annonces_adresse' => 'Editorische Ankündigungen an diese Adresse senden:',
 	'bouton_radio_envoi_liste_nouveautes' => 'Liste der neuesten Veröffentlichungen verschicken',
-	'bouton_radio_non_apparaitre_liste_redacteurs_connectes' => 'Ich will nicht auf dieser Liste zu sehen sein.',
+	'bouton_radio_non_apparaitre_liste_redacteurs_connectes' => 'Ich will nicht auf dieser Liste zu sehen sein.', # MODIF
 	'bouton_radio_non_envoi_annonces_editoriales' => 'Keine editorischen Ankündigungen verschicken',
 	'bouton_redirection' => 'UMLEITUNG',
 	'bouton_reinitialiser_aux_valeurs_par_defaut' => 'Mit Standardwerten neu initialisieren',
@@ -73,7 +74,7 @@ return [
 	'bouton_vider_cache' => 'Cache leeren',
 
 	// C
-	'cache_modifiable_webmestre' => 'Dieser Parameter kann vom Webmaster eingestellt werden.',
+	'cache_modifiable_webmestre' => 'Dieser Parameter kann vom Webmaster eingestellt werden.', # MODIF
 	'calendrier_synchro' => 'Wenn Sie eine mit <b>iCal</b> kompatibles PIM-Programm verwenden, könne Sie es mit den Einträgen dieser Website synchronisieren.',
 	'config_activer_champs' => 'Aktivieren Sie folgende Felder',
 	'config_choix_base_sup' => 'Eine Datenbank auf diesem Server angeben',
@@ -118,7 +119,7 @@ return [
 	'entree_contenu_rubrique' => '(Inhalt der Rubrik)',
 	'entree_identifiants_connexion' => 'Ihre Verbindungsdaten ...',
 	'entree_identifiants_connexion_2' => 'Logindaten',
-	'entree_informations_connexion_ldap' => 'Bitte tragen Sie in dieses Formular die Zugangsdaten zu Ihrem LDAP-Verzeichnis ein. Sie erhalten diese Informationen von Ihrem System- oder Netzwerkadministrator.',
+	'entree_informations_connexion_ldap' => 'Bitte tragen Sie in dieses Formular die Zugangsdaten zu Ihrem LDAP-Verzeichnis ein. Sie erhalten diese Informationen von Ihrem System- oder Netzwerkadministrator.', # MODIF
 	'entree_infos_perso' => 'Wer sind Sie?',
 	'entree_infos_perso_2' => 'Wer ist der Autor?',
 	'entree_interieur_rubrique' => 'In der Rubrik:',
@@ -216,17 +217,18 @@ return [
 	'info_activer_menu_developpement' => 'Entwicklermenü anzeigen',
 	'info_admin_etre_webmestre' => 'Mir Webmaster-Rechte geben',
 	'info_admin_je_suis_webmestre' => 'Ich bin <b>Webmaster</b>',
-	'info_admin_statuer_webmestre' => 'Diesem Administrator Webmaster-Rechte geben',
-	'info_admin_webmestre' => 'Dieser Administrator ist <b>Webmaster</b>',
-	'info_administrateur' => 'Administrator',
-	'info_administrateur_1' => 'Administrator',
+	'info_admin_statuer_webmestre' => 'Diesem Administrator Webmaster-Rechte geben', # MODIF
+	'info_admin_webmestre' => 'Dieser Administrator ist <b>Webmaster</b>', # MODIF
+	'info_administrateur' => 'Administrator', # MODIF
+	'info_administrateur_1' => 'Administrator', # MODIF
 	'info_administrateur_2' => 'der Website (<i>vorsichtig einsetzen</i>)',
-	'info_administrateur_site_01' => 'Wenn Sie Administrator der Website sind, bitte',
+	'info_administrateur_site_01' => 'Wenn Sie Administrator der Website sind, bitte', # MODIF
 	'info_administrateur_site_02' => 'auf diesen Link klicken.',
-	'info_administrateurs' => 'Administratoren',
+	'info_administrateurs' => 'Administratoren', # MODIF
 	'info_administrer_rubrique' => 'Sie können diese Rubrik verwalten',
 	'info_adresse' => 'an Adresse:',
 	'info_adresse_desinscription' => 'Adresse für die Abmeldung:',
+	'info_adresse_inscription' => 'Anmeldeadresse:',
 	'info_adresse_url' => 'Adresse (URL) der öffentlichen Website',
 	'info_afficher_par_nb' => 'Anzeigen nach',
 	'info_aide_en_ligne' => 'SPIP Online-Hilfe',
@@ -263,7 +265,7 @@ return [
 	'info_chapeau' => 'Kopf',
 	'info_chapeau_2' => 'Kopf:',
 	'info_chemin_acces_1' => 'Optionen: <b>Pfad im Verzeichnis</b>',
-	'info_chemin_acces_2' => 'Sie müssen jetzt den Pfad zu den Informationen im Verzeichnis angeben. Diese Information ist unbedingt erforderlich, um die Benutzerprofile im Verzeichnis lesen zu können.',
+	'info_chemin_acces_2' => 'Sie müssen jetzt den Pfad zu den Informationen im Verzeichnis angeben. Diese Information ist unbedingt erforderlich, um die Benutzerprofile im Verzeichnis lesen zu können.', # MODIF
 	'info_chemin_acces_annuaire' => 'Optionen: <b>Pfad im Verzeichnis</b>',
 	'info_choix_base' => 'Schritt 3: ',
 	'info_classement_1' => ' von @liste@',
@@ -298,7 +300,7 @@ return [
 	'info_ecrire_article' => 'Bevor Sie Artikel schreiben könnnen, müssen Sie mindestens eine Rubrik anlegen.',
 	'info_email_envoi' => 'Absenderadresse (freiwillige Angabe)',
 	'info_email_envoi_txt' => 'Geben Sie hier die Absenderadresse der E-Mails an (ohne diese Angabe wird die Empfängeradresse als Absender eingetragen). ',
-	'info_email_webmestre' => 'E-Mail des Webmasters',
+	'info_email_webmestre' => 'E-Mail des Webmasters', # MODIF
 	'info_envoi_email_automatique' => 'Automatischer Mailversand',
 	'info_envoyer_maintenant' => 'Jetzt schicken',
 	'info_etape_suivante' => 'Weiter',
@@ -306,15 +308,14 @@ return [
 	'info_etape_suivante_2' => 'Sie können den nächsten Schritt ausführen.',
 	'info_exceptions_proxy' => 'Ausnahmen für den Proxy',
 	'info_exportation_base' => 'Export der Datenbank nach @archive@',
-	'info_facilite_suivi_activite' => 'Um die editorische Arbeit zu erleichtern kann SPIP Veröffentlichungsvorschläge und Freischaltungen z.B. an eine Mailing-Liste der Redakteure schicken. Geben Sie eine oder mehrere Adressen an, die durch Kommata getrennt sind. ',
+	'info_facilite_suivi_activite' => 'Um die editorische Arbeit zu erleichtern kann SPIP Veröffentlichungsvorschläge und Freischaltungen z.B. an eine Mailing-Liste der Redakteure schicken. Geben Sie eine oder mehrere Adressen an, die durch Kommata getrennt sind. ', # MODIF
 	'info_fichiers_authent' => '“.htpasswd” Dateien',
-	'info_forums_abo_invites' => 'Ihre Website hat Foren für eingetragene Teilnehmer. Ihre Leser werden aus diesem Gund aufgefordert, sich bei Ihrer Website anzumelden.',
+	'info_forums_abo_invites' => 'Ihre Website hat Foren für eingetragene Teilnehmer. Ihre Leser werden aus diesem Gund aufgefordert, sich bei Ihrer Website anzumelden.', # MODIF
 	'info_gauche_admin_tech' => '<b>Diese Seite ist nur für den Verantwortlichen der Website zugänglich.</b><p>Sie erlaubt bestimmte technische Wartungsvorgänge auszulösen. Für manche Funktionen ist die Authentifizierung per FTP Voraussetzung.',
-	'info_gauche_admin_vider' => '<b>Diese Seite ist nur für den Verantwortlichen der Website zugänglich.</b><p>Sie erlaubt bestimmte technische Wartungsvorgänge auszulösen. Für manche Funktionen ist die Authentifizierung per FTP Voraussetzung.',
 	'info_gauche_auteurs' => 'Hier sehen Sie alle Autoren der Website.
-Ihr Status wird durch die Farbe ihres Symbols angezeigt (Redakteur = gelb; Administrator = grün). ',
+Ihr Status wird durch die Farbe ihres Symbols angezeigt (Redakteur = gelb; Administrator = grün). ', # MODIF
 	'info_gauche_auteurs_exterieurs' => 'Externe Autoren ohne Zugang zum Redaktionssystem werden mit einem blauen Symbol gekennzeichnet, gelöschte Autoren haben eine Mülltonne als Symbol.',
-	'info_gauche_messagerie' => 'Nachrichtensystem: SPIP ermöglicht den Austausch von Nachrichten zwischen Redakteuren, persönliche Merkzettel und Ankündigungen im privaten Arbeitsbereich der Redakteure (nur Administratoren können diese verschicken).',
+	'info_gauche_messagerie' => 'Nachrichtensystem: SPIP ermöglicht den Austausch von Nachrichten zwischen Redakteuren, persönliche Merkzettel und Ankündigungen im privaten Arbeitsbereich der Redakteure (nur Administratoren können diese verschicken).', # MODIF
 	'info_gauche_statistiques_referers' => 'Diese Seite zeigt Ihnen <i>REFERER</i>, d.h. Webadressen mit Links zu Ihrer Website. Angezeigt werden nur Links von gestern und heute, diese Liste wird alle 24 Stunden auf Null gesetzt.',
 	'info_gauche_visiteurs_enregistres' => 'Hier sehen Sie die im öffentlichen Bereich der Website angemeldeten Besucher (Teilnahme an Foren nur mit gültiger E-Mail Adresse).',
 	'info_generation_miniatures_images' => 'Anlegen der Vorschaubilder',
@@ -327,7 +328,7 @@ Ihr Status wird durch die Farbe ihres Symbols angezeigt (Redakteur = gelb; Admin
 	'info_images_auto' => 'automatisch berechnete Bilder',
 	'info_informations_personnelles' => 'Persönliche Informationen',
 	'info_inscription' => 'Angemeldet am',
-	'info_inscription_automatique' => 'Automatische Anmeldung neuer Redakteure',
+	'info_inscription_automatique' => 'Automatische Anmeldung neuer Redakteure', # MODIF
 	'info_jeu_caractere' => 'Zeichensatz der Website',
 	'info_jours' => 'Tage',
 	'info_laisser_champs_vides' => 'diese Felder frei lassen)',
@@ -335,7 +336,7 @@ Ihr Status wird durch die Farbe ihres Symbols angezeigt (Redakteur = gelb; Admin
 	'info_ldap_ok' => 'Die LDAP-Authentifizierung ist installiert.',
 	'info_lien_hypertexte' => 'Hyperlink:',
 	'info_liste_nouveautes_envoyee' => 'Die Liste der Neuerscheinungen wurde versand.',
-	'info_liste_redacteurs_connectes' => 'Liste der zur Zeit angemeldeten Redakteure',
+	'info_liste_redacteurs_connectes' => 'Liste der zur Zeit angemeldeten Redakteure', # MODIF
 	'info_login_existant' => 'Dieses Login ist bereits vergeben.',
 	'info_login_trop_court' => 'Login zu kurz.',
 	'info_login_trop_court_car_pluriel' => 'Ihr Login muss mindestens @nb@ Zeichen haben.',
@@ -354,7 +355,7 @@ Ihr Status wird durch die Farbe ihres Symbols angezeigt (Redakteur = gelb; Admin
 	'info_mon_site_spip' => 'Meine SPIP-Site',
 	'info_moyenne' => 'Durchschnitt: ',
 	'info_multi_cet_article' => 'Dieser Artikel ist auf: ',
-	'info_multi_langues_choisies' => 'Bitte wählen Sie hier die Sprachen aus, die den Redakteuren Ihrer Website zur Verfügung stehen sollen. Die Sprachen, welche bereits in Ihrer Website verwendet werden (oben auf der Liste), können nicht abgeschaltet werden.',
+	'info_multi_langues_choisies' => 'Bitte wählen Sie hier die Sprachen aus, die den Redakteuren Ihrer Website zur Verfügung stehen sollen. Die Sprachen, welche bereits in Ihrer Website verwendet werden (oben auf der Liste), können nicht abgeschaltet werden.', # MODIF
 	'info_multi_objets' => '@objets@: Sprachauswahlmenü aktivieren',
 	'info_multi_secteurs' => '... nur für Rubriken der obersten Ebene?',
 	'info_nb_articles' => '@nb@ Artikel',
@@ -380,8 +381,8 @@ Ihr Status wird durch die Farbe ihres Symbols angezeigt (Redakteur = gelb; Admin
 	'info_nouvelle_traduction' => 'Neue Übersetzung:',
 	'info_numero_article' => 'ARTIKEL NUMMER:',
 	'info_obligatoire_02' => ' (erforderlich)',
-	'info_option_accepter_visiteurs' => 'Besucher dürfen sich als Leser der Website anmelden.',
-	'info_option_ne_pas_accepter_visiteurs' => 'Anmeldung von Lesern verhindern',
+	'info_option_accepter_visiteurs' => 'Besucher dürfen sich als Leser der Website anmelden.', # MODIF
+	'info_option_ne_pas_accepter_visiteurs' => 'Anmeldung von Lesern verhindern', # MODIF
 	'info_options_avancees' => 'SPEZIALFUNKTIONEN',
 	'info_ou' => 'oder ... ',
 	'info_page_interdite' => 'Seite gesperrt',
@@ -399,21 +400,21 @@ Ihr Status wird durch die Farbe ihres Symbols angezeigt (Redakteur = gelb; Admin
 	'info_post_scriptum' => 'Post-Scriptum',
 	'info_post_scriptum_2' => 'Post-scriptum:',
 	'info_pour' => 'für',
-	'info_preview_texte' => 'Man kann sich alle Elemente der Website so anzeigen lassen, als ob sie veröffentlicht wären, vorausgesetzt sie haben mindestens den Status « vorgeschlagen » oder man ist ihr Autor . Wem soll diese Möglichkeit zur Verfügung stehen (Adminsitratoren, Redakteure, niemand)?',
+	'info_preview_texte' => 'Man kann sich alle Elemente der Website so anzeigen lassen, als ob sie veröffentlicht wären, vorausgesetzt sie haben mindestens den Status « vorgeschlagen » oder man ist ihr Autor . Wem soll diese Möglichkeit zur Verfügung stehen (Adminsitratoren, Redakteure, niemand)?', # MODIF
 	'info_procedez_par_etape' => 'gehen Sie Schritt für Schritt vor',
 	'info_procedure_maj_version' => 'Sie müssen die Update-Funktion starten, um Ihre Datenbank an die neue Version von SPIP anzupassen.',
 	'info_proxy_ok' => 'Proxytest erfolgreich.',
 	'info_ps' => 'P.S.',
 	'info_publier' => 'veröffentlichen',
 	'info_publies' => 'Ihre veröffentlichten Artikel',
-	'info_question_accepter_visiteurs' => 'Bitte aktivieren Sie die folgende Option, wenn sich Besucher Ihrer Website als <i>Leser ohne Zugang zum Redaktionssystem</i> anmelden können.',
+	'info_question_accepter_visiteurs' => 'Bitte aktivieren Sie die folgende Option, wenn sich Besucher Ihrer Website als <i>Leser ohne Zugang zum Redaktionssystem</i> anmelden können.', # MODIF
 	'info_question_inscription_nouveaux_redacteurs' => 'Möchten Sie, dass sich neue Redakteure vom öffentlichen Bereich
  aus anmelden können? Wenn Sie es wollen, können sich Besucher über ein automatisch
  erstelltes Formular anmelden und Artikel vorschlagen.
  <div class="notice">Nach der Anmeldung erhalten die neuen Redakteure automatisch
  eine E-Mail mit ihren Zugangsdaten. Manche Webhoster unterbinden den Mailversand
  von ihren Webservern aus.
- In diesem Fall funktioniert die automatische Anmeldung nicht.</div>',
+ In diesem Fall funktioniert die automatische Anmeldung nicht.</div>', # MODIF
 	'info_qui_edite' => '@nom_auteur_modif@ hat vor  @date_diff@ Minuten an diesem Objekt gearbeitet.',
 	'info_racine_site' => 'OBERSTE EBENE DER WEBSITE',
 	'info_recharger_page' => 'Bitte laden Sie diese Seite in ein paar Augenblicken erneut.',
@@ -430,7 +431,7 @@ Ihr Status wird durch die Farbe ihres Symbols angezeigt (Redakteur = gelb; Admin
 	'info_refuses' => 'Ihre abgelehnten Artikel',
 	'info_reglage_ldap' => 'Optionen: <b>LDAP-Import Einstellungen</b>',
 	'info_renvoi_article' => '<b>Umleitung.</b> Dieser Artikel zeigt auf die Seite: ',
-	'info_reserve_admin' => 'Nur Administratoren können diese Seite ändern.',
+	'info_reserve_admin' => 'Nur Administratoren können diese Seite ändern.', # MODIF
 	'info_restreindre_rubrique' => 'Administrationsrechte auf diese Rubrik beschränken:',
 	'info_resultat_recherche' => 'Suchergebnisse:',
 	'info_rubriques' => 'Rubriken',
@@ -449,14 +450,15 @@ Ihr Status wird durch die Farbe ihres Symbols angezeigt (Redakteur = gelb; Admin
 	'info_sites_proxy' => 'HTTP-Proxy verwenden',
 	'info_sites_trouves' => 'Gefundene Websites',
 	'info_sous_titre' => 'Untertitel:',
-	'info_statut_administrateur' => 'Administrator',
+	'info_statut' => 'Status',
+	'info_statut_administrateur' => 'Administrator', # MODIF
 	'info_statut_auteur' => 'Status des Autors:',
 	'info_statut_auteur_2' => 'Ich bin',
 	'info_statut_auteur_a_confirmer' => 'Anmeldung bestätigen',
 	'info_statut_auteur_autre' => 'Anderer Status:',
 	'info_statut_redacteur' => 'Redakteur',
-	'info_statut_utilisateurs_1' => 'Vorgegebener Status der importierten Benutzer',
-	'info_statut_utilisateurs_2' => 'Wählen Sie den Status, der Personen im LDAP-Verzeichnis zugeordnet wird, wenn sie sich zum ersten Mal anmelden. Sie können diesen Wert später für jeden Autor individuell einstellen.',
+	'info_statut_utilisateurs_1' => 'Vorgegebener Status der importierten Benutzer', # MODIF
+	'info_statut_utilisateurs_2' => 'Wählen Sie den Status, der Personen im LDAP-Verzeichnis zugeordnet wird, wenn sie sich zum ersten Mal anmelden. Sie können diesen Wert später für jeden Autor individuell einstellen.', # MODIF
 	'info_suivi_activite' => 'Unterstützung der Redaktionsabläufe',
 	'info_surtitre' => 'Einleitender Titel:',
 	'info_syndication_integrale_1' => 'Ihre Website biete Backend-Dateien zur Syndikation an (siehe « <a href="@url@">@titre@</a> »).',
@@ -502,7 +504,7 @@ in einer Farbe, die den Status anzeigt :',
 	'info_visiteur_2' => 'des öffentlichen Bereichs',
 	'info_visiteurs' => 'Besucher',
 	'info_visiteurs_02' => 'Besucher des öffentlichen Bereichs',
-	'info_webmestre_forces' => 'Die Webmaster sind in der Datei <tt>@file_options@</tt> konfiguriert.',
+	'info_webmestre_forces' => 'Die Webmaster sind in der Datei <tt>@file_options@</tt> konfiguriert.', # MODIF
 	'install_adresse_base_hebergeur' => 'Adresse der vom Provider zugewiesenen Datenbank',
 	'install_connect_ok' => 'Die neue Datenbank wurde unter dem Namen @connect@ deklariert.',
 	'install_echec_annonce' => 'Die Installation wird wahrscheinlich fehlschlagen oder eine nicht funktionierende Site ergeben.',
@@ -532,10 +534,10 @@ in einer Farbe, die den Status anzeigt :',
 	'intitule_licence' => 'Lizenz',
 	'item_accepter_inscriptions' => 'Anmeldungen erlauben',
 	'item_activer_messages_avertissement' => 'Aktuelle Benachrichtigungen einschalten',
-	'item_administrateur_2' => 'Administrator',
+	'item_administrateur_2' => 'Administrator', # MODIF
 	'item_afficher_calendrier' => 'Im Kalender anzeigen',
 	'item_autoriser_syndication_integrale' => 'Vollständige Artikel im Feed übertragen',
-	'item_choix_administrateurs' => 'Administratoren',
+	'item_choix_administrateurs' => 'Administratoren', # MODIF
 	'item_choix_generation_miniature' => 'Vorschaubilder automatisch generieren.',
 	'item_choix_non_generation_miniature' => 'Keine Vorschaubilder generieren.',
 	'item_choix_redacteurs' => 'Redakteure',
@@ -705,14 +707,20 @@ in einer Farbe, die den Status anzeigt :',
 	'protocole_ldap' => 'Version des Protokolls:',
 
 	// Q
+	'queue_args_fonction_label' => 'An die Funktion @fonction@ übergebene Argumente',
+	'queue_args_voir' => 'Argumente anzeigen',
 	'queue_executer_maintenant' => 'Jetzt ausführen',
+	'queue_fonction_label' => 'Funktion',
 	'queue_info_purger' => 'Sie können alle anstehenden Aufgaben löschen und so die Liste der regelmäßigen Aufgaben neu einlesen.',
+	'queue_liens_label' => 'Links',
 	'queue_nb_jobs_in_queue' => '@nb@ Aufgaben in der Warteschlange',
 	'queue_next_job_in_nb_sec' => 'Nächste Aufgabe in @nb@ s',
+	'queue_next_job_scheduled' => 'Nächste Aufgabe',
 	'queue_no_job_in_queue' => 'Keine Aufgaben in der Warteschlange',
 	'queue_one_job_in_queue' => '1 Aufgabe in der Warteschlange',
 	'queue_priorite_tache' => 'Rangfolge',
 	'queue_purger_queue' => 'Aufgabenliste löschen',
+	'queue_statut_en_cours' => 'In Bearbeitung',
 	'queue_titre' => 'Hintergrundprozesse',
 
 	// R
@@ -734,15 +742,15 @@ in einer Farbe, die den Status anzeigt :',
 	'taille_repertoire_cache' => 'Grösse des Cache-Verzeichnis',
 	'text_article_propose_publication' => 'Dieser Artikel ist zur Veröffentlichung vorgeschlagen.',
 	'texte_acces_ldap_anonyme_1' => 'Manche LDAP-Server erlauben keinen anonymen Zugriff. In diesem Fall muss man Zugangsdaten für die erste Anmeldung eingeben, um Informationen im Verzeichnis suchen zu können. Meistens kann man hingegen die folgenden Felder frei lassen.',
-	'texte_admin_effacer_01' => 'Dieser Befehl löscht den <i>gesamten</i> Inhalt der Datenbank mit <i>allen</i> Redakteuren und Administratoren. Nach der Ausführung dieses Befehls müssen Sie SPIP neu installieren und einen ersten Administrator anlegen.',
+	'texte_admin_effacer_01' => 'Dieser Befehl löscht den <i>gesamten</i> Inhalt der Datenbank mit <i>allen</i> Redakteuren und Administratoren. Nach der Ausführung dieses Befehls müssen Sie SPIP neu installieren und einen ersten Administrator anlegen.', # MODIF
 	'texte_adresse_annuaire_1' => '(Wenn Ihr Verzeichnis auf dem selben Rechner installiert ist wie diese Website, müssen Sie wahrscheinlich „localhost“ angeben.)',
 	'texte_ajout_auteur' => 'Folgender Autor ist diesem Artikel zugeordnet worden:',
-	'texte_annuaire_ldap_1' => 'Wenn Sie Zugang zu einem LDAP-Verzeichnis haben, können Sie es verwenden, um Benutzer automatisch nach SPIP zu importieren.',
+	'texte_annuaire_ldap_1' => 'Wenn Sie Zugang zu einem LDAP-Verzeichnis haben, können Sie es verwenden, um Benutzer automatisch nach SPIP zu importieren.', # MODIF
 	'texte_article_statut' => 'Dieser Artikel ist:',
 	'texte_article_virtuel' => 'Virtueller Artikel',
 	'texte_article_virtuel_reference' => '<b>Virtueller Artikel:</b> Dieser Artikel ist Teil Ihrer Website, leitet Besucher aber zu einer anderen URL um. Sie können die Umleitung abschalten, indem Sie den URL oben löschen.',
 	'texte_aucun_resultat_auteur' => 'Kein Ergebnis für “@cherche_auteur@”',
-	'texte_auteur_messagerie' => 'Die Website kann Ihnen eine Liste aktuell eingelogter Redakteure anzeigen, so dass Sie sofort miteinander in Kontakt treten können (Wenn das Nachrichtensystem abgeschaltet ist, gibt es auch keine Liste angemeldeter Redakteure). Sie haben die Möglichkeit, nicht in diese Liste aufgenommen zu werden (damit sind Sie für andere Benutzer "unsichtbar").',
+	'texte_auteur_messagerie' => 'Die Website kann Ihnen eine Liste aktuell eingelogter Redakteure anzeigen, so dass Sie sofort miteinander in Kontakt treten können (Wenn das Nachrichtensystem abgeschaltet ist, gibt es auch keine Liste angemeldeter Redakteure). Sie haben die Möglichkeit, nicht in diese Liste aufgenommen zu werden (damit sind Sie für andere Benutzer "unsichtbar").', # MODIF
 	'texte_auteurs' => 'AUTOREN',
 	'texte_choix_base_1' => 'Wählen Sie die Datenbank:',
 	'texte_choix_base_2' => 'Der SQL-Server enthält mehrere Datenbanken.',
@@ -769,7 +777,7 @@ in einer Farbe, die den Status anzeigt :',
 	'texte_en_cours_validation' => 'Die folgenden Einträge sind zur Veröffentlichung vorgeschlagen.',
 	'texte_enrichir_mise_a_jour' => 'Sie können Ihren Text ansprechend gestalten, indem Sie die typografischen Abkürzungen verwenden.',
 	'texte_fichier_authent' => '<b>Soll SPIP die Dateien <tt>.htpasswd</tt> und <tt>.htpasswd-admin</tt> im Verzeichnis @dossier@ anlegen?</b><p>
- Mit diesen Dateien können Sie den Zugang zu anderen Bereichen Ihrer Website (z.B. externe Logfile-Auswertungen) auf Redakteure und Administratoren beschränken.</p><p>Wenn Sie diese Möglickeit nicht nutzen, könnn Sie hier die Grundeinstellung (Dateien werden nicht angelegt) beibehalten.</p>',
+ Mit diesen Dateien können Sie den Zugang zu anderen Bereichen Ihrer Website (z.B. externe Logfile-Auswertungen) auf Redakteure und Administratoren beschränken.</p><p>Wenn Sie diese Möglickeit nicht nutzen, könnn Sie hier die Grundeinstellung (Dateien werden nicht angelegt) beibehalten.</p>', # MODIF
 	'texte_informations_personnelles_1' => 'Das System wird nun persönliche Zugangsdaten für Sie anlegen.',
 	'texte_informations_personnelles_2' => '(Hinweis: Wenn Sie die Site erneut installieren, und Ihre Zugangsdaten funktionieren, können Sie',
 	'texte_introductif_article' => '(Einleitender Text des Artikels.)',
@@ -778,7 +786,7 @@ in einer Farbe, die den Status anzeigt :',
 	'texte_jeu_caractere_4' => 'Wenn das nicht mit den Erfordernissen ihrer Daten übereinstimmt (z.B. nach der Wiederherstellung einer Datensicherung), oder wenn sie die Website neu einrichten und einen anderen Zeichernsatz verwenden möchten, stellen sie ihn bitte hier ein:',
 	'texte_login_ldap_1' => '(Keine Angabe bzw. vollständiger Pfad, z.B. „<tt>uid=meier, ou=mitglieder, dc=MeineDomäne, dc=com</tt>“.)',
 	'texte_login_precaution' => 'Achtung! Sie sind zur Zeit mit diesem Namen angemeldet. Bitte verwenden Sie diese Seite mit der erforderlichen Vorsicht.',
-	'texte_messagerie_agenda' => 'Mit dem Nachrichtensystem können Redakteure im Redaktionsbereich direkt miteinander kommunizieren. Es ist mit einem Kalender verbunden.',
+	'texte_messagerie_agenda' => 'Mit dem Nachrichtensystem können Redakteure im Redaktionsbereich direkt miteinander kommunizieren. Es ist mit einem Kalender verbunden.', # MODIF
 	'texte_mise_a_niveau_base_1' => 'Sie haben den Programmcode von SPIP aktualisiert. Jetzt muss die Datenbank aktualisiert werden.',
 	'texte_modifier_article' => 'Artikel bearbeiten:',
 	'texte_multilinguisme' => 'Wenn Sie Artikel in mehreren Sprachen mit entsprecher komplexer Navigation verwalten möchten, können Sie den Rubriken und/oder den Artikeln ein Menü zur Sprachauswahl hinzufügen. Diese Funktion ist abhängig von der Struktur Ihrer Website.',
@@ -824,11 +832,10 @@ Wenn das Problem weiter besteht, nehmen Sie bitte Kontakt mit Ihrem Provider auf
 	'texte_titre_02' => 'Titel:',
 	'texte_titre_obligatoire' => '<b>Titel</b> [obligatorisch]',
 	'texte_travail_article' => '@nom_auteur_modif@ hat diesen Artikel vor @date_diff@ Minuten bearbeitet',
-	'texte_travail_collaboratif' => 'Wenn es öfter vorkommt, dass mehrere Redakteure gemeinsam an Artikeln arbeiten, kann SPIP die vor kurzem „geöffneten“ Artikel anzeigen, um gleichzeitige Änderungen vorzubeugen. Diese Funktion ist normalerweise abgeschaltet, um störende Meldungen zu reduzieren.',
+	'texte_travail_collaboratif' => 'Wenn es öfter vorkommt, dass mehrere Redakteure gemeinsam an Artikeln arbeiten, kann SPIP die vor kurzem „geöffneten“ Artikel anzeigen, um gleichzeitige Änderungen vorzubeugen. Diese Funktion ist normalerweise abgeschaltet, um störende Meldungen zu reduzieren.', # MODIF
 	'texte_vide' => 'leer',
 	'texte_vider_cache' => 'Cache leeren',
 	'titre_admin_tech' => 'Wartung',
-	'titre_admin_vider' => 'Wartung',
 	'titre_ajouter_un_auteur' => 'Autor hinzufügen',
 	'titre_ajouter_un_mot' => 'Schlagwort hinzufügen',
 	'titre_cadre_afficher_article' => 'Artikel anzeigen',

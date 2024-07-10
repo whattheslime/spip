@@ -1,6 +1,6 @@
 <?php
 // This is a SPIP language file  --  Ceci est un fichier langue de SPIP
-// extrait automatiquement de https://trad.spip.net/tradlang_module/spip?lang_cible=it
+// extrait automatiquement de https://trad.spip.net/tradlang_module/spip_?lang_cible=it
 // ** ne pas modifier le fichier **
 
 return [
@@ -273,7 +273,7 @@ indirizzo qui sotto. (Altrimenti la tua richiesta sarà ignorata.):
 	'form_pet_signature_pasprise' => 'La tua adesione non è stata presa in considerazione.',
 	'form_prop_confirmer_envoi' => 'Conferma l’invio',
 	'form_prop_description' => 'Descrizione/commento',
-	'form_prop_enregistre' => 'La tua proposta è stata registrata ed apparirà on line dopo l’approvazione del responsabile del sito.',
+	'form_prop_enregistre' => 'La tua proposta è stata registrata ed apparirà on line dopo l’approvazione del responsabile del sito.', # MODIF
 	'form_prop_envoyer' => 'Invia un messaggio',
 	'form_prop_indiquer_email' => 'Indica un indirizzo email valido',
 	'form_prop_indiquer_nom_site' => 'Indica il nome del sito.',
@@ -362,7 +362,7 @@ indirizzo qui sotto. (Altrimenti la tua richiesta sarà ignorata.):
 	'info_breves_nb' => '@nb@ notizie',
 	'info_breves_un' => '1 notizia',
 	'info_connexion_refusee' => 'Connessione rifiutata',
-	'info_contact_developpeur' => 'Contatta un programmatore.',
+	'info_contact_developpeur' => 'Contatta un programmatore.', # MODIF
 	'info_contenance' => 'Questo sito contiene:',
 	'info_contribution' => 'contributi dei forum',
 	'info_copyright' => '@spip@ è un software libero distribuito @lien_gpl@.',
@@ -399,7 +399,7 @@ indirizzo qui sotto. (Altrimenti la tua richiesta sarà ignorata.):
 	'info_impossible_lire_page' => '<b>Errore!</b> Impossibile  leggere la pagina <tt><html>@test_proxy@</html></tt> attraverso il proxy ',
 	'info_installation_systeme_publication' => 'Installazione del sistema di pubblicazione...',
 	'info_installer_documents' => 'È possibile installare automaticamente tutti i documenti contenuti nella cartella @upload@.',
-	'info_installer_ftp' => 'In qualità di amministratore, puoi installare file (via FTP) nella cartella @upload@ per poi selezionarli direttamente.',
+	'info_installer_ftp' => 'In qualità di amministratore, puoi installare file (via FTP) nella cartella @upload@ per poi selezionarli direttamente.', # MODIF
 	'info_installer_images' => 'È possibile installare delle immagini in formato JPEG, GIF e PNG.',
 	'info_installer_images_dossier' => 'Installare delle immagini nella cartella @upload@ per poterle selezionare direttamente.',
 	'info_interface_complete' => 'Interfaccia completa',
@@ -427,8 +427,8 @@ indirizzo qui sotto. (Altrimenti la tua richiesta sarà ignorata.):
 	'info_multi_herit' => 'Lingua predefinita',
 	'info_multi_langues_soulignees' => 'Le <u>lingue sottolineate</u> hanno la traduzione parziale o totale per tutti i testi dell’interfaccia. Se si seleziona una di queste lingue, molti elementi del sito pubblico (date, form) verranno tradotti automaticamente. Per le lingue che non sono sottolineate, invece, tali elementi rimarranno nella lingua principale del sito.',
 	'info_multilinguisme' => 'Multilinguismo',
-	'info_nom_non_utilisateurs_connectes' => 'Il tuo nome non appare nella lista degli utenti collegati.',
-	'info_nom_utilisateurs_connectes' => 'Il tuo nome è visibile nella lista degli utenti collegati.',
+	'info_nom_non_utilisateurs_connectes' => 'Il tuo nome non appare nella lista degli utenti collegati.', # MODIF
+	'info_nom_utilisateurs_connectes' => 'Il tuo nome è visibile nella lista degli utenti collegati.', # MODIF
 	'info_nombre_en_ligne' => 'Attualmente on line:',
 	'info_non_resultat' => 'Nessun risultato per "@cherche_mot@"',
 	'info_non_utilisation_messagerie' => 'Il sistema di messaggistica interna di questo sito non viene utilizzato.',
@@ -469,8 +469,8 @@ indirizzo qui sotto. (Altrimenti la tua richiesta sarà ignorata.):
 	'info_sites_un' => '1 sito',
 	'info_supprimer_vignette' => 'Cancella l’immagine',
 	'info_symbole_bleu' => 'Il simbolo <b>blu</b> indica un <b>memo</b>: cioè un messaggio ad uso personale.',
-	'info_symbole_jaune' => 'Il simbolo <b>giallo</b> indica un <b>annuncio a tutti i redattori</b>: modificabile da tutti gli amministratori e visibile da tutti i redattori.',
-	'info_symbole_vert' => 'Il simbolo <b>verde</b> indica i <b>messaggi scambiati con altri utenti  </b> del sito.',
+	'info_symbole_jaune' => 'Il simbolo <b>giallo</b> indica un <b>annuncio a tutti i redattori</b>: modificabile da tutti gli amministratori e visibile da tutti i redattori.', # MODIF
+	'info_symbole_vert' => 'Il simbolo <b>verde</b> indica i <b>messaggi scambiati con altri utenti  </b> del sito.', # MODIF
 	'info_telecharger_nouveau_logo' => 'Upload di un nuovo logo:',
 	'info_telecharger_ordinateur' => 'Upload dal tuo computer:',
 	'info_tous_resultats_enregistres' => '[tutti i risultati sono salvati]',
@@ -576,16 +576,16 @@ devi attivare Javascript nel tuo browser e',
 	'pass_choix_pass' => 'Inserisci una nuova password:',
 	'pass_erreur' => 'Errore',
 	'pass_erreur_acces_refuse' => '<b>Errore:</b> non hai più accesso a questo sito.',
-	'pass_erreur_code_inconnu' => '<b>Errore:</b> il codice inserito non corriponde a nessuno degli utenti che hanno accesso a questo sito.',
+	'pass_erreur_code_inconnu' => '<b>Errore:</b> il codice inserito non corriponde a nessuno degli utenti che hanno accesso a questo sito.', # MODIF
 	'pass_erreur_non_enregistre' => '<b>Errore:</b> l’indirizzo <tt>@email_oubli@</tt> non è registrato su questo sito.',
 	'pass_erreur_non_valide' => '<b>Errore:</b> questo indirizzo <tt>@email_oubli@</tt> non è valido!',
 	'pass_erreur_probleme_technique' => '<b>Errore:</b> l’email non può essere inviato a causa di un problema tecnico.',
 	'pass_espace_prive_bla' => 'L’area riservata di questo sito è accessibile
 unicamente agli utenti registrati.
 Una volta iscritto, potrai consultare gli articoli in corso di redazione,
-proporre nuovi articoli e partecipare a tutti i forum.',
+proporre nuovi articoli e partecipare a tutti i forum.', # MODIF
 	'pass_forum_bla' => 'Hai chiesto di intervenire su un forum
-riservato agli utenti registrati.',
+riservato agli utenti registrati.', # MODIF
 	'pass_indiquez_cidessous' => 'Indica qui sotto l’indirizzo email con il quale ti sei registrato precedentemente.
 Riceverai un email con le istruzioni per recuperare i dati di accesso al sito.',
 	'pass_mail_passcookie' => '(questo è un messaggio generato automaticamente)
@@ -598,7 +598,7 @@ Clicca su questo link:
 Potrai quindi inserire una nuova password 
 e riconnetterti all’area riservata.
 
-',
+', # MODIF
 	'pass_mot_oublie' => 'Password dimenticata',
 	'pass_nouveau_enregistre' => 'La nuova password è stata salvata.',
 	'pass_nouveau_pass' => 'Nuova password',
@@ -654,7 +654,7 @@ Prova a ',
 riavviato il tuo browser.',
 	'texte_inc_config' => 'Le modifiche effettuate in queste pagine influenzano notevolmente il
 funzionamento del sito. Non intervenire finché non conosci bene i meccanismi del sistema SPIP. <br /><br /><b>In generale, si consiglia di lasciare sempre al webmaster la configurazione delle opzioni qui presenti.</b>',
-	'texte_inc_meta_1' => 'La scrittura del file <code>@fichier@</code> ha causato un errore di sistema. L’amministratore del sito, ',
+	'texte_inc_meta_1' => 'La scrittura del file <code>@fichier@</code> ha causato un errore di sistema. L’amministratore del sito, ', # MODIF
 	'texte_inc_meta_2' => 'verifichi i diritti di scrittura',
 	'texte_inc_meta_3' => 'nella cartella <code>@repertoire@</code>.',
 	'texte_statut_en_cours_redaction' => 'in corso di redazione',
@@ -666,7 +666,7 @@ funzionamento del sito. Non intervenire finché non conosci bene i meccanismi de
 	'titre_cadre_raccourcis' => 'SCELTA RAPIDA:',
 	'titre_changer_couleur_interface' => 'Cambia il colore dell’interfaccia',
 	'titre_image_admin_article' => 'Puoi amministrare questo articolo',
-	'titre_image_administrateur' => 'Amministratore',
+	'titre_image_administrateur' => 'Amministratore', # MODIF
 	'titre_image_aide' => 'Aiuto su questo elemento',
 	'titre_image_auteur_supprime' => 'Autore eliminato',
 	'titre_image_redacteur' => 'Redattore senza accesso',

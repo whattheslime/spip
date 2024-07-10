@@ -1,6 +1,6 @@
 <?php
 // This is a SPIP language file  --  Ceci est un fichier langue de SPIP
-// extrait automatiquement de https://trad.spip.net/tradlang_module/public?lang_cible=en
+// extrait automatiquement de https://trad.spip.net/tradlang_module/public_?lang_cible=en
 // ** ne pas modifier le fichier **
 
 return [
@@ -44,7 +44,7 @@ return [
 	'en_reponse' => 'Replying to:',
 	'en_resume' => 'Summary',
 	'envoyer_message' => 'Send a message',
-	'espace_prive' => 'Private area',
+	'espace_prive' => 'Back-office',
 
 	// F
 	'formats_acceptes' => 'Valid formats: @formats@.',
@@ -81,7 +81,7 @@ return [
 	'page_precedente' => 'previous page',
 	'page_suivante' => 'next page',
 	'par_auteur' => 'by ',
-	'participer_site' => 'You can take active part in this website and write your own articles by signing up here. You will receive an email with your account information for the private area of the site.',
+	'participer_site' => 'You can take active part in this website and write your own articles by signing up here. You will receive an email with your account information for the back-office of the site.',
 	'plan_site' => 'Site Map',
 	'popularite' => 'Popularity',
 	'poster_message' => 'Post a message',

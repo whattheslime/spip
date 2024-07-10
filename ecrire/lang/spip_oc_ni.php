@@ -1,6 +1,6 @@
 <?php
 // This is a SPIP language file  --  Ceci est un fichier langue de SPIP
-// extrait automatiquement de https://trad.spip.net/tradlang_module/spip?lang_cible=oc_ni
+// extrait automatiquement de https://trad.spip.net/tradlang_module/spip_?lang_cible=oc_ni
 // ** ne pas modifier le fichier **
 
 return [
@@ -227,7 +227,7 @@ dau sit "@nom_site_spip@" (@adresse_site@) :',
 	'form_pet_signature_pasprise' => 'La voastra signatura es pas pilhada en còmpte.',
 	'form_prop_confirmer_envoi' => 'Confirmar lo mandadís',
 	'form_prop_description' => 'Descripcion/comentari',
-	'form_prop_enregistre' => 'La voastra proposicion es registrada, apareisserà en linha après validacion per lu responsables dau sit.',
+	'form_prop_enregistre' => 'La voastra proposicion es registrada, apareisserà en linha après validacion per lu responsables dau sit.', # MODIF
 	'form_prop_envoyer' => 'Mandar un messatge',
 	'form_prop_indiquer_email' => 'Vorgatz indicar una adreça e-mail valida',
 	'form_prop_indiquer_nom_site' => 'Vorgatz indicar lo nom dau sit.',
@@ -308,7 +308,7 @@ dau sit "@nom_site_spip@" (@adresse_site@) :',
 	'info_authentification_ftp' => 'autentificacion (per FTP).',
 	'info_breves_2' => 'brèvas',
 	'info_connexion_refusee' => 'Connexion refusada',
-	'info_contact_developpeur' => 'Vorgatz contactar un desvolopaire.',
+	'info_contact_developpeur' => 'Vorgatz contactar un desvolopaire.', # MODIF
 	'info_contenance' => 'Aqueu sit compren :',
 	'info_contribution' => 'contribucions',
 	'info_copyright' => 'es un logiciau liure distribuit @lien_gpl@.',
@@ -342,7 +342,7 @@ dau sit "@nom_site_spip@" (@adresse_site@) :',
 	'info_impossible_lire_page' => '<b>Error !</b> Impossible de lièger la pàgina <tt><html>@test_proxy@</html></tt> à travèrs lo proxy <tt>',
 	'info_installation_systeme_publication' => 'Installacion dau sistema de publicacion...',
 	'info_installer_documents' => 'Podètz installar automaticament toi lu documents contenguts dins lo dorsier @upload@.',
-	'info_installer_ftp' => 'Coma administrator, podètz installar (per FTP) de fichiers dins lo dorsier @upload@ pi lu seleccionar directament aquí.',
+	'info_installer_ftp' => 'Coma administrator, podètz installar (per FTP) de fichiers dins lo dorsier @upload@ pi lu seleccionar directament aquí.', # MODIF
 	'info_installer_images' => 'Podètz installar d’imatges ai formats JPEG, GIF e PNG.',
 	'info_installer_images_dossier' => 'Installar d’imatges dins lo dorsier @upload@ per lu poder seleccionar aquí.',
 	'info_interface_complete' => 'interfaça completa',
@@ -368,8 +368,8 @@ dau sit "@nom_site_spip@" (@adresse_site@) :',
 	'info_multi_herit' => 'Lenga predefinida',
 	'info_multi_langues_soulignees' => 'Li <u>lengas solinhadas</u> benefícion d’una revirada de toi lu tèxtes de l’interfaça. Se seleccionatz aqueli lengas, totplen d’elements dau sit public (datas, formularis) se reviraràn automaticament. Per li lengas non solinhadas, aquelu elements apareisseràn dins la lenga principala dau sit.', # MODIF
 	'info_multilinguisme' => 'Multilengüisme',
-	'info_nom_non_utilisateurs_connectes' => 'Lo voastre nom apareisse pas dins la tièra dei utilisaires connectats.',
-	'info_nom_utilisateurs_connectes' => 'Lo voastre nom apareisse dins la tièra dei utilisaires connectats.',
+	'info_nom_non_utilisateurs_connectes' => 'Lo voastre nom apareisse pas dins la tièra dei utilisaires connectats.', # MODIF
+	'info_nom_utilisateurs_connectes' => 'Lo voastre nom apareisse dins la tièra dei utilisaires connectats.', # MODIF
 	'info_nombre_en_ligne' => 'Aüra en linha :',
 	'info_non_resultat' => 'Minga de resultat per \\\\\\"@cherche_mot@\\\\\\"',
 	'info_non_utilisation_messagerie' => 'Utilisetz pas la messatgeria interna d’aqueu sit.',
@@ -401,8 +401,8 @@ dau sit "@nom_site_spip@" (@adresse_site@) :',
 	'info_selectionner_fichier_2' => 'Seleccionar un fichier :',
 	'info_supprimer_vignette' => 'suprimir la vinheta',
 	'info_symbole_bleu' => 'Lo simbòl <b>blu</b> marca una <b>nòta de remembrança</b>: es à dire un messatge dau voastre usatge personau.',
-	'info_symbole_jaune' => 'Lo simbòl <b>jaune</b> marca un <b>anonci per toi lu redactors </b>: lu administrators la poadon modificar, cada redactor la pòu veire.',
-	'info_symbole_vert' => 'Lo simbòl <b>verd</b> marca lu <b>messatges escambiats mé d’autres utilisaires</b> dau sit.',
+	'info_symbole_jaune' => 'Lo simbòl <b>jaune</b> marca un <b>anonci per toi lu redactors </b>: lu administrators la poadon modificar, cada redactor la pòu veire.', # MODIF
+	'info_symbole_vert' => 'Lo simbòl <b>verd</b> marca lu <b>messatges escambiats mé d’autres utilisaires</b> dau sit.', # MODIF
 	'info_telecharger_nouveau_logo' => 'Telecargar un novèu lògo :',
 	'info_telecharger_ordinateur' => 'Telecargar despí lo voastre ordinator :',
 	'info_tous_resultats_enregistres' => '[toi lu resultats son registrats]',
@@ -495,16 +495,16 @@ dau sit "@nom_site_spip@" (@adresse_site@) :',
 	'pass_choix_pass' => 'Vorgatz chausir lo voastre novèu mòt de santa Clara :',
 	'pass_erreur' => 'Error',
 	'pass_erreur_acces_refuse' => '<b>Error :</b> podètz plus accedir à-n-aqueu sit.',
-	'pass_erreur_code_inconnu' => '<b>Error :</b> aqueu còde correspoande à minga de visitaires qu’an accès à-n-aqueu sit.',
+	'pass_erreur_code_inconnu' => '<b>Error :</b> aqueu còde correspoande à minga de visitaires qu’an accès à-n-aqueu sit.', # MODIF
 	'pass_erreur_non_enregistre' => '<b>Error :</b> l’adreça <tt>@email_oubli@</tt> es pas registrada sus aqueu sit.',
 	'pass_erreur_non_valide' => '<b>Error :</b> aquel e-mail <tt>@email_oubli@</tt> es pas valid !',
 	'pass_erreur_probleme_technique' => '<b>Error:</b> per l’encausa d’un problema tecnic, l’e-mail si pòu pas mandar. ',
 	'pass_espace_prive_bla' => 'L’espaci privat d’aquest sit es dubèrt ai
   visitaires que si son inscrichs. Un còup registrat/ada,
   podrètz consultar lu articles en cors de redaccion,
-  prepauar d’articles novèus e participar à toi lu fòros.',
+  prepauar d’articles novèus e participar à toi lu fòros.', # MODIF
 	'pass_forum_bla' => 'Avètz demandat d’intervenir dins un fòro
-  reservat ai visitaires registrats.',
+  reservat ai visitaires registrats.', # MODIF
 	'pass_indiquez_cidessous' => 'Marcatz çai sota l’adreça e-mail dont
  vos registreretz lo còup passat.
    Receberetz un e-mail que vos balharà lo biais de
@@ -520,7 +520,7 @@ Vorgatz anar à l’adreça seguenta:
 Podretz intrar un mòt de santa Clara novèu
 e vos tornar connectar au sit.
 
-',
+', # MODIF
 	'pass_mot_oublie' => 'Mòt de santa Clara oblidat',
 	'pass_nouveau_enregistre' => 'Lo voastre novèu mòt de santa Clara es estat registrat.',
 	'pass_nouveau_pass' => 'Mòt de santa Clara novèu',
@@ -570,7 +570,7 @@ e vos tornar connectar au sit.
  acostumat/ada au foncionament dau sistema SPIP. <br /><br /><b>
  En generau, si conselha foart
  de laissar la carga d’aquesti pàginas au webmèstre principau dau voastre sit.</b>',
-	'texte_inc_meta_1' => 'Lo sistèma a rescontrat un error dins l’escritura dau fichier <code>@fichier@</code>. Vorgatz, coma administrator/triz dau sit,',
+	'texte_inc_meta_1' => 'Lo sistèma a rescontrat un error dins l’escritura dau fichier <code>@fichier@</code>. Vorgatz, coma administrator/triz dau sit,', # MODIF
 	'texte_inc_meta_2' => 'verificar lu drechs d’escritura',
 	'texte_inc_meta_3' => 'sus lo repertòri <code>@repertoire@</code>.',
 	'texte_statut_en_cours_redaction' => 'en cors de redaccion',
@@ -582,7 +582,7 @@ e vos tornar connectar au sit.
 	'titre_cadre_raccourcis' => 'ESCORCHAS :',
 	'titre_changer_couleur_interface' => 'Cambiar la color de l’interfaça',
 	'titre_image_admin_article' => 'Podetz administrar aquel article',
-	'titre_image_administrateur' => 'Administrator',
+	'titre_image_administrateur' => 'Administrator', # MODIF
 	'titre_image_aide' => 'D’ajuda sus aquel element',
 	'titre_image_auteur_supprime' => 'Autor suprimit',
 	'titre_image_redacteur' => 'Redactor sensa accès',

@@ -1,6 +1,6 @@
 <?php
 // This is a SPIP language file  --  Ceci est un fichier langue de SPIP
-// extrait automatiquement de https://trad.spip.net/tradlang_module/spip?lang_cible=cpf_hat
+// extrait automatiquement de https://trad.spip.net/tradlang_module/spip_?lang_cible=cpf_hat
 // ** ne pas modifier le fichier **
 
 return [
@@ -220,7 +220,7 @@ sit "@nom_site_spip@" (@adresse_login@) :', # MODIF
 	'form_pet_signature_pasprise' => 'Siyati ou se pa aksepte.',
 	'form_prop_confirmer_envoi' => 'Konfime w vle voye i',
 	'form_prop_description' => 'Dekrisyon/komantè',
-	'form_prop_enregistre' => 'Pwopozisyon ou se kounye-a  ap enskri, li ke parèt apre yon komandè te konfime ali. ',
+	'form_prop_enregistre' => 'Pwopozisyon ou se kounye-a  ap enskri, li ke parèt apre yon komandè te konfime ali. ', # MODIF
 	'form_prop_envoyer' => 'Voye yon mesaj',
 	'form_prop_indiquer_email' => 'Mési enskri yon ladrès limèl ka mache',
 	'form_prop_indiquer_nom_site' => 'Mèsi enskri kouman sit ou rele',
@@ -300,7 +300,7 @@ sit "@nom_site_spip@" (@adresse_login@) :', # MODIF
 	'info_authentification_ftp' => 'Lotantifikasyon (pa FTP).',
 	'info_breves_2' => 'tinouvèl yo',
 	'info_connexion_refusee' => 'Koneksyon te fin refize',
-	'info_contact_developpeur' => 'Mèsi kotenouye yon devlopèr.',
+	'info_contact_developpeur' => 'Mèsi kotenouye yon devlopèr.', # MODIF
 	'info_contenance' => 'Kisa ap kontni nan sit-la :',
 	'info_contribution' => 'mesaj andan fowom', # MODIF
 	'info_copyright' => '@spip@ se yon logisyèl lib ki done @lien_gpl@.',
@@ -360,8 +360,8 @@ sit "@nom_site_spip@" (@adresse_login@) :', # MODIF
 	'info_multi_herit' => 'Lalang ka parèt otomatikman',
 	'info_multi_langues_soulignees' => 'Tout <u>lang souliyé sa-yo</u> ap gen yon tradiksyon tout tèks sa-yo nan lentèfas. Si w chwazi lang sa-yo, genyen plen éléman sou sit piblik (dat, fòmulè)ki tradwi otomatikman. Pou tout lang ki pa souliyé an,  tout éléman sa-yo ke parèt nan lang prensipal sit ou.', # MODIF
 	'info_multilinguisme' => 'Miltilengwism',
-	'info_nom_non_utilisateurs_connectes' => 'Kouman ou rele pap parèt nan lis zitilizatè an liy.',
-	'info_nom_utilisateurs_connectes' => 'Kouman w rele ap parèt nan lis zitilizatè  an liy.',
+	'info_nom_non_utilisateurs_connectes' => 'Kouman ou rele pap parèt nan lis zitilizatè an liy.', # MODIF
+	'info_nom_utilisateurs_connectes' => 'Kouman w rele ap parèt nan lis zitilizatè  an liy.', # MODIF
 	'info_nombre_en_ligne' => 'Moun se an liy :',
 	'info_non_resultat' => 'gen pa oken rézilta pou "@cherche_mot@"',
 	'info_non_utilisation_messagerie' => 'W p’ap itilize lakazmodékri andan sit-la.',
@@ -482,16 +482,16 @@ sit "@nom_site_spip@" (@adresse_login@) :', # MODIF
 	'pass_choix_pass' => 'Mèsi chwazi nouvo modpas ou :',
 	'pass_erreur' => 'Erè',
 	'pass_erreur_acces_refuse' => '<b>Erè :</b> w gen pa pli oken aksé sou sit-la.',
-	'pass_erreur_code_inconnu' => '<b>Erè :</b> kod-la ap’pa koresponn oken vizitè ki genyen aksé sou sit-la.',
+	'pass_erreur_code_inconnu' => '<b>Erè :</b> kod-la ap’pa koresponn oken vizitè ki genyen aksé sou sit-la.', # MODIF
 	'pass_erreur_non_enregistre' => '<b>Erè :</b> ladrès <tt>@email_oubli@</tt> ap pa enskri sou sit-la.',
 	'pass_erreur_non_valide' => '<b>Erè :</b> limèl sa-a <tt>@email_oubli@</tt> ki pa mache !',
 	'pass_erreur_probleme_technique' => '<b>Erè :</b> akoz yon pwoblèm teknik, se pa posib voye limèl sa-a.',
 	'pass_espace_prive_bla' => 'Espas prive sit-la se ouvè pou tout vizitè
   ki enskri dabò. Kan w ap enskri w, w ke kapab,
   fè lekti tout atik ki ankò pou ekri ek pwopoze atik ou mem,
-  osnon mem soutni nan tout fowom sit sa-a .',
+  osnon mem soutni nan tout fowom sit sa-a .', # MODIF
 	'pass_forum_bla' => 'W ap domann soutni nan yon fowom ki rézève
-  pou vizitè ki deja enskri.',
+  pou vizitè ki deja enskri.', # MODIF
 	'pass_indiquez_cidessous' => 'Endik isit anba ladrès limèl w ap enskri w dabò.
 W
    ke genyen yon limel ki di w kouman w ke kapab rekipè laksé ou.
@@ -570,7 +570,7 @@ lès plitò jestyon paj sa-yo pou wèbmèt prensipal sou sit-la.</b>', # MODIF
 	'titre_cadre_raccourcis' => 'TICHEMEN YO :',
 	'titre_changer_couleur_interface' => 'Chanje koulè lentèfas',
 	'titre_image_admin_article' => 'W kapab jère atik-la',
-	'titre_image_administrateur' => 'Komandè',
+	'titre_image_administrateur' => 'Komandè', # MODIF
 	'titre_image_aide' => 'Ann genyen èd sou eleman nan',
 	'titre_image_auteur_supprime' => 'Lotè te kraze',
 	'titre_image_redacteur' => 'Redaktè ap gen pa aksè',

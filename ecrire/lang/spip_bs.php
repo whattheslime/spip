@@ -1,6 +1,6 @@
 <?php
 // This is a SPIP language file  --  Ceci est un fichier langue de SPIP
-// extrait automatiquement de https://trad.spip.net/tradlang_module/spip?lang_cible=bs
+// extrait automatiquement de https://trad.spip.net/tradlang_module/spip_?lang_cible=bs
 // ** ne pas modifier le fichier **
 
 return [
@@ -192,7 +192,7 @@ return [
 	'form_pet_signature_pasprise' => 'Vas potpis nije primljen.',
 	'form_prop_confirmer_envoi' => 'Potvrdi posiljku',
 	'form_prop_description' => 'Opis/komentar',
-	'form_prop_enregistre' => 'Vas prijedlog je registrovan i bice postavljen nakon ovjere od strane odgovornih osoba ove stranice.',
+	'form_prop_enregistre' => 'Vas prijedlog je registrovan i bice postavljen nakon ovjere od strane odgovornih osoba ove stranice.', # MODIF
 	'form_prop_envoyer' => 'Pošaljite poruku',
 	'form_prop_indiquer_email' => 'Naznacite vazecu e-mail adresu',
 	'form_prop_indiquer_nom_site' => 'Naznacite ime strancie.',
@@ -271,7 +271,7 @@ return [
 	'info_authentification_ftp' => 'Authentifikacija (FTP-om).',
 	'info_breves_2' => 'obavjestenja',
 	'info_connexion_refusee' => 'Prijava odbijena',
-	'info_contact_developpeur' => 'Kontaktirajte programera.',
+	'info_contact_developpeur' => 'Kontaktirajte programera.', # MODIF
 	'info_contenance' => 'Ova stranica sadrzi:',
 	'info_contribution' => 'Pridonos foruma', # MODIF
 	'info_copyright' => '@spip@ je slobodni softver distribucije @lien_gpl@.',
@@ -303,7 +303,7 @@ return [
 	'info_impossible_lire_page' => '<b>Greska!</b> Nemoguce procitati stranicu <tt><html>@test_proxy@</html></tt> iako proxy <tt>', # MODIF
 	'info_installation_systeme_publication' => 'Instalacija sistema objavljivanja...',
 	'info_installer_documents' => 'Mozete automatski instalirati sve dokumente iz foldera <i>upload</i>.',
-	'info_installer_ftp' => 'Kao administrator mozete putem FTP-a instalirati dokumente iz foldera @upload@ da bi ste ih kasnije izabrali direktno sa ove lokacije.',
+	'info_installer_ftp' => 'Kao administrator mozete putem FTP-a instalirati dokumente iz foldera @upload@ da bi ste ih kasnije izabrali direktno sa ove lokacije.', # MODIF
 	'info_installer_images' => 'Mozete instalirati fotografije formata JPEG, GIF i PNG.',
 	'info_installer_images_dossier' => 'Instalirajte fotografije u folder @upload@ da bi ste ih mogli izabrati sa ov lokacije.',
 	'info_interface_complete' => 'Cjelokupni interfejs',
@@ -329,8 +329,8 @@ return [
 	'info_multi_herit' => 'Standardni jezik',
 	'info_multi_langues_soulignees' => '<u>Podvuceni jezici</u> raspolazu prevodom svih tekstova interfejsa. Ako izaberete jedan od tih jezika, brojni elementi javne stranice (datumi, formulari) ce biti automatski prevedeni. Za nepodvucene jezike, ti ce elementi biti prikazani u glavnom jeziku stranice.', # MODIF
 	'info_multilinguisme' => 'Multilingvizam',
-	'info_nom_non_utilisateurs_connectes' => 'Vase ime se ne pojavljuje na listi prisutnih korisnika.',
-	'info_nom_utilisateurs_connectes' => 'Vase ime se pojavljuje na listi prisutnih korisnika.',
+	'info_nom_non_utilisateurs_connectes' => 'Vase ime se ne pojavljuje na listi prisutnih korisnika.', # MODIF
+	'info_nom_utilisateurs_connectes' => 'Vase ime se pojavljuje na listi prisutnih korisnika.', # MODIF
 	'info_nombre_en_ligne' => 'Trenutno prisutni:',
 	'info_non_resultat' => 'Nema rezultata za "@cherche_mot@"',
 	'info_non_utilisation_messagerie' => 'Ne koristite privatni servis poruka ove stranice.',
@@ -450,13 +450,13 @@ return [
 	'pass_choix_pass' => 'Izaberite vasu novu lozinku:',
 	'pass_erreur' => 'Greska',
 	'pass_erreur_acces_refuse' => '<b>Greska:</b> vise nemate pristup ovoj stranici.',
-	'pass_erreur_code_inconnu' => '<b>Greska:</b> ovaj kod ne odgovara nijednom posjetiocu koji ima pristup ovoj stranici.',
+	'pass_erreur_code_inconnu' => '<b>Greska:</b> ovaj kod ne odgovara nijednom posjetiocu koji ima pristup ovoj stranici.', # MODIF
 	'pass_erreur_non_enregistre' => '<b>Greska:</b> adresa <tt>@email_oubli@</tt> nije registgrovana na ovoj stranici.',
 	'pass_erreur_non_valide' => '<b>Greska:</b> ovaj e-mail <tt>@email_oubli@</tt> nije vazeci!',
 	'pass_erreur_probleme_technique' => '<b>Greska:</b> e-mail nije poslan, radi tehnickog problema.',
 	'pass_espace_prive_bla' => 'Privatni prostor ove stranice je otvoren za posjetioce nakon registrovanja. Nakon registracije, mozete konsultovati clanke u toku uredjivanja,
-predlagati clanke i ucestvovati u svim forumima.',
-	'pass_forum_bla' => 'Trazili ste ucesce u forumu koji je rezervisan za registrovane posjetioce.',
+predlagati clanke i ucestvovati u svim forumima.', # MODIF
+	'pass_forum_bla' => 'Trazili ste ucesce u forumu koji je rezervisan za registrovane posjetioce.', # MODIF
 	'pass_indiquez_cidessous' => 'Ispod naznacite e-mail adresu sa kojom ste trenutno registrovani. Primicete e-mail sa putem koji trebate slijediti da biste ponovo dobili pristup.',
 	'pass_mail_passcookie' => '(ovo je automatska poruka)
 Da biste ponovo dobili pristup
@@ -468,7 +468,7 @@ Idite na sljedecu adresu:
 
 Tamo mozete unijeti novu lozinku i ponovo se prijaviti na stranicu.
 
-',
+', # MODIF
 	'pass_mot_oublie' => 'Zaboravili ste lozinku',
 	'pass_nouveau_enregistre' => 'Vasa nova lozinka je registrovana.',
 	'pass_nouveau_pass' => 'Nova lozinka',
@@ -508,7 +508,7 @@ Obratite paznu na ovu referencu, ponovo pokusajte nadogradnju i na kraju provjer
 	'texte_inc_auth_2' => 'prijaviti',
 	'texte_inc_auth_3' => ', nakon sto ste iskljucili, a zatim ponovo ukljucili vas navigator.',
 	'texte_inc_config' => 'Dole unesene modifikacije znatno uticu na funkcionisanje vase stranice. Preporucuje se da ne intervenisete ako niste upoznati sa SPIP sistemom. <br /><br /><b>Generalno se preporucuje intervencija webmastera ove stranice.</b>', # MODIF
-	'texte_inc_meta_1' => 'Sistem je naisao na gresku pri pokusaju da pise dokument <code>ecrire/data/meta_cache.php3</code>. Kao administrator stranice,',
+	'texte_inc_meta_1' => 'Sistem je naisao na gresku pri pokusaju da pise dokument <code>ecrire/data/meta_cache.php3</code>. Kao administrator stranice,', # MODIF
 	'texte_inc_meta_2' => 'mozete provjeriti dozvolu pisanja',
 	'texte_inc_meta_3' => 'u direktorij <code>ecrire/data/</code>.',
 	'texte_statut_en_cours_redaction' => 'U toku uredjivanja',
@@ -520,7 +520,7 @@ Obratite paznu na ovu referencu, ponovo pokusajte nadogradnju i na kraju provjer
 	'titre_cadre_raccourcis' => 'PRECICE:',
 	'titre_changer_couleur_interface' => 'Promijeni boju interfejsa',
 	'titre_image_admin_article' => 'Mozete administrirati ovaj clanak',
-	'titre_image_administrateur' => 'Administrator',
+	'titre_image_administrateur' => 'Administrator', # MODIF
 	'titre_image_aide' => 'Pomoc sa ovim elementom',
 	'titre_image_auteur_supprime' => 'Autor izbrisan',
 	'titre_image_redacteur' => 'Urednik bez pristupa',

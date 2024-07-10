@@ -19,7 +19,7 @@ return [
 	'avis_connexion_echec_3' => '<b>Catatan:</b> Pada sejumlah server, anda harus <b>memohon</b> aktivasi akses ke database SQL sebelum anda dapat menggunakannya. Jika anda tidak berhasil mengakses database anda, pastikan anda telah mengajukan permohonan ini.', # MODIF
 	'avis_connexion_ldap_echec_1' => 'Koneksi ke server LDAP gagal.',
 	'avis_connexion_ldap_echec_2' => 'Kembali ke halaman sebelumnya, dan verifikasi informasi yang anda telah berikan.',
-	'avis_connexion_ldap_echec_3' => 'Alternatif lainnya, jangan gunakan dukungan LDAP untuk mengimpor pengguna.',
+	'avis_connexion_ldap_echec_3' => 'Alternatif lainnya, jangan gunakan dukungan LDAP untuk mengimpor pengguna.', # MODIF
 	'avis_deplacement_rubrique' => 'Peringatan! Bagian ini mengandung @contient_breves@ berita@scb@: jika anda memindahkannya, silakan cek kotak ini untuk konfirmasi.',
 	'avis_erreur_connexion_mysql' => 'Kesalahan koneksi SQL',
 	'avis_espace_interdit' => '<b>Area terlarang</b><p>SPIP telah diinstal.', # MODIF
@@ -42,10 +42,10 @@ return [
 	'bouton_envoyer_message' => 'Pesan terakhir: kirim',
 	'bouton_modifier' => 'Modifikasi',
 	'bouton_radio_afficher' => 'Tampilkan',
-	'bouton_radio_apparaitre_liste_redacteurs_connectes' => 'Muncul di daftar editor-editor yang terkoneksi',
+	'bouton_radio_apparaitre_liste_redacteurs_connectes' => 'Muncul di daftar editor-editor yang terkoneksi', # MODIF
 	'bouton_radio_envoi_annonces_adresse' => 'Kirim pengumuman ke alamat:',
 	'bouton_radio_envoi_liste_nouveautes' => 'Kirim daftar berita terbaru',
-	'bouton_radio_non_apparaitre_liste_redacteurs_connectes' => 'Jangan muncul di daftar editor-editor yang terkoneksi',
+	'bouton_radio_non_apparaitre_liste_redacteurs_connectes' => 'Jangan muncul di daftar editor-editor yang terkoneksi', # MODIF
 	'bouton_radio_non_envoi_annonces_editoriales' => 'Jangan kirim pengumuman editorial apapun juga',
 	'bouton_redirection' => 'MENGALIHKAN TUJUAN	',
 	'bouton_relancer_installation' => 'Menjalankan instalasi kembali',
@@ -55,7 +55,7 @@ return [
 	'bouton_vider_cache' => 'Kosongkan cache',
 
 	// C
-	'cache_modifiable_webmestre' => 'Parameter ini dapat dimodifikasi oleh webmaster.',
+	'cache_modifiable_webmestre' => 'Parameter ini dapat dimodifikasi oleh webmaster.', # MODIF
 	'calendrier_synchro' => 'Jika anda menggunakan aplikasi kalender yang kompatibel dengan <b>iCal</b>, anda dapat mensinkronisasikannya dengan informasi situs ini.',
 	'connexion_ldap' => 'Koneksi:',
 
@@ -74,7 +74,7 @@ return [
 	'entree_cle_pgp' => 'Kunci PGP anda',
 	'entree_contenu_rubrique' => '(Isi bagian dalam beberapa kata.)',
 	'entree_identifiants_connexion' => 'Pengidentifikasi koneksi anda...',
-	'entree_informations_connexion_ldap' => 'Silakan isi formulir ini dengan informasi koneksi LDAP. Anda akan memperoleh informasi yang diminta melalui administrator jaringan atau sistem anda.',
+	'entree_informations_connexion_ldap' => 'Silakan isi formulir ini dengan informasi koneksi LDAP. Anda akan memperoleh informasi yang diminta melalui administrator jaringan atau sistem anda.', # MODIF
 	'entree_infos_perso' => 'Siapa anda?',
 	'entree_interieur_rubrique' => 'Dalam bagian:',
 	'entree_liens_sites' => '<b>Tautan web</B> (referensi, situs yang dapat dikunjungi...)',
@@ -137,12 +137,12 @@ return [
 	'info_1_article' => '1 artikel',
 	'info_activer_cookie' => 'Anda apat mengaktifkan <b>cookie administrasi</b>, yang memperbolehkan anda
  untuk berpindah-pindah dengan mudah antara situs umum dan area pribadi.',
-	'info_administrateur' => 'Administrator',
-	'info_administrateur_1' => 'Administrator',
+	'info_administrateur' => 'Administrator', # MODIF
+	'info_administrateur_1' => 'Administrator', # MODIF
 	'info_administrateur_2' => 'situs (<i>gunakan dengan penuh kehati-hatian</i>)',
-	'info_administrateur_site_01' => 'Jika anda adalah seorang administrator situs, silakan',
+	'info_administrateur_site_01' => 'Jika anda adalah seorang administrator situs, silakan', # MODIF
 	'info_administrateur_site_02' => 'klik tautan ini',
-	'info_administrateurs' => 'Administrator',
+	'info_administrateurs' => 'Administrator', # MODIF
 	'info_administrer_rubrique' => 'Anda dapat mengelola bagian ini',
 	'info_adresse' => 'ke alamat:',
 	'info_adresse_url' => 'URL situs umum anda',
@@ -171,7 +171,7 @@ return [
 	'info_chapeau' => 'Dek',
 	'info_chapeau_2' => 'Introduksi:',
 	'info_chemin_acces_1' => 'Pilihan: <b>Path akses dalam direktori</b>',
-	'info_chemin_acces_2' => 'Mulai sekarang, anda harus mengkonfigurasi path akses ke informasi direktori. Informasi ini penting untuk membaca profil pengguna yang disimpan dalam direktori.',
+	'info_chemin_acces_2' => 'Mulai sekarang, anda harus mengkonfigurasi path akses ke informasi direktori. Informasi ini penting untuk membaca profil pengguna yang disimpan dalam direktori.', # MODIF
 	'info_chemin_acces_annuaire' => 'Pilihan: <b>Path akses dalam direktori</B>',
 	'info_choix_base' => 'Langkah ketiga:',
 	'info_classement_1' => ' dari @liste@',
@@ -210,13 +210,12 @@ return [
   SPIP dapat mengirimkan notifikasi melalui e-mail, ke daftar surat seorang editor,
   sebagai contoh permohonan publikasi dan validasi artikel.', # MODIF
 	'info_fichiers_authent' => 'Berkas ototentikasi ".htpasswd"',
-	'info_forums_abo_invites' => 'Situs anda berisikan forum-forum berlangganan; pengunjung dapat mendaftarkan diri pada forum-forum tersebut di situs umum.',
+	'info_forums_abo_invites' => 'Situs anda berisikan forum-forum berlangganan; pengunjung dapat mendaftarkan diri pada forum-forum tersebut di situs umum.', # MODIF
 	'info_gauche_admin_tech' => '<b>Hanya administrator yang memiliki akses ke halaman ini.</b><p> Halaman ini memberikan akses ke berbagai tugas pemeliharaan teknis. Beberapa di antaranya memerlukan proses ototentikasi tersendiri yang membutuhkan akses FTP ke situs web.</p>', # MODIF
-	'info_gauche_admin_vider' => '<b>Hanya administrator yang memiliki akses ke halaman ini.</b><p> Halaman ini memberikan akses ke berbagai tugas pemeliharaan teknis. Beberapa di antaranya memerlukan proses ototentikasi tersendiri yang membutuhkan akses FTP ke situs web.</p>', # MODIF
 	'info_gauche_auteurs' => 'Anda akan menemukan seluruh penulis situs di sini.
- Status dari setiap penulis ditunjukkan oleh warna icon (administrator = hijau; editor = kuning).',
+ Status dari setiap penulis ditunjukkan oleh warna icon (administrator = hijau; editor = kuning).', # MODIF
 	'info_gauche_auteurs_exterieurs' => 'Penulis eksternal, tanpa akses ke situs, ditunjukkan oleh icon biru; penulis yang dihapus oleh icon warna keranjang sampah.', # MODIF
-	'info_gauche_messagerie' => 'Sistem pesan mengizinkan anda bertukar pesan dengan sesama editor, untuk menyimpan memo (untuk keperluan pribadi anda) atau untuk menampilkan pengumuman di halaman depan area pribadi (jika anda seorang administrator).',
+	'info_gauche_messagerie' => 'Sistem pesan mengizinkan anda bertukar pesan dengan sesama editor, untuk menyimpan memo (untuk keperluan pribadi anda) atau untuk menampilkan pengumuman di halaman depan area pribadi (jika anda seorang administrator).', # MODIF
 	'info_gauche_statistiques_referers' => 'Halaman ini menampilkan daftar <i>pereferensi</I>, yakni situs-situs yang memuat tautan ke situs anda, hanya untuk kemarin dan hari ini: sesungguhnya daftar ini diperbaharui setiap 24 jam.',
 	'info_gauche_visiteurs_enregistres' => 'Anda akan menemukan di sini para pengunjung
 	terdaftar di area umum situs (forum-forum berlangganan).',
@@ -230,14 +229,14 @@ return [
 	'info_image_process2' => '<b>Catatan:</b> <i>Jika anda tidak dapat melihat gambar, berarti server anda tidak dikonfigurasi untuk menggunakan peralatan yang ada. Jika anda ingin menggunakan fitur-fitur ini, hubungi bagian teknis penyedia hosting anda dan minta ekstensi «GD» atau «Imagick» diinstal.</i>', # MODIF
 	'info_images_auto' => 'Gambar secara otomatis dikalkulasi',
 	'info_informations_personnelles' => 'Langkah kelima: <b>Informasi pribadi</B>',
-	'info_inscription_automatique' => 'Registrasi otomatis editor-editor baru',
+	'info_inscription_automatique' => 'Registrasi otomatis editor-editor baru', # MODIF
 	'info_jeu_caractere' => 'Set karakter situs',
 	'info_jours' => 'hari',
 	'info_laisser_champs_vides' => 'biarkan kolom-kolom ini kosong)',
 	'info_langues' => 'Bahasa-bahasa situs',
 	'info_ldap_ok' => 'Ototentikasi LDAP diinstal.',
 	'info_lien_hypertexte' => 'Tautan web:',
-	'info_liste_redacteurs_connectes' => 'Daftar editor-editor terkoneksi',
+	'info_liste_redacteurs_connectes' => 'Daftar editor-editor terkoneksi', # MODIF
 	'info_login_existant' => 'Log masuk ini sudah ada.',
 	'info_login_trop_court' => 'Log masuk terlalu pendek.',
 	'info_maximum' => 'maksimum:',
@@ -257,7 +256,7 @@ return [
 	'info_moyenne' => 'rata-rata:',
 	'info_multi_cet_article' => 'Bahasa artikel ini:',
 	'info_multi_langues_choisies' => 'Silakan pilih di bawah bahasa yang tersedia untuk editor situs anda.
-  Bahasa-bahasa yang telah digunakan oleh situs anda (di daftar paling atas) tidak dapat dinonaktifkan.',
+  Bahasa-bahasa yang telah digunakan oleh situs anda (di daftar paling atas) tidak dapat dinonaktifkan.', # MODIF
 	'info_multi_secteurs' => '... hanya untuk bagian-bagian yang berlokasi di root?',
 	'info_nom' => 'Nama',
 	'info_nom_destinataire' => 'Nama penerima',
@@ -276,8 +275,8 @@ return [
 	'info_nouvelle_traduction' => 'Terjemahan baru:',
 	'info_numero_article' => 'NOMOR ARTIKEL:',
 	'info_obligatoire_02' => '[Dibutuhkan]', # MODIF
-	'info_option_accepter_visiteurs' => 'Izinkan registrasi pengunjung dari situs umum',
-	'info_option_ne_pas_accepter_visiteurs' => 'Tolak registrasi pengunjung',
+	'info_option_accepter_visiteurs' => 'Izinkan registrasi pengunjung dari situs umum', # MODIF
+	'info_option_ne_pas_accepter_visiteurs' => 'Tolak registrasi pengunjung', # MODIF
 	'info_options_avancees' => 'OPSI-OPSI LANJUTAN',
 	'info_ou' => 'atau...',
 	'info_page_interdite' => 'Halaman terlarang',
@@ -302,7 +301,7 @@ return [
 	'info_ps' => 'P.S.',
 	'info_publier' => 'publikasi',
 	'info_publies' => 'Artikel anda dipublikasi secara online',
-	'info_question_accepter_visiteurs' => 'Jika templat situs anda mengizinkan pengunjung untuk mendaftar tanpa perlu memasuki area pribadi, silakan aktifkan opsi berikut:',
+	'info_question_accepter_visiteurs' => 'Jika templat situs anda mengizinkan pengunjung untuk mendaftar tanpa perlu memasuki area pribadi, silakan aktifkan opsi berikut:', # MODIF
 	'info_question_inscription_nouveaux_redacteurs' => 'Apakah anda mengizinkan registrasi editor baru dari
   situs yang dipublikasi? Jika anda setuju, pengunjung dapat mendaftar
   melalui formulir terotomasi, dan akan mengakses area pribadi untuk
@@ -325,7 +324,7 @@ return [
 	'info_refuses' => 'Artikel anda ditolak',
 	'info_reglage_ldap' => 'Pilihan: <b>Menyesuaikan impor LDAP</b>',
 	'info_renvoi_article' => '<b>Pengalihan tujuan.</B> Artikel ini mengarah pada halaman:',
-	'info_reserve_admin' => 'Hanya administrator yang dapat memodifikasi alamat ini.',
+	'info_reserve_admin' => 'Hanya administrator yang dapat memodifikasi alamat ini.', # MODIF
 	'info_restreindre_rubrique' => 'Batasi manajemen ke bagian:',
 	'info_resultat_recherche' => 'Hasil-hasil pencarian:',
 	'info_rubriques' => 'Bagian',
@@ -344,13 +343,13 @@ return [
 	'info_sites_proxy' => 'Menggunakan proxy',
 	'info_sites_trouves' => 'Situs ditemukan',
 	'info_sous_titre' => 'Sub judul:',
-	'info_statut_administrateur' => 'Administrator',
+	'info_statut_administrateur' => 'Administrator', # MODIF
 	'info_statut_auteur' => 'Status penulis ini:', # MODIF
 	'info_statut_auteur_a_confirmer' => 'Pendaftaran yang perlu dikonfirmasi',
 	'info_statut_auteur_autre' => 'Status lainnya:',
 	'info_statut_redacteur' => 'Editor',
-	'info_statut_utilisateurs_1' => 'Status standar para pengguna yang diimpor',
-	'info_statut_utilisateurs_2' => 'Pilih status yang diberikan kepada orang-orang yang terdapat di direktori LDAP ketika terkoneksi pertama kali. Nanti anda dapat memodifikasi status tersebut untuk setiap penulis berdasarkan kasus per kasus.',
+	'info_statut_utilisateurs_1' => 'Status standar para pengguna yang diimpor', # MODIF
+	'info_statut_utilisateurs_2' => 'Pilih status yang diberikan kepada orang-orang yang terdapat di direktori LDAP ketika terkoneksi pertama kali. Nanti anda dapat memodifikasi status tersebut untuk setiap penulis berdasarkan kasus per kasus.', # MODIF
 	'info_suivi_activite' => 'Tindak lanjut aktivitas editorial',
 	'info_surtitre' => 'Judul atas:',
 	'info_syndication_integrale_1' => 'Situs anda menyediakan berkas-berkas sindikasi (lihat <a href="@url@">@titre@</a>).',
@@ -397,10 +396,10 @@ dalam warna yang menunjukkan statusnya:',
 	'intem_redacteur' => 'editor',
 	'item_accepter_inscriptions' => 'Izinkan pendaftaran',
 	'item_activer_messages_avertissement' => 'Aktifkan pesan-pesan peringatan',
-	'item_administrateur_2' => 'administrator',
+	'item_administrateur_2' => 'administrator', # MODIF
 	'item_afficher_calendrier' => 'Tampilkan dalam kalender',
 	'item_autoriser_syndication_integrale' => 'Ikut sertakan semua artikel dalam berkas sindikasi',
-	'item_choix_administrateurs' => 'administrator',
+	'item_choix_administrateurs' => 'administrator', # MODIF
 	'item_choix_generation_miniature' => 'Buat gambar-gambar kecil secara otomatis.',
 	'item_choix_non_generation_miniature' => 'Jangan buat gambar-gambar kecil.',
 	'item_choix_redacteurs' => 'editor',
@@ -483,15 +482,15 @@ dalam warna yang menunjukkan statusnya:',
 	'texte_acces_ldap_anonyme_1' => 'Sejumlah server LDAP tidak mengizinkan akses anonim. Dalam hal ini anda harus memberikan satu pengidentifikasi akses awal agar bisa mencari informasi dalam direktori setelahnya. Walaupun demikian, dalam banyak kasus kolom-kolom berikut dapat dibiarkan kosong tidak terisi.',
 	'texte_admin_effacer_01' => 'Perintah ini menghapus <i>semua</i> isi database,
 termasuk <i>semua</i> parameter akses untuk editor dan administrator. Setelah mengeksekusinya, anda sebaiknya
-menginstal kembali SPIP untuk membuat database baru dan akses administrator pertama.',
+menginstal kembali SPIP untuk membuat database baru dan akses administrator pertama.', # MODIF
 	'texte_adresse_annuaire_1' => '( Jika direktori anda diinstal di mesin yang sama dengan situs web anda, kemungkinan besar ini adalah «localhost».)',
 	'texte_ajout_auteur' => 'Penulis berikut telah ditambahkan ke artikel:',
-	'texte_annuaire_ldap_1' => 'Jika anda memiliki akses ke sebuah direktori (LDAP), anda dapat menggunakannya untuk mengimpor pengguna secara otomatis di bawah SPIP.',
+	'texte_annuaire_ldap_1' => 'Jika anda memiliki akses ke sebuah direktori (LDAP), anda dapat menggunakannya untuk mengimpor pengguna secara otomatis di bawah SPIP.', # MODIF
 	'texte_article_statut' => 'Status artikel:',
 	'texte_article_virtuel' => 'Artikel maya',
 	'texte_article_virtuel_reference' => '<b>Artikel maya:</b> artikel referensi di situs SPIP anda, yang dialihkan ke lain URL. Untuk menghapus pengalihan, hapuslah URL di atas.',
 	'texte_aucun_resultat_auteur' => 'Tidak ada hasil untuk "@cherche_auteur@".',
-	'texte_auteur_messagerie' => 'Situs ini dapat memonitor secara terus-menerus daftar editor-editor yang terkoneksi, yang mengizinkan anda untuk bertukar pesan secara langsung. Anda dapat memilih untuk tidak muncul dalam daftar ini (yang membuat anda kemudian, "tak terlihat" di hadapan pengguna lainnya).',
+	'texte_auteur_messagerie' => 'Situs ini dapat memonitor secara terus-menerus daftar editor-editor yang terkoneksi, yang mengizinkan anda untuk bertukar pesan secara langsung. Anda dapat memilih untuk tidak muncul dalam daftar ini (yang membuat anda kemudian, "tak terlihat" di hadapan pengguna lainnya).', # MODIF
 	'texte_auteurs' => 'PENULIS',
 	'texte_choix_base_1' => 'Pilih database anda:',
 	'texte_choix_base_2' => 'Server SQL berisikan sejumlah database.',
@@ -596,11 +595,10 @@ anda memasukkan modifikasi yang penting di grafik atau struktur situs.',
 	'texte_titre_obligatoire' => '<b>Judul</b> [Dibutuhkan]',
 	'texte_travail_article' => '@nom_auteur_modif@ telah bekerja di artikel ini @date_diff@ menit yang lalu',
 	'texte_travail_collaboratif' => 'Jika beberapa editor sering bekerja sama dalam artikel yang sama, sistem dapat menandai artikel-artikel yang saat itu sedang «dibuka» guna menghindari konflik saat diedit.
-  Opsi ini dinonaktifkan secara standar untuk menghindri pesan-pesan peringatan yang tidak perlu.',
+  Opsi ini dinonaktifkan secara standar untuk menghindri pesan-pesan peringatan yang tidak perlu.', # MODIF
 	'texte_vide' => 'kosong',
 	'texte_vider_cache' => 'Kosongkan cache',
 	'titre_admin_tech' => 'Pemeliharaan teknis',
-	'titre_admin_vider' => 'Pemeliharaan teknis',
 	'titre_cadre_afficher_article' => 'Tampilkan artikel:',
 	'titre_cadre_afficher_traductions' => 'Tampikan status terjemahan dari bahasa-bahasa berikut:',
 	'titre_cadre_ajouter_auteur' => 'TAMBAH SEORANG PENULIS:',

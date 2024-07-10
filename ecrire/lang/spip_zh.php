@@ -1,6 +1,6 @@
 <?php
 // This is a SPIP language file  --  Ceci est un fichier langue de SPIP
-// extrait automatiquement de https://trad.spip.net/tradlang_module/spip?lang_cible=zh
+// extrait automatiquement de https://trad.spip.net/tradlang_module/spip_?lang_cible=zh
 // ** ne pas modifier le fichier **
 
 return [
@@ -227,7 +227,7 @@ return [
 	'form_pet_signature_pasprise' => '签名被忽略.',
 	'form_prop_confirmer_envoi' => '确认发送',
 	'form_prop_description' => '描述/注释',
-	'form_prop_enregistre' => '你的提议已经被记录, 站点管理员使它有效它将在线显示.',
+	'form_prop_enregistre' => '你的提议已经被记录, 站点管理员使它有效它将在线显示.', # MODIF
 	'form_prop_envoyer' => '发送消息',
 	'form_prop_indiquer_email' => '请输入有效的电子邮件地址',
 	'form_prop_indiquer_nom_site' => '请输入站点名',
@@ -306,7 +306,7 @@ return [
 	'info_authentification_ftp' => '(通过 FTP)验证.',
 	'info_breves_2' => '简要',
 	'info_connexion_refusee' => '连接禁止',
-	'info_contact_developpeur' => '请联系开发者.',
+	'info_contact_developpeur' => '请联系开发者.', # MODIF
 	'info_contenance' => '站点包括:',
 	'info_contribution' => '论坛投稿', # MODIF
 	'info_copyright' => '@spip@是一款免费软件@lien_gpl@。',
@@ -341,7 +341,7 @@ return [
 	'info_impossible_lire_page' => '<b>错误!</b>通过代理服务，此页不能阅读<tt><html>@test_proxy@</html></tt>',
 	'info_installation_systeme_publication' => '公众系统安装 ...',
 	'info_installer_documents' => '您可以自动安装 @upload@ 中所有文件。',
-	'info_installer_ftp' => '作为管理员，您可安装(通过 FTP)@upload@中文件使得以后能从这儿选择.',
+	'info_installer_ftp' => '作为管理员，您可安装(通过 FTP)@upload@中文件使得以后能从这儿选择.', # MODIF
 	'info_installer_images' => '你可安装的图片格式 JPEG, GIF 及其它 PNG.',
 	'info_installer_images_dossier' => '安装@upload@目录中的图片以便在这里可以选择他们。',
 	'info_interface_complete' => '完整界面',
@@ -367,8 +367,8 @@ return [
 	'info_multi_herit' => '缺省语言',
 	'info_multi_langues_soulignees' => '<u>加下划线的语言</u> 提供了所有界面的语言的翻译. 如果你选择语言, 公共站点的所有元素 (日期, 论坛) 将被自动翻译. 作为没有下划线的语言, 这些元素将出现在站点的主语言界面上.', # MODIF
 	'info_multilinguisme' => '多语言',
-	'info_nom_non_utilisateurs_connectes' => '你的名字不显示在连接用户的列表中.',
-	'info_nom_utilisateurs_connectes' => '你的名字显示在连接用户的列表中.',
+	'info_nom_non_utilisateurs_connectes' => '你的名字不显示在连接用户的列表中.', # MODIF
+	'info_nom_utilisateurs_connectes' => '你的名字显示在连接用户的列表中.', # MODIF
 	'info_nombre_en_ligne' => '现在在线:',
 	'info_non_resultat' => ' "@cherche_mot@"没有结果',
 	'info_non_utilisation_messagerie' => '你没有使用站点内部消息.',
@@ -489,16 +489,16 @@ return [
 	'pass_choix_pass' => '请选择新密码:',
 	'pass_erreur' => '错误',
 	'pass_erreur_acces_refuse' => '<b>错误:</b> 你再也无权访问站点.',
-	'pass_erreur_code_inconnu' => '<b>错误:</b> 代码不符合任何有站点访问权的访问者.',
+	'pass_erreur_code_inconnu' => '<b>错误:</b> 代码不符合任何有站点访问权的访问者.', # MODIF
 	'pass_erreur_non_enregistre' => '<b>错误 :</b> 地址<tt>@email_oubli@</tt> 未在站点注册.',
 	'pass_erreur_non_valide' => '<b>错误 :</b> 电子邮件 <tt>@email_oubli@</tt> 无效!',
 	'pass_erreur_probleme_technique' => '<b>错误 :</b> 电子邮件由于技术原因不能发送.',
 	'pass_espace_prive_bla' => '注册后站点的私有区对访问者开放
 . 一旦注册,
 你可以预览进展中的文章,
-提交文章参与所有的论坛.',
+提交文章参与所有的论坛.', # MODIF
 	'pass_forum_bla' => '你已请求参与论坛
-注册访问者保留区.',
+注册访问者保留区.', # MODIF
 	'pass_indiquez_cidessous' => '在以下输入你以前注册的电子邮件地址
 .你
 将收到电子邮件
@@ -575,7 +575,7 @@ return [
 	'titre_cadre_raccourcis' => '快捷方式:',
 	'titre_changer_couleur_interface' => '改变界面颜色',
 	'titre_image_admin_article' => '你可以管理这篇文章',
-	'titre_image_administrateur' => '管理者',
+	'titre_image_administrateur' => '管理者', # MODIF
 	'titre_image_aide' => '该项目的帮助',
 	'titre_image_auteur_supprime' => '删除的作者',
 	'titre_image_redacteur' => '不能访问的编辑者',

@@ -1,6 +1,6 @@
 <?php
 // This is a SPIP language file  --  Ceci est un fichier langue de SPIP
-// extrait automatiquement de https://trad.spip.net/tradlang_module/spip?lang_cible=vi
+// extrait automatiquement de https://trad.spip.net/tradlang_module/spip_?lang_cible=vi
 // ** ne pas modifier le fichier **
 
 return [
@@ -220,7 +220,7 @@ return [
 	'form_pet_signature_pasprise' => 'Chữ ký bạn đã bị lờ đi.',
 	'form_prop_confirmer_envoi' => 'Xác nhận thông báo gửi đi',
 	'form_prop_description' => 'Mô tả/bình luận',
-	'form_prop_enregistre' => 'Đề nghị của bạn đã được ghi nhận, nó sẽ xuất hiện online sau khi được quản trị viên thông qua.',
+	'form_prop_enregistre' => 'Đề nghị của bạn đã được ghi nhận, nó sẽ xuất hiện online sau khi được quản trị viên thông qua.', # MODIF
 	'form_prop_envoyer' => 'Gửi thư tín',
 	'form_prop_indiquer_email' => 'Xin cho vào địa chỉ email',
 	'form_prop_indiquer_nom_site' => 'Xin cho vào tên của trang web.',
@@ -300,7 +300,7 @@ return [
 	'info_authentification_ftp' => 'Xác nhận (dùng FTP).',
 	'info_breves_2' => 'tin ngắn',
 	'info_connexion_refusee' => 'Không nối vào được',
-	'info_contact_developpeur' => 'Xin liên lạc với lập trình viên.',
+	'info_contact_developpeur' => 'Xin liên lạc với lập trình viên.', # MODIF
 	'info_contenance' => 'Website có:',
 	'info_contribution' => 'thư tín của diễn đàn', # MODIF
 	'info_copyright' => '@spip@ là nhu liệu miễn phí phổ biến @lien_gpl@.',
@@ -360,8 +360,8 @@ return [
 	'info_multi_herit' => 'Ngôn ngữ định sẵn',
 	'info_multi_langues_soulignees' => '<u>Các ngôn ngữ có gạch dưới</u> có nghĩa là phần văn bản của giao diện được dịch qua ngôn ngữ đó. Nếu bạn chọn một ngôn ngữ đó, các phần văn bản (ngày tháng, mẫu đơn) sẽ được tự động dịch qua. Còn những ngôn ngữ không có hàng gạch dưới thì không có bản dịch. Phần giao diện sẽ hiện ra bằng ngôn ngữ chính của trang web.', # MODIF
 	'info_multilinguisme' => 'Dụng nhiều thứ tiếng',
-	'info_nom_non_utilisateurs_connectes' => 'Tên bạn không thấy có trong danh sách những người dùng đang nối vào.',
-	'info_nom_utilisateurs_connectes' => 'Tên bạn có trong danh sách những người dùng đang nối vào.',
+	'info_nom_non_utilisateurs_connectes' => 'Tên bạn không thấy có trong danh sách những người dùng đang nối vào.', # MODIF
+	'info_nom_utilisateurs_connectes' => 'Tên bạn có trong danh sách những người dùng đang nối vào.', # MODIF
 	'info_nombre_en_ligne' => 'Online bây giờ:',
 	'info_non_resultat' => 'Không có kết quả cho "@cherche_mot@"',
 	'info_non_utilisation_messagerie' => 'Bạn không dùng phương tiện thư tín nộ bộ của website này.',
@@ -486,12 +486,12 @@ return [
 	'pass_choix_pass' => 'Xin chọn mật mã mới:',
 	'pass_erreur' => 'Có lỗi',
 	'pass_erreur_acces_refuse' => '<b>Lỗi:</b> bạn không có quyền hạn vào website này nữa.',
-	'pass_erreur_code_inconnu' => '<b>Lỗi:</b> mã số này không trùng hợp với những nhân sự được phép vào website này.',
+	'pass_erreur_code_inconnu' => '<b>Lỗi:</b> mã số này không trùng hợp với những nhân sự được phép vào website này.', # MODIF
 	'pass_erreur_non_enregistre' => '<b>Lỗi:</b> Địa chỉ <tt>@email_oubli@</tt> chưa có ghi danh với website.',
 	'pass_erreur_non_valide' => '<b>Lỗi:</b> Email <tt>@email_oubli@</tt> không đúng!',
 	'pass_erreur_probleme_technique' => '<b>Lỗi:</b> Không gửi email đi được vì trục trặc kỹ thuật.',
-	'pass_espace_prive_bla' => 'Khách thăm viếng chỉ vào được vùng riêng sau khi ghi danh. Ghi danh rồi, bạn có thể xem các bài vở đang soạn, nộp bài vào và tham gia vào các diễn đàn.',
-	'pass_forum_bla' => 'Diễn đàn bạn muốn vào chỉ dành riêng cho các vị khách có ghi danh.',
+	'pass_espace_prive_bla' => 'Khách thăm viếng chỉ vào được vùng riêng sau khi ghi danh. Ghi danh rồi, bạn có thể xem các bài vở đang soạn, nộp bài vào và tham gia vào các diễn đàn.', # MODIF
+	'pass_forum_bla' => 'Diễn đàn bạn muốn vào chỉ dành riêng cho các vị khách có ghi danh.', # MODIF
 	'pass_indiquez_cidessous' => 'Đánh vào địa chỉ email mà bạn đã dùng ghi danh trước đây. Sau đó, bạn sẽ nhận qua email chi tiết chỉ dẫn cách tìm lại phép ra/vô.',
 	'pass_mail_passcookie' => '(đây là thư tín tự động)
 
@@ -556,7 +556,7 @@ Nếu bạn đem vào những hình ảnh trong dạng  @gd_formats@, chúng s�
 	'titre_cadre_raccourcis' => 'NGÕ TẮT:',
 	'titre_changer_couleur_interface' => 'Thay đổi màu của giao diện',
 	'titre_image_admin_article' => 'Bạn có thể quản trị bài này',
-	'titre_image_administrateur' => 'Quản trị viên',
+	'titre_image_administrateur' => 'Quản trị viên', # MODIF
 	'titre_image_aide' => 'Giúp đỡ trên tiết mục này',
 	'titre_image_auteur_supprime' => 'Tác giả bị xoá',
 	'titre_image_redacteur' => 'Tác giả không có quyền',

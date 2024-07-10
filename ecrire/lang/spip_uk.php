@@ -1,6 +1,6 @@
 <?php
 // This is a SPIP language file  --  Ceci est un fichier langue de SPIP
-// extrait automatiquement de https://trad.spip.net/tradlang_module/spip?lang_cible=uk
+// extrait automatiquement de https://trad.spip.net/tradlang_module/spip_?lang_cible=uk
 // ** ne pas modifier le fichier **
 
 return [
@@ -23,6 +23,7 @@ return [
 	'annuler' => 'Відміна',
 	'antispam_champ_vide' => 'Залиште це поле пустим:',
 	'articles_recents' => 'Свіжі статті',
+	'attention_champ_mini_nb_caractères' => 'Увага! Має бути щонайменше @nb@ символів',
 	'avis_1_erreur_saisie' => 'Існує 1 помилка в записі, перевірте інформацію.',
 	'avis_archive_incorrect' => 'це неправильний архівний файл SPIP',
 	'avis_archive_invalide' => 'цей архівний файл не можна використати',
@@ -233,7 +234,8 @@ return [
 	'etape' => 'етап',
 
 	// F
-	'fichier_introuvable' => 'Файл не знайдено: @fichier@', # MODIF
+	'fichier_introuvable' => 'Файл не знайдено: @fichier@',
+	'fonction_introuvable' => 'Не знайдено функція @fonction@().',
 	'form_auteur_confirmation' => 'Будь ласка, підтвердіть ваш e-mail',
 	'form_auteur_email_modifie' => 'Ваш e-mail було змінено.',
 	'form_auteur_envoi_mail_confirmation' => 'Листа про підтвердження було відправлено за адресою @email@. Вам необхідно буде перейти за посиланням в листі, щоб підтвердити вашу поштову адресу.',
@@ -267,7 +269,7 @@ return [
 	'form_pet_signature_pasprise' => 'Ваш підпис проігноровано.',
 	'form_prop_confirmer_envoi' => 'Підтвердити відправлення',
 	'form_prop_description' => 'Опис/коментар',
-	'form_prop_enregistre' => 'Вашу пропозиція було записано і вона з’явиться online після підтвердження адміністраторами сайту.',
+	'form_prop_enregistre' => 'Вашу пропозиція було записано і вона з’явиться online після підтвердження адміністраторами сайту.', # MODIF
 	'form_prop_envoyer' => 'Відправити повідомлення',
 	'form_prop_indiquer_email' => 'Будь ласка, вкажіть коректну e-mail адресу',
 	'form_prop_indiquer_nom_site' => 'Вкажіть назву сайту.',
@@ -276,7 +278,9 @@ return [
 	'form_prop_non_enregistre' => 'Вашу пропозицію не було записано.',
 	'form_prop_sujet' => 'Тема',
 	'form_prop_url_site' => 'URL сайту',
+	'format_date_attendu' => 'Напишіть дату у форматі дд/мм/рррр.',
 	'format_date_incorrecte' => 'Дата або її формат некоректні',
+	'format_heure_attendu' => 'Введіть час у форматі гг:хх.',
 	'format_heure_incorrecte' => 'Час або його формат некоректні',
 	'forum_non_inscrit' => 'Або ви не зареєстровані, або адреса чи пароль неправильні.',
 	'forum_par_auteur' => ' @auteur@',
@@ -354,13 +358,13 @@ return [
 	'info_breves_nb' => '@nb@ новин',
 	'info_breves_un' => '1 новина',
 	'info_connexion_refusee' => 'Підключення заборонено',
-	'info_contact_developpeur' => 'Зв’яжіться з розробниками.',
+	'info_contact_developpeur' => 'Зв’яжіться з розробниками.', # MODIF
 	'info_contenance' => 'На цьому сайті є:',
 	'info_contribution' => 'додатки до форуму',
 	'info_copyright' => '@spip@ - безкоштовне програмне забезпечення, яке розповсюджується @lien_gpl@.',
 	'info_copyright_doc' => 'Більше інформації про SPIP <a href="@spipnet@">@spipnet_affiche@</a>.',
 	'info_copyright_gpl' => 'за ліцензією GPL',
-	'info_cours_edition' => 'В роботі', # MODIF
+	'info_cours_edition' => 'В роботі',
 	'info_creer_repertoire' => 'Створіть файл або папку з назвою:',
 	'info_creer_repertoire_2' => 'в підкаталозі <b>@repertoire@</b>, потім: ',
 	'info_creer_vignette' => 'автоматичне створення мініатюр зображень',
@@ -390,7 +394,7 @@ return [
 	'info_impossible_lire_page' => '<b>Помилка!</b> Сторінку <tt><html>@test_proxy@</html></tt> не можна отримати через проксі сервер',
 	'info_installation_systeme_publication' => 'Установка SPIP ...',
 	'info_installer_documents' => 'Ви можете розмістити файли в папку @upload@ і вони будуть добавлені автоматично.',
-	'info_installer_ftp' => 'Ви можете переписати файли по FTP в папку @upload@, щоб використовувати їх в подальшій роботі.',
+	'info_installer_ftp' => 'Ви можете переписати файли по FTP в папку @upload@, щоб використовувати їх в подальшій роботі.', # MODIF
 	'info_installer_images' => 'Ви можете додавати зображення в форматах JPEG, GIF або PNG.',
 	'info_installer_images_dossier' => 'Додайте зображення в папку  @upload@ для використання їх в цьому меню.',
 	'info_interface_complete' => 'Повний інтерфейс',
@@ -418,8 +422,8 @@ return [
 	'info_multi_herit' => 'Усталена (default) мова',
 	'info_multi_langues_soulignees' => 'Якщо назву <u>мови підкреслено</u>, це означає, що є повний або частковий переклад інтерфейсу SPIP цією мовою. Якщо ви оберете таку мову, більшість елементів загального сайту (дати, форми) буде автоматично переведено. При виборі інших мов усі системні повідомлення будуть виводитися основною мовою сайту.',
 	'info_multilinguisme' => 'Багатомовність',
-	'info_nom_non_utilisateurs_connectes' => 'Не показувати мене в списку користувачів online.',
-	'info_nom_utilisateurs_connectes' => 'Показувати мене в списку користувачів online.',
+	'info_nom_non_utilisateurs_connectes' => 'Не показувати мене в списку користувачів online.', # MODIF
+	'info_nom_utilisateurs_connectes' => 'Показувати мене в списку користувачів online.', # MODIF
 	'info_nombre_en_ligne' => 'Зараз на сайті:',
 	'info_non_resultat' => 'Нічого не знайдено на запит „@cherche_mot@”',
 	'info_non_utilisation_messagerie' => 'Систему приватних повідомлень відключено на цьому сайті.',
@@ -427,6 +431,7 @@ return [
 	'info_nouveaux_messages' => 'У ВАС @total_messages@ НОВИХ ПОВІДОМЛЕНЬ:',
 	'info_numero_abbreviation' => '№',
 	'info_obligatoire' => 'Обов’язкові поля',
+	'info_page_actuelle' => 'Поточна сторінка',
 	'info_pense_bete' => 'ЗАМЕТКА',
 	'info_petit_ecran' => 'Маленький екран',
 	'info_petition_close' => 'Петицію закрито',
@@ -457,8 +462,8 @@ return [
 	'info_sites_un' => '1 сайт',
 	'info_supprimer_vignette' => 'видалити мініатюру',
 	'info_symbole_bleu' => '<b>Синій</b> символ вказує на <b>нотатку</b> - повідомлення для вашого особистого використання.',
-	'info_symbole_jaune' => '<b>Жовтий</b> символ - <b>оголошення всім редакторам </b>: оголошення може редагувати будь-хто з адміністраторів і його бачать усі редактори.',
-	'info_symbole_vert' => '<b>Зелений</b> символ - <b>листування з іншими користувачами</b> сайту.',
+	'info_symbole_jaune' => '<b>Жовтий</b> символ - <b>оголошення всім редакторам </b>: оголошення може редагувати будь-хто з адміністраторів і його бачать усі редактори.', # MODIF
+	'info_symbole_vert' => '<b>Зелений</b> символ - <b>листування з іншими користувачами</b> сайту.', # MODIF
 	'info_telecharger_nouveau_logo' => 'Завантажити нове лого:',
 	'info_telecharger_ordinateur' => 'Завантажити з вашого комп’ютера:',
 	'info_tous_resultats_enregistres' => '[усі результати записано]',
@@ -478,9 +483,15 @@ return [
 	// L
 	'label_ajout_id_rapide' => 'Швидке додання',
 	'label_poids_fichier' => 'Розмір',
+	'label_ponctuer' => '@label@ :',
 	'lien_afficher_icones_seuls' => 'Показувати тільки іконки',
 	'lien_afficher_texte_icones' => 'Показувати іконки і текст',
 	'lien_afficher_texte_seul' => 'Показувати тільки текст',
+	'lien_aller_a_la_derniere_page' => 'Пекрейти до останньої сторінки',
+	'lien_aller_a_la_page_nb' => 'Перейти до сторінки @nb@',
+	'lien_aller_a_la_page_precedente' => 'Перейти до попередньої сторінки',
+	'lien_aller_a_la_page_suivante' => 'Перейти до наступної сторінки',
+	'lien_aller_a_la_premiere_page' => 'Перейти до першої сторінки',
 	'lien_liberer' => 'версія',
 	'lien_liberer_tous' => 'звільнити ці статті',
 	'lien_nouvea_pense_bete' => 'НОВА НОТАТКА',
@@ -522,7 +533,7 @@ return [
 	'login_retoursitepublic' => 'на головну сторінку сайту',
 	'login_sans_cookie' => 'Ідентифікація без cookie',
 	'login_securise' => 'Безпечний вхід',
-	'login_sinscrire' => 'реєстрація', # MODIF
+	'login_sinscrire' => 'Реєстрація',
 	'login_test_navigateur' => 'перевірка браузера/(пере)підключення',
 	'login_verifiez_navigateur' => '(перевірте, що ваш браузер не запам’ятовує ваш пароль ...), ',
 
@@ -556,12 +567,12 @@ return [
 	'pass_choix_pass' => 'Введіть новий пароль:',
 	'pass_erreur' => 'Помилка',
 	'pass_erreur_acces_refuse' => '<b>Помилка:</b> у вас більше нема доступу до цього сайту.',
-	'pass_erreur_code_inconnu' => '<b>Помилка: </b> цей код не дає прав на доступ до цієї частини сайту.',
+	'pass_erreur_code_inconnu' => '<b>Помилка: </b> цей код не дає прав на доступ до цієї частини сайту.', # MODIF
 	'pass_erreur_non_enregistre' => '<b>Помилка:</b> e-mail <tt>@email_oubli@</tt> не зареєстрований на цьому сайті.',
 	'pass_erreur_non_valide' => '<b>Помилка:</b> e-mail <tt>@email_oubli@</tt> неправильний!',
 	'pass_erreur_probleme_technique' => '<b>Помилка:</b> цей лист не може бути відправлений по технічним причинам.',
-	'pass_espace_prive_bla' => 'Ви можете увійти до адміністративної (приватної) частини сайту після реєстрації. Після реєстрації ви можете створювати статті та приймати участь в усіх обговореннях.',
-	'pass_forum_bla' => 'Ви хочете долучитися до форуму, який доступний тільки для зареєстрованих учасників.',
+	'pass_espace_prive_bla' => 'Ви можете увійти до адміністративної (приватної) частини сайту після реєстрації. Після реєстрації ви можете створювати статті та приймати участь в усіх обговореннях.', # MODIF
+	'pass_forum_bla' => 'Ви хочете долучитися до форуму, який доступний тільки для зареєстрованих учасників.', # MODIF
 	'pass_indiquez_cidessous' => 'Для реєстації вкажіть ваш ємейл і вам буде відправлено лист з подальшими інструкціями.',
 	'pass_mail_passcookie' => '(цей лист відправлений автоматично)
 
@@ -614,8 +625,11 @@ and connect again to the site.
 
 	// T
 	'taille_go' => '@taille@ Гб',
+	'taille_go_bi' => '@taille@ ГіБ',
 	'taille_ko' => '@taille@ кб',
+	'taille_ko_bi' => '@taille@ КіБ',
 	'taille_mo' => '@taille@ Mb',
+	'taille_mo_bi' => '@taille@ МіБ',
 	'taille_octets' => '@taille@ bytes',
 	'taille_octets_bi' => '@taille@ bytes',
 	'texte_actualite_site_1' => 'Коли ви звикнете до інтерфейсу, натисніть “',
@@ -630,7 +644,7 @@ and connect again to the site.
 	'texte_inc_auth_2' => '(пере)підключитися',
 	'texte_inc_auth_3' => 'вийдіть і перезавантажте ваш браузер у випадку необхідності.',
 	'texte_inc_config' => 'Зміна налаштувань сайту дуже сильно впливає на його роботу. Настійливо рекомендуємо змінювати налаштування тільки в тому випадку, коли ви чітко передбачаєте, які зміни це викличе. <b>Ви можете попросити консультацію щодо налаштувань системи у розробника вашого сайту.</b>',
-	'texte_inc_meta_1' => 'Система викликала помилку при спробі запису в файл <code>@fichier@</code>. Зверніться до адміністратора сайту, щоб',
+	'texte_inc_meta_1' => 'Система викликала помилку при спробі запису в файл <code>@fichier@</code>. Зверніться до адміністратора сайту, щоб', # MODIF
 	'texte_inc_meta_2' => 'перевірити права доступу на запис',
 	'texte_inc_meta_3' => ' в папці <code>@repertoire@</code>.',
 	'texte_statut_en_cours_redaction' => 'редагується',
@@ -642,7 +656,7 @@ and connect again to the site.
 	'titre_cadre_raccourcis' => 'ШВИДКИЙ ПЕРЕХІД:',
 	'titre_changer_couleur_interface' => 'Зміна кольору інтерфейсу',
 	'titre_image_admin_article' => 'Ви можете адмініструвати цю статтю ',
-	'titre_image_administrateur' => 'Адміністратор',
+	'titre_image_administrateur' => 'Адміністратор', # MODIF
 	'titre_image_aide' => 'Допомога',
 	'titre_image_auteur_supprime' => 'Автора видалено',
 	'titre_image_redacteur' => 'Редактор без доступу',
@@ -661,6 +675,9 @@ and connect again to the site.
 	'trad_definir_reference' => 'Виберіть "@titre@" як джерело для перекладу',
 	'trad_reference' => '(джерело для перекладів)',
 
+	// U
+	'upload_limit' => 'Розмір файлу занадто великий; максимально розмір файлів, дозволенний для завантаження @max@.',
+
 	// Z
 	'zbug_balise_b_aval' => ': B tag too late in loop',
 	'zbug_balise_inexistante' => 'Тег #@balise@ не коректно вказано для @from@ ',
@@ -669,6 +686,7 @@ and connect again to the site.
 	'zbug_boucle_recursive_undef' => 'невизначений рекурсивний цикл (boucle): @nom@',
 	'zbug_calcul' => 'обчислення',
 	'zbug_champ_hors_boucle' => 'Поле @champ@ знаходиться поза циклом (boucle)',
+	'zbug_champ_hors_critere' => 'Тег @champ@ поза критерієм @critere@',
 	'zbug_champ_hors_motif' => 'Поле @champ@ знаходиться поза контекстом @motif@',
 	'zbug_code' => 'код ',
 	'zbug_critere_inconnu' => 'Невідомий критерій @critere@',
@@ -682,6 +700,7 @@ and connect again to the site.
 	'zbug_erreur_compilation' => 'Помилка компіляції',
 	'zbug_erreur_execution_page' => 'Помилка виконання',
 	'zbug_erreur_filtre' => 'Невизначений фільтр @filtre@',
+	'zbug_erreur_filtre_nbarg_min' => 'Фільтр @filtre@ : не вистачає @nb@ аргументу(ів)',
 	'zbug_erreur_meme_parent' => 'Критерій {meme_parent} може бути використаний лише в циклах (FORUMS) і (RUBRIQUES)',
 	'zbug_erreur_squelette' => 'Помилка(и) в шаблоні',
 	'zbug_hors_compilation' => 'Не скомпільовано',

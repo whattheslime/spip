@@ -1,6 +1,6 @@
 <?php
 // This is a SPIP language file  --  Ceci est un fichier langue de SPIP
-// extrait automatiquement de https://trad.spip.net/tradlang_module/spip?lang_cible=fr_fem
+// extrait automatiquement de https://trad.spip.net/tradlang_module/spip_?lang_cible=fr_fem
 // ** ne pas modifier le fichier **
 
 return [
@@ -273,7 +273,7 @@ le site "@nom_site_spip@" (@adresse_login@) :',
 	'form_pet_signature_pasprise' => 'Votre signature n’est pas prise en compte.',
 	'form_prop_confirmer_envoi' => 'Confirmer l’envoi',
 	'form_prop_description' => 'Description/commentaire',
-	'form_prop_enregistre' => 'Votre proposition est enregistrée, elle apparaîtra en ligne après validation par les responsables de ce site.',
+	'form_prop_enregistre' => 'Votre proposition est enregistrée, elle apparaîtra en ligne après validation par les responsables de ce site.', # MODIF
 	'form_prop_envoyer' => 'Envoyer un message',
 	'form_prop_indiquer_email' => 'Veuillez indiquer une adresse email valide',
 	'form_prop_indiquer_nom_site' => 'Veuillez indiquer le nom du site.',
@@ -362,7 +362,7 @@ le site "@nom_site_spip@" (@adresse_login@) :',
 	'info_breves_nb' => '@nb@ brèves',
 	'info_breves_un' => '1 brève',
 	'info_connexion_refusee' => 'Connexion refusée',
-	'info_contact_developpeur' => 'Veuillez contacter une développeuse.',
+	'info_contact_developpeur' => 'Veuillez contacter une développeuse.', # MODIF
 	'info_contenance' => 'Ce site contient :',
 	'info_contribution' => 'contributions',
 	'info_copyright' => '@spip@ est un logiciel libre distribué @lien_gpl@.',
@@ -399,7 +399,7 @@ le site "@nom_site_spip@" (@adresse_login@) :',
 	'info_impossible_lire_page' => '<b>Erreur !</b> Impossible de lire la page <tt><html>@test_proxy@</html></tt> à travers le proxy ',
 	'info_installation_systeme_publication' => 'Installation du système de publication...',
 	'info_installer_documents' => 'Vous pouvez installer automatiquement tous les documents contenus dans le dossier @upload@.',
-	'info_installer_ftp' => 'En tant qu’administratrice, vous pouvez installer (par FTP) des fichiers dans le dossier @upload@ pour ensuite les sélectionner directement ici.',
+	'info_installer_ftp' => 'En tant qu’administratrice, vous pouvez installer (par FTP) des fichiers dans le dossier @upload@ pour ensuite les sélectionner directement ici.', # MODIF
 	'info_installer_images' => 'Vous pouvez installer des images aux formats JPEG, GIF et PNG.',
 	'info_installer_images_dossier' => 'Installer des images dans le dossier @upload@ pour pouvoir les sélectionner ici.',
 	'info_interface_complete' => 'interface complète',
@@ -427,8 +427,8 @@ le site "@nom_site_spip@" (@adresse_login@) :',
 	'info_multi_herit' => 'Langue par défaut',
 	'info_multi_langues_soulignees' => 'Les <u>langues soulignées</u> bénéficient d’une traduction totale ou partielle des textes de l’interface. Si vous sélectionnez ces langues, de nombreux éléments du site public (dates, formulaires) seront automatiquement traduits. Pour les langues non soulignées, ces éléments apparaîtront dans la langue principale du site.',
 	'info_multilinguisme' => 'Multilinguisme',
-	'info_nom_non_utilisateurs_connectes' => 'Votre nom n’apparaît pas dans la liste des utilisatrices connectées.',
-	'info_nom_utilisateurs_connectes' => 'Votre nom apparaît dans la liste des utilisatrices connectées.',
+	'info_nom_non_utilisateurs_connectes' => 'Votre nom n’apparaît pas dans la liste des utilisatrices connectées.', # MODIF
+	'info_nom_utilisateurs_connectes' => 'Votre nom apparaît dans la liste des utilisatrices connectées.', # MODIF
 	'info_nombre_en_ligne' => 'Actuellement en ligne :',
 	'info_non_resultat' => 'Aucun résultat pour "@cherche_mot@"',
 	'info_non_utilisation_messagerie' => 'Vous n’utilisez pas la messagerie interne de ce site.',
@@ -467,8 +467,8 @@ le site "@nom_site_spip@" (@adresse_login@) :',
 	'info_sites_un' => '1 site',
 	'info_supprimer_vignette' => 'supprimer la vignette',
 	'info_symbole_bleu' => 'Le symbole <b>bleu</b> indique un <b>pense-bête</b> : c’est-à-dire un message à votre usage personnel.',
-	'info_symbole_jaune' => 'Le symbole <b>jaune</b> indique une <b>annonce à toutes les rédactrices</b> : modifiable par toutes les administratrices, et visible par toutes les rédactrices.',
-	'info_symbole_vert' => 'Le symbole <b>vert</b> indique les <b>messages échangés avec d’autres utilisatrices</b> du site.',
+	'info_symbole_jaune' => 'Le symbole <b>jaune</b> indique une <b>annonce à toutes les rédactrices</b> : modifiable par toutes les administratrices, et visible par toutes les rédactrices.', # MODIF
+	'info_symbole_vert' => 'Le symbole <b>vert</b> indique les <b>messages échangés avec d’autres utilisatrices</b> du site.', # MODIF
 	'info_telecharger_nouveau_logo' => 'Télécharger un nouveau logo :',
 	'info_telecharger_ordinateur' => 'Télécharger depuis votre ordinateur :',
 	'info_tous_resultats_enregistres' => '[tous les résultats sont enregistrés]',
@@ -575,16 +575,16 @@ le site "@nom_site_spip@" (@adresse_login@) :',
 	'pass_choix_pass' => 'Veuillez choisir votre nouveau mot de passe :',
 	'pass_erreur' => 'Erreur',
 	'pass_erreur_acces_refuse' => '<b>Erreur :</b> vous n’avez plus accès à ce site.',
-	'pass_erreur_code_inconnu' => '<b>Erreur :</b> ce code ne correspond à aucune des visiteuses ayant accès à ce site.',
+	'pass_erreur_code_inconnu' => '<b>Erreur :</b> ce code ne correspond à aucune des visiteuses ayant accès à ce site.', # MODIF
 	'pass_erreur_non_enregistre' => '<b>Erreur :</b> l’adresse <tt>@email_oubli@</tt> n’est pas enregistrée sur ce site.',
 	'pass_erreur_non_valide' => '<b>Erreur :</b> cet email <tt>@email_oubli@</tt> n’est pas valide !',
 	'pass_erreur_probleme_technique' => '<b>Erreur :</b> à cause d’un problème technique, l’email ne peut pas être envoyé.',
 	'pass_espace_prive_bla' => 'L’espace privé de ce site est ouvert aux
 		visiteuses, après inscription. Une fois enregistrée,
 		vous pourrez consulter les articles en cours de rédaction,
-		proposer des articles et participer à tous les forums.',
+		proposer des articles et participer à tous les forums.', # MODIF
 	'pass_forum_bla' => 'Vous avez demandé à intervenir sur un forum
-		réservé aux visiteuses enregistrées.',
+		réservé aux visiteuses enregistrées.', # MODIF
 	'pass_indiquez_cidessous' => 'Indiquez ci-dessous l’adresse email sous laquelle vous
 			vous êtes précédemment enregistrée. Vous
 			recevrez un email vous indiquant la marche à suivre pour
@@ -600,7 +600,7 @@ Veuillez vous rendre à l’adresse suivante :
 Vous pourrez alors entrer un nouveau mot de passe
 et vous reconnecter au site.
 
-',
+', # MODIF
 	'pass_mot_oublie' => 'Mot de passe oublié',
 	'pass_nouveau_enregistre' => 'Votre nouveau mot de passe a été enregistré.',
 	'pass_nouveau_pass' => 'Nouveau mot de passe',
@@ -662,7 +662,7 @@ et vous reconnecter au site.
  familière du fonctionnement du système SPIP. <br /><br /><b>Plus
  généralement, il est fortement conseillé
  de laisser la charge de ces pages à la webmestre principale de votre site.</b>',
-	'texte_inc_meta_1' => 'Le système a rencontré une erreur lors de l’écriture du fichier <code>@fichier@</code>. Veuillez, en tant qu’administratrice du site,',
+	'texte_inc_meta_1' => 'Le système a rencontré une erreur lors de l’écriture du fichier <code>@fichier@</code>. Veuillez, en tant qu’administratrice du site,', # MODIF
 	'texte_inc_meta_2' => 'vérifier les droits d’écriture',
 	'texte_inc_meta_3' => 'sur le répertoire <code>@repertoire@</code>.',
 	'texte_statut_en_cours_redaction' => 'en cours de rédaction',
@@ -674,7 +674,7 @@ et vous reconnecter au site.
 	'titre_cadre_raccourcis' => 'RACCOURCIS :',
 	'titre_changer_couleur_interface' => 'Changer la couleur de l’interface',
 	'titre_image_admin_article' => 'Vous pouvez administrer cet article',
-	'titre_image_administrateur' => 'Administratrice',
+	'titre_image_administrateur' => 'Administratrice', # MODIF
 	'titre_image_aide' => 'De l’aide sur cet élément',
 	'titre_image_auteur_supprime' => 'Autrice supprimée',
 	'titre_image_redacteur' => 'Rédactrice sans accès',

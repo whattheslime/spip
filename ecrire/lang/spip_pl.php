@@ -1,6 +1,6 @@
 <?php
 // This is a SPIP language file  --  Ceci est un fichier langue de SPIP
-// extrait automatiquement de https://trad.spip.net/tradlang_module/spip?lang_cible=pl
+// extrait automatiquement de https://trad.spip.net/tradlang_module/spip_?lang_cible=pl
 // ** ne pas modifier le fichier **
 
 return [
@@ -256,7 +256,7 @@ serwisie "@nom_site_spip@" (@adresse_login@):',
 	'form_pet_signature_pasprise' => 'Twój podpis został zlekceważony.',
 	'form_prop_confirmer_envoi' => 'Potwierdź wysłanie',
 	'form_prop_description' => 'Opis/komentarz',
-	'form_prop_enregistre' => 'Twoja propozycja została zapisana, pojawi się online po jej zatwierdzeniu przez administratora tej strony.',
+	'form_prop_enregistre' => 'Twoja propozycja została zapisana, pojawi się online po jej zatwierdzeniu przez administratora tej strony.', # MODIF
 	'form_prop_envoyer' => 'Wyślij wiadomość',
 	'form_prop_indiquer_email' => 'Proszę wpisać prawidłowy adres e-mail',
 	'form_prop_indiquer_nom_site' => 'Proszę wpisać nazwę strony.',
@@ -340,7 +340,7 @@ serwisie "@nom_site_spip@" (@adresse_login@):',
 	'info_breves_2' => 'newsy',
 	'info_breves_nb' => '@nb@ newsów',
 	'info_connexion_refusee' => 'Brak połączenia',
-	'info_contact_developpeur' => 'Proszę skontaktować się z deweloperem.',
+	'info_contact_developpeur' => 'Proszę skontaktować się z deweloperem.', # MODIF
 	'info_contenance' => 'Ta strona zawiera:',
 	'info_contribution' => 'wpisy na forum', # MODIF
 	'info_copyright' => '@spip@ - darmowe oprogramowanie dystrybuowane w oparciu o licencję @lien_gpl@.',
@@ -374,7 +374,7 @@ serwisie "@nom_site_spip@" (@adresse_login@):',
 	'info_impossible_lire_page' => '<b>Błąd !</b> Nie można odczytać strony<tt><html>@test_proxy@</html></tt> za pośrednictwem proxy<tt>',
 	'info_installation_systeme_publication' => 'Instalacja systemu publikacji...',
 	'info_installer_documents' => 'Możesz automatycznie dodawać wszystkie dokumenty znajdujące się w folderze @upload@.',
-	'info_installer_ftp' => 'Jako administrator możesz umieszczać (przez FTP) pliki w folderze @upload@, aby później wybierać je bezpośrednio stąd.',
+	'info_installer_ftp' => 'Jako administrator możesz umieszczać (przez FTP) pliki w folderze @upload@, aby później wybierać je bezpośrednio stąd.', # MODIF
 	'info_installer_images' => 'Możesz umieszczać obrazki w formatach JPEG, GIF i PNG.',
 	'info_installer_images_dossier' => 'Umieść obrazki w folderze @upload@ aby móc je stąd wybierać.',
 	'info_interface_complete' => 'cały interfejs',
@@ -400,8 +400,8 @@ serwisie "@nom_site_spip@" (@adresse_login@):',
 	'info_multi_herit' => 'Język domyślny',
 	'info_multi_langues_soulignees' => '<u>Podkreślonie języka</u> świadczy o kompletnym przekładzie wszystkich tekstów interfejsu. Jeśli wybierzesz jeden z tych języków, elementy serwisu (daty, formularze) zostaną automatycznie przetłumaczone. W przypadku języków nie-podkreślonych, elementy te ukażą się w głównym języku serwisu.', # MODIF
 	'info_multilinguisme' => 'Wielojęzyczny',
-	'info_nom_non_utilisateurs_connectes' => 'Twoja nazwa nie pojawia się na liście podłączonych użytkowników.',
-	'info_nom_utilisateurs_connectes' => 'Twoje imię występuje na liście podłączonych użytkowników.',
+	'info_nom_non_utilisateurs_connectes' => 'Twoja nazwa nie pojawia się na liście podłączonych użytkowników.', # MODIF
+	'info_nom_utilisateurs_connectes' => 'Twoje imię występuje na liście podłączonych użytkowników.', # MODIF
 	'info_nombre_en_ligne' => 'Teraz online:',
 	'info_non_resultat' => 'Żadnych wyników dla "@cherche_mot@"',
 	'info_non_utilisation_messagerie' => 'Nie korzystasz z wewnętrznej komunikacji tego serwisu.',
@@ -433,8 +433,8 @@ serwisie "@nom_site_spip@" (@adresse_login@):',
 	'info_selectionner_fichier_2' => 'Wybierz plik:',
 	'info_supprimer_vignette' => 'usuń winietę',
 	'info_symbole_bleu' => 'Symbol <b>niebieski</b> oznacza  <b>notatkę</b>: n.p. wiadomość do prywatnego użytku.',
-	'info_symbole_jaune' => 'Symbol <b>żółty</b> oznacza <b>zawiadomienie dla wszystkich redaktorów</b>: może być opublikowana przez wszystkich administratorów, i jest widoczna dla wszystkich redaktorów.',
-	'info_symbole_vert' => 'Symbol <b>zielony</b> oznacza <b>wiadomości wymieniane z innymi użytkownikami</b> strony.',
+	'info_symbole_jaune' => 'Symbol <b>żółty</b> oznacza <b>zawiadomienie dla wszystkich redaktorów</b>: może być opublikowana przez wszystkich administratorów, i jest widoczna dla wszystkich redaktorów.', # MODIF
+	'info_symbole_vert' => 'Symbol <b>zielony</b> oznacza <b>wiadomości wymieniane z innymi użytkownikami</b> strony.', # MODIF
 	'info_telecharger_nouveau_logo' => 'Załaduj nowe logo:',
 	'info_telecharger_ordinateur' => 'Załaduj ze swojego komputera:',
 	'info_tous_resultats_enregistres' => '[wszystkie wyniki są zapisane]',
@@ -526,16 +526,16 @@ serwisie "@nom_site_spip@" (@adresse_login@):',
 	'pass_choix_pass' => 'Proszę wybrać swoje nowe hasło:',
 	'pass_erreur' => 'Błąd',
 	'pass_erreur_acces_refuse' => '<b>Błąd:</b> nie masz już dostępu do tej strony.',
-	'pass_erreur_code_inconnu' => '<b>Błąd :</b> ten kod nie odpowiada, żadnemu z użytkowników, którzy mają dostęp do tej strony.',
+	'pass_erreur_code_inconnu' => '<b>Błąd :</b> ten kod nie odpowiada, żadnemu z użytkowników, którzy mają dostęp do tej strony.', # MODIF
 	'pass_erreur_non_enregistre' => '<b>Błąd :</b> adres <tt>@email_oubli@</tt> nie jest zarejestrowany na tej stronie.',
 	'pass_erreur_non_valide' => '<b>Błąd :</b> e-mail <tt>@email_oubli@</tt> nie jest prawidłowy!',
 	'pass_erreur_probleme_technique' => '<b>Bład :</b> e-mail nie mógł być wysłany z powodu problemów technicznych.',
 	'pass_espace_prive_bla' => 'Strefa prywatna tego serwisu jest dostęna
   dla zapisanych użytkowników. Jako zarejestrowany użytkownik,
   będziesz mógł czytać artykuły, które są w trakcie redagowania,
-  proponować artykuły i brać udział w dyskusjach na forum.',
+  proponować artykuły i brać udział w dyskusjach na forum.', # MODIF
 	'pass_forum_bla' => 'Chcesz wziąć udział w forum
-  zarezerwowanym dla zarejestrowanych użytkowników.',
+  zarezerwowanym dla zarejestrowanych użytkowników.', # MODIF
 	'pass_indiquez_cidessous' => 'Wpisz poniżej adres e-mail pod jakim
 byłeś zarejestrowany poprzednio.
 Otrzymasz e-maila wyjaśniającego jak
@@ -551,7 +551,7 @@ Proszę wejść na stronę:
 
 Po wpisaniu nowego hasła
 można ponownie połączyć się ze stroną.
-',
+', # MODIF
 	'pass_mot_oublie' => 'Zapomniane hasło',
 	'pass_nouveau_enregistre' => 'Twoje nowe hasło zostało zapisane.',
 	'pass_nouveau_pass' => 'Nowe hasło',
@@ -606,7 +606,7 @@ a następnie sprawdź czy obrazki pojawiają się zawsze w artykułach.',
  funkcjonowanie Twojego serwisu. Radzimy nie zatwierdzać tych zmian do momentu, w którym nie będziecie
  dobrze obeznani z funkcjonowaniem systemu SPIP. <br /><br /><b>Najbardziej
  zalecamy, poproszenie o dokonanie zmian głównego adminsitratora serwisu.</b>',
-	'texte_inc_meta_1' => 'System nie może zapisać plików <code>@fichier@</code>. Jako administrator strony,',
+	'texte_inc_meta_1' => 'System nie może zapisać plików <code>@fichier@</code>. Jako administrator strony,', # MODIF
 	'texte_inc_meta_2' => 'sprawdź pozwolenia zapisu',
 	'texte_inc_meta_3' => 'dla katalogu <code>@repertoire@</code>.',
 	'texte_statut_en_cours_redaction' => 'redakcja w toku',
@@ -618,7 +618,7 @@ a następnie sprawdź czy obrazki pojawiają się zawsze w artykułach.',
 	'titre_cadre_raccourcis' => 'SKRÓTY :',
 	'titre_changer_couleur_interface' => 'Zmiana koloru interfejsu',
 	'titre_image_admin_article' => 'Możesz edytować ten artykuł',
-	'titre_image_administrateur' => 'Administrator',
+	'titre_image_administrateur' => 'Administrator', # MODIF
 	'titre_image_aide' => 'Pomoc do tego elementu',
 	'titre_image_auteur_supprime' => 'Autor usunięty',
 	'titre_image_redacteur' => 'Redaktor bez dostępu',

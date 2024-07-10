@@ -20,7 +20,7 @@ return [
 	'avis_connexion_echec_3' => '<b>OBS</b> På många servrar måste du  <b>begära</b> aktivering av din databas innan du kan använda den. Om du inte lyckas med uppkopplingen, se till att den är aktiverad.',
 	'avis_connexion_ldap_echec_1' => 'Anslutning till LDAP-server misslyckades.',
 	'avis_connexion_ldap_echec_2' => 'Återgå till den föregående sidan och kontrollera informationen du angivit.',
-	'avis_connexion_ldap_echec_3' => 'Alternativt kan du välja att inte använda LDAP stöd för att importera användare.',
+	'avis_connexion_ldap_echec_3' => 'Alternativt kan du välja att inte använda LDAP stöd för att importera användare.', # MODIF
 	'avis_deplacement_rubrique' => 'Varning! Den här avdelningen innehåller @contient_breves@ notiser@scb@: om du flyttar den, markera i kryssrutan för att bekräfta.',
 	'avis_erreur_connexion_mysql' => 'Fel på SQL-förbindelsen',
 	'avis_espace_interdit' => '<b>Förbjudet område</b><p>SPIP är redan installerat.', # MODIF
@@ -42,12 +42,13 @@ return [
 	'bouton_desinstaller' => 'Avinstallera',
 	'bouton_effacer_tout' => 'Radera ALLA',
 	'bouton_envoyer_message' => 'Färdigt meddelande: skicka',
+	'bouton_mettre_a_jour' => 'Uppdatera',
 	'bouton_modifier' => 'Ändra',
 	'bouton_radio_afficher' => 'Visa',
-	'bouton_radio_apparaitre_liste_redacteurs_connectes' => 'Synas i listan över anslutna redaktörere',
+	'bouton_radio_apparaitre_liste_redacteurs_connectes' => 'Synas i listan över anslutna redaktörere', # MODIF
 	'bouton_radio_envoi_annonces_adresse' => 'Skicka meddelanden till adressen:',
 	'bouton_radio_envoi_liste_nouveautes' => 'Skicka lista över senaste notiser',
-	'bouton_radio_non_apparaitre_liste_redacteurs_connectes' => 'Inte synas i listan över anslutna redaktörere',
+	'bouton_radio_non_apparaitre_liste_redacteurs_connectes' => 'Inte synas i listan över anslutna redaktörere', # MODIF
 	'bouton_radio_non_envoi_annonces_editoriales' => 'Skicka inga redaktionella meddelanden',
 	'bouton_redirection' => 'OMPEKA',
 	'bouton_relancer_installation' => 'Kör installationen igen',
@@ -57,7 +58,7 @@ return [
 	'bouton_vider_cache' => 'Töm cachen',
 
 	// C
-	'cache_modifiable_webmestre' => 'Den här parametern kan ändras av den webbansvariga.',
+	'cache_modifiable_webmestre' => 'Den här parametern kan ändras av den webbansvariga.', # MODIF
 	'calendrier_synchro' => 'Om du använder ett kalenderprogram som är kompatibelt med <b>iCal</b> kan du synkronisera det med informationen på den här webbplatsen.',
 	'config_activer_champs' => 'Aktivera följande fält',
 	'config_choix_base_sup' => 'Ge namnet på en databas på servern',
@@ -89,7 +90,7 @@ return [
 	'entree_cle_pgp' => 'Din PGP-nyckel',
 	'entree_contenu_rubrique' => '(Några få ord som beskriver innehållet i avdelningen)',
 	'entree_identifiants_connexion' => 'Dina anslutningsuppgifter',
-	'entree_informations_connexion_ldap' => 'Fyll i det här formuläret med uppgifter om din anslutning till LDAP. Din system eller nätverks administratör kan ge dig dessa.',
+	'entree_informations_connexion_ldap' => 'Fyll i det här formuläret med uppgifter om din anslutning till LDAP. Din system eller nätverks administratör kan ge dig dessa.', # MODIF
 	'entree_infos_perso' => 'Vem är du?',
 	'entree_interieur_rubrique' => 'I avdelning:',
 	'entree_liens_sites' => '<b>Hyperlänk</b> (referens, sajt att besöka...)',
@@ -153,12 +154,12 @@ return [
 	'info_1_article' => '1 artikel',
 	'info_activer_cookie' => 'Du kan aktivera en <b>administrationscookie</b>, som tillåter dig
  att enkelt växla mellan den publika och den privata delen.',
-	'info_administrateur' => 'Administratör',
-	'info_administrateur_1' => 'Administratör',
+	'info_administrateur' => 'Administratör', # MODIF
+	'info_administrateur_1' => 'Administratör', # MODIF
 	'info_administrateur_2' => 'på sajten (<i>använd med försiktighet</i>)',
-	'info_administrateur_site_01' => 'Om du är en sajt-administratör, var vänlig',
+	'info_administrateur_site_01' => 'Om du är en sajt-administratör, var vänlig', # MODIF
 	'info_administrateur_site_02' => 'klicka på den här länken',
-	'info_administrateurs' => 'Administratörer',
+	'info_administrateurs' => 'Administratörer', # MODIF
 	'info_administrer_rubrique' => 'Du kan hantera den här avdelningen',
 	'info_adresse' => 'till adressen:',
 	'info_adresse_url' => 'Din sajts publika URL',
@@ -188,7 +189,7 @@ return [
 	'info_chapeau' => 'Ingress',
 	'info_chapeau_2' => 'Introduktion:',
 	'info_chemin_acces_1' => 'inställningar: <b>sökväg i katalogen</b>',
-	'info_chemin_acces_2' => 'Från och med nu måste du konfigurera sökvägen till katalogen information. Det är nödvändigt för att kunna läsa användarprofilerna som är sparade i katalogen.',
+	'info_chemin_acces_2' => 'Från och med nu måste du konfigurera sökvägen till katalogen information. Det är nödvändigt för att kunna läsa användarprofilerna som är sparade i katalogen.', # MODIF
 	'info_chemin_acces_annuaire' => 'Inställningar: <b>Sökväg i katalogen</b>',
 	'info_choix_base' => 'Tredje steget:',
 	'info_code_acces' => 'Glöm inte ditt eget lösenord!',
@@ -227,7 +228,7 @@ return [
   angående publiceringar och godkännanden.', # MODIF
 	'info_fichiers_authent' => 'Lösenordsfil ".htpasswd"',
 	'info_gauche_auteurs' => 'Här hittar du alla redaktörer på sajten.
- Status på var och en av dem visas av färgen på ikonen (administratör = grön; redaktör = gul).',
+ Status på var och en av dem visas av färgen på ikonen (administratör = grön; redaktör = gul).', # MODIF
 	'info_gauche_auteurs_exterieurs' => 'Externa redaktörer utan behörighet på sajten, visas med en blå ikon; raderade redaktörer med en soptunna.', # MODIF
 	'info_generation_miniatures_images' => 'Skapande av tumnagelbilder.',
 	'info_hebergeur_desactiver_envoi_email' => 'Vissa webhotell avaktiverar automatisk mejl
@@ -238,13 +239,13 @@ funktioner hos SPIP inte användas.',
 	'info_image_process' => 'Välj den bästa metoden för att skapa miniatyrer genom att klicka på motsvarande bild.',
 	'info_image_process2' => '<b>OBS!.</b> <i>Om du inte kan se någon bild, så är din server inte konfigurerad för att använda sådana verktyg. Om du vill använda dessa finesser så kontakta din leverantörs tekniska support och be dem installera utökningarna för «GD» eller «Imagick».</i>', # MODIF
 	'info_informations_personnelles' => 'Personlig information',
-	'info_inscription_automatique' => 'Automatisk registreing av nya redaktörer',
+	'info_inscription_automatique' => 'Automatisk registreing av nya redaktörer', # MODIF
 	'info_jeu_caractere' => 'Sajtens teckenuppsättning',
 	'info_jours' => 'dagar',
 	'info_laisser_champs_vides' => 'Lämna dessa fält tomma)',
 	'info_langues' => 'Sajtens språk',
 	'info_lien_hypertexte' => 'Hyperlänk:',
-	'info_liste_redacteurs_connectes' => 'Inlogggade redaktörer',
+	'info_liste_redacteurs_connectes' => 'Inlogggade redaktörer', # MODIF
 	'info_login_existant' => 'Användarnamnet finns redan.',
 	'info_login_trop_court' => 'Användarnamnet är för kort.',
 	'info_logos' => 'Logotyperna',
@@ -266,7 +267,7 @@ funktioner hos SPIP inte användas.',
 	'info_moyenne' => 'genomsnitt:',
 	'info_multi_cet_article' => 'Den här artikelns språk:',
 	'info_multi_langues_choisies' => 'Var vänlig, välj tillgängliga språk för redaktörerna bland språken nedan.
-  Språk som redan används på din sajt (högst upp på listan) kan inte avaktiveras.',
+  Språk som redan används på din sajt (högst upp på listan) kan inte avaktiveras.', # MODIF
 	'info_multi_secteurs' => '... bara för avdelningarna i roten?',
 	'info_nom' => 'Namn',
 	'info_nom_destinataire' => 'Mottagarens namn',
@@ -283,8 +284,8 @@ funktioner hos SPIP inte användas.',
 	'info_nouvelle_traduction' => 'Ny översättning:',
 	'info_numero_article' => 'ARTIKEL NUMMER:',
 	'info_obligatoire_02' => '[Krävs]', # MODIF
-	'info_option_accepter_visiteurs' => 'Tillåt besökare registrera sig på den publika delen',
-	'info_option_ne_pas_accepter_visiteurs' => 'Avvisa besökarregistrering',
+	'info_option_accepter_visiteurs' => 'Tillåt besökare registrera sig på den publika delen', # MODIF
+	'info_option_ne_pas_accepter_visiteurs' => 'Avvisa besökarregistrering', # MODIF
 	'info_options_avancees' => 'AVANCERADE INSTÄLLNINGAR',
 	'info_ou' => 'eller...',
 	'info_page_interdite' => 'Förbjuden sida',
@@ -308,7 +309,7 @@ funktioner hos SPIP inte användas.',
 	'info_ps' => 'P.S.',
 	'info_publier' => 'publicera',
 	'info_publies' => 'Dina onlinepublicerade artiklar',
-	'info_question_accepter_visiteurs' => 'Om sajtens template tillåter besökare att registrera sig utan att gå in i den privata delen, var vänlig och aktivera följande option:',
+	'info_question_accepter_visiteurs' => 'Om sajtens template tillåter besökare att registrera sig utan att gå in i den privata delen, var vänlig och aktivera följande option:', # MODIF
 	'info_racine_site' => 'Sajtens bas',
 	'info_recharger_page' => 'Var vänlig och uppdatera sidan om en liten stund.',
 	'info_recherche_auteur_zero' => 'Inga resultat hittades för "@cherche_auteur@".',
@@ -321,7 +322,7 @@ funktioner hos SPIP inte användas.',
 	'info_refuses' => 'Refuserade artiklar',
 	'info_reglage_ldap' => 'inställningar: <b>anpassar LDAP import</b>',
 	'info_renvoi_article' => '<b>Ompekning.</b> Den här artikeln pekar om till:',
-	'info_reserve_admin' => 'Enbart administratörer kan förändra adressen.',
+	'info_reserve_admin' => 'Enbart administratörer kan förändra adressen.', # MODIF
 	'info_restreindre_rubrique' => 'Begränsa administrationen till avdelningen:',
 	'info_resultat_recherche' => 'Sökresultat:',
 	'info_rubriques' => 'Avdelningar',
@@ -340,12 +341,12 @@ funktioner hos SPIP inte användas.',
 	'info_sites_proxy' => 'Använder en proxy',
 	'info_sites_trouves' => 'Hittade sajter',
 	'info_sous_titre' => 'Undertitel:',
-	'info_statut_administrateur' => 'Administratör',
+	'info_statut_administrateur' => 'Administratör', # MODIF
 	'info_statut_auteur' => 'Redaktörens status:', # MODIF
 	'info_statut_auteur_a_confirmer' => 'Registreringar som skall godkännas',
 	'info_statut_auteur_autre' => 'Annan status:',
 	'info_statut_redacteur' => 'Redaktör',
-	'info_statut_utilisateurs_1' => 'Startinställningar för importerade användare',
+	'info_statut_utilisateurs_1' => 'Startinställningar för importerade användare', # MODIF
 	'info_suivi_activite' => 'Följ upp aktiviteten på sajten',
 	'info_surtitre' => 'Övertitel:',
 	'info_syndication_integrale_1' => 'Din sajt publiceras RSS-filer för syndikering (Se <a href="@url@">@titre@</a>).',
@@ -403,10 +404,10 @@ med en färg som visar deras status:',
 	'intitule_licence' => 'Licens',
 	'item_accepter_inscriptions' => 'Tillåt registreringar',
 	'item_activer_messages_avertissement' => 'Aktivera varningsmeddelanden',
-	'item_administrateur_2' => 'administratör',
+	'item_administrateur_2' => 'administratör', # MODIF
 	'item_afficher_calendrier' => 'Visa i kalendern',
 	'item_autoriser_syndication_integrale' => 'Inkludera hela artiklar i syndikeringsfilerna',
-	'item_choix_administrateurs' => 'administratörer',
+	'item_choix_administrateurs' => 'administratörer', # MODIF
 	'item_choix_generation_miniature' => 'Generera miniatyrer automatiskt.',
 	'item_choix_non_generation_miniature' => 'Generera inte miniatyrer.',
 	'item_choix_redacteurs' => 'redaktörer',
@@ -495,10 +496,10 @@ med en färg som visar deras status:',
 	'text_article_propose_publication' => 'Artikel inlämnad för publicering. tveka inte att säga din mening i forumet längst ned på sidan.', # MODIF
 	'texte_admin_effacer_01' => 'Detta kommando raderar <i>all</i> information i databasen,
 inklusive <i>alla</i> uppgifter om användare. Efter att du använt det, måste du 
-installera om SPIP för att skapa en ny databas och den första administratören.',
+installera om SPIP för att skapa en ny databas och den första administratören.', # MODIF
 	'texte_adresse_annuaire_1' => '( Om din katalog är installerad på samma dator som din websajt, är det troligen «localhost».)',
 	'texte_ajout_auteur' => 'Följande redaktör lades till artikeln:',
-	'texte_annuaire_ldap_1' => 'Om du har tillgång till en LDAP-katalog kan du använda den för att importera användare till SPIP.',
+	'texte_annuaire_ldap_1' => 'Om du har tillgång till en LDAP-katalog kan du använda den för att importera användare till SPIP.', # MODIF
 	'texte_article_statut' => 'Artikelns status:',
 	'texte_article_virtuel' => 'Virtuell artikel',
 	'texte_article_virtuel_reference' => '<b>Virtuell Artikel:</b> länkad artikel i din SPIP site, men ompekad till en annan URL. För att ta bort ompekningen, radera denna URL.',
@@ -541,7 +542,6 @@ gjort viktiga förändringar i sajtens utseende eller struktur.',
 	'texte_vide' => 'tom',
 	'texte_vider_cache' => 'töm cachen',
 	'titre_admin_tech' => 'Tekniskt underhåll',
-	'titre_admin_vider' => 'Tekniskt underhåll',
 	'titre_cadre_afficher_article' => 'Visa artiklarna:',
 	'titre_cadre_afficher_traductions' => 'Visa status för översättningen för följande språk:',
 	'titre_cadre_ajouter_auteur' => 'LÄGG TILL EN REDAKTÖR:',

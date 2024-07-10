@@ -25,7 +25,7 @@ return [
 	'avis_connexion_erreur_nom_base' => 'De databasenaam kan enkel letters, cijfers en koppeltekens bevatten',
 	'avis_connexion_ldap_echec_1' => 'De verbinding met de LDAP-server is mislukt.',
 	'avis_connexion_ldap_echec_2' => 'Ga terug naar de vorige pagina en kijk na of de ingevulde gegevens correct zijn.',
-	'avis_connexion_ldap_echec_3' => 'Andere mogelijkheid is om de LDAP-ondersteuning om gebruikers in te voeren niet te gebruiken.',
+	'avis_connexion_ldap_echec_3' => 'Andere mogelijkheid is om de LDAP-ondersteuning om gebruikers in te voeren niet te gebruiken.', # MODIF
 	'avis_deplacement_rubrique' => 'LET OP! Deze rubriek bevat @contient_breves@ nieuwsflits@scb@. Als je wil verplaatsten, bevestig dit dan door hier het vakje aan te vinken.',
 	'avis_erreur_connexion_mysql' => 'Verbinding met de SQL connectie mislukt',
 	'avis_espace_interdit' => '<b>Toegang verboden</b><div>SPIP is al geïnstalleerd.</div>',
@@ -49,13 +49,14 @@ return [
 	'bouton_effacer_tout' => 'ALLES wissen',
 	'bouton_envoyer_message' => 'Definitief bericht: versturen',
 	'bouton_fermer' => 'Sluiten',
+	'bouton_mettre_a_jour' => 'Bijwerken',
 	'bouton_mettre_a_jour_base' => 'Database update',
 	'bouton_modifier' => 'Wijzigen',
 	'bouton_radio_afficher' => 'Weergeven',
-	'bouton_radio_apparaitre_liste_redacteurs_connectes' => 'Opnemen in de lijst van online redacteurs',
+	'bouton_radio_apparaitre_liste_redacteurs_connectes' => 'Opnemen in de lijst van online redacteurs', # MODIF
 	'bouton_radio_envoi_annonces_adresse' => 'Aankondigingen verzenden naar dit adres:',
 	'bouton_radio_envoi_liste_nouveautes' => 'De lijst met nieuwe bijdragen versturen',
-	'bouton_radio_non_apparaitre_liste_redacteurs_connectes' => 'Niet opnemen in de lijst van redacteurs',
+	'bouton_radio_non_apparaitre_liste_redacteurs_connectes' => 'Niet opnemen in de lijst van redacteurs', # MODIF
 	'bouton_radio_non_envoi_annonces_editoriales' => 'Geen editoriale aankondigingen versturen',
 	'bouton_redirection' => 'OMLEIDING',
 	'bouton_reinitialiser_aux_valeurs_par_defaut' => 'Terugzetten naar de standaardwaardes',
@@ -67,7 +68,7 @@ return [
 	'bouton_vider_cache' => 'De buffer (cache) leegmaken',
 
 	// C
-	'cache_modifiable_webmestre' => 'Deze parameter kan door de webmaster van de site gewijzigd worden.',
+	'cache_modifiable_webmestre' => 'Deze parameter kan door de webmaster van de site gewijzigd worden.', # MODIF
 	'calendrier_synchro' => 'Wanneer je <b>iCal</b> compatibele agendasoftware gebruikt, kan je deze synchroniseren met informatie van deze site.',
 	'config_activer_champs' => 'De volgende velden activeren',
 	'config_choix_base_sup' => 'een database op deze server kiezen',
@@ -107,7 +108,7 @@ return [
 	'entree_contenu_rubrique' => '(Inhoud van de rubriek in enkele woorden)',
 	'entree_identifiants_connexion' => 'Je verbindingsgegevens...',
 	'entree_identifiants_connexion_2' => 'Login',
-	'entree_informations_connexion_ldap' => 'Vul hier de gegevens in om verbinding te maken met het LDAP adresboek. Deze gegevens kan je opvragen bij de systeem- of netwerkbeheerder.',
+	'entree_informations_connexion_ldap' => 'Vul hier de gegevens in om verbinding te maken met het LDAP adresboek. Deze gegevens kan je opvragen bij de systeem- of netwerkbeheerder.', # MODIF
 	'entree_infos_perso' => 'Wie ben je ?',
 	'entree_infos_perso_2' => 'Wie is de auteur ?',
 	'entree_interieur_rubrique' => 'In de rubriek:',
@@ -204,14 +205,14 @@ return [
 	'info_activer_menu_developpement' => 'Toon het menu Ontwikkeling',
 	'info_admin_etre_webmestre' => 'Geef me de webmaster rechten',
 	'info_admin_je_suis_webmestre' => 'Ik ben <b>webmaster</b>',
-	'info_admin_statuer_webmestre' => 'Geef deze beheerder webmaster rechten',
-	'info_admin_webmestre' => 'Deze beheerder is <b>webmaster</b>',
-	'info_administrateur' => 'Beheerder',
-	'info_administrateur_1' => 'Beheerder',
+	'info_admin_statuer_webmestre' => 'Geef deze beheerder webmaster rechten', # MODIF
+	'info_admin_webmestre' => 'Deze beheerder is <b>webmaster</b>', # MODIF
+	'info_administrateur' => 'Beheerder', # MODIF
+	'info_administrateur_1' => 'Beheerder', # MODIF
 	'info_administrateur_2' => 'van de website (<i>voorzichtig gebruiken</i>)',
-	'info_administrateur_site_01' => 'Als je beheerder bent van deze site, gelieve',
+	'info_administrateur_site_01' => 'Als je beheerder bent van deze site, gelieve', # MODIF
 	'info_administrateur_site_02' => 'deze koppeling aan te klikken',
-	'info_administrateurs' => 'Beheerders',
+	'info_administrateurs' => 'Beheerders', # MODIF
 	'info_administrer_rubrique' => 'Je kan deze rubriek beheren',
 	'info_adresse' => 'aan/naar het adres:',
 	'info_adresse_desinscription' => 'Adres voor uitschrijven:',
@@ -252,7 +253,7 @@ return [
 	'info_chapeau' => 'Kop',
 	'info_chapeau_2' => 'Kop :',
 	'info_chemin_acces_1' => 'Opties: <b>Toegang tot het adresboek</b>',
-	'info_chemin_acces_2' => 'Je dient de toegang tot de gegevens uit het adresboek in te stellen. Zonder deze instellingen is het ONmogelijk de gebruikersprofielen in dit adresboek te lezen.',
+	'info_chemin_acces_2' => 'Je dient de toegang tot de gegevens uit het adresboek in te stellen. Zonder deze instellingen is het ONmogelijk de gebruikersprofielen in dit adresboek te lezen.', # MODIF
 	'info_chemin_acces_annuaire' => 'Opties: <b>Toegang in het adresboek',
 	'info_choix_base' => 'Derde stap:',
 	'info_classement_1' => '<sup>ste</sup> op @liste@',
@@ -287,7 +288,7 @@ return [
 	'info_ecrire_article' => 'Alvorens een artikel te kunnen schrijven, dien je minimaal één rubriek aan te maken.',
 	'info_email_envoi' => 'Verzendadres (optioneel)',
 	'info_email_envoi_txt' => 'Geef hieronder het adres op dat gebruikt wordt voor het versturen van e-mails. (Standaard wordt het adres van de geadresseerde als verzendadres gebruikt.):',
-	'info_email_webmestre' => 'E-mailadres webmaster',
+	'info_email_webmestre' => 'E-mailadres webmaster', # MODIF
 	'info_envoi_email_automatique' => 'Automatisch verzenden van e-mails',
 	'info_envoyer_maintenant' => 'Nu versturen',
 	'info_etape_suivante' => 'Naar de volgende stap ',
@@ -297,15 +298,13 @@ return [
 	'info_exportation_base' => 'Uitvoer van de database naar @archive@',
 	'info_facilite_suivi_activite' => 'Om de opvolging en redactie van artikelen te vergemakkelijken, kan SPIP mails versturen -bijvoorbeeld naar een mailinglist van redacteurs- met de aankondiging van vragen voor publicatie of goedgekeurde publicaties.', # MODIF
 	'info_fichiers_authent' => 'Verificatiebestand ".htpasswd"',
-	'info_forums_abo_invites' => 'Je site bevat forums met abonnement; bezoekers worden dus op de publieke site verzocht zich in te schrijven.',
+	'info_forums_abo_invites' => 'Je site bevat forums met abonnement; bezoekers worden dus op de publieke site verzocht zich in te schrijven.', # MODIF
 	'info_gauche_admin_tech' => '<b>Deze pagina is enkel toegankelijk voor beheerders van de site.</b><p> Ze geeft toegang tot allerlei technische onderhoudstaken. Voor het uitvoeren van sommige taken zijn een afzonderlijke aanmelding en toegang tot je site via FTP nodig.</p>',
-	'info_gauche_admin_vider' => '<b>Deze pagina is alleen beschikbaar voor beheerders.</b><p> Het biedt toegang tot diverse
- technische onderhoudsfuncties. Sommige vereisen een specifiek verificatieproces, dat nodig is voor FTP-toegang tot de website.</p>',
 	'info_gauche_auteurs' => 'Je vindt hier alle auteurs van de site.
- Hun status is te herkennen aan de kleur van het icoontje (beheerder = groen; redacteur = geel).',
+ Hun status is te herkennen aan de kleur van het icoontje (beheerder = groen; redacteur = geel).', # MODIF
 	'info_gauche_auteurs_exterieurs' => 'Externe auteurs, zonder toegang tot de site, zijn aangeduid met een blauw icoontje,
 gewiste auteurs met een grijze.',
-	'info_gauche_messagerie' => 'Het berichtensysteem laat toe om berichten uit te wisselen tussen redacteurs, memo’s (voor persoonlijk gebruik) te bewaren of aankondigingen te tonen op de beginpagina van de privé-ruimte (als je beheerder bent).',
+	'info_gauche_messagerie' => 'Het berichtensysteem laat toe om berichten uit te wisselen tussen redacteurs, memo’s (voor persoonlijk gebruik) te bewaren of aankondigingen te tonen op de beginpagina van de privé-ruimte (als je beheerder bent).', # MODIF
 	'info_gauche_statistiques_referers' => 'Deze pagina toont een lijst met <i>referers</i> (sites die een koppeling bevatten naar je eigen site), alleen voor vandaag en gisteren: de lijst wordt elke 24 uur opnieuw aangemaakt.',
 	'info_gauche_visiteurs_enregistres' => 'Hier zal je de geregistreerde bezoekers van de
  publieke site vinden (forums met inschrijving).',
@@ -319,7 +318,7 @@ gewiste auteurs met een grijze.',
 	'info_images_auto' => 'Beelden automatisch berekend',
 	'info_informations_personnelles' => 'Persoonlijke gegevens',
 	'info_inscription' => 'Ingeschreven op',
-	'info_inscription_automatique' => 'Automatische inschrijving van nieuwe redacteurs',
+	'info_inscription_automatique' => 'Automatische inschrijving van nieuwe redacteurs', # MODIF
 	'info_jeu_caractere' => 'Tekenset van de site',
 	'info_jours' => 'dagen',
 	'info_laisser_champs_vides' => 'velden leeglaten)',
@@ -327,7 +326,7 @@ gewiste auteurs met een grijze.',
 	'info_ldap_ok' => 'De LDAP-autentificatie is geïnstalleerd',
 	'info_lien_hypertexte' => 'Hypertekst koppeling:',
 	'info_liste_nouveautes_envoyee' => 'Het lijst met nieuwe bijdragen werd verstuurd',
-	'info_liste_redacteurs_connectes' => 'Lijst met online redacteuren',
+	'info_liste_redacteurs_connectes' => 'Lijst met online redacteuren', # MODIF
 	'info_login_existant' => 'Deze login is reeds in gebruik',
 	'info_login_trop_court' => 'Login te kort.',
 	'info_login_trop_court_car_pluriel' => 'De login moet minstens @nb@ teken bevatten.',
@@ -348,7 +347,7 @@ gewiste auteurs met een grijze.',
 	'info_multi_cet_article' => 'Gebruikte taal in dit artikel is:',
 	'info_multi_langues_choisies' => 'Kies hierna welke talen ter beschikking staan van de redacteurs van je site.
   Talen die al worden gebruikt (vooraan in de lijst getoond) kunnen niet geschrapt worden.
-',
+', # MODIF
 	'info_multi_objets' => '@objets@ : Activeer de taalmenu',
 	'info_multi_secteurs' => '... enkel voor de hoofdrubrieken?',
 	'info_nb_articles' => '@nb@ artikelen',
@@ -375,8 +374,8 @@ gewiste auteurs met een grijze.',
 	'info_nouvelle_traduction' => 'Nieuwe vertaling :',
 	'info_numero_article' => 'ARTIKEL NUMMER:',
 	'info_obligatoire_02' => '(verplicht)', # MODIF
-	'info_option_accepter_visiteurs' => 'Inschrijving van bezoekers van de publieke site aanvaarden',
-	'info_option_ne_pas_accepter_visiteurs' => 'Inschrijving van bezoekers weigeren',
+	'info_option_accepter_visiteurs' => 'Inschrijving van bezoekers van de publieke site aanvaarden', # MODIF
+	'info_option_ne_pas_accepter_visiteurs' => 'Inschrijving van bezoekers weigeren', # MODIF
 	'info_options_avancees' => 'GEAVANCEERDE OPTIES',
 	'info_ou' => 'of...',
 	'info_page_interdite' => 'Verboden pagina',
@@ -394,14 +393,14 @@ gewiste auteurs met een grijze.',
 	'info_post_scriptum' => 'Post-Scriptum',
 	'info_post_scriptum_2' => 'Post-scriptum:',
 	'info_pour' => 'voor',
-	'info_preview_texte' => 'Nu is het ook mogelijk om de site in preview mode te zien, alsof alle artikelen en berichten (indien ze tenminste werden « voorgesteld voor publicatie ») ook echt waren gepubliceerd. Dient deze mogelijkheid uitsluitend te worden voorzien voor de beheerders, voor alle redacteurs of voor niemand?',
+	'info_preview_texte' => 'Nu is het ook mogelijk om de site in preview mode te zien, alsof alle artikelen en berichten (indien ze tenminste werden « voorgesteld voor publicatie ») ook echt waren gepubliceerd. Dient deze mogelijkheid uitsluitend te worden voorzien voor de beheerders, voor alle redacteurs of voor niemand?', # MODIF
 	'info_procedez_par_etape' => 'vervolg stap voor stap',
 	'info_procedure_maj_version' => 'de procedure voor de update die nodig is om de database aan te passen aan de nieuwe versie van SPIP.',
 	'info_proxy_ok' => 'Test van proxy geslaagde.',
 	'info_ps' => 'N.B.',
 	'info_publier' => 'publiceren',
 	'info_publies' => 'Je gepubliceerde artikelen',
-	'info_question_accepter_visiteurs' => 'Als de sjablonen van je site voorzien dat bezoekers zich kunnen registreren zonder toegang tot de privé-ruimte, activeer dan de volgende optie :',
+	'info_question_accepter_visiteurs' => 'Als de sjablonen van je site voorzien dat bezoekers zich kunnen registreren zonder toegang tot de privé-ruimte, activeer dan de volgende optie :', # MODIF
 	'info_question_inscription_nouveaux_redacteurs' => 'Aanvaard je inschrijvingen van nieuwe redacteuren vanaf
  de publieke site? Indien wel, dan kunnen bezoekers
  zich via een geautomatiseerd formulier inschrijven en
@@ -411,7 +410,7 @@ gewiste auteurs met een grijze.',
  de toeganscode voor de site. Sommige hostingproviders
  blokkeren echter het versturen van e-mail vanaf hun
  servers: in dat geval is een automatische inschrijving
- niet mogelijk.</div>',
+ niet mogelijk.</div>', # MODIF
 	'info_qui_edite' => '@nom_auteur_modif@ heeft @date_diff@ minuten geleden aan deze inhoud gewerkt ',
 	'info_racine_site' => 'Begin van de site',
 	'info_recharger_page' => 'Laad deze pagina over enkele ogenblikken opnieuw.',
@@ -428,7 +427,7 @@ gewiste auteurs met een grijze.',
 	'info_refuses' => 'Je geweigerde artikelen',
 	'info_reglage_ldap' => 'Opties: <b>Instellen van de LDAP invoer</b>',
 	'info_renvoi_article' => '<b>Doorverwijzing.</b> Dit artikel verwijst naar de pagina:',
-	'info_reserve_admin' => 'Alleen beheerders kunnen dit adres wijzigen.',
+	'info_reserve_admin' => 'Alleen beheerders kunnen dit adres wijzigen.', # MODIF
 	'info_restreindre_rubrique' => 'Beheer tot deze rubriek beperken:',
 	'info_resultat_recherche' => 'Resultaat van de zoekopdracht:',
 	'info_rubriques' => 'Rubrieken',
@@ -447,14 +446,15 @@ gewiste auteurs met een grijze.',
 	'info_sites_proxy' => 'Een proxy gebruiken',
 	'info_sites_trouves' => 'Gevonden websites ',
 	'info_sous_titre' => 'Ondertitel:',
-	'info_statut_administrateur' => 'Beheerder',
+	'info_statut' => 'Status',
+	'info_statut_administrateur' => 'Beheerder', # MODIF
 	'info_statut_auteur' => 'Status van deze auteur:',
 	'info_statut_auteur_2' => 'Ik ben',
 	'info_statut_auteur_a_confirmer' => 'Te bevestigen inschrijving',
 	'info_statut_auteur_autre' => 'Andere status:',
 	'info_statut_redacteur' => 'Redacteur',
-	'info_statut_utilisateurs_1' => 'Standaardstatus voor de ingevoerde gebruikers',
-	'info_statut_utilisateurs_2' => 'Kies de status die de personen uit het LDAP-adressenboek toebediend krijgen als ze de eerste keer inloggen. Nadien kan je de status van een individuele auteur wijzigen.',
+	'info_statut_utilisateurs_1' => 'Standaardstatus voor de ingevoerde gebruikers', # MODIF
+	'info_statut_utilisateurs_2' => 'Kies de status die de personen uit het LDAP-adressenboek toebediend krijgen als ze de eerste keer inloggen. Nadien kan je de status van een individuele auteur wijzigen.', # MODIF
 	'info_suivi_activite' => 'Opvolgen van de editoriale activiteit',
 	'info_surtitre' => 'Opschrift:',
 	'info_syndication_integrale_1' => 'Je site stelt syndicatiebestanden voor (zie « <a href="@url@">@titre@</a> »).',
@@ -500,7 +500,7 @@ een kleur geeft hun status aan:',
 	'info_visiteur_2' => 'van de publieke site',
 	'info_visiteurs' => 'Bezoekers',
 	'info_visiteurs_02' => 'Bezoekers van de publieke site',
-	'info_webmestre_forces' => 'Webmasters zijn op dit moment gedefinieerd in <tt>@file_options@</tt>.',
+	'info_webmestre_forces' => 'Webmasters zijn op dit moment gedefinieerd in <tt>@file_options@</tt>.', # MODIF
 	'install_adresse_base_hebergeur' => 'Adres van de database die door de provider wordt toegekend',
 	'install_connect_ok' => 'De nieuwe database is gedeclareerd als server @connect@.',
 	'install_echec_annonce' => 'De installatie zal wellicht mislukken of leiden tot een niet-werkende site...',
@@ -528,10 +528,10 @@ een kleur geeft hun status aan:',
 	'intitule_licence' => 'Licentie',
 	'item_accepter_inscriptions' => 'Inschrijvingen aanvaarden',
 	'item_activer_messages_avertissement' => 'Waarschuwingsberichten activeren',
-	'item_administrateur_2' => 'beheerder',
+	'item_administrateur_2' => 'beheerder', # MODIF
 	'item_afficher_calendrier' => 'Op de kalender tonen',
 	'item_autoriser_syndication_integrale' => 'Volledige artikelen verspreiden via syndicatiebestanden',
-	'item_choix_administrateurs' => 'de beheerders',
+	'item_choix_administrateurs' => 'de beheerders', # MODIF
 	'item_choix_generation_miniature' => 'Automatisch aanmaken van verkleinde afbeeldingen.',
 	'item_choix_non_generation_miniature' => 'Geen verkleinde afbeeldingen aanmaken.',
 	'item_choix_redacteurs' => 'de redacteurs',
@@ -730,15 +730,15 @@ een kleur geeft hun status aan:',
 	'text_article_propose_publication' => 'Artikel voorgesteld voor publicatie.',
 	'texte_acces_ldap_anonyme_1' => 'Sommige LDAP-servers aanvaarden geen anonieme toegang. In zo’n geval dien je één loginnaam op te geven om vervolgens informatie in het adressenboek te zoeken. In de meeste gevallen kan je de volgende velden echter leeg laten.',
 	'texte_admin_effacer_01' => 'Met dit commando vernietig je de <i>volledige</i> inhoud van de database,
-inbegrepen <i>alle</i> toegangsrechten voor redacteurs en beheerders. Nadat je dit uitgevoerd hebt, dien je de herinstallatie van SPIP te starten om een volledig nieuwe database aan te maken met toegangsrechten voor een eerste beheerder.',
+inbegrepen <i>alle</i> toegangsrechten voor redacteurs en beheerders. Nadat je dit uitgevoerd hebt, dien je de herinstallatie van SPIP te starten om een volledig nieuwe database aan te maken met toegangsrechten voor een eerste beheerder.', # MODIF
 	'texte_adresse_annuaire_1' => '(Als de map geïnstalleerd is op dezelfde computer als je website, is het waarschijnlijk «localhost».)',
 	'texte_ajout_auteur' => 'Deze auteur werd aan het artikel toegevoegd:',
-	'texte_annuaire_ldap_1' => 'Als je toegang hebt tot een LDAP-adresboek, kan je dit gebruiken om automatisch gebruikers in te voeren in SPIP.',
+	'texte_annuaire_ldap_1' => 'Als je toegang hebt tot een LDAP-adresboek, kan je dit gebruiken om automatisch gebruikers in te voeren in SPIP.', # MODIF
 	'texte_article_statut' => 'Dit artikel is:',
 	'texte_article_virtuel' => 'Virtueel artikel',
 	'texte_article_virtuel_reference' => '<b>Virtueel artikel:</b> gekoppeld artikel in je SPIP site maar doorgestuurd naar een andere URL. Verwijder de URL om de doorverwijzing te stoppen.',
 	'texte_aucun_resultat_auteur' => 'Geen resultaat voor "@cherche_auteur@"',
-	'texte_auteur_messagerie' => 'Deze website kan een lijst met auteurs die op dat moment aangelogd zijn, tonen. Het is mogelijk om direkt berichten opsturen en ontvangen tussen de auteurs.  Je kan kiezen om niet in deze lijst te verschijnen (je wordt dan « onzichtbaar » voor de andere gebruikers).',
+	'texte_auteur_messagerie' => 'Deze website kan een lijst met auteurs die op dat moment aangelogd zijn, tonen. Het is mogelijk om direkt berichten opsturen en ontvangen tussen de auteurs.  Je kan kiezen om niet in deze lijst te verschijnen (je wordt dan « onzichtbaar » voor de andere gebruikers).', # MODIF
 	'texte_auteurs' => 'DE AUTEURS',
 	'texte_choix_base_1' => 'Kies je database:',
 	'texte_choix_base_2' => 'De SQL server bevat meerdere databases.',
@@ -772,7 +772,7 @@ inbegrepen <i>alle</i> toegangsrechten voor redacteurs en beheerders. Nadat je d
  Deze bestanden die je kunt gebruiken om toegang te beperken tot 
  auteurs en beheerders in andere delen van je site 
    (externe programma statistieken, bijvoorbeeld).</p><p>
-Als dit geen geen nut heeft, kunt je de standaard instellingen behouden (geen nieuw bestand maken).</p>',
+Als dit geen geen nut heeft, kunt je de standaard instellingen behouden (geen nieuw bestand maken).</p>', # MODIF
 	'texte_informations_personnelles_1' => 'Nu zal het systeem een persoonlijke toegang tot de site voor je creëren.',
 	'texte_informations_personnelles_2' => '(Nota: als het een herinstallatie betreft en je toegangscode blijkt nog steeds te werken, kan je',
 	'texte_introductif_article' => '(Inleidende tekst op het artikel.)',
@@ -782,7 +782,7 @@ Als dit geen geen nut heeft, kunt je de standaard instellingen behouden (geen ni
 	'texte_login_ldap_1' => '(Leeg laten voor een anonieme login, of een volledig pad invullen, bijvoorbeeld «<tt>uid=janssen, ou=users, dc=mijn-domein, dc=com</tt>».)',
 	'texte_login_precaution' => 'LET OP! Met deze login ben je momenteel aangemeld.
  Gebruik dit formulier met de nodige voorzichtigheid...',
-	'texte_messagerie_agenda' => 'Een berichtendienst maakt het de redacteuren van de site mogelijk om in de privé ruimte berichten uit te wisselen. De dienst is gekoppeld aan een agenda.',
+	'texte_messagerie_agenda' => 'Een berichtendienst maakt het de redacteuren van de site mogelijk om in de privé ruimte berichten uit te wisselen. De dienst is gekoppeld aan een agenda.', # MODIF
 	'texte_mise_a_niveau_base_1' => 'Je hebt zonet de SPIP bestanden vernieuwd. Nu dien je
  eveneens de database te updaten.',
 	'texte_modifier_article' => 'Wijzigen artikel:',
@@ -831,11 +831,10 @@ Dit kan handig zijn als je veel pagina’s hebt gewijzigd, de layout of de struc
  om te vermijden dat simultaan
  wijzigingen worden aangebracht.
  Deze optie is niet standaard geactiveerd om te vermijden dat er teveel waarschuwingsberichten op het
- scherm verschijnen.',
+ scherm verschijnen.', # MODIF
 	'texte_vide' => 'leeg',
 	'texte_vider_cache' => 'Cache leegmaken',
 	'titre_admin_tech' => 'Technisch onderhoud',
-	'titre_admin_vider' => 'Technisch onderhoud',
 	'titre_ajouter_un_auteur' => 'Voeg een auteur toe',
 	'titre_ajouter_un_mot' => 'Voeg een trefwoord toe',
 	'titre_cadre_afficher_article' => 'Artikelen tonen',
