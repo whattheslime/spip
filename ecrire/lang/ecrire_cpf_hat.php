@@ -19,7 +19,7 @@ return [
 	'avis_connexion_echec_3' => '<b>Atansyon</b> Ak enpè sévè sa-yo fòk  w <b>domann</b> ou lébèrgè te aktive laksé labaz SQL, avan w kap itilize ali. Si w vwa se pa posib mèm konek a w, ann gad byen si w te domann ali avan.', # MODIF
 	'avis_connexion_ldap_echec_1' => 'Koneksyon sou servè LDAP te pa mache.',
 	'avis_connexion_ldap_echec_2' => 'Tounyen dèyè paj avan pou ou byen gade ankò enfòmasyon yo w te doné.',
-	'avis_connexion_ldap_echec_3' => 'Ann itilize pa sipò LDAP pou gen enpòt itilizatè yo.',
+	'avis_connexion_ldap_echec_3' => 'Ann itilize pa sipò LDAP pou gen enpòt itilizatè yo.', # MODIF
 	'avis_deplacement_rubrique' => 'Atansyon ! Ribwik la @contient_breves@ brève@scb@ : si w déplas ali, mési ekri yon krwa po konfirmasyon.',
 	'avis_erreur_connexion_mysql' => 'Erè ak koneksyon SQL', # MODIF
 	'avis_espace_interdit' => '<b>Espas entèdi</b> <div>SPIP se déja instalé.</div>',
@@ -40,10 +40,10 @@ return [
 	'bouton_envoyer_message' => 'Mesaj se bon : voye',
 	'bouton_modifier' => 'Chanje',
 	'bouton_radio_afficher' => 'Fé parèt',
-	'bouton_radio_apparaitre_liste_redacteurs_connectes' => 'Montre w nan lis redaktè yo ap an liy',
+	'bouton_radio_apparaitre_liste_redacteurs_connectes' => 'Montre w nan lis redaktè yo ap an liy', # MODIF
 	'bouton_radio_envoi_annonces_adresse' => 'Voye anons yo sou adrès la :',
 	'bouton_radio_envoi_liste_nouveautes' => 'Voye yon lis nouvèlte yo',
-	'bouton_radio_non_apparaitre_liste_redacteurs_connectes' => 'Ann pa aparèt w nan lis redakté yo ap an liy',
+	'bouton_radio_non_apparaitre_liste_redacteurs_connectes' => 'Ann pa aparèt w nan lis redakté yo ap an liy', # MODIF
 	'bouton_radio_non_envoi_annonces_editoriales' => 'Rete voye anons editoyal ',
 	'bouton_redirection' => 'TOUNYEN ADRES DEYO',
 	'bouton_relancer_installation' => 'Ann eseye ankò instalasyon nan',
@@ -53,7 +53,7 @@ return [
 	'bouton_vider_cache' => 'Vid kach-la',
 
 	// C
-	'cache_modifiable_webmestre' => 'Webmèt sit-la sèlman li kap chanje paramèt sa-a.',
+	'cache_modifiable_webmestre' => 'Webmèt sit-la sèlman li kap chanje paramèt sa-a.', # MODIF
 	'calendrier_synchro' => 'Si w itilize yon logisyèl pou en lajenda ki mache ak <b>iCal</b> (Apple iCal, Mozilla Calendar, Ximian Evolution, KOrganizer...), w pé mèt ali swiv yon ritm laktyalité sit-la kan li chanje.',
 
 	// D
@@ -74,7 +74,7 @@ return [
 	'entree_informations_connexion_ldap' => 'Mèsi mèt dann komisyon-la tout enfòmasyon nésesè pou abòd  laniyè LDAP.
 
 
-Tout informasyon-nan,  komandèr-sistèm ou komandèr-rézo li dwa donn a w.',
+Tout informasyon-nan,  komandèr-sistèm ou komandèr-rézo li dwa donn a w.', # MODIF
 	'entree_infos_perso' => 'Kouman w rele ?',
 	'entree_interieur_rubrique' => 'Andan ribrik-la :',
 	'entree_liens_sites' => '<b>Lyen ipètèks</b> (referans, sit pou fè yon vire...)',
@@ -136,12 +136,12 @@ Tout informasyon-nan,  komandèr-sistèm ou komandèr-rézo li dwa donn a w.',
 	'info_1_article' => '1 atik',
 	'info_activer_cookie' => 'Ou kapab mèt <b> yon gatomakro ki rokonèt a w</b>, ki ke pèmè 
  fè yon viré ant sit piblik ek sit privé.',
-	'info_administrateur' => 'Komandè',
-	'info_administrateur_1' => 'Komandè',
+	'info_administrateur' => 'Komandè', # MODIF
+	'info_administrateur_1' => 'Komandè', # MODIF
 	'info_administrateur_2' => 'sit (<i>atansyon kan w ke itilize ali</i>)',
-	'info_administrateur_site_01' => 'Si w se komandè sit-la, mèsi',
+	'info_administrateur_site_01' => 'Si w se komandè sit-la, mèsi', # MODIF
 	'info_administrateur_site_02' => 'klik lyen nan',
-	'info_administrateurs' => 'Komandè yo',
+	'info_administrateurs' => 'Komandè yo', # MODIF
 	'info_administrer_rubrique' => 'Ou kapab gère ribrik-la',
 	'info_adresse' => 'sou ladrès :',
 	'info_adresse_url' => 'Ladrès(URL) sit piblik',
@@ -170,7 +170,7 @@ Tout informasyon-nan,  komandèr-sistèm ou komandèr-rézo li dwa donn a w.',
 	'info_chapeau' => 'Chapo',
 	'info_chapeau_2' => 'Chapo :',
 	'info_chemin_acces_1' => 'Opsyion sa-yo: <b>Chemen pou laksè nan laniyè</b>',
-	'info_chemin_acces_2' => 'Ou kapak konfigir chemen laksé sou enfòmasyon sa-yo ki nan laniyè. enfòmasyon-nan sé nésèsè pou fè lekti pwòfil zitilizatè yo ki enskinan laniyè sa-a.',
+	'info_chemin_acces_2' => 'Ou kapak konfigir chemen laksé sou enfòmasyon sa-yo ki nan laniyè. enfòmasyon-nan sé nésèsè pou fè lekti pwòfil zitilizatè yo ki enskinan laniyè sa-a.', # MODIF
 	'info_chemin_acces_annuaire' => 'Opsyon sa-yo : <b>Chemen pou laksè nan lanyè',
 	'info_choix_base' => 'Trwazièm etap :',
 	'info_classement_1' => '<sup>ye</sup> sou @liste@',
@@ -209,14 +209,13 @@ Tout informasyon-nan,  komandèr-sistèm ou komandèr-rézo li dwa donn a w.',
 , SPIP kapab
  voye tout domann osnon konfimasyon pou fè parèt yon atik pa egsanp nan list-limèl pou redaktè.', # MODIF
 	'info_fichiers_authent' => 'Fichye yo pou lotantifikasyon « .htpasswd »',
-	'info_forums_abo_invites' => 'Sit w genyen fowom sou abonman ; vizitè   se invite enskri ali sou sit piblik.',
+	'info_forums_abo_invites' => 'Sit w genyen fowom sou abonman ; vizitè   se invite enskri ali sou sit piblik.', # MODIF
 	'info_gauche_admin_tech' => '<b>Responsab sit-la selman kapab fè lekti paj-la.</b><p> Li pèrmè laksé pou diféran fonksyon teknik pou swen sit sa-a. Genyen fonksyon sa-yo ki doman yon otantifikasyon espesifik ki doman yon laksé FTP pou sitweb-la.</p>', # MODIF
-	'info_gauche_admin_vider' => '<b>Responsab sit-la selman kapab fè lekti paj-la.</b><p> Li pèrmè laksé pou diféran fonksyon teknik pou swen sit sa-a. Genyen fonksyon sa-yo ki doman yon otantifikasyon espesifik ki doman yon laksé FTP pou sitweb-la.</p>', # MODIF
 	'info_gauche_auteurs' => 'Isit, genyen tout zotè sit sa-a.
-Koulè imaj rannkont stati yo (komandè = vèr; redaktè = jon).',
+Koulè imaj rannkont stati yo (komandè = vèr; redaktè = jon).', # MODIF
 	'info_gauche_auteurs_exterieurs' => 'Tout lòtè andèyò, ki genyen pa aksè sit-la, se afiche pa yon ikòn blè ;
  lòtè yo ki te kraze se yon bwat poubèl.', # MODIF
-	'info_gauche_messagerie' => 'Mesajri rann w kapab voye tout mesaj ant redaktè, gade pansbèt (pèsonel) osnon fè parèt annons sou paj akey nan espas prive (si w se komandè).',
+	'info_gauche_messagerie' => 'Mesajri rann w kapab voye tout mesaj ant redaktè, gade pansbèt (pèsonel) osnon fè parèt annons sou paj akey nan espas prive (si w se komandè).', # MODIF
 	'info_gauche_statistiques_referers' => 'Paj-la se paj ki done lis <i>referers</i>, se dir tout sit sa-yo ki genyen lyen ki rive sou sit w, yer ak jodila ; li repar zéwo tout 24èr la.',
 	'info_gauche_visiteurs_enregistres' => 'Ou ka rannkont isit vizitè yo ki enskri
  nan espas piblik sit sa-a (fowom sou labonman).',
@@ -230,14 +229,14 @@ Koulè imaj rannkont stati yo (komandè = vèr; redaktè = jon).',
 	'info_image_process2' => '<b>N.B.</b> <i>Si oken imaj ki parèt, pètèt se sèvè ki ebèj sit ou ki pa konfigire pou itilize outiy sa-yo. Fòk w kontak responsab teknik sèvè an pou domann tout ektansyon «GD» ou «Imagick» sa-yo.</i>', # MODIF
 	'info_images_auto' => 'Imaj kalkilé otomatikman',
 	'info_informations_personnelles' => 'Sinkyèm etap : <b>Enfòmasyon pèsonel yo</b>', # MODIF
-	'info_inscription_automatique' => 'Enskrisyon otomatik pou nouvo redaktè yo',
+	'info_inscription_automatique' => 'Enskrisyon otomatik pou nouvo redaktè yo', # MODIF
 	'info_jeu_caractere' => 'Je kawaktè-liprimiri pou sit sa-a',
 	'info_jours' => 'jou yo',
 	'info_laisser_champs_vides' => 'lès chan vid yo',
 	'info_langues' => 'Tout lanng sit la',
 	'info_ldap_ok' => 'Lotantifikasyon LDAP se enstale.',
 	'info_lien_hypertexte' => 'Lyen ipètèks :',
-	'info_liste_redacteurs_connectes' => 'Llis redaktè ki ap an liy kounye-a',
+	'info_liste_redacteurs_connectes' => 'Llis redaktè ki ap an liy kounye-a', # MODIF
 	'info_login_existant' => 'Nonkod la ki egziste deja.',
 	'info_login_trop_court' => 'Nondkod ki tro piti.',
 	'info_maximum' => 'maksimom :',
@@ -257,7 +256,7 @@ pa mache mèm.<br />{{Fòk w instal ankò
 	'info_moyenne' => 'mwayèn :',
 	'info_multi_cet_article' => 'Lalanng atik la :',
 	'info_multi_langues_choisies' => 'Mèsi chwazi lang redaktè kapab itilize
-  genyen inposib kraze lang sa-yo ki deja itilize sou sit-la (yo afiche premyé).',
+  genyen inposib kraze lang sa-yo ki deja itilize sou sit-la (yo afiche premyé).', # MODIF
 	'info_multi_secteurs' => '... sèlman sou ribrik andan rasin sit la ?',
 	'info_nom' => 'Kouman i rele',
 	'info_nom_destinataire' => 'Kouman destinatè i rele',
@@ -276,8 +275,8 @@ pa mache mèm.<br />{{Fòk w instal ankò
 	'info_nouvelle_traduction' => 'Nouvo tradiksyon :',
 	'info_numero_article' => 'ATIK NIMEWO :',
 	'info_obligatoire_02' => ' (Nésèsè)', # MODIF
-	'info_option_accepter_visiteurs' => 'Asepte vizitè yo enskri y sou sit piblik',
-	'info_option_ne_pas_accepter_visiteurs' => 'Refize lenskripsyon vizitè yo',
+	'info_option_accepter_visiteurs' => 'Asepte vizitè yo enskri y sou sit piblik', # MODIF
+	'info_option_ne_pas_accepter_visiteurs' => 'Refize lenskripsyon vizitè yo', # MODIF
 	'info_options_avancees' => 'KEK OPSYON PWESI ',
 	'info_ou' => 'ou...',
 	'info_page_interdite' => 'Paj-la se entèdi',
@@ -299,7 +298,7 @@ pa mache mèm.<br />{{Fòk w instal ankò
 	'info_ps' => 'Gen di ankò.',
 	'info_publier' => 'pibliye',
 	'info_publies' => 'Atik w-a ki ap pibliye an liy',
-	'info_question_accepter_visiteurs' => 'Si leskelèt sit w la, li ka pwopoze lenskripsyon vizitè ki pa laksé lespas privé, mèsi w aktive lopsyon issit anba :',
+	'info_question_accepter_visiteurs' => 'Si leskelèt sit w la, li ka pwopoze lenskripsyon vizitè ki pa laksé lespas privé, mèsi w aktive lopsyon issit anba :', # MODIF
 	'info_question_inscription_nouveaux_redacteurs' => 'Aksepte ounon pa aksepte w tout enskripsyon nouvo redaktè sou lespas piblik sit-la ?
 Si wi ka aksepte, vizité yo ke enskri azot depi
    yon fòmilè,  pou zot ke sere laksé nan espas privé pou zot kapab pwopoze
@@ -322,7 +321,7 @@ Si wi ka aksepte, vizité yo ke enskri azot depi
 	'info_refuses' => 'Atik w-a ki te finn refize',
 	'info_reglage_ldap' => 'Opsyon : <b>Reglaj lempotasyon LDAP</b>',
 	'info_renvoi_article' => '<b>Tounyen dèyè sou yon lòt adrès.</b> Atik-la ap sòti sou lapaj-la:',
-	'info_reserve_admin' => 'Komandè ysèlman yokapab chanje ladrès-la',
+	'info_reserve_admin' => 'Komandè ysèlman yokapab chanje ladrès-la', # MODIF
 	'info_restreindre_rubrique' => 'Diminye drwa yo komandé-a pou li kapab debouye sou ribrik-la sèlman:',
 	'info_resultat_recherche' => 'Rezilta chèche w-a :',
 	'info_rubriques' => 'Ribrik yo',
@@ -341,11 +340,11 @@ Si wi ka aksepte, vizité yo ke enskri azot depi
 	'info_sites_proxy' => 'Itilize yon proksi (proxy)',
 	'info_sites_trouves' => 'Sit sa-yo ki te fin rannkont',
 	'info_sous_titre' => 'Soutit :',
-	'info_statut_administrateur' => 'Komandè',
+	'info_statut_administrateur' => 'Komandè', # MODIF
 	'info_statut_auteur' => 'Lestati lotè-a :', # MODIF
 	'info_statut_redacteur' => 'Redaktè',
-	'info_statut_utilisateurs_1' => 'Lestati otomatik pou zitilizatè enpòte yo',
-	'info_statut_utilisateurs_2' => 'Chwazi stati ki bay smou préan nan laniyé  LDAP, kank moun ka konek azot promyé fwa. Aprésa w kapab chanje valè la pou chak lotè, chaken apré lòt.',
+	'info_statut_utilisateurs_1' => 'Lestati otomatik pou zitilizatè enpòte yo', # MODIF
+	'info_statut_utilisateurs_2' => 'Chwazi stati ki bay smou préan nan laniyé  LDAP, kank moun ka konek azot promyé fwa. Aprésa w kapab chanje valè la pou chak lotè, chaken apré lòt.', # MODIF
 	'info_suivi_activite' => 'Swivi laktivité léditoryal',
 	'info_surtitre' => 'Sitit :',
 	'info_taille_maximale_vignette' => 'Pli gran tay posib pou viyèt sistem sa-a li kreye :',
@@ -388,9 +387,9 @@ nan yon koulè ki bay lestati ali :',
 	'intem_redacteur' => 'redaktè',
 	'item_accepter_inscriptions' => 'Asèpt enskripsyon yo',
 	'item_activer_messages_avertissement' => 'Aktive mesaj-lavertisman ',
-	'item_administrateur_2' => 'komandè',
+	'item_administrateur_2' => 'komandè', # MODIF
 	'item_afficher_calendrier' => 'Fè parèt nan kalandrye',
-	'item_choix_administrateurs' => 'komandè yo',
+	'item_choix_administrateurs' => 'komandè yo', # MODIF
 	'item_choix_generation_miniature' => 'Kreye otomatikman vèsyon miyati (viyèt) pou tout imaj.',
 	'item_choix_non_generation_miniature' => 'Pa kreye miyati pou limaj.',
 	'item_choix_redacteurs' => 'redaktè yo',
@@ -462,15 +461,15 @@ nan yon koulè ki bay lestati ali :',
 	'texte_acces_ldap_anonyme_1' => 'Kèk sèvè LDAP y ki pa aksepte laksé anonim.Alò, fòk pwezizél yon lidentifian pou lo promye aksé akoz aprèsa posib cheche tout enfò masyon w ka vle nan laniyé. Men souvan, genyen posib w kenbe tout chan la vid.',
 	'texte_admin_effacer_01' => 'Komand la li efase <i>tout</i> kontni antye nan labazdone,
 ak <i>tout</i> aksé rédaktè ak komanè yo. Si w te fé mache ali, fòk w enstalé  yon lòt fwa laprosédi
-lenstalasyon SPIP pou w kreye yon lòt nouvo baz ak son promyé laksé komandè',
+lenstalasyon SPIP pou w kreye yon lòt nouvo baz ak son promyé laksé komandè', # MODIF
 	'texte_adresse_annuaire_1' => '(Si laniyé aw se enstalé sou mèm machin sévè sit aw, se posib li rele senpman «localhost».)',
 	'texte_ajout_auteur' => 'Lotè-a te fin ajoute pou atik-la :',
-	'texte_annuaire_ldap_1' => 'Si w gen laksé lanyiè (LDAP), w kapab itilize ali pou enpòte otomatikman itilizatè yo sou SPIP.',
+	'texte_annuaire_ldap_1' => 'Si w gen laksé lanyiè (LDAP), w kapab itilize ali pou enpòte otomatikman itilizatè yo sou SPIP.', # MODIF
 	'texte_article_statut' => 'Atik-la se :',
 	'texte_article_virtuel' => 'Atik virtyel',
 	'texte_article_virtuel_reference' => '<b>Atik virtyèl :</b> se yon atik ki referanse nan sit SPIP aw, men ki touné viré sou yon lòt URL. Pou efase touné-viré an, ann efas w URL isit anlèr.',
 	'texte_aucun_resultat_auteur' => 'Pa oken rézilta pou "@cherche_auteur@"',
-	'texte_auteur_messagerie' => 'Sit-la kapab bay w lalis redaktè an liy kounyen-a, bagay-la pèmè w voye mesaj direk ansamn moun. W pe chwazi pa parèt a liy nan lis-la (w kembe « envisib » pou tout zot itilizatè).',
+	'texte_auteur_messagerie' => 'Sit-la kapab bay w lalis redaktè an liy kounyen-a, bagay-la pèmè w voye mesaj direk ansamn moun. W pe chwazi pa parèt a liy nan lis-la (w kembe « envisib » pou tout zot itilizatè).', # MODIF
 	'texte_auteurs' => 'LOTÈ YO',
 	'texte_choix_base_1' => 'Ann chwazi labaz ou :',
 	'texte_choix_base_2' => 'Sèvè SQL-la, li ka kembe kèk bazdoné.', # MODIF
@@ -573,11 +572,10 @@ Bagay-la pémè, pa egsanp, fòse rekalkil tout paj sa-yo, apré plizyè gro cha
  nan tan résan  pou evite chanjman ki kraze lòt.
  W kapab mèt opsyon-nan ki sispann otomatikman pou evite fè parèt toultan
    mesaj yo pou atansyon.
-',
+', # MODIF
 	'texte_vide' => 'vid',
 	'texte_vider_cache' => 'Vide kach-la',
 	'titre_admin_tech' => 'Swen teknik',
-	'titre_admin_vider' => 'Swen teknik',
 	'titre_cadre_afficher_article' => 'Fè parèt atik yo',
 	'titre_cadre_afficher_traductions' => 'Fè parèt kouman se tradiksyon yo pou tout lanng swivan :',
 	'titre_cadre_ajouter_auteur' => 'KREYE YON LOTE :',

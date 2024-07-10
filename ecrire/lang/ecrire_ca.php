@@ -24,7 +24,7 @@ return [
 	'avis_connexion_erreur_nom_base' => 'El nom de la base només pot contenir lletres, xifres i guions',
 	'avis_connexion_ldap_echec_1' => ' La connexió amb el servidor LDAP ha caigut.',
 	'avis_connexion_ldap_echec_2' => 'Tornar a la pàgina precedent per verificar les dades que heu ficat.',
-	'avis_connexion_ldap_echec_3' => 'Alternativament, no utilitzeu el support LDAP per a importar els usuaris.',
+	'avis_connexion_ldap_echec_3' => 'Alternativament, no utilitzeu el support LDAP per a importar els usuaris.', # MODIF
 	'avis_deplacement_rubrique' => 'Atenció ! Aquesta secció conté @contient_breves@ breu@scb@ : si la moveu, assenyaleu-ho en aquesta casella de confirmació.',
 	'avis_erreur_connexion_mysql' => 'Error de connexió SQL',
 	'avis_espace_interdit' => '<b>Zona prohibida</b> <div>SPIP ja està instal·lat.</div>',
@@ -49,13 +49,14 @@ desactivada per raons de seguretat (cosa normal en molts proveïdors d’hostatg
 	'bouton_effacer_tout' => 'Esborrar-ho TOT',
 	'bouton_envoyer_message' => 'Missatge definitiu : enviar',
 	'bouton_fermer' => 'Tancar',
+	'bouton_mettre_a_jour' => 'Actualització',
 	'bouton_mettre_a_jour_base' => 'Actualització de la base de dades',
 	'bouton_modifier' => 'Modificar',
 	'bouton_radio_afficher' => 'Mostrar',
-	'bouton_radio_apparaitre_liste_redacteurs_connectes' => 'Aparèixer a la llista de redactors connectats',
+	'bouton_radio_apparaitre_liste_redacteurs_connectes' => 'Aparèixer a la llista de redactors connectats', # MODIF
 	'bouton_radio_envoi_annonces_adresse' => 'Enviar els anuncis a l’adreça:',
 	'bouton_radio_envoi_liste_nouveautes' => 'Enviar la llista de novetats',
-	'bouton_radio_non_apparaitre_liste_redacteurs_connectes' => 'No aparèixer a la llista de redactors/es ',
+	'bouton_radio_non_apparaitre_liste_redacteurs_connectes' => 'No aparèixer a la llista de redactors/es ', # MODIF
 	'bouton_radio_non_envoi_annonces_editoriales' => 'No enviar anuncis editorials',
 	'bouton_redirection' => 'REDIRECCIÓ',
 	'bouton_relancer_installation' => 'Tornar a llançar la instal·lació',
@@ -65,7 +66,7 @@ desactivada per raons de seguretat (cosa normal en molts proveïdors d’hostatg
 	'bouton_vider_cache' => 'Buidar la memòria cau',
 
 	// C
-	'cache_modifiable_webmestre' => 'Aquest paràmetre és modificable pel webmestre del lloc Web.',
+	'cache_modifiable_webmestre' => 'Aquest paràmetre és modificable pel webmestre del lloc Web.', # MODIF
 	'calendrier_synchro' => 'Si utilitzeu un programari d’agenda compatible <b>iCal</b>, el podeu sincronitzar amb les informacions d’aquest lloc.',
 	'config_activer_champs' => 'Activar els camps següents',
 	'config_choix_base_sup' => 'indicar una base en aquest servidor',
@@ -107,7 +108,7 @@ desactivada per raons de seguretat (cosa normal en molts proveïdors d’hostatg
 	'entree_identifiants_connexion_2' => 'Identificadors de connexió',
 	'entree_informations_connexion_ldap' => 'Entreu en aquest formulari les informacions de connexió del vostre directori LDAP.
  L’administrador del sistema o de la xarxa us pot donar aquestes informacions.
-   ',
+   ', # MODIF
 	'entree_infos_perso' => 'Qui sóu?',
 	'entree_infos_perso_2' => 'Qui és l’autor?',
 	'entree_interieur_rubrique' => 'A l’interior de la secció:',
@@ -203,14 +204,14 @@ desactivada per raons de seguretat (cosa normal en molts proveïdors d’hostatg
 	'info_activer_menu_developpement' => 'Afegir el menú Desenvolupament',
 	'info_admin_etre_webmestre' => 'Donar-me els drets d’administrador',
 	'info_admin_je_suis_webmestre' => 'Sóc <b>administrador</b>',
-	'info_admin_statuer_webmestre' => 'Donar a aquest administrador els drets de webmestre',
-	'info_admin_webmestre' => 'Aquest administrador és <b>webmestre</b>',
-	'info_administrateur' => 'Administrador',
-	'info_administrateur_1' => 'Administrador',
+	'info_admin_statuer_webmestre' => 'Donar a aquest administrador els drets de webmestre', # MODIF
+	'info_admin_webmestre' => 'Aquest administrador és <b>webmestre</b>', # MODIF
+	'info_administrateur' => 'Administrador', # MODIF
+	'info_administrateur_1' => 'Administrador', # MODIF
 	'info_administrateur_2' => ' del lloc (<i>utilitzar amb precaució</i>)',
-	'info_administrateur_site_01' => 'Si sóu administrador del lloc, vulgueu ',
+	'info_administrateur_site_01' => 'Si sóu administrador del lloc, vulgueu ', # MODIF
 	'info_administrateur_site_02' => 'feu un clic sobre aquest link',
-	'info_administrateurs' => 'Administradors',
+	'info_administrateurs' => 'Administradors', # MODIF
 	'info_administrer_rubrique' => 'Podeu administrar aquesta secció',
 	'info_adresse' => 'a l’adreça:',
 	'info_adresse_desinscription' => 'Adreça de desinscripció:',
@@ -249,7 +250,7 @@ desactivada per raons de seguretat (cosa normal en molts proveïdors d’hostatg
 	'info_chapeau' => 'Encapçalament',
 	'info_chapeau_2' => 'Encapçalament:',
 	'info_chemin_acces_1' => 'Opcions: <b>Camí d’accés al directori</b>',
-	'info_chemin_acces_2' => 'Des d’ara, heu de configurar el camí d’accés a la informació del directori. Aquesta informació és essencial per llegir els perfils dels usuaris guardats al directori.',
+	'info_chemin_acces_2' => 'Des d’ara, heu de configurar el camí d’accés a la informació del directori. Aquesta informació és essencial per llegir els perfils dels usuaris guardats al directori.', # MODIF
 	'info_chemin_acces_annuaire' => 'Opcions: <b>Camí d’accés al directori',
 	'info_choix_base' => 'Tercer pas:',
 	'info_classement_1' => '<sup>r</sup> a la @liste@',
@@ -284,7 +285,7 @@ desactivada per raons de seguretat (cosa normal en molts proveïdors d’hostatg
 	'info_ecrire_article' => 'Abans de poder escriure un article, heu de crear com a mínim una secció.',
 	'info_email_envoi' => 'L’adreça electrònica del remitent (opcional)',
 	'info_email_envoi_txt' => 'Introduiu aquí l’adreça a fer servir per enviar els correus electrònics (per defecte, l’adreça del destinatari serà utilitzada com a adreça del remitent):',
-	'info_email_webmestre' => 'Adreça electrònica del webmestre (opcional)',
+	'info_email_webmestre' => 'Adreça electrònica del webmestre (opcional)', # MODIF
 	'info_envoi_email_automatique' => 'Enviament automàtic de correus electrònics',
 	'info_envoyer_maintenant' => 'Envia-ho ara',
 	'info_etape_suivante' => 'Passar a l’etapa següent',
@@ -294,14 +295,13 @@ desactivada per raons de seguretat (cosa normal en molts proveïdors d’hostatg
 	'info_exportation_base' => ' exportació de la base cap a @archive@',
 	'info_facilite_suivi_activite' => 'Per tal de facilitat el seguiment de l’activitat editorial, SPIP pot fer arribar per correu electrònic, per exemple a una llista de correu dels redactors, l’avís de les peticions de publicació i de les validacions dels articles.', # MODIF
 	'info_fichiers_authent' => 'Fitxers d’autentificació « .htpasswd »',
-	'info_forums_abo_invites' => 'El seu lloc Web proporciona fòrums pels abonats; en el lloc públic els visitants són convidats a enregistrar-se.',
+	'info_forums_abo_invites' => 'El seu lloc Web proporciona fòrums pels abonats; en el lloc públic els visitants són convidats a enregistrar-se.', # MODIF
 	'info_gauche_admin_tech' => '<b>Només els responsables del lloc tenen accés a aquesta pàgina.</b><p> Dóna accés a les diferents funcions de manteniment tècnic. Algunes d’aquestes necessiten un procés d’autenticació específic que requereix disposar d’un accés FTP al lloc Web.</p>',
-	'info_gauche_admin_vider' => '<b>Només els responsables del lloc tenen accés a aquesta pàgina.</b><p> Dóna accés a les diferents funcions de manteniment tècnic. Algunes d’aquestes necessiten un procés d’autenticació específic que requereix disposar d’un accés FTP al lloc Web.</p>',
 	'info_gauche_auteurs' => 'Aquí hi trobareu tots els autors del lloc.
- El seu estat s’indica pel color de la seva icona (administrador = verd; redactor = groc).',
+ El seu estat s’indica pel color de la seva icona (administrador = verd; redactor = groc).', # MODIF
 	'info_gauche_auteurs_exterieurs' => 'Els autors externs, sense accés al lloc web, estan indicats amb una icona blava;
  els autors esborrats amb una icona grissa.',
-	'info_gauche_messagerie' => 'La missatgeria us permet intercanviar missatges entre els redactors, conservar recordatoris (pel vostre ús personal) o mostrar avisos a la pàgina inicial de l’espai privat (si sóu administrador).',
+	'info_gauche_messagerie' => 'La missatgeria us permet intercanviar missatges entre els redactors, conservar recordatoris (pel vostre ús personal) o mostrar avisos a la pàgina inicial de l’espai privat (si sóu administrador).', # MODIF
 	'info_gauche_statistiques_referers' => 'Aquesta pàgina mostra la llista de  <i>referidors</i>, és a dir, dels llocs que contenen enllaços cap al vostre propi lloc Web, únicament per ahir i avui; aquesta llista es posa a zero cada 24 hores. ',
 	'info_gauche_visiteurs_enregistres' => 'Aquí hi trobareu els visitants registrats
  a l’espai públic del lloc (fòrums per subscripció).',
@@ -315,7 +315,7 @@ desactivada per raons de seguretat (cosa normal en molts proveïdors d’hostatg
 	'info_images_auto' => 'Imatges calculades automàticament',
 	'info_informations_personnelles' => 'Informacions personals',
 	'info_inscription' => 'Inscripció le',
-	'info_inscription_automatique' => 'Inscripció automàtica dels nous redactors',
+	'info_inscription_automatique' => 'Inscripció automàtica dels nous redactors', # MODIF
 	'info_jeu_caractere' => 'Joc de caràcters del lloc',
 	'info_jours' => 'dies',
 	'info_laisser_champs_vides' => 'deixar els camps buits)',
@@ -323,7 +323,7 @@ desactivada per raons de seguretat (cosa normal en molts proveïdors d’hostatg
 	'info_ldap_ok' => 'L’autenticació LDAP està instal·lada.',
 	'info_lien_hypertexte' => 'Enllaç hipertext:',
 	'info_liste_nouveautes_envoyee' => 'La lliste de les novetats ha estat enviada',
-	'info_liste_redacteurs_connectes' => 'Llista de redactors connectats',
+	'info_liste_redacteurs_connectes' => 'Llista de redactors connectats', # MODIF
 	'info_login_existant' => 'Aquest nom d’usuari ja existeix.',
 	'info_login_trop_court' => 'Nom d’usuari massa curt.',
 	'info_login_trop_court_car_pluriel' => 'L’usuari ha de tenir com a mínim @nb@ caràcters.',
@@ -343,7 +343,7 @@ desactivada per raons de seguretat (cosa normal en molts proveïdors d’hostatg
 	'info_moyenne' => 'mitjana:',
 	'info_multi_cet_article' => 'Idioma d’aquest article:',
 	'info_multi_langues_choisies' => 'Seleccioneu a continuació els idiomes a disposició dels redactors del vostre lloc.
-  Els idiomes ja utilitzats en el vostre lloc (visualitzats en primer lloc) no es poden desactivar.',
+  Els idiomes ja utilitzats en el vostre lloc (visualitzats en primer lloc) no es poden desactivar.', # MODIF
 	'info_multi_objets' => '@objets@ : activar el menú de llengua',
 	'info_multi_secteurs' => '... només per les seccions situades a l’arrel?',
 	'info_nb_articles' => '@nb@ articles',
@@ -370,8 +370,8 @@ desactivada per raons de seguretat (cosa normal en molts proveïdors d’hostatg
 	'info_nouvelle_traduction' => 'Nova traducció:',
 	'info_numero_article' => 'ARTICLE NÚMERO:',
 	'info_obligatoire_02' => '[obligatori]', # MODIF
-	'info_option_accepter_visiteurs' => 'Acceptar la inscripció dels visitants del lloc públic',
-	'info_option_ne_pas_accepter_visiteurs' => 'Refusar la inscripció de visitants',
+	'info_option_accepter_visiteurs' => 'Acceptar la inscripció dels visitants del lloc públic', # MODIF
+	'info_option_ne_pas_accepter_visiteurs' => 'Refusar la inscripció de visitants', # MODIF
 	'info_options_avancees' => 'OPCIONS AVANÇADES',
 	'info_ou' => 'o...',
 	'info_page_interdite' => 'Pàgina prohibida',
@@ -396,10 +396,10 @@ desactivada per raons de seguretat (cosa normal en molts proveïdors d’hostatg
 	'info_ps' => 'P.-S.',
 	'info_publier' => 'publicar',
 	'info_publies' => 'Els vostres articles publicats en línia',
-	'info_question_accepter_visiteurs' => 'Si a les plantilles (esquelets) del vostre lloc Web es preveu l’enregistrament de visitants sense accés a l’espai privat, vulgueu activar la següent opció:',
+	'info_question_accepter_visiteurs' => 'Si a les plantilles (esquelets) del vostre lloc Web es preveu l’enregistrament de visitants sense accés a l’espai privat, vulgueu activar la següent opció:', # MODIF
 	'info_question_inscription_nouveaux_redacteurs' => 'Accepteu les inscripcions de nous redactors a partir del lloc web públic? Si ho accepteu, els visitants es podran inscriure
  mitjançant un formulari  automatitzat i llavors accediran a l’espai privat per proposar els seus propis articles.<blockquote><i>Durant el procés d’inscripció, els usuaris reben un correu electrònic automàtic en el que se’ls dóna els seus codis d’accés a la web privada. Alguns proveïdors d’hostatge desactiven l’enviament de correus electrònics des dels seus servidors: en aquest
- cas, la inscripció automàtica és impossible.</i></blockquote>',
+ cas, la inscripció automàtica és impossible.</i></blockquote>', # MODIF
 	'info_qui_edite' => '@nom_auteur_modif@ ha treballat en aquest contingut fa @date_diff@ minuts',
 	'info_racine_site' => 'Arrel del lloc',
 	'info_recharger_page' => 'Actualitzeu aquesta pàgina en breus instants.',
@@ -416,7 +416,7 @@ desactivada per raons de seguretat (cosa normal en molts proveïdors d’hostatg
 	'info_refuses' => 'Els vostres articles rebutjats',
 	'info_reglage_ldap' => 'Opcions: <b>Posta a punt de la importació LDAP</b>',
 	'info_renvoi_article' => '<b>Redirecció.</b> Aquest article et porta a la pàgina:',
-	'info_reserve_admin' => 'Només els adminsitradors poden modificar aquesta adreça.',
+	'info_reserve_admin' => 'Només els adminsitradors poden modificar aquesta adreça.', # MODIF
 	'info_restreindre_rubrique' => 'Restringir la gestió a les seccions:',
 	'info_resultat_recherche' => 'Resultats de la cerca:',
 	'info_rubriques' => 'Seccions',
@@ -435,14 +435,14 @@ desactivada per raons de seguretat (cosa normal en molts proveïdors d’hostatg
 	'info_sites_proxy' => 'Utilitzar un proxy',
 	'info_sites_trouves' => 'Llocs trobats',
 	'info_sous_titre' => 'Subtítol:',
-	'info_statut_administrateur' => 'Administrador',
+	'info_statut_administrateur' => 'Administrador', # MODIF
 	'info_statut_auteur' => 'Estatus d’aquest autor:',
 	'info_statut_auteur_2' => 'Sóc',
 	'info_statut_auteur_a_confirmer' => 'Inscripció per confirmar',
 	'info_statut_auteur_autre' => 'Un altre estat:',
 	'info_statut_redacteur' => 'Redactor',
-	'info_statut_utilisateurs_1' => 'Estat per defecte dels usuaris importats',
-	'info_statut_utilisateurs_2' => 'Escolliu l’estat atribuït a les persones que hi ha al directori LDAP quan es connecten per primera vegada. Posteriorment podreu podreu modificar aquest valor cas per cas.',
+	'info_statut_utilisateurs_1' => 'Estat per defecte dels usuaris importats', # MODIF
+	'info_statut_utilisateurs_2' => 'Escolliu l’estat atribuït a les persones que hi ha al directori LDAP quan es connecten per primera vegada. Posteriorment podreu podreu modificar aquest valor cas per cas.', # MODIF
 	'info_suivi_activite' => 'Seguiment de l’activitat editorial',
 	'info_surtitre' => 'Sobretítol:',
 	'info_syndication_integrale_1' => 'El vostre lloc Web proposa fitxers de sindicació (veure « <a href="@url@">@titre@</a> »).',
@@ -487,7 +487,7 @@ amb un color que indica el seu estat:',
 	'info_visiteur_2' => 'del lloc públic',
 	'info_visiteurs' => 'Visitants',
 	'info_visiteurs_02' => 'Visitants del lloc públic',
-	'info_webmestre_forces' => 'Els administradors estan definits a <tt>@file_options@</tt>.',
+	'info_webmestre_forces' => 'Els administradors estan definits a <tt>@file_options@</tt>.', # MODIF
 	'install_adresse_base_hebergeur' => 'Adreça de la base de dades donada per l’hostatjador',
 	'install_connect_ok' => 'La nova base de dades ha estat correctament declarada amb el nom del servidor @connect@.',
 	'install_echec_annonce' => 'La instal·lació probablement fracassarà, o anirà a parar a un lloc no funcional...',
@@ -515,10 +515,10 @@ amb un color que indica el seu estat:',
 	'intitule_licence' => 'Llicència',
 	'item_accepter_inscriptions' => 'Acceptar les inscripcions',
 	'item_activer_messages_avertissement' => 'Activar els missatges d’advertència',
-	'item_administrateur_2' => 'administrador',
+	'item_administrateur_2' => 'administrador', # MODIF
 	'item_afficher_calendrier' => 'Mostrar en el calendari',
 	'item_autoriser_syndication_integrale' => 'Difondre la totalitat dels articles als fitxers de sindicació',
-	'item_choix_administrateurs' => 'els administradors',
+	'item_choix_administrateurs' => 'els administradors', # MODIF
 	'item_choix_generation_miniature' => 'Generar automàticament les miniatures de les imatges.',
 	'item_choix_non_generation_miniature' => 'No generar miniatures d’aquestes imatges.',
 	'item_choix_redacteurs' => 'els redactors',
@@ -706,15 +706,15 @@ amb un color que indica el seu estat:',
 	'text_article_propose_publication' => 'Article proposat per ser publicat.',
 	'texte_acces_ldap_anonyme_1' => 'Alguns servidors LDAP no accepten accessos anònims. En aquest cas és necessari especificar un identificador d’accés inicial per tal de poder buscar informacions en el directori. En la majoria de casos tanmateix, els camps següents es podrán deixar buits.',
 	'texte_admin_effacer_01' => 'Aquesta comanda esborra <i>tot</i> el contingut de la base de dades,
-la qual compren <i>tots</i> els accessos dels redactors i administradors. Després d’haver-la executat, haureu de reinstal.lar l’SPIP per refer una nova base i un primer accés per l’administrador.',
+la qual compren <i>tots</i> els accessos dels redactors i administradors. Després d’haver-la executat, haureu de reinstal.lar l’SPIP per refer una nova base i un primer accés per l’administrador.', # MODIF
 	'texte_adresse_annuaire_1' => '(Si el vostre anuari està instal.lat a la mateixa maquina que aquesta web, es tracta probablement de "localhost".)',
 	'texte_ajout_auteur' => 'L’autor següent ha estat afegit a l’article:',
-	'texte_annuaire_ldap_1' => 'Si se disposa d’un accés a un anuari (LDAP), es pot utilitzar per a importar automàticament els/les usuaris/es baix SPIP.',
+	'texte_annuaire_ldap_1' => 'Si se disposa d’un accés a un anuari (LDAP), es pot utilitzar per a importar automàticament els/les usuaris/es baix SPIP.', # MODIF
 	'texte_article_statut' => 'Aquest article està:',
 	'texte_article_virtuel' => ' Article virtual',
 	'texte_article_virtuel_reference' => ' <b>Article virtual:</b> article referenciat en la web amb SPIP, però redirigit cap un altre URL. Per suprimir la redirecció, esborreu l’URL que apareix dalt.',
 	'texte_aucun_resultat_auteur' => 'Cap resultat per "@cherche_auteur@"',
-	'texte_auteur_messagerie' => 'Aquest lloc us pot mostrar permanentment la llista dels redactors que estan connectats, permetent-vos intercanviar missatges en directe. Podeu decidir no aparèixer en aquesta llista (i ser «invisibles» pels altres usuaris).',
+	'texte_auteur_messagerie' => 'Aquest lloc us pot mostrar permanentment la llista dels redactors que estan connectats, permetent-vos intercanviar missatges en directe. Podeu decidir no aparèixer en aquesta llista (i ser «invisibles» pels altres usuaris).', # MODIF
 	'texte_auteurs' => 'ELS AUTORS',
 	'texte_choix_base_1' => 'Trie la seua base:',
 	'texte_choix_base_2' => 'El servidor SQL conté diverses bases de dades.',
@@ -745,7 +745,7 @@ la qual compren <i>tots</i> els accessos dels redactors i administradors. Despr�
  <tt>.htpasswd</tt> i <tt>.htpasswd-admin</tt> en el 
 directori @dossier@ ?</b>
 <p> Aquests fitxers us poden servir per restringir l’accés als autors i als administradors a altres llocs de la vostra Web (programa extern d’estadístiques, per exemple).</p>
- Si no li veieu cap utilitat, podeu deixar aquesta opció en el seu valor per defecte (no hi ha  creació de fitxers).</p>',
+ Si no li veieu cap utilitat, podeu deixar aquesta opció en el seu valor per defecte (no hi ha  creació de fitxers).</p>', # MODIF
 	'texte_informations_personnelles_1' => ' El sistema va ara a fer-vos un accés personalitzat al web.',
 	'texte_informations_personnelles_2' => ' (Nota: si es tracta d’una reinstal.lació, si el vostre accés funciona encara vostès poden',
 	'texte_introductif_article' => ' (Texte introductiu de l’article.)',
@@ -755,7 +755,7 @@ directori @dossier@ ?</b>
 	'texte_login_ldap_1' => '(Deixar buit per un accés anònim, o ficar l’ordre sencera, per exemple " <tt>uid=Ferrer, ou=users, dc=el-meu-domini, dc=com</tt>".)',
 	'texte_login_precaution' => 'Atenció! Aquest és el login o nom d’usuari amb el qual esteu connectats actualment.
 Useu aquest formulari amb precaució...',
-	'texte_messagerie_agenda' => 'Una missatgeria permet als redactors del lloc comunicar-se entre ells directament a l’espai privat del lloc Web. Està associada a una agenda. ',
+	'texte_messagerie_agenda' => 'Una missatgeria permet als redactors del lloc comunicar-se entre ells directament a l’espai privat del lloc Web. Està associada a una agenda. ', # MODIF
 	'texte_mise_a_niveau_base_1' => 'S’han actualitzat els fitxers d’SPIP.
  Cal ara actualitzar la base de dades del lloc.',
 	'texte_modifier_article' => 'Modificar l’article:',
@@ -802,11 +802,10 @@ que es vol testar.',
 	'texte_titre_obligatoire' => '<b>Títol</b> [Obligatori]',
 	'texte_travail_article' => '@nom_auteur_modif@ ha treballat amb aquest article fa @date_diff@ minuts',
 	'texte_travail_collaboratif' => 'Si és freqüent que diversos redactors treballin en un mateix article, el sistema pot mostrar els articles "oberts" recentment per tal d’evitar les modificacions simultànies.
-Aquesta opció està desactivada per defecte amb la finalitat d’evitar mostrar  missatges d’advertència intempestius.',
+Aquesta opció està desactivada per defecte amb la finalitat d’evitar mostrar  missatges d’advertència intempestius.', # MODIF
 	'texte_vide' => 'buit',
 	'texte_vider_cache' => 'buidar la memòria cau',
 	'titre_admin_tech' => 'Manteniment tècnic',
-	'titre_admin_vider' => 'Manteniment tècnic',
 	'titre_ajouter_un_auteur' => 'Afegir un autor',
 	'titre_ajouter_un_mot' => 'Afegir una paraula clau',
 	'titre_cadre_afficher_article' => 'Afegir els articles',

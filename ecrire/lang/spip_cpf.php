@@ -1,6 +1,6 @@
 <?php
 // This is a SPIP language file  --  Ceci est un fichier langue de SPIP
-// extrait automatiquement de https://trad.spip.net/tradlang_module/spip?lang_cible=cpf
+// extrait automatiquement de https://trad.spip.net/tradlang_module/spip_?lang_cible=cpf
 // ** ne pas modifier le fichier **
 
 return [
@@ -232,7 +232,7 @@ return [
 	'form_pet_signature_pasprise' => 'Lé pa posib antyen pa out sinyatir.',
 	'form_prop_confirmer_envoi' => 'Konfirm lanvwa',
 	'form_prop_description' => 'Kosa i lé/arkont son lavi',
-	'form_prop_enregistre' => 'Out kontribusyon lé byen arivé. Li sra disponib an liyn apré lakonfirmasyon inndé responsab lo sit.',
+	'form_prop_enregistre' => 'Out kontribusyon lé byen arivé. Li sra disponib an liyn apré lakonfirmasyon inndé responsab lo sit.', # MODIF
 	'form_prop_envoyer' => 'Anvwa inn modékri',
 	'form_prop_indiquer_email' => 'Mersi mèt inn ladrès imèl sak i mars',
 	'form_prop_indiquer_nom_site' => 'Mersi mèt tèrla lo non lo sitwèb',
@@ -312,7 +312,7 @@ return [
 	'info_authentification_ftp' => 'Lotantificasyon (èk FTP).',
 	'info_breves_2' => 'bann tit-nouvèl',
 	'info_connexion_refusee' => 'Lakostaz lé arfizé',
-	'info_contact_developpeur' => 'Mersi kontak inn dévlopèr.',
+	'info_contact_developpeur' => 'Mersi kontak inn dévlopèr.', # MODIF
 	'info_contenance' => 'Dann sit-la nana :',
 	'info_contribution' => 'bann kontribusyon dann forom', # MODIF
 	'info_copyright' => '@spip@ lé inn lozisyel lib sak lé doné @lien_gpl@.',
@@ -346,7 +346,7 @@ return [
 	'info_impossible_lire_page' => '<b>Kanard !</b> Lé inposib lir pazwèb-la <tt><html>@test_proxy@</html></tt> èk lo proksi <tt>', # MODIF
 	'info_installation_systeme_publication' => 'Pou fé zwé (instal) lo sistèm lapiblikasyon...',
 	'info_installer_documents' => 'Ou pé fè zwé otomatikman tout bann dokiman sak lé prézan dann fisyé @upload@.',
-	'info_installer_ftp' => 'Kom komandèr, ou pé instal (èk FTP) bann fisyé dann dosyé @upload@ pou answuit swazi banna tèrla dirèkman.',
+	'info_installer_ftp' => 'Kom komandèr, ou pé instal (èk FTP) bann fisyé dann dosyé @upload@ pou answuit swazi banna tèrla dirèkman.', # MODIF
 	'info_installer_images' => 'Ou pé fèr zwé bann zimaz èk lo forma JPEG, GIF é minm PNG.',
 	'info_installer_images_dossier' => 'Instal bann zimaz dann dosyé @upload@ pou swazi azot answit, tèrla dirèkman.',
 	'info_interface_complete' => 'Lintèrfas konplé',
@@ -372,8 +372,8 @@ return [
 	'info_multi_herit' => 'Lang laribrik anlèr',
 	'info_multi_langues_soulignees' => 'Bann <u>lang soulinyé </u> lé sat néna in traidksyonkomplé po tout bann tèks lintérfas SPIP. Si ou swazi bann lang-la, néna in bon péd zéléman lo sit piblik (ladat, bann formilèr) sak i aparé tradwi otomatikman. Ek tout bann lang sat lé pa soulinyé, bann zéléamn-la i aparé samn lo lang prinsipal lo sit.', # MODIF
 	'info_multilinguisme' => 'Miltilingwis',
-	'info_nom_non_utilisateurs_connectes' => 'Out non lé pa visib dann fil bann zitilizatèr an liyn.',
-	'info_nom_utilisateurs_connectes' => 'Out non lé vizib dann list bann zitilizatèr an liyn.',
+	'info_nom_non_utilisateurs_connectes' => 'Out non lé pa visib dann fil bann zitilizatèr an liyn.', # MODIF
+	'info_nom_utilisateurs_connectes' => 'Out non lé vizib dann list bann zitilizatèr an liyn.', # MODIF
 	'info_nombre_en_ligne' => 'Astèr lé an liyn :',
 	'info_non_resultat' => 'Nana pwinn rézilta pou "@cherche_mot@"',
 	'info_non_utilisation_messagerie' => 'Astèr i ansèrv pa lakazmodékri lo sitwèb.',
@@ -494,16 +494,16 @@ dann out navigatèr é',
 	'pass_choix_pass' => 'Mersi swazi out nouvo modpas :',
 	'pass_erreur' => 'Kanard',
 	'pass_erreur_acces_refuse' => '<b>Kanard :</b> out nana pli laksé sir lo sit-la.',
-	'pass_erreur_code_inconnu' => '<b>Kanard :</b> lo kod-la i korespon pa pou okin lotèr anroziztré si lo sit.',
+	'pass_erreur_code_inconnu' => '<b>Kanard :</b> lo kod-la i korespon pa pou okin lotèr anroziztré si lo sit.', # MODIF
 	'pass_erreur_non_enregistre' => '<b>Kanard :</b> ladrès-la <tt>@email_oubli@</tt> li lé pli anroziztré si lo sit-la.',
 	'pass_erreur_non_valide' => '<b>Kanard : /b> limèl-la <tt>@email_oubli@</tt> lé pa bon !',
 	'pass_erreur_probleme_technique' => '<b>Kanard :</b> akoz inn larlik tèknik, lé pa posib astèr anvwayé limèl-la.',
 	'pass_espace_prive_bla' => 'Léspas privé lo sit-la lé ouvèr pou tout
 bann vizitèr, aprè linskrisyon. Kank ou lé anroziztré,
 i pé konsilt oubyinsa propoz bann zartik.I pé osi
-mèt ansanm èk bann dalon dan tout bann forom.',
+mèt ansanm èk bann dalon dan tout bann forom.', # MODIF
 	'pass_forum_bla' => 'Ou la domand mèt out grindsèl dann forom
-sak lé rézèrvé pou bann vizitèr anrozistré.',
+sak lé rézèrvé pou bann vizitèr anrozistré.', # MODIF
 	'pass_indiquez_cidessous' => 'Mèt isi ladrès imèl ou la déza anservi pou anroziztr aou. Aprésa, ou sava
 giny inn limèl : li indik aou lamanyir pou rékupèr out laksé.',
 	'pass_mail_passcookie' => '(Sa lé in modékri otomatik)
@@ -515,7 +515,7 @@ Mersi rand aou sir ladrès la :
 
 Aprésa, ou i poura mèt in nouvo modpas
  pou rakost lo sitwèb.
-',
+', # MODIF
 	'pass_mot_oublie' => 'Modpas oubliyé',
 	'pass_nouveau_enregistre' => 'Out nouvo modpas la fin dèt anroziztré.',
 	'pass_nouveau_pass' => 'Nouvo modpas',
@@ -564,7 +564,7 @@ out sit i mars. Ni konsèy aou pa tous a ryin si ou lé pa fransvérité byin ab
 
  <br /><br /><b>É minm, ni konséy
 aou lès lazéstyon do bann paz-la pou lo wèbmèt prinsipal.</b>', # MODIF
-	'texte_inc_meta_1' => 'Sistèm-la la finn trové inn larlik èk lékritir lo fisyé <code>@fichier@</code>.  Mersi, kom komandèr lo sit,',
+	'texte_inc_meta_1' => 'Sistèm-la la finn trové inn larlik èk lékritir lo fisyé <code>@fichier@</code>.  Mersi, kom komandèr lo sit,', # MODIF
 	'texte_inc_meta_2' => 'vérifyé bann drwa lékritir',
 	'texte_inc_meta_3' => 'dann répertwar <code>@repertoire@</code>.',
 	'texte_statut_en_cours_redaction' => 'apré lékritir',
@@ -576,7 +576,7 @@ aou lès lazéstyon do bann paz-la pou lo wèbmèt prinsipal.</b>', # MODIF
 	'titre_cadre_raccourcis' => 'BANN RÉDIYON :',
 	'titre_changer_couleur_interface' => 'Sanz lakoulèr lintèrfas',
 	'titre_image_admin_article' => 'Ou pé zèr lartik-la',
-	'titre_image_administrateur' => 'Komandèr',
+	'titre_image_administrateur' => 'Komandèr', # MODIF
 	'titre_image_aide' => 'Koudmin sir léléman-la',
 	'titre_image_auteur_supprime' => 'Lotèr lé dégréné',
 	'titre_image_redacteur' => 'Lotèr san laksé',

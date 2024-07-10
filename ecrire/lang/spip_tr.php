@@ -1,6 +1,6 @@
 <?php
 // This is a SPIP language file  --  Ceci est un fichier langue de SPIP
-// extrait automatiquement de https://trad.spip.net/tradlang_module/spip?lang_cible=tr
+// extrait automatiquement de https://trad.spip.net/tradlang_module/spip_?lang_cible=tr
 // ** ne pas modifier le fichier **
 
 return [
@@ -220,7 +220,7 @@ return [
 	'form_pet_signature_pasprise' => 'İmzanız dikkate alınmadı.',
 	'form_prop_confirmer_envoi' => 'Gönderiyi onayla',
 	'form_prop_description' => 'Tanım / Yorum',
-	'form_prop_enregistre' => 'Öneriniz kaydedildi, sitenin sorumluları tarafından onaylandıktan sonra çevrimiçi yayınlanacak.',
+	'form_prop_enregistre' => 'Öneriniz kaydedildi, sitenin sorumluları tarafından onaylandıktan sonra çevrimiçi yayınlanacak.', # MODIF
 	'form_prop_envoyer' => 'Bir ileti gönder',
 	'form_prop_indiquer_email' => 'Lütfen geçerli bir e-posta adresi belirtiniz',
 	'form_prop_indiquer_nom_site' => 'Sitenin ismini giriniz.',
@@ -300,7 +300,7 @@ return [
 	'info_authentification_ftp' => 'Onay (FTP ile)',
 	'info_breves_2' => 'kısa haberler',
 	'info_connexion_refusee' => 'Bağlantı reddedildi',
-	'info_contact_developpeur' => 'Lütfen bir program geliştirici ile temasa geçiniz.',
+	'info_contact_developpeur' => 'Lütfen bir program geliştirici ile temasa geçiniz.', # MODIF
 	'info_contenance' => 'Site içeriği :',
 	'info_contribution' => 'Forum katkıları', # MODIF
 	'info_copyright' => '@spip@, @lien_gpl@ GPL lisansı ile dağıtılan serbest bir yazılımdır.',
@@ -334,7 +334,7 @@ return [
 	'info_impossible_lire_page' => '<b>Hata !</b> Sayfa vekil (proxy) üzerinden <tt><html>@test_proxy@</html></tt> okunamıyor  <tt>',
 	'info_installation_systeme_publication' => 'Yayın sistemi kurulumu...',
 	'info_installer_documents' => '@upload@ dizininde bulunan tüm belgeleri otomatik olarak kurabilirsiniz. ',
-	'info_installer_ftp' => 'Yönetici olarak (FTP ile) @upload@ dizinine dosya gönderip sonra onları buradan direkt olarak seçebilirsiniz. ',
+	'info_installer_ftp' => 'Yönetici olarak (FTP ile) @upload@ dizinine dosya gönderip sonra onları buradan direkt olarak seçebilirsiniz. ', # MODIF
 	'info_installer_images' => 'JPEG, GIF ve PNG formatında resimler yükleyebilirsiniz.',
 	'info_installer_images_dossier' => 'Buradan seçim yapabilmek için @upload@ dizinine resim yükleyiniz. ',
 	'info_interface_complete' => 'Tam arayüz',
@@ -360,8 +360,8 @@ return [
 	'info_multi_herit' => 'Varsayılan dil :',
 	'info_multi_langues_soulignees' => '<u>Altı çizili dillerin</u> arayüzde tüm metinlerin çevirileri bulunmaktadır. Bu dilleri seçerseniz, kamu sitesinin bir çok elemanı (tarihler, formlar) otomatik olarak çevrilecektir. Altı çizili olmayan diller için ise bu elemanlar sitenin başlıca dilinde görüntülenecektir.', # MODIF
 	'info_multilinguisme' => 'Çok dillilik',
-	'info_nom_non_utilisateurs_connectes' => 'Bağlı kullanıcılar listesinde isminiz görünmüyor.',
-	'info_nom_utilisateurs_connectes' => 'Bağlı kullanıcılar listesinde isminiz görünüyor.',
+	'info_nom_non_utilisateurs_connectes' => 'Bağlı kullanıcılar listesinde isminiz görünmüyor.', # MODIF
+	'info_nom_utilisateurs_connectes' => 'Bağlı kullanıcılar listesinde isminiz görünüyor.', # MODIF
 	'info_nombre_en_ligne' => 'Şu anda çevrimiçi :',
 	'info_non_resultat' => '"@cherche_mot@" için hiç sonuç yok',
 	'info_non_utilisation_messagerie' => 'Bu sitenin iç ileti sistemini kullanmıyorsunuz.',
@@ -395,8 +395,8 @@ return [
 	'info_selectionner_fichier_2' => 'Bir dosya seç :',
 	'info_supprimer_vignette' => 'Bu etiketi sil',
 	'info_symbole_bleu' => '<b>Mavi</b> sembol bir <b>hatırlatmayı</b> gösterir : yani, kişisel kullanımınız için bir iletidir.',
-	'info_symbole_jaune' => '<b>Sarı</b> sembol <b>tüm editörlere yönelik</b> bir duyuruyu gösterir : tüm yöneticiler tarafından değiştirilebilir ve tüm editörler tarafından görülebilir. ',
-	'info_symbole_vert' => 'Sarı sembol sitenin başka kullanıcılarıyla yapılan ileti alışverişlerini gösterir.',
+	'info_symbole_jaune' => '<b>Sarı</b> sembol <b>tüm editörlere yönelik</b> bir duyuruyu gösterir : tüm yöneticiler tarafından değiştirilebilir ve tüm editörler tarafından görülebilir. ', # MODIF
+	'info_symbole_vert' => 'Sarı sembol sitenin başka kullanıcılarıyla yapılan ileti alışverişlerini gösterir.', # MODIF
 	'info_telecharger_nouveau_logo' => 'Yeni bir logo yükle :',
 	'info_telecharger_ordinateur' => 'Bilgisayarınızdan indiriniz :',
 	'info_tous_resultats_enregistres' => '[tüm sonuçlar kaydedildi]',
@@ -489,16 +489,16 @@ return [
 	'pass_choix_pass' => 'Lütfen yeni şifrenizi seçiniz :',
 	'pass_erreur' => 'Hata',
 	'pass_erreur_acces_refuse' => '<b>Hata : </b> artık bu siteye erişiminiz yoktur.',
-	'pass_erreur_code_inconnu' => 'Hata : bu şifre bu siteye erişimi olan hiç bir ziyaretçiye uymuyor.',
+	'pass_erreur_code_inconnu' => 'Hata : bu şifre bu siteye erişimi olan hiç bir ziyaretçiye uymuyor.', # MODIF
 	'pass_erreur_non_enregistre' => 'Hata : @email_oubli@ adresi bu siteye kayıtlı değil. ',
 	'pass_erreur_non_valide' => 'Hata :  @email_oubli@ e-posta adresi geçerli değil !',
 	'pass_erreur_probleme_technique' => 'Hata : teknik bir sorundan ötürü e-posta gönderilemiyor.',
 	'pass_espace_prive_bla' => 'Bu sitenin özel alanı,
     kayıtlı ziyaretçilere açıktır. Kayıt olduktan sonra,
     yazılmakta olan makalelere bakabilir, makale önerebilir 
-  ve tüm forumlara katılabilirsiniz. ',
+  ve tüm forumlara katılabilirsiniz. ', # MODIF
 	'pass_forum_bla' => 'Kayıtlı ziyaretçilere ayrılmış bir foruma
-     müdahale etmek istediniz. ',
+     müdahale etmek istediniz. ', # MODIF
 	'pass_indiquez_cidessous' => 'Daha önce kayıt olduğunuz e-posta adresinizi aşağıya belirtiniz.
   Tekrar erişebilmek için gereken işlemi 
   belirten 
@@ -512,7 +512,7 @@ return [
 
  @sendcookie@
  O zaman yeni bir şifre girebilecek
- ve tekrar siteye bağlanabileceksiniz.  ',
+ ve tekrar siteye bağlanabileceksiniz.  ', # MODIF
 	'pass_mot_oublie' => 'Şifreyi unuttum',
 	'pass_nouveau_enregistre' => 'Yeni şifreniz kaydedildi.',
 	'pass_nouveau_pass' => 'Yeni şifre',
@@ -557,7 +557,7 @@ return [
 	'texte_inc_auth_2' => 'gezgininizi kapatıp tekrar çalıştırınız ve ',
 	'texte_inc_auth_3' => 'tekrar bağlanınız.',
 	'texte_inc_config' => 'Bu sayfalarda yapılan değişiklikler sitenizin işleyişi üzerinde büyük ölçüde etkilidir. SPIP sisteminin işleyişine aşina olmadığınız sürece müdahale etmemenizi öneririz.  <br /><br /><b>Daha genel bir ifadeyle söylemek gerekirse bu sayfalarla ilgilenme işini sitenin Ağ Yöneticisi’ne bırakmanızı özellikle öneririz.</b>',
-	'texte_inc_meta_1' => 'Sistem <code>@fichier@</code> dosyasının yazılması sırasında bir hata ile karşılaştı. Lütfen, site yöneticisi olarak ',
+	'texte_inc_meta_1' => 'Sistem <code>@fichier@</code> dosyasının yazılması sırasında bir hata ile karşılaştı. Lütfen, site yöneticisi olarak ', # MODIF
 	'texte_inc_meta_2' => '(<code>ecrire/data/</code> dizinindeki) ',
 	'texte_inc_meta_3' => '<code>@repertoire@</code> dizinindeki yazma haklarını kontrol ediniz. ',
 	'texte_statut_en_cours_redaction' => 'Yazılıyor',
@@ -569,7 +569,7 @@ return [
 	'titre_cadre_raccourcis' => 'KISA YOLLAR :',
 	'titre_changer_couleur_interface' => 'Arayüz rengini değiştir',
 	'titre_image_admin_article' => 'Bu makaleyi yönetebilirsiniz',
-	'titre_image_administrateur' => 'Yönetici',
+	'titre_image_administrateur' => 'Yönetici', # MODIF
 	'titre_image_aide' => 'Bu eleman hakkında yardım',
 	'titre_image_auteur_supprime' => 'Silinmiş yazar',
 	'titre_image_redacteur' => 'Erişim hakkı olmayan yazar',

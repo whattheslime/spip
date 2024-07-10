@@ -17,7 +17,7 @@ return [
 	'avis_connexion_echec_3' => '<b>N.B.</b> 在许多服务器上运行时, 使用前您必须<b>请求</b>激活访问MYSQL数据库的权限.如果您无法连接, 请首先检验您是否有效激活该权限.', # MODIF
 	'avis_connexion_ldap_echec_1' => '连接LDAP服务器失败.',
 	'avis_connexion_ldap_echec_2' => '返回前页校验您所提供的信息.',
-	'avis_connexion_ldap_echec_3' => '请勿使用LDAP支持导入用户.',
+	'avis_connexion_ldap_echec_3' => '请勿使用LDAP支持导入用户.', # MODIF
 	'avis_deplacement_rubrique' => '注意! 该专栏包含 @contient_breves@ 简要@scb@: 如果您要移动它,请选择该确认框.',
 	'avis_erreur_connexion_mysql' => 'SQL连接失败',
 	'avis_espace_interdit' => '<b>禁止区</b><p>SPIP已安装.', # MODIF
@@ -37,10 +37,10 @@ return [
 	'bouton_envoyer_message' => '最后消息:发送',
 	'bouton_modifier' => '修改',
 	'bouton_radio_afficher' => '显示',
-	'bouton_radio_apparaitre_liste_redacteurs_connectes' => '显示在已连接的编辑者列表中',
+	'bouton_radio_apparaitre_liste_redacteurs_connectes' => '显示在已连接的编辑者列表中', # MODIF
 	'bouton_radio_envoi_annonces_adresse' => '发送声明给下列地址:',
 	'bouton_radio_envoi_liste_nouveautes' => '发送最近新闻列表',
-	'bouton_radio_non_apparaitre_liste_redacteurs_connectes' => '不要出现在连接编辑者列表中',
+	'bouton_radio_non_apparaitre_liste_redacteurs_connectes' => '不要出现在连接编辑者列表中', # MODIF
 	'bouton_radio_non_envoi_annonces_editoriales' => '不发送任何编辑的声明',
 	'bouton_redirection' => '重定向',
 	'bouton_relancer_installation' => '重新安装',
@@ -68,7 +68,7 @@ return [
 	'entree_cle_pgp' => '您的PGP钥匙',
 	'entree_contenu_rubrique' => '(专栏内容简介.)',
 	'entree_identifiants_connexion' => '您的连接标识符...',
-	'entree_informations_connexion_ldap' => '请在表单中填入LDAP连接信息. 所有信息应该由系统或网络管理员提供.',
+	'entree_informations_connexion_ldap' => '请在表单中填入LDAP连接信息. 所有信息应该由系统或网络管理员提供.', # MODIF
 	'entree_infos_perso' => '您是谁?',
 	'entree_interieur_rubrique' => '在专栏内部:',
 	'entree_liens_sites' => '<b>超链接</b> (访问参考站点...)', # MODIF
@@ -122,12 +122,12 @@ return [
 	'impossible_modifier_pass_auteur' => 'Impossible de modifier le mot de passe.', # MODIF
 	'info_1_article' => '1篇文章',
 	'info_activer_cookie' => '您可以激活<b>相应的cookie</b>,以便让您轻松转换公共站点为私私人站点.',
-	'info_administrateur' => '管理员',
-	'info_administrateur_1' => '管理员',
+	'info_administrateur' => '管理员', # MODIF
+	'info_administrateur_1' => '管理员', # MODIF
 	'info_administrateur_2' => '站点 (<i>谨慎使用</i>)',
-	'info_administrateur_site_01' => '如果您是站点管理员,请',
+	'info_administrateur_site_01' => '如果您是站点管理员,请', # MODIF
 	'info_administrateur_site_02' => '点击链接',
-	'info_administrateurs' => '管理员',
+	'info_administrateurs' => '管理员', # MODIF
 	'info_administrer_rubrique' => '您可以管理该栏',
 	'info_adresse' => '给地址:',
 	'info_adresse_url' => '您的公众站点URL地址',
@@ -155,7 +155,7 @@ return [
 	'info_chapeau' => '前言',
 	'info_chapeau_2' => '前言:',
 	'info_chemin_acces_1' => '选项: <b>目录的访问路径</b>', # MODIF
-	'info_chemin_acces_2' => '从现在开始您必须配置目录的访问路径. 这是存在目录中的用户说明文件精要.',
+	'info_chemin_acces_2' => '从现在开始您必须配置目录的访问路径. 这是存在目录中的用户说明文件精要.', # MODIF
 	'info_chemin_acces_annuaire' => '选项: <b>目录的访问路径</b>', # MODIF
 	'info_choix_base' => '第三步:',
 	'info_classement_1' => '<sup>st</sup> 出了 @liste@',
@@ -195,17 +195,14 @@ return [
   公共请求和文章
   确认的声明.', # MODIF
 	'info_fichiers_authent' => '认证文件 ".htpasswd"',
-	'info_forums_abo_invites' => '您的网站包含要求注册的公共论坛；所以公共网站的访客将被要求注册。',
+	'info_forums_abo_invites' => '您的网站包含要求注册的公共论坛；所以公共网站的访客将被要求注册。', # MODIF
 	'info_gauche_admin_tech' => '<b>只有管理者才有权访问这页.</b><p> 它提供多种多种
 维护任务. 它们有一些需更高的认证
-(通过FTP访问站点).', # MODIF
-	'info_gauche_admin_vider' => '<b>只有管理者才有权访问这页.</b><p> 它提供多种维护任务
-. 它们有一些需更高的认证
 (通过FTP访问站点).', # MODIF
 	'info_gauche_auteurs' => '你将找到站点所有的作者.
  每一个的状态用路标的颜色标识(作者 = 绿色; 管理员 = 黄色).', # MODIF
 	'info_gauche_auteurs_exterieurs' => '外部作者用蓝色图标标识, 不能访问站点; 通过垃圾箱删除作者.', # MODIF
-	'info_gauche_messagerie' => '消息允许你在作者中交换消息, 为保护备忘录(给个人用的) 或在主页私有区上显示声明(如果你是管理者).',
+	'info_gauche_messagerie' => '消息允许你在作者中交换消息, 为保护备忘录(给个人用的) 或在主页私有区上显示声明(如果你是管理者).', # MODIF
 	'info_gauche_statistiques_referers' => '页面显示 <i>引用</i>列表, 例如. 包含你站点的链接, 只有今天: 列表每24小时都要更新.', # MODIF
 	'info_gauche_visiteurs_enregistres' => '在这儿你将找到在站点公共区
  注册的访问者(订阅论坛).',
@@ -218,14 +215,14 @@ return [
 	'info_image_process' => '点击相关图片选取最佳的标志制作方法.',
 	'info_image_process2' => '<b>注意</b> <i>如果没有任何图片显示，那么储存您的网站的服务器不支持该工具。如果您希望使用这些功能，请联系您的服务器的技术支持，请他们安装《GD》或者《Imagick》扩展。</i>', # MODIF
 	'info_informations_personnelles' => '第五步: <b>个人信息</b>', # MODIF
-	'info_inscription_automatique' => '新编辑自动注册系统',
+	'info_inscription_automatique' => '新编辑自动注册系统', # MODIF
 	'info_jeu_caractere' => '站点的字符集',
 	'info_jours' => '天',
 	'info_laisser_champs_vides' => '文本框留空)',
 	'info_langues' => '站点语言',
 	'info_ldap_ok' => 'LDAP 验证已安装.',
 	'info_lien_hypertexte' => '超链接:',
-	'info_liste_redacteurs_connectes' => '列出连接的编辑者',
+	'info_liste_redacteurs_connectes' => '列出连接的编辑者', # MODIF
 	'info_login_existant' => '这个登录名已经存在.',
 	'info_login_trop_court' => '登录名太短.',
 	'info_maximum' => '最大:',
@@ -245,7 +242,7 @@ return [
 	'info_moyenne' => '平均:',
 	'info_multi_cet_article' => '文章的语言:',
 	'info_multi_langues_choisies' => '请在站点中选择以下语言使它们对编辑者可用.
- 你的站点已经用了如下语言(在顶端列表),它们不能设为未激活.',
+ 你的站点已经用了如下语言(在顶端列表),它们不能设为未激活.', # MODIF
 	'info_multi_secteurs' => '... 只为站点根目录下的专栏?',
 	'info_nom' => '名字',
 	'info_nom_destinataire' => '接收者名字',
@@ -264,8 +261,8 @@ return [
 	'info_nouvelle_traduction' => '新译文:',
 	'info_numero_article' => '文章号:',
 	'info_obligatoire_02' => '[必须的]', # MODIF
-	'info_option_accepter_visiteurs' => '允许公共网站访问者注册。',
-	'info_option_ne_pas_accepter_visiteurs' => '拒绝公共网站访问者注册。',
+	'info_option_accepter_visiteurs' => '允许公共网站访问者注册。', # MODIF
+	'info_option_ne_pas_accepter_visiteurs' => '拒绝公共网站访问者注册。', # MODIF
 	'info_options_avancees' => '高级选项',
 	'info_ou' => '或...',
 	'info_page_interdite' => '禁止页',
@@ -285,7 +282,7 @@ return [
  SPIP的新版本的数据库运行.',
 	'info_ps' => 'P.S.', # MODIF
 	'info_publies' => '你的文章在线出版',
-	'info_question_accepter_visiteurs' => '如果您的网站骨架设定访问者可以从公共网站注册，而不用到私人空间，请激活如下功能:',
+	'info_question_accepter_visiteurs' => '如果您的网站骨架设定访问者可以从公共网站注册，而不用到私人空间，请激活如下功能:', # MODIF
 	'info_question_inscription_nouveaux_redacteurs' => '你允许新编辑从公共站点注册吗?
   如果你愿意, 访问将通过自动表单注册
   , 将能访问私有区维护文章
@@ -307,7 +304,7 @@ return [
 	'info_refuses' => '你的文章被拒',
 	'info_reglage_ldap' => '选项: <b>调整 LDAP 导入</b>', # MODIF
 	'info_renvoi_article' => '<b>重定向.</b> 引用该页的文章:', # MODIF
-	'info_reserve_admin' => '只有管理能改这个地址.',
+	'info_reserve_admin' => '只有管理能改这个地址.', # MODIF
 	'info_restreindre_rubrique' => '限制专栏管理:',
 	'info_resultat_recherche' => '搜索结果:',
 	'info_rubriques' => '专栏',
@@ -326,11 +323,11 @@ return [
 	'info_sites_proxy' => '使用代理',
 	'info_sites_trouves' => '站点找到了',
 	'info_sous_titre' => '子标题:',
-	'info_statut_administrateur' => '管理者',
+	'info_statut_administrateur' => '管理者', # MODIF
 	'info_statut_auteur' => '作者状态:', # MODIF
 	'info_statut_redacteur' => '编辑者',
-	'info_statut_utilisateurs_1' => '导入用户的缺省状态',
-	'info_statut_utilisateurs_2' => 'Choose the status that is attributed to the persons present in the LDAP directory when they connect for the first time. Later, you can modify this value for each author on a case by case basis.',
+	'info_statut_utilisateurs_1' => '导入用户的缺省状态', # MODIF
+	'info_statut_utilisateurs_2' => 'Choose the status that is attributed to the persons present in the LDAP directory when they connect for the first time. Later, you can modify this value for each author on a case by case basis.', # MODIF
 	'info_suivi_activite' => '继续使编辑可用',
 	'info_surtitre' => '顶标题:',
 	'info_taille_maximale_vignette' => '系统产生的小插图的最大尺寸:',
@@ -370,9 +367,9 @@ return [
 	'intem_redacteur' => '编辑',
 	'item_accepter_inscriptions' => '允许注册',
 	'item_activer_messages_avertissement' => '激活警告消息',
-	'item_administrateur_2' => '管理者',
+	'item_administrateur_2' => '管理者', # MODIF
 	'item_afficher_calendrier' => '在日历中显示',
-	'item_choix_administrateurs' => '管理者',
+	'item_choix_administrateurs' => '管理者', # MODIF
 	'item_choix_generation_miniature' => '自动产生像片册.',
 	'item_choix_non_generation_miniature' => '不产生像片册.',
 	'item_choix_redacteurs' => '编辑者',
@@ -443,10 +440,10 @@ return [
 	'texte_acces_ldap_anonyme_1' => '一些 LDAP 服务器不允许任何匿名访问. 这样你必须标识初始连接,以后能搜索目录中信息. 无论如何, 大多数情况下以下区域可留空.',
 	'texte_admin_effacer_01' => '命令删除数据库的<i>所有</i> 内容包括
 <i>所有</i> 访问者和管理者的访问参数. 执行后, 为新建数据库和第一个管理员访问你应
-重新安装 SPIP .',
+重新安装 SPIP .', # MODIF
 	'texte_adresse_annuaire_1' => '( 如果你的目录安装到同样机器作为WEB站点, 可能 «localhost».)',
 	'texte_ajout_auteur' => '以下作者加到文章:',
-	'texte_annuaire_ldap_1' => '若你有权访问(LDAP) 目录, 你可用它在SPIP下自动导入用户.',
+	'texte_annuaire_ldap_1' => '若你有权访问(LDAP) 目录, 你可用它在SPIP下自动导入用户.', # MODIF
 	'texte_article_statut' => '文章是:',
 	'texte_article_virtuel' => '虚文章',
 	'texte_article_virtuel_reference' => '<b>虚文章 :</b>在SPIP中引用文档, 但是重定向到其它的URL. 移去链接, 删除以下 URL.',
@@ -565,11 +562,10 @@ return [
   为避免同时修改.
   该选项为避免不合时宜的警告信息缺省
   设定为
-  不可用.',
+  不可用.', # MODIF
 	'texte_vide' => '清空',
 	'texte_vider_cache' => '清空缓存',
 	'titre_admin_tech' => '技术维护',
-	'titre_admin_vider' => '技术维护',
 	'titre_cadre_afficher_article' => '显示文章:',
 	'titre_cadre_afficher_traductions' => '显示语言的翻译状态.',
 	'titre_cadre_ajouter_auteur' => '加作者:',

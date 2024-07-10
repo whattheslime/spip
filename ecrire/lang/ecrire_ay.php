@@ -21,7 +21,7 @@ return [
 	'avis_connexion_echec_3' => '&lt;b&gt;Amuyam:&lt;/b&gt; Walja jalanuqirinakana, munasiwa &lt;b&gt;mayiña&lt;/b&gt; mantawitx naktata yatqalltawiru MySQL janir apnaqasa. Janitix chinusiñ puyrktaxa mayampi uñjam lartax ukja.',
 	'avis_connexion_ldap_echec_1' => 'Jalanuqirirux chinuwi ukaxa LDAP janiw walt’kiti.',
 	'avis_connexion_ldap_echec_2' => 'Nayrir laphi uñnaqar kutt’am ukatsti jikit yatiyawinak qhanstayam.',
-	'avis_connexion_ldap_echec_3' => 'Mayakipawjam, askichir ukax jan apnaqamti LDAP apnaqirinak apayaniñataki.',
+	'avis_connexion_ldap_echec_3' => 'Mayakipawjam, askichir ukax jan apnaqamti LDAP apnaqirinak apayaniñataki.', # MODIF
 	'avis_deplacement_rubrique' => '¡AMUYAM! Aka t’aqan utjiwa @contient_breves@ breve@scb@. Janitix yäqtaxa,  iyaw sat casilla uk naktayam.',
 	'avis_erreur_connexion_mysql' => 'Chinuw pantjata MySQL',
 	'avis_espace_interdit' => '<b>Ch’usawx jark’ata</b> <div>SPIP ukax uchantataxiwa</div>',
@@ -42,10 +42,10 @@ return [
 	'bouton_envoyer_message' => 'Qhananchat yatiyaw: apayaña',
 	'bouton_modifier' => 'Mayjachaña',
 	'bouton_radio_afficher' => 'Uñachayaña',
-	'bouton_radio_apparaitre_liste_redacteurs_connectes' => 'Chint’at tanta qillqirinakan uñstaña',
+	'bouton_radio_apparaitre_liste_redacteurs_connectes' => 'Chint’at tanta qillqirinakan uñstaña', # MODIF
 	'bouton_radio_envoi_annonces_adresse' => 'Yatiyawinak utjawir apayaña:',
 	'bouton_radio_envoi_liste_nouveautes' => 'Machaq tanta yatiyawinak apayaña',
-	'bouton_radio_non_apparaitre_liste_redacteurs_connectes' => 'Tanta qillqirinakan jan uñstaña',
+	'bouton_radio_non_apparaitre_liste_redacteurs_connectes' => 'Tanta qillqirinakan jan uñstaña', # MODIF
 	'bouton_radio_non_envoi_annonces_editoriales' => 'Yatiyawinak qhanstat jan apayaña',
 	'bouton_redirection' => 'Irpxatawi',
 	'bouton_relancer_installation' => 'Mayamp uchantaw yatiyaña',
@@ -55,7 +55,7 @@ return [
 	'bouton_vider_cache' => 'caché uk ch’usachaña',
 
 	// C
-	'cache_modifiable_webmestre' => 'Aka amuykipawix mayxt’ataspaw webmistress qamawit ukata.',
+	'cache_modifiable_webmestre' => 'Aka amuykipawix mayxt’ataspaw webmistress qamawit ukata.', # MODIF
 
 	// D
 	'date_mot_heures' => 'urasa
@@ -73,7 +73,7 @@ return [
 	'entree_cle_pgp' => 'Impt’atama PGP',
 	'entree_contenu_rubrique' => '(T’aqan utjawipa, qawqha arunakampi)',
 	'entree_identifiants_connexion' => 'Chinuw uñacht’ayirinakama...',
-	'entree_informations_connexion_ldap' => 'Aka phuqañ laphina yatiyawinak conexión ukata jach’a q’ipimaru LDAP. Uka yatiyawinakxa yatiyanitamwa apnaqir apnaqawita jan ukjax red ukata',
+	'entree_informations_connexion_ldap' => 'Aka phuqañ laphina yatiyawinak conexión ukata jach’a q’ipimaru LDAP. Uka yatiyawinakxa yatiyanitamwa apnaqir apnaqawita jan ukjax red ukata', # MODIF
 	'entree_infos_perso' => '¿Khititasa?',
 	'entree_interieur_rubrique' => 'T’aqata maqhana...',
 	'entree_liens_sites' => '<b>Chinu jach’a sawu </b>(aytata, qamaw tumpañataki, ...)',
@@ -133,11 +133,11 @@ return [
 	'impossible_modifier_login_auteur' => 'Impossible de modifier le login.', # MODIF
 	'impossible_modifier_pass_auteur' => 'Impossible de modifier le mot de passe.', # MODIF
 	'info_1_article' => '1 qillqata',
-	'info_administrateur' => 'Apnaqiri',
-	'info_administrateur_1' => 'Apnaqiri',
+	'info_administrateur' => 'Apnaqiri', # MODIF
+	'info_administrateur_1' => 'Apnaqiri', # MODIF
 	'info_administrateur_2' => 'Qamawita (<i>amuyump luram</i>)',
 	'info_administrateur_site_02' => 'Aka chinunx limt’am',
-	'info_administrateurs' => 'Apnaqirinaka',
+	'info_administrateurs' => 'Apnaqirinaka', # MODIF
 	'info_administrer_rubrique' => 'Aka t’aqxa apnaqasmawa',
 	'info_adresse' => 'utjawiru:',
 	'info_adresse_url' => 'Utjawi (URL) jach’a qamaw utata',
@@ -199,11 +199,11 @@ return [
 	'info_exportation_base' => 'base ukax apsusispaw @archive@ uka tuqiru',
 	'info_facilite_suivi_activite' => 'Qillqa lurawit uñch’ukiw jasachañatakix, SPIP ukax aruskipayirit apayaspa, mä tanta qillqirinakar ukhama yatiyatawinakataki yatiyawinaka ukatak mayiwinaka, ukhamarak qillqatanakat iyaw sawi.', # MODIF
 	'info_fichiers_authent' => 'Chiqpach sirit q’ipinaka «.htpasswd» ',
-	'info_forums_abo_invites' => 'Qamawimax aruskipañawinakaniw qullqimp qillqatanakatakikiwa; Aka jach’a uta qamawinxa tumpirinakaru qillqayasiñataki jawthapiyi.',
-	'info_gauche_auteurs' => 'Akanxa taqpach qamawit qillqirinakaw uñsti. Kunjamaskis ukxa jisk’a saltan kulurapampiw   uñacht’ayi (apnaqiri = ch’uxña, qillqiri = q’illu).',
+	'info_forums_abo_invites' => 'Qamawimax aruskipañawinakaniw qullqimp qillqatanakatakikiwa; Aka jach’a uta qamawinxa tumpirinakaru qillqayasiñataki jawthapiyi.', # MODIF
+	'info_gauche_auteurs' => 'Akanxa taqpach qamawit qillqirinakaw uñsti. Kunjamaskis ukxa jisk’a saltan kulurapampiw   uñacht’ayi (apnaqiri = ch’uxña, qillqiri = q’illu).', # MODIF
 	'info_gauche_auteurs_exterieurs' => 'Anqajankir qillqirinakax, qamawir jan mantañaniwa, mä laram jisk’a saltampiw uñacht’ayataski; mä wayaqamp chhaqayatakis.', # MODIF
 	'info_gauche_messagerie' => 'Yatiyawirix yatiyasiwa, amtayirinak uñstyaña yatiyaw tantaru kuns apaniñapataki jan ukjax yatiyawinak yatiyaña ( apnaqir qutu ukar mayachatakis ukjax)
-',
+', # MODIF
 	'info_gauche_statistiques_referers' => 'Aka Web qamawix tantanak uñicht’ayi &lt;i&gt;referers&lt;/i&gt;, qamawinakan chinunak utjkis ukhamarak juman qamawimar apapxi, masurutakiki ukhamarak jichhurutakiki; aka tantaxa sapa pä tunka urasanaka ch’usaru uskuña.',
 	'info_gauche_visiteurs_enregistres' => 'Akanxa jach’a qamaw utan qillqatanakakiw jikxatasi (aruskipañawinak qillqayasiyampi)',
 	'info_identification_publique' => 'Uñacht’ayawima...',

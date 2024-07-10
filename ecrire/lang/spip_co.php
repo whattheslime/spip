@@ -1,6 +1,6 @@
 <?php
 // This is a SPIP language file  --  Ceci est un fichier langue de SPIP
-// extrait automatiquement de https://trad.spip.net/tradlang_module/spip?lang_cible=co
+// extrait automatiquement de https://trad.spip.net/tradlang_module/spip_?lang_cible=co
 // ** ne pas modifier le fichier **
 
 return [
@@ -256,7 +256,7 @@ return [
 	'form_pet_signature_pasprise' => 'Ùn hè stata pigliata in contu a vostra zifra.',
 	'form_prop_confirmer_envoi' => 'Cunfirmate l’inviu',
 	'form_prop_description' => 'Discrizzione/Cummentu',
-	'form_prop_enregistre' => 'Hè stata arregistrata a vostra pruposta. Cumpariscerà in ligna dopu cunvalidazione da i respunsèvuli di stu situ.',
+	'form_prop_enregistre' => 'Hè stata arregistrata a vostra pruposta. Cumpariscerà in ligna dopu cunvalidazione da i respunsèvuli di stu situ.', # MODIF
 	'form_prop_envoyer' => 'Mandà un messagiu',
 	'form_prop_indiquer_email' => 'Rinsignate puru un indirizzu email vàlidu',
 	'form_prop_indiquer_nom_site' => 'Date u nome di u situ.',
@@ -340,7 +340,7 @@ return [
 	'info_authentification_ftp' => 'Autentificazione (cù FTP).',
 	'info_breves_2' => 'dispacci',
 	'info_connexion_refusee' => 'Cunnessione rifiutata',
-	'info_contact_developpeur' => 'Cuntattate puru un sviluppore.',
+	'info_contact_developpeur' => 'Cuntattate puru un sviluppore.', # MODIF
 	'info_contenance' => 'Stu situ cuntene :',
 	'info_contribution' => 'contributi di foru', # MODIF
 	'info_copyright' => '@spip@ hè un prugrammu lìberu distribuitu @lien_gpl@.',
@@ -374,7 +374,7 @@ return [
 	'info_impossible_lire_page' => '<b>Errore !</b> Impussìbule di leghje a pàgina <tt><html>@test_proxy@</html></tt> à traversu u proxy ',
 	'info_installation_systeme_publication' => 'Stallazione di u sistema di pubblicazione ...',
 	'info_installer_documents' => 'Pudete puru stallà in autumàticu tutti i ducumenti cuntenuti in u cartulare @upload@.',
-	'info_installer_ftp' => 'Da amministratore, pudete stallà schedari (cù FTP) in u cartulare @upload@, da pudè li sceglie dopu direttamente da quì.',
+	'info_installer_ftp' => 'Da amministratore, pudete stallà schedari (cù FTP) in u cartulare @upload@, da pudè li sceglie dopu direttamente da quì.', # MODIF
 	'info_installer_images' => 'Pudete puru stallà imàgini in furmatu JPEG, GIF è PNG.',
 	'info_installer_images_dossier' => 'Stallà imàgini in u cartulare @upload@ da pudè li sceglie da quì.',
 	'info_interface_complete' => 'interfaccia sana',
@@ -404,8 +404,8 @@ return [
 		Sè vo sceglite ste lingue, seranu tradutti in autumàticu assai elementi di u situ pùbblicu (date, furmulari, ...). 
 		Per e lingue micca sottufrisgiate, st’elementi cumparisceranu in a lingua principale di u situ.', # MODIF
 	'info_multilinguisme' => 'Multilinguìsimu',
-	'info_nom_non_utilisateurs_connectes' => 'U vostru nome ùn cumparisce micca in a lista di l’utilizatori cunnessi.',
-	'info_nom_utilisateurs_connectes' => 'U vostru nome cumparisce in a lista di l’utilizatori cunnessi.',
+	'info_nom_non_utilisateurs_connectes' => 'U vostru nome ùn cumparisce micca in a lista di l’utilizatori cunnessi.', # MODIF
+	'info_nom_utilisateurs_connectes' => 'U vostru nome cumparisce in a lista di l’utilizatori cunnessi.', # MODIF
 	'info_nombre_en_ligne' => 'Attualmente in ligna :',
 	'info_non_resultat' => 'Nisunu risultatu per "@cherche_mot@"',
 	'info_non_utilisation_messagerie' => 'ùn usate micca a messageria interna di stu situ.',
@@ -443,8 +443,8 @@ return [
 	'info_sites_un' => '1 situ',
 	'info_supprimer_vignette' => 'sguassà a figuretta',
 	'info_symbole_bleu' => 'U sìmbulu <b>turchinu</b> indetta un <b>mementu</b>: vale à dì un messagiu à usu persunale vostru.',
-	'info_symbole_jaune' => 'U sìmbulu <b>giallu</b> indetta un <b>annunciu à tuttu i scrittori</b> : mudifichèvule da tutti l’amministratori, è visìbule da tutti i scrittori.',
-	'info_symbole_vert' => 'U sìmbulu <b>verde</b> indetta <b>messagi scambiati cù altri utilizatori</b> di u situ.',
+	'info_symbole_jaune' => 'U sìmbulu <b>giallu</b> indetta un <b>annunciu à tuttu i scrittori</b> : mudifichèvule da tutti l’amministratori, è visìbule da tutti i scrittori.', # MODIF
+	'info_symbole_vert' => 'U sìmbulu <b>verde</b> indetta <b>messagi scambiati cù altri utilizatori</b> di u situ.', # MODIF
 	'info_telecharger_nouveau_logo' => 'Scaricà un nuvellu logo :',
 	'info_telecharger_ordinateur' => 'Scaricà da u vostru urdinatore :',
 	'info_tous_resultats_enregistres' => '[sò arregistrati tutti i risultati]',
@@ -538,13 +538,13 @@ return [
 	'pass_choix_pass' => 'Sceglite puru u vostru password :',
 	'pass_erreur' => 'Errore',
 	'pass_erreur_acces_refuse' => '<b>Errore :</b> ùn avete più accessu à stu situ.',
-	'pass_erreur_code_inconnu' => '<b>Errore :</b> stu còdice ùn currisponde à nisun utilizatore chì abbia acessu à stu situ.',
+	'pass_erreur_code_inconnu' => '<b>Errore :</b> stu còdice ùn currisponde à nisun utilizatore chì abbia acessu à stu situ.', # MODIF
 	'pass_erreur_non_enregistre' => '<b>Errore :</b> l’indirizzu <tt>@email_oubli@</tt> ùn hè micca arregistrata in stu situ.',
 	'pass_erreur_non_valide' => '<b>Errore :</b> st’email <tt>@email_oubli@</tt> ùn hè micca vàlidu !',
 	'pass_erreur_probleme_technique' => '<b>Errore :</b> per via d’un prublemu tècnicu, ùn pò micca esse mandatu l’email.',
 	'pass_espace_prive_bla' => 'U spaziu privatu di stu situ hè apertu à i visitori, dopu iscritti. Arregistratu chè vo serete, 
-		puderete puru cunsultà l’artìculi in corsu di scrittura, prupone artìculi è participà à tutti i fori.',
-	'pass_forum_bla' => 'Avete dumandatu à intervene nant’à un foru riservatu à i visitori arregistrati.',
+		puderete puru cunsultà l’artìculi in corsu di scrittura, prupone artìculi è participà à tutti i fori.', # MODIF
+	'pass_forum_bla' => 'Avete dumandatu à intervene nant’à un foru riservatu à i visitori arregistrati.', # MODIF
 	'pass_indiquez_cidessous' => 'Rinsignate puru quì sottu l’indirizzu email cun chì erate digià arregistratu. Riceverete un email 
 			spieghendu vi cumu fà pè ricuarà u vostru accessu.',
 	'pass_mail_passcookie' => '(què hè un messagiu autumàticu)
@@ -558,7 +558,7 @@ Andate puru à l’indirizzu  :
 Puderete tandu inserisce un nuvellu password 
 è cusì cunnette vi torna à u situ.
 
-',
+', # MODIF
 	'pass_mot_oublie' => 'Password dimenticatu',
 	'pass_nouveau_enregistre' => 'Hè statu arregistratu u vostru password.',
 	'pass_nouveau_pass' => 'Nuvellu password',
@@ -613,7 +613,7 @@ Puderete tandu inserisce un nuvellu password
   Vi cunsigliemu d’ùn fà ci interventi fintantu chì ùn serete abbastanza pràticu cù u funziunamentu di u sistema SPIP. <br /><br />
   <b>sia cum’ella sia, hè arricumandatu assai di lascià a gestione di ste pàgine à u webmaestru di u vostru situ.</b>',
 	'texte_inc_meta_1' => 'U sistema hà scontru un errore mentre a scrittura di u schedariu <code>@fichier@</code>. 
-			Intantu chè amministratore di u situ,',
+			Intantu chè amministratore di u situ,', # MODIF
 	'texte_inc_meta_2' => 'verificate puru i diritti di scrittura',
 	'texte_inc_meta_3' => 'nant’à u cartulare <code>@repertoire@</code>.',
 	'texte_statut_en_cours_redaction' => 'in corsu di scrittura',
@@ -625,7 +625,7 @@ Puderete tandu inserisce un nuvellu password
 	'titre_cadre_raccourcis' => 'ACCURTATOGHJI :',
 	'titre_changer_couleur_interface' => 'Scambià u culore di l’interfaccia',
 	'titre_image_admin_article' => 'Pudete amministrà st’artìculu',
-	'titre_image_administrateur' => 'Amministratore',
+	'titre_image_administrateur' => 'Amministratore', # MODIF
 	'titre_image_aide' => 'Aiutu nant’à st’elementu',
 	'titre_image_auteur_supprime' => 'Autore sguassatu',
 	'titre_image_redacteur' => 'Scrittore senza accessu',

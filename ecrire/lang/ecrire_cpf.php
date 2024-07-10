@@ -19,7 +19,7 @@ return [
 	'avis_connexion_echec_3' => '<b>Tansyon Pangar !</b> Sir bonpé servèr i dwa <b>domann</b> léberzèr li fé zwé out permisyon pou lakostaz labaz SQL, sinonsa i pé pa giny anserv ali. Si ou lé pa kav akost labaz, véy byin si ou la domandé permisyon-la.', # MODIF
 	'avis_connexion_ldap_echec_1' => 'Lakostaz-la si lo servèr LDAP, li la pa finn marsé.',
 	'avis_connexion_ldap_echec_2' => 'Artourn paz-déryèr èk vèy byin bann zinformasyon ou la doné.',
-	'avis_connexion_ldap_echec_3' => 'Dann ka-la,i giny pa a rien anserv lo supor LDAP pou import a bann zitilizatèr.',
+	'avis_connexion_ldap_echec_3' => 'Dann ka-la,i giny pa a rien anserv lo supor LDAP pou import a bann zitilizatèr.', # MODIF
 	'avis_deplacement_rubrique' => 'Pangar ! Dann rubrik-la néna @contient_breves@ brève@scb@ : si ou dékal ali, mèt inn krwa pou kofirmé.',
 	'avis_erreur_connexion_mysql' => 'Astèr néna inn kanard èk lakostaz SQL',
 	'avis_espace_interdit' => '<b>Ou na pwinn permisyon ariv dann lépas-tèrla </b><p>Ou la déza finn mèt inn versyon d-SPIP.', # MODIF
@@ -39,12 +39,12 @@ return [
 	'bouton_envoyer_message' => 'Modékri-la lé fini : anvwa ali',
 	'bouton_modifier' => 'Sanz',
 	'bouton_radio_afficher' => 'Fé vwar an liyn',
-	'bouton_radio_apparaitre_liste_redacteurs_connectes' => 'Amontr aou dann bann lotèr an liyn ',
+	'bouton_radio_apparaitre_liste_redacteurs_connectes' => 'Amontr aou dann bann lotèr an liyn ', # MODIF
 	'bouton_radio_envoi_annonces_adresse' => 'Anvwa bann zanons sir ladrès-la :',
 	'bouton_radio_envoi_liste_nouveautes' => 'Anvwa lalist bann nouvèlté',
 	'bouton_radio_non_apparaitre_liste_redacteurs_connectes' => 'Bann lotèr-la i pé pa vwar ou lé an liyn
 
-',
+', # MODIF
 	'bouton_radio_non_envoi_annonces_editoriales' => 'Anpès anvwayé bann zanons léditoryal',
 	'bouton_redirection' => 'TOURNÉVIRÉ LADRÈSWÈB',
 	'bouton_relancer_installation' => 'Rosarz linstalasyon',
@@ -54,7 +54,7 @@ return [
 	'bouton_vider_cache' => 'Dévid kas lo sitwèb',
 
 	// C
-	'cache_modifiable_webmestre' => 'Lo wèbmèt lo sit, li pé sanz paramèt-la. ',
+	'cache_modifiable_webmestre' => 'Lo wèbmèt lo sit, li pé sanz paramèt-la. ', # MODIF
 	'calendrier_synchro' => 'Si ou ansèrv in lozisyèl pou in lajinda i mars èk <b>iCal</b> (Apple iCal, Mozilla Calendar, Ximian Evolution, KOrganizer...),ou pé mèt ali si lo ritm bann arnouvèlman laktyalité lo sit-la.',
 
 	// D
@@ -75,7 +75,7 @@ return [
 	'entree_informations_connexion_ldap' => 'Mersi mèt dann komisyon-la bann zinformasyon nésésèr pou akost lo karné LDAP.
 
 
-Bann zinformasyon-la, sé komandèr-sistèm ou komandèr-rézo sak i dwa donn a ou.',
+Bann zinformasyon-la, sé komandèr-sistèm ou komandèr-rézo sak i dwa donn a ou.', # MODIF
 	'entree_infos_perso' => 'Kisa ou lé ?',
 	'entree_interieur_rubrique' => 'Dann rubrik :',
 	'entree_liens_sites' => '<b>Gatiraz</b> (égsanp : sitwèb lé konséyé, tousala...)',
@@ -137,12 +137,12 @@ Bann zinformasyon-la, sé komandèr-sistèm ou komandèr-rézo sak i dwa donn a 
 	'impossible_modifier_pass_auteur' => 'Impossible de modifier le mot de passe.', # MODIF
 	'info_1_article' => '1 lartik',
 	'info_activer_cookie' => 'I pé fé zwé inn <b>gatomakro drokonésans </b>. Kom sa ou sra kav pas fasilman dopwi lafigirwèb piblik sir lo sit privé.',
-	'info_administrateur' => 'Komandèr',
-	'info_administrateur_1' => 'Komandèr',
+	'info_administrateur' => 'Komandèr', # MODIF
+	'info_administrateur_1' => 'Komandèr', # MODIF
 	'info_administrateur_2' => 'lo sitwèb(<i>anserv èk prékosyon</i>)',
-	'info_administrateur_site_01' => 'Si ou lé komandèr lo sit, mersi',
+	'info_administrateur_site_01' => 'Si ou lé komandèr lo sit, mersi', # MODIF
 	'info_administrateur_site_02' => 'klik gatiraz-la',
-	'info_administrateurs' => 'Bann komandèr',
+	'info_administrateurs' => 'Bann komandèr', # MODIF
 	'info_administrer_rubrique' => 'Ou pé zèr larubrik-la',
 	'info_adresse' => 'si ladrès :',
 	'info_adresse_url' => 'Ladrès (URL) lo sit piblik (figirwèb)',
@@ -172,7 +172,7 @@ inn liv-zimaz (sédir inn galri).',
 	'info_chapeau' => 'Sapo',
 	'info_chapeau_2' => 'Sapo :',
 	'info_chemin_acces_1' => 'Bann lopsyon : <b>Somin laksè dann karné</b>',
-	'info_chemin_acces_2' => 'Astèr i dwa konfigir lo somin laksé pou bann zinformasyon dann karné. Linformasyon-la lé nésésèr pou lir bann profil zitilizatèr. Profil-la lé stoké dann karné.',
+	'info_chemin_acces_2' => 'Astèr i dwa konfigir lo somin laksé pou bann zinformasyon dann karné. Linformasyon-la lé nésésèr pou lir bann profil zitilizatèr. Profil-la lé stoké dann karné.', # MODIF
 	'info_chemin_acces_annuaire' => 'Bann lopsyon : <b>Somin-laksé dann karné',
 	'info_choix_base' => 'Trwazièm étap :',
 	'info_classement_1' => '<sup>yé</sup> si @liste@',
@@ -209,14 +209,13 @@ inn liv-zimaz (sédir inn galri).',
 	'info_exportation_base' => 'Lésportasyon labaz aprosan  @archive@',
 	'info_facilite_suivi_activite' => 'Pou swiv fasilman laktivité léditoryal sir lo sit, SPIP i pé anvwa inn zanons dann fil-imèl pou tout bann zitilizatèr anrozistré. Zanons komsa i kadr tout bann dommand pou lapiblikasyon oubyinsa bann konfirmasyon do dernyé bann zartik.', # MODIF
 	'info_fichiers_authent' => 'Bann fisyé pou lotantifikasyon « .htpasswd »',
-	'info_forums_abo_invites' => 'Out sit néna bann forom si labonman ; Ifo bann vizitèr li inskri azot si lo sit piblik.',
+	'info_forums_abo_invites' => 'Out sit néna bann forom si labonman ; Ifo bann vizitèr li inskri azot si lo sit piblik.', # MODIF
 	'info_gauche_admin_tech' => '<b>Pazwèb-la, lé sèlman ouvèr pour inndé responsab lo sit.</b><p> Li donn laksé sir bann fonksyon pou lantrotyen tèknik. Nana désertin sak i domann aou fé zwé inn prosésus spésial pou lotantifikasyon. Dann ka-la inn laksé FTP lé
 néséser pou sanz inn sizé sir lo sit.', # MODIF
-	'info_gauche_admin_vider' => '<b>Pazwèb-la, lé sèlman ouvèr pou inndé responsab lo sit.</b><p> Li donn laksé sir bann fonksyon pou lantrotyen tèknik. Nana désertin sak i domann aou fé zwé inn prosésus spésyal pou lotantifikasyon. Dann ka-la inn laksé FTP lé néséser pou sanz inn sizé sir lo sit.', # MODIF
 	'info_gauche_auteurs' => 'Ou va trouv tèrla tout bann lotèr lo sitwèb.
- Bann drwa pou bann dalon lé kadré èk la koulèr likonn azot (komandèr= vèr ;lotèr = zonn).',
+ Bann drwa pou bann dalon lé kadré èk la koulèr likonn azot (komandèr= vèr ;lotèr = zonn).', # MODIF
 	'info_gauche_auteurs_exterieurs' => 'Bann lotèr-déor, sak nana pwinn laksé sir lo sitwèb, lé présizé èk inn likonn blé ; bann lotèr dégréné lé kadré èk inn korbéy.', # MODIF
-	'info_gauche_messagerie' => 'Kazmodékri-la i permé azot mèt ansanm pou lanvwa inndé modékri antrozot, gard out prop bann gardandèt, ou byin sa ankor : afis tout bann zanons sir pazlakèy dann zéspas privé (si ou lé komandèr).',
+	'info_gauche_messagerie' => 'Kazmodékri-la i permé azot mèt ansanm pou lanvwa inndé modékri antrozot, gard out prop bann gardandèt, ou byin sa ankor : afis tout bann zanons sir pazlakèy dann zéspas privé (si ou lé komandèr).', # MODIF
 	'info_gauche_statistiques_referers' => 'Pazwèb-la i prézant lo fil <i>bann référèr</i>, ou poutoudir lo fil bann sit sak i gatir out prop sitwèb. Rannkont-la lé selman valab po yèr é zordi : fil-la i ropat zéro tout bann 24H.',
 	'info_gauche_visiteurs_enregistres' => 'Ou va trouv tèrla bann vizitèr anroziztré sir figirwèb piblik (bann forom sir labonman).',
 	'info_generation_miniatures_images' => 'La kréasyon bann miniatyr pou bann zimaz',
@@ -229,14 +228,14 @@ SPIP anba-la, i sava pa marsé.',
 	'info_image_process2' => '<b>Pangar</b> <i>Si néna okinn zimaz sat i pé vwar an liny, i pé dir lo sèrvèr li ébèrz out sitwèb lé pa kofigiré po akèy bann zouti-la. Ifo zot i koz èk lo résponsab po domann ali tout bann zekstansyon « GD » ou « Imagick ».</i>', # MODIF
 	'info_images_auto' => 'Ban zimaz-la lé kalkilé otomatikman',
 	'info_informations_personnelles' => 'Sinkyèm étap : <b>Bann zinformasyon personèl</b>',
-	'info_inscription_automatique' => 'Pou inskri otomatikman tout bann nouvo lotèr',
+	'info_inscription_automatique' => 'Pou inskri otomatikman tout bann nouvo lotèr', # MODIF
 	'info_jeu_caractere' => 'Lansamn bann karaktèr lo sit',
 	'info_jours' => 'bann zor',
 	'info_laisser_champs_vides' => 'lès a bann karo-la vid)',
 	'info_langues' => 'Bann lang lo sitwèb',
 	'info_ldap_ok' => 'Lotantifikasyon LDAP li lé  instalé.',
 	'info_lien_hypertexte' => 'gatiraz wèb :',
-	'info_liste_redacteurs_connectes' => 'Fil bann lotèr an liyn',
+	'info_liste_redacteurs_connectes' => 'Fil bann lotèr an liyn', # MODIF
 	'info_login_existant' => 'Nondkod-la li lé déza anservi.',
 	'info_login_trop_court' => 'Nondkod-la lé takini : ékart ali.',
 	'info_maximum' => 'Pli gran siksé :',
@@ -257,7 +256,7 @@ fisyé SPIP.}}',
 	'info_multi_cet_article' => 'Patwa lartik-la :',
 	'info_multi_langues_choisies' => 'Swazi anba-tèrla bann lang ou vé pèrmèt out bann zitilizatèr i ansèrv sir out sitwèb.
   Zot i pé pa dégrèn bann lang sak lé déza prézan sir out sitwèb (ni afis azot dabor).
- ',
+ ', # MODIF
 	'info_multi_secteurs' => '...sèlman pou bann ribrik ou la plas dann rasine ?',
 	'info_nom' => 'Non',
 	'info_nom_destinataire' => 'Non lo korespondan',
@@ -276,8 +275,8 @@ la finn dèt publyé).',
 	'info_nouvelle_traduction' => 'Nouvèl tradiksyon :',
 	'info_numero_article' => 'LARTIK NIMÉRO :',
 	'info_obligatoire_02' => '[Obligatwar]', # MODIF
-	'info_option_accepter_visiteurs' => 'Asèpt bann vizitèr i inskri azot si lo sit piblik',
-	'info_option_ne_pas_accepter_visiteurs' => 'Arfiz bann vizitèr i inskri azot',
+	'info_option_accepter_visiteurs' => 'Asèpt bann vizitèr i inskri azot si lo sit piblik', # MODIF
+	'info_option_ne_pas_accepter_visiteurs' => 'Arfiz bann vizitèr i inskri azot', # MODIF
 	'info_options_avancees' => 'BANN ZOPSYON AVANSÉ',
 	'info_ou' => 'ou...',
 	'info_page_interdite' => 'Pazwèb intèrdi',
@@ -298,7 +297,7 @@ versyon SPIP.',
 	'info_ps' => 'K.D',
 	'info_publier' => 'pibliyé',
 	'info_publies' => 'Out bann zartik an liyn',
-	'info_question_accepter_visiteurs' => 'Si out bann lékèlet i permé out bann vizitèr inskri azot si lo sitwèb,     anon fé zwé lopsyon anba-terla :',
+	'info_question_accepter_visiteurs' => 'Si out bann lékèlet i permé out bann vizitèr inskri azot si lo sitwèb,     anon fé zwé lopsyon anba-terla :', # MODIF
 	'info_question_inscription_nouveaux_redacteurs' => 'Indik si ou laksèp linskrisyon bann nouvo lotèr dopwi lo sit piblik ? Si
  ou vé, bann lotèr i poura inskri azot èk lo formulèr otomatik. Zot i poura akosté
 sir figirwèb privé é propoz zot prop zartik minm.
@@ -317,7 +316,7 @@ sak i dégrèn lanvwa bann limèl sir zot bann servèr : dann kala, linskrisyon
 	'info_refuses' => 'Out bann zartik lé afronté',
 	'info_reglage_ldap' => 'Bann lopsyon : <b>Réglaz linportasyon LDAP</b>',
 	'info_renvoi_article' => '<b>Tourné-viré.</b> Lartik-la i batavan sir pazwèb-la :',
-	'info_reserve_admin' => 'Bann komandèr sélman i pé sanz ladrès-la.',
+	'info_reserve_admin' => 'Bann komandèr sélman i pé sanz ladrès-la.', # MODIF
 	'info_restreindre_rubrique' => 'Mèt inn limit pou lazéstyon la rubrik-la :',
 	'info_resultat_recherche' => 'Bann rézilta rodaz :',
 	'info_rubriques' => 'Bann rubrik',
@@ -336,13 +335,13 @@ sak i dégrèn lanvwa bann limèl sir zot bann servèr : dann kala, linskrisyon
 	'info_sites_proxy' => 'Anserv inn proksi',
 	'info_sites_trouves' => 'Bann sitwèb trouvé',
 	'info_sous_titre' => 'Soutitr :',
-	'info_statut_administrateur' => 'Komandèr',
+	'info_statut_administrateur' => 'Komandèr', # MODIF
 	'info_statut_auteur' => 'Lo statu lotèr-la :', # MODIF
 	'info_statut_auteur_a_confirmer' => 'Ou i dwa konfime out linkrisyon ',
 	'info_statut_auteur_autre' => 'In ot stati :',
 	'info_statut_redacteur' => 'Lotèr',
-	'info_statut_utilisateurs_1' => 'Lo statu sanswa bann zitilizatèr déor',
-	'info_statut_utilisateurs_2' => 'Swazi lo ran ou vé donn do moun prézan dann karné LDAP, kank moun-la i konèk inn promyèr fwa. Ou sra kav answuit sanz valèr ou la donn azot (o ka sanm lo ka).',
+	'info_statut_utilisateurs_1' => 'Lo statu sanswa bann zitilizatèr déor', # MODIF
+	'info_statut_utilisateurs_2' => 'Swazi lo ran ou vé donn do moun prézan dann karné LDAP, kank moun-la i konèk inn promyèr fwa. Ou sra kav answuit sanz valèr ou la donn azot (o ka sanm lo ka).', # MODIF
 	'info_suivi_activite' => 'Swivi laktivité léditoryal',
 	'info_surtitre' => 'Sirtitr :',
 	'info_syndication_integrale_1' => 'Out si i propoz bann fisyé pou la sindikasyon (ann gadé « <a href="@url@">@titre@</a> »).',
@@ -387,10 +386,10 @@ sanm in koulèr i présiz son léta :',
 	'intem_redacteur' => 'lotèr',
 	'item_accepter_inscriptions' => 'Asèpt bann zinskrisyon',
 	'item_activer_messages_avertissement' => 'Fé zwé bann modékri pou lavizman',
-	'item_administrateur_2' => 'komandèr',
+	'item_administrateur_2' => 'komandèr', # MODIF
 	'item_afficher_calendrier' => 'Afis dann kalandryé',
 	'item_autoriser_syndication_integrale' => 'Pou don a zot tout lartik byen komplé andann bann fisyé pou la sindikasyon',
-	'item_choix_administrateurs' => 'bann komandèr',
+	'item_choix_administrateurs' => 'bann komandèr', # MODIF
 	'item_choix_generation_miniature' => 'Pou kré otomatikman bann zimaz-minyatir (bann vinyèt).',
 	'item_choix_non_generation_miniature' => 'Pou anpès kré otomatikman bann zimaz-minyatir (bann vinyèt).',
 	'item_choix_redacteurs' => 'bann lotèr',
@@ -471,15 +470,15 @@ sanm in koulèr i présiz son léta :',
 	'texte_acces_ldap_anonyme_1' => 'Néna désertin servèr LDAP i afront tout bann laksé anonim. Dan ka-la, lé néséser indik inn promyé lidentifian pou laksé. Aprésa sèlman, ou i sra kav rod bann zinformasyon dan karné. Souvandfwa pwatan, ou poura lès bann karo-la vid. ',
 	'texte_admin_effacer_01' => 'Komand-la i dégrèn <i>tout</i> lo kontnu la bazdodné,
 <i>tout</i> minm bann laksè lotèr èk komandèr. Si ou i anserv ali, i sra nésésèr fé zwé inn nouvèl 
-linstalasyon do SPIP pou kré inn nouvèl labaz èk inn promyé laksé komandèr.',
+linstalasyon do SPIP pou kré inn nouvèl labaz èk inn promyé laksé komandèr.', # MODIF
 	'texte_adresse_annuaire_1' => '(Si out karné lé instalé sir lamasin paréy minm sitwèb-la, néna grannsans i sra pour èt « localhost ».)',
 	'texte_ajout_auteur' => 'Lotèr answit la fin dèt azouté pou lartik-la :',
-	'texte_annuaire_ldap_1' => 'Si ou nana laksé sir inn karné(LDAP), i pé inport otomatikman bann zitilizatèr pou mèt tout zot ansanm sir out sit SPIP.',
+	'texte_annuaire_ldap_1' => 'Si ou nana laksé sir inn karné(LDAP), i pé inport otomatikman bann zitilizatèr pou mèt tout zot ansanm sir out sit SPIP.', # MODIF
 	'texte_article_statut' => 'Lartik-la lé :',
 	'texte_article_virtuel' => 'Lartik virtyèl',
 	'texte_article_virtuel_reference' => '<b>Lartik virtyel :</b> lé référansé dann out sit SPIP, somansa li lé artourné sir inn ot  URL(tourné-viré). Pou dégrèn lartournaz, éfas anlèr son ladrès URL.',
 	'texte_aucun_resultat_auteur' => 'Nana pwinn rézilta pou "@cherche_auteur@"',
-	'texte_auteur_messagerie' => 'Sit-la i pé armont toultan tout bann lotèr an liyn. Sa lé itil pour mèt ansanm bann modékri, dann tan minm moun lé sir lo sit (mé kank lakazmodékri lé dégréné anlèr, list-la lé pa visib). Ou pé swazi kas aou dann la list-la (bann zitilizatèr i pé pa vwar aou somansa ou pé vwar azot).',
+	'texte_auteur_messagerie' => 'Sit-la i pé armont toultan tout bann lotèr an liyn. Sa lé itil pour mèt ansanm bann modékri, dann tan minm moun lé sir lo sit (mé kank lakazmodékri lé dégréné anlèr, list-la lé pa visib). Ou pé swazi kas aou dann la list-la (bann zitilizatèr i pé pa vwar aou somansa ou pé vwar azot).', # MODIF
 	'texte_auteurs' => 'BANN LOTÈR',
 	'texte_choix_base_1' => 'Swazi out labaz :',
 	'texte_choix_base_2' => 'Servèr SQL li kontyin  plizyèr bann bazdodné.',
@@ -566,11 +565,10 @@ Si lo larlik-la i rest touzour, ifo koz do sa èk out léberzèr.<p>', # MODIF
 	'texte_titre_obligatoire' => '<b>Titr</b> [Obligatwar]',
 	'texte_travail_article' => '@nom_auteur_modif@ la finn travay sir lartik-la néna @date_diff@ minit',
 	'texte_travail_collaboratif' => 'Si néna souvandfwa plisyèr lotèr pou mèt ansanm  inn travay sir lo minm lartik, lo sistèm i pé afis inn zanons spésial. Zanons-la, i pé montr azot bann zartik sak la finn dèt « ouver » inn ti pé avan. Lé pratik pou anpès bann sanzman similtané.
-Mé vèy byin, lopsyon-la, li lé pa aktivé otomatikman pou anpès lafisaz inn lavizman abizif.',
+Mé vèy byin, lopsyon-la, li lé pa aktivé otomatikman pou anpès lafisaz inn lavizman abizif.', # MODIF
 	'texte_vide' => 'vid',
 	'texte_vider_cache' => 'Dévid lo kas',
 	'titre_admin_tech' => 'Lantrotyin tèknik',
-	'titre_admin_vider' => 'Lantrotyin tèknik',
 	'titre_cadre_afficher_article' => 'Afis bann zartik',
 	'titre_cadre_afficher_traductions' => 'Afis léta bann tradiksyon pou lalang-la.',
 	'titre_cadre_ajouter_auteur' => 'AZOUT INN LOTÈR :',

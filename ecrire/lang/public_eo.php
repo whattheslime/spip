@@ -1,6 +1,6 @@
 <?php
 // This is a SPIP language file  --  Ceci est un fichier langue de SPIP
-// extrait automatiquement de https://trad.spip.net/tradlang_module/public?lang_cible=eo
+// extrait automatiquement de https://trad.spip.net/tradlang_module/public_?lang_cible=eo
 // ** ne pas modifier le fichier **
 
 return [
@@ -92,6 +92,9 @@ return [
 	'repondre_breve' => 'Respondi al tiu fulm-informo',
 	'resultats_recherche' => 'Serĉo-rezultoj',
 	'retour_debut_forums' => 'Reen al forumoj-komenco',
+	'rss_abonnement_titre' => 'Abonu',
+	'rss_abonnement_titre_page' => 'Aboni al',
+	'rss_explication_titre' => 'Kio estas RSS-fluo ?',
 	'rubrique' => 'Rubriko',
 	'rubriques' => 'Rubrikoj',
 

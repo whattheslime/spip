@@ -1,6 +1,6 @@
 <?php
 // This is a SPIP language file  --  Ceci est un fichier langue de SPIP
-// extrait automatiquement de https://trad.spip.net/tradlang_module/spip?lang_cible=lb
+// extrait automatiquement de https://trad.spip.net/tradlang_module/spip_?lang_cible=lb
 // ** ne pas modifier le fichier **
 
 return [
@@ -266,7 +266,7 @@ Fir är nei Adress ze bestätegen, surft op dës URL (soss gëtt är Ufro ignor�
 	'form_pet_signature_pasprise' => 'Är Ënnerschrëft ass net ugeholl ginn.',
 	'form_prop_confirmer_envoi' => 'Konfirméiert d’Schécken',
 	'form_prop_description' => 'Beschreiwung/Kommentar',
-	'form_prop_enregistre' => 'Är Propositioun ass enregistréiert, si geet online wann se vun engem Responsabelen vun dësem Site bestätegt ass.',
+	'form_prop_enregistre' => 'Är Propositioun ass enregistréiert, si geet online wann se vun engem Responsabelen vun dësem Site bestätegt ass.', # MODIF
 	'form_prop_envoyer' => 'E Message schécken',
 	'form_prop_indiquer_email' => 'Gidd w.e.g. eng richteg Email-Adress un',
 	'form_prop_indiquer_nom_site' => 'Gidd w.e.g. de Numm vum Site un.',
@@ -351,7 +351,7 @@ Fir är nei Adress ze bestätegen, surft op dës URL (soss gëtt är Ufro ignor�
 	'info_breves_nb' => '@nb@ Kurzmeldungen',
 	'info_breves_un' => '1 Kurzmeldung',
 	'info_connexion_refusee' => 'D’Verbindung gouf ofgeleent.',
-	'info_contact_developpeur' => 'Kontaktéiert w.e.g. en Entwéckler.',
+	'info_contact_developpeur' => 'Kontaktéiert w.e.g. en Entwéckler.', # MODIF
 	'info_contenance' => 'Dëse Site huet:',
 	'info_contribution' => 'Bäiträg',
 	'info_copyright' => '@spip@ ass eng fräi Software déi ënner @lien_gpl@ verdeelt gëtt.',
@@ -389,7 +389,7 @@ oder kontaktéiert äre Provider.</span>',
 	'info_impossible_lire_page' => '<b>Fehler!</b> Onméiglech d’Säit <tt><html>@test_proxy@</html></tt> duerch de Proxy ze liesen',
 	'info_installation_systeme_publication' => 'Ariichte vum System...',
 	'info_installer_documents' => 'Dir kënnt automatesch all d’Dokumenter aus dem Dossier @upload@ installéieren.',
-	'info_installer_ftp' => 'Als Administrateur kënnt dir Fichieren per FTP an den Dossier @upload@ eroplueden an se dann hei auswielen.',
+	'info_installer_ftp' => 'Als Administrateur kënnt dir Fichieren per FTP an den Dossier @upload@ eroplueden an se dann hei auswielen.', # MODIF
 	'info_installer_images' => 'Dir kënnt Biller am Format JPEG, GIF oder PNG eroplueden.',
 	'info_installer_images_dossier' => 'Biller an den Dossier @upload@ eroplueden fir se hei kënnen auszewielen.',
 	'info_interface_complete' => 'Kompletten Interface',
@@ -418,8 +418,8 @@ Fichier huet @actuel@).',
 	'info_multi_herit' => 'Haaptsprooch',
 	'info_multi_langues_soulignees' => 'Déi <u>ënnerstrache Sproochen</u> hunn en Interface dee komplett oder deelweis iwwersat ass. Wann dier dës Sprooche wielt, da gi vill Elementer vum ëffentleche Site (Datume, Formulairen) automatesch iwwersat. Bei de net ënnerstrache Sproochen erschéngen dës Elementer an der Haaptsprooch vum Site.',
 	'info_multilinguisme' => 'Verschidde Sproochen',
-	'info_nom_non_utilisateurs_connectes' => 'Äre Numm ass net op der Lëscht vun den ugemellte Benotzer.',
-	'info_nom_utilisateurs_connectes' => 'Äre Numm kënnt op d’Lëscht vun den ugemellte Benotzer.',
+	'info_nom_non_utilisateurs_connectes' => 'Äre Numm ass net op der Lëscht vun den ugemellte Benotzer.', # MODIF
+	'info_nom_utilisateurs_connectes' => 'Äre Numm kënnt op d’Lëscht vun den ugemellte Benotzer.', # MODIF
 	'info_nombre_en_ligne' => 'Elo ugemellt:',
 	'info_non_resultat' => 'Kee Resultat fir "@cherche_mot@"',
 	'info_non_utilisation_messagerie' => 'Dir benotzt déi intern Messagerie vun dësem Site net.',
@@ -457,8 +457,8 @@ Fichier huet @actuel@).',
 	'info_sites_un' => '1 Website',
 	'info_supprimer_vignette' => 'Vignette läschen',
 	'info_symbole_bleu' => 'Dat <b>blot</b> Symbol weist eng <b>Notiz</b>, also e perséinlechen Message.',
-	'info_symbole_jaune' => 'Dat <b>gielt</b> Symbol weist eng <b>Annonce un all d’Redakteren</b>, ännerbar duerch d’Administrateuren, a siichtbar vun alle Redakteren.',
-	'info_symbole_vert' => 'Dat <b>gréngt</b> Symbol weist <b>Messagen tëschent de Benotzer</b> vum Site.',
+	'info_symbole_jaune' => 'Dat <b>gielt</b> Symbol weist eng <b>Annonce un all d’Redakteren</b>, ännerbar duerch d’Administrateuren, a siichtbar vun alle Redakteren.', # MODIF
+	'info_symbole_vert' => 'Dat <b>gréngt</b> Symbol weist <b>Messagen tëschent de Benotzer</b> vum Site.', # MODIF
 	'info_telecharger_nouveau_logo' => 'E neie Logo eroplueden:',
 	'info_telecharger_ordinateur' => 'Vun ärem Computer eroplueden:',
 	'info_tous_resultats_enregistres' => '[all d’Resultater si gespäichert]',
@@ -553,12 +553,12 @@ Wann dir net wëllt dat äert Passwuert ka um Internet ofgefaange ginn, aktivéi
 	'pass_choix_pass' => 'Wielt äert neit Passwuert:',
 	'pass_erreur' => 'Fehler',
 	'pass_erreur_acces_refuse' => '<b>Fehler:</b> dir hutt keen Zougang méi zu dësem Site.',
-	'pass_erreur_code_inconnu' => '<b>Fehler:</b> dëse Code entsprécht kengem Visiteur deen Zougang zu dësem Site huet.',
+	'pass_erreur_code_inconnu' => '<b>Fehler:</b> dëse Code entsprécht kengem Visiteur deen Zougang zu dësem Site huet.', # MODIF
 	'pass_erreur_non_enregistre' => '<b>Fehler:</b> den Email <tt>@email_oubli@</tt> ass net op dësem Site ugemellt.',
 	'pass_erreur_non_valide' => '<b>Fehler:</b> den Email <tt>@email_oubli@</tt> ass falsch!',
 	'pass_erreur_probleme_technique' => '<b>Fehler:</b> de Message kann duerch technesch Problemer net geschéckt ginn.',
-	'pass_espace_prive_bla' => 'De privaten Deel ass fir Visiteuren no enger Umeldung op. Wann dir ugemellt sidd kënnt der d’Artikelen an der Aarbecht kucken, Artikelen virschloen an un de Forumen deelhuelen.',
-	'pass_forum_bla' => 'Dir hutt probéiert un engem Forum deelzehuelen den fir déi ugemellte Visiteuren reservéiert ass.',
+	'pass_espace_prive_bla' => 'De privaten Deel ass fir Visiteuren no enger Umeldung op. Wann dir ugemellt sidd kënnt der d’Artikelen an der Aarbecht kucken, Artikelen virschloen an un de Forumen deelhuelen.', # MODIF
+	'pass_forum_bla' => 'Dir hutt probéiert un engem Forum deelzehuelen den fir déi ugemellte Visiteuren reservéiert ass.', # MODIF
 	'pass_indiquez_cidessous' => 'Gitt hei den Email un ënner dem der Iech ugemellt hutt. Dir kritt dann e Message mat den Instruktiounen fir ären Zougang erëm ze kréien.',
 	'pass_mail_passcookie' => '(dëst ass en automatesche Message)
 Fir ären Zougang zum Site
@@ -569,7 +569,7 @@ erëm ze kréien, surft op dës URL:
 
 Dir kënnt do e neit Passwuert aginn an Iech um Site umellen.
 
-',
+', # MODIF
 	'pass_mot_oublie' => 'Passwuert vergiess',
 	'pass_nouveau_enregistre' => 'Äert neit Passwuert ass gespäichert.',
 	'pass_nouveau_pass' => 'Neit Passwuert',
@@ -617,7 +617,7 @@ Probéiert ',
 	'texte_inc_auth_2' => 'Iech unzemellen',
 	'texte_inc_auth_3' => ', eventuell nodeems der äre Browser nei gestart hutt.',
 	'texte_inc_config' => 'D’Ännerungen op dëse Säiten beaflossen de Fonctionnement vun ärem Site ganz staark. Maacht näischt ier der de SPIP-System richteg kennt.<br /><br /><b>Generell ass unzeroden, dës Säiten dem Webmaster vun ärem Site ze iwwerloossen.</b>',
-	'texte_inc_meta_1' => 'De System huet e Fehler fonnt beim Schreiwen vum Fichier <code>@fichier@</code>. Als Administrateur vum Site,',
+	'texte_inc_meta_1' => 'De System huet e Fehler fonnt beim Schreiwen vum Fichier <code>@fichier@</code>. Als Administrateur vum Site,', # MODIF
 	'texte_inc_meta_2' => 'kontrolléiert d’Schreif-Rechter',
 	'texte_inc_meta_3' => 'am Dossier <code>@repertoire@</code>.',
 	'texte_statut_en_cours_redaction' => 'an der Aarbecht',
@@ -629,7 +629,7 @@ Probéiert ',
 	'titre_cadre_raccourcis' => 'OFKIERZUNG:',
 	'titre_changer_couleur_interface' => 'Faarf vum Interface änneren',
 	'titre_image_admin_article' => 'Dir kënnt dësen Artikel verwalten',
-	'titre_image_administrateur' => 'Administrateur',
+	'titre_image_administrateur' => 'Administrateur', # MODIF
 	'titre_image_aide' => 'Hëllef fir dëst Element',
 	'titre_image_auteur_supprime' => 'Geläschten Auteur',
 	'titre_image_redacteur' => 'Redakter ouni Zougang',

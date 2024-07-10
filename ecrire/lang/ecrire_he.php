@@ -21,7 +21,7 @@ return [
 	'avis_connexion_echec_3' => '<b>N.B.</b> על מספר שרתים, אתה חייב <b>בקשה</b> ההפעלה של הגישה שלך לבסיס הנתונים של מיי.אס.קיו.אל לפני שתוכל להשתמש בו. אם אינך יכול להתחבר, וודא שלמעשה שלחת את הבקשה הזאת ',
 	'avis_connexion_ldap_echec_1' => 'התקשרות לשרת אל.די.איי.פי נכשלה',
 	'avis_connexion_ldap_echec_2' => 'חזור אל הדף הקודם וודא את האינפורמציה שסיפקת',
-	'avis_connexion_ldap_echec_3' => 'לחלופין, אל תשתמש בתמיכת אל.די.איי.פי  לייבא משתמשים ',
+	'avis_connexion_ldap_echec_3' => 'לחלופין, אל תשתמש בתמיכת אל.די.איי.פי  לייבא משתמשים ', # MODIF
 	'avis_deplacement_rubrique' => ' אזהרה ! המדור הזה כולל @contient_breves@ brève@scb@ : אם הנך מזיז אותו, וודא שהנך מסמן את התיבה הזאת לאישור.',
 	'avis_erreur_connexion_mysql' => 'שגיאת התחברות לאס.קיו.אל',
 	'avis_espace_interdit' => '<b>Forbidden area</b><p>אס.פי.אי.פי כבר מותקן', # MODIF
@@ -47,10 +47,10 @@ return [
 	'bouton_mettre_a_jour_base' => 'עכדן נדבך נתונים',
 	'bouton_modifier' => 'תיקון',
 	'bouton_radio_afficher' => 'הראה',
-	'bouton_radio_apparaitre_liste_redacteurs_connectes' => 'הופיע ברשימת העורכים המחוברים',
+	'bouton_radio_apparaitre_liste_redacteurs_connectes' => 'הופיע ברשימת העורכים המחוברים', # MODIF
 	'bouton_radio_envoi_annonces_adresse' => ':שליחת הודעות לכתובת',
 	'bouton_radio_envoi_liste_nouveautes' => 'שלח את רשימת החדשות האחרונה',
-	'bouton_radio_non_apparaitre_liste_redacteurs_connectes' => 'אל תופיע ברשימת העורכים המחוברים',
+	'bouton_radio_non_apparaitre_liste_redacteurs_connectes' => 'אל תופיע ברשימת העורכים המחוברים', # MODIF
 	'bouton_radio_non_envoi_annonces_editoriales' => 'אל תשלח הודעות עורך ',
 	'bouton_redirection' => 'כוון שנית',
 	'bouton_relancer_installation' => 'התחל בשנית התקנה',
@@ -60,7 +60,7 @@ return [
 	'bouton_vider_cache' => '(לרוקן את המחבוא(מטמון',
 
 	// C
-	'cache_modifiable_webmestre' => 'הפרמטר הזה ניתן לשינוי על ידי מנהל האתר',
+	'cache_modifiable_webmestre' => 'הפרמטר הזה ניתן לשינוי על ידי מנהל האתר', # MODIF
 	'calendrier_synchro' => 'אם אתה משתמש באפליקציית יומן תואמת עם <b>iCal</b>, אתה יכול לסנכרן את זה עם אינפורמציה של אתרים אחרים',
 	'config_activer_champs' => 'הפעל את השדות הבאים',
 	'config_choix_base_sup' => 'ציין בסיס נתונים על שרת זה',
@@ -96,7 +96,7 @@ return [
 	'entree_contenu_rubrique' => '(תוכן המדור בכמה מילים.)',
 	'entree_identifiants_connexion' => '...מזהי ההתחברות שלך',
 	'entree_identifiants_connexion_2' => 'מזהה של חיבור',
-	'entree_informations_connexion_ldap' => 'נא מלא את התבנית הזאת עם אינפורמציית התקשרות ה-אל.די.איי.פי. אתה תהיה מוענק עם האינפורמציה הזאת על ידי מנהל הרשת או המערכת.',
+	'entree_informations_connexion_ldap' => 'נא מלא את התבנית הזאת עם אינפורמציית התקשרות ה-אל.די.איי.פי. אתה תהיה מוענק עם האינפורמציה הזאת על ידי מנהל הרשת או המערכת.', # MODIF
 	'entree_infos_perso' => '?מי אתה',
 	'entree_infos_perso_2' => 'מי המחבר?',
 	'entree_interieur_rubrique' => 'בתוך המדור:',
@@ -162,12 +162,12 @@ return [
 	'info_1_article' => 'מאמר 1',
 	'info_activer_cookie' => 'אתה יכול להפעיל <b> עוגיית התכתבות</b>, אשר יאפשר לך
  לעבור בקלות מן האתר הציבורי לאתר הפרטי.',
-	'info_administrateur' => 'מנהל',
-	'info_administrateur_1' => 'מנהל',
+	'info_administrateur' => 'מנהל', # MODIF
+	'info_administrateur_1' => 'מנהל', # MODIF
 	'info_administrateur_2' => 'של האתר (<i>use with caution</i>)',
-	'info_administrateur_site_01' => 'אם היך מנהל אתר, אנא',
+	'info_administrateur_site_01' => 'אם היך מנהל אתר, אנא', # MODIF
 	'info_administrateur_site_02' => 'לחץ על הקישור הזה',
-	'info_administrateurs' => 'מנהלים',
+	'info_administrateurs' => 'מנהלים', # MODIF
 	'info_administrer_rubrique' => 'הינך יכול לנהל מדור זה',
 	'info_adresse' => ':אל הכתובת',
 	'info_adresse_url' => 'הכתובת הכללית של האתר הציבורי שלך',
@@ -197,7 +197,7 @@ return [
 	'info_chapeau' => 'סיפון',
 	'info_chapeau_2' => ':הקדמה',
 	'info_chemin_acces_1' => 'אפשרויות: <b>Access path in directory</b>',
-	'info_chemin_acces_2' => 'מעכשיו והלאה, הינך חייב לעצב את דרך הגישה לספריית המידע. המידע הזה נחוץ לקריאת הפרופילים של המשתמשים אשר שמורים בספרייה.',
+	'info_chemin_acces_2' => 'מעכשיו והלאה, הינך חייב לעצב את דרך הגישה לספריית המידע. המידע הזה נחוץ לקריאת הפרופילים של המשתמשים אשר שמורים בספרייה.', # MODIF
 	'info_chemin_acces_annuaire' => 'אפשרויות: <b>Access path in directory</b>',
 	'info_choix_base' => ':שלב שלישי',
 	'info_classement_1' => '<sup>st</sup> מחוץ ל @liste@',
@@ -232,21 +232,21 @@ return [
 	'info_exportation_base' => 'יצוא בסיס נתונים אל @archive@',
 	'info_fichiers_authent' => '".htpasswd" אישור קובץ',
 	'info_gauche_auteurs_exterieurs' => 'מחברים חיצוניים, ללא שום גישה לאתר, מצויינים על ידי סמל כחול; מחברים מחוקים על ידי פח אשפה.', # MODIF
-	'info_gauche_messagerie' => 'התכתבות מאפשרת לך להחליף הודעות בין עורכים, כדי לשמר תזכירים (לשימושך האישי) או להציג מודעות בדף הבית של (.האזור הפרטי (אם אתה אחראי',
+	'info_gauche_messagerie' => 'התכתבות מאפשרת לך להחליף הודעות בין עורכים, כדי לשמר תזכירים (לשימושך האישי) או להציג מודעות בדף הבית של (.האזור הפרטי (אם אתה אחראי', # MODIF
 	'info_gauche_statistiques_referers' => 'הדף הזה מציג רשימה של <i>referrers</i>, כלומר האתר מכיל קישורים לאתרך, רק להיום: למעשה הרשימה הזאת מתעדכנת כל 24 שעות.',
 	'info_generation_miniatures_images' => 'יוצר תמונות ממוזערות',
 	'info_hier' => ':אתמול',
 	'info_identification_publique' => '...הזהות הציבורית שלך',
 	'info_image_process2' => 'Si aucune image n’apparaît, alors le serveur qui héberge votre site n’a pas été configuré pour utiliser de tels outils. Si vous souhaitez utiliser ces fonctions, contactez le responsable technique et demandez les extensions « GD » ou « Imagick ».',
 	'info_informations_personnelles' => 'נתונים אישיים',
-	'info_inscription_automatique' => 'הרשמה אוטומטית של עורכים חדשים',
+	'info_inscription_automatique' => 'הרשמה אוטומטית של עורכים חדשים', # MODIF
 	'info_jeu_caractere' => 'מערך תווים של האתר',
 	'info_jours' => 'ימים',
 	'info_laisser_champs_vides' => '(השאר את השדות האלה ריקים',
 	'info_langues' => 'שפת האתר',
 	'info_ldap_ok' => '.אישור אל.די.אי.פי מותקן',
 	'info_lien_hypertexte' => ':קישור היפר טקסט',
-	'info_liste_redacteurs_connectes' => 'רשימה של עורכים מחוברים',
+	'info_liste_redacteurs_connectes' => 'רשימה של עורכים מחוברים', # MODIF
 	'info_login_existant' => '.שם ההתחברות הזה תפוס',
 	'info_login_trop_court' => '.שם ההתחברות יותר מדי קצר',
 	'info_maximum' => ':מקסימום',
@@ -313,7 +313,7 @@ return [
 	'info_site_min' => 'אתר',
 	'info_sites' => 'אתרים',
 	'info_sous_titre' => 'כתוביות :',
-	'info_statut_administrateur' => 'מנהל',
+	'info_statut_administrateur' => 'מנהל', # MODIF
 	'info_surtitre' => 'הכותרת למעלה:',
 	'info_texte' => 'טקסט',
 	'info_texte_message' => 'הטקסט של ההודעה שלך :', # MODIF
@@ -332,7 +332,7 @@ return [
 	'install_select_type_sqlite2' => 'SQLite 2',
 	'install_select_type_sqlite3' => 'SQLite 3',
 	'intem_redacteur' => 'עורך',
-	'item_administrateur_2' => 'מנהל',
+	'item_administrateur_2' => 'מנהל', # MODIF
 	'item_login' => 'הסינכ',
 	'item_non' => 'לא',
 	'item_nouvel_auteur' => 'מחבר חדש',

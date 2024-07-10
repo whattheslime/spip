@@ -1,6 +1,6 @@
 <?php
 // This is a SPIP language file  --  Ceci est un fichier langue de SPIP
-// extrait automatiquement de https://trad.spip.net/tradlang_module/spip?lang_cible=da
+// extrait automatiquement de https://trad.spip.net/tradlang_module/spip_?lang_cible=da
 // ** ne pas modifier le fichier **
 
 return [
@@ -213,7 +213,7 @@ return [
 	'form_pet_signature_pasprise' => 'Din underskrift er ikke godkendt.',
 	'form_prop_confirmer_envoi' => 'Bekræft afsendelse',
 	'form_prop_description' => 'Beskrivelse/kommentar',
-	'form_prop_enregistre' => 'Din forslag er modtaget, det vil blive offentliggjort, når det er godkendt af webstedets administratorer.',
+	'form_prop_enregistre' => 'Din forslag er modtaget, det vil blive offentliggjort, når det er godkendt af webstedets administratorer.', # MODIF
 	'form_prop_envoyer' => 'Send en meddelelse',
 	'form_prop_indiquer_email' => 'Indtast en gyldig e-mail-adresse',
 	'form_prop_indiquer_nom_site' => 'Indtast webstedets navn.',
@@ -291,7 +291,7 @@ return [
 	'info_authentification_ftp' => 'Adgangskontrol (ved FTP).',
 	'info_breves_2' => 'nyheder',
 	'info_connexion_refusee' => 'Opkobling afvist',
-	'info_contact_developpeur' => 'Kontakt en udvikler.',
+	'info_contact_developpeur' => 'Kontakt en udvikler.', # MODIF
 	'info_contenance' => 'Dette websted indeholder:',
 	'info_contribution' => 'indlæg i fora', # MODIF
 	'info_copyright' => '@spip@ er fri software der distribueres @lien_gpl@.',
@@ -347,8 +347,8 @@ return [
 	'info_multi_herit' => 'Standardsprog',
 	'info_multi_langues_soulignees' => 'De <u>inderstregede sprog</u> rummer oversættelse af alle tekster i brugergrænsefladen. Hvis du vælger disse sprog, vil mange elementer på det offentlige websted (datoer, forularer) automatisk blive oversat. Hvad angår de ikke-understregede sprog, vil disse elementer fremtræde på webstedets hovedsprog.', # MODIF
 	'info_multilinguisme' => 'Flersprogethed',
-	'info_nom_non_utilisateurs_connectes' => 'Dit navn findes ikke på listen over tilsluttede brugere.',
-	'info_nom_utilisateurs_connectes' => 'Dit navn figurerer på listen over online brugere.',
+	'info_nom_non_utilisateurs_connectes' => 'Dit navn findes ikke på listen over tilsluttede brugere.', # MODIF
+	'info_nom_utilisateurs_connectes' => 'Dit navn figurerer på listen over online brugere.', # MODIF
 	'info_nombre_en_ligne' => 'Online nu:',
 	'info_non_resultat' => 'Ingen resultater ved søgning efter "@cherche_mot@"',
 	'info_non_utilisation_messagerie' => 'Du anvender ikke webstedets interne meddelelsessystem.',
@@ -469,13 +469,13 @@ return [
 	'pass_choix_pass' => 'Vælg ny adgangskode:',
 	'pass_erreur' => 'Fejl',
 	'pass_erreur_acces_refuse' => '<b>Fejl:</b> du har ikke mere adgang til dette websted.',
-	'pass_erreur_code_inconnu' => '<b>Fejl:</b> denne kode har ikke adgang til dette websted.',
+	'pass_erreur_code_inconnu' => '<b>Fejl:</b> denne kode har ikke adgang til dette websted.', # MODIF
 	'pass_erreur_non_enregistre' => '<b>Fejl:</b> adressen <tt>@email_oubli@</tt> er ikke tilmeldt dette websted.',
 	'pass_erreur_non_valide' => '<b>Fejl:</b> e-mail-adressen <tt>@email_oubli@</tt> er ugyldig!',
 	'pass_erreur_probleme_technique' => '<b>Fejl:</b> denne e-mail kunne ikke sendes af tekniske grunde.',
 	'pass_espace_prive_bla' => 'Den private del af dette websted er åben for besøgende efter tilmelding.
-	Når du har tilmeldt dig, kan du gennemse artikler der er på vej, indsende artikler og deltage i alle fora.',
-	'pass_forum_bla' => 'Du har bedt om adgang til et forum, der er forbeholdt registrerede brugere.',
+	Når du har tilmeldt dig, kan du gennemse artikler der er på vej, indsende artikler og deltage i alle fora.', # MODIF
+	'pass_forum_bla' => 'Du har bedt om adgang til et forum, der er forbeholdt registrerede brugere.', # MODIF
 	'pass_indiquez_cidessous' => 'Indtast nedenfor den e-mail-adresse, du tidligere har registreret. Du vil modtage en e-mail, der forklarer, hvordan du får adgang.',
 	'pass_mail_passcookie' => '(dette er en automatisk dannet e-mail)
 
@@ -535,7 +535,7 @@ og igen få adgang til webstedet.', # MODIF
 	'titre_cadre_raccourcis' => 'GENVEJE:',
 	'titre_changer_couleur_interface' => 'Ændre farve på brugergrænsefladen',
 	'titre_image_admin_article' => 'Du kan administrere denne artikel',
-	'titre_image_administrateur' => 'Administrator',
+	'titre_image_administrateur' => 'Administrator', # MODIF
 	'titre_image_aide' => 'Hjælp til dette emne',
 	'titre_image_auteur_supprime' => 'Forfatter slettet',
 	'titre_image_redacteur' => 'Forfatter uden adgang',

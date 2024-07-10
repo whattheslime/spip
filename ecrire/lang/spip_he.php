@@ -1,6 +1,6 @@
 <?php
 // This is a SPIP language file  --  Ceci est un fichier langue de SPIP
-// extrait automatiquement de https://trad.spip.net/tradlang_module/spip?lang_cible=he
+// extrait automatiquement de https://trad.spip.net/tradlang_module/spip_?lang_cible=he
 // ** ne pas modifier le fichier **
 
 return [
@@ -233,7 +233,7 @@ return [
 	'form_pet_signature_pasprise' => 'חתימתך נתקלה בהתעלמות.',
 	'form_prop_confirmer_envoi' => 'אשר שליחה',
 	'form_prop_description' => 'תיאור/פירוש',
-	'form_prop_enregistre' => 'ההצעה שלך נרשמה, היא תופיע ברשת לאחר אישור של מנהלי האתר.',
+	'form_prop_enregistre' => 'ההצעה שלך נרשמה, היא תופיע ברשת לאחר אישור של מנהלי האתר.', # MODIF
 	'form_prop_envoyer' => 'שלח הודעה',
 	'form_prop_indiquer_email' => 'נא רשום כתובת דוא"ל ברת תוקף',
 	'form_prop_indiquer_nom_site' => 'נא רשום את שם האתר',
@@ -313,7 +313,7 @@ return [
 	'info_authentification_ftp' => '.(.אישור (על ידי אף.טי.פי',
 	'info_breves_2' => 'מבזקים',
 	'info_connexion_refusee' => 'החיבור מסורב',
-	'info_contact_developpeur' => '.אנא צור קשר עם המפתח',
+	'info_contact_developpeur' => '.אנא צור קשר עם המפתח', # MODIF
 	'info_contenance' => ':האתר הזה מכיל',
 	'info_contribution' => 'תרומת הפורום', # MODIF
 	'info_copyright' => 'תוכנה מופצת בחינם <a href=\'license.txt\'>under GPL license.</a>',
@@ -348,7 +348,7 @@ return [
 	'info_impossible_lire_page' => '<b>Error!</b> הדף לא יכול להקרא <tt><html>@test_proxy@</html></tt> through the proxy <tt>',
 	'info_installation_systeme_publication' => '...התקנת מערכת פרסום',
 	'info_installer_documents' => 'אפשר להתקין אוטומטית את כל המסמכים שנמצאים בתיקיה @upload@.',
-	'info_installer_ftp' => 'כאחראי, אתה יכול להתקין (על ידי העברת קבצים באינטרנט FTP) קבצים בתיקיה @upload@ להעלות כדי לבחור אותם אחר כך ישירות מכאן.',
+	'info_installer_ftp' => 'כאחראי, אתה יכול להתקין (על ידי העברת קבצים באינטרנט FTP) קבצים בתיקיה @upload@ להעלות כדי לבחור אותם אחר כך ישירות מכאן.', # MODIF
 	'info_installer_images' => 'JPEG,GIF,PNG אתה יכול להציב תמונות בפורמטים',
 	'info_installer_images_dossier' => 'הצב תמונות בתיקיה @upload@ להעלות בשביל שתוכל לבחור אותם כאן.',
 	'info_interface_complete' => 'ממשק שלם',
@@ -374,8 +374,8 @@ return [
 	'info_multi_herit' => 'שפת ברירת המחדל',
 	'info_multi_langues_soulignees' => '<u>לשפות המודגשות</u> ניתן לקבל תרגום לכל הטקסטים של הממשק. אם תבחר/י בשפות אלו, אלמנטים רבים מהאתר הציבורי (תאריכים, טופסים) לא יתורגמו בדרך אוטומטית. לשפות הלא מודגשות, אלמנטים אלו יופיעו בשפה העיקרית של האתר.', # MODIF
 	'info_multilinguisme' => 'רב לשוני',
-	'info_nom_non_utilisateurs_connectes' => '.שמך לא נמצא ברשימת המשתמשים המחוברים',
-	'info_nom_utilisateurs_connectes' => '.שמך נמצא ברשימת המשתמשים המחוברים',
+	'info_nom_non_utilisateurs_connectes' => '.שמך לא נמצא ברשימת המשתמשים המחוברים', # MODIF
+	'info_nom_utilisateurs_connectes' => '.שמך נמצא ברשימת המשתמשים המחוברים', # MODIF
 	'info_nombre_en_ligne' => ':ברשת עכשיו',
 	'info_non_resultat' => 'אין תוצאות ל "@cherche_mot@"',
 	'info_non_utilisation_messagerie' => '.אינך משתמש בהתכתבות הפנימית של אתר זה',
@@ -409,8 +409,8 @@ return [
 	'info_selectionner_fichier_2' => 'בחירת קובץ :',
 	'info_supprimer_vignette' => 'מחיקת הגפנית',
 	'info_symbole_bleu' => 'הסימן <b>הכחול</b> מציין <b>תזכיר</b> אחד : כלומר הודעה לשימושך האישי.',
-	'info_symbole_jaune' => 'הסימן <b>הצהוב</b> מציין <b>מודעה לכל העורכים </b>: כל מנהלן יכול לערוך אותה, וכל העורכים יכולים לראות אותה.',
-	'info_symbole_vert' => 'הסמל <b> הירוק</b> מסמל <b>הודעות מוחלפות בין משתמשי </b> האתר.',
+	'info_symbole_jaune' => 'הסימן <b>הצהוב</b> מציין <b>מודעה לכל העורכים </b>: כל מנהלן יכול לערוך אותה, וכל העורכים יכולים לראות אותה.', # MODIF
+	'info_symbole_vert' => 'הסמל <b> הירוק</b> מסמל <b>הודעות מוחלפות בין משתמשי </b> האתר.', # MODIF
 	'info_telecharger_nouveau_logo' => 'העלה לוגו חדש:',
 	'info_telecharger_ordinateur' => 'העלה מהמחשב שלך:',
 	'info_tous_resultats_enregistres' => '[כל התוצאות נרשמו]',
@@ -504,16 +504,16 @@ return [
 	'pass_choix_pass' => 'נא לבחור סיסמה בשבילך:',
 	'pass_erreur' => 'שגיאה',
 	'pass_erreur_acces_refuse' => '<b>שגיאה:</b> אינך זוכה להיכנס עוד לאתר.',
-	'pass_erreur_code_inconnu' => '<b>שגיאה :</b> קוד זה לא מתאים לאף אחד מהמבקרים בעלי זכות כינסה לאתר.',
+	'pass_erreur_code_inconnu' => '<b>שגיאה :</b> קוד זה לא מתאים לאף אחד מהמבקרים בעלי זכות כינסה לאתר.', # MODIF
 	'pass_erreur_non_enregistre' => '<b>שגיאה :</b> הדוא"ל <tt>@email_oubli@</tt> אינו נרשם באתר זה.',
 	'pass_erreur_non_valide' => '<b>שגיאה :</b> דוא"ל זה <tt>@email_oubli@</tt> אינו מתאים !',
 	'pass_erreur_probleme_technique' => '<b>שגיאה :</b> בגלל בעיה טכנית, אי אפשר לשלוח את הדוא"ל.',
 	'pass_espace_prive_bla' => 'האיזור הפרטי באתר זה הינו פתוח
   למבקרים הנרשמים בלבד. אחרי שנרשמת
   ינתן לך לראות מאמרים שעודם בהכנה
-  להציע מאמרים חדשים ולהשתתף לכל הפורומים.',
+  להציע מאמרים חדשים ולהשתתף לכל הפורומים.', # MODIF
 	'pass_forum_bla' => 'ביקשת להשתתף לפורום
-  זכוי למבקרים הנרשמים בלבד.',
+  זכוי למבקרים הנרשמים בלבד.', # MODIF
 	'pass_indiquez_cidessous' => 'נא לציין את כתובת הדוא"ל שלך בו
    נרשמת בתהליך ההרשמה 
    תקבל דוא"ל המסביר לך את הפרוצדורה
@@ -529,7 +529,7 @@ return [
 אז ינתן לך לבחור סיסמה חדשה
 ולהתחבר שוב לאתר
 
-',
+', # MODIF
 	'pass_mot_oublie' => 'שכחתי את הסיסמה',
 	'pass_nouveau_enregistre' => 'הסיסמה החדשה שלך נרשמה.',
 	'pass_nouveau_pass' => 'סיסמה חדשה',
@@ -586,7 +586,7 @@ return [
  להפעלת המערכת SPIP <br /><br /><b>באופן
   כללי, מומלץ מאוד להשאיר 
  למנהל האתר לטפל בדפים אלו.</b>',
-	'texte_inc_meta_1' => 'המערכת נתקלה בבעיה במשך כתיבת הקובץ<code>@fichier@</code>. כמנהל האתר, אתה מוזמן',
+	'texte_inc_meta_1' => 'המערכת נתקלה בבעיה במשך כתיבת הקובץ<code>@fichier@</code>. כמנהל האתר, אתה מוזמן', # MODIF
 	'texte_inc_meta_2' => 'לבדוק את הזכויות לכתיבה',
 	'texte_inc_meta_3' => 'בתיקיה הבאה <code>@repertoire@</code>',
 	'texte_statut_en_cours_redaction' => 'בדרכו לחיבור',
@@ -598,7 +598,7 @@ return [
 	'titre_cadre_raccourcis' => 'קיצורי דרך :',
 	'titre_changer_couleur_interface' => 'שינוי צבע הממשק',
 	'titre_image_admin_article' => 'אתה יכול לנהל מאמר זה',
-	'titre_image_administrateur' => 'מנהל',
+	'titre_image_administrateur' => 'מנהל', # MODIF
 	'titre_image_aide' => 'עזרה על אלמנט זה',
 	'titre_image_auteur_supprime' => 'מחבר נמחק',
 	'titre_image_redacteur' => 'כותב ללא כניסה',

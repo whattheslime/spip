@@ -308,6 +308,7 @@ return [
 	'info_email_webmestre' => 'Adresse email du ou de la webmestre',
 	'info_envoi_email_automatique' => 'Envoi de mails automatique',
 	'info_envoyer_maintenant' => 'Envoyer maintenant',
+	'info_erreur_version_base_plus_recente' => 'Erreur d’installation',
 	'info_etape_suivante' => 'Passer à l’étape suivante',
 	'info_etape_suivante_1' => 'Vous pouvez passer à l’étape suivante.',
 	'info_etape_suivante_2' => 'Vous pouvez passer à l’étape suivante.',
@@ -319,10 +320,10 @@ return [
 		publication et des validations d’articles. Indiquer une ou plusieurs adresses, séparées par des virgules.',
 	'info_fichiers_authent' => 'Fichiers d’authentification « .htpasswd »',
 	'info_forums_abo_invites' => 'Votre site comporte des forums sur abonnement ; la création de compte est ouverte sur le site public.',
-	'info_gauche_admin_tech' => '<b>Cette page est uniquement accessible aux responsables du site.</b><p> Elle donne accès aux différentes
-fonctions de maintenance technique. Certaines d’entre elles donnent lieu à un processus d’authentification spécifique, qui
+	'info_gauche_admin_bdd' => '<b>Cette page est uniquement accessible aux responsables du site.</b><p> Elle donne accès aux différentes
+fonctions de gestion des bases de données. Certaines d’entre elles donnent lieu à un processus d’authentification spécifique, qui
 exige d’avoir un accès FTP au site Web.</p>',
-	'info_gauche_admin_vider' => '<b>Cette page est uniquement accessible aux responsables du site.</b><p> Elle donne accès aux différentes
+	'info_gauche_admin_tech' => '<b>Cette page est uniquement accessible aux responsables du site.</b><p> Elle donne accès aux différentes
 fonctions de maintenance technique. Certaines d’entre elles donnent lieu à un processus d’authentification spécifique, qui
 exige d’avoir un accès FTP au site Web.</p>',
 	'info_gauche_auteurs' => 'Vous trouverez ici tous les auteurs du site.
@@ -428,8 +429,6 @@ exige d’avoir un accès FTP au site Web.</p>',
 	'info_procedez_par_etape' => 'procédez étape par étape',
 	'info_procedure_maj_version' => 'la procédure de mise à jour doit être lancée afin d’adapter
 	la base de données à la nouvelle version de SPIP.',
-	'info_version_base_plus_recente' => 'La version de SPIP en base de données est plus récente que celle que vous utilisez. Cette opération n\'est pas supportée, mettez à jour votre installation.',
-	'info_erreur_version_base_plus_recente' => 'Erreur d\'installation',
 	'info_proxy_ok' => 'Test du proxy réussi.',
 	'info_ps' => 'P.-S.',
 	'info_publier' => 'publier',
@@ -528,6 +527,7 @@ dans une couleur qui indique leur état :',
 	'info_url_test_proxy' => 'URL de test',
 	'info_urlref' => 'Lien hypertexte :',
 	'info_utilisation_spip' => 'Vous pouvez maintenant commencer à utiliser le système de publication assistée...',
+	'info_version_base_plus_recente' => 'La version de SPIP en base de données est plus récente que celle que vous utilisez. Cette opération n’est pas supportée, mettez à jour votre installation.',
 	'info_visites_par_mois' => 'Affichage par mois :',
 	'info_visiteur_1' => 'Visiteur',
 	'info_visiteur_2' => 'du site public',
@@ -738,8 +738,12 @@ dans une couleur qui indique leur état :',
 	'protocole_ldap' => 'Version du protocole :',
 
 	// Q
+	'queue_args_fonction_label' => 'Arguments passés à la fonction @fonction@',
+	'queue_args_voir' => 'Voir les arguments',
 	'queue_executer_maintenant' => 'Exécuter maintenant',
+	'queue_fonction_label' => 'Fonction',
 	'queue_info_purger' => 'Vous pouvez supprimer toutes les tâches de fond en attente et réinitialiser la liste avec les tâches périodiques',
+	'queue_liens_label' => 'Liens',
 	'queue_nb_jobs_in_queue' => '@nb@ tâches en attente',
 	'queue_next_job_in_nb_sec' => 'Prochaine tâche dans @nb@ s',
 	'queue_next_job_scheduled' => 'Prochaine tâche',
@@ -747,12 +751,8 @@ dans une couleur qui indique leur état :',
 	'queue_one_job_in_queue' => '1 tâche en attente',
 	'queue_priorite_tache' => 'priorité',
 	'queue_purger_queue' => 'Réinitialiser la liste des tâches',
-	'queue_titre' => 'Tâches de fond',
 	'queue_statut_en_cours' => 'En cours',
-	'queue_fonction_label' => 'Fonction',
-	'queue_args_fonction_label' => 'Arguments passés à la fonction @fonction@',
-	'queue_args_voir' => 'Voir les arguments',
-	'queue_liens_label' => 'Liens',
+	'queue_titre' => 'Tâches de fond',
 
 	// R
 	'repertoire_plugins' => 'Répertoire :',
@@ -893,8 +893,8 @@ avez fait des modifications importantes de graphisme ou de structure du site.',
 		intempestifs.',
 	'texte_vide' => 'vide',
 	'texte_vider_cache' => 'Vider le cache',
+	'titre_admin_bdd' => 'Bases de données',
 	'titre_admin_tech' => 'Maintenance technique',
-	'titre_admin_vider' => 'Maintenance technique',
 	'titre_ajouter_un_auteur' => 'Ajouter un auteur',
 	'titre_ajouter_un_mot' => 'Ajouter un mot-clé',
 	'titre_cadre_afficher_article' => 'Afficher les articles',

@@ -1,6 +1,6 @@
 <?php
 // This is a SPIP language file  --  Ceci est un fichier langue de SPIP
-// extrait automatiquement de https://trad.spip.net/tradlang_module/spip?lang_cible=fr_tu
+// extrait automatiquement de https://trad.spip.net/tradlang_module/spip_?lang_cible=fr_tu
 // ** ne pas modifier le fichier **
 
 return [
@@ -273,7 +273,7 @@ le site "@nom_site_spip@" (@adresse_login@) :',
 	'form_pet_signature_pasprise' => 'Ta signature n’est pas prise en compte.',
 	'form_prop_confirmer_envoi' => 'Confirmer l’envoi',
 	'form_prop_description' => 'Description/commentaire',
-	'form_prop_enregistre' => 'Ta proposition est enregistrée, elle apparaîtra en ligne après validation par les responsables de ce site.',
+	'form_prop_enregistre' => 'Ta proposition est enregistrée, elle apparaîtra en ligne après validation par les responsables.',
 	'form_prop_envoyer' => 'Envoyer un message',
 	'form_prop_indiquer_email' => 'Indiquer une adresse email valide',
 	'form_prop_indiquer_nom_site' => 'Indiquer le nom du site.',
@@ -362,7 +362,7 @@ le site "@nom_site_spip@" (@adresse_login@) :',
 	'info_breves_nb' => '@nb@ brèves',
 	'info_breves_un' => '1 brève',
 	'info_connexion_refusee' => 'Connexion refusée',
-	'info_contact_developpeur' => 'Contacte un développeur.',
+	'info_contact_developpeur' => 'Contacte un développeur.', # MODIF
 	'info_contenance' => 'Ce site contient :',
 	'info_contribution' => 'contributions',
 	'info_copyright' => '@spip@ est un logiciel libre distribué @lien_gpl@.',
@@ -399,7 +399,7 @@ le site "@nom_site_spip@" (@adresse_login@) :',
 	'info_impossible_lire_page' => '<b>Erreur !</b> Impossible de lire la page <tt><html>@test_proxy@</html></tt> à travers le proxy ',
 	'info_installation_systeme_publication' => 'Installation du système de publication...',
 	'info_installer_documents' => 'Tu peux installer automatiquement tous les documents contenus dans le dossier @upload@.',
-	'info_installer_ftp' => 'En tant qu’administrateur, tu peux installer (par FTP) des fichiers dans le dossier @upload@ pour ensuite les sélectionner directement ici.',
+	'info_installer_ftp' => 'En tant qu’administrateur, tu peux installer (par FTP) des fichiers dans le dossier @upload@ pour ensuite les sélectionner directement ici.', # MODIF
 	'info_installer_images' => 'Tu peux installer des images aux formats JPEG, GIF et PNG.',
 	'info_installer_images_dossier' => 'Installer des images dans le dossier @upload@ pour pouvoir les sélectionner ici.',
 	'info_interface_complete' => 'interface complète',
@@ -427,8 +427,8 @@ le site "@nom_site_spip@" (@adresse_login@) :',
 	'info_multi_herit' => 'Langue par défaut',
 	'info_multi_langues_soulignees' => 'Les <u>langues soulignées</u> bénéficient d’une traduction totale ou partielle des textes de l’interface. Si tu sélectionnes ces langues, de nombreux éléments du site public (dates, formulaires) seront automatiquement traduits. Pour les langues non soulignées, ces éléments apparaîtront dans la langue principale du site.',
 	'info_multilinguisme' => 'Multilinguisme',
-	'info_nom_non_utilisateurs_connectes' => 'Ton nom n’apparaît pas dans la liste des utilisateurs connectés.',
-	'info_nom_utilisateurs_connectes' => 'Ton nom apparaît dans la liste des utilisateurs connectés.',
+	'info_nom_non_utilisateurs_connectes' => 'Ton nom n’apparaît pas dans la liste des utilisateurs connectés.', # MODIF
+	'info_nom_utilisateurs_connectes' => 'Ton nom apparaît dans la liste des utilisateurs connectés.', # MODIF
 	'info_nombre_en_ligne' => 'Actuellement en ligne :',
 	'info_non_resultat' => 'Aucun résultat pour "@cherche_mot@"',
 	'info_non_utilisation_messagerie' => 'Tu n’utilise pas la messagerie interne de ce site.',
@@ -467,8 +467,8 @@ le site "@nom_site_spip@" (@adresse_login@) :',
 	'info_sites_un' => '1 site',
 	'info_supprimer_vignette' => 'supprimer la vignette',
 	'info_symbole_bleu' => 'Le symbole <b>bleu</b> indique un <b>pense-bête</b> : c’est-à-dire un message à ton usage personnel.',
-	'info_symbole_jaune' => 'Le symbole <b>jaune</b> indique une <b>annonce à tous les rédacteurs</b> : modifiable par tous les administrateurs, et visible par tous les rédacteurs.',
-	'info_symbole_vert' => 'Le symbole <b>vert</b> indique les <b>messages échangés avec d’autres utilisateurs</b> du site.',
+	'info_symbole_jaune' => 'Le symbole <b>jaune</b> indique une <b>annonce à tous les rédacteurs</b> : modifiable par tous les administrateurs, et visible par tous les rédacteurs.', # MODIF
+	'info_symbole_vert' => 'Le symbole <b>vert</b> indique les <b>messages échangés avec d’autres utilisateurs</b> du site.', # MODIF
 	'info_telecharger_nouveau_logo' => 'Télécharger un nouveau logo :',
 	'info_telecharger_ordinateur' => 'Télécharger depuis ton ordinateur :',
 	'info_tous_resultats_enregistres' => '[tous les résultats sont enregistrés]',
@@ -555,6 +555,12 @@ le site "@nom_site_spip@" (@adresse_login@) :',
 
 	// N
 	'navigateur_pas_redirige' => 'Si votre navigateur n’est pas redirigé, cliquez ici pour continuer.',
+	'notification_mise_a_jour' => 'Bonjour,
+
+	Le site @adresse_site@ peut être mis à jour vers une nouvelle version de SPIP.
+
+	Pour des questions de sécurité, il est important de garder ton site à jour.
+', # MODIF
 	'numero' => 'Numéro',
 
 	// O
@@ -575,24 +581,24 @@ le site "@nom_site_spip@" (@adresse_login@) :',
 	'pass_choix_pass' => 'Choisis ton nouveau mot de passe :',
 	'pass_erreur' => 'Erreur',
 	'pass_erreur_acces_refuse' => '<b>Erreur :</b> tu n’as plus accès à ce site.',
-	'pass_erreur_code_inconnu' => '<b>Erreur :</b> ce code ne correspond à aucun des visiteurs ayant accès à ce site.',
+	'pass_erreur_code_inconnu' => '<b>Erreur :</b> ce code ne correspond à aucun des visiteurs ayant accès à ce site.', # MODIF
 	'pass_erreur_non_enregistre' => '<b>Erreur :</b> l’adresse <tt>@email_oubli@</tt> n’est pas enregistrée sur ce site.',
 	'pass_erreur_non_valide' => '<b>Erreur :</b> cet email <tt>@email_oubli@</tt> n’est pas valide !',
 	'pass_erreur_probleme_technique' => '<b>Erreur :</b> à cause d’un problème technique, l’email ne peut pas être envoyé.',
 	'pass_espace_prive_bla' => 'L’espace privé de ce site est ouvert aux
 		visiteurs, après inscription. Une fois enregistré,
 		tu pourras consulter les articles en cours de rédaction,
-		proposer des articles et participer à tous les forums.',
+		proposer des articles et participer à tous les forums.', # MODIF
 	'pass_forum_bla' => 'Tu as demandé à intervenir sur un forum
-		réservé aux visiteurs enregistrés.',
+		réservé aux visiteurs enregistrés.', # MODIF
 	'pass_indiquez_cidessous' => 'Indique ci-dessous l’adresse email sous laquelle tu
 			t’es précédemment enregistré. Tu
 			recevras un email t’indiquant la marche à suivre pour
 			récupérer ton accès.',
 	'pass_mail_passcookie' => '(ceci est un message automatique)
 Pour retrouver ton accès au site
-@nom_site_spip@ (@adresse_site@)
-Rends toi à l’adresse suivante :
+@nom_site_spip@ @adresse_site@
+Rends-toi à l’adresse suivante :
 
     @sendcookie@
 
@@ -661,7 +667,7 @@ et te reconnecter au site.
  familier du fonctionnement du système SPIP. <br /><br /><b>Plus
  généralement, il est fortement conseillé
  de laisser la charge de ces pages au webmestre principal de ton site.</b>',
-	'texte_inc_meta_1' => 'Le système a rencontré une erreur lors de l’écriture du fichier <code>@fichier@</code>. En tant qu’administrateur du site,',
+	'texte_inc_meta_1' => 'Le système a rencontré une erreur lors de l’écriture du fichier <code>@fichier@</code>. En tant qu’administrateur du site,', # MODIF
 	'texte_inc_meta_2' => 'vérifie les droits d’ecriture',
 	'texte_inc_meta_3' => 'sur le répertoire <code>@repertoire@</code>.',
 	'texte_statut_en_cours_redaction' => 'en cours de rédaction',
@@ -673,7 +679,7 @@ et te reconnecter au site.
 	'titre_cadre_raccourcis' => 'RACCOURCIS :',
 	'titre_changer_couleur_interface' => 'Changer la couleur de l’interface',
 	'titre_image_admin_article' => 'Tu peux administrer cet article',
-	'titre_image_administrateur' => 'Administrateur',
+	'titre_image_administrateur' => 'Administrateur', # MODIF
 	'titre_image_aide' => 'De l’aide sur cet élément',
 	'titre_image_auteur_supprime' => 'Auteur supprimé',
 	'titre_image_redacteur' => 'Rédacteur sans accès',
@@ -726,6 +732,8 @@ et te reconnecter au site.
 	'zbug_pagination_sans_critere' => '#PAGINATION sans critère {pagination} ou employé dans une boucle récursive',
 	'zbug_parametres_inclus_incorrects' => 'Paramètre d’inclusion incorrect : @param@',
 	'zbug_profile' => 'Temps de calcul : @time@',
+	'zbug_profile_nb' => 'Nb calcul : @nb@',
+	'zbug_profile_total' => 'Temps total : @time@',
 	'zbug_resultat' => 'résultat',
 	'zbug_serveur_indefini' => 'serveur SQL indéfini',
 	'zbug_statistiques' => 'Statistiques des requêtes SQL classées par durée',

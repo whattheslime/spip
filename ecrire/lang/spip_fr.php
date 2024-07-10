@@ -594,7 +594,7 @@ Pour des questions de sécurité, il est important de garder votre site à jour.
 			récupérer votre accès.',
 	'pass_mail_passcookie' => '(ceci est un message automatique)
 Pour retrouver votre accès au site
-@nom_site_spip@ (@adresse_site@)
+@nom_site_spip@ @adresse_site@
 
 Veuillez vous rendre à l’adresse suivante :
 
@@ -730,8 +730,8 @@ et vous reconnecter au site.
 	'zbug_pagination_sans_critere' => 'Balise #PAGINATION sans critère {pagination} ou employé dans une boucle récursive',
 	'zbug_parametres_inclus_incorrects' => 'Paramètre d’inclusion incorrect : @param@',
 	'zbug_profile' => 'Temps de calcul : @time@',
-	'zbug_profile_total' => 'Temps total : @time@',
 	'zbug_profile_nb' => 'Nb calcul : @nb@',
+	'zbug_profile_total' => 'Temps total : @time@',
 	'zbug_resultat' => 'résultat',
 	'zbug_serveur_indefini' => 'Serveur SQL indéfini',
 	'zbug_statistiques' => 'Statistiques des requêtes SQL classées par durée',

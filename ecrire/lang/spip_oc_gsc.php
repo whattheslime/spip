@@ -1,6 +1,6 @@
 <?php
 // This is a SPIP language file  --  Ceci est un fichier langue de SPIP
-// extrait automatiquement de https://trad.spip.net/tradlang_module/spip?lang_cible=oc_gsc
+// extrait automatiquement de https://trad.spip.net/tradlang_module/spip_?lang_cible=oc_gsc
 // ** ne pas modifier le fichier **
 
 return [
@@ -195,7 +195,7 @@ deu sit "@nom_site_spip@" (@adresse_site@):', # MODIF
 	'form_pet_signature_pasprise' => 'La vòsta signatura n’ei pas presa en compte.',
 	'form_prop_confirmer_envoi' => 'Confirmar lo mandadís',
 	'form_prop_description' => 'Descripcion/comentari',
-	'form_prop_enregistre' => 'La vòsta proposicion qu’ei plan registrada, qu’apareisherà en linha tanlèu que los responsables deu sit e l’auràn validada .',
+	'form_prop_enregistre' => 'La vòsta proposicion qu’ei plan registrada, qu’apareisherà en linha tanlèu que los responsables deu sit e l’auràn validada .', # MODIF
 	'form_prop_envoyer' => 'Mandar un messatge',
 	'form_prop_indiquer_email' => 'Volhatz indicar ua adreiça e-mail valida',
 	'form_prop_indiquer_nom_site' => 'Volhatz indicar lo nom deu sit.',
@@ -274,7 +274,7 @@ deu sit "@nom_site_spip@" (@adresse_site@):', # MODIF
 	'info_authentification_ftp' => 'autentificacion (per FTP).',
 	'info_breves_2' => 'brèvas',
 	'info_connexion_refusee' => 'Connexion arrefusada',
-	'info_contact_developpeur' => 'Volhatz contactar un desvolopaire.',
+	'info_contact_developpeur' => 'Volhatz contactar un desvolopaire.', # MODIF
 	'info_contenance' => 'Aqueth sit que contien:',
 	'info_contribution' => 'Contribucions de forum', # MODIF
 	'info_copyright' => '@spip@ qu’ei un logiciau liure distribuit @lien_gpl@.',
@@ -334,8 +334,8 @@ deu sit "@nom_site_spip@" (@adresse_site@):', # MODIF
 	'info_multi_herit' => 'Lenga predefinida',
 	'info_multi_langues_soulignees' => 'Las <u>lengas solinhadas</u> que benefícian d’ua arrevirada de tots los tèxts de l’interfàcia. Se seleccionatz aqueras lengas, hèra d’elements deu sit public (datas, formularis) que s’arreviraràn automaticament. Entà las lengas non solinhadas, aqueths elements qu’apareisheràn dens la lenga principau deu sit.', # MODIF
 	'info_multilinguisme' => 'Multilingüisme',
-	'info_nom_non_utilisateurs_connectes' => 'Lo vòste nom n’apareish pas dens la tèra deus utilizaires connectats.',
-	'info_nom_utilisateurs_connectes' => 'Lo vòste nom qu’apareish dens la tèra deus utilizaires connectats.',
+	'info_nom_non_utilisateurs_connectes' => 'Lo vòste nom n’apareish pas dens la tèra deus utilizaires connectats.', # MODIF
+	'info_nom_utilisateurs_connectes' => 'Lo vòste nom qu’apareish dens la tèra deus utilizaires connectats.', # MODIF
 	'info_nombre_en_ligne' => 'Ara en linha:',
 	'info_non_resultat' => 'Nat resultat entà "@cherche_mot@"',
 	'info_non_utilisation_messagerie' => 'N’utilizatz pas la messatjaria intèrna d’aqueth sit.',
@@ -455,16 +455,16 @@ deu sit "@nom_site_spip@" (@adresse_site@):', # MODIF
 	'pass_choix_pass' => 'Volhatz causir lo vòste mot de santa Clara navèth:',
 	'pass_erreur' => 'Error',
 	'pass_erreur_acces_refuse' => '<b>Error:</b> non podetz plus accedir a aqueth sit.',
-	'pass_erreur_code_inconnu' => '<b>Error:</b> aqueth còde non correspond pas a nat vesitaire qui posca accedir a aqueth sit.',
+	'pass_erreur_code_inconnu' => '<b>Error:</b> aqueth còde non correspond pas a nat vesitaire qui posca accedir a aqueth sit.', # MODIF
 	'pass_erreur_non_enregistre' => '<b>Error:</b> l’adreiça <tt>@email_oubli@</tt> n’ei pas registrada sus aqueth sit.',
 	'pass_erreur_non_valide' => '<b>Error:</b> aqueth e-mail <tt>@email_oubli@</tt> n’ei pas valid!',
 	'pass_erreur_probleme_technique' => '<b>Error:</b> pr’amor d’un problèma tecnic, l’e-mail ne’s pòt pas mandar. ',
 	'pass_espace_prive_bla' => 'L’espaci privat d’aqueste sit qu’ei dobèrt aus
   vesitaires qui’s son inscriuts. Un còp registrat/ada,
   que poiratz consultar los articles en cors de redaccion,
-  perpausar articles navèths e participar a tots los forums.',
+  perpausar articles navèths e participar a tots los forums.', # MODIF
 	'pass_forum_bla' => 'Qu’avetz demandat d’interviéner dens un forum
-  reservat aus vesitaires registrats.',
+  reservat aus vesitaires registrats.', # MODIF
 	'pass_indiquez_cidessous' => 'Marcatz ça devath l’adreiça e-mail on
  vos registrètz lo còp passat. 
    Que receberatz un e-mail qui’vs bailarà la manèra de 
@@ -539,7 +539,7 @@ e tornar connectà’vs au sit.
 	'titre_cadre_raccourcis' => 'ACORCIDAS:',
 	'titre_changer_couleur_interface' => 'Cambiar la color de l’interfàcia',
 	'titre_image_admin_article' => 'Que podetz administrar aqueste article',
-	'titre_image_administrateur' => 'Administrator',
+	'titre_image_administrateur' => 'Administrator', # MODIF
 	'titre_image_aide' => 'Ajuda sus aqueth element',
 	'titre_image_auteur_supprime' => 'Autor suprimit',
 	'titre_image_redacteur' => 'Redactor shens accès',

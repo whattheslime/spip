@@ -24,7 +24,7 @@ return [
 	'avis_connexion_erreur_nom_base' => 'Lou noum de la basa de dounada pòu countenì que de letra, de chifra o de ligneta',
 	'avis_connexion_ldap_echec_1' => 'La counessioun au servidou LDAP a souhit.',
 	'avis_connexion_ldap_echec_2' => 'Tournas a la pàgina prechedenta, e verificas li infourmacioun qu’avès prouvedi. ',
-	'avis_connexion_ldap_echec_3' => 'D’un biais alternatiéu, noun utilisas lou supouart LDAP per impourtà d’utilisaire.',
+	'avis_connexion_ldap_echec_3' => 'D’un biais alternatiéu, noun utilisas lou supouart LDAP per impourtà d’utilisaire.', # MODIF
 	'avis_deplacement_rubrique' => 'Mèfi ! Aquela rùbrica counten @contient_breves@ brèva @scb@ : se la desplaçàs, vourguès ben entacà aquela casa de counfirmacioun.',
 	'avis_erreur_connexion_mysql' => 'Errour de counessioun SQL',
 	'avis_espace_interdit' => '<b>Espaci prouhibit</b> <div>SPIP es ja instalat.</div>',
@@ -52,10 +52,10 @@ return [
 	'bouton_mettre_a_jour_base' => 'Metre a jou la basa de dounada',
 	'bouton_modifier' => 'Moudificà',
 	'bouton_radio_afficher' => 'Afichà',
-	'bouton_radio_apparaitre_liste_redacteurs_connectes' => 'Aparèisse en la lista dei redatour counetat',
+	'bouton_radio_apparaitre_liste_redacteurs_connectes' => 'Aparèisse en la lista dei redatour counetat', # MODIF
 	'bouton_radio_envoi_annonces_adresse' => 'Mandà li anounça à l’adressa :',
 	'bouton_radio_envoi_liste_nouveautes' => 'Mandà la lista dei nouvità',
-	'bouton_radio_non_apparaitre_liste_redacteurs_connectes' => 'Noun aparèisse en la lista dei redatour',
+	'bouton_radio_non_apparaitre_liste_redacteurs_connectes' => 'Noun aparèisse en la lista dei redatour', # MODIF
 	'bouton_radio_non_envoi_annonces_editoriales' => 'Noun mandà d’anounça editouriali',
 	'bouton_redirection' => 'REDIRECIOUN',
 	'bouton_relancer_installation' => 'Relançà l’instalacioun',
@@ -65,7 +65,7 @@ return [
 	'bouton_vider_cache' => 'Vuà l’amagadou',
 
 	// C
-	'cache_modifiable_webmestre' => 'Lou webmestre dóu sit pòu modificà aquèu paramètre.',
+	'cache_modifiable_webmestre' => 'Lou webmestre dóu sit pòu modificà aquèu paramètre.', # MODIF
 	'calendrier_synchro' => 'S’utilisas un lougiciau d’agènda coumpatible embé <b>iCal</b>, lou poudès sincronisà emb’ai informacioun d’estou sit.',
 	'config_activer_champs' => 'Ativà lu camp segoun',
 	'config_choix_base_sup' => 'endicà una basa soubre aquestou servidou',
@@ -106,7 +106,7 @@ return [
 	'entree_identifiants_connexion' => 'Lu vouòstre identificant de counessioun...',
 	'entree_identifiants_connexion_2' => 'Identificant de counessioun',
 	'entree_informations_connexion_ldap' => 'Vourguès entrà en aqueu fourmulari li informacioun de counessioun au vouòstre anuari LDAD.
-Aqueli informacioun vi devon poudé estre prouvedi da l’aministratour dóu sistema, o de la taragnina.',
+Aqueli informacioun vi devon poudé estre prouvedi da l’aministratour dóu sistema, o de la taragnina.', # MODIF
 	'entree_infos_perso' => 'Qu sias ?',
 	'entree_infos_perso_2' => 'Qu es l’autour ?',
 	'entree_interieur_rubrique' => 'Dintre la rùbrica :',
@@ -202,14 +202,14 @@ Aqueli informacioun vi devon poudé estre prouvedi da l’aministratour dóu sis
 	'info_activer_menu_developpement' => 'Afichà lou menù Desfouloupamen',
 	'info_admin_etre_webmestre' => 'Mi dounà lu drech de webmèstre',
 	'info_admin_je_suis_webmestre' => 'Siéu <b>webmèstre</b>',
-	'info_admin_statuer_webmestre' => 'Dounà en aquel aministratour lu drech de webmèstre',
-	'info_admin_webmestre' => 'Aquel aministratour es <b>webmèstre</b>',
-	'info_administrateur' => 'Aministratour',
-	'info_administrateur_1' => 'Aministratour',
+	'info_admin_statuer_webmestre' => 'Dounà en aquel aministratour lu drech de webmèstre', # MODIF
+	'info_admin_webmestre' => 'Aquel aministratour es <b>webmèstre</b>', # MODIF
+	'info_administrateur' => 'Aministratour', # MODIF
+	'info_administrateur_1' => 'Aministratour', # MODIF
 	'info_administrateur_2' => 'dóu sit (<i>utilisas embé precaucioun</i>)',
-	'info_administrateur_site_01' => 'Se sias aministratour dóu sit, vourguès',
+	'info_administrateur_site_01' => 'Se sias aministratour dóu sit, vourguès', # MODIF
 	'info_administrateur_site_02' => 'clicà soubre aquel estac',
-	'info_administrateurs' => 'Aministratour',
+	'info_administrateurs' => 'Aministratour', # MODIF
 	'info_administrer_rubrique' => 'Poudès aministrà aquela rùbrica',
 	'info_adresse' => 'a l’adressa:',
 	'info_adresse_desinscription' => 'Adressa de desinscricioun',
@@ -252,7 +252,7 @@ Aqueli informacioun vi devon poudé estre prouvedi da l’aministratour dóu sis
 	'info_chapeau' => 'Capèu',
 	'info_chapeau_2' => 'Capèu :',
 	'info_chemin_acces_1' => 'Oupcioun : <b>camin d’achès en l’anuari</b>',
-	'info_chemin_acces_2' => 'Devès ahura counfigurà lou camin d’achès ai infourmacioun en l’anuari. Aquela infourmacioun es necessari per legì lu proufiéu d’utilisaire amoulounat en l’anuari.',
+	'info_chemin_acces_2' => 'Devès ahura counfigurà lou camin d’achès ai infourmacioun en l’anuari. Aquela infourmacioun es necessari per legì lu proufiéu d’utilisaire amoulounat en l’anuari.', # MODIF
 	'info_chemin_acces_annuaire' => 'Oupcioun: <b>camin d’achès en l’anuari</b>',
 	'info_choix_base' => 'Tèrsa tapa :',
 	'info_classement_1' => '<sup>é</sup> sus @liste@',
@@ -287,7 +287,7 @@ Aqueli informacioun vi devon poudé estre prouvedi da l’aministratour dóu sis
 	'info_ecrire_article' => 'Denant de poudé escriéure d’article, devès au mancou creà una rùbrica.',
 	'info_email_envoi' => 'Adressa e-mail d’espedissioun (oupciounau)',
 	'info_email_envoi_txt' => 'Endicas aquí l’adressa da utilisà per mandà lu e-mails (en mancança, s’utiliserà l’adressa destinatàri couma adressa d’espedissioun):',
-	'info_email_webmestre' => 'Adressa e-mail dóu webmèstre',
+	'info_email_webmestre' => 'Adressa e-mail dóu webmèstre', # MODIF
 	'info_envoi_email_automatique' => 'Espedissioun d’e-mails autoumatic',
 	'info_envoyer_maintenant' => 'Mandà ahura',
 	'info_etape_suivante' => 'Passà a la tapa seguenta',
@@ -297,14 +297,13 @@ Aqueli informacioun vi devon poudé estre prouvedi da l’aministratour dóu sis
 	'info_exportation_base' => 'Espourtacioun de la basa vers @archive@',
 	'info_facilite_suivi_activite' => 'Per fin de facilità lou segut de l’atività editouriala dóu sit, SPIP vi pòu fournì per e-mail, per isemple a una mailing-list dei redatour, l’anounça dei demanda de publicacioun e de validacioun d’article.', # MODIF
 	'info_fichiers_authent' => 'Fichié d’autentificacioun « .htpasswd »',
-	'info_forums_abo_invites' => 'Lou vouòstre sit web counten de fòrou per lu abounat ; lu visitaire soun counvidat da si registrà soubre lou sit pùblicou.',
+	'info_forums_abo_invites' => 'Lou vouòstre sit web counten de fòrou per lu abounat ; lu visitaire soun counvidat da si registrà soubre lou sit pùblicou.', # MODIF
 	'info_gauche_admin_tech' => '<b>Aquela pàgina es basta achessible ai respounsable dóu sit.</b><p> Douna achès ai diferenti founcioun de mantenença tècnica. D’uni d’entre eli implicoun un prouchedimen d’autentificacion especific, que
  necessita d’avé un achès FTP au sit web.</p>',
-	'info_gauche_admin_vider' => '<b>Aquela pàgina es basta achessible ai respounsable dóu sit.</b><p> Douna achès ai diferenti founcioun de mantenença tecnica. D’uni d’entre eli implicoun un prouchedimen d’autentificacion especific, que necessita d’avé un achès FTP au sit web.</p>',
 	'info_gauche_auteurs' => 'Trouverès aquì toui lu autour dóu sit.
- Lou sieu estatut es endicat da la coulou de la sieu icona (aministratour : verda; redatour : jauna).',
+ Lou sieu estatut es endicat da la coulou de la sieu icona (aministratour : verda; redatour : jauna).', # MODIF
 	'info_gauche_auteurs_exterieurs' => 'Lu autour esteriour, sensa achès au sit, soun endicat da una icona blua ; lu autour escassat da una icona grìha.',
-	'info_gauche_messagerie' => 'La messagerìa vi permete d’escambià de message tra redatour, de counservà de nota de renembrança (per lou vouòstre usage persounal) o d’afichà d’anounça sus la pàgina d’acuèlh de l’espaci privat (se sias aministratour).',
+	'info_gauche_messagerie' => 'La messagerìa vi permete d’escambià de message tra redatour, de counservà de nota de renembrança (per lou vouòstre usage persounal) o d’afichà d’anounça sus la pàgina d’acuèlh de l’espaci privat (se sias aministratour).', # MODIF
 	'info_gauche_statistiques_referers' => 'Aquela pàgina presenta la lista dei <i>referit</i>, es a dire dei sit que countenon d’estac que menon drech au vouòstre sit, ma basta per ièr e ancuèi ; aquela lista es atualisada cada 24 oura.',
 	'info_gauche_visiteurs_enregistres' => 'Trouverès aquì lu visitour registrat en l’espaci public dóu sit (fòrou sus abounamen).',
 	'info_generation_miniatures_images' => 'Generacioun de miniatura dei image',
@@ -319,7 +318,7 @@ Aqueli informacioun vi devon poudé estre prouvedi da l’aministratour dóu sis
 	'info_images_auto' => 'Image carculadi automaticamen',
 	'info_informations_personnelles' => 'Infourmacioun persounali',
 	'info_inscription' => 'Inscricioun lou',
-	'info_inscription_automatique' => 'Inscricioun autoumatica de redatour novèu',
+	'info_inscription_automatique' => 'Inscricioun autoumatica de redatour novèu', # MODIF
 	'info_jeu_caractere' => 'Juèc de carater dóu sit',
 	'info_jours' => 'jou',
 	'info_laisser_champs_vides' => 'laissà aquelu camp vuèi)',
@@ -327,7 +326,7 @@ Aqueli informacioun vi devon poudé estre prouvedi da l’aministratour dóu sis
 	'info_ldap_ok' => 'L’autentificacioun LDAP es instalada.',
 	'info_lien_hypertexte' => 'Estac ipertèst :',
 	'info_liste_nouveautes_envoyee' => 'La lista dei nouvità es estada mandada',
-	'info_liste_redacteurs_connectes' => 'Lista dei redatour counetat',
+	'info_liste_redacteurs_connectes' => 'Lista dei redatour counetat', # MODIF
 	'info_login_existant' => 'Aqueu login jà esista.',
 	'info_login_trop_court' => 'Login tròu court.',
 	'info_login_trop_court_car_pluriel' => 'Lou login déu au màncou countenì @nb@ carater.',
@@ -347,7 +346,7 @@ Aqueli informacioun vi devon poudé estre prouvedi da l’aministratour dóu sis
 	'info_moyenne' => 'mejana :',
 	'info_multi_cet_article' => 'Lenga d’aquest article :',
 	'info_multi_langues_choisies' => 'Vourguès seleciounà aquì souta li lenga que soun à dispousicioun dei redatour dóu vouòstre sit.
-  Li lenga ja emplegadi en lou vouòstre sit (afichadi en premié) noun si pouòdon desativà.',
+  Li lenga ja emplegadi en lou vouòstre sit (afichadi en premié) noun si pouòdon desativà.', # MODIF
 	'info_multi_objets' => '@objets@ : ativà lou menù de lenga',
 	'info_multi_secteurs' => '... basta per li rùbrica da la raïs dóu sit ?',
 	'info_nb_articles' => '@nb@ article',
@@ -373,8 +372,8 @@ Aqueli informacioun vi devon poudé estre prouvedi da l’aministratour dóu sis
 	'info_nouvelle_traduction' => 'Nouvela traducioun :',
 	'info_numero_article' => 'ARTICLE NÙMERO',
 	'info_obligatoire_02' => '(Oubligatori)', # MODIF
-	'info_option_accepter_visiteurs' => 'Achetà l’inscricioun dei visitaire dóu sit public',
-	'info_option_ne_pas_accepter_visiteurs' => 'Refudà l’inscricioun dei visitour',
+	'info_option_accepter_visiteurs' => 'Achetà l’inscricioun dei visitaire dóu sit public', # MODIF
+	'info_option_ne_pas_accepter_visiteurs' => 'Refudà l’inscricioun dei visitour', # MODIF
 	'info_options_avancees' => 'OUPCIOUN AVANÇADI',
 	'info_ou' => 'o... ',
 	'info_page_interdite' => 'Pàgina prouhibida',
@@ -392,14 +391,14 @@ Aqueli informacioun vi devon poudé estre prouvedi da l’aministratour dóu sis
 	'info_post_scriptum' => 'Post-Escrich',
 	'info_post_scriptum_2' => 'Post-Escrich :',
 	'info_pour' => 'per',
-	'info_preview_texte' => 'Es poussible de previsualisà toui lu elemen editourial dou sit que an au màncou lou statut « proupausat », couma pura lu elemen en cours de redacioun que sian l’autour. Dèu aquela poussibilità estre duberda basta ai aministratour, a toui lu redatour, o a degun ?',
+	'info_preview_texte' => 'Es poussible de previsualisà toui lu elemen editourial dou sit que an au màncou lou statut « proupausat », couma pura lu elemen en cours de redacioun que sian l’autour. Dèu aquela poussibilità estre duberda basta ai aministratour, a toui lu redatour, o a degun ?', # MODIF
 	'info_procedez_par_etape' => 'proucedès tapa per tapa',
 	'info_procedure_maj_version' => 'la proucedura de messa a jou dèu èstre lançada per adatà la basa de dounada a la nouvèla version de SPIP.',
 	'info_proxy_ok' => 'Prova dóu proxy ruèisset.',
 	'info_ps' => 'P.-S.',
 	'info_publier' => 'publicà',
 	'info_publies' => 'Lu vouòstre article publicat en ligna',
-	'info_question_accepter_visiteurs' => 'Se lu esquèletrou dóu vouòstre sit prevehon lou registramen de visitour sensa achès a l’espaci privat, vourguès ativà l’oupcioun seguenta :',
+	'info_question_accepter_visiteurs' => 'Se lu esquèletrou dóu vouòstre sit prevehon lou registramen de visitour sensa achès a l’espaci privat, vourguès ativà l’oupcioun seguenta :', # MODIF
 	'info_question_inscription_nouveaux_redacteurs' => 'Achetas li inscricioun de nouvèu redatour a
  partì dau sit pùblicou ? Se l’achetàs, lu visitaire si pouran inscriéure
  da un fourmulari autoumatisat e achederan aloura a l’espaci privat per
@@ -407,7 +406,7 @@ Aqueli informacioun vi devon poudé estre prouvedi da l’aministratour dóu sis
  lu utilisaire recebon un courrié eletrounic automàticou
  que li prouvedisse lu sieu code d’achès au sit privat. D’unu
  aubergadour desativon l’espedissioun d’e-mails dai sieu servidou : en aqueu cas, l’inscricioun automatica es
- empoussibla.</div>',
+ empoussibla.</div>', # MODIF
 	'info_qui_edite' => '@nom_auteur_modif@ a travalhat sus aqueu countengut @date_diff@ minuta fa',
 	'info_racine_site' => 'Raìs dóu sit',
 	'info_recharger_page' => 'Vourguès recargà aquela pàgina en un moumentoun.',
@@ -424,7 +423,7 @@ Aqueli informacioun vi devon poudé estre prouvedi da l’aministratour dóu sis
 	'info_refuses' => 'Lu vouòstre article refudat',
 	'info_reglage_ldap' => 'Oupcioun: <b>Reglage de l’impourtacioun LDAP</b>',
 	'info_renvoi_article' => '<b>Redirecioun.</b> Aquel article remanda a la pàgina:',
-	'info_reserve_admin' => 'Basta lu aministratour pouòdon moudificà aquela adressa.',
+	'info_reserve_admin' => 'Basta lu aministratour pouòdon moudificà aquela adressa.', # MODIF
 	'info_restreindre_rubrique' => 'Restregne la gestioun a la rùbrica :',
 	'info_resultat_recherche' => 'Resultat de la recerca :',
 	'info_rubriques' => 'Rùbrica',
@@ -443,14 +442,15 @@ Aqueli informacioun vi devon poudé estre prouvedi da l’aministratour dóu sis
 	'info_sites_proxy' => 'Utilisà un proxy',
 	'info_sites_trouves' => 'Sit trouvat',
 	'info_sous_titre' => 'Souta-titre :',
-	'info_statut_administrateur' => 'Aministratour',
+	'info_statut' => 'Estatut',
+	'info_statut_administrateur' => 'Aministratour', # MODIF
 	'info_statut_auteur' => 'Estatut d’aquel autour :',
 	'info_statut_auteur_2' => 'Siéu',
 	'info_statut_auteur_a_confirmer' => 'Inscricioun da counfirmà',
 	'info_statut_auteur_autre' => 'Autre statut :',
 	'info_statut_redacteur' => 'Redatour',
-	'info_statut_utilisateurs_1' => 'Estatut predefinit dei utilisaire impourtat',
-	'info_statut_utilisateurs_2' => 'Chausissès lou statut qu’es atribuit ai persouna presenti en l’anuari LDAP lou premié còu que si counetoun. Pourès pi moudificà aquela valour per cada autour au cas per cas.',
+	'info_statut_utilisateurs_1' => 'Estatut predefinit dei utilisaire impourtat', # MODIF
+	'info_statut_utilisateurs_2' => 'Chausissès lou statut qu’es atribuit ai persouna presenti en l’anuari LDAP lou premié còu que si counetoun. Pourès pi moudificà aquela valour per cada autour au cas per cas.', # MODIF
 	'info_suivi_activite' => 'Segut de l’atività editouriala',
 	'info_surtitre' => 'Soubre-titre :',
 	'info_syndication_integrale_1' => 'Lou vouòstre sit proupausa de fichié de sindicacioun (vèire « <a href="@url@">@titre@</a> »).',
@@ -496,7 +496,7 @@ embé una coulou qu’endica lou sieu estat :',
 	'info_visiteur_2' => 'dóu sit pùblicou',
 	'info_visiteurs' => 'Visitaire',
 	'info_visiteurs_02' => 'Visitaire dóu sit pùblicou',
-	'info_webmestre_forces' => 'Lu webmèstre soun atualamen definit en <tt>@file_options@</tt>.',
+	'info_webmestre_forces' => 'Lu webmèstre soun atualamen definit en <tt>@file_options@</tt>.', # MODIF
 	'install_adresse_base_hebergeur' => 'Adressa de la basa de dounada atribuit da l’aubergadour',
 	'install_connect_ok' => 'La basa nova es ben estada declarada souta lou noum de servidou @connect@.',
 	'install_echec_annonce' => 'L’instalacioun va proubablamen souhì, o aboutì a un sit noun founciounal...',
@@ -524,10 +524,10 @@ embé una coulou qu’endica lou sieu estat :',
 	'intitule_licence' => 'Licença',
 	'item_accepter_inscriptions' => 'Achetà li inscricioun',
 	'item_activer_messages_avertissement' => 'Ativà lu message d’avertimen',
-	'item_administrateur_2' => 'aministratour',
+	'item_administrateur_2' => 'aministratour', # MODIF
 	'item_afficher_calendrier' => 'Afichà en lou calendari',
 	'item_autoriser_syndication_integrale' => 'Difusì l’integralità dei article en lu fichié de sindicacioun',
-	'item_choix_administrateurs' => 'lu aministratour',
+	'item_choix_administrateurs' => 'lu aministratour', # MODIF
 	'item_choix_generation_miniature' => 'Generà automaticamen li miniatura dei image.',
 	'item_choix_non_generation_miniature' => 'Noun generà de miniatura dei image.',
 	'item_choix_redacteurs' => 'lu redatour',
@@ -726,15 +726,15 @@ embé una coulou qu’endica lou sieu estat :',
 	'texte_acces_ldap_anonyme_1' => 'Certen servidou LDAP achèton minga d’achès anounime. En aqueu cas, cau spechificà un identificant d’achès inicial per poudé pi recercà d’informacion en l’annuari. Lu camp seguent si pouràn laissà vuèi en la majour part dei cas.',
 	'texte_admin_effacer_01' => 'Aquela coumanda escafa <i>tout</i> lou countengut de la basa de dounada,
  embé <i>toui</i> lu achès redatour e aministratour. Coura l’aurès eseguit, deurès
-reinstalà SPIP per recreà una basa nouvèla couma pura un premié achès aministratour.',
+reinstalà SPIP per recreà una basa nouvèla couma pura un premié achès aministratour.', # MODIF
 	'texte_adresse_annuaire_1' => '(Se lou vouòstre annuari es instalat soubre la mema màquina qu’estou sit web, si trata proubablamen de « localhost ».)',
 	'texte_ajout_auteur' => 'L’autour seguent es estat ajustat a l’article :',
-	'texte_annuaire_ldap_1' => 'S’avès achès a un annuari (LDAP), lou poudès utilisà per ',
+	'texte_annuaire_ldap_1' => 'S’avès achès a un annuari (LDAP), lou poudès utilisà per ', # MODIF
 	'texte_article_statut' => 'Aquel article :',
 	'texte_article_virtuel' => 'Article virtual',
 	'texte_article_virtuel_reference' => '<b>Article virtual :</b> article referençat en lou vouòstre sit SPIP, mà redirigit vers una autra URL. Per suprimà la redirecioun, escassas l’URL aquì soubre.',
 	'texte_aucun_resultat_auteur' => 'Minga resultat per « @cherche_auteur@ »',
-	'texte_auteur_messagerie' => 'Estou sit vi pòu endicà en permanença la lista dei redatour counetat, cen que vi permete d’escambià de message en diret. Poudès dechìdre de noun aparèisse en aquela lista (siès « invisible/a » dei autre utilisaire).',
+	'texte_auteur_messagerie' => 'Estou sit vi pòu endicà en permanença la lista dei redatour counetat, cen que vi permete d’escambià de message en diret. Poudès dechìdre de noun aparèisse en aquela lista (siès « invisible/a » dei autre utilisaire).', # MODIF
 	'texte_auteurs' => 'LU AUTOUR',
 	'texte_choix_base_1' => 'Chausissès la vouòstra basa:',
 	'texte_choix_base_2' => 'Lou servidou SQL counten mai d’una basa de dounada.',
@@ -767,7 +767,7 @@ reinstalà SPIP per recreà una basa nouvèla couma pura un premié achès amini
 	'texte_fichier_authent' => '<b>Déu SPIP creà de fichié especial
 <tt>.htpasswd</tt> e <tt>.htpasswd-admin</tt> en lou repertori @dossier@ ?</b>
 <p>Aquelu fichié vi pouòdon servì per restrègne l’achès ai autour e aministratour en d’autre luèc dóu vouòstre sit (prougrama estèrnou d’estatìstica, per isemple).</p>
-<p>Se noun vi sièrve, poudès laissà aquesla oupcioun a la sieu valour predefinida (minga de creacioun de fichié).</p>',
+<p>Se noun vi sièrve, poudès laissà aquesla oupcioun a la sieu valour predefinida (minga de creacioun de fichié).</p>', # MODIF
 	'texte_informations_personnelles_1' => 'Ahura lou sistèma vi va creà un achès persounalisat au sit.',
 	'texte_informations_personnelles_2' => '(Nota : es una reinstalacioun, se lou vouòstre achès marcha encara, poudès',
 	'texte_introductif_article' => '(Test introdutiu de l’article.)',
@@ -777,7 +777,7 @@ reinstalà SPIP per recreà una basa nouvèla couma pura un premié achès amini
 	'texte_login_ldap_1' => '(Laissà vuèi per un achès anounime, o intrà lou camin coumplet, per isemple «<tt>uid=fabre, ou=users, dc=lou-mieu-doumìni, dc=com</tt>».)',
 	'texte_login_precaution' => 'Mèfi ! Acò es lou login emb’au qual sias ahura counetat. 
  Utilisas aqueu fourmulari embé precaucioun...',
-	'texte_messagerie_agenda' => 'Una messagerìa permete ai redatour dóu sit de coumunicà diretamen tra elu en l’espaci privat dóu sit. Es assouciada a un agènda.',
+	'texte_messagerie_agenda' => 'Una messagerìa permete ai redatour dóu sit de coumunicà diretamen tra elu en l’espaci privat dóu sit. Es assouciada a un agènda.', # MODIF
 	'texte_mise_a_niveau_base_1' => 'Venès de metre a jou lu fichié SPIP.
  	Ahura cau metre a nivèu la basa de dounada
  	dóu sit.',
@@ -839,11 +839,10 @@ s’avès fach dei moudificacioun empourtanti de grafisme o d’estrutura dóu s
   per fin d’evità li moudificacioun fachi ensen.
   Aquela oupcioun es desativada de maniera predefinida
   per fin d’evità d’afichà de message d’avertimen
-  intempestiéu.',
+  intempestiéu.', # MODIF
 	'texte_vide' => 'vuèi',
 	'texte_vider_cache' => 'Vuà l’amagadou',
 	'titre_admin_tech' => 'Mantenença tècnica',
-	'titre_admin_vider' => 'Mantenença tècnica',
 	'titre_ajouter_un_auteur' => 'Ajustà un autour',
 	'titre_ajouter_un_mot' => 'Ajustà un mot-clau',
 	'titre_cadre_afficher_article' => 'Afichà lu article',

@@ -1,6 +1,6 @@
 <?php
 // This is a SPIP language file  --  Ceci est un fichier langue de SPIP
-// extrait automatiquement de https://trad.spip.net/tradlang_module/spip?lang_cible=ay
+// extrait automatiquement de https://trad.spip.net/tradlang_module/spip_?lang_cible=ay
 // ** ne pas modifier le fichier **
 
 return [
@@ -221,7 +221,7 @@ en el sitio \\&quot;@nom_site_spip@\\&quot; (@adresse_login@):   ',
 	'form_pet_signature_pasprise' => 'Iyawsamax janiw qillqaskiti.',
 	'form_prop_confirmer_envoi' => 'Apawi iyaw sañapuni',
 	'form_prop_description' => 'Uñt’ayawi/amuyawi',
-	'form_prop_enregistre' => 'Amtatamax qillqataxiwa, iyaw sapkani khitinakatix apnaqapxi aka qamawxa ukatwa naktat uñstani.',
+	'form_prop_enregistre' => 'Amtatamax qillqataxiwa, iyaw sapkani khitinakatix apnaqapxi aka qamawxa ukatwa naktat uñstani.', # MODIF
 	'form_prop_envoyer' => 'Mä yatiyaw apayaña',
 	'form_prop_indiquer_email' => 'Mä aruskipayirin iyaw sat utjawip uk uñachayam',
 	'form_prop_indiquer_nom_site' => 'Qamawin sutip uñachayama.',
@@ -303,7 +303,7 @@ en el sitio \\&quot;@nom_site_spip@\\&quot; (@adresse_login@):   ',
 	'info_authentification_ftp' => 'Iyasawi (por FTP).',
 	'info_breves_2' => 'jisk’aptatanaka',
 	'info_connexion_refusee' => 'Arust’awix janiw satakiti',
-	'info_contact_developpeur' => 'Mä prucramaturamp aruskipt’añamawa.',
+	'info_contact_developpeur' => 'Mä prucramaturamp aruskipt’añamawa.', # MODIF
 	'info_contenance' => 'Aka qamawinx utjiwa:',
 	'info_contribution' => 'Aruskipañat yanapawinaka', # MODIF
 	'info_copyright' => '@spip@ mä software libre lakiratawa @lien_qpl@.',
@@ -337,7 +337,7 @@ en el sitio \\&quot;@nom_site_spip@\\&quot; (@adresse_login@):   ',
 	'info_impossible_lire_page' => '¡Pantjata! &lt;/b&gt; Janiw laphi uñnaq liyiñjamakiti &lt;tt&gt;&lt;html&gt;@test_proxy@&lt;/html&gt;&lt;/tt&gt;  \\&quot;proxy\\&quot; &lt;tt&gt; ukampi',
 	'info_installation_systeme_publication' => 'Apnaqaw yatiyat uchantawipa',
 	'info_installer_documents' => 'Taqpach qillqa q’ipinak, jach’a q’ipin utjkix ukanaksustupak uchantasmax @upload@',
-	'info_installer_ftp' => 'Iyaws apnaqirinakampi, q’ipinak uchantasmawa imañ q’ipina (FTP ukampi) @upload@ ukatxa akan  ajlliñataki.',
+	'info_installer_ftp' => 'Iyaws apnaqirinakampi, q’ipinak uchantasmawa imañ q’ipina (FTP ukampi) @upload@ ukatxa akan  ajlliñataki.', # MODIF
 	'info_installer_images' => 'Saltanak utt’ayat uchantasmaw JPEG, GIF Y PNG.',
 	'info_installer_images_dossier' => 'Imañ q’ipin saltanak uchantaña @upload@ ukat akjan ajlliñataki.',
 	'info_interface_complete' => 'Phuqat ajanu',
@@ -365,8 +365,8 @@ en el sitio \\&quot;@nom_site_spip@\\&quot; (@adresse_login@):   ',
 
 Sitix uka arunak ajlltax.Walja sapa mayanaka jach’a qamawita (urunaka, phuqañ laphinaka) justupak jaqukiptatani. Jani aru sirqitanakataki, qamawit arun  uñstani.', # MODIF
 	'info_multilinguisme' => 'Walja arunaka',
-	'info_nom_non_utilisateurs_connectes' => 'Sutimax janiw uñstkiti  jaqi tantanakan chinuta',
-	'info_nom_utilisateurs_connectes' => 'Sutimax uñstiw jaqi tantanakan chinuta',
+	'info_nom_non_utilisateurs_connectes' => 'Sutimax janiw uñstkiti  jaqi tantanakan chinuta', # MODIF
+	'info_nom_utilisateurs_connectes' => 'Sutimax uñstiw jaqi tantanakan chinuta', # MODIF
 	'info_nombre_en_ligne' => 'Jichhax naktatawa',
 	'info_non_resultat' => 'Thaqawitaqix janiw askichawinak jikiskiti \\&quot;@cherche_mot@\\&quot;',
 	'info_non_utilisation_messagerie' => 'Manqhax yatiyaw jan apnaqaña.',
@@ -398,8 +398,8 @@ Sitix uka arunak ajlltax.Walja sapa mayanaka jach’a qamawita (urunaka, phuqañ
 	'info_selectionner_fichier_2' => 'Mä qillqa q’ipi ajlliña...',
 	'info_supprimer_vignette' => 'Aka salta apaqaña',
 	'info_symbole_bleu' => '&lt;b&gt;Laram&lt;/b&gt; chimpux sañ muni sapa mayni amtawi mä amtawjamawa.   ',
-	'info_symbole_jaune' => '&lt;b&gt;Q’illu&lt;/b&gt; chimpux sañ muniwa taqinir yatiyañataki qamaw apnaqirinakakiw mayjt’ayi ukhamarak taqpach qillqirinakat qhana uñjataw.',
-	'info_symbole_vert' => '&lt;b&gt;Ch’uxña&lt;/b&gt; chimpux turkat yatiyawinaka yaqha qamaw jaqinakamp uk uñachayi',
+	'info_symbole_jaune' => '&lt;b&gt;Q’illu&lt;/b&gt; chimpux sañ muniwa taqinir yatiyañataki qamaw apnaqirinakakiw mayjt’ayi ukhamarak taqpach qillqirinakat qhana uñjataw.', # MODIF
+	'info_symbole_vert' => '&lt;b&gt;Ch’uxña&lt;/b&gt; chimpux turkat yatiyawinaka yaqha qamaw jaqinakamp uk uñachayi', # MODIF
 	'info_telecharger_nouveau_logo' => 'Mä machaq uñachir chimpu apkataña:',
 	'info_telecharger_ordinateur' => 'Computaturamat apkataña:',
 	'info_tous_resultats_enregistres' => '[taqpach askichatawinak qillqatawa]',
@@ -488,16 +488,16 @@ Sitix uka arunak ajlltax.Walja sapa mayanaka jach’a qamawita (urunaka, phuqañ
 	'pass_choix_pass' => 'Machaq imt’awim ajllima:',
 	'pass_erreur' => 'Pantjata',
 	'pass_erreur_acces_refuse' => '<b>Error:</b> aka qamawir janiw mantawimx utjiti ',
-	'pass_erreur_code_inconnu' => '<b>Error:</b> aka chimpux janiw ni khiti aka qamawir mantawimp tumpirinkiti.',
+	'pass_erreur_code_inconnu' => '<b>Error:</b> aka chimpux janiw ni khiti aka qamawir mantawimp tumpirinkiti.', # MODIF
 	'pass_erreur_non_enregistre' => '<b>Error:</b> utjawixa <tt>@email_oubli@</tt> aka qamawinx janiw qillqatakiti.',
 	'pass_erreur_non_valide' => '<b>Error:</b> aka utjawix <tt>@email_oubli@</tt> janiw iyaw satakiti',
 	'pass_erreur_probleme_technique' => '&lt;b&gt;Pantjata:&lt;/b&gt; mä jan wali utjkipana, ukat janiw yatiyawix apayasiñ puyriskiti.
 
 ',
-	'pass_espace_prive_bla' => 'Aka qamawinx ch’usawx jark’atax jist’aratawa, mä qillqawi ukhamata. Qillqataxtaxa ukjax yatxatasmaw qillqatanakax qillqasiski ukanaka, qillqatanak amtaña ukhamarak taqi aruskipañanakan arsusiñamaw.',
-	'pass_forum_bla' => 'Mä aruskipañan qillqat jaqinakampi jupanakampiki ukan arsusiñ mayistawa.',
+	'pass_espace_prive_bla' => 'Aka qamawinx ch’usawx jark’atax jist’aratawa, mä qillqawi ukhamata. Qillqataxtaxa ukjax yatxatasmaw qillqatanakax qillqasiski ukanaka, qillqatanak amtaña ukhamarak taqi aruskipañanakan arsusiñamaw.', # MODIF
+	'pass_forum_bla' => 'Mä aruskipañan qillqat jaqinakampi jupanakampiki ukan arsusiñ mayistawa.', # MODIF
 	'pass_indiquez_cidessous' => 'Ukatxa aruskipayirin utjawip kuna sutimpis nayraqatax qillqayasta uk uñachayam. Mä yatiyaw qatuqata kunamtix mantawjam kutiqayasita uka.',
-	'pass_mail_passcookie' => '(Akax mä justup qamawiwa) Qamawir mantawx kutiqayasiñatakix  @nom_site_spip@  (@adresse_site@) arkir utjawir saraña: @sendcookie@ Ukar mä machaq imt’aw jumaw uskusma ukatxa mayamp qamawir chinusita.',
+	'pass_mail_passcookie' => '(Akax mä justup qamawiwa) Qamawir mantawx kutiqayasiñatakix  @nom_site_spip@  (@adresse_site@) arkir utjawir saraña: @sendcookie@ Ukar mä machaq imt’aw jumaw uskusma ukatxa mayamp qamawir chinusita.', # MODIF
 	'pass_mot_oublie' => 'Imt’aw armata',
 	'pass_nouveau_enregistre' => 'Machaq imt’awimax qillqatawa.',
 	'pass_nouveau_pass' => 'Machaq imt’awi',
@@ -539,7 +539,7 @@ Sitix uka arunak ajlltax.Walja sapa mayanaka jach’a qamawita (urunaka, phuqañ
 	'texte_inc_auth_2' => 'mayamp chinusim',
 	'texte_inc_auth_3' => ', janiw wiñayataki jist’antasinxa ukhamarki mayampi tuyurima qalltasina.',
 	'texte_inc_config' => 'Aka laphi uñnaqanakanja mayjt’awinakanxa qamawiman lurawipa amtayiwa. Janir uñtkasa iwxapsmawa jan arsuña apnaqawin lurawipampi SPIP.&lt;br /&gt;&lt;br /&gt;&lt;b&gt;Más ámpliamente, se recomienda vivamente dejar la gestión de estas páginas al o a la webmestre principal del sitio.&lt;/b&gt;   ',
-	'texte_inc_meta_1' => 'Mä pantjawiw qillqat q’ipita apnaqawix jikitayna&lt;code&gt;@fichier@&lt;/code&gt;. Qamawit apnaqiri, ukham luraña.',
+	'texte_inc_meta_1' => 'Mä pantjawiw qillqat q’ipita apnaqawix jikitayna&lt;code&gt;@fichier@&lt;/code&gt;. Qamawit apnaqiri, ukham luraña.', # MODIF
 	'texte_inc_meta_2' => 'qillqat iyawsanak mayamp uñtaña',
 	'texte_inc_meta_3' => 'Jach’a q’ipitxa <code>@repertoire@</code>.',
 	'texte_statut_en_cours_redaction' => 'Qillqasiskiwa',
@@ -551,7 +551,7 @@ Sitix uka arunak ajlltax.Walja sapa mayanaka jach’a qamawita (urunaka, phuqañ
 	'titre_cadre_raccourcis' => 'Jisk’a thakinaka...',
 	'titre_changer_couleur_interface' => 'Ajanut kulur turkaña',
 	'titre_image_admin_article' => 'Aka qillqat apnaqasmaw',
-	'titre_image_administrateur' => 'Apnaqiri',
+	'titre_image_administrateur' => 'Apnaqiri', # MODIF
 	'titre_image_aide' => 'Akar yanapam',
 	'titre_image_auteur_supprime' => 'Qillqir apaqata',
 	'titre_image_redacteur' => 'Qillqir jan mantawimpi',

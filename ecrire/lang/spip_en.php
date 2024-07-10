@@ -1,6 +1,6 @@
 <?php
 // This is a SPIP language file  --  Ceci est un fichier langue de SPIP
-// extrait automatiquement de https://trad.spip.net/tradlang_module/spip?lang_cible=en
+// extrait automatiquement de https://trad.spip.net/tradlang_module/spip_?lang_cible=en
 // ** ne pas modifier le fichier **
 
 return [
@@ -36,7 +36,7 @@ return [
 	'avis_erreur_fonction_contexte' => 'Programming error. This function cannot be called in this context.',
 	'avis_erreur_mysql' => 'SQL error',
 	'avis_erreur_sauvegarde' => 'Error in backup (@type@ @id_objet@)!',
-	'avis_erreur_visiteur' => 'Problem entering the private area',
+	'avis_erreur_visiteur' => 'Problem entering the back-office',
 	'avis_nb_erreurs_saisie' => 'Your entry contains @nb@ errors, please check your information.',
 
 	// B
@@ -273,7 +273,7 @@ the site "@nom_site_spip@" (@adresse_login@):',
 	'form_pet_signature_pasprise' => 'Your signature has been ignored.',
 	'form_prop_confirmer_envoi' => 'Confirm send',
 	'form_prop_description' => 'Description/comment',
-	'form_prop_enregistre' => 'Your suggestion has been recorded. It will appear online after being validated by the administrators of this site.',
+	'form_prop_enregistre' => 'Your suggestion has been recorded. It will appear online after being validated by the admins of this site.',
 	'form_prop_envoyer' => 'Send a message',
 	'form_prop_indiquer_email' => 'Please enter a valid email address',
 	'form_prop_indiquer_nom_site' => 'Please enter the site’s name.',
@@ -362,7 +362,7 @@ the site "@nom_site_spip@" (@adresse_login@):',
 	'info_breves_nb' => '@nb@ news items',
 	'info_breves_un' => '1 news item',
 	'info_connexion_refusee' => 'Connection denied',
-	'info_contact_developpeur' => 'Please contact a developer.',
+	'info_contact_developpeur' => 'Please contact a person in charge of development.',
 	'info_contenance' => 'This site contains:',
 	'info_contribution' => 'contributions',
 	'info_copyright' => '@spip@ is free software distributed @lien_gpl@.',
@@ -399,7 +399,7 @@ the site "@nom_site_spip@" (@adresse_login@):',
 	'info_impossible_lire_page' => '<b>Error!</b> The page <tt><html>@test_proxy@</html></tt> cannot be viewed through the proxy',
 	'info_installation_systeme_publication' => 'Installing publication system...',
 	'info_installer_documents' => 'You can automatically install all documents in the folder @upload@.',
-	'info_installer_ftp' => 'As an administrator, you can install files via FTP to the folder @upload@ in order to select them directly from here.',
+	'info_installer_ftp' => 'As an admin, you can install files via FTP in the folder @upload@ in order to select them directly from here.',
 	'info_installer_images' => 'You can install images in the formats JPEG, GIF, and PNG.',
 	'info_installer_images_dossier' => 'Install images in folder @upload@ if you want to select them here.',
 	'info_interface_complete' => 'full interface',
@@ -427,8 +427,8 @@ the site "@nom_site_spip@" (@adresse_login@):',
 	'info_multi_herit' => 'Default language',
 	'info_multi_langues_soulignees' => 'The <u>languages underlined</u> provide partial or total translations for all the interface texts. If you select these languages, many elements of the public site (dates, forms) will be translated automatically. As for the languages that are not underlined, those elements will be displayed using the site’s default language.',
 	'info_multilinguisme' => 'Multilingual',
-	'info_nom_non_utilisateurs_connectes' => 'Your name does not appear in the list of users online.',
-	'info_nom_utilisateurs_connectes' => 'Your name appears in the list of users online.',
+	'info_nom_non_utilisateurs_connectes' => 'Your name does not appear in the list connected persons.',
+	'info_nom_utilisateurs_connectes' => 'Your name appears in the list of connected persons.',
 	'info_nombre_en_ligne' => 'Online now:',
 	'info_non_resultat' => 'No results for "@cherche_mot@"',
 	'info_non_utilisation_messagerie' => 'You are not using private messaging on this site.',
@@ -467,8 +467,8 @@ the site "@nom_site_spip@" (@adresse_login@):',
 	'info_sites_un' => '1 site',
 	'info_supprimer_vignette' => 'delete the vignette',
 	'info_symbole_bleu' => 'A <b>blue</b> symbol indicates a <b>memo</b>: i.e. a message for your personal use.',
-	'info_symbole_jaune' => 'A <b>yellow</b> symbol indicates an <b>announcement to all editors</b>: it can be edited by all administrators, and is visible to all editors.',
-	'info_symbole_vert' => 'A <b>green</b> symbol indicates the <b>messages exchanged with other users</b> of the site.',
+	'info_symbole_jaune' => 'A <b>yellow</b> symbol indicates an <b>announcement to all editors</b>: it can be edited by all admins, and is visible to all editors.',
+	'info_symbole_vert' => 'A <b>green</b> symbol indicates the <b>messages exchanged with other persons</b> of the site.',
 	'info_telecharger_nouveau_logo' => 'Upload a new logo:',
 	'info_telecharger_ordinateur' => 'Upload from your computer:',
 	'info_tous_resultats_enregistres' => '[all the results are recorded]',
@@ -514,13 +514,13 @@ the site "@nom_site_spip@" (@adresse_login@):',
 	'lien_voir_auteur' => 'Check this author',
 	'ligne' => 'Line',
 	'login' => 'Connection',
-	'login_acces_prive' => 'access to the private area',
+	'login_acces_prive' => 'access to the back-office',
 	'login_autre_identifiant' => 'use a different ID',
 	'login_cookie_accepte' => 'Please configure your browser to accept them for this site.',
 	'login_cookie_oblige' => 'For secure identification, your browser must accept cookies.',
 	'login_deconnexion_ok' => 'Logged out.',
 	'login_erreur_pass' => 'Wrong password.',
-	'login_espace_prive' => 'private area',
+	'login_espace_prive' => 'back-office',
 	'login_identifiant_inconnu' => 'The identifier "@login@" is unknown.',
 	'login_login' => 'Login:',
 	'login_login2' => 'Login or e-mail address:',
@@ -555,6 +555,11 @@ the site "@nom_site_spip@" (@adresse_login@):',
 
 	// N
 	'navigateur_pas_redirige' => 'If you are not automatically redirected, click here to continue.',
+	'notification_mise_a_jour' => 'Hello,
+
+	The site @adresse_site@ can be upgraded to the newest SPIP version.
+
+	To avoid security problems, it is important to keep your site up to date.', # MODIF
 	'numero' => 'Number',
 
 	// O
@@ -575,11 +580,11 @@ the site "@nom_site_spip@" (@adresse_login@):',
 	'pass_choix_pass' => 'Please choose a new password:',
 	'pass_erreur' => 'Error',
 	'pass_erreur_acces_refuse' => '<b>Error:</b> you no longer have access to this site.',
-	'pass_erreur_code_inconnu' => '<b>Error:</b> this code does not match any visitors with access permission to this site.',
+	'pass_erreur_code_inconnu' => '<b>Error:</b> this code does not match any account with access permission to this site.',
 	'pass_erreur_non_enregistre' => '<b>Error :</b> the address <tt>@email_oubli@</tt> is not registered on this site.',
 	'pass_erreur_non_valide' => '<b>Error :</b> the e-mail <tt>@email_oubli@</tt> is not valid!',
 	'pass_erreur_probleme_technique' => '<b>Error :</b> this e-mail could not be sent due to a technical problem.',
-	'pass_espace_prive_bla' => 'The private area of this site is open to
+	'pass_espace_prive_bla' => 'The back-office of this site is open to
 visitors after registration. Once you have registered,
 you can review the articles in progress,
 submit articles and participate in forums.',
@@ -590,9 +595,8 @@ registered. You
 will receive an email explaining how you
 can retrieve your password.',
 	'pass_mail_passcookie' => '(this is an automated message)
-
 To recover your access to the site
-@nom_site_spip@ (@adresse_site@)
+@nom_site_spip@ @adresse_site@
 
 Please go to the following address:
     @sendcookie@
@@ -649,7 +653,7 @@ and log in to the site.
    Note this reference carefully, try the upgrade procedure again,
    and check afterwards that the images still appear
       in the articles.',
-	'texte_erreur_visiteur' => 'You have tried to enter the private area using an unauthorised login.',
+	'texte_erreur_visiteur' => 'You have tried to enter the back-office using an unauthorised login.',
 	'texte_inc_auth_1' => 'You used the login
   <b>@auth_login@</b>, but it does not exist in the database.
   Try to',
@@ -661,7 +665,7 @@ and log in to the site.
  familiar with how SPIP works. <br /><br /><b>In
  general, you are strongly advised
  to let the main webmaster of the site deal with these pages.</b>',
-	'texte_inc_meta_1' => 'The system encountered an error when trying to write the file <code>@fichier@</code>. As a site administrator, please',
+	'texte_inc_meta_1' => 'The system encountered an error when trying to write the file <code>@fichier@</code>. As a site admin, please',
 	'texte_inc_meta_2' => 'verify write permissions',
 	'texte_inc_meta_3' => 'of the directory <code>@repertoire@</code>.',
 	'texte_statut_en_cours_redaction' => 'editing in progress',
@@ -673,7 +677,7 @@ and log in to the site.
 	'titre_cadre_raccourcis' => 'SHORTCUTS:',
 	'titre_changer_couleur_interface' => 'Changing interface colour',
 	'titre_image_admin_article' => 'You can administrate this article',
-	'titre_image_administrateur' => 'Administrator',
+	'titre_image_administrateur' => 'Admin',
 	'titre_image_aide' => 'Help on this item',
 	'titre_image_auteur_supprime' => 'Author deleted',
 	'titre_image_redacteur' => 'Editor without access',
@@ -726,6 +730,8 @@ and log in to the site.
 	'zbug_pagination_sans_critere' => '#PAGINATION tag without {pagination} criterion, or used in a recursive loop',
 	'zbug_parametres_inclus_incorrects' => 'Wrong inclusion parameter: @param@',
 	'zbug_profile' => 'Calculation time: @time@',
+	'zbug_profile_nb' => 'Nb calculated: @nb@',
+	'zbug_profile_total' => 'Total time: @time@',
 	'zbug_resultat' => 'result',
 	'zbug_serveur_indefini' => 'Undefined SQL server',
 	'zbug_statistiques' => 'SQL query statistics in order of duration',
