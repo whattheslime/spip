@@ -6,6 +6,7 @@ Changelog de SPIP 4.3
 
 ### Fixed
 
+- !5984 Corriger l’authentification SPIP sur un serveur distant
 - !5985 Correction du nombre total de pages des paginations de l’espace privé (sur le dernier item sur les listes longues)
 - #5965 La balise `#FILTRE` gère le cas de filtres nécessitant la pile de contexte en argument.
 - !5983 Pas de tabulations dans le mail de notification de mises à jour
