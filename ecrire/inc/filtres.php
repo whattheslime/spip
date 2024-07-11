@@ -1990,7 +1990,11 @@ function inserer_attribut(?string $balise, string $attribut, ?string $val, bool 
 	// supprimer les &nbsp; etc mais pas les balises html
 	// qui ont un sens dans un attribut value d'un input
 	if ($proteger) {
-		$val = attribut_html($val, false);
+		if (in_array($attribut, ['href', 'src'])) {
+			$val = attribut_url($val, false);
+		} else {
+			$val = attribut_html($val, false);
+		}
 	}
 
 	// echapper les ' pour eviter tout bug
