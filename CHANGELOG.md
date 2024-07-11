@@ -10,6 +10,7 @@ Changelog de SPIP 4.3
 
 ### Fixed
 
+- #5549 Respecter le margin bottom sur le dernier element des formulaires
 - Mise à jour des chaînes de langues
 - !5982 Utiliser le modèle de pagination privé sur la liste des articles de même rubrique de l’espace privé
 - !5984 Corriger l’authentification SPIP sur un serveur distant
