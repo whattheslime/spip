@@ -6,6 +6,7 @@ Changelog de SPIP 4.2
 
 ### Fixed
 
+- #5758 Pipelines `pre_edition` et `post_edition`: transmettre l’info `objet` qui manque à quelques endroits (note: l’info `type` équivalente sera dépréciée en SPIP 5)
 - !5989 Le filtre `inserer_attribut` utilise l’échappement `attribut_url` (plutôt que `attribut_html`) sur les attributs `href` et `src`
 - #5549 Respecter le margin bottom sur le dernier element des formulaires
 - !5982 Utiliser le modèle de pagination privé sur la liste des articles de même rubrique de l’espace privé
