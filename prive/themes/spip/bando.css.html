@@ -368,10 +368,6 @@
 	background: var(--spip-color-theme-light);
 	color: var(--spip-color-gray-darkest);
 }
-.bando-id .largeur {
-	display: flex;
-	flex-flow: row wrap;
-}
 .bando-id img, .bando-id svg {
 	max-height: 1.3em;
 	width: auto;
@@ -427,15 +423,29 @@
 	padding-left: 1em;
 	padding-right: 1em;
 }
-/* Responsive */
-@media (min-width: 580px) {
-	.bando-id .largeur > *:not(:first-child) {
-		margin-left: auto;
-	}
-	.bando-id .largeur .formulaire_recherche,
-	.bando-id .largeur .deroulant_infos_perso {
-		margin-left: 0;
-	}
+/**
+.bando-id > .largeur {
+	.deroulant_infos_site
+	.formulaire_recherche
+	.deroulant_collaborer
+	.deroulant_infos_perso
+}
+*/
+.bando-id > .largeur {
+	display: flex;
+	flex-flow: row wrap;
+}
+.bando-id > .largeur > .formulaire_recherche {
+	margin-right: auto;
+}
+.bando-id > .largeur > .deroulant_collaborer {
+	margin-left: auto;
+}
+.bando-id > .largeur > .deroulant_infos_perso {
+	margin-left: auto;
+}
+.bando-id > .largeur > .deroulant_collaborer + .deroulant_infos_perso {
+	margin-left: 0;
 }
 
 
