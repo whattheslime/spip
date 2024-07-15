@@ -29,6 +29,9 @@ include_spip('inc/filtres_ecrire');
 include_spip('inc/filtres_boites');
 include_spip('inc/filtres_alertes');
 
+/**
+ * @deprecated 4.3 Uses `boite_ouvrir`
+ */
 function debut_cadre($style, $icone = '', $fonction = '', $titre = '', $id = '', $class = '', $padding = true) {
 	trigger_deprecation('spip', '4.3', 'Using "%s" is deprecated', __FUNCTION__);
 	$fond = null;
@@ -72,12 +75,17 @@ function debut_cadre($style, $icone = '', $fonction = '', $titre = '', $id = '',
 	return boite_ouvrir($titre, $class, $style_titre_mapping[$style] ?? '', $id);
 }
 
+/**
+ * @deprecated 4.3 Uses `boite_fermer`
+ */
 function fin_cadre() {
- trigger_deprecation('spip', '4.3', 'Using "%s" is deprecated', __FUNCTION__);
- return boite_fermer();
+	trigger_deprecation('spip', '4.3', 'Using "%s" is deprecated', __FUNCTION__);
+	return boite_fermer();
 }
 
-
+/**
+ * @deprecated 4.3 Uses `boite_ouvrir`
+ */
 function debut_cadre_relief(
 	$icone = '',
 	$dummy = '',
@@ -90,11 +98,17 @@ function debut_cadre_relief(
 	return debut_cadre('r', $icone, $fonction, $titre, $id, $class);
 }
 
+/**
+ * @deprecated 4.3 Uses `boite_fermer`
+ */
 function fin_cadre_relief() {
- trigger_deprecation('spip', '4.3', 'Using "%s" is deprecated', __FUNCTION__);
- return fin_cadre();
+	trigger_deprecation('spip', '4.3', 'Using "%s" is deprecated', __FUNCTION__);
+	return fin_cadre();
 }
 
+/**
+ * @deprecated 4.3 Uses `boite_ouvrir`
+ */
 function debut_cadre_enfonce(
 	$icone = '',
 	$dummy = '',
@@ -107,11 +121,17 @@ function debut_cadre_enfonce(
 	return debut_cadre('e', $icone, $fonction, $titre, $id, $class);
 }
 
+/**
+ * @deprecated 4.3 Uses `boite_fermer`
+ */
 function fin_cadre_enfonce() {
- trigger_deprecation('spip', '4.3', 'Using "%s" is deprecated', __FUNCTION__);
- return fin_cadre();
+	trigger_deprecation('spip', '4.3', 'Using "%s" is deprecated', __FUNCTION__);
+	return fin_cadre();
 }
 
+/**
+ * @deprecated 4.3 Uses `boite_ouvrir`
+ */
 function debut_cadre_sous_rub(
 	$icone = '',
 	$dummy = '',
@@ -124,11 +144,17 @@ function debut_cadre_sous_rub(
 	return debut_cadre('sous_rub', $icone, $fonction, $titre, $id, $class);
 }
 
+/**
+ * @deprecated 4.3 Uses `boite_fermer`
+ */
 function fin_cadre_sous_rub() {
- trigger_deprecation('spip', '4.3', 'Using "%s" is deprecated', __FUNCTION__);
- return fin_cadre();
+	trigger_deprecation('spip', '4.3', 'Using "%s" is deprecated', __FUNCTION__);
+	return fin_cadre();
 }
 
+/**
+ * @deprecated 4.3 Uses `boite_ouvrir`
+ */
 function debut_cadre_couleur(
 	$icone = '',
 	$dummy = '',
@@ -141,11 +167,17 @@ function debut_cadre_couleur(
 	return debut_cadre('couleur', $icone, $fonction, $titre, $id, $class);
 }
 
+/**
+ * @deprecated 4.3 Uses `boite_fermer`
+ */
 function fin_cadre_couleur() {
- trigger_deprecation('spip', '4.3', 'Using "%s" is deprecated', __FUNCTION__);
- return fin_cadre();
+	trigger_deprecation('spip', '4.3', 'Using "%s" is deprecated', __FUNCTION__);
+	return fin_cadre();
 }
 
+/**
+ * @deprecated 4.3 Uses `boite_ouvrir`
+ */
 function debut_cadre_trait_couleur(
 	$icone = '',
 	$dummy = '',
@@ -158,28 +190,44 @@ function debut_cadre_trait_couleur(
 	return debut_cadre('trait-couleur', $icone, $fonction, $titre, $id, $class);
 }
 
+/**
+ * @deprecated 4.3 Uses `boite_fermer`
+ */
 function fin_cadre_trait_couleur() {
- trigger_deprecation('spip', '4.3', 'Using "%s" is deprecated', __FUNCTION__);
- return fin_cadre();
+	trigger_deprecation('spip', '4.3', 'Using "%s" is deprecated', __FUNCTION__);
+	return fin_cadre();
 }
 
+/**
+ * @deprecated 4.3 Uses `boite_ouvrir`
+ */
 function debut_boite_alerte() {
- trigger_deprecation('spip', '4.3', 'Using "%s" is deprecated', __FUNCTION__);
- return debut_cadre('alerte', '', '', '', '', '');
+	trigger_deprecation('spip', '4.3', 'Using "%s" is deprecated', __FUNCTION__);
+	return debut_cadre('alerte', '', '', '', '', '');
 }
 
+/**
+ * @deprecated 4.3 Uses `boite_fermer`
+ */
 function fin_boite_alerte() {
- trigger_deprecation('spip', '4.3', 'Using "%s" is deprecated', __FUNCTION__);
- return fin_cadre();
+	trigger_deprecation('spip', '4.3', 'Using "%s" is deprecated', __FUNCTION__);
+	return fin_cadre();
 }
 
+/**
+ * @deprecated 4.3 Uses `boite_ouvrir`
+ */
 function debut_boite_info() {
- return debut_cadre('info', '', '', '', '', '');
+	trigger_deprecation('spip', '4.3', 'Using "%s" is deprecated', __FUNCTION__);
+ 	return debut_cadre('info', '', '', '', '', '');
 }
 
+/**
+ * @deprecated 4.3 Uses `boite_fermer`
+ */
 function fin_boite_info() {
- trigger_deprecation('spip', '4.3', 'Using "%s" is deprecated', __FUNCTION__);
- return fin_cadre();
+	trigger_deprecation('spip', '4.3', 'Using "%s" is deprecated', __FUNCTION__);
+	return fin_cadre();
 }
 
 /**
@@ -211,11 +259,11 @@ function bloc_des_raccourcis($bloc) {
 // Fonctions onglets
 // @param string $sous_classe	prend la valeur second pour definir les onglet de deuxieme niveau
 function debut_onglet($classe = 'barre_onglet') {
- return "<div class = '$classe clearfix'><ul>\n";
+	return "<div class = '$classe clearfix'><ul>\n";
 }
 
 function fin_onglet() {
- return "</ul></div>\n";
+ 	return "</ul></div>\n";
 }
 
 function onglet($texte, $lien, $onglet_ref, $onglet, $icone = '') {
