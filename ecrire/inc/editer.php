@@ -557,7 +557,8 @@ function controler_contenu($type, $id, $options = [], $c = false, $serveur = '')
 				'table' => $spip_table_objet, // compatibilite
 				'table_objet' => $table_objet,
 				'spip_table_objet' => $spip_table_objet,
-				'type' => $type,
+				'type' => $type, // @deprecated 5.0
+				'objet' => $type,
 				'id_objet' => $id,
 				'champs' => $options['champs'] ?? [], // [doc] c'est quoi ?
 				'action' => 'controler',
