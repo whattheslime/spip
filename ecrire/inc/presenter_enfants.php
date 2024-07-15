@@ -89,13 +89,13 @@ function enfant_rub($collection, $debut = 0, $limite = 500) {
 				. '</a>';
 
 			$titre = bouton_block_depliable($lib_bouton, $les_sous_enfants ? false : -1, "enfants$id_rubrique")
-				. (!$descriptif ? '' : "\n<div class='descriptif'>$descriptif</div>")
-				;
-
+				. ($descriptif ? "\n<div class='descriptif'>$descriptif</div>" : '');
+			$balise_img = charger_filtre('balise_img');
+			$icon = $balise_img(chemin_image($id_parent ? 'rubrique-24.png' : 'secteur-24.png'), '', 'cadre-icone');
 			$res[] =
-				debut_cadre_sous_rub(($id_parent ? 'rubrique-24.png' : 'secteur-24.png'), true, '', $titre) .
-				$les_sous_enfants .
-				fin_cadre_sous_rub();
+				boite_ouvrir($icon . $titre, 'simple sous-rub')
+				. $les_sous_enfants
+				. boite_fermer();
 		}
 	}
 
