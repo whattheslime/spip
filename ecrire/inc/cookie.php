@@ -38,8 +38,12 @@ if (!defined('_ECRIRE_INC_VERSION')) {
  *     - domain = '' : Domaine à partir duquel le cookie est disponible
  *     - secure = false : cookie sécurisé ou non ?
  *     - samesite = 'Lax' : valeur samesite (Lax, Strict ou None)
- * @param string $path
- *     Chemin sur lequel le cookie sera disponible (SPIP < 4.0: $path = 'AUTO')
+ * @param string|null $path
+ *     Chemin sur lequel le cookie sera disponible
+ *     - null: SPIP calcule le chemin a partir de l’URL de base du site (ou la constante _COOKIE_PATH si définie)
+ *     - '': PHP calcule de chemin sur le répertoire en cours (comme setcookie())
+ *     - 'chemin/': force un chemin spécifique
+ *     - 'AUTO': comme null (usage déprécié)
  * @param string $domain
  *     Domaine à partir duquel le cookie est disponible
  * @param bool $secure
@@ -53,7 +57,7 @@ function spip_setcookie(
 	string $name = '',
 	string $value = '',
 	int|array $expires_or_options = 0,
-	string $path = '',
+	?string $path = null,
 	string $domain = '',
 	bool $secure = false,
 	bool $httponly = false
