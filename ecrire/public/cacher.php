@@ -10,8 +10,8 @@
  */
 
 use Psr\SimpleCache\CacheInterface;
-use Spip\Component\Cache\Adapter\LimitedFilesystem;
-use Spip\Component\Hasher\Hash32;
+use SpipLeague\Component\Cache\Adapter\LimitedFilesystem;
+use SpipLeague\Component\Hasher\Hash32;
 
 if (!defined('_ECRIRE_INC_VERSION')) {
 	return;

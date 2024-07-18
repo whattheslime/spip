@@ -3,10 +3,10 @@
 use Monolog\Level;
 use Psr\Log\LoggerInterface;
 use Psr\Log\LogLevel;
-use Spip\Component\Filesystem\Filesystem;
-use Spip\Component\Logger\Config;
-use Spip\Component\Logger\Factory;
-use Spip\Component\Logger\LineFormatter;
+use SpipLeague\Bridge\Filesystem\Filesystem;
+use SpipLeague\Component\Logger\Config;
+use SpipLeague\Component\Logger\Factory;
+use SpipLeague\Component\Logger\LineFormatter;
 
 /**
  * Obtenir un logger compatible Psr\Log

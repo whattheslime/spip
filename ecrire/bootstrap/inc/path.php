@@ -1,10 +1,10 @@
 <?php
 
-use Spip\Component\Cache\Adapter\FlatFilesystem;
-use Spip\Component\Path\AggregatorInterface;
-use Spip\Component\Path\Enum\Group;
-use Spip\Component\Path\GroupAggregator;
-use Spip\Component\Path\Loader;
+use SpipLeague\Component\Cache\Adapter\FlatFilesystem;
+use SpipLeague\Component\Path\AggregatorInterface;
+use SpipLeague\Component\Path\Enum\Group;
+use SpipLeague\Component\Path\GroupAggregator;
+use SpipLeague\Component\Path\Loader;
 use Symfony\Component\Filesystem\Path;
 
 /**
