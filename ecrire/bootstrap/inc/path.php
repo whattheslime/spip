@@ -202,10 +202,10 @@ function find_in_theme($file, $subdir = '', $include = false) {
  * @param string $icone
  *     Nom de l'icone cherchée
  * @return string
- *     Chemin complet de l'icone depuis la racine si l'icone est trouée,
- *     sinon chaîne vide.
+ *     - Chemin complet de l'icone depuis la racine si l'icone est trouée,
+ *     - sinon chaîne vide.
  */
-function chemin_image($icone) {
+function chemin_image($icone): string {
 	static $icone_renommer;
 	if ($p = strpos($icone, '?')) {
 		$icone = substr($icone, 0, $p);
@@ -230,7 +230,7 @@ function chemin_image($icone) {
 		}
 	}
 
-	return find_in_path($icone, _NOM_IMG_PACK);
+	return find_in_path($icone, _NOM_IMG_PACK) ?? '';
 }
 
 /**
@@ -256,9 +256,9 @@ function chemin_image($icone) {
  *     - false : ne fait rien de plus
  *     - true : inclut le fichier (include_once)
  *     - 'require' : idem, mais tue le script avec une erreur si le fichier n'est pas trouvé.
- * @return string|bool
+ * @return string|null
  *     - string : chemin du fichier trouvé
- *     - false : fichier introuvable
+ *     - null : fichier introuvable
  */
 function find_in_path(string $file, string $dirname = '', bool|string $include = false): ?string {
 
