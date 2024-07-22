@@ -180,12 +180,12 @@ class Sql extends AbstractIterateur implements Iterator
 		$this->row = null;
 		$v = &$this->command;
 		$limit = $v['limit'];
-		$count_total_from_query = false;
+		$count_total_from_query = 0;
 		if (empty($v['limit']) && !empty($v['pagination'])) {
 			[$debut, $nombre] = $v['pagination'];
 			if ($debut === null || (is_numeric($debut) && (int) $debut !== -1)) {
-				$limit = '0,' . (intval($debut) + intval($nombre));
-				$count_total_from_query = true;
+				$count_total_from_query = (intval($debut) + intval($nombre));
+				$limit = '0,' . $count_total_from_query;
 			}
 		}
 
@@ -207,9 +207,11 @@ class Sql extends AbstractIterateur implements Iterator
 
 		$this->sqlresult = executer_calculer_select($requete);
 		$this->err = !$this->sqlresult;
-
 		if ($count_total_from_query && !$this->err) {
-			$this->total = compter_calculer_select($requete);
+			$this->total = (int) sql_count($this->sqlresult, $this->command['connect']);
+			if ($this->total === $count_total_from_query) {
+				$this->total = compter_calculer_select($requete);
+			}
 		}
 		$this->firstseek = false;
 		$this->pos = -1;
