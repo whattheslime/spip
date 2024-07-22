@@ -1003,7 +1003,7 @@ function executer_calculer_select(array $requete) {
 		$requete['limit'],
 		$requete['having'],
 		$requete['serveur'],
-		$requete['requeter']
+		is_array($requete['requeter']) ? true : $requete['requeter'],
 	);
 	unset($GLOBALS['debug']['aucasou']);
 
@@ -1018,7 +1018,7 @@ function compter_calculer_select(array $requete): int {
 		$requete['groupby'],
 		$requete['having'],
 		$requete['serveur'],
-		$requete['requeter']
+		is_array($requete['requeter']) ? true : $requete['requeter'],
 	);
 	unset($GLOBALS['debug']['aucasou']);
 

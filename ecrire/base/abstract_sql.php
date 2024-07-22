@@ -212,7 +212,7 @@ function sql_set_charset($charset, $serveur = '', $option = true) {
  *
  *     - false -> ne pas l'exécuter mais la retourner,
  *     - continue -> ne pas echouer en cas de serveur sql indisponible,
- *     - true|array -> executer la requête.
+ *     - true -> executer la requête.
  *     Le cas array est, pour une requete produite par le compilateur,
  *     un tableau donnnant le contexte afin d'indiquer le lieu de l'erreur au besoin
  *
@@ -256,7 +256,7 @@ function sql_select(
 			$limit,
 			$having,
 			$serveur,
-			is_array($option) ? true : $option
+			$option
 		);
 	} else {
 		$query = $f($select, $from, $where, $groupby, $orderby, $limit, $having, $serveur, false);
