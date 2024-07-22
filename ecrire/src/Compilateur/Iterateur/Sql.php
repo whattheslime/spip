@@ -206,7 +206,7 @@ class Sql extends AbstractIterateur implements Iterator
 		);
 
 		$this->sqlresult = executer_calculer_select($requete);
-		$this->err = !$this->sqlresult;
+		$this->err = is_string($this->sqlresult) || !$this->sqlresult;
 		if ($count_total_from_query && !$this->err) {
 			$this->total = (int) sql_count($this->sqlresult, $this->command['connect']);
 			if ($this->total === $count_total_from_query) {
