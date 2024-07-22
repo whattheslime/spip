@@ -1083,7 +1083,7 @@ function spip_mysql_countsel(
 	$serveur = '',
 	$requeter = true
 ) {
-	$c = !$groupby ? '*' : ('DISTINCT ' . (is_string($groupby) ? $groupby : join(',', $groupby)));
+	$c = $groupby ? 'DISTINCT ' . (is_string($groupby) ? $groupby : implode(',', array_unique($groupby))) : '*';
 
 	$r = spip_mysql_select("COUNT($c)", $from, $where, '', '', '', $having, $serveur, $requeter);
 	if (!$requeter) {
