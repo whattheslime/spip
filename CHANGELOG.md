@@ -6,6 +6,8 @@ Changelog de SPIP 4.4
 
 ### Fixed
 
+- #5972 Ne pas ajouter une requête SQL de comptage lorsque non nécessaire
+- #5972 Correction de `sql_countsel()` avec des groupby multiples en SQLite.
 - !5999 Warning dans `http_img_pack` si le fichier n’existe pas
 - #5970 Correction des boucles paginées sans limites (suite à !5911 #5714)
 - #5960 Affichage du bandeau haut lorsqu’il n’y a pas d’outils collaboratifs activés
