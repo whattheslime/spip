@@ -696,7 +696,20 @@ function spip_sqlite_countsel(
 	$serveur = '',
 	$requeter = true
 ) {
-	$c = !$groupby ? '*' : ('DISTINCT ' . (is_string($groupby) ? $groupby : join(',', $groupby)));
+	$c = '*';
+	if ($groupby) {
+		if (is_string($groupby)) {
+			$distinct = $groupby;
+		} else {
+			$unique_groupby = array_unique($groupby);
+			if (count($unique_groupby) === 1) {
+				$distinct = reset($unique_groupby);
+			} else {
+				$distinct = 'json_array(' . implode(',', $unique_groupby) . ')';
+			}
+		}
+		$c = 'DISTINCT ' . $distinct;
+	}
 	$r = spip_sqlite_select(
 		"COUNT($c)",
 		$from,
@@ -708,7 +721,7 @@ function spip_sqlite_countsel(
 		$serveur,
 		$requeter
 	);
-	if ((is_resource($r) or is_object($r)) && $requeter) { // ressource : sqlite2, object : sqlite3
+	if (is_object($r) && $requeter) {
 		[$r] = spip_sqlite_fetch($r, SPIP_SQLITE3_NUM, $serveur);
 		$r = (int) $r;
 	}
