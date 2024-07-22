@@ -183,7 +183,7 @@ class Sql extends AbstractIterateur implements Iterator
 		$count_total_from_query = false;
 		if (empty($v['limit']) && !empty($v['pagination'])) {
 			[$debut, $nombre] = $v['pagination'];
-			if ($debut === null || is_numeric($debut)) {
+			if ($debut === null || (is_numeric($debut) && (int) $debut !== -1)) {
 				$limit = '0,' . (intval($debut) + intval($nombre));
 				$count_total_from_query = true;
 			}
