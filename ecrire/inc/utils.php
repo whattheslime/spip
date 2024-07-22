@@ -1553,7 +1553,7 @@ function chemin_image($icone) {
 		}
 	}
 
-	return find_in_path($icone, _NOM_IMG_PACK);
+	return find_in_path($icone, _NOM_IMG_PACK) ?: '';
 }
 
 //

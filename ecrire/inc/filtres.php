@@ -3497,7 +3497,7 @@ function http_img_pack($img, $alt, $atts = '', $title = '', $options = []) {
 		$atts .= " width='" . $largeur . "' height='" . $hauteur . "'";
 	}
 
-	if (file_exists($img_file)) {
+	if ($img_file && file_exists($img_file)) {
 		$img_file = timestamp($img_file);
 	}
 	if ($alt === false) {
