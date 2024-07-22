@@ -25,6 +25,8 @@
 
 ### Fixed
 
+- #5972 Ne pas ajouter une requête SQL de comptage lorsque non nécessaire
+- #5972 Correction de `sql_countsel()` avec des groupby multiples en SQLite.
 - #5970 Correction des boucles paginées sans limites (suite à !5911 #5714)
 - #5960 Affichage du bandeau haut lorsqu’il n’y a pas d’outils collaboratifs activés
 - #5758 Pipelines `pre_edition` et `post_edition`: transmettre l’info `objet` qui manque à quelques endroits (note: l’info `type` équivalente sera dépréciée en SPIP 5)
