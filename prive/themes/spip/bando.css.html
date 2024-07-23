@@ -237,13 +237,22 @@
 	box-shadow: inset 0 0 0 1px var(--spip-color-theme);
 }
 /* Liens des sous-menus : prévoir les icônes à gauche en background pour ceux qui n'ont pas déjà une image en HTML */
-.bando-haut .deroulant__sous-menu .deroulant__lien:not(:has(img), :has(svg)) {
-	padding-#LEFT: calc(var(--spip-deroulant-icon-size) + (var(--spip-deroulant-spacing-x) * 2));
+.bando-haut .deroulant__sous-menu .deroulant__lien {
 	background-position: var(--spip-left) var(--spip-deroulant-spacing-x) center;
 	background-size: var(--spip-deroulant-icon-size);
 	background-repeat: no-repeat;
 	height: 100%;
-	/* padding-#RIGHT: calc(var(--spip-deroulant-icon-size) + var(--spip-deroulant-spacing-x)); /* Ajouter largeur de l'icone en padding-right, pour “aérer” le texte par rapport au bord droit */
+	padding-inline-start: calc(var(--spip-deroulant-icon-size) + (var(--spip-deroulant-spacing-x) * 2));
+}
+.bando-haut .deroulant__sous-menu .deroulant__lien:has(img, svg) {
+	padding-inline-start: var(--spip-deroulant-spacing-x);
+}
+/* Navigateurs sans :has */
+@supports not selector(:has(img)) {
+	.bando-haut .deroulant_infos_site .deroulant__sous-menu .deroulant__lien,
+	.bando-haut .deroulant_infos_perso .deroulant__sous-menu .deroulant__lien {
+		padding-inline-start: var(--spip-deroulant-spacing-x);
+	}
 }
 
 /* Sous-menus <ul> */
