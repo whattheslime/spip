@@ -308,13 +308,13 @@
 /* Espacement pour l'icône selon qu'elle soit dans le header ou dans le body */
 .box.notice .box__header, .box.error .box__header, .box.success .box__header,
 .box.notice .box__body:first-child, .box.error .box__body:first-child, .box.success .box__body:first-child {
-	padding-#LEFT: var(--spip-box-heading-iconpadding);
+	padding-inline-start: var(--spip-box-heading-iconpadding);
 }
 /* Bordure sur le côté */
 .box.notice .box__header, .box.error .box__header, .box.success .box__header,
 .box.notice .box__body, .box.error .box__body, .box.success .box__body,
 .box.notice .box__footer, .box.error .box__footer, .box.success .box__footer {
-	border-#LEFT: var(--spip-box-highlightsize) solid transparent;
+	border-inline-start: var(--spip-box-highlightsize) solid transparent;
 }
 /* Mini hack : sous le header on met la bordure basse en pseudo pour ne pas empiéter la bordure latérale colorée */
 .box.notice .box__header, .box.error .box__header, .box.success .box__header {
@@ -334,10 +334,10 @@
 /* Notice */
 .box.notice .box__header,
 .box.notice .box__body {
-	border-#LEFT-color: hsl(var(--spip-color-notice--h), var(--spip-color-notice--s), 60%);
+	border-inline-start-color: hsl(var(--spip-color-notice--h), var(--spip-color-notice--s), 60%);
 }
 .box.notice .box__footer {
-	border-#LEFT-color: hsl(var(--spip-color-notice--h), var(--spip-color-notice--s), 50%);
+	border-inline-start-color: hsl(var(--spip-color-notice--h), var(--spip-color-notice--s), 50%);
 }
 .box.notice .box__header,
 .box.notice .box__body:first-child {
@@ -347,10 +347,10 @@
 /* Erreur */
 .box.error .box__header,
 .box.error .box__body {
-	border-#LEFT-color: hsl(var(--spip-color-error--h), var(--spip-color-error--s), 60%);
+	border-inline-start-color: hsl(var(--spip-color-error--h), var(--spip-color-error--s), 60%);
 }
 .box.error .box__footer {
-	border-#LEFT-color: hsl(var(--spip-color-error--h), var(--spip-color-error--s), 50%);
+	border-inline-start-color: hsl(var(--spip-color-error--h), var(--spip-color-error--s), 50%);
 }
 .box.error .box__header,
 .box.error .box__body:first-child {
@@ -360,10 +360,10 @@
 /* Succès */
 .box.success .box__header,
 .box.success .box__body {
-	border-#LEFT-color: hsl(var(--spip-color-success--h), var(--spip-color-success--s), 55%);
+	border-inline-start-color: hsl(var(--spip-color-success--h), var(--spip-color-success--s), 55%);
 }
 .box.success .box__footer {
-	border-#LEFT-color: hsl(var(--spip-color-success--h), var(--spip-color-success--s), 48%);
+	border-inline-start-color: hsl(var(--spip-color-success--h), var(--spip-color-success--s), 48%);
 }
 .box.success .box__header,
 .box.success .box__body:first-child {
@@ -484,12 +484,12 @@
 }
 /* Si titre dépliable */
 .box.sous-rub .titrem.depliant a:first-of-type:not(:only-of-type) {
-	border-top-#RIGHT-radius: 0;
-	border-bottom-#RIGHT-radius: 0;
+	border-start-end-radius: 0;
+	border-end-end-radius: 0;
 }
 .box.sous-rub .titrem.depliant a:last-of-type:not(:only-of-type) {
-	border-top-#LEFT-radius: 0;
-	border-bottom-#LEFT-radius: 0;
+	border-start-start-radius: 0;
+	border-end-start-radius: 0;
 }
 .box.sous-rub .titrem.depliant a:hover,
 .box.sous-rub .titrem.depliant a:focus {
@@ -500,9 +500,9 @@
 .box.sous-rub .box__header .logo-carre {
 	margin-top: calc(var(--spip-box-spacing-y) * -1);
 	margin-bottom: calc(var(--spip-box-spacing-y) * -1);
-	margin-#RIGHT: calc((var(--spip-box-spacing-x) / 2) * -1);
-	margin-#LEFT: auto;
-	padding-#RIGHT: 0.25em;
+	margin-inline-end: calc((var(--spip-box-spacing-x) / 2) * -1);
+	margin-inline-start: auto;
+	padding-inline-end: 0.25em;
 	order: 10; /* Doit être en dernier, après le :after éventuel du <a> */
 }
 /* Descriptif */
@@ -586,7 +586,7 @@
 	content: "";
 	display: block;
 	position: absolute;
-	#RIGHT: 0;
+	inset-inline-end: 0;
 	top: 50%;
 	transform: translateY(-50%);
 	height: 1em;

@@ -35,7 +35,7 @@ a.petite-racine {
 	background-image: url("#CHEMIN_IMAGE{racine-xx.svg}");
 	background-size: 14px;
 	background-position: 5px center;
-	padding-#LEFT: 24px;
+	padding-inline-start: 24px;
 	padding-top: 0.2em;
 	padding-bottom: 0.2em;
 	background-color: #fff;
@@ -51,7 +51,7 @@ a.petite-rubrique {
 	background-image: url("#CHEMIN_IMAGE{rubrique-xx.svg}");
 	background-size:14px;
 	background-position: 5px center;
-	padding-#LEFT: 24px;
+	padding-inline-start: 24px;
 	cursor: pointer;
 }
 div.petit-secteur,
@@ -64,7 +64,7 @@ a.petit-secteur {
 }
 
 :is(div, a).rub-ouverte {
-	padding-#RIGHT: 10px;
+	padding-inline-end: 10px;
 	background: url("[(#CHEMIN_IMAGE{chevron-[(#GET{rtl}|?{left,right})]-24.svg})]") var(--spip-right) center no-repeat;
 }
 
@@ -157,12 +157,12 @@ a.petit-secteur {
 	margin-bottom: 0.5em;
 }
 .informer__media {
-	margin-#RIGHT: 0 !important;
+	margin-inline-end: 0 !important;
 	margin-top: 0 !important;
-	margin-#LEFT: 1em;
+	margin-inline-start: 1em;
 }
 .informer__action {
-	margin-#LEFT: 1em;
+	margin-inline-start: 1em;
 }
 .informer .btn {
 	margin: 0;
@@ -196,7 +196,7 @@ a.petit-secteur {
 #choix_parent .petit-item a {
 	padding-top: 0.2em;
 	padding-bottom: 0.2em;
-	padding-#RIGHT: 0.2em;
+	padding-inline-end: 0.2em;
 	flex: 1 1 auto;
 	color: inherit;
 }

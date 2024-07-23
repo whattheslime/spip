@@ -561,16 +561,16 @@ button.btn_#VALEUR,
 .groupe-btns:not(.groupe-btns_vertical) input.reset:not(:last-child):not(:only-child),
 .groupe-btns:not(.groupe-btns_vertical) > button:not(:last-child):not(:only-child),
 .groupe-btns:not(.groupe-btns_vertical) .bouton_action_post:not(:last-child):not(:only-child) .submit {
-	border-top-#RIGHT-radius: 0;
-	border-bottom-#RIGHT-radius: 0;
+	border-start-end-radius: 0;
+	border-end-end-radius: 0;
 }
 .groupe-btns:not(.groupe-btns_vertical) .btn:not(:first-child),
 .groupe-btns:not(.groupe-btns_vertical) input.submit:not(:first-child),
 .groupe-btns:not(.groupe-btns_vertical) input.reset:not(:first-child),
 .groupe-btns:not(.groupe-btns_vertical) > button:not(:first-child),
 .groupe-btns:not(.groupe-btns_vertical) .bouton_action_post:not(:first-child) .submit {
-	border-top-#LEFT-radius: 0;
-	border-bottom-#LEFT-radius: 0;
+	border-start-start-radius: 0;
+	border-end-start-radius: 0;
 }
 /* Bordures pour séparer */
 .groupe-btns:not(.groupe-btns_vertical) .btn:not(:first-child):not(.btn_secondaire),
@@ -578,21 +578,21 @@ button.btn_#VALEUR,
 .groupe-btns:not(.groupe-btns_vertical) input.reset:not(:first-child):not(.btn_secondaire),
 .groupe-btns:not(.groupe-btns_vertical) > button:not(:first-child):not(.btn_secondaire),
 .groupe-btns:not(.groupe-btns_vertical) .bouton_action_post:not(:first-child):not(.btn_secondaire) .submit {
-	border-#LEFT-color: var(--spip-btn-color-border-accent) !important;
+	border-inline-start-color: var(--spip-btn-color-border-accent) !important;
 }
 .groupe-btns:not(.groupe-btns_vertical) .btn:not(:first-child),
 .groupe-btns:not(.groupe-btns_vertical) input.submit:not(:first-child),
 .groupe-btns:not(.groupe-btns_vertical) input.reset:not(:first-child),
 .groupe-btns:not(.groupe-btns_vertical) > button:not(:first-child),
 .groupe-btns:not(.groupe-btns_vertical) .bouton_action_post:not(:first-child) .submit {
-	margin-#LEFT: -1px; /* bordure haut par dessus le bouton précédent */
+	margin-inline-start: -1px; /* bordure haut par dessus le bouton précédent */
 }
 .groupe-btns:not(.groupe-btns_vertical) .btn_secondaire:not(:last-child),
 .groupe-btns:not(.groupe-btns_vertical) input.submit.btn_secondaire:not(:last-child),
 .groupe-btns:not(.groupe-btns_vertical) input.reset.btn_secondaire:not(.last-child),
 .groupe-btns:not(.groupe-btns_vertical) > button.btn_secondaire:not(:last-child),
 .groupe-btns:not(.groupe-btns_vertical) .bouton_action_post.btn_secondaire:not(:last-child) .submit {
-	border-#RIGHT-color: transparent;
+	border-inline-end-color: transparent;
 }
 
 /* variante vertical */
@@ -605,8 +605,8 @@ button.btn_#VALEUR,
 .groupe-btns.groupe-btns_vertical input.reset:not(:last-child),
 .groupe-btns.groupe-btns_vertical > button.submit:not(:last-child),
 .groupe-btns.groupe-btns_vertical .bouton_action_post:not(:last-child) .submit {
-	border-bottom-#LEFT-radius: 0;
-	border-bottom-#RIGHT-radius: 0;
+	border-end-start-radius: 0;
+	border-end-end-radius: 0;
 	margin-bottom: 0;
 }
 .groupe-btns.groupe-btns_vertical .btn:not(:first-child),
@@ -614,8 +614,8 @@ button.btn_#VALEUR,
 .groupe-btns.groupe-btns_vertical input.reset:not(:first-child),
 .groupe-btns.groupe-btns_vertical > button:not(:first-child),
 .groupe-btns.groupe-btns_vertical .bouton_action_post:not(:first-child) .submit {
-	border-top-#LEFT-radius: 0;
-	border-top-#RIGHT-radius: 0;
+	border-start-start-radius: 0;
+	border-start-end-radius: 0;
 }
 .groupe-btns.groupe-btns_vertical .btn:not(:first-child):not(.btn_secondaire),
 .groupe-btns.groupe-btns_vertical input.submit:not(:first-child):not(.btn_secondaire),
@@ -710,7 +710,7 @@ button .sp-icone,
 input.submit.sp-icone:before,
 input.reset.sp-icone:before,
 .bouton_action_post .icone-image {
-	margin-#RIGHT: var(--spip-btn-gutter); /* fallback */
+	margin-inline-end: var(--spip-btn-gutter); /* fallback */
 	margin-inline-end: var(--spip-btn-gutter);
 }
 
@@ -736,8 +736,8 @@ input.reset.sp-icone:before,
 .btn_icone_after.sp-icone:before,
 .btn_icone_after .sp-icone {
 	order: 2;
-	margin-#LEFT: var(--spip-btn-gutter); /* fallback */
-	margin-#RIGHT: 0; /* fallback */
+	margin-inline-start: var(--spip-btn-gutter); /* fallback */
+	margin-inline-end: 0; /* fallback */
 	margin-inline-start: var(--spip-btn-gutter);
 	margin-inline-end: 0;
 }

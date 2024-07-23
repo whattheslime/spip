@@ -196,7 +196,7 @@
 <BOUCLE_objets(DATA){source table, #NULL|lister_tables_objets_sql}>
 [.liste-objets.[(#VALEUR{table_objet})] .caption {
 	background-image: url((#CHEMIN_IMAGE{#VALEUR{icone_objet}|concat{-24.png}}));
-	padding-#LEFT: var(--spip-list-heading-iconpadding);
+	padding-inline-start: var(--spip-list-heading-iconpadding);
 }]</BOUCLE_objets>
 /* pour editer liens ? */
 .liste-objets caption .formulaire_spip {
@@ -277,20 +277,20 @@
 .liste-objets table > *:first-child,
 .liste-objets table > *:first-child tr:first-child,
 .liste-objets table > *:first-child tr:first-child > *:first-child {
-	border-top-#LEFT-radius: var(--spip-list-border-radius);
+	border-start-start-radius: var(--spip-list-border-radius);
 }
 .liste-objets table > *:first-child,
 .liste-objets table > *:first-child tr:first-child,
 .liste-objets table > *:first-child tr:first-child > *:last-child {
-	border-top-#RIGHT-radius: var(--spip-list-border-radius);
+	border-start-end-radius: var(--spip-list-border-radius);
 }
 .liste-objets table > *:last-child tr:last-child,
 .liste-objets table > *:last-child tr:last-child > *:first-child  {
-	border-bottom-#LEFT-radius: var(--spip-list-border-radius);
+	border-end-start-radius: var(--spip-list-border-radius);
 }
 .liste-objets table > *:last-child tr:last-child,
 .liste-objets table > *:last-child tr:last-child > *:last-child {
-	border-bottom-#RIGHT-radius: var(--spip-list-border-radius);
+	border-end-end-radius: var(--spip-list-border-radius);
 }
 
 /**
@@ -370,7 +370,7 @@
    Certaines listes swappent .logo pour .nologo quand aucun logo */
 .liste-objets td.titre .spip_logo {
 	float: var(--spip-right);
-	margin-#LEFT: 0.5em;
+	margin-inline-start: 0.5em;
 }
 .liste-objets td.logo {
 	text-align: center;
@@ -461,7 +461,7 @@
 .liste-objets > .image_loading {
 	position: absolute;
 	top: 0;
-	#RIGHT: 0;
+	inset-inline-end: 0;
 }
 
 /* Pagination */
@@ -569,7 +569,7 @@
 
 /* Révisions (à déporter dans le plugin) */
 .liste-objets.versions table .caption {
-	padding-#LEFT: var(--spip-list-heading-iconpadding);
+	padding-inline-start: var(--spip-list-heading-iconpadding);
 	background-position: var(--spip-left) var(--spip-list-spacing-x) center;
 }
 
@@ -690,7 +690,7 @@
 	align-items: center;
 }
 .pagination .pagination-item + .pagination-item {
-	margin-#LEFT: 1px;
+	margin-inline-start: 1px;
 }
 .pagination .pagination_precedent_suivant .pagination-item {
 	flex-basis: auto;
@@ -886,7 +886,7 @@
 }
 .liste_items .item img:first-child,
 .liste-items .item img:first-child {
-	margin-#RIGHT: 0.33em;
+	margin-inline-end: 0.33em;
 }
 .liste_items .bouton_action_post {
 	margin: 0;
@@ -952,7 +952,7 @@
 .menu-items .menu-items {
 	margin: 0;
 	padding: 0;
-	margin-#LEFT: 11px;
+	margin-inline-start: 11px;
 }
 .menu-items .item > a,
 .menu-items .item > strong.on {
@@ -970,16 +970,16 @@
 	border-top:0;
 }
 .plan .menu-items .menu-items {
-	border-#LEFT: 1px solid var(--spip-box-sep-color);
+	border-inline-start: 1px solid var(--spip-box-sep-color);
 }
 .plan .menu-items .item .pagination {
-	margin-#LEFT: 11px;
-	border-#LEFT: 1px solid var(--spip-box-sep-color);;
+	margin-inline-start: 11px;
+	border-inline-start: 1px solid var(--spip-box-sep-color);;
 }
 .plan .menu-items .item {
 	overflow: visible;
 	border-bottom: 0;
-	padding-#LEFT: 6px;
+	padding-inline-start: 6px;
 }
 .plan .menu-items .item > a {
 	padding: 0.25em 0 0.25em 5px;
@@ -989,7 +989,7 @@
 }
 <BOUCLE_objets2(DATA){source table, #NULL|lister_tables_objets_sql}{cle!=spip_rubriques}>
 .plan .menu-items.[(#VALEUR{table_objet})] .item > a {
-	padding-#LEFT: 20px;
+	padding-inline-start: 20px;
 	[background-image: url((#CHEMIN_IMAGE{#VALEUR{icone_objet}-16.png}));]
 }
 </BOUCLE_objets2>

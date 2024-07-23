@@ -302,7 +302,7 @@
 }
 .cadre-formulaire-editer .image_loading {
 	position: absolute;
-	#RIGHT: 0;
+	inset-inline-end: 0;
 }
 .entete-formulaire {
 	position:relative;
@@ -417,7 +417,7 @@
 @media (min-width: 580px) {
 	.formulaire_spip .editer,
 	.formulaire_spip .editer.gauche {
-		padding-#LEFT: calc(var(--spip-form-label-width) + (var(--spip-form-spacing-x) * 2)); /* largeur + marge gauche+droite */
+		padding-inline-start: calc(var(--spip-form-label-width) + (var(--spip-form-spacing-x) * 2)); /* largeur + marge gauche+droite */
 	}
 	.formulaire_spip .editer > label,
 	/* @deprecated SPIP 5.0 .label */ .formulaire_spip .editer > .label,
@@ -425,7 +425,7 @@
 	.formulaire_spip .editer.gauche > label {
 		float: var(--spip-left);
 		width: var(--spip-form-label-width);
-		margin-#LEFT: calc((var(--spip-form-label-width) + var(--spip-form-spacing-x)) * -1); /* inverse largeur + marge */
+		margin-inline-start: calc((var(--spip-form-label-width) + var(--spip-form-spacing-x)) * -1); /* inverse largeur + marge */
 		padding: calc(var(--spip-form-input-padding-y) + 1px) 0 0; /* décaler pour aligner avec texte input → padding + border */
 	}
 	/* @deprecated SPIP 5.0 .label */ .formulaire_spip fieldset.editer > .label,
@@ -434,13 +434,13 @@
 	}
 	/* Labels plus longs */
 	.formulaire_spip .editer.long_label {
-		padding-#LEFT: calc(var(--spip-form-label-long-width) + (var(--spip-form-spacing-x) * 2)); /* largeur + marge gauche+droite */
+		padding-inline-start: calc(var(--spip-form-label-long-width) + (var(--spip-form-spacing-x) * 2)); /* largeur + marge gauche+droite */
 	}
 	/* @deprecated SPIP 5.0 .label */ .formulaire_spip .editer.long_label > .label,
 	.formulaire_spip .editer.long_label > .editer-label,
 	.formulaire_spip .editer.long_label > label {
 		width: var(--spip-form-label-long-width);
-		margin-#LEFT: calc((var(--spip-form-label-long-width) + var(--spip-form-spacing-x)) * -1); /* inverse largeur + marge */
+		margin-inline-start: calc((var(--spip-form-label-long-width) + var(--spip-form-spacing-x)) * -1); /* inverse largeur + marge */
 	}
 	/* Labels en haut + cas particuliers où c'est forcé */
 	.formulaire_spip .editer.pleine_largeur,
@@ -451,7 +451,7 @@
 	.formulaire_spip .editer_texte,
 	.formulaire_spip .editer_ps,
 	.formulaire_spip .editer.haut {
-		padding-#LEFT: var(--spip-form-spacing-x);
+		padding-inline-start: var(--spip-form-spacing-x);
 	}
 	.formulaire_spip .editer.pleine_largeur > label,
 	/* @deprecated SPIP 5.0 .label */ .formulaire_spip .editer.pleine_largeur > .label, /* fieldsets avec legend.label */
@@ -467,7 +467,7 @@
 		display: block;
 		float: none;
 		width: auto;
-		margin-#LEFT: 0;
+		margin-inline-start: 0;
 		padding: 0;
 	}
 	/* @deprecated SPIP 5.0 .label */ .formulaire_spip fieldset.editer.pleine_largeur > .label,
@@ -556,7 +556,7 @@
 
 /* Fieldsets imbriqués */
 .formulaire_spip fieldset fieldset {
-	margin-#LEFT: var(--spip-form-fieldset-offset); /* décalage */
+	margin-inline-start: var(--spip-form-fieldset-offset); /* décalage */
 	padding-left: 0;
 	padding-right: 0;
 	margin-right: 0;
@@ -659,7 +659,7 @@
 }
 /* Espacement entre .choix inline successifs */
 .formulaire_spip span.choix + span.choix {
-	margin-#LEFT: var(--spip-form-spacing-x); /* entre options ou .choix inline */
+	margin-inline-start: var(--spip-form-spacing-x); /* entre options ou .choix inline */
 }
 
 /* Variante inline, sans bordure (cf. explication plus haut) */
@@ -732,7 +732,7 @@
 	float: none;
 	display: inline;
 	font-weight: normal;
-	margin-#LEFT: 0;
+	margin-inline-start: 0;
 }
 .formulaire_spip .editer.erreur input.text,
 .formulaire_spip .editer.erreur input.password,
@@ -934,15 +934,15 @@
 	font-size: 0.9em;
 	line-height: 1.25;
 	color: var(--spip-color-gray-dark);
-	border-top-#RIGHT-radius: var(--spip-form-input-border-radius);
-	border-bottom-#RIGHT-radius: var(--spip-form-input-border-radius);
-	border-#LEFT-width: 0.3em;
-	border-#LEFT-style: solid;
+	border-start-end-radius: var(--spip-form-input-border-radius);
+	border-end-end-radius: var(--spip-form-input-border-radius);
+	border-inline-start-width: 0.3em;
+	border-inline-start-style: solid;
 }
 .formulaire_spip .explication {
 	overflow-wrap: break-word;
 	background-color: hsla(0, 0%, 0%, 0.05); /* transparent sinon on voit pas sur les champs avec le même fond */
-	border-#LEFT-color: var(--spip-form-input-border-color);
+	border-inline-start-color: var(--spip-form-input-border-color);
 }
 .formulaire_spip .attention {
 	color: hsl(var(--spip-color-notice--h), var(--spip-color-notice--s), 22%);
@@ -963,7 +963,7 @@
 	margin-top: 0;
 	border-bottom-left-radius: 0;
 	border-bottom-right-radius: 0;
-	border-top-#LEFT-radius: var(--spip-form-input-border-radius);
+	border-start-start-radius: var(--spip-form-input-border-radius);
 	border: 0;
 }
 .formulaire_spip .editer .explication > :last-child,
@@ -1079,7 +1079,7 @@
 }
 /* Tous les labels au dessus */
 .lat .formulaire_spip .editer {
-	padding-#LEFT: var(--spip-form-spacing-x);
+	padding-inline-start: var(--spip-form-spacing-x);
 }
 .lat .formulaire_spip .editer label,
 /* @deprecated SPIP 5.0 .label */ .lat .formulaire_spip .editer .label,
@@ -1089,11 +1089,11 @@
 	float: none;
 	padding: 0;
 	width: auto;
-	margin-#LEFT: 0;
+	margin-inline-start: 0;
 }
 /* Fieldsets imbriqués */
 .lat .formulaire_spip fieldset fieldset {
-	margin-#LEFT: calc(var(--spip-form-fieldset-offset) / 2);
+	margin-inline-start: calc(var(--spip-form-fieldset-offset) / 2);
 }
 /* Fieldsets conteneurs de .choix */
 .lat .formulaire_spip fieldset.editer {
@@ -1108,7 +1108,7 @@
 	font-size: 0.9em;
 }
 .lat .formulaire_spip ul.spip li {
-	margin-#LEFT: 2em !important;
+	margin-inline-start: 2em !important;
 }
 
 
@@ -1133,18 +1133,18 @@
 	background-color: var(--spip-color-gray-lightest);
 }
 .formulaire_editer_auteur .editer.editer_statut .instituer_auteur {
-	margin-#LEFT: calc((var(--spip-form-label-width) * -1) + var(--spip-form-spacing-x));
+	margin-inline-start: calc((var(--spip-form-label-width) * -1) + var(--spip-form-spacing-x));
 	margin-top: var(--spip-form-input-padding-y);
 }
 .formulaire_editer_auteur .editer.editer_statut .rubriques_restreintes > p {
-	margin-#LEFT: 0;
+	margin-inline-start: 0;
 	margin-bottom: 0;
 	margin-top: var(--spip-form-input-padding-y);
 }
 .formulaire_editer_auteur .editer.editer_statut .rubriques_restreintes label {
 	float: none;
 	width: auto;
-	margin-#LEFT: 0;
+	margin-inline-start: 0;
 }
 .formulaire_editer_auteur .reset_password {
 	margin-top: calc(var(--spip-form-spacing-y) / 2);
@@ -1203,8 +1203,8 @@
 .formulaire_configurer_multilinguisme #langues_bloquees .choix,
 .formulaire_configurer_multilinguisme #langues_proposees .choix {
 	padding: 0 5px;
-	margin-#RIGHT: 10px;
-	float: #LEFT;
+	margin-inline-end: 10px;
+	float: inline-start;
 	width: 45%;
 	clear: none;
 	background: transparent;
@@ -1235,10 +1235,10 @@
 	background-repeat: no-repeat;
 }
 .formulaire_configurer_reducteur .vignette_reducteur:first-child {
-	margin-#LEFT: 0;
+	margin-inline-start: 0;
 }
 .formulaire_configurer_reducteur .vignette_reducteur:last-child {
-	margin-#RIGHT: 0;
+	margin-inline-end: 0;
 }
 .formulaire_configurer_reducteur .vignette_reducteur.on,
 .formulaire_configurer_reducteur .vignette_reducteur:hover {
@@ -1280,8 +1280,8 @@
 	vertical-align: top;
 }
 .formulaire_spip.formulaire_dater img.ui-datepicker-trigger {
-	margin-#LEFT: -1em;
-	#LEFT: -1em;
+	margin-inline-start: -1em;
+	inset-inline-start: -1em;
 }
 .formulaire_spip.formulaire_dater input.text {
 	padding-top: calc(var(--spip-form-input-padding-y) / 2);
@@ -1363,7 +1363,7 @@
 	gap: 2em;
 }
 .formulaire_editer_liens .liste-objets-associer .caption span.recherche {
-	margin-#LEFT: auto;
+	margin-inline-start: auto;
 	font-size: 0.9em;
 	flex: 50%;
 	flex-shrink: 1;
@@ -1389,14 +1389,14 @@
 	display: none;
 }
 .formulaire_editer_liens .action {
-	text-align: #RIGHT;
+	text-align: end;
 }
 .formulaire_editer_liens .liste-objets tr > .action {
-	text-align: #RIGHT;
+	text-align: end;
 	/* width: 120px; */
 }
 .formulaire_editer_liens .liste-objets tr > .action button img {
-	margin-#LEFT: 0;
+	margin-inline-start: 0;
 	vertical-align: bottom;
 }
 
@@ -1415,7 +1415,7 @@
 .spip_recherche .recherche {
 	float: var(--spip-left);
 	padding: 3px;
-	padding-#RIGHT: 30px;
+	padding-inline-end: 30px;
 	width: 186px;
 	border: 1px solid #fff;
 	background-color: var(--spip-color-theme);
@@ -1423,8 +1423,8 @@
 	margin: 0 0 6px;
 }
 .spip_recherche .submit {
-	float: [(#LEFT)];
-	margin-#LEFT:-24px;
+	float: inline-start;
+	margin-inline-start:-24px;
 	margin-top:1px;
 }
 /* version moderne */
@@ -1735,7 +1735,7 @@ img.aide {
 	display: inline-flex; /* éviter des espacements indésirables */
 	position: absolute;
 	top: var(--spip-box-spacing-y);
-	#RIGHT: var(--spip-box-spacing-x);
+	inset-inline-end: var(--spip-box-spacing-x);
 	z-index: 1;
 }
 .formulaire_spip .toggle_box_link button,

@@ -84,17 +84,17 @@
 	position: relative;
 	padding: var(--spip-alert-spacing-y) var(--spip-alert-spacing-x);
 	/* gouttière + taille icone + espacement arbitraire avec le texte */
-	padding-#LEFT: calc(var(--spip-alert-spacing-x) + var(--spip-alert-iconsize) + 0.75em);
+	padding-inline-start: calc(var(--spip-alert-spacing-x) + var(--spip-alert-iconsize) + 0.75em);
 	margin: calc(var(--spip-margin-bottom) * 1.5) 0; /* Idem boîtes */
 	background-repeat: no-repeat;
 	/* Aligner icône au niveau de la 1ère ligne de texte */
-	background-position: [(#LEFT)] var(--spip-alert-spacing-x) top calc(var(--spip-alert-spacing-y) - ((var(--spip-alert-iconsize) - var(--spip-line-height)) / 2));
+	background-position: var(--spip-left) var(--spip-alert-spacing-x) top calc(var(--spip-alert-spacing-y) - ((var(--spip-alert-iconsize) - var(--spip-line-height)) / 2));
 	background-size: var(--spip-alert-iconsize);
 	font-weight: normal;
 	border-radius: var(--spip-border-radius);
 	box-shadow: inset 0 0 1.5em hsla(0, 0%, 0%, 0.02);
 	background-color: var(--spip-color-gray-lighter);
-	border-#LEFT: 0.5rem solid var(--spip-color-gray-light);
+	border-inline-start: 0.5rem solid var(--spip-color-gray-light);
 }
 
 
@@ -198,7 +198,7 @@
 
 /* Variante fermable */
 .msg-alert.fermable {
-	padding-#RIGHT: calc((var(--spip-alert-spacing-x) * 2) + 1.5em);
+	padding-inline-end: calc((var(--spip-alert-spacing-x) * 2) + 1.5em);
 }
 .msg-alert__close {
 	width: var(--spip-alert-closesize);
@@ -208,7 +208,7 @@
 	/* Aligner icône au niveau de la 1ère ligne de texte */
 	top: calc(var(--spip-alert-spacing-y) + (var(--spip-line-height) - var(--spip-alert-closesize)));
 	/* top: var(--spip-alert-spacing-y); */
-	#RIGHT: var(--spip-alert-spacing-x);
+	inset-inline-end: var(--spip-alert-spacing-x);
 	padding: 0;
 	background: transparent url("[(#CHEMIN_IMAGE{fermer-16.png})]") center/1em auto no-repeat;
 	background-size: contain;
