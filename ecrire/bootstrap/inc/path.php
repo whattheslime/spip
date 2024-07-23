@@ -180,7 +180,7 @@ function find_in_theme($file, $subdir = '', $include = false) {
 			return $themefiles["$subdir$file"] = $f;
 		}
 	}
-	spip_logger('theme')->info("$file introuvable dans le theme prive " . reset($themes));
+	spip_logger('theme')->debug("$file introuvable dans le theme prive " . reset($themes));
 
 	return $themefiles["$subdir$file"] = '';
 }
