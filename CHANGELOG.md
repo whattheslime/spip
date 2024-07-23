@@ -4,6 +4,10 @@ Changelog de SPIP 4.4
 
 ## Unreleased
 
+### Added
+
+- #5938 Permettre à `objet_info()` de retourner directement l’information `table_objet_sql` (le nom de la table sql)
+
 ### Fixed
 
 - #5961 Correction du bandeau de l’espace privé pour les navigateurs sans `:has` encore par défaut (FF 115 ESR notamment)
