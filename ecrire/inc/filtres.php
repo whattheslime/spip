@@ -4673,7 +4673,14 @@ function generer_objet_introduction(
 
 	// Longueur en paramètre, sinon celle renseignée dans la description de l'objet, sinon valeur en dur
 	if (!(int) $longueur_ou_suite) {
-		$longueur = (int) ($introduction_longueur ?: 600);
+		if (
+			(defined('_INTRODUCTION_LONGUEUR_MAX') && $introduction_longueur)
+			&& (_INTRODUCTION_LONGUEUR_MAX < $introduction_longueur)
+		) {
+			$longueur = (int) _INTRODUCTION_LONGUEUR_MAX;
+		} else {
+			$longueur = (int) ($introduction_longueur ?: 600);
+		}
 	} else {
 		$longueur = (int) $longueur_ou_suite;
 	}
