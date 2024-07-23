@@ -4,6 +4,10 @@ Changelog de SPIP 4.3
 
 ## Unreleased
 
+### Added
+
+- #5938 Permettre à `objet_info()` de retourner directement l’information `table_objet_sql` (le nom de la table sql)
+
 ### Changed
 
 - Chaînes de langues de ecrire/lang/ dans le nouveau format (sans globale).
