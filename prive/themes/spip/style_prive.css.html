@@ -33,12 +33,15 @@ Valeurs par defaut :
 [(#INCLURE{fond=#GET{fond},env,couleur_claire,couleur_foncee,lang,ltr,claire=#GET{claire},foncee=#GET{foncee},left=#GET{left},right=#GET{right},rtl=#GET{rtl},dir=#GET{dir},font-size=#GET{font-size},line-height=#GET{line-height},margin-bottom=#GET{margin-bottom},text-indent=#GET{text-indent},font-family=#GET{font-family},background-color=#GET{background-color},color=#GET{color}})]
 ]
 
-[(#REM) les vieux styles a evacuer en premier, ca permet qu'ils ne polluent pas en cas de double definition]
-[(#INCLURE{#VAL{clear.css}|find_in_theme|direction_css{#GET{dir}}|substr{#CONST{_DIR_RACINE}|strlen}})]
-[(#INCLURE{#VAL{layout.css}|find_in_theme|direction_css{#GET{dir}}|substr{#CONST{_DIR_RACINE}|strlen}})]
+[(#REM)
+	Les vieux styles (clear, layout) a evacuer en premier,
+	ca permet qu'ils ne polluent pas en cas de double definition
+]
 
 [(#REM) Les modules ]
 #SET{modules,#LISTE{
+	clear.css,
+	layout.css,
 	ajax.css,
 	typo.css,
 	grids.css,
@@ -59,21 +62,58 @@ Valeurs par defaut :
 	theme.css,
 }}
 <BOUCLE_css(DATA){source table, #GET{modules}}>
+[(#SET{css,[(#VALEUR|find_in_theme|substr{#CONST{_DIR_RACINE}|strlen})]})]
 [(#SET{fond,[(#VALEUR|concat{.html}|find_in_theme|substr{[(#CONST{_DIR_RACINE}|strlen)],[(#VAL{-5}|intval)]})]})]
-/*
- * #VALEUR::[(#GET{fond})]
- */
-[(#GET{fond}|oui)
-	[(#INCLURE{fond=#GET{fond},env,couleur_claire,couleur_foncee,lang,ltr,claire=#GET{claire},foncee=#GET{foncee},left=#GET{left},right=#GET{right},rtl=#GET{rtl},dir=#GET{dir},font-size=#GET{font-size},line-height=#GET{line-height},margin-bottom=#GET{margin-bottom},text-indent=#GET{text-indent},font-family=#GET{font-family},background-color=#GET{background-color},color=#GET{color}})]
-]
+[/* #VALEUR::(#GET{css}) */
+[(#INCLURE{#GET{css}})]]
+[/* #VALEUR::(#GET{fond}) */
+[(#INCLURE{fond=#GET{fond},env,
+	couleur_claire,
+	couleur_foncee,
+	lang,
+	ltr,
+	claire=#GET{claire},
+	foncee=#GET{foncee},
+	left=#GET{left},
+	right=#GET{right},
+	rtl=#GET{rtl},
+	dir=#GET{dir},
+	font-size=#GET{font-size},
+	line-height=#GET{line-height},
+	margin-bottom=#GET{margin-bottom},
+	text-indent=#GET{text-indent},
+	font-family=#GET{font-family},
+	background-color=#GET{background-color},
+	color=#GET{color}
+})]]
 </BOUCLE_css>
 
 
 /*** Plugins ***/
-
 <BOUCLE_cssplugins(DATA){source table, #VAL{prive/}|find_all_in_path{/style_prive_plugin_}}>
-	#SET{fond,prive/#VALEUR|basename{'.html'}}
-	[(#INCLURE{fond=#GET{fond},env,couleur_claire,couleur_foncee,lang,ltr,claire=#GET{claire},foncee=#GET{foncee},left=#GET{left},right=#GET{right},rtl=#GET{rtl},dir=#GET{dir},font-size=#GET{font-size},line-height=#GET{line-height},margin-bottom=#GET{margin-bottom},text-indent=#GET{text-indent},font-family=#GET{font-family},background-color=#GET{background-color},color=#GET{color}})]
+/* [(#VALEUR|basename)] */
+[(#VALEUR|str_ends_with{.css}|oui)
+[(#INCLURE{[(#VALEUR|substr{#CONST{_DIR_RACINE}|strlen})]})]]
+[(#VALEUR|str_ends_with{.css}|non)
+[(#SET{fond,prive/#VALEUR|basename{'.html'}})]
+[(#INCLURE{fond=#GET{fond},env,
+	couleur_claire,
+	couleur_foncee,
+	lang,
+	ltr,
+	claire=#GET{claire},
+	foncee=#GET{foncee},
+	left=#GET{left},
+	right=#GET{right},
+	rtl=#GET{rtl},
+	dir=#GET{dir},
+	font-size=#GET{font-size},
+	line-height=#GET{line-height},
+	margin-bottom=#GET{margin-bottom},
+	text-indent=#GET{text-indent},
+	font-family=#GET{font-family},
+	background-color=#GET{background-color},
+	color=#GET{color}
+})]]
 </BOUCLE_cssplugins>
-
 /**** Plugins fin ***/
