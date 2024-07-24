@@ -1,17 +1,3 @@
-[(#REM)
-
-	Ce squelette définit les styles des menus onglets de l'espace privé
-
-	Organisation du fichier :
-
-	1. Onglets simples
-	2. Barre onglets
-
-<style>]
-#CACHE{3600*100,cache-client}
-#HTTP_HEADER{Content-Type: text/css;charset=utf-8}
-#HTTP_HEADER{Vary: Accept-Encoding}
-
 
 /* ============
  * 0. Variables

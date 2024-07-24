@@ -1,14 +1,3 @@
-[(#REM)
-
-	Ce squelette définit les styles des boutons de l'espace privé.
-
-	Règles propres aux éléments en ajax.
-
-]#CACHE{3600*100,cache-client}
-#HTTP_HEADER{Content-Type: text/css; charset=utf-8}
-#HTTP_HEADER{Vary: Accept-Encoding}
-[(#REM)<style>]
-
 /**
  * Conteneurs ajax
  * Ils sont ajoutés autour des éléments ajaxés

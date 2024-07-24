@@ -1,15 +1,4 @@
-[(#REM)
-
-	Ce squelette définit les styles des blocs de code de l'espace privé.
-
-	- spip_code (balise code, backtick simples et triples)
-	- spip_cadre (balise cadre : textarea)
-
-]#CACHE{3600*100,cache-client}
-#HTTP_HEADER{Content-Type: text/css; charset=utf-8}
-#HTTP_HEADER{Vary: Accept-Encoding}
-[(#REM)<style>]
-
+/* Codes */
 .spip_code,
 .spip_cadre {
 	border: 1px solid hsl(var(--spip-color-theme--h), 10%, 85%);
