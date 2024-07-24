@@ -405,7 +405,7 @@
 	margin-bottom: calc(var(--spip-form-spacing-y) / 4);
 	background: transparent;
 	color: var(--spip-form-color-text-light);
-	text-align: var(--spip-left);
+	text-align: start;
 	font-weight: inherit;
 	line-height: 1.3; /* légèrement inférieure au texte normal */
 }
@@ -423,7 +423,7 @@
 	/* @deprecated SPIP 5.0 .label */ .formulaire_spip .editer > .label,
 	.formulaire_spip .editer > .editer-label,
 	.formulaire_spip .editer.gauche > label {
-		float: var(--spip-left);
+		float: inline-start;
 		width: var(--spip-form-label-width);
 		margin-inline-start: calc((var(--spip-form-label-width) + var(--spip-form-spacing-x)) * -1); /* inverse largeur + marge */
 		padding: calc(var(--spip-form-input-padding-y) + 1px) 0 0; /* décaler pour aligner avec texte input → padding + border */
@@ -482,7 +482,7 @@
 	margin-bottom: 0 !important; /* Fix #wysiwyg */
 	clear: both;
 	padding: var(--spip-form-spacing-y) var(--spip-form-spacing-x);
-	text-align: var(--spip-right);
+	text-align: end;
 	background-color: var(--spip-color-theme-lightest);
 	border-bottom-left-radius: var(--spip-form-input-border-radius);
 	border-bottom-right-radius: var(--spip-form-input-border-radius);
@@ -1226,7 +1226,7 @@
 }
 .formulaire_configurer_reducteur .vignette_reducteur {
 	text-align: center;
-	float: var(--spip-left);
+	float: inline-start;
 	border: 1px solid var(--spip-form-input-border-color);
 	width: 150px;
 	padding-top: calc(150px + var(--spip-btn-padding-y));
@@ -1408,12 +1408,12 @@
 /* formulaire de recherche : */
 /* version old style */
 .spip_recherche {
-	float: var(--spip-right);
+	float: inline-end;
 	border: 0;
 	background: none;
 }
 .spip_recherche .recherche {
-	float: var(--spip-left);
+	float: inline-start;
 	padding: 3px;
 	padding-inline-end: 30px;
 	width: 186px;
@@ -1433,7 +1433,7 @@
 }
 .formulaire_recherche {
 	z-index: 1;
-	float: var(--spip-right);
+	float: inline-end;
 	width: 40ch;
 	border: 0;
 	margin: 0 0 calc(var(--spip-spacing-y) / 2);
@@ -1557,7 +1557,7 @@
 	font-weight: inherit;
 }
 .formulaire_traduire .supprimer_trad {
-	float: var(--spip-right);
+	float: inline-end;
 	margin: calc(var(--spip-form-spacing-y) / 2) 0 0;
 }
 .formulaire_traduire .new_trad {

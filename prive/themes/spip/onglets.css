@@ -198,7 +198,7 @@
 	margin: 0 auto;
 	padding: 0;
 	margin: 0;
-	text-align: var(--spip-left);
+	text-align: start;
 	list-style:none;
 }
 .barre_onglet li {
