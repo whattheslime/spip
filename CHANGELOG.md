@@ -4,6 +4,7 @@
 
 ### Added
 
+- #5460 Permettre des CSS pour l’espace privé directement en CSS (sans compilation SPIP)
 - #5938 Permettre à `objet_info()` de retourner directement l’information `table_objet_sql` (le nom de la table sql)
 - !5824 Logger `spip_logger()` impplémentant `Psr\Log\LoggerInterface` (PSR-3) via une librairie `spip/logger` qui utilise Monolog
 - !5807 Cache des squelettes réécrit en utilisant une librairie `spip/cache` (PSR-16)
@@ -15,6 +16,7 @@
 
 ### Changed
 
+- #5460 Renommer les fichiers CSS qui n’ont pas besoin de compilation SPIP
 - #4657 Renommage de `admin_tech` en `admin_bdd` et des chaînes de langue afférentes
 - !5708 Découpage des fichiers de démarrage de SPIP (non surchargeables) dans `ecrire/boostrap`
 - !5765 Nettoyage des paramètres d’URI : la constante `_CONTEXTE_IGNORE_LISTE_VARIABLES` remplace `_CONTEXTE_IGNORE_VARIABLES` supprimée.
@@ -26,6 +28,7 @@
 
 ### Fixed
 
+- #5460 Utiliser les propriétés logiques dans les CSS de l'espace privé
 - #5961 Correction du bandeau de l’espace privé pour les navigateurs sans `:has` encore par défaut (FF 115 ESR notamment)
 - #5972 Ne pas ajouter une requête SQL de comptage lorsque non nécessaire
 - #5972 Correction de `sql_countsel()` avec des groupby multiples en SQLite.
