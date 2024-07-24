@@ -176,8 +176,8 @@ ul.spip,.formulaire_spip ul.spip, #conteneur ul.spip { list-style: square; margi
 ul.spip ul, #conteneur ul.spip ul { list-style: circle; }
 ol.spip, #conteneur ol.spip { list-style: decimal; margin-bottom:#ENV{margin-bottom};}
 
-ul.spip li, ol.spip li, #conteneur ul.spip li  {margin-#ENV{left}:#ENV{text-indent};}
-ul.spip li li, ol.spip li li, #conteneur ul.spip li li {margin-#ENV{left}:[(#ENV{text-indent}|strdiv{2})px];}
+ul.spip li, ol.spip li, #conteneur ul.spip li  {margin-inline-start:#ENV{text-indent};}
+ul.spip li li, ol.spip li li, #conteneur ul.spip li li {margin-inline-start:[(#ENV{text-indent}|strdiv{2})px];}
 
 /* Citations, poesie */
 /*blockquote.spip { margin: 2em 0; padding-left: 1em; border-left: 0.30em solid; }
@@ -196,8 +196,8 @@ img, .spip_logo { margin: 0; padding: 0; border: 0; max-width: 100%;height: auto
 .spip_doc_descriptif,
 .spip_doc_credits { margin-right: auto; margin-left: auto; text-align: center; min-width: 120px; }
 .spip_documents_center { display: block; clear: both; width: 100%; margin: [(#ENV{margin-bottom})] auto; }
-.spip_documents_left { float: #ENV{left}; margin-#ENV{right}: 15px; margin-bottom: [(#ENV{margin-bottom})]; max-width: 33%; }
-.spip_documents_right { float: #ENV{right}; margin-#ENV{left}: 15px; margin-bottom: [(#ENV{margin-bottom})]; max-width: 33%; }
+.spip_documents_left { float: inline-start; margin-inline-end: 15px; margin-bottom: [(#ENV{margin-bottom})]; max-width: 33%; }
+.spip_documents_right { float: inline-end; margin-inline-start: 15px; margin-bottom: [(#ENV{margin-bottom})]; max-width: 33%; }
 .spip_documents p { margin: 0.10em; padding: 0;}
 .spip_doc_titre { margin-right: auto; margin-left: auto; font-weight: bold; font-size: 0.90em; line-height: 1.25; }
 .spip_doc_descriptif { clear: both; margin-right: auto; margin-left: auto; font-size: 0.90em; line-height: 1.25; }

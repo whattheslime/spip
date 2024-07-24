@@ -75,7 +75,7 @@ html {background-color:#eee;}
 }
 
 
-#chemin { overflow: hidden; margin: 0; padding: 0;	text-align:#ENV{left};}
+#chemin { overflow: hidden; margin: 0; padding: 0;	text-align:start;}
 @media (min-width: 1200px) {
 	#chemin {
 		font-size: 0.9333em;
@@ -84,8 +84,8 @@ html {background-color:#eee;}
 #chemin > a  { color: #444; }
 #chemin > a:hover { text-decoration: underline;  }
 
-#chemin .bouton_deplacer {display:inline-block;position:relative;padding-#ENV{left}:20px;}
-#chemin .bouton_deplacer .image_loading {position:absolute;top:0;#ENV{left}:0;}
+#chemin .bouton_deplacer {display:inline-block;position:relative;padding-inline-start:20px;}
+#chemin .bouton_deplacer .image_loading {position:absolute;top:0;inset-inline-start:0;}
 .edition #chemin .bouton_deplacer,.edition #chemin #chercher_rubrique {display: none;}
 
 #chemin .aide {padding-top: 0px; }
@@ -96,7 +96,7 @@ a:hover { text-decoration: underline; }
 a.icone { text-decoration: none; }
 a.icone:hover { text-decoration: none; }
 
-a.plus_info {display:block;float:#ENV{right};}
+a.plus_info {display:block;float:inline-end;}
 
 img.puce { width: 7px; height: 7px; border: 0; }
 img.lang { width: 12px; height: 12px; border: 0; }
@@ -136,20 +136,20 @@ img.lang { width: 12px; height: 12px; border: 0; }
 a.boutonlien:hover { color: #454545; text-decoration: none; }
 a.boutonlien { color: #808080; text-decoration: none; }
 
-a.triangle_block { margin-top: -3px; margin-bottom: -3px; margin-#ENV{right}: -3px; opacity: 0.7; }
+a.triangle_block { margin-top: -3px; margin-bottom: -3px; margin-inline-end: -3px; opacity: 0.7; }
 a.triangle_block:hover { opacity: 1; }
 
-a.ical { background: url("#CHEMIN_IMAGE{synchro-24.png}") no-repeat; background-position: top center; padding-#ENV{left}: 30px; padding-bottom: 20px; }
+a.ical { background: url("#CHEMIN_IMAGE{synchro-24.png}") no-repeat; background-position: top center; padding-inline-start: 30px; padding-bottom: 20px; }
 
 .enfants ul { list-style: none; }
-.enfants ul li.rubrique_12 {background:url("#CHEMIN_IMAGE{rubrique-xx.svg}")[ (#ENV{left})] center no-repeat; background-size:12px; padding: 2px; padding-#ENV{left}: 18px; margin-#ENV{left}: 6px;position:relative;}
+.enfants ul li.rubrique_12 {background:url("#CHEMIN_IMAGE{rubrique-xx.svg}")[ (#ENV{left})] center no-repeat; background-size:12px; padding: 2px; padding-inline-start: 18px; margin-inline-start: 6px;position:relative;}
 
 
 /* menu langues */
 .lang_ecrire { max-height: 24px; border: 1px solid #fff; color: white; width: 100px; background: #ENV{foncee}; }
 
 /* pour les puces de changement rapide de statut ; NB: ca buggue car ca s'affiche en-dessous du cadre */
-/*li .puce_statut { float: #ENV{left}; padding-top: 5px; }
+/*li .puce_statut { float: inline-start; padding-top: 5px; }
 li .puce_article_popup, li.puce_breve_popup,li.puce_site_popup { padding: 0; }*/
 .puce_objet { position: relative; }
 .puce_objet_fixe { position: relative; }
@@ -165,7 +165,7 @@ li .puce_article_popup, li.puce_breve_popup,li.puce_site_popup { padding: 0; }*/
 	top: -3px;
 	box-shadow: 0 0 5px rgba(0,0,0,0.2);
 	border-radius: var(--spip-list-border-radius);
-	#ENV{left}: -7px;
+	inset-inline-start: -7px;
 	padding: 4px;
 	line-height: 0;
 }
@@ -190,7 +190,7 @@ li .puce_article_popup, li.puce_breve_popup,li.puce_site_popup { padding: 0; }*/
 #navigation .infos .noinfo { color:#ddd;}
 #contenu .bandeau_actions { margin:5px 0;clear:both; }
 #contenu .bandeau_actions a:hover { background: #fff; }
-#contenu .logo_titre { float: #ENV{right}; margin: 5px 0; margin-#ENV{left}: 5px; }
+#contenu .logo_titre { float: inline-end; margin: 5px 0; margin-inline-start: 5px; }
 
 #contenu .fiche_objet > .inner > .hd {padding-bottom: 0;}
 #contenu .fiche_objet > .inner > .bd {padding-top: 0;}
@@ -253,8 +253,8 @@ li .puce_article_popup, li.puce_breve_popup,li.puce_site_popup { padding: 0; }*/
 #wysiwyg .contenu_notes { background:#fff; border-top:1px solid #666; padding-top:5px; margin:1em 0; font-size: 0.9em; line-height: 1.3em;}
 #wysiwyg .contenu_notes.vide {display: none;}
 #wysiwyg .contenu_notes .label {display:inline;font-weight:bold;background:none;color:#000;}
-#wysiwyg .contenu_notes .notes { padding-#ENV{left}: 2em;}
-#wysiwyg .contenu_notes .spip_note_ref {display:block;float:#ENV{left};margin-#ENV{left}:-2em;}
+#wysiwyg .contenu_notes .notes { padding-inline-start: 2em;}
+#wysiwyg .contenu_notes .spip_note_ref {display:block;float:inline-start;margin-inline-start:-2em;}
 #wysiwyg .texte {font-size:1em;}
 
 #wysiwyg { padding:5px;font-size: 1em;clear: both;}
@@ -296,7 +296,7 @@ li .puce_article_popup, li.puce_breve_popup,li.puce_site_popup { padding: 0; }*/
 	background: url("#CHEMIN_IMAGE{fond-grille.gif}") top left;
 }
 
-h2.titrem { display: block; padding-top: 6px; padding-bottom: 4px; background-repeat: no-repeat;padding-[(#ENV{left})]:16px;background-color: #ENV{claire};font-size:14px;}
+h2.titrem { display: block; padding-top: 6px; padding-bottom: 4px; background-repeat: no-repeat;padding-inline-start:16px;background-color: #ENV{claire};font-size:14px;}
 
 .aide .contenu-aide,.box_mediabox .contenu-aide {padding-top:[(#ENV{margin-bottom}|strmult{1.0})em];}
 .box_mediabox .contenu-aide {min-width:450px;margin-right: 15px;}

@@ -165,7 +165,7 @@
 }
 .icone.horizontale b {
 	margin-top: 0;
-	margin-#ENV{left}: var(--spip-spacing-x);
+	margin-inline-start: var(--spip-spacing-x);
 }
 .icone.horizontale a:not(:hover):not(:focus) b {
 	color: #666;
@@ -293,7 +293,7 @@
 .cadre-icone {
 	position: absolute;
 	top: -16px;
-	#ENV{left}: 10px;
+	inset-inline-start: 10px;
 	z-index:1;
 	max-width:24px;
 	height:auto;
@@ -310,9 +310,9 @@
 	cursor: pointer;
 	padding: 3px;
 	margin: 1px;
-	border-#ENV{right}: solid 1px #fff;
+	border-inline-end: solid 1px #fff;
 	border-bottom: solid 1px #fff;
-	border-#ENV{left}: solid 1px #666;
+	border-inline-start: solid 1px #666;
 	border-top: solid 1px #666;
 	background-color: #eee;
 }
