@@ -5,7 +5,7 @@
  * ------------------
  */
 
-define('_ECRAN_SECURITE', '1.6.1'); // 2024-05-30
+define('_ECRAN_SECURITE', '1.6.2'); // 2024-07-26
 
 /*
  * Documentation : https://www.spip.net/fr_article4200.html
@@ -584,7 +584,7 @@ if (
 /*
  * Pas d'action pendant l'install
  */
-if (isset($__request['exec']) and $__request['exec'] === 'install' and isset($__request['action'])) {
+if (isset($__request['exec']) and $__request['exec'] === 'install' and (isset($__request['action']) and $__request['action'] !== 'converser')) {
 	$ecran_securite_raison = 'install&action impossibles';
 }
 
