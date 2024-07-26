@@ -1503,7 +1503,7 @@ function find_in_theme($file, $subdir = '', $include = false) {
 			return $themefiles["$subdir$file"] = $f;
 		}
 	}
-	spip_log("$file introuvable dans le theme prive " . reset($themes), 'theme');
+	spip_log("$file introuvable dans le theme prive " . reset($themes), 'theme.' . _LOG_DEBUG);
 
 	return $themefiles["$subdir$file"] = '';
 }
