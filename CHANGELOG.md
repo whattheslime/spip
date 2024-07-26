@@ -28,6 +28,7 @@
 
 ### Fixed
 
+- spip-security/securite#4855 Ne pas du dupliquer l’attribut `class` sur les balises `<code>`
 - #5327 Permettre de changer de langue à l’installation
 - #5879 Diminuer le niveau de log (debug) des fichiers introuvables de `find_in_theme()`
 - #5460 Utiliser les propriétés logiques dans les CSS de l'espace privé
