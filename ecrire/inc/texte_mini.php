@@ -76,18 +76,24 @@ function spip_balisage_code(string $corps, bool $bloc = false, string $attributs
 		$attributs .= ' data-language="'. $langage .'"';
 	}
 	if ($bloc) {
-		$html = "<div class=\"precode\">"
-		  . "<pre class=\"$class\" dir=\"ltr\" style=\"text-align: left;\"$attributs>"
-		  . "<code>"
+		$pre = "<pre$attributs>";
+		$pre = ajouter_class($pre, $class);
+		$pre = inserer_attribut($pre, 'dir', 'ltr');
+		$pre = inserer_attribut($pre, 'style', 'text-align:left;');
+		$html = '<div class="precode">'
+		  . $pre
+		  . '<code>'
 		  . $echap
 		  . '</code>'
 		  . '</pre>'
 		  . '</div>';
-	}
-	else {
-		$echap = str_replace("\t", "&nbsp; &nbsp; &nbsp; &nbsp; ", $echap);
-		$echap = str_replace("  ", " &nbsp;", $echap);
-		$html = "<code class=\"$class\" dir=\"ltr\"$attributs>" . $echap . '</code>';
+	} else {
+		$code = "<code$attributs>";
+		$code = ajouter_class($code, $class);
+		$code = inserer_attribut($code, 'dir', 'ltr');
+		$echap = str_replace("\t", '&nbsp; &nbsp; &nbsp; &nbsp; ', $echap);
+		$echap = str_replace('  ', ' &nbsp;', $echap);
+		$html = $code . $echap . '</code>';
 	}
 
 	return $html;
