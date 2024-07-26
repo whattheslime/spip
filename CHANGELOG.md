@@ -28,6 +28,7 @@
 
 ### Fixed
 
+- #5327 Permettre de changer de langue à l’installation
 - #5879 Diminuer le niveau de log (debug) des fichiers introuvables de `find_in_theme()`
 - #5460 Utiliser les propriétés logiques dans les CSS de l'espace privé
 - #5961 Correction du bandeau de l’espace privé pour les navigateurs sans `:has` encore par défaut (FF 115 ESR notamment)
