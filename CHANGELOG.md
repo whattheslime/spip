@@ -14,6 +14,7 @@ Changelog de SPIP 4.4
 
 ### Fixed
 
+- #5327 Permettre de changer de langue à l’installation
 - #5879 Diminuer le niveau de log (debug) des fichiers introuvables de `find_in_theme()`
 - #5961 Correction du bandeau de l’espace privé pour les navigateurs sans `:has` encore par défaut (FF 115 ESR notamment)
 - #5972 Ne pas ajouter une requête SQL de comptage lorsque non nécessaire
