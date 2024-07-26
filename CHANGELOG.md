@@ -4,6 +4,10 @@ Changelog de SPIP 4.2
 
 ## Unreleased
 
+### Security
+
+- Mise à jour de l’écran de sécurité en version 1.6.2
+
 ### Fixed
 
 - #5879 Diminuer le niveau de log (debug) des fichiers introuvables de `find_in_theme()`
