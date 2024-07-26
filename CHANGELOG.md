@@ -10,6 +10,7 @@ Changelog de SPIP 4.2
 
 ### Fixed
 
+- spip-security/securite#4855 Ne pas du dupliquer l’attribut `class` sur les balises `<code>`
 - #5327 Permettre de changer de langue à l’installation
 - #5879 Diminuer le niveau de log (debug) des fichiers introuvables de `find_in_theme()`
 - #5758 Pipelines `pre_edition` et `post_edition`: transmettre l’info `objet` qui manque à quelques endroits (note: l’info `type` équivalente sera dépréciée en SPIP 5)
