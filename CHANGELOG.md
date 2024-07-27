@@ -5,7 +5,6 @@
 ### Added
 
 - #5460 Permettre des CSS pour l’espace privé directement en CSS (sans compilation SPIP)
-- #5938 Permettre à `objet_info()` de retourner directement l’information `table_objet_sql` (le nom de la table sql)
 - !5824 Logger `spip_logger()` impplémentant `Psr\Log\LoggerInterface` (PSR-3) via une librairie `spip/logger` qui utilise Monolog
 - !5807 Cache des squelettes réécrit en utilisant une librairie `spip/cache` (PSR-16)
 - !5806 Gestion des chemins (path) & leur cache réécrit en utilisant une librairie `spip/path`
@@ -28,24 +27,8 @@
 
 ### Fixed
 
-- spip-security/securite#4855 Ne pas du dupliquer l’attribut `class` sur les balises `<code>`
-- #5327 Permettre de changer de langue à l’installation
-- #5879 Diminuer le niveau de log (debug) des fichiers introuvables de `find_in_theme()`
 - #5460 Utiliser les propriétés logiques dans les CSS de l'espace privé
-- #5961 Correction du bandeau de l’espace privé pour les navigateurs sans `:has` encore par défaut (FF 115 ESR notamment)
-- #5972 Ne pas ajouter une requête SQL de comptage lorsque non nécessaire
-- #5972 Correction de `sql_countsel()` avec des groupby multiples en SQLite.
-- #5970 Correction des boucles paginées sans limites (suite à !5911 #5714)
-- #5960 Affichage du bandeau haut lorsqu’il n’y a pas d’outils collaboratifs activés
-- #5758 Pipelines `pre_edition` et `post_edition`: transmettre l’info `objet` qui manque à quelques endroits (note: l’info `type` équivalente sera dépréciée en SPIP 5)
 - #3581 Ne pas utiliser la fonction dépréciée `debut_cadre_sous_rub`
-- !5989 Le filtre `inserer_attribut` utilise l’échappement `attribut_url` (plutôt que `attribut_html`) sur les attributs `href` et `src`
-- #5549 Respecter le margin bottom sur le dernier element des formulaires
-- !5982 Utiliser le modèle de pagination privé sur la liste des articles de même rubrique de l’espace privé
-- !5984 Corriger l’authentification SPIP sur un serveur distant
-- #5965 La balise `#FILTRE` gère le cas de filtres nécessitant la pile de contexte en argument.
-- !5983 Pas de tabulations dans le mail de notification de mises à jour
-- #5178 Englober la page login d’une `div.contenu_login` pour pouvoir être ciblée spécifiquement en CSS lorsque chargée dans une modale
 - #5825 Ne pas mettre l'adresse du site entre parenthèses dans les mails envoyés par SPIP
 
 ### Deprecated
