@@ -27,6 +27,7 @@
 
 ### Fixed
 
+- #5961 Correction complémentaire du bandeau de l’espace privé pour les navigateurs sans `:has`
 - #5861 Ne pas désactiver le clic sur les `.btn_desactive`
 - #5460 Utiliser les propriétés logiques dans les CSS de l'espace privé
 - #3581 Ne pas utiliser la fonction dépréciée `debut_cadre_sous_rub`
