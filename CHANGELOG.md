@@ -27,6 +27,7 @@
 
 ### Fixed
 
+- #5861 Ne pas désactiver le clic sur les `.btn_desactive`
 - #5460 Utiliser les propriétés logiques dans les CSS de l'espace privé
 - #3581 Ne pas utiliser la fonction dépréciée `debut_cadre_sous_rub`
 - #5825 Ne pas mettre l'adresse du site entre parenthèses dans les mails envoyés par SPIP
