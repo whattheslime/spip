@@ -181,7 +181,6 @@ return [
 	'icone_admin_plugin' => 'Gestion des plugins',
 	'icone_administration' => 'Maintenance',
 	'icone_afficher_auteurs' => 'Afficher les auteurs',
-	'icone_afficher_visiteurs' => 'Afficher les visiteurs',
 	'icone_arret_discussion' => 'Ne plus participer à cette discussion',
 	'icone_calendrier' => 'Calendrier',
 	'icone_configuration' => 'Configuration',

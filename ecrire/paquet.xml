@@ -157,7 +157,6 @@
 	<menu nom="suivi_edito" titre="icone_suivi_publication" parent="menu_publication" icone="images/suivi-16.png" />
 	<menu nom="synchro" titre="icone_suivi_activite" parent="menu_publication" icone="images/synchro-16.png" />
 	<menu nom="menu_activite" titre="icone_activite" icone="images/menu-activite.svg" action="navigation" parametres="menu=menu_activite" />
-	<menu nom="visiteurs" titre="icone_afficher_visiteurs" parent="menu_activite" icone="images/auteur-6forum-16.png" action="visiteurs" />
 	<menu nom="menu_squelette" titre="icone_squelette" icone="images/menu-squelette.svg" action="navigation" parametres="menu=menu_squelette" />
 	<menu nom="menu_administration" titre="icone_administration" icone="images/menu-administration.svg" action="navigation" parametres="menu=menu_administration" />
 	<menu nom="admin_vider" titre="onglet_vider_cache" parent="menu_administration" icone="images/cache-empty-16.png" />
