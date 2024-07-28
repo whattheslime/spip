@@ -1504,6 +1504,22 @@ function autoriser_auteurs_voir_dist(string $faire, string $type, $id, array $qu
 }
 
 /**
+ * Autorisation de voir les emails des autres auteurs
+ *
+ * @see autoriser()
+ *
+ * @param string $faire Action demandée
+ * @param string $type Type d'objet ou élément
+ * @param int|string|null $id Identifiant
+ * @param array $qui Description de l'auteur demandant l'autorisation
+ * @param array $opt Options de cette autorisation
+ * @return bool true s'il a le droit, false sinon
+ */
+function autoriser_auteurs_voiremails_dist(string $faire, string $type, $id, array $qui, array $opt): bool {
+	return $qui['statut'] === '0minirezo' && !$qui['restreint'];
+}
+
+/**
  * Autorisation de voir le menu auteurs
  *
  * Toujours OK
