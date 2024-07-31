@@ -185,14 +185,6 @@ function interdire_scripts($arg, $mode_filtre = null) {
 	// pas de <base href> svp !
 	$t = preg_replace(',<(base\b),iS', '&lt;\1', $t);
 
-	// Reinserer les echappements des modeles
-	if (defined('_PROTEGE_JS_MODELES')) {
-		$t = echappe_retour($t, 'javascript' . _PROTEGE_JS_MODELES);
-	}
-	if (defined('_PROTEGE_PHP_MODELES')) {
-		$t = echappe_retour($t, 'php' . _PROTEGE_PHP_MODELES);
-	}
-
 	return $dejavu[$mode_filtre][$arg] = $t;
 }
 
