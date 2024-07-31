@@ -5533,10 +5533,19 @@ function filtre_objet_lister_enfants_par_type_dist($objet, $id_objet) {
  * Filtre `propre()` pour les squelettes
  *
  * Permet d'envoyer l’environnement au filtre propre
+ * Dans l'espace privé il faut
+ *   - renseigner le $env['espace_prive'] a true
+ *   - passer interdire_scripts() en sortie
  */
 function filtre_propre_dist(&$Pile, $texte) {
 	$env = &$Pile[0];
+	if (test_espace_prive()) {
+		$env['espace_prive'] = true;
+	}
 	$texte = propre($texte, '', $env);
+	if (test_espace_prive()) {
+		$texte = interdire_scripts($texte);
+	}
 
 	return $texte;
 }
