@@ -281,6 +281,26 @@ function echappe_html(
 }
 
 /**
+ * Réinserer les échappements des modèles
+ *
+ * @param mixed $texte
+ * @return mixed
+ */
+function retablir_echappements_modeles($texte) {
+	if (!is_string($texte) || !strlen($texte)) {
+		return $texte;
+	}
+	// Reinserer les echappements des modeles
+	if (defined('_PROTEGE_JS_MODELES')) {
+		$texte = echappe_retour($texte, 'javascript' . _PROTEGE_JS_MODELES);
+	}
+	if (defined('_PROTEGE_PHP_MODELES')) {
+		$texte = echappe_retour($texte, 'php' . _PROTEGE_PHP_MODELES);
+	}
+	return $texte;
+}
+
+/**
  * Traitement final des echappements
  * Rq: $source sert a faire des echappements "a soi" qui ne sont pas nettoyes
  * par propre() : exemple dans multi et dans typo()
@@ -305,10 +325,9 @@ function echappe_retour_modeles($letexte, $interdire_scripts = false) {
 	}
 	$letexte = CollecteurHtmlTag::retablir_depuisHtmlBase64((string)$letexte);
 
-	// Dans les appels directs hors squelette, securiser aussi ici
-	// c'est interdire_scripts() qui rétablit les scripts des modeles echappés avec _PROTEGE_JS_MODELES et _PROTEGE_PHP_MODELES
+	// Dans les appels directs hors squelette, sécuriser aussi ici
 	if ($interdire_scripts) {
-		$letexte = interdire_scripts($letexte);
+		$letexte = retablir_echappements_modeles(interdire_scripts($letexte));
 	}
 
 	return trim($letexte);

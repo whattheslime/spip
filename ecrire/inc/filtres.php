@@ -5532,12 +5532,11 @@ function filtre_objet_lister_enfants_par_type_dist($objet, $id_objet) {
 /**
  * Filtre `propre()` pour les squelettes
  *
- * Permet d'appliquer la fonction `propre()` manuellement dans les squelettes avec les bons dés-échappements.
+ * Permet d'envoyer l’environnement au filtre propre
  */
 function filtre_propre_dist(&$Pile, $texte) {
 	$env = &$Pile[0];
 	$texte = propre($texte, '', $env);
-	$texte = interdire_scripts($texte);
 
 	return $texte;
 }

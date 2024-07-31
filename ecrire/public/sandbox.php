@@ -161,6 +161,7 @@ function sandbox_composer_interdire_scripts($code, &$p) {
 			$code = "sinon(interdire_scripts($r[1]),'$code')";
 		}
 	}
+	$code = "retablir_echappements_modeles($code)";
 
 	return $code;
 }
