@@ -161,6 +161,12 @@ function sandbox_composer_interdire_scripts($code, &$p) {
 			$code = "sinon(interdire_scripts($r[1]),'$code')";
 		}
 	}
+
+	// on ne veut appliquer qu'une fois retablir_echappements_modeles() dans toute une chaine de filtre, à la fin uniquement
+	if (str_contains($code, 'retablir_echappements_modeles(')) {
+		$code = str_replace('retablir_echappements_modeles(', '(', $code);
+	}
+
 	$code = "retablir_echappements_modeles($code)";
 
 	return $code;
