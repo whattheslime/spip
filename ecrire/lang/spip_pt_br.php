@@ -268,7 +268,7 @@ Para confirmar o seu novo endereço, basta acessar o endereço abaixo (cas contr
 	'form_pet_signature_pasprise' => 'Sua assinatura não foi computada.',
 	'form_prop_confirmer_envoi' => 'Confirmar o envio',
 	'form_prop_description' => 'Descrição / comentário',
-	'form_prop_enregistre' => 'Sua proposta foi cadastrada, ela aparecerá online após ser validada pelos responsáveis deste site.', # MODIF
+	'form_prop_enregistre' => 'Sua contribuição foi registrada, ela aparecerá online após ser validada pelos responsáveis.',
 	'form_prop_envoyer' => 'Enviar uma mensagem',
 	'form_prop_indiquer_email' => 'Por favor, indique um endereço de e-mail válido',
 	'form_prop_indiquer_nom_site' => 'Por favor, informe o nome do site.',
@@ -357,7 +357,7 @@ Para confirmar o seu novo endereço, basta acessar o endereço abaixo (cas contr
 	'info_breves_nb' => '@nb@ notas',
 	'info_breves_un' => '1 nota',
 	'info_connexion_refusee' => 'Conexão recusada',
-	'info_contact_developpeur' => 'Por favor, contate um desenvolvedor.', # MODIF
+	'info_contact_developpeur' => 'Por favor, contate uma pessoa responsável pelo desenvolvimento.',
 	'info_contenance' => 'Este site contém:',
 	'info_contribution' => 'contribuições',
 	'info_copyright' => '@spip@ é um software livre distribuído @lien_gpl@.',
@@ -394,7 +394,7 @@ Para confirmar o seu novo endereço, basta acessar o endereço abaixo (cas contr
 	'info_impossible_lire_page' => '<b>Erro!</b> Impossível ler a página <tt><html>@test_proxy@</html></tt> via proxy',
 	'info_installation_systeme_publication' => 'Instalação do sistema de publicação...',
 	'info_installer_documents' => 'Você pode instalar automaticamente todos os documentos contídos no diretório @upload@.',
-	'info_installer_ftp' => 'Como administrador, você pode transferir (por FTP) arquivos para o diretório @upload@ para, em seguida, selecioná-los aqui diretamente.', # MODIF
+	'info_installer_ftp' => 'Como admin, você pode transferir (por FTP) arquivos para o diretório @upload@ para, em seguida, selecioná-los diretamente por aqui.',
 	'info_installer_images' => 'Você pode transferir imagens nos formatos JPEG, GIF e PNG.',
 	'info_installer_images_dossier' => 'Transferir as imagens para o diretório @upload@ para poder selecioná-las aqui.',
 	'info_interface_complete' => 'interface completa',
@@ -422,8 +422,8 @@ Para confirmar o seu novo endereço, basta acessar o endereço abaixo (cas contr
 	'info_multi_herit' => 'Idioma padrão',
 	'info_multi_langues_soulignees' => 'Os <u>idiomas sublinhados</u> dispõem de tradução total ou parcial dos textos da interface. Se você escolher esses idiomas, diversos elementos do site público (datas, formulários) são traduzidos automaticamente. Para os idiomas não sublinhados, estes elementos aparecerão no idioma principal do site.',
 	'info_multilinguisme' => 'Multilinguismo',
-	'info_nom_non_utilisateurs_connectes' => 'Seu nome não aparece na relação de usuários conectados.', # MODIF
-	'info_nom_utilisateurs_connectes' => 'Seu nome aparecerá na relação de usuários conectados.', # MODIF
+	'info_nom_non_utilisateurs_connectes' => 'Seu nome não aparece na lista de pessoas conectadas.',
+	'info_nom_utilisateurs_connectes' => 'Seu nome aparecerá na lista de pessoas conectadas.',
 	'info_nombre_en_ligne' => 'Online neste momento:',
 	'info_non_resultat' => 'Nenhum resultados para "@cherche_mot@"',
 	'info_non_utilisation_messagerie' => 'Você não utiliza o sistema de mensagens deste site.',
@@ -462,8 +462,8 @@ Para confirmar o seu novo endereço, basta acessar o endereço abaixo (cas contr
 	'info_sites_un' => '1 site',
 	'info_supprimer_vignette' => 'excluir o ícone',
 	'info_symbole_bleu' => 'O ícone <b>azul</b> indica um <b>lembrete</b>: ou seja, uma mensagem para seu uso pessoal.',
-	'info_symbole_jaune' => 'O ícone <b>amarelo</b> indica um  <b>anúncio para todos os redatores</b>: modificável por todos os administradores, e visível por todos os redatores.', # MODIF
-	'info_symbole_vert' => 'O ícone <b>verde</b> indica as  <b>mensagens trocadas com outros usuários</b> do site.', # MODIF
+	'info_symbole_jaune' => 'O ícone <b>amarelo</b> indica um  <b>anúncio para todos os redatores</b>: alterável por todos os admins, e visível por todos os redatores.',
+	'info_symbole_vert' => 'O ícone <b>verde</b> indica as  <b>mensagens trocadas com outras pessoas</b>.',
 	'info_telecharger_nouveau_logo' => 'Transferir um novo logo:',
 	'info_telecharger_ordinateur' => 'Tranferir do seu computador:',
 	'info_tous_resultats_enregistres' => '[todos os resultados são gravados]',
@@ -547,10 +547,10 @@ Se você não quiser que a sua senha possa ser interceptada na rede, por favor a
 	'navigateur_pas_redirige' => 'Se o seu navegador não o redirecionar, clique aqui para continuar.',
 	'notification_mise_a_jour' => 'Olá,
 
-	O site @adresse_site@ pode ser atualizado para uma versão mais nova do SPIP.
+O site @adresse_site@ pode ser atualizado para uma versão mais recente do SPIP.
 
 	Por questões de segurança, é importante manter o seu site atualizado.
-', # MODIF
+',
 	'numero' => 'Número',
 
 	// O
@@ -571,12 +571,12 @@ Se você não quiser que a sua senha possa ser interceptada na rede, por favor a
 	'pass_choix_pass' => 'Por favor, escolha a sua nova senha:',
 	'pass_erreur' => 'Erro',
 	'pass_erreur_acces_refuse' => '<b>Erro:</b> você não tem mais acesso a este site.',
-	'pass_erreur_code_inconnu' => '<b>Erro:</b> este login não corresponde a nenhum visitante com permissão de acesso a este site.', # MODIF
+	'pass_erreur_code_inconnu' => '<b>Erro:</b> este código não corresponde a nenhuma conta com acesso a este site.',
 	'pass_erreur_non_enregistre' => '<b>Erro:</b> o e-mail <tt>@email_oubli@</tt> não está cadastrado neste site.',
 	'pass_erreur_non_valide' => '<b>Erro:</b> o e-mail <tt>@email_oubli@</tt> não é válido!',
 	'pass_erreur_probleme_technique' => '<b>Erro:</b> este e-mail não pôde ser enviado devido a um problema técnico.',
-	'pass_espace_prive_bla' => 'O espaço privado deste site é aberto aos visitantes, após inscrição. Uma vez cadastrado, você poderá consultar as matérias em fase de redação, propor a publicação de novas matérias e participar de todos os fóruns.', # MODIF
-	'pass_forum_bla' => 'Você soliciou a participação num fórum reservado a visitantes registrados.', # MODIF
+	'pass_espace_prive_bla' => 'A área restrita deste site é aberta após inscrição. Uma vez cadastrado, você poderá consultar as matérias em fase de redação, propor matérias e participar de todos os fóruns.',
+	'pass_forum_bla' => 'Você solicitou a participação num fórum reservado a pessoas registradas.',
 	'pass_indiquez_cidessous' => 'Informe abaixo o endereço de e-mail com o qual você se cadastrou anteriormente. Você receberá um e-mail lhe indicando os procedimentos a seguir para recuperar o seu acesso.',
 	'pass_mail_passcookie' => '(esta é uma mensagem automática)
 Para recuperar o seu acesso ao site
@@ -641,7 +641,7 @@ Tente se',
 	'texte_inc_auth_2' => 'reconectar',
 	'texte_inc_auth_3' => ', após ter eventualmente saído e reiniciado o seu navegador.',
 	'texte_inc_config' => 'As modificações efetuadas nestas páginas influem consideravelmente no funcionamento do seu site. É recomendável não intervir enquanto você não estiver familiarizado com o funcionamento do sistema SPIP.<br /><br /><b>Geralmente, é fortemente aconselhável deixar a carga destas páginas para o webmaster principal do seu site.</b>',
-	'texte_inc_meta_1' => 'O sistema encontrou um erro durante a escrita do arquivo <code>@fichier@</code>. Como administrador do site, queira por favor,', # MODIF
+	'texte_inc_meta_1' => 'O sistema encontrou um erro durante a escrita do arquivo <code>@fichier@</code>. Como admin do site, queira por favor,',
 	'texte_inc_meta_2' => 'Verificar os direitos de escrita',
 	'texte_inc_meta_3' => 'no diretório <code>@repertoire@</code>.',
 	'texte_statut_en_cours_redaction' => 'em fase de redação',
@@ -653,7 +653,7 @@ Tente se',
 	'titre_cadre_raccourcis' => 'ATALHOS:',
 	'titre_changer_couleur_interface' => 'Alterar a côr da interface',
 	'titre_image_admin_article' => 'Você pode administrar esta matéria',
-	'titre_image_administrateur' => 'Administrador', # MODIF
+	'titre_image_administrateur' => 'Admin',
 	'titre_image_aide' => 'Ajuda sobre este elemento',
 	'titre_image_auteur_supprime' => 'Autor excluído',
 	'titre_image_redacteur' => 'Redator sem acesso',

@@ -192,7 +192,7 @@
 		<traducteur nom="Fernando Ferreira" lien="https://trad.spip.net/auteur/fernando-ferreira" />
 		<traducteur nom="Miguel" lien="https://trad.spip.net/auteur/miguel" />
 	</langue>
-	<langue code="pt_br" url="https://trad.spip.net/tradlang_module/spip?lang_cible=pt_br" total="655" traduits="642" relire="0" modifs="13" nouveaux="0" pourcent="98.02">
+	<langue code="pt_br" url="https://trad.spip.net/tradlang_module/spip?lang_cible=pt_br" total="655" traduits="655" relire="0" modifs="0" nouveaux="0" pourcent="100.00">
 		<traducteur nom="filipaun" lien="https://trad.spip.net/auteur/filipaun" />
 		<traducteur nom="joao1315" lien="https://trad.spip.net/auteur/joao1315" />
 		<traducteur nom="quijaua" lien="https://trad.spip.net/auteur/quijaua" />
