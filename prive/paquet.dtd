@@ -48,7 +48,7 @@
 <!ELEMENT nom (#PCDATA)>
 
 <!ELEMENT auteur (#PCDATA)>
-<!ATTLIST auteur 
+<!ATTLIST auteur
 	  lien %URI; #IMPLIED
 	  mail %MAIL; #IMPLIED
 >
@@ -115,9 +115,10 @@
 >
 
 <!ELEMENT menu EMPTY>
-<!ATTLIST menu 
+<!ATTLIST menu
 	  nom %NAME; #REQUIRED
 	  titre %ITEM; #REQUIRED
+	  titre-court %ITEM; #IMPLIED
 	  parent %NAME; #IMPLIED
 	  position %NUMBER; #IMPLIED
 	  action %NAME; #IMPLIED
@@ -126,7 +127,7 @@
 >
 
 <!ELEMENT onglet EMPTY>
-<!ATTLIST onglet 
+<!ATTLIST onglet
 	  nom %NAME; #REQUIRED
 	  titre %ITEM; #REQUIRED
 	  parent %NAME; #IMPLIED
