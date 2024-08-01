@@ -4,6 +4,7 @@
 
 ### Added
 
+- #5979 Permettre un attribut optionnel `titre-court` dans la balise `menu` des fichiers `paquets.xml`
 - #5460 Permettre des CSS pour l’espace privé directement en CSS (sans compilation SPIP)
 - !5824 Logger `spip_logger()` impplémentant `Psr\Log\LoggerInterface` (PSR-3) via une librairie `spip/logger` qui utilise Monolog
 - !5807 Cache des squelettes réécrit en utilisant une librairie `spip/cache` (PSR-16)
