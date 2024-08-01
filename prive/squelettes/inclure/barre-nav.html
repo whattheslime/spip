@@ -27,7 +27,7 @@
 						[(#CHEMIN_IMAGE{favicon-spip.png}|balise_img{'', picto picto_identite, 24})]
 						<span class="libelle">[(#NOM_SITE_SPIP|couper{35})]</span>
 					</a>
-					
+
 					<ul class="deroulant__sous-menu" data-profondeur="1">
 						<li class="deroulant__item">
 							<a
@@ -58,27 +58,25 @@
 						[(#CHEMIN_IMAGE{creer-24.png}|balise_img{'', picto picto_creer})]
 						<span class="libelle"><:icone_outils_rapides:></span>
 					</a>
-					
+
 					<ul class="deroulant__sous-menu" data-profondeur="1">
 						<BOUCLE_creer(DATA){source table, #GET{boutons}} {cle=outils_rapides}>
 						<BOUCLE_creersous(DATA){source table, #VALEUR{sousmenu}}{par position}>
-						#SET{objet_exec, #VALEUR{url}|trouver_objet_exec}
-						#SET{libelle, #GET{objet_exec/table_objet_sql}|?{#GET{objet_exec/table_objet_sql}|objet_info{texte_objet}, #VALEUR{libelle}}|_T}
 						[<li class="deroulant__item">
 							<a
 								href="[(#VALEUR{url}|sinon{#CLE}|bandeau_creer_url{#VALEUR{urlArg},#GET{contexte}})]"
 								title="[(#VALEUR{libelle}|_T|attribut_html)]"
-								class="deroulant__lien bando2_#CLE"><span class="libelle">(#GET{libelle})</span></a>
+								class="deroulant__lien bando2_#CLE"><span class="libelle">(#VALEUR{libelle}|_T)</span></a>
 						</li>]
 						</BOUCLE_creersous></BOUCLE_creer>
 					</ul>
 				</li>
 				</B_creer>
 			</ul>
-			
+
 			[(#REM) La recherche au milieu ]
 			#FORMULAIRE_RECHERCHE_ECRIRE
-			
+
 			<BOUCLE_collaborer(DATA){source table, #GET{boutons}} {cle=outils_collaboratifs}>
 			<B_collaborersous>
 			<ul class="deroulant deroulant_collaborer collaborer">
@@ -93,7 +91,7 @@
 			</ul>
 			</B_collaborersous>
 			</BOUCLE_collaborer>
-			
+
 			[(#REM) Identité de la personne connectée ]
 			<ul class="deroulant deroulant_infos_perso" data-racine>
 				[(#PLUGIN{aide}|oui)<li class="deroulant__item deroulant__item_aide">
@@ -113,7 +111,7 @@
 						[(#CHEMIN_IMAGE{auteur-24.png}|balise_img{'', picto picto_auteur})]
 						<span class="libelle">[(#SESSION{nom}|trim|sinon{#SESSION{login}}|typo|couper{30})]</span>
 					</a>
-					
+
 					<ul class="deroulant__sous-menu" data-profondeur="1">
 						<BOUCLE_infos_perso(DATA){source table, #GET{boutons_infos_perso}}{par position}{cle!=infos_perso}>
 						[<li class="deroulant__item">
