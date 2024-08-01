@@ -56,7 +56,7 @@ define('_PHP_MAX', '8.4.99');
 # define('_DEV_VERSION_SPIP_COMPAT', '4.4.99');
 // version des signatures de fonctions PHP
 // (= date de leur derniere modif cassant la compatibilite et/ou necessitant un recalcul des squelettes)
-$spip_version_code = 2023_07_15;
+$spip_version_code = 2024_08_01;
 // version de la base SQL (= Date + numero incremental a 2 chiffres YYYYMMDDXX)
 $spip_version_base = 2022_02_23_03;
 
