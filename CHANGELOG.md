@@ -6,6 +6,7 @@ Changelog de SPIP 4.3
 
 ### Fixed
 
+- #5961 Correction complémentaire du bandeau de l’espace privé pour les navigateurs sans `:has`
 - #5861 Ne pas désactiver le clic sur les `.btn_desactive`
 
 ## 4.3.0 - 2024-07-26
