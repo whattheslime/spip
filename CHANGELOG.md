@@ -2,6 +2,16 @@
 
 Changelog de SPIP 4.3
 
+## Unreleased
+
+### Changed
+
+- #5979 Revert du calcul automatique des chaînes de langue du menu Créer du bandeau de l’espace privé
+
+### Fixed
+
+- #5979 Modifier les chaînes de langues utilisées pour les objets déclarés dans le menu Créer (article, rubrique, auteur)
+
 ## 4.3.1 - 2024-08-01
 
 ### Changed
