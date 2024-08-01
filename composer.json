@@ -33,7 +33,7 @@
         "spip/sites": "^4.3.x-dev",
         "spip/stats": "^3.2.x-dev",
         "spip/svp": "^3.2.x-dev",
-        "spip/tw": "^3.2.x-dev",
+        "spip/tw": "^3.3.x-dev",
         "spip/urls": "^4.2.x-dev",
         "symfony/deprecation-contracts": "^3.3",
         "symfony/polyfill-mbstring": "^1.27",

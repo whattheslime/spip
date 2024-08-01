@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "a9c65f31241288ab891aba9d6228166b",
+    "content-hash": "6aaecf91e1f69e21b0f0b7b8998e1c65",
     "packages": [
         {
             "name": "algo26-matthias/idna-convert",
@@ -1910,12 +1910,12 @@
             "source": {
                 "type": "git",
                 "url": "https://git.spip.net/spip/textwheel.git",
-                "reference": "e0b944843b386bc0e41361c7038b667493f1cf5c"
+                "reference": "9913978bd98a27ba496cf182b11cda1d76fcacbb"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://git.spip.net/api/v4/projects/spip%2Ftextwheel/repository/archive.zip?sha=e0b944843b386bc0e41361c7038b667493f1cf5c",
-                "reference": "e0b944843b386bc0e41361c7038b667493f1cf5c",
+                "url": "https://git.spip.net/api/v4/projects/spip%2Ftextwheel/repository/archive.zip?sha=9913978bd98a27ba496cf182b11cda1d76fcacbb",
+                "reference": "9913978bd98a27ba496cf182b11cda1d76fcacbb",
                 "shasum": ""
             },
             "require": {
@@ -1932,7 +1932,7 @@
             "type": "spip-plugin",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "3.2.x-dev"
+                    "dev-master": "3.3.x-dev"
                 }
             },
             "license": [
@@ -1950,7 +1950,7 @@
                 "source": "https://git.spip.net/spip/textwheel/-/tree/master",
                 "issues": "https://git.spip.net/spip/textwheel/-/issues"
             },
-            "time": "2024-05-14T16:25:35+02:00"
+            "time": "2024-08-01T15:44:30+02:00"
         },
         {
             "name": "spip/urls",
