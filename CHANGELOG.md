@@ -14,6 +14,7 @@ Changelog de SPIP 4.4
 
 ### Fixed
 
+- #5961 Correction complémentaire du bandeau de l’espace privé pour les navigateurs sans `:has`
 - #5861 Ne pas désactiver le clic sur les `.btn_desactive`
 - spip-security/securite#4855 Ne pas du dupliquer l’attribut `class` sur les balises `<code>`
 - #5327 Permettre de changer de langue à l’installation
