@@ -4,8 +4,15 @@ Changelog de SPIP 4.3
 
 ## Unreleased
 
+### Changed
+
+- #5977 Toutes les balises déséchappent les modèles (introduction de `retablir_echappements_modeles()` appliqué à toutes les balises)
+- #5977 `interdire_script` ne s’occupe plus de déséchapper les modèles
+
 ### Fixed
 
+- #5977 Le filtre `|propre` gère mieux les échappements des modèles
+- #5913 Le filtre `|sinon` rétablit correctement les échappments des modèles
 - #5961 Correction complémentaire du bandeau de l’espace privé pour les navigateurs sans `:has`
 - #5861 Ne pas désactiver le clic sur les `.btn_desactive`
 
