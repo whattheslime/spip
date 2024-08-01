@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "201ab56e753a4e6439391a331502b2bd",
+    "content-hash": "e16f4cbf0af41cacdb9937d8a290f7b2",
     "packages": [
         {
             "name": "algo26-matthias/idna-convert",
@@ -1761,12 +1761,12 @@
             "source": {
                 "type": "git",
                 "url": "https://git.spip.net/spip/sites.git",
-                "reference": "184923766acd19a125cf57ae7b6b45de055fdd8a"
+                "reference": "942f072b55ea85c68dfaef3109837b2d2c2675f8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://git.spip.net/api/v4/projects/spip%2Fsites/repository/archive.zip?sha=184923766acd19a125cf57ae7b6b45de055fdd8a",
-                "reference": "184923766acd19a125cf57ae7b6b45de055fdd8a",
+                "url": "https://git.spip.net/api/v4/projects/spip%2Fsites/repository/archive.zip?sha=942f072b55ea85c68dfaef3109837b2d2c2675f8",
+                "reference": "942f072b55ea85c68dfaef3109837b2d2c2675f8",
                 "shasum": ""
             },
             "require": {
@@ -1783,7 +1783,7 @@
             "type": "spip-plugin",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "4.2.x-dev"
+                    "dev-master": "4.3.x-dev"
                 }
             },
             "license": [
@@ -1801,7 +1801,7 @@
                 "source": "https://git.spip.net/spip/sites/-/tree/master",
                 "issues": "https://git.spip.net/spip/sites/-/issues"
             },
-            "time": "2024-05-05T00:06:16+02:00"
+            "time": "2024-08-01T14:48:51+02:00"
         },
         {
             "name": "spip/stats",
