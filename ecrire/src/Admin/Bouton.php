@@ -16,6 +16,9 @@ class Bouton {
 	/** Entrée favorite (sa position dans les favoris) ? */
 	public int $favori = 0;
 
+	/** Le nom de l'entrée d'i18n associé */
+	public string $libelle_court = '';
+
 
 	/**
 	 * Définit un bouton

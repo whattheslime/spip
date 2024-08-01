@@ -113,14 +113,7 @@ function definir_barre_boutons($contexte = [], $icones = true, $autorise = true)
 					$position = count($boutons_admin[$parent]->sousmenu) + 1 + $position;
 				}
 				$boutons_admin[$parent]->sousmenu = array_slice($boutons_admin[$parent]->sousmenu, 0, $position)
-					+ [
-						$id => new Bouton(
-							($icones && !empty($infos['icone'])) ? find_in_theme($infos['icone']) : '',  // icone
-							$infos['titre'],  // titre
-							(isset($infos['action']) && $infos['action']) ? $infos['action'] : null,
-							(isset($infos['parametres']) && $infos['parametres']) ? $infos['parametres'] : null
-						)
-					]
+					+ [$id => definir_bouton_menu($infos, $icones)]
 					+ array_slice($boutons_admin[$parent]->sousmenu, $position, 100);
 			}
 			if (
@@ -131,14 +124,7 @@ function definir_barre_boutons($contexte = [], $icones = true, $autorise = true)
 			) {
 				$position = (isset($infos['position']) && $infos['position']) ? $infos['position'] : count($boutons_admin);
 				$boutons_admin = array_slice($boutons_admin, 0, $position)
-					+ [
-						$id => new Bouton(
-							($icones && isset($infos['icone']) && $infos['icone']) ? find_in_theme($infos['icone']) : '',  // icone
-							$infos['titre'],  // titre
-							(isset($infos['action']) && $infos['action']) ? $infos['action'] : null,
-							(isset($infos['parametres']) && $infos['parametres']) ? $infos['parametres'] : null
-						)
-					]
+					+ [$id => definir_bouton_menu($infos, $icones)]
 					+ array_slice($boutons_admin, $position, 100);
 			}
 		}
@@ -163,6 +149,22 @@ function definir_barre_boutons($contexte = [], $icones = true, $autorise = true)
 	}
 
 	return $boutons_admin;
+}
+
+/**
+ * Retourne un Bouton
+ */
+function definir_bouton_menu(array $infos, bool $rechercher_icones = true): Bouton {
+	$libelle = $infos['titre'] ?? '';
+	$libelle_court = $infos['titre-court'] ?? '';
+    $btn = new Bouton(
+        ($rechercher_icones && isset($infos['icone']) && $infos['icone']) ? find_in_theme($infos['icone']) : '',  // icone
+        $libelle,  // titre
+        (isset($infos['action']) && $infos['action']) ? $infos['action'] : null,
+        (isset($infos['parametres']) && $infos['parametres']) ? $infos['parametres'] : null
+    );
+    $btn->libelle_court = $libelle_court;
+    return $btn;
 }
 
 /**
