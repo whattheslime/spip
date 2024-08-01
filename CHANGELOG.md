@@ -15,6 +15,8 @@
 
 ### Changed
 
+- #5977 Toutes les balises déséchappent les modèles (introduction de `retablir_echappements_modeles()` appliqué à toutes les balises)
+- #5977 `interdire_script` ne s’occupe plus de déséchapper les modèles
 - #5460 Renommer les fichiers CSS qui n’ont pas besoin de compilation SPIP
 - #4657 Renommage de `admin_tech` en `admin_bdd` et des chaînes de langue afférentes
 - !5708 Découpage des fichiers de démarrage de SPIP (non surchargeables) dans `ecrire/boostrap`
@@ -27,6 +29,8 @@
 
 ### Fixed
 
+- #5977 Le filtre `|propre` gère mieux les échappements des modèles
+- #5913 Le filtre `|sinon` rétablit correctement les échappments des modèles
 - #5961 Correction complémentaire du bandeau de l’espace privé pour les navigateurs sans `:has`
 - #5861 Ne pas désactiver le clic sur les `.btn_desactive`
 - #5460 Utiliser les propriétés logiques dans les CSS de l'espace privé
