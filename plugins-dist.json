@@ -62,7 +62,8 @@
     "mots": {
         "path": "plugins-dist/mots",
         "source": "https://git.spip.net/spip/mots.git",
-        "branch": "4.2"
+        "branch": "4.2",
+        "tag": "v4.2.0"
     },
     "plan": {
         "path": "plugins-dist/plan",
@@ -91,7 +92,8 @@
     "sites": {
         "path": "plugins-dist/sites",
         "source": "https://git.spip.net/spip/sites.git",
-        "branch": "4.2"
+        "branch": "4.2",
+        "tag": "v4.2.0"
     },
     "statistiques": {
         "path": "plugins-dist/statistiques",
@@ -108,7 +110,8 @@
     "textwheel": {
         "path": "plugins-dist/textwheel",
         "source": "https://git.spip.net/spip/textwheel.git",
-        "branch": "3.2"
+        "branch": "3.2",
+        "tag": "v3.2.0"
     },
     "urls_etendues": {
         "path": "plugins-dist/urls_etendues",
