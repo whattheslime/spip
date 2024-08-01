@@ -16,8 +16,6 @@
 ### Changed
 
 - #5979 Revert du calcul automatique des chaînes de langue du menu Créer du bandeau de l’espace privé
-- #5977 Toutes les balises déséchappent les modèles (introduction de `retablir_echappements_modeles()` appliqué à toutes les balises)
-- #5977 `interdire_script` ne s’occupe plus de déséchapper les modèles
 - #5460 Renommer les fichiers CSS qui n’ont pas besoin de compilation SPIP
 - #4657 Renommage de `admin_tech` en `admin_bdd` et des chaînes de langue afférentes
 - !5708 Découpage des fichiers de démarrage de SPIP (non surchargeables) dans `ecrire/boostrap`
@@ -31,11 +29,6 @@
 ### Fixed
 
 - #5979 Modifier les chaînes de langues utilisées pour les objets déclarés dans le menu Créer (article, rubrique, auteur)
-- #5976 Modifier `$spip_version_code` pour vider le cache lors de le mises à jour vers 4.3
-- #5977 Le filtre `|propre` gère mieux les échappements des modèles
-- #5913 Le filtre `|sinon` rétablit correctement les échappements des modèles
-- #5961 Correction complémentaire du bandeau de l’espace privé pour les navigateurs sans `:has`
-- #5861 Ne pas désactiver le clic sur les `.btn_desactive`
 - #5460 Utiliser les propriétés logiques dans les CSS de l'espace privé
 - #3581 Ne pas utiliser la fonction dépréciée `debut_cadre_sous_rub`
 - #5825 Ne pas mettre l'adresse du site entre parenthèses dans les mails envoyés par SPIP
