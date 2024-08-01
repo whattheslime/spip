@@ -19,6 +19,7 @@ Changelog de SPIP 4.4
 
 ### Fixed
 
+- #5976 Modifier `$spip_version_code` pour vider le cache lors de le mises à jour vers 4.3
 - #5977 Le filtre `|propre` gère mieux les échappements des modèles
 - #5913 Le filtre `|sinon` rétablit correctement les échappments des modèles
 - #5961 Correction complémentaire du bandeau de l’espace privé pour les navigateurs sans `:has`
