@@ -14,11 +14,13 @@ Changelog de SPIP 4.4
 
 ### Changed
 
+- #5979 Revert du calcul automatique des chaînes de langue du menu Créer du bandeau de l’espace privé
 - #5977 Toutes les balises déséchappent les modèles (introduction de `retablir_echappements_modeles()` appliqué à toutes les balises)
 - #5977 `interdire_script` ne s’occupe plus de déséchapper les modèles
 
 ### Fixed
 
+- #5979 Modifier les chaînes de langues utilisées pour les objets déclarés dans le menu Créer (article, rubrique, auteur)
 - #5976 Modifier `$spip_version_code` pour vider le cache lors de le mises à jour vers 4.3
 - #5977 Le filtre `|propre` gère mieux les échappements des modèles
 - #5913 Le filtre `|sinon` rétablit correctement les échappements des modèles
