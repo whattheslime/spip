@@ -255,7 +255,7 @@ function phraser_preparer_idiomes(string $texte, int $ligne, string $sep, array 
 		}
 
 		if (!$placeholder) {
-			$placeholder = public_generer_placeholder($match[0], $champ, $idiomes_placeholder, 0);
+			$placeholder = public_placeholder_generer($match[0], $champ, $idiomes_placeholder, 0);
 		}
 		$texte = substr_replace($texte, $placeholder, $poss[0], strlen($match[0]));
 
@@ -316,7 +316,7 @@ function phraser_champs(string $texte, int $ligne, array $result): array {
 		}
 
 		// reinjecter la chaine de langue si c'est un placeholder
-		phraser_memoriser_ou_reinjecter_placeholder($champ);
+		phraser_placeholder_reinjecter($champ);
 
 		phraser_vieux($champ);
 		$result[] = $champ;
@@ -612,7 +612,7 @@ function phraser_champs_interieurs(string $texte, int $no_ligne, string $sep): a
 			$champ->apres = phraser_champs_exterieurs($apres, $nbl + $nbl_debut_champ, $sep, $champs_trouves);
 
 			// reinjecter la boucle ou la chaine de langie si c'est un placeholder
-			phraser_memoriser_ou_reinjecter_placeholder($champ);
+			phraser_placeholder_reinjecter($champ);
 
 			$champs_trouves[] = $champ;
 			$j = count($champs_trouves) - 1;
@@ -1063,9 +1063,13 @@ function public_trouver_fin_boucle(
 
 /**
  * @param object|string $champ
- * @param null|object $boucle_ou_champ
+ * @param ?string $nom_champ_placeholder
+ * @param ?object $boucle_ou_champ
+ * @internal
+ * @see phraser_placeholder_memoriser()
+ * @see phraser_placeholder_reinjecter()
  */
-function phraser_memoriser_ou_reinjecter_placeholder(&$champ, ?string $nom_champ_placeholder = null, $boucle_ou_champ = null) {
+function phraser_placeholder_memoriser_ou_reinjecter(&$champ, ?string $nom_champ_placeholder = null, $boucle_ou_champ = null) {
 	static $placeholder_connus = [];
 	// si c'est un appel pour memoriser une boucle, memorisons la
 	if (is_string($champ) && !empty($nom_champ_placeholder) && !empty($boucle_ou_champ)) {
@@ -1084,27 +1088,63 @@ function phraser_memoriser_ou_reinjecter_placeholder(&$champ, ?string $nom_champ
 		}
 	}
 }
+/**
+ * @deprecated
+ * @see phraser_placeholder_memoriser_ou_reinjecter()
+ */
+function phraser_boucle_placeholder(&$champ, $boucle_placeholder = null, $boucle = null) {
+	phraser_placeholder_memoriser_ou_reinjecter($champ, $boucle_placeholder, $boucle);
+}
 
 /**
- * Generer une balise placeholder qui prend la place de la boucle pour continuer le parsing des balises
+ * Memoriser un champ ou une boucle associé a son placeholder
+ * @param string $champ
+ * @param string $nom_champ_placeholder
+ * @param $boucle_ou_champ
+ * @uses phraser_placeholder_memoriser_ou_reinjecter()
+ */
+function phraser_placeholder_memoriser(string $champ, string $nom_champ_placeholder, $boucle_ou_champ) {
+	phraser_placeholder_memoriser_ou_reinjecter($champ, $nom_champ_placeholder, $boucle_ou_champ);
+}
+/**
+ * Reinejcter un champ ou une boucle associé a son placeholder
+ * @param &$champ
+ * @uses phraser_placeholder_memoriser_ou_reinjecter()
+ */
+function phraser_placeholder_reinjecter(&$champ) {
+	phraser_placeholder_memoriser_ou_reinjecter($champ);
+}
+
+
+/**
+ * Generer une balise placeholder qui prend la place d'une boucle ou d'un champ pour continuer le parsing des balises
+ * utilisé pour remplacer une boucle ou un idiome
  * @param Boucle|Champ $boucle
  * @return string
  */
-function public_generer_placeholder(string $nom_structure, &$boucle_ou_champ, string $placeholder_pattern, int $nb_lignes, bool $force_balise_etendue = false): string {
+function public_placeholder_generer(string $nom_structure, &$boucle_ou_champ, string $placeholder_pattern, int $nb_lignes, bool $force_balise_etendue = false): string {
 	if ($nb_lignes or $force_balise_etendue) {
 		$nom_champ = $placeholder_pattern;
 		$placeholder = "[(#{$nom_champ}{" . $nom_structure . '})' . str_pad('', $nb_lignes, "\n") . ']';
-		//memoriser la boucle a reinjecter
-		phraser_memoriser_ou_reinjecter_placeholder($nom_structure, $nom_champ, $boucle_ou_champ);
+		phraser_placeholder_memoriser($nom_structure, $nom_champ, $boucle_ou_champ);
 	} else {
 		$placeholder_suite = "_" . strtoupper(md5($nom_structure));
 		$nom_champ = "{$placeholder_pattern}{$placeholder_suite}";
 		$placeholder = "#{$nom_champ}";
 		$nom_structure = '';
 		//memoriser e champ a reinjecter
-		phraser_memoriser_ou_reinjecter_placeholder($nom_structure, $nom_champ, $boucle_ou_champ);
+		phraser_placeholder_memoriser($nom_structure, $nom_champ, $boucle_ou_champ);
 	}
 	return $placeholder;
+}
+
+/**
+ * Generer une balise placeholder qui prend la place de la boucle pour continuer le parsing des balises
+ * @deprecated
+ * @uses public_placeholder_generer()
+ */
+function public_generer_boucle_placeholder($id_boucle, &$boucle, $boucle_placeholder, $nb_lignes) {
+	return public_placeholder_generer($id_boucle, $boucle, $boucle_placeholder, $nb_lignes);
 }
 
 /**
@@ -1414,7 +1454,7 @@ function public_phraser_html_dist(
 		}
 
 		// remplacer la boucle par un placeholder qui compte le meme nombre de lignes
-		$placeholder = public_generer_placeholder(
+		$placeholder = public_placeholder_generer(
 			$id_boucle,
 			$boucles[$id_boucle],
 			$boucle_placeholder,
