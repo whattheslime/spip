@@ -63,7 +63,7 @@ function produire_image_math($tex) {
 			[, , , $size] = @spip_getimagesize($fichier);
 			$alt = "alt=\"$tex\" title=\"$tex\"";
 
-			return "<img src=\"" . attribut_url($fichier) . "\" style=\"vertical-align:middle;\" $size $alt>";
+			return "<img src=\"" . attribut_url($fichier) . "\" style=\"vertical-align:middle;\" $size $alt />";
 		}
 	} else // pas de fichier
 	{

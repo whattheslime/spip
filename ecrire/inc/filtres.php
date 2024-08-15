@@ -504,7 +504,7 @@ function image_filtrer($args) {
 			return file_exists($path);
 		};
 		if ($is_local_file($is_file) || tester_url_absolue($is_file)) {
-			$res = $filtre("<img src='" . attribut_url($is_file) . "'>", ...$args);
+			$res = $filtre("<img src='" . attribut_url($is_file) . "' />", ...$args);
 			statut_effacer_images_temporaires(false); // desactiver pour les appels hors compilo
 			return $res;
 		}
@@ -1225,9 +1225,9 @@ function PtoBR($texte) {
 	}
 	$u = $GLOBALS['meta']['pcre_u'];
 	$texte = preg_replace('@</p>@iS', "\n", $texte);
-	$texte = preg_replace("@<p\b.*>@UiS", '<br>', $texte);
+	$texte = preg_replace("@<p\b.*>@UiS", '<br />', $texte);
 
-	return preg_replace('@^\s*<br>@S' . $u, '', $texte);
+	return preg_replace('@^\s*<br />@S' . $u, '', $texte);
 }
 
 /**
@@ -3269,7 +3269,7 @@ function env_to_params($env, $ignore_params = []) {
 	if ($env) {
 		foreach ($env as $i => $j) {
 			if (is_string($j) && !in_array($i, $ignore_params)) {
-				$texte .= "<param name='" . attribut_html($i) . "'\n\tvalue='" . attribut_html($j) . "'>";
+				$texte .= "<param name='" . attribut_html($i) . "'\n\tvalue='" . attribut_html($j) . "' />";
 			}
 		}
 	}
@@ -3460,7 +3460,7 @@ function http_img_pack($img, $alt, $atts = '', $title = '', $options = []) {
 	return "<img src='" . attribut_url($img_file) . "'$alt"
 	. ($title ? ' title="' . attribut_html($title) . '"' : '')
 	. ' ' . ltrim($atts)
-	. '>';
+	. ' />';
 }
 
 /**
