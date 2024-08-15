@@ -3653,7 +3653,7 @@ function filtre_balise_svg_dist($img, $alt = '', $class = null, $size = null) {
 		if (
 			!$img_file
 			|| !file_exists($img_file)
-			|| !$svg = file_get_contents($img_file)
+			|| !($svg = file_get_contents($img_file))
 		) {
 			return '';
 		}
