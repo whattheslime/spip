@@ -22,7 +22,7 @@ class LiensAbsolusTest extends TestCase
 	public function testLienPrive() {
 		$relatif = generer_url_ecrire('toto', 'truc=machin&chose=bidule', false, true);
 		$absolu = generer_url_ecrire('toto', 'truc=machin&chose=bidule', false, false);
-		$expected = 'bla bla <a href=\'' . str_replace('&amp;', '&#38;', $absolu) . '\'>lien prive</a>';
+		$expected = 'bla bla <a href=\'' . $absolu . '\'>lien prive</a>';
 		$case = 'bla bla <a href=\'' . $relatif . '\'>lien prive</a>';
 		$actual = liens_absolus($case);
 		$this->assertEquals($expected, $actual);
@@ -32,7 +32,7 @@ class LiensAbsolusTest extends TestCase
 	public function testLienPublic() {
 		$relatif = generer_url_public('toto', 'truc=machin&chose=bidule', false, true);
 		$absolu = generer_url_public('toto', 'truc=machin&chose=bidule', false, false);
-		$expected = 'bla bla <a href=\'' . str_replace('&amp;', '&#38;', $absolu) . '\'>lien public</a>';
+		$expected = 'bla bla <a href=\'' .  $absolu . '\'>lien public</a>';
 		$case = 'bla bla <a href=\'' . $relatif . '\'>lien public</a>';
 		$actual = liens_absolus($case);
 		$this->assertEquals($expected, $actual);

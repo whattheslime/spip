@@ -38,7 +38,7 @@ class ExtraireAttributTest extends TestCase
 				'attribut' => 'height',
 			],
 			'img-entites' => [
-				'expected' => '"&#38;\'',
+				'expected' => '"&\'',
 				'balise' => inserer_attribut('<img width=10>', 'src', '"&\''),
 				'attribut' => 'src',
 			],
