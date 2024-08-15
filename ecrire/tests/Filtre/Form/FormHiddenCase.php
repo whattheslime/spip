@@ -66,48 +66,48 @@ class FormHiddenCase extends TestCase
 			0 =>
 			[
 				0 => '<input name="id_rubrique" value="' . $id . '" type="hidden"
-/><input name="page" value="rubrique" type="hidden"
-/>',
+><input name="page" value="rubrique" type="hidden"
+>',
 				1 => './?rubrique' . $id,
 			],
 			1 =>
 			[
 				0 => '<input name="calendrier" value="1" type="hidden"
-/><input name="id_rubrique" value="' . $id . '" type="hidden"
-/><input name="page" value="rubrique" type="hidden"
-/>',
+><input name="id_rubrique" value="' . $id . '" type="hidden"
+><input name="page" value="rubrique" type="hidden"
+>',
 				1 => './?rubrique' . $id . '&calendrier=1',
 			],
 			2 =>
 			[
 				0 => '<input name="id_rubrique" value="' . $id . '" type="hidden"
-/><input name="page" value="rubrique" type="hidden"
-/>',
+><input name="page" value="rubrique" type="hidden"
+>',
 				1 => './rubrique' . $id . '.html',
 			],
 			3 =>
 			[
 				0 => '<input name="calendrier" value="1" type="hidden"
-/><input name="id_rubrique" value="' . $id . '" type="hidden"
-/><input name="page" value="rubrique" type="hidden"
-/>',
+><input name="id_rubrique" value="' . $id . '" type="hidden"
+><input name="page" value="rubrique" type="hidden"
+>',
 				1 => './rubrique' . $id . '.html?calendrier=1',
 			],
 			4 =>
 			[
 				0 => '<input name="calendrier" value="1" type="hidden"
-/><input name="id_rubrique" value="' . $id . '" type="hidden"
-/><input name="page" value="rubrique" type="hidden"
-/>',
+><input name="id_rubrique" value="' . $id . '" type="hidden"
+><input name="page" value="rubrique" type="hidden"
+>',
 				1 => './?rubrique' . $id . '&amp;calendrier=1',
 			],
 			5 =>
 			[
 				0 => '<input name="calendrier" value="1" type="hidden"
-/><input name="toto" value="2" type="hidden"
-/><input name="id_rubrique" value="' . $id . '" type="hidden"
-/><input name="page" value="rubrique" type="hidden"
-/>',
+><input name="toto" value="2" type="hidden"
+><input name="id_rubrique" value="' . $id . '" type="hidden"
+><input name="page" value="rubrique" type="hidden"
+>',
 				1 => './rubrique' . $id . '.html?calendrier=1&amp;toto=2',
 			],
 		];
