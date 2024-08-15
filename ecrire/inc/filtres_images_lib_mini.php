@@ -1248,7 +1248,7 @@ function _image_ecrire_tag($valeurs, $surcharge = []) {
 	}
 
 	// fermer les tags img pas bien fermes;
-	$tag = str_replace('/>', '>', (string) $valeurs['tag']);
+	$tag = str_replace('>', '/>', str_replace('/>', '>', (string) $valeurs['tag']));
 
 	$tag = _image_tag_changer_taille($tag, $width, $height, $style);
 	// traiter specifiquement le src qui peut etre repris dans un onmouseout
