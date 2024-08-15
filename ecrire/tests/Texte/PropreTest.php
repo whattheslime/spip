@@ -75,7 +75,7 @@ class PropreTest extends TestCase
 			],
 			'string_4' => [
 				0 => '<h2 class="spip">Des raccourcis</h2>
-<p> <i>italique</i> <strong>gras</strong> <code class="spip_code spip_code_inline" dir="ltr">du code</code></p>',
+<p> <i>italique</i> <strong>gras</strong> <code class=\'spip_code spip_code_inline\' dir=\'ltr\'>du code</code></p>',
 				1 => '{{{Des raccourcis}}} {italique} {{gras}} <code>du code</code>',
 			],
 			'string_5' => [
