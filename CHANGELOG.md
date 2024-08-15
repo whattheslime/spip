@@ -27,6 +27,7 @@
 
 ### Fixed
 
+- !6016 Afficher aussi dans l’espace privé le tableau des requêtes du mode `var_profile=1`
 - #5460 Utiliser les propriétés logiques dans les CSS de l'espace privé
 - #3581 Ne pas utiliser la fonction dépréciée `debut_cadre_sous_rub`
 - #5825 Ne pas mettre l'adresse du site entre parenthèses dans les mails envoyés par SPIP
