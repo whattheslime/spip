@@ -68,7 +68,7 @@ if (isset($GLOBALS['_INC_PUBLIC']) && $GLOBALS['_INC_PUBLIC']) {
 		}
 	}
 
-	$tableau_des_temps = [];
+	$GLOBALS['tableau_des_temps'] = [];
 
 	// Particularites de certains squelettes
 	if ($fond == 'login') {
@@ -126,7 +126,7 @@ if (isset($GLOBALS['_INC_PUBLIC']) && $GLOBALS['_INC_PUBLIC']) {
 
 	// Tester si on est admin et il y a des choses supplementaires a dire
 	// type tableau pour y mettre des choses au besoin.
-	$debug = (_request('var_mode') == 'debug' || $tableau_des_temps) ? [1] : [];
+	$debug = (_request('var_mode') == 'debug' || $GLOBALS['tableau_des_temps']) ? [1] : [];
 
 	// affiche-t-on les boutons d'administration ? voir f_admin()
 	$affiche_boutons_admin = ($html && (
@@ -174,7 +174,7 @@ if (isset($GLOBALS['_INC_PUBLIC']) && $GLOBALS['_INC_PUBLIC']) {
 	}
 	// l'affichage de la page a pu lever des erreurs (inclusion manquante)
 	// il faut tester a nouveau
-	$debug = (_request('var_mode') == 'debug' || $tableau_des_temps) ? [1] : [];
+	$debug = (_request('var_mode') == 'debug' || $GLOBALS['tableau_des_temps']) ? [1] : [];
 
 	// Appel au debusqueur en cas d'erreurs ou de demande de trace
 	// at last
