@@ -14,4 +14,5 @@ Changelog de SPIP 4.4
 
 ### Fixed
 
+- !6016 Afficher aussi dans l’espace privé le tableau des requêtes du mode `var_profile=1`
 - #5979 Modifier les chaînes de langues utilisées pour les objets déclarés dans le menu Créer (article, rubrique, auteur)
