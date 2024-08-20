@@ -15,7 +15,7 @@
         "path": "plugins-dist/bigup",
         "source": "https://git.spip.net/spip/bigup.git",
         "branch": "3.1",
-        "tag": "v3.1.5"
+        "tag": "v3.1.6"
     },
     "compagnon": {
         "path": "plugins-dist/compagnon",
