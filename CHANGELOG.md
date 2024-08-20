@@ -4,6 +4,10 @@ Changelog de SPIP 4.4
 
 ## Unreleased
 
+### Security
+
+- Mise à jour de l’écran de sécurité en version 1.6.3
+
 ### Added
 
 - #5938 Permettre à `objet_info()` de retourner directement l’information `table_objet_sql` (le nom de la table sql)
