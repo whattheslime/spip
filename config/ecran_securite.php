@@ -5,7 +5,7 @@
  * ------------------
  */
 
-define('_ECRAN_SECURITE', '1.6.2'); // 2024-07-26
+define('_ECRAN_SECURITE', '1.6.3'); // 2024-08-19
 
 /*
  * Documentation : https://www.spip.net/fr_article4200.html
@@ -550,7 +550,7 @@ if (
 /*
  * Forms & Table ne se méfiait pas assez des uploads de fichiers
  */
-if (count($_FILES)) {
+if (!empty($_FILES)) {
 	foreach ($_FILES as $k => $v) {
 		if (
 			preg_match(',^fichier_\d+$,', $k)
@@ -559,6 +559,21 @@ if (count($_FILES)) {
 			unset($_FILES[$k]);
 		}
 	}
+}
+/**
+ * Certains plugins utilisent les cle de $_FILES sans precaution
+ */
+if (!empty($_FILES) && isset($__request['bigup_retrouver_fichiers'])) {
+	function __array_files_check_recursive(&$t) {
+		foreach ($t as $k => &$v) {
+			if (preg_match(',[^\w\-\.],', $k)) {
+				unset($t[$k]);
+			} elseif(is_array($v)) {
+				__array_files_check_recursive($v);
+			}
+		}
+	}
+	__array_files_check_recursive($_FILES);
 }
 /*
  * et Contact trop laxiste avec une variable externe
