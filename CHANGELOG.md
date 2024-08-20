@@ -6,7 +6,7 @@ Changelog de SPIP 4.1
 
 ### Security
 
-- Mise à jour de l’écran de sécurité en version 1.6.2
+- Mise à jour de l’écran de sécurité en version 1.6.3
 
 ## 4.1.17 - 2024-06-07
 
