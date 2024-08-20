@@ -27,6 +27,7 @@
 
 ### Fixed
 
+- #5983 (retour partiel sur #5667) Générer des contenus éditoriaux aussi compatibles xhtml (sur `br` et `img`)
 - !6016 Afficher aussi dans l’espace privé le tableau des requêtes du mode `var_profile=1`
 - #5460 Utiliser les propriétés logiques dans les CSS de l'espace privé
 - #3581 Ne pas utiliser la fonction dépréciée `debut_cadre_sous_rub`
