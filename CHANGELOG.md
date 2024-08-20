@@ -4,6 +4,10 @@ Changelog de SPIP 4.3
 
 ## Unreleased
 
+### Security
+
+- Mise à jour de l’écran de sécurité en version 1.6.3
+
 ### Changed
 
 - #5979 Revert du calcul automatique des chaînes de langue du menu Créer du bandeau de l’espace privé
