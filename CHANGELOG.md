@@ -2,6 +2,12 @@
 
 Changelog de SPIP 4.2
 
+## Unreleased
+
+### Security
+
+- Mise à jour de l’écran de sécurité en version 1.6.3
+
 ## 4.2.15 - 2024-07-26
 
 ### Security
