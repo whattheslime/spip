@@ -14,7 +14,12 @@ use Spip\Test\Squelettes\Balise\CacheSessionTest;
 	}
 
 	$expected_session = (bool) $page['contexte']['assert_session'];
-	$has_session = $page['invalideurs']['session'] ?? false;
+	// $page['invalideurs']['session']
+	// - est absent en dehors des sessions
+	// - vaut 'b4073163' (par exemple) pour une session sur un visiteur identifié
+	// - '' pour une session sur un visiteur anonyme
+	$has_session = isset($page['invalideurs']['session']);
+	//$has_session_id = (bool) ($page['invalideurs']['session'] ?? false);
 
 	if ($expected_session) {
 		if (!$has_session) {
