@@ -166,7 +166,7 @@ function cache_valide(array &$page, int $date): int {
 
 	// Sinon comparer l'age du fichier a sa duree de cache
 	$duree = (int) $page['entetes']['X-Spip-Cache'];
-	$cache_mark = ($GLOBALS['meta']['cache_mark'] ?? 0);
+	$cache_mark = max($GLOBALS['meta']['cache_mark'] ?? 0, $GLOBALS['meta']['cache_bot_invalide'] ?? 0);
 	if ($duree == 0) {  #CACHE{0}
 		return -1;
 	} // sauf pour les bots, qui utilisent toujours le cache

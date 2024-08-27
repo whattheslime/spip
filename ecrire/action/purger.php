@@ -74,6 +74,7 @@ function action_purger_dist($arg = null) {
 			purger_repertoire(_DIR_AIDE);
 			purger_repertoire(_DIR_VAR . 'cache-css');
 			purger_repertoire(_DIR_VAR . 'cache-js');
+			effacer_meta('cache_bot_invalide');
 			break;
 
 		case 'squelettes':
