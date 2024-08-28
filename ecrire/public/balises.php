@@ -1746,7 +1746,7 @@ function balise_FILTRE_dist($p) {
  * Signature : `#CACHE{duree[,type]}`
  *
  * Le premier argument est la durée en seconde du cache. Le second
- * (par défaut `statique`) indique le type de cache :
+ * (aucune valeur par défaut) indique le type de cache :
  *
  * - `cache-client` autorise gestion du IF_MODIFIED_SINCE
  * - `statique` ne respecte pas l'invalidation par modif de la base
