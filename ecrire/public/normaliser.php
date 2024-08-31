@@ -57,7 +57,7 @@ function normaliser_args_inclumodel($p) {
  */
 function normaliser_inclure($champ) {
 	normaliser_args_inclumodel($champ);
-	$l = $champ->param[0];
+	$l = $champ->param[0] ?? null;
 	if (is_array($l) && !$l[0]) {
 		foreach ($l as $k => $p) {
 			if ($p && $p[0]->type == 'texte' && !strpos((string) $p[0]->texte, '=')) {
