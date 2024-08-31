@@ -186,8 +186,8 @@ function normaliser_args_inclumodel($p) {
 
 function normaliser_inclure($champ) {
 	normaliser_args_inclumodel($champ);
-	$l = $champ->param[0];
-	if (is_array($l) and !$l[0]) {
+	$l = $champ->param[0] ?? null;
+	if (is_array($l) && !$l[0]) {
 		foreach ($l as $k => $p) {
 			if ($p and $p[0]->type == 'texte' and !strpos($p[0]->texte, '=')) {
 				$p[0]->texte = trim($p[0]->texte);
