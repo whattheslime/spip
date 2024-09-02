@@ -4,7 +4,7 @@ Changelog de SPIP 4.3
 
 ## Unreleased
 
-### Changed
+### Fixed
 
 - !6024 Éviter notice dans `init_http` en cas de "seriously malformed URLs"
 
