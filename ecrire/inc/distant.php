@@ -1290,6 +1290,9 @@ function init_http($method, $url, $refuse_gz = false, $referer = '', $datas = ''
 	$fopen = false;
 
 	$t = @parse_url($url);
+	if ($t === false) {
+		return [false, false];
+	}
 	$host = $t['host'];
 	if ($t['scheme'] == 'http') {
 		$scheme = 'http';
