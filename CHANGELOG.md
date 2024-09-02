@@ -2,6 +2,12 @@
 
 Changelog de SPIP 4.3
 
+## Unreleased
+
+### Changed
+
+- !6024 Éviter notice dans `init_http` en cas de "seriously malformed URLs"
+
 ## 4.3.2 - 2024-08-20
 
 ### Security
@@ -11,7 +17,6 @@ Changelog de SPIP 4.3
 ### Changed
 
 - #5979 Revert du calcul automatique des chaînes de langue du menu Créer du bandeau de l’espace privé
-- !6024 Éviter notice dans `init_http` en cas de "seriously malformed URLs"
 
 ### Fixed
 
