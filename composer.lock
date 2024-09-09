@@ -159,12 +159,12 @@
             "source": {
                 "type": "git",
                 "url": "https://git.spip.net/spip/prive.git",
-                "reference": "9bdc0f8c6fca1741de4bec402cc8c671f8a3a782"
+                "reference": "594d05b22775a4c349a219f0a9987e7441269273"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://git.spip.net/api/v4/projects/spip%2Fprive/repository/archive.zip?sha=9bdc0f8c6fca1741de4bec402cc8c671f8a3a782",
-                "reference": "9bdc0f8c6fca1741de4bec402cc8c671f8a3a782",
+                "url": "https://git.spip.net/api/v4/projects/spip%2Fprive/repository/archive.zip?sha=594d05b22775a4c349a219f0a9987e7441269273",
+                "reference": "594d05b22775a4c349a219f0a9987e7441269273",
                 "shasum": ""
             },
             "type": "spip-prive",
@@ -176,7 +176,7 @@
                 "source": "https://git.spip.net/spip/prive/-/tree/1.x",
                 "issues": "https://git.spip.net/spip/prive/-/issues"
             },
-            "time": "2024-09-09T12:38:27+02:00"
+            "time": "2024-09-09T19:44:25+02:00"
         },
         {
             "name": "symfony/deprecation-contracts",
