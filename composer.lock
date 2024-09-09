@@ -1623,12 +1623,12 @@
             "source": {
                 "type": "git",
                 "url": "https://git.spip.net/spip/prive.git",
-                "reference": "5b572fa30460a97daec155a195a81bc8ac04a29c"
+                "reference": "df64c817b76a32c2ba4675058c5873b4b7a3d74b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://git.spip.net/api/v4/projects/spip%2Fprive/repository/archive.zip?sha=5b572fa30460a97daec155a195a81bc8ac04a29c",
-                "reference": "5b572fa30460a97daec155a195a81bc8ac04a29c",
+                "url": "https://git.spip.net/api/v4/projects/spip%2Fprive/repository/archive.zip?sha=df64c817b76a32c2ba4675058c5873b4b7a3d74b",
+                "reference": "df64c817b76a32c2ba4675058c5873b4b7a3d74b",
                 "shasum": ""
             },
             "default-branch": true,
@@ -1641,7 +1641,7 @@
                 "source": "https://git.spip.net/spip/prive/-/tree/2.x",
                 "issues": "https://git.spip.net/spip/prive/-/issues"
             },
-            "time": "2024-09-09T11:56:59+02:00"
+            "time": "2024-09-09T19:43:44+02:00"
         },
         {
             "name": "spip/revisions",
