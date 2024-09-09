@@ -28,6 +28,7 @@
 
 ### Fixed
 
+- #3928 Les emails des auteurs sont masqués par défaut
 - !6024 Éviter notice dans `init_http` en cas de "seriously malformed URLs"
 - #5983 (retour partiel sur #5667) Générer des contenus éditoriaux aussi compatibles xhtml (sur `br` et `img`)
 - !6016 Afficher aussi dans l’espace privé le tableau des requêtes du mode `var_profile=1`
