@@ -27,6 +27,7 @@
         "spip/mots": "^4.3.x-dev",
         "spip/plan": "^4.2.x-dev",
         "spip/porte-plume": "^3.2.x-dev",
+        "spip/prive": "2.x-dev",
         "spip/revisions": "^3.2.x-dev",
         "spip/safehtml": "^3.2.x-dev",
         "spip/security": "^1.6",
@@ -93,7 +94,8 @@
             "!/local/CACHEDIR.TAG",
             "/tmp/",
             "!/tmp/remove.txt",
-            "!/tmp/CACHEDIR.TAG"
+            "!/tmp/CACHEDIR.TAG",
+            "!/prive/"
         ]
     },
     "config": {

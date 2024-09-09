@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "6aaecf91e1f69e21b0f0b7b8998e1c65",
+    "content-hash": "bf1369a4951b8b4628d889cbd066b103",
     "packages": [
         {
             "name": "algo26-matthias/idna-convert",
@@ -1616,6 +1616,32 @@
                 "issues": "https://git.spip.net/spip/porte_plume/-/issues"
             },
             "time": "2024-05-28T14:37:48+02:00"
+        },
+        {
+            "name": "spip/prive",
+            "version": "2.x-dev",
+            "source": {
+                "type": "git",
+                "url": "https://git.spip.net/spip/prive.git",
+                "reference": "5b572fa30460a97daec155a195a81bc8ac04a29c"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://git.spip.net/api/v4/projects/spip%2Fprive/repository/archive.zip?sha=5b572fa30460a97daec155a195a81bc8ac04a29c",
+                "reference": "5b572fa30460a97daec155a195a81bc8ac04a29c",
+                "shasum": ""
+            },
+            "default-branch": true,
+            "type": "spip-prive",
+            "license": [
+                "GPL-3.0-only"
+            ],
+            "description": "Squelettes de l'espace privé",
+            "support": {
+                "source": "https://git.spip.net/spip/prive/-/tree/2.x",
+                "issues": "https://git.spip.net/spip/prive/-/issues"
+            },
+            "time": "2024-09-09T11:56:59+02:00"
         },
         {
             "name": "spip/revisions",
@@ -4907,6 +4933,7 @@
         "spip/mots": 20,
         "spip/plan": 20,
         "spip/porte-plume": 20,
+        "spip/prive": 20,
         "spip/revisions": 20,
         "spip/safehtml": 20,
         "spip/sites": 20,
