@@ -20,6 +20,7 @@
 /tmp/
 !/tmp/CACHEDIR.TAG
 !/tmp/remove.txt
+/prive/
 
 # Contrib ou personalisation
 /.htaccess
