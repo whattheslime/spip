@@ -52,8 +52,6 @@ $tables_jointures,
 $tables_principales,
 $taille_des_logs,
 $test_i18n,
-$tex_server,
-$traiter_math,
 $type_urls,
 $url_glossaire_externe,
 $visiteur_session,
@@ -129,13 +127,6 @@ $home_server = 'https://www.spip.net';
 # glossaire pour raccourci [?X]. Aussi: [?X#G] et definir glossaire_G
 $url_glossaire_externe = 'https://@lang@.wikipedia.org/wiki/%s';
 
-# TeX
-$tex_server = 'https://math.spip.org/tex.php';
-# MathML (pas pour l'instant: manque un bon convertisseur)
-// $mathml_server = 'http://arno.rezo.net/tex2mathml/latex.php';
-
-// Produire du TeX ou du MathML ?
-$traiter_math = 'tex';
 
 // Appliquer un indenteur XHTML aux espaces public et/ou prive ?
 $xhtml = false;
