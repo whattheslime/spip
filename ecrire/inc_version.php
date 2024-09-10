@@ -376,6 +376,9 @@ $traiter_math = 'tex';
 $xhtml = false;
 $xml_indent = false;
 
+/**
+ * @deprecated 4.4 call _image_extensions_logos() instead
+ */
 $formats_logos = ['jpg', 'png', 'svg', 'gif', 'webp'];
 
 // Controler les dates des item dans les flux RSS ?

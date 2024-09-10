@@ -560,7 +560,11 @@ function _image_valeurs_trans($img, $effet, $forcer_format = false, $fonction_cr
  * Extensions d’images acceptées en tant que logos
  */
 function _image_extensions_logos(): array {
-	$extensions = pipeline('image_extensions_logos', ['args' => [], 'data' => ['jpg', 'png', 'svg', 'gif', 'webp']]);
+	$global_formats_logos = $GLOBALS['formats_logos'];
+	if ($global_formats_logos != ['jpg', 'png', 'svg', 'gif', 'webp']) {
+		trigger_error('La modification de la globale `$formats_logos` est dépréciée, utiliser à la place le pipeline `image_extensions_logos`', E_USER_DEPRECATED);
+	}
+	$extensions = pipeline('image_extensions_logos', ['args' => [], 'data' => $global_formats_logos]);
 	return $extensions;
 }
 
