@@ -39,13 +39,13 @@ git pull
 composer install --no-dev
 ```
 
-### Installation de développement (plugins-dist via git)
+### Installation de développement (prive et plugins-dist via git)
 
 ```bash
 git clone https://git.spip.net/spip/spip/
 composer install
 composer local mode-dev
-rm -rf plugins-dist
+rm -rf plugins-dist prive
 composer local install
 ```
 
