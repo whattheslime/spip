@@ -34,7 +34,6 @@
   <source restrictNotices="false" restrictWarnings="false">
     <include>
       <directory suffix=".php">plugins-dist/spip</directory>
-      <directory suffix=".php">prive</directory>
       <directory suffix=".php">ecrire</directory>
       <directory suffix=".php">squelettes-dist</directory>
     </include>
