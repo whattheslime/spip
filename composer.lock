@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "dd6276be9d9c917b76159602fea9c2ab",
+    "content-hash": "8260f2bf55399638271347f06ee0a9c1",
     "packages": [
         {
             "name": "algo26-matthias/idna-convert",
@@ -177,6 +177,48 @@
                 "issues": "https://git.spip.net/spip/prive/-/issues"
             },
             "time": "2024-09-09T19:44:25+02:00"
+        },
+        {
+            "name": "spip/security",
+            "version": "1.6.3",
+            "source": {
+                "type": "git",
+                "url": "https://git.spip.net/spip-contrib-outils/securite.git",
+                "reference": "b66f202b614a456258a8a3d1bd95271aff13b5ad"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://git.spip.net/api/v4/projects/spip-contrib-outils%2Fsecurite/repository/archive.zip?sha=b66f202b614a456258a8a3d1bd95271aff13b5ad",
+                "reference": "b66f202b614a456258a8a3d1bd95271aff13b5ad",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^5.4 || ^7 || ^8"
+            },
+            "require-dev": {
+                "dealerdirect/phpcodesniffer-composer-installer": "^1.0",
+                "spip/coding-standards": "^1.2"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.6.x-dev"
+                }
+            },
+            "license": [
+                "GPL-3.0-only"
+            ],
+            "authors": [
+                {
+                    "name": "Collectif SPIP"
+                }
+            ],
+            "description": "Protection du site par blocage de certaines attaques",
+            "support": {
+                "source": "https://git.spip.net/spip-contrib-outils/securite/-/tree/1.6.3",
+                "issues": "https://git.spip.net/spip-contrib-outils/securite/-/issues"
+            },
+            "time": "2024-08-20T11:36:52+02:00"
         },
         {
             "name": "symfony/deprecation-contracts",

@@ -6,6 +6,7 @@ Changelog de SPIP 4.4
 
 ### Security
 
+- Mise à jour de l’écran de sécurité via composer
 - Mise à jour de l’écran de sécurité en version 1.6.3
 
 ### Added
