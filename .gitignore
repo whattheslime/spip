@@ -5,6 +5,7 @@
 /phpstan.neon
 /docker-compose.override.yml
 /docker-compose.yml
+/composer.local.*
 
 # SPIP
 /IMG/
