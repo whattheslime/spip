@@ -25,3 +25,8 @@ Changelog de SPIP 4.4
 - #5983 (retour partiel sur #5667) Générer des contenus éditoriaux aussi compatibles xhtml (sur `br` et `img`)
 - !6016 Afficher aussi dans l’espace privé le tableau des requêtes du mode `var_profile=1`
 - #5979 Modifier les chaînes de langues utilisées pour les objets déclarés dans le menu Créer (article, rubrique, auteur)
+
+### Deprecated
+
+- #5992 Modifier la globale `$formats_logos` est déprécié : utiliser le pipeline `image_extensions_logos`
+- #5992 Appeler la globale `$formats_logos` est déprécié, utiliser la fonction `_images_extensions_logos()`
