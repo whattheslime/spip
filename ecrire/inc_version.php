@@ -357,12 +357,14 @@ $home_server = 'https://www.spip.net';
 # glossaire pour raccourci [?X]. Aussi: [?X#G] et definir glossaire_G
 $url_glossaire_externe = 'https://@lang@.wikipedia.org/wiki/%s';
 
-# TeX
+/**
+ * @deprecated 4.4 will be removed in 5.0, use `mathjax` plugin instead
+**/
 $tex_server = 'https://math.spip.org/tex.php';
-# MathML (pas pour l'instant: manque un bon convertisseur)
-// $mathml_server = 'http://arno.rezo.net/tex2mathml/latex.php';
 
-// Produire du TeX ou du MathML ?
+/**
+ * @deprecated 4.4 will be removed in 5.0, use `mathjax` plugin instead
+**/
 $traiter_math = 'tex';
 
 // Appliquer un indenteur XHTML aux espaces public et/ou prive ?

@@ -14,12 +14,13 @@ if (!defined('_ECRIRE_INC_VERSION')) {
 	return;
 }
 
-//
-// Gestion du raccourci <math>...</math> en client-serveur
-//
-
+/**
+ * @deprecated 4.4 will be removed in 5.0
+ * use `mathjax` plugin instead
+ *
+**/
 function produire_image_math($tex) {
-
+	trigger_error('La fonction `produire_image_math()` est dépréciée, utiliser à la place le plugin `mathjax`', E_USER_DEPRECATED);
 	switch ($GLOBALS['traiter_math']) {
 		// Attention: mathml desactiv'e pour l'instant
 		case 'mathml':
@@ -32,6 +33,12 @@ function produire_image_math($tex) {
 			break;
 		default:
 			return $tex;
+	}
+	if ($GLOBALS['traiter_math'] != 'tex') {
+		trigger_error('La globale `$traiter_math` est dépréciée, utiliser à la place le plugin `mathjax`', E_USER_DEPRECATED);
+	}
+	if ($GLOBALS['tex_server'] != 'https://math.spip.org/tex.php') {
+		trigger_error('La globale `$tex_server` est dépréciée, utiliser à la place le plugin `mathjax`', E_USER_DEPRECATED);
 	}
 
 	// Regarder dans le repertoire local des images TeX et blocs MathML
@@ -72,6 +79,7 @@ function produire_image_math($tex) {
 
 
 /**
+ * @deprecated 4.4, will be removed in 4.4, use instead `mathjax` plugin
  * Active la recherche et l'affichage d'expressions mathématiques dans le texte
  * transmis, dans tous les textes à l'intérieur d'une balise `<math>`.
  *
@@ -101,7 +109,7 @@ function produire_image_math($tex) {
  * @return string
  */
 function traiter_math($letexte, $source = '', $defaire_amp = false) {
-
+	trigger_error('La fonction `traiter_math()` native de SPIP est dépréciée, utiliser à la place le plugin `mathjax`', E_USER_DEPRECATED);
 	while (($debut = strpos($letexte, '<math>')) !== false) {
 		if (!$fin = strpos($letexte, '</math>', $debut)) {
 			$fin = strlen($letexte);
