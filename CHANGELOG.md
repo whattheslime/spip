@@ -33,5 +33,7 @@ Changelog de SPIP 4.4
 
 ### Deprecated
 
+- #5993 Globales `$traiter_math`, `$tex_server`, fonctions `produire_image_math()`, `traiter_math()`, utiliser le plugin `mathjax` à la place
 - #5992 Modifier la globale `$formats_logos` est déprécié : utiliser le pipeline `image_extensions_logos`
 - #5992 Appeler la globale `$formats_logos` est déprécié, utiliser la fonction `_images_extensions_logos()`
+
