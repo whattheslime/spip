@@ -252,7 +252,20 @@ function recup_date($numdate, $forcer_jour = true): array {
 		return [];
 	}
 	$heures = $minutes = $secondes = 0;
-	if (preg_match('#([0-9]{1,2})/([0-9]{1,2})/([0-9]{4}|[0-9]{1,2})#', $numdate, $regs)) {
+
+	// un simple timestamp ? a ne pas confondre avec une date toute collee 20240911103002 traitee en preg plus bas
+	// on sera tous morts quand les timestamp seront de longueur 12
+	if (is_numeric($numdate) && strlen((string)$numdate) < 12) {
+		[$annee, $mois, $jour, $heures, $minutes, $secondes] = [
+			date('Y', $numdate),
+			date('m', $numdate),
+			date('d', $numdate),
+			date('H', $numdate),
+			date('i', $numdate),
+			date('s', $numdate)
+		];
+	}
+	elseif (preg_match('#(\d{1,2})/(\d{1,2})/(\d{4}|\d{1,2})#', $numdate, $regs)) {
 		$jour = $regs[1];
 		$mois = $regs[2];
 		$annee = $regs[3];
