@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "8260f2bf55399638271347f06ee0a9c1",
+    "content-hash": "d6f21c8cb664cadefd7b696a8e1542b5",
     "packages": [
         {
             "name": "algo26-matthias/idna-convert",
@@ -152,6 +152,38 @@
                 "issues": "https://git.spip.net/spip-league/composer-installer/-/issues"
             },
             "time": "2023-04-05T14:01:55+02:00"
+        },
+        {
+            "name": "spip/dist",
+            "version": "4.2.x-dev",
+            "source": {
+                "type": "git",
+                "url": "https://git.spip.net/spip/dist.git",
+                "reference": "c63c4a562b99d23c76154cf948dadf1019dbe35f"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://git.spip.net/api/v4/projects/spip%2Fdist/repository/archive.zip?sha=c63c4a562b99d23c76154cf948dadf1019dbe35f",
+                "reference": "c63c4a562b99d23c76154cf948dadf1019dbe35f",
+                "shasum": ""
+            },
+            "type": "spip-plugin",
+            "license": [
+                "GPL-3.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "Collectif SPIP",
+                    "homepage": "https://discuter.spip.net/c/spip-dev/5",
+                    "role": "Maintainer"
+                }
+            ],
+            "description": "Squelettes par défaut de SPIP 4.0",
+            "support": {
+                "source": "https://git.spip.net/spip/dist/-/tree/4.2",
+                "issues": "https://git.spip.net/spip/dist/-/issues"
+            },
+            "time": "2024-09-12T15:52:10+02:00"
         },
         {
             "name": "spip/prive",
@@ -941,6 +973,7 @@
     "aliases": [],
     "minimum-stability": "stable",
     "stability-flags": {
+        "spip/dist": 20,
         "spip/prive": 20
     },
     "prefer-stable": false,

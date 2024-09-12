@@ -11,7 +11,7 @@ Changelog de SPIP 4.4
 
 ### Added
 
-- Le dossier `prive/` s'installe avec composer
+- Les dossiers `prive/` et `squelettes-dist/` s'installent avec composer
 - #5938 Permettre à `objet_info()` de retourner directement l’information `table_objet_sql` (le nom de la table sql)
 
 ### Changed

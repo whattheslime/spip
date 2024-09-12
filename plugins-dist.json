@@ -115,11 +115,5 @@
         "source": "https://git.spip.net/spip/urls_etendues.git",
         "branch": "4.1",
         "tag": "v4.1.4"
-    },
-    "dist": {
-        "path": "squelettes-dist",
-        "source": "https://git.spip.net/spip/dist.git",
-        "branch": "4.2",
-        "tag": "v4.2.4"
     }
 }

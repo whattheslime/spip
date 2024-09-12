@@ -21,6 +21,7 @@
 !/tmp/CACHEDIR.TAG
 !/tmp/remove.txt
 /prive/
+/squelettes-dist
 
 # Contrib ou personalisation
 /.htaccess
