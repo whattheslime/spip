@@ -50,6 +50,7 @@
 
 ### Removed
 
+- medias#4958 Retrait de la globale `$formats_logos`
 - #5199 Retrait de toutes les références à la globale `auteur_session`
 - #5917 Retrait de toutes les références à NETPBM
 - #5885 fonction `formulaire_recherche()`
