@@ -590,3 +590,31 @@ $GLOBALS['auteur_session'];
 ```php
 $GLOBALS['visiteur_session'];
 ```
+
+### `$formats_logos`
+
+La globale `$formats_logos` est supprimé, utilisez `_image_extensions_logos()` à la place (en lecture) et le pipeline `image_extensions_logos` en écriture.
+
+#### Avant
+
+
+```php
+$xx = $GLOBALS['formats_logos']; // (Lecture)
+$GLOBALS['formats_logos'] = …;// (Écriture)
+```
+#### Après
+
+```php
+$xx = $GLOBALS['formats_logos']; // (Lecture)
+
+/**
+ * (Écriture)
+ * Modification des formats de logos autorisés
+ * @param array $flux
+ * @return array $flux
+**/
+function <prefix_plugin>_image_extension_logos(array $flux): array {
+	$flux['data'] = …;
+	return $flux;
+}
+```
