@@ -1749,7 +1749,7 @@ function sql_allfetsel(
  * @api
  * @uses sql_fetsel()
  *
- * @param array|string $select
+ * @param string $select
  *     Liste des champs à récupérer (Select)
  * @param array|string $from
  *     Tables à consulter (From)
