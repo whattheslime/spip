@@ -11,7 +11,7 @@ Changelog de SPIP 4.4
 
 ### Added
 
-- medias#4958 Fonction `_image_extensions_logos()` et pipeline `image_extensions_logos`
+- spip/medias#4958 Fonction `_image_extensions_logos()` et pipeline `image_extensions_logos`
 - Les dossiers `prive/` et `squelettes-dist/` s'installent avec composer
 - #5938 Permettre à `objet_info()` de retourner directement l’information `table_objet_sql` (le nom de la table sql)
 
