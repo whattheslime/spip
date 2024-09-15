@@ -558,13 +558,21 @@ function _image_valeurs_trans($img, $effet, $forcer_format = false, $fonction_cr
 
 /**
  * Extensions d’images acceptées en tant que logos
+ * @param array $args
+ * Arguments transmis au pipeline.
+ * Tableau contenant des informations sur le contexte d'appel.
+ * Le cas le plus fréquent :
+ * [
+ *	'objet' => string,
+ *  'id_objet' => int
+ * ]
  */
-function _image_extensions_logos(): array {
+function _image_extensions_logos(array $args = []): array {
 	$global_formats_logos = $GLOBALS['formats_logos'];
 	if ($global_formats_logos != ['jpg', 'png', 'svg', 'gif', 'webp']) {
 		trigger_error('La modification de la globale `$formats_logos` est dépréciée, utiliser à la place le pipeline `image_extensions_logos`', E_USER_DEPRECATED);
 	}
-	$extensions = pipeline('image_extensions_logos', ['args' => [], 'data' => $global_formats_logos]);
+	$extensions = pipeline('image_extensions_logos', ['args' => $args, 'data' => $global_formats_logos]);
 	return $extensions;
 }
 

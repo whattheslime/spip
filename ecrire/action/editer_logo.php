@@ -153,7 +153,7 @@ function logo_migrer_en_base($objet, $time_limit) {
 	$dir_logos_erreurs = sous_repertoire(_DIR_IMG, 'logo_erreurs');
 	$dir_logos = sous_repertoire(_DIR_IMG, 'logo');
 	include_spip('inc/filtres_images_lib_mini');
-	$formats_logos = _image_extensions_logos();
+	$formats_logos = _image_extensions_logos(['objet' => $objet]);
 
 
 	$trouver_table = charger_fonction('trouver_table', 'base');
