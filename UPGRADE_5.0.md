@@ -605,7 +605,7 @@ $GLOBALS['formats_logos'] = …;// (Écriture)
 #### Après
 
 ```php
-$xx = _image_extensions_logos(); // (Lecture)
+$xx = _image_extensions_logos(['objet' => string, 'id_objet' => int]); // (Lecture)
 
 /**
  * (Écriture)
