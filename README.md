@@ -44,9 +44,10 @@ composer install --no-dev
 ```bash
 git clone https://git.spip.net/spip/spip/
 composer install
-composer local mode-dev
-rm -rf plugins-dist prive
+composer --no-interaction local mode-dev # config
+rm -rf plugins-dist prive squelettes-dist vendor/spip/security
 composer local install
+composer local mode-dev # https->ssh
 ```
 
 Mise à jour
@@ -54,7 +55,7 @@ Mise à jour
 ```bash
 git pull
 rm composer.local.*
-composer local mode-dev
+composer --no-interaction local mode-dev
 composer local install
 ```
 
