@@ -1053,7 +1053,7 @@ function recuperer_infos_distantes($source, $options = []) {
 	$a['body'] = $reponse['page'] ?? '';
 	if ($headers) {
 		$mime_type = distant_trouver_mime_type_selon_headers($source, $headers);
-		
+
 		if (!$extension = distant_trouver_extension_selon_headers($source, $headers)) {
 			return false;
 		}
@@ -1145,10 +1145,10 @@ function distant_trouver_mime_type_selon_headers($source, $headers) {
 	while (isset($GLOBALS['mime_alias'][$mime_type])) {
 		$mime_type = $GLOBALS['mime_alias'][$mime_type];
 	}
-	
+
 	return $mime_type;
 }
-	
+
 /**
  * @param string $source
  * @param string $headers
@@ -1460,7 +1460,7 @@ function lance_requete(
 		// important, car sinon on lit trop vite et les donnees ne sont pas encore dispo
 		stream_set_blocking($f, true);
 		// envoyer le handshake
-		stream_socket_enable_crypto($f, true, STREAM_CRYPTO_METHOD_SSLv23_CLIENT);
+		stream_socket_enable_crypto($f, true, STREAM_CRYPTO_METHOD_TLS_CLIENT);
 		spip_log("OK CONNECT sur $first_host:$first_port", 'connect');
 	} else {
 		$ntry = 3;
