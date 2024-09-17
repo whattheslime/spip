@@ -4,6 +4,7 @@
 
 ### Added
 
+- !6034 paramètre pour le filtre `|affdate{'Y-m-d H:i:s}`
 - Le dossier `prive/` s'installe avec composer
 - #5460 Permettre des CSS pour l’espace privé directement en CSS (sans compilation SPIP)
 - !5824 Logger `spip_logger()` impplémentant `Psr\Log\LoggerInterface` (PSR-3) via une librairie `spip/logger` qui utilise Monolog
