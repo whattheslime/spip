@@ -35,7 +35,7 @@ function exec_base_delete_all_dist() {
 			spip_log('Erreur base de donnees');
 			echo minipres(
 				_T('info_travaux_titre'),
-				_T('titre_probleme_technique') . '<p><tt>' . sql_errno() . ' ' . sql_error() . '</tt></p>'
+				_T('titre_probleme_technique') . '<p><code>' . sql_errno() . ' ' . sql_error() . '</code></p>'
 			);
 		} else {
 			$res = base_saisie_tables('delete', $res);

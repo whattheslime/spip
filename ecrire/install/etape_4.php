@@ -38,7 +38,7 @@ function install_etape_4_dist() {
 	echo '<p>'
 		. _T(
 			'plugin_info_plugins_dist_1',
-			['plugins_dist' => '<tt>' . joli_repertoire(_DIR_PLUGINS_DIST) . '</tt>']
+			['plugins_dist' => '<code>' . joli_repertoire(_DIR_PLUGINS_DIST) . '</code>']
 		)
 		. '</p>';
 

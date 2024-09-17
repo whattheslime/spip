@@ -113,7 +113,7 @@ function auth_echec($raison) {
 		// erreur SQL a afficher
 		$raison = minipres(
 			_T('info_travaux_titre'),
-			_T('titre_probleme_technique') . '<p><tt>' . sql_errno() . ' ' . sql_error() . '</tt></p>'
+			_T('titre_probleme_technique') . '<p><code>' . sql_errno() . ' ' . sql_error() . '</code></p>'
 		);
 	} elseif (@$raison['statut']) {
 		// un simple visiteur n'a pas acces a l'espace prive
