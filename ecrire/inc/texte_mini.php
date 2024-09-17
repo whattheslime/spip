@@ -582,10 +582,10 @@ function echapper_html_suspect($texte, $options = [], $connect = null, $env = []
 		}
 		if (!is_html_safe($texte_to_check)) {
 			$texte = $options['texte_source_affiche'] ?? $texte;
-			$texte = preg_replace(",<(/?\w+\b[^>]*>),", '<tt>&lt;\\1</tt>', $texte);
+			$texte = preg_replace(",<(/?\w+\b[^>]*>),", '<code>&lt;\\1</code>', $texte);
 			$texte = str_replace('<', '&lt;', $texte);
-			$texte = str_replace('&lt;tt>', '<tt>', $texte);
-			$texte = str_replace('&lt;/tt>', '</tt>', $texte);
+			$texte = str_replace('&lt;code>', '<code>', $texte);
+			$texte = str_replace('&lt;/code>', '</code>', $texte);
 			if (!function_exists('attribut_html')) {
 				include_spip('inc/filtres');
 			}

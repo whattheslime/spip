@@ -71,9 +71,9 @@ function install_verifier_htaccess() {
 	$averti = _T(
 		'htaccess_a_simuler',
 		[
-			'htaccess' => '<tt>' . _ACCESS_FILE_NAME . '</tt>',
-			'constantes' => '<tt>_DIR_TMP &amp; _DIR_CONNECT</tt>',
-			'document_root' => '<tt>' . $_SERVER['DOCUMENT_ROOT'] . '</tt>',
+			'htaccess' => '<code>' . _ACCESS_FILE_NAME . '</code>',
+			'constantes' => '<code>_DIR_TMP &amp; _DIR_CONNECT</code>',
+			'document_root' => '<code>' . $_SERVER['DOCUMENT_ROOT'] . '</code>',
 		]
 	);
 

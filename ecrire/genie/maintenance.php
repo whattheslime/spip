@@ -107,7 +107,7 @@ function verifier_crash_tables() {
 function message_crash_tables() {
 	if ($crash = verifier_crash_tables()) {
 		return '<strong>' . _T('texte_recuperer_base') . '</strong><br>'
-			. ' <tt>' . implode(', ', $crash) . '</tt><br>'
+			. ' <code>' . implode(', ', $crash) . '</code><br>'
 			. generer_form_ecrire('base_repair', _T('texte_crash_base'), '', _T('bouton_tenter_recuperation'));
 	}
 	return '';

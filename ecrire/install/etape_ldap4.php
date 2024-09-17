@@ -42,7 +42,7 @@ function install_etape_ldap4_dist() {
 		echo info_etape(_T('info_chemin_acces_annuaire')),
 		info_progression_etape(3, 'etape_ldap', 'install/', true),
 		"<div class='error'><p><b>" . _T('avis_operation_echec') . '</b></p><p>' . _T('avis_chemin_invalide_1'),
-		' (<tt>' . spip_htmlspecialchars($base_ldap) . '</tt>) ' . _T('avis_chemin_invalide_2') . '</p></div>';
+		' (<code>' . spip_htmlspecialchars($base_ldap) . '</code>) ' . _T('avis_chemin_invalide_2') . '</p></div>';
 	} else {
 		info_etape(_T('info_reglage_ldap'));
 		echo info_progression_etape(4, 'etape_ldap', 'install/');
@@ -97,7 +97,7 @@ function install_ldap_correspondances() {
 		$nom = 'ldap_' . $champ;
 		$val = is_array($v) ? implode(',', $v) : (string) $v;
 		$champs[$nom] = [
-			'label' => _T('ldap_correspondance', ['champ' => "<tt>$champ</tt>"]) . '<br>',
+			'label' => _T('ldap_correspondance', ['champ' => "<code>$champ</code>"]) . '<br>',
 			'valeur' => $val,
 		];
 	}

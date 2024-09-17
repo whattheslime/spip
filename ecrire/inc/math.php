@@ -64,7 +64,7 @@ function produire_image_math($tex) {
 
 	}  // pas de fichier
 
-	return "<tt><span class='spip_code' dir='ltr'>$tex</span></tt>";
+	return "<code><span class='spip_code' dir='ltr'>$tex</span></code>";
 
 }
 

@@ -349,14 +349,14 @@ function debusquer_requete($message) {
 
 	// Erreur systeme
 	if (is_numeric($errno) && $errno > 0 && $errno < 200) {
-		$retour = '<tt><br><br><blink>'
+		$retour = '<code><br><br>'
 			. _T('info_erreur_systeme', ['errsys' => $errno])
-			. "</blink><br>\n<b>"
+			. "<br>\n<b>"
 			. _T(
 				'info_erreur_systeme2',
 				['script' => generer_url_ecrire('base_repair')]
 			)
-			. '</b><br>';
+			. '</b></code><br>';
 		spip_logger()
 			->info("Erreur systeme $errno");
 
@@ -364,11 +364,11 @@ function debusquer_requete($message) {
 	}
 
 	// Requete erronee
-	$err = '<b>' . _T('avis_erreur_mysql') . " $errno</b><br><tt>\n"
+	$err = '<b>' . _T('avis_erreur_mysql') . " $errno</b><br><code>\n"
 		. spip_htmlspecialchars($msg)
 		. "\n<br><span style='color: red'><b>"
 		. spip_htmlspecialchars($query)
-		. '</b></span></tt><br>';
+		. '</b></span></code><br>';
 
 	//. aider('erreur_mysql');
 
