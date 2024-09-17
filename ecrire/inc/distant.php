@@ -1485,7 +1485,7 @@ function lance_requete(
 		// important, car sinon on lit trop vite et les donnees ne sont pas encore dispo
 		stream_set_blocking($f, true);
 		// envoyer le handshake
-		stream_socket_enable_crypto($f, true, STREAM_CRYPTO_METHOD_SSLv23_CLIENT);
+		stream_socket_enable_crypto($f, true, STREAM_CRYPTO_METHOD_TLS_CLIENT);
 		$logger_connect->info("OK CONNECT sur $first_host:$first_port");
 	} else {
 		$ntry = 3;
