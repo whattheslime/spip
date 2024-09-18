@@ -30,6 +30,7 @@
 
 ### Fixed
 
+- #5919 Remplacer les balises `tt` obsolètes par `code`
 - !6047 Correction de certains envois de fichiers (notamment audio) via `spip_livrer_fichier`
 - #3919 Réparer l'ajout de la configuration LDAP lors de l'installation
 - #3928 Les emails des auteurs sont masqués par défaut
