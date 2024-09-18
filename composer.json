@@ -74,7 +74,8 @@
     },
     "extra": {
         "spip": {
-            "template": "spip/dist"
+            "template": "spip/dist",
+            "private_template": "spip/prive"
         }
     }
 }
