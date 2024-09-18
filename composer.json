@@ -134,7 +134,8 @@
                 "spip/tw",
                 "spip/urls"
             ],
-            "template": "spip/dist"
+            "template": "spip/dist",
+            "private_template": "spip/prive"
         }
     }
 }
