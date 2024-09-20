@@ -548,15 +548,10 @@ function _image_valeurs_trans($img, $effet, $forcer_format = false, $fonction_cr
 
 /**
  * Extensions d’images acceptées en tant que logos
- * @param array $args
+ * @param array{objet?: string, id_objet?: int, ...<string,mixed>} $args
  * Arguments transmis au pipeline.
  * Tableau contenant des informations sur le contexte d'appel.
- * Le cas le plus fréquent :
- * [
- *	'objet' => string,
- *  'id_objet' => int
- * ]
- */
+**/
 function _image_extensions_logos(array $args = []): array {
 	$extensions = pipeline('image_extensions_logos', ['args' => $args, 'data' => ['jpg', 'png', 'svg', 'gif', 'webp']]);
 	return $extensions;
