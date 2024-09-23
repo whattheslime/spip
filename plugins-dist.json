@@ -26,8 +26,7 @@
     "compresseur": {
         "path": "plugins-dist/compresseur",
         "source": "https://git.spip.net/spip/compresseur.git",
-        "branch": "2.1",
-        "tag": "v2.1.7"
+        "branch": "2.2"
     },
     "dump": {
         "path": "plugins-dist/dump",
@@ -113,7 +112,6 @@
     "urls_etendues": {
         "path": "plugins-dist/urls_etendues",
         "source": "https://git.spip.net/spip/urls_etendues.git",
-        "branch": "4.1",
-        "tag": "v4.1.4"
+        "branch": "4.2"
     }
 }

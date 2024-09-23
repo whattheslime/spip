@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "3c1baa3e74639985d6b2b3bc63a7d0fe",
+    "content-hash": "adeaa165897f3ec19a62b3c10e8df2d1",
     "packages": [
         {
             "name": "algo26-matthias/idna-convert",
@@ -159,12 +159,12 @@
             "source": {
                 "type": "git",
                 "url": "https://git.spip.net/spip/dist.git",
-                "reference": "c63c4a562b99d23c76154cf948dadf1019dbe35f"
+                "reference": "2fdab6a66c0d0de0a4e558d96f0ea3477a268da3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://git.spip.net/api/v4/projects/spip%2Fdist/repository/archive.zip?sha=c63c4a562b99d23c76154cf948dadf1019dbe35f",
-                "reference": "c63c4a562b99d23c76154cf948dadf1019dbe35f",
+                "url": "https://git.spip.net/api/v4/projects/spip%2Fdist/repository/archive.zip?sha=2fdab6a66c0d0de0a4e558d96f0ea3477a268da3",
+                "reference": "2fdab6a66c0d0de0a4e558d96f0ea3477a268da3",
                 "shasum": ""
             },
             "type": "spip-plugin",
@@ -183,7 +183,7 @@
                 "source": "https://git.spip.net/spip/dist/-/tree/4.2",
                 "issues": "https://git.spip.net/spip/dist/-/issues"
             },
-            "time": "2024-09-12T15:52:10+02:00"
+            "time": "2024-09-20T13:41:06+02:00"
         },
         {
             "name": "spip/prive",
@@ -775,16 +775,16 @@
         },
         {
             "name": "phpstan/phpstan",
-            "version": "1.12.3",
+            "version": "1.12.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpstan/phpstan.git",
-                "reference": "0fcbf194ab63d8159bb70d9aa3e1350051632009"
+                "reference": "ffa517cb918591b93acc9b95c0bebdcd0e4538bd"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpstan/phpstan/zipball/0fcbf194ab63d8159bb70d9aa3e1350051632009",
-                "reference": "0fcbf194ab63d8159bb70d9aa3e1350051632009",
+                "url": "https://api.github.com/repos/phpstan/phpstan/zipball/ffa517cb918591b93acc9b95c0bebdcd0e4538bd",
+                "reference": "ffa517cb918591b93acc9b95c0bebdcd0e4538bd",
                 "shasum": ""
             },
             "require": {
@@ -829,7 +829,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2024-09-09T08:10:35+00:00"
+            "time": "2024-09-19T07:58:01+00:00"
         },
         {
             "name": "spip/coding-standards",
