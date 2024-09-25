@@ -170,27 +170,24 @@ function spip_livrer_fichier_partie($fichier, $range = null) {
 
 
 	// Par defaut on envoie tout
-	$byteOffset = 0;
-	$byteLength = $fileSize = filesize($fichier);
-
+	$byte_offset = 0;
+	$byte_length = $file_size = filesize($fichier);
 
 	// Parse Content-Range header for byte offsets, looks like "bytes=11525-" OR "bytes=11525-12451"
 	if ($range and preg_match('%bytes=(\d+)-(\d+)?%i', $range, $match)) {
 		### Offset signifies where we should begin to read the file
-		$byteOffset = (int)$match[1];
-
+		$byte_offset = (int) $match[1];
 
 		### Length is for how long we should read the file according to the browser, and can never go beyond the file size
 		if (isset($match[2])) {
-			$finishBytes = (int)$match[2];
-			$byteLength = $finishBytes + 1;
+			$finish_bytes = (int) $match[2];
+			$byte_length = $finish_bytes + 1;
 		} else {
-			$finishBytes = $fileSize - 1;
+			$finish_bytes = $file_size - 1;
 		}
 
-		$cr_header = sprintf('Content-Range: bytes %d-%d/%d', $byteOffset, $finishBytes, $fileSize);
-	}
-	else {
+		$cr_header = sprintf('Content-Range: bytes %d-%d/%d', $byte_offset, $finish_bytes, $file_size);
+	} else {
 		// si pas de range valide, on delegue a la methode d'envoi complet
 		spip_livrer_fichier_entier($fichier);
 		// redondant, mais facilite la comprehension du code
@@ -205,46 +202,44 @@ function spip_livrer_fichier_partie($fichier, $range = null) {
 	header('HTTP/1.1 206 Partial content');
 	header($cr_header);  ### Decrease by 1 on byte-length since this definition is zero-based index of bytes being sent
 
+	$byte_range = $byte_length - $byte_offset;
 
-	$byteRange = $byteLength - $byteOffset;
-
-	header(sprintf('Content-Length: %d', $byteRange));
+	header(sprintf('Content-Length: %d', $byte_range));
 
 	// Variable containing the buffer
 	$buffer = '';
 	// Just a reasonable buffer size
-	$bufferSize = 512 * 16;
-	// Contains how much is left to read of the byteRange
-	$bytePool = $byteRange;
+	$buffer_size = 512 * 16;
+	// Contains how much is left to read of the byte_range
+	$byte_pool = $byte_range;
 
 	if (!$handle = fopen($fichier, 'r')) {
 		throw new \Exception(sprintf('Could not get handle for file %s', $fichier));
 	}
 
-	if (fseek($handle, $byteOffset, SEEK_SET) == -1) {
-		throw new \Exception(sprintf('Could not seek to byte offset %d', $byteOffset));
+	if (fseek($handle, $byte_offset, SEEK_SET) == -1) {
+		throw new \Exception(sprintf('Could not seek to byte offset %d', $byte_offset));
 	}
 
-
-	while ($bytePool > 0) {
+	while ($byte_pool > 0) {
 		// How many bytes we request on this iteration
-		$chunkSizeRequested = min($bufferSize, $bytePool);
+		$chunk_size_requested = min($buffer_size, $byte_pool);
 
-		// Try readin $chunkSizeRequested bytes from $handle and put data in $buffer
-		$buffer = fread($handle, $chunkSizeRequested);
+		// Try readin $chunk_size_requested bytes from $handle and put data in $buffer
+		$buffer = fread($handle, $chunk_size_requested);
 
 		// Store how many bytes were actually read
-		$chunkSizeActual = strlen($buffer);
+		$chunk_size_actual = strlen($buffer);
 
-		// If we didn't get any bytes that means something unexpected has happened since $bytePool should be zero already
-		if ($chunkSizeActual == 0) {
+		// If we didn't get any bytes that means something unexpected has happened since $byte_pool should be zero already
+		if ($chunk_size_actual == 0) {
 			// For production servers this should go in your php error log, since it will break the output
 			trigger_error('Chunksize became 0', E_USER_WARNING);
 			break;
 		}
 
 		// Decrease byte pool with amount of bytes that were read during this iteration
-		$bytePool -= $chunkSizeActual;
+		$byte_pool -= $chunk_size_actual;
 
 		// Write the buffer to output
 		print $buffer;
