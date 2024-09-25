@@ -45,7 +45,7 @@ function spip_livrer_fichier($fichier, $content_type = 'application/octet-stream
 		$options['expires'] = gmdate('D, d M Y H:i:s', time() + $options['expires']) . ' GMT';
 	}
 
-	if (is_null($options) and isset($_SERVER['HTTP_RANGE'])) {
+	if ($options['range'] === null && isset($_SERVER['HTTP_RANGE'])) {
 		$options['range'] = $_SERVER['HTTP_RANGE'];
 	}
 
