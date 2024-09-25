@@ -1,13 +1,15 @@
 <?php
 
-/***************************************************************************\
- *  SPIP, Système de publication pour l'internet                           *
- *                                                                         *
- *  Copyright © avec tendresse depuis 2001                                 *
- *  Arnaud Martin, Antoine Pitrou, Philippe Rivière, Emmanuel Saint-James  *
- *                                                                         *
- *  Ce programme est un logiciel libre distribué sous licence GNU/GPL.     *
-\***************************************************************************/
+/**
+ * SPIP, Système de publication pour l'internet
+ *
+ * Copyright © avec tendresse depuis 2001
+ * Arnaud Martin, Antoine Pitrou, Philippe Rivière, Emmanuel Saint-James
+ *
+ * Ce programme est un logiciel libre distribué sous licence GNU/GPL.
+ */
+
+use function SpipLeague\Component\Kernel\param;
 
 /**
  * Gestion de l'action confirmer_inscription
@@ -55,7 +57,7 @@ function action_confirmer_inscription_dist() {
 				// poser un cookie admin aussi
 				$cookie = charger_fonction('cookie', 'action');
 				$cookie('@' . $GLOBALS['visiteur_session']['login']);
-				$GLOBALS['redirect'] = _DIR_RESTREINT_ABS;
+				$GLOBALS['redirect'] = param('spip.routes.back_office');
 			} else {
 				$GLOBALS['redirect'] = $GLOBALS['meta']['adresse_site'];
 			}
@@ -65,7 +67,7 @@ function action_confirmer_inscription_dist() {
 		if (!empty($GLOBALS['visiteur_session']['id_auteur'])) {
 			// on passe id_auteur explicite pour forcer une lecture en base de toutes les infos
 			if (autoriser('ecrire', '', '', $GLOBALS['visiteur_session']['id_auteur'])) {
-				$GLOBALS['redirect'] = _DIR_RESTREINT_ABS;
+				$GLOBALS['redirect'] = param('spip.routes.back_office');
 			} else {
 				$GLOBALS['redirect'] = $GLOBALS['meta']['adresse_site'];
 			}

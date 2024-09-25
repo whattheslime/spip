@@ -9,6 +9,8 @@
  *  Ce programme est un logiciel libre distribué sous licence GNU/GPL.     *
 \***************************************************************************/
 
+use function SpipLeague\Component\Kernel\param;
+
 /**
  * Action pour déconnecter une personne authentifiée
  *
@@ -89,7 +91,7 @@ function action_logout_dist() {
 				_T('login_deconnexion_ok'),
 				_T('login_verifiez_navigateur'),
 				_T('login_retour_public'),
-				'redirect=' . _DIR_RESTREINT_ABS,
+				'redirect=' . param('spip.routes.back_office'),
 				_T('login_test_navigateur'),
 				true
 			);

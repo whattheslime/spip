@@ -7,6 +7,7 @@
         "ext-xml": "*",
         "ext-zip": "*",
         "algo26-matthias/idna-convert": "^3.1",
+        "spip-league/kernel": "^1.x-dev",
         "spip/composer-installer": "^0.6.1",
         "spip/dist": "4.2.x-dev",
         "spip/prive": "^1.x-dev",
@@ -39,7 +40,10 @@
     "autoload": {
         "psr-4": {
             "Spip\\": "ecrire/src/"
-        }
+        },
+        "files": [
+            "ecrire/bootstrap/deprecations.php"
+        ]
     },
     "archive": {
         "exclude": [
@@ -74,8 +78,8 @@
     },
     "extra": {
         "spip": {
-            "template": "spip/dist",
-            "private_template": "spip/prive"
+            "private_template": "spip/prive",
+            "template": "spip/dist"
         }
     }
 }

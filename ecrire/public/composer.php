@@ -1,13 +1,15 @@
 <?php
 
-/***************************************************************************\
- *  SPIP, Système de publication pour l'internet                           *
- *                                                                         *
- *  Copyright © avec tendresse depuis 2001                                 *
- *  Arnaud Martin, Antoine Pitrou, Philippe Rivière, Emmanuel Saint-James  *
- *                                                                         *
- *  Ce programme est un logiciel libre distribué sous licence GNU/GPL.     *
-\***************************************************************************/
+/**
+ * SPIP, Système de publication pour l'internet
+ *
+ * Copyright © avec tendresse depuis 2001
+ * Arnaud Martin, Antoine Pitrou, Philippe Rivière, Emmanuel Saint-James
+ *
+ * Ce programme est un logiciel libre distribué sous licence GNU/GPL.
+ */
+
+use function SpipLeague\Component\Kernel\param;
 
 /**
  * Compose un squelette : compile le squelette au besoin et vérifie
@@ -482,7 +484,7 @@ function executer_balise_dynamique($nom, $args, $context_compil) {
 			array_unshift($r, $nom);
 			$nom_balise = $nom_balise_generique;
 			if (!_DIR_RESTREINT) {
-				$file = _DIR_RESTREINT_ABS . $file;
+				$file = param('spip.dirs.core') . $file;
 			}
 		} else {
 			$msg = ['zbug_balise_inexistante', ['from' => 'CVT', 'balise' => $nom]];

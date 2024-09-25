@@ -10,6 +10,7 @@
 \***************************************************************************/
 
 use Spip\ErrorHandler;
+use function SpipLeague\Component\Kernel\param;
 
 /**
  * Initialisation de SPIP
@@ -37,16 +38,11 @@ error_reporting(E_ALL ^ E_NOTICE);
 define('_PHP_MIN', '7.4.0');
 define('_PHP_MAX', '8.3.99');
 
-if (!defined('_DIR_RESTREINT_ABS')) {
-	/** le nom du repertoire ecrire/ */
-	define('_DIR_RESTREINT_ABS', 'ecrire/');
-}
-
 /** Chemin relatif pour aller dans ecrire
  *  vide si on est dans ecrire, 'ecrire/' sinon */
 define(
 	'_DIR_RESTREINT',
-	(!is_dir(_DIR_RESTREINT_ABS) ? '' : _DIR_RESTREINT_ABS)
+	(!is_dir(param('spip.dirs.core')) ? '' : param('spip.dirs.core'))
 );
 
 /** Chemin relatif pour aller à la racine */
@@ -86,9 +82,6 @@ if (
 ) {
 	include $f;
 }
-
-// et on peut lancer l'autoloader
-require_once __DIR__ . '/../vendor/autoload.php';
 
 // Icones
 if (!defined('_NOM_IMG_PACK')) {
