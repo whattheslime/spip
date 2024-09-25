@@ -10,6 +10,7 @@
         "spip-league/cache": "^2.0",
         "spip-league/filesystem": "^2.0",
         "spip-league/hasher": "^2.0",
+        "spip-league/kernel": "^2.x-dev",
         "spip-league/logger": "^2.0",
         "spip-league/path": "^2.0",
         "spip/aide": "^3.3.x-dev",
@@ -36,6 +37,7 @@
         "spip/svp": "^3.2.x-dev",
         "spip/tw": "^3.3.x-dev",
         "spip/urls": "^4.2.x-dev",
+        "symfony/dependency-injection": "^7.1",
         "symfony/deprecation-contracts": "^3.3",
         "symfony/polyfill-mbstring": "^1.27",
         "symfony/polyfill-php82": "^1.27"
@@ -134,8 +136,8 @@
                 "spip/tw",
                 "spip/urls"
             ],
-            "template": "spip/dist",
-            "private_template": "spip/prive"
+            "private_template": "spip/prive",
+            "template": "spip/dist"
         }
     }
 }

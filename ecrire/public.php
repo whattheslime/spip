@@ -25,19 +25,6 @@ if (isset($GLOBALS['_INC_PUBLIC']) && $GLOBALS['_INC_PUBLIC']) {
 	$GLOBALS['_INC_PUBLIC'] = 1;
 	define('_PIPELINE_SUFFIX', test_espace_prive() ? '_prive' : '');
 
-	// Faut-il initialiser SPIP ? (oui dans le cas general)
-	if (!defined('_DIR_RESTREINT_ABS')) {
-		if (
-			defined('_DIR_RESTREINT')
-			&& @file_exists(_ROOT_RESTREINT . 'inc_version.php')
-		) {
-			include_once _ROOT_RESTREINT . 'inc_version.php';
-		} else {
-			die('inc_version absent ?');
-		}
-	} // $fond defini dans le fichier d'appel ?
-
-	else {
 		if (isset($fond) && !_request('fond')) {
 		} // fond demande dans l'url par page=xxxx ?
 		else {
@@ -66,7 +53,6 @@ if (isset($GLOBALS['_INC_PUBLIC']) && $GLOBALS['_INC_PUBLIC']) {
 				$fond = pipeline('detecter_fond_par_defaut', '');
 			}
 		}
-	}
 
 	$GLOBALS['tableau_des_temps'] = [];
 

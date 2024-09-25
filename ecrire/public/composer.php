@@ -10,7 +10,7 @@
  */
 
 use Spip\Texte\Collecteur\HtmlTag as CollecteurHtmlTag;
-
+use function SpipLeague\Component\Kernel\param;
 
 /**
  * Compose un squelette : compile le squelette au besoin et vérifie
@@ -480,7 +480,7 @@ function executer_balise_dynamique($nom, $args, $context_compil) {
 			array_unshift($r, $nom);
 			$nom_balise = $nom_balise_generique;
 			if (!_DIR_RESTREINT) {
-				$file = _DIR_RESTREINT_ABS . $file;
+				$file = param('spip.dirs.core') . $file;
 			}
 		} else {
 			$msg = ['zbug_balise_inexistante', ['from' => 'CVT', 'balise' => $nom]];

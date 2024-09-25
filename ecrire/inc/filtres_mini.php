@@ -9,6 +9,8 @@
  * Ce programme est un logiciel libre distribué sous licence GNU/GPL.
  */
 
+use function SpipLeague\Component\Kernel\param;
+
 /**
  * Filtres d'URL et de liens
  *
@@ -129,7 +131,7 @@ function url_absolue($url, $base = '') {
 		return '';
 	}
 	if (!$base) {
-		$base = url_de_base() . (_DIR_RACINE ? _DIR_RESTREINT_ABS : '');
+		$base = url_de_base() . (_DIR_RACINE ? param('spip.routes.back_office') : '');
 	}
 
 	return suivre_lien($base, $url);

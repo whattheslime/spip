@@ -32,9 +32,6 @@ if (
 	include $f;
 }
 
-// et on peut lancer l'autoloader
-require_once dirname(__DIR__) . '/vendor/autoload.php';
-
 require_once __DIR__ . '/bootstrap/config/globals.php';
 require_once __DIR__ . '/bootstrap/proxy.php';
 require_once __DIR__ . '/bootstrap/mitigation.php';

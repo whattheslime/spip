@@ -9,6 +9,8 @@
  * Ce programme est un logiciel libre distribué sous licence GNU/GPL.
  */
 
+use function SpipLeague\Component\Kernel\param;
+
 /**
  * Gestion de l'action cookie
  *
@@ -45,7 +47,7 @@ function action_cookie_dist($set_cookie_admin = null, $change_session = null) {
 		$redirect = $url ?: generer_url_ecrire('accueil');
 		$redirect_echec = _request('url_echec');
 		if (!isset($redirect_echec)) {
-			if (str_contains((string) $redirect, (string) _DIR_RESTREINT_ABS)) {
+			if (str_contains((string) $redirect, (string) param('spip.routes.back_office'))) {
 				$redirect_echec = generer_url_public('login', '', true);
 			} else {
 				$redirect_echec = $redirect;
@@ -80,7 +82,7 @@ function action_cookie_dist($set_cookie_admin = null, $change_session = null) {
 				_T('login_retour_site'),
 				'url=' . rawurlencode((string) $redirect),
 				_T('login_nouvelle_tentative'),
-				(str_contains((string) $url, (string) _DIR_RESTREINT_ABS))
+				(str_contains((string) $url, (string) param('spip.routes.back_office')))
 			);
 		}
 	} else {

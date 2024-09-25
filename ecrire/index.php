@@ -9,6 +9,8 @@
  * Ce programme est un logiciel libre distribué sous licence GNU/GPL.
  */
 
+require_once __DIR__ . '/../vendor/autoload.php';
+
 /**
  * Fichier d'exécution de l'interface privée
  *

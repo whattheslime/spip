@@ -9,6 +9,8 @@
  * Ce programme est un logiciel libre distribué sous licence GNU/GPL.
  */
 
+use function SpipLeague\Component\Kernel\param;
+
 /**
  * Gestion des actions sécurisées
  *
@@ -77,7 +79,7 @@ function generer_action_auteur($action, $arg = '', $redirect = '', $mode = false
  *     Code HTML du formulaire
  */
 function redirige_action_auteur($action, $arg, $ret, $gra = '', $mode = false, $atts = '', $public = false) {
-	$r = ($public ? _DIR_RESTREINT_ABS : _DIR_RESTREINT) . generer_url_ecrire($ret, $gra, true, true);
+	$r = ($public ? param('spip.routes.back_office') : _DIR_RESTREINT) . generer_url_ecrire($ret, $gra, true, true);
 
 	return generer_action_auteur($action, $arg, $r, $mode, $atts, $public);
 }

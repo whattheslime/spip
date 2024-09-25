@@ -9,6 +9,8 @@
  * Ce programme est un logiciel libre distribué sous licence GNU/GPL.
  */
 
+use function SpipLeague\Component\Kernel\param;
+
 /**
  * Ce fichier gère la balise dynamique `#FORMULAIRE_ADMIN`
  *
@@ -82,7 +84,6 @@ function balise_FORMULAIRE_ADMIN_stat($args, $context_compil) {
  *     Liste : Chemin du squelette, durée du cache, contexte
  */
 function balise_FORMULAIRE_ADMIN_dyn($float = '', $debug = '') {
-
 	static $dejafait = false;
 
 	if (empty($_COOKIE['spip_admin'])) {
@@ -120,7 +121,7 @@ function balise_FORMULAIRE_ADMIN_dyn($float = '', $debug = '') {
 
 	// Pas de "modifier ce..." ? -> donner "acces a l'espace prive"
 	if (!$env) {
-		$env['ecrire'] = _DIR_RESTREINT_ABS;
+		$env['ecrire'] = param('spip.routes.back_office');
 	}
 
 	$env['divclass'] = $float;

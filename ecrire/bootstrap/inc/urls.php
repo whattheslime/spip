@@ -1,5 +1,7 @@
 <?php
 
+use function SpipLeague\Component\Kernel\param;
+
 /**
  * Transformation XML des `&` en `&amp;`
  *
@@ -645,7 +647,7 @@ function url_de_($http, $host, $request, $prof = 0) {
 function generer_url_ecrire(?string $script = '', $args = '', $no_entities = false, $rel = false) {
 	$script ??= '';
 	if (!$rel) {
-		$rel = url_de_base() . _DIR_RESTREINT_ABS . _SPIP_ECRIRE_SCRIPT;
+		$rel = url_de_base() . param('spip.routes.back_office') . _SPIP_ECRIRE_SCRIPT;
 	} else {
 		if (!is_string($rel)) {
 			$rel = _DIR_RESTREINT ?: './' . _SPIP_ECRIRE_SCRIPT;
@@ -758,8 +760,7 @@ function generer_url_public($script = '', $args = '', $no_entities = false, $rel
 }
 
 function generer_url_prive($script, $args = '', $no_entities = false) {
-
-	return generer_url_public($script, $args, $no_entities, false, _DIR_RESTREINT_ABS . 'prive.php');
+	return generer_url_public($script, $args, $no_entities, false, param('spip.routes.back_office') . 'prive.php');
 }
 
 

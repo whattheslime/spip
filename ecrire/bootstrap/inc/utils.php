@@ -1,5 +1,7 @@
 <?php
 
+use function SpipLeague\Component\Kernel\param;
+
 /** Diverses fonctions */
 
 /**
@@ -27,7 +29,7 @@ function joli_repertoire(?string $rep): string {
 	}
 	$a = substr($rep, 0, 1);
 	if ($a <> '.' && $a <> '/') {
-		$rep = (_DIR_RESTREINT ? '' : _DIR_RESTREINT_ABS) . $rep;
+		$rep = (_DIR_RESTREINT ? '' : param('spip.dirs.core')) . $rep;
 	}
 	$rep = preg_replace(',(^\.\.\/),', '', $rep);
 

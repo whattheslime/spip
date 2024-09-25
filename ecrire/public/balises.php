@@ -2877,3 +2877,20 @@ function balise_CONST_dist($p) {
 
 	return $p;
 }
+
+/**
+ * Affiche un paramètre public du container SPIP.
+ */
+function balise_PARAM_dist(Champ $p): Champ {
+	$param = interprete_argument_balise(1, $p);
+	if (!strlen($param ?? '')) {
+		$p->code = "''";
+	}
+	else {
+		$p->code = '\SpipLeague\Component\Kernel\param(' . $param . ')';
+	}
+
+	$p->interdire_scripts = false;
+
+	return $p;
+}

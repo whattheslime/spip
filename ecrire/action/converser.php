@@ -9,6 +9,8 @@
  * Ce programme est un logiciel libre distribué sous licence GNU/GPL.
  */
 
+use function SpipLeague\Component\Kernel\param;
+
 /**
  * Gestion de l'action converser qui permet changer de langue
  *
@@ -40,7 +42,7 @@ function action_converser_dist() {
 	$redirect = rawurldecode((string) _request('redirect'));
 
 	if (!$redirect) {
-		$redirect = _DIR_RESTREINT_ABS;
+		$redirect = param('spip.routes.back_office');
 	}
 	$redirect = parametre_url($redirect, 'lang', $lang, '&');
 	redirige_par_entete($redirect, true);

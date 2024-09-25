@@ -307,6 +307,45 @@ $url = url_absolue($url);
 [(#URL_ARTICLE|url_absolue)]
 ```
 
+## Constantes PHP
+
+### `_DIR_RESTREINT_ABS`
+
+La constante `_DIR_RESTREINT_ABS` est dépréciée en SPIP4.4 et supprimée en SPIP5 au profit de paramètres gérés dans un [conteneur de services](https://symfony.com/doc/current/service_container.html).
+
+[Voir aussi la documentation de développement](https://symfony.com/doc/current/components/dependency_injection.html)
+
+#### Avant
+
+```php
+function lambda() {
+  $chaine = _DIR_RESTREINT_ABS . 'suite';
+}
+```
+
+Dans un fichier squelette :
+
+```html
+[(#CONST{_DIR_RESTREINT_ABS})]
+```
+
+### Après
+
+```php
+function lambda() {
+    // suivant le contexte (URL vers l'espace privé / répertoire physique "ecrire/")
+    $chaine = \SpipLeague\Component\Kernel\param('spip.routes.back_office') . 'suite';
+    // ou
+    $chaine = \SpipLeague\Component\Kernel\param('spip.dirs.core') . 'suite';
+}
+```
+
+Dans un squelette :
+
+```html
+[(#PARAM{spip.routes.back_office})]
+```
+
 # Renommage / changement de configurations
 
 ## Nettoyage des paramètres d’URI

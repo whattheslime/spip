@@ -4,6 +4,7 @@
 
 ### Added
 
+- !6044 balise #PARAM pour récupérer les paramètres du container de services (Cf [UPGRADE_5.0.md](UPGRADE_5.0.md#Constantes_PHP))
 - !6034 paramètre pour le filtre `|affdate{'Y-m-d H:i:s}`
 - Le dossier `prive/` s'installe avec composer
 - #5460 Permettre des CSS pour l’espace privé directement en CSS (sans compilation SPIP)
@@ -51,6 +52,7 @@
 
 ### Removed
 
+- !6044 la constante `_DIR_RESTREINT_ABS` est supprimée ()
 - medias#4958 Retrait de la globale `$formats_logos`
 - #5199 Retrait de toutes les références à la globale `auteur_session`
 - #5917 Retrait de toutes les références à NETPBM
