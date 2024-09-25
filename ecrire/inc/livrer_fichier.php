@@ -48,6 +48,18 @@ function spip_livrer_fichier($fichier, $content_type = 'application/octet-stream
 		$options['range'] = $_SERVER['HTTP_RANGE'];
 	}
 
+	// vider les buffer et supprimer la compression si besoin
+	if (function_exists('ini_set')) {
+		@ini_set('zlib.output_compression', '0'); // pour permettre l'affichage au fur et a mesure
+		@ini_set('output_buffering', 'off');
+		@ini_set('implicit_flush', 1);
+	}
+	@ob_implicit_flush(true);
+	$level = ob_get_level();
+	while ($level--) {
+		@ob_end_clean();
+	}
+
 	spip_livrer_fichier_entetes(
 		$fichier,
 		$content_type,
