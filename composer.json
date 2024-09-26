@@ -50,7 +50,7 @@
         "phpunit/phpunit": "^11.0",
         "spip/coding-standards": "^1.3",
         "symfony/var-dumper": "^7.0",
-        "symplify/easy-coding-standard": "^11.5"
+        "symplify/easy-coding-standard": "^12.3"
     },
     "suggest": {
         "ext-curl": "*",
