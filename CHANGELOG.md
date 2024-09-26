@@ -6,6 +6,7 @@ Changelog de SPIP 4.3
 
 ### Fixed
 
+- #3919 Réparer l'ajout de la configuration LDAP lors de l'installation
 - !6024 Éviter notice dans `init_http` en cas de "seriously malformed URLs"
 
 ## 4.3.2 - 2024-08-20
