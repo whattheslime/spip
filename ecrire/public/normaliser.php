@@ -12,17 +12,16 @@
 use Spip\Compilateur\Noeud\Champ;
 use Spip\Compilateur\Noeud\Inclure;
 
-
 if (!defined('_ECRIRE_INC_VERSION')) {
 	return;
 }
 
 function phraser_vieux_modele($p) {
- normaliser_args_inclumodel($p);
+	normaliser_args_inclumodel($p);
 }
 
 function phraser_vieux_inclu($p) {
- normaliser_args_inclumodel($p);
+	normaliser_args_inclumodel($p);
 }
 
 /**
@@ -30,7 +29,6 @@ function phraser_vieux_inclu($p) {
  * au lieu de {arg1=val1,arg2=val2,...}
  *
  * @param Champ|Inclure $p
- * @return void
  */
 function normaliser_args_inclumodel($p) {
 	$params = $p->param;
@@ -53,11 +51,9 @@ function normaliser_args_inclumodel($p) {
 	array_unshift($p->param, $args);
 }
 
-
 /**
  * Trim les arguments de <INCLURE> et repère l'argument spécial fond=
  * @param Inclure $champ
- * @return void
  */
 function normaliser_inclure($champ) {
 	normaliser_args_inclumodel($champ);
@@ -90,5 +86,6 @@ function normaliser_inclure($champ) {
 			return;
 		}
 	}
-	spip_logger('vieilles_def')->info('inclure sans fond ni fichier');
+	spip_logger('vieilles_def')
+		->info('inclure sans fond ni fichier');
 }

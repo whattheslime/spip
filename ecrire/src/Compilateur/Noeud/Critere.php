@@ -7,20 +7,31 @@ namespace Spip\Compilateur\Noeud;
  *
  * Sous-noeud de Boucle
  */
-class Critere {
-	/** Type de noeud */
+class Critere
+{
+	/**
+	 * Type de noeud
+	 */
 	public string $type = 'critere';
 
-	/** Opérateur (>, <, >=, IN, ...) */
+	/**
+	 * Opérateur (>, <, >=, IN, ...)
+	 */
 	public ?string $op = null;
 
-	/** Présence d'une négation (truc !op valeur) */
+	/**
+	 * Présence d'une négation (truc !op valeur)
+	 */
 	public bool $not = false;
 
-	/** Présence d'une exclusion (!truc op valeur) */
+	/**
+	 * Présence d'une exclusion (!truc op valeur)
+	 */
 	public string $exclus = '';
 
-	/** Présence d'une condition dans le critère (truc ?) */
+	/**
+	 * Présence d'une condition dans le critère (truc ?)
+	 */
 	public bool $cond = false;
 
 	/**
@@ -34,6 +45,8 @@ class Critere {
 	 */
 	public $param = [];
 
-	/** Numéro de ligne dans le code source du squelette */
+	/**
+	 * Numéro de ligne dans le code source du squelette
+	 */
 	public int $ligne = 0;
 }

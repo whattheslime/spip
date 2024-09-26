@@ -23,7 +23,6 @@ if (!defined('_ECRIRE_INC_VERSION')) {
 
 include_spip('iterateur/data');
 
-
 /**
  * Créer une boucle sur un itérateur CONDITION
  *
@@ -38,7 +37,7 @@ include_spip('iterateur/data');
 function iterateur_CONDITION_dist($b) {
 	$b->iterateur = 'CONDITION'; # designe la classe d'iterateur
 	$b->show = [
-		'field' => []
+		'field' => [],
 	];
 
 	return $b;

@@ -21,7 +21,6 @@ function test_plugin_actif($plugin) {
  * ou `tmp/` au lieu de `../tmp/`
  *
  * @param string $rep Chemin d’un répertoire
- * @return string
  */
 function joli_repertoire(?string $rep): string {
 	if ($rep === '' || $rep === null) {
@@ -71,7 +70,7 @@ function spip_timer($t = 'rien', $raw = false) {
 	} else {
 		$p = ($a + $b - $time[$t]) * 1000;
 		unset($time[$t]);
-#			echo "'$p'";exit;
+		#			echo "'$p'";exit;
 		if ($raw) {
 			return $p;
 		}
@@ -99,7 +98,7 @@ function spip_touch($fichier, $duree = 0, $touch = true) {
 		if (!@touch($fichier)) {
 			spip_unlink($fichier);
 			@touch($fichier);
-		};
+		}
 		@chmod($fichier, _SPIP_CHMOD & ~0111);
 	}
 
@@ -145,7 +144,6 @@ function http_script($script, $src = '', $noscript = '') {
 		? "<script$src>$script</script>$noscript"
 		: '';
 }
-
 
 /**
  * Sécurise du texte à écrire dans du PHP ou du Javascript.
@@ -200,7 +198,7 @@ function test_valeur_serveur($truc) {
 		return false;
 	}
 
-	return (strtolower($truc) !== 'off');
+	return strtolower($truc) !== 'off';
 }
 
 /**
@@ -248,7 +246,7 @@ function exec_info_dist() {
  *     true si la constante _VERSION_HTML n'est pas définie ou égale à html5
  */
 function html5_permis() {
-	return (!defined('_VERSION_HTML') || _VERSION_HTML !== 'html4');
+	return !defined('_VERSION_HTML') || _VERSION_HTML !== 'html4';
 }
 
 /**
@@ -256,7 +254,7 @@ function html5_permis() {
  */
 function formats_image_acceptables(?bool $gd = null, bool $svg_allowed = true): array {
 	$formats = null;
-	if (!is_null($gd)) {
+	if ($gd !== null) {
 		$config = ($gd ? 'gd_formats' : 'formats_graphiques');
 		if (isset($GLOBALS['meta'][$config])) {
 			$formats = $GLOBALS['meta'][$config];
@@ -265,7 +263,7 @@ function formats_image_acceptables(?bool $gd = null, bool $svg_allowed = true): 
 			$formats = array_map('trim', $formats);
 		}
 	}
-	if (is_null($formats)) {
+	if ($formats === null) {
 		include_spip('inc/filtres_images_lib_mini');
 		$formats = _image_extensions_acceptees_en_entree();
 	}
@@ -279,7 +277,6 @@ function formats_image_acceptables(?bool $gd = null, bool $svg_allowed = true): 
 	}
 	return $formats;
 }
-
 
 /**
  * Extension de la fonction getimagesize pour supporter aussi les images SVG
@@ -299,7 +296,7 @@ function spip_getimagesize($fichier) {
 			$height,
 			IMAGETYPE_SVG,
 			"width=\"{$width}\" height=\"{$height}\"",
-			'mime' => 'image/svg+xml'
+			'mime' => 'image/svg+xml',
 		];
 		return $imagesize;
 	}
@@ -331,7 +328,6 @@ function avertir_auteurs($nom, $message, $statut = '') {
 	$alertes[$statut][$nom] = $message;
 	ecrire_meta('message_alertes_auteurs', serialize($alertes));
 }
-
 
 /**
  * Compare 2 numéros de version entre elles.

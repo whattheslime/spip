@@ -21,7 +21,6 @@ if (!defined('_ECRIRE_INC_VERSION')) {
 	return;
 }
 
-
 /**
  * Nettoyer une URL contenant des `../`
  *
@@ -51,7 +50,6 @@ function resolve_path($url) {
 
 	return '/' . preg_replace(',^/,S', '', (string) $url);
 }
-
 
 /**
  * Suivre un lien depuis une URL donnée vers une nouvelle URL
@@ -106,7 +104,6 @@ function suivre_lien($url, $lien) {
 	};
 }
 
-
 /**
  * Transforme une URL relative en URL absolue
  *
@@ -154,7 +151,7 @@ function protocole_implicite($url_absolue) {
  * @param array $protocoles_autorises
  * @return bool
  */
-function protocole_verifier($url_absolue, $protocoles_autorises = ['http','https']) {
+function protocole_verifier($url_absolue, $protocoles_autorises = ['http', 'https']) {
 
 	if (preg_match(';^([a-z]{3,7})://;i', $url_absolue, $m)) {
 		$protocole = $m[1];
@@ -209,7 +206,6 @@ function liens_absolus($texte, $base = '') {
 	return $texte;
 }
 
-
 /**
  * Transforme une URL ou des liens en URL ou liens absolus
  *
@@ -224,12 +220,16 @@ function liens_absolus($texte, $base = '') {
  * @return string texte ou URL (en absolus)
  */
 function abs_url($texte, $base = '') {
-	trigger_deprecation('spip', '5.0', sprintf('Using "%s" is deprecated. Use "%s" or "%s"', __FUNCTION__, 'url_absolue', 'liens_absolus'));
+	trigger_deprecation(
+		'spip',
+		'5.0',
+		sprintf('Using "%s" is deprecated. Use "%s" or "%s"', __FUNCTION__, 'url_absolue', 'liens_absolus')
+	);
 	if ($GLOBALS['mode_abs_url'] == 'url') {
 		return url_absolue($texte, $base);
-	} else {
-		return liens_absolus($texte, $base);
 	}
+	return liens_absolus($texte, $base);
+
 }
 
 /**
@@ -242,7 +242,7 @@ function abs_url($texte, $base = '') {
  * @return string
  */
 function spip_htmlspecialchars($string, $flags = null, $encoding = 'UTF-8', $double_encode = true) {
-	if (is_null($flags)) {
+	if ($flags === null) {
 		$flags = ENT_COMPAT | ENT_HTML401;
 	}
 
@@ -259,7 +259,7 @@ function spip_htmlspecialchars($string, $flags = null, $encoding = 'UTF-8', $dou
  * @return string
  */
 function spip_htmlentities($string, $flags = null, $encoding = 'UTF-8', $double_encode = true) {
-	if (is_null($flags)) {
+	if ($flags === null) {
 		$flags = ENT_COMPAT | ENT_HTML401;
 	}
 

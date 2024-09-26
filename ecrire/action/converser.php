@@ -27,8 +27,6 @@ include_spip('inc/cookie');
  *
  * Pas de secu si espace public ou login ou installation
  * mais alors on n'accède pas à la base, on pose seulement le cookie.
- *
- * @return void
  */
 function action_converser_dist() {
 	$update_session = false;
@@ -79,14 +77,13 @@ function action_converser_changer_langue($update_session) {
  *
  * @param string $lang
  * @param bool $ecrire
- * @return void
  */
 function action_converser_post($lang, $ecrire = false) {
 	if ($lang) {
 		include_spip('inc/lang');
 		if (changer_langue($lang)) {
 			spip_setcookie('spip_lang', $_COOKIE['spip_lang'] = $lang, [
-				'expires' => time() + 365 * 24 * 3600
+				'expires' => time() + 365 * 24 * 3600,
 			]);
 			if ($ecrire) {
 				spip_setcookie('spip_lang_ecrire', $_COOKIE['spip_lang_ecrire'] = $lang, time() + 365 * 24 * 3600, httponly: true);

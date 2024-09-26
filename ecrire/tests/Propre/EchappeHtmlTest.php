@@ -140,7 +140,8 @@ apres blah et avant php
 Voilà , {$marque}</code>
 
 On peut croire que c'est embétant , faut mettre une div autour pour encadrer , mais cela permet d'orienter geshi en cours de route comme dans [Compte à rebours (revisited)->article6]
-CODE_SAMPLE, <<<CODE_SAMPLE
+CODE_SAMPLE
+			, <<<CODE_SAMPLE
 {{{code class="php"}}}
 avant blah
 <code class="blah">
@@ -220,7 +221,8 @@ et le tour est joué
 </code>
 
 Donc comme l'ancien coloration_code, le  &lt;/code> est mangé et "et le tour est joué" apparait hors-code.
-CODE_SAMPLE, <<<CODE_SAMPLE
+CODE_SAMPLE
+			, <<<CODE_SAMPLE
 Le code mis en <code><code></code> ou en <code><cadre></code> peut lui même contenir  <code><code></code> ou <code><cadre></code> ...
 <code class="xxx">
 ça 'xiste pô

@@ -21,4 +21,3 @@ include_once __DIR__ . '/inc/templating.php';
 include_once __DIR__ . '/inc/utils.php';
 include_once __DIR__ . '/inc/urls.php';
 require_once dirname(__DIR__) . '/base/connect_sql.php';
-

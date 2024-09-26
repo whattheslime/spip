@@ -24,7 +24,6 @@ include_spip('inc/filtres');
 
 // Balise independante du contexte
 
-
 /**
  * Compile la balise dynamique `#FORMULAIRE_INSCRIPTION` qui affiche
  * un formulaire d'inscription au site
@@ -79,7 +78,7 @@ function balise_FORMULAIRE_INSCRIPTION_stat($args, $context_compil) {
 	if (!is_array($id_ou_options)) {
 		$options = ['id' => (int) $id_ou_options];
 		$id = $options['id'];
-	}else {
+	} else {
 		$options = $id_ou_options;
 		$id = (int) ($id_ou_options['id'] ?? 0);
 	}

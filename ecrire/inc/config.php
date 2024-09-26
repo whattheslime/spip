@@ -19,12 +19,9 @@ if (!defined('_ECRIRE_INC_VERSION')) {
 	return;
 }
 
-
 /**
  * Appliquer les valeurs par défaut pour les options non initialisées
  * (pour les langues c'est fait)
- *
- * @return void
  */
 function inc_config_dist() {
 	actualise_metas(liste_metas());
@@ -145,11 +142,11 @@ function lire_config($cfg = '', mixed $def = null, $unserialize = true) {
 	}
 
 	// aller chercher le sous_casier
-	while (!is_null($r) && ($casier = array_shift($sous_casier))) {
+	while ($r !== null && ($casier = array_shift($sous_casier))) {
 		$r = $r[$casier] ?? null;
 	}
 
-	if (is_null($r)) {
+	if ($r === null) {
 		return $def;
 	}
 
@@ -168,7 +165,6 @@ function lire_config($cfg = '', mixed $def = null, $unserialize = true) {
 function lire_config_metapack_dist($cfg = '', mixed $def = null, $unserialize = true) {
 	return lire_config($cfg, $def, $unserialize);
 }
-
 
 /**
  * Ecrire une configuration
@@ -223,7 +219,7 @@ function ecrire_config($cfg, mixed $store) {
 			if (!isset($sc[$cc])) {
 				// si on essaye d'effacer une config qui n'existe pas
 				// ne rien creer mais sortir
-				if (is_null($store)) {
+				if ($store === null) {
 					return false;
 				}
 				$sc[$cc] = [];
@@ -233,7 +229,7 @@ function ecrire_config($cfg, mixed $store) {
 		}
 
 		// si c'est une demande d'effacement
-		if (is_null($store)) {
+		if ($store === null) {
 			$c = $sous_casier;
 			$sous = array_pop($c);
 			// effacer, et remonter pour effacer les parents vides
@@ -277,8 +273,8 @@ function ecrire_config($cfg, mixed $store) {
 		$store = $st;
 	}
 
-	if (is_null($store)) {
-		if (is_null($st) && !$sous_casier) {
+	if ($store === null) {
+		if ($st === null && !$sous_casier) {
 			return false;
 		} // la config n'existait deja pas !
 		effacer_meta($casier, $table);
@@ -307,8 +303,7 @@ function ecrire_config($cfg, mixed $store) {
 					ecrire_meta($casier, $serialized_store, null, $table);
 				}
 			}
-		}
-		else {
+		} else {
 			ecrire_meta($casier, $store, null, $table);
 		}
 	}
@@ -316,7 +311,6 @@ function ecrire_config($cfg, mixed $store) {
 	// verifier que lire_config($cfg)==$store ?
 	return true;
 }
-
 
 /**
  * metapack est inclue dans ecrire_config, mais on traite le cas ou il est explicite
@@ -422,7 +416,6 @@ function liste_metas() {
  * et recalcule les langues
  *
  * @param array $liste_meta
- * @return void
  */
 function actualise_metas($liste_meta) {
 	$meta_serveur =
@@ -447,7 +440,7 @@ function actualise_metas($liste_meta) {
 			'formats_graphiques',
 			'image_process',
 			'plugin_header',
-			'plugin'
+			'plugin',
 		];
 	// verifier le impt=non
 	sql_updateq('spip_meta', ['impt' => 'non'], sql_in('nom', $meta_serveur));
@@ -463,7 +456,6 @@ function actualise_metas($liste_meta) {
 	ecrire_meta('langues_utilisees', $langues);
 }
 
-
 //
 // Gestion des modifs
 //
@@ -478,7 +470,6 @@ function actualise_metas($liste_meta) {
  * @uses purger_repertoire()
  *
  * @param bool $purger_skel
- * @return void
  */
 function appliquer_modifs_config($purger_skel = false) {
 

@@ -15,20 +15,39 @@ use Psr\Log\LoggerInterface;
 
 class Requeteur
 {
-	/** @var string texte de la requête */
+	/**
+	 * @var string texte de la requête
+	 */
 	public $query = ''; // la requete
-	/** @var string Nom de la connexion */
+
+	/**
+	 * @var string Nom de la connexion
+	 */
 	public $serveur = '';
-	/** @var \PDO|null Identifiant de la connexion SQLite */
+
+	/**
+	 * @var \PDO|null Identifiant de la connexion SQLite
+	 */
 	public $link = null;
-	/** @var string Prefixe des tables SPIP */
+
+	/**
+	 * @var string Prefixe des tables SPIP
+	 */
 	public $prefixe = '';
-	/** @var string Nom de la base de donnée */
+
+	/**
+	 * @var string Nom de la base de donnée
+	 */
 	public $db = '';
-	/** @var bool Doit-on tracer les requetes (var_profile) ? */
+
+	/**
+	 * @var bool Doit-on tracer les requetes (var_profile) ?
+	 */
 	public $tracer = false; // doit-on tracer les requetes (var_profile)
 
-	/** @var string Version de SQLite (2 ou 3) */
+	/**
+	 * @var string Version de SQLite (2 ou 3)
+	 */
 	public $sqlite_version = '';
 
 	protected LoggerInterface $logger;
@@ -68,7 +87,7 @@ class Requeteur
 	 * @return bool|\PDOStatement|array
 	 */
 	public function executer_requete($query, $tracer = null) {
-		if (is_null($tracer)) {
+		if ($tracer === null) {
 			$tracer = $this->tracer;
 		}
 		$err = '';

@@ -45,9 +45,9 @@ function plugins_afficher_liste_dist(
 				'liste_plugins' => $liste_plugins,
 				'liste_plugins_checked' => $liste_plugins_checked,
 				'liste_plugins_actifs' => $liste_plugins_actifs,
-				'dir_plugins' => $dir_plugins
+				'dir_plugins' => $dir_plugins,
 			],
-			'data' => $all_infos
+			'data' => $all_infos,
 		]
 	);
 
@@ -55,7 +55,9 @@ function plugins_afficher_liste_dist(
 	foreach (array_keys($liste_plugins) as $chemin) {
 		// des plugins ont pu etre enleves de la liste par le pipeline. On en tient compte.
 		if (isset($all_infos[$chemin])) {
-			$liste_plugins[$chemin] = strtoupper(trim((string) typo(translitteration(unicode2charset(html2unicode($all_infos[$chemin]['nom']))))));
+			$liste_plugins[$chemin] = strtoupper(
+				trim((string) typo(translitteration(unicode2charset(html2unicode($all_infos[$chemin]['nom'])))))
+			);
 		} else {
 			unset($liste_plugins[$chemin]);
 		}
@@ -63,7 +65,7 @@ function plugins_afficher_liste_dist(
 	asort($liste_plugins);
 	$exposed = urldecode(_request('plugin') ?? '');
 
-	$block_par_lettre = false;//count($liste_plugins)>10;
+	$block_par_lettre = false; //count($liste_plugins)>10;
 	$fast_liste_plugins_actifs = [];
 	$fast_liste_plugins_checked = [];
 	if (is_array($liste_plugins_actifs)) {
@@ -99,7 +101,6 @@ function plugins_afficher_liste_dist(
 
 	return $res ? "<ul class='liste-items plugins $class'>$res</ul>" : '';
 }
-
 
 function affiche_block_initiale($initiale, $block, $block_actif) {
 	if (strlen((string) $block)) {

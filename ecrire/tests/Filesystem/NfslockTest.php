@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace Spip\Test\Filesystem;
 
-use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\TestCase;
 
 class NfslockTest extends TestCase

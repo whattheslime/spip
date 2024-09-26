@@ -11,7 +11,6 @@
 
 use Spip\Texte\Collecteur\Multis;
 
-
 /**
  * Ce fichier déclare des fonctions étendant les fonctions natives de SQLite
  *
@@ -49,49 +48,48 @@ function _sqlite_init_functions(&$sqlite) {
 		return false;
 	}
 
-
 	$fonctions = [
 		// A
-		'ACOS'  => ['acos', 1],
-		'ASIN'  => ['asin', 1],
-		'ATAN'  => ['atan', 1], // mysql accepte 2 params comme atan2… hum ?
+		'ACOS' => ['acos', 1],
+		'ASIN' => ['asin', 1],
+		'ATAN' => ['atan', 1], // mysql accepte 2 params comme atan2… hum ?
 		'ATAN2' => ['atan2', 2],
 
 		// C
-		'CEIL'   => ['_sqlite_func_ceil', 1],
+		'CEIL' => ['_sqlite_func_ceil', 1],
 		'CONCAT' => ['_sqlite_func_concat', -1],
-		'COS'    => ['cos', 1],
+		'COS' => ['cos', 1],
 
 		// D
 		'DATE_FORMAT' => ['_sqlite_func_date_format', 2], // équivalent a strftime avec args inversés
-		'DAYOFMONTH'  => ['_sqlite_func_dayofmonth', 1],
-		'DEGREES'     => ['rad2deg', 1],
+		'DAYOFMONTH' => ['_sqlite_func_dayofmonth', 1],
+		'DEGREES' => ['rad2deg', 1],
 
 		// E
 		'EXTRAIRE_MULTI' => ['_sqlite_func_extraire_multi', 2], // specifique a SPIP/sql_multi()
-		'EXP'            => ['exp', 1],
+		'EXP' => ['exp', 1],
 
 		// F
 		'FIND_IN_SET' => ['_sqlite_func_find_in_set', 2],
-		'FLOOR'       => ['_sqlite_func_floor', 1],
+		'FLOOR' => ['_sqlite_func_floor', 1],
 
 		// G
 		'GREATEST' => ['_sqlite_func_greatest', -1],
 
 		// I
-		'IF'     => ['_sqlite_func_if', 3],
+		'IF' => ['_sqlite_func_if', 3],
 		'INSERT' => ['_sqlite_func_insert', 4],
-		'INSTR'  => ['_sqlite_func_instr', 2],
+		'INSTR' => ['_sqlite_func_instr', 2],
 
 		// L
-		'LEAST'  => ['_sqlite_func_least', -1],
-		'_LEFT'  => ['_sqlite_func_left', 2],
+		'LEAST' => ['_sqlite_func_least', -1],
+		'_LEFT' => ['_sqlite_func_left', 2],
 
 		// N
 		'NOW' => ['_sqlite_func_now', 0],
 
 		// M
-		'MD5'   => ['md5', 1],
+		'MD5' => ['md5', 1],
 		'MONTH' => ['_sqlite_func_month', 1],
 
 		// P
@@ -99,20 +97,20 @@ function _sqlite_init_functions(&$sqlite) {
 
 		// R
 		'RADIANS' => ['deg2rad', 1],
-		'RAND'    => ['_sqlite_func_rand', 0], // sinon random() v2.4
-		'REGEXP'  => ['_sqlite_func_regexp_match', 2], // critere REGEXP supporte a partir de v3.3.2
-		'RIGHT'   => ['_sqlite_func_right', 2],
+		'RAND' => ['_sqlite_func_rand', 0], // sinon random() v2.4
+		'REGEXP' => ['_sqlite_func_regexp_match', 2], // critere REGEXP supporte a partir de v3.3.2
+		'RIGHT' => ['_sqlite_func_right', 2],
 
 		// S
-		'SETTYPE'   => ['settype', 2], // CAST present en v3.2.3
-		'SIN'       => ['sin', 1],
-		'SQRT'      => ['sqrt', 1],
+		'SETTYPE' => ['settype', 2], // CAST present en v3.2.3
+		'SIN' => ['sin', 1],
+		'SQRT' => ['sqrt', 1],
 		'SUBSTRING' => ['_sqlite_func_substring' /*, 3*/], // peut etre appelee avec 2 ou 3 arguments, index base 1 et non 0
 
 		// T
-		'TAN'           => ['tan', 1],
+		'TAN' => ['tan', 1],
 		'TIMESTAMPDIFF' => ['_sqlite_timestampdiff'    /*, 3*/],
-		'TO_DAYS'       => ['_sqlite_func_to_days', 1],
+		'TO_DAYS' => ['_sqlite_func_to_days', 1],
 
 		// U
 		'UNIX_TIMESTAMP' => ['_sqlite_func_unix_timestamp', 1],
@@ -121,7 +119,7 @@ function _sqlite_init_functions(&$sqlite) {
 		'VIDE' => ['_sqlite_func_vide', 0], // du vide pour SELECT 0 as x ... ORDER BY x -> ORDER BY vide()
 
 		// Y
-		'YEAR' => ['_sqlite_func_year', 1]
+		'YEAR' => ['_sqlite_func_year', 1],
 	];
 
 	foreach ($fonctions as $f => $r) {
@@ -130,7 +128,6 @@ function _sqlite_init_functions(&$sqlite) {
 
 	#spip_logger('sqlite')->debug('functions sqlite chargees ');
 }
-
 
 /**
  * Déclare une fonction à SQLite
@@ -147,7 +144,7 @@ function _sqlite_init_functions(&$sqlite) {
  *     - le nom de la fonction à appeler,
  *     - le nombre de paramètres attendus de la fonction (-1 = infini, par défaut)
  *
-**/
+ **/
 function _sqlite_add_function(&$sqlite, &$f, &$r) {
 	isset($r[1])
 		? $sqlite->sqliteCreateFunction($f, $r[0], $r[1])
@@ -174,7 +171,6 @@ function _sqlite_func_concat(...$args) {
 	return implode('', $args);
 }
 
-
 /**
  * Mapping de `DAYOFMONTH` pour SQLite
  *
@@ -187,7 +183,6 @@ function _sqlite_func_dayofmonth($d) {
 	return _sqlite_func_date('d', $d);
 }
 
-
 /**
  * Mapping de `FIND_IN_SET` pour SQLite
  *
@@ -199,7 +194,7 @@ function _sqlite_func_find_in_set($num, $set) {
 	$rank = 0;
 	foreach (explode(',', $set) as $v) {
 		if ($v == $num) {
-			return (++$rank);
+			return ++$rank;
 		}
 		$rank++;
 	}
@@ -217,7 +212,6 @@ function _sqlite_func_floor($a) {
 	return floor($a);
 }
 
-
 /**
  * Mapping de `IF` pour SQLite
  *
@@ -229,7 +223,6 @@ function _sqlite_func_floor($a) {
 function _sqlite_func_if($bool, $oui, $non) {
 	return ($bool) ? $oui : $non;
 }
-
 
 /**
  * Mapping de `INSERT` pour SQLite
@@ -244,12 +237,10 @@ function _sqlite_func_if($bool, $oui, $non) {
  * @return string
  */
 function _sqlite_func_insert($s, $index, $longueur, $chaine) {
-	return
-		substr($s, 0, $index)
+	return substr($s, 0, $index)
 		. $chaine
 		. substr(substr($s, $index), $longueur);
 }
-
 
 /**
  * Mapping de `INSTR` pour SQLite
@@ -262,7 +253,6 @@ function _sqlite_func_instr($s, $search) {
 	return strpos($s, $search);
 }
 
-
 /**
  * Mapping de `LEAST` pour SQLite
  *
@@ -273,7 +263,6 @@ function _sqlite_func_least(...$args) {
 	return min($args);
 }
 
-
 /**
  * Mapping de `GREATEST` pour SQLite
  *
@@ -283,7 +272,6 @@ function _sqlite_func_least(...$args) {
 function _sqlite_func_greatest(...$args) {
 	return max($args);
 }
-
 
 /**
  * Mapping de `LEFT` pour SQLite
@@ -304,14 +292,13 @@ function _sqlite_func_left($s, $lenght) {
  */
 function _sqlite_func_now($force_refresh = false) {
 	static $now = null;
-	if (is_null($now) || $force_refresh) {
+	if ($now === null || $force_refresh) {
 		$now = date('Y-m-d H:i:s');
 	}
 
 	#spip_logger('sqlite')->debug("Passage avec NOW : $now | ".time());
 	return $now;
 }
-
 
 /**
  * Mapping de `MONTH` pour SQLite
@@ -324,7 +311,6 @@ function _sqlite_func_now($force_refresh = false) {
 function _sqlite_func_month($d) {
 	return _sqlite_func_date('m', $d);
 }
-
 
 /**
  * Mapping de `PREG_REPLACE` pour SQLite
@@ -356,7 +342,6 @@ function _sqlite_func_extraire_multi($quoi, $lang) {
 	return $quoi;
 }
 
-
 /**
  * Mapping de `RAND` pour SQLite
  *
@@ -365,7 +350,6 @@ function _sqlite_func_extraire_multi($quoi, $lang) {
 function _sqlite_func_rand() {
 	return random_int(0, mt_getrandmax());
 }
-
 
 /**
  * Mapping de `RIGHT` pour SQLite
@@ -377,7 +361,6 @@ function _sqlite_func_rand() {
 function _sqlite_func_right($s, $length) {
 	return substr($s, 0 - $length);
 }
-
 
 /**
  * Mapping de `REGEXP` pour SQLite
@@ -398,7 +381,6 @@ function _sqlite_func_regexp_match($cherche, $quoi) {
 	#spip_logger('sqlite')->debug("regexp_replace : $quoi, $cherche, $remplace, $return");
 	return preg_match('%' . $cherche . '%imsS' . $u, $quoi);
 }
-
 
 /**
  * Mapping de `DATE_FORMAT` pour SQLite
@@ -423,9 +405,6 @@ function _sqlite_func_date_format($date, $conv) {
  * d'autres n'ont tout simplement pas d'équivalent dans strftime :
  * dans ce cas là on loggue, car il y a de grandes chances que le résultat
  * soit inadapté.
- *
- * @param string $conv
- * @return void
  */
 function _sqlite_func_strftime_format_converter(string $conv): string {
 	// ok : %a %b %d %e %H %I %l %j %k %m %p %r %S %T %w %y %Y
@@ -464,7 +443,7 @@ function _sqlite_func_strftime_format_converter(string $conv): string {
  */
 function _sqlite_func_to_days($d) {
 	static $offset = 719528; // nb de jour entre 0000-00-00 et timestamp 0=1970-01-01
-	$result = $offset + (int)ceil(_sqlite_func_unix_timestamp($d) / (24 * 3600));
+	$result = $offset + (int) ceil(_sqlite_func_unix_timestamp($d) / (24 * 3600));
 
 	#spip_logger('sqlite')->debug("Passage avec TO_DAYS : $d, $result");
 	return $result;
@@ -481,11 +460,11 @@ function _sqlite_func_to_days($d) {
 function _sqlite_func_substring($string, $start, $len = null) {
 	// SQL compte a partir de 1, php a partir de 0
 	$start = ($start > 0) ? $start - 1 : $start;
-	if (is_null($len)) {
+	if ($len === null) {
 		return substr($string, $start);
-	} else {
-		return substr($string, $start, $len);
 	}
+	return substr($string, $start, $len);
+
 }
 
 /**
@@ -546,7 +525,6 @@ function _sqlite_func_unix_timestamp($d) {
 	return $mem[$d] = strtotime($d);
 }
 
-
 /**
  * Mapping de `YEAR` pour SQLite
  *
@@ -587,8 +565,6 @@ function _sqlite_func_date($quoi, $d) {
 
 /**
  * Mapping de `VIDE()` de SPIP pour SQLite
- *
- * @return void
  */
 function _sqlite_func_vide() {
 	return;

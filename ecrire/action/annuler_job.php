@@ -21,8 +21,6 @@ if (!defined('_ECRIRE_INC_VERSION')) {
 
 /**
  * Annuler un travail
- *
- * @return void
  */
 function action_annuler_job_dist() {
 	$securiser_action = charger_fonction('securiser_action', 'inc');

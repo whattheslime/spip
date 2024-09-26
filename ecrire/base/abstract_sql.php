@@ -46,13 +46,15 @@ include_spip('base/connect_sql');
 function sql_error_backtrace($compil_info = false) {
 	$trace = debug_backtrace();
 	$caller = array_shift($trace);
-	while (count($trace) && (empty($trace[0]['file']) || $trace[0]['file'] === $caller['file'] || $trace[0]['file'] === __FILE__)) {
+	while (count(
+		$trace
+	) && (empty($trace[0]['file']) || $trace[0]['file'] === $caller['file'] || $trace[0]['file'] === __FILE__)) {
 		array_shift($trace);
 	}
 
 	if ($compil_info) {
 		return [
-			$trace[0]['file'],// sourcefile
+			$trace[0]['file'], // sourcefile
 			'', //nom
 			(isset($trace[1]) ? $trace[1]['function'] . "(){\n" : '')
 			. $trace[0]['function'] . '();'
@@ -77,7 +79,6 @@ function sql_error_backtrace($compil_info = false) {
 	return $message;
 }
 
-
 /**
  * Charge le serveur de base de donnees
  *
@@ -96,7 +97,6 @@ function sql_error_backtrace($compil_info = false) {
  * @return string|array
  *    Nom de la fonction a appeler pour l'instruction demandee pour le type de serveur SQL correspondant au fichier de connexion.
  *    Si l'instruction demandee n'existe pas, retourne la liste de toutes les instructions du serveur SQL avec $continue a true.
- *
  */
 function sql_serveur($ins_sql = '', $serveur = '', $continue = false) {
 	static $sql_serveur = [];
@@ -141,13 +141,11 @@ function sql_get_charset($charset, $serveur = '', $option = true) {
 	) {
 		return $c;
 	}
-	spip_logger()->warning(
-		"SPIP ne connait pas les Charsets disponibles sur le serveur $serveur. Le serveur choisira seul."
-	);
+	spip_logger()
+		->warning("SPIP ne connait pas les Charsets disponibles sur le serveur $serveur. Le serveur choisira seul.");
 
 	return false;
 }
-
 
 /**
  * Regler le codage de connexion
@@ -178,7 +176,6 @@ function sql_set_charset($charset, $serveur = '', $option = true) {
 
 	return $f($charset, $serveur, $option !== false);
 }
-
 
 /**
  * Effectue une requête de selection
@@ -213,7 +210,6 @@ function sql_set_charset($charset, $serveur = '', $option = true) {
  *     Le cas array est, pour une requete produite par le compilateur,
  *     un tableau donnnant le contexte afin d'indiquer le lieu de l'erreur au besoin
  *
- *
  * @return mixed
  *     Ressource SQL
  *
@@ -224,7 +220,6 @@ function sql_set_charset($charset, $serveur = '', $option = true) {
  * Retourne false en cas d'erreur, apres l'avoir denoncee.
  * Les portages doivent retourner la requete elle-meme en cas d'erreur,
  * afin de disposer du texte brut.
- *
  */
 function sql_select(
 	$select = [],
@@ -262,7 +257,7 @@ function sql_select(
 		}
 		// le debug, c'est pour ce qui a ete produit par le compilateur
 		if (isset($GLOBALS['debug']['aucasou'])) {
-			[$table, $id, ] = $GLOBALS['debug']['aucasou'];
+			[$table, $id] = $GLOBALS['debug']['aucasou'];
 			$nom = $GLOBALS['debug_objets']['courant'] . $id;
 			$GLOBALS['debug_objets']['requete'][$nom] = $query;
 		}
@@ -281,7 +276,6 @@ function sql_select(
 
 	return false;
 }
-
 
 /**
  * Recupere la syntaxe de la requete select sans l'executer
@@ -313,7 +307,6 @@ function sql_select(
  * @return mixed
  *    Chaine contenant la requete
  *    ou false en cas d'erreur
- *
  */
 function sql_get_select(
 	$select = [],
@@ -327,7 +320,6 @@ function sql_get_select(
 ) {
 	return sql_select($select, $from, $where, $groupby, $orderby, $limit, $having, $serveur, false);
 }
-
 
 /**
  * Retourne le nombre de lignes d'une sélection
@@ -366,16 +358,8 @@ function sql_get_select(
  * @return int|bool
  *     - Nombre de lignes de resultat
  *     - ou false en cas d'erreur
- *
  */
-function sql_countsel(
-	$from = [],
-	$where = [],
-	$groupby = [],
-	$having = [],
-	$serveur = '',
-	$option = true
-) {
+function sql_countsel($from = [], $where = [], $groupby = [], $having = [], $serveur = '', $option = true) {
 	$f = sql_serveur('countsel', $serveur, $option === 'continue' || $option === false);
 	if (!is_string($f) || !$f) {
 		return false;
@@ -457,7 +441,6 @@ function sql_fetch(mixed $res, $serveur = '', $option = true) {
 	return $f($res, null, $serveur, $option !== false);
 }
 
-
 /**
  * Retourne tous les enregistrements d'une selection
  *
@@ -534,7 +517,6 @@ function sql_seek(mixed $res, $row_number, $serveur = '', $option = true) {
 	return $r;
 }
 
-
 /**
  * Liste des bases de donnees accessibles
  *
@@ -567,7 +549,6 @@ function sql_listdbs($serveur = '', $option = true) {
 
 	return $r;
 }
-
 
 /**
  * Demande d'utiliser d'une base de donnees
@@ -608,7 +589,7 @@ function sql_selectdb($nom, $serveur = '', $option = true) {
  * @see sql_select()
  * @see sql_countsel()
  *
- * @param Object $res
+ * @param object $res
  *     Ressource SQL
  * @param string $serveur
  *     Nom du connecteur
@@ -640,7 +621,7 @@ function sql_count($res, $serveur = '', $option = true) {
  * Indique au gestionnaire SQL de libérer de sa mémoire la ressoucre de
  * résultat indiquée car on n'a plus besoin de l'utiliser.
  *
- * @param Object $res
+ * @param object $res
  *     Ressource de résultat
  * @param string $serveur
  *     Nom de la connexion
@@ -660,7 +641,6 @@ function sql_free($res, $serveur = '', $option = true) {
 
 	return $f($res);
 }
-
 
 /**
  * Insère une ligne dans une table
@@ -854,7 +834,6 @@ function sql_update($table, $exp, $where = '', $desc = [], $serveur = '', $optio
 	return $r;
 }
 
-
 /**
  * Met à jour du contenu d’une table SQL
  *
@@ -993,7 +972,6 @@ function sql_replace($table, $couples, $desc = [], $serveur = '', $option = true
 
 	return $r;
 }
-
 
 /**
  * Insère où met à jour des entrées d’une table SQL
@@ -1234,7 +1212,6 @@ function sql_showtable($table, $table_spip = false, $serveur = '', $option = tru
 	return $f;
 }
 
-
 /**
  * Teste si une table SQL existe ou non dans la base
  *
@@ -1242,7 +1219,7 @@ function sql_showtable($table, $table_spip = false, $serveur = '', $option = tru
  *
  * @param string $table
  *     Nom de la table
-* @param bool $table_spip
+ * @param bool $table_spip
  *     true pour remplacer automatiquement « spip » par le vrai préfixe de table
  * @param string $serveur
  *     Nom du connecteur
@@ -1274,7 +1251,6 @@ function sql_table_exists(string $table, bool $table_spip = true, $serveur = '',
 
 	return $f($vraie_table, $serveur, $option !== false);
 }
-
 
 /**
  * Crée une table dans la base de données
@@ -1365,7 +1341,6 @@ function sql_create_base($nom, $serveur = '', $option = true) {
 	return $r;
 }
 
-
 /**
  * Crée une vue SQL
  *
@@ -1437,7 +1412,6 @@ function sql_multi($sel, $lang, $serveur = '', $option = true) {
 
 	return $f($sel, $lang);
 }
-
 
 /**
  * Retourne la dernière erreur connue
@@ -1560,7 +1534,6 @@ function sql_repair($table, $serveur = '', $option = true) {
 	return $r;
 }
 
-
 /**
  * Exécute une requête SQL
  *
@@ -1636,7 +1609,6 @@ function sql_query($ins, $serveur = '', $option = true) {
  * @return array|string|false
  *     Tableau de la premiere ligne de resultat de la selection tel que
  *     `array('id_rubrique' => 1, 'id_secteur' => 2)`
- *
  */
 function sql_fetsel(
 	$select = [],
@@ -1661,7 +1633,6 @@ function sql_fetsel(
 
 	return $r;
 }
-
 
 /**
  * Retourne le tableau de toutes les lignes d'une selection
@@ -1713,7 +1684,6 @@ function sql_fetsel(
  *      )
  *      ```
  *    }
- *
  */
 function sql_allfetsel(
 	$select = [],
@@ -1733,7 +1703,6 @@ function sql_allfetsel(
 
 	return sql_fetch_all($q, $serveur, $option);
 }
-
 
 /**
  * Retourne un unique champ d'une selection
@@ -1775,7 +1744,6 @@ function sql_allfetsel(
  * @return mixed
  *     Contenu de l'unique valeur demandee du premier enregistrement retourne
  *     ou NULL si la requete ne retourne aucun enregistrement
- *
  */
 function sql_getfetsel(
 	$select,
@@ -1824,7 +1792,7 @@ function sql_getfetsel(
 function sql_version($serveur = '', $option = true) {
 	$row = sql_fetsel('version() AS n', '', '', '', '', '', '', $serveur);
 
-	return ($row['n']);
+	return $row['n'];
 }
 
 /**
@@ -1872,8 +1840,6 @@ function sql_preferer_transaction($serveur = '', $option = true) {
 	return $r;
 }
 
-;
-
 /**
  * Démarre une transaction
  *
@@ -1906,8 +1872,6 @@ function sql_demarrer_transaction($serveur = '', $option = true) {
 	return $r;
 }
 
-;
-
 /**
  * Termine une transaction
  *
@@ -1939,9 +1903,6 @@ function sql_terminer_transaction($serveur = '', $option = true) {
 
 	return $r;
 }
-
-;
-
 
 /**
  * Prépare une chaine hexadécimale
@@ -2072,12 +2033,12 @@ function sql_in_quote($champ, $valeurs, $not = '', $serveur = '', $type = '', $o
 	}
 
 	// sql_quote produit une chaine dans tous les cas
-	$valeurs = array_filter($valeurs, fn($v) => !is_array($v));
+	$valeurs = array_filter($valeurs, fn ($v) => !is_array($v));
 	$valeurs = array_unique($valeurs);
 	$valeurs = $quote($valeurs, $type);
 
 	if (!strlen(trim((string) $valeurs))) {
-		return ($not ? '0=0' : '0=1');
+		return $not ? '0=0' : '0=1';
 	}
 
 	$f = sql_serveur('in', $serveur, $option === 'continue' || $option === false);
@@ -2116,8 +2077,6 @@ function sql_in($champ, $valeurs, $not = '', $serveur = '', $option = true) {
 
 	return sql_in_quote($champ, $valeurs, $not, $serveur, $type, $option);
 }
-
-
 
 /**
  * Retourne une expression IN pour le gestionnaire de base de données
@@ -2184,7 +2143,7 @@ function sql_in_select(
  *
  * @see sql_seek()
  *
- * @param Object $res
+ * @param object $res
  *    Ressource issue d'une selection sql_select
  * @param int $pos
  *   position courante
@@ -2228,7 +2187,6 @@ function sql_skip($res, $pos, $saut, $count, $serveur = '', $option = true) {
 
 	return $pos;
 }
-
 
 /**
  * Teste qu'une description de champ SQL est de type entier
@@ -2301,7 +2259,6 @@ function sql_format_date($annee = 0, $mois = 0, $jour = 0, $h = 0, $m = 0, $s = 
 	. sprintf('%02u', $jour) . ' ' . sprintf('%02u', $h) . ':'
 	. sprintf('%02u', $m) . ':' . sprintf('%02u', $s);
 }
-
 
 /**
  * Retourne la description de la table SQL

@@ -24,8 +24,6 @@ include_spip('inc/actions');
 /**
  * Prouver qu'on a les droits de webmestre via un ftp, et
  * devenir webmestre sans refaire l'install
- *
- * @return void
  */
 function action_etre_webmestre_dist() {
 	$securiser_action = charger_fonction('securiser_action', 'inc');
@@ -49,8 +47,6 @@ function action_etre_webmestre_dist() {
 
 /**
  * Passe l'administrateur connecté en webmestre.
- *
- * @return void
  */
 function base_etre_webmestre_dist() {
 	if ($GLOBALS['visiteur_session']['statut'] == '0minirezo' && $GLOBALS['visiteur_session']['webmestre'] !== 'oui') {

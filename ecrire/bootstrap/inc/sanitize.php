@@ -7,7 +7,7 @@
  * Cette fonction est appliquée par SPIP à son initialisation sur GET/POST/COOKIES/GLOBALS
  * @param array $t le tableau ou la chaine à desinfecter (passage par référence)
  * @param bool $deep = true : appliquer récursivement
-**/
+ **/
 function spip_desinfecte(&$t, $deep = true) {
 	foreach ($t as $key => $val) {
 		if (is_string($t[$key])) {

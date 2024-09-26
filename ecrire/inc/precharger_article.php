@@ -21,7 +21,6 @@ if (!defined('_ECRIRE_INC_VERSION')) {
 
 include_spip('inc/precharger_objet');
 
-
 /**
  * Retourne les valeurs à charger pour un formulaire d'édition d'un article
  *
@@ -40,7 +39,6 @@ include_spip('inc/precharger_objet');
 function inc_precharger_article_dist($id_article, $id_rubrique = 0, $lier_trad = 0) {
 	return precharger_objet('article', $id_article, $id_rubrique, $lier_trad, 'titre');
 }
-
 
 /**
  * Récupère les valeurs d'une traduction de référence pour la création

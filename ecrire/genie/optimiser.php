@@ -52,7 +52,10 @@ function optimiser_caches_contextes() {
 	sous_repertoire(_DIR_CACHE, 'contextes');
 	if (is_dir($d = _DIR_CACHE . 'contextes')) {
 		include_spip('inc/invalideur');
-		purger_repertoire($d, ['mtime' => time() - 48 * 3600, 'limit' => 10000]);
+		purger_repertoire($d, [
+			'mtime' => time() - 48 * 3600,
+			'limit' => 10000,
+		]);
 	}
 }
 
@@ -65,12 +68,10 @@ function optimiser_caches_contextes() {
  *     Heure de référence pour le garbage collector = 24h auparavant
  * @param int $attente
  *     Attente entre 2 exécutions de la tache en secondes
- * @return void
  */
 function optimiser_base($attente = 86400) {
 	optimiser_base_disparus($attente);
 }
-
 
 /**
  * Lance une requête d'optimisation sur une des tables SQL de la
@@ -110,7 +111,6 @@ function optimiser_base_une_table() {
 	}
 }
 
-
 /**
  * Supprime des enregistrements d'une table SQL dont les ids à supprimer
  * se trouvent dans les résultats de ressource SQL transmise, sous la colonne 'id'
@@ -124,7 +124,7 @@ function optimiser_base_une_table() {
  *     Nom de la table SQL, exemple : spip_articles
  * @param string $id
  *     Nom de la clé primaire de la table, exemple : id_article
- * @param Object $sel
+ * @param object $sel
  *     Ressource SQL issue d'une sélection (sql_select) et contenant une
  *     colonne 'id' ayant l'identifiant de la clé primaire à supprimer
  * @param string $and
@@ -141,12 +141,14 @@ function optimiser_sansref($table, $id, $sel, $and = '') {
 
 	if ($in) {
 		sql_delete($table, sql_in($id, array_keys($in)) . ($and ? " AND $and" : ''));
-		spip_logger('genie')->debug("optimiser_sansref: Numeros des entrees $id supprimees dans la table $table: " . implode(', ', array_keys($in)));
+		spip_logger('genie')
+			->debug(
+				"optimiser_sansref: Numeros des entrees $id supprimees dans la table $table: " . implode(', ', array_keys($in))
+			);
 	}
 
 	return count($in);
 }
-
 
 /**
  * Suppression des liens morts entre tables
@@ -162,7 +164,6 @@ function optimiser_sansref($table, $id, $sel, $and = '') {
  *
  * @param int $attente
  *     Attente entre 2 exécutions de la tache en secondes
- * @return void
  */
 function optimiser_base_disparus($attente = 86400) {
 
@@ -221,7 +222,10 @@ function optimiser_base_disparus($attente = 86400) {
 	if (!defined('_AUTEURS_DELAI_REJET_NOUVEAU')) {
 		define('_AUTEURS_DELAI_REJET_NOUVEAU', 45 * 24 * 3600);
 	}
-	sql_delete('spip_auteurs', "statut='nouveau' AND maj < " . sql_quote(date('Y-m-d', time() - (int) _AUTEURS_DELAI_REJET_NOUVEAU)));
+	sql_delete(
+		'spip_auteurs',
+		"statut='nouveau' AND maj < " . sql_quote(date('Y-m-d', time() - (int) _AUTEURS_DELAI_REJET_NOUVEAU))
+	);
 
 	/**
 	 * Permet aux plugins de compléter l'optimisation suite aux éléments disparus
@@ -236,11 +240,11 @@ function optimiser_base_disparus($attente = 86400) {
 	$n = pipeline('optimiser_base_disparus', [
 		'args' => [
 			'attente' => $attente,
-			'date' => $mydate
+			'date' => $mydate,
 		],
-		'data' => $n
+		'data' => $n,
 	]);
 
-
-	spip_logger('genie')->debug("optimiser_base_disparus : {$n} lien(s) mort(s)");
+	spip_logger('genie')
+		->debug("optimiser_base_disparus : {$n} lien(s) mort(s)");
 }

@@ -46,7 +46,6 @@ if (!defined('_UPGRADE_TIME_OUT')) {
  *
  * @param string $titre
  * @param string $reprise Inutilisé
- * @return void
  */
 function base_upgrade_dist($titre = '', $reprise = '') {
 	if (!$titre) {
@@ -55,7 +54,8 @@ function base_upgrade_dist($titre = '', $reprise = '') {
 	if ($GLOBALS['spip_version_base'] != $GLOBALS['meta']['version_installee']) {
 		if (!is_numeric(_request('reinstall'))) {
 			include_spip('base/create');
-			spip_logger('maj')->notice('recree les tables eventuellement disparues');
+			spip_logger('maj')
+				->notice('recree les tables eventuellement disparues');
 			creer_base();
 		}
 
@@ -68,7 +68,8 @@ function base_upgrade_dist($titre = '', $reprise = '') {
 			exit;
 		}
 	}
-	spip_logger('maj')->notice('Fin de mise a jour SQL. Debut m-a-j acces et config');
+	spip_logger('maj')
+		->notice('Fin de mise a jour SQL. Debut m-a-j acces et config');
 
 	// supprimer quelques fichiers temporaires qui peuvent se retrouver invalides
 	@spip_unlink(_CACHE_RUBRIQUES);
@@ -115,9 +116,8 @@ function maj_base($version_cible = 0, $redirect = '', $debut_page = true) {
 
 	$version_installee = $GLOBALS['meta']['version_installee'] ?? null;
 
-	spip_logger('maj')->notice(
-		"Version anterieure: $version_installee. Courante: " . $GLOBALS['spip_version_base'],
-	);
+	spip_logger('maj')
+		->notice("Version anterieure: $version_installee. Courante: " . $GLOBALS['spip_version_base']);
 	if (!$version_installee || $GLOBALS['spip_version_base'] < $version_installee) {
 		if (!$version_installee) {
 			sql_replace(
@@ -125,7 +125,7 @@ function maj_base($version_cible = 0, $redirect = '', $debut_page = true) {
 				[
 					'nom' => 'version_installee',
 					'valeur' => $GLOBALS['spip_version_base'],
-					'impt' => 'non'
+					'impt' => 'non',
 				]
 			);
 		}
@@ -192,7 +192,6 @@ function maj_base($version_cible = 0, $redirect = '', $debut_page = true) {
  *         ```
  * @param string $table_meta
  *     Nom de la table meta (sans le prefixe spip_) dans laquelle trouver la meta $nom_meta_base_version
- * @return void
  */
 function maj_plugin($nom_meta_base_version, $version_cible, $maj, $table_meta = 'meta') {
 
@@ -256,7 +255,6 @@ function maj_plugin($nom_meta_base_version, $version_cible, $maj, $table_meta = 
  * @param string $meta
  * @param string $table
  * @param string $redirect
- * @return void
  */
 function relance_maj($meta, $table, $redirect = '') {
 	include_spip('inc/headers');
@@ -279,7 +277,6 @@ function relance_maj($meta, $table, $redirect = '') {
  * @param string $installee
  * @param string $meta
  * @param string $table
- * @return void
  */
 function maj_debut_page($installee, $meta, $table) {
 	static $done = false;
@@ -295,7 +292,7 @@ function maj_debut_page($installee, $meta, $table) {
 	$titre = _T('titre_page_upgrade');
 	$balise_img = charger_filtre('balise_img');
 	$titre .= $balise_img(chemin_image('loader.svg'), '', 'loader');
-	echo(install_debut_html($titre));
+	echo install_debut_html($titre);
 	// script de rechargement auto sur timeout
 	$redirect = generer_url_ecrire('upgrade', "reinstall=$installee&meta=$meta&table=$table", true);
 	echo http_script("window.setTimeout('location.href=\"" . $redirect . "\";'," . ($timeout * 1000) . ')');
@@ -306,7 +303,6 @@ function maj_debut_page($installee, $meta, $table) {
 	flush();
 	$done = true;
 }
-
 
 /**
  * Gestion des mises à jour de SPIP et des plugins
@@ -386,11 +382,12 @@ function maj_while($installee, $cible, $maj, $meta = '', $table = 'meta', $redir
 				return [$v, $etape];
 			}
 			$n = time() - $time;
-			spip_logger('maj')->notice("$table $meta: $v en $n secondes");
+			spip_logger('maj')
+				->notice("$table $meta: $v en $n secondes");
 			if ($meta) {
 				ecrire_meta($meta, $installee = $v, 'oui', $table);
 			}
-			echo (_IS_CLI ? "\n" : '<br>');
+			echo _IS_CLI ? "\n" : '<br>';
 		}
 		if (time() >= _TIME_OUT) {
 			relance_maj($meta, $table, $redirect);
@@ -402,7 +399,8 @@ function maj_while($installee, $cible, $maj, $meta = '', $table = 'meta', $redir
 	if ($meta) {
 		ecrire_meta($meta, $cible, 'oui', $table);
 	}
-	spip_logger('maj')->notice("MAJ terminee. $meta: $installee");
+	spip_logger('maj')
+		->notice("MAJ terminee. $meta: $installee");
 
 	return [];
 }
@@ -440,7 +438,8 @@ function serie_alter($serie, $q = [], $meta = '', $table = 'meta', $redirect = '
 				&& function_exists($f = array_shift($r))
 			) {
 				// note: $r (arguments de la fonction $f) peut avoir des données tabulaires
-				spip_logger('maj')->notice("$msg: $f " . @implode(',', $r));
+				spip_logger('maj')
+					->notice("$msg: $f " . @implode(',', $r));
 				// pour les fonctions atomiques sql_xx
 				// on enregistre le meta avant de lancer la fonction,
 				// de maniere a eviter de boucler sur timeout
@@ -450,7 +449,7 @@ function serie_alter($serie, $q = [], $meta = '', $table = 'meta', $redirect = '
 				if (str_starts_with($f, 'sql_')) {
 					ecrire_meta($meta2, $i + 1, 'non', $table);
 				}
-				echo (_IS_CLI ? '.' : " <span title='$i'>.</span>");
+				echo _IS_CLI ? '.' : " <span title='$i'>.</span>";
 				$f(...$r);
 				// si temps imparti depasse, on relance sans ecrire en meta
 				// car on est peut etre sorti sur timeout si c'est une fonction longue
@@ -458,7 +457,8 @@ function serie_alter($serie, $q = [], $meta = '', $table = 'meta', $redirect = '
 					relance_maj($meta, $table, $redirect);
 				}
 				ecrire_meta($meta2, $i + 1, 'non', $table);
-				spip_logger('maj')->notice("$meta2: ok");
+				spip_logger('maj')
+					->notice("$meta2: ok");
 			} else {
 				if (!is_array($r)) {
 					spip_logger('maj')->error("maj $i format incorrect");

@@ -6,7 +6,6 @@ namespace Spip\Test\Rubriques;
 
 use Spip\Test\SquelettesTestCase;
 
-
 class CreerRubriqueNommeeTest extends SquelettesTestCase
 {
 	/**

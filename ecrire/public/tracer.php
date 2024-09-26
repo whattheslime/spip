@@ -18,15 +18,13 @@ function trace_query_start() {
 	if ($trace === '?' || defined('_DEBUG_TRACE_QUERIES')) {
 		if (defined('_DEBUG_TRACE_QUERIES') && _DEBUG_TRACE_QUERIES) {
 			$trace = true;
-		}
-		else {
+		} else {
 			if (empty($GLOBALS['visiteur_session'])) {
 				// si un anonyme fait un var_profile on est oblige de remplir le tableau des temps en attendant de savoir
 				// car ici on ne sait pas si c'est un hit anonyme
 				// ou une requete SQL faite avant chargement de la session
 				$trace = (empty($_GET['var_profile']) ? false : '?');
-			}
-			else {
+			} else {
 				include_spip('inc/autoriser');
 				// gare au bouclage sur calcul de droits au premier appel
 				// A fortiori quand on demande une trace
@@ -47,8 +45,7 @@ function trace_query_end($query, $start, $result, $erreur, $serveur = '') {
 			// car ici on ne sait pas si c'est un hit anonyme
 			// ou une requete SQL faite avant chargement de la session
 			$trace = (empty($_GET['var_profile']) ? false : '?');
-		}
-		else {
+		} else {
 			include_spip('inc/autoriser');
 			// gare au bouclage sur calcul de droits au premier appel
 			// A fortiori quand on demande une trace
@@ -61,7 +58,15 @@ function trace_query_end($query, $start, $result, $erreur, $serveur = '') {
 		[$usec, $sec] = explode(' ', (string) $start);
 		[$usec2, $sec2] = explode(' ', $end);
 		$dt = $sec2 + $usec2 - $sec - $usec;
-		pipeline('trig_trace_query', ['query' => $query, 'start' => $start, 'end' => $end, 'time' => $dt, 'result' => $result, 'erreur' => $erreur, 'serveur' => $serveur]);
+		pipeline('trig_trace_query', [
+			'query' => $query,
+			'start' => $start,
+			'end' => $end,
+			'time' => $dt,
+			'result' => $result,
+			'erreur' => $erreur,
+			'serveur' => $serveur,
+		]);
 		if ($trace) {
 			trace_query_chrono($dt, $query, $result, $serveur);
 		}
@@ -103,7 +108,6 @@ function trace_query_chrono($dt, $query, $result, $serveur = '') {
 	$r = str_replace('Resource id ', '', (is_object($result) ? $result::class : $result));
 	$GLOBALS['tableau_des_temps'][] = [$dt, $nb, $boucle, $q, $e, $r, $contexte];
 }
-
 
 function chrono_requete($temps) {
 	$total = 0;
@@ -189,7 +193,10 @@ function chrono_requete($temps) {
 		. implode("</td></tr>\n<tr><td>", $d)
 		. "</td></tr>\n"
 		. (# _request('var_mode_objet') ? '' :
-		('<tr><td>' . (is_countable($temps) ? count($temps) : 0) . '</td><td>' . _T('info_total') . '</td><td class="time">' . $total . '</td><td></td></tr>'))
+			('<tr><td>' . (is_countable($temps) ? count(
+				$temps
+			) : 0) . '</td><td>' . _T('info_total') . '</td><td class="time">' . $total . '</td><td></td></tr>')
+		),
 	];
 
 	return [$temps, $navigation];

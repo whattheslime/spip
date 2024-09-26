@@ -20,12 +20,12 @@ namespace Spip\Texte\Collecteur;
  *
  * Ne pas mettre de span@lang=fr si on est déjà en fr.
  */
-class Idiomes extends AbstractCollecteur {
+class Idiomes extends AbstractCollecteur
+{
 	protected static string $markPrefix = 'IDIOME';
 
 	/**
 	 * La preg pour découper et collecter les modèles
-	 * @var string
 	 */
 	protected string $preg_idiome;
 
@@ -35,23 +35,8 @@ class Idiomes extends AbstractCollecteur {
 	}
 
 	/**
-	 * Sanitizer une collection d'occurences d'idiomes : on ne fait rien
-	 *
-	 * @param array $collection
-	 * @param string $sanitize_callback
-	 * @return array
-	 */
-	protected function sanitizer_collection(array $collection, string $sanitize_callback): array {
-
-		return $collection;
-	}
-
-
-	/**
-	 * @param string $texte
 	 * @param array $options
 	 *   bool $collecter_liens
-	 * @return array
 	 */
 	public function collecter(string $texte, array $options = []): array {
 		if (!$texte) {
@@ -80,7 +65,6 @@ class Idiomes extends AbstractCollecteur {
 	 * @uses code_echappement()
 	 * @uses echappe_retour()
 	 *
-	 * @param string $texte
 	 * @param array $options
 	 *   ?string $lang
 	 *   ?bool echappe_span
@@ -94,7 +78,7 @@ class Idiomes extends AbstractCollecteur {
 				$lang = $options['lang'] ?? $GLOBALS['spip_lang'];
 				$echappe_span = $options['echappe_span'] ?? false;
 
-				if (is_null($traduire)) {
+				if ($traduire === null) {
 					$traduire = charger_fonction('traduire', 'inc');
 					include_spip('inc/lang');
 				}
@@ -125,5 +109,13 @@ class Idiomes extends AbstractCollecteur {
 		}
 
 		return $texte;
+	}
+
+	/**
+	 * Sanitizer une collection d'occurences d'idiomes : on ne fait rien
+	 */
+	protected function sanitizer_collection(array $collection, string $sanitize_callback): array {
+
+		return $collection;
 	}
 }

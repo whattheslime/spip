@@ -18,7 +18,6 @@ if (!defined('_ECRIRE_INC_VERSION')) {
 	return;
 }
 
-
 /**
  * Changer la langue courante
  *
@@ -42,7 +41,7 @@ function changer_langue($lang, $liste_langues = null) {
 		return false;
 	}
 
-	if (is_null($liste_langues)) {
+	if ($liste_langues === null) {
 		$liste_langues = ($GLOBALS['meta']['langues_proposees'] ?? '') . ',' . ($GLOBALS['meta']['langues_multilingue'] ?? '');
 	} else {
 		if (is_array($liste_langues)) {
@@ -64,9 +63,9 @@ function changer_langue($lang, $liste_langues = null) {
 		$GLOBALS['spip_lang_left'] = $GLOBALS['spip_lang_rtl'] ? 'right' : 'left';
 
 		return $GLOBALS['spip_lang'] = $lang;
-	} else {
-		return false;
 	}
+	return false;
+
 }
 
 //
@@ -96,11 +95,10 @@ function approcher_langue($trads, $lang = '') {
 	if (isset($trads[$lang])) {
 		return $lang;
 	} // cas des langues xx_yy
-	else {
-		$r = explode('_', (string) $lang);
-		if (isset($trads[$r[0]])) {
-			return $r[0];
-		}
+
+	$r = explode('_', (string) $lang);
+	if (isset($trads[$r[0]])) {
+		return $r[0];
 	}
 
 	return '';
@@ -156,9 +154,9 @@ function lang_typo($lang = '') {
 		|| $lang == 'cpf'
 	) {
 		return 'fr';
-	} else {
-		return 'en';
 	}
+	return 'en';
+
 }
 
 // gestion de la globale $lang_objet pour que les textes soient affiches
@@ -218,8 +216,7 @@ function select_langues($nom_select, $change, $options, $label = '') {
 	static $cpt = 0;
 	$id = 'menu_langues' . $cpt++;
 
-	return
-		"<label for='$id'>" . ($label ?: _T('info_langues')) . '</label> ' .
+	return "<label for='$id'>" . ($label ?: _T('info_langues')) . '</label> ' .
 		"<select name='$nom_select' id='$id' "
 		. ((test_espace_prive()) ?
 			(($nom_select == 'var_lang_ecrire' ? "class='lang_ecrire'" : "class='fondl'")) :
@@ -257,9 +254,9 @@ function liste_options_langues($nom_select) {
 		case 'changer_lang':
 			$langues = explode(',', (string) $GLOBALS['meta']['langues_multilingue']);
 			break;
-		# menu de l'interface (privee, installation et panneau de login)
-		# les langues presentes sous forme de fichiers de langue
-		# on force la relecture du repertoire des langues pour etre synchrone.
+			# menu de l'interface (privee, installation et panneau de login)
+			# les langues presentes sous forme de fichiers de langue
+			# on force la relecture du repertoire des langues pour etre synchrone.
 		case 'var_lang_ecrire':
 		default:
 			$GLOBALS['meta']['langues_proposees'] = '';
@@ -267,9 +264,9 @@ function liste_options_langues($nom_select) {
 			$langues = explode(',', $GLOBALS['meta']['langues_proposees']);
 			break;
 
-# dernier choix possible : toutes les langues = langues_proposees
-# + langues_multilingues ; mais, ne sert pas
-#			$langues = explode(',', $GLOBALS['all_langs']);
+			# dernier choix possible : toutes les langues = langues_proposees
+			# + langues_multilingues ; mais, ne sert pas
+			#			$langues = explode(',', $GLOBALS['all_langs']);
 	}
 	if (count($langues) <= 1) {
 		return [];
@@ -279,15 +276,12 @@ function liste_options_langues($nom_select) {
 	return $langues;
 }
 
-
 /**
  * Redirige sur la bonne langue lorsque l'option forcer_lang est active
  *
  * Cette fonction est appelee depuis ecrire/public.php si on a installé
  * la variable de personnalisation $forcer_lang ; elle renvoie le brouteur
  * si necessaire vers l'URL xxxx?lang=ll
- *
- * @return void
  */
 function verifier_lang_url() {
 
@@ -326,7 +320,6 @@ function verifier_lang_url() {
 	$GLOBALS['lang'] = $_GET['lang'] = $GLOBALS['spip_lang'];
 }
 
-
 /**
  * Utilise la langue du site
  *
@@ -346,7 +339,7 @@ function utiliser_langue_site($liste_langues = null) {
 		isset($GLOBALS['meta']['langue_site'])
 		&& (!isset($GLOBALS['spip_lang']) || $GLOBALS['spip_lang'] != $GLOBALS['meta']['langue_site'])
 	) {
-		return changer_langue($GLOBALS['meta']['langue_site'], $liste_langues);//@:install
+		return changer_langue($GLOBALS['meta']['langue_site'], $liste_langues); //@:install
 	}
 	// en theorie là, la globale est définie, sinon c'est un problème.
 	if (!isset($GLOBALS['spip_lang'])) {
@@ -373,7 +366,7 @@ function utiliser_langue_site($liste_langues = null) {
 function utiliser_langue_visiteur($liste_langues = null) {
 
 	// si on est dans l'espace public et pas de $liste_langues : se limiter a la config langues_multilingue si définie
-	if (is_null($liste_langues) && !test_espace_prive() && !empty($GLOBALS['meta']['langues_multilingue'])) {
+	if ($liste_langues === null && !test_espace_prive() && !empty($GLOBALS['meta']['langues_multilingue'])) {
 		$liste_langues = $GLOBALS['meta']['langues_multilingue'];
 	}
 
@@ -406,7 +399,6 @@ function utiliser_langue_visiteur($liste_langues = null) {
 	return utiliser_langue_site($liste_langues);
 }
 
-
 /**
  * Verifier qu'une chaine suceptible d'etre un nom de langue a le bon format
  * @param string $chaine
@@ -426,8 +418,6 @@ function match_langue($chaine) {
  * Lorsque ces métas n'existent pas encore (c'est à dire à l'installation),
  * elles sont calculées en obtenant la liste des langues
  * dans les fichiers de lang
- *
- * @return void
  */
 function init_langues() {
 
@@ -482,7 +472,6 @@ function html_lang_attributes() {
 	return "<html class='$dir $lang no-js' xmlns='http://www.w3.org/1999/xhtml' lang='$lang' dir='$dir'>\n";
 }
 
-
 /**
  * Calcul de la direction du texte et la mise en page selon la langue
  *
@@ -495,7 +484,6 @@ function html_lang_attributes() {
 function aide_lang_dir($spip_lang, $spip_lang_rtl) {
 	return ($spip_lang != 'he') ? $spip_lang_rtl : '';
 }
-
 
 // initialise les globales (liste des langue, langue du site, spip_lang...)
 init_langues();

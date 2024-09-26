@@ -11,10 +11,8 @@
 
 namespace Spip\Texte\Collecteur;
 
-abstract class AbstractCollecteur {
-	protected static string $markPrefix = 'COLLECT';
-	protected string $markId;
-
+abstract class AbstractCollecteur
+{
 	public static array $listeBalisesBloc = [
 		'address', 'applet', 'article', 'aside',
 		'blockquote', 'button',
@@ -31,67 +29,13 @@ abstract class AbstractCollecteur {
 		'section',
 		'table', 'tr', 'td', 'th', 'tbody', 'foot', 'textarea',
 		'ul',
-		'script', 'style'
+		'script', 'style',
 	];
 
-	/**
-	 * Collecteur générique des occurences d'une preg dans un texte avec leurs positions et longueur
-	 * @param string $texte
-	 *   texte à analyser pour la collecte
-	 * @param string $if_chars
-	 *   caractere(s) à tester avant de tenter la preg
-	 * @param string $start_with
-	 *   caractere(s) par lesquels commencent l'expression recherchée (permet de démarrer la preg à la prochaine occurence de cette chaine)
-	 * @param string $preg
-	 *   preg utilisée pour la collecte
-	 * @param int $max_items
-	 *   pour limiter le nombre de preg collectée (pour la detection simple de présence par exemple)
-	 * @return array
-	 */
-	protected static function collecteur(string $texte, string $if_chars, string $start_with, string $preg, int $max_items = 0): array {
+	protected static string $markPrefix = 'COLLECT';
 
-		$collection = [];
-		$pos = 0;
-		while (
-			(!$if_chars || str_contains($texte, $if_chars))
-			&& ($next = ($start_with ? strpos($texte, $start_with, $pos) : $pos)) !== false
-			&& preg_match($preg, $texte, $r, PREG_OFFSET_CAPTURE, $next)
-		) {
-			$found_pos = $r[0][1];
-			$found_length = strlen($r[0][0]);
-			$match = [
-				'raw' => $r[0][0],
-				'match' => array_column($r, 0),
-				'pos' => $found_pos,
-				'length' => $found_length
-			];
+	protected string $markId;
 
-			$collection[] = $match;
-
-			if ($max_items && count($collection) === $max_items) {
-				break;
-			}
-
-			$pos = $match['pos'] + $match['length'];
-		}
-
-		return $collection;
-	}
-
-	/**
-	 * Sanitizer une collection d'occurences
-	 */
-	protected function sanitizer_collection(array $collection, string $sanitize_callback): array {
-		foreach ($collection as &$c) {
-			$c['raw'] = $sanitize_callback($c['raw']);
-		}
-
-		return $collection;
-	}
-
-	/**
-	 * @return array
-	 */
 	public function collecter(string $texte, array $options = []): array {
 		return [];
 	}
@@ -107,7 +51,6 @@ abstract class AbstractCollecteur {
 	 * Echapper les occurences de la collecte par un texte neutre du point de vue HTML
 	 *
 	 * @see retablir()
-	 * @param string $texte
 	 * @param array $options
 	 *   string $sanitize_callback
 	 * @return array
@@ -143,13 +86,12 @@ abstract class AbstractCollecteur {
 		return $texte;
 	}
 
-
 	/**
 	 * Retablir les occurences échappées précédemment
 	 *
 	 * @see echapper()
 	 */
-	function retablir(string $texte): string {
+	public function retablir(string $texte): string {
 
 		if (!empty($this->markId)) {
 			$lm = strlen($this->markId);
@@ -162,8 +104,7 @@ abstract class AbstractCollecteur {
 				if ($c = base64_decode($base64, true)) {
 					$texte = substr_replace($texte, $c, $p, $end + 2 - $p);
 					$pos = $p + strlen($c);
-				}
-				else {
+				} else {
 					$pos = $end;
 				}
 			}
@@ -190,7 +131,12 @@ abstract class AbstractCollecteur {
 	 * si $isBloc n'est pas fourni, le script detecte automagiquement si ce qu'on
 	 * echappe est un div ou un span
 	 */
-	public static function echappementHtmlBase64(string $texte, string $source = '', ?bool $isBloc = null, array $attributs = []): string {
+	public static function echappementHtmlBase64(
+		string $texte,
+		string $source = '',
+		?bool $isBloc = null,
+		array $attributs = []
+	): string {
 
 		if ($texte === '') {
 			return '';
@@ -221,7 +167,6 @@ abstract class AbstractCollecteur {
 
 		return $return;
 	}
-
 
 	/**
 	 * Rétablir les contenus échappés dans un texte en <(div|span) class="base64..."></(div|span)>
@@ -279,7 +224,12 @@ abstract class AbstractCollecteur {
 	/**
 	 * @param callable|null $callback_function
 	 */
-	public function echapper_enHtmlBase64(string $texte, string $source = '', $callback_function = null, array $callback_options = []): string {
+	public function echapper_enHtmlBase64(
+		string $texte,
+		string $source = '',
+		$callback_function = null,
+		array $callback_options = []
+	): string {
 		$collection = $this->collecter($texte);
 		if (!empty($collection)) {
 			$collection = array_reverse($collection);
@@ -293,5 +243,65 @@ abstract class AbstractCollecteur {
 			}
 		}
 		return $texte;
+	}
+
+	/**
+	 * Collecteur générique des occurences d'une preg dans un texte avec leurs positions et longueur
+	 * @param string $texte
+	 *   texte à analyser pour la collecte
+	 * @param string $if_chars
+	 *   caractere(s) à tester avant de tenter la preg
+	 * @param string $start_with
+	 *   caractere(s) par lesquels commencent l'expression recherchée (permet de démarrer la preg à la prochaine occurence de cette chaine)
+	 * @param string $preg
+	 *   preg utilisée pour la collecte
+	 * @param int $max_items
+	 *   pour limiter le nombre de preg collectée (pour la detection simple de présence par exemple)
+	 */
+	protected static function collecteur(
+		string $texte,
+		string $if_chars,
+		string $start_with,
+		string $preg,
+		int $max_items = 0
+	): array {
+
+		$collection = [];
+		$pos = 0;
+		while (
+			(!$if_chars || str_contains($texte, $if_chars))
+			&& ($next = ($start_with ? strpos($texte, $start_with, $pos) : $pos)) !== false
+			&& preg_match($preg, $texte, $r, PREG_OFFSET_CAPTURE, $next)
+		) {
+			$found_pos = $r[0][1];
+			$found_length = strlen($r[0][0]);
+			$match = [
+				'raw' => $r[0][0],
+				'match' => array_column($r, 0),
+				'pos' => $found_pos,
+				'length' => $found_length,
+			];
+
+			$collection[] = $match;
+
+			if ($max_items && count($collection) === $max_items) {
+				break;
+			}
+
+			$pos = $match['pos'] + $match['length'];
+		}
+
+		return $collection;
+	}
+
+	/**
+	 * Sanitizer une collection d'occurences
+	 */
+	protected function sanitizer_collection(array $collection, string $sanitize_callback): array {
+		foreach ($collection as &$c) {
+			$c['raw'] = $sanitize_callback($c['raw']);
+		}
+
+		return $collection;
 	}
 }

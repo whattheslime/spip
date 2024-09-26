@@ -53,7 +53,6 @@ function index_boucle($p) {
 	return $p->id_boucle;
 }
 
-
 /**
  * Retrouve la boucle mère d’une balise, sauf si son nom est explicité
  *
@@ -224,7 +223,6 @@ function index_compose($conditionnel, $defaut) {
  *     et non comme à d'autres endroits sur toutes les jointures possibles.
  *     Il faut homogénéiser cela.
  *
- *
  * @param string $idb Identifiant de la boucle
  * @param string $nom_champ Nom du champ SQL cherché
  * @param Boucle[] $boucles AST du squelette
@@ -291,12 +289,7 @@ function index_tables_en_pile($idb, $nom_champ, &$boucles, &$joker) {
 		[, $_table, $_nom_champ] = $r;
 		if ($cle = trouver_jointure_champ($_nom_champ, $boucles[$idb], [$_table])) {
 			$_alias = $cle . '_' . $_nom_champ;
-			return index_exception(
-				$boucles[$idb],
-				$desc,
-				$_alias,
-				[$_table, $_nom_champ]
-			);
+			return index_exception($boucles[$idb], $desc, $_alias, [$_table, $_nom_champ]);
 		}
 		return ['', ''];
 	}
@@ -322,17 +315,11 @@ function index_tables_en_pile($idb, $nom_champ, &$boucles, &$joker) {
 	if ($t) {
 		// si on a trouvé une jointure possible, on fait comme
 		// si c'était une exception pour le champ demandé
-		return index_exception(
-			$boucles[$idb],
-			$desc,
-			$nom_champ,
-			[$t[1]['id_table'], reset($t[2])]
-		);
+		return index_exception($boucles[$idb], $desc, $nom_champ, [$t[1]['id_table'], reset($t[2])]);
 	}
 
 	return ['', ''];
 }
-
 
 /**
  * Retrouve un alias d'un champ dans une boucle
@@ -431,7 +418,6 @@ function champ_sql($champ, $p, $defaut = null, $remonte_pile = true) {
 	return index_pile($p->id_boucle, $champ, $p->boucles, $p->nom_boucle, $defaut, $remonte_pile);
 }
 
-
 /**
  * Calcule et retourne le code PHP d'exécution d'une balise SPIP et des ses filtres
  *
@@ -452,7 +438,6 @@ function calculer_champ($p) {
 
 	return applique_filtres($p);
 }
-
 
 /**
  * Calcule et retourne le code PHP d'exécution d'une balise SPIP
@@ -512,7 +497,6 @@ function calculer_balise(string $nom, Champ $p): Champ {
 	return $f($nom, $p);
 }
 
-
 /**
  * Calcule et retourne le code PHP d'exécution d'une balise SPIP non déclarée
  *
@@ -566,7 +550,6 @@ function calculer_balise_DEFAUT_dist($nom, $p) {
 	return $p;
 }
 
-
 /** Code PHP d'exécution d'une balise dynamique */
 define('CODE_EXECUTER_BALISE', "executer_balise_dynamique('%s',
 	array(%s%s),
@@ -575,7 +558,6 @@ define('CODE_EXECUTER_BALISE', "executer_balise_dynamique('%s',
 define('CODE_EXECUTER_BALISE_MODELE', "executer_balise_dynamique_dans_un_modele('%s',
 	array(%s%s),
 	array(%s%s))");
-
 
 /**
  * Calcule le code PHP d'exécution d'une balise SPIP dynamique
@@ -659,7 +641,6 @@ function calculer_balise_dynamique($p, $nom, $l, $supp = []) {
 	return $p;
 }
 
-
 /**
  * Construction du tableau des arguments d'une balise dynamique.
  *
@@ -699,7 +680,6 @@ function collecter_balise_dynamique(array $l, Champ &$p, string $nom): array {
 	return $args;
 }
 
-
 /**
  * Récuperer le nom du serveur
  *
@@ -725,7 +705,6 @@ function trouver_nom_serveur_distant($p) {
 
 	return '';
 }
-
 
 /**
  * Teste si une balise est appliquée sur une base distante
@@ -757,7 +736,6 @@ function balise_distante_interdite($p) {
 
 	return true;
 }
-
 
 //
 // Traitements standard de divers champs
@@ -835,7 +813,6 @@ function champs_traitements($p) {
 	// Remplacer enfin le placeholder %s par le vrai code de la balise
 	return str_replace('%s', $p->code, $ps);
 }
-
 
 //
 // Appliquer les filtres a un champ [(#CHAMP|filtre1|filtre2)]
@@ -936,7 +913,6 @@ function compose_filtres_args($p, $args, $sep) {
 	return $arglist;
 }
 
-
 /**
  * Réserve les champs necessaires à la comparaison avec le contexte donné par
  * la boucle parente.
@@ -947,7 +923,6 @@ function compose_filtres_args($p, $args, $sep) {
  * @param string $nom_champ
  * @param array $boucles AST du squelette
  * @param null|string $defaut
- * @return
  */
 function calculer_argument_precedent($idb, $nom_champ, &$boucles, $defaut = null) {
 

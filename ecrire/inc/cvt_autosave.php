@@ -57,10 +57,7 @@ function cvtautosave_formulaire_charger($flux) {
 			parse_str((string) $GLOBALS['visiteur_session']['session_autosave_' . $cle_autosave], $vars);
 			foreach ($vars as $key => $val) {
 				if (isset($flux['data'][$key])) {
-					$flux['data'][$key] = (is_string($val) ? autosave_clean_value($val) : array_map(
-						'autosave_clean_value',
-						$val
-					));
+					$flux['data'][$key] = (is_string($val) ? autosave_clean_value($val) : array_map('autosave_clean_value', $val));
 				}
 			}
 		}
@@ -77,7 +74,6 @@ function cvtautosave_formulaire_charger($flux) {
 				terminer_actualiser_sessions();
 			}
 		}
-
 
 		/**
 		 * Envoyer le input hidden et le bout de js qui l'utilisera

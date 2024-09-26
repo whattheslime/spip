@@ -36,10 +36,7 @@ include_spip('inc/texte');
 function protege_champ(mixed $valeur, $max_prof = 128) {
 	if (is_array($valeur)) {
 		if ($max_prof > 0) {
-			return array_map(
-				fn($v) => protege_champ($v, $max_prof - 1),
-				$valeur
-			);
+			return array_map(fn ($v) => protege_champ($v, $max_prof - 1), $valeur);
 		}
 		// si on dépasse la prof max on tronque
 		return [];
@@ -326,7 +323,7 @@ function formulaire__charger($form, $args, $poste) {
 		'formulaire_charger',
 		[
 			'args' => ['form' => $form, 'args' => $args, 'je_suis_poste' => $poste],
-			'data' => $valeurs
+			'data' => $valeurs,
 		]
 	);
 

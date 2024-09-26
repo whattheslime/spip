@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace Spip\Test;
 
-use PHPUnit\Framework\Attributes\UsesClass;
 use PHPUnit\Framework\Constraint\LogicalNot;
 use PHPUnit\Framework\TestCase;
 use RuntimeException;

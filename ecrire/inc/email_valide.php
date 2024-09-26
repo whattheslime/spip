@@ -18,8 +18,6 @@ if (!defined('_ECRIRE_INC_VERSION')) {
 	return;
 }
 
-
-
 /**
  * Vérifier la conformité d'une ou plusieurs adresses email (suivant RFC 822)
  *
@@ -45,7 +43,7 @@ function inc_email_valide_dist($adresses) {
 	foreach (explode(',', $adresses) as $v) {
 		// nettoyer certains formats
 		// "Marie Toto <Marie@toto.com>"
-		$adresse = trim(preg_replace(',^[^<>"]*<([^<>"]+)>$,i', "\\1", $v));
+		$adresse = trim(preg_replace(',^[^<>"]*<([^<>"]+)>$,i', '\\1', $v));
 		// RFC 822
 		if (!preg_match('#^[^()<>@,;:\\"/[:space:]]+(@([-_0-9a-z]+\.)*[-_0-9a-z]+)$#i', $adresse)) {
 			return false;

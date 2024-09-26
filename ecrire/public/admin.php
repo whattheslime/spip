@@ -51,19 +51,14 @@ function affiche_boutons_admin($contenu) {
 	}
 	$contenu = substr_replace($contenu, $css, $pos, 0);
 
-
 	// Inserer la balise #FORMULAIRE_ADMIN, en float
-	$boutons_admin = inclure_balise_dynamique(
-		balise_FORMULAIRE_ADMIN_dyn('spip-admin-float'),
-		false
-	);
+	$boutons_admin = inclure_balise_dynamique(balise_FORMULAIRE_ADMIN_dyn('spip-admin-float'), false);
 	if (
 		!($pos = strripos($contenu, '</body>'))
 		&& !($pos = strripos($contenu, '</html>'))
 	) {
 		$pos = strlen($contenu);
 	}
-
 
 	return substr_replace($contenu, (string) $boutons_admin, $pos, 0);
 }

@@ -14,12 +14,12 @@ namespace Spip\Texte\Collecteur;
 /**
  *    Collecte les raccourcis liens [titre->url] de SPIP
  */
-class Liens extends AbstractCollecteur {
+class Liens extends AbstractCollecteur
+{
 	protected static string $markPrefix = 'LIEN';
 
 	/**
 	 * La preg pour découper et collecter les modèles
-	 * @var string
 	 */
 	protected string $preg_lien;
 
@@ -32,36 +32,9 @@ class Liens extends AbstractCollecteur {
 		$this->preg_lien = ($preg ?: '/\[([^][]*?([[][^]>-]*[]][^][]*)*)->(>?)([^]]*)\]/msS');
 	}
 
-
 	/**
-	 * Sanitizer une collection d'occurences de liens : il faut sanitizer le href et le texte uniquement
-	 *
-	 * @param array $collection
-	 * @param string $sanitize_callback
-	 * @return array
-	 */
-	protected function sanitizer_collection(array $collection, string $sanitize_callback): array {
-		foreach ($collection as &$lien) {
-			$t = $sanitize_callback($lien['texte']);
-			if ($t !== $lien['texte']) {
-				$lien['raw'] = str_replace($lien['texte'], $t, (string) $lien['raw']);
-				$lien['texte'] = $t;
-			}
-			$href = $sanitize_callback($lien['href']);
-			if ($href !== $lien['href']) {
-				$lien['raw'] = str_replace($lien['href'], $href, (string) $lien['raw']);
-				$lien['href'] = $href;
-			}
-		}
-
-		return $collection;
-	}
-
-	/**
-	 * @param string $texte
 	 * @param array $options
 	 *   bool $collecter_liens
-	 * @return array
 	 */
 	public function collecter(string $texte, array $options = []): array {
 		if (!$texte) {
@@ -108,5 +81,25 @@ class Liens extends AbstractCollecteur {
 		}
 
 		return $liens;
+	}
+
+	/**
+	 * Sanitizer une collection d'occurences de liens : il faut sanitizer le href et le texte uniquement
+	 */
+	protected function sanitizer_collection(array $collection, string $sanitize_callback): array {
+		foreach ($collection as &$lien) {
+			$t = $sanitize_callback($lien['texte']);
+			if ($t !== $lien['texte']) {
+				$lien['raw'] = str_replace($lien['texte'], $t, (string) $lien['raw']);
+				$lien['texte'] = $t;
+			}
+			$href = $sanitize_callback($lien['href']);
+			if ($href !== $lien['href']) {
+				$lien['raw'] = str_replace($lien['href'], $href, (string) $lien['raw']);
+				$lien['href'] = $href;
+			}
+		}
+
+		return $collection;
 	}
 }

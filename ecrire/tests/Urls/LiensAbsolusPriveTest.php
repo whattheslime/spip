@@ -2,10 +2,7 @@
 
 declare(strict_types=1);
 
-
 namespace Spip\Test\Urls;
-
-use PHPUnit\Framework\TestCase;
 
 /**
  * FIXME: Ce test fonctionnait (avec un hack dans les vieux tests legacy)
@@ -18,16 +15,15 @@ class LiensAbsolusPriveTest extends LiensAbsolusTest
 		find_in_path('./inc/utils.php', '', true);
 	}
 
+	public static function tearDownAfterClass(): void {
+		#chdir(_SPIP_TEST_CHDIR);
+	}
+
 	public function testVerifierEspace(): void {
 		if (!test_espace_prive()) {
 			$this->markTestIncomplete('FIXME: être considéré dans l’espace privé dans le test');
 		}
 		$this->assertTrue(test_espace_prive(), 'On doit être dans l’espace privé');
 
-	}
-
-
-	public static function tearDownAfterClass(): void {
-		#chdir(_SPIP_TEST_CHDIR);
 	}
 }

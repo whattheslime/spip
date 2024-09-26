@@ -11,7 +11,6 @@
 
 use Spip\Afficher\Minipage\Installation;
 
-
 /**
  * Affichage de l'écran d'installation (étape 1 : tests des répertoires
  * et hébergement, et demande d'identifiants de connexion à la BDD)
@@ -33,7 +32,6 @@ if (!defined('_ECRIRE_INC_VERSION')) {
  *
  * @uses tester_compatibilite_hebergement()
  * @uses analyse_fichier_connection()
- *
  */
 function install_etape_1_dist() {
 
@@ -58,7 +56,6 @@ function install_etape_1_dist() {
 		}
 	}
 
-
 	$db = [$adresse_db, _T('entree_base_donnee_2')];
 	$login = [$login_db, _T('entree_login_connexion_2')];
 	$pass = ['', _T('entree_mot_passe_2')];
@@ -67,9 +64,8 @@ function install_etape_1_dist() {
 		defined('_INSTALL_SERVER_DB') ? _INSTALL_SERVER_DB : '',
 		defined('_INSTALL_HOST_DB'),
 		defined('_INSTALL_USER_DB'),
-		defined('_INSTALL_PASS_DB')
+		defined('_INSTALL_PASS_DB'),
 	];
-
 
 	echo info_progression_etape(1, 'etape_', 'install/');
 

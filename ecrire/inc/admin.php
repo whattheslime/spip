@@ -54,7 +54,8 @@ function inc_admin_dist($script, $titre, $comment = '', $anonymous = false) {
 		if ($res) {
 			return $res;
 		}
-		spip_logger()->info("meta: $script " . print_r($_POST, true));
+		spip_logger()
+			->info("meta: $script " . print_r($_POST, true));
 		ecrire_meta($script, serialize($_POST));
 	}
 
@@ -113,7 +114,8 @@ function admin_verifie_session($script, $anonymous = false) {
 			)
 		) {
 			include_spip('inc/minipres');
-			spip_logger()->info("refus de lancer $script, priorite a $valeur");
+			spip_logger()
+				->info("refus de lancer $script, priorite a $valeur");
 			return minipres(_T('info_travaux_texte'), '', ['status' => 503]);
 		}
 	}
@@ -124,7 +126,8 @@ function admin_verifie_session($script, $anonymous = false) {
 	}
 	// on pourrait statuer automatiquement les webmestres a l'init d'une action auth par ftp ... ?
 
-	spip_logger($journal)->info("admin $pref" . ($valeur ? ' (reprise)' : ' (init)'));
+	spip_logger($journal)
+		->info("admin $pref" . ($valeur ? ' (reprise)' : ' (init)'));
 
 	return '';
 }
@@ -141,9 +144,9 @@ function admin_verifie_session($script, $anonymous = false) {
 function dir_admin() {
 	if (autoriser('configurer')) {
 		return _DIR_TMP;
-	} else {
-		return _DIR_TRANSFERT . $GLOBALS['visiteur_session']['login'] . '/';
 	}
+	return _DIR_TRANSFERT . $GLOBALS['visiteur_session']['login'] . '/';
+
 }
 
 /**
@@ -194,69 +197,69 @@ function debut_admin($script, $action = '', $corps = '') {
 		include_spip('inc/minipres');
 
 		return minipres();
-	} else {
-		$dir = dir_admin();
-		$signal = fichier_admin($script);
-		if (@file_exists($dir . $signal)) {
-			spip_logger()->info("Action admin: $action");
+	}
+	$dir = dir_admin();
+	$signal = fichier_admin($script);
+	if (@file_exists($dir . $signal)) {
+		spip_logger()->info("Action admin: $action");
+
+		return '';
+	}
+	include_spip('inc/minipres');
+
+	// Si on est un super-admin, un bouton de validation suffit
+	// sauf dans les cas destroy
+	if (
+		(autoriser('webmestre') || $script === 'repair')
+		&& $script != 'delete_all'
+	) {
+		if (_request('validation_admin') == $signal) {
+			spip_logger()->info("Action super-admin: $action");
 
 			return '';
 		}
-		include_spip('inc/minipres');
+		$corps .= '<input type="hidden" name="validation_admin" value="' . $signal . '">';
+		$suivant = _T('bouton_valider');
+		$js = '';
+	} else {
+		// cet appel permet d'assurer un copier-coller du nom du repertoire a creer dans tmp (esj)
+		// l'insertion du script a cet endroit n'est pas xhtml licite
+		// mais evite de l'embarquer dans toutes les pages minipres
+		$corps .= http_script('', 'spip_barre.js');
 
-		// Si on est un super-admin, un bouton de validation suffit
-		// sauf dans les cas destroy
-		if (
-			(autoriser('webmestre') || $script === 'repair')
-			&& $script != 'delete_all'
-		) {
-			if (_request('validation_admin') == $signal) {
-				spip_logger()->info("Action super-admin: $action");
+		$corps .= '<fieldset><legend>'
+			. _T('info_authentification_ftp')
+			. aider('ftp_auth')
+			. "</legend>\n<label for='fichier'>"
+			. _T('info_creer_repertoire')
+			. "</label>\n"
+			. "<span id='signal' class='formo'>" . $signal . '</span>'
+			. "<input type='hidden' id='fichier' name='fichier' value='"
+			. $signal
+			. "'>"
+			. _T('info_creer_repertoire_2', ['repertoire' => joli_repertoire($dir)])
+			. '</fieldset>';
 
-				return '';
-			}
-			$corps .= '<input type="hidden" name="validation_admin" value="' . $signal . '">';
-			$suivant = _T('bouton_valider');
-			$js = '';
-		} else {
-			// cet appel permet d'assurer un copier-coller du nom du repertoire a creer dans tmp (esj)
-			// l'insertion du script a cet endroit n'est pas xhtml licite
-			// mais evite de l'embarquer dans toutes les pages minipres
-			$corps .= http_script('', 'spip_barre.js');
+		$suivant = _T('bouton_recharger_page');
 
-			$corps .= '<fieldset><legend>'
-				. _T('info_authentification_ftp')
-				. aider('ftp_auth')
-				. "</legend>\n<label for='fichier'>"
-				. _T('info_creer_repertoire')
-				. "</label>\n"
-				. "<span id='signal' class='formo'>" . $signal . '</span>'
-				. "<input type='hidden' id='fichier' name='fichier' value='"
-				. $signal
-				. "'>"
-				. _T('info_creer_repertoire_2', ['repertoire' => joli_repertoire($dir)])
-				. '</fieldset>';
-
-			$suivant = _T('bouton_recharger_page');
-
-			// code volontairement tordu:
-			// provoquer la copie dans le presse papier du nom du repertoire
-			// en remettant a vide le champ pour que ca marche aussi en cas
-			// de JavaScript inactif.
-			$js = " onload='var range=document.createRange(); var signal = document.getElementById(\"signal\"); var userSelection = window.getSelection(); range.setStart(signal,0); range.setEnd(signal,1); userSelection.addRange(range);'";
-		}
-
-		// admin/xxx correspond
-		// a exec/base_xxx de preference
-		// et exec/xxx sinon (compat)
-		if (tester_url_ecrire("base_$script")) {
-			$script = "base_$script";
-		}
-		$form = copy_request($script, $corps, $suivant);
-		$info_action = _T('info_action', ['action' => "$action"]);
-
-		return minipres($info_action, $form, ['onload' => $js]);
+		// code volontairement tordu:
+		// provoquer la copie dans le presse papier du nom du repertoire
+		// en remettant a vide le champ pour que ca marche aussi en cas
+		// de JavaScript inactif.
+		$js = " onload='var range=document.createRange(); var signal = document.getElementById(\"signal\"); var userSelection = window.getSelection(); range.setStart(signal,0); range.setEnd(signal,1); userSelection.addRange(range);'";
 	}
+
+	// admin/xxx correspond
+	// a exec/base_xxx de preference
+	// et exec/xxx sinon (compat)
+	if (tester_url_ecrire("base_$script")) {
+		$script = "base_$script";
+	}
+	$form = copy_request($script, $corps, $suivant);
+	$info_action = _T('info_action', ['action' => "$action"]);
+
+	return minipres($info_action, $form, ['onload' => $js]);
+
 }
 
 /**
@@ -272,7 +275,8 @@ function fin_admin($action) {
 	if ($action != 'delete_all') {
 		effacer_meta($action);
 		effacer_meta('admin');
-		spip_logger()->info("efface les meta admin et $action");
+		spip_logger()
+			->info("efface les meta admin et $action");
 	}
 }
 

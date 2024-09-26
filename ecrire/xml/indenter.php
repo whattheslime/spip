@@ -13,7 +13,28 @@ if (!defined('_ECRIRE_INC_VERSION')) {
 	return;
 }
 
-class IndenteurXML {
+class IndenteurXML
+{
+	public $depth = '';
+
+	public $res = '';
+
+	public $err = [];
+
+	public $contenu = [];
+
+	public $ouvrant = [];
+
+	public $reperes = [];
+
+	public $entete = '';
+
+	public $page = '';
+
+	public $dtc = null;
+
+	public $sax = null;
+
 	public function debutElement($phraseur, $name, $attrs) {
 		xml_debutElement($this, $name, $attrs);
 	}
@@ -37,17 +58,6 @@ class IndenteurXML {
 	public function phraserTout($phraseur, $data) {
 		xml_parsestring($this, $data);
 	}
-
-	public $depth = '';
-	public $res = '';
-	public $err = [];
-	public $contenu = [];
-	public $ouvrant = [];
-	public $reperes = [];
-	public $entete = '';
-	public $page = '';
-	public $dtc = null;
-	public $sax = null;
 }
 
 function xml_indenter_dist($page, $apply = false) {
@@ -57,7 +67,8 @@ function xml_indenter_dist($page, $apply = false) {
 	if (!$f->err) {
 		return $f->entete . $f->res;
 	}
-	spip_logger()->info('indentation impossible ' . (is_countable($f->err) ? count($f->err) : 0) . ' erreurs de validation');
+	spip_logger()
+		->info('indentation impossible ' . (is_countable($f->err) ? count($f->err) : 0) . ' erreurs de validation');
 
 	return $f->entete . $f->page;
 }

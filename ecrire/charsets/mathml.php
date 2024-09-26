@@ -10,7 +10,6 @@
  */
 
 $GLOBALS['CHARSET']['mathml'] = [
-
 	'ac' => '&#xE207;',
 	'acd' => '&#xE3A6;',
 	'acE' => '&E#290;',
@@ -1693,6 +1692,5 @@ $GLOBALS['CHARSET']['mathml'] = [
 	'zigrarr' => '&#xE244;',
 	'Zopf' => '&#xE4C4;',
 	'Zscr' => '&#xE4DE;',
-	'zscr' => '&#xE4F7;'
-
+	'zscr' => '&#xE4F7;',
 ];

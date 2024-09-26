@@ -13,7 +13,6 @@ if (!defined('_ECRIRE_INC_VERSION')) {
 	return;
 }
 
-
 /**
  * Transforme un texte XML en tableau PHP
  *
@@ -29,7 +28,6 @@ function inc_simplexml_to_array_dist($u, $utiliser_namespace = false) {
 
 	return ['root' => @xmlObjToArr($u, $utiliser_namespace)];
 }
-
 
 /**
  * Transforme un objet SimpleXML en tableau PHP
@@ -57,8 +55,8 @@ function xmlObjToArr($obj, $utiliser_namespace = false) {
 			$namespace[null] = null;
 		}
 
-		$name = strtolower((string)$obj->getName());
-		$text = trim((string)$obj);
+		$name = strtolower((string) $obj->getName());
+		$text = trim((string) $obj);
 		if (strlen($text) <= 0) {
 			$text = null;
 		}
@@ -71,8 +69,8 @@ function xmlObjToArr($obj, $utiliser_namespace = false) {
 			// attributes
 			$objAttributes = $obj->attributes($ns, true);
 			foreach ($objAttributes as $attributeName => $attributeValue) {
-				$attribName = strtolower(trim((string)$attributeName));
-				$attribVal = trim((string)$attributeValue);
+				$attribName = strtolower(trim((string) $attributeName));
+				$attribVal = trim((string) $attributeValue);
 				if (!empty($ns)) {
 					$attribName = $ns . ':' . $attribName;
 				}
@@ -82,7 +80,7 @@ function xmlObjToArr($obj, $utiliser_namespace = false) {
 			// children
 			$objChildren = $obj->children($ns, true);
 			foreach ($objChildren as $childName => $child) {
-				$childName = strtolower((string)$childName);
+				$childName = strtolower((string) $childName);
 				if (!empty($ns)) {
 					$childName = $ns . ':' . $childName;
 				}

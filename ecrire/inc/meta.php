@@ -113,7 +113,6 @@ function lire_metas($table = 'meta') {
 	return $GLOBALS[$table] ?? null;
 }
 
-
 /**
  * Mettre en cache la liste des meta, sauf les valeurs sensibles
  * pour qu'elles ne soient pas visibiles dans un fichier (souvent en 777)

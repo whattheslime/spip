@@ -24,7 +24,14 @@ if (!defined('_ECRIRE_INC_VERSION')) {
  * @param array $env
  * @return string
  */
-function traiter_modeles($texte, $doublons = false, $echap = '', string $connect = '', ?Liens $collecteurLiens = null, $env = []) {
+function traiter_modeles(
+	$texte,
+	$doublons = false,
+	$echap = '',
+	string $connect = '',
+	?Liens $collecteurLiens = null,
+	$env = []
+) {
 
 	include_spip('src/Texte/Collecteur/AbstractCollecteur');
 	include_spip('src/Texte/Collecteur/Modeles');
@@ -35,7 +42,7 @@ function traiter_modeles($texte, $doublons = false, $echap = '', string $connect
 		'echap' => $echap,
 		'connect' => $connect,
 		'collecteurLiens' => $collecteurLiens,
-		'env' => $env
+		'env' => $env,
 	];
 	return $collecteurModeles->traiter($texte ?? '', $options);
 }

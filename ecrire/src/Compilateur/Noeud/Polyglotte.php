@@ -9,7 +9,9 @@ namespace Spip\Compilateur\Noeud;
  */
 class Polyglotte
 {
-	/** Type de noeud */
+	/**
+	 * Type de noeud
+	 */
 	public string $type = 'polyglotte';
 
 	/**
@@ -19,6 +21,8 @@ class Polyglotte
 	 */
 	public array $traductions = [];
 
-	/** Numéro de ligne dans le code source du squelette */
+	/**
+	 * Numéro de ligne dans le code source du squelette
+	 */
 	public int $ligne = 0;
 }

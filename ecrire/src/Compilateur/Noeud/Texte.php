@@ -7,10 +7,14 @@ namespace Spip\Compilateur\Noeud;
  */
 class Texte
 {
-	/** Type de noeud */
+	/**
+	 * Type de noeud
+	 */
 	public string $type = 'texte';
 
-	/** Le texte */
+	/**
+	 * Le texte
+	 */
 	public string $texte;
 
 	/**
@@ -31,6 +35,8 @@ class Texte
 	 */
 	public $apres = '';
 
-	/** Numéro de ligne dans le code source du squelette */
+	/**
+	 * Numéro de ligne dans le code source du squelette
+	 */
 	public int $ligne = 0;
 }

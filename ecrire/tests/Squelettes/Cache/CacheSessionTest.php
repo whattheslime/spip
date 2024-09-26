@@ -11,6 +11,7 @@ use Spip\Test\SquelettesTestCase;
 class CacheSessionTest extends SquelettesTestCase
 {
 	private static array $errors = [];
+
 	private static string $squelettes;
 
 	public static function setUpBeforeClass(): void {
@@ -38,10 +39,16 @@ class CacheSessionTest extends SquelettesTestCase
 		$this->assertEquals('inc_maj_invalideurs', charger_fonction('maj_invalideurs', 'inc', true));
 	}
 
-	/** Vérifier qu’on sait attraper les données de cache */
+	/**
+	 * Vérifier qu’on sait attraper les données de cache
+	 */
 	#[Depends('testVerifierPathMajInvalideurs')]
 	#[DataProvider('providerVerifierCaptureMajInvalideurs')]
-	public function testVerifierCaptureMajInvalideurs(int $expectedCountErrors, string $squelette, bool $session_attendue): void {
+	public function testVerifierCaptureMajInvalideurs(
+		int $expectedCountErrors,
+		string $squelette,
+		bool $session_attendue
+	): void {
 		$this->runWithSquelette($squelette, $session_attendue);
 		$this->assertCount($expectedCountErrors, $this->getErrors(), $this->showErrors());
 	}
@@ -77,6 +84,10 @@ class CacheSessionTest extends SquelettesTestCase
 		];
 	}
 
+	public static function addError(string $msg, array $page): void {
+		self::$errors[] = sprintf('%s pour %s: %s', $msg, $page['source'], self::trace_contexte($page['contexte']));
+	}
+
 	private function runWithSquelette(string $fond, bool $session_attendue) {
 		unset($GLOBALS['cache_utilise_session']);
 		recuperer_fond($fond, [
@@ -106,15 +117,6 @@ class CacheSessionTest extends SquelettesTestCase
 
 	private function resetErrors(): void {
 		self::$errors = [];
-	}
-
-	public static function addError(string $msg, array $page): void {
-		self::$errors[] = sprintf(
-			'%s pour %s: %s',
-			$msg,
-			$page['source'],
-			self::trace_contexte($page['contexte'])
-		);
 	}
 
 	private static function trace_contexte(array $contexte): string {

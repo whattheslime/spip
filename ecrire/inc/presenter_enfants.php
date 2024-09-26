@@ -25,7 +25,7 @@ include_spip('inc/presentation');
  *  Le numéro de la pagination si paginé (> 500)
  * @param int $limite
  *  Le pas de pagination si paginé (> 500)
- * @return array $res
+ * @return array
  *  Un tableau des sous rubriques
  */
 function enfant_rub($collection, $debut = 0, $limite = 500) {
@@ -184,7 +184,7 @@ function sous_enfant_rub($collection2) {
  *
  * @param int $id_rubrique
  *  L'identifiant numérique de la rubrique parente (0 par défaut, la racine)
- * @return string $res
+ * @return string
  *  Le contenu textuel affiché, la liste des sous rubriques
  */
 function afficher_enfant_rub($id_rubrique = 0) {

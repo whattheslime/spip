@@ -27,7 +27,6 @@ if (!defined('_ECRIRE_INC_VERSION')) {
  * @uses plugins_installer_dist()
  *
  * @global array visiteur_session
- * @return void
  */
 function action_desinstaller_plugin_dist() {
 

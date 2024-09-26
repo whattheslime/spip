@@ -4,10 +4,6 @@ declare(strict_types=1);
 
 namespace Spip\Test\Filtre\Form;
 
-use PHPUnit\Framework\Attributes\DataProvider;
-use PHPUnit\Framework\Attributes\Depends;
-use PHPUnit\Framework\TestCase;
-use RuntimeException;
 use Spip\Test\SquelettesTestCase;
 
 class FormHiddenTest extends SquelettesTestCase

@@ -43,7 +43,6 @@ function sandbox_composer_texte($texte, &$p) {
 	return "'" . str_replace(['\\', "'"], ['\\\\', "\\'"], $texte) . "'";
 }
 
-
 /**
  * Composer le code d'exécution d'un filtre
  *
@@ -53,7 +52,6 @@ function sandbox_composer_texte($texte, &$p) {
  * @param Champ $p
  * @param int $nb_arg_droite        nb d'arguments à droite du filtre dans le source spip |fff{a,b,c}
  *     Balise qui appelle ce filtre
- * @return string
  */
 function sandbox_composer_filtre($fonc, $code, $arglist, &$p, $nb_arg_droite = 1000): string {
 	if (isset($GLOBALS['spip_matrice'][$fonc])) {
@@ -76,7 +74,7 @@ function sandbox_composer_filtre($fonc, $code, $arglist, &$p, $nb_arg_droite = 1
 		$min_f = $args['NumberOfRequiredParameters'];
 		if (($nb_args_f < $min_f)) {
 			$msg_args = ['filtre' => texte_script($fonc), 'nb' => $min_f - $nb_args_f];
-			erreur_squelette([ 'zbug_erreur_filtre_nbarg_min', $msg_args], $p);
+			erreur_squelette(['zbug_erreur_filtre_nbarg_min', $msg_args], $p);
 		}
 	}
 	// le filtre n'existe pas,
@@ -172,7 +170,6 @@ function sandbox_composer_interdire_scripts($code, &$p) {
 	return $code;
 }
 
-
 /**
  * Appliquer des filtres sur un squelette complet
  *
@@ -189,8 +186,8 @@ function sandbox_composer_interdire_scripts($code, &$p) {
  */
 function sandbox_filtrer_squelette($skel, $corps, $filtres) {
 	$series_filtres = func_get_args();
-	array_shift($series_filtres);// skel
-	array_shift($series_filtres);// corps
+	array_shift($series_filtres); // skel
+	array_shift($series_filtres); // corps
 
 	// proteger les <INCLUDE> et tous les morceaux de php licites
 	if ($skel['process_ins'] == 'php') {
@@ -219,7 +216,6 @@ function sandbox_filtrer_squelette($skel, $corps, $filtres) {
 	// restaurer les echappements
 	return str_replace($replace[0], $replace[1], (string) $corps);
 }
-
 
 /**
  * Callback pour échapper du code PHP (les séquences `<?php ... ?>`)

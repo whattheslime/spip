@@ -76,7 +76,6 @@ function _T($texte, $args = [], $options = []) {
 	return _L($text, $args, $o);
 }
 
-
 /**
  * Remplace les variables `@...@` par leur valeur dans une chaîne de langue.
  *
@@ -142,13 +141,12 @@ function _L($text, $args = [], $options = []) {
 		}
 	}
 
-	if (($GLOBALS['test_i18n'] || _request('var_mode') == 'traduction') && is_null($options['class'])) {
+	if (($GLOBALS['test_i18n'] || _request('var_mode') == 'traduction') && $options['class'] === null) {
 		return "<span class='debug-traduction-erreur'>$text</span>";
-	} else {
-		return $text;
 	}
-}
+	return $text;
 
+}
 
 /**
  * Sélectionne la langue donnée en argument et mémorise la courante

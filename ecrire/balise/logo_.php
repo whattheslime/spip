@@ -19,7 +19,6 @@ if (!defined('_ECRIRE_INC_VERSION')) {
 	return;
 }
 
-
 /**
  * Compile la balise dynamique `#LOGO_xx` qui retourne le code HTML
  * pour afficher l'image de logo d'un objet éditorial de SPIP.
@@ -119,7 +118,8 @@ function balise_LOGO__dist($p) {
 		}
 	} elseif ($connect) {
 		$code = "''";
-		spip_logger()->info('Les logos distants ne sont pas prevus');
+		spip_logger()
+			->info('Les logos distants ne sont pas prevus');
 	} else {
 		// pour generer_code_logo
 		include_spip('balise/id_logo_');

@@ -7,13 +7,19 @@ namespace Spip\Compilateur\Noeud;
  */
 class Champ
 {
-	/** Type de noeud */
+	/**
+	 * Type de noeud
+	 */
 	public string $type = 'champ';
 
-	/** Nom du champ demandé. Exemple 'ID_ARTICLE' */
+	/**
+	 * Nom du champ demandé. Exemple 'ID_ARTICLE'
+	 */
 	public ?string $nom_champ = null;
 
-	/** Identifiant de la boucle parente si explicité */
+	/**
+	 * Identifiant de la boucle parente si explicité
+	 */
 	public ?string $nom_boucle = '';
 
 	/**
@@ -52,7 +58,9 @@ class Champ
 	 */
 	public $param = [];
 
-	/** Source des filtres (compatibilité) (?) */
+	/**
+	 * Source des filtres (compatibilité) (?)
+	 */
 	public array $fonctions = [];
 
 	/**
@@ -69,10 +77,14 @@ class Champ
 	 */
 	public array $boucles;
 
-	/** Alias de table d'application de la requête ou nom complet de la table SQL */
+	/**
+	 * Alias de table d'application de la requête ou nom complet de la table SQL
+	 */
 	public ?string $type_requete = null;
 
-	/** Résultat de la compilation: toujours une expression PHP */
+	/**
+	 * Résultat de la compilation: toujours une expression PHP
+	 */
 	public string $code = '';
 
 	/**
@@ -102,9 +114,13 @@ class Champ
 	 */
 	public array $descr = [];
 
-	/** Numéro de ligne dans le code source du squelette*/
+	/**
+	 * Numéro de ligne dans le code source du squelette
+	 */
 	public int $ligne = 0;
 
-	/** Drapeau pour reperer les balises calculées par une fonction explicite */
+	/**
+	 * Drapeau pour reperer les balises calculées par une fonction explicite
+	 */
 	public bool $balise_calculee = false;
 }

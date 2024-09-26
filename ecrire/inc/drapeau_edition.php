@@ -32,7 +32,6 @@ if (!defined('_ECRIRE_INC_VERSION')) {
 	return;
 }
 
-
 /**
  * Retourne le tableau des éléments édités en cours après avoir supprimé
  * les éléments trop vieux (de plus d'une heure) du tableau.
@@ -177,7 +176,7 @@ function mention_qui_edite($id, $type = 'article'): array {
 		// format lie a la chaine de langue 'avis_article_modifie'
 		return [
 			'nom_auteur_modif' => implode(' | ', $auteurs),
-			'date_diff' => ceil((time() - $quand) / 60)
+			'date_diff' => ceil((time() - $quand) / 60),
 		];
 	}
 	return [];
@@ -222,7 +221,6 @@ function liste_drapeau_edition($id_auteur) {
  * @uses ecrire_tableau_edition()
  *
  * @param integer $id_auteur
- * @return void
  */
 function debloquer_tous($id_auteur) {
 	$edition = lire_tableau_edition();
@@ -248,7 +246,6 @@ function debloquer_tous($id_auteur) {
  *     Identifiant de l'objet édité
  * @param string $type
  *     Type de l'objet
- * @return void
  */
 function debloquer_edition($id_auteur, $id_objet, $type = 'article') {
 	$edition = lire_tableau_edition();

@@ -109,7 +109,6 @@ function xml_piElement($phraseur, $target, $data) {
 	}
 }
 
-
 function xml_defaultElement($phraseur, $data) {
 	$depth = $phraseur->depth;
 
@@ -147,12 +146,12 @@ function coordonnees_erreur($phraseur, $msg) {
 	$phraseur->err[] = [
 		$msg,
 		xml_get_current_line_number($phraseur->sax) + $entete_length,
-		xml_get_current_column_number($phraseur->sax)
+		xml_get_current_column_number($phraseur->sax),
 	];
 }
 
 function xml_sax_dist($page, $apply = false, $phraseur = null, $doctype = '', $charset = null) {
-	if (is_null($charset)) {
+	if ($charset === null) {
 		$charset = $GLOBALS['meta']['charset'];
 	}
 	if ($apply) {
@@ -198,26 +197,13 @@ function xml_sax_dist($page, $apply = false, $phraseur = null, $doctype = '', $c
 
 	$xml_parser = xml_parser_create($charset);
 
-	xml_set_element_handler(
-		$xml_parser,
-		[$phraseur, 'debutElement'],
-		[$phraseur, 'finElement']
-	);
+	xml_set_element_handler($xml_parser, [$phraseur, 'debutElement'], [$phraseur, 'finElement']);
 
-	xml_set_character_data_handler(
-		$xml_parser,
-		[$phraseur, 'textElement']
-	);
+	xml_set_character_data_handler($xml_parser, [$phraseur, 'textElement']);
 
-	xml_set_processing_instruction_handler(
-		$xml_parser,
-		[$phraseur, 'piElement']
-	);
+	xml_set_processing_instruction_handler($xml_parser, [$phraseur, 'piElement']);
 
-	xml_set_default_handler(
-		$xml_parser,
-		[$phraseur, 'defaultElement']
-	);
+	xml_set_default_handler($xml_parser, [$phraseur, 'defaultElement']);
 
 	xml_parser_set_option($xml_parser, XML_OPTION_CASE_FOLDING, false);
 
@@ -242,7 +228,7 @@ function xml_sax_dist($page, $apply = false, $phraseur = null, $doctype = '', $c
 // sinon on se rabat sur ce qu'en connait SPIP en standard.
 
 function sax_bug($data, $dtc, $charset = null) {
-	if (is_null($charset)) {
+	if ($charset === null) {
 		$charset = $GLOBALS['meta']['charset'];
 	}
 
@@ -273,21 +259,17 @@ function analyser_doctype($data) {
 		if (preg_match(_REGEXP_XML, $data, $page)) {
 			[, $entete, $topelement] = $page;
 			if ($topelement == 'rss') {
-				return [
-					$entete,
-					'PUBLIC',
-					_DOCTYPE_RSS,
-					'rss-0.91.dtd'
-				];
-			} else {
-				$dtd = $topelement . '.dtd';
-				$f = find_in_path($dtd);
-				if (file_exists($f)) {
-					return [$entete, 'SYSTEM', $f, $dtd];
-				}
+				return [$entete, 'PUBLIC', _DOCTYPE_RSS, 'rss-0.91.dtd'];
 			}
+			$dtd = $topelement . '.dtd';
+			$f = find_in_path($dtd);
+			if (file_exists($f)) {
+				return [$entete, 'SYSTEM', $f, $dtd];
+			}
+
 		}
-		spip_logger()->info('Dtd pas vu pour ' . substr($data, 0, 100));
+		spip_logger()
+			->info('Dtd pas vu pour ' . substr($data, 0, 100));
 
 		return [];
 	}

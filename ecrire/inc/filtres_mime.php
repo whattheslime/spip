@@ -25,7 +25,6 @@ if (!defined('_ECRIRE_INC_VERSION')) {
 }
 include_spip('inc/filtres');
 
-
 // Les 7 familles de base ne font rien sauf celle des textes
 
 /**

@@ -24,8 +24,6 @@ include_spip('inc/headers');
 
 /**
  * Fonction d'installation et de mise à jour du core de SPIP
- *
- * @return void
  */
 function exec_upgrade_dist() {
 
@@ -64,7 +62,7 @@ function exec_upgrade_dist() {
 			$GLOBALS['meta']['version_installee'] = 0.0;
 		} else {
 			$GLOBALS['meta']['version_installee'] =
-				(double) str_replace(',', '.', (string) $GLOBALS['meta']['version_installee']);
+				(float) str_replace(',', '.', (string) $GLOBALS['meta']['version_installee']);
 		}
 		# NB: str_replace car, sur club-internet, il semble que version_installe soit
 		# enregistree au format '1,812' et non '1.812'

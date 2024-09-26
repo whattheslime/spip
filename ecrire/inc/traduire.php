@@ -100,7 +100,6 @@ function chercher_module_lang($module, $lang = '') {
  *
  * @param string $lang Code de langue
  * @param string $module Nom du module de langue
- * @return void
  */
 function charger_langue($lang, $module = 'spip') {
 	static $langs = [];
@@ -149,11 +148,16 @@ function lire_fichier_langue(string $fichier): array {
 	$GLOBALS['idx_lang'] = $idx_lang_before;
 	if (!is_array($idx_lang)) {
 		if (isset($GLOBALS[$idx_lang_tmp]) && is_array($GLOBALS[$idx_lang_tmp])) {
-			trigger_deprecation('spip', '5.0', sprintf('Lang file "%s" populating a GLOBALS is deprecated. Return an array instead.', $fichier));
+			trigger_deprecation(
+				'spip',
+				'5.0',
+				sprintf('Lang file "%s" populating a GLOBALS is deprecated. Return an array instead.', $fichier)
+			);
 			$idx_lang = $GLOBALS[$idx_lang_tmp];
 		} else {
 			$idx_lang = [];
-			spip_logger()->error(sprintf('Fichier de langue incorrect : %s', $fichier));
+			spip_logger()
+				->error(sprintf('Fichier de langue incorrect : %s', $fichier));
 		}
 		unset($GLOBALS[$idx_lang_tmp]);
 	}
@@ -194,10 +198,7 @@ function surcharger_langue($fichiers) {
 		}
 		if (is_array($surcharges[$fichier])) {
 			$GLOBALS[$GLOBALS['idx_lang']] ??= [];
-			$GLOBALS[$GLOBALS['idx_lang']] = array_merge(
-				$GLOBALS[$GLOBALS['idx_lang']],
-				$surcharges[$fichier]
-			);
+			$GLOBALS[$GLOBALS['idx_lang']] = array_merge($GLOBALS[$GLOBALS['idx_lang']], $surcharges[$fichier]);
 		}
 	}
 }

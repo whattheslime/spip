@@ -11,7 +11,6 @@
 
 use Psr\Log\LogLevel;
 
-
 /**
  * Gestion de l'obtention des descriptions de tables SQL
  *
@@ -66,8 +65,6 @@ include_spip('base/objets');
  *     - id_table : nom SPIP de la table (type de boucle)
  *                  le compilateur produit  FROM $r['table'] AS $r['id_table']
  *     - Toutes les autres informations des objets éditoriaux si la table est l'un d'eux.
- *
- *
  */
 function base_trouver_table_dist($nom, $serveur = '', $table_spip = true, array $options = []) {
 	$desc_cache = null;

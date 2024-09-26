@@ -73,7 +73,6 @@ function plugins_afficher_repertoires_dist($url_page, $liste_plugins, $liste_plu
 	. '</ul>';
 }
 
-
 // vraiment n'importe quoi la gestion des chemins des plugins
 // une fonction pour aider...
 function chemin_plug($racine, $plug) {

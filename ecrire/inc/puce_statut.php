@@ -66,7 +66,7 @@ function inc_puce_statut_dist(
 	static $f_puce_statut = [];
 	$type = objet_type($type);
 	// cas prioritaire : fonction perso, qui permet aussi de gerer les cas historiques
-	if (!isset($f_puce_statut[$type]) || is_null($f_puce_statut[$type])) {
+	if (!isset($f_puce_statut[$type]) || $f_puce_statut[$type] === null) {
 		$f_puce_statut[$type] = charger_fonction($type, 'puce_statut', true);
 	}
 	if ($f_puce_statut[$type]) {
@@ -75,12 +75,12 @@ function inc_puce_statut_dist(
 
 	// si statut_image trouve quelque chose (et '' est quelque chose)
 	// composer une puce, avec si possible changement rapide
-	elseif (!is_null($puce = puce_statut_changement_rapide($id_objet, $statut, $id_parent, $type, $ajax, $menu_rapide))) {
+	elseif (null !== ($puce = puce_statut_changement_rapide($id_objet, $statut, $id_parent, $type, $ajax, $menu_rapide))) {
 		return $puce;
 	} // sinon fausse puce avec le type de l'image
-	else {
-		return http_img_pack("$type-16.png", '');
-	}
+
+	return http_img_pack("$type-16.png", '');
+
 }
 
 /**
@@ -207,7 +207,6 @@ function statut_titre($objet, $statut) {
 	return $titre ? _T($titre) : '';
 }
 
-
 /**
  * Recuperer le texte correspondant au choix de statut, tel que declare dans
  * declarer_tables_objets_sql
@@ -257,7 +256,6 @@ function statut_texte_instituer($objet, $statut) {
 	return $texte ? _T($texte) : '';
 }
 
-
 /**
  * Afficher la puce statut d'un auteur
  *
@@ -295,7 +293,6 @@ function puce_statut_auteur_dist($id, $statut, $id_parent, $type, $ajax = '', $m
 
 	return http_img_pack($img, $alt, $fond, $alt);
 }
-
 
 function puce_statut_rubrique_dist($id, $statut, $id_rubrique, $type, $ajax = '', $menu_rapide = _ACTIVER_PUCE_RAPIDE) {
 	return http_img_pack('rubrique-16.png', '');
@@ -335,7 +332,6 @@ function puce_statut_changement_rapide(
 	}
 
 	$ajax_node = (!$id || !_SPIP_AJAX || !$menu_rapide) ? '' : " class='imgstatut$type$id'";
-
 
 	$t = statut_titre($type, $statut);
 	$inser_puce = http_img_pack($src, $t, $ajax_node, $t);
@@ -379,7 +375,9 @@ function puce_statut_changement_rapide(
 	$clip = $zero + ($unit * $coord[$statut]);
 
 	if ($ajax) {
-		$width = $unit * (is_countable($desc['statut_textes_instituer']) ? count($desc['statut_textes_instituer']) : 0) + $margin;
+		$width = $unit * (is_countable($desc['statut_textes_instituer']) ? count(
+			$desc['statut_textes_instituer']
+		) : 0) + $margin;
 		$out = "<span class='puce_objet_fixe $type'>"
 			. $inser_puce
 			. '</span>'
@@ -390,23 +388,25 @@ function puce_statut_changement_rapide(
 		}
 
 		return $out . '</span>';
-	} else {
-		$nom = 'puce_statut_';
-		$action = generer_url_ecrire('puce_statut', '', true);
-		$lang_dir = lang_dir(lang_typo());
-
-		return "<span class='puce_objet $type' id='$nom$type$id' dir='$lang_dir' data-puce-nom='$nom' data-puce-type='$type' data-puce-id='$id' data-puce-action='$action'>"
-		. $inser_puce
-		. '</span>';
 	}
-}
+	$nom = 'puce_statut_';
+	$action = generer_url_ecrire('puce_statut', '', true);
+	$lang_dir = lang_dir(lang_typo());
 
+	return "<span class='puce_objet $type' id='$nom$type$id' dir='$lang_dir' data-puce-nom='$nom' data-puce-type='$type' data-puce-id='$id' data-puce-action='$action'>"
+	. $inser_puce
+	. '</span>';
+
+}
 
 function afficher_script_statut($id, $type, $n, $img, $statut, $titre, $act = '') {
 	$h = generer_action_auteur('instituer_objet', "$type-$id-$statut");
 	$t = supprimer_tags($titre);
 
-	return "<a href=\"#\" data-puce-id=\"$id\" data-puce-type=\"$type\" data-puce-decal=\"$n\" data-puce-action=\"$h\" title=\"$t\"$act>" . http_img_pack($img, $t) . '</a>';
+	return "<a href=\"#\" data-puce-id=\"$id\" data-puce-type=\"$type\" data-puce-decal=\"$n\" data-puce-action=\"$h\" title=\"$t\"$act>" . http_img_pack(
+		$img,
+		$t
+	) . '</a>';
 }
 
 // compat

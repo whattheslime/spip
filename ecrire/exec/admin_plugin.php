@@ -97,13 +97,10 @@ function admin_plug_args($quoi, $erreur, $format) {
 	echo debut_gauche();
 	echo recuperer_fond('prive/squelettes/navigation/configurer', ['exec' => 'admin_plugin']);
 
-	echo pipeline(
-		'affiche_gauche',
-		[
-			'args' => ['exec' => 'admin_plugin'],
-			'data' => afficher_librairies()
-		]
-	);
+	echo pipeline('affiche_gauche', [
+		'args' => ['exec' => 'admin_plugin'],
+		'data' => afficher_librairies(),
+	]);
 
 	echo debut_droite();
 	echo gros_titre(_T('icone_admin_plugin'), '');
@@ -231,13 +228,10 @@ function admin_plug_args($quoi, $erreur, $format) {
 	});
 	");
 
-	echo pipeline(
-		'affiche_milieu',
-		[
-			'args' => ['exec' => 'admin_plugin'],
-			'data' => ''
-		]
-	);
+	echo pipeline('affiche_milieu', [
+		'args' => ['exec' => 'admin_plugin'],
+		'data' => '',
+	]);
 
 	echo fin_gauche(), fin_page();
 }
@@ -260,8 +254,7 @@ function affiche_les_plugins_verrouilles($actifs) {
 	$afficher = charger_fonction('afficher_liste', 'plugins');
 	$liste = $afficher(self(), $liste, [], $actifs, _DIR_PLUGINS_DIST);
 
-	return
-		"<div id='plugins_dist'>"
+	return "<div id='plugins_dist'>"
 		. debut_cadre_trait_couleur('', true, '', _T('plugins_liste_dist'), 'liste_plugins_dist')
 		. '<p>'
 		. _T('plugin_info_plugins_dist_1', ['plugins_dist' => joli_repertoire(_DIR_PLUGINS_DIST)])
@@ -294,7 +287,6 @@ function afficher_librairies() {
 
 	return $res . fin_cadre_enfonce();
 }
-
 
 /**
  * Faire la liste des librairies disponibles

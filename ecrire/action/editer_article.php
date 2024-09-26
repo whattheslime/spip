@@ -40,7 +40,7 @@ if (!defined('_ECRIRE_INC_VERSION')) {
 function action_editer_article_dist($arg = null) {
 	include_spip('inc/autoriser');
 	$err = '';
-	if (is_null($arg)) {
+	if ($arg === null) {
 		$securiser_action = charger_fonction('securiser_action', 'inc');
 		$arg = $securiser_action();
 	}
@@ -116,11 +116,11 @@ function article_modifier($id_article, $set = null) {
 			'article',
 			$id_article,
 			[
-			'data' => $set,
-			'nonvide' => ['titre' => _T('info_nouvel_article') . ' ' . _T('info_numero_abbreviation') . $id_article],
-			'invalideur' => $invalideur,
-			'indexation' => $indexation,
-			'date_modif' => 'date_modif' // champ a mettre a date('Y-m-d H:i:s') s'il y a modif
+				'data' => $set,
+				'nonvide' => ['titre' => _T('info_nouvel_article') . ' ' . _T('info_numero_abbreviation') . $id_article],
+				'invalideur' => $invalideur,
+				'indexation' => $indexation,
+				'date_modif' => 'date_modif', // champ a mettre a date('Y-m-d H:i:s') s'il y a modif
 			],
 			$c
 		)
@@ -163,7 +163,6 @@ function article_modifier($id_article, $set = null) {
  * @param array|null $set
  * @return int
  *     Identifiant du nouvel article
- *
  */
 function article_inserer($id_rubrique, $set = null) {
 
@@ -195,10 +194,7 @@ function article_inserer($id_rubrique, $set = null) {
 	) {
 		lang_select($GLOBALS['visiteur_session']['lang'] ?? '');
 		if (
-			in_array(
-				$GLOBALS['spip_lang'],
-				explode(',', (string) $GLOBALS['meta']['langues_multilingue'])
-			)
+			in_array($GLOBALS['spip_lang'], explode(',', (string) $GLOBALS['meta']['langues_multilingue']))
 		) {
 			$lang = $GLOBALS['spip_lang'];
 			$choisie = 'oui';
@@ -216,7 +212,7 @@ function article_inserer($id_rubrique, $set = null) {
 		'statut' => 'prepa',
 		'date' => date('Y-m-d H:i:s'),
 		'lang' => $lang,
-		'langue_choisie' => $choisie
+		'langue_choisie' => $choisie,
 	];
 
 	if ($set) {
@@ -224,21 +220,18 @@ function article_inserer($id_rubrique, $set = null) {
 	}
 
 	// Envoyer aux plugins
-	$champs = pipeline(
-		'pre_insertion',
-		[
-			'args' => [
-				'table' => 'spip_articles',
-			],
-			'data' => $champs
-		]
-	);
+	$champs = pipeline('pre_insertion', [
+		'args' => [
+			'table' => 'spip_articles',
+		],
+		'data' => $champs,
+	]);
 
 	$id_article = sql_insertq('spip_articles', $champs);
 
 	// controler si le serveur n'a pas renvoye une erreur
 	if ($id_article > 0) {
-		$id_auteur = ((is_null(_request('id_auteur')) && isset($GLOBALS['visiteur_session']['id_auteur'])) ?
+		$id_auteur = ((_request('id_auteur') === null && isset($GLOBALS['visiteur_session']['id_auteur'])) ?
 			$GLOBALS['visiteur_session']['id_auteur']
 			: _request('id_auteur'));
 		if ($id_auteur) {
@@ -252,9 +245,9 @@ function article_inserer($id_rubrique, $set = null) {
 		[
 			'args' => [
 				'table' => 'spip_articles',
-				'id_objet' => $id_article
+				'id_objet' => $id_article,
 			],
-			'data' => $champs
+			'data' => $champs,
 		]
 	);
 
@@ -282,7 +275,6 @@ function article_inserer($id_rubrique, $set = null) {
 
 	return $id_article;
 }
-
 
 /**
  * Modification des statuts d'un article
@@ -380,7 +372,7 @@ function article_instituer($id_article, $c, $calcul_rub = true) {
 				'statut_ancien' => $statut_ancien,
 				'date_ancienne' => $date_ancienne,
 			],
-			'data' => $champs
+			'data' => $champs,
 		]
 	);
 
@@ -417,7 +409,7 @@ function article_instituer($id_article, $c, $calcul_rub = true) {
 				'statut_ancien' => $statut_ancien,
 				'date_ancienne' => $date_ancienne,
 			],
-			'data' => $champs
+			'data' => $champs,
 		]
 	);
 
@@ -511,15 +503,15 @@ function editer_article_heritage($id_article, $id_rubrique, $statut, $champs, $c
 
 	if ($cond) {
 		include_spip('inc/rubriques');
-		$postdate = ($GLOBALS['meta']['post_dates'] == 'non' && isset($champs['date']) && strtotime((string) $champs['date']) < time()) ? $champs['date'] : false;
+		$postdate = ($GLOBALS['meta']['post_dates'] == 'non' && isset($champs['date']) && strtotime(
+			(string) $champs['date']
+		) < time()) ? $champs['date'] : false;
 		calculer_rubriques_if($id_rubrique, $champs, ['statut_ancien' => $statut], $postdate);
 	}
 }
 
 /**
  * Réunit les textes decoupés parce que trop longs
- *
- * @return void
  */
 function trop_longs_articles() {
 	if (is_array($plus = _request('texte_plus'))) {

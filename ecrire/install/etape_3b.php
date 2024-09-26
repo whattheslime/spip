@@ -99,7 +99,8 @@ function install_etape_3b_dist() {
 					$echec = _T('avis_connexion_erreur_fichier_cle_manquant_1');
 					echouer_etape_3b($echec);
 				}
-				spip_logger('auth')->notice("Les cles secretes ont ete restaurées avec le backup du webmestre #$id_auteur");
+				spip_logger('auth')
+					->notice("Les cles secretes ont ete restaurées avec le backup du webmestre #$id_auteur");
 				$cles->save();
 			}
 
@@ -107,7 +108,7 @@ function install_etape_3b_dist() {
 				'nom' => $nom,
 				'email' => $email,
 				'login' => $login,
-				'statut' => '0minirezo'
+				'statut' => '0minirezo',
 			], 'id_auteur=' . (int) $id_auteur);
 			// le passer webmestre separement du reste, au cas ou l'alter n'aurait pas fonctionne
 			@sql_updateq('spip_auteurs', ['webmestre' => 'oui'], "id_auteur=$id_auteur");
@@ -127,7 +128,7 @@ function install_etape_3b_dist() {
 				'nom' => $nom,
 				'email' => $email,
 				'login' => $login,
-				'statut' => '0minirezo'
+				'statut' => '0minirezo',
 			]);
 			// le passer webmestre separrement du reste, au cas ou l'alter n'aurait pas fonctionne
 			@sql_updateq('spip_auteurs', ['webmestre' => 'oui'], "id_auteur=$id_auteur");
@@ -161,7 +162,6 @@ function install_etape_3b_dist() {
 	// poursuivre au hit suivant
 	include_spip('inc/plugin');
 	actualise_plugins_actifs();
-
 
 	include_spip('inc/distant');
 	redirige_par_entete(parametre_url(self(), 'etape', '4', '&'));

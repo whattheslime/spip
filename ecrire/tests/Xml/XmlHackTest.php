@@ -18,7 +18,7 @@ class XmlHackTest extends SquelettesTestCase
 		$skel = $this->relativePath(__DIR__ . '/data/' . $squelette);
 		$out = recuperer_fond($skel, [], [
 			'raw' => true,
-			'trim' => true
+			'trim' => true,
 		]);
 		$this->assertEmpty($out['erreur'] ?? null);
 		$this->assertNotEmpty($out['texte']);

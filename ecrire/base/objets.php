@@ -30,7 +30,6 @@ if (!defined('_ECRIRE_INC_VERSION')) {
  *     Clé du tableau que l'on souhaite compléter
  * @param array $valeur
  *     Sous tableau à merger dans la clé.
- * @return void
  */
 function array_set_merge(&$table, $index, $valeur) {
 	$table[$index] = isset($table[$index]) ? array_merge($table[$index], $valeur) : $valeur;
@@ -61,13 +60,13 @@ function lister_tables_objets_sql(?string $table_sql = null, $desc = []) {
 	$_PLUGINS_HASH = defined('_PLUGINS_HASH') ? _PLUGINS_HASH : '!_CACHE_PLUGINS_OPT';
 
 	// prealablement recuperer les tables_principales
-	if (is_null($infos_tables) || $plugin_hash !== $_PLUGINS_HASH) {
+	if ($infos_tables === null || $plugin_hash !== $_PLUGINS_HASH) {
 		// pas de reentrance (cas base/serial)
 		if ($deja_la) {
 			spip_logger()->critical('Re-entrance anormale sur lister_tables_objets_sql : '
 				. var_export(debug_backtrace(), true));
 
-			return ($table_sql === '::md5' ? $md5 : []);
+			return $table_sql === '::md5' ? $md5 : [];
 		}
 		$deja_la = true;
 		$plugin_hash = $_PLUGINS_HASH; // avant de lancer les pipelines
@@ -105,7 +104,7 @@ function lister_tables_objets_sql(?string $table_sql = null, $desc = []) {
 					'chapo',
 					'texte',
 					'ps',
-					'virtuel'
+					'virtuel',
 				],
 				'champs_versionnes' => [
 					'id_rubrique',
@@ -118,7 +117,7 @@ function lister_tables_objets_sql(?string $table_sql = null, $desc = []) {
 					'url_site',
 					'chapo',
 					'texte',
-					'ps'
+					'ps',
 				],
 				'field' => [
 					'id_article' => 'bigint(21) NOT NULL',
@@ -158,10 +157,10 @@ function lister_tables_objets_sql(?string $table_sql = null, $desc = []) {
 				],
 				'join' => [
 					'id_article' => 'id_article',
-					'id_rubrique' => 'id_rubrique'
+					'id_rubrique' => 'id_rubrique',
 				],
 				'parent' => [
-					['type' => 'rubrique', 'champ' => 'id_rubrique']
+					['type' => 'rubrique', 'champ' => 'id_rubrique'],
 				],
 				'rechercher_champs' => [
 					'surtitre' => 5,
@@ -172,7 +171,7 @@ function lister_tables_objets_sql(?string $table_sql = null, $desc = []) {
 					'ps' => 1,
 					'nom_site' => 1,
 					'url_site' => 1,
-					'descriptif' => 4
+					'descriptif' => 4,
 				],
 				'rechercher_jointures' => [
 					'auteur' => ['nom' => 10],
@@ -183,15 +182,15 @@ function lister_tables_objets_sql(?string $table_sql = null, $desc = []) {
 						'publie' => 'publie',
 						'previsu' => 'publie,prop,prepa/auteur',
 						'post_date' => 'date',
-						'exception' => ['statut', 'tout']
-					]
+						'exception' => ['statut', 'tout'],
+					],
 				],
 				'statut_titres' => [
 					'prepa' => 'info_article_redaction',
 					'prop' => 'info_article_propose',
 					'publie' => 'info_article_publie',
 					'refuse' => 'info_article_refuse',
-					'poubelle' => 'info_article_supprime'
+					'poubelle' => 'info_article_supprime',
 				],
 				'statut_textes_instituer' => [
 					'prepa' => 'texte_statut_en_cours_redaction',
@@ -257,7 +256,7 @@ function lister_tables_objets_sql(?string $table_sql = null, $desc = []) {
 				],
 				'join' => [
 					'id_auteur' => 'id_auteur',
-					'login' => 'login'
+					'login' => 'login',
 				],
 				'rechercher_champs' => [
 					'nom' => 5,
@@ -265,7 +264,7 @@ function lister_tables_objets_sql(?string $table_sql = null, $desc = []) {
 					'email' => 1,
 					'nom_site' => 1,
 					'url_site' => 1,
-					'login' => 1
+					'login' => 1,
 				],
 				// 2 conditions pour les auteurs : statut!=poubelle,
 				// et avoir des articles publies
@@ -274,21 +273,18 @@ function lister_tables_objets_sql(?string $table_sql = null, $desc = []) {
 						'champ' => 'statut',
 						'publie' => '!5poubelle',
 						'previsu' => '!5poubelle',
-						'exception' => 'statut'
+						'exception' => 'statut',
 					],
 					[
 						'champ' => [
 							['spip_auteurs_liens', 'id_auteur'],
-							[
-								'spip_articles',
-								['id_objet', 'id_article', 'objet', 'article']
-							],
-							'statut'
+							['spip_articles', ['id_objet', 'id_article', 'objet', 'article']],
+							'statut',
 						],
 						'publie' => 'publie',
 						'previsu' => '!',
 						'post_date' => 'date',
-						'exception' => ['statut', 'lien', 'tout']
+						'exception' => ['statut', 'lien', 'tout'],
 					],
 				],
 				'statut_images' => [
@@ -297,7 +293,7 @@ function lister_tables_objets_sql(?string $table_sql = null, $desc = []) {
 					'1comite' => 'auteur-1comite-16.png',
 					'6forum' => 'auteur-6forum-16.png',
 					'5poubelle' => 'auteur-5poubelle-16.png',
-					'nouveau' => ''
+					'nouveau' => '',
 				],
 				'statut_titres' => [
 					'titre_image_visiteur',
@@ -346,7 +342,7 @@ function lister_tables_objets_sql(?string $table_sql = null, $desc = []) {
 					'langue_choisie' => "VARCHAR(3) DEFAULT 'non'",
 					'statut_tmp' => "varchar(10) DEFAULT '0' NOT NULL",
 					'date_tmp' => "datetime DEFAULT '0000-00-00 00:00:00' NOT NULL",
-					'profondeur' => "smallint(5) DEFAULT '0' NOT NULL"
+					'profondeur' => "smallint(5) DEFAULT '0' NOT NULL",
 				],
 				'key' => [
 					'PRIMARY KEY' => 'id_rubrique',
@@ -354,26 +350,26 @@ function lister_tables_objets_sql(?string $table_sql = null, $desc = []) {
 					'KEY id_parent' => 'id_parent',
 				],
 				'parent' => [
-					['type' => 'rubrique', 'champ' => 'id_parent']
+					['type' => 'rubrique', 'champ' => 'id_parent'],
 				],
 				'rechercher_champs' => [
 					'titre' => 8,
 					'descriptif' => 5,
-					'texte' => 1
+					'texte' => 1,
 				],
 				'statut' => [
 					[
 						'champ' => 'statut',
 						'publie' => 'publie',
 						'previsu' => '!',
-						'exception' => ['statut', 'tout']
+						'exception' => ['statut', 'tout'],
 					],
 				],
 				'tables_jointures' => [#'id_auteur' => 'auteurs_liens' // declaration generique plus bas
 				],
 			],
 			// toutes les tables ont le droit a une jointure sur les auteurs
-			['tables_jointures' => ['id_auteur' => 'auteurs_liens']]
+			['tables_jointures' => ['id_auteur' => 'auteurs_liens']],
 		];
 
 		// avant d'appeller les pipeline qui peuvent generer une reentrance a l'install
@@ -405,7 +401,9 @@ function lister_tables_objets_sql(?string $table_sql = null, $desc = []) {
 					$add = $all[$i];
 					// eviter les doublons de declaration de table jointure (ex des mots sur auteurs)
 					// pour les declarations generiques avec cles numeriques
-					if ($i == 'tables_jointures' && isset($infos_tables[$t][$i]) && (is_countable($infos_tables[$t][$i]) ? count($infos_tables[$t][$i]) : 0)) {
+					if ($i == 'tables_jointures' && isset($infos_tables[$t][$i]) && (is_countable($infos_tables[$t][$i]) ? count(
+						$infos_tables[$t][$i]
+					) : 0)) {
 						$doublons = array_intersect($infos_tables[$t][$i], $add);
 						foreach ($doublons as $d) {
 							if (
@@ -418,10 +416,7 @@ function lister_tables_objets_sql(?string $table_sql = null, $desc = []) {
 					}
 					$infos_tables[$t][$i] = array_merge($infos_tables[$t][$i] ?? [], $add);
 				} else {
-					$infos_tables[$t][$i] = array_merge_recursive(
-						$infos_tables[$t][$i] ?? [],
-						$all[$i]
-					);
+					$infos_tables[$t][$i] = array_merge_recursive($infos_tables[$t][$i] ?? [], $all[$i]);
 				}
 			}
 		}
@@ -489,7 +484,6 @@ function lister_tables_objets_sql(?string $table_sql = null, $desc = []) {
 	return $infos_tables;
 }
 
-
 /**
  * Déclare les tables principales du Core
  *
@@ -497,7 +491,6 @@ function lister_tables_objets_sql(?string $table_sql = null, $desc = []) {
  *
  * @param array $tables_principales
  *     Description des tables principales déjà déclarées
- * @return void
  */
 function base_serial(&$tables_principales) {
 
@@ -524,13 +517,11 @@ function base_serial(&$tables_principales) {
 	$tables_principales['spip_jobs'] = ['field' => &$spip_jobs, 'key' => &$spip_jobs_key];
 }
 
-
 /**
  * Déclare les tables auxiliaires du Core
  *
  * @param array $tables_auxiliaires
  *     Description des tables auxiliaires déjà déclarées
- * @return void
  */
 function base_auxiliaires(&$tables_auxiliaires) {
 	$spip_resultats = [
@@ -539,7 +530,7 @@ function base_auxiliaires(&$tables_auxiliaires) {
 		'points' => "INT UNSIGNED DEFAULT '0' NOT NULL",
 		'table_objet' => "varchar(30) DEFAULT '' NOT NULL",
 		'serveur' => "char(16) DEFAULT '' NOT NULL", // hash md5 partiel du serveur de base ('' pour le serveur principal)
-		'maj' => 'TIMESTAMP'
+		'maj' => 'TIMESTAMP',
 	];
 
 	$spip_resultats_key = [// pas de cle ni index, ca fait des insertions plus rapides et les requetes jointes utilisees en recheche ne sont pas plus lentes ...
@@ -549,7 +540,7 @@ function base_auxiliaires(&$tables_auxiliaires) {
 		'id_auteur' => "bigint(21) DEFAULT '0' NOT NULL",
 		'id_objet' => "bigint(21) DEFAULT '0' NOT NULL",
 		'objet' => "VARCHAR (25) DEFAULT '' NOT NULL",
-		'vu' => "VARCHAR(6) DEFAULT 'non' NOT NULL"
+		'vu' => "VARCHAR(6) DEFAULT 'non' NOT NULL",
 	];
 
 	$spip_auteurs_liens_key = [
@@ -563,11 +554,11 @@ function base_auxiliaires(&$tables_auxiliaires) {
 		'nom' => 'VARCHAR (255) NOT NULL',
 		'valeur' => "text DEFAULT ''",
 		'impt' => "ENUM('non', 'oui') DEFAULT 'oui' NOT NULL",
-		'maj' => 'TIMESTAMP'
+		'maj' => 'TIMESTAMP',
 	];
 
 	$spip_meta_key = [
-		'PRIMARY KEY' => 'nom'
+		'PRIMARY KEY' => 'nom',
 	];
 
 	$spip_jobs_liens = [
@@ -578,28 +569,27 @@ function base_auxiliaires(&$tables_auxiliaires) {
 
 	$spip_jobs_liens_key = [
 		'PRIMARY KEY' => 'id_job,id_objet,objet',
-		'KEY id_job' => 'id_job'
+		'KEY id_job' => 'id_job',
 	];
 
 	$tables_auxiliaires['spip_auteurs_liens'] = [
 		'field' => &$spip_auteurs_liens,
-		'key' => &$spip_auteurs_liens_key
+		'key' => &$spip_auteurs_liens_key,
 	];
 
 	$tables_auxiliaires['spip_meta'] = [
 		'field' => &$spip_meta,
-		'key' => &$spip_meta_key
+		'key' => &$spip_meta_key,
 	];
 	$tables_auxiliaires['spip_resultats'] = [
 		'field' => &$spip_resultats,
-		'key' => &$spip_resultats_key
+		'key' => &$spip_resultats_key,
 	];
 	$tables_auxiliaires['spip_jobs_liens'] = [
 		'field' => &$spip_jobs_liens,
-		'key' => &$spip_jobs_liens_key
+		'key' => &$spip_jobs_liens_key,
 	];
 }
-
 
 /**
  * Auto remplissage des informations non explicites
@@ -967,7 +957,6 @@ function lister_tables_spip($serveur = '') {
 	return $tables[$serveur];
 }
 
-
 /**
  * Retourne la liste des tables SQL, Spip ou autres
  *
@@ -1038,7 +1027,8 @@ function table_objet(string $type, string|false $serveur = ''): string {
 			return $desc['id_table'];
 		}
 
-		spip_logger()->info('table_objet(' . $type . ') calculee sans verification');
+		spip_logger()
+			->info('table_objet(' . $type . ') calculee sans verification');
 		#spip_logger('db')->debug(debug_backtrace());
 	}
 
@@ -1278,7 +1268,6 @@ function objet_test_si_publie($objet, $id_objet, $serveur = '') {
 	return true;
 }
 
-
 /**
  * Cherche les contenus parent d'un contenu précis.
  *
@@ -1350,10 +1339,7 @@ function objet_lister_parents($objet, $id_objet, $parent_direct_seulement = fals
 				// -- on vérifie d'emblée si il y a une condition sur l'objet source et si celle-ci est vérifiée
 				//    Si non, on peut arrêter le traitement.
 				if (isset($parent_methode['condition'])) {
-					$where = [
-						"$cle_objet = $id_objet",
-						$parent_methode['condition']
-					];
+					$where = ["$cle_objet = $id_objet", $parent_methode['condition']];
 					if (!sql_countsel($table_objet, $where)) {
 						$condition_objet_invalide = true;
 					}
@@ -1391,19 +1377,18 @@ function objet_lister_parents($objet, $id_objet, $parent_direct_seulement = fals
 					// Si le type est fixe
 					if (isset($parent_methode['type'])) {
 						$parent = [
-							'objet' 	=> $parent_methode['type'],
-							'id_objet'	=> (int) $ligne[$parent_methode['champ']],
-							'champ' 	=> $parent_methode['champ'],
-							'table'    => $table,
+							'objet' => $parent_methode['type'],
+							'id_objet' => (int) $ligne[$parent_methode['champ']],
+							'champ' => $parent_methode['champ'],
+							'table' => $table,
 						];
-					}
-					elseif (isset($parent_methode['champ_type'])) {
+					} elseif (isset($parent_methode['champ_type'])) {
 						$parent = [
-							'objet' 	 => $ligne[$parent_methode['champ_type']],
-							'id_objet' 	 => (int) $ligne[$parent_methode['champ']],
-							'champ' 	 => $parent_methode['champ'],
+							'objet' => $ligne[$parent_methode['champ_type']],
+							'id_objet' => (int) $ligne[$parent_methode['champ']],
+							'champ' => $parent_methode['champ'],
 							'champ_type' => $parent_methode['champ_type'],
-							'table'    => $table,
+							'table' => $table,
 						];
 					}
 					if ($is_table_lien) {
@@ -1451,7 +1436,6 @@ function objet_lister_parents_par_type($objet, $id_objet) {
 
 	return $parents_par_type;
 }
-
 
 /**
  * Cherche tous les contenus enfants d'un contenu précis
@@ -1529,7 +1513,7 @@ function objet_lister_enfants($objet, $id_objet) {
 				$enfant = [
 					'objet' => $objet_enfant,
 					'id_objet' => 0,
-					'table' => $table_enfant
+					'table' => $table_enfant,
 				];
 				if (isset($_methode_parent['champ'])) {
 					$enfant['champ'] = $_methode_parent['champ'];

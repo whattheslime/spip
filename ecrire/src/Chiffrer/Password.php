@@ -12,7 +12,8 @@
 namespace Spip\Chiffrer;
 
 /** Vérification et hachage de mot de passe */
-class Password {
+class Password
+{
 	/**
 	 * verifier qu'un mot de passe en clair est correct a l'aide de son hash
 	 *
@@ -31,7 +32,8 @@ class Password {
 			$pass_poivre = hash_hmac('sha256', $password_clair, $key);
 			return password_verify($pass_poivre, $password_hash);
 		}
-		spip_logger('chiffrer')->notice('Aucune clé pour vérifier le mot de passe');
+		spip_logger('chiffrer')
+			->notice('Aucune clé pour vérifier le mot de passe');
 		return false;
 	}
 
@@ -50,7 +52,8 @@ class Password {
 			$pass_poivre = hash_hmac('sha256', $password_clair, $key);
 			return password_hash($pass_poivre, PASSWORD_DEFAULT);
 		}
-		spip_logger('chiffrer')->notice('Aucune clé pour chiffrer le mot de passe');
+		spip_logger('chiffrer')
+			->notice('Aucune clé pour chiffrer le mot de passe');
 		return null;
 	}
 

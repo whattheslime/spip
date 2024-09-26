@@ -8,7 +8,6 @@ use Spip\Test\SquelettesTestCase;
 
 class DoublonsTest extends SquelettesTestCase
 {
-
 	/**
 	 * Test pour la gestion de `#DOUBLONS`
 	 *
@@ -37,5 +36,4 @@ class DoublonsTest extends SquelettesTestCase
 		SPIP;
 		$this->assertOkCode($skel);
 	}
-
 }

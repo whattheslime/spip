@@ -42,7 +42,6 @@ function action_tester_taille_error_handler($output) {
 	return $output;
 }
 
-
 /**
  * Tester nos capacités à redimensionner des images avec GD2 (taille mémoire)
  *
@@ -53,7 +52,6 @@ function action_tester_taille_error_handler($output) {
  * La clé `arg` attendue est une chaîne indiquant les valeurs minimum et
  * maximum de taille à tester tel que '3000' (maximum) ou '3000-5000'
  * (minimum-maximum)
- *
  */
 function action_tester_taille_dist() {
 
@@ -126,7 +124,6 @@ function action_tester_taille_dist() {
 		$GLOBALS['redirect'] = generer_url_action('tester_taille', "i=$i&arg=$taille-" . $GLOBALS['taille_max']);
 	}
 	ob_end_clean();
-
 
 	// on est ici, donc pas de plantage
 	echo redirige_formulaire($GLOBALS['redirect']);

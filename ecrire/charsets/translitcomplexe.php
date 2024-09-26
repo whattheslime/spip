@@ -26,7 +26,7 @@ load_charset('translit');
 $trans = $GLOBALS['CHARSET']['translit'];
 
 $translit_c = [
-// vietnamien
+	// vietnamien
 	225 => "a'",
 	224 => 'a`',
 	7843 => 'a?',
@@ -162,13 +162,13 @@ $translit_c = [
 	273 => 'd-',
 	208 => 'D-',
 
-// allemand
+	// allemand
 	228 => 'ae',
 	246 => 'oe',
 	252 => 'ue',
 	196 => 'Ae',
 	214 => 'Oe',
-	220 => 'Ue'
+	220 => 'Ue',
 ];
 
 foreach ($translit_c as $u => $t) {

@@ -49,7 +49,6 @@ function genie_maintenance_dist($t) {
 	return 1;
 }
 
-
 /**
  * Vérifier si une table a crashé
  *
@@ -73,7 +72,7 @@ function verifier_crash_tables() {
 					!sql_select('*', $table, '', '', '', 1)
 					&& !defined('spip_interdire_cache')
 				) { # cas "LOST CONNECTION"
-				$crash[] = $table;
+					$crash[] = $table;
 				}
 			}
 		}
@@ -107,15 +106,9 @@ function verifier_crash_tables() {
  */
 function message_crash_tables() {
 	if ($crash = verifier_crash_tables()) {
-		return
-			'<strong>' . _T('texte_recuperer_base') . '</strong><br>'
+		return '<strong>' . _T('texte_recuperer_base') . '</strong><br>'
 			. ' <tt>' . implode(', ', $crash) . '</tt><br>'
-			. generer_form_ecrire(
-				'base_repair',
-				_T('texte_crash_base'),
-				'',
-				_T('bouton_tenter_recuperation')
-			);
+			. generer_form_ecrire('base_repair', _T('texte_crash_base'), '', _T('bouton_tenter_recuperation'));
 	}
 	return '';
 }

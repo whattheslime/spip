@@ -13,13 +13,12 @@ if (!defined('_ECRIRE_INC_VERSION')) {
 	return;
 }
 
-
 /*
  * Consigner une phrase dans le journal de bord du site
  * Cette API travaille a minima, mais un plugin pourra stocker
  * ces journaux en base et fournir des outils d'affichage, de selection etc
  *
- * @param string $journal
+ * @param string $phrase
  * @param array $opt
  */
 function inc_journal_dist($phrase, $opt = []) {
@@ -29,5 +28,6 @@ function inc_journal_dist($phrase, $opt = []) {
 	if ($opt) {
 		$phrase .= ' :: ' . str_replace("\n", ' ', implode(', ', $opt));
 	}
-	spip_logger('journal')->info($phrase);
+	spip_logger('journal')
+		->info($phrase);
 }

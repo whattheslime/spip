@@ -31,7 +31,14 @@ if (!defined('_ECRIRE_INC_VERSION')) {
  * @param bool $phpauth
  * @return array|bool
  */
-function auth_spip_dist($login, #[\SensitiveParameter] $pass, $serveur = '', $phpauth = false, string $fichier_cles = '') {
+function auth_spip_dist(
+	$login,
+	#[\SensitiveParameter]
+	$pass,
+	$serveur = '',
+	$phpauth = false,
+	string $fichier_cles = ''
+) {
 
 	$methode = null;
 	// retrouver le login
@@ -78,14 +85,17 @@ function auth_spip_dist($login, #[\SensitiveParameter] $pass, $serveur = '', $ph
 			// tres anciens mots de passe encodes en md5(alea.pass)
 			$hash = md5($row['alea_actuel'] . $pass);
 			$methode = 'md5';
+			// no break
 		case 64:
 			if (empty($hash)) {
 				// anciens mots de passe encodes en sha256(alea.pass)
-				$hash =  hash('sha256', $row['alea_actuel'] . $pass);
+				$hash = hash('sha256', $row['alea_actuel'] . $pass);
 				$methode = 'sha256';
 			}
 			if ($row['pass'] === $hash) {
-				spip_logger('auth')->debug("validation du mot de passe pour l'auteur #" . $row['id_auteur'] . " $login via $methode");
+				spip_logger('auth')->debug(
+					"validation du mot de passe pour l'auteur #" . $row['id_auteur'] . " $login via $methode"
+				);
 				// ce n'est pas cense arriver, mais si jamais c'est un backup inutilisable, il faut le nettoyer pour ne pas bloquer la creation d'une nouvelle cle d'auth
 				if (!empty($row['backup_cles'])) {
 					sql_updateq('spip_auteurs', ['backup_cles' => ''], 'id_auteur=' . (int) $row['id_auteur']);
@@ -93,8 +103,9 @@ function auth_spip_dist($login, #[\SensitiveParameter] $pass, $serveur = '', $ph
 				break;
 			}
 
-		// on teste la methode par defaut, au cas ou ce serait un pass moderne qui a la malchance d'etre en 64char de long
+			// on teste la methode par defaut, au cas ou ce serait un pass moderne qui a la malchance d'etre en 64char de long
 
+			// no break
 		case 60:
 		case 98:
 		default:
@@ -106,27 +117,30 @@ function auth_spip_dist($login, #[\SensitiveParameter] $pass, $serveur = '', $ph
 				&& !empty($row['backup_cles'])
 			) {
 				if ($cles->restore($row['backup_cles'], $pass, $row['pass'], $row['id_auteur'])) {
-					spip_logger('auth')->notice('Les cles secretes ont ete restaurées avec le backup du webmestre #' . $row['id_auteur']);
+					spip_logger('auth')->notice(
+						'Les cles secretes ont ete restaurées avec le backup du webmestre #' . $row['id_auteur']
+					);
 					if ($cles->save()) {
 						$secret = $cles->getSecretAuth();
-					}
-					else {
+					} else {
 						spip_logger('auth')->error("Echec restauration des cles : verifier les droits d'ecriture ?");
 						// et on echoue car on ne veut pas que la situation reste telle quelle
 						raler_fichier($fichier_cles ?: _DIR_ETC . 'cles.php');
 					}
-				}
-				else {
-					spip_logger('auth')->error('Pas de cle secrete disponible (fichier ' . ($fichier_cles ?: 'config/cle.php') . ' absent ?) mais le backup du webmestre #' . $row['id_auteur'] . " n'est pas valide");
+				} else {
+					spip_logger('auth')->error(
+						'Pas de cle secrete disponible (fichier ' . ($fichier_cles ?: 'config/cle.php') . ' absent ?) mais le backup du webmestre #' . $row['id_auteur'] . " n'est pas valide"
+					);
 					sql_updateq('spip_auteurs', ['backup_cles' => ''], 'id_auteur=' . (int) $row['id_auteur']);
 				}
 			}
 
 			if (!$secret || !Password::verifier($pass, $row['pass'], $secret)) {
 				unset($row);
-			}
-			else {
-				spip_logger('auth')->error("validation du mot de passe pour l'auteur #" . $row['id_auteur'] . " $login via Password::verifier");
+			} else {
+				spip_logger('auth')->error(
+					"validation du mot de passe pour l'auteur #" . $row['id_auteur'] . " $login via Password::verifier"
+				);
 			}
 			break;
 	}
@@ -171,11 +185,7 @@ function auth_spip_dist($login, #[\SensitiveParameter] $pass, $serveur = '', $ph
 			@sql_update(
 				'spip_auteurs',
 				$set,
-				'id_auteur=' . (int) $row['id_auteur'] . ' AND pass=' . sql_quote(
-					$row['pass'],
-					$serveur,
-					'text'
-				),
+				'id_auteur=' . (int) $row['id_auteur'] . ' AND pass=' . sql_quote($row['pass'], $serveur, 'text'),
 				[],
 				$serveur
 			);
@@ -204,9 +214,6 @@ function auth_spip_dist($login, #[\SensitiveParameter] $pass, $serveur = '', $ph
  *
  * Si on a pas perdu le secret des auth (le fichier config/cle.php est toujouts la et contient la cle), la fonction ne fait rien
  * car réinitialiser le secret des auth invalide *tous* les mots de passe
- *
- * @param bool $force
- * @return bool
  */
 function auth_spip_initialiser_secret(bool $force = false): bool {
 	$cles = SpipCles::instance();
@@ -219,24 +226,37 @@ function auth_spip_initialiser_secret(bool $force = false): bool {
 
 	// si force, on ne verifie pas la presence d'un backup chez un webmestre
 	if ($force) {
-		spip_logger('auth')->notice('Pas de cle secrete disponible, on regenere une nouvelle cle forcee - tous les mots de passe sont invalides');
+		spip_logger('auth')->notice(
+			'Pas de cle secrete disponible, on regenere une nouvelle cle forcee - tous les mots de passe sont invalides'
+		);
 		$secret = $cles->getSecretAuth(true);
 		return true;
 	}
 
-	$has_backup = sql_allfetsel('id_auteur', 'spip_auteurs', 'statut=' . sql_quote('0minirezo') . ' AND webmestre=' . sql_quote('oui') . " AND backup_cles!=''");
+	$has_backup = sql_allfetsel(
+		'id_auteur',
+		'spip_auteurs',
+		'statut=' . sql_quote('0minirezo') . ' AND webmestre=' . sql_quote('oui') . " AND backup_cles!=''"
+	);
 	$has_backup = array_column($has_backup, 'id_auteur');
 	if ($has_backup === []) {
-		spip_logger('auth')->notice("Pas de cle secrete disponible, et aucun webmestre n'a de backup, on regenere une nouvelle cle - tous les mots de passe sont invalides");
+		spip_logger('auth')->notice(
+			"Pas de cle secrete disponible, et aucun webmestre n'a de backup, on regenere une nouvelle cle - tous les mots de passe sont invalides"
+		);
 		if ($secret = $cles->getSecretAuth(true)) {
 			return true;
 		}
-		spip_logger('auth')->error("Echec generation d'une nouvelle cle : verifier les droits d'ecriture ?");
+		spip_logger('auth')
+			->error("Echec generation d'une nouvelle cle : verifier les droits d'ecriture ?");
 		// et on echoue car on ne veut pas que la situation reste telle quelle
 		raler_fichier(_DIR_ETC . 'cles.php');
-	}
-	else {
-		spip_logger('auth')->error('Pas de cle secrete disponible (fichier config/cle.php absent ?) un des webmestres #' . implode(', #', $has_backup) . ' doit se connecter pour restaurer son backup des cles');
+	} else {
+		spip_logger('auth')->error(
+			'Pas de cle secrete disponible (fichier config/cle.php absent ?) un des webmestres #' . implode(
+				', #',
+				$has_backup
+			) . ' doit se connecter pour restaurer son backup des cles'
+		);
 	}
 	return false;
 }
@@ -263,11 +283,9 @@ function auth_spip_formulaire_login($flux) {
 	return $flux;
 }
 
-
 /**
  * Informer du droit de modifier ou non son login
  *
- * @param string $serveur
  * @return bool
  *   toujours true pour un auteur cree dans SPIP
  */
@@ -291,18 +309,18 @@ function auth_spip_verifier_login($new_login, $id_auteur = 0, $serveur = '') {
 	if (strlen($new_login)) {
 		if (strlen($new_login) < _LOGIN_TROP_COURT) {
 			return _T('info_login_trop_court_car_pluriel', ['nb' => _LOGIN_TROP_COURT]);
-		} else {
-			$n = sql_countsel(
-				'spip_auteurs',
-				'login=' . sql_quote($new_login) . ' AND id_auteur!=' . (int) $id_auteur . " AND statut!='5poubelle'",
-				'',
-				'',
-				$serveur
-			);
-			if ($n) {
-				return _T('info_login_existant');
-			}
 		}
+		$n = sql_countsel(
+			'spip_auteurs',
+			'login=' . sql_quote($new_login) . ' AND id_auteur!=' . (int) $id_auteur . " AND statut!='5poubelle'",
+			'',
+			'',
+			$serveur
+		);
+		if ($n) {
+			return _T('info_login_existant');
+		}
+
 	}
 
 	return '';
@@ -317,7 +335,7 @@ function auth_spip_verifier_login($new_login, $id_auteur = 0, $serveur = '') {
  * @return bool
  */
 function auth_spip_modifier_login($new_login, $id_auteur, $serveur = '') {
-	if (is_null($new_login) || auth_spip_verifier_login($new_login, $id_auteur, $serveur) != '') {
+	if ($new_login === null || auth_spip_verifier_login($new_login, $id_auteur, $serveur) != '') {
 		return false;
 	}
 	if (
@@ -387,26 +405,25 @@ function auth_spip_retrouver_login($login, $serveur = '') {
 	// regarder s'il a saisi son nom ou son mail.
 	// Ne pas fusionner avec la requete precedente
 	// car un nom peut etre homonyme d'un autre login
-	else {
-		return sql_getfetsel(
-			'login',
-			'spip_auteurs',
-			"statut<>'5poubelle'" .
-			' AND (length(pass)>0)' .
-			" AND (login<>'' AND (nom=$l OR email=$l))",
-			'',
-			'',
-			'',
-			'',
-			$serveur
-		);
-	}
+
+	return sql_getfetsel(
+		'login',
+		'spip_auteurs',
+		"statut<>'5poubelle'" .
+		' AND (length(pass)>0)' .
+		" AND (login<>'' AND (nom=$l OR email=$l))",
+		'',
+		'',
+		'',
+		'',
+		$serveur
+	);
+
 }
 
 /**
  * Informer du droit de modifier ou non le pass
  *
- * @param string $serveur
  * @return bool
  *  toujours true pour un auteur cree dans SPIP
  */
@@ -414,7 +431,6 @@ function auth_spip_autoriser_modifier_pass(string $serveur = ''): bool {
 	// les fonctions d'ecriture sur base distante sont encore incompletes
 	return !strlen($serveur);
 }
-
 
 /**
  * Verification de la validite d'un mot de passe pour le mode d'auth concerne
@@ -452,13 +468,22 @@ function auth_spip_verifier_pass($login, #[\SensitiveParameter] $new_pass, $id_a
  * @return bool
  */
 function auth_spip_modifier_pass($login, #[\SensitiveParameter] $new_pass, $id_auteur, $serveur = '') {
-	if (is_null($new_pass) || auth_spip_verifier_pass($login, $new_pass, $id_auteur, $serveur) != '') {
+	if ($new_pass === null || auth_spip_verifier_pass($login, $new_pass, $id_auteur, $serveur) != '') {
 		return false;
 	}
 
 	if (
 		!($id_auteur = (int) $id_auteur)
-		|| !($auteur = sql_fetsel('login, statut, webmestre', 'spip_auteurs', 'id_auteur=' . (int) $id_auteur, '', '', '', '', $serveur))
+		|| !($auteur = sql_fetsel(
+			'login, statut, webmestre',
+			'spip_auteurs',
+			'id_auteur=' . (int) $id_auteur,
+			'',
+			'',
+			'',
+			'',
+			$serveur
+		))
 	) {
 		return false;
 	}
@@ -468,12 +493,10 @@ function auth_spip_modifier_pass($login, #[\SensitiveParameter] $new_pass, $id_a
 	if (!$secret) {
 		if (auth_spip_initialiser_secret()) {
 			$secret = $cles->getSecretAuth();
-		}
-		else {
+		} else {
 			return false;
 		}
 	}
-
 
 	include_spip('inc/acces');
 	$set = [
@@ -502,8 +525,6 @@ function auth_spip_modifier_pass($login, #[\SensitiveParameter] $new_pass, $id_a
  * @param array $champs
  * @param array $options
  *  all=>true permet de demander la regeneration complete des acces apres operation en base (import, upgrade)
- * @param string $serveur
- * @return void
  */
 function auth_spip_synchroniser_distant($id_auteur, $champs, $options = [], string $serveur = ''): void {
 	// ne rien faire pour une base distante : on ne sait pas regenerer les htaccess
@@ -522,7 +543,9 @@ function auth_spip_synchroniser_distant($id_auteur, $champs, $options = [], stri
 		// par exemple acces_restreint ;
 		// si .htaccess existe, outrepasser spip_meta
 		if (
-			(!isset($GLOBALS['meta']['creer_htpasswd']) || $GLOBALS['meta']['creer_htpasswd'] != 'oui') && !@file_exists($htaccess)
+			(!isset($GLOBALS['meta']['creer_htpasswd']) || $GLOBALS['meta']['creer_htpasswd'] != 'oui') && !@file_exists(
+				$htaccess
+			)
 		) {
 			spip_unlink($htpasswd);
 			spip_unlink($htpasswd . '-admin');
@@ -536,11 +559,7 @@ function auth_spip_synchroniser_distant($id_auteur, $champs, $options = [], stri
 
 		$p1 = ''; // login:htpass pour tous
 		$p2 = ''; // login:htpass pour les admins
-		$s = sql_select(
-			'login, htpass, statut',
-			'spip_auteurs',
-			sql_in('statut', ['1comite', '0minirezo', 'nouveau'])
-		);
+		$s = sql_select('login, htpass, statut', 'spip_auteurs', sql_in('statut', ['1comite', '0minirezo', 'nouveau']));
 		while ($t = sql_fetch($s)) {
 			if (strlen((string) $t['login']) && strlen((string) $t['htpass'])) {
 				$p1 .= $t['login'] . ':' . $t['htpass'] . "\n";
@@ -553,7 +572,8 @@ function auth_spip_synchroniser_distant($id_auteur, $champs, $options = [], stri
 		if ($p1) {
 			ecrire_fichier($htpasswd, $p1);
 			ecrire_fichier($htpasswd . '-admin', $p2);
-			spip_logger()->info("Ecriture de $htpasswd et $htpasswd-admin");
+			spip_logger()
+				->info("Ecriture de $htpasswd et $htpasswd-admin");
 		}
 	}
 }

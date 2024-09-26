@@ -1,3 +1,4 @@
 <?php
-	# appel SPIP
-	include('spip.php');
+
+# appel SPIP
+include('spip.php');

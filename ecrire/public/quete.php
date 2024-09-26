@@ -21,7 +21,6 @@ if (!defined('_ECRIRE_INC_VERSION')) {
 	return;
 }
 
-
 include_spip('base/abstract_sql');
 
 /**
@@ -52,7 +51,6 @@ function quete_virtuel($id_article, $connect) {
  *
  * @param string $table
  * @param int $id
- * @param string $connect
  * @return array
  */
 function quete_parent_lang($table, $id, string $connect = '') {
@@ -91,7 +89,6 @@ function quete_parent_lang($table, $id, string $connect = '') {
 	return $cache_quete[$connect][$table][$id] ?? null;
 }
 
-
 /**
  * Retourne le parent d'une rubrique
  *
@@ -101,7 +98,6 @@ function quete_parent_lang($table, $id, string $connect = '') {
  * @uses quete_parent_lang()
  *
  * @param int $id_rubrique
- * @param string $connect
  * @return int
  */
 function quete_parent($id_rubrique, string $connect = '') {
@@ -130,7 +126,6 @@ function quete_rubrique($id_article, $serveur) {
 	return $id_parent['id_rubrique'] ?? 0;
 }
 
-
 /**
  * Retourne la profondeur d'une rubrique
  *
@@ -149,7 +144,6 @@ function quete_profondeur($id, string $connect = '') {
 	return $n;
 }
 
-
 /**
  * Retourne la condition sur la date lorsqu'il y a des post-dates
  *
@@ -166,13 +160,11 @@ function quete_condition_postdates($champ_date, $serveur = '', $ignore_previsu =
 		return '1=1';
 	}
 
-	return
-		(isset($GLOBALS['meta']['date_prochain_postdate'])
+	return (isset($GLOBALS['meta']['date_prochain_postdate'])
 			&& $GLOBALS['meta']['date_prochain_postdate'] > time())
 			? "$champ_date<" . sql_quote(date('Y-m-d H:i:s', $GLOBALS['meta']['date_prochain_postdate']), $serveur)
 			: '1=1';
 }
-
 
 /**
  * Calculer la condition pour filtrer les status,
@@ -356,53 +348,52 @@ function quete_logo($cle_objet, $onoff, $id, $id_rubrique, $flag = false) {
 		if ($on) {
 			if ($flag) {
 				return $on['fichier'];
-			} else {
-				$taille = @spip_getimagesize($on['chemin']);
-
-				// Si on a déjà demandé un survol directement ($onoff = off)
-				// ou qu'on a demandé uniquement le normal ($onoff = on)
-				// alors on ne cherche pas du tout le survol ici
-				$off = $onoff != 'ON' ? '' : quete_logo_objet($id, $objet, 'off');
-
-				// on retourne une url du type IMG/artonXX?timestamp
-				// qui permet de distinguer le changement de logo
-				// et placer un expire sur le dossier IMG/
-				$res = [
-					$on['chemin'] . ($on['timestamp'] ? "?{$on['timestamp']}" : ''),
-					($off ? $off['chemin'] . ($off['timestamp'] ? "?{$off['timestamp']}" : '') : ''),
-					($taille ? ' ' . $taille[3] : (''))
-				];
-				$res['src'] = $res[0];
-				$res['logo_on'] = $res[0];
-				$res['logo_off'] = $res[1];
-				$res['width'] = ($taille ? $taille[0] : '');
-				$res['height'] = ($taille ? $taille[1] : '');
-				$res['fichier'] = $on['fichier'];
-				$res['titre'] = ($on['titre'] ?? '');
-				$res['descriptif'] = ($on['descriptif'] ?? '');
-				$res['credits'] = ($on['credits'] ?? '');
-				$res['alt'] = ($on['alt'] ?? '');
-				$res['id'] = ($on['id_document'] ?? 0);
-
-				return $res;
 			}
+			$taille = @spip_getimagesize($on['chemin']);
+
+			// Si on a déjà demandé un survol directement ($onoff = off)
+			// ou qu'on a demandé uniquement le normal ($onoff = on)
+			// alors on ne cherche pas du tout le survol ici
+			$off = $onoff != 'ON' ? '' : quete_logo_objet($id, $objet, 'off');
+
+			// on retourne une url du type IMG/artonXX?timestamp
+			// qui permet de distinguer le changement de logo
+			// et placer un expire sur le dossier IMG/
+			$res = [
+				$on['chemin'] . ($on['timestamp'] ? "?{$on['timestamp']}" : ''),
+				($off ? $off['chemin'] . ($off['timestamp'] ? "?{$off['timestamp']}" : '') : ''),
+				($taille ? ' ' . $taille[3] : ('')),
+			];
+			$res['src'] = $res[0];
+			$res['logo_on'] = $res[0];
+			$res['logo_off'] = $res[1];
+			$res['width'] = ($taille ? $taille[0] : '');
+			$res['height'] = ($taille ? $taille[1] : '');
+			$res['fichier'] = $on['fichier'];
+			$res['titre'] = ($on['titre'] ?? '');
+			$res['descriptif'] = ($on['descriptif'] ?? '');
+			$res['credits'] = ($on['credits'] ?? '');
+			$res['alt'] = ($on['alt'] ?? '');
+			$res['id'] = ($on['id_document'] ?? 0);
+
+			return $res;
+
+		}
+		if (defined('_LOGO_RUBRIQUE_DESACTIVER_HERITAGE')) {
+			return '';
+		}
+		if ($id_rubrique) {
+			$cle_objet = 'id_rubrique';
+			$id = $id_rubrique;
+			$id_rubrique = 0;
 		} else {
-			if (defined('_LOGO_RUBRIQUE_DESACTIVER_HERITAGE')) {
-				return '';
+			if ($id && $cle_objet == 'id_rubrique') {
+				$id = quete_parent($id);
 			} else {
-				if ($id_rubrique) {
-					$cle_objet = 'id_rubrique';
-					$id = $id_rubrique;
-					$id_rubrique = 0;
-				} else {
-					if ($id && $cle_objet == 'id_rubrique') {
-						$id = quete_parent($id);
-					} else {
-						return '';
-					}
-				}
+				return '';
 			}
 		}
+
 	}
 }
 
@@ -419,7 +410,7 @@ function quete_logo($cle_objet, $onoff, $id, $id_rubrique, $flag = false) {
  */
 function quete_logo_objet($id_objet, $objet, $mode) {
 	static $chercher_logo;
-	if (is_null($chercher_logo)) {
+	if ($chercher_logo === null) {
 		$chercher_logo = charger_fonction('chercher_logo', 'inc');
 	}
 	$cle_objet = id_table_objet($objet);

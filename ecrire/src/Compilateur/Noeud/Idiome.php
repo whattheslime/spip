@@ -7,21 +7,28 @@ namespace Spip\Compilateur\Noeud;
  */
 class Idiome
 {
-	/** Type de noeud */
+	/**
+	 * Type de noeud
+	 */
 	public string $type = 'idiome';
 
-	/** Clé de traduction demandée. Exemple 'item_oui' */
+	/**
+	 * Clé de traduction demandée. Exemple 'item_oui'
+	 */
 	public string $nom_champ = '';
 
-	/** Module de langue où chercher la clé de traduction. Exemple 'medias' */
+	/**
+	 * Module de langue où chercher la clé de traduction. Exemple 'medias'
+	 */
 	public string $module = '';
 
-	/** Arguments à passer à la chaîne */
+	/**
+	 * Arguments à passer à la chaîne
+	 */
 	public array $arg = [];
 
 	/**
 	 * Filtres à appliquer au résultat
-	 *
 	 *
 	 * * FIXME: type unique.
 	 * @var false|array
@@ -29,7 +36,9 @@ class Idiome
 	 */
 	public $param = [];
 
-	/** Source des filtres (compatibilité) (?) */
+	/**
+	 * Source des filtres (compatibilité) (?)
+	 */
 	public array $fonctions = [];
 
 	/**
@@ -46,7 +55,9 @@ class Idiome
 	 */
 	public $apres = '';
 
-	/** Identifiant de la boucle */
+	/**
+	 * Identifiant de la boucle
+	 */
 	public string $id_boucle = '';
 
 	/**
@@ -56,10 +67,14 @@ class Idiome
 	 */
 	public array $boucles;
 
-	/** Alias de table d'application de la requête ou nom complet de la table SQL */
+	/**
+	 * Alias de table d'application de la requête ou nom complet de la table SQL
+	 */
 	public ?string $type_requete = null;
 
-	/** Résultat de la compilation: toujours une expression PHP */
+	/**
+	 * Résultat de la compilation: toujours une expression PHP
+	 */
 	public string $code = '';
 
 	/**
@@ -86,6 +101,8 @@ class Idiome
 	 */
 	public array $descr = [];
 
-	/** Numéro de ligne dans le code source du squelette */
+	/**
+	 * Numéro de ligne dans le code source du squelette
+	 */
 	public int $ligne = 0;
 }

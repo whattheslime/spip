@@ -12,8 +12,11 @@
 namespace Spip\Chiffrer;
 
 /** Conteneur de clés (chiffrement, authentification) */
-class Cles implements \Countable /* , ContainerInterface */ {
-	public function __construct(private array $keys) {
+class Cles implements \Countable /* , ContainerInterface */
+{
+	public function __construct(
+		private array $keys
+	) {
 	}
 
 	public function has(string $name): bool {
@@ -27,15 +30,12 @@ class Cles implements \Countable /* , ContainerInterface */ {
 	public function generate(string $name): string {
 		$key = Chiffrement::keygen();
 		$this->keys[$name] = $key;
-		spip_logger('chiffrer')->notice("Création de la cle $name");
+		spip_logger('chiffrer')
+			->notice("Création de la cle $name");
 		return $key;
 	}
 
-	public function set(
-		string $name,
-		#[\SensitiveParameter]
-		string $key
-	): void {
+	public function set(string $name, #[\SensitiveParameter] string $key): void {
 		$this->keys[$name] = $key;
 	}
 
@@ -43,7 +43,7 @@ class Cles implements \Countable /* , ContainerInterface */ {
 		if (isset($this->keys[$name])) {
 			unset($this->keys[$name]);
 			return true;
-		};
+		}
 		return false;
 	}
 

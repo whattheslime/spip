@@ -18,7 +18,6 @@ if (!defined('_ECRIRE_INC_VERSION')) {
 	return;
 }
 
-
 /**
  * Inserer jQuery et ses plugins pour l'espace privé
  *
@@ -70,7 +69,6 @@ function f_jQuery_prive($texte) {
 	return $texte;
 }
 
-
 /**
  * Ajout automatique du title dans les pages du privé en squelette
  *
@@ -82,7 +80,11 @@ function f_jQuery_prive($texte) {
 function affichage_final_prive_title_auto($texte) {
 	if (
 		!str_contains($texte, '<title>')
-		&& (preg_match(',<h1[^>]*>(.+)</h1>,Uims', $texte, $match) || preg_match(',<h[23][^>]*>(.+)</h[23]>,Uims', $texte, $match))
+		&& (preg_match(',<h1[^>]*>(.+)</h1>,Uims', $texte, $match) || preg_match(
+			',<h[23][^>]*>(.+)</h[23]>,Uims',
+			$texte,
+			$match
+		))
 		&& ($match = textebrut(trim($match[1])))
 		&& ($p = strpos($texte, '<head>')) !== false
 	) {
@@ -101,7 +103,6 @@ function affichage_final_prive_title_auto($texte) {
 	return $texte;
 }
 
-
 // Fonction standard pour le pipeline 'boite_infos'
 function f_boite_infos($flux) {
 	$args = $flux['args'];
@@ -115,7 +116,6 @@ function f_boite_infos($flux) {
 
 	return $flux;
 }
-
 
 /**
  * Utilisation du pipeline recuperer_fond dans le prive
@@ -153,13 +153,12 @@ function f_afficher_blocs_ecrire($flux) {
 			$flux['data']['texte'] = pipeline(
 				'affiche_droite',
 				['args' => $flux['args']['contexte'], 'data' => $flux['data']['texte']]
-			) . liste_objets_bloques(
-				$exec,
-				$flux['args']['contexte']
-			);
+			) . liste_objets_bloques($exec, $flux['args']['contexte']);
 		} elseif ($fond == "prive/squelettes/hierarchie/$typepage" && $o[$exec]) {
 			// id non defini sur les formulaire de nouveaux objets
-			$id = isset($flux['args']['contexte'][$o[$exec]['id_table_objet']]) ? intval($flux['args']['contexte'][$o[$exec]['id_table_objet']]) : 0;
+			$id = isset($flux['args']['contexte'][$o[$exec]['id_table_objet']]) ? intval(
+				$flux['args']['contexte'][$o[$exec]['id_table_objet']]
+			) : 0;
 			$flux['data']['texte'] = pipeline(
 				'affiche_hierarchie',
 				['args' => ['objet' => $o[$exec]['type'], 'id_objet' => $id], 'data' => $flux['data']['texte']]
@@ -193,9 +192,9 @@ function f_afficher_blocs_ecrire($flux) {
 					'args' => [
 						'contexte' => $flux['args']['contexte'],
 						'type' => $objet,
-						'id' => $id
+						'id' => $id,
 					],
-					'data' => $flux['data']['texte']
+					'data' => $flux['data']['texte'],
 				]);
 			}
 			$flux['data']['texte'] = pipeline(
@@ -217,7 +216,7 @@ function f_afficher_blocs_ecrire($flux) {
 			$id = intval($flux['args']['contexte'][$o[$exec]['id_table_objet']]);
 			$flux['data']['texte'] = pipeline('afficher_contenu_objet', [
 				'args' => ['type' => $objet, 'id_objet' => $id, 'contexte' => $flux['args']['contexte']],
-				'data' => $flux['data']['texte']
+				'data' => $flux['data']['texte'],
 			]);
 		}
 	}
@@ -248,7 +247,13 @@ function f_afficher_blocs_ecrire($flux) {
  * @return string
  *     HTML avec le marqueur, ou inchangé si ajout impossible.
  */
-function afficher_blocs_ecrire_preparer_marqueur(?string $texte, string $marqueur, string $inserer_avant, string $ouvrir = '', string $fermer = ''): ?string {
+function afficher_blocs_ecrire_preparer_marqueur(
+	?string $texte,
+	string $marqueur,
+	string $inserer_avant,
+	string $ouvrir = '',
+	string $fermer = ''
+): ?string {
 
 	if ($texte) {
 		$encapsuler = $ouvrir && $fermer;
@@ -256,26 +261,17 @@ function afficher_blocs_ecrire_preparer_marqueur(?string $texte, string $marqueu
 		$full_marqueur = "$ouvrir$marqueur$fermer";
 
 		// Le marqueur est absent : on l'ajoute avant l'élément indiqué
-		if ($marqueur_pos  === false) {
-			$texte = preg_replace(
-				",$inserer_avant,",
-				"$full_marqueur\\0",
-				$texte
-			);
-		// Le marqueur est présent mais pas encapsulé : on ajoute les balises ouvrantes et fermantes.
-		// Pour vérifier, on prend le texte précédent et on regarde si ça correspond à la balise ouvrante.
-		// Il ne faut donc aucun espace blanc en trop.
+		if ($marqueur_pos === false) {
+			$texte = preg_replace(",$inserer_avant,", "$full_marqueur\\0", $texte);
+			// Le marqueur est présent mais pas encapsulé : on ajoute les balises ouvrantes et fermantes.
+			// Pour vérifier, on prend le texte précédent et on regarde si ça correspond à la balise ouvrante.
+			// Il ne faut donc aucun espace blanc en trop.
 		} elseif (
 			$marqueur_pos !== false
 			&& $encapsuler
 			&& substr($texte, $marqueur_pos - strlen($ouvrir), strlen($ouvrir)) !== $ouvrir
 		) {
-			$texte = substr_replace(
-				$texte,
-				$full_marqueur,
-				$marqueur_pos,
-				strlen($marqueur)
-			);
+			$texte = substr_replace($texte, $full_marqueur, $marqueur_pos, strlen($marqueur));
 		}
 	}
 
@@ -325,7 +321,7 @@ function mise_a_jour_affiche_milieu($flux) {
 	) {
 		$notice = recuperer_fond('prive/squelettes/inclure/mise_a_jour', []);
 		if (strlen(trim($notice))) {
-			$flux['data'] =  $notice . $flux['data'];
+			$flux['data'] = $notice . $flux['data'];
 		}
 	}
 	return $flux;
@@ -361,7 +357,7 @@ function trouver_objet_exec(?string $exec) {
 					'table_objet_sql' => $t,
 					'table' => $info['table_objet'],
 					'type' => $info['type'],
-					'id_table_objet' => id_table_objet($info['type'])
+					'id_table_objet' => id_table_objet($info['type']),
 				];
 			}
 			if ($exec === $info['url_voir']) {
@@ -370,7 +366,7 @@ function trouver_objet_exec(?string $exec) {
 					'table_objet_sql' => $t,
 					'table' => $info['table_objet'],
 					'type' => $info['type'],
-					'id_table_objet' => id_table_objet($info['type'])
+					'id_table_objet' => id_table_objet($info['type']),
 				];
 			}
 		}

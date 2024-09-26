@@ -19,7 +19,6 @@ if (!defined('_ECRIRE_INC_VERSION')) {
 	return;
 }
 
-
 /**
  * Lit un fichier xml donné et renvoie son arbre.
  *
@@ -45,11 +44,21 @@ if (!defined('_ECRIRE_INC_VERSION')) {
  *     - array : l'arbre XML,
  *     - false si l'arbre xml ne peut être créé ou est vide
  */
-function spip_xml_load($fichier, $strict = true, $clean = true, $taille_max = 1_048_576, $datas = '', $profondeur = -1) {
+function spip_xml_load(
+	$fichier,
+	$strict = true,
+	$clean = true,
+	$taille_max = 1_048_576,
+	$datas = '',
+	$profondeur = -1
+) {
 	$contenu = '';
 	if (tester_url_absolue($fichier)) {
 		include_spip('inc/distant');
-		$contenu = recuperer_url($fichier, ['taille_max' => $taille_max, 'datas' => $datas]);
+		$contenu = recuperer_url($fichier, [
+			'taille_max' => $taille_max,
+			'datas' => $datas,
+		]);
 		$contenu = $contenu['page'] ?? '';
 	} else {
 		lire_fichier($fichier, $contenu);
@@ -152,14 +161,14 @@ function spip_xml_parse(&$texte, $strict = true, $clean = true, $profondeur = -1
 					$out[$tag][] = "erreur : tag fermant $tag manquant::$txt";
 
 					return $out;
-				} else {
-					return importer_charset($texte, $charset);
-				}//$texte // un tag qui constitue du texte a reporter dans $before
+				}
+				return importer_charset($texte, $charset);
+				//$texte // un tag qui constitue du texte a reporter dans $before
 			}
 			$content = substr($txt, 0, $p);
 			$txt = substr($txt, $p + $ncclos);
 			if ($profondeur == 0 || !str_contains($content, '<')) { // eviter une recursion si pas utile
-			$out[$tag][] = importer_charset($content, $charset);
+				$out[$tag][] = importer_charset($content, $charset);
 			}//$content;
 			else {
 				$out[$tag][] = spip_xml_parse($content, $strict, $clean, $profondeur - 1);
@@ -169,9 +178,9 @@ function spip_xml_parse(&$texte, $strict = true, $clean = true, $profondeur = -1
 	}
 	if (count($out) && (strlen(trim($txt)) == 0)) {
 		return $out;
-	} else {
-		return importer_charset($texte, $charset);
-	}//$texte;
+	}
+	return importer_charset($texte, $charset);
+	//$texte;
 }
 
 function spip_xml_aplatit($arbre, $separateur = ' ') {
@@ -264,5 +273,5 @@ function spip_xml_match_nodes($regexp, &$arbre, &$matches, $init = true) {
 		}
 	}
 
-	return (is_countable($matches) ? count($matches) : 0);
+	return is_countable($matches) ? count($matches) : 0;
 }

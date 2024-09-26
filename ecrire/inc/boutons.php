@@ -42,7 +42,6 @@ function definir_barre_onglets($script) {
 		$liste_onglets = onglets_plugins();
 	}
 
-
 	foreach ($liste_onglets as $id => $infos) {
 		if (
 			($parent = $infos['parent'])
@@ -66,7 +65,6 @@ function definir_barre_onglets($script) {
 }
 
 /**
- *
  * Création de la barre d'onglets
  *
  * @uses definir_barre_onglets()

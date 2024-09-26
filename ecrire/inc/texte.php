@@ -11,7 +11,6 @@
 
 use Spip\Texte\Collecteur\HtmlTag as CollecteurHtmlTag;
 
-
 /**
  * Gestion des textes et raccourcis SPIP
  *
@@ -38,7 +37,6 @@ function definir_raccourcis_alineas() {
 	return ['', ''];
 }
 
-
 /**
  * Traitement des raccourcis de tableaux
  *
@@ -50,7 +48,6 @@ function definir_raccourcis_alineas() {
 function traiter_tableau($bloc) {
 	return $bloc;
 }
-
 
 /**
  * Traitement des listes
@@ -94,7 +91,6 @@ function traiter_raccourcis($letexte) {
  * Fonctions utilisees en dehors de inc/texte
  */
 
-
 /**
  * Échapper et affichier joliement les `<script` et `<iframe`...
  *
@@ -109,18 +105,13 @@ function echappe_js($t, $class = ' class = "echappe-js"') {
 			&& preg_match_all(',<' . $tag . '.*?($|</' . $tag . '.),isS', $t, $r, PREG_SET_ORDER)
 		) {
 			foreach ($r as $regs) {
-				$t = str_replace(
-					$regs[0],
-					"<code$class>" . nl2br(spip_htmlspecialchars($regs[0])) . '</code>',
-					$t
-				);
+				$t = str_replace($regs[0], "<code$class>" . nl2br(spip_htmlspecialchars($regs[0])) . '</code>', $t);
 			}
 		}
 	}
 
 	return $t;
 }
-
 
 /**
  * Empêcher l'exécution de code PHP et JS
@@ -155,7 +146,7 @@ function interdire_scripts($arg, $mode_filtre = null) {
 		return $arg;
 	}
 
-	if (is_null($mode_filtre) || !in_array($mode_filtre, [-1, 0, 1])) {
+	if ($mode_filtre === null || !in_array($mode_filtre, [-1, 0, 1])) {
 		$mode_filtre = $GLOBALS['filtrer_javascript'];
 	}
 
@@ -190,7 +181,6 @@ function interdire_scripts($arg, $mode_filtre = null) {
 	return $dejavu[$mode_filtre][$arg] = $t;
 }
 
-
 /**
  * Applique la typographie générale
  *
@@ -212,7 +202,7 @@ function interdire_scripts($arg, $mode_filtre = null) {
  *     Nom du connecteur à la bdd
  * @param array $env
  *     Environnement (pour les calculs de modèles)
- * @return string $t
+ * @return string
  *     texte transformé
  */
 function typo($letexte, $echapper = true, $connect = null, $env = []) {
@@ -228,7 +218,7 @@ function typo($letexte, $echapper = true, $connect = null, $env = []) {
 	// les appels dans les squelettes (de l'espace prive) fournissant un $connect
 	// ne seront pas perturbes
 	$interdire_script = false;
-	if (is_null($connect)) {
+	if ($connect === null) {
 		$connect = '';
 		$interdire_script = true;
 		$env['espace_prive'] = test_espace_prive();
@@ -353,7 +343,6 @@ function corriger_typo($letexte, $lang = '') {
 	return $letexte;
 }
 
-
 /**
  * Paragrapher seulement
  *
@@ -385,7 +374,6 @@ function traiter_retours_chariots($letexte) {
 	return $letexte;
 }
 
-
 /**
  * Transforme les raccourcis SPIP, liens et modèles d'un texte en code HTML
  *
@@ -404,7 +392,7 @@ function traiter_retours_chariots($letexte) {
  *     Nom du connecteur à la bdd
  * @param array $env
  *     Environnement (pour les calculs de modèles)
- * @return string $t
+ * @return string
  *     texte transformé
  */
 function propre($t, $connect = null, $env = []) {
@@ -416,7 +404,7 @@ function propre($t, $connect = null, $env = []) {
 	// ne seront pas perturbes
 	// FIXME: Trouver une solution pour avoir un type (string) unique sur $connect.
 	$interdire_script = false;
-	if (is_null($connect)) {
+	if ($connect === null) {
 		$connect = '';
 		$interdire_script = true;
 		$env['espace_prive'] = true;

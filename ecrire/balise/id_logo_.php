@@ -19,7 +19,6 @@ if (!defined('_ECRIRE_INC_VERSION')) {
 	return;
 }
 
-
 /**
  * Compile la balise dynamique `#ID_LOGO_xx` qui retourne l'identifiant du document utilisé comme logo
  * pour un objet éditorial de SPIP.
@@ -70,7 +69,8 @@ function balise_ID_LOGO__dist($p) {
 		$code = "table_valeur($doc, 'id_vignette')";
 	} elseif ($connect) {
 		$code = "''";
-		spip_logger()->info('Les logos distants ne sont pas prevus');
+		spip_logger()
+			->info('Les logos distants ne sont pas prevus');
 	} else {
 		$champ_logo = 'id';
 		$code = generer_code_logo($id_objet, $_id_objet, $type, '', "''", $p, $suite_logo, $champ_logo);
@@ -96,8 +96,6 @@ function balise_ID_LOGO__dist($p) {
  *     Type d'objet
  * @param string $align
  *     Alignement demandé du logo
- * @param string $lien
- *     Lien pour encadrer l'image avec si présent
  * @param Spip\Compilateur\Noeud\Champ $p
  *     Pile au niveau de la balise
  * @param string $suite

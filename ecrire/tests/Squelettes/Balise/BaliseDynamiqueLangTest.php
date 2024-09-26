@@ -25,7 +25,8 @@ class BaliseDynamiqueLangTest extends SquelettesTestCase
 			'fonctions' => <<<PHP
 				// placer une langue globale arbitraire
 				\$GLOBALS['spip_lang'] = 'ar';
-			PHP,
+			PHP
+			,
 		]);
 
 		$skel = <<<SPIP
@@ -38,7 +39,6 @@ class BaliseDynamiqueLangTest extends SquelettesTestCase
 
 		$this->assertOkTemplate($templating, $skel);
 	}
-
 
 	/**
 	 * Vérifie que la langue est transmise dans une balise dynamique depuis un modèle
@@ -54,7 +54,8 @@ class BaliseDynamiqueLangTest extends SquelettesTestCase
 			'fonctions' => <<<PHP
 				// placer une langue globale arbitraire
 				\$GLOBALS['spip_lang'] = 'ar';
-			PHP,
+			PHP
+			,
 		]);
 
 		$skel = <<<SPIP

@@ -110,7 +110,6 @@ function install_etape_chmod_dist() {
 			$titre = _T('dirs_probleme_droits');
 		}
 
-
 		$res = "<div align='right'>" . menu_langues('var_lang_ecrire') . "</div>\n";
 
 		if ($bad_dirs) {
@@ -133,7 +132,10 @@ function install_etape_chmod_dist() {
 		$res = '<p>' . $continuer . $res . aider('install0', true) . '</p>';
 
 		$t = _T('login_recharger');
-		$t = ($test_dir ? "<input type='hidden' name='test_dir' value='" . spip_htmlspecialchars($test_dir, ENT_QUOTES) . "'>" :
+		$t = ($test_dir ? "<input type='hidden' name='test_dir' value='" . spip_htmlspecialchars(
+			$test_dir,
+			ENT_QUOTES
+		) . "'>" :
 				'')
 			. "<input type='hidden' name='etape' value='chmod'>"
 			. "<div style='text-align: right'><input type='submit' value='" . attribut_html($t) . "'></div>";

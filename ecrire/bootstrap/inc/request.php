@@ -1,6 +1,5 @@
 <?php
 
-
 /**
  * Renvoie le `$_GET` ou le `$_POST` émis par l'utilisateur
  * ou pioché dans un tableau transmis
@@ -48,7 +47,6 @@ function _request($var, $c = false) {
 
 	return $a;
 }
-
 
 /**
  * Affecte une valeur à une clé (pour usage avec `_request()`)

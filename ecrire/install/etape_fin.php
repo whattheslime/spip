@@ -11,7 +11,6 @@
 
 use Spip\Afficher\Minipage\Installation;
 
-
 if (!defined('_ECRIRE_INC_VERSION')) {
 	return;
 }
@@ -74,7 +73,7 @@ function install_verifier_htaccess() {
 		[
 			'htaccess' => '<tt>' . _ACCESS_FILE_NAME . '</tt>',
 			'constantes' => '<tt>_DIR_TMP &amp; _DIR_CONNECT</tt>',
-			'document_root' => '<tt>' . $_SERVER['DOCUMENT_ROOT'] . '</tt>'
+			'document_root' => '<tt>' . $_SERVER['DOCUMENT_ROOT'] . '</tt>',
 		]
 	);
 

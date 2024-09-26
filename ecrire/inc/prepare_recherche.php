@@ -58,10 +58,7 @@ function inc_prepare_recherche_dist(
 	$where = null;
 	$rows = null;
 	static $cache = [];
-	$delai_fraicheur = min(
-		\_DELAI_CACHE_resultats,
-		time() - ($GLOBALS['meta']['derniere_modif'] ?? 0)
-	);
+	$delai_fraicheur = min(\_DELAI_CACHE_resultats, time() - ($GLOBALS['meta']['derniere_modif'] ?? 0));
 
 	// si recherche n'est pas dans le contexte, on va prendre en globals
 	// ca permet de faire des inclure simple.
@@ -73,10 +70,9 @@ function inc_prepare_recherche_dist(
 	if ($cond && !strlen($recherche)) {
 		return [
 			'0 as points' /* as points */, /* where */
-			''
+			'',
 		];
 	}
-
 
 	$rechercher = false;
 
@@ -84,7 +80,9 @@ function inc_prepare_recherche_dist(
 	if (!isset($cache[$serveur][$table][$recherche])) {
 		$hash_serv = ($serveur ? substr(md5($serveur), 0, 16) : '');
 		$hash = substr(md5($recherche . $table), 0, 16);
-		$where = "(resultats.recherche='$hash' AND resultats.table_objet=" . sql_quote($table) . " AND resultats.serveur='$hash_serv')";
+		$where = "(resultats.recherche='$hash' AND resultats.table_objet=" . sql_quote(
+			$table
+		) . " AND resultats.serveur='$hash_serv')";
 		$row = sql_fetsel(
 			'recherche',
 			'spip_resultats AS resultats',
@@ -108,7 +106,7 @@ function inc_prepare_recherche_dist(
 			[
 				'score' => true,
 				'toutvoir' => true,
-				'jointures' => true
+				'jointures' => true,
 			],
 			$serveur
 		);
@@ -121,9 +119,9 @@ function inc_prepare_recherche_dist(
 				'type' => $x,
 				'recherche' => $recherche,
 				'serveur' => $serveur,
-				'modificateurs' => $modificateurs
+				'modificateurs' => $modificateurs,
 			],
-			'data' => $points
+			'data' => $points,
 		]);
 
 		// supprimer les anciens resultats de cette recherche
@@ -135,10 +133,7 @@ function inc_prepare_recherche_dist(
 			$where
 		);
 
-		sql_delete(
-			'spip_resultats',
-			"NOT($where_resultat_recent) OR ($whered)"
-		);
+		sql_delete('spip_resultats', "NOT($where_resultat_recent) OR ($whered)");
 
 		// inserer les resultats dans la table de cache des resultats
 		if (is_countable($points) ? count($points) : 0) {
@@ -170,7 +165,6 @@ function inc_prepare_recherche_dist(
 	return $cache[$serveur][$table][$recherche];
 }
 
-
 /**
  * Generer le select et where qui contiennent explicitement
  * les id et points (ie comme dans SPIP 1.9.x)
@@ -186,19 +180,19 @@ function generer_select_where_explicites($table, $primary, $rows, $serveur) {
 	# calculer le {id_article IN()} et le {... as points}
 	if ($rows === []) {
 		return ["''", '0=1'];
-	} else {
-		$listes_ids = [];
-		$select = '0';
-		foreach ($rows as $r) {
-			$listes_ids[$r['points']][] = $r['id'];
-		}
-
-		foreach ($listes_ids as $p => $ids) {
-			$select .= "+$p*(" .
-				sql_in("$table.$primary", $ids, '', $serveur)
-				. ') ';
-		}
-
-		return ["$select AS points ", sql_in("$table.$primary", array_map('reset', $rows), '', $serveur)];
 	}
+	$listes_ids = [];
+	$select = '0';
+	foreach ($rows as $r) {
+		$listes_ids[$r['points']][] = $r['id'];
+	}
+
+	foreach ($listes_ids as $p => $ids) {
+		$select .= "+$p*(" .
+			sql_in("$table.$primary", $ids, '', $serveur)
+			. ') ';
+	}
+
+	return ["$select AS points ", sql_in("$table.$primary", array_map('reset', $rows), '', $serveur)];
+
 }

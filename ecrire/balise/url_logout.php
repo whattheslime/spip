@@ -38,7 +38,6 @@ function balise_URL_LOGOUT($p) {
 	return calculer_balise_dynamique($p, 'URL_LOGOUT', []);
 }
 
-
 /**
  * Calculs de paramètres de contexte automatiques pour la balise URL_LOGOUT
  *

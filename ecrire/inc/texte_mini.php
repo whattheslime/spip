@@ -9,12 +9,11 @@
  * Ce programme est un logiciel libre distribué sous licence GNU/GPL.
  */
 
+use Spip\Texte\Collecteur\HtmlTag as CollecteurHtmlTag;
 use Spip\Texte\Collecteur\Idiomes as CollecteurIdiomes;
 use Spip\Texte\Collecteur\Liens as CollecteurLiens;
 use Spip\Texte\Collecteur\Modeles as CollecteurModeles;
 use Spip\Texte\Collecteur\Multis as CollecteurMultis;
-use Spip\Texte\Collecteur\HtmlTag as CollecteurHtmlTag;
-
 
 /**
  * Gestion des textes et échappements (fonctions d'usages fréquents)
@@ -27,7 +26,6 @@ if (!defined('_ECRIRE_INC_VERSION')) {
 }
 include_spip('inc/filtres');
 include_spip('inc/lang');
-
 
 /**
  * Retourne une image d'une puce
@@ -67,7 +65,9 @@ function definir_puce() {
  */
 function spip_balisage_code(string $corps, bool $bloc = false, string $attributs = '', string $langage = ''): string {
 
-	$echap = spip_htmlspecialchars($corps); // il ne faut pas passer dans entites_html, ne pas transformer les &#xxx; du code !
+	$echap = spip_htmlspecialchars(
+		$corps
+	); // il ne faut pas passer dans entites_html, ne pas transformer les &#xxx; du code !
 	$class = 'spip_code ' . ($bloc ? 'spip_code_block' : 'spip_code_inline');
 	if ($attributs) {
 		$attributs = ' ' . trim($attributs);
@@ -100,7 +100,6 @@ function spip_balisage_code(string $corps, bool $bloc = false, string $attributs
 	return $html;
 }
 
-
 // XHTML - Preserver les balises-bloc : on liste ici tous les elements
 // dont on souhaite qu'ils provoquent un saut de paragraphe
 defined('_BALISES_BLOCS') || define('_BALISES_BLOCS', implode('|', CollecteurHtmlTag::$listeBalisesBloc));
@@ -124,9 +123,12 @@ function code_echappement($rempl, $source = '', $no_transform = false, $mode = n
 		return '';
 	}
 
-	return CollecteurHtmlTag::echappementHtmlBase64((string)$rempl, (string)$source, in_array($mode, ['div', 'span']) ? $mode === 'div' : null);
+	return CollecteurHtmlTag::echappementHtmlBase64(
+		(string) $rempl,
+		(string) $source,
+		in_array($mode, ['div', 'span']) ? $mode === 'div' : null
+	);
 }
-
 
 // Echapper les <html>...</ html>
 function traiter_echap_html_dist($regs, $options = []) {
@@ -199,7 +201,10 @@ function traiter_echap_script_dist($regs, $options = []) {
 	return $regs['raw'];
 }
 
-defined('_PROTEGE_BLOCS') || define('_PROTEGE_BLOCS', ',<(' . implode('|', CollecteurHtmlTag::$listeBalisesAProteger) . ')(\b[^>]*)?>(.*)</\1>,UimsS');
+defined('_PROTEGE_BLOCS') || define(
+	'_PROTEGE_BLOCS',
+	',<(' . implode('|', CollecteurHtmlTag::$listeBalisesAProteger) . ')(\b[^>]*)?>(.*)</\1>,UimsS'
+);
 
 /**
  * pour $source voir commentaire infra (echappe_retour)
@@ -227,7 +232,14 @@ function echappe_html(
 	}
 
 	if ($no_transform !== false) {
-		trigger_deprecation('spip', '5.0', 'Using "%s" arg is deprecated, use directly "%s" instead.', '$no_transform', 'Spip\Texte\Collecteur\HtmlTag::proteger_balisesHtml', __FUNCTION__);
+		trigger_deprecation(
+			'spip',
+			'5.0',
+			'Using "%s" arg is deprecated, use directly "%s" instead.',
+			'$no_transform',
+			'Spip\Texte\Collecteur\HtmlTag::proteger_balisesHtml',
+			__FUNCTION__
+		);
 	}
 
 	// appels legacy avec un ''
@@ -237,7 +249,13 @@ function echappe_html(
 
 	// legacy : les appels fournissaient une preg pour repérer les balises HTML
 	if ($html_tags && !is_array($html_tags)) {
-		trigger_deprecation('spip', '5.0', 'Using a preg for "%s" arg is deprecated, use a tag array instead.', '$html_tags', __FUNCTION__);
+		trigger_deprecation(
+			'spip',
+			'5.0',
+			'Using a preg for "%s" arg is deprecated, use a tag array instead.',
+			'$html_tags',
+			__FUNCTION__
+		);
 		$t = explode(')', $html_tags, 2);
 		$t = reset($t);
 		$t = explode('(', $t, 2);
@@ -274,7 +292,11 @@ function echappe_html(
 	// dans une callback autonommee + la preg pour collecter est un peu spécifique
 	if (in_array('script', $html_tags ?: CollecteurHtmlTag::$listeBalisesAProteger)) {
 		$htmlTagCollecteur = new CollecteurHtmlTag('?', '@<[?].*($|[?]>)@UsS', '');
-		$letexte = $htmlTagCollecteur->echapper_enHtmlBase64($letexte, $source, fn ($c, $o) => highlight_string($c['raw'], true));
+		$letexte = $htmlTagCollecteur->echapper_enHtmlBase64(
+			$letexte,
+			$source,
+			fn ($c, $o) => highlight_string($c['raw'], true)
+		);
 	}
 
 	return $letexte;
@@ -314,7 +336,7 @@ function echappe_retour($letexte, $source = '', $filtre = '') {
 	if (!is_string($letexte) || !strlen($letexte)) {
 		return $letexte;
 	}
-	return CollecteurHtmlTag::retablir_depuisHtmlBase64((string)$letexte, (string)$source, (string)$filtre);
+	return CollecteurHtmlTag::retablir_depuisHtmlBase64((string) $letexte, (string) $source, (string) $filtre);
 }
 
 // Reinserer le javascript de confiance (venant des modeles)
@@ -323,7 +345,7 @@ function echappe_retour_modeles($letexte, $interdire_scripts = false) {
 	if (!is_string($letexte) || !strlen($letexte)) {
 		return $letexte;
 	}
-	$letexte = CollecteurHtmlTag::retablir_depuisHtmlBase64((string)$letexte);
+	$letexte = CollecteurHtmlTag::retablir_depuisHtmlBase64((string) $letexte);
 
 	// Dans les appels directs hors squelette, sécuriser aussi ici
 	if ($interdire_scripts) {
@@ -332,7 +354,6 @@ function echappe_retour_modeles($letexte, $interdire_scripts = false) {
 
 	return trim($letexte);
 }
-
 
 /**
  * Coupe un texte à une certaine longueur.
@@ -406,7 +427,7 @@ function couper($texte, $taille = 50, $suite = null) {
 		$points = '';
 	} else {
 		// points de suite
-		if (is_null($suite)) {
+		if ($suite === null) {
 			$suite = (defined('_COUPER_SUITE') ? _COUPER_SUITE : '&nbsp;(…)');
 		}
 		$taille_suite = spip_strlen(filtrer_entites($suite));
@@ -417,7 +438,7 @@ function couper($texte, $taille = 50, $suite = null) {
 		// excédentaire est ensuite supprimé par l'appel à preg_replace()
 		$long = spip_substr($texte, 0, max($taille + 1 - $taille_suite, 1));
 		$u = $GLOBALS['meta']['pcre_u'];
-		$court = preg_replace('/(^|([^\s ])[\s ]+)([\s ]|[^\s ]+)?$/D' . $u, "\\2", $long);
+		$court = preg_replace('/(^|([^\s ])[\s ]+)([\s ]|[^\s ]+)?$/D' . $u, '\\2', $long);
 		$points = $suite;
 
 		// trop court ? ne pas faire de (…)
@@ -425,7 +446,7 @@ function couper($texte, $taille = 50, $suite = null) {
 			$points = '';
 			$long = spip_substr($texte, 0, $taille + 1);
 			preg_match('/(^|([^\s ])[\s ]+)([\s ]|[^\s ]+)?$/D' . $u, $long, $m);
-			$texte = preg_replace('/(^|([^\s ])[\s ]+)([\s ]|[^\s ]+)?$/D' . $u, "\\2", $long);
+			$texte = preg_replace('/(^|([^\s ])[\s ]+)([\s ]|[^\s ]+)?$/D' . $u, '\\2', $long);
 			// encore trop court ? couper au caractere
 			if (spip_strlen($texte) < 0.75 * $taille) {
 				$texte = spip_substr($long, 0, $taille);
@@ -443,7 +464,6 @@ function couper($texte, $taille = 50, $suite = null) {
 
 	return quote_amp(trim($texte)) . $points;
 }
-
 
 function protege_js_modeles($texte) {
 	if (isset($GLOBALS['visiteur_session']) && str_contains($texte, '<')) {
@@ -464,7 +484,6 @@ function protege_js_modeles($texte) {
 	}
 	return $texte;
 }
-
 
 function echapper_faux_tags($letexte) {
 	if (!str_contains($letexte, '<')) {
@@ -563,7 +582,7 @@ function echapper_html_suspect($texte, $options = [], $connect = null, $env = []
 		}
 		if (!is_html_safe($texte_to_check)) {
 			$texte = $options['texte_source_affiche'] ?? $texte;
-			$texte = preg_replace(",<(/?\w+\b[^>]*>),", "<tt>&lt;\\1</tt>", $texte);
+			$texte = preg_replace(",<(/?\w+\b[^>]*>),", '<tt>&lt;\\1</tt>', $texte);
 			$texte = str_replace('<', '&lt;', $texte);
 			$texte = str_replace('&lt;tt>', '<tt>', $texte);
 			$texte = str_replace('&lt;/tt>', '</tt>', $texte);
@@ -573,7 +592,9 @@ function echapper_html_suspect($texte, $options = [], $connect = null, $env = []
 			if (!empty($options['wrap_suspect'])) {
 				$texte = wrap($texte, $options['wrap_suspect']);
 			}
-			$texte = "<mark class='danger-js' title='" . attribut_html(_T('erreur_contenu_suspect')) . "'>⚠️</mark> " . $texte;
+			$texte = "<mark class='danger-js' title='" . attribut_html(
+				_T('erreur_contenu_suspect')
+			) . "'>⚠️</mark> " . $texte;
 		}
 
 		$texte = $collecteurModeles->retablir($texte);
@@ -585,8 +606,7 @@ function echapper_html_suspect($texte, $options = [], $connect = null, $env = []
 		$collecteurLiens = $collecteurModeles = null;
 		if (!empty($options['expanser_liens'])) {
 			$texte = expanser_liens($texte, $connect, $env);
-		}
-		else {
+		} else {
 			$collecteurLiens = new CollecteurLiens();
 			$texte = $collecteurLiens->echapper($texte, ['sanitize_callback' => 'safehtml']);
 
@@ -604,7 +624,6 @@ function echapper_html_suspect($texte, $options = [], $connect = null, $env = []
 
 	return $texte;
 }
-
 
 /**
  * Sécurise un texte HTML
@@ -667,7 +686,6 @@ function safehtml($t) {
 	return interdire_scripts($t); // interdire le php (2 precautions)
 }
 
-
 /**
  * Detecter si un texte est "safe" ie non modifie significativement par safehtml()
  */
@@ -719,9 +737,5 @@ function supprime_img($letexte, $message = null) {
 		$message = '(' . _T('img_indisponible') . ')';
 	}
 
-	return preg_replace(
-		',<(img|doc|emb)([0-9]+)(\|([^>]*))?' . '\s*/?' . '>,i',
-		$message,
-		$letexte
-	);
+	return preg_replace(',<(img|doc|emb)([0-9]+)(\|([^>]*))?' . '\s*/?' . '>,i', $message, $letexte);
 }

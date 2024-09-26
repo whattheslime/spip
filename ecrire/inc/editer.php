@@ -139,13 +139,15 @@ function formulaires_editer_objet_verifier($type, $id = 'new', $oblis = []) {
 				if (!isset($erreurs[$champ])) {
 					$erreurs[$champ] = '';
 				}
-				$erreurs[$champ] .= _T('alerte_modif_info_concourante') . "<br><textarea readonly='readonly' class='forml'>" . entites_html($conflit['base']) . '</textarea>';
+				$erreurs[$champ] .= _T('alerte_modif_info_concourante') . "<br><textarea readonly='readonly' class='forml'>" . entites_html(
+					$conflit['base']
+				) . '</textarea>';
 			}
 		}
 	}
 	foreach ($oblis as $obli) {
 		$value = _request($obli);
-		if (is_null($value) || !(is_array($value) ? count($value) : strlen((string) $value))) {
+		if ($value === null || !(is_array($value) ? count($value) : strlen((string) $value))) {
 			if (!isset($erreurs[$obli])) {
 				$erreurs[$obli] = '';
 			}
@@ -287,7 +289,7 @@ function formulaires_editer_objet_charger(
 		$contexte['config'] = $config = $config_fonc($contexte);
 		if (!$lang_default) {
 			include_spip('inc/session');
-			$lang_default = $config['langue'] ?? session_get('lang') ;
+			$lang_default = $config['langue'] ?? session_get('lang');
 		}
 	}
 	$config += [
@@ -299,7 +301,6 @@ function formulaires_editer_objet_charger(
 		. " rows='"
 		. ($config['lignes'] + 15)
 		. "' cols='40'";
-
 
 	// on veut conserver la langue de l'interface ;
 	// on passe cette donnee sous un autre nom, au cas ou le squelette
@@ -335,8 +336,7 @@ function formulaires_editer_objet_charger(
 		if (!autoriser('modifier', $type, (int) $id)) {
 			$contexte['editable'] = '';
 		}
-	}
-	else {
+	} else {
 		if (!autoriser('creer', $type, 0, null, ['id_parent' => $id_parent])) {
 			$contexte['editable'] = '';
 		}
@@ -372,10 +372,10 @@ function coupe_trop_long($texte) {
 			$suite = substr($texte, $pos + $decalage);
 		}
 
-		return ([$debut, $suite]);
-	} else {
-		return ([$texte, '']);
+		return [$debut, $suite];
 	}
+	return [$texte, ''];
+
 }
 
 /**
@@ -388,7 +388,7 @@ function coupe_trop_long($texte) {
 function titre_automatique($champ_titre, $champs_contenu, $longueur = null) {
 	if (!_request($champ_titre)) {
 		$titrer_contenu = charger_fonction('titrer_contenu', 'inc');
-		$t = is_null($longueur) ? $titrer_contenu($champs_contenu) : $titrer_contenu($champs_contenu, null, $longueur);
+		$t = $longueur === null ? $titrer_contenu($champs_contenu) : $titrer_contenu($champs_contenu, null, $longueur);
 		if ($t) {
 			set_request($champ_titre, $t);
 		}
@@ -460,9 +460,9 @@ function controles_md5(array $data, string $prefixe = 'ctr_', string $format = '
 
 	if ($format === 'html') {
 		return "\n\n<!-- controles md5 -->\n" . implode("\n", $ctr) . "\n\n";
-	} else {
-		return $ctr;
 	}
+	return $ctr;
+
 }
 
 /**
@@ -564,7 +564,7 @@ function controler_contenu($type, $id, $options = [], $c = false, $serveur = '')
 				'action' => 'controler',
 				'serveur' => $serveur,
 			],
-			'data' => $champs
+			'data' => $champs,
 		]
 	);
 
@@ -577,7 +577,6 @@ function controler_contenu($type, $id, $options = [], $c = false, $serveur = '')
 
 	return $conflits;
 }
-
 
 /**
  * Contrôle la liste des md5 envoyés, supprime les inchangés,
@@ -657,7 +656,7 @@ function controler_md5(&$champs, $ctr, $type, $id, $serveur, $prefix = 'ctr_') {
 			) {
 				$conflits[$key] = [
 					'base' => $ctrq[$key],
-					'post' => $champs[$key]
+					'post' => $champs[$key],
 				];
 				unset($champs[$key]); # stocker quand meme les modifs ?
 			}
@@ -678,7 +677,7 @@ function controler_md5(&$champs, $ctr, $type, $id, $serveur, $prefix = 'ctr_') {
 function display_conflit_champ($x) {
 	if (strstr($x, "\n") || strlen($x) > 80) {
 		return "<textarea style='width:99%; height:10em;'>" . entites_html($x) . "</textarea>\n";
-	} else {
-		return "<input type='text' size='40' style='width:99%' value=\"" . entites_html($x) . "\">\n";
 	}
+	return "<input type='text' size='40' style='width:99%' value=\"" . entites_html($x) . "\">\n";
+
 }

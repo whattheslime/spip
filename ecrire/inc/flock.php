@@ -64,9 +64,9 @@ function spip_fopen_lock($fichier, $mode, $verrou) {
 			$GLOBALS['liste_verrous'][$fl] = [$fichier, $verrou];
 
 			return $fl;
-		} else {
-			return false;
 		}
+		return false;
+
 	}
 
 	return @fopen($fichier, $mode);
@@ -94,7 +94,6 @@ function spip_fclose_unlock($handle) {
 	return @fclose($handle);
 }
 
-
 /**
  * Retourne le contenu d'un fichier, même si celui ci est compréssé
  * avec une extension en `.gz`
@@ -121,9 +120,8 @@ function spip_file_get_contents($fichier) {
 		$contenu = @gzfile($fichier);
 	}
 
-	return is_array($contenu) ? implode('', $contenu) : (string)$contenu;
+	return is_array($contenu) ? implode('', $contenu) : (string) $contenu;
 }
-
 
 /**
  * Lit un fichier et place son contenu dans le paramètre transmis.
@@ -190,7 +188,6 @@ function lire_fichier($fichier, &$contenu, $options = []) {
 	return false;
 }
 
-
 /**
  * Écrit un fichier de manière un peu sûre
  *
@@ -255,7 +252,7 @@ function ecrire_fichier($fichier, $contenu, $ignorer_echec = false, $truncate = 
 				@unlink("$fichier.$id");
 			}
 		}
-		if (!is_null($fp)) {
+		if ($fp !== null) {
 			spip_fclose_unlock($fp);
 		}
 
@@ -266,7 +263,9 @@ function ecrire_fichier($fichier, $contenu, $ignorer_echec = false, $truncate = 
 			$l = file_put_contents($fichier, $contenu, $truncate ? LOCK_EX : LOCK_EX | FILE_APPEND);
 			$ok = ($l === $longueur_a_ecrire);
 			if ($truncate) {
-				spip_logger('flock')->notice('ecrire_fichier: operation atomique via rename() impossible, fallback non atomique via file_put_contents' . ($ok ? 'OK' : 'Fail'));
+				spip_logger('flock')->notice(
+					'ecrire_fichier: operation atomique via rename() impossible, fallback non atomique via file_put_contents' . ($ok ? 'OK' : 'Fail')
+				);
 			}
 			if (!$ok) {
 				// derniere tentative : on sait que file_put_contents marche dans le dossier considere
@@ -275,7 +274,9 @@ function ecrire_fichier($fichier, $contenu, $ignorer_echec = false, $truncate = 
 				$l = file_put_contents($fichier, $contenu, $truncate ? LOCK_EX : LOCK_EX | FILE_APPEND);
 				$ok = ($l === $longueur_a_ecrire);
 				if ($truncate) {
-					spip_logger('flock')->notice('ecrire_fichier: operation atomique via rename() impossible, fallback non atomique via tempo + file_put_contents : ' . ($ok ? 'OK' : 'Fail'));
+					spip_logger('flock')->notice(
+						'ecrire_fichier: operation atomique via rename() impossible, fallback non atomique via tempo + file_put_contents : ' . ($ok ? 'OK' : 'Fail')
+					);
 				}
 			}
 		}
@@ -298,7 +299,8 @@ function ecrire_fichier($fichier, $contenu, $ignorer_echec = false, $truncate = 
 		}
 		spip_unlink($fichier);
 	}
-	spip_logger('flock')->notice("Ecriture fichier $fichier impossible");
+	spip_logger('flock')
+		->notice("Ecriture fichier $fichier impossible");
 
 	return false;
 }
@@ -328,7 +330,6 @@ function ecrire_fichier_securise($fichier, $contenu, $ecrire_quand_meme = false,
 	return ecrire_fichier($fichier, $contenu, $ecrire_quand_meme, $truncate);
 }
 
-
 /**
  * @param string $fichier
  * @param string $contenu
@@ -356,7 +357,6 @@ function ecrire_fichier_calcule_si_modifie($fichier, $contenu, $force = false) {
 	@unlink($fichier_tmp);
 	return null;
 }
-
 
 /**
  * Lire un fichier encapsulé en PHP
@@ -412,7 +412,6 @@ function raler_fichier(string $fichier): never {
 	exit;
 }
 
-
 /**
  * Teste si un fichier est récent (moins de n secondes)
  *
@@ -431,7 +430,7 @@ function jeune_fichier($fichier, $n) {
 		return false;
 	}
 
-	return (time() - $n <= $c);
+	return time() - $n <= $c;
 }
 
 /**
@@ -529,7 +528,6 @@ function spip_clear_opcode_cache($filepath) {
  *     malheureusement utilisée par Octave.
  * @link http://stackoverflow.com/questions/25649416/when-exactly-does-php-5-5-opcache-check-file-timestamp-based-on-revalidate-freq
  * @link http://wiki.mikejung.biz/PHP_OPcache
- *
  */
 function spip_attend_invalidation_opcode_cache($timestamp = null) {
 	if (
@@ -546,13 +544,13 @@ function spip_attend_invalidation_opcode_cache($timestamp = null) {
 				$wait = 0;
 			}
 		}
-		spip_logger('flock')->notice('Probleme de configuration opcache.revalidate_freq ' . $duree . 's : on attend ' . $wait . 's');
+		spip_logger('flock')
+			->notice('Probleme de configuration opcache.revalidate_freq ' . $duree . 's : on attend ' . $wait . 's');
 		if ($wait) {
 			sleep($duree + 1);
 		}
 	}
 }
-
 
 /**
  * Suppression complete d'un repertoire.
@@ -579,12 +577,11 @@ function supprimer_repertoire($dir) {
 			if (!supprimer_repertoire($dir . '/' . $item)) {
 				return false;
 			}
-		};
+		}
 	}
 
 	return @rmdir($dir);
 }
-
 
 /**
  * Crée un sous répertoire
@@ -646,14 +643,16 @@ function sous_repertoire($base, $subdir = '', $nobase = false, $tantpis = false)
 
 	if (is_dir($path) && is_writable($path)) {
 		@touch("$path/.ok");
-		spip_logger('flock')->info("creation $base$subdir/");
+		spip_logger('flock')
+			->info("creation $base$subdir/");
 
 		return $baseaff . ($dirs[$base . $subdir] = "$subdir/");
 	}
 
 	// en cas d'echec c'est peut etre tout simplement que le disque est plein :
 	// l'inode du fichier dir_test existe, mais impossible d'y mettre du contenu
-	spip_logger('flock')->error("echec creation $base{$subdir}");
+	spip_logger('flock')
+		->error("echec creation $base{$subdir}");
 	if ($tantpis) {
 		return '';
 	}
@@ -664,7 +663,6 @@ function sous_repertoire($base, $subdir = '', $nobase = false, $tantpis = false)
 	$base .= $subdir;
 	raler_fichier($base . '/.ok');
 }
-
 
 /**
  * Parcourt récursivement le repertoire `$dir`, et renvoie les
@@ -728,13 +726,8 @@ function preg_files($dir, $pattern = -1 /* AUTO */, $maxfiles = 10000, $recurs =
 						if (!isset($recurs[$rp])) {
 							$recurs[$rp] = true;
 							$beginning = $fichiers;
-							$end = preg_files(
-								"$f/",
-								$pattern,
-								$maxfiles - $nbfiles,
-								$recurs
-							);
-							$fichiers = array_merge((array)$beginning, (array)$end);
+							$end = preg_files("$f/", $pattern, $maxfiles - $nbfiles, $recurs);
+							$fichiers = array_merge((array) $beginning, (array) $end);
 							$nbfiles = count($fichiers);
 						}
 					}

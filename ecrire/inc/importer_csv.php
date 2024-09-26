@@ -20,10 +20,6 @@ include_spip('inc/charsets');
  * Returns a multi-dimensional array from a CSV file optionally using the
  * first row as a header to create the underlying data as associative arrays.
  *
- * @param string $file Filepath including filename
- * @param bool $head Use first row as header.
- * @param string $delim Specify a delimiter other than a comma.
- * @param int $len Line length to be passed to fgetcsv
  * @return array or false on failure to retrieve any rows.
  */
 
@@ -98,7 +94,6 @@ function inc_importer_csv_dist($file, $options = []) {
 		'charset_source' => '',
 	];
 	$options = array_merge($default_options, $options);
-
 
 	$return = [];
 	if (@file_exists($file) && ($handle = fopen($file, 'r'))) {

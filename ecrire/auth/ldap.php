@@ -28,7 +28,7 @@ if (!isset($GLOBALS['ldap_attributes']) || !is_array($GLOBALS['ldap_attributes']
 		'login' => ['sAMAccountName', 'uid', 'login', 'userid', 'cn', 'sn'],
 		'nom' => 'cn',
 		'email' => 'mail',
-		'bio' => 'description'
+		'bio' => 'description',
 	];
 }
 
@@ -95,7 +95,8 @@ function auth_ldap_dist($login, #[\SensitiveParameter] $pass, $serveur = '', $ph
 	}
 
 	// sinon echec
-	spip_logger()->info("Creation de l'auteur '$login' impossible");
+	spip_logger()
+		->info("Creation de l'auteur '$login' impossible");
 
 	return [];
 }
@@ -123,11 +124,11 @@ function auth_ldap_connect($serveur = '') {
 			unset($GLOBALS['ldap_link']);
 			if (is_readable($f)) {
 				include_once($f);
-			};
+			}
 			if (isset($GLOBALS['ldap_link'])) {
 				$connexion['ldap'] = [
 					'link' => $GLOBALS['ldap_link'],
-					'base' => $GLOBALS['ldap_base']
+					'base' => $GLOBALS['ldap_base'],
 				];
 			} else {
 				spip_logger()->info("connection LDAP $serveur mal definie dans $f");
@@ -247,7 +248,6 @@ function auth_ldap_retrouver($dn, $desc = [], $serveur = '') {
 	return $desc;
 }
 
-
 /**
  * Retrouver le login de quelqu'un qui cherche à se loger
  *
@@ -317,7 +317,7 @@ function auth_ldap_autoriser_modifier_pass($serveur = '') {
  *    Informe du succès ou de l'echec du changement du mot de passe
  */
 function auth_ldap_modifier_pass($login, #[\SensitiveParameter] $new_pass, $id_auteur, $serveur = '') {
-	if (is_null($new_pass) || auth_ldap_verifier_pass($login, $new_pass, $id_auteur, $serveur) != '') {
+	if ($new_pass === null || auth_ldap_verifier_pass($login, $new_pass, $id_auteur, $serveur) != '') {
 		return false;
 	}
 	if (!$ldap = auth_ldap_connect($serveur)) {
@@ -326,7 +326,7 @@ function auth_ldap_modifier_pass($login, #[\SensitiveParameter] $new_pass, $id_a
 	$link = $ldap['link'];
 	include_spip('inc/session');
 	$dn = session_get('ldap_dn');
-	if ('' == $dn) {
+	if ($dn == '') {
 		return false;
 	}
 	if (!ldap_bind($link, $dn, session_get('ldap_password'))) {

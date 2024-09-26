@@ -76,9 +76,8 @@ function req_pg_dist($addr, $port, $login, #[\SensitiveParameter] $pass, $db = '
 		];
 	}
 
-	spip_logger('pg')->debug(
-		"Connexion vers $host, base $db, prefixe $prefixe " . ($link ? 'operationnelle' : 'impossible'),
-	);
+	spip_logger('pg')
+		->debug("Connexion vers $host, base $db, prefixe $prefixe " . ($link ? 'operationnelle' : 'impossible'));
 
 	return $link ? [
 		'db' => $db,
@@ -225,7 +224,6 @@ function spip_pg_ajouter_champs_timestamp($table, $couples, $desc = '', $serveur
 	return $couples;
 }
 
-
 // Alter en PG ne traite pas les index
 function spip_pg_alter($query, $serveur = '', $requeter = true) {
 	// il faudrait une regexp pour eviter de spliter ADD PRIMARY KEY (colA, colB)
@@ -281,7 +279,11 @@ function spip_pg_alter($query, $serveur = '', $requeter = true) {
 }
 
 function spip_pg_alter_change($table, $arg, $serveur = '', $requeter = true) {
-	if (!preg_match('/^`?(\w+)`?\s+`?(\w+)`?\s+(.*?)\s*(DEFAULT .*?)?(NOT\s+NULL)?\s*(DEFAULT .*?)?$/i', (string) $arg, $r)) {
+	if (!preg_match(
+		'/^`?(\w+)`?\s+`?(\w+)`?\s+(.*?)\s*(DEFAULT .*?)?(NOT\s+NULL)?\s*(DEFAULT .*?)?$/i',
+		(string) $arg,
+		$r
+	)) {
 		spip_logger('pg')->error("alter change: $arg  incompris");
 	} else {
 		[, $old, $new, $type, $default, $null, $def2] = $r;
@@ -326,33 +328,33 @@ function spip_pg_alter_add($table, $arg, $serveur = '', $requeter = true) {
 			$serveur,
 			$requeter
 		);
-	} else {
-		preg_match('/([^\s,]*)\s*(.*)?/', $r[2], $m);
-		// peut etre "(colonne)" ou "nom_index (colonnes)"
-		// bug potentiel si qqn met "(colonne, colonne)"
-		//
-		// nom_index (colonnes)
-		if ($m[2]) {
-			$colonnes = substr($m[2], 1, -1);
-			$nom_index = $m[1];
-		} else {
-			// (colonne)
-			if ($m[1][0] == '(') {
-				$colonnes = substr($m[1], 1, -1);
-				if (str_contains(',', $colonnes)) {
-					spip_logger('pg')->error('PG : Erreur, impossible de creer un index sur plusieurs colonnes'
-						. " sans qu'il ait de nom ($table, ($colonnes))");
-				} else {
-					$nom_index = $colonnes;
-				}
-			} // nom_index
-			else {
-				$nom_index = $colonnes = $m[1];
-			}
-		}
-
-		return spip_pg_create_index($nom_index, $table, $colonnes, $serveur, $requeter);
 	}
+	preg_match('/([^\s,]*)\s*(.*)?/', $r[2], $m);
+	// peut etre "(colonne)" ou "nom_index (colonnes)"
+	// bug potentiel si qqn met "(colonne, colonne)"
+	//
+	// nom_index (colonnes)
+	if ($m[2]) {
+		$colonnes = substr($m[2], 1, -1);
+		$nom_index = $m[1];
+	} else {
+		// (colonne)
+		if ($m[1][0] == '(') {
+			$colonnes = substr($m[1], 1, -1);
+			if (str_contains(',', $colonnes)) {
+				spip_logger('pg')->error('PG : Erreur, impossible de creer un index sur plusieurs colonnes'
+					. " sans qu'il ait de nom ($table, ($colonnes))");
+			} else {
+				$nom_index = $colonnes;
+			}
+		} // nom_index
+		else {
+			$nom_index = $colonnes = $m[1];
+		}
+	}
+
+	return spip_pg_create_index($nom_index, $table, $colonnes, $serveur, $requeter);
+
 }
 
 function spip_pg_alter_drop($table, $arg, $serveur = '', $requeter = true) {
@@ -363,9 +365,9 @@ function spip_pg_alter_drop($table, $arg, $serveur = '', $requeter = true) {
 			return spip_pg_query("ALTER TABLE $table DROP " . $r[2], $serveur);
 		} elseif ($r[1][0] == 'P') {
 			return spip_pg_query("ALTER TABLE $table DROP CONSTRAINT $table" . '_pkey', $serveur);
-		} else {
-			return spip_pg_query('DROP INDEX ' . $table . '_' . $r[2], $serveur);
 		}
+		return spip_pg_query('DROP INDEX ' . $table . '_' . $r[2], $serveur);
+
 	}
 }
 
@@ -394,7 +396,6 @@ function spip_pg_alter_rename($table, $arg, $serveur = '', $requeter = true) {
 
 	return $rename ? spip_pg_query("ALTER TABLE $table RENAME TO $rename") : false;
 }
-
 
 /**
  * Fonction de creation d'un INDEX
@@ -437,7 +438,6 @@ function spip_pg_create_index($nom, $table, $champs, $serveur = '', $requeter = 
 	return spip_pg_query($query, $serveur, $requeter);
 }
 
-
 function spip_pg_explain($query, $serveur = '', $requeter = true) {
 	if (!str_starts_with(ltrim((string) $query), 'SELECT')) {
 		return [];
@@ -461,7 +461,6 @@ function spip_pg_explain($query, $serveur = '', $requeter = true) {
 	return spip_pg_fetch($r, null, $serveur);
 }
 
-
 /**
  * Sélectionne une base de données
  *
@@ -481,7 +480,16 @@ function spip_pg_selectdb($db, $serveur = '', $requeter = true) {
 	// avec les identifiants connus
 	$index = $serveur ? strtolower($serveur) : 0;
 
-	if (($link = spip_connect_db('', '', '', '', $db, 'pg', '', '')) && (($db == $link['db']) && $GLOBALS['connexions'][$index] = $link)) {
+	if (($link = spip_connect_db(
+		'',
+		'',
+		'',
+		'',
+		$db,
+		'pg',
+		'',
+		''
+	)) && (($db == $link['db']) && $GLOBALS['connexions'][$index] = $link)) {
 		return $db;
 	}
 
@@ -559,7 +567,7 @@ function spip_pg_select(
 	$r = spip_pg_trace_query($query, $serveur);
 
 	return $r ?: $query;
-;
+
 }
 
 // Le traitement des prefixes de table dans un Select se limite au FROM
@@ -592,7 +600,7 @@ function spip_pg_groupby($groupby, $from, $select) {
 	$join = strpos((string) $from, ',');
 	// ismplifier avant de decouper
 	if (is_string($select)) { // fct SQL sur colonne et constante apostrophee ==> la colonne
-	$select = preg_replace('/\w+\(\s*([^(),\']*),\s*\'[^\']*\'[^)]*\)/', '\\1', $select);
+		$select = preg_replace('/\w+\(\s*([^(),\']*),\s*\'[^\']*\'[^)]*\)/', '\\1', $select);
 	}
 
 	if ($join || $groupby) {
@@ -657,59 +665,23 @@ function spip_pg_frommysql($arg) {
 
 	$res = preg_replace('/\brand[(][)]/i', 'random()', (string) $res);
 
-	$res = preg_replace(
-		'/\b0\.0[+]([a-zA-Z0-9_.]+)\s*/',
-		'CAST(substring(\1, \'^ *[0-9.]+\') as float)',
-		$res
-	);
-	$res = preg_replace(
-		'/\b0[+]([a-zA-Z0-9_.]+)\s*/',
-		'CAST(substring(\1, \'^ *[0-9]+\') as int)',
-		$res
-	);
-	$res = preg_replace(
-		'/\bconv[(]([^,]*)[^)]*[)]/i',
-		'CAST(substring(\1, \'^ *[0-9]+\') as int)',
-		$res
-	);
+	$res = preg_replace('/\b0\.0[+]([a-zA-Z0-9_.]+)\s*/', 'CAST(substring(\1, \'^ *[0-9.]+\') as float)', $res);
+	$res = preg_replace('/\b0[+]([a-zA-Z0-9_.]+)\s*/', 'CAST(substring(\1, \'^ *[0-9]+\') as int)', $res);
+	$res = preg_replace('/\bconv[(]([^,]*)[^)]*[)]/i', 'CAST(substring(\1, \'^ *[0-9]+\') as int)', $res);
 
-	$res = preg_replace(
-		'/UNIX_TIMESTAMP\s*[(]\s*[)]/',
-		' EXTRACT(epoch FROM NOW())',
-		$res
-	);
+	$res = preg_replace('/UNIX_TIMESTAMP\s*[(]\s*[)]/', ' EXTRACT(epoch FROM NOW())', $res);
 
 	// la fonction md5(integer) n'est pas connu en pg
 	// il faut donc forcer les types en text (cas de md5(id_article))
-	$res = preg_replace(
-		'/md5\s*[(]([^)]*)[)]/i',
-		'MD5(CAST(\1 AS text))',
-		$res
-	);
+	$res = preg_replace('/md5\s*[(]([^)]*)[)]/i', 'MD5(CAST(\1 AS text))', $res);
 
-	$res = preg_replace(
-		'/UNIX_TIMESTAMP\s*[(]([^)]*)[)]/',
-		' EXTRACT(epoch FROM \1)',
-		$res
-	);
+	$res = preg_replace('/UNIX_TIMESTAMP\s*[(]([^)]*)[)]/', ' EXTRACT(epoch FROM \1)', $res);
 
-	$res = preg_replace(
-		'/\bDAYOFMONTH\s*[(]([^()]*([(][^()]*[)][^()]*)*[^)]*)[)]/',
-		' EXTRACT(day FROM \1)',
-		$res
-	);
+	$res = preg_replace('/\bDAYOFMONTH\s*[(]([^()]*([(][^()]*[)][^()]*)*[^)]*)[)]/', ' EXTRACT(day FROM \1)', $res);
 
-	$res = preg_replace(
-		'/\bMONTH\s*[(]([^()]*([(][^)]*[)][^()]*)*[^)]*)[)]/',
-		' EXTRACT(month FROM \1)',
-		$res
-	);
+	$res = preg_replace('/\bMONTH\s*[(]([^()]*([(][^)]*[)][^()]*)*[^)]*)[)]/', ' EXTRACT(month FROM \1)', $res);
 
-	$res = preg_replace(
-		'/\bYEAR\s*[(]([^()]*([(][^)]*[)][^()]*)*[^)]*)[)]/',
-		' EXTRACT(year FROM \1)',
-		$res
-	);
+	$res = preg_replace('/\bYEAR\s*[(]([^()]*([(][^)]*[)][^()]*)*[^)]*)[)]/', ' EXTRACT(year FROM \1)', $res);
 
 	$res = preg_replace(
 		'/TO_DAYS\s*[(]([^()]*([(][^)]*[)][()]*)*)[)]/',
@@ -734,8 +706,8 @@ function spip_pg_frommysql($arg) {
 
 	$res = preg_replace('/(timestamp .\d+)-00-/', '\1-01-', $res);
 	$res = preg_replace('/(timestamp .\d+-\d+)-00/', '\1-01', $res);
-# correct en theorie mais produit des debordements arithmetiques
-#	$res = preg_replace("/(EXTRACT[(][^ ]* FROM *)(timestamp *'[^']*' *[+-] *timestamp *'[^']*') *[)]/", '\2', $res);
+	# correct en theorie mais produit des debordements arithmetiques
+	#	$res = preg_replace("/(EXTRACT[(][^ ]* FROM *)(timestamp *'[^']*' *[+-] *timestamp *'[^']*') *[)]/", '\2', $res);
 	$res = preg_replace("/(EXTRACT[(][^ ]* FROM *)('[^']*')/", '\1 timestamp \2', $res);
 	$res = preg_replace('/\sLIKE\s+/', ' ILIKE ', $res);
 
@@ -767,21 +739,18 @@ function calculer_pg_where($v) {
 	$op = str_replace('REGEXP', '~', (string) array_shift($v));
 	if (!($n = count($v))) {
 		return $op;
-	} else {
-		$arg = calculer_pg_where(array_shift($v));
-		if ($n == 1) {
-			return "$op($arg)";
-		} else {
-			$arg2 = calculer_pg_where(array_shift($v));
-			if ($n == 2) {
-				return "($arg $op $arg2)";
-			} else {
-				return "($arg $op ($arg2) : $v[0])";
-			}
-		}
 	}
-}
+	$arg = calculer_pg_where(array_shift($v));
+	if ($n == 1) {
+		return "$op($arg)";
+	}
+	$arg2 = calculer_pg_where(array_shift($v));
+	if ($n == 2) {
+		return "($arg $op $arg2)";
+	}
+	return "($arg $op ($arg2) : $v[0])";
 
+}
 
 function calculer_pg_expression($expression, $v, $join = 'AND') {
 	if (empty($v)) {
@@ -796,9 +765,9 @@ function calculer_pg_expression($expression, $v, $join = 'AND') {
 
 	if (strtoupper((string) $join) === 'AND') {
 		return $exp . implode("\n\t$join ", array_map('calculer_pg_where', $v));
-	} else {
-		return $exp . implode($join, $v);
 	}
+	return $exp . implode($join, $v);
+
 }
 
 function spip_pg_select_as($args) {
@@ -847,15 +816,7 @@ function spip_pg_seek($r, $row_number, $serveur = '', $requeter = true) {
 	}
 }
 
-
-function spip_pg_countsel(
-	$from = [],
-	$where = [],
-	$groupby = [],
-	$having = [],
-	$serveur = '',
-	$requeter = true
-) {
+function spip_pg_countsel($from = [], $where = [], $groupby = [], $having = [], $serveur = '', $requeter = true) {
 	$c = $groupby ? 'DISTINCT ' . (is_string($groupby) ? $groupby : implode(',', $groupby)) : ('*');
 	$r = spip_pg_select("COUNT($c)", $from, $where, '', '', '', $having, $serveur, $requeter);
 	if (!$requeter) {
@@ -893,9 +854,9 @@ function spip_pg_delete($table, $where = '', $serveur = '', $requeter = true) {
 	$res = spip_pg_trace_query($query, $serveur);
 	if ($res) {
 		return pg_affected_rows($res);
-	} else {
-		return false;
 	}
+	return false;
+
 }
 
 function spip_pg_insert($table, $champs, $valeurs, $desc = [], $serveur = '', $requeter = true) {
@@ -925,7 +886,7 @@ function spip_pg_insert($table, $champs, $valeurs, $desc = [], $serveur = '', $r
 	}
 	$connexion['last'] = $q;
 	$r = spip_pg_query_simple($link, $q);
-#	spip_logger('pg')->debug($q);
+	#	spip_logger('pg')->debug($q);
 	if ($r) {
 		if (!$ret) {
 			return 0;
@@ -965,7 +926,6 @@ function spip_pg_insertq($table, $couples = [], $desc = [], $serveur = '', $requ
 	);
 }
 
-
 function spip_pg_insertq_multi($table, $tab_couples = [], $desc = [], $serveur = '', $requeter = true) {
 
 	if (!$desc) {
@@ -996,7 +956,6 @@ function spip_pg_insertq_multi($table, $tab_couples = [], $desc = [], $serveur =
 
 	return spip_pg_insert($table, $cles, $valeurs, $desc, $serveur, $requeter);
 }
-
 
 function spip_pg_update($table, $couples, $where = '', $desc = '', $serveur = '', $requeter = true) {
 
@@ -1042,7 +1001,6 @@ function spip_pg_updateq($table, $couples, $where = '', $desc = [], $serveur = '
 
 	return spip_pg_update($table, $couples, $where, $desc, $serveur, $requeter);
 }
-
 
 function spip_pg_replace($table, $values, $desc, $serveur = '', $requeter = true) {
 	if (!$values) {
@@ -1095,7 +1053,7 @@ function spip_pg_replace($table, $values, $desc, $serveur = '', $requeter = true
 	$connexion['last'] = $q = "UPDATE $table SET $couples WHERE $where";
 	if ($couples) {
 		$couples = spip_pg_query_simple($link, $q);
-#	  spip_logger('pg')->debug($q);
+		#	  spip_logger('pg')->debug($q);
 		if (!$couples) {
 			return false;
 		}
@@ -1125,7 +1083,6 @@ function spip_pg_replace($table, $values, $desc, $serveur = '', $requeter = true
 	return $couples;
 }
 
-
 function spip_pg_replace_multi($table, $tab_couples, $desc = [], $serveur = '', $requeter = true) {
 	$retour = null;
 	// boucler pour traiter chaque requete independemment
@@ -1136,7 +1093,6 @@ function spip_pg_replace_multi($table, $tab_couples, $desc = [], $serveur = '', 
 	// renvoie le dernier id
 	return $retour;
 }
-
 
 // Donne la sequence eventuelle associee a une table
 // Pas extensible pour le moment,
@@ -1154,43 +1110,44 @@ function spip_pg_sequence($table, $raw = false) {
 		!preg_match('/^\w+$/', (string) $prim) || !str_contains((string) $desc['field'][$prim], 'int')
 	) {
 		return '';
-	} else {
-		return $raw ? $prim : $table . '_' . $prim . '_seq';
 	}
+	return $raw ? $prim : $table . '_' . $prim . '_seq';
+
 }
 
 // Explicite les conversions de Mysql d'une valeur $v de type $t
 // Dans le cas d'un champ date, pas d'apostrophe, c'est une syntaxe ad hoc
 
 function spip_pg_cite($v, $t) {
-	if (is_null($v)) {
+	if ($v === null) {
 		return 'NULL';
 	} // null php se traduit en NULL SQL
 
 	if (sql_test_date($t)) {
 		if ($v && !str_contains('0123456789', (string) $v[0])) {
 			return spip_pg_frommysql($v);
-		} else {
-			if (str_starts_with((string) $v, '0000')) {
-				$v = '0001' . substr((string) $v, 4);
-			}
-			if (strpos((string) $v, '-00-00') === 4) {
-				$v = substr((string) $v, 0, 4) . '-01-01' . substr((string) $v, 10);
-			}
-
-			return "timestamp '$v'";
 		}
+		if (str_starts_with((string) $v, '0000')) {
+			$v = '0001' . substr((string) $v, 4);
+		}
+		if (strpos((string) $v, '-00-00') === 4) {
+			$v = substr((string) $v, 0, 4) . '-01-01' . substr((string) $v, 10);
+		}
+
+		return "timestamp '$v'";
+
 	} elseif (!sql_test_int($t)) {
-		return ("'" . pg_escape_string($v) . "'");
+		return "'" . pg_escape_string($v) . "'";
 	} elseif (is_numeric($v) || str_starts_with((string) $v, 'CAST(')) {
 		return $v;
 	} elseif ($v[0] == '0' && $v[1] !== 'x' && ctype_xdigit(substr((string) $v, 1))) {
 		return substr((string) $v, 1);
-	} else {
-		spip_logger('pg')->notice("Warning: '$v'  n'est pas de type $t");
-
-		return (int) $v;
 	}
+	spip_logger('pg')
+		->notice("Warning: '$v'  n'est pas de type $t");
+
+	return (int) $v;
+
 }
 
 function spip_pg_hex($v) {
@@ -1224,9 +1181,9 @@ function spip_pg_date_proche($champ, $interval, $unite) {
 }
 
 function spip_pg_in($val, $valeurs, $not = '', $serveur = '') {
-//
-// IN (...) souvent limite a 255  elements, d'ou cette fonction assistante
-//
+	//
+	// IN (...) souvent limite a 255  elements, d'ou cette fonction assistante
+	//
 	// s'il n'y a pas de valeur, eviter de produire un IN vide: PG rale.
 	if (!$valeurs) {
 		return $not ? '0=0' : '0=1';
@@ -1256,7 +1213,8 @@ function spip_pg_error($query = '', $serveur = '', $requeter = true) {
 	$s = $link ? pg_last_error($link) : pg_last_error();
 	if ($s) {
 		$s = str_replace('ERROR', 'errcode: 1000 ', $s);
-		spip_logger('pg')->error("$s - $query");
+		spip_logger('pg')
+			->error("$s - $query");
 	}
 
 	return $s;
@@ -1387,12 +1345,16 @@ function spip_pg_create($nom, $champs, $cles, $autoinc = false, $temporary = fal
 
 	foreach ($champs as $k => $v) {
 		$k = str_replace('`', '"', $k);
-		if (preg_match(',([a-z]*\s*(\(\s*\d*\s*\))?(\s*binary)?),i', (string) $v, $defs) && (preg_match(',(char|text),i', $defs[1]) && !preg_match(',binary,i', $defs[1]))) {
+		if (preg_match(',([a-z]*\s*(\(\s*\d*\s*\))?(\s*binary)?),i', (string) $v, $defs) && (preg_match(
+			',(char|text),i',
+			$defs[1]
+		) && !preg_match(',binary,i', $defs[1]))) {
 			$v = $defs[1] . $character_set . ' ' . substr((string) $v, strlen($defs[1]));
 		}
 
 		$query .= "$s\n\t\t$k "
-			. (($autoinc && ($prim_name == $k) && preg_match(',\b(big|small|medium|tiny)?int\b,i', (string) $v))
+			. (
+				($autoinc && ($prim_name == $k) && preg_match(',\b(big|small|medium|tiny)?int\b,i', (string) $v))
 				? ' bigserial'
 				: mysql2pg_type($v)
 			);
@@ -1423,7 +1385,6 @@ function spip_pg_create($nom, $champs, $cles, $autoinc = false, $temporary = fal
 	return $r;
 }
 
-
 function spip_pg_create_base($nom, $serveur = '', $requeter = true) {
 	return spip_pg_query("CREATE DATABASE $nom", $serveur, $requeter);
 }
@@ -1447,11 +1408,9 @@ function spip_pg_create_view($nom, $query_select, $serveur = '', $requeter = tru
 	return spip_pg_query($query, $serveur, $requeter);
 }
 
-
 function spip_pg_set_connect_charset($charset, $serveur = '', $requeter = true) {
 	spip_logger('pg')->error('changement de charset sql a ecrire en PG');
 }
-
 
 /**
  * Optimise une table SQL

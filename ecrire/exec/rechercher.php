@@ -108,9 +108,8 @@ function exec_rechercher_args($id, $type, $exclus, $rac, $do) {
 		}
 	}
 
-	return (proposer_item($points, $rub, $rac, $type, $do));
+	return proposer_item($points, $rub, $rac, $type, $do);
 }
-
 
 /**
  * Résultat de la recherche intéractive demandée par la fonction JS

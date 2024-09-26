@@ -32,7 +32,12 @@ if (!defined('_ECRIRE_INC_VERSION')) {
  *     - Liste (chemin complet du fichier, répertoire de logos, nom du logo, extension du logo, date de modification[, doc])
  *     - array vide aucun logo trouvé.
  */
-function inc_chercher_logo_dist(int $id, string $_id_objet, string $mode = 'on', bool $compat_old_logos = false): array {
+function inc_chercher_logo_dist(
+	int $id,
+	string $_id_objet,
+	string $mode = 'on',
+	bool $compat_old_logos = false
+): array {
 
 	$mode = preg_replace(',\W,', '', $mode);
 	if ($mode) {

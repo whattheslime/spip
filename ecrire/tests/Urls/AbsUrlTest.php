@@ -4,8 +4,6 @@ declare(strict_types=1);
 
 namespace Spip\Test\Urls;
 
-use PHPUnit\Framework\Attributes\DataProvider;
-use PHPUnit\Framework\TestCase;
 use Spip\Test\SquelettesTestCase;
 
 class AbsUrlTest extends SquelettesTestCase
@@ -41,5 +39,4 @@ class AbsUrlTest extends SquelettesTestCase
 		<//B_a>
 		SPIP);
 	}
-
 }

@@ -76,8 +76,8 @@ function charger_fonction($nom, $dossier = 'exec', $continue = false) {
 	}
 
 	// Echec : message d'erreur
-	spip_logger()->info("fonction $nom ($f ou $g) indisponible" .
-		($inc ? '' : " (fichier $d absent de $dossier)"));
+	spip_logger()
+		->info("fonction $nom ($f ou $g) indisponible" . ($inc ? '' : " (fichier $d absent de $dossier)"));
 
 	include_spip('inc/minipres');
 	include_spip('inc/filtres_mini');
@@ -89,7 +89,7 @@ function charger_fonction($nom, $dossier = 'exec', $continue = false) {
 			. _T('fonction_introuvable', ['fonction' => '<code>' . spip_htmlentities($g) . '</code>'])
 			:
 			_T('fichier_introuvable', ['fichier' => '<code>' . spip_htmlentities($d) . '</code>']),
-		['all_inline' => true,'status' => 404]
+		['all_inline' => true, 'status' => 404]
 	);
 	exit;
 }
@@ -106,14 +106,15 @@ function include_once_check($file) {
 
 		return true;
 	}
-	$crash = (isset($GLOBALS['meta']['message_crash_plugins']) ? unserialize($GLOBALS['meta']['message_crash_plugins']) : '');
+	$crash = (isset($GLOBALS['meta']['message_crash_plugins']) ? unserialize(
+		$GLOBALS['meta']['message_crash_plugins']
+	) : '');
 	$crash = ($crash ?: []);
 	$crash[$file] = true;
 	ecrire_meta('message_crash_plugins', serialize($crash));
 
 	return false;
 }
-
 
 /**
  * Inclut un fichier PHP (en le cherchant dans les chemins)
@@ -158,8 +159,6 @@ function require_spip($f) {
 	return find_in_path($f . '.php', '', 'required');
 }
 
-
-
 /**
  * Raccourci pour inclure mes_fonctions.php et tous les fichiers _fonctions.php des plugin
  * quand on a besoin dans le PHP de filtres/fonctions qui y sont definis
@@ -187,7 +186,6 @@ function include_fichiers_fonctions() {
 		$done = true;
 	}
 }
-
 
 /**
  * Charger la fonction de gestion des urls si elle existe
@@ -254,11 +252,9 @@ function charger_fonction_url(string $quoi, string $type = '') {
 	}
 }
 
-
 /**
  * Trouve un squelette dans le repertoire modeles/
  *
- * @param  $nom
  * @return string
  */
 function trouve_modele($nom) {
@@ -287,7 +283,7 @@ function trouver_fond($nom, $dir = '', $pathinfo = false) {
 		return [
 			'extension' => _EXTENSION_SQUELETTES,
 			'filename' => '',
-			'fond' => ''
+			'fond' => '',
 		];
 	}
 	$p = pathinfo($f);
@@ -321,7 +317,6 @@ function aider($aide = '', $distante = false) {
 
 	return $aider ? $aider($aide, '', [], $distante) : '';
 }
-
 
 /**
  * Teste, pour un nom de page de l'espace privé, s'il est possible

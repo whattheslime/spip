@@ -127,7 +127,7 @@ if (!defined('_LOG_FILTRE_GRAVITE')) {
 	/**
 	 * Niveau maxi d'enregistrement des logs
 	 * @var LogLevel::*
-	*/
+	 */
 	define('_LOG_FILTRE_GRAVITE', LogLevel::NOTICE);
 }
 
@@ -160,7 +160,11 @@ if (
 		include_spip('inc/lang');
 		utiliser_langue_visiteur();
 		include_spip('inc/minipres');
-		echo minipres(_T('info_travaux_titre'), "<p style='text-align: center;'>" . _T('info_travaux_texte') . '</p>', ['status' => 503]);
+		echo minipres(
+			_T('info_travaux_titre'),
+			"<p style='text-align: center;'>" . _T('info_travaux_texte') . '</p>',
+			['status' => 503]
+		);
 		exit;
 	}
 	// autrement c'est une install ad hoc (spikini...), on sait pas faire
@@ -206,5 +210,6 @@ if (!headers_sent() && _HEADER_COMPOSED_BY) {
 	}
 }
 
-$methode = ($_SERVER['REQUEST_METHOD'] ?? ((php_sapi_name() == 'cli') ? 'cli' : ''));
-spip_logger()->debug($methode . ' ' . self() . ' - ' . _FILE_CONNECT);
+$methode = ($_SERVER['REQUEST_METHOD'] ?? ((PHP_SAPI == 'cli') ? 'cli' : ''));
+spip_logger()
+	->debug($methode . ' ' . self() . ' - ' . _FILE_CONNECT);

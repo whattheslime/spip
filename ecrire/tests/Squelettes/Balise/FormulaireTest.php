@@ -9,11 +9,10 @@ use Spip\Test\Templating;
 
 class FormulaireTest extends SquelettesTestCase
 {
-
 	/**
 	 * Test pour `#FORMULAIRE_`
 	 */
-	public function testBaliseFormulaire_(): void {
+	public function testBaliseFormulaire(): void {
 		$templating = Templating::fromString([
 			'fonctions' => <<<PHP
 				function formulaire_inscription_present(\$page) {
@@ -22,7 +21,8 @@ class FormulaireTest extends SquelettesTestCase
 					}
 					return 'OK';
 				}
-			PHP,
+			PHP
+			,
 		]);
 
 		$skel = <<<SPIP
@@ -31,5 +31,4 @@ class FormulaireTest extends SquelettesTestCase
 		SPIP;
 		$this->assertOkTemplate($templating, $skel);
 	}
-
 }

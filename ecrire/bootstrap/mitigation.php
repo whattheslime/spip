@@ -15,7 +15,7 @@ if (!defined('_IS_BOT')) {
 			// UA plus cibles
 			. '80legs|accoona|AltaVista|ASPSeek|Baidu|Charlotte|EC2LinkFinder|eStyle|facebook|flipboard|hootsuite|FunWebProducts|Google|Genieo|INA dlweb|InfegyAtlas|Java VM|LiteFinder|Lycos|MetaURI|Moreover|Rambler|Scooter|ScrubbyBloglines|Yahoo|Yeti'
 			. ',i',
-			(string)$_SERVER['HTTP_USER_AGENT']
+			(string) $_SERVER['HTTP_USER_AGENT']
 		)
 	);
 }

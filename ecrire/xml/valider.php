@@ -22,6 +22,57 @@ if (!defined('_ECRIRE_INC_VERSION')) {
  */
 class ValidateurXML
 {
+	public $ids = [];
+
+	public $idrefs = [];
+
+	public $idrefss = [];
+
+	public $debuts = [];
+
+	public $fratrie = [];
+
+	public $dtc = null;
+
+	public $sax = null;
+
+	public $depth = '';
+
+	public $entete = '';
+
+	public $page = '';
+
+	public $res = '';
+
+	public array $err = [];
+
+	public array $contenu = [];
+
+	public array $versions = [];
+
+	public array $ouvrant = [];
+
+	public array $reperes = [];
+
+	public array $process = [
+		'debut' => 'xml_debutElement',
+		'fin' => 'xml_finElement',
+		'text' => 'xml_textElement',
+		'pi' => 'xml_piElement',
+		'default' => 'xml_defaultElement',
+	];
+
+	/**
+	 * Constructeur
+	 *
+	 * @param array $process ?
+	 */
+	public function __construct($process = []) {
+		if (is_array($process)) {
+			$this->process = $process;
+		}
+	}
+
 	public function validerElement($phraseur, $name, $attrs) {
 		if (!($p = isset($this->dtc->elements[$name]))) {
 			if ($p = strpos((string) $name, ':')) {
@@ -29,8 +80,7 @@ class ValidateurXML
 				$p = isset($this->dtc->elements[$name]);
 			}
 			if (!$p) {
-				coordonnees_erreur($this, " <b>$name</b>&nbsp;: "
-					. _T('zxml_inconnu_balise'));
+				coordonnees_erreur($this, " <b>$name</b>&nbsp;: " . _T('zxml_inconnu_balise'));
 
 				return;
 			}
@@ -73,10 +123,7 @@ class ValidateurXML
 		if (isset($this->dtc->attributs[$name])) {
 			foreach ($this->dtc->attributs[$name] as $n => $v) {
 				if ($v[1] == '#REQUIRED' && !isset($attrs[$n])) {
-					coordonnees_erreur($this, " <b>$n</b>"
-						. '&nbsp;:&nbsp;'
-						. _T('zxml_obligatoire_attribut')
-						. " <b>$name</b>");
+					coordonnees_erreur($this, " <b>$n</b>" . '&nbsp;:&nbsp;' . _T('zxml_obligatoire_attribut') . " <b>$name</b>");
 				}
 			}
 		}
@@ -110,7 +157,7 @@ class ValidateurXML
 				$this->valider_motif($phraseur, $name, $val, $bal, $type);
 			} else {
 				if (method_exists($this, $f = 'validerAttribut_' . $type)) {
-					$this->$f($phraseur, $name, $val, $bal);
+					$this->{$f}($phraseur, $name, $val, $bal);
 				}
 			}
 			#		else spip_logger()->info("$type type d'attribut inconnu");
@@ -218,12 +265,11 @@ class ValidateurXML
 			if ($regle == '+') {
 				// iteration de disjonction non vide: 1 balise au -
 				if ($n == $k) {
-					coordonnees_erreur($this, "<p>\n<b>$name</b> "
-						. _T('zxml_vide_balise'));
+					coordonnees_erreur($this, "<p>\n<b>$name</b> " . _T('zxml_vide_balise'));
 				}
 			} else {
 				$f = $this->fratrie[substr((string) $depth, 2)] ?? null;
-				if (is_null($f) || !preg_match($regle, (string) $f)) {
+				if ($f === null || !preg_match($regle, (string) $f)) {
 					coordonnees_erreur(
 						$this,
 						" <p>\n<b>$name</b> "
@@ -246,8 +292,7 @@ class ValidateurXML
 			$d = $this->ouvrant[$d];
 			preg_match('/^\s*(\S+)/', (string) $d, $m);
 			if (isset($this->dtc->pcdata[$m[1]]) && $this->dtc->pcdata[$m[1]]) {
-				coordonnees_erreur($this, ' <p><b>' . $m[1] . '</b> '
-					. _T('zxml_nonvide_balise')); // message a affiner
+				coordonnees_erreur($this, ' <p><b>' . $m[1] . '</b> ' . _T('zxml_nonvide_balise')); // message a affiner
 			}
 		}
 		if ($f = $this->process['text']) {
@@ -276,9 +321,7 @@ class ValidateurXML
 			foreach ($r as $m) {
 				[$t, $e] = $m;
 				if (!isset($this->dtc->entites[$e])) {
-					coordonnees_erreur($this, " <b>$e</b> "
-						. _T('zxml_inconnu_entite')
-						. ' ');
+					coordonnees_erreur($this, " <b>$e</b> " . _T('zxml_inconnu_entite') . ' ');
 				}
 			}
 		}
@@ -296,50 +339,11 @@ class ValidateurXML
 			$this->valider_passe2();
 		}
 	}
-
-	/**
-	 * Constructeur
-	 *
-	 * @param array $process ?
-	 */
-	public function __construct($process = []) {
-		if (is_array($process)) {
-			$this->process = $process;
-		}
-	}
-
-	public $ids = [];
-	public $idrefs = [];
-	public $idrefss = [];
-	public $debuts = [];
-	public $fratrie = [];
-
-	public $dtc = null;
-	public $sax = null;
-	public $depth = '';
-	public $entete = '';
-	public $page = '';
-	public $res = '';
-	public array $err = [];
-	public array $contenu = [];
-	public array $versions = [];
-
-	public array $ouvrant = [];
-	public array $reperes = [];
-	public array $process = [
-		'debut' => 'xml_debutElement',
-		'fin' => 'xml_finElement',
-		'text' => 'xml_textElement',
-		'pi' => 'xml_piElement',
-		'default' => 'xml_defaultElement'
-	];
 }
-
 
 /**
  * Retourne une structure ValidateurXML, dont le champ "err" est un tableau
  * ayant comme entrees des sous-tableaux [message, ligne, colonne]
- *
  */
 function xml_valider_dist($page, $apply = false, $process = false, $doctype = '', $charset = null) {
 	$f = new ValidateurXML($process);

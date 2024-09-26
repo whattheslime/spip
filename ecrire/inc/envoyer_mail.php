@@ -50,18 +50,10 @@ function nettoyer_caracteres_mail($t) {
 	$t = filtrer_entites($t);
 
 	if ($GLOBALS['meta']['charset'] != 'utf-8') {
-		$t = str_replace(
-			['&#8217;', '&#8220;', '&#8221;'],
-			["'", '"', '"'],
-			$t
-		);
+		$t = str_replace(['&#8217;', '&#8220;', '&#8221;'], ["'", '"', '"'], $t);
 	}
 
-	return str_replace(
-		['&mdash;', '&endash;'],
-		['--', '-'],
-		$t
-	);
+	return str_replace(['&mdash;', '&endash;'], ['--', '-'], $t);
 }
 
 /**
@@ -163,15 +155,16 @@ function inc_envoyer_mail_dist($destinataire, $sujet, $corps, $from = '', $heade
 		$sujet = preg_replace("@\r*\n@", "\r\n", $sujet);
 	}
 
-	spip_logger('mails')->info("mail $destinataire\n$sujet\n$headers");
+	spip_logger('mails')
+		->info("mail $destinataire\n$sujet\n$headers");
 	// mode TEST : forcer l'email
 	if (defined('_TEST_EMAIL_DEST')) {
 		if (!_TEST_EMAIL_DEST) {
 			return false;
-		} else {
-			$texte = "Dest : $destinataire\r\n" . $texte;
-			$destinataire = _TEST_EMAIL_DEST;
 		}
+		$texte = "Dest : $destinataire\r\n" . $texte;
+		$destinataire = _TEST_EMAIL_DEST;
+
 	}
 
 	return @mail((string) $destinataire, $sujet, (string) $texte, $headers);

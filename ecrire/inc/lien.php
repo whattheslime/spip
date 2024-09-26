@@ -31,7 +31,6 @@ include_spip('inc/liens');
  * @param string $title
  * @param string $hlang
  * @param string $rel
- * @param string $connect
  * @param array $env
  * @return string
  */

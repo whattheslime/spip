@@ -6,8 +6,9 @@ namespace Spip;
  * Gestion des erreurs PHP
  * @internal
  */
-final class ErrorHandler {
-	static bool $done = false;
+final class ErrorHandler
+{
+	public static bool $done = false;
 
 	public static function setup(?int $error_level = null): void {
 		if (!self::$done) {
@@ -17,7 +18,9 @@ final class ErrorHandler {
 		}
 	}
 
-	/** Loger les `trigger_deprecated()` */
+	/**
+	 * Loger les `trigger_deprecated()`
+	 */
 	private static function user_deprecated(int $errno, string $errstr, string $errfile, int $errline): bool {
 		if (!(\E_USER_DEPRECATED & $errno)) {
 			return false;
@@ -33,7 +36,8 @@ final class ErrorHandler {
 		$errfile = $t['file'];
 		$errline = $t['line'];
 
-		spip_logger('deprecated')->info(sprintf('%s in %s on line %s', $errstr, $errfile, $errline));
+		spip_logger('deprecated')
+			->info(sprintf('%s in %s on line %s', $errstr, $errfile, $errline));
 		return false;
 	}
 }

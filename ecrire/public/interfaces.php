@@ -19,7 +19,6 @@ if (!defined('_ECRIRE_INC_VERSION')) {
 	return;
 }
 
-
 global $table_criteres_infixes;
 $table_criteres_infixes = ['<', '>', '<=', '>=', '==', '===', '!=', '!==', '<>', '?'];
 
@@ -42,8 +41,6 @@ class_alias(\Spip\Compilateur\Noeud\Texte::class, 'Texte');
  * sans écraser d'eventuelles prédéfinition dans mes_options
  * et les envoie dans un pipeline
  * pour les plugins
- *
- * @return void
  */
 function declarer_interfaces() {
 
@@ -63,7 +60,6 @@ function declarer_interfaces() {
 
 	// $GLOBALS['exceptions_des_jointures']['titre_mot'] = array('spip_mots', 'titre'); // pour exemple
 	$GLOBALS['exceptions_des_jointures']['profondeur'] = ['spip_rubriques', 'profondeur'];
-
 
 	if (!defined('_TRAITEMENT_TYPO')) {
 		define('_TRAITEMENT_TYPO', 'typo(%s, "TYPO", $connect, $Pile[0])');
@@ -105,7 +101,6 @@ function declarer_interfaces() {
 	$GLOBALS['table_des_traitements']['*']['DATA'] = 'safehtml(%s)';
 	// expliciter pour VALEUR qui est un champ calcule et ne sera pas protege par le catch-all *
 	$GLOBALS['table_des_traitements']['VALEUR']['DATA'] = 'safehtml(%s)';
-
 
 	// gerer l'affectation en 2 temps car si le pipe n'est pas encore declare, on ecrase les globales
 	$interfaces = pipeline(

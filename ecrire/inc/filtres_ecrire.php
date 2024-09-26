@@ -23,7 +23,6 @@ include_spip('inc/filtres_alertes');
 include_spip('inc/boutons');
 include_spip('inc/pipelines_ecrire');
 
-
 /**
  * Retourne les paramètres de personnalisation css de l'espace privé
  *
@@ -60,7 +59,6 @@ function parametres_css_prive() {
 
 	return http_build_query($args);
 }
-
 
 /**
  * Afficher le sélecteur de rubrique
@@ -125,7 +123,7 @@ function chercher_rubrique(
 				'avis_deplacement_rubrique',
 				[
 					'contient_breves' => $contient_breves,
-					'scb' => $scb
+					'scb' => $scb,
 				]
 			);
 			$confirm .= "\n<div class='confirmer_deplacement verdana2'>"
@@ -171,7 +169,6 @@ function chercher_rubrique(
 
 	return debut_cadre_couleur($logo, true, '', $titre) . $form . fin_cadre_couleur();
 }
-
 
 /**
  * Tester si le site peut avoir des visiteurs
@@ -280,7 +277,6 @@ function traduire_statut_auteur($statut, $attente = '') {
  *
  * @param int $id_objet
  * @param string $objet
- * @return string
  */
 function afficher_qui_edite($id_objet, $objet): string {
 	static $qui = [];
@@ -320,7 +316,6 @@ function afficher_qui_edite($id_objet, $objet): string {
  * @param bool $en_base
  *   si true, ne retourne strictement que les status existants en base
  *   dans tous les cas, les statuts existants en base sont inclus
- * @return array
  */
 function auteurs_lister_statuts($quoi = 'tous', $en_base = true): array {
 	if (!defined('AUTEURS_MIN_REDAC')) {
@@ -430,14 +425,12 @@ function lien_article_virtuel($virtuel) {
 	}
 	if ($virtuel !== $joli) {
 		$joli = propre('[' . $joli . ' -> ' . $virtuel . ']');
-	}
-	else {
+	} else {
 		$joli = propre('[->' . $virtuel . ']');
 	}
 
 	return $joli;
 }
-
 
 /**
  * Filtre pour générer un lien vers un flux RSS privé
@@ -465,12 +458,10 @@ function bouton_spip_rss($op, $args = [], $lang = '', $title = 'RSS') {
 	return "<a style='float: " . $GLOBALS['spip_lang_right'] . ";' href='" . attribut_url($url) . "'>$clic</a>";
 }
 
-
 /**
  * Vérifier la présence d'alertes pour les auteur
  *
  * @param int $id_auteur
- * @return string
  */
 function alertes_auteur($id_auteur): string {
 
@@ -529,7 +520,7 @@ function alertes_auteur($id_auteur): string {
 				'id_auteur' => $id_auteur,
 				'exec' => _request('exec'),
 			],
-			'data' => $alertes
+			'data' => $alertes,
 		]
 	);
 
@@ -575,13 +566,10 @@ function afficher_plus_info($lien, $titre = '+', $titre_lien = '') {
 
 	if (!$titre_lien) {
 		return $icone;
-	} else {
-		return $icone . "\n<a href='" . attribut_url($lien) . "'>$titre_lien</a>";
 	}
+	return $icone . "\n<a href='" . attribut_url($lien) . "'>$titre_lien</a>";
+
 }
-
-
-
 
 /**
  * Lister les id objet_source associés à l'objet id_objet

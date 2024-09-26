@@ -15,7 +15,6 @@
  * @package SPIP\Core\Plugins
  */
 
-
 if (!defined('_ECRIRE_INC_VERSION')) {
 	return;
 }
@@ -158,9 +157,9 @@ function spip_plugin_install($action, $infos, $version_cible) {
 	$table = $infos['meta'];
 	switch ($action) {
 		case 'test':
-			return (isset($GLOBALS[$table])
+			return isset($GLOBALS[$table])
 				&& isset($GLOBALS[$table][$nom_meta])
-				&& spip_version_compare($GLOBALS[$table][$nom_meta], $version_cible, '>='));
+				&& spip_version_compare($GLOBALS[$table][$nom_meta], $version_cible, '>=');
 		case 'install':
 			if (function_exists($upgrade = $infos['prefix'] . '_upgrade')) {
 				$upgrade($nom_meta, $version_cible, $table);
@@ -173,8 +172,6 @@ function spip_plugin_install($action, $infos, $version_cible) {
 			break;
 	}
 }
-
-
 
 /**
  * Retourne un tableau des plugins activés sur le site

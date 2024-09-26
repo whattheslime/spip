@@ -4,9 +4,7 @@ declare(strict_types=1);
 
 namespace Spip\Test\Squelettes\Critere;
 
-use PHPUnit\Framework\Attributes\Depends;
 use Spip\Test\SquelettesTestCase;
-use Spip\Test\Templating;
 
 class DoublonsNotesTest extends SquelettesTestCase
 {
@@ -22,7 +20,8 @@ class DoublonsNotesTest extends SquelettesTestCase
 	public function testCritereDoublonsNotes(): void {
 		$id_document = $this->creer_article_a_doublons_notes();
 
-		$this->assertOkCode(<<<SPIP
+		$this->assertOkCode(
+			<<<SPIP
 			<BOUCLE_d(DOCUMENTS){id_document=#ENV{id_document}}{statut==.*}>
 				<BOUCLE_a(ARTICLES){id_article=-1}{statut==.*}>[(#TEXTE|?)]</BOUCLE_a>
 				<BOUCLE_test(DOCUMENTS){id_document}{doublons}>
@@ -33,7 +32,8 @@ class DoublonsNotesTest extends SquelettesTestCase
 			</BOUCLE_d>
 				erreur, pas de document
 			<//B_d>
-			SPIP,
+			SPIP
+			,
 			[
 				'id_article' => -1,
 				'id_document' => $id_document,
@@ -50,7 +50,7 @@ class DoublonsNotesTest extends SquelettesTestCase
 		$id_document = sql_getfetsel(
 			'id_document',
 			'spip_documents',
-			sql_in('mode', ['logoon','logooff','vignette'], 'not'),
+			sql_in('mode', ['logoon', 'logooff', 'vignette'], 'not'),
 			orderby: 'rand()',
 			limit: '0,1'
 		);
@@ -61,7 +61,7 @@ class DoublonsNotesTest extends SquelettesTestCase
 			'id_article' => -1,
 			'titre' => 'test pour doublons_notes.html',
 			'statut' => 'prepa',
-			'texte' => 'hello [[ xx <doc' . $id_document . '> ]].'
+			'texte' => 'hello [[ xx <doc' . $id_document . '> ]].',
 		];
 		$id_article = sql_getfetsel('id_article', 'spip_articles', 'id_article = -1');
 		if ($id_article === null) {

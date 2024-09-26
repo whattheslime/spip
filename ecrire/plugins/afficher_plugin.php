@@ -78,7 +78,10 @@ function plugins_afficher_plugin_dist(
 			) . '</div>';
 	} else {
 		$cfg = $actif ? plugin_bouton_config($plug_file, $info, $dir_plugins) : '';
-		if (defined('_DEV_VERSION_SPIP_COMPAT') && !plugin_version_compatible($info['compatibilite'], $GLOBALS['spip_version_branche'])) {
+		if (defined('_DEV_VERSION_SPIP_COMPAT') && !plugin_version_compatible(
+			$info['compatibilite'],
+			$GLOBALS['spip_version_branche']
+		)) {
 			//$info['slogan'] = _T('plugin_info_non_compatible_spip');
 			$erreur = http_img_pack(
 				'plugin-dis-32.png',
@@ -114,23 +117,17 @@ function plugin_bouton_config($nom, $infos, $dir) {
 	$prefix = strtolower($infos['prefix']);
 	// si paquet.xml fournit un squelette, le prendre
 	if (isset($infos['config']) && $infos['config']) {
-		return recuperer_fond(
-			"$dir$nom/" . $infos['config'],
-			[
-				'script' => 'configurer_' . $prefix,
-				'nom' => $nom
-			]
-		);
+		return recuperer_fond("$dir$nom/" . $infos['config'], [
+			'script' => 'configurer_' . $prefix,
+			'nom' => $nom,
+		]);
 	}
 
 	// sinon prendre le squelette std sur le nom std
-	return recuperer_fond(
-		'prive/squelettes/inclure/cfg',
-		[
-			'script' => 'configurer_' . $prefix,
-			'nom' => $nom
-		]
-	);
+	return recuperer_fond('prive/squelettes/inclure/cfg', [
+		'script' => 'configurer_' . $prefix,
+		'nom' => $nom,
+	]);
 }
 
 // checkbox pour activer ou desactiver
@@ -182,7 +179,13 @@ function plugin_resume($info, $dir_plugins, $plug_file, $url_page) {
 	$icon_class = 'icon';
 	$img = '';
 	if (isset($info['logo']) && ($i = trim($info['logo']))) {
-		$img = http_img_pack("$dir/$i", '', " width='32' height='32'", '', ['variante_svg_si_possible' => true, 'chemin_image' => false]);
+		$img = http_img_pack(
+			"$dir/$i",
+			'',
+			" width='32' height='32'",
+			'',
+			['variante_svg_si_possible' => true, 'chemin_image' => false]
+		);
 		if (!extraire_attribut($img, 'src')) {
 			$img = '';
 		}
@@ -258,7 +261,6 @@ function plugin_typo($texte, $module = '') {
 	return plugin_propre($texte, $module, 'typo');
 }
 
-
 function affiche_bloc_plugin($plug_file, $info, $dir_plugins = null) {
 	$log = null;
 	if (!$dir_plugins) {
@@ -280,7 +282,9 @@ function affiche_bloc_plugin($plug_file, $info, $dir_plugins = null) {
 	if (
 		isset($info['documentation']) && ($lien = $info['documentation'])
 	) {
-		$description .= "<p><em class='site'><a href='" . attribut_url($lien) . "' class='spip_out'>" . _T('en_savoir_plus') . '</a></em></p>';
+		$description .= "<p><em class='site'><a href='" . attribut_url(
+			$lien
+		) . "' class='spip_out'>" . _T('en_savoir_plus') . '</a></em></p>';
 	}
 	$s .= "<dd class='desc'>" . $description . "</dd>\n";
 
@@ -339,7 +343,11 @@ function affiche_bloc_plugin($plug_file, $info, $dir_plugins = null) {
 	$infotech[] = $version;
 	$infotech[] = '<dt>' . _T('repertoire_plugins') . '</dt><dd>' . joli_repertoire("$dir_plugins$plug_file") . '</dd>';
 	// source zip le cas echeant
-	$infotech[] = (lire_fichier($dir_plugins . $plug_file . '/install.log', $log) && preg_match(',^source:(.*)$,m', $log, $r))
+	$infotech[] = (lire_fichier($dir_plugins . $plug_file . '/install.log', $log) && preg_match(
+		',^source:(.*)$,m',
+		$log,
+		$r
+	))
 		? '<dt>' . _T('plugin_source') . '</dt><dd>' . trim($r[1]) . '</dd>'
 		: '';
 
@@ -352,7 +360,6 @@ function affiche_bloc_plugin($plug_file, $info, $dir_plugins = null) {
 	$s .= "<dl class='tech'>"
 		. join('', $infotech)
 		. '</dl>';
-
 
 	return $s;
 }

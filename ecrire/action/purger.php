@@ -38,14 +38,15 @@ if (!defined('_ECRIRE_INC_VERSION')) {
  *     de l'action sécurisée.
  */
 function action_purger_dist($arg = null) {
-	if (is_null($arg)) {
+	if ($arg === null) {
 		$securiser_action = charger_fonction('securiser_action', 'inc');
 		$arg = $securiser_action();
 	}
 
 	include_spip('inc/invalideur');
 
-	spip_logger()->info("purger $arg");
+	spip_logger()
+		->info("purger $arg");
 
 	switch ($arg) {
 		case 'inhibe_cache':

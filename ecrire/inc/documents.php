@@ -24,17 +24,14 @@ if (!defined('_ECRIRE_INC_VERSION')) {
  * pour stockage 'tel quel' dans la base de données
  *
  * @uses _DIR_IMG
- *
- * @param string $fichier
- * @return string
  */
 function set_spip_doc(?string $fichier): string {
 	if ($fichier && str_starts_with($fichier, (string) _DIR_IMG)) {
 		return substr($fichier, strlen((string) _DIR_IMG));
-	} else {
-		// ex: fichier distant
-		return $fichier ?? '';
 	}
+	// ex: fichier distant
+	return $fichier ?? '';
+
 }
 
 /**
@@ -42,12 +39,11 @@ function set_spip_doc(?string $fichier): string {
  *
  * @uses _DIR_IMG
  *
- * @param string $fichier
  * @return bool|string
  */
 function get_spip_doc(?string $fichier) {
 	$fichier_demande = $fichier;
-	
+
 	if ($fichier === null) {
 		return false;
 	}
@@ -65,8 +61,13 @@ function get_spip_doc(?string $fichier) {
 	if (!str_starts_with($fichier, (string) _DIR_IMG)) {
 		$fichier = _DIR_IMG . $fichier;
 	}
-	
-	$fichier = pipeline('get_spip_doc', ['args' => ['fichier' => $fichier_demande], 'data' => $fichier]);
+
+	$fichier = pipeline('get_spip_doc', [
+		'args' => [
+			'fichier' => $fichier_demande,
+		],
+		'data' => $fichier,
+	]);
 
 	// fichier normal
 	return $fichier;
@@ -160,10 +161,10 @@ function copier_document($ext, $orig, $source, $subdir = null) {
 		) {
 			$dest = substr($dest, 0, -strlen($m[0])) . '_' . $m[1];
 			break;
-		} else {
-			$dest = substr($dest, 0, -strlen($m[0]));
-			$ext = $m[1] . '.' . $ext;
 		}
+		$dest = substr($dest, 0, -strlen($m[0]));
+		$ext = $m[1] . '.' . $ext;
+
 	}
 
 	// Si le document "source" est deja au bon endroit, ne rien faire
@@ -174,7 +175,7 @@ function copier_document($ext, $orig, $source, $subdir = null) {
 	// sinon tourner jusqu'a trouver un numero correct
 	$n = 0;
 	while (@file_exists($newFile = $dir . $dest . ($n++ ? ('-' . $n) : '') . '.' . $ext)) {
-		;
+
 	}
 
 	return deplacer_fichier_upload($source, $newFile);
@@ -200,7 +201,7 @@ function determine_upload($type = '') {
 		!autoriser('chargerftp')
 		|| $type == 'logos'
 	) { # on ne le permet pas pour les logos
-	return false;
+		return false;
 	}
 
 	$repertoire = _DIR_TRANSFERT;
@@ -211,9 +212,9 @@ function determine_upload($type = '') {
 
 	if (!$GLOBALS['visiteur_session']['restreint']) {
 		return $repertoire;
-	} else {
-		return sous_repertoire($repertoire, $GLOBALS['visiteur_session']['login']);
 	}
+	return sous_repertoire($repertoire, $GLOBALS['visiteur_session']['login']);
+
 }
 
 /**
@@ -259,7 +260,6 @@ function deplacer_fichier_upload($source, $dest, $move = false) {
 	return $ok ? $dest : false;
 }
 
-
 /**
  * Erreurs d'upload
  *
@@ -284,13 +284,14 @@ function check_upload_error($error, $msg = '', $return = false) {
 		return false;
 	}
 
-	spip_logger()->info("Erreur upload $error -- cf. http://php.net/manual/fr/features.file-upload.errors.php");
+	spip_logger()
+		->info("Erreur upload $error -- cf. http://php.net/manual/fr/features.file-upload.errors.php");
 
 	switch ($error) {
 		case 4: /* UPLOAD_ERR_NO_FILE */
 			return true;
 
-		# on peut affiner les differents messages d'erreur
+			# on peut affiner les differents messages d'erreur
 		case 1: /* UPLOAD_ERR_INI_SIZE */
 			$msg = _T(
 				'upload_limit',
@@ -318,7 +319,8 @@ function check_upload_error($error, $msg = '', $return = false) {
 			break;
 	}
 
-	spip_logger()->info("erreur upload $error");
+	spip_logger()
+		->info("erreur upload $error");
 	if ($return) {
 		return $msg;
 	}
@@ -331,7 +333,9 @@ function check_upload_error($error, $msg = '', $return = false) {
 	include_spip('inc/minipres');
 	echo minipres(
 		$msg,
-		"<div style='text-align: " . $GLOBALS['spip_lang_right'] . "'><a href='" . attribut_url(rawurldecode((string) $GLOBALS['redirect'])) . "'><button type='button'>" . _T('ecrire:bouton_suivant') . '</button></a></div>'
+		"<div style='text-align: " . $GLOBALS['spip_lang_right'] . "'><a href='" . attribut_url(
+			rawurldecode((string) $GLOBALS['redirect'])
+		) . "'><button type='button'>" . _T('ecrire:bouton_suivant') . '</button></a></div>'
 	);
 	exit;
 }

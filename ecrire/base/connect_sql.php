@@ -19,7 +19,6 @@ if (!defined('_ECRIRE_INC_VERSION')) {
 }
 require_once _ROOT_RESTREINT . 'base/objets.php';
 
-
 /**
  * Connexion à un serveur de base de données
  *
@@ -131,7 +130,8 @@ function spip_connect($serveur = '', $version = '') {
 		$charset = spip_connect_main($GLOBALS[$jeu], $GLOBALS['db_ok']['charset']);
 		if (!$charset) {
 			unset($GLOBALS['connexions'][$index]);
-			spip_logger()->warning('spip_connect: absence de charset');
+			spip_logger()
+				->warning('spip_connect: absence de charset');
 
 			return false;
 		}
@@ -170,9 +170,12 @@ function spip_sql_erreur($serveur = '') {
 	$connexion = spip_connect($serveur);
 	$e = sql_errno($serveur);
 	$t = ($connexion['type'] ?? 'sql');
-	$m = "Erreur $e de $t: " . sql_error($serveur) . "\nin " . sql_error_backtrace() . "\n" . trim((string) $connexion['last']);
+	$m = "Erreur $e de $t: " . sql_error($serveur) . "\nin " . sql_error_backtrace() . "\n" . trim(
+		(string) $connexion['last']
+	);
 	$f = $t . $serveur;
-	spip_logger($f)->error($m);
+	spip_logger($f)
+		->error($m);
 }
 
 /**
@@ -239,7 +242,8 @@ function spip_connect_db(
 	$host,
 	$port,
 	$login,
-	#[\SensitiveParameter] $pass,
+	#[\SensitiveParameter]
+	$pass,
 	$db = '',
 	$type = 'mysql',
 	$prefixe = '',
@@ -297,11 +301,11 @@ function spip_connect_db(
 	// En cas d'indisponibilite du serveur, eviter de le bombarder
 	if ($f) {
 		@touch($f);
-		spip_logger($type)->emergency("Echec connexion serveur $type : host[$host] port[$port] login[$login] base[$db]");
+		spip_logger($type)
+			->emergency("Echec connexion serveur $type : host[$host] port[$port] login[$login] base[$db]");
 	}
 	return null;
 }
-
 
 /**
  * Première connexion au serveur principal de base de données
@@ -377,7 +381,7 @@ function _q($a): string {
 	} elseif (is_array($a)) {
 		return implode(',', array_map('_q', $a));
 	} elseif (is_scalar($a)) {
-		return ("'" . addslashes($a) . "'");
+		return "'" . addslashes($a) . "'";
 	} elseif ($a === null) {
 		return "''";
 	}
@@ -398,8 +402,8 @@ function _q($a): string {
  */
 function query_echappe_textes($query, $uniqid = null) {
 	static $codeEchappements = null;
-	if (is_null($codeEchappements) || $uniqid) {
-		if (is_null($uniqid)) {
+	if ($codeEchappements === null || $uniqid) {
+		if ($uniqid === null) {
 			$uniqid = uniqid();
 		}
 		$uniqid = substr(md5((string) $uniqid), 0, 4);
@@ -435,8 +439,7 @@ function query_echappe_textes($query, $uniqid = null) {
 					&& strpos($query_echappees, $part . $next, $currentpos) === $nextpos
 				) {
 					$part .= array_shift($textes);
-				}
-				else {
+				} else {
 					break;
 				}
 			}
@@ -451,7 +454,12 @@ function query_echappe_textes($query, $uniqid = null) {
 
 		// et on replace les parts une par une en commencant par la fin
 		while ($k > 0) {
-			$query_echappees = substr_replace($query_echappees, $parts[$k]['placeholder'], $parts[$k]['position'], strlen((string) $parts[$k]['texte']));
+			$query_echappees = substr_replace(
+				$query_echappees,
+				$parts[$k]['placeholder'],
+				$parts[$k]['position'],
+				strlen((string) $parts[$k]['texte'])
+			);
 			$k--;
 		}
 		$textes = array_column($parts, 'texte');
@@ -488,7 +496,6 @@ function query_reinjecte_textes($query, $textes) {
 
 	return str_replace(array_values($codeEchappements), array_keys($codeEchappements), $query);
 }
-
 
 /**
  * Exécute une requête sur le serveur SQL

@@ -24,10 +24,11 @@ if (!defined('_ECRIRE_INC_VERSION')) {
  * @return array
  */
 function plugins_infos_paquet($desc, $plug = '', $dir_plugins = _DIR_PLUGINS) {
-	static $process = [ // tableau constant
+	static $process = [
+		// tableau constant
 		'debut' => 'paquet_debutElement',
 		'fin' => 'paquet_finElement',
-		'text' => 'paquet_textElement'
+		'text' => 'paquet_textElement',
 	];
 
 	$valider_xml = charger_fonction('valider', 'xml');
@@ -90,7 +91,6 @@ function plugins_infos_paquet($desc, $plug = '', $dir_plugins = _DIR_PLUGINS) {
  *
  * @param array $tree
  * @param string $dir
- * @return void
  */
 function paquet_readable_files(&$tree, $dir) {
 	$prefix = strtolower((string) $tree['prefix']);
@@ -240,7 +240,6 @@ function info_paquet_chemin($phraseur, $attrs, $texte) {
 	}
 }
 
-
 /**
  * Cas particulier de la balise auteur
  * peupler le mail si besoin (en le protegeant, mais est-ce bien la place pour cela ?)
@@ -336,7 +335,6 @@ function info_paquet_spip($phraseur, $attrs, $texte) {
 	$phraseur->versions[$n]['balise'] = 'spip';
 }
 
-
 /**
  * Pipelines : plusieurs declarations possibles pour un meme pipeline
  *
@@ -348,7 +346,6 @@ function info_paquet_pipeline($phraseur, $attrs, $texte) {
 	$n = $phraseur->contenu['compatible'];
 	$phraseur->versions[$n]['pipeline'][] = $attrs;
 }
-
 
 /**
  * Style : plusieurs declarations possibles.
@@ -377,7 +374,6 @@ function info_paquet_style($phraseur, $attrs, $texte) {
 	$n = $phraseur->contenu['compatible'];
 	$phraseur->versions[$n]['style'][] = ['url' => $lien, 'path' => $chemin, 'type' => $type, 'media' => $media];
 }
-
 
 /**
  * Script : plusieurs declarations possibles.

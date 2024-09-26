@@ -54,7 +54,16 @@ function charger_dtd($grammaire, $avail, $rotlvl) {
 				$dtc->peres[$k] = $v;
 			}
 
-			spip_logger()->info("Analyser DTD $avail $grammaire (" . spip_timer('dtd') . ') ' . (is_countable($dtc->macros) ? count($dtc->macros) : 0) . ' macros, ' . (is_countable($dtc->elements) ? count($dtc->elements) : 0) . ' elements, ' . (is_countable($dtc->attributs) ? count($dtc->attributs) : 0) . " listes d'attributs, " . (is_countable($dtc->entites) ? count($dtc->entites) : 0) . ' entites');
+			spip_logger()
+				->info(
+					"Analyser DTD $avail $grammaire (" . spip_timer('dtd') . ') ' . (is_countable($dtc->macros) ? count(
+						$dtc->macros
+					) : 0) . ' macros, ' . (is_countable(
+						$dtc->elements
+					) ? count($dtc->elements) : 0) . ' elements, ' . (is_countable($dtc->attributs) ? count(
+						$dtc->attributs
+					) : 0) . " listes d'attributs, " . (is_countable($dtc->entites) ? count($dtc->entites) : 0) . ' entites'
+				);
 			#	$r = $dtc->regles; ksort($r);foreach($r as $l => $v) {$t=array_keys($dtc->attributs[$l]);echo "<b>$l</b> '$v' ", count($t), " attributs: ", join (', ',$t);$t=$dtc->peres[$l];echo "<br>",count($t), " peres: ", @join (', ',$t), "<br>\n";}exit;
 			ecrire_fichier($file, serialize($dtc), true);
 		}
@@ -85,17 +94,12 @@ function compilerRegle($val) {
 				preg_replace(
 					'/\s*\)/',
 					')',
-					preg_replace(
-						'/\s*([(+*|?])\s*/',
-						'\1',
-						preg_replace('/\s*#\w+\s*[,|]?\s*/', '', (string) $val)
-					)
+					preg_replace('/\s*([(+*|?])\s*/', '\1', preg_replace('/\s*#\w+\s*[,|]?\s*/', '', (string) $val))
 				)
 			)
 		)
 	);
 }
-
 
 function analyser_dtd($loc, $avail, &$dtc) {
 	// creer le repertoire de cache si ce n'est fait
@@ -131,9 +135,9 @@ function analyser_dtd($loc, $avail, &$dtc) {
 		spip_logger()->info("DTD '$loc' ($file) inaccessible");
 
 		return false;
-	} else {
-		spip_logger()->info("analyse de la DTD $loc ");
 	}
+	spip_logger()
+		->info("analyse de la DTD $loc ");
 
 	while ($dtd) {
 		if ($dtd[0] != '<') {
@@ -215,11 +219,7 @@ function analyser_dtd_data($dtd, &$dtc, $grammaire) {
 		return -11;
 	}
 	if (
-		!preg_match(
-			'/^((\s*<!(\[\s*%\s*[^;]*;\s*\[([^]<]*<[^>]*>)*[^]<]*\]\]>)|([^]>]*>))*[^]<]*)\]\]>\s*/s',
-			$m[2],
-			$r
-		)
+		!preg_match('/^((\s*<!(\[\s*%\s*[^;]*;\s*\[([^]<]*<[^>]*>)*[^]<]*\]\]>)|([^]>]*>))*[^]<]*)\]\]>\s*/s', $m[2], $r)
 	) {
 		return -12;
 	}
@@ -233,7 +233,8 @@ function analyser_dtd_notation($dtd, &$dtc, $grammaire) {
 	if (!preg_match('/^<!NOTATION.*?>\s*(.*)$/s', (string) $dtd, $m)) {
 		return -8;
 	}
-	spip_logger()->info('analyser_dtd_notation a ecrire');
+	spip_logger()
+		->info('analyser_dtd_notation a ecrire');
 
 	return $m[1];
 }
@@ -336,7 +337,6 @@ function analyser_dtd_element($dtd, &$dtc, $grammaire) {
 	return $dtd;
 }
 
-
 function analyser_dtd_attlist($dtd, &$dtc, $grammaire) {
 	if (!preg_match('/^<!ATTLIST\s+(\S+)\s+([^>]*)>\s*(.*)/s', (string) $dtd, $m)) {
 		return -5;
@@ -361,7 +361,6 @@ function analyser_dtd_attlist($dtd, &$dtc, $grammaire) {
 
 	return $dtd;
 }
-
 
 /**
  * Remplace dans la chaîne `$val` les sous-chaines de forme `%NOM;`

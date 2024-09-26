@@ -15,12 +15,10 @@ use Symplify\EasyCodingStandard\Config\ECSConfig;
 use Symplify\EasyCodingStandard\ValueObject\Option;
 
 return ECSConfig::configure()
-	->withPaths([
-		__DIR__ . '/ecrire',
-	])
+	->withPaths([__DIR__ . '/ecrire'])
 	->withRootFiles()
 	->withSpacing(Option::INDENTATION_TAB)
-	->withPreparedSets(psr12: true, common: true, cleanCode: true, simplify: true)
+	->withPreparedSets(psr12: true, common: true, cleanCode: true, symplify: true)
 	->withConfiguredRule(CurlyBracesPositionFixer::class, [
 		'functions_opening_brace' => 'same_line',
 		'anonymous_functions_opening_brace' => 'same_line',
@@ -28,12 +26,9 @@ return ECSConfig::configure()
 	->withConfiguredRule(GeneralPhpdocAnnotationRemoveFixer::class, [
 		'annotations' => ['throws', 'group', 'covers', 'category'],
 	])
-	->withRules([
-		NoExtraBlankLinesFixer::class,
-		DisallowLongArraySyntaxSniff::class,
-	])
+	->withRules([NoExtraBlankLinesFixer::class, DisallowLongArraySyntaxSniff::class])
 	->withSkip([
-		__DIR__ .'/ecrire/lang',
+		__DIR__ . '/ecrire/lang',
 		ArrayListItemNewlineFixer::class,
 		ArrayOpenerAndCloserNewlineFixer::class,
 		ExplicitStringVariableFixer::class,

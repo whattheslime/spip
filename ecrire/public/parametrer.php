@@ -83,7 +83,7 @@ function public_parametrer_dist($fond, $contexte = '', $cache = '', string $conn
 
 		// On cree un marqueur de notes unique lie a cette composition
 		// et on enregistre l'etat courant des globales de notes...
-		if (is_null($notes)) {
+		if ($notes === null) {
 			$notes = charger_fonction('notes', 'inc', true);
 		}
 		if ($notes) {
@@ -142,8 +142,8 @@ function public_parametrer_dist($fond, $contexte = '', $cache = '', string $conn
 		$infos = presenter_contexte(array_filter($contexte));
 
 		$profile = spip_timer($a, true);
-		spip_logger()->info("calcul ($profile) [$skel] $infos"
-			. ' (' . strlen((string) $page['texte']) . ' octets)');
+		spip_logger()
+			->info("calcul ($profile) [$skel] $infos" . ' (' . strlen((string) $page['texte']) . ' octets)');
 
 		if (defined('_CALCUL_PROFILER') && (int) $profile > _CALCUL_PROFILER) {
 			spip_logger('profiler')->notice("calcul ($profile) [$skel] $infos"
@@ -209,7 +209,7 @@ function public_parametrer_dist($fond, $contexte = '', $cache = '', string $conn
  * Retourne une présentation succincte du contexte pour les logs
  * @param array $contexte
  * @return string
-*/
+ */
 function presenter_contexte($contexte, $profondeur_max = 1, $max_lines = 0) {
 	$infos = [];
 	$line = 0;
@@ -244,7 +244,6 @@ function presenter_contexte($contexte, $profondeur_max = 1, $max_lines = 0) {
 	return implode(', ', $infos);
 }
 
-
 /**
  * Si le champ virtuel est non vide c'est une redirection.
  * avec un eventuel raccourci Spip
@@ -259,12 +258,11 @@ function presenter_contexte($contexte, $profondeur_max = 1, $max_lines = 0) {
  */
 function tester_redirection($fond, $contexte, $connect) {
 	static $tester_redirection = null;
-	if (is_null($tester_redirection)) {
+	if ($tester_redirection === null) {
 		$tester_redirection = charger_fonction('tester_redirection', 'public');
 	}
 	return $tester_redirection($fond, $contexte, $connect);
 }
-
 
 /**
  * Si le champ virtuel est non vide c'est une redirection.
@@ -309,7 +307,7 @@ function public_tester_redirection_dist($fond, $contexte, $connect) {
 						. "','',$status);"
 						. '?' . '>',
 					'process_ins' => 'php',
-					'status' => $status
+					'status' => $status,
 				];
 			}
 		}

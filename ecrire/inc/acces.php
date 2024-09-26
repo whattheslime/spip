@@ -30,7 +30,7 @@ if (!defined('_ECRIRE_INC_VERSION')) {
  *     Mot de passe
  */
 function creer_pass_aleatoire($longueur = 16, $sel = '') {
-	$seed = (int)round(((float)microtime() + 1) * time());
+	$seed = (int) round(((float) microtime() + 1) * time());
 
 	mt_srand($seed);
 	$s = '';
@@ -76,7 +76,7 @@ function creer_uniqid() {
 	static $seeded;
 
 	if (!$seeded) {
-		$seed = (int)round(((float)microtime() + 1) * time());
+		$seed = (int) round(((float) microtime() + 1) * time());
 		mt_srand($seed);
 		$seeded = true;
 	}
@@ -118,10 +118,11 @@ function charger_aleas() {
 				$GLOBALS['meta'][$a['nom']] = $a['valeur'];
 			}
 			return $GLOBALS['meta']['alea_ephemere'];
-		} else {
-			spip_logger('session')->info('aleas indisponibles');
-			return '';
 		}
+		spip_logger('session')
+			->info('aleas indisponibles');
+		return '';
+
 	}
 	return $GLOBALS['meta']['alea_ephemere'];
 }
@@ -135,9 +136,9 @@ function renouvelle_alea() {
 	$GLOBALS['meta']['alea_ephemere'] = md5(creer_uniqid());
 	ecrire_meta('alea_ephemere', $GLOBALS['meta']['alea_ephemere'], 'non');
 	ecrire_meta('alea_ephemere_date', time(), 'non');
-	spip_logger()->info("renouvellement de l'alea_ephemere");
+	spip_logger()
+		->info("renouvellement de l'alea_ephemere");
 }
-
 
 /**
  * Retourne une clé de sécurité faible (low_sec) pour l'auteur indiqué
@@ -171,7 +172,6 @@ function low_sec($id_auteur) {
 
 	return $low_sec;
 }
-
 
 /**
  * Vérifie un accès à faible sécurité
@@ -213,7 +213,15 @@ function securiser_acces_low_sec($id_auteur, #[\SensitiveParameter] $cle, $dir, 
  * Generer une url xxx.api/$id_auteur/$cle/$format/$fond?$args
  * @return string
  */
-function generer_url_api_low_sec(string $script, string $format, string $fond, string $path, string $args, bool $no_entities = false, ?bool $public = null) {
+function generer_url_api_low_sec(
+	string $script,
+	string $format,
+	string $fond,
+	string $path,
+	string $args,
+	bool $no_entities = false,
+	?bool $public = null
+) {
 	$id_auteur = $GLOBALS['visiteur_session']['id_auteur'] ?? 0;
 	$cle = afficher_low_sec($id_auteur, "$script/$format $fond $args");
 	$path = "$id_auteur/$cle/$format/$fond" . ($path ? "/$path" : '');
@@ -252,7 +260,7 @@ function afficher_low_sec($id_auteur, $action = '') {
  *     true si les clés corresponde, false sinon
  */
 function verifier_low_sec($id_auteur, #[\SensitiveParameter] $cle, $action = '') {
-	return ($cle == afficher_low_sec($id_auteur, $action));
+	return $cle == afficher_low_sec($id_auteur, $action);
 }
 
 /**
@@ -267,7 +275,6 @@ function effacer_low_sec($id_auteur) {
 	} // jamais trop prudent ;)
 	sql_updateq('spip_auteurs', ['low_sec' => ''], 'id_auteur = ' . (int) $id_auteur);
 }
-
 
 /**
  * Créer un fichier htpasswd
@@ -290,7 +297,9 @@ function ecrire_acces() {
 	// par exemple acces_restreint ;
 	// si .htaccess existe, outrepasser spip_meta
 	if (
-		(!isset($GLOBALS['meta']['creer_htpasswd']) || $GLOBALS['meta']['creer_htpasswd'] != 'oui') && !@file_exists($htaccess)
+		(!isset($GLOBALS['meta']['creer_htpasswd']) || $GLOBALS['meta']['creer_htpasswd'] != 'oui') && !@file_exists(
+			$htaccess
+		)
 	) {
 		spip_unlink($htpasswd);
 		spip_unlink($htpasswd . '-admin');
@@ -321,7 +330,11 @@ function generer_htpasswd_files($htpasswd, $htpasswd_admin) {
 	$pwd_all = ''; // login:htpass pour tous
 	$pwd_admin = ''; // login:htpass pour les admins
 
-	$res = sql_select('login, htpass, statut', 'spip_auteurs', "htpass!='' AND login!='' AND " . sql_in('statut', ['1comite', '0minirezo', 'nouveau']));
+	$res = sql_select(
+		'login, htpass, statut',
+		'spip_auteurs',
+		"htpass!='' AND login!='' AND " . sql_in('statut', ['1comite', '0minirezo', 'nouveau'])
+	);
 	while ($row = sql_fetch($res)) {
 		if (strlen((string) $row['login']) && strlen((string) $row['htpass'])) {
 			$ligne = $row['login'] . ':' . $row['htpass'] . "\n";
@@ -335,7 +348,8 @@ function generer_htpasswd_files($htpasswd, $htpasswd_admin) {
 	if ($pwd_all) {
 		ecrire_fichier($htpasswd, $pwd_all);
 		ecrire_fichier($htpasswd_admin, $pwd_admin);
-		spip_logger('htpass')->info("Ecriture de $htpasswd et $htpasswd_admin");
+		spip_logger('htpass')
+			->info("Ecriture de $htpasswd et $htpasswd_admin");
 	}
 }
 
@@ -404,7 +418,8 @@ function verifier_htaccess($rep, $force = false) {
 			$ht = ($ht['status'] ?? null) === 403;
 		}
 	}
-	spip_logger()->info("Creation de $htaccess " . ($ht ? ' reussie' : ' manquee'));
+	spip_logger()
+		->info("Creation de $htaccess " . ($ht ? ' reussie' : ' manquee'));
 
 	return $ht;
 }

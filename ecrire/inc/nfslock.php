@@ -111,7 +111,6 @@ function spip_nfslock($fichier, $max_age = 0) {
 	}
 	$lock_file = _DIR_TMP . _NAME_LOCK . '-' . substr(md5($fichier), 0, 8);
 
-
 	/*
 	 * 1. create a tmp file with a psuedo random file name. we also make
 	 *    tpath which is a buffer to store the full pathname of the tmp file.
@@ -147,7 +146,7 @@ function spip_nfslock($fichier, $max_age = 0) {
 				return false; // (NFSL_SYSF);
 			}
 
-			return ($our_tmp['ctime']);
+			return $our_tmp['ctime'];
 		}
 
 		/*
@@ -161,7 +160,6 @@ function spip_nfslock($fichier, $max_age = 0) {
 		if (@fwrite($tmpfd, 'zz', 2) != 2 || !$our_tmp = fstat($tmpfd)) {
 			break;
 		} /* something bogus is going on */
-
 
 		if ($old_stat != false && (($old_stat['ctime'] + $max_age) < $our_tmp['ctime'])) {
 			spip_unlink($lock_file); /* break the stale lock */
@@ -284,7 +282,7 @@ function spip_nfsunlock($fichier, $birth, $max_age = 0, $test = false) {
 			sleep(1 + (random_int(0, 4)));    /* so sleep a bit */
 		}
 
-		return true;//(NFSL_OK);			/* success */
+		return true; //(NFSL_OK);			/* success */
 	}
 
 	/*
@@ -300,7 +298,6 @@ function spip_nfsunlock($fichier, $birth, $max_age = 0, $test = false) {
 
 	return false; //(NFSL_LOST);	/* The lock must have expired first. */
 }
-
 
 /**
  * Test a lock to see if it's still valid.

@@ -21,7 +21,6 @@ if (!defined('_ECRIRE_INC_VERSION')) {
 
 include_spip('inc/autoriser'); // necessaire si appel de l'espace public
 
-
 /**
  * Retourne les valeurs à charger pour un formulaire d'édition d'un objet
  *
@@ -106,7 +105,6 @@ function precharger_objet($type, $id_objet, $id_rubrique = 0, $lier_trad = 0, $c
 	return $row;
 }
 
-
 /**
  * Récupère les valeurs d'une traduction de référence pour la création
  * d'un objet (préremplissage du formulaire).
@@ -153,8 +151,7 @@ function precharger_traduction_objet($type, $id_objet, $id_rubrique = 0, $lier_t
 			if (count($autre_langue) == 1) {
 				$row['lang'] = reset($autre_langue);
 			}
-		}
-		else {
+		} else {
 			$row['lang'] = 'en';
 		}
 
@@ -164,7 +161,6 @@ function precharger_traduction_objet($type, $id_objet, $id_rubrique = 0, $lier_t
 			return $row;
 		}
 		$id_rubrique = $row['id_rubrique'];
-
 
 		// Regler la langue, si possible, sur celle du redacteur
 		// Cela implique souvent de choisir une rubrique ou un secteur

@@ -31,6 +31,7 @@ class Decorator extends FilterIterator
 	 * @var int
 	 */
 	protected $offset;
+
 	protected $limit;
 
 	/**
@@ -83,6 +84,7 @@ class Decorator extends FilterIterator
 	 * retournes par ->fetch().
 	 */
 	protected $select = [];
+
 	private readonly Iterator $iter;
 
 	public function __construct(
@@ -140,7 +142,9 @@ class Decorator extends FilterIterator
 			} catch (Exception) {
 				// #GETCHILDREN sur un fichier de DirectoryIterator ...
 				$this->logger->info("Methode {$nom} en echec sur " . $this->iter::class);
-				$this->logger->info("Cela peut être normal : retour d'une ligne de resultat ne pouvant pas calculer cette methode");
+				$this->logger->info(
+					"Cela peut être normal : retour d'une ligne de resultat ne pouvant pas calculer cette methode"
+				);
 
 				return '';
 			}
@@ -214,7 +218,7 @@ class Decorator extends FilterIterator
 		$seek = $this->pos + $saut;
 		// si le saut fait depasser le maxi, on libere la resource
 		// et on sort
-		if (is_null($max)) {
+		if ($max === null) {
 			$max = $this->count();
 		}
 
@@ -243,8 +247,8 @@ class Decorator extends FilterIterator
 			return $this->iter->fetch();
 		}
 		while (
-				$this->valid()
-				&& (!$this->accept() || $this->offset !== null && $this->fetched++ < $this->offset)
+			$this->valid()
+			&& (!$this->accept() || $this->offset !== null && $this->fetched++ < $this->offset)
 		) {
 			$this->next();
 		}
@@ -254,8 +258,8 @@ class Decorator extends FilterIterator
 		}
 
 		if (
-				$this->limit !== null
-				&& $this->fetched > $this->offset + $this->limit
+			$this->limit !== null
+			&& $this->fetched > $this->offset + $this->limit
 		) {
 			return false;
 		}
@@ -312,7 +316,7 @@ class Decorator extends FilterIterator
 	 * @return int
 	 */
 	public function count() {
-		if (is_null($this->total)) {
+		if ($this->total === null) {
 			if (
 				method_exists($this->iter, 'count')
 				&& !$this->func_filtre
@@ -350,7 +354,7 @@ class Decorator extends FilterIterator
 				$op = array_shift($v);
 				$v = $this->assembler_filtres($v, $op);
 			}
-			if (is_null($v) || !is_string($v) || empty($v)) {
+			if ($v === null || !is_string($v) || empty($v)) {
 				continue;
 			}
 			$filtres_string[] = $v;
@@ -372,20 +376,20 @@ class Decorator extends FilterIterator
 	 */
 	protected function traduire_condition_sql_en_filtre($v) {
 		if (is_array($v)) {
-			if ((count($v) >= 2) && ('REGEXP' == $v[0]) && ("'.*'" == $v[2])) {
+			if ((count($v) >= 2) && ($v[0] == 'REGEXP') && ($v[2] == "'.*'")) {
 				return 'true';
 			}
-			if ((count($v) >= 2) && ('LIKE' == $v[0]) && ("'%'" == $v[2])) {
+			if ((count($v) >= 2) && ($v[0] == 'LIKE') && ($v[2] == "'%'")) {
 				return 'true';
 			}
 			$op = $v[0] ?: $v;
 		} else {
 			$op = $v;
 		}
-		if (!$op || 1 == $op || '0=0' == $op) {
+		if (!$op || $op == 1 || $op == '0=0') {
 			return 'true';
 		}
-		if ('0=1' === $op) {
+		if ($op === '0=1') {
 			return 'false';
 		}
 		// traiter {cle IN a,b} ou {valeur !IN a,b}
@@ -399,32 +403,32 @@ class Decorator extends FilterIterator
 		// * 3 : {x op y} ; on recoit $v[0] = 'op', $v[1] = x, $v[2] = y
 
 		// 1 : forcement traite par un critere, on passe
-		if (!$v || !is_array($v) || 1 == count($v)) {
+		if (!$v || !is_array($v) || count($v) == 1) {
 			return null; // sera ignore
 		}
-		if (2 == count($v) && is_array($v[1])) {
+		if (count($v) == 2 && is_array($v[1])) {
 			return $this->composer_filtre($v[1][1], $v[1][0], $v[1][2], 'NOT');
 		}
-		if (3 == count($v)) {
+		if (count($v) == 3) {
 			// traiter le OR/AND suivi de 2 valeurs
 			if (in_array($op, ['OR', 'AND'])) {
 				array_shift($v);
 				foreach (array_keys($v) as $k) {
 					$v[$k] = $this->traduire_condition_sql_en_filtre($v[$k]);
-					if (null === $v[$k]) {
+					if ($v[$k] === null) {
 						unset($v[$k]);
-					} elseif ('true' === $v[$k]) {
-						if ('OR' === $op) {
+					} elseif ($v[$k] === 'true') {
+						if ($op === 'OR') {
 							return 'true';
 						}
-						if ('AND' === $op) {
+						if ($op === 'AND') {
 							unset($v[$k]);
 						}
-					} elseif ('false' === $v[$k]) {
-						if ('OR' === $op) {
+					} elseif ($v[$k] === 'false') {
+						if ($op === 'OR') {
 							unset($v[$k]);
 						}
-						if ('AND' === $op) {
+						if ($op === 'AND') {
 							return 'false';
 						}
 					}
@@ -432,7 +436,7 @@ class Decorator extends FilterIterator
 				if ($v === []) {
 					return null;
 				}
-				if (1 === count($v)) {
+				if (count($v) === 1) {
 					return reset($v);
 				}
 				array_unshift($v, $op);
@@ -476,19 +480,19 @@ class Decorator extends FilterIterator
 
 		$filtre = '';
 
-		if ('REGEXP' == $op) {
+		if ($op == 'REGEXP') {
 			$filtre = 'filtrer("match", ' . $a . ', ' . str_replace('\"', '"', (string) $valeur) . ')';
 			$op = '';
 		} else {
-			if ('LIKE' == $op) {
+			if ($op == 'LIKE') {
 				$valeur = str_replace(['\"', '_', '%'], ['"', '.', '.*'], preg_quote((string) $valeur));
 				$filtre = 'filtrer("match", ' . $a . ', ' . $valeur . ')';
 				$op = '';
 			} else {
-				if ('=' == $op) {
+				if ($op == '=') {
 					$op = '==';
 				} else {
-					if ('IN' == $op) {
+					if ($op == 'IN') {
 						$filtre = 'in_array(' . $a . ', array' . $valeur . ')';
 						$op = '';
 					} else {
@@ -519,7 +523,7 @@ class Decorator extends FilterIterator
 		if ($select = &$this->command['select']) {
 			foreach ($select as $s) {
 				// /!\ $s = '.nom'
-				if ('.' == $s[0]) {
+				if ($s[0] == '.') {
 					$s = substr((string) $s, 1);
 				}
 				$this->select[] = $s;

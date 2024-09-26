@@ -29,9 +29,16 @@ function typographie_fr_dist($letexte) {
 			'&laquo;' => '&#171;',
 			'&rdquo;' => '&#8221;',
 			'&ldquo;' => '&#8220;',
-			'&deg;' => '&#176;'
+			'&deg;' => '&#176;',
 		];
-		$chars = [160 => '~', 187 => '&#187;', 171 => '&#171;', 148 => '&#8221;', 147 => '&#8220;', 176 => '&#176;'];
+		$chars = [
+			160 => '~',
+			187 => '&#187;',
+			171 => '&#171;',
+			148 => '&#8221;',
+			147 => '&#8220;',
+			176 => '&#176;',
+		];
 		$chars_trans = array_keys($chars);
 		$chars = array_values($chars);
 		$chars_trans = implode(' ', array_map('chr', $chars_trans));
@@ -52,7 +59,7 @@ function typographie_fr_dist($letexte) {
 		/* 3 */
 		'/([^[<(!?.])([!?][!?\.]*)/iS',
 		/* 4 */
-		'/&#171;|(?:M(?:M?\.|mes?|r\.?)|[MnN]&#176;) /S'
+		'/&#171;|(?:M(?:M?\.|mes?|r\.?)|[MnN]&#176;) /S',
 	];
 	$remplace1 = [
 		/* 1 */
@@ -62,21 +69,13 @@ function typographie_fr_dist($letexte) {
 		/* 3 */
 		'\1~\2',
 		/* 4 */
-		'\0~'
+		'\0~',
 	];
 	$letexte = preg_replace($cherche1, $remplace1, $letexte);
 	$letexte = preg_replace('/ *~+ */S', '~', $letexte);
 
-	$cherche2 = [
-		'/([^-\n]|^)--([^-]|$)/S',
-		',(' . _PROTOCOLES_STD . ')~((://[^"\'\s\[\]\}\)<>]+)~([?]))?,S',
-		'/~/'
-	];
-	$remplace2 = [
-		'\1&mdash;\2',
-		'\1\3\4',
-		'&nbsp;'
-	];
+	$cherche2 = ['/([^-\n]|^)--([^-]|$)/S', ',(' . _PROTOCOLES_STD . ')~((://[^"\'\s\[\]\}\)<>]+)~([?]))?,S', '/~/'];
+	$remplace2 = ['\1&mdash;\2', '\1\3\4', '&nbsp;'];
 
 	return preg_replace($cherche2, $remplace2, $letexte);
 }

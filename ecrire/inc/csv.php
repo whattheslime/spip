@@ -72,11 +72,7 @@ function analyse_csv($t) {
 		);
 	}
 
-	$t = preg_replace(
-		'/\r?\n/',
-		"\n",
-		preg_replace('/[\r\n]+/', "\n", $t)
-	);
+	$t = preg_replace('/\r?\n/', "\n", preg_replace('/[\r\n]+/', "\n", $t));
 
 	[$entete, $corps] = explode("\n", $t, 2);
 	$caption = '';

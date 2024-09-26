@@ -24,7 +24,6 @@ if (!defined('_ECRIRE_INC_VERSION')) {
  *
  * @global array $GLOBALS ['visiteur_session']
  * @global array $GLOBALS ['meta']
- * @return void
  */
 function enregistre_modif_plugin() {
 	include_spip('inc/plugin');
@@ -47,11 +46,12 @@ function enregistre_modif_plugin() {
 		}
 	}
 
-	spip_logger()->info(sprintf(
-		'Changement des plugins actifs par l’auteur %s: %s',
-		$GLOBALS['visiteur_session']['id_auteur'],
-		implode(',', $plugin)
-	));
+	spip_logger()
+		->info(sprintf(
+			'Changement des plugins actifs par l’auteur %s: %s',
+			$GLOBALS['visiteur_session']['id_auteur'],
+			implode(',', $plugin)
+		));
 	ecrire_plugin_actifs($plugin);
 
 	// Chaque fois que l'on valide des plugins, on memorise la liste de ces plugins comme etant "interessants", avec un score initial, qui sera decremente a chaque tour : ainsi un plugin active pourra reter visible a l'ecran, jusqu'a ce qu'il tombe dans l'oubli.
@@ -77,8 +77,6 @@ function enregistre_modif_plugin() {
  * Fonction d'initialisation avant l'activation des plugins
  *
  * Vérifie les droits et met à jour les méta avant de lancer l'activation des plugins
- *
- * @return void
  */
 function action_activer_plugins_dist() {
 

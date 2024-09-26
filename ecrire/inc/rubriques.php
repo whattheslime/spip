@@ -21,7 +21,6 @@ if (!defined('_ECRIRE_INC_VERSION')) {
 	return;
 }
 
-
 /**
  * Recalcule les statuts d'une rubrique
  *
@@ -51,7 +50,6 @@ if (!defined('_ECRIRE_INC_VERSION')) {
  *     Infos sur l'objet modifié : statut_ancien, objet, id_objet…
  * @param bool $postdate
  *     true pour recalculer aussi la date du prochain article post-daté
- * @return void
  */
 function calculer_rubriques_if($id_rubrique, $modifs, $infos = [], $postdate = false) {
 	$statuts_publies = null;
@@ -115,7 +113,6 @@ function calculer_rubriques_if($id_rubrique, $modifs, $infos = [], $postdate = f
 	ecrire_meta('langues_utilisees', $langues);
 }
 
-
 /**
  * Publie une rubrique et sa hiérarchie de rubriques
  *
@@ -144,7 +141,7 @@ function publier_branche_rubrique($id_rubrique) {
 		$id_rubrique = $id_parent;
 	}
 
-#	spip_logger()->info(" publier_branche_rubrique($id_rubrique $id_pred");
+	#	spip_logger()->info(" publier_branche_rubrique($id_rubrique $id_pred");
 	return $id_pred != $id_rubrique;
 }
 
@@ -193,7 +190,7 @@ function depublier_branche_rubrique_if($id_rubrique) {
  *    true si la rubrique a été dépubliée
  */
 function depublier_rubrique_if($id_rubrique, $date = null) {
-	if (is_null($date)) {
+	if ($date === null) {
 		$date = date('Y-m-d H:i:s');
 	}
 	$postdates = ($GLOBALS['meta']['post_dates'] == 'non') ?
@@ -220,7 +217,7 @@ function depublier_rubrique_if($id_rubrique, $date = null) {
 		'documents' => sql_countsel(
 			'spip_documents AS D JOIN spip_documents_liens AS L ON D.id_document=L.id_document',
 			'L.id_objet=' . intval($id_rubrique) . " AND L.objet='rubrique' and D.mode NOT IN('logoon', 'logooff') "
-		)
+		),
 	];
 
 	// On passe le tableau des comptes dans un pipeline pour que les plugins puissent ajouter (ou retirer) des enfants
@@ -231,9 +228,9 @@ function depublier_rubrique_if($id_rubrique, $date = null) {
 				'objet' => 'rubrique',
 				'id_objet' => $id_rubrique,
 				'statut' => 'publie',
-				'date' => $date
+				'date' => $date,
 			],
-			'data' => $compte
+			'data' => $compte,
 		]
 	);
 
@@ -246,10 +243,9 @@ function depublier_rubrique_if($id_rubrique, $date = null) {
 
 	sql_updateq('spip_rubriques', ['statut' => 'prepa'], 'id_rubrique=' . intval($id_rubrique));
 
-#		spip_logger()->info("depublier_rubrique $id_pred");
+	#		spip_logger()->info("depublier_rubrique $id_pred");
 	return true;
 }
-
 
 /**
  * Recalcule des héritages de rubriques
@@ -265,8 +261,6 @@ function depublier_rubrique_if($id_rubrique, $date = null) {
  * @uses calculer_rubriques_publiees()
  * @uses calculer_langues_utilisees()
  * @uses calculer_prochain_postdate()
- *
- * @return void
  */
 function calculer_rubriques() {
 
@@ -284,7 +278,6 @@ function calculer_rubriques() {
 	calculer_prochain_postdate();
 }
 
-
 /**
  * Recalcule l'ensemble des données associées à l'arborescence des rubriques
  *
@@ -293,8 +286,6 @@ function calculer_rubriques() {
  * pendant la demi seconde de recalculs
  *
  * @pipeline_appel calculer_rubriques
- *
- * @return void
  */
 function calculer_rubriques_publiees() {
 
@@ -330,7 +321,6 @@ function calculer_rubriques_publiees() {
 	// [C'est un trigger... a renommer en trig_calculer_rubriques ?]
 	pipeline('calculer_rubriques', null);
 
-
 	// Les rubriques qui ont une rubrique fille plus recente
 	// on tourne tant que les donnees remontent vers la racine.
 	do {
@@ -363,8 +353,6 @@ function calculer_rubriques_publiees() {
  * On procede en iterant la profondeur de 1 en 1 pour ne pas risquer une boucle infinie sur reference circulaire
  *
  * @pipeline_appel trig_propager_les_secteurs
- *
- * @return void
  */
 function propager_les_secteurs() {
 	// Profondeur 0
@@ -429,7 +417,6 @@ function propager_les_secteurs() {
 			}
 		}
 
-
 		// Toutes les rubriques de profondeur $prof+1 qui n'ont pas un parent de profondeur $prof sont decalees
 		$maxiter2 = $maxiter;
 		while (
@@ -485,7 +472,6 @@ function propager_les_secteurs() {
 	pipeline('trig_propager_les_secteurs', '');
 }
 
-
 /**
  * Recalcule les langues héritées des sous-rubriques
  *
@@ -528,8 +514,6 @@ function calculer_langues_rubriques_etape() {
  *
  * @uses calculer_langues_rubriques_etape()
  * @pipeline_appel trig_calculer_langues_rubriques
- *
- * @return void
  */
 function calculer_langues_rubriques() {
 
@@ -540,7 +524,7 @@ function calculer_langues_rubriques() {
 		"id_parent=0 AND langue_choisie != 'oui'"
 	);
 	while (calculer_langues_rubriques_etape()) {
-		;
+
 	}
 
 	// articles
@@ -566,7 +550,6 @@ function calculer_langues_rubriques() {
 	// avertir les plugins qui peuvent faire leur mises a jour egalement
 	pipeline('trig_calculer_langues_rubriques', '');
 }
-
 
 /**
  * Calcule la liste des langues réellement utilisées dans le site public
@@ -629,7 +612,10 @@ function calculer_langues_utilisees($serveur = '') {
 				];
 				// generer un nom de fonction "anonyme" unique
 				do {
-					$functionname = 'f_calculer_langues_utilisees_' . $boucle->id_table . '_' . time() . '_' . random_int(0, mt_getrandmax());
+					$functionname = 'f_calculer_langues_utilisees_' . $boucle->id_table . '_' . time() . '_' . random_int(
+						0,
+						mt_getrandmax()
+					);
 				} while (function_exists($functionname));
 				$code = calculer_boucle('calculer_langues_utilisees', $boucles);
 				$code = '$SP=0; $command=array();$command["connect"] = $connect = "' . $serveur . '"; $Pile=array(0=>array());' . "\n" . $code;
@@ -652,7 +638,8 @@ function calculer_langues_utilisees($serveur = '') {
 	$langues = array_filter(array_keys($langues));
 	sort($langues);
 	$langues = join(',', $langues);
-	spip_logger()->info("langues utilisees: $langues");
+	spip_logger()
+		->info("langues utilisees: $langues");
 
 	return $langues;
 }
@@ -695,7 +682,6 @@ function calcul_hierarchie_in($id, $tout = true) {
 
 	return $calcul_hierarchie_in($id, $tout);
 }
-
 
 /**
  * Calcul d'une branche de rubriques
@@ -749,7 +735,6 @@ function inc_calcul_branche_in_dist($id) {
 
 	return $branche;
 }
-
 
 /**
  * Calcul d'une hiérarchie
@@ -810,7 +795,6 @@ function inc_calcul_hierarchie_in_dist($id, $tout = true) {
 	return $hier;
 }
 
-
 /**
  * Calcule la date du prochain article post-daté
  *
@@ -822,7 +806,6 @@ function inc_calcul_hierarchie_in_dist($id, $tout = true) {
  *
  * @param bool $check
  *     true pour affecter le statut des rubriques concernées.
- * @return void
  */
 function calculer_prochain_postdate($check = false) {
 	include_spip('base/abstract_sql');
@@ -840,9 +823,9 @@ function calculer_prochain_postdate($check = false) {
 		}
 
 		// Poser un mutex le temps de l'éxécution de trig_calculer_prochain_postdate
-		$fichier = _DIR_TMP . "postdate.lock";
-		if(!jeune_fichier($fichier,30)){
-			ecrire_fichier($fichier, 'lock '.date('Y-m-d H:i:s'),true);
+		$fichier = _DIR_TMP . 'postdate.lock';
+		if (!jeune_fichier($fichier, 30)) {
+			ecrire_fichier($fichier, 'lock ' . date('Y-m-d H:i:s'), true);
 			pipeline('trig_calculer_prochain_postdate', '');
 			supprimer_fichier($fichier);
 		} else {
@@ -873,7 +856,8 @@ function calculer_prochain_postdate($check = false) {
 		ecrire_meta('derniere_modif', time());
 	}
 
-	spip_logger()->info("prochain postdate: $t");
+	spip_logger()
+		->info("prochain postdate: $t");
 }
 
 /**
@@ -900,12 +884,12 @@ function creer_rubrique_nommee($titre, $id_parent = 0, $serveur = '') {
 
 	// eclater l'arborescence demandee
 	// echapper les </multi> et autres balises fermantes html
-	$titre = preg_replace(',</([a-z][^>]*)>,ims', "<@\\1>", $titre);
+	$titre = preg_replace(',</([a-z][^>]*)>,ims', '<@\\1>', $titre);
 	$arbo = explode('/', preg_replace(',^/,', '', $titre));
 	include_spip('base/abstract_sql');
 	foreach ($arbo as $titre) {
 		// retablir les </multi> et autres balises fermantes html
-		$titre = preg_replace(',<@([a-z][^>]*)>,ims', "</\\1>", $titre);
+		$titre = preg_replace(',<@([a-z][^>]*)>,ims', '</\\1>', $titre);
 		$r = sql_getfetsel(
 			'id_rubrique',
 			'spip_rubriques',
@@ -920,10 +904,10 @@ function creer_rubrique_nommee($titre, $id_parent = 0, $serveur = '') {
 			$id_parent = $r;
 		} else {
 			$id_rubrique = sql_insertq('spip_rubriques', [
-					'titre' => $titre,
-					'id_parent' => $id_parent,
-					'statut' => 'prepa'
-				], $desc = [], $serveur);
+				'titre' => $titre,
+				'id_parent' => $id_parent,
+				'statut' => 'prepa',
+			], $desc = [], $serveur);
 			if ($id_parent > 0) {
 				$data = sql_fetsel(
 					'id_secteur,lang',

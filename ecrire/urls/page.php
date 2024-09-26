@@ -33,7 +33,7 @@ function urls_page_generer_url_objet_dist(int $id, string $objet, string $args =
 		$url = $generer_url_externe($id, $args, $ancre);
 		// une url === null indique "je ne traite pas cette url, appliquez le calcul standard"
 		// une url vide est une url vide, ne rien faire de plus
-		if (!is_null($url)) {
+		if ($url !== null) {
 			return $url;
 		}
 	}
@@ -53,9 +53,6 @@ function urls_page_generer_url_objet_dist(int $id, string $objet, string $args =
  * retrouve le fond et les parametres d'une URL abregee
  * le contexte deja existant est fourni dans args sous forme de tableau ou query string
  *
- * @param string $url
- * @param string $entite
- * @param array $contexte
  * @return array
  *   [$contexte_decode, $type, $url_redirect, $fond]
  */

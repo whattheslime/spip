@@ -64,12 +64,12 @@ function action_menu_rubriques_dist() {
 		header('Content-Type: text/html; charset=' . $GLOBALS['meta']['charset']);
 		http_response_code(304);
 		exit;
-	} else {
-		include_spip('inc/actions');
-		$ret = menu_rubriques();
-		ajax_retour($ret);
-		exit;
 	}
+	include_spip('inc/actions');
+	$ret = menu_rubriques();
+	ajax_retour($ret);
+	exit;
+
 }
 
 /**
@@ -144,7 +144,13 @@ function bandeau_rubrique($id_rubrique, $titre_rubrique, $zdecal, $profondeur = 
 	static $zmax = 6;
 	$profondeur_next = $profondeur + 1;
 
-	$nav = '<a class="deroulant__lien" href="' . generer_objet_url($id_rubrique, 'rubrique', '', '', false) . "\" data-profondeur=\"$profondeur\">"
+	$nav = '<a class="deroulant__lien" href="' . generer_objet_url(
+		$id_rubrique,
+		'rubrique',
+		'',
+		'',
+		false
+	) . "\" data-profondeur=\"$profondeur\">"
 		. '<span class="libelle">' . supprimer_tags(preg_replace(',[\x00-\x1f]+,', ' ', $titre_rubrique)) . '</span>'
 		. "</a>\n";
 
@@ -162,7 +168,6 @@ function bandeau_rubrique($id_rubrique, $titre_rubrique, $zdecal, $profondeur = 
 
 		return "\n<li class=\"deroulant__item\" data-profondeur=\"$profondeur\">$nav</li>";
 	}
-
 
 	$nb_col = 1;
 	if ($nb_rub = count($arr_rub)) {
@@ -183,7 +188,6 @@ function bandeau_rubrique($id_rubrique, $titre_rubrique, $zdecal, $profondeur = 
 
 	return $ret . "</ul></li>\n";
 }
-
 
 /**
  * Obtient la liste des rubriques enfants d'une rubrique, prise dans le cache

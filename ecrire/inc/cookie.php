@@ -19,7 +19,6 @@ if (!defined('_ECRIRE_INC_VERSION')) {
 	return;
 }
 
-
 /**
  * Place un cookie (préfixé) sur le poste client
  *
@@ -78,7 +77,11 @@ function spip_setcookie(
 	// expires
 	$options['expires'] ??= 0;
 	if (!isset($options['path']) || $options['path'] === 'AUTO') {
-		$options['path'] = defined('_COOKIE_PATH') ? constant('_COOKIE_PATH') : preg_replace(',^\w+://[^/]*,', '', url_de_base());
+		$options['path'] = defined('_COOKIE_PATH') ? constant('_COOKIE_PATH') : preg_replace(
+			',^\w+://[^/]*,',
+			'',
+			url_de_base()
+		);
 	}
 	if (empty($options['domain']) && defined('_COOKIE_DOMAIN') && constant('_COOKIE_DOMAIN')) {
 		$options['domain'] = constant('_COOKIE_DOMAIN');
@@ -86,7 +89,14 @@ function spip_setcookie(
 	$options['secure'] ??= false;
 	$options['secure'] = ($options['secure'] ?: ($_SERVER['HTTPS'] ?? false));
 	if (defined('_COOKIE_SECURE') && constant('_COOKIE_SECURE')) {
-		trigger_deprecation('spip', '5.0', 'Using "%s" constant is deprecated, use option "%s" when call "%s" instead (automatic in HTTPS).', '_COOKIE_SECURE', 'secure: true', __FUNCTION__);
+		trigger_deprecation(
+			'spip',
+			'5.0',
+			'Using "%s" constant is deprecated, use option "%s" when call "%s" instead (automatic in HTTPS).',
+			'_COOKIE_SECURE',
+			'secure: true',
+			__FUNCTION__
+		);
 		$options['secure'] = true;
 	}
 	$options['httponly'] ??= false;
@@ -94,7 +104,14 @@ function spip_setcookie(
 
 	/** @deprecated 5.0 Use option `'httponly' => true` */
 	if (defined('_COOKIE_SECURE_LIST')) {
-		trigger_deprecation('spip', '5.0', 'Using "%s" constant is deprecated, use option "%s" when call "%s" instead.', '_COOKIE_SECURE_LIST', 'httponly: true', __FUNCTION__);
+		trigger_deprecation(
+			'spip',
+			'5.0',
+			'Using "%s" constant is deprecated, use option "%s" when call "%s" instead.',
+			'_COOKIE_SECURE_LIST',
+			'httponly: true',
+			__FUNCTION__
+		);
 		if (
 			is_array(constant('_COOKIE_SECURE_LIST'))
 			&& in_array($name, constant('_COOKIE_SECURE_LIST'))
@@ -170,7 +187,6 @@ function recuperer_cookies_spip($cookie_prefix) {
 	}
 }
 
-
 /**
  * Teste si javascript est supporté par le navigateur et pose un cookie en conséquence
  *
@@ -183,7 +199,6 @@ function recuperer_cookies_spip($cookie_prefix) {
  *
  * @see  html_tests_js()
  * @uses spip_setcookie()
- *
  */
 function exec_test_ajax_dist() {
 	switch (_request('js')) {
@@ -194,7 +209,7 @@ function exec_test_ajax_dist() {
 			redirige_par_entete(chemin_image('erreur-xx.svg'));
 			break;
 
-		// ou par ajax
+			// ou par ajax
 		case 1:
 		default:
 			spip_setcookie('spip_accepte_ajax', 1);

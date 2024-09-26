@@ -83,8 +83,7 @@ function generer_generer_url_arg($type, $p, $_id) {
 		$s = _q($s);
 		# exception des urls de documents sur un serveur distant...
 		if ($type == 'document') {
-			return
-				"quete_meta('adresse_site', $s) . '/' .\n\t" .
+			return "quete_meta('adresse_site', $s) . '/' .\n\t" .
 				"quete_meta('dir_img', $s) . \n\t" .
 				"quete_fichier($_id,$s)";
 		}
@@ -95,7 +94,6 @@ function generer_generer_url_arg($type, $p, $_id) {
 
 	return "urlencode_1738(generer_objet_url($_id, '$type'$s))";
 }
-
 
 /**
  * Compile la balise générique `#URL_xxx` qui génère l'URL d'un objet
@@ -127,18 +125,18 @@ function balise_URL__dist($p) {
 		return $p;
 	} elseif ($f = charger_fonction($nom, 'balise', true)) {
 		return $f($p);
-	} else {
-		$nom = strtolower((string) $nom);
-		$code = generer_generer_url(substr($nom, 4), $p);
-		$code = champ_sql($nom, $p, $code);
-		$p->code = $code;
-		if (!$p->etoile) {
-			$p->code = "vider_url($code)";
-		}
-		$p->interdire_scripts = false;
-
-		return $p;
 	}
+	$nom = strtolower((string) $nom);
+	$code = generer_generer_url(substr($nom, 4), $p);
+	$code = champ_sql($nom, $p, $code);
+	$p->code = $code;
+	if (!$p->etoile) {
+		$p->code = "vider_url($code)";
+	}
+	$p->interdire_scripts = false;
+
+	return $p;
+
 }
 
 /**
@@ -231,7 +229,6 @@ function balise_URL_SITE_SPIP_dist($p) {
 	return $p;
 }
 
-
 /**
  * Compile la balise `#URL_PAGE` qui retourne une URL de type « page »
  *
@@ -289,12 +286,12 @@ function balise_URL_PAGE_dist($p) {
 		$code = "generer_url_public($code, $args$noentities)";
 	}
 	$p->code = $code;
-	spip_logger()->info("Calcul url page : connect vaut $s ca donne :" . $p->code . " args $args");
+	spip_logger()
+		->info("Calcul url page : connect vaut $s ca donne :" . $p->code . " args $args");
 
 	#$p->interdire_scripts = true;
 	return $p;
 }
-
 
 /**
  * Compile la balise `#URL_ECRIRE` qui retourne une URL d'une page de l'espace privé
@@ -338,7 +335,6 @@ function balise_URL_ECRIRE_dist($p) {
 
 	return $p;
 }
-
 
 /**
  * Compile la balise `#URL_ACTION_AUTEUR` qui retourne une URL d'action

@@ -68,7 +68,7 @@ function inc_icone_renommer_dist($fond, $fonction) {
 		}
 
 		$fonction = '';
-		if (in_array($action, ['add','del', 'new', 'edit', 'config'])) {
+		if (in_array($action, ['add', 'del', 'new', 'edit', 'config'])) {
 			$fonction = $action;
 		}
 

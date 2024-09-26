@@ -123,10 +123,8 @@ $GLOBALS['CHARSET']['html'] = [
 	'euro' => '&#8364;',
 	'OElig' => '&#338;',
 	'oelig' => '&#339;',
-	'iexcl' => '&#161;'
-
+	'iexcl' => '&#161;',
 ];
 
 ## caracteres tres speciaux a ne pas convertir
 #'amp' => '&', 'quot' => '"', 'lt' => '<', 'gt' => '>',
-;

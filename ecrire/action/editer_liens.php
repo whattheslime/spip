@@ -34,7 +34,6 @@ if (!defined('_ECRIRE_INC_VERSION')) {
 // charger la gestion les rôles sur les objets
 include_spip('inc/roles');
 
-
 /**
  * Teste l'existence de la table de liaison xxx_liens d'un objet
  *
@@ -59,7 +58,8 @@ function objet_associable($objet) {
 		return [$primary, $l];
 	}
 
-	spip_logger()->info("Objet $objet non associable : ne dispose pas d'une cle primaire $primary OU d'une table liens $l");
+	spip_logger()
+		->info("Objet $objet non associable : ne dispose pas d'une cle primaire $primary OU d'une table liens $l");
 
 	return false;
 }
@@ -96,7 +96,6 @@ function objet_associer($objets_source, $objets_lies, $qualif = null) {
 	return $modifs; // pas d'erreur
 }
 
-
 /**
  * Dissocier un (ou des) objet(s)  des objets listés
  *
@@ -130,7 +129,6 @@ function objet_dissocier($objets_source, $objets_lies, $cond = null) {
 	return objet_traiter_liaisons('lien_delete', $objets_source, $objets_lies, $cond);
 }
 
-
 /**
  * Qualifier le lien entre un (ou des) objet(s) et des objets listés
  *
@@ -154,7 +152,6 @@ function objet_dissocier($objets_source, $objets_lies, $cond = null) {
 function objet_qualifier_liens($objets_source, $objets_lies, $qualif) {
 	return objet_traiter_liaisons('lien_set', $objets_source, $objets_lies, $qualif);
 }
-
 
 /**
  * Trouver les liens entre objets
@@ -190,7 +187,6 @@ function objet_trouver_liens($objets_source, $objets_lies, $cond = null) {
 	return objet_traiter_liaisons('lien_find', $objets_source, $objets_lies, $cond);
 }
 
-
 /**
  * Nettoyer les liens morts vers des objets qui n'existent plus
  *
@@ -211,10 +207,14 @@ function objet_trouver_liens($objets_source, $objets_lies, $cond = null) {
  * @return int
  */
 function objet_optimiser_liens($objets_source, $objets_lies) {
-	spip_logger('genie')->debug('objet_optimiser_liens : ' . json_encode($objets_source, JSON_THROW_ON_ERROR) . ', ' . json_encode($objets_lies, JSON_THROW_ON_ERROR));
+	spip_logger('genie')->debug(
+		'objet_optimiser_liens : ' . json_encode(
+			$objets_source,
+			JSON_THROW_ON_ERROR
+		) . ', ' . json_encode($objets_lies, JSON_THROW_ON_ERROR)
+	);
 	return objet_traiter_liaisons('lien_optimise', $objets_source, $objets_lies);
 }
-
 
 /**
  * Dupliquer tous les liens entrant ou sortants d'un objet
@@ -236,7 +236,10 @@ function objet_dupliquer_liens($objet, $id_source, $id_cible, $types = null, $ex
 	$tables = lister_tables_objets_sql();
 	$n = 0;
 	foreach ($tables as $table_sql => $infos) {
-		if ((is_null($types) || in_array($infos['type'], $types)) && (is_null($exclure_types) || !in_array($infos['type'], $exclure_types)) && objet_associable($infos['type'])) {
+		if (($types === null || in_array($infos['type'], $types)) && ($exclure_types === null || !in_array(
+			$infos['type'],
+			$exclure_types
+		)) && objet_associable($infos['type'])) {
 			$liens = (($infos['type'] == $objet)
 				? objet_trouver_liens([$objet => $id_source], '*')
 				: objet_trouver_liens([$infos['type'] => '*'], [$objet => $id_source]));
@@ -244,7 +247,10 @@ function objet_dupliquer_liens($objet, $id_source, $id_cible, $types = null, $ex
 				$n++;
 				if ($infos['type'] == $objet) {
 					if (
-						(is_null($types) || in_array($lien['objet'], $types)) && (is_null($exclure_types) || !in_array($lien['objet'], $exclure_types))
+						($types === null || in_array($lien['objet'], $types)) && ($exclure_types === null || !in_array(
+							$lien['objet'],
+							$exclure_types
+						))
 					) {
 						objet_associer([$objet => $id_cible], [$lien['objet'] => $lien[$lien['objet']]], $lien);
 					}
@@ -262,7 +268,6 @@ function objet_dupliquer_liens($objet, $id_source, $id_cible, $types = null, $ex
  * Fonctions techniques
  * ne pas les appeler directement
  */
-
 
 /**
  * Fonction générique qui
@@ -328,9 +333,8 @@ function objet_traiter_liaisons($operation, $objets_source, $objets_lies, $set =
 		}
 	}
 
-	return ($echec ? false : $modifs); // pas d'erreur
+	return $echec ? false : $modifs; // pas d'erreur
 }
-
 
 /**
  * Sous fonction insertion
@@ -359,7 +363,7 @@ function objet_traiter_liaisons($operation, $objets_source, $objets_lies, $set =
 function lien_insert($objet_source, $primary, $table_lien, $id, $objets, $qualif) {
 	$ins = 0;
 	$echec = null;
-	if (is_null($qualif)) {
+	if ($qualif === null) {
 		$qualif = [];
 	}
 
@@ -378,20 +382,19 @@ function lien_insert($objet_source, $primary, $table_lien, $id, $objets, $qualif
 			$insertions = [
 				'id_objet' => $id_objet,
 				'objet' => $objet,
-				$primary => $id
+				$primary => $id,
 			];
 			// rôle en plus s'il est défini
 			if ($role) {
 				$insertions += [
-					$colonne_role => $role
+					$colonne_role => $role,
 				];
 			}
 
 			if (lien_triables($table_lien)) {
 				if (isset($qualif['rang_lien'])) {
 					$rang = $qualif['rang_lien'];
-				}
-				else {
+				} else {
 					$where = lien_where($primary, $id, $objet, $id_objet);
 					// si il y a deja un lien pour ce couple (avec un autre role?) on reprend le meme rang si non nul
 					if (!$rang = (int) sql_getfetsel('rang_lien', $table_lien, $where)) {
@@ -418,26 +421,34 @@ function lien_insert($objet_source, $primary, $table_lien, $id, $objets, $qualif
 			];
 
 			// Envoyer aux plugins
-			$insertions = pipeline(
-				'pre_edition_lien',
-				[
-					'args' => $args,
-					'data' => $insertions
-				]
-			);
+			$insertions = pipeline('pre_edition_lien', [
+				'args' => $args,
+				'data' => $insertions,
+			]);
 			$args['id_objet'] = $insertions['id_objet'];
 
 			$where = lien_where($primary, $id, $objet, $id_objet, $cond);
 
 			if (
-				(($id_objet = (int) $insertions['id_objet']) || in_array($objet, ['site', 'rubrique'])) && !sql_getfetsel($primary, $table_lien, $where)
+				(($id_objet = (int) $insertions['id_objet']) || in_array($objet, ['site', 'rubrique'])) && !sql_getfetsel(
+					$primary,
+					$table_lien,
+					$where
+				)
 			) {
 				if (lien_triables($table_lien) && isset($insertions['rang_lien']) && (int) $insertions['rang_lien']) {
 					$where_meme_lien = lien_where($primary, $id, $objet, $id_objet);
 					$where_meme_lien = implode(' AND ', $where_meme_lien);
 					// on decale les liens de rang_lien>=la valeur inseree pour faire la place
 					// sauf sur le meme lien avec un role eventuellement different
-					$w = lien_rang_where($table_lien, $primary, $id, $objet, $id_objet, ['rang_lien>=' . (int) $insertions['rang_lien'], "NOT($where_meme_lien)"]);
+					$w = lien_rang_where(
+						$table_lien,
+						$primary,
+						$id,
+						$objet,
+						$id_objet,
+						['rang_lien>=' . (int) $insertions['rang_lien'], "NOT($where_meme_lien)"]
+					);
 					sql_update($table_lien, ['rang_lien' => 'rang_lien+1'], $w);
 				}
 
@@ -447,13 +458,10 @@ function lien_insert($objet_source, $primary, $table_lien, $id, $objets, $qualif
 					lien_propage_date_modif($objet, $id_objet);
 					lien_propage_date_modif($objet_source, $id);
 					// Envoyer aux plugins
-					pipeline(
-						'post_edition_lien',
-						[
-							'args' => $args,
-							'data' => $insertions
-						]
-					);
+					pipeline('post_edition_lien', [
+						'args' => $args,
+						'data' => $insertions,
+					]);
 				} else {
 					$echec = true;
 				}
@@ -466,9 +474,8 @@ function lien_insert($objet_source, $primary, $table_lien, $id, $objets, $qualif
 		lien_ordonner($objet_source, $primary, $table_lien, $id, $objets);
 	}
 
-	return ($echec ? false : $ins);
+	return $echec ? false : $ins;
 }
-
 
 /**
  * Reordonner les liens sur lesquels on est intervenus
@@ -522,7 +529,6 @@ function lien_ordonner($objet_source, $primary, $table_lien, $id, $objets) {
 	}
 }
 
-
 /**
  * Une table de lien est-elle triable ?
  * elle doit disposer d'un champ rang_lien pour cela
@@ -538,7 +544,6 @@ function lien_triables($table_lien) {
 	}
 	return $triables[$table_lien];
 }
-
 
 /**
  * Fabriquer la condition where en tenant compte des jokers *
@@ -650,7 +655,7 @@ function lien_delete($objet_source, $primary, $table_lien, $id, $objets, $cond =
 	$retires = [];
 	$dels = 0;
 	$echec = false;
-	if (is_null($cond)) {
+	if ($cond === null) {
 		$cond = [];
 	}
 
@@ -685,13 +690,10 @@ function lien_delete($objet_source, $primary, $table_lien, $id, $objets, $cond =
 				];
 
 				// Envoyer aux plugins
-				$l = pipeline(
-					'pre_edition_lien',
-					[
-						'args' => $args,
-						'data' => $l
-					]
-				);
+				$l = pipeline('pre_edition_lien', [
+					'args' => $args,
+					'data' => $l,
+				]);
 				$args['id_objet'] = $id_o = $l['id_objet'];
 
 				if (($id_o = (int) $l['id_objet']) || in_array($l['objet'], ['site', 'rubrique'])) {
@@ -709,16 +711,13 @@ function lien_delete($objet_source, $primary, $table_lien, $id, $objets, $cond =
 						'lien' => [$l['objet'] => $id_o],
 						'type' => $l['objet'],
 						'role' => ($colonne_role ? $l[$colonne_role] : ''),
-						'id' => $id_o
+						'id' => $id_o,
 					];
 					// Envoyer aux plugins
-					pipeline(
-						'post_edition_lien',
-						[
-							'args' => $args,
-							'data' => $l
-						]
-					);
+					pipeline('post_edition_lien', [
+						'args' => $args,
+						'data' => $l,
+					]);
 				}
 			}
 		}
@@ -732,9 +731,8 @@ function lien_delete($objet_source, $primary, $table_lien, $id, $objets, $cond =
 
 	pipeline('trig_supprimer_objets_lies', $retires);
 
-	return ($echec ? false : $dels);
+	return $echec ? false : $dels;
 }
-
 
 /**
  * Sous fonction optimisation
@@ -793,9 +791,10 @@ function lien_optimise($objet_source, $primary, $table_lien, $id, $objets) {
 						);
 						if ($e != false) {
 							$dels += $e;
-							spip_logger('genie')->notice(
-								'lien_optimise: Entree ' . $row['id'] . '/' . $row['id_objet'] . "/$type supprimee dans la table $table_lien"
-							);
+							spip_logger('genie')
+								->notice(
+									'lien_optimise: Entree ' . $row['id'] . '/' . $row['id_objet'] . "/$type supprimee dans la table $table_lien"
+								);
 						}
 					}
 				}
@@ -818,9 +817,8 @@ function lien_optimise($objet_source, $primary, $table_lien, $id, $objets) {
 		}
 	}
 
-	return ($echec ? false : $dels);
+	return $echec ? false : $dels;
 }
-
 
 /**
  * Sous fonction qualification
@@ -886,13 +884,10 @@ function lien_set($objet_source, $primary, $table_lien, $id, $objets, $qualif) {
 			];
 
 			// Envoyer aux plugins
-			$qualif = pipeline(
-				'pre_edition_lien',
-				[
-					'args' => $args,
-					'data' => $qualif,
-				]
-			);
+			$qualif = pipeline('pre_edition_lien', [
+				'args' => $args,
+				'data' => $qualif,
+			]);
 			$args['id_objet'] = $id_objet;
 
 			if (lien_triables($table_lien) && isset($qualif['rang_lien'])) {
@@ -901,7 +896,14 @@ function lien_set($objet_source, $primary, $table_lien, $id, $objets, $qualif) {
 					// sauf sur le meme lien avec un role eventuellement different
 					$where_meme_lien = lien_where($primary, $id, $objet, $id_objet);
 					$where_meme_lien = implode(' AND ', $where_meme_lien);
-					$w = lien_rang_where($table_lien, $primary, $id, $objet, $id_objet, ['rang_lien>=' . (int) $qualif['rang_lien'], "NOT($where_meme_lien)"]);
+					$w = lien_rang_where(
+						$table_lien,
+						$primary,
+						$id,
+						$objet,
+						$id_objet,
+						['rang_lien>=' . (int) $qualif['rang_lien'], "NOT($where_meme_lien)"]
+					);
 					sql_update($table_lien, ['rang_lien' => 'rang_lien+1'], $w);
 				}
 				// tous les liens de même rôle recoivent le rang indiqué aussi
@@ -919,13 +921,10 @@ function lien_set($objet_source, $primary, $table_lien, $id, $objets, $qualif) {
 				$echec = true;
 			} else {
 				// Envoyer aux plugins
-				pipeline(
-					'post_edition_lien',
-					[
-						'args' => $args,
-						'data' => $qualif
-					]
-				);
+				pipeline('post_edition_lien', [
+					'args' => $args,
+					'data' => $qualif,
+				]);
 				$ok++;
 			}
 		}
@@ -935,7 +934,7 @@ function lien_set($objet_source, $primary, $table_lien, $id, $objets, $qualif) {
 		lien_ordonner($objet_source, $primary, $table_lien, $id, $objets);
 	}
 
-	return ($echec ? false : $ok);
+	return $echec ? false : $ok;
 }
 
 /**

@@ -12,9 +12,7 @@ use Symfony\Component\Filesystem\Path;
  *
  * @param null|array $add List of «plugins» directories to add
  */
-function spip_paths(
-	null|array $add = null,
-): AggregatorInterface {
+function spip_paths(null|array $add = null): AggregatorInterface {
 	static $paths = null;
 	static $last_dossier_squelettes = null;
 
@@ -115,7 +113,8 @@ function _chemin(string|array|null $dir_path = null): array {
  * @return array Liste de chemins
  */
 function creer_chemin(): array {
-	$dirs = spip_paths()->getDirectories();
+	$dirs = spip_paths()
+		->getDirectories();
 	// canal historique: avec / sauf si ''
 	return array_map(fn ($dir) => $dir === '' ? $dir : $dir . DIRECTORY_SEPARATOR, $dirs);
 }
@@ -129,7 +128,7 @@ function creer_chemin(): array {
  */
 function lister_themes_prives(): array {
 	static $themes = null;
-	if (is_null($themes)) {
+	if ($themes === null) {
 		// si pas encore definie
 		if (!defined('_SPIP_THEME_PRIVE')) {
 			define('_SPIP_THEME_PRIVE', 'spip');
@@ -169,9 +168,9 @@ function find_in_theme($file, $subdir = '', $include = false) {
 		if (($fsize = substr($f, 0, -6) . $m[1] . '.svg') && file_exists($fsize)) {
 			return $themefiles["$subdir$file"] = $fsize;
 		}
-		else {
-			return $themefiles["$subdir$file"] = "$f?" . $m[1] . 'px';
-		}
+
+		return $themefiles["$subdir$file"] = "$f?" . $m[1] . 'px';
+
 	}
 
 	$themes = lister_themes_prives();
@@ -180,11 +179,11 @@ function find_in_theme($file, $subdir = '', $include = false) {
 			return $themefiles["$subdir$file"] = $f;
 		}
 	}
-	spip_logger('theme')->debug("$file introuvable dans le theme prive " . reset($themes));
+	spip_logger('theme')
+		->debug("$file introuvable dans le theme prive " . reset($themes));
 
 	return $themefiles["$subdir$file"] = '';
 }
-
 
 /**
  * Cherche une image dans les dossiers d'images
@@ -220,7 +219,7 @@ function chemin_image($icone): string {
 		return $f;
 	}
 	// sinon passer par le module de renommage
-	if (is_null($icone_renommer)) {
+	if ($icone_renommer === null) {
 		$icone_renommer = charger_fonction('icone_renommer', 'inc', true);
 	}
 	if ($icone_renommer) {
@@ -293,7 +292,8 @@ function find_in_path(string $file, string $dirname = '', bool|string $include =
 }
 
 function clear_path_cache() {
-	spip_paths_loader()->getCache()->clear();
+	spip_paths_loader()->getCache()
+		->clear();
 }
 
 function load_path_cache() {
@@ -317,7 +317,6 @@ function save_path_cache() {
  * @param string $dir
  * @param string $pattern
  * @param bool   $recurs
- * @param bool   $all_files
  * @return array
  */
 function find_all_in_path($dir, $pattern, $recurs = false, bool $all_files = false) {

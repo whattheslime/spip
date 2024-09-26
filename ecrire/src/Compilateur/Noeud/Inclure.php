@@ -7,7 +7,9 @@ namespace Spip\Compilateur\Noeud;
  */
 class Inclure
 {
-	/** Type de noeud */
+	/**
+	 * Type de noeud
+	 */
 	public string $type = 'include';
 
 	/**
@@ -34,7 +36,9 @@ class Inclure
 	 */
 	public $apres = '';
 
-	/** Numéro de ligne dans le code source du squelette */
+	/**
+	 * Numéro de ligne dans le code source du squelette
+	 */
 	public int $ligne = 0;
 
 	/**
@@ -46,7 +50,9 @@ class Inclure
 	 */
 	public $param = [];
 
-	/** Source des filtres (compatibilité) (?) */
+	/**
+	 * Source des filtres (compatibilité) (?)
+	 */
 	public array $fonctions = [];
 
 	/**

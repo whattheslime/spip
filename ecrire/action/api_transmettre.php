@@ -19,11 +19,10 @@ if (!defined('_ECRIRE_INC_VERSION')) {
 	return;
 }
 
-
 function action_api_transmettre_dist($arg = null) {
 
 	// Obtenir l'argument 'id_auteur/cle/format/fond'
-	if (is_null($arg)) {
+	if ($arg === null) {
 		$arg = _request('arg');
 	}
 

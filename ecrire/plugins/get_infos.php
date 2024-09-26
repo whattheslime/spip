@@ -84,11 +84,10 @@ function plugins_get_infos_dist($plug = false, $reload = false, $dir = _DIR_PLUG
 	}
 	if (is_string($plug)) {
 		return $cache[$dir][$plug] ?? [];
-	} else {
-		return $cache[$dir];
 	}
-}
+	return $cache[$dir];
 
+}
 
 function plugins_get_infos_un($plug, $reload, $dir, &$cache) {
 	if (!is_readable($file = "$dir$plug/paquet.xml")) {
@@ -125,7 +124,7 @@ function plugins_get_infos_un($plug, $reload, $dir, &$cache) {
 	// utiliser un necessite php. SPIP procure donc la version php courante du serveur.
 	// chaque librairie php est aussi procurée, par exemple 'php:curl'.
 	if (isset($ret['prefix']) && $ret['prefix'] == 'spip') {
-		$ret['procure']['php'] = ['nom' => 'php', 'version' => phpversion()];
+		$ret['procure']['php'] = ['nom' => 'php', 'version' => PHP_VERSION];
 		foreach (get_loaded_extensions() as $ext) {
 			$ret['procure']['php:' . $ext] = ['nom' => 'php:' . $ext, 'version' => phpversion($ext)];
 		}
@@ -134,7 +133,7 @@ function plugins_get_infos_un($plug, $reload, $dir, &$cache) {
 
 	if ($diff) {
 		$cache[$dir][$plug] = $ret;
-#       echo count($cache[$dir]), $dir,$plug, " $reloadc<br>";
+		#       echo count($cache[$dir]), $dir,$plug, " $reloadc<br>";
 	}
 
 	return $diff;

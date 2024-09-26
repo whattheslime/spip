@@ -13,16 +13,13 @@ if (!defined('_ECRIRE_INC_VERSION')) {
 	return;
 }
 
-
 include_spip('req/sqlite_generique');
 
 $GLOBALS['spip_sqlite3_functions_1'] = _sqlite_ref_fonctions();
 
-
 function req_sqlite3_dist($addr, $port, $login, #[\SensitiveParameter] $pass, $db = '', $prefixe = '') {
 	return req_sqlite_dist($addr, $port, $login, $pass, $db, $prefixe, $sqlite_version = 3);
 }
-
 
 function spip_sqlite3_constantes() {
 	if (!defined('SPIP_SQLITE3_ASSOC')) {

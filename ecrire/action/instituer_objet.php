@@ -28,7 +28,7 @@ if (!defined('_ECRIRE_INC_VERSION')) {
  */
 function action_instituer_objet_dist($arg = null) {
 
-	if (is_null($arg)) {
+	if ($arg === null) {
 		$securiser_action = charger_fonction('securiser_action', 'inc');
 		$arg = $securiser_action();
 	}

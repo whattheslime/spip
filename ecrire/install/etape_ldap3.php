@@ -11,7 +11,6 @@
 
 use Spip\Afficher\Minipage\Installation;
 
-
 if (!defined('_ECRIRE_INC_VERSION')) {
 	return;
 }
@@ -30,10 +29,7 @@ function install_etape_ldap3_dist() {
 	$minipage = new Installation();
 	echo $minipage->installDebutPage(['onload' => 'document.getElementById(\'suivant\').focus();return false;']);
 
-	echo info_etape(
-		_T('info_chemin_acces_1'),
-		info_progression_etape(3, 'etape_ldap', 'install/')
-	),
+	echo info_etape(_T('info_chemin_acces_1'), info_progression_etape(3, 'etape_ldap', 'install/')),
 	_T('info_chemin_acces_2');
 
 	$ldap_link = @ldap_connect("$adresse_ldap", "$port_ldap");

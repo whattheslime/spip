@@ -16,18 +16,20 @@ namespace Spip\Texte\Collecteur;
  *
  * @see extraire_balises()
  */
-class HtmlTag extends AbstractCollecteur {
+class HtmlTag extends AbstractCollecteur
+{
+	public static array $listeBalisesAProteger = ['html', 'pre', 'code', 'cadre', 'frame', 'script', 'style'];
+
 	protected static string $markPrefix = 'HTMLTAG';
 
 	/**
 	 * La preg pour découper et collecter les modèles
-	 * @var string
 	 */
 	protected string $preg_openingtag;
-	protected string $preg_closingtag;
-	protected string $tag;
 
-	public static array $listeBalisesAProteger = ['html', 'pre', 'code', 'cadre', 'frame', 'script', 'style'];
+	protected string $preg_closingtag;
+
+	protected string $tag;
 
 	public function __construct(string $tag, ?string $preg_openingtag = null, ?string $preg_closingtag = null) {
 
@@ -38,12 +40,10 @@ class HtmlTag extends AbstractCollecteur {
 	}
 
 	/**
-	 * @param string $texte
 	 * @param array $options
 	 *   bool $detecter_presence
 	 *   bool $nb_max
 	 *   int  $profondeur
-	 * @return array
 	 */
 	public function collecter(string $texte, array $options = []): array {
 		if (!$texte) {
@@ -51,10 +51,19 @@ class HtmlTag extends AbstractCollecteur {
 		}
 
 		$upperTag = strtoupper($this->tag);
-		$hasUpperCaseTags = ($upperTag !== $this->tag && (str_contains($texte, '<' . $upperTag) || str_contains($texte, '</' . $upperTag)));
+		$hasUpperCaseTags = ($upperTag !== $this->tag && (str_contains($texte, '<' . $upperTag) || str_contains(
+			$texte,
+			'</' . $upperTag
+		)));
 
 		// collecter les balises ouvrantes
-		$opening = static::collecteur($texte, '', $hasUpperCaseTags ? '<' : '<' . $this->tag, $this->preg_openingtag, empty($options['detecter_presence']) ? 0 : 1);
+		$opening = static::collecteur(
+			$texte,
+			'',
+			$hasUpperCaseTags ? '<' : '<' . $this->tag,
+			$this->preg_openingtag,
+			empty($options['detecter_presence']) ? 0 : 1
+		);
 		if (!$opening) {
 			return [];
 		}
@@ -79,8 +88,7 @@ class HtmlTag extends AbstractCollecteur {
 				$tag['innerHtml'] = '';
 				$tag['attributs'] = trim(substr($tag['opening'], strlen($this->tag) + 1, -2));
 				$tags[] = $tag;
-			}
-			else {
+			} else {
 				// enlever les closing qui sont avant le premier opening, car ils n'ont pas de sens
 				while (
 					!empty($closing)
@@ -99,8 +107,7 @@ class HtmlTag extends AbstractCollecteur {
 						array_shift($opening);
 						$next_opening = reset($opening);
 					}
-				}
-				else {
+				} else {
 					while ($next_opening && $next_closing && $next_opening['pos'] < $next_closing['pos']) {
 						while ($next_opening && $next_opening['pos'] < $next_closing['pos']) {
 							// si pas self closing, il faut un closing de plus
@@ -126,8 +133,7 @@ class HtmlTag extends AbstractCollecteur {
 					$tag['innerHtml'] = '';
 					$tag['attributs'] = trim(substr($tag['opening'], strlen($this->tag) + 1, -1));
 					$tags[] = $tag;
-				}
-				else {
+				} else {
 					$tag = $first_opening;
 					$next_closing = array_shift($closing);
 					$innerHtml = substr($texte, $tag['pos'] + $tag['length'], $next_closing['pos'] - $tag['pos'] - $tag['length']);
@@ -169,14 +175,18 @@ class HtmlTag extends AbstractCollecteur {
 			}
 		}
 
-
 		return $tags;
 	}
 
 	/**
 	 * @param callable|null $callback_function
 	 */
-	public function echapper_enHtmlBase64(string $texte, string $source = '', $callback_function = null, array $callback_options = []): string {
+	public function echapper_enHtmlBase64(
+		string $texte,
+		string $source = '',
+		$callback_function = null,
+		array $callback_options = []
+	): string {
 		if ($callback_function) {
 			$legacy_callback = $callback_function;
 			// si on est dans un cas evident de preg perso, ne pas essayer de mapper le match car on ne sait pas ce qu'il contient
@@ -196,15 +206,25 @@ class HtmlTag extends AbstractCollecteur {
 				};
 			}
 		}
-		return parent::echapper_enHtmlBase64($texte, $source, $callback_function ? $legacy_callback : null, $callback_options);
+		return parent::echapper_enHtmlBase64(
+			$texte,
+			$source,
+			$callback_function ? $legacy_callback : null,
+			$callback_options
+		);
 	}
-
 
 	/**
 	 * pour $source voir commentaire infra (echappe_retour)
 	 * pour $no_transform voir le filtre post_autobr dans inc/filtres
 	 */
-	public static function proteger_balisesHtml(string $texte, string $source = '', ?array $html_tags = null, array $callbacks_function = [], array $callback_options = []): string {
+	public static function proteger_balisesHtml(
+		string $texte,
+		string $source = '',
+		?array $html_tags = null,
+		array $callbacks_function = [],
+		array $callback_options = []
+	): string {
 		if ($texte === '') {
 			return '';
 		}
@@ -218,7 +238,12 @@ class HtmlTag extends AbstractCollecteur {
 			&& str_contains($texte, '<')
 		) {
 			$htmlTagCollecteur = new self($tag);
-			$texte = $htmlTagCollecteur->echapper_enHtmlBase64($texte, $source, $callbacks_function[$tag] ?? null, $callback_options);
+			$texte = $htmlTagCollecteur->echapper_enHtmlBase64(
+				$texte,
+				$source,
+				$callbacks_function[$tag] ?? null,
+				$callback_options
+			);
 		}
 
 		return $texte;

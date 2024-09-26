@@ -10,11 +10,7 @@ use function SpipLeague\Component\Kernel\param;
  * @return string
  */
 function quote_amp($u) {
-	return preg_replace(
-		'/&(?![a-z]{0,4}\w{2,3};|#x?[0-9a-f]{2,6};)/i',
-		'&amp;',
-		$u
-	);
+	return preg_replace('/&(?![a-z]{0,4}\w{2,3};|#x?[0-9a-f]{2,6};)/i', '&amp;', $u);
 }
 
 /**
@@ -22,7 +18,6 @@ function quote_amp($u) {
  *
  * On est sur le web, on exclut certains protocoles,
  * notamment 'file://', 'php://' et d'autres…
-
  * @param string $url
  * @return bool
  */
@@ -61,7 +56,7 @@ function tester_url_absolue($url) {
  */
 function parametre_url($url, $c, $v = null, $sep = '&amp;') {
 	// requete erronnee : plusieurs variable dans $c et aucun $v
-	if (str_contains($c, '|') && is_null($v)) {
+	if (str_contains($c, '|') && $v === null) {
 		return null;
 	}
 
@@ -177,11 +172,7 @@ function ancre_url(string $url, ?string $ancre = ''): string {
 		if (!function_exists('translitteration')) {
 			include_spip('inc/charsets');
 		}
-		$ancre = preg_replace(
-			['/^[^-_a-zA-Z0-9]+/', '/[^-_a-zA-Z0-9]/'],
-			['', '-'],
-			translitteration($ancre)
-		);
+		$ancre = preg_replace(['/^[^-_a-zA-Z0-9]+/', '/[^-_a-zA-Z0-9]/'], ['', '-'], translitteration($ancre));
 	}
 	return $url . (strlen($ancre) ? '#' . $ancre : '');
 }
@@ -195,7 +186,7 @@ function ancre_url(string $url, ?string $ancre = ''): string {
 function nettoyer_uri($reset = null) {
 	static $done = false;
 	static $propre = '';
-	if (!is_null($reset)) {
+	if ($reset !== null) {
 		return $propre = $reset;
 	}
 	if ($done) {
@@ -249,7 +240,6 @@ function nettoyer_uri_var($request_uri) {
 	return rtrim($uri1, '?&');
 }
 
-
 /**
  * Donner l'URL de base d'un lien vers "soi-meme", modulo les trucs inutiles
  *
@@ -281,9 +271,7 @@ function self($amp = '&amp;', $root = false) {
 
 	// supprimer les variables sans interet
 	if (test_espace_prive()) {
-		$url = preg_replace(',([?&])('
-			. 'lang|show_docs|'
-			. 'changer_lang|var_lang|action)=[^&]*,i', '\1', $url);
+		$url = preg_replace(',([?&])(' . 'lang|show_docs|' . 'changer_lang|var_lang|action)=[^&]*,i', '\1', $url);
 		$url = preg_replace(',([?&])[&]+,', '\1', $url);
 		$url = preg_replace(',[&]$,', '\1', $url);
 	}
@@ -326,7 +314,15 @@ function self($amp = '&amp;', $root = false) {
  * @return string
  *   url codee ou fonction de decodage
  */
-function generer_objet_url($id, string $entite, string $args = '', string $ancre = '', ?bool $public = null, string $type = '', string $connect = ''): string {
+function generer_objet_url(
+	$id,
+	string $entite,
+	string $args = '',
+	string $ancre = '',
+	?bool $public = null,
+	string $type = '',
+	string $connect = ''
+): string {
 	if ($public === null) {
 		$public = !test_espace_prive();
 	}
@@ -366,7 +362,8 @@ function generer_objet_url($id, string $entite, string $args = '', string $ancre
 	}
 
 	// On a ete gentil mais la ....
-	spip_logger()->error("generer_objet_url: entite $entite " . ($public ? "($f)" : '') . " inconnue $type $public $connect");
+	spip_logger()
+		->error("generer_objet_url: entite $entite " . ($public ? "($f)" : '') . " inconnue $type $public $connect");
 
 	return '';
 }
@@ -408,10 +405,15 @@ function generer_objet_url_ecrire_edit($id, string $entite, string $args = '', s
  * @see generer_objet_url_ecrire_edit
  */
 function generer_url_ecrire_entite_edit($id, $entite, $args = '', $ancre = '') {
-	trigger_deprecation('spip', '4.1', 'Using "%s" is deprecated, use "%s" instead', __FUNCTION__, 'generer_objet_url_ecrire_edit');
+	trigger_deprecation(
+		'spip',
+		'4.1',
+		'Using "%s" is deprecated, use "%s" instead',
+		__FUNCTION__,
+		'generer_objet_url_ecrire_edit'
+	);
 	return generer_objet_url_ecrire_edit(intval($id), $entite, $args, $ancre);
 }
-
 
 function urls_connect_dist($i, &$entite, $args = '', $ancre = '', $public = null) {
 	include_spip('base/connect_sql');
@@ -422,7 +424,6 @@ function urls_connect_dist($i, &$entite, $args = '', $ancre = '', $public = null
 	. (!$args ? '' : "&$args")
 	. (!$ancre ? '' : "#$ancre");
 }
-
 
 /**
  * Transformer les caractères utf8 d'une URL (farsi par exemple) selon la RFC 1738
@@ -450,7 +451,15 @@ function urlencode_1738($url) {
  *
  * @param int|string|null $id
  */
-function generer_objet_url_absolue($id = 0, string $entite = '', string $args = '', string $ancre = '', ?bool $public = null, string $type = '', string $connect = ''): string {
+function generer_objet_url_absolue(
+	$id = 0,
+	string $entite = '',
+	string $args = '',
+	string $ancre = '',
+	?bool $public = null,
+	string $type = '',
+	string $connect = ''
+): string {
 	$id = intval($id);
 	$h = generer_objet_url($id, $entite, $args, $ancre, $public, $type, $connect);
 	if (!preg_match(',^\w+:,', $h)) {
@@ -466,10 +475,15 @@ function generer_objet_url_absolue($id = 0, string $entite = '', string $args = 
  * @see  generer_objet_url_absolue
  */
 function generer_url_entite_absolue($id = 0, $entite = '', $args = '', $ancre = '', $connect = null) {
-	trigger_deprecation('spip', '4.1', 'Using "%s" is deprecated, use "%s" instead', __FUNCTION__, 'generer_objet_url_absolue');
+	trigger_deprecation(
+		'spip',
+		'4.1',
+		'Using "%s" is deprecated, use "%s" instead',
+		__FUNCTION__,
+		'generer_objet_url_absolue'
+	);
 	return generer_objet_url_absolue(intval($id), $entite, $args, $ancre, true, '', $connect ?? '');
 }
-
 
 //
 // Fonctions de fabrication des URL des scripts de Spip
@@ -504,7 +518,7 @@ function url_de_base($profondeur = null) {
 		return $url;
 	}
 
-	if (is_null($profondeur)) {
+	if ($profondeur === null) {
 		$profondeur = $GLOBALS['profondeur_url'] ?? (_DIR_RESTREINT ? 0 : 1);
 	}
 
@@ -533,7 +547,7 @@ function url_de_base($profondeur = null) {
 	}
 
 	// si on n'a pas trouvé d'hôte du tout, en dernier recours on utilise adresse_site comme fallback
-	if (is_null($host) && isset($GLOBALS['meta']['adresse_site'])) {
+	if ($host === null && isset($GLOBALS['meta']['adresse_site'])) {
 		$host = $GLOBALS['meta']['adresse_site'];
 		if ($scheme = parse_url($host, PHP_URL_SCHEME)) {
 			$http = $scheme;
@@ -563,7 +577,7 @@ function url_de_base($profondeur = null) {
 		if (isset($_SERVER['REQUEST_URI'])) {
 			$GLOBALS['REQUEST_URI'] = $_SERVER['REQUEST_URI'];
 		} else {
-			$GLOBALS['REQUEST_URI'] = (php_sapi_name() !== 'cli') ? $_SERVER['PHP_SELF'] : '';
+			$GLOBALS['REQUEST_URI'] = (PHP_SAPI !== 'cli') ? $_SERVER['PHP_SELF'] : '';
 			if (
 				!empty($_SERVER['QUERY_STRING'])
 				&& !str_contains($_SERVER['REQUEST_URI'], '?')
@@ -612,7 +626,6 @@ function url_de_($http, $host, $request, $prof = 0) {
 
 	return $url;
 }
-
 
 // Pour une redirection, la liste des arguments doit etre separee par "&"
 // Pour du code XHTML, ca doit etre &amp;
@@ -671,7 +684,6 @@ function generer_url_ecrire(?string $script = '', $args = '', $no_entities = fal
 // Adresse des scripts publics (a passer dans inc-urls...)
 //
 
-
 /**
  * Retourne le nom du fichier d'exécution de SPIP
  *
@@ -692,9 +704,9 @@ function get_spip_script($default = '') {
 	# cas define('_SPIP_SCRIPT', '');
 	if (_SPIP_SCRIPT) {
 		return _SPIP_SCRIPT;
-	} else {
-		return $default;
 	}
+	return $default;
+
 }
 
 /**
@@ -763,7 +775,6 @@ function generer_url_prive($script, $args = '', $no_entities = false) {
 	return generer_url_public($script, $args, $no_entities, false, param('spip.routes.back_office') . 'prive.php');
 }
 
-
 /**
  * Créer une URL
  *
@@ -798,7 +809,6 @@ function generer_url_action($script, $args = '', $no_entities = false, $public =
 	return $url;
 }
 
-
 /**
  * Créer une URL
  *
@@ -814,7 +824,7 @@ function generer_url_action($script, $args = '', $no_entities = false, $public =
  *     URL
  */
 function generer_url_api(string $script, string $path, string $args, bool $no_entities = false, ?bool $public = null) {
-	if (is_null($public)) {
+	if ($public === null) {
 		$public = (_DIR_RACINE ? false : true);
 	}
 	if (!str_ends_with($script, '.api')) {

@@ -39,7 +39,10 @@ function action_instituer_langue_rubrique_dist() {
 		if ($changer_lang != 'herit') {
 			sql_updateq(
 				'spip_rubriques',
-				['lang' => $changer_lang, 'langue_choisie' => 'oui'],
+				[
+					'lang' => $changer_lang,
+					'langue_choisie' => 'oui',
+				],
 				"id_rubrique=$id_rubrique"
 			);
 		} else {
@@ -50,7 +53,10 @@ function action_instituer_langue_rubrique_dist() {
 			}
 			sql_updateq(
 				'spip_rubriques',
-				['lang' => $langue_parent, 'langue_choisie' => 'non'],
+				[
+					'lang' => $langue_parent,
+					'langue_choisie' => 'non',
+				],
 				"id_rubrique=$id_rubrique"
 			);
 		}

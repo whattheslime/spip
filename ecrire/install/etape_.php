@@ -11,7 +11,6 @@
 
 use Spip\Afficher\Minipage\Installation;
 
-
 /**
  * Affichage de l'écran d'installation (étape 0 : écran d'accueil)
  *

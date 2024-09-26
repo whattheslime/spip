@@ -31,7 +31,6 @@ if (!defined('_ECRIRE_INC_VERSION')) {
  *   bool|string $attachment
  *   int $expires
  *   int|null range
- * @throws Exception
  */
 function spip_livrer_fichier($fichier, $content_type = 'application/octet-stream', $options = []) {
 
@@ -45,16 +44,20 @@ function spip_livrer_fichier($fichier, $content_type = 'application/octet-stream
 		$options['expires'] = gmdate('D, d M Y H:i:s', time() + $options['expires']) . ' GMT';
 	}
 
-	if (is_null($options) && isset($_SERVER['HTTP_RANGE'])) {
+	if ($options === null && isset($_SERVER['HTTP_RANGE'])) {
 		$options['range'] = $_SERVER['HTTP_RANGE'];
 	}
 
-	spip_livrer_fichier_entetes($fichier, $content_type, ($options['attachment'] && !$options['range']) ? $options['attachment'] : false, $options['expires']);
+	spip_livrer_fichier_entetes(
+		$fichier,
+		$content_type,
+		($options['attachment'] && !$options['range']) ? $options['attachment'] : false,
+		$options['expires']
+	);
 
-	if (!is_null($options['range'])) {
+	if ($options['range'] !== null) {
 		spip_livrer_fichier_partie($fichier, $options['range']);
-	}
-	else {
+	} else {
 		spip_livrer_fichier_entier($fichier);
 	}
 }
@@ -68,7 +71,12 @@ function spip_livrer_fichier($fichier, $content_type = 'application/octet-stream
  * @param bool|string $attachment
  * @param int|string $expires
  */
-function spip_livrer_fichier_entetes($fichier, $content_type = 'application/octet-stream', $attachment = false, $expires = 0) {
+function spip_livrer_fichier_entetes(
+	$fichier,
+	$content_type = 'application/octet-stream',
+	$attachment = false,
+	$expires = 0
+) {
 	// toujours envoyer un content type, meme vide !
 	header('Accept-Ranges: bytes');
 	header('Content-Type: ' . $content_type);
@@ -90,8 +98,7 @@ function spip_livrer_fichier_entetes($fichier, $content_type = 'application/octe
 		header('Expires: 0'); // set expiration time
 		header('Pragma: public');
 		header('Cache-Control: must-revalidate, post-check=0, pre-check=0');
-	}
-	else {
+	} else {
 		$f = (is_string($attachment) ? $attachment : basename($fichier));
 		header("Content-Disposition: inline; filename=\"$f\";");
 		header('Expires: ' . $expires); // set expiration time
@@ -126,7 +133,6 @@ function spip_livrer_fichier_entier($fichier) {
  *
  * @param string $fichier
  * @param string $range
- * @throws Exception
  */
 function spip_livrer_fichier_partie($fichier, $range = null) {
 	if (!file_exists($fichier)) {
@@ -137,29 +143,25 @@ function spip_livrer_fichier_partie($fichier, $range = null) {
 		throw new \Exception(sprintf('File not readable: %s', $fichier));
 	}
 
-
 	// Par defaut on envoie tout
 	$byteOffset = 0;
 	$byteLength = $fileSize = filesize($fichier);
 
-
 	// Parse Content-Range header for byte offsets, looks like "bytes=11525-" OR "bytes=11525-12451"
 	if ($range && preg_match('%bytes=(\d+)-(\d+)?%i', $range, $match)) {
 		### Offset signifies where we should begin to read the file
-		$byteOffset = (int)$match[1];
-
+		$byteOffset = (int) $match[1];
 
 		### Length is for how long we should read the file according to the browser, and can never go beyond the file size
 		if (isset($match[2])) {
-			$finishBytes = (int)$match[2];
+			$finishBytes = (int) $match[2];
 			$byteLength = $finishBytes + 1;
 		} else {
 			$finishBytes = $fileSize - 1;
 		}
 
 		$cr_header = sprintf('Content-Range: bytes %d-%d/%d', $byteOffset, $finishBytes, $fileSize);
-	}
-	else {
+	} else {
 		// si pas de range valide, on delegue a la methode d'envoi complet
 		spip_livrer_fichier_entier($fichier);
 		// redondant, mais facilite la comprehension du code
@@ -173,7 +175,6 @@ function spip_livrer_fichier_partie($fichier, $range = null) {
 	// partial content
 	header('HTTP/1.1 206 Partial content');
 	header($cr_header);  ### Decrease by 1 on byte-length since this definition is zero-based index of bytes being sent
-
 
 	$byteRange = $byteLength - $byteOffset;
 
@@ -193,7 +194,6 @@ function spip_livrer_fichier_partie($fichier, $range = null) {
 	if (fseek($handle, $byteOffset, SEEK_SET) == -1) {
 		throw new \Exception(sprintf('Could not seek to byte offset %d', $byteOffset));
 	}
-
 
 	while ($bytePool > 0) {
 		// How many bytes we request on this iteration

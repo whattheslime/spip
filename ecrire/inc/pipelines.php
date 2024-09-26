@@ -21,7 +21,6 @@ if (test_espace_prive()) {
 	include_spip('inc/pipelines_ecrire');
 }
 
-
 /**
  * Inserer jQuery et ses plugins
  *
@@ -109,7 +108,6 @@ function f_tidy($texte) {
 	return $texte;
 }
 
-
 /**
  * Offre `#INSERT_HEAD` sur tous les squelettes (bourrin)
  *
@@ -145,7 +143,6 @@ function f_insert_head($texte) {
 	return $texte;
 }
 
-
 /**
  * Insérer au besoin les boutons admins
  *
@@ -170,7 +167,9 @@ function f_admin($texte) {
 		}
 		$texte = substr_replace($texte, $x, $pos, 0);
 		// pas de preview en fenetre enfant
-		$x = "<script>const frameEl = window.frameElement;if (frameEl) {frameEl.sandbox='sandbox';window.location.href='" . addslashes((string) $GLOBALS['meta']['adresse_site']) . "';}</script>";
+		$x = "<script>const frameEl = window.frameElement;if (frameEl) {frameEl.sandbox='sandbox';window.location.href='" . addslashes(
+			(string) $GLOBALS['meta']['adresse_site']
+		) . "';}</script>";
 		if ((!$pos = stripos($texte, '<head')) || (!$pos = strpos($texte, '>', $pos))) {
 			$pos = -1;
 		}
@@ -182,7 +181,7 @@ function f_admin($texte) {
 		$texte = affiche_boutons_admin($texte);
 	}
 	if (_request('var_mode') == 'noajax') {
-		$texte = preg_replace(',(class=[\'"][^\'"]*)ajax([^\'"]*[\'"]),Uims', "\\1\\2", $texte);
+		$texte = preg_replace(',(class=[\'"][^\'"]*)ajax([^\'"]*[\'"]),Uims', '\\1\\2', $texte);
 	}
 
 	return $texte;
@@ -200,7 +199,7 @@ function f_admin($texte) {
  * @pipeline recuperer_fond
  *
  * @param  array $flux Description et contenu de l'inclusion
- * @return array $flux  Description et contenu de l'inclusion
+ * @return array  Description et contenu de l'inclusion
  */
 function f_recuperer_fond($flux) {
 	if (!test_espace_prive()) {

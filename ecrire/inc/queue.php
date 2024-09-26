@@ -148,8 +148,6 @@ function queue_add_job(
 
 /**
  * Purger la file de tâche et reprogrammer les tâches périodiques
- *
- * @return void
  */
 function queue_purger() {
 	include_spip('base/abstract_sql');
@@ -398,9 +396,8 @@ function queue_close_job(&$row, $time, $result = 0) {
 		// relancer avec les nouveaux arguments de temps
 		include_spip('inc/genie');
 		if ($result < 0) { // relancer tout de suite, mais en baissant la priorite
-		queue_genie_replan_job($row['fonction'], $periode, 0 - $result, null, $row['priorite'] - 1);
-		} else // relancer avec la periode prevue
-		{
+			queue_genie_replan_job($row['fonction'], $periode, 0 - $result, null, $row['priorite'] - 1);
+		} else { // relancer avec la periode prevue
 			queue_genie_replan_job($row['fonction'], $periode, $time);
 		}
 	}
@@ -423,7 +420,6 @@ function queue_error_handler() {
 	queue_update_next_job_time();
 }
 
-
 /**
  * Tester si une tâche était une tâche périodique à reprogrammer
  *
@@ -439,7 +435,7 @@ function queue_error_handler() {
 function queue_is_cron_job($function, $inclure) {
 	static $taches = null;
 	if (str_starts_with($inclure, 'genie/')) {
-		if (is_null($taches)) {
+		if ($taches === null) {
 			include_spip('inc/genie');
 			$taches = taches_generales();
 		}
@@ -485,23 +481,24 @@ function queue_update_next_job_time($next_time = null) {
 	if (is_array($res)) {
 		foreach ($res as $row) {
 			queue_close_job($row, $time);
-			spip_logger('job_mort')->error('queue_close_job car _JQ_PENDING depuis +180s : ' . print_r($row, true));
+			spip_logger('job_mort')
+				->error('queue_close_job car _JQ_PENDING depuis +180s : ' . print_r($row, true));
 		}
 	}
 
 	// chercher la date du prochain job si pas connu
-	if (is_null($next) || is_null(queue_sleep_time_to_next_job())) {
+	if ($next === null || queue_sleep_time_to_next_job() === null) {
 		$date = sql_getfetsel('date', 'spip_jobs', 'status=' . intval(_JQ_SCHEDULED), '', 'date', '0,1');
 		$next = strtotime($date);
 	}
-	if (!is_null($next_time)) {
-		if (is_null($next) || $next > $next_time) {
+	if ($next_time !== null) {
+		if ($next === null || $next > $next_time) {
 			$next = $next_time;
 		}
 	}
 
 	if ($next) {
-		if (is_null($nb_jobs_scheduled)) {
+		if ($nb_jobs_scheduled === null) {
 			$nb_jobs_scheduled = sql_countsel(
 				'spip_jobs',
 				'status=' . intval(_JQ_SCHEDULED) . ' AND date<' . sql_quote(date('Y-m-d H:i:s', $time))
@@ -519,7 +516,6 @@ function queue_update_next_job_time($next_time = null) {
 	queue_set_next_job_time($next);
 	$deja_la = false;
 }
-
 
 /**
  * Mettre a jour la date de prochain job
@@ -644,13 +640,7 @@ function queue_lancer_url_http_async($url_cron) {
 				$scheme = '';
 				$port = 80;
 		}
-		$fp = @fsockopen(
-			$scheme . $parts['host'],
-			$parts['port'] ?? $port,
-			$errno,
-			$errstr,
-			1
-		);
+		$fp = @fsockopen($scheme . $parts['host'], $parts['port'] ?? $port, $errno, $errstr, 1);
 
 		if ($fp) {
 			$host_sent = $parts['host'];

@@ -163,14 +163,13 @@ function picker_identifie_id_rapide($ref, $rubriques_ou_objets = false, $article
 		$type = objet_type($type);
 		$id = (int) $ref;
 		$ref = $type . $ref;
-	}
-	else {
+	} else {
 		// Si la référence ne correspond à rien, c'est fini
 		if (!($match = typer_raccourci($ref))) {
 			return json_encode(false);
 		}
 		// Sinon on récupère les infos utiles
-		[$type, , $id, , , , ] = array_pad($match, 7, null);
+		[$type, , $id] = array_pad($match, 7, null);
 
 		// On regarde si le type trouvé fait partie des objets sélectionnables
 		if (!in_array(table_objet($type), $objets)) {

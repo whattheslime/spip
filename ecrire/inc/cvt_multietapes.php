@@ -93,9 +93,9 @@ function cvtmulti_recuperer_post_precedents($form) {
 		}
 
 		foreach ($c as $k => $v) { // on ecrase pas si saisi a nouveau !
-		if (!isset($store[$k])) {
+			if (!isset($store[$k])) {
 				$_REQUEST[$k] = $store[$k] = $v;
-		} // mais si tableau des deux cotes, on merge avec priorite a la derniere saisie
+			} // mais si tableau des deux cotes, on merge avec priorite a la derniere saisie
 			elseif (
 				is_array($store[$k])
 				&& is_array($v)
@@ -211,19 +211,16 @@ function cvtmulti_formulaire_verifier_etapes($args, $erreurs) {
 			// et on appelle un pipeline dedie aux etapes, plus easy
 			$args['etape'] = $e;
 			$args['etape_demandee'] = $etape_demandee;
-			$erreurs_etapes[$e] = pipeline(
-				'formulaire_verifier_etape',
-				[
-					'args' => $args,
-					'data' => $erreurs_etapes[$e]
-				]
-			);
+			$erreurs_etapes[$e] = pipeline('formulaire_verifier_etape', [
+				'args' => $args,
+				'data' => $erreurs_etapes[$e],
+			]);
 
 			if ($derniere_etape_ok === $e - 1 && !(is_countable($erreurs_etapes[$e]) ? count($erreurs_etapes[$e]) : 0)) {
 				$derniere_etape_ok = $e;
 			}
 			// possibilite de poster dans _retour_etape_x ou aller_a_etape
-			if (!is_null(_request("_retour_etape_$e"))) {
+			if (_request("_retour_etape_$e") !== null) {
 				$etape_demandee = $e;
 			}
 			// Il se peut que les verifications ait décidé de faire sauter des étapes
@@ -232,7 +229,6 @@ function cvtmulti_formulaire_verifier_etapes($args, $erreurs) {
 			}
 		}
 
-
 		// si la derniere etape OK etait la derniere
 		// on renvoie le flux inchange et ca declenche traiter
 		if (
@@ -240,26 +236,30 @@ function cvtmulti_formulaire_verifier_etapes($args, $erreurs) {
 			&& (!$etape_demandee || $etape_demandee >= $etapes)
 		) {
 			return $erreurs;
-		} else {
-			$etape = $derniere_etape_ok + 1;
-			if ($etape_demandee > 0 && $etape_demandee < $etape) {
-				$etape = $etape_demandee;
-			}
-			$etape = min($etape, $etapes);
-			#var_dump("prochaine etape $etape");
-			// retourner les erreurs de l'etape ciblee
-			$erreurs = $erreurs_etapes[$etape] ?? [];
-			// Ne pas se tromper dans le texte du message d'erreur : la clé '_etapes' n'est pas une erreur !
-			if ($erreurs) {
-				if (!isset($erreurs['message_erreur'])) {
-					$erreurs['message_erreur'] = singulier_ou_pluriel(is_countable($erreurs) ? count($erreurs) : 0, 'avis_1_erreur_saisie', 'avis_nb_erreurs_saisie');
-				}
-			} else {
-				$erreurs['message_erreur'] = '';
-			}
-			$erreurs['_etapes'] = "etape suivante $etape";
-			set_request('_etape', $etape);
 		}
+		$etape = $derniere_etape_ok + 1;
+		if ($etape_demandee > 0 && $etape_demandee < $etape) {
+			$etape = $etape_demandee;
+		}
+		$etape = min($etape, $etapes);
+		#var_dump("prochaine etape $etape");
+		// retourner les erreurs de l'etape ciblee
+		$erreurs = $erreurs_etapes[$etape] ?? [];
+		// Ne pas se tromper dans le texte du message d'erreur : la clé '_etapes' n'est pas une erreur !
+		if ($erreurs) {
+			if (!isset($erreurs['message_erreur'])) {
+				$erreurs['message_erreur'] = singulier_ou_pluriel(
+					is_countable($erreurs) ? count($erreurs) : 0,
+					'avis_1_erreur_saisie',
+					'avis_nb_erreurs_saisie'
+				);
+			}
+		} else {
+			$erreurs['message_erreur'] = '';
+		}
+		$erreurs['_etapes'] = "etape suivante $etape";
+		set_request('_etape', $etape);
+
 	}
 
 	return $erreurs;

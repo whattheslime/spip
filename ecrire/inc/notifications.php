@@ -18,7 +18,6 @@ if (!defined('_ECRIRE_INC_VERSION')) {
 	return;
 }
 
-
 /**
  * La fonction de notification de base, qui dispatche le travail
  *
@@ -37,9 +36,7 @@ function inc_notifications_dist($quoi, $id = 0, $options = []) {
 	pipeline('notifications', ['args' => ['quoi' => $quoi, 'id' => $id, 'options' => $options]]);
 
 	if ($notification = charger_fonction($quoi, 'notifications', true)) {
-		spip_logger('notifications')->info("$notification($quoi,$id"
-			. ($options ? ',' . serialize($options) : '')
-			. ')');
+		spip_logger('notifications')->info("$notification($quoi,$id" . ($options ? ',' . serialize($options) : '') . ')');
 		$notification($quoi, $id, $options);
 	}
 }

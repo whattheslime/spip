@@ -11,7 +11,6 @@
 
 use Spip\Afficher\Minipage\Installation;
 
-
 if (!defined('_ECRIRE_INC_VERSION')) {
 	return;
 }
@@ -69,7 +68,7 @@ function etape_ldap5_save() {
 			}
 		} else {
 			$val = 'array(' . _q(preg_split('/\W+/', $val)) . ')';
-		};
+		}
 		if ($val) {
 			$res .= "'$champ' => " . $val . ',';
 		}
@@ -83,15 +82,13 @@ function etape_ldap5_suite() {
 	$minipage = new Installation();
 	echo $minipage->installDebutPage(['onload' => 'document.getElementById(\'suivant\').focus();return false;']);
 
-	echo info_etape(
-		_T('info_ldap_ok'),
-		info_progression_etape(5, 'etape_ldap', 'install/')
-	);
+	echo info_etape(_T('info_ldap_ok'), info_progression_etape(5, 'etape_ldap', 'install/'));
 
 	echo generer_form_ecrire('install', (
 		"<input type='hidden' name='etape' value='3'>" .
 		"<input type='hidden' name='ldap_present' value='true'>"
-		. bouton_suivant()));
+		. bouton_suivant()
+	));
 
 	echo $minipage->installFinPage();
 }

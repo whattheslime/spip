@@ -48,17 +48,13 @@ class TraiterRaccourcisTest extends TestCase
 		return [
 			/*
 			if (!preg_match($c = ",<p\b.*?>titi</p>\n<p\b.*?>toto</p>,",
-			$b = propre( $a = "titi\n\ntoto")))
 				$err[] = htmlentities ("$a -- $b -- $c");
-
 			if (!preg_match(",<p\b.*?>titi</p>\n<p\b.*?>toto<br /></p>,",
 			propre("titi\n\n<br />toto<br />")))
 				$err[] = 'erreur 2';
-
-
 			if (!strpos(propre("Ligne\n\n<br class=\"n\" />\n\nAutre"), '<br class="n" />'))
 				$err[] = "erreur le &lt;br class='truc'> n'est pas preserve";
-			*/
+			 */
 			// trois tests un peu identiques sur <br />...
 			'div' => ["<div>titi<br />toto</div>\n<p><br />tata</p>\n", '<div>titi<br />toto</div><br />tata'],
 			'span' => ['<span>titi<br />toto</span><br />tata', '<span>titi<br />toto</span><br />tata'],

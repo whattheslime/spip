@@ -57,7 +57,6 @@ function base_determine_autoinc($table, $desc = []) {
  *   en fonction de la table
  * @param bool $upgrade
  * @param string $serveur
- * @return void
  */
 function creer_ou_upgrader_table($table, $desc, $autoinc, $upgrade = false, $serveur = '') {
 	$sql_desc = $upgrade ? sql_showtable($table, true, $serveur) : false;
@@ -121,7 +120,6 @@ function creer_ou_upgrader_table($table, $desc, $autoinc, $upgrade = false, $ser
  *   et des $tables_inc / $tables_noinc seront traitees
  * @param string $serveur
  *   serveur sql
- * @return void
  */
 function alterer_base($tables_inc, $tables_noinc, $up = false, $serveur = '') {
 	if ($up === false) {
@@ -159,7 +157,6 @@ function alterer_base($tables_inc, $tables_noinc, $up = false, $serveur = '') {
  * @uses alterer_base()
  *
  * @param string $serveur
- * @return void
  */
 function creer_base($serveur = '') {
 
@@ -167,12 +164,7 @@ function creer_base($serveur = '') {
 	// de la conformite de la base
 	// pas de panique sur  "already exists" et "duplicate entry" donc.
 
-	alterer_base(
-		lister_tables_principales(),
-		lister_tables_auxiliaires(),
-		false,
-		$serveur
-	);
+	alterer_base(lister_tables_principales(), lister_tables_auxiliaires(), false, $serveur);
 }
 
 /**
@@ -189,13 +181,7 @@ function creer_base($serveur = '') {
  *
  * @param array $upgrade_tables
  * @param string $serveur
- * @return void
  */
 function maj_tables($upgrade_tables = [], $serveur = '') {
-	alterer_base(
-		lister_tables_principales(),
-		lister_tables_auxiliaires(),
-		$upgrade_tables,
-		$serveur
-	);
+	alterer_base(lister_tables_principales(), lister_tables_auxiliaires(), $upgrade_tables, $serveur);
 }

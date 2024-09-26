@@ -21,8 +21,6 @@ if (!defined('_ECRIRE_INC_VERSION')) {
 
 /**
  * Executer un travaille immediatement
- *
- * @return void
  */
 function action_forcer_job_dist() {
 	$securiser_action = charger_fonction('securiser_action', 'inc');

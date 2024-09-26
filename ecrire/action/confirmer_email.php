@@ -24,7 +24,6 @@ if (!defined('_ECRIRE_INC_VERSION')) {
  *
  * @global array $GLOBALS ['visiteur_session']
  * @global string $GLOBALS ['redirect']
- * @return void
  */
 function action_confirmer_email_dist() {
 	$securiser_action = charger_fonction('securiser_action', 'inc');

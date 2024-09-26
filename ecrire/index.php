@@ -29,8 +29,8 @@ include_spip('inc/cookie');
 // Determiner l'action demandee
 //
 
-$exec = (string)_request('exec');
-$reinstall = (is_null(_request('reinstall'))) ? ($exec == 'install' ? 'oui' : null) : _request('reinstall');
+$exec = (string) _request('exec');
+$reinstall = (_request('reinstall') === null) ? ($exec == 'install' ? 'oui' : null) : _request('reinstall');
 //
 // Les scripts d'insallation n'authentifient pas, forcement,
 // alors il faut blinder les variables d'URL
@@ -82,7 +82,6 @@ if (_request('redirect')) {
 	}
 	set_request('redirect', securiser_redirect_action(_request('redirect')));
 }
-
 
 //
 // Gestion d'une page normale de l'espace prive

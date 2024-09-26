@@ -18,7 +18,6 @@ if (!defined('_ECRIRE_INC_VERSION')) {
 	return;
 }
 
-
 /**
  * Calculer la taille du cache ou du cache image pour l'afficher en ajax sur la page d'admin de SPIP
  *
@@ -30,7 +29,7 @@ if (!defined('_ECRIRE_INC_VERSION')) {
  *     de l'action sécurisée.
  */
 function action_calculer_taille_cache_dist($arg = null) {
-	if (is_null($arg)) {
+	if ($arg === null) {
 		$securiser_action = charger_fonction('securiser_action', 'inc');
 		$arg = $securiser_action();
 	}
@@ -42,7 +41,7 @@ function action_calculer_taille_cache_dist($arg = null) {
 			'ecrire:taille_cache_image',
 			[
 				'dir' => joli_repertoire(_DIR_VAR),
-				'taille' => '<b>' . (taille_en_octets($taille) > 0 ? taille_en_octets($taille) : '0 octet') . '</b>'
+				'taille' => '<b>' . (taille_en_octets($taille) > 0 ? taille_en_octets($taille) : '0 octet') . '</b>',
 			]
 		);
 	} else {
@@ -66,7 +65,6 @@ function action_calculer_taille_cache_dist($arg = null) {
 	$res = "<p>$res</p>";
 	ajax_retour($res);
 }
-
 
 /**
  * Calculer la taille d'un dossier, sous dossiers inclus

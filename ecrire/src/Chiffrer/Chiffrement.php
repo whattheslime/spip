@@ -17,13 +17,12 @@ namespace Spip\Chiffrer;
  * @link https://fr.wikipedia.org/wiki/Cryptographie_sym%C3%A9trique
  * @link https://www.php.net/manual/fr/book.sodium.php
  */
-class Chiffrement {
-	/** Chiffre un message en utilisant une clé ou un mot de passe */
-	public static function chiffrer(
-		string $message,
-		#[\SensitiveParameter]
-		string $key
-	): ?string {
+class Chiffrement
+{
+	/**
+	 * Chiffre un message en utilisant une clé ou un mot de passe
+	 */
+	public static function chiffrer(string $message, #[\SensitiveParameter] string $key): ?string {
 		// create a random salt for key derivation
 		$salt = random_bytes(SODIUM_CRYPTO_PWHASH_SALTBYTES);
 		$key = self::deriveKeyFromPassword($key, $salt);
@@ -38,12 +37,10 @@ class Chiffrement {
 		return $encoded;
 	}
 
-	/** Déchiffre un message en utilisant une clé ou un mot de passe */
-	public static function dechiffrer(
-		string $encoded,
-		#[\SensitiveParameter]
-		string $key
-	): ?string {
+	/**
+	 * Déchiffre un message en utilisant une clé ou un mot de passe
+	 */
+	public static function dechiffrer(string $encoded, #[\SensitiveParameter] string $key): ?string {
 		$decoded = base64_decode($encoded);
 		$salt = substr($decoded, 0, \SODIUM_CRYPTO_PWHASH_SALTBYTES);
 		$nonce = substr($decoded, \SODIUM_CRYPTO_PWHASH_SALTBYTES, \SODIUM_CRYPTO_SECRETBOX_NONCEBYTES);
@@ -60,7 +57,9 @@ class Chiffrement {
 		return sodium_unpad($padded_message, 16);
 	}
 
-	/** Génère une clé de la taille attendue pour le chiffrement */
+	/**
+	 * Génère une clé de la taille attendue pour le chiffrement
+	 */
 	public static function keygen(): string {
 		return sodium_crypto_secretbox_keygen();
 	}
@@ -71,11 +70,7 @@ class Chiffrement {
 	 * Notamment si on utilise un mot de passe comme clé, il faut le hacher
 	 * pour servir de clé à la taille correspondante.
 	 */
-	private static function deriveKeyFromPassword(
-		#[\SensitiveParameter]
-		string $password,
-		string $salt
-	): string {
+	private static function deriveKeyFromPassword(#[\SensitiveParameter] string $password, string $salt): string {
 		if (strlen($password) === \SODIUM_CRYPTO_SECRETBOX_KEYBYTES) {
 			return $password;
 		}

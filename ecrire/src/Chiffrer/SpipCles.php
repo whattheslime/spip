@@ -12,11 +12,20 @@
 namespace Spip\Chiffrer;
 
 /** Gestion des clés d’authentification / chiffrement de SPIP */
-final class SpipCles {
+final class SpipCles
+{
 	private static array $instances = [];
 
 	private string $file = _DIR_ETC . 'cles.php';
+
 	private readonly Cles $cles;
+
+	private function __construct(string $file = '') {
+		if ($file) {
+			$this->file = $file;
+		}
+		$this->cles = new Cles($this->read());
+	}
 
 	public static function instance(string $file = ''): self {
 		if (empty(self::$instances[$file])) {
@@ -30,14 +39,7 @@ final class SpipCles {
 	 * @uses self::getSecretSite()
 	 */
 	public static function secret_du_site(): ?string {
-		return (self::instance())->getSecretSite();
-	}
-
-	private function __construct(string $file = '') {
-		if ($file) {
-			$this->file = $file;
-		}
-		$this->cles = new Cles($this->read());
+		return self::instance()->getSecretSite();
 	}
 
 	/**
@@ -47,8 +49,6 @@ final class SpipCles {
 	 * On ne doit pas l'exporter
 	 *
 	 * Le secret est partagé entre une clé disque et une clé bdd
-	 *
-	 * @return string
 	 */
 	public function getSecretSite(bool $autoInit = true): ?string {
 		$key = $this->getKey('secret_du_site', $autoInit);
@@ -57,10 +57,13 @@ final class SpipCles {
 		return $key ^ $meta;
 	}
 
-	/** Renvoyer le secret des authentifications */
+	/**
+	 * Renvoyer le secret des authentifications
+	 */
 	public function getSecretAuth(bool $autoInit = false): ?string {
 		return $this->getKey('secret_des_auth', $autoInit);
 	}
+
 	public function save(): bool {
 		return ecrire_fichier_securise($this->file, $this->cles->toJson());
 	}
@@ -71,10 +74,7 @@ final class SpipCles {
 	 * @param string $withKey Clé de chiffrage de la sauvegarde
 	 * @return string Contenu de la sauvegarde chiffrée générée
 	 */
-	public function backup(
-		#[\SensitiveParameter]
-		string $withKey
-	): string {
+	public function backup(#[\SensitiveParameter] string $withKey): string {
 		if (count($this->cles)) {
 			return Chiffrement::chiffrer($this->cles->toJson(), $withKey);
 		}
@@ -114,7 +114,9 @@ final class SpipCles {
 			!empty($cles_potentielles['secret_des_auth'])
 			&& !Password::verifier($password_clair, $password_hash, $cles_potentielles['secret_des_auth'])
 		) {
-			spip_logger('chiffrer')->notice("Restauration de la cle `secret_des_auth` par id_auteur $id_auteur erronnee, on ignore");
+			spip_logger('chiffrer')->notice(
+				"Restauration de la cle `secret_des_auth` par id_auteur $id_auteur erronnee, on ignore"
+			);
 			unset($cles_potentielles['secret_des_auth']);
 		}
 
@@ -123,7 +125,8 @@ final class SpipCles {
 		foreach ($cles_potentielles as $name => $key) {
 			if (!$this->cles->has($name)) {
 				$this->cles->set($name, $key);
-				spip_logger('chiffrer')->notice("Restauration de la cle $name par id_auteur $id_auteur");
+				spip_logger('chiffrer')
+					->notice("Restauration de la cle $name par id_auteur $id_auteur");
 				$restauration = true;
 			}
 		}
@@ -141,7 +144,8 @@ final class SpipCles {
 				return $this->cles->get($name);
 			}
 			// sinon loger et annule la cle generee car il ne faut pas l'utiliser
-			spip_logger('chiffrer')->error('Echec ecriture du fichier cle ' . $this->file . " ; impossible de generer une cle $name");
+			spip_logger('chiffrer')
+				->error('Echec ecriture du fichier cle ' . $this->file . " ; impossible de generer une cle $name");
 			$this->cles->delete($name);
 		}
 		return null;

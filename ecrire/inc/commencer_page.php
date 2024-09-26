@@ -109,7 +109,10 @@ function init_entete($titre = '', $dummy = 0, $minipres = false) {
  * @return string
  */
 function init_head($titre = '', $dummy = 0, $minipres = false) {
-	return recuperer_fond('prive/squelettes/head/dist', ['titre' => $titre, 'minipres' => $minipres ? ' ' : '']);
+	return recuperer_fond('prive/squelettes/head/dist', [
+		'titre' => $titre,
+		'minipres' => $minipres ? ' ' : '',
+	]);
 }
 
 /**
@@ -140,7 +143,6 @@ function init_body($rubrique = 'accueil', $sous_rubrique = 'accueil', $id_rubriq
 		return $res;
 	}
 
-
 	$bandeau = charger_fonction('bandeau', 'inc');
 
 	return $res
@@ -164,7 +166,6 @@ function init_body_class() {
 	$classes = "spip-theme-colors-$couleur";
 	return spip_sanitize_classname($classes);
 }
-
 
 /**
  * Afficher la liste des auteurs connectés à l'espace privé

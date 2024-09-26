@@ -11,7 +11,6 @@
 
 use Psr\Log\LogLevel;
 
-
 if (!defined('_ECRIRE_INC_VERSION')) {
 	return;
 }
@@ -42,6 +41,7 @@ function inc_log_dist($message, $logname = null, $logdir = null, $logsuf = null)
 			return;
 		}
 	}
-	spip_logger($logname)->info($message);
+	spip_logger($logname)
+		->info($message);
 	return;
 }

@@ -69,7 +69,7 @@ class Traducteur
 		if (str_contains((string) $this->query, 'INTERVAL')) {
 			$this->query = preg_replace_callback(
 				'/DATE_(ADD|SUB)(.*)INTERVAL\s+(\d+)\s+([a-zA-Z]+)\)/U',
-				fn(array $matches): string => $this->_remplacerDateParTime($matches),
+				fn (array $matches): string => $this->_remplacerDateParTime($matches),
 				(string) $this->query
 			);
 		}
@@ -87,7 +87,7 @@ class Traducteur
 		if (str_contains((string) $this->query, 'FIELD')) {
 			$this->query = preg_replace_callback(
 				'/FIELD\s*\(([^\)]*)\)/',
-				fn(array $matches): string => $this->_remplacerFieldParCase($matches),
+				fn (array $matches): string => $this->_remplacerFieldParCase($matches),
 				(string) $this->query
 			);
 		}

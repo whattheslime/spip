@@ -14,7 +14,8 @@ namespace Spip\Afficher\Minipage;
 /**
  * Présentation des pages simplifiées
  */
-abstract class AbstractPage {
+abstract class AbstractPage
+{
 	public const TYPE = '';
 
 	public function __construct() {
@@ -22,6 +23,82 @@ abstract class AbstractPage {
 		include_spip('inc/headers');
 		include_spip('inc/texte'); //inclue inc/lang et inc/filtres
 		include_spip('inc/filtres_images_mini');
+	}
+
+	/**
+	 * Retourne une page HTML contenant, dans une présentation minimale,
+	 * le contenu transmis dans `$corps`.
+	 *
+	 * Appelée pour afficher un message ou une demande de confirmation simple et rapide
+	 *
+	 * @param string $corps
+	 *   Corps de la page
+	 * @param array $options
+	 * @return string
+	 *   HTML de la page
+	 * @see  ouvreBody()
+	 * @see  ouvreCorps()
+	 *   string $titre : Titre à l'affichage (différent de $page_title)
+	 *   int $status : status de la page
+	 *   string $footer : pied de la box en remplacement du bouton retour par défaut
+	 * @uses ouvreBody()
+	 * @uses ouvreCorps()
+	 * @uses fermeCorps()
+	 * @uses fermeBody()
+	 */
+	public function page($corps, $options = []) {
+
+		// par securite
+		if (!defined('_AJAX')) {
+			define('_AJAX', false);
+		}
+
+		$status = ((int) ($options['status'] ?? 200)) ?: 200;
+
+		http_response_code($status);
+
+		$html = $this->ouvreBody($options)
+			. $this->ouvreCorps($options)
+			. $corps
+			. $this->fermeCorps($options)
+			. $this->fermeBody();
+
+		if (
+			$GLOBALS['profondeur_url'] >= (_DIR_RESTREINT ? 1 : 2)
+			&& empty($options['all_inline'])
+		) {
+			define('_SET_HTML_BASE', true);
+			include_spip('public/assembler');
+			$GLOBALS['html'] = true;
+			page_base_href($html);
+		}
+		return $html;
+	}
+
+	/**
+	 * Fonction helper pour les erreurs
+	 * @param ?string $message_erreur
+	 * @param array $options
+	 * @see page()
+	 * @return string
+	 */
+	public function pageErreur($message_erreur = null, $options = []) {
+
+		if (empty($message_erreur)) {
+			if (empty($options['lang'])) {
+				utiliser_langue_visiteur();
+			} else {
+				changer_langue($options['lang']);
+			}
+			$message_erreur = _T('info_acces_interdit');
+		}
+		$corps = "<div class='msg-alert error'>"
+			. $message_erreur
+			. '</div>';
+		if (empty($options['status'])) {
+			$options['status'] = 403;
+		}
+		return $this->page($corps, $options);
 	}
 
 	/**
@@ -98,11 +175,7 @@ abstract class AbstractPage {
 		if (function_exists('minifier')) {
 			$inline = minifier($inline, 'css');
 		}
-		$files = [
-			find_in_theme('reset.css'),
-			find_in_theme('clear.css'),
-			find_in_theme('minipage.css'),
-		];
+		$files = [find_in_theme('reset.css'), find_in_theme('clear.css'), find_in_theme('minipage.css')];
 		if (!empty($options['css_files'])) {
 			foreach ($options['css_files'] as $css_file) {
 				$files[] = $css_file;
@@ -151,13 +224,15 @@ abstract class AbstractPage {
 
 	/**
 	 * Ouvre le corps : affiche le header avec un éventuel titre + ouvre le div corps
-	 * @param array options
+	 * @param array $options
 	 * @return string
 	 */
 	protected function ouvreCorps($options = []) {
 		$url_site = url_de_base();
 		$header = "<header>\n" .
-			'<h1><a href="' . attribut_url($url_site) . '">' . interdire_scripts($GLOBALS['meta']['nom_site'] ?? '') . "</a></h1>\n";
+			'<h1><a href="' . attribut_url($url_site) . '">' . interdire_scripts(
+				$GLOBALS['meta']['nom_site'] ?? ''
+			) . "</a></h1>\n";
 
 		$titre = ($options['titre'] ?? '');
 		if ($titre) {
@@ -188,20 +263,21 @@ abstract class AbstractPage {
 		return "</div>\n" . $footer;
 	}
 
-
 	/**
 	 * Retourne la fin d'une page HTML minimale
 	 *
 	 * @return string Code HTML
 	 */
 	protected function fermeBody() {
-		$debugTrace = "";
+		$debugTrace = '';
 		if (defined('_DEBUG_MINIPRES') && _DEBUG_MINIPRES) {
 			ob_start();
 			debug_print_backtrace();
 			$debugTrace = ob_get_contents();
 			ob_end_clean();
-			$debugTrace = "<div class='precode debug-trace'><pre class='spip_code spip_code_block'><code>" . spip_htmlentities($debugTrace) . "</code></pre></div>\n";
+			$debugTrace = "<div class='precode debug-trace'><pre class='spip_code spip_code_block'><code>" . spip_htmlentities(
+				$debugTrace
+			) . "</code></pre></div>\n";
 			$debugTrace .= <<<css
 <style>
 .spip_code {background-color: rgba(255,255,255, 0.45);}
@@ -213,84 +289,5 @@ css;
 
 		}
 		return "\n\t</div>\n$debugTrace</body>\n</html>";
-	}
-
-
-	/**
-	 * Retourne une page HTML contenant, dans une présentation minimale,
-	 * le contenu transmis dans `$corps`.
-	 *
-	 * Appelée pour afficher un message ou une demande de confirmation simple et rapide
-	 *
-	 * @param string $corps
-	 *   Corps de la page
-	 * @param array $options
-	 * @return string
-	 *   HTML de la page
-	 * @see  ouvreBody()
-	 * @see  ouvreCorps()
-	 *   string $titre : Titre à l'affichage (différent de $page_title)
-	 *   int $status : status de la page
-	 *   string $footer : pied de la box en remplacement du bouton retour par défaut
-	 * @uses ouvreBody()
-	 * @uses ouvreCorps()
-	 * @uses fermeCorps()
-	 * @uses fermeBody()
-	 *
-	 */
-	public function page($corps, $options = []) {
-
-		// par securite
-		if (!defined('_AJAX')) {
-			define('_AJAX', false);
-		}
-
-		$status = ((int) ($options['status'] ?? 200)) ?: 200;
-
-		http_response_code($status);
-
-		$html = $this->ouvreBody($options)
-			. $this->ouvreCorps($options)
-			. $corps
-			. $this->fermeCorps($options)
-			. $this->fermeBody();
-
-		if (
-			$GLOBALS['profondeur_url'] >= (_DIR_RESTREINT ? 1 : 2)
-			&& empty($options['all_inline'])
-		) {
-			define('_SET_HTML_BASE', true);
-			include_spip('public/assembler');
-			$GLOBALS['html'] = true;
-			page_base_href($html);
-		}
-		return $html;
-	}
-
-	/**
-	 * Fonction helper pour les erreurs
-	 * @param ?string $message_erreur
-	 * @param array $options
-	 * @see page()
-	 * @return string
-	 *
-	 */
-	public function pageErreur($message_erreur = null, $options = []) {
-
-		if (empty($message_erreur)) {
-			if (empty($options['lang'])) {
-				utiliser_langue_visiteur();
-			} else {
-				changer_langue($options['lang']);
-			}
-			$message_erreur = _T('info_acces_interdit');
-		}
-		$corps = "<div class='msg-alert error'>"
-			. $message_erreur
-			. '</div>';
-		if (empty($options['status'])) {
-			$options['status'] = 403;
-		}
-		return $this->page($corps, $options);
 	}
 }

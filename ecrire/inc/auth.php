@@ -53,26 +53,23 @@ function inc_auth_dist() {
 	if (spip_connect()) {
 		return [
 			'login' => $GLOBALS['connect_login'],
-			'site' => generer_url_public('', 'action=logout&amp;logout=prive')
+			'site' => generer_url_public('', 'action=logout&amp;logout=prive'),
 		];
 	}
 
 	$n = (int) sql_errno();
-	spip_logger()->info("Erreur base de donnees $n " . sql_error());
+	spip_logger()
+		->info("Erreur base de donnees $n " . sql_error());
 
 	return $n ?: 1;
 }
 
 /**
  * Vérifier qu'un mot de passe saisi pour confirmer une action est bien celui de l'auteur connecté
- * @return bool
  */
 function auth_controler_password_auteur_connecte(#[\SensitiveParameter] string $password): bool {
 
-	if (
-		empty($GLOBALS['visiteur_session']['id_auteur'])
-		|| empty($GLOBALS['visiteur_session']['login'])
-	) {
+	if (empty($GLOBALS['visiteur_session']['id_auteur']) || empty($GLOBALS['visiteur_session']['login'])) {
 		return false;
 	}
 
@@ -85,7 +82,6 @@ function auth_controler_password_auteur_connecte(#[\SensitiveParameter] string $
  * en cas de refus de connexion.
  * Retourne un message a afficher ou redirige illico.
  *
- * @param  $raison
  * @return array|string
  */
 function auth_echec($raison) {
@@ -106,7 +102,8 @@ function auth_echec($raison) {
 		);
 	} elseif (@$raison['statut']) {
 		// un simple visiteur n'a pas acces a l'espace prive
-		spip_logger()->info('connexion refusee a ' . @$raison['id_auteur']);
+		spip_logger()
+			->info('connexion refusee a ' . @$raison['id_auteur']);
 		$est_connecte = (!empty($GLOBALS['visiteur_session']['login']) && !empty($GLOBALS['visiteur_session']['statut'])); // idem test balise #URL_LOGOUT
 		$raison = minipres(
 			_T('avis_erreur_connexion'),
@@ -114,7 +111,10 @@ function auth_echec($raison) {
 				// Lien vers le site public
 				. '<br><a href="' . attribut_url(url_de_base()) . '">' . _T('login_retour_public') . '</a>'
 				// Si la personne est connectée, lien de déconnexion ramenant vers la page de login
-				. ($est_connecte ? ' | <a href="' . generer_url_public('', 'action=logout&amp;logout=prive') . '">' . _T('icone_deconnecter') . '</a>' : '')
+				. ($est_connecte ? ' | <a href="' . generer_url_public(
+					'',
+					'action=logout&amp;logout=prive'
+				) . '">' . _T('icone_deconnecter') . '</a>' : '')
 		);
 	} else {
 		// auteur en fin de droits ...
@@ -182,14 +182,14 @@ function auth_mode() {
 				$GLOBALS['visiteur_session'] = $r;
 				$GLOBALS['connect_login'] = session_get('login');
 				$id_auteur = $r['id_auteur'];
-			} else {
-				// cas de la session en plus de PHP_AUTH
-				/*				  if ($id_auteur != $r['id_auteur']){
-					spip_logger()->info("vol de session $id_auteur" . join(', ', $r));
-				unset($_COOKIE['spip_session']);
-				$id_auteur = '';
-				} */
 			}
+			// cas de la session en plus de PHP_AUTH
+			/*				  if ($id_auteur != $r['id_auteur']){
+				spip_logger()->info("vol de session $id_auteur" . join(', ', $r));
+			unset($_COOKIE['spip_session']);
+			$id_auteur = '';
+			} */
+
 		} else {
 			// Authentification .htaccess old style, car .htaccess semble
 			// souvent definir *aussi* PHP_AUTH_USER et PHP_AUTH_PW
@@ -199,7 +199,8 @@ function auth_mode() {
 		}
 	}
 
-	$where = (is_numeric($id_auteur)
+	$where = (
+		is_numeric($id_auteur)
 		/*AND $id_auteur>0*/ // reprise lors des restaurations
 	) ?
 		"id_auteur=$id_auteur" :
@@ -235,7 +236,6 @@ function auth_init_droits($row) {
 		return false;
 	}
 
-
 	if ($row['statut'] == 'nouveau') {
 		include_spip('action/inscrire_auteur');
 		$row = confirmer_statut_inscription($row);
@@ -269,7 +269,7 @@ function auth_init_droits($row) {
 	$GLOBALS['visiteur_session'] = pipeline(
 		'preparer_visiteur_session',
 		['args' => ['row' => $row],
-		'data' => $GLOBALS['visiteur_session']]
+			'data' => $GLOBALS['visiteur_session']]
 	);
 
 	// Etablir les droits selon le codage attendu
@@ -334,7 +334,8 @@ function auth_a_loger() {
 		$redirect = parametre_url(
 			$redirect,
 			'var_erreur',
-			(isset($GLOBALS['visiteur_session']['statut'])
+			(
+				isset($GLOBALS['visiteur_session']['statut'])
 				? 'statut'
 				: 'cookie'
 			),
@@ -369,7 +370,6 @@ function auth_trace($row, $date = null) {
 	pipeline('trig_auth_trace', ['args' => ['row' => $row, 'date' => $date]]);
 }
 
-
 /** ----------------------------------------------------------------------------
  * API Authentification, gestion des identites centralisees
  */
@@ -388,7 +388,6 @@ function auth_trace($row, $date = null) {
  * @param array $args
  *        Le premier élément du tableau doit être le nom du système d'authentification
  *        choisi, tel que `spip` (par défaut) ou encore `ldap`.
- * @param mixed $defaut
  * @return mixed
  */
 function auth_administrer($fonction, $args, mixed $defaut = false) {
@@ -408,9 +407,9 @@ function auth_administrer($fonction, $args, mixed $defaut = false) {
 			'args' => [
 				'fonction' => $fonction,
 				'methode' => $auth_methode,
-				'args' => $args
+				'args' => $args,
 			],
-			'data' => $res
+			'data' => $res,
 		]
 	);
 }
@@ -428,7 +427,6 @@ function auth_formulaire_login($flux) {
 
 	return $flux;
 }
-
 
 /**
  * Retrouver le login interne lie a une info login saisie
@@ -470,7 +468,16 @@ function auth_informer_login($login, $serveur = '') {
 	if (
 		!$login
 		|| !($login_base = auth_retrouver_login($login, $serveur))
-		|| !($row = sql_fetsel('*', 'spip_auteurs', 'login=' . sql_quote($login_base, $serveur, 'text'), '', '', '', '', $serveur))
+		|| !($row = sql_fetsel(
+			'*',
+			'spip_auteurs',
+			'login=' . sql_quote($login_base, $serveur, 'text'),
+			'',
+			'',
+			'',
+			'',
+			$serveur
+		))
 	) {
 		// generer de fausses infos, mais credibles, pour eviter une attaque
 		// https://core.spip.net/issues/1758 + https://core.spip.net/issues/3691
@@ -497,7 +504,6 @@ function auth_informer_login($login, $serveur = '') {
 
 	return auth_administrer('informer_login', [$row['source'], $infos, $row, $serveur], $infos);
 }
-
 
 /**
  * Essayer les differentes sources d'authenfication dans l'ordre specifie.
@@ -577,11 +583,7 @@ function auth_loger($auteur) {
 	$p = $GLOBALS['visiteur_session']['prefs'];
 	$p['cnx'] = (isset($auteur['cookie']) && $auteur['cookie'] == 'oui') ? 'perma' : '';
 
-	sql_updateq(
-		'spip_auteurs',
-		['prefs' => serialize($p)],
-		'id_auteur=' . (int) $auteur['id_auteur']
-	);
+	sql_updateq('spip_auteurs', ['prefs' => serialize($p)], 'id_auteur=' . (int) $auteur['id_auteur']);
 
 	//  bloquer ici le visiteur qui tente d'abuser de ses droits
 	verifier_visiteur();
@@ -704,7 +706,6 @@ function auth_modifier_pass($auth_methode, $login, #[\SensitiveParameter] $new_p
  * @param array $champs
  * @param array $options
  * @param string $serveur
- * @return void
  */
 function auth_synchroniser_distant(
 	$auth_methode = true,
@@ -727,7 +728,6 @@ function auth_synchroniser_distant(
 	}
 }
 
-
 /**
  * Vérifier si l'auteur est bien authentifié
  *
@@ -737,10 +737,7 @@ function auth_synchroniser_distant(
  * @return array|bool
  */
 function lire_php_auth($login, #[\SensitiveParameter] $pw, $serveur = '') {
-	if (
-		!$login
-		|| !$login_base = auth_retrouver_login($login, $serveur)
-	) {
+	if (!$login || !$login_base = auth_retrouver_login($login, $serveur)) {
 		return false;
 	}
 

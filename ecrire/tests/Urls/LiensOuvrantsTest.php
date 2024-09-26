@@ -2,7 +2,6 @@
 
 declare(strict_types=1);
 
-
 namespace Spip\Test\Urls;
 
 use PHPUnit\Framework\Attributes\DataProvider;
@@ -17,9 +16,21 @@ class LiensOuvrantsTest extends TestCase
 	#[DataProvider('providerAttendus')]
 	public function testAttendus($text) {
 		$link = liens_ouvrants($text);
-		$this->assertEquals('_blank', extraire_attribut($link, 'target'), sprintf('Lien ouvrant "%s" n’a pas target', $link));
-		$this->assertStringContainsString('noopener', extraire_attribut($link, 'rel'), sprintf('Lien ouvrant "%s" n’a pas noopener', $link));
-		$this->assertStringContainsString('noreferrer', extraire_attribut($link, 'rel'), sprintf('Lien ouvrant "%s" n’a pas noreferrer', $link));
+		$this->assertEquals(
+			'_blank',
+			extraire_attribut($link, 'target'),
+			sprintf('Lien ouvrant "%s" n’a pas target', $link)
+		);
+		$this->assertStringContainsString(
+			'noopener',
+			extraire_attribut($link, 'rel'),
+			sprintf('Lien ouvrant "%s" n’a pas noopener', $link)
+		);
+		$this->assertStringContainsString(
+			'noreferrer',
+			extraire_attribut($link, 'rel'),
+			sprintf('Lien ouvrant "%s" n’a pas noreferrer', $link)
+		);
 	}
 
 	public static function providerAttendus(): array {
@@ -57,7 +68,6 @@ class LiensOuvrantsTest extends TestCase
 		];
 	}
 
-
 	#[DataProvider('providerLiensOuvrantsPropre')]
 	public function testLiensOuvrantsPropre($text) {
 		$link = liens_ouvrants(propre($text));
@@ -73,7 +83,7 @@ class LiensOuvrantsTest extends TestCase
 			],
 			'propre lien https' => [
 				'text' => 'Ceci est un lien [ouvrant->https://www.spip.net/ar] rondtudiou.',
-			]
+			],
 		];
 	}
 }

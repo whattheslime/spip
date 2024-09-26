@@ -120,6 +120,6 @@ function menu_lang_pour_tous($nom, $default) {
 			'url' => $post,
 			'name' => $nom,
 			'default' => $default,
-		]
+		],
 	];
 }

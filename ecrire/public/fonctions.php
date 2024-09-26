@@ -61,7 +61,7 @@ function filtre_introduction_dist($descriptif, $texte, $longueur, $connect, $sui
 
 	// De preference ce qui est marque <intro>...</intro>
 	$intro = '';
-	$texte = preg_replace(',(</?)intro>,i', "\\1intro>", $texte); // minuscules
+	$texte = preg_replace(',(</?)intro>,i', '\\1intro>', $texte); // minuscules
 	while ($fin = strpos($texte, '</intro>')) {
 		$zone = substr($texte, 0, $fin);
 		$texte = substr($texte, $fin + strlen('</intro>'));
@@ -109,7 +109,7 @@ function filtre_introduction_dist($descriptif, $texte, $longueur, $connect, $sui
 		$notes('', 'depiler');
 	}
 
-	if (is_null($suite) && defined('_INTRODUCTION_SUITE')) {
+	if ($suite === null && defined('_INTRODUCTION_SUITE')) {
 		$suite = _INTRODUCTION_SUITE;
 	}
 	$texte = couper($texte, $longueur, $suite);
@@ -119,12 +119,11 @@ function filtre_introduction_dist($descriptif, $texte, $longueur, $connect, $sui
 	// et reparagrapher si necessaire (coherence avec le cas descriptif)
 	// une introduction a tojours un <p>
 	if ($GLOBALS['toujours_paragrapher']) { // Fermer les paragraphes
-	$texte = paragrapher($texte, $GLOBALS['toujours_paragrapher']);
+		$texte = paragrapher($texte, $GLOBALS['toujours_paragrapher']);
 	}
 
 	return $texte;
 }
-
 
 /**
  * Filtre calculant une pagination, utilisé par la balise `#PAGINATION`
@@ -190,7 +189,7 @@ function filtre_pagination_dist(
 		'nombre_pages' => floor(($total - 1) / $pas) + 1,
 		'page_courante' => floor((int) $position / $pas) + 1,
 		'ancre' => $ancre,
-		'bloc_ancre' => $bloc_ancre
+		'bloc_ancre' => $bloc_ancre,
 	];
 	if (is_array($env)) {
 		$pagination = array_merge($env, $pagination);
@@ -213,10 +212,8 @@ function filtre_pagination_dist(
 		define('_PAGINATION_NOMBRE_LIENS_MAX_ECRIRE', 5);
 	}
 
-
 	return recuperer_fond("modeles/pagination$modele", $pagination, ['trim' => true], $connect);
 }
-
 
 /**
  * Calcule les bornes d'une pagination
@@ -278,16 +275,19 @@ function filtre_pagination_affiche_texte_lien_page_dist($type_pagination, $numer
 function lister_objets_avec_logos($type) {
 
 	$objet = objet_type($type);
-	$ids = sql_allfetsel('L.id_objet', 'spip_documents AS D JOIN spip_documents_liens AS L ON L.id_document=D.id_document', 'D.mode=' . sql_quote('logoon') . ' AND L.objet=' . sql_quote($objet));
+	$ids = sql_allfetsel(
+		'L.id_objet',
+		'spip_documents AS D JOIN spip_documents_liens AS L ON L.id_document=D.id_document',
+		'D.mode=' . sql_quote('logoon') . ' AND L.objet=' . sql_quote($objet)
+	);
 	if ($ids) {
 		$ids = array_column($ids, 'id_objet');
 		return implode(',', $ids);
 	}
-	else {
-		return '0';
-	}
-}
 
+	return '0';
+
+}
 
 /**
  * Renvoie l'état courant des notes, le purge et en prépare un nouveau
@@ -311,7 +311,6 @@ function calculer_notes() {
 	return $r;
 }
 
-
 /**
  * Retrouver le rang du lien entre un objet source et un obet lie
  * utilisable en direct dans un formulaire d'edition des liens, mais #RANG doit faire le travail automatiquement
@@ -328,9 +327,8 @@ function retrouver_rang_lien($objet_source, $ids, $objet_lie, $idl, $objet_lien)
 	$res = lister_objets_liens($objet_source, $objet_lie, $idl, $objet_lien);
 	$res = array_column($res, 'rang_lien', $objet_source);
 
-	return ($res[$ids] ?? '');
+	return $res[$ids] ?? '';
 }
-
 
 /**
  * Lister les liens en le memoizant dans une static
@@ -386,7 +384,7 @@ function calculer_rang_smart($titre, $objet_source, $id, $env) {
 		&& ($id = (int) $id)
 	) {
 		$rang = retrouver_rang_lien($objet_source, $id, $env['objet'], $env['id_objet'], $env['_objet_lien']);
-		return ($rang ?: '');
+		return $rang ?: '';
 	}
 	return recuperer_numero($titre);
 }
@@ -415,7 +413,16 @@ function calculer_rang_smart($titre, $objet_source, $id, $env) {
  * @return string
  *     HTML avec un lien cliquable
  */
-function calculer_balise_tri(string $champ_ou_sens, string $libelle, string $classe, string $tri_nom, string $tri_champ, string $tri_sens, $liste_tri_sens_defaut, string $nom_pagination = ''): string {
+function calculer_balise_tri(
+	string $champ_ou_sens,
+	string $libelle,
+	string $classe,
+	string $tri_nom,
+	string $tri_champ,
+	string $tri_sens,
+	$liste_tri_sens_defaut,
+	string $nom_pagination = ''
+): string {
 
 	$url = self('&');
 	$tri_sens = (int) $tri_sens;
@@ -442,11 +449,11 @@ function calculer_balise_tri(string $champ_ou_sens, string $libelle, string $cla
 	if ($is_sens_fixe) {
 		$tri_sens_actuel = $tri_sens;
 		$tri_sens_nouveau = $alias_sens[$champ_ou_sens];
-	// Soit c'est le champ utilisé actuellement pour le tri → on inverse le sens
+		// Soit c'est le champ utilisé actuellement pour le tri → on inverse le sens
 	} elseif ($champ_ou_sens === $tri_champ) {
 		$tri_sens_actuel = $tri_sens;
 		$tri_sens_nouveau = $tri_sens * -1;
-	// Sinon c'est un nouveau champ, et on prend son tri par défaut
+		// Sinon c'est un nouveau champ, et on prend son tri par défaut
 	} else {
 		$tri_sens_actuel = $tri_sens_nouveau = (int) ($liste_tri_sens_defaut[$champ_ou_sens] ?? $liste_tri_sens_defaut['*']);
 	}
@@ -490,7 +497,6 @@ function calculer_balise_tri(string $champ_ou_sens, string $libelle, string $cla
 
 	return $balise;
 }
-
 
 /**
  * Proteger les champs passes dans l'url et utiliser dans {tri ...}
@@ -637,7 +643,6 @@ function appliquer_filtre_sinon($arg, $filtre, $args, mixed $defaut = '') {
 /**
  * generer le style dynamique inline pour la page de login et spip_pass
  * @param array $Pile Pile de données
- * @param ...$dummy
  * @return string
  */
 function filtre_styles_inline_page_login_pass_dist(&$Pile, ...$dummy) {
@@ -659,8 +664,7 @@ function filtre_styles_inline_page_login_pass_dist(&$Pile, ...$dummy) {
 		$logo_bg = timestamp($logo_bg);
 		$styles .= ".page_login, .page_spip_pass {background-image:url($logo_bg), url($logo_mini);}\n";
 		$Pile[0]['body_class'] = 'fond_image';
-	}
-	else {
+	} else {
 		$Pile[0]['body_class'] = 'sans_fond';
 	}
 	if ($styles) {

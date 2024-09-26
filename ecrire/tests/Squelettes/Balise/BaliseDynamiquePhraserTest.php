@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace Spip\Test\Squelettes\Balise;
 
 use Spip\Test\SquelettesTestCase;
-use Spip\Test\Templating;
 
 class BaliseDynamiquePhraserTest extends SquelettesTestCase
 {

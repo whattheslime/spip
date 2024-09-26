@@ -149,10 +149,7 @@ function spip_initialisation_core($pi = null, $pa = null, $ti = null, $ta = null
 		define('_FILE_CONNECT_INS', 'connect');
 	}
 	if (!defined('_FILE_CONNECT')) {
-		define(
-			'_FILE_CONNECT',
-			@is_readable($f = _DIR_CONNECT . _FILE_CONNECT_INS . '.php') ? $f : false
-		);
+		define('_FILE_CONNECT', @is_readable($f = _DIR_CONNECT . _FILE_CONNECT_INS . '.php') ? $f : false);
 	}
 
 	// Le fichier de reglages des droits
@@ -160,10 +157,7 @@ function spip_initialisation_core($pi = null, $pa = null, $ti = null, $ta = null
 		define('_FILE_CHMOD_INS', 'chmod');
 	}
 	if (!defined('_FILE_CHMOD')) {
-		define(
-			'_FILE_CHMOD',
-			@is_readable($f = _DIR_CHMOD . _FILE_CHMOD_INS . '.php') ? $f : false
-		);
+		define('_FILE_CHMOD', @is_readable($f = _DIR_CHMOD . _FILE_CHMOD_INS . '.php') ? $f : false);
 	}
 
 	if (!defined('_FILE_LDAP')) {
@@ -271,7 +265,7 @@ function spip_initialisation_core($pi = null, $pa = null, $ti = null, $ta = null
 	if (isset($_SERVER['REQUEST_URI'])) {
 		$GLOBALS['REQUEST_URI'] = $_SERVER['REQUEST_URI'];
 	} else {
-		$GLOBALS['REQUEST_URI'] = (php_sapi_name() !== 'cli') ? $_SERVER['PHP_SELF'] : '';
+		$GLOBALS['REQUEST_URI'] = (PHP_SAPI !== 'cli') ? $_SERVER['PHP_SELF'] : '';
 		if (
 			!empty($_SERVER['QUERY_STRING'])
 			&& !strpos($_SERVER['REQUEST_URI'], '?')
@@ -320,11 +314,7 @@ function spip_initialisation_core($pi = null, $pa = null, $ti = null, $ta = null
 		if (!$uri || !$uri_ref) {
 			$GLOBALS['profondeur_url'] = 0;
 		} else {
-			$GLOBALS['profondeur_url'] = max(
-				0,
-				substr_count($uri[0], '/')
-				- substr_count($uri_ref, '/')
-			);
+			$GLOBALS['profondeur_url'] = max(0, substr_count($uri[0], '/') - substr_count($uri_ref, '/'));
 		}
 	}
 	// s'il y a un cookie ou PHP_AUTH, initialiser visiteur_session
@@ -342,7 +332,6 @@ function spip_initialisation_core($pi = null, $pa = null, $ti = null, $ta = null
 /**
  * Complements d'initialisation non critiques pouvant etre realises
  * par les plugins
- *
  */
 function spip_initialisation_suite() {
 	static $too_late = 0;
@@ -458,7 +447,6 @@ function spip_initialisation_suite() {
 		}
 	}
 
-
 	if (!defined('_SPIP_AJAX')) {
 		define('_SPIP_AJAX', ((!isset($_COOKIE['spip_accepte_ajax']))
 			? 1
@@ -547,11 +535,7 @@ function init_var_mode() {
 				include_spip('inc/autoriser');
 				// autoriser preview si preview seulement, et sinon autoriser debug
 				if (
-					autoriser(
-						($_GET['var_mode'] == 'preview')
-						? 'previsualiser'
-						: 'debug'
-					)
+					autoriser(($_GET['var_mode'] == 'preview') ? 'previsualiser' : 'debug')
 				) {
 					if (in_array('traduction', $var_mode)) {
 						// forcer le calcul pour passer dans traduire

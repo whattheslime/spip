@@ -21,7 +21,6 @@ if (!defined('_ECRIRE_INC_VERSION')) {
 	return;
 }
 
-
 $GLOBALS['visiteur_session'] = []; # globale decrivant l'auteur
 
 /**
@@ -41,15 +40,13 @@ $GLOBALS['visiteur_session'] = []; # globale decrivant l'auteur
 function inc_session_dist($auteur = false) {
 	if (is_numeric($auteur)) {
 		return supprimer_sessions($auteur, $auteur > 0);
-	} else {
-		if (is_array($auteur)) {
-			return ajouter_session($auteur);
-		} else {
-			return verifier_session($auteur);
-		}
 	}
-}
+	if (is_array($auteur)) {
+		return ajouter_session($auteur);
+	}
+	return verifier_session($auteur);
 
+}
 
 /**
  * Supprimer toutes les vieilles sessions d'un auteur
@@ -78,11 +75,12 @@ function supprimer_sessions($id_auteur, $toutes = true, $actives = true) {
 
 	$nb_files = 0;
 	$nb_max_files = (defined('_MAX_NB_SESSIONS_OUVERTES') ? _MAX_NB_SESSIONS_OUVERTES : 1000);
-	spip_logger('session')->info("supprimer sessions auteur $id_auteur");
+	spip_logger('session')
+		->info("supprimer sessions auteur $id_auteur");
 	if ($toutes || $id_auteur !== $GLOBALS['visiteur_session']['id_auteur']) {
 		if ($dir = opendir(_DIR_SESSIONS)) {
-			$t = $_SERVER['REQUEST_TIME']  - (4 * _RENOUVELLE_ALEA); // 48h par defaut
-			$t_short = $_SERVER['REQUEST_TIME']  - max(_RENOUVELLE_ALEA / 4, 3 * 3600); // 3h par defaut
+			$t = $_SERVER['REQUEST_TIME'] - (4 * _RENOUVELLE_ALEA); // 48h par defaut
+			$t_short = $_SERVER['REQUEST_TIME'] - max(_RENOUVELLE_ALEA / 4, 3 * 3600); // 3h par defaut
 			while (($f = readdir($dir)) !== false) {
 				$nb_files++;
 				if (preg_match(',^[^\d-]*(-?\d+)_\w{32}\.php[3]?$,', $f, $regs)) {
@@ -220,7 +218,8 @@ function ajouter_session($auteur) {
 	include_spip('inc/cookie');
 	$duree = definir_duree_cookie_session($auteur);
 	$cookie = set_cookie_session($cookie, time() + $duree);
-	spip_logger('session')->info("ajoute session $fichier_session cookie $duree");
+	spip_logger('session')
+		->info("ajoute session $fichier_session cookie $duree");
 
 	// Si on est admin, poser le cookie de correspondance
 	if (!function_exists('autoriser')) {
@@ -259,7 +258,7 @@ function ajouter_session($auteur) {
  *     Description de l'auteur
  * @return int
  *     Durée en secondes
-**/
+ **/
 function definir_duree_cookie_session($auteur) {
 	$coef = 2;
 	if (isset($auteur['cookie'])) {
@@ -269,7 +268,7 @@ function definir_duree_cookie_session($auteur) {
 			$coef = 20;
 		}
 	}
-	return (int)(_RENOUVELLE_ALEA * $coef);
+	return (int) (_RENOUVELLE_ALEA * $coef);
 }
 
 /**
@@ -381,7 +380,8 @@ function verifier_session($change = false) {
 
 			// Renouveler la session avec l'alea courant
 			include($fichier_session);
-			spip_logger('session')->info('renouvelle session ' . $GLOBALS['visiteur_session']['id_auteur']);
+			spip_logger('session')
+				->info('renouvelle session ' . $GLOBALS['visiteur_session']['id_auteur']);
 			spip_unlink($fichier_session);
 			ajouter_session($GLOBALS['visiteur_session']);
 		}
@@ -446,7 +446,6 @@ function session_get($nom) {
 	return $GLOBALS['visiteur_session'][$nom] ?? null;
 }
 
-
 /**
  * Ajouter une donnée dans la session SPIP
  *
@@ -464,7 +463,7 @@ function session_set($nom, $val = null) {
 	if ($nom === false) {
 		return $remove;
 	}
-	if (is_null($val)) {
+	if ($val === null) {
 		// rien a faire
 		if (!isset($GLOBALS['visiteur_session'][$nom])) {
 			return;
@@ -501,7 +500,6 @@ function terminer_actualiser_sessions() {
 	actualiser_sessions($GLOBALS['visiteur_session'], $remove);
 }
 
-
 /**
  * Mettre à jour les sessions existantes pour un auteur
  *
@@ -524,7 +522,9 @@ function terminer_actualiser_sessions() {
 function actualiser_sessions($auteur, $supprimer_cles = []) {
 
 	$id_auteur = isset($auteur['id_auteur']) ? intval($auteur['id_auteur']) : 0;
-	$id_auteur_courant = isset($GLOBALS['visiteur_session']['id_auteur']) ? intval($GLOBALS['visiteur_session']['id_auteur']) : 0;
+	$id_auteur_courant = isset($GLOBALS['visiteur_session']['id_auteur']) ? intval(
+		$GLOBALS['visiteur_session']['id_auteur']
+	) : 0;
 
 	// si l'auteur est celui de la session courante, verifier/creer la session si besoin
 	$fichier_session_courante = '';
@@ -612,7 +612,7 @@ function actualiser_sessions($auteur, $supprimer_cles = []) {
  */
 function lister_sessions_auteur($id_auteur, $nb_max = null) {
 
-	if (is_null($nb_max)) {
+	if ($nb_max === null) {
 		if (!defined('_NB_SESSIONS_MAX')) {
 			define('_NB_SESSIONS_MAX', 100);
 		}
@@ -656,15 +656,12 @@ function lister_sessions_auteur($id_auteur, $nb_max = null) {
 	return $sessions;
 }
 
-
 /**
  * Préparer le tableau de session avant écriture
  *
  * Nettoyage de quelques variables sensibles, et appel d'un pipeline
  *
  * @pipeline preparer_fichier_session
- * @param array $auteur
- * @return array
  */
 function preparer_ecriture_session(array $auteur): array {
 
@@ -741,7 +738,6 @@ function fichier_session($alea, $tantpis = false): string {
 	return chemin_fichier_session((string) $alea, lire_cookie_session(), (bool) $tantpis);
 }
 
-
 /**
  * Code à insérer par `inc/presentation` pour rejouer la session
  *
@@ -758,7 +754,6 @@ function rejouer_session() {
 	return '<img src="' . generer_url_action('cookie', 'change_session=oui', true) . '" width="0" height="0" alt="">';
 }
 
-
 /**
  * On verifie l'IP et le nom du navigateur
  *
@@ -772,7 +767,6 @@ function hash_env() {
 
 	return $res = md5($GLOBALS['ip'] . ($_SERVER['HTTP_USER_AGENT'] ?? ''));
 }
-
 
 /**
  * Démarre une session PHP si ce n'est pas déjà fait.
@@ -796,7 +790,7 @@ function spip_php_session_start() {
  * @return bool true si une session PHP est active
  */
 function is_php_session_started() {
-	if (php_sapi_name() !== 'cli') {
+	if (PHP_SAPI !== 'cli') {
 		return session_status() === PHP_SESSION_ACTIVE ? true : false;
 	}
 

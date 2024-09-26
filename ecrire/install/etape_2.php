@@ -11,7 +11,6 @@
 
 use Spip\Afficher\Minipage\Installation;
 
-
 if (!defined('_ECRIRE_INC_VERSION')) {
 	return;
 }
@@ -55,7 +54,6 @@ function install_etape_2_dist() {
 
 	$minipage = new Installation();
 	echo $minipage->installDebutPage();
-
 
 	// prenons toutes les dispositions possibles pour que rien ne s'affiche !
 
@@ -120,7 +118,7 @@ function install_etape_2_bases($login_db, $server_db) {
 			. implode("</li>\n<li>", $bases)
 			. "</li>\n</ul><p>"
 			. _T('info_ou')
-			. ' '
+			. ' ',
 		];
 	}
 	$res = '<b>' . _T('avis_lecture_noms_bases_1') . '</b>
@@ -156,7 +154,8 @@ function install_etape_2_form($hidden, $checked, $res, $etape) {
 	return generer_form_ecrire('install', (
 		"\n<input type='hidden' name='etape' value='$etape'>"
 		. $hidden
-		. (defined('_INSTALL_NAME_DB')
+		. (
+			defined('_INSTALL_NAME_DB')
 			? '<h3>' . _T('install_nom_base_hebergeur') . ' <tt>' . _INSTALL_NAME_DB . '</tt>' . '</h3>'
 			: "\n<fieldset><legend>" . _T('texte_choix_base_1') . "</legend>\n"
 			. $res
@@ -166,7 +165,8 @@ function install_etape_2_form($hidden, $checked, $res, $etape) {
 			. "\n<input type='text' name='table_new' class='text' value=\"spip\" size='20'></p></fieldset>\n"
 		)
 
-		. ((defined('_INSTALL_TABLE_PREFIX') || $GLOBALS['table_prefix'] != 'spip')
+		. (
+			(defined('_INSTALL_TABLE_PREFIX') || $GLOBALS['table_prefix'] != 'spip')
 			? '<h3>' . _T('install_table_prefix_hebergeur') . '  <tt>' . $GLOBALS['table_prefix'] . '</tt>' . '</h3>'
 			: '<fieldset><legend>' . _T('texte_choix_table_prefix') . "</legend>\n"
 			. "<p><label for='table_prefix'>" . _T('info_table_prefix') . '</label></p><p>'
@@ -175,5 +175,6 @@ function install_etape_2_form($hidden, $checked, $res, $etape) {
 			. "' size='20'></p></fieldset>"
 		)
 
-		. bouton_suivant()));
+		. bouton_suivant()
+	));
 }

@@ -45,13 +45,13 @@ function balise_ALERTE_MESSAGE_dist($p) {
 	$_texte = interprete_argument_balise(1, $p);
 	$_titre = interprete_argument_balise(2, $p);
 	$_class = interprete_argument_balise(3, $p);
-	$_role  = interprete_argument_balise(4, $p);
-	$_id    = interprete_argument_balise(5, $p);
+	$_role = interprete_argument_balise(4, $p);
+	$_id = interprete_argument_balise(5, $p);
 	$_texte = ($_texte ?: "''");
 	$_titre = ($_titre ? ", $_titre" : ', null');
 	$_class = ($_class ? ", $_class" : ', null');
-	$_role  = ($_role  ? ", $_role"  : ', null');
-	$_id    = ($_id    ? ", $_id"    : ', null');
+	$_role = ($_role ? ", $_role" : ', null');
+	$_id = ($_id ? ", $_id" : ', null');
 
 	$f = chercher_filtre('message_alerte');
 	$p->code = "$f($_texte$_titre$_class$_role$_id)";
@@ -87,12 +87,12 @@ function balise_ALERTE_MESSAGE_dist($p) {
 function balise_ALERTE_OUVRIR_dist($p) {
 	$_titre = interprete_argument_balise(1, $p);
 	$_class = interprete_argument_balise(2, $p);
-	$_role  = interprete_argument_balise(3, $p);
-	$_id    = interprete_argument_balise(4, $p);
-	$_titre = ($_titre ? "$_titre"   : 'null');
+	$_role = interprete_argument_balise(3, $p);
+	$_id = interprete_argument_balise(4, $p);
+	$_titre = ($_titre ? "$_titre" : 'null');
 	$_class = ($_class ? ", $_class" : ', null');
-	$_role  = ($_role  ? ", $_role"  : ', null');
-	$_id    = ($_id    ? ", $_id"    : ', null');
+	$_role = ($_role ? ", $_role" : ', null');
+	$_id = ($_id ? ", $_id" : ', null');
 
 	$f = chercher_filtre('message_alerte_ouvrir');
 	$p->code = "$f($_titre$_class$_role$_id)";
@@ -157,7 +157,13 @@ function balise_ALERTE_FERMER_dist($p) {
  * @return string
  *     HTML de l'alerte
  */
-function message_alerte(string $texte, ?string $titre = null, ?string $class = null, ?string $role = null, ?string $id = null): string {
+function message_alerte(
+	string $texte,
+	?string $titre = null,
+	?string $class = null,
+	?string $role = null,
+	?string $id = null
+): string {
 
 	$message_alerte_ouvrir = chercher_filtre('message_alerte_ouvrir');
 	$message_alerte_fermer = chercher_filtre('message_alerte_fermer');
@@ -193,7 +199,12 @@ function message_alerte(string $texte, ?string $titre = null, ?string $class = n
  * @return string
  *     HTML d'ouverture de l'alerte
  */
-function message_alerte_ouvrir(?string $titre = null, ?string $class = null, ?string $role = null, ?string $id = null): string {
+function message_alerte_ouvrir(
+	?string $titre = null,
+	?string $class = null,
+	?string $role = null,
+	?string $id = null
+): string {
 
 	$prive = test_espace_prive();
 
@@ -203,22 +214,17 @@ function message_alerte_ouvrir(?string $titre = null, ?string $class = null, ?st
 	$class ??= 'notice'; // fallback uniquement si null
 
 	// Type d'alerte : le chercher dans les classes, nettoyer celles-ci, puis le réinjecter
-	$types = [
-		'notice',
-		'error',
-		'success',
-		'info',
-	];
-	$type  = array_intersect(explode(' ', $class), $types);
-	$type  = reset($type);
+	$types = ['notice', 'error', 'success', 'info'];
+	$type = array_intersect(explode(' ', $class), $types);
+	$type = reset($type);
 	$class = trim(str_replace($types, '', $class) . " $type");
 
 	// Classes
 	$class_racine = 'msg-alert';
-	$clearfix     = ($prive ? 'clearfix' : '');
+	$clearfix = ($prive ? 'clearfix' : '');
 	$class_alerte = "$class_racine $class";
-	$class_texte  = "{$class_racine}__text $clearfix";
-	$class_titre  = "{$class_racine}__heading";
+	$class_texte = "{$class_racine}__text $clearfix";
+	$class_titre = "{$class_racine}__heading";
 
 	// Titre : markup
 	$titre = trim($titre);
@@ -226,7 +232,7 @@ function message_alerte_ouvrir(?string $titre = null, ?string $class = null, ?st
 		include_spip('inc/filtres');
 		// Si besoin on encapsule le titre : un h3 dans le privé, un simple div sinon.
 		$cherche_tag = ($prive ? '<h' : '<');
-		$wrap_tag    = ($prive ? '<h3>' : '<div>');
+		$wrap_tag = ($prive ? '<h3>' : '<div>');
 		if (!str_starts_with($titre, $cherche_tag)) {
 			$titre = wrap($titre, $wrap_tag);
 		}
@@ -236,7 +242,7 @@ function message_alerte_ouvrir(?string $titre = null, ?string $class = null, ?st
 
 	// Attributs
 	$attr_role = ($role ? "role=\"$role\"" : '');
-	$attr_id   = ($id   ? "id=\"$id\"" : '');
+	$attr_id = ($id ? "id=\"$id\"" : '');
 	$attr_data = ($type ? "data-alert=\"$type\"" : '');
 
 	return "<div class=\"$class_alerte\" $attr_role $attr_id $attr_data>"

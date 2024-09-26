@@ -168,7 +168,7 @@ function squelette_obsolete($skel, $squelette) {
 	static $date_change = null;
 	// ne verifier la date de mes_fonctions et mes_options qu'une seule fois
 	// par hit
-	if (is_null($date_change)) {
+	if ($date_change === null) {
 		if (@file_exists($fonc = 'mes_fonctions.php')) {
 			$date_change = @filemtime($fonc);
 		} # compatibilite
@@ -177,12 +177,11 @@ function squelette_obsolete($skel, $squelette) {
 		}
 	}
 
-	return (
-		defined('_VAR_MODE') && in_array(_VAR_MODE, ['recalcul', 'preview', 'debug'])
+	return defined('_VAR_MODE') && in_array(_VAR_MODE, ['recalcul', 'preview', 'debug'])
 		|| !@file_exists($skel)
 		|| (@file_exists($squelette) ? @filemtime($squelette) : 0) > ($date = @filemtime($skel))
 		|| $date_change > $date
-	);
+	;
 }
 
 // Activer l'invalideur de session
@@ -191,7 +190,6 @@ function invalideur_session(&$Cache, $code = null) {
 
 	return $code;
 }
-
 
 function analyse_resultat_skel($nom, $cache, $corps, $source = '') {
 	static $filtres = [];
@@ -218,7 +216,7 @@ function analyse_resultat_skel($nom, $cache, $corps, $source = '') {
 			if ($j == 'X-Spip-Filtre' && isset($headers[$j])) {
 				$headers[$j] .= '|' . $r[3];
 			} else {
-				$headers[$j] = str_replace(['\\\\',"\\'",'\\"'], ['\\',"'",'"'], $r[3]);
+				$headers[$j] = str_replace(['\\\\', "\\'", '\\"'], ['\\', "'", '"'], $r[3]);
 			}
 		}
 	}
@@ -236,7 +234,7 @@ function analyse_resultat_skel($nom, $cache, $corps, $source = '') {
 		'process_ins' => $process_ins,
 		'invalideurs' => $cache,
 		'entetes' => $headers,
-		'duree' => isset($headers['X-Spip-Cache']) ? intval($headers['X-Spip-Cache']) : 0
+		'duree' => isset($headers['X-Spip-Cache']) ? intval($headers['X-Spip-Cache']) : 0,
 	];
 
 	// traiter #FILTRE{} et filtres
@@ -318,14 +316,7 @@ function synthetiser_balise_dynamique($nom, $args, $file, $context_compil) {
 	}
 	$args = join(', ', $args);
 
-	$r = sprintf(
-		CODE_INCLURE_BALISE,
-		$file,
-		$lang,
-		$nom,
-		$args,
-		join(', ', array_map('_q', $context_compil))
-	);
+	$r = sprintf(CODE_INCLURE_BALISE, $file, $lang, $nom, $args, join(', ', array_map('_q', $context_compil)));
 
 	return $r;
 }
@@ -349,14 +340,14 @@ function argumenter_squelette($v) {
 		return var_export($v, true);
 	} elseif (!is_array($v)) {
 		return "'" . texte_script((string) $v) . "'";
-	} else {
-		$out = [];
-		foreach ($v as $k => $val) {
-			$out [] = argumenter_squelette($k) . '=>' . argumenter_squelette($val);
-		}
-
-		return 'array(' . join(', ', $out) . ')';
 	}
+	$out = [];
+	foreach ($v as $k => $val) {
+		$out[] = argumenter_squelette($k) . '=>' . argumenter_squelette($val);
+	}
+
+	return 'array(' . join(', ', $out) . ')';
+
 }
 
 /**
@@ -371,7 +362,6 @@ function argumenter_squelette($v) {
  *
  * @see calculer_balise_dynamique()
  *
- * @param ...$args
  * @return string
  */
 function executer_balise_dynamique_dans_un_modele(...$args) {
@@ -379,12 +369,11 @@ function executer_balise_dynamique_dans_un_modele(...$args) {
 	if (test_espace_prive() || !empty($GLOBALS['_FORCER_EXECUTER_DIRECTEMENT_BALISE_DYNAMIQUE'])) {
 		return executer_balise_dynamique(...$args);
 	}
-	else {
-		$str_args = base64_encode(serialize($args));
-		return '<?' . "php \$_zargs=unserialize(base64_decode('$str_args'));echo executer_balise_dynamique(...\$_zargs); ?" . ">\n";
-	}
-}
 
+	$str_args = base64_encode(serialize($args));
+	return '<?' . "php \$_zargs=unserialize(base64_decode('$str_args'));echo executer_balise_dynamique(...\$_zargs); ?" . ">\n";
+
+}
 
 /**
  * Calcule et retourne le code PHP retourné par l'exécution d'une balise
@@ -527,7 +516,6 @@ function chercher_balise_generique($nom) {
 	return null;
 }
 
-
 /**
  * Selectionner la langue de l'objet dans la boucle
  *
@@ -573,7 +561,6 @@ function lang_select_public($lang, $lang_select, $titre = null) {
 
 	return;
 }
-
 
 // Si un tableau &doublons[articles] est passe en parametre,
 // il faut le nettoyer car il pourrait etre injecte en SQL
@@ -757,7 +744,7 @@ function preparer_calculer_select(
 			array_push($where_simples, $sous[2]);
 			$wheresub = [
 				$sous[2],
-				'0=0'
+				'0=0',
 			]; // pour accepter une string et forcer a faire le menage car on a surement simplifie select et where
 			$jsub = $join;
 			// trouver les jointures utiles a
@@ -805,7 +792,7 @@ function preparer_calculer_select(
 				[], #from_type
 				$sous[3] ? (is_array($sous[3]) ? $sous[3] : [$sous[3]]) : [],
 				#where, qui peut etre de la forme string comme dans sql_select
-					[], #join
+				[], #join
 				$sous[4] ?: [], #groupby
 				$sous[5] ?: [], #orderby
 				$sous[6], #limit
@@ -886,7 +873,7 @@ function preparer_calculer_select(
 				'=',
 				"$t.$carr",
 				($and ? 'AND ' . $and : '') .
-				')'
+				')',
 			];
 			if (isset($afrom[$cle])) {
 				$afrom[$t] = $afrom[$t] + $afrom[$cle];
@@ -988,7 +975,7 @@ function preparer_calculer_select(
 		'having' => $having,
 		'serveur' => $serveur,
 		'requeter' => $requeter,
-		'debug' => [$table, $id, $serveur, $requeter]
+		'debug' => [$table, $id, $serveur, $requeter],
 	];
 }
 
@@ -1039,16 +1026,14 @@ function calculer_where_to_string($v, $join = 'AND') {
 
 	if (!is_array($v)) {
 		return $v;
-	} else {
-		$exp = '';
-		if (strtoupper($join) === 'AND') {
-			return $exp . join(" $join ", array_map('calculer_where_to_string', $v));
-		} else {
-			return $exp . join($join, $v);
-		}
 	}
-}
+	$exp = '';
+	if (strtoupper($join) === 'AND') {
+		return $exp . join(" $join ", array_map('calculer_where_to_string', $v));
+	}
+	return $exp . join($join, $v);
 
+}
 
 //condition suffisante (mais non necessaire) pour qu'une table soit utile
 
@@ -1059,15 +1044,15 @@ function calculer_jointnul($cle, $exp, $equiv = '') {
 		}
 
 		return preg_match("/\\b$cle\\./", $exp);
-	} else {
-		foreach ($exp as $v) {
-			if (calculer_jointnul($cle, $v, $equiv)) {
-				return true;
-			}
-		}
-
-		return false;
 	}
+	foreach ($exp as $v) {
+		if (calculer_jointnul($cle, $v, $equiv)) {
+			return true;
+		}
+	}
+
+	return false;
+
 }
 
 function reinjecte_joint($afrom, $from) {
@@ -1089,13 +1074,13 @@ function reinjecte_joint($afrom, $from) {
 function remplacer_jointnul($cle, $exp, $equiv = '') {
 	if (!is_array($exp)) {
 		return preg_replace($equiv, $cle, $exp);
-	} else {
-		foreach ($exp as $k => $v) {
-			$exp[$k] = remplacer_jointnul($cle, $v, $equiv);
-		}
-
-		return $exp;
 	}
+	foreach ($exp as $k => $v) {
+		$exp[$k] = remplacer_jointnul($cle, $v, $equiv);
+	}
+
+	return $exp;
+
 }
 
 // calcul du nom du squelette
@@ -1107,5 +1092,7 @@ function calculer_nom_fonction_squel($skel, $mime_type = 'html', string $connect
 
 	return $mime_type
 	. (!$connect ? '' : preg_replace('/\W/', '_', $connect)) . '_'
-	. md5($GLOBALS['spip_version_code'] . ' * ' . $skel . (isset($GLOBALS['marqueur_skel']) ? '*' . $GLOBALS['marqueur_skel'] : ''));
+	. md5(
+		$GLOBALS['spip_version_code'] . ' * ' . $skel . (isset($GLOBALS['marqueur_skel']) ? '*' . $GLOBALS['marqueur_skel'] : '')
+	);
 }

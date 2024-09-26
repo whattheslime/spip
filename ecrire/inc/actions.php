@@ -111,7 +111,6 @@ function redirige_action_post($action, $arg, $ret, $gra, $corps, $att = '') {
 	return generer_action_auteur($action, $arg, $r, $corps, $att . " method='post'");
 }
 
-
 /**
  * Fonction de formatage du contenu renvoyé en ajax
  *
@@ -126,7 +125,7 @@ function redirige_action_post($action, $arg, $ret, $gra, $corps, $att = '') {
  */
 function ajax_retour($corps, $content_type = null): void {
 	$xml = false;
-	if (is_null($content_type) || $content_type === true) {
+	if ($content_type === null || $content_type === true) {
 		$xml = true;
 		$content_type = 'text/html';
 	} elseif (!$content_type || !is_string($content_type) || !str_contains($content_type, '/')) {

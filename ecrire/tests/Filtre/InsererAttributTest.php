@@ -53,7 +53,6 @@ class InsererAttributTest extends TestCase
 		$this->assertSame($expected, $actual);
 	}
 
-
 	#[DataProvider('providerFiltresInsererAttributLienImgSimples')]
 	public function testFiltresInsererAttributLienImgSimples($expected, ...$args): void {
 		$actual = inserer_attribut(...$args);
@@ -242,7 +241,6 @@ class InsererAttributTest extends TestCase
 		];
 	}
 
-
 	public static function providerFiltresInsererAttributTitleRaccourcis(): array {
 		return [
 			0 => [
@@ -363,7 +361,6 @@ paragraphes',
 			],
 		];
 	}
-
 
 	public static function providerFiltresInsererAttributTitleRemplacementsSimples(): array {
 		return [
@@ -723,7 +720,6 @@ paragraphes',
 				5 => false,
 			],
 
-
 			8 => [
 				0 => "<a href='https://www.spip.net'><img src='https://www.spip.net/IMG/logo/siteon0.png' alt='0'></a>",
 				1 => "<a href='https://www.spip.net'><img src='https://www.spip.net/IMG/logo/siteon0.png'></a>",
@@ -825,7 +821,6 @@ paragraphes',
 				4 => false,
 				5 => false,
 			],
-
 
 			8 => [
 				0 => "<a href='https://www.spip.net'><img src='https://www.spip.net/IMG/logo/siteon0.png' data-truc='0'></a>",

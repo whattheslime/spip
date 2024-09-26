@@ -53,7 +53,6 @@ include_spip('base/objets');
  *   Si l'url n'est pas valide, $fond restera à la valeur initiale passée.
  *   Il suffit d'appeler la fonction sans $fond et de vérifier qu'à son retour celui-ci
  *   est non vide pour vérifier une URL
- *
  */
 function urls_decoder_url($url, $fond = '', $contexte = [], $assembler = false) {
 	static $current_base = null;
@@ -65,10 +64,10 @@ function urls_decoder_url($url, $fond = '', $contexte = [], $assembler = false) 
 		$GLOBALS['contexte'] ?? null,
 		$_SERVER['REDIRECT_url_propre'] ?? null,
 		$_ENV['url_propre'] ?? null,
-		$GLOBALS['profondeur_url']
+		$GLOBALS['profondeur_url'],
 	];
 
-	if (is_null($current_base)) {
+	if ($current_base === null) {
 		include_spip('inc/filtres_mini');
 		// le decodage des urls se fait toujours par rapport au site public
 		$current_base = url_absolue(_DIR_RACINE ?: './');
@@ -162,7 +161,11 @@ function urls_decoder_url($url, $fond = '', $contexte = [], $assembler = false) 
  * Le bloc qui suit sert a faciliter les transitions depuis
  * le mode 'urls-propres' vers les modes 'urls-standard' et 'url-html'
  */
-function urls_transition_retrouver_anciennes_url_propres(string $url_propre, string $entite, array $contexte = []): array {
+function urls_transition_retrouver_anciennes_url_propres(
+	string $url_propre,
+	string $entite,
+	array $contexte = []
+): array {
 	if ($url_propre) {
 		if ($GLOBALS['profondeur_url'] <= 0) {
 			$urls_anciennes = charger_fonction_url('decoder', 'propres');
@@ -232,7 +235,7 @@ function urls_transition_retrouver_anciennes_url_html(string $url, string $entit
  */
 function urls_liste_objets($preg = true) {
 	static $url_objets = null;
-	if (is_null($url_objets)) {
+	if ($url_objets === null) {
 		$url_objets = [];
 		// recuperer les tables_objets_sql declarees
 		$tables_objets = lister_tables_objets_sql();
@@ -292,13 +295,15 @@ function nettoyer_url_page($url, $contexte = []) {
  *
  * @param int|string|null $id Identifiant de l'objet
  * @param string $objet Type d'objet
- * @param string $args
- * @param string $ancre
- * @param bool|null $public
- * @param string $connect
- * @return string
  */
-function generer_objet_url_ecrire($id, string $objet, string $args = '', string $ancre = '', ?bool $public = null, string $connect = ''): string {
+function generer_objet_url_ecrire(
+	$id,
+	string $objet,
+	string $args = '',
+	string $ancre = '',
+	?bool $public = null,
+	string $connect = ''
+): string {
 	static $furls = [];
 	$id = intval($id);
 	if (!isset($furls[$objet])) {
@@ -318,7 +323,7 @@ function generer_objet_url_ecrire($id, string $objet, string $args = '', string 
 	}
 	// si pas de flag public fourni
 	// le calculer en fonction de la declaration de statut
-	if (is_null($public) && !$connect) {
+	if ($public === null && !$connect) {
 		$public = objet_test_si_publie($objet, $id, $connect);
 	}
 	if ($public || $connect) {

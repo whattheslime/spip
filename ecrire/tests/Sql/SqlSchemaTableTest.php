@@ -10,22 +10,19 @@ use PHPUnit\Framework\TestCase;
 
 class SqlSchemaTableTest extends TestCase
 {
-	public static function setUpBeforeClass(): void
-	{
+	public static function setUpBeforeClass(): void {
 		find_in_path('base/abstract_sql.php', '', true);
 	}
 
 	#[DataProvider('providerTablesData')]
-	public function testDropTablesSetup($table, $desc, $data): void
-	{
+	public function testDropTablesSetup($table, $desc, $data): void {
 		$this->assertTrue(sql_drop_table($table, true));
 
 	}
 
 	#[Depends('testDropTablesSetup')]
 	#[DataProvider('providerTablesData')]
-	public function testCreateTables($table, $desc, $data): void
-	{
+	public function testCreateTables($table, $desc, $data): void {
 		$this->assertTrue(sql_create($table, $desc['field'], $desc['key']));
 	}
 
@@ -88,7 +85,11 @@ class SqlSchemaTableTest extends TestCase
 		$maj_update = sql_getfetsel('maj', $table, $where1);
 		$this->assertNotEmpty($maj_update, "Le champ 'maj' est vide à l’update");
 		$this->assertNotFalse(strtotime($maj_update), "Le champ 'maj' est incorrect à l’update");
-		$this->assertNotEquals($maj1, $maj_update, "Le champ 'maj' n'a vraisemblablement pas été mis a jour lors de l'update");
+		$this->assertNotEquals(
+			$maj1,
+			$maj_update,
+			"Le champ 'maj' n'a vraisemblablement pas été mis a jour lors de l'update"
+		);
 
 		// comparaison texte
 		$texte_update = sql_getfetsel('un_texte', $table, $where1);
@@ -105,7 +106,11 @@ class SqlSchemaTableTest extends TestCase
 		$maj_updateq = sql_getfetsel('maj', $table, $where2);
 		$this->assertNotEmpty($maj_updateq, "Le champ 'maj' est vide à l’updateq");
 		$this->assertNotFalse(strtotime($maj_updateq), "Le champ 'maj' est incorrect à l’updateq");
-		$this->assertNotEquals($maj1, $maj_updateq, "Le champ 'maj' n'a vraisemblablement pas été mis a jour lors de l'updateq");
+		$this->assertNotEquals(
+			$maj1,
+			$maj_updateq,
+			"Le champ 'maj' n'a vraisemblablement pas été mis a jour lors de l'updateq"
+		);
 
 		// comparaison texte
 		$texte_updateq = sql_getfetsel('un_texte', $table, $where2);
@@ -148,7 +153,6 @@ class SqlSchemaTableTest extends TestCase
 		$this->assertArrayHasKey('id', $res);
 		$this->assertArrayHasKey('vchar', $res);
 	}
-
 
 	#[Depends('testInsertData')]
 	public function testSelectionsMulti() {
@@ -196,8 +200,6 @@ class SqlSchemaTableTest extends TestCase
 			$this->assertEquals($res, $multi, 'sql_multi avec crochets, mal rendu');
 		}
 	}
-
-
 
 	/**
 	 * Selections diverses entre plusieurs tables
@@ -250,7 +252,6 @@ class SqlSchemaTableTest extends TestCase
 		);
 		$this->assertEquals(4, sql_count($res), 'Echec sélection avec LEFT JOIN + ON');
 
-
 		// selection 2 tables avec jointure INNER JOIN + USING
 		// ! nombre en dur !
 		// SQLite 2 se plante : il ne connait pas USING (enleve de la requete,
@@ -262,12 +263,11 @@ class SqlSchemaTableTest extends TestCase
 		$this->assertEquals(3, sql_count($res), 'Echec sélection avec INNER JOIN + USING');
 	}
 
-
 	/**
 	 * Selections mathematiques
 	 */
 	#[Depends('testInsertData')]
-	function testMathFunctions() {
+	public function testMathFunctions() {
 		foreach (
 			[
 				'COUNT' => 3,
@@ -305,8 +305,7 @@ class SqlSchemaTableTest extends TestCase
 	 * Selections mathematiques
 	 */
 	#[Depends('testInsertData')]
-
-	function testStringFunctions() {
+	public function testStringFunctions() {
 		foreach (
 			[
 				'CONCAT(' . sql_quote('cou') . ',' . sql_quote('cou') . ')' => 'coucou',
@@ -322,8 +321,7 @@ class SqlSchemaTableTest extends TestCase
 	 * retours des fonctions d'erreurs lors d'une requete
 	 */
 	#[Depends('testCreateTables')]
-
-	function testErrorFunctions() {
+	public function testErrorFunctions() {
 		// requete sans erreur
 		sql_select('*', 'spip_test_tintin');
 		$this->assertEquals('', sql_error(), 'sql_error() non vide lors d’une requete sans erreur');
@@ -359,23 +357,22 @@ class SqlSchemaTableTest extends TestCase
 	 * Delete de data
 	 */
 	#[Depends('testUpdateData')]
-
 	public function testDeleteData() {
 		$nb = sql_countsel('spip_test_tintin');
 		// supprimer une ligne
 		sql_delete('spip_test_tintin', 'id_tintin=' . sql_quote(1));
-		$this->assertEquals($nb - 1, sql_countsel('spip_test_tintin'), "sql_delete n’a pas supprimé la ligne");
+		$this->assertEquals($nb - 1, sql_countsel('spip_test_tintin'), 'sql_delete n’a pas supprimé la ligne');
 
 		// supprimer tout
 		sql_delete('spip_test_tintin');
-		$this->assertEquals(0, sql_countsel('spip_test_tintin'), "sql_delete n’a pas vidé la table");
+		$this->assertEquals(0, sql_countsel('spip_test_tintin'), 'sql_delete n’a pas vidé la table');
 	}
 
 	/**
 	 * Alter colonne
 	 */
 	#[Depends('testDeleteData')]
-	function testAlterColumns() {
+	public function testAlterColumns() {
 		$table = 'spip_test_tintin';
 
 		// supprimer une colonne
@@ -404,7 +401,11 @@ class SqlSchemaTableTest extends TestCase
 		$desc = sql_showtable($table);
 		$this->assertIsArray($desc, 'sql_alter rate MODIFY (plus de table ou sql_showtable en erreur?)');
 		$this->assertArrayHasKey('schtroumf', $desc['field'], 'sql_alter rate MODIFY varchar en text');
-		$this->assertStringContainsStringIgnoringCase('TEXT', $desc['field']['schtroumf'], 'sql_alter rate MODIFY varchar en text');
+		$this->assertStringContainsStringIgnoringCase(
+			'TEXT',
+			$desc['field']['schtroumf'],
+			'sql_alter rate MODIFY varchar en text'
+		);
 
 		// ajouter des colonnes
 		sql_alter("TABLE {$table} ADD COLUMN houba BIGINT(21) NOT NULL DEFAULT '0'");
@@ -421,12 +422,10 @@ class SqlSchemaTableTest extends TestCase
 		$this->assertStringContainsStringIgnoringCase('INT', $desc['field']['hop'], 'sql_alter rate ADD COLUMN avec AFTER');
 	}
 
-
 	/**
 	 * Renomme table
 	 */
 	#[Depends('testAlterColumns')]
-
 	public function testAlterRenameTable() {
 
 		$table_before = 'spip_test_tintin';
@@ -445,12 +444,10 @@ class SqlSchemaTableTest extends TestCase
 		$this->assertIsArray(sql_showtable($table_before));
 	}
 
-
 	/**
 	 * pointer l'index
 	 */
 	#[Depends('testAlterRenameTable')]
-
 	public function testAlterIndex() {
 		$table = 'spip_test_milou';
 
@@ -481,10 +478,12 @@ class SqlSchemaTableTest extends TestCase
 		// ajouter un index nomme double
 		sql_alter("TABLE {$table} ADD INDEX dring (grrrr, wouaf)");
 		$desc = sql_showtable($table);
-		$this->assertIsArray($desc, 'sql_alter rate ADD INDEX dring (grrrr, wouaf) (plus de table ou sql_showtable en erreur?)');
+		$this->assertIsArray(
+			$desc,
+			'sql_alter rate ADD INDEX dring (grrrr, wouaf) (plus de table ou sql_showtable en erreur?)'
+		);
 		$this->assertArrayHasKey('KEY dring', $desc['key'], 'sql_alter rate ADD INDEX dring (grrrr, wouaf)');
 	}
-
 
 	/**
 	 * dezinguer la primary
@@ -528,8 +527,7 @@ class SqlSchemaTableTest extends TestCase
 	 * Alter colonne
 	 */
 	#[Depends('testAlterPrimary')]
-
-	function testAlterMultiple() {
+	public function testAlterMultiple() {
 		$table = 'spip_test_milou';
 
 		// supprimer des colonnes
@@ -552,68 +550,64 @@ class SqlSchemaTableTest extends TestCase
 
 	#[Depends('testAlterMultiple')]
 	#[DataProvider('providerTablesData')]
-	public function testDropTables($table, $desc, $data): void
-	{
+	public function testDropTables($table, $desc, $data): void {
 		$this->assertTrue(sql_drop_table($table, false));
 	}
 
 	/**
 	 * Description des tables & données de tests
 	 */
-	public static function providerTablesData(): array
-	{
+	public static function providerTablesData(): array {
 		return [
 			'tintin' => [
 				'spip_test_tintin',
 				[
 					'field' => [
-						"id_tintin" => "INTEGER NOT NULL AUTO_INCREMENT PRIMARY KEY",
-						"un_bigint" => "BIGINT(21) NOT NULL DEFAULT '0'",
-						"un_int" => "BIGINT(21) NOT NULL DEFAULT '0'",
-						"un_smallint" => "SMALLINT(3) NOT NULL DEFAULT '0'",
-						"un_double" => "DOUBLE NOT NULL DEFAULT '0'",
-						"un_tinyint" => "TINYINT(2) NOT NULL DEFAULT '0'",
-						"un_varchar" => "VARCHAR(30) NOT NULL DEFAULT ''",
-						"un_texte" => "TEXT NOT NULL DEFAULT ''",
-						"maj" => "TIMESTAMP"
+						'id_tintin' => 'INTEGER NOT NULL AUTO_INCREMENT PRIMARY KEY',
+						'un_bigint' => "BIGINT(21) NOT NULL DEFAULT '0'",
+						'un_int' => "BIGINT(21) NOT NULL DEFAULT '0'",
+						'un_smallint' => "SMALLINT(3) NOT NULL DEFAULT '0'",
+						'un_double' => "DOUBLE NOT NULL DEFAULT '0'",
+						'un_tinyint' => "TINYINT(2) NOT NULL DEFAULT '0'",
+						'un_varchar' => "VARCHAR(30) NOT NULL DEFAULT ''",
+						'un_texte' => "TEXT NOT NULL DEFAULT ''",
+						'maj' => 'TIMESTAMP',
 					],
-					'key' => [
-
-					],
-					'nb_key_attendues' => 1 // attention : la primary key DOIT etre dans les cle aussi
+					'key' => [],
+					'nb_key_attendues' => 1, // attention : la primary key DOIT etre dans les cle aussi
 				],
 				[
 					[
-						"id_tintin" => 1,
-						"un_bigint" => 30000,
-						"un_int" => 2000,
-						"un_smallint" => 40,
-						"un_double" => 2.58,
-						"un_tinyint" => 8,
-						"un_varchar" => "Premier varchar",
-						"un_texte" => "Premier texte",
+						'id_tintin' => 1,
+						'un_bigint' => 30000,
+						'un_int' => 2000,
+						'un_smallint' => 40,
+						'un_double' => 2.58,
+						'un_tinyint' => 8,
+						'un_varchar' => 'Premier varchar',
+						'un_texte' => 'Premier texte',
 						//"maj" => "" // doit se remplir automatiquement
 					],
 					[
-						"id_tintin" => 2,
-						"un_bigint" => 40000,
-						"un_int" => 3000,
-						"un_smallint" => 50,
-						"un_double" => 3.58,
-						"un_tinyint" => 9,
-						"un_varchar" => "Deuxieme varchar",
-						"un_texte" => "Second texte",
+						'id_tintin' => 2,
+						'un_bigint' => 40000,
+						'un_int' => 3000,
+						'un_smallint' => 50,
+						'un_double' => 3.58,
+						'un_tinyint' => 9,
+						'un_varchar' => 'Deuxieme varchar',
+						'un_texte' => 'Second texte',
 						//"maj" => "" // doit se remplir automatiquement
 					],
 					[
-						"id_tintin" => 3,
-						"un_bigint" => 60000,
-						"un_int" => 4000,
-						"un_smallint" => 70,
-						"un_double" => 8.58,
-						"un_tinyint" => 3,
-						"un_varchar" => "Troisieme varchar",
-						"un_texte" => "Troisieme texte",
+						'id_tintin' => 3,
+						'un_bigint' => 60000,
+						'un_int' => 4000,
+						'un_smallint' => 70,
+						'un_double' => 8.58,
+						'un_tinyint' => 3,
+						'un_varchar' => 'Troisieme varchar',
+						'un_texte' => 'Troisieme texte',
 						//"maj" => "" // doit se remplir automatiquement
 					],
 				],
@@ -623,44 +617,44 @@ class SqlSchemaTableTest extends TestCase
 				'spip_test_milou',
 				[
 					'field' => [
-						"id_milou" => "INTEGER NOT NULL AUTO_INCREMENT",
-						"id_tintin" => "INTEGER NOT NULL",
-						"un_enum" => "ENUM('blanc','noir') NOT NULL DEFAULT 'blanc'",
-						"wouaf" => "VARCHAR(80) NOT NULL DEFAULT ''",
-						"grrrr" => "VARCHAR(80) NOT NULL DEFAULT ''",
-						"schtroumf" => "VARCHAR(80) NOT NULL DEFAULT ''",
-						"maj" => "TIMESTAMP"
+						'id_milou' => 'INTEGER NOT NULL AUTO_INCREMENT',
+						'id_tintin' => 'INTEGER NOT NULL',
+						'un_enum' => "ENUM('blanc','noir') NOT NULL DEFAULT 'blanc'",
+						'wouaf' => "VARCHAR(80) NOT NULL DEFAULT ''",
+						'grrrr' => "VARCHAR(80) NOT NULL DEFAULT ''",
+						'schtroumf' => "VARCHAR(80) NOT NULL DEFAULT ''",
+						'maj' => 'TIMESTAMP',
 					],
 					'key' => [
-						"PRIMARY KEY" => "id_milou",
-						"KEY id_tintin" => "id_tintin",
-						"KEY sons" => "wouaf, grrrr",
+						'PRIMARY KEY' => 'id_milou',
+						'KEY id_tintin' => 'id_tintin',
+						'KEY sons' => 'wouaf, grrrr',
 					],
-					'nb_key_attendues' => 3 // attention : la primary key DOIT etre dans les cle aussi
+					'nb_key_attendues' => 3, // attention : la primary key DOIT etre dans les cle aussi
 				],
 				[
 					[
-						"id_milou" => 1,
-						"id_tintin" => 1,
-						"un_enum" => "blanc",
-						"wouaf" => "Warf !!",
-						"grrrr" => "Grogne !",
+						'id_milou' => 1,
+						'id_tintin' => 1,
+						'un_enum' => 'blanc',
+						'wouaf' => 'Warf !!',
+						'grrrr' => 'Grogne !',
 						// "maj" => "" // doit se remplir automatiquement
 					],
 					[
-						"id_milou" => 2,
-						"id_tintin" => 1,
-						"un_enum" => "noir",
-						"wouaf" => "Wouf",
-						"grrrr" => "<multi>[fr]Crac[en]Krack</multi>",
+						'id_milou' => 2,
+						'id_tintin' => 1,
+						'un_enum' => 'noir',
+						'wouaf' => 'Wouf',
+						'grrrr' => '<multi>[fr]Crac[en]Krack</multi>',
 						// "maj" => "" // doit se remplir automatiquement
 					],
 					[
-						"id_milou" => 3,
-						"id_tintin" => 2,
-						"un_enum" => "blanc",
-						"wouaf" => "Wif",
-						"grrrr" => "Ahrg",
+						'id_milou' => 3,
+						'id_tintin' => 2,
+						'un_enum' => 'blanc',
+						'wouaf' => 'Wif',
+						'grrrr' => 'Ahrg',
 						// "maj" => "" // doit se remplir automatiquement
 					],
 				],
@@ -670,31 +664,31 @@ class SqlSchemaTableTest extends TestCase
 				'spip_test_haddock',
 				[
 					'field' => [
-						"id_haddock" => "INTEGER NOT NULL AUTO_INCREMENT",
-						"alcool" => "VARCHAR(80) NOT NULL DEFAULT ''",
+						'id_haddock' => 'INTEGER NOT NULL AUTO_INCREMENT',
+						'alcool' => "VARCHAR(80) NOT NULL DEFAULT ''",
 
 					],
 					'key' => [
-						"PRIMARY KEY" => "id_haddock",
+						'PRIMARY KEY' => 'id_haddock',
 					],
-					'nb_key_attendues' => 1 // attention : la primary key DOIT etre dans les cle aussi
+					'nb_key_attendues' => 1, // attention : la primary key DOIT etre dans les cle aussi
 				],
 				[
 					[
-						"id_haddock" => 1,
-						"alcool" => "<multi>[fr]Agile[en]Agily</multi>",
+						'id_haddock' => 1,
+						'alcool' => '<multi>[fr]Agile[en]Agily</multi>',
 					],
 					[
-						"id_haddock" => 2,
-						"alcool" => "<multi>[fr]Aérien[en]Aérieny</multi>",
+						'id_haddock' => 2,
+						'alcool' => '<multi>[fr]Aérien[en]Aérieny</multi>',
 					],
 					[
-						"id_haddock" => 3,
-						"alcool" => "<multi>[fr]Vinasse[en]Vinassy</multi>",
+						'id_haddock' => 3,
+						'alcool' => '<multi>[fr]Vinasse[en]Vinassy</multi>',
 					],
 					[
-						"id_haddock" => 4,
-						"alcool" => "Un début de chaine : <multi>[fr]Vinasse[en]Vinassy</multi>, et [la fin]",
+						'id_haddock' => 4,
+						'alcool' => 'Un début de chaine : <multi>[fr]Vinasse[en]Vinassy</multi>, et [la fin]',
 					],
 				],
 

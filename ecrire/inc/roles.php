@@ -30,7 +30,6 @@ if (!defined('_ECRIRE_INC_VERSION')) {
 	return;
 }
 
-
 /**
  * Vérifie qu'un objet dispose de rôles fonctionnels
  *
@@ -94,7 +93,7 @@ function roles_presents($objet, $objet_destination = '') {
 	return [
 		'titres' => $titres,
 		'roles' => $application,
-		'colonne' => $colonne
+		'colonne' => $colonne,
 	];
 }
 
@@ -115,7 +114,6 @@ function roles_colonne($objet, $objet_destination) {
 
 	return '';
 }
-
 
 /**
  * Extrait le rôle et la colonne de role d'un tableau de qualification
@@ -228,7 +226,6 @@ function roles_complets($objet_source, $objet, $id_objet, $objet_lien) {
 	return $complets;
 }
 
-
 /**
  * Liste les roles attribués entre 2 objets/id_objet sur une table de liaison donnée
  *
@@ -254,7 +251,6 @@ function roles_presents_sur_id($id_objet_source, $objet_source, $objet, $id_obje
 
 	return $presents['ids'][$id_objet_source];
 }
-
 
 /**
  * Lister des rôles présents sur une liaion, pour un objet sur un autre,
@@ -319,10 +315,9 @@ function roles_presents_liaisons($objet_source, $objet, $id_objet, $objet_lien) 
 
 	return $done[$hash] = [
 		'roles' => $roles,
-		'ids' => $ids
+		'ids' => $ids,
 	];
 }
-
 
 /**
  * Lister des rôles connus en base pour une liaion, pour un objet source

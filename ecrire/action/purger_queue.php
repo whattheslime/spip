@@ -20,8 +20,6 @@ if (!defined('_ECRIRE_INC_VERSION')) {
 
 /**
  * Purger la liste des travaux en attente
- *
- * @return void
  */
 function action_purger_queue_dist() {
 	$securiser_action = charger_fonction('securiser_action', 'inc');

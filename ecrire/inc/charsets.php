@@ -49,7 +49,6 @@ function init_charset(): void {
 // TODO: code d’exécution en dehors du fichier.
 init_charset();
 
-
 /**
  * Charge en mémoire la liste des caractères d'un charset
  *
@@ -91,14 +90,14 @@ function load_charset($charset = 'AUTO') {
 
 	if (find_in_path($charset . '.php', 'charsets/', true)) {
 		return $charset;
-	} else {
-		spip_logger()->info("Erreur: pas de fichier de conversion 'charsets/$charset'");
-		$GLOBALS['CHARSET'][$charset] = [];
-
-		return false;
 	}
-}
+	spip_logger()
+		->info("Erreur: pas de fichier de conversion 'charsets/$charset'");
+	$GLOBALS['CHARSET'][$charset] = [];
 
+	return false;
+
+}
 
 /**
  * Vérifier qu'on peut utiliser mb_string avec notre charset
@@ -121,7 +120,7 @@ function init_mb_string(): bool {
 		}
 	}
 
-	return ($mb === 1);
+	return $mb === 1;
 }
 
 /**
@@ -146,7 +145,7 @@ function test_iconv(): bool {
 		}
 	}
 
-	return ($iconv_ok === 1);
+	return $iconv_ok === 1;
 }
 
 /**
@@ -237,7 +236,6 @@ function corriger_caracteres_windows($texte, $charset = 'AUTO', $charset_cible =
 	);
 }
 
-
 /**
  * Transforme les entités HTML en unicode
  *
@@ -269,15 +267,10 @@ function html2unicode(string $texte, bool $secure = false): string {
 
 	$texte = str_replace(array_keys($trans), array_values($trans), $texte);
 	if (!$secure) {
-		$texte = str_replace(
-			['&amp;', '&quot;', '&lt;', '&gt;'],
-			['&', '"', '<', '>'],
-			$texte
-		);
+		$texte = str_replace(['&amp;', '&quot;', '&lt;', '&gt;'], ['&', '"', '<', '>'], $texte);
 	}
 	return $texte;
 }
-
 
 /**
  * Transforme les entités mathématiques (MathML) en unicode
@@ -301,7 +294,6 @@ function mathml2unicode($texte) {
 
 	return str_replace(array_keys($trans), array_values($trans), $texte);
 }
-
 
 /**
  * Transforme une chaine en entites unicode &#129;
@@ -343,8 +335,9 @@ function charset2unicode(?string $texte, string $charset = 'AUTO' /* $forcer: ob
 
 		case 'iso-8859-1':
 			$texte = corriger_caracteres_windows($texte, 'iso-8859-1');
-		// pas de break; ici, on suit sur default:
+			// pas de break; ici, on suit sur default:
 
+			// no break
 		default:
 			// mbstring presente ?
 			if (init_mb_string()) {
@@ -385,12 +378,12 @@ function charset2unicode(?string $texte, string $charset = 'AUTO' /* $forcer: ob
 			}
 
 			// Au pire ne rien faire
-			spip_logger()->info("erreur charset '$charset' non supporte");
+			spip_logger()
+				->info("erreur charset '$charset' non supporte");
 
 			return $texte;
 	}
 }
-
 
 /**
  * Transforme les entites unicode &#129; dans le charset specifie
@@ -445,7 +438,6 @@ function unicode2charset($texte, $charset = 'AUTO') {
 	}
 }
 
-
 /**
  * Importer un texte depuis un charset externe vers le charset du site
  *
@@ -494,7 +486,6 @@ function importer_charset($texte, $charset = 'AUTO') {
 
 	return unicode2charset(charset2unicode($texte, $charset));
 }
-
 
 /**
  * Transforme un texte UTF-8 en unicode
@@ -564,7 +555,7 @@ function utf_8_to_unicode($source) {
 				} else {
 					// 1 char (lower ascii)
 					$thisLetter = substr($source, $pos, 1);
-					$pos += 1;
+					++$pos;
 					$char = $thisLetter;
 					$ischar = true;
 				}
@@ -640,7 +631,6 @@ function utf_32_to_unicode($source) {
 	return $texte;
 }
 
-
 /**
  * Transforme un numéro unicode en caractère utf-8
  *
@@ -665,7 +655,9 @@ function caractere_utf_8($num) {
 		return chr(($num >> 12) + 224) . chr((($num >> 6) & 63) + 128) . chr(($num & 63) + 128);
 	}
 	if ($num < 1_114_112) {
-		return chr(($num >> 18) + 240) . chr((($num >> 12) & 63) + 128) . chr((($num >> 6) & 63) + 128) . chr(($num & 63) + 128);
+		return chr(($num >> 18) + 240) . chr((($num >> 12) & 63) + 128) . chr((($num >> 6) & 63) + 128) . chr(
+			($num & 63) + 128
+		);
 	}
 
 	return '';
@@ -684,12 +676,7 @@ function unicode_to_utf_8($texte) {
 	// 1. Entites &#128; et suivantes
 	$vu = [];
 	if (
-		preg_match_all(
-			',&#0*([1-9]\d\d+);,S',
-			$texte,
-			$regs,
-			PREG_SET_ORDER
-		)
+		preg_match_all(',&#0*([1-9]\d\d+);,S', $texte, $regs, PREG_SET_ORDER)
 	) {
 		foreach ($regs as $reg) {
 			if ($reg[1] > 127 && !isset($vu[$reg[0]])) {
@@ -702,12 +689,7 @@ function unicode_to_utf_8($texte) {
 	// 2. Entites > &#xFF;
 	//$vu = array();
 	if (
-		preg_match_all(
-			',&#x0*([1-9a-f][0-9a-f][0-9a-f]+);,iS',
-			$texte,
-			$regs,
-			PREG_SET_ORDER
-		)
+		preg_match_all(',&#x0*([1-9a-f][0-9a-f][0-9a-f]+);,iS', $texte, $regs, PREG_SET_ORDER)
 	) {
 		foreach ($regs as $reg) {
 			if (!isset($vu[$reg[0]])) {
@@ -771,7 +753,6 @@ function javascript_to_binary($texte) {
 	return $texte;
 }
 
-
 /**
  * Substition rapide de chaque graphème selon le charset sélectionné.
  *
@@ -779,11 +760,6 @@ function javascript_to_binary($texte) {
  *
  * @global array $CHARSET
  * @staticvar array $trans
- *
- * @param string $texte
- * @param string $charset
- * @param string $complexe
- * @return string
  */
 function translitteration_rapide(?string $texte, string $charset = 'AUTO', string $complexe = ''): string {
 	static $trans = [];
@@ -821,11 +797,6 @@ function translitteration_rapide(?string $texte, string $charset = 'AUTO', strin
  * @uses html2unicode()
  * @uses charset2unicode()
  * @uses translitteration_rapide()
- *
- * @param string $texte
- * @param string $charset
- * @param string $complexe
- * @return string
  */
 function translitteration(?string $texte, string $charset = 'AUTO', string $complexe = ''): string {
 	if ($texte === null || $texte === '') {
@@ -849,9 +820,6 @@ function translitteration(?string $texte, string $charset = 'AUTO', string $comp
  * mais si `$chiffre=true`, on retourne `a8` (vietnamien)
  *
  * @uses translitteration()
- * @param string $texte
- * @param bool $chiffres
- * @return string
  */
 function translitteration_complexe(?string $texte, bool $chiffres = false): string {
 	$texte = translitteration($texte, 'AUTO', 'complexe');
@@ -859,7 +827,7 @@ function translitteration_complexe(?string $texte, bool $chiffres = false): stri
 	if ($chiffres) {
 		$texte = preg_replace_callback(
 			"/[aeiuoyd]['`?~.^+(-]{1,2}/S",
-			fn($m) => translitteration_chiffree($m[0]),
+			fn ($m) => translitteration_chiffree($m[0]),
 			$texte
 		);
 	}
@@ -871,14 +839,10 @@ function translitteration_complexe(?string $texte, bool $chiffres = false): stri
  * Translittération chiffrée
  *
  * Remplace des caractères dans une chaîne par des chiffres
- *
- * @param string $car
- * @return string
  */
 function translitteration_chiffree(string $car): string {
 	return strtr($car, "'`?~.^+(-", '123456789');
 }
-
 
 /**
  * Reconnaitre le BOM utf-8 (0xEFBBBF)
@@ -889,7 +853,7 @@ function translitteration_chiffree(string $car): string {
  *    true s'il a un BOM
  */
 function bom_utf8($texte): bool {
-	return (substr($texte, 0, 3) === chr(0xEF) . chr(0xBB) . chr(0xBF));
+	return substr($texte, 0, 3) === chr(0xEF) . chr(0xBB) . chr(0xBF);
 }
 
 /**
@@ -932,13 +896,7 @@ function is_utf8($string): bool {
  *     true si c'est le cas
  */
 function is_ascii($string): bool {
-	return !strlen(
-		preg_replace(
-			',[\x09\x0A\x0D\x20-\x7E],sS',
-			'',
-			$string
-		)
-	);
+	return !strlen(preg_replace(',[\x09\x0A\x0D\x20-\x7E],sS', '', $string));
 }
 
 /**
@@ -986,7 +944,6 @@ function transcoder_page($texte, $headers = ''): string {
 		$charset = '';
 	}
 
-
 	// normaliser les noms du shif-jis japonais
 	if (preg_match(',^(x|shift)[_-]s?jis$,i', $charset)) {
 		$charset = 'shift-jis';
@@ -997,12 +954,12 @@ function transcoder_page($texte, $headers = ''): string {
 	} else {
 		// valeur par defaut
 		$charset = is_utf8($texte) ? 'utf-8' : 'iso-8859-1';
-		spip_logger()->info("charset probable: $charset");
+		spip_logger()
+			->info("charset probable: $charset");
 	}
 
 	return importer_charset($texte, $charset);
 }
-
 
 //
 // Gerer les outils mb_string
@@ -1027,16 +984,16 @@ function spip_substr($c, $start = 0, $length = null) {
 	if ($GLOBALS['meta']['charset'] !== 'utf-8') {
 		if ($length) {
 			return substr($c, $start, $length);
-		} else {
-			return substr($c, $start);
 		}
+		return substr($c, $start);
+
 	}
 
 	if ($length) {
 		return mb_substr($c, $start, $length);
-	} else {
-		return mb_substr($c, $start);
 	}
+	return mb_substr($c, $start);
+
 }
 
 /**

@@ -1,6 +1,5 @@
 <?php
 
-
 /**
  * Exécute une fonction (appellée par un pipeline) avec la donnée transmise.
  *
@@ -20,7 +19,7 @@
  *     Nom de la fonction appelée par le pipeline
  * @param string|array $val
  *     Les paramètres du pipeline, son environnement
- * @return string|array $val
+ * @return string|array
  *     Les paramètres du pipeline modifiés
  */
 function minipipe($fonc, &$val) {
@@ -52,7 +51,6 @@ function minipipe($fonc, &$val) {
  *
  * Deux types de retours. Si `$val` est un tableau de 2 éléments, avec une clé `data`
  * on retourne uniquement ce contenu (`$val['data']`) sinon on retourne tout `$val`.
- *
  *
  * @example
  *     Appel du pipeline `pre_insertion`
@@ -96,7 +94,8 @@ function pipeline($action, $val = null) {
 		$val = $fonc($val);
 	} else {
 		// plantage ?
-		spip_logger()->error("fonction $fonc absente : pipeline desactive");
+		spip_logger()
+			->error("fonction $fonc absente : pipeline desactive");
 	}
 
 	// si le flux est une table avec 2 cle args&data

@@ -40,7 +40,8 @@ function genie_mise_a_jour_dist($t) {
 
 	mise_a_jour_ecran_securite();
 
-	spip_logger('verifie_maj')->info('Verification version SPIP : ' . ($maj ?: 'version a jour'));
+	spip_logger('verifie_maj')
+		->info('Verification version SPIP : ' . ($maj ?: 'version a jour'));
 
 	return 1;
 }
@@ -79,7 +80,7 @@ function mise_a_jour_ecran_securite() {
 	$url = parametre_url($url, 'vspip', $GLOBALS['spip_version_branche']);
 	$res = recuperer_url($url, [
 		'if_modified_since' => $last_modified,
-		'file' => $tmp_file
+		'file' => $tmp_file,
 	]);
 
 	// si il y a une version plus recente que l'on a recu correctement
@@ -136,7 +137,10 @@ function info_maj(string $version): string {
 		$message[] = _T('nouvelle_version_spip_majeure', ['version' => $maj['majeure']]);
 	}
 
-	return '<a class="info_maj_spip" href="https://www.spip.net/fr_update" title="' . $maj['mineure'] . '">' . implode(' | ', $message) . '</a>';
+	return '<a class="info_maj_spip" href="https://www.spip.net/fr_update" title="' . $maj['mineure'] . '">' . implode(
+		' | ',
+		$message
+	) . '</a>';
 }
 
 /**
@@ -236,7 +240,6 @@ function info_maj_versions(string $version, array $versions): array {
 	return $maj;
 }
 
-
 /**
  * Notifier les webmestre d’une nouvelle version existante (pour mettre à jour)
  *
@@ -245,14 +248,14 @@ function info_maj_versions(string $version, array $versions): array {
  * - soit (falsy) pour empêcher cette notification
  */
 function info_maj_notifier(string $version) {
-	$texte = recuperer_fond(
-		'notifications/mise_a_jour',
-		['raw' => true]
-	);
+	$texte = recuperer_fond('notifications/mise_a_jour', ['raw' => true]);
 	if (defined('_MAJ_NOTIF_EMAILS')) {
 		$destinataires = constant('_MAJ_NOTIF_EMAILS');
 	} else {
-		$destinataires = array_column(sql_allfetsel('email', 'spip_auteurs', "statut='0minirezo' AND webmestre='oui'"), 'email');
+		$destinataires = array_column(
+			sql_allfetsel('email', 'spip_auteurs', "statut='0minirezo' AND webmestre='oui'"),
+			'email'
+		);
 	}
 	if ($destinataires) {
 		if (is_string($destinataires)) {
@@ -263,7 +266,7 @@ function info_maj_notifier(string $version) {
 		notifications_envoyer_mails(
 			$destinataires,
 			$texte,
-			'['. $GLOBALS['meta']['nom_site'] .'] '. _T('nouvelle_version_spip', ['version' => $version])
+			'[' . $GLOBALS['meta']['nom_site'] . '] ' . _T('nouvelle_version_spip', ['version' => $version])
 		);
 	}
 }

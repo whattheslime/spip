@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace Spip\Test\Squelettes\Modeles;
 
-use PHPUnit\Framework\Attributes\Depends;
 use PHPUnit\Framework\Attributes\DataProvider;
 use Spip\Test\SquelettesTestCase;
 use Spip\Test\Templating;
@@ -19,12 +18,14 @@ class DocumentsTest extends SquelettesTestCase
 	public function testDocumentSansTitreModeles(string $modele): void {
 		$id_document = $this->getIdDocumentImageSansTitreNiDescriptif();
 		$modele = sprintf($modele, $id_document);
-		$this->assertOkCode(<<<SPIP
+		$this->assertOkCode(
+			<<<SPIP
 			[(#SET{modele,[(#ENV*{modele}|propre)]})]
 			[(#SET{src,#GET{modele}|extraire_balise{img}|extraire_attribut{src}})]
 			[(#GET{src}|quote_amp|=={#URL_DOCUMENT}|oui)OK ]
 			\<img#ID_DOCUMENT\> src pas bon: "#URL_DOCUMENT" != "[(#GET{src})]"
-			SPIP,
+			SPIP
+			,
 			[
 				'id_document' => $id_document,
 				'modele' => $modele,

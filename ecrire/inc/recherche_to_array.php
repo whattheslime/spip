@@ -13,7 +13,6 @@ if (!defined('_ECRIRE_INC_VERSION')) {
 	return;
 }
 
-
 // methodes sql
 function inc_recherche_to_array_dist($recherche, $options = []) {
 
@@ -24,7 +23,7 @@ function inc_recherche_to_array_dist($recherche, $options = []) {
 			'champs' => false,
 			'toutvoir' => false,
 			'matches' => false,
-			'jointures' => false
+			'jointures' => false,
 		],
 		$options
 	);
@@ -39,7 +38,7 @@ function inc_recherche_to_array_dist($recherche, $options = []) {
 		'GROUPBY' => [],
 		'ORDERBY' => [],
 		'LIMIT' => '',
-		'HAVING' => []
+		'HAVING' => [],
 	];
 
 	$table = sinon($options['table'], 'article');
@@ -115,7 +114,9 @@ function inc_recherche_to_array_dist($recherche, $options = []) {
 				$champ = explode('.', (string) $champ);
 				$champ = end($champ);
 				// translitteration_rapide uniquement si on est deja en utf-8
-				$value = ($GLOBALS['meta']['charset'] == 'utf-8' ? translitteration_rapide($t[$champ]) : translitteration($t[$champ]));
+				$value = ($GLOBALS['meta']['charset'] == 'utf-8' ? translitteration_rapide($t[$champ]) : translitteration(
+					$t[$champ]
+				));
 				if (
 					$n =
 					($options['score'] || $options['matches'])
@@ -160,17 +161,12 @@ function inc_recherche_to_array_dist($recherche, $options = []) {
 		}
 	}
 
-
 	// Gerer les donnees associees
 	// ici on est un peu naze : pas capables de reconstruire une jointure complexe
 	// on ne sait passer que par table de laison en 1 coup
 	if (
 		isset($jointures[$table])
-		&& ($joints = recherche_en_base(
-			$recherche,
-			$jointures[$table],
-			array_merge($options, ['jointures' => false])
-		))
+		&& ($joints = recherche_en_base($recherche, $jointures[$table], array_merge($options, ['jointures' => false])))
 	) {
 		include_spip('action/editer_liens');
 		$trouver_table = charger_fonction('trouver_table', 'base');
@@ -182,7 +178,7 @@ function inc_recherche_to_array_dist($recherche, $options = []) {
 			// on peut definir une fonction de recherche jointe pour regler les cas particuliers
 			if (
 				!(
-				($rechercher_joints = charger_fonction("rechercher_joints_{$table}_{$table_liee}", 'inc', true))
+					($rechercher_joints = charger_fonction("rechercher_joints_{$table}_{$table_liee}", 'inc', true))
 				|| ($rechercher_joints = charger_fonction("rechercher_joints_objet_{$table_liee}", 'inc', true))
 				|| ($rechercher_joints = charger_fonction("rechercher_joints_{$table}_objet_lie", 'inc', true))
 				)

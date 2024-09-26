@@ -36,14 +36,9 @@ class InterdireScriptLaxisteTest extends TestCase
 
 	public static function providerTexteInterdireScriptLaxiste(): array {
 		return [
-			[
-				"<script src='toto.js'></script>", "<script src='toto.js'></script>",
-			],
-			[
-				"<script src='spip.php?page=toto'></script>",
-				"<script src='spip.php?page=toto'></script>",
-			],
-			["<script>var php=5;</script>", "<script>var php=5;</script>"],
+			["<script src='toto.js'></script>", "<script src='toto.js'></script>"],
+			["<script src='spip.php?page=toto'></script>", "<script src='spip.php?page=toto'></script>"],
+			['<script>var php=5;</script>', '<script>var php=5;</script>'],
 			[
 				"<script language='javascript' src='spip.php?page=toto'></script>",
 				"<script language='javascript' src='spip.php?page=toto'></script>",

@@ -26,7 +26,6 @@ if (!defined('_ECRIRE_INC_VERSION')) {
  *
  * @global array $GLOBALS ['visiteur_session']
  * @global string $GLOBALS ['redirect']
- * @return void
  */
 function action_confirmer_inscription_dist() {
 	$jeton = _request('jeton');

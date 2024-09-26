@@ -64,15 +64,10 @@ function inc_completer_traduction_dist($objet, $id_objet, $id_trad) {
 	 * Le pipeline 'pre_edition' sera appelé avec l'action 'completer_traduction'.
 	 * Des plugins pourront ainsi compléter les champs d'un objet traduit lors d'une nouvelle traduction.
 	 */
-	$err = objet_modifier_champs(
-		$objet,
-		$id_objet,
-		[
-			'data' => $data,
-			'action' => 'completer_traduction',
-		],
-		$set
-	);
+	$err = objet_modifier_champs($objet, $id_objet, [
+		'data' => $data,
+		'action' => 'completer_traduction',
+	], $set);
 
 	return $err;
 }

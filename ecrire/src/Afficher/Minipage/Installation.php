@@ -14,8 +14,14 @@ namespace Spip\Afficher\Minipage;
 /**
  * Présentation des pages simplifiées pour installer SPIP
  */
-class Installation extends Admin {
+class Installation extends Admin
+{
 	public const TYPE = 'installation';
+
+	public function page($corps = '', $options = []) {
+		$options['titre'] ??= 'AUTO';
+		return parent::page($corps, $options);
+	}
 
 	protected function setOptions(array $options) {
 		$options['titre'] ??= '';
@@ -27,10 +33,5 @@ class Installation extends Admin {
 		$options['css_files'][] = find_in_theme('installation.css');
 		$options['footer'] = '';
 		return $options;
-	}
-
-	public function page($corps = '', $options = []) {
-		$options['titre'] ??= 'AUTO';
-		return parent::page($corps, $options);
 	}
 }

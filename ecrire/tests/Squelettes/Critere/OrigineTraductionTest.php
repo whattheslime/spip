@@ -4,14 +4,14 @@ declare(strict_types=1);
 
 namespace Spip\Test\Squelettes\Critere;
 
-use PHPUnit\Framework\Attributes\Depends;
 use Spip\Test\SquelettesTestCase;
 use Spip\Test\Templating;
 
 class OrigineTraductionTest extends SquelettesTestCase
 {
-
-	/** Un article non traduit est bien {origine_traduction} */
+	/**
+	 * Un article non traduit est bien {origine_traduction}
+	 */
 	public function testArticleTraduitEstOrigineTraduction(): void {
 		$templating = Templating::fromString();
 		$result = $templating->render(<<<SPIP
@@ -28,7 +28,9 @@ class OrigineTraductionTest extends SquelettesTestCase
 		$this->assertOk($result);
 	}
 
-	/** Un article traduit n'a qu'une traduction qui est {origine_traduction} */
+	/**
+	 * Un article traduit n'a qu'une traduction qui est {origine_traduction}
+	 */
 	public function testArticleTraduitAUneSeuleTraductionOrigineTraduction(): void {
 		$templating = Templating::fromString();
 		$result = $templating->render(<<<SPIP

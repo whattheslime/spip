@@ -185,7 +185,9 @@ function public_styliser_par_z_dist($flux) {
 			if (
 				isset($flux['args']['contexte']['type-page'])
 				&& (
-					isset($flux['args']['contexte']['composition']) && file_exists(($f = $squelette . '-' . $flux['args']['contexte']['type-page'] . '-' . $flux['args']['contexte']['composition']) . ".$ext")
+					isset($flux['args']['contexte']['composition']) && file_exists(
+						($f = $squelette . '-' . $flux['args']['contexte']['type-page'] . '-' . $flux['args']['contexte']['composition']) . ".$ext"
+					)
 					|| file_exists(($f = $squelette . '-' . $flux['args']['contexte']['type-page']) . ".$ext")
 				)
 			) {
@@ -222,17 +224,10 @@ function public_styliser_par_z_dist($flux) {
  */
 function z_blocs($espace_prive = false) {
 	if ($espace_prive) {
-		return ($GLOBALS['z_blocs_ecrire'] ?? [
-			'contenu',
-			'navigation',
-			'extra',
-			'head',
-			'hierarchie',
-			'top'
-		]);
+		return $GLOBALS['z_blocs_ecrire'] ?? ['contenu', 'navigation', 'extra', 'head', 'hierarchie', 'top'];
 	}
 
-	return ($GLOBALS['z_blocs'] ?? ['contenu']);
+	return $GLOBALS['z_blocs'] ?? ['contenu'];
 }
 
 /**
@@ -317,17 +312,17 @@ function z_echafaudable($type) {
 		}
 		if ($e = trouver_objet_exec($type)) {
 			return $echafaudable[$type] = [$e['table'], $e['table_objet_sql'], $e];
-		} else {
-			// peut etre c'est un exec=types qui liste tous les objets "type"
-			if (
-				($t = objet_type($type, false)) !== $type
-				&& ($e = trouver_objet_exec($t))
-			) {
-				return $echafaudable[$type] = [$e['table'], $e['table_objet_sql'], $t];
-			}
 		}
+		// peut etre c'est un exec=types qui liste tous les objets "type"
+		if (
+			($t = objet_type($type, false)) !== $type
+			&& ($e = trouver_objet_exec($t))
+		) {
+			return $echafaudable[$type] = [$e['table'], $e['table_objet_sql'], $t];
+		}
+
 	} else {
-		if (is_null($pages)) {
+		if ($pages === null) {
 			$pages = [];
 			$liste = lister_tables_objets_sql();
 			foreach ($liste as $t => $d) {
@@ -349,7 +344,6 @@ function z_echafaudable($type) {
 
 	return $echafaudable[$type] = false;
 }
-
 
 /**
  * Generer a la volee un fond a partir d'un contenu connu
@@ -380,7 +374,9 @@ function prive_echafauder_dist($exec, $table, $table_sql, $desc_exec, $ext) {
 		}
 		$dir = z_blocs(test_espace_prive());
 		$dir = reset($dir);
-		$scaffold = "<INCLURE{fond=prive/echafaudage/$dir/" . $fond . ',objet=' . $type . ',id_objet=#' . strtoupper((string) $primary) . ',env}>';
+		$scaffold = "<INCLURE{fond=prive/echafaudage/$dir/" . $fond . ',objet=' . $type . ',id_objet=#' . strtoupper(
+			(string) $primary
+		) . ',env}>';
 	} // page objets
 	elseif (($type = $desc_exec) && !str_contains($type, '/')) {
 		$dir = z_blocs(test_espace_prive());

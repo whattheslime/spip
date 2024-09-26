@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace Spip\Test\Filesystem;
 
-use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\TestCase;
 
 class CreerCheminTest extends TestCase
@@ -15,7 +14,7 @@ class CreerCheminTest extends TestCase
 		include_spip('inc/utils');
 	}
 
-	public function setUp(): void {
+	protected function setUp(): void {
 	}
 
 	public function testAddCheminSansDossierSquelettes() {
@@ -27,7 +26,11 @@ class CreerCheminTest extends TestCase
 		$_chemins = creer_chemin();
 
 		$this->assertIsArray($_chemins);
-		$this->assertEquals(count($chemins), count($_chemins) - 1, 'Erreur ajout chemin par la fonction _chemin() : mauvais compte');
+		$this->assertEquals(
+			count($chemins),
+			count($_chemins) - 1,
+			'Erreur ajout chemin par la fonction _chemin() : mauvais compte'
+		);
 		if (is_dir(_DIR_RACINE . 'squelettes')) {
 			$this->assertEquals('toto/', $_chemins[1], 'Erreur ajout chemin par la fonction _chemin() : avec squelettes');
 		} else {
@@ -47,6 +50,10 @@ class CreerCheminTest extends TestCase
 		$_chemins = creer_chemin();
 
 		$this->assertIsArray($_chemins);
-		$this->assertEquals('toto/', $_chemins[$squelettes + $dossier_squelettes], 'Erreur ajout chemin par la fonction _chemin() : avec dossier_squelettes');
+		$this->assertEquals(
+			'toto/',
+			$_chemins[$squelettes + $dossier_squelettes],
+			'Erreur ajout chemin par la fonction _chemin() : avec dossier_squelettes'
+		);
 	}
 }

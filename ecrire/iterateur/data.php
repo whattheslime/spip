@@ -25,7 +25,6 @@ if (!defined('_DATA_SOURCE_MAX_SIZE')) {
 	define('_DATA_SOURCE_MAX_SIZE', 2 * 1_048_576);
 }
 
-
 /**
  * Créer une boucle sur un itérateur DATA
  *
@@ -48,14 +47,13 @@ function iterateur_DATA_dist($b) {
 		'field' => [
 			'cle' => 'STRING',
 			'valeur' => 'STRING',
-			'*' => 'ALL' // Champ joker *
-		]
+			'*' => 'ALL', // Champ joker *
+		],
 	];
 	$b->select[] = '.valeur';
 
 	return $b;
 }
-
 
 /*
  * Fonctions de transformation donnee => tableau
@@ -93,12 +91,10 @@ function inc_xml_to_array_dist($data) {
 }
 
 /**
- *
  * object -> tableau
  *
  * @param object $object The object to convert
  * @return array
- *
  */
 function inc_object_to_array($object) {
 	if (!is_object($object) && !is_array($object)) {
@@ -120,7 +116,7 @@ function inc_object_to_array($object) {
 function inc_sql_to_array_dist($data) {
 	# sortir le connecteur de $data
 	preg_match(',^(?:(\w+):)?(.*)$,Sm', $data, $v);
-	$serveur = (string)$v[1];
+	$serveur = (string) $v[1];
 	$req = trim($v[2]);
 	if ($s = sql_query($req, $serveur)) {
 		$r = [];
@@ -145,7 +141,8 @@ function inc_json_to_array_dist($data) {
 		$json = json_decode($data, true, 512, JSON_THROW_ON_ERROR);
 	} catch (JsonException $e) {
 		$json = null;
-		spip_logger()->info('Failed to parse Json data : ' . $e->getMessage());
+		spip_logger()
+			->info('Failed to parse Json data : ' . $e->getMessage());
 	}
 	return is_array($json) ? (array) $json : [];
 }
@@ -219,10 +216,7 @@ function inc_atom_to_array_dist($data) {
  * @return array|bool
  */
 function inc_glob_to_array_dist($data) {
-	$a = glob(
-		$data,
-		GLOB_MARK | GLOB_NOSORT | GLOB_BRACE
-	);
+	$a = glob($data, GLOB_MARK | GLOB_NOSORT | GLOB_BRACE);
 
 	return $a ?: [];
 }
@@ -232,19 +226,16 @@ function inc_glob_to_array_dist($data) {
  *
  * @param string $data
  * @return bool|array
- * @throws Exception
  */
 function inc_yaml_to_array_dist($data) {
 	include_spip('inc/yaml-mini');
 	if (!function_exists('yaml_decode')) {
 		throw new Exception('YAML: impossible de trouver la fonction yaml_decode');
-
 		return false;
 	}
 
 	return yaml_decode($data);
 }
-
 
 /**
  * pregfiles -> tableau
@@ -257,7 +248,7 @@ function inc_yaml_to_array_dist($data) {
  * @return array|bool
  */
 function inc_pregfiles_to_array_dist($dir, $regexp = -1, $limit = 10000) {
-	return (array)preg_files($dir, $regexp, $limit);
+	return (array) preg_files($dir, $regexp, $limit);
 }
 
 /**
@@ -272,17 +263,14 @@ function inc_ls_to_array_dist($data) {
 	$glob_to_array = charger_fonction('glob_to_array', 'inc');
 	$a = $glob_to_array($data);
 	foreach ($a as &$v) {
-		$b = (array)@stat($v);
+		$b = (array) @stat($v);
 		foreach (array_keys($b) as $k) {
 			if (is_numeric($k)) {
 				unset($b[$k]);
 			}
 		}
-		$b['file'] = preg_replace('`/$`', '', (string) $v) ;
-		$v = array_merge(
-			pathinfo((string) $v),
-			$b
-		);
+		$b['file'] = preg_replace('`/$`', '', (string) $v);
+		$v = array_merge(pathinfo((string) $v), $b);
 	}
 
 	return $a;
@@ -291,7 +279,7 @@ function inc_ls_to_array_dist($data) {
 /**
  * Object -> tableau
  *
- * @param Object $object
+ * @param object $object
  * @return array|bool
  */
 function XMLObjectToArray($object) {

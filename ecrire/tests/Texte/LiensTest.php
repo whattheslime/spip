@@ -22,10 +22,7 @@ class LiensTest extends TestCase
 		$article = sql_fetsel(
 			['id_article', 'lang'],
 			'spip_articles',
-			[
-				'statut = ' . sql_quote('publie'),
-				'lang != ' . sql_quote('')
-			],
+			['statut = ' . sql_quote('publie'), 'lang != ' . sql_quote('')],
 			limit: '0,1',
 		);
 
@@ -75,17 +72,17 @@ class LiensTest extends TestCase
 			'article' => [
 				'table' => 'spip_articles',
 				'short' => 'art',
-				'in' => true
+				'in' => true,
 			],
 			'rubrique' => [
 				'table' => 'spip_rubriques',
 				'short' => 'rub',
-				'in' => true
+				'in' => true,
 			],
 			'site' => [
 				'table' => 'spip_syndic',
 				'short' => null,
-				'in' => false
+				'in' => false,
 			],
 		];
 	}
@@ -123,42 +120,42 @@ class LiensTest extends TestCase
 				'url' => 'url',
 				'hreflang' => null,
 				'title' => null,
-				'text' => 'bla blabla'
+				'text' => 'bla blabla',
 			],
 			'hreflang correct spécifié pris en compte' => [
 				'case' => '[bla{en}->url]',
 				'url' => 'url',
 				'hreflang' => 'en',
 				'title' => null,
-				'text' => 'bla'
+				'text' => 'bla',
 			],
 			'title spécifié pris en compte' => [
 				'case' => '[bla|bulle de savon{eo}->url]',
 				'url' => 'url',
 				'hreflang' => 'eo',
 				'title' => 'bulle de savon',
-				'text' => 'bla'
+				'text' => 'bla',
 			],
 			'title comme une langue devient hreflang aussi' => [
 				'case' => '[bla|fa->url]',
 				'url' => 'url',
 				'hreflang' => 'fa',
 				'title' => 'fa',
-				'text' => 'bla'
+				'text' => 'bla',
 			],
 			'title autre qu’une langue ne contamine pas hreflang' => [
 				'case' => '[bla|bulle de savon->url]',
 				'url' => 'url',
 				'hreflang' => null,
 				'title' => 'bulle de savon',
-				'text' => 'bla'
+				'text' => 'bla',
 			],
 			'multi dans liens' => [
 				'case' => '[<multi>[fr]X[eo]Y[fa]Z</multi>->url]',
 				'url' => 'url',
 				'hreflang' => null,
 				'title' => null,
-				'text' => 'Y'
+				'text' => 'Y',
 			],
 		];
 	}
@@ -205,10 +202,6 @@ class LiensTest extends TestCase
 		$case = '<flv|url=http://rezo.net/>';
 		$propre = propre($case);
 		$expected = '<p><tt>&lt;flv|url=http://rezo.net/&gt;</tt></p>';
-		$this->assertEquals(
-			$expected,
-			$propre,
-			sprintf('Erreur lien dans "%s". Propre: "%s"', $case, $propre)
-		);
+		$this->assertEquals($expected, $propre, sprintf('Erreur lien dans "%s". Propre: "%s"', $case, $propre));
 	}
 }

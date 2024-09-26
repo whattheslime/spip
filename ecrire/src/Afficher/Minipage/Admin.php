@@ -14,20 +14,9 @@ namespace Spip\Afficher\Minipage;
 /**
  * Présentation des pages simplifiées d’admin pour envoyer un message à un utilisateur
  */
-class Admin extends Page {
+class Admin extends Page
+{
 	public const TYPE = 'admin';
-	protected function setOptions(array $options) {
-		$options['couleur_fond'] = '#999';
-		if (empty($options['css_files'])) {
-			$options['css_files'] = [];
-		}
-		array_unshift($options['css_files'], find_in_theme('minipres.css'));
-
-		$options['page_title'] = ($options['titre'] ?? '');
-
-		return $options;
-	}
-
 
 	/**
 	 * Retourne le début d'une page HTML minimale (de type installation ou erreur)
@@ -57,7 +46,6 @@ class Admin extends Page {
 			. parent::fermeBody();
 	}
 
-
 	/**
 	 * Retourne une page HTML contenant, dans une présentation minimale,
 	 * le contenu transmis dans `$corps`.
@@ -79,7 +67,6 @@ class Admin extends Page {
 	 *   string $footer : pied de la box en remplacement du bouton retour par défaut
 	 * @uses ouvreBody()
 	 * @uses fermeBody()
-	 *
 	 */
 	public function page($corps = '', $options = []) {
 
@@ -114,15 +101,14 @@ class Admin extends Page {
 
 			if ($statut && test_espace_prive()) {
 				$footer = bouton_action(_T('public:accueil_site'), generer_url_ecrire('accueil'));
-			}
-			elseif (!empty($_COOKIE['spip_admin'])) {
+			} elseif (!empty($_COOKIE['spip_admin'])) {
 				$footer = bouton_action(_T('public:lien_connecter'), generer_url_public('login'));
-			}
-			else {
+			} else {
 				$footer = bouton_action(_T('public:accueil_site'), $GLOBALS['meta']['adresse_site'] ?? '');
 			}
 
-			spip_logger('minipres')->info($nom . " $titre " . $_SERVER['REQUEST_URI']);
+			spip_logger('minipres')
+				->info($nom . " $titre " . $_SERVER['REQUEST_URI']);
 
 			$options['footer'] = $footer;
 			if (empty($corps)) {
@@ -130,12 +116,10 @@ class Admin extends Page {
 					. $titre
 					. '</div>';
 				$options['titre'] = '';
-			}
-			else {
+			} else {
 				$options['titre'] = $titre;
 			}
-		}
-		else {
+		} else {
 			$options['titre'] = $titre;
 		}
 		$options['page_title'] = $titre;
@@ -146,15 +130,27 @@ class Admin extends Page {
 
 		if (!_AJAX) {
 			return $html;
-		} else {
-			include_spip('inc/headers');
-			include_spip('inc/actions');
-			$url = self('&', true);
-			foreach ($_POST as $v => $c) {
-				$url = parametre_url($url, $v, $c, '&');
-			}
-			ajax_retour('<div>' . $titre . redirige_formulaire($url) . '</div>', false);
-			return '';
 		}
+		include_spip('inc/headers');
+		include_spip('inc/actions');
+		$url = self('&', true);
+		foreach ($_POST as $v => $c) {
+			$url = parametre_url($url, $v, $c, '&');
+		}
+		ajax_retour('<div>' . $titre . redirige_formulaire($url) . '</div>', false);
+		return '';
+
+	}
+
+	protected function setOptions(array $options) {
+		$options['couleur_fond'] = '#999';
+		if (empty($options['css_files'])) {
+			$options['css_files'] = [];
+		}
+		array_unshift($options['css_files'], find_in_theme('minipres.css'));
+
+		$options['page_title'] = ($options['titre'] ?? '');
+
+		return $options;
 	}
 }

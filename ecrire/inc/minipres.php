@@ -11,7 +11,6 @@
 
 use Spip\Afficher\Minipage\Admin;
 
-
 /**
  * Présentation des pages d'installation et d'erreurs
  *
@@ -65,7 +64,6 @@ function install_fin_html() {
 	$minipage = new Admin();
 	return $minipage->installFinPage();
 }
-
 
 /**
  * Retourne une page HTML contenant, dans une présentation minimale,

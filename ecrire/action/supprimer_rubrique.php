@@ -25,11 +25,10 @@ include_spip('inc/charsets');  # pour le nom de fichier
  * Effacer une rubrique
  *
  * @param null|int $id_rubrique
- * @return void
  */
 function action_supprimer_rubrique_dist($id_rubrique = null) {
 
-	if (is_null($id_rubrique)) {
+	if ($id_rubrique === null) {
 		$securiser_action = charger_fonction('securiser_action', 'inc');
 		$id_rubrique = $securiser_action();
 	}

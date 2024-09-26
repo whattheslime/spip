@@ -77,7 +77,6 @@ function _couleur_hex_to_dec($couleur) {
 	return $retour;
 }
 
-
 /**
  * Transforme une couleur vectorielle H,S,L en hexa (par exemple pour usage css)
  *
@@ -156,10 +155,10 @@ function _couleur_rgb_to_hsl($R, $G, $B) {
 		}
 
 		if ($H < 0) {
-			$H += 1;
+			++$H;
 		}
 		if ($H > 1) {
-			$H -= 1;
+			--$H;
 		}
 	}
 
@@ -170,7 +169,6 @@ function _couleur_rgb_to_hsl($R, $G, $B) {
 
 	return $ret;
 }
-
 
 /**
  * Transformation d'une couleur HSL en RGB
@@ -187,22 +185,22 @@ function _couleur_hsl_to_rgb($H, $S, $L) {
 	// helper
 	$hue_2_rgb = function ($v1, $v2, $vH) {
 		if ($vH < 0) {
-			$vH += 1;
+			++$vH;
 		}
 		if ($vH > 1) {
-			$vH -= 1;
+			--$vH;
 		}
 		if ((6 * $vH) < 1) {
-			return ($v1 + ($v2 - $v1) * 6 * $vH);
+			return $v1 + ($v2 - $v1) * 6 * $vH;
 		}
 		if ((2 * $vH) < 1) {
-			return ($v2);
+			return $v2;
 		}
 		if ((3 * $vH) < 2) {
-			return ($v1 + ($v2 - $v1) * ((2 / 3) - $vH) * 6);
+			return $v1 + ($v2 - $v1) * ((2 / 3) - $vH) * 6;
 		}
 
-		return ($v1);
+		return $v1;
 	};
 
 	if ($S == 0) {
@@ -249,7 +247,6 @@ function statut_effacer_images_temporaires($stat) {
 	}
 	$statut = (bool) $stat;
 }
-
 
 /**
  * Fonctions de preparation aux filtres de traitement d'image
@@ -299,7 +296,14 @@ function statut_effacer_images_temporaires($stat) {
  *       réussi à être copié sur le serveur ;
  *     - array : tableau décrivant de l'image
  */
-function _image_valeurs_trans($img, $effet, $forcer_format = false, $fonction_creation = null, $find_in_path = false, $support_svg = false) {
+function _image_valeurs_trans(
+	$img,
+	$effet,
+	$forcer_format = false,
+	$fonction_creation = null,
+	$find_in_path = false,
+	$support_svg = false
+) {
 	$valeurs = [];
 	$ret = [];
 	$f = null;
@@ -517,15 +521,15 @@ function _image_valeurs_trans($img, $effet, $forcer_format = false, $fonction_cr
 	}
 
 	$ret = pipeline('image_preparer_filtre', [
-			'args' => [
-				'img' => $img,
-				'effet' => $effet,
-				'forcer_format' => $forcer_format,
-				'fonction_creation' => $fonction_creation,
-				'find_in_path' => $find_in_path,
-			],
-			'data' => $ret
-		]);
+		'args' => [
+			'img' => $img,
+			'effet' => $effet,
+			'forcer_format' => $forcer_format,
+			'fonction_creation' => $fonction_creation,
+			'find_in_path' => $find_in_path,
+		],
+		'data' => $ret,
+	]);
 
 	// une globale pour le debug en cas de crash memoire
 	$GLOBALS['derniere_image_calculee'] = $ret;
@@ -536,8 +540,7 @@ function _image_valeurs_trans($img, $effet, $forcer_format = false, $fonction_cr
 			process_image_svg_identite($ret);
 			$ret['creer'] = false;
 		}
-	}
-	else {
+	} else {
 		if (!function_exists($ret['fonction_imagecreatefrom'])) {
 			return false;
 		}
@@ -551,7 +554,7 @@ function _image_valeurs_trans($img, $effet, $forcer_format = false, $fonction_cr
  * @param array{objet?: string, id_objet?: int, ...<string,mixed>} $args
  * Arguments transmis au pipeline.
  * Tableau contenant des informations sur le contexte d'appel.
-**/
+ **/
 function _image_extensions_logos(array $args = []): array {
 	$extensions = pipeline('image_extensions_logos', ['args' => $args, 'data' => ['jpg', 'png', 'svg', 'gif', 'webp']]);
 	return $extensions;
@@ -609,7 +612,6 @@ function _image_extension_normalisee($extension) {
 function _image_extensions_conservent_transparence() {
 	return ['png', 'webp'];
 }
-
 
 /**
  * Retourne la terminaison d’un fichier image
@@ -669,7 +671,6 @@ function _image_trouver_extension_depuis_mime(string $mime): string {
 		default => '',
 	};
 }
-
 
 /**
  * Crée une image depuis un fichier ou une URL (en indiquant la fonction GD à utiliser)
@@ -748,7 +749,6 @@ function _imagecreatefrompng($filename) {
 function _imagecreatefromgif($filename) {
 	return _imagecreatefrom_func('imagecreatefromgif', $filename);
 }
-
 
 /**
  * Crée une image depuis un fichier ou une URL (au format webp)
@@ -901,7 +901,6 @@ function _image_imageico($img, $fichier) {
 	return ecrire_fichier($fichier, phpthumb_functions::GD2ICOstring($gd_image_array));
 }
 
-
 /**
  * Affiche ou sauvegarde une image au format WEBP
  *
@@ -985,7 +984,6 @@ function _image_imagesvg($img, $fichier) {
 	return false;
 }
 
-
 /**
  * Finalise le traitement GD
  *
@@ -1010,7 +1008,7 @@ function _image_imagesvg($img, $fichier) {
  *     - false sinon.
  */
 function _image_gd_output($img, $valeurs, $qualite = _IMG_GD_QUALITE, $fonction = null) {
-	if (is_null($fonction)) {
+	if ($fonction === null) {
 		$fonction = '_image_image' . $valeurs['format_dest'];
 	}
 	$ret = false;
@@ -1108,7 +1106,6 @@ function ramasse_miettes($fichier) {
 		#spip_unlink($src);
 	}
 }
-
 
 /**
  * Clôture une série de filtres d'images
@@ -1212,7 +1209,6 @@ function _image_tag_changer_taille($tag, $width, $height, $style = false) {
 	return inserer_attribut($tag, 'style', (string) $style, true, !(bool) $style);
 }
 
-
 /**
  * Écriture de la balise img en sortie de filtre image
  *
@@ -1296,7 +1292,7 @@ function _image_ecrire_tag($valeurs, $surcharge = []) {
 				'valeurs' => $valeurs,
 				'surcharge' => $surcharge,
 			],
-			'data' => $tag
+			'data' => $tag,
 		]
 	);
 }
@@ -1362,9 +1358,7 @@ function _image_creer_vignette($valeurs, $maxWidth, $maxHeight, $process = 'AUTO
 	if ($srcWidth && $srcWidth <= $maxWidth && $srcHeight <= $maxHeight) {
 		$vignette = $destination . '.' . $format;
 		@copy($image, $vignette);
-	}
-
-	elseif ($valeurs['format_source'] === 'svg') {
+	} elseif ($valeurs['format_source'] === 'svg') {
 		include_spip('inc/svg');
 		if ($svg = svg_redimensionner($valeurs['fichier'], $destWidth, $destHeight)) {
 			$format_sortie = 'svg';
@@ -1380,20 +1374,19 @@ function _image_creer_vignette($valeurs, $maxWidth, $maxHeight, $process = 'AUTO
 			define('_CONVERT_COMMAND', 'convert');
 		} // Securite : mes_options.php peut preciser le chemin absolu
 		if (!defined('_RESIZE_COMMAND')) {
-			define('_RESIZE_COMMAND', _CONVERT_COMMAND . ' -quality ' . _IMG_CONVERT_QUALITE . ' -orient Undefined -resize %xx%y! %src %dest');
+			define(
+				'_RESIZE_COMMAND',
+				_CONVERT_COMMAND . ' -quality ' . _IMG_CONVERT_QUALITE . ' -orient Undefined -resize %xx%y! %src %dest'
+			);
 		}
 		$vignette = $destination . '.' . $format_sortie;
 		$commande = str_replace(
 			['%x', '%y', '%src', '%dest'],
-			[
-				$destWidth,
-				$destHeight,
-				escapeshellcmd($image),
-				escapeshellcmd($vignette)
-			],
+			[$destWidth, $destHeight, escapeshellcmd($image), escapeshellcmd($vignette)],
 			(string) _RESIZE_COMMAND
 		);
-		spip_logger('images')->info($commande);
+		spip_logger('images')
+			->info($commande);
 		exec($commande);
 		if (!@file_exists($vignette)) {
 			spip_logger('images')->info("echec convert sur $vignette");
@@ -1424,7 +1417,7 @@ function _image_creer_vignette($valeurs, $maxWidth, $maxHeight, $process = 'AUTO
 			$destHeight,
 			Imagick::FILTER_LANCZOS,
 			1
-		);//, IMAGICK_FILTER_LANCZOS, _IMG_IMAGICK_QUALITE / 100);
+		); //, IMAGICK_FILTER_LANCZOS, _IMG_IMAGICK_QUALITE / 100);
 		$imagick->writeImage($vignette);
 
 		if (!@file_exists($vignette)) {
@@ -1566,11 +1559,7 @@ function _image_ratio(int $srcWidth, int $srcHeight, int $maxWidth, int $maxHeig
 		$destHeight = $srcHeight / $ratioWidth;
 	}
 
-	return [
-		(int) round($destWidth),
-		(int) round($destHeight),
-		max($ratioWidth, $ratioHeight)
-	];
+	return [(int) round($destWidth), (int) round($destHeight), max($ratioWidth, $ratioHeight)];
 }
 
 /**
@@ -1604,13 +1593,8 @@ function ratio_passe_partout(int $srcWidth, int $srcHeight, int $maxWidth, int $
 		$destHeight = $srcHeight / $ratioWidth;
 	}
 
-	return [
-		(int) round($destWidth),
-		(int) round($destHeight),
-		min($ratioWidth, $ratioHeight)
-	];
+	return [(int) round($destWidth), (int) round($destHeight), min($ratioWidth, $ratioHeight)];
 }
-
 
 /**
  * Fonction identite de traitement par defaut des images SVG
@@ -1628,7 +1612,6 @@ function process_image_svg_identite($image) {
 
 	return _image_ecrire_tag($image, ['src' => $image['fichier_dest']]);
 }
-
 
 /**
  * Réduit une image
@@ -1671,7 +1654,10 @@ function process_image_reduire($fonction, $img, $taille, $taille_y, $force, $pro
 		$gd_formats = formats_image_acceptables(true);
 		if (
 			is_array($image)
-			&& (!in_array($image['format_dest'], $gd_formats) || !in_array($image['format_dest'], _image_extensions_acceptees_en_sortie()))
+			&& (!in_array($image['format_dest'], $gd_formats) || !in_array(
+				$image['format_dest'],
+				_image_extensions_acceptees_en_sortie()
+			))
 		) {
 			$formats_sortie = $image['format_source'] == 'jpg' ? ['jpg', 'png', 'gif'] : ['png', 'jpg', 'gif'];
 			// Choisir le format destination
@@ -1749,10 +1735,10 @@ function process_image_reduire($fonction, $img, $taille, $taille_y, $force, $pro
 
 		return _image_ecrire_tag($image, ['src' => "$logo$date", 'width' => $destWidth, 'height' => $destHeight]);
 	}
-	else {
-		# BMP, tiff ... les redacteurs osent tout!
-		return $img;
-	}
+
+	# BMP, tiff ... les redacteurs osent tout!
+	return $img;
+
 }
 
 /**
@@ -1762,10 +1748,9 @@ function process_image_reduire($fonction, $img, $taille, $taille_y, $force, $pro
  *
  * @author James Heinrich <info@silisoftware.com>
  * @link http://phpthumb.sourceforge.net
- *
- * Class phpthumb_functions
  */
-class phpthumb_functions {
+class phpthumb_functions
+{
 	/**
 	 * Retourne la couleur d'un pixel dans une image
 	 *
@@ -1816,7 +1801,7 @@ class phpthumb_functions {
 			$icXOR[$key] = '';
 			for ($y = $ImageHeights[$key] - 1; $y >= 0; $y--) {
 				for ($x = 0; $x < $ImageWidths[$key]; $x++) {
-					$argb = phpthumb_functions::GetPixelColor($gd_image, $x, $y);
+					$argb = self::GetPixelColor($gd_image, $x, $y);
 					$a = round(255 * ((127 - $argb['alpha']) / 127));
 					$r = $argb['red'];
 					$g = $argb['green'];
@@ -1853,24 +1838,23 @@ class phpthumb_functions {
 			// BITMAPINFOHEADER - 40 bytes
 			$BitmapInfoHeader[$key] = '';
 			$BitmapInfoHeader[$key] .= "\x28\x00\x00\x00";                // DWORD  biSize;
-			$BitmapInfoHeader[$key] .= phpthumb_functions::LittleEndian2String($ImageWidths[$key], 4);    // LONG   biWidth;
+			$BitmapInfoHeader[$key] .= self::LittleEndian2String($ImageWidths[$key], 4);    // LONG   biWidth;
 			// The biHeight member specifies the combined
 			// height of the XOR and AND masks.
-			$BitmapInfoHeader[$key] .= phpthumb_functions::LittleEndian2String($ImageHeights[$key] * 2, 4); // LONG   biHeight;
+			$BitmapInfoHeader[$key] .= self::LittleEndian2String($ImageHeights[$key] * 2, 4); // LONG   biHeight;
 			$BitmapInfoHeader[$key] .= "\x01\x00";                    // WORD   biPlanes;
 			$BitmapInfoHeader[$key] .= chr($bpp[$key]) . "\x00";              // wBitCount;
 			$BitmapInfoHeader[$key] .= "\x00\x00\x00\x00";                // DWORD  biCompression;
-			$BitmapInfoHeader[$key] .= phpthumb_functions::LittleEndian2String($biSizeImage, 4);      // DWORD  biSizeImage;
+			$BitmapInfoHeader[$key] .= self::LittleEndian2String($biSizeImage, 4);      // DWORD  biSizeImage;
 			$BitmapInfoHeader[$key] .= "\x00\x00\x00\x00";                // LONG   biXPelsPerMeter;
 			$BitmapInfoHeader[$key] .= "\x00\x00\x00\x00";                // LONG   biYPelsPerMeter;
 			$BitmapInfoHeader[$key] .= "\x00\x00\x00\x00";                // DWORD  biClrUsed;
 			$BitmapInfoHeader[$key] .= "\x00\x00\x00\x00";                // DWORD  biClrImportant;
 		}
 
-
 		$icondata = "\x00\x00";                    // idReserved;   // Reserved (must be 0)
 		$icondata .= "\x01\x00";                    // idType;	   // Resource Type (1 for icons)
-		$icondata .= phpthumb_functions::LittleEndian2String(count($gd_image_array), 2);  // idCount;	  // How many images?
+		$icondata .= self::LittleEndian2String(count($gd_image_array), 2);  // idCount;	  // How many images?
 
 		$dwImageOffset = 6 + (count($gd_image_array) * 16);
 		foreach (array_keys($gd_image_array) as $key) {
@@ -1885,12 +1869,12 @@ class phpthumb_functions {
 			$icondata .= chr($bpp[$key]) . "\x00";            // wBitCount;	   // Bits per pixel
 
 			$dwBytesInRes = 40 + strlen($icXOR[$key]) + strlen($icAND[$key]);
-			$icondata .= phpthumb_functions::LittleEndian2String(
+			$icondata .= self::LittleEndian2String(
 				$dwBytesInRes,
 				4
 			);     // dwBytesInRes;	// How many bytes in this resource?
 
-			$icondata .= phpthumb_functions::LittleEndian2String(
+			$icondata .= self::LittleEndian2String(
 				$dwImageOffset,
 				4
 			);    // dwImageOffset;   // Where in the file is this image?

@@ -32,7 +32,6 @@ function autoriser_sans_cookie($nom, $strict = false) {
 	return false;
 }
 
-
 /**
  * Retourne le statut du visiteur s'il s'annonce.
  *
@@ -41,7 +40,7 @@ function autoriser_sans_cookie($nom, $strict = false) {
  * mais on risque de perturber des plugins en initialisant trop tot
  * certaines constantes.
  * @return string|0|false
-**/
+ **/
 function verifier_visiteur() {
 	@spip_initialisation_core(
 		(_DIR_RACINE . _NOM_PERMANENTS_INACCESSIBLES),
@@ -102,7 +101,6 @@ function verifier_visiteur() {
 
 	return false;
 }
-
 
 /**
  * Renvoie une chaîne qui identifie la session courante

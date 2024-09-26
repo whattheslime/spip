@@ -10,10 +10,9 @@
  */
 
 $GLOBALS['CHARSET']['iso-8859-1'] = [
-
-// plage invalide en iso-8859-1 mais souvent utilisee quand meme (windows)
-// cf. http://openweb.eu.org/articles/caracteres_illegaux/
-// voir aussi copie de ces valeurs dans inc/charsets.php
+	// plage invalide en iso-8859-1 mais souvent utilisee quand meme (windows)
+	// cf. http://openweb.eu.org/articles/caracteres_illegaux/
+	// voir aussi copie de ces valeurs dans inc/charsets.php
 	128 => 8364,
 	129 => 129 /* ?? */,
 	130 => 8218,
@@ -142,6 +141,5 @@ $GLOBALS['CHARSET']['iso-8859-1'] = [
 	252 => 252,
 	253 => 253,
 	254 => 254,
-	255 => 255
-
+	255 => 255,
 ];

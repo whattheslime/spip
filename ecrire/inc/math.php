@@ -11,7 +11,6 @@
 
 use Spip\Texte\Collecteur\HtmlTag as CollecteurHtmlTag;
 
-
 //
 if (!defined('_ECRIRE_INC_VERSION')) {
 	return;
@@ -43,14 +42,12 @@ function produire_image_math($tex) {
 	}
 	$fichier = $dir_tex . md5(trim((string) $tex)) . $ext;
 
-
 	// Aller chercher l'image sur le serveur
 	if (!@file_exists($fichier) && $server) {
 		spip_logger()->info($url = $server . '?' . rawurlencode((string) $tex));
 		include_spip('inc/distant');
 		recuperer_url($url, ['file' => $fichier]);
 	}
-
 
 	// Composer la reponse selon presence ou non de l'image
 	$tex = entites_html($tex);
@@ -59,18 +56,17 @@ function produire_image_math($tex) {
 		if ($GLOBALS['traiter_math'] == 'mathml') {
 			return implode('', file($fichier));
 		} // TeX
-		else {
-			[, , , $size] = @spip_getimagesize($fichier);
-			$alt = "alt=\"$tex\" title=\"$tex\"";
 
-			return "<img src=\"" . attribut_url($fichier) . "\" style=\"vertical-align:middle;\" $size $alt />";
-		}
-	} else // pas de fichier
-	{
-		return "<tt><span class='spip_code' dir='ltr'>$tex</span></tt>";
-	}
+		[, , , $size] = @spip_getimagesize($fichier);
+		$alt = "alt=\"$tex\" title=\"$tex\"";
+
+		return '<img src="' . attribut_url($fichier) . "\" style=\"vertical-align:middle;\" $size $alt />";
+
+	}  // pas de fichier
+
+	return "<tt><span class='spip_code' dir='ltr'>$tex</span></tt>";
+
 }
-
 
 /**
  * Active la recherche et l'affichage d'expressions mathématiques dans le texte

@@ -19,7 +19,6 @@ if (!defined('_ECRIRE_INC_VERSION')) {
 	return;
 }
 
-
 /**
  * Écrit un fichier PHP nécessitant SPIP
  *
@@ -39,7 +38,6 @@ if (!defined('_ECRIRE_INC_VERSION')) {
  *     Chemin du fichier à créer
  * @param string $texte
  *     Code source du fichier (sans l'ouverture/fermeture PHP)
- * @return void
  */
 function install_fichier_connexion($nom, $texte) {
 	$texte = '<' . "?php\n"
@@ -48,7 +46,6 @@ function install_fichier_connexion($nom, $texte) {
 
 	ecrire_fichier($nom, $texte);
 }
-
 
 /**
  * Retourne le code source d'un fichier de connexion à une base de données
@@ -72,9 +69,19 @@ function install_fichier_connexion($nom, $texte) {
  * @param string $charset Charset de la connexion SQL
  * @return string
  *     texte du fichier de connexion
- *
  */
-function install_connexion($adr, $port, $login, #[\SensitiveParameter] $pass, $base, $type, $pref, $ldap = '', $charset = '') {
+function install_connexion(
+	$adr,
+	$port,
+	$login,
+	#[\SensitiveParameter]
+	$pass,
+	$base,
+	$type,
+	$pref,
+	$ldap = '',
+	$charset = ''
+) {
 	$adr = addcslashes($adr, "'\\");
 	$port = addcslashes($port, "'\\");
 	$login = addcslashes($login, "'\\");
@@ -90,7 +97,6 @@ function install_connexion($adr, $port, $login, #[\SensitiveParameter] $pass, $b
 	. "'$adr','$port','$login','$pass','$base'"
 	. ",'$type', '$pref','$ldap','$charset');\n";
 }
-
 
 /**
  * Analyse un fichier de connexion à une base de données
@@ -112,19 +118,20 @@ function analyse_fichier_connection(string $file): array {
 		array_shift($regs);
 
 		return $regs;
-	} else {
-		$ar = '\s*\'([^\']*)\'';
-		$r = '\s*,' . $ar;
-		$r = "#spip_connect_db[(]$ar$r$r$r$r(?:$r(?:$r(?:$r(?:$r)?)?)?)?#";
-		if (preg_match($r, $s, $regs)) {
-			$regs[2] = $regs[1] . ($regs[2] ? ':' . $regs[2] . ';' : '');
-			array_shift($regs);
-			array_shift($regs);
-
-			return $regs;
-		}
 	}
-	spip_logger()->info("$file n'est pas un fichier de connexion");
+	$ar = '\s*\'([^\']*)\'';
+	$r = '\s*,' . $ar;
+	$r = "#spip_connect_db[(]$ar$r$r$r$r(?:$r(?:$r(?:$r(?:$r)?)?)?)?#";
+	if (preg_match($r, $s, $regs)) {
+		$regs[2] = $regs[1] . ($regs[2] ? ':' . $regs[2] . ';' : '');
+		array_shift($regs);
+		array_shift($regs);
+
+		return $regs;
+	}
+
+	spip_logger()
+		->info("$file n'est pas un fichier de connexion");
 
 	return [];
 }
@@ -153,7 +160,6 @@ function bases_referencees($exclu = '') {
 	return $tables;
 }
 
-
 function install_mode_appel($server_db, $tout = true) {
 	return ($server_db != 'mysql') ? ''
 		: (($tout ? test_rappel_nom_base_mysql($server_db) : '')
@@ -166,7 +172,7 @@ function install_mode_appel($server_db, $tout = true) {
 function tester_compatibilite_hebergement() {
 	$err = [];
 
-	$p = phpversion();
+	$p = PHP_VERSION;
 	if (version_compare($p, _PHP_MIN, '<')) {
 		$err[] = _T('install_php_version', ['version' => $p, 'minimum' => _PHP_MIN]);
 	}
@@ -207,7 +213,6 @@ function tester_compatibilite_hebergement() {
 	}
 }
 
-
 function info_etape($titre, $complement = '') {
 	return '<h2>' . $titre . "</h2>\n" .
 	($complement ? '' . $complement . "\n" : '');
@@ -225,7 +230,7 @@ function bouton_suivant($code = '') {
 	}
 	static $suivant = 0;
 	$id = 'suivant' . (($suivant > 0) ? (string) $suivant : '');
-	$suivant += 1;
+	++$suivant;
 
 	return "\n<p class='boutons suivant'><input id='" . $id . "' type='submit'\nvalue=\"" .
 	$code .
@@ -275,7 +280,6 @@ function info_progression_etape($en_cours, $phase, $dir, $erreur = false) {
 
 	return $aff_etapes . '</ul>';
 }
-
 
 function fieldset($legend, $champs = [], $apres = '', $avant = '') {
 	return "<fieldset>\n" .
@@ -389,7 +393,8 @@ function install_connexion_form($db, $login, #[\SensitiveParameter] $pass, $pred
 			});
 		});')
 
-		. ($server_db
+		. (
+			$server_db
 			? '<input type="hidden" name="server_db" value="' . $server_db . '">'
 			. (($predef[0])
 				? ('<h3>' . _T('install_serveur_hebergeur') . '</h3>')
@@ -408,51 +413,46 @@ function install_connexion_form($db, $login, #[\SensitiveParameter] $pass, $pred
 		)
 		. '<div id="install_adresse_base_hebergeur">'
 		. '<p>' . _T('texte_connexion_mysql') . '</p>'
-		. ($predef[1]
+		. (
+			$predef[1]
 			? '<h3>' . _T('install_adresse_base_hebergeur') . '</h3>'
-			: fieldset(
-				_T('entree_base_donnee_1'),
-				[
-					'adresse_db' => [
-						'label' => $db[1],
-						'valeur' => $db[0]
-					],
-				]
-			)
+			: fieldset(_T('entree_base_donnee_1'), [
+				'adresse_db' => [
+					'label' => $db[1],
+					'valeur' => $db[0],
+				],
+			])
 		)
 		. '</div>'
 
 		. '<div id="install_login_base_hebergeur">'
-		. ($predef[2]
+		. (
+			$predef[2]
 			? '<h3>' . _T('install_login_base_hebergeur') . '</h3>'
-			: fieldset(
-				_T('entree_login_connexion_1'),
-				[
-					'login_db' => [
-						'label' => $login[1],
-						'valeur' => $login[0]
-					],
-				]
-			)
+			: fieldset(_T('entree_login_connexion_1'), [
+				'login_db' => [
+					'label' => $login[1],
+					'valeur' => $login[0],
+				],
+			])
 		)
 		. '</div>'
 
 		. '<div id="install_pass_base_hebergeur">'
-		. ($predef[3]
+		. (
+			$predef[3]
 			? '<h3>' . _T('install_pass_base_hebergeur') . '</h3>'
-			: fieldset(
-				_T('entree_mot_passe_1'),
-				[
-					'pass_db' => [
-						'label' => $pass[1],
-						'valeur' => $pass[0]
-					],
-				]
-			)
+			: fieldset(_T('entree_mot_passe_1'), [
+				'pass_db' => [
+					'label' => $pass[1],
+					'valeur' => $pass[0],
+				],
+			])
 		)
 		. '</div>'
 
-		. bouton_suivant()));
+		. bouton_suivant()
+	));
 }
 
 // 4 valeurs qu'on reconduit d'un script a l'autre
@@ -463,16 +463,19 @@ function predef_ou_cache($adresse_db, $login_db, $pass_db, $server_db) {
 		? ''
 		: "\n<input type='hidden' name='adresse_db'  value=\"" . spip_htmlspecialchars($adresse_db) . '">'
 	)
-	. ((defined('_INSTALL_USER_DB'))
+	. (
+		(defined('_INSTALL_USER_DB'))
 		? ''
 		: "\n<input type='hidden' name='login_db' value=\"" . spip_htmlspecialchars($login_db) . '">'
 	)
-	. ((defined('_INSTALL_PASS_DB'))
+	. (
+		(defined('_INSTALL_PASS_DB'))
 		? ''
 		: "\n<input type='hidden' name='pass_db' value=\"" . spip_htmlspecialchars($pass_db) . '">'
 	)
 
-	. ((defined('_INSTALL_SERVER_DB'))
+	. (
+		(defined('_INSTALL_SERVER_DB'))
 		? ''
 		: "\n<input type='hidden' name='server_db' value=\"" . spip_htmlspecialchars($server_db) . '">'
 	);

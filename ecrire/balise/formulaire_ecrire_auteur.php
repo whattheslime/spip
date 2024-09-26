@@ -66,8 +66,8 @@ function balise_FORMULAIRE_ECRIRE_AUTEUR_stat($args, $context_compil) {
 			'zbug_champ_hors_motif',
 			[
 				'champ' => 'FORMULAIRE_ECRIRE_AUTEUR',
-				'motif' => 'AUTEURS/ARTICLES'
-			]
+				'motif' => 'AUTEURS/ARTICLES',
+			],
 		];
 
 		erreur_squelette($msg, $context_compil);

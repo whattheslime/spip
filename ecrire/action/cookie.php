@@ -31,13 +31,12 @@ include_spip('inc/cookie');
  * @global bool ignore_auth_http
  * @param string|null $set_cookie_admin
  * @param string|null $change_session
- * @return void
  */
 function action_cookie_dist($set_cookie_admin = null, $change_session = null) {
 	$redirect_echec = $redirect = null;
 	$test_echec_cookie = null;
 	$url = '';
-	if (is_null($set_cookie_admin)) {
+	if ($set_cookie_admin === null) {
 		$set_cookie_admin = _request('cookie_admin');
 		$change_session = _request('change_session');
 		$test_echec_cookie = _request('test_echec_cookie');
@@ -55,12 +54,12 @@ function action_cookie_dist($set_cookie_admin = null, $change_session = null) {
 		}
 	}
 
-
 	// rejoue le cookie pour renouveler spip_session
 	if ($change_session == 'oui') {
 		$session = charger_fonction('session', 'inc');
 		$session(true);
-		spip_logger()->info('statut 204 pour ' . $_SERVER['REQUEST_URI']);
+		spip_logger()
+			->info('statut 204 pour ' . $_SERVER['REQUEST_URI']);
 		http_response_code(204); // No Content
 		return;
 	}

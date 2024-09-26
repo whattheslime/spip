@@ -82,6 +82,8 @@ class AffdateTest extends TestCase
 
 	public static function providerAWithoutDayAndMonth(): array {
 		$list = array_column(self::providerAffdateWithoutDay(), null, 'lang');
-		return array_map(fn ($entry) => ['lang' => $entry['lang']], $list);
+		return array_map(fn ($entry) => [
+			'lang' => $entry['lang'],
+		], $list);
 	}
 }

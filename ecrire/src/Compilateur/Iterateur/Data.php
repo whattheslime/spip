@@ -12,7 +12,9 @@ use Iterator;
  */
 class Data extends AbstractIterateur implements Iterator
 {
-	/** Tableau de données */
+	/**
+	 * Tableau de données
+	 */
 	protected array $tableau = [];
 
 	/**
@@ -37,9 +39,6 @@ class Data extends AbstractIterateur implements Iterator
 
 	/**
 	 * Constructeur
-	 *
-	 * @param  $command
-	 * @param array $info
 	 */
 	public function __construct(array $command, array $info = []) {
 		include_spip('iterateur/data');
@@ -51,8 +50,6 @@ class Data extends AbstractIterateur implements Iterator
 
 	/**
 	 * Revenir au depart
-	 *
-	 * @return void
 	 */
 	public function rewind(): void {
 		reset($this->tableau);
@@ -68,6 +65,49 @@ class Data extends AbstractIterateur implements Iterator
 	 */
 	public function exception_des_criteres() {
 		return ['tableau'];
+	}
+
+	/**
+	 * L'iterateur est-il encore valide ?
+	 */
+	public function valid(): bool {
+		return $this->cle !== null;
+	}
+
+	/**
+	 * Retourner la valeur
+	 */
+	public function current(): mixed {
+		return $this->valeur;
+	}
+
+	/**
+	 * Retourner la cle
+	 */
+	public function key(): mixed {
+		return $this->cle;
+	}
+
+	/**
+	 * Passer a la valeur suivante
+	 */
+	public function next(): void {
+		if ($this->valid()) {
+			$this->cle = key($this->tableau);
+			$this->valeur = current($this->tableau);
+			next($this->tableau);
+		}
+	}
+
+	/**
+	 * Compter le nombre total de resultats
+	 */
+	public function count(): int {
+		if ($this->total === null) {
+			$this->total = count($this->tableau);
+		}
+
+		return $this->total;
 	}
 
 	/**
@@ -100,7 +140,7 @@ class Data extends AbstractIterateur implements Iterator
 		if (!$cle) {
 			return;
 		}
-		if (is_null($valeur)) {
+		if ($valeur === null) {
 			$valeur = $this->tableau;
 		}
 		# utiliser memoization si dispo
@@ -108,15 +148,11 @@ class Data extends AbstractIterateur implements Iterator
 			return;
 		}
 
-		return cache_set(
-			$cle,
-			[
-				'data' => $valeur,
-				'time' => time(),
-				'ttl' => $ttl
-			],
-			3600 + $ttl
-		);
+		return cache_set($cle, [
+			'data' => $valeur,
+			'time' => time(),
+			'ttl' => $ttl,
+		], 3600 + $ttl);
 		# conserver le cache 1h de plus que la validite demandee,
 		# pour le cas ou le serveur distant ne reponde plus
 	}
@@ -124,9 +160,7 @@ class Data extends AbstractIterateur implements Iterator
 	/**
 	 * Aller chercher les données de la boucle DATA
 	 *
-	 * @throws Exception
 	 * @param array $command
-	 * @return void
 	 */
 	protected function select($command) {
 
@@ -163,7 +197,8 @@ class Data extends AbstractIterateur implements Iterator
 		// Si a ce stade on n'a pas de table, il y a un bug
 		if (!is_array($this->tableau)) {
 			$this->err = true;
-			spip_logger()->info('erreur datasource ' . var_export($command, true));
+			spip_logger()
+				->info('erreur datasource ' . var_export($command, true));
 		}
 
 		// {datapath query.results}
@@ -189,7 +224,6 @@ class Data extends AbstractIterateur implements Iterator
 		$this->rewind();
 		#var_dump($this->tableau);
 	}
-
 
 	/**
 	 * Aller chercher les donnees de la boucle DATA
@@ -223,7 +257,7 @@ class Data extends AbstractIterateur implements Iterator
 		}
 		if (
 			$cache
-			&& $cache['time'] + ($ttl ?? $cache['ttl']) > time()
+			&& time() < $cache['time'] + ($ttl ?? $cache['ttl'])
 			&& !(_request('var_mode') === 'recalcul' && include_spip('inc/autoriser') && autoriser('recalcul'))
 		) {
 			$this->tableau = $cache['data'];
@@ -231,10 +265,7 @@ class Data extends AbstractIterateur implements Iterator
 			try {
 				if (
 					isset($this->command['sourcemode'])
-					&& in_array(
-						$this->command['sourcemode'],
-						['table', 'array', 'tableau']
-					)
+					&& in_array($this->command['sourcemode'], ['table', 'array', 'tableau'])
 				) {
 					if (
 						is_array($a = $src)
@@ -285,11 +316,7 @@ class Data extends AbstractIterateur implements Iterator
 				}
 			} catch (Exception $e) {
 				$e = $e->getMessage();
-				$err = sprintf(
-					"[%s, %s] $e",
-					$src,
-					$this->command['sourcemode']
-				);
+				$err = sprintf("[%s, %s] $e", $src, $this->command['sourcemode']);
 				erreur_squelette([$err, []]);
 				$this->err = true;
 			}
@@ -302,14 +329,12 @@ class Data extends AbstractIterateur implements Iterator
 		}
 	}
 
-
 	/**
 	 * Retourne un tableau donne depuis un critère liste
 	 *
 	 * Critère `{liste X1, X2, X3}`
 	 *
 	 * @see critere_DATA_liste_dist()
-	 *
 	 */
 	protected function select_liste() {
 		# s'il n'y a qu'une valeur dans la liste, sans doute une #BALISE
@@ -326,7 +351,6 @@ class Data extends AbstractIterateur implements Iterator
 	/**
 	 * Retourne un tableau donne depuis un critere liste
 	 * Critere {enum Xmin, Xmax}
-	 *
 	 */
 	protected function select_enum() {
 		# s'il n'y a qu'une valeur dans la liste, sans doute une #BALISE
@@ -349,11 +373,9 @@ class Data extends AbstractIterateur implements Iterator
 		$this->tableau = $enum;
 	}
 
-
 	/**
 	 * extraire le chemin "query.results" du tableau de donnees
 	 * {datapath query.results}
-	 *
 	 */
 	protected function select_datapath() {
 		$base = reset($this->command['datapath']);
@@ -364,7 +386,8 @@ class Data extends AbstractIterateur implements Iterator
 			} else {
 				$this->tableau = [];
 				$this->err = true;
-				spip_logger()->info("datapath '$base' absent");
+				spip_logger()
+					->info("datapath '$base' absent");
 			}
 		}
 	}
@@ -372,7 +395,6 @@ class Data extends AbstractIterateur implements Iterator
 	/**
 	 * Ordonner les resultats
 	 * {par x}
-	 *
 	 */
 	protected function select_orderby() {
 		$sortfunc = '';
@@ -413,15 +435,13 @@ class Data extends AbstractIterateur implements Iterator
 
 		if ($sortfunc) {
 			$sortfunc .= "\n return 0;";
-			uasort($this->tableau, fn($aa, $bb) => eval($sortfunc));
+			uasort($this->tableau, fn ($aa, $bb) => eval($sortfunc));
 		}
 	}
-
 
 	/**
 	 * Grouper les resultats
 	 * {fusion /x/y/z}
-	 *
 	 */
 	protected function select_groupby() {
 		// virer le / initial pour les criteres de la forme {fusion /xx}
@@ -436,49 +456,5 @@ class Data extends AbstractIterateur implements Iterator
 				}
 			}
 		}
-	}
-
-
-	/**
-	 * L'iterateur est-il encore valide ?
-	 */
-	public function valid(): bool {
-		return !is_null($this->cle);
-	}
-
-	/**
-	 * Retourner la valeur
-	 */
-	public function current(): mixed {
-		return $this->valeur;
-	}
-
-	/**
-	 * Retourner la cle
-	 */
-	public function key(): mixed {
-		return $this->cle;
-	}
-
-	/**
-	 * Passer a la valeur suivante
-	 */
-	public function next(): void {
-		if ($this->valid()) {
-			$this->cle = key($this->tableau);
-			$this->valeur = current($this->tableau);
-			next($this->tableau);
-		}
-	}
-
-	/**
-	 * Compter le nombre total de resultats
-	 */
-	public function count(): int {
-		if (is_null($this->total)) {
-			$this->total = count($this->tableau);
-		}
-
-		return $this->total;
 	}
 }

@@ -4,8 +4,6 @@ namespace Spip\Compilateur\Iterateur;
 
 abstract class AbstractIterateur
 {
-	protected string $type;
-
 	/**
 	 * Calcul du total des elements
 	 *
@@ -13,8 +11,12 @@ abstract class AbstractIterateur
 	 */
 	public $total = null;
 
-	/** Erreur presente ? */
+	/**
+	 * Erreur presente ?
+	 */
 	public bool $err = false;
+
+	protected string $type;
 
 	public function __construct(
 		protected array $command,

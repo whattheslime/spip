@@ -41,7 +41,8 @@ function cron($taches = [], $taches_old = []) {
 	if ($taches && count($taches) && !spip_connect()) {
 		return false;
 	}
-	spip_logger('jq')->debug('cron !');
+	spip_logger('jq')
+		->debug('cron !');
 	if ($genie = charger_fonction('genie', 'inc', true)) {
 		return $genie($taches);
 	}
@@ -119,7 +120,6 @@ function job_queue_link($id_job, $objets) {
 	return queue_link_job($id_job, $objets);
 }
 
-
 /**
  * Renvoyer le temps de repos restant jusqu'au prochain job
  *
@@ -158,7 +158,7 @@ function queue_sleep_time_to_next_job($force = null) {
 		}
 	}
 
-	if (is_null($queue_next_job_time)) {
+	if ($queue_next_job_time === null) {
 		return null;
 	}
 	if (!$_SERVER['REQUEST_TIME']) {

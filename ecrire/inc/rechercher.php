@@ -35,7 +35,7 @@ defined('_RECHERCHE_LOCK_KEY') || define('_RECHERCHE_LOCK_KEY', 'fulltext');
  */
 function liste_des_champs() {
 	static $liste = null;
-	if (is_null($liste)) {
+	if ($liste === null) {
 		$liste = [];
 		// recuperer les tables_objets_sql declarees
 		include_spip('base/objets');
@@ -52,12 +52,11 @@ function liste_des_champs() {
 	return $liste;
 }
 
-
 // Recherche des auteurs et mots-cles associes
 // en ne regardant que le titre ou le nom
 function liste_des_jointures() {
 	static $liste = null;
-	if (is_null($liste)) {
+	if ($liste === null) {
 		$liste = [];
 		// recuperer les tables_objets_sql declarees
 		include_spip('base/objets');
@@ -178,11 +177,7 @@ function expression_recherche($recherche, $options) {
 				$recherche_mod = str_replace($match, $word, (string) $recherche_mod);
 			}
 		}
-		$q = sql_quote(
-			'%'
-			. preg_replace(',\s+,' . $u, '%', $q)
-			. '%'
-		);
+		$q = sql_quote('%' . preg_replace(',\s+,' . $u, '%', $q) . '%');
 
 		$preg = '/' . preg_replace(',\s+,' . $u, '.+', trim((string) $recherche_mod)) . '/' . $options['preg_flags'];
 	} else {
@@ -225,8 +220,6 @@ function expression_recherche($recherche, $options) {
 	return $expression[$key] = [$methode, $q, $preg];
 }
 
-
-
 /**
  * Effectue une recherche sur toutes les tables de la base de données
  *
@@ -240,10 +233,10 @@ function expression_recherche($recherche, $options) {
  *     - array : liste des tables souhaitées
  *     - string : une chaîne listant les tables souhaitées, séparées par des virgules (préférer array cependant)
  * @param array $options {
- *     @var $toutvoir pour éviter autoriser(voir)
- *     @var $flags pour éviter les flags regexp par défaut (UimsS)
- *     @var $champs pour retourner les champs concernés
- *     @var $score pour retourner un score
+ *     @var pour $toutvoir éviter autoriser(voir)
+ *     @var pour $flags éviter les flags regexp par défaut (UimsS)
+ *     @var pour $champs retourner les champs concernés
+ *     @var pour $score retourner un score
  * }
  * @param string $serveur
  * @return array
@@ -278,13 +271,13 @@ function recherche_en_base($recherche = '', $tables = null, $options = [], $serv
 	// options par defaut
 	$options = array_merge(
 		[
-		'preg_flags' => 'UimsS',
-		'toutvoir' => false,
-		'champs' => false,
-		'score' => false,
-		'matches' => false,
-		'jointures' => false,
-		'serveur' => $serveur
+			'preg_flags' => 'UimsS',
+			'toutvoir' => false,
+			'champs' => false,
+			'score' => false,
+			'matches' => false,
+			'jointures' => false,
+			'serveur' => $serveur,
 		],
 		$options
 	);
@@ -316,10 +309,12 @@ function recherche_en_base($recherche = '', $tables = null, $options = [], $serv
 		);
 		##var_dump($results[$table]);
 
-
-		spip_logger('recherche')->info(
-			"recherche $table ($recherche) : " . (is_countable($results[$table]) ? count($results[$table]) : 0) . ' resultats ' . spip_timer('rech'),
-		);
+		spip_logger('recherche')
+			->info(
+				"recherche $table ($recherche) : " . (is_countable($results[$table]) ? count(
+					$results[$table]
+				) : 0) . ' resultats ' . spip_timer('rech'),
+			);
 
 		if (isset($lock)) {
 			cache_unlock($lock);
@@ -329,21 +324,16 @@ function recherche_en_base($recherche = '', $tables = null, $options = [], $serv
 	return $results;
 }
 
-
 // Effectue une recherche sur toutes les tables de la base de donnees
 function remplace_en_base($recherche = '', $remplace = null, $tables = null, $options = []) {
 	include_spip('inc/modifier');
 
 	// options par defaut
-	$options = array_merge(
-		[
+	$options = array_merge([
 		'preg_flags' => 'UimsS',
-		'toutmodifier' => false
-		],
-		$options
-	);
+		'toutmodifier' => false,
+	], $options);
 	$options['champs'] = true;
-
 
 	if (!is_array($tables)) {
 		$tables = liste_des_champs();
@@ -368,14 +358,9 @@ function remplace_en_base($recherche = '', $remplace = null, $tables = null, $op
 					}
 				}
 				if ($modifs) {
-					objet_modifier_champs(
-						$table,
-						$id,
-						[
-							'champs' => array_keys($modifs),
-						],
-						$modifs
-					);
+					objet_modifier_champs($table, $id, [
+						'champs' => array_keys($modifs),
+					], $modifs);
 				}
 			}
 		}

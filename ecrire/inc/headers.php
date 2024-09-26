@@ -19,7 +19,6 @@ if (!defined('_ECRIRE_INC_VERSION')) {
 	return;
 }
 
-
 /**
  * Envoyer le navigateur sur une nouvelle adresse
  *
@@ -115,7 +114,8 @@ function redirige_par_entete($url, $equiv = '', $status = 302) {
 	_T('navigateur_pas_redirige'),
 	'</a></body></html>';
 
-	spip_logger()->info("redirige $status: $url");
+	spip_logger()
+		->info("redirige $status: $url");
 
 	exit;
 }
@@ -134,7 +134,7 @@ function redirige_formulaire($url, $equiv = '', $format = 'message') {
 			// on renvoie un lien masque qui sera traite par ajaxCallback.js
 			"<a href='" . attribut_url($url) . "' name='ajax_ancre' style='display:none;'>anchor</a>",
 			// et rien dans le message ok
-			''
+			'',
 		];
 	} else {
 		include_spip('inc/filtres');
@@ -148,24 +148,26 @@ function redirige_formulaire($url, $equiv = '', $format = 'message') {
 			$url = url_de_base() . $url;
 		}
 		$url = str_replace('&amp;', '&', (string) $url);
-		spip_logger()->info("redirige formulaire ajax: $url");
+		spip_logger()
+			->info("redirige formulaire ajax: $url");
 		include_spip('inc/filtres');
 		if ($format == 'ajaxform') {
 			return [
 				// on renvoie un lien masque qui sera traite par ajaxCallback.js
-				'<a href="' . attribut_url($url) . '" name="ajax_redirect"  style="display:none;">' . _T('navigateur_pas_redirige') . '</a>',
+				'<a href="' . attribut_url(
+					$url
+				) . '" name="ajax_redirect"  style="display:none;">' . _T('navigateur_pas_redirige') . '</a>',
 				// et un message au cas ou
-				'<br><a href="' . attribut_url($url) . '">' . _T('navigateur_pas_redirige') . '</a>'
+				'<br><a href="' . attribut_url($url) . '">' . _T('navigateur_pas_redirige') . '</a>',
 			];
-		} else // format message texte, tout en js inline
-		{
-			return
-				// ie poste les formulaires dans une iframe, il faut donc rediriger son parent
-				"<script>if (parent.window){parent.window.document.location.replace(\"$url\");} else {document.location.replace(\"$url\");}</script>"
-				. http_img_pack('loader.svg', '', " class='loader'")
-				. '<br>'
-				. '<a href="' . attribut_url($url) . '">' . _T('navigateur_pas_redirige') . '</a>';
-		}
+		}  // format message texte, tout en js inline
+
+		return // ie poste les formulaires dans une iframe, il faut donc rediriger son parent
+			"<script>if (parent.window){parent.window.document.location.replace(\"$url\");} else {document.location.replace(\"$url\");}</script>"
+			. http_img_pack('loader.svg', '', " class='loader'")
+			. '<br>'
+			. '<a href="' . attribut_url($url) . '">' . _T('navigateur_pas_redirige') . '</a>';
+
 	}
 }
 
@@ -184,7 +186,6 @@ function redirige_formulaire($url, $equiv = '', $format = 'message') {
  * @param string $args
  *     Arguments à transmettre. Exemple `etape=1&autre=oui`
  * @param string $equiv
- * @return void
  */
 function redirige_url_ecrire($script = '', $args = '', $equiv = '') {
 	return redirige_par_entete(generer_url_ecrire($script, $args, true), $equiv);

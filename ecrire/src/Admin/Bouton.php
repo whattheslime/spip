@@ -6,16 +6,22 @@ namespace Spip\Admin;
  * Classe définissant un bouton dans la barre du haut de l'interface
  * privée ou dans un de ses sous menus
  */
-class Bouton {
-	/** Sous-barre de boutons / onglets */
+class Bouton
+{
+	/**
+	 * Sous-barre de boutons / onglets
+	 */
 	public array $sousmenu = [];
 
-	/** Position dans le menu */
+	/**
+	 * Position dans le menu
+	 */
 	public int $position = 0;
 
-	/** Entrée favorite (sa position dans les favoris) ? */
+	/**
+	 * Entrée favorite (sa position dans les favoris) ?
+	 */
 	public int $favori = 0;
-
 
 	/**
 	 * Définit un bouton

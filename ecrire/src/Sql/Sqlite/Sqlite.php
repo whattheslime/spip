@@ -8,11 +8,15 @@ namespace Spip\Sql\Sqlite;
  */
 class Sqlite
 {
-	/** @var Requeteur[] Liste des instances de requêteurs créés */
+	/**
+	 * @var Requeteur[] Liste des instances de requêteurs créés
+	 */
 	public static $requeteurs = [];
-	/** @var bool[] Pour chaque connexion, flag pour savoir si une transaction est en cours */
-	public static $transaction_en_cours = [];
 
+	/**
+	 * @var bool[] Pour chaque connexion, flag pour savoir si une transaction est en cours
+	 */
+	public static $transaction_en_cours = [];
 
 	/**
 	 * Retourne une unique instance du requêteur
@@ -58,8 +62,8 @@ class Sqlite
 	 * @param string $serveur Nom de la connexion
 	 */
 	public static function demarrer_transaction($serveur) {
-		Sqlite::executer_requete('BEGIN TRANSACTION', $serveur);
-		Sqlite::$transaction_en_cours[$serveur] = true;
+		self::executer_requete('BEGIN TRANSACTION', $serveur);
+		self::$transaction_en_cours[$serveur] = true;
 	}
 
 	/**
@@ -70,7 +74,7 @@ class Sqlite
 	 * @param null|bool $tracer Demander des statistiques (temps) ?
 	 */
 	public static function executer_requete($query, $serveur, $tracer = null) {
-		$requeteur = Sqlite::requeteur($serveur);
+		$requeteur = self::requeteur($serveur);
 
 		return $requeteur->executer_requete($query, $tracer);
 	}
@@ -82,7 +86,7 @@ class Sqlite
 	 * return int                Identifiant
 	 */
 	public static function last_insert_id($serveur) {
-		$requeteur = Sqlite::requeteur($serveur);
+		$requeteur = self::requeteur($serveur);
 
 		return $requeteur->last_insert_id();
 	}
@@ -93,8 +97,8 @@ class Sqlite
 	 * @param string $serveur Nom de la connexion
 	 */
 	public static function annuler_transaction($serveur) {
-		Sqlite::executer_requete('ROLLBACK', $serveur);
-		Sqlite::$transaction_en_cours[$serveur] = false;
+		self::executer_requete('ROLLBACK', $serveur);
+		self::$transaction_en_cours[$serveur] = false;
 	}
 
 	/**
@@ -105,14 +109,14 @@ class Sqlite
 	public static function finir_transaction($serveur) {
 		// si pas de transaction en cours, ne rien faire et le dire
 		if (
-			!isset(Sqlite::$transaction_en_cours[$serveur])
-			|| Sqlite::$transaction_en_cours[$serveur] == false
+			!isset(self::$transaction_en_cours[$serveur])
+			|| self::$transaction_en_cours[$serveur] == false
 		) {
 			return false;
 		}
 		// sinon fermer la transaction et retourner true
-		Sqlite::executer_requete('COMMIT', $serveur);
-		Sqlite::$transaction_en_cours[$serveur] = false;
+		self::executer_requete('COMMIT', $serveur);
+		self::$transaction_en_cours[$serveur] = false;
 
 		return true;
 	}

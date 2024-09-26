@@ -70,11 +70,7 @@ function assembler($fond, string $connect = '') {
 		&& strstr($page['entetes']['Cache-Control'], 'max-age=')
 		&& !strstr($_SERVER['SERVER_SOFTWARE'], 'IIS/')
 	) {
-		$since = preg_replace(
-			'/;.*/',
-			'',
-			$_SERVER['HTTP_IF_MODIFIED_SINCE']
-		);
+		$since = preg_replace('/;.*/', '', $_SERVER['HTTP_IF_MODIFIED_SINCE']);
 		$since = str_replace('GMT', '', $since);
 		if (trim($since) == gmdate('D, d M Y H:i:s', $lastmodified)) {
 			$page['status'] = 304;
@@ -206,7 +202,7 @@ function calculer_contexte() {
 		if (!defined('_CONTEXTE_IGNORE_LISTE_VARIABLES')) {
 			nettoyer_uri_var('');
 		}
-		$preg_ignore_variables = '/(' . implode('|',_CONTEXTE_IGNORE_LISTE_VARIABLES) . ')/';
+		$preg_ignore_variables = '/(' . implode('|', _CONTEXTE_IGNORE_LISTE_VARIABLES) . ')/';
 	}
 
 	$contexte = [];
@@ -233,7 +229,7 @@ function calculer_contexte() {
  */
 function calculer_contexte_implicite() {
 	static $notes = null;
-	if (is_null($notes)) {
+	if ($notes === null) {
 		$notes = charger_fonction('notes', 'inc', true);
 	}
 	$contexte_implicite = [
@@ -280,7 +276,7 @@ function inclure_page($fond, $contexte, string $connect = '') {
 	unset($contexte['fond']);
 	$page = ['contexte_implicite' => calculer_contexte_implicite()];
 	$page['contexte_implicite']['cache'] = $fond;
-	if (is_null($cacher)) {
+	if ($cacher === null) {
 		$cacher = charger_fonction('cacher', 'public', true);
 	}
 	// Les quatre derniers parametres sont modifies par la fonction:
@@ -300,7 +296,7 @@ function inclure_page($fond, $contexte, string $connect = '') {
 	// produire la page : peut mettre a jour $lastinclude
 	// le contexte_cache envoye a cacher() a ete conserve et est passe a produire
 	if ($use_cache) {
-		if (is_null($produire_page)) {
+		if ($produire_page === null) {
 			$produire_page = charger_fonction('produire_page', 'public');
 		}
 		$page = $produire_page($fond, $contexte, $use_cache, $cache_key, $contexte, $page, $lastinclude, $connect);
@@ -349,7 +345,7 @@ function public_produire_page_dist(
 		&& isset($page['entetes']['X-Spip-Cache'])
 		&& $page['entetes']['X-Spip-Cache'] > 0
 	) {
-		if (is_null($cacher)) {
+		if ($cacher === null) {
 			$cacher = charger_fonction('cacher', 'public', true);
 		}
 		$lastinclude = time();
@@ -401,11 +397,7 @@ function inclure_balise_dynamique($texte, $echo = true, $contexte_compil = []) {
 		$d = $GLOBALS['delais'] ?? null;
 		$GLOBALS['delais'] = $delainc;
 
-		$page = recuperer_fond(
-			$fond,
-			$contexte_inclus,
-			['trim' => false, 'raw' => true, 'compil' => $contexte_compil]
-		);
+		$page = recuperer_fond($fond, $contexte_inclus, ['trim' => false, 'raw' => true, 'compil' => $contexte_compil]);
 
 		$texte = $page['texte'];
 
@@ -435,13 +427,10 @@ function inclure_balise_dynamique($texte, $echo = true, $contexte_compil = []) {
 			foreach ($page['contexte']['_pipelines'] as $pipe => $args) {
 				$args['contexte'] = $page['contexte'];
 				unset($args['contexte']['_pipelines']); // par precaution, meme si le risque de boucle infinie est a priori nul
-				$texte = pipeline(
-					$pipe,
-					[
-						'data' => $texte,
-						'args' => $args
-					]
-				);
+				$texte = pipeline($pipe, [
+					'data' => $texte,
+					'args' => $args,
+				]);
 			}
 		}
 	}
@@ -526,9 +515,8 @@ function creer_contexte_de_modele($args) {
 			} else {
 				$args = explode('=', $val);
 				if (count($args) >= 2) { // Flashvars=arg1=machin&arg2=truc genere plus de deux args
-				$contexte[trim($args[0])] = substr($val, strlen($args[0]) + 1);
-				} else // notation abregee
-				{
+					$contexte[trim($args[0])] = substr($val, strlen($args[0]) + 1);
+				} else { // notation abregee
 					$contexte[trim($val)] = trim($val);
 				}
 			}
@@ -553,7 +541,7 @@ function creer_contexte_de_modele($args) {
  */
 function styliser_modele($modele, $id, $contexte = null) {
 	static $styliseurs = null;
-	if (is_null($styliseurs)) {
+	if ($styliseurs === null) {
 		$tables_objet = lister_tables_objets_sql();
 		foreach ($tables_objet as $table => $desc) {
 			if (
@@ -574,14 +562,14 @@ function styliser_modele($modele, $id, $contexte = null) {
 	if (isset($styliseurs[$modele])) {
 		$styliseur = $styliseurs[$modele]['callback'];
 		$primary = $styliseurs[$modele]['primary'];
-		if (is_null($id) && $contexte) {
+		if ($id === null && $contexte) {
 			if (isset($contexte['id'])) {
 				$id = $contexte['id'];
 			} elseif (isset($contexte[$primary])) {
 				$id = $contexte[$primary];
 			}
 		}
-		if (is_null($id)) {
+		if ($id === null) {
 			$msg = "modeles/$modele : " . _T('zbug_parametres_inclus_incorrects', ['param' => "id/$primary"]);
 			erreur_squelette($msg);
 			// on passe id=0 au routeur pour tomber sur le modele par defaut et eviter une seconde erreur sur un modele inexistant
@@ -645,7 +633,7 @@ function inclure_modele($type, $id, $params, $lien, string $connect = '', $env =
 	$contexte = $env;
 	// securiser le contexte des modèles : tout ce qui arrive de _request() doit être sanitizé
 	foreach ($contexte as $k => &$v) {
-		if (!is_null(_request($k)) && (!is_scalar($v) || (_request($k) === $v))) {
+		if (_request($k) !== null && (!is_scalar($v) || (_request($k) === $v))) {
 			include_spip('inc/texte_mini');
 			if (is_scalar($v)) {
 				$v = spip_securise_valeur_env_modele($v);
@@ -694,19 +682,14 @@ function inclure_modele($type, $id, $params, $lien, string $connect = '', $env =
 	// spip_lien_ok dans les classes de son conteneur de premier niveau ;
 	// sinon, s'il y a un lien, on l'ajoute classiquement
 	if (
-		strstr(
-			' ' . ($classes = extraire_attribut($retour, 'class')) . ' ',
-			'spip_lien_ok'
-		)
+		strstr(' ' . ($classes = extraire_attribut($retour, 'class')) . ' ', 'spip_lien_ok')
 	) {
-		$retour = inserer_attribut(
-			$retour,
-			'class',
-			trim(str_replace(' spip_lien_ok ', ' ', " $classes "))
-		);
+		$retour = inserer_attribut($retour, 'class', trim(str_replace(' spip_lien_ok ', ' ', " $classes ")));
 	} else {
 		if ($lien) {
-			$retour = '<a href="' . attribut_url($lien['href']) . '" class="' . attribut_html($lien['class']) . '">' . $retour . '</a>';
+			$retour = '<a href="' . attribut_url($lien['href']) . '" class="' . attribut_html(
+				$lien['class']
+			) . '">' . $retour . '</a>';
 		}
 	}
 
@@ -724,19 +707,18 @@ function inclure_modele($type, $id, $params, $lien, string $connect = '', $env =
  * ou sinon le \w + espace et tirets uniquement, pour les tris/sens tri etc
  * mais rien de compliqué suceptible d'être interprété
  *
- * @param $valeur
  * @return array|float|int|mixed|string|string[]|null
  */
 function spip_securise_valeur_env_modele($valeur) {
-	if (is_numeric($valeur) || is_bool($valeur) || is_null($valeur)) {
+	if (is_numeric($valeur) || is_bool($valeur) || $valeur === null) {
 		return $valeur;
 	}
-	$valeur = (string)$valeur;
+	$valeur = (string) $valeur;
 	if (str_starts_with($valeur, '@') && is_numeric(substr($valeur, 1))) {
 		return $valeur;
 	}
 	// on laisse passer que les \w, les espaces et les -, le reste est supprimé
-	return preg_replace(",[^\w\s-],", "", $valeur);
+	return preg_replace(",[^\w\s-],", '', $valeur);
 }
 
 // Un inclure_page qui marche aussi pour l'espace prive
@@ -768,10 +750,9 @@ function evaluer_fond($fond, $contexte = [], string $connect = '') {
 	return $page;
 }
 
-
 function page_base_href(&$texte) {
 	static $set_html_base = null;
-	if (is_null($set_html_base)) {
+	if ($set_html_base === null) {
 		if (!defined('_SET_HTML_BASE')) {
 			// si la profondeur est superieure a 1
 			// est que ce n'est pas une url page ni une url action
@@ -828,7 +809,7 @@ function page_base_href(&$texte) {
 			$base = $_SERVER['REQUEST_URI'];
 			// pas de guillemets ni < dans l'URL qu'on insere dans le HTML
 			if (str_contains($base, "'") || str_contains($base, '"') || str_contains($base, '<')) {
-				$base = str_replace(["'",'"','<'], ['%27','%22','%3C'], $base);
+				$base = str_replace(["'", '"', '<'], ['%27', '%22', '%3C'], $base);
 			}
 			if (str_contains($texte, "href='#")) {
 				$texte = str_replace("href='#", "href='$base#", $texte);
@@ -839,7 +820,6 @@ function page_base_href(&$texte) {
 		}
 	}
 }
-
 
 /**
  * Envoyer les entetes (headers)

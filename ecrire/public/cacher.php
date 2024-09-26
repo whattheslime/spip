@@ -168,18 +168,17 @@ function cache_valide(array &$page, int $date): int {
 	$duree = (int) $page['entetes']['X-Spip-Cache'];
 	$cache_mark = ($GLOBALS['meta']['cache_mark'] ?? 0);
 	if ($duree == 0) {  #CACHE{0}
-	return -1;
+		return -1;
 	} // sauf pour les bots, qui utilisent toujours le cache
-	else {
-		if (
-			!_IS_BOT && $date + $duree < $now
-			|| $date < $cache_mark
-		) {
-			return _IS_BOT ? -1 : 1;
-		} else {
-			return 0;
-		}
+
+	if (
+		!_IS_BOT && $date + $duree < $now
+		|| $date < $cache_mark
+	) {
+		return _IS_BOT ? -1 : 1;
 	}
+	return 0;
+
 }
 
 /**
@@ -189,7 +188,6 @@ function cache_valide(array &$page, int $date): int {
  *
  * @param array $page
  * @param string $cache_key
- * @return void
  */
 function creer_cache(&$page, &$cache_key) {
 
@@ -216,14 +214,11 @@ function creer_cache(&$page, &$cache_key) {
 			spip_logger()->info('Creation cache sessionne ' . $cache_key);
 			$tmp = [
 				'invalideurs' => ['session' => ''],
-				'lastmodified' => $_SERVER['REQUEST_TIME']
+				'lastmodified' => $_SERVER['REQUEST_TIME'],
 			];
 			ecrire_cache($cache_key, $tmp);
 		}
-		$cache_key = cache_key(
-			['cache_key' => $cache_key],
-			['session' => $page['invalideurs']['session']]
-		);
+		$cache_key = cache_key(['cache_key' => $cache_key], ['session' => $page['invalideurs']['session']]);
 	}
 
 	// ajouter la date de production dans le cache lui meme
@@ -239,8 +234,9 @@ function creer_cache(&$page, &$cache_key) {
 	// l'enregistrer, compresse ou non...
 	$ok = ecrire_cache($cache_key, $pagez);
 
-	spip_logger()->info((_IS_BOT ? 'Bot:' : '') . "Creation du cache $cache_key pour "
-		. $page['entetes']['X-Spip-Cache'] . ' secondes' . ($ok ? '' : ' (erreur!)'));
+	spip_logger()
+		->info((_IS_BOT ? 'Bot:' : '') . "Creation du cache $cache_key pour "
+				. $page['entetes']['X-Spip-Cache'] . ' secondes' . ($ok ? '' : ' (erreur!)'));
 
 	// Inserer ses invalideurs
 	include_spip('inc/invalideur');
@@ -311,10 +307,7 @@ function public_cacher_dist($contexte, &$use_cache, &$cache_key, &$page, &$lastm
 		isset($page['invalideurs'])
 		&& isset($page['invalideurs']['session'])
 	) {
-		$cache_key_session = cache_key(
-			['cache_key' => $cache_key],
-			['session' => spip_session()]
-		);
+		$cache_key_session = cache_key(['cache_key' => $cache_key], ['session' => spip_session()]);
 		if (
 			($page_session = lire_cache($cache_key_session)) && $page_session['lastmodified'] >= $page['lastmodified']
 		) {
@@ -323,7 +316,6 @@ function public_cacher_dist($contexte, &$use_cache, &$cache_key, &$page, &$lastm
 			$page = [];
 		}
 	}
-
 
 	// Faut-il effacer des pages invalidees (en particulier ce cache-ci) ?
 	// ne le faire que si la base est disponible
@@ -349,7 +341,8 @@ function public_cacher_dist($contexte, &$use_cache, &$cache_key, &$page, &$lastm
 	if ($invalider) {
 		include_spip('inc/invalideur');
 		retire_caches($cache_key); # API invalideur inutile
-		cache_instance()->delete($cache_key);
+		cache_instance()
+			->delete($cache_key);
 		if (isset($cache_key_session) && $cache_key_session) {
 			cache_instance()->delete($cache_key_session);
 		}

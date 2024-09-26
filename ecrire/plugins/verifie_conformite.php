@@ -48,7 +48,7 @@ function plugins_verifie_conformite_dist($plug, &$arbre, $dir_plugins = _DIR_PLU
 			}
 		}
 	}
-	if (is_null($p)) {
+	if ($p === null) {
 		$arbre = ['erreur' => [_T('erreur_plugin_tag_plugin_absent') . " : $plug"]];
 		$silence = true;
 	} else {
@@ -107,14 +107,7 @@ function plugins_verifie_conformite_dist($plug, &$arbre, $dir_plugins = _DIR_PLU
 		if (isset($arbre['fonctions'])) {
 			$fonctions = $arbre['fonctions'];
 		}
-		$liste_methodes_reservees = [
-			'__construct',
-			'__destruct',
-			'plugin',
-			'install',
-			'uninstall',
-			strtolower($prefix)
-		];
+		$liste_methodes_reservees = ['__construct', '__destruct', 'plugin', 'install', 'uninstall', strtolower($prefix)];
 
 		$extraire_pipelines = charger_fonction('extraire_pipelines', 'plugins');
 		$arbre['pipeline'] = $extraire_pipelines($arbre);

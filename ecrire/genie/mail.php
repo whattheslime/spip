@@ -41,7 +41,10 @@ function genie_mail_dist($t) {
 
 	$page = recuperer_fond(
 		'nouveautes',
-		['date' => $GLOBALS['meta']['dernier_envoi_neuf'], 'jours_neuf' => $jours_neuf],
+		[
+			'date' => $GLOBALS['meta']['dernier_envoi_neuf'],
+			'jours_neuf' => $jours_neuf,
+		],
 		['raw' => true]
 	);
 

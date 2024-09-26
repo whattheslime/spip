@@ -39,29 +39,53 @@ if (!defined('_ECRIRE_INC_VERSION')) {
 function inc_couleurs_dist($choix = null, $ajouter = false) {
 	static $couleurs_spip = [
 		// Violet soutenu
-		9 => ['couleur_theme' => '#9a6ef2'],
+		9 => [
+			'couleur_theme' => '#9a6ef2',
+		],
 		// Violet rosé
-		4 => ['couleur_theme' => '#c464cb'],
+		4 => [
+			'couleur_theme' => '#c464cb',
+		],
 		// Rose interface SPIP
-		2 => ['couleur_theme' =>  '#F02364'],
+		2 => [
+			'couleur_theme' => '#F02364',
+		],
 		// Rouge
-		8 => ['couleur_theme' => '#ff4524'],
+		8 => [
+			'couleur_theme' => '#ff4524',
+		],
 		// Orange
-		3 => ['couleur_theme' => '#c97500'],
+		3 => [
+			'couleur_theme' => '#c97500',
+		],
 		// Vert SPIP
-		1 => ['couleur_theme' => '#9dba00'],
+		1 => [
+			'couleur_theme' => '#9dba00',
+		],
 		// Vert Troglo
-		7 => ['couleur_theme' => '#419a2c'],
+		7 => [
+			'couleur_theme' => '#419a2c',
+		],
 		// Bleu-vert
-		12 => ['couleur_theme' => '#269681'],
+		12 => [
+			'couleur_theme' => '#269681',
+		],
 		//  Bleu pastel
-		5 => ['couleur_theme' => '#3190ae'],
+		5 => [
+			'couleur_theme' => '#3190ae',
+		],
 		//  Bleu Kermesse
-		11 => ['couleur_theme' => '#288bdd'],
+		11 => [
+			'couleur_theme' => '#288bdd',
+		],
 		//  Gris bleuté
-		6 => ['couleur_theme' => '#7d90a2'],
+		6 => [
+			'couleur_theme' => '#7d90a2',
+		],
 		//  Gris
-		10 => ['couleur_theme' => '#909090'],
+		10 => [
+			'couleur_theme' => '#909090',
+		],
 	];
 
 	if (is_numeric($choix)) {
@@ -71,35 +95,33 @@ function inc_couleurs_dist($choix = null, $ajouter = false) {
 		$c['couleur_foncee'] = $c['couleur_theme'];
 		$c['couleur_claire'] = '#' . couleur_eclaircir($c['couleur_theme'], .5);
 
-		return
-			'couleur_theme=' . substr((string) $c['couleur_theme'], 1)
+		return 'couleur_theme=' . substr((string) $c['couleur_theme'], 1)
 			// compat < SPIP 3.3
 			. '&couleur_claire=' . substr($c['couleur_claire'], 1)
 			. '&couleur_foncee=' . substr((string) $c['couleur_foncee'], 1);
-	} else {
-		if (is_array($choix)) {
-			// compat < SPIP 3.3
-			$compat_spip_33 = function ($c) {
-				if (!isset($c['couleur_theme'])) {
-					$c['couleur_theme'] = $c['couleur_foncee'];
-					unset($c['couleur_foncee']);
-					unset($c['couleur_claire']);
-					unset($c['couleur_lien']);
-					unset($c['couleur_lien_off']);
-				}
-				return $c;
-			};
-			if ($ajouter) {
-				foreach ($choix as $c) {
-					$couleurs_spip[] = $compat_spip_33($c);
-				}
-
-				return $couleurs_spip;
-			} else {
-				$choix = array_map($compat_spip_33, $choix);
-				return $couleurs_spip = $choix;
+	}
+	if (is_array($choix)) {
+		// compat < SPIP 3.3
+		$compat_spip_33 = function ($c) {
+			if (!isset($c['couleur_theme'])) {
+				$c['couleur_theme'] = $c['couleur_foncee'];
+				unset($c['couleur_foncee']);
+				unset($c['couleur_claire']);
+				unset($c['couleur_lien']);
+				unset($c['couleur_lien_off']);
 			}
+			return $c;
+		};
+		if ($ajouter) {
+			foreach ($choix as $c) {
+				$couleurs_spip[] = $compat_spip_33($c);
+			}
+
+			return $couleurs_spip;
 		}
+		$choix = array_map($compat_spip_33, $choix);
+		return $couleurs_spip = $choix;
+
 	}
 
 	return $couleurs_spip;

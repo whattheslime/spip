@@ -1,6 +1,5 @@
 <?php
 
-
 /**
  * Génère une erreur de squelette
  *
@@ -99,8 +98,7 @@ function recuperer_fond($fond, $contexte = [], $options = [], string $connect = 
 	$GLOBALS['_INC_PUBLIC']++;
 
 	// fix #4235
-	$cache_utilise_session_appelant	= ($GLOBALS['cache_utilise_session'] ?? null);
-
+	$cache_utilise_session_appelant = ($GLOBALS['cache_utilise_session'] ?? null);
 
 	foreach (is_array($fond) ? $fond : [$fond] as $f) {
 		unset($GLOBALS['cache_utilise_session']);	// fix #4235
@@ -117,18 +115,14 @@ function recuperer_fond($fond, $contexte = [], $options = [], string $connect = 
 
 		$page = pipeline('recuperer_fond', [
 			'args' => ['fond' => $f, 'contexte' => $contexte, 'options' => $options, 'connect' => $connect],
-			'data' => $page
+			'data' => $page,
 		]);
 		if (isset($options['ajax']) && $options['ajax']) {
 			if (!function_exists('encoder_contexte_ajax')) {
 				include_spip('inc/filtres');
 			}
 			$page['texte'] = encoder_contexte_ajax(
-				array_merge(
-					$contexte,
-					['fond' => $f],
-					($connect ? ['connect' => $connect] : [])
-				),
+				array_merge($contexte, ['fond' => $f], ($connect ? ['connect' => $connect] : [])),
 				'',
 				$page['texte'],
 				$options['ajax']
@@ -160,7 +154,7 @@ function recuperer_fond($fond, $contexte = [], $options = [], string $connect = 
 	}
 	if (isset($options['raw']) && $options['raw']) {
 		return is_array($fond) ? $pages : reset($pages);
-	} else {
-		return $options['trim'] ? ltrim($texte) : $texte;
 	}
+	return $options['trim'] ? ltrim($texte) : $texte;
+
 }

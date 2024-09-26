@@ -38,7 +38,7 @@ include_spip('inc/boutons');
  *     contexte
  */
 function definir_barre_contexte($contexte = null) {
-	if (is_null($contexte)) {
+	if ($contexte === null) {
 		$contexte = $_GET;
 	} elseif (is_string($contexte)) {
 		$contexte = unserialize($contexte);
@@ -108,7 +108,9 @@ function definir_barre_boutons($contexte = [], $icones = true, $autorise = true)
 				&& ($parent = preg_replace(',^bando_,', 'menu_', (string) $parent))
 				&& isset($boutons_admin[$parent])
 			) {
-				$position = (isset($infos['position']) && strlen((string) $infos['position'])) ? (int) $infos['position'] : count($boutons_admin[$parent]->sousmenu);
+				$position = (isset($infos['position']) && strlen((string) $infos['position'])) ? (int) $infos['position'] : count(
+					$boutons_admin[$parent]->sousmenu
+				);
 				if ($position < 0) {
 					$position = count($boutons_admin[$parent]->sousmenu) + 1 + $position;
 				}
@@ -119,7 +121,7 @@ function definir_barre_boutons($contexte = [], $icones = true, $autorise = true)
 							$infos['titre'],  // titre
 							(isset($infos['action']) && $infos['action']) ? $infos['action'] : null,
 							(isset($infos['parametres']) && $infos['parametres']) ? $infos['parametres'] : null
-						)
+						),
 					]
 					+ array_slice($boutons_admin[$parent]->sousmenu, $position, 100);
 			}
@@ -137,7 +139,7 @@ function definir_barre_boutons($contexte = [], $icones = true, $autorise = true)
 							$infos['titre'],  // titre
 							(isset($infos['action']) && $infos['action']) ? $infos['action'] : null,
 							(isset($infos['parametres']) && $infos['parametres']) ? $infos['parametres'] : null
-						)
+						),
 					]
 					+ array_slice($boutons_admin, $position, 100);
 			}
@@ -203,7 +205,6 @@ function trier_boutons_enfants_par_favoris_alpha($menus) {
 	return trier_boutons_enfants_par_alpha($menus, true);
 }
 
-
 /**
  * Créer l'URL à partir de exec et args, sauf si c'est déjà une url formatée
  *
@@ -221,7 +222,11 @@ function bandeau_creer_url($url, $args = '', $contexte = null) {
 		$url = str_replace('&amp;', '&', $url);
 		while (preg_match(',[&?]([a-z_]+)=@([a-z_]+)@,i', $url, $matches)) {
 			if ($matches[2] == 'id_secteur' && !isset($contexte['id_secteur']) && isset($contexte['id_rubrique'])) {
-				$contexte['id_secteur'] = sql_getfetsel('id_secteur', 'spip_rubriques', 'id_rubrique=' . (int) $contexte['id_rubrique']);
+				$contexte['id_secteur'] = sql_getfetsel(
+					'id_secteur',
+					'spip_rubriques',
+					'id_rubrique=' . (int) $contexte['id_rubrique']
+				);
 			}
 			$val = _request($matches[2], $contexte);
 			$url = parametre_url($url, $matches[1], $val ?: '', '&');
@@ -241,7 +246,6 @@ function bandeau_creer_url($url, $args = '', $contexte = null) {
 function inc_bandeau_dist() {
 	return recuperer_fond('prive/squelettes/inclure/barre-nav', $_GET);
 }
-
 
 /**
  * Retourne la liste des noms d'entrées de menus favoris de l'auteur connecté

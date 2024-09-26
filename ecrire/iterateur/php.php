@@ -17,11 +17,9 @@ use Spip\Compilateur\Noeud\Boucle;
  * @package SPIP\Core\Iterateur\PHP
  */
 
-
 if (!defined('_ECRIRE_INC_VERSION')) {
 	return;
 }
-
 
 /**
  * Créer une boucle sur un itérateur PHP
@@ -42,7 +40,7 @@ function iterateur_php_dist($b, $iteratorName) {
 		'field' => [
 			'cle' => 'STRING',
 			'valeur' => 'STRING',
-		]
+		],
 	];
 
 	foreach (get_class_methods($iteratorName) as $method) {

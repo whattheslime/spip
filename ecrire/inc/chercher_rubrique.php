@@ -67,9 +67,9 @@ function inc_chercher_rubrique_dist($id_rubrique, $type, $restreint, $idem = 0, 
 		|| sql_countsel('spip_rubriques') < _SPIP_SELECT_RUBRIQUES
 	) {
 		return selecteur_rubrique_html($id_rubrique, $type, $restreint, $idem);
-	} else {
-		return selecteur_rubrique_ajax($id_rubrique, $type, $restreint, $idem, $do);
 	}
+	return selecteur_rubrique_ajax($id_rubrique, $type, $restreint, $idem, $do);
+
 }
 
 // compatibilite pour extensions qui utilisaient l'ancien nom
@@ -140,9 +140,9 @@ function sous_menu_rubriques($id_rubrique, $root, $niv, &$data, &$enfants, $excl
 	// creer l'<option> pour la rubrique $root
 
 	if (isset($data[$root])) { # pas de racine sauf pour les rubriques
-	$r = "<option$selected value='$root' class='$class' style='$style'>$espace"
-			. $data[$root]
-			. '</option>' . "\n";
+		$r = "<option$selected value='$root' class='$class' style='$style'>$espace"
+				. $data[$root]
+				. '</option>' . "\n";
 	} else {
 		$r = '';
 	}
@@ -151,16 +151,7 @@ function sous_menu_rubriques($id_rubrique, $root, $niv, &$data, &$enfants, $excl
 	$sous = '';
 	if (isset($enfants[$root])) {
 		foreach ($enfants[$root] as $sousrub) {
-			$sous .= sous_menu_rubriques(
-				$id_rubrique,
-				$sousrub,
-				$niv + 1,
-				$data,
-				$enfants,
-				$exclus,
-				$restreint,
-				$type
-			);
+			$sous .= sous_menu_rubriques($id_rubrique, $sousrub, $niv + 1, $data, $enfants, $exclus, $restreint, $type);
 		}
 	}
 
@@ -245,7 +236,6 @@ function selecteur_rubrique_html($id_rubrique, $type, $restreint, $idem = 0) {
 		unset($data[0]);
 	}
 
-
 	$opt = sous_menu_rubriques($id_rubrique, 0, 0, $data, $enfants, $idem, $restreint, $type);
 	$att = " id='id_parent' name='id_parent'\nclass='selecteur_parent verdana1'";
 
@@ -256,8 +246,8 @@ function selecteur_rubrique_html($id_rubrique, $type, $restreint, $idem = 0) {
 	}
 
 	# message pour neuneus (a supprimer ?)
-#	if ($type != 'auteur' AND $type != 'breve')
-#		$r .= "\n<br>"._T('texte_rappel_selection_champs');
+	#	if ($type != 'auteur' AND $type != 'breve')
+	#		$r .= "\n<br>"._T('texte_rappel_selection_champs');
 
 	return $r;
 }
@@ -307,7 +297,6 @@ function selecteur_rubrique_ajax($id_rubrique, $type, $restreint, $idem = 0, $do
 		. ($restreint ? '' : '&racine=oui')
 		. (isset($GLOBALS['var_profile']) ? '&var_profile=1' : ''));
 
-
 	return construire_selecteur($url, '', 'selection_rubrique', 'id_parent', $init, $id_rubrique);
 }
 
@@ -343,13 +332,14 @@ function construire_selecteur($url, $js, $idom, $name, $init = '', $id = 0) {
 	$balise = ($icone === 'rechercher-20.png' ? chercher_filtre('balise_svg') : chercher_filtre('balise_img'));
 	$img_icone = $balise(chemin_image($icone), _T('titre_image_selecteur'));
 
-	return
-		"<div class='rubrique_actuelle'><a href='#' class='rubrique-search' role='button' style='display:inline-flex;vertical-align:middle;' onclick=\""
+	return "<div class='rubrique_actuelle'><a href='#' class='rubrique-search' role='button' style='display:inline-flex;vertical-align:middle;' onclick=\""
 		. $js
 		. " jQuery(this).toggleClass('toggled'); "
 		. "return charger_node_url_si_vide('"
 		. $url
-		. "', this.parentNode.nextSibling, this.nextSibling,'',event)\" title='" . attribut_html(_T('titre_image_selecteur')) . "'>"
+		. "', this.parentNode.nextSibling, this.nextSibling,'',event)\" title='" . attribut_html(
+			_T('titre_image_selecteur')
+		) . "'>"
 		. $img_icone
 		. "</a><img src='"
 		. chemin_image('loader.svg')

@@ -11,7 +11,6 @@
 
 use Spip\Afficher\Minipage\Installation;
 
-
 if (!defined('_ECRIRE_INC_VERSION')) {
 	return;
 }
@@ -112,7 +111,7 @@ function install_bases($adresse_db, $login_db, $pass_db, $server_db, $choix_db, 
 			$t = [
 				'nom' => 'charset_sql_base',
 				'valeur' => $charset['charset'],
-				'impt' => 'non'
+				'impt' => 'non',
 			];
 			@sql_insertq('spip_meta', $t, [], $server_db);
 			$t['nom'] = 'charset_collation_sql_base';
@@ -125,7 +124,7 @@ function install_bases($adresse_db, $login_db, $pass_db, $server_db, $choix_db, 
 		$t = [
 			'nom' => 'version_installee',
 			'valeur' => $GLOBALS['spip_version_base'],
-			'impt' => 'non'
+			'impt' => 'non',
 		];
 		@sql_insertq('spip_meta', $t, [], $server_db);
 		$t['nom'] = 'nouvelle_install';
@@ -133,12 +132,7 @@ function install_bases($adresse_db, $login_db, $pass_db, $server_db, $choix_db, 
 		@sql_insertq('spip_meta', $t, [], $server_db);
 		// positionner la langue par defaut du site si un cookie de lang a ete mis
 		if (isset($_COOKIE['spip_lang_ecrire'])) {
-			@sql_insertq(
-				'spip_meta',
-				['nom' => 'langue_site', 'valeur' => $_COOKIE['spip_lang_ecrire']],
-				[],
-				$server_db
-			);
+			@sql_insertq('spip_meta', ['nom' => 'langue_site', 'valeur' => $_COOKIE['spip_lang_ecrire']], [], $server_db);
 		}
 	} else {
 		// pour recreer les tables disparues au besoin
@@ -151,7 +145,7 @@ function install_bases($adresse_db, $login_db, $pass_db, $server_db, $choix_db, 
 		if ($r) {
 			$r = sql_fetch($r, $server_db);
 		}
-		$version_installee = $r ? (double)$r['valeur'] : 0;
+		$version_installee = $r ? (float) $r['valeur'] : 0;
 		if (!$version_installee || $GLOBALS['spip_version_base'] < $version_installee) {
 			$fupdateq(
 				'spip_meta',
@@ -202,17 +196,7 @@ function install_bases($adresse_db, $login_db, $pass_db, $server_db, $choix_db, 
 	install_fichier_connexion(
 		_FILE_CONNECT_TMP,
 		$ligne_rappel
-		. install_connexion(
-			$adresse_db,
-			$port,
-			$login_db,
-			$pass_db,
-			$sel_db,
-			$server_db,
-			$table_prefix,
-			'',
-			$charset
-		)
+		. install_connexion($adresse_db, $port, $login_db, $pass_db, $sel_db, $server_db, $table_prefix, '', $charset)
 	);
 
 	return '';
@@ -235,19 +219,19 @@ function preparer_prefixe_tables($prefixe) {
 
 function install_propose_ldap() {
 	return generer_form_ecrire('install', (
-	fieldset(
-		_T('info_authentification_externe'),
-		[
-			'etape' => [
-				'label' => _T('texte_annuaire_ldap_1'),
-				'valeur' => 'ldap1',
-				'hidden' => true
-			]
-		],
-		bouton_suivant(_T('bouton_acces_ldap'))
-	)));
+		fieldset(
+			_T('info_authentification_externe'),
+			[
+				'etape' => [
+					'label' => _T('texte_annuaire_ldap_1'),
+					'valeur' => 'ldap1',
+					'hidden' => true,
+				],
+			],
+			bouton_suivant(_T('bouton_acces_ldap'))
+		)
+	));
 }
-
 
 function install_premier_auteur($email, $login, $nom, #[\SensitiveParameter] $pass, $hidden, $auteur_obligatoire) {
 	return info_progression_etape(3, 'etape_', 'install/') .
@@ -256,7 +240,8 @@ function install_premier_auteur($email, $login, $nom, #[\SensitiveParameter] $pa
 		'<b>' . _T('texte_informations_personnelles_1') . '</b>' .
 		aider('install5', true) .
 		'<p>' .
-		($auteur_obligatoire ?
+		(
+			$auteur_obligatoire ?
 			''
 			:
 			_T('texte_informations_personnelles_2') . ' ' . _T('info_laisser_champs_vides')
@@ -276,7 +261,7 @@ function install_premier_auteur($email, $login, $nom, #[\SensitiveParameter] $pa
 				'email' => [
 					'label' => '<b>' . _T('entree_adresse_email') . "</b>\n",
 					'valeur' => $email,
-				]
+				],
 			]
 		)
 
@@ -303,10 +288,11 @@ function install_premier_auteur($email, $login, $nom, #[\SensitiveParameter] $pa
 					'label' => '<b>' . _T('info_confirmer_passe') . "</b><br>\n",
 					'valeur' => $pass,
 					'required' => $auteur_obligatoire,
-				]
+				],
 			]
 		)
-		. bouton_suivant()));
+		. bouton_suivant()
+	));
 }
 
 function install_etape_3_dist() {
@@ -388,7 +374,6 @@ function install_etape_3_dist() {
 			. (($ldap_present || !function_exists('ldap_connect'))
 				? '' : install_propose_ldap());
 	}
-
 
 	$minipage = new Installation();
 	echo $minipage->page($res);

@@ -18,11 +18,9 @@
 use Spip\Chiffrer\Chiffrement;
 use Spip\Chiffrer\SpipCles;
 
-
 if (!defined('_ECRIRE_INC_VERSION')) {
 	return;
 }
-
 
 /**
  * Inscrire un nouvel auteur sur la base de son nom et son email
@@ -73,8 +71,7 @@ function action_inscrire_auteur_dist($statut, $mail_complet, $nom, $options = []
 		} else {
 			$desc = $row;
 		}
-	} else // s'il n'existe pas deja, creer les identifiants
-	{
+	} else { // s'il n'existe pas deja, creer les identifiants
 		$desc = inscription_nouveau($desc);
 	}
 
@@ -82,7 +79,6 @@ function action_inscrire_auteur_dist($statut, $mail_complet, $nom, $options = []
 	if (!is_array($desc)) {
 		return $desc;
 	}
-
 
 	// generer le mot de passe (ou le refaire si compte inutilise)
 	$desc['pass'] = creer_pass_pour_auteur($desc['id_auteur']);
@@ -107,7 +103,6 @@ function action_inscrire_auteur_dist($statut, $mail_complet, $nom, $options = []
 	return $desc;
 }
 
-
 /**
  * Contrôler que le nom (qui sert à calculer le login) est plausible
  * et que l'adresse courriel est valide.
@@ -124,7 +119,6 @@ function action_inscrire_auteur_dist($statut, $mail_complet, $nom, $options = []
  * @return array|string
  *     - array : si ok, tableau avec au minimum email, nom, mode (redac / forum)
  *     - string : si ko, chaîne de langue servant d'argument au filtre `_T` expliquant le refus
- *
  */
 function test_inscription_dist($statut, $mail, $nom, $options) {
 	include_spip('inc/filtres');
@@ -145,7 +139,6 @@ function test_inscription_dist($statut, $mail, $nom, $options) {
 
 	return $res;
 }
-
 
 /**
  * On enregistre le demandeur comme 'nouveau', en memorisant le statut final
@@ -181,7 +174,6 @@ function inscription_nouveau($desc) {
 	return $desc;
 }
 
-
 /**
  * Retourne un login valide à partir du nom et email donné
  *
@@ -209,14 +201,13 @@ function test_login($nom, $mail): string {
 
 	$login = $login_base;
 
-	for ($i = 1;; $i++) {
+	for ($i = 1; ; $i++) {
 		if (!sql_countsel('spip_auteurs', "login='$login'")) {
 			return $login;
 		}
 		$login = $login_base . $i;
 	}
 }
-
 
 /**
  * Construction du mail envoyant les identifiants
@@ -253,7 +244,6 @@ function envoyer_inscription_dist($desc, $nom, $mode, $options = []) {
 
 	return ['', $message, $from, $head];
 }
-
 
 /**
  * Creer un mot de passe initial aleatoire
@@ -292,7 +282,6 @@ function tester_statut_inscription($statut_tmp, $id) {
 
 	return '';
 }
-
 
 /**
  * Un nouvel inscrit prend son statut definitif a la 1ere connexion.
@@ -335,7 +324,6 @@ function confirmer_statut_inscription($auteur) {
 	return $auteur;
 }
 
-
 /**
  * Attribuer un jeton temporaire pour un auteur en assurant l'unicite du jeton.
  *
@@ -343,7 +331,6 @@ function confirmer_statut_inscription($auteur) {
  * et invalide donc le précédent
  *
  * @param int $id_auteur
- * @return string
  */
 function auteur_attribuer_jeton($id_auteur): string {
 	include_spip('base/abstract_sql');
@@ -368,9 +355,7 @@ function auteur_attribuer_jeton($id_auteur): string {
  * Cette fonction peut être pratique si plusieurs notifications proches
  * dans la durée sont envoyées au même auteur.
  *
- * @param int $id_auteur
  * @param bool $autoInit Attribue un jeton à l’auteur s’il n’en a pas déjà.
- * @return string|null
  */
 function auteur_lire_jeton(int $id_auteur, bool $autoInit = false): ?string {
 	include_spip('base/abstract_sql');

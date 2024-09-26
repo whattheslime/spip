@@ -20,7 +20,6 @@
  */
 function inc_definir_menus_favoris_dist() {
 	return [
-
 		// Menu Édition,
 		'auteurs' => 1,
 		'rubriques' => 2,
@@ -32,6 +31,5 @@ function inc_definir_menus_favoris_dist() {
 		// Menu Configurations
 		'configurer_identite' => 1,
 		'admin_plugin' => 2,
-
 	];
 }

@@ -16,7 +16,6 @@ if (!defined('_AUTO_SELECTION_RUBRIQUE')) {
 	define('_AUTO_SELECTION_RUBRIQUE', false);
 }
 
-
 /**
  * Preselectionner la rubrique lors de la creation
  * desactive par defaut suite a remontee utilisateur mais activable par define

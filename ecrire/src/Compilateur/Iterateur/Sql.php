@@ -67,8 +67,6 @@ class Sql extends AbstractIterateur implements Iterator
 
 	/**
 	 * Valeurs sur la position courante.
-	 *
-	 * @return array
 	 */
 	public function current(): ?array {
 		return $this->row;
@@ -148,7 +146,7 @@ class Sql extends AbstractIterateur implements Iterator
 	 * Compter le nombre de resultats.
 	 */
 	public function count(): int {
-		if (is_null($this->total)) {
+		if ($this->total === null) {
 			if (!$this->sqlresult) {
 				$this->total = 0;
 			} else {

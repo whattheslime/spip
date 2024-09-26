@@ -21,7 +21,6 @@ if (!defined('_ECRIRE_INC_VERSION')) {
 
 include_spip('inc/filtres');
 
-
 /**
  * Affiche un mini-navigateur ajax positionné sur une rubrique
  *
@@ -58,15 +57,7 @@ function inc_selectionner_dist($sel, $idom = '', $exclus = 0, $aff_racine = fals
 		$onClick = "jQuery(this).parent().addClass('on');jQuery('#choix_parent_principal .on').removeClass('on'); aff_selection(0, '$idom3', '$info', event);return false;";
 
 		$ondbClick = strtr(
-			str_replace(
-				"'",
-				'&#8217;',
-				str_replace(
-					'"',
-					'&#34;',
-					(string) textebrut(_T('info_racine_site'))
-				)
-			),
+			str_replace("'", '&#8217;', str_replace('"', '&#34;', (string) textebrut(_T('info_racine_site')))),
 			"\n\r",
 			'  '
 		);

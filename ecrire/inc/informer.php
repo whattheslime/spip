@@ -49,17 +49,9 @@ function inc_informer_dist($id, $col, $exclus, $rac, $type, $do = 'aff') {
 	$do = spip_htmlentities($do, ENT_QUOTES);
 	$id = (int) $id;
 
-# ce lien provoque la selection (directe) de la rubrique cliquee
-# et l'affichage de son titre dans le bandeau
-	$titre = strtr(
-		str_replace(
-			"'",
-			'&#8217;',
-			str_replace('"', '&#34;', (string) textebrut($titre))
-		),
-		"\n\r",
-		'  '
-	);
+	# ce lien provoque la selection (directe) de la rubrique cliquee
+	# et l'affichage de son titre dans le bandeau
+	$titre = strtr(str_replace("'", '&#8217;', str_replace('"', '&#34;', (string) textebrut($titre))), "\n\r", '  ');
 
 	$js_func = $do . '_selection_titre';
 

@@ -11,7 +11,6 @@
 
 use Spip\Compilateur\Noeud\Boucle;
 
-
 /**
  * Déduction automatique d'une chaîne de jointures
  *
@@ -21,7 +20,6 @@ use Spip\Compilateur\Noeud\Boucle;
 if (!defined('_ECRIRE_INC_VERSION')) {
 	return;
 }
-
 
 /**
  * Décomposer un champ id_truc en (id_objet,objet,truc)
@@ -74,7 +72,6 @@ function trouver_champs_decomposes($champ, $desc): array {
 
 	return [$champ];
 }
-
 
 /**
  * Calculer et construite une jointure entre $depart et $arrivee
@@ -178,9 +175,9 @@ function fabrique_jointures(&$boucle, $res, $cond = false, $desc = [], $nom = ''
 			// sache qu'il peut enlever ce where si il enleve la jointure
 			$boucle->where["JOIN-L$n"] =
 				$echap ?
-					["'='","'$obj'","sql_quote('$type')"]
+					["'='", "'$obj'", "sql_quote('$type')"]
 					:
-					['=',"$obj",sql_quote($type)];
+					['=', "$obj", sql_quote($type)];
 			$boucle->join["L$n"] =
 				$echap ?
 					["'$id_table'", "'$j2'", "'$j1'", "'$obj='.sql_quote('$type')"]
@@ -191,7 +188,6 @@ function fabrique_jointures(&$boucle, $res, $cond = false, $desc = [], $nom = ''
 		}
 		$boucle->from[$id_table = "L$n"] = $a[0];
 	}
-
 
 	// pas besoin de group by
 	// (cf http://article.gmane.org/gmane.comp.web.spip.devel/30555)
@@ -254,7 +250,7 @@ function nogroupby_if($depart, $arrivee, $col) {
 	if (is_array($col)) {
 		$col = implode(', *', $col);
 	} // cas id_objet, objet
-	return (preg_match("/^$id_primary, *$col$/", (string) $pk) || preg_match("/^$col, *$id_primary$/", (string) $pk));
+	return preg_match("/^$id_primary, *$col$/", (string) $pk) || preg_match("/^$col, *$id_primary$/", (string) $pk);
 }
 
 /**
@@ -351,14 +347,7 @@ function split_key($v, $join = []) {
  *  nombre maxi d'etapes
  * @return array
  */
-function calculer_chaine_jointures(
-	&$boucle,
-	$depart,
-	$arrivee,
-	$vu = [],
-	$milieu_exclus = [],
-	$max_liens = 5
-) {
+function calculer_chaine_jointures(&$boucle, $depart, $arrivee, $vu = [], $milieu_exclus = [], $max_liens = 5) {
 	static $trouver_table;
 	if (!$trouver_table) {
 		$trouver_table = charger_fonction('trouver_table', 'base');
@@ -504,7 +493,6 @@ function trouver_cles_table($keys) {
 	return array_keys($res);
 }
 
-
 /**
  * Indique si une colonne (ou plusieurs colonnes) est présente dans l'une des tables indiquée.
  *
@@ -612,18 +600,18 @@ function trouver_champ_exterieur($cle, $joints, &$boucle, $checkarrivee = false)
 		// cas 2 : la cle id_xx n'est pas dans la table de depart
 		// -> il faut trouver une cle de depart zzz telle que
 		// id_objet,objet,zzz soit a l'arrivee
-		else {
-			$depart = liste_champs_jointures(($desc['table'] ?? ''), $desc);
-			foreach ($depart as $d) {
-				$cle = [];
-				$cle[] = array_shift($decompose); // id_objet
-				$cle[] = array_shift($decompose); // objet
-				$cle[] = $d;
-				if ($ext = trouver_champ_exterieur($cle, $joints, $boucle, $checkarrivee)) {
-					return $ext;
-				}
+
+		$depart = liste_champs_jointures(($desc['table'] ?? ''), $desc);
+		foreach ($depart as $d) {
+			$cle = [];
+			$cle[] = array_shift($decompose); // id_objet
+			$cle[] = array_shift($decompose); // objet
+			$cle[] = $d;
+			if ($ext = trouver_champ_exterieur($cle, $joints, $boucle, $checkarrivee)) {
+				return $ext;
 			}
 		}
+
 	}
 
 	return '';
@@ -672,7 +660,8 @@ function trouver_jointure_champ($champ, &$boucle, $jointures = false, $cond = fa
 			return $cle;
 		}
 	}
-	spip_logger()->info("trouver_jointure_champ: $champ inconnu");
+	spip_logger()
+		->info("trouver_jointure_champ: $champ inconnu");
 
 	return '';
 }

@@ -24,11 +24,10 @@ if (!defined('_ECRIRE_INC_VERSION')) {
  * être déclenchée dans l'espace des globales (donc pas
  * dans une fonction).
  *
- * @param array $page
- * @return void
+ * @param array $match
  */
 
- /** @var bool Évaluation réussie ? */
+/** @var bool Évaluation réussie ? */
 $res = true;
 
 // Cas d'une page contenant du PHP :
@@ -62,7 +61,10 @@ if (empty($page['process_ins']) || $page['process_ins'] != 'html') {
 		}
 		$code = '/*001*/' . preg_replace_callback(",\n,", 'numerote_ligne_php', (string) $code);
 		$code = trim(highlight_string($code, true));
-		erreur_squelette('L' . $e->getLine() . ': ' . $e->getMessage() . '<br>' . $code, [$page['source'],'',$e->getFile(),'',$GLOBALS['spip_lang']]);
+		erreur_squelette(
+			'L' . $e->getLine() . ': ' . $e->getMessage() . '<br>' . $code,
+			[$page['source'], '', $e->getFile(), '', $GLOBALS['spip_lang']]
+		);
 		$page['texte'] = '<!-- Erreur -->';
 	}
 	ob_end_clean();

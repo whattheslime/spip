@@ -43,9 +43,12 @@ function debut_cadre($style, $icone = '', $fonction = '', $titre = '', $id = '',
 		'trait-couleur' => 'important',
 		'alerte' => 'notice',
 		'info' => 'info',
-		'sous_rub' => 'simple sous-rub'
+		'sous_rub' => 'simple sous-rub',
 	];
-	$style_titre_mapping = ['couleur' => 'topper', 'trait-couleur' => 'section'];
+	$style_titre_mapping = [
+		'couleur' => 'topper',
+		'trait-couleur' => 'section',
+	];
 	$c = $style_mapping[$style] ?? 'simple';
 	$class = $c . ($class ? " $class" : '');
 	if (!$padding) {
@@ -86,14 +89,7 @@ function fin_cadre() {
 /**
  * @deprecated 4.3 Uses `boite_ouvrir`
  */
-function debut_cadre_relief(
-	$icone = '',
-	$dummy = '',
-	$fonction = '',
-	$titre = '',
-	$id = '',
-	$class = ''
-) {
+function debut_cadre_relief($icone = '', $dummy = '', $fonction = '', $titre = '', $id = '', $class = '') {
 	trigger_deprecation('spip', '4.3', 'Using "%s" is deprecated', __FUNCTION__);
 	return debut_cadre('r', $icone, $fonction, $titre, $id, $class);
 }
@@ -109,14 +105,7 @@ function fin_cadre_relief() {
 /**
  * @deprecated 4.3 Uses `boite_ouvrir`
  */
-function debut_cadre_enfonce(
-	$icone = '',
-	$dummy = '',
-	$fonction = '',
-	$titre = '',
-	$id = '',
-	$class = ''
-) {
+function debut_cadre_enfonce($icone = '', $dummy = '', $fonction = '', $titre = '', $id = '', $class = '') {
 	trigger_deprecation('spip', '4.3', 'Using "%s" is deprecated', __FUNCTION__);
 	return debut_cadre('e', $icone, $fonction, $titre, $id, $class);
 }
@@ -132,14 +121,7 @@ function fin_cadre_enfonce() {
 /**
  * @deprecated 4.3 Uses `boite_ouvrir`
  */
-function debut_cadre_sous_rub(
-	$icone = '',
-	$dummy = '',
-	$fonction = '',
-	$titre = '',
-	$id = '',
-	$class = ''
-) {
+function debut_cadre_sous_rub($icone = '', $dummy = '', $fonction = '', $titre = '', $id = '', $class = '') {
 	trigger_deprecation('spip', '4.3', 'Using "%s" is deprecated', __FUNCTION__);
 	return debut_cadre('sous_rub', $icone, $fonction, $titre, $id, $class);
 }
@@ -155,14 +137,7 @@ function fin_cadre_sous_rub() {
 /**
  * @deprecated 4.3 Uses `boite_ouvrir`
  */
-function debut_cadre_couleur(
-	$icone = '',
-	$dummy = '',
-	$fonction = '',
-	$titre = '',
-	$id = '',
-	$class = ''
-) {
+function debut_cadre_couleur($icone = '', $dummy = '', $fonction = '', $titre = '', $id = '', $class = '') {
 	trigger_deprecation('spip', '4.3', 'Using "%s" is deprecated', __FUNCTION__);
 	return debut_cadre('couleur', $icone, $fonction, $titre, $id, $class);
 }
@@ -178,14 +153,7 @@ function fin_cadre_couleur() {
 /**
  * @deprecated 4.3 Uses `boite_ouvrir`
  */
-function debut_cadre_trait_couleur(
-	$icone = '',
-	$dummy = '',
-	$fonction = '',
-	$titre = '',
-	$id = '',
-	$class = ''
-) {
+function debut_cadre_trait_couleur($icone = '', $dummy = '', $fonction = '', $titre = '', $id = '', $class = '') {
 	trigger_deprecation('spip', '4.3', 'Using "%s" is deprecated', __FUNCTION__);
 	return debut_cadre('trait-couleur', $icone, $fonction, $titre, $id, $class);
 }
@@ -219,7 +187,7 @@ function fin_boite_alerte() {
  */
 function debut_boite_info() {
 	trigger_deprecation('spip', '4.3', 'Using "%s" is deprecated', __FUNCTION__);
- 	return debut_cadre('info', '', '', '', '', '');
+	return debut_cadre('info', '', '', '', '', '');
 }
 
 /**
@@ -237,10 +205,7 @@ function fin_boite_info() {
  * @param string $ze_logo Une image de logo
  * @return string Code PHP.
  */
-function gros_titre(
-	$titre,
-	$ze_logo = ''
-) {
+function gros_titre($titre, $ze_logo = '') {
 	return "<h1 class = 'grostitre'>" . $ze_logo . ' ' . typo($titre) . "</h1>\n";
 }
 
@@ -263,7 +228,7 @@ function debut_onglet($classe = 'barre_onglet') {
 }
 
 function fin_onglet() {
- 	return "</ul></div>\n";
+	return "</ul></div>\n";
 }
 
 function onglet($texte, $lien, $onglet_ref, $onglet, $icone = '') {

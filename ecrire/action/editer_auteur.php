@@ -36,11 +36,10 @@ if (!defined('_ECRIRE_INC_VERSION')) {
  */
 function action_editer_auteur_dist($arg = null) {
 
-	if (is_null($arg)) {
+	if ($arg === null) {
 		$securiser_action = charger_fonction('securiser_action', 'inc');
 		$arg = $securiser_action();
 	}
-
 
 	// si id_auteur n'est pas un nombre, c'est une creation
 	if (
@@ -102,24 +101,21 @@ function auteur_inserer($source = null, $set = null) {
 	}
 
 	// Envoyer aux plugins
-	$champs = pipeline(
-		'pre_insertion',
-		[
-			'args' => [
-				'table' => 'spip_auteurs',
-			],
-			'data' => $champs
-		]
-	);
+	$champs = pipeline('pre_insertion', [
+		'args' => [
+			'table' => 'spip_auteurs',
+		],
+		'data' => $champs,
+	]);
 	$id_auteur = sql_insertq('spip_auteurs', $champs);
 	pipeline(
 		'post_insertion',
 		[
 			'args' => [
 				'table' => 'spip_auteurs',
-				'id_objet' => $id_auteur
+				'id_objet' => $id_auteur,
 			],
-			'data' => $champs
+			'data' => $champs,
 		]
 	);
 
@@ -145,7 +141,6 @@ function auteur_inserer($source = null, $set = null) {
 
 	return $id_auteur;
 }
-
 
 /**
  * Modifier un auteur
@@ -184,8 +179,8 @@ function auteur_modifier($id_auteur, $set = null, $force_update = false) {
 			'auteur',
 			$id_auteur,
 			[
-			'data' => $set,
-			'nonvide' => ['nom' => _T('ecrire:item_nouvel_auteur')]
+				'data' => $set,
+				'nonvide' => ['nom' => _T('ecrire:item_nouvel_auteur')],
 			],
 			$c
 		)
@@ -198,17 +193,8 @@ function auteur_modifier($id_auteur, $set = null, $force_update = false) {
 	if (!$force_update) {
 		// Modification de statut, changement de rubrique ?
 		$c = collecter_requests(
-		// include list
-			[
-				'statut',
-				'new_login',
-				'new_pass',
-				'login',
-				'pass',
-				'webmestre',
-				'restreintes',
-				'id_parent'
-			],
+			// include list
+			['statut', 'new_login', 'new_pass', 'login', 'pass', 'webmestre', 'restreintes', 'id_parent'],
 			// exclude list
 			[],
 			// donnees eventuellement fournies
@@ -301,7 +287,6 @@ function auteur_qualifier($id_auteur, $objets, $qualif) {
 	return objet_qualifier_liens(['auteur' => $id_auteur], $objets, $qualif);
 }
 
-
 /**
  * Modifier le statut d'un auteur, ou son login/pass
  *
@@ -374,7 +359,7 @@ function auteur_instituer($id_auteur, $c, $force_webmestre = false) {
 				'action' => 'instituer',
 				'statut_ancien' => $statut_ancien,
 			],
-			'data' => $champs
+			'data' => $champs,
 		]
 	);
 
@@ -441,7 +426,7 @@ function auteur_instituer($id_auteur, $c, $force_webmestre = false) {
 				'action' => 'instituer',
 				'statut_ancien' => $statut_ancien,
 			],
-			'data' => $champs
+			'data' => $champs,
 		]
 	);
 

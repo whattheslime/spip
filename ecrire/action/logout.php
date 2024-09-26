@@ -32,7 +32,6 @@ include_spip('inc/cookie');
  * Déconnecte l'utilisateur en cours et le redirige sur l'URL indiquée par
  * l'argument de l'action sécurisée, et sinon sur la page d'accueil
  * de l'espace public.
- *
  */
 function action_logout_dist() {
 	$logout = _request('logout');
@@ -109,15 +108,12 @@ function action_logout_dist() {
  * @return string
  */
 function generer_jeton_logout($session, $alea = null) {
-	if (is_null($alea)) {
+	if ($alea === null) {
 		include_spip('inc/acces');
 		$alea = charger_aleas();
 	}
 
-	return md5($session['date_session']
-		. $session['id_auteur']
-		. $session['statut']
-		. $alea);
+	return md5($session['date_session'] . $session['id_auteur'] . $session['statut'] . $alea);
 }
 
 /**

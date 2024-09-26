@@ -8,7 +8,7 @@ use Spip\Test\Squelettes\Balise\CacheSessionTest;
  * @param string $cache_key
  * @param array $page
  */
- function inc_maj_invalideurs($cache_key, $page): void {
+function inc_maj_invalideurs($cache_key, $page): void {
 	if (!isset($page['contexte']['assert_session'])) {
 		return;
 	}

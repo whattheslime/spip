@@ -63,7 +63,6 @@ function balise_FORMULAIRE_ADMIN_stat($args, $context_compil) {
 	return $args;
 }
 
-
 /**
  * Retourne le squelette d'affichage et le contexte de la balise FORMULAIRE_ADMIN
  *
@@ -112,7 +111,6 @@ function balise_FORMULAIRE_ADMIN_dyn($float = '', $debug = '') {
 	include_spip('inc/autoriser');
 	include_spip('base/abstract_sql');
 
-
 	$dejafait = true;
 
 	// Preparer le #ENV des boutons
@@ -143,7 +141,6 @@ function balise_FORMULAIRE_ADMIN_dyn($float = '', $debug = '') {
 
 	return ['formulaires/administration', 0, $env];
 }
-
 
 /**
  * Préparer le contexte d'environnement pour les boutons
@@ -201,7 +198,6 @@ function admin_objet() {
 	return $env;
 }
 
-
 /**
  * Détermine si l'élément est previsualisable
  *
@@ -242,7 +238,6 @@ function admin_preview($type, $id, $desc = null) {
 	return sql_fetsel('1', table_objet_sql($type), id_table_objet($type) . '=' . $id . " AND ($notpub)");
 }
 
-
 /**
  * Régler les boutons dans la langue de l'admin (sinon tant pis)
  *
@@ -278,11 +273,11 @@ function admin_lang() {
  */
 function admin_valider() {
 
-	return ((!isset($GLOBALS['xhtml']) || $GLOBALS['xhtml'] !== 'true') ?
+	return (!isset($GLOBALS['xhtml']) || $GLOBALS['xhtml'] !== 'true') ?
 		(parametre_url(self(), 'var_mode', 'debug', '&')
 			. '&var_mode_affiche=validation') :
 		('http://validator.w3.org/check?uri='
-			. rawurlencode('http://' . $_SERVER['HTTP_HOST'] . nettoyer_uri())));
+			. rawurlencode('http://' . $_SERVER['HTTP_HOST'] . nettoyer_uri()));
 }
 
 /**
@@ -294,7 +289,9 @@ function admin_debug() {
 	return (
 		(isset($GLOBALS['forcer_debug']) && $GLOBALS['forcer_debug']
 		|| isset($GLOBALS['bouton_admin_debug']) && $GLOBALS['bouton_admin_debug']
-		|| defined('_VAR_MODE') && _VAR_MODE == 'debug' && isset($_COOKIE['spip_debug']) && $_COOKIE['spip_debug']) && autoriser('debug')
+		|| defined(
+			'_VAR_MODE'
+		) && _VAR_MODE == 'debug' && isset($_COOKIE['spip_debug']) && $_COOKIE['spip_debug']) && autoriser('debug')
 	)
 		? parametre_url(self(), 'var_mode', 'debug', '&') : '';
 }

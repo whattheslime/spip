@@ -30,7 +30,6 @@ if (!defined('_AGE_CACHE_ATIME')) {
 	define('_AGE_CACHE_ATIME', 3600);
 }
 
-
 /**
  * Évalue approximativement la taille du cache
  *
@@ -66,7 +65,6 @@ function taille_du_cache() {
 	}
 	return $t;
 }
-
 
 /**
  * Invalider les caches liés à telle condition
@@ -117,7 +115,6 @@ function inc_suivre_invalideur_dist($cond, $modif = true) {
 	}
 }
 
-
 /**
  * Purge un répertoire de ses fichiers
  *
@@ -164,7 +161,9 @@ function purger_repertoire($dir, $options = []) {
 		$chemin = "$dir/$fichier";
 		if (is_file($chemin)) {
 			if (
-				(!isset($options['atime']) || @fileatime($chemin) < $options['atime']) && (!isset($options['mtime']) || @filemtime($chemin) < $options['mtime'])
+				(!isset($options['atime']) || @fileatime($chemin) < $options['atime']) && (!isset($options['mtime']) || @filemtime(
+					$chemin
+				) < $options['mtime'])
 			) {
 				supprimer_fichier($chemin);
 				$total++;
@@ -190,7 +189,6 @@ function purger_repertoire($dir, $options = []) {
 
 	return $total;
 }
-
 
 //
 // Destruction des fichiers caches invalides
@@ -219,7 +217,6 @@ function retire_caches($chemin = '') {
 	}
 }
 
-
 // Fonction permettant au compilo de calculer les invalideurs d'une page
 // (note: si absente, n'est pas appellee)
 
@@ -229,7 +226,6 @@ function calcul_invalideurs($corps, $primary, &$boucles, $id_boucle) {
 	}
 	return $corps;
 }
-
 
 // Cette fonction permet de supprimer tous les invalideurs
 // Elle ne touche pas aux fichiers cache eux memes ; elle est
@@ -241,14 +237,12 @@ function supprime_invalideurs() {
 	}
 }
 
-
 // Calcul des pages : noter dans la base les liens d'invalidation
 function maj_invalideurs($fichier, &$page) {
 	if ($maj_invalideurs = charger_fonction('maj_invalideurs', 'inc', true)) {
 		return $maj_invalideurs($fichier, $page);
 	}
 }
-
 
 // les invalideurs sont de la forme "objet/id_objet"
 function insere_invalideur($inval, $fichier) {

@@ -55,10 +55,7 @@ function exec_403_dist($message = '') {
 		echo pipeline('affiche_droite', ['args' => ['exec' => '403', 'exec_erreur' => $exec], 'data' => '']);
 
 		echo debut_droite();
-		echo pipeline(
-			'affiche_milieu',
-			['args' => ['exec' => '403', 'exec_erreur' => $exec], 'data' => $contenu]
-		);
+		echo pipeline('affiche_milieu', ['args' => ['exec' => '403', 'exec_erreur' => $exec], 'data' => $contenu]);
 
 		echo fin_gauche(), fin_page();
 	}

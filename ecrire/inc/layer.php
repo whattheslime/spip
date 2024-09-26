@@ -27,8 +27,7 @@ if (!defined('_ECRIRE_INC_VERSION')) {
 function cadre_depliable($icone, $titre, $deplie, $contenu, $ids = '', $style_cadre = 'r') {
 	$bouton = bouton_block_depliable($titre, $deplie, $ids);
 
-	return
-		debut_cadre($style_cadre, $icone, '', $bouton, '', '', false)
+	return debut_cadre($style_cadre, $icone, '', $bouton, '', '', false)
 		. debut_block_depliable($deplie, $ids)
 		. "<div class='cadre_padding'>\n"
 		. $contenu
@@ -78,7 +77,8 @@ function bouton_block_depliable($texte, $deplie, $ids = '') {
 	return "<$b "
 	. ($bouton_id ? "id='$bouton_id' " : '')
 	. "class='titrem$class'"
-	. (($deplie === -1)
+	. (
+		($deplie === -1)
 		? ''
 		: " onmouseover=\"jQuery(this).depliant('$cible');\""
 	)

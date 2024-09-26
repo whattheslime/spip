@@ -25,34 +25,34 @@ if (isset($GLOBALS['_INC_PUBLIC']) && $GLOBALS['_INC_PUBLIC']) {
 	$GLOBALS['_INC_PUBLIC'] = 1;
 	define('_PIPELINE_SUFFIX', test_espace_prive() ? '_prive' : '');
 
-		if (isset($fond) && !_request('fond')) {
-		} // fond demande dans l'url par page=xxxx ?
-		else {
-			if (isset($_GET[_SPIP_PAGE])) {
-				$fond = (string)$_GET[_SPIP_PAGE];
+	if (isset($fond) && !_request('fond')) {
+	} // fond demande dans l'url par page=xxxx ?
+	else {
+		if (isset($_GET[_SPIP_PAGE])) {
+			$fond = (string) $_GET[_SPIP_PAGE];
 
-				// Securite
-				if (
-					strstr($fond, '/')
-					&& !(isset($GLOBALS['visiteur_session']) && include_spip('inc/autoriser') && autoriser('webmestre'))
-				) {
-					include_spip('inc/minipres');
-					echo minipres();
-					exit;
-				}
-				// l'argument Page a priorite sur l'argument action
-				// le cas se presente a cause des RewriteRule d'Apache
-				// qui permettent d'ajouter un argument dans la QueryString
-				// mais pas d'en retirer un en conservant les autres.
-				if (isset($_GET['action']) && $_GET['action'] === $fond) {
-					unset($_GET['action']);
-				}
-				# sinon, fond par defaut
-			} else {
-				// sinon fond par defaut (cf. assembler.php)
-				$fond = pipeline('detecter_fond_par_defaut', '');
+			// Securite
+			if (
+				strstr($fond, '/')
+				&& !(isset($GLOBALS['visiteur_session']) && include_spip('inc/autoriser') && autoriser('webmestre'))
+			) {
+				include_spip('inc/minipres');
+				echo minipres();
+				exit;
 			}
+			// l'argument Page a priorite sur l'argument action
+			// le cas se presente a cause des RewriteRule d'Apache
+			// qui permettent d'ajouter un argument dans la QueryString
+			// mais pas d'en retirer un en conservant les autres.
+			if (isset($_GET['action']) && $_GET['action'] === $fond) {
+				unset($_GET['action']);
+			}
+			# sinon, fond par defaut
+		} else {
+			// sinon fond par defaut (cf. assembler.php)
+			$fond = pipeline('detecter_fond_par_defaut', '');
 		}
+	}
 
 	$GLOBALS['tableau_des_temps'] = [];
 
@@ -115,23 +115,23 @@ if (isset($GLOBALS['_INC_PUBLIC']) && $GLOBALS['_INC_PUBLIC']) {
 	$debug = (_request('var_mode') == 'debug' || $GLOBALS['tableau_des_temps']) ? [1] : [];
 
 	// affiche-t-on les boutons d'administration ? voir f_admin()
-	$affiche_boutons_admin = ($html && (
-		isset($_COOKIE['spip_admin']) && (!isset($flag_preserver) || !$flag_preserver)
+	$affiche_boutons_admin = (
+		$html && (
+			isset($_COOKIE['spip_admin']) && (!isset($flag_preserver) || !$flag_preserver)
 		|| $debug && include_spip('inc/autoriser') && autoriser('debug')
-		|| defined('_VAR_PREVIEW') && _VAR_PREVIEW)
+		|| defined('_VAR_PREVIEW') && _VAR_PREVIEW
+		)
 	);
 
 	if ($affiche_boutons_admin) {
 		include_spip('balise/formulaire_admin');
 	}
 
-
 	// Execution de la page calculee
 
 	// traitements sur les entetes avant envoi
 	// peut servir pour le plugin de stats
 	$page['entetes'] = pipeline('affichage_entetes_final' . _PIPELINE_SUFFIX, $page['entetes']);
-
 
 	// eval $page et affecte $res
 	include _ROOT_RESTREINT . 'public/evaluer_page.php';

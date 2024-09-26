@@ -43,10 +43,7 @@ class InterdireScriptParanoTest extends TestCase
 				"<code class=\"echappe-js\">&lt;script src='spip.php?page=toto'&gt;&lt;/script&gt;</code>",
 				"<script src='spip.php?page=toto'></script>",
 			],
-			[
-				"<code class=\"echappe-js\">&lt;script&gt;var php=5;&lt;/script&gt;</code>",
-				"<script>var php=5;</script>",
-			],
+			['<code class="echappe-js">&lt;script&gt;var php=5;&lt;/script&gt;</code>', '<script>var php=5;</script>'],
 			[
 				"<code class=\"echappe-js\">&lt;script language='javascript' src='spip.php?page=toto'&gt;&lt;/script&gt;</code>",
 				"<script language='javascript' src='spip.php?page=toto'></script>",

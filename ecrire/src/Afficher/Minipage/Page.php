@@ -14,6 +14,7 @@ namespace Spip\Afficher\Minipage;
 /**
  * Présentation des pages simplifiées publiques pour envoyer un message à un utilisateur
  */
-class Page extends AbstractPage {
+class Page extends AbstractPage
+{
 	public const TYPE = 'public';
 }

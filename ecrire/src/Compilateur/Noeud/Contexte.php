@@ -32,15 +32,23 @@ class Contexte
 	 */
 	public array $descr = [];
 
-	/** Identifiant de la boucle */
+	/**
+	 * Identifiant de la boucle
+	 */
 	public string $id_boucle = '';
 
-	/** Numéro de ligne dans le code source du squelette */
+	/**
+	 * Numéro de ligne dans le code source du squelette
+	 */
 	public int $ligne = 0;
 
-	/** Langue d'exécution */
+	/**
+	 * Langue d'exécution
+	 */
 	public string $lang = '';
 
-	/** Résultat de la compilation: toujours une expression PHP */
+	/**
+	 * Résultat de la compilation: toujours une expression PHP
+	 */
 	public string $code = '';
 }

@@ -6,8 +6,13 @@ namespace Spip\Css\Vars;
  * Collection de variables CSS
  * @internal
  */
-class Collection implements \Stringable {
+class Collection implements \Stringable
+{
 	private array $vars = [];
+
+	public function __toString(): string {
+		return $this->getString();
+	}
 
 	public function add(string $var, string $value) {
 		$this->vars[$var] = $value;
@@ -34,11 +39,6 @@ class Collection implements \Stringable {
 		}
 		return $string;
 	}
-
-	public function __toString(): string {
-		return $this->getString();
-	}
-
 
 	protected function cheminImage(string $image): string {
 		return protocole_implicite(url_absolue(chemin_image($image)));

@@ -7,16 +7,24 @@ namespace Spip\Compilateur\Noeud;
  */
 class Boucle
 {
-	/** Type de noeud */
+	/**
+	 * Type de noeud
+	 */
 	public string $type = 'boucle';
 
-	/** Identifiant de la boucle */
+	/**
+	 * Identifiant de la boucle
+	 */
 	public string $id_boucle;
 
-	/** Identifiant de la boucle parente */
+	/**
+	 * Identifiant de la boucle parente
+	 */
 	public string $id_parent = '';
 
-	/** Un nom explicite qui peut être affecté manuellement à certaines boucles générées */
+	/**
+	 * Un nom explicite qui peut être affecté manuellement à certaines boucles générées
+	 */
 	public string $nom = '';
 
 	/**
@@ -61,7 +69,6 @@ class Boucle
 	 */
 	public $postaff = '';
 
-
 	/**
 	 * La boucle doit-elle sélectionner la langue ?
 	 *
@@ -84,6 +91,7 @@ class Boucle
 	 * Si oui, aucune erreur ne sera générée si la table demandée n'est pas présente
 	 */
 	public bool $table_optionnelle = false;
+
 	public string $type_table_optionnelle = '';
 
 	/**
@@ -255,14 +263,23 @@ class Boucle
 	public array $where = [];
 
 	public array $join = [];
+
 	public array $having = [];
+
 	public $limit = '';
+
 	public array $group = [];
+
 	public array $order = [];
+
 	public array $default_order = [];
+
 	public string $date = 'date';
+
 	public string $hash = '';
+
 	public $in = '';
+
 	public bool $sous_requete = false;
 
 	/**
@@ -306,6 +323,7 @@ class Boucle
 	public $return = '';
 
 	public $numrows = false;
+
 	public $cptrows = false;
 
 	/**
@@ -326,9 +344,10 @@ class Boucle
 	 */
 	public array $descr = [];
 
-	/** Numéro de ligne dans le code source du squelette */
+	/**
+	 * Numéro de ligne dans le code source du squelette
+	 */
 	public int $ligne = 0;
-
 
 	/**
 	 * table pour stocker les modificateurs de boucle tels que tout, plat ...,
@@ -343,13 +362,11 @@ class Boucle
 	 *
 	 * - 'SQL' dans le cadre d'une boucle sur une table SQL
 	 * - 'DATA' pour l'itérateur DATA, ...
-	 *
-	 * @var string
 	 */
 	public string $iterateur = ''; // type d'iterateur
 
 	/**
-	 * @var array $debug Textes qui seront insérés dans l’entête de boucle du mode debug
+	 * @var array Textes qui seront insérés dans l’entête de boucle du mode debug
 	 */
 	public array $debug = [];
 
@@ -358,17 +375,23 @@ class Boucle
 	 * notamment si le champ a été trouve dans une boucle parente
 	 *
 	 * Tableau nom du champ => index de boucle
-	*/
+	 */
 	public array $index_champ = [];
 
-	/** Résultat de la compilation (?) (sert au débusqueur) */
+	/**
+	 * Résultat de la compilation (?) (sert au débusqueur)
+	 */
 	public string $code = '';
 
-	/** Source des filtres (compatibilité) (?) */
+	/**
+	 * Source des filtres (compatibilité) (?)
+	 */
 	public array $fonctions = [];
 
 	// obsoletes, conserves provisoirement pour compatibilite
 	public $tout = false;
+
 	public $plat = false;
+
 	public $lien = false;
 }

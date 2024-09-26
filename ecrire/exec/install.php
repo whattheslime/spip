@@ -38,7 +38,6 @@ define('_FILE_TMP', '_install');
  * @uses install_etape__dist()
  *   Affiche l'écran d'accueil de l'installation,
  *   si aucune étape n'est encore définie.
- *
  */
 function exec_install_dist() {
 	$etape = _request('etape');

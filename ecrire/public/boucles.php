@@ -19,7 +19,6 @@ if (!defined('_ECRIRE_INC_VERSION')) {
 	return;
 }
 
-
 /**
  * Compile une boucle standard, sans condition rajoutée
  *
@@ -33,7 +32,6 @@ if (!defined('_ECRIRE_INC_VERSION')) {
 function boucle_DEFAUT_dist($id_boucle, &$boucles) {
 	return calculer_boucle($id_boucle, $boucles);
 }
-
 
 /**
  * Compile une boucle récursive
@@ -52,7 +50,6 @@ function boucle_DEFAUT_dist($id_boucle, &$boucles) {
 function boucle_BOUCLE_dist($id_boucle, &$boucles) {
 	return calculer_boucle($id_boucle, $boucles);
 }
-
 
 /**
  * Compile une boucle HIERARCHIE

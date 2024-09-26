@@ -33,14 +33,14 @@ if (!defined('_ECRIRE_INC_VERSION')) {
 function action_editer_objet_dist($id = null, $objet = null, $set = null) {
 
 	// appel direct depuis une url avec arg = "objet/id"
-	if (is_null($id) || is_null($objet)) {
+	if ($id === null || $objet === null) {
 		$securiser_action = charger_fonction('securiser_action', 'inc');
 		$arg = $securiser_action();
 		[$objet, $id] = array_pad(explode('/', (string) $arg, 2), 2, null);
 	}
 
 	// appel incorrect ou depuis une url erronnée interdit
-	if (is_null($id) || is_null($objet)) {
+	if ($id === null || $objet === null) {
 		include_spip('inc/minipres');
 		echo minipres(_T('info_acces_interdit'));
 		die();
@@ -148,12 +148,12 @@ function objet_modifier($objet, $id, $set = null) {
 			$objet,
 			$id,
 			[
-			'data' => $set,
-			'nonvide' => '',
-			'invalideur' => $invalideur,
-			'indexation' => $indexation,
-			// champ a mettre a date('Y-m-d H:i:s') s'il y a modif
-			'date_modif' => (isset($desc['field']['date_modif']) ? 'date_modif' : '')
+				'data' => $set,
+				'nonvide' => '',
+				'invalideur' => $invalideur,
+				'indexation' => $indexation,
+				// champ a mettre a date('Y-m-d H:i:s') s'il y a modif
+				'date_modif' => (isset($desc['field']['date_modif']) ? 'date_modif' : ''),
 			],
 			$c
 		)
@@ -247,10 +247,7 @@ function objet_inserer($objet, $id_parent = null, $set = null) {
 	) {
 		lang_select($GLOBALS['visiteur_session']['lang'] ?? '');
 		if (
-			in_array(
-				$GLOBALS['spip_lang'],
-				explode(',', (string) $GLOBALS['meta']['langues_multilingue'])
-			)
+			in_array($GLOBALS['spip_lang'], explode(',', (string) $GLOBALS['meta']['langues_multilingue']))
 		) {
 			$champs['lang'] = $GLOBALS['spip_lang'];
 			if (isset($desc['field']['langue_choisie'])) {
@@ -271,7 +268,6 @@ function objet_inserer($objet, $id_parent = null, $set = null) {
 		}
 	}
 
-
 	if (isset($desc['date']) && ($d = $desc['date']) || isset($desc['field'][$d = 'date'])) {
 		$champs[$d] = date('Y-m-d H:i:s');
 	}
@@ -288,7 +284,7 @@ function objet_inserer($objet, $id_parent = null, $set = null) {
 				'table' => $table_sql,
 				'id_parent' => $id_parent,
 			],
-			'data' => $champs
+			'data' => $champs,
 		]
 	);
 
@@ -300,7 +296,7 @@ function objet_inserer($objet, $id_parent = null, $set = null) {
 		// si la table n'a pas deja un champ id_auteur
 		// et si le form n'a pas poste un id_auteur (meme vide, ce qui sert a annuler cette auto association)
 		if ($id > 0 && !isset($desc['field']['id_auteur'])) {
-			$id_auteur = ((is_null(_request('id_auteur')) && isset($GLOBALS['visiteur_session']['id_auteur']))
+			$id_auteur = ((_request('id_auteur') === null && isset($GLOBALS['visiteur_session']['id_auteur']))
 				? $GLOBALS['visiteur_session']['id_auteur']
 				: _request('id_auteur'));
 			if ($id_auteur) {
@@ -317,7 +313,7 @@ function objet_inserer($objet, $id_parent = null, $set = null) {
 					'id_parent' => $id_parent,
 					'id_objet' => $id,
 				],
-				'data' => $champs
+				'data' => $champs,
 			]
 		);
 	}
@@ -346,7 +342,6 @@ function objet_inserer($objet, $id_parent = null, $set = null) {
 
 	return $id;
 }
-
 
 /**
  * Modifie le statut et/ou la date d'un objet
@@ -462,7 +457,6 @@ function objet_instituer($objet, $id, $c, $calcul_rub = true) {
 		}
 	}
 
-
 	// Envoyer aux plugins
 	$champs = pipeline(
 		'pre_edition',
@@ -478,7 +472,7 @@ function objet_instituer($objet, $id, $c, $calcul_rub = true) {
 				'date_ancienne' => $date_ancienne,
 				'id_parent_ancien' => $id_rubrique,
 			],
-			'data' => $champs
+			'data' => $champs,
 		]
 	);
 
@@ -517,7 +511,7 @@ function objet_instituer($objet, $id, $c, $calcul_rub = true) {
 				'date_ancienne' => $date_ancienne,
 				'id_parent_ancien' => $id_rubrique,
 			],
-			'data' => $champs
+			'data' => $champs,
 		]
 	);
 
@@ -570,7 +564,6 @@ function objet_instituer($objet, $id, $c, $calcul_rub = true) {
  * @param string $statut
  * @param array $champs
  * @param bool $cond
- * @return void
  */
 function objet_editer_heritage($objet, $id, $id_rubrique, $statut, $champs, $cond = true) {
 	$table_sql = table_objet_sql($objet);
@@ -619,7 +612,6 @@ function objet_editer_heritage($objet, $id, $id_rubrique, $statut, $champs, $con
 		calculer_rubriques_if($id_rubrique, $champs, $infos, $postdate);
 	}
 }
-
 
 /**
  * Lit un objet donné connu par son id ou par un identifiant textuel unique et renvoie tout ou partie de sa
@@ -678,9 +670,7 @@ function objet_lire($objet, $valeur_id, $options = []) {
 			$table = table_objet_sql($objet);
 
 			// La condition est appliquée sur le champ désigné par l'utilisateur.
-			$where = [
-				$champ_id . '=' . sql_quote($valeur_id)
-			];
+			$where = [$champ_id . '=' . sql_quote($valeur_id)];
 
 			// Acquisition de tous les champs de l'objet : si l'accès SQL retourne une erreur on renvoie un tableau vide.
 			$valeurs = sql_fetsel('*', $table, $where);

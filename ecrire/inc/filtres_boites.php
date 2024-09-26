@@ -20,7 +20,6 @@ if (!defined('_ECRIRE_INC_VERSION')) {
 	return;
 }
 
-
 /**
  * Compile la balise `#BOITE_OUVRIR` ouvrant une boîte de contenu
  *
@@ -84,7 +83,6 @@ function balise_BOITE_PIED_dist($p) {
 	return $p;
 }
 
-
 /**
  * Compile la balise `#BOITE_FERMER` clôturant une boîte de contenu
  *
@@ -139,7 +137,6 @@ function boite_ouvrir($titre, $class = '', $head_class = '', $id = '') {
 	. '<div class="box__body clearfix">';
 }
 
-
 /**
  * Passer au pied d'une boîte
  *
@@ -158,7 +155,6 @@ function boite_pied($class = 'act') {
 	return '</div>'
 	. "<div class=\"$class clearfix\">";
 }
-
 
 /**
  * Fermer une boîte

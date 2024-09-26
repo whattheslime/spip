@@ -26,7 +26,6 @@ if (!defined('_ECRIRE_INC_VERSION')) {
  * @uses debloquer_edition()
  *
  * @global array visiteur_session
- * @return void
  */
 function action_debloquer_edition_dist() {
 

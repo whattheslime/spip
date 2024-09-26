@@ -32,7 +32,7 @@ function format_inclure_html($file, $args, $prof) {
 	}
 	$args = $args ? '{' . implode(', ', $args) . '}' : ('');
 
-	return ('<INCLURE' . $t . $args . '>');
+	return '<INCLURE' . $t . $args . '>';
 }
 
 function format_polyglotte_html($args, $prof) {
@@ -41,7 +41,7 @@ function format_polyglotte_html($args, $prof) {
 		$contenu[] = ($l ? "[$l]" : '') . $t;
 	}
 
-	return ('<multi>' . implode(' ', $contenu) . '</multi>');
+	return '<multi>' . implode(' ', $contenu) . '</multi>';
 }
 
 function format_idiome_html($nom, $module, $args, $filtres, $prof) {
@@ -50,7 +50,7 @@ function format_idiome_html($nom, $module, $args, $filtres, $prof) {
 	}
 	$args = ($args ? '{' . implode(',', $args) . '}' : (''));
 
-	return ('<:' . ($module ? "$module:" : '') . $nom . $args . $filtres . ':>');
+	return '<:' . ($module ? "$module:" : '') . $nom . $args . $filtres . ':>';
 }
 
 function format_champ_html($nom, $boucle, $etoile, $avant, $apres, $args, $filtres, $prof) {
@@ -65,7 +65,7 @@ function format_champ_html($nom, $boucle, $etoile, $avant, $apres, $args, $filtr
 
 	$s = ($avant || $apres || $filtres || str_contains((string) $args, '(#'));
 
-	return ($s ? "[$avant($nom)$apres]" : $nom);
+	return $s ? "[$avant($nom)$apres]" : $nom;
 }
 
 function format_critere_html($critere) {
@@ -84,12 +84,12 @@ function format_critere_html($critere) {
 		$critere[$k] = $crit_s;
 	}
 
-	return ($critere ? '{' . implode(',', $critere) . '}' : (''));
+	return $critere ? '{' . implode(',', $critere) . '}' : ('');
 }
 
 function format_liste_html($fonc, $args, $prof) {
-	return ((($fonc !== '') ? "|$fonc" : $fonc)
-		. ($args ? '{' . implode(',', $args) . '}' : ('')));
+	return (($fonc !== '') ? "|$fonc" : $fonc)
+		. ($args ? '{' . implode(',', $args) . '}' : (''));
 }
 
 // Concatenation sans separateur: verifier qu'on ne cree pas de faux lexemes
@@ -124,7 +124,7 @@ function format_suite_html($args) {
 		}
 	}
 
-	return implode('', array_map(fn($arg) => reset($arg), $args));
+	return implode('', array_map(fn ($arg) => reset($arg), $args));
 }
 
 function format_texte_html($texte) {

@@ -11,7 +11,6 @@
 
 use Spip\Compilateur\Noeud\Texte;
 
-
 if (!defined('_ECRIRE_INC_VERSION')) {
 	return;
 }
@@ -113,9 +112,9 @@ function decompiler_liste($sources, $fmt = '', $prof = 0) {
 	foreach ($sources as $arg) {
 		if (!is_array($arg)) {
 			continue; // ne devrait pas arriver.
-		} else {
-			$r = array_shift($arg);
 		}
+		$r = array_shift($arg);
+
 		$args = [];
 		foreach ($arg as $v) {
 			// cas des arguments entoures de ' ou "
@@ -183,7 +182,6 @@ function decompiler_criteres($boucle, $fmt = '', $prof = 0) {
 
 	return $res;
 }
-
 
 function decompiler_($liste, $fmt = '', $prof = 0) {
 	if (!is_array($liste)) {

@@ -71,7 +71,10 @@ function cvtconf_formulaire_traiter($flux) {
 		&& !charger_fonction('traiter', "formulaires/$form/", true) // sans fonction traiter()
 	) {
 		$trace = cvtconf_formulaires_configurer_enregistre($form, $flux['args']['args']);
-		$flux['data'] = ['message_ok' => _T('config_info_enregistree') . $trace, 'editable' => true];
+		$flux['data'] = [
+			'message_ok' => _T('config_info_enregistree') . $trace,
+			'editable' => true,
+		];
 	}
 
 	return $flux;
@@ -101,7 +104,7 @@ function cvtconf_formulaires_configurer_enregistre($form, $args) {
 		'formulaire_charger',
 		[
 			'args' => ['form' => $form, 'args' => $args, 'je_suis_poste' => false],
-			'data' => $valeurs
+			'data' => $valeurs,
 		]
 	);
 	// ne pas stocker editable !
@@ -204,7 +207,6 @@ function cvtconf_formulaires_configurer_recense($form) {
 			}
 		}
 	}
-
 
 	cvtconf_configurer_lire_meta($form, $valeurs);
 

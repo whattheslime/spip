@@ -19,7 +19,6 @@ if (!defined('_ECRIRE_INC_VERSION')) {
 	return;
 }
 
-
 /**
  * Supprimer le logo d'un objet
  *
@@ -41,8 +40,7 @@ function logo_supprimer($objet, $id_objet, $etat) {
 		if ((is_countable($logo) ? count($logo) : 0) < 6) {
 			spip_logger('logo')->info('Supprimer ancien logo ' . json_encode($logo, JSON_THROW_ON_ERROR));
 			spip_unlink($logo[0]);
-		}
-		elseif (
+		} elseif (
 			($doc = $logo[5])
 			&& isset($doc['id_document'])
 			&& ($id_document = $doc['id_document'])
@@ -128,7 +126,6 @@ function logo_modifier($objet, $id_objet, $etat, $source) {
 		logo_supprimer($objet, $id_objet, $etat);
 	}
 
-
 	include_spip('inc/autoriser');
 	$source['mode'] = $mode_document;
 	$ajouter_documents = charger_fonction('ajouter_documents', 'action');
@@ -140,7 +137,8 @@ function logo_modifier($objet, $id_objet, $etat, $source) {
 
 	if (!is_numeric($id_document)) {
 		$erreur = ($id_document ?: 'Erreur inconnue');
-		spip_logger('logo')->info("Erreur ajout logo : $erreur pour source=" . json_encode($source, JSON_THROW_ON_ERROR));
+		spip_logger('logo')
+			->info("Erreur ajout logo : $erreur pour source=" . json_encode($source, JSON_THROW_ON_ERROR));
 		return $erreur;
 	}
 
@@ -168,7 +166,6 @@ function logo_migrer_en_base($objet, $time_limit) {
 	$dir_logos = sous_repertoire(_DIR_IMG, 'logo');
 	include_spip('inc/filtres_images_lib_mini');
 	$formats_logos = _image_extensions_logos(['objet' => $objet]);
-
 
 	$trouver_table = charger_fonction('trouver_table', 'base');
 	$chercher_logo = charger_fonction('chercher_logo', 'inc');
@@ -202,7 +199,11 @@ function logo_migrer_en_base($objet, $time_limit) {
 					$filescheck[$short] = $file;
 				}
 				// trouver ceux deja migres
-				$deja = sql_allfetsel('fichier', 'spip_documents', sql_in('fichier', array_keys($filescheck)) . " AND mode LIKE 'logo%'");
+				$deja = sql_allfetsel(
+					'fichier',
+					'spip_documents',
+					sql_in('fichier', array_keys($filescheck)) . " AND mode LIKE 'logo%'"
+				);
 				if (is_countable($deja) ? count($deja) : 0) {
 					$deja = array_column($deja, 'fichier');
 					$restant = array_diff(array_keys($filescheck), $deja);
@@ -222,7 +223,8 @@ function logo_migrer_en_base($objet, $time_limit) {
 		}
 
 		$count = (is_countable($files) ? count($files) : 0);
-		spip_logger('maj')->notice("logo_migrer_en_base $objet $mode : " . $count . ' logos restant');
+		spip_logger('maj')
+			->notice("logo_migrer_en_base $objet $mode : " . $count . ' logos restant');
 
 		$deja = [];
 		foreach ($files as $file) {
@@ -283,7 +285,6 @@ function logo_migrer_en_base($objet, $time_limit) {
 
 	effacer_meta('drapeau_edition');
 }
-
 
 /**
  * Retourne le type de logo tel que `art` depuis le nom de clé primaire

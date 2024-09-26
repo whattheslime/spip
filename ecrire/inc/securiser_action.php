@@ -15,7 +15,7 @@
  * @package SPIP\Core\Actions
  */
 
- use Spip\Chiffrer\SpipCles;
+use Spip\Chiffrer\SpipCles;
 
 if (!defined('_ECRIRE_INC_VERSION')) {
 	return;
@@ -53,17 +53,17 @@ if (!defined('_ECRIRE_INC_VERSION')) {
 function inc_securiser_action_dist($action = '', $arg = '', $redirect = '', $mode = false, $att = '', $public = false) {
 	if ($action) {
 		return securiser_action_auteur($action, $arg, $redirect, $mode, $att, $public);
-	} else {
-		$arg = _request('arg') ?? '';
-		$hash = _request('hash') ?? '';
-		$action = _request('action') ?: (_request('formulaire_action') ?? '');
-		if ($a = verifier_action_auteur("$action-$arg", $hash)) {
-			return $arg;
-		}
-		include_spip('inc/minipres');
-		echo minipres();
-		exit;
 	}
+	$arg = _request('arg') ?? '';
+	$hash = _request('hash') ?? '';
+	$action = _request('action') ?: (_request('formulaire_action') ?? '');
+	if ($a = verifier_action_auteur("$action-$arg", $hash)) {
+		return $arg;
+	}
+	include_spip('inc/minipres');
+	echo minipres();
+	exit;
+
 }
 
 /**
@@ -86,8 +86,7 @@ function demander_confirmation_avant_action($titre, $titre_bouton, $url_action =
 		$url_action = self();
 		$action = _request('action');
 		$url_action = parametre_url($url_action, 'action', $action, '&');
-	}
-	else {
+	} else {
 		$action = parametre_url($url_action, 'action');
 	}
 
@@ -141,15 +140,19 @@ function securiser_action_auteur($action, $arg, $redirect = '', $mode = false, $
 
 		$r = rawurlencode($redirect);
 		if ($mode === -1) {
-			return ['action' => $action, 'arg' => $arg, 'hash' => $hash];
-		} else {
-			return generer_url_action(
-				$action,
-				'arg=' . rawurlencode($arg) . "&hash=$hash" . ($r ? "&redirect=$r" : ''),
-				$mode,
-				$public
-			);
+			return [
+				'action' => $action,
+				'arg' => $arg,
+				'hash' => $hash,
+			];
 		}
+		return generer_url_action(
+			$action,
+			'arg=' . rawurlencode($arg) . "&hash=$hash" . ($r ? "&redirect=$r" : ''),
+			$mode,
+			$public
+		);
+
 	}
 
 	// mode formulaire
@@ -174,7 +177,7 @@ function securiser_action_auteur($action, $arg, $redirect = '', $mode = false, $
 function caracteriser_auteur($id_auteur = null) {
 	static $caracterisation = [];
 
-	if (is_null($id_auteur) && !isset($GLOBALS['visiteur_session']['id_auteur'])) {
+	if ($id_auteur === null && !isset($GLOBALS['visiteur_session']['id_auteur'])) {
 		include_spip('inc/session');
 		// si l'auteur courant n'est pas connu alors qu'il peut demander une action
 		// c'est une connexion par php_auth ou 1 instal, on se rabat sur le cookie.
@@ -183,12 +186,12 @@ function caracteriser_auteur($id_auteur = null) {
 			return [intval($cookie), ''];
 			// Necessaire aux forums anonymes.
 			// Pour le reste, ca echouera.
-		} else {
-			return ['0', ''];
 		}
+		return ['0', ''];
+
 	}
 	// Eviter l'acces SQL si le pass est connu de PHP
-	if (is_null($id_auteur)) {
+	if ($id_auteur === null) {
 		$id_auteur = $GLOBALS['visiteur_session']['id_auteur'] ?? 0;
 		if (isset($GLOBALS['visiteur_session']['pass']) && $GLOBALS['visiteur_session']['pass']) {
 			return $caracterisation[$id_auteur] = [$id_auteur, $GLOBALS['visiteur_session']['pass']];
@@ -209,9 +212,9 @@ function caracteriser_auteur($id_auteur = null) {
 		echo minipres();
 		exit;
 	} // Visiteur anonyme, pour ls forums par exemple
-	else {
-		return ['0', ''];
-	}
+
+	return ['0', ''];
+
 }
 
 /**
@@ -239,7 +242,8 @@ function _action_get_alea(string $alea): string {
 			if (empty($GLOBALS['meta'][$alea])) {
 				include_spip('inc/minipres');
 				echo minipres();
-				spip_logger()->info("$alea indisponible");
+				spip_logger()
+					->info("$alea indisponible");
 				exit;
 			}
 		}
@@ -259,7 +263,6 @@ function calculer_action_auteur($action, $id_auteur = null) {
 
 	return _action_auteur($action, $id_auteur, $pass, 'alea_ephemere');
 }
-
 
 /**
  * Verifier le hash de signature d'une action
@@ -311,7 +314,6 @@ function verifier_cle_action($action, #[\SensitiveParameter] $cle) {
 	return hash_equals($cle, calculer_cle_action($action));
 }
 
-
 /**
  * Calculer le token de prévisu
  *
@@ -320,12 +322,12 @@ function verifier_cle_action($action, #[\SensitiveParameter] $cle) {
  *
  * @see verifier_token_previsu()
  * @param string $url Url à autoriser en prévisu
- * @param int|null id_auteur qui génère le token de prévisu. Null utilisera auteur courant.
+ * @param int|null $id_auteur qui génère le token de prévisu. Null utilisera auteur courant.
  * @param string $alea Nom de l’alea à utiliser
  * @return string Token, de la forme "{id}*{hash}"
  */
 function calculer_token_previsu($url, $id_auteur = null, $alea = 'alea_ephemere') {
-	if (is_null($id_auteur) && !empty($GLOBALS['visiteur_session']['id_auteur'])) {
+	if ($id_auteur === null && !empty($GLOBALS['visiteur_session']['id_auteur'])) {
 		$id_auteur = $GLOBALS['visiteur_session']['id_auteur'];
 	}
 	if (!$id_auteur = (int) $id_auteur) {
@@ -337,7 +339,6 @@ function calculer_token_previsu($url, $id_auteur = null, $alea = 'alea_ephemere'
 	$token = _action_auteur('previsualiser-' . $url, $id_auteur, secret_du_site(), $alea);
 	return "$id_auteur-$token";
 }
-
 
 /**
  * Vérifie un token de prévisu
@@ -387,7 +388,7 @@ function verifier_token_previsu(#[\SensitiveParameter] $token) {
  */
 function decrire_token_previsu() {
 	static $desc = null;
-	if (is_null($desc)) {
+	if ($desc === null) {
 		$desc = ($token = _request('var_previewtoken')) ? verifier_token_previsu($token) : false;
 	}
 	return $desc;

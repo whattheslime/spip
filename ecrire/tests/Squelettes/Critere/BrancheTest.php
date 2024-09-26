@@ -4,9 +4,7 @@ declare(strict_types=1);
 
 namespace Spip\Test\Squelettes\Critere;
 
-use PHPUnit\Framework\Attributes\Depends;
 use Spip\Test\SquelettesTestCase;
-use Spip\Test\Templating;
 
 class BrancheTest extends SquelettesTestCase
 {

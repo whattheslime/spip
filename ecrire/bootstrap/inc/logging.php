@@ -26,9 +26,9 @@ use SpipLeague\Component\Logger\LineFormatter;
  * ```
  */
 function spip_logger(?string $name = null): LoggerInterface {
-	/* @var array<string,LoggerInterface> */
+	/** @var array<string,LoggerInterface> */
 	static $loggers = [];
-	/* @var ?Factory */
+	/** @var ?Factory */
 	static $loggerFactory = null;
 
 	$name ??= 'spip';
@@ -55,7 +55,7 @@ function spip_logger(?string $name = null): LoggerInterface {
 			// échappement des log
 			'brut' => defined('_LOG_BRUT') ? constant('_LOG_BRUT') : null,
 			// à quel level on commence à logguer
-			'max_level' => (function() use ($spipToMonologLevels): Level {
+			'max_level' => (function () use ($spipToMonologLevels): Level {
 				if (!defined('_LOG_FILTRE_GRAVITE')) {
 					return Level::Notice;
 				}
@@ -66,7 +66,7 @@ function spip_logger(?string $name = null): LoggerInterface {
 				if (isset($spipToMonologLevels[$level])) {
 					return $spipToMonologLevels[$level];
 				}
-				return match($level) {
+				return match ($level) {
 					LogLevel::EMERGENCY => Level::Emergency,
 					LogLevel::ALERT => Level::Alert,
 					LogLevel::CRITICAL => Level::Critical,
@@ -83,7 +83,7 @@ function spip_logger(?string $name = null): LoggerInterface {
 			// rotation: taille max d’un fichier
 			'max_size' => ($GLOBALS['taille_des_logs'] ??= 100) * 1024,
 			// chemin du fichier de log
-			'log_path' => (function() {
+			'log_path' => (function () {
 				$log_dir = defined('_DIR_LOG') ? str_replace(_DIR_RACINE, '', constant('_DIR_LOG')) : 'tmp/log/';
 				$log_file = defined('_FILE_LOG') ? constant('_FILE_LOG') : 'spip';
 				$log_suffix = defined('_FILE_LOG_SUFFIX') ? constant('_FILE_LOG_SUFFIX') : '.log';
@@ -106,9 +106,8 @@ function spip_logger(?string $name = null): LoggerInterface {
 		unset($args, $env, $spipToMonologLevels);
 	}
 
-    return $loggers[$name] ??= $loggerFactory->createFromFilename($name);
+	return $loggers[$name] ??= $loggerFactory->createFromFilename($name);
 }
-
 
 /**
  * Enregistrement des événements
@@ -132,9 +131,8 @@ function spip_logger(?string $name = null): LoggerInterface {
  * @param mixed           $message Message à consigner
  * @param int|string|null $name    Nom du fichier de log, "spip" par défaut
  */
-function spip_log($message, $name = null): void
-{
-    static $spipToMonologLevels = [
+function spip_log($message, $name = null): void {
+	static $spipToMonologLevels = [
 		Level::Emergency, // _LOG_HS
 		Level::Alert,     // _LOG_ALERTE_ROUGE
 		Level::Critical,  // _LOG_CRITIQUE
@@ -143,16 +141,16 @@ function spip_log($message, $name = null): void
 		Level::Notice,    // _LOG_INFO_IMPORTANTE
 		Level::Info,      // _LOG_INFO
 		Level::Debug,     // _LOG_DEBUG
-    ];
+	];
 
 	# Éviter de trop polluer les logs de dépréciation
 	static $deprecated = [];
 
-    preg_match('/^([a-z_]*)\.?(\d)?$/iS', (string) $name, $regs);
-    $logFile = 'spip';
-    if (isset($regs[1]) && strlen($regs[1])) {
-        $logFile = $regs[1];
-    }
+	preg_match('/^([a-z_]*)\.?(\d)?$/iS', (string) $name, $regs);
+	$logFile = 'spip';
+	if (isset($regs[1]) && strlen($regs[1])) {
+		$logFile = $regs[1];
+	}
 
 	if (!isset($regs[2])) {
 		$level = Level::Info;
@@ -161,12 +159,7 @@ function spip_log($message, $name = null): void
 	}
 
 	$logger = spip_logger($logFile);
-	$logger->log($level, preg_replace(
-        "/\n*$/",
-        "\n",
-        is_string($message) ? $message : print_r($message, true)
-    ));
-
+	$logger->log($level, preg_replace("/\n*$/", "\n", is_string($message) ? $message : print_r($message, true)));
 
 	if (!array_key_exists($logFile, $deprecated)) {
 		$deprecated[$logFile] = true;
@@ -195,7 +188,6 @@ function spip_log($message, $name = null): void
 		}
 	}
 }
-
 
 /**
  * Enregistrement des journaux

@@ -25,7 +25,6 @@ if (!defined('_ECRIRE_INC_VERSION')) {
 	return;
 }
 
-
 /**
  * Réparer la base de données
  */

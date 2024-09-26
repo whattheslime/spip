@@ -72,12 +72,7 @@ function base_dump_dir($meta) {
  * @param bool $affiche_vrai_prefixe
  * @return array
  */
-function base_lister_toutes_tables(
-	$serveur = '',
-	$tables = [],
-	$exclude = [],
-	$affiche_vrai_prefixe = false
-) {
+function base_lister_toutes_tables($serveur = '', $tables = [], $exclude = [], $affiche_vrai_prefixe = false) {
 	spip_connect($serveur);
 	$connexion = $GLOBALS['connexions'][$serveur ?: 0];
 	$prefixe = $connexion['prefixe'];
@@ -110,7 +105,6 @@ function base_prefixe_tables($serveur = '') {
 	return $connexion['prefixe'];
 }
 
-
 /**
  * Fabrique la liste a cocher des tables a traiter (copie, delete, sauvegarde)
  *
@@ -126,7 +120,7 @@ function base_saisie_tables($name, $tables, $exclude = [], $post = null, $serveu
 	$res = [];
 	foreach ($tables as $k => $t) {
 		// par defaut tout est coche sauf les tables dans $exclude
-		$check = is_null($post) ? !in_array($t, $exclude) : in_array($t, $post);
+		$check = $post === null ? !in_array($t, $exclude) : in_array($t, $post);
 
 		$res[$k] = "<input type='checkbox' value='$t' name='$name"
 			. "[]' id='$name$k'"
@@ -144,7 +138,6 @@ function base_saisie_tables($name, $tables, $exclude = [], $post = null, $serveu
 	return $res;
 }
 
-
 /**
  * Lister les tables non exportables par defaut
  * (liste completable par le pipeline lister_tables_noexport
@@ -155,7 +148,7 @@ function base_saisie_tables($name, $tables, $exclude = [], $post = null, $serveu
 function lister_tables_noexport() {
 	// par defaut tout est exporte sauf les tables ci-dessous
 	static $EXPORT_tables_noexport = null;
-	if (!is_null($EXPORT_tables_noexport)) {
+	if ($EXPORT_tables_noexport !== null) {
 		return $EXPORT_tables_noexport;
 	}
 
@@ -185,7 +178,7 @@ function lister_tables_noexport() {
  */
 function lister_tables_noimport() {
 	static $IMPORT_tables_noimport = null;
-	if (!is_null($IMPORT_tables_noimport)) {
+	if ($IMPORT_tables_noimport !== null) {
 		return $IMPORT_tables_noimport;
 	}
 
@@ -205,7 +198,6 @@ function lister_tables_noimport() {
 	return $IMPORT_tables_noimport;
 }
 
-
 /**
  * Lister les tables a ne pas effacer
  * (liste completable par le pipeline lister_tables_noerase
@@ -215,7 +207,7 @@ function lister_tables_noimport() {
  */
 function lister_tables_noerase() {
 	static $IMPORT_tables_noerase = null;
-	if (!is_null($IMPORT_tables_noerase)) {
+	if ($IMPORT_tables_noerase !== null) {
 		return $IMPORT_tables_noerase;
 	}
 
@@ -226,13 +218,12 @@ function lister_tables_noerase() {
 		'spip_referers',
 		'spip_referers_articles',
 		'spip_visites',
-		'spip_visites_articles'
+		'spip_visites_articles',
 	];
 	$IMPORT_tables_noerase = pipeline('lister_tables_noerase', $IMPORT_tables_noerase);
 
 	return $IMPORT_tables_noerase;
 }
-
 
 /**
  * construction de la liste des tables pour le dump :
@@ -264,10 +255,7 @@ function base_liste_table_for_dump($exclude_tables = []) {
 				$tables_auxiliaires[$t] = true;
 			}
 			if (is_countable($infos['tables_jointures']) ? count($infos['tables_jointures']) : 0) {
-				$tables_jointures[$t] = array_merge(
-					$tables_jointures[$t] ?? [],
-					$infos['tables_jointures']
-				);
+				$tables_jointures[$t] = array_merge($tables_jointures[$t] ?? [], $infos['tables_jointures']);
 			}
 		}
 	}
@@ -319,7 +307,7 @@ function base_liste_table_for_dump($exclude_tables = []) {
 			# si une restauration est interrompue,
 			# cela se verra mieux si il manque des objets
 			# que des liens
-		array_unshift($tables_for_dump, $link_table);
+			array_unshift($tables_for_dump, $link_table);
 		}
 	}
 
@@ -340,9 +328,8 @@ function base_liste_table_for_dump($exclude_tables = []) {
 function base_vider_tables_destination_copie($tables, $exclure_tables = [], $serveur = '') {
 	$trouver_table = charger_fonction('trouver_table', 'base');
 
-	spip_logger('base')->notice(
-		'Vider ' . count($tables) . " tables sur serveur '$serveur' : " . implode(', ', $tables),
-	);
+	spip_logger('base')
+		->notice('Vider ' . count($tables) . " tables sur serveur '$serveur' : " . implode(', ', $tables));
 	foreach ($tables as $table) {
 		// sur le serveur principal, il ne faut pas supprimer l'auteur loge !
 		if (!in_array($table, $exclure_tables) && ($table != 'spip_auteurs' || $serveur != '')) {
@@ -373,7 +360,6 @@ function base_vider_tables_destination_copie($tables, $exclure_tables = [], $ser
  *
  * @param bool $move
  * @param string $serveur
- * @return void
  */
 function base_conserver_copieur($move = true, $serveur = '') {
 	// s'asurer qu'on a pas deja fait la manip !
@@ -465,7 +451,8 @@ function base_preparer_table_dest($table, $desc, $serveur_dest, $init = false) {
 			}
 		} else {
 			sql_drop_table($table, '', $serveur_dest);
-			spip_logger('dump')->notice("drop table '$table' sur serveur '$serveur_dest'");
+			spip_logger('dump')
+				->notice("drop table '$table' sur serveur '$serveur_dest'");
 		}
 		$desc_dest = false;
 	}
@@ -539,9 +526,7 @@ function base_copier_tables($status_file, $tables, $serveur_source, $serveur_des
 
 	$logger = spip_logger('dump');
 
-	$logger->notice(
-		'Copier ' . count($tables) . " tables de '$serveur_source' vers '$serveur_dest'",
-	);
+	$logger->notice('Copier ' . count($tables) . " tables de '$serveur_source' vers '$serveur_dest'");
 
 	if (!$inserer_copie = charger_fonction($fonction_base_inserer, $racine_fonctions, true)) {
 		$logger->notice("Fonction '{$racine_fonctions}_$fonction_base_inserer' inconnue. Abandon");
@@ -569,15 +554,9 @@ function base_copier_tables($status_file, $tables, $serveur_source, $serveur_des
 	// si init pas encore faite, vider les tables du serveur destination
 	if (!$initialisation_copie) {
 		if (
-			!$vider_tables_destination_copie = charger_fonction(
-				'vider_tables_destination_copie',
-				$racine_fonctions,
-				true
-			)
+			!$vider_tables_destination_copie = charger_fonction('vider_tables_destination_copie', $racine_fonctions, true)
 		) {
-			$logger->notice(
-				"Fonction '{$racine_fonctions}_vider_tables_destination_copie' inconnue. Abandon",
-			);
+			$logger->notice("Fonction '{$racine_fonctions}_vider_tables_destination_copie' inconnue. Abandon");
 
 			return true; // echec mais on a fini, donc true
 		}
@@ -634,16 +613,7 @@ function base_copier_tables($status_file, $tables, $serveur_source, $serveur_des
 				while (true) {
 					$n = (int) $status['tables_copiees'][$table];
 					// on copie par lot de 400
-					$res = sql_select(
-						'*',
-						$table,
-						$where[$table] ?? '',
-						'',
-						'',
-						"$n,400",
-						'',
-						$serveur_source
-					);
+					$res = sql_select('*', $table, $where[$table] ?? '', '', '', "$n,400", '', $serveur_source);
 					while ($row = sql_fetch($res, $serveur_source)) {
 						$rows = [$row];
 						// lire un groupe de donnees si demande en option
@@ -701,7 +671,9 @@ function base_copier_tables($status_file, $tables, $serveur_source, $serveur_des
 					$callback_progression(
 						0,
 						$status['tables_copiees'][$table],
-						"$table" . ((is_numeric($status['tables_copiees'][$table]) && $status['tables_copiees'][$table] >= 0) ? '[Echec]' : '')
+						"$table" . ((is_numeric(
+							$status['tables_copiees'][$table]
+						) && $status['tables_copiees'][$table] >= 0) ? '[Echec]' : '')
 					);
 				}
 			}
@@ -716,9 +688,13 @@ function base_copier_tables($status_file, $tables, $serveur_source, $serveur_des
 	// abandonner
 	if ((is_countable($status['tables_copiees']) ? count($status['tables_copiees']) : 0) < count($tables)) {
 		$logger->error(
-			'Nombre de tables copiees incorrect : ' . (is_countable($status['tables_copiees']) ? count($status['tables_copiees']) : 0) . '/' . count($tables),
+			'Nombre de tables copiees incorrect : ' . (is_countable($status['tables_copiees']) ? count(
+				$status['tables_copiees']
+			) : 0) . '/' . count($tables),
 		);
-		$status['errors'][] = 'Nombre de tables copiees incorrect : ' . (is_countable($status['tables_copiees']) ? count($status['tables_copiees']) : 0) . '/' . count($tables);
+		$status['errors'][] = 'Nombre de tables copiees incorrect : ' . (is_countable($status['tables_copiees']) ? count(
+			$status['tables_copiees']
+		) : 0) . '/' . count($tables);
 		ecrire_fichier($status_file, serialize($status));
 	}
 

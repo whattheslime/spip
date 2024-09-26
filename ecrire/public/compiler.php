@@ -59,7 +59,6 @@ include_spip('public/jointures');
 // pour la balise #INCLURE
 // mais pas pour <INCLURE> dont le fond est defini explicitement.
 
-
 function argumenter_inclure(
 	$params,
 	$rejet_filtres,
@@ -87,13 +86,13 @@ function argumenter_inclure(
 				if ($n || $k || $fond1) {
 					$erreur_p_i_i = [
 						'zbug_parametres_inclus_incorrects',
-						['param' => $var->nom_champ]
+						['param' => $var->nom_champ],
 					];
 					erreur_squelette($erreur_p_i_i, $p);
 					break;
-				} else {
-					$l[1] = calculer_liste($val, $p->descr, $boucles, $id_boucle);
 				}
+				$l[1] = calculer_liste($val, $p->descr, $boucles, $id_boucle);
+
 			} else {
 				preg_match(',^([^=]*)(=?)(.*)$,m', $var->texte, $m);
 				$m = array_pad($m, 3, null);
@@ -194,7 +193,7 @@ function calculer_inclure($p, &$boucles, $id_boucle) {
 		}
 		$erreur_p_i_i = [
 			'zbug_parametres_inclus_incorrects',
-			['param' => print_r($trace, true)]
+			['param' => print_r($trace, true)],
 		];
 		erreur_squelette($erreur_p_i_i, $p);
 
@@ -250,7 +249,6 @@ function calculer_inclure($p, &$boucles, $id_boucle) {
 	return "\n'<'.'" . '?php ' . $code . "\n?'." . "'>'";
 }
 
-
 /**
  * Gérer les statuts declarés pour cette table
  *
@@ -274,10 +272,8 @@ function instituer_boucle(&$boucle, $echapper = true, $ignore_previsu = false) {
 	  'exception'=>'statut', // liste des modificateurs qui annulent le filtrage par statut
 							 // si plusieurs valeurs : array('statut','tout','lien')
 	);
-
 	Pour 'publier' ou 'previsu', si la chaine commence par un "!" on exclu au lieu de filtrer sur les valeurs donnees
 	si la chaine est vide, on ne garde rien si elle est seulement "!" on n'exclu rien
-
 	Si le statut repose sur une jointure, 'champ' est alors un tableau du format suivant :
 	'champ'=>array(
 		array(table1, cle1),
@@ -285,10 +281,9 @@ function instituer_boucle(&$boucle, $echapper = true, $ignore_previsu = false) {
 		array(tablen, clen),
 		champstatut
 	 )
-
 	champstatut est alors le champ statut sur la tablen
 	dans les jointures, clen peut etre un tableau pour une jointure complexe : array('id_objet','id_article','objet','article')
-	*/
+	 */
 	$id_table = $boucle->id_table;
 	$show = $boucle->show;
 	if (isset($show['statut']) && $show['statut']) {
@@ -401,7 +396,6 @@ function calculer_boucle($id_boucle, &$boucles) {
 		: calculer_boucle_nonrec($id_boucle, $boucles, $trace);
 }
 
-
 /**
  * Compilation d'une boucle recursive.
  *
@@ -423,8 +417,7 @@ function calculer_boucle($id_boucle, &$boucles) {
 function calculer_boucle_rec($id_boucle, &$boucles, $trace) {
 	$nom = $boucles[$id_boucle]->param[0];
 
-	return
-		// Numrows[$nom] peut ne pas être encore defini
+	return // Numrows[$nom] peut ne pas être encore defini
 		"\n\t\$save_numrows = (isset(\$Numrows['$nom']) ? \$Numrows['$nom'] : array());"
 		. "\n\t\$t0 = " . $boucles[$id_boucle]->return . ';'
 		. "\n\t\$Numrows['$nom'] = (\$save_numrows);"
@@ -506,12 +499,7 @@ function calculer_boucle_nonrec($id_boucle, &$boucles, $trace) {
 	if (
 		!$constant && $boucle->lang_select != 'non' &&
 		(($boucle->lang_select == 'oui') ||
-			in_array($type_boucle, [
-				'articles',
-				'rubriques',
-				'hierarchie',
-				'breves'
-			]))
+			in_array($type_boucle, ['articles', 'rubriques', 'hierarchie', 'breves']))
 	) {
 		// Memoriser la langue avant la boucle et la restituer apres
 		// afin que le corps de boucle affecte la globale directement
@@ -527,7 +515,7 @@ function calculer_boucle_nonrec($id_boucle, &$boucles, $trace) {
 				'articles',
 				'rubriques',
 				'hierarchie',
-				'breves'
+				'breves',
 			]) ? ', ' . index_pile($id_boucle, 'titre', $boucles) : '')
 			. ');';
 	} else {
@@ -590,9 +578,9 @@ function calculer_boucle_nonrec($id_boucle, &$boucles, $trace) {
 		if (!isset($r[2]) || !$r[2]) {
 			if (!$boucle->numrows) {
 				return "\n\t\$t0 = '';";
-			} else {
-				$corps = '';
 			}
+			$corps = '';
+
 		} else {
 			$boucle->numrows = true;
 			$corps = "\n\t\$t0 = str_repeat($corps, \$Numrows['$id_boucle']['total']);";
@@ -650,7 +638,6 @@ function calculer_boucle_nonrec($id_boucle, &$boucles, $trace) {
 
 	return $a;
 }
-
 
 /**
  * Calcule le code PHP d'une boucle contenant les informations qui produiront une requête SQL
@@ -716,7 +703,7 @@ function calculer_requete_sql($boucle) {
  *
  * @see reconstruire_contexte_compil()
  *
- * @param Object $p
+ * @param object $p
  *     Objet de l'AST dont on mémorise le contexte
  * @return string
  *     Informations du contexte séparés par des virgules,
@@ -728,7 +715,7 @@ function memoriser_contexte_compil($p) {
 		_q($p->descr['nom'] ?? ''),
 		_q($p->id_boucle ?? ''),
 		intval($p->ligne),
-		'$GLOBALS[\'spip_lang\']'
+		'$GLOBALS[\'spip_lang\']',
 	]);
 }
 
@@ -757,7 +744,7 @@ function reconstruire_contexte_compil($context_compil) {
 	];
 
 	$p->id_boucle = $context_compil[2] ?? '';
-	$p->ligne = (int)($context_compil[3] ?? 0);
+	$p->ligne = (int) ($context_compil[3] ?? 0);
 	$p->lang = $context_compil[4] ?? '';
 
 	return $p;
@@ -828,18 +815,18 @@ function calculer_dump_array($a) {
 	}
 	$res = '';
 	if ($a && $a[0] == "'?'") {
-		return ('(' . calculer_dump_array($a[1]) .
+		return '(' . calculer_dump_array($a[1]) .
 			' ? ' . calculer_dump_array($a[2]) .
 			' : ' . calculer_dump_array($a[3]) .
-			')');
-	} else {
-		foreach ($a as $k => $v) {
-			$showk = (is_numeric($k) ? '' : sql_quote($k) . ' => ');
-			$res .= ', ' . $showk . calculer_dump_array($v);
-		}
-
-		return "\n\t\t\tarray(" . substr($res, 2) . ')';
+			')';
 	}
+	foreach ($a as $k => $v) {
+		$showk = (is_numeric($k) ? '' : sql_quote($k) . ' => ');
+		$res .= ', ' . $showk . calculer_dump_array($v);
+	}
+
+	return "\n\t\t\tarray(" . substr($res, 2) . ')';
+
 }
 
 function calculer_dump_join($a) {
@@ -923,8 +910,7 @@ function calculer_liste($tableau, $descr, &$boucles, $id_boucle = '') {
 			if (isset($boucles[$idb]->descr['sourcefile'])) {
 				$descr['sourcefile'] = $boucles[$idb]->descr['sourcefile'];
 			}
-		}
-		else {
+		} else {
 			$descr = [];
 		}
 	}
@@ -943,31 +929,30 @@ function calculer_liste($tableau, $descr, &$boucles, $id_boucle = '') {
 	if (_request('var_mode_affiche') != 'validation') {
 		if ($n == 1) {
 			return $codes[0];
-		} else {
-			$res = '';
-			foreach ($codes as $code) {
-				if (
-					!preg_match("/^'[^']*'$/", $code)
-					|| !str_ends_with($res, "'")
-				) {
-					$res .= " .\n$tab$code";
-				} else {
-					$res = substr($res, 0, -1) . substr($code, 1);
-				}
-			}
-
-			return '(' . substr($res, 2 + $descr['niv']) . ')';
 		}
-	} else {
-		$nom = $descr['nom'] . $id_boucle . ($descr['niv'] ?: '');
+		$res = '';
+		foreach ($codes as $code) {
+			if (
+				!preg_match("/^'[^']*'$/", $code)
+				|| !str_ends_with($res, "'")
+			) {
+				$res .= " .\n$tab$code";
+			} else {
+				$res = substr($res, 0, -1) . substr($code, 1);
+			}
+		}
 
-		return "join('', array_map('array_shift', \$GLOBALS['debug_objets']['sequence']['$nom'] = array(" . join(
-			" ,\n$tab",
-			$codes
-		) . ')))';
+		return '(' . substr($res, 2 + $descr['niv']) . ')';
+
 	}
-}
+	$nom = $descr['nom'] . $id_boucle . ($descr['niv'] ?: '');
 
+	return "join('', array_map('array_shift', \$GLOBALS['debug_objets']['sequence']['$nom'] = array(" . join(
+		" ,\n$tab",
+		$codes
+	) . ')))';
+
+}
 
 define('_REGEXP_COND_VIDE_NONVIDE', "/^[(](.*)[?]\s*''\s*:\s*('[^']+')\s*[)]$/");
 define('_REGEXP_COND_NONVIDE_VIDE', "/^[(](.*)[?]\s*('[^']+')\s*:\s*''\s*[)]$/");
@@ -1024,7 +1009,7 @@ function compile_cas($tableau, $descr, &$boucles, $id_boucle) {
 				$altern = "''";
 				break;
 
-			// inclure
+				// inclure
 			case 'include':
 				$p->descr = $descr;
 				$code = calculer_inclure($p, $boucles, $id_boucle);
@@ -1039,7 +1024,7 @@ function compile_cas($tableau, $descr, &$boucles, $id_boucle) {
 				}
 				break;
 
-			// boucle
+				// boucle
 			case TYPE_RECURSIF:
 				$nom = $p->id_boucle;
 				$newdescr = $descr;
@@ -1144,18 +1129,8 @@ function compile_cas($tableau, $descr, &$boucles, $id_boucle) {
 
 				$code = calculer_champ($p);
 				$commentaire = '#' . $p->nom_champ . $p->etoile;
-				$avant = calculer_liste(
-					$p->avant,
-					$descr,
-					$boucles,
-					$id_boucle
-				);
-				$apres = calculer_liste(
-					$p->apres,
-					$descr,
-					$boucles,
-					$id_boucle
-				);
+				$avant = calculer_liste($p->avant, $descr, $boucles, $id_boucle);
+				$apres = calculer_liste($p->apres, $descr, $boucles, $id_boucle);
 				$altern = "''";
 				// Si la valeur est destinee a une comparaison a ''
 				// forcer la conversion en une chaine par strval
@@ -1207,7 +1182,6 @@ function compile_concatene_parties_codes($partie1, $partie2) {
 	}
 	return "$partie1\n. $partie2";
 }
-
 
 /**
  * production d'une expression conditionnelle ((v=EXP) ? (p . v .s) : a)
@@ -1266,7 +1240,6 @@ function compile_retour($code, $avant, $apres, $altern, $tab, $n) {
 	return $code;
 }
 
-
 function compile_inclure_doublons($lexemes) {
 	foreach ($lexemes as $v) {
 		if ($v->type === 'include' && $v->param) {
@@ -1309,7 +1282,7 @@ function public_compiler_dist($squelette, $nom, $gram, $sourcefile, string $conn
 	}
 	$squelette = preg_replace_callback(
 		',\\\\([#[()\]{}<>]),',
-		fn($a) => "$inerte-" . ord($a[1]) . '-',
+		fn ($a) => "$inerte-" . ord($a[1]) . '-',
 		$squelette,
 		-1,
 		$esc
@@ -1319,7 +1292,7 @@ function public_compiler_dist($squelette, $nom, $gram, $sourcefile, string $conn
 		'nom' => $nom,
 		'gram' => $gram,
 		'sourcefile' => $sourcefile,
-		'squelette' => $squelette
+		'squelette' => $squelette,
 	];
 
 	// Phraser le squelette, selon sa grammaire
@@ -1334,11 +1307,7 @@ function public_compiler_dist($squelette, $nom, $gram, $sourcefile, string $conn
 	// restituer les echappements
 	if ($esc) {
 		foreach ($boucles as $i => $boucle) {
-			$boucles[$i]->return = preg_replace_callback(
-				",$inerte-(\d+)-,",
-				fn ($a) => chr((int) $a[1]),
-				$boucle->return
-			);
+			$boucles[$i]->return = preg_replace_callback(",$inerte-(\d+)-,", fn ($a) => chr((int) $a[1]), $boucle->return);
 			$boucles[$i]->descr['squelette'] = preg_replace_callback(
 				",$inerte-(\d+)-,",
 				fn ($a) => '\\\\' . chr($a[1]),
@@ -1422,11 +1391,7 @@ function compiler_squelette($squelette, $boucles, $nom, $descr, $sourcefile, str
 
 			// chercher dans les iterateurs du repertoire iterateur/
 			if (
-				$g = charger_fonction(
-					preg_replace('/\W/', '_', $boucle->type_requete),
-					'iterateur',
-					true
-				)
+				$g = charger_fonction(preg_replace('/\W/', '_', $boucle->type_requete), 'iterateur', true)
 			) {
 				$boucles[$id] = $g($boucle);
 
@@ -1485,7 +1450,7 @@ function compiler_squelette($squelette, $boucles, $nom, $descr, $sourcefile, str
 								$type;
 							$msg = [
 								'zbug_table_inconnue',
-								['table' => $x]
+								['table' => $x],
 							];
 							erreur_squelette($msg, $boucle);
 						}
@@ -1504,7 +1469,7 @@ function compiler_squelette($squelette, $boucles, $nom, $descr, $sourcefile, str
 			if (!$rec) {
 				$msg = [
 					'zbug_boucle_recursive_undef',
-					['nom' => $boucle->param[0]]
+					['nom' => $boucle->param[0]],
 				];
 				erreur_squelette($msg, $boucle);
 				$boucles[$id]->type_requete = false;
@@ -1512,12 +1477,7 @@ function compiler_squelette($squelette, $boucles, $nom, $descr, $sourcefile, str
 				$rec->externe = $id;
 				$descr['id_mere'] = $id;
 				$boucles[$id]->return =
-					calculer_liste(
-						[$rec],
-						$descr,
-						$boucles,
-						$boucle->param
-					);
+					calculer_liste([$rec], $descr, $boucles, $boucle->param);
 			}
 		}
 	}
@@ -1532,12 +1492,7 @@ function compiler_squelette($squelette, $boucles, $nom, $descr, $sourcefile, str
 			}
 			$descr['id_mere'] = $id;
 			$boucles[$id]->return =
-				calculer_liste(
-					$boucle->milieu,
-					$descr,
-					$boucles,
-					$id
-				);
+				calculer_liste($boucle->milieu, $descr, $boucles, $id);
 			// Si les criteres se sont mal compiles
 			// ne pas tenter d'assembler le code final
 			// (mais compiler le corps pour detection d'erreurs)
@@ -1550,7 +1505,6 @@ function compiler_squelette($squelette, $boucles, $nom, $descr, $sourcefile, str
 	// idem pour la racine
 	$descr['id_mere'] = '';
 	$corps = calculer_liste($squelette, $descr, $boucles);
-
 
 	// Calcul du corps de toutes les fonctions PHP,
 	// en particulier les requetes SQL et TOTAL_BOUCLE
@@ -1627,7 +1581,8 @@ function compiler_squelette($squelette, $boucles, $nom, $descr, $sourcefile, str
 }';
 
 	$secondes = spip_timer('calcul_skel');
-	spip_logger()->info("COMPIL ($secondes) [$sourcefile] $nom.php");
+	spip_logger()
+		->info("COMPIL ($secondes) [$sourcefile] $nom.php");
 	// $connect n'est pas sûr : on nettoie
 	$connect = preg_replace(',[^\w],', '', $connect);
 
@@ -1648,7 +1603,6 @@ function compiler_squelette($squelette, $boucles, $nom, $descr, $sourcefile, str
 	return $boucles;
 }
 
-
 /**
  * Requeteur pour les boucles (php:nom_iterateur)
  *
@@ -1659,7 +1613,6 @@ function compiler_squelette($squelette, $boucles, $nom, $descr, $sourcefile, str
  * @param array<string,Boucle> $boucles Liste des boucles
  * @param Boucle $boucle La boucle parcourue
  * @param string $id L'identifiant de la boucle parcourue
- *
  */
 function requeteur_php_dist(&$boucles, &$boucle, &$id) {
 	if (class_exists($boucle->type_requete)) {
@@ -1670,12 +1623,11 @@ function requeteur_php_dist(&$boucles, &$boucle, &$id) {
 		$boucle->type_requete = false;
 		$msg = [
 			'zbug_iterateur_inconnu',
-			['iterateur' => $x]
+			['iterateur' => $x],
 		];
 		erreur_squelette($msg, $boucle);
 	}
 }
-
 
 /**
  * Requeteur pour les boucles (data:type de donnee)
@@ -1688,7 +1640,6 @@ function requeteur_php_dist(&$boucles, &$boucle, &$id) {
  * @param array<string,Boucle> $boucles Liste des boucles
  * @param Boucle $boucle La boucle parcourue
  * @param string $id L'identifiant de la boucle parcourue
- *
  */
 function requeteur_data_dist(&$boucles, &$boucle, &$id) {
 	include_spip('iterateur/data');
@@ -1704,8 +1655,8 @@ function requeteur_data_dist(&$boucles, &$boucle, &$id) {
 			'zbug_requeteur_inconnu',
 			[
 				'requeteur' => 'data',
-				'type' => $x
-			]
+				'type' => $x,
+			],
 		];
 		erreur_squelette($msg, $boucle);
 	}

@@ -22,7 +22,6 @@ if (!defined('_ECRIRE_INC_VERSION')) {
 	return;
 }
 
-
 // adaptation des timestamp mysql
 $GLOBALS['maj'][24379] = [['maj_timestamp_mysql']];
 
@@ -35,7 +34,7 @@ $GLOBALS['maj'][24379] = [['maj_timestamp_mysql']];
 function maj_timestamp_mysql($tables = null) {
 
 	include_spip('base/dump');
-	if (is_null($tables)) {
+	if ($tables === null) {
 		$tables = base_lister_toutes_tables();
 	} elseif (is_string($tables)) {
 		$tables = [$tables];
@@ -67,9 +66,8 @@ function maj_timestamp_mysql($tables = null) {
 						sql_alter("table $table change $field $field " . $fields_corrected[$field]);
 						$trouver_table('');
 						$new_desc = $trouver_table($table);
-						spip_logger('maj')->notice(
-							"Apres conversion $table : " . var_export($new_desc['field'], true),
-						);
+						spip_logger('maj')
+							->notice("Apres conversion $table : " . var_export($new_desc['field'], true));
 					}
 				}
 			}

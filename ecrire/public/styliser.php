@@ -34,7 +34,6 @@ if (!defined('_ECRIRE_INC_VERSION')) {
  * @param string $fond
  * @param array $contexte
  * @param string $lang
- * @param string $connect
  * @return array
  */
 function public_styliser_dist($fond, $contexte, $lang = '', string $connect = '') {
@@ -73,7 +72,7 @@ function public_styliser_dist($fond, $contexte, $lang = '', string $connect = ''
 			'fond' => $fond,
 			'lang' => $lang,
 			'contexte' => $contexte, // le style d'un objet peut dependre de lui meme
-			'connect' => $connect
+			'connect' => $connect,
 		],
 		'data' => $squelette['fond'],
 	];
@@ -152,7 +151,7 @@ function styliser_par_objets($flux) {
 function quete_rubrique_fond($contexte) {
 	static $liste_objets = null;
 	static $quete = [];
-	if (is_null($liste_objets)) {
+	if ($liste_objets === null) {
 		$liste_objets = [];
 		include_spip('inc/urls');
 		include_spip('public/quete');

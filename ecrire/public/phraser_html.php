@@ -167,7 +167,6 @@ function phraser_polyglotte(string $texte, int $ligne, array $result): array {
 	return $result;
 }
 
-
 /**
  * Repérer les balises de traduction (idiomes)
  *
@@ -179,11 +178,6 @@ function phraser_polyglotte(string $texte, int $ligne, array $result): array {
  * @note
  *    `chaine` peut etre vide si `=texte1` est present et `arg1` est vide
  *    sinon ce n'est pas un idiome
- *
- * @param string $texte
- * @param int $ligne
- * @param array $result
- * @return array
  */
 function phraser_idiomes(string $texte, int $ligne, array $result): array {
 
@@ -232,7 +226,7 @@ function phraser_idiomes(string $texte, int $ligne, array $result): array {
 
 		// pas d'imbrication pour les filtres sur langue
 		$champ->apres = '';
-		if (!is_null($match[7])) {
+		if ($match[7] !== null) {
 			$pos_apres = 0;
 			phraser_args($match[7], ':', '', [], $champ, $pos_apres);
 			$champ->apres = substr($match[7], $pos_apres);
@@ -255,11 +249,6 @@ function phraser_idiomes(string $texte, int $ligne, array $result): array {
  * @uses phraser_polyglotte()
  * @uses phraser_args()
  * @uses phraser_vieux()
- *
- * @param string $texte
- * @param int $ligne
- * @param array $result
- * @return array
  */
 function phraser_champs(string $texte, int $ligne, array $result): array {
 
@@ -346,7 +335,14 @@ function phraser_champs_etendus(string $texte, int $ligne, array $result): array
  *
  * @param Champ|Inclure|Idiome|Boucle $pointeur_champ
  */
-function phraser_args(string $texte, string $fin, string $sep, array $result, &$pointeur_champ, int &$pos_debut): array {
+function phraser_args(
+	string $texte,
+	string $fin,
+	string $sep,
+	array $result,
+	&$pointeur_champ,
+	int &$pos_debut
+): array {
 	$length = strlen($texte);
 	while ($pos_debut < $length && trim($texte[$pos_debut]) === '') {
 		$pos_debut++;
@@ -534,11 +530,6 @@ function phraser_champs_exterieurs(string $texte, int $ligne, string $sep, array
  * Pour cela on commence par les plus profondes, sans rien dedans,
  * on les remplace par un placehoder inactif `%###N@` ou N indexe un tableau comportant le resultat de leur analyse
  * et on recommence jusqu'à ce qu'on ne trouve plus rien
- *
- * @param string $texte
- * @param int $no_ligne
- * @param string $sep
- * @return array
  */
 function phraser_champs_interieurs(string $texte, int $no_ligne, string $sep): array {
 
@@ -580,7 +571,7 @@ function phraser_champs_interieurs(string $texte, int $no_ligne, string $sep): a
 			$pos_apres = 0;
 			$champs_trouves = phraser_args($match[7], ')', $sep, $champs_trouves, $champ, $pos_apres);
 			phraser_vieux($champ);
-			$champ->avant =	phraser_champs_exterieurs($match[1], $nbl, $sep, $champs_trouves);
+			$champ->avant = phraser_champs_exterieurs($match[1], $nbl, $sep, $champs_trouves);
 			$apres = substr($match[7], $pos_apres + 1);
 
 			$nbl_debut_champ = 0;
@@ -618,7 +609,6 @@ function phraser_champs_interieurs(string $texte, int $no_ligne, string $sep): a
  * Ne concerne plus que #MODELE et <INCLURE> / #INCLURE
  *
  * @param Champ|Inclure $champ
- * @return void
  */
 function phraser_vieux(&$champ) {
 	$nom = $champ->nom_champ;
@@ -636,7 +626,6 @@ function phraser_vieux(&$champ) {
 		}
 	}
 }
-
 
 /**
  * Analyse les critères de boucle
@@ -658,7 +647,6 @@ function phraser_vieux(&$champ) {
  * @param Boucle $result
  *     Description de la boucle
  *     Elle sera complété de la liste de ses critères
- * @return void
  */
 function phraser_criteres($params, &$result) {
 
@@ -719,7 +707,7 @@ function phraser_criteres($params, &$result) {
 				if (($v[1][1]->type != 'texte') || (trim((string) $v[1][1]->texte) != '/')) {
 					$err_ci = [
 						'zbug_critere_inconnu',
-						['critere' => $var->nom_champ]
+						['critere' => $var->nom_champ],
 					];
 					erreur_squelette($err_ci, $result);
 				} else {
@@ -779,19 +767,10 @@ function phraser_criteres($params, &$result) {
 						if ($a2 && ($a2[0] == "'" || $a2[0] == '"') && $a2[0] == substr($a2, -1)) {
 							$a2 = substr($a2, 1, -1);
 						}
-						$crit = phraser_critere_infixe(
-							$m[2],
-							$a2,
-							$v,
-							(($m[2] == 'lang_select') ? $m[2] : $m[7]),
-							$m[6],
-							$m[5]
-						);
+						$crit = phraser_critere_infixe($m[2], $a2, $v, (($m[2] == 'lang_select') ? $m[2] : $m[7]), $m[6], $m[5]);
 						$crit->exclus = $m[1];
 					} elseif (
-						preg_match('/^([!]?)\s*(' .
-						CHAMP_SQL_PLUS_FONC .
-						')\s*(\??)(.*)$/is', (string) $param, $m)
+						preg_match('/^([!]?)\s*(' . CHAMP_SQL_PLUS_FONC . ')\s*(\??)(.*)$/is', (string) $param, $m)
 					) {
 						// contient aussi les comparaisons implicites !
 						// Comme ci-dessus:
@@ -814,7 +793,7 @@ function phraser_criteres($params, &$result) {
 					} else {
 						$err_ci = [
 							'zbug_critere_inconnu',
-							['critere' => $param]
+							['critere' => $param],
 						];
 						erreur_squelette($err_ci, $result);
 					}
@@ -865,20 +844,24 @@ function phraser_critere_infixe($arg1, $arg2, $args, $op, $not, $cond) {
  * @return int
  */
 function public_compte_ligne($texte, $debut = 0, $fin = null) {
-	if (is_null($fin)) {
+	if ($fin === null) {
 		return substr_count((string) $texte, "\n", $debut);
-	} else {
-		return substr_count((string) $texte, "\n", $debut, $fin - $debut);
 	}
-}
+	return substr_count((string) $texte, "\n", $debut, $fin - $debut);
 
+}
 
 /**
  * Trouver la boucle qui commence en premier dans un texte
  * On repere les boucles via <BOUCLE_xxx(
  * et ensuite on regarde son vrai debut soit <B_xxx> soit <BB_xxx>
  */
-function public_trouver_premiere_boucle(string $texte, string $id_parent, array $descr, int $pos_debut_texte = 0): ?array {
+function public_trouver_premiere_boucle(
+	string $texte,
+	string $id_parent,
+	array $descr,
+	int $pos_debut_texte = 0
+): ?array {
 	$premiere_boucle = null;
 	$pos_derniere_boucle_anonyme = $pos_debut_texte;
 
@@ -889,7 +872,9 @@ function public_trouver_premiere_boucle(string $texte, string $id_parent, array 
 
 		$id_boucle = '';
 		if ($pos_parent !== false) {
-			$id_boucle = trim(substr((string) $texte, $pos_boucle + strlen(BALISE_BOUCLE), $pos_parent - $pos_boucle - strlen(BALISE_BOUCLE)));
+			$id_boucle = trim(
+				substr((string) $texte, $pos_boucle + strlen(BALISE_BOUCLE), $pos_parent - $pos_boucle - strlen(BALISE_BOUCLE))
+			);
 		}
 		if (
 			$pos_parent === false
@@ -909,54 +894,58 @@ function public_trouver_premiere_boucle(string $texte, string $id_parent, array 
 
 			continue;
 		}
-		else {
-			$boucle = [
-				'id_boucle' => $id_boucle,
-				'id_boucle_err' => $id_boucle,
-				'debut_boucle' => $pos_boucle,
-				'pos_boucle' => $pos_boucle,
-				'pos_parent' => $pos_parent,
-				'pos_precond' => false,
-				'pos_precond_inside' => false,
-				'pos_preaff' => false,
-				'pos_preaff_inside' => false,
-			];
 
-			// un id_boucle pour l'affichage de l'erreur sur les boucle anonymes
-			if (!strlen($id_boucle)) {
-				$boucle['id_boucle_err'] = substr((string) $texte, $pos_boucle + strlen(BALISE_BOUCLE), 15);
-			}
+		$boucle = [
+			'id_boucle' => $id_boucle,
+			'id_boucle_err' => $id_boucle,
+			'debut_boucle' => $pos_boucle,
+			'pos_boucle' => $pos_boucle,
+			'pos_parent' => $pos_parent,
+			'pos_precond' => false,
+			'pos_precond_inside' => false,
+			'pos_preaff' => false,
+			'pos_preaff_inside' => false,
+		];
 
-			// trouver sa position de depart reelle : au <Bxx> ou au <BBxx>
-			$precond_boucle = BALISE_PRECOND_BOUCLE . $id_boucle . '>';
-			$pos_precond = strpos((string) $texte, $precond_boucle, $id_boucle ? $pos_debut_texte : $pos_derniere_boucle_anonyme);
-			if (
-				$pos_precond !== false
-				&& $pos_precond < $boucle['debut_boucle']
-			) {
-				$boucle['debut_boucle'] = $pos_precond;
-				$boucle['pos_precond'] = $pos_precond;
-				$boucle['pos_precond_inside'] = $pos_precond + strlen($precond_boucle);
-			}
-
-			$preaff_boucle = BALISE_PREAFF_BOUCLE . $id_boucle . '>';
-			$pos_preaff = strpos((string) $texte, $preaff_boucle, $id_boucle ? $pos_debut_texte : $pos_derniere_boucle_anonyme);
-			if (
-				$pos_preaff !== false
-				&& $pos_preaff < $boucle['debut_boucle']
-			) {
-				$boucle['debut_boucle'] = $pos_preaff;
-				$boucle['pos_preaff'] = $pos_preaff;
-				$boucle['pos_preaff_inside'] = $pos_preaff + strlen($preaff_boucle);
-			}
-			if (!strlen($id_boucle)) {
-				$pos_derniere_boucle_anonyme = $pos_boucle;
-			}
-
-			if (is_null($premiere_boucle) || $premiere_boucle['debut_boucle'] > $boucle['debut_boucle']) {
-				$premiere_boucle = $boucle;
-			}
+		// un id_boucle pour l'affichage de l'erreur sur les boucle anonymes
+		if (!strlen($id_boucle)) {
+			$boucle['id_boucle_err'] = substr((string) $texte, $pos_boucle + strlen(BALISE_BOUCLE), 15);
 		}
+
+		// trouver sa position de depart reelle : au <Bxx> ou au <BBxx>
+		$precond_boucle = BALISE_PRECOND_BOUCLE . $id_boucle . '>';
+		$pos_precond = strpos(
+			(string) $texte,
+			$precond_boucle,
+			$id_boucle ? $pos_debut_texte : $pos_derniere_boucle_anonyme
+		);
+		if (
+			$pos_precond !== false
+			&& $pos_precond < $boucle['debut_boucle']
+		) {
+			$boucle['debut_boucle'] = $pos_precond;
+			$boucle['pos_precond'] = $pos_precond;
+			$boucle['pos_precond_inside'] = $pos_precond + strlen($precond_boucle);
+		}
+
+		$preaff_boucle = BALISE_PREAFF_BOUCLE . $id_boucle . '>';
+		$pos_preaff = strpos((string) $texte, $preaff_boucle, $id_boucle ? $pos_debut_texte : $pos_derniere_boucle_anonyme);
+		if (
+			$pos_preaff !== false
+			&& $pos_preaff < $boucle['debut_boucle']
+		) {
+			$boucle['debut_boucle'] = $pos_preaff;
+			$boucle['pos_preaff'] = $pos_preaff;
+			$boucle['pos_preaff_inside'] = $pos_preaff + strlen($preaff_boucle);
+		}
+		if (!strlen($id_boucle)) {
+			$pos_derniere_boucle_anonyme = $pos_boucle;
+		}
+
+		if ($premiere_boucle === null || $premiere_boucle['debut_boucle'] > $boucle['debut_boucle']) {
+			$premiere_boucle = $boucle;
+		}
+
 	}
 
 	return $premiere_boucle;
@@ -966,15 +955,17 @@ function public_trouver_premiere_boucle(string $texte, string $id_parent, array 
  * Trouver la fin de la  boucle (balises </B <//B </BB)
  * en faisant attention aux boucles anonymes qui ne peuvent etre imbriquees
  *
- * @param string $texte
- * @param string $id_parent
- * @param array $boucle
- * @param int $pos_debut_texte
  * @param object $result
  * @return array
  *   la description de la boucle dans un tableau associatif
  */
-function public_trouver_fin_boucle(string $texte, string $id_parent, array $boucle, int $pos_debut_texte, $result): array {
+function public_trouver_fin_boucle(
+	string $texte,
+	string $id_parent,
+	array $boucle,
+	int $pos_debut_texte,
+	$result
+): array {
 	$id_boucle = $boucle['id_boucle'];
 	$pos_courante = $pos_debut_texte;
 
@@ -1003,7 +994,7 @@ function public_trouver_fin_boucle(string $texte, string $id_parent, array $bouc
 		$boucle['pos_postcond'] = $pos_apres;
 		$pos_apres += strlen($apres_boucle);
 		$boucle['pos_postcond_inside'] = $pos_apres;
-		$pos_courante = $pos_apres ;
+		$pos_courante = $pos_apres;
 	}
 
 	//
@@ -1033,12 +1024,11 @@ function public_trouver_fin_boucle(string $texte, string $id_parent, array $bouc
 		$boucle['pos_postaff'] = $pos_postaff;
 		$pos_postaff += strlen($postaff_boucle);
 		$boucle['pos_postaff_inside'] = $pos_postaff;
-		$pos_courante = $pos_postaff ;
+		$pos_courante = $pos_postaff;
 	}
 
 	return $boucle;
 }
-
 
 /**
  * @param object|string $champ
@@ -1049,8 +1039,7 @@ function phraser_boucle_placeholder(&$champ, ?string $boucle_placeholder = null,
 	// si c'est un appel pour memoriser une boucle, memorisons la
 	if (is_string($champ) && !empty($boucle_placeholder) && !empty($boucle)) {
 		$boucles_connues[$boucle_placeholder][$champ] = &$boucle;
-	}
-	else {
+	} else {
 		if (!empty($champ->nom_champ) && !empty($boucles_connues[$champ->nom_champ])) {
 			$placeholder = $champ->nom_champ;
 			$id = reset($champ->param[0][1]);
@@ -1062,13 +1051,16 @@ function phraser_boucle_placeholder(&$champ, ?string $boucle_placeholder = null,
 	}
 }
 
-
 /**
  * Generer une balise placeholder qui prend la place de la boucle pour continuer le parsing des balises
  * @param Boucle $boucle
- * @return string
  */
-function public_generer_boucle_placeholder(string $id_boucle, &$boucle, string $boucle_placeholder, int $nb_lignes): string {
+function public_generer_boucle_placeholder(
+	string $id_boucle,
+	&$boucle,
+	string $boucle_placeholder,
+	int $nb_lignes
+): string {
 	$placeholder = "[(#{$boucle_placeholder}{" . $id_boucle . '})' . str_pad('', $nb_lignes, "\n") . ']';
 	//memoriser la boucle a reinjecter
 	$id_boucle = "$id_boucle";
@@ -1082,13 +1074,19 @@ function public_generer_boucle_placeholder(string $id_boucle, &$boucle, string $
  * qui ne genent pas la suite de l'analyse des balises et autres
  *
  * @param array<string,Boucle> $boucles
- * @throws JsonException
  */
-function public_phraser_html_dist(string $texte, string $id_parent, array &$boucles, array $descr, int $ligne_debut_texte = 1, ?string $boucle_placeholder = null): array {
+function public_phraser_html_dist(
+	string $texte,
+	string $id_parent,
+	array &$boucles,
+	array $descr,
+	int $ligne_debut_texte = 1,
+	?string $boucle_placeholder = null
+): array {
 
 	$all_res = [];
 	// definir un placholder pour les boucles dont on est sur d'avoir aucune occurence dans le squelette
-	if (is_null($boucle_placeholder)) {
+	if ($boucle_placeholder === null) {
 		do {
 			$boucle_placeholder = 'BOUCLE_PLACEHOLDER_' . strtoupper(md5(uniqid()));
 		} while (str_contains((string) $texte, $boucle_placeholder));
@@ -1106,11 +1104,19 @@ function public_phraser_html_dist(string $texte, string $id_parent, array &$bouc
 		$pos_parent = $boucle['pos_parent'];
 		$id_boucle_search = $id_boucle = $boucle['id_boucle'];
 
-		$ligne_preaff = $ligne_avant = $ligne_milieu = $ligne_debut_texte + public_compte_ligne($texte, $pos_debut_texte, $pos_parent);
+		$ligne_preaff = $ligne_avant = $ligne_milieu = $ligne_debut_texte + public_compte_ligne(
+			$texte,
+			$pos_debut_texte,
+			$pos_parent
+		);
 
 		// boucle anonyme ?
 		if (!strlen((string) $id_boucle)) {
-			$id_boucle = '_anon_L' . $ligne_milieu . '_' . substr(md5('anonyme:' . $id_parent . ':' . json_encode($boucle, JSON_THROW_ON_ERROR)), 0, 8);
+			$id_boucle = '_anon_L' . $ligne_milieu . '_' . substr(
+				md5('anonyme:' . $id_parent . ':' . json_encode($boucle, JSON_THROW_ON_ERROR)),
+				0,
+				8
+			);
 		}
 
 		$pos_debut_boucle = $pos_courante;
@@ -1123,7 +1129,7 @@ function public_phraser_html_dist(string $texte, string $id_parent, array &$bouc
 
 			$pos_avant = $boucle['pos_precond_inside'];
 			$result->avant = substr((string) $texte, $pos_avant, $pos_courante - $pos_avant);
-			$ligne_avant = $ligne_debut_texte +  public_compte_ligne($texte, $pos_debut_texte, $pos_avant);
+			$ligne_avant = $ligne_debut_texte + public_compte_ligne($texte, $pos_debut_texte, $pos_avant);
 		}
 
 		// Regarder si on a une partie inconditionnelle avant <BB_xxx>
@@ -1132,7 +1138,7 @@ function public_phraser_html_dist(string $texte, string $id_parent, array &$bouc
 
 			$pos_preaff = $boucle['pos_preaff_inside'];
 			$result->preaff = substr((string) $texte, $pos_preaff, $end_preaff - $pos_preaff);
-			$ligne_preaff = $ligne_debut_texte +  public_compte_ligne($texte, $pos_debut_texte, $pos_preaff);
+			$ligne_preaff = $ligne_debut_texte + public_compte_ligne($texte, $pos_debut_texte, $pos_preaff);
 		}
 
 		$result->id_boucle = $id_boucle;
@@ -1188,19 +1194,18 @@ function public_phraser_html_dist(string $texte, string $id_parent, array &$bouc
 			$pos_courante += 2;
 			$result->milieu = '';
 		} else {
-			$pos_milieu += 1;
+			++$pos_milieu;
 
 			$fin_boucle = BALISE_FIN_BOUCLE . $id_boucle_search . '>';
 			$pos_fin = strpos((string) $texte, $fin_boucle, $pos_milieu);
 			if ($pos_fin === false) {
 				$err_b = [
 					'zbug_erreur_boucle_fermant',
-					['id' => $id_boucle]
+					['id' => $id_boucle],
 				];
 				erreur_squelette($err_b, $result);
 				$pos_courante += strlen($fin_boucle);
-			}
-			else {
+			} else {
 				// verifier une eventuelle imbrication d'une boucle homonyme
 				// (interdite, generera une erreur plus loin, mais permet de signaler la bonne erreur)
 				$search_debut_boucle = BALISE_BOUCLE . $id_boucle_search . '(';
@@ -1243,9 +1248,8 @@ function public_phraser_html_dist(string $texte, string $id_parent, array &$bouc
 		if ($boucle['pos_postcond']) {
 			$result->apres = substr((string) $texte, $pos_courante, $boucle['pos_postcond'] - $pos_courante);
 			$ligne_suite += public_compte_ligne($texte, $pos_courante, $boucle['pos_postcond_inside']);
-			$pos_courante = $boucle['pos_postcond_inside'] ;
+			$pos_courante = $boucle['pos_postcond_inside'];
 		}
-
 
 		//
 		// 2. Partie alternative apres ?
@@ -1288,27 +1292,66 @@ function public_phraser_html_dist(string $texte, string $id_parent, array &$bouc
 			if (strncasecmp($soustype, TYPE_RECURSIF, strlen(TYPE_RECURSIF)) == 0) {
 				$result->type_requete = TYPE_RECURSIF;
 				$args = $result->param;
-				array_unshift(
-					$args,
-					substr($type, strlen(TYPE_RECURSIF))
-				);
+				array_unshift($args, substr($type, strlen(TYPE_RECURSIF)));
 				$result->param = $args;
 			}
 		}
 
 		$descr['id_mere_contexte'] = $id_boucle;
-		$result->milieu = public_phraser_html_dist($result->milieu, $id_boucle, $boucles, $descr, $ligne_milieu, $boucle_placeholder);
+		$result->milieu = public_phraser_html_dist(
+			$result->milieu,
+			$id_boucle,
+			$boucles,
+			$descr,
+			$ligne_milieu,
+			$boucle_placeholder
+		);
 		// reserver la place dans la pile des boucles pour compiler ensuite dans le bon ordre
 		// ie les boucles qui apparaissent dans les partie conditionnelles doivent etre compilees apres cette boucle
 		// si il y a deja une boucle de ce nom, cela declenchera une erreur ensuite
 		if (empty($boucles[$id_boucle])) {
 			$boucles[$id_boucle] = null;
 		}
-		$result->preaff = public_phraser_html_dist($result->preaff, $id_parent, $boucles, $descr, $ligne_preaff, $boucle_placeholder);
-		$result->avant = public_phraser_html_dist($result->avant, $id_parent, $boucles, $descr, $ligne_avant, $boucle_placeholder);
-		$result->apres = public_phraser_html_dist($result->apres, $id_parent, $boucles, $descr, $ligne_apres, $boucle_placeholder);
-		$result->altern = public_phraser_html_dist($result->altern, $id_parent, $boucles, $descr, $ligne_altern, $boucle_placeholder);
-		$result->postaff = public_phraser_html_dist($result->postaff, $id_parent, $boucles, $descr, $ligne_postaff, $boucle_placeholder);
+		$result->preaff = public_phraser_html_dist(
+			$result->preaff,
+			$id_parent,
+			$boucles,
+			$descr,
+			$ligne_preaff,
+			$boucle_placeholder
+		);
+		$result->avant = public_phraser_html_dist(
+			$result->avant,
+			$id_parent,
+			$boucles,
+			$descr,
+			$ligne_avant,
+			$boucle_placeholder
+		);
+		$result->apres = public_phraser_html_dist(
+			$result->apres,
+			$id_parent,
+			$boucles,
+			$descr,
+			$ligne_apres,
+			$boucle_placeholder
+		);
+		$result->altern = public_phraser_html_dist(
+			$result->altern,
+			$id_parent,
+			$boucles,
+			$descr,
+			$ligne_altern,
+			$boucle_placeholder
+		);
+		$result->postaff = public_phraser_html_dist(
+			$result->postaff,
+			$id_parent,
+			$boucles,
+			$descr,
+			$ligne_postaff,
+			$boucle_placeholder
+		);
 
 		// Prevenir le generateur de code que le squelette est faux
 		if ($err_b) {
@@ -1321,7 +1364,7 @@ function public_phraser_html_dist(string $texte, string $id_parent, array &$bouc
 			if ($boucles[$id_boucle]->type_requete !== false) {
 				$err_b_d = [
 					'zbug_erreur_boucle_double',
-					['id' => $id_boucle]
+					['id' => $id_boucle],
 				];
 				erreur_squelette($err_b_d, $result);
 				// Prevenir le generateur de code que le squelette est faux
@@ -1332,7 +1375,12 @@ function public_phraser_html_dist(string $texte, string $id_parent, array &$bouc
 		}
 
 		// remplacer la boucle par un placeholder qui compte le meme nombre de lignes
-		$placeholder = public_generer_boucle_placeholder($id_boucle, $boucles[$id_boucle], $boucle_placeholder, $ligne_suite - $ligne_debut_texte);
+		$placeholder = public_generer_boucle_placeholder(
+			$id_boucle,
+			$boucles[$id_boucle],
+			$boucle_placeholder,
+			$ligne_suite - $ligne_debut_texte
+		);
 		$longueur_boucle = $pos_courante - $boucle['debut_boucle'];
 		$texte = substr_replace((string) $texte, $placeholder, $boucle['debut_boucle'], $longueur_boucle);
 		$pos_courante = $pos_courante - $longueur_boucle + strlen($placeholder);

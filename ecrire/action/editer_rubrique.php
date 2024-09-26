@@ -33,11 +33,10 @@ include_spip('inc/rubriques');
  *     - int  : identifiant de rubrique dont on demande l'édition
  * @return array
  *     Liste : identifiant de la rubrique, message d'erreur éventuel.
- *
  */
 function action_editer_rubrique_dist($arg = null) {
 
-	if (is_null($arg)) {
+	if ($arg === null) {
 		$securiser_action = charger_fonction('securiser_action', 'inc');
 		$arg = $securiser_action();
 	}
@@ -53,12 +52,7 @@ function action_editer_rubrique_dist($arg = null) {
 	$err = rubrique_modifier($id_rubrique);
 
 	if (_request('redirect')) {
-		$redirect = parametre_url(
-			urldecode((string) _request('redirect')),
-			'id_rubrique',
-			$id_rubrique,
-			'&'
-		);
+		$redirect = parametre_url(urldecode((string) _request('redirect')), 'id_rubrique', $id_rubrique, '&');
 
 		include_spip('inc/headers');
 		redirige_par_entete($redirect);
@@ -66,7 +60,6 @@ function action_editer_rubrique_dist($arg = null) {
 
 	return [$id_rubrique, $err];
 }
-
 
 /**
  * Insérer une rubrique en base
@@ -82,7 +75,7 @@ function rubrique_inserer($id_parent, $set = null) {
 	$champs = [
 		'titre' => _T('item_nouvelle_rubrique'),
 		'id_parent' => (int) $id_parent,
-		'statut' => 'prepa'
+		'statut' => 'prepa',
 	];
 
 	if ($set) {
@@ -90,15 +83,12 @@ function rubrique_inserer($id_parent, $set = null) {
 	}
 
 	// Envoyer aux plugins
-	$champs = pipeline(
-		'pre_insertion',
-		[
-			'args' => [
-				'table' => 'spip_rubriques',
-			],
-			'data' => $champs
-		]
-	);
+	$champs = pipeline('pre_insertion', [
+		'args' => [
+			'table' => 'spip_rubriques',
+		],
+		'data' => $champs,
+	]);
 
 	$id_rubrique = sql_insertq('spip_rubriques', $champs);
 	pipeline(
@@ -106,9 +96,9 @@ function rubrique_inserer($id_parent, $set = null) {
 		[
 			'args' => [
 				'table' => 'spip_rubriques',
-				'id_objet' => $id_rubrique
+				'id_objet' => $id_rubrique,
 			],
-			'data' => $champs
+			'data' => $champs,
 		]
 	);
 	propager_les_secteurs();
@@ -170,8 +160,8 @@ function rubrique_modifier($id_rubrique, $set = null) {
 			'rubrique',
 			$id_rubrique,
 			[
-			'data' => $set,
-			'nonvide' => ['titre' => _T('titre_nouvelle_rubrique') . ' ' . _T('info_numero_abbreviation') . $id_rubrique]
+				'data' => $set,
+				'nonvide' => ['titre' => _T('titre_nouvelle_rubrique') . ' ' . _T('info_numero_abbreviation') . $id_rubrique],
 			],
 			$c
 		)
@@ -227,18 +217,13 @@ function editer_rubrique_breves($id_rubrique, $id_parent, $c = []) {
 	}
 
 	if (
-		$id_secteur = sql_getfetsel(
-			'id_secteur',
-			'spip_rubriques',
-			"id_rubrique=$id_parent"
-		)
+		$id_secteur = sql_getfetsel('id_secteur', 'spip_rubriques', "id_rubrique=$id_parent")
 	) {
 		sql_updateq('spip_breves', ['id_rubrique' => $id_secteur], "id_rubrique=$id_rubrique");
 	}
 
 	return true;
 }
-
 
 /**
  * Instituer une rubrique (changer son parent)
@@ -272,19 +257,21 @@ function rubrique_instituer($id_rubrique, $c) {
 			$old_parent = $s['id_parent'];
 
 			if (
-				!($id_parent != $old_parent
+				!(
+					$id_parent != $old_parent
 				&& autoriser('publierdans', 'rubrique', $id_parent)
 				&& autoriser('creerrubriquedans', 'rubrique', $id_parent)
 				&& autoriser('publierdans', 'rubrique', $old_parent)
 				)
 			) {
 				if ($s['statut'] != 'prepa') {
-					spip_logger()->info("deplacement de $id_rubrique vers $id_parent refuse a " . $GLOBALS['visiteur_session']['id_auteur'] . ' ' . $GLOBALS['visiteur_session']['statut']);
+					spip_logger()->info(
+						"deplacement de $id_rubrique vers $id_parent refuse a " . $GLOBALS['visiteur_session']['id_auteur'] . ' ' . $GLOBALS['visiteur_session']['statut']
+					);
 				}
 			} elseif (editer_rubrique_breves($id_rubrique, $id_parent, $c)) {
 				$statut_ancien = $s['statut'];
 				sql_updateq('spip_rubriques', ['id_parent' => $id_parent], "id_rubrique=$id_rubrique");
-
 
 				propager_les_secteurs();
 

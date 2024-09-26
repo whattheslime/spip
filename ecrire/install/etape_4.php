@@ -11,7 +11,6 @@
 
 use Spip\Afficher\Minipage\Installation;
 
-
 if (!defined('_ECRIRE_INC_VERSION')) {
 	return;
 }
@@ -36,7 +35,6 @@ function install_etape_4_dist() {
 		. '</b><p>'
 		. _T('info_utilisation_spip')
 		. '</p></div>';
-
 
 	echo '<p>'
 		. _T(

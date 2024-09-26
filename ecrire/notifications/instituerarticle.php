@@ -47,12 +47,11 @@ function notifications_instituerarticle_dist($quoi, $id_article, $options) {
 			$destinataires = explode(',', (string) $GLOBALS['meta']['adresse_suivi']);
 		}
 
-
 		$destinataires = pipeline(
 			'notifications_destinataires',
 			[
 				'args' => ['quoi' => $quoi, 'id' => $id_article, 'options' => $options],
-				'data' => $destinataires
+				'data' => $destinataires,
 			]
 		);
 

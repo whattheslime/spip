@@ -48,17 +48,11 @@ if (!defined('_ECRIRE_INC_VERSION')) {
  */
 function interprete_argument_balise(int $n, Champ $p): ?string {
 	if (($p->param) && (!$p->param[0][0]) && ((is_countable($p->param[0]) ? count($p->param[0]) : 0) > $n)) {
-		return calculer_liste(
-			$p->param[0][$n],
-			$p->descr,
-			$p->boucles,
-			$p->id_boucle
-		);
+		return calculer_liste($p->param[0][$n], $p->descr, $p->boucles, $p->id_boucle);
 	}
 
 	return null;
 }
-
 
 //
 // Définition des balises
@@ -119,7 +113,6 @@ function balise_DESCRIPTIF_SITE_SPIP_dist($p) {
 	#$p->interdire_scripts = true;
 	return $p;
 }
-
 
 /**
  * Compile la balise `#CHARSET` qui retourne le nom du jeu de caractères
@@ -226,7 +219,6 @@ function balise_LANG_DIR_dist($p) {
 	return $p;
 }
 
-
 /**
  * Compile la balise `#PUCE` affichant une puce
  *
@@ -245,7 +237,6 @@ function balise_PUCE_dist($p) {
 
 	return $p;
 }
-
 
 /**
  * Compile la balise `#DATE` qui retourne la date de mise en ligne
@@ -271,7 +262,6 @@ function balise_DATE_dist($p) {
 
 	return $p;
 }
-
 
 /**
  * Compile la balise `#DATE_REDAC` qui retourne la date de première publication
@@ -341,7 +331,6 @@ function balise_DATE_NOUVEAUTES_dist($p) {
 	return $p;
 }
 
-
 /**
  * Compile la balise `#DOSSIER_SQUELETTE` retournant le chemin vers le
  * répertoire du fichier squelette dans lequel elle est appelee
@@ -404,7 +393,6 @@ function balise_SPIP_VERSION_dist($p) {
 	return $p;
 }
 
-
 /**
  * Compile la balise `#NOM_SITE` qui affiche le nom du site.
  *
@@ -441,7 +429,6 @@ function balise_NOM_SITE_dist($p) {
 	return $p;
 }
 
-
 /**
  * Compile la balise `#NOTE` qui affiche les notes de bas de page
  *
@@ -461,7 +448,6 @@ function balise_NOTES_dist($p) {
 	#$p->interdire_scripts = true;
 	return $p;
 }
-
 
 /**
  * Compile la balise `#RECHERCHE` qui retourne le terme de recherche demandé
@@ -487,7 +473,6 @@ function balise_RECHERCHE_dist($p) {
 	return $p;
 }
 
-
 /**
  * Compile la balise `#COMPTEUR_BOUCLE` qui retourne le numéro de l’itération
  * actuelle de la boucle
@@ -507,13 +492,13 @@ function balise_COMPTEUR_BOUCLE_dist($p) {
 		$msg = ['zbug_champ_hors_boucle', ['champ' => zbug_presenter_champ($p)]];
 		erreur_squelette($msg, $p);
 		return null;
-	} else {
-		$p->code = "(\$Numrows['$b']['compteur_boucle'] ?? 0)";
-		$p->boucles[$b]->cptrows = true;
-		$p->interdire_scripts = false;
-
-		return $p;
 	}
+	$p->code = "(\$Numrows['$b']['compteur_boucle'] ?? 0)";
+	$p->boucles[$b]->cptrows = true;
+	$p->interdire_scripts = false;
+
+	return $p;
+
 }
 
 /**
@@ -544,7 +529,6 @@ function balise_TOTAL_BOUCLE_dist($p) {
 	return $p;
 }
 
-
 /**
  * Compile la balise `#POINTS` qui affiche la pertinence des résultats
  *
@@ -563,7 +547,6 @@ function balise_TOTAL_BOUCLE_dist($p) {
 function balise_POINTS_dist($p) {
 	return rindex_pile($p, 'points', 'recherche');
 }
-
 
 /**
  * Compile la balise `#POPULARITE_ABSOLUE` qui affiche la popularité absolue
@@ -637,7 +620,6 @@ function balise_POPULARITE_MAX_dist($p) {
 	return $p;
 }
 
-
 /**
  * Compile la balise `#VALEUR` retournant le champ `valeur`
  *
@@ -662,7 +644,7 @@ function balise_POPULARITE_MAX_dist($p) {
 function balise_VALEUR_dist($p) {
 	$b = $p->nom_boucle ?: $p->id_boucle;
 	$p->code = index_pile($p->id_boucle, 'valeur', $p->boucles, $b);
-;
+
 	if (($v = interprete_argument_balise(1, $p)) !== null) {
 		$p->code = 'table_valeur(' . $p->code . ', ' . $v . ')';
 	}
@@ -755,7 +737,6 @@ function calculer_balise_expose($p, $on, $off) {
 	return $p;
 }
 
-
 /**
  * Compile la balise `#INTRODUCTION`
  *
@@ -834,7 +815,6 @@ function balise_INTRODUCTION_dist($p) {
 	$p->etoile = '*'; // propre est deja fait dans le calcul de l'intro
 	return $p;
 }
-
 
 /**
  * Compile la balise `#LANG` qui affiche la langue de l'objet (ou d'une boucle supérieure),
@@ -923,7 +903,6 @@ function balise_LESAUTEURS_dist($p) {
 	return $p;
 }
 
-
 /**
  * Compile la balise `#RANG` chargée d'afficher le numéro de l'objet
  *
@@ -951,7 +930,7 @@ function balise_RANG_dist($p) {
 	if ($b === '') {
 		$msg = [
 			'zbug_champ_hors_boucle',
-			['champ' => '#RANG']
+			['champ' => '#RANG'],
 		];
 		erreur_squelette($msg, $p);
 	} else {
@@ -1005,9 +984,11 @@ function balise_RANG_dist($p) {
 			$_primary = champ_sql($id_table_objet, $p, '', false);
 			$_env = '$Pile[0]';
 
-			if (!$_titre) {$_titre = "''";
+			if (!$_titre) {
+				$_titre = "''";
 			}
-			if (!$_primary) {$_primary = "''";
+			if (!$_primary) {
+				$_primary = "''";
 			}
 			$_rang = "calculer_rang_smart($_titre, '$objet', $_primary, $_env)";
 		}
@@ -1018,7 +999,6 @@ function balise_RANG_dist($p) {
 
 	return $p;
 }
-
 
 /**
  * Compile la balise `#POPULARITE` qui affiche la popularité relative.
@@ -1098,7 +1078,7 @@ function balise_PAGINATION_dist($p, $liste = 'true') {
 	if ($b === '') {
 		$msg = [
 			'zbug_champ_hors_boucle',
-			['champ' => $liste ? 'PAGINATION' : 'ANCRE_PAGINATION']
+			['champ' => $liste ? 'PAGINATION' : 'ANCRE_PAGINATION'],
 		];
 		erreur_squelette($msg, $p);
 
@@ -1111,7 +1091,7 @@ function balise_PAGINATION_dist($p, $liste = 'true') {
 		if (!$p->boucles[$b]->table_optionnelle) {
 			$msg = [
 				'zbug_pagination_sans_critere',
-				['champ' => '#PAGINATION']
+				['champ' => '#PAGINATION'],
 			];
 			erreur_squelette($msg, $p);
 		}
@@ -1163,7 +1143,6 @@ function balise_PAGINATION_dist($p, $liste = 'true') {
 	return $p;
 }
 
-
 /**
  * Compile la balise `#ANCRE_PAGINATION` chargée d'afficher l'ancre
  * de la pagination
@@ -1189,11 +1168,10 @@ function balise_PAGINATION_dist($p, $liste = 'true') {
 function balise_ANCRE_PAGINATION_dist($p) {
 	if ($f = charger_fonction('PAGINATION', 'balise', true)) {
 		return $f($p, $liste = 'false');
-	} else {
-		return null;
-	} // ou une erreur ?
+	}
+	return null;
+	// ou une erreur ?
 }
-
 
 /**
  * Compile la balise `#GRAND_TOTAL` qui retourne le nombre total de résultats
@@ -1225,7 +1203,6 @@ function balise_GRAND_TOTAL_dist($p) {
 	return $p;
 }
 
-
 /**
  * Compile la balise `#SELF` qui retourne l’URL de la page appelée.
  *
@@ -1255,7 +1232,6 @@ function balise_SELF_dist($p) {
 
 	return $p;
 }
-
 
 /**
  * Compile la balise `#CHEMIN` qui cherche un fichier dans les chemins
@@ -1327,7 +1303,6 @@ function balise_CHEMIN_IMAGE_dist($p) {
 	return $p;
 }
 
-
 /**
  * Compile la balise `#ENV` qui permet de récupérer le contexte d'environnement
  * transmis à un squelette.
@@ -1350,7 +1325,6 @@ function balise_CHEMIN_IMAGE_dist($p) {
  * utilisée pour désactiver les filtres par défaut, par exemple avec
  * `[(#ENV*{toto})]` , il *faut* s'assurer de la sécurité
  * anti-javascript, par exemple en filtrant avec `safehtml` : `[(#ENV*{toto}|safehtml)]`
- *
  *
  * @param Champ $p
  *     Pile ; arbre de syntaxe abstrait positionné au niveau de la balise.
@@ -1433,7 +1407,6 @@ function balise_CONFIG_dist($p) {
 	return $p;
 }
 
-
 /**
  * Compile la balise `#CONNECT` qui retourne le nom du connecteur
  * de base de données
@@ -1458,7 +1431,6 @@ function balise_CONNECT_dist($p) {
 
 	return $p;
 }
-
 
 /**
  * Compile la balise `#SESSION` qui permet d’accéder aux informations
@@ -1495,7 +1467,6 @@ function balise_SESSION_dist($p) {
 	return $p;
 }
 
-
 /**
  * Compile la balise `#SESSION_SET` qui d’insérer dans la session
  * des données supplémentaires
@@ -1529,7 +1500,6 @@ function balise_SESSION_SET_dist($p) {
 	return $p;
 }
 
-
 /**
  * Compile la balise `#EVAL` qui évalue un code PHP
  *
@@ -1562,11 +1532,7 @@ function balise_EVAL_dist($p) {
 		# optimisation sur les #EVAL{une expression sans #BALISE}
 		# attention au commentaire "// x signes" qui precede
 		if (
-			preg_match(
-				",^([[:space:]]*//[^\n]*\n)'([^']+)'$,ms",
-				$php,
-				$r
-			)
+			preg_match(",^([[:space:]]*//[^\n]*\n)'([^']+)'$,ms", $php, $r)
 		) {
 			$p->code = /* $r[1]. */
 				'(' . $r[2] . ')';
@@ -1582,7 +1548,6 @@ function balise_EVAL_dist($p) {
 
 	return $p;
 }
-
 
 /**
  * Compile la balise `#CHAMP_SQL` qui renvoie la valeur d'un champ SQL
@@ -1702,7 +1667,6 @@ function balise_NULL_dist($p) {
 	return $p;
 }
 
-
 /**
  * Compile la balise `#HTTP_HEADER` envoyant des entêtes de retour HTTP
  *
@@ -1736,7 +1700,6 @@ function balise_HTTP_HEADER_dist($p) {
 
 	return $p;
 }
-
 
 /**
  * Compile la balise `#FILTRE` qui exécute un filtre à l'ensemble du squelette
@@ -1776,7 +1739,6 @@ function balise_FILTRE_dist($p) {
 
 	return null;
 }
-
 
 /**
  * Compile la balise `#CACHE` definissant la durée de validité du cache du squelette
@@ -1861,7 +1823,6 @@ function balise_CACHE_dist($p) {
 	return $p;
 }
 
-
 /**
  * Compile la balise `#INSERT_HEAD` permettant d'insérer du contenu dans
  * le `<head>` d'une page HTML
@@ -1934,9 +1895,9 @@ function balise_INSERT_HEAD_CSS_dist($p) {
 function balise_INCLUDE_dist($p) {
 	if (function_exists('balise_INCLURE')) {
 		return balise_INCLURE($p);
-	} else {
-		return balise_INCLURE_dist($p);
 	}
+	return balise_INCLURE_dist($p);
+
 }
 
 /**
@@ -2032,7 +1993,6 @@ function balise_INCLURE_dist($p) {
 	return $p;
 }
 
-
 /**
  * Compile la balise `#MODELE` qui inclut un résultat de squelette de modèle
  *
@@ -2122,7 +2082,6 @@ function balise_MODELE_dist($p) {
 	return $p;
 }
 
-
 /**
  * Compile la balise `#SET` qui affecte une variable locale au squelette
  *
@@ -2160,7 +2119,6 @@ function balise_SET_dist($p) {
 	return $p;
 }
 
-
 /**
  * Compile la balise `#GET` qui récupère une variable locale au squelette
  *
@@ -2190,11 +2148,10 @@ function balise_GET_dist($p) {
 	$p->interdire_scripts = false; // le contenu vient de #SET, donc il est de confiance
 	if (function_exists('balise_ENV')) {
 		return balise_ENV($p, '$Pile["vars"]??[]');
-	} else {
-		return balise_ENV_dist($p, '$Pile["vars"]??[]');
 	}
-}
+	return balise_ENV_dist($p, '$Pile["vars"]??[]');
 
+}
 
 /**
  * Compile la balise `#DOUBLONS` qui redonne les doublons enregistrés
@@ -2233,7 +2190,6 @@ function balise_DOUBLONS_dist($p) {
 	return $p;
 }
 
-
 /**
  * Compile la balise `#PIPELINE` pour permettre d'insérer des sorties de
  * pipeline dans un squelette
@@ -2267,7 +2223,6 @@ function balise_PIPELINE_dist($p) {
 	return $p;
 }
 
-
 /**
  * Compile la balise `#EDIT` qui ne fait rien dans SPIP
  *
@@ -2294,7 +2249,6 @@ function balise_EDIT_dist($p) {
 
 	return $p;
 }
-
 
 /**
  * Compile la balise `#TOTAL_UNIQUE` qui récupère le nombre d'éléments
@@ -2384,7 +2338,6 @@ function balise_LISTE_dist($p) {
 	return $p;
 }
 
-
 /**
  * Compile la balise `#AUTORISER` qui teste une autorisation
  *
@@ -2431,7 +2384,6 @@ function balise_AUTORISER_dist($p) {
 
 	return $p;
 }
-
 
 /**
  * Compile la balise `#PLUGIN` qui permet d’afficher les informations d'un plugin actif
@@ -2535,7 +2487,6 @@ function balise_ACTION_FORMULAIRE($p) {
 	return $p;
 }
 
-
 /**
  * Compile la balise `#BOUTON_ACTION` qui génère un bouton d'action en post, ajaxable
  *
@@ -2594,7 +2545,6 @@ function balise_BOUTON_ACTION_dist($p) {
 	return $p;
 }
 
-
 /**
  * Compile la balise `#SLOGAN_SITE_SPIP` qui retourne le slogan du site
  *
@@ -2615,7 +2565,6 @@ function balise_SLOGAN_SITE_SPIP_dist($p) {
 	#$p->interdire_scripts = true;
 	return $p;
 }
-
 
 /**
  * Compile la balise `#HTML5` indiquant si l'espace public peut utiliser du HTML5
@@ -2642,7 +2591,6 @@ function balise_HTML5_dist($p) {
 
 	return $p;
 }
-
 
 /**
  * Compile la balise `#TRI` permettant d'afficher un lien de changement d'ordre de tri
@@ -2682,7 +2630,7 @@ function balise_TRI_dist($p, $liste = 'true') {
 	if (!isset($boucle->modificateur['tri_champ'])) {
 		$msg = ['zbug_champ_hors_critere', [
 			'champ' => zbug_presenter_champ($p),
-			'critere' => 'tri'
+			'critere' => 'tri',
 		]];
 		erreur_squelette($msg, $p);
 		$p->code = "''";
@@ -2691,7 +2639,7 @@ function balise_TRI_dist($p, $liste = 'true') {
 	}
 
 	// Différentes infos relatives au tri présentes dans les modificateurs
-	$_tri_nom = $boucle->modificateur['tri_nom'] ; // nom du paramètre définissant le tri
+	$_tri_nom = $boucle->modificateur['tri_nom']; // nom du paramètre définissant le tri
 	$_tri_champ = $boucle->modificateur['tri_champ']; // champ actuel utilisé le tri
 	$_tri_sens = $boucle->modificateur['tri_sens']; // sens de tri actuel
 	$_tri_liste_sens_defaut = $boucle->modificateur['tri_liste_sens_defaut']; // sens par défaut pour chaque champ
@@ -2721,7 +2669,6 @@ function balise_TRI_dist($p, $liste = 'true') {
 
 	return $p;
 }
-
 
 /**
  * Compile la balise `#SAUTER{n}` qui permet de sauter en avant n resultats dans une boucle
@@ -2756,7 +2703,6 @@ function balise_SAUTER_dist($p) {
 
 	return $p;
 }
-
 
 /**
  * Compile la balise `#PUBLIE` qui indique si un objet est publié ou non
@@ -2853,7 +2799,6 @@ function balise_LARGEUR_ECRAN_dist($p) {
 	return $p;
 }
 
-
 /**
  * Compile la balise `#CONST` qui retourne la valeur de la constante passée en argument
  *
@@ -2869,8 +2814,7 @@ function balise_CONST_dist($p) {
 	$_const = interprete_argument_balise(1, $p);
 	if (!strlen($_const ?? '')) {
 		$p->code = "''";
-	}
-	else {
+	} else {
 		$p->code = "(defined($_const)?constant($_const):'')";
 	}
 	$p->interdire_scripts = false;
@@ -2885,8 +2829,7 @@ function balise_PARAM_dist(Champ $p): Champ {
 	$param = interprete_argument_balise(1, $p);
 	if (!strlen($param ?? '')) {
 		$p->code = "''";
-	}
-	else {
+	} else {
 		$p->code = '\SpipLeague\Component\Kernel\param(' . $param . ')';
 	}
 

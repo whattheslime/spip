@@ -50,7 +50,6 @@ function exporter_csv_champ($champ) {
  * @param string $delim
  * @param string|null $importer_charset
  *     Si défini exporte dans le charset indiqué
- * @param callable $callback
  * @return string
  */
 function exporter_csv_ligne_numerotee($nb, $ligne, $delim = ',', $importer_charset = null, ?callable $callback = null) {
@@ -147,7 +146,13 @@ function inc_exporter_csv_dist($titre, $resource, $options = []) {
 	$output = '';
 	$nb = 0;
 	if (!empty($options['entetes']) && is_array($options['entetes'])) {
-		$output = exporter_csv_ligne_numerotee($nb, $options['entetes'], $options['delim'], $importer_charset, $options['callback']);
+		$output = exporter_csv_ligne_numerotee(
+			$nb,
+			$options['entetes'],
+			$options['delim'],
+			$importer_charset,
+			$options['callback']
+		);
 	}
 	// les donnees commencent toujours a la ligne 1, qu'il y ait ou non des entetes
 	$nb++;
@@ -168,8 +173,7 @@ function inc_exporter_csv_dist($titre, $resource, $options = []) {
 	// sinon on ecrit directement sur stdout
 	if ($options['envoyer'] && $options['envoyer'] !== 'attachment') {
 		$fichier = 'php://output';
-	}
-	else {
+	} else {
 		$fichier = sous_repertoire(_DIR_CACHE, 'export') . $basename;
 	}
 

@@ -204,14 +204,13 @@ function couleur_hex_to_hsl($couleur, $format = null) {
 	$hsl = [
 		'h' => round($hsl['h'] * 360),
 		's' => round($hsl['s'] * 100) . '%',
-		'l' => round($hsl['l'] * 100) . '%'
+		'l' => round($hsl['l'] * 100) . '%',
 	];
 	if ($format === null) {
 		return "hsl({$hsl['h']}, {$hsl['s']}, {$hsl['l']})";
 	}
 	return str_replace(array_keys($hsl), $hsl, $format);
 }
-
 
 /**
  * Retourne une couleur rgb a partir d'une couleur hex
@@ -378,11 +377,11 @@ function image_passe_partout(
 	$process = 'AUTO'
 ) {
 	// PHP 7+ type hint
-	$img = (string)$img;
-	$taille_x = (int)$taille_x;
-	$taille_y = (int)$taille_y;
-	$force = (bool)$force;
-	$process = (string)$process;
+	$img = (string) $img;
+	$taille_x = (int) $taille_x;
+	$taille_y = (int) $taille_y;
+	$force = (bool) $force;
+	$process = (string) $process;
 
 	if (!$img) {
 		return '';
@@ -459,11 +458,11 @@ function image_reduire(
 	$process = 'AUTO'
 ) {
 	// PHP 7+ type hint
-	$img = (string)$img;
-	$taille = (int)$taille;
-	$taille_y = (int)$taille_y;
-	$force = (bool)$force;
-	$process = (string)$process;
+	$img = (string) $img;
+	$taille = (int) $taille;
+	$taille_y = (int) $taille_y;
+	$force = (bool) $force;
+	$process = (string) $process;
 
 	// Determiner la taille x,y maxi
 	// prendre le reglage de previsu par defaut
@@ -492,19 +491,11 @@ function image_reduire(
 }
 
 /**
- *
  * Usage espace privé:
  * recadre une image uniquement si GD2 et image_recadre (plugin activé) existe
  * sinon retourne le image_passe_partout usuel
- *
  */
-function image_recadre_avec_fallback(
-	$im,
-	$width,
-	$height = '-',
-	$position = 'focus',
-	$background_color = 'white'
-) {
+function image_recadre_avec_fallback($im, $width, $height = '-', $position = 'focus', $background_color = 'white') {
 	$im = image_passe_partout($im, $width, $height);
 	if (function_exists('image_recadre') && ($GLOBALS['meta']['image_process'] ?? '') === 'gd2') {
 		$im = image_recadre($im, $width . ':' . $height, '-', $position, $background_color);
@@ -528,9 +519,9 @@ function image_recadre_avec_fallback(
  */
 function image_reduire_par($img, $val = 1, $force = false) {
 	// PHP 7+ type hint
-	$img = (string)$img;
-	$val = (int)$val;
-	$force = (bool)$force;
+	$img = (string) $img;
+	$val = (int) $val;
+	$force = (bool) $force;
 
 	[$hauteur, $largeur] = taille_image($img);
 
@@ -564,7 +555,7 @@ function image_reduire_par($img, $val = 1, $force = false) {
  *      Si true, ne change vraiment que la saturation, sans toucher à la luminosité
  * @return string
  *      Couleur en écriture hexadécimale.
-**/
+ **/
 function filtre_couleur_saturation_dist($couleur, $val, $strict = false) {
 	if (function_exists('couleur_saturation')) {
 		return couleur_saturation($couleur, $val, $strict);
@@ -588,7 +579,7 @@ function filtre_couleur_saturation_dist($couleur, $val, $strict = false) {
  *      Pourcentage désiré (entre 0 et 1)
  * @return string
  *      Couleur en écriture hexadécimale.
-**/
+ **/
 function filtre_couleur_luminance_dist($couleur, $val) {
 	if (function_exists('couleur_luminance')) {
 		return couleur_luminance($couleur, $val);

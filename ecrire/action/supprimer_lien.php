@@ -19,7 +19,6 @@ if (!defined('_ECRIRE_INC_VERSION')) {
 	return;
 }
 
-
 /**
  * Action pour dissocier 2 objets entre eux
  *
@@ -31,10 +30,9 @@ if (!defined('_ECRIRE_INC_VERSION')) {
  * @param null|string $arg
  *     Clé des arguments. En absence utilise l'argument
  *     de l'action sécurisée.
- * @return void
  */
 function action_supprimer_lien_dist($arg = null) {
-	if (is_null($arg)) {
+	if ($arg === null) {
 		$securiser_action = charger_fonction('securiser_action', 'inc');
 		$arg = $securiser_action();
 	}

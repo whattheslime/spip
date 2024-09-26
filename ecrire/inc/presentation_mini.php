@@ -24,7 +24,7 @@ if (!defined('_ECRIRE_INC_VERSION')) {
  * @return string Code HTML
  */
 function debut_grand_cadre() {
- return "\n<div class = 'table_page'>\n";
+	return "\n<div class = 'table_page'>\n";
 }
 
 /**
@@ -33,7 +33,7 @@ function debut_grand_cadre() {
  * @return string Code HTML
  */
 function fin_grand_cadre() {
- return "\n</div>";
+	return "\n</div>";
 }
 
 // Debut de la colonne de gauche
@@ -57,7 +57,7 @@ function debut_gauche() {
  * @return string Code HTML
  */
 function fin_gauche() {
- return "</div></div><br class = 'nettoyeur'>";
+	return "</div></div><br class = 'nettoyeur'>";
 }
 
 /**
@@ -110,7 +110,7 @@ function liste_objets_bloques($exec, $contexte = [], $auteur = null): string {
 	include_spip('inc/config');
 	if (lire_config('articles_modif', 'non') !== 'non') {
 		include_spip('inc/drapeau_edition');
-		if (is_null($auteur)) {
+		if ($auteur === null) {
 			$auteur = $GLOBALS['visiteur_session'];
 		}
 		if (
@@ -134,7 +134,6 @@ function liste_objets_bloques($exec, $contexte = [], $auteur = null): string {
 	return $res;
 }
 
-
 /**
  * Retourne le code HTML de fin de page de l'interface privée.
  *
@@ -147,7 +146,8 @@ function liste_objets_bloques($exec, $contexte = [], $auteur = null): string {
 function fin_page() {
 	include_spip('inc/pipelines');
 	// avec &var_profile=1 on a le tableau de mesures SQL
-	$debug = (_request('exec') !== 'valider_xml'
+	$debug = (
+		_request('exec') !== 'valider_xml'
 		&& (
 			_request('var_mode') == 'debug'
 			|| isset($GLOBALS['tableau_des_temps']) && $GLOBALS['tableau_des_temps']
@@ -263,7 +263,7 @@ function info_copyright() {
 		'info_copyright',
 		[
 			'spip' => "<b>SPIP $version</b> ",
-			'lien_gpl' => '<a href="https://www.gnu.org/licenses/gpl-3.0.html">' . _T('info_copyright_gpl') . '</a>'
+			'lien_gpl' => '<a href="https://www.gnu.org/licenses/gpl-3.0.html">' . _T('info_copyright_gpl') . '</a>',
 		]
 	)
 	. $secu;

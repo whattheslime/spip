@@ -2,7 +2,6 @@
 
 declare(strict_types=1);
 
-
 namespace Spip\Test\Urls;
 
 use PHPUnit\Framework\Attributes\Depends;
@@ -32,7 +31,7 @@ class LiensAbsolusTest extends TestCase
 	public function testLienPublic() {
 		$relatif = generer_url_public('toto', 'truc=machin&chose=bidule', false, true);
 		$absolu = generer_url_public('toto', 'truc=machin&chose=bidule', false, false);
-		$expected = 'bla bla <a href=\'' .  $absolu . '\'>lien public</a>';
+		$expected = 'bla bla <a href=\'' . $absolu . '\'>lien public</a>';
 		$case = 'bla bla <a href=\'' . $relatif . '\'>lien public</a>';
 		$actual = liens_absolus($case);
 		$this->assertEquals($expected, $actual);

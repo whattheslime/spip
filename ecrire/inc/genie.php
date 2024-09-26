@@ -48,7 +48,6 @@ if (!defined('_ECRIRE_INC_VERSION')) {
  * @package SPIP\Core\Genie
  */
 
-
 /**
  * Prévoit l'exécution de la tâche cron la plus urgente
  *
@@ -71,7 +70,6 @@ if (!defined('_ECRIRE_INC_VERSION')) {
  * @param array $taches
  *     Tâches dont on force maintenant l'exécution le plus tôt possible.
  *     Sinon, prendra la tâche la plus prioritaire.
- * @return
  */
 function inc_genie_dist($taches = []) {
 	include_spip('inc/queue');
@@ -184,7 +182,6 @@ function genie_queue_watch_dist() {
  *   si 0  = asap mais on n'insere pas le job si deja en cours d'execution
  * @param int $priority
  *   priorite
- * @return void
  */
 function queue_genie_replan_job($function, $period, $last = 0, $time = null, $priority = 0) {
 	static $done = [];
@@ -192,7 +189,7 @@ function queue_genie_replan_job($function, $period, $last = 0, $time = null, $pr
 		return;
 	}
 	$done[$function] = true;
-	if (is_null($time)) {
+	if ($time === null) {
 		$time = time();
 		if ($last) {
 			$time = max($last + $period, $time);
@@ -201,7 +198,8 @@ function queue_genie_replan_job($function, $period, $last = 0, $time = null, $pr
 	if (!$last) {
 		$last = $time - $period;
 	}
-	spip_logger('queue')->info("replan_job $function $period $last $time $priority");
+	spip_logger('queue')
+		->info("replan_job $function $period $last $time $priority");
 	include_spip('inc/queue');
 	// on replanifie un job cron
 	// uniquement si il n'y en a pas deja un avec le meme nom

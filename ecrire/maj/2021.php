@@ -22,18 +22,16 @@ if (!defined('_ECRIRE_INC_VERSION')) {
 }
 
 $GLOBALS['maj'][2021_02_18_00] = [
-	['sql_alter', "TABLE spip_auteurs CHANGE imessage imessage VARCHAR(3) DEFAULT '' NOT NULL" ],
-	['sql_updateq', 'spip_auteurs', ['imessage' => 'oui'], "imessage != 'non' OR imessage IS NULL" ],
+	['sql_alter', "TABLE spip_auteurs CHANGE imessage imessage VARCHAR(3) DEFAULT '' NOT NULL"],
+	['sql_updateq', 'spip_auteurs', ['imessage' => 'oui'], "imessage != 'non' OR imessage IS NULL"],
 ];
 
 $GLOBALS['maj'][2022_02_23_02] = [
-	['sql_alter', "TABLE spip_auteurs ADD backup_cles mediumtext DEFAULT '' NOT NULL" ],
-	['sql_delete', 'spip_meta', "nom='secret_du_site'" ],
+	['sql_alter', "TABLE spip_auteurs ADD backup_cles mediumtext DEFAULT '' NOT NULL"],
+	['sql_delete', 'spip_meta', "nom='secret_du_site'"],
 ];
 
-$GLOBALS['maj'][2022_02_23_03] = [
-	['maj2021_supprimer_toutes_sessions_si_aucun_backup_cles'],
-];
+$GLOBALS['maj'][2022_02_23_03] = [['maj2021_supprimer_toutes_sessions_si_aucun_backup_cles']];
 
 /**
  * Supprime toutes les sessions des auteurs si on a pas encore généré de config/cles.php avec son backup

@@ -22,7 +22,6 @@ if (!defined('_ECRIRE_INC_VERSION')) {
 	return;
 }
 
-
 /**
  * Demander à mettre à jour la base de données
  */
@@ -45,12 +44,12 @@ function exec_demande_mise_a_jour_dist() {
 	echo debut_grand_cadre();
 	if ($GLOBALS['spip_version_base'] < $GLOBALS['meta']['version_installee'] ?? 0) {
 		echo boite_ouvrir(_T('info_erreur_version_base_plus_recente'), 'error');
-		echo '<p>'._T('info_version_base_plus_recente').'</p>';
+		echo '<p>' . _T('info_version_base_plus_recente') . '</p>';
 		echo boite_fermer();
 	} else {
 		echo boite_ouvrir(_T('info_message_technique'), 'notice');
 		echo '<p>' . _T('info_procedure_maj_version') . '</p>',
-			'<p>' . _T('info_administrateur_site_01') . '</p>';
+		'<p>' . _T('info_administrateur_site_01') . '</p>';
 		echo bouton_action(_T('bouton_mettre_a_jour_base'), generer_url_ecrire('upgrade', 'reinstall=non'));
 		echo boite_fermer();
 	}

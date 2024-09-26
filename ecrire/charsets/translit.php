@@ -10,7 +10,7 @@
  */
 
 $GLOBALS['CHARSET']['translit'] = [
-// latin [fausse plage]
+	// latin [fausse plage]
 	128 => 'EUR',
 	131 => 'f',
 	140 => 'OE',
@@ -20,7 +20,7 @@ $GLOBALS['CHARSET']['translit'] = [
 	156 => 'oe',
 	159 => 'Y',
 
-// latin [legal]
+	// latin [legal]
 	160 => ' ',
 	161 => '!',
 	162 => 'c',
@@ -99,13 +99,13 @@ $GLOBALS['CHARSET']['translit'] = [
 	252 => 'u',
 	255 => 'y',
 
-// turc
+	// turc
 	286 => 'G',
 	287 => 'g',
 	304 => 'I',
 	305 => 'i',
 
-// esperanto
+	// esperanto
 	264 => 'Cx',
 	265 => 'cx',
 	284 => 'Gx',
@@ -119,8 +119,7 @@ $GLOBALS['CHARSET']['translit'] = [
 	364 => 'Ux',
 	365 => 'ux',
 
-
-// latin2 [Czech]
+	// latin2 [Czech]
 	283 => 'e',
 	353 => 's',
 	269 => 'c',
@@ -142,13 +141,13 @@ $GLOBALS['CHARSET']['translit'] = [
 	270 => 'D',
 	467 => 'O',
 
-// francais
+	// francais
 	338 => 'OE',
 	339 => 'oe',
 	376 => 'Y',
 	402 => 'f',
 
-//polskie
+	//polskie
 	260 => 'A',
 	261 => 'a',
 	262 => 'C',
@@ -166,17 +165,17 @@ $GLOBALS['CHARSET']['translit'] = [
 	379 => 'Z',
 	380 => 'z',
 
-//roumain
+	//roumain
 	258 => 'A',
 	259 => 'a',
 	354 => 'T',
 	355 => 't',
 
-//turc & roumain
+	//turc & roumain
 	350 => 'S',
 	351 => 's',
 
-// cyrillique
+	// cyrillique
 	1026 => 'D%',
 	1027 => 'G%',
 	8218 => '\'',
@@ -290,7 +289,7 @@ $GLOBALS['CHARSET']['translit'] = [
 	1102 => 'yu',
 	1103 => 'ya',
 
-// vietnamien en translitteration de base
+	// vietnamien en translitteration de base
 	7843 => 'a',
 	7841 => 'a',
 	7845 => 'a',
@@ -389,6 +388,5 @@ $GLOBALS['CHARSET']['translit'] = [
 	7926 => 'Y',
 	7928 => 'Y',
 	7924 => 'Y',
-	273 => 'd'
-
+	273 => 'd',
 ];

@@ -197,7 +197,6 @@ class ExtraireAttributTest extends TestCase
 		);
 	}
 
-
 	#[DataProvider('providerBase64')]
 	public function testBase64($expected, ...$args): void {
 		$actual = extraire_attribut(...$args);

@@ -19,18 +19,19 @@ namespace Spip\Texte\Collecteur;
  *    Si $doublons==true, on repere les documents sans calculer les modeles
  *    mais on renvoie les params (pour l'indexation par le moteur de recherche)
  */
-class Modeles extends AbstractCollecteur {
+class Modeles extends AbstractCollecteur
+{
 	protected static string $markPrefix = 'MODELE';
 
 	/**
 	 * La preg pour découper et collecter les modèles
-	 * @var string
 	 */
 	protected string $preg_modele;
 
 	public function __construct(?string $preg = null) {
 
-		$this->preg_modele = ($preg ?:
+		$this->preg_modele = (
+			$preg ?:
 			'@<([a-z_-]{3,})' # <modele
 			. '\s*([0-9]*)\s*' # id
 			. '([|](?:<[^<>]*>|[^>])*?)?' # |arguments (y compris des tags <...>)
@@ -39,22 +40,8 @@ class Modeles extends AbstractCollecteur {
 	}
 
 	/**
-	 * Sanitizer une collection d'occurences de modèle : on ne fait rien
-	 *
-	 * @param array $collection
-	 * @param string $sanitize_callback
-	 * @return array
-	 */
-	protected function sanitizer_collection(array $collection, string $sanitize_callback): array {
-
-		return $collection;
-	}
-
-	/**
-	 * @param string $texte
 	 * @param array $options
 	 *   bool $collecter_liens
-	 * @return array
 	 */
 	public function collecter(string $texte, array $options = []): array {
 		if (!$texte) {
@@ -102,7 +89,7 @@ class Modeles extends AbstractCollecteur {
 						'class' => extraire_attribut($r[0], 'class'),
 						'mime' => extraire_attribut($r[0], 'type'),
 						'title' => extraire_attribut($r[0], 'title'),
-						'hreflang' => extraire_attribut($r[0], 'hreflang')
+						'hreflang' => extraire_attribut($r[0], 'hreflang'),
 					];
 					$n = strlen($r[0]);
 					$pos -= $n;
@@ -110,7 +97,6 @@ class Modeles extends AbstractCollecteur {
 					$end = $pos + $longueur;
 				}
 			}
-
 
 			$modele['pos'] = $pos;
 			$modele['length'] = $longueur;
@@ -122,7 +108,6 @@ class Modeles extends AbstractCollecteur {
 
 	/**
 	 * Traiter les modeles d'un texte
-	 * @param string $texte
 	 * @param array $options
 	 *   bool|array $doublons
 	 *   string $echap
@@ -160,7 +145,7 @@ class Modeles extends AbstractCollecteur {
 						// si un tableau de liens a ete passe, reinjecter le contenu d'origine
 						// dans les parametres, plutot que les liens echappes
 						$params = $m['params'];
-						if (!is_null($collecteurLiens)) {
+						if ($collecteurLiens !== null) {
 							$params = $collecteurLiens->retablir($params);
 						}
 
@@ -172,7 +157,7 @@ class Modeles extends AbstractCollecteur {
 						if ($modele === false) {
 							$modele = $m['raw'];
 
-							if (!is_null($collecteurLiens)) {
+							if ($collecteurLiens !== null) {
 								$modele = $collecteurLiens->retablir($modele);
 							}
 
@@ -218,5 +203,13 @@ class Modeles extends AbstractCollecteur {
 		}
 
 		return $texte;
+	}
+
+	/**
+	 * Sanitizer une collection d'occurences de modèle : on ne fait rien
+	 */
+	protected function sanitizer_collection(array $collection, string $sanitize_callback): array {
+
+		return $collection;
 	}
 }

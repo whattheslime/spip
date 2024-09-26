@@ -21,15 +21,17 @@ if (!defined('_ECRIRE_INC_VERSION')) {
 
 /**
  * Relancer une inscription
- *
- * @return void
  */
 function action_relancer_inscription_dist() {
 	$securiser_action = charger_fonction('securiser_action', 'inc');
 	$id_auteur = $securiser_action();
 
 	if ((int) $id_auteur && autoriser('relancer', 'inscription')) {
-		$auteur = sql_fetsel('prefs, email, nom, statut', 'spip_auteurs', "(id_auteur=$id_auteur) AND (email!='') AND (statut='nouveau')");
+		$auteur = sql_fetsel(
+			'prefs, email, nom, statut',
+			'spip_auteurs',
+			"(id_auteur=$id_auteur) AND (email!='') AND (statut='nouveau')"
+		);
 		if ($auteur) {
 			include_spip('action/inscrire_auteur');
 			action_inscrire_auteur_dist($auteur['prefs'], $auteur['email'], $auteur['nom'], ['force_nouveau' => true]);

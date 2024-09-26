@@ -139,7 +139,7 @@ function objet_modifier_champs($objet, $id_objet, $options, $c = null, $serveur 
 	// N'accepter que les champs qui existent dans la table
 	$champs = array_intersect_key($c, $desc['field']);
 	// et dont la valeur n'est pas null
-	$champs = array_filter($champs, static fn($var) => $var !== null);
+	$champs = array_filter($champs, static fn ($var) => $var !== null);
 	// TODO: ici aussi on peut valider les contenus
 	// en fonction du type
 
@@ -165,16 +165,15 @@ function objet_modifier_champs($objet, $id_objet, $options, $c = null, $serveur 
 				'champs' => $options['champs'] ?? [], // [doc] c'est quoi ?
 				'champs_anciens' => $row, // état du contenu avant modif
 				'serveur' => $serveur,
-				'action' => $options['action'] ?? 'modifier'
+				'action' => $options['action'] ?? 'modifier',
 			],
-			'data' => $champs
+			'data' => $champs,
 		]
 	);
 
 	if (!$champs) {
 		return false;
 	}
-
 
 	// marquer le fait que l'objet est travaille par toto a telle date
 	include_spip('inc/config');
@@ -185,7 +184,7 @@ function objet_modifier_champs($objet, $id_objet, $options, $c = null, $serveur 
 
 	// Verifier si les mises a jour sont pertinentes, datees, en conflit etc
 	include_spip('inc/editer');
-	if (!isset($options['data']) || is_null($options['data'])) {
+	if (!isset($options['data']) || $options['data'] === null) {
 		$options['data'] = &$_POST;
 	}
 	$conflits = controler_md5($champs, $options['data'], $objet, $id_objet, $serveur);
@@ -302,9 +301,9 @@ function objet_modifier_champs($objet, $id_objet, $options, $c = null, $serveur 
 					'champs' => $options['champs'] ?? [], // [doc] kesako ?
 					'champs_anciens' => $row, // état du contenu avant modif
 					'serveur' => $serveur,
-					'action' => $options['action'] ?? 'modifier'
+					'action' => $options['action'] ?? 'modifier',
 				],
-				'data' => $champs
+				'data' => $champs,
 			]
 		);
 	}
@@ -348,7 +347,7 @@ function objet_modifier_champs($objet, $id_objet, $options, $c = null, $serveur 
 	) . ')'), [
 		'faire' => 'modifier',
 		'quoi' => $objet,
-		'id' => $id_objet
+		'id' => $id_objet,
 	]);
 
 	return '';
