@@ -6,6 +6,7 @@ Changelog de SPIP 4.3
 
 ### Fixed
 
+- !6047 Correction de certains envois de fichiers (notamment audio) via `spip_livrer_fichier`
 - #3919 Réparer l'ajout de la configuration LDAP lors de l'installation
 - !6024 Éviter notice dans `init_http` en cas de "seriously malformed URLs"
 
