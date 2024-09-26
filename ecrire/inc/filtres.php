@@ -1968,7 +1968,7 @@ function inserer_attribut(
 	// qui ont un sens dans un attribut value d'un input
 	if ($proteger) {
 		if (in_array($attribut, ['href', 'src'])) {
-			$val = attribut_url($val, false);
+			$val = attribut_url($val);
 		} else {
 			$val = attribut_html($val, false);
 		}
@@ -3088,10 +3088,7 @@ function filtre_match_dist(?string $texte, $expression, $modif = 'UuimsS', $capt
 	$expression = str_replace('/', '\/', $expression);
 
 	if (preg_match('/' . $expression . '/' . $modif, $texte ?? '', $r)) {
-		if (isset($r[$capte])) {
-			return $r[$capte];
-		}
-		return true;
+		return $r[$capte] ?? true;
 
 	}
 

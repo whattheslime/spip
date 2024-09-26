@@ -8,7 +8,7 @@ use PHPUnit\Framework\TestCase;
 
 class CreerCheminTest extends TestCase
 {
-	private int $nb_dossiers_squelettes;
+	private readonly int $nb_dossiers_squelettes;
 
 	public static function setUpBeforeClass(): void {
 		include_spip('inc/utils');

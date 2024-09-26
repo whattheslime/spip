@@ -8,7 +8,7 @@ namespace Spip\Sql\Sqlite;
 final class PDOStatement extends \PDOStatement
 {
 	private function __construct(
-		private \PDO &$PDO
+		private readonly \PDO &$PDO
 	) {
 	}
 

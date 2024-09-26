@@ -2296,11 +2296,8 @@ function description_table($nom, $serveur = '') {
 	// sauf a l'installation :
 	include_spip('base/objets');
 	lister_tables_objets_sql();
-	if (isset($GLOBALS['tables_principales'][$nom])) {
-		return $GLOBALS['tables_principales'][$nom];
-	}
 
-	return $GLOBALS['tables_auxiliaires'][$nom] ?? false;
+	return $GLOBALS['tables_principales'][$nom] ?? $GLOBALS['tables_auxiliaires'][$nom] ?? false;
 }
 
 /**

@@ -855,7 +855,7 @@ function recuperer_entetes_complets($handle, $if_modified_since = false) {
 			$result['location'] = $v;
 		} elseif ($d === 'last-modified') {
 			$result['last_modified'] = strtotime($v);
-		} elseif ($d === 'content-length' and strlen(trim($v))) {
+		} elseif ($d === 'content-length' && strlen(trim($v))) {
 			$result['content_length'] = intval($v);
 		}
 	}

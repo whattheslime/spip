@@ -29,7 +29,7 @@ if (!defined('_ECRIRE_INC_VERSION')) {
  */
 function inc_email_valide_dist($adresses) {
 	// eviter d'injecter n'importe quoi dans preg_match
-	if (!$adresses or !is_string($adresses)) {
+	if (!$adresses || !is_string($adresses)) {
 		return false;
 	}
 

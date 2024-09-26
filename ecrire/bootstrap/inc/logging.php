@@ -63,10 +63,7 @@ function spip_logger(?string $name = null): LoggerInterface {
 				if ($level instanceof Level) {
 					return $level;
 				}
-				if (isset($spipToMonologLevels[$level])) {
-					return $spipToMonologLevels[$level];
-				}
-				return match ($level) {
+				return $spipToMonologLevels[$level] ?? match ($level) {
 					LogLevel::EMERGENCY => Level::Emergency,
 					LogLevel::ALERT => Level::Alert,
 					LogLevel::CRITICAL => Level::Critical,
