@@ -146,6 +146,14 @@ function traiter_appels_inclusions_ajax() {
 		) {
 			include_spip('public/assembler');
 			$contexte = calculer_contexte();
+			// si des variables sont listées dans var_nullify
+			// il faut les retirer totalement du contexte
+			if (!empty($_REQUEST['var_nullify']) && is_string($_REQUEST['var_nullify'])) {
+				foreach (explode('|',$_REQUEST['var_nullify']) as $k) {
+					unset($contexte[$k]);
+					unset($args[$k]);
+				}
+			}
 			$contexte = array_merge($args, $contexte);
 			$page = recuperer_fond($fond, $contexte, ['trim' => false]);
 			$texte = $page;
