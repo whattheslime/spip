@@ -153,12 +153,12 @@
             "source": {
                 "type": "git",
                 "url": "https://git.spip.net/spip-league/kernel.git",
-                "reference": "764f74be8f690bc87530729bd652225c6b9db23a"
+                "reference": "8e858f57ff5f8540212705d95570c2d7c1f67bdd"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://git.spip.net/api/v4/projects/spip-league%2Fkernel/repository/archive.zip?sha=764f74be8f690bc87530729bd652225c6b9db23a",
-                "reference": "764f74be8f690bc87530729bd652225c6b9db23a",
+                "url": "https://git.spip.net/api/v4/projects/spip-league%2Fkernel/repository/archive.zip?sha=8e858f57ff5f8540212705d95570c2d7c1f67bdd",
+                "reference": "8e858f57ff5f8540212705d95570c2d7c1f67bdd",
                 "shasum": ""
             },
             "require": {
@@ -202,7 +202,7 @@
                 "source": "https://git.spip.net/spip-league/kernel/-/tree/installation-detector-1.x",
                 "issues": "https://git.spip.net/spip-league/kernel/-/issues"
             },
-            "time": "2024-09-27T05:09:28+02:00"
+            "time": "2024-09-29T21:29:55+02:00"
         },
         {
             "name": "spip/composer-installer",
