@@ -41,7 +41,7 @@ return [
 	 *
 	 * @todo gérer $GLOBALS['dossier_squelettes']
 	 */
-	'customization' => 'squelettes/',
+	'custom' => 'squelettes/',
 	/**
 	 * Jeu de Squelette de l'espace privé SPIP par défaut de la distribution
 	 */
