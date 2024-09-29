@@ -119,7 +119,7 @@ if (!function_exists('autoriser')) {
 // mais apres la fonction autoriser()
 if ($f = find_in_path('mes_fonctions.php')) {
 	global $dossier_squelettes;
-	include_once(_ROOT_CWD . $f);
+	include_once(app()->getCwd(() . $f);
 }
 
 

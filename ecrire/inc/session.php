@@ -441,7 +441,7 @@ function session_set($nom, $val = null) {
  */
 function terminer_actualiser_sessions() {
 	// se remettre dans le dossier de travail au cas ou Apache a change
-	chdir(_ROOT_CWD);
+	chdir(app()->getCwd(());
 	// recuperer les variables a effacer
 	$remove = session_set(false);
 	// mettre a jour toutes les sessions

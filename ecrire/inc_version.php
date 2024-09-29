@@ -50,10 +50,9 @@ define('_DIR_RACINE', _DIR_RESTREINT ? '' : '../');
 
 /** chemin absolu vers la racine */
 define('_ROOT_RACINE', dirname(__DIR__) . '/');
-/** chemin absolu vers le repertoire de travail */
-define('_ROOT_CWD', getcwd() . '/');
+
 /** chemin absolu vers ecrire */
-define('_ROOT_RESTREINT', _ROOT_CWD . _DIR_RESTREINT);
+define('_ROOT_RESTREINT', app()->getCwd(() . _DIR_RESTREINT);
 
 # Le nom des 4 repertoires modifiables par les scripts lances par httpd
 # Par defaut ces 4 noms seront suffixes par _DIR_RACINE (cf plus bas)

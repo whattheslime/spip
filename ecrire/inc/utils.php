@@ -193,7 +193,7 @@ function include_fichiers_fonctions() {
 		// donc il faut l'inclure "en globals"
 		if ($f = find_in_path('mes_fonctions.php')) {
 			global $dossier_squelettes;
-			include_once(_ROOT_CWD . $f);
+			include_once(app()->getCwd(() . $f);
 		}
 
 		if (@is_readable(_CACHE_PLUGINS_FCT)) {
@@ -1611,7 +1611,7 @@ function find_in_path($file, $dirname = '', $include = false) {
 			return false;
 		}
 		if ($include and !isset($inc[$dirname][$file])) {
-			include_once _ROOT_CWD . $GLOBALS['path_files'][$GLOBALS['path_sig']][$dirname][$file];
+			include_once app()->getCwd(() . $GLOBALS['path_files'][$GLOBALS['path_sig']][$dirname][$file];
 			$inc[$dirname][$file] = $inc[''][$dirname . $file] = true;
 		}
 
@@ -1626,12 +1626,12 @@ function find_in_path($file, $dirname = '', $include = false) {
 
 	foreach (creer_chemin() as $dir) {
 		if (!isset($dirs[$a = $dir . $dirname])) {
-			$dirs[$a] = (is_dir(_ROOT_CWD . $a) || !$a);
+			$dirs[$a] = (is_dir(app()->getCwd(() . $a) || !$a);
 		}
 		if ($dirs[$a]) {
-			if (file_exists(_ROOT_CWD . ($a .= $file))) {
+			if (file_exists(app()->getCwd(() . ($a .= $file))) {
 				if ($include and !isset($inc[$dirname][$file])) {
-					include_once _ROOT_CWD . $a;
+					include_once app()->getCwd(() . $a;
 					$inc[$dirname][$file] = $inc[''][$dirname . $file] = true;
 				}
 				if (!defined('_SAUVER_CHEMIN')) {
