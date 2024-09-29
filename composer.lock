@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "d64014ac334dbfe5d30f8164219973d2",
+    "content-hash": "2ac3911b0b875c94eafd2069d710894d",
     "packages": [
         {
             "name": "algo26-matthias/idna-convert",
@@ -735,16 +735,16 @@
         },
         {
             "name": "spip-league/kernel",
-            "version": "2.x-dev",
+            "version": "dev-installation-detector",
             "source": {
                 "type": "git",
                 "url": "https://git.spip.net/spip-league/kernel.git",
-                "reference": "b37483bcc80bb5d4748a68bcc7f8d7f69bcf7e06"
+                "reference": "5a4b98bb0ef8a30f547cc0b072553e5b75a2fda9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://git.spip.net/api/v4/projects/spip-league%2Fkernel/repository/archive.zip?sha=b37483bcc80bb5d4748a68bcc7f8d7f69bcf7e06",
-                "reference": "b37483bcc80bb5d4748a68bcc7f8d7f69bcf7e06",
+                "url": "https://git.spip.net/api/v4/projects/spip-league%2Fkernel/repository/archive.zip?sha=5a4b98bb0ef8a30f547cc0b072553e5b75a2fda9",
+                "reference": "5a4b98bb0ef8a30f547cc0b072553e5b75a2fda9",
                 "shasum": ""
             },
             "require": {
@@ -756,7 +756,6 @@
                 "phpunit/phpunit": "^11.3",
                 "symfony/var-dumper": "^7.1"
             },
-            "default-branch": true,
             "type": "library",
             "autoload": {
                 "psr-4": {
@@ -786,10 +785,10 @@
                 "kernel"
             ],
             "support": {
-                "source": "https://git.spip.net/spip-league/kernel/-/tree/2.x",
+                "source": "https://git.spip.net/spip-league/kernel/-/tree/installation-detector",
                 "issues": "https://git.spip.net/spip-league/kernel/-/issues"
             },
-            "time": "2024-09-30T10:16:30+02:00"
+            "time": "2024-09-29T21:30:36+02:00"
         },
         {
             "name": "spip-league/logger",
@@ -1143,16 +1142,16 @@
         },
         {
             "name": "spip/composer-installer",
-            "version": "0.6.3",
+            "version": "dev-pluginClearCache",
             "source": {
                 "type": "git",
                 "url": "https://git.spip.net/spip-league/composer-installer.git",
-                "reference": "347c3bea6f7557aacd4787db28780ca7cd82aca8"
+                "reference": "d78ae87b05de5748eed60ce4885920e73997382f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://git.spip.net/api/v4/projects/spip-league%2Fcomposer-installer/repository/archive.zip?sha=347c3bea6f7557aacd4787db28780ca7cd82aca8",
-                "reference": "347c3bea6f7557aacd4787db28780ca7cd82aca8",
+                "url": "https://git.spip.net/api/v4/projects/spip-league%2Fcomposer-installer/repository/archive.zip?sha=d78ae87b05de5748eed60ce4885920e73997382f",
+                "reference": "d78ae87b05de5748eed60ce4885920e73997382f",
                 "shasum": ""
             },
             "require": {
@@ -1190,10 +1189,10 @@
             ],
             "description": "SPIP Composer Installer Plugin",
             "support": {
-                "source": "https://git.spip.net/spip-league/composer-installer/-/tree/0.6.3",
+                "source": "https://git.spip.net/spip-league/composer-installer/-/tree/pluginClearCache",
                 "issues": "https://git.spip.net/spip-league/composer-installer/-/issues"
             },
-            "time": "2024-09-30T11:01:07+02:00"
+            "time": "2024-09-30T11:00:23+02:00"
         },
         {
             "name": "spip/compresseur",
@@ -1279,7 +1278,7 @@
             ],
             "description": "Squelettes par défaut de SPIP 4.0",
             "support": {
-                "source": "https://git.spip.net/spip/dist/-/tree/images_4723_remove_image_typo",
+                "source": "https://git.spip.net/spip/dist/-/tree/master",
                 "issues": "https://git.spip.net/spip/dist/-/issues"
             },
             "time": "2024-09-22T21:13:25+02:00"
@@ -1382,61 +1381,32 @@
         },
         {
             "name": "spip/images",
-            "version": "dev-master",
+            "version": "4.3.x-dev",
             "source": {
                 "type": "git",
                 "url": "https://git.spip.net/spip/images.git",
-                "reference": "4b25208e0956d04a841d9ad41066a535aa61f910"
+                "reference": "28317abc63aa037dda750be5e8c11ecfe60afea7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://git.spip.net/api/v4/projects/spip%2Fimages/repository/archive.zip?sha=4b25208e0956d04a841d9ad41066a535aa61f910",
-                "reference": "4b25208e0956d04a841d9ad41066a535aa61f910",
+                "url": "https://git.spip.net/api/v4/projects/spip%2Fimages/repository/archive.zip?sha=28317abc63aa037dda750be5e8c11ecfe60afea7",
+                "reference": "28317abc63aa037dda750be5e8c11ecfe60afea7",
                 "shasum": ""
             },
             "require": {
-                "php": "^8.1"
+                "php": "^7.4 || ^8.0"
             },
             "require-dev": {
-                "dealerdirect/phpcodesniffer-composer-installer": "^1.0",
-                "phpcompatibility/php-compatibility": "dev-develop",
-                "phpstan/phpstan": "^1.10",
-                "phpunit/phpunit": "^10.1",
-                "rector/rector": "^0.15.23",
-                "spip/coding-standards": "^1.3",
-                "symplify/easy-coding-standard": "^11.4"
+                "dealerdirect/phpcodesniffer-composer-installer": "^0.7.1",
+                "phpstan/phpstan": "^1.4",
+                "spip/coding-standards": "^1.2"
             },
-            "suggest": {
-                "ext-exif": "*"
-            },
-            "default-branch": true,
-            "type": "spip-plugin",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "4.3.x-dev"
-                }
-            },
-            "autoload-dev": {
-                "psr-4": {
-                    "Spip\\Test\\Images\\": "tests/"
-                }
-            },
-            "license": [
-                "GPL-3.0-or-later"
-            ],
-            "authors": [
-                {
-                    "name": "Collectif SPIP",
-                    "homepage": "https://discuter.spip.net/c/spip-dev/5",
-                    "role": "Maintainer"
-                }
-            ],
-            "description": "Filtres de transformation d'image et de couleurs",
+            "type": "library",
             "support": {
-                "source": "https://git.spip.net/spip/images/-/tree/master",
+                "source": "https://git.spip.net/spip/images/-/tree/4.3",
                 "issues": "https://git.spip.net/spip/images/-/issues"
             },
-            "time": "2024-09-22T17:58:12+02:00"
+            "time": "2024-09-30T18:51:07+02:00"
         },
         {
             "name": "spip/mediabox",
@@ -5232,6 +5202,7 @@
         "spip/archiviste": 20,
         "spip/bigup": 20,
         "spip/compagnon": 20,
+        "spip/composer-installer": 20,
         "spip/compresseur": 20,
         "spip/dist": 20,
         "spip/dump": 20,

@@ -1,5 +1,7 @@
 <?php
 
+use function SpipLeague\Component\Kernel\app;
+
 /**
  * Cherche une fonction surchargeable et en retourne le nom exact,
  * après avoir chargé le fichier la contenant si nécessaire.
@@ -172,7 +174,7 @@ function include_fichiers_fonctions() {
 		// donc il faut l'inclure "en globals"
 		if ($f = find_in_path('mes_fonctions.php')) {
 			global $dossier_squelettes;
-			include_once(_ROOT_CWD . $f);
+			include_once(app()->getCwd() . $f);
 		}
 
 		if (@is_readable(_CACHE_PLUGINS_FCT)) {

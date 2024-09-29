@@ -7,6 +7,8 @@ use SpipLeague\Component\Path\GroupAggregator;
 use SpipLeague\Component\Path\Loader;
 use Symfony\Component\Filesystem\Path;
 
+use function SpipLeague\Component\Kernel\app;
+
 /**
  * Return unique Aggregator class
  *
@@ -19,7 +21,7 @@ function spip_paths(null|array $add = null): AggregatorInterface {
 	$dossier_squelettes = $GLOBALS['dossier_squelettes'] ?? null;
 
 	if ($paths === null) {
-		$paths = new GroupAggregator(Group::cases(), _ROOT_CWD);
+		$paths = new GroupAggregator(Group::cases(), app()->getCwd());
 		$paths = $paths->with(Group::App, [
 			_DIR_RACINE,
 			_DIR_RACINE . 'squelettes-dist/',
@@ -57,7 +59,8 @@ function spip_paths_loader(): Loader {
 	static $cache = null;
 
 	if ($cache === null) {
-		$cache = new FlatFilesystem('paths', Path::makeAbsolute(_DIR_CACHE, _ROOT_CWD));
+		/** @todo _DIR_CACHE -> app()->getCacheDir() */
+		$cache = new FlatFilesystem('paths', app()->getTmpDir() . 'cache/');
 		if (_request('var_mode')) {
 			$cache->clear();
 		}

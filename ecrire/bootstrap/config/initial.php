@@ -1,6 +1,6 @@
 <?php
 
-use function SpipLeague\Component\Kernel\param;
+use function SpipLeague\Component\Kernel\{app, param};
 
 /**
  * Constantes de démarrage de SPIP
@@ -28,10 +28,8 @@ define('_DIR_RACINE', _DIR_RESTREINT ? '' : '../');
 
 /** chemin absolu vers la racine */
 define('_ROOT_RACINE', dirname(__DIR__, 3) . DIRECTORY_SEPARATOR);
-/** chemin absolu vers le repertoire de travail */
-define('_ROOT_CWD', getcwd() . DIRECTORY_SEPARATOR);
 /** chemin absolu vers ecrire */
-define('_ROOT_RESTREINT', _ROOT_CWD . _DIR_RESTREINT);
+define('_ROOT_RESTREINT', app()->getCoreDir());
 
 # Le nom des 4 repertoires modifiables par les scripts lances par httpd
 # Par defaut ces 4 noms seront suffixes par _DIR_RACINE (cf plus bas)
