@@ -1685,12 +1685,12 @@
             "source": {
                 "type": "git",
                 "url": "https://git.spip.net/spip/revisions.git",
-                "reference": "3362bde229505034ed74252c41655acd01b0a2d2"
+                "reference": "2926eb91dea4cbd228de24d50141b939f1f3837b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://git.spip.net/api/v4/projects/spip%2Frevisions/repository/archive.zip?sha=3362bde229505034ed74252c41655acd01b0a2d2",
-                "reference": "3362bde229505034ed74252c41655acd01b0a2d2",
+                "url": "https://git.spip.net/api/v4/projects/spip%2Frevisions/repository/archive.zip?sha=2926eb91dea4cbd228de24d50141b939f1f3837b",
+                "reference": "2926eb91dea4cbd228de24d50141b939f1f3837b",
                 "shasum": ""
             },
             "require": {
@@ -1725,7 +1725,7 @@
                 "source": "https://git.spip.net/spip/revisions/-/tree/master",
                 "issues": "https://git.spip.net/spip/revisions/-/issues"
             },
-            "time": "2024-04-23T16:25:45+02:00"
+            "time": "2024-09-20T12:55:50+02:00"
         },
         {
             "name": "spip/safehtml",
@@ -1972,12 +1972,12 @@
             "source": {
                 "type": "git",
                 "url": "https://git.spip.net/spip/tw.git",
-                "reference": "d8abaddf7ae9f00728642c6019d29ced2e66d8d9"
+                "reference": "ea32651fe94f7d301e3056e84103de5b84f60c54"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://git.spip.net/api/v4/projects/spip%2Ftw/repository/archive.zip?sha=d8abaddf7ae9f00728642c6019d29ced2e66d8d9",
-                "reference": "d8abaddf7ae9f00728642c6019d29ced2e66d8d9",
+                "url": "https://git.spip.net/api/v4/projects/spip%2Ftw/repository/archive.zip?sha=ea32651fe94f7d301e3056e84103de5b84f60c54",
+                "reference": "ea32651fe94f7d301e3056e84103de5b84f60c54",
                 "shasum": ""
             },
             "require": {
@@ -2012,7 +2012,7 @@
                 "source": "https://git.spip.net/spip/tw/-/tree/master",
                 "issues": "https://git.spip.net/spip/tw/-/issues"
             },
-            "time": "2024-09-16T15:14:50+02:00"
+            "time": "2024-09-30T19:37:43+02:00"
         },
         {
             "name": "spip/urls",
