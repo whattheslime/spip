@@ -1384,12 +1384,12 @@
             "version": "dev-master",
             "source": {
                 "type": "git",
-                "url": "https://git.spip.net/spip/filtres_images.git",
+                "url": "https://git.spip.net/spip/images.git",
                 "reference": "4b25208e0956d04a841d9ad41066a535aa61f910"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://git.spip.net/api/v4/projects/spip%2Ffiltres_images/repository/archive.zip?sha=4b25208e0956d04a841d9ad41066a535aa61f910",
+                "url": "https://git.spip.net/api/v4/projects/spip%2Fimages/repository/archive.zip?sha=4b25208e0956d04a841d9ad41066a535aa61f910",
                 "reference": "4b25208e0956d04a841d9ad41066a535aa61f910",
                 "shasum": ""
             },
@@ -1432,8 +1432,8 @@
             ],
             "description": "Filtres de transformation d'image et de couleurs",
             "support": {
-                "source": "https://git.spip.net/spip/filtres_images/-/tree/master",
-                "issues": "https://git.spip.net/spip/filtres_images/-/issues"
+                "source": "https://git.spip.net/spip/images/-/tree/master",
+                "issues": "https://git.spip.net/spip/images/-/issues"
             },
             "time": "2024-09-22T17:58:12+02:00"
         },
@@ -1635,12 +1635,12 @@
             "version": "dev-master",
             "source": {
                 "type": "git",
-                "url": "https://git.spip.net/spip/porte_plume.git",
+                "url": "https://git.spip.net/spip/porte-plume.git",
                 "reference": "6a552006b70173ac39322b94b0e826612213709c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://git.spip.net/api/v4/projects/spip%2Fporte_plume/repository/archive.zip?sha=6a552006b70173ac39322b94b0e826612213709c",
+                "url": "https://git.spip.net/api/v4/projects/spip%2Fporte-plume/repository/archive.zip?sha=6a552006b70173ac39322b94b0e826612213709c",
                 "reference": "6a552006b70173ac39322b94b0e826612213709c",
                 "shasum": ""
             },
@@ -1673,8 +1673,8 @@
             ],
             "description": "Une barre d'outil pour bien écrire",
             "support": {
-                "source": "https://git.spip.net/spip/porte_plume/-/tree/master",
-                "issues": "https://git.spip.net/spip/porte_plume/-/issues"
+                "source": "https://git.spip.net/spip/porte-plume/-/tree/master",
+                "issues": "https://git.spip.net/spip/porte-plume/-/issues"
             },
             "time": "2024-05-28T14:37:48+02:00"
         },
@@ -1898,12 +1898,12 @@
             "version": "dev-master",
             "source": {
                 "type": "git",
-                "url": "https://git.spip.net/spip/statistiques.git",
+                "url": "https://git.spip.net/spip/stats.git",
                 "reference": "b453a01713c66069ae4718b30481c1d2296da9c1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://git.spip.net/api/v4/projects/spip%2Fstatistiques/repository/archive.zip?sha=b453a01713c66069ae4718b30481c1d2296da9c1",
+                "url": "https://git.spip.net/api/v4/projects/spip%2Fstats/repository/archive.zip?sha=b453a01713c66069ae4718b30481c1d2296da9c1",
                 "reference": "b453a01713c66069ae4718b30481c1d2296da9c1",
                 "shasum": ""
             },
@@ -1936,8 +1936,8 @@
             ],
             "description": "Gestion des statistiques dans SPIP",
             "support": {
-                "source": "https://git.spip.net/spip/statistiques/-/tree/master",
-                "issues": "https://git.spip.net/spip/statistiques/-/issues"
+                "source": "https://git.spip.net/spip/stats/-/tree/master",
+                "issues": "https://git.spip.net/spip/stats/-/issues"
             },
             "time": "2024-07-25T16:51:06+02:00"
         },
@@ -1999,12 +1999,12 @@
             "version": "dev-master",
             "source": {
                 "type": "git",
-                "url": "https://git.spip.net/spip/textwheel.git",
+                "url": "https://git.spip.net/spip/tw.git",
                 "reference": "d8abaddf7ae9f00728642c6019d29ced2e66d8d9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://git.spip.net/api/v4/projects/spip%2Ftextwheel/repository/archive.zip?sha=d8abaddf7ae9f00728642c6019d29ced2e66d8d9",
+                "url": "https://git.spip.net/api/v4/projects/spip%2Ftw/repository/archive.zip?sha=d8abaddf7ae9f00728642c6019d29ced2e66d8d9",
                 "reference": "d8abaddf7ae9f00728642c6019d29ced2e66d8d9",
                 "shasum": ""
             },
@@ -2037,8 +2037,8 @@
             ],
             "description": "Gestion de la typographie SPIP avec TextWheel",
             "support": {
-                "source": "https://git.spip.net/spip/textwheel/-/tree/master",
-                "issues": "https://git.spip.net/spip/textwheel/-/issues"
+                "source": "https://git.spip.net/spip/tw/-/tree/master",
+                "issues": "https://git.spip.net/spip/tw/-/issues"
             },
             "time": "2024-09-16T15:14:50+02:00"
         },
@@ -2047,12 +2047,12 @@
             "version": "dev-master",
             "source": {
                 "type": "git",
-                "url": "https://git.spip.net/spip/urls_etendues.git",
+                "url": "https://git.spip.net/spip/urls.git",
                 "reference": "d69f174e57ee811197e03f583714fe23699f05c9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://git.spip.net/api/v4/projects/spip%2Furls_etendues/repository/archive.zip?sha=d69f174e57ee811197e03f583714fe23699f05c9",
+                "url": "https://git.spip.net/api/v4/projects/spip%2Furls/repository/archive.zip?sha=d69f174e57ee811197e03f583714fe23699f05c9",
                 "reference": "d69f174e57ee811197e03f583714fe23699f05c9",
                 "shasum": ""
             },
@@ -2086,8 +2086,8 @@
             ],
             "description": "Gestion des variantes d'URL signifiantes ou non",
             "support": {
-                "source": "https://git.spip.net/spip/urls_etendues/-/tree/master",
-                "issues": "https://git.spip.net/spip/urls_etendues/-/issues"
+                "source": "https://git.spip.net/spip/urls/-/tree/master",
+                "issues": "https://git.spip.net/spip/urls/-/issues"
             },
             "time": "2024-09-24T10:28:12+02:00"
         },
@@ -3133,16 +3133,16 @@
         },
         {
             "name": "nikic/php-parser",
-            "version": "v5.2.0",
+            "version": "v5.3.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/nikic/PHP-Parser.git",
-                "reference": "23c79fbbfb725fb92af9bcf41065c8e9a0d49ddb"
+                "reference": "3abf7425cd284141dc5d8d14a9ee444de3345d1a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nikic/PHP-Parser/zipball/23c79fbbfb725fb92af9bcf41065c8e9a0d49ddb",
-                "reference": "23c79fbbfb725fb92af9bcf41065c8e9a0d49ddb",
+                "url": "https://api.github.com/repos/nikic/PHP-Parser/zipball/3abf7425cd284141dc5d8d14a9ee444de3345d1a",
+                "reference": "3abf7425cd284141dc5d8d14a9ee444de3345d1a",
                 "shasum": ""
             },
             "require": {
@@ -3185,9 +3185,9 @@
             ],
             "support": {
                 "issues": "https://github.com/nikic/PHP-Parser/issues",
-                "source": "https://github.com/nikic/PHP-Parser/tree/v5.2.0"
+                "source": "https://github.com/nikic/PHP-Parser/tree/v5.3.0"
             },
-            "time": "2024-09-15T16:40:33+00:00"
+            "time": "2024-09-29T13:56:26+00:00"
         },
         {
             "name": "phar-io/manifest",
@@ -4891,16 +4891,16 @@
         },
         {
             "name": "spip/coding-standards",
-            "version": "1.3.3",
+            "version": "1.3.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/JamesRezo/spip-coding-standards.git",
-                "reference": "ac9c5f7160b617e59d115b217eae393fe70f44a1"
+                "reference": "cba3b2b9578e04a4ec7915fdf9909b147f2de8da"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/JamesRezo/spip-coding-standards/zipball/ac9c5f7160b617e59d115b217eae393fe70f44a1",
-                "reference": "ac9c5f7160b617e59d115b217eae393fe70f44a1",
+                "url": "https://api.github.com/repos/JamesRezo/spip-coding-standards/zipball/cba3b2b9578e04a4ec7915fdf9909b147f2de8da",
+                "reference": "cba3b2b9578e04a4ec7915fdf9909b147f2de8da",
                 "shasum": ""
             },
             "require": {
@@ -4944,9 +4944,9 @@
             ],
             "support": {
                 "issues": "https://github.com/JamesRezo/spip-coding-standards/issues",
-                "source": "https://github.com/JamesRezo/spip-coding-standards/tree/1.3.3"
+                "source": "https://github.com/JamesRezo/spip-coding-standards/tree/1.3.4"
             },
-            "time": "2024-02-15T16:39:15+00:00"
+            "time": "2024-09-29T16:45:24+00:00"
         },
         {
             "name": "squizlabs/php_codesniffer",
