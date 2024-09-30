@@ -739,17 +739,18 @@
             "source": {
                 "type": "git",
                 "url": "https://git.spip.net/spip-league/kernel.git",
-                "reference": "9a33f2fd07917996c5d0f955923a92daf8f0f12b"
+                "reference": "b37483bcc80bb5d4748a68bcc7f8d7f69bcf7e06"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://git.spip.net/api/v4/projects/spip-league%2Fkernel/repository/archive.zip?sha=9a33f2fd07917996c5d0f955923a92daf8f0f12b",
-                "reference": "9a33f2fd07917996c5d0f955923a92daf8f0f12b",
+                "url": "https://git.spip.net/api/v4/projects/spip-league%2Fkernel/repository/archive.zip?sha=b37483bcc80bb5d4748a68bcc7f8d7f69bcf7e06",
+                "reference": "b37483bcc80bb5d4748a68bcc7f8d7f69bcf7e06",
                 "shasum": ""
             },
             "require": {
                 "php": "^8.2",
-                "symfony/dependency-injection": "^7.1"
+                "symfony/dependency-injection": "^7.1",
+                "symfony/filesystem": "^7.1"
             },
             "require-dev": {
                 "phpunit/phpunit": "^11.3",
@@ -788,7 +789,7 @@
                 "source": "https://git.spip.net/spip-league/kernel/-/tree/2.x",
                 "issues": "https://git.spip.net/spip-league/kernel/-/issues"
             },
-            "time": "2024-09-24T14:25:21+02:00"
+            "time": "2024-09-30T10:16:30+02:00"
         },
         {
             "name": "spip-league/logger",
@@ -928,12 +929,12 @@
             "source": {
                 "type": "git",
                 "url": "https://git.spip.net/spip/aide.git",
-                "reference": "b78dc03317fba3b440a5ebc3b64ad2b933d3dc94"
+                "reference": "4203f07c84a08fccabd48a2a3e0d2db7dabc61fd"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://git.spip.net/api/v4/projects/spip%2Faide/repository/archive.zip?sha=b78dc03317fba3b440a5ebc3b64ad2b933d3dc94",
-                "reference": "b78dc03317fba3b440a5ebc3b64ad2b933d3dc94",
+                "url": "https://git.spip.net/api/v4/projects/spip%2Faide/repository/archive.zip?sha=4203f07c84a08fccabd48a2a3e0d2db7dabc61fd",
+                "reference": "4203f07c84a08fccabd48a2a3e0d2db7dabc61fd",
                 "shasum": ""
             },
             "require": {
@@ -968,7 +969,7 @@
                 "source": "https://git.spip.net/spip/aide/-/tree/master",
                 "issues": "https://git.spip.net/spip/aide/-/issues"
             },
-            "time": "2024-05-04T17:08:01+02:00"
+            "time": "2024-09-30T17:49:37+02:00"
         },
         {
             "name": "spip/archiviste",
@@ -1142,16 +1143,16 @@
         },
         {
             "name": "spip/composer-installer",
-            "version": "0.6.2",
+            "version": "0.6.3",
             "source": {
                 "type": "git",
                 "url": "https://git.spip.net/spip-league/composer-installer.git",
-                "reference": "a2a0c7818c35112a6938dacf1cc9dd276ae5a2a5"
+                "reference": "347c3bea6f7557aacd4787db28780ca7cd82aca8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://git.spip.net/api/v4/projects/spip-league%2Fcomposer-installer/repository/archive.zip?sha=a2a0c7818c35112a6938dacf1cc9dd276ae5a2a5",
-                "reference": "a2a0c7818c35112a6938dacf1cc9dd276ae5a2a5",
+                "url": "https://git.spip.net/api/v4/projects/spip-league%2Fcomposer-installer/repository/archive.zip?sha=347c3bea6f7557aacd4787db28780ca7cd82aca8",
+                "reference": "347c3bea6f7557aacd4787db28780ca7cd82aca8",
                 "shasum": ""
             },
             "require": {
@@ -1189,10 +1190,10 @@
             ],
             "description": "SPIP Composer Installer Plugin",
             "support": {
-                "source": "https://git.spip.net/spip-league/composer-installer/-/tree/0.6.2",
+                "source": "https://git.spip.net/spip-league/composer-installer/-/tree/0.6.3",
                 "issues": "https://git.spip.net/spip-league/composer-installer/-/issues"
             },
-            "time": "2024-09-18T12:38:32+02:00"
+            "time": "2024-09-30T11:01:07+02:00"
         },
         {
             "name": "spip/compresseur",
@@ -1251,12 +1252,12 @@
             "source": {
                 "type": "git",
                 "url": "https://git.spip.net/spip/dist.git",
-                "reference": "e6b7358e4e3932771c166dce1fa23d7fc9471449"
+                "reference": "e5f161746a4f524548a799d667694159e7268b08"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://git.spip.net/api/v4/projects/spip%2Fdist/repository/archive.zip?sha=e6b7358e4e3932771c166dce1fa23d7fc9471449",
-                "reference": "e6b7358e4e3932771c166dce1fa23d7fc9471449",
+                "url": "https://git.spip.net/api/v4/projects/spip%2Fdist/repository/archive.zip?sha=e5f161746a4f524548a799d667694159e7268b08",
+                "reference": "e5f161746a4f524548a799d667694159e7268b08",
                 "shasum": ""
             },
             "default-branch": true,
@@ -1278,10 +1279,10 @@
             ],
             "description": "Squelettes par défaut de SPIP 4.0",
             "support": {
-                "source": "https://git.spip.net/spip/dist/-/tree/master",
+                "source": "https://git.spip.net/spip/dist/-/tree/images_4723_remove_image_typo",
                 "issues": "https://git.spip.net/spip/dist/-/issues"
             },
-            "time": "2024-09-20T11:12:45+02:00"
+            "time": "2024-09-22T21:13:25+02:00"
         },
         {
             "name": "spip/dump",
