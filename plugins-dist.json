@@ -35,9 +35,9 @@
         "branch": "2.1",
         "tag": "v2.1.3"
     },
-    "filtres_images": {
+    "images": {
         "path": "plugins-dist/filtres_images",
-        "source": "https://git.spip.net/spip/filtres_images.git",
+        "source": "https://git.spip.net/spip/images.git",
         "branch": "4.1",
         "tag": "v4.1.3"
     },
@@ -71,9 +71,9 @@
         "branch": "4.1",
         "tag": "v4.1.3"
     },
-    "porte_plume": {
+    "porte-plume": {
         "path": "plugins-dist/porte_plume",
-        "source": "https://git.spip.net/spip/porte_plume.git",
+        "source": "https://git.spip.net/spip/porte-plume.git",
         "branch": "3.1",
         "tag": "v3.1.6"
     },
@@ -95,9 +95,9 @@
         "branch": "4.1",
         "tag": "v4.1.6"
     },
-    "statistiques": {
+    "stats": {
         "path": "plugins-dist/statistiques",
-        "source": "https://git.spip.net/spip/statistiques.git",
+        "source": "https://git.spip.net/spip/stats.git",
         "branch": "3.1",
         "tag": "v3.1.5"
     },
@@ -107,15 +107,15 @@
         "branch": "3.1",
         "tag": "v3.1.10"
     },
-    "textwheel": {
+    "tw": {
         "path": "plugins-dist/textwheel",
-        "source": "https://git.spip.net/spip/textwheel.git",
+        "source": "https://git.spip.net/spip/tw.git",
         "branch": "3.1",
         "tag": "v3.1.7"
     },
-    "urls_etendues": {
+    "urls": {
         "path": "plugins-dist/urls_etendues",
-        "source": "https://git.spip.net/spip/urls_etendues.git",
+        "source": "https://git.spip.net/spip/urls.git",
         "branch": "4.1",
         "tag": "v4.1.4"
     },
