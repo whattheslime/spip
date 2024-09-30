@@ -295,13 +295,16 @@
             "source": {
                 "type": "git",
                 "url": "https://git.spip.net/spip/prive.git",
-                "reference": "61228c7237022a0ff244a876351a83be575e66e4"
+                "reference": "2de211b69bd35aa2a60ffcf8995117518eb101e9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://git.spip.net/api/v4/projects/spip%2Fprive/repository/archive.zip?sha=61228c7237022a0ff244a876351a83be575e66e4",
-                "reference": "61228c7237022a0ff244a876351a83be575e66e4",
+                "url": "https://git.spip.net/api/v4/projects/spip%2Fprive/repository/archive.zip?sha=2de211b69bd35aa2a60ffcf8995117518eb101e9",
+                "reference": "2de211b69bd35aa2a60ffcf8995117518eb101e9",
                 "shasum": ""
+            },
+            "require-dev": {
+                "spip-league/kernel": "^1.x-dev"
             },
             "type": "spip-prive",
             "license": [
@@ -312,7 +315,7 @@
                 "source": "https://git.spip.net/spip/prive/-/tree/1.x",
                 "issues": "https://git.spip.net/spip/prive/-/issues"
             },
-            "time": "2024-09-16T20:36:09+02:00"
+            "time": "2024-09-25T12:59:43+02:00"
         },
         {
             "name": "spip/security",
@@ -1051,16 +1054,16 @@
         },
         {
             "name": "phpstan/phpstan",
-            "version": "1.12.4",
+            "version": "1.12.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpstan/phpstan.git",
-                "reference": "ffa517cb918591b93acc9b95c0bebdcd0e4538bd"
+                "reference": "7e6c6cb7cecb0a6254009a1a8a7d54ec99812b17"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpstan/phpstan/zipball/ffa517cb918591b93acc9b95c0bebdcd0e4538bd",
-                "reference": "ffa517cb918591b93acc9b95c0bebdcd0e4538bd",
+                "url": "https://api.github.com/repos/phpstan/phpstan/zipball/7e6c6cb7cecb0a6254009a1a8a7d54ec99812b17",
+                "reference": "7e6c6cb7cecb0a6254009a1a8a7d54ec99812b17",
                 "shasum": ""
             },
             "require": {
@@ -1105,7 +1108,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2024-09-19T07:58:01+00:00"
+            "time": "2024-09-26T12:45:22+00:00"
         },
         {
             "name": "spip/coding-standards",
