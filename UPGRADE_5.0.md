@@ -77,7 +77,7 @@ Les fichiers de langue peuplant une variable globale sont dépréciés.
 Retourner directement le tableau PHP.
 Note: Cette syntaxe est valide à partir de SPIP 4.1
 
-#### avant
+#### Avant
 
 ```php
 <?php
@@ -328,7 +328,7 @@ Dans un fichier squelette :
 [(#CONST{_DIR_RESTREINT_ABS})]
 ```
 
-### Après
+#### Après
 
 ```php
 function lambda() {
