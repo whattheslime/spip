@@ -272,7 +272,6 @@ Utiliser la fonction native `hash`
 ```php
 $hash = spip_sha256('mon contenu');
 ```
-
 #### Après
 
 ```php
@@ -509,6 +508,10 @@ La boucle `POUR` dépréciée est supprimée. Utiliser une boucle `DATA`.
 - #CLE : #VALEUR <br />
 </BOUCLE_liste>
 ```
+
+## Filtre `|image_typo`
+
+Le filtre `|image_typo` n'est plus livré avec SPIP. Installez le plugin [Image Typo](https://git.spip.net/spip-contrib-extensions/image_typo) pour l'obtenir.
 
 ## Fonctions PHP
 
