@@ -10,7 +10,8 @@
 \***************************************************************************/
 
 use Spip\ErrorHandler;
-use function SpipLeague\Component\Kernel\param;
+
+use function SpipLeague\Component\Kernel\{app, param};
 
 /**
  * Initialisation de SPIP
@@ -52,7 +53,7 @@ define('_DIR_RACINE', _DIR_RESTREINT ? '' : '../');
 define('_ROOT_RACINE', dirname(__DIR__) . '/');
 
 /** chemin absolu vers ecrire */
-define('_ROOT_RESTREINT', app()->getCwd(() . _DIR_RESTREINT);
+define('_ROOT_RESTREINT', app()->getCwd() . DIRECTORY_SEPARATOR . _DIR_RESTREINT);
 
 # Le nom des 4 repertoires modifiables par les scripts lances par httpd
 # Par defaut ces 4 noms seront suffixes par _DIR_RACINE (cf plus bas)

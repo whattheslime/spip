@@ -9,6 +9,8 @@
  *  Ce programme est un logiciel libre distribué sous licence GNU/GPL.     *
 \***************************************************************************/
 
+use function SpipLeague\Component\Kernel\app;
+
 /**
  * Utilitaires indispensables autour du serveur Http.
  *
@@ -193,7 +195,7 @@ function include_fichiers_fonctions() {
 		// donc il faut l'inclure "en globals"
 		if ($f = find_in_path('mes_fonctions.php')) {
 			global $dossier_squelettes;
-			include_once(app()->getCwd(() . $f);
+			include_once(app()->getCwd() . DIRECTORY_SEPARATOR . $f);
 		}
 
 		if (@is_readable(_CACHE_PLUGINS_FCT)) {
@@ -1611,7 +1613,7 @@ function find_in_path($file, $dirname = '', $include = false) {
 			return false;
 		}
 		if ($include and !isset($inc[$dirname][$file])) {
-			include_once app()->getCwd(() . $GLOBALS['path_files'][$GLOBALS['path_sig']][$dirname][$file];
+			include_once app()->getCwd() . DIRECTORY_SEPARATOR . $GLOBALS['path_files'][$GLOBALS['path_sig']][$dirname][$file];
 			$inc[$dirname][$file] = $inc[''][$dirname . $file] = true;
 		}
 
@@ -1626,12 +1628,12 @@ function find_in_path($file, $dirname = '', $include = false) {
 
 	foreach (creer_chemin() as $dir) {
 		if (!isset($dirs[$a = $dir . $dirname])) {
-			$dirs[$a] = (is_dir(app()->getCwd(() . $a) || !$a);
+			$dirs[$a] = (is_dir(app()->getCwd() . DIRECTORY_SEPARATOR . $a) || !$a);
 		}
 		if ($dirs[$a]) {
-			if (file_exists(app()->getCwd(() . ($a .= $file))) {
+			if (file_exists(app()->getCwd() . DIRECTORY_SEPARATOR . ($a .= $file))) {
 				if ($include and !isset($inc[$dirname][$file])) {
-					include_once app()->getCwd(() . $a;
+					include_once app()->getCwd() . DIRECTORY_SEPARATOR . $a;
 					$inc[$dirname][$file] = $inc[''][$dirname . $file] = true;
 				}
 				if (!defined('_SAUVER_CHEMIN')) {

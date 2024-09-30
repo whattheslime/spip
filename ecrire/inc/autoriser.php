@@ -9,6 +9,8 @@
  *  Ce programme est un logiciel libre distribué sous licence GNU/GPL.     *
 \***************************************************************************/
 
+use function SpipLeague\Component\Kernel\app;
+
 /**
  * Gestion de l'API autoriser et fonctions d'autorisations de SPIP
  *
@@ -119,7 +121,7 @@ if (!function_exists('autoriser')) {
 // mais apres la fonction autoriser()
 if ($f = find_in_path('mes_fonctions.php')) {
 	global $dossier_squelettes;
-	include_once(app()->getCwd(() . $f);
+	include_once(app()->getCwd() . DIRECTORY_SEPARATOR . $f);
 }
 
 

@@ -9,6 +9,8 @@
  *  Ce programme est un logiciel libre distribué sous licence GNU/GPL.     *
 \***************************************************************************/
 
+use function SpipLeague\Component\Kernel\app;
+
 /**
  * Gestion de l'authentification par sessions
  * à utiliser pour valider l'accès (bloquant)
@@ -441,7 +443,7 @@ function session_set($nom, $val = null) {
  */
 function terminer_actualiser_sessions() {
 	// se remettre dans le dossier de travail au cas ou Apache a change
-	chdir(app()->getCwd(());
+	chdir(app()->getCwd());
 	// recuperer les variables a effacer
 	$remove = session_set(false);
 	// mettre a jour toutes les sessions
