@@ -8,7 +8,7 @@
         "ext-zip": "*",
         "algo26-matthias/idna-convert": "^3.1",
         "spip-league/kernel": "dev-installation-detector-1.x",
-        "spip/composer-installer": "dev-pluginClearCache",
+        "spip/composer-installer": "^0.6.3",
         "spip/dist": "4.2.x-dev",
         "spip/prive": "^1.x-dev",
         "spip/security": "^1.6",

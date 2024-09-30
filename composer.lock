@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "29a427ed9803313a9ce798f4f8fb3d76",
+    "content-hash": "0bb3d77ca31daff74941c2afc190df73",
     "packages": [
         {
             "name": "algo26-matthias/idna-convert",
@@ -206,16 +206,16 @@
         },
         {
             "name": "spip/composer-installer",
-            "version": "dev-pluginClearCache",
+            "version": "0.6.3",
             "source": {
                 "type": "git",
                 "url": "https://git.spip.net/spip-league/composer-installer.git",
-                "reference": "794f37b19381f23b3c6b3c8571977bb7092f112f"
+                "reference": "347c3bea6f7557aacd4787db28780ca7cd82aca8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://git.spip.net/api/v4/projects/spip-league%2Fcomposer-installer/repository/archive.zip?sha=794f37b19381f23b3c6b3c8571977bb7092f112f",
-                "reference": "794f37b19381f23b3c6b3c8571977bb7092f112f",
+                "url": "https://git.spip.net/api/v4/projects/spip-league%2Fcomposer-installer/repository/archive.zip?sha=347c3bea6f7557aacd4787db28780ca7cd82aca8",
+                "reference": "347c3bea6f7557aacd4787db28780ca7cd82aca8",
                 "shasum": ""
             },
             "require": {
@@ -253,10 +253,10 @@
             ],
             "description": "SPIP Composer Installer Plugin",
             "support": {
-                "source": "https://git.spip.net/spip-league/composer-installer/-/tree/pluginClearCache",
+                "source": "https://git.spip.net/spip-league/composer-installer/-/tree/0.6.3",
                 "issues": "https://git.spip.net/spip-league/composer-installer/-/issues"
             },
-            "time": "2024-09-28T10:52:25+02:00"
+            "time": "2024-09-30T11:01:07+02:00"
         },
         {
             "name": "spip/dist",
@@ -1400,7 +1400,6 @@
     "minimum-stability": "stable",
     "stability-flags": {
         "spip-league/kernel": 20,
-        "spip/composer-installer": 20,
         "spip/dist": 20,
         "spip/prive": 20
     },
