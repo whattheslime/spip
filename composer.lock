@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "2ac3911b0b875c94eafd2069d710894d",
+    "content-hash": "df0cef7c0f6492410c4e77bd22e3eb18",
     "packages": [
         {
             "name": "algo26-matthias/idna-convert",
@@ -735,16 +735,16 @@
         },
         {
             "name": "spip-league/kernel",
-            "version": "dev-installation-detector",
+            "version": "2.x-dev",
             "source": {
                 "type": "git",
                 "url": "https://git.spip.net/spip-league/kernel.git",
-                "reference": "5a4b98bb0ef8a30f547cc0b072553e5b75a2fda9"
+                "reference": "b37483bcc80bb5d4748a68bcc7f8d7f69bcf7e06"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://git.spip.net/api/v4/projects/spip-league%2Fkernel/repository/archive.zip?sha=5a4b98bb0ef8a30f547cc0b072553e5b75a2fda9",
-                "reference": "5a4b98bb0ef8a30f547cc0b072553e5b75a2fda9",
+                "url": "https://git.spip.net/api/v4/projects/spip-league%2Fkernel/repository/archive.zip?sha=b37483bcc80bb5d4748a68bcc7f8d7f69bcf7e06",
+                "reference": "b37483bcc80bb5d4748a68bcc7f8d7f69bcf7e06",
                 "shasum": ""
             },
             "require": {
@@ -756,6 +756,7 @@
                 "phpunit/phpunit": "^11.3",
                 "symfony/var-dumper": "^7.1"
             },
+            "default-branch": true,
             "type": "library",
             "autoload": {
                 "psr-4": {
@@ -785,10 +786,10 @@
                 "kernel"
             ],
             "support": {
-                "source": "https://git.spip.net/spip-league/kernel/-/tree/installation-detector",
+                "source": "https://git.spip.net/spip-league/kernel/-/tree/2.x",
                 "issues": "https://git.spip.net/spip-league/kernel/-/issues"
             },
-            "time": "2024-09-29T21:30:36+02:00"
+            "time": "2024-09-30T10:16:30+02:00"
         },
         {
             "name": "spip-league/logger",
@@ -1142,16 +1143,16 @@
         },
         {
             "name": "spip/composer-installer",
-            "version": "dev-pluginClearCache",
+            "version": "0.6.3",
             "source": {
                 "type": "git",
                 "url": "https://git.spip.net/spip-league/composer-installer.git",
-                "reference": "d78ae87b05de5748eed60ce4885920e73997382f"
+                "reference": "347c3bea6f7557aacd4787db28780ca7cd82aca8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://git.spip.net/api/v4/projects/spip-league%2Fcomposer-installer/repository/archive.zip?sha=d78ae87b05de5748eed60ce4885920e73997382f",
-                "reference": "d78ae87b05de5748eed60ce4885920e73997382f",
+                "url": "https://git.spip.net/api/v4/projects/spip-league%2Fcomposer-installer/repository/archive.zip?sha=347c3bea6f7557aacd4787db28780ca7cd82aca8",
+                "reference": "347c3bea6f7557aacd4787db28780ca7cd82aca8",
                 "shasum": ""
             },
             "require": {
@@ -1189,10 +1190,10 @@
             ],
             "description": "SPIP Composer Installer Plugin",
             "support": {
-                "source": "https://git.spip.net/spip-league/composer-installer/-/tree/pluginClearCache",
+                "source": "https://git.spip.net/spip-league/composer-installer/-/tree/0.6.3",
                 "issues": "https://git.spip.net/spip-league/composer-installer/-/issues"
             },
-            "time": "2024-09-30T11:00:23+02:00"
+            "time": "2024-09-30T11:01:07+02:00"
         },
         {
             "name": "spip/compresseur",
@@ -5202,7 +5203,6 @@
         "spip/archiviste": 20,
         "spip/bigup": 20,
         "spip/compagnon": 20,
-        "spip/composer-installer": 20,
         "spip/compresseur": 20,
         "spip/dist": 20,
         "spip/dump": 20,
