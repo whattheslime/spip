@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "0bb3d77ca31daff74941c2afc190df73",
+    "content-hash": "9ab733a3da3ecd36015d118466b653ba",
     "packages": [
         {
             "name": "algo26-matthias/idna-convert",
@@ -149,16 +149,16 @@
         },
         {
             "name": "spip-league/kernel",
-            "version": "dev-installation-detector-1.x",
+            "version": "1.x-dev",
             "source": {
                 "type": "git",
                 "url": "https://git.spip.net/spip-league/kernel.git",
-                "reference": "8e858f57ff5f8540212705d95570c2d7c1f67bdd"
+                "reference": "f77a9eebd5d1bbb346f7d678d93562d32f6b3ed6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://git.spip.net/api/v4/projects/spip-league%2Fkernel/repository/archive.zip?sha=8e858f57ff5f8540212705d95570c2d7c1f67bdd",
-                "reference": "8e858f57ff5f8540212705d95570c2d7c1f67bdd",
+                "url": "https://git.spip.net/api/v4/projects/spip-league%2Fkernel/repository/archive.zip?sha=f77a9eebd5d1bbb346f7d678d93562d32f6b3ed6",
+                "reference": "f77a9eebd5d1bbb346f7d678d93562d32f6b3ed6",
                 "shasum": ""
             },
             "require": {
@@ -199,10 +199,10 @@
                 "kernel"
             ],
             "support": {
-                "source": "https://git.spip.net/spip-league/kernel/-/tree/installation-detector-1.x",
+                "source": "https://git.spip.net/spip-league/kernel/-/tree/1.x",
                 "issues": "https://git.spip.net/spip-league/kernel/-/issues"
             },
-            "time": "2024-09-29T21:29:55+02:00"
+            "time": "2024-09-30T19:18:26+02:00"
         },
         {
             "name": "spip/composer-installer",
@@ -296,12 +296,12 @@
             "source": {
                 "type": "git",
                 "url": "https://git.spip.net/spip/prive.git",
-                "reference": "2de211b69bd35aa2a60ffcf8995117518eb101e9"
+                "reference": "baf5ab4bc316a07ebe64b405f96b67e5e5219e78"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://git.spip.net/api/v4/projects/spip%2Fprive/repository/archive.zip?sha=2de211b69bd35aa2a60ffcf8995117518eb101e9",
-                "reference": "2de211b69bd35aa2a60ffcf8995117518eb101e9",
+                "url": "https://git.spip.net/api/v4/projects/spip%2Fprive/repository/archive.zip?sha=baf5ab4bc316a07ebe64b405f96b67e5e5219e78",
+                "reference": "baf5ab4bc316a07ebe64b405f96b67e5e5219e78",
                 "shasum": ""
             },
             "require-dev": {
@@ -316,7 +316,7 @@
                 "source": "https://git.spip.net/spip/prive/-/tree/1.x",
                 "issues": "https://git.spip.net/spip/prive/-/issues"
             },
-            "time": "2024-09-25T12:59:43+02:00"
+            "time": "2024-10-01T17:08:41+02:00"
         },
         {
             "name": "spip/security",

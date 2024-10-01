@@ -14,14 +14,12 @@
     "bigup": {
         "path": "plugins-dist/bigup",
         "source": "https://git.spip.net/spip/bigup.git",
-        "branch": "3.2",
-        "tag": "v3.2.12"
+        "branch": "3.3"
     },
     "compagnon": {
         "path": "plugins-dist/compagnon",
         "source": "https://git.spip.net/spip/compagnon.git",
-        "branch": "3.1",
-        "tag": "v3.1.4"
+        "branch": "3.2"
     },
     "compresseur": {
         "path": "plugins-dist/compresseur",
@@ -31,13 +29,12 @@
     "dump": {
         "path": "plugins-dist/dump",
         "source": "https://git.spip.net/spip/dump.git",
-        "branch": "2.1",
-        "tag": "v2.1.3"
+        "branch": "2.2"
     },
     "images": {
         "path": "plugins-dist/filtres_images",
         "source": "https://git.spip.net/spip/images.git",
-        "branch": "4.3",
+        "branch": "4.3"
     },
     "forum": {
         "path": "plugins-dist/forum",
@@ -54,13 +51,12 @@
     "medias": {
         "path": "plugins-dist/medias",
         "source": "https://git.spip.net/spip/medias.git",
-        "branch": "4.3",
-        "tag": "v4.3.1"
+        "branch": "4.4"
     },
     "mots": {
         "path": "plugins-dist/mots",
         "source": "https://git.spip.net/spip/mots.git",
-        "branch": "4.2"
+        "branch": "4.3"
     },
     "plan": {
         "path": "plugins-dist/plan",
@@ -89,7 +85,7 @@
     "sites": {
         "path": "plugins-dist/sites",
         "source": "https://git.spip.net/spip/sites.git",
-        "branch": "4.2"
+        "branch": "4.3"
     },
     "stats": {
         "path": "plugins-dist/statistiques",
@@ -100,13 +96,12 @@
     "svp": {
         "path": "plugins-dist/svp",
         "source": "https://git.spip.net/spip/svp.git",
-        "branch": "3.1",
-        "tag": "v3.1.10"
+        "branch": "3.2"
     },
     "tw": {
         "path": "plugins-dist/textwheel",
         "source": "https://git.spip.net/spip/tw.git",
-        "branch": "3.2"
+        "branch": "3.3"
     },
     "urls": {
         "path": "plugins-dist/urls_etendues",
