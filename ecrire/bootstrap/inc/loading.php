@@ -174,7 +174,7 @@ function include_fichiers_fonctions() {
 		// donc il faut l'inclure "en globals"
 		if ($f = find_in_path('mes_fonctions.php')) {
 			global $dossier_squelettes;
-			include_once(app()->getCwd() . $f);
+			include_once(app()->getCwd() . DIRECTORY_SEPARATOR . $f);
 		}
 
 		if (@is_readable(_CACHE_PLUGINS_FCT)) {
