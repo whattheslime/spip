@@ -302,9 +302,6 @@ function formulaires_editer_objet_charger(
 		. " rows='"
 		. ($config['lignes'] + 15)
 		. "' cols='40'";
-	if (isset($contexte['texte'])) {
-		[$contexte['texte'], $contexte['_texte_trop_long']] = editer_texte_recolle($contexte['texte'], $att_text);
-	}
 
 	// on veut conserver la langue de l'interface ;
 	// on passe cette donnee sous un autre nom, au cas ou le squelette
@@ -353,10 +350,13 @@ function formulaires_editer_objet_charger(
  * Gestion des textes trop longs (limitation brouteurs)
  * utile pour les textes > 32ko
  *
+ * @deprecated 4.3 Code mort (supprimé en SPIP 4.4)
  * @param  string $texte
  * @return array
  */
 function coupe_trop_long($texte) {
+	trigger_deprecation('spip', '4.3', 'Using "%s" is deprecated and will be remove in SPIP 4.4 ! Remove the call ; it is dead code', __FUNCTION__);
+
 	$aider = charger_fonction('aider', 'inc');
 	if (strlen($texte) > 28 * 1024) {
 		$texte = str_replace("\r\n", "\n", $texte);
@@ -385,11 +385,15 @@ function coupe_trop_long($texte) {
 /**
  * Formater un `$texte` dans `textarea`
  *
+ * @deprecated 4.3 Code mort (supprimé en SPIP 4.4)
  * @param string $texte
  * @param string $att_text
  * @return array
  */
 function editer_texte_recolle($texte, $att_text) {
+
+	trigger_deprecation('spip', '4.3', 'Using "%s" is deprecated and will be remove in SPIP 4.4 ! Remove the call ; it is dead code', __FUNCTION__);
+
 	if (
 		(strlen($texte) < 29 * 1024)
 		or (include_spip('inc/layer') and ($GLOBALS['browser_name'] != 'MSIE'))

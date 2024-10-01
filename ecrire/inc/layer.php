@@ -91,10 +91,14 @@ function bouton_block_depliable($texte, $deplie, $ids = '') {
 		: '');
 }
 
-//
-// Tests sur le nom du butineur
-//
+/**
+ * Tests sur le nom du butineur
+ *
+ * @deprecated 4.3 Code mort (supprimé en SPIP 4.4 !)
+ */
 function verif_butineur() {
+
+	trigger_deprecation('spip', '4.3', 'Using "%s" is deprecated and will be remove in SPIP 4.4 ! Remove the call ; it is dead code', __FUNCTION__);
 
 	preg_match(',^([A-Za-z]+)/([0-9]+\.[0-9]+) (.*)$,', $_SERVER['HTTP_USER_AGENT'], $match);
 	$GLOBALS['browser_name'] = $match[1];
@@ -157,5 +161,3 @@ function verif_butineur() {
 		$GLOBALS['browser_name'] = 'Mozilla';
 	}
 }
-
-verif_butineur();
