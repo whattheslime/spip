@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "c973945662f5ff06b4f5ac793df0aed4",
+    "content-hash": "020363bf9875a87fa997795bfd15b4cb",
     "packages": [
         {
             "name": "algo26-matthias/idna-convert",
@@ -1046,16 +1046,16 @@
             "source": {
                 "type": "git",
                 "url": "https://git.spip.net/spip/bigup.git",
-                "reference": "965eae258180e511cc65206985460b2d6a9acd2b"
+                "reference": "efceb5b81538cbd75f8996cc18d9b7c435087cbb"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://git.spip.net/api/v4/projects/spip%2Fbigup/repository/archive.zip?sha=965eae258180e511cc65206985460b2d6a9acd2b",
-                "reference": "965eae258180e511cc65206985460b2d6a9acd2b",
+                "url": "https://git.spip.net/api/v4/projects/spip%2Fbigup/repository/archive.zip?sha=efceb5b81538cbd75f8996cc18d9b7c435087cbb",
+                "reference": "efceb5b81538cbd75f8996cc18d9b7c435087cbb",
                 "shasum": ""
             },
             "require": {
-                "php": "^8.1"
+                "php": "^8.2"
             },
             "require-dev": {
                 "dealerdirect/phpcodesniffer-composer-installer": "^1.0",
@@ -1068,7 +1068,7 @@
             "type": "spip-plugin",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "3.3.x-dev"
+                    "dev-master": "3.4.x-dev"
                 }
             },
             "autoload": {
@@ -1091,7 +1091,7 @@
                 "source": "https://git.spip.net/spip/bigup/-/tree/master",
                 "issues": "https://git.spip.net/spip/bigup/-/issues"
             },
-            "time": "2024-09-20T12:47:07+02:00"
+            "time": "2024-10-01T18:10:53+02:00"
         },
         {
             "name": "spip/compagnon",
@@ -1099,16 +1099,16 @@
             "source": {
                 "type": "git",
                 "url": "https://git.spip.net/spip/compagnon.git",
-                "reference": "929a23d2e20d3c776ff080a2834bec87389b6702"
+                "reference": "2e873d779a39ce50deab7f12500996bb1d2a8d76"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://git.spip.net/api/v4/projects/spip%2Fcompagnon/repository/archive.zip?sha=929a23d2e20d3c776ff080a2834bec87389b6702",
-                "reference": "929a23d2e20d3c776ff080a2834bec87389b6702",
+                "url": "https://git.spip.net/api/v4/projects/spip%2Fcompagnon/repository/archive.zip?sha=2e873d779a39ce50deab7f12500996bb1d2a8d76",
+                "reference": "2e873d779a39ce50deab7f12500996bb1d2a8d76",
                 "shasum": ""
             },
             "require": {
-                "php": "^8.1"
+                "php": "^8.2"
             },
             "require-dev": {
                 "dealerdirect/phpcodesniffer-composer-installer": "^1.0",
@@ -1121,7 +1121,7 @@
             "type": "spip-plugin",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "3.2.x-dev"
+                    "dev-master": "3.3.x-dev"
                 }
             },
             "license": [
@@ -1139,7 +1139,7 @@
                 "source": "https://git.spip.net/spip/compagnon/-/tree/master",
                 "issues": "https://git.spip.net/spip/compagnon/-/issues"
             },
-            "time": "2024-05-05T01:51:16+02:00"
+            "time": "2024-10-01T18:20:24+02:00"
         },
         {
             "name": "spip/composer-installer",
@@ -1252,12 +1252,12 @@
             "source": {
                 "type": "git",
                 "url": "https://git.spip.net/spip/dist.git",
-                "reference": "e5f161746a4f524548a799d667694159e7268b08"
+                "reference": "6e35a570ea581b50c3183c5bd04fe03ef70a3d6b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://git.spip.net/api/v4/projects/spip%2Fdist/repository/archive.zip?sha=e5f161746a4f524548a799d667694159e7268b08",
-                "reference": "e5f161746a4f524548a799d667694159e7268b08",
+                "url": "https://git.spip.net/api/v4/projects/spip%2Fdist/repository/archive.zip?sha=6e35a570ea581b50c3183c5bd04fe03ef70a3d6b",
+                "reference": "6e35a570ea581b50c3183c5bd04fe03ef70a3d6b",
                 "shasum": ""
             },
             "default-branch": true,
@@ -1282,7 +1282,7 @@
                 "source": "https://git.spip.net/spip/dist/-/tree/master",
                 "issues": "https://git.spip.net/spip/dist/-/issues"
             },
-            "time": "2024-09-22T21:13:25+02:00"
+            "time": "2024-10-01T16:49:30+02:00"
         },
         {
             "name": "spip/dump",
@@ -1290,16 +1290,16 @@
             "source": {
                 "type": "git",
                 "url": "https://git.spip.net/spip/dump.git",
-                "reference": "4d17ba07d68e545d8235b89542a10848fd09ed2d"
+                "reference": "2d9163a14080431c5913c0a08b1c722d13bc83e0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://git.spip.net/api/v4/projects/spip%2Fdump/repository/archive.zip?sha=4d17ba07d68e545d8235b89542a10848fd09ed2d",
-                "reference": "4d17ba07d68e545d8235b89542a10848fd09ed2d",
+                "url": "https://git.spip.net/api/v4/projects/spip%2Fdump/repository/archive.zip?sha=2d9163a14080431c5913c0a08b1c722d13bc83e0",
+                "reference": "2d9163a14080431c5913c0a08b1c722d13bc83e0",
                 "shasum": ""
             },
             "require": {
-                "php": "^8.1"
+                "php": "^8.2"
             },
             "require-dev": {
                 "dealerdirect/phpcodesniffer-composer-installer": "^1.0",
@@ -1312,7 +1312,7 @@
             "type": "spip-plugin",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "2.2.x-dev"
+                    "dev-master": "2.3.x-dev"
                 }
             },
             "license": [
@@ -1330,7 +1330,7 @@
                 "source": "https://git.spip.net/spip/dump/-/tree/master",
                 "issues": "https://git.spip.net/spip/dump/-/issues"
             },
-            "time": "2024-05-05T01:37:33+02:00"
+            "time": "2024-10-01T18:30:47+02:00"
         },
         {
             "name": "spip/forum",
@@ -1338,12 +1338,12 @@
             "source": {
                 "type": "git",
                 "url": "https://git.spip.net/spip/forum.git",
-                "reference": "943704548d0d0742fc247bdcd935e2b5a8b0cb08"
+                "reference": "b7f844cb0423a00dd1e7d0c44dcd754e0a111d02"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://git.spip.net/api/v4/projects/spip%2Fforum/repository/archive.zip?sha=943704548d0d0742fc247bdcd935e2b5a8b0cb08",
-                "reference": "943704548d0d0742fc247bdcd935e2b5a8b0cb08",
+                "url": "https://git.spip.net/api/v4/projects/spip%2Fforum/repository/archive.zip?sha=b7f844cb0423a00dd1e7d0c44dcd754e0a111d02",
+                "reference": "b7f844cb0423a00dd1e7d0c44dcd754e0a111d02",
                 "shasum": ""
             },
             "require": {
@@ -1378,7 +1378,7 @@
                 "source": "https://git.spip.net/spip/forum/-/tree/master",
                 "issues": "https://git.spip.net/spip/forum/-/issues"
             },
-            "time": "2024-09-12T12:25:10+02:00"
+            "time": "2024-10-01T17:31:26+02:00"
         },
         {
             "name": "spip/images",
@@ -1492,17 +1492,65 @@
             "source": {
                 "type": "git",
                 "url": "https://git.spip.net/spip/medias.git",
-                "reference": "0c379f33856fd4b482770a10c38e7fe7249dc427"
+                "reference": "ed8141eb309899681addabded7b8f384327ed99c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://git.spip.net/api/v4/projects/spip%2Fmedias/repository/archive.zip?sha=0c379f33856fd4b482770a10c38e7fe7249dc427",
-                "reference": "0c379f33856fd4b482770a10c38e7fe7249dc427",
+                "url": "https://git.spip.net/api/v4/projects/spip%2Fmedias/repository/archive.zip?sha=ed8141eb309899681addabded7b8f384327ed99c",
+                "reference": "ed8141eb309899681addabded7b8f384327ed99c",
                 "shasum": ""
             },
             "require": {
                 "james-heinrich/getid3": "^1.9",
-                "php": "^8.1"
+                "php": "^8.2"
+            },
+            "require-dev": {
+                "dealerdirect/phpcodesniffer-composer-installer": "^1.0",
+                "phpcompatibility/php-compatibility": "dev-develop",
+                "phpstan/phpstan": "^1.10",
+                "rector/rector": "^0.15.23",
+                "spip/coding-standards": "^1.3"
+            },
+            "default-branch": true,
+            "type": "spip-plugin",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "5.0.x-dev"
+                }
+            },
+            "license": [
+                "GPL-3.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "Collectif SPIP",
+                    "homepage": "https://discuter.spip.net/c/spip-dev/5",
+                    "role": "Maintainer"
+                }
+            ],
+            "description": "Gestion des medias dans SPIP",
+            "support": {
+                "source": "https://git.spip.net/spip/medias/-/tree/master",
+                "issues": "https://git.spip.net/spip/medias/-/issues"
+            },
+            "time": "2024-10-01T18:41:35+02:00"
+        },
+        {
+            "name": "spip/mots",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://git.spip.net/spip/mots.git",
+                "reference": "654714ff32e540924dc39ec394dd81e5050faf9c"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://git.spip.net/api/v4/projects/spip%2Fmots/repository/archive.zip?sha=654714ff32e540924dc39ec394dd81e5050faf9c",
+                "reference": "654714ff32e540924dc39ec394dd81e5050faf9c",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^8.2"
             },
             "require-dev": {
                 "dealerdirect/phpcodesniffer-composer-installer": "^1.0",
@@ -1528,60 +1576,12 @@
                     "role": "Maintainer"
                 }
             ],
-            "description": "Gestion des medias dans SPIP",
-            "support": {
-                "source": "https://git.spip.net/spip/medias/-/tree/master",
-                "issues": "https://git.spip.net/spip/medias/-/issues"
-            },
-            "time": "2024-09-15T14:06:17+02:00"
-        },
-        {
-            "name": "spip/mots",
-            "version": "dev-master",
-            "source": {
-                "type": "git",
-                "url": "https://git.spip.net/spip/mots.git",
-                "reference": "8c3dd0f612cf9708f1d47333efe895519f1356cf"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://git.spip.net/api/v4/projects/spip%2Fmots/repository/archive.zip?sha=8c3dd0f612cf9708f1d47333efe895519f1356cf",
-                "reference": "8c3dd0f612cf9708f1d47333efe895519f1356cf",
-                "shasum": ""
-            },
-            "require": {
-                "php": "^8.1"
-            },
-            "require-dev": {
-                "dealerdirect/phpcodesniffer-composer-installer": "^1.0",
-                "phpcompatibility/php-compatibility": "dev-develop",
-                "phpstan/phpstan": "^1.10",
-                "rector/rector": "^0.15.23",
-                "spip/coding-standards": "^1.3"
-            },
-            "default-branch": true,
-            "type": "spip-plugin",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "4.3.x-dev"
-                }
-            },
-            "license": [
-                "GPL-3.0-or-later"
-            ],
-            "authors": [
-                {
-                    "name": "Collectif SPIP",
-                    "homepage": "https://discuter.spip.net/c/spip-dev/5",
-                    "role": "Maintainer"
-                }
-            ],
             "description": "Gestion des mots et groupes de mots dans SPIP",
             "support": {
                 "source": "https://git.spip.net/spip/mots/-/tree/master",
                 "issues": "https://git.spip.net/spip/mots/-/issues"
             },
-            "time": "2024-08-01T14:59:24+02:00"
+            "time": "2024-10-01T22:32:31+02:00"
         },
         {
             "name": "spip/plan",
@@ -1685,12 +1685,12 @@
             "source": {
                 "type": "git",
                 "url": "https://git.spip.net/spip/prive.git",
-                "reference": "67cd563cc71e3ce5d57c83afdabcbf1218e8386f"
+                "reference": "069112f2b7d7218e26c63995712f627165227042"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://git.spip.net/api/v4/projects/spip%2Fprive/repository/archive.zip?sha=67cd563cc71e3ce5d57c83afdabcbf1218e8386f",
-                "reference": "67cd563cc71e3ce5d57c83afdabcbf1218e8386f",
+                "url": "https://git.spip.net/api/v4/projects/spip%2Fprive/repository/archive.zip?sha=069112f2b7d7218e26c63995712f627165227042",
+                "reference": "069112f2b7d7218e26c63995712f627165227042",
                 "shasum": ""
             },
             "require-dev": {
@@ -1706,7 +1706,7 @@
                 "source": "https://git.spip.net/spip/prive/-/tree/2.x",
                 "issues": "https://git.spip.net/spip/prive/-/issues"
             },
-            "time": "2024-09-25T12:59:30+02:00"
+            "time": "2024-10-01T17:07:05+02:00"
         },
         {
             "name": "spip/revisions",
@@ -1714,12 +1714,12 @@
             "source": {
                 "type": "git",
                 "url": "https://git.spip.net/spip/revisions.git",
-                "reference": "2926eb91dea4cbd228de24d50141b939f1f3837b"
+                "reference": "74b89ea2042b90c0570ef09c33c4d618405356de"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://git.spip.net/api/v4/projects/spip%2Frevisions/repository/archive.zip?sha=2926eb91dea4cbd228de24d50141b939f1f3837b",
-                "reference": "2926eb91dea4cbd228de24d50141b939f1f3837b",
+                "url": "https://git.spip.net/api/v4/projects/spip%2Frevisions/repository/archive.zip?sha=74b89ea2042b90c0570ef09c33c4d618405356de",
+                "reference": "74b89ea2042b90c0570ef09c33c4d618405356de",
                 "shasum": ""
             },
             "require": {
@@ -1754,7 +1754,7 @@
                 "source": "https://git.spip.net/spip/revisions/-/tree/master",
                 "issues": "https://git.spip.net/spip/revisions/-/issues"
             },
-            "time": "2024-09-20T12:55:50+02:00"
+            "time": "2024-10-01T17:47:04+02:00"
         },
         {
             "name": "spip/safehtml",
@@ -1852,16 +1852,16 @@
             "source": {
                 "type": "git",
                 "url": "https://git.spip.net/spip/sites.git",
-                "reference": "942f072b55ea85c68dfaef3109837b2d2c2675f8"
+                "reference": "018cb120d9a3c9ce61c652377a5dc7606f1c6bed"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://git.spip.net/api/v4/projects/spip%2Fsites/repository/archive.zip?sha=942f072b55ea85c68dfaef3109837b2d2c2675f8",
-                "reference": "942f072b55ea85c68dfaef3109837b2d2c2675f8",
+                "url": "https://git.spip.net/api/v4/projects/spip%2Fsites/repository/archive.zip?sha=018cb120d9a3c9ce61c652377a5dc7606f1c6bed",
+                "reference": "018cb120d9a3c9ce61c652377a5dc7606f1c6bed",
                 "shasum": ""
             },
             "require": {
-                "php": "^8.1"
+                "php": "^8.2"
             },
             "require-dev": {
                 "dealerdirect/phpcodesniffer-composer-installer": "^1.0",
@@ -1874,7 +1874,7 @@
             "type": "spip-plugin",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "4.3.x-dev"
+                    "dev-master": "4.4.x-dev"
                 }
             },
             "license": [
@@ -1892,7 +1892,7 @@
                 "source": "https://git.spip.net/spip/sites/-/tree/master",
                 "issues": "https://git.spip.net/spip/sites/-/issues"
             },
-            "time": "2024-08-01T14:48:51+02:00"
+            "time": "2024-10-01T21:29:55+02:00"
         },
         {
             "name": "spip/stats",
@@ -1900,12 +1900,12 @@
             "source": {
                 "type": "git",
                 "url": "https://git.spip.net/spip/stats.git",
-                "reference": "b453a01713c66069ae4718b30481c1d2296da9c1"
+                "reference": "b1a33eb3637729f368ee89b36debe26eba4240e4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://git.spip.net/api/v4/projects/spip%2Fstats/repository/archive.zip?sha=b453a01713c66069ae4718b30481c1d2296da9c1",
-                "reference": "b453a01713c66069ae4718b30481c1d2296da9c1",
+                "url": "https://git.spip.net/api/v4/projects/spip%2Fstats/repository/archive.zip?sha=b1a33eb3637729f368ee89b36debe26eba4240e4",
+                "reference": "b1a33eb3637729f368ee89b36debe26eba4240e4",
                 "shasum": ""
             },
             "require": {
@@ -1940,7 +1940,7 @@
                 "source": "https://git.spip.net/spip/stats/-/tree/master",
                 "issues": "https://git.spip.net/spip/stats/-/issues"
             },
-            "time": "2024-07-25T16:51:06+02:00"
+            "time": "2024-10-01T12:16:55+02:00"
         },
         {
             "name": "spip/svp",
@@ -1948,65 +1948,12 @@
             "source": {
                 "type": "git",
                 "url": "https://git.spip.net/spip/svp.git",
-                "reference": "6685274e8b24d88fa0a1a779a394b6834cf4c813"
+                "reference": "2584099db6643426bd049b9ecc2a3804c8f9d550"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://git.spip.net/api/v4/projects/spip%2Fsvp/repository/archive.zip?sha=6685274e8b24d88fa0a1a779a394b6834cf4c813",
-                "reference": "6685274e8b24d88fa0a1a779a394b6834cf4c813",
-                "shasum": ""
-            },
-            "require": {
-                "php": "^8.1"
-            },
-            "require-dev": {
-                "dealerdirect/phpcodesniffer-composer-installer": "^1.0",
-                "phpcompatibility/php-compatibility": "dev-develop",
-                "phpstan/phpstan": "^1.10",
-                "rector/rector": "^0.15.23",
-                "spip/coding-standards": "^1.3"
-            },
-            "default-branch": true,
-            "type": "spip-plugin",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "3.2.x-dev"
-                }
-            },
-            "license": [
-                "GPL-3.0-or-later"
-            ],
-            "authors": [
-                {
-                    "name": "Collectif SPIP",
-                    "homepage": "https://discuter.spip.net/c/spip-dev/5",
-                    "role": "Maintainer"
-                },
-                {
-                    "name": "Eric Lupinacci",
-                    "homepage": "https://blog.smellup.net/",
-                    "role": "Maintainer"
-                }
-            ],
-            "description": "SerVeur d'information et de téléchargement des Plugins",
-            "support": {
-                "source": "https://git.spip.net/spip/svp/-/tree/master",
-                "issues": "https://git.spip.net/spip/svp/-/issues"
-            },
-            "time": "2024-06-25T13:30:12+02:00"
-        },
-        {
-            "name": "spip/tw",
-            "version": "dev-master",
-            "source": {
-                "type": "git",
-                "url": "https://git.spip.net/spip/tw.git",
-                "reference": "ea32651fe94f7d301e3056e84103de5b84f60c54"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://git.spip.net/api/v4/projects/spip%2Ftw/repository/archive.zip?sha=ea32651fe94f7d301e3056e84103de5b84f60c54",
-                "reference": "ea32651fe94f7d301e3056e84103de5b84f60c54",
+                "url": "https://git.spip.net/api/v4/projects/spip%2Fsvp/repository/archive.zip?sha=2584099db6643426bd049b9ecc2a3804c8f9d550",
+                "reference": "2584099db6643426bd049b9ecc2a3804c8f9d550",
                 "shasum": ""
             },
             "require": {
@@ -2034,6 +1981,59 @@
                     "name": "Collectif SPIP",
                     "homepage": "https://discuter.spip.net/c/spip-dev/5",
                     "role": "Maintainer"
+                },
+                {
+                    "name": "Eric Lupinacci",
+                    "homepage": "https://blog.smellup.net/",
+                    "role": "Maintainer"
+                }
+            ],
+            "description": "SerVeur d'information et de téléchargement des Plugins",
+            "support": {
+                "source": "https://git.spip.net/spip/svp/-/tree/master",
+                "issues": "https://git.spip.net/spip/svp/-/issues"
+            },
+            "time": "2024-10-01T21:44:32+02:00"
+        },
+        {
+            "name": "spip/tw",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://git.spip.net/spip/tw.git",
+                "reference": "81581cc37ba3842a4b91a9cb62cc8f2f52ed3344"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://git.spip.net/api/v4/projects/spip%2Ftw/repository/archive.zip?sha=81581cc37ba3842a4b91a9cb62cc8f2f52ed3344",
+                "reference": "81581cc37ba3842a4b91a9cb62cc8f2f52ed3344",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^8.2"
+            },
+            "require-dev": {
+                "dealerdirect/phpcodesniffer-composer-installer": "^1.0",
+                "phpcompatibility/php-compatibility": "dev-develop",
+                "phpstan/phpstan": "^1.10",
+                "rector/rector": "^0.15.23",
+                "spip/coding-standards": "^1.3"
+            },
+            "default-branch": true,
+            "type": "spip-plugin",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "3.4.x-dev"
+                }
+            },
+            "license": [
+                "GPL-3.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "Collectif SPIP",
+                    "homepage": "https://discuter.spip.net/c/spip-dev/5",
+                    "role": "Maintainer"
                 }
             ],
             "description": "Gestion de la typographie SPIP avec TextWheel",
@@ -2041,7 +2041,7 @@
                 "source": "https://git.spip.net/spip/tw/-/tree/master",
                 "issues": "https://git.spip.net/spip/tw/-/issues"
             },
-            "time": "2024-09-30T19:37:43+02:00"
+            "time": "2024-10-01T22:10:54+02:00"
         },
         {
             "name": "spip/urls",
@@ -2049,12 +2049,12 @@
             "source": {
                 "type": "git",
                 "url": "https://git.spip.net/spip/urls.git",
-                "reference": "d69f174e57ee811197e03f583714fe23699f05c9"
+                "reference": "a1436857acb307e3a8f8ea552ead8507c2bdc40c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://git.spip.net/api/v4/projects/spip%2Furls/repository/archive.zip?sha=d69f174e57ee811197e03f583714fe23699f05c9",
-                "reference": "d69f174e57ee811197e03f583714fe23699f05c9",
+                "url": "https://git.spip.net/api/v4/projects/spip%2Furls/repository/archive.zip?sha=a1436857acb307e3a8f8ea552ead8507c2bdc40c",
+                "reference": "a1436857acb307e3a8f8ea552ead8507c2bdc40c",
                 "shasum": ""
             },
             "require": {
@@ -2090,7 +2090,7 @@
                 "source": "https://git.spip.net/spip/urls/-/tree/master",
                 "issues": "https://git.spip.net/spip/urls/-/issues"
             },
-            "time": "2024-09-24T10:28:12+02:00"
+            "time": "2024-10-01T19:51:23+02:00"
         },
         {
             "name": "symfony/clock",
