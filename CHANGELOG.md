@@ -10,6 +10,10 @@ Changelog de SPIP 4.3
 - #3919 Réparer l'ajout de la configuration LDAP lors de l'installation
 - !6024 Éviter notice dans `init_http` en cas de "seriously malformed URLs"
 
+### Deprecated
+
+- #5505 #5988 Fonctions `verif_butineur()`, `editer_texte_recolle()` & `coupe_trop_long()` qui étaient code mort pour IE (seront supprimées en SPIP 4.4, mais les usages étaient uniquement internes).
+
 ## 4.3.2 - 2024-08-20
 
 ### Security
