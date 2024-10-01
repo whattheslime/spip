@@ -223,7 +223,7 @@ SPIP anba-la, i sava pa marsé.',
 	'info_hier' => 'Yèr :',
 	'info_identification_publique' => 'Out lidantité piblik...',
 	'info_image_process' => 'Mersi swazi lo méyèr manyir pou fabrik out bann vinyèt sam apiyé si limaz i korespon.',
-	'info_images_auto' => 'Ban zimaz-la lé kalkilé otomatikman',
+	'info_images_auto' => 'Ban zimaz-la lé kalkilé otomatikman', # MODIF
 	'info_informations_personnelles' => 'Sinkyèm étap : <b>Bann zinformasyon personèl</b>',
 	'info_inscription_automatique' => 'Pou inskri otomatikman tout bann nouvo lotèr', # MODIF
 	'info_jeu_caractere' => 'Lansamn bann karaktèr lo sit',
@@ -458,7 +458,7 @@ sanm in koulèr i présiz son léta :',
 	'statut_admin_restreint' => '(komandèr ti-drwa)', # MODIF
 
 	// T
-	'taille_cache_image' => 'Ban zimaz sak SPIP i pé kalkilé otomatikman (tite-zimaz dann dokiman, bann non i prézant grafikman, bann fonkson matématik dan forma TeX...)  zot i prann andan répertwar @dir@ in léspas total sat i ariv @taille@.',
+	'taille_cache_image' => 'Ban zimaz sak SPIP i pé kalkilé otomatikman (tite-zimaz dann dokiman, bann non i prézant grafikman, bann fonkson matématik dan forma TeX...)  zot i prann andan répertwar @dir@ in léspas total sat i ariv @taille@.', # MODIF
 	'taille_cache_octets' => 'Lo ty lo CACHE li lé astèr de @octets@.', # MODIF
 	'taille_cache_vide' => 'Lo kas lé vid.',
 	'taille_repertoire_cache' => 'Tay lo répertwar kas',

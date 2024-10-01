@@ -294,7 +294,7 @@ return [
 	'info_hier' => 'onte:',
 	'info_identification_publique' => 'A súa identidade pública...',
 	'info_image_process' => 'Probe a seleccionar o mellor método de fabricación de viñetas premendo sobre a imaxe correspondente.',
-	'info_images_auto' => 'Imaxes calculadas automaticamente',
+	'info_images_auto' => 'Imaxes calculadas automaticamente', # MODIF
 	'info_informations_personnelles' => 'Datos persoais',
 	'info_inscription_automatique' => 'Rexistro automático de novos redactores', # MODIF
 	'info_jeu_caractere' => 'Xogo de caracteres do web',
@@ -655,7 +655,7 @@ cunha cor que indica o seu estado :',
 	'statut_admin_restreint' => '(admin restrinxido)', # MODIF
 
 	// T
-	'taille_cache_image' => 'As imaxes calculadas automaticamente por SPIP (viñetas dos documentos, títulos presentados so a forma gráfica, funcións matemáticas en formato TeX...) ocupan no directorio @dir@ un total de @taille@.',
+	'taille_cache_image' => 'As imaxes calculadas automaticamente por SPIP (viñetas dos documentos, títulos presentados so a forma gráfica, funcións matemáticas en formato TeX...) ocupan no directorio @dir@ un total de @taille@.', # MODIF
 	'taille_cache_octets' => 'O tamaño da caché é actualmente de  @octets@.', # MODIF
 	'taille_cache_vide' => 'A caché está baleira',
 	'taille_repertoire_cache' => 'Tamaño do directorio de memoria caché',

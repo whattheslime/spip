@@ -265,7 +265,7 @@ yaratabilir. Bu da otomatik olarak bir galeri
 	'info_hier' => 'Dün :',
 	'info_identification_publique' => 'Kamu kimliğiniz ...',
 	'info_image_process' => 'Lütfen, uygun resme tıklayarak en iyi ikon üretim yöntemini seçiniz. ',
-	'info_images_auto' => 'Otomatik olarak hesaplanan resimler',
+	'info_images_auto' => 'Otomatik olarak hesaplanan resimler', # MODIF
 	'info_informations_personnelles' => 'Kişisel bilgiler',
 	'info_inscription' => 'Kayıt tarihi', # RELIRE
 	'info_inscription_automatique' => 'Yeni yazarların otomatik kaydı', # MODIF
@@ -644,7 +644,7 @@ Site sloganı', # RELIRE
 	'statut_webmestre' => 'webmaster', # RELIRE
 
 	// T
-	'taille_cache_image' => 'SPIP tarafından otomatik olarak hesaplanan resimler (doküman ikonları, grafik olarak gösterilen başlıklar, TeX biçimindeki matematik işlevler...) @dir@ dizininde toplam @taille@ yer tutuyor.',
+	'taille_cache_image' => 'SPIP tarafından otomatik olarak hesaplanan resimler (doküman ikonları, grafik olarak gösterilen başlıklar, TeX biçimindeki matematik işlevler...) @dir@ dizininde toplam @taille@ yer tutuyor.', # MODIF
 	'taille_cache_moins_de' => 'Önbellek boyutu @octets@ altında.', # RELIRE
 	'taille_cache_octets' => 'Önbelleğin ölçüsü şu anda @octets@ dir.',
 	'taille_cache_vide' => 'Ön bellek boş.',

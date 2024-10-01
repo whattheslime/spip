@@ -225,7 +225,7 @@ Koulè imaj rannkont stati yo (komandè = vèr; redaktè = jon).', # MODIF
 	'info_hier' => 'yèr :',
 	'info_identification_publique' => 'Ou lidantité piblik...',
 	'info_image_process' => 'Tanpri chwazi mèyè métod pou lakreyasyon viyèt yo. Pou sa-a mèsi klike sou imaj la ki koresponn.',
-	'info_images_auto' => 'Imaj kalkilé otomatikman',
+	'info_images_auto' => 'Imaj kalkilé otomatikman', # MODIF
 	'info_informations_personnelles' => 'Sinkyèm etap : <b>Enfòmasyon pèsonel yo</b>', # MODIF
 	'info_inscription_automatique' => 'Enskrisyon otomatik pou nouvo redaktè yo', # MODIF
 	'info_jeu_caractere' => 'Je kawaktè-liprimiri pou sit sa-a',
@@ -450,7 +450,7 @@ nan yon koulè ki bay lestati ali :',
 	'statut_admin_restreint' => '(komandè ki limité)', # MODIF
 
 	// T
-	'taille_cache_image' => 'Tout imaj ki SPIP kav kalkile otomatikman (viyèt nan dokiman, kouman li rele ki pwézanté nan foma gwafik, tout fonksyon matematik nan foma TeX...) yo ka okipe nan répètwar @dir@ lespas total ki @taille@.',
+	'taille_cache_image' => 'Tout imaj ki SPIP kav kalkile otomatikman (viyèt nan dokiman, kouman li rele ki pwézanté nan foma gwafik, tout fonksyon matematik nan foma TeX...) yo ka okipe nan répètwar @dir@ lespas total ki @taille@.', # MODIF
 	'taille_cache_octets' => 'Tay pou kach se aster @octets@.', # MODIF
 	'taille_cache_vide' => 'Kach-la se vid.',
 	'taille_repertoire_cache' => 'Latay répertwar kach',

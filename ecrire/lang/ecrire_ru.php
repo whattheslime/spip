@@ -313,7 +313,7 @@ return [
 	'info_hier' => 'вчера:',
 	'info_identification_publique' => 'Ваша публичная идентификация...',
 	'info_image_process' => 'Выберите лучший метод для создания уменьшенной копии, нажимая на соответствующую картинку.',
-	'info_images_auto' => 'Кеш файлов изображений',
+	'info_images_auto' => 'Кеш файлов изображений', # MODIF
 	'info_informations_personnelles' => 'Настройки профиля',
 	'info_inscription' => 'Зарегистрирован',
 	'info_inscription_automatique' => 'Автоматическая регистрация новых авторов', # MODIF
@@ -709,7 +709,7 @@ return [
 	// T
 	'tache_cron_asap' => 'CRON @function@ (ASAP)',
 	'tache_cron_secondes' => 'CRON @function@ (каждые @nb@ с)',
-	'taille_cache_image' => 'Кеш файлов изображений (автоматически пережатые картинки, изображения формул и текста, трасформированного в графику) занимает @taille@ в каталоге @dir@.',
+	'taille_cache_image' => 'Кеш файлов изображений (автоматически пережатые картинки, изображения формул и текста, трасформированного в графику) занимает @taille@ в каталоге @dir@.', # MODIF
 	'taille_cache_moins_de' => 'Размер кеша меньше  @octets@.',
 	'taille_cache_octets' => 'Приблизительный размер кеша @octets@.',
 	'taille_cache_vide' => 'Кеш пуст.',

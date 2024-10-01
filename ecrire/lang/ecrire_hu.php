@@ -217,7 +217,7 @@ a törölt szerzők pedig kukával vannak jelölve.', # MODIF
 	'info_hier' => 'Tegnap :',
 	'info_identification_publique' => 'Az Ön nyilvános azonosítása...',
 	'info_image_process' => 'Válasszon a bélyegképek legjobb készítesi modszerét azzal, hogy kattintson a megfelelő képre.',
-	'info_images_auto' => 'Automatikusan kalkulált képek',
+	'info_images_auto' => 'Automatikusan kalkulált képek', # MODIF
 	'info_informations_personnelles' => 'Ötödik lépés : <b>Személyes adatok</b>', # MODIF
 	'info_inscription_automatique' => 'Új szerzők automatikus beiratkozása', # MODIF
 	'info_jeu_caractere' => 'A honlap karakter táblája',
@@ -446,7 +446,7 @@ ami állapotát jelzi :',
 	'statut_admin_restreint' => '(korlátolt admin)', # MODIF
 
 	// T
-	'taille_cache_image' => 'Az SPIP által kalkulált képek (dok. bélyegképei, grafikusan megjelenő címek, TeX formatumú matek függvények...) @taille@ méretű helyet foglalnak a @dir@ nevű mappában.',
+	'taille_cache_image' => 'Az SPIP által kalkulált képek (dok. bélyegképei, grafikusan megjelenő címek, TeX formatumú matek függvények...) @taille@ méretű helyet foglalnak a @dir@ nevű mappában.', # MODIF
 	'taille_cache_octets' => 'A cache mérete jelenleg @octets@.', # MODIF
 	'taille_cache_vide' => 'A cache üres.',
 	'taille_repertoire_cache' => 'Cache mappa mérete',

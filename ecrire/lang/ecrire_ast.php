@@ -289,7 +289,7 @@ return [
 	'info_hier' => 'ayeri:',
 	'info_identification_publique' => 'La to identidá pública...',
 	'info_image_process' => 'Has d’escoyer el meyor métodu de fabricación de les viñetes calcando enriba de la imaxe correspondiente.',
-	'info_images_auto' => 'Imaxes calculáes automáticamente',
+	'info_images_auto' => 'Imaxes calculáes automáticamente', # MODIF
 	'info_informations_personnelles' => 'Información personal',
 	'info_inscription_automatique' => 'Inscripción automática de redactores nuevos', # MODIF
 	'info_jeu_caractere' => 'Xuegu de carauteres del sitiu',
@@ -638,7 +638,7 @@ con una color que indica el estáu:',
 	'statut_admin_restreint' => '(almin llendau)', # MODIF
 
 	// T
-	'taille_cache_image' => 'Les imaxes calculáes automáticamente por SPIP (miniatures de documentos, títulos en formatu gráficu, funciones matemátiques en formatu TeX...) ocupen nel direutoriu @dir@ un total de @taille@.',
+	'taille_cache_image' => 'Les imaxes calculáes automáticamente por SPIP (miniatures de documentos, títulos en formatu gráficu, funciones matemátiques en formatu TeX...) ocupen nel direutoriu @dir@ un total de @taille@.', # MODIF
 	'taille_cache_octets' => 'El tamañu de caché actualmente ye de @octets@.', # MODIF
 	'taille_cache_vide' => 'La caché ta vacía.',
 	'taille_repertoire_cache' => 'Tamañu del direutoriu de caché',

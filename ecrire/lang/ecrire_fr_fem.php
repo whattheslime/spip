@@ -331,7 +331,7 @@ return [
 	'info_hier' => 'hier :',
 	'info_identification_publique' => 'Votre identité publique...',
 	'info_image_process' => 'Veuillez sélectionner la meilleure méthode de fabrication des vignettes en cliquant sur l’image correspondante.',
-	'info_images_auto' => 'Images calculées automatiquement',
+	'info_images_auto' => 'Images calculées automatiquement', # MODIF
 	'info_informations_personnelles' => 'Informations personnelles',
 	'info_inscription' => 'Inscription le',
 	'info_inscription_automatique' => 'Inscription automatique de nouvelles rédactrices', # MODIF
@@ -737,7 +737,7 @@ dans une couleur qui indique leur état :',
 	// T
 	'tache_cron_asap' => 'Tâche CRON @function@ (ASAP)',
 	'tache_cron_secondes' => 'Tâche CRON @function@ (toutes les @nb@ s)',
-	'taille_cache_image' => 'Les images calculées automatiquement par SPIP (vignettes des documents, titres présentés sous forme graphique, fonctions mathématiques au format TeX...) occupent dans le répertoire @dir@ un total de @taille@.',
+	'taille_cache_image' => 'Les images calculées automatiquement par SPIP (vignettes des documents, titres présentés sous forme graphique, fonctions mathématiques au format TeX...) occupent dans le répertoire @dir@ un total de @taille@.', # MODIF
 	'taille_cache_moins_de' => 'La taille du cache est de moins de @octets@.',
 	'taille_cache_octets' => 'La taille du cache est actuellement de @octets@ environ.',
 	'taille_cache_vide' => 'Le cache est vide.',

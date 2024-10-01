@@ -312,7 +312,7 @@ Aqueli informacioun vi devon poudé estre prouvedi da l’aministratour dóu sis
 	'info_hier' => 'ièr :',
 	'info_identification_publique' => 'La vouòstra identità pùblica...',
 	'info_image_process' => 'Vourguès seleciounà lou milhou mètodou de fabricacioun dei vigneta en clicant sus l’image courrespoundenta.',
-	'info_images_auto' => 'Image carculadi automaticamen',
+	'info_images_auto' => 'Image carculadi automaticamen', # MODIF
 	'info_informations_personnelles' => 'Infourmacioun persounali',
 	'info_inscription' => 'Inscricioun lou',
 	'info_inscription_automatique' => 'Inscricioun autoumatica de redatour novèu', # MODIF
@@ -711,7 +711,7 @@ embé una coulou qu’endica lou sieu estat :',
 	// T
 	'tache_cron_asap' => 'Tàcha CRON @function@ (ASAP)',
 	'tache_cron_secondes' => 'Tàcha CRON @function@ (touti li @nb@ s)',
-	'taille_cache_image' => 'Lu image que SPIP a carculat automaticamen (vigneta dei doucumen, titre presentat en forma gràfica, founcioun matemàtiqui en forma TeX...) oucupon un toutal de @taille@ en lou repertori @dir@.',
+	'taille_cache_image' => 'Lu image que SPIP a carculat automaticamen (vigneta dei doucumen, titre presentat en forma gràfica, founcioun matemàtiqui en forma TeX...) oucupon un toutal de @taille@ en lou repertori @dir@.', # MODIF
 	'taille_cache_moins_de' => 'La talha de l’amagadou es màncou de @octets@.',
 	'taille_cache_octets' => 'Ahura la talha de l’amagador es cìrca de @octets@.',
 	'taille_cache_vide' => 'L’amagadou es vuèi.',

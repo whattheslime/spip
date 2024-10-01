@@ -310,7 +310,7 @@ desactivada per raons de seguretat (cosa normal en molts proveïdors d’hostatg
 	'info_hier' => 'ahir:',
 	'info_identification_publique' => 'La vostra identitat pública...',
 	'info_image_process' => 'Vulgueu seleccionar el millor mètode de fabricació de vinyetes fent un clic damunt de la imatge corresponent. ',
-	'info_images_auto' => 'Imatges calculades automàticament',
+	'info_images_auto' => 'Imatges calculades automàticament', # MODIF
 	'info_informations_personnelles' => 'Informacions personals',
 	'info_inscription' => 'Inscripció le',
 	'info_inscription_automatique' => 'Inscripció automàtica dels nous redactors', # MODIF
@@ -693,7 +693,7 @@ amb un color que indica el seu estat:',
 	// T
 	'tache_cron_asap' => 'Tasca CRON @function@ (ASAP)',
 	'tache_cron_secondes' => 'Tasca CRON @function@ (toutes les @nb@ s)',
-	'taille_cache_image' => 'Les imatges calculades automàticament per SPIP (miniatures dels documents, títols presentats en forma gràfica, función matemàtiques en format TeX...) ocupen en el directori @dir@ un total de @taille@.',
+	'taille_cache_image' => 'Les imatges calculades automàticament per SPIP (miniatures dels documents, títols presentats en forma gràfica, función matemàtiques en format TeX...) ocupen en el directori @dir@ un total de @taille@.', # MODIF
 	'taille_cache_moins_de' => 'La mida de la memòria cau és de menys de @octets@.',
 	'taille_cache_octets' => 'La mida de la memòria cau és actualment de @octets@.',
 	'taille_cache_vide' => 'La memòria cau està buida.',

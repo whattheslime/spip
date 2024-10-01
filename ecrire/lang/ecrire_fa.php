@@ -301,7 +301,7 @@ return [
 	'info_hier' => ': ديروز',
 	'info_identification_publique' => '...شناسنامه شما',
 	'info_image_process' => 'خواهشمند است بهترين شيوه ساخت تصاوير كوچك را با كليك كردن بروي تصوير مربوطه انتخاب نماييد.',
-	'info_images_auto' => 'تصاوير بطور خودكار محاسبه شده اند',
+	'info_images_auto' => 'تصاوير بطور خودكار محاسبه شده اند', # MODIF
 	'info_informations_personnelles' => 'اطلاعات شخصى',
 	'info_inscription' => 'ثبت شده در ',
 	'info_inscription_automatique' => 'ثبت نام خوكار نويسند گان جديد', # MODIF
@@ -676,7 +676,7 @@ return [
 	// T
 	'tache_cron_asap' => 'وظيفه‌ي CRON @function@ (ASAP)', # MODIF
 	'tache_cron_secondes' => 'وظيفه‌ي CRON @function@ (تمام @nb@)', # MODIF
-	'taille_cache_image' => 'اندازه ى تصاوير, كه توسط اسپيپ حساب شده ( تصاوير كوچك اسناد, عناوين گرافيكى عرضه شده, كاربردهاى رياضى با فرمهاى TeX...) در رپرتوار @dir@جمعا @taille@ را اشغال ميكنند.',
+	'taille_cache_image' => 'اندازه ى تصاوير, كه توسط اسپيپ حساب شده ( تصاوير كوچك اسناد, عناوين گرافيكى عرضه شده, كاربردهاى رياضى با فرمهاى TeX...) در رپرتوار @dir@جمعا @taille@ را اشغال ميكنند.', # MODIF
 	'taille_cache_moins_de' => 'اندازه‌ي حافظه‌ي پنهان كمتر از@octets@ است.',
 	'taille_cache_octets' => ' اندازه ى فايل پنهان در حال حاضر تقريبا @octets@ است.  ',
 	'taille_cache_vide' => 'فايل پنهان خالى است.',

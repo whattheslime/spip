@@ -236,7 +236,7 @@ return [
 	'info_hier' => 'ម្សិល​ម៉ិ​ញៈ',
 	'info_identification_publique' => 'អត្តសញ្ញា សាធារណះ របស់អ្នក...',
 	'info_image_process' => 'ជ្រើសយក វិធីប្រពៃបំផុត សំរាប់បង្កើត កូនរូបភាព ដោយ ចុចលើ រូបភាពទាក់ទិន។',
-	'info_images_auto' => 'រូបភាព​ដែល​ត្រូវ​បាន​រាប់​ដោយ​ស្វ័យប្រវត្ដិ',
+	'info_images_auto' => 'រូបភាព​ដែល​ត្រូវ​បាន​រាប់​ដោយ​ស្វ័យប្រវត្ដិ', # MODIF
 	'info_informations_personnelles' => 'ជំហាន​ទី​ប្រាំ ៖ <b>Personal information</b>',
 	'info_inscription_automatique' => 'ការចុះឈ្មោះស្វ័យប្រវត្តិ ពួកស្មេរថ្មី', # MODIF
 	'info_jeu_caractere' => 'កញ្ចប់ភាសា នៃសៃថ៍',
@@ -485,7 +485,7 @@ return [
 	'statut_admin_restreint' => '(​អ្នកគ្រប់គ្រង​ប្រព័ន្ធ​ដែល​ត្រូវ​ហាមឃាត់​)', # MODIF
 
 	// T
-	'taille_cache_image' => 'រូបភាព ត្រូវបានគណនា ស្វ័យប្រវត្តិ ដោយ SPIP (​ទំរង់សង្ខេប ឯកសារ, ចំណងជើង ត្រូវបានបង្ហាញ ជាក្រាភិក, អនុគមគណិត ជាទំរង់ TeX) មានសរុប @taille@ ​ក្នុង​ថតឯកសារ @dir@ ។',
+	'taille_cache_image' => 'រូបភាព ត្រូវបានគណនា ស្វ័យប្រវត្តិ ដោយ SPIP (​ទំរង់សង្ខេប ឯកសារ, ចំណងជើង ត្រូវបានបង្ហាញ ជាក្រាភិក, អនុគមគណិត ជាទំរង់ TeX) មានសរុប @taille@ ​ក្នុង​ថតឯកសារ @dir@ ។', # MODIF
 	'taille_cache_octets' => 'ទំហំ​ថត​លាក់ខ្លួន​គឺ @octets@ ថ្មីៗ​។', # MODIF
 	'taille_cache_vide' => 'ថត​លាក់ខ្លួន​ទទេ​។',
 	'taille_repertoire_cache' => 'ទំហំ​បច្ចុប្បន្ន​នៃ​ថត​លាក់ខ្លួន​។',

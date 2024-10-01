@@ -313,7 +313,7 @@ gewiste auteurs met een grijze.',
 	'info_hier' => 'gisteren:',
 	'info_identification_publique' => 'Je publieke identiteit...',
 	'info_image_process' => 'Kies de beste methode om een miniatuurafbeelding te maken door op de bijhorende afbeelding te klikken.',
-	'info_images_auto' => 'Beelden automatisch berekend',
+	'info_images_auto' => 'Beelden automatisch berekend', # MODIF
 	'info_informations_personnelles' => 'Persoonlijke gegevens',
 	'info_inscription' => 'Ingeschreven op',
 	'info_inscription_automatique' => 'Automatische inschrijving van nieuwe redacteurs', # MODIF
@@ -717,7 +717,7 @@ een kleur geeft hun status aan:',
 	// T
 	'tache_cron_asap' => 'CRON taak @function@ (ASAP)',
 	'tache_cron_secondes' => 'CRON taak @function@ (om de @nb@ sec)',
-	'taille_cache_image' => 'De door SPIP automatisch aangemaakte afbeeldingen (icoontjes van documenten, grafisch weergegeven titels, wiskundige functies in TeX formaat...) nemen in map @dir@ in totaal @taille@ in.',
+	'taille_cache_image' => 'De door SPIP automatisch aangemaakte afbeeldingen (icoontjes van documenten, grafisch weergegeven titels, wiskundige functies in TeX formaat...) nemen in map @dir@ in totaal @taille@ in.', # MODIF
 	'taille_cache_moins_de' => 'De cache is kleiner dan @octets@.',
 	'taille_cache_octets' => 'De grootte van de buffer bedraagt momenteel @octets@.',
 	'taille_cache_vide' => 'De buffer is leeg.',

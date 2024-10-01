@@ -227,7 +227,7 @@ return [
 	'info_hier' => 'včera:',
 	'info_identification_publique' => 'Vaše veřejná identita...',
 	'info_image_process' => 'Nejlepší metodu tvorby náhledů zvolíte klepnutím na příslušný obrázek.',
-	'info_images_auto' => 'Automaticky vypočtěné obrázky',
+	'info_images_auto' => 'Automaticky vypočtěné obrázky', # MODIF
 	'info_informations_personnelles' => 'Pátý krok: <b>Osobní údaje</b>', # MODIF
 	'info_inscription_automatique' => 'Automatický zápis nových redaktorů', # MODIF
 	'info_jeu_caractere' => 'Znaková sada webu',
@@ -467,7 +467,7 @@ ukazuje jejich stav:',
 	'statut_admin_restreint' => '(admin - vyhrazeno)', # MODIF
 
 	// T
-	'taille_cache_image' => 'Obrázky, automaticky vypočtené systémem SPIP (náhledy dokumentů, názvy zobrazené graficky, matematické funkce ve formátu TeX...) zabírají v adresáři @dir@ celkem @taille@.',
+	'taille_cache_image' => 'Obrázky, automaticky vypočtené systémem SPIP (náhledy dokumentů, názvy zobrazené graficky, matematické funkce ve formátu TeX...) zabírají v adresáři @dir@ celkem @taille@.', # MODIF
 	'taille_cache_octets' => 'Velikost cache je v současnosti @octets@.', # MODIF
 	'taille_cache_vide' => 'Cache je prázdná.',
 	'taille_repertoire_cache' => 'Velikost adresáře cache',

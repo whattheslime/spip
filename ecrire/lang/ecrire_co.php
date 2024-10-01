@@ -299,7 +299,7 @@ U so statutu hè signalatu da u culore di l’icona (scrittore = giallu; amminis
 	'info_hier' => 'eri :',
 	'info_identification_publique' => 'A vostra identità pùbblica...',
 	'info_image_process' => 'Sceglite puru u mètudu preferitu per a creazione di e figurette clicchendu nant’à l’imàgine currispundente.',
-	'info_images_auto' => 'Imàgini create in autumàticu',
+	'info_images_auto' => 'Imàgini create in autumàticu', # MODIF
 	'info_informations_personnelles' => 'Infurmazioni persunale',
 	'info_inscription_automatique' => 'Iscrizzione autumàtica di nuvelli scrittori', # MODIF
 	'info_jeu_caractere' => 'Ghjocu di caràtteri di u situ',
@@ -652,7 +652,7 @@ U so statutu hè signalatu da u culore di l’icona (scrittore = giallu; amminis
 
 	// T
 	'taille_cache_image' => 'L’imàgini create in autumàticu da SPIP (figurette di i ducumenti, tìtuli in furmatu gràficu, 
-		funzioni matemàtiche in furmatu TeX...) occupanu in u cartulare @dir@ in tuttu @taille@.',
+		funzioni matemàtiche in furmatu TeX...) occupanu in u cartulare @dir@ in tuttu @taille@.', # MODIF
 	'taille_cache_octets' => 'U cartulare di cache occupa attualmente @octets@ nant’à u discu.', # MODIF
 	'taille_cache_vide' => 'U cache hè viotu.',
 	'taille_repertoire_cache' => 'Taglia di u cartulare di cache',

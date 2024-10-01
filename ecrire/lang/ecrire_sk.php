@@ -317,7 +317,7 @@ return [
 	'info_hier' => 'včera:',
 	'info_identification_publique' => 'Vaša verejná identita...',
 	'info_image_process' => 'Kliknutím na príslušný obrázok si vyberte najlepší spôsob vytvorenia miniatúr.',
-	'info_images_auto' => 'Obrázky sa obnovia automaticky',
+	'info_images_auto' => 'Obrázky sa obnovia automaticky', # MODIF
 	'info_informations_personnelles' => 'Osobné údaje',
 	'info_inscription' => 'Registrácia',
 	'info_inscription_automatique' => 'Automatická registrácia nových redaktorov', # MODIF
@@ -718,7 +718,7 @@ a stav ich spracovania je označený farbou:',
 	// T
 	'tache_cron_asap' => 'Funkcia CRON @function@ (ihneď)',
 	'tache_cron_secondes' => 'Funkcia CRON @function@ (všetkých @nb@)',
-	'taille_cache_image' => 'Obrázky, ktoré SPIP automaticky obnoví (miniatúry, titulky zmenené na grafiku, matematické vzorce vo formáte TeX, atď.) zaberajú spolu v priečinku @dir@ @taille@ .',
+	'taille_cache_image' => 'Obrázky, ktoré SPIP automaticky obnoví (miniatúry, titulky zmenené na grafiku, matematické vzorce vo formáte TeX, atď.) zaberajú spolu v priečinku @dir@ @taille@ .', # MODIF
 	'taille_cache_moins_de' => 'Veľkosť cache je menej ako @octets@.',
 	'taille_cache_octets' => 'Veľkosť cache je teraz približne @octets@.',
 	'taille_cache_vide' => 'Cache je prázdna.',

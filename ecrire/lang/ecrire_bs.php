@@ -200,7 +200,7 @@ return [
 	'info_hier' => 'Jucer:',
 	'info_identification_publique' => 'Vas javni identitet...',
 	'info_image_process' => 'Izaberite najbolju metodu pravljenja vinjeta tako sto cete kliknuti na odgovarajucu sliku.',
-	'info_images_auto' => 'Automatski izracunate slike',
+	'info_images_auto' => 'Automatski izracunate slike', # MODIF
 	'info_informations_personnelles' => 'Peta etapa: <b>Licne informacije</b>', # MODIF
 	'info_inscription_automatique' => 'Automatsko upisivanje novih urednika', # MODIF
 	'info_jeu_caractere' => 'Set karaktera stranice',
@@ -415,7 +415,7 @@ Prevodi su (sa bojom koja ukazuje na njihovo stanje) povezani sa originalnim cla
 	'statut_admin_restreint' => '(ograniceni admin)', # MODIF
 
 	// T
-	'taille_cache_image' => 'Slike koje SPIP automatski izracunava (vinjete dokumenata, naslove predstavljene u grafickoj formi, matematicke funkcije u TeX formatu ...) zauzimaju u @dir@  repertoaru total od @taille@.',
+	'taille_cache_image' => 'Slike koje SPIP automatski izracunava (vinjete dokumenata, naslove predstavljene u grafickoj formi, matematicke funkcije u TeX formatu ...) zauzimaju u @dir@  repertoaru total od @taille@.', # MODIF
 	'taille_cache_octets' => 'Aktuelna velicina kesa je @octets@.', # MODIF
 	'taille_cache_vide' => 'Kes je prazan.',
 	'taille_repertoire_cache' => 'Aktuelna velicina kesa',

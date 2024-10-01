@@ -316,7 +316,7 @@ return [
 	'info_hier' => 'wczoraj:',
 	'info_identification_publique' => 'Twoja nazwa publiczna',
 	'info_image_process' => 'Wybierz najlepsza metode przygotowania miniaturek kilkając na odpowiednim obrazku.',
-	'info_images_auto' => 'Automatycznie obliczane rozmiary obrazka',
+	'info_images_auto' => 'Automatycznie obliczane rozmiary obrazka', # MODIF
 	'info_informations_personnelles' => 'Informacje o użytkowniku',
 	'info_inscription' => 'Zarejestrowany dnia :', # RELIRE
 	'info_inscription_automatique' => 'Automatyczna rejestracja nowych redaktorów', # MODIF
@@ -711,7 +711,7 @@ Przekłady są połączone z oryginałem, za pomocą koloru wskazującego na ich
 	// T
 	'tache_cron_asap' => 'Zadanie CRON @function@ (ASAP)',
 	'tache_cron_secondes' => 'Zadanie CRON @function@ (co @nb@ s)', # RELIRE
-	'taille_cache_image' => 'Obrazki mają automatycznie zmieniany rozmiar przez SPIP (miniaturki dokumentów, tytuły przedstawiane w postaci graficznej, funkcje matematyczne w formacie TeX...) zajmują w katalogu @dir@ obszar @taille@.',
+	'taille_cache_image' => 'Obrazki mają automatycznie zmieniany rozmiar przez SPIP (miniaturki dokumentów, tytuły przedstawiane w postaci graficznej, funkcje matematyczne w formacie TeX...) zajmują w katalogu @dir@ obszar @taille@.', # MODIF
 	'taille_cache_moins_de' => 'Rozmiar pamięci podręcznej jest mniejsze niż @octets@.',
 	'taille_cache_octets' => 'Rozmiar pamięci podręcznej wynosi obecnie około @octets@.',
 	'taille_cache_vide' => 'Cache jest pusty.',

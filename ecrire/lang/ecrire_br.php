@@ -325,7 +325,7 @@ ar skeudennoù enframmet. Evel-se e c’heller krouiñ, da skouer,
 	'info_hier' => 'dec’h :',
 	'info_identification_publique' => 'Hoc’h anv foran...',
 	'info_image_process' => 'Diuzit an hentenn wellañ da sevel skeudennoùigoù o klikañ war ar skeudenn a zere.',
-	'info_images_auto' => 'Skeudennoù jedet ent emgefre',
+	'info_images_auto' => 'Skeudennoù jedet ent emgefre', # MODIF
 	'info_informations_personnelles' => 'Titouroù personel',
 	'info_inscription' => 'enskrivadur el linenn',
 	'info_inscription_automatique' => 'Enskrivadur emgefreek ar skridaozerien nevez.', # MODIF
@@ -726,7 +726,7 @@ diskouezet en ul liv disheñvel, diouzh o stad :',
 	// T
 	'tache_cron_asap' => 'Lodenn labour CRON @function@ (ASAP)',
 	'tache_cron_secondes' => 'Lodenn labour CRON @function@ (bep @nb@ eilenn)',
-	'taille_cache_image' => '@taille@ eo hollad ar skeudennoù jedet gant ent emgefre gant SPIP (skeudennigoù an teulioù, an titloù kinniget dindan ur stumm grafek, ar fonksionoù jedoniezh er stumm TeX...) hag a zo er c’havlec’h @dir@.',
+	'taille_cache_image' => '@taille@ eo hollad ar skeudennoù jedet gant ent emgefre gant SPIP (skeudennigoù an teulioù, an titloù kinniget dindan ur stumm grafek, ar fonksionoù jedoniezh er stumm TeX...) hag a zo er c’havlec’h @dir@.', # MODIF
 	'taille_cache_moins_de' => 'Ment ar c’huzh@octets@.',
 	'taille_cache_octets' => '@octets@ eo ment ar grubuilh evit ar mare.',
 	'taille_cache_vide' => 'Goullo eo ar grubuilh',

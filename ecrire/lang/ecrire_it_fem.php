@@ -278,7 +278,7 @@ dai loro server. In questo caso, le funzionalità di SPIP di seguito riportate n
 	'info_hier' => 'ieri:',
 	'info_identification_publique' => 'La tua identità pubblica...',
 	'info_image_process' => 'Seleziona il metodo migliore per la creazione delle anteprime cliccando sull’immagine corrispondente.',
-	'info_images_auto' => 'Immagini elaborate automaticamente',
+	'info_images_auto' => 'Immagini elaborate automaticamente', # MODIF
 	'info_informations_personnelles' => 'Informazioni personali',
 	'info_inscription_automatique' => 'Iscrizione automatica di nuove redattrici', # MODIF
 	'info_jeu_caractere' => 'Set di caratteri del sito',
@@ -591,7 +591,7 @@ Le traduzioni sono associate all’originale,
 	'statut_admin_restreint' => 'admin limitato', # RELIRE
 
 	// T
-	'taille_cache_image' => 'Le immagini elaborate automaticamente da SPIP (icone dei documenti, titoli in formato grafico, funzioni matematiche in formato TeX...) occupano nella cartella @dir@ in tutto @taille@.',
+	'taille_cache_image' => 'Le immagini elaborate automaticamente da SPIP (icone dei documenti, titoli in formato grafico, funzioni matematiche in formato TeX...) occupano nella cartella @dir@ in tutto @taille@.', # MODIF
 	'taille_cache_octets' => 'Attualmente la cache è di circa @octets@.', # RELIRE
 	'taille_cache_vide' => 'La cache è vuota.',
 	'taille_repertoire_cache' => 'Dimensioni della cartella di cache',

@@ -323,7 +323,7 @@ Ihr Status wird durch die Farbe ihres Symbols angezeigt (Redakteur = gelb; Admin
 	'info_hier' => 'Gestern:',
 	'info_identification_publique' => 'Ihre öffentliche Identität ...',
 	'info_image_process' => 'Bitte wählen Sie das beste Verfahren zum Generieren der Miniaturbilder, indem Sie auf ein Bild klicken.',
-	'info_images_auto' => 'automatisch berechnete Bilder',
+	'info_images_auto' => 'automatisch berechnete Bilder', # MODIF
 	'info_informations_personnelles' => 'Persönliche Informationen',
 	'info_inscription' => 'Angemeldet am',
 	'info_inscription_automatique' => 'Automatische Anmeldung neuer Redakteure', # MODIF
@@ -730,7 +730,7 @@ in einer Farbe, die den Status anzeigt :',
 	// T
 	'tache_cron_asap' => 'Cronjob @function@ (unverzüglich)',
 	'tache_cron_secondes' => 'Cronjob @function@ (alle @nb@ Sekunden)',
-	'taille_cache_image' => 'Die von SPIP automatisch berechneten Grafiken (Icons für Dokumente, als Grafiken gespeicherte Titel, mathematische Ausdrücke im Format TeX...) belegen insgesamt @taille@ im Verzeichnis @dir@.',
+	'taille_cache_image' => 'Die von SPIP automatisch berechneten Grafiken (Icons für Dokumente, als Grafiken gespeicherte Titel, mathematische Ausdrücke im Format TeX...) belegen insgesamt @taille@ im Verzeichnis @dir@.', # MODIF
 	'taille_cache_moins_de' => 'Die Größe des Caches beträgt mindestens  @octets@.',
 	'taille_cache_octets' => 'Aktuelle Grösse des Cache: @octets@ Byte',
 	'taille_cache_vide' => 'Der Cache ist leer.',

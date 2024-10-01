@@ -321,7 +321,7 @@ return [
 	'info_hier' => 'ayer:',
 	'info_identification_publique' => 'Su identidad pública...',
 	'info_image_process' => 'Por favor seleccione el mejor método de fabricación de viñetas pinchando en la imágen correspondiente. ',
-	'info_images_auto' => 'Imágenes calculadas automáticamente',
+	'info_images_auto' => 'Imágenes calculadas automáticamente', # MODIF
 	'info_informations_personnelles' => 'Información personal',
 	'info_inscription' => 'Inscripción el',
 	'info_inscription_automatique' => 'Inscripcción automática de nuevos redactores', # MODIF
@@ -726,7 +726,7 @@ Las traducciones están asociadas al original, en un color que indica su estado:
 	// T
 	'tache_cron_asap' => 'Tarea CRON @function@ (ASAP)',
 	'tache_cron_secondes' => 'Tarea CRON @function@ (cada @nb@ s)',
-	'taille_cache_image' => 'Las imágenes calculadas automáticamente por SPIP (miniaturas de documentos, títulos presentados en forma gráfica, fórmulas matemáticas en formato TeX...) ocupan en el directorio @dir@ un total de @taille@.',
+	'taille_cache_image' => 'Las imágenes calculadas automáticamente por SPIP (miniaturas de documentos, títulos presentados en forma gráfica, fórmulas matemáticas en formato TeX...) ocupan en el directorio @dir@ un total de @taille@.', # MODIF
 	'taille_cache_moins_de' => 'El tamaño de la cache es menor a @octets@.',
 	'taille_cache_octets' => 'El tamaño de la caché es actualmente de @octets@.',
 	'taille_cache_vide' => 'La cache está vacía.',

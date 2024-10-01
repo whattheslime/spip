@@ -225,7 +225,7 @@ return [
 	'info_hier' => 'kemarin:',
 	'info_identification_publique' => 'Identitas umum anda...',
 	'info_image_process' => 'Pilih metode terbaik untuk membuat gambar kecil dengan mengklik gambar yang terkait.',
-	'info_images_auto' => 'Gambar secara otomatis dikalkulasi',
+	'info_images_auto' => 'Gambar secara otomatis dikalkulasi', # MODIF
 	'info_informations_personnelles' => 'Langkah kelima: <b>Informasi pribadi</B>',
 	'info_inscription_automatique' => 'Registrasi otomatis editor-editor baru', # MODIF
 	'info_jeu_caractere' => 'Set karakter situs',
@@ -471,7 +471,7 @@ dalam warna yang menunjukkan statusnya:',
 	'statut_admin_restreint' => '(admin terbatas)', # MODIF
 
 	// T
-	'taille_cache_image' => 'Gambar-gambar dikalkulasi secara otomatis oleh SPIP (gambar kecil, judul yang ditransformasi ke dalam grafik, formula matematika dalam format Tex, dll.) dengan jumlah keseluruhan @taille@ di direktori @dir@ .',
+	'taille_cache_image' => 'Gambar-gambar dikalkulasi secara otomatis oleh SPIP (gambar kecil, judul yang ditransformasi ke dalam grafik, formula matematika dalam format Tex, dll.) dengan jumlah keseluruhan @taille@ di direktori @dir@ .', # MODIF
 	'taille_cache_octets' => 'Ukuran cache sekarang adalah @octets@.', # MODIF
 	'taille_cache_vide' => 'Cache kosong.',
 	'taille_repertoire_cache' => 'Ukuran cache saat ini',

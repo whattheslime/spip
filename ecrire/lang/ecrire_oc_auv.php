@@ -205,7 +205,7 @@ L’administrator dau sistèma o de la ret vos deu poder fornir
 	'info_hier' => 'ièr:',
 	'info_identification_publique' => 'Vòstra identitat publica...',
 	'info_image_process' => 'Volhatz seleccionar lo melhor metòde de fabricacion de las vinhetas en clicar sus l’imatge correspondent.',
-	'info_images_auto' => 'Imatges calculats automaticament',
+	'info_images_auto' => 'Imatges calculats automaticament', # MODIF
 	'info_informations_personnelles' => 'Cinquesma estapa: <b>Informacions personalas</b>',
 	'info_inscription_automatique' => 'Inscripcion automatica de redactors novèls', # MODIF
 	'info_jeu_caractere' => 'Jòc de caractèrs dau sit',
@@ -427,7 +427,7 @@ una color indica lor estat:',
 	'statut_admin_restreint' => '(admin. restrent)', # MODIF
 
 	// T
-	'taille_cache_image' => 'Los imatges qu’SPIP a calculat automaticament (vinhetas daus documents, títols presentats en forma grafica, foncions matematicas en format TeX...) ocupan dins lo repertòri @dir@ un totau de @taille@.',
+	'taille_cache_image' => 'Los imatges qu’SPIP a calculat automaticament (vinhetas daus documents, títols presentats en forma grafica, foncions matematicas en format TeX...) ocupan dins lo repertòri @dir@ un totau de @taille@.', # MODIF
 	'taille_cache_octets' => 'Ara la talha de l’escondedor compassa @octets@.', # MODIF
 	'taille_cache_vide' => 'L’escondedor z-es voide.',
 	'taille_repertoire_cache' => 'Talha dau repertòri escondedor',

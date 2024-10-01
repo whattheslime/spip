@@ -287,7 +287,7 @@ return [
 	'info_hier' => 'ieri :',
 	'info_identification_publique' => 'Identitatea dumneavoastră publică...',
 	'info_image_process' => 'Vă rugăm să selecţionaţi cea mai bună metodă de generare a viniételor făcând click pe imaginea corespunzătoare.',
-	'info_images_auto' => 'Imagini calculate automat',
+	'info_images_auto' => 'Imagini calculate automat', # MODIF
 	'info_informations_personnelles' => 'Informaţii personale',
 	'info_inscription_automatique' => 'Înscrierea automatică a noi redactori', # MODIF
 	'info_jeu_caractere' => 'Setul de caractere al site-ului',
@@ -600,7 +600,7 @@ cu o culoare care le indică starea :',
 	'statut_admin_restreint' => '(administrator cu drepturi restrânse)', # MODIF
 
 	// T
-	'taille_cache_image' => 'Imaginile calculate automat de către SPIP (viniete de documente, titluri prezentate sub formă grafică, funcţii matematice în format TeX...) ocupă în directorul @dir@ un total de @taille@.',
+	'taille_cache_image' => 'Imaginile calculate automat de către SPIP (viniete de documente, titluri prezentate sub formă grafică, funcţii matematice în format TeX...) ocupă în directorul @dir@ un total de @taille@.', # MODIF
 	'taille_cache_octets' => 'Mărimea tamponului este acum de @octets@.', # MODIF
 	'taille_cache_vide' => 'Tamponul este gol.',
 	'taille_repertoire_cache' => 'Mărimea directorului de tampon',

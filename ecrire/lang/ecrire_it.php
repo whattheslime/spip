@@ -330,7 +330,7 @@ dai loro server. In questo caso, le funzionalità di SPIP di seguito riportate n
 	'info_hier' => 'ieri:',
 	'info_identification_publique' => 'La tua identità pubblica...',
 	'info_image_process' => 'Seleziona il metodo migliore per la creazione delle anteprime cliccando sull’immagine corrispondente.',
-	'info_images_auto' => 'Immagini elaborate automaticamente',
+	'info_images_auto' => 'Immagini elaborate automaticamente', # MODIF
 	'info_informations_personnelles' => 'Informazioni personali',
 	'info_inscription' => 'Iscritto il',
 	'info_inscription_automatique' => 'Iscrizione automatica di nuovi redattori', # MODIF
@@ -731,7 +731,7 @@ Le traduzioni sono associate all’originale,
 	// T
 	'tache_cron_asap' => 'Task CRON @function@ (ASAP)',
 	'tache_cron_secondes' => 'Task CRON @function@ (ogni @nb@ s)',
-	'taille_cache_image' => 'Le immagini elaborate automaticamente da SPIP (icone dei documenti, titoli in formato grafico, funzioni matematiche in formato TeX...) occupano nella cartella @dir@ in tutto @taille@.',
+	'taille_cache_image' => 'Le immagini elaborate automaticamente da SPIP (icone dei documenti, titoli in formato grafico, funzioni matematiche in formato TeX...) occupano nella cartella @dir@ in tutto @taille@.', # MODIF
 	'taille_cache_moins_de' => 'La dimensione della cache è inferiore a @octets@.',
 	'taille_cache_octets' => 'La cartella della cache occupa attualmente @octets@ su disco.',
 	'taille_cache_vide' => 'La cache è vuota.',

@@ -328,7 +328,7 @@ os autores excluídos por um ícone cinza.',
 	'info_hier' => 'ontem:',
 	'info_identification_publique' => 'Sua identificação pública...',
 	'info_image_process' => 'Por favor, selecione o melhor método de criação dos ícones, clicando na imagem correspondente.',
-	'info_images_auto' => 'Imagens calculadas automaticamente',
+	'info_images_auto' => 'Imagens calculadas automaticamente', # MODIF
 	'info_informations_personnelles' => 'Informações pessoais',
 	'info_inscription' => 'Inscrição online',
 	'info_inscription_automatique' => 'Inscrição automática de novas contas',
@@ -733,7 +733,7 @@ As traduções estão associadas ao original, numa côr que indica o seu status:
 	// T
 	'tache_cron_asap' => 'Tarefa CRON @function@ (ASAP)',
 	'tache_cron_secondes' => 'Tarefa CRON @function@ (a cada @nb@ s)',
-	'taille_cache_image' => 'As imagens calculadas automaticamente pelo SPIP (ícones de documentos, títulos apresentados sob a forma gráfica, funções matemáticas em formato TeX...) ocupam, no diretório @dir@, um total de @taille@.',
+	'taille_cache_image' => 'As imagens calculadas automaticamente pelo SPIP (ícones de documentos, títulos apresentados sob a forma gráfica, funções matemáticas em formato TeX...) ocupam, no diretório @dir@, um total de @taille@.', # MODIF
 	'taille_cache_moins_de' => 'O tamanho do cache é menor do que @octets@.',
 	'taille_cache_octets' => 'O tamanho atual do cache é de cerca de @octets@.',
 	'taille_cache_vide' => 'O cache está vazio.',

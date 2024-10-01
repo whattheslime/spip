@@ -271,7 +271,7 @@ Aqueli informacions vos devon poder èstre provesidi per l’administrator dau s
 	'info_hier' => 'ièr :',
 	'info_identification_publique' => 'La voastra identitat publica...',
 	'info_image_process' => 'Vorgatz seleccionar lo melhor metòde de fabricacion dei vinhetas en clicar sus l’imatge correspondent.',
-	'info_images_auto' => 'Imagtes calculats automaticament',
+	'info_images_auto' => 'Imagtes calculats automaticament', # MODIF
 	'info_informations_personnelles' => 'Informacions personali',
 	'info_inscription_automatique' => 'Inscripcion automatica de redactors novèus', # MODIF
 	'info_jeu_caractere' => 'Juèc de caractèrs dau sit',
@@ -584,7 +584,7 @@ una color indica lo sieu estat :',
 	'statut_webmestre' => 'oebmestre',
 
 	// T
-	'taille_cache_image' => 'Lu imatges que SPIP a calculat automaticament (vinhetas dei documents, títols presentats en forma gràfica, foncions matematiqui en format TeX...) ocupon dins lo repertòri @dir@ un totau de @taille@.',
+	'taille_cache_image' => 'Lu imatges que SPIP a calculat automaticament (vinhetas dei documents, títols presentats en forma gràfica, foncions matematiqui en format TeX...) ocupon dins lo repertòri @dir@ un totau de @taille@.', # MODIF
 	'taille_cache_octets' => 'La talha de l’amagador es aüra de circa @octets@ .',
 	'taille_cache_vide' => 'L’amagador es vuèi.',
 	'taille_repertoire_cache' => 'Talha dau repertòri amagador',

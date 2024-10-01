@@ -330,7 +330,7 @@ os autores apagados, por um ícone cinzento.',
 	'info_hier' => 'ontem :',
 	'info_identification_publique' => 'A sua identidade pública...',
 	'info_image_process' => 'Seleccione o melhor método para criar as vinhetas clicando sobre a imagem correspondente.',
-	'info_images_auto' => 'Imagens calculadas automaticamente',
+	'info_images_auto' => 'Imagens calculadas automaticamente', # MODIF
 	'info_informations_personnelles' => 'Quinta etapa : <b>Informações pessoais<b>',
 	'info_inscription' => 'Inscrição em ',
 	'info_inscription_automatique' => 'Inscrição automática de novos redactores', # MODIF
@@ -734,7 +734,7 @@ numa cor que indica o seu estado:',
 	// T
 	'tache_cron_asap' => 'Tarefas CRON @function@ (ASAP)',
 	'tache_cron_secondes' => 'Tarefa CRON @function@ (todas as @nb@ s)',
-	'taille_cache_image' => 'As imagens calculadas automaticamente pelo SPIP (miniaturas dos documentos, títulos apresentados sob forma gráfica, funções matemáticas no formato TeX...) ocupam no directório @dir@ um total de @taille@.',
+	'taille_cache_image' => 'As imagens calculadas automaticamente pelo SPIP (miniaturas dos documentos, títulos apresentados sob forma gráfica, funções matemáticas no formato TeX...) ocupam no directório @dir@ um total de @taille@.', # MODIF
 	'taille_cache_moins_de' => 'O tamanho da cache é menor do que @octets@.',
 	'taille_cache_octets' => 'O tamanho da cache é actualmente cerca de  @octets@.',
 	'taille_cache_vide' => 'A cache está vazia.',

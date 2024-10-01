@@ -313,7 +313,7 @@ Tamen vi povas malŝalti ĝin.',
 	'info_hier' => 'hieraŭ :',
 	'info_identification_publique' => 'Via publika identeco...',
 	'info_image_process' => 'Bonvolu elekti la plej bonan metodon por fabriki vinjetojn musklakante laŭcele bildon.',
-	'info_images_auto' => 'Bildoj aŭtomate komputitaj',
+	'info_images_auto' => 'Bildoj aŭtomate komputitaj', # MODIF
 	'info_informations_personnelles' => 'Personaj datenoj',
 	'info_inscription' => 'Registriĝado je',
 	'info_inscription_automatique' => 'Aŭtomata registriĝado de novaj redaktantoj', # MODIF
@@ -715,7 +715,7 @@ La tradukoj estas kunligitaj al la originalo, kun koloro kiu indikas ties staton
 	// T
 	'tache_cron_asap' => 'Tasko CRON @function@ (ASAP)',
 	'tache_cron_secondes' => 'Tasko CRON @function@ (ĉiuj @nb@ s)',
-	'taille_cache_image' => 'La bildoj aŭtomate komputitaj de SPIP (vijnetoj de dokumentoj, titoloj prezentitaj laŭ grafika formo, matematikaj funkcioj laŭ TeX-formato...) okupas en dosierujo @dir@ spacon je @taille@.',
+	'taille_cache_image' => 'La bildoj aŭtomate komputitaj de SPIP (vijnetoj de dokumentoj, titoloj prezentitaj laŭ grafika formo, matematikaj funkcioj laŭ TeX-formato...) okupas en dosierujo @dir@ spacon je @taille@.', # MODIF
 	'taille_cache_moins_de' => 'Memorspaco de la staplo estas malpli ol @octets@.',
 	'taille_cache_octets' => 'Memorspaco de la staplo estas nun proksimume @octets@.',
 	'taille_cache_vide' => 'La staplo estas malplena.',

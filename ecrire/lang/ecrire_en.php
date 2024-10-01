@@ -335,7 +335,7 @@ involves an FTP access to the site.</p>',
 	'info_hier' => 'yesterday:',
 	'info_identification_publique' => 'Your public identity...',
 	'info_image_process' => 'Select the best method to create thumbnails by clicking on the corresponding picture.',
-	'info_images_auto' => 'Images calculated automatically',
+	'info_images_auto' => 'Images calculated automatically', # MODIF
 	'info_informations_personnelles' => 'Personal information',
 	'info_inscription' => 'Registered on',
 	'info_inscription_automatique' => 'Automatic registration of new accounts',
@@ -753,7 +753,7 @@ and their status is colour-coded:',
 	// T
 	'tache_cron_asap' => 'CRON task @function@ (ASAP)',
 	'tache_cron_secondes' => 'CRON task @function@ (every @nb@ s)',
-	'taille_cache_image' => 'The images calculated automatically by SPIP (thumbnails, titles transformed into graphics, mathematical formulae in TeX format, etc.) take up a total of @taille@ in the @dir@ directory.',
+	'taille_cache_image' => 'The images calculated automatically by SPIP (thumbnails, titles transformed into graphics, mathematical formulae in TeX format, etc.) take up a total of @taille@ in the @dir@ directory.', # MODIF
 	'taille_cache_moins_de' => 'The cache size is less than @octets@.',
 	'taille_cache_octets' => 'The size of the cache is currently around @octets@.',
 	'taille_cache_vide' => 'The cache is empty.',

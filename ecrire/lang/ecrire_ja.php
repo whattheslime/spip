@@ -318,7 +318,7 @@ return [
 	'info_hier' => '昨日：',
 	'info_identification_publique' => '公開ＩＤ…',
 	'info_image_process' => 'サムネイルを作る最も良い方法を、対応する写真の上を、クリックして選んでください。',
-	'info_images_auto' => '画像の自動制作',
+	'info_images_auto' => '画像の自動制作', # MODIF
 	'info_informations_personnelles' => '５番目のステップ：<b>個人情報</b>',
 	'info_inscription' => '登録された日付：',
 	'info_inscription_automatique' => '新規編集者の自動登録', # MODIF
@@ -708,7 +708,7 @@ return [
 	// T
 	'tache_cron_asap' => 'CRONタスク@function@（できるだけ早く）',
 	'tache_cron_secondes' => 'CRONタスク@function@（@nb@秒間ごとに）',
-	'taille_cache_image' => 'SPIPが自動的に生成されたイメージ（サムネイル、画像に変換されたタイトル、TeX形式の数式など）は、@dir@フォルダーに@taille@かかります。',
+	'taille_cache_image' => 'SPIPが自動的に生成されたイメージ（サムネイル、画像に変換されたタイトル、TeX形式の数式など）は、@dir@フォルダーに@taille@かかります。', # MODIF
 	'taille_cache_moins_de' => 'キャッシュサイズは@octets@未満です。',
 	'taille_cache_octets' => 'キャッシュサイズは現在@octets@です。',
 	'taille_cache_vide' => 'キャッシュは空です。',

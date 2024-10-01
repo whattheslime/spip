@@ -325,7 +325,7 @@ Kasu honetan, SPIP-eko hurrengo funtzinalitateak ez dute funtzionatuko.',
 	'info_hier' => 'atzo:',
 	'info_identification_publique' => 'Zurenortasun publikoa...',
 	'info_image_process' => 'Mesedez aukeratu biñetak egitekomodurik onena dagokion irudian klikatuz.',
-	'info_images_auto' => 'Automatikoki kalkulatutako irudiak',
+	'info_images_auto' => 'Automatikoki kalkulatutako irudiak', # MODIF
 	'info_informations_personnelles' => 'Bosgarren etapa : Datu pertsonalak',
 	'info_inscription' => 'Izen emate data',
 	'info_inscription_automatique' => 'Pertsona berrien izen-emate automatikoa', # MODIF
@@ -733,7 +733,7 @@ Hutsik utz ezazu ez betetzeko, espazio edo komak tarteka itzazu LDAP eremu bat b
 	// T
 	'tache_cron_asap' => 'CRON zeregina @function@ (Ahal bezain goiz)',
 	'tache_cron_secondes' => 'CRON zeregina@function@ (@nb@ segunda guziz)',
-	'taille_cache_image' => 'SPIPek automatikoki kalkulatzen dituen irudiek (dokumentuen binetak, grafikoki aurkeztutako tituluak, TeX formatuan diren matematika funtzioak...) @dir@ direktorioko @taille@-eko espazioa okupatzen dute.',
+	'taille_cache_image' => 'SPIPek automatikoki kalkulatzen dituen irudiek (dokumentuen binetak, grafikoki aurkeztutako tituluak, TeX formatuan diren matematika funtzioak...) @dir@ direktorioko @taille@-eko espazioa okupatzen dute.', # MODIF
 	'taille_cache_moins_de' => 'Cache-aren tamaina gehienez @octets@-koa da.',
 	'taille_cache_octets' => 'Cache-aren tamaina orain @octets@-koa da.',
 	'taille_cache_vide' => 'Cachea hutsik dago.',

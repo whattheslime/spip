@@ -339,7 +339,7 @@ return [
 	'info_hier' => 'البارحة:',
 	'info_identification_publique' => 'هويتك العمومية...',
 	'info_image_process' => 'الرجاء اختيار افضل طريقة لإنشاء المصغرات بالنقر على الصورة المناسبة.',
-	'info_images_auto' => 'يتم حساب هذه الصور آلياً',
+	'info_images_auto' => 'يتم حساب هذه الصور آلياً', # MODIF
 	'info_informations_personnelles' => 'المعلومات الشخصية',
 	'info_inscription' => 'التسجيل في',
 	'info_inscription_automatique' => 'تسجيل آلي لحسابات جديدة',
@@ -759,7 +759,7 @@ return [
 	// T
 	'tache_cron_asap' => 'مهمة CRON @function@ (في أسرع وقت)',
 	'tache_cron_secondes' => 'مهمةCRON @function@ (كل @nb@ ثانية)',
-	'taille_cache_image' => 'تحتل الصور التي حسبها SPIP آلياً (مصغرات مستندات، عناوين معروضة كصور، دالات رياضية بتنسيق TeX...) مساحة اجمالية تبلغ @taille@ في الدليل @dir@.',
+	'taille_cache_image' => 'تحتل الصور التي حسبها SPIP آلياً (مصغرات مستندات، عناوين معروضة كصور، دالات رياضية بتنسيق TeX...) مساحة اجمالية تبلغ @taille@ في الدليل @dir@.', # MODIF
 	'taille_cache_moins_de' => 'حجم الذاكرة المخبأة أقل من @octets@.',
 	'taille_cache_octets' => 'يبلغ حجم الذاكرة المخبأة حالياً @octets@ تقريباً.',
 	'taille_cache_vide' => 'الذاكرة المخبأة فارغة.',

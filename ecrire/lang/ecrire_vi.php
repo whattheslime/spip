@@ -200,7 +200,7 @@ return [
 	'info_hier' => 'hôm qua: ',
 	'info_identification_publique' => 'Danh tánh công cộng của bạn...',
 	'info_image_process' => 'Xin chọn cách tạo ra hình trang trí bằng bấm trên hình đẹp nhất.',
-	'info_images_auto' => 'Hình được tự tính',
+	'info_images_auto' => 'Hình được tự tính', # MODIF
 	'info_informations_personnelles' => 'Bước thứ năm: <b>Dữ kiện cá nhân</b>',
 	'info_inscription_automatique' => 'Tự động ghi danh các chủ bút mới', # MODIF
 	'info_jeu_caractere' => 'Bảng mã của website',
@@ -409,7 +409,7 @@ và hiển ra với những màu khác nhau tùy theo tình trạng bài vở :
 	'statut_admin_restreint' => '(Quản trị viên có giới hạn)', # MODIF
 
 	// T
-	'taille_cache_image' => 'Các hình được tính toán tự động bởi SPIP (hình nhỏ, tựa đề được đổi thành hình, công thức toán học dưới dạng TeX, v.v...) chiếm tổng cộng @taille@ trong ngăn @dir@.',
+	'taille_cache_image' => 'Các hình được tính toán tự động bởi SPIP (hình nhỏ, tựa đề được đổi thành hình, công thức toán học dưới dạng TeX, v.v...) chiếm tổng cộng @taille@ trong ngăn @dir@.', # MODIF
 	'taille_cache_octets' => 'Khổ của cache hiện thời là @octets@.', # MODIF
 	'taille_cache_vide' => 'Cache trống rỗng.',
 	'taille_repertoire_cache' => 'Khổ hiện thời của cache',

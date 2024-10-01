@@ -293,7 +293,7 @@ return [
 	'info_hier' => 'gëschter:',
 	'info_identification_publique' => 'Är ëffentlech Identitéit...',
 	'info_image_process' => 'Wielt déi bescht Method fir Vignetten ze maachen an deem dier op d’Bild klickt.',
-	'info_images_auto' => 'Automatesch gerechent Biller',
+	'info_images_auto' => 'Automatesch gerechent Biller', # MODIF
 	'info_informations_personnelles' => 'Perséinlech Informatiounen',
 	'info_inscription_automatique' => 'Nei Redakteren automatesch aschreiwen', # MODIF
 	'info_jeu_caractere' => 'Buschtawe-Code vum Site',
@@ -662,7 +662,7 @@ return [
 	// T
 	'tache_cron_asap' => 'CRON-Aarbecht @function@ (ASAP)',
 	'tache_cron_secondes' => 'CRON-Aarbecht @function@ (all @nb@ s)',
-	'taille_cache_image' => 'Déi automatësch berechent Biller (Vignette vun Dokumenter, graphesch Titelen, mathematesch Formelen am TeX-Format...) brauchen am Dossier @dir@ eng Plaz vun @taille@.',
+	'taille_cache_image' => 'Déi automatësch berechent Biller (Vignette vun Dokumenter, graphesch Titelen, mathematesch Formelen am TeX-Format...) brauchen am Dossier @dir@ eng Plaz vun @taille@.', # MODIF
 	'taille_cache_moins_de' => 'D’Gréisst vum Cache ass méi kléng wéi @octets@.',
 	'taille_cache_octets' => 'D’Gréisst vum Cache ass momentan ongeféier @octets@.',
 	'taille_cache_vide' => 'De Cache ass eidel.',
