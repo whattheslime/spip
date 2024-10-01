@@ -31,7 +31,7 @@ Si vous déclariez cette constante (dans `config/mes_options.php` par exemple), 
 
 ## Suppression / déplacement de fonctionnalités
 
-- Le surlignage des mots de recherche est déplacé dans [le nouveau plugin Surligne](https://git.spip.net/spip-contrib-extensions/surligne)
+- Le surlignage des mots de recherche est déplacé dans [le nouveau plugin Surligne](https://plugins.spip.net/surligne)
 - la fonction `formulaire_recherche()` est supprimée. Utiliser la balise `#FORMULAIRE_RECHERCHE_ECRIRE`.
 - NETPBM n'est plus disponible pour la génération des vignettes.
 
@@ -511,7 +511,7 @@ La boucle `POUR` dépréciée est supprimée. Utiliser une boucle `DATA`.
 
 ## Filtre `|image_typo`
 
-Le filtre `|image_typo` n'est plus livré avec SPIP. Installez le plugin [Image Typo](https://git.spip.net/spip-contrib-extensions/image_typo) pour l'obtenir.
+Le filtre `|image_typo` n'est plus livré avec SPIP. Installez le plugin [Image Typo](https://plugins.spip.net/image_typo) pour l'obtenir.
 
 ## Fonctions PHP
 
