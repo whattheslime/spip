@@ -4,7 +4,8 @@
 
 ### Added
 
-- !6044 balise #PARAM pour récupérer les paramètres du container de services (Cf [UPGRADE_5.0.md](UPGRADE_5.0.md#Constantes_PHP))
+- #4943 Constante `_INTRODUCTION_MAX_LONGUEUR` pour régler la longueur maximum de la balise `#INTRODUCTION` (600 caractères maximum)
+- !6044 balise `#PARAM` pour récupérer les paramètres du container de services (Cf [UPGRADE_5.0.md](UPGRADE_5.0.md#Constantes_PHP))
 - !6034 paramètre pour le filtre `|affdate{'Y-m-d H:i:s}`
 - Le dossier `prive/` s'installe avec composer
 - #5460 Permettre des CSS pour l’espace privé directement en CSS (sans compilation SPIP)
