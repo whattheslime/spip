@@ -56,6 +56,7 @@
 
 ### Removed
 
+- #4903 Retrait de la constante obsolète `_DIR_IMG_PACK`
 - !6044 la constante `_DIR_RESTREINT_ABS` est supprimée ()
 - medias#4958 Retrait de la globale `$formats_logos`
 - #5199 Retrait de toutes les références à la globale `auteur_session`
