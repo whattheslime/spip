@@ -11,6 +11,7 @@ Changelog de SPIP 4.4
 
 ### Added
 
+- !6064 Polyfill pour PHP 8.3 & 8.4
 - !6034 paramètre pour le filtre `|affdate{'Y-m-d H:i:s}`
 - spip/medias#4958 Fonction `_image_extensions_logos()` et pipeline `image_extensions_logos`
 - Les dossiers `prive/` et `squelettes-dist/` s'installent avec composer
