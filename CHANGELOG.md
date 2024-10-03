@@ -4,6 +4,10 @@ Changelog de SPIP 4.3
 
 ## Unreleased
 
+### Added
+
+- !6064 Polyfill pour PHP 8.3 & 8.4
+
 ### Fixed
 
 - spip/prive!13 Pouvoir modifier logo principal quand il y a un logo de survol
