@@ -4,6 +4,7 @@
 
 ### Added
 
+- !6064 Polyfill pour PHP 8.3 & 8.4
 - !6044 balise #PARAM pour récupérer les paramètres du container de services (Cf [UPGRADE_5.0.md](UPGRADE_5.0.md#Constantes_PHP))
 - !6034 paramètre pour le filtre `|affdate{'Y-m-d H:i:s}`
 - Le dossier `prive/` s'installe avec composer
