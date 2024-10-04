@@ -23,6 +23,7 @@ Changelog de SPIP 4.4
 
 ### Fixed
 
+- #6012 Passer l'`id_parent_ancien` aux pipelines `pre_edition` et `post_edition` depuis `article_instituer()`
 - #5722 Requêter les fichiers distants avec `STREAM_CRYPTO_METHOD_TLS_CLIENT`
 - #5919 Remplacer les balises `tt` obsolètes par `code`
 - !6047 Correction de certains envois de fichiers (notamment audio) via `spip_livrer_fichier`
