@@ -371,6 +371,7 @@ function article_instituer($id_article, $c, $calcul_rub = true) {
 				'action' => 'instituer',
 				'statut_ancien' => $statut_ancien,
 				'date_ancienne' => $date_ancienne,
+				'id_parent_ancien' => $id_rubrique,
 			],
 			'data' => $champs,
 		]
@@ -408,6 +409,7 @@ function article_instituer($id_article, $c, $calcul_rub = true) {
 				'action' => 'instituer',
 				'statut_ancien' => $statut_ancien,
 				'date_ancienne' => $date_ancienne,
+				'id_parent_ancien' => $id_rubrique,
 			],
 			'data' => $champs,
 		]
