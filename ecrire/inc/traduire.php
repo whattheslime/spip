@@ -134,8 +134,7 @@ function charger_langue($lang, $module = 'spip') {
 /**
  * Retourne les entrées d’un fichier de langue
  *
- * Les fichiers de langue retournent soit un array [ cle => valeur ],
- * soit peuplent une globale `$GLOBALS[$GLOBALS['idx_lang']]`.
+ * Les fichiers de langue retournent un array [ cle => valeur ].
  *
  * @return string Chemin du fichier de langue (un fichier PHP)
  * @return array<string, string>
@@ -147,18 +146,8 @@ function lire_fichier_langue(string $fichier): array {
 	$idx_lang = include $fichier;
 	$GLOBALS['idx_lang'] = $idx_lang_before;
 	if (!is_array($idx_lang)) {
-		if (isset($GLOBALS[$idx_lang_tmp]) && is_array($GLOBALS[$idx_lang_tmp])) {
-			trigger_deprecation(
-				'spip',
-				'5.0',
-				sprintf('Lang file "%s" populating a GLOBALS is deprecated. Return an array instead.', $fichier)
-			);
-			$idx_lang = $GLOBALS[$idx_lang_tmp];
-		} else {
-			$idx_lang = [];
-			spip_logger()
-				->error(sprintf('Fichier de langue incorrect : %s', $fichier));
-		}
+		$idx_lang = [];
+		spip_logger()->error(sprintf('Fichier de langue incorrect : %s', $fichier));
 		unset($GLOBALS[$idx_lang_tmp]);
 	}
 	return $idx_lang;
