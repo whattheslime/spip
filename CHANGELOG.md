@@ -10,6 +10,7 @@ Changelog de SPIP 4.3
 
 ### Fixed
 
+- #6012 Passer l'`id_parent_ancien` aux pipelines `pre_edition` et `post_edition` depuis `article_instituer()`
 - spip/prive!13 Pouvoir modifier logo principal quand il y a un logo de survol
 - !6047 Correction de certains envois de fichiers (notamment audio) via `spip_livrer_fichier`
 - #3919 Réparer l'ajout de la configuration LDAP lors de l'installation
