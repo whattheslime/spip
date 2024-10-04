@@ -71,9 +71,9 @@ a[href] { background-image: url("#CHEMIN_IMAGE{img.svg}"); }
 
 ## Gestion des traductions
 
-### Fichiers de langue avec `$GLOBALS` (déprécié en 5.0)
+### Fichiers de langue
 
-Les fichiers de langue peuplant une variable globale sont dépréciés.
+Les fichiers de langue peuplant une variable globale sont supprimés.
 Retourner directement le tableau PHP.
 Note: Cette syntaxe est valide à partir de SPIP 4.1
 
