@@ -59,6 +59,7 @@
 
 ### Removed
 
+- #6014 Fichiers de langue peuplant une globale ; les fichiers de langues doivent désormais renvoyer un tableau
 - #4903 Retrait de la constante obsolète `_DIR_IMG_PACK`
 - !6044 la constante `_DIR_RESTREINT_ABS` est supprimée ()
 - medias#4958 Retrait de la globale `$formats_logos`
