@@ -10,6 +10,7 @@ Changelog de SPIP 4.3
 
 ### Fixed
 
+- #6013 Si authentification LDAP, vérifier les mots de passe même si `$_SERVER['REMOTE_USER']` est déclarée vide
 - #6012 Passer l'`id_parent_ancien` aux pipelines `pre_edition` et `post_edition` depuis `article_instituer()`
 - spip/prive!13 Pouvoir modifier logo principal quand il y a un logo de survol
 - !6047 Correction de certains envois de fichiers (notamment audio) via `spip_livrer_fichier`
