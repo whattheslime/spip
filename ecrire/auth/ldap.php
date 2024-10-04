@@ -66,7 +66,7 @@ function auth_ldap_dist(
 	// Utilisateur connu ?
 	// si http auth, inutile de reauthentifier: cela
 	// ne marchera pas avec auth http autre que basic.
-	$checkpass = isset($_SERVER['REMOTE_USER']) ? false : true;
+	$checkpass = !empty($_SERVER['REMOTE_USER']);
 	if (!($dn = auth_ldap_search($login, $pass, $checkpass, $serveur))) {
 		return [];
 	}
