@@ -4,6 +4,7 @@
 
 ### Added
 
+- #5973 Marqueur de cache `cache_bot_invalide` permettant d’invalider le cache même si un bot est à l’origine de la requête
 - #5766 Pipeline `ajouter_menus_args`, en complément au pipeline `ajouter_menus`, qui transmet les arguments de `definir_barre_boutons()`
 - !6064 Polyfill pour PHP 8.3 & 8.4
 - !6051 Purger les variables de `var_nullify` du contexte dans `traiter_appels_inclusions_ajax`
