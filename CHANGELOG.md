@@ -6,6 +6,7 @@ Changelog de SPIP 4.3
 
 ### Added
 
+- #5973 Marqueur de cache `cache_bot_invalide` permettant d’invalider le cache même si un bot est à l’origine de la requête
 - !6064 Polyfill pour PHP 8.3 & 8.4
 
 ### Fixed
