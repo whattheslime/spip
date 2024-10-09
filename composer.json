@@ -98,7 +98,8 @@
             "/tmp/",
             "!/tmp/remove.txt",
             "!/tmp/CACHEDIR.TAG",
-            "!/prive/"
+            "!/prive/",
+            "!/config/spip/"
         ]
     },
     "config": {
