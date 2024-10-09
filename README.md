@@ -28,7 +28,8 @@ maintenu par sa communauté avec tendresse.
 ### Installation classique
 
 ```bash
-git clone https://git.spip.net/spip/spip/
+git clone https://git.spip.net/spip/spip.git
+cd spip
 composer install --no-dev
 ```
 
@@ -42,7 +43,8 @@ composer install --no-dev
 ### Installation de développement (prive et plugins-dist via git)
 
 ```bash
-git clone https://git.spip.net/spip/spip/
+git clone https://git.spip.net/spip/spip.git
+cd spip
 composer install
 composer --no-interaction local mode-dev # config
 rm -rf plugins-dist prive squelettes-dist vendor/spip/security
