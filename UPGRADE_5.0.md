@@ -29,11 +29,7 @@ La constante `_ID_WEBMESTRES` (dépréciée en SPIP 2.1) n’est plus utilisée 
 
 Si vous déclariez cette constante (dans `config/mes_options.php` par exemple), il convient de l’enlever et de déclarer les autrices et auteurs webmestres en conséquence depuis l’interface privée de SPIP en tant que webmestre (ou via le champ `webmestre` de la table `spip_auteurs` directement dans la base de données).
 
-## Suppression / déplacement de fonctionnalités
 
-- Le surlignage des mots de recherche est déplacé dans [le nouveau plugin Surligne](https://plugins.spip.net/surligne)
-- la fonction `formulaire_recherche()` est supprimée. Utiliser la balise `#FORMULAIRE_RECHERCHE_ECRIRE`.
-- NETPBM n'est plus disponible pour la génération des vignettes.
 
 ## Squelettes
 
@@ -69,37 +65,7 @@ a[href] { background-image: url("#CHEMIN_IMAGE{img.svg}"); }
 
 # Nouvelles dépréciations
 
-## Gestion des traductions
 
-### Fichiers de langue
-
-Les fichiers de langue peuplant une variable globale sont supprimés.
-Retourner directement le tableau PHP.
-Note: Cette syntaxe est valide à partir de SPIP 4.1
-
-#### Avant
-
-```php
-<?php
-if (!defined('_ECRIRE_INC_VERSION')) {
-  return;
-}
-
-$GLOBALS[$GLOBALS['idx_lang']] = array(
-  'mots_description' => 'Mots et Groupes de mots',
-  'mots_slogan' => 'Gestion des mots et groupes de mots dans SPIP'
-);
-```
-
-#### Après
-
-```php
-<?php
-return [
-  'mots_description' => 'Mots et Groupes de mots',
-  'mots_slogan' => 'Gestion des mots et groupes de mots dans SPIP'
-];
-```
 
 Les éléments suivants sont dépréciés et seront supprimés dans une future version.
 
@@ -306,6 +272,42 @@ $url = url_absolue($url);
 [(#URL_ARTICLE|url_absolue)]
 ```
 
+# Renommage / changement de configurations
+
+## Nettoyage des paramètres d’URI
+
+Une configuration (certainement très peu surchargée) a été modifiée et renommée :
+
+- Introduction de la constante `_CONTEXTE_IGNORE_LISTE_VARIABLES`.
+- Suppression de la constante `_CONTEXTE_IGNORE_VARIABLES`.
+
+#### Avant
+
+```php
+define('_CONTEXTE_IGNORE_VARIABLES', '/(^var_|^PHPSESSID$|^fbclid$|^utm_)/');
+```
+
+#### Après
+
+```php
+define('_CONTEXTE_IGNORE_LISTE_VARIABLES', ['^var_', '^PHPSESSID$', '^fbclid$', '^utm_']);
+```
+
+
+## Renommage de la page privé `?exec=admin_tech` en `?exec=admin_bdd`
+
+La page `?exec=admin_tech` devient `?exec=admin_bdd` et se concentre uniquement sur ce qui est gestion des bases de données (ajout, réparation, suppression, effacement).
+
+Par conséquent, il faut adapter :
+ - les liens vers la page
+ - les éventuelles pipelines qui la modifie (en se demandant dans ce cas la pertinence de créer une nouvelle page plutôt que d'insérer du contenu dans cette page)
+
+
+# Suppressions des éléments dépréciés
+
+Les éléments suivants ont été supprimés et doivent être adaptés si ce n’est pas encore le cas.
+
+
 ## Constantes PHP
 
 ### `_DIR_RESTREINT_ABS`
@@ -345,40 +347,51 @@ Dans un squelette :
 [(#PARAM{spip.routes.back_office})]
 ```
 
-# Renommage / changement de configurations
+## Fichiers de langue
 
-## Nettoyage des paramètres d’URI
+Les fichiers de langue peuplant une variable globale sont supprimés. Retourner directement le tableau PHP.
+Note: Cette syntaxe est valide à partir de SPIP 4.1
 
-Une configuration (certainement très peu surchargée) a été modifiée et renommée :
-
-- Introduction de la constante `_CONTEXTE_IGNORE_LISTE_VARIABLES`.
-- Suppression de la constante `_CONTEXTE_IGNORE_VARIABLES`.
-
-#### Avant
+### Avant
 
 ```php
-define('_CONTEXTE_IGNORE_VARIABLES', '/(^var_|^PHPSESSID$|^fbclid$|^utm_)/');
+<?php
+if (!defined('_ECRIRE_INC_VERSION')) {
+  return;
+}
+
+$GLOBALS[$GLOBALS['idx_lang']] = array(
+  'mots_description' => 'Mots et Groupes de mots',
+  'mots_slogan' => 'Gestion des mots et groupes de mots dans SPIP'
+);
 ```
 
-#### Après
+### Après
 
 ```php
-define('_CONTEXTE_IGNORE_LISTE_VARIABLES', ['^var_', '^PHPSESSID$', '^fbclid$', '^utm_']);
+<?php
+return [
+  'mots_description' => 'Mots et Groupes de mots',
+  'mots_slogan' => 'Gestion des mots et groupes de mots dans SPIP'
+];
 ```
 
+Les éléments suivants sont dépréciés et seront supprimés dans une future version.
 
-## Renommage de la page privé `?exec=admin_tech` en `?exec=admin_bdd`
+## Surlignage des mots de recherches
 
-La page `?exec=admin_tech` devient `?exec=admin_bdd` et se concentre uniquement sur ce qui est gestion des bases de données (ajout, réparation, suppression, effacement).
-
-Par conséquent, il faut adapter :
- - les liens vers la page
- - les éventuelles pipelines qui la modifie (en se demandant dans ce cas la pertinence de créer une nouvelle page plutôt que d'insérer du contenu dans cette page)
+Le surlignage des mots de recherche est déplacé dans [le nouveau plugin Surligne](https://plugins.spip.net/surligne)
 
 
-# Suppressions des éléments dépréciés
+## Fonction `formulaire_recherche()`
 
-Les éléments suivants ont été supprimés et doivent être adaptés si ce n’est pas encore le cas.
+
+La fonction `formulaire_recherche()` est supprimée. Utiliser la balise `#FORMULAIRE_RECHERCHE_ECRIRE`.
+
+
+## Support de NETPMB
+
+NETPBM n'est plus disponible pour la génération des vignettes. Adapter la configuration le cas échéant (Menu « Configuration » -> « Fonctions avancées ».
 
 ## Fichiers base/serial.php et base/auxiliaires.php
 
