@@ -34,6 +34,7 @@
 
 ### Fixed
 
+- #6021 Eviter une fatale sur `inc_recherche_to_array_dist()` dans certains contextes d'appel
 - #6013 Si authentification LDAP, vérifier les mots de passe même si `$_SERVER['REMOTE_USER']` est déclarée vide
 - #6012 Passer l'`id_parent_ancien` aux pipelines `pre_edition` et `post_edition` depuis `article_instituer()`
 - #5722 Requêter les fichiers distants avec `STREAM_CRYPTO_METHOD_TLS_CLIENT`
