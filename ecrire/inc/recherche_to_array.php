@@ -41,7 +41,7 @@ function inc_recherche_to_array_dist($recherche, $options = []) {
 		'HAVING' => [],
 	];
 
-	$table = sinon($options['table'], 'article');
+	$table = ($options['table'] ?? '') ?: 'article';
 	if ($options['champs']) {
 		$champs = $options['champs'];
 	} else {
