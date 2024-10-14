@@ -1492,12 +1492,12 @@
             "source": {
                 "type": "git",
                 "url": "https://git.spip.net/spip/medias.git",
-                "reference": "ed8141eb309899681addabded7b8f384327ed99c"
+                "reference": "1d866afcc894e9495be7399c520793073e84bb90"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://git.spip.net/api/v4/projects/spip%2Fmedias/repository/archive.zip?sha=ed8141eb309899681addabded7b8f384327ed99c",
-                "reference": "ed8141eb309899681addabded7b8f384327ed99c",
+                "url": "https://git.spip.net/api/v4/projects/spip%2Fmedias/repository/archive.zip?sha=1d866afcc894e9495be7399c520793073e84bb90",
+                "reference": "1d866afcc894e9495be7399c520793073e84bb90",
                 "shasum": ""
             },
             "require": {
@@ -1530,10 +1530,10 @@
             ],
             "description": "Gestion des medias dans SPIP",
             "support": {
-                "source": "https://git.spip.net/spip/medias/-/tree/master",
+                "source": "https://git.spip.net/spip/medias/-/tree/issue_5000_bis",
                 "issues": "https://git.spip.net/spip/medias/-/issues"
             },
-            "time": "2024-10-01T18:41:35+02:00"
+            "time": "2024-10-10T18:06:14+02:00"
         },
         {
             "name": "spip/mots",
@@ -3314,12 +3314,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/PHPCompatibility/PHPCompatibility.git",
-                "reference": "fc30dbb23f11186e2079d9705b0ff5299c02df1e"
+                "reference": "3f79f96be9289a49eb85a4db3e8f5b7d55ba06d2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/PHPCompatibility/PHPCompatibility/zipball/fc30dbb23f11186e2079d9705b0ff5299c02df1e",
-                "reference": "fc30dbb23f11186e2079d9705b0ff5299c02df1e",
+                "url": "https://api.github.com/repos/PHPCompatibility/PHPCompatibility/zipball/3f79f96be9289a49eb85a4db3e8f5b7d55ba06d2",
+                "reference": "3f79f96be9289a49eb85a4db3e8f5b7d55ba06d2",
                 "shasum": ""
             },
             "require": {
@@ -3396,7 +3396,7 @@
                     "type": "open_collective"
                 }
             ],
-            "time": "2024-10-07T07:09:51+00:00"
+            "time": "2024-10-13T19:18:49+00:00"
         },
         {
             "name": "phpcsstandards/phpcsutils",
@@ -5227,7 +5227,6 @@
     "aliases": [],
     "minimum-stability": "stable",
     "stability-flags": {
-        "phpcompatibility/php-compatibility": 20,
         "spip-league/kernel": 20,
         "spip/aide": 20,
         "spip/archiviste": 20,
@@ -5250,7 +5249,8 @@
         "spip/stats": 20,
         "spip/svp": 20,
         "spip/tw": 20,
-        "spip/urls": 20
+        "spip/urls": 20,
+        "phpcompatibility/php-compatibility": 20
     },
     "prefer-stable": false,
     "prefer-lowest": false,
@@ -5261,7 +5261,7 @@
         "ext-xml": "*",
         "ext-zip": "*"
     },
-    "platform-dev": {},
+    "platform-dev": [],
     "platform-overrides": {
         "php": "8.2.17"
     },
