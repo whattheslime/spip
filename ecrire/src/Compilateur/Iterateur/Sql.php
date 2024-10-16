@@ -181,12 +181,10 @@ class Sql extends AbstractIterateur implements Iterator
 		$v = &$this->command;
 		$limit = $v['limit'];
 		$count_total_from_query = 0;
-		if (empty($v['limit']) && !empty($v['pagination'])) {
+		if ($this->can_optimize_pagination($v)) {
 			[$debut, $nombre] = $v['pagination'];
-			if ($debut === null || (is_numeric($debut) && (int) $debut !== -1)) {
-				$count_total_from_query = (intval($debut) + intval($nombre));
-				$limit = '0,' . $count_total_from_query;
-			}
+			$count_total_from_query = (intval($debut) + intval($nombre));
+			$limit = '0,' . $count_total_from_query;
 		}
 
 		$requete = preparer_calculer_select(
@@ -218,5 +216,85 @@ class Sql extends AbstractIterateur implements Iterator
 
 		// pas d'init a priori, le calcul ne sera fait qu'en cas de besoin (provoque une double requete souvent inutile en sqlite)
 		//$this->total = $this->count();
+	}
+
+	/**
+	 * Vérifier si on peut optimiser les requêtes paginées
+	 *
+	 * On ne peut pas tout optimiser en faisant sql_countsel(),
+	 * qui n’utilise pas la partie `select` de la boucle.
+	 *
+	 * Si la requête contient un select `champ AS xxx`,
+	 * et que xxx est utilisé dans une des parties nécessaire au sql_countsel,
+	 * typiquement groupby ou having, alors la requête échouera, puisqu’elle
+	 * n’aura pas la définition de xxx.
+	 *
+	 * Également un simple `having id_article > 4` échoue sans la présence
+	 * de `id_article` en SELECT ou en GROUP BY.
+	 *
+	 * On limite donc l’optimisation aux cas qui semblent pouvoir être traités.
+	 */
+	private function can_optimize_pagination(array $command = []): bool {
+		if (empty($command['pagination'])) {
+			return false;
+		}
+		if (!empty($command['limit'])) {
+			return false;
+		}
+		// having est trop complexe à gérer pour affiner plus loin.
+		if (!empty($command['having'])) {
+			return false;
+		}
+
+		[$debut, $nombre] = $command['pagination'];
+		if ($debut !== null && !is_numeric($debut)) {
+			return false;
+		}
+		// liste complète demandée ?
+		if ((int) $debut === -1) {
+			return false;
+		}
+
+		// si select contient un AS xxx
+		// il faut vérifier s’il est utilisé dans un groupby ou having
+		// car `select` n’est pas transmis à sql_countsel
+		if (empty($command['groupby'])) {
+			return true;
+		}
+
+		// cas courant `groupby article.id_article`
+		if (
+			count($command['groupby']) === 1
+			&& str_contains($command['groupby'][0], '.')
+		) {
+			return true;
+		}
+
+		$as_list = $this->get_select_as_list($command['select']);
+		if ($as_list === []) {
+			return true;
+		}
+
+		if (!empty($command['groupby'])) {
+			foreach ($command['groupby'] as $groupby) {
+				if (in_array($groupby, $as_list)) {
+					return false;
+				}
+			}
+		}
+
+		return true;
+	}
+
+	private function get_select_as_list(array $select): array {
+		$list = [];
+		foreach ($select as $sel) {
+			if (stripos($sel, ' AS ') !== false) {
+				if (preg_match_all("# AS (\w+)#i", $sel, $matches, \PREG_PATTERN_ORDER)) {
+					$list = [...$list, ...$matches[1]];
+				}
+			}
+		}
+		return $list;
 	}
 }
