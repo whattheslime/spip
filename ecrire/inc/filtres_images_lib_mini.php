@@ -566,15 +566,12 @@ function _image_extensions_logos(array $args = []): array {
 function _image_extensions_acceptees_en_entree(): array {
 	static $extensions = null;
 	if (empty($extensions)) {
-		$extensions = _image_extensions_logos();
+		$extensions = ['png', 'gif', 'jpg', 'jpeg', 'svg'];
 		if (!empty($GLOBALS['meta']['gd_formats'])) {
 			// action=tester renseigne gd_formats et detecte le support de webp
-			$extensions = array_merge(explode(',', (string) $GLOBALS['meta']['gd_formats']));
+			$extensions = array_merge($extensions, explode(',', (string) $GLOBALS['meta']['gd_formats']));
 			$extensions = array_map('trim', $extensions);
 			$extensions = array_filter($extensions);
-			if (in_array('jpg', $extensions)) {
-				$extensions[] = 'jpeg';
-			}
 			$extensions = array_unique($extensions);
 		}
 	}
