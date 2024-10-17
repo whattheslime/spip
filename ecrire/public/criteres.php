@@ -861,8 +861,9 @@ function calculer_critere_par_hasard($idb, &$boucles, $crit) {
  * de la boucle. L'écriture `{par num #ENV{tri}}` est aussi prise en compte.
  *
  * @note
- *     Les textes sans numéro valent 0 et sont donc placés avant les titres ayant des numéros.
- *     Utiliser `{par sinum champ, num champ}` pour avoir le comportement inverse.
+ *     Les textes sans numéro sont placés après les textes ayant des numéros.
+ *     Utiliser `{!par sinum champ}{num champ}` pour retrouver le classement historique
+ *     avec les textes sans numéro en premier.
  *
  * @see calculer_critere_par_expression_sinum() pour le critère `{par sinum champ}`
  * @uses calculer_critere_par_champ()
