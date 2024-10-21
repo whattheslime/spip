@@ -6,7 +6,7 @@
 	source="https://git.spip.net/spip/spip.git"
 	reference="fr">
 	<langue code="ar" url="https://trad.spip.net/tradlang_module/spip?lang_cible=ar" total="655" traduits="654" relire="0" modifs="1" nouveaux="0" pourcent="99.85">
-		<traducteur nom="George" lien="https://trad.spip.net/auteur/جورج-قندلفت" />
+		<traducteur nom="George" lien="https://trad.spip.net/auteur/george" />
 	</langue>
 	<langue code="ast" url="https://trad.spip.net/tradlang_module/spip?lang_cible=ast" total="655" traduits="563" relire="0" modifs="29" nouveaux="63" pourcent="85.95">
 		<traducteur nom="Xuacu" lien="https://trad.spip.net/auteur/xuacu" />
@@ -58,7 +58,7 @@
 		<traducteur nom="Alberto" lien="https://trad.spip.net/auteur/alberto" />
 		<traducteur nom="Benitron" lien="https://trad.spip.net/auteur/benitron" />
 		<traducteur nom="cedric" lien="https://trad.spip.net/auteur/fil" />
-		<traducteur nom="George" lien="https://trad.spip.net/auteur/جورج-قندلفت" />
+		<traducteur nom="George" lien="https://trad.spip.net/auteur/george" />
 		<traducteur nom="Hanjo" lien="https://trad.spip.net/auteur/hanjo" />
 		<traducteur nom="jack31" lien="https://trad.spip.net/auteur/jack31" />
 		<traducteur nom="jaro" lien="https://trad.spip.net/auteur/jaro" />
