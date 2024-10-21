@@ -64,17 +64,16 @@ function produire_image_math($tex) {
 		// MathML
 		if ($GLOBALS['traiter_math'] == 'mathml') {
 			return implode('', file($fichier));
-		} // TeX
-		else {
+		} else {
+			// TeX
 			[, , , $size] = @spip_getimagesize($fichier);
 			$alt = "alt=\"$tex\" title=\"$tex\"";
 
-		return '<img src="' . attribut_url($fichier) . "\" style=\"vertical-align:middle;\" $size $alt />";
-
+			return '<img src="' . attribut_url($fichier) . "\" style=\"vertical-align:middle;\" $size $alt />";
+		}
 	}  // pas de fichier
 
 	return "<code><span class='spip_code' dir='ltr'>$tex</span></code>";
-
 }
 
 
