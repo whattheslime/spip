@@ -6,7 +6,7 @@
 	source="https://git.spip.net/spip/spip.git"
 	reference="fr">
 	<langue code="ar" url="https://trad.spip.net/tradlang_module/public?lang_cible=ar" total="83" traduits="83" relire="0" modifs="0" nouveaux="0" pourcent="100.00">
-		<traducteur nom="George" lien="https://trad.spip.net/auteur/جورج-قندلفت" />
+		<traducteur nom="George" lien="https://trad.spip.net/auteur/george" />
 		<traducteur nom="Moctar" lien="https://trad.spip.net/auteur/moctar" />
 	</langue>
 	<langue code="ast" url="https://trad.spip.net/tradlang_module/public?lang_cible=ast" total="83" traduits="74" relire="0" modifs="3" nouveaux="6" pourcent="89.16">
@@ -41,7 +41,7 @@
 		<traducteur nom="kent1" lien="https://trad.spip.net/auteur/kent1" />
 	</langue>
 	<langue code="en" url="https://trad.spip.net/tradlang_module/public?lang_cible=en" total="83" traduits="83" relire="0" modifs="0" nouveaux="0" pourcent="100.00">
-		<traducteur nom="George" lien="https://trad.spip.net/auteur/جورج-قندلفت" />
+		<traducteur nom="George" lien="https://trad.spip.net/auteur/george" />
 		<traducteur nom="jaro" lien="https://trad.spip.net/auteur/jaro" />
 		<traducteur nom="kent1" lien="https://trad.spip.net/auteur/kent1" />
 		<traducteur nom="RealET" lien="https://trad.spip.net/auteur/realet" />
