@@ -4,8 +4,8 @@ includes:
 parameters:
     paths:
         - ecrire
-        - prive
     excludePaths:
         analyseAndScan:
             - ecrire/lang
+            - ecrire/tests
     level: 0
