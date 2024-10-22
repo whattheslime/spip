@@ -142,7 +142,7 @@ function inc_prepare_recherche_dist(
 				$tab_couples[] = [
 					'recherche' => $hash,
 					'id' => $id,
-					'points' => $p['score'],
+					'points' => $p['score'] ?? 0,
 					'table_objet' => $table,
 					'serveur' => $hash_serv,
 				];
