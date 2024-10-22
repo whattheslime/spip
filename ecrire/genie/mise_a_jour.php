@@ -29,7 +29,8 @@ function genie_mise_a_jour_dist($t) {
 	include_spip('inc/meta');
 	$maj = info_maj($GLOBALS['spip_version_branche']);
 	ecrire_meta('info_maj_spip', $maj ? ($GLOBALS['spip_version_branche'] . "|$maj") : '', 'non');
-	spip_log('Verification version SPIP : ' . ($maj ?: 'version a jour'), 'verifie_maj');
+	spip_logger('verifie_maj')
+		->info('Verification version SPIP : ' . ($maj ?: 'version a jour'));
 
 	// notifier les webmestres d’une mise à jour mineure
 	$maj = info_maj_exists($GLOBALS['spip_version_branche']);
@@ -39,9 +40,6 @@ function genie_mise_a_jour_dist($t) {
 	}
 
 	mise_a_jour_ecran_securite();
-
-	spip_logger('verifie_maj')
-		->info('Verification version SPIP : ' . ($maj ?: 'version a jour'));
 
 	return 1;
 }
