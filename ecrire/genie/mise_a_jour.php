@@ -40,7 +40,6 @@ function genie_mise_a_jour_dist($t) {
 
 	mise_a_jour_ecran_securite();
 
-	spip_log('Verification version SPIP : ' . ($maj ?: 'version a jour'), 'verifie_maj');
 
 	return 1;
 }
