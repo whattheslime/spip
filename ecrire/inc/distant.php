@@ -1042,6 +1042,9 @@ function recuperer_infos_distantes($source, $options = []) {
 	// de maniere a attrapper le maximum d'infos (titre, taille, etc). Si
 	// ca echoue l'utilisateur devra les entrer...
 	$reponse = recuperer_url($source, ['taille_max' => $taille_max, 'refuser_gz' => true]);
+	if (!isset($reponse['url']) {
+		return false;
+	}
 	if (
 		$callback_valider_url
 		and is_callable($callback_valider_url)
