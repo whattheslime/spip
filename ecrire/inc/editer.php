@@ -180,7 +180,7 @@ function formulaires_editer_objet_verifier($type, $id = 'new', $oblis = []) {
  *     Identifiant de l'objet à éditer, 'new' pour un nouvel objet
  * @param int|null $id_parent
  *     Identifiant de l'objet parent
- *     Si null, le calcule d’après le contexte.
+ *     Si null, le calcule d'après le résultat de la fonction `precharger_objet()`.
  * @param int $lier_trad
  *     Identifiant de l'objet servant de source à une nouvelle traduction
  * @param string $retour
