@@ -7,6 +7,7 @@ Changelog de SPIP 4.3
 ### Fixed
 
 - spip/prive#14 Pouvoir supprimer l'image de l'écran de connexion
+- #6021 Eviter une fatale sur `inc_recherche_to_array_dist()` dans certains contextes d'appel
 - #6035 Log de création de fichier de cache à `INFO`
 
 ## 4.3.3 - 2024-10-08
@@ -18,7 +19,6 @@ Changelog de SPIP 4.3
 
 ### Fixed
 
-- #6021 Eviter une fatale sur `inc_recherche_to_array_dist()` dans certains contextes d'appel
 - #6013 Si authentification LDAP, vérifier les mots de passe même si `$_SERVER['REMOTE_USER']` est déclarée vide
 - #6012 Passer l'`id_parent_ancien` aux pipelines `pre_edition` et `post_edition` depuis `article_instituer()`
 - spip/prive!13 Pouvoir modifier logo principal quand il y a un logo de survol
