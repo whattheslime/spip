@@ -6,8 +6,8 @@ Changelog de SPIP 4.3
 
 ### Fixed
 
+- spip/prive#14 Pouvoir supprimer l'image de l'écran de connexion
 - #6035 Log de création de fichier de cache à `INFO`
-
 
 ## 4.3.3 - 2024-10-08
 
