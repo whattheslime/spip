@@ -1,8 +1,6 @@
 <?php
 // This is a SPIP language file  --  Ceci est un fichier langue de SPIP
 // Fichier source, a modifier dans https://git.spip.net/spip/spip.git
-//
-// Chaînes de langue correspondant à des actions, typiquement pour des boutons.
 
 return [
 
@@ -16,8 +14,8 @@ return [
 	// C
 	'choisir' => 'Choisir',
 	'configurer' => 'Configurer',
-	'coninuer' => 'Continuer',
 	'confirmer' => 'Confirmer',
+	'coninuer' => 'Continuer',
 	'connexion' => 'Connexion',
 	'creer' => 'Créer',
 
@@ -29,8 +27,8 @@ return [
 	'editer' => 'Éditer',
 	'enlever' => 'Retirer',
 	'enregistrer' => 'Enregistrer',
-	'enregistrer_continuer' => 'Enregistrer et continuer',
 	'enregistrer_changements' => 'Enregistrer les changements',
+	'enregistrer_continuer' => 'Enregistrer et continuer',
 	'envoyer' => 'Envoyer',
 
 	// F
@@ -43,9 +41,9 @@ return [
 	'non' => 'Non',
 
 	// O
-	'ouvrir' => 'Ouvrir',
 	'ok' => 'ok',
 	'oui' => 'Oui',
+	'ouvrir' => 'Ouvrir',
 
 	// P
 	'precedent' => 'Précédent',
@@ -57,22 +55,19 @@ return [
 
 	// S
 	's_inscrire' => 'S’inscrire',
+	'sauvegarder' => 'Sauvegarder',
+	'sauvegarder_changements' => 'Sauvegarder les changements',
+	'sauvegarder_continuer' => 'Sauvegarder et continuer',
 	'se_desinscrire' => 'Se désinscrire',
+	'selectionner' => 'Sélectionner',
 	'soumettre' => 'Soumettre',
 	'suivant' => 'Suivant',
 	'supprimer' => 'Supprimer',
 
-	// S
-	'selectionner' => 'Sélectionner',
-	'sauvegarder' => 'Sauvegarder',
-	'sauvegarder_continuer' => 'Sauvegarder et continuer',
-	'sauvegarder_changements' => 'Sauvegarder les changements',
-
 	// T
-	'televerser' => 'Téléverser',
 	'telecharger' => 'Télécharger',
+	'televerser' => 'Téléverser',
 
 	// V
 	'valider' => 'Valider',
-
 ];
