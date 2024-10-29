@@ -2,6 +2,13 @@
 
 Changelog de SPIP 4.3
 
+## Unreleased
+
+### Fixed
+
+- #6035 Log de création de fichier de cache à `INFO`
+
+
 ## 4.3.3 - 2024-10-08
 
 ### Added
