@@ -649,7 +649,7 @@ function sous_repertoire($base, $subdir = '', $nobase = false, $tantpis = false)
 
 	if (is_dir($path) && is_writable($path)) {
 		@touch("$path/.ok");
-		spip_log("creation $base$subdir/", 'flock.' . _LOG_ERREUR);
+		spip_log("creation $base$subdir/", 'flock.' . _LOG_INFO);
 
 		return $baseaff . ($dirs[$base . $subdir] = "$subdir/");
 	}
