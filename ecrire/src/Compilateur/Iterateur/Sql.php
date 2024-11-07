@@ -224,6 +224,9 @@ class Sql extends AbstractIterateur implements Iterator
 	 * de `id_article` en SELECT ou en GROUP BY.
 	 *
 	 * On limite donc l’optimisation aux cas qui semblent pouvoir être traités.
+	 *
+	 * @param array $command tableau des commandes d'initialisation de la requete SQL
+	 * @return bool
 	 */
 	private function can_optimize_pagination(array $command = []): bool {
 		if (empty($command['pagination'])) {
@@ -277,6 +280,13 @@ class Sql extends AbstractIterateur implements Iterator
 		return true;
 	}
 
+	/**
+	 * Recherche dans une liste de champs à sélectionner ceux qui sont marqués avec un `AS`
+	 * Et les renvoie sous forme de liste
+	 *
+	 * @param array $select
+	 * @return array
+	**/
 	private function get_select_as_list(array $select): array {
 		$list = [];
 		foreach ($select as $sel) {
