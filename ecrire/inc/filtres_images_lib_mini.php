@@ -1307,7 +1307,7 @@ function _image_ecrire_tag($valeurs, $surcharge = []) {
  * @param int $maxHeight
  *     Hauteur maximum en px de la miniateure à réaliser
  * @param string $process
- *     Librairie graphique à utiliser (gd2, convert, imagick).
+ *     Librairie graphique à utiliser (gd2, ou autre fournie par plugin).
  *     AUTO utilise la librairie sélectionnée dans la configuration.
  * @param bool $force
  * @return array|null
@@ -1330,8 +1330,17 @@ function _image_creer_vignette($valeurs, $maxWidth, $maxHeight, $process = 'AUTO
 	}
 
 	// si le doc n'est pas une image dans un format accetpable, refuser
-	if (!$force && !in_array($format, formats_image_acceptables($process === 'gd2'))) {
-		return;
+	if (!$force) {
+		if ($process === 'gd2') {
+			$formats_acceptables = formats_image_acceptables(true);
+		} elseif ($image_process = charger_fonction($process, 'filtres/image_process', true)) {
+			$formats_acceptables = $image_process();
+			$formats_acceptables = $formats_acceptables['input'] ?? [];
+			$formats_acceptables[] = 'svg'; // svg traité specifiquement
+		}
+		if (!in_array($format, $formats_acceptables)) {
+			return;
+		}
 	}
 	$destination = "$destdir/$destfile";
 
@@ -1340,7 +1349,7 @@ function _image_creer_vignette($valeurs, $maxWidth, $maxHeight, $process = 'AUTO
 		if (!($destWidth = $valeurs['largeur_dest']) || !($destHeight = $valeurs['hauteur_dest'])) {
 			[$destWidth, $destHeight] = _image_ratio($srcWidth, $srcHeight, $maxWidth, $maxHeight);
 		}
-	} elseif ($process == 'convert' || $process == 'imagick') {
+	} elseif ($process !== 'gd2') {
 		$destWidth = $maxWidth;
 		$destHeight = $maxHeight;
 	} else {
@@ -1363,67 +1372,6 @@ function _image_creer_vignette($valeurs, $maxWidth, $maxHeight, $process = 'AUTO
 			$valeurs['fichier_dest'] = $vignette;
 			_image_gd_output($svg, $valeurs);
 		}
-	}
-
-	// imagemagick en ligne de commande
-	elseif ($process == 'convert') {
-		if (!defined('_CONVERT_COMMAND')) {
-			define('_CONVERT_COMMAND', 'convert');
-		} // Securite : mes_options.php peut preciser le chemin absolu
-		if (!defined('_RESIZE_COMMAND')) {
-			define(
-				'_RESIZE_COMMAND',
-				_CONVERT_COMMAND . ' -quality ' . _IMG_CONVERT_QUALITE . ' -orient Undefined -resize %xx%y! %src %dest'
-			);
-		}
-		$vignette = $destination . '.' . $format_sortie;
-		$commande = str_replace(
-			['%x', '%y', '%src', '%dest'],
-			[$destWidth, $destHeight, escapeshellcmd($image), escapeshellcmd($vignette)],
-			(string) _RESIZE_COMMAND
-		);
-		spip_logger('images')
-			->info($commande);
-		exec($commande);
-		if (!@file_exists($vignette)) {
-			spip_logger('images')->info("echec convert sur $vignette");
-
-			return;  // echec commande
-		}
-	}
-
-	// php5 imagemagick
-	elseif ($process == 'imagick') {
-		if (!class_exists(\Imagick::class)) {
-			spip_logger('images')->error('Classe Imagick absente !');
-
-			return;
-		}
-
-		// chemin compatible Windows
-		$output = realpath(dirname($destination));
-		if (!$output) {
-			return;
-		}
-		$vignette = $output . DIRECTORY_SEPARATOR . basename($destination) . '.' . $format_sortie;
-
-		$imagick = new Imagick();
-		$imagick->readImage(realpath($image));
-		$imagick->resizeImage(
-			$destWidth,
-			$destHeight,
-			Imagick::FILTER_LANCZOS,
-			1
-		); //, IMAGICK_FILTER_LANCZOS, _IMG_IMAGICK_QUALITE / 100);
-		$imagick->writeImage($vignette);
-
-		if (!@file_exists($vignette)) {
-			spip_logger('images')->info("echec imagick sur $vignette");
-
-			return;
-		}
-		// remettre le chemin relatif car c'est ce qu'attend SPIP pour la suite (en particlier action/tester)
-		$vignette = $destination . '.' . $format_sortie;
 	}
 
 	// gd ou gd2
@@ -1500,6 +1448,22 @@ function _image_creer_vignette($valeurs, $maxWidth, $maxHeight, $process = 'AUTO
 		}
 		ImageDestroy($destImage);
 	}
+
+	// autre process externe pris en charge par un plugin
+	elseif ($process) {
+		$vignette = null;
+		if ($image_process = charger_fonction($process, 'filtres/image_process', true)) {
+			if ($image_process_vignette = charger_fonction($process . '_vignette', 'filtres/image_process', true)) {
+				$vignette = $image_process_vignette($image, $format, $destination . '.' . $format_sortie, $format_sortie, $destWidth, $destHeight);
+			}
+		}
+
+		if (!$vignette) {
+			spip_logger('images')->error("echec creation vignette par process $process sur $destination" . '.' . $format_sortie);
+			return;
+		}
+	}
+
 
 	if (!$vignette || !$size = @spip_getimagesize($vignette)) {
 		$size = [$destWidth, $destHeight];
@@ -1633,7 +1597,7 @@ function process_image_svg_identite($image) {
  *     Hauteur désirée
  * @param bool $force
  * @param string $process
- *     Librairie graphique à utiliser (gd2, convert, imagick).
+ *     Librairie graphique à utiliser (gd2 ou autre fournie par plugin).
  *     AUTO utilise la librairie sélectionnée dans la configuration.
  * @return string
  *     Code HTML de la balise img produite
