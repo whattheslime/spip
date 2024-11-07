@@ -6,6 +6,7 @@ Changelog de SPIP 4.3
 
 ### Fixed
 
+- #6013 Rétablir l'authentification LDAP si `REMOTE_USER` est vide ou `null`
 - #6093 Rétablir le fonctionnement du debuggeur cassé dans certains cas
 - spip/prive#14 Pouvoir supprimer l'image de l'écran de connexion
 - #6021 Eviter une fatale sur `inc_recherche_to_array_dist()` dans certains contextes d'appel
