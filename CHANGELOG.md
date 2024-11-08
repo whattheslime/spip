@@ -6,6 +6,7 @@ Changelog de SPIP 4.3
 
 ### Fixed
 
+- #6033 Une fois observée un changement d'IP de session, tenter de rejouer la session tant que le changement d'IP n'est pas résolu
 - #5989 Éviter une erreur SQL lors de l'optimisation de certaines boucles paginées
 - #6013 Rétablir l'authentification LDAP si `REMOTE_USER` est vide ou `null`
 - #6093 Rétablir le fonctionnement du debuggeur cassé dans certains cas
