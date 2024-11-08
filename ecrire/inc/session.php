@@ -341,7 +341,6 @@ function verifier_session($change = false) {
 	// sa victime, mais se ferait deconnecter par elle.
 	if (hash_env() != $GLOBALS['visiteur_session']['hash_env']) {
 		if (!$GLOBALS['visiteur_session']['ip_change']) {
-			define('_SESSION_REJOUER', true);
 			$GLOBALS['visiteur_session']['ip_change'] = true;
 			ajouter_session($GLOBALS['visiteur_session']);
 		} else {
@@ -359,6 +358,12 @@ function verifier_session($change = false) {
 			unset($_COOKIE['spip_session']);
 			ajouter_session($GLOBALS['visiteur_session']);
 		}
+	}
+	if (
+		$GLOBALS['visiteur_session']['ip_change']
+		&& !defined('_SESSION_REJOUER')
+	) {
+		define('_SESSION_REJOUER', true);
 	}
 
 	// Si la session a ete initiee il y a trop longtemps, elle est annulee
@@ -699,7 +704,7 @@ function fichier_session($alea, $tantpis = false) {
  * @return string
  */
 function rejouer_session() {
-	return '<img src="' . generer_url_action('cookie', 'change_session=oui', true) . '" width="0" height="0" alt="">';
+	return '<img src="' . generer_url_action('cookie', 'change_session=oui', true) . '" width="0" height="0" alt="" style="display:none;">';
 }
 
 
