@@ -6,6 +6,7 @@ Changelog de SPIP 4.3
 
 ### Fixed
 
+- #5989 Éviter une erreur SQL lors de l'optimisation de certaines boucles paginées
 - #6013 Rétablir l'authentification LDAP si `REMOTE_USER` est vide ou `null`
 - #6093 Rétablir le fonctionnement du debuggeur cassé dans certains cas
 - spip/prive#14 Pouvoir supprimer l'image de l'écran de connexion
