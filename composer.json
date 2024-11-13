@@ -44,13 +44,9 @@
         "symfony/polyfill-php84": "^1.31"
     },
     "require-dev": {
-        "dealerdirect/phpcodesniffer-composer-installer": "^1.0",
-        "lolli42/finediff": "^1.0",
-        "phpcompatibility/php-compatibility": "10.x-dev",
-        "phpstan/phpstan": "^1.10",
-        "phpunit/phpunit": "^11.0",
-        "spip/coding-standards": "^1.3",
-        "symfony/var-dumper": "^7.0",
+        "lolli42/finediff": "^1.1",
+        "phpunit/phpunit": "^11.4",
+        "symfony/var-dumper": "^7.1",
         "symplify/easy-coding-standard": "^12.3"
     },
     "suggest": {
@@ -104,7 +100,6 @@
     },
     "config": {
         "allow-plugins": {
-            "dealerdirect/phpcodesniffer-composer-installer": true,
             "spip/composer-installer": true
         },
         "platform": {

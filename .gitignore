@@ -3,7 +3,6 @@
 /composer.phar
 /composer.local.*
 /phpunit.xml
-/phpcs.xml
 /phpstan.neon
 /docker-compose.override.yml
 /docker-compose.yml

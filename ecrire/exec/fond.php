@@ -63,7 +63,7 @@ register_shutdown_function('shutdown_error');
 ob_start();
 # comme on est dans un exec, l'auth a deja ete testee
 # on peut appeler directement public.php
-include 'public.php';
+include __DIR__ . '/../public.php';
 // flushons si cela ne l'a pas encore ete
 ob_end_flush();
 
