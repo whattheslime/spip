@@ -158,8 +158,8 @@ function spip_cookie_envoye($set = '') {
  * Adapte le tableau PHP `$_COOKIE` pour prendre en compte le préfixe
  * des cookies de SPIP
  *
- * Si le préfixe des cookies de SPIP est différent de `spip_` alors
- * la fonction modifie les `$_COOKIE` ayant le préfixe spécifique
+ * Si le préfixe des cookies de SPIP est différent de `spip` alors
+ * la fonction modifie les `$_COOKIE` ayant le préfixe spécifique + '_'
  * pour remettre le préfixe `spip_` à la place.
  *
  * Ainsi les appels dans le code n'ont pas besoin de gérer le préfixe,
@@ -170,17 +170,18 @@ function spip_cookie_envoye($set = '') {
  *     Préfixe des cookies de SPIP
  */
 function recuperer_cookies_spip($cookie_prefix) {
+	$cookie_prefix .= '_';
 	$prefix_long = strlen($cookie_prefix);
 
 	foreach (array_keys($_COOKIE) as $name) {
-		if (str_starts_with($name, 'spip_') && substr($name, 0, $prefix_long) != $cookie_prefix) {
+		if (str_starts_with($name, 'spip_') && !str_starts_with($name, $cookie_prefix)) {
 			unset($_COOKIE[$name]);
 			unset($GLOBALS[$name]);
 		}
 	}
 	foreach ($_COOKIE as $name => $value) {
-		if (substr($name, 0, $prefix_long) == $cookie_prefix) {
-			$spipname = preg_replace('/^' . $cookie_prefix . '_/', 'spip_', $name);
+		if (str_starts_with($name, $cookie_prefix)) {
+			$spipname = 'spip_' . substr($name, $prefix_long);
 			$_COOKIE[$spipname] = $value;
 			$GLOBALS[$spipname] = $value;
 		}
