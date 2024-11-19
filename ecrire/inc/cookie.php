@@ -176,14 +176,12 @@ function recuperer_cookies_spip($cookie_prefix) {
 	foreach (array_keys($_COOKIE) as $name) {
 		if (str_starts_with($name, 'spip_') && !str_starts_with($name, $cookie_prefix)) {
 			unset($_COOKIE[$name]);
-			unset($GLOBALS[$name]);
 		}
 	}
 	foreach ($_COOKIE as $name => $value) {
 		if (str_starts_with($name, $cookie_prefix)) {
 			$spipname = 'spip_' . substr($name, $prefix_long);
 			$_COOKIE[$spipname] = $value;
-			$GLOBALS[$spipname] = $value;
 		}
 	}
 }
