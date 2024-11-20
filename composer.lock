@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "d22dba93a616f8b49b93375c41dbc8a2",
+    "content-hash": "a4ab4668530055bbaec78e2515227c3a",
     "packages": [
         {
             "name": "algo26-matthias/idna-convert",
@@ -600,6 +600,60 @@
             "time": "2024-07-18T16:15:05+02:00"
         },
         {
+            "name": "spip-league/composer-installer",
+            "version": "0.7.1",
+            "source": {
+                "type": "git",
+                "url": "https://git.spip.net/spip-league/composer-installer.git",
+                "reference": "d294ad299b00287bddf907ea01ef5fb66efd2020"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://git.spip.net/api/v4/projects/spip-league%2Fcomposer-installer/repository/archive.zip?sha=d294ad299b00287bddf907ea01ef5fb66efd2020",
+                "reference": "d294ad299b00287bddf907ea01ef5fb66efd2020",
+                "shasum": ""
+            },
+            "require": {
+                "composer-plugin-api": "^2.6"
+            },
+            "require-dev": {
+                "composer/composer": "^2.8",
+                "phpunit/phpunit": "^11.4"
+            },
+            "type": "composer-plugin",
+            "extra": {
+                "branch-alias": {
+                    "dev-main": "0.7.x-dev"
+                },
+                "class": "SpipLeague\\Composer\\SpipInstallerPlugin"
+            },
+            "autoload": {
+                "psr-4": {
+                    "SpipLeague\\Composer\\": "src/"
+                }
+            },
+            "autoload-dev": {
+                "psr-4": {
+                    "SpipLeague\\Test\\Composer\\": "tests/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "JamesRezo",
+                    "email": "james@rezo.net"
+                }
+            ],
+            "description": "SPIP Composer Installer Plugin",
+            "support": {
+                "source": "https://git.spip.net/spip-league/composer-installer/-/tree/0.7.1",
+                "issues": "https://git.spip.net/spip-league/composer-installer/-/issues"
+            },
+            "time": "2024-11-12T08:45:24+01:00"
+        },
+        {
             "name": "spip-league/filesystem",
             "version": "2.0.0",
             "source": {
@@ -1142,60 +1196,6 @@
                 "issues": "https://git.spip.net/spip/compagnon/-/issues"
             },
             "time": "2024-10-22T01:30:08+02:00"
-        },
-        {
-            "name": "spip/composer-installer",
-            "version": "0.6.4",
-            "source": {
-                "type": "git",
-                "url": "https://git.spip.net/spip-league/composer-installer.git",
-                "reference": "2a7385ba32f270713b43d07074bff425046178d1"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://git.spip.net/api/v4/projects/spip-league%2Fcomposer-installer/repository/archive.zip?sha=2a7385ba32f270713b43d07074bff425046178d1",
-                "reference": "2a7385ba32f270713b43d07074bff425046178d1",
-                "shasum": ""
-            },
-            "require": {
-                "composer-plugin-api": "^2.3"
-            },
-            "require-dev": {
-                "composer/composer": "^2.5",
-                "phpunit/phpunit": "^11.3"
-            },
-            "type": "composer-plugin",
-            "extra": {
-                "branch-alias": {
-                    "dev-main": "0.6.x-dev"
-                },
-                "class": "Spip\\Composer\\SpipInstallerPlugin"
-            },
-            "autoload": {
-                "psr-4": {
-                    "Spip\\Composer\\": "src/"
-                }
-            },
-            "autoload-dev": {
-                "psr-4": {
-                    "Spip\\Test\\Composer\\": "tests/"
-                }
-            },
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "James Hautot",
-                    "email": "james@rezo.net"
-                }
-            ],
-            "description": "SPIP Composer Installer Plugin",
-            "support": {
-                "source": "https://git.spip.net/spip-league/composer-installer/-/tree/0.6.4",
-                "issues": "https://git.spip.net/spip-league/composer-installer/-/issues"
-            },
-            "time": "2024-10-10T10:09:34+02:00"
         },
         {
             "name": "spip/compresseur",

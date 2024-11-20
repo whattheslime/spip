@@ -8,6 +8,7 @@
         "ext-zip": "*",
         "algo26-matthias/idna-convert": "^4.0",
         "spip-league/cache": "^2.0",
+        "spip-league/composer-installer": "^0.7",
         "spip-league/filesystem": "^2.0",
         "spip-league/hasher": "^2.0",
         "spip-league/kernel": "^2.x-dev",
@@ -17,7 +18,6 @@
         "spip/archiviste": "^3.0.x-dev",
         "spip/bigup": "^3.4.x-dev",
         "spip/compagnon": "^3.3.x-dev",
-        "spip/composer-installer": "^0.6.3",
         "spip/compresseur": "^2.3.x-dev",
         "spip/dist": "^4.3.x-dev",
         "spip/dump": "^2.3.x-dev",
@@ -28,7 +28,7 @@
         "spip/mots": "^4.4.x-dev",
         "spip/plan": "^4.2.x-dev",
         "spip/porte-plume": "^3.2.x-dev",
-        "spip/prive": "2.x-dev",
+        "spip/prive": "^2.x-dev",
         "spip/revisions": "^3.2.x-dev",
         "spip/safehtml": "^3.2.x-dev",
         "spip/security": "^1.6",
@@ -37,7 +37,6 @@
         "spip/svp": "^3.3.x-dev",
         "spip/tw": "^3.3.x-dev",
         "spip/urls": "^4.3.x-dev",
-        "symfony/dependency-injection": "^7.1",
         "symfony/deprecation-contracts": "^3.3",
         "symfony/polyfill-mbstring": "^1.27",
         "symfony/polyfill-php83": "^1.31",
@@ -100,7 +99,7 @@
     },
     "config": {
         "allow-plugins": {
-            "spip/composer-installer": true
+            "spip-league/composer-installer": true
         },
         "platform": {
             "php": "8.2.17"
