@@ -8,7 +8,7 @@
         "ext-zip": "*",
         "algo26-matthias/idna-convert": "^3.1",
         "spip-league/kernel": "^1.x-dev",
-        "spip/composer-installer": "^0.6.3",
+        "spip-league/composer-installer": "^0.7",
         "spip/dist": "^4.2.x-dev <4.3",
         "spip/prive": "^1.x-dev",
         "spip/security": "^1.6",
@@ -22,7 +22,7 @@
     },
     "require-dev": {
         "dealerdirect/phpcodesniffer-composer-installer": "^1.0",
-        "phpstan/phpstan": "^1.10",
+        "phpstan/phpstan": "^1.12",
         "spip/coding-standards": "^1.2"
     },
     "suggest": {
@@ -74,7 +74,7 @@
     "config": {
         "allow-plugins": {
             "dealerdirect/phpcodesniffer-composer-installer": true,
-            "spip/composer-installer": true
+            "spip-league/composer-installer": true
         },
         "platform": {
             "php": "7.4.33"
