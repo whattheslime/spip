@@ -2,6 +2,12 @@
 
 Changelog de SPIP 4.3
 
+## Unreleased
+
+### Fixed
+
+- !6104 `recuperer_cookies_spip()` peuplait à tord des globales si on utilisait un préfixe personnalisé de cookies
+
 ## 4.3.4 - 2024-11-12
 
 ### Fixed
